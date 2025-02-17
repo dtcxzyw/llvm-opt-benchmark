@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/bytestring_test.ll'
 source_filename = "bench/libquic/original/bytestring_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ImplicitStringTest = type { ptr, i64, i8, ptr, i64 }
 %struct.ASN1Uint64Test = type { i64, ptr, i64 }
@@ -92,1753 +92,1896 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress norecurse uwtable
 define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %buf.i = alloca ptr, align 8
-  %buf_len.i = alloca i64, align 8
-  %cbb.i = alloca %struct.cbb_st, align 8
-  %data.i28 = alloca %struct.cbs_st, align 8
-  %contents.i = alloca %struct.cbs_st, align 8
-  %present.i = alloca i32, align 4
-  %value.i = alloca i64, align 8
-  %data.i23 = alloca %struct.cbs_st, align 8
-  %prefixed.i24 = alloca %struct.cbs_st, align 8
-  %u8.i5 = alloca i8, align 1
-  %u16.i6 = alloca i16, align 2
-  %u32.i7 = alloca i32, align 4
-  %data.i8 = alloca %struct.cbs_st, align 8
-  %prefixed.i = alloca %struct.cbs_st, align 8
-  %u8.i = alloca i8, align 1
-  %u16.i = alloca i16, align 2
-  %u32.i = alloca i32, align 4
-  %data.i1 = alloca %struct.cbs_st, align 8
-  %data.i = alloca %struct.cbs_st, align 8
+  %1 = alloca ptr, align 8
+  %2 = alloca i64, align 8
+  %3 = alloca %struct.cbb_st, align 8
+  %4 = alloca %struct.cbs_st, align 8
+  %5 = alloca %struct.cbs_st, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.cbs_st, align 8
+  %9 = alloca %struct.cbs_st, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i16, align 2
+  %12 = alloca i32, align 4
+  %13 = alloca %struct.cbs_st, align 8
+  %14 = alloca %struct.cbs_st, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca i16, align 2
+  %17 = alloca i32, align 4
+  %18 = alloca %struct.cbs_st, align 8
+  %19 = alloca %struct.cbs_st, align 8
   tail call void @CRYPTO_library_init()
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i)
-  call void @CBS_init(ptr noundef nonnull %data.i, ptr noundef nonnull @_ZZL8TestSkipvE5kData, i64 noundef 3)
-  %call.i = call i64 @CBS_len(ptr noundef nonnull %data.i)
-  %cmp.i = icmp eq i64 %call.i, 3
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZL8TestSkipv.exit.thread
-
-land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = call i32 @CBS_skip(ptr noundef nonnull %data.i, i64 noundef 1)
-  %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %_ZL8TestSkipv.exit.thread, label %land.lhs.true2.i
-
-land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %call3.i = call i64 @CBS_len(ptr noundef nonnull %data.i)
-  %cmp4.i = icmp eq i64 %call3.i, 2
-  br i1 %cmp4.i, label %land.lhs.true5.i, label %_ZL8TestSkipv.exit.thread
-
-land.lhs.true5.i:                                 ; preds = %land.lhs.true2.i
-  %call6.i = call i32 @CBS_skip(ptr noundef nonnull %data.i, i64 noundef 2)
-  %tobool7.not.i = icmp eq i32 %call6.i, 0
-  br i1 %tobool7.not.i, label %_ZL8TestSkipv.exit.thread, label %land.lhs.true8.i
-
-land.lhs.true8.i:                                 ; preds = %land.lhs.true5.i
-  %call9.i = call i64 @CBS_len(ptr noundef nonnull %data.i)
-  %cmp10.i = icmp eq i64 %call9.i, 0
-  br i1 %cmp10.i, label %_ZL8TestSkipv.exit, label %_ZL8TestSkipv.exit.thread
-
-_ZL8TestSkipv.exit.thread:                        ; preds = %land.lhs.true8.i, %land.lhs.true5.i, %land.lhs.true2.i, %land.lhs.true.i, %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
-  br label %return
-
-_ZL8TestSkipv.exit:                               ; preds = %land.lhs.true8.i
-  %call11.i = call i32 @CBS_skip(ptr noundef nonnull %data.i, i64 noundef 1)
-  %tobool12.not.i = icmp eq i32 %call11.i, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
-  br i1 %tobool12.not.i, label %lor.lhs.false, label %return
-
-lor.lhs.false:                                    ; preds = %_ZL8TestSkipv.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %u8.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %u16.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u32.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i1)
-  call void @CBS_init(ptr noundef nonnull %data.i1, ptr noundef nonnull @_ZZL11TestGetUintvE5kData, i64 noundef 10)
-  %call.i2 = call i32 @CBS_get_u8(ptr noundef nonnull %data.i1, ptr noundef nonnull %u8.i)
-  %tobool.i = icmp ne i32 %call.i2, 0
-  %0 = load i8, ptr %u8.i, align 1
-  %cmp.i3 = icmp eq i8 %0, 1
-  %or.cond.i = select i1 %tobool.i, i1 %cmp.i3, i1 false
-  br i1 %or.cond.i, label %land.lhs.true1.i, label %_ZL11TestGetUintv.exit.thread
-
-land.lhs.true1.i:                                 ; preds = %lor.lhs.false
-  %call2.i = call i32 @CBS_get_u16(ptr noundef nonnull %data.i1, ptr noundef nonnull %u16.i)
-  %tobool3.i = icmp ne i32 %call2.i, 0
-  %1 = load i16, ptr %u16.i, align 2
-  %cmp6.i = icmp eq i16 %1, 515
-  %or.cond1.i = select i1 %tobool3.i, i1 %cmp6.i, i1 false
-  br i1 %or.cond1.i, label %land.lhs.true7.i, label %_ZL11TestGetUintv.exit.thread
-
-land.lhs.true7.i:                                 ; preds = %land.lhs.true1.i
-  %call8.i = call i32 @CBS_get_u24(ptr noundef nonnull %data.i1, ptr noundef nonnull %u32.i)
-  %tobool9.i = icmp ne i32 %call8.i, 0
-  %2 = load i32, ptr %u32.i, align 4
-  %cmp11.i = icmp eq i32 %2, 263430
-  %or.cond2.i = select i1 %tobool9.i, i1 %cmp11.i, i1 false
-  br i1 %or.cond2.i, label %land.lhs.true12.i, label %_ZL11TestGetUintv.exit.thread
-
-land.lhs.true12.i:                                ; preds = %land.lhs.true7.i
-  %call13.i = call i32 @CBS_get_u32(ptr noundef nonnull %data.i1, ptr noundef nonnull %u32.i)
-  %tobool14.i = icmp ne i32 %call13.i, 0
-  %3 = load i32, ptr %u32.i, align 4
-  %cmp16.i = icmp eq i32 %3, 117967114
-  %or.cond3.i = select i1 %tobool14.i, i1 %cmp16.i, i1 false
-  br i1 %or.cond3.i, label %_ZL11TestGetUintv.exit, label %_ZL11TestGetUintv.exit.thread
-
-_ZL11TestGetUintv.exit.thread:                    ; preds = %land.lhs.true12.i, %land.lhs.true7.i, %land.lhs.true1.i, %lor.lhs.false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %u8.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %u16.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u32.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i1)
-  br label %return
-
-_ZL11TestGetUintv.exit:                           ; preds = %land.lhs.true12.i
-  %call17.i = call i32 @CBS_get_u8(ptr noundef nonnull %data.i1, ptr noundef nonnull %u8.i)
-  %tobool18.not.i = icmp eq i32 %call17.i, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %u8.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %u16.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u32.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i1)
-  br i1 %tobool18.not.i, label %lor.lhs.false2, label %return
-
-lor.lhs.false2:                                   ; preds = %_ZL11TestGetUintv.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %u8.i5)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %u16.i6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u32.i7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %prefixed.i)
-  call void @CBS_init(ptr noundef nonnull %data.i8, ptr noundef nonnull @_ZZL15TestGetPrefixedvE5kData, i64 noundef 12)
-  %call.i9 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %data.i8, ptr noundef nonnull %prefixed.i)
-  %tobool.not.i10 = icmp eq i32 %call.i9, 0
-  br i1 %tobool.not.i10, label %_ZL15TestGetPrefixedv.exit.thread, label %land.lhs.true.i11
-
-land.lhs.true.i11:                                ; preds = %lor.lhs.false2
-  %call1.i12 = call i64 @CBS_len(ptr noundef nonnull %prefixed.i)
-  %cmp.i13 = icmp eq i64 %call1.i12, 1
-  br i1 %cmp.i13, label %land.lhs.true2.i14, label %_ZL15TestGetPrefixedv.exit.thread
-
-land.lhs.true2.i14:                               ; preds = %land.lhs.true.i11
-  %call3.i15 = call i32 @CBS_get_u8(ptr noundef nonnull %prefixed.i, ptr noundef nonnull %u8.i5)
-  %tobool4.i = icmp ne i32 %call3.i15, 0
-  %4 = load i8, ptr %u8.i5, align 1
-  %cmp6.i16 = icmp eq i8 %4, 2
-  %or.cond.i17 = select i1 %tobool4.i, i1 %cmp6.i16, i1 false
-  br i1 %or.cond.i17, label %land.lhs.true7.i18, label %_ZL15TestGetPrefixedv.exit.thread
-
-land.lhs.true7.i18:                               ; preds = %land.lhs.true2.i14
-  %call8.i19 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %data.i8, ptr noundef nonnull %prefixed.i)
-  %tobool9.not.i = icmp eq i32 %call8.i19, 0
-  br i1 %tobool9.not.i, label %_ZL15TestGetPrefixedv.exit.thread, label %land.lhs.true10.i
-
-land.lhs.true10.i:                                ; preds = %land.lhs.true7.i18
-  %call11.i20 = call i64 @CBS_len(ptr noundef nonnull %prefixed.i)
-  %cmp12.i = icmp eq i64 %call11.i20, 2
-  br i1 %cmp12.i, label %land.lhs.true13.i, label %_ZL15TestGetPrefixedv.exit.thread
-
-land.lhs.true13.i:                                ; preds = %land.lhs.true10.i
-  %call14.i = call i32 @CBS_get_u16(ptr noundef nonnull %prefixed.i, ptr noundef nonnull %u16.i6)
-  %tobool15.i = icmp ne i32 %call14.i, 0
-  %5 = load i16, ptr %u16.i6, align 2
-  %cmp18.i = icmp eq i16 %5, 772
-  %or.cond1.i21 = select i1 %tobool15.i, i1 %cmp18.i, i1 false
-  br i1 %or.cond1.i21, label %land.lhs.true19.i, label %_ZL15TestGetPrefixedv.exit.thread
-
-land.lhs.true19.i:                                ; preds = %land.lhs.true13.i
-  %call20.i = call i32 @CBS_get_u24_length_prefixed(ptr noundef nonnull %data.i8, ptr noundef nonnull %prefixed.i)
-  %tobool21.not.i = icmp eq i32 %call20.i, 0
-  br i1 %tobool21.not.i, label %_ZL15TestGetPrefixedv.exit.thread, label %land.lhs.true22.i
-
-land.lhs.true22.i:                                ; preds = %land.lhs.true19.i
-  %call23.i = call i64 @CBS_len(ptr noundef nonnull %prefixed.i)
-  %cmp24.i = icmp eq i64 %call23.i, 3
-  br i1 %cmp24.i, label %land.lhs.true25.i, label %_ZL15TestGetPrefixedv.exit.thread
-
-land.lhs.true25.i:                                ; preds = %land.lhs.true22.i
-  %call26.i = call i32 @CBS_get_u24(ptr noundef nonnull %prefixed.i, ptr noundef nonnull %u32.i7)
-  %tobool27.not.i = icmp eq i32 %call26.i, 0
-  br i1 %tobool27.not.i, label %_ZL15TestGetPrefixedv.exit.thread, label %_ZL15TestGetPrefixedv.exit
-
-_ZL15TestGetPrefixedv.exit.thread:                ; preds = %land.lhs.true25.i, %land.lhs.true22.i, %land.lhs.true19.i, %land.lhs.true13.i, %land.lhs.true10.i, %land.lhs.true7.i18, %land.lhs.true2.i14, %land.lhs.true.i11, %lor.lhs.false2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %u8.i5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %u16.i6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u32.i7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %prefixed.i)
-  br label %return
-
-_ZL15TestGetPrefixedv.exit:                       ; preds = %land.lhs.true25.i
-  %6 = load i32, ptr %u32.i7, align 4
-  %cmp28.i = icmp eq i32 %6, 197121
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %u8.i5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %u16.i6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u32.i7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %prefixed.i)
-  br i1 %cmp28.i, label %lor.lhs.false4, label %return
-
-lor.lhs.false4:                                   ; preds = %_ZL15TestGetPrefixedv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %prefixed.i24)
-  call void @CBS_init(ptr noundef nonnull %data.i23, ptr noundef nonnull @_ZZL18TestGetPrefixedBadvE6kData1, i64 noundef 2)
-  %call.i25 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %data.i23, ptr noundef nonnull %prefixed.i24)
-  %tobool.not.i26 = icmp eq i32 %call.i25, 0
-  br i1 %tobool.not.i26, label %if.end.i, label %_ZL18TestGetPrefixedBadv.exit.thread
-
-if.end.i:                                         ; preds = %lor.lhs.false4
-  call void @CBS_init(ptr noundef nonnull %data.i23, ptr noundef nonnull @_ZZL18TestGetPrefixedBadvE6kData2, i64 noundef 3)
-  %call1.i27 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %data.i23, ptr noundef nonnull %prefixed.i24)
-  %tobool2.not.i = icmp eq i32 %call1.i27, 0
-  br i1 %tobool2.not.i, label %_ZL18TestGetPrefixedBadv.exit, label %_ZL18TestGetPrefixedBadv.exit.thread
-
-_ZL18TestGetPrefixedBadv.exit.thread:             ; preds = %lor.lhs.false4, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %prefixed.i24)
-  br label %return
-
-_ZL18TestGetPrefixedBadv.exit:                    ; preds = %if.end.i
-  call void @CBS_init(ptr noundef nonnull %data.i23, ptr noundef nonnull @_ZZL18TestGetPrefixedBadvE6kData3, i64 noundef 4)
-  %call5.i = call i32 @CBS_get_u24_length_prefixed(ptr noundef nonnull %data.i23, ptr noundef nonnull %prefixed.i24)
-  %tobool6.not.i = icmp eq i32 %call5.i, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %prefixed.i24)
-  br i1 %tobool6.not.i, label %lor.lhs.false6, label %return
-
-lor.lhs.false6:                                   ; preds = %_ZL18TestGetPrefixedBadv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i28)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %contents.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %present.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData1, i64 noundef 4)
-  %call.i29 = call i32 @CBS_peek_asn1_tag(ptr noundef nonnull %data.i28, i32 noundef 1)
-  %tobool.not.i30 = icmp eq i32 %call.i29, 0
-  br i1 %tobool.not.i30, label %lor.lhs.false.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false.i:                                  ; preds = %lor.lhs.false6
-  %call1.i32 = call i32 @CBS_peek_asn1_tag(ptr noundef nonnull %data.i28, i32 noundef 48)
-  %tobool2.not.i33 = icmp eq i32 %call1.i32, 0
-  br i1 %tobool2.not.i33, label %_ZL11TestGetASN1v.exit.thread, label %if.end.i34
-
-if.end.i34:                                       ; preds = %lor.lhs.false.i
-  %call3.i35 = call i32 @CBS_get_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, i32 noundef 48)
-  %tobool4.not.i = icmp eq i32 %call3.i35, 0
-  br i1 %tobool4.not.i, label %_ZL11TestGetASN1v.exit.thread, label %lor.lhs.false5.i
-
-lor.lhs.false5.i:                                 ; preds = %if.end.i34
-  %call6.i36 = call i64 @CBS_len(ptr noundef nonnull %contents.i)
-  %cmp.not.i = icmp eq i64 %call6.i36, 2
-  br i1 %cmp.not.i, label %lor.lhs.false7.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false7.i:                                 ; preds = %lor.lhs.false5.i
-  %call8.i37 = call ptr @CBS_data(ptr noundef nonnull %contents.i)
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %call8.i37, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2)
-  %cmp10.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp10.not.i, label %if.end12.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end12.i:                                       ; preds = %lor.lhs.false7.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData2, i64 noundef 4)
-  %call13.i38 = call i32 @CBS_get_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, i32 noundef 48)
-  %tobool14.not.i = icmp eq i32 %call13.i38, 0
-  br i1 %tobool14.not.i, label %if.end16.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end16.i:                                       ; preds = %if.end12.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData3, i64 noundef 2)
-  %call17.i39 = call i32 @CBS_get_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, i32 noundef 48)
-  %tobool18.not.i40 = icmp eq i32 %call17.i39, 0
-  br i1 %tobool18.not.i40, label %if.end20.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end20.i:                                       ; preds = %if.end16.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData4, i64 noundef 4)
-  %call21.i = call i32 @CBS_get_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, i32 noundef 48)
-  %tobool22.not.i = icmp eq i32 %call21.i, 0
-  br i1 %tobool22.not.i, label %if.end24.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end24.i:                                       ; preds = %if.end20.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData5, i64 noundef 132)
-  %call25.i = call i32 @CBS_get_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, i32 noundef 48)
-  %tobool26.not.i = icmp eq i32 %call25.i, 0
-  br i1 %tobool26.not.i, label %if.end28.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end28.i:                                       ; preds = %if.end24.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData1, i64 noundef 4)
-  %call29.i = call i32 @CBS_get_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, i32 noundef 49)
-  %tobool30.not.i = icmp eq i32 %call29.i, 0
-  br i1 %tobool30.not.i, label %if.end32.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end32.i:                                       ; preds = %if.end28.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef null, i64 noundef 0)
-  %call33.i = call i32 @CBS_peek_asn1_tag(ptr noundef nonnull %data.i28, i32 noundef 48)
-  %tobool34.not.i = icmp eq i32 %call33.i, 0
-  br i1 %tobool34.not.i, label %if.end36.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end36.i:                                       ; preds = %if.end32.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef null, i64 noundef 0)
-  %call37.i = call i32 @CBS_get_optional_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, ptr noundef nonnull %present.i, i32 noundef 160)
-  %tobool38.i = icmp eq i32 %call37.i, 0
-  %7 = load i32, ptr %present.i, align 4
-  %tobool40.i = icmp ne i32 %7, 0
-  %or.cond.i41 = select i1 %tobool38.i, i1 true, i1 %tobool40.i
-  br i1 %or.cond.i41, label %_ZL11TestGetASN1v.exit.thread, label %lor.lhs.false41.i
-
-lor.lhs.false41.i:                                ; preds = %if.end36.i
-  %call42.i = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, ptr noundef nonnull %present.i, i32 noundef 160)
-  %tobool43.i = icmp eq i32 %call42.i, 0
-  %8 = load i32, ptr %present.i, align 4
-  %tobool45.i = icmp ne i32 %8, 0
-  %or.cond1.i42 = select i1 %tobool43.i, i1 true, i1 %tobool45.i
-  br i1 %or.cond1.i42, label %_ZL11TestGetASN1v.exit.thread, label %lor.lhs.false46.i
-
-lor.lhs.false46.i:                                ; preds = %lor.lhs.false41.i
-  %call47.i = call i64 @CBS_len(ptr noundef nonnull %contents.i)
-  %cmp48.not.i = icmp eq i64 %call47.i, 0
-  br i1 %cmp48.not.i, label %lor.lhs.false49.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false49.i:                                ; preds = %lor.lhs.false46.i
-  %call50.i = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, ptr noundef null, i32 noundef 160)
-  %tobool51.not.i = icmp eq i32 %call50.i, 0
-  br i1 %tobool51.not.i, label %_ZL11TestGetASN1v.exit.thread, label %lor.lhs.false52.i
-
-lor.lhs.false52.i:                                ; preds = %lor.lhs.false49.i
-  %call53.i = call i64 @CBS_len(ptr noundef nonnull %contents.i)
-  %cmp54.not.i = icmp eq i64 %call53.i, 0
-  br i1 %cmp54.not.i, label %lor.lhs.false55.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false55.i:                                ; preds = %lor.lhs.false52.i
-  %call56.i = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %data.i28, ptr noundef nonnull %value.i, i32 noundef 160, i64 noundef 42)
-  %tobool57.i = icmp eq i32 %call56.i, 0
-  %9 = load i64, ptr %value.i, align 8
-  %cmp59.i = icmp ne i64 %9, 42
-  %or.cond2.i43 = select i1 %tobool57.i, i1 true, i1 %cmp59.i
-  br i1 %or.cond2.i43, label %_ZL11TestGetASN1v.exit.thread, label %if.end61.i
-
-if.end61.i:                                       ; preds = %lor.lhs.false55.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData6, i64 noundef 5)
-  %call62.i = call i32 @CBS_get_optional_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, ptr noundef nonnull %present.i, i32 noundef 160)
-  %tobool63.i = icmp eq i32 %call62.i, 0
-  %10 = load i32, ptr %present.i, align 4
-  %tobool65.i = icmp ne i32 %10, 0
-  %or.cond3.i44 = select i1 %tobool63.i, i1 true, i1 %tobool65.i
-  br i1 %or.cond3.i44, label %_ZL11TestGetASN1v.exit.thread, label %lor.lhs.false66.i
-
-lor.lhs.false66.i:                                ; preds = %if.end61.i
-  %call67.i = call i32 @CBS_get_optional_asn1(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, ptr noundef nonnull %present.i, i32 noundef 161)
-  %tobool68.i = icmp ne i32 %call67.i, 0
-  %11 = load i32, ptr %present.i, align 4
-  %tobool70.i = icmp ne i32 %11, 0
-  %or.cond4.i = select i1 %tobool68.i, i1 %tobool70.i, i1 false
-  br i1 %or.cond4.i, label %lor.lhs.false71.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false71.i:                                ; preds = %lor.lhs.false66.i
-  %call72.i = call i64 @CBS_len(ptr noundef nonnull %contents.i)
-  %cmp73.not.i = icmp eq i64 %call72.i, 3
-  br i1 %cmp73.not.i, label %lor.lhs.false74.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false74.i:                                ; preds = %lor.lhs.false71.i
-  %call75.i = call ptr @CBS_data(ptr noundef nonnull %contents.i)
-  %bcmp9.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %call75.i, ptr noundef nonnull dereferenceable(3) @.str.2, i64 3)
-  %cmp77.not.i = icmp eq i32 %bcmp9.i, 0
-  br i1 %cmp77.not.i, label %if.end79.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end79.i:                                       ; preds = %lor.lhs.false74.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData6, i64 noundef 5)
-  %call80.i = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, ptr noundef nonnull %present.i, i32 noundef 160)
-  %tobool81.i = icmp eq i32 %call80.i, 0
-  %12 = load i32, ptr %present.i, align 4
-  %tobool83.i = icmp ne i32 %12, 0
-  %or.cond5.i = select i1 %tobool81.i, i1 true, i1 %tobool83.i
-  br i1 %or.cond5.i, label %_ZL11TestGetASN1v.exit.thread, label %lor.lhs.false84.i
-
-lor.lhs.false84.i:                                ; preds = %if.end79.i
-  %call85.i = call i64 @CBS_len(ptr noundef nonnull %contents.i)
-  %cmp86.not.i = icmp eq i64 %call85.i, 0
-  br i1 %cmp86.not.i, label %lor.lhs.false87.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false87.i:                                ; preds = %lor.lhs.false84.i
-  %call88.i = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, ptr noundef nonnull %present.i, i32 noundef 161)
-  %tobool89.i = icmp ne i32 %call88.i, 0
-  %13 = load i32, ptr %present.i, align 4
-  %tobool91.i = icmp ne i32 %13, 0
-  %or.cond6.i = select i1 %tobool89.i, i1 %tobool91.i, i1 false
-  br i1 %or.cond6.i, label %lor.lhs.false92.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false92.i:                                ; preds = %lor.lhs.false87.i
-  %call93.i = call i64 @CBS_len(ptr noundef nonnull %contents.i)
-  %cmp94.not.i = icmp eq i64 %call93.i, 1
-  br i1 %cmp94.not.i, label %lor.lhs.false95.i, label %_ZL11TestGetASN1v.exit.thread
-
-lor.lhs.false95.i:                                ; preds = %lor.lhs.false92.i
-  %call96.i = call ptr @CBS_data(ptr noundef nonnull %contents.i)
-  %14 = load i8, ptr %call96.i, align 1
-  %cmp97.not.i = icmp eq i8 %14, 1
-  br i1 %cmp97.not.i, label %if.end99.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end99.i:                                       ; preds = %lor.lhs.false95.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData7, i64 noundef 5)
-  %call100.i = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %data.i28, ptr noundef nonnull %contents.i, ptr noundef nonnull %present.i, i32 noundef 161)
-  %tobool101.not.i = icmp eq i32 %call100.i, 0
-  br i1 %tobool101.not.i, label %if.end103.i, label %_ZL11TestGetASN1v.exit.thread
-
-if.end103.i:                                      ; preds = %if.end99.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData8, i64 noundef 5)
-  %call104.i = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %data.i28, ptr noundef nonnull %value.i, i32 noundef 160, i64 noundef 42)
-  %tobool105.i = icmp eq i32 %call104.i, 0
-  %15 = load i64, ptr %value.i, align 8
-  %cmp107.i = icmp ne i64 %15, 42
-  %or.cond7.i = select i1 %tobool105.i, i1 true, i1 %cmp107.i
-  br i1 %or.cond7.i, label %_ZL11TestGetASN1v.exit.thread, label %lor.lhs.false108.i
-
-lor.lhs.false108.i:                               ; preds = %if.end103.i
-  %call109.i = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %data.i28, ptr noundef nonnull %value.i, i32 noundef 161, i64 noundef 42)
-  %tobool110.i = icmp eq i32 %call109.i, 0
-  %16 = load i64, ptr %value.i, align 8
-  %cmp112.i = icmp ne i64 %16, 1
-  %or.cond8.i = select i1 %tobool110.i, i1 true, i1 %cmp112.i
-  br i1 %or.cond8.i, label %_ZL11TestGetASN1v.exit.thread, label %_ZL11TestGetASN1v.exit
-
-_ZL11TestGetASN1v.exit.thread:                    ; preds = %lor.lhs.false.i, %lor.lhs.false6, %lor.lhs.false7.i, %lor.lhs.false5.i, %if.end.i34, %if.end12.i, %if.end16.i, %if.end20.i, %if.end24.i, %if.end28.i, %if.end32.i, %lor.lhs.false55.i, %lor.lhs.false52.i, %lor.lhs.false49.i, %lor.lhs.false46.i, %lor.lhs.false41.i, %if.end36.i, %lor.lhs.false74.i, %lor.lhs.false71.i, %lor.lhs.false66.i, %if.end61.i, %lor.lhs.false95.i, %lor.lhs.false92.i, %lor.lhs.false87.i, %lor.lhs.false84.i, %if.end79.i, %if.end99.i, %lor.lhs.false108.i, %if.end103.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i28)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %contents.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %present.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  br label %return
-
-_ZL11TestGetASN1v.exit:                           ; preds = %lor.lhs.false108.i
-  call void @CBS_init(ptr noundef nonnull %data.i28, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData9, i64 noundef 5)
-  %call115.i = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %data.i28, ptr noundef nonnull %value.i, i32 noundef 161, i64 noundef 42)
-  %tobool116.not.i = icmp eq i32 %call115.i, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i28)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %contents.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %present.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  br i1 %tobool116.not.i, label %lor.lhs.false8, label %return
-
-lor.lhs.false8:                                   ; preds = %_ZL11TestGetASN1v.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf_len.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cbb.i)
-  %call.i45 = call i32 @CBB_init(ptr noundef nonnull %cbb.i, i64 noundef 100)
-  %tobool.not.i46 = icmp eq i32 %call.i45, 0
-  br i1 %tobool.not.i46, label %_ZL12TestCBBBasicv.exit.thread, label %if.end.i47
-
-if.end.i47:                                       ; preds = %lor.lhs.false8
-  call void @CBB_cleanup(ptr noundef nonnull %cbb.i)
-  %call1.i48 = call i32 @CBB_init(ptr noundef nonnull %cbb.i, i64 noundef 0)
-  %tobool2.not.i49 = icmp eq i32 %call1.i48, 0
-  br i1 %tobool2.not.i49, label %_ZL12TestCBBBasicv.exit.thread, label %if.end4.i50
-
-if.end4.i50:                                      ; preds = %if.end.i47
-  %call5.i51 = call i32 @CBB_add_u8(ptr noundef nonnull %cbb.i, i8 noundef zeroext 1)
-  %tobool6.not.i52 = icmp eq i32 %call5.i51, 0
-  br i1 %tobool6.not.i52, label %if.then18.i, label %lor.lhs.false.i53
-
-lor.lhs.false.i53:                                ; preds = %if.end4.i50
-  %call7.i = call i32 @CBB_add_u16(ptr noundef nonnull %cbb.i, i16 noundef zeroext 515)
-  %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %if.then18.i, label %lor.lhs.false9.i
-
-lor.lhs.false9.i:                                 ; preds = %lor.lhs.false.i53
-  %call10.i = call i32 @CBB_add_u24(ptr noundef nonnull %cbb.i, i32 noundef 263430)
-  %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %if.then18.i, label %lor.lhs.false12.i
-
-lor.lhs.false12.i:                                ; preds = %lor.lhs.false9.i
-  %call13.i54 = call i32 @CBB_add_bytes(ptr noundef nonnull %cbb.i, ptr noundef nonnull @.str.3, i64 noundef 2)
-  %tobool14.not.i55 = icmp eq i32 %call13.i54, 0
-  br i1 %tobool14.not.i55, label %if.then18.i, label %lor.lhs.false15.i
-
-lor.lhs.false15.i:                                ; preds = %lor.lhs.false12.i
-  %call16.i = call i32 @CBB_finish(ptr noundef nonnull %cbb.i, ptr noundef nonnull %buf.i, ptr noundef nonnull %buf_len.i)
-  %tobool17.not.i = icmp eq i32 %call16.i, 0
-  br i1 %tobool17.not.i, label %if.then18.i, label %if.end19.i
-
-if.then18.i:                                      ; preds = %lor.lhs.false15.i, %lor.lhs.false12.i, %lor.lhs.false9.i, %lor.lhs.false.i53, %if.end4.i50
-  call void @CBB_cleanup(ptr noundef nonnull %cbb.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #12
+  call void @CBS_init(ptr noundef nonnull %19, ptr noundef nonnull @_ZZL8TestSkipvE5kData, i64 noundef 3)
+  %20 = call i64 @CBS_len(ptr noundef nonnull %19)
+  %21 = icmp eq i64 %20, 3
+  br i1 %21, label %22, label %_ZL8TestSkipv.exit.thread
+
+22:                                               ; preds = %0
+  %23 = call i32 @CBS_skip(ptr noundef nonnull %19, i64 noundef 1)
+  %.not.i = icmp eq i32 %23, 0
+  br i1 %.not.i, label %_ZL8TestSkipv.exit.thread, label %24
+
+24:                                               ; preds = %22
+  %25 = call i64 @CBS_len(ptr noundef nonnull %19)
+  %26 = icmp eq i64 %25, 2
+  br i1 %26, label %27, label %_ZL8TestSkipv.exit.thread
+
+27:                                               ; preds = %24
+  %28 = call i32 @CBS_skip(ptr noundef nonnull %19, i64 noundef 2)
+  %.not1.i = icmp eq i32 %28, 0
+  br i1 %.not1.i, label %_ZL8TestSkipv.exit.thread, label %29
+
+29:                                               ; preds = %27
+  %30 = call i64 @CBS_len(ptr noundef nonnull %19)
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %_ZL8TestSkipv.exit, label %_ZL8TestSkipv.exit.thread
+
+_ZL8TestSkipv.exit.thread:                        ; preds = %29, %27, %24, %22, %0
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #12
+  br label %219
+
+_ZL8TestSkipv.exit:                               ; preds = %29
+  %32 = call i32 @CBS_skip(ptr noundef nonnull %19, i64 noundef 1)
+  %.not2.i = icmp eq i32 %32, 0
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #12
+  br i1 %.not2.i, label %33, label %219
+
+33:                                               ; preds = %_ZL8TestSkipv.exit
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #12
+  call void @CBS_init(ptr noundef nonnull %18, ptr noundef nonnull @_ZZL11TestGetUintvE5kData, i64 noundef 10)
+  %34 = call i32 @CBS_get_u8(ptr noundef nonnull %18, ptr noundef nonnull %15)
+  %35 = icmp ne i32 %34, 0
+  %36 = load i8, ptr %15, align 1
+  %37 = icmp eq i8 %36, 1
+  %or.cond.i = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond.i, label %38, label %_ZL11TestGetUintv.exit.thread
+
+38:                                               ; preds = %33
+  %39 = call i32 @CBS_get_u16(ptr noundef nonnull %18, ptr noundef nonnull %16)
+  %40 = icmp ne i32 %39, 0
+  %41 = load i16, ptr %16, align 2
+  %42 = icmp eq i16 %41, 515
+  %or.cond5.i = select i1 %40, i1 %42, i1 false
+  br i1 %or.cond5.i, label %43, label %_ZL11TestGetUintv.exit.thread
+
+43:                                               ; preds = %38
+  %44 = call i32 @CBS_get_u24(ptr noundef nonnull %18, ptr noundef nonnull %17)
+  %45 = icmp ne i32 %44, 0
+  %46 = load i32, ptr %17, align 4
+  %47 = icmp eq i32 %46, 263430
+  %or.cond7.i = select i1 %45, i1 %47, i1 false
+  br i1 %or.cond7.i, label %48, label %_ZL11TestGetUintv.exit.thread
+
+48:                                               ; preds = %43
+  %49 = call i32 @CBS_get_u32(ptr noundef nonnull %18, ptr noundef nonnull %17)
+  %50 = icmp ne i32 %49, 0
+  %51 = load i32, ptr %17, align 4
+  %52 = icmp eq i32 %51, 117967114
+  %or.cond9.i = select i1 %50, i1 %52, i1 false
+  br i1 %or.cond9.i, label %_ZL11TestGetUintv.exit, label %_ZL11TestGetUintv.exit.thread
+
+_ZL11TestGetUintv.exit.thread:                    ; preds = %48, %43, %38, %33
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #12
+  br label %219
+
+_ZL11TestGetUintv.exit:                           ; preds = %48
+  %53 = call i32 @CBS_get_u8(ptr noundef nonnull %18, ptr noundef nonnull %15)
+  %.not.i1 = icmp eq i32 %53, 0
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #12
+  br i1 %.not.i1, label %54, label %219
+
+54:                                               ; preds = %_ZL11TestGetUintv.exit
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #12
+  call void @CBS_init(ptr noundef nonnull %13, ptr noundef nonnull @_ZZL15TestGetPrefixedvE5kData, i64 noundef 12)
+  %55 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %.not.i2 = icmp eq i32 %55, 0
+  br i1 %.not.i2, label %_ZL15TestGetPrefixedv.exit.thread, label %56
+
+56:                                               ; preds = %54
+  %57 = call i64 @CBS_len(ptr noundef nonnull %14)
+  %58 = icmp eq i64 %57, 1
+  br i1 %58, label %59, label %_ZL15TestGetPrefixedv.exit.thread
+
+59:                                               ; preds = %56
+  %60 = call i32 @CBS_get_u8(ptr noundef nonnull %14, ptr noundef nonnull %10)
+  %61 = icmp ne i32 %60, 0
+  %62 = load i8, ptr %10, align 1
+  %63 = icmp eq i8 %62, 2
+  %or.cond.i3 = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond.i3, label %64, label %_ZL15TestGetPrefixedv.exit.thread
+
+64:                                               ; preds = %59
+  %65 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %.not6.i = icmp eq i32 %65, 0
+  br i1 %.not6.i, label %_ZL15TestGetPrefixedv.exit.thread, label %66
+
+66:                                               ; preds = %64
+  %67 = call i64 @CBS_len(ptr noundef nonnull %14)
+  %68 = icmp eq i64 %67, 2
+  br i1 %68, label %69, label %_ZL15TestGetPrefixedv.exit.thread
+
+69:                                               ; preds = %66
+  %70 = call i32 @CBS_get_u16(ptr noundef nonnull %14, ptr noundef nonnull %11)
+  %71 = icmp ne i32 %70, 0
+  %72 = load i16, ptr %11, align 2
+  %73 = icmp eq i16 %72, 772
+  %or.cond5.i4 = select i1 %71, i1 %73, i1 false
+  br i1 %or.cond5.i4, label %74, label %_ZL15TestGetPrefixedv.exit.thread
+
+74:                                               ; preds = %69
+  %75 = call i32 @CBS_get_u24_length_prefixed(ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %.not7.i = icmp eq i32 %75, 0
+  br i1 %.not7.i, label %_ZL15TestGetPrefixedv.exit.thread, label %76
+
+76:                                               ; preds = %74
+  %77 = call i64 @CBS_len(ptr noundef nonnull %14)
+  %78 = icmp eq i64 %77, 3
+  br i1 %78, label %79, label %_ZL15TestGetPrefixedv.exit.thread
+
+79:                                               ; preds = %76
+  %80 = call i32 @CBS_get_u24(ptr noundef nonnull %14, ptr noundef nonnull %12)
+  %.not8.i = icmp eq i32 %80, 0
+  br i1 %.not8.i, label %_ZL15TestGetPrefixedv.exit.thread, label %_ZL15TestGetPrefixedv.exit
+
+_ZL15TestGetPrefixedv.exit.thread:                ; preds = %79, %76, %74, %69, %66, %64, %59, %56, %54
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #12
+  br label %219
+
+_ZL15TestGetPrefixedv.exit:                       ; preds = %79
+  %81 = load i32, ptr %12, align 4, !tbaa !6
+  %82 = icmp eq i32 %81, 197121
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #12
+  br i1 %82, label %83, label %219
+
+83:                                               ; preds = %_ZL15TestGetPrefixedv.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
+  call void @CBS_init(ptr noundef nonnull %8, ptr noundef nonnull @_ZZL18TestGetPrefixedBadvE6kData1, i64 noundef 2)
+  %84 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %.not.i5 = icmp eq i32 %84, 0
+  br i1 %.not.i5, label %85, label %_ZL18TestGetPrefixedBadv.exit.thread
+
+85:                                               ; preds = %83
+  call void @CBS_init(ptr noundef nonnull %8, ptr noundef nonnull @_ZZL18TestGetPrefixedBadvE6kData2, i64 noundef 3)
+  %86 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %.not1.i6 = icmp eq i32 %86, 0
+  br i1 %.not1.i6, label %_ZL18TestGetPrefixedBadv.exit, label %_ZL18TestGetPrefixedBadv.exit.thread
+
+_ZL18TestGetPrefixedBadv.exit.thread:             ; preds = %83, %85
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  br label %219
+
+_ZL18TestGetPrefixedBadv.exit:                    ; preds = %85
+  call void @CBS_init(ptr noundef nonnull %8, ptr noundef nonnull @_ZZL18TestGetPrefixedBadvE6kData3, i64 noundef 4)
+  %87 = call i32 @CBS_get_u24_length_prefixed(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %.not2.i7 = icmp eq i32 %87, 0
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  br i1 %.not2.i7, label %88, label %219
+
+88:                                               ; preds = %_ZL18TestGetPrefixedBadv.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData1, i64 noundef 4)
+  %89 = call i32 @CBS_peek_asn1_tag(ptr noundef nonnull %4, i32 noundef 1)
+  %.not.i8 = icmp eq i32 %89, 0
+  br i1 %.not.i8, label %90, label %_ZL11TestGetASN1v.exit.thread
+
+90:                                               ; preds = %88
+  %91 = call i32 @CBS_peek_asn1_tag(ptr noundef nonnull %4, i32 noundef 48)
+  %.not18.i = icmp eq i32 %91, 0
+  br i1 %.not18.i, label %_ZL11TestGetASN1v.exit.thread, label %92
+
+92:                                               ; preds = %90
+  %93 = call i32 @CBS_get_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 48)
+  %.not19.i = icmp eq i32 %93, 0
+  br i1 %.not19.i, label %_ZL11TestGetASN1v.exit.thread, label %94
+
+94:                                               ; preds = %92
+  %95 = call i64 @CBS_len(ptr noundef nonnull %5)
+  %.not20.i = icmp eq i64 %95, 2
+  br i1 %.not20.i, label %96, label %_ZL11TestGetASN1v.exit.thread
+
+96:                                               ; preds = %94
+  %97 = call ptr @CBS_data(ptr noundef nonnull %5)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %97, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2)
+  %.not21.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not21.i, label %98, label %_ZL11TestGetASN1v.exit.thread
+
+98:                                               ; preds = %96
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData2, i64 noundef 4)
+  %99 = call i32 @CBS_get_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 48)
+  %.not22.i = icmp eq i32 %99, 0
+  br i1 %.not22.i, label %100, label %_ZL11TestGetASN1v.exit.thread
+
+100:                                              ; preds = %98
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData3, i64 noundef 2)
+  %101 = call i32 @CBS_get_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 48)
+  %.not23.i = icmp eq i32 %101, 0
+  br i1 %.not23.i, label %102, label %_ZL11TestGetASN1v.exit.thread
+
+102:                                              ; preds = %100
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData4, i64 noundef 4)
+  %103 = call i32 @CBS_get_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 48)
+  %.not24.i = icmp eq i32 %103, 0
+  br i1 %.not24.i, label %104, label %_ZL11TestGetASN1v.exit.thread
+
+104:                                              ; preds = %102
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData5, i64 noundef 132)
+  %105 = call i32 @CBS_get_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 48)
+  %.not25.i = icmp eq i32 %105, 0
+  br i1 %.not25.i, label %106, label %_ZL11TestGetASN1v.exit.thread
+
+106:                                              ; preds = %104
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData1, i64 noundef 4)
+  %107 = call i32 @CBS_get_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 49)
+  %.not26.i = icmp eq i32 %107, 0
+  br i1 %.not26.i, label %108, label %_ZL11TestGetASN1v.exit.thread
+
+108:                                              ; preds = %106
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef null, i64 noundef 0)
+  %109 = call i32 @CBS_peek_asn1_tag(ptr noundef nonnull %4, i32 noundef 48)
+  %.not27.i = icmp eq i32 %109, 0
+  br i1 %.not27.i, label %110, label %_ZL11TestGetASN1v.exit.thread
+
+110:                                              ; preds = %108
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef null, i64 noundef 0)
+  %111 = call i32 @CBS_get_optional_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 160)
+  %112 = icmp eq i32 %111, 0
+  %113 = load i32, ptr %6, align 4
+  %114 = icmp ne i32 %113, 0
+  %or.cond.i10 = select i1 %112, i1 true, i1 %114
+  br i1 %or.cond.i10, label %_ZL11TestGetASN1v.exit.thread, label %115
+
+115:                                              ; preds = %110
+  %116 = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 160)
+  %117 = icmp eq i32 %116, 0
+  %118 = load i32, ptr %6, align 4
+  %119 = icmp ne i32 %118, 0
+  %or.cond3.i = select i1 %117, i1 true, i1 %119
+  br i1 %or.cond3.i, label %_ZL11TestGetASN1v.exit.thread, label %120
+
+120:                                              ; preds = %115
+  %121 = call i64 @CBS_len(ptr noundef nonnull %5)
+  %.not28.i = icmp eq i64 %121, 0
+  br i1 %.not28.i, label %122, label %_ZL11TestGetASN1v.exit.thread
+
+122:                                              ; preds = %120
+  %123 = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, i32 noundef 160)
+  %.not29.i = icmp eq i32 %123, 0
+  br i1 %.not29.i, label %_ZL11TestGetASN1v.exit.thread, label %124
+
+124:                                              ; preds = %122
+  %125 = call i64 @CBS_len(ptr noundef nonnull %5)
+  %.not30.i = icmp eq i64 %125, 0
+  br i1 %.not30.i, label %126, label %_ZL11TestGetASN1v.exit.thread
+
+126:                                              ; preds = %124
+  %127 = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 160, i64 noundef 42)
+  %128 = icmp eq i32 %127, 0
+  %129 = load i64, ptr %7, align 8
+  %130 = icmp ne i64 %129, 42
+  %or.cond5.i11 = select i1 %128, i1 true, i1 %130
+  br i1 %or.cond5.i11, label %_ZL11TestGetASN1v.exit.thread, label %131
+
+131:                                              ; preds = %126
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData6, i64 noundef 5)
+  %132 = call i32 @CBS_get_optional_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 160)
+  %133 = icmp eq i32 %132, 0
+  %134 = load i32, ptr %6, align 4
+  %135 = icmp ne i32 %134, 0
+  %or.cond7.i12 = select i1 %133, i1 true, i1 %135
+  br i1 %or.cond7.i12, label %_ZL11TestGetASN1v.exit.thread, label %136
+
+136:                                              ; preds = %131
+  %137 = call i32 @CBS_get_optional_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 161)
+  %138 = icmp ne i32 %137, 0
+  %139 = load i32, ptr %6, align 4
+  %140 = icmp ne i32 %139, 0
+  %or.cond9.i13 = select i1 %138, i1 %140, i1 false
+  br i1 %or.cond9.i13, label %141, label %_ZL11TestGetASN1v.exit.thread
+
+141:                                              ; preds = %136
+  %142 = call i64 @CBS_len(ptr noundef nonnull %5)
+  %.not31.i = icmp eq i64 %142, 3
+  br i1 %.not31.i, label %143, label %_ZL11TestGetASN1v.exit.thread
+
+143:                                              ; preds = %141
+  %144 = call ptr @CBS_data(ptr noundef nonnull %5)
+  %bcmp32.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %144, ptr noundef nonnull dereferenceable(3) @.str.2, i64 3)
+  %.not33.i = icmp eq i32 %bcmp32.i, 0
+  br i1 %.not33.i, label %145, label %_ZL11TestGetASN1v.exit.thread
+
+145:                                              ; preds = %143
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData6, i64 noundef 5)
+  %146 = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 160)
+  %147 = icmp eq i32 %146, 0
+  %148 = load i32, ptr %6, align 4
+  %149 = icmp ne i32 %148, 0
+  %or.cond11.i = select i1 %147, i1 true, i1 %149
+  br i1 %or.cond11.i, label %_ZL11TestGetASN1v.exit.thread, label %150
+
+150:                                              ; preds = %145
+  %151 = call i64 @CBS_len(ptr noundef nonnull %5)
+  %.not34.i = icmp eq i64 %151, 0
+  br i1 %.not34.i, label %152, label %_ZL11TestGetASN1v.exit.thread
+
+152:                                              ; preds = %150
+  %153 = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 161)
+  %154 = icmp ne i32 %153, 0
+  %155 = load i32, ptr %6, align 4
+  %156 = icmp ne i32 %155, 0
+  %or.cond13.i = select i1 %154, i1 %156, i1 false
+  br i1 %or.cond13.i, label %157, label %_ZL11TestGetASN1v.exit.thread
+
+157:                                              ; preds = %152
+  %158 = call i64 @CBS_len(ptr noundef nonnull %5)
+  %.not35.i = icmp eq i64 %158, 1
+  br i1 %.not35.i, label %159, label %_ZL11TestGetASN1v.exit.thread
+
+159:                                              ; preds = %157
+  %160 = call ptr @CBS_data(ptr noundef nonnull %5)
+  %161 = load i8, ptr %160, align 1, !tbaa !10
+  %.not36.i = icmp eq i8 %161, 1
+  br i1 %.not36.i, label %162, label %_ZL11TestGetASN1v.exit.thread
+
+162:                                              ; preds = %159
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData7, i64 noundef 5)
+  %163 = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 161)
+  %.not37.i = icmp eq i32 %163, 0
+  br i1 %.not37.i, label %164, label %_ZL11TestGetASN1v.exit.thread
+
+164:                                              ; preds = %162
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData8, i64 noundef 5)
+  %165 = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 160, i64 noundef 42)
+  %166 = icmp eq i32 %165, 0
+  %167 = load i64, ptr %7, align 8
+  %168 = icmp ne i64 %167, 42
+  %or.cond15.i = select i1 %166, i1 true, i1 %168
+  br i1 %or.cond15.i, label %_ZL11TestGetASN1v.exit.thread, label %169
+
+169:                                              ; preds = %164
+  %170 = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 161, i64 noundef 42)
+  %171 = icmp eq i32 %170, 0
+  %172 = load i64, ptr %7, align 8
+  %173 = icmp ne i64 %172, 1
+  %or.cond17.i = select i1 %171, i1 true, i1 %173
+  br i1 %or.cond17.i, label %_ZL11TestGetASN1v.exit.thread, label %_ZL11TestGetASN1v.exit
+
+_ZL11TestGetASN1v.exit.thread:                    ; preds = %90, %88, %96, %94, %92, %98, %100, %102, %104, %106, %108, %126, %124, %122, %120, %115, %110, %143, %141, %136, %131, %159, %157, %152, %150, %145, %162, %169, %164
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  br label %219
+
+_ZL11TestGetASN1v.exit:                           ; preds = %169
+  call void @CBS_init(ptr noundef nonnull %4, ptr noundef nonnull @_ZZL11TestGetASN1vE6kData9, i64 noundef 5)
+  %174 = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 161, i64 noundef 42)
+  %.not38.i = icmp eq i32 %174, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  br i1 %.not38.i, label %175, label %219
+
+175:                                              ; preds = %_ZL11TestGetASN1v.exit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  %176 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 100)
+  %.not.i14 = icmp eq i32 %176, 0
+  br i1 %.not.i14, label %_ZL12TestCBBBasicv.exit.thread, label %177
+
+177:                                              ; preds = %175
+  call void @CBB_cleanup(ptr noundef nonnull %3)
+  %178 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0)
+  %.not2.i15 = icmp eq i32 %178, 0
+  br i1 %.not2.i15, label %_ZL12TestCBBBasicv.exit.thread, label %179
+
+179:                                              ; preds = %177
+  %180 = call i32 @CBB_add_u8(ptr noundef nonnull %3, i8 noundef zeroext 1)
+  %.not3.i = icmp eq i32 %180, 0
+  br i1 %.not3.i, label %189, label %181
+
+181:                                              ; preds = %179
+  %182 = call i32 @CBB_add_u16(ptr noundef nonnull %3, i16 noundef zeroext 515)
+  %.not4.i = icmp eq i32 %182, 0
+  br i1 %.not4.i, label %189, label %183
+
+183:                                              ; preds = %181
+  %184 = call i32 @CBB_add_u24(ptr noundef nonnull %3, i32 noundef 263430)
+  %.not5.i = icmp eq i32 %184, 0
+  br i1 %.not5.i, label %189, label %185
+
+185:                                              ; preds = %183
+  %186 = call i32 @CBB_add_bytes(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 2)
+  %.not6.i16 = icmp eq i32 %186, 0
+  br i1 %.not6.i16, label %189, label %187
+
+187:                                              ; preds = %185
+  %188 = call i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %.not7.i17 = icmp eq i32 %188, 0
+  br i1 %.not7.i17, label %189, label %190
+
+189:                                              ; preds = %187, %185, %183, %181, %179
+  call void @CBB_cleanup(ptr noundef nonnull %3)
   br label %_ZL12TestCBBBasicv.exit.thread
 
-if.end19.i:                                       ; preds = %lor.lhs.false15.i
-  %17 = load ptr, ptr %buf.i, align 8
-  %18 = load i64, ptr %buf_len.i, align 8
-  %cmp.i56 = icmp eq i64 %18, 8
-  br i1 %cmp.i56, label %_ZL12TestCBBBasicv.exit, label %land.end.i
+190:                                              ; preds = %187
+  %191 = load ptr, ptr %1, align 8, !tbaa !11
+  %192 = load i64, ptr %2, align 8, !tbaa !14
+  %193 = icmp eq i64 %192, 8
+  br i1 %193, label %_ZL12TestCBBBasicv.exit, label %194
 
-land.end.i:                                       ; preds = %if.end19.i
-  %cmp.not.i.i = icmp eq ptr %17, null
-  br i1 %cmp.not.i.i, label %_ZL12TestCBBBasicv.exit.thread, label %_ZL12TestCBBBasicv.exit.thread62
+194:                                              ; preds = %190
+  %.not.i.i = icmp eq ptr %191, null
+  br i1 %.not.i.i, label %_ZL12TestCBBBasicv.exit.thread, label %_ZL12TestCBBBasicv.exit.thread23
 
-_ZL12TestCBBBasicv.exit.thread62:                 ; preds = %land.end.i
-  call void @free(ptr noundef nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
-  br label %return
+_ZL12TestCBBBasicv.exit.thread23:                 ; preds = %194
+  call void @free(ptr noundef nonnull %191) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  br label %219
 
-_ZL12TestCBBBasicv.exit.thread:                   ; preds = %if.then18.i, %lor.lhs.false8, %if.end.i47, %land.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
-  br label %return
+_ZL12TestCBBBasicv.exit.thread:                   ; preds = %189, %175, %177, %194
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  br label %219
 
-_ZL12TestCBBBasicv.exit:                          ; preds = %if.end19.i
-  %bcmp.i58 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %17, ptr noundef nonnull dereferenceable(8) @_ZZL12TestCBBBasicvE9kExpected, i64 8)
-  %cmp21.i = icmp eq i32 %bcmp.i58, 0
-  call void @free(ptr noundef nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
-  br i1 %cmp21.i, label %lor.lhs.false10, label %return
+_ZL12TestCBBBasicv.exit:                          ; preds = %190
+  %bcmp.i19 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %191, ptr noundef nonnull dereferenceable(8) @_ZZL12TestCBBBasicvE9kExpected, i64 8)
+  %195 = icmp eq i32 %bcmp.i19, 0
+  call void @free(ptr noundef nonnull %191) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  br i1 %195, label %196, label %219
 
-lor.lhs.false10:                                  ; preds = %_ZL12TestCBBBasicv.exit
-  %call11 = call fastcc noundef zeroext i1 @_ZL12TestCBBFixedv()
-  br i1 %call11, label %lor.lhs.false12, label %return
+196:                                              ; preds = %_ZL12TestCBBBasicv.exit
+  %197 = call fastcc noundef zeroext i1 @_ZL12TestCBBFixedv()
+  br i1 %197, label %198, label %219
 
-lor.lhs.false12:                                  ; preds = %lor.lhs.false10
-  %call13 = call fastcc noundef zeroext i1 @_ZL18TestCBBFinishChildv()
-  br i1 %call13, label %lor.lhs.false14, label %return
+198:                                              ; preds = %196
+  %199 = call fastcc noundef zeroext i1 @_ZL18TestCBBFinishChildv()
+  br i1 %199, label %200, label %219
 
-lor.lhs.false14:                                  ; preds = %lor.lhs.false12
-  %call15 = call fastcc noundef zeroext i1 @_ZL13TestCBBMisusev()
-  br i1 %call15, label %lor.lhs.false16, label %return
+200:                                              ; preds = %198
+  %201 = call fastcc noundef zeroext i1 @_ZL13TestCBBMisusev()
+  br i1 %201, label %202, label %219
 
-lor.lhs.false16:                                  ; preds = %lor.lhs.false14
-  %call17 = call fastcc noundef zeroext i1 @_ZL15TestCBBPrefixedv()
-  br i1 %call17, label %lor.lhs.false18, label %return
+202:                                              ; preds = %200
+  %203 = call fastcc noundef zeroext i1 @_ZL15TestCBBPrefixedv()
+  br i1 %203, label %204, label %219
 
-lor.lhs.false18:                                  ; preds = %lor.lhs.false16
-  %call19 = call fastcc noundef zeroext i1 @_ZL19TestCBBDiscardChildv()
-  br i1 %call19, label %lor.lhs.false20, label %return
+204:                                              ; preds = %202
+  %205 = call fastcc noundef zeroext i1 @_ZL19TestCBBDiscardChildv()
+  br i1 %205, label %206, label %219
 
-lor.lhs.false20:                                  ; preds = %lor.lhs.false18
-  %call21 = call fastcc noundef zeroext i1 @_ZL11TestCBBASN1v()
-  br i1 %call21, label %lor.lhs.false22, label %return
+206:                                              ; preds = %204
+  %207 = call fastcc noundef zeroext i1 @_ZL11TestCBBASN1v()
+  br i1 %207, label %208, label %219
 
-lor.lhs.false22:                                  ; preds = %lor.lhs.false20
-  %call23 = call fastcc noundef zeroext i1 @_ZL14TestBerConvertv()
-  br i1 %call23, label %lor.lhs.false24, label %return
+208:                                              ; preds = %206
+  %209 = call fastcc noundef zeroext i1 @_ZL14TestBerConvertv()
+  br i1 %209, label %210, label %219
 
-lor.lhs.false24:                                  ; preds = %lor.lhs.false22
-  %call25 = call fastcc noundef zeroext i1 @_ZL18TestImplicitStringv()
-  br i1 %call25, label %lor.lhs.false26, label %return
+210:                                              ; preds = %208
+  %211 = call fastcc noundef zeroext i1 @_ZL18TestImplicitStringv()
+  br i1 %211, label %212, label %219
 
-lor.lhs.false26:                                  ; preds = %lor.lhs.false24
-  %call27 = call fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v()
-  br i1 %call27, label %lor.lhs.false28, label %return
+212:                                              ; preds = %210
+  %213 = call fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v()
+  br i1 %213, label %214, label %219
 
-lor.lhs.false28:                                  ; preds = %lor.lhs.false26
-  %call29 = call fastcc noundef zeroext i1 @_ZL23TestGetOptionalASN1Boolv()
-  br i1 %call29, label %lor.lhs.false30, label %return
+214:                                              ; preds = %212
+  %215 = call fastcc noundef zeroext i1 @_ZL23TestGetOptionalASN1Boolv()
+  br i1 %215, label %216, label %219
 
-lor.lhs.false30:                                  ; preds = %lor.lhs.false28
+216:                                              ; preds = %214
   call fastcc void @_ZL8TestZerov()
-  %call33 = call fastcc noundef zeroext i1 @_ZL14TestCBBReservev()
-  br i1 %call33, label %if.end, label %return
+  %217 = call fastcc noundef zeroext i1 @_ZL14TestCBBReservev()
+  br i1 %217, label %218, label %219
 
-if.end:                                           ; preds = %lor.lhs.false30
+218:                                              ; preds = %216
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %return
+  br label %219
 
-return:                                           ; preds = %_ZL12TestCBBBasicv.exit.thread62, %_ZL12TestCBBBasicv.exit.thread, %_ZL11TestGetASN1v.exit.thread, %_ZL18TestGetPrefixedBadv.exit.thread, %_ZL15TestGetPrefixedv.exit.thread, %_ZL11TestGetUintv.exit.thread, %_ZL8TestSkipv.exit.thread, %_ZL8TestSkipv.exit, %_ZL11TestGetUintv.exit, %_ZL15TestGetPrefixedv.exit, %_ZL18TestGetPrefixedBadv.exit, %_ZL11TestGetASN1v.exit, %_ZL12TestCBBBasicv.exit, %lor.lhs.false10, %lor.lhs.false12, %lor.lhs.false14, %lor.lhs.false16, %lor.lhs.false18, %lor.lhs.false20, %lor.lhs.false22, %lor.lhs.false24, %lor.lhs.false26, %lor.lhs.false28, %lor.lhs.false30, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %lor.lhs.false30 ], [ 1, %lor.lhs.false28 ], [ 1, %lor.lhs.false26 ], [ 1, %lor.lhs.false24 ], [ 1, %lor.lhs.false22 ], [ 1, %lor.lhs.false20 ], [ 1, %lor.lhs.false18 ], [ 1, %lor.lhs.false16 ], [ 1, %lor.lhs.false14 ], [ 1, %lor.lhs.false12 ], [ 1, %lor.lhs.false10 ], [ 1, %_ZL12TestCBBBasicv.exit ], [ 1, %_ZL11TestGetASN1v.exit ], [ 1, %_ZL18TestGetPrefixedBadv.exit ], [ 1, %_ZL15TestGetPrefixedv.exit ], [ 1, %_ZL11TestGetUintv.exit ], [ 1, %_ZL8TestSkipv.exit ], [ 1, %_ZL8TestSkipv.exit.thread ], [ 1, %_ZL11TestGetUintv.exit.thread ], [ 1, %_ZL15TestGetPrefixedv.exit.thread ], [ 1, %_ZL18TestGetPrefixedBadv.exit.thread ], [ 1, %_ZL11TestGetASN1v.exit.thread ], [ 1, %_ZL12TestCBBBasicv.exit.thread ], [ 1, %_ZL12TestCBBBasicv.exit.thread62 ]
-  ret i32 %retval.0
+219:                                              ; preds = %_ZL12TestCBBBasicv.exit.thread23, %_ZL12TestCBBBasicv.exit.thread, %_ZL11TestGetASN1v.exit.thread, %_ZL18TestGetPrefixedBadv.exit.thread, %_ZL15TestGetPrefixedv.exit.thread, %_ZL11TestGetUintv.exit.thread, %_ZL8TestSkipv.exit.thread, %_ZL8TestSkipv.exit, %_ZL11TestGetUintv.exit, %_ZL15TestGetPrefixedv.exit, %_ZL18TestGetPrefixedBadv.exit, %_ZL11TestGetASN1v.exit, %_ZL12TestCBBBasicv.exit, %196, %198, %200, %202, %204, %206, %208, %210, %212, %214, %216, %218
+  %.0 = phi i32 [ 0, %218 ], [ 1, %216 ], [ 1, %214 ], [ 1, %212 ], [ 1, %210 ], [ 1, %208 ], [ 1, %206 ], [ 1, %204 ], [ 1, %202 ], [ 1, %200 ], [ 1, %198 ], [ 1, %196 ], [ 1, %_ZL12TestCBBBasicv.exit ], [ 1, %_ZL11TestGetASN1v.exit ], [ 1, %_ZL18TestGetPrefixedBadv.exit ], [ 1, %_ZL15TestGetPrefixedv.exit ], [ 1, %_ZL11TestGetUintv.exit ], [ 1, %_ZL8TestSkipv.exit ], [ 1, %_ZL8TestSkipv.exit.thread ], [ 1, %_ZL11TestGetUintv.exit.thread ], [ 1, %_ZL15TestGetPrefixedv.exit.thread ], [ 1, %_ZL18TestGetPrefixedBadv.exit.thread ], [ 1, %_ZL11TestGetASN1v.exit.thread ], [ 1, %_ZL12TestCBBBasicv.exit.thread ], [ 1, %_ZL12TestCBBBasicv.exit.thread23 ]
+  ret i32 %.0
 }
 
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL12TestCBBFixedv() unnamed_addr #0 {
-entry:
-  %cbb = alloca %struct.cbb_st, align 8
-  %buf = alloca [1 x i8], align 1
-  %out_buf = alloca ptr, align 8
-  %out_size = alloca i64, align 8
-  %call = call i32 @CBB_init_fixed(ptr noundef nonnull %cbb, ptr noundef null, i64 noundef 0)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false
+  %1 = alloca %struct.cbb_st, align 8
+  %2 = alloca [1 x i8], align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  %5 = call i32 @CBB_init_fixed(ptr noundef nonnull %1, ptr noundef null, i64 noundef 0)
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %30, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @CBB_add_u8(ptr noundef nonnull %cbb, i8 noundef zeroext 1)
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %lor.lhs.false3, label %return
+6:                                                ; preds = %0
+  %7 = call i32 @CBB_add_u8(ptr noundef nonnull %1, i8 noundef zeroext 1)
+  %.not13 = icmp eq i32 %7, 0
+  br i1 %.not13, label %8, label %30
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %out_buf, ptr noundef nonnull %out_size)
-  %tobool5 = icmp eq i32 %call4, 0
-  %0 = load ptr, ptr %out_buf, align 8
-  %cmp = icmp ne ptr %0, null
-  %or.cond = select i1 %tobool5, i1 true, i1 %cmp
-  %1 = load i64, ptr %out_size, align 8
-  %cmp8 = icmp ne i64 %1, 0
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp8
-  br i1 %or.cond1, label %return, label %if.end
+8:                                                ; preds = %6
+  %9 = call i32 @CBB_finish(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %10 = icmp eq i32 %9, 0
+  %11 = load ptr, ptr %3, align 8
+  %12 = icmp ne ptr %11, null
+  %or.cond = select i1 %10, i1 true, i1 %12
+  %13 = load i64, ptr %4, align 8
+  %14 = icmp ne i64 %13, 0
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %14
+  br i1 %or.cond3, label %30, label %15
 
-if.end:                                           ; preds = %lor.lhs.false3
-  %call9 = call i32 @CBB_init_fixed(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, i64 noundef 1)
-  %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %return, label %lor.lhs.false11
+15:                                               ; preds = %8
+  %16 = call i32 @CBB_init_fixed(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef 1)
+  %.not14 = icmp eq i32 %16, 0
+  br i1 %.not14, label %30, label %17
 
-lor.lhs.false11:                                  ; preds = %if.end
-  %call12 = call i32 @CBB_add_u8(ptr noundef nonnull %cbb, i8 noundef zeroext 1)
-  %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %return, label %lor.lhs.false14
+17:                                               ; preds = %15
+  %18 = call i32 @CBB_add_u8(ptr noundef nonnull %1, i8 noundef zeroext 1)
+  %.not15 = icmp eq i32 %18, 0
+  br i1 %.not15, label %30, label %19
 
-lor.lhs.false14:                                  ; preds = %lor.lhs.false11
-  %call15 = call i32 @CBB_add_u8(ptr noundef nonnull %cbb, i8 noundef zeroext 2)
-  %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %lor.lhs.false17, label %return
+19:                                               ; preds = %17
+  %20 = call i32 @CBB_add_u8(ptr noundef nonnull %1, i8 noundef zeroext 2)
+  %.not16 = icmp eq i32 %20, 0
+  br i1 %.not16, label %21, label %30
 
-lor.lhs.false17:                                  ; preds = %lor.lhs.false14
-  %call18 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %out_buf, ptr noundef nonnull %out_size)
-  %tobool19 = icmp ne i32 %call18, 0
-  %2 = load ptr, ptr %out_buf, align 8
-  %cmp22 = icmp eq ptr %2, %buf
-  %or.cond2.not6 = select i1 %tobool19, i1 %cmp22, i1 false
-  %3 = load i64, ptr %out_size, align 8
-  %cmp24 = icmp eq i64 %3, 1
-  %or.cond3.not5 = select i1 %or.cond2.not6, i1 %cmp24, i1 false
-  %4 = load i8, ptr %buf, align 1
-  %cmp26 = icmp eq i8 %4, 1
-  %or.cond4.not = select i1 %or.cond3.not5, i1 %cmp26, i1 false
-  br label %return
+21:                                               ; preds = %19
+  %22 = call i32 @CBB_finish(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %23 = icmp ne i32 %22, 0
+  %24 = load ptr, ptr %3, align 8
+  %25 = icmp eq ptr %24, %2
+  %or.cond6.not22 = select i1 %23, i1 %25, i1 false
+  %26 = load i64, ptr %4, align 8
+  %27 = icmp eq i64 %26, 1
+  %or.cond8.not19 = select i1 %or.cond6.not22, i1 %27, i1 false
+  %28 = load i8, ptr %2, align 1
+  %29 = icmp eq i8 %28, 1
+  %or.cond12.not = select i1 %or.cond8.not19, i1 %29, i1 false
+  br label %30
 
-return:                                           ; preds = %lor.lhs.false17, %if.end, %lor.lhs.false11, %lor.lhs.false14, %entry, %lor.lhs.false, %lor.lhs.false3
-  %retval.0 = phi i1 [ false, %lor.lhs.false3 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %lor.lhs.false14 ], [ false, %lor.lhs.false11 ], [ false, %if.end ], [ %or.cond4.not, %lor.lhs.false17 ]
-  ret i1 %retval.0
+30:                                               ; preds = %21, %15, %17, %19, %0, %6, %8
+  %.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %0 ], [ false, %19 ], [ false, %17 ], [ false, %15 ], [ %or.cond12.not, %21 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL18TestCBBFinishChildv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %cbb = alloca %struct.cbb_st, align 8
-  %child = alloca %struct.cbb_st, align 8
-  %out_buf = alloca ptr, align 8
-  %out_size = alloca i64, align 8
-  %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 16)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %1 = alloca %struct.cbb_st, align 8
+  %2 = alloca %struct.cbb_st, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  %5 = call i32 @CBB_init(ptr noundef nonnull %1, i64 noundef 16)
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %6
 
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %child)
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %if.then8, label %lor.lhs.false
+6:                                                ; preds = %0
+  %7 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %.not1 = icmp eq i32 %7, 0
+  br i1 %.not1, label %12, label %8
 
-lor.lhs.false:                                    ; preds = %if.end
-  %call3 = call i32 @CBB_finish(ptr noundef nonnull %child, ptr noundef nonnull %out_buf, ptr noundef nonnull %out_size)
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %lor.lhs.false5, label %if.then8
+8:                                                ; preds = %6
+  %9 = call i32 @CBB_finish(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %.not2 = icmp eq i32 %9, 0
+  br i1 %.not2, label %10, label %12
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %call6 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %out_buf, ptr noundef nonnull %out_size)
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %if.then8, label %if.end9
+10:                                               ; preds = %8
+  %11 = call i32 @CBB_finish(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %.not3 = icmp eq i32 %11, 0
+  br i1 %.not3, label %12, label %13
 
-if.then8:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %if.end
-  call void @CBB_cleanup(ptr noundef nonnull %cbb)
-  br label %return
+12:                                               ; preds = %10, %8, %6
+  call void @CBB_cleanup(ptr noundef nonnull %1)
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-if.end9:                                          ; preds = %lor.lhs.false5
-  %0 = load ptr, ptr %out_buf, align 8
-  %1 = load i64, ptr %out_size, align 8
-  %cmp = icmp eq i64 %1, 1
-  br i1 %cmp, label %land.end.thread, label %land.end
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %3, align 8, !tbaa !11
+  %15 = load i64, ptr %4, align 8, !tbaa !14
+  %16 = icmp eq i64 %15, 1
+  br i1 %16, label %.thread, label %19
 
-land.end.thread:                                  ; preds = %if.end9
-  %2 = load i8, ptr %0, align 1
-  %cmp10 = icmp eq i8 %2, 0
-  br label %if.then.i
+.thread:                                          ; preds = %13
+  %17 = load i8, ptr %14, align 1, !tbaa !10
+  %18 = icmp eq i8 %17, 0
+  br label %20
 
-land.end:                                         ; preds = %if.end9
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %return, label %if.then.i
+19:                                               ; preds = %13
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %20
 
-if.then.i:                                        ; preds = %land.end.thread, %land.end
-  %3 = phi i1 [ %cmp10, %land.end.thread ], [ false, %land.end ]
-  call void @free(ptr noundef nonnull %0) #12
-  br label %return
+20:                                               ; preds = %.thread, %19
+  %21 = phi i1 [ %18, %.thread ], [ false, %19 ]
+  call void @free(ptr noundef nonnull %14) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-return:                                           ; preds = %if.then.i, %land.end, %entry, %if.then8
-  %retval.0 = phi i1 [ false, %if.then8 ], [ false, %entry ], [ false, %land.end ], [ %3, %if.then.i ]
-  ret i1 %retval.0
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %20, %19, %0, %12
+  %.0 = phi i1 [ false, %12 ], [ false, %0 ], [ false, %19 ], [ %21, %20 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL13TestCBBMisusev() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %cbb = alloca %struct.cbb_st, align 8
-  %child = alloca %struct.cbb_st, align 8
-  %contents = alloca %struct.cbb_st, align 8
-  %buf = alloca ptr, align 8
-  %buf_len = alloca i64, align 8
-  %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %1 = alloca %struct.cbb_st, align 8
+  %2 = alloca %struct.cbb_st, align 8
+  %3 = alloca %struct.cbb_st, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  %6 = call i32 @CBB_init(ptr noundef nonnull %1, i64 noundef 0)
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %7
 
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %child)
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %if.then8, label %lor.lhs.false
+7:                                                ; preds = %0
+  %8 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %.not1 = icmp eq i32 %8, 0
+  br i1 %.not1, label %13, label %9
 
-lor.lhs.false:                                    ; preds = %if.end
-  %call3 = call i32 @CBB_add_u8(ptr noundef nonnull %child, i8 noundef zeroext 1)
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.then8, label %lor.lhs.false5
+9:                                                ; preds = %7
+  %10 = call i32 @CBB_add_u8(ptr noundef nonnull %2, i8 noundef zeroext 1)
+  %.not2 = icmp eq i32 %10, 0
+  br i1 %.not2, label %13, label %11
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %call6 = call i32 @CBB_add_u8(ptr noundef nonnull %cbb, i8 noundef zeroext 2)
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %if.then8, label %if.end9
+11:                                               ; preds = %9
+  %12 = call i32 @CBB_add_u8(ptr noundef nonnull %1, i8 noundef zeroext 2)
+  %.not3 = icmp eq i32 %12, 0
+  br i1 %.not3, label %13, label %14
 
-if.then8:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %if.end
-  call void @CBB_cleanup(ptr noundef nonnull %cbb)
-  br label %return
+13:                                               ; preds = %11, %9, %7
+  call void @CBB_cleanup(ptr noundef nonnull %1)
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-if.end9:                                          ; preds = %lor.lhs.false5
-  %call10 = call i32 @CBB_add_u8(ptr noundef nonnull %child, i8 noundef zeroext 1)
-  %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %lor.lhs.false12, label %if.then30
+14:                                               ; preds = %11
+  %15 = call i32 @CBB_add_u8(ptr noundef nonnull %2, i8 noundef zeroext 1)
+  %.not4 = icmp eq i32 %15, 0
+  br i1 %.not4, label %16, label %28
 
-lor.lhs.false12:                                  ; preds = %if.end9
-  %call13 = call i32 @CBB_add_u16(ptr noundef nonnull %child, i16 noundef zeroext 1)
-  %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %lor.lhs.false15, label %if.then30
+16:                                               ; preds = %14
+  %17 = call i32 @CBB_add_u16(ptr noundef nonnull %2, i16 noundef zeroext 1)
+  %.not5 = icmp eq i32 %17, 0
+  br i1 %.not5, label %18, label %28
 
-lor.lhs.false15:                                  ; preds = %lor.lhs.false12
-  %call16 = call i32 @CBB_add_u24(ptr noundef nonnull %child, i32 noundef 1)
-  %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %lor.lhs.false18, label %if.then30
+18:                                               ; preds = %16
+  %19 = call i32 @CBB_add_u24(ptr noundef nonnull %2, i32 noundef 1)
+  %.not6 = icmp eq i32 %19, 0
+  br i1 %.not6, label %20, label %28
 
-lor.lhs.false18:                                  ; preds = %lor.lhs.false15
-  %call19 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %child, ptr noundef nonnull %contents)
-  %tobool20.not = icmp eq i32 %call19, 0
-  br i1 %tobool20.not, label %lor.lhs.false21, label %if.then30
+20:                                               ; preds = %18
+  %21 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %.not7 = icmp eq i32 %21, 0
+  br i1 %.not7, label %22, label %28
 
-lor.lhs.false21:                                  ; preds = %lor.lhs.false18
-  %call22 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %child, ptr noundef nonnull %contents)
-  %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %lor.lhs.false24, label %if.then30
+22:                                               ; preds = %20
+  %23 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %.not8 = icmp eq i32 %23, 0
+  br i1 %.not8, label %24, label %28
 
-lor.lhs.false24:                                  ; preds = %lor.lhs.false21
-  %call25 = call i32 @CBB_add_asn1(ptr noundef nonnull %child, ptr noundef nonnull %contents, i8 noundef zeroext 1)
-  %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %lor.lhs.false27, label %if.then30
+24:                                               ; preds = %22
+  %25 = call i32 @CBB_add_asn1(ptr noundef nonnull %2, ptr noundef nonnull %3, i8 noundef zeroext 1)
+  %.not9 = icmp eq i32 %25, 0
+  br i1 %.not9, label %26, label %28
 
-lor.lhs.false27:                                  ; preds = %lor.lhs.false24
-  %call28 = call i32 @CBB_add_bytes(ptr noundef nonnull %child, ptr noundef nonnull @.str.4, i64 noundef 1)
-  %tobool29.not = icmp eq i32 %call28, 0
-  br i1 %tobool29.not, label %if.end32, label %if.then30
+26:                                               ; preds = %24
+  %27 = call i32 @CBB_add_bytes(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i64 noundef 1)
+  %.not10 = icmp eq i32 %27, 0
+  br i1 %.not10, label %31, label %28
 
-if.then30:                                        ; preds = %lor.lhs.false27, %lor.lhs.false24, %lor.lhs.false21, %lor.lhs.false18, %lor.lhs.false15, %lor.lhs.false12, %if.end9
-  %0 = load ptr, ptr @stderr, align 8
-  %1 = call i64 @fwrite(ptr nonnull @.str.5, i64 43, i64 1, ptr %0) #13
-  call void @CBB_cleanup(ptr noundef nonnull %cbb)
-  br label %return
+28:                                               ; preds = %26, %24, %22, %20, %18, %16, %14
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %30 = call i64 @fwrite(ptr nonnull @.str.5, i64 43, i64 1, ptr %29) #13
+  call void @CBB_cleanup(ptr noundef nonnull %1)
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-if.end32:                                         ; preds = %lor.lhs.false27
-  %call33 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %if.then35, label %if.end36
+31:                                               ; preds = %26
+  %32 = call i32 @CBB_finish(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %.not11 = icmp eq i32 %32, 0
+  br i1 %.not11, label %33, label %34
 
-if.then35:                                        ; preds = %if.end32
-  call void @CBB_cleanup(ptr noundef nonnull %cbb)
-  br label %return
+33:                                               ; preds = %31
+  call void @CBB_cleanup(ptr noundef nonnull %1)
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-if.end36:                                         ; preds = %if.end32
-  %2 = load ptr, ptr %buf, align 8
-  %3 = load i64, ptr %buf_len, align 8
-  %cmp.not = icmp eq i64 %3, 3
-  br i1 %cmp.not, label %cleanup.thread, label %cleanup
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %4, align 8, !tbaa !11
+  %36 = load i64, ptr %5, align 8, !tbaa !14
+  %.not12 = icmp eq i64 %36, 3
+  br i1 %.not12, label %.thread, label %37
 
-cleanup.thread:                                   ; preds = %if.end36
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %2, ptr noundef nonnull dereferenceable(3) @.str.6, i64 3)
-  %cmp39.not = icmp eq i32 %bcmp, 0
-  br label %if.then.i
+.thread:                                          ; preds = %34
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %35, ptr noundef nonnull dereferenceable(3) @.str.6, i64 3)
+  %.not13 = icmp eq i32 %bcmp, 0
+  br label %38
 
-cleanup:                                          ; preds = %if.end36
-  %cmp.not.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i, label %return, label %if.then.i
+37:                                               ; preds = %34
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %38
 
-if.then.i:                                        ; preds = %cleanup.thread, %cleanup
-  %retval.13 = phi i1 [ %cmp39.not, %cleanup.thread ], [ false, %cleanup ]
-  call void @free(ptr noundef nonnull %2) #12
-  br label %return
+38:                                               ; preds = %.thread, %37
+  %.116 = phi i1 [ %.not13, %.thread ], [ false, %37 ]
+  call void @free(ptr noundef nonnull %35) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-return:                                           ; preds = %if.then.i, %cleanup, %entry, %if.then35, %if.then30, %if.then8
-  %retval.0 = phi i1 [ false, %if.then30 ], [ false, %if.then35 ], [ false, %if.then8 ], [ false, %entry ], [ false, %cleanup ], [ %retval.13, %if.then.i ]
-  ret i1 %retval.0
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %38, %37, %0, %33, %28, %13
+  %.0 = phi i1 [ false, %28 ], [ false, %33 ], [ false, %13 ], [ false, %0 ], [ false, %37 ], [ %.116, %38 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL15TestCBBPrefixedv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %buf = alloca ptr, align 8
-  %buf_len = alloca i64, align 8
-  %cbb = alloca %struct.cbb_st, align 8
-  %contents = alloca %struct.cbb_st, align 8
-  %inner_contents = alloca %struct.cbb_st, align 8
-  %inner_inner_contents = alloca %struct.cbb_st, align 8
-  %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+  %1 = alloca ptr, align 8
+  %2 = alloca i64, align 8
+  %3 = alloca %struct.cbb_st, align 8
+  %4 = alloca %struct.cbb_st, align 8
+  %5 = alloca %struct.cbb_st, align 8
+  %6 = alloca %struct.cbb_st, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
+  %7 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0)
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %42, label %8
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i64 @CBB_len(ptr noundef nonnull %cbb)
-  %cmp.not = icmp eq i64 %call1, 0
-  br i1 %cmp.not, label %lor.lhs.false2, label %if.then
+8:                                                ; preds = %0
+  %9 = call i64 @CBB_len(ptr noundef nonnull %3)
+  %.not2 = icmp eq i64 %9, 0
+  br i1 %.not2, label %10, label %42
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %call3 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.then, label %lor.lhs.false5
+10:                                               ; preds = %8
+  %11 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %.not3 = icmp eq i32 %11, 0
+  br i1 %.not3, label %42, label %12
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false2
-  %call6 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %if.then, label %lor.lhs.false8
+12:                                               ; preds = %10
+  %13 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %.not4 = icmp eq i32 %13, 0
+  br i1 %.not4, label %42, label %14
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false5
-  %call9 = call i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext 1)
-  %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %if.then, label %lor.lhs.false11
+14:                                               ; preds = %12
+  %15 = call i32 @CBB_add_u8(ptr noundef nonnull %4, i8 noundef zeroext 1)
+  %.not5 = icmp eq i32 %15, 0
+  br i1 %.not5, label %42, label %16
 
-lor.lhs.false11:                                  ; preds = %lor.lhs.false8
-  %call12 = call i64 @CBB_len(ptr noundef nonnull %contents)
-  %cmp13.not = icmp eq i64 %call12, 1
-  br i1 %cmp13.not, label %lor.lhs.false14, label %if.then
+16:                                               ; preds = %14
+  %17 = call i64 @CBB_len(ptr noundef nonnull %4)
+  %.not6 = icmp eq i64 %17, 1
+  br i1 %.not6, label %18, label %42
 
-lor.lhs.false14:                                  ; preds = %lor.lhs.false11
-  %call15 = call i32 @CBB_flush(ptr noundef nonnull %cbb)
-  %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %if.then, label %lor.lhs.false17
+18:                                               ; preds = %16
+  %19 = call i32 @CBB_flush(ptr noundef nonnull %3)
+  %.not7 = icmp eq i32 %19, 0
+  br i1 %.not7, label %42, label %20
 
-lor.lhs.false17:                                  ; preds = %lor.lhs.false14
-  %call18 = call i64 @CBB_len(ptr noundef nonnull %cbb)
-  %cmp19.not = icmp eq i64 %call18, 3
-  br i1 %cmp19.not, label %lor.lhs.false20, label %if.then
+20:                                               ; preds = %18
+  %21 = call i64 @CBB_len(ptr noundef nonnull %3)
+  %.not8 = icmp eq i64 %21, 3
+  br i1 %.not8, label %22, label %42
 
-lor.lhs.false20:                                  ; preds = %lor.lhs.false17
-  %call21 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %if.then, label %lor.lhs.false23
+22:                                               ; preds = %20
+  %23 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %.not9 = icmp eq i32 %23, 0
+  br i1 %.not9, label %42, label %24
 
-lor.lhs.false23:                                  ; preds = %lor.lhs.false20
-  %call24 = call i32 @CBB_add_u16(ptr noundef nonnull %contents, i16 noundef zeroext 515)
-  %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %if.then, label %lor.lhs.false26
+24:                                               ; preds = %22
+  %25 = call i32 @CBB_add_u16(ptr noundef nonnull %4, i16 noundef zeroext 515)
+  %.not10 = icmp eq i32 %25, 0
+  br i1 %.not10, label %42, label %26
 
-lor.lhs.false26:                                  ; preds = %lor.lhs.false23
-  %call27 = call i32 @CBB_add_u24_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-  %tobool28.not = icmp eq i32 %call27, 0
-  br i1 %tobool28.not, label %if.then, label %lor.lhs.false29
+26:                                               ; preds = %24
+  %27 = call i32 @CBB_add_u24_length_prefixed(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %.not11 = icmp eq i32 %27, 0
+  br i1 %.not11, label %42, label %28
 
-lor.lhs.false29:                                  ; preds = %lor.lhs.false26
-  %call30 = call i32 @CBB_add_u24(ptr noundef nonnull %contents, i32 noundef 263430)
-  %tobool31.not = icmp eq i32 %call30, 0
-  br i1 %tobool31.not, label %if.then, label %lor.lhs.false32
+28:                                               ; preds = %26
+  %29 = call i32 @CBB_add_u24(ptr noundef nonnull %4, i32 noundef 263430)
+  %.not12 = icmp eq i32 %29, 0
+  br i1 %.not12, label %42, label %30
 
-lor.lhs.false32:                                  ; preds = %lor.lhs.false29
-  %call33 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %if.then, label %lor.lhs.false35
+30:                                               ; preds = %28
+  %31 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %.not13 = icmp eq i32 %31, 0
+  br i1 %.not13, label %42, label %32
 
-lor.lhs.false35:                                  ; preds = %lor.lhs.false32
-  %call36 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %inner_contents)
-  %tobool37.not = icmp eq i32 %call36, 0
-  br i1 %tobool37.not, label %if.then, label %lor.lhs.false38
+32:                                               ; preds = %30
+  %33 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %.not14 = icmp eq i32 %33, 0
+  br i1 %.not14, label %42, label %34
 
-lor.lhs.false38:                                  ; preds = %lor.lhs.false35
-  %call39 = call i32 @CBB_add_u8(ptr noundef nonnull %inner_contents, i8 noundef zeroext 1)
-  %tobool40.not = icmp eq i32 %call39, 0
-  br i1 %tobool40.not, label %if.then, label %lor.lhs.false41
+34:                                               ; preds = %32
+  %35 = call i32 @CBB_add_u8(ptr noundef nonnull %5, i8 noundef zeroext 1)
+  %.not15 = icmp eq i32 %35, 0
+  br i1 %.not15, label %42, label %36
 
-lor.lhs.false41:                                  ; preds = %lor.lhs.false38
-  %call42 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %inner_contents, ptr noundef nonnull %inner_inner_contents)
-  %tobool43.not = icmp eq i32 %call42, 0
-  br i1 %tobool43.not, label %if.then, label %lor.lhs.false44
+36:                                               ; preds = %34
+  %37 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %.not16 = icmp eq i32 %37, 0
+  br i1 %.not16, label %42, label %38
 
-lor.lhs.false44:                                  ; preds = %lor.lhs.false41
-  %call45 = call i32 @CBB_add_u8(ptr noundef nonnull %inner_inner_contents, i8 noundef zeroext 2)
-  %tobool46.not = icmp eq i32 %call45, 0
-  br i1 %tobool46.not, label %if.then, label %lor.lhs.false47
+38:                                               ; preds = %36
+  %39 = call i32 @CBB_add_u8(ptr noundef nonnull %6, i8 noundef zeroext 2)
+  %.not17 = icmp eq i32 %39, 0
+  br i1 %.not17, label %42, label %40
 
-lor.lhs.false47:                                  ; preds = %lor.lhs.false44
-  %call48 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-  %tobool49.not = icmp eq i32 %call48, 0
-  br i1 %tobool49.not, label %if.then, label %if.end
+40:                                               ; preds = %38
+  %41 = call i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %.not18 = icmp eq i32 %41, 0
+  br i1 %.not18, label %42, label %43
 
-if.then:                                          ; preds = %lor.lhs.false47, %lor.lhs.false44, %lor.lhs.false41, %lor.lhs.false38, %lor.lhs.false35, %lor.lhs.false32, %lor.lhs.false29, %lor.lhs.false26, %lor.lhs.false23, %lor.lhs.false20, %lor.lhs.false17, %lor.lhs.false14, %lor.lhs.false11, %lor.lhs.false8, %lor.lhs.false5, %lor.lhs.false2, %lor.lhs.false, %entry
-  call void @CBB_cleanup(ptr noundef nonnull %cbb)
-  br label %return
+42:                                               ; preds = %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %0
+  call void @CBB_cleanup(ptr noundef nonnull %3)
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-if.end:                                           ; preds = %lor.lhs.false47
-  %0 = load ptr, ptr %buf, align 8
-  %1 = load i64, ptr %buf_len, align 8
-  %cmp50 = icmp eq i64 %1, 19
-  br i1 %cmp50, label %land.end.thread, label %land.end
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %1, align 8, !tbaa !11
+  %45 = load i64, ptr %2, align 8, !tbaa !14
+  %46 = icmp eq i64 %45, 19
+  br i1 %46, label %.thread, label %48
 
-land.end.thread:                                  ; preds = %if.end
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %0, ptr noundef nonnull dereferenceable(19) @_ZZL15TestCBBPrefixedvE9kExpected, i64 19)
-  %cmp52 = icmp eq i32 %bcmp, 0
-  br label %if.then.i
+.thread:                                          ; preds = %43
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %44, ptr noundef nonnull dereferenceable(19) @_ZZL15TestCBBPrefixedvE9kExpected, i64 19)
+  %47 = icmp eq i32 %bcmp, 0
+  br label %49
 
-land.end:                                         ; preds = %if.end
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %return, label %if.then.i
+48:                                               ; preds = %43
+  %.not.i = icmp eq ptr %44, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %49
 
-if.then.i:                                        ; preds = %land.end.thread, %land.end
-  %2 = phi i1 [ %cmp52, %land.end.thread ], [ false, %land.end ]
-  call void @free(ptr noundef nonnull %0) #12
-  br label %return
+49:                                               ; preds = %.thread, %48
+  %50 = phi i1 [ %47, %.thread ], [ false, %48 ]
+  call void @free(ptr noundef nonnull %44) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-return:                                           ; preds = %if.then.i, %land.end, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %land.end ], [ %2, %if.then.i ]
-  ret i1 %retval.0
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %49, %48, %42
+  %.0 = phi i1 [ false, %42 ], [ false, %48 ], [ %50, %49 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL19TestCBBDiscardChildv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %cbb = alloca %class.ScopedOpenSSLContext, align 8
-  %contents = alloca %struct.cbb_st, align 8
-  %inner_contents = alloca %struct.cbb_st, align 8
-  %inner_inner_contents = alloca %struct.cbb_st, align 8
-  %buf = alloca ptr, align 8
-  %buf_len = alloca i64, align 8
-  call void @CBB_zero(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
-  %call2 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-          to label %invoke.cont1 unwind label %lpad
+  %1 = alloca %class.ScopedOpenSSLContext, align 8
+  %2 = alloca %struct.cbb_st, align 8
+  %3 = alloca %struct.cbb_st, align 8
+  %4 = alloca %struct.cbb_st, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #12
+  call void @CBB_zero(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
+  %7 = invoke i32 @CBB_init(ptr noundef nonnull %1, i64 noundef 0)
+          to label %8 unwind label %12
 
-invoke.cont1:                                     ; preds = %entry
-  %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %cleanup, label %lor.lhs.false
+8:                                                ; preds = %0
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %68, label %9
 
-lor.lhs.false:                                    ; preds = %invoke.cont1
-  %call6 = invoke i32 @CBB_add_u8(ptr noundef nonnull %cbb, i8 noundef zeroext -86)
-          to label %invoke.cont5 unwind label %lpad
+9:                                                ; preds = %8
+  %10 = invoke i32 @CBB_add_u8(ptr noundef nonnull %1, i8 noundef zeroext -86)
+          to label %11 unwind label %12
 
-invoke.cont5:                                     ; preds = %lor.lhs.false
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %cleanup, label %if.end
+11:                                               ; preds = %9
+  %.not5 = icmp eq i32 %10, 0
+  br i1 %.not5, label %68, label %14
 
-lpad:                                             ; preds = %invoke.cont74, %if.end73, %lor.lhs.false68, %lor.lhs.false64, %lor.lhs.false60, %lor.lhs.false56, %lor.lhs.false52, %lor.lhs.false46, %lor.lhs.false42, %lor.lhs.false36, %lor.lhs.false32, %lor.lhs.false26, %lor.lhs.false22, %lor.lhs.false16, %invoke.cont10, %if.end, %lor.lhs.false, %entry
-  %0 = landingpad { ptr, i32 }
+12:                                               ; preds = %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %14, %9, %0
+  %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
-          to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit unwind label %terminate.lpad.i
+  br label %72
 
-terminate.lpad.i:                                 ; preds = %lpad
-  %1 = landingpad { ptr, i32 }
+14:                                               ; preds = %11
+  invoke void @CBB_discard_child(ptr noundef nonnull %1)
+          to label %15 unwind label %12
+
+15:                                               ; preds = %14
+  %16 = invoke i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %1, ptr noundef nonnull %2)
+          to label %17 unwind label %12
+
+17:                                               ; preds = %15
+  %.not6 = icmp eq i32 %16, 0
+  br i1 %.not6, label %68, label %18
+
+18:                                               ; preds = %17
+  %19 = invoke i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %1, ptr noundef nonnull %2)
+          to label %20 unwind label %12
+
+20:                                               ; preds = %18
+  %.not7 = icmp eq i32 %19, 0
+  br i1 %.not7, label %68, label %21
+
+21:                                               ; preds = %20
+  %22 = invoke i32 @CBB_add_u8(ptr noundef nonnull %2, i8 noundef zeroext -69)
+          to label %23 unwind label %12
+
+23:                                               ; preds = %21
+  %.not8 = icmp eq i32 %22, 0
+  br i1 %.not8, label %68, label %24
+
+24:                                               ; preds = %23
+  %25 = invoke i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %1, ptr noundef nonnull %2)
+          to label %26 unwind label %12
+
+26:                                               ; preds = %24
+  %.not9 = icmp eq i32 %25, 0
+  br i1 %.not9, label %68, label %27
+
+27:                                               ; preds = %26
+  %28 = invoke i32 @CBB_add_u16(ptr noundef nonnull %2, i16 noundef zeroext -13108)
+          to label %29 unwind label %12
+
+29:                                               ; preds = %27
+  %.not10 = icmp eq i32 %28, 0
+  br i1 %.not10, label %68, label %30
+
+30:                                               ; preds = %29
+  %31 = invoke i32 @CBB_add_u24_length_prefixed(ptr noundef nonnull %1, ptr noundef nonnull %2)
+          to label %32 unwind label %12
+
+32:                                               ; preds = %30
+  %.not11 = icmp eq i32 %31, 0
+  br i1 %.not11, label %68, label %33
+
+33:                                               ; preds = %32
+  %34 = invoke i32 @CBB_add_u24(ptr noundef nonnull %2, i32 noundef 14540253)
+          to label %35 unwind label %12
+
+35:                                               ; preds = %33
+  %.not12 = icmp eq i32 %34, 0
+  br i1 %.not12, label %68, label %36
+
+36:                                               ; preds = %35
+  %37 = invoke i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %1, ptr noundef nonnull %2)
+          to label %38 unwind label %12
+
+38:                                               ; preds = %36
+  %.not13 = icmp eq i32 %37, 0
+  br i1 %.not13, label %68, label %39
+
+39:                                               ; preds = %38
+  %40 = invoke i32 @CBB_add_u8(ptr noundef nonnull %2, i8 noundef zeroext -1)
+          to label %41 unwind label %12
+
+41:                                               ; preds = %39
+  %.not14 = icmp eq i32 %40, 0
+  br i1 %.not14, label %68, label %42
+
+42:                                               ; preds = %41
+  %43 = invoke i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %2, ptr noundef nonnull %3)
+          to label %44 unwind label %12
+
+44:                                               ; preds = %42
+  %.not15 = icmp eq i32 %43, 0
+  br i1 %.not15, label %68, label %45
+
+45:                                               ; preds = %44
+  %46 = invoke i32 @CBB_add_u8(ptr noundef nonnull %3, i8 noundef zeroext 66)
+          to label %47 unwind label %12
+
+47:                                               ; preds = %45
+  %.not16 = icmp eq i32 %46, 0
+  br i1 %.not16, label %68, label %48
+
+48:                                               ; preds = %47
+  %49 = invoke i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %3, ptr noundef nonnull %4)
+          to label %50 unwind label %12
+
+50:                                               ; preds = %48
+  %.not17 = icmp eq i32 %49, 0
+  br i1 %.not17, label %68, label %51
+
+51:                                               ; preds = %50
+  %52 = invoke i32 @CBB_add_u8(ptr noundef nonnull %4, i8 noundef zeroext -103)
+          to label %53 unwind label %12
+
+53:                                               ; preds = %51
+  %.not18 = icmp eq i32 %52, 0
+  br i1 %.not18, label %68, label %54
+
+54:                                               ; preds = %53
+  invoke void @CBB_discard_child(ptr noundef nonnull %2)
+          to label %55 unwind label %12
+
+55:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  %56 = invoke i32 @CBB_finish(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
+          to label %57 unwind label %58
+
+57:                                               ; preds = %55
+  %.not20 = icmp eq i32 %56, 0
+  br i1 %.not20, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %60
+
+58:                                               ; preds = %55
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  br label %72
+
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %5, align 8, !tbaa !11
+  %62 = load i64, ptr %6, align 8, !tbaa !14
+  %63 = icmp eq i64 %62, 16
+  br i1 %63, label %.thread, label %65
+
+.thread:                                          ; preds = %60
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %61, ptr noundef nonnull dereferenceable(16) @_ZZL19TestCBBDiscardChildvE9kExpected, i64 16)
+  %64 = icmp eq i32 %bcmp, 0
+  br label %66
+
+65:                                               ; preds = %60
+  %.not.i = icmp eq ptr %61, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %66
+
+66:                                               ; preds = %.thread, %65
+  %67 = phi i1 [ %64, %.thread ], [ false, %65 ]
+  call void @free(ptr noundef nonnull %61) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
+
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %66, %65, %57
+  %.1 = phi i1 [ false, %57 ], [ false, %65 ], [ %67, %66 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  br label %68
+
+68:                                               ; preds = %17, %20, %23, %26, %29, %32, %35, %38, %41, %44, %47, %50, %53, %8, %11, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
+  %.03 = phi i1 [ %.1, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ false, %11 ], [ false, %8 ], [ false, %53 ], [ false, %50 ], [ false, %47 ], [ false, %44 ], [ false, %41 ], [ false, %38 ], [ false, %35 ], [ false, %32 ], [ false, %29 ], [ false, %26 ], [ false, %23 ], [ false, %20 ], [ false, %17 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %1)
+          to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit unwind label %69
+
+69:                                               ; preds = %68
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #14
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #14
   unreachable
 
-_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit: ; preds = %lpad
-  resume { ptr, i32 } %0
+_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit: ; preds = %68
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
+  ret i1 %.03
 
-if.end:                                           ; preds = %invoke.cont5
-  invoke void @CBB_discard_child(ptr noundef nonnull %cbb)
-          to label %invoke.cont10 unwind label %lpad
+72:                                               ; preds = %58, %12
+  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %13, %12 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %1)
+          to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit21 unwind label %73
 
-invoke.cont10:                                    ; preds = %if.end
-  %call14 = invoke i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-          to label %invoke.cont13 unwind label %lpad
-
-invoke.cont13:                                    ; preds = %invoke.cont10
-  %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %cleanup, label %lor.lhs.false16
-
-lor.lhs.false16:                                  ; preds = %invoke.cont13
-  %call20 = invoke i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-          to label %invoke.cont19 unwind label %lpad
-
-invoke.cont19:                                    ; preds = %lor.lhs.false16
-  %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %cleanup, label %lor.lhs.false22
-
-lor.lhs.false22:                                  ; preds = %invoke.cont19
-  %call24 = invoke i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext -69)
-          to label %invoke.cont23 unwind label %lpad
-
-invoke.cont23:                                    ; preds = %lor.lhs.false22
-  %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %cleanup, label %lor.lhs.false26
-
-lor.lhs.false26:                                  ; preds = %invoke.cont23
-  %call30 = invoke i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-          to label %invoke.cont29 unwind label %lpad
-
-invoke.cont29:                                    ; preds = %lor.lhs.false26
-  %tobool31.not = icmp eq i32 %call30, 0
-  br i1 %tobool31.not, label %cleanup, label %lor.lhs.false32
-
-lor.lhs.false32:                                  ; preds = %invoke.cont29
-  %call34 = invoke i32 @CBB_add_u16(ptr noundef nonnull %contents, i16 noundef zeroext -13108)
-          to label %invoke.cont33 unwind label %lpad
-
-invoke.cont33:                                    ; preds = %lor.lhs.false32
-  %tobool35.not = icmp eq i32 %call34, 0
-  br i1 %tobool35.not, label %cleanup, label %lor.lhs.false36
-
-lor.lhs.false36:                                  ; preds = %invoke.cont33
-  %call40 = invoke i32 @CBB_add_u24_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-          to label %invoke.cont39 unwind label %lpad
-
-invoke.cont39:                                    ; preds = %lor.lhs.false36
-  %tobool41.not = icmp eq i32 %call40, 0
-  br i1 %tobool41.not, label %cleanup, label %lor.lhs.false42
-
-lor.lhs.false42:                                  ; preds = %invoke.cont39
-  %call44 = invoke i32 @CBB_add_u24(ptr noundef nonnull %contents, i32 noundef 14540253)
-          to label %invoke.cont43 unwind label %lpad
-
-invoke.cont43:                                    ; preds = %lor.lhs.false42
-  %tobool45.not = icmp eq i32 %call44, 0
-  br i1 %tobool45.not, label %cleanup, label %lor.lhs.false46
-
-lor.lhs.false46:                                  ; preds = %invoke.cont43
-  %call50 = invoke i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %cbb, ptr noundef nonnull %contents)
-          to label %invoke.cont49 unwind label %lpad
-
-invoke.cont49:                                    ; preds = %lor.lhs.false46
-  %tobool51.not = icmp eq i32 %call50, 0
-  br i1 %tobool51.not, label %cleanup, label %lor.lhs.false52
-
-lor.lhs.false52:                                  ; preds = %invoke.cont49
-  %call54 = invoke i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext -1)
-          to label %invoke.cont53 unwind label %lpad
-
-invoke.cont53:                                    ; preds = %lor.lhs.false52
-  %tobool55.not = icmp eq i32 %call54, 0
-  br i1 %tobool55.not, label %cleanup, label %lor.lhs.false56
-
-lor.lhs.false56:                                  ; preds = %invoke.cont53
-  %call58 = invoke i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %inner_contents)
-          to label %invoke.cont57 unwind label %lpad
-
-invoke.cont57:                                    ; preds = %lor.lhs.false56
-  %tobool59.not = icmp eq i32 %call58, 0
-  br i1 %tobool59.not, label %cleanup, label %lor.lhs.false60
-
-lor.lhs.false60:                                  ; preds = %invoke.cont57
-  %call62 = invoke i32 @CBB_add_u8(ptr noundef nonnull %inner_contents, i8 noundef zeroext 66)
-          to label %invoke.cont61 unwind label %lpad
-
-invoke.cont61:                                    ; preds = %lor.lhs.false60
-  %tobool63.not = icmp eq i32 %call62, 0
-  br i1 %tobool63.not, label %cleanup, label %lor.lhs.false64
-
-lor.lhs.false64:                                  ; preds = %invoke.cont61
-  %call66 = invoke i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %inner_contents, ptr noundef nonnull %inner_inner_contents)
-          to label %invoke.cont65 unwind label %lpad
-
-invoke.cont65:                                    ; preds = %lor.lhs.false64
-  %tobool67.not = icmp eq i32 %call66, 0
-  br i1 %tobool67.not, label %cleanup, label %lor.lhs.false68
-
-lor.lhs.false68:                                  ; preds = %invoke.cont65
-  %call70 = invoke i32 @CBB_add_u8(ptr noundef nonnull %inner_inner_contents, i8 noundef zeroext -103)
-          to label %invoke.cont69 unwind label %lpad
-
-invoke.cont69:                                    ; preds = %lor.lhs.false68
-  %tobool71.not = icmp eq i32 %call70, 0
-  br i1 %tobool71.not, label %cleanup, label %if.end73
-
-if.end73:                                         ; preds = %invoke.cont69
-  invoke void @CBB_discard_child(ptr noundef nonnull %contents)
-          to label %invoke.cont74 unwind label %lpad
-
-invoke.cont74:                                    ; preds = %if.end73
-  %call78 = invoke i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-          to label %invoke.cont77 unwind label %lpad
-
-invoke.cont77:                                    ; preds = %invoke.cont74
-  %tobool79.not = icmp eq i32 %call78, 0
-  br i1 %tobool79.not, label %cleanup, label %if.end81
-
-if.end81:                                         ; preds = %invoke.cont77
-  %3 = load ptr, ptr %buf, align 8
-  %4 = load i64, ptr %buf_len, align 8
-  %cmp = icmp eq i64 %4, 16
-  br i1 %cmp, label %land.end.thread, label %land.end
-
-land.end.thread:                                  ; preds = %if.end81
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) @_ZZL19TestCBBDiscardChildvE9kExpected, i64 16)
-  %cmp83 = icmp eq i32 %bcmp, 0
-  br label %if.then.i
-
-land.end:                                         ; preds = %if.end81
-  %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %cleanup, label %if.then.i
-
-if.then.i:                                        ; preds = %land.end.thread, %land.end
-  %5 = phi i1 [ %cmp83, %land.end.thread ], [ false, %land.end ]
-  call void @free(ptr noundef nonnull %3) #12
-  br label %cleanup
-
-cleanup:                                          ; preds = %if.then.i, %land.end, %invoke.cont77, %invoke.cont13, %invoke.cont19, %invoke.cont23, %invoke.cont29, %invoke.cont33, %invoke.cont39, %invoke.cont43, %invoke.cont49, %invoke.cont53, %invoke.cont57, %invoke.cont61, %invoke.cont65, %invoke.cont69, %invoke.cont1, %invoke.cont5
-  %retval.0 = phi i1 [ false, %invoke.cont5 ], [ false, %invoke.cont1 ], [ false, %invoke.cont69 ], [ false, %invoke.cont65 ], [ false, %invoke.cont61 ], [ false, %invoke.cont57 ], [ false, %invoke.cont53 ], [ false, %invoke.cont49 ], [ false, %invoke.cont43 ], [ false, %invoke.cont39 ], [ false, %invoke.cont33 ], [ false, %invoke.cont29 ], [ false, %invoke.cont23 ], [ false, %invoke.cont19 ], [ false, %invoke.cont13 ], [ false, %invoke.cont77 ], [ false, %land.end ], [ %5, %if.then.i ]
-  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
-          to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit2 unwind label %terminate.lpad.i1
-
-terminate.lpad.i1:                                ; preds = %cleanup
-  %6 = landingpad { ptr, i32 }
+73:                                               ; preds = %72
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  %75 = extractvalue { ptr, i32 } %74, 0
+  call void @__clang_call_terminate(ptr %75) #14
   unreachable
 
-_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit2: ; preds = %cleanup
-  ret i1 %retval.0
+_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit21: ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
+  resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL11TestCBBASN1v() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %buf = alloca ptr, align 8
-  %buf_len = alloca i64, align 8
-  %cbb = alloca %struct.cbb_st, align 8
-  %contents = alloca %struct.cbb_st, align 8
-  %inner_contents = alloca %struct.cbb_st, align 8
-  %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %1 = alloca ptr, align 8
+  %2 = alloca i64, align 8
+  %3 = alloca %struct.cbb_st, align 8
+  %4 = alloca %struct.cbb_st, align 8
+  %5 = alloca %struct.cbb_st, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
+  %6 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0)
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit46, label %7
 
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @CBB_add_asn1(ptr noundef nonnull %cbb, ptr noundef nonnull %contents, i8 noundef zeroext 48)
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %if.then8, label %lor.lhs.false
+7:                                                ; preds = %0
+  %8 = call i32 @CBB_add_asn1(ptr noundef nonnull %3, ptr noundef nonnull %4, i8 noundef zeroext 48)
+  %.not5 = icmp eq i32 %8, 0
+  br i1 %.not5, label %13, label %9
 
-lor.lhs.false:                                    ; preds = %if.end
-  %call3 = call i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef nonnull @.str.7, i64 noundef 3)
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.then8, label %lor.lhs.false5
+9:                                                ; preds = %7
+  %10 = call i32 @CBB_add_bytes(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i64 noundef 3)
+  %.not6 = icmp eq i32 %10, 0
+  br i1 %.not6, label %13, label %11
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %call6 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %if.then8, label %if.end9
+11:                                               ; preds = %9
+  %12 = call i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %.not7 = icmp eq i32 %12, 0
+  br i1 %.not7, label %13, label %14
 
-if.then8:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %if.end
-  call void @CBB_cleanup(ptr noundef nonnull %cbb)
-  br label %return
+13:                                               ; preds = %11, %9, %7
+  call void @CBB_cleanup(ptr noundef nonnull %3)
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit46
 
-if.end9:                                          ; preds = %lor.lhs.false5
-  %0 = load ptr, ptr %buf, align 8
-  %1 = load i64, ptr %buf_len, align 8
-  %cmp.not = icmp eq i64 %1, 5
-  br i1 %cmp.not, label %lor.lhs.false10, label %cleanup113
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %1, align 8, !tbaa !11
+  %16 = load i64, ptr %2, align 8, !tbaa !14
+  %.not8 = icmp eq i64 %16, 5
+  br i1 %.not8, label %17, label %87
 
-lor.lhs.false10:                                  ; preds = %if.end9
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @_ZZL11TestCBBASN1vE9kExpected, i64 5)
-  %cmp12.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp12.not, label %if.end14, label %if.then.i
+17:                                               ; preds = %14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %15, ptr noundef nonnull dereferenceable(5) @_ZZL11TestCBBASN1vE9kExpected, i64 5)
+  %.not9 = icmp eq i32 %bcmp, 0
+  br i1 %.not9, label %18, label %.thread70
 
-if.end14:                                         ; preds = %lor.lhs.false10
-  %call5.i.i.i.i1.i.i8 = invoke noalias noundef nonnull dereferenceable(100000) ptr @_Znwm(i64 noundef 100000) #15
-          to label %invoke.cont unwind label %ehcleanup.thread
+18:                                               ; preds = %17
+  %19 = invoke noalias noundef nonnull dereferenceable(100000) ptr @_Znwm(i64 noundef 100000) #15
+          to label %20 unwind label %.thread
 
-invoke.cont:                                      ; preds = %if.end14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(100000) %call5.i.i.i.i1.i.i8, i8 66, i64 100000, i1 false)
-  %call18 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-          to label %invoke.cont17 unwind label %ehcleanup.thread44
+20:                                               ; preds = %18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(100000) %19, i8 66, i64 100000, i1 false)
+  %21 = invoke i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0)
+          to label %22 unwind label %.thread66
 
-invoke.cont17:                                    ; preds = %invoke.cont
-  %tobool19.not = icmp eq i32 %call18, 0
-  br i1 %tobool19.not, label %_ZNSt6vectorIhSaIhEED2Ev.exit17, label %if.end21
+22:                                               ; preds = %20
+  %.not10 = icmp eq i32 %21, 0
+  br i1 %.not10, label %_ZNSt6vectorIhSaIhEED2Ev.exit44, label %24
 
-ehcleanup.thread:                                 ; preds = %if.end14
-  %2 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %18
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %if.then.i19
+  br label %86
 
-if.end21:                                         ; preds = %invoke.cont17
-  %call23 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %cbb, ptr noundef nonnull %contents, i8 noundef zeroext 48)
-          to label %invoke.cont22 unwind label %ehcleanup.thread44
+24:                                               ; preds = %22
+  %25 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %3, ptr noundef nonnull %4, i8 noundef zeroext 48)
+          to label %26 unwind label %.thread66
 
-invoke.cont22:                                    ; preds = %if.end21
-  %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %if.then34, label %lor.lhs.false25
+26:                                               ; preds = %24
+  %.not11 = icmp eq i32 %25, 0
+  br i1 %.not11, label %33, label %27
 
-lor.lhs.false25:                                  ; preds = %invoke.cont22
-  %call28 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef nonnull %call5.i.i.i.i1.i.i8, i64 noundef 130)
-          to label %invoke.cont27 unwind label %ehcleanup.thread44
+27:                                               ; preds = %26
+  %28 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %4, ptr noundef nonnull %19, i64 noundef 130)
+          to label %29 unwind label %.thread66
 
-invoke.cont27:                                    ; preds = %lor.lhs.false25
-  %tobool29.not = icmp eq i32 %call28, 0
-  br i1 %tobool29.not, label %if.then34, label %lor.lhs.false30
+29:                                               ; preds = %27
+  %.not12 = icmp eq i32 %28, 0
+  br i1 %.not12, label %33, label %30
 
-lor.lhs.false30:                                  ; preds = %invoke.cont27
-  %call32 = invoke i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-          to label %invoke.cont31 unwind label %ehcleanup.thread44
+30:                                               ; preds = %29
+  %31 = invoke i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2)
+          to label %32 unwind label %.thread66
 
-invoke.cont31:                                    ; preds = %lor.lhs.false30
-  %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %if.then34, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
+32:                                               ; preds = %30
+  %.not13 = icmp eq i32 %31, 0
+  br i1 %.not13, label %33, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
 
-if.then34:                                        ; preds = %invoke.cont31, %invoke.cont27, %invoke.cont22
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %ehcleanup.thread44
+33:                                               ; preds = %32, %29, %26
+  invoke void @CBB_cleanup(ptr noundef nonnull %3)
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit44 unwind label %.thread66
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %invoke.cont31
-  %3 = load ptr, ptr %buf, align 8
-  call void @free(ptr noundef nonnull %0) #12
-  %4 = load i64, ptr %buf_len, align 8
-  %cmp37.not = icmp eq i64 %4, 133
-  br i1 %cmp37.not, label %lor.lhs.false38, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %32
+  %34 = load ptr, ptr %1, align 8, !tbaa !11
+  call void @free(ptr noundef nonnull %15) #12
+  %35 = load i64, ptr %2, align 8, !tbaa !14
+  %.not14 = icmp eq i64 %35, 133
+  br i1 %.not14, label %36, label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-lor.lhs.false38:                                  ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
-  %5 = load ptr, ptr %buf, align 8
-  %bcmp1 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %5, ptr noundef nonnull dereferenceable(3) @.str.8, i64 3)
-  %cmp40.not = icmp eq i32 %bcmp1, 0
-  br i1 %cmp40.not, label %lor.lhs.false41, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+36:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
+  %37 = load ptr, ptr %1, align 8, !tbaa !11
+  %bcmp15 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %37, ptr noundef nonnull dereferenceable(3) @.str.8, i64 3)
+  %.not16 = icmp eq i32 %bcmp15, 0
+  br i1 %.not16, label %38, label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-lor.lhs.false41:                                  ; preds = %lor.lhs.false38
-  %add.ptr = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %bcmp2 = call i32 @bcmp(ptr noundef nonnull dereferenceable(130) %add.ptr, ptr noundef nonnull dereferenceable(130) %call5.i.i.i.i1.i.i8, i64 130)
-  %cmp44.not = icmp eq i32 %bcmp2, 0
-  br i1 %cmp44.not, label %if.end46, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 3
+  %bcmp17 = call i32 @bcmp(ptr noundef nonnull dereferenceable(130) %39, ptr noundef nonnull dereferenceable(130) %19, i64 130)
+  %.not18 = icmp eq i32 %bcmp17, 0
+  br i1 %.not18, label %40, label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-if.end46:                                         ; preds = %lor.lhs.false41
-  %call48 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-          to label %invoke.cont47 unwind label %ehcleanup
+40:                                               ; preds = %38
+  %41 = invoke i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0)
+          to label %42 unwind label %85
 
-invoke.cont47:                                    ; preds = %if.end46
-  %tobool49.not = icmp eq i32 %call48, 0
-  br i1 %tobool49.not, label %_ZNSt6vectorIhSaIhEED2Ev.exit17, label %if.end51
+42:                                               ; preds = %40
+  %.not19 = icmp eq i32 %41, 0
+  br i1 %.not19, label %_ZNSt6vectorIhSaIhEED2Ev.exit44, label %43
 
-if.end51:                                         ; preds = %invoke.cont47
-  %call53 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %cbb, ptr noundef nonnull %contents, i8 noundef zeroext 48)
-          to label %invoke.cont52 unwind label %ehcleanup
+43:                                               ; preds = %42
+  %44 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %3, ptr noundef nonnull %4, i8 noundef zeroext 48)
+          to label %45 unwind label %85
 
-invoke.cont52:                                    ; preds = %if.end51
-  %tobool54.not = icmp eq i32 %call53, 0
-  br i1 %tobool54.not, label %if.then64, label %lor.lhs.false55
+45:                                               ; preds = %43
+  %.not20 = icmp eq i32 %44, 0
+  br i1 %.not20, label %52, label %46
 
-lor.lhs.false55:                                  ; preds = %invoke.cont52
-  %call58 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef nonnull %call5.i.i.i.i1.i.i8, i64 noundef 1000)
-          to label %invoke.cont57 unwind label %ehcleanup
+46:                                               ; preds = %45
+  %47 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %4, ptr noundef nonnull %19, i64 noundef 1000)
+          to label %48 unwind label %85
 
-invoke.cont57:                                    ; preds = %lor.lhs.false55
-  %tobool59.not = icmp eq i32 %call58, 0
-  br i1 %tobool59.not, label %if.then64, label %lor.lhs.false60
+48:                                               ; preds = %46
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %52, label %49
 
-lor.lhs.false60:                                  ; preds = %invoke.cont57
-  %call62 = invoke i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-          to label %invoke.cont61 unwind label %ehcleanup
+49:                                               ; preds = %48
+  %50 = invoke i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2)
+          to label %51 unwind label %85
 
-invoke.cont61:                                    ; preds = %lor.lhs.false60
-  %tobool63.not = icmp eq i32 %call62, 0
-  br i1 %tobool63.not, label %if.then64, label %if.end66
+51:                                               ; preds = %49
+  %.not22 = icmp eq i32 %50, 0
+  br i1 %.not22, label %52, label %53
 
-if.then64:                                        ; preds = %invoke.cont61, %invoke.cont57, %invoke.cont52
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %ehcleanup
+52:                                               ; preds = %51, %48, %45
+  invoke void @CBB_cleanup(ptr noundef nonnull %3)
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit44 unwind label %85
 
-if.end66:                                         ; preds = %invoke.cont61
-  %6 = load ptr, ptr %buf, align 8
-  %tobool.not.i.i9 = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i9, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11, label %if.then.i.i10
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %1, align 8, !tbaa !11
+  %.not.i.i39 = icmp eq ptr %34, null
+  br i1 %.not.i.i39, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit40, label %55
 
-if.then.i.i10:                                    ; preds = %if.end66
-  call void @free(ptr noundef nonnull %3) #12
-  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11
+55:                                               ; preds = %53
+  call void @free(ptr noundef nonnull %34) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit40
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11: ; preds = %if.end66, %if.then.i.i10
-  %7 = load i64, ptr %buf_len, align 8
-  %cmp67.not = icmp eq i64 %7, 1004
-  br i1 %cmp67.not, label %lor.lhs.false68, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit40: ; preds = %53, %55
+  %56 = load i64, ptr %2, align 8, !tbaa !14
+  %.not23 = icmp eq i64 %56, 1004
+  br i1 %.not23, label %57, label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-lor.lhs.false68:                                  ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11
-  %8 = load ptr, ptr %buf, align 8
-  %bcmp3 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %8, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
-  %cmp70.not = icmp eq i32 %bcmp3, 0
-  br i1 %cmp70.not, label %lor.lhs.false71, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+57:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit40
+  %58 = load ptr, ptr %1, align 8, !tbaa !11
+  %bcmp24 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %58, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
+  %.not25 = icmp eq i32 %bcmp24, 0
+  br i1 %.not25, label %59, label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-lor.lhs.false71:                                  ; preds = %lor.lhs.false68
-  %add.ptr72 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %bcmp4 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1000) %add.ptr72, ptr noundef nonnull dereferenceable(1000) %call5.i.i.i.i1.i.i8, i64 1000)
-  %tobool75.not = icmp eq i32 %bcmp4, 0
-  br i1 %tobool75.not, label %if.end77, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %bcmp26 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1000) %60, ptr noundef nonnull dereferenceable(1000) %19, i64 1000)
+  %.not27 = icmp eq i32 %bcmp26, 0
+  br i1 %.not27, label %61, label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-if.end77:                                         ; preds = %lor.lhs.false71
-  %call79 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-          to label %invoke.cont78 unwind label %ehcleanup
+61:                                               ; preds = %59
+  %62 = invoke i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0)
+          to label %63 unwind label %85
 
-invoke.cont78:                                    ; preds = %if.end77
-  %tobool80.not = icmp eq i32 %call79, 0
-  br i1 %tobool80.not, label %_ZNSt6vectorIhSaIhEED2Ev.exit17, label %if.end82
+63:                                               ; preds = %61
+  %.not28 = icmp eq i32 %62, 0
+  br i1 %.not28, label %_ZNSt6vectorIhSaIhEED2Ev.exit44, label %64
 
-if.end82:                                         ; preds = %invoke.cont78
-  %call84 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %cbb, ptr noundef nonnull %contents, i8 noundef zeroext 48)
-          to label %invoke.cont83 unwind label %ehcleanup
+64:                                               ; preds = %63
+  %65 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %3, ptr noundef nonnull %4, i8 noundef zeroext 48)
+          to label %66 unwind label %85
 
-invoke.cont83:                                    ; preds = %if.end82
-  %tobool85.not = icmp eq i32 %call84, 0
-  br i1 %tobool85.not, label %if.then99, label %lor.lhs.false86
+66:                                               ; preds = %64
+  %.not29 = icmp eq i32 %65, 0
+  br i1 %.not29, label %76, label %67
 
-lor.lhs.false86:                                  ; preds = %invoke.cont83
-  %call88 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %contents, ptr noundef nonnull %inner_contents, i8 noundef zeroext 48)
-          to label %invoke.cont87 unwind label %ehcleanup
+67:                                               ; preds = %66
+  %68 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, i8 noundef zeroext 48)
+          to label %69 unwind label %85
 
-invoke.cont87:                                    ; preds = %lor.lhs.false86
-  %tobool89.not = icmp eq i32 %call88, 0
-  br i1 %tobool89.not, label %if.then99, label %lor.lhs.false90
+69:                                               ; preds = %67
+  %.not30 = icmp eq i32 %68, 0
+  br i1 %.not30, label %76, label %70
 
-lor.lhs.false90:                                  ; preds = %invoke.cont87
-  %call93 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %inner_contents, ptr noundef nonnull %call5.i.i.i.i1.i.i8, i64 noundef 100000)
-          to label %invoke.cont92 unwind label %ehcleanup
+70:                                               ; preds = %69
+  %71 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %5, ptr noundef nonnull %19, i64 noundef 100000)
+          to label %72 unwind label %85
 
-invoke.cont92:                                    ; preds = %lor.lhs.false90
-  %tobool94.not = icmp eq i32 %call93, 0
-  br i1 %tobool94.not, label %if.then99, label %lor.lhs.false95
+72:                                               ; preds = %70
+  %.not31 = icmp eq i32 %71, 0
+  br i1 %.not31, label %76, label %73
 
-lor.lhs.false95:                                  ; preds = %invoke.cont92
-  %call97 = invoke i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-          to label %invoke.cont96 unwind label %ehcleanup
+73:                                               ; preds = %72
+  %74 = invoke i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2)
+          to label %75 unwind label %85
 
-invoke.cont96:                                    ; preds = %lor.lhs.false95
-  %tobool98.not = icmp eq i32 %call97, 0
-  br i1 %tobool98.not, label %if.then99, label %if.end101
+75:                                               ; preds = %73
+  %.not32 = icmp eq i32 %74, 0
+  br i1 %.not32, label %76, label %77
 
-if.then99:                                        ; preds = %invoke.cont96, %invoke.cont92, %invoke.cont87, %invoke.cont83
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %ehcleanup
+76:                                               ; preds = %75, %72, %69, %66
+  invoke void @CBB_cleanup(ptr noundef nonnull %3)
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit44 unwind label %85
 
-if.end101:                                        ; preds = %invoke.cont96
-  %9 = load ptr, ptr %buf, align 8
-  %tobool.not.i.i12 = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i12, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14, label %if.then.i.i13
+77:                                               ; preds = %75
+  %78 = load ptr, ptr %1, align 8, !tbaa !11
+  %.not.i.i41 = icmp eq ptr %54, null
+  br i1 %.not.i.i41, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit42, label %79
 
-if.then.i.i13:                                    ; preds = %if.end101
-  call void @free(ptr noundef nonnull %6) #12
-  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14
+79:                                               ; preds = %77
+  call void @free(ptr noundef nonnull %54) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit42
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14: ; preds = %if.end101, %if.then.i.i13
-  %10 = load i64, ptr %buf_len, align 8
-  %cmp102.not = icmp eq i64 %10, 100010
-  br i1 %cmp102.not, label %lor.lhs.false103, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit42: ; preds = %77, %79
+  %80 = load i64, ptr %2, align 8, !tbaa !14
+  %.not34 = icmp eq i64 %80, 100010
+  br i1 %.not34, label %81, label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-lor.lhs.false103:                                 ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14
-  %11 = load ptr, ptr %buf, align 8
-  %bcmp6 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %11, ptr noundef nonnull dereferenceable(10) @.str.10, i64 10)
-  %cmp105.not = icmp eq i32 %bcmp6, 0
-  br i1 %cmp105.not, label %lor.lhs.false106, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+81:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit42
+  %82 = load ptr, ptr %1, align 8, !tbaa !11
+  %bcmp35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %82, ptr noundef nonnull dereferenceable(10) @.str.10, i64 10)
+  %.not36 = icmp eq i32 %bcmp35, 0
+  br i1 %.not36, label %83, label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-lor.lhs.false106:                                 ; preds = %lor.lhs.false103
-  %add.ptr107 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  %bcmp7 = call i32 @bcmp(ptr noundef nonnull dereferenceable(100000) %add.ptr107, ptr noundef nonnull dereferenceable(100000) %call5.i.i.i.i1.i.i8, i64 100000)
-  %tobool110.not = icmp eq i32 %bcmp7, 0
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit17
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 10
+  %bcmp37 = call i32 @bcmp(ptr noundef nonnull dereferenceable(100000) %84, ptr noundef nonnull dereferenceable(100000) %19, i64 100000)
+  %.not38 = icmp eq i32 %bcmp37, 0
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit44
 
-_ZNSt6vectorIhSaIhEED2Ev.exit17:                  ; preds = %lor.lhs.false106, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14, %lor.lhs.false103, %if.then99, %invoke.cont78, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11, %lor.lhs.false68, %lor.lhs.false71, %if.then64, %invoke.cont47, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, %lor.lhs.false38, %lor.lhs.false41, %if.then34, %invoke.cont17
-  %scoper.sroa.0.2 = phi ptr [ %0, %invoke.cont17 ], [ %0, %if.then34 ], [ %3, %invoke.cont47 ], [ %3, %if.then64 ], [ %6, %invoke.cont78 ], [ %6, %if.then99 ], [ %9, %lor.lhs.false106 ], [ %9, %lor.lhs.false103 ], [ %9, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ %6, %lor.lhs.false71 ], [ %6, %lor.lhs.false68 ], [ %6, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ %3, %lor.lhs.false41 ], [ %3, %lor.lhs.false38 ], [ %3, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
-  %retval.2 = phi i1 [ false, %invoke.cont17 ], [ false, %if.then34 ], [ false, %invoke.cont47 ], [ false, %if.then64 ], [ false, %invoke.cont78 ], [ false, %if.then99 ], [ %tobool110.not, %lor.lhs.false106 ], [ false, %lor.lhs.false103 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ false, %lor.lhs.false71 ], [ false, %lor.lhs.false68 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false38 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
-  br label %cleanup113
+_ZNSt6vectorIhSaIhEED2Ev.exit44:                  ; preds = %83, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit42, %81, %76, %63, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit40, %57, %59, %52, %42, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, %36, %38, %33, %22
+  %.sroa.055.2 = phi ptr [ %15, %22 ], [ %15, %33 ], [ %34, %42 ], [ %34, %52 ], [ %54, %63 ], [ %54, %76 ], [ %78, %83 ], [ %78, %81 ], [ %78, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit42 ], [ %54, %59 ], [ %54, %57 ], [ %54, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit40 ], [ %34, %38 ], [ %34, %36 ], [ %34, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
+  %.2 = phi i1 [ false, %22 ], [ false, %33 ], [ false, %42 ], [ false, %52 ], [ false, %63 ], [ false, %76 ], [ %.not38, %83 ], [ false, %81 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit42 ], [ false, %59 ], [ false, %57 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit40 ], [ false, %38 ], [ false, %36 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
+  call void @_ZdlPv(ptr noundef nonnull %19) #16
+  br label %87
 
-cleanup113:                                       ; preds = %if.end9, %_ZNSt6vectorIhSaIhEED2Ev.exit17
-  %scoper.sroa.0.0 = phi ptr [ %scoper.sroa.0.2, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ %0, %if.end9 ]
-  %retval.1 = phi i1 [ %retval.2, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ false, %if.end9 ]
-  %cmp.not.i = icmp eq ptr %scoper.sroa.0.0, null
-  br i1 %cmp.not.i, label %return, label %if.then.i
-
-if.then.i:                                        ; preds = %lor.lhs.false10, %cleanup113
-  %retval.136 = phi i1 [ %retval.1, %cleanup113 ], [ false, %lor.lhs.false10 ]
-  %scoper.sroa.0.035 = phi ptr [ %scoper.sroa.0.0, %cleanup113 ], [ %0, %lor.lhs.false10 ]
-  call void @free(ptr noundef nonnull %scoper.sroa.0.035) #12
-  br label %return
-
-ehcleanup.thread44:                               ; preds = %if.then34, %lor.lhs.false30, %lor.lhs.false25, %if.end21, %invoke.cont
+.thread66:                                        ; preds = %33, %30, %27, %24, %20
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
-  br label %if.then.i19
+  call void @_ZdlPv(ptr noundef nonnull %19) #16
+  br label %86
 
-ehcleanup:                                        ; preds = %if.end46, %if.end51, %lor.lhs.false55, %lor.lhs.false60, %if.then64, %if.end77, %if.end82, %lor.lhs.false86, %lor.lhs.false90, %lor.lhs.false95, %if.then99
-  %scoper.sroa.0.1.ph = phi ptr [ %3, %if.end46 ], [ %3, %if.end51 ], [ %3, %lor.lhs.false55 ], [ %3, %lor.lhs.false60 ], [ %6, %if.end77 ], [ %6, %if.end82 ], [ %6, %lor.lhs.false86 ], [ %6, %lor.lhs.false90 ], [ %6, %lor.lhs.false95 ], [ %6, %if.then99 ], [ %3, %if.then64 ]
+85:                                               ; preds = %40, %43, %46, %49, %52, %61, %64, %67, %70, %73, %76
+  %.sroa.055.1.ph = phi ptr [ %34, %40 ], [ %34, %43 ], [ %34, %46 ], [ %34, %49 ], [ %54, %61 ], [ %54, %64 ], [ %54, %67 ], [ %54, %70 ], [ %54, %73 ], [ %54, %76 ], [ %34, %52 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
-  %cmp.not.i18 = icmp eq ptr %scoper.sroa.0.1.ph, null
-  br i1 %cmp.not.i18, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20, label %if.then.i19
+  call void @_ZdlPv(ptr noundef nonnull %19) #16
+  %.not.i = icmp eq ptr %.sroa.055.1.ph, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %86
 
-if.then.i19:                                      ; preds = %ehcleanup.thread44, %ehcleanup.thread, %ehcleanup
-  %.pn42 = phi { ptr, i32 } [ %2, %ehcleanup.thread ], [ %lpad.thr_comm.split-lp, %ehcleanup ], [ %lpad.thr_comm, %ehcleanup.thread44 ]
-  %scoper.sroa.0.341 = phi ptr [ %0, %ehcleanup.thread ], [ %scoper.sroa.0.1.ph, %ehcleanup ], [ %0, %ehcleanup.thread44 ]
-  call void @free(ptr noundef nonnull %scoper.sroa.0.341) #12
-  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20
+86:                                               ; preds = %.thread66, %.thread, %85
+  %.pn64 = phi { ptr, i32 } [ %23, %.thread ], [ %lpad.thr_comm.split-lp, %85 ], [ %lpad.thr_comm, %.thread66 ]
+  %.sroa.055.363 = phi ptr [ %15, %.thread ], [ %.sroa.055.1.ph, %85 ], [ %15, %.thread66 ]
+  call void @free(ptr noundef nonnull %.sroa.055.363) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20:  ; preds = %ehcleanup, %if.then.i19
-  %.pn43 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup ], [ %.pn42, %if.then.i19 ]
-  resume { ptr, i32 } %.pn43
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %85, %86
+  %.pn65 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %85 ], [ %.pn64, %86 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  resume { ptr, i32 } %.pn65
 
-return:                                           ; preds = %if.then.i, %cleanup113, %entry, %if.then8
-  %retval.0 = phi i1 [ false, %if.then8 ], [ false, %entry ], [ %retval.1, %cleanup113 ], [ %retval.136, %if.then.i ]
-  ret i1 %retval.0
+87:                                               ; preds = %14, %_ZNSt6vectorIhSaIhEED2Ev.exit44
+  %.sroa.055.0 = phi ptr [ %.sroa.055.2, %_ZNSt6vectorIhSaIhEED2Ev.exit44 ], [ %15, %14 ]
+  %.1 = phi i1 [ %.2, %_ZNSt6vectorIhSaIhEED2Ev.exit44 ], [ false, %14 ]
+  %.not.i45 = icmp eq ptr %.sroa.055.0, null
+  br i1 %.not.i45, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit46, label %.thread70
+
+.thread70:                                        ; preds = %17, %87
+  %.175 = phi i1 [ %.1, %87 ], [ false, %17 ]
+  %.sroa.055.074 = phi ptr [ %.sroa.055.0, %87 ], [ %15, %17 ]
+  call void @free(ptr noundef nonnull %.sroa.055.074) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit46
+
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit46:  ; preds = %.thread70, %87, %0, %13
+  %.03 = phi i1 [ false, %13 ], [ false, %0 ], [ %.1, %87 ], [ %.175, %.thread70 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  ret i1 %.03
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL14TestBerConvertv() unnamed_addr #0 {
-entry:
-  %call = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.12, ptr noundef nonnull @_ZZL14TestBerConvertvE10kSimpleBER, i64 noundef 3, ptr noundef nonnull @_ZZL14TestBerConvertvE10kSimpleBER, i64 noundef 3)
-  br i1 %call, label %land.lhs.true, label %land.end
+  %1 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.12, ptr noundef nonnull @_ZZL14TestBerConvertvE10kSimpleBER, i64 noundef 3, ptr noundef nonnull @_ZZL14TestBerConvertvE10kSimpleBER, i64 noundef 3)
+  br i1 %1, label %2, label %10
 
-land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.13, ptr noundef nonnull @_ZZL14TestBerConvertvE9kIndefDER, i64 noundef 5, ptr noundef nonnull @_ZZL14TestBerConvertvE9kIndefBER, i64 noundef 7)
-  br i1 %call1, label %land.lhs.true2, label %land.end
+2:                                                ; preds = %0
+  %3 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.13, ptr noundef nonnull @_ZZL14TestBerConvertvE9kIndefDER, i64 noundef 5, ptr noundef nonnull @_ZZL14TestBerConvertvE9kIndefBER, i64 noundef 7)
+  br i1 %3, label %4, label %10
 
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %call3 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.14, ptr noundef nonnull @_ZZL14TestBerConvertvE15kOctetStringDER, i64 noundef 6, ptr noundef nonnull @_ZZL14TestBerConvertvE15kOctetStringBER, i64 noundef 12)
-  br i1 %call3, label %land.lhs.true4, label %land.end
+4:                                                ; preds = %2
+  %5 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.14, ptr noundef nonnull @_ZZL14TestBerConvertvE15kOctetStringDER, i64 noundef 6, ptr noundef nonnull @_ZZL14TestBerConvertvE15kOctetStringBER, i64 noundef 12)
+  br i1 %5, label %6, label %10
 
-land.lhs.true4:                                   ; preds = %land.lhs.true2
-  %call5 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.15, ptr noundef nonnull @_ZZL14TestBerConvertvE7kNSSDER, i64 noundef 85, ptr noundef nonnull @_ZZL14TestBerConvertvE7kNSSBER, i64 noundef 95)
-  br i1 %call5, label %land.rhs, label %land.end
+6:                                                ; preds = %4
+  %7 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.15, ptr noundef nonnull @_ZZL14TestBerConvertvE7kNSSDER, i64 noundef 85, ptr noundef nonnull @_ZZL14TestBerConvertvE7kNSSBER, i64 noundef 95)
+  br i1 %7, label %8, label %10
 
-land.rhs:                                         ; preds = %land.lhs.true4
-  %call6 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.16, ptr noundef nonnull @_ZZL14TestBerConvertvE21kConstructedStringDER, i64 noundef 10, ptr noundef nonnull @_ZZL14TestBerConvertvE21kConstructedStringBER, i64 noundef 18)
-  br label %land.end
+8:                                                ; preds = %6
+  %9 = tail call fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef nonnull @.str.16, ptr noundef nonnull @_ZZL14TestBerConvertvE21kConstructedStringDER, i64 noundef 10, ptr noundef nonnull @_ZZL14TestBerConvertvE21kConstructedStringBER, i64 noundef 18)
+  br label %10
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true4, %land.lhs.true2, %land.lhs.true, %entry
-  %0 = phi i1 [ false, %land.lhs.true4 ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true ], [ false, %entry ], [ %call6, %land.rhs ]
-  ret i1 %0
+10:                                               ; preds = %8, %6, %4, %2, %0
+  %11 = phi i1 [ false, %6 ], [ false, %4 ], [ false, %2 ], [ false, %0 ], [ %9, %8 ]
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL18TestImplicitStringv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %storage = alloca ptr, align 8
-  %in = alloca %struct.cbs_st, align 8
-  %out = alloca %struct.cbs_st, align 8
-  br label %for.body
+  %1 = alloca ptr, align 8
+  %2 = alloca %struct.cbs_st, align 8
+  %3 = alloca %struct.cbs_st, align 8
+  br label %4
 
-for.body:                                         ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12, %entry
-  %__begin1.0.idx15 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12 ]
-  %__begin1.0.ptr16 = getelementptr inbounds nuw i8, ptr @_ZL20kImplicitStringTests, i64 %__begin1.0.idx15
-  store ptr null, ptr %storage, align 8
-  %0 = load ptr, ptr %__begin1.0.ptr16, align 8
-  %in_len = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr16, i64 8
-  %1 = load i64, ptr %in_len, align 8
-  call void @CBS_init(ptr noundef nonnull %in, ptr noundef %0, i64 noundef %1)
-  %call = call i32 @CBS_get_asn1_implicit_string(ptr noundef nonnull %in, ptr noundef nonnull %out, ptr noundef nonnull %storage, i32 noundef 128, i32 noundef 4)
-  %2 = load ptr, ptr %storage, align 8
-  %tobool = icmp ne i32 %call, 0
-  %ok2 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr16, i64 16
-  %3 = load i8, ptr %ok2, align 8
-  %4 = trunc i8 %3 to i1
-  %5 = xor i1 %tobool, %4
-  br i1 %5, label %if.then, label %if.end
+4:                                                ; preds = %0, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit26
+  %.019.idx41 = phi i64 [ 0, %0 ], [ %.019.add, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit26 ]
+  %.019.ptr42 = getelementptr inbounds nuw i8, ptr @_ZL20kImplicitStringTests, i64 %.019.idx41
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
+  store ptr null, ptr %1, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  %5 = load ptr, ptr %.019.ptr42, align 8, !tbaa !18
+  %6 = getelementptr inbounds nuw i8, ptr %.019.ptr42, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !21
+  call void @CBS_init(ptr noundef nonnull %2, ptr noundef %5, i64 noundef %7)
+  %8 = call i32 @CBS_get_asn1_implicit_string(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, i32 noundef 128, i32 noundef 4)
+  %9 = load ptr, ptr %1, align 8, !tbaa !11
+  %10 = icmp ne i32 %8, 0
+  %11 = getelementptr inbounds nuw i8, ptr %.019.ptr42, i64 16
+  %12 = load i8, ptr %11, align 8, !tbaa !22, !range !23, !noundef !24
+  %13 = zext i1 %10 to i8
+  %.not22 = icmp eq i8 %12, %13
+  br i1 %.not22, label %18, label %14
 
-if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr @stderr, align 8
-  %cond = select i1 %tobool, ptr @.str.21, ptr @.str.22
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.20, ptr noundef nonnull %cond) #13
-  br label %cleanup
+14:                                               ; preds = %4
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %16 = select i1 %10, ptr @.str.21, ptr @.str.22
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.20, ptr noundef nonnull %16) #17
+  br label %.critedge
 
-lpad:                                             ; preds = %lor.lhs.false, %land.lhs.true
-  %7 = landingpad { ptr, i32 }
+18:                                               ; preds = %4
+  br i1 %10, label %19, label %35
+
+19:                                               ; preds = %18
+  %20 = invoke i64 @CBS_len(ptr noundef nonnull %3)
+          to label %21 unwind label %32
+
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %.019.ptr42, i64 32
+  %23 = load i64, ptr %22, align 8, !tbaa !25
+  %.not23 = icmp eq i64 %20, %23
+  br i1 %.not23, label %24, label %29
+
+24:                                               ; preds = %21
+  %25 = invoke ptr @CBS_data(ptr noundef nonnull %3)
+          to label %26 unwind label %32
+
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %.019.ptr42, i64 24
+  %28 = load ptr, ptr %27, align 8, !tbaa !26
+  %bcmp = call i32 @bcmp(ptr %25, ptr %28, i64 %20)
+  %.not24 = icmp eq i32 %bcmp, 0
+  br i1 %.not24, label %35, label %29
+
+29:                                               ; preds = %26, %21
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %31 = call i64 @fwrite(ptr nonnull @.str.23, i64 51, i64 1, ptr %30) #13
+  br label %.critedge
+
+32:                                               ; preds = %24, %19
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %if.then.i
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %34
 
-if.then.i:                                        ; preds = %lpad
-  call void @free(ptr noundef nonnull %2) #12
+34:                                               ; preds = %32
+  call void @free(ptr noundef nonnull %9) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %lpad, %if.then.i
-  resume { ptr, i32 } %7
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %34
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  resume { ptr, i32 } %33
 
-if.end:                                           ; preds = %for.body
-  br i1 %tobool, label %land.lhs.true, label %cleanup
+35:                                               ; preds = %18, %26
+  %.not.i25 = icmp eq ptr %9, null
+  br i1 %.not.i25, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit26, label %36
 
-land.lhs.true:                                    ; preds = %if.end
-  %call10 = invoke i64 @CBS_len(ptr noundef nonnull %out)
-          to label %invoke.cont9 unwind label %lpad
+36:                                               ; preds = %35
+  call void @free(ptr noundef nonnull %9) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit26
 
-invoke.cont9:                                     ; preds = %land.lhs.true
-  %out_len = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr16, i64 32
-  %8 = load i64, ptr %out_len, align 8
-  %cmp11.not = icmp eq i64 %call10, %8
-  br i1 %cmp11.not, label %lor.lhs.false, label %if.then18
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit26:  ; preds = %35, %36
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  %.019.add = add nuw nsw i64 %.019.idx41, 40
+  %.not = icmp eq i64 %.019.add, 240
+  br i1 %.not, label %.loopexit, label %4
 
-lor.lhs.false:                                    ; preds = %invoke.cont9
-  %call13 = invoke ptr @CBS_data(ptr noundef nonnull %out)
-          to label %invoke.cont12 unwind label %lpad
+.critedge:                                        ; preds = %29, %14
+  %.not.i27 = icmp eq ptr %9, null
+  br i1 %.not.i27, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit28, label %37
 
-invoke.cont12:                                    ; preds = %lor.lhs.false
-  %out14 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr16, i64 24
-  %9 = load ptr, ptr %out14, align 8
-  %bcmp = call i32 @bcmp(ptr %call13, ptr %9, i64 %call10)
-  %cmp17.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp17.not, label %cleanup, label %if.then18
+37:                                               ; preds = %.critedge
+  call void @free(ptr noundef nonnull %9) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit28
 
-if.then18:                                        ; preds = %invoke.cont12, %invoke.cont9
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = call i64 @fwrite(ptr nonnull @.str.23, i64 51, i64 1, ptr %10) #13
-  br label %cleanup
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit28:  ; preds = %.critedge, %37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  br label %.loopexit
 
-cleanup:                                          ; preds = %if.end, %invoke.cont12, %if.then18, %if.then
-  %switch = phi i1 [ false, %if.then ], [ false, %if.then18 ], [ true, %invoke.cont12 ], [ true, %if.end ]
-  %cmp.not.i10 = icmp eq ptr %2, null
-  br i1 %cmp.not.i10, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12, label %if.then.i11
-
-if.then.i11:                                      ; preds = %cleanup
-  call void @free(ptr noundef nonnull %2) #12
-  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12
-
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12:  ; preds = %cleanup, %if.then.i11
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx15, 40
-  %cmp.not = icmp ne i64 %__begin1.0.add, 240
-  %or.cond.not = select i1 %switch, i1 %cmp.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return
-
-return:                                           ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12
-  ret i1 %switch
+.loopexit:                                        ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit26, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit28
+  %.not34 = phi i1 [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit28 ], [ true, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit26 ]
+  ret i1 %.not34
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %cbs = alloca %struct.cbs_st, align 8
-  %value = alloca i64, align 8
-  %cbb = alloca %struct.cbb_st, align 8
-  %out = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %cbs32 = alloca %struct.cbs_st, align 8
-  %value33 = alloca i64, align 8
-  br label %for.body
+  %1 = alloca %struct.cbs_st, align 8
+  %2 = alloca i64, align 8
+  %3 = alloca %struct.cbb_st, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %struct.cbs_st, align 8
+  %7 = alloca i64, align 8
+  br label %10
 
-for.cond:                                         ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
-  %inc = add nuw nsw i64 %i.012, 1
-  %exitcond.not = icmp eq i64 %inc, 7
-  br i1 %exitcond.not, label %for.body29, label %for.body, !llvm.loop !7
+8:                                                ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
+  %9 = add nuw nsw i64 %.02048, 1
+  %exitcond.not = icmp eq i64 %9, 7
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !27
 
-for.body:                                         ; preds = %entry, %for.cond
-  %i.012 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %i.012
-  %encoding = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %0 = load ptr, ptr %encoding, align 8
-  %encoding_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %1 = load i64, ptr %encoding_len, align 8
-  call void @CBS_init(ptr noundef nonnull %cbs, ptr noundef %0, i64 noundef %1)
-  %call = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %cbs, ptr noundef nonnull %value)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false
+10:                                               ; preds = %0, %8
+  %.02048 = phi i64 [ 0, %0 ], [ %9, %8 ]
+  %11 = getelementptr inbounds nuw [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %.02048
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %15 = load i64, ptr %14, align 8, !tbaa !31
+  call void @CBS_init(ptr noundef nonnull %1, ptr noundef %13, i64 noundef %15)
+  %16 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %.thread.sink.split, label %17
 
-lor.lhs.false:                                    ; preds = %for.body
-  %call1 = call i64 @CBS_len(ptr noundef nonnull %cbs)
-  %cmp2.not = icmp eq i64 %call1, 0
-  br i1 %cmp2.not, label %lor.lhs.false3, label %return
+17:                                               ; preds = %10
+  %18 = call i64 @CBS_len(ptr noundef nonnull %1)
+  %.not27 = icmp eq i64 %18, 0
+  br i1 %.not27, label %19, label %.thread.sink.split
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %2 = load i64, ptr %value, align 8
-  %3 = load i64, ptr %arrayidx, align 8
-  %cmp5.not = icmp eq i64 %2, %3
-  br i1 %cmp5.not, label %if.end, label %return
+19:                                               ; preds = %17
+  %20 = load i64, ptr %2, align 8, !tbaa !14
+  %21 = load i64, ptr %11, align 8, !tbaa !32
+  %.not28 = icmp eq i64 %20, %21
+  br i1 %.not28, label %22, label %.thread.sink.split
 
-if.end:                                           ; preds = %lor.lhs.false3
-  %call6 = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %return, label %if.end9
+22:                                               ; preds = %19
+  %23 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0)
+  %.not29 = icmp eq i32 %23, 0
+  br i1 %.not29, label %.thread.sink.split, label %24
 
-if.end9:                                          ; preds = %if.end
-  %call11 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %cbb, i64 noundef %2)
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %if.then16, label %lor.lhs.false13
+24:                                               ; preds = %22
+  %25 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %3, i64 noundef %20)
+  %.not30 = icmp eq i32 %25, 0
+  br i1 %.not30, label %28, label %26
 
-lor.lhs.false13:                                  ; preds = %if.end9
-  %call14 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %out, ptr noundef nonnull %len)
-  %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %if.then16, label %if.end17
+26:                                               ; preds = %24
+  %27 = call i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %.not31 = icmp eq i32 %27, 0
+  br i1 %.not31, label %28, label %29
 
-if.then16:                                        ; preds = %lor.lhs.false13, %if.end9
-  call void @CBB_cleanup(ptr noundef nonnull %cbb)
-  br label %return
+28:                                               ; preds = %26, %24
+  call void @CBB_cleanup(ptr noundef nonnull %3)
+  br label %.thread.sink.split
 
-if.end17:                                         ; preds = %lor.lhs.false13
-  %4 = load ptr, ptr %out, align 8
-  %5 = load i64, ptr %len, align 8
-  %cmp19.not = icmp eq i64 %5, %1
-  br i1 %cmp19.not, label %lor.lhs.false20, label %cleanup
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %4, align 8, !tbaa !11
+  %31 = load i64, ptr %5, align 8, !tbaa !14
+  %.not32 = icmp eq i64 %31, %15
+  br i1 %.not32, label %32, label %.critedge39
 
-lor.lhs.false20:                                  ; preds = %if.end17
-  %bcmp = call i32 @bcmp(ptr %4, ptr %0, i64 %1)
-  %cmp23.not = icmp eq i32 %bcmp, 0
-  br label %cleanup
+32:                                               ; preds = %29
+  %bcmp = call i32 @bcmp(ptr %30, ptr %13, i64 %15)
+  %.not33 = icmp eq i32 %bcmp, 0
+  %.not.i = icmp eq ptr %30, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %33
 
-cleanup:                                          ; preds = %lor.lhs.false20, %if.end17
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.end17 ], [ %cmp23.not, %lor.lhs.false20 ]
-  %cmp.not.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %cleanup
-  call void @free(ptr noundef nonnull %4) #12
+33:                                               ; preds = %32
+  call void @free(ptr noundef nonnull %30) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %cleanup, %if.then.i
-  br i1 %cleanup.dest.slot.0, label %for.cond, label %return
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #12
+  br i1 %.not33, label %8, label %.thread
 
-for.body29:                                       ; preds = %for.cond, %for.body29
-  %i26.013 = phi i64 [ %inc41, %for.body29 ], [ 0, %for.cond ]
-  %arrayidx31 = getelementptr inbounds nuw [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %i26.013
-  %6 = load ptr, ptr %arrayidx31, align 16
-  %encoding_len35 = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 8
-  %7 = load i64, ptr %encoding_len35, align 8
-  call void @CBS_init(ptr noundef nonnull %cbs32, ptr noundef %6, i64 noundef %7)
-  %call36 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %cbs32, ptr noundef nonnull %value33)
-  %tobool37.not = icmp eq i32 %call36, 0
-  %inc41 = add nuw nsw i64 %i26.013, 1
-  %exitcond15.not = icmp ne i64 %inc41, 5
-  %or.cond.not = select i1 %tobool37.not, i1 %exitcond15.not, i1 false
-  br i1 %or.cond.not, label %for.body29, label %return, !llvm.loop !9
+.critedge39:                                      ; preds = %29
+  %.not.i40 = icmp eq ptr %30, null
+  br i1 %.not.i40, label %.thread.sink.split, label %34
 
-return:                                           ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %if.end, %for.body, %lor.lhs.false, %lor.lhs.false3, %for.body29, %if.then16
-  %retval.1 = phi i1 [ false, %if.then16 ], [ %tobool37.not, %for.body29 ], [ false, %lor.lhs.false3 ], [ false, %lor.lhs.false ], [ false, %for.body ], [ false, %if.end ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
-  ret i1 %retval.1
+34:                                               ; preds = %.critedge39
+  call void @free(ptr noundef nonnull %30) #12
+  br label %.thread.sink.split
+
+.preheader:                                       ; preds = %8, %.preheader
+  %.01949 = phi i64 [ %40, %.preheader ], [ 0, %8 ]
+  %35 = getelementptr inbounds nuw [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %.01949
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  %36 = load ptr, ptr %35, align 16, !tbaa !33
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = load i64, ptr %37, align 8, !tbaa !35
+  call void @CBS_init(ptr noundef nonnull %6, ptr noundef %36, i64 noundef %38)
+  %39 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %.not34 = icmp eq i32 %39, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  %40 = add nuw nsw i64 %.01949, 1
+  %exitcond53 = icmp ne i64 %40, 5
+  %or.cond.not = select i1 %.not34, i1 %exitcond53, i1 false
+  br i1 %or.cond.not, label %.preheader, label %.thread, !llvm.loop !36
+
+.thread.sink.split:                               ; preds = %19, %17, %10, %22, %34, %.critedge39, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #12
+  br label %.thread
+
+.thread:                                          ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %.preheader, %.thread.sink.split
+  %.4 = phi i1 [ false, %.thread.sink.split ], [ %.not34, %.preheader ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
+  ret i1 %.4
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL23TestGetOptionalASN1Boolv() unnamed_addr #0 {
-entry:
-  %data = alloca %struct.cbs_st, align 8
-  %val = alloca i32, align 4
-  call void @CBS_init(ptr noundef nonnull %data, ptr noundef null, i64 noundef 0)
-  store i32 2, ptr %val, align 4
-  %call = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %data, ptr noundef nonnull %val, i32 noundef 10, i32 noundef 0)
-  %tobool = icmp eq i32 %call, 0
-  %0 = load i32, ptr %val, align 4
-  %cmp = icmp ne i32 %0, 0
-  %or.cond = select i1 %tobool, i1 true, i1 %cmp
-  br i1 %or.cond, label %return, label %if.end
+  %1 = alloca %struct.cbs_st, align 8
+  %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #12
+  call void @CBS_init(ptr noundef nonnull %1, ptr noundef null, i64 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  store i32 2, ptr %2, align 4, !tbaa !6
+  %3 = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 10, i32 noundef 0)
+  %4 = icmp eq i32 %3, 0
+  %5 = load i32, ptr %2, align 4
+  %6 = icmp ne i32 %5, 0
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %19, label %7
 
-if.end:                                           ; preds = %entry
-  call void @CBS_init(ptr noundef nonnull %data, ptr noundef nonnull @_ZZL23TestGetOptionalASN1BoolvE5kTrue, i64 noundef 5)
-  store i32 2, ptr %val, align 4
-  %call1 = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %data, ptr noundef nonnull %val, i32 noundef 10, i32 noundef 0)
-  %tobool2 = icmp eq i32 %call1, 0
-  %1 = load i32, ptr %val, align 4
-  %cmp4 = icmp ne i32 %1, 1
-  %or.cond1 = select i1 %tobool2, i1 true, i1 %cmp4
-  br i1 %or.cond1, label %return, label %if.end6
+7:                                                ; preds = %0
+  call void @CBS_init(ptr noundef nonnull %1, ptr noundef nonnull @_ZZL23TestGetOptionalASN1BoolvE5kTrue, i64 noundef 5)
+  store i32 2, ptr %2, align 4, !tbaa !6
+  %8 = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 10, i32 noundef 0)
+  %9 = icmp eq i32 %8, 0
+  %10 = load i32, ptr %2, align 4
+  %11 = icmp ne i32 %10, 1
+  %or.cond3 = select i1 %9, i1 true, i1 %11
+  br i1 %or.cond3, label %19, label %12
 
-if.end6:                                          ; preds = %if.end
-  call void @CBS_init(ptr noundef nonnull %data, ptr noundef nonnull @_ZZL23TestGetOptionalASN1BoolvE6kFalse, i64 noundef 5)
-  store i32 2, ptr %val, align 4
-  %call7 = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %data, ptr noundef nonnull %val, i32 noundef 10, i32 noundef 1)
-  %tobool8 = icmp eq i32 %call7, 0
-  %2 = load i32, ptr %val, align 4
-  %cmp10 = icmp ne i32 %2, 0
-  %or.cond2 = select i1 %tobool8, i1 true, i1 %cmp10
-  br i1 %or.cond2, label %return, label %if.end12
+12:                                               ; preds = %7
+  call void @CBS_init(ptr noundef nonnull %1, ptr noundef nonnull @_ZZL23TestGetOptionalASN1BoolvE6kFalse, i64 noundef 5)
+  store i32 2, ptr %2, align 4, !tbaa !6
+  %13 = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 10, i32 noundef 1)
+  %14 = icmp eq i32 %13, 0
+  %15 = load i32, ptr %2, align 4
+  %16 = icmp ne i32 %15, 0
+  %or.cond5 = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond5, label %19, label %17
 
-if.end12:                                         ; preds = %if.end6
-  call void @CBS_init(ptr noundef nonnull %data, ptr noundef nonnull @_ZZL23TestGetOptionalASN1BoolvE8kInvalid, i64 noundef 5)
-  %call13 = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %data, ptr noundef nonnull %val, i32 noundef 10, i32 noundef 1)
-  %tobool14.not = icmp eq i32 %call13, 0
-  br label %return
+17:                                               ; preds = %12
+  call void @CBS_init(ptr noundef nonnull %1, ptr noundef nonnull @_ZZL23TestGetOptionalASN1BoolvE8kInvalid, i64 noundef 5)
+  %18 = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 10, i32 noundef 1)
+  %.not = icmp eq i32 %18, 0
+  br label %19
 
-return:                                           ; preds = %if.end12, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ %tobool14.not, %if.end12 ]
-  ret i1 %retval.0
+19:                                               ; preds = %17, %12, %7, %0
+  %.0 = phi i1 [ false, %0 ], [ false, %7 ], [ false, %12 ], [ %.not, %17 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #12
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc void @_ZL8TestZerov() unnamed_addr #0 {
-entry:
-  %cbb = alloca %struct.cbb_st, align 8
-  call void @CBB_zero(ptr noundef nonnull %cbb)
-  call void @CBB_cleanup(ptr noundef nonnull %cbb)
+  %1 = alloca %struct.cbb_st, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #12
+  call void @CBB_zero(ptr noundef nonnull %1)
+  call void @CBB_cleanup(ptr noundef nonnull %1)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
   ret void
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL14TestCBBReservev() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %buf = alloca [10 x i8], align 1
-  %ptr = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %cbb = alloca %class.ScopedOpenSSLContext, align 8
-  call void @CBB_zero(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
-  %call1 = invoke i32 @CBB_init_fixed(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, i64 noundef 10)
-          to label %invoke.cont unwind label %lpad
+  %1 = alloca [10 x i8], align 1
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca %class.ScopedOpenSSLContext, align 8
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
+  call void @CBB_zero(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = invoke i32 @CBB_init_fixed(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 10)
+          to label %6 unwind label %25
 
-invoke.cont:                                      ; preds = %entry
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %cleanup, label %lor.lhs.false
+6:                                                ; preds = %0
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %30, label %7
 
-lor.lhs.false:                                    ; preds = %invoke.cont
-  %call4 = invoke i32 @CBB_reserve(ptr noundef nonnull %cbb, ptr noundef nonnull %ptr, i64 noundef 11)
-          to label %invoke.cont3 unwind label %lpad
+7:                                                ; preds = %6
+  %8 = invoke i32 @CBB_reserve(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef 11)
+          to label %9 unwind label %25
 
-invoke.cont3:                                     ; preds = %lor.lhs.false
-  %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %lor.lhs.false6, label %cleanup
+9:                                                ; preds = %7
+  %.not6 = icmp eq i32 %8, 0
+  br i1 %.not6, label %10, label %30
 
-lor.lhs.false6:                                   ; preds = %invoke.cont3
-  %call9 = invoke i32 @CBB_reserve(ptr noundef nonnull %cbb, ptr noundef nonnull %ptr, i64 noundef 10)
-          to label %invoke.cont8 unwind label %lpad
+10:                                               ; preds = %9
+  %11 = invoke i32 @CBB_reserve(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef 10)
+          to label %12 unwind label %25
 
-invoke.cont8:                                     ; preds = %lor.lhs.false6
-  %tobool10 = icmp eq i32 %call9, 0
-  %0 = load ptr, ptr %ptr, align 8
-  %cmp = icmp ne ptr %0, %buf
-  %or.cond = select i1 %tobool10, i1 true, i1 %cmp
-  br i1 %or.cond, label %cleanup, label %lor.lhs.false13
+12:                                               ; preds = %10
+  %13 = icmp eq i32 %11, 0
+  %14 = load ptr, ptr %2, align 8
+  %15 = icmp ne ptr %14, %1
+  %or.cond = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond, label %30, label %16
 
-lor.lhs.false13:                                  ; preds = %invoke.cont8
-  %call16 = invoke i32 @CBB_did_write(ptr noundef nonnull %cbb, i64 noundef 5)
-          to label %invoke.cont15 unwind label %lpad
+16:                                               ; preds = %12
+  %17 = invoke i32 @CBB_did_write(ptr noundef nonnull %4, i64 noundef 5)
+          to label %18 unwind label %25
 
-invoke.cont15:                                    ; preds = %lor.lhs.false13
-  %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %cleanup, label %lor.lhs.false18
+18:                                               ; preds = %16
+  %.not7 = icmp eq i32 %17, 0
+  br i1 %.not7, label %30, label %19
 
-lor.lhs.false18:                                  ; preds = %invoke.cont15
-  %call21 = invoke i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef null, ptr noundef nonnull %len)
-          to label %invoke.cont20 unwind label %lpad
+19:                                               ; preds = %18
+  %20 = invoke i32 @CBB_finish(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %3)
+          to label %21 unwind label %25
 
-invoke.cont20:                                    ; preds = %lor.lhs.false18
-  %tobool22 = icmp ne i32 %call21, 0
-  %1 = load i64, ptr %len, align 8
-  %cmp24 = icmp eq i64 %1, 5
-  %or.cond1.not = select i1 %tobool22, i1 %cmp24, i1 false
-  br label %cleanup
+21:                                               ; preds = %19
+  %22 = icmp ne i32 %20, 0
+  %23 = load i64, ptr %3, align 8
+  %24 = icmp eq i64 %23, 5
+  %or.cond4.not = select i1 %22, i1 %24, i1 false
+  br label %30
 
-lpad:                                             ; preds = %lor.lhs.false18, %lor.lhs.false13, %lor.lhs.false6, %lor.lhs.false, %entry
-  %2 = landingpad { ptr, i32 }
+25:                                               ; preds = %19, %16, %10, %7, %0
+  %26 = landingpad { ptr, i32 }
           cleanup
-  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
-          to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit unwind label %terminate.lpad.i
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit unwind label %27
 
-terminate.lpad.i:                                 ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+27:                                               ; preds = %25
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #14
   unreachable
 
-_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit: ; preds = %lpad
-  resume { ptr, i32 } %2
+_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit: ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #12
+  resume { ptr, i32 } %26
 
-cleanup:                                          ; preds = %invoke.cont20, %invoke.cont, %invoke.cont3, %invoke.cont8, %invoke.cont15
-  %retval.0 = phi i1 [ false, %invoke.cont15 ], [ false, %invoke.cont8 ], [ false, %invoke.cont3 ], [ false, %invoke.cont ], [ %or.cond1.not, %invoke.cont20 ]
-  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
-          to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit3 unwind label %terminate.lpad.i2
+30:                                               ; preds = %21, %6, %9, %12, %18
+  %.0 = phi i1 [ false, %18 ], [ false, %12 ], [ false, %9 ], [ false, %6 ], [ %or.cond4.not, %21 ]
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit8 unwind label %31
 
-terminate.lpad.i2:                                ; preds = %cleanup
-  %5 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #14
   unreachable
 
-_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit3: ; preds = %cleanup
-  ret i1 %retval.0
+_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit8: ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #12
+  ret i1 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 declare i32 @CBS_skip(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @CBS_get_u8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1882,8 +2025,8 @@ declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
   tail call void @_ZSt9terminatev() #14
   unreachable
@@ -1892,10 +2035,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #3
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @CBB_init_fixed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1906,7 +2049,7 @@ declare i32 @CBB_add_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed
 declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i64 @CBB_len(ptr noundef) local_unnamed_addr #1
 
@@ -1919,72 +2062,77 @@ declare void @CBB_discard_child(ptr noundef) local_unnamed_addr #1
 declare void @CBB_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef %name, ptr noundef readonly captures(none) %der_expected, i64 noundef range(i64 3, 86) %der_len, ptr noundef %ber, i64 noundef range(i64 3, 96) %ber_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %in = alloca %struct.cbs_st, align 8
-  %out = alloca ptr, align 8
-  %out_len = alloca i64, align 8
-  call void @CBS_init(ptr noundef nonnull %in, ptr noundef %ber, i64 noundef %ber_len)
-  %call = call i32 @CBS_asn1_ber_to_der(ptr noundef nonnull %in, ptr noundef nonnull %out, ptr noundef nonnull %out_len)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+define internal fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 3, 86) %2, ptr noundef %3, i64 noundef range(i64 3, 96) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %struct.cbs_st, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @CBS_init(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %4)
+  %9 = call i32 @CBS_asn1_ber_to_der(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %10, label %13
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %name) #13
-  br label %return
+10:                                               ; preds = %5
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.17, ptr noundef %0) #17
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %out, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then2, label %if.end9
+13:                                               ; preds = %5
+  %14 = load ptr, ptr %7, align 8, !tbaa !11
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %21
 
-if.then2:                                         ; preds = %if.end
-  %cmp3.not = icmp eq i64 %ber_len, %der_len
-  br i1 %cmp3.not, label %lor.lhs.false, label %if.then6
+16:                                               ; preds = %13
+  %.not18 = icmp eq i64 %4, %2
+  br i1 %.not18, label %17, label %18
 
-lor.lhs.false:                                    ; preds = %if.then2
-  %bcmp9 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %der_expected, ptr noundef nonnull dereferenceable(1) %ber, i64 %der_len)
-  %cmp5.not = icmp eq i32 %bcmp9, 0
-  br i1 %cmp5.not, label %return, label %if.then6
+17:                                               ; preds = %16
+  %bcmp19 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3, i64 %2)
+  %.not20 = icmp eq i32 %bcmp19, 0
+  br i1 %.not20, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %18
 
-if.then6:                                         ; preds = %lor.lhs.false, %if.then2
-  %2 = load ptr, ptr @stderr, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %name) #13
-  br label %return
+18:                                               ; preds = %17, %16
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.18, ptr noundef %0) #17
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-if.end9:                                          ; preds = %if.end
-  %3 = load i64, ptr %out_len, align 8
-  %cmp10.not = icmp eq i64 %3, %der_len
-  br i1 %cmp10.not, label %lor.lhs.false11, label %if.then14
+21:                                               ; preds = %13
+  %22 = load i64, ptr %8, align 8, !tbaa !14
+  %.not16 = icmp eq i64 %22, %2
+  br i1 %.not16, label %23, label %24
 
-lor.lhs.false11:                                  ; preds = %if.end9
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %der_expected, i64 %der_len)
-  %cmp13.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp13.not, label %if.then.i, label %if.then14
+23:                                               ; preds = %21
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1, i64 %2)
+  %.not17 = icmp eq i32 %bcmp, 0
+  br i1 %.not17, label %27, label %24
 
-if.then14:                                        ; preds = %lor.lhs.false11, %if.end9
-  %4 = load ptr, ptr @stderr, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.19, ptr noundef %name) #13
-  br label %if.then.i
+24:                                               ; preds = %23, %21
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.19, ptr noundef %0) #17
+  br label %27
 
-if.then.i:                                        ; preds = %if.then14, %lor.lhs.false11
-  %retval.1 = phi i1 [ false, %if.then14 ], [ true, %lor.lhs.false11 ]
-  call void @free(ptr noundef nonnull %1) #12
-  br label %return
+27:                                               ; preds = %24, %23
+  %.1 = phi i1 [ false, %24 ], [ true, %23 ]
+  call void @free(ptr noundef nonnull %14) #12
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-return:                                           ; preds = %if.then6, %lor.lhs.false, %if.then.i, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %retval.1, %if.then.i ], [ true, %lor.lhs.false ], [ false, %if.then6 ]
-  ret i1 %retval.0
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %18, %17, %27, %10
+  %.0 = phi i1 [ false, %10 ], [ %.1, %27 ], [ true, %17 ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  ret i1 %.0
 }
 
 declare i32 @CBS_asn1_ber_to_der(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2002,47 +2150,69 @@ declare i32 @CBB_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @CBB_did_write(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
-
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nounwind }
 attributes #13 = { cold }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { builtin allocsize(0) }
 attributes #16 = { builtin nounwind }
+attributes #17 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!8, !8, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !8, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !8, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!18 = !{!19, !12, i64 0}
+!19 = !{!"_ZTS18ImplicitStringTest", !12, i64 0, !15, i64 8, !20, i64 16, !12, i64 24, !15, i64 32}
+!20 = !{!"bool", !8, i64 0}
+!21 = !{!19, !15, i64 8}
+!22 = !{!19, !20, i64 16}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = !{!19, !15, i64 32}
+!26 = !{!19, !12, i64 24}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!30, !12, i64 8}
+!30 = !{!"_ZTS14ASN1Uint64Test", !15, i64 0, !12, i64 8, !15, i64 16}
+!31 = !{!30, !15, i64 16}
+!32 = !{!30, !15, i64 0}
+!33 = !{!34, !12, i64 0}
+!34 = !{!"_ZTS21ASN1InvalidUint64Test", !12, i64 0, !15, i64 8}
+!35 = !{!34, !15, i64 8}
+!36 = distinct !{!36, !28}

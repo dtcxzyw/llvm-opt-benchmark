@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ec_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ec_point_st = type { ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st }
@@ -8,27 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @EC_GFp_nistp224_method.ret = internal constant %struct.ec_method_st { ptr @ec_GFp_simple_group_init, ptr @ec_GFp_simple_group_finish, ptr @ec_GFp_simple_group_copy, ptr @ec_GFp_simple_group_set_curve, ptr @ec_GFp_nistp224_point_get_affine_coordinates, ptr @ec_GFp_nistp224_points_mul, ptr null, ptr @ec_GFp_simple_field_mul, ptr @ec_GFp_simple_field_sqr, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/p224-64.c\00", align 1
-@felem_reduce.two127p15 = internal constant i128 -170141183460469231731687303715884072960, align 16
-@felem_reduce.two127m71 = internal constant i128 170141183460469229370504062281061498880, align 16
-@felem_reduce.two127m71m55 = internal constant i128 170141183460469229370468033484042534912, align 16
-@felem_contract.two56 = internal constant i64 72057594037927936, align 8
-@felem_diff_128_64.two64p8 = internal constant i128 18446744073709551872, align 16
-@felem_diff_128_64.two64m8 = internal constant i128 18446744073709551360, align 16
-@felem_diff_128_64.two64m48m8 = internal constant i128 18446462598732840704, align 16
-@felem_diff.two58p2 = internal constant i64 288230376151711748, align 8
-@felem_diff.two58m2 = internal constant i64 288230376151711740, align 8
-@felem_diff.two58m42m2 = internal constant i64 288225978105200636, align 8
-@widefelem_diff.two120 = internal constant i128 1329227995784915872903807060280344576, align 16
-@widefelem_diff.two120m64 = internal constant i128 1329227995784915854457062986570792960, align 16
-@widefelem_diff.two120m104m64 = internal constant i128 1329207713375312202786639039319506944, align 16
 @g_pre_comp = internal constant [2 x [16 x [3 x [4 x i64]]]] [[16 x [3 x [4 x i64]]] [[3 x [4 x i64]] zeroinitializer, [3 x [4 x i64]] [[4 x i64] [i64 14215405738138913, i64 54557040081707572, i64 35802381656082947, i64 51525368618398911], [4 x i64] [i64 60096666400751156, i64 33108880804766788, i64 70733931823418691, i64 53259671233230627], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 71378600081669097, i64 53101353446198878, i64 9643677127944771, i64 8806794754890693], [4 x i64] [i64 11787557387672643, i64 66683595736409698, i64 62071344511258832, i64 42804938177827617], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 30749386935733944, i64 24100114246361841, i64 6449338927450687, i64 67233816825210696], [4 x i64] [i64 68010914192828013, i64 48399079136688607, i64 13854281485496300, i64 26093033259862551], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 1760964184319715, i64 41090027584401568, i64 67532174447950347, i64 1294857651850942], [4 x i64] [i64 32950441342316381, i64 37393468670956624, i64 36547193909475078, i64 29580121932532827], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 66029711509099974, i64 2357355352064724, i64 62261198381500593, i64 41424473139086755], [4 x i64] [i64 44747090636954559, i64 18408407550890224, i64 71473164347156647, i64 23149671595181610], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 36644373851745395, i64 45067346634300687, i64 15269155078675364, i64 55047824290902620], [4 x i64] [i64 52870985989664036, i64 62482831525149420, i64 55050187086899839, i64 8720744547476036], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 21566442933681569, i64 58858973370079675, i64 71931372512054140, i64 10714412583876681], [4 x i64] [i64 19370324697435552, i64 57908507923887355, i64 42340026435320969, i64 71608876929167634], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 63768024459850029, i64 56043627304934510, i64 34260102009486412, i64 1626393528605511], [4 x i64] [i64 44894586669579834, i64 6862401668738010, i64 28182317526089046, i64 32234762541237140], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 1241452496952329, i64 32837518891159477, i64 51964745771230176, i64 18517456905243677], [4 x i64] [i64 64715081076890241, i64 17397160098818133, i64 8160769644386790, i64 4044017734465703], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 61557443266865279, i64 19193158631805686, i64 63114965174238904, i64 57153014074658596], [4 x i64] [i64 33295952022928805, i64 6856166956736580, i64 41238105016811088, i64 55172608173881473], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 51955431143051104, i64 48951545393908131, i64 7332110390559962, i64 6585796058786180], [4 x i64] [i64 33542384203444382, i64 10058797968965999, i64 21426027006873135, i64 63791559461639017], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 24521654599544755, i64 48950835715048786, i64 56486885804635390, i64 30538161968627171], [4 x i64] [i64 71951289672484434, i64 50802807143032121, i64 45762139208909556, i64 11379042128140896], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 18220922147849391, i64 2697206093288044, i64 53180879631546064, i64 9383343528083543], [4 x i64] [i64 39346355303216222, i64 67866619231686511, i64 37772318539245749, i64 65271359694450105], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 49944528290716795, i64 48476314201006552, i64 7926935861973702, i64 56315968460949481], [4 x i64] [i64 11418713148600607, i64 2383810739544042, i64 69034399404693108, i64 8489243135795900], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 44809056590259435, i64 1914876046564940, i64 71801422434380147, i64 68027829451324504], [4 x i64] [i64 62240249598010623, i64 62677691397309147, i64 32834184294422163, i64 67174968371586392], [4 x i64] [i64 1, i64 0, i64 0, i64 0]]], [16 x [3 x [4 x i64]]] [[3 x [4 x i64]] zeroinitializer, [3 x [4 x i64]] [[4 x i64] [i64 42332462233023828, i64 42243062983880493, i64 58027427525010455, i64 59490963410320433], [4 x i64] [i64 37661422047375710, i64 9350132935584427, i64 45389832818299846, i64 15017233711959853], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 7398951664410213, i64 60475672073594172, i64 65189123520720006, i64 28643743500374243], [4 x i64] [i64 70475444581864262, i64 68053533660433071, i64 55479242755132331, i64 731566529102474], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 33904912311162351, i64 37915670572403972, i64 61931713228770714, i64 59556603249994803], [4 x i64] [i64 12229322042053423, i64 53667417733410291, i64 62062863872954880, i64 59213258449723648], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 41174889044835069, i64 48461860850250128, i64 40209832863945724, i64 36688508243763925], [4 x i64] [i64 39821100915975713, i64 10027667342093709, i64 49411097451828917, i64 61039442818226922], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 33400705216086256, i64 65773690130261649, i64 29591350155084583, i64 27904408962553022], [4 x i64] [i64 19878918007644842, i64 39760458290838277, i64 8882603977681800, i64 64454190132739665], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 36697159835102230, i64 575617900413498, i64 29339469010895205, i64 5910771084751601], [4 x i64] [i64 14138852356790521, i64 20623455015356372, i64 54424934377855695, i64 3323637626710203], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 41284609216738756, i64 23348383899184552, i64 57208799144709267, i64 18021335613985331], [4 x i64] [i64 71519866587154834, i64 331650310714647, i64 7414810685154214, i64 1962338185252335], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 20952864667040953, i64 53105343129885304, i64 17663783448724262, i64 61941988514011822], [4 x i64] [i64 58374853219681168, i64 25954017644378996, i64 43623027367233463, i64 42061554624494661], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 18866340853038698, i64 41174294738871394, i64 69059630486859566, i64 53229817573778734], [4 x i64] [i64 1229341092743632, i64 11808623625303923, i64 32750466386186109, i64 7063500670951355], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 25736141242682233, i64 20639221590945830, i64 63648179904700148, i64 55382561624164830], [4 x i64] [i64 13648133609350424, i64 13987049300520376, i64 20241014388399759, i64 56125148414327283], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 16887184962971910, i64 20148389049946259, i64 62590757308324646, i64 11679895284435717], [4 x i64] [i64 31555794398004138, i64 31652418437296597, i64 5565067883491094, i64 42948060693069400], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 4484933557700496, i64 12797448631115054, i64 41696350946270356, i64 52844113124987323], [4 x i64] [i64 50320894428189032, i64 4608360979303795, i64 45000129293402240, i64 34760599269173168], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 48724297006178995, i64 67574095596594845, i64 30183651778200389, i64 18251160955299033], [4 x i64] [i64 38854541824519485, i64 43405894546881848, i64 25178753450613532, i64 62159745794163690], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 48681561500723115, i64 21533324478502711, i64 55818039270904196, i64 3040451452578746], [4 x i64] [i64 30400509585702766, i64 71720626911765290, i64 7308408247352024, i64 1419608241050629], [4 x i64] [i64 1, i64 0, i64 0, i64 0]], [3 x [4 x i64]] [[4 x i64] [i64 66796554085571222, i64 26158445393921034, i64 33651971713134491, i64 32657111288886622], [4 x i64] [i64 14152348376426694, i64 50782694041125259, i64 40839628717987281, i64 17443819558305038], [4 x i64] [i64 1, i64 0, i64 0, i64 0]]]], align 16
-@felem_neg.two58p2 = internal constant i64 288230376151711748, align 8
-@felem_neg.two58m2 = internal constant i64 288230376151711740, align 8
-@felem_neg.two58m42m2 = internal constant i64 288225978105200636, align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EC_GFp_nistp224_method() #0 {
-entry:
   ret ptr @EC_GFp_nistp224_method.ret
 }
 
@@ -41,1842 +24,1986 @@ declare i32 @ec_GFp_simple_group_copy(ptr noundef, ptr noundef) #1
 declare i32 @ec_GFp_simple_group_set_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_GFp_nistp224_point_get_affine_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %group.addr = alloca ptr, align 8
-  %point.addr = alloca ptr, align 8
-  %x.addr = alloca ptr, align 8
-  %y.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %z1 = alloca [4 x i64], align 16
-  %z2 = alloca [4 x i64], align 16
-  %x_in = alloca [4 x i64], align 16
-  %y_in = alloca [4 x i64], align 16
-  %x_out = alloca [4 x i64], align 16
-  %y_out = alloca [4 x i64], align 16
-  %tmp = alloca [7 x i128], align 16
-  store ptr %group, ptr %group.addr, align 8
-  store ptr %point, ptr %point.addr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  store ptr %y, ptr %y.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %group.addr, align 8
-  %1 = load ptr, ptr %point.addr, align 8
-  %call = call i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @ec_GFp_nistp224_point_get_affine_coordinates(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca [4 x i64], align 16
+  %13 = alloca [4 x i64], align 16
+  %14 = alloca [4 x i64], align 16
+  %15 = alloca [4 x i64], align 16
+  %16 = alloca [4 x i64], align 16
+  %17 = alloca [4 x i64], align 16
+  %18 = alloca [7 x i128], align 16
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !6
+  store ptr %1, ptr %8, align 8, !tbaa !11
+  store ptr %2, ptr %9, align 8, !tbaa !13
+  store ptr %3, ptr %10, align 8, !tbaa !13
+  store ptr %4, ptr %11, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 112, ptr %18) #7
+  %20 = load ptr, ptr %7, align 8, !tbaa !6
+  %21 = load ptr, ptr %8, align 8, !tbaa !11
+  %22 = call i32 @EC_POINT_is_at_infinity(ptr noundef %20, ptr noundef %21)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %entry
+24:                                               ; preds = %5
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 119, ptr noundef @.str, i32 noundef 997)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %88
 
-if.end:                                           ; preds = %entry
-  %arraydecay = getelementptr inbounds [4 x i64], ptr %x_in, i64 0, i64 0
-  %2 = load ptr, ptr %point.addr, align 8
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %2, i32 0, i32 1
-  %call1 = call i32 @BN_to_felem(ptr noundef %arraydecay, ptr noundef %X)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %lor.lhs.false, label %if.then10
+25:                                               ; preds = %5
+  %26 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 0
+  %27 = load ptr, ptr %8, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.ec_point_st, ptr %27, i32 0, i32 1
+  %29 = call i32 @BN_to_felem(ptr noundef %26, ptr noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %43
 
-lor.lhs.false:                                    ; preds = %if.end
-  %arraydecay3 = getelementptr inbounds [4 x i64], ptr %y_in, i64 0, i64 0
-  %3 = load ptr, ptr %point.addr, align 8
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %3, i32 0, i32 2
-  %call4 = call i32 @BN_to_felem(ptr noundef %arraydecay3, ptr noundef %Y)
-  %tobool5 = icmp ne i32 %call4, 0
-  br i1 %tobool5, label %lor.lhs.false6, label %if.then10
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  %33 = load ptr, ptr %8, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %struct.ec_point_st, ptr %33, i32 0, i32 2
+  %35 = call i32 @BN_to_felem(ptr noundef %32, ptr noundef %34)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %43
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %arraydecay7 = getelementptr inbounds [4 x i64], ptr %z1, i64 0, i64 0
-  %4 = load ptr, ptr %point.addr, align 8
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %4, i32 0, i32 3
-  %call8 = call i32 @BN_to_felem(ptr noundef %arraydecay7, ptr noundef %Z)
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %if.end11, label %if.then10
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds [4 x i64], ptr %12, i64 0, i64 0
+  %39 = load ptr, ptr %8, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw %struct.ec_point_st, ptr %39, i32 0, i32 3
+  %41 = call i32 @BN_to_felem(ptr noundef %38, ptr noundef %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %44, label %43
 
-if.then10:                                        ; preds = %lor.lhs.false6, %lor.lhs.false, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+43:                                               ; preds = %37, %31, %25
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %88
 
-if.end11:                                         ; preds = %lor.lhs.false6
-  %arraydecay12 = getelementptr inbounds [4 x i64], ptr %z2, i64 0, i64 0
-  %arraydecay13 = getelementptr inbounds [4 x i64], ptr %z1, i64 0, i64 0
-  call void @felem_inv(ptr noundef %arraydecay12, ptr noundef %arraydecay13)
-  %arraydecay14 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay15 = getelementptr inbounds [4 x i64], ptr %z2, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay14, ptr noundef %arraydecay15)
-  %arraydecay16 = getelementptr inbounds [4 x i64], ptr %z1, i64 0, i64 0
-  %arraydecay17 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay16, ptr noundef %arraydecay17)
-  %arraydecay18 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay19 = getelementptr inbounds [4 x i64], ptr %x_in, i64 0, i64 0
-  %arraydecay20 = getelementptr inbounds [4 x i64], ptr %z1, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay18, ptr noundef %arraydecay19, ptr noundef %arraydecay20)
-  %arraydecay21 = getelementptr inbounds [4 x i64], ptr %x_in, i64 0, i64 0
-  %arraydecay22 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay21, ptr noundef %arraydecay22)
-  %arraydecay23 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  %arraydecay24 = getelementptr inbounds [4 x i64], ptr %x_in, i64 0, i64 0
-  call void @felem_contract(ptr noundef %arraydecay23, ptr noundef %arraydecay24)
-  %5 = load ptr, ptr %x.addr, align 8
-  %cmp = icmp ne ptr %5, null
-  br i1 %cmp, label %land.lhs.true, label %if.end29
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds [4 x i64], ptr %13, i64 0, i64 0
+  %46 = getelementptr inbounds [4 x i64], ptr %12, i64 0, i64 0
+  call void @felem_inv(ptr noundef %45, ptr noundef %46)
+  %47 = getelementptr inbounds [7 x i128], ptr %18, i64 0, i64 0
+  %48 = getelementptr inbounds [4 x i64], ptr %13, i64 0, i64 0
+  call void @felem_square(ptr noundef %47, ptr noundef %48)
+  %49 = getelementptr inbounds [4 x i64], ptr %12, i64 0, i64 0
+  %50 = getelementptr inbounds [7 x i128], ptr %18, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %49, ptr noundef %50)
+  %51 = getelementptr inbounds [7 x i128], ptr %18, i64 0, i64 0
+  %52 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 0
+  %53 = getelementptr inbounds [4 x i64], ptr %12, i64 0, i64 0
+  call void @felem_mul(ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %54 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 0
+  %55 = getelementptr inbounds [7 x i128], ptr %18, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %54, ptr noundef %55)
+  %56 = getelementptr inbounds [4 x i64], ptr %16, i64 0, i64 0
+  %57 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 0
+  call void @felem_contract(ptr noundef %56, ptr noundef %57)
+  %58 = load ptr, ptr %9, align 8, !tbaa !13
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %66
 
-land.lhs.true:                                    ; preds = %if.end11
-  %6 = load ptr, ptr %x.addr, align 8
-  %arraydecay25 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  %call26 = call ptr @felem_to_BN(ptr noundef %6, ptr noundef %arraydecay25)
-  %tobool27 = icmp ne ptr %call26, null
-  br i1 %tobool27, label %if.end29, label %if.then28
+60:                                               ; preds = %44
+  %61 = load ptr, ptr %9, align 8, !tbaa !13
+  %62 = getelementptr inbounds [4 x i64], ptr %16, i64 0, i64 0
+  %63 = call ptr @felem_to_BN(ptr noundef %61, ptr noundef %62)
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %66, label %65
 
-if.then28:                                        ; preds = %land.lhs.true
+65:                                               ; preds = %60
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef @.str, i32 noundef 1014)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %88
 
-if.end29:                                         ; preds = %land.lhs.true, %if.end11
-  %arraydecay30 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay31 = getelementptr inbounds [4 x i64], ptr %z1, i64 0, i64 0
-  %arraydecay32 = getelementptr inbounds [4 x i64], ptr %z2, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay30, ptr noundef %arraydecay31, ptr noundef %arraydecay32)
-  %arraydecay33 = getelementptr inbounds [4 x i64], ptr %z1, i64 0, i64 0
-  %arraydecay34 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay33, ptr noundef %arraydecay34)
-  %arraydecay35 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay36 = getelementptr inbounds [4 x i64], ptr %y_in, i64 0, i64 0
-  %arraydecay37 = getelementptr inbounds [4 x i64], ptr %z1, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay35, ptr noundef %arraydecay36, ptr noundef %arraydecay37)
-  %arraydecay38 = getelementptr inbounds [4 x i64], ptr %y_in, i64 0, i64 0
-  %arraydecay39 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay38, ptr noundef %arraydecay39)
-  %arraydecay40 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  %arraydecay41 = getelementptr inbounds [4 x i64], ptr %y_in, i64 0, i64 0
-  call void @felem_contract(ptr noundef %arraydecay40, ptr noundef %arraydecay41)
-  %7 = load ptr, ptr %y.addr, align 8
-  %cmp42 = icmp ne ptr %7, null
-  br i1 %cmp42, label %land.lhs.true43, label %if.end48
+66:                                               ; preds = %60, %44
+  %67 = getelementptr inbounds [7 x i128], ptr %18, i64 0, i64 0
+  %68 = getelementptr inbounds [4 x i64], ptr %12, i64 0, i64 0
+  %69 = getelementptr inbounds [4 x i64], ptr %13, i64 0, i64 0
+  call void @felem_mul(ptr noundef %67, ptr noundef %68, ptr noundef %69)
+  %70 = getelementptr inbounds [4 x i64], ptr %12, i64 0, i64 0
+  %71 = getelementptr inbounds [7 x i128], ptr %18, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %70, ptr noundef %71)
+  %72 = getelementptr inbounds [7 x i128], ptr %18, i64 0, i64 0
+  %73 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  %74 = getelementptr inbounds [4 x i64], ptr %12, i64 0, i64 0
+  call void @felem_mul(ptr noundef %72, ptr noundef %73, ptr noundef %74)
+  %75 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  %76 = getelementptr inbounds [7 x i128], ptr %18, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %75, ptr noundef %76)
+  %77 = getelementptr inbounds [4 x i64], ptr %17, i64 0, i64 0
+  %78 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  call void @felem_contract(ptr noundef %77, ptr noundef %78)
+  %79 = load ptr, ptr %10, align 8, !tbaa !13
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %87
 
-land.lhs.true43:                                  ; preds = %if.end29
-  %8 = load ptr, ptr %y.addr, align 8
-  %arraydecay44 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  %call45 = call ptr @felem_to_BN(ptr noundef %8, ptr noundef %arraydecay44)
-  %tobool46 = icmp ne ptr %call45, null
-  br i1 %tobool46, label %if.end48, label %if.then47
+81:                                               ; preds = %66
+  %82 = load ptr, ptr %10, align 8, !tbaa !13
+  %83 = getelementptr inbounds [4 x i64], ptr %17, i64 0, i64 0
+  %84 = call ptr @felem_to_BN(ptr noundef %82, ptr noundef %83)
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %87, label %86
 
-if.then47:                                        ; preds = %land.lhs.true43
+86:                                               ; preds = %81
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef @.str, i32 noundef 1024)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %88
 
-if.end48:                                         ; preds = %land.lhs.true43, %if.end29
-  store i32 1, ptr %retval, align 4
-  br label %return
+87:                                               ; preds = %81, %66
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %88
 
-return:                                           ; preds = %if.end48, %if.then47, %if.then28, %if.then10, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+88:                                               ; preds = %87, %86, %65, %43, %24
+  call void @llvm.lifetime.end.p0(i64 112, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #7
+  %89 = load i32, ptr %6, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_GFp_nistp224_points_mul(ptr noundef %group, ptr noundef %r, ptr noundef %g_scalar, ptr noundef %p_, ptr noundef %p_scalar_, ptr noundef %ctx) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %group.addr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  %g_scalar.addr = alloca ptr, align 8
-  %p_.addr = alloca ptr, align 8
-  %p_scalar_.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %num = alloca i64, align 8
-  %points = alloca ptr, align 8
-  %scalars = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %new_ctx = alloca ptr, align 8
-  %x = alloca ptr, align 8
-  %y = alloca ptr, align 8
-  %z = alloca ptr, align 8
-  %tmp_scalar = alloca ptr, align 8
-  %g_secret = alloca [28 x i8], align 16
-  %secrets = alloca ptr, align 8
-  %pre_comp = alloca ptr, align 8
-  %tmp = alloca [28 x i8], align 16
-  %num_points = alloca i64, align 8
-  %x_in = alloca [4 x i64], align 16
-  %y_in = alloca [4 x i64], align 16
-  %z_in = alloca [4 x i64], align 16
-  %x_out = alloca [4 x i64], align 16
-  %y_out = alloca [4 x i64], align 16
-  %z_out = alloca [4 x i64], align 16
-  %p = alloca ptr, align 8
-  %p_scalar = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %num_bytes = alloca i64, align 8
-  %j = alloca i64, align 8
-  %num_bytes189 = alloca i64, align 8
-  store ptr %group, ptr %group.addr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %g_scalar, ptr %g_scalar.addr, align 8
-  store ptr %p_, ptr %p_.addr, align 8
-  store ptr %p_scalar_, ptr %p_scalar_.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %p_.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  %cond = select i1 %cmp, i32 1, i32 0
-  %conv = sext i32 %cond to i64
-  store i64 %conv, ptr %num, align 8
-  %1 = load ptr, ptr %p_.addr, align 8
-  %cmp1 = icmp ne ptr %1, null
-  br i1 %cmp1, label %cond.true, label %cond.false
+define internal i32 @ec_GFp_nistp224_points_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca [28 x i8], align 16
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca [28 x i8], align 16
+  %27 = alloca i64, align 8
+  %28 = alloca [4 x i64], align 16
+  %29 = alloca [4 x i64], align 16
+  %30 = alloca [4 x i64], align 16
+  %31 = alloca [4 x i64], align 16
+  %32 = alloca [4 x i64], align 16
+  %33 = alloca [4 x i64], align 16
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca i32, align 4
+  %37 = alloca i64, align 8
+  %38 = alloca i64, align 8
+  %39 = alloca i64, align 8
+  %40 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !6
+  store ptr %1, ptr %9, align 8, !tbaa !11
+  store ptr %2, ptr %10, align 8, !tbaa !13
+  store ptr %3, ptr %11, align 8, !tbaa !11
+  store ptr %4, ptr %12, align 8, !tbaa !13
+  store ptr %5, ptr %13, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %41 = load ptr, ptr %11, align 8, !tbaa !11
+  %42 = icmp ne ptr %41, null
+  %43 = select i1 %42, i32 1, i32 0
+  %44 = sext i32 %43 to i64
+  store i64 %44, ptr %14, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %45 = load ptr, ptr %11, align 8, !tbaa !11
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %48
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+47:                                               ; preds = %6
+  br label %49
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+48:                                               ; preds = %6
+  br label %49
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond3 = phi ptr [ %p_.addr, %cond.true ], [ null, %cond.false ]
-  store ptr %cond3, ptr %points, align 8
-  %2 = load ptr, ptr %p_.addr, align 8
-  %cmp4 = icmp ne ptr %2, null
-  br i1 %cmp4, label %cond.true6, label %cond.false7
+49:                                               ; preds = %48, %47
+  %50 = phi ptr [ %11, %47 ], [ null, %48 ]
+  store ptr %50, ptr %15, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %51 = load ptr, ptr %11, align 8, !tbaa !11
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %54
 
-cond.true6:                                       ; preds = %cond.end
-  br label %cond.end8
+53:                                               ; preds = %49
+  br label %55
 
-cond.false7:                                      ; preds = %cond.end
-  br label %cond.end8
+54:                                               ; preds = %49
+  br label %55
 
-cond.end8:                                        ; preds = %cond.false7, %cond.true6
-  %cond9 = phi ptr [ %p_scalar_.addr, %cond.true6 ], [ null, %cond.false7 ]
-  store ptr %cond9, ptr %scalars, align 8
-  store i32 0, ptr %ret, align 4
-  store ptr null, ptr %new_ctx, align 8
-  store ptr null, ptr %secrets, align 8
-  store ptr null, ptr %pre_comp, align 8
-  %3 = load i64, ptr %num, align 8
-  store i64 %3, ptr %num_points, align 8
-  store ptr null, ptr %p, align 8
-  store ptr null, ptr %p_scalar, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %cmp10 = icmp eq ptr %4, null
-  br i1 %cmp10, label %if.then, label %if.end15
+55:                                               ; preds = %54, %53
+  %56 = phi ptr [ %12, %53 ], [ null, %54 ]
+  store ptr %56, ptr %16, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  store i32 0, ptr %17, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  store ptr null, ptr %18, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 28, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  store ptr null, ptr %24, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  store ptr null, ptr %25, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 28, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  %57 = load i64, ptr %14, align 8, !tbaa !17
+  store i64 %57, ptr %27, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %28) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  store ptr null, ptr %34, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #7
+  store ptr null, ptr %35, align 8, !tbaa !13
+  %58 = load ptr, ptr %13, align 8, !tbaa !15
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %67
 
-if.then:                                          ; preds = %cond.end8
-  %call = call ptr @BN_CTX_new()
-  store ptr %call, ptr %ctx.addr, align 8
-  %5 = load ptr, ptr %ctx.addr, align 8
-  store ptr %5, ptr %new_ctx, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %cmp12 = icmp eq ptr %6, null
-  br i1 %cmp12, label %if.then14, label %if.end
+60:                                               ; preds = %55
+  %61 = call ptr @BN_CTX_new()
+  store ptr %61, ptr %13, align 8, !tbaa !15
+  %62 = load ptr, ptr %13, align 8, !tbaa !15
+  store ptr %62, ptr %18, align 8, !tbaa !15
+  %63 = load ptr, ptr %13, align 8, !tbaa !15
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %66
 
-if.then14:                                        ; preds = %if.then
-  store i32 0, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %60
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %36, align 4
+  br label %427
 
-if.end:                                           ; preds = %if.then
-  br label %if.end15
+66:                                               ; preds = %60
+  br label %67
 
-if.end15:                                         ; preds = %if.end, %cond.end8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  call void @BN_CTX_start(ptr noundef %7)
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %call16 = call ptr @BN_CTX_get(ptr noundef %8)
-  store ptr %call16, ptr %x, align 8
-  %cmp17 = icmp eq ptr %call16, null
-  br i1 %cmp17, label %if.then30, label %lor.lhs.false
+67:                                               ; preds = %66, %55
+  %68 = load ptr, ptr %13, align 8, !tbaa !15
+  call void @BN_CTX_start(ptr noundef %68)
+  %69 = load ptr, ptr %13, align 8, !tbaa !15
+  %70 = call ptr @BN_CTX_get(ptr noundef %69)
+  store ptr %70, ptr %19, align 8, !tbaa !13
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %84, label %72
 
-lor.lhs.false:                                    ; preds = %if.end15
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %call19 = call ptr @BN_CTX_get(ptr noundef %9)
-  store ptr %call19, ptr %y, align 8
-  %cmp20 = icmp eq ptr %call19, null
-  br i1 %cmp20, label %if.then30, label %lor.lhs.false22
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %13, align 8, !tbaa !15
+  %74 = call ptr @BN_CTX_get(ptr noundef %73)
+  store ptr %74, ptr %20, align 8, !tbaa !13
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %84, label %76
 
-lor.lhs.false22:                                  ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %call23 = call ptr @BN_CTX_get(ptr noundef %10)
-  store ptr %call23, ptr %z, align 8
-  %cmp24 = icmp eq ptr %call23, null
-  br i1 %cmp24, label %if.then30, label %lor.lhs.false26
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %13, align 8, !tbaa !15
+  %78 = call ptr @BN_CTX_get(ptr noundef %77)
+  store ptr %78, ptr %21, align 8, !tbaa !13
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %84, label %80
 
-lor.lhs.false26:                                  ; preds = %lor.lhs.false22
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %call27 = call ptr @BN_CTX_get(ptr noundef %11)
-  store ptr %call27, ptr %tmp_scalar, align 8
-  %cmp28 = icmp eq ptr %call27, null
-  br i1 %cmp28, label %if.then30, label %if.end31
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %13, align 8, !tbaa !15
+  %82 = call ptr @BN_CTX_get(ptr noundef %81)
+  store ptr %82, ptr %22, align 8, !tbaa !13
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %85
 
-if.then30:                                        ; preds = %lor.lhs.false26, %lor.lhs.false22, %lor.lhs.false, %if.end15
-  br label %err
+84:                                               ; preds = %80, %76, %72, %67
+  br label %421
 
-if.end31:                                         ; preds = %lor.lhs.false26
-  %12 = load i64, ptr %num_points, align 8
-  %cmp32 = icmp ugt i64 %12, 0
-  br i1 %cmp32, label %if.then34, label %if.end184
+85:                                               ; preds = %80
+  %86 = load i64, ptr %27, align 8, !tbaa !17
+  %87 = icmp ugt i64 %86, 0
+  br i1 %87, label %88, label %342
 
-if.then34:                                        ; preds = %if.end31
-  %13 = load i64, ptr %num_points, align 8
-  %mul = mul i64 %13, 28
-  %call35 = call noalias ptr @malloc(i64 noundef %mul) #6
-  store ptr %call35, ptr %secrets, align 8
-  %14 = load i64, ptr %num_points, align 8
-  %mul36 = mul i64 %14, 1632
-  %call37 = call noalias ptr @malloc(i64 noundef %mul36) #6
-  store ptr %call37, ptr %pre_comp, align 8
-  %15 = load ptr, ptr %secrets, align 8
-  %cmp38 = icmp eq ptr %15, null
-  br i1 %cmp38, label %if.then43, label %lor.lhs.false40
+88:                                               ; preds = %85
+  %89 = load i64, ptr %27, align 8, !tbaa !17
+  %90 = mul i64 %89, 28
+  %91 = call noalias ptr @malloc(i64 noundef %90) #8
+  store ptr %91, ptr %24, align 8, !tbaa !25
+  %92 = load i64, ptr %27, align 8, !tbaa !17
+  %93 = mul i64 %92, 1632
+  %94 = call noalias ptr @malloc(i64 noundef %93) #8
+  store ptr %94, ptr %25, align 8, !tbaa !27
+  %95 = load ptr, ptr %24, align 8, !tbaa !25
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %100, label %97
 
-lor.lhs.false40:                                  ; preds = %if.then34
-  %16 = load ptr, ptr %pre_comp, align 8
-  %cmp41 = icmp eq ptr %16, null
-  br i1 %cmp41, label %if.then43, label %if.end44
+97:                                               ; preds = %88
+  %98 = load ptr, ptr %25, align 8, !tbaa !27
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %101
 
-if.then43:                                        ; preds = %lor.lhs.false40, %if.then34
+100:                                              ; preds = %97, %88
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef @.str, i32 noundef 1077)
-  br label %err
+  br label %421
 
-if.end44:                                         ; preds = %lor.lhs.false40
-  %17 = load ptr, ptr %secrets, align 8
-  %18 = load i64, ptr %num_points, align 8
-  %mul45 = mul i64 %18, 28
-  call void @llvm.memset.p0.i64(ptr align 1 %17, i8 0, i64 %mul45, i1 false)
-  %19 = load ptr, ptr %pre_comp, align 8
-  %20 = load i64, ptr %num_points, align 8
-  %mul46 = mul i64 %20, 17
-  %mul47 = mul i64 %mul46, 3
-  %mul48 = mul i64 %mul47, 32
-  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %mul48, i1 false)
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %24, align 8, !tbaa !25
+  %103 = load i64, ptr %27, align 8, !tbaa !17
+  %104 = mul i64 %103, 28
+  call void @llvm.memset.p0.i64(ptr align 1 %102, i8 0, i64 %104, i1 false)
+  %105 = load ptr, ptr %25, align 8, !tbaa !27
+  %106 = load i64, ptr %27, align 8, !tbaa !17
+  %107 = mul i64 %106, 17
+  %108 = mul i64 %107, 3
+  %109 = mul i64 %108, 32
+  call void @llvm.memset.p0.i64(ptr align 8 %105, i8 0, i64 %109, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #7
+  store i64 0, ptr %37, align 8, !tbaa !17
+  br label %110
 
-for.cond:                                         ; preds = %for.inc181, %if.end44
-  %21 = load i64, ptr %i, align 8
-  %22 = load i64, ptr %num_points, align 8
-  %cmp49 = icmp ult i64 %21, %22
-  br i1 %cmp49, label %for.body, label %for.end183
+110:                                              ; preds = %335, %101
+  %111 = load i64, ptr %37, align 8, !tbaa !17
+  %112 = load i64, ptr %27, align 8, !tbaa !17
+  %113 = icmp ult i64 %111, %112
+  br i1 %113, label %114, label %338
 
-for.body:                                         ; preds = %for.cond
-  %23 = load i64, ptr %i, align 8
-  %24 = load i64, ptr %num, align 8
-  %cmp51 = icmp eq i64 %23, %24
-  br i1 %cmp51, label %if.then53, label %if.else
+114:                                              ; preds = %110
+  %115 = load i64, ptr %37, align 8, !tbaa !17
+  %116 = load i64, ptr %14, align 8, !tbaa !17
+  %117 = icmp eq i64 %115, %116
+  br i1 %117, label %118, label %122
 
-if.then53:                                        ; preds = %for.body
-  %25 = load ptr, ptr %group.addr, align 8
-  %call54 = call ptr @EC_GROUP_get0_generator(ptr noundef %25)
-  store ptr %call54, ptr %p, align 8
-  %26 = load ptr, ptr %g_scalar.addr, align 8
-  store ptr %26, ptr %p_scalar, align 8
-  br label %if.end56
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %8, align 8, !tbaa !6
+  %120 = call ptr @EC_GROUP_get0_generator(ptr noundef %119)
+  store ptr %120, ptr %34, align 8, !tbaa !11
+  %121 = load ptr, ptr %10, align 8, !tbaa !13
+  store ptr %121, ptr %35, align 8, !tbaa !13
+  br label %131
 
-if.else:                                          ; preds = %for.body
-  %27 = load ptr, ptr %points, align 8
-  %28 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %27, i64 %28
-  %29 = load ptr, ptr %arrayidx, align 8
-  store ptr %29, ptr %p, align 8
-  %30 = load ptr, ptr %scalars, align 8
-  %31 = load i64, ptr %i, align 8
-  %arrayidx55 = getelementptr inbounds ptr, ptr %30, i64 %31
-  %32 = load ptr, ptr %arrayidx55, align 8
-  store ptr %32, ptr %p_scalar, align 8
-  br label %if.end56
+122:                                              ; preds = %114
+  %123 = load ptr, ptr %15, align 8, !tbaa !19
+  %124 = load i64, ptr %37, align 8, !tbaa !17
+  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %124
+  %126 = load ptr, ptr %125, align 8, !tbaa !11
+  store ptr %126, ptr %34, align 8, !tbaa !11
+  %127 = load ptr, ptr %16, align 8, !tbaa !21
+  %128 = load i64, ptr %37, align 8, !tbaa !17
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = load ptr, ptr %129, align 8, !tbaa !13
+  store ptr %130, ptr %35, align 8, !tbaa !13
+  br label %131
 
-if.end56:                                         ; preds = %if.else, %if.then53
-  %33 = load ptr, ptr %p_scalar, align 8
-  %cmp57 = icmp ne ptr %33, null
-  br i1 %cmp57, label %land.lhs.true, label %if.end180
+131:                                              ; preds = %122, %118
+  %132 = load ptr, ptr %35, align 8, !tbaa !13
+  %133 = icmp ne ptr %132, null
+  br i1 %133, label %134, label %334
 
-land.lhs.true:                                    ; preds = %if.end56
-  %34 = load ptr, ptr %p, align 8
-  %cmp59 = icmp ne ptr %34, null
-  br i1 %cmp59, label %if.then61, label %if.end180
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %34, align 8, !tbaa !11
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %137, label %334
 
-if.then61:                                        ; preds = %land.lhs.true
-  %35 = load ptr, ptr %p_scalar, align 8
-  %call62 = call i32 @BN_num_bits(ptr noundef %35)
-  %cmp63 = icmp ugt i32 %call62, 224
-  br i1 %cmp63, label %if.then67, label %lor.lhs.false65
+137:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #7
+  %138 = load ptr, ptr %35, align 8, !tbaa !13
+  %139 = call i32 @BN_num_bits(ptr noundef %138)
+  %140 = icmp ugt i32 %139, 224
+  br i1 %140, label %145, label %141
 
-lor.lhs.false65:                                  ; preds = %if.then61
-  %36 = load ptr, ptr %p_scalar, align 8
-  %call66 = call i32 @BN_is_negative(ptr noundef %36)
-  %tobool = icmp ne i32 %call66, 0
-  br i1 %tobool, label %if.then67, label %if.else73
+141:                                              ; preds = %137
+  %142 = load ptr, ptr %35, align 8, !tbaa !13
+  %143 = call i32 @BN_is_negative(ptr noundef %142)
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %145, label %158
 
-if.then67:                                        ; preds = %lor.lhs.false65, %if.then61
-  %37 = load ptr, ptr %tmp_scalar, align 8
-  %38 = load ptr, ptr %p_scalar, align 8
-  %39 = load ptr, ptr %group.addr, align 8
-  %order = getelementptr inbounds %struct.ec_group_st, ptr %39, i32 0, i32 2
-  %40 = load ptr, ptr %ctx.addr, align 8
-  %call68 = call i32 @BN_nnmod(ptr noundef %37, ptr noundef %38, ptr noundef %order, ptr noundef %40)
-  %tobool69 = icmp ne i32 %call68, 0
-  br i1 %tobool69, label %if.end71, label %if.then70
+145:                                              ; preds = %141, %137
+  %146 = load ptr, ptr %22, align 8, !tbaa !13
+  %147 = load ptr, ptr %35, align 8, !tbaa !13
+  %148 = load ptr, ptr %8, align 8, !tbaa !6
+  %149 = getelementptr inbounds nuw %struct.ec_group_st, ptr %148, i32 0, i32 2
+  %150 = load ptr, ptr %13, align 8, !tbaa !15
+  %151 = call i32 @BN_nnmod(ptr noundef %146, ptr noundef %147, ptr noundef %149, ptr noundef %150)
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %154, label %153
 
-if.then70:                                        ; preds = %if.then67
+153:                                              ; preds = %145
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef @.str, i32 noundef 1104)
-  br label %err
+  store i32 2, ptr %36, align 4
+  br label %331
 
-if.end71:                                         ; preds = %if.then67
-  %41 = load ptr, ptr %tmp_scalar, align 8
-  %arraydecay = getelementptr inbounds [28 x i8], ptr %tmp, i64 0, i64 0
-  %call72 = call i64 @BN_bn2bin(ptr noundef %41, ptr noundef %arraydecay)
-  store i64 %call72, ptr %num_bytes, align 8
-  br label %if.end76
+154:                                              ; preds = %145
+  %155 = load ptr, ptr %22, align 8, !tbaa !13
+  %156 = getelementptr inbounds [28 x i8], ptr %26, i64 0, i64 0
+  %157 = call i64 @BN_bn2bin(ptr noundef %155, ptr noundef %156)
+  store i64 %157, ptr %38, align 8, !tbaa !17
+  br label %162
 
-if.else73:                                        ; preds = %lor.lhs.false65
-  %42 = load ptr, ptr %p_scalar, align 8
-  %arraydecay74 = getelementptr inbounds [28 x i8], ptr %tmp, i64 0, i64 0
-  %call75 = call i64 @BN_bn2bin(ptr noundef %42, ptr noundef %arraydecay74)
-  store i64 %call75, ptr %num_bytes, align 8
-  br label %if.end76
+158:                                              ; preds = %141
+  %159 = load ptr, ptr %35, align 8, !tbaa !13
+  %160 = getelementptr inbounds [28 x i8], ptr %26, i64 0, i64 0
+  %161 = call i64 @BN_bn2bin(ptr noundef %159, ptr noundef %160)
+  store i64 %161, ptr %38, align 8, !tbaa !17
+  br label %162
 
-if.end76:                                         ; preds = %if.else73, %if.end71
-  %43 = load ptr, ptr %secrets, align 8
-  %44 = load i64, ptr %i, align 8
-  %arrayidx77 = getelementptr inbounds [28 x i8], ptr %43, i64 %44
-  %arraydecay78 = getelementptr inbounds [28 x i8], ptr %arrayidx77, i64 0, i64 0
-  %arraydecay79 = getelementptr inbounds [28 x i8], ptr %tmp, i64 0, i64 0
-  %45 = load i64, ptr %num_bytes, align 8
-  call void @flip_endian(ptr noundef %arraydecay78, ptr noundef %arraydecay79, i64 noundef %45)
-  %arraydecay80 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  %46 = load ptr, ptr %p, align 8
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %46, i32 0, i32 1
-  %call81 = call i32 @BN_to_felem(ptr noundef %arraydecay80, ptr noundef %X)
-  %tobool82 = icmp ne i32 %call81, 0
-  br i1 %tobool82, label %lor.lhs.false83, label %if.then91
+162:                                              ; preds = %158, %154
+  %163 = load ptr, ptr %24, align 8, !tbaa !25
+  %164 = load i64, ptr %37, align 8, !tbaa !17
+  %165 = getelementptr inbounds nuw [28 x i8], ptr %163, i64 %164
+  %166 = getelementptr inbounds [28 x i8], ptr %165, i64 0, i64 0
+  %167 = getelementptr inbounds [28 x i8], ptr %26, i64 0, i64 0
+  %168 = load i64, ptr %38, align 8, !tbaa !17
+  call void @flip_endian(ptr noundef %166, ptr noundef %167, i64 noundef %168)
+  %169 = getelementptr inbounds [4 x i64], ptr %31, i64 0, i64 0
+  %170 = load ptr, ptr %34, align 8, !tbaa !11
+  %171 = getelementptr inbounds nuw %struct.ec_point_st, ptr %170, i32 0, i32 1
+  %172 = call i32 @BN_to_felem(ptr noundef %169, ptr noundef %171)
+  %173 = icmp ne i32 %172, 0
+  br i1 %173, label %174, label %186
 
-lor.lhs.false83:                                  ; preds = %if.end76
-  %arraydecay84 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  %47 = load ptr, ptr %p, align 8
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %47, i32 0, i32 2
-  %call85 = call i32 @BN_to_felem(ptr noundef %arraydecay84, ptr noundef %Y)
-  %tobool86 = icmp ne i32 %call85, 0
-  br i1 %tobool86, label %lor.lhs.false87, label %if.then91
+174:                                              ; preds = %162
+  %175 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
+  %176 = load ptr, ptr %34, align 8, !tbaa !11
+  %177 = getelementptr inbounds nuw %struct.ec_point_st, ptr %176, i32 0, i32 2
+  %178 = call i32 @BN_to_felem(ptr noundef %175, ptr noundef %177)
+  %179 = icmp ne i32 %178, 0
+  br i1 %179, label %180, label %186
 
-lor.lhs.false87:                                  ; preds = %lor.lhs.false83
-  %arraydecay88 = getelementptr inbounds [4 x i64], ptr %z_out, i64 0, i64 0
-  %48 = load ptr, ptr %p, align 8
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %48, i32 0, i32 3
-  %call89 = call i32 @BN_to_felem(ptr noundef %arraydecay88, ptr noundef %Z)
-  %tobool90 = icmp ne i32 %call89, 0
-  br i1 %tobool90, label %if.end92, label %if.then91
+180:                                              ; preds = %174
+  %181 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 0
+  %182 = load ptr, ptr %34, align 8, !tbaa !11
+  %183 = getelementptr inbounds nuw %struct.ec_point_st, ptr %182, i32 0, i32 3
+  %184 = call i32 @BN_to_felem(ptr noundef %181, ptr noundef %183)
+  %185 = icmp ne i32 %184, 0
+  br i1 %185, label %187, label %186
 
-if.then91:                                        ; preds = %lor.lhs.false87, %lor.lhs.false83, %if.end76
-  br label %err
+186:                                              ; preds = %180, %174, %162
+  store i32 2, ptr %36, align 4
+  br label %331
 
-if.end92:                                         ; preds = %lor.lhs.false87
-  %49 = load ptr, ptr %pre_comp, align 8
-  %50 = load i64, ptr %i, align 8
-  %arrayidx93 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %49, i64 %50
-  %arrayidx94 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx93, i64 0, i64 1
-  %arrayidx95 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx94, i64 0, i64 0
-  %arraydecay96 = getelementptr inbounds [4 x i64], ptr %arrayidx95, i64 0, i64 0
-  %arraydecay97 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  call void @felem_assign(ptr noundef %arraydecay96, ptr noundef %arraydecay97)
-  %51 = load ptr, ptr %pre_comp, align 8
-  %52 = load i64, ptr %i, align 8
-  %arrayidx98 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %51, i64 %52
-  %arrayidx99 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx98, i64 0, i64 1
-  %arrayidx100 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx99, i64 0, i64 1
-  %arraydecay101 = getelementptr inbounds [4 x i64], ptr %arrayidx100, i64 0, i64 0
-  %arraydecay102 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  call void @felem_assign(ptr noundef %arraydecay101, ptr noundef %arraydecay102)
-  %53 = load ptr, ptr %pre_comp, align 8
-  %54 = load i64, ptr %i, align 8
-  %arrayidx103 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %53, i64 %54
-  %arrayidx104 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx103, i64 0, i64 1
-  %arrayidx105 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx104, i64 0, i64 2
-  %arraydecay106 = getelementptr inbounds [4 x i64], ptr %arrayidx105, i64 0, i64 0
-  %arraydecay107 = getelementptr inbounds [4 x i64], ptr %z_out, i64 0, i64 0
-  call void @felem_assign(ptr noundef %arraydecay106, ptr noundef %arraydecay107)
-  store i64 2, ptr %j, align 8
-  br label %for.cond108
+187:                                              ; preds = %180
+  %188 = load ptr, ptr %25, align 8, !tbaa !27
+  %189 = load i64, ptr %37, align 8, !tbaa !17
+  %190 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %188, i64 %189
+  %191 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %190, i64 0, i64 1
+  %192 = getelementptr inbounds [3 x [4 x i64]], ptr %191, i64 0, i64 0
+  %193 = getelementptr inbounds [4 x i64], ptr %192, i64 0, i64 0
+  %194 = getelementptr inbounds [4 x i64], ptr %31, i64 0, i64 0
+  call void @felem_assign(ptr noundef %193, ptr noundef %194)
+  %195 = load ptr, ptr %25, align 8, !tbaa !27
+  %196 = load i64, ptr %37, align 8, !tbaa !17
+  %197 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %195, i64 %196
+  %198 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %197, i64 0, i64 1
+  %199 = getelementptr inbounds [3 x [4 x i64]], ptr %198, i64 0, i64 1
+  %200 = getelementptr inbounds [4 x i64], ptr %199, i64 0, i64 0
+  %201 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
+  call void @felem_assign(ptr noundef %200, ptr noundef %201)
+  %202 = load ptr, ptr %25, align 8, !tbaa !27
+  %203 = load i64, ptr %37, align 8, !tbaa !17
+  %204 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %202, i64 %203
+  %205 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %204, i64 0, i64 1
+  %206 = getelementptr inbounds [3 x [4 x i64]], ptr %205, i64 0, i64 2
+  %207 = getelementptr inbounds [4 x i64], ptr %206, i64 0, i64 0
+  %208 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 0
+  call void @felem_assign(ptr noundef %207, ptr noundef %208)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #7
+  store i64 2, ptr %39, align 8, !tbaa !17
+  br label %209
 
-for.cond108:                                      ; preds = %for.inc, %if.end92
-  %55 = load i64, ptr %j, align 8
-  %cmp109 = icmp ule i64 %55, 16
-  br i1 %cmp109, label %for.body111, label %for.end
+209:                                              ; preds = %327, %187
+  %210 = load i64, ptr %39, align 8, !tbaa !17
+  %211 = icmp ule i64 %210, 16
+  br i1 %211, label %212, label %330
 
-for.body111:                                      ; preds = %for.cond108
-  %56 = load i64, ptr %j, align 8
-  %and = and i64 %56, 1
-  %tobool112 = icmp ne i64 %and, 0
-  br i1 %tobool112, label %if.then113, label %if.else152
+212:                                              ; preds = %209
+  %213 = load i64, ptr %39, align 8, !tbaa !17
+  %214 = and i64 %213, 1
+  %215 = icmp ne i64 %214, 0
+  br i1 %215, label %216, label %280
 
-if.then113:                                       ; preds = %for.body111
-  %57 = load ptr, ptr %pre_comp, align 8
-  %58 = load i64, ptr %i, align 8
-  %arrayidx114 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %57, i64 %58
-  %59 = load i64, ptr %j, align 8
-  %arrayidx115 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx114, i64 0, i64 %59
-  %arrayidx116 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx115, i64 0, i64 0
-  %arraydecay117 = getelementptr inbounds [4 x i64], ptr %arrayidx116, i64 0, i64 0
-  %60 = load ptr, ptr %pre_comp, align 8
-  %61 = load i64, ptr %i, align 8
-  %arrayidx118 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %60, i64 %61
-  %62 = load i64, ptr %j, align 8
-  %arrayidx119 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx118, i64 0, i64 %62
-  %arrayidx120 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx119, i64 0, i64 1
-  %arraydecay121 = getelementptr inbounds [4 x i64], ptr %arrayidx120, i64 0, i64 0
-  %63 = load ptr, ptr %pre_comp, align 8
-  %64 = load i64, ptr %i, align 8
-  %arrayidx122 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %63, i64 %64
-  %65 = load i64, ptr %j, align 8
-  %arrayidx123 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx122, i64 0, i64 %65
-  %arrayidx124 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx123, i64 0, i64 2
-  %arraydecay125 = getelementptr inbounds [4 x i64], ptr %arrayidx124, i64 0, i64 0
-  %66 = load ptr, ptr %pre_comp, align 8
-  %67 = load i64, ptr %i, align 8
-  %arrayidx126 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %66, i64 %67
-  %arrayidx127 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx126, i64 0, i64 1
-  %arrayidx128 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx127, i64 0, i64 0
-  %arraydecay129 = getelementptr inbounds [4 x i64], ptr %arrayidx128, i64 0, i64 0
-  %68 = load ptr, ptr %pre_comp, align 8
-  %69 = load i64, ptr %i, align 8
-  %arrayidx130 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %68, i64 %69
-  %arrayidx131 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx130, i64 0, i64 1
-  %arrayidx132 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx131, i64 0, i64 1
-  %arraydecay133 = getelementptr inbounds [4 x i64], ptr %arrayidx132, i64 0, i64 0
-  %70 = load ptr, ptr %pre_comp, align 8
-  %71 = load i64, ptr %i, align 8
-  %arrayidx134 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %70, i64 %71
-  %arrayidx135 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx134, i64 0, i64 1
-  %arrayidx136 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx135, i64 0, i64 2
-  %arraydecay137 = getelementptr inbounds [4 x i64], ptr %arrayidx136, i64 0, i64 0
-  %72 = load ptr, ptr %pre_comp, align 8
-  %73 = load i64, ptr %i, align 8
-  %arrayidx138 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %72, i64 %73
-  %74 = load i64, ptr %j, align 8
-  %sub = sub i64 %74, 1
-  %arrayidx139 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx138, i64 0, i64 %sub
-  %arrayidx140 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx139, i64 0, i64 0
-  %arraydecay141 = getelementptr inbounds [4 x i64], ptr %arrayidx140, i64 0, i64 0
-  %75 = load ptr, ptr %pre_comp, align 8
-  %76 = load i64, ptr %i, align 8
-  %arrayidx142 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %75, i64 %76
-  %77 = load i64, ptr %j, align 8
-  %sub143 = sub i64 %77, 1
-  %arrayidx144 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx142, i64 0, i64 %sub143
-  %arrayidx145 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx144, i64 0, i64 1
-  %arraydecay146 = getelementptr inbounds [4 x i64], ptr %arrayidx145, i64 0, i64 0
-  %78 = load ptr, ptr %pre_comp, align 8
-  %79 = load i64, ptr %i, align 8
-  %arrayidx147 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %78, i64 %79
-  %80 = load i64, ptr %j, align 8
-  %sub148 = sub i64 %80, 1
-  %arrayidx149 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx147, i64 0, i64 %sub148
-  %arrayidx150 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx149, i64 0, i64 2
-  %arraydecay151 = getelementptr inbounds [4 x i64], ptr %arrayidx150, i64 0, i64 0
-  call void @point_add(ptr noundef %arraydecay117, ptr noundef %arraydecay121, ptr noundef %arraydecay125, ptr noundef %arraydecay129, ptr noundef %arraydecay133, ptr noundef %arraydecay137, i32 noundef 0, ptr noundef %arraydecay141, ptr noundef %arraydecay146, ptr noundef %arraydecay151)
-  br label %if.end179
+216:                                              ; preds = %212
+  %217 = load ptr, ptr %25, align 8, !tbaa !27
+  %218 = load i64, ptr %37, align 8, !tbaa !17
+  %219 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %217, i64 %218
+  %220 = load i64, ptr %39, align 8, !tbaa !17
+  %221 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %219, i64 0, i64 %220
+  %222 = getelementptr inbounds [3 x [4 x i64]], ptr %221, i64 0, i64 0
+  %223 = getelementptr inbounds [4 x i64], ptr %222, i64 0, i64 0
+  %224 = load ptr, ptr %25, align 8, !tbaa !27
+  %225 = load i64, ptr %37, align 8, !tbaa !17
+  %226 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %224, i64 %225
+  %227 = load i64, ptr %39, align 8, !tbaa !17
+  %228 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %226, i64 0, i64 %227
+  %229 = getelementptr inbounds [3 x [4 x i64]], ptr %228, i64 0, i64 1
+  %230 = getelementptr inbounds [4 x i64], ptr %229, i64 0, i64 0
+  %231 = load ptr, ptr %25, align 8, !tbaa !27
+  %232 = load i64, ptr %37, align 8, !tbaa !17
+  %233 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %231, i64 %232
+  %234 = load i64, ptr %39, align 8, !tbaa !17
+  %235 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %233, i64 0, i64 %234
+  %236 = getelementptr inbounds [3 x [4 x i64]], ptr %235, i64 0, i64 2
+  %237 = getelementptr inbounds [4 x i64], ptr %236, i64 0, i64 0
+  %238 = load ptr, ptr %25, align 8, !tbaa !27
+  %239 = load i64, ptr %37, align 8, !tbaa !17
+  %240 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %238, i64 %239
+  %241 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %240, i64 0, i64 1
+  %242 = getelementptr inbounds [3 x [4 x i64]], ptr %241, i64 0, i64 0
+  %243 = getelementptr inbounds [4 x i64], ptr %242, i64 0, i64 0
+  %244 = load ptr, ptr %25, align 8, !tbaa !27
+  %245 = load i64, ptr %37, align 8, !tbaa !17
+  %246 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %244, i64 %245
+  %247 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %246, i64 0, i64 1
+  %248 = getelementptr inbounds [3 x [4 x i64]], ptr %247, i64 0, i64 1
+  %249 = getelementptr inbounds [4 x i64], ptr %248, i64 0, i64 0
+  %250 = load ptr, ptr %25, align 8, !tbaa !27
+  %251 = load i64, ptr %37, align 8, !tbaa !17
+  %252 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %250, i64 %251
+  %253 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %252, i64 0, i64 1
+  %254 = getelementptr inbounds [3 x [4 x i64]], ptr %253, i64 0, i64 2
+  %255 = getelementptr inbounds [4 x i64], ptr %254, i64 0, i64 0
+  %256 = load ptr, ptr %25, align 8, !tbaa !27
+  %257 = load i64, ptr %37, align 8, !tbaa !17
+  %258 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %256, i64 %257
+  %259 = load i64, ptr %39, align 8, !tbaa !17
+  %260 = sub i64 %259, 1
+  %261 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %258, i64 0, i64 %260
+  %262 = getelementptr inbounds [3 x [4 x i64]], ptr %261, i64 0, i64 0
+  %263 = getelementptr inbounds [4 x i64], ptr %262, i64 0, i64 0
+  %264 = load ptr, ptr %25, align 8, !tbaa !27
+  %265 = load i64, ptr %37, align 8, !tbaa !17
+  %266 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %264, i64 %265
+  %267 = load i64, ptr %39, align 8, !tbaa !17
+  %268 = sub i64 %267, 1
+  %269 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %266, i64 0, i64 %268
+  %270 = getelementptr inbounds [3 x [4 x i64]], ptr %269, i64 0, i64 1
+  %271 = getelementptr inbounds [4 x i64], ptr %270, i64 0, i64 0
+  %272 = load ptr, ptr %25, align 8, !tbaa !27
+  %273 = load i64, ptr %37, align 8, !tbaa !17
+  %274 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %272, i64 %273
+  %275 = load i64, ptr %39, align 8, !tbaa !17
+  %276 = sub i64 %275, 1
+  %277 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %274, i64 0, i64 %276
+  %278 = getelementptr inbounds [3 x [4 x i64]], ptr %277, i64 0, i64 2
+  %279 = getelementptr inbounds [4 x i64], ptr %278, i64 0, i64 0
+  call void @point_add(ptr noundef %223, ptr noundef %230, ptr noundef %237, ptr noundef %243, ptr noundef %249, ptr noundef %255, i32 noundef 0, ptr noundef %263, ptr noundef %271, ptr noundef %279)
+  br label %326
 
-if.else152:                                       ; preds = %for.body111
-  %81 = load ptr, ptr %pre_comp, align 8
-  %82 = load i64, ptr %i, align 8
-  %arrayidx153 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %81, i64 %82
-  %83 = load i64, ptr %j, align 8
-  %arrayidx154 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx153, i64 0, i64 %83
-  %arrayidx155 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx154, i64 0, i64 0
-  %arraydecay156 = getelementptr inbounds [4 x i64], ptr %arrayidx155, i64 0, i64 0
-  %84 = load ptr, ptr %pre_comp, align 8
-  %85 = load i64, ptr %i, align 8
-  %arrayidx157 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %84, i64 %85
-  %86 = load i64, ptr %j, align 8
-  %arrayidx158 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx157, i64 0, i64 %86
-  %arrayidx159 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx158, i64 0, i64 1
-  %arraydecay160 = getelementptr inbounds [4 x i64], ptr %arrayidx159, i64 0, i64 0
-  %87 = load ptr, ptr %pre_comp, align 8
-  %88 = load i64, ptr %i, align 8
-  %arrayidx161 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %87, i64 %88
-  %89 = load i64, ptr %j, align 8
-  %arrayidx162 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx161, i64 0, i64 %89
-  %arrayidx163 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx162, i64 0, i64 2
-  %arraydecay164 = getelementptr inbounds [4 x i64], ptr %arrayidx163, i64 0, i64 0
-  %90 = load ptr, ptr %pre_comp, align 8
-  %91 = load i64, ptr %i, align 8
-  %arrayidx165 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %90, i64 %91
-  %92 = load i64, ptr %j, align 8
-  %div = udiv i64 %92, 2
-  %arrayidx166 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx165, i64 0, i64 %div
-  %arrayidx167 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx166, i64 0, i64 0
-  %arraydecay168 = getelementptr inbounds [4 x i64], ptr %arrayidx167, i64 0, i64 0
-  %93 = load ptr, ptr %pre_comp, align 8
-  %94 = load i64, ptr %i, align 8
-  %arrayidx169 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %93, i64 %94
-  %95 = load i64, ptr %j, align 8
-  %div170 = udiv i64 %95, 2
-  %arrayidx171 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx169, i64 0, i64 %div170
-  %arrayidx172 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx171, i64 0, i64 1
-  %arraydecay173 = getelementptr inbounds [4 x i64], ptr %arrayidx172, i64 0, i64 0
-  %96 = load ptr, ptr %pre_comp, align 8
-  %97 = load i64, ptr %i, align 8
-  %arrayidx174 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %96, i64 %97
-  %98 = load i64, ptr %j, align 8
-  %div175 = udiv i64 %98, 2
-  %arrayidx176 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx174, i64 0, i64 %div175
-  %arrayidx177 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx176, i64 0, i64 2
-  %arraydecay178 = getelementptr inbounds [4 x i64], ptr %arrayidx177, i64 0, i64 0
-  call void @point_double(ptr noundef %arraydecay156, ptr noundef %arraydecay160, ptr noundef %arraydecay164, ptr noundef %arraydecay168, ptr noundef %arraydecay173, ptr noundef %arraydecay178)
-  br label %if.end179
+280:                                              ; preds = %212
+  %281 = load ptr, ptr %25, align 8, !tbaa !27
+  %282 = load i64, ptr %37, align 8, !tbaa !17
+  %283 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %281, i64 %282
+  %284 = load i64, ptr %39, align 8, !tbaa !17
+  %285 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %283, i64 0, i64 %284
+  %286 = getelementptr inbounds [3 x [4 x i64]], ptr %285, i64 0, i64 0
+  %287 = getelementptr inbounds [4 x i64], ptr %286, i64 0, i64 0
+  %288 = load ptr, ptr %25, align 8, !tbaa !27
+  %289 = load i64, ptr %37, align 8, !tbaa !17
+  %290 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %288, i64 %289
+  %291 = load i64, ptr %39, align 8, !tbaa !17
+  %292 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %290, i64 0, i64 %291
+  %293 = getelementptr inbounds [3 x [4 x i64]], ptr %292, i64 0, i64 1
+  %294 = getelementptr inbounds [4 x i64], ptr %293, i64 0, i64 0
+  %295 = load ptr, ptr %25, align 8, !tbaa !27
+  %296 = load i64, ptr %37, align 8, !tbaa !17
+  %297 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %295, i64 %296
+  %298 = load i64, ptr %39, align 8, !tbaa !17
+  %299 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %297, i64 0, i64 %298
+  %300 = getelementptr inbounds [3 x [4 x i64]], ptr %299, i64 0, i64 2
+  %301 = getelementptr inbounds [4 x i64], ptr %300, i64 0, i64 0
+  %302 = load ptr, ptr %25, align 8, !tbaa !27
+  %303 = load i64, ptr %37, align 8, !tbaa !17
+  %304 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %302, i64 %303
+  %305 = load i64, ptr %39, align 8, !tbaa !17
+  %306 = udiv i64 %305, 2
+  %307 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %304, i64 0, i64 %306
+  %308 = getelementptr inbounds [3 x [4 x i64]], ptr %307, i64 0, i64 0
+  %309 = getelementptr inbounds [4 x i64], ptr %308, i64 0, i64 0
+  %310 = load ptr, ptr %25, align 8, !tbaa !27
+  %311 = load i64, ptr %37, align 8, !tbaa !17
+  %312 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %310, i64 %311
+  %313 = load i64, ptr %39, align 8, !tbaa !17
+  %314 = udiv i64 %313, 2
+  %315 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %312, i64 0, i64 %314
+  %316 = getelementptr inbounds [3 x [4 x i64]], ptr %315, i64 0, i64 1
+  %317 = getelementptr inbounds [4 x i64], ptr %316, i64 0, i64 0
+  %318 = load ptr, ptr %25, align 8, !tbaa !27
+  %319 = load i64, ptr %37, align 8, !tbaa !17
+  %320 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %318, i64 %319
+  %321 = load i64, ptr %39, align 8, !tbaa !17
+  %322 = udiv i64 %321, 2
+  %323 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %320, i64 0, i64 %322
+  %324 = getelementptr inbounds [3 x [4 x i64]], ptr %323, i64 0, i64 2
+  %325 = getelementptr inbounds [4 x i64], ptr %324, i64 0, i64 0
+  call void @point_double(ptr noundef %287, ptr noundef %294, ptr noundef %301, ptr noundef %309, ptr noundef %317, ptr noundef %325)
+  br label %326
 
-if.end179:                                        ; preds = %if.else152, %if.then113
-  br label %for.inc
+326:                                              ; preds = %280, %216
+  br label %327
 
-for.inc:                                          ; preds = %if.end179
-  %99 = load i64, ptr %j, align 8
-  %inc = add i64 %99, 1
-  store i64 %inc, ptr %j, align 8
-  br label %for.cond108, !llvm.loop !7
+327:                                              ; preds = %326
+  %328 = load i64, ptr %39, align 8, !tbaa !17
+  %329 = add i64 %328, 1
+  store i64 %329, ptr %39, align 8, !tbaa !17
+  br label %209, !llvm.loop !29
 
-for.end:                                          ; preds = %for.cond108
-  br label %if.end180
+330:                                              ; preds = %209
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #7
+  store i32 0, ptr %36, align 4
+  br label %331
 
-if.end180:                                        ; preds = %for.end, %land.lhs.true, %if.end56
-  br label %for.inc181
+331:                                              ; preds = %186, %153, %330
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #7
+  %332 = load i32, ptr %36, align 4
+  switch i32 %332, label %339 [
+    i32 0, label %333
+  ]
 
-for.inc181:                                       ; preds = %if.end180
-  %100 = load i64, ptr %i, align 8
-  %inc182 = add i64 %100, 1
-  store i64 %inc182, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+333:                                              ; preds = %331
+  br label %334
 
-for.end183:                                       ; preds = %for.cond
-  br label %if.end184
+334:                                              ; preds = %333, %134, %131
+  br label %335
 
-if.end184:                                        ; preds = %for.end183, %if.end31
-  %101 = load ptr, ptr %g_scalar.addr, align 8
-  %cmp185 = icmp ne ptr %101, null
-  br i1 %cmp185, label %if.then187, label %if.end210
+335:                                              ; preds = %334
+  %336 = load i64, ptr %37, align 8, !tbaa !17
+  %337 = add i64 %336, 1
+  store i64 %337, ptr %37, align 8, !tbaa !17
+  br label %110, !llvm.loop !31
 
-if.then187:                                       ; preds = %if.end184
-  %arraydecay188 = getelementptr inbounds [28 x i8], ptr %g_secret, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %arraydecay188, i8 0, i64 28, i1 false)
-  %102 = load ptr, ptr %g_scalar.addr, align 8
-  %call190 = call i32 @BN_num_bits(ptr noundef %102)
-  %cmp191 = icmp ugt i32 %call190, 224
-  br i1 %cmp191, label %if.then196, label %lor.lhs.false193
+338:                                              ; preds = %110
+  store i32 0, ptr %36, align 4
+  br label %339
 
-lor.lhs.false193:                                 ; preds = %if.then187
-  %103 = load ptr, ptr %g_scalar.addr, align 8
-  %call194 = call i32 @BN_is_negative(ptr noundef %103)
-  %tobool195 = icmp ne i32 %call194, 0
-  br i1 %tobool195, label %if.then196, label %if.else204
+339:                                              ; preds = %338, %331
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #7
+  %340 = load i32, ptr %36, align 4
+  switch i32 %340, label %427 [
+    i32 0, label %341
+    i32 2, label %421
+  ]
 
-if.then196:                                       ; preds = %lor.lhs.false193, %if.then187
-  %104 = load ptr, ptr %tmp_scalar, align 8
-  %105 = load ptr, ptr %g_scalar.addr, align 8
-  %106 = load ptr, ptr %group.addr, align 8
-  %order197 = getelementptr inbounds %struct.ec_group_st, ptr %106, i32 0, i32 2
-  %107 = load ptr, ptr %ctx.addr, align 8
-  %call198 = call i32 @BN_nnmod(ptr noundef %104, ptr noundef %105, ptr noundef %order197, ptr noundef %107)
-  %tobool199 = icmp ne i32 %call198, 0
-  br i1 %tobool199, label %if.end201, label %if.then200
+341:                                              ; preds = %339
+  br label %342
 
-if.then200:                                       ; preds = %if.then196
+342:                                              ; preds = %341, %85
+  %343 = load ptr, ptr %10, align 8, !tbaa !13
+  %344 = icmp ne ptr %343, null
+  br i1 %344, label %345, label %378
+
+345:                                              ; preds = %342
+  %346 = getelementptr inbounds [28 x i8], ptr %23, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %346, i8 0, i64 28, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #7
+  %347 = load ptr, ptr %10, align 8, !tbaa !13
+  %348 = call i32 @BN_num_bits(ptr noundef %347)
+  %349 = icmp ugt i32 %348, 224
+  br i1 %349, label %354, label %350
+
+350:                                              ; preds = %345
+  %351 = load ptr, ptr %10, align 8, !tbaa !13
+  %352 = call i32 @BN_is_negative(ptr noundef %351)
+  %353 = icmp ne i32 %352, 0
+  br i1 %353, label %354, label %367
+
+354:                                              ; preds = %350, %345
+  %355 = load ptr, ptr %22, align 8, !tbaa !13
+  %356 = load ptr, ptr %10, align 8, !tbaa !13
+  %357 = load ptr, ptr %8, align 8, !tbaa !6
+  %358 = getelementptr inbounds nuw %struct.ec_group_st, ptr %357, i32 0, i32 2
+  %359 = load ptr, ptr %13, align 8, !tbaa !15
+  %360 = call i32 @BN_nnmod(ptr noundef %355, ptr noundef %356, ptr noundef %358, ptr noundef %359)
+  %361 = icmp ne i32 %360, 0
+  br i1 %361, label %363, label %362
+
+362:                                              ; preds = %354
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef @.str, i32 noundef 1148)
-  br label %err
+  store i32 2, ptr %36, align 4
+  br label %375
 
-if.end201:                                        ; preds = %if.then196
-  %108 = load ptr, ptr %tmp_scalar, align 8
-  %arraydecay202 = getelementptr inbounds [28 x i8], ptr %tmp, i64 0, i64 0
-  %call203 = call i64 @BN_bn2bin(ptr noundef %108, ptr noundef %arraydecay202)
-  store i64 %call203, ptr %num_bytes189, align 8
-  br label %if.end207
+363:                                              ; preds = %354
+  %364 = load ptr, ptr %22, align 8, !tbaa !13
+  %365 = getelementptr inbounds [28 x i8], ptr %26, i64 0, i64 0
+  %366 = call i64 @BN_bn2bin(ptr noundef %364, ptr noundef %365)
+  store i64 %366, ptr %40, align 8, !tbaa !17
+  br label %371
 
-if.else204:                                       ; preds = %lor.lhs.false193
-  %109 = load ptr, ptr %g_scalar.addr, align 8
-  %arraydecay205 = getelementptr inbounds [28 x i8], ptr %tmp, i64 0, i64 0
-  %call206 = call i64 @BN_bn2bin(ptr noundef %109, ptr noundef %arraydecay205)
-  store i64 %call206, ptr %num_bytes189, align 8
-  br label %if.end207
+367:                                              ; preds = %350
+  %368 = load ptr, ptr %10, align 8, !tbaa !13
+  %369 = getelementptr inbounds [28 x i8], ptr %26, i64 0, i64 0
+  %370 = call i64 @BN_bn2bin(ptr noundef %368, ptr noundef %369)
+  store i64 %370, ptr %40, align 8, !tbaa !17
+  br label %371
 
-if.end207:                                        ; preds = %if.else204, %if.end201
-  %arraydecay208 = getelementptr inbounds [28 x i8], ptr %g_secret, i64 0, i64 0
-  %arraydecay209 = getelementptr inbounds [28 x i8], ptr %tmp, i64 0, i64 0
-  %110 = load i64, ptr %num_bytes189, align 8
-  call void @flip_endian(ptr noundef %arraydecay208, ptr noundef %arraydecay209, i64 noundef %110)
-  br label %if.end210
+371:                                              ; preds = %367, %363
+  %372 = getelementptr inbounds [28 x i8], ptr %23, i64 0, i64 0
+  %373 = getelementptr inbounds [28 x i8], ptr %26, i64 0, i64 0
+  %374 = load i64, ptr %40, align 8, !tbaa !17
+  call void @flip_endian(ptr noundef %372, ptr noundef %373, i64 noundef %374)
+  store i32 0, ptr %36, align 4
+  br label %375
 
-if.end210:                                        ; preds = %if.end207, %if.end184
-  %arraydecay211 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  %arraydecay212 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  %arraydecay213 = getelementptr inbounds [4 x i64], ptr %z_out, i64 0, i64 0
-  %111 = load ptr, ptr %secrets, align 8
-  %112 = load i64, ptr %num_points, align 8
-  %113 = load ptr, ptr %g_scalar.addr, align 8
-  %cmp214 = icmp ne ptr %113, null
-  br i1 %cmp214, label %cond.true216, label %cond.false218
+375:                                              ; preds = %362, %371
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #7
+  %376 = load i32, ptr %36, align 4
+  switch i32 %376, label %427 [
+    i32 0, label %377
+    i32 2, label %421
+  ]
 
-cond.true216:                                     ; preds = %if.end210
-  %arraydecay217 = getelementptr inbounds [28 x i8], ptr %g_secret, i64 0, i64 0
-  br label %cond.end219
+377:                                              ; preds = %375
+  br label %378
 
-cond.false218:                                    ; preds = %if.end210
-  br label %cond.end219
+378:                                              ; preds = %377, %342
+  %379 = getelementptr inbounds [4 x i64], ptr %31, i64 0, i64 0
+  %380 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
+  %381 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 0
+  %382 = load ptr, ptr %24, align 8, !tbaa !25
+  %383 = load i64, ptr %27, align 8, !tbaa !17
+  %384 = load ptr, ptr %10, align 8, !tbaa !13
+  %385 = icmp ne ptr %384, null
+  br i1 %385, label %386, label %388
 
-cond.end219:                                      ; preds = %cond.false218, %cond.true216
-  %cond220 = phi ptr [ %arraydecay217, %cond.true216 ], [ null, %cond.false218 ]
-  %114 = load ptr, ptr %pre_comp, align 8
-  call void @batch_mul(ptr noundef %arraydecay211, ptr noundef %arraydecay212, ptr noundef %arraydecay213, ptr noundef %111, i64 noundef %112, ptr noundef %cond220, ptr noundef %114)
-  %arraydecay221 = getelementptr inbounds [4 x i64], ptr %x_in, i64 0, i64 0
-  %arraydecay222 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  call void @felem_contract(ptr noundef %arraydecay221, ptr noundef %arraydecay222)
-  %arraydecay223 = getelementptr inbounds [4 x i64], ptr %y_in, i64 0, i64 0
-  %arraydecay224 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  call void @felem_contract(ptr noundef %arraydecay223, ptr noundef %arraydecay224)
-  %arraydecay225 = getelementptr inbounds [4 x i64], ptr %z_in, i64 0, i64 0
-  %arraydecay226 = getelementptr inbounds [4 x i64], ptr %z_out, i64 0, i64 0
-  call void @felem_contract(ptr noundef %arraydecay225, ptr noundef %arraydecay226)
-  %115 = load ptr, ptr %x, align 8
-  %arraydecay227 = getelementptr inbounds [4 x i64], ptr %x_in, i64 0, i64 0
-  %call228 = call ptr @felem_to_BN(ptr noundef %115, ptr noundef %arraydecay227)
-  %tobool229 = icmp ne ptr %call228, null
-  br i1 %tobool229, label %lor.lhs.false230, label %if.then238
+386:                                              ; preds = %378
+  %387 = getelementptr inbounds [28 x i8], ptr %23, i64 0, i64 0
+  br label %389
 
-lor.lhs.false230:                                 ; preds = %cond.end219
-  %116 = load ptr, ptr %y, align 8
-  %arraydecay231 = getelementptr inbounds [4 x i64], ptr %y_in, i64 0, i64 0
-  %call232 = call ptr @felem_to_BN(ptr noundef %116, ptr noundef %arraydecay231)
-  %tobool233 = icmp ne ptr %call232, null
-  br i1 %tobool233, label %lor.lhs.false234, label %if.then238
+388:                                              ; preds = %378
+  br label %389
 
-lor.lhs.false234:                                 ; preds = %lor.lhs.false230
-  %117 = load ptr, ptr %z, align 8
-  %arraydecay235 = getelementptr inbounds [4 x i64], ptr %z_in, i64 0, i64 0
-  %call236 = call ptr @felem_to_BN(ptr noundef %117, ptr noundef %arraydecay235)
-  %tobool237 = icmp ne ptr %call236, null
-  br i1 %tobool237, label %if.end239, label %if.then238
+389:                                              ; preds = %388, %386
+  %390 = phi ptr [ %387, %386 ], [ null, %388 ]
+  %391 = load ptr, ptr %25, align 8, !tbaa !27
+  call void @batch_mul(ptr noundef %379, ptr noundef %380, ptr noundef %381, ptr noundef %382, i64 noundef %383, ptr noundef %390, ptr noundef %391)
+  %392 = getelementptr inbounds [4 x i64], ptr %28, i64 0, i64 0
+  %393 = getelementptr inbounds [4 x i64], ptr %31, i64 0, i64 0
+  call void @felem_contract(ptr noundef %392, ptr noundef %393)
+  %394 = getelementptr inbounds [4 x i64], ptr %29, i64 0, i64 0
+  %395 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
+  call void @felem_contract(ptr noundef %394, ptr noundef %395)
+  %396 = getelementptr inbounds [4 x i64], ptr %30, i64 0, i64 0
+  %397 = getelementptr inbounds [4 x i64], ptr %33, i64 0, i64 0
+  call void @felem_contract(ptr noundef %396, ptr noundef %397)
+  %398 = load ptr, ptr %19, align 8, !tbaa !13
+  %399 = getelementptr inbounds [4 x i64], ptr %28, i64 0, i64 0
+  %400 = call ptr @felem_to_BN(ptr noundef %398, ptr noundef %399)
+  %401 = icmp ne ptr %400, null
+  br i1 %401, label %402, label %412
 
-if.then238:                                       ; preds = %lor.lhs.false234, %lor.lhs.false230, %cond.end219
+402:                                              ; preds = %389
+  %403 = load ptr, ptr %20, align 8, !tbaa !13
+  %404 = getelementptr inbounds [4 x i64], ptr %29, i64 0, i64 0
+  %405 = call ptr @felem_to_BN(ptr noundef %403, ptr noundef %404)
+  %406 = icmp ne ptr %405, null
+  br i1 %406, label %407, label %412
+
+407:                                              ; preds = %402
+  %408 = load ptr, ptr %21, align 8, !tbaa !13
+  %409 = getelementptr inbounds [4 x i64], ptr %30, i64 0, i64 0
+  %410 = call ptr @felem_to_BN(ptr noundef %408, ptr noundef %409)
+  %411 = icmp ne ptr %410, null
+  br i1 %411, label %413, label %412
+
+412:                                              ; preds = %407, %402, %389
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef @.str, i32 noundef 1169)
-  br label %err
+  br label %421
 
-if.end239:                                        ; preds = %lor.lhs.false234
-  %118 = load ptr, ptr %group.addr, align 8
-  %119 = load ptr, ptr %r.addr, align 8
-  %120 = load ptr, ptr %x, align 8
-  %121 = load ptr, ptr %y, align 8
-  %122 = load ptr, ptr %z, align 8
-  %123 = load ptr, ptr %ctx.addr, align 8
-  %call240 = call i32 @ec_point_set_Jprojective_coordinates_GFp(ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123)
-  store i32 %call240, ptr %ret, align 4
-  br label %err
+413:                                              ; preds = %407
+  %414 = load ptr, ptr %8, align 8, !tbaa !6
+  %415 = load ptr, ptr %9, align 8, !tbaa !11
+  %416 = load ptr, ptr %19, align 8, !tbaa !13
+  %417 = load ptr, ptr %20, align 8, !tbaa !13
+  %418 = load ptr, ptr %21, align 8, !tbaa !13
+  %419 = load ptr, ptr %13, align 8, !tbaa !15
+  %420 = call i32 @ec_point_set_Jprojective_coordinates_GFp(ptr noundef %414, ptr noundef %415, ptr noundef %416, ptr noundef %417, ptr noundef %418, ptr noundef %419)
+  store i32 %420, ptr %17, align 4, !tbaa !23
+  br label %421
 
-err:                                              ; preds = %if.end239, %if.then238, %if.then200, %if.then91, %if.then70, %if.then43, %if.then30
-  %124 = load ptr, ptr %ctx.addr, align 8
-  call void @BN_CTX_end(ptr noundef %124)
-  %125 = load ptr, ptr %new_ctx, align 8
-  call void @BN_CTX_free(ptr noundef %125)
-  %126 = load ptr, ptr %secrets, align 8
-  call void @free(ptr noundef %126) #7
-  %127 = load ptr, ptr %pre_comp, align 8
-  call void @free(ptr noundef %127) #7
-  %128 = load i32, ptr %ret, align 4
-  store i32 %128, ptr %retval, align 4
-  br label %return
+421:                                              ; preds = %413, %375, %339, %412, %100, %84
+  %422 = load ptr, ptr %13, align 8, !tbaa !15
+  call void @BN_CTX_end(ptr noundef %422)
+  %423 = load ptr, ptr %18, align 8, !tbaa !15
+  call void @BN_CTX_free(ptr noundef %423)
+  %424 = load ptr, ptr %24, align 8, !tbaa !25
+  call void @free(ptr noundef %424) #7
+  %425 = load ptr, ptr %25, align 8, !tbaa !27
+  call void @free(ptr noundef %425) #7
+  %426 = load i32, ptr %17, align 4, !tbaa !23
+  store i32 %426, ptr %7, align 4
+  store i32 1, ptr %36, align 4
+  br label %427
 
-return:                                           ; preds = %err, %if.then14
-  %129 = load i32, ptr %retval, align 4
-  ret i32 %129
+427:                                              ; preds = %421, %375, %339, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 28, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 28, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %428 = load i32, ptr %7, align 4
+  ret i32 %428
 }
 
 declare i32 @ec_GFp_simple_field_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 declare i32 @ec_GFp_simple_field_sqr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare i32 @EC_POINT_is_at_infinity(ptr noundef, ptr noundef) #1
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @BN_to_felem(ptr noundef %out, ptr noundef %bn) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %out.addr = alloca ptr, align 8
-  %bn.addr = alloca ptr, align 8
-  %b_out = alloca [28 x i8], align 16
-  %num_bytes = alloca i64, align 8
-  %b_in = alloca [28 x i8], align 16
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %bn, ptr %bn.addr, align 8
-  %arraydecay = getelementptr inbounds [28 x i8], ptr %b_out, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %arraydecay, i8 0, i64 28, i1 false)
-  %0 = load ptr, ptr %bn.addr, align 8
-  %call = call i32 @BN_num_bytes(ptr noundef %0)
-  %conv = zext i32 %call to i64
-  store i64 %conv, ptr %num_bytes, align 8
-  %1 = load i64, ptr %num_bytes, align 8
-  %cmp = icmp ugt i64 %1, 28
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal i32 @BN_to_felem(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca [28 x i8], align 16
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca [28 x i8], align 16
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 28, ptr %6) #7
+  %10 = getelementptr inbounds [28 x i8], ptr %6, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %10, i8 0, i64 28, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !13
+  %12 = call i32 @BN_num_bytes(ptr noundef %11)
+  %13 = zext i32 %12 to i64
+  store i64 %13, ptr %7, align 8, !tbaa !17
+  %14 = load i64, ptr %7, align 8, !tbaa !17
+  %15 = icmp ugt i64 %14, 28
+  br i1 %15, label %20, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %bn.addr, align 8
-  %call2 = call i32 @BN_is_negative(ptr noundef %2)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %if.then, label %if.end
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %5, align 8, !tbaa !13
+  %18 = call i32 @BN_is_negative(ptr noundef %17)
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
+20:                                               ; preds = %16, %2
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 126, ptr noundef @.str, i32 noundef 220)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %30
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %bn.addr, align 8
-  %arraydecay3 = getelementptr inbounds [28 x i8], ptr %b_in, i64 0, i64 0
-  %call4 = call i64 @BN_bn2bin(ptr noundef %3, ptr noundef %arraydecay3)
-  store i64 %call4, ptr %num_bytes, align 8
-  %arraydecay5 = getelementptr inbounds [28 x i8], ptr %b_out, i64 0, i64 0
-  %arraydecay6 = getelementptr inbounds [28 x i8], ptr %b_in, i64 0, i64 0
-  %4 = load i64, ptr %num_bytes, align 8
-  call void @flip_endian(ptr noundef %arraydecay5, ptr noundef %arraydecay6, i64 noundef %4)
-  %5 = load ptr, ptr %out.addr, align 8
-  %arraydecay7 = getelementptr inbounds [28 x i8], ptr %b_out, i64 0, i64 0
-  call void @bin28_to_felem(ptr noundef %5, ptr noundef %arraydecay7)
-  store i32 1, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 28, ptr %9) #7
+  %22 = load ptr, ptr %5, align 8, !tbaa !13
+  %23 = getelementptr inbounds [28 x i8], ptr %9, i64 0, i64 0
+  %24 = call i64 @BN_bn2bin(ptr noundef %22, ptr noundef %23)
+  store i64 %24, ptr %7, align 8, !tbaa !17
+  %25 = getelementptr inbounds [28 x i8], ptr %6, i64 0, i64 0
+  %26 = getelementptr inbounds [28 x i8], ptr %9, i64 0, i64 0
+  %27 = load i64, ptr %7, align 8, !tbaa !17
+  call void @flip_endian(ptr noundef %25, ptr noundef %26, i64 noundef %27)
+  %28 = load ptr, ptr %4, align 8, !tbaa !27
+  %29 = getelementptr inbounds [28 x i8], ptr %6, i64 0, i64 0
+  call void @bin28_to_felem(ptr noundef %28, ptr noundef %29)
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 28, ptr %9) #7
+  br label %30
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+30:                                               ; preds = %21, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 28, ptr %6) #7
+  %31 = load i32, ptr %3, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_inv(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %ftmp = alloca [4 x i64], align 16
-  %ftmp2 = alloca [4 x i64], align 16
-  %ftmp3 = alloca [4 x i64], align 16
-  %ftmp4 = alloca [4 x i64], align 16
-  %tmp = alloca [7 x i128], align 16
-  %i = alloca i64, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %arraydecay = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %0 = load ptr, ptr %in.addr, align 8
-  call void @felem_square(ptr noundef %arraydecay, ptr noundef %0)
-  %arraydecay1 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay2 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay1, ptr noundef %arraydecay2)
-  %arraydecay3 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %1 = load ptr, ptr %in.addr, align 8
-  %arraydecay4 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay3, ptr noundef %1, ptr noundef %arraydecay4)
-  %arraydecay5 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay6 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay5, ptr noundef %arraydecay6)
-  %arraydecay7 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay8 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay7, ptr noundef %arraydecay8)
-  %arraydecay9 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay10 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay9, ptr noundef %arraydecay10)
-  %arraydecay11 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %2 = load ptr, ptr %in.addr, align 8
-  %arraydecay12 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay11, ptr noundef %2, ptr noundef %arraydecay12)
-  %arraydecay13 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay14 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay13, ptr noundef %arraydecay14)
-  %arraydecay15 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay16 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay15, ptr noundef %arraydecay16)
-  %arraydecay17 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay18 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay17, ptr noundef %arraydecay18)
-  %arraydecay19 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay20 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay19, ptr noundef %arraydecay20)
-  %arraydecay21 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay22 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay21, ptr noundef %arraydecay22)
-  %arraydecay23 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay24 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay23, ptr noundef %arraydecay24)
-  %arraydecay25 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay26 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay25, ptr noundef %arraydecay26)
-  %arraydecay27 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay28 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay29 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay27, ptr noundef %arraydecay28, ptr noundef %arraydecay29)
-  %arraydecay30 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay31 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay30, ptr noundef %arraydecay31)
-  %arraydecay32 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay33 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay32, ptr noundef %arraydecay33)
-  %arraydecay34 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay35 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay34, ptr noundef %arraydecay35)
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal void @felem_inv(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [4 x i64], align 16
+  %6 = alloca [4 x i64], align 16
+  %7 = alloca [4 x i64], align 16
+  %8 = alloca [4 x i64], align 16
+  %9 = alloca [7 x i128], align 16
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 112, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %11 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !27
+  call void @felem_square(ptr noundef %11, ptr noundef %12)
+  %13 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %14 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %13, ptr noundef %14)
+  %15 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %16 = load ptr, ptr %4, align 8, !tbaa !27
+  %17 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_mul(ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  %18 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %19 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %18, ptr noundef %19)
+  %20 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %21 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_square(ptr noundef %20, ptr noundef %21)
+  %22 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %23 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %22, ptr noundef %23)
+  %24 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %25 = load ptr, ptr %4, align 8, !tbaa !27
+  %26 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_mul(ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %27 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %28 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %27, ptr noundef %28)
+  %29 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %30 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_square(ptr noundef %29, ptr noundef %30)
+  %31 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %32 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %31, ptr noundef %32)
+  %33 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %34 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  call void @felem_square(ptr noundef %33, ptr noundef %34)
+  %35 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %36 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %35, ptr noundef %36)
+  %37 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %38 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  call void @felem_square(ptr noundef %37, ptr noundef %38)
+  %39 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %40 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %39, ptr noundef %40)
+  %41 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %42 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %43 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_mul(ptr noundef %41, ptr noundef %42, ptr noundef %43)
+  %44 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %45 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %44, ptr noundef %45)
+  %46 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %47 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_square(ptr noundef %46, ptr noundef %47)
+  %48 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %49 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %48, ptr noundef %49)
+  store i64 0, ptr %10, align 8, !tbaa !17
+  br label %50
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %3, 5
-  br i1 %cmp, label %for.body, label %for.end
+50:                                               ; preds = %58, %2
+  %51 = load i64, ptr %10, align 8, !tbaa !17
+  %52 = icmp ult i64 %51, 5
+  br i1 %52, label %53, label %61
 
-for.body:                                         ; preds = %for.cond
-  %arraydecay36 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay37 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay36, ptr noundef %arraydecay37)
-  %arraydecay38 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay39 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay38, ptr noundef %arraydecay39)
-  br label %for.inc
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %55 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  call void @felem_square(ptr noundef %54, ptr noundef %55)
+  %56 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %57 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %56, ptr noundef %57)
+  br label %58
 
-for.inc:                                          ; preds = %for.body
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !10
+58:                                               ; preds = %53
+  %59 = load i64, ptr %10, align 8, !tbaa !17
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %10, align 8, !tbaa !17
+  br label %50, !llvm.loop !32
 
-for.end:                                          ; preds = %for.cond
-  %arraydecay40 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay41 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay42 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay40, ptr noundef %arraydecay41, ptr noundef %arraydecay42)
-  %arraydecay43 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay44 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay43, ptr noundef %arraydecay44)
-  %arraydecay45 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay46 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay45, ptr noundef %arraydecay46)
-  %arraydecay47 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay48 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay47, ptr noundef %arraydecay48)
-  store i64 0, ptr %i, align 8
-  br label %for.cond49
+61:                                               ; preds = %50
+  %62 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %63 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %64 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_mul(ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  %65 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %66 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %65, ptr noundef %66)
+  %67 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %68 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  call void @felem_square(ptr noundef %67, ptr noundef %68)
+  %69 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %70 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %69, ptr noundef %70)
+  store i64 0, ptr %10, align 8, !tbaa !17
+  br label %71
 
-for.cond49:                                       ; preds = %for.inc56, %for.end
-  %5 = load i64, ptr %i, align 8
-  %cmp50 = icmp ult i64 %5, 11
-  br i1 %cmp50, label %for.body51, label %for.end58
+71:                                               ; preds = %79, %61
+  %72 = load i64, ptr %10, align 8, !tbaa !17
+  %73 = icmp ult i64 %72, 11
+  br i1 %73, label %74, label %82
 
-for.body51:                                       ; preds = %for.cond49
-  %arraydecay52 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay53 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay52, ptr noundef %arraydecay53)
-  %arraydecay54 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay55 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay54, ptr noundef %arraydecay55)
-  br label %for.inc56
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %76 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  call void @felem_square(ptr noundef %75, ptr noundef %76)
+  %77 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %78 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %77, ptr noundef %78)
+  br label %79
 
-for.inc56:                                        ; preds = %for.body51
-  %6 = load i64, ptr %i, align 8
-  %inc57 = add i64 %6, 1
-  store i64 %inc57, ptr %i, align 8
-  br label %for.cond49, !llvm.loop !11
+79:                                               ; preds = %74
+  %80 = load i64, ptr %10, align 8, !tbaa !17
+  %81 = add i64 %80, 1
+  store i64 %81, ptr %10, align 8, !tbaa !17
+  br label %71, !llvm.loop !33
 
-for.end58:                                        ; preds = %for.cond49
-  %arraydecay59 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay60 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay61 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay59, ptr noundef %arraydecay60, ptr noundef %arraydecay61)
-  %arraydecay62 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay63 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay62, ptr noundef %arraydecay63)
-  %arraydecay64 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay65 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay64, ptr noundef %arraydecay65)
-  %arraydecay66 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay67 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay66, ptr noundef %arraydecay67)
-  store i64 0, ptr %i, align 8
-  br label %for.cond68
+82:                                               ; preds = %71
+  %83 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %84 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %85 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  call void @felem_mul(ptr noundef %83, ptr noundef %84, ptr noundef %85)
+  %86 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %87 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %86, ptr noundef %87)
+  %88 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %89 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  call void @felem_square(ptr noundef %88, ptr noundef %89)
+  %90 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %91 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %90, ptr noundef %91)
+  store i64 0, ptr %10, align 8, !tbaa !17
+  br label %92
 
-for.cond68:                                       ; preds = %for.inc75, %for.end58
-  %7 = load i64, ptr %i, align 8
-  %cmp69 = icmp ult i64 %7, 23
-  br i1 %cmp69, label %for.body70, label %for.end77
+92:                                               ; preds = %100, %82
+  %93 = load i64, ptr %10, align 8, !tbaa !17
+  %94 = icmp ult i64 %93, 23
+  br i1 %94, label %95, label %103
 
-for.body70:                                       ; preds = %for.cond68
-  %arraydecay71 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay72 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay71, ptr noundef %arraydecay72)
-  %arraydecay73 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay74 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay73, ptr noundef %arraydecay74)
-  br label %for.inc75
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %97 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  call void @felem_square(ptr noundef %96, ptr noundef %97)
+  %98 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %99 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %98, ptr noundef %99)
+  br label %100
 
-for.inc75:                                        ; preds = %for.body70
-  %8 = load i64, ptr %i, align 8
-  %inc76 = add i64 %8, 1
-  store i64 %inc76, ptr %i, align 8
-  br label %for.cond68, !llvm.loop !12
+100:                                              ; preds = %95
+  %101 = load i64, ptr %10, align 8, !tbaa !17
+  %102 = add i64 %101, 1
+  store i64 %102, ptr %10, align 8, !tbaa !17
+  br label %92, !llvm.loop !34
 
-for.end77:                                        ; preds = %for.cond68
-  %arraydecay78 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay79 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay80 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay78, ptr noundef %arraydecay79, ptr noundef %arraydecay80)
-  %arraydecay81 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay82 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay81, ptr noundef %arraydecay82)
-  %arraydecay83 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay84 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay83, ptr noundef %arraydecay84)
-  %arraydecay85 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %arraydecay86 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay85, ptr noundef %arraydecay86)
-  store i64 0, ptr %i, align 8
-  br label %for.cond87
+103:                                              ; preds = %92
+  %104 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %105 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %106 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  call void @felem_mul(ptr noundef %104, ptr noundef %105, ptr noundef %106)
+  %107 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %108 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %107, ptr noundef %108)
+  %109 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %110 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  call void @felem_square(ptr noundef %109, ptr noundef %110)
+  %111 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 0
+  %112 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %111, ptr noundef %112)
+  store i64 0, ptr %10, align 8, !tbaa !17
+  br label %113
 
-for.cond87:                                       ; preds = %for.inc94, %for.end77
-  %9 = load i64, ptr %i, align 8
-  %cmp88 = icmp ult i64 %9, 47
-  br i1 %cmp88, label %for.body89, label %for.end96
+113:                                              ; preds = %121, %103
+  %114 = load i64, ptr %10, align 8, !tbaa !17
+  %115 = icmp ult i64 %114, 47
+  br i1 %115, label %116, label %124
 
-for.body89:                                       ; preds = %for.cond87
-  %arraydecay90 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay91 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay90, ptr noundef %arraydecay91)
-  %arraydecay92 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %arraydecay93 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay92, ptr noundef %arraydecay93)
-  br label %for.inc94
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %118 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 0
+  call void @felem_square(ptr noundef %117, ptr noundef %118)
+  %119 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 0
+  %120 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %119, ptr noundef %120)
+  br label %121
 
-for.inc94:                                        ; preds = %for.body89
-  %10 = load i64, ptr %i, align 8
-  %inc95 = add i64 %10, 1
-  store i64 %inc95, ptr %i, align 8
-  br label %for.cond87, !llvm.loop !13
+121:                                              ; preds = %116
+  %122 = load i64, ptr %10, align 8, !tbaa !17
+  %123 = add i64 %122, 1
+  store i64 %123, ptr %10, align 8, !tbaa !17
+  br label %113, !llvm.loop !35
 
-for.end96:                                        ; preds = %for.cond87
-  %arraydecay97 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay98 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay99 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay97, ptr noundef %arraydecay98, ptr noundef %arraydecay99)
-  %arraydecay100 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay101 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay100, ptr noundef %arraydecay101)
-  %arraydecay102 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay103 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay102, ptr noundef %arraydecay103)
-  %arraydecay104 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %arraydecay105 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay104, ptr noundef %arraydecay105)
-  store i64 0, ptr %i, align 8
-  br label %for.cond106
+124:                                              ; preds = %113
+  %125 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %126 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %127 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 0
+  call void @felem_mul(ptr noundef %125, ptr noundef %126, ptr noundef %127)
+  %128 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  %129 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %128, ptr noundef %129)
+  %130 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %131 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  call void @felem_square(ptr noundef %130, ptr noundef %131)
+  %132 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 0
+  %133 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %132, ptr noundef %133)
+  store i64 0, ptr %10, align 8, !tbaa !17
+  br label %134
 
-for.cond106:                                      ; preds = %for.inc113, %for.end96
-  %11 = load i64, ptr %i, align 8
-  %cmp107 = icmp ult i64 %11, 23
-  br i1 %cmp107, label %for.body108, label %for.end115
+134:                                              ; preds = %142, %124
+  %135 = load i64, ptr %10, align 8, !tbaa !17
+  %136 = icmp ult i64 %135, 23
+  br i1 %136, label %137, label %145
 
-for.body108:                                      ; preds = %for.cond106
-  %arraydecay109 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay110 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay109, ptr noundef %arraydecay110)
-  %arraydecay111 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %arraydecay112 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay111, ptr noundef %arraydecay112)
-  br label %for.inc113
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %139 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 0
+  call void @felem_square(ptr noundef %138, ptr noundef %139)
+  %140 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 0
+  %141 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %140, ptr noundef %141)
+  br label %142
 
-for.inc113:                                       ; preds = %for.body108
-  %12 = load i64, ptr %i, align 8
-  %inc114 = add i64 %12, 1
-  store i64 %inc114, ptr %i, align 8
-  br label %for.cond106, !llvm.loop !14
+142:                                              ; preds = %137
+  %143 = load i64, ptr %10, align 8, !tbaa !17
+  %144 = add i64 %143, 1
+  store i64 %144, ptr %10, align 8, !tbaa !17
+  br label %134, !llvm.loop !36
 
-for.end115:                                       ; preds = %for.cond106
-  %arraydecay116 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay117 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay118 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay116, ptr noundef %arraydecay117, ptr noundef %arraydecay118)
-  %arraydecay119 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay120 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay119, ptr noundef %arraydecay120)
-  store i64 0, ptr %i, align 8
-  br label %for.cond121
+145:                                              ; preds = %134
+  %146 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %147 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %148 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 0
+  call void @felem_mul(ptr noundef %146, ptr noundef %147, ptr noundef %148)
+  %149 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %150 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %149, ptr noundef %150)
+  store i64 0, ptr %10, align 8, !tbaa !17
+  br label %151
 
-for.cond121:                                      ; preds = %for.inc128, %for.end115
-  %13 = load i64, ptr %i, align 8
-  %cmp122 = icmp ult i64 %13, 6
-  br i1 %cmp122, label %for.body123, label %for.end130
+151:                                              ; preds = %159, %145
+  %152 = load i64, ptr %10, align 8, !tbaa !17
+  %153 = icmp ult i64 %152, 6
+  br i1 %153, label %154, label %162
 
-for.body123:                                      ; preds = %for.cond121
-  %arraydecay124 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay125 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay124, ptr noundef %arraydecay125)
-  %arraydecay126 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay127 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay126, ptr noundef %arraydecay127)
-  br label %for.inc128
+154:                                              ; preds = %151
+  %155 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %156 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  call void @felem_square(ptr noundef %155, ptr noundef %156)
+  %157 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %158 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %157, ptr noundef %158)
+  br label %159
 
-for.inc128:                                       ; preds = %for.body123
-  %14 = load i64, ptr %i, align 8
-  %inc129 = add i64 %14, 1
-  store i64 %inc129, ptr %i, align 8
-  br label %for.cond121, !llvm.loop !15
+159:                                              ; preds = %154
+  %160 = load i64, ptr %10, align 8, !tbaa !17
+  %161 = add i64 %160, 1
+  store i64 %161, ptr %10, align 8, !tbaa !17
+  br label %151, !llvm.loop !37
 
-for.end130:                                       ; preds = %for.cond121
-  %arraydecay131 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay132 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay133 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay131, ptr noundef %arraydecay132, ptr noundef %arraydecay133)
-  %arraydecay134 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay135 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay134, ptr noundef %arraydecay135)
-  %arraydecay136 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay137 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay136, ptr noundef %arraydecay137)
-  %arraydecay138 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay139 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay138, ptr noundef %arraydecay139)
-  %arraydecay140 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay141 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %15 = load ptr, ptr %in.addr, align 8
-  call void @felem_mul(ptr noundef %arraydecay140, ptr noundef %arraydecay141, ptr noundef %15)
-  %arraydecay142 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay143 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay142, ptr noundef %arraydecay143)
-  store i64 0, ptr %i, align 8
-  br label %for.cond144
+162:                                              ; preds = %151
+  %163 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %164 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 0
+  %165 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_mul(ptr noundef %163, ptr noundef %164, ptr noundef %165)
+  %166 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %167 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %166, ptr noundef %167)
+  %168 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %169 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_square(ptr noundef %168, ptr noundef %169)
+  %170 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %171 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %170, ptr noundef %171)
+  %172 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %173 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %174 = load ptr, ptr %4, align 8, !tbaa !27
+  call void @felem_mul(ptr noundef %172, ptr noundef %173, ptr noundef %174)
+  %175 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %176 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %175, ptr noundef %176)
+  store i64 0, ptr %10, align 8, !tbaa !17
+  br label %177
 
-for.cond144:                                      ; preds = %for.inc151, %for.end130
-  %16 = load i64, ptr %i, align 8
-  %cmp145 = icmp ult i64 %16, 97
-  br i1 %cmp145, label %for.body146, label %for.end153
+177:                                              ; preds = %185, %162
+  %178 = load i64, ptr %10, align 8, !tbaa !17
+  %179 = icmp ult i64 %178, 97
+  br i1 %179, label %180, label %188
 
-for.body146:                                      ; preds = %for.cond144
-  %arraydecay147 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay148 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay147, ptr noundef %arraydecay148)
-  %arraydecay149 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay150 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay149, ptr noundef %arraydecay150)
-  br label %for.inc151
+180:                                              ; preds = %177
+  %181 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %182 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  call void @felem_square(ptr noundef %181, ptr noundef %182)
+  %183 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %184 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %183, ptr noundef %184)
+  br label %185
 
-for.inc151:                                       ; preds = %for.body146
-  %17 = load i64, ptr %i, align 8
-  %inc152 = add i64 %17, 1
-  store i64 %inc152, ptr %i, align 8
-  br label %for.cond144, !llvm.loop !16
+185:                                              ; preds = %180
+  %186 = load i64, ptr %10, align 8, !tbaa !17
+  %187 = add i64 %186, 1
+  store i64 %187, ptr %10, align 8, !tbaa !17
+  br label %177, !llvm.loop !38
 
-for.end153:                                       ; preds = %for.cond144
-  %arraydecay154 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay155 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay156 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay154, ptr noundef %arraydecay155, ptr noundef %arraydecay156)
-  %18 = load ptr, ptr %out.addr, align 8
-  %arraydecay157 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %18, ptr noundef %arraydecay157)
+188:                                              ; preds = %177
+  %189 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  %190 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %191 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 0
+  call void @felem_mul(ptr noundef %189, ptr noundef %190, ptr noundef %191)
+  %192 = load ptr, ptr %3, align 8, !tbaa !27
+  %193 = getelementptr inbounds [7 x i128], ptr %9, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %192, ptr noundef %193)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 112, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_square(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %tmp0 = alloca i64, align 8
-  %tmp1 = alloca i64, align 8
-  %tmp2 = alloca i64, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %mul = mul i64 2, %1
-  store i64 %mul, ptr %tmp0, align 8
-  %2 = load ptr, ptr %in.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 1
-  %3 = load i64, ptr %arrayidx1, align 8
-  %mul2 = mul i64 2, %3
-  store i64 %mul2, ptr %tmp1, align 8
-  %4 = load ptr, ptr %in.addr, align 8
-  %arrayidx3 = getelementptr inbounds i64, ptr %4, i64 2
-  %5 = load i64, ptr %arrayidx3, align 8
-  %mul4 = mul i64 2, %5
-  store i64 %mul4, ptr %tmp2, align 8
-  %6 = load ptr, ptr %in.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %6, i64 0
-  %7 = load i64, ptr %arrayidx5, align 8
-  %conv = zext i64 %7 to i128
-  %8 = load ptr, ptr %in.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %8, i64 0
-  %9 = load i64, ptr %arrayidx6, align 8
-  %conv7 = zext i64 %9 to i128
-  %mul8 = mul i128 %conv, %conv7
-  %10 = load ptr, ptr %out.addr, align 8
-  %arrayidx9 = getelementptr inbounds i128, ptr %10, i64 0
-  store i128 %mul8, ptr %arrayidx9, align 16
-  %11 = load ptr, ptr %in.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %11, i64 0
-  %12 = load i64, ptr %arrayidx10, align 8
-  %conv11 = zext i64 %12 to i128
-  %13 = load i64, ptr %tmp1, align 8
-  %conv12 = zext i64 %13 to i128
-  %mul13 = mul i128 %conv11, %conv12
-  %14 = load ptr, ptr %out.addr, align 8
-  %arrayidx14 = getelementptr inbounds i128, ptr %14, i64 1
-  store i128 %mul13, ptr %arrayidx14, align 16
-  %15 = load ptr, ptr %in.addr, align 8
-  %arrayidx15 = getelementptr inbounds i64, ptr %15, i64 0
-  %16 = load i64, ptr %arrayidx15, align 8
-  %conv16 = zext i64 %16 to i128
-  %17 = load i64, ptr %tmp2, align 8
-  %conv17 = zext i64 %17 to i128
-  %mul18 = mul i128 %conv16, %conv17
-  %18 = load ptr, ptr %in.addr, align 8
-  %arrayidx19 = getelementptr inbounds i64, ptr %18, i64 1
-  %19 = load i64, ptr %arrayidx19, align 8
-  %conv20 = zext i64 %19 to i128
-  %20 = load ptr, ptr %in.addr, align 8
-  %arrayidx21 = getelementptr inbounds i64, ptr %20, i64 1
-  %21 = load i64, ptr %arrayidx21, align 8
-  %conv22 = zext i64 %21 to i128
-  %mul23 = mul i128 %conv20, %conv22
-  %add = add i128 %mul18, %mul23
-  %22 = load ptr, ptr %out.addr, align 8
-  %arrayidx24 = getelementptr inbounds i128, ptr %22, i64 2
-  store i128 %add, ptr %arrayidx24, align 16
-  %23 = load ptr, ptr %in.addr, align 8
-  %arrayidx25 = getelementptr inbounds i64, ptr %23, i64 3
-  %24 = load i64, ptr %arrayidx25, align 8
-  %conv26 = zext i64 %24 to i128
-  %25 = load i64, ptr %tmp0, align 8
-  %conv27 = zext i64 %25 to i128
-  %mul28 = mul i128 %conv26, %conv27
-  %26 = load ptr, ptr %in.addr, align 8
-  %arrayidx29 = getelementptr inbounds i64, ptr %26, i64 1
-  %27 = load i64, ptr %arrayidx29, align 8
-  %conv30 = zext i64 %27 to i128
-  %28 = load i64, ptr %tmp2, align 8
-  %conv31 = zext i64 %28 to i128
-  %mul32 = mul i128 %conv30, %conv31
-  %add33 = add i128 %mul28, %mul32
-  %29 = load ptr, ptr %out.addr, align 8
-  %arrayidx34 = getelementptr inbounds i128, ptr %29, i64 3
-  store i128 %add33, ptr %arrayidx34, align 16
-  %30 = load ptr, ptr %in.addr, align 8
-  %arrayidx35 = getelementptr inbounds i64, ptr %30, i64 3
-  %31 = load i64, ptr %arrayidx35, align 8
-  %conv36 = zext i64 %31 to i128
-  %32 = load i64, ptr %tmp1, align 8
-  %conv37 = zext i64 %32 to i128
-  %mul38 = mul i128 %conv36, %conv37
-  %33 = load ptr, ptr %in.addr, align 8
-  %arrayidx39 = getelementptr inbounds i64, ptr %33, i64 2
-  %34 = load i64, ptr %arrayidx39, align 8
-  %conv40 = zext i64 %34 to i128
-  %35 = load ptr, ptr %in.addr, align 8
-  %arrayidx41 = getelementptr inbounds i64, ptr %35, i64 2
-  %36 = load i64, ptr %arrayidx41, align 8
-  %conv42 = zext i64 %36 to i128
-  %mul43 = mul i128 %conv40, %conv42
-  %add44 = add i128 %mul38, %mul43
-  %37 = load ptr, ptr %out.addr, align 8
-  %arrayidx45 = getelementptr inbounds i128, ptr %37, i64 4
-  store i128 %add44, ptr %arrayidx45, align 16
-  %38 = load ptr, ptr %in.addr, align 8
-  %arrayidx46 = getelementptr inbounds i64, ptr %38, i64 3
-  %39 = load i64, ptr %arrayidx46, align 8
-  %conv47 = zext i64 %39 to i128
-  %40 = load i64, ptr %tmp2, align 8
-  %conv48 = zext i64 %40 to i128
-  %mul49 = mul i128 %conv47, %conv48
-  %41 = load ptr, ptr %out.addr, align 8
-  %arrayidx50 = getelementptr inbounds i128, ptr %41, i64 5
-  store i128 %mul49, ptr %arrayidx50, align 16
-  %42 = load ptr, ptr %in.addr, align 8
-  %arrayidx51 = getelementptr inbounds i64, ptr %42, i64 3
-  %43 = load i64, ptr %arrayidx51, align 8
-  %conv52 = zext i64 %43 to i128
-  %44 = load ptr, ptr %in.addr, align 8
-  %arrayidx53 = getelementptr inbounds i64, ptr %44, i64 3
-  %45 = load i64, ptr %arrayidx53, align 8
-  %conv54 = zext i64 %45 to i128
-  %mul55 = mul i128 %conv52, %conv54
-  %46 = load ptr, ptr %out.addr, align 8
-  %arrayidx56 = getelementptr inbounds i128, ptr %46, i64 6
-  store i128 %mul55, ptr %arrayidx56, align 16
+define internal void @felem_square(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %8 = load ptr, ptr %4, align 8, !tbaa !27
+  %9 = getelementptr inbounds i64, ptr %8, i64 0
+  %10 = load i64, ptr %9, align 8, !tbaa !17
+  %11 = mul i64 2, %10
+  store i64 %11, ptr %5, align 8, !tbaa !17
+  %12 = load ptr, ptr %4, align 8, !tbaa !27
+  %13 = getelementptr inbounds i64, ptr %12, i64 1
+  %14 = load i64, ptr %13, align 8, !tbaa !17
+  %15 = mul i64 2, %14
+  store i64 %15, ptr %6, align 8, !tbaa !17
+  %16 = load ptr, ptr %4, align 8, !tbaa !27
+  %17 = getelementptr inbounds i64, ptr %16, i64 2
+  %18 = load i64, ptr %17, align 8, !tbaa !17
+  %19 = mul i64 2, %18
+  store i64 %19, ptr %7, align 8, !tbaa !17
+  %20 = load ptr, ptr %4, align 8, !tbaa !27
+  %21 = getelementptr inbounds i64, ptr %20, i64 0
+  %22 = load i64, ptr %21, align 8, !tbaa !17
+  %23 = zext i64 %22 to i128
+  %24 = load ptr, ptr %4, align 8, !tbaa !27
+  %25 = getelementptr inbounds i64, ptr %24, i64 0
+  %26 = load i64, ptr %25, align 8, !tbaa !17
+  %27 = zext i64 %26 to i128
+  %28 = mul i128 %23, %27
+  %29 = load ptr, ptr %3, align 8, !tbaa !39
+  %30 = getelementptr inbounds i128, ptr %29, i64 0
+  store i128 %28, ptr %30, align 16, !tbaa !41
+  %31 = load ptr, ptr %4, align 8, !tbaa !27
+  %32 = getelementptr inbounds i64, ptr %31, i64 0
+  %33 = load i64, ptr %32, align 8, !tbaa !17
+  %34 = zext i64 %33 to i128
+  %35 = load i64, ptr %6, align 8, !tbaa !17
+  %36 = zext i64 %35 to i128
+  %37 = mul i128 %34, %36
+  %38 = load ptr, ptr %3, align 8, !tbaa !39
+  %39 = getelementptr inbounds i128, ptr %38, i64 1
+  store i128 %37, ptr %39, align 16, !tbaa !41
+  %40 = load ptr, ptr %4, align 8, !tbaa !27
+  %41 = getelementptr inbounds i64, ptr %40, i64 0
+  %42 = load i64, ptr %41, align 8, !tbaa !17
+  %43 = zext i64 %42 to i128
+  %44 = load i64, ptr %7, align 8, !tbaa !17
+  %45 = zext i64 %44 to i128
+  %46 = mul i128 %43, %45
+  %47 = load ptr, ptr %4, align 8, !tbaa !27
+  %48 = getelementptr inbounds i64, ptr %47, i64 1
+  %49 = load i64, ptr %48, align 8, !tbaa !17
+  %50 = zext i64 %49 to i128
+  %51 = load ptr, ptr %4, align 8, !tbaa !27
+  %52 = getelementptr inbounds i64, ptr %51, i64 1
+  %53 = load i64, ptr %52, align 8, !tbaa !17
+  %54 = zext i64 %53 to i128
+  %55 = mul i128 %50, %54
+  %56 = add i128 %46, %55
+  %57 = load ptr, ptr %3, align 8, !tbaa !39
+  %58 = getelementptr inbounds i128, ptr %57, i64 2
+  store i128 %56, ptr %58, align 16, !tbaa !41
+  %59 = load ptr, ptr %4, align 8, !tbaa !27
+  %60 = getelementptr inbounds i64, ptr %59, i64 3
+  %61 = load i64, ptr %60, align 8, !tbaa !17
+  %62 = zext i64 %61 to i128
+  %63 = load i64, ptr %5, align 8, !tbaa !17
+  %64 = zext i64 %63 to i128
+  %65 = mul i128 %62, %64
+  %66 = load ptr, ptr %4, align 8, !tbaa !27
+  %67 = getelementptr inbounds i64, ptr %66, i64 1
+  %68 = load i64, ptr %67, align 8, !tbaa !17
+  %69 = zext i64 %68 to i128
+  %70 = load i64, ptr %7, align 8, !tbaa !17
+  %71 = zext i64 %70 to i128
+  %72 = mul i128 %69, %71
+  %73 = add i128 %65, %72
+  %74 = load ptr, ptr %3, align 8, !tbaa !39
+  %75 = getelementptr inbounds i128, ptr %74, i64 3
+  store i128 %73, ptr %75, align 16, !tbaa !41
+  %76 = load ptr, ptr %4, align 8, !tbaa !27
+  %77 = getelementptr inbounds i64, ptr %76, i64 3
+  %78 = load i64, ptr %77, align 8, !tbaa !17
+  %79 = zext i64 %78 to i128
+  %80 = load i64, ptr %6, align 8, !tbaa !17
+  %81 = zext i64 %80 to i128
+  %82 = mul i128 %79, %81
+  %83 = load ptr, ptr %4, align 8, !tbaa !27
+  %84 = getelementptr inbounds i64, ptr %83, i64 2
+  %85 = load i64, ptr %84, align 8, !tbaa !17
+  %86 = zext i64 %85 to i128
+  %87 = load ptr, ptr %4, align 8, !tbaa !27
+  %88 = getelementptr inbounds i64, ptr %87, i64 2
+  %89 = load i64, ptr %88, align 8, !tbaa !17
+  %90 = zext i64 %89 to i128
+  %91 = mul i128 %86, %90
+  %92 = add i128 %82, %91
+  %93 = load ptr, ptr %3, align 8, !tbaa !39
+  %94 = getelementptr inbounds i128, ptr %93, i64 4
+  store i128 %92, ptr %94, align 16, !tbaa !41
+  %95 = load ptr, ptr %4, align 8, !tbaa !27
+  %96 = getelementptr inbounds i64, ptr %95, i64 3
+  %97 = load i64, ptr %96, align 8, !tbaa !17
+  %98 = zext i64 %97 to i128
+  %99 = load i64, ptr %7, align 8, !tbaa !17
+  %100 = zext i64 %99 to i128
+  %101 = mul i128 %98, %100
+  %102 = load ptr, ptr %3, align 8, !tbaa !39
+  %103 = getelementptr inbounds i128, ptr %102, i64 5
+  store i128 %101, ptr %103, align 16, !tbaa !41
+  %104 = load ptr, ptr %4, align 8, !tbaa !27
+  %105 = getelementptr inbounds i64, ptr %104, i64 3
+  %106 = load i64, ptr %105, align 8, !tbaa !17
+  %107 = zext i64 %106 to i128
+  %108 = load ptr, ptr %4, align 8, !tbaa !27
+  %109 = getelementptr inbounds i64, ptr %108, i64 3
+  %110 = load i64, ptr %109, align 8, !tbaa !17
+  %111 = zext i64 %110 to i128
+  %112 = mul i128 %107, %111
+  %113 = load ptr, ptr %3, align 8, !tbaa !39
+  %114 = getelementptr inbounds i128, ptr %113, i64 6
+  store i128 %112, ptr %114, align 16, !tbaa !41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_reduce(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %output = alloca [5 x i128], align 16
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i128, ptr %0, i64 0
-  %1 = load i128, ptr %arrayidx, align 16
-  %add = add i128 %1, -170141183460469231731687303715884072960
-  %arrayidx1 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 0
-  store i128 %add, ptr %arrayidx1, align 16
-  %2 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i128, ptr %2, i64 1
-  %3 = load i128, ptr %arrayidx2, align 16
-  %add3 = add i128 %3, 170141183460469229370468033484042534912
-  %arrayidx4 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 1
-  store i128 %add3, ptr %arrayidx4, align 16
-  %4 = load ptr, ptr %in.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %4, i64 2
-  %5 = load i128, ptr %arrayidx5, align 16
-  %add6 = add i128 %5, 170141183460469229370504062281061498880
-  %arrayidx7 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  store i128 %add6, ptr %arrayidx7, align 16
-  %6 = load ptr, ptr %in.addr, align 8
-  %arrayidx8 = getelementptr inbounds i128, ptr %6, i64 3
-  %7 = load i128, ptr %arrayidx8, align 16
-  %arrayidx9 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 3
-  store i128 %7, ptr %arrayidx9, align 16
-  %8 = load ptr, ptr %in.addr, align 8
-  %arrayidx10 = getelementptr inbounds i128, ptr %8, i64 4
-  %9 = load i128, ptr %arrayidx10, align 16
-  %arrayidx11 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  store i128 %9, ptr %arrayidx11, align 16
-  %10 = load ptr, ptr %in.addr, align 8
-  %arrayidx12 = getelementptr inbounds i128, ptr %10, i64 6
-  %11 = load i128, ptr %arrayidx12, align 16
-  %shr = lshr i128 %11, 16
-  %arrayidx13 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  %12 = load i128, ptr %arrayidx13, align 16
-  %add14 = add i128 %12, %shr
-  store i128 %add14, ptr %arrayidx13, align 16
-  %13 = load ptr, ptr %in.addr, align 8
-  %arrayidx15 = getelementptr inbounds i128, ptr %13, i64 6
-  %14 = load i128, ptr %arrayidx15, align 16
-  %and = and i128 %14, 65535
-  %shl = shl i128 %and, 40
-  %arrayidx16 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 3
-  %15 = load i128, ptr %arrayidx16, align 16
-  %add17 = add i128 %15, %shl
-  store i128 %add17, ptr %arrayidx16, align 16
-  %16 = load ptr, ptr %in.addr, align 8
-  %arrayidx18 = getelementptr inbounds i128, ptr %16, i64 6
-  %17 = load i128, ptr %arrayidx18, align 16
-  %arrayidx19 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %18 = load i128, ptr %arrayidx19, align 16
-  %sub = sub i128 %18, %17
-  store i128 %sub, ptr %arrayidx19, align 16
-  %19 = load ptr, ptr %in.addr, align 8
-  %arrayidx20 = getelementptr inbounds i128, ptr %19, i64 5
-  %20 = load i128, ptr %arrayidx20, align 16
-  %shr21 = lshr i128 %20, 16
-  %arrayidx22 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 3
-  %21 = load i128, ptr %arrayidx22, align 16
-  %add23 = add i128 %21, %shr21
-  store i128 %add23, ptr %arrayidx22, align 16
-  %22 = load ptr, ptr %in.addr, align 8
-  %arrayidx24 = getelementptr inbounds i128, ptr %22, i64 5
-  %23 = load i128, ptr %arrayidx24, align 16
-  %and25 = and i128 %23, 65535
-  %shl26 = shl i128 %and25, 40
-  %arrayidx27 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %24 = load i128, ptr %arrayidx27, align 16
-  %add28 = add i128 %24, %shl26
-  store i128 %add28, ptr %arrayidx27, align 16
-  %25 = load ptr, ptr %in.addr, align 8
-  %arrayidx29 = getelementptr inbounds i128, ptr %25, i64 5
-  %26 = load i128, ptr %arrayidx29, align 16
-  %arrayidx30 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 1
-  %27 = load i128, ptr %arrayidx30, align 16
-  %sub31 = sub i128 %27, %26
-  store i128 %sub31, ptr %arrayidx30, align 16
-  %arrayidx32 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  %28 = load i128, ptr %arrayidx32, align 16
-  %shr33 = lshr i128 %28, 16
-  %arrayidx34 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %29 = load i128, ptr %arrayidx34, align 16
-  %add35 = add i128 %29, %shr33
-  store i128 %add35, ptr %arrayidx34, align 16
-  %arrayidx36 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  %30 = load i128, ptr %arrayidx36, align 16
-  %and37 = and i128 %30, 65535
-  %shl38 = shl i128 %and37, 40
-  %arrayidx39 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 1
-  %31 = load i128, ptr %arrayidx39, align 16
-  %add40 = add i128 %31, %shl38
-  store i128 %add40, ptr %arrayidx39, align 16
-  %arrayidx41 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  %32 = load i128, ptr %arrayidx41, align 16
-  %arrayidx42 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 0
-  %33 = load i128, ptr %arrayidx42, align 16
-  %sub43 = sub i128 %33, %32
-  store i128 %sub43, ptr %arrayidx42, align 16
-  %arrayidx44 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %34 = load i128, ptr %arrayidx44, align 16
-  %shr45 = lshr i128 %34, 56
-  %arrayidx46 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 3
-  %35 = load i128, ptr %arrayidx46, align 16
-  %add47 = add i128 %35, %shr45
-  store i128 %add47, ptr %arrayidx46, align 16
-  %arrayidx48 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %36 = load i128, ptr %arrayidx48, align 16
-  %and49 = and i128 %36, 72057594037927935
-  store i128 %and49, ptr %arrayidx48, align 16
-  %arrayidx50 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 3
-  %37 = load i128, ptr %arrayidx50, align 16
-  %shr51 = lshr i128 %37, 56
-  %arrayidx52 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  store i128 %shr51, ptr %arrayidx52, align 16
-  %arrayidx53 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 3
-  %38 = load i128, ptr %arrayidx53, align 16
-  %and54 = and i128 %38, 72057594037927935
-  store i128 %and54, ptr %arrayidx53, align 16
-  %arrayidx55 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  %39 = load i128, ptr %arrayidx55, align 16
-  %shr56 = lshr i128 %39, 16
-  %arrayidx57 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %40 = load i128, ptr %arrayidx57, align 16
-  %add58 = add i128 %40, %shr56
-  store i128 %add58, ptr %arrayidx57, align 16
-  %arrayidx59 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  %41 = load i128, ptr %arrayidx59, align 16
-  %and60 = and i128 %41, 65535
-  %shl61 = shl i128 %and60, 40
-  %arrayidx62 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 1
-  %42 = load i128, ptr %arrayidx62, align 16
-  %add63 = add i128 %42, %shl61
-  store i128 %add63, ptr %arrayidx62, align 16
-  %arrayidx64 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 4
-  %43 = load i128, ptr %arrayidx64, align 16
-  %arrayidx65 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 0
-  %44 = load i128, ptr %arrayidx65, align 16
-  %sub66 = sub i128 %44, %43
-  store i128 %sub66, ptr %arrayidx65, align 16
-  %arrayidx67 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 0
-  %45 = load i128, ptr %arrayidx67, align 16
-  %shr68 = lshr i128 %45, 56
-  %arrayidx69 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 1
-  %46 = load i128, ptr %arrayidx69, align 16
-  %add70 = add i128 %46, %shr68
-  store i128 %add70, ptr %arrayidx69, align 16
-  %arrayidx71 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 0
-  %47 = load i128, ptr %arrayidx71, align 16
-  %and72 = and i128 %47, 72057594037927935
-  %conv = trunc i128 %and72 to i64
-  %48 = load ptr, ptr %out.addr, align 8
-  %arrayidx73 = getelementptr inbounds i64, ptr %48, i64 0
-  store i64 %conv, ptr %arrayidx73, align 8
-  %arrayidx74 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 1
-  %49 = load i128, ptr %arrayidx74, align 16
-  %shr75 = lshr i128 %49, 56
-  %arrayidx76 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %50 = load i128, ptr %arrayidx76, align 16
-  %add77 = add i128 %50, %shr75
-  store i128 %add77, ptr %arrayidx76, align 16
-  %arrayidx78 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 1
-  %51 = load i128, ptr %arrayidx78, align 16
-  %and79 = and i128 %51, 72057594037927935
-  %conv80 = trunc i128 %and79 to i64
-  %52 = load ptr, ptr %out.addr, align 8
-  %arrayidx81 = getelementptr inbounds i64, ptr %52, i64 1
-  store i64 %conv80, ptr %arrayidx81, align 8
-  %arrayidx82 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %53 = load i128, ptr %arrayidx82, align 16
-  %shr83 = lshr i128 %53, 56
-  %arrayidx84 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 3
-  %54 = load i128, ptr %arrayidx84, align 16
-  %add85 = add i128 %54, %shr83
-  store i128 %add85, ptr %arrayidx84, align 16
-  %arrayidx86 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 2
-  %55 = load i128, ptr %arrayidx86, align 16
-  %and87 = and i128 %55, 72057594037927935
-  %conv88 = trunc i128 %and87 to i64
-  %56 = load ptr, ptr %out.addr, align 8
-  %arrayidx89 = getelementptr inbounds i64, ptr %56, i64 2
-  store i64 %conv88, ptr %arrayidx89, align 8
-  %arrayidx90 = getelementptr inbounds [5 x i128], ptr %output, i64 0, i64 3
-  %57 = load i128, ptr %arrayidx90, align 16
-  %conv91 = trunc i128 %57 to i64
-  %58 = load ptr, ptr %out.addr, align 8
-  %arrayidx92 = getelementptr inbounds i64, ptr %58, i64 3
-  store i64 %conv91, ptr %arrayidx92, align 8
+define internal void @felem_reduce(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [5 x i128], align 16
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 80, ptr %5) #7
+  %6 = load ptr, ptr %4, align 8, !tbaa !39
+  %7 = getelementptr inbounds i128, ptr %6, i64 0
+  %8 = load i128, ptr %7, align 16, !tbaa !41
+  %9 = add i128 %8, -170141183460469231731687303715884072960
+  %10 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 0
+  store i128 %9, ptr %10, align 16, !tbaa !41
+  %11 = load ptr, ptr %4, align 8, !tbaa !39
+  %12 = getelementptr inbounds i128, ptr %11, i64 1
+  %13 = load i128, ptr %12, align 16, !tbaa !41
+  %14 = add i128 %13, 170141183460469229370468033484042534912
+  %15 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 1
+  store i128 %14, ptr %15, align 16, !tbaa !41
+  %16 = load ptr, ptr %4, align 8, !tbaa !39
+  %17 = getelementptr inbounds i128, ptr %16, i64 2
+  %18 = load i128, ptr %17, align 16, !tbaa !41
+  %19 = add i128 %18, 170141183460469229370504062281061498880
+  %20 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  store i128 %19, ptr %20, align 16, !tbaa !41
+  %21 = load ptr, ptr %4, align 8, !tbaa !39
+  %22 = getelementptr inbounds i128, ptr %21, i64 3
+  %23 = load i128, ptr %22, align 16, !tbaa !41
+  %24 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 3
+  store i128 %23, ptr %24, align 16, !tbaa !41
+  %25 = load ptr, ptr %4, align 8, !tbaa !39
+  %26 = getelementptr inbounds i128, ptr %25, i64 4
+  %27 = load i128, ptr %26, align 16, !tbaa !41
+  %28 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  store i128 %27, ptr %28, align 16, !tbaa !41
+  %29 = load ptr, ptr %4, align 8, !tbaa !39
+  %30 = getelementptr inbounds i128, ptr %29, i64 6
+  %31 = load i128, ptr %30, align 16, !tbaa !41
+  %32 = lshr i128 %31, 16
+  %33 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  %34 = load i128, ptr %33, align 16, !tbaa !41
+  %35 = add i128 %34, %32
+  store i128 %35, ptr %33, align 16, !tbaa !41
+  %36 = load ptr, ptr %4, align 8, !tbaa !39
+  %37 = getelementptr inbounds i128, ptr %36, i64 6
+  %38 = load i128, ptr %37, align 16, !tbaa !41
+  %39 = and i128 %38, 65535
+  %40 = shl i128 %39, 40
+  %41 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 3
+  %42 = load i128, ptr %41, align 16, !tbaa !41
+  %43 = add i128 %42, %40
+  store i128 %43, ptr %41, align 16, !tbaa !41
+  %44 = load ptr, ptr %4, align 8, !tbaa !39
+  %45 = getelementptr inbounds i128, ptr %44, i64 6
+  %46 = load i128, ptr %45, align 16, !tbaa !41
+  %47 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %48 = load i128, ptr %47, align 16, !tbaa !41
+  %49 = sub i128 %48, %46
+  store i128 %49, ptr %47, align 16, !tbaa !41
+  %50 = load ptr, ptr %4, align 8, !tbaa !39
+  %51 = getelementptr inbounds i128, ptr %50, i64 5
+  %52 = load i128, ptr %51, align 16, !tbaa !41
+  %53 = lshr i128 %52, 16
+  %54 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 3
+  %55 = load i128, ptr %54, align 16, !tbaa !41
+  %56 = add i128 %55, %53
+  store i128 %56, ptr %54, align 16, !tbaa !41
+  %57 = load ptr, ptr %4, align 8, !tbaa !39
+  %58 = getelementptr inbounds i128, ptr %57, i64 5
+  %59 = load i128, ptr %58, align 16, !tbaa !41
+  %60 = and i128 %59, 65535
+  %61 = shl i128 %60, 40
+  %62 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %63 = load i128, ptr %62, align 16, !tbaa !41
+  %64 = add i128 %63, %61
+  store i128 %64, ptr %62, align 16, !tbaa !41
+  %65 = load ptr, ptr %4, align 8, !tbaa !39
+  %66 = getelementptr inbounds i128, ptr %65, i64 5
+  %67 = load i128, ptr %66, align 16, !tbaa !41
+  %68 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 1
+  %69 = load i128, ptr %68, align 16, !tbaa !41
+  %70 = sub i128 %69, %67
+  store i128 %70, ptr %68, align 16, !tbaa !41
+  %71 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  %72 = load i128, ptr %71, align 16, !tbaa !41
+  %73 = lshr i128 %72, 16
+  %74 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %75 = load i128, ptr %74, align 16, !tbaa !41
+  %76 = add i128 %75, %73
+  store i128 %76, ptr %74, align 16, !tbaa !41
+  %77 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  %78 = load i128, ptr %77, align 16, !tbaa !41
+  %79 = and i128 %78, 65535
+  %80 = shl i128 %79, 40
+  %81 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 1
+  %82 = load i128, ptr %81, align 16, !tbaa !41
+  %83 = add i128 %82, %80
+  store i128 %83, ptr %81, align 16, !tbaa !41
+  %84 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  %85 = load i128, ptr %84, align 16, !tbaa !41
+  %86 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 0
+  %87 = load i128, ptr %86, align 16, !tbaa !41
+  %88 = sub i128 %87, %85
+  store i128 %88, ptr %86, align 16, !tbaa !41
+  %89 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %90 = load i128, ptr %89, align 16, !tbaa !41
+  %91 = lshr i128 %90, 56
+  %92 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 3
+  %93 = load i128, ptr %92, align 16, !tbaa !41
+  %94 = add i128 %93, %91
+  store i128 %94, ptr %92, align 16, !tbaa !41
+  %95 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %96 = load i128, ptr %95, align 16, !tbaa !41
+  %97 = and i128 %96, 72057594037927935
+  store i128 %97, ptr %95, align 16, !tbaa !41
+  %98 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 3
+  %99 = load i128, ptr %98, align 16, !tbaa !41
+  %100 = lshr i128 %99, 56
+  %101 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  store i128 %100, ptr %101, align 16, !tbaa !41
+  %102 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 3
+  %103 = load i128, ptr %102, align 16, !tbaa !41
+  %104 = and i128 %103, 72057594037927935
+  store i128 %104, ptr %102, align 16, !tbaa !41
+  %105 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  %106 = load i128, ptr %105, align 16, !tbaa !41
+  %107 = lshr i128 %106, 16
+  %108 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %109 = load i128, ptr %108, align 16, !tbaa !41
+  %110 = add i128 %109, %107
+  store i128 %110, ptr %108, align 16, !tbaa !41
+  %111 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  %112 = load i128, ptr %111, align 16, !tbaa !41
+  %113 = and i128 %112, 65535
+  %114 = shl i128 %113, 40
+  %115 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 1
+  %116 = load i128, ptr %115, align 16, !tbaa !41
+  %117 = add i128 %116, %114
+  store i128 %117, ptr %115, align 16, !tbaa !41
+  %118 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 4
+  %119 = load i128, ptr %118, align 16, !tbaa !41
+  %120 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 0
+  %121 = load i128, ptr %120, align 16, !tbaa !41
+  %122 = sub i128 %121, %119
+  store i128 %122, ptr %120, align 16, !tbaa !41
+  %123 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 0
+  %124 = load i128, ptr %123, align 16, !tbaa !41
+  %125 = lshr i128 %124, 56
+  %126 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 1
+  %127 = load i128, ptr %126, align 16, !tbaa !41
+  %128 = add i128 %127, %125
+  store i128 %128, ptr %126, align 16, !tbaa !41
+  %129 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 0
+  %130 = load i128, ptr %129, align 16, !tbaa !41
+  %131 = and i128 %130, 72057594037927935
+  %132 = trunc i128 %131 to i64
+  %133 = load ptr, ptr %3, align 8, !tbaa !27
+  %134 = getelementptr inbounds i64, ptr %133, i64 0
+  store i64 %132, ptr %134, align 8, !tbaa !17
+  %135 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 1
+  %136 = load i128, ptr %135, align 16, !tbaa !41
+  %137 = lshr i128 %136, 56
+  %138 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %139 = load i128, ptr %138, align 16, !tbaa !41
+  %140 = add i128 %139, %137
+  store i128 %140, ptr %138, align 16, !tbaa !41
+  %141 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 1
+  %142 = load i128, ptr %141, align 16, !tbaa !41
+  %143 = and i128 %142, 72057594037927935
+  %144 = trunc i128 %143 to i64
+  %145 = load ptr, ptr %3, align 8, !tbaa !27
+  %146 = getelementptr inbounds i64, ptr %145, i64 1
+  store i64 %144, ptr %146, align 8, !tbaa !17
+  %147 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %148 = load i128, ptr %147, align 16, !tbaa !41
+  %149 = lshr i128 %148, 56
+  %150 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 3
+  %151 = load i128, ptr %150, align 16, !tbaa !41
+  %152 = add i128 %151, %149
+  store i128 %152, ptr %150, align 16, !tbaa !41
+  %153 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 2
+  %154 = load i128, ptr %153, align 16, !tbaa !41
+  %155 = and i128 %154, 72057594037927935
+  %156 = trunc i128 %155 to i64
+  %157 = load ptr, ptr %3, align 8, !tbaa !27
+  %158 = getelementptr inbounds i64, ptr %157, i64 2
+  store i64 %156, ptr %158, align 8, !tbaa !17
+  %159 = getelementptr inbounds [5 x i128], ptr %5, i64 0, i64 3
+  %160 = load i128, ptr %159, align 16, !tbaa !41
+  %161 = trunc i128 %160 to i64
+  %162 = load ptr, ptr %3, align 8, !tbaa !27
+  %163 = getelementptr inbounds i64, ptr %162, i64 3
+  store i64 %161, ptr %163, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 80, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_mul(ptr noundef %out, ptr noundef %in1, ptr noundef %in2) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in1.addr = alloca ptr, align 8
-  %in2.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in1, ptr %in1.addr, align 8
-  store ptr %in2, ptr %in2.addr, align 8
-  %0 = load ptr, ptr %in1.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %conv = zext i64 %1 to i128
-  %2 = load ptr, ptr %in2.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 0
-  %3 = load i64, ptr %arrayidx1, align 8
-  %conv2 = zext i64 %3 to i128
-  %mul = mul i128 %conv, %conv2
-  %4 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i128, ptr %4, i64 0
-  store i128 %mul, ptr %arrayidx3, align 16
-  %5 = load ptr, ptr %in1.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %5, i64 0
-  %6 = load i64, ptr %arrayidx4, align 8
-  %conv5 = zext i64 %6 to i128
-  %7 = load ptr, ptr %in2.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %7, i64 1
-  %8 = load i64, ptr %arrayidx6, align 8
-  %conv7 = zext i64 %8 to i128
-  %mul8 = mul i128 %conv5, %conv7
-  %9 = load ptr, ptr %in1.addr, align 8
-  %arrayidx9 = getelementptr inbounds i64, ptr %9, i64 1
-  %10 = load i64, ptr %arrayidx9, align 8
-  %conv10 = zext i64 %10 to i128
-  %11 = load ptr, ptr %in2.addr, align 8
-  %arrayidx11 = getelementptr inbounds i64, ptr %11, i64 0
-  %12 = load i64, ptr %arrayidx11, align 8
-  %conv12 = zext i64 %12 to i128
-  %mul13 = mul i128 %conv10, %conv12
-  %add = add i128 %mul8, %mul13
-  %13 = load ptr, ptr %out.addr, align 8
-  %arrayidx14 = getelementptr inbounds i128, ptr %13, i64 1
-  store i128 %add, ptr %arrayidx14, align 16
-  %14 = load ptr, ptr %in1.addr, align 8
-  %arrayidx15 = getelementptr inbounds i64, ptr %14, i64 0
-  %15 = load i64, ptr %arrayidx15, align 8
-  %conv16 = zext i64 %15 to i128
-  %16 = load ptr, ptr %in2.addr, align 8
-  %arrayidx17 = getelementptr inbounds i64, ptr %16, i64 2
-  %17 = load i64, ptr %arrayidx17, align 8
-  %conv18 = zext i64 %17 to i128
-  %mul19 = mul i128 %conv16, %conv18
-  %18 = load ptr, ptr %in1.addr, align 8
-  %arrayidx20 = getelementptr inbounds i64, ptr %18, i64 1
-  %19 = load i64, ptr %arrayidx20, align 8
-  %conv21 = zext i64 %19 to i128
-  %20 = load ptr, ptr %in2.addr, align 8
-  %arrayidx22 = getelementptr inbounds i64, ptr %20, i64 1
-  %21 = load i64, ptr %arrayidx22, align 8
-  %conv23 = zext i64 %21 to i128
-  %mul24 = mul i128 %conv21, %conv23
-  %add25 = add i128 %mul19, %mul24
-  %22 = load ptr, ptr %in1.addr, align 8
-  %arrayidx26 = getelementptr inbounds i64, ptr %22, i64 2
-  %23 = load i64, ptr %arrayidx26, align 8
-  %conv27 = zext i64 %23 to i128
-  %24 = load ptr, ptr %in2.addr, align 8
-  %arrayidx28 = getelementptr inbounds i64, ptr %24, i64 0
-  %25 = load i64, ptr %arrayidx28, align 8
-  %conv29 = zext i64 %25 to i128
-  %mul30 = mul i128 %conv27, %conv29
-  %add31 = add i128 %add25, %mul30
-  %26 = load ptr, ptr %out.addr, align 8
-  %arrayidx32 = getelementptr inbounds i128, ptr %26, i64 2
-  store i128 %add31, ptr %arrayidx32, align 16
-  %27 = load ptr, ptr %in1.addr, align 8
-  %arrayidx33 = getelementptr inbounds i64, ptr %27, i64 0
-  %28 = load i64, ptr %arrayidx33, align 8
-  %conv34 = zext i64 %28 to i128
-  %29 = load ptr, ptr %in2.addr, align 8
-  %arrayidx35 = getelementptr inbounds i64, ptr %29, i64 3
-  %30 = load i64, ptr %arrayidx35, align 8
-  %conv36 = zext i64 %30 to i128
-  %mul37 = mul i128 %conv34, %conv36
-  %31 = load ptr, ptr %in1.addr, align 8
-  %arrayidx38 = getelementptr inbounds i64, ptr %31, i64 1
-  %32 = load i64, ptr %arrayidx38, align 8
-  %conv39 = zext i64 %32 to i128
-  %33 = load ptr, ptr %in2.addr, align 8
-  %arrayidx40 = getelementptr inbounds i64, ptr %33, i64 2
-  %34 = load i64, ptr %arrayidx40, align 8
-  %conv41 = zext i64 %34 to i128
-  %mul42 = mul i128 %conv39, %conv41
-  %add43 = add i128 %mul37, %mul42
-  %35 = load ptr, ptr %in1.addr, align 8
-  %arrayidx44 = getelementptr inbounds i64, ptr %35, i64 2
-  %36 = load i64, ptr %arrayidx44, align 8
-  %conv45 = zext i64 %36 to i128
-  %37 = load ptr, ptr %in2.addr, align 8
-  %arrayidx46 = getelementptr inbounds i64, ptr %37, i64 1
-  %38 = load i64, ptr %arrayidx46, align 8
-  %conv47 = zext i64 %38 to i128
-  %mul48 = mul i128 %conv45, %conv47
-  %add49 = add i128 %add43, %mul48
-  %39 = load ptr, ptr %in1.addr, align 8
-  %arrayidx50 = getelementptr inbounds i64, ptr %39, i64 3
-  %40 = load i64, ptr %arrayidx50, align 8
-  %conv51 = zext i64 %40 to i128
-  %41 = load ptr, ptr %in2.addr, align 8
-  %arrayidx52 = getelementptr inbounds i64, ptr %41, i64 0
-  %42 = load i64, ptr %arrayidx52, align 8
-  %conv53 = zext i64 %42 to i128
-  %mul54 = mul i128 %conv51, %conv53
-  %add55 = add i128 %add49, %mul54
-  %43 = load ptr, ptr %out.addr, align 8
-  %arrayidx56 = getelementptr inbounds i128, ptr %43, i64 3
-  store i128 %add55, ptr %arrayidx56, align 16
-  %44 = load ptr, ptr %in1.addr, align 8
-  %arrayidx57 = getelementptr inbounds i64, ptr %44, i64 1
-  %45 = load i64, ptr %arrayidx57, align 8
-  %conv58 = zext i64 %45 to i128
-  %46 = load ptr, ptr %in2.addr, align 8
-  %arrayidx59 = getelementptr inbounds i64, ptr %46, i64 3
-  %47 = load i64, ptr %arrayidx59, align 8
-  %conv60 = zext i64 %47 to i128
-  %mul61 = mul i128 %conv58, %conv60
-  %48 = load ptr, ptr %in1.addr, align 8
-  %arrayidx62 = getelementptr inbounds i64, ptr %48, i64 2
-  %49 = load i64, ptr %arrayidx62, align 8
-  %conv63 = zext i64 %49 to i128
-  %50 = load ptr, ptr %in2.addr, align 8
-  %arrayidx64 = getelementptr inbounds i64, ptr %50, i64 2
-  %51 = load i64, ptr %arrayidx64, align 8
-  %conv65 = zext i64 %51 to i128
-  %mul66 = mul i128 %conv63, %conv65
-  %add67 = add i128 %mul61, %mul66
-  %52 = load ptr, ptr %in1.addr, align 8
-  %arrayidx68 = getelementptr inbounds i64, ptr %52, i64 3
-  %53 = load i64, ptr %arrayidx68, align 8
-  %conv69 = zext i64 %53 to i128
-  %54 = load ptr, ptr %in2.addr, align 8
-  %arrayidx70 = getelementptr inbounds i64, ptr %54, i64 1
-  %55 = load i64, ptr %arrayidx70, align 8
-  %conv71 = zext i64 %55 to i128
-  %mul72 = mul i128 %conv69, %conv71
-  %add73 = add i128 %add67, %mul72
-  %56 = load ptr, ptr %out.addr, align 8
-  %arrayidx74 = getelementptr inbounds i128, ptr %56, i64 4
-  store i128 %add73, ptr %arrayidx74, align 16
-  %57 = load ptr, ptr %in1.addr, align 8
-  %arrayidx75 = getelementptr inbounds i64, ptr %57, i64 2
-  %58 = load i64, ptr %arrayidx75, align 8
-  %conv76 = zext i64 %58 to i128
-  %59 = load ptr, ptr %in2.addr, align 8
-  %arrayidx77 = getelementptr inbounds i64, ptr %59, i64 3
-  %60 = load i64, ptr %arrayidx77, align 8
-  %conv78 = zext i64 %60 to i128
-  %mul79 = mul i128 %conv76, %conv78
-  %61 = load ptr, ptr %in1.addr, align 8
-  %arrayidx80 = getelementptr inbounds i64, ptr %61, i64 3
-  %62 = load i64, ptr %arrayidx80, align 8
-  %conv81 = zext i64 %62 to i128
-  %63 = load ptr, ptr %in2.addr, align 8
-  %arrayidx82 = getelementptr inbounds i64, ptr %63, i64 2
-  %64 = load i64, ptr %arrayidx82, align 8
-  %conv83 = zext i64 %64 to i128
-  %mul84 = mul i128 %conv81, %conv83
-  %add85 = add i128 %mul79, %mul84
-  %65 = load ptr, ptr %out.addr, align 8
-  %arrayidx86 = getelementptr inbounds i128, ptr %65, i64 5
-  store i128 %add85, ptr %arrayidx86, align 16
-  %66 = load ptr, ptr %in1.addr, align 8
-  %arrayidx87 = getelementptr inbounds i64, ptr %66, i64 3
-  %67 = load i64, ptr %arrayidx87, align 8
-  %conv88 = zext i64 %67 to i128
-  %68 = load ptr, ptr %in2.addr, align 8
-  %arrayidx89 = getelementptr inbounds i64, ptr %68, i64 3
-  %69 = load i64, ptr %arrayidx89, align 8
-  %conv90 = zext i64 %69 to i128
-  %mul91 = mul i128 %conv88, %conv90
-  %70 = load ptr, ptr %out.addr, align 8
-  %arrayidx92 = getelementptr inbounds i128, ptr %70, i64 6
-  store i128 %mul91, ptr %arrayidx92, align 16
+define internal void @felem_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %5, align 8, !tbaa !27
+  %8 = getelementptr inbounds i64, ptr %7, i64 0
+  %9 = load i64, ptr %8, align 8, !tbaa !17
+  %10 = zext i64 %9 to i128
+  %11 = load ptr, ptr %6, align 8, !tbaa !27
+  %12 = getelementptr inbounds i64, ptr %11, i64 0
+  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %14 = zext i64 %13 to i128
+  %15 = mul i128 %10, %14
+  %16 = load ptr, ptr %4, align 8, !tbaa !39
+  %17 = getelementptr inbounds i128, ptr %16, i64 0
+  store i128 %15, ptr %17, align 16, !tbaa !41
+  %18 = load ptr, ptr %5, align 8, !tbaa !27
+  %19 = getelementptr inbounds i64, ptr %18, i64 0
+  %20 = load i64, ptr %19, align 8, !tbaa !17
+  %21 = zext i64 %20 to i128
+  %22 = load ptr, ptr %6, align 8, !tbaa !27
+  %23 = getelementptr inbounds i64, ptr %22, i64 1
+  %24 = load i64, ptr %23, align 8, !tbaa !17
+  %25 = zext i64 %24 to i128
+  %26 = mul i128 %21, %25
+  %27 = load ptr, ptr %5, align 8, !tbaa !27
+  %28 = getelementptr inbounds i64, ptr %27, i64 1
+  %29 = load i64, ptr %28, align 8, !tbaa !17
+  %30 = zext i64 %29 to i128
+  %31 = load ptr, ptr %6, align 8, !tbaa !27
+  %32 = getelementptr inbounds i64, ptr %31, i64 0
+  %33 = load i64, ptr %32, align 8, !tbaa !17
+  %34 = zext i64 %33 to i128
+  %35 = mul i128 %30, %34
+  %36 = add i128 %26, %35
+  %37 = load ptr, ptr %4, align 8, !tbaa !39
+  %38 = getelementptr inbounds i128, ptr %37, i64 1
+  store i128 %36, ptr %38, align 16, !tbaa !41
+  %39 = load ptr, ptr %5, align 8, !tbaa !27
+  %40 = getelementptr inbounds i64, ptr %39, i64 0
+  %41 = load i64, ptr %40, align 8, !tbaa !17
+  %42 = zext i64 %41 to i128
+  %43 = load ptr, ptr %6, align 8, !tbaa !27
+  %44 = getelementptr inbounds i64, ptr %43, i64 2
+  %45 = load i64, ptr %44, align 8, !tbaa !17
+  %46 = zext i64 %45 to i128
+  %47 = mul i128 %42, %46
+  %48 = load ptr, ptr %5, align 8, !tbaa !27
+  %49 = getelementptr inbounds i64, ptr %48, i64 1
+  %50 = load i64, ptr %49, align 8, !tbaa !17
+  %51 = zext i64 %50 to i128
+  %52 = load ptr, ptr %6, align 8, !tbaa !27
+  %53 = getelementptr inbounds i64, ptr %52, i64 1
+  %54 = load i64, ptr %53, align 8, !tbaa !17
+  %55 = zext i64 %54 to i128
+  %56 = mul i128 %51, %55
+  %57 = add i128 %47, %56
+  %58 = load ptr, ptr %5, align 8, !tbaa !27
+  %59 = getelementptr inbounds i64, ptr %58, i64 2
+  %60 = load i64, ptr %59, align 8, !tbaa !17
+  %61 = zext i64 %60 to i128
+  %62 = load ptr, ptr %6, align 8, !tbaa !27
+  %63 = getelementptr inbounds i64, ptr %62, i64 0
+  %64 = load i64, ptr %63, align 8, !tbaa !17
+  %65 = zext i64 %64 to i128
+  %66 = mul i128 %61, %65
+  %67 = add i128 %57, %66
+  %68 = load ptr, ptr %4, align 8, !tbaa !39
+  %69 = getelementptr inbounds i128, ptr %68, i64 2
+  store i128 %67, ptr %69, align 16, !tbaa !41
+  %70 = load ptr, ptr %5, align 8, !tbaa !27
+  %71 = getelementptr inbounds i64, ptr %70, i64 0
+  %72 = load i64, ptr %71, align 8, !tbaa !17
+  %73 = zext i64 %72 to i128
+  %74 = load ptr, ptr %6, align 8, !tbaa !27
+  %75 = getelementptr inbounds i64, ptr %74, i64 3
+  %76 = load i64, ptr %75, align 8, !tbaa !17
+  %77 = zext i64 %76 to i128
+  %78 = mul i128 %73, %77
+  %79 = load ptr, ptr %5, align 8, !tbaa !27
+  %80 = getelementptr inbounds i64, ptr %79, i64 1
+  %81 = load i64, ptr %80, align 8, !tbaa !17
+  %82 = zext i64 %81 to i128
+  %83 = load ptr, ptr %6, align 8, !tbaa !27
+  %84 = getelementptr inbounds i64, ptr %83, i64 2
+  %85 = load i64, ptr %84, align 8, !tbaa !17
+  %86 = zext i64 %85 to i128
+  %87 = mul i128 %82, %86
+  %88 = add i128 %78, %87
+  %89 = load ptr, ptr %5, align 8, !tbaa !27
+  %90 = getelementptr inbounds i64, ptr %89, i64 2
+  %91 = load i64, ptr %90, align 8, !tbaa !17
+  %92 = zext i64 %91 to i128
+  %93 = load ptr, ptr %6, align 8, !tbaa !27
+  %94 = getelementptr inbounds i64, ptr %93, i64 1
+  %95 = load i64, ptr %94, align 8, !tbaa !17
+  %96 = zext i64 %95 to i128
+  %97 = mul i128 %92, %96
+  %98 = add i128 %88, %97
+  %99 = load ptr, ptr %5, align 8, !tbaa !27
+  %100 = getelementptr inbounds i64, ptr %99, i64 3
+  %101 = load i64, ptr %100, align 8, !tbaa !17
+  %102 = zext i64 %101 to i128
+  %103 = load ptr, ptr %6, align 8, !tbaa !27
+  %104 = getelementptr inbounds i64, ptr %103, i64 0
+  %105 = load i64, ptr %104, align 8, !tbaa !17
+  %106 = zext i64 %105 to i128
+  %107 = mul i128 %102, %106
+  %108 = add i128 %98, %107
+  %109 = load ptr, ptr %4, align 8, !tbaa !39
+  %110 = getelementptr inbounds i128, ptr %109, i64 3
+  store i128 %108, ptr %110, align 16, !tbaa !41
+  %111 = load ptr, ptr %5, align 8, !tbaa !27
+  %112 = getelementptr inbounds i64, ptr %111, i64 1
+  %113 = load i64, ptr %112, align 8, !tbaa !17
+  %114 = zext i64 %113 to i128
+  %115 = load ptr, ptr %6, align 8, !tbaa !27
+  %116 = getelementptr inbounds i64, ptr %115, i64 3
+  %117 = load i64, ptr %116, align 8, !tbaa !17
+  %118 = zext i64 %117 to i128
+  %119 = mul i128 %114, %118
+  %120 = load ptr, ptr %5, align 8, !tbaa !27
+  %121 = getelementptr inbounds i64, ptr %120, i64 2
+  %122 = load i64, ptr %121, align 8, !tbaa !17
+  %123 = zext i64 %122 to i128
+  %124 = load ptr, ptr %6, align 8, !tbaa !27
+  %125 = getelementptr inbounds i64, ptr %124, i64 2
+  %126 = load i64, ptr %125, align 8, !tbaa !17
+  %127 = zext i64 %126 to i128
+  %128 = mul i128 %123, %127
+  %129 = add i128 %119, %128
+  %130 = load ptr, ptr %5, align 8, !tbaa !27
+  %131 = getelementptr inbounds i64, ptr %130, i64 3
+  %132 = load i64, ptr %131, align 8, !tbaa !17
+  %133 = zext i64 %132 to i128
+  %134 = load ptr, ptr %6, align 8, !tbaa !27
+  %135 = getelementptr inbounds i64, ptr %134, i64 1
+  %136 = load i64, ptr %135, align 8, !tbaa !17
+  %137 = zext i64 %136 to i128
+  %138 = mul i128 %133, %137
+  %139 = add i128 %129, %138
+  %140 = load ptr, ptr %4, align 8, !tbaa !39
+  %141 = getelementptr inbounds i128, ptr %140, i64 4
+  store i128 %139, ptr %141, align 16, !tbaa !41
+  %142 = load ptr, ptr %5, align 8, !tbaa !27
+  %143 = getelementptr inbounds i64, ptr %142, i64 2
+  %144 = load i64, ptr %143, align 8, !tbaa !17
+  %145 = zext i64 %144 to i128
+  %146 = load ptr, ptr %6, align 8, !tbaa !27
+  %147 = getelementptr inbounds i64, ptr %146, i64 3
+  %148 = load i64, ptr %147, align 8, !tbaa !17
+  %149 = zext i64 %148 to i128
+  %150 = mul i128 %145, %149
+  %151 = load ptr, ptr %5, align 8, !tbaa !27
+  %152 = getelementptr inbounds i64, ptr %151, i64 3
+  %153 = load i64, ptr %152, align 8, !tbaa !17
+  %154 = zext i64 %153 to i128
+  %155 = load ptr, ptr %6, align 8, !tbaa !27
+  %156 = getelementptr inbounds i64, ptr %155, i64 2
+  %157 = load i64, ptr %156, align 8, !tbaa !17
+  %158 = zext i64 %157 to i128
+  %159 = mul i128 %154, %158
+  %160 = add i128 %150, %159
+  %161 = load ptr, ptr %4, align 8, !tbaa !39
+  %162 = getelementptr inbounds i128, ptr %161, i64 5
+  store i128 %160, ptr %162, align 16, !tbaa !41
+  %163 = load ptr, ptr %5, align 8, !tbaa !27
+  %164 = getelementptr inbounds i64, ptr %163, i64 3
+  %165 = load i64, ptr %164, align 8, !tbaa !17
+  %166 = zext i64 %165 to i128
+  %167 = load ptr, ptr %6, align 8, !tbaa !27
+  %168 = getelementptr inbounds i64, ptr %167, i64 3
+  %169 = load i64, ptr %168, align 8, !tbaa !17
+  %170 = zext i64 %169 to i128
+  %171 = mul i128 %166, %170
+  %172 = load ptr, ptr %4, align 8, !tbaa !39
+  %173 = getelementptr inbounds i128, ptr %172, i64 6
+  store i128 %171, ptr %173, align 16, !tbaa !41
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_contract(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %tmp = alloca [4 x i64], align 16
-  %a = alloca i64, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %arrayidx1 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 0
-  store i64 %1, ptr %arrayidx1, align 16
-  %2 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %2, i64 1
-  %3 = load i64, ptr %arrayidx2, align 8
-  %arrayidx3 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 1
-  store i64 %3, ptr %arrayidx3, align 8
-  %4 = load ptr, ptr %in.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %4, i64 2
-  %5 = load i64, ptr %arrayidx4, align 8
-  %arrayidx5 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 2
-  store i64 %5, ptr %arrayidx5, align 16
-  %6 = load ptr, ptr %in.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %6, i64 3
-  %7 = load i64, ptr %arrayidx6, align 8
-  %arrayidx7 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 3
-  store i64 %7, ptr %arrayidx7, align 8
-  %8 = load ptr, ptr %in.addr, align 8
-  %arrayidx8 = getelementptr inbounds i64, ptr %8, i64 3
-  %9 = load i64, ptr %arrayidx8, align 8
-  %shr = lshr i64 %9, 56
-  store i64 %shr, ptr %a, align 8
-  %10 = load i64, ptr %a, align 8
-  %arrayidx9 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 0
-  %11 = load i64, ptr %arrayidx9, align 16
-  %sub = sub nsw i64 %11, %10
-  store i64 %sub, ptr %arrayidx9, align 16
-  %12 = load i64, ptr %a, align 8
-  %shl = shl i64 %12, 40
-  %arrayidx10 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 1
-  %13 = load i64, ptr %arrayidx10, align 8
-  %add = add nsw i64 %13, %shl
-  store i64 %add, ptr %arrayidx10, align 8
-  %arrayidx11 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 3
-  %14 = load i64, ptr %arrayidx11, align 8
-  %and = and i64 %14, 72057594037927935
-  store i64 %and, ptr %arrayidx11, align 8
-  %15 = load ptr, ptr %in.addr, align 8
-  %arrayidx12 = getelementptr inbounds i64, ptr %15, i64 3
-  %16 = load i64, ptr %arrayidx12, align 8
-  %17 = load ptr, ptr %in.addr, align 8
-  %arrayidx13 = getelementptr inbounds i64, ptr %17, i64 2
-  %18 = load i64, ptr %arrayidx13, align 8
-  %and14 = and i64 %16, %18
-  %19 = load ptr, ptr %in.addr, align 8
-  %arrayidx15 = getelementptr inbounds i64, ptr %19, i64 1
-  %20 = load i64, ptr %arrayidx15, align 8
-  %or = or i64 %20, 1099511627775
-  %and16 = and i64 %and14, %or
-  %add17 = add i64 %and16, 1
-  %21 = load ptr, ptr %in.addr, align 8
-  %arrayidx18 = getelementptr inbounds i64, ptr %21, i64 0
-  %22 = load i64, ptr %arrayidx18, align 8
-  %23 = load ptr, ptr %in.addr, align 8
-  %arrayidx19 = getelementptr inbounds i64, ptr %23, i64 1
-  %24 = load i64, ptr %arrayidx19, align 8
-  %and20 = and i64 %24, 1099511627775
-  %add21 = add i64 %22, %and20
-  %sub22 = sub nsw i64 %add21, 1
-  %shr23 = ashr i64 %sub22, 63
-  %or24 = or i64 %add17, %shr23
-  store i64 %or24, ptr %a, align 8
-  %25 = load i64, ptr %a, align 8
-  %and25 = and i64 %25, 72057594037927935
-  store i64 %and25, ptr %a, align 8
-  %26 = load i64, ptr %a, align 8
-  %sub26 = sub nsw i64 %26, 1
-  %shr27 = ashr i64 %sub26, 63
-  store i64 %shr27, ptr %a, align 8
-  %27 = load i64, ptr %a, align 8
-  %xor = xor i64 %27, -1
-  %arrayidx28 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 3
-  %28 = load i64, ptr %arrayidx28, align 8
-  %and29 = and i64 %28, %xor
-  store i64 %and29, ptr %arrayidx28, align 8
-  %29 = load i64, ptr %a, align 8
-  %xor30 = xor i64 %29, -1
-  %arrayidx31 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 2
-  %30 = load i64, ptr %arrayidx31, align 16
-  %and32 = and i64 %30, %xor30
-  store i64 %and32, ptr %arrayidx31, align 16
-  %31 = load i64, ptr %a, align 8
-  %xor33 = xor i64 %31, -1
-  %or34 = or i64 %xor33, 1099511627775
-  %arrayidx35 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 1
-  %32 = load i64, ptr %arrayidx35, align 8
-  %and36 = and i64 %32, %or34
-  store i64 %and36, ptr %arrayidx35, align 8
-  %33 = load i64, ptr %a, align 8
-  %and37 = and i64 1, %33
-  %arrayidx38 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 0
-  %34 = load i64, ptr %arrayidx38, align 16
-  %sub39 = sub nsw i64 %34, %and37
-  store i64 %sub39, ptr %arrayidx38, align 16
-  %arrayidx40 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 0
-  %35 = load i64, ptr %arrayidx40, align 16
-  %shr41 = ashr i64 %35, 63
-  store i64 %shr41, ptr %a, align 8
-  %36 = load i64, ptr %a, align 8
-  %and42 = and i64 72057594037927936, %36
-  %arrayidx43 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 0
-  %37 = load i64, ptr %arrayidx43, align 16
-  %add44 = add nsw i64 %37, %and42
-  store i64 %add44, ptr %arrayidx43, align 16
-  %38 = load i64, ptr %a, align 8
-  %and45 = and i64 1, %38
-  %arrayidx46 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 1
-  %39 = load i64, ptr %arrayidx46, align 8
-  %sub47 = sub nsw i64 %39, %and45
-  store i64 %sub47, ptr %arrayidx46, align 8
-  %arrayidx48 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 1
-  %40 = load i64, ptr %arrayidx48, align 8
-  %shr49 = ashr i64 %40, 56
-  %arrayidx50 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 2
-  %41 = load i64, ptr %arrayidx50, align 16
-  %add51 = add nsw i64 %41, %shr49
-  store i64 %add51, ptr %arrayidx50, align 16
-  %arrayidx52 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 1
-  %42 = load i64, ptr %arrayidx52, align 8
-  %and53 = and i64 %42, 72057594037927935
-  store i64 %and53, ptr %arrayidx52, align 8
-  %arrayidx54 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 2
-  %43 = load i64, ptr %arrayidx54, align 16
-  %shr55 = ashr i64 %43, 56
-  %arrayidx56 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 3
-  %44 = load i64, ptr %arrayidx56, align 8
-  %add57 = add nsw i64 %44, %shr55
-  store i64 %add57, ptr %arrayidx56, align 8
-  %arrayidx58 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 2
-  %45 = load i64, ptr %arrayidx58, align 16
-  %and59 = and i64 %45, 72057594037927935
-  store i64 %and59, ptr %arrayidx58, align 16
-  %arrayidx60 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 0
-  %46 = load i64, ptr %arrayidx60, align 16
-  %47 = load ptr, ptr %out.addr, align 8
-  %arrayidx61 = getelementptr inbounds i64, ptr %47, i64 0
-  store i64 %46, ptr %arrayidx61, align 8
-  %arrayidx62 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 1
-  %48 = load i64, ptr %arrayidx62, align 8
-  %49 = load ptr, ptr %out.addr, align 8
-  %arrayidx63 = getelementptr inbounds i64, ptr %49, i64 1
-  store i64 %48, ptr %arrayidx63, align 8
-  %arrayidx64 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 2
-  %50 = load i64, ptr %arrayidx64, align 16
-  %51 = load ptr, ptr %out.addr, align 8
-  %arrayidx65 = getelementptr inbounds i64, ptr %51, i64 2
-  store i64 %50, ptr %arrayidx65, align 8
-  %arrayidx66 = getelementptr inbounds [4 x i64], ptr %tmp, i64 0, i64 3
-  %52 = load i64, ptr %arrayidx66, align 8
-  %53 = load ptr, ptr %out.addr, align 8
-  %arrayidx67 = getelementptr inbounds i64, ptr %53, i64 3
-  store i64 %52, ptr %arrayidx67, align 8
+define internal void @felem_contract(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [4 x i64], align 16
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %7 = load ptr, ptr %4, align 8, !tbaa !27
+  %8 = getelementptr inbounds i64, ptr %7, i64 0
+  %9 = load i64, ptr %8, align 8, !tbaa !17
+  %10 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  store i64 %9, ptr %10, align 16, !tbaa !17
+  %11 = load ptr, ptr %4, align 8, !tbaa !27
+  %12 = getelementptr inbounds i64, ptr %11, i64 1
+  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %14 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 1
+  store i64 %13, ptr %14, align 8, !tbaa !17
+  %15 = load ptr, ptr %4, align 8, !tbaa !27
+  %16 = getelementptr inbounds i64, ptr %15, i64 2
+  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %18 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 2
+  store i64 %17, ptr %18, align 16, !tbaa !17
+  %19 = load ptr, ptr %4, align 8, !tbaa !27
+  %20 = getelementptr inbounds i64, ptr %19, i64 3
+  %21 = load i64, ptr %20, align 8, !tbaa !17
+  %22 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 3
+  store i64 %21, ptr %22, align 8, !tbaa !17
+  %23 = load ptr, ptr %4, align 8, !tbaa !27
+  %24 = getelementptr inbounds i64, ptr %23, i64 3
+  %25 = load i64, ptr %24, align 8, !tbaa !17
+  %26 = lshr i64 %25, 56
+  store i64 %26, ptr %6, align 8, !tbaa !17
+  %27 = load i64, ptr %6, align 8, !tbaa !17
+  %28 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %29 = load i64, ptr %28, align 16, !tbaa !17
+  %30 = sub nsw i64 %29, %27
+  store i64 %30, ptr %28, align 16, !tbaa !17
+  %31 = load i64, ptr %6, align 8, !tbaa !17
+  %32 = shl i64 %31, 40
+  %33 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 1
+  %34 = load i64, ptr %33, align 8, !tbaa !17
+  %35 = add nsw i64 %34, %32
+  store i64 %35, ptr %33, align 8, !tbaa !17
+  %36 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 3
+  %37 = load i64, ptr %36, align 8, !tbaa !17
+  %38 = and i64 %37, 72057594037927935
+  store i64 %38, ptr %36, align 8, !tbaa !17
+  %39 = load ptr, ptr %4, align 8, !tbaa !27
+  %40 = getelementptr inbounds i64, ptr %39, i64 3
+  %41 = load i64, ptr %40, align 8, !tbaa !17
+  %42 = load ptr, ptr %4, align 8, !tbaa !27
+  %43 = getelementptr inbounds i64, ptr %42, i64 2
+  %44 = load i64, ptr %43, align 8, !tbaa !17
+  %45 = and i64 %41, %44
+  %46 = load ptr, ptr %4, align 8, !tbaa !27
+  %47 = getelementptr inbounds i64, ptr %46, i64 1
+  %48 = load i64, ptr %47, align 8, !tbaa !17
+  %49 = or i64 %48, 1099511627775
+  %50 = and i64 %45, %49
+  %51 = add i64 %50, 1
+  %52 = load ptr, ptr %4, align 8, !tbaa !27
+  %53 = getelementptr inbounds i64, ptr %52, i64 0
+  %54 = load i64, ptr %53, align 8, !tbaa !17
+  %55 = load ptr, ptr %4, align 8, !tbaa !27
+  %56 = getelementptr inbounds i64, ptr %55, i64 1
+  %57 = load i64, ptr %56, align 8, !tbaa !17
+  %58 = and i64 %57, 1099511627775
+  %59 = add i64 %54, %58
+  %60 = sub nsw i64 %59, 1
+  %61 = ashr i64 %60, 63
+  %62 = or i64 %51, %61
+  store i64 %62, ptr %6, align 8, !tbaa !17
+  %63 = load i64, ptr %6, align 8, !tbaa !17
+  %64 = and i64 %63, 72057594037927935
+  store i64 %64, ptr %6, align 8, !tbaa !17
+  %65 = load i64, ptr %6, align 8, !tbaa !17
+  %66 = sub nsw i64 %65, 1
+  %67 = ashr i64 %66, 63
+  store i64 %67, ptr %6, align 8, !tbaa !17
+  %68 = load i64, ptr %6, align 8, !tbaa !17
+  %69 = xor i64 %68, -1
+  %70 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 3
+  %71 = load i64, ptr %70, align 8, !tbaa !17
+  %72 = and i64 %71, %69
+  store i64 %72, ptr %70, align 8, !tbaa !17
+  %73 = load i64, ptr %6, align 8, !tbaa !17
+  %74 = xor i64 %73, -1
+  %75 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 2
+  %76 = load i64, ptr %75, align 16, !tbaa !17
+  %77 = and i64 %76, %74
+  store i64 %77, ptr %75, align 16, !tbaa !17
+  %78 = load i64, ptr %6, align 8, !tbaa !17
+  %79 = xor i64 %78, -1
+  %80 = or i64 %79, 1099511627775
+  %81 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 1
+  %82 = load i64, ptr %81, align 8, !tbaa !17
+  %83 = and i64 %82, %80
+  store i64 %83, ptr %81, align 8, !tbaa !17
+  %84 = load i64, ptr %6, align 8, !tbaa !17
+  %85 = and i64 1, %84
+  %86 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %87 = load i64, ptr %86, align 16, !tbaa !17
+  %88 = sub nsw i64 %87, %85
+  store i64 %88, ptr %86, align 16, !tbaa !17
+  %89 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %90 = load i64, ptr %89, align 16, !tbaa !17
+  %91 = ashr i64 %90, 63
+  store i64 %91, ptr %6, align 8, !tbaa !17
+  %92 = load i64, ptr %6, align 8, !tbaa !17
+  %93 = and i64 72057594037927936, %92
+  %94 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %95 = load i64, ptr %94, align 16, !tbaa !17
+  %96 = add nsw i64 %95, %93
+  store i64 %96, ptr %94, align 16, !tbaa !17
+  %97 = load i64, ptr %6, align 8, !tbaa !17
+  %98 = and i64 1, %97
+  %99 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 1
+  %100 = load i64, ptr %99, align 8, !tbaa !17
+  %101 = sub nsw i64 %100, %98
+  store i64 %101, ptr %99, align 8, !tbaa !17
+  %102 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 1
+  %103 = load i64, ptr %102, align 8, !tbaa !17
+  %104 = ashr i64 %103, 56
+  %105 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 2
+  %106 = load i64, ptr %105, align 16, !tbaa !17
+  %107 = add nsw i64 %106, %104
+  store i64 %107, ptr %105, align 16, !tbaa !17
+  %108 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 1
+  %109 = load i64, ptr %108, align 8, !tbaa !17
+  %110 = and i64 %109, 72057594037927935
+  store i64 %110, ptr %108, align 8, !tbaa !17
+  %111 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 2
+  %112 = load i64, ptr %111, align 16, !tbaa !17
+  %113 = ashr i64 %112, 56
+  %114 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 3
+  %115 = load i64, ptr %114, align 8, !tbaa !17
+  %116 = add nsw i64 %115, %113
+  store i64 %116, ptr %114, align 8, !tbaa !17
+  %117 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 2
+  %118 = load i64, ptr %117, align 16, !tbaa !17
+  %119 = and i64 %118, 72057594037927935
+  store i64 %119, ptr %117, align 16, !tbaa !17
+  %120 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 0
+  %121 = load i64, ptr %120, align 16, !tbaa !17
+  %122 = load ptr, ptr %3, align 8, !tbaa !27
+  %123 = getelementptr inbounds i64, ptr %122, i64 0
+  store i64 %121, ptr %123, align 8, !tbaa !17
+  %124 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 1
+  %125 = load i64, ptr %124, align 8, !tbaa !17
+  %126 = load ptr, ptr %3, align 8, !tbaa !27
+  %127 = getelementptr inbounds i64, ptr %126, i64 1
+  store i64 %125, ptr %127, align 8, !tbaa !17
+  %128 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 2
+  %129 = load i64, ptr %128, align 16, !tbaa !17
+  %130 = load ptr, ptr %3, align 8, !tbaa !27
+  %131 = getelementptr inbounds i64, ptr %130, i64 2
+  store i64 %129, ptr %131, align 8, !tbaa !17
+  %132 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 3
+  %133 = load i64, ptr %132, align 8, !tbaa !17
+  %134 = load ptr, ptr %3, align 8, !tbaa !27
+  %135 = getelementptr inbounds i64, ptr %134, i64 3
+  store i64 %133, ptr %135, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @felem_to_BN(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %b_in = alloca [28 x i8], align 16
-  %b_out = alloca [28 x i8], align 16
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %arraydecay = getelementptr inbounds [28 x i8], ptr %b_in, i64 0, i64 0
-  %0 = load ptr, ptr %in.addr, align 8
-  call void @felem_to_bin28(ptr noundef %arraydecay, ptr noundef %0)
-  %arraydecay1 = getelementptr inbounds [28 x i8], ptr %b_out, i64 0, i64 0
-  %arraydecay2 = getelementptr inbounds [28 x i8], ptr %b_in, i64 0, i64 0
-  call void @flip_endian(ptr noundef %arraydecay1, ptr noundef %arraydecay2, i64 noundef 28)
-  %arraydecay3 = getelementptr inbounds [28 x i8], ptr %b_out, i64 0, i64 0
-  %1 = load ptr, ptr %out.addr, align 8
-  %call = call ptr @BN_bin2bn(ptr noundef %arraydecay3, i64 noundef 28, ptr noundef %1)
-  ret ptr %call
+define internal ptr @felem_to_BN(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [28 x i8], align 16
+  %6 = alloca [28 x i8], align 16
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 28, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 28, ptr %6) #7
+  %7 = getelementptr inbounds [28 x i8], ptr %5, i64 0, i64 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !27
+  call void @felem_to_bin28(ptr noundef %7, ptr noundef %8)
+  %9 = getelementptr inbounds [28 x i8], ptr %6, i64 0, i64 0
+  %10 = getelementptr inbounds [28 x i8], ptr %5, i64 0, i64 0
+  call void @flip_endian(ptr noundef %9, ptr noundef %10, i64 noundef 28)
+  %11 = getelementptr inbounds [28 x i8], ptr %6, i64 0, i64 0
+  %12 = load ptr, ptr %3, align 8, !tbaa !13
+  %13 = call ptr @BN_bin2bn(ptr noundef %11, i64 noundef 28, ptr noundef %12)
+  call void @llvm.lifetime.end.p0(i64 28, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 28, ptr %5) #7
+  ret ptr %13
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @BN_num_bytes(ptr noundef) #1
 
@@ -1885,158 +2012,159 @@ declare i32 @BN_is_negative(ptr noundef) #1
 declare i64 @BN_bn2bin(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @flip_endian(ptr noundef %out, ptr noundef %in, i64 noundef %len) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal void @flip_endian(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !25
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  store i64 %2, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  store i64 0, ptr %7, align 8, !tbaa !17
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr %len.addr, align 8
-  %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+8:                                                ; preds = %23, %3
+  %9 = load i64, ptr %7, align 8, !tbaa !17
+  %10 = load i64, ptr %6, align 8, !tbaa !17
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %12, label %26
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %in.addr, align 8
-  %3 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %3, 1
-  %4 = load i64, ptr %i, align 8
-  %sub1 = sub i64 %sub, %4
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %sub1
-  %5 = load i8, ptr %arrayidx, align 1
-  %6 = load ptr, ptr %out.addr, align 8
-  %7 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %6, i64 %7
-  store i8 %5, ptr %arrayidx2, align 1
-  br label %for.inc
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %5, align 8, !tbaa !25
+  %14 = load i64, ptr %6, align 8, !tbaa !17
+  %15 = sub i64 %14, 1
+  %16 = load i64, ptr %7, align 8, !tbaa !17
+  %17 = sub i64 %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !43
+  %20 = load ptr, ptr %4, align 8, !tbaa !25
+  %21 = load i64, ptr %7, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  store i8 %19, ptr %22, align 1, !tbaa !43
+  br label %23
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !17
+23:                                               ; preds = %12
+  %24 = load i64, ptr %7, align 8, !tbaa !17
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %7, align 8, !tbaa !17
+  br label %8, !llvm.loop !44
 
-for.end:                                          ; preds = %for.cond
+26:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bin28_to_felem(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %and = and i64 %1, 72057594037927935
-  %2 = load ptr, ptr %out.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %2, i64 0
-  store i64 %and, ptr %arrayidx, align 8
-  %3 = load ptr, ptr %in.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 7
-  %4 = load i64, ptr %add.ptr, align 8
-  %and1 = and i64 %4, 72057594037927935
-  %5 = load ptr, ptr %out.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %5, i64 1
-  store i64 %and1, ptr %arrayidx2, align 8
-  %6 = load ptr, ptr %in.addr, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %6, i64 14
-  %7 = load i64, ptr %add.ptr3, align 8
-  %and4 = and i64 %7, 72057594037927935
-  %8 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %8, i64 2
-  store i64 %and4, ptr %arrayidx5, align 8
-  %9 = load ptr, ptr %in.addr, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %9, i64 20
-  %10 = load i64, ptr %add.ptr6, align 8
-  %shr = lshr i64 %10, 8
-  %11 = load ptr, ptr %out.addr, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %11, i64 3
-  store i64 %shr, ptr %arrayidx7, align 8
+define internal void @bin28_to_felem(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %6 = load i64, ptr %5, align 8, !tbaa !17
+  %7 = and i64 %6, 72057594037927935
+  %8 = load ptr, ptr %3, align 8, !tbaa !27
+  %9 = getelementptr inbounds i64, ptr %8, i64 0
+  store i64 %7, ptr %9, align 8, !tbaa !17
+  %10 = load ptr, ptr %4, align 8, !tbaa !25
+  %11 = getelementptr inbounds i8, ptr %10, i64 7
+  %12 = load i64, ptr %11, align 8, !tbaa !17
+  %13 = and i64 %12, 72057594037927935
+  %14 = load ptr, ptr %3, align 8, !tbaa !27
+  %15 = getelementptr inbounds i64, ptr %14, i64 1
+  store i64 %13, ptr %15, align 8, !tbaa !17
+  %16 = load ptr, ptr %4, align 8, !tbaa !25
+  %17 = getelementptr inbounds i8, ptr %16, i64 14
+  %18 = load i64, ptr %17, align 8, !tbaa !17
+  %19 = and i64 %18, 72057594037927935
+  %20 = load ptr, ptr %3, align 8, !tbaa !27
+  %21 = getelementptr inbounds i64, ptr %20, i64 2
+  store i64 %19, ptr %21, align 8, !tbaa !17
+  %22 = load ptr, ptr %4, align 8, !tbaa !25
+  %23 = getelementptr inbounds i8, ptr %22, i64 20
+  %24 = load i64, ptr %23, align 8, !tbaa !17
+  %25 = lshr i64 %24, 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !27
+  %27 = getelementptr inbounds i64, ptr %26, i64 3
+  store i64 %25, ptr %27, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_to_bin28(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal void @felem_to_bin28(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store i64 0, ptr %5, align 8, !tbaa !17
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 7
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %53, %2
+  %7 = load i64, ptr %5, align 8, !tbaa !17
+  %8 = icmp ult i64 %7, 7
+  br i1 %8, label %9, label %56
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %1, i64 0
-  %2 = load i64, ptr %arrayidx, align 8
-  %3 = load i64, ptr %i, align 8
-  %mul = mul i64 8, %3
-  %shr = lshr i64 %2, %mul
-  %conv = trunc i64 %shr to i8
-  %4 = load ptr, ptr %out.addr, align 8
-  %5 = load i64, ptr %i, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %4, i64 %5
-  store i8 %conv, ptr %arrayidx1, align 1
-  %6 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %6, i64 1
-  %7 = load i64, ptr %arrayidx2, align 8
-  %8 = load i64, ptr %i, align 8
-  %mul3 = mul i64 8, %8
-  %shr4 = lshr i64 %7, %mul3
-  %conv5 = trunc i64 %shr4 to i8
-  %9 = load ptr, ptr %out.addr, align 8
-  %10 = load i64, ptr %i, align 8
-  %add = add i64 %10, 7
-  %arrayidx6 = getelementptr inbounds i8, ptr %9, i64 %add
-  store i8 %conv5, ptr %arrayidx6, align 1
-  %11 = load ptr, ptr %in.addr, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %11, i64 2
-  %12 = load i64, ptr %arrayidx7, align 8
-  %13 = load i64, ptr %i, align 8
-  %mul8 = mul i64 8, %13
-  %shr9 = lshr i64 %12, %mul8
-  %conv10 = trunc i64 %shr9 to i8
-  %14 = load ptr, ptr %out.addr, align 8
-  %15 = load i64, ptr %i, align 8
-  %add11 = add i64 %15, 14
-  %arrayidx12 = getelementptr inbounds i8, ptr %14, i64 %add11
-  store i8 %conv10, ptr %arrayidx12, align 1
-  %16 = load ptr, ptr %in.addr, align 8
-  %arrayidx13 = getelementptr inbounds i64, ptr %16, i64 3
-  %17 = load i64, ptr %arrayidx13, align 8
-  %18 = load i64, ptr %i, align 8
-  %mul14 = mul i64 8, %18
-  %shr15 = lshr i64 %17, %mul14
-  %conv16 = trunc i64 %shr15 to i8
-  %19 = load ptr, ptr %out.addr, align 8
-  %20 = load i64, ptr %i, align 8
-  %add17 = add i64 %20, 21
-  %arrayidx18 = getelementptr inbounds i8, ptr %19, i64 %add17
-  store i8 %conv16, ptr %arrayidx18, align 1
-  br label %for.inc
+9:                                                ; preds = %6
+  %10 = load ptr, ptr %4, align 8, !tbaa !27
+  %11 = getelementptr inbounds i64, ptr %10, i64 0
+  %12 = load i64, ptr %11, align 8, !tbaa !17
+  %13 = load i64, ptr %5, align 8, !tbaa !17
+  %14 = mul i64 8, %13
+  %15 = lshr i64 %12, %14
+  %16 = trunc i64 %15 to i8
+  %17 = load ptr, ptr %3, align 8, !tbaa !25
+  %18 = load i64, ptr %5, align 8, !tbaa !17
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  store i8 %16, ptr %19, align 1, !tbaa !43
+  %20 = load ptr, ptr %4, align 8, !tbaa !27
+  %21 = getelementptr inbounds i64, ptr %20, i64 1
+  %22 = load i64, ptr %21, align 8, !tbaa !17
+  %23 = load i64, ptr %5, align 8, !tbaa !17
+  %24 = mul i64 8, %23
+  %25 = lshr i64 %22, %24
+  %26 = trunc i64 %25 to i8
+  %27 = load ptr, ptr %3, align 8, !tbaa !25
+  %28 = load i64, ptr %5, align 8, !tbaa !17
+  %29 = add i64 %28, 7
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  store i8 %26, ptr %30, align 1, !tbaa !43
+  %31 = load ptr, ptr %4, align 8, !tbaa !27
+  %32 = getelementptr inbounds i64, ptr %31, i64 2
+  %33 = load i64, ptr %32, align 8, !tbaa !17
+  %34 = load i64, ptr %5, align 8, !tbaa !17
+  %35 = mul i64 8, %34
+  %36 = lshr i64 %33, %35
+  %37 = trunc i64 %36 to i8
+  %38 = load ptr, ptr %3, align 8, !tbaa !25
+  %39 = load i64, ptr %5, align 8, !tbaa !17
+  %40 = add i64 %39, 14
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
+  store i8 %37, ptr %41, align 1, !tbaa !43
+  %42 = load ptr, ptr %4, align 8, !tbaa !27
+  %43 = getelementptr inbounds i64, ptr %42, i64 3
+  %44 = load i64, ptr %43, align 8, !tbaa !17
+  %45 = load i64, ptr %5, align 8, !tbaa !17
+  %46 = mul i64 8, %45
+  %47 = lshr i64 %44, %46
+  %48 = trunc i64 %47 to i8
+  %49 = load ptr, ptr %3, align 8, !tbaa !25
+  %50 = load i64, ptr %5, align 8, !tbaa !17
+  %51 = add i64 %50, 21
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
+  store i8 %48, ptr %52, align 1, !tbaa !43
+  br label %53
 
-for.inc:                                          ; preds = %for.body
-  %21 = load i64, ptr %i, align 8
-  %inc = add i64 %21, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !18
+53:                                               ; preds = %9
+  %54 = load i64, ptr %5, align 8, !tbaa !17
+  %55 = add i64 %54, 1
+  store i64 %55, ptr %5, align 8, !tbaa !17
+  br label %6, !llvm.loop !45
 
-for.end:                                          ; preds = %for.cond
+56:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
@@ -2049,7 +2177,7 @@ declare void @BN_CTX_start(ptr noundef) #1
 declare ptr @BN_CTX_get(ptr noundef) #1
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #3
+declare noalias ptr @malloc(i64 noundef) #4
 
 declare ptr @EC_GROUP_get0_generator(ptr noundef) #1
 
@@ -2058,833 +2186,901 @@ declare i32 @BN_num_bits(ptr noundef) #1
 declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_assign(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 0
-  store i64 %1, ptr %arrayidx1, align 8
-  %3 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %3, i64 1
-  %4 = load i64, ptr %arrayidx2, align 8
-  %5 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i64, ptr %5, i64 1
-  store i64 %4, ptr %arrayidx3, align 8
-  %6 = load ptr, ptr %in.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %6, i64 2
-  %7 = load i64, ptr %arrayidx4, align 8
-  %8 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %8, i64 2
-  store i64 %7, ptr %arrayidx5, align 8
-  %9 = load ptr, ptr %in.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %9, i64 3
-  %10 = load i64, ptr %arrayidx6, align 8
-  %11 = load ptr, ptr %out.addr, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %11, i64 3
-  store i64 %10, ptr %arrayidx7, align 8
+define internal void @felem_assign(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %6 = getelementptr inbounds i64, ptr %5, i64 0
+  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %8 = load ptr, ptr %3, align 8, !tbaa !27
+  %9 = getelementptr inbounds i64, ptr %8, i64 0
+  store i64 %7, ptr %9, align 8, !tbaa !17
+  %10 = load ptr, ptr %4, align 8, !tbaa !27
+  %11 = getelementptr inbounds i64, ptr %10, i64 1
+  %12 = load i64, ptr %11, align 8, !tbaa !17
+  %13 = load ptr, ptr %3, align 8, !tbaa !27
+  %14 = getelementptr inbounds i64, ptr %13, i64 1
+  store i64 %12, ptr %14, align 8, !tbaa !17
+  %15 = load ptr, ptr %4, align 8, !tbaa !27
+  %16 = getelementptr inbounds i64, ptr %15, i64 2
+  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %18 = load ptr, ptr %3, align 8, !tbaa !27
+  %19 = getelementptr inbounds i64, ptr %18, i64 2
+  store i64 %17, ptr %19, align 8, !tbaa !17
+  %20 = load ptr, ptr %4, align 8, !tbaa !27
+  %21 = getelementptr inbounds i64, ptr %20, i64 3
+  %22 = load i64, ptr %21, align 8, !tbaa !17
+  %23 = load ptr, ptr %3, align 8, !tbaa !27
+  %24 = getelementptr inbounds i64, ptr %23, i64 3
+  store i64 %22, ptr %24, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @point_add(ptr noundef %x3, ptr noundef %y3, ptr noundef %z3, ptr noundef %x1, ptr noundef %y1, ptr noundef %z1, i32 noundef %mixed, ptr noundef %x2, ptr noundef %y2, ptr noundef %z2) #0 {
-entry:
-  %x3.addr = alloca ptr, align 8
-  %y3.addr = alloca ptr, align 8
-  %z3.addr = alloca ptr, align 8
-  %x1.addr = alloca ptr, align 8
-  %y1.addr = alloca ptr, align 8
-  %z1.addr = alloca ptr, align 8
-  %mixed.addr = alloca i32, align 4
-  %x2.addr = alloca ptr, align 8
-  %y2.addr = alloca ptr, align 8
-  %z2.addr = alloca ptr, align 8
-  %ftmp = alloca [4 x i64], align 16
-  %ftmp2 = alloca [4 x i64], align 16
-  %ftmp3 = alloca [4 x i64], align 16
-  %ftmp4 = alloca [4 x i64], align 16
-  %ftmp5 = alloca [4 x i64], align 16
-  %x_out = alloca [4 x i64], align 16
-  %y_out = alloca [4 x i64], align 16
-  %z_out = alloca [4 x i64], align 16
-  %tmp = alloca [7 x i128], align 16
-  %tmp2 = alloca [7 x i128], align 16
-  %z1_is_zero = alloca i64, align 8
-  %z2_is_zero = alloca i64, align 8
-  %x_equal = alloca i64, align 8
-  %y_equal = alloca i64, align 8
-  store ptr %x3, ptr %x3.addr, align 8
-  store ptr %y3, ptr %y3.addr, align 8
-  store ptr %z3, ptr %z3.addr, align 8
-  store ptr %x1, ptr %x1.addr, align 8
-  store ptr %y1, ptr %y1.addr, align 8
-  store ptr %z1, ptr %z1.addr, align 8
-  store i32 %mixed, ptr %mixed.addr, align 4
-  store ptr %x2, ptr %x2.addr, align 8
-  store ptr %y2, ptr %y2.addr, align 8
-  store ptr %z2, ptr %z2.addr, align 8
-  %0 = load i32, ptr %mixed.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.else, label %if.then
+define internal void @point_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca [4 x i64], align 16
+  %22 = alloca [4 x i64], align 16
+  %23 = alloca [4 x i64], align 16
+  %24 = alloca [4 x i64], align 16
+  %25 = alloca [4 x i64], align 16
+  %26 = alloca [4 x i64], align 16
+  %27 = alloca [4 x i64], align 16
+  %28 = alloca [4 x i64], align 16
+  %29 = alloca [7 x i128], align 16
+  %30 = alloca [7 x i128], align 16
+  %31 = alloca i64, align 8
+  %32 = alloca i64, align 8
+  %33 = alloca i64, align 8
+  %34 = alloca i64, align 8
+  %35 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !27
+  store ptr %1, ptr %12, align 8, !tbaa !27
+  store ptr %2, ptr %13, align 8, !tbaa !27
+  store ptr %3, ptr %14, align 8, !tbaa !27
+  store ptr %4, ptr %15, align 8, !tbaa !27
+  store ptr %5, ptr %16, align 8, !tbaa !27
+  store i32 %6, ptr %17, align 4, !tbaa !23
+  store ptr %7, ptr %18, align 8, !tbaa !27
+  store ptr %8, ptr %19, align 8, !tbaa !27
+  store ptr %9, ptr %20, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %28) #7
+  call void @llvm.lifetime.start.p0(i64 112, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 112, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  %36 = load i32, ptr %17, align 4, !tbaa !23
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %58, label %38
 
-if.then:                                          ; preds = %entry
-  %arraydecay = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %1 = load ptr, ptr %z2.addr, align 8
-  call void @felem_square(ptr noundef %arraydecay, ptr noundef %1)
-  %arraydecay1 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay2 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay1, ptr noundef %arraydecay2)
-  %arraydecay3 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay4 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %2 = load ptr, ptr %z2.addr, align 8
-  call void @felem_mul(ptr noundef %arraydecay3, ptr noundef %arraydecay4, ptr noundef %2)
-  %arraydecay5 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %arraydecay6 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay5, ptr noundef %arraydecay6)
-  %arraydecay7 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  %arraydecay8 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %3 = load ptr, ptr %y1.addr, align 8
-  call void @felem_mul(ptr noundef %arraydecay7, ptr noundef %arraydecay8, ptr noundef %3)
-  %arraydecay9 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %arraydecay10 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay9, ptr noundef %arraydecay10)
-  %arraydecay11 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  %arraydecay12 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %4 = load ptr, ptr %x1.addr, align 8
-  call void @felem_mul(ptr noundef %arraydecay11, ptr noundef %arraydecay12, ptr noundef %4)
-  %arraydecay13 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay14 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay13, ptr noundef %arraydecay14)
-  br label %if.end
+38:                                               ; preds = %10
+  %39 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %40 = load ptr, ptr %20, align 8, !tbaa !27
+  call void @felem_square(ptr noundef %39, ptr noundef %40)
+  %41 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  %42 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %41, ptr noundef %42)
+  %43 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %44 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  %45 = load ptr, ptr %20, align 8, !tbaa !27
+  call void @felem_mul(ptr noundef %43, ptr noundef %44, ptr noundef %45)
+  %46 = getelementptr inbounds [4 x i64], ptr %24, i64 0, i64 0
+  %47 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %46, ptr noundef %47)
+  %48 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  %49 = getelementptr inbounds [4 x i64], ptr %24, i64 0, i64 0
+  %50 = load ptr, ptr %15, align 8, !tbaa !27
+  call void @felem_mul(ptr noundef %48, ptr noundef %49, ptr noundef %50)
+  %51 = getelementptr inbounds [4 x i64], ptr %24, i64 0, i64 0
+  %52 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %51, ptr noundef %52)
+  %53 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  %54 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  %55 = load ptr, ptr %14, align 8, !tbaa !27
+  call void @felem_mul(ptr noundef %53, ptr noundef %54, ptr noundef %55)
+  %56 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  %57 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %56, ptr noundef %57)
+  br label %63
 
-if.else:                                          ; preds = %entry
-  %arraydecay15 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %5 = load ptr, ptr %y1.addr, align 8
-  call void @felem_assign(ptr noundef %arraydecay15, ptr noundef %5)
-  %arraydecay16 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %6 = load ptr, ptr %x1.addr, align 8
-  call void @felem_assign(ptr noundef %arraydecay16, ptr noundef %6)
-  br label %if.end
+58:                                               ; preds = %10
+  %59 = getelementptr inbounds [4 x i64], ptr %24, i64 0, i64 0
+  %60 = load ptr, ptr %15, align 8, !tbaa !27
+  call void @felem_assign(ptr noundef %59, ptr noundef %60)
+  %61 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  %62 = load ptr, ptr %14, align 8, !tbaa !27
+  call void @felem_assign(ptr noundef %61, ptr noundef %62)
+  br label %63
 
-if.end:                                           ; preds = %if.else, %if.then
-  %arraydecay17 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %7 = load ptr, ptr %z1.addr, align 8
-  call void @felem_square(ptr noundef %arraydecay17, ptr noundef %7)
-  %arraydecay18 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay19 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay18, ptr noundef %arraydecay19)
-  %arraydecay20 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay21 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %8 = load ptr, ptr %z1.addr, align 8
-  call void @felem_mul(ptr noundef %arraydecay20, ptr noundef %arraydecay21, ptr noundef %8)
-  %arraydecay22 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay23 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay22, ptr noundef %arraydecay23)
-  %arraydecay24 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay25 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %9 = load ptr, ptr %y2.addr, align 8
-  call void @felem_mul(ptr noundef %arraydecay24, ptr noundef %arraydecay25, ptr noundef %9)
-  %arraydecay26 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay27 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  call void @felem_diff_128_64(ptr noundef %arraydecay26, ptr noundef %arraydecay27)
-  %arraydecay28 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay29 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay28, ptr noundef %arraydecay29)
-  %arraydecay30 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay31 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %10 = load ptr, ptr %x2.addr, align 8
-  call void @felem_mul(ptr noundef %arraydecay30, ptr noundef %arraydecay31, ptr noundef %10)
-  %arraydecay32 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay33 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_diff_128_64(ptr noundef %arraydecay32, ptr noundef %arraydecay33)
-  %arraydecay34 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay35 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay34, ptr noundef %arraydecay35)
-  %arraydecay36 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %call = call i64 @felem_is_zero(ptr noundef %arraydecay36)
-  store i64 %call, ptr %x_equal, align 8
-  %arraydecay37 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %call38 = call i64 @felem_is_zero(ptr noundef %arraydecay37)
-  store i64 %call38, ptr %y_equal, align 8
-  %11 = load ptr, ptr %z1.addr, align 8
-  %call39 = call i64 @felem_is_zero(ptr noundef %11)
-  store i64 %call39, ptr %z1_is_zero, align 8
-  %12 = load ptr, ptr %z2.addr, align 8
-  %call40 = call i64 @felem_is_zero(ptr noundef %12)
-  store i64 %call40, ptr %z2_is_zero, align 8
-  %13 = load i64, ptr %x_equal, align 8
-  %tobool41 = icmp ne i64 %13, 0
-  br i1 %tobool41, label %land.lhs.true, label %if.end48
+63:                                               ; preds = %58, %38
+  %64 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %65 = load ptr, ptr %16, align 8, !tbaa !27
+  call void @felem_square(ptr noundef %64, ptr noundef %65)
+  %66 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  %67 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %66, ptr noundef %67)
+  %68 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %69 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  %70 = load ptr, ptr %16, align 8, !tbaa !27
+  call void @felem_mul(ptr noundef %68, ptr noundef %69, ptr noundef %70)
+  %71 = getelementptr inbounds [4 x i64], ptr %23, i64 0, i64 0
+  %72 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %71, ptr noundef %72)
+  %73 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %74 = getelementptr inbounds [4 x i64], ptr %23, i64 0, i64 0
+  %75 = load ptr, ptr %19, align 8, !tbaa !27
+  call void @felem_mul(ptr noundef %73, ptr noundef %74, ptr noundef %75)
+  %76 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %77 = getelementptr inbounds [4 x i64], ptr %24, i64 0, i64 0
+  call void @felem_diff_128_64(ptr noundef %76, ptr noundef %77)
+  %78 = getelementptr inbounds [4 x i64], ptr %23, i64 0, i64 0
+  %79 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %78, ptr noundef %79)
+  %80 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %81 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  %82 = load ptr, ptr %18, align 8, !tbaa !27
+  call void @felem_mul(ptr noundef %80, ptr noundef %81, ptr noundef %82)
+  %83 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %84 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  call void @felem_diff_128_64(ptr noundef %83, ptr noundef %84)
+  %85 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  %86 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %85, ptr noundef %86)
+  %87 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  %88 = call i64 @felem_is_zero(ptr noundef %87)
+  store i64 %88, ptr %33, align 8, !tbaa !17
+  %89 = getelementptr inbounds [4 x i64], ptr %23, i64 0, i64 0
+  %90 = call i64 @felem_is_zero(ptr noundef %89)
+  store i64 %90, ptr %34, align 8, !tbaa !17
+  %91 = load ptr, ptr %16, align 8, !tbaa !27
+  %92 = call i64 @felem_is_zero(ptr noundef %91)
+  store i64 %92, ptr %31, align 8, !tbaa !17
+  %93 = load ptr, ptr %20, align 8, !tbaa !27
+  %94 = call i64 @felem_is_zero(ptr noundef %93)
+  store i64 %94, ptr %32, align 8, !tbaa !17
+  %95 = load i64, ptr %33, align 8, !tbaa !17
+  %96 = icmp ne i64 %95, 0
+  br i1 %96, label %97, label %113
 
-land.lhs.true:                                    ; preds = %if.end
-  %14 = load i64, ptr %y_equal, align 8
-  %tobool42 = icmp ne i64 %14, 0
-  br i1 %tobool42, label %land.lhs.true43, label %if.end48
+97:                                               ; preds = %63
+  %98 = load i64, ptr %34, align 8, !tbaa !17
+  %99 = icmp ne i64 %98, 0
+  br i1 %99, label %100, label %113
 
-land.lhs.true43:                                  ; preds = %land.lhs.true
-  %15 = load i64, ptr %z1_is_zero, align 8
-  %tobool44 = icmp ne i64 %15, 0
-  br i1 %tobool44, label %if.end48, label %land.lhs.true45
+100:                                              ; preds = %97
+  %101 = load i64, ptr %31, align 8, !tbaa !17
+  %102 = icmp ne i64 %101, 0
+  br i1 %102, label %113, label %103
 
-land.lhs.true45:                                  ; preds = %land.lhs.true43
-  %16 = load i64, ptr %z2_is_zero, align 8
-  %tobool46 = icmp ne i64 %16, 0
-  br i1 %tobool46, label %if.end48, label %if.then47
+103:                                              ; preds = %100
+  %104 = load i64, ptr %32, align 8, !tbaa !17
+  %105 = icmp ne i64 %104, 0
+  br i1 %105, label %113, label %106
 
-if.then47:                                        ; preds = %land.lhs.true45
-  %17 = load ptr, ptr %x3.addr, align 8
-  %18 = load ptr, ptr %y3.addr, align 8
-  %19 = load ptr, ptr %z3.addr, align 8
-  %20 = load ptr, ptr %x1.addr, align 8
-  %21 = load ptr, ptr %y1.addr, align 8
-  %22 = load ptr, ptr %z1.addr, align 8
-  call void @point_double(ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22)
-  br label %return
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %11, align 8, !tbaa !27
+  %108 = load ptr, ptr %12, align 8, !tbaa !27
+  %109 = load ptr, ptr %13, align 8, !tbaa !27
+  %110 = load ptr, ptr %14, align 8, !tbaa !27
+  %111 = load ptr, ptr %15, align 8, !tbaa !27
+  %112 = load ptr, ptr %16, align 8, !tbaa !27
+  call void @point_double(ptr noundef %107, ptr noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112)
+  store i32 1, ptr %35, align 4
+  br label %194
 
-if.end48:                                         ; preds = %land.lhs.true45, %land.lhs.true43, %land.lhs.true, %if.end
-  %23 = load i32, ptr %mixed.addr, align 4
-  %tobool49 = icmp ne i32 %23, 0
-  br i1 %tobool49, label %if.else54, label %if.then50
+113:                                              ; preds = %103, %100, %97, %63
+  %114 = load i32, ptr %17, align 4, !tbaa !23
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %122, label %116
 
-if.then50:                                        ; preds = %if.end48
-  %arraydecay51 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %24 = load ptr, ptr %z1.addr, align 8
-  %25 = load ptr, ptr %z2.addr, align 8
-  call void @felem_mul(ptr noundef %arraydecay51, ptr noundef %24, ptr noundef %25)
-  %arraydecay52 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  %arraydecay53 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay52, ptr noundef %arraydecay53)
-  br label %if.end56
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %118 = load ptr, ptr %16, align 8, !tbaa !27
+  %119 = load ptr, ptr %20, align 8, !tbaa !27
+  call void @felem_mul(ptr noundef %117, ptr noundef %118, ptr noundef %119)
+  %120 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  %121 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %120, ptr noundef %121)
+  br label %125
 
-if.else54:                                        ; preds = %if.end48
-  %arraydecay55 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  %26 = load ptr, ptr %z1.addr, align 8
-  call void @felem_assign(ptr noundef %arraydecay55, ptr noundef %26)
-  br label %if.end56
+122:                                              ; preds = %113
+  %123 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  %124 = load ptr, ptr %16, align 8, !tbaa !27
+  call void @felem_assign(ptr noundef %123, ptr noundef %124)
+  br label %125
 
-if.end56:                                         ; preds = %if.else54, %if.then50
-  %arraydecay57 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay58 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay59 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay57, ptr noundef %arraydecay58, ptr noundef %arraydecay59)
-  %arraydecay60 = getelementptr inbounds [4 x i64], ptr %z_out, i64 0, i64 0
-  %arraydecay61 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay60, ptr noundef %arraydecay61)
-  %arraydecay62 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  %arraydecay63 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_assign(ptr noundef %arraydecay62, ptr noundef %arraydecay63)
-  %arraydecay64 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay65 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay64, ptr noundef %arraydecay65)
-  %arraydecay66 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay67 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay66, ptr noundef %arraydecay67)
-  %arraydecay68 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay69 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay70 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay68, ptr noundef %arraydecay69, ptr noundef %arraydecay70)
-  %arraydecay71 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  %arraydecay72 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay71, ptr noundef %arraydecay72)
-  %arraydecay73 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay74 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay75 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay73, ptr noundef %arraydecay74, ptr noundef %arraydecay75)
-  %arraydecay76 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay77 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay76, ptr noundef %arraydecay77)
-  %arraydecay78 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay79 = getelementptr inbounds [4 x i64], ptr %ftmp4, i64 0, i64 0
-  %arraydecay80 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay78, ptr noundef %arraydecay79, ptr noundef %arraydecay80)
-  %arraydecay81 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  %arraydecay82 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay81, ptr noundef %arraydecay82)
-  %arraydecay83 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  %arraydecay84 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  call void @felem_diff_128_64(ptr noundef %arraydecay83, ptr noundef %arraydecay84)
-  %arraydecay85 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  %arraydecay86 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_assign(ptr noundef %arraydecay85, ptr noundef %arraydecay86)
-  %arraydecay87 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  call void @felem_scalar(ptr noundef %arraydecay87, i64 noundef 2)
-  %arraydecay88 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  %arraydecay89 = getelementptr inbounds [4 x i64], ptr %ftmp5, i64 0, i64 0
-  call void @felem_diff_128_64(ptr noundef %arraydecay88, ptr noundef %arraydecay89)
-  %arraydecay90 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  %arraydecay91 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay90, ptr noundef %arraydecay91)
-  %arraydecay92 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay93 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  call void @felem_diff(ptr noundef %arraydecay92, ptr noundef %arraydecay93)
-  %arraydecay94 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  %arraydecay95 = getelementptr inbounds [4 x i64], ptr %ftmp3, i64 0, i64 0
-  %arraydecay96 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay94, ptr noundef %arraydecay95, ptr noundef %arraydecay96)
-  %arraydecay97 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  %arraydecay98 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @widefelem_diff(ptr noundef %arraydecay97, ptr noundef %arraydecay98)
-  %arraydecay99 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  %arraydecay100 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay99, ptr noundef %arraydecay100)
-  %arraydecay101 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  %27 = load ptr, ptr %x2.addr, align 8
-  %28 = load i64, ptr %z1_is_zero, align 8
-  call void @copy_conditional(ptr noundef %arraydecay101, ptr noundef %27, i64 noundef %28)
-  %arraydecay102 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  %29 = load ptr, ptr %x1.addr, align 8
-  %30 = load i64, ptr %z2_is_zero, align 8
-  call void @copy_conditional(ptr noundef %arraydecay102, ptr noundef %29, i64 noundef %30)
-  %arraydecay103 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  %31 = load ptr, ptr %y2.addr, align 8
-  %32 = load i64, ptr %z1_is_zero, align 8
-  call void @copy_conditional(ptr noundef %arraydecay103, ptr noundef %31, i64 noundef %32)
-  %arraydecay104 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  %33 = load ptr, ptr %y1.addr, align 8
-  %34 = load i64, ptr %z2_is_zero, align 8
-  call void @copy_conditional(ptr noundef %arraydecay104, ptr noundef %33, i64 noundef %34)
-  %arraydecay105 = getelementptr inbounds [4 x i64], ptr %z_out, i64 0, i64 0
-  %35 = load ptr, ptr %z2.addr, align 8
-  %36 = load i64, ptr %z1_is_zero, align 8
-  call void @copy_conditional(ptr noundef %arraydecay105, ptr noundef %35, i64 noundef %36)
-  %arraydecay106 = getelementptr inbounds [4 x i64], ptr %z_out, i64 0, i64 0
-  %37 = load ptr, ptr %z1.addr, align 8
-  %38 = load i64, ptr %z2_is_zero, align 8
-  call void @copy_conditional(ptr noundef %arraydecay106, ptr noundef %37, i64 noundef %38)
-  %39 = load ptr, ptr %x3.addr, align 8
-  %arraydecay107 = getelementptr inbounds [4 x i64], ptr %x_out, i64 0, i64 0
-  call void @felem_assign(ptr noundef %39, ptr noundef %arraydecay107)
-  %40 = load ptr, ptr %y3.addr, align 8
-  %arraydecay108 = getelementptr inbounds [4 x i64], ptr %y_out, i64 0, i64 0
-  call void @felem_assign(ptr noundef %40, ptr noundef %arraydecay108)
-  %41 = load ptr, ptr %z3.addr, align 8
-  %arraydecay109 = getelementptr inbounds [4 x i64], ptr %z_out, i64 0, i64 0
-  call void @felem_assign(ptr noundef %41, ptr noundef %arraydecay109)
-  br label %return
+125:                                              ; preds = %122, %116
+  %126 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %127 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  %128 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  call void @felem_mul(ptr noundef %126, ptr noundef %127, ptr noundef %128)
+  %129 = getelementptr inbounds [4 x i64], ptr %28, i64 0, i64 0
+  %130 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %129, ptr noundef %130)
+  %131 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  %132 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  call void @felem_assign(ptr noundef %131, ptr noundef %132)
+  %133 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %134 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  call void @felem_square(ptr noundef %133, ptr noundef %134)
+  %135 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  %136 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %135, ptr noundef %136)
+  %137 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %138 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  %139 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  call void @felem_mul(ptr noundef %137, ptr noundef %138, ptr noundef %139)
+  %140 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  %141 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %140, ptr noundef %141)
+  %142 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %143 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  %144 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 0
+  call void @felem_mul(ptr noundef %142, ptr noundef %143, ptr noundef %144)
+  %145 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  %146 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %145, ptr noundef %146)
+  %147 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  %148 = getelementptr inbounds [4 x i64], ptr %24, i64 0, i64 0
+  %149 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  call void @felem_mul(ptr noundef %147, ptr noundef %148, ptr noundef %149)
+  %150 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  %151 = getelementptr inbounds [4 x i64], ptr %23, i64 0, i64 0
+  call void @felem_square(ptr noundef %150, ptr noundef %151)
+  %152 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  %153 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  call void @felem_diff_128_64(ptr noundef %152, ptr noundef %153)
+  %154 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  %155 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  call void @felem_assign(ptr noundef %154, ptr noundef %155)
+  %156 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  call void @felem_scalar(ptr noundef %156, i64 noundef 2)
+  %157 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  %158 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 0
+  call void @felem_diff_128_64(ptr noundef %157, ptr noundef %158)
+  %159 = getelementptr inbounds [4 x i64], ptr %26, i64 0, i64 0
+  %160 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %159, ptr noundef %160)
+  %161 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  %162 = getelementptr inbounds [4 x i64], ptr %26, i64 0, i64 0
+  call void @felem_diff(ptr noundef %161, ptr noundef %162)
+  %163 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  %164 = getelementptr inbounds [4 x i64], ptr %23, i64 0, i64 0
+  %165 = getelementptr inbounds [4 x i64], ptr %22, i64 0, i64 0
+  call void @felem_mul(ptr noundef %163, ptr noundef %164, ptr noundef %165)
+  %166 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  %167 = getelementptr inbounds [7 x i128], ptr %29, i64 0, i64 0
+  call void @widefelem_diff(ptr noundef %166, ptr noundef %167)
+  %168 = getelementptr inbounds [4 x i64], ptr %27, i64 0, i64 0
+  %169 = getelementptr inbounds [7 x i128], ptr %30, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %168, ptr noundef %169)
+  %170 = getelementptr inbounds [4 x i64], ptr %26, i64 0, i64 0
+  %171 = load ptr, ptr %18, align 8, !tbaa !27
+  %172 = load i64, ptr %31, align 8, !tbaa !17
+  call void @copy_conditional(ptr noundef %170, ptr noundef %171, i64 noundef %172)
+  %173 = getelementptr inbounds [4 x i64], ptr %26, i64 0, i64 0
+  %174 = load ptr, ptr %14, align 8, !tbaa !27
+  %175 = load i64, ptr %32, align 8, !tbaa !17
+  call void @copy_conditional(ptr noundef %173, ptr noundef %174, i64 noundef %175)
+  %176 = getelementptr inbounds [4 x i64], ptr %27, i64 0, i64 0
+  %177 = load ptr, ptr %19, align 8, !tbaa !27
+  %178 = load i64, ptr %31, align 8, !tbaa !17
+  call void @copy_conditional(ptr noundef %176, ptr noundef %177, i64 noundef %178)
+  %179 = getelementptr inbounds [4 x i64], ptr %27, i64 0, i64 0
+  %180 = load ptr, ptr %15, align 8, !tbaa !27
+  %181 = load i64, ptr %32, align 8, !tbaa !17
+  call void @copy_conditional(ptr noundef %179, ptr noundef %180, i64 noundef %181)
+  %182 = getelementptr inbounds [4 x i64], ptr %28, i64 0, i64 0
+  %183 = load ptr, ptr %20, align 8, !tbaa !27
+  %184 = load i64, ptr %31, align 8, !tbaa !17
+  call void @copy_conditional(ptr noundef %182, ptr noundef %183, i64 noundef %184)
+  %185 = getelementptr inbounds [4 x i64], ptr %28, i64 0, i64 0
+  %186 = load ptr, ptr %16, align 8, !tbaa !27
+  %187 = load i64, ptr %32, align 8, !tbaa !17
+  call void @copy_conditional(ptr noundef %185, ptr noundef %186, i64 noundef %187)
+  %188 = load ptr, ptr %11, align 8, !tbaa !27
+  %189 = getelementptr inbounds [4 x i64], ptr %26, i64 0, i64 0
+  call void @felem_assign(ptr noundef %188, ptr noundef %189)
+  %190 = load ptr, ptr %12, align 8, !tbaa !27
+  %191 = getelementptr inbounds [4 x i64], ptr %27, i64 0, i64 0
+  call void @felem_assign(ptr noundef %190, ptr noundef %191)
+  %192 = load ptr, ptr %13, align 8, !tbaa !27
+  %193 = getelementptr inbounds [4 x i64], ptr %28, i64 0, i64 0
+  call void @felem_assign(ptr noundef %192, ptr noundef %193)
+  store i32 0, ptr %35, align 4
+  br label %194
 
-return:                                           ; preds = %if.end56, %if.then47
+194:                                              ; preds = %125, %106
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 112, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 112, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #7
+  %195 = load i32, ptr %35, align 4
+  switch i32 %195, label %197 [
+    i32 0, label %196
+    i32 1, label %196
+  ]
+
+196:                                              ; preds = %194, %194
+  ret void
+
+197:                                              ; preds = %194
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @point_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca [7 x i128], align 16
+  %14 = alloca [7 x i128], align 16
+  %15 = alloca [4 x i64], align 16
+  %16 = alloca [4 x i64], align 16
+  %17 = alloca [4 x i64], align 16
+  %18 = alloca [4 x i64], align 16
+  %19 = alloca [4 x i64], align 16
+  %20 = alloca [4 x i64], align 16
+  %21 = alloca i128, align 16
+  store ptr %0, ptr %7, align 8, !tbaa !27
+  store ptr %1, ptr %8, align 8, !tbaa !27
+  store ptr %2, ptr %9, align 8, !tbaa !27
+  store ptr %3, ptr %10, align 8, !tbaa !27
+  store ptr %4, ptr %11, align 8, !tbaa !27
+  store ptr %5, ptr %12, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 112, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 112, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #7
+  %22 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  %23 = load ptr, ptr %10, align 8, !tbaa !27
+  call void @felem_assign(ptr noundef %22, ptr noundef %23)
+  %24 = getelementptr inbounds [4 x i64], ptr %20, i64 0, i64 0
+  %25 = load ptr, ptr %10, align 8, !tbaa !27
+  call void @felem_assign(ptr noundef %24, ptr noundef %25)
+  %26 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %27 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @felem_square(ptr noundef %26, ptr noundef %27)
+  %28 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  %29 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %28, ptr noundef %29)
+  %30 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %31 = load ptr, ptr %11, align 8, !tbaa !27
+  call void @felem_square(ptr noundef %30, ptr noundef %31)
+  %32 = getelementptr inbounds [4 x i64], ptr %16, i64 0, i64 0
+  %33 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %32, ptr noundef %33)
+  %34 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %35 = load ptr, ptr %10, align 8, !tbaa !27
+  %36 = getelementptr inbounds [4 x i64], ptr %16, i64 0, i64 0
+  call void @felem_mul(ptr noundef %34, ptr noundef %35, ptr noundef %36)
+  %37 = getelementptr inbounds [4 x i64], ptr %17, i64 0, i64 0
+  %38 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %37, ptr noundef %38)
+  %39 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  %40 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  call void @felem_diff(ptr noundef %39, ptr noundef %40)
+  %41 = getelementptr inbounds [4 x i64], ptr %20, i64 0, i64 0
+  %42 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  call void @felem_sum(ptr noundef %41, ptr noundef %42)
+  %43 = getelementptr inbounds [4 x i64], ptr %20, i64 0, i64 0
+  call void @felem_scalar(ptr noundef %43, i64 noundef 3)
+  %44 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %45 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  %46 = getelementptr inbounds [4 x i64], ptr %20, i64 0, i64 0
+  call void @felem_mul(ptr noundef %44, ptr noundef %45, ptr noundef %46)
+  %47 = getelementptr inbounds [4 x i64], ptr %18, i64 0, i64 0
+  %48 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %47, ptr noundef %48)
+  %49 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %50 = getelementptr inbounds [4 x i64], ptr %18, i64 0, i64 0
+  call void @felem_square(ptr noundef %49, ptr noundef %50)
+  %51 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  %52 = getelementptr inbounds [4 x i64], ptr %17, i64 0, i64 0
+  call void @felem_assign(ptr noundef %51, ptr noundef %52)
+  %53 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  call void @felem_scalar(ptr noundef %53, i64 noundef 8)
+  %54 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %55 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  call void @felem_diff_128_64(ptr noundef %54, ptr noundef %55)
+  %56 = load ptr, ptr %7, align 8, !tbaa !27
+  %57 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %56, ptr noundef %57)
+  %58 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  %59 = getelementptr inbounds [4 x i64], ptr %16, i64 0, i64 0
+  call void @felem_sum(ptr noundef %58, ptr noundef %59)
+  %60 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  %61 = load ptr, ptr %11, align 8, !tbaa !27
+  call void @felem_assign(ptr noundef %60, ptr noundef %61)
+  %62 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  %63 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @felem_sum(ptr noundef %62, ptr noundef %63)
+  %64 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %65 = getelementptr inbounds [4 x i64], ptr %19, i64 0, i64 0
+  call void @felem_square(ptr noundef %64, ptr noundef %65)
+  %66 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %67 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  call void @felem_diff_128_64(ptr noundef %66, ptr noundef %67)
+  %68 = load ptr, ptr %9, align 8, !tbaa !27
+  %69 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %68, ptr noundef %69)
+  %70 = getelementptr inbounds [4 x i64], ptr %17, i64 0, i64 0
+  call void @felem_scalar(ptr noundef %70, i64 noundef 4)
+  %71 = getelementptr inbounds [4 x i64], ptr %17, i64 0, i64 0
+  %72 = load ptr, ptr %7, align 8, !tbaa !27
+  call void @felem_diff(ptr noundef %71, ptr noundef %72)
+  %73 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %74 = getelementptr inbounds [4 x i64], ptr %18, i64 0, i64 0
+  %75 = getelementptr inbounds [4 x i64], ptr %17, i64 0, i64 0
+  call void @felem_mul(ptr noundef %73, ptr noundef %74, ptr noundef %75)
+  %76 = getelementptr inbounds [7 x i128], ptr %14, i64 0, i64 0
+  %77 = getelementptr inbounds [4 x i64], ptr %16, i64 0, i64 0
+  call void @felem_square(ptr noundef %76, ptr noundef %77)
+  %78 = getelementptr inbounds [7 x i128], ptr %14, i64 0, i64 0
+  store i128 8, ptr %21, align 16, !tbaa !41
+  %79 = getelementptr inbounds nuw { i64, i64 }, ptr %21, i32 0, i32 0
+  %80 = load i64, ptr %79, align 16
+  %81 = getelementptr inbounds nuw { i64, i64 }, ptr %21, i32 0, i32 1
+  %82 = load i64, ptr %81, align 8
+  call void @widefelem_scalar(ptr noundef %78, i64 noundef %80, i64 noundef %82)
+  %83 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  %84 = getelementptr inbounds [7 x i128], ptr %14, i64 0, i64 0
+  call void @widefelem_diff(ptr noundef %83, ptr noundef %84)
+  %85 = load ptr, ptr %8, align 8, !tbaa !27
+  %86 = getelementptr inbounds [7 x i128], ptr %13, i64 0, i64 0
+  call void @felem_reduce(ptr noundef %85, ptr noundef %86)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 112, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 112, ptr %13) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @point_double(ptr noundef %x_out, ptr noundef %y_out, ptr noundef %z_out, ptr noundef %x_in, ptr noundef %y_in, ptr noundef %z_in) #0 {
-entry:
-  %x_out.addr = alloca ptr, align 8
-  %y_out.addr = alloca ptr, align 8
-  %z_out.addr = alloca ptr, align 8
-  %x_in.addr = alloca ptr, align 8
-  %y_in.addr = alloca ptr, align 8
-  %z_in.addr = alloca ptr, align 8
-  %tmp = alloca [7 x i128], align 16
-  %tmp2 = alloca [7 x i128], align 16
-  %delta = alloca [4 x i64], align 16
-  %gamma = alloca [4 x i64], align 16
-  %beta = alloca [4 x i64], align 16
-  %alpha = alloca [4 x i64], align 16
-  %ftmp = alloca [4 x i64], align 16
-  %ftmp2 = alloca [4 x i64], align 16
-  %coerce = alloca i128, align 16
-  store ptr %x_out, ptr %x_out.addr, align 8
-  store ptr %y_out, ptr %y_out.addr, align 8
-  store ptr %z_out, ptr %z_out.addr, align 8
-  store ptr %x_in, ptr %x_in.addr, align 8
-  store ptr %y_in, ptr %y_in.addr, align 8
-  store ptr %z_in, ptr %z_in.addr, align 8
-  %arraydecay = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %0 = load ptr, ptr %x_in.addr, align 8
-  call void @felem_assign(ptr noundef %arraydecay, ptr noundef %0)
-  %arraydecay1 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %1 = load ptr, ptr %x_in.addr, align 8
-  call void @felem_assign(ptr noundef %arraydecay1, ptr noundef %1)
-  %arraydecay2 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %2 = load ptr, ptr %z_in.addr, align 8
-  call void @felem_square(ptr noundef %arraydecay2, ptr noundef %2)
-  %arraydecay3 = getelementptr inbounds [4 x i64], ptr %delta, i64 0, i64 0
-  %arraydecay4 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay3, ptr noundef %arraydecay4)
-  %arraydecay5 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %3 = load ptr, ptr %y_in.addr, align 8
-  call void @felem_square(ptr noundef %arraydecay5, ptr noundef %3)
-  %arraydecay6 = getelementptr inbounds [4 x i64], ptr %gamma, i64 0, i64 0
-  %arraydecay7 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay6, ptr noundef %arraydecay7)
-  %arraydecay8 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %4 = load ptr, ptr %x_in.addr, align 8
-  %arraydecay9 = getelementptr inbounds [4 x i64], ptr %gamma, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay8, ptr noundef %4, ptr noundef %arraydecay9)
-  %arraydecay10 = getelementptr inbounds [4 x i64], ptr %beta, i64 0, i64 0
-  %arraydecay11 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay10, ptr noundef %arraydecay11)
-  %arraydecay12 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay13 = getelementptr inbounds [4 x i64], ptr %delta, i64 0, i64 0
-  call void @felem_diff(ptr noundef %arraydecay12, ptr noundef %arraydecay13)
-  %arraydecay14 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  %arraydecay15 = getelementptr inbounds [4 x i64], ptr %delta, i64 0, i64 0
-  call void @felem_sum(ptr noundef %arraydecay14, ptr noundef %arraydecay15)
-  %arraydecay16 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_scalar(ptr noundef %arraydecay16, i64 noundef 3)
-  %arraydecay17 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay18 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay19 = getelementptr inbounds [4 x i64], ptr %ftmp2, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay17, ptr noundef %arraydecay18, ptr noundef %arraydecay19)
-  %arraydecay20 = getelementptr inbounds [4 x i64], ptr %alpha, i64 0, i64 0
-  %arraydecay21 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %arraydecay20, ptr noundef %arraydecay21)
-  %arraydecay22 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay23 = getelementptr inbounds [4 x i64], ptr %alpha, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay22, ptr noundef %arraydecay23)
-  %arraydecay24 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %arraydecay25 = getelementptr inbounds [4 x i64], ptr %beta, i64 0, i64 0
-  call void @felem_assign(ptr noundef %arraydecay24, ptr noundef %arraydecay25)
-  %arraydecay26 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_scalar(ptr noundef %arraydecay26, i64 noundef 8)
-  %arraydecay27 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay28 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_diff_128_64(ptr noundef %arraydecay27, ptr noundef %arraydecay28)
-  %5 = load ptr, ptr %x_out.addr, align 8
-  %arraydecay29 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %5, ptr noundef %arraydecay29)
-  %arraydecay30 = getelementptr inbounds [4 x i64], ptr %delta, i64 0, i64 0
-  %arraydecay31 = getelementptr inbounds [4 x i64], ptr %gamma, i64 0, i64 0
-  call void @felem_sum(ptr noundef %arraydecay30, ptr noundef %arraydecay31)
-  %arraydecay32 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %6 = load ptr, ptr %y_in.addr, align 8
-  call void @felem_assign(ptr noundef %arraydecay32, ptr noundef %6)
-  %arraydecay33 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  %7 = load ptr, ptr %z_in.addr, align 8
-  call void @felem_sum(ptr noundef %arraydecay33, ptr noundef %7)
-  %arraydecay34 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay35 = getelementptr inbounds [4 x i64], ptr %ftmp, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay34, ptr noundef %arraydecay35)
-  %arraydecay36 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay37 = getelementptr inbounds [4 x i64], ptr %delta, i64 0, i64 0
-  call void @felem_diff_128_64(ptr noundef %arraydecay36, ptr noundef %arraydecay37)
-  %8 = load ptr, ptr %z_out.addr, align 8
-  %arraydecay38 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %8, ptr noundef %arraydecay38)
-  %arraydecay39 = getelementptr inbounds [4 x i64], ptr %beta, i64 0, i64 0
-  call void @felem_scalar(ptr noundef %arraydecay39, i64 noundef 4)
-  %arraydecay40 = getelementptr inbounds [4 x i64], ptr %beta, i64 0, i64 0
-  %9 = load ptr, ptr %x_out.addr, align 8
-  call void @felem_diff(ptr noundef %arraydecay40, ptr noundef %9)
-  %arraydecay41 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay42 = getelementptr inbounds [4 x i64], ptr %alpha, i64 0, i64 0
-  %arraydecay43 = getelementptr inbounds [4 x i64], ptr %beta, i64 0, i64 0
-  call void @felem_mul(ptr noundef %arraydecay41, ptr noundef %arraydecay42, ptr noundef %arraydecay43)
-  %arraydecay44 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  %arraydecay45 = getelementptr inbounds [4 x i64], ptr %gamma, i64 0, i64 0
-  call void @felem_square(ptr noundef %arraydecay44, ptr noundef %arraydecay45)
-  %arraydecay46 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  store i128 8, ptr %coerce, align 16
-  %10 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %11 = load i64, ptr %10, align 16
-  %12 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %13 = load i64, ptr %12, align 8
-  call void @widefelem_scalar(ptr noundef %arraydecay46, i64 noundef %11, i64 noundef %13)
-  %arraydecay47 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  %arraydecay48 = getelementptr inbounds [7 x i128], ptr %tmp2, i64 0, i64 0
-  call void @widefelem_diff(ptr noundef %arraydecay47, ptr noundef %arraydecay48)
-  %14 = load ptr, ptr %y_out.addr, align 8
-  %arraydecay49 = getelementptr inbounds [7 x i128], ptr %tmp, i64 0, i64 0
-  call void @felem_reduce(ptr noundef %14, ptr noundef %arraydecay49)
-  ret void
-}
+define internal void @batch_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca [3 x [4 x i64]], align 16
+  %16 = alloca [4 x [4 x i64]], align 16
+  %17 = alloca i64, align 8
+  %18 = alloca i8, align 1
+  %19 = alloca i8, align 1
+  %20 = alloca i32, align 4
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !27
+  store ptr %1, ptr %9, align 8, !tbaa !27
+  store ptr %2, ptr %10, align 8, !tbaa !27
+  store ptr %3, ptr %11, align 8, !tbaa !25
+  store i64 %4, ptr %12, align 8, !tbaa !17
+  store ptr %5, ptr %13, align 8, !tbaa !25
+  store ptr %6, ptr %14, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 96, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 128, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #7
+  %23 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %23, i8 0, i64 96, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #7
+  store i32 1, ptr %20, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  %24 = load i64, ptr %12, align 8, !tbaa !17
+  %25 = icmp ne i64 %24, 0
+  %26 = select i1 %25, i32 220, i32 27
+  %27 = sext i32 %26 to i64
+  store i64 %27, ptr %21, align 8, !tbaa !17
+  br label %28
 
-; Function Attrs: nounwind uwtable
-define internal void @batch_mul(ptr noundef %x_out, ptr noundef %y_out, ptr noundef %z_out, ptr noundef %scalars, i64 noundef %num_points, ptr noundef %g_scalar, ptr noundef %pre_comp) #0 {
-entry:
-  %x_out.addr = alloca ptr, align 8
-  %y_out.addr = alloca ptr, align 8
-  %z_out.addr = alloca ptr, align 8
-  %scalars.addr = alloca ptr, align 8
-  %num_points.addr = alloca i64, align 8
-  %g_scalar.addr = alloca ptr, align 8
-  %pre_comp.addr = alloca ptr, align 8
-  %nq = alloca [3 x [4 x i64]], align 16
-  %tmp = alloca [4 x [4 x i64]], align 16
-  %bits = alloca i64, align 8
-  %sign = alloca i8, align 1
-  %digit = alloca i8, align 1
-  %skip = alloca i32, align 4
-  %i = alloca i64, align 8
-  %num = alloca i64, align 8
-  store ptr %x_out, ptr %x_out.addr, align 8
-  store ptr %y_out, ptr %y_out.addr, align 8
-  store ptr %z_out, ptr %z_out.addr, align 8
-  store ptr %scalars, ptr %scalars.addr, align 8
-  store i64 %num_points, ptr %num_points.addr, align 8
-  store ptr %g_scalar, ptr %g_scalar.addr, align 8
-  store ptr %pre_comp, ptr %pre_comp.addr, align 8
-  %arraydecay = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %arraydecay, i8 0, i64 96, i1 false)
-  store i32 1, ptr %skip, align 4
-  %0 = load i64, ptr %num_points.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  %cond = select i1 %cmp, i32 220, i32 27
-  %conv = sext i32 %cond to i64
-  store i64 %conv, ptr %i, align 8
-  br label %for.cond
+28:                                               ; preds = %293, %7
+  %29 = load i32, ptr %20, align 4, !tbaa !23
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %44, label %31
 
-for.cond:                                         ; preds = %if.end192, %entry
-  %1 = load i32, ptr %skip, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %33 = getelementptr inbounds [4 x i64], ptr %32, i64 0, i64 0
+  %34 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %35 = getelementptr inbounds [4 x i64], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %37 = getelementptr inbounds [4 x i64], ptr %36, i64 0, i64 0
+  %38 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %39 = getelementptr inbounds [4 x i64], ptr %38, i64 0, i64 0
+  %40 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %41 = getelementptr inbounds [4 x i64], ptr %40, i64 0, i64 0
+  %42 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %43 = getelementptr inbounds [4 x i64], ptr %42, i64 0, i64 0
+  call void @point_double(ptr noundef %33, ptr noundef %35, ptr noundef %37, ptr noundef %39, ptr noundef %41, ptr noundef %43)
+  br label %44
 
-if.then:                                          ; preds = %for.cond
-  %arrayidx = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay1 = getelementptr inbounds [4 x i64], ptr %arrayidx, i64 0, i64 0
-  %arrayidx2 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay3 = getelementptr inbounds [4 x i64], ptr %arrayidx2, i64 0, i64 0
-  %arrayidx4 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay5 = getelementptr inbounds [4 x i64], ptr %arrayidx4, i64 0, i64 0
-  %arrayidx6 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay7 = getelementptr inbounds [4 x i64], ptr %arrayidx6, i64 0, i64 0
-  %arrayidx8 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay9 = getelementptr inbounds [4 x i64], ptr %arrayidx8, i64 0, i64 0
-  %arrayidx10 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay11 = getelementptr inbounds [4 x i64], ptr %arrayidx10, i64 0, i64 0
-  call void @point_double(ptr noundef %arraydecay1, ptr noundef %arraydecay3, ptr noundef %arraydecay5, ptr noundef %arraydecay7, ptr noundef %arraydecay9, ptr noundef %arraydecay11)
-  br label %if.end
+44:                                               ; preds = %31, %28
+  %45 = load ptr, ptr %13, align 8, !tbaa !25
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %161
 
-if.end:                                           ; preds = %if.then, %for.cond
-  %2 = load ptr, ptr %g_scalar.addr, align 8
-  %cmp12 = icmp ne ptr %2, null
-  br i1 %cmp12, label %land.lhs.true, label %if.end97
+47:                                               ; preds = %44
+  %48 = load i64, ptr %21, align 8, !tbaa !17
+  %49 = icmp ule i64 %48, 27
+  br i1 %49, label %50, label %161
 
-land.lhs.true:                                    ; preds = %if.end
-  %3 = load i64, ptr %i, align 8
-  %cmp14 = icmp ule i64 %3, 27
-  br i1 %cmp14, label %if.then16, label %if.end97
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %13, align 8, !tbaa !25
+  %52 = load i64, ptr %21, align 8, !tbaa !17
+  %53 = add i64 %52, 196
+  %54 = call signext i8 @get_bit(ptr noundef %51, i64 noundef %53)
+  %55 = sext i8 %54 to i32
+  %56 = shl i32 %55, 3
+  %57 = sext i32 %56 to i64
+  store i64 %57, ptr %17, align 8, !tbaa !17
+  %58 = load ptr, ptr %13, align 8, !tbaa !25
+  %59 = load i64, ptr %21, align 8, !tbaa !17
+  %60 = add i64 %59, 140
+  %61 = call signext i8 @get_bit(ptr noundef %58, i64 noundef %60)
+  %62 = sext i8 %61 to i32
+  %63 = shl i32 %62, 2
+  %64 = sext i32 %63 to i64
+  %65 = load i64, ptr %17, align 8, !tbaa !17
+  %66 = or i64 %65, %64
+  store i64 %66, ptr %17, align 8, !tbaa !17
+  %67 = load ptr, ptr %13, align 8, !tbaa !25
+  %68 = load i64, ptr %21, align 8, !tbaa !17
+  %69 = add i64 %68, 84
+  %70 = call signext i8 @get_bit(ptr noundef %67, i64 noundef %69)
+  %71 = sext i8 %70 to i32
+  %72 = shl i32 %71, 1
+  %73 = sext i32 %72 to i64
+  %74 = load i64, ptr %17, align 8, !tbaa !17
+  %75 = or i64 %74, %73
+  store i64 %75, ptr %17, align 8, !tbaa !17
+  %76 = load ptr, ptr %13, align 8, !tbaa !25
+  %77 = load i64, ptr %21, align 8, !tbaa !17
+  %78 = add i64 %77, 28
+  %79 = call signext i8 @get_bit(ptr noundef %76, i64 noundef %78)
+  %80 = sext i8 %79 to i64
+  %81 = load i64, ptr %17, align 8, !tbaa !17
+  %82 = or i64 %81, %80
+  store i64 %82, ptr %17, align 8, !tbaa !17
+  %83 = load i64, ptr %17, align 8, !tbaa !17
+  %84 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 0
+  call void @select_point(i64 noundef %83, i64 noundef 16, ptr noundef getelementptr inbounds ([2 x [16 x [3 x [4 x i64]]]], ptr @g_pre_comp, i64 0, i64 1), ptr noundef %84)
+  %85 = load i32, ptr %20, align 4, !tbaa !23
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %106, label %87
 
-if.then16:                                        ; preds = %land.lhs.true
-  %4 = load ptr, ptr %g_scalar.addr, align 8
-  %5 = load i64, ptr %i, align 8
-  %add = add i64 %5, 196
-  %call = call signext i8 @get_bit(ptr noundef %4, i64 noundef %add)
-  %conv17 = sext i8 %call to i32
-  %shl = shl i32 %conv17, 3
-  %conv18 = sext i32 %shl to i64
-  store i64 %conv18, ptr %bits, align 8
-  %6 = load ptr, ptr %g_scalar.addr, align 8
-  %7 = load i64, ptr %i, align 8
-  %add19 = add i64 %7, 140
-  %call20 = call signext i8 @get_bit(ptr noundef %6, i64 noundef %add19)
-  %conv21 = sext i8 %call20 to i32
-  %shl22 = shl i32 %conv21, 2
-  %conv23 = sext i32 %shl22 to i64
-  %8 = load i64, ptr %bits, align 8
-  %or = or i64 %8, %conv23
-  store i64 %or, ptr %bits, align 8
-  %9 = load ptr, ptr %g_scalar.addr, align 8
-  %10 = load i64, ptr %i, align 8
-  %add24 = add i64 %10, 84
-  %call25 = call signext i8 @get_bit(ptr noundef %9, i64 noundef %add24)
-  %conv26 = sext i8 %call25 to i32
-  %shl27 = shl i32 %conv26, 1
-  %conv28 = sext i32 %shl27 to i64
-  %11 = load i64, ptr %bits, align 8
-  %or29 = or i64 %11, %conv28
-  store i64 %or29, ptr %bits, align 8
-  %12 = load ptr, ptr %g_scalar.addr, align 8
-  %13 = load i64, ptr %i, align 8
-  %add30 = add i64 %13, 28
-  %call31 = call signext i8 @get_bit(ptr noundef %12, i64 noundef %add30)
-  %conv32 = sext i8 %call31 to i64
-  %14 = load i64, ptr %bits, align 8
-  %or33 = or i64 %14, %conv32
-  store i64 %or33, ptr %bits, align 8
-  %15 = load i64, ptr %bits, align 8
-  %arraydecay34 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  %16 = getelementptr inbounds [2 x [16 x [3 x [4 x i64]]]], ptr @g_pre_comp, i64 0, i64 1
-  call void @select_point(i64 noundef %15, i64 noundef 16, ptr noundef %16, ptr noundef %arraydecay34)
-  %17 = load i32, ptr %skip, align 4
-  %tobool35 = icmp ne i32 %17, 0
-  br i1 %tobool35, label %if.else, label %if.then36
+87:                                               ; preds = %50
+  %88 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %89 = getelementptr inbounds [4 x i64], ptr %88, i64 0, i64 0
+  %90 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %91 = getelementptr inbounds [4 x i64], ptr %90, i64 0, i64 0
+  %92 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %93 = getelementptr inbounds [4 x i64], ptr %92, i64 0, i64 0
+  %94 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %95 = getelementptr inbounds [4 x i64], ptr %94, i64 0, i64 0
+  %96 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %97 = getelementptr inbounds [4 x i64], ptr %96, i64 0, i64 0
+  %98 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %99 = getelementptr inbounds [4 x i64], ptr %98, i64 0, i64 0
+  %100 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 0
+  %101 = getelementptr inbounds [4 x i64], ptr %100, i64 0, i64 0
+  %102 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 1
+  %103 = getelementptr inbounds [4 x i64], ptr %102, i64 0, i64 0
+  %104 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 2
+  %105 = getelementptr inbounds [4 x i64], ptr %104, i64 0, i64 0
+  call void @point_add(ptr noundef %89, ptr noundef %91, ptr noundef %93, ptr noundef %95, ptr noundef %97, ptr noundef %99, i32 noundef 1, ptr noundef %101, ptr noundef %103, ptr noundef %105)
+  br label %109
 
-if.then36:                                        ; preds = %if.then16
-  %arrayidx37 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay38 = getelementptr inbounds [4 x i64], ptr %arrayidx37, i64 0, i64 0
-  %arrayidx39 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay40 = getelementptr inbounds [4 x i64], ptr %arrayidx39, i64 0, i64 0
-  %arrayidx41 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay42 = getelementptr inbounds [4 x i64], ptr %arrayidx41, i64 0, i64 0
-  %arrayidx43 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay44 = getelementptr inbounds [4 x i64], ptr %arrayidx43, i64 0, i64 0
-  %arrayidx45 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay46 = getelementptr inbounds [4 x i64], ptr %arrayidx45, i64 0, i64 0
-  %arrayidx47 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay48 = getelementptr inbounds [4 x i64], ptr %arrayidx47, i64 0, i64 0
-  %arrayidx49 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  %arraydecay50 = getelementptr inbounds [4 x i64], ptr %arrayidx49, i64 0, i64 0
-  %arrayidx51 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 1
-  %arraydecay52 = getelementptr inbounds [4 x i64], ptr %arrayidx51, i64 0, i64 0
-  %arrayidx53 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 2
-  %arraydecay54 = getelementptr inbounds [4 x i64], ptr %arrayidx53, i64 0, i64 0
-  call void @point_add(ptr noundef %arraydecay38, ptr noundef %arraydecay40, ptr noundef %arraydecay42, ptr noundef %arraydecay44, ptr noundef %arraydecay46, ptr noundef %arraydecay48, i32 noundef 1, ptr noundef %arraydecay50, ptr noundef %arraydecay52, ptr noundef %arraydecay54)
-  br label %if.end57
+106:                                              ; preds = %50
+  %107 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %108 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %107, ptr align 16 %108, i64 96, i1 false)
+  store i32 0, ptr %20, align 4, !tbaa !23
+  br label %109
 
-if.else:                                          ; preds = %if.then16
-  %arraydecay55 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay56 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay55, ptr align 16 %arraydecay56, i64 96, i1 false)
-  store i32 0, ptr %skip, align 4
-  br label %if.end57
+109:                                              ; preds = %106, %87
+  %110 = load ptr, ptr %13, align 8, !tbaa !25
+  %111 = load i64, ptr %21, align 8, !tbaa !17
+  %112 = add i64 %111, 168
+  %113 = call signext i8 @get_bit(ptr noundef %110, i64 noundef %112)
+  %114 = sext i8 %113 to i32
+  %115 = shl i32 %114, 3
+  %116 = sext i32 %115 to i64
+  store i64 %116, ptr %17, align 8, !tbaa !17
+  %117 = load ptr, ptr %13, align 8, !tbaa !25
+  %118 = load i64, ptr %21, align 8, !tbaa !17
+  %119 = add i64 %118, 112
+  %120 = call signext i8 @get_bit(ptr noundef %117, i64 noundef %119)
+  %121 = sext i8 %120 to i32
+  %122 = shl i32 %121, 2
+  %123 = sext i32 %122 to i64
+  %124 = load i64, ptr %17, align 8, !tbaa !17
+  %125 = or i64 %124, %123
+  store i64 %125, ptr %17, align 8, !tbaa !17
+  %126 = load ptr, ptr %13, align 8, !tbaa !25
+  %127 = load i64, ptr %21, align 8, !tbaa !17
+  %128 = add i64 %127, 56
+  %129 = call signext i8 @get_bit(ptr noundef %126, i64 noundef %128)
+  %130 = sext i8 %129 to i32
+  %131 = shl i32 %130, 1
+  %132 = sext i32 %131 to i64
+  %133 = load i64, ptr %17, align 8, !tbaa !17
+  %134 = or i64 %133, %132
+  store i64 %134, ptr %17, align 8, !tbaa !17
+  %135 = load ptr, ptr %13, align 8, !tbaa !25
+  %136 = load i64, ptr %21, align 8, !tbaa !17
+  %137 = call signext i8 @get_bit(ptr noundef %135, i64 noundef %136)
+  %138 = sext i8 %137 to i64
+  %139 = load i64, ptr %17, align 8, !tbaa !17
+  %140 = or i64 %139, %138
+  store i64 %140, ptr %17, align 8, !tbaa !17
+  %141 = load i64, ptr %17, align 8, !tbaa !17
+  %142 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 0
+  call void @select_point(i64 noundef %141, i64 noundef 16, ptr noundef @g_pre_comp, ptr noundef %142)
+  %143 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %144 = getelementptr inbounds [4 x i64], ptr %143, i64 0, i64 0
+  %145 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %146 = getelementptr inbounds [4 x i64], ptr %145, i64 0, i64 0
+  %147 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %148 = getelementptr inbounds [4 x i64], ptr %147, i64 0, i64 0
+  %149 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %150 = getelementptr inbounds [4 x i64], ptr %149, i64 0, i64 0
+  %151 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %152 = getelementptr inbounds [4 x i64], ptr %151, i64 0, i64 0
+  %153 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %154 = getelementptr inbounds [4 x i64], ptr %153, i64 0, i64 0
+  %155 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 0
+  %156 = getelementptr inbounds [4 x i64], ptr %155, i64 0, i64 0
+  %157 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 1
+  %158 = getelementptr inbounds [4 x i64], ptr %157, i64 0, i64 0
+  %159 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 2
+  %160 = getelementptr inbounds [4 x i64], ptr %159, i64 0, i64 0
+  call void @point_add(ptr noundef %144, ptr noundef %146, ptr noundef %148, ptr noundef %150, ptr noundef %152, ptr noundef %154, i32 noundef 1, ptr noundef %156, ptr noundef %158, ptr noundef %160)
+  br label %161
 
-if.end57:                                         ; preds = %if.else, %if.then36
-  %18 = load ptr, ptr %g_scalar.addr, align 8
-  %19 = load i64, ptr %i, align 8
-  %add58 = add i64 %19, 168
-  %call59 = call signext i8 @get_bit(ptr noundef %18, i64 noundef %add58)
-  %conv60 = sext i8 %call59 to i32
-  %shl61 = shl i32 %conv60, 3
-  %conv62 = sext i32 %shl61 to i64
-  store i64 %conv62, ptr %bits, align 8
-  %20 = load ptr, ptr %g_scalar.addr, align 8
-  %21 = load i64, ptr %i, align 8
-  %add63 = add i64 %21, 112
-  %call64 = call signext i8 @get_bit(ptr noundef %20, i64 noundef %add63)
-  %conv65 = sext i8 %call64 to i32
-  %shl66 = shl i32 %conv65, 2
-  %conv67 = sext i32 %shl66 to i64
-  %22 = load i64, ptr %bits, align 8
-  %or68 = or i64 %22, %conv67
-  store i64 %or68, ptr %bits, align 8
-  %23 = load ptr, ptr %g_scalar.addr, align 8
-  %24 = load i64, ptr %i, align 8
-  %add69 = add i64 %24, 56
-  %call70 = call signext i8 @get_bit(ptr noundef %23, i64 noundef %add69)
-  %conv71 = sext i8 %call70 to i32
-  %shl72 = shl i32 %conv71, 1
-  %conv73 = sext i32 %shl72 to i64
-  %25 = load i64, ptr %bits, align 8
-  %or74 = or i64 %25, %conv73
-  store i64 %or74, ptr %bits, align 8
-  %26 = load ptr, ptr %g_scalar.addr, align 8
-  %27 = load i64, ptr %i, align 8
-  %call75 = call signext i8 @get_bit(ptr noundef %26, i64 noundef %27)
-  %conv76 = sext i8 %call75 to i64
-  %28 = load i64, ptr %bits, align 8
-  %or77 = or i64 %28, %conv76
-  store i64 %or77, ptr %bits, align 8
-  %29 = load i64, ptr %bits, align 8
-  %arraydecay78 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  call void @select_point(i64 noundef %29, i64 noundef 16, ptr noundef @g_pre_comp, ptr noundef %arraydecay78)
-  %arrayidx79 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay80 = getelementptr inbounds [4 x i64], ptr %arrayidx79, i64 0, i64 0
-  %arrayidx81 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay82 = getelementptr inbounds [4 x i64], ptr %arrayidx81, i64 0, i64 0
-  %arrayidx83 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay84 = getelementptr inbounds [4 x i64], ptr %arrayidx83, i64 0, i64 0
-  %arrayidx85 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay86 = getelementptr inbounds [4 x i64], ptr %arrayidx85, i64 0, i64 0
-  %arrayidx87 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay88 = getelementptr inbounds [4 x i64], ptr %arrayidx87, i64 0, i64 0
-  %arrayidx89 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay90 = getelementptr inbounds [4 x i64], ptr %arrayidx89, i64 0, i64 0
-  %arrayidx91 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  %arraydecay92 = getelementptr inbounds [4 x i64], ptr %arrayidx91, i64 0, i64 0
-  %arrayidx93 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 1
-  %arraydecay94 = getelementptr inbounds [4 x i64], ptr %arrayidx93, i64 0, i64 0
-  %arrayidx95 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 2
-  %arraydecay96 = getelementptr inbounds [4 x i64], ptr %arrayidx95, i64 0, i64 0
-  call void @point_add(ptr noundef %arraydecay80, ptr noundef %arraydecay82, ptr noundef %arraydecay84, ptr noundef %arraydecay86, ptr noundef %arraydecay88, ptr noundef %arraydecay90, i32 noundef 1, ptr noundef %arraydecay92, ptr noundef %arraydecay94, ptr noundef %arraydecay96)
-  br label %if.end97
+161:                                              ; preds = %109, %47, %44
+  %162 = load i64, ptr %12, align 8, !tbaa !17
+  %163 = icmp ne i64 %162, 0
+  br i1 %163, label %164, label %289
 
-if.end97:                                         ; preds = %if.end57, %land.lhs.true, %if.end
-  %30 = load i64, ptr %num_points.addr, align 8
-  %cmp98 = icmp ne i64 %30, 0
-  br i1 %cmp98, label %land.lhs.true100, label %if.end188
+164:                                              ; preds = %161
+  %165 = load i64, ptr %21, align 8, !tbaa !17
+  %166 = urem i64 %165, 5
+  %167 = icmp eq i64 %166, 0
+  br i1 %167, label %168, label %289
 
-land.lhs.true100:                                 ; preds = %if.end97
-  %31 = load i64, ptr %i, align 8
-  %rem = urem i64 %31, 5
-  %cmp101 = icmp eq i64 %rem, 0
-  br i1 %cmp101, label %if.then103, label %if.end188
+168:                                              ; preds = %164
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  store i64 0, ptr %22, align 8, !tbaa !17
+  br label %169
 
-if.then103:                                       ; preds = %land.lhs.true100
-  store i64 0, ptr %num, align 8
-  br label %for.cond104
+169:                                              ; preds = %285, %168
+  %170 = load i64, ptr %22, align 8, !tbaa !17
+  %171 = load i64, ptr %12, align 8, !tbaa !17
+  %172 = icmp ult i64 %170, %171
+  br i1 %172, label %173, label %288
 
-for.cond104:                                      ; preds = %for.inc, %if.then103
-  %32 = load i64, ptr %num, align 8
-  %33 = load i64, ptr %num_points.addr, align 8
-  %cmp105 = icmp ult i64 %32, %33
-  br i1 %cmp105, label %for.body, label %for.end
+173:                                              ; preds = %169
+  %174 = load ptr, ptr %11, align 8, !tbaa !25
+  %175 = load i64, ptr %22, align 8, !tbaa !17
+  %176 = getelementptr inbounds nuw [28 x i8], ptr %174, i64 %175
+  %177 = getelementptr inbounds [28 x i8], ptr %176, i64 0, i64 0
+  %178 = load i64, ptr %21, align 8, !tbaa !17
+  %179 = add i64 %178, 4
+  %180 = call signext i8 @get_bit(ptr noundef %177, i64 noundef %179)
+  %181 = sext i8 %180 to i32
+  %182 = shl i32 %181, 5
+  %183 = sext i32 %182 to i64
+  store i64 %183, ptr %17, align 8, !tbaa !17
+  %184 = load ptr, ptr %11, align 8, !tbaa !25
+  %185 = load i64, ptr %22, align 8, !tbaa !17
+  %186 = getelementptr inbounds nuw [28 x i8], ptr %184, i64 %185
+  %187 = getelementptr inbounds [28 x i8], ptr %186, i64 0, i64 0
+  %188 = load i64, ptr %21, align 8, !tbaa !17
+  %189 = add i64 %188, 3
+  %190 = call signext i8 @get_bit(ptr noundef %187, i64 noundef %189)
+  %191 = sext i8 %190 to i32
+  %192 = shl i32 %191, 4
+  %193 = sext i32 %192 to i64
+  %194 = load i64, ptr %17, align 8, !tbaa !17
+  %195 = or i64 %194, %193
+  store i64 %195, ptr %17, align 8, !tbaa !17
+  %196 = load ptr, ptr %11, align 8, !tbaa !25
+  %197 = load i64, ptr %22, align 8, !tbaa !17
+  %198 = getelementptr inbounds nuw [28 x i8], ptr %196, i64 %197
+  %199 = getelementptr inbounds [28 x i8], ptr %198, i64 0, i64 0
+  %200 = load i64, ptr %21, align 8, !tbaa !17
+  %201 = add i64 %200, 2
+  %202 = call signext i8 @get_bit(ptr noundef %199, i64 noundef %201)
+  %203 = sext i8 %202 to i32
+  %204 = shl i32 %203, 3
+  %205 = sext i32 %204 to i64
+  %206 = load i64, ptr %17, align 8, !tbaa !17
+  %207 = or i64 %206, %205
+  store i64 %207, ptr %17, align 8, !tbaa !17
+  %208 = load ptr, ptr %11, align 8, !tbaa !25
+  %209 = load i64, ptr %22, align 8, !tbaa !17
+  %210 = getelementptr inbounds nuw [28 x i8], ptr %208, i64 %209
+  %211 = getelementptr inbounds [28 x i8], ptr %210, i64 0, i64 0
+  %212 = load i64, ptr %21, align 8, !tbaa !17
+  %213 = add i64 %212, 1
+  %214 = call signext i8 @get_bit(ptr noundef %211, i64 noundef %213)
+  %215 = sext i8 %214 to i32
+  %216 = shl i32 %215, 2
+  %217 = sext i32 %216 to i64
+  %218 = load i64, ptr %17, align 8, !tbaa !17
+  %219 = or i64 %218, %217
+  store i64 %219, ptr %17, align 8, !tbaa !17
+  %220 = load ptr, ptr %11, align 8, !tbaa !25
+  %221 = load i64, ptr %22, align 8, !tbaa !17
+  %222 = getelementptr inbounds nuw [28 x i8], ptr %220, i64 %221
+  %223 = getelementptr inbounds [28 x i8], ptr %222, i64 0, i64 0
+  %224 = load i64, ptr %21, align 8, !tbaa !17
+  %225 = call signext i8 @get_bit(ptr noundef %223, i64 noundef %224)
+  %226 = sext i8 %225 to i32
+  %227 = shl i32 %226, 1
+  %228 = sext i32 %227 to i64
+  %229 = load i64, ptr %17, align 8, !tbaa !17
+  %230 = or i64 %229, %228
+  store i64 %230, ptr %17, align 8, !tbaa !17
+  %231 = load ptr, ptr %11, align 8, !tbaa !25
+  %232 = load i64, ptr %22, align 8, !tbaa !17
+  %233 = getelementptr inbounds nuw [28 x i8], ptr %231, i64 %232
+  %234 = getelementptr inbounds [28 x i8], ptr %233, i64 0, i64 0
+  %235 = load i64, ptr %21, align 8, !tbaa !17
+  %236 = sub i64 %235, 1
+  %237 = call signext i8 @get_bit(ptr noundef %234, i64 noundef %236)
+  %238 = sext i8 %237 to i64
+  %239 = load i64, ptr %17, align 8, !tbaa !17
+  %240 = or i64 %239, %238
+  store i64 %240, ptr %17, align 8, !tbaa !17
+  %241 = load i64, ptr %17, align 8, !tbaa !17
+  %242 = trunc i64 %241 to i8
+  call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef %18, ptr noundef %19, i8 noundef zeroext %242)
+  %243 = load i8, ptr %19, align 1, !tbaa !43
+  %244 = zext i8 %243 to i64
+  %245 = load ptr, ptr %14, align 8, !tbaa !27
+  %246 = load i64, ptr %22, align 8, !tbaa !17
+  %247 = getelementptr inbounds nuw [17 x [3 x [4 x i64]]], ptr %245, i64 %246
+  %248 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %247, i64 0, i64 0
+  %249 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 0
+  call void @select_point(i64 noundef %244, i64 noundef 17, ptr noundef %248, ptr noundef %249)
+  %250 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 3
+  %251 = getelementptr inbounds [4 x i64], ptr %250, i64 0, i64 0
+  %252 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 1
+  %253 = getelementptr inbounds [4 x i64], ptr %252, i64 0, i64 0
+  call void @felem_neg(ptr noundef %251, ptr noundef %253)
+  %254 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 1
+  %255 = getelementptr inbounds [4 x i64], ptr %254, i64 0, i64 0
+  %256 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 3
+  %257 = getelementptr inbounds [4 x i64], ptr %256, i64 0, i64 0
+  %258 = load i8, ptr %18, align 1, !tbaa !43
+  %259 = zext i8 %258 to i64
+  call void @copy_conditional(ptr noundef %255, ptr noundef %257, i64 noundef %259)
+  %260 = load i32, ptr %20, align 4, !tbaa !23
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %281, label %262
 
-for.body:                                         ; preds = %for.cond104
-  %34 = load ptr, ptr %scalars.addr, align 8
-  %35 = load i64, ptr %num, align 8
-  %arrayidx107 = getelementptr inbounds [28 x i8], ptr %34, i64 %35
-  %arraydecay108 = getelementptr inbounds [28 x i8], ptr %arrayidx107, i64 0, i64 0
-  %36 = load i64, ptr %i, align 8
-  %add109 = add i64 %36, 4
-  %call110 = call signext i8 @get_bit(ptr noundef %arraydecay108, i64 noundef %add109)
-  %conv111 = sext i8 %call110 to i32
-  %shl112 = shl i32 %conv111, 5
-  %conv113 = sext i32 %shl112 to i64
-  store i64 %conv113, ptr %bits, align 8
-  %37 = load ptr, ptr %scalars.addr, align 8
-  %38 = load i64, ptr %num, align 8
-  %arrayidx114 = getelementptr inbounds [28 x i8], ptr %37, i64 %38
-  %arraydecay115 = getelementptr inbounds [28 x i8], ptr %arrayidx114, i64 0, i64 0
-  %39 = load i64, ptr %i, align 8
-  %add116 = add i64 %39, 3
-  %call117 = call signext i8 @get_bit(ptr noundef %arraydecay115, i64 noundef %add116)
-  %conv118 = sext i8 %call117 to i32
-  %shl119 = shl i32 %conv118, 4
-  %conv120 = sext i32 %shl119 to i64
-  %40 = load i64, ptr %bits, align 8
-  %or121 = or i64 %40, %conv120
-  store i64 %or121, ptr %bits, align 8
-  %41 = load ptr, ptr %scalars.addr, align 8
-  %42 = load i64, ptr %num, align 8
-  %arrayidx122 = getelementptr inbounds [28 x i8], ptr %41, i64 %42
-  %arraydecay123 = getelementptr inbounds [28 x i8], ptr %arrayidx122, i64 0, i64 0
-  %43 = load i64, ptr %i, align 8
-  %add124 = add i64 %43, 2
-  %call125 = call signext i8 @get_bit(ptr noundef %arraydecay123, i64 noundef %add124)
-  %conv126 = sext i8 %call125 to i32
-  %shl127 = shl i32 %conv126, 3
-  %conv128 = sext i32 %shl127 to i64
-  %44 = load i64, ptr %bits, align 8
-  %or129 = or i64 %44, %conv128
-  store i64 %or129, ptr %bits, align 8
-  %45 = load ptr, ptr %scalars.addr, align 8
-  %46 = load i64, ptr %num, align 8
-  %arrayidx130 = getelementptr inbounds [28 x i8], ptr %45, i64 %46
-  %arraydecay131 = getelementptr inbounds [28 x i8], ptr %arrayidx130, i64 0, i64 0
-  %47 = load i64, ptr %i, align 8
-  %add132 = add i64 %47, 1
-  %call133 = call signext i8 @get_bit(ptr noundef %arraydecay131, i64 noundef %add132)
-  %conv134 = sext i8 %call133 to i32
-  %shl135 = shl i32 %conv134, 2
-  %conv136 = sext i32 %shl135 to i64
-  %48 = load i64, ptr %bits, align 8
-  %or137 = or i64 %48, %conv136
-  store i64 %or137, ptr %bits, align 8
-  %49 = load ptr, ptr %scalars.addr, align 8
-  %50 = load i64, ptr %num, align 8
-  %arrayidx138 = getelementptr inbounds [28 x i8], ptr %49, i64 %50
-  %arraydecay139 = getelementptr inbounds [28 x i8], ptr %arrayidx138, i64 0, i64 0
-  %51 = load i64, ptr %i, align 8
-  %call140 = call signext i8 @get_bit(ptr noundef %arraydecay139, i64 noundef %51)
-  %conv141 = sext i8 %call140 to i32
-  %shl142 = shl i32 %conv141, 1
-  %conv143 = sext i32 %shl142 to i64
-  %52 = load i64, ptr %bits, align 8
-  %or144 = or i64 %52, %conv143
-  store i64 %or144, ptr %bits, align 8
-  %53 = load ptr, ptr %scalars.addr, align 8
-  %54 = load i64, ptr %num, align 8
-  %arrayidx145 = getelementptr inbounds [28 x i8], ptr %53, i64 %54
-  %arraydecay146 = getelementptr inbounds [28 x i8], ptr %arrayidx145, i64 0, i64 0
-  %55 = load i64, ptr %i, align 8
-  %sub = sub i64 %55, 1
-  %call147 = call signext i8 @get_bit(ptr noundef %arraydecay146, i64 noundef %sub)
-  %conv148 = sext i8 %call147 to i64
-  %56 = load i64, ptr %bits, align 8
-  %or149 = or i64 %56, %conv148
-  store i64 %or149, ptr %bits, align 8
-  %57 = load i64, ptr %bits, align 8
-  %conv150 = trunc i64 %57 to i8
-  call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef %sign, ptr noundef %digit, i8 noundef zeroext %conv150)
-  %58 = load i8, ptr %digit, align 1
-  %conv151 = zext i8 %58 to i64
-  %59 = load ptr, ptr %pre_comp.addr, align 8
-  %60 = load i64, ptr %num, align 8
-  %arrayidx152 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %59, i64 %60
-  %arraydecay153 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx152, i64 0, i64 0
-  %arraydecay154 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  call void @select_point(i64 noundef %conv151, i64 noundef 17, ptr noundef %arraydecay153, ptr noundef %arraydecay154)
-  %arrayidx155 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 3
-  %arraydecay156 = getelementptr inbounds [4 x i64], ptr %arrayidx155, i64 0, i64 0
-  %arrayidx157 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 1
-  %arraydecay158 = getelementptr inbounds [4 x i64], ptr %arrayidx157, i64 0, i64 0
-  call void @felem_neg(ptr noundef %arraydecay156, ptr noundef %arraydecay158)
-  %arrayidx159 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 1
-  %arraydecay160 = getelementptr inbounds [4 x i64], ptr %arrayidx159, i64 0, i64 0
-  %arrayidx161 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 3
-  %arraydecay162 = getelementptr inbounds [4 x i64], ptr %arrayidx161, i64 0, i64 0
-  %61 = load i8, ptr %sign, align 1
-  %conv163 = zext i8 %61 to i64
-  call void @copy_conditional(ptr noundef %arraydecay160, ptr noundef %arraydecay162, i64 noundef %conv163)
-  %62 = load i32, ptr %skip, align 4
-  %tobool164 = icmp ne i32 %62, 0
-  br i1 %tobool164, label %if.else184, label %if.then165
+262:                                              ; preds = %173
+  %263 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %264 = getelementptr inbounds [4 x i64], ptr %263, i64 0, i64 0
+  %265 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %266 = getelementptr inbounds [4 x i64], ptr %265, i64 0, i64 0
+  %267 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %268 = getelementptr inbounds [4 x i64], ptr %267, i64 0, i64 0
+  %269 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %270 = getelementptr inbounds [4 x i64], ptr %269, i64 0, i64 0
+  %271 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %272 = getelementptr inbounds [4 x i64], ptr %271, i64 0, i64 0
+  %273 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %274 = getelementptr inbounds [4 x i64], ptr %273, i64 0, i64 0
+  %275 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 0
+  %276 = getelementptr inbounds [4 x i64], ptr %275, i64 0, i64 0
+  %277 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 1
+  %278 = getelementptr inbounds [4 x i64], ptr %277, i64 0, i64 0
+  %279 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 2
+  %280 = getelementptr inbounds [4 x i64], ptr %279, i64 0, i64 0
+  call void @point_add(ptr noundef %264, ptr noundef %266, ptr noundef %268, ptr noundef %270, ptr noundef %272, ptr noundef %274, i32 noundef 0, ptr noundef %276, ptr noundef %278, ptr noundef %280)
+  br label %284
 
-if.then165:                                       ; preds = %for.body
-  %arrayidx166 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay167 = getelementptr inbounds [4 x i64], ptr %arrayidx166, i64 0, i64 0
-  %arrayidx168 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay169 = getelementptr inbounds [4 x i64], ptr %arrayidx168, i64 0, i64 0
-  %arrayidx170 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay171 = getelementptr inbounds [4 x i64], ptr %arrayidx170, i64 0, i64 0
-  %arrayidx172 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay173 = getelementptr inbounds [4 x i64], ptr %arrayidx172, i64 0, i64 0
-  %arrayidx174 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay175 = getelementptr inbounds [4 x i64], ptr %arrayidx174, i64 0, i64 0
-  %arrayidx176 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay177 = getelementptr inbounds [4 x i64], ptr %arrayidx176, i64 0, i64 0
-  %arrayidx178 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  %arraydecay179 = getelementptr inbounds [4 x i64], ptr %arrayidx178, i64 0, i64 0
-  %arrayidx180 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 1
-  %arraydecay181 = getelementptr inbounds [4 x i64], ptr %arrayidx180, i64 0, i64 0
-  %arrayidx182 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 2
-  %arraydecay183 = getelementptr inbounds [4 x i64], ptr %arrayidx182, i64 0, i64 0
-  call void @point_add(ptr noundef %arraydecay167, ptr noundef %arraydecay169, ptr noundef %arraydecay171, ptr noundef %arraydecay173, ptr noundef %arraydecay175, ptr noundef %arraydecay177, i32 noundef 0, ptr noundef %arraydecay179, ptr noundef %arraydecay181, ptr noundef %arraydecay183)
-  br label %if.end187
+281:                                              ; preds = %173
+  %282 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %283 = getelementptr inbounds [4 x [4 x i64]], ptr %16, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %282, ptr align 16 %283, i64 96, i1 false)
+  store i32 0, ptr %20, align 4, !tbaa !23
+  br label %284
 
-if.else184:                                       ; preds = %for.body
-  %arraydecay185 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay186 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay185, ptr align 16 %arraydecay186, i64 96, i1 false)
-  store i32 0, ptr %skip, align 4
-  br label %if.end187
+284:                                              ; preds = %281, %262
+  br label %285
 
-if.end187:                                        ; preds = %if.else184, %if.then165
-  br label %for.inc
+285:                                              ; preds = %284
+  %286 = load i64, ptr %22, align 8, !tbaa !17
+  %287 = add i64 %286, 1
+  store i64 %287, ptr %22, align 8, !tbaa !17
+  br label %169, !llvm.loop !46
 
-for.inc:                                          ; preds = %if.end187
-  %63 = load i64, ptr %num, align 8
-  %inc = add i64 %63, 1
-  store i64 %inc, ptr %num, align 8
-  br label %for.cond104, !llvm.loop !19
+288:                                              ; preds = %169
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %289
 
-for.end:                                          ; preds = %for.cond104
-  br label %if.end188
+289:                                              ; preds = %288, %164, %161
+  %290 = load i64, ptr %21, align 8, !tbaa !17
+  %291 = icmp eq i64 %290, 0
+  br i1 %291, label %292, label %293
 
-if.end188:                                        ; preds = %for.end, %land.lhs.true100, %if.end97
-  %64 = load i64, ptr %i, align 8
-  %cmp189 = icmp eq i64 %64, 0
-  br i1 %cmp189, label %if.then191, label %if.end192
+292:                                              ; preds = %289
+  br label %296
 
-if.then191:                                       ; preds = %if.end188
-  br label %for.end193
+293:                                              ; preds = %289
+  %294 = load i64, ptr %21, align 8, !tbaa !17
+  %295 = add i64 %294, -1
+  store i64 %295, ptr %21, align 8, !tbaa !17
+  br label %28
 
-if.end192:                                        ; preds = %if.end188
-  %65 = load i64, ptr %i, align 8
-  %dec = add i64 %65, -1
-  store i64 %dec, ptr %i, align 8
-  br label %for.cond
-
-for.end193:                                       ; preds = %if.then191
-  %66 = load ptr, ptr %x_out.addr, align 8
-  %arrayidx194 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
-  %arraydecay195 = getelementptr inbounds [4 x i64], ptr %arrayidx194, i64 0, i64 0
-  call void @felem_assign(ptr noundef %66, ptr noundef %arraydecay195)
-  %67 = load ptr, ptr %y_out.addr, align 8
-  %arrayidx196 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
-  %arraydecay197 = getelementptr inbounds [4 x i64], ptr %arrayidx196, i64 0, i64 0
-  call void @felem_assign(ptr noundef %67, ptr noundef %arraydecay197)
-  %68 = load ptr, ptr %z_out.addr, align 8
-  %arrayidx198 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
-  %arraydecay199 = getelementptr inbounds [4 x i64], ptr %arrayidx198, i64 0, i64 0
-  call void @felem_assign(ptr noundef %68, ptr noundef %arraydecay199)
+296:                                              ; preds = %292
+  %297 = load ptr, ptr %8, align 8, !tbaa !27
+  %298 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 0
+  %299 = getelementptr inbounds [4 x i64], ptr %298, i64 0, i64 0
+  call void @felem_assign(ptr noundef %297, ptr noundef %299)
+  %300 = load ptr, ptr %9, align 8, !tbaa !27
+  %301 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 1
+  %302 = getelementptr inbounds [4 x i64], ptr %301, i64 0, i64 0
+  call void @felem_assign(ptr noundef %300, ptr noundef %302)
+  %303 = load ptr, ptr %10, align 8, !tbaa !27
+  %304 = getelementptr inbounds [3 x [4 x i64]], ptr %15, i64 0, i64 2
+  %305 = getelementptr inbounds [4 x i64], ptr %304, i64 0, i64 0
+  call void @felem_assign(ptr noundef %303, ptr noundef %305)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 128, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 96, ptr %15) #7
   ret void
 }
 
@@ -2895,729 +3091,768 @@ declare void @BN_CTX_end(ptr noundef) #1
 declare void @BN_CTX_free(ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_diff_128_64(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %out.addr, align 8
-  %arrayidx = getelementptr inbounds i128, ptr %0, i64 0
-  %1 = load i128, ptr %arrayidx, align 16
-  %add = add i128 %1, 18446744073709551872
-  store i128 %add, ptr %arrayidx, align 16
-  %2 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i128, ptr %2, i64 1
-  %3 = load i128, ptr %arrayidx1, align 16
-  %add2 = add i128 %3, 18446462598732840704
-  store i128 %add2, ptr %arrayidx1, align 16
-  %4 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i128, ptr %4, i64 2
-  %5 = load i128, ptr %arrayidx3, align 16
-  %add4 = add i128 %5, 18446744073709551360
-  store i128 %add4, ptr %arrayidx3, align 16
-  %6 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %6, i64 3
-  %7 = load i128, ptr %arrayidx5, align 16
-  %add6 = add i128 %7, 18446744073709551360
-  store i128 %add6, ptr %arrayidx5, align 16
-  %8 = load ptr, ptr %in.addr, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %8, i64 0
-  %9 = load i64, ptr %arrayidx7, align 8
-  %conv = zext i64 %9 to i128
-  %10 = load ptr, ptr %out.addr, align 8
-  %arrayidx8 = getelementptr inbounds i128, ptr %10, i64 0
-  %11 = load i128, ptr %arrayidx8, align 16
-  %sub = sub i128 %11, %conv
-  store i128 %sub, ptr %arrayidx8, align 16
-  %12 = load ptr, ptr %in.addr, align 8
-  %arrayidx9 = getelementptr inbounds i64, ptr %12, i64 1
-  %13 = load i64, ptr %arrayidx9, align 8
-  %conv10 = zext i64 %13 to i128
-  %14 = load ptr, ptr %out.addr, align 8
-  %arrayidx11 = getelementptr inbounds i128, ptr %14, i64 1
-  %15 = load i128, ptr %arrayidx11, align 16
-  %sub12 = sub i128 %15, %conv10
-  store i128 %sub12, ptr %arrayidx11, align 16
-  %16 = load ptr, ptr %in.addr, align 8
-  %arrayidx13 = getelementptr inbounds i64, ptr %16, i64 2
-  %17 = load i64, ptr %arrayidx13, align 8
-  %conv14 = zext i64 %17 to i128
-  %18 = load ptr, ptr %out.addr, align 8
-  %arrayidx15 = getelementptr inbounds i128, ptr %18, i64 2
-  %19 = load i128, ptr %arrayidx15, align 16
-  %sub16 = sub i128 %19, %conv14
-  store i128 %sub16, ptr %arrayidx15, align 16
-  %20 = load ptr, ptr %in.addr, align 8
-  %arrayidx17 = getelementptr inbounds i64, ptr %20, i64 3
-  %21 = load i64, ptr %arrayidx17, align 8
-  %conv18 = zext i64 %21 to i128
-  %22 = load ptr, ptr %out.addr, align 8
-  %arrayidx19 = getelementptr inbounds i128, ptr %22, i64 3
-  %23 = load i128, ptr %arrayidx19, align 16
-  %sub20 = sub i128 %23, %conv18
-  store i128 %sub20, ptr %arrayidx19, align 16
+define internal void @felem_diff_128_64(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8, !tbaa !39
+  %6 = getelementptr inbounds i128, ptr %5, i64 0
+  %7 = load i128, ptr %6, align 16, !tbaa !41
+  %8 = add i128 %7, 18446744073709551872
+  store i128 %8, ptr %6, align 16, !tbaa !41
+  %9 = load ptr, ptr %3, align 8, !tbaa !39
+  %10 = getelementptr inbounds i128, ptr %9, i64 1
+  %11 = load i128, ptr %10, align 16, !tbaa !41
+  %12 = add i128 %11, 18446462598732840704
+  store i128 %12, ptr %10, align 16, !tbaa !41
+  %13 = load ptr, ptr %3, align 8, !tbaa !39
+  %14 = getelementptr inbounds i128, ptr %13, i64 2
+  %15 = load i128, ptr %14, align 16, !tbaa !41
+  %16 = add i128 %15, 18446744073709551360
+  store i128 %16, ptr %14, align 16, !tbaa !41
+  %17 = load ptr, ptr %3, align 8, !tbaa !39
+  %18 = getelementptr inbounds i128, ptr %17, i64 3
+  %19 = load i128, ptr %18, align 16, !tbaa !41
+  %20 = add i128 %19, 18446744073709551360
+  store i128 %20, ptr %18, align 16, !tbaa !41
+  %21 = load ptr, ptr %4, align 8, !tbaa !27
+  %22 = getelementptr inbounds i64, ptr %21, i64 0
+  %23 = load i64, ptr %22, align 8, !tbaa !17
+  %24 = zext i64 %23 to i128
+  %25 = load ptr, ptr %3, align 8, !tbaa !39
+  %26 = getelementptr inbounds i128, ptr %25, i64 0
+  %27 = load i128, ptr %26, align 16, !tbaa !41
+  %28 = sub i128 %27, %24
+  store i128 %28, ptr %26, align 16, !tbaa !41
+  %29 = load ptr, ptr %4, align 8, !tbaa !27
+  %30 = getelementptr inbounds i64, ptr %29, i64 1
+  %31 = load i64, ptr %30, align 8, !tbaa !17
+  %32 = zext i64 %31 to i128
+  %33 = load ptr, ptr %3, align 8, !tbaa !39
+  %34 = getelementptr inbounds i128, ptr %33, i64 1
+  %35 = load i128, ptr %34, align 16, !tbaa !41
+  %36 = sub i128 %35, %32
+  store i128 %36, ptr %34, align 16, !tbaa !41
+  %37 = load ptr, ptr %4, align 8, !tbaa !27
+  %38 = getelementptr inbounds i64, ptr %37, i64 2
+  %39 = load i64, ptr %38, align 8, !tbaa !17
+  %40 = zext i64 %39 to i128
+  %41 = load ptr, ptr %3, align 8, !tbaa !39
+  %42 = getelementptr inbounds i128, ptr %41, i64 2
+  %43 = load i128, ptr %42, align 16, !tbaa !41
+  %44 = sub i128 %43, %40
+  store i128 %44, ptr %42, align 16, !tbaa !41
+  %45 = load ptr, ptr %4, align 8, !tbaa !27
+  %46 = getelementptr inbounds i64, ptr %45, i64 3
+  %47 = load i64, ptr %46, align 8, !tbaa !17
+  %48 = zext i64 %47 to i128
+  %49 = load ptr, ptr %3, align 8, !tbaa !39
+  %50 = getelementptr inbounds i128, ptr %49, i64 3
+  %51 = load i128, ptr %50, align 16, !tbaa !41
+  %52 = sub i128 %51, %48
+  store i128 %52, ptr %50, align 16, !tbaa !41
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @felem_is_zero(ptr noundef %in) #0 {
-entry:
-  %in.addr = alloca ptr, align 8
-  %zero = alloca i64, align 8
-  %two224m96p1 = alloca i64, align 8
-  %two225m97p2 = alloca i64, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %in.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 1
-  %3 = load i64, ptr %arrayidx1, align 8
-  %or = or i64 %1, %3
-  %4 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %4, i64 2
-  %5 = load i64, ptr %arrayidx2, align 8
-  %or3 = or i64 %or, %5
-  %6 = load ptr, ptr %in.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %6, i64 3
-  %7 = load i64, ptr %arrayidx4, align 8
-  %or5 = or i64 %or3, %7
-  store i64 %or5, ptr %zero, align 8
-  %8 = load i64, ptr %zero, align 8
-  %sub = sub nsw i64 %8, 1
-  %shr = ashr i64 %sub, 63
-  %and = and i64 %shr, 1
-  store i64 %and, ptr %zero, align 8
-  %9 = load ptr, ptr %in.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %9, i64 0
-  %10 = load i64, ptr %arrayidx6, align 8
-  %xor = xor i64 %10, 1
-  %11 = load ptr, ptr %in.addr, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %11, i64 1
-  %12 = load i64, ptr %arrayidx7, align 8
-  %xor8 = xor i64 %12, 72056494526300160
-  %or9 = or i64 %xor, %xor8
-  %13 = load ptr, ptr %in.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %13, i64 2
-  %14 = load i64, ptr %arrayidx10, align 8
-  %xor11 = xor i64 %14, 72057594037927935
-  %or12 = or i64 %or9, %xor11
-  %15 = load ptr, ptr %in.addr, align 8
-  %arrayidx13 = getelementptr inbounds i64, ptr %15, i64 3
-  %16 = load i64, ptr %arrayidx13, align 8
-  %xor14 = xor i64 %16, 72057594037927935
-  %or15 = or i64 %or12, %xor14
-  store i64 %or15, ptr %two224m96p1, align 8
-  %17 = load i64, ptr %two224m96p1, align 8
-  %sub16 = sub nsw i64 %17, 1
-  %shr17 = ashr i64 %sub16, 63
-  %and18 = and i64 %shr17, 1
-  store i64 %and18, ptr %two224m96p1, align 8
-  %18 = load ptr, ptr %in.addr, align 8
-  %arrayidx19 = getelementptr inbounds i64, ptr %18, i64 0
-  %19 = load i64, ptr %arrayidx19, align 8
-  %xor20 = xor i64 %19, 2
-  %20 = load ptr, ptr %in.addr, align 8
-  %arrayidx21 = getelementptr inbounds i64, ptr %20, i64 1
-  %21 = load i64, ptr %arrayidx21, align 8
-  %xor22 = xor i64 %21, 72055395014672384
-  %or23 = or i64 %xor20, %xor22
-  %22 = load ptr, ptr %in.addr, align 8
-  %arrayidx24 = getelementptr inbounds i64, ptr %22, i64 2
-  %23 = load i64, ptr %arrayidx24, align 8
-  %xor25 = xor i64 %23, 72057594037927935
-  %or26 = or i64 %or23, %xor25
-  %24 = load ptr, ptr %in.addr, align 8
-  %arrayidx27 = getelementptr inbounds i64, ptr %24, i64 3
-  %25 = load i64, ptr %arrayidx27, align 8
-  %xor28 = xor i64 %25, 144115188075855871
-  %or29 = or i64 %or26, %xor28
-  store i64 %or29, ptr %two225m97p2, align 8
-  %26 = load i64, ptr %two225m97p2, align 8
-  %sub30 = sub nsw i64 %26, 1
-  %shr31 = ashr i64 %sub30, 63
-  %and32 = and i64 %shr31, 1
-  store i64 %and32, ptr %two225m97p2, align 8
-  %27 = load i64, ptr %zero, align 8
-  %28 = load i64, ptr %two224m96p1, align 8
-  %or33 = or i64 %27, %28
-  %29 = load i64, ptr %two225m97p2, align 8
-  %or34 = or i64 %or33, %29
-  ret i64 %or34
+define internal i64 @felem_is_zero(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %6 = load ptr, ptr %2, align 8, !tbaa !27
+  %7 = getelementptr inbounds i64, ptr %6, i64 0
+  %8 = load i64, ptr %7, align 8, !tbaa !17
+  %9 = load ptr, ptr %2, align 8, !tbaa !27
+  %10 = getelementptr inbounds i64, ptr %9, i64 1
+  %11 = load i64, ptr %10, align 8, !tbaa !17
+  %12 = or i64 %8, %11
+  %13 = load ptr, ptr %2, align 8, !tbaa !27
+  %14 = getelementptr inbounds i64, ptr %13, i64 2
+  %15 = load i64, ptr %14, align 8, !tbaa !17
+  %16 = or i64 %12, %15
+  %17 = load ptr, ptr %2, align 8, !tbaa !27
+  %18 = getelementptr inbounds i64, ptr %17, i64 3
+  %19 = load i64, ptr %18, align 8, !tbaa !17
+  %20 = or i64 %16, %19
+  store i64 %20, ptr %3, align 8, !tbaa !17
+  %21 = load i64, ptr %3, align 8, !tbaa !17
+  %22 = sub nsw i64 %21, 1
+  %23 = ashr i64 %22, 63
+  %24 = and i64 %23, 1
+  store i64 %24, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %25 = load ptr, ptr %2, align 8, !tbaa !27
+  %26 = getelementptr inbounds i64, ptr %25, i64 0
+  %27 = load i64, ptr %26, align 8, !tbaa !17
+  %28 = xor i64 %27, 1
+  %29 = load ptr, ptr %2, align 8, !tbaa !27
+  %30 = getelementptr inbounds i64, ptr %29, i64 1
+  %31 = load i64, ptr %30, align 8, !tbaa !17
+  %32 = xor i64 %31, 72056494526300160
+  %33 = or i64 %28, %32
+  %34 = load ptr, ptr %2, align 8, !tbaa !27
+  %35 = getelementptr inbounds i64, ptr %34, i64 2
+  %36 = load i64, ptr %35, align 8, !tbaa !17
+  %37 = xor i64 %36, 72057594037927935
+  %38 = or i64 %33, %37
+  %39 = load ptr, ptr %2, align 8, !tbaa !27
+  %40 = getelementptr inbounds i64, ptr %39, i64 3
+  %41 = load i64, ptr %40, align 8, !tbaa !17
+  %42 = xor i64 %41, 72057594037927935
+  %43 = or i64 %38, %42
+  store i64 %43, ptr %4, align 8, !tbaa !17
+  %44 = load i64, ptr %4, align 8, !tbaa !17
+  %45 = sub nsw i64 %44, 1
+  %46 = ashr i64 %45, 63
+  %47 = and i64 %46, 1
+  store i64 %47, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %48 = load ptr, ptr %2, align 8, !tbaa !27
+  %49 = getelementptr inbounds i64, ptr %48, i64 0
+  %50 = load i64, ptr %49, align 8, !tbaa !17
+  %51 = xor i64 %50, 2
+  %52 = load ptr, ptr %2, align 8, !tbaa !27
+  %53 = getelementptr inbounds i64, ptr %52, i64 1
+  %54 = load i64, ptr %53, align 8, !tbaa !17
+  %55 = xor i64 %54, 72055395014672384
+  %56 = or i64 %51, %55
+  %57 = load ptr, ptr %2, align 8, !tbaa !27
+  %58 = getelementptr inbounds i64, ptr %57, i64 2
+  %59 = load i64, ptr %58, align 8, !tbaa !17
+  %60 = xor i64 %59, 72057594037927935
+  %61 = or i64 %56, %60
+  %62 = load ptr, ptr %2, align 8, !tbaa !27
+  %63 = getelementptr inbounds i64, ptr %62, i64 3
+  %64 = load i64, ptr %63, align 8, !tbaa !17
+  %65 = xor i64 %64, 144115188075855871
+  %66 = or i64 %61, %65
+  store i64 %66, ptr %5, align 8, !tbaa !17
+  %67 = load i64, ptr %5, align 8, !tbaa !17
+  %68 = sub nsw i64 %67, 1
+  %69 = ashr i64 %68, 63
+  %70 = and i64 %69, 1
+  store i64 %70, ptr %5, align 8, !tbaa !17
+  %71 = load i64, ptr %3, align 8, !tbaa !17
+  %72 = load i64, ptr %4, align 8, !tbaa !17
+  %73 = or i64 %71, %72
+  %74 = load i64, ptr %5, align 8, !tbaa !17
+  %75 = or i64 %73, %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %75
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_scalar(ptr noundef %out, i64 noundef %scalar) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %scalar.addr = alloca i64, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 %scalar, ptr %scalar.addr, align 8
-  %0 = load i64, ptr %scalar.addr, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %1, i64 0
-  %2 = load i64, ptr %arrayidx, align 8
-  %mul = mul i64 %2, %0
-  store i64 %mul, ptr %arrayidx, align 8
-  %3 = load i64, ptr %scalar.addr, align 8
-  %4 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %4, i64 1
-  %5 = load i64, ptr %arrayidx1, align 8
-  %mul2 = mul i64 %5, %3
-  store i64 %mul2, ptr %arrayidx1, align 8
-  %6 = load i64, ptr %scalar.addr, align 8
-  %7 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i64, ptr %7, i64 2
-  %8 = load i64, ptr %arrayidx3, align 8
-  %mul4 = mul i64 %8, %6
-  store i64 %mul4, ptr %arrayidx3, align 8
-  %9 = load i64, ptr %scalar.addr, align 8
-  %10 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %10, i64 3
-  %11 = load i64, ptr %arrayidx5, align 8
-  %mul6 = mul i64 %11, %9
-  store i64 %mul6, ptr %arrayidx5, align 8
+define internal void @felem_scalar(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !27
+  %7 = getelementptr inbounds i64, ptr %6, i64 0
+  %8 = load i64, ptr %7, align 8, !tbaa !17
+  %9 = mul i64 %8, %5
+  store i64 %9, ptr %7, align 8, !tbaa !17
+  %10 = load i64, ptr %4, align 8, !tbaa !17
+  %11 = load ptr, ptr %3, align 8, !tbaa !27
+  %12 = getelementptr inbounds i64, ptr %11, i64 1
+  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %14 = mul i64 %13, %10
+  store i64 %14, ptr %12, align 8, !tbaa !17
+  %15 = load i64, ptr %4, align 8, !tbaa !17
+  %16 = load ptr, ptr %3, align 8, !tbaa !27
+  %17 = getelementptr inbounds i64, ptr %16, i64 2
+  %18 = load i64, ptr %17, align 8, !tbaa !17
+  %19 = mul i64 %18, %15
+  store i64 %19, ptr %17, align 8, !tbaa !17
+  %20 = load i64, ptr %4, align 8, !tbaa !17
+  %21 = load ptr, ptr %3, align 8, !tbaa !27
+  %22 = getelementptr inbounds i64, ptr %21, i64 3
+  %23 = load i64, ptr %22, align 8, !tbaa !17
+  %24 = mul i64 %23, %20
+  store i64 %24, ptr %22, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_diff(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %out.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %add = add i64 %1, 288230376151711748
-  store i64 %add, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 1
-  %3 = load i64, ptr %arrayidx1, align 8
-  %add2 = add i64 %3, 288225978105200636
-  store i64 %add2, ptr %arrayidx1, align 8
-  %4 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i64, ptr %4, i64 2
-  %5 = load i64, ptr %arrayidx3, align 8
-  %add4 = add i64 %5, 288230376151711740
-  store i64 %add4, ptr %arrayidx3, align 8
-  %6 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %6, i64 3
-  %7 = load i64, ptr %arrayidx5, align 8
-  %add6 = add i64 %7, 288230376151711740
-  store i64 %add6, ptr %arrayidx5, align 8
-  %8 = load ptr, ptr %in.addr, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %8, i64 0
-  %9 = load i64, ptr %arrayidx7, align 8
-  %10 = load ptr, ptr %out.addr, align 8
-  %arrayidx8 = getelementptr inbounds i64, ptr %10, i64 0
-  %11 = load i64, ptr %arrayidx8, align 8
-  %sub = sub i64 %11, %9
-  store i64 %sub, ptr %arrayidx8, align 8
-  %12 = load ptr, ptr %in.addr, align 8
-  %arrayidx9 = getelementptr inbounds i64, ptr %12, i64 1
-  %13 = load i64, ptr %arrayidx9, align 8
-  %14 = load ptr, ptr %out.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %14, i64 1
-  %15 = load i64, ptr %arrayidx10, align 8
-  %sub11 = sub i64 %15, %13
-  store i64 %sub11, ptr %arrayidx10, align 8
-  %16 = load ptr, ptr %in.addr, align 8
-  %arrayidx12 = getelementptr inbounds i64, ptr %16, i64 2
-  %17 = load i64, ptr %arrayidx12, align 8
-  %18 = load ptr, ptr %out.addr, align 8
-  %arrayidx13 = getelementptr inbounds i64, ptr %18, i64 2
-  %19 = load i64, ptr %arrayidx13, align 8
-  %sub14 = sub i64 %19, %17
-  store i64 %sub14, ptr %arrayidx13, align 8
-  %20 = load ptr, ptr %in.addr, align 8
-  %arrayidx15 = getelementptr inbounds i64, ptr %20, i64 3
-  %21 = load i64, ptr %arrayidx15, align 8
-  %22 = load ptr, ptr %out.addr, align 8
-  %arrayidx16 = getelementptr inbounds i64, ptr %22, i64 3
-  %23 = load i64, ptr %arrayidx16, align 8
-  %sub17 = sub i64 %23, %21
-  store i64 %sub17, ptr %arrayidx16, align 8
+define internal void @felem_diff(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8, !tbaa !27
+  %6 = getelementptr inbounds i64, ptr %5, i64 0
+  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %8 = add i64 %7, 288230376151711748
+  store i64 %8, ptr %6, align 8, !tbaa !17
+  %9 = load ptr, ptr %3, align 8, !tbaa !27
+  %10 = getelementptr inbounds i64, ptr %9, i64 1
+  %11 = load i64, ptr %10, align 8, !tbaa !17
+  %12 = add i64 %11, 288225978105200636
+  store i64 %12, ptr %10, align 8, !tbaa !17
+  %13 = load ptr, ptr %3, align 8, !tbaa !27
+  %14 = getelementptr inbounds i64, ptr %13, i64 2
+  %15 = load i64, ptr %14, align 8, !tbaa !17
+  %16 = add i64 %15, 288230376151711740
+  store i64 %16, ptr %14, align 8, !tbaa !17
+  %17 = load ptr, ptr %3, align 8, !tbaa !27
+  %18 = getelementptr inbounds i64, ptr %17, i64 3
+  %19 = load i64, ptr %18, align 8, !tbaa !17
+  %20 = add i64 %19, 288230376151711740
+  store i64 %20, ptr %18, align 8, !tbaa !17
+  %21 = load ptr, ptr %4, align 8, !tbaa !27
+  %22 = getelementptr inbounds i64, ptr %21, i64 0
+  %23 = load i64, ptr %22, align 8, !tbaa !17
+  %24 = load ptr, ptr %3, align 8, !tbaa !27
+  %25 = getelementptr inbounds i64, ptr %24, i64 0
+  %26 = load i64, ptr %25, align 8, !tbaa !17
+  %27 = sub i64 %26, %23
+  store i64 %27, ptr %25, align 8, !tbaa !17
+  %28 = load ptr, ptr %4, align 8, !tbaa !27
+  %29 = getelementptr inbounds i64, ptr %28, i64 1
+  %30 = load i64, ptr %29, align 8, !tbaa !17
+  %31 = load ptr, ptr %3, align 8, !tbaa !27
+  %32 = getelementptr inbounds i64, ptr %31, i64 1
+  %33 = load i64, ptr %32, align 8, !tbaa !17
+  %34 = sub i64 %33, %30
+  store i64 %34, ptr %32, align 8, !tbaa !17
+  %35 = load ptr, ptr %4, align 8, !tbaa !27
+  %36 = getelementptr inbounds i64, ptr %35, i64 2
+  %37 = load i64, ptr %36, align 8, !tbaa !17
+  %38 = load ptr, ptr %3, align 8, !tbaa !27
+  %39 = getelementptr inbounds i64, ptr %38, i64 2
+  %40 = load i64, ptr %39, align 8, !tbaa !17
+  %41 = sub i64 %40, %37
+  store i64 %41, ptr %39, align 8, !tbaa !17
+  %42 = load ptr, ptr %4, align 8, !tbaa !27
+  %43 = getelementptr inbounds i64, ptr %42, i64 3
+  %44 = load i64, ptr %43, align 8, !tbaa !17
+  %45 = load ptr, ptr %3, align 8, !tbaa !27
+  %46 = getelementptr inbounds i64, ptr %45, i64 3
+  %47 = load i64, ptr %46, align 8, !tbaa !17
+  %48 = sub i64 %47, %44
+  store i64 %48, ptr %46, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @widefelem_diff(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %out.addr, align 8
-  %arrayidx = getelementptr inbounds i128, ptr %0, i64 0
-  %1 = load i128, ptr %arrayidx, align 16
-  %add = add i128 %1, 1329227995784915872903807060280344576
-  store i128 %add, ptr %arrayidx, align 16
-  %2 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i128, ptr %2, i64 1
-  %3 = load i128, ptr %arrayidx1, align 16
-  %add2 = add i128 %3, 1329227995784915854457062986570792960
-  store i128 %add2, ptr %arrayidx1, align 16
-  %4 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i128, ptr %4, i64 2
-  %5 = load i128, ptr %arrayidx3, align 16
-  %add4 = add i128 %5, 1329227995784915854457062986570792960
-  store i128 %add4, ptr %arrayidx3, align 16
-  %6 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %6, i64 3
-  %7 = load i128, ptr %arrayidx5, align 16
-  %add6 = add i128 %7, 1329227995784915872903807060280344576
-  store i128 %add6, ptr %arrayidx5, align 16
-  %8 = load ptr, ptr %out.addr, align 8
-  %arrayidx7 = getelementptr inbounds i128, ptr %8, i64 4
-  %9 = load i128, ptr %arrayidx7, align 16
-  %add8 = add i128 %9, 1329207713375312202786639039319506944
-  store i128 %add8, ptr %arrayidx7, align 16
-  %10 = load ptr, ptr %out.addr, align 8
-  %arrayidx9 = getelementptr inbounds i128, ptr %10, i64 5
-  %11 = load i128, ptr %arrayidx9, align 16
-  %add10 = add i128 %11, 1329227995784915854457062986570792960
-  store i128 %add10, ptr %arrayidx9, align 16
-  %12 = load ptr, ptr %out.addr, align 8
-  %arrayidx11 = getelementptr inbounds i128, ptr %12, i64 6
-  %13 = load i128, ptr %arrayidx11, align 16
-  %add12 = add i128 %13, 1329227995784915854457062986570792960
-  store i128 %add12, ptr %arrayidx11, align 16
-  %14 = load ptr, ptr %in.addr, align 8
-  %arrayidx13 = getelementptr inbounds i128, ptr %14, i64 0
-  %15 = load i128, ptr %arrayidx13, align 16
-  %16 = load ptr, ptr %out.addr, align 8
-  %arrayidx14 = getelementptr inbounds i128, ptr %16, i64 0
-  %17 = load i128, ptr %arrayidx14, align 16
-  %sub = sub i128 %17, %15
-  store i128 %sub, ptr %arrayidx14, align 16
-  %18 = load ptr, ptr %in.addr, align 8
-  %arrayidx15 = getelementptr inbounds i128, ptr %18, i64 1
-  %19 = load i128, ptr %arrayidx15, align 16
-  %20 = load ptr, ptr %out.addr, align 8
-  %arrayidx16 = getelementptr inbounds i128, ptr %20, i64 1
-  %21 = load i128, ptr %arrayidx16, align 16
-  %sub17 = sub i128 %21, %19
-  store i128 %sub17, ptr %arrayidx16, align 16
-  %22 = load ptr, ptr %in.addr, align 8
-  %arrayidx18 = getelementptr inbounds i128, ptr %22, i64 2
-  %23 = load i128, ptr %arrayidx18, align 16
-  %24 = load ptr, ptr %out.addr, align 8
-  %arrayidx19 = getelementptr inbounds i128, ptr %24, i64 2
-  %25 = load i128, ptr %arrayidx19, align 16
-  %sub20 = sub i128 %25, %23
-  store i128 %sub20, ptr %arrayidx19, align 16
-  %26 = load ptr, ptr %in.addr, align 8
-  %arrayidx21 = getelementptr inbounds i128, ptr %26, i64 3
-  %27 = load i128, ptr %arrayidx21, align 16
-  %28 = load ptr, ptr %out.addr, align 8
-  %arrayidx22 = getelementptr inbounds i128, ptr %28, i64 3
-  %29 = load i128, ptr %arrayidx22, align 16
-  %sub23 = sub i128 %29, %27
-  store i128 %sub23, ptr %arrayidx22, align 16
-  %30 = load ptr, ptr %in.addr, align 8
-  %arrayidx24 = getelementptr inbounds i128, ptr %30, i64 4
-  %31 = load i128, ptr %arrayidx24, align 16
-  %32 = load ptr, ptr %out.addr, align 8
-  %arrayidx25 = getelementptr inbounds i128, ptr %32, i64 4
-  %33 = load i128, ptr %arrayidx25, align 16
-  %sub26 = sub i128 %33, %31
-  store i128 %sub26, ptr %arrayidx25, align 16
-  %34 = load ptr, ptr %in.addr, align 8
-  %arrayidx27 = getelementptr inbounds i128, ptr %34, i64 5
-  %35 = load i128, ptr %arrayidx27, align 16
-  %36 = load ptr, ptr %out.addr, align 8
-  %arrayidx28 = getelementptr inbounds i128, ptr %36, i64 5
-  %37 = load i128, ptr %arrayidx28, align 16
-  %sub29 = sub i128 %37, %35
-  store i128 %sub29, ptr %arrayidx28, align 16
-  %38 = load ptr, ptr %in.addr, align 8
-  %arrayidx30 = getelementptr inbounds i128, ptr %38, i64 6
-  %39 = load i128, ptr %arrayidx30, align 16
-  %40 = load ptr, ptr %out.addr, align 8
-  %arrayidx31 = getelementptr inbounds i128, ptr %40, i64 6
-  %41 = load i128, ptr %arrayidx31, align 16
-  %sub32 = sub i128 %41, %39
-  store i128 %sub32, ptr %arrayidx31, align 16
+define internal void @widefelem_diff(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !39
+  %6 = getelementptr inbounds i128, ptr %5, i64 0
+  %7 = load i128, ptr %6, align 16, !tbaa !41
+  %8 = add i128 %7, 1329227995784915872903807060280344576
+  store i128 %8, ptr %6, align 16, !tbaa !41
+  %9 = load ptr, ptr %3, align 8, !tbaa !39
+  %10 = getelementptr inbounds i128, ptr %9, i64 1
+  %11 = load i128, ptr %10, align 16, !tbaa !41
+  %12 = add i128 %11, 1329227995784915854457062986570792960
+  store i128 %12, ptr %10, align 16, !tbaa !41
+  %13 = load ptr, ptr %3, align 8, !tbaa !39
+  %14 = getelementptr inbounds i128, ptr %13, i64 2
+  %15 = load i128, ptr %14, align 16, !tbaa !41
+  %16 = add i128 %15, 1329227995784915854457062986570792960
+  store i128 %16, ptr %14, align 16, !tbaa !41
+  %17 = load ptr, ptr %3, align 8, !tbaa !39
+  %18 = getelementptr inbounds i128, ptr %17, i64 3
+  %19 = load i128, ptr %18, align 16, !tbaa !41
+  %20 = add i128 %19, 1329227995784915872903807060280344576
+  store i128 %20, ptr %18, align 16, !tbaa !41
+  %21 = load ptr, ptr %3, align 8, !tbaa !39
+  %22 = getelementptr inbounds i128, ptr %21, i64 4
+  %23 = load i128, ptr %22, align 16, !tbaa !41
+  %24 = add i128 %23, 1329207713375312202786639039319506944
+  store i128 %24, ptr %22, align 16, !tbaa !41
+  %25 = load ptr, ptr %3, align 8, !tbaa !39
+  %26 = getelementptr inbounds i128, ptr %25, i64 5
+  %27 = load i128, ptr %26, align 16, !tbaa !41
+  %28 = add i128 %27, 1329227995784915854457062986570792960
+  store i128 %28, ptr %26, align 16, !tbaa !41
+  %29 = load ptr, ptr %3, align 8, !tbaa !39
+  %30 = getelementptr inbounds i128, ptr %29, i64 6
+  %31 = load i128, ptr %30, align 16, !tbaa !41
+  %32 = add i128 %31, 1329227995784915854457062986570792960
+  store i128 %32, ptr %30, align 16, !tbaa !41
+  %33 = load ptr, ptr %4, align 8, !tbaa !39
+  %34 = getelementptr inbounds i128, ptr %33, i64 0
+  %35 = load i128, ptr %34, align 16, !tbaa !41
+  %36 = load ptr, ptr %3, align 8, !tbaa !39
+  %37 = getelementptr inbounds i128, ptr %36, i64 0
+  %38 = load i128, ptr %37, align 16, !tbaa !41
+  %39 = sub i128 %38, %35
+  store i128 %39, ptr %37, align 16, !tbaa !41
+  %40 = load ptr, ptr %4, align 8, !tbaa !39
+  %41 = getelementptr inbounds i128, ptr %40, i64 1
+  %42 = load i128, ptr %41, align 16, !tbaa !41
+  %43 = load ptr, ptr %3, align 8, !tbaa !39
+  %44 = getelementptr inbounds i128, ptr %43, i64 1
+  %45 = load i128, ptr %44, align 16, !tbaa !41
+  %46 = sub i128 %45, %42
+  store i128 %46, ptr %44, align 16, !tbaa !41
+  %47 = load ptr, ptr %4, align 8, !tbaa !39
+  %48 = getelementptr inbounds i128, ptr %47, i64 2
+  %49 = load i128, ptr %48, align 16, !tbaa !41
+  %50 = load ptr, ptr %3, align 8, !tbaa !39
+  %51 = getelementptr inbounds i128, ptr %50, i64 2
+  %52 = load i128, ptr %51, align 16, !tbaa !41
+  %53 = sub i128 %52, %49
+  store i128 %53, ptr %51, align 16, !tbaa !41
+  %54 = load ptr, ptr %4, align 8, !tbaa !39
+  %55 = getelementptr inbounds i128, ptr %54, i64 3
+  %56 = load i128, ptr %55, align 16, !tbaa !41
+  %57 = load ptr, ptr %3, align 8, !tbaa !39
+  %58 = getelementptr inbounds i128, ptr %57, i64 3
+  %59 = load i128, ptr %58, align 16, !tbaa !41
+  %60 = sub i128 %59, %56
+  store i128 %60, ptr %58, align 16, !tbaa !41
+  %61 = load ptr, ptr %4, align 8, !tbaa !39
+  %62 = getelementptr inbounds i128, ptr %61, i64 4
+  %63 = load i128, ptr %62, align 16, !tbaa !41
+  %64 = load ptr, ptr %3, align 8, !tbaa !39
+  %65 = getelementptr inbounds i128, ptr %64, i64 4
+  %66 = load i128, ptr %65, align 16, !tbaa !41
+  %67 = sub i128 %66, %63
+  store i128 %67, ptr %65, align 16, !tbaa !41
+  %68 = load ptr, ptr %4, align 8, !tbaa !39
+  %69 = getelementptr inbounds i128, ptr %68, i64 5
+  %70 = load i128, ptr %69, align 16, !tbaa !41
+  %71 = load ptr, ptr %3, align 8, !tbaa !39
+  %72 = getelementptr inbounds i128, ptr %71, i64 5
+  %73 = load i128, ptr %72, align 16, !tbaa !41
+  %74 = sub i128 %73, %70
+  store i128 %74, ptr %72, align 16, !tbaa !41
+  %75 = load ptr, ptr %4, align 8, !tbaa !39
+  %76 = getelementptr inbounds i128, ptr %75, i64 6
+  %77 = load i128, ptr %76, align 16, !tbaa !41
+  %78 = load ptr, ptr %3, align 8, !tbaa !39
+  %79 = getelementptr inbounds i128, ptr %78, i64 6
+  %80 = load i128, ptr %79, align 16, !tbaa !41
+  %81 = sub i128 %80, %77
+  store i128 %81, ptr %79, align 16, !tbaa !41
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @copy_conditional(ptr noundef %out, ptr noundef %in, i64 noundef %icopy) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %icopy.addr = alloca i64, align 8
-  %i = alloca i64, align 8
-  %copy = alloca i64, align 8
-  %tmp = alloca i64, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %icopy, ptr %icopy.addr, align 8
-  %0 = load i64, ptr %icopy.addr, align 8
-  %sub = sub i64 0, %0
-  store i64 %sub, ptr %copy, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal void @copy_conditional(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  store i64 %2, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %10 = load i64, ptr %6, align 8, !tbaa !17
+  %11 = sub i64 0, %10
+  store i64 %11, ptr %8, align 8, !tbaa !17
+  store i64 0, ptr %7, align 8, !tbaa !17
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %1, 4
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %33, %3
+  %13 = load i64, ptr %7, align 8, !tbaa !17
+  %14 = icmp ult i64 %13, 4
+  br i1 %14, label %15, label %36
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i64, ptr %copy, align 8
-  %3 = load ptr, ptr %in.addr, align 8
-  %4 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %3, i64 %4
-  %5 = load i64, ptr %arrayidx, align 8
-  %6 = load ptr, ptr %out.addr, align 8
-  %7 = load i64, ptr %i, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %6, i64 %7
-  %8 = load i64, ptr %arrayidx1, align 8
-  %xor = xor i64 %5, %8
-  %and = and i64 %2, %xor
-  store i64 %and, ptr %tmp, align 8
-  %9 = load i64, ptr %tmp, align 8
-  %10 = load ptr, ptr %out.addr, align 8
-  %11 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %10, i64 %11
-  %12 = load i64, ptr %arrayidx2, align 8
-  %xor3 = xor i64 %12, %9
-  store i64 %xor3, ptr %arrayidx2, align 8
-  br label %for.inc
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %16 = load i64, ptr %8, align 8, !tbaa !17
+  %17 = load ptr, ptr %5, align 8, !tbaa !27
+  %18 = load i64, ptr %7, align 8, !tbaa !17
+  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !17
+  %21 = load ptr, ptr %4, align 8, !tbaa !27
+  %22 = load i64, ptr %7, align 8, !tbaa !17
+  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
+  %24 = load i64, ptr %23, align 8, !tbaa !17
+  %25 = xor i64 %20, %24
+  %26 = and i64 %16, %25
+  store i64 %26, ptr %9, align 8, !tbaa !17
+  %27 = load i64, ptr %9, align 8, !tbaa !17
+  %28 = load ptr, ptr %4, align 8, !tbaa !27
+  %29 = load i64, ptr %7, align 8, !tbaa !17
+  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !17
+  %32 = xor i64 %31, %27
+  store i64 %32, ptr %30, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %33
 
-for.inc:                                          ; preds = %for.body
-  %13 = load i64, ptr %i, align 8
-  %inc = add i64 %13, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !20
+33:                                               ; preds = %15
+  %34 = load i64, ptr %7, align 8, !tbaa !17
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %7, align 8, !tbaa !17
+  br label %12, !llvm.loop !47
 
-for.end:                                          ; preds = %for.cond
+36:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_sum(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 0
-  %3 = load i64, ptr %arrayidx1, align 8
-  %add = add i64 %3, %1
-  store i64 %add, ptr %arrayidx1, align 8
-  %4 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %4, i64 1
-  %5 = load i64, ptr %arrayidx2, align 8
-  %6 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i64, ptr %6, i64 1
-  %7 = load i64, ptr %arrayidx3, align 8
-  %add4 = add i64 %7, %5
-  store i64 %add4, ptr %arrayidx3, align 8
-  %8 = load ptr, ptr %in.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %8, i64 2
-  %9 = load i64, ptr %arrayidx5, align 8
-  %10 = load ptr, ptr %out.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %10, i64 2
-  %11 = load i64, ptr %arrayidx6, align 8
-  %add7 = add i64 %11, %9
-  store i64 %add7, ptr %arrayidx6, align 8
-  %12 = load ptr, ptr %in.addr, align 8
-  %arrayidx8 = getelementptr inbounds i64, ptr %12, i64 3
-  %13 = load i64, ptr %arrayidx8, align 8
-  %14 = load ptr, ptr %out.addr, align 8
-  %arrayidx9 = getelementptr inbounds i64, ptr %14, i64 3
-  %15 = load i64, ptr %arrayidx9, align 8
-  %add10 = add i64 %15, %13
-  store i64 %add10, ptr %arrayidx9, align 8
+define internal void @felem_sum(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %6 = getelementptr inbounds i64, ptr %5, i64 0
+  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %8 = load ptr, ptr %3, align 8, !tbaa !27
+  %9 = getelementptr inbounds i64, ptr %8, i64 0
+  %10 = load i64, ptr %9, align 8, !tbaa !17
+  %11 = add i64 %10, %7
+  store i64 %11, ptr %9, align 8, !tbaa !17
+  %12 = load ptr, ptr %4, align 8, !tbaa !27
+  %13 = getelementptr inbounds i64, ptr %12, i64 1
+  %14 = load i64, ptr %13, align 8, !tbaa !17
+  %15 = load ptr, ptr %3, align 8, !tbaa !27
+  %16 = getelementptr inbounds i64, ptr %15, i64 1
+  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %18 = add i64 %17, %14
+  store i64 %18, ptr %16, align 8, !tbaa !17
+  %19 = load ptr, ptr %4, align 8, !tbaa !27
+  %20 = getelementptr inbounds i64, ptr %19, i64 2
+  %21 = load i64, ptr %20, align 8, !tbaa !17
+  %22 = load ptr, ptr %3, align 8, !tbaa !27
+  %23 = getelementptr inbounds i64, ptr %22, i64 2
+  %24 = load i64, ptr %23, align 8, !tbaa !17
+  %25 = add i64 %24, %21
+  store i64 %25, ptr %23, align 8, !tbaa !17
+  %26 = load ptr, ptr %4, align 8, !tbaa !27
+  %27 = getelementptr inbounds i64, ptr %26, i64 3
+  %28 = load i64, ptr %27, align 8, !tbaa !17
+  %29 = load ptr, ptr %3, align 8, !tbaa !27
+  %30 = getelementptr inbounds i64, ptr %29, i64 3
+  %31 = load i64, ptr %30, align 8, !tbaa !17
+  %32 = add i64 %31, %28
+  store i64 %32, ptr %30, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @widefelem_scalar(ptr noundef %out, i64 noundef %scalar.coerce0, i64 noundef %scalar.coerce1) #0 {
-entry:
-  %scalar = alloca i128, align 16
-  %out.addr = alloca ptr, align 8
-  %scalar.addr = alloca i128, align 16
-  %0 = getelementptr inbounds { i64, i64 }, ptr %scalar, i32 0, i32 0
-  store i64 %scalar.coerce0, ptr %0, align 16
-  %1 = getelementptr inbounds { i64, i64 }, ptr %scalar, i32 0, i32 1
-  store i64 %scalar.coerce1, ptr %1, align 8
-  %scalar1 = load i128, ptr %scalar, align 16
-  store ptr %out, ptr %out.addr, align 8
-  store i128 %scalar1, ptr %scalar.addr, align 16
-  %2 = load i128, ptr %scalar.addr, align 16
-  %3 = load ptr, ptr %out.addr, align 8
-  %arrayidx = getelementptr inbounds i128, ptr %3, i64 0
-  %4 = load i128, ptr %arrayidx, align 16
-  %mul = mul i128 %4, %2
-  store i128 %mul, ptr %arrayidx, align 16
-  %5 = load i128, ptr %scalar.addr, align 16
-  %6 = load ptr, ptr %out.addr, align 8
-  %arrayidx2 = getelementptr inbounds i128, ptr %6, i64 1
-  %7 = load i128, ptr %arrayidx2, align 16
-  %mul3 = mul i128 %7, %5
-  store i128 %mul3, ptr %arrayidx2, align 16
-  %8 = load i128, ptr %scalar.addr, align 16
-  %9 = load ptr, ptr %out.addr, align 8
-  %arrayidx4 = getelementptr inbounds i128, ptr %9, i64 2
-  %10 = load i128, ptr %arrayidx4, align 16
-  %mul5 = mul i128 %10, %8
-  store i128 %mul5, ptr %arrayidx4, align 16
-  %11 = load i128, ptr %scalar.addr, align 16
-  %12 = load ptr, ptr %out.addr, align 8
-  %arrayidx6 = getelementptr inbounds i128, ptr %12, i64 3
-  %13 = load i128, ptr %arrayidx6, align 16
-  %mul7 = mul i128 %13, %11
-  store i128 %mul7, ptr %arrayidx6, align 16
-  %14 = load i128, ptr %scalar.addr, align 16
-  %15 = load ptr, ptr %out.addr, align 8
-  %arrayidx8 = getelementptr inbounds i128, ptr %15, i64 4
-  %16 = load i128, ptr %arrayidx8, align 16
-  %mul9 = mul i128 %16, %14
-  store i128 %mul9, ptr %arrayidx8, align 16
-  %17 = load i128, ptr %scalar.addr, align 16
-  %18 = load ptr, ptr %out.addr, align 8
-  %arrayidx10 = getelementptr inbounds i128, ptr %18, i64 5
-  %19 = load i128, ptr %arrayidx10, align 16
-  %mul11 = mul i128 %19, %17
-  store i128 %mul11, ptr %arrayidx10, align 16
-  %20 = load i128, ptr %scalar.addr, align 16
-  %21 = load ptr, ptr %out.addr, align 8
-  %arrayidx12 = getelementptr inbounds i128, ptr %21, i64 6
-  %22 = load i128, ptr %arrayidx12, align 16
-  %mul13 = mul i128 %22, %20
-  store i128 %mul13, ptr %arrayidx12, align 16
+define internal void @widefelem_scalar(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i128, align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca i128, align 16
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  store i64 %1, ptr %7, align 16
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  store i64 %2, ptr %8, align 8
+  %9 = load i128, ptr %4, align 16, !tbaa !41
+  store ptr %0, ptr %5, align 8, !tbaa !39
+  store i128 %9, ptr %6, align 16, !tbaa !41
+  %10 = load i128, ptr %6, align 16, !tbaa !41
+  %11 = load ptr, ptr %5, align 8, !tbaa !39
+  %12 = getelementptr inbounds i128, ptr %11, i64 0
+  %13 = load i128, ptr %12, align 16, !tbaa !41
+  %14 = mul i128 %13, %10
+  store i128 %14, ptr %12, align 16, !tbaa !41
+  %15 = load i128, ptr %6, align 16, !tbaa !41
+  %16 = load ptr, ptr %5, align 8, !tbaa !39
+  %17 = getelementptr inbounds i128, ptr %16, i64 1
+  %18 = load i128, ptr %17, align 16, !tbaa !41
+  %19 = mul i128 %18, %15
+  store i128 %19, ptr %17, align 16, !tbaa !41
+  %20 = load i128, ptr %6, align 16, !tbaa !41
+  %21 = load ptr, ptr %5, align 8, !tbaa !39
+  %22 = getelementptr inbounds i128, ptr %21, i64 2
+  %23 = load i128, ptr %22, align 16, !tbaa !41
+  %24 = mul i128 %23, %20
+  store i128 %24, ptr %22, align 16, !tbaa !41
+  %25 = load i128, ptr %6, align 16, !tbaa !41
+  %26 = load ptr, ptr %5, align 8, !tbaa !39
+  %27 = getelementptr inbounds i128, ptr %26, i64 3
+  %28 = load i128, ptr %27, align 16, !tbaa !41
+  %29 = mul i128 %28, %25
+  store i128 %29, ptr %27, align 16, !tbaa !41
+  %30 = load i128, ptr %6, align 16, !tbaa !41
+  %31 = load ptr, ptr %5, align 8, !tbaa !39
+  %32 = getelementptr inbounds i128, ptr %31, i64 4
+  %33 = load i128, ptr %32, align 16, !tbaa !41
+  %34 = mul i128 %33, %30
+  store i128 %34, ptr %32, align 16, !tbaa !41
+  %35 = load i128, ptr %6, align 16, !tbaa !41
+  %36 = load ptr, ptr %5, align 8, !tbaa !39
+  %37 = getelementptr inbounds i128, ptr %36, i64 5
+  %38 = load i128, ptr %37, align 16, !tbaa !41
+  %39 = mul i128 %38, %35
+  store i128 %39, ptr %37, align 16, !tbaa !41
+  %40 = load i128, ptr %6, align 16, !tbaa !41
+  %41 = load ptr, ptr %5, align 8, !tbaa !39
+  %42 = getelementptr inbounds i128, ptr %41, i64 6
+  %43 = load i128, ptr %42, align 16, !tbaa !41
+  %44 = mul i128 %43, %40
+  store i128 %44, ptr %42, align 16, !tbaa !41
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal signext i8 @get_bit(ptr noundef %in, i64 noundef %i) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %in.addr = alloca ptr, align 8
-  %i.addr = alloca i64, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %i, ptr %i.addr, align 8
-  %0 = load i64, ptr %i.addr, align 8
-  %cmp = icmp uge i64 %0, 224
-  br i1 %cmp, label %if.then, label %if.end
+define internal signext i8 @get_bit(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !25
+  store i64 %1, ptr %5, align 8, !tbaa !17
+  %6 = load i64, ptr %5, align 8, !tbaa !17
+  %7 = icmp uge i64 %6, 224
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
-  store i8 0, ptr %retval, align 1
-  br label %return
+8:                                                ; preds = %2
+  store i8 0, ptr %3, align 1
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %in.addr, align 8
-  %2 = load i64, ptr %i.addr, align 8
-  %shr = lshr i64 %2, 3
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %shr
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %3 to i32
-  %4 = load i64, ptr %i.addr, align 8
-  %and = and i64 %4, 7
-  %sh_prom = trunc i64 %and to i32
-  %shr1 = ashr i32 %conv, %sh_prom
-  %and2 = and i32 %shr1, 1
-  %conv3 = trunc i32 %and2 to i8
-  store i8 %conv3, ptr %retval, align 1
-  br label %return
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8, !tbaa !25
+  %11 = load i64, ptr %5, align 8, !tbaa !17
+  %12 = lshr i64 %11, 3
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !43
+  %15 = zext i8 %14 to i32
+  %16 = load i64, ptr %5, align 8, !tbaa !17
+  %17 = and i64 %16, 7
+  %18 = trunc i64 %17 to i32
+  %19 = ashr i32 %15, %18
+  %20 = and i32 %19, 1
+  %21 = trunc i32 %20 to i8
+  store i8 %21, ptr %3, align 1
+  br label %22
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i8, ptr %retval, align 1
-  ret i8 %5
+22:                                               ; preds = %9, %8
+  %23 = load i8, ptr %3, align 1
+  ret i8 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @select_point(i64 noundef %idx, i64 noundef %size, ptr noundef %pre_comp, ptr noundef %out) #0 {
-entry:
-  %idx.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %pre_comp.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %outlimbs = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %inlimbs = alloca ptr, align 8
-  %mask = alloca i64, align 8
-  %j = alloca i64, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %pre_comp, ptr %pre_comp.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %out.addr, align 8
-  %arrayidx = getelementptr inbounds [4 x i64], ptr %0, i64 0
-  %arrayidx1 = getelementptr inbounds [4 x i64], ptr %arrayidx, i64 0, i64 0
-  store ptr %arrayidx1, ptr %outlimbs, align 8
-  %1 = load ptr, ptr %outlimbs, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 96, i1 false)
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal void @select_point(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  store i64 %0, ptr %5, align 8, !tbaa !17
+  store i64 %1, ptr %6, align 8, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !27
+  store ptr %3, ptr %8, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %14 = load ptr, ptr %8, align 8, !tbaa !27
+  %15 = getelementptr inbounds [4 x i64], ptr %14, i64 0
+  %16 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 0
+  store ptr %16, ptr %9, align 8, !tbaa !27
+  %17 = load ptr, ptr %9, align 8, !tbaa !27
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 96, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store i64 0, ptr %10, align 8, !tbaa !17
+  br label %18
 
-for.cond:                                         ; preds = %for.inc16, %entry
-  %2 = load i64, ptr %i, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %cmp = icmp ult i64 %2, %3
-  br i1 %cmp, label %for.body, label %for.end18
+18:                                               ; preds = %66, %4
+  %19 = load i64, ptr %10, align 8, !tbaa !17
+  %20 = load i64, ptr %6, align 8, !tbaa !17
+  %21 = icmp ult i64 %19, %20
+  br i1 %21, label %22, label %69
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %pre_comp.addr, align 8
-  %5 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds [3 x [4 x i64]], ptr %4, i64 %5
-  %arrayidx3 = getelementptr inbounds [3 x [4 x i64]], ptr %arrayidx2, i64 0, i64 0
-  %arrayidx4 = getelementptr inbounds [4 x i64], ptr %arrayidx3, i64 0, i64 0
-  store ptr %arrayidx4, ptr %inlimbs, align 8
-  %6 = load i64, ptr %i, align 8
-  %7 = load i64, ptr %idx.addr, align 8
-  %xor = xor i64 %6, %7
-  store i64 %xor, ptr %mask, align 8
-  %8 = load i64, ptr %mask, align 8
-  %shr = lshr i64 %8, 4
-  %9 = load i64, ptr %mask, align 8
-  %or = or i64 %9, %shr
-  store i64 %or, ptr %mask, align 8
-  %10 = load i64, ptr %mask, align 8
-  %shr5 = lshr i64 %10, 2
-  %11 = load i64, ptr %mask, align 8
-  %or6 = or i64 %11, %shr5
-  store i64 %or6, ptr %mask, align 8
-  %12 = load i64, ptr %mask, align 8
-  %shr7 = lshr i64 %12, 1
-  %13 = load i64, ptr %mask, align 8
-  %or8 = or i64 %13, %shr7
-  store i64 %or8, ptr %mask, align 8
-  %14 = load i64, ptr %mask, align 8
-  %and = and i64 %14, 1
-  store i64 %and, ptr %mask, align 8
-  %15 = load i64, ptr %mask, align 8
-  %dec = add i64 %15, -1
-  store i64 %dec, ptr %mask, align 8
-  store i64 0, ptr %j, align 8
-  br label %for.cond9
+22:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %23 = load ptr, ptr %7, align 8, !tbaa !27
+  %24 = load i64, ptr %10, align 8, !tbaa !17
+  %25 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %23, i64 %24
+  %26 = getelementptr inbounds [3 x [4 x i64]], ptr %25, i64 0, i64 0
+  %27 = getelementptr inbounds [4 x i64], ptr %26, i64 0, i64 0
+  store ptr %27, ptr %11, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %28 = load i64, ptr %10, align 8, !tbaa !17
+  %29 = load i64, ptr %5, align 8, !tbaa !17
+  %30 = xor i64 %28, %29
+  store i64 %30, ptr %12, align 8, !tbaa !17
+  %31 = load i64, ptr %12, align 8, !tbaa !17
+  %32 = lshr i64 %31, 4
+  %33 = load i64, ptr %12, align 8, !tbaa !17
+  %34 = or i64 %33, %32
+  store i64 %34, ptr %12, align 8, !tbaa !17
+  %35 = load i64, ptr %12, align 8, !tbaa !17
+  %36 = lshr i64 %35, 2
+  %37 = load i64, ptr %12, align 8, !tbaa !17
+  %38 = or i64 %37, %36
+  store i64 %38, ptr %12, align 8, !tbaa !17
+  %39 = load i64, ptr %12, align 8, !tbaa !17
+  %40 = lshr i64 %39, 1
+  %41 = load i64, ptr %12, align 8, !tbaa !17
+  %42 = or i64 %41, %40
+  store i64 %42, ptr %12, align 8, !tbaa !17
+  %43 = load i64, ptr %12, align 8, !tbaa !17
+  %44 = and i64 %43, 1
+  store i64 %44, ptr %12, align 8, !tbaa !17
+  %45 = load i64, ptr %12, align 8, !tbaa !17
+  %46 = add i64 %45, -1
+  store i64 %46, ptr %12, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store i64 0, ptr %13, align 8, !tbaa !17
+  br label %47
 
-for.cond9:                                        ; preds = %for.inc, %for.body
-  %16 = load i64, ptr %j, align 8
-  %cmp10 = icmp ult i64 %16, 12
-  br i1 %cmp10, label %for.body11, label %for.end
+47:                                               ; preds = %62, %22
+  %48 = load i64, ptr %13, align 8, !tbaa !17
+  %49 = icmp ult i64 %48, 12
+  br i1 %49, label %50, label %65
 
-for.body11:                                       ; preds = %for.cond9
-  %17 = load ptr, ptr %inlimbs, align 8
-  %18 = load i64, ptr %j, align 8
-  %arrayidx12 = getelementptr inbounds i64, ptr %17, i64 %18
-  %19 = load i64, ptr %arrayidx12, align 8
-  %20 = load i64, ptr %mask, align 8
-  %and13 = and i64 %19, %20
-  %21 = load ptr, ptr %outlimbs, align 8
-  %22 = load i64, ptr %j, align 8
-  %arrayidx14 = getelementptr inbounds i64, ptr %21, i64 %22
-  %23 = load i64, ptr %arrayidx14, align 8
-  %or15 = or i64 %23, %and13
-  store i64 %or15, ptr %arrayidx14, align 8
-  br label %for.inc
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %11, align 8, !tbaa !27
+  %52 = load i64, ptr %13, align 8, !tbaa !17
+  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %54 = load i64, ptr %53, align 8, !tbaa !17
+  %55 = load i64, ptr %12, align 8, !tbaa !17
+  %56 = and i64 %54, %55
+  %57 = load ptr, ptr %9, align 8, !tbaa !27
+  %58 = load i64, ptr %13, align 8, !tbaa !17
+  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %60 = load i64, ptr %59, align 8, !tbaa !17
+  %61 = or i64 %60, %56
+  store i64 %61, ptr %59, align 8, !tbaa !17
+  br label %62
 
-for.inc:                                          ; preds = %for.body11
-  %24 = load i64, ptr %j, align 8
-  %inc = add i64 %24, 1
-  store i64 %inc, ptr %j, align 8
-  br label %for.cond9, !llvm.loop !21
+62:                                               ; preds = %50
+  %63 = load i64, ptr %13, align 8, !tbaa !17
+  %64 = add i64 %63, 1
+  store i64 %64, ptr %13, align 8, !tbaa !17
+  br label %47, !llvm.loop !48
 
-for.end:                                          ; preds = %for.cond9
-  br label %for.inc16
+65:                                               ; preds = %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %66
 
-for.inc16:                                        ; preds = %for.end
-  %25 = load i64, ptr %i, align 8
-  %inc17 = add i64 %25, 1
-  store i64 %inc17, ptr %i, align 8
-  br label %for.cond, !llvm.loop !22
+66:                                               ; preds = %65
+  %67 = load i64, ptr %10, align 8, !tbaa !17
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %10, align 8, !tbaa !17
+  br label %18, !llvm.loop !49
 
-for.end18:                                        ; preds = %for.cond
+69:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @ec_GFp_nistp_recode_scalar_bits(ptr noundef, ptr noundef, i8 noundef zeroext) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @felem_neg(ptr noundef %out, ptr noundef %in) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %sub = sub i64 288230376151711748, %1
-  %2 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 0
-  store i64 %sub, ptr %arrayidx1, align 8
-  %3 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %3, i64 1
-  %4 = load i64, ptr %arrayidx2, align 8
-  %sub3 = sub i64 288225978105200636, %4
-  %5 = load ptr, ptr %out.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %5, i64 1
-  store i64 %sub3, ptr %arrayidx4, align 8
-  %6 = load ptr, ptr %in.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %6, i64 2
-  %7 = load i64, ptr %arrayidx5, align 8
-  %sub6 = sub i64 288230376151711740, %7
-  %8 = load ptr, ptr %out.addr, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %8, i64 2
-  store i64 %sub6, ptr %arrayidx7, align 8
-  %9 = load ptr, ptr %in.addr, align 8
-  %arrayidx8 = getelementptr inbounds i64, ptr %9, i64 3
-  %10 = load i64, ptr %arrayidx8, align 8
-  %sub9 = sub i64 288230376151711740, %10
-  %11 = load ptr, ptr %out.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %11, i64 3
-  store i64 %sub9, ptr %arrayidx10, align 8
+define internal void @felem_neg(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %6 = getelementptr inbounds i64, ptr %5, i64 0
+  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %8 = sub i64 288230376151711748, %7
+  %9 = load ptr, ptr %3, align 8, !tbaa !27
+  %10 = getelementptr inbounds i64, ptr %9, i64 0
+  store i64 %8, ptr %10, align 8, !tbaa !17
+  %11 = load ptr, ptr %4, align 8, !tbaa !27
+  %12 = getelementptr inbounds i64, ptr %11, i64 1
+  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %14 = sub i64 288225978105200636, %13
+  %15 = load ptr, ptr %3, align 8, !tbaa !27
+  %16 = getelementptr inbounds i64, ptr %15, i64 1
+  store i64 %14, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %4, align 8, !tbaa !27
+  %18 = getelementptr inbounds i64, ptr %17, i64 2
+  %19 = load i64, ptr %18, align 8, !tbaa !17
+  %20 = sub i64 288230376151711740, %19
+  %21 = load ptr, ptr %3, align 8, !tbaa !27
+  %22 = getelementptr inbounds i64, ptr %21, i64 2
+  store i64 %20, ptr %22, align 8, !tbaa !17
+  %23 = load ptr, ptr %4, align 8, !tbaa !27
+  %24 = getelementptr inbounds i64, ptr %23, i64 3
+  %25 = load i64, ptr %24, align 8, !tbaa !17
+  %26 = sub i64 288230376151711740, %25
+  %27 = load ptr, ptr %3, align 8, !tbaa !27
+  %28 = getelementptr inbounds i64, ptr %27, i64 3
+  store i64 %26, ptr %28, align 8, !tbaa !17
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS11ec_group_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS11ec_point_st", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS10bignum_ctx", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !9, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p2 _ZTS11ec_point_st", !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p2 _ZTS9bignum_st", !8, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !9, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 omnipotent char", !8, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 long", !8, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = distinct !{!31, !30}
+!32 = distinct !{!32, !30}
+!33 = distinct !{!33, !30}
+!34 = distinct !{!34, !30}
+!35 = distinct !{!35, !30}
+!36 = distinct !{!36, !30}
+!37 = distinct !{!37, !30}
+!38 = distinct !{!38, !30}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 __int128", !8, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"__int128", !9, i64 0}
+!43 = !{!9, !9, i64 0}
+!44 = distinct !{!44, !30}
+!45 = distinct !{!45, !30}
+!46 = distinct !{!46, !30}
+!47 = distinct !{!47, !30}
+!48 = distinct !{!48, !30}
+!49 = distinct !{!49, !30}

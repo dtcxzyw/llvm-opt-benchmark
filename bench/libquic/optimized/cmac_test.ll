@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/cmac_test.ll'
 source_filename = "bench/libquic/original/cmac_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -40,323 +40,365 @@ $__clang_call_terminate = comdat any
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut1)
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+  %3 = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut1)
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %_ZL21rfc_4493_test_vectorsv.exit.thread, label %4
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %call1.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg2, i64 noundef 16, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut2)
-  %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %return, label %lor.lhs.false3.i
+4:                                                ; preds = %2
+  %5 = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg2, i64 noundef 16, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut2)
+  %.not1.i = icmp eq i32 %5, 0
+  br i1 %.not1.i, label %_ZL21rfc_4493_test_vectorsv.exit.thread, label %6
 
-lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %call4.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg3, i64 noundef 40, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut3)
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %return, label %_ZL21rfc_4493_test_vectorsv.exit
+6:                                                ; preds = %4
+  %7 = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg3, i64 noundef 40, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut3)
+  %.not2.i = icmp eq i32 %7, 0
+  br i1 %.not2.i, label %_ZL21rfc_4493_test_vectorsv.exit.thread, label %_ZL21rfc_4493_test_vectorsv.exit
 
-_ZL21rfc_4493_test_vectorsv.exit:                 ; preds = %lor.lhs.false3.i
-  %call7.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.4, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg4, i64 noundef 64, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut4)
-  %tobool.not = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not, label %return, label %if.end
+_ZL21rfc_4493_test_vectorsv.exit:                 ; preds = %6
+  %8 = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.4, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg4, i64 noundef 64, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut4)
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %_ZL21rfc_4493_test_vectorsv.exit.thread, label %9
 
-if.end:                                           ; preds = %_ZL21rfc_4493_test_vectorsv.exit
+9:                                                ; preds = %_ZL21rfc_4493_test_vectorsv.exit
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %return
+  br label %_ZL21rfc_4493_test_vectorsv.exit.thread
 
-return:                                           ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false3.i, %_ZL21rfc_4493_test_vectorsv.exit, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL21rfc_4493_test_vectorsv.exit ], [ 1, %lor.lhs.false3.i ], [ 1, %lor.lhs.false.i ], [ 1, %entry ]
-  ret i32 %retval.0
+_ZL21rfc_4493_test_vectorsv.exit.thread:          ; preds = %2, %4, %6, %_ZL21rfc_4493_test_vectorsv.exit, %9
+  %.0 = phi i32 [ 0, %9 ], [ 1, %_ZL21rfc_4493_test_vectorsv.exit ], [ 1, %6 ], [ 1, %4 ], [ 1, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef %name, ptr noundef %msg, i64 noundef range(i64 0, 65) %msg_len, ptr noundef %expected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %out = alloca [16 x i8], align 16
-  %ctx = alloca %"class.std::unique_ptr", align 8
-  %out_len = alloca i64, align 8
-  %call = call i32 @AES_CMAC(ptr noundef nonnull %out, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE4kKey, i64 noundef 16, ptr noundef %msg, i64 noundef %msg_len)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 65) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %5 = alloca [16 x i8], align 16
+  %6 = alloca %"class.std::unique_ptr", align 8
+  %7 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  %8 = call i32 @AES_CMAC(ptr noundef nonnull %5, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE4kKey, i64 noundef 16, ptr noundef %1, i64 noundef %2)
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %name) #8
-  br label %return
+9:                                                ; preds = %4
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.5, ptr noundef %0) #10
+  br label %72
 
-if.end:                                           ; preds = %entry
-  %call3 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %out, ptr noundef %expected, i64 noundef 16)
-  %cmp.not = icmp eq i32 %call3, 0
-  br i1 %cmp.not, label %if.end7, label %if.then4
+12:                                               ; preds = %4
+  %13 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %5, ptr noundef %3, i64 noundef 16)
+  %.not59 = icmp eq i32 %13, 0
+  br i1 %.not59, label %21, label %14
 
-if.then4:                                         ; preds = %if.end
-  %1 = load ptr, ptr @stderr, align 8
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef %name) #8
-  %2 = load ptr, ptr @stderr, align 8
-  call void @hexdump(ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef nonnull %out, i64 noundef 16)
-  %3 = load ptr, ptr @stderr, align 8
-  call void @hexdump(ptr noundef %3, ptr noundef nonnull @.str.14, ptr noundef %expected, i64 noundef 16)
-  %4 = load ptr, ptr @stderr, align 8
-  %call.i = call i32 @fflush(ptr noundef %4)
-  br label %return
+14:                                               ; preds = %12
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.6, ptr noundef %0) #10
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !6
+  call void @hexdump(ptr noundef %17, ptr noundef nonnull @.str.13, ptr noundef nonnull %5, i64 noundef 16)
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !6
+  call void @hexdump(ptr noundef %18, ptr noundef nonnull @.str.14, ptr noundef %3, i64 noundef 16)
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %20 = call i32 @fflush(ptr noundef %19)
+  br label %72
 
-if.end7:                                          ; preds = %if.end
-  %call8 = call ptr @CMAC_CTX_new()
-  store ptr %call8, ptr %ctx, align 8
-  %cmp.i.not = icmp eq ptr %call8, null
-  br i1 %cmp.i.not, label %cleanup.thread40, label %lor.lhs.false
+21:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  %22 = call ptr @CMAC_CTX_new()
+  store ptr %22, ptr %6, align 8, !tbaa !11
+  %.not5 = icmp eq ptr %22, null
+  br i1 %.not5, label %.critedge.thread68, label %25
 
-cleanup.thread40:                                 ; preds = %if.end7
-  %5 = load ptr, ptr @stderr, align 8
-  %call1741 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, ptr noundef %name) #8
-  br label %return
+.critedge.thread68:                               ; preds = %21
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.7, ptr noundef %0) #10
+  br label %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit
 
-lor.lhs.false:                                    ; preds = %if.end7
-  %call11 = invoke ptr @EVP_aes_128_cbc()
-          to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+25:                                               ; preds = %21
+  %26 = invoke ptr @EVP_aes_128_cbc()
+          to label %27 unwind label %53
 
-invoke.cont:                                      ; preds = %lor.lhs.false
-  %call13 = invoke i32 @CMAC_Init(ptr noundef nonnull %call8, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE4kKey, i64 noundef 16, ptr noundef %call11, ptr noundef null)
-          to label %invoke.cont12 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+27:                                               ; preds = %25
+  %28 = invoke i32 @CMAC_Init(ptr noundef nonnull %22, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE4kKey, i64 noundef 16, ptr noundef %26, ptr noundef null)
+          to label %29 unwind label %53
 
-invoke.cont12:                                    ; preds = %invoke.cont
-  %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %cleanup, label %for.cond.preheader
+29:                                               ; preds = %27
+  %.not60 = icmp eq i32 %28, 0
+  br i1 %.not60, label %.critedge, label %.preheader6
 
-for.cond.preheader:                               ; preds = %invoke.cont12
-  %cmp19.not18 = icmp eq i64 %msg_len, 0
-  br i1 %cmp19.not18, label %if.then.i, label %for.body.us.preheader
+.preheader6:                                      ; preds = %29
+  %.not6127 = icmp eq i64 %2, 0
+  br i1 %.not6127, label %.critedge.thread, label %.lr.ph30.split.us.preheader
 
-for.body.us.preheader:                            ; preds = %for.cond.preheader
-  %6 = trunc nuw nsw i64 %msg_len to i32
-  br label %for.body.us
+.lr.ph30.split.us.preheader:                      ; preds = %.preheader6
+  %30 = trunc nuw nsw i64 %2 to i32
+  br label %.lr.ph30.split.us
 
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
-  %conv20.us = phi i64 [ %conv.us, %for.inc.us ], [ 1, %for.body.us.preheader ]
-  %chunk_size.019.us = phi i32 [ %inc.us, %for.inc.us ], [ 1, %for.body.us.preheader ]
-  %call22.us = invoke i32 @CMAC_Reset(ptr noundef nonnull %call8)
-          to label %invoke.cont21.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
+.lr.ph30.split.us:                                ; preds = %.lr.ph30.split.us.preheader, %43
+  %31 = phi i64 [ %45, %43 ], [ 1, %.lr.ph30.split.us.preheader ]
+  %.04528.us = phi i32 [ %44, %43 ], [ 1, %.lr.ph30.split.us.preheader ]
+  %32 = invoke i32 @CMAC_Reset(ptr noundef nonnull %22)
+          to label %33 unwind label %.split.us
 
-invoke.cont21.us:                                 ; preds = %for.body.us
-  %tobool23.not.us = icmp eq i32 %call22.us, 0
-  br i1 %tobool23.not.us, label %if.then24, label %while.body.us
+33:                                               ; preds = %.lr.ph30.split.us
+  %.not62.us = icmp eq i32 %32, 0
+  br i1 %.not62.us, label %.split32.us, label %.preheader.us
 
-while.cond.us:                                    ; preds = %invoke.cont34.us
-  %add.us = add i64 %.sroa.speculated.us, %done.017.us
-  %cmp28.us = icmp ult i64 %add.us, %msg_len
-  br i1 %cmp28.us, label %while.body.us, label %while.cond.while.end_crit_edge.us, !llvm.loop !7
+34:                                               ; preds = %49
+  %35 = add i64 %.sroa.speculated.us, %.04326.us
+  %36 = icmp ult i64 %35, %2
+  br i1 %36, label %.preheader.us, label %._crit_edge.us, !llvm.loop !13
 
-invoke.cont43.us:                                 ; preds = %while.cond.while.end_crit_edge.us
-  %tobool45.not.us = icmp eq i32 %call44.us, 0
-  br i1 %tobool45.not.us, label %if.then46, label %if.end49.us
+37:                                               ; preds = %._crit_edge.us
+  %.not63.us = icmp eq i32 %50, 0
+  br i1 %.not63.us, label %.split37.us, label %38
 
-if.end49.us:                                      ; preds = %invoke.cont43.us
-  %7 = load i64, ptr %out_len, align 8
-  %cmp50.not.us = icmp eq i64 %7, 16
-  br i1 %cmp50.not.us, label %if.end55.us, label %if.then51
+38:                                               ; preds = %37
+  %39 = load i64, ptr %7, align 8, !tbaa !15
+  %.not64.us = icmp eq i64 %39, 16
+  br i1 %.not64.us, label %40, label %.split41.us
 
-if.end55.us:                                      ; preds = %if.end49.us
-  %call58.us = invoke i32 @CRYPTO_memcmp(ptr noundef nonnull %out, ptr noundef %expected, i64 noundef 16)
-          to label %invoke.cont57.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
+40:                                               ; preds = %38
+  %41 = invoke i32 @CRYPTO_memcmp(ptr noundef nonnull %5, ptr noundef %3, i64 noundef 16)
+          to label %42 unwind label %.loopexit.split.us
 
-invoke.cont57.us:                                 ; preds = %if.end55.us
-  %cmp59.not.us = icmp eq i32 %call58.us, 0
-  br i1 %cmp59.not.us, label %for.inc.us, label %if.then60
+42:                                               ; preds = %40
+  %.not65.us = icmp eq i32 %41, 0
+  br i1 %.not65.us, label %43, label %.split46.us
 
-for.inc.us:                                       ; preds = %invoke.cont57.us
-  %inc.us = add nuw nsw i32 %chunk_size.019.us, 1
-  %conv.us = zext nneg i32 %inc.us to i64
-  %cmp19.not.us.not = icmp samesign ult i32 %chunk_size.019.us, %6
-  br i1 %cmp19.not.us.not, label %for.body.us, label %if.then.i, !llvm.loop !9
+43:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  %44 = add nuw nsw i32 %.04528.us, 1
+  %45 = zext nneg i32 %44 to i64
+  %.not61.us.not = icmp samesign ult i32 %.04528.us, %30
+  br i1 %.not61.us.not, label %.lr.ph30.split.us, label %.critedge.thread, !llvm.loop !17
 
-while.body.us:                                    ; preds = %invoke.cont21.us, %while.cond.us
-  %done.017.us = phi i64 [ %add.us, %while.cond.us ], [ 0, %invoke.cont21.us ]
-  %sub.us = sub nuw nsw i64 %msg_len, %done.017.us
-  %.sroa.speculated.us = call i64 @llvm.umin.i64(i64 %sub.us, i64 %conv20.us)
-  %add.ptr.us = getelementptr inbounds nuw i8, ptr %msg, i64 %done.017.us
-  %call35.us = invoke i32 @CMAC_Update(ptr noundef nonnull %call8, ptr noundef %add.ptr.us, i64 noundef %.sroa.speculated.us)
-          to label %invoke.cont34.us unwind label %lpad.loopexit.split.us
+.preheader.us:                                    ; preds = %33, %34
+  %.04326.us = phi i64 [ %35, %34 ], [ 0, %33 ]
+  %46 = sub nuw nsw i64 %2, %.04326.us
+  %.sroa.speculated.us = call i64 @llvm.umin.i64(i64 %46, i64 %31)
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %.04326.us
+  %48 = invoke i32 @CMAC_Update(ptr noundef nonnull %22, ptr noundef %47, i64 noundef %.sroa.speculated.us)
+          to label %49 unwind label %.split51.us
 
-invoke.cont34.us:                                 ; preds = %while.body.us
-  %tobool36.not.us = icmp eq i32 %call35.us, 0
-  br i1 %tobool36.not.us, label %if.then37, label %while.cond.us
+49:                                               ; preds = %.preheader.us
+  %.not69.not.us = icmp eq i32 %48, 0
+  br i1 %.not69.not.us, label %.thread, label %34
 
-while.cond.while.end_crit_edge.us:                ; preds = %while.cond.us
-  %call44.us = invoke i32 @CMAC_Final(ptr noundef nonnull %call8, ptr noundef nonnull %out, ptr noundef nonnull %out_len)
-          to label %invoke.cont43.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
+._crit_edge.us:                                   ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  %50 = invoke i32 @CMAC_Final(ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %7)
+          to label %37 unwind label %.loopexit.split.us
 
-lpad.loopexit.split-lp.loopexit.split.us:         ; preds = %if.end55.us, %while.cond.while.end_crit_edge.us, %for.body.us
-  %lpad.loopexit5.us = landingpad { ptr, i32 }
+.split.us:                                        ; preds = %.lr.ph30.split.us
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad
+  br label %71
 
-lpad.loopexit.split.us:                           ; preds = %while.body.us
-  %lpad.loopexit3.us = landingpad { ptr, i32 }
+.loopexit.split.us:                               ; preds = %40, %._crit_edge.us
+  %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
-  br label %lpad
+  br label %.loopexit
 
-lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then60, %invoke.cont, %lor.lhs.false
-  %lpad.loopexit.split-lp6 = landingpad { ptr, i32 }
+.split51.us:                                      ; preds = %.preheader.us
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad
+  br label %71
 
-lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split.us, %lpad.loopexit.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit3.us, %lpad.loopexit.split.us ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit5.us, %lpad.loopexit.split-lp.loopexit.split.us ]
-  call void @_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ctx) #9
-  resume { ptr, i32 } %lpad.phi
+53:                                               ; preds = %27, %25
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  br label %71
 
-if.then24:                                        ; preds = %invoke.cont21.us
-  %8 = load ptr, ptr @stderr, align 8
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  br label %if.then.i
+.split32.us:                                      ; preds = %33
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.8, ptr noundef %0, i32 noundef %.04528.us) #10
+  br label %.critedge.thread
 
-if.then37:                                        ; preds = %invoke.cont34.us
-  %9 = load ptr, ptr @stderr, align 8
-  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  br label %if.then.i
+.thread:                                          ; preds = %49
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.9, ptr noundef %0, i32 noundef %.04528.us) #10
+  br label %.critedge.thread
 
-if.then46:                                        ; preds = %invoke.cont43.us
-  %10 = load ptr, ptr @stderr, align 8
-  %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  br label %if.then.i
+.split37.us:                                      ; preds = %37
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.10, ptr noundef %0, i32 noundef %.04528.us) #10
+  br label %.critedge.critedge
 
-if.then51:                                        ; preds = %if.end49.us
-  %11 = load ptr, ptr @stderr, align 8
-  %conv52 = trunc i64 %7 to i32
-  %call54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %name, i32 noundef %chunk_size.019.us, i32 noundef %conv52) #8
-  br label %if.then.i
+.loopexit.split-lp:                               ; preds = %.split46.us
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit
 
-if.then60:                                        ; preds = %invoke.cont57.us
-  %12 = load ptr, ptr @stderr, align 8
-  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  invoke fastcc void @_ZL4dumpPKhS0_m(ptr noundef %out, ptr noundef %expected)
-          to label %if.then.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+.loopexit:                                        ; preds = %.loopexit.split.us, %.loopexit.split-lp
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  br label %71
 
-cleanup:                                          ; preds = %invoke.cont12
-  %13 = load ptr, ptr @stderr, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.7, ptr noundef %name) #8
-  br label %if.then.i
+.split41.us:                                      ; preds = %38
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %62 = trunc i64 %39 to i32
+  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.11, ptr noundef %0, i32 noundef %.04528.us, i32 noundef %62) #10
+  br label %.critedge.critedge
 
-if.then.i:                                        ; preds = %for.inc.us, %if.then60, %if.then24, %if.then37, %if.then46, %if.then51, %for.cond.preheader, %cleanup
-  %retval.138 = phi i32 [ 0, %cleanup ], [ 1, %for.cond.preheader ], [ 0, %if.then60 ], [ 0, %if.then24 ], [ 0, %if.then46 ], [ 0, %if.then51 ], [ 0, %if.then37 ], [ 1, %for.inc.us ]
-  invoke void @CMAC_CTX_free(ptr noundef nonnull %call8)
-          to label %return unwind label %terminate.lpad.i
+.split46.us:                                      ; preds = %42
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.12, ptr noundef %0, i32 noundef %.04528.us) #10
+  invoke fastcc void @_ZL4dumpPKhS0_m(ptr noundef %5, ptr noundef %3)
+          to label %.critedge.critedge unwind label %.loopexit.split-lp
 
-terminate.lpad.i:                                 ; preds = %if.then.i
-  %14 = landingpad { ptr, i32 }
+.critedge.critedge:                               ; preds = %.split46.us, %.split37.us, %.split41.us
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  br label %.critedge.thread
+
+.critedge:                                        ; preds = %29
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.7, ptr noundef %0) #10
+  br label %.critedge.thread
+
+.critedge.thread:                                 ; preds = %43, %.preheader6, %.thread, %.critedge.critedge, %.split32.us, %.critedge
+  %.166 = phi i32 [ 0, %.critedge ], [ 1, %.preheader6 ], [ 0, %.split32.us ], [ 0, %.critedge.critedge ], [ 0, %.thread ], [ 1, %43 ]
+  invoke void @CMAC_CTX_free(ptr noundef nonnull %22)
+          to label %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit unwind label %68
+
+68:                                               ; preds = %.critedge.thread
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #10
+  %70 = extractvalue { ptr, i32 } %69, 0
+  call void @__clang_call_terminate(ptr %70) #11
   unreachable
 
-return:                                           ; preds = %if.then.i, %cleanup.thread40, %if.then4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.then ], [ %retval.138, %if.then.i ], [ 0, %cleanup.thread40 ]
-  ret i32 %retval.0
+_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit: ; preds = %.critedge.thread68, %.critedge.thread
+  %.167 = phi i32 [ %.166, %.critedge.thread ], [ 0, %.critedge.thread68 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  br label %72
+
+71:                                               ; preds = %.split.us, %.loopexit, %.split51.us, %53
+  %.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %.split51.us ], [ %lpad.phi, %.loopexit ], [ %51, %.split.us ]
+  call void @_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  resume { ptr, i32 } %.pn.pn.pn
+
+72:                                               ; preds = %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit, %14, %9
+  %.0 = phi i32 [ 0, %14 ], [ %.167, %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit ], [ 0, %9 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  ret i32 %.0
 }
 
-declare i32 @AES_CMAC(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @AES_CMAC(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL4dumpPKhS0_m(ptr noundef nonnull %got, ptr noundef %want) unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr @stderr, align 8
-  tail call void @hexdump(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %got, i64 noundef 16)
-  %1 = load ptr, ptr @stderr, align 8
-  tail call void @hexdump(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %want, i64 noundef 16)
-  %2 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 @fflush(ptr noundef %2)
+define internal fastcc void @_ZL4dumpPKhS0_m(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !6
+  tail call void @hexdump(ptr noundef %3, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i64 noundef 16)
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !6
+  tail call void @hexdump(ptr noundef %4, ptr noundef nonnull @.str.14, ptr noundef %1, i64 noundef 16)
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %6 = tail call i32 @fflush(ptr noundef %5)
   ret void
 }
 
-declare void @CMAC_CTX_free(ptr noundef) local_unnamed_addr #1
+declare void @CMAC_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @CMAC_CTX_new() local_unnamed_addr #1
+declare ptr @CMAC_CTX_new() local_unnamed_addr #2
 
-declare i32 @CMAC_Init(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @CMAC_Init(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_aes_128_cbc() local_unnamed_addr #1
+declare ptr @EVP_aes_128_cbc() local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
-declare i32 @CMAC_Reset(ptr noundef) local_unnamed_addr #1
+declare i32 @CMAC_Reset(ptr noundef) local_unnamed_addr #2
 
-declare i32 @CMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @CMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @CMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @CMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define linkonce_odr hidden void @_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !11
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %_ZN14OpenSSLDeleterI11cmac_ctx_stXadL_Z13CMAC_CTX_freeEEEclEPS0_.exit, label %3
 
-if.then:                                          ; preds = %entry
-  invoke void @CMAC_CTX_free(ptr noundef nonnull %0)
-          to label %if.end unwind label %terminate.lpad
+3:                                                ; preds = %1
+  invoke void @CMAC_CTX_free(ptr noundef nonnull %2)
+          to label %_ZN14OpenSSLDeleterI11cmac_ctx_stXadL_Z13CMAC_CTX_freeEEEclEPS0_.exit unwind label %4
 
-if.end:                                           ; preds = %if.then, %entry
-  store ptr null, ptr %this, align 8
+_ZN14OpenSSLDeleterI11cmac_ctx_stXadL_Z13CMAC_CTX_freeEEEclEPS0_.exit: ; preds = %3, %1
+  store ptr null, ptr %0, align 8, !tbaa !11
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+4:                                                ; preds = %3
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #10
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #11
   unreachable
 }
 
-declare void @hexdump(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @hexdump(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #10
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #5
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #8
 
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { cold }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS11cmac_ctx_st", !8, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !9, i64 0}
+!17 = distinct !{!17, !14}

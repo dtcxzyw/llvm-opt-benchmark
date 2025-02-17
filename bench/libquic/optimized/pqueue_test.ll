@@ -1,175 +1,177 @@
 ; ModuleID = 'bench/libquic/original/pqueue_test.ll'
 source_filename = "bench/libquic/original/pqueue_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @__const.fixed_random.ordering = private unnamed_addr constant [10 x i32] [i32 9, i32 6, i32 3, i32 4, i32 0, i32 2, i32 7, i32 1, i32 8, i32 5], align 16
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
-entry:
-  %ordering.i = alloca [10 x i32], align 16
-  %priority.i1 = alloca [8 x i8], align 8
-  %iter.i = alloca ptr, align 8
-  %data.i = alloca i32, align 4
-  %priority.i = alloca [8 x i8], align 8
+  %1 = alloca [10 x i32], align 16
+  %2 = alloca [8 x i8], align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca [8 x i8], align 8
   tail call void @CRYPTO_library_init() #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %priority.i)
-  %call.i = tail call ptr @pqueue_new() #5
-  %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %trivial.exit.thread, label %if.end.i
+  %6 = tail call ptr @pqueue_new() #5
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %trivial.exit.thread, label %8
 
-if.end.i:                                         ; preds = %entry
-  store i32 -559038737, ptr %data.i, align 4
-  store i64 0, ptr %priority.i, align 8
-  %call1.i = call ptr @pitem_new(ptr noundef nonnull %priority.i, ptr noundef nonnull %data.i) #5
-  %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %trivial.exit.thread, label %lor.lhs.false.i
+8:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  store i32 -559038737, ptr %4, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  store i64 0, ptr %5, align 8
+  %9 = call ptr @pitem_new(ptr noundef nonnull %5, ptr noundef nonnull %4) #5
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %trivial.exit.thread6, label %11
 
-lor.lhs.false.i:                                  ; preds = %if.end.i
-  %call3.i = call ptr @pqueue_insert(ptr noundef nonnull %call.i, ptr noundef nonnull %call1.i) #5
-  %cmp4.not.i = icmp eq ptr %call3.i, %call1.i
-  br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %trivial.exit.thread
+11:                                               ; preds = %8
+  %12 = call ptr @pqueue_insert(ptr noundef nonnull %6, ptr noundef nonnull %9) #5
+  %.not.i = icmp eq ptr %12, %9
+  br i1 %.not.i, label %13, label %trivial.exit.thread6
 
-lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %call6.i = call i64 @pqueue_size(ptr noundef nonnull %call.i) #5
-  %cmp7.not.i = icmp eq i64 %call6.i, 1
-  br i1 %cmp7.not.i, label %lor.lhs.false8.i, label %trivial.exit.thread
+13:                                               ; preds = %11
+  %14 = call i64 @pqueue_size(ptr noundef nonnull %6) #5
+  %.not16.i = icmp eq i64 %14, 1
+  br i1 %.not16.i, label %15, label %trivial.exit.thread6
 
-lor.lhs.false8.i:                                 ; preds = %lor.lhs.false5.i
-  %call9.i = call ptr @pqueue_peek(ptr noundef nonnull %call.i) #5
-  %cmp10.not.i = icmp eq ptr %call9.i, %call1.i
-  br i1 %cmp10.not.i, label %lor.lhs.false11.i, label %trivial.exit.thread
+15:                                               ; preds = %13
+  %16 = call ptr @pqueue_peek(ptr noundef nonnull %6) #5
+  %.not17.i = icmp eq ptr %16, %9
+  br i1 %.not17.i, label %17, label %trivial.exit.thread6
 
-lor.lhs.false11.i:                                ; preds = %lor.lhs.false8.i
-  %call12.i = call ptr @pqueue_pop(ptr noundef nonnull %call.i) #5
-  %cmp13.not.i = icmp eq ptr %call12.i, %call1.i
-  br i1 %cmp13.not.i, label %lor.lhs.false14.i, label %trivial.exit.thread
+17:                                               ; preds = %15
+  %18 = call ptr @pqueue_pop(ptr noundef nonnull %6) #5
+  %.not18.i = icmp eq ptr %18, %9
+  br i1 %.not18.i, label %19, label %trivial.exit.thread6
 
-lor.lhs.false14.i:                                ; preds = %lor.lhs.false11.i
-  %call15.i = call i64 @pqueue_size(ptr noundef nonnull %call.i) #5
-  %cmp16.not.i = icmp eq i64 %call15.i, 0
-  br i1 %cmp16.not.i, label %lor.lhs.false17.i, label %trivial.exit.thread
+19:                                               ; preds = %17
+  %20 = call i64 @pqueue_size(ptr noundef nonnull %6) #5
+  %.not19.i = icmp eq i64 %20, 0
+  br i1 %.not19.i, label %21, label %trivial.exit.thread6
 
-lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
-  %call18.i = call ptr @pqueue_pop(ptr noundef nonnull %call.i) #5
-  %cmp19.not.i = icmp eq ptr %call18.i, null
-  br i1 %cmp19.not.i, label %lor.lhs.false, label %trivial.exit.thread
+21:                                               ; preds = %19
+  %22 = call ptr @pqueue_pop(ptr noundef nonnull %6) #5
+  %.not20.i = icmp eq ptr %22, null
+  br i1 %.not20.i, label %23, label %trivial.exit.thread6
 
-trivial.exit.thread:                              ; preds = %entry, %lor.lhs.false17.i, %lor.lhs.false14.i, %lor.lhs.false11.i, %lor.lhs.false8.i, %lor.lhs.false5.i, %lor.lhs.false.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priority.i)
-  br label %return
+trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, %13, %11, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  br label %trivial.exit.thread
 
-lor.lhs.false:                                    ; preds = %lor.lhs.false17.i
-  call void @pitem_free(ptr noundef nonnull %call1.i) #5
-  call fastcc void @clear_and_free_queue(ptr noundef %call.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priority.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ordering.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %priority.i1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iter.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %ordering.i, ptr noundef nonnull align 16 dereferenceable(40) @__const.fixed_random.ordering, i64 40, i1 false)
-  %call.i2 = call ptr @pqueue_new() #5
-  store i64 0, ptr %priority.i1, align 8
-  %cmp.i3 = icmp eq ptr %call.i2, null
-  br i1 %cmp.i3, label %fixed_random.exit.thread, label %for.cond.preheader.i
+23:                                               ; preds = %21
+  call void @pitem_free(ptr noundef nonnull %9) #5
+  call fastcc void @clear_and_free_queue(ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 16 dereferenceable(40) @__const.fixed_random.ordering, i64 40, i1 false)
+  %24 = call ptr @pqueue_new() #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  store i64 0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %fixed_random.exit.thread, label %.preheader48.i
 
-for.cond.preheader.i:                             ; preds = %lor.lhs.false
-  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %priority.i1, i64 7
-  br label %for.body.i
+.preheader48.i:                                   ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 7
+  br label %28
 
-for.cond.i:                                       ; preds = %lor.lhs.false.i4
+27:                                               ; preds = %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %for.body16.i, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.preheader46.i, label %28, !llvm.loop !10
 
-for.body.i:                                       ; preds = %for.cond.i, %for.cond.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr %ordering.i, i64 0, i64 %indvars.iv.i
-  %0 = load i32, ptr %arrayidx.i, align 4
-  %conv.i = trunc i32 %0 to i8
-  store i8 %conv.i, ptr %arrayidx2.i, align 1
-  %call5.i = call ptr @pitem_new(ptr noundef nonnull %priority.i1, ptr noundef nonnull %arrayidx.i) #5
-  %cmp6.i = icmp eq ptr %call5.i, null
-  br i1 %cmp6.i, label %fixed_random.exit.thread, label %lor.lhs.false.i4
+28:                                               ; preds = %27, %.preheader48.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader48.i ], [ %indvars.iv.next.i, %27 ]
+  %29 = getelementptr inbounds nuw [10 x i32], ptr %1, i64 0, i64 %indvars.iv.i
+  %30 = load i32, ptr %29, align 4, !tbaa !6
+  %31 = trunc i32 %30 to i8
+  store i8 %31, ptr %26, align 1, !tbaa !12
+  %32 = call ptr @pitem_new(ptr noundef nonnull %2, ptr noundef nonnull %29) #5
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %fixed_random.exit.thread, label %34
 
-lor.lhs.false.i4:                                 ; preds = %for.body.i
-  %call8.i = call ptr @pqueue_insert(ptr noundef nonnull %call.i2, ptr noundef nonnull %call5.i) #5
-  %cmp9.not.i = icmp eq ptr %call8.i, %call5.i
-  br i1 %cmp9.not.i, label %for.cond.i, label %fixed_random.exit.thread
+34:                                               ; preds = %28
+  %35 = call ptr @pqueue_insert(ptr noundef nonnull %24, ptr noundef nonnull %32) #5
+  %.not40.i = icmp eq ptr %35, %32
+  br i1 %.not40.i, label %27, label %fixed_random.exit.thread
 
-for.body16.i:                                     ; preds = %for.cond.i, %if.end32.i
-  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %if.end32.i ], [ 0, %for.cond.i ]
-  %arrayidx18.i = getelementptr inbounds nuw [10 x i32], ptr %ordering.i, i64 0, i64 %indvars.iv28.i
-  %1 = load i32, ptr %arrayidx18.i, align 4
-  %conv19.i = trunc i32 %1 to i8
-  store i8 %conv19.i, ptr %arrayidx2.i, align 1
-  %call24.i = call ptr @pitem_new(ptr noundef nonnull %priority.i1, ptr noundef nonnull %arrayidx18.i) #5
-  %cmp25.i = icmp eq ptr %call24.i, null
-  br i1 %cmp25.i, label %fixed_random.exit.thread, label %lor.lhs.false27.i
+.preheader46.i:                                   ; preds = %27, %43
+  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %43 ], [ 0, %27 ]
+  %36 = getelementptr inbounds nuw [10 x i32], ptr %1, i64 0, i64 %indvars.iv55.i
+  %37 = load i32, ptr %36, align 4, !tbaa !6
+  %38 = trunc i32 %37 to i8
+  store i8 %38, ptr %26, align 1, !tbaa !12
+  %39 = call ptr @pitem_new(ptr noundef nonnull %2, ptr noundef nonnull %36) #5
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %fixed_random.exit.thread, label %41
 
-lor.lhs.false27.i:                                ; preds = %for.body16.i
-  %call28.i = call ptr @pqueue_insert(ptr noundef nonnull %call.i2, ptr noundef nonnull %call24.i) #5
-  %cmp29.not.i = icmp eq ptr %call28.i, null
-  br i1 %cmp29.not.i, label %if.end32.i, label %fixed_random.exit.thread
+41:                                               ; preds = %.preheader46.i
+  %42 = call ptr @pqueue_insert(ptr noundef nonnull %24, ptr noundef nonnull %39) #5
+  %.not39.i = icmp eq ptr %42, null
+  br i1 %.not39.i, label %43, label %fixed_random.exit.thread
 
-if.end32.i:                                       ; preds = %lor.lhs.false27.i
-  call void @pitem_free(ptr noundef nonnull %call24.i) #5
-  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
-  %exitcond31.not.i = icmp eq i64 %indvars.iv.next29.i, 10
-  br i1 %exitcond31.not.i, label %for.end35.i, label %for.body16.i, !llvm.loop !9
+43:                                               ; preds = %41
+  call void @pitem_free(ptr noundef nonnull %39) #5
+  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
+  %exitcond58.not.i = icmp eq i64 %indvars.iv.next56.i, 10
+  br i1 %exitcond58.not.i, label %44, label %.preheader46.i, !llvm.loop !13
 
-for.end35.i:                                      ; preds = %if.end32.i
-  %call36.i = call i64 @pqueue_size(ptr noundef nonnull %call.i2) #5
-  %cmp37.not.i = icmp eq i64 %call36.i, 10
-  br i1 %cmp37.not.i, label %if.end40.i, label %fixed_random.exit.thread
+44:                                               ; preds = %43
+  %45 = call i64 @pqueue_size(ptr noundef nonnull %24) #5
+  %.not.i3 = icmp eq i64 %45, 10
+  br i1 %.not.i3, label %46, label %fixed_random.exit.thread
 
-if.end40.i:                                       ; preds = %for.end35.i
-  %call41.i = call ptr @pqueue_iterator(ptr noundef nonnull %call.i2) #5
-  store ptr %call41.i, ptr %iter.i, align 8
-  %call42.i = call ptr @pqueue_next(ptr noundef nonnull %iter.i) #5
-  %cmp43.i = icmp eq ptr %call42.i, null
-  br i1 %cmp43.i, label %fixed_random.exit.thread, label %while.body.i
+46:                                               ; preds = %44
+  %47 = call ptr @pqueue_iterator(ptr noundef nonnull %24) #5
+  store ptr %47, ptr %3, align 8, !tbaa !14
+  %48 = call ptr @pqueue_next(ptr noundef nonnull %3) #5
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %fixed_random.exit.thread, label %.preheader.i
 
-while.body.i:                                     ; preds = %if.end40.i, %if.end51.i
-  %curr.0.i = phi ptr [ %call47.i, %if.end51.i ], [ %call42.i, %if.end40.i ]
-  %call47.i = call ptr @pqueue_next(ptr noundef nonnull %iter.i) #5
-  %cmp48.i = icmp eq ptr %call47.i, null
-  br i1 %cmp48.i, label %if.end, label %if.end51.i
+.preheader.i:                                     ; preds = %46, %52
+  %.030.i = phi ptr [ %50, %52 ], [ %48, %46 ]
+  %50 = call ptr @pqueue_next(ptr noundef nonnull %3) #5
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %59, label %52
 
-if.end51.i:                                       ; preds = %while.body.i
-  %data.i6 = getelementptr inbounds nuw i8, ptr %curr.0.i, i64 8
-  %2 = load ptr, ptr %data.i6, align 8
-  %data52.i = getelementptr inbounds nuw i8, ptr %call47.i, i64 8
-  %3 = load ptr, ptr %data52.i, align 8
-  %4 = load i32, ptr %2, align 4
-  %5 = load i32, ptr %3, align 4
-  %cmp53.not.i = icmp slt i32 %4, %5
-  br i1 %cmp53.not.i, label %while.body.i, label %fixed_random.exit.thread
+52:                                               ; preds = %.preheader.i
+  %53 = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !17
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !17
+  %57 = load i32, ptr %54, align 4, !tbaa !6
+  %58 = load i32, ptr %56, align 4, !tbaa !6
+  %.not38.i = icmp slt i32 %57, %58
+  br i1 %.not38.i, label %.preheader.i, label %fixed_random.exit.thread
 
-fixed_random.exit.thread:                         ; preds = %lor.lhs.false.i4, %for.body.i, %lor.lhs.false27.i, %for.body16.i, %if.end51.i, %lor.lhs.false, %for.end35.i, %if.end40.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ordering.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priority.i1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iter.i)
-  br label %return
+fixed_random.exit.thread:                         ; preds = %34, %28, %41, %.preheader46.i, %52, %23, %44, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #5
+  br label %trivial.exit.thread
 
-if.end:                                           ; preds = %while.body.i
-  call fastcc void @clear_and_free_queue(ptr noundef %call.i2)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ordering.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priority.i1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iter.i)
+59:                                               ; preds = %.preheader.i
+  call fastcc void @clear_and_free_queue(ptr noundef %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #5
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %return
+  br label %trivial.exit.thread
 
-return:                                           ; preds = %fixed_random.exit.thread, %trivial.exit.thread, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %trivial.exit.thread ], [ 1, %fixed_random.exit.thread ]
-  ret i32 %retval.0
+trivial.exit.thread:                              ; preds = %0, %fixed_random.exit.thread, %trivial.exit.thread6, %59
+  %.0 = phi i32 [ 0, %59 ], [ 1, %trivial.exit.thread6 ], [ 1, %fixed_random.exit.thread ], [ 1, %0 ]
+  ret i32 %.0
 }
 
 declare void @CRYPTO_library_init() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @pqueue_new() local_unnamed_addr #1
 
@@ -186,58 +188,63 @@ declare ptr @pqueue_pop(ptr noundef) local_unnamed_addr #1
 declare void @pitem_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clear_and_free_queue(ptr noundef nonnull %q) unnamed_addr #0 {
-entry:
-  %call3 = tail call ptr @pqueue_pop(ptr noundef nonnull %q) #5
-  %cmp4 = icmp eq ptr %call3, null
-  br i1 %cmp4, label %for.end, label %if.end
+define internal fastcc void @clear_and_free_queue(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call ptr @pqueue_pop(ptr noundef nonnull %0) #5
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %._crit_edge, label %.lr.ph
 
-if.end:                                           ; preds = %entry, %if.end
-  %call5 = phi ptr [ %call, %if.end ], [ %call3, %entry ]
-  tail call void @pitem_free(ptr noundef nonnull %call5) #5
-  %call = tail call ptr @pqueue_pop(ptr noundef nonnull %q) #5
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %for.end, label %if.end
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %4 = phi ptr [ %5, %.lr.ph ], [ %2, %1 ]
+  tail call void @pitem_free(ptr noundef nonnull %4) #5
+  %5 = tail call ptr @pqueue_pop(ptr noundef nonnull %0) #5
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %._crit_edge, label %.lr.ph
 
-for.end:                                          ; preds = %if.end, %entry
-  tail call void @pqueue_free(ptr noundef nonnull %q) #5
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  tail call void @pqueue_free(ptr noundef nonnull %0) #5
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @pqueue_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @pqueue_iterator(ptr noundef) local_unnamed_addr #1
 
 declare ptr @pqueue_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!8, !8, i64 0}
+!13 = distinct !{!13, !11}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS6_pitem", !16, i64 0}
+!16 = !{!"any pointer", !8, i64 0}
+!17 = !{!18, !16, i64 8}
+!18 = !{!"_pitem", !8, i64 0, !16, i64 8, !15, i64 16}

@@ -1,71 +1,74 @@
 ; ModuleID = 'bench/libquic/original/platform_thread_internal_posix.ll'
 source_filename = "bench/libquic/original/platform_thread_internal_posix.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.base::internal::ThreadPriorityToNiceValuePair" = type { i32, i32 }
 
 @_ZN4base8internal29kThreadPriorityToNiceValueMapE = external global [4 x %"struct.base::internal::ThreadPriorityToNiceValuePair"], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4base8internal25ThreadPriorityToNiceValueENS_14ThreadPriorityE(i32 noundef %priority) local_unnamed_addr #0 {
-entry:
-  br label %for.body
+define noundef i32 @_ZN4base8internal25ThreadPriorityToNiceValueENS_14ThreadPriorityE(i32 noundef %0) local_unnamed_addr #0 {
+  br label %3
 
-for.cond:                                         ; preds = %for.body
-  %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx5, 8
-  %cmp.not = icmp eq i64 %__begin2.0.add, 32
-  br i1 %cmp.not, label %return, label %for.body
+2:                                                ; preds = %3
+  %.011.add = add nuw nsw i64 %.011.idx15, 8
+  %.not = icmp eq i64 %.011.add, 32
+  br i1 %.not, label %.loopexit, label %3
 
-for.body:                                         ; preds = %entry, %for.cond
-  %__begin2.0.idx5 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.cond ]
-  %__begin2.0.ptr6 = getelementptr inbounds nuw i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 %__begin2.0.idx5
-  %0 = load i32, ptr %__begin2.0.ptr6, align 8
-  %cmp2 = icmp eq i32 %0, %priority
-  br i1 %cmp2, label %if.then, label %for.cond
+3:                                                ; preds = %1, %2
+  %.011.idx15 = phi i64 [ 0, %1 ], [ %.011.add, %2 ]
+  %.011.ptr16 = getelementptr inbounds nuw i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 %.011.idx15
+  %4 = load i32, ptr %.011.ptr16, align 8, !tbaa !3
+  %.not12 = icmp eq i32 %4, %0
+  br i1 %.not12, label %.thread, label %2
 
-if.then:                                          ; preds = %for.body
-  %nice_value = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr6, i64 4
-  %1 = load i32, ptr %nice_value, align 4
-  br label %return
+.thread:                                          ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %.011.ptr16, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !9
+  br label %.loopexit
 
-return:                                           ; preds = %for.cond, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %for.cond ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %2, %.thread
+  %spec.select = phi i32 [ %6, %.thread ], [ 0, %2 ]
+  ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4base8internal25NiceValueToThreadPriorityEi(i32 noundef %nice_value) local_unnamed_addr #0 {
-entry:
-  br label %for.cond
+define noundef i32 @_ZN4base8internal25NiceValueToThreadPriorityEi(i32 noundef %0) local_unnamed_addr #0 {
+  br label %2
 
-for.cond:                                         ; preds = %for.body, %entry
-  %__begin2.sroa.0.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 32), %entry ], [ %incdec.ptr.i, %for.body ]
-  %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.0, @_ZN4base8internal29kThreadPriorityToNiceValueMapE
-  br i1 %cmp.i.i.not, label %return, label %for.body
+2:                                                ; preds = %3, %1
+  %.sroa.09.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 32), %1 ], [ %4, %3 ]
+  %.not14 = icmp eq ptr %.sroa.09.0, @_ZN4base8internal29kThreadPriorityToNiceValueMapE
+  br i1 %.not14, label %.split.loop.exit, label %3
 
-for.body:                                         ; preds = %for.cond
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0, i64 -8
-  %nice_value2 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0, i64 -4
-  %0 = load i32, ptr %nice_value2, align 4
-  %cmp.not = icmp slt i32 %0, %nice_value
-  br i1 %cmp.not, label %for.cond, label %if.then
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %.sroa.09.0, i64 -8
+  %5 = getelementptr inbounds i8, ptr %.sroa.09.0, i64 -4
+  %6 = load i32, ptr %5, align 4, !tbaa !9
+  %.not = icmp slt i32 %6, %0
+  br i1 %.not, label %2, label %.split.loop.exit15
 
-if.then:                                          ; preds = %for.body
-  %1 = load i32, ptr %incdec.ptr.i, align 4
-  br label %return
+.split.loop.exit15:                               ; preds = %3
+  %7 = load i32, ptr %4, align 4
+  br label %.split.loop.exit
 
-return:                                           ; preds = %for.cond, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %for.cond ]
-  ret i32 %retval.0
+.split.loop.exit:                                 ; preds = %2, %.split.loop.exit15
+  %spec.select = phi i32 [ %7, %.split.loop.exit15 ], [ 0, %2 ]
+  ret i32 %spec.select
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN4base8internal29ThreadPriorityToNiceValuePairE", !5, i64 0, !8, i64 4}
+!5 = !{!"_ZTSN4base14ThreadPriorityE", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!"int", !6, i64 0}
+!9 = !{!4, !8, i64 4}

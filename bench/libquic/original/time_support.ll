@@ -1,480 +1,554 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @OPENSSL_gmtime(ptr noundef %time, ptr noundef %result) #0 {
-entry:
-  %time.addr = alloca ptr, align 8
-  %result.addr = alloca ptr, align 8
-  store ptr %time, ptr %time.addr, align 8
-  store ptr %result, ptr %result.addr, align 8
-  %0 = load ptr, ptr %time.addr, align 8
-  %1 = load ptr, ptr %result.addr, align 8
-  %call = call ptr @gmtime_r(ptr noundef %0, ptr noundef %1) #2
-  ret ptr %call
+define hidden ptr @OPENSSL_gmtime(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !6
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = call ptr @gmtime_r(ptr noundef %5, ptr noundef %6) #3
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind
 declare ptr @gmtime_r(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @OPENSSL_gmtime_adj(ptr noundef %tm, i32 noundef %off_day, i64 noundef %offset_sec) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %tm.addr = alloca ptr, align 8
-  %off_day.addr = alloca i32, align 4
-  %offset_sec.addr = alloca i64, align 8
-  %time_sec = alloca i32, align 4
-  %time_year = alloca i32, align 4
-  %time_month = alloca i32, align 4
-  %time_day = alloca i32, align 4
-  %time_jd = alloca i64, align 8
-  store ptr %tm, ptr %tm.addr, align 8
-  store i32 %off_day, ptr %off_day.addr, align 4
-  store i64 %offset_sec, ptr %offset_sec.addr, align 8
-  %0 = load ptr, ptr %tm.addr, align 8
-  %1 = load i32, ptr %off_day.addr, align 4
-  %2 = load i64, ptr %offset_sec.addr, align 8
-  %call = call i32 @julian_adj(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %time_jd, ptr noundef %time_sec)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @OPENSSL_gmtime_adj(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store i32 %1, ptr %6, align 4, !tbaa !13
+  store i64 %2, ptr %7, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %14 = load ptr, ptr %5, align 8, !tbaa !11
+  %15 = load i32, ptr %6, align 4, !tbaa !13
+  %16 = load i64, ptr %7, align 8, !tbaa !15
+  %17 = call i32 @julian_adj(ptr noundef %14, i32 noundef %15, i64 noundef %16, ptr noundef %12, ptr noundef %8)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %20, label %19
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %53
 
-if.end:                                           ; preds = %entry
-  %3 = load i64, ptr %time_jd, align 8
-  call void @julian_to_date(i64 noundef %3, ptr noundef %time_year, ptr noundef %time_month, ptr noundef %time_day)
-  %4 = load i32, ptr %time_year, align 4
-  %cmp = icmp slt i32 %4, 1900
-  br i1 %cmp, label %if.then2, label %lor.lhs.false
+20:                                               ; preds = %3
+  %21 = load i64, ptr %12, align 8, !tbaa !15
+  call void @julian_to_date(i64 noundef %21, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %22 = load i32, ptr %9, align 4, !tbaa !13
+  %23 = icmp slt i32 %22, 1900
+  br i1 %23, label %27, label %24
 
-lor.lhs.false:                                    ; preds = %if.end
-  %5 = load i32, ptr %time_year, align 4
-  %cmp1 = icmp sgt i32 %5, 9999
-  br i1 %cmp1, label %if.then2, label %if.end3
+24:                                               ; preds = %20
+  %25 = load i32, ptr %9, align 4, !tbaa !13
+  %26 = icmp sgt i32 %25, 9999
+  br i1 %26, label %27, label %28
 
-if.then2:                                         ; preds = %lor.lhs.false, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %24, %20
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %53
 
-if.end3:                                          ; preds = %lor.lhs.false
-  %6 = load i32, ptr %time_year, align 4
-  %sub = sub nsw i32 %6, 1900
-  %7 = load ptr, ptr %tm.addr, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 5
-  store i32 %sub, ptr %tm_year, align 4
-  %8 = load i32, ptr %time_month, align 4
-  %sub4 = sub nsw i32 %8, 1
-  %9 = load ptr, ptr %tm.addr, align 8
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %9, i32 0, i32 4
-  store i32 %sub4, ptr %tm_mon, align 8
-  %10 = load i32, ptr %time_day, align 4
-  %11 = load ptr, ptr %tm.addr, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %11, i32 0, i32 3
-  store i32 %10, ptr %tm_mday, align 4
-  %12 = load i32, ptr %time_sec, align 4
-  %div = sdiv i32 %12, 3600
-  %13 = load ptr, ptr %tm.addr, align 8
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %13, i32 0, i32 2
-  store i32 %div, ptr %tm_hour, align 8
-  %14 = load i32, ptr %time_sec, align 4
-  %div5 = sdiv i32 %14, 60
-  %rem = srem i32 %div5, 60
-  %15 = load ptr, ptr %tm.addr, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %15, i32 0, i32 1
-  store i32 %rem, ptr %tm_min, align 4
-  %16 = load i32, ptr %time_sec, align 4
-  %rem6 = srem i32 %16, 60
-  %17 = load ptr, ptr %tm.addr, align 8
-  %tm_sec = getelementptr inbounds %struct.tm, ptr %17, i32 0, i32 0
-  store i32 %rem6, ptr %tm_sec, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %24
+  %29 = load i32, ptr %9, align 4, !tbaa !13
+  %30 = sub nsw i32 %29, 1900
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.tm, ptr %31, i32 0, i32 5
+  store i32 %30, ptr %32, align 4, !tbaa !17
+  %33 = load i32, ptr %10, align 4, !tbaa !13
+  %34 = sub nsw i32 %33, 1
+  %35 = load ptr, ptr %5, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.tm, ptr %35, i32 0, i32 4
+  store i32 %34, ptr %36, align 8, !tbaa !20
+  %37 = load i32, ptr %11, align 4, !tbaa !13
+  %38 = load ptr, ptr %5, align 8, !tbaa !11
+  %39 = getelementptr inbounds nuw %struct.tm, ptr %38, i32 0, i32 3
+  store i32 %37, ptr %39, align 4, !tbaa !21
+  %40 = load i32, ptr %8, align 4, !tbaa !13
+  %41 = sdiv i32 %40, 3600
+  %42 = load ptr, ptr %5, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %struct.tm, ptr %42, i32 0, i32 2
+  store i32 %41, ptr %43, align 8, !tbaa !22
+  %44 = load i32, ptr %8, align 4, !tbaa !13
+  %45 = sdiv i32 %44, 60
+  %46 = srem i32 %45, 60
+  %47 = load ptr, ptr %5, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.tm, ptr %47, i32 0, i32 1
+  store i32 %46, ptr %48, align 4, !tbaa !23
+  %49 = load i32, ptr %8, align 4, !tbaa !13
+  %50 = srem i32 %49, 60
+  %51 = load ptr, ptr %5, align 8, !tbaa !11
+  %52 = getelementptr inbounds nuw %struct.tm, ptr %51, i32 0, i32 0
+  store i32 %50, ptr %52, align 8, !tbaa !24
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %53
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+53:                                               ; preds = %28, %27, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %54 = load i32, ptr %4, align 4
+  ret i32 %54
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @julian_adj(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !11
+  store i32 %1, ptr %8, align 4, !tbaa !13
+  store i64 %2, ptr %9, align 8, !tbaa !15
+  store ptr %3, ptr %10, align 8, !tbaa !6
+  store ptr %4, ptr %11, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  %19 = load i64, ptr %9, align 8, !tbaa !15
+  %20 = sdiv i64 %19, 86400
+  %21 = trunc i64 %20 to i32
+  store i32 %21, ptr %13, align 4, !tbaa !13
+  %22 = load i64, ptr %9, align 8, !tbaa !15
+  %23 = load i32, ptr %13, align 4, !tbaa !13
+  %24 = mul nsw i32 %23, 86400
+  %25 = sext i32 %24 to i64
+  %26 = sub nsw i64 %22, %25
+  %27 = trunc i64 %26 to i32
+  store i32 %27, ptr %12, align 4, !tbaa !13
+  %28 = load i32, ptr %8, align 4, !tbaa !13
+  %29 = load i32, ptr %13, align 4, !tbaa !13
+  %30 = add nsw i32 %29, %28
+  store i32 %30, ptr %13, align 4, !tbaa !13
+  %31 = load ptr, ptr %7, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.tm, ptr %31, i32 0, i32 2
+  %33 = load i32, ptr %32, align 8, !tbaa !22
+  %34 = mul nsw i32 %33, 3600
+  %35 = load ptr, ptr %7, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.tm, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 4, !tbaa !23
+  %38 = mul nsw i32 %37, 60
+  %39 = add nsw i32 %34, %38
+  %40 = load ptr, ptr %7, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.tm, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %41, align 8, !tbaa !24
+  %43 = add nsw i32 %39, %42
+  %44 = load i32, ptr %12, align 4, !tbaa !13
+  %45 = add nsw i32 %44, %43
+  store i32 %45, ptr %12, align 4, !tbaa !13
+  %46 = load i32, ptr %12, align 4, !tbaa !13
+  %47 = icmp sge i32 %46, 86400
+  br i1 %47, label %48, label %53
+
+48:                                               ; preds = %5
+  %49 = load i32, ptr %13, align 4, !tbaa !13
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %13, align 4, !tbaa !13
+  %51 = load i32, ptr %12, align 4, !tbaa !13
+  %52 = sub nsw i32 %51, 86400
+  store i32 %52, ptr %12, align 4, !tbaa !13
+  br label %62
+
+53:                                               ; preds = %5
+  %54 = load i32, ptr %12, align 4, !tbaa !13
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %56, label %61
+
+56:                                               ; preds = %53
+  %57 = load i32, ptr %13, align 4, !tbaa !13
+  %58 = add nsw i32 %57, -1
+  store i32 %58, ptr %13, align 4, !tbaa !13
+  %59 = load i32, ptr %12, align 4, !tbaa !13
+  %60 = add nsw i32 %59, 86400
+  store i32 %60, ptr %12, align 4, !tbaa !13
+  br label %61
+
+61:                                               ; preds = %56, %53
+  br label %62
+
+62:                                               ; preds = %61, %48
+  %63 = load ptr, ptr %7, align 8, !tbaa !11
+  %64 = getelementptr inbounds nuw %struct.tm, ptr %63, i32 0, i32 5
+  %65 = load i32, ptr %64, align 4, !tbaa !17
+  %66 = add nsw i32 %65, 1900
+  store i32 %66, ptr %15, align 4, !tbaa !13
+  %67 = load ptr, ptr %7, align 8, !tbaa !11
+  %68 = getelementptr inbounds nuw %struct.tm, ptr %67, i32 0, i32 4
+  %69 = load i32, ptr %68, align 8, !tbaa !20
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %16, align 4, !tbaa !13
+  %71 = load ptr, ptr %7, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %struct.tm, ptr %71, i32 0, i32 3
+  %73 = load i32, ptr %72, align 4, !tbaa !21
+  store i32 %73, ptr %17, align 4, !tbaa !13
+  %74 = load i32, ptr %15, align 4, !tbaa !13
+  %75 = load i32, ptr %16, align 4, !tbaa !13
+  %76 = load i32, ptr %17, align 4, !tbaa !13
+  %77 = call i64 @date_to_julian(i32 noundef %74, i32 noundef %75, i32 noundef %76)
+  store i64 %77, ptr %14, align 8, !tbaa !15
+  %78 = load i32, ptr %13, align 4, !tbaa !13
+  %79 = sext i32 %78 to i64
+  %80 = load i64, ptr %14, align 8, !tbaa !15
+  %81 = add nsw i64 %80, %79
+  store i64 %81, ptr %14, align 8, !tbaa !15
+  %82 = load i64, ptr %14, align 8, !tbaa !15
+  %83 = icmp slt i64 %82, 0
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %62
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %90
+
+85:                                               ; preds = %62
+  %86 = load i64, ptr %14, align 8, !tbaa !15
+  %87 = load ptr, ptr %10, align 8, !tbaa !6
+  store i64 %86, ptr %87, align 8, !tbaa !15
+  %88 = load i32, ptr %12, align 4, !tbaa !13
+  %89 = load ptr, ptr %11, align 8, !tbaa !25
+  store i32 %88, ptr %89, align 4, !tbaa !13
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %90
+
+90:                                               ; preds = %85, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %91 = load i32, ptr %6, align 4
+  ret i32 %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @julian_adj(ptr noundef %tm, i32 noundef %off_day, i64 noundef %offset_sec, ptr noundef %pday, ptr noundef %psec) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %tm.addr = alloca ptr, align 8
-  %off_day.addr = alloca i32, align 4
-  %offset_sec.addr = alloca i64, align 8
-  %pday.addr = alloca ptr, align 8
-  %psec.addr = alloca ptr, align 8
-  %offset_hms = alloca i32, align 4
-  %offset_day = alloca i32, align 4
-  %time_jd = alloca i64, align 8
-  %time_year = alloca i32, align 4
-  %time_month = alloca i32, align 4
-  %time_day = alloca i32, align 4
-  store ptr %tm, ptr %tm.addr, align 8
-  store i32 %off_day, ptr %off_day.addr, align 4
-  store i64 %offset_sec, ptr %offset_sec.addr, align 8
-  store ptr %pday, ptr %pday.addr, align 8
-  store ptr %psec, ptr %psec.addr, align 8
-  %0 = load i64, ptr %offset_sec.addr, align 8
-  %div = sdiv i64 %0, 86400
-  %conv = trunc i64 %div to i32
-  store i32 %conv, ptr %offset_day, align 4
-  %1 = load i64, ptr %offset_sec.addr, align 8
-  %2 = load i32, ptr %offset_day, align 4
-  %mul = mul nsw i32 %2, 86400
-  %conv1 = sext i32 %mul to i64
-  %sub = sub nsw i64 %1, %conv1
-  %conv2 = trunc i64 %sub to i32
-  store i32 %conv2, ptr %offset_hms, align 4
-  %3 = load i32, ptr %off_day.addr, align 4
-  %4 = load i32, ptr %offset_day, align 4
-  %add = add nsw i32 %4, %3
-  store i32 %add, ptr %offset_day, align 4
-  %5 = load ptr, ptr %tm.addr, align 8
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %tm_hour, align 8
-  %mul3 = mul nsw i32 %6, 3600
-  %7 = load ptr, ptr %tm.addr, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %tm_min, align 4
-  %mul4 = mul nsw i32 %8, 60
-  %add5 = add nsw i32 %mul3, %mul4
-  %9 = load ptr, ptr %tm.addr, align 8
-  %tm_sec = getelementptr inbounds %struct.tm, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %tm_sec, align 8
-  %add6 = add nsw i32 %add5, %10
-  %11 = load i32, ptr %offset_hms, align 4
-  %add7 = add nsw i32 %11, %add6
-  store i32 %add7, ptr %offset_hms, align 4
-  %12 = load i32, ptr %offset_hms, align 4
-  %cmp = icmp sge i32 %12, 86400
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %13 = load i32, ptr %offset_day, align 4
-  %inc = add nsw i32 %13, 1
-  store i32 %inc, ptr %offset_day, align 4
-  %14 = load i32, ptr %offset_hms, align 4
-  %sub9 = sub nsw i32 %14, 86400
-  store i32 %sub9, ptr %offset_hms, align 4
-  br label %if.end14
-
-if.else:                                          ; preds = %entry
-  %15 = load i32, ptr %offset_hms, align 4
-  %cmp10 = icmp slt i32 %15, 0
-  br i1 %cmp10, label %if.then12, label %if.end
-
-if.then12:                                        ; preds = %if.else
-  %16 = load i32, ptr %offset_day, align 4
-  %dec = add nsw i32 %16, -1
-  store i32 %dec, ptr %offset_day, align 4
-  %17 = load i32, ptr %offset_hms, align 4
-  %add13 = add nsw i32 %17, 86400
-  store i32 %add13, ptr %offset_hms, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then12, %if.else
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.end, %if.then
-  %18 = load ptr, ptr %tm.addr, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %18, i32 0, i32 5
-  %19 = load i32, ptr %tm_year, align 4
-  %add15 = add nsw i32 %19, 1900
-  store i32 %add15, ptr %time_year, align 4
-  %20 = load ptr, ptr %tm.addr, align 8
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %20, i32 0, i32 4
-  %21 = load i32, ptr %tm_mon, align 8
-  %add16 = add nsw i32 %21, 1
-  store i32 %add16, ptr %time_month, align 4
-  %22 = load ptr, ptr %tm.addr, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %22, i32 0, i32 3
-  %23 = load i32, ptr %tm_mday, align 4
-  store i32 %23, ptr %time_day, align 4
-  %24 = load i32, ptr %time_year, align 4
-  %25 = load i32, ptr %time_month, align 4
-  %26 = load i32, ptr %time_day, align 4
-  %call = call i64 @date_to_julian(i32 noundef %24, i32 noundef %25, i32 noundef %26)
-  store i64 %call, ptr %time_jd, align 8
-  %27 = load i32, ptr %offset_day, align 4
-  %conv17 = sext i32 %27 to i64
-  %28 = load i64, ptr %time_jd, align 8
-  %add18 = add nsw i64 %28, %conv17
-  store i64 %add18, ptr %time_jd, align 8
-  %29 = load i64, ptr %time_jd, align 8
-  %cmp19 = icmp slt i64 %29, 0
-  br i1 %cmp19, label %if.then21, label %if.end22
-
-if.then21:                                        ; preds = %if.end14
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end22:                                         ; preds = %if.end14
-  %30 = load i64, ptr %time_jd, align 8
-  %31 = load ptr, ptr %pday.addr, align 8
-  store i64 %30, ptr %31, align 8
-  %32 = load i32, ptr %offset_hms, align 4
-  %33 = load ptr, ptr %psec.addr, align 8
-  store i32 %32, ptr %33, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end22, %if.then21
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @julian_to_date(i64 noundef %jd, ptr noundef %y, ptr noundef %m, ptr noundef %d) #0 {
-entry:
-  %jd.addr = alloca i64, align 8
-  %y.addr = alloca ptr, align 8
-  %m.addr = alloca ptr, align 8
-  %d.addr = alloca ptr, align 8
-  %L = alloca i64, align 8
-  %n = alloca i64, align 8
-  %i = alloca i64, align 8
-  %j = alloca i64, align 8
-  store i64 %jd, ptr %jd.addr, align 8
-  store ptr %y, ptr %y.addr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  store ptr %d, ptr %d.addr, align 8
-  %0 = load i64, ptr %jd.addr, align 8
-  %add = add nsw i64 %0, 68569
-  store i64 %add, ptr %L, align 8
-  %1 = load i64, ptr %L, align 8
-  %mul = mul nsw i64 4, %1
-  %div = sdiv i64 %mul, 146097
-  store i64 %div, ptr %n, align 8
-  %2 = load i64, ptr %L, align 8
-  %3 = load i64, ptr %n, align 8
-  %mul1 = mul nsw i64 146097, %3
-  %add2 = add nsw i64 %mul1, 3
-  %div3 = sdiv i64 %add2, 4
-  %sub = sub nsw i64 %2, %div3
-  store i64 %sub, ptr %L, align 8
-  %4 = load i64, ptr %L, align 8
-  %add4 = add nsw i64 %4, 1
-  %mul5 = mul nsw i64 4000, %add4
-  %div6 = sdiv i64 %mul5, 1461001
-  store i64 %div6, ptr %i, align 8
-  %5 = load i64, ptr %L, align 8
-  %6 = load i64, ptr %i, align 8
-  %mul7 = mul nsw i64 1461, %6
-  %div8 = sdiv i64 %mul7, 4
-  %sub9 = sub nsw i64 %5, %div8
-  %add10 = add nsw i64 %sub9, 31
-  store i64 %add10, ptr %L, align 8
-  %7 = load i64, ptr %L, align 8
-  %mul11 = mul nsw i64 80, %7
-  %div12 = sdiv i64 %mul11, 2447
-  store i64 %div12, ptr %j, align 8
-  %8 = load i64, ptr %L, align 8
-  %9 = load i64, ptr %j, align 8
-  %mul13 = mul nsw i64 2447, %9
-  %div14 = sdiv i64 %mul13, 80
-  %sub15 = sub nsw i64 %8, %div14
-  %conv = trunc i64 %sub15 to i32
-  %10 = load ptr, ptr %d.addr, align 8
-  store i32 %conv, ptr %10, align 4
-  %11 = load i64, ptr %j, align 8
-  %div16 = sdiv i64 %11, 11
-  store i64 %div16, ptr %L, align 8
-  %12 = load i64, ptr %j, align 8
-  %add17 = add nsw i64 %12, 2
-  %13 = load i64, ptr %L, align 8
-  %mul18 = mul nsw i64 12, %13
-  %sub19 = sub nsw i64 %add17, %mul18
-  %conv20 = trunc i64 %sub19 to i32
-  %14 = load ptr, ptr %m.addr, align 8
-  store i32 %conv20, ptr %14, align 4
-  %15 = load i64, ptr %n, align 8
-  %sub21 = sub nsw i64 %15, 49
-  %mul22 = mul nsw i64 100, %sub21
-  %16 = load i64, ptr %i, align 8
-  %add23 = add nsw i64 %mul22, %16
-  %17 = load i64, ptr %L, align 8
-  %add24 = add nsw i64 %add23, %17
-  %conv25 = trunc i64 %add24 to i32
-  %18 = load ptr, ptr %y.addr, align 8
-  store i32 %conv25, ptr %18, align 4
+define internal void @julian_to_date(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  store i64 %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !25
+  store ptr %2, ptr %7, align 8, !tbaa !25
+  store ptr %3, ptr %8, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %13 = load i64, ptr %5, align 8, !tbaa !15
+  %14 = add nsw i64 %13, 68569
+  store i64 %14, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  %15 = load i64, ptr %9, align 8, !tbaa !15
+  %16 = mul nsw i64 4, %15
+  %17 = sdiv i64 %16, 146097
+  store i64 %17, ptr %10, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %18 = load i64, ptr %9, align 8, !tbaa !15
+  %19 = load i64, ptr %10, align 8, !tbaa !15
+  %20 = mul nsw i64 146097, %19
+  %21 = add nsw i64 %20, 3
+  %22 = sdiv i64 %21, 4
+  %23 = sub nsw i64 %18, %22
+  store i64 %23, ptr %9, align 8, !tbaa !15
+  %24 = load i64, ptr %9, align 8, !tbaa !15
+  %25 = add nsw i64 %24, 1
+  %26 = mul nsw i64 4000, %25
+  %27 = sdiv i64 %26, 1461001
+  store i64 %27, ptr %11, align 8, !tbaa !15
+  %28 = load i64, ptr %9, align 8, !tbaa !15
+  %29 = load i64, ptr %11, align 8, !tbaa !15
+  %30 = mul nsw i64 1461, %29
+  %31 = sdiv i64 %30, 4
+  %32 = sub nsw i64 %28, %31
+  %33 = add nsw i64 %32, 31
+  store i64 %33, ptr %9, align 8, !tbaa !15
+  %34 = load i64, ptr %9, align 8, !tbaa !15
+  %35 = mul nsw i64 80, %34
+  %36 = sdiv i64 %35, 2447
+  store i64 %36, ptr %12, align 8, !tbaa !15
+  %37 = load i64, ptr %9, align 8, !tbaa !15
+  %38 = load i64, ptr %12, align 8, !tbaa !15
+  %39 = mul nsw i64 2447, %38
+  %40 = sdiv i64 %39, 80
+  %41 = sub nsw i64 %37, %40
+  %42 = trunc i64 %41 to i32
+  %43 = load ptr, ptr %8, align 8, !tbaa !25
+  store i32 %42, ptr %43, align 4, !tbaa !13
+  %44 = load i64, ptr %12, align 8, !tbaa !15
+  %45 = sdiv i64 %44, 11
+  store i64 %45, ptr %9, align 8, !tbaa !15
+  %46 = load i64, ptr %12, align 8, !tbaa !15
+  %47 = add nsw i64 %46, 2
+  %48 = load i64, ptr %9, align 8, !tbaa !15
+  %49 = mul nsw i64 12, %48
+  %50 = sub nsw i64 %47, %49
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %7, align 8, !tbaa !25
+  store i32 %51, ptr %52, align 4, !tbaa !13
+  %53 = load i64, ptr %10, align 8, !tbaa !15
+  %54 = sub nsw i64 %53, 49
+  %55 = mul nsw i64 100, %54
+  %56 = load i64, ptr %11, align 8, !tbaa !15
+  %57 = add nsw i64 %55, %56
+  %58 = load i64, ptr %9, align 8, !tbaa !15
+  %59 = add nsw i64 %57, %58
+  %60 = trunc i64 %59 to i32
+  %61 = load ptr, ptr %6, align 8, !tbaa !25
+  store i32 %60, ptr %61, align 4, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define hidden i32 @OPENSSL_gmtime_diff(ptr noundef %pday, ptr noundef %psec, ptr noundef %from, ptr noundef %to) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %pday.addr = alloca ptr, align 8
-  %psec.addr = alloca ptr, align 8
-  %from.addr = alloca ptr, align 8
-  %to.addr = alloca ptr, align 8
-  %from_sec = alloca i32, align 4
-  %to_sec = alloca i32, align 4
-  %diff_sec = alloca i32, align 4
-  %from_jd = alloca i64, align 8
-  %to_jd = alloca i64, align 8
-  %diff_day = alloca i64, align 8
-  store ptr %pday, ptr %pday.addr, align 8
-  store ptr %psec, ptr %psec.addr, align 8
-  store ptr %from, ptr %from.addr, align 8
-  store ptr %to, ptr %to.addr, align 8
-  %0 = load ptr, ptr %from.addr, align 8
-  %call = call i32 @julian_adj(ptr noundef %0, i32 noundef 0, i64 noundef 0, ptr noundef %from_jd, ptr noundef %from_sec)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @OPENSSL_gmtime_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !25
+  store ptr %1, ptr %7, align 8, !tbaa !25
+  store ptr %2, ptr %8, align 8, !tbaa !11
+  store ptr %3, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %17 = load ptr, ptr %8, align 8, !tbaa !11
+  %18 = call i32 @julian_adj(ptr noundef %17, i32 noundef 0, i64 noundef 0, ptr noundef %13, ptr noundef %10)
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %4
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %68
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %to.addr, align 8
-  %call1 = call i32 @julian_adj(ptr noundef %1, i32 noundef 0, i64 noundef 0, ptr noundef %to_jd, ptr noundef %to_sec)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %if.end4, label %if.then3
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %9, align 8, !tbaa !11
+  %23 = call i32 @julian_adj(ptr noundef %22, i32 noundef 0, i64 noundef 0, ptr noundef %14, ptr noundef %11)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %26, label %25
 
-if.then3:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %21
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %68
 
-if.end4:                                          ; preds = %if.end
-  %2 = load i64, ptr %to_jd, align 8
-  %3 = load i64, ptr %from_jd, align 8
-  %sub = sub nsw i64 %2, %3
-  store i64 %sub, ptr %diff_day, align 8
-  %4 = load i32, ptr %to_sec, align 4
-  %5 = load i32, ptr %from_sec, align 4
-  %sub5 = sub nsw i32 %4, %5
-  store i32 %sub5, ptr %diff_sec, align 4
-  %6 = load i64, ptr %diff_day, align 8
-  %cmp = icmp sgt i64 %6, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end8
+26:                                               ; preds = %21
+  %27 = load i64, ptr %14, align 8, !tbaa !15
+  %28 = load i64, ptr %13, align 8, !tbaa !15
+  %29 = sub nsw i64 %27, %28
+  store i64 %29, ptr %15, align 8, !tbaa !15
+  %30 = load i32, ptr %11, align 4, !tbaa !13
+  %31 = load i32, ptr %10, align 4, !tbaa !13
+  %32 = sub nsw i32 %30, %31
+  store i32 %32, ptr %12, align 4, !tbaa !13
+  %33 = load i64, ptr %15, align 8, !tbaa !15
+  %34 = icmp sgt i64 %33, 0
+  br i1 %34, label %35, label %43
 
-land.lhs.true:                                    ; preds = %if.end4
-  %7 = load i32, ptr %diff_sec, align 4
-  %cmp6 = icmp slt i32 %7, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+35:                                               ; preds = %26
+  %36 = load i32, ptr %12, align 4, !tbaa !13
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %38, label %43
 
-if.then7:                                         ; preds = %land.lhs.true
-  %8 = load i64, ptr %diff_day, align 8
-  %dec = add nsw i64 %8, -1
-  store i64 %dec, ptr %diff_day, align 8
-  %9 = load i32, ptr %diff_sec, align 4
-  %add = add nsw i32 %9, 86400
-  store i32 %add, ptr %diff_sec, align 4
-  br label %if.end8
+38:                                               ; preds = %35
+  %39 = load i64, ptr %15, align 8, !tbaa !15
+  %40 = add nsw i64 %39, -1
+  store i64 %40, ptr %15, align 8, !tbaa !15
+  %41 = load i32, ptr %12, align 4, !tbaa !13
+  %42 = add nsw i32 %41, 86400
+  store i32 %42, ptr %12, align 4, !tbaa !13
+  br label %43
 
-if.end8:                                          ; preds = %if.then7, %land.lhs.true, %if.end4
-  %10 = load i64, ptr %diff_day, align 8
-  %cmp9 = icmp slt i64 %10, 0
-  br i1 %cmp9, label %land.lhs.true10, label %if.end14
+43:                                               ; preds = %38, %35, %26
+  %44 = load i64, ptr %15, align 8, !tbaa !15
+  %45 = icmp slt i64 %44, 0
+  br i1 %45, label %46, label %54
 
-land.lhs.true10:                                  ; preds = %if.end8
-  %11 = load i32, ptr %diff_sec, align 4
-  %cmp11 = icmp sgt i32 %11, 0
-  br i1 %cmp11, label %if.then12, label %if.end14
+46:                                               ; preds = %43
+  %47 = load i32, ptr %12, align 4, !tbaa !13
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %54
 
-if.then12:                                        ; preds = %land.lhs.true10
-  %12 = load i64, ptr %diff_day, align 8
-  %inc = add nsw i64 %12, 1
-  store i64 %inc, ptr %diff_day, align 8
-  %13 = load i32, ptr %diff_sec, align 4
-  %sub13 = sub nsw i32 %13, 86400
-  store i32 %sub13, ptr %diff_sec, align 4
-  br label %if.end14
+49:                                               ; preds = %46
+  %50 = load i64, ptr %15, align 8, !tbaa !15
+  %51 = add nsw i64 %50, 1
+  store i64 %51, ptr %15, align 8, !tbaa !15
+  %52 = load i32, ptr %12, align 4, !tbaa !13
+  %53 = sub nsw i32 %52, 86400
+  store i32 %53, ptr %12, align 4, !tbaa !13
+  br label %54
 
-if.end14:                                         ; preds = %if.then12, %land.lhs.true10, %if.end8
-  %14 = load ptr, ptr %pday.addr, align 8
-  %tobool15 = icmp ne ptr %14, null
-  br i1 %tobool15, label %if.then16, label %if.end17
+54:                                               ; preds = %49, %46, %43
+  %55 = load ptr, ptr %6, align 8, !tbaa !25
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %61
 
-if.then16:                                        ; preds = %if.end14
-  %15 = load i64, ptr %diff_day, align 8
-  %conv = trunc i64 %15 to i32
-  %16 = load ptr, ptr %pday.addr, align 8
-  store i32 %conv, ptr %16, align 4
-  br label %if.end17
+57:                                               ; preds = %54
+  %58 = load i64, ptr %15, align 8, !tbaa !15
+  %59 = trunc i64 %58 to i32
+  %60 = load ptr, ptr %6, align 8, !tbaa !25
+  store i32 %59, ptr %60, align 4, !tbaa !13
+  br label %61
 
-if.end17:                                         ; preds = %if.then16, %if.end14
-  %17 = load ptr, ptr %psec.addr, align 8
-  %tobool18 = icmp ne ptr %17, null
-  br i1 %tobool18, label %if.then19, label %if.end20
+61:                                               ; preds = %57, %54
+  %62 = load ptr, ptr %7, align 8, !tbaa !25
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %67
 
-if.then19:                                        ; preds = %if.end17
-  %18 = load i32, ptr %diff_sec, align 4
-  %19 = load ptr, ptr %psec.addr, align 8
-  store i32 %18, ptr %19, align 4
-  br label %if.end20
+64:                                               ; preds = %61
+  %65 = load i32, ptr %12, align 4, !tbaa !13
+  %66 = load ptr, ptr %7, align 8, !tbaa !25
+  store i32 %65, ptr %66, align 4, !tbaa !13
+  br label %67
 
-if.end20:                                         ; preds = %if.then19, %if.end17
-  store i32 1, ptr %retval, align 4
-  br label %return
+67:                                               ; preds = %64, %61
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %68
 
-return:                                           ; preds = %if.end20, %if.then3, %if.then
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+68:                                               ; preds = %67, %25, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %69 = load i32, ptr %5, align 4
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @date_to_julian(i32 noundef %y, i32 noundef %m, i32 noundef %d) #0 {
-entry:
-  %y.addr = alloca i32, align 4
-  %m.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  store i32 %y, ptr %y.addr, align 4
-  store i32 %m, ptr %m.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  %0 = load i32, ptr %y.addr, align 4
-  %add = add nsw i32 %0, 4800
-  %1 = load i32, ptr %m.addr, align 4
-  %sub = sub nsw i32 %1, 14
-  %div = sdiv i32 %sub, 12
-  %add1 = add nsw i32 %add, %div
-  %mul = mul nsw i32 1461, %add1
-  %div2 = sdiv i32 %mul, 4
-  %2 = load i32, ptr %m.addr, align 4
-  %sub3 = sub nsw i32 %2, 2
-  %3 = load i32, ptr %m.addr, align 4
-  %sub4 = sub nsw i32 %3, 14
-  %div5 = sdiv i32 %sub4, 12
-  %mul6 = mul nsw i32 12, %div5
-  %sub7 = sub nsw i32 %sub3, %mul6
-  %mul8 = mul nsw i32 367, %sub7
-  %div9 = sdiv i32 %mul8, 12
-  %add10 = add nsw i32 %div2, %div9
-  %4 = load i32, ptr %y.addr, align 4
-  %add11 = add nsw i32 %4, 4900
-  %5 = load i32, ptr %m.addr, align 4
-  %sub12 = sub nsw i32 %5, 14
-  %div13 = sdiv i32 %sub12, 12
-  %add14 = add nsw i32 %add11, %div13
-  %div15 = sdiv i32 %add14, 100
-  %mul16 = mul nsw i32 3, %div15
-  %div17 = sdiv i32 %mul16, 4
-  %sub18 = sub nsw i32 %add10, %div17
-  %6 = load i32, ptr %d.addr, align 4
-  %add19 = add nsw i32 %sub18, %6
-  %sub20 = sub nsw i32 %add19, 32075
-  %conv = sext i32 %sub20 to i64
-  ret i64 %conv
+define internal i64 @date_to_julian(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !13
+  store i32 %1, ptr %5, align 4, !tbaa !13
+  store i32 %2, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %4, align 4, !tbaa !13
+  %8 = add nsw i32 %7, 4800
+  %9 = load i32, ptr %5, align 4, !tbaa !13
+  %10 = sub nsw i32 %9, 14
+  %11 = sdiv i32 %10, 12
+  %12 = add nsw i32 %8, %11
+  %13 = mul nsw i32 1461, %12
+  %14 = sdiv i32 %13, 4
+  %15 = load i32, ptr %5, align 4, !tbaa !13
+  %16 = sub nsw i32 %15, 2
+  %17 = load i32, ptr %5, align 4, !tbaa !13
+  %18 = sub nsw i32 %17, 14
+  %19 = sdiv i32 %18, 12
+  %20 = mul nsw i32 12, %19
+  %21 = sub nsw i32 %16, %20
+  %22 = mul nsw i32 367, %21
+  %23 = sdiv i32 %22, 12
+  %24 = add nsw i32 %14, %23
+  %25 = load i32, ptr %4, align 4, !tbaa !13
+  %26 = add nsw i32 %25, 4900
+  %27 = load i32, ptr %5, align 4, !tbaa !13
+  %28 = sub nsw i32 %27, 14
+  %29 = sdiv i32 %28, 12
+  %30 = add nsw i32 %26, %29
+  %31 = sdiv i32 %30, 100
+  %32 = mul nsw i32 3, %31
+  %33 = sdiv i32 %32, 4
+  %34 = sub nsw i32 %24, %33
+  %35 = load i32, ptr %6, align 4, !tbaa !13
+  %36 = add nsw i32 %34, %35
+  %37 = sub nsw i32 %36, 32075
+  %38 = sext i32 %37 to i64
+  ret i64 %38
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 long", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS2tm", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !9, i64 0}
+!17 = !{!18, !14, i64 20}
+!18 = !{!"tm", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !16, i64 40, !19, i64 48}
+!19 = !{!"p1 omnipotent char", !8, i64 0}
+!20 = !{!18, !14, i64 16}
+!21 = !{!18, !14, i64 12}
+!22 = !{!18, !14, i64 8}
+!23 = !{!18, !14, i64 4}
+!24 = !{!18, !14, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 int", !8, i64 0}

@@ -1,1270 +1,1292 @@
 ; ModuleID = 'bench/libquic/original/x509_vpm.ll'
 source_filename = "bench/libquic/original/x509_vpm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.X509_VERIFY_PARAM_st = type { ptr, i64, i64, i64, i32, i32, i32, ptr, ptr }
-%struct.X509_VERIFY_PARAM_ID_st = type { ptr, i32, ptr, ptr, i64, ptr, i64 }
 
 @param_table = internal unnamed_addr global ptr null, align 8
-@default_table = internal constant [5 x %struct.X509_VERIFY_PARAM_st] [%struct.X509_VERIFY_PARAM_st { ptr @.str, i64 0, i64 0, i64 0, i32 0, i32 0, i32 100, ptr null, ptr @_empty_id }, %struct.X509_VERIFY_PARAM_st { ptr @.str.1, i64 0, i64 0, i64 0, i32 4, i32 4, i32 -1, ptr null, ptr @_empty_id }, %struct.X509_VERIFY_PARAM_st { ptr @.str.2, i64 0, i64 0, i64 0, i32 4, i32 4, i32 -1, ptr null, ptr @_empty_id }, %struct.X509_VERIFY_PARAM_st { ptr @.str.3, i64 0, i64 0, i64 0, i32 1, i32 2, i32 -1, ptr null, ptr @_empty_id }, %struct.X509_VERIFY_PARAM_st { ptr @.str.4, i64 0, i64 0, i64 0, i32 2, i32 3, i32 -1, ptr null, ptr @_empty_id }], align 16
 @.str = private unnamed_addr constant [8 x i8] c"default\00", align 1
-@_empty_id = internal constant %struct.X509_VERIFY_PARAM_ID_st zeroinitializer, align 8
 @.str.1 = private unnamed_addr constant [6 x i8] c"pkcs7\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"smime_sign\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"ssl_client\00", align 1
 @.str.4 = private unnamed_addr constant [11 x i8] c"ssl_server\00", align 1
+@default_table = internal constant [5 x { ptr, i64, i64, i64, i32, i32, i32, [4 x i8], ptr, ptr }] [{ ptr, i64, i64, i64, i32, i32, i32, [4 x i8], ptr, ptr } { ptr @.str, i64 0, i64 0, i64 0, i32 0, i32 0, i32 100, [4 x i8] zeroinitializer, ptr null, ptr @_empty_id }, { ptr, i64, i64, i64, i32, i32, i32, [4 x i8], ptr, ptr } { ptr @.str.1, i64 0, i64 0, i64 0, i32 4, i32 4, i32 -1, [4 x i8] zeroinitializer, ptr null, ptr @_empty_id }, { ptr, i64, i64, i64, i32, i32, i32, [4 x i8], ptr, ptr } { ptr @.str.2, i64 0, i64 0, i64 0, i32 4, i32 4, i32 -1, [4 x i8] zeroinitializer, ptr null, ptr @_empty_id }, { ptr, i64, i64, i64, i32, i32, i32, [4 x i8], ptr, ptr } { ptr @.str.3, i64 0, i64 0, i64 0, i32 1, i32 2, i32 -1, [4 x i8] zeroinitializer, ptr null, ptr @_empty_id }, { ptr, i64, i64, i64, i32, i32, i32, [4 x i8], ptr, ptr } { ptr @.str.4, i64 0, i64 0, i64 0, i32 2, i32 3, i32 -1, [4 x i8] zeroinitializer, ptr null, ptr @_empty_id }], align 16
+@_empty_id = internal constant { ptr, i32, [4 x i8], ptr, ptr, i64, ptr, i64 } zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
+  %1 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #15
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %7, label %2
 
-if.end:                                           ; preds = %entry
+2:                                                ; preds = %0
   %calloc = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
-  %tobool2.not = icmp eq ptr %calloc, null
-  br i1 %tobool2.not, label %if.then3, label %if.end4
+  %.not12 = icmp eq ptr %calloc, null
+  br i1 %.not12, label %3, label %4
 
-if.then3:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call) #15
-  br label %return
+3:                                                ; preds = %2
+  tail call void @free(ptr noundef nonnull %1) #16
+  br label %7
 
-if.end4:                                          ; preds = %if.end
-  %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
-  %id = getelementptr inbounds nuw i8, ptr %call, i64 56
-  store ptr %calloc, ptr %id, align 8
-  tail call fastcc void @x509_verify_param_zero(ptr noundef %call)
-  br label %return
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 48, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store ptr %calloc, ptr %6, align 8, !tbaa !6
+  tail call fastcc void @x509_verify_param_zero(ptr noundef %1)
+  br label %7
 
-return:                                           ; preds = %entry, %if.end4, %if.then3
-  %retval.0 = phi ptr [ %call, %if.end4 ], [ null, %if.then3 ], [ null, %entry ]
-  ret ptr %retval.0
+7:                                                ; preds = %0, %4, %3
+  %.0 = phi ptr [ %1, %4 ], [ null, %3 ], [ null, %0 ]
+  ret ptr %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x509_verify_param_zero(ptr noundef nonnull captures(none) initializes((0, 8), (16, 44)) %param) unnamed_addr #0 {
-entry:
-  store ptr null, ptr %param, align 8
-  %inh_flags = getelementptr inbounds nuw i8, ptr %param, i64 16
-  %depth = getelementptr inbounds nuw i8, ptr %param, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inh_flags, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %depth, align 8
-  %policies = getelementptr inbounds nuw i8, ptr %param, i64 48
-  %0 = load ptr, ptr %policies, align 8
-  %tobool1.not = icmp eq ptr %0, null
-  br i1 %tobool1.not, label %if.end5, label %if.then2
+define internal fastcc void @x509_verify_param_zero(ptr noundef nonnull captures(none) initializes((0, 8), (16, 44)) %0) unnamed_addr #0 {
+  store ptr null, ptr %0, align 8, !tbaa !16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  store i32 -1, ptr %3, align 8, !tbaa !17
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %7, label %6
 
-if.then2:                                         ; preds = %entry
-  tail call void @sk_pop_free(ptr noundef nonnull %0, ptr noundef nonnull @ASN1_OBJECT_free) #15
-  store ptr null, ptr %policies, align 8
-  br label %if.end5
+6:                                                ; preds = %1
+  tail call void @sk_pop_free(ptr noundef nonnull %5, ptr noundef nonnull @ASN1_OBJECT_free) #16
+  store ptr null, ptr %4, align 8, !tbaa !18
+  br label %7
 
-if.end5:                                          ; preds = %if.then2, %entry
-  %id = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %1 = load ptr, ptr %id, align 8
-  %2 = load ptr, ptr %1, align 8
-  %tobool6.not = icmp eq ptr %2, null
-  br i1 %tobool6.not, label %if.end10, label %if.then7
+7:                                                ; preds = %6, %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = load ptr, ptr %8, align 8, !tbaa !6
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %.not30 = icmp eq ptr %10, null
+  br i1 %.not30, label %12, label %11
 
-if.then7:                                         ; preds = %if.end5
-  tail call void @sk_pop_free(ptr noundef nonnull %2, ptr noundef nonnull @str_free) #15
-  store ptr null, ptr %1, align 8
-  br label %if.end10
+11:                                               ; preds = %7
+  tail call void @sk_pop_free(ptr noundef nonnull %10, ptr noundef nonnull @str_free) #16
+  store ptr null, ptr %9, align 8, !tbaa !19
+  br label %12
 
-if.end10:                                         ; preds = %if.then7, %if.end5
-  %peername = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = load ptr, ptr %peername, align 8
-  %tobool11.not = icmp eq ptr %3, null
-  br i1 %tobool11.not, label %if.end15, label %if.then12
+12:                                               ; preds = %11, %7
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %.not31 = icmp eq ptr %14, null
+  br i1 %.not31, label %16, label %15
 
-if.then12:                                        ; preds = %if.end10
-  tail call void @free(ptr noundef nonnull %3) #15
-  store ptr null, ptr %peername, align 8
-  br label %if.end15
+15:                                               ; preds = %12
+  tail call void @free(ptr noundef nonnull %14) #16
+  store ptr null, ptr %13, align 8, !tbaa !22
+  br label %16
 
-if.end15:                                         ; preds = %if.then12, %if.end10
-  %email = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %email, align 8
-  %tobool16.not = icmp eq ptr %4, null
-  br i1 %tobool16.not, label %if.end20, label %if.then17
+16:                                               ; preds = %15, %12
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %.not32 = icmp eq ptr %18, null
+  br i1 %.not32, label %20, label %19
 
-if.then17:                                        ; preds = %if.end15
-  tail call void @free(ptr noundef nonnull %4) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %email, i8 0, i64 16, i1 false)
-  br label %if.end20
+19:                                               ; preds = %16
+  tail call void @free(ptr noundef nonnull %18) #16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  br label %20
 
-if.end20:                                         ; preds = %if.then17, %if.end15
-  %ip = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %5 = load ptr, ptr %ip, align 8
-  %tobool21.not = icmp eq ptr %5, null
-  br i1 %tobool21.not, label %if.end25, label %if.then22
+20:                                               ; preds = %19, %16
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %.not33 = icmp eq ptr %22, null
+  br i1 %.not33, label %24, label %23
 
-if.then22:                                        ; preds = %if.end20
-  tail call void @free(ptr noundef nonnull %5) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ip, i8 0, i64 16, i1 false)
-  br label %if.end25
+23:                                               ; preds = %20
+  tail call void @free(ptr noundef nonnull %22) #16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  br label %24
 
-if.end25:                                         ; preds = %if.then22, %if.end20
+24:                                               ; preds = %20, %23
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @X509_VERIFY_PARAM_free(ptr noundef captures(address_is_null) %0) #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %6, label %3
+
+3:                                                ; preds = %1
+  tail call fastcc void @x509_verify_param_zero(ptr noundef %0)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  tail call void @free(ptr noundef %5) #16
+  tail call void @free(ptr noundef nonnull %0) #16
+  br label %6
+
+6:                                                ; preds = %1, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_VERIFY_PARAM_free(ptr noundef captures(address_is_null) %param) #0 {
-entry:
-  %cmp = icmp eq ptr %param, null
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %3
 
-if.end:                                           ; preds = %entry
-  tail call fastcc void @x509_verify_param_zero(ptr noundef %param)
-  %id = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %0 = load ptr, ptr %id, align 8
-  tail call void @free(ptr noundef %0) #15
-  tail call void @free(ptr noundef nonnull %param) #15
-  br label %return
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !tbaa !25
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %10 = or i64 %9, %7
+  %11 = and i64 %10, 16
+  %.not74 = icmp eq i64 %11, 0
+  br i1 %.not74, label %13, label %12
 
-return:                                           ; preds = %entry, %if.end
-  ret void
-}
+12:                                               ; preds = %3
+  store i64 0, ptr %6, align 8, !tbaa !25
+  br label %13
 
-; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef captures(address_is_null) %dest, ptr noundef readonly captures(address_is_null) %src) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %src, null
-  br i1 %tobool.not, label %return, label %if.end
+13:                                               ; preds = %12, %3
+  %14 = and i64 %10, 8
+  %.not75 = icmp eq i64 %14, 0
+  br i1 %.not75, label %15, label %X509_VERIFY_PARAM_set1_email.exit.thread
 
-if.end:                                           ; preds = %entry
-  %id1 = getelementptr inbounds nuw i8, ptr %src, i64 56
-  %0 = load ptr, ptr %id1, align 8
-  %inh_flags2 = getelementptr inbounds nuw i8, ptr %dest, i64 16
-  %1 = load i64, ptr %inh_flags2, align 8
-  %inh_flags3 = getelementptr inbounds nuw i8, ptr %src, i64 16
-  %2 = load i64, ptr %inh_flags3, align 8
-  %or = or i64 %2, %1
-  %and = and i64 %or, 16
-  %tobool4.not = icmp eq i64 %and, 0
-  br i1 %tobool4.not, label %if.end7, label %if.then5
+15:                                               ; preds = %13
+  %16 = and i64 %10, 1
+  %.not76 = icmp eq i64 %16, 0
+  %17 = and i64 %10, 2
+  %.not77 = icmp eq i64 %17, 0
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = load i32, ptr %18, align 8, !tbaa !26
+  br i1 %.not77, label %20, label %46
 
-if.then5:                                         ; preds = %if.end
-  store i64 0, ptr %inh_flags2, align 8
-  br label %if.end7
+20:                                               ; preds = %15
+  %.not79 = icmp eq i32 %19, 0
+  br i1 %.not79, label %.thread, label %21
 
-if.end7:                                          ; preds = %if.then5, %if.end
-  %and8 = and i64 %or, 8
-  %tobool9.not = icmp eq i64 %and8, 0
-  br i1 %tobool9.not, label %if.end11, label %return
+21:                                               ; preds = %20
+  br i1 %.not76, label %22, label %.thread108
 
-if.end11:                                         ; preds = %if.end7
-  %and12 = and i64 %or, 1
-  %tobool13.not = icmp eq i64 %and12, 0
-  %and16 = and i64 %or, 2
-  %tobool17.not = icmp eq i64 %and16, 0
-  %purpose = getelementptr inbounds nuw i8, ptr %src, i64 32
-  %3 = load i32, ptr %purpose, align 8
-  br i1 %tobool17.not, label %lor.lhs.false, label %if.end53
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = load i32, ptr %23, align 8, !tbaa !26
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %.thread108, label %.thread.thread
 
-lor.lhs.false:                                    ; preds = %if.end11
-  %cmp.not = icmp eq i32 %3, 0
-  br i1 %cmp.not, label %lor.lhs.false31, label %land.lhs.true
+.thread108:                                       ; preds = %21, %22
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %19, ptr %26, align 8, !tbaa !26
+  br label %.thread
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  br i1 %tobool13.not, label %lor.lhs.false23, label %if.end29.thread85
+.thread:                                          ; preds = %20, %.thread108
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %28 = load i32, ptr %27, align 4, !tbaa !27
+  %.not81 = icmp eq i32 %28, 0
+  br i1 %.not81, label %.thread110, label %31
 
-lor.lhs.false23:                                  ; preds = %land.lhs.true
-  %purpose24 = getelementptr inbounds nuw i8, ptr %dest, i64 32
-  %4 = load i32, ptr %purpose24, align 8
-  %cmp25 = icmp eq i32 %4, 0
-  br i1 %cmp25, label %if.end29.thread85, label %lor.lhs.false31.thread
+.thread.thread:                                   ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %30 = load i32, ptr %29, align 4, !tbaa !27
+  %.not81130 = icmp eq i32 %30, 0
+  br i1 %.not81130, label %.thread110, label %.thread131
 
-if.end29.thread85:                                ; preds = %land.lhs.true, %lor.lhs.false23
-  %purpose2887 = getelementptr inbounds nuw i8, ptr %dest, i64 32
-  store i32 %3, ptr %purpose2887, align 8
-  br label %lor.lhs.false31
+31:                                               ; preds = %.thread
+  br i1 %.not76, label %.thread131, label %.thread112
 
-lor.lhs.false31:                                  ; preds = %lor.lhs.false, %if.end29.thread85
-  %trust = getelementptr inbounds nuw i8, ptr %src, i64 36
-  %5 = load i32, ptr %trust, align 4
-  %cmp32.not = icmp eq i32 %5, 0
-  br i1 %cmp32.not, label %lor.lhs.false43, label %land.lhs.true33
+.thread131:                                       ; preds = %.thread.thread, %31
+  %32 = phi i32 [ %30, %.thread.thread ], [ %28, %31 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %34 = load i32, ptr %33, align 4, !tbaa !27
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %.thread112, label %.thread110
 
-lor.lhs.false31.thread:                           ; preds = %lor.lhs.false23
-  %trust104 = getelementptr inbounds nuw i8, ptr %src, i64 36
-  %6 = load i32, ptr %trust104, align 4
-  %cmp32.not105 = icmp eq i32 %6, 0
-  br i1 %cmp32.not105, label %lor.lhs.false43, label %lor.lhs.false35
+.thread112:                                       ; preds = %31, %.thread131
+  %36 = phi i32 [ %28, %31 ], [ %32, %.thread131 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %36, ptr %37, align 4, !tbaa !27
+  br label %.thread110
 
-land.lhs.true33:                                  ; preds = %lor.lhs.false31
-  br i1 %tobool13.not, label %lor.lhs.false35, label %if.end41.thread89
+.thread110:                                       ; preds = %.thread.thread, %.thread, %.thread131, %.thread112
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %39 = load i32, ptr %38, align 8, !tbaa !17
+  %.not83 = icmp eq i32 %39, -1
+  br i1 %.not83, label %.thread114, label %40
 
-lor.lhs.false35:                                  ; preds = %lor.lhs.false31.thread, %land.lhs.true33
-  %7 = phi i32 [ %6, %lor.lhs.false31.thread ], [ %5, %land.lhs.true33 ]
-  %trust36 = getelementptr inbounds nuw i8, ptr %dest, i64 36
-  %8 = load i32, ptr %trust36, align 4
-  %cmp37 = icmp eq i32 %8, 0
-  br i1 %cmp37, label %if.end41.thread89, label %lor.lhs.false43
+40:                                               ; preds = %.thread110
+  br i1 %.not76, label %41, label %.thread116
 
-if.end41.thread89:                                ; preds = %land.lhs.true33, %lor.lhs.false35
-  %9 = phi i32 [ %5, %land.lhs.true33 ], [ %7, %lor.lhs.false35 ]
-  %trust4091 = getelementptr inbounds nuw i8, ptr %dest, i64 36
-  store i32 %9, ptr %trust4091, align 4
-  br label %lor.lhs.false43
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %43 = load i32, ptr %42, align 8, !tbaa !17
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %.thread116, label %.thread114
 
-lor.lhs.false43:                                  ; preds = %lor.lhs.false31.thread, %lor.lhs.false31, %lor.lhs.false35, %if.end41.thread89
-  %depth = getelementptr inbounds nuw i8, ptr %src, i64 40
-  %10 = load i32, ptr %depth, align 8
-  %cmp44.not = icmp eq i32 %10, -1
-  br i1 %cmp44.not, label %lor.lhs.false55, label %land.lhs.true45
+.thread116:                                       ; preds = %40, %41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %39, ptr %45, align 8, !tbaa !17
+  br label %.thread114
 
-land.lhs.true45:                                  ; preds = %lor.lhs.false43
-  br i1 %tobool13.not, label %lor.lhs.false47, label %if.end53.thread93
+46:                                               ; preds = %15
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %19, ptr %47, align 8, !tbaa !26
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %49 = load i32, ptr %48, align 4, !tbaa !27
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %49, ptr %50, align 4, !tbaa !27
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %52 = load i32, ptr %51, align 8, !tbaa !17
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %52, ptr %53, align 8, !tbaa !17
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
+  br label %57
 
-lor.lhs.false47:                                  ; preds = %land.lhs.true45
-  %depth48 = getelementptr inbounds nuw i8, ptr %dest, i64 40
-  %11 = load i32, ptr %depth48, align 8
-  %cmp49 = icmp eq i32 %11, -1
-  br i1 %cmp49, label %if.end53.thread93, label %lor.lhs.false55
+.thread114:                                       ; preds = %.thread110, %41, %.thread116
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %55 = load i64, ptr %54, align 8, !tbaa !28
+  %56 = and i64 %55, 2
+  %.not85 = icmp eq i64 %56, 0
+  br i1 %.not85, label %57, label %64
 
-if.end53.thread93:                                ; preds = %land.lhs.true45, %lor.lhs.false47
-  %depth5295 = getelementptr inbounds nuw i8, ptr %dest, i64 40
-  store i32 %10, ptr %depth5295, align 8
-  br label %lor.lhs.false55
+57:                                               ; preds = %46, %.thread114
+  %58 = phi i64 [ %.pre, %46 ], [ %55, %.thread114 ]
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !29
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %60, ptr %61, align 8, !tbaa !29
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = and i64 %58, -3
+  store i64 %63, ptr %62, align 8, !tbaa !28
+  br label %64
 
-if.end53:                                         ; preds = %if.end11
-  %purpose28 = getelementptr inbounds nuw i8, ptr %dest, i64 32
-  store i32 %3, ptr %purpose28, align 8
-  %trust39 = getelementptr inbounds nuw i8, ptr %src, i64 36
-  %12 = load i32, ptr %trust39, align 4
-  %trust40 = getelementptr inbounds nuw i8, ptr %dest, i64 36
-  store i32 %12, ptr %trust40, align 4
-  %depth51 = getelementptr inbounds nuw i8, ptr %src, i64 40
-  %13 = load i32, ptr %depth51, align 8
-  %depth52 = getelementptr inbounds nuw i8, ptr %dest, i64 40
-  store i32 %13, ptr %depth52, align 8
-  %flags60.phi.trans.insert = getelementptr inbounds nuw i8, ptr %dest, i64 24
-  %.pre = load i64, ptr %flags60.phi.trans.insert, align 8
-  br label %if.then58
+64:                                               ; preds = %57, %.thread114
+  %65 = phi i64 [ %63, %57 ], [ %55, %.thread114 ]
+  %66 = and i64 %10, 4
+  %.not86 = icmp eq i64 %66, 0
+  br i1 %.not86, label %69, label %67
 
-lor.lhs.false55:                                  ; preds = %lor.lhs.false43, %lor.lhs.false47, %if.end53.thread93
-  %flags = getelementptr inbounds nuw i8, ptr %dest, i64 24
-  %14 = load i64, ptr %flags, align 8
-  %and56 = and i64 %14, 2
-  %tobool57.not = icmp eq i64 %and56, 0
-  br i1 %tobool57.not, label %if.then58, label %if.end62
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 0, ptr %68, align 8, !tbaa !28
+  br label %69
 
-if.then58:                                        ; preds = %if.end53, %lor.lhs.false55
-  %15 = phi i64 [ %.pre, %if.end53 ], [ %14, %lor.lhs.false55 ]
-  %check_time = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %16 = load i64, ptr %check_time, align 8
-  %check_time59 = getelementptr inbounds nuw i8, ptr %dest, i64 8
-  store i64 %16, ptr %check_time59, align 8
-  %flags60 = getelementptr inbounds nuw i8, ptr %dest, i64 24
-  %and61 = and i64 %15, -3
-  store i64 %and61, ptr %flags60, align 8
-  br label %if.end62
+69:                                               ; preds = %67, %64
+  %70 = phi i64 [ 0, %67 ], [ %65, %64 ]
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %72 = load i64, ptr %71, align 8, !tbaa !28
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %74 = or i64 %70, %72
+  store i64 %74, ptr %73, align 8, !tbaa !28
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %76 = load ptr, ptr %75, align 8, !tbaa !18
+  br i1 %.not77, label %77, label %.thread119
 
-if.end62:                                         ; preds = %if.then58, %lor.lhs.false55
-  %17 = phi i64 [ %and61, %if.then58 ], [ %14, %lor.lhs.false55 ]
-  %and63 = and i64 %or, 4
-  %tobool64.not = icmp eq i64 %and63, 0
-  br i1 %tobool64.not, label %if.end67, label %if.then65
+77:                                               ; preds = %69
+  %.not87 = icmp eq ptr %76, null
+  br i1 %.not87, label %.thread118, label %78
 
-if.then65:                                        ; preds = %if.end62
-  %flags66 = getelementptr inbounds nuw i8, ptr %dest, i64 24
-  store i64 0, ptr %flags66, align 8
-  br label %if.end67
+78:                                               ; preds = %77
+  br i1 %.not76, label %79, label %83
 
-if.end67:                                         ; preds = %if.then65, %if.end62
-  %18 = phi i64 [ 0, %if.then65 ], [ %17, %if.end62 ]
-  %flags68 = getelementptr inbounds nuw i8, ptr %src, i64 24
-  %19 = load i64, ptr %flags68, align 8
-  %flags69 = getelementptr inbounds nuw i8, ptr %dest, i64 24
-  %or70 = or i64 %18, %19
-  store i64 %or70, ptr %flags69, align 8
-  %policies = getelementptr inbounds nuw i8, ptr %src, i64 48
-  %20 = load ptr, ptr %policies, align 8
-  br i1 %tobool17.not, label %lor.lhs.false72, label %if.then79.thread
+79:                                               ; preds = %78
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %81 = load ptr, ptr %80, align 8, !tbaa !18
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %.thread118.thread
 
-lor.lhs.false72:                                  ; preds = %if.end67
-  %cmp73.not = icmp eq ptr %20, null
-  br i1 %cmp73.not, label %lor.lhs.false86, label %land.lhs.true74
+83:                                               ; preds = %79, %78
+  %84 = tail call i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef nonnull %0, ptr noundef nonnull %76)
+  %.not89 = icmp eq i32 %84, 0
+  br i1 %.not89, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %..thread118_crit_edge
 
-land.lhs.true74:                                  ; preds = %lor.lhs.false72
-  br i1 %tobool13.not, label %lor.lhs.false76, label %if.then79
+..thread118_crit_edge:                            ; preds = %83
+  %.pre136 = load ptr, ptr %4, align 8, !tbaa !6
+  br label %.thread118
 
-lor.lhs.false76:                                  ; preds = %land.lhs.true74
-  %policies77 = getelementptr inbounds nuw i8, ptr %dest, i64 48
-  %21 = load ptr, ptr %policies77, align 8
-  %cmp78 = icmp eq ptr %21, null
-  br i1 %cmp78, label %if.then79, label %lor.lhs.false86.thread
+.thread119:                                       ; preds = %69
+  %85 = tail call i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef nonnull %0, ptr noundef %76)
+  %.not89120 = icmp eq i32 %85, 0
+  br i1 %.not89120, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %.thread121
 
-if.then79:                                        ; preds = %lor.lhs.false76, %land.lhs.true74
-  %call = tail call i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef nonnull %dest, ptr noundef nonnull %20)
-  %tobool81.not = icmp eq i32 %call, 0
-  br i1 %tobool81.not, label %return, label %lor.lhs.false86
+.thread118:                                       ; preds = %..thread118_crit_edge, %77
+  %86 = phi ptr [ %.pre136, %..thread118_crit_edge ], [ %5, %77 ]
+  %87 = load ptr, ptr %86, align 8, !tbaa !19
+  %.not90 = icmp eq ptr %87, null
+  br i1 %.not90, label %.thread123, label %89
 
-if.then79.thread:                                 ; preds = %if.end67
-  %call97 = tail call i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef nonnull %dest, ptr noundef %20)
-  %tobool81.not98 = icmp eq i32 %call97, 0
-  br i1 %tobool81.not98, label %return, label %if.then95
+.thread118.thread:                                ; preds = %79
+  %88 = load ptr, ptr %5, align 8, !tbaa !19
+  %.not90132 = icmp eq ptr %88, null
+  br i1 %.not90132, label %.thread123, label %.thread133
 
-lor.lhs.false86:                                  ; preds = %if.then79, %lor.lhs.false72
-  %22 = load ptr, ptr %id1, align 8
-  %23 = load ptr, ptr %22, align 8
-  %cmp88.not = icmp eq ptr %23, null
-  br i1 %cmp88.not, label %lor.lhs.false122, label %land.lhs.true89
+89:                                               ; preds = %.thread118
+  br i1 %.not76, label %.thread133, label %.thread121
 
-lor.lhs.false86.thread:                           ; preds = %lor.lhs.false76
-  %24 = load ptr, ptr %id1, align 8
-  %25 = load ptr, ptr %24, align 8
-  %cmp88.not106 = icmp eq ptr %25, null
-  br i1 %cmp88.not106, label %lor.lhs.false122, label %lor.lhs.false91
+.thread133:                                       ; preds = %.thread118.thread, %89
+  %90 = phi ptr [ %5, %.thread118.thread ], [ %86, %89 ]
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %92 = load ptr, ptr %91, align 8, !tbaa !6
+  %93 = load ptr, ptr %92, align 8, !tbaa !19
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %.thread121, label %.thread123
 
-land.lhs.true89:                                  ; preds = %lor.lhs.false86
-  br i1 %tobool13.not, label %lor.lhs.false91, label %if.then95
+.thread121:                                       ; preds = %.thread119, %.thread133, %89
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %96 = load ptr, ptr %95, align 8, !tbaa !6
+  %97 = load ptr, ptr %96, align 8, !tbaa !19
+  %.not92 = icmp eq ptr %97, null
+  br i1 %.not92, label %100, label %98
 
-lor.lhs.false91:                                  ; preds = %lor.lhs.false86.thread, %land.lhs.true89
-  %26 = phi ptr [ %24, %lor.lhs.false86.thread ], [ %22, %land.lhs.true89 ]
-  %id92 = getelementptr inbounds nuw i8, ptr %dest, i64 56
-  %27 = load ptr, ptr %id92, align 8
-  %28 = load ptr, ptr %27, align 8
-  %cmp94 = icmp eq ptr %28, null
-  br i1 %cmp94, label %if.then95, label %lor.lhs.false122
+98:                                               ; preds = %.thread121
+  tail call void @sk_pop_free(ptr noundef nonnull %97, ptr noundef nonnull @str_free) #16
+  %99 = load ptr, ptr %95, align 8, !tbaa !6
+  store ptr null, ptr %99, align 8, !tbaa !19
+  br label %100
 
-if.then95:                                        ; preds = %if.then79.thread, %lor.lhs.false91, %land.lhs.true89
-  %id96 = getelementptr inbounds nuw i8, ptr %dest, i64 56
-  %29 = load ptr, ptr %id96, align 8
-  %30 = load ptr, ptr %29, align 8
-  %tobool98.not = icmp eq ptr %30, null
-  br i1 %tobool98.not, label %if.end104, label %if.then99
+100:                                              ; preds = %98, %.thread121
+  %101 = phi ptr [ %99, %98 ], [ %96, %.thread121 ]
+  %102 = load ptr, ptr %5, align 8, !tbaa !19
+  %.not93 = icmp eq ptr %102, null
+  br i1 %.not93, label %111, label %103
 
-if.then99:                                        ; preds = %if.then95
-  tail call void @sk_pop_free(ptr noundef nonnull %30, ptr noundef nonnull @str_free) #15
-  %31 = load ptr, ptr %id96, align 8
-  store ptr null, ptr %31, align 8
-  br label %if.end104
+103:                                              ; preds = %100
+  %104 = tail call ptr @sk_deep_copy(ptr noundef nonnull %102, ptr noundef nonnull @str_copy, ptr noundef nonnull @str_free) #16
+  %105 = load ptr, ptr %95, align 8, !tbaa !6
+  store ptr %104, ptr %105, align 8, !tbaa !19
+  %106 = icmp eq ptr %104, null
+  br i1 %106, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %107
 
-if.end104:                                        ; preds = %if.then99, %if.then95
-  %32 = load ptr, ptr %0, align 8
-  %tobool106.not = icmp eq ptr %32, null
-  br i1 %tobool106.not, label %if.end120, label %if.then107
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %109 = load i32, ptr %108, align 8, !tbaa !30
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  store i32 %109, ptr %110, align 8, !tbaa !30
+  br label %111
 
-if.then107:                                       ; preds = %if.end104
-  %call109 = tail call ptr @sk_deep_copy(ptr noundef nonnull %32, ptr noundef nonnull @str_copy, ptr noundef nonnull @str_free) #15
-  %33 = load ptr, ptr %id96, align 8
-  store ptr %call109, ptr %33, align 8
-  %34 = load ptr, ptr %id96, align 8
-  %35 = load ptr, ptr %34, align 8
-  %cmp114 = icmp eq ptr %35, null
-  br i1 %cmp114, label %return, label %if.end116
+111:                                              ; preds = %100, %107
+  %112 = phi ptr [ %101, %100 ], [ %105, %107 ]
+  br i1 %.not77, label %..thread123_crit_edge, label %._crit_edge
 
-if.end116:                                        ; preds = %if.then107
-  %hostflags = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i32, ptr %hostflags, align 8
-  %hostflags118 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %36, ptr %hostflags118, align 8
-  br label %if.end120
+..thread123_crit_edge:                            ; preds = %111
+  %.pre137 = load ptr, ptr %4, align 8, !tbaa !6
+  br label %.thread123
 
-if.end120:                                        ; preds = %if.end104, %if.end116
-  br i1 %tobool17.not, label %if.end120.lor.lhs.false122_crit_edge, label %if.then131
+.thread123:                                       ; preds = %..thread123_crit_edge, %.thread118.thread, %.thread118, %.thread133
+  %113 = phi ptr [ %.pre137, %..thread123_crit_edge ], [ %5, %.thread118.thread ], [ %86, %.thread118 ], [ %90, %.thread133 ]
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %115 = load ptr, ptr %114, align 8, !tbaa !23
+  %.not94 = icmp eq ptr %115, null
+  br i1 %.not94, label %.thread127, label %116
 
-if.end120.lor.lhs.false122_crit_edge:             ; preds = %if.end120
-  %.pre109 = load ptr, ptr %id1, align 8
-  br label %lor.lhs.false122
+116:                                              ; preds = %.thread123
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %118 = load ptr, ptr %117, align 8, !tbaa !6
+  br i1 %.not76, label %119, label %._crit_edge
 
-lor.lhs.false122:                                 ; preds = %if.end120.lor.lhs.false122_crit_edge, %lor.lhs.false86.thread, %lor.lhs.false86, %lor.lhs.false91
-  %37 = phi ptr [ %.pre109, %if.end120.lor.lhs.false122_crit_edge ], [ %24, %lor.lhs.false86.thread ], [ %22, %lor.lhs.false86 ], [ %26, %lor.lhs.false91 ]
-  %email = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %38 = load ptr, ptr %email, align 8
-  %cmp124.not = icmp eq ptr %38, null
-  br i1 %cmp124.not, label %lor.lhs.false139, label %land.lhs.true125
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  %121 = load ptr, ptr %120, align 8, !tbaa !23
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %._crit_edge, label %.thread127.thread
 
-land.lhs.true125:                                 ; preds = %lor.lhs.false122
-  br i1 %tobool13.not, label %lor.lhs.false127, label %if.then131
+._crit_edge:                                      ; preds = %116, %119, %111
+  %123 = phi ptr [ %118, %119 ], [ %112, %111 ], [ %118, %116 ]
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %125 = load ptr, ptr %124, align 8, !tbaa !23
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %127 = load i64, ptr %126, align 8, !tbaa !31
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 32
+  %.not.i.i = icmp eq ptr %125, null
+  br i1 %.not.i.i, label %138, label %130
 
-lor.lhs.false127:                                 ; preds = %land.lhs.true125
-  %id128 = getelementptr inbounds nuw i8, ptr %dest, i64 56
-  %39 = load ptr, ptr %id128, align 8
-  %email129 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %40 = load ptr, ptr %email129, align 8
-  %cmp130 = icmp eq ptr %40, null
-  br i1 %cmp130, label %if.then131, label %lor.lhs.false139.thread
+130:                                              ; preds = %._crit_edge
+  %131 = icmp eq i64 %127, 0
+  br i1 %131, label %132, label %135
 
-if.then131:                                       ; preds = %lor.lhs.false127, %land.lhs.true125, %if.end120
-  %email132 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load ptr, ptr %email132, align 8
-  %emaillen = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load i64, ptr %emaillen, align 8
-  %id.i = getelementptr inbounds nuw i8, ptr %dest, i64 56
-  %43 = load ptr, ptr %id.i, align 8
-  %email1.i = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %emaillen3.i = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %tobool.not.i.i = icmp eq ptr %41, null
-  br i1 %tobool.not.i.i, label %if.end8.i.i, label %if.then.i.i
+132:                                              ; preds = %130
+  %133 = tail call ptr @BUF_strdup(ptr noundef nonnull %125) #16
+  %134 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #17
+  br label %137
 
-if.then.i.i:                                      ; preds = %if.then131
-  %cmp.i.i = icmp eq i64 %42, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %if.else.i.i
+135:                                              ; preds = %130
+  %136 = tail call ptr @BUF_memdup(ptr noundef nonnull %125, i64 noundef %127) #16
+  br label %137
 
-if.then1.i.i:                                     ; preds = %if.then.i.i
-  %call.i.i = tail call ptr @BUF_strdup(ptr noundef nonnull %41) #15
-  %call2.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #16
-  br label %if.end.i.i
+137:                                              ; preds = %135, %132
+  %.014.i.i = phi i64 [ %134, %132 ], [ %127, %135 ]
+  %.0.i.i = phi ptr [ %133, %132 ], [ %136, %135 ]
+  %.not21.i.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not21.i.i, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %138
 
-if.else.i.i:                                      ; preds = %if.then.i.i
-  %call3.i.i = tail call ptr @BUF_memdup(ptr noundef nonnull %41, i64 noundef %42) #15
-  br label %if.end.i.i
+138:                                              ; preds = %137, %._crit_edge
+  %.115.i.i = phi i64 [ %.014.i.i, %137 ], [ 0, %._crit_edge ]
+  %.1.i.i = phi ptr [ %.0.i.i, %137 ], [ null, %._crit_edge ]
+  %139 = load ptr, ptr %128, align 8, !tbaa !32
+  %.not22.i.i = icmp eq ptr %139, null
+  br i1 %.not22.i.i, label %141, label %140
 
-if.end.i.i:                                       ; preds = %if.else.i.i, %if.then1.i.i
-  %srclen.addr.0.i.i = phi i64 [ %call2.i.i, %if.then1.i.i ], [ %42, %if.else.i.i ]
-  %tmp.0.i.i = phi ptr [ %call.i.i, %if.then1.i.i ], [ %call3.i.i, %if.else.i.i ]
-  %tobool4.not.i.i = icmp eq ptr %tmp.0.i.i, null
-  br i1 %tobool4.not.i.i, label %return, label %if.end8.i.i
+140:                                              ; preds = %138
+  tail call void @free(ptr noundef nonnull %139) #16
+  br label %141
 
-if.end8.i.i:                                      ; preds = %if.end.i.i, %if.then131
-  %srclen.addr.1.i.i = phi i64 [ %srclen.addr.0.i.i, %if.end.i.i ], [ 0, %if.then131 ]
-  %tmp.1.i.i = phi ptr [ %tmp.0.i.i, %if.end.i.i ], [ null, %if.then131 ]
-  %44 = load ptr, ptr %email1.i, align 8
-  %tobool9.not.i.i = icmp eq ptr %44, null
-  br i1 %tobool9.not.i.i, label %if.end137, label %if.then10.i.i
+141:                                              ; preds = %140, %138
+  store ptr %.1.i.i, ptr %128, align 8, !tbaa !32
+  store i64 %.115.i.i, ptr %129, align 8, !tbaa !33
+  br i1 %.not77, label %..thread127_crit_edge, label %152
 
-if.then10.i.i:                                    ; preds = %if.end8.i.i
-  tail call void @free(ptr noundef nonnull %44) #15
-  br label %if.end137
+..thread127_crit_edge:                            ; preds = %141
+  %.pre140 = load ptr, ptr %4, align 8, !tbaa !6
+  br label %.thread127
 
-if.end137:                                        ; preds = %if.then10.i.i, %if.end8.i.i
-  store ptr %tmp.1.i.i, ptr %email1.i, align 8
-  store i64 %srclen.addr.1.i.i, ptr %emaillen3.i, align 8
-  br i1 %tobool17.not, label %if.end137.lor.lhs.false139_crit_edge, label %if.then148
+.thread127:                                       ; preds = %..thread127_crit_edge, %.thread123
+  %142 = phi ptr [ %.pre140, %..thread127_crit_edge ], [ %113, %.thread123 ]
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load ptr, ptr %143, align 8, !tbaa !24
+  %.not97 = icmp eq ptr %144, null
+  br i1 %.not97, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %147
 
-if.end137.lor.lhs.false139_crit_edge:             ; preds = %if.end137
-  %.pre110 = load ptr, ptr %id1, align 8
-  br label %lor.lhs.false139
+.thread127.thread:                                ; preds = %119
+  %145 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  %146 = load ptr, ptr %145, align 8, !tbaa !24
+  %.not97134 = icmp eq ptr %146, null
+  br i1 %.not97134, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %.thread135
 
-lor.lhs.false139:                                 ; preds = %if.end137.lor.lhs.false139_crit_edge, %lor.lhs.false122
-  %45 = phi ptr [ %.pre110, %if.end137.lor.lhs.false139_crit_edge ], [ %37, %lor.lhs.false122 ]
-  %ip = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %46 = load ptr, ptr %ip, align 8
-  %cmp141.not = icmp eq ptr %46, null
-  br i1 %cmp141.not, label %return, label %land.lhs.true142
+147:                                              ; preds = %.thread127
+  br i1 %.not76, label %..thread135_crit_edge, label %152
 
-lor.lhs.false139.thread:                          ; preds = %lor.lhs.false127
-  %ip107 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %47 = load ptr, ptr %ip107, align 8
-  %cmp141.not108 = icmp eq ptr %47, null
-  br i1 %cmp141.not108, label %return, label %lor.lhs.false144
+..thread135_crit_edge:                            ; preds = %147
+  %.phi.trans.insert141 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.pre142 = load ptr, ptr %.phi.trans.insert141, align 8, !tbaa !6
+  br label %.thread135
 
-land.lhs.true142:                                 ; preds = %lor.lhs.false139
-  br i1 %tobool13.not, label %land.lhs.true142.lor.lhs.false144_crit_edge, label %if.then148
+.thread135:                                       ; preds = %..thread135_crit_edge, %.thread127.thread
+  %148 = phi ptr [ %.pre142, %..thread135_crit_edge ], [ %118, %.thread127.thread ]
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
+  %150 = load ptr, ptr %149, align 8, !tbaa !24
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %152, label %X509_VERIFY_PARAM_set1_email.exit.thread
 
-land.lhs.true142.lor.lhs.false144_crit_edge:      ; preds = %land.lhs.true142
-  %id145.phi.trans.insert = getelementptr inbounds nuw i8, ptr %dest, i64 56
-  %.pre111 = load ptr, ptr %id145.phi.trans.insert, align 8
-  br label %lor.lhs.false144
-
-lor.lhs.false144:                                 ; preds = %land.lhs.true142.lor.lhs.false144_crit_edge, %lor.lhs.false139.thread
-  %48 = phi ptr [ %.pre111, %land.lhs.true142.lor.lhs.false144_crit_edge ], [ %39, %lor.lhs.false139.thread ]
-  %ip146 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %49 = load ptr, ptr %ip146, align 8
-  %cmp147 = icmp eq ptr %49, null
-  br i1 %cmp147, label %if.then148, label %return
-
-if.then148:                                       ; preds = %lor.lhs.false144, %land.lhs.true142, %if.end137
-  %ip149 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %50 = load ptr, ptr %ip149, align 8
-  %iplen = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %51 = load i64, ptr %iplen, align 8
-  switch i64 %51, label %return [
-    i64 16, label %if.end.i
-    i64 4, label %if.end.i
-    i64 0, label %if.end.i
+152:                                              ; preds = %.thread135, %147, %141
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %154 = load ptr, ptr %153, align 8, !tbaa !24
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %156 = load i64, ptr %155, align 8, !tbaa !34
+  switch i64 %156, label %X509_VERIFY_PARAM_set1_email.exit.thread [
+    i64 16, label %157
+    i64 4, label %157
+    i64 0, label %157
   ]
 
-if.end.i:                                         ; preds = %if.then148, %if.then148, %if.then148
-  %id.i65 = getelementptr inbounds nuw i8, ptr %dest, i64 56
-  %52 = load ptr, ptr %id.i65, align 8
-  %ip4.i = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %iplen6.i = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %tobool.not.i.i66 = icmp eq ptr %50, null
-  br i1 %tobool.not.i.i66, label %if.end8.i.i75, label %if.then.i.i67
+157:                                              ; preds = %152, %152, %152
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %159 = load ptr, ptr %158, align 8, !tbaa !6
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 48
+  %.not.i.i100 = icmp eq ptr %154, null
+  br i1 %.not.i.i100, label %170, label %162
 
-if.then.i.i67:                                    ; preds = %if.end.i
-  %cmp.i.i68 = icmp eq i64 %51, 0
-  br i1 %cmp.i.i68, label %if.then1.i.i81, label %if.else.i.i69
+162:                                              ; preds = %157
+  %163 = icmp eq i64 %156, 0
+  br i1 %163, label %164, label %167
 
-if.then1.i.i81:                                   ; preds = %if.then.i.i67
-  %call.i.i82 = tail call ptr @BUF_strdup(ptr noundef nonnull %50) #15
-  %call2.i.i83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #16
-  br label %if.end.i.i71
+164:                                              ; preds = %162
+  %165 = tail call ptr @BUF_strdup(ptr noundef nonnull %154) #16
+  %166 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %154) #17
+  br label %169
 
-if.else.i.i69:                                    ; preds = %if.then.i.i67
-  %call3.i.i70 = tail call ptr @BUF_memdup(ptr noundef nonnull %50, i64 noundef %51) #15
-  br label %if.end.i.i71
+167:                                              ; preds = %162
+  %168 = tail call ptr @BUF_memdup(ptr noundef nonnull %154, i64 noundef %156) #16
+  br label %169
 
-if.end.i.i71:                                     ; preds = %if.else.i.i69, %if.then1.i.i81
-  %srclen.addr.0.i.i72 = phi i64 [ %call2.i.i83, %if.then1.i.i81 ], [ %51, %if.else.i.i69 ]
-  %tmp.0.i.i73 = phi ptr [ %call.i.i82, %if.then1.i.i81 ], [ %call3.i.i70, %if.else.i.i69 ]
-  %tobool4.not.i.i74 = icmp eq ptr %tmp.0.i.i73, null
-  br i1 %tobool4.not.i.i74, label %return, label %if.end8.i.i75
+169:                                              ; preds = %167, %164
+  %.014.i.i101 = phi i64 [ %166, %164 ], [ %156, %167 ]
+  %.0.i.i102 = phi ptr [ %165, %164 ], [ %168, %167 ]
+  %.not21.i.i103 = icmp eq ptr %.0.i.i102, null
+  br i1 %.not21.i.i103, label %X509_VERIFY_PARAM_set1_email.exit.thread, label %170
 
-if.end8.i.i75:                                    ; preds = %if.end.i.i71, %if.end.i
-  %srclen.addr.1.i.i76 = phi i64 [ %srclen.addr.0.i.i72, %if.end.i.i71 ], [ 0, %if.end.i ]
-  %tmp.1.i.i77 = phi ptr [ %tmp.0.i.i73, %if.end.i.i71 ], [ null, %if.end.i ]
-  %53 = load ptr, ptr %ip4.i, align 8
-  %tobool9.not.i.i78 = icmp eq ptr %53, null
-  br i1 %tobool9.not.i.i78, label %X509_VERIFY_PARAM_set1_ip.exit, label %if.then10.i.i79
+170:                                              ; preds = %169, %157
+  %.115.i.i104 = phi i64 [ %.014.i.i101, %169 ], [ 0, %157 ]
+  %.1.i.i105 = phi ptr [ %.0.i.i102, %169 ], [ null, %157 ]
+  %171 = load ptr, ptr %160, align 8, !tbaa !32
+  %.not22.i.i106 = icmp eq ptr %171, null
+  br i1 %.not22.i.i106, label %X509_VERIFY_PARAM_set1_ip.exit, label %172
 
-if.then10.i.i79:                                  ; preds = %if.end8.i.i75
-  tail call void @free(ptr noundef nonnull %53) #15
+172:                                              ; preds = %170
+  tail call void @free(ptr noundef nonnull %171) #16
   br label %X509_VERIFY_PARAM_set1_ip.exit
 
-X509_VERIFY_PARAM_set1_ip.exit:                   ; preds = %if.end8.i.i75, %if.then10.i.i79
-  store ptr %tmp.1.i.i77, ptr %ip4.i, align 8
-  store i64 %srclen.addr.1.i.i76, ptr %iplen6.i, align 8
-  br label %return
+X509_VERIFY_PARAM_set1_ip.exit:                   ; preds = %170, %172
+  store ptr %.1.i.i105, ptr %160, align 8, !tbaa !32
+  store i64 %.115.i.i104, ptr %161, align 8, !tbaa !33
+  br label %X509_VERIFY_PARAM_set1_email.exit.thread
 
-return:                                           ; preds = %if.end.i.i71, %if.then148, %lor.lhs.false139.thread, %if.end.i.i, %lor.lhs.false139, %lor.lhs.false144, %X509_VERIFY_PARAM_set1_ip.exit, %if.then79.thread, %if.then107, %if.then79, %if.end7, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end7 ], [ 0, %if.then79 ], [ 0, %if.then107 ], [ 0, %if.then79.thread ], [ 1, %X509_VERIFY_PARAM_set1_ip.exit ], [ 1, %lor.lhs.false144 ], [ 1, %lor.lhs.false139 ], [ 0, %if.end.i.i ], [ 1, %lor.lhs.false139.thread ], [ 0, %if.then148 ], [ 0, %if.end.i.i71 ]
-  ret i32 %retval.0
+X509_VERIFY_PARAM_set1_email.exit.thread:         ; preds = %169, %152, %.thread127.thread, %137, %.thread127, %.thread135, %X509_VERIFY_PARAM_set1_ip.exit, %.thread119, %103, %83, %13, %2
+  %.0 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %83 ], [ 0, %103 ], [ 0, %.thread119 ], [ 1, %X509_VERIFY_PARAM_set1_ip.exit ], [ 1, %.thread135 ], [ 1, %.thread127 ], [ 0, %137 ], [ 1, %.thread127.thread ], [ 0, %152 ], [ 0, %169 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef captures(address_is_null) %param, ptr noundef %policies) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %param, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.loopexit, label %3
 
-if.end:                                           ; preds = %entry
-  %policies1 = getelementptr inbounds nuw i8, ptr %param, i64 48
-  %0 = load ptr, ptr %policies1, align 8
-  %tobool2.not = icmp eq ptr %0, null
-  br i1 %tobool2.not, label %if.end5, label %if.then3
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %.not23 = icmp eq ptr %5, null
+  br i1 %.not23, label %7, label %6
 
-if.then3:                                         ; preds = %if.end
-  tail call void @sk_pop_free(ptr noundef nonnull %0, ptr noundef nonnull @ASN1_OBJECT_free) #15
-  br label %if.end5
+6:                                                ; preds = %3
+  tail call void @sk_pop_free(ptr noundef nonnull %5, ptr noundef nonnull @ASN1_OBJECT_free) #16
+  br label %7
 
-if.end5:                                          ; preds = %if.then3, %if.end
-  %tobool6.not = icmp eq ptr %policies, null
-  br i1 %tobool6.not, label %if.then7, label %if.end9
+7:                                                ; preds = %6, %3
+  %.not24 = icmp eq ptr %1, null
+  br i1 %.not24, label %8, label %9
 
-if.then7:                                         ; preds = %if.end5
-  store ptr null, ptr %policies1, align 8
-  br label %return
+8:                                                ; preds = %7
+  store ptr null, ptr %4, align 8, !tbaa !18
+  br label %.loopexit
 
-if.end9:                                          ; preds = %if.end5
-  %call = tail call ptr @sk_new_null() #15
-  store ptr %call, ptr %policies1, align 8
-  %tobool12.not = icmp eq ptr %call, null
-  br i1 %tobool12.not, label %return, label %for.cond.preheader
+9:                                                ; preds = %7
+  %10 = tail call ptr @sk_new_null() #16
+  store ptr %10, ptr %4, align 8, !tbaa !18
+  %.not25 = icmp eq ptr %10, null
+  br i1 %.not25, label %.loopexit, label %.preheader
 
-for.cond.preheader:                               ; preds = %if.end9
-  %call1515 = tail call i64 @sk_num(ptr noundef nonnull %policies) #15
-  %cmp16.not = icmp eq i64 %call1515, 0
-  br i1 %cmp16.not, label %for.end, label %for.body
+.preheader:                                       ; preds = %9
+  %11 = tail call i64 @sk_num(ptr noundef nonnull %1) #16
+  %.not30 = icmp eq i64 %11, 0
+  br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-for.cond:                                         ; preds = %if.end20
-  %inc = add nuw i64 %i.017, 1
-  %call15 = tail call i64 @sk_num(ptr noundef nonnull %policies) #15
-  %cmp = icmp ult i64 %inc, %call15
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
+12:                                               ; preds = %18
+  %13 = add nuw i64 %.01829, 1
+  %14 = tail call i64 @sk_num(ptr noundef nonnull %1) #16
+  %15 = icmp ult i64 %13, %14
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
-for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %i.017 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %call16 = tail call ptr @sk_value(ptr noundef nonnull %policies, i64 noundef %i.017) #15
-  %call17 = tail call ptr @OBJ_dup(ptr noundef %call16) #15
-  %tobool18.not = icmp eq ptr %call17, null
-  br i1 %tobool18.not, label %return, label %if.end20
+.lr.ph:                                           ; preds = %.preheader, %12
+  %.01829 = phi i64 [ %13, %12 ], [ 0, %.preheader ]
+  %16 = tail call ptr @sk_value(ptr noundef nonnull %1, i64 noundef %.01829) #16
+  %17 = tail call ptr @OBJ_dup(ptr noundef %16) #16
+  %.not26 = icmp eq ptr %17, null
+  br i1 %.not26, label %.loopexit, label %18
 
-if.end20:                                         ; preds = %for.body
-  %1 = load ptr, ptr %policies1, align 8
-  %call22 = tail call i64 @sk_push(ptr noundef %1, ptr noundef nonnull %call17) #15
-  %tobool23.not = icmp eq i64 %call22, 0
-  br i1 %tobool23.not, label %if.then24, label %for.cond
+18:                                               ; preds = %.lr.ph
+  %19 = load ptr, ptr %4, align 8, !tbaa !18
+  %20 = tail call i64 @sk_push(ptr noundef %19, ptr noundef nonnull %17) #16
+  %.not27 = icmp eq i64 %20, 0
+  br i1 %.not27, label %21, label %12
 
-if.then24:                                        ; preds = %if.end20
-  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %call17) #15
-  br label %return
+21:                                               ; preds = %18
+  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %17) #16
+  br label %.loopexit
 
-for.end:                                          ; preds = %for.cond, %for.cond.preheader
-  %flags = getelementptr inbounds nuw i8, ptr %param, i64 24
-  %2 = load i64, ptr %flags, align 8
-  %or = or i64 %2, 128
-  store i64 %or, ptr %flags, align 8
-  br label %return
+._crit_edge:                                      ; preds = %12, %.preheader
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load i64, ptr %22, align 8, !tbaa !28
+  %24 = or i64 %23, 128
+  store i64 %24, ptr %22, align 8, !tbaa !28
+  br label %.loopexit
 
-return:                                           ; preds = %for.body, %if.end9, %entry, %for.end, %if.then24, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then24 ], [ 1, %for.end ], [ 1, %if.then7 ], [ 0, %entry ], [ 0, %if.end9 ], [ 0, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %.lr.ph, %9, %2, %._crit_edge, %21, %8
+  %.0 = phi i32 [ 0, %21 ], [ 1, %._crit_edge ], [ 1, %8 ], [ 0, %2 ], [ 0, %9 ], [ 0, %.lr.ph ]
+  ret i32 %.0
 }
 
-declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @str_free(ptr noundef captures(none) %s) #5 {
-entry:
-  tail call void @free(ptr noundef %s) #15
+define internal void @str_free(ptr noundef captures(none) %0) #6 {
+  tail call void @free(ptr noundef %0) #16
   ret void
 }
 
-declare ptr @sk_deep_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @sk_deep_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @str_copy(ptr noundef %s) #0 {
-entry:
-  %call = tail call ptr @OPENSSL_strdup(ptr noundef %s) #15
-  ret ptr %call
+define internal ptr @str_copy(ptr noundef %0) #0 {
+  %2 = tail call ptr @OPENSSL_strdup(ptr noundef %0) #16
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_email(ptr noundef readonly captures(none) %param, ptr noundef %email, i64 noundef %emaillen) local_unnamed_addr #0 {
-entry:
-  %id = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %0 = load ptr, ptr %id, align 8
-  %email1 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %emaillen3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %tobool.not.i = icmp eq ptr %email, null
-  br i1 %tobool.not.i, label %if.end8.i, label %if.then.i
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_email(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %16, label %8
 
-if.then.i:                                        ; preds = %entry
-  %cmp.i = icmp eq i64 %emaillen, 0
-  br i1 %cmp.i, label %if.then1.i, label %if.else.i
+8:                                                ; preds = %3
+  %9 = icmp eq i64 %2, 0
+  br i1 %9, label %10, label %13
 
-if.then1.i:                                       ; preds = %if.then.i
-  %call.i = tail call ptr @BUF_strdup(ptr noundef nonnull %email) #15
-  %call2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %email) #16
-  br label %if.end.i
+10:                                               ; preds = %8
+  %11 = tail call ptr @BUF_strdup(ptr noundef nonnull %1) #16
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  br label %15
 
-if.else.i:                                        ; preds = %if.then.i
-  %call3.i = tail call ptr @BUF_memdup(ptr noundef nonnull %email, i64 noundef %emaillen) #15
-  br label %if.end.i
+13:                                               ; preds = %8
+  %14 = tail call ptr @BUF_memdup(ptr noundef nonnull %1, i64 noundef %2) #16
+  br label %15
 
-if.end.i:                                         ; preds = %if.else.i, %if.then1.i
-  %srclen.addr.0.i = phi i64 [ %call2.i, %if.then1.i ], [ %emaillen, %if.else.i ]
-  %tmp.0.i = phi ptr [ %call.i, %if.then1.i ], [ %call3.i, %if.else.i ]
-  %tobool4.not.i = icmp eq ptr %tmp.0.i, null
-  br i1 %tobool4.not.i, label %int_x509_param_set1.exit, label %if.end8.i
+15:                                               ; preds = %13, %10
+  %.014.i = phi i64 [ %12, %10 ], [ %2, %13 ]
+  %.0.i = phi ptr [ %11, %10 ], [ %14, %13 ]
+  %.not21.i = icmp eq ptr %.0.i, null
+  br i1 %.not21.i, label %int_x509_param_set1.exit, label %16
 
-if.end8.i:                                        ; preds = %if.end.i, %entry
-  %srclen.addr.1.i = phi i64 [ %srclen.addr.0.i, %if.end.i ], [ 0, %entry ]
-  %tmp.1.i = phi ptr [ %tmp.0.i, %if.end.i ], [ null, %entry ]
-  %1 = load ptr, ptr %email1, align 8
-  %tobool9.not.i = icmp eq ptr %1, null
-  br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
+16:                                               ; preds = %15, %3
+  %.115.i = phi i64 [ %.014.i, %15 ], [ 0, %3 ]
+  %.1.i = phi ptr [ %.0.i, %15 ], [ null, %3 ]
+  %17 = load ptr, ptr %6, align 8, !tbaa !32
+  %.not22.i = icmp eq ptr %17, null
+  br i1 %.not22.i, label %19, label %18
 
-if.then10.i:                                      ; preds = %if.end8.i
-  tail call void @free(ptr noundef nonnull %1) #15
-  br label %if.end11.i
+18:                                               ; preds = %16
+  tail call void @free(ptr noundef nonnull %17) #16
+  br label %19
 
-if.end11.i:                                       ; preds = %if.then10.i, %if.end8.i
-  store ptr %tmp.1.i, ptr %email1, align 8
-  store i64 %srclen.addr.1.i, ptr %emaillen3, align 8
+19:                                               ; preds = %18, %16
+  store ptr %.1.i, ptr %6, align 8, !tbaa !32
+  store i64 %.115.i, ptr %7, align 8, !tbaa !33
   br label %int_x509_param_set1.exit
 
-int_x509_param_set1.exit:                         ; preds = %if.end.i, %if.end11.i
-  %retval.0.i = phi i32 [ 0, %if.end.i ], [ 1, %if.end11.i ]
-  ret i32 %retval.0.i
+int_x509_param_set1.exit:                         ; preds = %15, %19
+  %.016.i = phi i32 [ 0, %15 ], [ 1, %19 ]
+  ret i32 %.016.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip(ptr noundef readonly captures(none) %param, ptr noundef %ip, i64 noundef %iplen) local_unnamed_addr #0 {
-entry:
-  switch i64 %iplen, label %return [
-    i64 16, label %if.end
-    i64 4, label %if.end
-    i64 0, label %if.end
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  switch i64 %2, label %int_x509_param_set1.exit [
+    i64 16, label %4
+    i64 4, label %4
+    i64 0, label %4
   ]
 
-if.end:                                           ; preds = %entry, %entry, %entry
-  %id = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %0 = load ptr, ptr %id, align 8
-  %ip4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %iplen6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %tobool.not.i = icmp eq ptr %ip, null
-  br i1 %tobool.not.i, label %if.end8.i, label %if.then.i
+4:                                                ; preds = %3, %3, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = load ptr, ptr %5, align 8, !tbaa !6
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %17, label %9
 
-if.then.i:                                        ; preds = %if.end
-  %cmp.i = icmp eq i64 %iplen, 0
-  br i1 %cmp.i, label %if.then1.i, label %if.else.i
+9:                                                ; preds = %4
+  %10 = icmp eq i64 %2, 0
+  br i1 %10, label %11, label %14
 
-if.then1.i:                                       ; preds = %if.then.i
-  %call.i = tail call ptr @BUF_strdup(ptr noundef nonnull %ip) #15
-  %call2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ip) #16
-  br label %if.end.i
+11:                                               ; preds = %9
+  %12 = tail call ptr @BUF_strdup(ptr noundef nonnull %1) #16
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  br label %16
 
-if.else.i:                                        ; preds = %if.then.i
-  %call3.i = tail call ptr @BUF_memdup(ptr noundef nonnull %ip, i64 noundef %iplen) #15
-  br label %if.end.i
+14:                                               ; preds = %9
+  %15 = tail call ptr @BUF_memdup(ptr noundef nonnull %1, i64 noundef %2) #16
+  br label %16
 
-if.end.i:                                         ; preds = %if.else.i, %if.then1.i
-  %srclen.addr.0.i = phi i64 [ %call2.i, %if.then1.i ], [ %iplen, %if.else.i ]
-  %tmp.0.i = phi ptr [ %call.i, %if.then1.i ], [ %call3.i, %if.else.i ]
-  %tobool4.not.i = icmp eq ptr %tmp.0.i, null
-  br i1 %tobool4.not.i, label %return, label %if.end8.i
+16:                                               ; preds = %14, %11
+  %.014.i = phi i64 [ %13, %11 ], [ %2, %14 ]
+  %.0.i = phi ptr [ %12, %11 ], [ %15, %14 ]
+  %.not21.i = icmp eq ptr %.0.i, null
+  br i1 %.not21.i, label %int_x509_param_set1.exit, label %17
 
-if.end8.i:                                        ; preds = %if.end.i, %if.end
-  %srclen.addr.1.i = phi i64 [ %srclen.addr.0.i, %if.end.i ], [ 0, %if.end ]
-  %tmp.1.i = phi ptr [ %tmp.0.i, %if.end.i ], [ null, %if.end ]
-  %1 = load ptr, ptr %ip4, align 8
-  %tobool9.not.i = icmp eq ptr %1, null
-  br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
+17:                                               ; preds = %16, %4
+  %.115.i = phi i64 [ %.014.i, %16 ], [ 0, %4 ]
+  %.1.i = phi ptr [ %.0.i, %16 ], [ null, %4 ]
+  %18 = load ptr, ptr %7, align 8, !tbaa !32
+  %.not22.i = icmp eq ptr %18, null
+  br i1 %.not22.i, label %20, label %19
 
-if.then10.i:                                      ; preds = %if.end8.i
-  tail call void @free(ptr noundef nonnull %1) #15
-  br label %if.end11.i
+19:                                               ; preds = %17
+  tail call void @free(ptr noundef nonnull %18) #16
+  br label %20
 
-if.end11.i:                                       ; preds = %if.then10.i, %if.end8.i
-  store ptr %tmp.1.i, ptr %ip4, align 8
-  store i64 %srclen.addr.1.i, ptr %iplen6, align 8
-  br label %return
+20:                                               ; preds = %19, %17
+  store ptr %.1.i, ptr %7, align 8, !tbaa !32
+  store i64 %.115.i, ptr %8, align 8, !tbaa !33
+  br label %int_x509_param_set1.exit
 
-return:                                           ; preds = %if.end11.i, %if.end.i, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end.i ], [ 1, %if.end11.i ]
-  ret i32 %retval.0
+int_x509_param_set1.exit:                         ; preds = %20, %16, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %16 ], [ 1, %20 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %to, ptr noundef captures(address_is_null) %from) local_unnamed_addr #0 {
-entry:
-  %inh_flags = getelementptr inbounds nuw i8, ptr %to, i64 16
-  %0 = load i64, ptr %inh_flags, align 8
-  %or = or i64 %0, 1
-  store i64 %or, ptr %inh_flags, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef %to, ptr noundef %from)
-  store i64 %0, ptr %inh_flags, align 8
-  ret i32 %call
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i64, ptr %3, align 8, !tbaa !25
+  %5 = or i64 %4, 1
+  store i64 %5, ptr %3, align 8, !tbaa !25
+  %6 = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef %0, ptr noundef %1)
+  store i64 %4, ptr %3, align 8, !tbaa !25
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_name(ptr noundef captures(none) %param, ptr noundef %name) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %param, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_name(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !16
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #15
-  br label %if.end
+4:                                                ; preds = %2
+  tail call void @free(ptr noundef nonnull %3) #16
+  br label %5
 
-if.end:                                           ; preds = %if.then, %entry
-  %call = tail call ptr @BUF_strdup(ptr noundef %name) #15
-  store ptr %call, ptr %param, align 8
-  %tobool5.not = icmp ne ptr %call, null
-  %. = zext i1 %tobool5.not to i32
+5:                                                ; preds = %4, %2
+  %6 = tail call ptr @BUF_strdup(ptr noundef %1) #16
+  store ptr %6, ptr %0, align 8, !tbaa !16
+  %.not6 = icmp ne ptr %6, null
+  %. = zext i1 %.not6 to i32
   ret i32 %.
 }
 
-declare ptr @BUF_strdup(ptr noundef) local_unnamed_addr #4
+declare ptr @BUF_strdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_set_flags(ptr noundef captures(none) %param, i64 noundef %flags) local_unnamed_addr #6 {
-entry:
-  %flags1 = getelementptr inbounds nuw i8, ptr %param, i64 24
-  %0 = load i64, ptr %flags1, align 8
-  %or = or i64 %0, %flags
-  %and = and i64 %flags, 1920
-  %tobool.not = icmp eq i64 %and, 0
-  %or3 = or i64 %or, 128
-  %spec.select = select i1 %tobool.not, i64 %or, i64 %or3
-  store i64 %spec.select, ptr %flags1, align 8
+define hidden noundef i32 @X509_VERIFY_PARAM_set_flags(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = load i64, ptr %3, align 8, !tbaa !28
+  %5 = or i64 %4, %1
+  %6 = and i64 %1, 1920
+  %.not = icmp eq i64 %6, 0
+  %7 = or i64 %5, 128
+  %spec.select = select i1 %.not, i64 %5, i64 %7
+  store i64 %spec.select, ptr %3, align 8, !tbaa !28
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_clear_flags(ptr noundef captures(none) %param, i64 noundef %flags) local_unnamed_addr #6 {
-entry:
-  %not = xor i64 %flags, -1
-  %flags1 = getelementptr inbounds nuw i8, ptr %param, i64 24
-  %0 = load i64, ptr %flags1, align 8
-  %and = and i64 %0, %not
-  store i64 %and, ptr %flags1, align 8
+define hidden noundef i32 @X509_VERIFY_PARAM_clear_flags(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
+  %3 = xor i64 %1, -1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load i64, ptr %4, align 8, !tbaa !28
+  %6 = and i64 %5, %3
+  store i64 %6, ptr %4, align 8, !tbaa !28
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @X509_VERIFY_PARAM_get_flags(ptr noundef readonly captures(none) %param) local_unnamed_addr #7 {
-entry:
-  %flags = getelementptr inbounds nuw i8, ptr %param, i64 24
-  %0 = load i64, ptr %flags, align 8
-  ret i64 %0
+define hidden i64 @X509_VERIFY_PARAM_get_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load i64, ptr %2, align 8, !tbaa !28
+  ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %param, i32 noundef %purpose) local_unnamed_addr #0 {
-entry:
-  %purpose1 = getelementptr inbounds nuw i8, ptr %param, i64 32
-  %call = tail call i32 @X509_PURPOSE_set(ptr noundef nonnull %purpose1, i32 noundef %purpose) #15
-  ret i32 %call
+define hidden i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = tail call i32 @X509_PURPOSE_set(ptr noundef nonnull %3, i32 noundef %1) #16
+  ret i32 %4
 }
 
-declare i32 @X509_PURPOSE_set(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @X509_PURPOSE_set(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %param, i32 noundef %trust) local_unnamed_addr #0 {
-entry:
-  %trust1 = getelementptr inbounds nuw i8, ptr %param, i64 36
-  %call = tail call i32 @X509_TRUST_set(ptr noundef nonnull %trust1, i32 noundef %trust) #15
-  ret i32 %call
+define hidden i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %4 = tail call i32 @X509_TRUST_set(ptr noundef nonnull %3, i32 noundef %1) #16
+  ret i32 %4
 }
 
-declare i32 @X509_TRUST_set(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @X509_TRUST_set(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_VERIFY_PARAM_set_depth(ptr noundef writeonly captures(none) initializes((40, 44)) %param, i32 noundef %depth) local_unnamed_addr #8 {
-entry:
-  %depth1 = getelementptr inbounds nuw i8, ptr %param, i64 40
-  store i32 %depth, ptr %depth1, align 8
+define hidden void @X509_VERIFY_PARAM_set_depth(ptr noundef writeonly captures(none) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #9 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %1, ptr %3, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @X509_VERIFY_PARAM_set_time(ptr noundef captures(none) initializes((8, 16)) %param, i64 noundef %t) local_unnamed_addr #6 {
-entry:
-  %check_time = getelementptr inbounds nuw i8, ptr %param, i64 8
-  store i64 %t, ptr %check_time, align 8
-  %flags = getelementptr inbounds nuw i8, ptr %param, i64 24
-  %0 = load i64, ptr %flags, align 8
-  %or = or i64 %0, 2
-  store i64 %or, ptr %flags, align 8
+define hidden void @X509_VERIFY_PARAM_set_time(ptr noundef captures(none) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #7 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1, ptr %3, align 8, !tbaa !29
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load i64, ptr %4, align 8, !tbaa !28
+  %6 = or i64 %5, 2
+  store i64 %6, ptr %4, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_policy(ptr noundef captures(none) %param, ptr noundef %policy) local_unnamed_addr #0 {
-entry:
-  %policies = getelementptr inbounds nuw i8, ptr %param, i64 48
-  %0 = load ptr, ptr %policies, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %if.end5
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_policy(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %7
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @sk_new_null() #15
-  store ptr %call, ptr %policies, align 8
-  %tobool3.not = icmp eq ptr %call, null
-  br i1 %tobool3.not, label %return, label %if.end5
+5:                                                ; preds = %2
+  %6 = tail call ptr @sk_new_null() #16
+  store ptr %6, ptr %3, align 8, !tbaa !18
+  %.not5 = icmp eq ptr %6, null
+  br i1 %.not5, label %10, label %7
 
-if.end5:                                          ; preds = %if.then, %entry
-  %1 = phi ptr [ %call, %if.then ], [ %0, %entry ]
-  %call7 = tail call i64 @sk_push(ptr noundef nonnull %1, ptr noundef %policy) #15
-  %tobool8.not = icmp ne i64 %call7, 0
-  %. = zext i1 %tobool8.not to i32
-  br label %return
+7:                                                ; preds = %5, %2
+  %8 = phi ptr [ %6, %5 ], [ %4, %2 ]
+  %9 = tail call i64 @sk_push(ptr noundef nonnull %8, ptr noundef %1) #16
+  %.not6 = icmp ne i64 %9, 0
+  %. = zext i1 %.not6 to i32
+  br label %10
 
-return:                                           ; preds = %if.end5, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %., %if.end5 ]
-  ret i32 %retval.0
+10:                                               ; preds = %7, %5
+  %.0 = phi i32 [ 0, %5 ], [ %., %7 ]
+  ret i32 %.0
 }
 
-declare ptr @sk_new_null() local_unnamed_addr #4
+declare ptr @sk_new_null() local_unnamed_addr #5
 
-declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @ASN1_OBJECT_free(ptr noundef) #4
+declare void @ASN1_OBJECT_free(ptr noundef) #5
 
-declare i64 @sk_num(ptr noundef) local_unnamed_addr #4
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #5
 
-declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_host(ptr noundef readonly captures(none) %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
-entry:
-  %id = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %0 = load ptr, ptr %id, align 8
-  %call = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %0, i32 noundef 0, ptr noundef %name, i64 noundef %namelen)
-  ret i32 %call
-}
+declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr noundef captures(none) %id, i32 noundef range(i32 0, 2) %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %name, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
-  %call = tail call ptr @memchr(ptr noundef nonnull %name, i32 noundef 0, i64 noundef %namelen) #16
-  %tobool1.not = icmp eq ptr %call, null
-  br i1 %tobool1.not, label %if.end, label %return
-
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %cmp = icmp eq i32 %mode, 0
-  br i1 %cmp, label %land.lhs.true2, label %if.end7
-
-land.lhs.true2:                                   ; preds = %if.end
-  %0 = load ptr, ptr %id, align 8
-  %tobool3.not = icmp eq ptr %0, null
-  br i1 %tobool3.not, label %if.end7, label %if.then4
-
-if.then4:                                         ; preds = %land.lhs.true2
-  tail call void @sk_pop_free(ptr noundef nonnull %0, ptr noundef nonnull @str_free) #15
-  store ptr null, ptr %id, align 8
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then4, %land.lhs.true2, %if.end
-  %cmp9 = icmp eq i64 %namelen, 0
-  %or.cond = or i1 %tobool.not, %cmp9
-  br i1 %or.cond, label %return, label %if.end11
-
-if.end11:                                         ; preds = %if.end7
-  %call12 = tail call ptr @BUF_strndup(ptr noundef nonnull %name, i64 noundef %namelen) #15
-  %cmp13 = icmp eq ptr %call12, null
-  br i1 %cmp13, label %return, label %if.end15
-
-if.end15:                                         ; preds = %if.end11
-  %1 = load ptr, ptr %id, align 8
-  %cmp17 = icmp eq ptr %1, null
-  br i1 %cmp17, label %land.lhs.true18, label %if.end23
-
-land.lhs.true18:                                  ; preds = %if.end15
-  %call19 = tail call ptr @sk_new_null() #15
-  store ptr %call19, ptr %id, align 8
-  %cmp21 = icmp eq ptr %call19, null
-  br i1 %cmp21, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %land.lhs.true18
-  tail call void @free(ptr noundef nonnull %call12) #15
-  br label %return
-
-if.end23:                                         ; preds = %land.lhs.true18, %if.end15
-  %2 = phi ptr [ %call19, %land.lhs.true18 ], [ %1, %if.end15 ]
-  %call25 = tail call i64 @sk_push(ptr noundef nonnull %2, ptr noundef nonnull %call12) #15
-  %tobool26.not = icmp eq i64 %call25, 0
-  br i1 %tobool26.not, label %if.then27, label %return
-
-if.then27:                                        ; preds = %if.end23
-  tail call void @free(ptr noundef nonnull %call12) #15
-  %3 = load ptr, ptr %id, align 8
-  %call29 = tail call i64 @sk_num(ptr noundef %3) #15
-  %cmp30 = icmp eq i64 %call29, 0
-  br i1 %cmp30, label %if.then31, label %return
-
-if.then31:                                        ; preds = %if.then27
-  %4 = load ptr, ptr %id, align 8
-  tail call void @sk_free(ptr noundef %4) #15
-  store ptr null, ptr %id, align 8
-  br label %return
-
-return:                                           ; preds = %if.end23, %if.then27, %if.then31, %if.end11, %if.end7, %land.lhs.true, %if.then22
-  %retval.0 = phi i32 [ 0, %if.then22 ], [ 0, %land.lhs.true ], [ 1, %if.end7 ], [ 0, %if.end11 ], [ 0, %if.then31 ], [ 0, %if.then27 ], [ 1, %if.end23 ]
-  ret i32 %retval.0
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_host(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %5, i32 noundef 0, ptr noundef %1, i64 noundef %2)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add1_host(ptr noundef readonly captures(none) %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
-entry:
-  %id = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %0 = load ptr, ptr %id, align 8
-  %call = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %0, i32 noundef 1, ptr noundef %name, i64 noundef %namelen)
-  ret i32 %call
+define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %7, label %5
+
+5:                                                ; preds = %4
+  %6 = tail call ptr @memchr(ptr noundef nonnull %2, i32 noundef 0, i64 noundef %3) #17
+  %.not26 = icmp eq ptr %6, null
+  br i1 %.not26, label %7, label %33
+
+7:                                                ; preds = %5, %4
+  %8 = icmp eq i32 %1, 0
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %7
+  %10 = load ptr, ptr %0, align 8, !tbaa !19
+  %.not27 = icmp eq ptr %10, null
+  br i1 %.not27, label %12, label %11
+
+11:                                               ; preds = %9
+  tail call void @sk_pop_free(ptr noundef nonnull %10, ptr noundef nonnull @str_free) #16
+  store ptr null, ptr %0, align 8, !tbaa !19
+  br label %12
+
+12:                                               ; preds = %11, %9, %7
+  %13 = icmp eq i64 %3, 0
+  %or.cond = or i1 %.not, %13
+  br i1 %or.cond, label %33, label %14
+
+14:                                               ; preds = %12
+  %15 = tail call ptr @BUF_strndup(ptr noundef nonnull %2, i64 noundef %3) #16
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %33, label %17
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %0, align 8, !tbaa !19
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %24
+
+20:                                               ; preds = %17
+  %21 = tail call ptr @sk_new_null() #16
+  store ptr %21, ptr %0, align 8, !tbaa !19
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %20
+  tail call void @free(ptr noundef nonnull %15) #16
+  br label %33
+
+24:                                               ; preds = %20, %17
+  %25 = phi ptr [ %21, %20 ], [ %18, %17 ]
+  %26 = tail call i64 @sk_push(ptr noundef nonnull %25, ptr noundef nonnull %15) #16
+  %.not28 = icmp eq i64 %26, 0
+  br i1 %.not28, label %27, label %33
+
+27:                                               ; preds = %24
+  tail call void @free(ptr noundef nonnull %15) #16
+  %28 = load ptr, ptr %0, align 8, !tbaa !19
+  %29 = tail call i64 @sk_num(ptr noundef %28) #16
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %0, align 8, !tbaa !19
+  tail call void @sk_free(ptr noundef %32) #16
+  store ptr null, ptr %0, align 8, !tbaa !19
+  br label %33
+
+33:                                               ; preds = %24, %27, %31, %14, %12, %5, %23
+  %.0 = phi i32 [ 0, %23 ], [ 0, %5 ], [ 1, %12 ], [ 0, %14 ], [ 0, %31 ], [ 0, %27 ], [ 1, %24 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add1_host(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %5, i32 noundef 1, ptr noundef %1, i64 noundef %2)
+  ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @X509_VERIFY_PARAM_set_hostflags(ptr noundef readonly captures(none) %param, i32 noundef %flags) local_unnamed_addr #9 {
-entry:
-  %id = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %0 = load ptr, ptr %id, align 8
-  %hostflags = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %flags, ptr %hostflags, align 8
+define hidden void @X509_VERIFY_PARAM_set_hostflags(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = load ptr, ptr %3, align 8, !tbaa !6
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %1, ptr %5, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @X509_VERIFY_PARAM_get0_peername(ptr noundef readonly captures(none) %param) local_unnamed_addr #10 {
-entry:
-  %id = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %0 = load ptr, ptr %id, align 8
-  %peername = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %peername, align 8
-  ret ptr %1
+define hidden ptr @X509_VERIFY_PARAM_get0_peername(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr noundef readonly captures(none) %param, ptr noundef %ipasc) local_unnamed_addr #0 {
-entry:
-  %ipout = alloca [16 x i8], align 16
-  %call = call i32 @a2i_ipadd(ptr noundef nonnull %ipout, ptr noundef %ipasc) #15
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca [16 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  %4 = call i32 @a2i_ipadd(ptr noundef nonnull %3, ptr noundef %1) #16
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %X509_VERIFY_PARAM_set1_ip.exit, label %6
 
-if.end:                                           ; preds = %entry
-  %conv = sext i32 %call to i64
-  switch i32 %call, label %return [
-    i32 16, label %if.end.i.i
-    i32 4, label %if.end.i.i
+6:                                                ; preds = %2
+  %7 = sext i32 %4 to i64
+  switch i32 %4, label %X509_VERIFY_PARAM_set1_ip.exit [
+    i32 16, label %8
+    i32 4, label %8
   ]
 
-if.end.i.i:                                       ; preds = %if.end, %if.end
-  %id.i = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %0 = load ptr, ptr %id.i, align 8
-  %ip4.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %iplen6.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %call3.i.i = call ptr @BUF_memdup(ptr noundef nonnull %ipout, i64 noundef %conv) #15
-  %tobool4.not.i.i = icmp eq ptr %call3.i.i, null
-  br i1 %tobool4.not.i.i, label %return, label %if.end8.i.i
+8:                                                ; preds = %6, %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8, !tbaa !6
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %13 = call ptr @BUF_memdup(ptr noundef nonnull %3, i64 noundef %7) #16
+  %.not21.i.i = icmp eq ptr %13, null
+  br i1 %.not21.i.i, label %X509_VERIFY_PARAM_set1_ip.exit, label %14
 
-if.end8.i.i:                                      ; preds = %if.end.i.i
-  %1 = load ptr, ptr %ip4.i, align 8
-  %tobool9.not.i.i = icmp eq ptr %1, null
-  br i1 %tobool9.not.i.i, label %if.end11.i.i, label %if.then10.i.i
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %11, align 8, !tbaa !32
+  %.not22.i.i = icmp eq ptr %15, null
+  br i1 %.not22.i.i, label %17, label %16
 
-if.then10.i.i:                                    ; preds = %if.end8.i.i
-  call void @free(ptr noundef nonnull %1) #15
-  br label %if.end11.i.i
+16:                                               ; preds = %14
+  call void @free(ptr noundef nonnull %15) #16
+  br label %17
 
-if.end11.i.i:                                     ; preds = %if.then10.i.i, %if.end8.i.i
-  store ptr %call3.i.i, ptr %ip4.i, align 8
-  store i64 %conv, ptr %iplen6.i, align 8
-  br label %return
+17:                                               ; preds = %16, %14
+  store ptr %13, ptr %11, align 8, !tbaa !32
+  store i64 %7, ptr %12, align 8, !tbaa !33
+  br label %X509_VERIFY_PARAM_set1_ip.exit
 
-return:                                           ; preds = %if.end11.i.i, %if.end.i.i, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end.i.i ], [ 1, %if.end11.i.i ]
-  ret i32 %retval.0
+X509_VERIFY_PARAM_set1_ip.exit:                   ; preds = %17, %8, %6, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %8 ], [ 1, %17 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  ret i32 %.0
 }
 
-declare i32 @a2i_ipadd(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @a2i_ipadd(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @X509_VERIFY_PARAM_get_depth(ptr noundef readonly captures(none) %param) local_unnamed_addr #7 {
-entry:
-  %depth = getelementptr inbounds nuw i8, ptr %param, i64 40
-  %0 = load i32, ptr %depth, align 8
-  ret i32 %0
+define hidden i32 @X509_VERIFY_PARAM_get_depth(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load i32, ptr %2, align 8, !tbaa !17
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @X509_VERIFY_PARAM_get0_name(ptr noundef readonly captures(none) %param) local_unnamed_addr #7 {
-entry:
-  %0 = load ptr, ptr %param, align 8
-  ret ptr %0
+define hidden ptr @X509_VERIFY_PARAM_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !16
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_table(ptr noundef %param) local_unnamed_addr #0 {
-entry:
-  %idx = alloca i64, align 8
-  %0 = load ptr, ptr @param_table, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %if.else
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_table(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca i64, align 8
+  %3 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %4, label %6
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @sk_new(ptr noundef nonnull @param_cmp) #15
-  store ptr %call, ptr @param_table, align 8
-  %tobool1.not = icmp eq ptr %call, null
-  br i1 %tobool1.not, label %return, label %if.end9
+4:                                                ; preds = %1
+  %5 = tail call ptr @sk_new(ptr noundef nonnull @param_cmp) #16
+  store ptr %5, ptr @param_table, align 8, !tbaa !37
+  %.not3 = icmp eq ptr %5, null
+  br i1 %.not3, label %23, label %20
 
-if.else:                                          ; preds = %entry
-  %call3 = call i32 @sk_find(ptr noundef nonnull %0, ptr noundef nonnull %idx, ptr noundef %param) #15
-  %tobool4.not = icmp eq i32 %call3, 0
-  %.pre2 = load ptr, ptr @param_table, align 8
-  br i1 %tobool4.not, label %if.end9, label %if.then5
+6:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  %7 = call i32 @sk_find(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0) #16
+  %.not4 = icmp eq i32 %7, 0
+  br i1 %.not4, label %19, label %8
 
-if.then5:                                         ; preds = %if.else
-  %1 = load i64, ptr %idx, align 8
-  %call6 = call ptr @sk_value(ptr noundef %.pre2, i64 noundef %1) #15
-  %cmp.i = icmp eq ptr %call6, null
-  br i1 %cmp.i, label %X509_VERIFY_PARAM_free.exit, label %if.end.i
+8:                                                ; preds = %6
+  %9 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %10 = load i64, ptr %2, align 8, !tbaa !33
+  %11 = call ptr @sk_value(ptr noundef %9, i64 noundef %10) #16
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %X509_VERIFY_PARAM_free.exit, label %13
 
-if.end.i:                                         ; preds = %if.then5
-  call fastcc void @x509_verify_param_zero(ptr noundef %call6)
-  %id.i = getelementptr inbounds nuw i8, ptr %call6, i64 56
-  %2 = load ptr, ptr %id.i, align 8
-  call void @free(ptr noundef %2) #15
-  call void @free(ptr noundef nonnull %call6) #15
+13:                                               ; preds = %8
+  call fastcc void @x509_verify_param_zero(ptr noundef %11)
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %15 = load ptr, ptr %14, align 8, !tbaa !6
+  call void @free(ptr noundef %15) #16
+  call void @free(ptr noundef nonnull %11) #16
   br label %X509_VERIFY_PARAM_free.exit
 
-X509_VERIFY_PARAM_free.exit:                      ; preds = %if.then5, %if.end.i
-  %3 = load ptr, ptr @param_table, align 8
-  %4 = load i64, ptr %idx, align 8
-  %call7 = call ptr @sk_delete(ptr noundef %3, i64 noundef %4) #15
-  %.pre = load ptr, ptr @param_table, align 8
-  br label %if.end9
+X509_VERIFY_PARAM_free.exit:                      ; preds = %8, %13
+  %16 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %17 = load i64, ptr %2, align 8, !tbaa !33
+  %18 = call ptr @sk_delete(ptr noundef %16, i64 noundef %17) #16
+  br label %19
 
-if.end9:                                          ; preds = %if.else, %X509_VERIFY_PARAM_free.exit, %if.then
-  %5 = phi ptr [ %.pre2, %if.else ], [ %.pre, %X509_VERIFY_PARAM_free.exit ], [ %call, %if.then ]
-  %call10 = call i64 @sk_push(ptr noundef %5, ptr noundef %param) #15
-  %tobool11.not = icmp ne i64 %call10, 0
-  %. = zext i1 %tobool11.not to i32
-  br label %return
+19:                                               ; preds = %X509_VERIFY_PARAM_free.exit, %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  %.pre = load ptr, ptr @param_table, align 8, !tbaa !37
+  br label %20
 
-return:                                           ; preds = %if.end9, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %., %if.end9 ]
-  ret i32 %retval.0
+20:                                               ; preds = %4, %19
+  %21 = phi ptr [ %5, %4 ], [ %.pre, %19 ]
+  %22 = call i64 @sk_push(ptr noundef %21, ptr noundef %0) #16
+  %.not5 = icmp ne i64 %22, 0
+  %. = zext i1 %.not5 to i32
+  br label %23
+
+23:                                               ; preds = %20, %4
+  %.0 = phi i32 [ 0, %4 ], [ %., %20 ]
+  ret i32 %.0
 }
 
-declare ptr @sk_new(ptr noundef) local_unnamed_addr #4
+declare ptr @sk_new(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @param_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #11 {
-entry:
-  %0 = load ptr, ptr %a, align 8
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %b, align 8
-  %3 = load ptr, ptr %2, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #16
-  ret i32 %call
+define internal i32 @param_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !39
+  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %5 = load ptr, ptr %1, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !16
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #17
+  ret i32 %7
 }
 
-declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @sk_delete(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @sk_delete(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_VERIFY_PARAM_get_count() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr @param_table, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
+  %1 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %6, label %2
 
-if.then:                                          ; preds = %entry
-  %call = tail call i64 @sk_num(ptr noundef nonnull %0) #15
-  %1 = trunc i64 %call to i32
-  %conv1 = add i32 %1, 5
-  br label %if.end
+2:                                                ; preds = %0
+  %3 = tail call i64 @sk_num(ptr noundef nonnull %1) #16
+  %4 = trunc i64 %3 to i32
+  %5 = add i32 %4, 5
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
-  %num.0 = phi i32 [ %conv1, %if.then ], [ 5, %entry ]
-  ret i32 %num.0
+6:                                                ; preds = %2, %0
+  %.0 = phi i32 [ %5, %2 ], [ 5, %0 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_VERIFY_PARAM_get0(i32 noundef %id) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp slt i32 %id, 5
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @X509_VERIFY_PARAM_get0(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = icmp slt i32 %0, 5
+  br i1 %2, label %3, label %6
 
-if.then:                                          ; preds = %entry
-  %idx.ext = sext i32 %id to i64
-  %add.ptr = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr @default_table, i64 %idx.ext
-  br label %return
+3:                                                ; preds = %1
+  %4 = sext i32 %0 to i64
+  %5 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr @default_table, i64 %4
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr @param_table, align 8
-  %sub = add nsw i32 %id, -5
-  %conv = zext nneg i32 %sub to i64
-  %call = tail call ptr @sk_value(ptr noundef %0, i64 noundef %conv) #15
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %8 = add nsw i32 %0, -5
+  %9 = zext nneg i32 %8 to i64
+  %10 = tail call ptr @sk_value(ptr noundef %7, i64 noundef %9) #16
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi ptr [ %add.ptr, %if.then ], [ %call, %if.end ]
-  ret ptr %retval.0
+11:                                               ; preds = %6, %3
+  %.0 = phi ptr [ %5, %3 ], [ %10, %6 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_VERIFY_PARAM_lookup(ptr noundef %name) local_unnamed_addr #0 {
-entry:
-  %pm = alloca %struct.X509_VERIFY_PARAM_st, align 8
-  %idx = alloca i64, align 8
-  store ptr %name, ptr %pm, align 8
-  %0 = load ptr, ptr @param_table, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %for.body.preheader, label %if.then
+define hidden ptr @X509_VERIFY_PARAM_lookup(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.X509_VERIFY_PARAM_st, align 8
+  %3 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %4 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %.preheader, label %5
 
-for.body.preheader:                               ; preds = %if.then, %entry
-  br label %for.body
+.preheader:                                       ; preds = %.thread, %1
+  br label %12
 
-if.then:                                          ; preds = %entry
-  %call = call i32 @sk_find(ptr noundef nonnull %0, ptr noundef nonnull %idx, ptr noundef nonnull %pm) #15
-  %tobool2.not = icmp eq i32 %call, 0
-  br i1 %tobool2.not, label %for.body.preheader, label %if.then3
+5:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  %6 = call i32 @sk_find(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %2) #16
+  %.not10 = icmp eq i32 %6, 0
+  br i1 %.not10, label %.thread, label %7
 
-if.then3:                                         ; preds = %if.then
-  %1 = load ptr, ptr @param_table, align 8
-  %2 = load i64, ptr %idx, align 8
-  %call4 = call ptr @sk_value(ptr noundef %1, i64 noundef %2) #15
-  br label %return
+.thread:                                          ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  br label %.preheader
 
-for.cond:                                         ; preds = %for.body
+7:                                                ; preds = %5
+  %8 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %9 = load i64, ptr %3, align 8, !tbaa !33
+  %10 = call ptr @sk_value(ptr noundef %8, i64 noundef %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  br label %.loopexit
+
+11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !41
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds nuw [5 x %struct.X509_VERIFY_PARAM_st], ptr @default_table, i64 0, i64 %indvars.iv
-  %3 = load ptr, ptr %arrayidx, align 16
-  %call7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %name) #16
-  %cmp8 = icmp eq i32 %call7, 0
-  br i1 %cmp8, label %return, label %for.cond
+12:                                               ; preds = %.preheader, %11
+  %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
+  %13 = getelementptr inbounds nuw [5 x %struct.X509_VERIFY_PARAM_st], ptr @default_table, i64 0, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 16, !tbaa !16
+  %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %0) #17
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.loopexit, label %11
 
-return:                                           ; preds = %for.cond, %for.body, %if.then3
-  %retval.0 = phi ptr [ %call4, %if.then3 ], [ null, %for.cond ], [ %arrayidx, %for.body ]
-  ret ptr %retval.0
+.loopexit:                                        ; preds = %11, %12, %7
+  %.1 = phi ptr [ %10, %7 ], [ null, %11 ], [ %13, %12 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_VERIFY_PARAM_table_cleanup() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr @param_table, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
+  %1 = load ptr, ptr @param_table, align 8, !tbaa !37
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %3, label %2
 
-if.then:                                          ; preds = %entry
-  tail call void @sk_pop_free(ptr noundef nonnull %0, ptr noundef nonnull @X509_VERIFY_PARAM_free) #15
-  br label %if.end
+2:                                                ; preds = %0
+  tail call void @sk_pop_free(ptr noundef nonnull %1, ptr noundef nonnull @X509_VERIFY_PARAM_free) #16
+  br label %3
 
-if.end:                                           ; preds = %if.then, %entry
-  store ptr null, ptr @param_table, align 8
+3:                                                ; preds = %2, %0
+  store ptr null, ptr @param_table, align 8, !tbaa !37
   ret void
 }
 
-declare ptr @OPENSSL_strdup(ptr noundef) local_unnamed_addr #4
+declare ptr @OPENSSL_strdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #12
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
 
-declare ptr @BUF_strndup(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @BUF_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @sk_free(ptr noundef) local_unnamed_addr #4
+declare void @sk_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
-declare ptr @BUF_memdup(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @BUF_memdup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !15, i64 56}
+!7 = !{!"X509_VERIFY_PARAM_st", !8, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !14, i64 48, !15, i64 56}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"long", !10, i64 0}
+!13 = !{!"int", !10, i64 0}
+!14 = !{!"p1 _ZTS20stack_st_ASN1_OBJECT", !9, i64 0}
+!15 = !{!"p1 _ZTS23X509_VERIFY_PARAM_ID_st", !9, i64 0}
+!16 = !{!7, !8, i64 0}
+!17 = !{!7, !13, i64 40}
+!18 = !{!7, !14, i64 48}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"X509_VERIFY_PARAM_ID_st", !21, i64 0, !13, i64 8, !8, i64 16, !8, i64 24, !12, i64 32, !8, i64 40, !12, i64 48}
+!21 = !{!"p1 _ZTS23stack_st_OPENSSL_STRING", !9, i64 0}
+!22 = !{!20, !8, i64 16}
+!23 = !{!20, !8, i64 24}
+!24 = !{!20, !8, i64 40}
+!25 = !{!7, !12, i64 16}
+!26 = !{!7, !13, i64 32}
+!27 = !{!7, !13, i64 36}
+!28 = !{!7, !12, i64 24}
+!29 = !{!7, !12, i64 8}
+!30 = !{!20, !13, i64 8}
+!31 = !{!20, !12, i64 32}
+!32 = !{!8, !8, i64 0}
+!33 = !{!12, !12, i64 0}
+!34 = !{!20, !12, i64 48}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.mustprogress"}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS26stack_st_X509_VERIFY_PARAM", !9, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
+!41 = distinct !{!41, !36}

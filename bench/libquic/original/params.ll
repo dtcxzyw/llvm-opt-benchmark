@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.standard_parameters = type { %struct.bignum_st, %struct.bignum_st, %struct.bignum_st }
 %struct.bignum_st = type { ptr, i32, i32, i32, i32 }
@@ -28,208 +28,255 @@ target triple = "x86_64-unknown-linux-gnu"
 @dh1024_safe_prime_4 = internal constant [16 x i64] [i64 5802292317940729963, i64 -8712995370023270832, i64 1319896600921659048, i64 -7543917565666478629, i64 -1541447574348388804, i64 6936896934585491550, i64 6998237296162806620, i64 4483084360912938975, i64 4062545243323397, i64 3429243984362511176, i64 -6417900205751347806, i64 -426256083161111642, i64 3035536719735269232, i64 -7946740620755008162, i64 9003118708282128782, i64 -1831103311930203348], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_1024_160(ptr noundef %engine) #0 {
-entry:
-  %engine.addr = alloca ptr, align 8
-  store ptr %engine, ptr %engine.addr, align 8
-  %0 = load ptr, ptr %engine.addr, align 8
-  %call = call ptr @get_standard_parameters(ptr noundef @dh1024_160, ptr noundef %0)
-  ret ptr %call
+define hidden ptr @DH_get_1024_160(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %4 = call ptr @get_standard_parameters(ptr noundef @dh1024_160, ptr noundef %3)
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_standard_parameters(ptr noundef %params, ptr noundef %engine) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %params.addr = alloca ptr, align 8
-  %engine.addr = alloca ptr, align 8
-  %dh = alloca ptr, align 8
-  store ptr %params, ptr %params.addr, align 8
-  store ptr %engine, ptr %engine.addr, align 8
-  %call = call ptr @DH_new()
-  store ptr %call, ptr %dh, align 8
-  %0 = load ptr, ptr %dh, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @get_standard_parameters(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = call ptr @DH_new()
+  store ptr %8, ptr %6, align 8, !tbaa !13
+  %9 = load ptr, ptr %6, align 8, !tbaa !13
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %12, label %11
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %params.addr, align 8
-  %p = getelementptr inbounds %struct.standard_parameters, ptr %1, i32 0, i32 0
-  %call1 = call ptr @BN_dup(ptr noundef %p)
-  %2 = load ptr, ptr %dh, align 8
-  %p2 = getelementptr inbounds %struct.dh_st, ptr %2, i32 0, i32 0
-  store ptr %call1, ptr %p2, align 8
-  %3 = load ptr, ptr %params.addr, align 8
-  %q = getelementptr inbounds %struct.standard_parameters, ptr %3, i32 0, i32 1
-  %call3 = call ptr @BN_dup(ptr noundef %q)
-  %4 = load ptr, ptr %dh, align 8
-  %q4 = getelementptr inbounds %struct.dh_st, ptr %4, i32 0, i32 7
-  store ptr %call3, ptr %q4, align 8
-  %5 = load ptr, ptr %params.addr, align 8
-  %g = getelementptr inbounds %struct.standard_parameters, ptr %5, i32 0, i32 2
-  %call5 = call ptr @BN_dup(ptr noundef %g)
-  %6 = load ptr, ptr %dh, align 8
-  %g6 = getelementptr inbounds %struct.dh_st, ptr %6, i32 0, i32 1
-  store ptr %call5, ptr %g6, align 8
-  %7 = load ptr, ptr %dh, align 8
-  %p7 = getelementptr inbounds %struct.dh_st, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %p7, align 8
-  %tobool8 = icmp ne ptr %8, null
-  br i1 %tobool8, label %lor.lhs.false, label %if.then14
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.standard_parameters, ptr %13, i32 0, i32 0
+  %15 = call ptr @BN_dup(ptr noundef %14)
+  %16 = load ptr, ptr %6, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw %struct.dh_st, ptr %16, i32 0, i32 0
+  store ptr %15, ptr %17, align 8, !tbaa !15
+  %18 = load ptr, ptr %4, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.standard_parameters, ptr %18, i32 0, i32 1
+  %20 = call ptr @BN_dup(ptr noundef %19)
+  %21 = load ptr, ptr %6, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw %struct.dh_st, ptr %21, i32 0, i32 7
+  store ptr %20, ptr %22, align 8, !tbaa !23
+  %23 = load ptr, ptr %4, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %struct.standard_parameters, ptr %23, i32 0, i32 2
+  %25 = call ptr @BN_dup(ptr noundef %24)
+  %26 = load ptr, ptr %6, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw %struct.dh_st, ptr %26, i32 0, i32 1
+  store ptr %25, ptr %27, align 8, !tbaa !24
+  %28 = load ptr, ptr %6, align 8, !tbaa !13
+  %29 = getelementptr inbounds nuw %struct.dh_st, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !15
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %42
 
-lor.lhs.false:                                    ; preds = %if.end
-  %9 = load ptr, ptr %dh, align 8
-  %q9 = getelementptr inbounds %struct.dh_st, ptr %9, i32 0, i32 7
-  %10 = load ptr, ptr %q9, align 8
-  %tobool10 = icmp ne ptr %10, null
-  br i1 %tobool10, label %lor.lhs.false11, label %if.then14
+32:                                               ; preds = %12
+  %33 = load ptr, ptr %6, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw %struct.dh_st, ptr %33, i32 0, i32 7
+  %35 = load ptr, ptr %34, align 8, !tbaa !23
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %42
 
-lor.lhs.false11:                                  ; preds = %lor.lhs.false
-  %11 = load ptr, ptr %dh, align 8
-  %g12 = getelementptr inbounds %struct.dh_st, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %g12, align 8
-  %tobool13 = icmp ne ptr %12, null
-  br i1 %tobool13, label %if.end15, label %if.then14
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %6, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.dh_st, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !24
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %44, label %42
 
-if.then14:                                        ; preds = %lor.lhs.false11, %lor.lhs.false, %if.end
-  %13 = load ptr, ptr %dh, align 8
-  call void @DH_free(ptr noundef %13)
-  store ptr null, ptr %retval, align 8
-  br label %return
+42:                                               ; preds = %37, %32, %12
+  %43 = load ptr, ptr %6, align 8, !tbaa !13
+  call void @DH_free(ptr noundef %43)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
 
-if.end15:                                         ; preds = %lor.lhs.false11
-  %14 = load ptr, ptr %dh, align 8
-  store ptr %14, ptr %retval, align 8
-  br label %return
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %6, align 8, !tbaa !13
+  store ptr %45, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
 
-return:                                           ; preds = %if.end15, %if.then14, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+46:                                               ; preds = %44, %42, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %47 = load ptr, ptr %3, align 8
+  ret ptr %47
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_2048_224(ptr noundef %engine) #0 {
-entry:
-  %engine.addr = alloca ptr, align 8
-  store ptr %engine, ptr %engine.addr, align 8
-  %0 = load ptr, ptr %engine.addr, align 8
-  %call = call ptr @get_standard_parameters(ptr noundef @dh2048_224, ptr noundef %0)
-  ret ptr %call
+define hidden ptr @DH_get_2048_224(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %4 = call ptr @get_standard_parameters(ptr noundef @dh2048_224, ptr noundef %3)
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_2048_256(ptr noundef %engine) #0 {
-entry:
-  %engine.addr = alloca ptr, align 8
-  store ptr %engine, ptr %engine.addr, align 8
-  %0 = load ptr, ptr %engine.addr, align 8
-  %call = call ptr @get_standard_parameters(ptr noundef @dh2048_256, ptr noundef %0)
-  ret ptr %call
+define hidden ptr @DH_get_2048_256(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %4 = call ptr @get_standard_parameters(ptr noundef @dh2048_256, ptr noundef %3)
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DH_check_standard_parameters(ptr noundef %dh) #0 {
-entry:
-  %dh.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %dh, ptr %dh.addr, align 8
-  %0 = load ptr, ptr %dh.addr, align 8
-  %p = getelementptr inbounds %struct.dh_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %p, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden void @DH_check_standard_parameters(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %5 = load ptr, ptr %2, align 8, !tbaa !13
+  %6 = getelementptr inbounds nuw %struct.dh_st, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %26, label %9
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %dh.addr, align 8
-  %g = getelementptr inbounds %struct.dh_st, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %g, align 8
-  %cmp1 = icmp eq ptr %3, null
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw %struct.dh_st, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %26, label %14
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %dh.addr, align 8
-  %p3 = getelementptr inbounds %struct.dh_st, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %p3, align 8
-  %call = call i32 @BN_num_bytes(ptr noundef %5)
-  %cmp4 = icmp ne i32 %call, 128
-  br i1 %cmp4, label %if.then, label %lor.lhs.false5
+14:                                               ; preds = %9
+  %15 = load ptr, ptr %2, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw %struct.dh_st, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %18 = call i32 @BN_num_bytes(ptr noundef %17)
+  %19 = icmp ne i32 %18, 128
+  br i1 %19, label %26, label %20
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false2
-  %6 = load ptr, ptr %dh.addr, align 8
-  %g6 = getelementptr inbounds %struct.dh_st, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %g6, align 8
-  %call7 = call i32 @BN_cmp(ptr noundef %7, ptr noundef @bn_two)
-  %cmp8 = icmp ne i32 %call7, 0
-  br i1 %cmp8, label %if.then, label %if.end
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %2, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw %struct.dh_st, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  %24 = call i32 @BN_cmp(ptr noundef %23, ptr noundef @bn_two)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %27
 
-if.then:                                          ; preds = %lor.lhs.false5, %lor.lhs.false2, %lor.lhs.false, %entry
-  br label %for.end
+26:                                               ; preds = %20, %14, %9, %1
+  store i32 1, ptr %4, align 4
+  br label %49
 
-if.end:                                           ; preds = %lor.lhs.false5
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+27:                                               ; preds = %20
+  store i32 0, ptr %3, align 4, !tbaa !25
+  br label %28
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %8 = load i32, ptr %i, align 4
-  %conv = zext i32 %8 to i64
-  %cmp9 = icmp ult i64 %conv, 4
-  br i1 %cmp9, label %for.body, label %for.end
+28:                                               ; preds = %45, %27
+  %29 = load i32, ptr %3, align 4, !tbaa !25
+  %30 = zext i32 %29 to i64
+  %31 = icmp ult i64 %30, 4
+  br i1 %31, label %32, label %48
 
-for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %dh.addr, align 8
-  %p11 = getelementptr inbounds %struct.dh_st, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %p11, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %11 to i64
-  %arrayidx = getelementptr inbounds [4 x %struct.bignum_st], ptr @dh1024_safe_prime, i64 0, i64 %idxprom
-  %call12 = call i32 @BN_cmp(ptr noundef %10, ptr noundef %arrayidx)
-  %cmp13 = icmp eq i32 %call12, 0
-  br i1 %cmp13, label %if.then15, label %if.end16
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %2, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw %struct.dh_st, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !15
+  %36 = load i32, ptr %3, align 4, !tbaa !25
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw [4 x %struct.bignum_st], ptr @dh1024_safe_prime, i64 0, i64 %37
+  %39 = call i32 @BN_cmp(ptr noundef %35, ptr noundef %38)
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %44
 
-if.then15:                                        ; preds = %for.body
-  %12 = load ptr, ptr %dh.addr, align 8
-  %priv_length = getelementptr inbounds %struct.dh_st, ptr %12, i32 0, i32 4
-  store i32 161, ptr %priv_length, align 8
-  br label %for.end
+41:                                               ; preds = %32
+  %42 = load ptr, ptr %2, align 8, !tbaa !13
+  %43 = getelementptr inbounds nuw %struct.dh_st, ptr %42, i32 0, i32 4
+  store i32 161, ptr %43, align 8, !tbaa !26
+  br label %48
 
-if.end16:                                         ; preds = %for.body
-  br label %for.inc
+44:                                               ; preds = %32
+  br label %45
 
-for.inc:                                          ; preds = %if.end16
-  %13 = load i32, ptr %i, align 4
-  %inc = add i32 %13, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+45:                                               ; preds = %44
+  %46 = load i32, ptr %3, align 4, !tbaa !25
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %3, align 4, !tbaa !25
+  br label %28, !llvm.loop !27
 
-for.end:                                          ; preds = %if.then15, %for.cond, %if.then
+48:                                               ; preds = %41, %28
+  store i32 0, ptr %4, align 4
+  br label %49
+
+49:                                               ; preds = %48, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  %50 = load i32, ptr %4, align 4
+  switch i32 %50, label %52 [
+    i32 0, label %51
+    i32 1, label %51
+  ]
+
+51:                                               ; preds = %49, %49
   ret void
+
+52:                                               ; preds = %49
+  unreachable
 }
 
-declare i32 @BN_num_bytes(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @BN_cmp(ptr noundef, ptr noundef) #1
+declare i32 @BN_num_bytes(ptr noundef) #2
 
-declare ptr @DH_new() #1
+declare i32 @BN_cmp(ptr noundef, ptr noundef) #2
 
-declare ptr @BN_dup(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @DH_free(ptr noundef) #1
+declare ptr @DH_new() #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+declare ptr @BN_dup(ptr noundef) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+declare void @DH_free(ptr noundef) #2
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS9engine_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS19standard_parameters", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS5dh_st", !8, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"dh_st", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !18, i64 32, !9, i64 40, !19, i64 96, !17, i64 104, !17, i64 112, !20, i64 120, !18, i64 128, !17, i64 136, !18, i64 144, !18, i64 148, !21, i64 152}
+!17 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!18 = !{!"int", !9, i64 0}
+!19 = !{!"p1 _ZTS14bn_mont_ctx_st", !8, i64 0}
+!20 = !{!"p1 omnipotent char", !8, i64 0}
+!21 = !{!"crypto_ex_data_st", !22, i64 0}
+!22 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
+!23 = !{!16, !17, i64 104}
+!24 = !{!16, !17, i64 8}
+!25 = !{!18, !18, i64 0}
+!26 = !{!16, !18, i64 32}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}

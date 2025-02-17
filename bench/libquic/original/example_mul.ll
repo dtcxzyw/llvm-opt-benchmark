@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @stderr = external global ptr, align 8
 @.str = private unnamed_addr constant [8 x i8] c"failed\0A\00", align 1
@@ -7,154 +7,168 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @main() #0 {
-entry:
-  %retval = alloca i32, align 4
-  store i32 0, ptr %retval, align 4
+  %1 = alloca i32, align 4
+  store i32 0, ptr %1, align 4
   call void @CRYPTO_library_init()
-  %call = call i32 @example_EC_POINT_mul()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+  %2 = call i32 @example_EC_POINT_mul()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %7, label %4
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str)
-  store i32 1, ptr %retval, align 4
-  br label %return
+4:                                                ; preds = %0
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str) #4
+  store i32 1, ptr %1, align 4
+  br label %9
 
-if.end:                                           ; preds = %entry
-  %call2 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
-  store i32 0, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %0
+  %8 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
+  store i32 0, ptr %1, align 4
+  br label %9
 
-return:                                           ; preds = %if.end, %if.then
-  %1 = load i32, ptr %retval, align 4
-  ret i32 %1
+9:                                                ; preds = %7, %4
+  %10 = load i32, ptr %1, align 4
+  ret i32 %10
 }
 
 declare void @CRYPTO_library_init() #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @example_EC_POINT_mul() #0 {
-entry:
-  %group = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  %n = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %generator = alloca ptr, align 8
-  store ptr null, ptr %group, align 8
-  store ptr null, ptr %p, align 8
-  store ptr null, ptr %result, align 8
-  store ptr null, ptr %n, align 8
-  store i32 0, ptr %ret, align 4
-  %call = call ptr @EC_GROUP_new_by_curve_name(i32 noundef 415)
-  store ptr %call, ptr %group, align 8
-  %0 = load ptr, ptr %group, align 8
-  %call1 = call ptr @EC_POINT_new(ptr noundef %0)
-  store ptr %call1, ptr %p, align 8
-  %1 = load ptr, ptr %group, align 8
-  %call2 = call ptr @EC_POINT_new(ptr noundef %1)
-  store ptr %call2, ptr %result, align 8
-  %call3 = call ptr @BN_new()
-  store ptr %call3, ptr %n, align 8
-  %2 = load ptr, ptr %p, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
+  store ptr null, ptr %1, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #4
+  store ptr null, ptr %2, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  store ptr null, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  store ptr null, ptr %4, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  store i32 0, ptr %5, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %7 = call ptr @EC_GROUP_new_by_curve_name(i32 noundef 415)
+  store ptr %7, ptr %1, align 8, !tbaa !11
+  %8 = load ptr, ptr %1, align 8, !tbaa !11
+  %9 = call ptr @EC_POINT_new(ptr noundef %8)
+  store ptr %9, ptr %2, align 8, !tbaa !13
+  %10 = load ptr, ptr %1, align 8, !tbaa !11
+  %11 = call ptr @EC_POINT_new(ptr noundef %10)
+  store ptr %11, ptr %3, align 8, !tbaa !13
+  %12 = call ptr @BN_new()
+  store ptr %12, ptr %4, align 8, !tbaa !15
+  %13 = load ptr, ptr %2, align 8, !tbaa !13
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %33, label %15
 
-lor.lhs.false:                                    ; preds = %entry
-  %3 = load ptr, ptr %result, align 8
-  %cmp4 = icmp eq ptr %3, null
-  br i1 %cmp4, label %if.then, label %lor.lhs.false5
+15:                                               ; preds = %0
+  %16 = load ptr, ptr %3, align 8, !tbaa !13
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %33, label %18
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %group, align 8
-  %cmp6 = icmp eq ptr %4, null
-  br i1 %cmp6, label %if.then, label %lor.lhs.false7
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %1, align 8, !tbaa !11
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %33, label %21
 
-lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %5 = load ptr, ptr %n, align 8
-  %cmp8 = icmp eq ptr %5, null
-  br i1 %cmp8, label %if.then, label %lor.lhs.false9
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %4, align 8, !tbaa !15
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %33, label %24
 
-lor.lhs.false9:                                   ; preds = %lor.lhs.false7
-  %6 = load ptr, ptr %group, align 8
-  %7 = load ptr, ptr %p, align 8
-  %call10 = call i32 @EC_POINT_set_to_infinity(ptr noundef %6, ptr noundef %7)
-  %tobool = icmp ne i32 %call10, 0
-  br i1 %tobool, label %lor.lhs.false11, label %if.then
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %1, align 8, !tbaa !11
+  %26 = load ptr, ptr %2, align 8, !tbaa !13
+  %27 = call i32 @EC_POINT_set_to_infinity(ptr noundef %25, ptr noundef %26)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %33
 
-lor.lhs.false11:                                  ; preds = %lor.lhs.false9
-  %8 = load ptr, ptr %n, align 8
-  %call12 = call i32 @BN_set_word(ptr noundef %8, i64 noundef 10)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.end, label %if.then
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %4, align 8, !tbaa !15
+  %31 = call i32 @BN_set_word(ptr noundef %30, i64 noundef 10)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %34, label %33
 
-if.then:                                          ; preds = %lor.lhs.false11, %lor.lhs.false9, %lor.lhs.false7, %lor.lhs.false5, %lor.lhs.false, %entry
-  br label %err
+33:                                               ; preds = %29, %24, %21, %18, %15, %0
+  br label %65
 
-if.end:                                           ; preds = %lor.lhs.false11
-  %9 = load ptr, ptr %group, align 8
-  %10 = load ptr, ptr %result, align 8
-  %11 = load ptr, ptr %p, align 8
-  %12 = load ptr, ptr %n, align 8
-  %call14 = call i32 @EC_POINT_mul(ptr noundef %9, ptr noundef %10, ptr noundef null, ptr noundef %11, ptr noundef %12, ptr noundef null)
-  %tobool15 = icmp ne i32 %call14, 0
-  br i1 %tobool15, label %lor.lhs.false16, label %if.then19
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %1, align 8, !tbaa !11
+  %36 = load ptr, ptr %3, align 8, !tbaa !13
+  %37 = load ptr, ptr %2, align 8, !tbaa !13
+  %38 = load ptr, ptr %4, align 8, !tbaa !15
+  %39 = call i32 @EC_POINT_mul(ptr noundef %35, ptr noundef %36, ptr noundef null, ptr noundef %37, ptr noundef %38, ptr noundef null)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %46
 
-lor.lhs.false16:                                  ; preds = %if.end
-  %13 = load ptr, ptr %group, align 8
-  %14 = load ptr, ptr %result, align 8
-  %call17 = call i32 @EC_POINT_is_at_infinity(ptr noundef %13, ptr noundef %14)
-  %tobool18 = icmp ne i32 %call17, 0
-  br i1 %tobool18, label %if.end20, label %if.then19
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %1, align 8, !tbaa !11
+  %43 = load ptr, ptr %3, align 8, !tbaa !13
+  %44 = call i32 @EC_POINT_is_at_infinity(ptr noundef %42, ptr noundef %43)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %47, label %46
 
-if.then19:                                        ; preds = %lor.lhs.false16, %if.end
-  br label %err
+46:                                               ; preds = %41, %34
+  br label %65
 
-if.end20:                                         ; preds = %lor.lhs.false16
-  %15 = load ptr, ptr %group, align 8
-  %call21 = call ptr @EC_GROUP_get0_generator(ptr noundef %15)
-  store ptr %call21, ptr %generator, align 8
-  %16 = load ptr, ptr %group, align 8
-  %17 = load ptr, ptr %result, align 8
-  %call22 = call ptr @BN_value_one()
-  %18 = load ptr, ptr %p, align 8
-  %19 = load ptr, ptr %n, align 8
-  %call23 = call i32 @EC_POINT_mul(ptr noundef %16, ptr noundef %17, ptr noundef %call22, ptr noundef %18, ptr noundef %19, ptr noundef null)
-  %tobool24 = icmp ne i32 %call23, 0
-  br i1 %tobool24, label %lor.lhs.false25, label %if.then28
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %1, align 8, !tbaa !11
+  %49 = call ptr @EC_GROUP_get0_generator(ptr noundef %48)
+  store ptr %49, ptr %6, align 8, !tbaa !13
+  %50 = load ptr, ptr %1, align 8, !tbaa !11
+  %51 = load ptr, ptr %3, align 8, !tbaa !13
+  %52 = call ptr @BN_value_one()
+  %53 = load ptr, ptr %2, align 8, !tbaa !13
+  %54 = load ptr, ptr %4, align 8, !tbaa !15
+  %55 = call i32 @EC_POINT_mul(ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef null)
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %63
 
-lor.lhs.false25:                                  ; preds = %if.end20
-  %20 = load ptr, ptr %group, align 8
-  %21 = load ptr, ptr %result, align 8
-  %22 = load ptr, ptr %generator, align 8
-  %call26 = call i32 @EC_POINT_cmp(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef null)
-  %cmp27 = icmp ne i32 %call26, 0
-  br i1 %cmp27, label %if.then28, label %if.end29
+57:                                               ; preds = %47
+  %58 = load ptr, ptr %1, align 8, !tbaa !11
+  %59 = load ptr, ptr %3, align 8, !tbaa !13
+  %60 = load ptr, ptr %6, align 8, !tbaa !13
+  %61 = call i32 @EC_POINT_cmp(ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef null)
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %64
 
-if.then28:                                        ; preds = %lor.lhs.false25, %if.end20
-  br label %err
+63:                                               ; preds = %57, %47
+  br label %65
 
-if.end29:                                         ; preds = %lor.lhs.false25
-  store i32 1, ptr %ret, align 4
-  br label %err
+64:                                               ; preds = %57
+  store i32 1, ptr %5, align 4, !tbaa !17
+  br label %65
 
-err:                                              ; preds = %if.end29, %if.then28, %if.then19, %if.then
-  %23 = load ptr, ptr %n, align 8
-  call void @BN_free(ptr noundef %23)
-  %24 = load ptr, ptr %result, align 8
-  call void @EC_POINT_free(ptr noundef %24)
-  %25 = load ptr, ptr %p, align 8
-  call void @EC_POINT_free(ptr noundef %25)
-  %26 = load ptr, ptr %group, align 8
-  call void @EC_GROUP_free(ptr noundef %26)
-  %27 = load i32, ptr %ret, align 4
-  ret i32 %27
+65:                                               ; preds = %64, %63, %46, %33
+  %66 = load ptr, ptr %4, align 8, !tbaa !15
+  call void @BN_free(ptr noundef %66)
+  %67 = load ptr, ptr %3, align 8, !tbaa !13
+  call void @EC_POINT_free(ptr noundef %67)
+  %68 = load ptr, ptr %2, align 8, !tbaa !13
+  call void @EC_POINT_free(ptr noundef %68)
+  %69 = load ptr, ptr %1, align 8, !tbaa !11
+  call void @EC_GROUP_free(ptr noundef %69)
+  %70 = load i32, ptr %5, align 4, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
+  ret i32 %70
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
 declare i32 @printf(ptr noundef, ...) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @EC_GROUP_new_by_curve_name(i32 noundef) #1
 
@@ -182,15 +196,33 @@ declare void @EC_POINT_free(ptr noundef) #1
 
 declare void @EC_GROUP_free(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS11ec_group_st", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS11ec_point_st", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !9, i64 0}

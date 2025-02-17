@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/persistent_histogram_allocator.ll'
 source_filename = "bench/libquic/original/persistent_histogram_allocator.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.base::Feature" = type { ptr, i32 }
 %"struct.std::piecewise_construct_t" = type { i8 }
@@ -24,20 +24,19 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::allocator.6" = type { i8 }
 %"class.std::unique_ptr.40" = type { %"struct.std::__uniq_ptr_data.41" }
 %"struct.std::__uniq_ptr_data.41" = type { %"class.std::__uniq_ptr_impl.42" }
 %"class.std::__uniq_ptr_impl.42" = type { %"class.std::tuple.43" }
 %"class.std::tuple.43" = type { %"struct.std::_Tuple_impl.44" }
 %"struct.std::_Tuple_impl.44" = type { %"struct.std::_Head_base.47" }
 %"struct.std::_Head_base.47" = type { ptr }
+%"class.std::allocator.6" = type { i8 }
 %"class.std::unique_ptr.32" = type { %"struct.std::__uniq_ptr_data.33" }
 %"struct.std::__uniq_ptr_data.33" = type { %"class.std::__uniq_ptr_impl.34" }
 %"class.std::__uniq_ptr_impl.34" = type { %"class.std::tuple.35" }
 %"class.std::tuple.35" = type { %"struct.std::_Tuple_impl.36" }
 %"struct.std::_Tuple_impl.36" = type { %"struct.std::_Head_base.39" }
 %"struct.std::_Head_base.39" = type { ptr }
-%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.base::Pickle" = type { ptr, ptr, i64, i64, i64 }
 %"class.base::PickleIterator" = type { ptr, i64, i64 }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
@@ -49,6 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::unique_ptr.9" = type { %"struct.std::__uniq_ptr_data.10" }
 %"struct.std::__uniq_ptr_data.10" = type { %"class.std::__uniq_ptr_impl.11" }
 %"class.std::__uniq_ptr_impl.11" = type { %"class.std::tuple.12" }
@@ -65,11 +65,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
 %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::unique_ptr<base::PersistentSampleMapRecords>>, std::_Select1st<std::pair<const unsigned long, std::unique_ptr<base::PersistentSampleMapRecords>>>, std::less<unsigned long>>::_Auto_node" = type { ptr, ptr }
-%struct._Guard = type { ptr }
 
 $_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev = comdat any
-
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
 $_ZNSt10unique_ptrIN4base12BucketRangesESt14default_deleteIS1_EED2Ev = comdat any
 
@@ -87,73 +84,65 @@ $_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt1
 
 $_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag = comdat any
 
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
-
-$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
-
-$_ZSt19piecewise_construct = comdat any
-
 @.str = private unnamed_addr constant [21 x i8] c"PersistentHistograms\00", align 1
-@_ZN4base28kPersistentHistogramsFeatureE = dso_local local_unnamed_addr constant %"struct.base::Feature" { ptr @.str, i32 0 }, align 8
+@_ZN4base28kPersistentHistogramsFeatureE = local_unnamed_addr constant %"struct.base::Feature" { ptr @.str, i32 0 }, align 8
 @.str.1 = private unnamed_addr constant [144 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/src/base/metrics/persistent_histogram_allocator.cc\00", align 1
-@_ZTVN4base28PersistentHistogramAllocatorE = dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN4base28PersistentHistogramAllocatorE, ptr @_ZN4base28PersistentHistogramAllocatorD2Ev, ptr @_ZN4base28PersistentHistogramAllocatorD0Ev] }, align 8
+@_ZTVN4base28PersistentHistogramAllocatorE = unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN4base28PersistentHistogramAllocatorE, ptr @_ZN4base28PersistentHistogramAllocatorD1Ev, ptr @_ZN4base28PersistentHistogramAllocatorD0Ev] }, align 8
 @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer = internal global i64 0, align 8
 @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized = internal unnamed_addr global i1 false, align 1
 @_ZN4base12_GLOBAL__N_111g_allocatorE = internal unnamed_addr global ptr null, align 8
 @_ZN4base12_GLOBAL__N_116kResultHistogramE = internal constant [37 x i8] c"UMA.CreatePersistentHistogram.Result\00", align 16
-@_ZTVN4base24GlobalHistogramAllocatorE = dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN4base24GlobalHistogramAllocatorE, ptr @_ZN4base24GlobalHistogramAllocatorD2Ev, ptr @_ZN4base24GlobalHistogramAllocatorD0Ev] }, align 8
+@_ZTVN4base24GlobalHistogramAllocatorE = unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN4base24GlobalHistogramAllocatorE, ptr @_ZN4base24GlobalHistogramAllocatorD1Ev, ptr @_ZN4base24GlobalHistogramAllocatorD0Ev] }, align 8
 @.str.2 = private unnamed_addr constant [13 x i8] c"!g_allocator\00", align 1
+@_ZTIN4base28PersistentHistogramAllocatorE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4base28PersistentHistogramAllocatorE }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN4base28PersistentHistogramAllocatorE = dso_local constant [38 x i8] c"N4base28PersistentHistogramAllocatorE\00", align 1
-@_ZTIN4base28PersistentHistogramAllocatorE = dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4base28PersistentHistogramAllocatorE }, align 8
+@_ZTSN4base28PersistentHistogramAllocatorE = constant [38 x i8] c"N4base28PersistentHistogramAllocatorE\00", align 1
+@_ZTIN4base24GlobalHistogramAllocatorE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4base24GlobalHistogramAllocatorE, ptr @_ZTIN4base28PersistentHistogramAllocatorE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN4base24GlobalHistogramAllocatorE = dso_local constant [34 x i8] c"N4base24GlobalHistogramAllocatorE\00", align 1
-@_ZTIN4base24GlobalHistogramAllocatorE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4base24GlobalHistogramAllocatorE, ptr @_ZTIN4base28PersistentHistogramAllocatorE }, align 8
-@_ZSt19piecewise_construct = linkonce_odr dso_local constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
+@_ZTSN4base24GlobalHistogramAllocatorE = constant [34 x i8] c"N4base24GlobalHistogramAllocatorE\00", align 1
+@_ZStL19piecewise_construct = internal constant %"struct.std::piecewise_construct_t" zeroinitializer, align 1
 @.str.3 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @.str.4 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 @.str.5 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
-@.str.6 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
-@_ZN4base36PersistentSparseHistogramDataManagerC1EPNS_25PersistentMemoryAllocatorE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4base36PersistentSparseHistogramDataManagerC2EPNS_25PersistentMemoryAllocatorE
-@_ZN4base36PersistentSparseHistogramDataManagerD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base36PersistentSparseHistogramDataManagerD2Ev
-@_ZN4base26PersistentSampleMapRecordsC1EPNS_36PersistentSparseHistogramDataManagerEm = dso_local unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4base26PersistentSampleMapRecordsC2EPNS_36PersistentSparseHistogramDataManagerEm
-@_ZN4base26PersistentSampleMapRecordsD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base26PersistentSampleMapRecordsD2Ev
-@_ZN4base28PersistentHistogramAllocator8IteratorC1EPS0_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4base28PersistentHistogramAllocator8IteratorC2EPS0_
-@_ZN4base28PersistentHistogramAllocatorC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE
-@_ZN4base28PersistentHistogramAllocatorD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base28PersistentHistogramAllocatorD2Ev
-@_ZN4base24GlobalHistogramAllocatorD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base24GlobalHistogramAllocatorD2Ev
-@_ZN4base24GlobalHistogramAllocatorC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE
+@_ZN4base36PersistentSparseHistogramDataManagerC1EPNS_25PersistentMemoryAllocatorE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4base36PersistentSparseHistogramDataManagerC2EPNS_25PersistentMemoryAllocatorE
+@_ZN4base36PersistentSparseHistogramDataManagerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4base36PersistentSparseHistogramDataManagerD2Ev
+@_ZN4base26PersistentSampleMapRecordsC1EPNS_36PersistentSparseHistogramDataManagerEm = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4base26PersistentSampleMapRecordsC2EPNS_36PersistentSparseHistogramDataManagerEm
+@_ZN4base26PersistentSampleMapRecordsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4base26PersistentSampleMapRecordsD2Ev
+@_ZN4base28PersistentHistogramAllocator8IteratorC1EPS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4base28PersistentHistogramAllocator8IteratorC2EPS0_
+@_ZN4base28PersistentHistogramAllocatorC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE
+@_ZN4base28PersistentHistogramAllocatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4base28PersistentHistogramAllocatorD2Ev
+@_ZN4base24GlobalHistogramAllocatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4base24GlobalHistogramAllocatorD2Ev
+@_ZN4base24GlobalHistogramAllocatorC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base36PersistentSparseHistogramDataManagerC2EPNS_25PersistentMemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr %allocator, ptr %this, align 8
-  %record_iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %record_iterator_, ptr noundef %allocator)
-  %0 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr %0, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %0, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %lock_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN4base36PersistentSparseHistogramDataManagerC2EPNS_25PersistentMemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr %1, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %4, align 8, !tbaa !25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr null, ptr %5, align 8, !tbaa !26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %4, ptr %6, align 8, !tbaa !27
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %4, ptr %7, align 8, !tbaa !28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 0, ptr %8, align 8, !tbaa !29
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9)
+          to label %_ZN4base4LockC2Ev.exit unwind label %10
 
-invoke.cont:                                      ; preds = %entry
+_ZN4base4LockC2Ev.exit:                           ; preds = %2
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %sample_records_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_) #21
-  resume { ptr, i32 } %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #21
+  resume { ptr, i32 } %11
 }
 
 declare void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -161,1646 +150,1747 @@ declare void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef n
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_parent.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-          to label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EED2Ev.exit unwind label %terminate.lpad.i
+define linkonce_odr void @_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
+          to label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EED2Ev.exit unwind label %4
 
-terminate.lpad.i:                                 ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+4:                                                ; preds = %1
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #22
   unreachable
 
-_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EED2Ev.exit: ; preds = %entry
+_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EED2Ev.exit: ; preds = %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base36PersistentSparseHistogramDataManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %lock_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #21
-  %sample_records_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_, ptr noundef %0)
-          to label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev.exit unwind label %terminate.lpad.i.i
+define void @_ZN4base36PersistentSparseHistogramDataManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #21
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %5)
+          to label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev.exit unwind label %6
 
-terminate.lpad.i.i:                               ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
-_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev.exit: ; preds = %entry
+_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev.exit: ; preds = %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %id, ptr noundef %user) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %lock_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-  %call = invoke noundef ptr @_ZN4base36PersistentSparseHistogramDataManager30GetSampleMapRecordsWhileLockedEm(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %id)
-          to label %invoke.cont unwind label %lpad
+define noundef nonnull ptr @_ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %5 = invoke noundef ptr @_ZN4base36PersistentSparseHistogramDataManager30GetSampleMapRecordsWhileLockedEm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1)
+          to label %6 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  %user_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr %user, ptr %user_.i, align 8
-  %seen_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store i64 0, ptr %seen_.i, align 8
-  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-          to label %_ZN4base8AutoLockD2Ev.exit unwind label %terminate.lpad.i
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %2, ptr %7, align 8, !tbaa !30
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %8, align 8, !tbaa !38
+  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+          to label %_ZN4base8AutoLockD2Ev.exit unwind label %9
 
-terminate.lpad.i:                                 ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
+9:                                                ; preds = %6
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #22
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #22
   unreachable
 
-_ZN4base8AutoLockD2Ev.exit:                       ; preds = %invoke.cont
-  ret ptr %call
+_ZN4base8AutoLockD2Ev.exit:                       ; preds = %6
+  ret ptr %5
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %3
+  %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-          to label %_ZN4base8AutoLockD2Ev.exit2 unwind label %terminate.lpad.i1
+  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+          to label %_ZN4base8AutoLockD2Ev.exit4 unwind label %14
 
-terminate.lpad.i1:                                ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #22
   unreachable
 
-_ZN4base8AutoLockD2Ev.exit2:                      ; preds = %lpad
-  resume { ptr, i32 } %2
+_ZN4base8AutoLockD2Ev.exit4:                      ; preds = %12
+  resume { ptr, i32 } %13
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4base36PersistentSparseHistogramDataManager30GetSampleMapRecordsWhileLockedEm(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp9.i = alloca %"class.std::tuple.82", align 8
-  %ref.tmp10.i = alloca %"class.std::tuple.85", align 1
-  %id.addr = alloca i64, align 8
-  store i64 %id, ptr %id.addr, align 8
-  %sample_records_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %cmp.not5.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not5.i.i.i, label %if.end.thread, label %while.body.i.i.i
+define noundef ptr @_ZN4base36PersistentSparseHistogramDataManager30GetSampleMapRecordsWhileLockedEm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::tuple.82", align 8
+  %4 = alloca %"class.std::tuple.85", align 1
+  %5 = alloca i64, align 8
+  store i64 %1, ptr %5, align 8, !tbaa !39
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.not10.i.i.i = icmp eq ptr %8, null
+  br i1 %.not10.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i
 
-if.end.thread:                                    ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  br label %if.then.i
+.lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %8, %2 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %9, %2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %11 = load i64, ptr %10, align 8, !tbaa !39
+  %12 = icmp ult i64 %11, %1
+  %.19.i.i.i = select i1 %12, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %12, i64 24, i64 16
+  %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !40
+  %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !41
 
-while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
-  %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
-  %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i, i64 32
-  %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %1, %id
-  %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
-  %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
-  %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !5
-
-_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i.i.i, label %if.end, label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit
+_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
+  %13 = icmp eq ptr %.19.i.i.i, %9
+  br i1 %13, label %.lr.ph.i.i.i.i.preheader, label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit
 
 _ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 32
-  %2 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
-  %cmp.i4.i.i = icmp ult i64 %id, %2
-  br i1 %cmp.i4.i.i, label %if.end, label %if.then
+  %14 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
+  %15 = load i64, ptr %14, align 8, !tbaa !39
+  %16 = icmp ult i64 %1, %15
+  br i1 %16, label %.lr.ph.i.i.i.i.preheader, label %17
 
-if.then:                                          ; preds = %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit
-  %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 40
-  br label %return
+.lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit
+  br label %.lr.ph.i.i.i.i
 
-if.end:                                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  br label %while.body.i.i.i.i
+17:                                               ; preds = %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit
+  %18 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
+  br label %_ZNSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS1_EED2Ev.exit
 
-while.body.i.i.i.i:                               ; preds = %if.end, %while.body.i.i.i.i
-  %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %if.end ]
-  %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i, %if.end ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %3 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %3, %id
-  %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
-  %__x.addr.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
-  %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i, !llvm.loop !5
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %8, %.lr.ph.i.i.i.i.preheader ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %9, %.lr.ph.i.i.i.i.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %20 = load i64, ptr %19, align 8, !tbaa !39
+  %21 = icmp ult i64 %20, %1
+  %.19.i.i.i.i = select i1 %21, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %21, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !40
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
 
-_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i: ; preds = %while.body.i.i.i.i
-  %cmp.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
+_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i: ; preds = %.lr.ph.i.i.i.i
+  %22 = icmp eq ptr %.19.i.i.i.i, %9
+  br i1 %22, label %.critedge.i, label %23
 
-lor.rhs.i:                                        ; preds = %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %4 = load i64, ptr %_M_storage.i.i.i, align 8
-  %cmp.i3.i = icmp ult i64 %id, %4
-  br i1 %cmp.i3.i, label %if.then.i, label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit
+23:                                               ; preds = %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i
+  %24 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %25 = load i64, ptr %24, align 8, !tbaa !39
+  %26 = icmp ult i64 %1, %25
+  br i1 %26, label %.critedge.i, label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit
 
-if.then.i:                                        ; preds = %if.end.thread, %lor.rhs.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i
-  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i, %if.end.thread ]
-  store ptr %id.addr, ptr %ref.tmp9.i, align 8
-  %call12.i = call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_, ptr %__y.addr.0.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
-  %.pre = load i64, ptr %id.addr, align 8, !noalias !7
+.critedge.i:                                      ; preds = %2, %23, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %23 ], [ %.19.i.i.i.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i ], [ %9, %2 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  store ptr %5, ptr %3, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #21
+  %27 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  %.pre = load i64, ptr %5, align 8, !tbaa !39, !noalias !45
   br label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit
 
-_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit: ; preds = %lor.rhs.i, %if.then.i
-  %5 = phi i64 [ %.pre, %if.then.i ], [ %id, %lor.rhs.i ]
-  %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %call.i = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #23, !noalias !7
-  store ptr %this, ptr %call.i, align 8, !noalias !7
-  %sample_map_id_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i64 %5, ptr %sample_map_id_.i.i, align 8, !noalias !7
-  %user_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %user_.i.i, i8 0, i64 64, i1 false), !noalias !7
-  %6 = load ptr, ptr %second.i, align 8
-  store ptr %call.i, ptr %second.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i.i, label %return, label %delete.notnull.i.i.i.i.i
+_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit: ; preds = %23, %.critedge.i
+  %28 = phi i64 [ %.pre, %.critedge.i ], [ %1, %23 ]
+  %.sroa.06.0.i = phi ptr [ %27, %.critedge.i ], [ %.19.i.i.i.i, %23 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
+  %30 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #23, !noalias !45
+  invoke void @_ZN4base26PersistentSampleMapRecordsC1EPNS_36PersistentSparseHistogramDataManagerEm(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %0, i64 noundef %28)
+          to label %_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit unwind label %31, !noalias !45
 
-delete.notnull.i.i.i.i.i:                         ; preds = %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit
-  %found_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %7 = load ptr, ptr %found_.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
+31:                                               ; preds = %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdlPv(ptr noundef nonnull %30) #24, !noalias !45
+  resume { ptr, i32 } %32
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %delete.notnull.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %7) #24
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i
+_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit: ; preds = %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit
+  %33 = load ptr, ptr %29, align 8, !tbaa !48
+  store ptr %30, ptr %29, align 8, !tbaa !48
+  %.not.i.i.i.i4 = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i4, label %_ZNSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i
 
-_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i
-  %records_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load ptr, ptr %records_.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i1.i.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i1.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i
+_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit
+  call void @_ZN4base26PersistentSampleMapRecordsD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %33) #21
+  call void @_ZdlPv(ptr noundef nonnull %33) #24
+  br label %_ZNSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS1_EED2Ev.exit
 
-if.then.i.i.i2.i.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %8) #24
-  br label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i
-
-_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %6) #24
-  br label %return
-
-return:                                           ; preds = %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit, %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i, %if.then
-  %retval.0.in = phi ptr [ %second, %if.then ], [ %second.i, %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i ], [ %second.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit ]
-  %retval.0 = load ptr, ptr %retval.0.in, align 8
-  ret ptr %retval.0
+_ZNSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit, %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i, %17
+  %.0.in = phi ptr [ %18, %17 ], [ %29, %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i ], [ %29, %_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit ]
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !48
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4base26PersistentSampleMapRecords7AcquireEPKv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(80) initializes((16, 32)) %this, ptr noundef %user) local_unnamed_addr #3 align 2 {
-entry:
-  %user_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %user, ptr %user_, align 8
-  %seen_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %seen_, align 8
-  ret ptr %this
+define noundef nonnull ptr @_ZN4base26PersistentSampleMapRecords7AcquireEPKv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(80) initializes((16, 32)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %3, align 8, !tbaa !30
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 0, ptr %4, align 8, !tbaa !38
+  ret ptr %0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base36PersistentSparseHistogramDataManager11LoadRecordsEPNS_26PersistentSampleMapRecordsE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %sample_map_records) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %found_id = alloca i64, align 8
-  %lock_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-  %found_ = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 56
-  %0 = load ptr, ptr %found_, align 8
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 64
-  %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i = icmp ne ptr %0, %1
-  br i1 %cmp.i.i, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN4base36PersistentSparseHistogramDataManager11LoadRecordsEPNS_26PersistentSampleMapRecordsE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i64, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %8 = load ptr, ptr %7, align 8, !tbaa !50
+  %9 = icmp eq ptr %6, %8
+  br i1 %9, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %10
 
-if.then:                                          ; preds = %entry
-  %records_ = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 32
-  %_M_finish.i = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 40
-  %2 = load ptr, ptr %_M_finish.i, align 8
-  %3 = load ptr, ptr %records_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %sub.ptr.lhs.cast.i14 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i15 = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
-  %add = add nsw i64 %sub.ptr.div.i, %sub.ptr.div.i17
-  %cmp.i = icmp ugt i64 %add, 2305843009213693951
-  br i1 %cmp.i, label %if.then.i.invoke, label %if.end.i
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %14 = load ptr, ptr %11, align 8, !tbaa !52
+  %15 = ptrtoint ptr %13 to i64
+  %16 = ptrtoint ptr %14 to i64
+  %17 = sub i64 %15, %16
+  %18 = ashr exact i64 %17, 2
+  %19 = ptrtoint ptr %8 to i64
+  %20 = ptrtoint ptr %6 to i64
+  %21 = sub i64 %19, %20
+  %22 = ashr exact i64 %21, 2
+  %23 = add nsw i64 %18, %22
+  %24 = icmp ugt i64 %23, 2305843009213693951
+  br i1 %24, label %25, label %26
 
-if.then.i.invoke:                                 ; preds = %if.else.i40, %if.else.i, %if.then
-  %4 = phi ptr [ @.str.3, %if.then ], [ @.str.5, %if.else.i ], [ @.str.5, %if.else.i40 ]
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %4) #25
-          to label %if.then.i.cont unwind label %lpad.loopexit.split-lp
+25:                                               ; preds = %10
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #25
+          to label %.noexc unwind label %48
 
-if.then.i.cont:                                   ; preds = %if.then.i.invoke
+.noexc:                                           ; preds = %25
   unreachable
 
-if.end.i:                                         ; preds = %if.then
-  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 48
-  %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %add
-  br i1 %cmp3.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i, label %invoke.cont
+26:                                               ; preds = %10
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %28 = load ptr, ptr %27, align 8, !tbaa !53
+  %29 = ptrtoint ptr %28 to i64
+  %30 = sub i64 %29, %16
+  %31 = ashr exact i64 %30, 2
+  %32 = icmp ult i64 %31, %23
+  br i1 %32, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %if.end.i
-  %mul.i.i.i.i = shl nuw nsw i64 %add, 2
-  %call5.i.i.i.i19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #23
-          to label %call5.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp
+_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %26
+  %33 = shl nuw nsw i64 %23, 2
+  %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #23
+          to label %.noexc32 unwind label %48
 
-call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
-  %cmp.i.i.i10.i = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i.i10.i, label %if.then.i.i.i11.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
+.noexc32:                                         ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %35 = icmp sgt i64 %17, 0
+  br i1 %35, label %36, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
 
-if.then.i.i.i11.i:                                ; preds = %call5.i.i.i.i.noexc
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i19, ptr align 4 %3, i64 %sub.ptr.sub.i, i1 false)
+36:                                               ; preds = %.noexc32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %34, ptr align 4 %14, i64 %17, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i: ; preds = %if.then.i.i.i11.i, %call5.i.i.i.i.noexc
-  %tobool.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, label %if.then.i.i
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i: ; preds = %36, %.noexc32
+  %.not.i8.i = icmp eq ptr %14, null
+  br i1 %.not.i8.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, label %37
 
-if.then.i.i:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
-  %.pre.pre = load ptr, ptr %found_, align 8
-  %.pre80.pre = load ptr, ptr %_M_finish.i.i, align 8
+37:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #24
+  %.pre.pre = load ptr, ptr %5, align 8, !tbaa !50
+  %.pre73.pre = load ptr, ptr %7, align 8, !tbaa !50
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
-  %.pre80 = phi ptr [ %.pre80.pre, %if.then.i.i ], [ %1, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i ]
-  %.pre = phi ptr [ %.pre.pre, %if.then.i.i ], [ %0, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i ]
-  store ptr %call5.i.i.i.i19, ptr %records_, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i19, i64 %sub.ptr.sub.i
-  store ptr %add.ptr.i, ptr %_M_finish.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i19, i64 %add
-  store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %invoke.cont
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %37, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
+  %.pre73 = phi ptr [ %.pre73.pre, %37 ], [ %8, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i ]
+  %.pre = phi ptr [ %.pre.pre, %37 ], [ %6, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i ]
+  store ptr %34, ptr %11, align 8, !tbaa !52
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %17
+  store ptr %38, ptr %12, align 8, !tbaa !51
+  %39 = getelementptr inbounds nuw i32, ptr %34, i64 %23
+  store ptr %39, ptr %27, align 8, !tbaa !53
+  br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
-invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %if.end.i
-  %6 = phi ptr [ %call5.i.i.i.i19, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %3, %if.end.i ]
-  %7 = phi ptr [ %.pre80, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %1, %if.end.i ]
-  %8 = phi ptr [ %.pre, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %0, %if.end.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i
-  invoke void @_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %records_, ptr %add.ptr.i.i, ptr %8, ptr %7)
-          to label %invoke.cont20 unwind label %lpad.loopexit.split-lp
+_ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %26
+  %40 = phi ptr [ %34, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %14, %26 ]
+  %41 = phi ptr [ %.pre73, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %8, %26 ]
+  %42 = phi ptr [ %.pre, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %6, %26 ]
+  %43 = getelementptr inbounds i8, ptr %40, i64 %17
+  invoke void @_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %43, ptr %42, ptr %41)
+          to label %44 unwind label %50
 
-invoke.cont20:                                    ; preds = %invoke.cont
-  %9 = load ptr, ptr %found_, align 8
-  %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %tobool.not.i.i27 = icmp eq ptr %10, %9
-  br i1 %tobool.not.i.i27, label %if.end, label %invoke.cont.i.i
+44:                                               ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit
+  %45 = load ptr, ptr %5, align 8, !tbaa !52
+  %46 = load ptr, ptr %7, align 8, !tbaa !51
+  %.not.i.i = icmp eq ptr %46, %45
+  br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %47
 
-invoke.cont.i.i:                                  ; preds = %invoke.cont20
-  store ptr %9, ptr %_M_finish.i.i, align 8
-  br label %if.end
+47:                                               ; preds = %44
+  store ptr %45, ptr %7, align 8, !tbaa !51
+  br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
-lpad.loopexit:                                    ; preds = %for.body, %if.else, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i45
-  %lpad.loopexit73 = landingpad { ptr, i32 }
+48:                                               ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i, %25
+  %49 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad
+  br label %128
 
-lpad.loopexit.split-lp:                           ; preds = %if.then.i.invoke, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i, %invoke.cont
-  %lpad.loopexit.split-lp74 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZNSt6vectorIjSaIjEE7reserveEm.exit
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad
+  br label %128
 
-lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit73, %lpad.loopexit ], [ %lpad.loopexit.split-lp74, %lpad.loopexit.split-lp ]
-  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-          to label %_ZN4base8AutoLockD2Ev.exit unwind label %terminate.lpad.i
+_ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %47, %44, %2
+  %.0 = phi i8 [ 0, %2 ], [ 1, %44 ], [ 1, %47 ]
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !54
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  br label %58
 
-terminate.lpad.i:                                 ; preds = %lpad
-  %11 = landingpad { ptr, i32 }
-          catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #22
+58:                                               ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit, %120
+  %.167 = phi i8 [ %.0, %_ZNSt6vectorIjSaIjEE5clearEv.exit ], [ %.3.ph, %120 ]
+  %.02366 = phi i32 [ 0, %_ZNSt6vectorIjSaIjEE5clearEv.exit ], [ %121, %120 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  %59 = invoke noundef i32 @_ZN4base19PersistentSampleMap23GetNextPersistentRecordERNS_25PersistentMemoryAllocator8IteratorEPm(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %3)
+          to label %60 unwind label %.loopexit55
+
+60:                                               ; preds = %58
+  %.not.not = icmp eq i32 %59, 0
+  br i1 %.not.not, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %61
+
+.loopexit55:                                      ; preds = %58, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %124
+
+.loopexit.split-lp:                               ; preds = %75
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %124
+
+61:                                               ; preds = %60
+  %62 = load i64, ptr %3, align 8, !tbaa !39
+  %63 = icmp eq i64 %62, %53
+  br i1 %63, label %64, label %89
+
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %56, align 8, !tbaa !51
+  %66 = load ptr, ptr %57, align 8, !tbaa !53
+  %.not.i = icmp eq ptr %65, %66
+  br i1 %.not.i, label %69, label %67
+
+67:                                               ; preds = %64
+  store i32 %59, ptr %65, align 4, !tbaa !55
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store ptr %68, ptr %56, align 8, !tbaa !51
+  br label %120
+
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %55, align 8, !tbaa !52
+  %71 = ptrtoint ptr %65 to i64
+  %72 = ptrtoint ptr %70 to i64
+  %73 = sub i64 %71, %72
+  %74 = icmp eq i64 %73, 9223372036854775804
+  br i1 %74, label %75, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+
+75:                                               ; preds = %69
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #25
+          to label %.noexc34 unwind label %.loopexit.split-lp
+
+.noexc34:                                         ; preds = %75
   unreachable
 
-_ZN4base8AutoLockD2Ev.exit:                       ; preds = %lpad
-  resume { ptr, i32 } %lpad.phi
+_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %69
+  %76 = ashr exact i64 %73, 2
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %76, i64 1)
+  %77 = add nsw i64 %.sroa.speculated.i.i.i, %76
+  %78 = icmp ult i64 %77, %76
+  %79 = call i64 @llvm.umin.i64(i64 %77, i64 2305843009213693951)
+  %80 = select i1 %78, i64 2305843009213693951, i64 %79
+  %.not.i.i.i = icmp ne i64 %80, 0
+  call void @llvm.assume(i1 %.not.i.i.i)
+  %81 = shl nuw nsw i64 %80, 2
+  %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #23
+          to label %.noexc35 unwind label %.loopexit55
 
-if.end:                                           ; preds = %invoke.cont.i.i, %invoke.cont20, %entry
-  %sample_map_id_ = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 8
-  %13 = load i64, ptr %sample_map_id_, align 8
-  %record_iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %records_31 = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 32
-  %_M_finish.i28 = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 40
-  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %sample_map_records, i64 48
-  br label %for.body
+.noexc35:                                         ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+  %83 = getelementptr inbounds i8, ptr %82, i64 %73
+  store i32 %59, ptr %83, align 4, !tbaa !55
+  %84 = icmp sgt i64 %73, 0
+  br i1 %84, label %85, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %found.179 = phi i1 [ %cmp.i.i, %if.end ], [ %found.2, %for.inc ]
-  %count.078 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
-  %call25 = invoke noundef i32 @_ZN4base19PersistentSampleMap23GetNextPersistentRecordERNS_25PersistentMemoryAllocator8IteratorEPm(ptr noundef nonnull align 8 dereferenceable(16) %record_iterator_, ptr noundef nonnull %found_id)
-          to label %invoke.cont24 unwind label %lpad.loopexit
+85:                                               ; preds = %.noexc35
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %82, ptr align 4 %70, i64 %73, i1 false)
+  br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
-invoke.cont24:                                    ; preds = %for.body
-  %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %for.end, label %if.end28
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %85, %.noexc35
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %.not.i17.i.i = icmp eq ptr %70, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %87
 
-if.end28:                                         ; preds = %invoke.cont24
-  %14 = load i64, ptr %found_id, align 8
-  %cmp29 = icmp eq i64 %14, %13
-  br i1 %cmp29, label %if.then30, label %if.else
-
-if.then30:                                        ; preds = %if.end28
-  %15 = load ptr, ptr %_M_finish.i28, align 8
-  %16 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %15, %16
-  br i1 %cmp.not.i, label %if.else.i, label %if.then.i29
-
-if.then.i29:                                      ; preds = %if.then30
-  store i32 %call25, ptr %15, align 4
-  %17 = load ptr, ptr %_M_finish.i28, align 8
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store ptr %incdec.ptr.i, ptr %_M_finish.i28, align 8
-  br label %for.inc
-
-if.else.i:                                        ; preds = %if.then30
-  %18 = load ptr, ptr %records_31, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775804
-  br i1 %cmp.i.i.i, label %if.then.i.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
-
-_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 2
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %19 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2305843009213693951)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2305843009213693951, i64 %19
-  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
-  call void @llvm.assume(i1 %cmp.not.i.i.i)
-  %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 2
-  %call5.i.i.i.i.i33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #23
-          to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit
-
-call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
-  %add.ptr.i.i31 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i33, i64 %sub.ptr.sub.i.i.i.i
-  store i32 %call25, ptr %add.ptr.i.i31, align 4
-  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %call5.i.i.i.i.i.noexc
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i33, ptr align 4 %18, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i
-
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %call5.i.i.i.i.i.noexc
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i31, i64 4
-  %tobool.not.i.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i18.i.i
-
-if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %18) #24
+87:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
+  call void @_ZdlPv(ptr noundef nonnull %70) #24
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
-_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i
-  store ptr %call5.i.i.i.i.i33, ptr %records_31, align 8
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i28, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i33, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
-  br label %for.inc
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %87, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
+  store ptr %82, ptr %55, align 8, !tbaa !52
+  store ptr %86, ptr %56, align 8, !tbaa !51
+  %88 = getelementptr inbounds nuw i32, ptr %82, i64 %80
+  store ptr %88, ptr %57, align 8, !tbaa !53
+  br label %120
 
-if.else:                                          ; preds = %if.end28
-  %call34 = invoke noundef ptr @_ZN4base36PersistentSparseHistogramDataManager30GetSampleMapRecordsWhileLockedEm(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %14)
-          to label %invoke.cont33 unwind label %lpad.loopexit
+89:                                               ; preds = %61
+  %90 = invoke noundef ptr @_ZN4base36PersistentSparseHistogramDataManager30GetSampleMapRecordsWhileLockedEm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %62)
+          to label %91 unwind label %.loopexit56
 
-invoke.cont33:                                    ; preds = %if.else
-  %found_35 = getelementptr inbounds nuw i8, ptr %call34, i64 56
-  %_M_finish.i34 = getelementptr inbounds nuw i8, ptr %call34, i64 64
-  %20 = load ptr, ptr %_M_finish.i34, align 8
-  %_M_end_of_storage.i35 = getelementptr inbounds nuw i8, ptr %call34, i64 72
-  %21 = load ptr, ptr %_M_end_of_storage.i35, align 8
-  %cmp.not.i36 = icmp eq ptr %20, %21
-  br i1 %cmp.not.i36, label %if.else.i40, label %if.then.i37
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 64
+  %94 = load ptr, ptr %93, align 8, !tbaa !51
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 72
+  %96 = load ptr, ptr %95, align 8, !tbaa !53
+  %.not.i36 = icmp eq ptr %94, %96
+  br i1 %.not.i36, label %99, label %97
 
-if.then.i37:                                      ; preds = %invoke.cont33
-  store i32 %call25, ptr %20, align 4
-  %22 = load ptr, ptr %_M_finish.i34, align 8
-  %incdec.ptr.i38 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store ptr %incdec.ptr.i38, ptr %_M_finish.i34, align 8
-  br label %for.inc
+97:                                               ; preds = %91
+  store i32 %59, ptr %94, align 4, !tbaa !55
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  store ptr %98, ptr %93, align 8, !tbaa !51
+  br label %120
 
-if.else.i40:                                      ; preds = %invoke.cont33
-  %23 = load ptr, ptr %found_35, align 8
-  %sub.ptr.lhs.cast.i.i.i.i41 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i.i.i.i42 = ptrtoint ptr %23 to i64
-  %sub.ptr.sub.i.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i.i41, %sub.ptr.rhs.cast.i.i.i.i42
-  %cmp.i.i.i44 = icmp eq i64 %sub.ptr.sub.i.i.i.i43, 9223372036854775804
-  br i1 %cmp.i.i.i44, label %if.then.i.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i45
+99:                                               ; preds = %91
+  %100 = load ptr, ptr %92, align 8, !tbaa !52
+  %101 = ptrtoint ptr %94 to i64
+  %102 = ptrtoint ptr %100 to i64
+  %103 = sub i64 %101, %102
+  %104 = icmp eq i64 %103, 9223372036854775804
+  br i1 %104, label %105, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i37
 
-_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i45: ; preds = %if.else.i40
-  %sub.ptr.div.i.i.i.i46 = ashr exact i64 %sub.ptr.sub.i.i.i.i43, 2
-  %.sroa.speculated.i.i.i47 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i46, i64 1)
-  %add.i.i.i48 = add nsw i64 %.sroa.speculated.i.i.i47, %sub.ptr.div.i.i.i.i46
-  %cmp7.i.i.i49 = icmp ult i64 %add.i.i.i48, %sub.ptr.div.i.i.i.i46
-  %24 = call i64 @llvm.umin.i64(i64 %add.i.i.i48, i64 2305843009213693951)
-  %cond.i.i.i50 = select i1 %cmp7.i.i.i49, i64 2305843009213693951, i64 %24
-  %cmp.not.i.i.i51 = icmp ne i64 %cond.i.i.i50, 0
-  call void @llvm.assume(i1 %cmp.not.i.i.i51)
-  %mul.i.i.i.i.i52 = shl nuw nsw i64 %cond.i.i.i50, 2
-  %call5.i.i.i.i.i65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i52) #23
-          to label %call5.i.i.i.i.i.noexc64 unwind label %lpad.loopexit
+105:                                              ; preds = %99
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #25
+          to label %.noexc43 unwind label %.loopexit.split-lp57
 
-call5.i.i.i.i.i.noexc64:                          ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i45
-  %add.ptr.i.i53 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i65, i64 %sub.ptr.sub.i.i.i.i43
-  store i32 %call25, ptr %add.ptr.i.i53, align 4
-  %cmp.i.i.i.i.i54 = icmp sgt i64 %sub.ptr.sub.i.i.i.i43, 0
-  br i1 %cmp.i.i.i.i.i54, label %if.then.i.i.i.i.i61, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i55
-
-if.then.i.i.i.i.i61:                              ; preds = %call5.i.i.i.i.i.noexc64
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i65, ptr align 4 %23, i64 %sub.ptr.sub.i.i.i.i43, i1 false)
-  br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i55
-
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i55: ; preds = %if.then.i.i.i.i.i61, %call5.i.i.i.i.i.noexc64
-  %incdec.ptr.i.i56 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i53, i64 4
-  %tobool.not.i.i.i57 = icmp eq ptr %23, null
-  br i1 %tobool.not.i.i.i57, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i59, label %if.then.i18.i.i58
-
-if.then.i18.i.i58:                                ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i55
-  call void @_ZdlPv(ptr noundef nonnull %23) #24
-  br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i59
-
-_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i59: ; preds = %if.then.i18.i.i58, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i55
-  store ptr %call5.i.i.i.i.i65, ptr %found_35, align 8
-  store ptr %incdec.ptr.i.i56, ptr %_M_finish.i34, align 8
-  %add.ptr19.i.i60 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i65, i64 %cond.i.i.i50
-  store ptr %add.ptr19.i.i60, ptr %_M_end_of_storage.i35, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i59, %if.then.i37, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i29
-  %found.2 = phi i1 [ true, %if.then.i29 ], [ true, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %found.179, %if.then.i37 ], [ %found.179, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i59 ]
-  %inc = add nuw nsw i32 %count.078, 1
-  %cmp = icmp samesign ugt i32 %count.078, 8
-  %.not = select i1 %found.2, i1 %cmp, i1 false
-  br i1 %.not, label %for.end, label %for.body, !llvm.loop !10
-
-for.end:                                          ; preds = %invoke.cont24, %for.inc
-  %found.1.lcssa = phi i1 [ %found.179, %invoke.cont24 ], [ true, %for.inc ]
-  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
-          to label %_ZN4base8AutoLockD2Ev.exit68 unwind label %terminate.lpad.i67
-
-terminate.lpad.i67:                               ; preds = %for.end
-  %25 = landingpad { ptr, i32 }
-          catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #22
+.noexc43:                                         ; preds = %105
   unreachable
 
-_ZN4base8AutoLockD2Ev.exit68:                     ; preds = %for.end
-  ret i1 %found.1.lcssa
+_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i37: ; preds = %99
+  %106 = ashr exact i64 %103, 2
+  %.sroa.speculated.i.i.i38 = call i64 @llvm.umax.i64(i64 %106, i64 1)
+  %107 = add nsw i64 %.sroa.speculated.i.i.i38, %106
+  %108 = icmp ult i64 %107, %106
+  %109 = call i64 @llvm.umin.i64(i64 %107, i64 2305843009213693951)
+  %110 = select i1 %108, i64 2305843009213693951, i64 %109
+  %.not.i.i.i39 = icmp ne i64 %110, 0
+  call void @llvm.assume(i1 %.not.i.i.i39)
+  %111 = shl nuw nsw i64 %110, 2
+  %112 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #23
+          to label %.noexc44 unwind label %.loopexit56
+
+.noexc44:                                         ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i37
+  %113 = getelementptr inbounds i8, ptr %112, i64 %103
+  store i32 %59, ptr %113, align 4, !tbaa !55
+  %114 = icmp sgt i64 %103, 0
+  br i1 %114, label %115, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i40
+
+115:                                              ; preds = %.noexc44
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %112, ptr align 4 %100, i64 %103, i1 false)
+  br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i40
+
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i40: ; preds = %115, %.noexc44
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  %.not.i17.i.i41 = icmp eq ptr %100, null
+  br i1 %.not.i17.i.i41, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i42, label %117
+
+117:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i40
+  call void @_ZdlPv(ptr noundef nonnull %100) #24
+  br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i42
+
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i42: ; preds = %117, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i40
+  store ptr %112, ptr %92, align 8, !tbaa !52
+  store ptr %116, ptr %93, align 8, !tbaa !51
+  %118 = getelementptr inbounds nuw i32, ptr %112, i64 %110
+  store ptr %118, ptr %95, align 8, !tbaa !53
+  br label %120
+
+.loopexit56:                                      ; preds = %89, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i37
+  %lpad.loopexit58 = landingpad { ptr, i32 }
+          cleanup
+  br label %124
+
+.loopexit.split-lp57:                             ; preds = %105
+  %lpad.loopexit.split-lp59 = landingpad { ptr, i32 }
+          cleanup
+  br label %124
+
+_ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  %119 = trunc nuw i8 %.167 to i1
+  br label %.loopexit
+
+120:                                              ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i42, %97, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %67
+  %.3.ph = phi i8 [ %.167, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i42 ], [ %.167, %97 ], [ 1, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ 1, %67 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  %121 = add nuw nsw i32 %.02366, 1
+  %122 = trunc nuw i8 %.3.ph to i1
+  %123 = icmp samesign ugt i32 %.02366, 8
+  %.not29 = select i1 %122, i1 %123, i1 false
+  br i1 %.not29, label %.loopexit, label %58, !llvm.loop !56
+
+124:                                              ; preds = %.loopexit56, %.loopexit.split-lp57, %.loopexit55, %.loopexit.split-lp
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit55 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  br label %128
+
+.loopexit:                                        ; preds = %120, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+  %.2 = phi i1 [ %119, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ true, %120 ]
+  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+          to label %_ZN4base8AutoLockD2Ev.exit unwind label %125
+
+125:                                              ; preds = %.loopexit
+  %126 = landingpad { ptr, i32 }
+          catch ptr null
+  %127 = extractvalue { ptr, i32 } %126, 0
+  call void @__clang_call_terminate(ptr %127) #22
+  unreachable
+
+_ZN4base8AutoLockD2Ev.exit:                       ; preds = %.loopexit
+  ret i1 %.2
+
+128:                                              ; preds = %124, %50, %48
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %124 ], [ %51, %50 ], [ %49, %48 ]
+  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+          to label %_ZN4base8AutoLockD2Ev.exit46 unwind label %129
+
+129:                                              ; preds = %128
+  %130 = landingpad { ptr, i32 }
+          catch ptr null
+  %131 = extractvalue { ptr, i32 } %130, 0
+  call void @__clang_call_terminate(ptr %131) #22
+  unreachable
+
+_ZN4base8AutoLockD2Ev.exit46:                     ; preds = %128
+  resume { ptr, i32 } %.pn.pn
 }
 
 declare noundef i32 @_ZN4base19PersistentSampleMap23GetNextPersistentRecordERNS_25PersistentMemoryAllocator8IteratorEPm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base26PersistentSampleMapRecordsC2EPNS_36PersistentSparseHistogramDataManagerEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 80)) %this, ptr noundef %data_manager, i64 noundef %sample_map_id) unnamed_addr #3 align 2 {
-entry:
-  store ptr %data_manager, ptr %this, align 8
-  %sample_map_id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 %sample_map_id, ptr %sample_map_id_, align 8
-  %user_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %user_, i8 0, i64 64, i1 false)
+define void @_ZN4base26PersistentSampleMapRecordsC2EPNS_36PersistentSparseHistogramDataManagerEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 80)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 align 2 {
+  store ptr %1, ptr %0, align 8, !tbaa !57
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %2, ptr %4, align 8, !tbaa !54
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base26PersistentSampleMapRecordsD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %found_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %found_, align 8
-  %tobool.not.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
+define void @_ZN4base26PersistentSampleMapRecordsD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %.not.i.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %4
 
-if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+4:                                                ; preds = %1
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %records_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load ptr, ptr %records_, align 8
-  %tobool.not.i.i.i1 = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIjSaIjEED2Ev.exit3, label %if.then.i.i.i2
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %1, %4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %.not.i.i.i1 = icmp eq ptr %6, null
+  br i1 %.not.i.i.i1, label %_ZNSt6vectorIjSaIjEED2Ev.exit2, label %7
 
-if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #24
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit3
+7:                                                ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  br label %_ZNSt6vectorIjSaIjEED2Ev.exit2
 
-_ZNSt6vectorIjSaIjEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i.i2
+_ZNSt6vectorIjSaIjEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((16, 24)) %this, ptr noundef readnone captures(none) %user) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-if.end:
-  %user_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr null, ptr %user_, align 8
+define void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((16, 24)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %3, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #4
+declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %records_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %records_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %seen_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load i64, ptr %seen_, align 8
-  %cmp = icmp eq i64 %sub.ptr.div.i, %2
-  br i1 %cmp, label %if.then, label %if.end9
+define noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %5 = load ptr, ptr %2, align 8, !tbaa !52
+  %6 = ptrtoint ptr %4 to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = sub i64 %6, %7
+  %9 = ashr exact i64 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = load i64, ptr %10, align 8, !tbaa !38
+  %12 = icmp eq i64 %9, %11
+  br i1 %12, label %13, label %16
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %this, align 8
-  %call2 = tail call noundef zeroext i1 @_ZN4base36PersistentSparseHistogramDataManager11LoadRecordsEPNS_26PersistentSampleMapRecordsE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %this)
-  br i1 %call2, label %if.then.if.end9_crit_edge, label %return
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %0, align 8, !tbaa !57
+  %15 = tail call noundef zeroext i1 @_ZN4base36PersistentSparseHistogramDataManager11LoadRecordsEPNS_26PersistentSampleMapRecordsE(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull %0)
+  br i1 %15, label %._crit_edge, label %22
 
-if.then.if.end9_crit_edge:                        ; preds = %if.then
-  %.pre = load i64, ptr %seen_, align 8
-  %.pre2 = load ptr, ptr %records_, align 8
-  br label %if.end9
+._crit_edge:                                      ; preds = %13
+  %.pre = load i64, ptr %10, align 8, !tbaa !38
+  %.pre2 = load ptr, ptr %2, align 8, !tbaa !52
+  br label %16
 
-if.end9:                                          ; preds = %if.then.if.end9_crit_edge, %entry
-  %4 = phi ptr [ %.pre2, %if.then.if.end9_crit_edge ], [ %1, %entry ]
-  %5 = phi i64 [ %.pre, %if.then.if.end9_crit_edge ], [ %2, %entry ]
-  %inc = add i64 %5, 1
-  store i64 %inc, ptr %seen_, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %4, i64 %5
-  %6 = load i32, ptr %add.ptr.i, align 4
-  br label %return
+16:                                               ; preds = %._crit_edge, %1
+  %17 = phi ptr [ %.pre2, %._crit_edge ], [ %5, %1 ]
+  %18 = phi i64 [ %.pre, %._crit_edge ], [ %11, %1 ]
+  %19 = add i64 %18, 1
+  store i64 %19, ptr %10, align 8, !tbaa !38
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %21 = load i32, ptr %20, align 4, !tbaa !55
+  br label %22
 
-return:                                           ; preds = %if.then, %if.end9
-  %retval.0 = phi i32 [ %6, %if.end9 ], [ 0, %if.then ]
-  ret i32 %retval.0
+22:                                               ; preds = %13, %16
+  %.0 = phi i32 [ %21, %16 ], [ 0, %13 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base26PersistentSampleMapRecords9CreateNewEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %1 = load ptr, ptr %0, align 8
-  %sample_map_id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load i64, ptr %sample_map_id_, align 8
-  %call = tail call noundef i32 @_ZN4base19PersistentSampleMap22CreatePersistentRecordEPNS_25PersistentMemoryAllocatorEmi(ptr noundef %1, i64 noundef %2, i32 noundef %value)
-  ret i32 %call
+define noundef i32 @_ZN4base26PersistentSampleMapRecords9CreateNewEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !54
+  %7 = tail call noundef i32 @_ZN4base19PersistentSampleMap22CreatePersistentRecordEPNS_25PersistentMemoryAllocatorEmi(ptr noundef %4, i64 noundef %6, i32 noundef %1)
+  ret i32 %7
 }
 
 declare noundef i32 @_ZN4base19PersistentSampleMap22CreatePersistentRecordEPNS_25PersistentMemoryAllocatorEmi(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator8IteratorC2EPS0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef %allocator) unnamed_addr #0 align 2 {
-entry:
-  store ptr %allocator, ptr %this, align 8
-  %memory_iter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %memory_allocator_.i = getelementptr inbounds nuw i8, ptr %allocator, i64 8
-  %0 = load ptr, ptr %memory_allocator_.i, align 8
-  tail call void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %memory_iter_, ptr noundef %0)
+define void @_ZN4base28PersistentHistogramAllocator8IteratorC2EPS0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  store ptr %1, ptr %0, align 8, !tbaa !58
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  tail call void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj(ptr noalias sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %ignore) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %memory_iter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  br label %while.cond
+define void @_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %5
 
-while.cond:                                       ; preds = %while.body, %entry
-  %call = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %memory_iter_, i32 noundef -245081838)
-  %cmp.not = icmp eq i32 %call, 0
-  br i1 %cmp.not, label %while.end, label %while.body
+5:                                                ; preds = %7, %3
+  %6 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef -245081838)
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %10, label %7
 
-while.body:                                       ; preds = %while.cond
-  %cmp2.not = icmp eq i32 %call, %ignore
-  br i1 %cmp2.not, label %while.cond, label %if.then, !llvm.loop !11
+7:                                                ; preds = %5
+  %.not3 = icmp eq i32 %6, %2
+  br i1 %.not3, label %5, label %8, !llvm.loop !62
 
-if.then:                                          ; preds = %while.body
-  %0 = load ptr, ptr %this, align 8
-  tail call void @_ZN4base28PersistentHistogramAllocator12GetHistogramEj(ptr sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %call)
-  br label %return
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %1, align 8, !tbaa !58
+  tail call void @_ZN4base28PersistentHistogramAllocator12GetHistogramEj(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(132) %9, i32 noundef %6)
+  br label %11
 
-while.end:                                        ; preds = %while.cond
-  store ptr null, ptr %agg.result, align 8
-  br label %return
+10:                                               ; preds = %5
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %11
 
-return:                                           ; preds = %while.end, %if.then
+11:                                               ; preds = %10, %8
   ret void
 }
 
 declare noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator12GetHistogramEj(ptr noalias sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %ref) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %memory_allocator_, align 8
-  %call.i.i = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %ref, i32 noundef -245081838, i32 noundef 88)
-  %1 = load ptr, ptr %memory_allocator_, align 8
-  %call5 = tail call noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %ref)
-  %tobool.not = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+define void @_ZN4base28PersistentHistogramAllocator12GetHistogramEj(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(132) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  %6 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %2, i32 noundef -245081838, i32 noundef 88)
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  %8 = tail call noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %7, i32 noundef %2)
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %13, label %9
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = getelementptr i8, ptr %call.i.i, i64 %call5
-  %arrayidx = getelementptr i8, ptr %2, i64 -1
-  %3 = load i8, ptr %arrayidx, align 1
-  %cmp.not = icmp eq i8 %3, 0
-  br i1 %cmp.not, label %if.end, label %if.then
+9:                                                ; preds = %3
+  %10 = getelementptr i8, ptr %6, i64 %8
+  %11 = getelementptr i8, ptr %10, i64 -1
+  %12 = load i8, ptr %11, align 1, !tbaa !66
+  %.not6 = icmp eq i8 %12, 0
+  br i1 %.not6, label %24, label %13
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %4 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %tobool.not.i.i = icmp eq i64 %4, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
+13:                                               ; preds = %9, %3
+  %14 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %.not.i.i = icmp eq i64 %14, 0
+  br i1 %.not.i.i, label %16, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
 
-if.then.i.i:                                      ; preds = %if.then
-  %.b3.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %if.then2.i.i
+16:                                               ; preds = %13
+  %.b4.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %17
 
-if.then2.i.i:                                     ; preds = %if.then.i.i
+17:                                               ; preds = %16
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %6 = ptrtoint ptr %call5.i.i to i64
-  store atomic volatile i64 %6, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  %18 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %19 = ptrtoint ptr %18 to i64
+  store atomic volatile i64 %19, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
   br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i: ; preds = %if.then2.i.i, %if.then
-  %histogram_pointer.0.i.i = phi ptr [ %5, %if.then ], [ %call5.i.i, %if.then2.i.i ]
-  %tobool.not.i = icmp eq ptr %histogram_pointer.0.i.i, null
-  br i1 %tobool.not.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %if.then.i
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i: ; preds = %17, %13
+  %.0.i.i = phi ptr [ %15, %13 ], [ %18, %17 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %20
 
-if.then.i:                                        ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
-  %vtable.i = load ptr, ptr %histogram_pointer.0.i.i, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
-  %7 = load ptr, ptr %vfn.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i, i32 noundef 2)
+20:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
+  %21 = load ptr, ptr %.0.i.i, align 8, !tbaa !67
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i, i32 noundef 2)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %if.then.i.i, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %if.then.i
-  store ptr null, ptr %agg.result, align 8
-  br label %return
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %16, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %20
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %25
 
-if.end:                                           ; preds = %lor.lhs.false
-  tail call void @_ZN4base28PersistentHistogramAllocator15CreateHistogramEPNS0_23PersistentHistogramDataE(ptr sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull %call.i.i)
-  br label %return
+24:                                               ; preds = %9
+  tail call void @_ZN4base28PersistentHistogramAllocator15CreateHistogramEPNS0_23PersistentHistogramDataE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(132) %1, ptr noundef nonnull %6)
+  br label %25
 
-return:                                           ; preds = %if.end, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
+25:                                               ; preds = %24, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 24)) %this, ptr noundef captures(none) %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
-  %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %memory, align 8
-  store i64 %0, ptr %memory_allocator_, align 8
-  store ptr null, ptr %memory, align 8
-  %sparse_histogram_data_manager_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %memory_allocator_, align 8
-  store ptr %1, ptr %sparse_histogram_data_manager_, align 8
-  %record_iterator_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  invoke void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %record_iterator_.i, ptr noundef %1)
-          to label %.noexc unwind label %lpad
+define void @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16)) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %0, align 8, !tbaa !67
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %1, align 8, !tbaa !61
+  store i64 %4, ptr %3, align 8, !tbaa !61
+  store ptr null, ptr %1, align 8, !tbaa !61
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %3, align 8, !tbaa !61
+  invoke void @_ZN4base36PersistentSparseHistogramDataManagerC1EPNS_25PersistentMemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %6)
+          to label %7 unwind label %9
 
-.noexc:                                           ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i32 0, ptr %2, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %2, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr %2, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
-          to label %invoke.cont unwind label %lpad.i
-
-lpad.i:                                           ; preds = %.noexc
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %sample_records_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  tail call void @_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_.i) #21
-  br label %lpad.body
-
-invoke.cont:                                      ; preds = %.noexc
-  %last_created_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store i32 0, ptr %last_created_, align 8
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 0, ptr %8, align 8, !tbaa !69
   ret void
 
-lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.body
+  %11 = load ptr, ptr %3, align 8, !tbaa !61
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
 
-lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad ], [ %3, %lpad.i ]
-  %5 = load ptr, ptr %memory_allocator_, align 8
-  %cmp.not.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %lpad.body
-  %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %5) #21
+_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %9
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(48) %11) #21
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %lpad.body, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
-  store ptr null, ptr %memory_allocator_, align 8
-  resume { ptr, i32 } %eh.lpad-body
+_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %9, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
+  store ptr null, ptr %3, align 8, !tbaa !61
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
-  %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i) #21
-  %sample_records_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_.i, ptr noundef %0)
-          to label %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit unwind label %terminate.lpad.i.i.i
+define void @_ZN4base28PersistentHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %0, align 8, !tbaa !67
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4base36PersistentSparseHistogramDataManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #21
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
 
-terminate.lpad.i.i.i:                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
-  unreachable
-
-_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit: ; preds = %entry
-  %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %memory_allocator_, align 8
-  %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit
-  %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(48) %3) #21
+_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %1
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %4) #21
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
-  store ptr null, ptr %memory_allocator_, align 8
+_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
+  store ptr null, ptr %3, align 8, !tbaa !61
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
-  %lock_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #21
-  %sample_records_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_.i.i, ptr noundef %0)
-          to label %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
-  unreachable
-
-_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i: ; preds = %entry
-  %memory_allocator_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %memory_allocator_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i, label %_ZN4base28PersistentHistogramAllocatorD2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i: ; preds = %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i
-  %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(48) %3) #21
-  br label %_ZN4base28PersistentHistogramAllocatorD2Ev.exit
-
-_ZN4base28PersistentHistogramAllocatorD2Ev.exit:  ; preds = %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+define void @_ZN4base28PersistentHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #2 align 2 {
+  tail call void @_ZN4base28PersistentHistogramAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 declare noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef %result) local_unnamed_addr #0 align 2 {
-entry:
-  %0 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %tobool.not.i = icmp eq i64 %0, 0
-  br i1 %tobool.not.i, label %if.then.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
+define void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
+  %2 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %3 = inttoptr i64 %2 to ptr
+  %.not.i = icmp eq i64 %2, 0
+  br i1 %.not.i, label %4, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
 
-if.then.i:                                        ; preds = %entry
-  %.b3.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i, label %if.end, label %if.then2.i
+4:                                                ; preds = %1
+  %.b4.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.thread, label %5
 
-if.then2.i:                                       ; preds = %if.then.i
+5:                                                ; preds = %4
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %2 = ptrtoint ptr %call5.i to i64
-  store atomic volatile i64 %2, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  %6 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %7 = ptrtoint ptr %6 to i64
+  store atomic volatile i64 %7, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
   br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit: ; preds = %entry, %if.then2.i
-  %histogram_pointer.0.i = phi ptr [ %1, %entry ], [ %call5.i, %if.then2.i ]
-  %tobool.not = icmp eq ptr %histogram_pointer.0.i, null
-  br i1 %tobool.not, label %if.end, label %if.then
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit: ; preds = %1, %5
+  %.0.i = phi ptr [ %3, %1 ], [ %6, %5 ]
+  %.not = icmp eq ptr %.0.i, null
+  br i1 %.not, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.thread, label %8
 
-if.then:                                          ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
-  %vtable = load ptr, ptr %histogram_pointer.0.i, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i, i32 noundef %result)
-  br label %if.end
+8:                                                ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
+  %9 = load ptr, ptr %.0.i, align 8, !tbaa !67
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %11 = load ptr, ptr %10, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(44) %.0.i, i32 noundef %0)
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.thread
 
-if.end:                                           ; preds = %if.then.i, %if.then, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.thread: ; preds = %4, %8, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator15CreateHistogramEPNS0_23PersistentHistogramDataE(ptr noalias sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %histogram_data_ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ranges.i = alloca %"class.std::unique_ptr.48", align 8
-  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp3 = alloca %"class.std::allocator.6", align 1
-  %created_ranges = alloca %"class.std::unique_ptr.40", align 8
-  %name61 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp64 = alloca %"class.std::allocator.6", align 1
-  %ref.tmp70 = alloca %"class.std::unique_ptr.17", align 8
-  %ref.tmp78 = alloca %"class.std::unique_ptr.17", align 8
-  %ref.tmp87 = alloca %"class.std::unique_ptr.17", align 8
-  %ref.tmp93 = alloca %"class.std::unique_ptr.17", align 8
-  %tobool.not = icmp eq ptr %histogram_data_ptr, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define void @_ZN4base28PersistentHistogramAllocator15CreateHistogramEPNS0_23PersistentHistogramDataE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(132) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.std::unique_ptr.48", align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = alloca %"class.std::unique_ptr.40", align 8
+  %8 = alloca %"class.std::__cxx11::basic_string", align 8
+  %9 = alloca %"class.std::allocator.6", align 1
+  %10 = alloca %"class.std::unique_ptr.17", align 8
+  %11 = alloca %"class.std::unique_ptr.17", align 8
+  %12 = alloca %"class.std::unique_ptr.17", align 8
+  %13 = alloca %"class.std::unique_ptr.17", align 8
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %14, label %25
 
-if.then:                                          ; preds = %entry
-  %0 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %tobool.not.i.i = icmp eq i64 %0, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
+14:                                               ; preds = %3
+  %15 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %.not.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i, label %17, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
 
-if.then.i.i:                                      ; preds = %if.then
-  %.b3.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %if.then2.i.i
+17:                                               ; preds = %14
+  %.b4.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %18
 
-if.then2.i.i:                                     ; preds = %if.then.i.i
+18:                                               ; preds = %17
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %2 = ptrtoint ptr %call5.i.i to i64
-  store atomic volatile i64 %2, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  %19 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %20 = ptrtoint ptr %19 to i64
+  store atomic volatile i64 %20, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
   br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i: ; preds = %if.then2.i.i, %if.then
-  %histogram_pointer.0.i.i = phi ptr [ %1, %if.then ], [ %call5.i.i, %if.then2.i.i ]
-  %tobool.not.i = icmp eq ptr %histogram_pointer.0.i.i, null
-  br i1 %tobool.not.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %if.then.i
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i: ; preds = %18, %14
+  %.0.i.i = phi ptr [ %16, %14 ], [ %19, %18 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %21
 
-if.then.i:                                        ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
-  %vtable.i = load ptr, ptr %histogram_pointer.0.i.i, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
-  %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i, i32 noundef 1)
+21:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
+  %22 = load ptr, ptr %.0.i.i, align 8, !tbaa !67
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i, i32 noundef 1)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %if.then.i.i, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %if.then.i
-  store ptr null, ptr %agg.result, align 8
-  br label %return
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %17, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %21
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90
 
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %histogram_data_ptr, align 8
-  %cmp = icmp eq i32 %4, 4
-  br i1 %cmp, label %if.then2, label %if.end10
+25:                                               ; preds = %3
+  %26 = load i32, ptr %2, align 8, !tbaa !77
+  %27 = icmp eq i32 %26, 4
+  br i1 %27, label %28, label %79
 
-if.then2:                                         ; preds = %if.end
-  %name = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 80
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #21
-  %call.i49 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-          to label %call.i.noexc unwind label %lpad
+28:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #21
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %30, ptr %6, align 8, !tbaa !80
+  %31 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
+  store i64 %31, ptr %5, align 8, !tbaa !39
+  %32 = icmp ugt i64 %31, 15
+  br i1 %32, label %.noexc.i, label %._crit_edge.i.i
 
-call.i.noexc:                                     ; preds = %if.then2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
-          to label %.noexc unwind label %lpad
+.noexc.i:                                         ; preds = %28
+  %33 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
+          to label %.noexc unwind label %65
 
-.noexc:                                           ; preds = %call.i.noexc
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #21
-  %add.ptr.i = getelementptr inbounds i8, ptr %name, i64 %call.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %name, ptr noundef nonnull %add.ptr.i)
-          to label %invoke.cont unwind label %lpad.i
+.noexc:                                           ; preds = %.noexc.i
+  store ptr %33, ptr %6, align 8, !tbaa !83
+  %34 = load i64, ptr %5, align 8, !tbaa !39
+  store i64 %34, ptr %30, align 8, !tbaa !66
+  br label %._crit_edge.i.i
 
-lpad.i:                                           ; preds = %.noexc
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
-  br label %ehcleanup
-
-invoke.cont:                                      ; preds = %.noexc
-  %samples_metadata = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 32
-  %logged_metadata = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base15SparseHistogram16PersistentCreateEPNS_28PersistentHistogramAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16HistogramSamples8MetadataESD_(ptr sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %samples_metadata, ptr noundef nonnull %logged_metadata)
-          to label %invoke.cont5 unwind label %lpad4
-
-invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #21
-  %6 = load ptr, ptr %agg.result, align 8
-  %flags = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 4
-  %7 = load i32, ptr %flags, align 4
-  invoke void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %6, i32 noundef %7)
-          to label %invoke.cont7 unwind label %lpad6
-
-invoke.cont7:                                     ; preds = %invoke.cont5
-  %8 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %tobool.not.i.i50 = icmp eq i64 %8, 0
-  br i1 %tobool.not.i.i50, label %if.then.i.i57, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
-
-if.then.i.i57:                                    ; preds = %invoke.cont7
-  %.b3.i.i58 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i58, label %return, label %if.then2.i.i59
-
-if.then2.i.i59:                                   ; preds = %if.then.i.i57
-  store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i6061 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-          to label %call5.i.i60.noexc unwind label %lpad6
-
-call5.i.i60.noexc:                                ; preds = %if.then2.i.i59
-  %10 = ptrtoint ptr %call5.i.i6061 to i64
-  store atomic volatile i64 %10, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
-
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51: ; preds = %call5.i.i60.noexc, %invoke.cont7
-  %histogram_pointer.0.i.i52 = phi ptr [ %9, %invoke.cont7 ], [ %call5.i.i6061, %call5.i.i60.noexc ]
-  %tobool.not.i53 = icmp eq ptr %histogram_pointer.0.i.i52, null
-  br i1 %tobool.not.i53, label %return, label %if.then.i54
-
-if.then.i54:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
-  %vtable.i55 = load ptr, ptr %histogram_pointer.0.i.i52, align 8
-  %vfn.i56 = getelementptr inbounds nuw i8, ptr %vtable.i55, i64 40
-  %11 = load ptr, ptr %vfn.i56, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i52, i32 noundef 0)
-          to label %return unwind label %lpad6
-
-lpad:                                             ; preds = %call.i.noexc, %if.then2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad4:                                            ; preds = %invoke.cont
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad4
-  %.pn44 = phi { ptr, i32 } [ %13, %lpad4 ], [ %12, %lpad ], [ %5, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #21
-  br label %common.resume
-
-lpad6:                                            ; preds = %if.then.i54, %if.then2.i.i59, %invoke.cont5
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = load ptr, ptr %agg.result, align 8
-  %cmp.not.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i: ; preds = %lpad6
-  %vtable.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %16 = load ptr, ptr %vfn.i.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(44) %15) #21
-  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %lpad6, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i
-  store ptr null, ptr %agg.result, align 8
-  br label %common.resume
-
-if.end10:                                         ; preds = %if.end
-  %histogram_data.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 4
-  %histogram_data.sroa.2.0.copyload = load i32, ptr %histogram_data.sroa.2.0..sroa_idx, align 4
-  %histogram_data.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 8
-  %histogram_data.sroa.3.0.copyload = load i32, ptr %histogram_data.sroa.3.0..sroa_idx, align 8
-  %histogram_data.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 12
-  %histogram_data.sroa.5.0.copyload = load i32, ptr %histogram_data.sroa.5.0..sroa_idx, align 4
-  %histogram_data.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 16
-  %histogram_data.sroa.7.0.copyload = load i32, ptr %histogram_data.sroa.7.0..sroa_idx, align 8
-  %histogram_data.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 20
-  %histogram_data.sroa.16.0.copyload = load i32, ptr %histogram_data.sroa.16.0..sroa_idx, align 4
-  %histogram_data.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 24
-  %histogram_data.sroa.18.0.copyload = load i32, ptr %histogram_data.sroa.18.0..sroa_idx, align 8
-  %histogram_data.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 28
-  %histogram_data.sroa.19.0.copyload = load i32, ptr %histogram_data.sroa.19.0..sroa_idx, align 4
-  %histogram_data.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 32
-  %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load ptr, ptr %memory_allocator_, align 8
-  %call.i.i64 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %17, i32 noundef %histogram_data.sroa.16.0.copyload, i32 noundef -1125506469, i32 noundef 4)
-  %add = add i32 %histogram_data.sroa.7.0.copyload, 1
-  %conv = zext i32 %add to i64
-  %18 = load ptr, ptr %memory_allocator_, align 8
-  %call16 = tail call noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %18, i32 noundef %histogram_data.sroa.16.0.copyload)
-  %tobool17 = icmp eq ptr %call.i.i64, null
-  %19 = add i32 %histogram_data.sroa.7.0.copyload, -1073741823
-  %20 = icmp ult i32 %19, -1073741821
-  %or.cond1 = select i1 %tobool17, i1 true, i1 %20
-  %mul = shl nuw nsw i64 %conv, 2
-  %cmp24 = icmp ult i64 %call16, %mul
-  %or.cond = select i1 %or.cond1, i1 true, i1 %cmp24
-  br i1 %or.cond, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %if.end10
-  %21 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %tobool.not.i.i65 = icmp eq i64 %21, 0
-  br i1 %tobool.not.i.i65, label %if.then.i.i72, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66
-
-if.then.i.i72:                                    ; preds = %if.then25
-  %.b3.i.i73 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i73, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76, label %if.then2.i.i74
-
-if.then2.i.i74:                                   ; preds = %if.then.i.i72
-  store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i75 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %23 = ptrtoint ptr %call5.i.i75 to i64
-  store atomic volatile i64 %23, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66
-
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66: ; preds = %if.then2.i.i74, %if.then25
-  %histogram_pointer.0.i.i67 = phi ptr [ %22, %if.then25 ], [ %call5.i.i75, %if.then2.i.i74 ]
-  %tobool.not.i68 = icmp eq ptr %histogram_pointer.0.i.i67, null
-  br i1 %tobool.not.i68, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76, label %if.then.i69
-
-if.then.i69:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66
-  %vtable.i70 = load ptr, ptr %histogram_pointer.0.i.i67, align 8
-  %vfn.i71 = getelementptr inbounds nuw i8, ptr %vtable.i70, i64 40
-  %24 = load ptr, ptr %vfn.i71, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i67, i32 noundef 3)
-  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76
-
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76: ; preds = %if.then.i.i72, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66, %if.then.i69
-  store ptr null, ptr %agg.result, align 8
-  br label %return
-
-if.end26:                                         ; preds = %if.end10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ranges.i)
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !12
-  invoke void @_ZN4base12BucketRangesC1Em(ptr noundef nonnull align 8 dereferenceable(28) %call.i, i64 noundef range(i64 0, 4294967296) %conv)
-          to label %if.end.i unwind label %lpad.i77, !noalias !12
-
-lpad.i77:                                         ; preds = %if.end26
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24, !noalias !12
-  br label %common.resume
-
-lpad1.loopexit.i:                                 ; preds = %if.end11.i
-  %lpad.loopexit.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad1.i
-
-lpad1.loopexit.split-lp.i:                        ; preds = %for.end.i
-  %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad1.i
-
-lpad1.i:                                          ; preds = %lpad1.loopexit.split-lp.i, %lpad1.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %lpad1.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad1.loopexit.split-lp.i ]
-  call void @_ZNSt10unique_ptrIN4base12BucketRangesESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ranges.i) #21, !noalias !12
-  br label %common.resume
-
-if.end.i:                                         ; preds = %if.end26
-  store ptr %call.i, ptr %ranges.i, align 8, !noalias !12
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %if.end.i, %for.inc.i
-  %i.014.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end.i ]
-  %cmp7.not.i = icmp eq i64 %i.014.i, 0
-  br i1 %cmp7.not.i, label %for.body.if.end11_crit_edge.i, label %land.lhs.true.i
-
-for.body.if.end11_crit_edge.i:                    ; preds = %for.body.i
-  %.pre.i = load i32, ptr %call.i.i64, align 4, !noalias !12
-  br label %if.end11.i
-
-land.lhs.true.i:                                  ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %call.i.i64, i64 %i.014.i
-  %26 = load i32, ptr %arrayidx.i, align 4, !noalias !12
-  %arrayidx8.i = getelementptr i8, ptr %arrayidx.i, i64 -4
-  %27 = load i32, ptr %arrayidx8.i, align 4, !noalias !12
-  %cmp9.not.i = icmp sgt i32 %26, %27
-  br i1 %cmp9.not.i, label %if.end11.i, label %if.then32
-
-if.end11.i:                                       ; preds = %land.lhs.true.i, %for.body.if.end11_crit_edge.i
-  %28 = phi i32 [ %.pre.i, %for.body.if.end11_crit_edge.i ], [ %26, %land.lhs.true.i ]
-  invoke void @_ZN4base12BucketRanges9set_rangeEmi(ptr noundef nonnull align 8 dereferenceable(28) %call.i, i64 noundef %i.014.i, i32 noundef %28)
-          to label %for.inc.i unwind label %lpad1.loopexit.i, !noalias !12
-
-for.inc.i:                                        ; preds = %if.end11.i
-  %inc.i = add nuw nsw i64 %i.014.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %conv
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !15
-
-for.end.i:                                        ; preds = %for.inc.i
-  invoke void @_ZN4base12BucketRanges13ResetChecksumEv(ptr noundef nonnull align 8 dereferenceable(28) %call.i)
-          to label %invoke.cont16.i unwind label %lpad1.loopexit.split-lp.i, !noalias !12
-
-invoke.cont16.i:                                  ; preds = %for.end.i
-  %checksum_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  %29 = load i32, ptr %checksum_.i.i, align 8, !noalias !12
-  %cmp19.not.i = icmp eq i32 %29, %histogram_data.sroa.18.0.copyload
-  br i1 %cmp19.not.i, label %if.end35, label %if.then32
-
-common.resume:                                    ; preds = %ehcleanup, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, %ehcleanup126, %lpad.i77, %lpad1.i
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %lpad1.i ], [ %25, %lpad.i77 ], [ %14, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit ], [ %.pn44, %ehcleanup ], [ %.pn, %ehcleanup126 ]
-  resume { ptr, i32 } %common.resume.op
-
-if.then32:                                        ; preds = %land.lhs.true.i, %invoke.cont16.i
-  tail call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %call.i) #21, !noalias !12
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24, !noalias !12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ranges.i)
-  store ptr null, ptr %created_ranges, align 8
-  %30 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %tobool.not.i.i80 = icmp eq i64 %30, 0
-  br i1 %tobool.not.i.i80, label %if.then.i.i88, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81
-
-if.then.i.i88:                                    ; preds = %if.then32
-  %.b3.i.i89 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i89, label %invoke.cont34, label %if.then2.i.i90
-
-if.then2.i.i90:                                   ; preds = %if.then.i.i88
-  store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i9192 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-          to label %call5.i.i91.noexc unwind label %lpad33
-
-call5.i.i91.noexc:                                ; preds = %if.then2.i.i90
-  %32 = ptrtoint ptr %call5.i.i9192 to i64
-  store atomic volatile i64 %32, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81
-
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81: ; preds = %call5.i.i91.noexc, %if.then32
-  %histogram_pointer.0.i.i82 = phi ptr [ %31, %if.then32 ], [ %call5.i.i9192, %call5.i.i91.noexc ]
-  %tobool.not.i83 = icmp eq ptr %histogram_pointer.0.i.i82, null
-  br i1 %tobool.not.i83, label %invoke.cont34, label %if.then.i84
-
-if.then.i84:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81
-  %vtable.i85 = load ptr, ptr %histogram_pointer.0.i.i82, align 8
-  %vfn.i86 = getelementptr inbounds nuw i8, ptr %vtable.i85, i64 40
-  %33 = load ptr, ptr %vfn.i86, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i82, i32 noundef 3)
-          to label %invoke.cont34 unwind label %lpad33
-
-invoke.cont34:                                    ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81, %if.then.i.i88, %if.then.i84
-  store ptr null, ptr %agg.result, align 8
-  br label %cleanup
-
-lpad33:                                           ; preds = %if.then.i101, %if.then2.i.i107, %invoke.cont37, %if.then.i84, %if.then2.i.i90, %lor.lhs.false50, %if.end35
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup126
-
-if.end35:                                         ; preds = %invoke.cont16.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ranges.i)
-  store ptr null, ptr %created_ranges, align 8
-  %call38 = invoke noundef ptr @_ZN4base18StatisticsRecorder31RegisterOrDeleteDuplicateRangesEPKNS_12BucketRangesE(ptr noundef nonnull %call.i)
-          to label %invoke.cont37 unwind label %lpad33
-
-invoke.cont37:                                    ; preds = %if.end35
-  %35 = load ptr, ptr %memory_allocator_, align 8
-  %call.i.i9596 = invoke noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %35, i32 noundef %histogram_data.sroa.19.0.copyload, i32 noundef 1394693425, i32 noundef 4)
-          to label %invoke.cont41 unwind label %lpad33
-
-invoke.cont41:                                    ; preds = %invoke.cont37
-  %conv44 = zext nneg i32 %histogram_data.sroa.7.0.copyload to i64
-  %retval.0.i = shl nuw nsw i64 %conv44, 3
-  %tobool47 = icmp eq ptr %call.i.i9596, null
-  %cmp49 = icmp eq i32 %histogram_data.sroa.7.0.copyload, 0
-  %or.cond2 = or i1 %cmp49, %tobool47
-  br i1 %or.cond2, label %if.then57, label %lor.lhs.false50
-
-lor.lhs.false50:                                  ; preds = %invoke.cont41
-  %36 = load ptr, ptr %memory_allocator_, align 8
-  %call55 = invoke noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %36, i32 noundef %histogram_data.sroa.19.0.copyload)
-          to label %invoke.cont54 unwind label %lpad33
-
-invoke.cont54:                                    ; preds = %lor.lhs.false50
-  %cmp56 = icmp ult i64 %call55, %retval.0.i
-  br i1 %cmp56, label %if.then57, label %if.end59
-
-if.then57:                                        ; preds = %invoke.cont54, %invoke.cont41
-  %37 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %38 = inttoptr i64 %37 to ptr
-  %tobool.not.i.i97 = icmp eq i64 %37, 0
-  br i1 %tobool.not.i.i97, label %if.then.i.i105, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i98
-
-if.then.i.i105:                                   ; preds = %if.then57
-  %.b3.i.i106 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i106, label %invoke.cont58, label %if.then2.i.i107
-
-if.then2.i.i107:                                  ; preds = %if.then.i.i105
-  store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i108109 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-          to label %call5.i.i108.noexc unwind label %lpad33
-
-call5.i.i108.noexc:                               ; preds = %if.then2.i.i107
-  %39 = ptrtoint ptr %call5.i.i108109 to i64
-  store atomic volatile i64 %39, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i98
-
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i98: ; preds = %call5.i.i108.noexc, %if.then57
-  %histogram_pointer.0.i.i99 = phi ptr [ %38, %if.then57 ], [ %call5.i.i108109, %call5.i.i108.noexc ]
-  %tobool.not.i100 = icmp eq ptr %histogram_pointer.0.i.i99, null
-  br i1 %tobool.not.i100, label %invoke.cont58, label %if.then.i101
-
-if.then.i101:                                     ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i98
-  %vtable.i102 = load ptr, ptr %histogram_pointer.0.i.i99, align 8
-  %vfn.i103 = getelementptr inbounds nuw i8, ptr %vtable.i102, i64 40
-  %40 = load ptr, ptr %vfn.i103, align 8
-  invoke void %40(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i99, i32 noundef 4)
-          to label %invoke.cont58 unwind label %lpad33
-
-invoke.cont58:                                    ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i98, %if.then.i.i105, %if.then.i101
-  store ptr null, ptr %agg.result, align 8
-  br label %cleanup
-
-if.end59:                                         ; preds = %invoke.cont54
-  %add.ptr = getelementptr inbounds nuw i32, ptr %call.i.i9596, i64 %conv44
-  %name62 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 80
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef nonnull %name62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64)
-          to label %invoke.cont66 unwind label %lpad65
-
-invoke.cont66:                                    ; preds = %if.end59
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #21
-  store ptr null, ptr %agg.result, align 8
-  switch i32 %4, label %if.else118 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb77
-    i32 2, label %sw.bb86
-    i32 3, label %sw.bb92
+._crit_edge.i.i:                                  ; preds = %.noexc, %28
+  %35 = phi ptr [ %33, %.noexc ], [ %30, %28 ]
+  switch i64 %31, label %38 [
+    i64 1, label %36
+    i64 0, label %39
   ]
 
-lpad65:                                           ; preds = %if.end59
-  %41 = landingpad { ptr, i32 }
+36:                                               ; preds = %._crit_edge.i.i
+  %37 = load i8, ptr %29, align 1, !tbaa !66
+  store i8 %37, ptr %35, align 1, !tbaa !66
+  br label %39
+
+38:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %29, i64 %31, i1 false)
+  br label %39
+
+39:                                               ; preds = %38, %36, %._crit_edge.i.i
+  %40 = load i64, ptr %5, align 8, !tbaa !39
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %40, ptr %41, align 8, !tbaa !85
+  %42 = load ptr, ptr %6, align 8, !tbaa !83
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %40
+  store i8 0, ptr %43, align 1, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  invoke void @_ZN4base15SparseHistogram16PersistentCreateEPNS_28PersistentHistogramAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16HistogramSamples8MetadataESD_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %44, ptr noundef nonnull %45)
+          to label %46 unwind label %67
+
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %6, align 8, !tbaa !83
+  %48 = icmp eq ptr %47, %30
+  br i1 %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %46
+  %49 = load i64, ptr %41, align 8, !tbaa !85
+  %50 = icmp ult i64 %49, 16
+  call void @llvm.assume(i1 %50)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %46
+  call void @_ZdlPv(ptr noundef %47) #24
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
+  %51 = load ptr, ptr %0, align 8, !tbaa !86
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %53 = load i32, ptr %52, align 4, !tbaa !87
+  invoke void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %51, i32 noundef %53)
+          to label %54 unwind label %73
+
+54:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %55 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %56 = inttoptr i64 %55 to ptr
+  %.not.i.i83 = icmp eq i64 %55, 0
+  br i1 %.not.i.i83, label %57, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84
+
+57:                                               ; preds = %54
+  %.b4.i.i87 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i87, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90, label %58
+
+58:                                               ; preds = %57
+  store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %59 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+          to label %.noexc88 unwind label %73
+
+.noexc88:                                         ; preds = %58
+  %60 = ptrtoint ptr %59 to i64
+  store atomic volatile i64 %60, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84
+
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84: ; preds = %.noexc88, %54
+  %.0.i.i85 = phi ptr [ %56, %54 ], [ %59, %.noexc88 ]
+  %.not.i86 = icmp eq ptr %.0.i.i85, null
+  br i1 %.not.i86, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90, label %61
+
+61:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84
+  %62 = load ptr, ptr %.0.i.i85, align 8, !tbaa !67
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %64 = load ptr, ptr %63, align 8
+  invoke void %64(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i85, i32 noundef 0)
+          to label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90 unwind label %73
+
+65:                                               ; preds = %.noexc.i
+  %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #21
-  br label %ehcleanup126
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93
 
-sw.bb:                                            ; preds = %invoke.cont66
-  %logged_metadata73 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef nonnull %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata73)
-          to label %sw.epilog unwind label %lpad74.thread
-
-lpad74.thread:                                    ; preds = %if.else118, %sw.bb92, %sw.bb86, %sw.bb77, %sw.bb
-  %lpad.thr_comm = landingpad { ptr, i32 }
+67:                                               ; preds = %39
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit123
+  %69 = load ptr, ptr %6, align 8, !tbaa !83
+  %70 = icmp eq ptr %69, %30
+  br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91
 
-_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i119: ; preds = %if.end113, %invoke.cont116
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
-          cleanup
-  %vtable.i.i120 = load ptr, ptr %43, align 8
-  %vfn.i.i121 = getelementptr inbounds nuw i8, ptr %vtable.i.i120, i64 8
-  %42 = load ptr, ptr %vfn.i.i121, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(44) %43) #21
-  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit123
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92: ; preds = %67
+  %71 = load i64, ptr %41, align 8, !tbaa !85
+  %72 = icmp ult i64 %71, 16
+  call void @llvm.assume(i1 %72)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit123: ; preds = %lpad74.thread, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i119
-  %lpad.phi178 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad74.thread ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i119 ]
-  store ptr null, ptr %agg.result, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name61) #21
-  br label %ehcleanup126
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91: ; preds = %67
+  call void @_ZdlPv(ptr noundef %69) #24
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93
 
-sw.bb77:                                          ; preds = %invoke.cont66
-  %logged_metadata83 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef nonnull %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata83)
-          to label %sw.epilog unwind label %lpad74.thread
-
-sw.bb86:                                          ; preds = %invoke.cont66
-  %logged_metadata89 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef nonnull %add.ptr, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata89)
-          to label %sw.epilog unwind label %lpad74.thread
-
-sw.bb92:                                          ; preds = %invoke.cont66
-  %logged_metadata96 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef nonnull %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata96)
-          to label %sw.epilog unwind label %lpad74.thread
-
-sw.epilog:                                        ; preds = %sw.bb92, %sw.bb86, %sw.bb77, %sw.bb
-  %ref.tmp93.sink179 = phi ptr [ %ref.tmp70, %sw.bb ], [ %ref.tmp78, %sw.bb77 ], [ %ref.tmp87, %sw.bb86 ], [ %ref.tmp93, %sw.bb92 ]
-  %43 = load ptr, ptr %ref.tmp93.sink179, align 8
-  store ptr %43, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp93.sink179, align 8
-  %cmp.i157.not = icmp eq ptr %43, null
-  br i1 %cmp.i157.not, label %if.else118, label %if.end113
-
-if.end113:                                        ; preds = %sw.epilog
-  invoke void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %43, i32 noundef %histogram_data.sroa.2.0.copyload)
-          to label %invoke.cont116 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i119
-
-invoke.cont116:                                   ; preds = %if.end113
-  invoke void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef 0)
-          to label %nrvo.skipdtor123 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i119
-
-if.else118:                                       ; preds = %invoke.cont66, %sw.epilog
-  invoke void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef 8)
-          to label %nrvo.skipdtor123 unwind label %lpad74.thread
-
-nrvo.skipdtor123:                                 ; preds = %invoke.cont116, %if.else118
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name61) #21
-  br label %cleanup
-
-cleanup:                                          ; preds = %nrvo.skipdtor123, %invoke.cont58, %invoke.cont34
-  %44 = load ptr, ptr %created_ranges, align 8
-  %cmp.not.i159 = icmp eq ptr %44, null
-  br i1 %cmp.not.i159, label %return, label %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i
-
-_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i: ; preds = %cleanup
-  call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %44) #21
-  call void @_ZdlPv(ptr noundef nonnull %44) #24
-  br label %return
-
-ehcleanup126:                                     ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit123, %lpad65, %lpad33
-  %.pn = phi { ptr, i32 } [ %34, %lpad33 ], [ %lpad.phi178, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit123 ], [ %41, %lpad65 ]
-  call void @_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %created_ranges) #21
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92, %65
+  %.pn78 = phi { ptr, i32 } [ %66, %65 ], [ %68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92 ], [ %68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
   br label %common.resume
 
-return:                                           ; preds = %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i, %cleanup, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51, %if.then.i.i57, %if.then.i54, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
+73:                                               ; preds = %61, %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = load ptr, ptr %0, align 8, !tbaa !86
+  %.not.i94 = icmp eq ptr %75, null
+  br i1 %.not.i94, label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i
+
+_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i: ; preds = %73
+  %76 = load ptr, ptr %75, align 8, !tbaa !67
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %78 = load ptr, ptr %77, align 8
+  call void %78(ptr noundef nonnull align 8 dereferenceable(44) %75) #21
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit
+
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %73, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i
+  store ptr null, ptr %0, align 8, !tbaa !86
+  br label %common.resume
+
+79:                                               ; preds = %25
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !55
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !55
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.19.0.copyload = load i32, ptr %.sroa.19.0..sroa_idx, align 4, !tbaa !55
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.21.0.copyload = load i32, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !55
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !61
+  %82 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %81, i32 noundef %.sroa.19.0.copyload, i32 noundef -1125506469, i32 noundef 4)
+  %83 = add i32 %.sroa.10.0.copyload, 1
+  %84 = zext i32 %83 to i64
+  %85 = load ptr, ptr %80, align 8, !tbaa !61
+  %86 = tail call noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %85, i32 noundef %.sroa.19.0.copyload)
+  %87 = icmp eq ptr %82, null
+  %88 = add i32 %.sroa.10.0.copyload, -1073741823
+  %89 = icmp ult i32 %88, -1073741821
+  %or.cond5 = select i1 %87, i1 true, i1 %89
+  %90 = shl nuw nsw i64 %84, 2
+  %91 = icmp ult i64 %86, %90
+  %or.cond = select i1 %or.cond5, i1 true, i1 %91
+  br i1 %or.cond, label %92, label %103
+
+92:                                               ; preds = %79
+  %93 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %94 = inttoptr i64 %93 to ptr
+  %.not.i.i95 = icmp eq i64 %93, 0
+  br i1 %.not.i.i95, label %95, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96
+
+95:                                               ; preds = %92
+  %.b4.i.i99 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i99, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100, label %96
+
+96:                                               ; preds = %95
+  store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %97 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %98 = ptrtoint ptr %97 to i64
+  store atomic volatile i64 %98, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96
+
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96: ; preds = %96, %92
+  %.0.i.i97 = phi ptr [ %94, %92 ], [ %97, %96 ]
+  %.not.i98 = icmp eq ptr %.0.i.i97, null
+  br i1 %.not.i98, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100, label %99
+
+99:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96
+  %100 = load ptr, ptr %.0.i.i97, align 8, !tbaa !67
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  %102 = load ptr, ptr %101, align 8
+  tail call void %102(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i97, i32 noundef 3)
+  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100
+
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100: ; preds = %95, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96, %99
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90
+
+103:                                              ; preds = %79
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21, !noalias !88
+  %104 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !88
+  invoke void @_ZN4base12BucketRangesC1Em(ptr noundef nonnull align 8 dereferenceable(28) %104, i64 noundef range(i64 0, 4294967296) %84)
+          to label %107 unwind label %105, !noalias !88
+
+105:                                              ; preds = %103
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZdlPv(ptr noundef nonnull %104) #24, !noalias !88
+  br label %125
+
+107:                                              ; preds = %103
+  store ptr %104, ptr %4, align 8, !tbaa !91, !noalias !88
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %107, %115
+  %.01528.i = phi i64 [ %116, %115 ], [ 0, %107 ]
+  %.not.i101 = icmp eq i64 %.01528.i, 0
+  br i1 %.not.i101, label %.lr.ph._crit_edge.i, label %108
+
+.lr.ph._crit_edge.i:                              ; preds = %.lr.ph.i
+  %.pre.i = load i32, ptr %82, align 4, !tbaa !55, !noalias !88
+  br label %113
+
+108:                                              ; preds = %.lr.ph.i
+  %109 = getelementptr inbounds nuw i32, ptr %82, i64 %.01528.i
+  %110 = load i32, ptr %109, align 4, !tbaa !55, !noalias !88
+  %111 = getelementptr i8, ptr %109, i64 -4
+  %112 = load i32, ptr %111, align 4, !tbaa !55, !noalias !88
+  %.not19.i = icmp sgt i32 %110, %112
+  br i1 %.not19.i, label %113, label %.loopexit
+
+113:                                              ; preds = %108, %.lr.ph._crit_edge.i
+  %114 = phi i32 [ %.pre.i, %.lr.ph._crit_edge.i ], [ %110, %108 ]
+  invoke void @_ZN4base12BucketRanges9set_rangeEmi(ptr noundef nonnull align 8 dereferenceable(28) %104, i64 noundef %.01528.i, i32 noundef %114)
+          to label %115 unwind label %117, !noalias !88
+
+115:                                              ; preds = %113
+  %116 = add nuw nsw i64 %.01528.i, 1
+  %exitcond.not.i = icmp eq i64 %116, %84
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !93
+
+117:                                              ; preds = %113
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  br label %124
+
+.critedge.i:                                      ; preds = %115
+  invoke void @_ZN4base12BucketRanges13ResetChecksumEv(ptr noundef nonnull align 8 dereferenceable(28) %104)
+          to label %119 unwind label %122, !noalias !88
+
+119:                                              ; preds = %.critedge.i
+  %120 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %121 = load i32, ptr %120, align 8, !tbaa !94, !noalias !88
+  %.not23.i = icmp eq i32 %121, %.sroa.21.0.copyload
+  br i1 %.not23.i, label %138, label %.loopexit
+
+122:                                              ; preds = %.critedge.i
+  %123 = landingpad { ptr, i32 }
+          cleanup
+  br label %124
+
+124:                                              ; preds = %122, %117
+  %.pn.i = phi { ptr, i32 } [ %123, %122 ], [ %118, %117 ]
+  call void @_ZNSt10unique_ptrIN4base12BucketRangesESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21, !noalias !88
+  br label %125
+
+common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, %217, %125
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %125 ], [ %74, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit ], [ %.pn78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %.pn73.pn.pn.pn, %217 ]
+  resume { ptr, i32 } %common.resume.op
+
+125:                                              ; preds = %124, %105
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %124 ], [ %106, %105 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21, !noalias !88
+  br label %common.resume
+
+.loopexit:                                        ; preds = %108, %119
+  tail call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %104) #21, !noalias !88
+  tail call void @_ZdlPv(ptr noundef nonnull %104) #24, !noalias !88
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21, !noalias !88
+  store ptr null, ptr %7, align 8, !tbaa !100
+  %126 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %127 = inttoptr i64 %126 to ptr
+  %.not.i.i103 = icmp eq i64 %126, 0
+  br i1 %.not.i.i103, label %128, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104
+
+128:                                              ; preds = %.loopexit
+  %.b4.i.i107 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i107, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110, label %129
+
+129:                                              ; preds = %128
+  store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %130 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+          to label %.noexc108 unwind label %136
+
+.noexc108:                                        ; preds = %129
+  %131 = ptrtoint ptr %130 to i64
+  store atomic volatile i64 %131, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104
+
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104: ; preds = %.noexc108, %.loopexit
+  %.0.i.i105 = phi ptr [ %127, %.loopexit ], [ %130, %.noexc108 ]
+  %.not.i106 = icmp eq ptr %.0.i.i105, null
+  br i1 %.not.i106, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110, label %132
+
+132:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104
+  %133 = load ptr, ptr %.0.i.i105, align 8, !tbaa !67
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  %135 = load ptr, ptr %134, align 8
+  invoke void %135(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i105, i32 noundef 3)
+          to label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110 unwind label %136
+
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104, %128, %132
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %215
+
+136:                                              ; preds = %132, %129
+  %137 = landingpad { ptr, i32 }
+          cleanup
+  br label %217
+
+138:                                              ; preds = %119
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21, !noalias !88
+  store ptr null, ptr %7, align 8, !tbaa !91
+  %139 = invoke noundef ptr @_ZN4base18StatisticsRecorder31RegisterOrDeleteDuplicateRangesEPKNS_12BucketRangesE(ptr noundef nonnull %104)
+          to label %140 unwind label %162
+
+140:                                              ; preds = %138
+  %141 = load ptr, ptr %80, align 8, !tbaa !61
+  %142 = invoke noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %141, i32 noundef %.sroa.22.0.copyload, i32 noundef 1394693425, i32 noundef 4)
+          to label %_ZN4base25PersistentMemoryAllocator11GetAsObjectIiEEPT_jj.exit unwind label %164
+
+_ZN4base25PersistentMemoryAllocator11GetAsObjectIiEEPT_jj.exit: ; preds = %140
+  %143 = zext nneg i32 %.sroa.10.0.copyload to i64
+  %.0.i = shl nuw nsw i64 %143, 3
+  %144 = icmp eq ptr %142, null
+  %145 = icmp eq i32 %.sroa.10.0.copyload, 0
+  %or.cond7 = or i1 %145, %144
+  br i1 %or.cond7, label %151, label %146
+
+146:                                              ; preds = %_ZN4base25PersistentMemoryAllocator11GetAsObjectIiEEPT_jj.exit
+  %147 = load ptr, ptr %80, align 8, !tbaa !61
+  %148 = invoke noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %147, i32 noundef %.sroa.22.0.copyload)
+          to label %149 unwind label %166
+
+149:                                              ; preds = %146
+  %150 = icmp ult i64 %148, %.0.i
+  br i1 %150, label %151, label %168
+
+151:                                              ; preds = %149, %_ZN4base25PersistentMemoryAllocator11GetAsObjectIiEEPT_jj.exit
+  %152 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %153 = inttoptr i64 %152 to ptr
+  %.not.i.i112 = icmp eq i64 %152, 0
+  br i1 %.not.i.i112, label %154, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113
+
+154:                                              ; preds = %151
+  %.b4.i.i116 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i116, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119, label %155
+
+155:                                              ; preds = %154
+  store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %156 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+          to label %.noexc117 unwind label %166
+
+.noexc117:                                        ; preds = %155
+  %157 = ptrtoint ptr %156 to i64
+  store atomic volatile i64 %157, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113
+
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113: ; preds = %.noexc117, %151
+  %.0.i.i114 = phi ptr [ %153, %151 ], [ %156, %.noexc117 ]
+  %.not.i115 = icmp eq ptr %.0.i.i114, null
+  br i1 %.not.i115, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119, label %158
+
+158:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113
+  %159 = load ptr, ptr %.0.i.i114, align 8, !tbaa !67
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 40
+  %161 = load ptr, ptr %160, align 8
+  invoke void %161(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i114, i32 noundef 4)
+          to label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119 unwind label %166
+
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113, %154, %158
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %215
+
+162:                                              ; preds = %138
+  %163 = landingpad { ptr, i32 }
+          cleanup
+  br label %217
+
+164:                                              ; preds = %140
+  %165 = landingpad { ptr, i32 }
+          cleanup
+  br label %217
+
+166:                                              ; preds = %158, %155, %146
+  %167 = landingpad { ptr, i32 }
+          cleanup
+  br label %217
+
+168:                                              ; preds = %149
+  %169 = getelementptr inbounds nuw i32, ptr %142, i64 %143
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #21
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #21
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %170, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %171 unwind label %172
+
+171:                                              ; preds = %168
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #21
+  store ptr null, ptr %0, align 8, !tbaa !63
+  switch i32 %26, label %.thread [
+    i32 0, label %174
+    i32 1, label %179
+    i32 2, label %184
+    i32 3, label %189
+  ]
+
+172:                                              ; preds = %168
+  %173 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #21
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150
+
+174:                                              ; preds = %171
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  invoke void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.17") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %.sroa.6.0.copyload, i32 noundef %.sroa.8.0.copyload, ptr noundef %139, ptr noundef nonnull %142, ptr noundef nonnull %169, i32 noundef %.sroa.10.0.copyload, ptr noundef nonnull %.sroa.24.0..sroa_idx, ptr noundef nonnull %175)
+          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122 unwind label %177
+
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122: ; preds = %174
+  %176 = load ptr, ptr %10, align 8, !tbaa !86
+  store ptr %176, ptr %0, align 8, !tbaa !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
+  br label %194
+
+177:                                              ; preds = %174
+  %178 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
+
+179:                                              ; preds = %171
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
+  %180 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  invoke void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.17") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %.sroa.6.0.copyload, i32 noundef %.sroa.8.0.copyload, ptr noundef %139, ptr noundef nonnull %142, ptr noundef nonnull %169, i32 noundef %.sroa.10.0.copyload, ptr noundef nonnull %.sroa.24.0..sroa_idx, ptr noundef nonnull %180)
+          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit128 unwind label %182
+
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit128: ; preds = %179
+  %181 = load ptr, ptr %11, align 8, !tbaa !86
+  store ptr %181, ptr %0, align 8, !tbaa !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
+  br label %194
+
+182:                                              ; preds = %179
+  %183 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
+
+184:                                              ; preds = %171
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #21
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  invoke void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.17") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %139, ptr noundef nonnull %142, ptr noundef nonnull %169, ptr noundef nonnull %.sroa.24.0..sroa_idx, ptr noundef nonnull %185)
+          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit134 unwind label %187
+
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit134: ; preds = %184
+  %186 = load ptr, ptr %12, align 8, !tbaa !86
+  store ptr %186, ptr %0, align 8, !tbaa !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
+  br label %194
+
+187:                                              ; preds = %184
+  %188 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
+
+189:                                              ; preds = %171
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #21
+  %190 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  invoke void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.17") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %139, ptr noundef nonnull %142, ptr noundef nonnull %169, i32 noundef %.sroa.10.0.copyload, ptr noundef nonnull %.sroa.24.0..sroa_idx, ptr noundef nonnull %190)
+          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit140 unwind label %192
+
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit140: ; preds = %189
+  %191 = load ptr, ptr %13, align 8, !tbaa !86
+  store ptr %191, ptr %0, align 8, !tbaa !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
+  br label %194
+
+192:                                              ; preds = %189
+  %193 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
+
+194:                                              ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit140, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit134, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit128, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122
+  %195 = phi ptr [ %191, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit140 ], [ %186, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit134 ], [ %181, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit128 ], [ %176, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122 ]
+  %.not166 = icmp eq ptr %195, null
+  br i1 %.not166, label %.thread, label %196
+
+196:                                              ; preds = %194
+  invoke void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %195, i32 noundef %.sroa.5.0.copyload)
+          to label %197 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146
+
+197:                                              ; preds = %196
+  invoke void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef 0)
+          to label %198 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146
+
+.thread:                                          ; preds = %171, %194
+  invoke void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef 8)
+          to label %198 unwind label %205
+
+198:                                              ; preds = %197, %.thread
+  %199 = load ptr, ptr %8, align 8, !tbaa !83
+  %200 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %201 = icmp eq ptr %199, %200
+  br i1 %201, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i143, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i142
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i143: ; preds = %198
+  %202 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %203 = load i64, ptr %202, align 8, !tbaa !85
+  %204 = icmp ult i64 %203, 16
+  call void @llvm.assume(i1 %204)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i142: ; preds = %198
+  call void @_ZdlPv(ptr noundef %199) #24
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i143, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i142
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #21
+  br label %215
+
+205:                                              ; preds = %.thread
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
+
+_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146: ; preds = %197, %196
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  %206 = load ptr, ptr %195, align 8, !tbaa !67
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  %208 = load ptr, ptr %207, align 8
+  call void %208(ptr noundef nonnull align 8 dereferenceable(44) %195) #21
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
+
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147: ; preds = %177, %182, %187, %192, %205, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146
+  %.pn171 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %205 ], [ %lpad.thr_comm, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146 ], [ %178, %177 ], [ %183, %182 ], [ %188, %187 ], [ %193, %192 ]
+  store ptr null, ptr %0, align 8, !tbaa !86
+  %209 = load ptr, ptr %8, align 8, !tbaa !83
+  %210 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %211 = icmp eq ptr %209, %210
+  br i1 %211, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i149, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i148
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i149: ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
+  %212 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %213 = load i64, ptr %212, align 8, !tbaa !85
+  %214 = icmp ult i64 %213, 16
+  call void @llvm.assume(i1 %214)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i148: ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
+  call void @_ZdlPv(ptr noundef %209) #24
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i148, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i149, %172
+  %.pn.pn = phi { ptr, i32 } [ %173, %172 ], [ %.pn171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i149 ], [ %.pn171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i148 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #21
+  br label %217
+
+215:                                              ; preds = %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110
+  %216 = load ptr, ptr %7, align 8, !tbaa !91
+  %.not.i151 = icmp eq ptr %216, null
+  br i1 %.not.i151, label %_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i
+
+_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i: ; preds = %215
+  call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %216) #21
+  call void @_ZdlPv(ptr noundef nonnull %216) #24
+  br label %_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit
+
+_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit: ; preds = %215, %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90
+
+217:                                              ; preds = %162, %166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150, %164, %136
+  %.pn73.pn.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ]
+  call void @_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  br label %common.resume
+
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84, %57, %61, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100, %_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator17AllocateHistogramENS_13HistogramTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEiPj(ptr noalias sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %histogram_type, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %minimum, i32 noundef %maximum, ptr noundef readonly captures(none) %bucket_ranges, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %ref_ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %memory_allocator_, align 8
-  %call2 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  br i1 %call2, label %if.then, label %if.end
+define void @_ZN4base28PersistentHistogramAllocator17AllocateHistogramENS_13HistogramTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEiPj(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(132) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !61
+  %12 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  br i1 %12, label %13, label %24
 
-if.then:                                          ; preds = %entry
-  %1 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %2 = inttoptr i64 %1 to ptr
-  %tobool.not.i.i = icmp eq i64 %1, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
+13:                                               ; preds = %9
+  %14 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %.not.i.i = icmp eq i64 %14, 0
+  br i1 %.not.i.i, label %16, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
 
-if.then.i.i:                                      ; preds = %if.then
-  %.b3.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %if.then2.i.i
+16:                                               ; preds = %13
+  %.b4.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %17
 
-if.then2.i.i:                                     ; preds = %if.then.i.i
+17:                                               ; preds = %16
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %3 = ptrtoint ptr %call5.i.i to i64
-  store atomic volatile i64 %3, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  %18 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %19 = ptrtoint ptr %18 to i64
+  store atomic volatile i64 %19, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
   br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i: ; preds = %if.then2.i.i, %if.then
-  %histogram_pointer.0.i.i = phi ptr [ %2, %if.then ], [ %call5.i.i, %if.then2.i.i ]
-  %tobool.not.i = icmp eq ptr %histogram_pointer.0.i.i, null
-  br i1 %tobool.not.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %if.then.i
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i: ; preds = %17, %13
+  %.0.i.i = phi ptr [ %15, %13 ], [ %18, %17 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %20
 
-if.then.i:                                        ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
-  %vtable.i = load ptr, ptr %histogram_pointer.0.i.i, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
-  %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i, i32 noundef 5)
+20:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
+  %21 = load ptr, ptr %.0.i.i, align 8, !tbaa !67
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i, i32 noundef 5)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %if.then.i.i, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %if.then.i
-  store ptr null, ptr %agg.result, align 8
-  br label %return
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %16, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %20
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %109
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %memory_allocator_, align 8
-  %call5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #21
-  %add6 = add i64 %call5, 81
-  %call7 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %add6, i32 noundef -245081838)
-  %6 = load ptr, ptr %memory_allocator_, align 8
-  %call.i.i = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %call7, i32 noundef -245081838, i32 noundef 88)
-  %tobool = icmp ne ptr %call.i.i, null
-  br i1 %tobool, label %if.end18, label %if.end18.thread
+24:                                               ; preds = %9
+  %25 = load ptr, ptr %10, align 8, !tbaa !61
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !85
+  %28 = add i64 %27, 81
+  %29 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %28, i32 noundef -245081838)
+  %30 = load ptr, ptr %10, align 8, !tbaa !61
+  %31 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %30, i32 noundef %29, i32 noundef -245081838, i32 noundef 88)
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %.thread88
 
-if.end18:                                         ; preds = %if.end
-  %name12 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 80
-  %call13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #21
-  %call14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #21
-  %add15 = add i64 %call14, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %name12, ptr align 1 %call13, i64 %add15, i1 false)
-  store i32 %histogram_type, ptr %call.i.i, align 8
-  %or = or i32 %flags, 64
-  %flags17 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
-  store i32 %or, ptr %flags17, align 4
-  %cmp.not = icmp eq i32 %histogram_type, 4
-  br i1 %cmp.not, label %if.then52, label %if.then19
+33:                                               ; preds = %24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %35 = load ptr, ptr %3, align 8, !tbaa !83
+  %36 = load i64, ptr %26, align 8, !tbaa !85
+  %37 = add i64 %36, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 1 %35, i64 %37, i1 false)
+  store i32 %2, ptr %31, align 8, !tbaa !77
+  %38 = or i32 %7, 64
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 %38, ptr %39, align 4, !tbaa !87
+  %.not = icmp eq i32 %2, 4
+  br i1 %.not, label %.thread82, label %40
 
-if.end18.thread:                                  ; preds = %if.end
-  %cmp.not74 = icmp eq i32 %histogram_type, 4
-  br i1 %cmp.not74, label %if.end56, label %if.then19
+.thread88:                                        ; preds = %24
+  %.not89 = icmp eq i32 %2, 4
+  br i1 %.not89, label %.thread79, label %40
 
-if.then19:                                        ; preds = %if.end18.thread, %if.end18
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %bucket_ranges, i64 8
-  %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %8 = load ptr, ptr %bucket_ranges, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
-  %9 = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 2305843009213693952)
-  %retval.0.i = shl i64 %9, 3
-  %cmp22 = icmp eq i64 %retval.0.i, 0
-  br i1 %cmp22, label %if.then23, label %if.end24
+40:                                               ; preds = %.thread88, %33
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !102
+  %43 = load ptr, ptr %6, align 8, !tbaa !103
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 2
+  %48 = add nsw i64 %47, -1
+  %49 = tail call i64 @llvm.umin.i64(i64 %48, i64 2305843009213693952)
+  %.0.i = shl i64 %49, 3
+  %.not61 = icmp eq i64 %.0.i, 0
+  br i1 %.not61, label %.thread, label %50
 
-if.then23:                                        ; preds = %if.then19
-  store ptr null, ptr %agg.result, align 8
-  br label %return
+.thread:                                          ; preds = %40
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %109
 
-if.end24:                                         ; preds = %if.then19
-  %add25 = shl i64 %sub.i, 2
-  %mul = add i64 %add25, 4
-  %10 = load ptr, ptr %memory_allocator_, align 8
-  %call28 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %retval.0.i, i32 noundef 1394693425)
-  %11 = load ptr, ptr %memory_allocator_, align 8
-  %call31 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %mul, i32 noundef -1125506469)
-  %12 = load ptr, ptr %memory_allocator_, align 8
-  %call.i.i32 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef %call31, i32 noundef -1125506469, i32 noundef 4)
-  %tobool35 = icmp ne i32 %call28, 0
-  %tobool36 = icmp ne ptr %call.i.i32, null
-  %or.cond = and i1 %tobool35, %tobool36
-  %or.cond1 = and i1 %tobool, %or.cond
-  br i1 %or.cond1, label %for.cond.preheader, label %if.end56
+50:                                               ; preds = %40
+  %51 = shl i64 %48, 2
+  %52 = add i64 %51, 4
+  %53 = load ptr, ptr %10, align 8, !tbaa !61
+  %54 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48) %53, i64 noundef %.0.i, i32 noundef 1394693425)
+  %55 = load ptr, ptr %10, align 8, !tbaa !61
+  %56 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48) %55, i64 noundef %52, i32 noundef -1125506469)
+  %57 = load ptr, ptr %10, align 8, !tbaa !61
+  %58 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %57, i32 noundef %56, i32 noundef -1125506469, i32 noundef 4)
+  %59 = icmp ne i32 %54, 0
+  %60 = icmp ne ptr %58, null
+  %or.cond = and i1 %59, %60
+  %or.cond3 = and i1 %32, %or.cond
+  br i1 %or.cond3, label %.preheader, label %.thread79
 
-for.cond.preheader:                               ; preds = %if.end24
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %bucket_ranges, align 8
-  %cmp4172.not = icmp eq ptr %13, %14
-  br i1 %cmp4172.not, label %if.end50.thread64, label %for.body
+.preheader:                                       ; preds = %50
+  %61 = load ptr, ptr %41, align 8, !tbaa !102
+  %62 = load ptr, ptr %6, align 8, !tbaa !103
+  %.not87 = icmp eq ptr %61, %62
+  br i1 %.not87, label %._crit_edge, label %.lr.ph.preheader
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %15 = phi ptr [ %18, %for.body ], [ %14, %for.cond.preheader ]
-  %i.073 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %15, i64 %i.073
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  %arrayidx = getelementptr inbounds i32, ptr %call.i.i32, i64 %i.073
-  store i32 %16, ptr %arrayidx, align 4
-  %inc = add nuw i64 %i.073, 1
-  %17 = load ptr, ptr %_M_finish.i.i, align 8
-  %18 = load ptr, ptr %bucket_ranges, align 8
-  %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %18 to i64
-  %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i34, %sub.ptr.rhs.cast.i.i35
-  %sub.ptr.div.i.i37 = ashr exact i64 %sub.ptr.sub.i.i36, 2
-  %cmp41 = icmp ult i64 %inc, %sub.ptr.div.i.i37
-  br i1 %cmp41, label %for.body, label %if.end50.thread64, !llvm.loop !16
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %63 = ptrtoint ptr %61 to i64
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %66 = ashr exact i64 %65, 2
+  %umax = tail call i64 @llvm.umax.i64(i64 %66, i64 1)
+  br label %.lr.ph
 
-if.end50.thread64:                                ; preds = %for.body, %for.cond.preheader
-  %minimum43 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store i32 %minimum, ptr %minimum43, align 8
-  %maximum44 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
-  store i32 %maximum, ptr %maximum44, align 4
-  %conv = trunc i64 %sub.i to i32
-  %bucket_count45 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  store i32 %conv, ptr %bucket_count45, align 8
-  %ranges_ref46 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 20
-  store i32 %call31, ptr %ranges_ref46, align 4
-  %checksum_.i = getelementptr inbounds nuw i8, ptr %bucket_ranges, i64 24
-  %19 = load i32, ptr %checksum_.i, align 8
-  %ranges_checksum = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  store i32 %19, ptr %ranges_checksum, align 8
-  %counts_ref48 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 28
-  store i32 %call28, ptr %counts_ref48, align 4
-  br label %if.then52
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.05286 = phi i64 [ %70, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %67 = getelementptr inbounds nuw i32, ptr %62, i64 %.05286
+  %68 = load i32, ptr %67, align 4, !tbaa !55
+  %69 = getelementptr inbounds nuw i32, ptr %58, i64 %.05286
+  store i32 %68, ptr %69, align 4, !tbaa !55
+  %70 = add nuw i64 %.05286, 1
+  %exitcond.not = icmp eq i64 %70, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
-if.then52:                                        ; preds = %if.end18, %if.end50.thread64
-  tail call void @_ZN4base28PersistentHistogramAllocator15CreateHistogramEPNS0_23PersistentHistogramDataE(ptr sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull %call.i.i)
-  %cmp53.not = icmp eq ptr %ref_ptr, null
-  br i1 %cmp53.not, label %if.end55, label %if.then54
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i32 %4, ptr %71, align 8, !tbaa !105
+  %72 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  store i32 %5, ptr %72, align 4, !tbaa !106
+  %73 = trunc i64 %48 to i32
+  %74 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i32 %73, ptr %74, align 8, !tbaa !107
+  %75 = getelementptr inbounds nuw i8, ptr %31, i64 20
+  store i32 %56, ptr %75, align 4, !tbaa !108
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %77 = load i32, ptr %76, align 8, !tbaa !94
+  %78 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  store i32 %77, ptr %78, align 8, !tbaa !109
+  %79 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  store i32 %54, ptr %79, align 4, !tbaa !110
+  br label %.thread82
 
-if.then54:                                        ; preds = %if.then52
-  store i32 %call7, ptr %ref_ptr, align 4
-  br label %if.end55
+.thread82:                                        ; preds = %33, %._crit_edge
+  tail call void @_ZN4base28PersistentHistogramAllocator15CreateHistogramEPNS0_23PersistentHistogramDataE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(132) %1, ptr noundef nonnull %31)
+  %.not63 = icmp eq ptr %8, null
+  br i1 %.not63, label %81, label %80
 
-if.end55:                                         ; preds = %if.then54, %if.then52
-  %last_created_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store atomic volatile i32 %call7, ptr %last_created_ monotonic, align 8
-  br label %return
+80:                                               ; preds = %.thread82
+  store i32 %29, ptr %8, align 4, !tbaa !55
+  br label %81
 
-if.end56:                                         ; preds = %if.end18.thread, %if.end24
-  %20 = load ptr, ptr %memory_allocator_, align 8
-  %call59 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 dereferenceable(48) %20)
-  br i1 %call59, label %if.then60, label %if.else61
+81:                                               ; preds = %80, %.thread82
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store atomic volatile i32 %29, ptr %82 monotonic, align 8
+  br label %109
 
-if.then60:                                        ; preds = %if.end56
-  %21 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %tobool.not.i.i38 = icmp eq i64 %21, 0
-  br i1 %tobool.not.i.i38, label %if.then.i.i45, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i39
+.thread79:                                        ; preds = %.thread88, %50
+  %83 = load ptr, ptr %10, align 8, !tbaa !61
+  %84 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 dereferenceable(48) %83)
+  br i1 %84, label %85, label %96
 
-if.then.i.i45:                                    ; preds = %if.then60
-  %.b3.i.i46 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i46, label %if.end68, label %if.then2.i.i47
+85:                                               ; preds = %.thread79
+  %86 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %87 = inttoptr i64 %86 to ptr
+  %.not.i.i64 = icmp eq i64 %86, 0
+  br i1 %.not.i.i64, label %88, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
 
-if.then2.i.i47:                                   ; preds = %if.then.i.i45
+88:                                               ; preds = %85
+  %.b4.i.i68 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i68, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69, label %89
+
+89:                                               ; preds = %88
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i48 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %23 = ptrtoint ptr %call5.i.i48 to i64
-  store atomic volatile i64 %23, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i39
+  %90 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %91 = ptrtoint ptr %90 to i64
+  store atomic volatile i64 %91, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i39: ; preds = %if.then2.i.i47, %if.then60
-  %histogram_pointer.0.i.i40 = phi ptr [ %22, %if.then60 ], [ %call5.i.i48, %if.then2.i.i47 ]
-  %tobool.not.i41 = icmp eq ptr %histogram_pointer.0.i.i40, null
-  br i1 %tobool.not.i41, label %if.end68, label %if.then.i42
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65: ; preds = %89, %85
+  %.0.i.i66 = phi ptr [ %87, %85 ], [ %90, %89 ]
+  %.not.i67 = icmp eq ptr %.0.i.i66, null
+  br i1 %.not.i67, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69, label %92
 
-if.then.i42:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i39
-  %vtable.i43 = load ptr, ptr %histogram_pointer.0.i.i40, align 8
-  %vfn.i44 = getelementptr inbounds nuw i8, ptr %vtable.i43, i64 40
-  %24 = load ptr, ptr %vfn.i44, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i40, i32 noundef 9)
-  br label %if.end68
+92:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
+  %93 = load ptr, ptr %.0.i.i66, align 8, !tbaa !67
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i66, i32 noundef 9)
+  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
 
-if.else61:                                        ; preds = %if.end56
-  %25 = load ptr, ptr %memory_allocator_, align 8
-  %call64 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator6IsFullEv(ptr noundef nonnull align 8 dereferenceable(48) %25)
-  %. = select i1 %call64, i32 6, i32 7
-  br label %if.end68
+96:                                               ; preds = %.thread79
+  %97 = load ptr, ptr %10, align 8, !tbaa !61
+  %98 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator6IsFullEv(ptr noundef nonnull align 8 dereferenceable(48) %97)
+  %. = select i1 %98, i32 6, i32 7
+  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
 
-if.end68:                                         ; preds = %if.then.i42, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i39, %if.then.i.i45, %if.else61
-  %result.0 = phi i32 [ %., %if.else61 ], [ 5, %if.then.i.i45 ], [ 5, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i39 ], [ 5, %if.then.i42 ]
-  %26 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %27 = inttoptr i64 %26 to ptr
-  %tobool.not.i.i50 = icmp eq i64 %26, 0
-  br i1 %tobool.not.i.i50, label %if.then.i.i57, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69: ; preds = %92, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65, %88, %96
+  %.0 = phi i32 [ %., %96 ], [ 5, %88 ], [ 5, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65 ], [ 5, %92 ]
+  %99 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %100 = inttoptr i64 %99 to ptr
+  %.not.i.i70 = icmp eq i64 %99, 0
+  br i1 %.not.i.i70, label %101, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71
 
-if.then.i.i57:                                    ; preds = %if.end68
-  %.b3.i.i58 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i58, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit61, label %if.then2.i.i59
+101:                                              ; preds = %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
+  %.b4.i.i74 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4.i.i74, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, label %102
 
-if.then2.i.i59:                                   ; preds = %if.then.i.i57
+102:                                              ; preds = %101
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i60 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %28 = ptrtoint ptr %call5.i.i60 to i64
-  store atomic volatile i64 %28, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
+  %103 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %104 = ptrtoint ptr %103 to i64
+  store atomic volatile i64 %104, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51: ; preds = %if.then2.i.i59, %if.end68
-  %histogram_pointer.0.i.i52 = phi ptr [ %27, %if.end68 ], [ %call5.i.i60, %if.then2.i.i59 ]
-  %tobool.not.i53 = icmp eq ptr %histogram_pointer.0.i.i52, null
-  br i1 %tobool.not.i53, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit61, label %if.then.i54
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71: ; preds = %102, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
+  %.0.i.i72 = phi ptr [ %100, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69 ], [ %103, %102 ]
+  %.not.i73 = icmp eq ptr %.0.i.i72, null
+  br i1 %.not.i73, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, label %105
 
-if.then.i54:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
-  %vtable.i55 = load ptr, ptr %histogram_pointer.0.i.i52, align 8
-  %vfn.i56 = getelementptr inbounds nuw i8, ptr %vtable.i55, i64 40
-  %29 = load ptr, ptr %vfn.i56, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i52, i32 noundef %result.0)
-  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit61
+105:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71
+  %106 = load ptr, ptr %.0.i.i72, align 8, !tbaa !67
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
+  %108 = load ptr, ptr %107, align 8
+  tail call void %108(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i72, i32 noundef %.0)
+  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit61: ; preds = %if.then.i.i57, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51, %if.then.i54
-  store ptr null, ptr %agg.result, align 8
-  br label %return
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75: ; preds = %101, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71, %105
+  store ptr null, ptr %0, align 8, !tbaa !63
+  br label %109
 
-return:                                           ; preds = %if.end55, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit61, %if.then23, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
+109:                                              ; preds = %.thread, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, %81, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
   ret void
 }
 
@@ -1808,36 +1898,26 @@ declare noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr
 
 declare noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator6IsFullEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator17FinalizeHistogramEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this, i32 noundef %ref, i1 noundef zeroext %registered) local_unnamed_addr #0 align 2 {
-entry:
-  %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %memory_allocator_, align 8
-  br i1 %registered, label %if.then, label %if.else
+define void @_ZN4base28PersistentHistogramAllocator17FinalizeHistogramEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  br i1 %2, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZN4base25PersistentMemoryAllocator12MakeIterableEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %ref)
-  br label %if.end
+6:                                                ; preds = %3
+  tail call void @_ZN4base25PersistentMemoryAllocator12MakeIterableEj(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %1)
+  br label %9
 
-if.else:                                          ; preds = %entry
-  %call4 = tail call noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %ref, i32 noundef 0, i32 noundef -245081838)
-  br label %if.end
+7:                                                ; preds = %3
+  %8 = tail call noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %1, i32 noundef 0, i32 noundef -245081838)
+  br label %9
 
-if.end:                                           ; preds = %if.else, %if.then
+9:                                                ; preds = %7, %6
   ret void
 }
 
@@ -1846,357 +1926,337 @@ declare void @_ZN4base25PersistentMemoryAllocator12MakeIterableEj(ptr noundef no
 declare noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator39MergeHistogramDeltaToStatisticsRecorderEPNS_13HistogramBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(132) %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.std::unique_ptr.32", align 8
-  %call = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull align 8 poison, ptr noundef %histogram)
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
+define void @_ZN4base28PersistentHistogramAllocator39MergeHistogramDeltaToStatisticsRecorderEPNS_13HistogramBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(132) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::unique_ptr.32", align 8
+  %4 = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull align 8 poison, ptr noundef %1)
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %18, label %5
 
-if.end:                                           ; preds = %entry
-  %vtable = load ptr, ptr %histogram, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr nonnull sret(%"class.std::unique_ptr.32") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(44) %histogram)
-  %1 = load ptr, ptr %ref.tmp, align 8
-  %vtable3 = load ptr, ptr %call, align 8
-  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 56
-  %2 = load ptr, ptr %vfn4, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(44) %call, ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %invoke.cont unwind label %lpad
+5:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  %6 = load ptr, ptr %1, align 8, !tbaa !67
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.32") align 8 %3, ptr noundef nonnull align 8 dereferenceable(44) %1)
+  %9 = load ptr, ptr %3, align 8, !tbaa !111
+  %10 = load ptr, ptr %4, align 8, !tbaa !67
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %12 = load ptr, ptr %11, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull align 8 dereferenceable(40) %9)
+          to label %13 unwind label %19
 
-invoke.cont:                                      ; preds = %if.end
-  %3 = load ptr, ptr %ref.tmp, align 8
-  %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %return, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i
+13:                                               ; preds = %5
+  %14 = load ptr, ptr %3, align 8, !tbaa !111
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i: ; preds = %invoke.cont
-  %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
-  br label %return
+_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i: ; preds = %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !67
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14) #21
+  br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
 
-return:                                           ; preds = %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i, %invoke.cont, %entry
+_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit: ; preds = %13, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  br label %18
+
+18:                                               ; preds = %2, %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
   ret void
 
-lpad:                                             ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+19:                                               ; preds = %5
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %ref.tmp, align 8
-  %cmp.not.i3 = icmp eq ptr %6, null
-  br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i4
+  %21 = load ptr, ptr %3, align 8, !tbaa !111
+  %.not.i6 = icmp eq ptr %21, null
+  br i1 %.not.i6, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit8, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i7
 
-_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i4: ; preds = %lpad
-  %vtable.i.i5 = load ptr, ptr %6, align 8
-  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
-  %7 = load ptr, ptr %vfn.i.i6, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(40) %6) #21
-  br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit7
+_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i7: ; preds = %19
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %21) #21
+  br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit8
 
-_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit7: ; preds = %lpad, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i4
-  resume { ptr, i32 } %5
+_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit8: ; preds = %19, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-if.end:
-  %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %pickle = alloca %"class.base::Pickle", align 8
-  %iter = alloca %"class.base::PickleIterator", align 8
-  %histogram_name_.i = getelementptr inbounds nuw i8, ptr %histogram, i64 8
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_.i)
-  %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %2 = load i64, ptr %1, align 8
-  %call5 = call noundef ptr @_ZN4base18StatisticsRecorder13FindHistogramENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %0, i64 %2)
-  %tobool.not = icmp eq ptr %call5, null
-  br i1 %tobool.not, label %if.end7, label %return
+define noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.base::Pickle", align 8
+  %4 = alloca %"class.base::PickleIterator", align 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %8 = load i64, ptr %7, align 8, !tbaa !85
+  %9 = tail call noundef ptr @_ZN4base18StatisticsRecorder13FindHistogramENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %6, i64 %8)
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %10, label %26
 
-if.end7:                                          ; preds = %if.end
-  call void @_ZN4base6PickleC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %pickle)
-  %call10 = invoke noundef zeroext i1 @_ZNK4base13HistogramBase13SerializeInfoEPNS_6PickleE(ptr noundef nonnull align 8 dereferenceable(44) %histogram, ptr noundef nonnull %pickle)
-          to label %invoke.cont9 unwind label %lpad8
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @_ZN4base6PickleC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %11 = invoke noundef zeroext i1 @_ZNK4base13HistogramBase13SerializeInfoEPNS_6PickleE(ptr noundef nonnull align 8 dereferenceable(44) %1, ptr noundef nonnull %3)
+          to label %12 unwind label %13
 
-invoke.cont9:                                     ; preds = %if.end7
-  br i1 %call10, label %if.end12, label %cleanup
+12:                                               ; preds = %10
+  br i1 %11, label %15, label %24
 
-lpad8:                                            ; preds = %if.end32, %invoke.cont13, %if.end12, %if.end7
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %pickle) #21
-  resume { ptr, i32 } %3
+  br label %25
 
-if.end12:                                         ; preds = %invoke.cont9
-  invoke void @_ZN4base14PickleIteratorC1ERKNS_6PickleE(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull align 8 dereferenceable(40) %pickle)
-          to label %invoke.cont13 unwind label %lpad8
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
+  invoke void @_ZN4base14PickleIteratorC1ERKNS_6PickleE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(40) %3)
+          to label %16 unwind label %22
 
-invoke.cont13:                                    ; preds = %if.end12
-  %call15 = invoke noundef ptr @_ZN4base24DeserializeHistogramInfoEPNS_14PickleIteratorE(ptr noundef nonnull %iter)
-          to label %invoke.cont14 unwind label %lpad8
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN4base24DeserializeHistogramInfoEPNS_14PickleIteratorE(ptr noundef nonnull %4)
+          to label %18 unwind label %22
 
-invoke.cont14:                                    ; preds = %invoke.cont13
-  %tobool16.not = icmp eq ptr %call15, null
-  br i1 %tobool16.not, label %cleanup, label %if.end32
+18:                                               ; preds = %16
+  %.not14 = icmp eq ptr %17, null
+  br i1 %.not14, label %21, label %19
 
-if.end32:                                         ; preds = %invoke.cont14
-  %call34 = invoke noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef nonnull %call15)
-          to label %cleanup unwind label %lpad8
+19:                                               ; preds = %18
+  %20 = invoke noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef nonnull %17)
+          to label %21 unwind label %22
 
-cleanup:                                          ; preds = %if.end32, %invoke.cont14, %invoke.cont9
-  %retval.1 = phi ptr [ null, %invoke.cont9 ], [ null, %invoke.cont14 ], [ %call34, %if.end32 ]
-  call void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %pickle) #21
-  br label %return
+21:                                               ; preds = %19, %18
+  %.2 = phi ptr [ null, %18 ], [ %20, %19 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #21
+  br label %24
 
-return:                                           ; preds = %if.end, %cleanup
-  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ %call5, %if.end ]
-  ret ptr %retval.0
+22:                                               ; preds = %15, %16, %19
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #21
+  br label %25
+
+24:                                               ; preds = %12, %21
+  %.111 = phi ptr [ %.2, %21 ], [ null, %12 ]
+  call void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  br label %26
+
+25:                                               ; preds = %22, %13
+  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %14, %13 ]
+  call void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  resume { ptr, i32 } %.pn.pn
+
+26:                                               ; preds = %2, %24
+  %.010 = phi ptr [ %.111, %24 ], [ %9, %2 ]
+  ret ptr %.010
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator44MergeHistogramFinalDeltaToStatisticsRecorderEPKNS_13HistogramBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(132) %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.std::unique_ptr.32", align 8
-  %call = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull align 8 poison, ptr noundef %histogram)
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
+define void @_ZN4base28PersistentHistogramAllocator44MergeHistogramFinalDeltaToStatisticsRecorderEPKNS_13HistogramBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(132) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::unique_ptr.32", align 8
+  %4 = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull align 8 poison, ptr noundef %1)
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %18, label %5
 
-if.end:                                           ; preds = %entry
-  %vtable = load ptr, ptr %histogram, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr nonnull sret(%"class.std::unique_ptr.32") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(44) %histogram)
-  %1 = load ptr, ptr %ref.tmp, align 8
-  %vtable3 = load ptr, ptr %call, align 8
-  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 56
-  %2 = load ptr, ptr %vfn4, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(44) %call, ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %invoke.cont unwind label %lpad
+5:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  %6 = load ptr, ptr %1, align 8, !tbaa !67
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.32") align 8 %3, ptr noundef nonnull align 8 dereferenceable(44) %1)
+  %9 = load ptr, ptr %3, align 8, !tbaa !111
+  %10 = load ptr, ptr %4, align 8, !tbaa !67
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %12 = load ptr, ptr %11, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull align 8 dereferenceable(40) %9)
+          to label %13 unwind label %19
 
-invoke.cont:                                      ; preds = %if.end
-  %3 = load ptr, ptr %ref.tmp, align 8
-  %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %return, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i
+13:                                               ; preds = %5
+  %14 = load ptr, ptr %3, align 8, !tbaa !111
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i: ; preds = %invoke.cont
-  %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
-  br label %return
+_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i: ; preds = %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !67
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %14) #21
+  br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
 
-return:                                           ; preds = %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i, %invoke.cont, %entry
+_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit: ; preds = %13, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  br label %18
+
+18:                                               ; preds = %2, %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit
   ret void
 
-lpad:                                             ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+19:                                               ; preds = %5
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %ref.tmp, align 8
-  %cmp.not.i3 = icmp eq ptr %6, null
-  br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i4
+  %21 = load ptr, ptr %3, align 8, !tbaa !111
+  %.not.i6 = icmp eq ptr %21, null
+  br i1 %.not.i6, label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit8, label %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i7
 
-_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i4: ; preds = %lpad
-  %vtable.i.i5 = load ptr, ptr %6, align 8
-  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
-  %7 = load ptr, ptr %vfn.i.i6, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(40) %6) #21
-  br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit7
+_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i7: ; preds = %19
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %21) #21
+  br label %_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit8
 
-_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit7: ; preds = %lpad, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i4
-  resume { ptr, i32 } %5
+_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit8: ; preds = %19, %_ZNKSt14default_deleteIN4base16HistogramSamplesEEclEPS1_.exit.i7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN4base28PersistentHistogramAllocator19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(132) %this, i64 noundef %id, ptr noundef %user) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %sparse_histogram_data_manager_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
-  %call.i = invoke noundef ptr @_ZN4base36PersistentSparseHistogramDataManager30GetSampleMapRecordsWhileLockedEm(ptr noundef nonnull align 8 dereferenceable(112) %sparse_histogram_data_manager_, i64 noundef %id)
-          to label %invoke.cont.i unwind label %lpad.i
+define noundef nonnull ptr @_ZN4base28PersistentHistogramAllocator19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(132) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  %6 = invoke noundef ptr @_ZN4base36PersistentSparseHistogramDataManager30GetSampleMapRecordsWhileLockedEm(ptr noundef nonnull align 8 dereferenceable(112) %4, i64 noundef %1)
+          to label %7 unwind label %13
 
-invoke.cont.i:                                    ; preds = %entry
-  %user_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %user, ptr %user_.i.i, align 8
-  %seen_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store i64 0, ptr %seen_.i.i, align 8
-  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
-          to label %_ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv.exit unwind label %terminate.lpad.i.i
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %2, ptr %8, align 8, !tbaa !30
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %9, align 8, !tbaa !38
+  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+          to label %_ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv.exit unwind label %10
 
-terminate.lpad.i.i:                               ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
-          to label %_ZN4base8AutoLockD2Ev.exit2.i unwind label %terminate.lpad.i1.i
+  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+          to label %_ZN4base8AutoLockD2Ev.exit4.i unwind label %15
 
-terminate.lpad.i1.i:                              ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
-_ZN4base8AutoLockD2Ev.exit2.i:                    ; preds = %lpad.i
-  resume { ptr, i32 } %2
+_ZN4base8AutoLockD2Ev.exit4.i:                    ; preds = %13
+  resume { ptr, i32 } %14
 
-_ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv.exit: ; preds = %invoke.cont.i
-  ret ptr %call.i
+_ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv.exit: ; preds = %7
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #0 align 2 {
-entry:
-  %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %memory_allocator_, align 8
-  tail call void @_ZN4base25PersistentMemoryAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %name.coerce0, i64 %name.coerce1)
+define void @_ZN4base28PersistentHistogramAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  tail call void @_ZN4base25PersistentMemoryAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %1, i64 %2)
   ret void
 }
 
 declare void @_ZN4base25PersistentMemoryAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator24UpdateTrackingHistogramsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %memory_allocator_, align 8
-  tail call void @_ZN4base25PersistentMemoryAllocator24UpdateTrackingHistogramsEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+define void @_ZN4base28PersistentHistogramAllocator24UpdateTrackingHistogramsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  tail call void @_ZN4base25PersistentMemoryAllocator24UpdateTrackingHistogramsEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret void
 }
 
 declare void @_ZN4base25PersistentMemoryAllocator24UpdateTrackingHistogramsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator35ClearLastCreatedReferenceForTestingEv(ptr noundef nonnull align 8 dereferenceable(132) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %last_created_ = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store atomic volatile i32 0, ptr %last_created_ monotonic, align 8
+define void @_ZN4base28PersistentHistogramAllocator35ClearLastCreatedReferenceForTestingEv(ptr noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store atomic volatile i32 0, ptr %2 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv() local_unnamed_addr #0 align 2 {
-entry:
-  %0 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %tobool.not = icmp eq i64 %0, 0
-  br i1 %tobool.not, label %if.then, label %if.end7
+define noundef ptr @_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv() local_unnamed_addr #0 align 2 {
+  %1 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
+  %2 = inttoptr i64 %1 to ptr
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %3, label %7
 
-if.then:                                          ; preds = %entry
-  %.b3 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3, label %if.end7, label %if.then2
+3:                                                ; preds = %0
+  %.b4 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b4, label %7, label %4
 
-if.then2:                                         ; preds = %if.then
+4:                                                ; preds = %3
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %2 = ptrtoint ptr %call5 to i64
-  store atomic volatile i64 %2, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %if.end7
+  %5 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %6 = ptrtoint ptr %5 to i64
+  store atomic volatile i64 %6, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
+  br label %7
 
-if.end7:                                          ; preds = %if.then, %if.then2, %entry
-  %histogram_pointer.0 = phi ptr [ %1, %entry ], [ null, %if.then ], [ %call5, %if.then2 ]
-  ret ptr %histogram_pointer.0
+7:                                                ; preds = %3, %4, %0
+  %.0 = phi ptr [ %2, %0 ], [ null, %3 ], [ %5, %4 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4base15SparseHistogram16PersistentCreateEPNS_28PersistentHistogramAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16HistogramSamples8MetadataESD_(ptr sret(%"class.std::unique_ptr.17") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+declare void @_ZN4base15SparseHistogram16PersistentCreateEPNS_28PersistentHistogramAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16HistogramSamples8MetadataESD_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %__a)
-  %cmp = icmp eq ptr %__s, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.6) #25
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then
-  unreachable
-
-lpad:                                             ; preds = %if.end, %if.then
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
-  resume { ptr, i32 } %0
-
-if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #21
-  %add.ptr = getelementptr inbounds i8, ptr %__s, i64 %call.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__s, ptr noundef nonnull %add.ptr)
-          to label %invoke.cont4 unwind label %lpad
-
-invoke.cont4:                                     ; preds = %if.end
-  ret void
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
 
 declare void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt10unique_ptrIN4base12BucketRangesESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN4base12BucketRangesEEclEPS1_.exit
+define linkonce_odr void @_ZNSt10unique_ptrIN4base12BucketRangesESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !91
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %3, label %_ZNKSt14default_deleteIN4base12BucketRangesEEclEPS1_.exit
 
-_ZNKSt14default_deleteIN4base12BucketRangesEEclEPS1_.exit: ; preds = %entry
-  tail call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
-  br label %if.end
+_ZNKSt14default_deleteIN4base12BucketRangesEEclEPS1_.exit: ; preds = %1
+  tail call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  br label %3
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN4base12BucketRangesEEclEPS1_.exit, %entry
-  store ptr null, ptr %this, align 8
+3:                                                ; preds = %_ZNKSt14default_deleteIN4base12BucketRangesEEclEPS1_.exit, %1
+  store ptr null, ptr %0, align 8, !tbaa !91
   ret void
 }
 
 declare noundef ptr @_ZN4base18StatisticsRecorder31RegisterOrDeleteDuplicateRangesEPKNS_12BucketRangesE(ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr sret(%"class.std::unique_ptr.17") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr sret(%"class.std::unique_ptr.17") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr sret(%"class.std::unique_ptr.17") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr sret(%"class.std::unique_ptr.17") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.17") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit
+define linkonce_odr void @_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !91
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %3, label %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit
 
-_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit: ; preds = %entry
-  tail call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
-  br label %if.end
+_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit: ; preds = %1
+  tail call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  br label %3
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit, %entry
-  store ptr null, ptr %this, align 8
+3:                                                ; preds = %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit, %1
+  store ptr null, ptr %0, align 8, !tbaa !91
   ret void
 }
 
 declare noundef ptr @_ZN4base18StatisticsRecorder13FindHistogramENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr, i64) local_unnamed_addr #1
-
-declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 declare void @_ZN4base6PickleC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
@@ -2209,338 +2269,291 @@ declare noundef ptr @_ZN4base24DeserializeHistogramInfoEPNS_14PickleIteratorE(pt
 declare noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
+declare void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 16), ptr %this, align 8
-  %persistent_location_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  tail call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %persistent_location_) #21
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
-  %lock_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #21
-  %sample_records_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_.i.i, ptr noundef %0)
-          to label %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
+define void @_ZN4base24GlobalHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 16), ptr %0, align 8, !tbaa !67
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %0, align 8, !tbaa !67
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4base36PersistentSparseHistogramDataManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #21
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  %.not.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i, label %_ZN4base28PersistentHistogramAllocatorD2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
 
-terminate.lpad.i.i.i.i:                           ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
-  unreachable
-
-_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i: ; preds = %entry
-  %memory_allocator_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %memory_allocator_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i, label %_ZN4base28PersistentHistogramAllocatorD2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i: ; preds = %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i
-  %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(48) %3) #21
+_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i: ; preds = %1
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %5) #21
   br label %_ZN4base28PersistentHistogramAllocatorD2Ev.exit
 
-_ZN4base28PersistentHistogramAllocatorD2Ev.exit:  ; preds = %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
-  store ptr null, ptr %memory_allocator_.i, align 8
+_ZN4base28PersistentHistogramAllocatorD2Ev.exit:  ; preds = %1, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
+  store ptr null, ptr %4, align 8, !tbaa !61
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+declare void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 16), ptr %this, align 8
-  %persistent_location_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  tail call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %persistent_location_.i) #21
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
-  %lock_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i) #21
-  %sample_records_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_.i.i.i, ptr noundef %0)
-          to label %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i:                         ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
-  unreachable
-
-_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i.i: ; preds = %entry
-  %memory_allocator_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %memory_allocator_.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i.i, label %_ZN4base24GlobalHistogramAllocatorD2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i.i
-
-_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i.i: ; preds = %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i.i
-  %vtable.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(48) %3) #21
-  br label %_ZN4base24GlobalHistogramAllocatorD2Ev.exit
-
-_ZN4base24GlobalHistogramAllocatorD2Ev.exit:      ; preds = %_ZN4base36PersistentSparseHistogramDataManagerD2Ev.exit.i.i, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+define void @_ZN4base24GlobalHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 align 2 {
+  tail call void @_ZN4base24GlobalHistogramAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocator26CreateWithPersistentMemoryEPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef %base, i64 noundef %size, i64 noundef %page_size, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp1.i = alloca %"class.logging::LogMessage", align 8
-  %name = alloca %"class.base::BasicStringPiece", align 8
-  %agg.tmp1 = alloca %"class.std::unique_ptr.9", align 8
-  store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds nuw i8, ptr %name, i64 8
-  store i64 %name.coerce1, ptr %0, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %call.i3 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-          to label %call.i.noexc unwind label %lpad
+define void @_ZN4base24GlobalHistogramAllocator26CreateWithPersistentMemoryEPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.logging::LogMessage", align 8
+  %8 = alloca %"class.base::BasicStringPiece", align 8
+  %9 = alloca %"class.std::unique_ptr.9", align 8
+  store ptr %4, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %5, ptr %10, align 8
+  %11 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  %12 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+          to label %.noexc unwind label %24
 
-call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZN4base25PersistentMemoryAllocatorC1EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48) %call.i3, ptr noundef %base, i64 noundef %size, i64 noundef %page_size, i64 noundef %id, ptr noundef nonnull byval(%"class.base::BasicStringPiece") align 8 %name, i1 noundef zeroext false)
-          to label %invoke.cont unwind label %lpad.i, !noalias !17
+.noexc:                                           ; preds = %6
+  invoke void @_ZN4base25PersistentMemoryAllocatorC1EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull byval(%"class.base::BasicStringPiece") align 8 %8, i1 noundef zeroext false)
+          to label %15 unwind label %13, !noalias !113
 
-lpad.i:                                           ; preds = %call.i.noexc
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %.noexc
+  %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i3) #24, !noalias !17
-  br label %cleanup.action
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #24, !noalias !113
+  br label %.body.thread
 
-invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr %call.i3, ptr %agg.tmp1, align 8, !alias.scope !17
-  invoke void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) %call, ptr noundef nonnull %agg.tmp1)
-          to label %invoke.cont3 unwind label %lpad2
+15:                                               ; preds = %.noexc
+  store ptr %12, ptr %9, align 8, !tbaa !61, !alias.scope !113
+  invoke void @_ZN4base24GlobalHistogramAllocatorC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef nonnull %9)
+          to label %16 unwind label %26
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp1.i)
-  %2 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  %tobool.not.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.not.i, label %cleanup.done.i, label %cond.false.i
+16:                                               ; preds = %15
+  %17 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  %.not.not.i = icmp eq ptr %17, null
+  br i1 %.not.not.i, label %.critedge3.i, label %.critedge.i
 
-cond.false.i:                                     ; preds = %invoke.cont3
-  invoke void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1.i, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @.str.2)
-          to label %.noexc unwind label %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9
+.critedge.i:                                      ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %7) #21
+  invoke void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %7, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @.str.2)
+          to label %.noexc8 unwind label %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12
 
-.noexc:                                           ; preds = %cond.false.i
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1.i) #21
-  br label %cleanup.done.i
+.noexc8:                                          ; preds = %.critedge.i
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %7) #21
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %7) #21
+  br label %.critedge3.i
 
-cleanup.done.i:                                   ; preds = %.noexc, %invoke.cont3
-  store ptr %call, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  %call7.i4 = invoke noundef i64 @_ZN4base18StatisticsRecorder17GetHistogramCountEv()
-          to label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit unwind label %lpad5.thread
+.critedge3.i:                                     ; preds = %.noexc8, %16
+  store ptr %11, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  %18 = invoke noundef i64 @_ZN4base18StatisticsRecorder17GetHistogramCountEv()
+          to label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit unwind label %.thread
 
-lpad5.thread:                                     ; preds = %cleanup.done.i
-  %3 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %.critedge3.i
+  %19 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit13
 
-_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup.done.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp1.i)
-  %4 = load ptr, ptr %agg.tmp1, align 8
-  %cmp.not.i5 = icmp eq ptr %4, null
-  br i1 %cmp.not.i5, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %.critedge3.i
+  %20 = load ptr, ptr %9, align 8, !tbaa !61
+  %.not.i10 = icmp eq ptr %20, null
+  br i1 %.not.i10, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit
-  %vtable.i.i6 = load ptr, ptr %4, align 8
-  %vfn.i.i7 = getelementptr inbounds nuw i8, ptr %vtable.i.i6, i64 8
-  %5 = load ptr, ptr %vfn.i.i7, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(48) %4) #21
+  %21 = load ptr, ptr %20, align 8, !tbaa !67
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(48) %20) #21
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
   ret void
 
-lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+24:                                               ; preds = %6
+  %25 = landingpad { ptr, i32 }
           cleanup
-  br label %cleanup.action
+  br label %.body.thread
 
-lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit13
 
-_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9: ; preds = %cond.false.i
-  %8 = landingpad { ptr, i32 }
+_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12: ; preds = %.critedge.i
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %vtable.i.i10 = load ptr, ptr %call, align 8
-  %vfn.i.i11 = getelementptr inbounds nuw i8, ptr %vtable.i.i10, i64 8
-  %9 = load ptr, ptr %vfn.i.i11, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(192) %call) #21
-  br label %ehcleanup
+  %29 = load ptr, ptr %11, align 8, !tbaa !67
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(192) %11) #21
+  br label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit13
 
-ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9, %lpad5.thread, %lpad2
-  %.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %3, %lpad5.thread ], [ %8, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9 ]
-  %cleanup.isactive.1 = phi i1 [ true, %lpad2 ], [ false, %lpad5.thread ], [ false, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9 ]
-  %10 = load ptr, ptr %agg.tmp1, align 8
-  %cmp.not.i13 = icmp eq ptr %10, null
-  br i1 %cmp.not.i13, label %ehcleanup7, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i14
+_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit13: ; preds = %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12, %.thread, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %19, %.thread ], [ %28, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12 ]
+  %.1 = phi i1 [ true, %26 ], [ false, %.thread ], [ false, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12 ]
+  %32 = load ptr, ptr %9, align 8, !tbaa !61
+  %.not.i14 = icmp eq ptr %32, null
+  br i1 %.not.i14, label %.body, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i15
 
-_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i14: ; preds = %ehcleanup
-  %vtable.i.i15 = load ptr, ptr %10, align 8
-  %vfn.i.i16 = getelementptr inbounds nuw i8, ptr %vtable.i.i15, i64 8
-  %11 = load ptr, ptr %vfn.i.i16, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(48) %10) #21
-  br label %ehcleanup7
+_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i15: ; preds = %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit13
+  %33 = load ptr, ptr %32, align 8, !tbaa !67
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(48) %32) #21
+  br label %.body
 
-ehcleanup7:                                       ; preds = %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i14, %ehcleanup
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
+.body:                                            ; preds = %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i15, %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit13
+  store ptr null, ptr %9, align 8, !tbaa !61
+  br i1 %.1, label %.body.thread, label %36
 
-cleanup.action:                                   ; preds = %lpad, %lpad.i, %ehcleanup7
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn, %ehcleanup7 ], [ %1, %lpad.i ], [ %6, %lpad ]
-  call void @_ZdlPv(ptr noundef nonnull %call) #24
-  br label %eh.resume
+.body.thread:                                     ; preds = %24, %13, %.body
+  %.pn.pn27 = phi { ptr, i32 } [ %.pn, %.body ], [ %14, %13 ], [ %25, %24 ]
+  call void @_ZdlPv(ptr noundef nonnull %11) #24
+  br label %36
 
-eh.resume:                                        ; preds = %ehcleanup7, %cleanup.action
-  %.pn.pn24 = phi { ptr, i32 } [ %.pn, %ehcleanup7 ], [ %.pn.pn25, %cleanup.action ]
-  resume { ptr, i32 } %.pn.pn24
+36:                                               ; preds = %.body, %.body.thread
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn.pn27, %.body.thread ]
+  resume { ptr, i32 } %.pn.pn26
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocator3SetESt10unique_ptrIS0_St14default_deleteIS0_EE(ptr noundef captures(none) %allocator) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp1 = alloca %"class.logging::LogMessage", align 8
-  %0 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  %tobool.not.not = icmp eq ptr %0, null
-  br i1 %tobool.not.not, label %cleanup.done, label %cond.false
+define void @_ZN4base24GlobalHistogramAllocator3SetESt10unique_ptrIS0_St14default_deleteIS0_EE(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.logging::LogMessage", align 8
+  %3 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  %.not.not = icmp eq ptr %3, null
+  br i1 %.not.not, label %.critedge3, label %.critedge
 
-cond.false:                                       ; preds = %entry
-  call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @.str.2)
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1) #21
-  br label %cleanup.done
+.critedge:                                        ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %2) #21
+  call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %2, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @.str.2)
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %2) #21
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %2) #21
+  br label %.critedge3
 
-cleanup.done:                                     ; preds = %entry, %cond.false
-  %1 = load ptr, ptr %allocator, align 8
-  store ptr null, ptr %allocator, align 8
-  store ptr %1, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  %call7 = call noundef i64 @_ZN4base18StatisticsRecorder17GetHistogramCountEv()
+.critedge3:                                       ; preds = %1, %.critedge
+  %4 = load ptr, ptr %0, align 8, !tbaa !116
+  store ptr null, ptr %0, align 8, !tbaa !116
+  store ptr %4, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  %5 = call noundef i64 @_ZN4base18StatisticsRecorder17GetHistogramCountEv()
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocator21CreateWithLocalMemoryEmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(i64 noundef %size, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp1.i = alloca %"class.logging::LogMessage", align 8
-  %agg.tmp1 = alloca %"class.std::unique_ptr.9", align 8
-  %call = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
-  %call.i3 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-          to label %call.i.noexc unwind label %lpad
+define void @_ZN4base24GlobalHistogramAllocator21CreateWithLocalMemoryEmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(i64 noundef %0, i64 noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.logging::LogMessage", align 8
+  %6 = alloca %"class.std::unique_ptr.9", align 8
+  %7 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
+  %8 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+          to label %.noexc unwind label %19
 
-call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZN4base30LocalPersistentMemoryAllocatorC1EmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %call.i3, i64 noundef %size, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1)
-          to label %invoke.cont unwind label %lpad.i, !noalias !20
+.noexc:                                           ; preds = %4
+  invoke void @_ZN4base30LocalPersistentMemoryAllocatorC1EmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %0, i64 noundef %1, ptr %2, i64 %3)
+          to label %_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit unwind label %9, !noalias !118
 
-lpad.i:                                           ; preds = %call.i.noexc
-  %0 = landingpad { ptr, i32 }
+9:                                                ; preds = %.noexc
+  %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i3) #24, !noalias !20
-  br label %cleanup.action
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #24, !noalias !118
+  br label %.body.thread
 
-invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr %call.i3, ptr %agg.tmp1, align 8
-  invoke void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) %call, ptr noundef nonnull %agg.tmp1)
-          to label %invoke.cont3 unwind label %lpad2
+_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit: ; preds = %.noexc
+  store ptr %8, ptr %6, align 8, !tbaa !121
+  invoke void @_ZN4base24GlobalHistogramAllocatorC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull %6)
+          to label %11 unwind label %21
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp1.i)
-  %1 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  %tobool.not.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.not.i, label %cleanup.done.i, label %cond.false.i
+11:                                               ; preds = %_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit
+  %12 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  %.not.not.i = icmp eq ptr %12, null
+  br i1 %.not.not.i, label %.critedge3.i, label %.critedge.i
 
-cond.false.i:                                     ; preds = %invoke.cont3
-  invoke void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1.i, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @.str.2)
-          to label %.noexc unwind label %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12
+.critedge.i:                                      ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %5) #21
+  invoke void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %5, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @.str.2)
+          to label %.noexc8 unwind label %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i13
 
-.noexc:                                           ; preds = %cond.false.i
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1.i) #21
-  br label %cleanup.done.i
+.noexc8:                                          ; preds = %.critedge.i
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #21
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #21
+  br label %.critedge3.i
 
-cleanup.done.i:                                   ; preds = %.noexc, %invoke.cont3
-  store ptr %call, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  %call7.i4 = invoke noundef i64 @_ZN4base18StatisticsRecorder17GetHistogramCountEv()
-          to label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit unwind label %lpad5.thread
+.critedge3.i:                                     ; preds = %.noexc8, %11
+  store ptr %7, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  %13 = invoke noundef i64 @_ZN4base18StatisticsRecorder17GetHistogramCountEv()
+          to label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit unwind label %.thread
 
-lpad5.thread:                                     ; preds = %cleanup.done.i
-  %2 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %.critedge3.i
+  %14 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit14
 
-_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup.done.i
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp1.i)
-  %3 = load ptr, ptr %agg.tmp1, align 8
-  %cmp.not.i5 = icmp eq ptr %3, null
-  br i1 %cmp.not.i5, label %_ZNSt10unique_ptrIN4base30LocalPersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %.critedge3.i
+  %15 = load ptr, ptr %6, align 8, !tbaa !61
+  %.not.i10 = icmp eq ptr %15, null
+  br i1 %.not.i10, label %_ZNSt10unique_ptrIN4base30LocalPersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit
-  %vtable.i.i6 = load ptr, ptr %3, align 8
-  %vfn.i.i7 = getelementptr inbounds nuw i8, ptr %vtable.i.i6, i64 8
-  %4 = load ptr, ptr %vfn.i.i7, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(48) %3) #21
+  %16 = load ptr, ptr %15, align 8, !tbaa !67
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(48) %15) #21
   br label %_ZNSt10unique_ptrIN4base30LocalPersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4base30LocalPersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit
   ret void
 
-lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %cleanup.action
+  br label %.body.thread
 
-lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_.exit
+  %22 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit14
 
-_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12: ; preds = %cond.false.i
-  %7 = landingpad { ptr, i32 }
+_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i13: ; preds = %.critedge.i
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %vtable.i.i13 = load ptr, ptr %call, align 8
-  %vfn.i.i14 = getelementptr inbounds nuw i8, ptr %vtable.i.i13, i64 8
-  %8 = load ptr, ptr %vfn.i.i14, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(192) %call) #21
-  br label %ehcleanup
+  %24 = load ptr, ptr %7, align 8, !tbaa !67
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(192) %7) #21
+  br label %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit14
 
-ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12, %lpad5.thread, %lpad2
-  %.pn = phi { ptr, i32 } [ %6, %lpad2 ], [ %2, %lpad5.thread ], [ %7, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12 ]
-  %cleanup.isactive.1 = phi i1 [ true, %lpad2 ], [ false, %lpad5.thread ], [ false, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12 ]
-  %9 = load ptr, ptr %agg.tmp1, align 8
-  %cmp.not.i16 = icmp eq ptr %9, null
-  br i1 %cmp.not.i16, label %ehcleanup8, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i17
+_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit14: ; preds = %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i13, %.thread, %21
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %14, %.thread ], [ %23, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i13 ]
+  %.1 = phi i1 [ true, %21 ], [ false, %.thread ], [ false, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i13 ]
+  %27 = load ptr, ptr %6, align 8, !tbaa !61
+  %.not.i15 = icmp eq ptr %27, null
+  br i1 %.not.i15, label %.body, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i16
 
-_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i17: ; preds = %ehcleanup
-  %vtable.i.i18 = load ptr, ptr %9, align 8
-  %vfn.i.i19 = getelementptr inbounds nuw i8, ptr %vtable.i.i18, i64 8
-  %10 = load ptr, ptr %vfn.i.i19, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(48) %9) #21
-  br label %ehcleanup8
+_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i16: ; preds = %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit14
+  %28 = load ptr, ptr %27, align 8, !tbaa !67
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(48) %27) #21
+  br label %.body
 
-ehcleanup8:                                       ; preds = %ehcleanup, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i17
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
+.body:                                            ; preds = %_ZNSt10unique_ptrIN4base24GlobalHistogramAllocatorESt14default_deleteIS1_EED2Ev.exit14, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i16
+  store ptr null, ptr %6, align 8, !tbaa !61
+  br i1 %.1, label %.body.thread, label %31
 
-cleanup.action:                                   ; preds = %lpad, %lpad.i, %ehcleanup8
-  %.pn.pn35 = phi { ptr, i32 } [ %.pn, %ehcleanup8 ], [ %0, %lpad.i ], [ %5, %lpad ]
-  call void @_ZdlPv(ptr noundef nonnull %call) #24
-  br label %eh.resume
+.body.thread:                                     ; preds = %19, %9, %.body
+  %.pn.pn33 = phi { ptr, i32 } [ %.pn, %.body ], [ %10, %9 ], [ %20, %19 ]
+  call void @_ZdlPv(ptr noundef nonnull %7) #24
+  br label %31
 
-eh.resume:                                        ; preds = %ehcleanup8, %cleanup.action
-  %.pn.pn34 = phi { ptr, i32 } [ %.pn, %ehcleanup8 ], [ %.pn.pn35, %cleanup.action ]
-  resume { ptr, i32 } %.pn.pn34
+31:                                               ; preds = %.body, %.body.thread
+  %.pn.pn32 = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn.pn33, %.body.thread ]
+  resume { ptr, i32 } %.pn.pn32
 }
 
 declare void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #1
@@ -2548,245 +2561,209 @@ declare void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dere
 declare noundef i64 @_ZN4base18StatisticsRecorder17GetHistogramCountEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4base24GlobalHistogramAllocator3GetEv() local_unnamed_addr #9 align 2 {
-entry:
-  %0 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  ret ptr %0
+define noundef ptr @_ZN4base24GlobalHistogramAllocator3GetEv() local_unnamed_addr #10 align 2 {
+  %1 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocator17ReleaseForTestingEv(ptr noalias writeonly sret(%"class.std::unique_ptr.56") align 8 captures(none) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %iter = alloca %"class.base::PersistentMemoryAllocator::Iterator", align 8
-  %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %0 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.end
+define void @_ZN4base24GlobalHistogramAllocator17ReleaseForTestingEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.56") align 8 captures(none) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.base::PersistentMemoryAllocator::Iterator", align 8
+  %3 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %4, label %5
 
-if.end:                                           ; preds = %entry
-  %memory_allocator_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load ptr, ptr %memory_allocator_.i, align 8
-  call void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %iter, ptr noundef %1)
-  %call15 = call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %iter, i32 noundef -245081838)
-  %cmp.not6 = icmp eq i32 %call15, 0
-  br i1 %cmp.not6, label %while.end, label %if.end7.lr.ph
+4:                                                ; preds = %1
+  store ptr null, ptr %0, align 8, !tbaa !122
+  br label %14
 
-if.end7.lr.ph:                                    ; preds = %if.end
-  %2 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  br label %if.end7
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #21
+  call void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %7)
+  %8 = call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef -245081838)
+  %.not710 = icmp eq i32 %8, 0
+  br i1 %.not710, label %._crit_edge, label %.lr.ph
 
-if.end7:                                          ; preds = %if.end7.lr.ph, %if.end7
-  %call17 = phi i32 [ %call15, %if.end7.lr.ph ], [ %call1, %if.end7 ]
-  %call.i.i = call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %call17, i32 noundef -245081838, i32 noundef 88)
-  %name = getelementptr inbounds nuw i8, ptr %call.i.i, i64 80
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull %name)
-  %3 = load ptr, ptr %agg.tmp, align 8
-  %4 = load i64, ptr %2, align 8
-  call void @_ZN4base18StatisticsRecorder25ForgetHistogramForTestingENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %3, i64 %4)
-  %call1 = call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %iter, i32 noundef -245081838)
-  %cmp.not = icmp eq i32 %call1, 0
-  br i1 %cmp.not, label %while.end, label %if.end7, !llvm.loop !23
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %9 = phi i32 [ %13, %.lr.ph ], [ %8, %5 ]
+  %10 = call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %7, i32 noundef %9, i32 noundef -245081838, i32 noundef 88)
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #21
+  call void @_ZN4base18StatisticsRecorder25ForgetHistogramForTestingENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nonnull %11, i64 %12)
+  %13 = call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef -245081838)
+  %.not7 = icmp eq i32 %13, 0
+  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !124
 
-while.end:                                        ; preds = %if.end7, %if.end
-  store ptr null, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
-  br label %return
+._crit_edge:                                      ; preds = %.lr.ph, %5
+  store ptr null, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8, !tbaa !116
+  store ptr %3, ptr %0, align 8, !tbaa !116, !alias.scope !125
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #21
+  br label %14
 
-return:                                           ; preds = %entry, %while.end
-  store ptr %0, ptr %agg.result, align 8
+14:                                               ; preds = %._crit_edge, %4
   ret void
 }
 
 declare void @_ZN4base18StatisticsRecorder25ForgetHistogramForTestingENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr, i64) local_unnamed_addr #1
 
-declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
-
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocator21SetPersistentLocationERKNS_8FilePathE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(32) %location) local_unnamed_addr #0 align 2 {
-entry:
-  %persistent_location_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8FilePathaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %persistent_location_, ptr noundef nonnull align 8 dereferenceable(32) %location)
+define void @_ZN4base24GlobalHistogramAllocator21SetPersistentLocationERKNS_8FilePathE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8FilePathaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8FilePathaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4base24GlobalHistogramAllocator21GetPersistentLocationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #10 align 2 {
-entry:
-  %persistent_location_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  ret ptr %persistent_location_
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4base24GlobalHistogramAllocator21GetPersistentLocationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base24GlobalHistogramAllocator25WriteToPersistentLocationEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #10 align 2 {
-entry:
+define noundef zeroext i1 @_ZN4base24GlobalHistogramAllocator25WriteToPersistentLocationEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #11 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr noundef captures(none) %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load i64, ptr %memory, align 8
-  store ptr null, ptr %memory, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
-  %memory_allocator_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 %0, ptr %memory_allocator_.i, align 8
-  %sparse_histogram_data_manager_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %.cast = inttoptr i64 %0 to ptr
-  store ptr %.cast, ptr %sparse_histogram_data_manager_.i, align 8
-  %record_iterator_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  invoke void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %record_iterator_.i.i, ptr noundef %.cast)
-          to label %.noexc.i unwind label %lpad.i
+define void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 16)) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = load i64, ptr %1, align 8, !tbaa !61
+  store ptr null, ptr %1, align 8, !tbaa !61
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %0, align 8, !tbaa !67
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %3, ptr %4, align 8, !tbaa !61
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.cast = inttoptr i64 %3 to ptr
+  invoke void @_ZN4base36PersistentSparseHistogramDataManagerC1EPNS_25PersistentMemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %.cast)
+          to label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit unwind label %6
 
-.noexc.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i32 0, ptr %1, align 8
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %1, ptr %_M_left.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr %1, ptr %_M_right.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  %lock_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i)
-          to label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit unwind label %lpad.i.i
-
-lpad.i.i:                                         ; preds = %.noexc.i
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %sample_records_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  tail call void @_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_.i.i) #21
-  br label %lpad.body.i
-
-lpad.i:                                           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.body.i
-
-lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %3, %lpad.i ], [ %2, %lpad.i.i ]
-  %4 = load ptr, ptr %memory_allocator_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i: ; preds = %lpad.body.i
-  %vtable.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %5 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(48) %4) #21
-  br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i
-
-_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i, %lpad.body.i
-  store ptr null, ptr %memory_allocator_.i, align 8
-  br label %eh.resume
-
-_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %.noexc.i
-  %last_created_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store i32 0, ptr %last_created_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 16), ptr %this, align 8
-  %import_iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store ptr %this, ptr %import_iterator_, align 8
-  %memory_iter_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %6 = load ptr, ptr %memory_allocator_.i, align 8
-  invoke void @_ZN4base25PersistentMemoryAllocator8IteratorC1EPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %memory_iter_.i, ptr noundef %6)
-          to label %invoke.cont3 unwind label %lpad2
-
-invoke.cont3:                                     ; preds = %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
-  %persistent_location_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  invoke void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %persistent_location_)
-          to label %invoke.cont4 unwind label %lpad2
-
-invoke.cont4:                                     ; preds = %invoke.cont3
-  ret void
-
-lpad2:                                            ; preds = %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit, %invoke.cont3
+6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4base28PersistentHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #21
-  br label %eh.resume
+  %8 = load ptr, ptr %4, align 8, !tbaa !61
+  %.not.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6.sink.split
 
-eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i, %lpad2
-  %.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %eh.lpad-body.i, %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i ]
+_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 0, ptr %9, align 8, !tbaa !69
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 16), ptr %0, align 8, !tbaa !67
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  invoke void @_ZN4base28PersistentHistogramAllocator8IteratorC1EPS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %0)
+          to label %11 unwind label %14
+
+11:                                               ; preds = %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  invoke void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %11
+  ret void
+
+14:                                               ; preds = %11, %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %0, align 8, !tbaa !67
+  tail call void @_ZN4base36PersistentSparseHistogramDataManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #21
+  %16 = load ptr, ptr %4, align 8, !tbaa !61
+  %.not.i.i7 = icmp eq ptr %16, null
+  br i1 %.not.i.i7, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6, label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6.sink.split
+
+_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6.sink.split: ; preds = %14, %6
+  %.sink14 = phi ptr [ %8, %6 ], [ %16, %14 ]
+  %.pn.ph = phi { ptr, i32 } [ %7, %6 ], [ %15, %14 ]
+  %17 = load ptr, ptr %.sink14, align 8, !tbaa !67
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(48) %.sink14) #21
+  br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6
+
+_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6: ; preds = %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6.sink.split, %14, %6
+  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %15, %14 ], [ %.pn.ph, %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit6.sink.split ]
+  store ptr null, ptr %4, align 8, !tbaa !61
   resume { ptr, i32 } %.pn
 }
 
 declare void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocator36ImportHistogramsToStatisticsRecorderEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %histogram = alloca %"class.std::unique_ptr.17", align 8
-  %last_created_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %0 = load atomic volatile i32, ptr %last_created_.i monotonic, align 8
-  %import_iterator_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %memory_iter_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  br label %while.cond.i
+define void @_ZN4base24GlobalHistogramAllocator36ImportHistogramsToStatisticsRecorderEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.std::unique_ptr.17", align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %4 = load atomic volatile i32, ptr %3 monotonic, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  br label %7
 
-while.cond.i:                                     ; preds = %while.cond.i.backedge, %entry
-  %call.i = call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %memory_iter_.i, i32 noundef -245081838), !noalias !24
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %while.end, label %while.body.i
+7:                                                ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
+  br label %8
 
-while.body.i:                                     ; preds = %while.cond.i
-  %cmp2.not.i = icmp eq i32 %call.i, %0
-  br i1 %cmp2.not.i, label %while.cond.i.backedge, label %_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj.exit
+8:                                                ; preds = %10, %7
+  %9 = call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef -245081838), !noalias !128
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %.loopexit, label %10
 
-while.cond.i.backedge:                            ; preds = %while.body.i, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit
-  br label %while.cond.i, !llvm.loop !11
+10:                                               ; preds = %8
+  %.not3.i = icmp eq i32 %9, %4
+  br i1 %.not3.i, label %8, label %_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj.exit, !llvm.loop !62
 
-_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj.exit: ; preds = %while.body.i
-  %1 = load ptr, ptr %import_iterator_, align 8, !noalias !24
-  call void @_ZN4base28PersistentHistogramAllocator12GetHistogramEj(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %histogram, ptr noundef nonnull align 8 dereferenceable(132) %1, i32 noundef %call.i)
-  %.pr = load ptr, ptr %histogram, align 8
-  %cmp.i.not = icmp eq ptr %.pr, null
-  br i1 %cmp.i.not, label %while.end, label %if.end
+_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj.exit: ; preds = %10
+  %11 = load ptr, ptr %5, align 8, !tbaa !58, !noalias !128
+  call void @_ZN4base28PersistentHistogramAllocator12GetHistogramEj(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.17") align 8 %2, ptr noundef nonnull align 8 dereferenceable(132) %11, i32 noundef %9)
+  %.pr = load ptr, ptr %2, align 8, !tbaa !86
+  %.not = icmp eq ptr %.pr, null
+  br i1 %.not, label %.loopexit, label %12
 
-if.end:                                           ; preds = %_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj.exit
-  store ptr null, ptr %histogram, align 8
-  %call4 = invoke noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef nonnull %.pr)
-          to label %cleanup unwind label %lpad
+12:                                               ; preds = %_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj.exit
+  store ptr null, ptr %2, align 8, !tbaa !86
+  %13 = invoke noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef nonnull %.pr)
+          to label %14 unwind label %18
 
-cleanup:                                          ; preds = %if.end
-  %.pr8 = load ptr, ptr %histogram, align 8
-  %cmp.not.i1 = icmp eq ptr %.pr8, null
-  br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i
+14:                                               ; preds = %12
+  %.pr8 = load ptr, ptr %2, align 8, !tbaa !86
+  %.not.i4 = icmp eq ptr %.pr8, null
+  br i1 %.not.i4, label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i: ; preds = %cleanup
-  %vtable.i.i = load ptr, ptr %.pr8, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(44) %.pr8) #21
+_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i: ; preds = %14
+  %15 = load ptr, ptr %.pr8, align 8, !tbaa !67
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(44) %.pr8) #21
   br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i
-  store ptr null, ptr %histogram, align 8
-  br label %while.cond.i.backedge
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %14, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
+  br label %7
 
-lpad:                                             ; preds = %if.end
-  %3 = landingpad { ptr, i32 }
+18:                                               ; preds = %12
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %histogram, align 8
-  %cmp.not.i2 = icmp eq ptr %4, null
-  br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit6, label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i3
+  %20 = load ptr, ptr %2, align 8, !tbaa !86
+  %.not.i5 = icmp eq ptr %20, null
+  br i1 %.not.i5, label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i6
 
-_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i3: ; preds = %lpad
-  %vtable.i.i4 = load ptr, ptr %4, align 8
-  %vfn.i.i5 = getelementptr inbounds nuw i8, ptr %vtable.i.i4, i64 8
-  %5 = load ptr, ptr %vfn.i.i5, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(44) %4) #21
-  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit6
+_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i6: ; preds = %18
+  %21 = load ptr, ptr %20, align 8, !tbaa !67
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(44) %20) #21
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit7
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit6: ; preds = %lpad, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i3
-  resume { ptr, i32 } %3
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit7: ; preds = %18, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
+  resume { ptr, i32 } %19
 
-while.end:                                        ; preds = %_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj.exit, %while.cond.i
+.loopexit:                                        ; preds = %_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj.exit, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
   tail call void @_ZSt9terminatev() #22
   unreachable
@@ -2795,70 +2772,50 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #12
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 declare void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.not4 = icmp eq ptr %__x, null
-  br i1 %cmp.not4, label %while.end, label %while.body
+define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %.not6 = icmp eq ptr %1, null
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
 
-while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
-  %__x.addr.05 = phi ptr [ %1, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
-  %0 = load ptr, ptr %_M_right.i, align 8
-  tail call void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
-  %1 = load ptr, ptr %_M_left.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 40
-  %2 = load ptr, ptr %second.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %delete.notnull.i.i.i.i.i.i.i
+.lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
+  %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit ], [ %1, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
+  %4 = load ptr, ptr %3, align 8, !tbaa !131
+  tail call void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !132
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
+  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %.not.i.i.i.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i
 
-delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body
-  %found_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %3 = load ptr, ptr %found_.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %delete.notnull.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i
-
-_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i:    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i
-  %records_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load ptr, ptr %records_.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i1.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i1.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i.i.i
-
-if.then.i.i.i2.i.i.i.i.i.i.i.i:                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #24
-  br label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i
-
-_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %.lr.ph
+  tail call void @_ZN4base26PersistentSampleMapRecordsD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #24
   br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
 
-_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %while.body, %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #24
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !27
+_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #24
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
 
-while.end:                                        ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %entry
+._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %2
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
+declare void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 declare void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 declare void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare void @_ZN4base12BucketRangesC1Em(ptr noundef nonnull align 8 dereferenceable(28), i64 noundef) unnamed_addr #1
 
@@ -2867,677 +2824,535 @@ declare void @_ZN4base12BucketRanges9set_rangeEmi(ptr noundef nonnull align 8 de
 declare void @_ZN4base12BucketRanges13ResetChecksumEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #4
+declare void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont:
-  %__z = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::unique_ptr<base::PersistentSampleMapRecords>>, std::_Select1st<std::pair<const unsigned long, std::unique_ptr<base::PersistentSampleMapRecords>>>, std::less<unsigned long>>::_Auto_node", align 8
-  store ptr %this, ptr %__z, align 8
-  %_M_node.i = getelementptr inbounds nuw i8, ptr %__z, i64 8
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 32
-  %0 = load i64, ptr %__args1, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %2 = load i64, ptr %1, align 8
-  store i64 %2, ptr %_M_storage.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 40
-  store ptr null, ptr %second.i.i.i.i.i.i.i, align 8
-  store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8
-  %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i)
-          to label %invoke.cont7 unwind label %lpad
+define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::unique_ptr<base::PersistentSampleMapRecords>>, std::_Select1st<std::pair<const unsigned long, std::unique_ptr<base::PersistentSampleMapRecords>>>, std::less<unsigned long>>::_Auto_node", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
+  store ptr %0, ptr %6, align 8, !tbaa !134
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %10 = load i64, ptr %3, align 8, !tbaa !43
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load i64, ptr %11, align 8, !tbaa !39
+  store i64 %12, ptr %9, align 8, !tbaa !136
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store ptr null, ptr %13, align 8, !tbaa !144
+  store ptr %8, ptr %7, align 8, !tbaa !145
+  %14 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %15 unwind label %30
 
-invoke.cont7:                                     ; preds = %invoke.cont
-  %3 = extractvalue { ptr, ptr } %call8, 0
-  %4 = extractvalue { ptr, ptr } %call8, 1
-  %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %if.then.i, label %if.then
+15:                                               ; preds = %5
+  %16 = extractvalue { ptr, ptr } %14, 0
+  %17 = extractvalue { ptr, ptr } %14, 1
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %32, label %18
 
-if.then:                                          ; preds = %invoke.cont7
-  %cmp.not.i.i = icmp ne ptr %3, null
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
-  %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
-  br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
+18:                                               ; preds = %15
+  %.not.i.i = icmp ne ptr %16, null
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = icmp eq ptr %17, %19
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
+  br i1 %or.cond.i.i, label %.thread, label %21
 
-lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %5 = load i64, ptr %_M_storage.i.i.i.i, align 8
-  %6 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %5, %6
-  br label %cleanup.thread
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %23 = load i64, ptr %9, align 8, !tbaa !39
+  %24 = load i64, ptr %22, align 8, !tbaa !39
+  %25 = icmp ult i64 %23, %24
+  br label %.thread
 
-cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i.i
-  %7 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #21
-  %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %8 = load i64, ptr %_M_node_count.i.i, align 8
-  %inc.i.i = add i64 %8, 1
-  store i64 %inc.i.i, ptr %_M_node_count.i.i, align 8
+.thread:                                          ; preds = %18, %21
+  %26 = phi i1 [ true, %18 ], [ %25, %21 ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #21
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %28 = load i64, ptr %27, align 8, !tbaa !29
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %27, align 8, !tbaa !29
   br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeD2Ev.exit
 
-lpad:                                             ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+30:                                               ; preds = %5
+  %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__z) #21
-  resume { ptr, i32 } %9
+  call void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
+  resume { ptr, i32 } %31
 
-if.then.i:                                        ; preds = %invoke.cont7
-  %10 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i, label %delete.notnull.i.i.i.i.i.i.i.i
+32:                                               ; preds = %15
+  %33 = load ptr, ptr %13, align 8, !tbaa !48
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i, label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i.i
 
-delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i
-  %found_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %11 = load ptr, ptr %found_.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %delete.notnull.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i.i
-
-_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i.i
-  %records_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %records_.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i1.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i1.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i2.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #24
-  br label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i.i
-
-_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #24
+_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %32
+  tail call void @_ZN4base26PersistentSampleMapRecordsD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %33) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #24
   br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i
 
-_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i: ; preds = %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i.i, %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #24
+_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i: ; preds = %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i.i, %32
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #24
   br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i
-  %retval.sroa.0.07 = phi ptr [ %call5.i.i.i.i.i, %cleanup.thread ], [ %3, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i ]
-  ret ptr %retval.sroa.0.07
+_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i
+  %.sroa.0.010 = phi ptr [ %8, %.thread ], [ %16, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
+  ret ptr %.sroa.0.010
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
-  br i1 %cmp, label %if.then, label %if.else12
+define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = icmp eq ptr %1, %4
+  br i1 %5, label %6, label %32
 
-if.then:                                          ; preds = %entry
-  %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load i64, ptr %_M_node_count.i, align 8
-  %cmp5.not = icmp eq i64 %0, 0
-  br i1 %cmp5.not, label %if.else, label %land.lhs.true
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load i64, ptr %7, align 8, !tbaa !29
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %16, label %9
 
-land.lhs.true:                                    ; preds = %if.then
-  %_M_right.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %2 = load i64, ptr %_M_storage.i.i.i, align 8
-  %3 = load i64, ptr %__k, align 8
-  %cmp.i = icmp ult i64 %2, %3
-  br i1 %cmp.i, label %return, label %if.else
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8, !tbaa !40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %13 = load i64, ptr %12, align 8, !tbaa !39
+  %14 = load i64, ptr %2, align 8, !tbaa !39
+  %15 = icmp ult i64 %13, %14
+  br i1 %15, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %16
 
-if.else:                                          ; preds = %land.lhs.true, %if.then
-  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %__x.019.i = load ptr, ptr %_M_parent.i.i.i, align 8
-  %cmp.not20.i = icmp eq ptr %__x.019.i, null
-  br i1 %cmp.not20.i, label %if.then.i, label %while.body.lr.ph.i
+16:                                               ; preds = %9, %6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.02022.i = load ptr, ptr %17, align 8, !tbaa !40
+  %.not23.i = icmp eq ptr %.02022.i, null
+  br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
-while.body.lr.ph.i:                               ; preds = %if.else
-  %4 = load i64, ptr %__k, align 8
-  br label %while.body.i
+.lr.ph.i:                                         ; preds = %16
+  %18 = load i64, ptr %2, align 8, !tbaa !39
+  br label %19
 
-while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds nuw i8, ptr %__x.021.i, i64 32
-  %5 = load i64, ptr %_M_storage.i.i.i10, align 8
-  %cmp.i.i = icmp ult i64 %4, %5
-  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
-  %cond.in.i = getelementptr inbounds nuw i8, ptr %__x.021.i, i64 %cond.in.v.i
-  %__x.0.i = load ptr, ptr %cond.in.i, align 8
-  %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !28
+19:                                               ; preds = %19, %.lr.ph.i
+  %.02024.i = phi ptr [ %.02022.i, %.lr.ph.i ], [ %.020.i, %19 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
+  %21 = load i64, ptr %20, align 8, !tbaa !39
+  %22 = icmp ult i64 %18, %21
+  %.in.v.i = select i1 %22, i64 16, i64 24
+  %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
+  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !40
+  %.not.i = icmp eq ptr %.020.i, null
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !148
 
-while.end.i:                                      ; preds = %while.body.i
-  br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
+._crit_edge.i:                                    ; preds = %19
+  br i1 %22, label %._crit_edge.thread.i, label %28
 
-if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
-  %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %6 = load ptr, ptr %_M_left.i3.i, align 8
-  %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
-  br i1 %cmp.i4.i, label %return, label %if.else.i
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
+  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
-if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #26
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
-  %.pre115 = load i64, ptr %__k, align 8
-  br label %if.end12.i
+26:                                               ; preds = %._crit_edge.thread.i
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #26
+  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !39
+  %.pre82 = load i64, ptr %2, align 8, !tbaa !39
+  br label %28
 
-if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i64 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i64 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
-  %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %cmp.i5.i = icmp ult i64 %8, %7
-  %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
-  %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
-  br label %return
+28:                                               ; preds = %26, %._crit_edge.i
+  %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
+  %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
+  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %31 = icmp ult i64 %30, %29
+  %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit
 
-if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 32
-  %9 = load i64, ptr %__k, align 8
-  %10 = load i64, ptr %_M_storage.i.i.i11, align 8
-  %cmp.i12 = icmp ult i64 %9, %10
-  br i1 %cmp.i12, label %if.then18, label %if.else44
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = load i64, ptr %2, align 8, !tbaa !39
+  %35 = load i64, ptr %33, align 8, !tbaa !39
+  %36 = icmp ult i64 %34, %35
+  br i1 %36, label %37, label %61
 
-if.then18:                                        ; preds = %if.else12
-  %_M_left.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %11 = load ptr, ptr %_M_left.i, align 8
-  %cmp21 = icmp eq ptr %11, %__position.coerce
-  br i1 %cmp21, label %return, label %if.else25
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %39 = load ptr, ptr %38, align 8, !tbaa !40
+  %40 = icmp eq ptr %39, %1
+  br i1 %40, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %41
 
-if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #26
-  %_M_storage.i.i.i16 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  %12 = load i64, ptr %_M_storage.i.i.i16, align 8
-  %cmp.i17 = icmp ult i64 %12, %9
-  br i1 %cmp.i17, label %if.then32, label %if.else42
+41:                                               ; preds = %37
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #26
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %44 = load i64, ptr %43, align 8, !tbaa !39
+  %45 = icmp ult i64 %44, %34
+  br i1 %45, label %46, label %50
 
-if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  %13 = load ptr, ptr %_M_right.i18, align 8
-  %cmp35 = icmp eq ptr %13, null
-  %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
-  br label %return
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %48 = load ptr, ptr %47, align 8, !tbaa !131
+  %49 = icmp eq ptr %48, null
+  %spec.select = select i1 %49, ptr null, ptr %1
+  %spec.select71 = select i1 %49, ptr %42, ptr %1
+  br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit
 
-if.else42:                                        ; preds = %if.else25
-  %_M_parent.i.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
-  %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
+50:                                               ; preds = %41
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !40
+  %.not23.i11 = icmp eq ptr %.02022.i10, null
+  br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
 
-while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds nuw i8, ptr %__x.021.i27, i64 32
-  %14 = load i64, ptr %_M_storage.i.i.i28, align 8
-  %cmp.i.i29 = icmp ult i64 %9, %14
-  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
-  %cond.in.i31 = getelementptr inbounds nuw i8, ptr %__x.021.i27, i64 %cond.in.v.i30
-  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
-  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
-  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !28
+.lr.ph.i12:                                       ; preds = %50, %.lr.ph.i12
+  %.02024.i13 = phi ptr [ %.020.i16, %.lr.ph.i12 ], [ %.02022.i10, %50 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 32
+  %53 = load i64, ptr %52, align 8, !tbaa !39
+  %54 = icmp ult i64 %34, %53
+  %.in.v.i14 = select i1 %54, i64 16, i64 24
+  %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
+  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !40
+  %.not.i17 = icmp eq ptr %.020.i16, null
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !148
 
-while.end.i34:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
+._crit_edge.i18:                                  ; preds = %.lr.ph.i12
+  br i1 %54, label %._crit_edge.thread.i27, label %58
 
-if.then.i46:                                      ; preds = %while.end.i34, %if.else42
-  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
-  br i1 %cmp.i4.i49, label %return, label %if.else.i50
+._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
+  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
-if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #26
-  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
-  %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
-  br label %if.end12.i35
+56:                                               ; preds = %._crit_edge.thread.i27
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #26
+  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !39
+  br label %58
 
-if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
-  %15 = phi i64 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
-  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
-  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
-  %cmp.i5.i39 = icmp ult i64 %15, %9
-  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
-  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
-  br label %return
+58:                                               ; preds = %56, %._crit_edge.i18
+  %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
+  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %60 = icmp ult i64 %59, %34
+  %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit
 
-if.else44:                                        ; preds = %if.else12
-  %cmp.i54 = icmp ult i64 %10, %9
-  br i1 %cmp.i54, label %if.then50, label %return
+61:                                               ; preds = %32
+  %62 = icmp ult i64 %35, %34
+  br i1 %62, label %63, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit
 
-if.then50:                                        ; preds = %if.else44
-  %_M_right.i55 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i55, align 8
-  %cmp53 = icmp eq ptr %16, %__position.coerce
-  br i1 %cmp53, label %return, label %if.else57
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %65 = load ptr, ptr %64, align 8, !tbaa !40
+  %66 = icmp eq ptr %65, %1
+  br i1 %66, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %67
 
-if.else57:                                        ; preds = %if.then50
-  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #26
-  %_M_storage.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i58, i64 32
-  %17 = load i64, ptr %_M_storage.i.i.i59, align 8
-  %cmp.i60 = icmp ult i64 %9, %17
-  br i1 %cmp.i60, label %if.then64, label %if.else74
+67:                                               ; preds = %63
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #26
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %70 = load i64, ptr %69, align 8, !tbaa !39
+  %71 = icmp ult i64 %34, %70
+  br i1 %71, label %72, label %76
 
-if.then64:                                        ; preds = %if.else57
-  %_M_right.i61 = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 24
-  %18 = load ptr, ptr %_M_right.i61, align 8
-  %cmp67 = icmp eq ptr %18, null
-  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
-  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
-  br label %return
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %74 = load ptr, ptr %73, align 8, !tbaa !131
+  %75 = icmp eq ptr %74, null
+  %spec.select72 = select i1 %75, ptr null, ptr %68
+  %spec.select73 = select i1 %75, ptr %1, ptr %68
+  br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit
 
-if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i64 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
-  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
-  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
+76:                                               ; preds = %67
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !40
+  %.not23.i31 = icmp eq ptr %.02022.i30, null
+  br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
 
-while.body.i69:                                   ; preds = %if.else74, %while.body.i69
-  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
-  %_M_storage.i.i.i71 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 32
-  %19 = load i64, ptr %_M_storage.i.i.i71, align 8
-  %cmp.i.i72 = icmp ult i64 %9, %19
-  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
-  %cond.in.i74 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 %cond.in.v.i73
-  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
-  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
-  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !28
+.lr.ph.i32:                                       ; preds = %76, %.lr.ph.i32
+  %.02024.i33 = phi ptr [ %.020.i36, %.lr.ph.i32 ], [ %.02022.i30, %76 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 32
+  %79 = load i64, ptr %78, align 8, !tbaa !39
+  %80 = icmp ult i64 %34, %79
+  %.in.v.i34 = select i1 %80, i64 16, i64 24
+  %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
+  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !40
+  %.not.i37 = icmp eq ptr %.020.i36, null
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !148
 
-while.end.i77:                                    ; preds = %while.body.i69
-  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
+._crit_edge.i38:                                  ; preds = %.lr.ph.i32
+  br i1 %80, label %._crit_edge.thread.i47, label %86
 
-if.then.i89:                                      ; preds = %while.end.i77, %if.else74
-  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
-  br i1 %cmp.i4.i92, label %return, label %if.else.i93
+._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
+  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %82 = load ptr, ptr %81, align 8, !tbaa !27
+  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
-if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #26
-  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
-  %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
-  br label %if.end12.i78
+84:                                               ; preds = %._crit_edge.thread.i47
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #26
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !39
+  br label %86
 
-if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
-  %21 = phi i64 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
-  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
-  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
-  %cmp.i5.i82 = icmp ult i64 %21, %9
-  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
-  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
-  br label %return
+86:                                               ; preds = %84, %._crit_edge.i38
+  %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
+  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %88 = icmp ult i64 %87, %34
+  %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit
 
-return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
+_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_node = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_node, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
+define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !145
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %7, label %4
 
-if.then:                                          ; preds = %entry
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1 = load ptr, ptr %second.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %delete.notnull.i.i.i.i.i.i.i
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %.not.i.i.i.i.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i
 
-delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then
-  %found_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %2 = load ptr, ptr %found_.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %delete.notnull.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i
-
-_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i:    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i
-  %records_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %3 = load ptr, ptr %records_.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i1.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i1.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i.i.i
-
-if.then.i.i.i2.i.i.i.i.i.i.i.i:                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
-  br label %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i
-
-_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #24
+_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %4
+  tail call void @_ZN4base26PersistentSampleMapRecordsD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
 
-_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %if.then, %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
-  br label %if.end
+_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %4, %_ZNKSt14default_deleteIN4base26PersistentSampleMapRecordsEEclEPS1_.exit.i.i.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
+  br label %7
 
-if.end:                                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %entry
+7:                                                ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.i.not = icmp eq ptr %__first.coerce, %__last.coerce
-  br i1 %cmp.i.not, label %if.end109, label %if.then
+define linkonce_odr void @_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %.not73 = icmp eq ptr %2, %3
+  br i1 %.not73, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit, label %5
 
-if.then:                                          ; preds = %entry
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
-  br i1 %cmp.not, label %if.else68, label %if.then9
+5:                                                ; preds = %4
+  %6 = ptrtoint ptr %3 to i64
+  %7 = ptrtoint ptr %2 to i64
+  %8 = sub i64 %6, %7
+  %9 = ashr exact i64 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !53
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %14 = ptrtoint ptr %11 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %.not = icmp ult i64 %16, %8
+  br i1 %.not, label %43, label %17
 
-if.then9:                                         ; preds = %if.then
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
-  br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit
+17:                                               ; preds = %5
+  %18 = ptrtoint ptr %1 to i64
+  %19 = sub i64 %15, %18
+  %20 = ashr exact i64 %19, 2
+  %21 = icmp ugt i64 %20, %9
+  br i1 %21, label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit
 
-if.then16:                                        ; preds = %if.then9
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr inbounds i32, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %sub.ptr.sub.i.i.i, i1 false)
-  %2 = load ptr, ptr %_M_finish, align 8
-  %add.ptr27 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i.i
-  store ptr %add.ptr27, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i30, label %if.then.i.i.i.i.i
+_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %17
+  %22 = sub nsw i64 0, %9
+  %23 = getelementptr inbounds i32, ptr %13, i64 %22
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr align 4 %23, i64 %8, i1 false)
+  %24 = load ptr, ptr %12, align 8, !tbaa !51
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %8
+  store ptr %25, ptr %12, align 8, !tbaa !51
+  %.not.i.i.i.i.i = icmp eq ptr %23, %1
+  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %26
 
-if.then.i.i.i.i.i:                                ; preds = %if.then16
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %if.then.i.i.i.i.i30
+26:                                               ; preds = %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
+  %27 = ptrtoint ptr %23 to i64
+  %28 = sub i64 %27, %18
+  %29 = ashr exact i64 %28, 2
+  %30 = sub nsw i64 0, %29
+  %31 = getelementptr inbounds i32, ptr %13, i64 %30
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %31, ptr align 4 %1, i64 %28, i1 false)
+  br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
-if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, %if.then16
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__position.coerce, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i, i1 false)
-  br label %if.end109
+_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %2, i64 %8, i1 false)
+  br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last.coerce, %incdec.ptr.i.i.i
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit: ; preds = %17
+  %32 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %32
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit, label %33
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %incdec.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
-  %.pre = load ptr, ptr %_M_finish, align 8
+33:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %6, %34
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr align 4 %32, i64 %35, i1 false)
+  %.pre = load ptr, ptr %12, align 8, !tbaa !51
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
-  %3 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr inbounds i32, ptr %3, i64 %sub
-  store ptr %add.ptr50, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i35, label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit38, label %if.then.i.i.i.i.i.i.i.i.i36
+_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit, %33
+  %36 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit ], [ %.pre, %33 ]
+  %37 = sub nuw nsw i64 %9, %20
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  store ptr %38, ptr %12, align 8, !tbaa !51
+  %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
+  br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit53, label %39
 
-if.then.i.i.i.i.i.i.i.i.i36:                      ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr50, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i, i1 false)
-  %.pre77 = load ptr, ptr %_M_finish, align 8
-  br label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit38
+39:                                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %38, ptr align 4 %1, i64 %19, i1 false)
+  %.pre74 = load ptr, ptr %12, align 8, !tbaa !51
+  br label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit53
 
-_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit38: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit, %if.then.i.i.i.i.i.i.i.i.i36
-  %4 = phi ptr [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit ], [ %.pre77, %if.then.i.i.i.i.i.i.i.i.i36 ]
-  %add.ptr58 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
-  store ptr %add.ptr58, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i42, label %if.end109, label %if.then.i.i.i.i.i43
+_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit53: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit, %39
+  %40 = phi ptr [ %38, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit ], [ %.pre74, %39 ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %19
+  store ptr %41, ptr %12, align 8, !tbaa !51
+  %.not.i.i.i.i.i54 = icmp eq ptr %13, %1
+  br i1 %.not.i.i.i.i.i54, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit, label %42
 
-if.then.i.i.i.i.i43:                              ; preds = %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit38
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__position.coerce, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
-  br label %if.end109
+42:                                               ; preds = %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit53
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %2, i64 %19, i1 false)
+  br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
 
-if.else68:                                        ; preds = %if.then
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %sub.i = sub nsw i64 2305843009213693951, %sub.ptr.div.i.i
-  %cmp.i46 = icmp ult i64 %sub.i, %sub.ptr.div.i.i.i
-  br i1 %cmp.i46, label %if.then.i, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
+43:                                               ; preds = %5
+  %44 = load ptr, ptr %0, align 8, !tbaa !52
+  %45 = ptrtoint ptr %44 to i64
+  %46 = sub i64 %15, %45
+  %47 = ashr exact i64 %46, 2
+  %48 = sub nsw i64 2305843009213693951, %47
+  %49 = icmp ult i64 %48, %9
+  br i1 %49, label %50, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
 
-if.then.i:                                        ; preds = %if.else68
+50:                                               ; preds = %43
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #25
   unreachable
 
-_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %if.else68
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.ptr.div.i.i.i)
-  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %6 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
-  %cond.i = select i1 %cmp7.i, i64 2305843009213693951, i64 %6
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit, label %cond.true.i
+_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %43
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %9)
+  %51 = add nsw i64 %.sroa.speculated.i, %47
+  %52 = icmp ult i64 %51, %47
+  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 2305843009213693951)
+  %54 = select i1 %52, i64 2305843009213693951, i64 %53
+  %.not.i = icmp eq i64 %54, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit, label %55
 
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 2
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
+55:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
+  %56 = shl nuw nsw i64 %54, 2
+  %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #23
   br label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit, %cond.true.i
-  %cond.i47 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit ]
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48 = ptrtoint ptr %__position.coerce to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48, %sub.ptr.rhs.cast.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %__position.coerce, %5
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i51, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i52
+_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit, %55
+  %58 = phi ptr [ %57, %55 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit ]
+  %59 = ptrtoint ptr %1 to i64
+  %60 = sub i64 %59, %45
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %44
+  br i1 %.not.i.i.i.i.i.i.i.i.i56, label %62, label %61
 
-if.then.i.i.i.i.i.i.i.i.i52:                      ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i47, ptr align 4 %5, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i50, i1 false)
-  br label %invoke.cont
+61:                                               ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %58, ptr align 4 %44, i64 %60, i1 false)
+  br label %62
 
-invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i52, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit
-  %add.ptr.i.i.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %cond.i47, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i50
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i.i.i.i53, ptr align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i53, i64 %sub.ptr.sub.i.i.i
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i63 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48
-  %tobool.not.i.i.i.i.i.i.i.i.i64 = icmp eq ptr %1, %__position.coerce
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i64, label %invoke.cont87, label %if.then.i.i.i.i.i.i.i.i.i65
+62:                                               ; preds = %61, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit
+  %63 = getelementptr inbounds i8, ptr %58, i64 %60
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %63, ptr align 4 %2, i64 %8, i1 false)
+  %64 = getelementptr inbounds i8, ptr %63, i64 %8
+  %65 = sub i64 %15, %59
+  %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %13, %1
+  br i1 %.not.i.i.i.i.i.i.i.i.i59, label %67, label %66
 
-if.then.i.i.i.i.i.i.i.i.i65:                      ; preds = %invoke.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i59, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i63, i1 false)
-  br label %invoke.cont87
+66:                                               ; preds = %62
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %64, ptr align 4 %1, i64 %65, i1 false)
+  br label %67
 
-invoke.cont87:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i65, %invoke.cont
-  %add.ptr.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i59, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i63
-  %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit, label %if.then.i68
+67:                                               ; preds = %66, %62
+  %68 = getelementptr inbounds i8, ptr %64, i64 %65
+  %.not.i61 = icmp eq ptr %44, null
+  br i1 %.not.i61, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit, label %69
 
-if.then.i68:                                      ; preds = %invoke.cont87
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #24
+69:                                               ; preds = %67
+  tail call void @_ZdlPv(ptr noundef nonnull %44) #24
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %invoke.cont87, %if.then.i68
-  store ptr %cond.i47, ptr %this, align 8
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i66, ptr %_M_finish, align 8
-  %add.ptr105 = getelementptr inbounds nuw i32, ptr %cond.i47, i64 %cond.i
-  store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
-  br label %if.end109
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %67, %69
+  store ptr %58, ptr %0, align 8, !tbaa !52
+  store ptr %68, ptr %12, align 8, !tbaa !51
+  %70 = getelementptr inbounds nuw i32, ptr %58, i64 %54
+  store ptr %70, ptr %10, align 8, !tbaa !53
+  br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
 
-if.end109:                                        ; preds = %if.then.i.i.i.i.i43, %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit38, %if.then.i.i.i.i.i30, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit, %entry
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit: ; preds = %42, %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit53, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit, %4
   ret void
 }
 
 declare noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__dnew = alloca i64, align 8
-  %__guard = alloca %struct._Guard, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__end to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__beg to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  store i64 %sub.ptr.sub.i.i, ptr %__dnew, align 8
-  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, 15
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2)
-  %0 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0)
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %call.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-          to label %if.end unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.else
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
-  unreachable
-
-if.end:                                           ; preds = %if.else, %if.then
-  store ptr %this, ptr %__guard, align 8
-  %call4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #21
-  store ptr null, ptr %__guard, align 8
-  %3 = load i64, ptr %__dnew, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
-          to label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit unwind label %lpad
-
-_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %invoke.cont, %if.end
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #21
-  resume { ptr, i32 } %4
-}
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %if.end unwind label %terminate.lpad
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
-  unreachable
-}
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 declare void @_ZN4base25PersistentMemoryAllocatorC1EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef byval(%"class.base::BasicStringPiece") align 8, i1 noundef zeroext) unnamed_addr #1
 
 declare void @_ZN4base30LocalPersistentMemoryAllocatorC1EmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i64 noundef, ptr, i64) unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { builtin allocsize(0) }
@@ -3545,34 +3360,154 @@ attributes #24 = { builtin nounwind }
 attributes #25 = { noreturn }
 attributes #26 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: %agg.result"}
-!9 = distinct !{!9, !"_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN4base12_GLOBAL__N_120CreateRangesFromDataEPijm: %agg.result"}
-!14 = distinct !{!14, !"_ZN4base12_GLOBAL__N_120CreateRangesFromDataEPijm"}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4base10MakeUniqueINS_25PersistentMemoryAllocatorEJRPvRmS4_S4_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: %agg.result"}
-!19 = distinct !{!19, !"_ZN4base10MakeUniqueINS_25PersistentMemoryAllocatorEJRPvRmS4_S4_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: %agg.result"}
-!22 = distinct !{!22, !"_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
-!23 = distinct !{!23, !6}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj: %agg.result"}
-!26 = distinct !{!26, !"_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj"}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN4base36PersistentSparseHistogramDataManagerE", !5, i64 0, !9, i64 8, !13, i64 24, !23, i64 72}
+!5 = !{!"p1 _ZTSN4base25PersistentMemoryAllocatorE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"_ZTSN4base25PersistentMemoryAllocator8IteratorE", !5, i64 0, !10, i64 8, !10, i64 12}
+!10 = !{!"_ZTSSt6atomicIjE", !11, i64 0}
+!11 = !{!"_ZTSSt13__atomic_baseIjE", !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!"_ZTSSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE", !14, i64 0}
+!14 = !{!"_ZTSSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE", !15, i64 0}
+!15 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !16, i64 0, !18, i64 8}
+!16 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessImEE", !17, i64 0}
+!17 = !{!"_ZTSSt4lessImE"}
+!18 = !{!"_ZTSSt15_Rb_tree_header", !19, i64 0, !22, i64 32}
+!19 = !{!"_ZTSSt18_Rb_tree_node_base", !20, i64 0, !21, i64 8, !21, i64 16, !21, i64 24}
+!20 = !{!"_ZTSSt14_Rb_tree_color", !7, i64 0}
+!21 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !6, i64 0}
+!22 = !{!"long", !7, i64 0}
+!23 = !{!"_ZTSN4base4LockE", !24, i64 0}
+!24 = !{!"_ZTSN4base8internal8LockImplE", !7, i64 0}
+!25 = !{!18, !20, i64 0}
+!26 = !{!18, !21, i64 8}
+!27 = !{!18, !21, i64 16}
+!28 = !{!18, !21, i64 24}
+!29 = !{!18, !22, i64 32}
+!30 = !{!31, !6, i64 16}
+!31 = !{!"_ZTSN4base26PersistentSampleMapRecordsE", !32, i64 0, !22, i64 8, !6, i64 16, !22, i64 24, !33, i64 32, !33, i64 56}
+!32 = !{!"p1 _ZTSN4base36PersistentSparseHistogramDataManagerE", !6, i64 0}
+!33 = !{!"_ZTSSt6vectorIjSaIjEE", !34, i64 0}
+!34 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !35, i64 0}
+!35 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !36, i64 0}
+!36 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !37, i64 0, !37, i64 8, !37, i64 16}
+!37 = !{!"p1 int", !6, i64 0}
+!38 = !{!31, !22, i64 24}
+!39 = !{!22, !22, i64 0}
+!40 = !{!21, !21, i64 0}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 long", !6, i64 0}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: argument 0"}
+!47 = distinct !{!47, !"_ZN4base10MakeUniqueINS_26PersistentSampleMapRecordsEJPNS_36PersistentSparseHistogramDataManagerERmEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSN4base26PersistentSampleMapRecordsE", !6, i64 0}
+!50 = !{!37, !37, i64 0}
+!51 = !{!36, !37, i64 8}
+!52 = !{!36, !37, i64 0}
+!53 = !{!36, !37, i64 16}
+!54 = !{!31, !22, i64 8}
+!55 = !{!12, !12, i64 0}
+!56 = distinct !{!56, !42}
+!57 = !{!31, !32, i64 0}
+!58 = !{!59, !60, i64 0}
+!59 = !{!"_ZTSN4base28PersistentHistogramAllocator8IteratorE", !60, i64 0, !9, i64 8}
+!60 = !{!"p1 _ZTSN4base28PersistentHistogramAllocatorE", !6, i64 0}
+!61 = !{!5, !5, i64 0}
+!62 = distinct !{!62, !42}
+!63 = !{!64, !65, i64 0}
+!64 = !{!"_ZTSSt10_Head_baseILm0EPN4base13HistogramBaseELb0EE", !65, i64 0}
+!65 = !{!"p1 _ZTSN4base13HistogramBaseE", !6, i64 0}
+!66 = !{!7, !7, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"vtable pointer", !8, i64 0}
+!69 = !{!70, !12, i64 128}
+!70 = !{!"_ZTSN4base28PersistentHistogramAllocatorE", !71, i64 8, !4, i64 16, !12, i64 128}
+!71 = !{!"_ZTSSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EE", !72, i64 0}
+!72 = !{!"_ZTSSt15__uniq_ptr_dataIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_ELb1ELb1EE", !73, i64 0}
+!73 = !{!"_ZTSSt15__uniq_ptr_implIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EE", !74, i64 0}
+!74 = !{!"_ZTSSt5tupleIJPN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EEE", !75, i64 0}
+!75 = !{!"_ZTSSt11_Tuple_implILm0EJPN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EEE", !76, i64 0}
+!76 = !{!"_ZTSSt10_Head_baseILm0EPN4base25PersistentMemoryAllocatorELb0EE", !5, i64 0}
+!77 = !{!78, !12, i64 0}
+!78 = !{!"_ZTSN4base28PersistentHistogramAllocator23PersistentHistogramDataE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !79, i64 32, !79, i64 56, !7, i64 80}
+!79 = !{!"_ZTSN4base16HistogramSamples8MetadataE", !22, i64 0, !22, i64 8, !12, i64 16}
+!80 = !{!81, !82, i64 0}
+!81 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !82, i64 0}
+!82 = !{!"p1 omnipotent char", !6, i64 0}
+!83 = !{!84, !82, i64 0}
+!84 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !81, i64 0, !22, i64 8, !7, i64 16}
+!85 = !{!84, !22, i64 8}
+!86 = !{!65, !65, i64 0}
+!87 = !{!78, !12, i64 4}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZN4base12_GLOBAL__N_120CreateRangesFromDataEPijm: argument 0"}
+!90 = distinct !{!90, !"_ZN4base12_GLOBAL__N_120CreateRangesFromDataEPijm"}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTSN4base12BucketRangesE", !6, i64 0}
+!93 = distinct !{!93, !42}
+!94 = !{!95, !12, i64 24}
+!95 = !{!"_ZTSN4base12BucketRangesE", !96, i64 0, !12, i64 24}
+!96 = !{!"_ZTSSt6vectorIiSaIiEE", !97, i64 0}
+!97 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !98, i64 0}
+!98 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !99, i64 0}
+!99 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !37, i64 0, !37, i64 8, !37, i64 16}
+!100 = !{!101, !92, i64 0}
+!101 = !{!"_ZTSSt10_Head_baseILm0EPKN4base12BucketRangesELb0EE", !92, i64 0}
+!102 = !{!99, !37, i64 8}
+!103 = !{!99, !37, i64 0}
+!104 = distinct !{!104, !42}
+!105 = !{!78, !12, i64 8}
+!106 = !{!78, !12, i64 12}
+!107 = !{!78, !12, i64 16}
+!108 = !{!78, !12, i64 20}
+!109 = !{!78, !12, i64 24}
+!110 = !{!78, !12, i64 28}
+!111 = !{!112, !112, i64 0}
+!112 = !{!"p1 _ZTSN4base16HistogramSamplesE", !6, i64 0}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZN4base10MakeUniqueINS_25PersistentMemoryAllocatorEJRPvRmS4_S4_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: argument 0"}
+!115 = distinct !{!115, !"_ZN4base10MakeUniqueINS_25PersistentMemoryAllocatorEJRPvRmS4_S4_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSN4base24GlobalHistogramAllocatorE", !6, i64 0}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: argument 0"}
+!120 = distinct !{!120, !"_ZN4base10MakeUniqueINS_30LocalPersistentMemoryAllocatorEJRmS2_RNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
+!121 = !{!76, !5, i64 0}
+!122 = !{!123, !117, i64 0}
+!123 = !{!"_ZTSSt10_Head_baseILm0EPN4base24GlobalHistogramAllocatorELb0EE", !117, i64 0}
+!124 = distinct !{!124, !42}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZN4base10WrapUniqueINS_24GlobalHistogramAllocatorEEESt10unique_ptrIT_St14default_deleteIS3_EEPS3_: argument 0"}
+!127 = distinct !{!127, !"_ZN4base10WrapUniqueINS_24GlobalHistogramAllocatorEEESt10unique_ptrIT_St14default_deleteIS3_EEPS3_"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj: argument 0"}
+!130 = distinct !{!130, !"_ZN4base28PersistentHistogramAllocator8Iterator17GetNextWithIgnoreEj"}
+!131 = !{!19, !21, i64 24}
+!132 = !{!19, !21, i64 16}
+!133 = distinct !{!133, !42}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"p1 _ZTSSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE", !6, i64 0}
+!136 = !{!137, !22, i64 0}
+!137 = !{!"_ZTSSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS3_EEE", !22, i64 0, !138, i64 8}
+!138 = !{!"_ZTSSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS1_EE", !139, i64 0}
+!139 = !{!"_ZTSSt15__uniq_ptr_dataIN4base26PersistentSampleMapRecordsESt14default_deleteIS1_ELb1ELb1EE", !140, i64 0}
+!140 = !{!"_ZTSSt15__uniq_ptr_implIN4base26PersistentSampleMapRecordsESt14default_deleteIS1_EE", !141, i64 0}
+!141 = !{!"_ZTSSt5tupleIJPN4base26PersistentSampleMapRecordsESt14default_deleteIS1_EEE", !142, i64 0}
+!142 = !{!"_ZTSSt11_Tuple_implILm0EJPN4base26PersistentSampleMapRecordsESt14default_deleteIS1_EEE", !143, i64 0}
+!143 = !{!"_ZTSSt10_Head_baseILm0EPN4base26PersistentSampleMapRecordsELb0EE", !49, i64 0}
+!144 = !{!143, !49, i64 0}
+!145 = !{!146, !147, i64 8}
+!146 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE10_Auto_nodeE", !135, i64 0, !147, i64 8}
+!147 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEEE", !6, i64 0}
+!148 = distinct !{!148, !42}

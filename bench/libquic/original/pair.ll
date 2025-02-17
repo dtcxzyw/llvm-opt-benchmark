@@ -1,2001 +1,2177 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.bio_st = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, i64, i64 }
 %struct.bio_bio_st = type { ptr, i32, i64, i64, i64, ptr, i8, i8, i8, i64 }
 
 @.str = private unnamed_addr constant [121 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bio/pair.c\00", align 1
-@methods_biop = internal constant %struct.bio_method_st { i32 1043, ptr @.str.1, ptr @bio_write, ptr @bio_read, ptr @bio_puts, ptr null, ptr @bio_ctrl, ptr @bio_new, ptr @bio_free, ptr null }, align 8
 @.str.1 = private unnamed_addr constant [9 x i8] c"BIO pair\00", align 1
+@methods_biop = internal constant { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 1043, [4 x i8] zeroinitializer, ptr @.str.1, ptr @bio_write, ptr @bio_read, ptr @bio_puts, ptr null, ptr @bio_ctrl, ptr @bio_new, ptr @bio_free, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_zero_copy_get_read_buf(ptr noundef %bio, ptr noundef %out_read_buf, ptr noundef %out_buf_offset, ptr noundef %out_available_bytes) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %out_read_buf.addr = alloca ptr, align 8
-  %out_buf_offset.addr = alloca ptr, align 8
-  %out_available_bytes.addr = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  %peer_b = alloca ptr, align 8
-  %max_available = alloca i64, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store ptr %out_read_buf, ptr %out_read_buf.addr, align 8
-  store ptr %out_buf_offset, ptr %out_buf_offset.addr, align 8
-  store ptr %out_available_bytes, ptr %out_available_bytes.addr, align 8
-  %0 = load ptr, ptr %out_available_bytes.addr, align 8
-  store i64 0, ptr %0, align 8
-  %1 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_clear_retry_flags(ptr noundef %1)
-  %2 = load ptr, ptr %bio.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %init, align 8
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @BIO_zero_copy_get_read_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %14 = load ptr, ptr %9, align 8, !tbaa !13
+  store i64 0, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %6, align 8, !tbaa !6
+  call void @BIO_clear_retry_flags(ptr noundef %15)
+  %16 = load ptr, ptr %6, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw %struct.bio_st, ptr %16, i32 0, i32 3
+  %18 = load i32, ptr %17, align 8, !tbaa !17
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %entry
+20:                                               ; preds = %4
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 114, ptr noundef @.str, i32 noundef 184)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %76
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %4, i32 0, i32 9
-  %5 = load ptr, ptr %ptr, align 8
-  store ptr %5, ptr %b, align 8
-  %6 = load ptr, ptr %b, align 8
-  %tobool1 = icmp ne ptr %6, null
-  br i1 %tobool1, label %lor.lhs.false, label %if.then3
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %6, align 8, !tbaa !6
+  %23 = getelementptr inbounds nuw %struct.bio_st, ptr %22, i32 0, i32 9
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  store ptr %24, ptr %10, align 8, !tbaa !23
+  %25 = load ptr, ptr %10, align 8, !tbaa !23
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %32
 
-lor.lhs.false:                                    ; preds = %if.end
-  %7 = load ptr, ptr %b, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %peer, align 8
-  %tobool2 = icmp ne ptr %8, null
-  br i1 %tobool2, label %if.end4, label %if.then3
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %10, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %33, label %32
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.end
+32:                                               ; preds = %27, %21
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 115, ptr noundef @.str, i32 noundef 191)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %76
 
-if.end4:                                          ; preds = %lor.lhs.false
-  %9 = load ptr, ptr %b, align 8
-  %peer5 = getelementptr inbounds %struct.bio_bio_st, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %peer5, align 8
-  %ptr6 = getelementptr inbounds %struct.bio_st, ptr %10, i32 0, i32 9
-  %11 = load ptr, ptr %ptr6, align 8
-  store ptr %11, ptr %peer_b, align 8
-  %12 = load ptr, ptr %peer_b, align 8
-  %tobool7 = icmp ne ptr %12, null
-  br i1 %tobool7, label %lor.lhs.false8, label %if.then14
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %10, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !25
+  %37 = getelementptr inbounds nuw %struct.bio_st, ptr %36, i32 0, i32 9
+  %38 = load ptr, ptr %37, align 8, !tbaa !22
+  store ptr %38, ptr %11, align 8, !tbaa !23
+  %39 = load ptr, ptr %11, align 8, !tbaa !23
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %54
 
-lor.lhs.false8:                                   ; preds = %if.end4
-  %13 = load ptr, ptr %peer_b, align 8
-  %peer9 = getelementptr inbounds %struct.bio_bio_st, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %peer9, align 8
-  %tobool10 = icmp ne ptr %14, null
-  br i1 %tobool10, label %lor.lhs.false11, label %if.then14
+41:                                               ; preds = %33
+  %42 = load ptr, ptr %11, align 8, !tbaa !23
+  %43 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !25
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %54
 
-lor.lhs.false11:                                  ; preds = %lor.lhs.false8
-  %15 = load ptr, ptr %peer_b, align 8
-  %peer12 = getelementptr inbounds %struct.bio_bio_st, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %peer12, align 8
-  %ptr13 = getelementptr inbounds %struct.bio_st, ptr %16, i32 0, i32 9
-  %17 = load ptr, ptr %ptr13, align 8
-  %18 = load ptr, ptr %b, align 8
-  %cmp = icmp ne ptr %17, %18
-  br i1 %cmp, label %if.then14, label %if.end15
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %11, align 8, !tbaa !23
+  %48 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !25
+  %50 = getelementptr inbounds nuw %struct.bio_st, ptr %49, i32 0, i32 9
+  %51 = load ptr, ptr %50, align 8, !tbaa !22
+  %52 = load ptr, ptr %10, align 8, !tbaa !23
+  %53 = icmp ne ptr %51, %52
+  br i1 %53, label %54, label %55
 
-if.then14:                                        ; preds = %lor.lhs.false11, %lor.lhs.false8, %if.end4
+54:                                               ; preds = %46, %41, %33
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 115, ptr noundef @.str, i32 noundef 197)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %76
 
-if.end15:                                         ; preds = %lor.lhs.false11
-  %19 = load ptr, ptr %peer_b, align 8
-  %zero_copy_read_lock = getelementptr inbounds %struct.bio_bio_st, ptr %19, i32 0, i32 7
-  %20 = load i8, ptr %zero_copy_read_lock, align 1
-  %tobool16 = icmp ne i8 %20, 0
-  br i1 %tobool16, label %if.then17, label %if.end18
+55:                                               ; preds = %46
+  %56 = load ptr, ptr %11, align 8, !tbaa !23
+  %57 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %56, i32 0, i32 7
+  %58 = load i8, ptr %57, align 1, !tbaa !27
+  %59 = icmp ne i8 %58, 0
+  br i1 %59, label %60, label %61
 
-if.then17:                                        ; preds = %if.end15
+60:                                               ; preds = %55
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 104, ptr noundef @.str, i32 noundef 202)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %76
 
-if.end18:                                         ; preds = %if.end15
-  %21 = load ptr, ptr %peer_b, align 8
-  %request = getelementptr inbounds %struct.bio_bio_st, ptr %21, i32 0, i32 9
-  store i64 0, ptr %request, align 8
-  %22 = load ptr, ptr %peer_b, align 8
-  %23 = load ptr, ptr %out_read_buf.addr, align 8
-  %24 = load ptr, ptr %out_buf_offset.addr, align 8
-  %call = call i64 @bio_zero_copy_get_read_buf(ptr noundef %22, ptr noundef %23, ptr noundef %24)
-  store i64 %call, ptr %max_available, align 8
-  %25 = load i64, ptr %max_available, align 8
-  %cmp19 = icmp ugt i64 %25, 0
-  br i1 %cmp19, label %if.then20, label %if.end22
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %11, align 8, !tbaa !23
+  %63 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %62, i32 0, i32 9
+  store i64 0, ptr %63, align 8, !tbaa !28
+  %64 = load ptr, ptr %11, align 8, !tbaa !23
+  %65 = load ptr, ptr %7, align 8, !tbaa !11
+  %66 = load ptr, ptr %8, align 8, !tbaa !13
+  %67 = call i64 @bio_zero_copy_get_read_buf(ptr noundef %64, ptr noundef %65, ptr noundef %66)
+  store i64 %67, ptr %12, align 8, !tbaa !15
+  %68 = load i64, ptr %12, align 8, !tbaa !15
+  %69 = icmp ugt i64 %68, 0
+  br i1 %69, label %70, label %73
 
-if.then20:                                        ; preds = %if.end18
-  %26 = load ptr, ptr %peer_b, align 8
-  %zero_copy_read_lock21 = getelementptr inbounds %struct.bio_bio_st, ptr %26, i32 0, i32 7
-  store i8 1, ptr %zero_copy_read_lock21, align 1
-  br label %if.end22
+70:                                               ; preds = %61
+  %71 = load ptr, ptr %11, align 8, !tbaa !23
+  %72 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %71, i32 0, i32 7
+  store i8 1, ptr %72, align 1, !tbaa !27
+  br label %73
 
-if.end22:                                         ; preds = %if.then20, %if.end18
-  %27 = load i64, ptr %max_available, align 8
-  %28 = load ptr, ptr %out_available_bytes.addr, align 8
-  store i64 %27, ptr %28, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+73:                                               ; preds = %70, %61
+  %74 = load i64, ptr %12, align 8, !tbaa !15
+  %75 = load ptr, ptr %9, align 8, !tbaa !13
+  store i64 %74, ptr %75, align 8, !tbaa !15
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %76
 
-return:                                           ; preds = %if.end22, %if.then17, %if.then14, %if.then3, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+76:                                               ; preds = %73, %60, %54, %32, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %77 = load i32, ptr %5, align 4
+  ret i32 %77
 }
 
-declare void @BIO_clear_retry_flags(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare void @BIO_clear_retry_flags(ptr noundef) #2
+
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bio_zero_copy_get_read_buf(ptr noundef %peer_b, ptr noundef %out_read_buf, ptr noundef %out_buf_offset) #0 {
-entry:
-  %peer_b.addr = alloca ptr, align 8
-  %out_read_buf.addr = alloca ptr, align 8
-  %out_buf_offset.addr = alloca ptr, align 8
-  %max_available = alloca i64, align 8
-  store ptr %peer_b, ptr %peer_b.addr, align 8
-  store ptr %out_read_buf, ptr %out_read_buf.addr, align 8
-  store ptr %out_buf_offset, ptr %out_buf_offset.addr, align 8
-  %0 = load ptr, ptr %peer_b.addr, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %len, align 8
-  %2 = load ptr, ptr %peer_b.addr, align 8
-  %size = getelementptr inbounds %struct.bio_bio_st, ptr %2, i32 0, i32 4
-  %3 = load i64, ptr %size, align 8
-  %4 = load ptr, ptr %peer_b.addr, align 8
-  %offset = getelementptr inbounds %struct.bio_bio_st, ptr %4, i32 0, i32 3
-  %5 = load i64, ptr %offset, align 8
-  %sub = sub i64 %3, %5
-  %cmp = icmp ugt i64 %1, %sub
-  br i1 %cmp, label %if.then, label %if.else
+define internal i64 @bio_zero_copy_get_read_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %8, i32 0, i32 2
+  %10 = load i64, ptr %9, align 8, !tbaa !29
+  %11 = load ptr, ptr %4, align 8, !tbaa !23
+  %12 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %11, i32 0, i32 4
+  %13 = load i64, ptr %12, align 8, !tbaa !30
+  %14 = load ptr, ptr %4, align 8, !tbaa !23
+  %15 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %14, i32 0, i32 3
+  %16 = load i64, ptr %15, align 8, !tbaa !31
+  %17 = sub i64 %13, %16
+  %18 = icmp ugt i64 %10, %17
+  br i1 %18, label %19, label %27
 
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %peer_b.addr, align 8
-  %size1 = getelementptr inbounds %struct.bio_bio_st, ptr %6, i32 0, i32 4
-  %7 = load i64, ptr %size1, align 8
-  %8 = load ptr, ptr %peer_b.addr, align 8
-  %offset2 = getelementptr inbounds %struct.bio_bio_st, ptr %8, i32 0, i32 3
-  %9 = load i64, ptr %offset2, align 8
-  %sub3 = sub i64 %7, %9
-  store i64 %sub3, ptr %max_available, align 8
-  br label %if.end
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %20, i32 0, i32 4
+  %22 = load i64, ptr %21, align 8, !tbaa !30
+  %23 = load ptr, ptr %4, align 8, !tbaa !23
+  %24 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %23, i32 0, i32 3
+  %25 = load i64, ptr %24, align 8, !tbaa !31
+  %26 = sub i64 %22, %25
+  store i64 %26, ptr %7, align 8, !tbaa !15
+  br label %31
 
-if.else:                                          ; preds = %entry
-  %10 = load ptr, ptr %peer_b.addr, align 8
-  %len4 = getelementptr inbounds %struct.bio_bio_st, ptr %10, i32 0, i32 2
-  %11 = load i64, ptr %len4, align 8
-  store i64 %11, ptr %max_available, align 8
-  br label %if.end
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %4, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %28, i32 0, i32 2
+  %30 = load i64, ptr %29, align 8, !tbaa !29
+  store i64 %30, ptr %7, align 8, !tbaa !15
+  br label %31
 
-if.end:                                           ; preds = %if.else, %if.then
-  %12 = load ptr, ptr %peer_b.addr, align 8
-  %buf = getelementptr inbounds %struct.bio_bio_st, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %buf, align 8
-  %14 = load ptr, ptr %out_read_buf.addr, align 8
-  store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr %peer_b.addr, align 8
-  %offset5 = getelementptr inbounds %struct.bio_bio_st, ptr %15, i32 0, i32 3
-  %16 = load i64, ptr %offset5, align 8
-  %17 = load ptr, ptr %out_buf_offset.addr, align 8
-  store i64 %16, ptr %17, align 8
-  %18 = load i64, ptr %max_available, align 8
-  ret i64 %18
+31:                                               ; preds = %27, %19
+  %32 = load ptr, ptr %4, align 8, !tbaa !23
+  %33 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %35 = load ptr, ptr %5, align 8, !tbaa !11
+  store ptr %34, ptr %35, align 8, !tbaa !33
+  %36 = load ptr, ptr %4, align 8, !tbaa !23
+  %37 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %36, i32 0, i32 3
+  %38 = load i64, ptr %37, align 8, !tbaa !31
+  %39 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %38, ptr %39, align 8, !tbaa !15
+  %40 = load i64, ptr %7, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret i64 %40
 }
 
-; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_zero_copy_get_read_buf_done(ptr noundef %bio, i64 noundef %bytes_read) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %bytes_read.addr = alloca i64, align 8
-  %b = alloca ptr, align 8
-  %peer_b = alloca ptr, align 8
-  %max_available = alloca i64, align 8
-  %dummy_read_offset = alloca i64, align 8
-  %dummy_read_buf = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store i64 %bytes_read, ptr %bytes_read.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 3
-  %1 = load i32, ptr %init, align 8
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-if.then:                                          ; preds = %entry
+; Function Attrs: nounwind uwtable
+define hidden i32 @BIO_zero_copy_get_read_buf_done(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store i64 %1, ptr %5, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !6
+  %13 = getelementptr inbounds nuw %struct.bio_st, ptr %12, i32 0, i32 3
+  %14 = load i32, ptr %13, align 8, !tbaa !17
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %2
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 114, ptr noundef @.str, i32 noundef 230)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %2, i32 0, i32 9
-  %3 = load ptr, ptr %ptr, align 8
-  store ptr %3, ptr %b, align 8
-  %4 = load ptr, ptr %b, align 8
-  %tobool1 = icmp ne ptr %4, null
-  br i1 %tobool1, label %lor.lhs.false, label %if.then3
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.bio_st, ptr %18, i32 0, i32 9
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  store ptr %20, ptr %6, align 8, !tbaa !23
+  %21 = load ptr, ptr %6, align 8, !tbaa !23
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %28
 
-lor.lhs.false:                                    ; preds = %if.end
-  %5 = load ptr, ptr %b, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %peer, align 8
-  %tobool2 = icmp ne ptr %6, null
-  br i1 %tobool2, label %if.end4, label %if.then3
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %6, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !25
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %29, label %28
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.end
+28:                                               ; preds = %23, %17
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 115, ptr noundef @.str, i32 noundef 237)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
 
-if.end4:                                          ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %b, align 8
-  %peer5 = getelementptr inbounds %struct.bio_bio_st, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %peer5, align 8
-  %ptr6 = getelementptr inbounds %struct.bio_st, ptr %8, i32 0, i32 9
-  %9 = load ptr, ptr %ptr6, align 8
-  store ptr %9, ptr %peer_b, align 8
-  %10 = load ptr, ptr %peer_b, align 8
-  %tobool7 = icmp ne ptr %10, null
-  br i1 %tobool7, label %lor.lhs.false8, label %if.then14
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %6, align 8, !tbaa !23
+  %31 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %33 = getelementptr inbounds nuw %struct.bio_st, ptr %32, i32 0, i32 9
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  store ptr %34, ptr %7, align 8, !tbaa !23
+  %35 = load ptr, ptr %7, align 8, !tbaa !23
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %50
 
-lor.lhs.false8:                                   ; preds = %if.end4
-  %11 = load ptr, ptr %peer_b, align 8
-  %peer9 = getelementptr inbounds %struct.bio_bio_st, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %peer9, align 8
-  %tobool10 = icmp ne ptr %12, null
-  br i1 %tobool10, label %lor.lhs.false11, label %if.then14
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %7, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !25
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %50
 
-lor.lhs.false11:                                  ; preds = %lor.lhs.false8
-  %13 = load ptr, ptr %peer_b, align 8
-  %peer12 = getelementptr inbounds %struct.bio_bio_st, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %peer12, align 8
-  %ptr13 = getelementptr inbounds %struct.bio_st, ptr %14, i32 0, i32 9
-  %15 = load ptr, ptr %ptr13, align 8
-  %16 = load ptr, ptr %b, align 8
-  %cmp = icmp ne ptr %15, %16
-  br i1 %cmp, label %if.then14, label %if.end15
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %7, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !25
+  %46 = getelementptr inbounds nuw %struct.bio_st, ptr %45, i32 0, i32 9
+  %47 = load ptr, ptr %46, align 8, !tbaa !22
+  %48 = load ptr, ptr %6, align 8, !tbaa !23
+  %49 = icmp ne ptr %47, %48
+  br i1 %49, label %50, label %51
 
-if.then14:                                        ; preds = %lor.lhs.false11, %lor.lhs.false8, %if.end4
+50:                                               ; preds = %42, %37, %29
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 115, ptr noundef @.str, i32 noundef 243)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
 
-if.end15:                                         ; preds = %lor.lhs.false11
-  %17 = load ptr, ptr %peer_b, align 8
-  %zero_copy_read_lock = getelementptr inbounds %struct.bio_bio_st, ptr %17, i32 0, i32 7
-  %18 = load i8, ptr %zero_copy_read_lock, align 1
-  %tobool16 = icmp ne i8 %18, 0
-  br i1 %tobool16, label %if.end18, label %if.then17
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %7, align 8, !tbaa !23
+  %53 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %52, i32 0, i32 7
+  %54 = load i8, ptr %53, align 1, !tbaa !27
+  %55 = icmp ne i8 %54, 0
+  br i1 %55, label %57, label %56
 
-if.then17:                                        ; preds = %if.end15
+56:                                               ; preds = %51
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 104, ptr noundef @.str, i32 noundef 248)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
 
-if.end18:                                         ; preds = %if.end15
-  %19 = load ptr, ptr %peer_b, align 8
-  %call = call i64 @bio_zero_copy_get_read_buf(ptr noundef %19, ptr noundef %dummy_read_buf, ptr noundef %dummy_read_offset)
-  store i64 %call, ptr %max_available, align 8
-  %20 = load i64, ptr %bytes_read.addr, align 8
-  %21 = load i64, ptr %max_available, align 8
-  %cmp19 = icmp ugt i64 %20, %21
-  br i1 %cmp19, label %if.then20, label %if.end21
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %7, align 8, !tbaa !23
+  %59 = call i64 @bio_zero_copy_get_read_buf(ptr noundef %58, ptr noundef %10, ptr noundef %9)
+  store i64 %59, ptr %8, align 8, !tbaa !15
+  %60 = load i64, ptr %5, align 8, !tbaa !15
+  %61 = load i64, ptr %8, align 8, !tbaa !15
+  %62 = icmp ugt i64 %60, %61
+  br i1 %62, label %63, label %64
 
-if.then20:                                        ; preds = %if.end18
+63:                                               ; preds = %57
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 104, ptr noundef @.str, i32 noundef 255)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
 
-if.end21:                                         ; preds = %if.end18
-  %22 = load i64, ptr %bytes_read.addr, align 8
-  %23 = load ptr, ptr %peer_b, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %23, i32 0, i32 2
-  %24 = load i64, ptr %len, align 8
-  %sub = sub i64 %24, %22
-  store i64 %sub, ptr %len, align 8
-  %25 = load ptr, ptr %peer_b, align 8
-  %offset = getelementptr inbounds %struct.bio_bio_st, ptr %25, i32 0, i32 3
-  %26 = load i64, ptr %offset, align 8
-  %27 = load i64, ptr %bytes_read.addr, align 8
-  %add = add i64 %26, %27
-  %28 = load ptr, ptr %peer_b, align 8
-  %size = getelementptr inbounds %struct.bio_bio_st, ptr %28, i32 0, i32 4
-  %29 = load i64, ptr %size, align 8
-  %cmp22 = icmp eq i64 %add, %29
-  br i1 %cmp22, label %if.then27, label %lor.lhs.false23
+64:                                               ; preds = %57
+  %65 = load i64, ptr %5, align 8, !tbaa !15
+  %66 = load ptr, ptr %7, align 8, !tbaa !23
+  %67 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %66, i32 0, i32 2
+  %68 = load i64, ptr %67, align 8, !tbaa !29
+  %69 = sub i64 %68, %65
+  store i64 %69, ptr %67, align 8, !tbaa !29
+  %70 = load ptr, ptr %7, align 8, !tbaa !23
+  %71 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %70, i32 0, i32 3
+  %72 = load i64, ptr %71, align 8, !tbaa !31
+  %73 = load i64, ptr %5, align 8, !tbaa !15
+  %74 = add i64 %72, %73
+  %75 = load ptr, ptr %7, align 8, !tbaa !23
+  %76 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %75, i32 0, i32 4
+  %77 = load i64, ptr %76, align 8, !tbaa !30
+  %78 = icmp eq i64 %74, %77
+  br i1 %78, label %89, label %79
 
-lor.lhs.false23:                                  ; preds = %if.end21
-  %30 = load ptr, ptr %peer_b, align 8
-  %zero_copy_write_lock = getelementptr inbounds %struct.bio_bio_st, ptr %30, i32 0, i32 8
-  %31 = load i8, ptr %zero_copy_write_lock, align 2
-  %tobool24 = icmp ne i8 %31, 0
-  br i1 %tobool24, label %if.else, label %land.lhs.true
+79:                                               ; preds = %64
+  %80 = load ptr, ptr %7, align 8, !tbaa !23
+  %81 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %80, i32 0, i32 8
+  %82 = load i8, ptr %81, align 2, !tbaa !34
+  %83 = icmp ne i8 %82, 0
+  br i1 %83, label %92, label %84
 
-land.lhs.true:                                    ; preds = %lor.lhs.false23
-  %32 = load ptr, ptr %peer_b, align 8
-  %len25 = getelementptr inbounds %struct.bio_bio_st, ptr %32, i32 0, i32 2
-  %33 = load i64, ptr %len25, align 8
-  %cmp26 = icmp eq i64 %33, 0
-  br i1 %cmp26, label %if.then27, label %if.else
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %7, align 8, !tbaa !23
+  %86 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %85, i32 0, i32 2
+  %87 = load i64, ptr %86, align 8, !tbaa !29
+  %88 = icmp eq i64 %87, 0
+  br i1 %88, label %89, label %92
 
-if.then27:                                        ; preds = %land.lhs.true, %if.end21
-  %34 = load ptr, ptr %peer_b, align 8
-  %offset28 = getelementptr inbounds %struct.bio_bio_st, ptr %34, i32 0, i32 3
-  store i64 0, ptr %offset28, align 8
-  br label %if.end31
+89:                                               ; preds = %84, %64
+  %90 = load ptr, ptr %7, align 8, !tbaa !23
+  %91 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %90, i32 0, i32 3
+  store i64 0, ptr %91, align 8, !tbaa !31
+  br label %98
 
-if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false23
-  %35 = load i64, ptr %bytes_read.addr, align 8
-  %36 = load ptr, ptr %peer_b, align 8
-  %offset29 = getelementptr inbounds %struct.bio_bio_st, ptr %36, i32 0, i32 3
-  %37 = load i64, ptr %offset29, align 8
-  %add30 = add i64 %37, %35
-  store i64 %add30, ptr %offset29, align 8
-  br label %if.end31
+92:                                               ; preds = %84, %79
+  %93 = load i64, ptr %5, align 8, !tbaa !15
+  %94 = load ptr, ptr %7, align 8, !tbaa !23
+  %95 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %94, i32 0, i32 3
+  %96 = load i64, ptr %95, align 8, !tbaa !31
+  %97 = add i64 %96, %93
+  store i64 %97, ptr %95, align 8, !tbaa !31
+  br label %98
 
-if.end31:                                         ; preds = %if.else, %if.then27
-  %38 = load i64, ptr %bytes_read.addr, align 8
-  %39 = load ptr, ptr %bio.addr, align 8
-  %num_read = getelementptr inbounds %struct.bio_st, ptr %39, i32 0, i32 11
-  %40 = load i64, ptr %num_read, align 8
-  %add32 = add i64 %40, %38
-  store i64 %add32, ptr %num_read, align 8
-  %41 = load ptr, ptr %peer_b, align 8
-  %zero_copy_read_lock33 = getelementptr inbounds %struct.bio_bio_st, ptr %41, i32 0, i32 7
-  store i8 0, ptr %zero_copy_read_lock33, align 1
-  store i32 1, ptr %retval, align 4
-  br label %return
+98:                                               ; preds = %92, %89
+  %99 = load i64, ptr %5, align 8, !tbaa !15
+  %100 = load ptr, ptr %4, align 8, !tbaa !6
+  %101 = getelementptr inbounds nuw %struct.bio_st, ptr %100, i32 0, i32 11
+  %102 = load i64, ptr %101, align 8, !tbaa !35
+  %103 = add i64 %102, %99
+  store i64 %103, ptr %101, align 8, !tbaa !35
+  %104 = load ptr, ptr %7, align 8, !tbaa !23
+  %105 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %104, i32 0, i32 7
+  store i8 0, ptr %105, align 1, !tbaa !27
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
 
-return:                                           ; preds = %if.end31, %if.then20, %if.then17, %if.then14, %if.then3, %if.then
-  %42 = load i32, ptr %retval, align 4
-  ret i32 %42
+106:                                              ; preds = %98, %63, %56, %50, %28, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %107 = load i32, ptr %3, align 4
+  ret i32 %107
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_zero_copy_get_write_buf(ptr noundef %bio, ptr noundef %out_write_buf, ptr noundef %out_buf_offset, ptr noundef %out_available_bytes) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %out_write_buf.addr = alloca ptr, align 8
-  %out_buf_offset.addr = alloca ptr, align 8
-  %out_available_bytes.addr = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  %peer_b = alloca ptr, align 8
-  %max_available = alloca i64, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store ptr %out_write_buf, ptr %out_write_buf.addr, align 8
-  store ptr %out_buf_offset, ptr %out_buf_offset.addr, align 8
-  store ptr %out_available_bytes, ptr %out_available_bytes.addr, align 8
-  %0 = load ptr, ptr %out_available_bytes.addr, align 8
-  store i64 0, ptr %0, align 8
-  %1 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_clear_retry_flags(ptr noundef %1)
-  %2 = load ptr, ptr %bio.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %init, align 8
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @BIO_zero_copy_get_write_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %14 = load ptr, ptr %9, align 8, !tbaa !13
+  store i64 0, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %6, align 8, !tbaa !6
+  call void @BIO_clear_retry_flags(ptr noundef %15)
+  %16 = load ptr, ptr %6, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw %struct.bio_st, ptr %16, i32 0, i32 3
+  %18 = load i32, ptr %17, align 8, !tbaa !17
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %entry
+20:                                               ; preds = %4
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 114, ptr noundef @.str, i32 noundef 314)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %87
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %4, i32 0, i32 9
-  %5 = load ptr, ptr %ptr, align 8
-  store ptr %5, ptr %b, align 8
-  %6 = load ptr, ptr %b, align 8
-  %tobool1 = icmp ne ptr %6, null
-  br i1 %tobool1, label %lor.lhs.false, label %if.then5
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %6, align 8, !tbaa !6
+  %23 = getelementptr inbounds nuw %struct.bio_st, ptr %22, i32 0, i32 9
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  store ptr %24, ptr %10, align 8, !tbaa !23
+  %25 = load ptr, ptr %10, align 8, !tbaa !23
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %37
 
-lor.lhs.false:                                    ; preds = %if.end
-  %7 = load ptr, ptr %b, align 8
-  %buf = getelementptr inbounds %struct.bio_bio_st, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %buf, align 8
-  %tobool2 = icmp ne ptr %8, null
-  br i1 %tobool2, label %lor.lhs.false3, label %if.then5
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %10, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %28, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %37
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %9 = load ptr, ptr %b, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %peer, align 8
-  %tobool4 = icmp ne ptr %10, null
-  br i1 %tobool4, label %if.end6, label %if.then5
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %10, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !25
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %38, label %37
 
-if.then5:                                         ; preds = %lor.lhs.false3, %lor.lhs.false, %if.end
+37:                                               ; preds = %32, %27, %21
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 115, ptr noundef @.str, i32 noundef 321)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %87
 
-if.end6:                                          ; preds = %lor.lhs.false3
-  %11 = load ptr, ptr %b, align 8
-  %peer7 = getelementptr inbounds %struct.bio_bio_st, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %peer7, align 8
-  %ptr8 = getelementptr inbounds %struct.bio_st, ptr %12, i32 0, i32 9
-  %13 = load ptr, ptr %ptr8, align 8
-  store ptr %13, ptr %peer_b, align 8
-  %14 = load ptr, ptr %peer_b, align 8
-  %tobool9 = icmp ne ptr %14, null
-  br i1 %tobool9, label %lor.lhs.false10, label %if.then16
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %10, align 8, !tbaa !23
+  %40 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !25
+  %42 = getelementptr inbounds nuw %struct.bio_st, ptr %41, i32 0, i32 9
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
+  store ptr %43, ptr %11, align 8, !tbaa !23
+  %44 = load ptr, ptr %11, align 8, !tbaa !23
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %59
 
-lor.lhs.false10:                                  ; preds = %if.end6
-  %15 = load ptr, ptr %peer_b, align 8
-  %peer11 = getelementptr inbounds %struct.bio_bio_st, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %peer11, align 8
-  %tobool12 = icmp ne ptr %16, null
-  br i1 %tobool12, label %lor.lhs.false13, label %if.then16
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %11, align 8, !tbaa !23
+  %48 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !25
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %59
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %17 = load ptr, ptr %peer_b, align 8
-  %peer14 = getelementptr inbounds %struct.bio_bio_st, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %peer14, align 8
-  %ptr15 = getelementptr inbounds %struct.bio_st, ptr %18, i32 0, i32 9
-  %19 = load ptr, ptr %ptr15, align 8
-  %20 = load ptr, ptr %b, align 8
-  %cmp = icmp ne ptr %19, %20
-  br i1 %cmp, label %if.then16, label %if.end17
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %11, align 8, !tbaa !23
+  %53 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !25
+  %55 = getelementptr inbounds nuw %struct.bio_st, ptr %54, i32 0, i32 9
+  %56 = load ptr, ptr %55, align 8, !tbaa !22
+  %57 = load ptr, ptr %10, align 8, !tbaa !23
+  %58 = icmp ne ptr %56, %57
+  br i1 %58, label %59, label %60
 
-if.then16:                                        ; preds = %lor.lhs.false13, %lor.lhs.false10, %if.end6
+59:                                               ; preds = %51, %46, %38
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 115, ptr noundef @.str, i32 noundef 326)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %87
 
-if.end17:                                         ; preds = %lor.lhs.false13
-  %21 = load ptr, ptr %b, align 8
-  %zero_copy_write_lock = getelementptr inbounds %struct.bio_bio_st, ptr %21, i32 0, i32 8
-  %22 = load i8, ptr %zero_copy_write_lock, align 2
-  %tobool18 = icmp ne i8 %22, 0
-  br i1 %tobool18, label %if.then19, label %if.end20
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %10, align 8, !tbaa !23
+  %62 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %61, i32 0, i32 8
+  %63 = load i8, ptr %62, align 2, !tbaa !34
+  %64 = icmp ne i8 %63, 0
+  br i1 %64, label %65, label %66
 
-if.then19:                                        ; preds = %if.end17
+65:                                               ; preds = %60
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 104, ptr noundef @.str, i32 noundef 333)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %87
 
-if.end20:                                         ; preds = %if.end17
-  %23 = load ptr, ptr %b, align 8
-  %request = getelementptr inbounds %struct.bio_bio_st, ptr %23, i32 0, i32 9
-  store i64 0, ptr %request, align 8
-  %24 = load ptr, ptr %b, align 8
-  %closed = getelementptr inbounds %struct.bio_bio_st, ptr %24, i32 0, i32 1
-  %25 = load i32, ptr %closed, align 8
-  %tobool21 = icmp ne i32 %25, 0
-  br i1 %tobool21, label %if.then22, label %if.end23
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %10, align 8, !tbaa !23
+  %68 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %67, i32 0, i32 9
+  store i64 0, ptr %68, align 8, !tbaa !28
+  %69 = load ptr, ptr %10, align 8, !tbaa !23
+  %70 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %69, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8, !tbaa !36
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %74
 
-if.then22:                                        ; preds = %if.end20
+73:                                               ; preds = %66
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 101, ptr noundef @.str, i32 noundef 340)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %87
 
-if.end23:                                         ; preds = %if.end20
-  %26 = load ptr, ptr %b, align 8
-  %27 = load ptr, ptr %out_write_buf.addr, align 8
-  %28 = load ptr, ptr %out_buf_offset.addr, align 8
-  %call = call i64 @bio_zero_copy_get_write_buf(ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  store i64 %call, ptr %max_available, align 8
-  %29 = load i64, ptr %max_available, align 8
-  %cmp24 = icmp ugt i64 %29, 0
-  br i1 %cmp24, label %if.then25, label %if.end27
+74:                                               ; preds = %66
+  %75 = load ptr, ptr %10, align 8, !tbaa !23
+  %76 = load ptr, ptr %7, align 8, !tbaa !11
+  %77 = load ptr, ptr %8, align 8, !tbaa !13
+  %78 = call i64 @bio_zero_copy_get_write_buf(ptr noundef %75, ptr noundef %76, ptr noundef %77)
+  store i64 %78, ptr %12, align 8, !tbaa !15
+  %79 = load i64, ptr %12, align 8, !tbaa !15
+  %80 = icmp ugt i64 %79, 0
+  br i1 %80, label %81, label %84
 
-if.then25:                                        ; preds = %if.end23
-  %30 = load ptr, ptr %b, align 8
-  %zero_copy_write_lock26 = getelementptr inbounds %struct.bio_bio_st, ptr %30, i32 0, i32 8
-  store i8 1, ptr %zero_copy_write_lock26, align 2
-  br label %if.end27
+81:                                               ; preds = %74
+  %82 = load ptr, ptr %10, align 8, !tbaa !23
+  %83 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %82, i32 0, i32 8
+  store i8 1, ptr %83, align 2, !tbaa !34
+  br label %84
 
-if.end27:                                         ; preds = %if.then25, %if.end23
-  %31 = load i64, ptr %max_available, align 8
-  %32 = load ptr, ptr %out_available_bytes.addr, align 8
-  store i64 %31, ptr %32, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %81, %74
+  %85 = load i64, ptr %12, align 8, !tbaa !15
+  %86 = load ptr, ptr %9, align 8, !tbaa !13
+  store i64 %85, ptr %86, align 8, !tbaa !15
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %87
 
-return:                                           ; preds = %if.end27, %if.then22, %if.then19, %if.then16, %if.then5, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+87:                                               ; preds = %84, %73, %65, %59, %37, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %88 = load i32, ptr %5, align 4
+  ret i32 %88
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bio_zero_copy_get_write_buf(ptr noundef %b, ptr noundef %out_write_buf, ptr noundef %out_buf_offset) #0 {
-entry:
-  %b.addr = alloca ptr, align 8
-  %out_write_buf.addr = alloca ptr, align 8
-  %out_buf_offset.addr = alloca ptr, align 8
-  %write_offset = alloca i64, align 8
-  %max_available = alloca i64, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store ptr %out_write_buf, ptr %out_write_buf.addr, align 8
-  store ptr %out_buf_offset, ptr %out_buf_offset.addr, align 8
-  %0 = load ptr, ptr %b.addr, align 8
-  %offset = getelementptr inbounds %struct.bio_bio_st, ptr %0, i32 0, i32 3
-  %1 = load i64, ptr %offset, align 8
-  %2 = load ptr, ptr %b.addr, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %len, align 8
-  %add = add i64 %1, %3
-  store i64 %add, ptr %write_offset, align 8
-  %4 = load i64, ptr %write_offset, align 8
-  %5 = load ptr, ptr %b.addr, align 8
-  %size = getelementptr inbounds %struct.bio_bio_st, ptr %5, i32 0, i32 4
-  %6 = load i64, ptr %size, align 8
-  %cmp = icmp uge i64 %4, %6
-  br i1 %cmp, label %if.then, label %if.else
+define internal i64 @bio_zero_copy_get_write_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !23
+  %10 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %9, i32 0, i32 3
+  %11 = load i64, ptr %10, align 8, !tbaa !31
+  %12 = load ptr, ptr %4, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %12, i32 0, i32 2
+  %14 = load i64, ptr %13, align 8, !tbaa !29
+  %15 = add i64 %11, %14
+  store i64 %15, ptr %7, align 8, !tbaa !15
+  %16 = load i64, ptr %7, align 8, !tbaa !15
+  %17 = load ptr, ptr %4, align 8, !tbaa !23
+  %18 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %17, i32 0, i32 4
+  %19 = load i64, ptr %18, align 8, !tbaa !30
+  %20 = icmp uge i64 %16, %19
+  br i1 %20, label %21, label %32
 
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %b.addr, align 8
-  %size1 = getelementptr inbounds %struct.bio_bio_st, ptr %7, i32 0, i32 4
-  %8 = load i64, ptr %size1, align 8
-  %9 = load i64, ptr %write_offset, align 8
-  %sub = sub i64 %9, %8
-  store i64 %sub, ptr %write_offset, align 8
-  %10 = load ptr, ptr %b.addr, align 8
-  %offset2 = getelementptr inbounds %struct.bio_bio_st, ptr %10, i32 0, i32 3
-  %11 = load i64, ptr %offset2, align 8
-  %12 = load i64, ptr %write_offset, align 8
-  %sub3 = sub i64 %11, %12
-  store i64 %sub3, ptr %max_available, align 8
-  br label %if.end
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %4, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %22, i32 0, i32 4
+  %24 = load i64, ptr %23, align 8, !tbaa !30
+  %25 = load i64, ptr %7, align 8, !tbaa !15
+  %26 = sub i64 %25, %24
+  store i64 %26, ptr %7, align 8, !tbaa !15
+  %27 = load ptr, ptr %4, align 8, !tbaa !23
+  %28 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %27, i32 0, i32 3
+  %29 = load i64, ptr %28, align 8, !tbaa !31
+  %30 = load i64, ptr %7, align 8, !tbaa !15
+  %31 = sub i64 %29, %30
+  store i64 %31, ptr %8, align 8, !tbaa !15
+  br label %38
 
-if.else:                                          ; preds = %entry
-  %13 = load ptr, ptr %b.addr, align 8
-  %size4 = getelementptr inbounds %struct.bio_bio_st, ptr %13, i32 0, i32 4
-  %14 = load i64, ptr %size4, align 8
-  %15 = load i64, ptr %write_offset, align 8
-  %sub5 = sub i64 %14, %15
-  store i64 %sub5, ptr %max_available, align 8
-  br label %if.end
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %4, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %33, i32 0, i32 4
+  %35 = load i64, ptr %34, align 8, !tbaa !30
+  %36 = load i64, ptr %7, align 8, !tbaa !15
+  %37 = sub i64 %35, %36
+  store i64 %37, ptr %8, align 8, !tbaa !15
+  br label %38
 
-if.end:                                           ; preds = %if.else, %if.then
-  %16 = load ptr, ptr %b.addr, align 8
-  %buf = getelementptr inbounds %struct.bio_bio_st, ptr %16, i32 0, i32 5
-  %17 = load ptr, ptr %buf, align 8
-  %18 = load ptr, ptr %out_write_buf.addr, align 8
-  store ptr %17, ptr %18, align 8
-  %19 = load i64, ptr %write_offset, align 8
-  %20 = load ptr, ptr %out_buf_offset.addr, align 8
-  store i64 %19, ptr %20, align 8
-  %21 = load i64, ptr %max_available, align 8
-  ret i64 %21
+38:                                               ; preds = %32, %21
+  %39 = load ptr, ptr %4, align 8, !tbaa !23
+  %40 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8, !tbaa !32
+  %42 = load ptr, ptr %5, align 8, !tbaa !11
+  store ptr %41, ptr %42, align 8, !tbaa !33
+  %43 = load i64, ptr %7, align 8, !tbaa !15
+  %44 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %43, ptr %44, align 8, !tbaa !15
+  %45 = load i64, ptr %8, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret i64 %45
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_zero_copy_get_write_buf_done(ptr noundef %bio, i64 noundef %bytes_written) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %bytes_written.addr = alloca i64, align 8
-  %b = alloca ptr, align 8
-  %peer_b = alloca ptr, align 8
-  %rest = alloca i64, align 8
-  %dummy_write_offset = alloca i64, align 8
-  %dummy_write_buf = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store i64 %bytes_written, ptr %bytes_written.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 3
-  %1 = load i32, ptr %init, align 8
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @BIO_zero_copy_get_write_buf_done(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store i64 %1, ptr %5, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !6
+  %13 = getelementptr inbounds nuw %struct.bio_st, ptr %12, i32 0, i32 3
+  %14 = load i32, ptr %13, align 8, !tbaa !17
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
 
-if.then:                                          ; preds = %entry
+16:                                               ; preds = %2
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 114, ptr noundef @.str, i32 noundef 363)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %2, i32 0, i32 9
-  %3 = load ptr, ptr %ptr, align 8
-  store ptr %3, ptr %b, align 8
-  %4 = load ptr, ptr %b, align 8
-  %tobool1 = icmp ne ptr %4, null
-  br i1 %tobool1, label %lor.lhs.false, label %if.then5
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.bio_st, ptr %18, i32 0, i32 9
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  store ptr %20, ptr %6, align 8, !tbaa !23
+  %21 = load ptr, ptr %6, align 8, !tbaa !23
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %33
 
-lor.lhs.false:                                    ; preds = %if.end
-  %5 = load ptr, ptr %b, align 8
-  %buf = getelementptr inbounds %struct.bio_bio_st, ptr %5, i32 0, i32 5
-  %6 = load ptr, ptr %buf, align 8
-  %tobool2 = icmp ne ptr %6, null
-  br i1 %tobool2, label %lor.lhs.false3, label %if.then5
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %6, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %24, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %33
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %b, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %peer, align 8
-  %tobool4 = icmp ne ptr %8, null
-  br i1 %tobool4, label %if.end6, label %if.then5
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %6, align 8, !tbaa !23
+  %30 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %34, label %33
 
-if.then5:                                         ; preds = %lor.lhs.false3, %lor.lhs.false, %if.end
+33:                                               ; preds = %28, %23, %17
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 115, ptr noundef @.str, i32 noundef 370)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
 
-if.end6:                                          ; preds = %lor.lhs.false3
-  %9 = load ptr, ptr %b, align 8
-  %peer7 = getelementptr inbounds %struct.bio_bio_st, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %peer7, align 8
-  %ptr8 = getelementptr inbounds %struct.bio_st, ptr %10, i32 0, i32 9
-  %11 = load ptr, ptr %ptr8, align 8
-  store ptr %11, ptr %peer_b, align 8
-  %12 = load ptr, ptr %peer_b, align 8
-  %tobool9 = icmp ne ptr %12, null
-  br i1 %tobool9, label %lor.lhs.false10, label %if.then16
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %6, align 8, !tbaa !23
+  %36 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !25
+  %38 = getelementptr inbounds nuw %struct.bio_st, ptr %37, i32 0, i32 9
+  %39 = load ptr, ptr %38, align 8, !tbaa !22
+  store ptr %39, ptr %7, align 8, !tbaa !23
+  %40 = load ptr, ptr %7, align 8, !tbaa !23
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %55
 
-lor.lhs.false10:                                  ; preds = %if.end6
-  %13 = load ptr, ptr %peer_b, align 8
-  %peer11 = getelementptr inbounds %struct.bio_bio_st, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %peer11, align 8
-  %tobool12 = icmp ne ptr %14, null
-  br i1 %tobool12, label %lor.lhs.false13, label %if.then16
+42:                                               ; preds = %34
+  %43 = load ptr, ptr %7, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !25
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %55
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %15 = load ptr, ptr %peer_b, align 8
-  %peer14 = getelementptr inbounds %struct.bio_bio_st, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %peer14, align 8
-  %ptr15 = getelementptr inbounds %struct.bio_st, ptr %16, i32 0, i32 9
-  %17 = load ptr, ptr %ptr15, align 8
-  %18 = load ptr, ptr %b, align 8
-  %cmp = icmp ne ptr %17, %18
-  br i1 %cmp, label %if.then16, label %if.end17
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %7, align 8, !tbaa !23
+  %49 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !25
+  %51 = getelementptr inbounds nuw %struct.bio_st, ptr %50, i32 0, i32 9
+  %52 = load ptr, ptr %51, align 8, !tbaa !22
+  %53 = load ptr, ptr %6, align 8, !tbaa !23
+  %54 = icmp ne ptr %52, %53
+  br i1 %54, label %55, label %56
 
-if.then16:                                        ; preds = %lor.lhs.false13, %lor.lhs.false10, %if.end6
+55:                                               ; preds = %47, %42, %34
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 115, ptr noundef @.str, i32 noundef 375)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
 
-if.end17:                                         ; preds = %lor.lhs.false13
-  %19 = load ptr, ptr %b, align 8
-  %request = getelementptr inbounds %struct.bio_bio_st, ptr %19, i32 0, i32 9
-  store i64 0, ptr %request, align 8
-  %20 = load ptr, ptr %b, align 8
-  %closed = getelementptr inbounds %struct.bio_bio_st, ptr %20, i32 0, i32 1
-  %21 = load i32, ptr %closed, align 8
-  %tobool18 = icmp ne i32 %21, 0
-  br i1 %tobool18, label %if.then19, label %if.end20
+56:                                               ; preds = %47
+  %57 = load ptr, ptr %6, align 8, !tbaa !23
+  %58 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %57, i32 0, i32 9
+  store i64 0, ptr %58, align 8, !tbaa !28
+  %59 = load ptr, ptr %6, align 8, !tbaa !23
+  %60 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %59, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8, !tbaa !36
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %64
 
-if.then19:                                        ; preds = %if.end17
+63:                                               ; preds = %56
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 101, ptr noundef @.str, i32 noundef 382)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
 
-if.end20:                                         ; preds = %if.end17
-  %22 = load ptr, ptr %b, align 8
-  %zero_copy_write_lock = getelementptr inbounds %struct.bio_bio_st, ptr %22, i32 0, i32 8
-  %23 = load i8, ptr %zero_copy_write_lock, align 2
-  %tobool21 = icmp ne i8 %23, 0
-  br i1 %tobool21, label %if.end23, label %if.then22
+64:                                               ; preds = %56
+  %65 = load ptr, ptr %6, align 8, !tbaa !23
+  %66 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %65, i32 0, i32 8
+  %67 = load i8, ptr %66, align 2, !tbaa !34
+  %68 = icmp ne i8 %67, 0
+  br i1 %68, label %70, label %69
 
-if.then22:                                        ; preds = %if.end20
+69:                                               ; preds = %64
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 104, ptr noundef @.str, i32 noundef 387)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
 
-if.end23:                                         ; preds = %if.end20
-  %24 = load ptr, ptr %b, align 8
-  %call = call i64 @bio_zero_copy_get_write_buf(ptr noundef %24, ptr noundef %dummy_write_buf, ptr noundef %dummy_write_offset)
-  store i64 %call, ptr %rest, align 8
-  %25 = load i64, ptr %bytes_written.addr, align 8
-  %26 = load i64, ptr %rest, align 8
-  %cmp24 = icmp ugt i64 %25, %26
-  br i1 %cmp24, label %if.then25, label %if.end26
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %6, align 8, !tbaa !23
+  %72 = call i64 @bio_zero_copy_get_write_buf(ptr noundef %71, ptr noundef %10, ptr noundef %9)
+  store i64 %72, ptr %8, align 8, !tbaa !15
+  %73 = load i64, ptr %5, align 8, !tbaa !15
+  %74 = load i64, ptr %8, align 8, !tbaa !15
+  %75 = icmp ugt i64 %73, %74
+  br i1 %75, label %76, label %77
 
-if.then25:                                        ; preds = %if.end23
+76:                                               ; preds = %70
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 104, ptr noundef @.str, i32 noundef 394)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
 
-if.end26:                                         ; preds = %if.end23
-  %27 = load i64, ptr %bytes_written.addr, align 8
-  %28 = load ptr, ptr %bio.addr, align 8
-  %num_write = getelementptr inbounds %struct.bio_st, ptr %28, i32 0, i32 12
-  %29 = load i64, ptr %num_write, align 8
-  %add = add i64 %29, %27
-  store i64 %add, ptr %num_write, align 8
-  %30 = load i64, ptr %bytes_written.addr, align 8
-  %31 = load ptr, ptr %b, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %31, i32 0, i32 2
-  %32 = load i64, ptr %len, align 8
-  %add27 = add i64 %32, %30
-  store i64 %add27, ptr %len, align 8
-  %33 = load ptr, ptr %b, align 8
-  %zero_copy_write_lock28 = getelementptr inbounds %struct.bio_bio_st, ptr %33, i32 0, i32 8
-  store i8 0, ptr %zero_copy_write_lock28, align 2
-  store i32 1, ptr %retval, align 4
-  br label %return
+77:                                               ; preds = %70
+  %78 = load i64, ptr %5, align 8, !tbaa !15
+  %79 = load ptr, ptr %4, align 8, !tbaa !6
+  %80 = getelementptr inbounds nuw %struct.bio_st, ptr %79, i32 0, i32 12
+  %81 = load i64, ptr %80, align 8, !tbaa !37
+  %82 = add i64 %81, %78
+  store i64 %82, ptr %80, align 8, !tbaa !37
+  %83 = load i64, ptr %5, align 8, !tbaa !15
+  %84 = load ptr, ptr %6, align 8, !tbaa !23
+  %85 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %84, i32 0, i32 2
+  %86 = load i64, ptr %85, align 8, !tbaa !29
+  %87 = add i64 %86, %83
+  store i64 %87, ptr %85, align 8, !tbaa !29
+  %88 = load ptr, ptr %6, align 8, !tbaa !23
+  %89 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %88, i32 0, i32 8
+  store i8 0, ptr %89, align 2, !tbaa !34
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
 
-return:                                           ; preds = %if.end26, %if.then25, %if.then22, %if.then19, %if.then16, %if.then5, %if.then
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
+90:                                               ; preds = %77, %76, %69, %63, %55, %33, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %91 = load i32, ptr %3, align 4
+  ret i32 %91
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_new_bio_pair(ptr noundef %bio1_p, i64 noundef %writebuf1, ptr noundef %bio2_p, i64 noundef %writebuf2) #0 {
-entry:
-  %bio1_p.addr = alloca ptr, align 8
-  %writebuf1.addr = alloca i64, align 8
-  %bio2_p.addr = alloca ptr, align 8
-  %writebuf2.addr = alloca i64, align 8
-  store ptr %bio1_p, ptr %bio1_p.addr, align 8
-  store i64 %writebuf1, ptr %writebuf1.addr, align 8
-  store ptr %bio2_p, ptr %bio2_p.addr, align 8
-  store i64 %writebuf2, ptr %writebuf2.addr, align 8
-  %0 = load ptr, ptr %bio1_p.addr, align 8
-  %1 = load i64, ptr %writebuf1.addr, align 8
-  %2 = load ptr, ptr %bio2_p.addr, align 8
-  %3 = load i64, ptr %writebuf2.addr, align 8
-  %call = call i32 @BIO_new_bio_pair_external_buf(ptr noundef %0, i64 noundef %1, ptr noundef null, ptr noundef %2, i64 noundef %3, ptr noundef null)
-  ret i32 %call
+define hidden i32 @BIO_new_bio_pair(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store i64 %1, ptr %6, align 8, !tbaa !15
+  store ptr %2, ptr %7, align 8, !tbaa !38
+  store i64 %3, ptr %8, align 8, !tbaa !15
+  %9 = load ptr, ptr %5, align 8, !tbaa !38
+  %10 = load i64, ptr %6, align 8, !tbaa !15
+  %11 = load ptr, ptr %7, align 8, !tbaa !38
+  %12 = load i64, ptr %8, align 8, !tbaa !15
+  %13 = call i32 @BIO_new_bio_pair_external_buf(ptr noundef %9, i64 noundef %10, ptr noundef null, ptr noundef %11, i64 noundef %12, ptr noundef null)
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_new_bio_pair_external_buf(ptr noundef %bio1_p, i64 noundef %writebuf1_len, ptr noundef %ext_writebuf1, ptr noundef %bio2_p, i64 noundef %writebuf2_len, ptr noundef %ext_writebuf2) #0 {
-entry:
-  %bio1_p.addr = alloca ptr, align 8
-  %writebuf1_len.addr = alloca i64, align 8
-  %ext_writebuf1.addr = alloca ptr, align 8
-  %bio2_p.addr = alloca ptr, align 8
-  %writebuf2_len.addr = alloca i64, align 8
-  %ext_writebuf2.addr = alloca ptr, align 8
-  %bio1 = alloca ptr, align 8
-  %bio2 = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %bio1_p, ptr %bio1_p.addr, align 8
-  store i64 %writebuf1_len, ptr %writebuf1_len.addr, align 8
-  store ptr %ext_writebuf1, ptr %ext_writebuf1.addr, align 8
-  store ptr %bio2_p, ptr %bio2_p.addr, align 8
-  store i64 %writebuf2_len, ptr %writebuf2_len.addr, align 8
-  store ptr %ext_writebuf2, ptr %ext_writebuf2.addr, align 8
-  store ptr null, ptr %bio1, align 8
-  store ptr null, ptr %bio2, align 8
-  store i32 0, ptr %ret, align 4
-  %0 = load ptr, ptr %ext_writebuf1.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
+define hidden i32 @BIO_new_bio_pair_external_buf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !38
+  store i64 %1, ptr %8, align 8, !tbaa !15
+  store ptr %2, ptr %9, align 8, !tbaa !33
+  store ptr %3, ptr %10, align 8, !tbaa !38
+  store i64 %4, ptr %11, align 8, !tbaa !15
+  store ptr %5, ptr %12, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  store ptr null, ptr %13, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  store ptr null, ptr %14, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  store i32 0, ptr %15, align 4, !tbaa !40
+  %16 = load ptr, ptr %9, align 8, !tbaa !33
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %21
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %writebuf1_len.addr, align 8
-  %tobool1 = icmp ne i64 %1, 0
-  br i1 %tobool1, label %lor.lhs.false, label %if.then
+18:                                               ; preds = %6
+  %19 = load i64, ptr %8, align 8, !tbaa !15
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %27
 
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %2 = load ptr, ptr %ext_writebuf2.addr, align 8
-  %tobool2 = icmp ne ptr %2, null
-  br i1 %tobool2, label %land.lhs.true3, label %if.end
+21:                                               ; preds = %18, %6
+  %22 = load ptr, ptr %12, align 8, !tbaa !33
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %28
 
-land.lhs.true3:                                   ; preds = %lor.lhs.false
-  %3 = load i64, ptr %writebuf2_len.addr, align 8
-  %tobool4 = icmp ne i64 %3, 0
-  br i1 %tobool4, label %if.end, label %if.then
+24:                                               ; preds = %21
+  %25 = load i64, ptr %11, align 8, !tbaa !15
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %28, label %27
 
-if.then:                                          ; preds = %land.lhs.true3, %land.lhs.true
-  br label %err
+27:                                               ; preds = %24, %18
+  br label %51
 
-if.end:                                           ; preds = %land.lhs.true3, %lor.lhs.false
-  %call = call ptr @bio_s_bio()
-  %call5 = call ptr @BIO_new(ptr noundef %call)
-  store ptr %call5, ptr %bio1, align 8
-  %4 = load ptr, ptr %bio1, align 8
-  %cmp = icmp eq ptr %4, null
-  br i1 %cmp, label %if.then6, label %if.end7
+28:                                               ; preds = %24, %21
+  %29 = call ptr @bio_s_bio()
+  %30 = call ptr @BIO_new(ptr noundef %29)
+  store ptr %30, ptr %13, align 8, !tbaa !6
+  %31 = load ptr, ptr %13, align 8, !tbaa !6
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %34
 
-if.then6:                                         ; preds = %if.end
-  br label %err
+33:                                               ; preds = %28
+  br label %51
 
-if.end7:                                          ; preds = %if.end
-  %call8 = call ptr @bio_s_bio()
-  %call9 = call ptr @BIO_new(ptr noundef %call8)
-  store ptr %call9, ptr %bio2, align 8
-  %5 = load ptr, ptr %bio2, align 8
-  %cmp10 = icmp eq ptr %5, null
-  br i1 %cmp10, label %if.then11, label %if.end12
+34:                                               ; preds = %28
+  %35 = call ptr @bio_s_bio()
+  %36 = call ptr @BIO_new(ptr noundef %35)
+  store ptr %36, ptr %14, align 8, !tbaa !6
+  %37 = load ptr, ptr %14, align 8, !tbaa !6
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %40
 
-if.then11:                                        ; preds = %if.end7
-  br label %err
+39:                                               ; preds = %34
+  br label %51
 
-if.end12:                                         ; preds = %if.end7
-  %6 = load ptr, ptr %bio1, align 8
-  %7 = load ptr, ptr %bio2, align 8
-  %8 = load i64, ptr %writebuf1_len.addr, align 8
-  %9 = load ptr, ptr %ext_writebuf1.addr, align 8
-  %10 = load i64, ptr %writebuf2_len.addr, align 8
-  %11 = load ptr, ptr %ext_writebuf2.addr, align 8
-  %call13 = call i32 @bio_make_pair(ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11)
-  %tobool14 = icmp ne i32 %call13, 0
-  br i1 %tobool14, label %if.end16, label %if.then15
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %13, align 8, !tbaa !6
+  %42 = load ptr, ptr %14, align 8, !tbaa !6
+  %43 = load i64, ptr %8, align 8, !tbaa !15
+  %44 = load ptr, ptr %9, align 8, !tbaa !33
+  %45 = load i64, ptr %11, align 8, !tbaa !15
+  %46 = load ptr, ptr %12, align 8, !tbaa !33
+  %47 = call i32 @bio_make_pair(ptr noundef %41, ptr noundef %42, i64 noundef %43, ptr noundef %44, i64 noundef %45, ptr noundef %46)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %50, label %49
 
-if.then15:                                        ; preds = %if.end12
-  br label %err
+49:                                               ; preds = %40
+  br label %51
 
-if.end16:                                         ; preds = %if.end12
-  store i32 1, ptr %ret, align 4
-  br label %err
+50:                                               ; preds = %40
+  store i32 1, ptr %15, align 4, !tbaa !40
+  br label %51
 
-err:                                              ; preds = %if.end16, %if.then15, %if.then11, %if.then6, %if.then
-  %12 = load i32, ptr %ret, align 4
-  %cmp17 = icmp eq i32 %12, 0
-  br i1 %cmp17, label %if.then18, label %if.end21
+51:                                               ; preds = %50, %49, %39, %33, %27
+  %52 = load i32, ptr %15, align 4, !tbaa !40
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %59
 
-if.then18:                                        ; preds = %err
-  %13 = load ptr, ptr %bio1, align 8
-  %call19 = call i32 @BIO_free(ptr noundef %13)
-  store ptr null, ptr %bio1, align 8
-  %14 = load ptr, ptr %bio2, align 8
-  %call20 = call i32 @BIO_free(ptr noundef %14)
-  store ptr null, ptr %bio2, align 8
-  br label %if.end21
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %13, align 8, !tbaa !6
+  %56 = call i32 @BIO_free(ptr noundef %55)
+  store ptr null, ptr %13, align 8, !tbaa !6
+  %57 = load ptr, ptr %14, align 8, !tbaa !6
+  %58 = call i32 @BIO_free(ptr noundef %57)
+  store ptr null, ptr %14, align 8, !tbaa !6
+  br label %59
 
-if.end21:                                         ; preds = %if.then18, %err
-  %15 = load ptr, ptr %bio1, align 8
-  %16 = load ptr, ptr %bio1_p.addr, align 8
-  store ptr %15, ptr %16, align 8
-  %17 = load ptr, ptr %bio2, align 8
-  %18 = load ptr, ptr %bio2_p.addr, align 8
-  store ptr %17, ptr %18, align 8
-  %19 = load i32, ptr %ret, align 4
-  ret i32 %19
+59:                                               ; preds = %54, %51
+  %60 = load ptr, ptr %13, align 8, !tbaa !6
+  %61 = load ptr, ptr %7, align 8, !tbaa !38
+  store ptr %60, ptr %61, align 8, !tbaa !6
+  %62 = load ptr, ptr %14, align 8, !tbaa !6
+  %63 = load ptr, ptr %10, align 8, !tbaa !38
+  store ptr %62, ptr %63, align 8, !tbaa !6
+  %64 = load i32, ptr %15, align 4, !tbaa !40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  ret i32 %64
 }
 
-declare ptr @BIO_new(ptr noundef) #1
+declare ptr @BIO_new(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @bio_s_bio() #0 {
-entry:
   ret ptr @methods_biop
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_make_pair(ptr noundef %bio1, ptr noundef %bio2, i64 noundef %writebuf1_len, ptr noundef %ext_writebuf1, i64 noundef %writebuf2_len, ptr noundef %ext_writebuf2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio1.addr = alloca ptr, align 8
-  %bio2.addr = alloca ptr, align 8
-  %writebuf1_len.addr = alloca i64, align 8
-  %ext_writebuf1.addr = alloca ptr, align 8
-  %writebuf2_len.addr = alloca i64, align 8
-  %ext_writebuf2.addr = alloca ptr, align 8
-  %b1 = alloca ptr, align 8
-  %b2 = alloca ptr, align 8
-  store ptr %bio1, ptr %bio1.addr, align 8
-  store ptr %bio2, ptr %bio2.addr, align 8
-  store i64 %writebuf1_len, ptr %writebuf1_len.addr, align 8
-  store ptr %ext_writebuf1, ptr %ext_writebuf1.addr, align 8
-  store i64 %writebuf2_len, ptr %writebuf2_len.addr, align 8
-  store ptr %ext_writebuf2, ptr %ext_writebuf2.addr, align 8
-  %0 = load ptr, ptr %bio1.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 9
-  %1 = load ptr, ptr %ptr, align 8
-  store ptr %1, ptr %b1, align 8
-  %2 = load ptr, ptr %bio2.addr, align 8
-  %ptr1 = getelementptr inbounds %struct.bio_st, ptr %2, i32 0, i32 9
-  %3 = load ptr, ptr %ptr1, align 8
-  store ptr %3, ptr %b2, align 8
-  %4 = load ptr, ptr %b1, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %peer, align 8
-  %cmp = icmp ne ptr %5, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal i32 @bio_make_pair(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !6
+  store ptr %1, ptr %9, align 8, !tbaa !6
+  store i64 %2, ptr %10, align 8, !tbaa !15
+  store ptr %3, ptr %11, align 8, !tbaa !33
+  store i64 %4, ptr %12, align 8, !tbaa !15
+  store ptr %5, ptr %13, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %17 = load ptr, ptr %8, align 8, !tbaa !6
+  %18 = getelementptr inbounds nuw %struct.bio_st, ptr %17, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
+  store ptr %19, ptr %14, align 8, !tbaa !23
+  %20 = load ptr, ptr %9, align 8, !tbaa !6
+  %21 = getelementptr inbounds nuw %struct.bio_st, ptr %20, i32 0, i32 9
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  store ptr %22, ptr %15, align 8, !tbaa !23
+  %23 = load ptr, ptr %14, align 8, !tbaa !23
+  %24 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !25
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %32, label %27
 
-lor.lhs.false:                                    ; preds = %entry
-  %6 = load ptr, ptr %b2, align 8
-  %peer2 = getelementptr inbounds %struct.bio_bio_st, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %peer2, align 8
-  %cmp3 = icmp ne ptr %7, null
-  br i1 %cmp3, label %if.then, label %if.end
+27:                                               ; preds = %6
+  %28 = load ptr, ptr %15, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %33
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
+32:                                               ; preds = %27, %6
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 105, ptr noundef @.str, i32 noundef 579)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
 
-if.end:                                           ; preds = %lor.lhs.false
-  %8 = load ptr, ptr %b1, align 8
-  %buf = getelementptr inbounds %struct.bio_bio_st, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %buf, align 8
-  %cmp4 = icmp eq ptr %9, null
-  br i1 %cmp4, label %if.then5, label %if.end19
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %14, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %34, i32 0, i32 5
+  %36 = load ptr, ptr %35, align 8, !tbaa !32
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %74
 
-if.then5:                                         ; preds = %if.end
-  %10 = load i64, ptr %writebuf1_len.addr, align 8
-  %tobool = icmp ne i64 %10, 0
-  br i1 %tobool, label %if.then6, label %if.end7
+38:                                               ; preds = %33
+  %39 = load i64, ptr %10, align 8, !tbaa !15
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %45
 
-if.then6:                                         ; preds = %if.then5
-  %11 = load i64, ptr %writebuf1_len.addr, align 8
-  %12 = load ptr, ptr %b1, align 8
-  %size = getelementptr inbounds %struct.bio_bio_st, ptr %12, i32 0, i32 4
-  store i64 %11, ptr %size, align 8
-  br label %if.end7
+41:                                               ; preds = %38
+  %42 = load i64, ptr %10, align 8, !tbaa !15
+  %43 = load ptr, ptr %14, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %43, i32 0, i32 4
+  store i64 %42, ptr %44, align 8, !tbaa !30
+  br label %45
 
-if.end7:                                          ; preds = %if.then6, %if.then5
-  %13 = load ptr, ptr %ext_writebuf1.addr, align 8
-  %tobool8 = icmp ne ptr %13, null
-  br i1 %tobool8, label %if.else, label %if.then9
+45:                                               ; preds = %41, %38
+  %46 = load ptr, ptr %11, align 8, !tbaa !33
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %63, label %48
 
-if.then9:                                         ; preds = %if.end7
-  %14 = load ptr, ptr %b1, align 8
-  %buf_externally_allocated = getelementptr inbounds %struct.bio_bio_st, ptr %14, i32 0, i32 6
-  store i8 0, ptr %buf_externally_allocated, align 8
-  %15 = load ptr, ptr %b1, align 8
-  %size10 = getelementptr inbounds %struct.bio_bio_st, ptr %15, i32 0, i32 4
-  %16 = load i64, ptr %size10, align 8
-  %call = call noalias ptr @malloc(i64 noundef %16) #7
-  %17 = load ptr, ptr %b1, align 8
-  %buf11 = getelementptr inbounds %struct.bio_bio_st, ptr %17, i32 0, i32 5
-  store ptr %call, ptr %buf11, align 8
-  %18 = load ptr, ptr %b1, align 8
-  %buf12 = getelementptr inbounds %struct.bio_bio_st, ptr %18, i32 0, i32 5
-  %19 = load ptr, ptr %buf12, align 8
-  %cmp13 = icmp eq ptr %19, null
-  br i1 %cmp13, label %if.then14, label %if.end15
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %14, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %49, i32 0, i32 6
+  store i8 0, ptr %50, align 8, !tbaa !41
+  %51 = load ptr, ptr %14, align 8, !tbaa !23
+  %52 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %51, i32 0, i32 4
+  %53 = load i64, ptr %52, align 8, !tbaa !30
+  %54 = call noalias ptr @malloc(i64 noundef %53) #9
+  %55 = load ptr, ptr %14, align 8, !tbaa !23
+  %56 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %55, i32 0, i32 5
+  store ptr %54, ptr %56, align 8, !tbaa !32
+  %57 = load ptr, ptr %14, align 8, !tbaa !23
+  %58 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %57, i32 0, i32 5
+  %59 = load ptr, ptr %58, align 8, !tbaa !32
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %62
 
-if.then14:                                        ; preds = %if.then9
+61:                                               ; preds = %48
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 65, ptr noundef @.str, i32 noundef 594)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
 
-if.end15:                                         ; preds = %if.then9
-  br label %if.end18
+62:                                               ; preds = %48
+  br label %69
 
-if.else:                                          ; preds = %if.end7
-  %20 = load ptr, ptr %ext_writebuf1.addr, align 8
-  %21 = load ptr, ptr %b1, align 8
-  %buf16 = getelementptr inbounds %struct.bio_bio_st, ptr %21, i32 0, i32 5
-  store ptr %20, ptr %buf16, align 8
-  %22 = load ptr, ptr %b1, align 8
-  %buf_externally_allocated17 = getelementptr inbounds %struct.bio_bio_st, ptr %22, i32 0, i32 6
-  store i8 1, ptr %buf_externally_allocated17, align 8
-  br label %if.end18
+63:                                               ; preds = %45
+  %64 = load ptr, ptr %11, align 8, !tbaa !33
+  %65 = load ptr, ptr %14, align 8, !tbaa !23
+  %66 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %65, i32 0, i32 5
+  store ptr %64, ptr %66, align 8, !tbaa !32
+  %67 = load ptr, ptr %14, align 8, !tbaa !23
+  %68 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %67, i32 0, i32 6
+  store i8 1, ptr %68, align 8, !tbaa !41
+  br label %69
 
-if.end18:                                         ; preds = %if.else, %if.end15
-  %23 = load ptr, ptr %b1, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %23, i32 0, i32 2
-  store i64 0, ptr %len, align 8
-  %24 = load ptr, ptr %b1, align 8
-  %offset = getelementptr inbounds %struct.bio_bio_st, ptr %24, i32 0, i32 3
-  store i64 0, ptr %offset, align 8
-  br label %if.end19
+69:                                               ; preds = %63, %62
+  %70 = load ptr, ptr %14, align 8, !tbaa !23
+  %71 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %70, i32 0, i32 2
+  store i64 0, ptr %71, align 8, !tbaa !29
+  %72 = load ptr, ptr %14, align 8, !tbaa !23
+  %73 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %72, i32 0, i32 3
+  store i64 0, ptr %73, align 8, !tbaa !31
+  br label %74
 
-if.end19:                                         ; preds = %if.end18, %if.end
-  %25 = load ptr, ptr %b2, align 8
-  %buf20 = getelementptr inbounds %struct.bio_bio_st, ptr %25, i32 0, i32 5
-  %26 = load ptr, ptr %buf20, align 8
-  %cmp21 = icmp eq ptr %26, null
-  br i1 %cmp21, label %if.then22, label %if.end43
+74:                                               ; preds = %69, %33
+  %75 = load ptr, ptr %15, align 8, !tbaa !23
+  %76 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %75, i32 0, i32 5
+  %77 = load ptr, ptr %76, align 8, !tbaa !32
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %115
 
-if.then22:                                        ; preds = %if.end19
-  %27 = load i64, ptr %writebuf2_len.addr, align 8
-  %tobool23 = icmp ne i64 %27, 0
-  br i1 %tobool23, label %if.then24, label %if.end26
+79:                                               ; preds = %74
+  %80 = load i64, ptr %12, align 8, !tbaa !15
+  %81 = icmp ne i64 %80, 0
+  br i1 %81, label %82, label %86
 
-if.then24:                                        ; preds = %if.then22
-  %28 = load i64, ptr %writebuf2_len.addr, align 8
-  %29 = load ptr, ptr %b2, align 8
-  %size25 = getelementptr inbounds %struct.bio_bio_st, ptr %29, i32 0, i32 4
-  store i64 %28, ptr %size25, align 8
-  br label %if.end26
+82:                                               ; preds = %79
+  %83 = load i64, ptr %12, align 8, !tbaa !15
+  %84 = load ptr, ptr %15, align 8, !tbaa !23
+  %85 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %84, i32 0, i32 4
+  store i64 %83, ptr %85, align 8, !tbaa !30
+  br label %86
 
-if.end26:                                         ; preds = %if.then24, %if.then22
-  %30 = load ptr, ptr %ext_writebuf2.addr, align 8
-  %tobool27 = icmp ne ptr %30, null
-  br i1 %tobool27, label %if.else37, label %if.then28
+86:                                               ; preds = %82, %79
+  %87 = load ptr, ptr %13, align 8, !tbaa !33
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %104, label %89
 
-if.then28:                                        ; preds = %if.end26
-  %31 = load ptr, ptr %b2, align 8
-  %buf_externally_allocated29 = getelementptr inbounds %struct.bio_bio_st, ptr %31, i32 0, i32 6
-  store i8 0, ptr %buf_externally_allocated29, align 8
-  %32 = load ptr, ptr %b2, align 8
-  %size30 = getelementptr inbounds %struct.bio_bio_st, ptr %32, i32 0, i32 4
-  %33 = load i64, ptr %size30, align 8
-  %call31 = call noalias ptr @malloc(i64 noundef %33) #7
-  %34 = load ptr, ptr %b2, align 8
-  %buf32 = getelementptr inbounds %struct.bio_bio_st, ptr %34, i32 0, i32 5
-  store ptr %call31, ptr %buf32, align 8
-  %35 = load ptr, ptr %b2, align 8
-  %buf33 = getelementptr inbounds %struct.bio_bio_st, ptr %35, i32 0, i32 5
-  %36 = load ptr, ptr %buf33, align 8
-  %cmp34 = icmp eq ptr %36, null
-  br i1 %cmp34, label %if.then35, label %if.end36
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %15, align 8, !tbaa !23
+  %91 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %90, i32 0, i32 6
+  store i8 0, ptr %91, align 8, !tbaa !41
+  %92 = load ptr, ptr %15, align 8, !tbaa !23
+  %93 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %92, i32 0, i32 4
+  %94 = load i64, ptr %93, align 8, !tbaa !30
+  %95 = call noalias ptr @malloc(i64 noundef %94) #9
+  %96 = load ptr, ptr %15, align 8, !tbaa !23
+  %97 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %96, i32 0, i32 5
+  store ptr %95, ptr %97, align 8, !tbaa !32
+  %98 = load ptr, ptr %15, align 8, !tbaa !23
+  %99 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %98, i32 0, i32 5
+  %100 = load ptr, ptr %99, align 8, !tbaa !32
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %103
 
-if.then35:                                        ; preds = %if.then28
+102:                                              ; preds = %89
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 65, ptr noundef @.str, i32 noundef 613)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
 
-if.end36:                                         ; preds = %if.then28
-  br label %if.end40
+103:                                              ; preds = %89
+  br label %110
 
-if.else37:                                        ; preds = %if.end26
-  %37 = load ptr, ptr %ext_writebuf2.addr, align 8
-  %38 = load ptr, ptr %b2, align 8
-  %buf38 = getelementptr inbounds %struct.bio_bio_st, ptr %38, i32 0, i32 5
-  store ptr %37, ptr %buf38, align 8
-  %39 = load ptr, ptr %b2, align 8
-  %buf_externally_allocated39 = getelementptr inbounds %struct.bio_bio_st, ptr %39, i32 0, i32 6
-  store i8 1, ptr %buf_externally_allocated39, align 8
-  br label %if.end40
+104:                                              ; preds = %86
+  %105 = load ptr, ptr %13, align 8, !tbaa !33
+  %106 = load ptr, ptr %15, align 8, !tbaa !23
+  %107 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %106, i32 0, i32 5
+  store ptr %105, ptr %107, align 8, !tbaa !32
+  %108 = load ptr, ptr %15, align 8, !tbaa !23
+  %109 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %108, i32 0, i32 6
+  store i8 1, ptr %109, align 8, !tbaa !41
+  br label %110
 
-if.end40:                                         ; preds = %if.else37, %if.end36
-  %40 = load ptr, ptr %b2, align 8
-  %len41 = getelementptr inbounds %struct.bio_bio_st, ptr %40, i32 0, i32 2
-  store i64 0, ptr %len41, align 8
-  %41 = load ptr, ptr %b2, align 8
-  %offset42 = getelementptr inbounds %struct.bio_bio_st, ptr %41, i32 0, i32 3
-  store i64 0, ptr %offset42, align 8
-  br label %if.end43
+110:                                              ; preds = %104, %103
+  %111 = load ptr, ptr %15, align 8, !tbaa !23
+  %112 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %111, i32 0, i32 2
+  store i64 0, ptr %112, align 8, !tbaa !29
+  %113 = load ptr, ptr %15, align 8, !tbaa !23
+  %114 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %113, i32 0, i32 3
+  store i64 0, ptr %114, align 8, !tbaa !31
+  br label %115
 
-if.end43:                                         ; preds = %if.end40, %if.end19
-  %42 = load ptr, ptr %bio2.addr, align 8
-  %43 = load ptr, ptr %b1, align 8
-  %peer44 = getelementptr inbounds %struct.bio_bio_st, ptr %43, i32 0, i32 0
-  store ptr %42, ptr %peer44, align 8
-  %44 = load ptr, ptr %b1, align 8
-  %closed = getelementptr inbounds %struct.bio_bio_st, ptr %44, i32 0, i32 1
-  store i32 0, ptr %closed, align 8
-  %45 = load ptr, ptr %b1, align 8
-  %request = getelementptr inbounds %struct.bio_bio_st, ptr %45, i32 0, i32 9
-  store i64 0, ptr %request, align 8
-  %46 = load ptr, ptr %b1, align 8
-  %zero_copy_read_lock = getelementptr inbounds %struct.bio_bio_st, ptr %46, i32 0, i32 7
-  store i8 0, ptr %zero_copy_read_lock, align 1
-  %47 = load ptr, ptr %b1, align 8
-  %zero_copy_write_lock = getelementptr inbounds %struct.bio_bio_st, ptr %47, i32 0, i32 8
-  store i8 0, ptr %zero_copy_write_lock, align 2
-  %48 = load ptr, ptr %bio1.addr, align 8
-  %49 = load ptr, ptr %b2, align 8
-  %peer45 = getelementptr inbounds %struct.bio_bio_st, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %peer45, align 8
-  %50 = load ptr, ptr %b2, align 8
-  %closed46 = getelementptr inbounds %struct.bio_bio_st, ptr %50, i32 0, i32 1
-  store i32 0, ptr %closed46, align 8
-  %51 = load ptr, ptr %b2, align 8
-  %request47 = getelementptr inbounds %struct.bio_bio_st, ptr %51, i32 0, i32 9
-  store i64 0, ptr %request47, align 8
-  %52 = load ptr, ptr %b2, align 8
-  %zero_copy_read_lock48 = getelementptr inbounds %struct.bio_bio_st, ptr %52, i32 0, i32 7
-  store i8 0, ptr %zero_copy_read_lock48, align 1
-  %53 = load ptr, ptr %b2, align 8
-  %zero_copy_write_lock49 = getelementptr inbounds %struct.bio_bio_st, ptr %53, i32 0, i32 8
-  store i8 0, ptr %zero_copy_write_lock49, align 2
-  %54 = load ptr, ptr %bio1.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %54, i32 0, i32 3
-  store i32 1, ptr %init, align 8
-  %55 = load ptr, ptr %bio2.addr, align 8
-  %init50 = getelementptr inbounds %struct.bio_st, ptr %55, i32 0, i32 3
-  store i32 1, ptr %init50, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+115:                                              ; preds = %110, %74
+  %116 = load ptr, ptr %9, align 8, !tbaa !6
+  %117 = load ptr, ptr %14, align 8, !tbaa !23
+  %118 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %117, i32 0, i32 0
+  store ptr %116, ptr %118, align 8, !tbaa !25
+  %119 = load ptr, ptr %14, align 8, !tbaa !23
+  %120 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %119, i32 0, i32 1
+  store i32 0, ptr %120, align 8, !tbaa !36
+  %121 = load ptr, ptr %14, align 8, !tbaa !23
+  %122 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %121, i32 0, i32 9
+  store i64 0, ptr %122, align 8, !tbaa !28
+  %123 = load ptr, ptr %14, align 8, !tbaa !23
+  %124 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %123, i32 0, i32 7
+  store i8 0, ptr %124, align 1, !tbaa !27
+  %125 = load ptr, ptr %14, align 8, !tbaa !23
+  %126 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %125, i32 0, i32 8
+  store i8 0, ptr %126, align 2, !tbaa !34
+  %127 = load ptr, ptr %8, align 8, !tbaa !6
+  %128 = load ptr, ptr %15, align 8, !tbaa !23
+  %129 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %128, i32 0, i32 0
+  store ptr %127, ptr %129, align 8, !tbaa !25
+  %130 = load ptr, ptr %15, align 8, !tbaa !23
+  %131 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %130, i32 0, i32 1
+  store i32 0, ptr %131, align 8, !tbaa !36
+  %132 = load ptr, ptr %15, align 8, !tbaa !23
+  %133 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %132, i32 0, i32 9
+  store i64 0, ptr %133, align 8, !tbaa !28
+  %134 = load ptr, ptr %15, align 8, !tbaa !23
+  %135 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %134, i32 0, i32 7
+  store i8 0, ptr %135, align 1, !tbaa !27
+  %136 = load ptr, ptr %15, align 8, !tbaa !23
+  %137 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %136, i32 0, i32 8
+  store i8 0, ptr %137, align 2, !tbaa !34
+  %138 = load ptr, ptr %8, align 8, !tbaa !6
+  %139 = getelementptr inbounds nuw %struct.bio_st, ptr %138, i32 0, i32 3
+  store i32 1, ptr %139, align 8, !tbaa !17
+  %140 = load ptr, ptr %9, align 8, !tbaa !6
+  %141 = getelementptr inbounds nuw %struct.bio_st, ptr %140, i32 0, i32 3
+  store i32 1, ptr %141, align 8, !tbaa !17
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
 
-return:                                           ; preds = %if.end43, %if.then35, %if.then14, %if.then
-  %56 = load i32, ptr %retval, align 4
-  ret i32 %56
+142:                                              ; preds = %115, %102, %61, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %143 = load i32, ptr %7, align 4
+  ret i32 %143
 }
 
-declare i32 @BIO_free(ptr noundef) #1
+declare i32 @BIO_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BIO_ctrl_get_read_request(ptr noundef %bio) #0 {
-entry:
-  %bio.addr = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %call = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 141, i64 noundef 0, ptr noundef null)
-  ret i64 %call
+define hidden i64 @BIO_ctrl_get_read_request(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %4 = call i64 @BIO_ctrl(ptr noundef %3, i32 noundef 141, i64 noundef 0, ptr noundef null)
+  ret i64 %4
 }
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) #1
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BIO_ctrl_get_write_guarantee(ptr noundef %bio) #0 {
-entry:
-  %bio.addr = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %call = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 140, i64 noundef 0, ptr noundef null)
-  ret i64 %call
-}
-
-; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_shutdown_wr(ptr noundef %bio) #0 {
-entry:
-  %bio.addr = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %call = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 142, i64 noundef 0, ptr noundef null)
-  %conv = trunc i64 %call to i32
-  ret i32 %conv
+define hidden i64 @BIO_ctrl_get_write_guarantee(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %4 = call i64 @BIO_ctrl(ptr noundef %3, i32 noundef 140, i64 noundef 0, ptr noundef null)
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_write(ptr noundef %bio, ptr noundef %buf, i32 noundef %num_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %num_.addr = alloca i32, align 4
-  %num = alloca i64, align 8
-  %rest = alloca i64, align 8
-  %b = alloca ptr, align 8
-  %write_offset = alloca i64, align 8
-  %chunk = alloca i64, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i32 %num_, ptr %num_.addr, align 4
-  %0 = load i32, ptr %num_.addr, align 4
-  %conv = sext i32 %0 to i64
-  store i64 %conv, ptr %num, align 8
-  %1 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_clear_retry_flags(ptr noundef %1)
-  %2 = load ptr, ptr %bio.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %init, align 8
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then
-
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %buf.addr, align 8
-  %cmp = icmp eq ptr %4, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false2
-
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %5 = load i64, ptr %num, align 8
-  %cmp3 = icmp eq i64 %5, 0
-  br i1 %cmp3, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false2
-  %6 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %6, i32 0, i32 9
-  %7 = load ptr, ptr %ptr, align 8
-  store ptr %7, ptr %b, align 8
-  %8 = load ptr, ptr %b, align 8
-  %zero_copy_write_lock = getelementptr inbounds %struct.bio_bio_st, ptr %8, i32 0, i32 8
-  %9 = load i8, ptr %zero_copy_write_lock, align 2
-  %tobool5 = icmp ne i8 %9, 0
-  br i1 %tobool5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end7:                                          ; preds = %if.end
-  %10 = load ptr, ptr %b, align 8
-  %request = getelementptr inbounds %struct.bio_bio_st, ptr %10, i32 0, i32 9
-  store i64 0, ptr %request, align 8
-  %11 = load ptr, ptr %b, align 8
-  %closed = getelementptr inbounds %struct.bio_bio_st, ptr %11, i32 0, i32 1
-  %12 = load i32, ptr %closed, align 8
-  %tobool8 = icmp ne i32 %12, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end7
-  call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 101, ptr noundef @.str, i32 noundef 514)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end10:                                         ; preds = %if.end7
-  %13 = load ptr, ptr %b, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %13, i32 0, i32 2
-  %14 = load i64, ptr %len, align 8
-  %15 = load ptr, ptr %b, align 8
-  %size = getelementptr inbounds %struct.bio_bio_st, ptr %15, i32 0, i32 4
-  %16 = load i64, ptr %size, align 8
-  %cmp11 = icmp eq i64 %14, %16
-  br i1 %cmp11, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %if.end10
-  %17 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_set_retry_write(ptr noundef %17)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end14:                                         ; preds = %if.end10
-  %18 = load i64, ptr %num, align 8
-  %19 = load ptr, ptr %b, align 8
-  %size15 = getelementptr inbounds %struct.bio_bio_st, ptr %19, i32 0, i32 4
-  %20 = load i64, ptr %size15, align 8
-  %21 = load ptr, ptr %b, align 8
-  %len16 = getelementptr inbounds %struct.bio_bio_st, ptr %21, i32 0, i32 2
-  %22 = load i64, ptr %len16, align 8
-  %sub = sub i64 %20, %22
-  %cmp17 = icmp ugt i64 %18, %sub
-  br i1 %cmp17, label %if.then19, label %if.end23
-
-if.then19:                                        ; preds = %if.end14
-  %23 = load ptr, ptr %b, align 8
-  %size20 = getelementptr inbounds %struct.bio_bio_st, ptr %23, i32 0, i32 4
-  %24 = load i64, ptr %size20, align 8
-  %25 = load ptr, ptr %b, align 8
-  %len21 = getelementptr inbounds %struct.bio_bio_st, ptr %25, i32 0, i32 2
-  %26 = load i64, ptr %len21, align 8
-  %sub22 = sub i64 %24, %26
-  store i64 %sub22, ptr %num, align 8
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.then19, %if.end14
-  %27 = load i64, ptr %num, align 8
-  store i64 %27, ptr %rest, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %if.end23
-  %28 = load ptr, ptr %b, align 8
-  %offset = getelementptr inbounds %struct.bio_bio_st, ptr %28, i32 0, i32 3
-  %29 = load i64, ptr %offset, align 8
-  %30 = load ptr, ptr %b, align 8
-  %len24 = getelementptr inbounds %struct.bio_bio_st, ptr %30, i32 0, i32 2
-  %31 = load i64, ptr %len24, align 8
-  %add = add i64 %29, %31
-  store i64 %add, ptr %write_offset, align 8
-  %32 = load i64, ptr %write_offset, align 8
-  %33 = load ptr, ptr %b, align 8
-  %size25 = getelementptr inbounds %struct.bio_bio_st, ptr %33, i32 0, i32 4
-  %34 = load i64, ptr %size25, align 8
-  %cmp26 = icmp uge i64 %32, %34
-  br i1 %cmp26, label %if.then28, label %if.end31
-
-if.then28:                                        ; preds = %do.body
-  %35 = load ptr, ptr %b, align 8
-  %size29 = getelementptr inbounds %struct.bio_bio_st, ptr %35, i32 0, i32 4
-  %36 = load i64, ptr %size29, align 8
-  %37 = load i64, ptr %write_offset, align 8
-  %sub30 = sub i64 %37, %36
-  store i64 %sub30, ptr %write_offset, align 8
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.then28, %do.body
-  %38 = load i64, ptr %write_offset, align 8
-  %39 = load i64, ptr %rest, align 8
-  %add32 = add i64 %38, %39
-  %40 = load ptr, ptr %b, align 8
-  %size33 = getelementptr inbounds %struct.bio_bio_st, ptr %40, i32 0, i32 4
-  %41 = load i64, ptr %size33, align 8
-  %cmp34 = icmp ule i64 %add32, %41
-  br i1 %cmp34, label %if.then36, label %if.else
-
-if.then36:                                        ; preds = %if.end31
-  %42 = load i64, ptr %rest, align 8
-  store i64 %42, ptr %chunk, align 8
-  br label %if.end39
-
-if.else:                                          ; preds = %if.end31
-  %43 = load ptr, ptr %b, align 8
-  %size37 = getelementptr inbounds %struct.bio_bio_st, ptr %43, i32 0, i32 4
-  %44 = load i64, ptr %size37, align 8
-  %45 = load i64, ptr %write_offset, align 8
-  %sub38 = sub i64 %44, %45
-  store i64 %sub38, ptr %chunk, align 8
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.else, %if.then36
-  %46 = load ptr, ptr %b, align 8
-  %buf40 = getelementptr inbounds %struct.bio_bio_st, ptr %46, i32 0, i32 5
-  %47 = load ptr, ptr %buf40, align 8
-  %48 = load i64, ptr %write_offset, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %47, i64 %48
-  %49 = load ptr, ptr %buf.addr, align 8
-  %50 = load i64, ptr %chunk, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %49, i64 %50, i1 false)
-  %51 = load i64, ptr %chunk, align 8
-  %52 = load ptr, ptr %b, align 8
-  %len41 = getelementptr inbounds %struct.bio_bio_st, ptr %52, i32 0, i32 2
-  %53 = load i64, ptr %len41, align 8
-  %add42 = add i64 %53, %51
-  store i64 %add42, ptr %len41, align 8
-  %54 = load i64, ptr %chunk, align 8
-  %55 = load i64, ptr %rest, align 8
-  %sub43 = sub i64 %55, %54
-  store i64 %sub43, ptr %rest, align 8
-  %56 = load i64, ptr %chunk, align 8
-  %57 = load ptr, ptr %buf.addr, align 8
-  %add.ptr44 = getelementptr inbounds i8, ptr %57, i64 %56
-  store ptr %add.ptr44, ptr %buf.addr, align 8
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end39
-  %58 = load i64, ptr %rest, align 8
-  %tobool45 = icmp ne i64 %58, 0
-  br i1 %tobool45, label %do.body, label %do.end, !llvm.loop !7
-
-do.end:                                           ; preds = %do.cond
-  %59 = load i64, ptr %num, align 8
-  %conv46 = trunc i64 %59 to i32
-  store i32 %conv46, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end, %if.then13, %if.then9, %if.then6, %if.then
-  %60 = load i32, ptr %retval, align 4
-  ret i32 %60
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @bio_read(ptr noundef %bio, ptr noundef %buf, i32 noundef %size_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %size_.addr = alloca i32, align 4
-  %size = alloca i64, align 8
-  %rest = alloca i64, align 8
-  %b = alloca ptr, align 8
-  %peer_b = alloca ptr, align 8
-  %chunk = alloca i64, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i32 %size_, ptr %size_.addr, align 4
-  %0 = load i32, ptr %size_.addr, align 4
-  %conv = sext i32 %0 to i64
-  store i64 %conv, ptr %size, align 8
-  %1 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_clear_retry_flags(ptr noundef %1)
-  %2 = load ptr, ptr %bio.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %init, align 8
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %4, i32 0, i32 9
-  %5 = load ptr, ptr %ptr, align 8
-  store ptr %5, ptr %b, align 8
-  %6 = load ptr, ptr %b, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %peer, align 8
-  %ptr1 = getelementptr inbounds %struct.bio_st, ptr %7, i32 0, i32 9
-  %8 = load ptr, ptr %ptr1, align 8
-  store ptr %8, ptr %peer_b, align 8
-  %9 = load ptr, ptr %peer_b, align 8
-  %request = getelementptr inbounds %struct.bio_bio_st, ptr %9, i32 0, i32 9
-  store i64 0, ptr %request, align 8
-  %10 = load ptr, ptr %buf.addr, align 8
-  %cmp = icmp eq ptr %10, null
-  br i1 %cmp, label %if.then8, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %11 = load i64, ptr %size, align 8
-  %cmp3 = icmp eq i64 %11, 0
-  br i1 %cmp3, label %if.then8, label %lor.lhs.false5
-
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %12 = load ptr, ptr %peer_b, align 8
-  %zero_copy_read_lock = getelementptr inbounds %struct.bio_bio_st, ptr %12, i32 0, i32 7
-  %13 = load i8, ptr %zero_copy_read_lock, align 1
-  %conv6 = sext i8 %13 to i32
-  %tobool7 = icmp ne i32 %conv6, 0
-  br i1 %tobool7, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end9:                                          ; preds = %lor.lhs.false5
-  %14 = load ptr, ptr %peer_b, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %14, i32 0, i32 2
-  %15 = load i64, ptr %len, align 8
-  %cmp10 = icmp eq i64 %15, 0
-  br i1 %cmp10, label %if.then12, label %if.end24
-
-if.then12:                                        ; preds = %if.end9
-  %16 = load ptr, ptr %peer_b, align 8
-  %closed = getelementptr inbounds %struct.bio_bio_st, ptr %16, i32 0, i32 1
-  %17 = load i32, ptr %closed, align 8
-  %tobool13 = icmp ne i32 %17, 0
-  br i1 %tobool13, label %if.then14, label %if.else
-
-if.then14:                                        ; preds = %if.then12
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %if.then12
-  %18 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_set_retry_read(ptr noundef %18)
-  %19 = load i64, ptr %size, align 8
-  %20 = load ptr, ptr %peer_b, align 8
-  %size15 = getelementptr inbounds %struct.bio_bio_st, ptr %20, i32 0, i32 4
-  %21 = load i64, ptr %size15, align 8
-  %cmp16 = icmp ule i64 %19, %21
-  br i1 %cmp16, label %if.then18, label %if.else20
-
-if.then18:                                        ; preds = %if.else
-  %22 = load i64, ptr %size, align 8
-  %23 = load ptr, ptr %peer_b, align 8
-  %request19 = getelementptr inbounds %struct.bio_bio_st, ptr %23, i32 0, i32 9
-  store i64 %22, ptr %request19, align 8
-  br label %if.end23
-
-if.else20:                                        ; preds = %if.else
-  %24 = load ptr, ptr %peer_b, align 8
-  %size21 = getelementptr inbounds %struct.bio_bio_st, ptr %24, i32 0, i32 4
-  %25 = load i64, ptr %size21, align 8
-  %26 = load ptr, ptr %peer_b, align 8
-  %request22 = getelementptr inbounds %struct.bio_bio_st, ptr %26, i32 0, i32 9
-  store i64 %25, ptr %request22, align 8
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.else20, %if.then18
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end24:                                         ; preds = %if.end9
-  %27 = load ptr, ptr %peer_b, align 8
-  %len25 = getelementptr inbounds %struct.bio_bio_st, ptr %27, i32 0, i32 2
-  %28 = load i64, ptr %len25, align 8
-  %29 = load i64, ptr %size, align 8
-  %cmp26 = icmp ult i64 %28, %29
-  br i1 %cmp26, label %if.then28, label %if.end30
-
-if.then28:                                        ; preds = %if.end24
-  %30 = load ptr, ptr %peer_b, align 8
-  %len29 = getelementptr inbounds %struct.bio_bio_st, ptr %30, i32 0, i32 2
-  %31 = load i64, ptr %len29, align 8
-  store i64 %31, ptr %size, align 8
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.then28, %if.end24
-  %32 = load i64, ptr %size, align 8
-  store i64 %32, ptr %rest, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %if.end30
-  %33 = load ptr, ptr %peer_b, align 8
-  %offset = getelementptr inbounds %struct.bio_bio_st, ptr %33, i32 0, i32 3
-  %34 = load i64, ptr %offset, align 8
-  %35 = load i64, ptr %rest, align 8
-  %add = add i64 %34, %35
-  %36 = load ptr, ptr %peer_b, align 8
-  %size31 = getelementptr inbounds %struct.bio_bio_st, ptr %36, i32 0, i32 4
-  %37 = load i64, ptr %size31, align 8
-  %cmp32 = icmp ule i64 %add, %37
-  br i1 %cmp32, label %if.then34, label %if.else35
-
-if.then34:                                        ; preds = %do.body
-  %38 = load i64, ptr %rest, align 8
-  store i64 %38, ptr %chunk, align 8
-  br label %if.end38
-
-if.else35:                                        ; preds = %do.body
-  %39 = load ptr, ptr %peer_b, align 8
-  %size36 = getelementptr inbounds %struct.bio_bio_st, ptr %39, i32 0, i32 4
-  %40 = load i64, ptr %size36, align 8
-  %41 = load ptr, ptr %peer_b, align 8
-  %offset37 = getelementptr inbounds %struct.bio_bio_st, ptr %41, i32 0, i32 3
-  %42 = load i64, ptr %offset37, align 8
-  %sub = sub i64 %40, %42
-  store i64 %sub, ptr %chunk, align 8
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.else35, %if.then34
-  %43 = load ptr, ptr %buf.addr, align 8
-  %44 = load ptr, ptr %peer_b, align 8
-  %buf39 = getelementptr inbounds %struct.bio_bio_st, ptr %44, i32 0, i32 5
-  %45 = load ptr, ptr %buf39, align 8
-  %46 = load ptr, ptr %peer_b, align 8
-  %offset40 = getelementptr inbounds %struct.bio_bio_st, ptr %46, i32 0, i32 3
-  %47 = load i64, ptr %offset40, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %45, i64 %47
-  %48 = load i64, ptr %chunk, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %add.ptr, i64 %48, i1 false)
-  %49 = load i64, ptr %chunk, align 8
-  %50 = load ptr, ptr %peer_b, align 8
-  %len41 = getelementptr inbounds %struct.bio_bio_st, ptr %50, i32 0, i32 2
-  %51 = load i64, ptr %len41, align 8
-  %sub42 = sub i64 %51, %49
-  store i64 %sub42, ptr %len41, align 8
-  %52 = load ptr, ptr %peer_b, align 8
-  %len43 = getelementptr inbounds %struct.bio_bio_st, ptr %52, i32 0, i32 2
-  %53 = load i64, ptr %len43, align 8
-  %tobool44 = icmp ne i64 %53, 0
-  br i1 %tobool44, label %if.then48, label %lor.lhs.false45
-
-lor.lhs.false45:                                  ; preds = %if.end38
-  %54 = load ptr, ptr %peer_b, align 8
-  %zero_copy_write_lock = getelementptr inbounds %struct.bio_bio_st, ptr %54, i32 0, i32 8
-  %55 = load i8, ptr %zero_copy_write_lock, align 2
-  %conv46 = sext i8 %55 to i32
-  %tobool47 = icmp ne i32 %conv46, 0
-  br i1 %tobool47, label %if.then48, label %if.else59
-
-if.then48:                                        ; preds = %lor.lhs.false45, %if.end38
-  %56 = load i64, ptr %chunk, align 8
-  %57 = load ptr, ptr %peer_b, align 8
-  %offset49 = getelementptr inbounds %struct.bio_bio_st, ptr %57, i32 0, i32 3
-  %58 = load i64, ptr %offset49, align 8
-  %add50 = add i64 %58, %56
-  store i64 %add50, ptr %offset49, align 8
-  %59 = load ptr, ptr %peer_b, align 8
-  %offset51 = getelementptr inbounds %struct.bio_bio_st, ptr %59, i32 0, i32 3
-  %60 = load i64, ptr %offset51, align 8
-  %61 = load ptr, ptr %peer_b, align 8
-  %size52 = getelementptr inbounds %struct.bio_bio_st, ptr %61, i32 0, i32 4
-  %62 = load i64, ptr %size52, align 8
-  %cmp53 = icmp eq i64 %60, %62
-  br i1 %cmp53, label %if.then55, label %if.end57
-
-if.then55:                                        ; preds = %if.then48
-  %63 = load ptr, ptr %peer_b, align 8
-  %offset56 = getelementptr inbounds %struct.bio_bio_st, ptr %63, i32 0, i32 3
-  store i64 0, ptr %offset56, align 8
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.then55, %if.then48
-  %64 = load i64, ptr %chunk, align 8
-  %65 = load ptr, ptr %buf.addr, align 8
-  %add.ptr58 = getelementptr inbounds i8, ptr %65, i64 %64
-  store ptr %add.ptr58, ptr %buf.addr, align 8
-  br label %if.end61
-
-if.else59:                                        ; preds = %lor.lhs.false45
-  %66 = load ptr, ptr %peer_b, align 8
-  %offset60 = getelementptr inbounds %struct.bio_bio_st, ptr %66, i32 0, i32 3
-  store i64 0, ptr %offset60, align 8
-  br label %if.end61
-
-if.end61:                                         ; preds = %if.else59, %if.end57
-  %67 = load i64, ptr %chunk, align 8
-  %68 = load i64, ptr %rest, align 8
-  %sub62 = sub i64 %68, %67
-  store i64 %sub62, ptr %rest, align 8
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end61
-  %69 = load i64, ptr %rest, align 8
-  %tobool63 = icmp ne i64 %69, 0
-  br i1 %tobool63, label %do.body, label %do.end, !llvm.loop !9
-
-do.end:                                           ; preds = %do.cond
-  %70 = load i64, ptr %size, align 8
-  %conv64 = trunc i64 %70 to i32
-  store i32 %conv64, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end, %if.end23, %if.then14, %if.then8, %if.then
-  %71 = load i32, ptr %retval, align 4
-  ret i32 %71
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @bio_puts(ptr noundef %bio, ptr noundef %str) #0 {
-entry:
-  %bio.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %1 = load ptr, ptr %str.addr, align 8
-  %2 = load ptr, ptr %str.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #8
-  %conv = trunc i64 %call to i32
-  %call1 = call i32 @bio_write(ptr noundef %0, ptr noundef %1, i32 noundef %conv)
-  ret i32 %call1
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @bio_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
-entry:
-  %bio.addr = alloca ptr, align 8
-  %cmd.addr = alloca i32, align 4
-  %num.addr = alloca i64, align 8
-  %ptr.addr = alloca ptr, align 8
-  %ret = alloca i64, align 8
-  %b = alloca ptr, align 8
-  %peer_b = alloca ptr, align 8
-  %other_bio = alloca ptr, align 8
-  %other_b = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store i32 %cmd, ptr %cmd.addr, align 4
-  store i64 %num, ptr %num.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %ptr1 = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 9
-  %1 = load ptr, ptr %ptr1, align 8
-  store ptr %1, ptr %b, align 8
-  %2 = load i32, ptr %cmd.addr, align 4
-  switch i32 %2, label %sw.default [
-    i32 137, label %sw.bb
-    i32 140, label %sw.bb2
-    i32 141, label %sw.bb4
-    i32 147, label %sw.bb5
-    i32 142, label %sw.bb7
-    i32 8, label %sw.bb9
-    i32 9, label %sw.bb10
-    i32 10, label %sw.bb13
-    i32 13, label %sw.bb23
-    i32 11, label %sw.bb29
-    i32 2, label %sw.bb30
-  ]
-
-sw.bb:                                            ; preds = %entry
-  %3 = load ptr, ptr %b, align 8
-  %size = getelementptr inbounds %struct.bio_bio_st, ptr %3, i32 0, i32 4
-  %4 = load i64, ptr %size, align 8
-  store i64 %4, ptr %ret, align 8
-  br label %sw.epilog
-
-sw.bb2:                                           ; preds = %entry
-  %5 = load ptr, ptr %b, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %peer, align 8
-  %cmp = icmp eq ptr %6, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %sw.bb2
-  %7 = load ptr, ptr %b, align 8
-  %closed = getelementptr inbounds %struct.bio_bio_st, ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %closed, align 8
-  %tobool = icmp ne i32 %8, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %lor.lhs.false, %sw.bb2
-  store i64 0, ptr %ret, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %lor.lhs.false
-  %9 = load ptr, ptr %b, align 8
-  %size3 = getelementptr inbounds %struct.bio_bio_st, ptr %9, i32 0, i32 4
-  %10 = load i64, ptr %size3, align 8
-  %11 = load ptr, ptr %b, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %11, i32 0, i32 2
-  %12 = load i64, ptr %len, align 8
-  %sub = sub i64 %10, %12
-  store i64 %sub, ptr %ret, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %sw.epilog
-
-sw.bb4:                                           ; preds = %entry
-  %13 = load ptr, ptr %b, align 8
-  %request = getelementptr inbounds %struct.bio_bio_st, ptr %13, i32 0, i32 9
-  %14 = load i64, ptr %request, align 8
-  store i64 %14, ptr %ret, align 8
-  br label %sw.epilog
-
-sw.bb5:                                           ; preds = %entry
-  %15 = load ptr, ptr %b, align 8
-  %request6 = getelementptr inbounds %struct.bio_bio_st, ptr %15, i32 0, i32 9
-  store i64 0, ptr %request6, align 8
-  store i64 1, ptr %ret, align 8
-  br label %sw.epilog
-
-sw.bb7:                                           ; preds = %entry
-  %16 = load ptr, ptr %b, align 8
-  %closed8 = getelementptr inbounds %struct.bio_bio_st, ptr %16, i32 0, i32 1
-  store i32 1, ptr %closed8, align 8
-  store i64 1, ptr %ret, align 8
-  br label %sw.epilog
-
-sw.bb9:                                           ; preds = %entry
-  %17 = load ptr, ptr %bio.addr, align 8
-  %shutdown = getelementptr inbounds %struct.bio_st, ptr %17, i32 0, i32 4
-  %18 = load i32, ptr %shutdown, align 4
-  %conv = sext i32 %18 to i64
-  store i64 %conv, ptr %ret, align 8
-  br label %sw.epilog
-
-sw.bb10:                                          ; preds = %entry
-  %19 = load i64, ptr %num.addr, align 8
-  %conv11 = trunc i64 %19 to i32
-  %20 = load ptr, ptr %bio.addr, align 8
-  %shutdown12 = getelementptr inbounds %struct.bio_st, ptr %20, i32 0, i32 4
-  store i32 %conv11, ptr %shutdown12, align 4
-  store i64 1, ptr %ret, align 8
-  br label %sw.epilog
-
-sw.bb13:                                          ; preds = %entry
-  %21 = load ptr, ptr %b, align 8
-  %peer14 = getelementptr inbounds %struct.bio_bio_st, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %peer14, align 8
-  %cmp15 = icmp ne ptr %22, null
-  br i1 %cmp15, label %if.then17, label %if.else21
-
-if.then17:                                        ; preds = %sw.bb13
-  %23 = load ptr, ptr %b, align 8
-  %peer18 = getelementptr inbounds %struct.bio_bio_st, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %peer18, align 8
-  %ptr19 = getelementptr inbounds %struct.bio_st, ptr %24, i32 0, i32 9
-  %25 = load ptr, ptr %ptr19, align 8
-  store ptr %25, ptr %peer_b, align 8
-  %26 = load ptr, ptr %peer_b, align 8
-  %len20 = getelementptr inbounds %struct.bio_bio_st, ptr %26, i32 0, i32 2
-  %27 = load i64, ptr %len20, align 8
-  store i64 %27, ptr %ret, align 8
-  br label %if.end22
-
-if.else21:                                        ; preds = %sw.bb13
-  store i64 0, ptr %ret, align 8
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.else21, %if.then17
-  br label %sw.epilog
-
-sw.bb23:                                          ; preds = %entry
-  store i64 0, ptr %ret, align 8
-  %28 = load ptr, ptr %b, align 8
-  %buf = getelementptr inbounds %struct.bio_bio_st, ptr %28, i32 0, i32 5
-  %29 = load ptr, ptr %buf, align 8
-  %cmp24 = icmp ne ptr %29, null
-  br i1 %cmp24, label %if.then26, label %if.end28
-
-if.then26:                                        ; preds = %sw.bb23
-  %30 = load ptr, ptr %b, align 8
-  %len27 = getelementptr inbounds %struct.bio_bio_st, ptr %30, i32 0, i32 2
-  %31 = load i64, ptr %len27, align 8
-  store i64 %31, ptr %ret, align 8
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then26, %sw.bb23
-  br label %sw.epilog
-
-sw.bb29:                                          ; preds = %entry
-  store i64 1, ptr %ret, align 8
-  br label %sw.epilog
-
-sw.bb30:                                          ; preds = %entry
-  %32 = load ptr, ptr %ptr.addr, align 8
-  store ptr %32, ptr %other_bio, align 8
-  %33 = load ptr, ptr %other_bio, align 8
-  %tobool31 = icmp ne ptr %33, null
-  br i1 %tobool31, label %if.then32, label %if.else40
-
-if.then32:                                        ; preds = %sw.bb30
-  %34 = load ptr, ptr %other_bio, align 8
-  %ptr33 = getelementptr inbounds %struct.bio_st, ptr %34, i32 0, i32 9
-  %35 = load ptr, ptr %ptr33, align 8
-  store ptr %35, ptr %other_b, align 8
-  %36 = load ptr, ptr %other_b, align 8
-  %len34 = getelementptr inbounds %struct.bio_bio_st, ptr %36, i32 0, i32 2
-  %37 = load i64, ptr %len34, align 8
-  %cmp35 = icmp eq i64 %37, 0
-  br i1 %cmp35, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %if.then32
-  %38 = load ptr, ptr %other_b, align 8
-  %closed37 = getelementptr inbounds %struct.bio_bio_st, ptr %38, i32 0, i32 1
-  %39 = load i32, ptr %closed37, align 8
-  %tobool38 = icmp ne i32 %39, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %if.then32
-  %40 = phi i1 [ false, %if.then32 ], [ %tobool38, %land.rhs ]
-  %land.ext = zext i1 %40 to i32
-  %conv39 = sext i32 %land.ext to i64
-  store i64 %conv39, ptr %ret, align 8
-  br label %if.end41
-
-if.else40:                                        ; preds = %sw.bb30
-  store i64 1, ptr %ret, align 8
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.else40, %land.end
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %entry
-  store i64 0, ptr %ret, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default, %if.end41, %sw.bb29, %if.end28, %if.end22, %sw.bb10, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %sw.bb
-  %41 = load i64, ptr %ret, align 8
-  ret i64 %41
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @bio_new(ptr noundef %bio) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef 64) #7
-  store ptr %call, ptr %b, align 8
-  %0 = load ptr, ptr %b, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %b, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 64, i1 false)
-  %2 = load ptr, ptr %b, align 8
-  %size = getelementptr inbounds %struct.bio_bio_st, ptr %2, i32 0, i32 4
-  store i64 17408, ptr %size, align 8
-  %3 = load ptr, ptr %b, align 8
-  %4 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %4, i32 0, i32 9
-  store ptr %3, ptr %ptr, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
+define hidden i32 @BIO_shutdown_wr(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %4 = call i64 @BIO_ctrl(ptr noundef %3, i32 noundef 142, i64 noundef 0, ptr noundef null)
+  %5 = trunc i64 %4 to i32
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_free(ptr noundef %bio) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @bio_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !33
+  store i32 %2, ptr %7, align 4, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %14 = load i32, ptr %7, align 4, !tbaa !40
+  %15 = sext i32 %14 to i64
+  store i64 %15, ptr %8, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %16 = load ptr, ptr %5, align 8, !tbaa !6
+  call void @BIO_clear_retry_flags(ptr noundef %16)
+  %17 = load ptr, ptr %5, align 8, !tbaa !6
+  %18 = getelementptr inbounds nuw %struct.bio_st, ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 8, !tbaa !17
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %27
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %6, align 8, !tbaa !33
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %27, label %24
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %1, i32 0, i32 9
-  %2 = load ptr, ptr %ptr, align 8
-  store ptr %2, ptr %b, align 8
-  %3 = load ptr, ptr %b, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %peer, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %if.then1, label %if.end2
+24:                                               ; preds = %21
+  %25 = load i64, ptr %8, align 8, !tbaa !15
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %27, label %28
 
-if.then1:                                         ; preds = %if.end
-  %5 = load ptr, ptr %bio.addr, align 8
-  call void @bio_destroy_pair(ptr noundef %5)
-  br label %if.end2
+27:                                               ; preds = %24, %21, %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %135
 
-if.end2:                                          ; preds = %if.then1, %if.end
-  %6 = load ptr, ptr %b, align 8
-  %buf_externally_allocated = getelementptr inbounds %struct.bio_bio_st, ptr %6, i32 0, i32 6
-  %7 = load i8, ptr %buf_externally_allocated, align 8
-  %tobool3 = icmp ne i8 %7, 0
-  br i1 %tobool3, label %if.end5, label %if.then4
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %5, align 8, !tbaa !6
+  %30 = getelementptr inbounds nuw %struct.bio_st, ptr %29, i32 0, i32 9
+  %31 = load ptr, ptr %30, align 8, !tbaa !22
+  store ptr %31, ptr %10, align 8, !tbaa !23
+  %32 = load ptr, ptr %10, align 8, !tbaa !23
+  %33 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %32, i32 0, i32 8
+  %34 = load i8, ptr %33, align 2, !tbaa !34
+  %35 = icmp ne i8 %34, 0
+  br i1 %35, label %36, label %37
 
-if.then4:                                         ; preds = %if.end2
-  %8 = load ptr, ptr %b, align 8
-  %buf = getelementptr inbounds %struct.bio_bio_st, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %buf, align 8
-  call void @free(ptr noundef %9) #9
-  br label %if.end5
+36:                                               ; preds = %28
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %135
 
-if.end5:                                          ; preds = %if.then4, %if.end2
-  %10 = load ptr, ptr %b, align 8
-  call void @free(ptr noundef %10) #9
-  store i32 1, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %28
+  %38 = load ptr, ptr %10, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %38, i32 0, i32 9
+  store i64 0, ptr %39, align 8, !tbaa !28
+  %40 = load ptr, ptr %10, align 8, !tbaa !23
+  %41 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8, !tbaa !36
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %45
 
-return:                                           ; preds = %if.end5, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+44:                                               ; preds = %37
+  call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 101, ptr noundef @.str, i32 noundef 514)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %135
+
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %10, align 8, !tbaa !23
+  %47 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %46, i32 0, i32 2
+  %48 = load i64, ptr %47, align 8, !tbaa !29
+  %49 = load ptr, ptr %10, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %49, i32 0, i32 4
+  %51 = load i64, ptr %50, align 8, !tbaa !30
+  %52 = icmp eq i64 %48, %51
+  br i1 %52, label %53, label %55
+
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %5, align 8, !tbaa !6
+  call void @BIO_set_retry_write(ptr noundef %54)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %135
+
+55:                                               ; preds = %45
+  %56 = load i64, ptr %8, align 8, !tbaa !15
+  %57 = load ptr, ptr %10, align 8, !tbaa !23
+  %58 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %57, i32 0, i32 4
+  %59 = load i64, ptr %58, align 8, !tbaa !30
+  %60 = load ptr, ptr %10, align 8, !tbaa !23
+  %61 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %60, i32 0, i32 2
+  %62 = load i64, ptr %61, align 8, !tbaa !29
+  %63 = sub i64 %59, %62
+  %64 = icmp ugt i64 %56, %63
+  br i1 %64, label %65, label %73
+
+65:                                               ; preds = %55
+  %66 = load ptr, ptr %10, align 8, !tbaa !23
+  %67 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %66, i32 0, i32 4
+  %68 = load i64, ptr %67, align 8, !tbaa !30
+  %69 = load ptr, ptr %10, align 8, !tbaa !23
+  %70 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %69, i32 0, i32 2
+  %71 = load i64, ptr %70, align 8, !tbaa !29
+  %72 = sub i64 %68, %71
+  store i64 %72, ptr %8, align 8, !tbaa !15
+  br label %73
+
+73:                                               ; preds = %65, %55
+  %74 = load i64, ptr %8, align 8, !tbaa !15
+  store i64 %74, ptr %9, align 8, !tbaa !15
+  br label %75
+
+75:                                               ; preds = %129, %73
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %76 = load ptr, ptr %10, align 8, !tbaa !23
+  %77 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %76, i32 0, i32 3
+  %78 = load i64, ptr %77, align 8, !tbaa !31
+  %79 = load ptr, ptr %10, align 8, !tbaa !23
+  %80 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %79, i32 0, i32 2
+  %81 = load i64, ptr %80, align 8, !tbaa !29
+  %82 = add i64 %78, %81
+  store i64 %82, ptr %12, align 8, !tbaa !15
+  %83 = load i64, ptr %12, align 8, !tbaa !15
+  %84 = load ptr, ptr %10, align 8, !tbaa !23
+  %85 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %84, i32 0, i32 4
+  %86 = load i64, ptr %85, align 8, !tbaa !30
+  %87 = icmp uge i64 %83, %86
+  br i1 %87, label %88, label %94
+
+88:                                               ; preds = %75
+  %89 = load ptr, ptr %10, align 8, !tbaa !23
+  %90 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %89, i32 0, i32 4
+  %91 = load i64, ptr %90, align 8, !tbaa !30
+  %92 = load i64, ptr %12, align 8, !tbaa !15
+  %93 = sub i64 %92, %91
+  store i64 %93, ptr %12, align 8, !tbaa !15
+  br label %94
+
+94:                                               ; preds = %88, %75
+  %95 = load i64, ptr %12, align 8, !tbaa !15
+  %96 = load i64, ptr %9, align 8, !tbaa !15
+  %97 = add i64 %95, %96
+  %98 = load ptr, ptr %10, align 8, !tbaa !23
+  %99 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %98, i32 0, i32 4
+  %100 = load i64, ptr %99, align 8, !tbaa !30
+  %101 = icmp ule i64 %97, %100
+  br i1 %101, label %102, label %104
+
+102:                                              ; preds = %94
+  %103 = load i64, ptr %9, align 8, !tbaa !15
+  store i64 %103, ptr %13, align 8, !tbaa !15
+  br label %110
+
+104:                                              ; preds = %94
+  %105 = load ptr, ptr %10, align 8, !tbaa !23
+  %106 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %105, i32 0, i32 4
+  %107 = load i64, ptr %106, align 8, !tbaa !30
+  %108 = load i64, ptr %12, align 8, !tbaa !15
+  %109 = sub i64 %107, %108
+  store i64 %109, ptr %13, align 8, !tbaa !15
+  br label %110
+
+110:                                              ; preds = %104, %102
+  %111 = load ptr, ptr %10, align 8, !tbaa !23
+  %112 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %111, i32 0, i32 5
+  %113 = load ptr, ptr %112, align 8, !tbaa !32
+  %114 = load i64, ptr %12, align 8, !tbaa !15
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 %114
+  %116 = load ptr, ptr %6, align 8, !tbaa !33
+  %117 = load i64, ptr %13, align 8, !tbaa !15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr align 1 %116, i64 %117, i1 false)
+  %118 = load i64, ptr %13, align 8, !tbaa !15
+  %119 = load ptr, ptr %10, align 8, !tbaa !23
+  %120 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %119, i32 0, i32 2
+  %121 = load i64, ptr %120, align 8, !tbaa !29
+  %122 = add i64 %121, %118
+  store i64 %122, ptr %120, align 8, !tbaa !29
+  %123 = load i64, ptr %13, align 8, !tbaa !15
+  %124 = load i64, ptr %9, align 8, !tbaa !15
+  %125 = sub i64 %124, %123
+  store i64 %125, ptr %9, align 8, !tbaa !15
+  %126 = load i64, ptr %13, align 8, !tbaa !15
+  %127 = load ptr, ptr %6, align 8, !tbaa !33
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %126
+  store ptr %128, ptr %6, align 8, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  br label %129
+
+129:                                              ; preds = %110
+  %130 = load i64, ptr %9, align 8, !tbaa !15
+  %131 = icmp ne i64 %130, 0
+  br i1 %131, label %75, label %132, !llvm.loop !42
+
+132:                                              ; preds = %129
+  %133 = load i64, ptr %8, align 8, !tbaa !15
+  %134 = trunc i64 %133 to i32
+  store i32 %134, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %135
+
+135:                                              ; preds = %132, %53, %44, %36, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %136 = load i32, ptr %4, align 4
+  ret i32 %136
 }
 
-declare void @BIO_set_retry_write(ptr noundef) #1
+; Function Attrs: nounwind uwtable
+define internal i32 @bio_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !33
+  store i32 %2, ptr %7, align 4, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %14 = load i32, ptr %7, align 4, !tbaa !40
+  %15 = sext i32 %14 to i64
+  store i64 %15, ptr %8, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %16 = load ptr, ptr %5, align 8, !tbaa !6
+  call void @BIO_clear_retry_flags(ptr noundef %16)
+  %17 = load ptr, ptr %5, align 8, !tbaa !6
+  %18 = getelementptr inbounds nuw %struct.bio_st, ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 8, !tbaa !17
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %22, label %21
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+21:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %164
 
-declare void @BIO_set_retry_read(ptr noundef) #1
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8, !tbaa !6
+  %24 = getelementptr inbounds nuw %struct.bio_st, ptr %23, i32 0, i32 9
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  store ptr %25, ptr %10, align 8, !tbaa !23
+  %26 = load ptr, ptr %10, align 8, !tbaa !23
+  %27 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %29 = getelementptr inbounds nuw %struct.bio_st, ptr %28, i32 0, i32 9
+  %30 = load ptr, ptr %29, align 8, !tbaa !22
+  store ptr %30, ptr %11, align 8, !tbaa !23
+  %31 = load ptr, ptr %11, align 8, !tbaa !23
+  %32 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %31, i32 0, i32 9
+  store i64 0, ptr %32, align 8, !tbaa !28
+  %33 = load ptr, ptr %6, align 8, !tbaa !33
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %44, label %35
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+35:                                               ; preds = %22
+  %36 = load i64, ptr %8, align 8, !tbaa !15
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %44, label %38
 
-; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %11, align 8, !tbaa !23
+  %40 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %39, i32 0, i32 7
+  %41 = load i8, ptr %40, align 1, !tbaa !27
+  %42 = sext i8 %41 to i32
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %45
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+44:                                               ; preds = %38, %35, %22
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %164
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %11, align 8, !tbaa !23
+  %47 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %46, i32 0, i32 2
+  %48 = load i64, ptr %47, align 8, !tbaa !29
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %74
+
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %11, align 8, !tbaa !23
+  %52 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8, !tbaa !36
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %56
+
+55:                                               ; preds = %50
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %164
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %5, align 8, !tbaa !6
+  call void @BIO_set_retry_read(ptr noundef %57)
+  %58 = load i64, ptr %8, align 8, !tbaa !15
+  %59 = load ptr, ptr %11, align 8, !tbaa !23
+  %60 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %59, i32 0, i32 4
+  %61 = load i64, ptr %60, align 8, !tbaa !30
+  %62 = icmp ule i64 %58, %61
+  br i1 %62, label %63, label %67
+
+63:                                               ; preds = %56
+  %64 = load i64, ptr %8, align 8, !tbaa !15
+  %65 = load ptr, ptr %11, align 8, !tbaa !23
+  %66 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %65, i32 0, i32 9
+  store i64 %64, ptr %66, align 8, !tbaa !28
+  br label %73
+
+67:                                               ; preds = %56
+  %68 = load ptr, ptr %11, align 8, !tbaa !23
+  %69 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %68, i32 0, i32 4
+  %70 = load i64, ptr %69, align 8, !tbaa !30
+  %71 = load ptr, ptr %11, align 8, !tbaa !23
+  %72 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %71, i32 0, i32 9
+  store i64 %70, ptr %72, align 8, !tbaa !28
+  br label %73
+
+73:                                               ; preds = %67, %63
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %164
+
+74:                                               ; preds = %45
+  %75 = load ptr, ptr %11, align 8, !tbaa !23
+  %76 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %75, i32 0, i32 2
+  %77 = load i64, ptr %76, align 8, !tbaa !29
+  %78 = load i64, ptr %8, align 8, !tbaa !15
+  %79 = icmp ult i64 %77, %78
+  br i1 %79, label %80, label %84
+
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %11, align 8, !tbaa !23
+  %82 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %81, i32 0, i32 2
+  %83 = load i64, ptr %82, align 8, !tbaa !29
+  store i64 %83, ptr %8, align 8, !tbaa !15
+  br label %84
+
+84:                                               ; preds = %80, %74
+  %85 = load i64, ptr %8, align 8, !tbaa !15
+  store i64 %85, ptr %9, align 8, !tbaa !15
+  br label %86
+
+86:                                               ; preds = %158, %84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %87 = load ptr, ptr %11, align 8, !tbaa !23
+  %88 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %87, i32 0, i32 3
+  %89 = load i64, ptr %88, align 8, !tbaa !31
+  %90 = load i64, ptr %9, align 8, !tbaa !15
+  %91 = add i64 %89, %90
+  %92 = load ptr, ptr %11, align 8, !tbaa !23
+  %93 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %92, i32 0, i32 4
+  %94 = load i64, ptr %93, align 8, !tbaa !30
+  %95 = icmp ule i64 %91, %94
+  br i1 %95, label %96, label %98
+
+96:                                               ; preds = %86
+  %97 = load i64, ptr %9, align 8, !tbaa !15
+  store i64 %97, ptr %13, align 8, !tbaa !15
+  br label %106
+
+98:                                               ; preds = %86
+  %99 = load ptr, ptr %11, align 8, !tbaa !23
+  %100 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %99, i32 0, i32 4
+  %101 = load i64, ptr %100, align 8, !tbaa !30
+  %102 = load ptr, ptr %11, align 8, !tbaa !23
+  %103 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %102, i32 0, i32 3
+  %104 = load i64, ptr %103, align 8, !tbaa !31
+  %105 = sub i64 %101, %104
+  store i64 %105, ptr %13, align 8, !tbaa !15
+  br label %106
+
+106:                                              ; preds = %98, %96
+  %107 = load ptr, ptr %6, align 8, !tbaa !33
+  %108 = load ptr, ptr %11, align 8, !tbaa !23
+  %109 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %108, i32 0, i32 5
+  %110 = load ptr, ptr %109, align 8, !tbaa !32
+  %111 = load ptr, ptr %11, align 8, !tbaa !23
+  %112 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %111, i32 0, i32 3
+  %113 = load i64, ptr %112, align 8, !tbaa !31
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 %113
+  %115 = load i64, ptr %13, align 8, !tbaa !15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr align 1 %114, i64 %115, i1 false)
+  %116 = load i64, ptr %13, align 8, !tbaa !15
+  %117 = load ptr, ptr %11, align 8, !tbaa !23
+  %118 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %117, i32 0, i32 2
+  %119 = load i64, ptr %118, align 8, !tbaa !29
+  %120 = sub i64 %119, %116
+  store i64 %120, ptr %118, align 8, !tbaa !29
+  %121 = load ptr, ptr %11, align 8, !tbaa !23
+  %122 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %121, i32 0, i32 2
+  %123 = load i64, ptr %122, align 8, !tbaa !29
+  %124 = icmp ne i64 %123, 0
+  br i1 %124, label %131, label %125
+
+125:                                              ; preds = %106
+  %126 = load ptr, ptr %11, align 8, !tbaa !23
+  %127 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %126, i32 0, i32 8
+  %128 = load i8, ptr %127, align 2, !tbaa !34
+  %129 = sext i8 %128 to i32
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %151
+
+131:                                              ; preds = %125, %106
+  %132 = load i64, ptr %13, align 8, !tbaa !15
+  %133 = load ptr, ptr %11, align 8, !tbaa !23
+  %134 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %133, i32 0, i32 3
+  %135 = load i64, ptr %134, align 8, !tbaa !31
+  %136 = add i64 %135, %132
+  store i64 %136, ptr %134, align 8, !tbaa !31
+  %137 = load ptr, ptr %11, align 8, !tbaa !23
+  %138 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %137, i32 0, i32 3
+  %139 = load i64, ptr %138, align 8, !tbaa !31
+  %140 = load ptr, ptr %11, align 8, !tbaa !23
+  %141 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %140, i32 0, i32 4
+  %142 = load i64, ptr %141, align 8, !tbaa !30
+  %143 = icmp eq i64 %139, %142
+  br i1 %143, label %144, label %147
+
+144:                                              ; preds = %131
+  %145 = load ptr, ptr %11, align 8, !tbaa !23
+  %146 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %145, i32 0, i32 3
+  store i64 0, ptr %146, align 8, !tbaa !31
+  br label %147
+
+147:                                              ; preds = %144, %131
+  %148 = load i64, ptr %13, align 8, !tbaa !15
+  %149 = load ptr, ptr %6, align 8, !tbaa !33
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %148
+  store ptr %150, ptr %6, align 8, !tbaa !33
+  br label %154
+
+151:                                              ; preds = %125
+  %152 = load ptr, ptr %11, align 8, !tbaa !23
+  %153 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %152, i32 0, i32 3
+  store i64 0, ptr %153, align 8, !tbaa !31
+  br label %154
+
+154:                                              ; preds = %151, %147
+  %155 = load i64, ptr %13, align 8, !tbaa !15
+  %156 = load i64, ptr %9, align 8, !tbaa !15
+  %157 = sub i64 %156, %155
+  store i64 %157, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  br label %158
+
+158:                                              ; preds = %154
+  %159 = load i64, ptr %9, align 8, !tbaa !15
+  %160 = icmp ne i64 %159, 0
+  br i1 %160, label %86, label %161, !llvm.loop !44
+
+161:                                              ; preds = %158
+  %162 = load i64, ptr %8, align 8, !tbaa !15
+  %163 = trunc i64 %162 to i32
+  store i32 %163, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %164
+
+164:                                              ; preds = %161, %73, %55, %44, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %165 = load i32, ptr %4, align 4
+  ret i32 %165
+}
 
 ; Function Attrs: nounwind uwtable
-define internal void @bio_destroy_pair(ptr noundef %bio) #0 {
-entry:
-  %bio.addr = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  %peer_bio = alloca ptr, align 8
-  %peer_b = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 9
-  %1 = load ptr, ptr %ptr, align 8
-  store ptr %1, ptr %b, align 8
-  %2 = load ptr, ptr %b, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @bio_puts(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %3, align 8, !tbaa !6
+  %6 = load ptr, ptr %4, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !33
+  %8 = call i64 @strlen(ptr noundef %7) #10
+  %9 = trunc i64 %8 to i32
+  %10 = call i32 @bio_write(ptr noundef %5, ptr noundef %6, i32 noundef %9)
+  ret i32 %10
+}
 
-if.then:                                          ; preds = %entry
-  br label %return
+; Function Attrs: nounwind uwtable
+define internal i64 @bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store i32 %1, ptr %6, align 4, !tbaa !40
+  store i64 %2, ptr %7, align 8, !tbaa !15
+  store ptr %3, ptr %8, align 8, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %14 = load ptr, ptr %5, align 8, !tbaa !6
+  %15 = getelementptr inbounds nuw %struct.bio_st, ptr %14, i32 0, i32 9
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %10, align 8, !tbaa !23
+  %17 = load i32, ptr %6, align 4, !tbaa !40
+  switch i32 %17, label %112 [
+    i32 137, label %18
+    i32 140, label %22
+    i32 141, label %42
+    i32 147, label %46
+    i32 142, label %49
+    i32 8, label %52
+    i32 9, label %57
+    i32 10, label %62
+    i32 13, label %78
+    i32 11, label %88
+    i32 2, label %89
+  ]
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %b, align 8
-  %peer = getelementptr inbounds %struct.bio_bio_st, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %peer, align 8
-  store ptr %4, ptr %peer_bio, align 8
-  %5 = load ptr, ptr %peer_bio, align 8
-  %cmp1 = icmp eq ptr %5, null
-  br i1 %cmp1, label %if.then2, label %if.end3
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %10, align 8, !tbaa !23
+  %20 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %19, i32 0, i32 4
+  %21 = load i64, ptr %20, align 8, !tbaa !30
+  store i64 %21, ptr %9, align 8, !tbaa !15
+  br label %113
 
-if.then2:                                         ; preds = %if.end
-  br label %return
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %10, align 8, !tbaa !23
+  %24 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !25
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %32, label %27
 
-if.end3:                                          ; preds = %if.end
-  %6 = load ptr, ptr %peer_bio, align 8
-  %ptr4 = getelementptr inbounds %struct.bio_st, ptr %6, i32 0, i32 9
-  %7 = load ptr, ptr %ptr4, align 8
-  store ptr %7, ptr %peer_b, align 8
-  %8 = load ptr, ptr %peer_b, align 8
-  %peer5 = getelementptr inbounds %struct.bio_bio_st, ptr %8, i32 0, i32 0
-  store ptr null, ptr %peer5, align 8
-  %9 = load ptr, ptr %peer_bio, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %9, i32 0, i32 3
-  store i32 0, ptr %init, align 8
-  %10 = load ptr, ptr %peer_b, align 8
-  %len = getelementptr inbounds %struct.bio_bio_st, ptr %10, i32 0, i32 2
-  store i64 0, ptr %len, align 8
-  %11 = load ptr, ptr %peer_b, align 8
-  %offset = getelementptr inbounds %struct.bio_bio_st, ptr %11, i32 0, i32 3
-  store i64 0, ptr %offset, align 8
-  %12 = load ptr, ptr %b, align 8
-  %peer6 = getelementptr inbounds %struct.bio_bio_st, ptr %12, i32 0, i32 0
-  store ptr null, ptr %peer6, align 8
-  %13 = load ptr, ptr %bio.addr, align 8
-  %init7 = getelementptr inbounds %struct.bio_st, ptr %13, i32 0, i32 3
-  store i32 0, ptr %init7, align 8
-  %14 = load ptr, ptr %b, align 8
-  %len8 = getelementptr inbounds %struct.bio_bio_st, ptr %14, i32 0, i32 2
-  store i64 0, ptr %len8, align 8
-  %15 = load ptr, ptr %b, align 8
-  %offset9 = getelementptr inbounds %struct.bio_bio_st, ptr %15, i32 0, i32 3
-  store i64 0, ptr %offset9, align 8
-  br label %return
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %10, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8, !tbaa !36
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %33
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
+32:                                               ; preds = %27, %22
+  store i64 0, ptr %9, align 8, !tbaa !15
+  br label %41
+
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %10, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %34, i32 0, i32 4
+  %36 = load i64, ptr %35, align 8, !tbaa !30
+  %37 = load ptr, ptr %10, align 8, !tbaa !23
+  %38 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %37, i32 0, i32 2
+  %39 = load i64, ptr %38, align 8, !tbaa !29
+  %40 = sub i64 %36, %39
+  store i64 %40, ptr %9, align 8, !tbaa !15
+  br label %41
+
+41:                                               ; preds = %33, %32
+  br label %113
+
+42:                                               ; preds = %4
+  %43 = load ptr, ptr %10, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %43, i32 0, i32 9
+  %45 = load i64, ptr %44, align 8, !tbaa !28
+  store i64 %45, ptr %9, align 8, !tbaa !15
+  br label %113
+
+46:                                               ; preds = %4
+  %47 = load ptr, ptr %10, align 8, !tbaa !23
+  %48 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %47, i32 0, i32 9
+  store i64 0, ptr %48, align 8, !tbaa !28
+  store i64 1, ptr %9, align 8, !tbaa !15
+  br label %113
+
+49:                                               ; preds = %4
+  %50 = load ptr, ptr %10, align 8, !tbaa !23
+  %51 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %50, i32 0, i32 1
+  store i32 1, ptr %51, align 8, !tbaa !36
+  store i64 1, ptr %9, align 8, !tbaa !15
+  br label %113
+
+52:                                               ; preds = %4
+  %53 = load ptr, ptr %5, align 8, !tbaa !6
+  %54 = getelementptr inbounds nuw %struct.bio_st, ptr %53, i32 0, i32 4
+  %55 = load i32, ptr %54, align 4, !tbaa !46
+  %56 = sext i32 %55 to i64
+  store i64 %56, ptr %9, align 8, !tbaa !15
+  br label %113
+
+57:                                               ; preds = %4
+  %58 = load i64, ptr %7, align 8, !tbaa !15
+  %59 = trunc i64 %58 to i32
+  %60 = load ptr, ptr %5, align 8, !tbaa !6
+  %61 = getelementptr inbounds nuw %struct.bio_st, ptr %60, i32 0, i32 4
+  store i32 %59, ptr %61, align 4, !tbaa !46
+  store i64 1, ptr %9, align 8, !tbaa !15
+  br label %113
+
+62:                                               ; preds = %4
+  %63 = load ptr, ptr %10, align 8, !tbaa !23
+  %64 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8, !tbaa !25
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %76
+
+67:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %68 = load ptr, ptr %10, align 8, !tbaa !23
+  %69 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !25
+  %71 = getelementptr inbounds nuw %struct.bio_st, ptr %70, i32 0, i32 9
+  %72 = load ptr, ptr %71, align 8, !tbaa !22
+  store ptr %72, ptr %11, align 8, !tbaa !23
+  %73 = load ptr, ptr %11, align 8, !tbaa !23
+  %74 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %73, i32 0, i32 2
+  %75 = load i64, ptr %74, align 8, !tbaa !29
+  store i64 %75, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  br label %77
+
+76:                                               ; preds = %62
+  store i64 0, ptr %9, align 8, !tbaa !15
+  br label %77
+
+77:                                               ; preds = %76, %67
+  br label %113
+
+78:                                               ; preds = %4
+  store i64 0, ptr %9, align 8, !tbaa !15
+  %79 = load ptr, ptr %10, align 8, !tbaa !23
+  %80 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %79, i32 0, i32 5
+  %81 = load ptr, ptr %80, align 8, !tbaa !32
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %87
+
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %10, align 8, !tbaa !23
+  %85 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %84, i32 0, i32 2
+  %86 = load i64, ptr %85, align 8, !tbaa !29
+  store i64 %86, ptr %9, align 8, !tbaa !15
+  br label %87
+
+87:                                               ; preds = %83, %78
+  br label %113
+
+88:                                               ; preds = %4
+  store i64 1, ptr %9, align 8, !tbaa !15
+  br label %113
+
+89:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %90 = load ptr, ptr %8, align 8, !tbaa !45
+  store ptr %90, ptr %12, align 8, !tbaa !6
+  %91 = load ptr, ptr %12, align 8, !tbaa !6
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %110
+
+93:                                               ; preds = %89
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %94 = load ptr, ptr %12, align 8, !tbaa !6
+  %95 = getelementptr inbounds nuw %struct.bio_st, ptr %94, i32 0, i32 9
+  %96 = load ptr, ptr %95, align 8, !tbaa !22
+  store ptr %96, ptr %13, align 8, !tbaa !23
+  %97 = load ptr, ptr %13, align 8, !tbaa !23
+  %98 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %97, i32 0, i32 2
+  %99 = load i64, ptr %98, align 8, !tbaa !29
+  %100 = icmp eq i64 %99, 0
+  br i1 %100, label %101, label %106
+
+101:                                              ; preds = %93
+  %102 = load ptr, ptr %13, align 8, !tbaa !23
+  %103 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %102, i32 0, i32 1
+  %104 = load i32, ptr %103, align 8, !tbaa !36
+  %105 = icmp ne i32 %104, 0
+  br label %106
+
+106:                                              ; preds = %101, %93
+  %107 = phi i1 [ false, %93 ], [ %105, %101 ]
+  %108 = zext i1 %107 to i32
+  %109 = sext i32 %108 to i64
+  store i64 %109, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  br label %111
+
+110:                                              ; preds = %89
+  store i64 1, ptr %9, align 8, !tbaa !15
+  br label %111
+
+111:                                              ; preds = %110, %106
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  br label %113
+
+112:                                              ; preds = %4
+  store i64 0, ptr %9, align 8, !tbaa !15
+  br label %113
+
+113:                                              ; preds = %112, %111, %88, %87, %77, %57, %52, %49, %46, %42, %41, %18
+  %114 = load i64, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret i64 %114
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @bio_new(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %6 = call noalias ptr @malloc(i64 noundef 64) #9
+  store ptr %6, ptr %4, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8, !tbaa !23
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %17
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 64, i1 false)
+  %12 = load ptr, ptr %4, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %12, i32 0, i32 4
+  store i64 17408, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %4, align 8, !tbaa !23
+  %15 = load ptr, ptr %3, align 8, !tbaa !6
+  %16 = getelementptr inbounds nuw %struct.bio_st, ptr %15, i32 0, i32 9
+  store ptr %14, ptr %16, align 8, !tbaa !22
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %17
+
+17:                                               ; preds = %10, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %18 = load i32, ptr %2, align 4
+  ret i32 %18
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @bio_free(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !6
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %30
+
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !6
+  %11 = getelementptr inbounds nuw %struct.bio_st, ptr %10, i32 0, i32 9
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  store ptr %12, ptr %4, align 8, !tbaa !23
+  %13 = load ptr, ptr %4, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %9
+  %18 = load ptr, ptr %3, align 8, !tbaa !6
+  call void @bio_destroy_pair(ptr noundef %18)
+  br label %19
+
+19:                                               ; preds = %17, %9
+  %20 = load ptr, ptr %4, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %20, i32 0, i32 6
+  %22 = load i8, ptr %21, align 8, !tbaa !41
+  %23 = icmp ne i8 %22, 0
+  br i1 %23, label %28, label %24
+
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %4, align 8, !tbaa !23
+  %26 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %25, i32 0, i32 5
+  %27 = load ptr, ptr %26, align 8, !tbaa !32
+  call void @free(ptr noundef %27) #8
+  br label %28
+
+28:                                               ; preds = %24, %19
+  %29 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @free(ptr noundef %29) #8
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %30
+
+30:                                               ; preds = %28, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %31 = load i32, ptr %2, align 4
+  ret i32 %31
+}
+
+declare void @BIO_set_retry_write(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+declare void @BIO_set_retry_read(ptr noundef) #2
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #4
+
+; Function Attrs: nounwind allocsize(0)
+declare noalias ptr @malloc(i64 noundef) #5
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: nounwind uwtable
+define internal void @bio_destroy_pair(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %7 = load ptr, ptr %2, align 8, !tbaa !6
+  %8 = getelementptr inbounds nuw %struct.bio_st, ptr %7, i32 0, i32 9
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  store ptr %9, ptr %3, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %10 = load ptr, ptr %3, align 8, !tbaa !23
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %1
+  store i32 1, ptr %6, align 4
+  br label %40
+
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !23
+  %15 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  store ptr %16, ptr %4, align 8, !tbaa !6
+  %17 = load ptr, ptr %4, align 8, !tbaa !6
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %13
+  store i32 1, ptr %6, align 4
+  br label %40
+
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %4, align 8, !tbaa !6
+  %22 = getelementptr inbounds nuw %struct.bio_st, ptr %21, i32 0, i32 9
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  store ptr %23, ptr %5, align 8, !tbaa !23
+  %24 = load ptr, ptr %5, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %24, i32 0, i32 0
+  store ptr null, ptr %25, align 8, !tbaa !25
+  %26 = load ptr, ptr %4, align 8, !tbaa !6
+  %27 = getelementptr inbounds nuw %struct.bio_st, ptr %26, i32 0, i32 3
+  store i32 0, ptr %27, align 8, !tbaa !17
+  %28 = load ptr, ptr %5, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %28, i32 0, i32 2
+  store i64 0, ptr %29, align 8, !tbaa !29
+  %30 = load ptr, ptr %5, align 8, !tbaa !23
+  %31 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %30, i32 0, i32 3
+  store i64 0, ptr %31, align 8, !tbaa !31
+  %32 = load ptr, ptr %3, align 8, !tbaa !23
+  %33 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %32, i32 0, i32 0
+  store ptr null, ptr %33, align 8, !tbaa !25
+  %34 = load ptr, ptr %2, align 8, !tbaa !6
+  %35 = getelementptr inbounds nuw %struct.bio_st, ptr %34, i32 0, i32 3
+  store i32 0, ptr %35, align 8, !tbaa !17
+  %36 = load ptr, ptr %3, align 8, !tbaa !23
+  %37 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %36, i32 0, i32 2
+  store i64 0, ptr %37, align 8, !tbaa !29
+  %38 = load ptr, ptr %3, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %struct.bio_bio_st, ptr %38, i32 0, i32 3
+  store i64 0, ptr %39, align 8, !tbaa !31
+  store i32 0, ptr %6, align 4
+  br label %40
+
+40:                                               ; preds = %20, %19, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  %41 = load i32, ptr %6, align 4
+  switch i32 %41, label %43 [
+    i32 0, label %42
+    i32 1, label %42
+  ]
+
+42:                                               ; preds = %40, %40
   ret void
+
+43:                                               ; preds = %40
+  unreachable
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #6
+declare void @free(ptr noundef) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS6bio_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p2 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 long", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !9, i64 0}
+!17 = !{!18, !21, i64 24}
+!18 = !{!"bio_st", !19, i64 0, !8, i64 8, !20, i64 16, !21, i64 24, !21, i64 28, !21, i64 32, !21, i64 36, !21, i64 40, !21, i64 44, !8, i64 48, !7, i64 56, !16, i64 64, !16, i64 72}
+!19 = !{!"p1 _ZTS13bio_method_st", !8, i64 0}
+!20 = !{!"p1 omnipotent char", !8, i64 0}
+!21 = !{!"int", !9, i64 0}
+!22 = !{!18, !8, i64 48}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS10bio_bio_st", !8, i64 0}
+!25 = !{!26, !7, i64 0}
+!26 = !{!"bio_bio_st", !7, i64 0, !21, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !20, i64 40, !9, i64 48, !9, i64 49, !9, i64 50, !16, i64 56}
+!27 = !{!26, !9, i64 49}
+!28 = !{!26, !16, i64 56}
+!29 = !{!26, !16, i64 16}
+!30 = !{!26, !16, i64 32}
+!31 = !{!26, !16, i64 24}
+!32 = !{!26, !20, i64 40}
+!33 = !{!20, !20, i64 0}
+!34 = !{!26, !9, i64 50}
+!35 = !{!18, !16, i64 64}
+!36 = !{!26, !21, i64 8}
+!37 = !{!18, !16, i64 72}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p2 _ZTS6bio_st", !8, i64 0}
+!40 = !{!21, !21, i64 0}
+!41 = !{!26, !9, i64 48}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.mustprogress"}
+!44 = distinct !{!44, !43}
+!45 = !{!8, !8, i64 0}
+!46 = !{!18, !21, i64 28}

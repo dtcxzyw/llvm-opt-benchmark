@@ -1,17 +1,13 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.ASN1_AUX_st = type { ptr, i32, i32, ptr, i32 }
-%struct.x509_crl_method_st = type { i32, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
 %struct.X509_crl_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, [20 x i8], ptr, ptr, ptr }
 %struct.X509_crl_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
 %struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
 %struct.x509_revoked_st = type { ptr, ptr, ptr, ptr, i32, i32 }
+%struct.x509_crl_method_st = type { i32, ptr, ptr, ptr, ptr }
 %struct.X509_extension_st = type { ptr, i32, ptr }
 %struct.ISSUING_DIST_POINT_st = type { ptr, i32, i32, ptr, i32, i32 }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
@@ -20,17 +16,14 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @X509_REVOKED_seq_tt = internal constant [3 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.5, ptr @ASN1_TIME_it }, %struct.ASN1_TEMPLATE_st { i64 5, i64 0, i64 16, ptr @.str.6, ptr @X509_EXTENSION_it }], align 16
 @.str = private unnamed_addr constant [13 x i8] c"X509_REVOKED\00", align 1
-@X509_REVOKED_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_REVOKED_seq_tt, i64 3, ptr null, i64 40, ptr @.str }, align 8
+@X509_REVOKED_it = hidden constant { i8, [7 x i8], i64, ptr, i64, ptr, i64, ptr } { i8 1, [7 x i8] zeroinitializer, i64 16, ptr @X509_REVOKED_seq_tt, i64 3, ptr null, i64 40, ptr @.str }, align 8
 @X509_CRL_INFO_seq_tt = internal constant [7 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 0, ptr @.str.7, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.8, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.9, ptr @X509_NAME_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.10, ptr @ASN1_TIME_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 32, ptr @.str.11, ptr @ASN1_TIME_it }, %struct.ASN1_TEMPLATE_st { i64 5, i64 0, i64 40, ptr @.str.12, ptr @X509_REVOKED_it }, %struct.ASN1_TEMPLATE_st { i64 149, i64 0, i64 48, ptr @.str.6, ptr @X509_EXTENSION_it }], align 16
-@X509_CRL_INFO_aux = internal constant %struct.ASN1_AUX_st { ptr null, i32 2, i32 0, ptr @crl_inf_cb, i32 56 }, align 8
 @.str.1 = private unnamed_addr constant [14 x i8] c"X509_CRL_INFO\00", align 1
-@X509_CRL_INFO_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_CRL_INFO_seq_tt, i64 7, ptr @X509_CRL_INFO_aux, i64 80, ptr @.str.1 }, align 8
-@X509_CRL_seq_tt = internal constant [3 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.13, ptr @X509_CRL_INFO_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.8, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.14, ptr @ASN1_BIT_STRING_it }], align 16
-@X509_CRL_aux = internal constant %struct.ASN1_AUX_st { ptr null, i32 1, i32 24, ptr @crl_cb, i32 0 }, align 8
+@X509_CRL_INFO_it = hidden constant { i8, [7 x i8], i64, ptr, i64, ptr, i64, ptr } { i8 1, [7 x i8] zeroinitializer, i64 16, ptr @X509_CRL_INFO_seq_tt, i64 7, ptr @X509_CRL_INFO_aux, i64 80, ptr @.str.1 }, align 8
+@X509_CRL_seq_tt = internal constant [3 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.14, ptr @X509_CRL_INFO_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.8, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.15, ptr @ASN1_BIT_STRING_it }], align 16
 @.str.2 = private unnamed_addr constant [9 x i8] c"X509_CRL\00", align 1
-@X509_CRL_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_CRL_seq_tt, i64 3, ptr @X509_CRL_aux, i64 120, ptr @.str.2 }, align 8
+@X509_CRL_it = hidden constant { i8, [7 x i8], i64, ptr, i64, ptr, i64, ptr } { i8 1, [7 x i8] zeroinitializer, i64 16, ptr @X509_CRL_seq_tt, i64 3, ptr @X509_CRL_aux, i64 120, ptr @.str.2 }, align 8
 @.str.3 = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x_crl.c\00", align 1
-@int_crl_meth = internal constant %struct.x509_crl_method_st { i32 0, ptr null, ptr null, ptr @def_crl_lookup, ptr @def_crl_verify }, align 8
 @default_crl_method = internal global ptr @int_crl_meth, align 8
 @.str.4 = private unnamed_addr constant [13 x i8] c"serialNumber\00", align 1
 @ASN1_INTEGER_it = external constant %struct.ASN1_ITEM_st, align 8
@@ -46,382 +39,377 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [11 x i8] c"lastUpdate\00", align 1
 @.str.11 = private unnamed_addr constant [11 x i8] c"nextUpdate\00", align 1
 @.str.12 = private unnamed_addr constant [8 x i8] c"revoked\00", align 1
-@.str.13 = private unnamed_addr constant [4 x i8] c"crl\00", align 1
-@.str.14 = private unnamed_addr constant [10 x i8] c"signature\00", align 1
+@X509_CRL_INFO_aux = internal constant { ptr, i32, i32, ptr, i32, [4 x i8] } { ptr null, i32 2, i32 0, ptr @crl_inf_cb, i32 56, [4 x i8] zeroinitializer }, align 8
+@.str.14 = private unnamed_addr constant [4 x i8] c"crl\00", align 1
+@.str.15 = private unnamed_addr constant [10 x i8] c"signature\00", align 1
 @ASN1_BIT_STRING_it = external constant %struct.ASN1_ITEM_st, align 8
-@g_crl_sort_lock = internal global %struct.CRYPTO_STATIC_MUTEX zeroinitializer, align 8
+@X509_CRL_aux = internal constant { ptr, i32, i32, ptr, i32, [4 x i8] } { ptr null, i32 1, i32 24, ptr @crl_cb, i32 0, [4 x i8] zeroinitializer }, align 8
+@int_crl_meth = internal constant { i32, [4 x i8], ptr, ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr @def_crl_lookup, ptr @def_crl_verify }, align 8
+@g_crl_sort_lock = internal global { { { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32, [4 x i8] } } } zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_X509_REVOKED(ptr noundef %a, ptr noundef %in, i64 noundef %len) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %in.addr, align 8
-  %2 = load i64, ptr %len.addr, align 8
-  %call = call ptr @ASN1_item_d2i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef @X509_REVOKED_it)
-  ret ptr %call
+define hidden ptr @d2i_X509_REVOKED(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store i64 %2, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %4, align 8, !tbaa !6
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = load i64, ptr %6, align 8, !tbaa !13
+  %10 = call ptr @ASN1_item_d2i(ptr noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef @X509_REVOKED_it)
+  ret ptr %10
 }
 
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_X509_REVOKED(ptr noundef %a, ptr noundef %out) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  %call = call i32 @ASN1_item_i2d(ptr noundef %0, ptr noundef %1, ptr noundef @X509_REVOKED_it)
-  ret i32 %call
+define hidden i32 @i2d_X509_REVOKED(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !15
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = call i32 @ASN1_item_i2d(ptr noundef %5, ptr noundef %6, ptr noundef @X509_REVOKED_it)
+  ret i32 %7
 }
 
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_REVOKED_new() #0 {
-entry:
-  %call = call ptr @ASN1_item_new(ptr noundef @X509_REVOKED_it)
-  ret ptr %call
+  %1 = call ptr @ASN1_item_new(ptr noundef @X509_REVOKED_it)
+  ret ptr %1
 }
 
 declare ptr @ASN1_item_new(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_REVOKED_free(ptr noundef %a) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  call void @ASN1_item_free(ptr noundef %0, ptr noundef @X509_REVOKED_it)
+define hidden void @X509_REVOKED_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  call void @ASN1_item_free(ptr noundef %3, ptr noundef @X509_REVOKED_it)
   ret void
 }
 
 declare void @ASN1_item_free(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_REVOKED_dup(ptr noundef %x) #0 {
-entry:
-  %x.addr = alloca ptr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  %0 = load ptr, ptr %x.addr, align 8
-  %call = call ptr @ASN1_item_dup(ptr noundef @X509_REVOKED_it, ptr noundef %0)
-  ret ptr %call
+define hidden ptr @X509_REVOKED_dup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  %4 = call ptr @ASN1_item_dup(ptr noundef @X509_REVOKED_it, ptr noundef %3)
+  ret ptr %4
 }
 
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_X509_CRL_INFO(ptr noundef %a, ptr noundef %in, i64 noundef %len) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %in.addr, align 8
-  %2 = load i64, ptr %len.addr, align 8
-  %call = call ptr @ASN1_item_d2i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef @X509_CRL_INFO_it)
-  ret ptr %call
+define hidden ptr @d2i_X509_CRL_INFO(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store i64 %2, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %4, align 8, !tbaa !17
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = load i64, ptr %6, align 8, !tbaa !13
+  %10 = call ptr @ASN1_item_d2i(ptr noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef @X509_CRL_INFO_it)
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_X509_CRL_INFO(ptr noundef %a, ptr noundef %out) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  %call = call i32 @ASN1_item_i2d(ptr noundef %0, ptr noundef %1, ptr noundef @X509_CRL_INFO_it)
-  ret i32 %call
+define hidden i32 @i2d_X509_CRL_INFO(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = call i32 @ASN1_item_i2d(ptr noundef %5, ptr noundef %6, ptr noundef @X509_CRL_INFO_it)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_CRL_INFO_new() #0 {
-entry:
-  %call = call ptr @ASN1_item_new(ptr noundef @X509_CRL_INFO_it)
-  ret ptr %call
+  %1 = call ptr @ASN1_item_new(ptr noundef @X509_CRL_INFO_it)
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_CRL_INFO_free(ptr noundef %a) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  call void @ASN1_item_free(ptr noundef %0, ptr noundef @X509_CRL_INFO_it)
+define hidden void @X509_CRL_INFO_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @ASN1_item_free(ptr noundef %3, ptr noundef @X509_CRL_INFO_it)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_X509_CRL(ptr noundef %a, ptr noundef %in, i64 noundef %len) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %in.addr, align 8
-  %2 = load i64, ptr %len.addr, align 8
-  %call = call ptr @ASN1_item_d2i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef @X509_CRL_it)
-  ret ptr %call
+define hidden ptr @d2i_X509_CRL(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store i64 %2, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = load i64, ptr %6, align 8, !tbaa !13
+  %10 = call ptr @ASN1_item_d2i(ptr noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef @X509_CRL_it)
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_X509_CRL(ptr noundef %a, ptr noundef %out) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  %call = call i32 @ASN1_item_i2d(ptr noundef %0, ptr noundef %1, ptr noundef @X509_CRL_it)
-  ret i32 %call
+define hidden i32 @i2d_X509_CRL(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !23
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = call i32 @ASN1_item_i2d(ptr noundef %5, ptr noundef %6, ptr noundef @X509_CRL_it)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_CRL_new() #0 {
-entry:
-  %call = call ptr @ASN1_item_new(ptr noundef @X509_CRL_it)
-  ret ptr %call
+  %1 = call ptr @ASN1_item_new(ptr noundef @X509_CRL_it)
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_CRL_free(ptr noundef %a) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  call void @ASN1_item_free(ptr noundef %0, ptr noundef @X509_CRL_it)
+define hidden void @X509_CRL_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  call void @ASN1_item_free(ptr noundef %3, ptr noundef @X509_CRL_it)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_CRL_dup(ptr noundef %x) #0 {
-entry:
-  %x.addr = alloca ptr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  %0 = load ptr, ptr %x.addr, align 8
-  %call = call ptr @ASN1_item_dup(ptr noundef @X509_CRL_it, ptr noundef %0)
-  ret ptr %call
+define hidden ptr @X509_CRL_dup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %4 = call ptr @ASN1_item_dup(ptr noundef @X509_CRL_it, ptr noundef %3)
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_CRL_add0_revoked(ptr noundef %crl, ptr noundef %rev) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %crl.addr = alloca ptr, align 8
-  %rev.addr = alloca ptr, align 8
-  %inf = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %rev, ptr %rev.addr, align 8
-  %0 = load ptr, ptr %crl.addr, align 8
-  %crl1 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %crl1, align 8
-  store ptr %1, ptr %inf, align 8
-  %2 = load ptr, ptr %inf, align 8
-  %revoked = getelementptr inbounds %struct.X509_crl_info_st, ptr %2, i32 0, i32 5
-  %3 = load ptr, ptr %revoked, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @X509_CRL_add0_revoked(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  store ptr %10, ptr %6, align 8, !tbaa !19
+  %11 = load ptr, ptr %6, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %11, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %19, label %15
 
-if.then:                                          ; preds = %entry
-  %call = call ptr @sk_new(ptr noundef @X509_REVOKED_cmp)
-  %4 = load ptr, ptr %inf, align 8
-  %revoked2 = getelementptr inbounds %struct.X509_crl_info_st, ptr %4, i32 0, i32 5
-  store ptr %call, ptr %revoked2, align 8
-  br label %if.end
+15:                                               ; preds = %2
+  %16 = call ptr @sk_new(ptr noundef @X509_REVOKED_cmp)
+  %17 = load ptr, ptr %6, align 8, !tbaa !19
+  %18 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %17, i32 0, i32 5
+  store ptr %16, ptr %18, align 8, !tbaa !34
+  br label %19
 
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %inf, align 8
-  %revoked3 = getelementptr inbounds %struct.X509_crl_info_st, ptr %5, i32 0, i32 5
-  %6 = load ptr, ptr %revoked3, align 8
-  %tobool4 = icmp ne ptr %6, null
-  br i1 %tobool4, label %lor.lhs.false, label %if.then8
+19:                                               ; preds = %15, %2
+  %20 = load ptr, ptr %6, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %20, i32 0, i32 5
+  %22 = load ptr, ptr %21, align 8, !tbaa !34
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %31
 
-lor.lhs.false:                                    ; preds = %if.end
-  %7 = load ptr, ptr %inf, align 8
-  %revoked5 = getelementptr inbounds %struct.X509_crl_info_st, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %revoked5, align 8
-  %9 = load ptr, ptr %rev.addr, align 8
-  %call6 = call i64 @sk_push(ptr noundef %8, ptr noundef %9)
-  %tobool7 = icmp ne i64 %call6, 0
-  br i1 %tobool7, label %if.end9, label %if.then8
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %6, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %25, i32 0, i32 5
+  %27 = load ptr, ptr %26, align 8, !tbaa !34
+  %28 = load ptr, ptr %5, align 8, !tbaa !15
+  %29 = call i64 @sk_push(ptr noundef %27, ptr noundef %28)
+  %30 = icmp ne i64 %29, 0
+  br i1 %30, label %32, label %31
 
-if.then8:                                         ; preds = %lor.lhs.false, %if.end
+31:                                               ; preds = %24, %19
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef @.str.3, i32 noundef 383)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-if.end9:                                          ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %inf, align 8
-  %enc = getelementptr inbounds %struct.X509_crl_info_st, ptr %10, i32 0, i32 7
-  %modified = getelementptr inbounds %struct.ASN1_ENCODING_st, ptr %enc, i32 0, i32 2
-  store i32 1, ptr %modified, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %6, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %33, i32 0, i32 7
+  %35 = getelementptr inbounds nuw %struct.ASN1_ENCODING_st, ptr %34, i32 0, i32 2
+  store i32 1, ptr %35, align 8, !tbaa !41
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-return:                                           ; preds = %if.end9, %if.then8
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+36:                                               ; preds = %32, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %37 = load i32, ptr %3, align 4
+  ret i32 %37
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @sk_new(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @X509_REVOKED_cmp(ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %serialNumber = getelementptr inbounds %struct.x509_revoked_st, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %serialNumber, align 8
-  %3 = load ptr, ptr %b.addr, align 8
-  %4 = load ptr, ptr %3, align 8
-  %serialNumber1 = getelementptr inbounds %struct.x509_revoked_st, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %serialNumber1, align 8
-  %call = call i32 @ASN1_STRING_cmp(ptr noundef %2, ptr noundef %5)
-  ret i32 %call
+define internal i32 @X509_REVOKED_cmp(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  %5 = load ptr, ptr %3, align 8, !tbaa !6
+  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %9 = load ptr, ptr %4, align 8, !tbaa !6
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %13 = call i32 @ASN1_STRING_cmp(ptr noundef %8, ptr noundef %12)
+  ret i32 %13
 }
 
 declare i64 @sk_push(ptr noundef, ptr noundef) #1
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_CRL_verify(ptr noundef %crl, ptr noundef %r) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %crl.addr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  %0 = load ptr, ptr %crl.addr, align 8
-  %meth = getelementptr inbounds %struct.X509_crl_st, ptr %0, i32 0, i32 13
-  %1 = load ptr, ptr %meth, align 8
-  %crl_verify = getelementptr inbounds %struct.x509_crl_method_st, ptr %1, i32 0, i32 4
-  %2 = load ptr, ptr %crl_verify, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+define hidden i32 @X509_CRL_verify(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !45
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
+  %7 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %6, i32 0, i32 13
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %9 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %8, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %21
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %crl.addr, align 8
-  %meth1 = getelementptr inbounds %struct.X509_crl_st, ptr %3, i32 0, i32 13
-  %4 = load ptr, ptr %meth1, align 8
-  %crl_verify2 = getelementptr inbounds %struct.x509_crl_method_st, ptr %4, i32 0, i32 4
-  %5 = load ptr, ptr %crl_verify2, align 8
-  %6 = load ptr, ptr %crl.addr, align 8
-  %7 = load ptr, ptr %r.addr, align 8
-  %call = call i32 %5(ptr noundef %6, ptr noundef %7)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %13, i32 0, i32 13
+  %15 = load ptr, ptr %14, align 8, !tbaa !47
+  %16 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %15, i32 0, i32 4
+  %17 = load ptr, ptr %16, align 8, !tbaa !48
+  %18 = load ptr, ptr %4, align 8, !tbaa !23
+  %19 = load ptr, ptr %5, align 8, !tbaa !45
+  %20 = call i32 %17(ptr noundef %18, ptr noundef %19)
+  store i32 %20, ptr %3, align 4
+  br label %22
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %22
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+22:                                               ; preds = %21, %12
+  %23 = load i32, ptr %3, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_CRL_get0_by_serial(ptr noundef %crl, ptr noundef %ret, ptr noundef %serial) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %crl.addr = alloca ptr, align 8
-  %ret.addr = alloca ptr, align 8
-  %serial.addr = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %serial, ptr %serial.addr, align 8
-  %0 = load ptr, ptr %crl.addr, align 8
-  %meth = getelementptr inbounds %struct.X509_crl_st, ptr %0, i32 0, i32 13
-  %1 = load ptr, ptr %meth, align 8
-  %crl_lookup = getelementptr inbounds %struct.x509_crl_method_st, ptr %1, i32 0, i32 3
-  %2 = load ptr, ptr %crl_lookup, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+define hidden i32 @X509_CRL_get0_by_serial(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %1, ptr %6, align 8, !tbaa !6
+  store ptr %2, ptr %7, align 8, !tbaa !50
+  %8 = load ptr, ptr %5, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %8, i32 0, i32 13
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %11 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %10, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %24
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %crl.addr, align 8
-  %meth1 = getelementptr inbounds %struct.X509_crl_st, ptr %3, i32 0, i32 13
-  %4 = load ptr, ptr %meth1, align 8
-  %crl_lookup2 = getelementptr inbounds %struct.x509_crl_method_st, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %crl_lookup2, align 8
-  %6 = load ptr, ptr %crl.addr, align 8
-  %7 = load ptr, ptr %ret.addr, align 8
-  %8 = load ptr, ptr %serial.addr, align 8
-  %call = call i32 %5(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef null)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !23
+  %16 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %15, i32 0, i32 13
+  %17 = load ptr, ptr %16, align 8, !tbaa !47
+  %18 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8, !tbaa !51
+  %20 = load ptr, ptr %5, align 8, !tbaa !23
+  %21 = load ptr, ptr %6, align 8, !tbaa !6
+  %22 = load ptr, ptr %7, align 8, !tbaa !50
+  %23 = call i32 %19(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef null)
+  store i32 %23, ptr %4, align 4
+  br label %25
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  br label %25
 
-return:                                           ; preds = %if.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+25:                                               ; preds = %24, %14
+  %26 = load i32, ptr %4, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_CRL_get0_by_cert(ptr noundef %crl, ptr noundef %ret, ptr noundef %x) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %crl.addr = alloca ptr, align 8
-  %ret.addr = alloca ptr, align 8
-  %x.addr = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  %0 = load ptr, ptr %crl.addr, align 8
-  %meth = getelementptr inbounds %struct.X509_crl_st, ptr %0, i32 0, i32 13
-  %1 = load ptr, ptr %meth, align 8
-  %crl_lookup = getelementptr inbounds %struct.x509_crl_method_st, ptr %1, i32 0, i32 3
-  %2 = load ptr, ptr %crl_lookup, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+define hidden i32 @X509_CRL_get0_by_cert(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %1, ptr %6, align 8, !tbaa !6
+  store ptr %2, ptr %7, align 8, !tbaa !52
+  %8 = load ptr, ptr %5, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %8, i32 0, i32 13
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %11 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %10, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %27
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %crl.addr, align 8
-  %meth1 = getelementptr inbounds %struct.X509_crl_st, ptr %3, i32 0, i32 13
-  %4 = load ptr, ptr %meth1, align 8
-  %crl_lookup2 = getelementptr inbounds %struct.x509_crl_method_st, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %crl_lookup2, align 8
-  %6 = load ptr, ptr %crl.addr, align 8
-  %7 = load ptr, ptr %ret.addr, align 8
-  %8 = load ptr, ptr %x.addr, align 8
-  %call = call ptr @X509_get_serialNumber(ptr noundef %8)
-  %9 = load ptr, ptr %x.addr, align 8
-  %call3 = call ptr @X509_get_issuer_name(ptr noundef %9)
-  %call4 = call i32 %5(ptr noundef %6, ptr noundef %7, ptr noundef %call, ptr noundef %call3)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !23
+  %16 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %15, i32 0, i32 13
+  %17 = load ptr, ptr %16, align 8, !tbaa !47
+  %18 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8, !tbaa !51
+  %20 = load ptr, ptr %5, align 8, !tbaa !23
+  %21 = load ptr, ptr %6, align 8, !tbaa !6
+  %22 = load ptr, ptr %7, align 8, !tbaa !52
+  %23 = call ptr @X509_get_serialNumber(ptr noundef %22)
+  %24 = load ptr, ptr %7, align 8, !tbaa !52
+  %25 = call ptr @X509_get_issuer_name(ptr noundef %24)
+  %26 = call i32 %19(ptr noundef %20, ptr noundef %21, ptr noundef %23, ptr noundef %25)
+  store i32 %26, ptr %4, align 4
+  br label %28
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  br label %28
 
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+28:                                               ; preds = %27, %14
+  %29 = load i32, ptr %4, align 4
+  ret i32 %29
 }
 
 declare ptr @X509_get_serialNumber(ptr noundef) #1
@@ -429,511 +417,545 @@ declare ptr @X509_get_serialNumber(ptr noundef) #1
 declare ptr @X509_get_issuer_name(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_CRL_set_default_method(ptr noundef %meth) #0 {
-entry:
-  %meth.addr = alloca ptr, align 8
-  store ptr %meth, ptr %meth.addr, align 8
-  %0 = load ptr, ptr %meth.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.else
+define hidden void @X509_CRL_set_default_method(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  store ptr @int_crl_meth, ptr @default_crl_method, align 8
-  br label %if.end
+5:                                                ; preds = %1
+  store ptr @int_crl_meth, ptr @default_crl_method, align 8, !tbaa !54
+  br label %8
 
-if.else:                                          ; preds = %entry
-  %1 = load ptr, ptr %meth.addr, align 8
-  store ptr %1, ptr @default_crl_method, align 8
-  br label %if.end
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !54
+  store ptr %7, ptr @default_crl_method, align 8, !tbaa !54
+  br label %8
 
-if.end:                                           ; preds = %if.else, %if.then
+8:                                                ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_CRL_METHOD_new(ptr noundef %crl_init, ptr noundef %crl_free, ptr noundef %crl_lookup, ptr noundef %crl_verify) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %crl_init.addr = alloca ptr, align 8
-  %crl_free.addr = alloca ptr, align 8
-  %crl_lookup.addr = alloca ptr, align 8
-  %crl_verify.addr = alloca ptr, align 8
-  %m = alloca ptr, align 8
-  store ptr %crl_init, ptr %crl_init.addr, align 8
-  store ptr %crl_free, ptr %crl_free.addr, align 8
-  store ptr %crl_lookup, ptr %crl_lookup.addr, align 8
-  store ptr %crl_verify, ptr %crl_verify.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef 40) #4
-  store ptr %call, ptr %m, align 8
-  %0 = load ptr, ptr %m, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden ptr @X509_CRL_METHOD_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !55
+  store ptr %1, ptr %7, align 8, !tbaa !55
+  store ptr %2, ptr %8, align 8, !tbaa !55
+  store ptr %3, ptr %9, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %12 = call noalias ptr @malloc(i64 noundef 40) #6
+  store ptr %12, ptr %10, align 8, !tbaa !54
+  %13 = load ptr, ptr %10, align 8, !tbaa !54
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %32
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %crl_init.addr, align 8
-  %2 = load ptr, ptr %m, align 8
-  %crl_init1 = getelementptr inbounds %struct.x509_crl_method_st, ptr %2, i32 0, i32 1
-  store ptr %1, ptr %crl_init1, align 8
-  %3 = load ptr, ptr %crl_free.addr, align 8
-  %4 = load ptr, ptr %m, align 8
-  %crl_free2 = getelementptr inbounds %struct.x509_crl_method_st, ptr %4, i32 0, i32 2
-  store ptr %3, ptr %crl_free2, align 8
-  %5 = load ptr, ptr %crl_lookup.addr, align 8
-  %6 = load ptr, ptr %m, align 8
-  %crl_lookup3 = getelementptr inbounds %struct.x509_crl_method_st, ptr %6, i32 0, i32 3
-  store ptr %5, ptr %crl_lookup3, align 8
-  %7 = load ptr, ptr %crl_verify.addr, align 8
-  %8 = load ptr, ptr %m, align 8
-  %crl_verify4 = getelementptr inbounds %struct.x509_crl_method_st, ptr %8, i32 0, i32 4
-  store ptr %7, ptr %crl_verify4, align 8
-  %9 = load ptr, ptr %m, align 8
-  %flags = getelementptr inbounds %struct.x509_crl_method_st, ptr %9, i32 0, i32 0
-  store i32 1, ptr %flags, align 8
-  %10 = load ptr, ptr %m, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %6, align 8, !tbaa !55
+  %18 = load ptr, ptr %10, align 8, !tbaa !54
+  %19 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %18, i32 0, i32 1
+  store ptr %17, ptr %19, align 8, !tbaa !56
+  %20 = load ptr, ptr %7, align 8, !tbaa !55
+  %21 = load ptr, ptr %10, align 8, !tbaa !54
+  %22 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %21, i32 0, i32 2
+  store ptr %20, ptr %22, align 8, !tbaa !57
+  %23 = load ptr, ptr %8, align 8, !tbaa !55
+  %24 = load ptr, ptr %10, align 8, !tbaa !54
+  %25 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %24, i32 0, i32 3
+  store ptr %23, ptr %25, align 8, !tbaa !51
+  %26 = load ptr, ptr %9, align 8, !tbaa !55
+  %27 = load ptr, ptr %10, align 8, !tbaa !54
+  %28 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %27, i32 0, i32 4
+  store ptr %26, ptr %28, align 8, !tbaa !48
+  %29 = load ptr, ptr %10, align 8, !tbaa !54
+  %30 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %29, i32 0, i32 0
+  store i32 1, ptr %30, align 8, !tbaa !58
+  %31 = load ptr, ptr %10, align 8, !tbaa !54
+  store ptr %31, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %32
 
-return:                                           ; preds = %if.end, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+32:                                               ; preds = %16, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %33 = load ptr, ptr %5, align 8
+  ret ptr %33
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_CRL_METHOD_free(ptr noundef %m) #0 {
-entry:
-  %m.addr = alloca ptr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  %0 = load ptr, ptr %m.addr, align 8
-  %flags = getelementptr inbounds %struct.x509_crl_method_st, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %flags, align 8
-  %and = and i32 %1, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden void @X509_CRL_METHOD_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !58
+  %6 = and i32 %5, 1
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %9, label %8
 
-if.then:                                          ; preds = %entry
-  br label %return
+8:                                                ; preds = %1
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %m.addr, align 8
-  call void @free(ptr noundef %2) #5
-  br label %return
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !54
+  call void @free(ptr noundef %10) #5
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
+11:                                               ; preds = %9, %8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_CRL_set_meth_data(ptr noundef %crl, ptr noundef %dat) #0 {
-entry:
-  %crl.addr = alloca ptr, align 8
-  %dat.addr = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %dat, ptr %dat.addr, align 8
-  %0 = load ptr, ptr %dat.addr, align 8
-  %1 = load ptr, ptr %crl.addr, align 8
-  %meth_data = getelementptr inbounds %struct.X509_crl_st, ptr %1, i32 0, i32 14
-  store ptr %0, ptr %meth_data, align 8
+define hidden void @X509_CRL_set_meth_data(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  %6 = load ptr, ptr %3, align 8, !tbaa !23
+  %7 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %6, i32 0, i32 14
+  store ptr %5, ptr %7, align 8, !tbaa !59
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_CRL_get_meth_data(ptr noundef %crl) #0 {
-entry:
-  %crl.addr = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  %0 = load ptr, ptr %crl.addr, align 8
-  %meth_data = getelementptr inbounds %struct.X509_crl_st, ptr %0, i32 0, i32 14
-  %1 = load ptr, ptr %meth_data, align 8
-  ret ptr %1
+define hidden ptr @X509_CRL_get_meth_data(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %4 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %3, i32 0, i32 14
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @crl_inf_cb(i32 noundef %operation, ptr noundef %pval, ptr noundef %it, ptr noundef %exarg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %operation.addr = alloca i32, align 4
-  %pval.addr = alloca ptr, align 8
-  %it.addr = alloca ptr, align 8
-  %exarg.addr = alloca ptr, align 8
-  %a = alloca ptr, align 8
-  store i32 %operation, ptr %operation.addr, align 4
-  store ptr %pval, ptr %pval.addr, align 8
-  store ptr %it, ptr %it.addr, align 8
-  store ptr %exarg, ptr %exarg.addr, align 8
-  %0 = load ptr, ptr %pval.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %a, align 8
-  %2 = load ptr, ptr %a, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+define internal i32 @crl_inf_cb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !60
+  store ptr %1, ptr %7, align 8, !tbaa !61
+  store ptr %2, ptr %8, align 8, !tbaa !63
+  store ptr %3, ptr %9, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %12 = load ptr, ptr %7, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !65
+  store ptr %13, ptr %10, align 8, !tbaa !19
+  %14 = load ptr, ptr %10, align 8, !tbaa !19
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %21
 
-lor.lhs.false:                                    ; preds = %entry
-  %3 = load ptr, ptr %a, align 8
-  %revoked = getelementptr inbounds %struct.X509_crl_info_st, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %revoked, align 8
-  %tobool1 = icmp ne ptr %4, null
-  br i1 %tobool1, label %if.end, label %if.then
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %10, align 8, !tbaa !19
+  %18 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %17, i32 0, i32 5
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %16, %4
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %30
 
-if.end:                                           ; preds = %lor.lhs.false
-  %5 = load i32, ptr %operation.addr, align 4
-  switch i32 %5, label %sw.epilog [
-    i32 5, label %sw.bb
+22:                                               ; preds = %16
+  %23 = load i32, ptr %6, align 4, !tbaa !60
+  switch i32 %23, label %29 [
+    i32 5, label %24
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %6 = load ptr, ptr %a, align 8
-  %revoked2 = getelementptr inbounds %struct.X509_crl_info_st, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %revoked2, align 8
-  %call = call ptr @sk_set_cmp_func(ptr noundef %7, ptr noundef @X509_REVOKED_cmp)
-  br label %sw.epilog
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %10, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %25, i32 0, i32 5
+  %27 = load ptr, ptr %26, align 8, !tbaa !34
+  %28 = call ptr @sk_set_cmp_func(ptr noundef %27, ptr noundef @X509_REVOKED_cmp)
+  br label %29
 
-sw.epilog:                                        ; preds = %sw.bb, %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %22, %24
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %30
 
-return:                                           ; preds = %sw.epilog, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+30:                                               ; preds = %29, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %31 = load i32, ptr %5, align 4
+  ret i32 %31
 }
 
 declare ptr @sk_set_cmp_func(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @crl_cb(i32 noundef %operation, ptr noundef %pval, ptr noundef %it, ptr noundef %exarg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %operation.addr = alloca i32, align 4
-  %pval.addr = alloca ptr, align 8
-  %it.addr = alloca ptr, align 8
-  %exarg.addr = alloca ptr, align 8
-  %crl = alloca ptr, align 8
-  %exts = alloca ptr, align 8
-  %ext = alloca ptr, align 8
-  %idx = alloca i64, align 8
-  %nid = alloca i32, align 4
-  store i32 %operation, ptr %operation.addr, align 4
-  store ptr %pval, ptr %pval.addr, align 8
-  store ptr %it, ptr %it.addr, align 8
-  store ptr %exarg, ptr %exarg.addr, align 8
-  %0 = load ptr, ptr %pval.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %crl, align 8
-  %2 = load i32, ptr %operation.addr, align 4
-  switch i32 %2, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 5, label %sw.bb1
-    i32 3, label %sw.bb54
+define internal i32 @crl_cb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !60
+  store ptr %1, ptr %7, align 8, !tbaa !61
+  store ptr %2, ptr %8, align 8, !tbaa !63
+  store ptr %3, ptr %9, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %16 = load ptr, ptr %7, align 8, !tbaa !61
+  %17 = load ptr, ptr %16, align 8, !tbaa !65
+  store ptr %17, ptr %10, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %18 = load i32, ptr %6, align 4, !tbaa !60
+  switch i32 %18, label %211 [
+    i32 1, label %19
+    i32 5, label %41
+    i32 3, label %165
   ]
 
-sw.bb:                                            ; preds = %entry
-  %3 = load ptr, ptr %crl, align 8
-  %idp = getelementptr inbounds %struct.X509_crl_st, ptr %3, i32 0, i32 6
-  store ptr null, ptr %idp, align 8
-  %4 = load ptr, ptr %crl, align 8
-  %akid = getelementptr inbounds %struct.X509_crl_st, ptr %4, i32 0, i32 5
-  store ptr null, ptr %akid, align 8
-  %5 = load ptr, ptr %crl, align 8
-  %flags = getelementptr inbounds %struct.X509_crl_st, ptr %5, i32 0, i32 4
-  store i32 0, ptr %flags, align 4
-  %6 = load ptr, ptr %crl, align 8
-  %idp_flags = getelementptr inbounds %struct.X509_crl_st, ptr %6, i32 0, i32 7
-  store i32 0, ptr %idp_flags, align 8
-  %7 = load ptr, ptr %crl, align 8
-  %idp_reasons = getelementptr inbounds %struct.X509_crl_st, ptr %7, i32 0, i32 8
-  store i32 32895, ptr %idp_reasons, align 4
-  %8 = load ptr, ptr @default_crl_method, align 8
-  %9 = load ptr, ptr %crl, align 8
-  %meth = getelementptr inbounds %struct.X509_crl_st, ptr %9, i32 0, i32 13
-  store ptr %8, ptr %meth, align 8
-  %10 = load ptr, ptr %crl, align 8
-  %meth_data = getelementptr inbounds %struct.X509_crl_st, ptr %10, i32 0, i32 14
-  store ptr null, ptr %meth_data, align 8
-  %11 = load ptr, ptr %crl, align 8
-  %issuers = getelementptr inbounds %struct.X509_crl_st, ptr %11, i32 0, i32 12
-  store ptr null, ptr %issuers, align 8
-  %12 = load ptr, ptr %crl, align 8
-  %crl_number = getelementptr inbounds %struct.X509_crl_st, ptr %12, i32 0, i32 9
-  store ptr null, ptr %crl_number, align 8
-  %13 = load ptr, ptr %crl, align 8
-  %base_crl_number = getelementptr inbounds %struct.X509_crl_st, ptr %13, i32 0, i32 10
-  store ptr null, ptr %base_crl_number, align 8
-  br label %sw.epilog
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %10, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %20, i32 0, i32 6
+  store ptr null, ptr %21, align 8, !tbaa !67
+  %22 = load ptr, ptr %10, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %22, i32 0, i32 5
+  store ptr null, ptr %23, align 8, !tbaa !68
+  %24 = load ptr, ptr %10, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %24, i32 0, i32 4
+  store i32 0, ptr %25, align 4, !tbaa !69
+  %26 = load ptr, ptr %10, align 8, !tbaa !23
+  %27 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %26, i32 0, i32 7
+  store i32 0, ptr %27, align 8, !tbaa !70
+  %28 = load ptr, ptr %10, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %28, i32 0, i32 8
+  store i32 32895, ptr %29, align 4, !tbaa !71
+  %30 = load ptr, ptr @default_crl_method, align 8, !tbaa !54
+  %31 = load ptr, ptr %10, align 8, !tbaa !23
+  %32 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %31, i32 0, i32 13
+  store ptr %30, ptr %32, align 8, !tbaa !47
+  %33 = load ptr, ptr %10, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %33, i32 0, i32 14
+  store ptr null, ptr %34, align 8, !tbaa !59
+  %35 = load ptr, ptr %10, align 8, !tbaa !23
+  %36 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %35, i32 0, i32 12
+  store ptr null, ptr %36, align 8, !tbaa !72
+  %37 = load ptr, ptr %10, align 8, !tbaa !23
+  %38 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %37, i32 0, i32 9
+  store ptr null, ptr %38, align 8, !tbaa !73
+  %39 = load ptr, ptr %10, align 8, !tbaa !23
+  %40 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %39, i32 0, i32 10
+  store ptr null, ptr %40, align 8, !tbaa !74
+  br label %211
 
-sw.bb1:                                           ; preds = %entry
-  %14 = load ptr, ptr %crl, align 8
-  %call = call ptr @EVP_sha1()
-  %15 = load ptr, ptr %crl, align 8
-  %sha1_hash = getelementptr inbounds %struct.X509_crl_st, ptr %15, i32 0, i32 11
-  %arraydecay = getelementptr inbounds [20 x i8], ptr %sha1_hash, i64 0, i64 0
-  %call2 = call i32 @X509_CRL_digest(ptr noundef %14, ptr noundef %call, ptr noundef %arraydecay, ptr noundef null)
-  %16 = load ptr, ptr %crl, align 8
-  %call3 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %16, i32 noundef 770, ptr noundef null, ptr noundef null)
-  %17 = load ptr, ptr %crl, align 8
-  %idp4 = getelementptr inbounds %struct.X509_crl_st, ptr %17, i32 0, i32 6
-  store ptr %call3, ptr %idp4, align 8
-  %18 = load ptr, ptr %crl, align 8
-  %idp5 = getelementptr inbounds %struct.X509_crl_st, ptr %18, i32 0, i32 6
-  %19 = load ptr, ptr %idp5, align 8
-  %tobool = icmp ne ptr %19, null
-  br i1 %tobool, label %if.then, label %if.end
+41:                                               ; preds = %4
+  %42 = load ptr, ptr %10, align 8, !tbaa !23
+  %43 = call ptr @EVP_sha1()
+  %44 = load ptr, ptr %10, align 8, !tbaa !23
+  %45 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %44, i32 0, i32 11
+  %46 = getelementptr inbounds [20 x i8], ptr %45, i64 0, i64 0
+  %47 = call i32 @X509_CRL_digest(ptr noundef %42, ptr noundef %43, ptr noundef %46, ptr noundef null)
+  %48 = load ptr, ptr %10, align 8, !tbaa !23
+  %49 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %48, i32 noundef 770, ptr noundef null, ptr noundef null)
+  %50 = load ptr, ptr %10, align 8, !tbaa !23
+  %51 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %50, i32 0, i32 6
+  store ptr %49, ptr %51, align 8, !tbaa !67
+  %52 = load ptr, ptr %10, align 8, !tbaa !23
+  %53 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %52, i32 0, i32 6
+  %54 = load ptr, ptr %53, align 8, !tbaa !67
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %61
 
-if.then:                                          ; preds = %sw.bb1
-  %20 = load ptr, ptr %crl, align 8
-  %21 = load ptr, ptr %crl, align 8
-  %idp6 = getelementptr inbounds %struct.X509_crl_st, ptr %21, i32 0, i32 6
-  %22 = load ptr, ptr %idp6, align 8
-  call void @setup_idp(ptr noundef %20, ptr noundef %22)
-  br label %if.end
+56:                                               ; preds = %41
+  %57 = load ptr, ptr %10, align 8, !tbaa !23
+  %58 = load ptr, ptr %10, align 8, !tbaa !23
+  %59 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %58, i32 0, i32 6
+  %60 = load ptr, ptr %59, align 8, !tbaa !67
+  call void @setup_idp(ptr noundef %57, ptr noundef %60)
+  br label %61
 
-if.end:                                           ; preds = %if.then, %sw.bb1
-  %23 = load ptr, ptr %crl, align 8
-  %call7 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %23, i32 noundef 90, ptr noundef null, ptr noundef null)
-  %24 = load ptr, ptr %crl, align 8
-  %akid8 = getelementptr inbounds %struct.X509_crl_st, ptr %24, i32 0, i32 5
-  store ptr %call7, ptr %akid8, align 8
-  %25 = load ptr, ptr %crl, align 8
-  %call9 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %25, i32 noundef 88, ptr noundef null, ptr noundef null)
-  %26 = load ptr, ptr %crl, align 8
-  %crl_number10 = getelementptr inbounds %struct.X509_crl_st, ptr %26, i32 0, i32 9
-  store ptr %call9, ptr %crl_number10, align 8
-  %27 = load ptr, ptr %crl, align 8
-  %call11 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %27, i32 noundef 140, ptr noundef null, ptr noundef null)
-  %28 = load ptr, ptr %crl, align 8
-  %base_crl_number12 = getelementptr inbounds %struct.X509_crl_st, ptr %28, i32 0, i32 10
-  store ptr %call11, ptr %base_crl_number12, align 8
-  %29 = load ptr, ptr %crl, align 8
-  %base_crl_number13 = getelementptr inbounds %struct.X509_crl_st, ptr %29, i32 0, i32 10
-  %30 = load ptr, ptr %base_crl_number13, align 8
-  %tobool14 = icmp ne ptr %30, null
-  br i1 %tobool14, label %land.lhs.true, label %if.end19
+61:                                               ; preds = %56, %41
+  %62 = load ptr, ptr %10, align 8, !tbaa !23
+  %63 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %62, i32 noundef 90, ptr noundef null, ptr noundef null)
+  %64 = load ptr, ptr %10, align 8, !tbaa !23
+  %65 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %64, i32 0, i32 5
+  store ptr %63, ptr %65, align 8, !tbaa !68
+  %66 = load ptr, ptr %10, align 8, !tbaa !23
+  %67 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %66, i32 noundef 88, ptr noundef null, ptr noundef null)
+  %68 = load ptr, ptr %10, align 8, !tbaa !23
+  %69 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %68, i32 0, i32 9
+  store ptr %67, ptr %69, align 8, !tbaa !73
+  %70 = load ptr, ptr %10, align 8, !tbaa !23
+  %71 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %70, i32 noundef 140, ptr noundef null, ptr noundef null)
+  %72 = load ptr, ptr %10, align 8, !tbaa !23
+  %73 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %72, i32 0, i32 10
+  store ptr %71, ptr %73, align 8, !tbaa !74
+  %74 = load ptr, ptr %10, align 8, !tbaa !23
+  %75 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %74, i32 0, i32 10
+  %76 = load ptr, ptr %75, align 8, !tbaa !74
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %88
 
-land.lhs.true:                                    ; preds = %if.end
-  %31 = load ptr, ptr %crl, align 8
-  %crl_number15 = getelementptr inbounds %struct.X509_crl_st, ptr %31, i32 0, i32 9
-  %32 = load ptr, ptr %crl_number15, align 8
-  %tobool16 = icmp ne ptr %32, null
-  br i1 %tobool16, label %if.end19, label %if.then17
+78:                                               ; preds = %61
+  %79 = load ptr, ptr %10, align 8, !tbaa !23
+  %80 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %79, i32 0, i32 9
+  %81 = load ptr, ptr %80, align 8, !tbaa !73
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %88, label %83
 
-if.then17:                                        ; preds = %land.lhs.true
-  %33 = load ptr, ptr %crl, align 8
-  %flags18 = getelementptr inbounds %struct.X509_crl_st, ptr %33, i32 0, i32 4
-  %34 = load i32, ptr %flags18, align 4
-  %or = or i32 %34, 128
-  store i32 %or, ptr %flags18, align 4
-  br label %if.end19
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %10, align 8, !tbaa !23
+  %85 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %84, i32 0, i32 4
+  %86 = load i32, ptr %85, align 4, !tbaa !69
+  %87 = or i32 %86, 128
+  store i32 %87, ptr %85, align 4, !tbaa !69
+  br label %88
 
-if.end19:                                         ; preds = %if.then17, %land.lhs.true, %if.end
-  %35 = load ptr, ptr %crl, align 8
-  %crl20 = getelementptr inbounds %struct.X509_crl_st, ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %crl20, align 8
-  %extensions = getelementptr inbounds %struct.X509_crl_info_st, ptr %36, i32 0, i32 6
-  %37 = load ptr, ptr %extensions, align 8
-  store ptr %37, ptr %exts, align 8
-  store i64 0, ptr %idx, align 8
-  br label %for.cond
+88:                                               ; preds = %83, %78, %61
+  %89 = load ptr, ptr %10, align 8, !tbaa !23
+  %90 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8, !tbaa !25
+  %92 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %91, i32 0, i32 6
+  %93 = load ptr, ptr %92, align 8, !tbaa !75
+  store ptr %93, ptr %11, align 8, !tbaa !76
+  store i64 0, ptr %13, align 8, !tbaa !13
+  br label %94
 
-for.cond:                                         ; preds = %for.inc, %if.end19
-  %38 = load i64, ptr %idx, align 8
-  %39 = load ptr, ptr %exts, align 8
-  %call21 = call i64 @sk_num(ptr noundef %39)
-  %cmp = icmp ult i64 %38, %call21
-  br i1 %cmp, label %for.body, label %for.end
+94:                                               ; preds = %138, %88
+  %95 = load i64, ptr %13, align 8, !tbaa !13
+  %96 = load ptr, ptr %11, align 8, !tbaa !76
+  %97 = call i64 @sk_num(ptr noundef %96)
+  %98 = icmp ult i64 %95, %97
+  br i1 %98, label %99, label %141
 
-for.body:                                         ; preds = %for.cond
-  %40 = load ptr, ptr %exts, align 8
-  %41 = load i64, ptr %idx, align 8
-  %call22 = call ptr @sk_value(ptr noundef %40, i64 noundef %41)
-  store ptr %call22, ptr %ext, align 8
-  %42 = load ptr, ptr %ext, align 8
-  %object = getelementptr inbounds %struct.X509_extension_st, ptr %42, i32 0, i32 0
-  %43 = load ptr, ptr %object, align 8
-  %call23 = call i32 @OBJ_obj2nid(ptr noundef %43)
-  store i32 %call23, ptr %nid, align 4
-  %44 = load i32, ptr %nid, align 4
-  %cmp24 = icmp eq i32 %44, 857
-  br i1 %cmp24, label %if.then25, label %if.end28
+99:                                               ; preds = %94
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  %100 = load ptr, ptr %11, align 8, !tbaa !76
+  %101 = load i64, ptr %13, align 8, !tbaa !13
+  %102 = call ptr @sk_value(ptr noundef %100, i64 noundef %101)
+  store ptr %102, ptr %12, align 8, !tbaa !77
+  %103 = load ptr, ptr %12, align 8, !tbaa !77
+  %104 = getelementptr inbounds nuw %struct.X509_extension_st, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8, !tbaa !79
+  %106 = call i32 @OBJ_obj2nid(ptr noundef %105)
+  store i32 %106, ptr %14, align 4, !tbaa !60
+  %107 = load i32, ptr %14, align 4, !tbaa !60
+  %108 = icmp eq i32 %107, 857
+  br i1 %108, label %109, label %114
 
-if.then25:                                        ; preds = %for.body
-  %45 = load ptr, ptr %crl, align 8
-  %flags26 = getelementptr inbounds %struct.X509_crl_st, ptr %45, i32 0, i32 4
-  %46 = load i32, ptr %flags26, align 4
-  %or27 = or i32 %46, 4096
-  store i32 %or27, ptr %flags26, align 4
-  br label %if.end28
+109:                                              ; preds = %99
+  %110 = load ptr, ptr %10, align 8, !tbaa !23
+  %111 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %110, i32 0, i32 4
+  %112 = load i32, ptr %111, align 4, !tbaa !69
+  %113 = or i32 %112, 4096
+  store i32 %113, ptr %111, align 4, !tbaa !69
+  br label %114
 
-if.end28:                                         ; preds = %if.then25, %for.body
-  %47 = load ptr, ptr %ext, align 8
-  %critical = getelementptr inbounds %struct.X509_extension_st, ptr %47, i32 0, i32 1
-  %48 = load i32, ptr %critical, align 8
-  %cmp29 = icmp sgt i32 %48, 0
-  br i1 %cmp29, label %if.then30, label %if.end39
+114:                                              ; preds = %109, %99
+  %115 = load ptr, ptr %12, align 8, !tbaa !77
+  %116 = getelementptr inbounds nuw %struct.X509_extension_st, ptr %115, i32 0, i32 1
+  %117 = load i32, ptr %116, align 8, !tbaa !82
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %119, label %134
 
-if.then30:                                        ; preds = %if.end28
-  %49 = load i32, ptr %nid, align 4
-  %cmp31 = icmp eq i32 %49, 770
-  br i1 %cmp31, label %if.then35, label %lor.lhs.false
+119:                                              ; preds = %114
+  %120 = load i32, ptr %14, align 4, !tbaa !60
+  %121 = icmp eq i32 %120, 770
+  br i1 %121, label %128, label %122
 
-lor.lhs.false:                                    ; preds = %if.then30
-  %50 = load i32, ptr %nid, align 4
-  %cmp32 = icmp eq i32 %50, 90
-  br i1 %cmp32, label %if.then35, label %lor.lhs.false33
+122:                                              ; preds = %119
+  %123 = load i32, ptr %14, align 4, !tbaa !60
+  %124 = icmp eq i32 %123, 90
+  br i1 %124, label %128, label %125
 
-lor.lhs.false33:                                  ; preds = %lor.lhs.false
-  %51 = load i32, ptr %nid, align 4
-  %cmp34 = icmp eq i32 %51, 140
-  br i1 %cmp34, label %if.then35, label %if.end36
+125:                                              ; preds = %122
+  %126 = load i32, ptr %14, align 4, !tbaa !60
+  %127 = icmp eq i32 %126, 140
+  br i1 %127, label %128, label %129
 
-if.then35:                                        ; preds = %lor.lhs.false33, %lor.lhs.false, %if.then30
-  br label %for.end
+128:                                              ; preds = %125, %122, %119
+  store i32 3, ptr %15, align 4
+  br label %135
 
-if.end36:                                         ; preds = %lor.lhs.false33
-  %52 = load ptr, ptr %crl, align 8
-  %flags37 = getelementptr inbounds %struct.X509_crl_st, ptr %52, i32 0, i32 4
-  %53 = load i32, ptr %flags37, align 4
-  %or38 = or i32 %53, 512
-  store i32 %or38, ptr %flags37, align 4
-  br label %for.end
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %10, align 8, !tbaa !23
+  %131 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %130, i32 0, i32 4
+  %132 = load i32, ptr %131, align 4, !tbaa !69
+  %133 = or i32 %132, 512
+  store i32 %133, ptr %131, align 4, !tbaa !69
+  store i32 3, ptr %15, align 4
+  br label %135
 
-if.end39:                                         ; preds = %if.end28
-  br label %for.inc
+134:                                              ; preds = %114
+  store i32 0, ptr %15, align 4
+  br label %135
 
-for.inc:                                          ; preds = %if.end39
-  %54 = load i64, ptr %idx, align 8
-  %inc = add i64 %54, 1
-  store i64 %inc, ptr %idx, align 8
-  br label %for.cond, !llvm.loop !7
+135:                                              ; preds = %134, %129, %128
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  %136 = load i32, ptr %15, align 4
+  switch i32 %136, label %214 [
+    i32 0, label %137
+    i32 3, label %141
+  ]
 
-for.end:                                          ; preds = %if.end36, %if.then35, %for.cond
-  %55 = load ptr, ptr %crl, align 8
-  %call40 = call i32 @crl_set_issuers(ptr noundef %55)
-  %tobool41 = icmp ne i32 %call40, 0
-  br i1 %tobool41, label %if.end43, label %if.then42
+137:                                              ; preds = %135
+  br label %138
 
-if.then42:                                        ; preds = %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+138:                                              ; preds = %137
+  %139 = load i64, ptr %13, align 8, !tbaa !13
+  %140 = add i64 %139, 1
+  store i64 %140, ptr %13, align 8, !tbaa !13
+  br label %94, !llvm.loop !83
 
-if.end43:                                         ; preds = %for.end
-  %56 = load ptr, ptr %crl, align 8
-  %meth44 = getelementptr inbounds %struct.X509_crl_st, ptr %56, i32 0, i32 13
-  %57 = load ptr, ptr %meth44, align 8
-  %crl_init = getelementptr inbounds %struct.x509_crl_method_st, ptr %57, i32 0, i32 1
-  %58 = load ptr, ptr %crl_init, align 8
-  %tobool45 = icmp ne ptr %58, null
-  br i1 %tobool45, label %if.then46, label %if.end53
+141:                                              ; preds = %135, %94
+  %142 = load ptr, ptr %10, align 8, !tbaa !23
+  %143 = call i32 @crl_set_issuers(ptr noundef %142)
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %146, label %145
 
-if.then46:                                        ; preds = %if.end43
-  %59 = load ptr, ptr %crl, align 8
-  %meth47 = getelementptr inbounds %struct.X509_crl_st, ptr %59, i32 0, i32 13
-  %60 = load ptr, ptr %meth47, align 8
-  %crl_init48 = getelementptr inbounds %struct.x509_crl_method_st, ptr %60, i32 0, i32 1
-  %61 = load ptr, ptr %crl_init48, align 8
-  %62 = load ptr, ptr %crl, align 8
-  %call49 = call i32 %61(ptr noundef %62)
-  %cmp50 = icmp eq i32 %call49, 0
-  br i1 %cmp50, label %if.then51, label %if.end52
+145:                                              ; preds = %141
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %212
 
-if.then51:                                        ; preds = %if.then46
-  store i32 0, ptr %retval, align 4
-  br label %return
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %10, align 8, !tbaa !23
+  %148 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %147, i32 0, i32 13
+  %149 = load ptr, ptr %148, align 8, !tbaa !47
+  %150 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %149, i32 0, i32 1
+  %151 = load ptr, ptr %150, align 8, !tbaa !56
+  %152 = icmp ne ptr %151, null
+  br i1 %152, label %153, label %164
 
-if.end52:                                         ; preds = %if.then46
-  br label %if.end53
+153:                                              ; preds = %146
+  %154 = load ptr, ptr %10, align 8, !tbaa !23
+  %155 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %154, i32 0, i32 13
+  %156 = load ptr, ptr %155, align 8, !tbaa !47
+  %157 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8, !tbaa !56
+  %159 = load ptr, ptr %10, align 8, !tbaa !23
+  %160 = call i32 %158(ptr noundef %159)
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %162, label %163
 
-if.end53:                                         ; preds = %if.end52, %if.end43
-  br label %sw.epilog
+162:                                              ; preds = %153
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %212
 
-sw.bb54:                                          ; preds = %entry
-  %63 = load ptr, ptr %crl, align 8
-  %meth55 = getelementptr inbounds %struct.X509_crl_st, ptr %63, i32 0, i32 13
-  %64 = load ptr, ptr %meth55, align 8
-  %crl_free = getelementptr inbounds %struct.x509_crl_method_st, ptr %64, i32 0, i32 2
-  %65 = load ptr, ptr %crl_free, align 8
-  %tobool56 = icmp ne ptr %65, null
-  br i1 %tobool56, label %if.then57, label %if.end64
+163:                                              ; preds = %153
+  br label %164
 
-if.then57:                                        ; preds = %sw.bb54
-  %66 = load ptr, ptr %crl, align 8
-  %meth58 = getelementptr inbounds %struct.X509_crl_st, ptr %66, i32 0, i32 13
-  %67 = load ptr, ptr %meth58, align 8
-  %crl_free59 = getelementptr inbounds %struct.x509_crl_method_st, ptr %67, i32 0, i32 2
-  %68 = load ptr, ptr %crl_free59, align 8
-  %69 = load ptr, ptr %crl, align 8
-  %call60 = call i32 %68(ptr noundef %69)
-  %tobool61 = icmp ne i32 %call60, 0
-  br i1 %tobool61, label %if.end63, label %if.then62
+164:                                              ; preds = %163, %146
+  br label %211
 
-if.then62:                                        ; preds = %if.then57
-  store i32 0, ptr %retval, align 4
-  br label %return
+165:                                              ; preds = %4
+  %166 = load ptr, ptr %10, align 8, !tbaa !23
+  %167 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %166, i32 0, i32 13
+  %168 = load ptr, ptr %167, align 8, !tbaa !47
+  %169 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %168, i32 0, i32 2
+  %170 = load ptr, ptr %169, align 8, !tbaa !57
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %172, label %183
 
-if.end63:                                         ; preds = %if.then57
-  br label %if.end64
+172:                                              ; preds = %165
+  %173 = load ptr, ptr %10, align 8, !tbaa !23
+  %174 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %173, i32 0, i32 13
+  %175 = load ptr, ptr %174, align 8, !tbaa !47
+  %176 = getelementptr inbounds nuw %struct.x509_crl_method_st, ptr %175, i32 0, i32 2
+  %177 = load ptr, ptr %176, align 8, !tbaa !57
+  %178 = load ptr, ptr %10, align 8, !tbaa !23
+  %179 = call i32 %177(ptr noundef %178)
+  %180 = icmp ne i32 %179, 0
+  br i1 %180, label %182, label %181
 
-if.end64:                                         ; preds = %if.end63, %sw.bb54
-  %70 = load ptr, ptr %crl, align 8
-  %akid65 = getelementptr inbounds %struct.X509_crl_st, ptr %70, i32 0, i32 5
-  %71 = load ptr, ptr %akid65, align 8
-  %tobool66 = icmp ne ptr %71, null
-  br i1 %tobool66, label %if.then67, label %if.end69
+181:                                              ; preds = %172
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %212
 
-if.then67:                                        ; preds = %if.end64
-  %72 = load ptr, ptr %crl, align 8
-  %akid68 = getelementptr inbounds %struct.X509_crl_st, ptr %72, i32 0, i32 5
-  %73 = load ptr, ptr %akid68, align 8
-  call void @AUTHORITY_KEYID_free(ptr noundef %73)
-  br label %if.end69
+182:                                              ; preds = %172
+  br label %183
 
-if.end69:                                         ; preds = %if.then67, %if.end64
-  %74 = load ptr, ptr %crl, align 8
-  %idp70 = getelementptr inbounds %struct.X509_crl_st, ptr %74, i32 0, i32 6
-  %75 = load ptr, ptr %idp70, align 8
-  %tobool71 = icmp ne ptr %75, null
-  br i1 %tobool71, label %if.then72, label %if.end74
+183:                                              ; preds = %182, %165
+  %184 = load ptr, ptr %10, align 8, !tbaa !23
+  %185 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %184, i32 0, i32 5
+  %186 = load ptr, ptr %185, align 8, !tbaa !68
+  %187 = icmp ne ptr %186, null
+  br i1 %187, label %188, label %192
 
-if.then72:                                        ; preds = %if.end69
-  %76 = load ptr, ptr %crl, align 8
-  %idp73 = getelementptr inbounds %struct.X509_crl_st, ptr %76, i32 0, i32 6
-  %77 = load ptr, ptr %idp73, align 8
-  call void @ISSUING_DIST_POINT_free(ptr noundef %77)
-  br label %if.end74
+188:                                              ; preds = %183
+  %189 = load ptr, ptr %10, align 8, !tbaa !23
+  %190 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %189, i32 0, i32 5
+  %191 = load ptr, ptr %190, align 8, !tbaa !68
+  call void @AUTHORITY_KEYID_free(ptr noundef %191)
+  br label %192
 
-if.end74:                                         ; preds = %if.then72, %if.end69
-  %78 = load ptr, ptr %crl, align 8
-  %crl_number75 = getelementptr inbounds %struct.X509_crl_st, ptr %78, i32 0, i32 9
-  %79 = load ptr, ptr %crl_number75, align 8
-  call void @ASN1_INTEGER_free(ptr noundef %79)
-  %80 = load ptr, ptr %crl, align 8
-  %base_crl_number76 = getelementptr inbounds %struct.X509_crl_st, ptr %80, i32 0, i32 10
-  %81 = load ptr, ptr %base_crl_number76, align 8
-  call void @ASN1_INTEGER_free(ptr noundef %81)
-  %82 = load ptr, ptr %crl, align 8
-  %issuers77 = getelementptr inbounds %struct.X509_crl_st, ptr %82, i32 0, i32 12
-  %83 = load ptr, ptr %issuers77, align 8
-  call void @sk_pop_free(ptr noundef %83, ptr noundef @GENERAL_NAMES_free)
-  br label %sw.epilog
+192:                                              ; preds = %188, %183
+  %193 = load ptr, ptr %10, align 8, !tbaa !23
+  %194 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %193, i32 0, i32 6
+  %195 = load ptr, ptr %194, align 8, !tbaa !67
+  %196 = icmp ne ptr %195, null
+  br i1 %196, label %197, label %201
 
-sw.epilog:                                        ; preds = %if.end74, %if.end53, %sw.bb, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+197:                                              ; preds = %192
+  %198 = load ptr, ptr %10, align 8, !tbaa !23
+  %199 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %198, i32 0, i32 6
+  %200 = load ptr, ptr %199, align 8, !tbaa !67
+  call void @ISSUING_DIST_POINT_free(ptr noundef %200)
+  br label %201
 
-return:                                           ; preds = %sw.epilog, %if.then62, %if.then51, %if.then42
-  %84 = load i32, ptr %retval, align 4
-  ret i32 %84
+201:                                              ; preds = %197, %192
+  %202 = load ptr, ptr %10, align 8, !tbaa !23
+  %203 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %202, i32 0, i32 9
+  %204 = load ptr, ptr %203, align 8, !tbaa !73
+  call void @ASN1_INTEGER_free(ptr noundef %204)
+  %205 = load ptr, ptr %10, align 8, !tbaa !23
+  %206 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %205, i32 0, i32 10
+  %207 = load ptr, ptr %206, align 8, !tbaa !74
+  call void @ASN1_INTEGER_free(ptr noundef %207)
+  %208 = load ptr, ptr %10, align 8, !tbaa !23
+  %209 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %208, i32 0, i32 12
+  %210 = load ptr, ptr %209, align 8, !tbaa !72
+  call void @sk_pop_free(ptr noundef %210, ptr noundef @GENERAL_NAMES_free)
+  br label %211
+
+211:                                              ; preds = %4, %201, %164, %19
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %212
+
+212:                                              ; preds = %211, %181, %162, %145
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %213 = load i32, ptr %5, align 4
+  ret i32 %213
+
+214:                                              ; preds = %135
+  unreachable
 }
 
 declare i32 @X509_CRL_digest(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -943,179 +965,180 @@ declare ptr @EVP_sha1() #1
 declare ptr @X509_CRL_get_ext_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @setup_idp(ptr noundef %crl, ptr noundef %idp) #0 {
-entry:
-  %crl.addr = alloca ptr, align 8
-  %idp.addr = alloca ptr, align 8
-  %idp_only = alloca i32, align 4
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %idp, ptr %idp.addr, align 8
-  store i32 0, ptr %idp_only, align 4
-  %0 = load ptr, ptr %crl.addr, align 8
-  %idp_flags = getelementptr inbounds %struct.X509_crl_st, ptr %0, i32 0, i32 7
-  %1 = load i32, ptr %idp_flags, align 8
-  %or = or i32 %1, 1
-  store i32 %or, ptr %idp_flags, align 8
-  %2 = load ptr, ptr %idp.addr, align 8
-  %onlyuser = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %onlyuser, align 8
-  %cmp = icmp sgt i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @setup_idp(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  store i32 0, ptr %5, align 4, !tbaa !60
+  %6 = load ptr, ptr %3, align 8, !tbaa !23
+  %7 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %6, i32 0, i32 7
+  %8 = load i32, ptr %7, align 8, !tbaa !70
+  %9 = or i32 %8, 1
+  store i32 %9, ptr %7, align 8, !tbaa !70
+  %10 = load ptr, ptr %4, align 8, !tbaa !85
+  %11 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8, !tbaa !86
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %14, label %21
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %idp_only, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %idp_only, align 4
-  %5 = load ptr, ptr %crl.addr, align 8
-  %idp_flags1 = getelementptr inbounds %struct.X509_crl_st, ptr %5, i32 0, i32 7
-  %6 = load i32, ptr %idp_flags1, align 8
-  %or2 = or i32 %6, 4
-  store i32 %or2, ptr %idp_flags1, align 8
-  br label %if.end
+14:                                               ; preds = %2
+  %15 = load i32, ptr %5, align 4, !tbaa !60
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %5, align 4, !tbaa !60
+  %17 = load ptr, ptr %3, align 8, !tbaa !23
+  %18 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %17, i32 0, i32 7
+  %19 = load i32, ptr %18, align 8, !tbaa !70
+  %20 = or i32 %19, 4
+  store i32 %20, ptr %18, align 8, !tbaa !70
+  br label %21
 
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %idp.addr, align 8
-  %onlyCA = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %onlyCA, align 4
-  %cmp3 = icmp sgt i32 %8, 0
-  br i1 %cmp3, label %if.then4, label %if.end8
+21:                                               ; preds = %14, %2
+  %22 = load ptr, ptr %4, align 8, !tbaa !85
+  %23 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %23, align 4, !tbaa !89
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %26, label %33
 
-if.then4:                                         ; preds = %if.end
-  %9 = load i32, ptr %idp_only, align 4
-  %inc5 = add nsw i32 %9, 1
-  store i32 %inc5, ptr %idp_only, align 4
-  %10 = load ptr, ptr %crl.addr, align 8
-  %idp_flags6 = getelementptr inbounds %struct.X509_crl_st, ptr %10, i32 0, i32 7
-  %11 = load i32, ptr %idp_flags6, align 8
-  %or7 = or i32 %11, 8
-  store i32 %or7, ptr %idp_flags6, align 8
-  br label %if.end8
+26:                                               ; preds = %21
+  %27 = load i32, ptr %5, align 4, !tbaa !60
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %5, align 4, !tbaa !60
+  %29 = load ptr, ptr %3, align 8, !tbaa !23
+  %30 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %29, i32 0, i32 7
+  %31 = load i32, ptr %30, align 8, !tbaa !70
+  %32 = or i32 %31, 8
+  store i32 %32, ptr %30, align 8, !tbaa !70
+  br label %33
 
-if.end8:                                          ; preds = %if.then4, %if.end
-  %12 = load ptr, ptr %idp.addr, align 8
-  %onlyattr = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %12, i32 0, i32 5
-  %13 = load i32, ptr %onlyattr, align 4
-  %cmp9 = icmp sgt i32 %13, 0
-  br i1 %cmp9, label %if.then10, label %if.end14
+33:                                               ; preds = %26, %21
+  %34 = load ptr, ptr %4, align 8, !tbaa !85
+  %35 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %34, i32 0, i32 5
+  %36 = load i32, ptr %35, align 4, !tbaa !90
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %45
 
-if.then10:                                        ; preds = %if.end8
-  %14 = load i32, ptr %idp_only, align 4
-  %inc11 = add nsw i32 %14, 1
-  store i32 %inc11, ptr %idp_only, align 4
-  %15 = load ptr, ptr %crl.addr, align 8
-  %idp_flags12 = getelementptr inbounds %struct.X509_crl_st, ptr %15, i32 0, i32 7
-  %16 = load i32, ptr %idp_flags12, align 8
-  %or13 = or i32 %16, 16
-  store i32 %or13, ptr %idp_flags12, align 8
-  br label %if.end14
+38:                                               ; preds = %33
+  %39 = load i32, ptr %5, align 4, !tbaa !60
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %5, align 4, !tbaa !60
+  %41 = load ptr, ptr %3, align 8, !tbaa !23
+  %42 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %41, i32 0, i32 7
+  %43 = load i32, ptr %42, align 8, !tbaa !70
+  %44 = or i32 %43, 16
+  store i32 %44, ptr %42, align 8, !tbaa !70
+  br label %45
 
-if.end14:                                         ; preds = %if.then10, %if.end8
-  %17 = load i32, ptr %idp_only, align 4
-  %cmp15 = icmp sgt i32 %17, 1
-  br i1 %cmp15, label %if.then16, label %if.end19
+45:                                               ; preds = %38, %33
+  %46 = load i32, ptr %5, align 4, !tbaa !60
+  %47 = icmp sgt i32 %46, 1
+  br i1 %47, label %48, label %53
 
-if.then16:                                        ; preds = %if.end14
-  %18 = load ptr, ptr %crl.addr, align 8
-  %idp_flags17 = getelementptr inbounds %struct.X509_crl_st, ptr %18, i32 0, i32 7
-  %19 = load i32, ptr %idp_flags17, align 8
-  %or18 = or i32 %19, 2
-  store i32 %or18, ptr %idp_flags17, align 8
-  br label %if.end19
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %3, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %49, i32 0, i32 7
+  %51 = load i32, ptr %50, align 8, !tbaa !70
+  %52 = or i32 %51, 2
+  store i32 %52, ptr %50, align 8, !tbaa !70
+  br label %53
 
-if.end19:                                         ; preds = %if.then16, %if.end14
-  %20 = load ptr, ptr %idp.addr, align 8
-  %indirectCRL = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %20, i32 0, i32 4
-  %21 = load i32, ptr %indirectCRL, align 8
-  %cmp20 = icmp sgt i32 %21, 0
-  br i1 %cmp20, label %if.then21, label %if.end24
+53:                                               ; preds = %48, %45
+  %54 = load ptr, ptr %4, align 8, !tbaa !85
+  %55 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %54, i32 0, i32 4
+  %56 = load i32, ptr %55, align 8, !tbaa !91
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %58, label %63
 
-if.then21:                                        ; preds = %if.end19
-  %22 = load ptr, ptr %crl.addr, align 8
-  %idp_flags22 = getelementptr inbounds %struct.X509_crl_st, ptr %22, i32 0, i32 7
-  %23 = load i32, ptr %idp_flags22, align 8
-  %or23 = or i32 %23, 32
-  store i32 %or23, ptr %idp_flags22, align 8
-  br label %if.end24
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %3, align 8, !tbaa !23
+  %60 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %59, i32 0, i32 7
+  %61 = load i32, ptr %60, align 8, !tbaa !70
+  %62 = or i32 %61, 32
+  store i32 %62, ptr %60, align 8, !tbaa !70
+  br label %63
 
-if.end24:                                         ; preds = %if.then21, %if.end19
-  %24 = load ptr, ptr %idp.addr, align 8
-  %onlysomereasons = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %24, i32 0, i32 3
-  %25 = load ptr, ptr %onlysomereasons, align 8
-  %tobool = icmp ne ptr %25, null
-  br i1 %tobool, label %if.then25, label %if.end46
+63:                                               ; preds = %58, %53
+  %64 = load ptr, ptr %4, align 8, !tbaa !85
+  %65 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %64, i32 0, i32 3
+  %66 = load ptr, ptr %65, align 8, !tbaa !92
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %116
 
-if.then25:                                        ; preds = %if.end24
-  %26 = load ptr, ptr %crl.addr, align 8
-  %idp_flags26 = getelementptr inbounds %struct.X509_crl_st, ptr %26, i32 0, i32 7
-  %27 = load i32, ptr %idp_flags26, align 8
-  %or27 = or i32 %27, 64
-  store i32 %or27, ptr %idp_flags26, align 8
-  %28 = load ptr, ptr %idp.addr, align 8
-  %onlysomereasons28 = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %28, i32 0, i32 3
-  %29 = load ptr, ptr %onlysomereasons28, align 8
-  %length = getelementptr inbounds %struct.asn1_string_st, ptr %29, i32 0, i32 0
-  %30 = load i32, ptr %length, align 8
-  %cmp29 = icmp sgt i32 %30, 0
-  br i1 %cmp29, label %if.then30, label %if.end32
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %3, align 8, !tbaa !23
+  %70 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %69, i32 0, i32 7
+  %71 = load i32, ptr %70, align 8, !tbaa !70
+  %72 = or i32 %71, 64
+  store i32 %72, ptr %70, align 8, !tbaa !70
+  %73 = load ptr, ptr %4, align 8, !tbaa !85
+  %74 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %73, i32 0, i32 3
+  %75 = load ptr, ptr %74, align 8, !tbaa !92
+  %76 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %75, i32 0, i32 0
+  %77 = load i32, ptr %76, align 8, !tbaa !93
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %79, label %90
 
-if.then30:                                        ; preds = %if.then25
-  %31 = load ptr, ptr %idp.addr, align 8
-  %onlysomereasons31 = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %31, i32 0, i32 3
-  %32 = load ptr, ptr %onlysomereasons31, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %33, i64 0
-  %34 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %34 to i32
-  %35 = load ptr, ptr %crl.addr, align 8
-  %idp_reasons = getelementptr inbounds %struct.X509_crl_st, ptr %35, i32 0, i32 8
-  store i32 %conv, ptr %idp_reasons, align 4
-  br label %if.end32
+79:                                               ; preds = %68
+  %80 = load ptr, ptr %4, align 8, !tbaa !85
+  %81 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8, !tbaa !92
+  %83 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8, !tbaa !95
+  %85 = getelementptr inbounds i8, ptr %84, i64 0
+  %86 = load i8, ptr %85, align 1, !tbaa !96
+  %87 = zext i8 %86 to i32
+  %88 = load ptr, ptr %3, align 8, !tbaa !23
+  %89 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %88, i32 0, i32 8
+  store i32 %87, ptr %89, align 4, !tbaa !71
+  br label %90
 
-if.end32:                                         ; preds = %if.then30, %if.then25
-  %36 = load ptr, ptr %idp.addr, align 8
-  %onlysomereasons33 = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %36, i32 0, i32 3
-  %37 = load ptr, ptr %onlysomereasons33, align 8
-  %length34 = getelementptr inbounds %struct.asn1_string_st, ptr %37, i32 0, i32 0
-  %38 = load i32, ptr %length34, align 8
-  %cmp35 = icmp sgt i32 %38, 1
-  br i1 %cmp35, label %if.then37, label %if.end44
+90:                                               ; preds = %79, %68
+  %91 = load ptr, ptr %4, align 8, !tbaa !85
+  %92 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %91, i32 0, i32 3
+  %93 = load ptr, ptr %92, align 8, !tbaa !92
+  %94 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %93, i32 0, i32 0
+  %95 = load i32, ptr %94, align 8, !tbaa !93
+  %96 = icmp sgt i32 %95, 1
+  br i1 %96, label %97, label %111
 
-if.then37:                                        ; preds = %if.end32
-  %39 = load ptr, ptr %idp.addr, align 8
-  %onlysomereasons38 = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %39, i32 0, i32 3
-  %40 = load ptr, ptr %onlysomereasons38, align 8
-  %data39 = getelementptr inbounds %struct.asn1_string_st, ptr %40, i32 0, i32 2
-  %41 = load ptr, ptr %data39, align 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %41, i64 1
-  %42 = load i8, ptr %arrayidx40, align 1
-  %conv41 = zext i8 %42 to i32
-  %shl = shl i32 %conv41, 8
-  %43 = load ptr, ptr %crl.addr, align 8
-  %idp_reasons42 = getelementptr inbounds %struct.X509_crl_st, ptr %43, i32 0, i32 8
-  %44 = load i32, ptr %idp_reasons42, align 4
-  %or43 = or i32 %44, %shl
-  store i32 %or43, ptr %idp_reasons42, align 4
-  br label %if.end44
+97:                                               ; preds = %90
+  %98 = load ptr, ptr %4, align 8, !tbaa !85
+  %99 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %99, align 8, !tbaa !92
+  %101 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %100, i32 0, i32 2
+  %102 = load ptr, ptr %101, align 8, !tbaa !95
+  %103 = getelementptr inbounds i8, ptr %102, i64 1
+  %104 = load i8, ptr %103, align 1, !tbaa !96
+  %105 = zext i8 %104 to i32
+  %106 = shl i32 %105, 8
+  %107 = load ptr, ptr %3, align 8, !tbaa !23
+  %108 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %107, i32 0, i32 8
+  %109 = load i32, ptr %108, align 4, !tbaa !71
+  %110 = or i32 %109, %106
+  store i32 %110, ptr %108, align 4, !tbaa !71
+  br label %111
 
-if.end44:                                         ; preds = %if.then37, %if.end32
-  %45 = load ptr, ptr %crl.addr, align 8
-  %idp_reasons45 = getelementptr inbounds %struct.X509_crl_st, ptr %45, i32 0, i32 8
-  %46 = load i32, ptr %idp_reasons45, align 4
-  %and = and i32 %46, 32895
-  store i32 %and, ptr %idp_reasons45, align 4
-  br label %if.end46
+111:                                              ; preds = %97, %90
+  %112 = load ptr, ptr %3, align 8, !tbaa !23
+  %113 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %112, i32 0, i32 8
+  %114 = load i32, ptr %113, align 4, !tbaa !71
+  %115 = and i32 %114, 32895
+  store i32 %115, ptr %113, align 4, !tbaa !71
+  br label %116
 
-if.end46:                                         ; preds = %if.end44, %if.end24
-  %47 = load ptr, ptr %idp.addr, align 8
-  %distpoint = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %47, i32 0, i32 0
-  %48 = load ptr, ptr %distpoint, align 8
-  %49 = load ptr, ptr %crl.addr, align 8
-  %crl47 = getelementptr inbounds %struct.X509_crl_st, ptr %49, i32 0, i32 0
-  %50 = load ptr, ptr %crl47, align 8
-  %issuer = getelementptr inbounds %struct.X509_crl_info_st, ptr %50, i32 0, i32 2
-  %51 = load ptr, ptr %issuer, align 8
-  %call = call i32 @DIST_POINT_set_dpname(ptr noundef %48, ptr noundef %51)
+116:                                              ; preds = %111, %63
+  %117 = load ptr, ptr %4, align 8, !tbaa !85
+  %118 = getelementptr inbounds nuw %struct.ISSUING_DIST_POINT_st, ptr %117, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8, !tbaa !97
+  %120 = load ptr, ptr %3, align 8, !tbaa !23
+  %121 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %120, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8, !tbaa !25
+  %123 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %122, i32 0, i32 2
+  %124 = load ptr, ptr %123, align 8, !tbaa !98
+  %125 = call i32 @DIST_POINT_set_dpname(ptr noundef %119, ptr noundef %124)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret void
 }
 
@@ -1126,230 +1149,265 @@ declare ptr @sk_value(ptr noundef, i64 noundef) #1
 declare i32 @OBJ_obj2nid(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @crl_set_issuers(ptr noundef %crl) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %crl.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %k = alloca i64, align 8
-  %j = alloca i32, align 4
-  %gens = alloca ptr, align 8
-  %gtmp = alloca ptr, align 8
-  %revoked = alloca ptr, align 8
-  %rev = alloca ptr, align 8
-  %exts = alloca ptr, align 8
-  %reason = alloca ptr, align 8
-  %ext = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  %0 = load ptr, ptr %crl.addr, align 8
-  %crl1 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %crl1, align 8
-  %revoked2 = getelementptr inbounds %struct.X509_crl_info_st, ptr %1, i32 0, i32 5
-  %2 = load ptr, ptr %revoked2, align 8
-  store ptr %2, ptr %revoked, align 8
-  store ptr null, ptr %gens, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal i32 @crl_set_issuers(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %15 = load ptr, ptr %3, align 8, !tbaa !23
+  %16 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %18 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %17, i32 0, i32 5
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  store ptr %19, ptr %9, align 8, !tbaa !99
+  store ptr null, ptr %7, align 8, !tbaa !100
+  store i64 0, ptr %4, align 8, !tbaa !13
+  br label %20
 
-for.cond:                                         ; preds = %for.inc54, %entry
-  %3 = load i64, ptr %i, align 8
-  %4 = load ptr, ptr %revoked, align 8
-  %call = call i64 @sk_num(ptr noundef %4)
-  %cmp = icmp ult i64 %3, %call
-  br i1 %cmp, label %for.body, label %for.end56
+20:                                               ; preds = %135, %1
+  %21 = load i64, ptr %4, align 8, !tbaa !13
+  %22 = load ptr, ptr %9, align 8, !tbaa !99
+  %23 = call i64 @sk_num(ptr noundef %22)
+  %24 = icmp ult i64 %21, %23
+  br i1 %24, label %25, label %138
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %revoked, align 8
-  %6 = load i64, ptr %i, align 8
-  %call3 = call ptr @sk_value(ptr noundef %5, i64 noundef %6)
-  store ptr %call3, ptr %rev, align 8
-  %7 = load ptr, ptr %rev, align 8
-  %call4 = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %7, i32 noundef 771, ptr noundef %j, ptr noundef null)
-  store ptr %call4, ptr %gtmp, align 8
-  %8 = load ptr, ptr %gtmp, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.end, label %land.lhs.true
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %26 = load ptr, ptr %9, align 8, !tbaa !99
+  %27 = load i64, ptr %4, align 8, !tbaa !13
+  %28 = call ptr @sk_value(ptr noundef %26, i64 noundef %27)
+  store ptr %28, ptr %10, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %29 = load ptr, ptr %10, align 8, !tbaa !15
+  %30 = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %29, i32 noundef 771, ptr noundef %6, ptr noundef null)
+  store ptr %30, ptr %8, align 8, !tbaa !100
+  %31 = load ptr, ptr %8, align 8, !tbaa !100
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %41, label %33
 
-land.lhs.true:                                    ; preds = %for.body
-  %9 = load i32, ptr %j, align 4
-  %cmp5 = icmp ne i32 %9, -1
-  br i1 %cmp5, label %if.then, label %if.end
+33:                                               ; preds = %25
+  %34 = load i32, ptr %6, align 4, !tbaa !60
+  %35 = icmp ne i32 %34, -1
+  br i1 %35, label %36, label %41
 
-if.then:                                          ; preds = %land.lhs.true
-  %10 = load ptr, ptr %crl.addr, align 8
-  %flags = getelementptr inbounds %struct.X509_crl_st, ptr %10, i32 0, i32 4
-  %11 = load i32, ptr %flags, align 4
-  %or = or i32 %11, 128
-  store i32 %or, ptr %flags, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %3, align 8, !tbaa !23
+  %38 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %37, i32 0, i32 4
+  %39 = load i32, ptr %38, align 4, !tbaa !69
+  %40 = or i32 %39, 128
+  store i32 %40, ptr %38, align 4, !tbaa !69
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %14, align 4
+  br label %132
 
-if.end:                                           ; preds = %land.lhs.true, %for.body
-  %12 = load ptr, ptr %gtmp, align 8
-  %tobool6 = icmp ne ptr %12, null
-  br i1 %tobool6, label %if.then7, label %if.end22
+41:                                               ; preds = %33, %25
+  %42 = load ptr, ptr %8, align 8, !tbaa !100
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %69
 
-if.then7:                                         ; preds = %if.end
-  %13 = load ptr, ptr %gtmp, align 8
-  store ptr %13, ptr %gens, align 8
-  %14 = load ptr, ptr %crl.addr, align 8
-  %issuers = getelementptr inbounds %struct.X509_crl_st, ptr %14, i32 0, i32 12
-  %15 = load ptr, ptr %issuers, align 8
-  %tobool8 = icmp ne ptr %15, null
-  br i1 %tobool8, label %if.end16, label %if.then9
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %8, align 8, !tbaa !100
+  store ptr %45, ptr %7, align 8, !tbaa !100
+  %46 = load ptr, ptr %3, align 8, !tbaa !23
+  %47 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %46, i32 0, i32 12
+  %48 = load ptr, ptr %47, align 8, !tbaa !72
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %60, label %50
 
-if.then9:                                         ; preds = %if.then7
-  %call10 = call ptr @sk_new_null()
-  %16 = load ptr, ptr %crl.addr, align 8
-  %issuers11 = getelementptr inbounds %struct.X509_crl_st, ptr %16, i32 0, i32 12
-  store ptr %call10, ptr %issuers11, align 8
-  %17 = load ptr, ptr %crl.addr, align 8
-  %issuers12 = getelementptr inbounds %struct.X509_crl_st, ptr %17, i32 0, i32 12
-  %18 = load ptr, ptr %issuers12, align 8
-  %tobool13 = icmp ne ptr %18, null
-  br i1 %tobool13, label %if.end15, label %if.then14
+50:                                               ; preds = %44
+  %51 = call ptr @sk_new_null()
+  %52 = load ptr, ptr %3, align 8, !tbaa !23
+  %53 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %52, i32 0, i32 12
+  store ptr %51, ptr %53, align 8, !tbaa !72
+  %54 = load ptr, ptr %3, align 8, !tbaa !23
+  %55 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %54, i32 0, i32 12
+  %56 = load ptr, ptr %55, align 8, !tbaa !72
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %59, label %58
 
-if.then14:                                        ; preds = %if.then9
-  store i32 0, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %50
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %14, align 4
+  br label %132
 
-if.end15:                                         ; preds = %if.then9
-  br label %if.end16
+59:                                               ; preds = %50
+  br label %60
 
-if.end16:                                         ; preds = %if.end15, %if.then7
-  %19 = load ptr, ptr %crl.addr, align 8
-  %issuers17 = getelementptr inbounds %struct.X509_crl_st, ptr %19, i32 0, i32 12
-  %20 = load ptr, ptr %issuers17, align 8
-  %21 = load ptr, ptr %gtmp, align 8
-  %call18 = call i64 @sk_push(ptr noundef %20, ptr noundef %21)
-  %tobool19 = icmp ne i64 %call18, 0
-  br i1 %tobool19, label %if.end21, label %if.then20
+60:                                               ; preds = %59, %44
+  %61 = load ptr, ptr %3, align 8, !tbaa !23
+  %62 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %61, i32 0, i32 12
+  %63 = load ptr, ptr %62, align 8, !tbaa !72
+  %64 = load ptr, ptr %8, align 8, !tbaa !100
+  %65 = call i64 @sk_push(ptr noundef %63, ptr noundef %64)
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %68, label %67
 
-if.then20:                                        ; preds = %if.end16
-  store i32 0, ptr %retval, align 4
-  br label %return
+67:                                               ; preds = %60
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %14, align 4
+  br label %132
 
-if.end21:                                         ; preds = %if.end16
-  br label %if.end22
+68:                                               ; preds = %60
+  br label %69
 
-if.end22:                                         ; preds = %if.end21, %if.end
-  %22 = load ptr, ptr %gens, align 8
-  %23 = load ptr, ptr %rev, align 8
-  %issuer = getelementptr inbounds %struct.x509_revoked_st, ptr %23, i32 0, i32 3
-  store ptr %22, ptr %issuer, align 8
-  %24 = load ptr, ptr %rev, align 8
-  %call23 = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %24, i32 noundef 141, ptr noundef %j, ptr noundef null)
-  store ptr %call23, ptr %reason, align 8
-  %25 = load ptr, ptr %reason, align 8
-  %tobool24 = icmp ne ptr %25, null
-  br i1 %tobool24, label %if.end30, label %land.lhs.true25
+69:                                               ; preds = %68, %41
+  %70 = load ptr, ptr %7, align 8, !tbaa !100
+  %71 = load ptr, ptr %10, align 8, !tbaa !15
+  %72 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %71, i32 0, i32 3
+  store ptr %70, ptr %72, align 8, !tbaa !101
+  %73 = load ptr, ptr %10, align 8, !tbaa !15
+  %74 = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %73, i32 noundef 141, ptr noundef %6, ptr noundef null)
+  store ptr %74, ptr %12, align 8, !tbaa !50
+  %75 = load ptr, ptr %12, align 8, !tbaa !50
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %85, label %77
 
-land.lhs.true25:                                  ; preds = %if.end22
-  %26 = load i32, ptr %j, align 4
-  %cmp26 = icmp ne i32 %26, -1
-  br i1 %cmp26, label %if.then27, label %if.end30
+77:                                               ; preds = %69
+  %78 = load i32, ptr %6, align 4, !tbaa !60
+  %79 = icmp ne i32 %78, -1
+  br i1 %79, label %80, label %85
 
-if.then27:                                        ; preds = %land.lhs.true25
-  %27 = load ptr, ptr %crl.addr, align 8
-  %flags28 = getelementptr inbounds %struct.X509_crl_st, ptr %27, i32 0, i32 4
-  %28 = load i32, ptr %flags28, align 4
-  %or29 = or i32 %28, 128
-  store i32 %or29, ptr %flags28, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %3, align 8, !tbaa !23
+  %82 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %81, i32 0, i32 4
+  %83 = load i32, ptr %82, align 4, !tbaa !69
+  %84 = or i32 %83, 128
+  store i32 %84, ptr %82, align 4, !tbaa !69
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %14, align 4
+  br label %132
 
-if.end30:                                         ; preds = %land.lhs.true25, %if.end22
-  %29 = load ptr, ptr %reason, align 8
-  %tobool31 = icmp ne ptr %29, null
-  br i1 %tobool31, label %if.then32, label %if.else
+85:                                               ; preds = %77, %69
+  %86 = load ptr, ptr %12, align 8, !tbaa !50
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %95
 
-if.then32:                                        ; preds = %if.end30
-  %30 = load ptr, ptr %reason, align 8
-  %call33 = call i64 @ASN1_ENUMERATED_get(ptr noundef %30)
-  %conv = trunc i64 %call33 to i32
-  %31 = load ptr, ptr %rev, align 8
-  %reason34 = getelementptr inbounds %struct.x509_revoked_st, ptr %31, i32 0, i32 4
-  store i32 %conv, ptr %reason34, align 8
-  %32 = load ptr, ptr %reason, align 8
-  call void @ASN1_ENUMERATED_free(ptr noundef %32)
-  br label %if.end36
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %12, align 8, !tbaa !50
+  %90 = call i64 @ASN1_ENUMERATED_get(ptr noundef %89)
+  %91 = trunc i64 %90 to i32
+  %92 = load ptr, ptr %10, align 8, !tbaa !15
+  %93 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %92, i32 0, i32 4
+  store i32 %91, ptr %93, align 8, !tbaa !102
+  %94 = load ptr, ptr %12, align 8, !tbaa !50
+  call void @ASN1_ENUMERATED_free(ptr noundef %94)
+  br label %98
 
-if.else:                                          ; preds = %if.end30
-  %33 = load ptr, ptr %rev, align 8
-  %reason35 = getelementptr inbounds %struct.x509_revoked_st, ptr %33, i32 0, i32 4
-  store i32 -1, ptr %reason35, align 8
-  br label %if.end36
+95:                                               ; preds = %85
+  %96 = load ptr, ptr %10, align 8, !tbaa !15
+  %97 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %96, i32 0, i32 4
+  store i32 -1, ptr %97, align 8, !tbaa !102
+  br label %98
 
-if.end36:                                         ; preds = %if.else, %if.then32
-  %34 = load ptr, ptr %rev, align 8
-  %extensions = getelementptr inbounds %struct.x509_revoked_st, ptr %34, i32 0, i32 2
-  %35 = load ptr, ptr %extensions, align 8
-  store ptr %35, ptr %exts, align 8
-  store i64 0, ptr %k, align 8
-  br label %for.cond37
+98:                                               ; preds = %95, %88
+  %99 = load ptr, ptr %10, align 8, !tbaa !15
+  %100 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8, !tbaa !103
+  store ptr %101, ptr %11, align 8, !tbaa !76
+  store i64 0, ptr %5, align 8, !tbaa !13
+  br label %102
 
-for.cond37:                                       ; preds = %for.inc, %if.end36
-  %36 = load i64, ptr %k, align 8
-  %37 = load ptr, ptr %exts, align 8
-  %call38 = call i64 @sk_num(ptr noundef %37)
-  %cmp39 = icmp ult i64 %36, %call38
-  br i1 %cmp39, label %for.body41, label %for.end
+102:                                              ; preds = %128, %98
+  %103 = load i64, ptr %5, align 8, !tbaa !13
+  %104 = load ptr, ptr %11, align 8, !tbaa !76
+  %105 = call i64 @sk_num(ptr noundef %104)
+  %106 = icmp ult i64 %103, %105
+  br i1 %106, label %107, label %131
 
-for.body41:                                       ; preds = %for.cond37
-  %38 = load ptr, ptr %exts, align 8
-  %39 = load i64, ptr %k, align 8
-  %call42 = call ptr @sk_value(ptr noundef %38, i64 noundef %39)
-  store ptr %call42, ptr %ext, align 8
-  %40 = load ptr, ptr %ext, align 8
-  %critical = getelementptr inbounds %struct.X509_extension_st, ptr %40, i32 0, i32 1
-  %41 = load i32, ptr %critical, align 8
-  %cmp43 = icmp sgt i32 %41, 0
-  br i1 %cmp43, label %if.then45, label %if.end53
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %11, align 8, !tbaa !76
+  %109 = load i64, ptr %5, align 8, !tbaa !13
+  %110 = call ptr @sk_value(ptr noundef %108, i64 noundef %109)
+  store ptr %110, ptr %13, align 8, !tbaa !77
+  %111 = load ptr, ptr %13, align 8, !tbaa !77
+  %112 = getelementptr inbounds nuw %struct.X509_extension_st, ptr %111, i32 0, i32 1
+  %113 = load i32, ptr %112, align 8, !tbaa !82
+  %114 = icmp sgt i32 %113, 0
+  br i1 %114, label %115, label %127
 
-if.then45:                                        ; preds = %for.body41
-  %42 = load ptr, ptr %ext, align 8
-  %object = getelementptr inbounds %struct.X509_extension_st, ptr %42, i32 0, i32 0
-  %43 = load ptr, ptr %object, align 8
-  %call46 = call i32 @OBJ_obj2nid(ptr noundef %43)
-  %cmp47 = icmp eq i32 %call46, 771
-  br i1 %cmp47, label %if.then49, label %if.end50
+115:                                              ; preds = %107
+  %116 = load ptr, ptr %13, align 8, !tbaa !77
+  %117 = getelementptr inbounds nuw %struct.X509_extension_st, ptr %116, i32 0, i32 0
+  %118 = load ptr, ptr %117, align 8, !tbaa !79
+  %119 = call i32 @OBJ_obj2nid(ptr noundef %118)
+  %120 = icmp eq i32 %119, 771
+  br i1 %120, label %121, label %122
 
-if.then49:                                        ; preds = %if.then45
-  br label %for.inc
+121:                                              ; preds = %115
+  br label %128
 
-if.end50:                                         ; preds = %if.then45
-  %44 = load ptr, ptr %crl.addr, align 8
-  %flags51 = getelementptr inbounds %struct.X509_crl_st, ptr %44, i32 0, i32 4
-  %45 = load i32, ptr %flags51, align 4
-  %or52 = or i32 %45, 512
-  store i32 %or52, ptr %flags51, align 4
-  br label %for.end
+122:                                              ; preds = %115
+  %123 = load ptr, ptr %3, align 8, !tbaa !23
+  %124 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %123, i32 0, i32 4
+  %125 = load i32, ptr %124, align 4, !tbaa !69
+  %126 = or i32 %125, 512
+  store i32 %126, ptr %124, align 4, !tbaa !69
+  br label %131
 
-if.end53:                                         ; preds = %for.body41
-  br label %for.inc
+127:                                              ; preds = %107
+  br label %128
 
-for.inc:                                          ; preds = %if.end53, %if.then49
-  %46 = load i64, ptr %k, align 8
-  %inc = add i64 %46, 1
-  store i64 %inc, ptr %k, align 8
-  br label %for.cond37, !llvm.loop !9
+128:                                              ; preds = %127, %121
+  %129 = load i64, ptr %5, align 8, !tbaa !13
+  %130 = add i64 %129, 1
+  store i64 %130, ptr %5, align 8, !tbaa !13
+  br label %102, !llvm.loop !104
 
-for.end:                                          ; preds = %if.end50, %for.cond37
-  br label %for.inc54
+131:                                              ; preds = %122, %102
+  store i32 0, ptr %14, align 4
+  br label %132
 
-for.inc54:                                        ; preds = %for.end
-  %47 = load i64, ptr %i, align 8
-  %inc55 = add i64 %47, 1
-  store i64 %inc55, ptr %i, align 8
-  br label %for.cond, !llvm.loop !10
+132:                                              ; preds = %131, %80, %67, %58, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %133 = load i32, ptr %14, align 4
+  switch i32 %133, label %139 [
+    i32 0, label %134
+  ]
 
-for.end56:                                        ; preds = %for.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
+134:                                              ; preds = %132
+  br label %135
 
-return:                                           ; preds = %for.end56, %if.then27, %if.then20, %if.then14, %if.then
-  %48 = load i32, ptr %retval, align 4
-  ret i32 %48
+135:                                              ; preds = %134
+  %136 = load i64, ptr %4, align 8, !tbaa !13
+  %137 = add i64 %136, 1
+  store i64 %137, ptr %4, align 8, !tbaa !13
+  br label %20, !llvm.loop !105
+
+138:                                              ; preds = %20
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %14, align 4
+  br label %139
+
+139:                                              ; preds = %138, %132
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %140 = load i32, ptr %2, align 4
+  ret i32 %140
 }
 
 declare void @AUTHORITY_KEYID_free(ptr noundef) #1
@@ -1375,181 +1433,193 @@ declare void @ASN1_ENUMERATED_free(ptr noundef) #1
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_crl_lookup(ptr noundef %crl, ptr noundef %ret, ptr noundef %serial, ptr noundef %issuer) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %crl.addr = alloca ptr, align 8
-  %ret.addr = alloca ptr, align 8
-  %serial.addr = alloca ptr, align 8
-  %issuer.addr = alloca ptr, align 8
-  %rtmp = alloca %struct.x509_revoked_st, align 8
-  %rev = alloca ptr, align 8
-  %idx = alloca i64, align 8
-  %is_sorted = alloca i32, align 4
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %serial, ptr %serial.addr, align 8
-  store ptr %issuer, ptr %issuer.addr, align 8
-  %0 = load ptr, ptr %serial.addr, align 8
-  %serialNumber = getelementptr inbounds %struct.x509_revoked_st, ptr %rtmp, i32 0, i32 0
-  store ptr %0, ptr %serialNumber, align 8
+define internal i32 @def_crl_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %struct.x509_revoked_st, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !23
+  store ptr %1, ptr %7, align 8, !tbaa !6
+  store ptr %2, ptr %8, align 8, !tbaa !50
+  store ptr %3, ptr %9, align 8, !tbaa !106
+  call void @llvm.lifetime.start.p0(i64 40, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %15 = load ptr, ptr %8, align 8, !tbaa !50
+  %16 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %10, i32 0, i32 0
+  store ptr %15, ptr %16, align 8, !tbaa !42
   call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef @g_crl_sort_lock)
-  %1 = load ptr, ptr %crl.addr, align 8
-  %crl1 = getelementptr inbounds %struct.X509_crl_st, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %crl1, align 8
-  %revoked = getelementptr inbounds %struct.X509_crl_info_st, ptr %2, i32 0, i32 5
-  %3 = load ptr, ptr %revoked, align 8
-  %call = call i32 @sk_is_sorted(ptr noundef %3)
-  store i32 %call, ptr %is_sorted, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  %17 = load ptr, ptr %6, align 8, !tbaa !23
+  %18 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %19, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8, !tbaa !34
+  %22 = call i32 @sk_is_sorted(ptr noundef %21)
+  store i32 %22, ptr %13, align 4, !tbaa !60
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef @g_crl_sort_lock)
-  %4 = load i32, ptr %is_sorted, align 4
-  %tobool = icmp ne i32 %4, 0
-  br i1 %tobool, label %if.end9, label %if.then
+  %23 = load i32, ptr %13, align 4, !tbaa !60
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %40, label %25
 
-if.then:                                          ; preds = %entry
+25:                                               ; preds = %4
   call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef @g_crl_sort_lock)
-  %5 = load ptr, ptr %crl.addr, align 8
-  %crl2 = getelementptr inbounds %struct.X509_crl_st, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %crl2, align 8
-  %revoked3 = getelementptr inbounds %struct.X509_crl_info_st, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %revoked3, align 8
-  %call4 = call i32 @sk_is_sorted(ptr noundef %7)
-  %tobool5 = icmp ne i32 %call4, 0
-  br i1 %tobool5, label %if.end, label %if.then6
+  %26 = load ptr, ptr %6, align 8, !tbaa !23
+  %27 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %29 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %28, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %31 = call i32 @sk_is_sorted(ptr noundef %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %39, label %33
 
-if.then6:                                         ; preds = %if.then
-  %8 = load ptr, ptr %crl.addr, align 8
-  %crl7 = getelementptr inbounds %struct.X509_crl_st, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %crl7, align 8
-  %revoked8 = getelementptr inbounds %struct.X509_crl_info_st, ptr %9, i32 0, i32 5
-  %10 = load ptr, ptr %revoked8, align 8
-  call void @sk_sort(ptr noundef %10)
-  br label %if.end
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %6, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !25
+  %37 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %36, i32 0, i32 5
+  %38 = load ptr, ptr %37, align 8, !tbaa !34
+  call void @sk_sort(ptr noundef %38)
+  br label %39
 
-if.end:                                           ; preds = %if.then6, %if.then
+39:                                               ; preds = %33, %25
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef @g_crl_sort_lock)
-  br label %if.end9
+  br label %40
 
-if.end9:                                          ; preds = %if.end, %entry
-  %11 = load ptr, ptr %crl.addr, align 8
-  %crl10 = getelementptr inbounds %struct.X509_crl_st, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %crl10, align 8
-  %revoked11 = getelementptr inbounds %struct.X509_crl_info_st, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %revoked11, align 8
-  %call12 = call i32 @sk_find(ptr noundef %13, ptr noundef %idx, ptr noundef %rtmp)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.end15, label %if.then14
+40:                                               ; preds = %39, %4
+  %41 = load ptr, ptr %6, align 8, !tbaa !23
+  %42 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8, !tbaa !25
+  %44 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8, !tbaa !34
+  %46 = call i32 @sk_find(ptr noundef %45, ptr noundef %12, ptr noundef %10)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %49, label %48
 
-if.then14:                                        ; preds = %if.end9
-  store i32 0, ptr %retval, align 4
-  br label %return
+48:                                               ; preds = %40
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %98
 
-if.end15:                                         ; preds = %if.end9
-  br label %for.cond
+49:                                               ; preds = %40
+  br label %50
 
-for.cond:                                         ; preds = %for.inc, %if.end15
-  %14 = load i64, ptr %idx, align 8
-  %15 = load ptr, ptr %crl.addr, align 8
-  %crl16 = getelementptr inbounds %struct.X509_crl_st, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %crl16, align 8
-  %revoked17 = getelementptr inbounds %struct.X509_crl_info_st, ptr %16, i32 0, i32 5
-  %17 = load ptr, ptr %revoked17, align 8
-  %call18 = call i64 @sk_num(ptr noundef %17)
-  %cmp = icmp ult i64 %14, %call18
-  br i1 %cmp, label %for.body, label %for.end
+50:                                               ; preds = %94, %49
+  %51 = load i64, ptr %12, align 8, !tbaa !13
+  %52 = load ptr, ptr %6, align 8, !tbaa !23
+  %53 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !25
+  %55 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %54, i32 0, i32 5
+  %56 = load ptr, ptr %55, align 8, !tbaa !34
+  %57 = call i64 @sk_num(ptr noundef %56)
+  %58 = icmp ult i64 %51, %57
+  br i1 %58, label %59, label %97
 
-for.body:                                         ; preds = %for.cond
-  %18 = load ptr, ptr %crl.addr, align 8
-  %crl19 = getelementptr inbounds %struct.X509_crl_st, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %crl19, align 8
-  %revoked20 = getelementptr inbounds %struct.X509_crl_info_st, ptr %19, i32 0, i32 5
-  %20 = load ptr, ptr %revoked20, align 8
-  %21 = load i64, ptr %idx, align 8
-  %call21 = call ptr @sk_value(ptr noundef %20, i64 noundef %21)
-  store ptr %call21, ptr %rev, align 8
-  %22 = load ptr, ptr %rev, align 8
-  %serialNumber22 = getelementptr inbounds %struct.x509_revoked_st, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %serialNumber22, align 8
-  %24 = load ptr, ptr %serial.addr, align 8
-  %call23 = call i32 @ASN1_INTEGER_cmp(ptr noundef %23, ptr noundef %24)
-  %tobool24 = icmp ne i32 %call23, 0
-  br i1 %tobool24, label %if.then25, label %if.end26
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %6, align 8, !tbaa !23
+  %61 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !25
+  %63 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %62, i32 0, i32 5
+  %64 = load ptr, ptr %63, align 8, !tbaa !34
+  %65 = load i64, ptr %12, align 8, !tbaa !13
+  %66 = call ptr @sk_value(ptr noundef %64, i64 noundef %65)
+  store ptr %66, ptr %11, align 8, !tbaa !15
+  %67 = load ptr, ptr %11, align 8, !tbaa !15
+  %68 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8, !tbaa !42
+  %70 = load ptr, ptr %8, align 8, !tbaa !50
+  %71 = call i32 @ASN1_INTEGER_cmp(ptr noundef %69, ptr noundef %70)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %74
 
-if.then25:                                        ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+73:                                               ; preds = %59
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %98
 
-if.end26:                                         ; preds = %for.body
-  %25 = load ptr, ptr %crl.addr, align 8
-  %26 = load ptr, ptr %issuer.addr, align 8
-  %27 = load ptr, ptr %rev, align 8
-  %call27 = call i32 @crl_revoked_issuer_match(ptr noundef %25, ptr noundef %26, ptr noundef %27)
-  %tobool28 = icmp ne i32 %call27, 0
-  br i1 %tobool28, label %if.then29, label %if.end36
+74:                                               ; preds = %59
+  %75 = load ptr, ptr %6, align 8, !tbaa !23
+  %76 = load ptr, ptr %9, align 8, !tbaa !106
+  %77 = load ptr, ptr %11, align 8, !tbaa !15
+  %78 = call i32 @crl_revoked_issuer_match(ptr noundef %75, ptr noundef %76, ptr noundef %77)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %93
 
-if.then29:                                        ; preds = %if.end26
-  %28 = load ptr, ptr %ret.addr, align 8
-  %tobool30 = icmp ne ptr %28, null
-  br i1 %tobool30, label %if.then31, label %if.end32
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %7, align 8, !tbaa !6
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %86
 
-if.then31:                                        ; preds = %if.then29
-  %29 = load ptr, ptr %rev, align 8
-  %30 = load ptr, ptr %ret.addr, align 8
-  store ptr %29, ptr %30, align 8
-  br label %if.end32
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %11, align 8, !tbaa !15
+  %85 = load ptr, ptr %7, align 8, !tbaa !6
+  store ptr %84, ptr %85, align 8, !tbaa !15
+  br label %86
 
-if.end32:                                         ; preds = %if.then31, %if.then29
-  %31 = load ptr, ptr %rev, align 8
-  %reason = getelementptr inbounds %struct.x509_revoked_st, ptr %31, i32 0, i32 4
-  %32 = load i32, ptr %reason, align 8
-  %cmp33 = icmp eq i32 %32, 8
-  br i1 %cmp33, label %if.then34, label %if.end35
+86:                                               ; preds = %83, %80
+  %87 = load ptr, ptr %11, align 8, !tbaa !15
+  %88 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %87, i32 0, i32 4
+  %89 = load i32, ptr %88, align 8, !tbaa !102
+  %90 = icmp eq i32 %89, 8
+  br i1 %90, label %91, label %92
 
-if.then34:                                        ; preds = %if.end32
-  store i32 2, ptr %retval, align 4
-  br label %return
+91:                                               ; preds = %86
+  store i32 2, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %98
 
-if.end35:                                         ; preds = %if.end32
-  store i32 1, ptr %retval, align 4
-  br label %return
+92:                                               ; preds = %86
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %98
 
-if.end36:                                         ; preds = %if.end26
-  br label %for.inc
+93:                                               ; preds = %74
+  br label %94
 
-for.inc:                                          ; preds = %if.end36
-  %33 = load i64, ptr %idx, align 8
-  %inc = add i64 %33, 1
-  store i64 %inc, ptr %idx, align 8
-  br label %for.cond, !llvm.loop !11
+94:                                               ; preds = %93
+  %95 = load i64, ptr %12, align 8, !tbaa !13
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %12, align 8, !tbaa !13
+  br label %50, !llvm.loop !107
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+97:                                               ; preds = %50
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %98
 
-return:                                           ; preds = %for.end, %if.end35, %if.then34, %if.then25, %if.then14
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
+98:                                               ; preds = %97, %92, %91, %73, %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr %10) #5
+  %99 = load i32, ptr %5, align 4
+  ret i32 %99
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @def_crl_verify(ptr noundef %crl, ptr noundef %r) #0 {
-entry:
-  %crl.addr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  %0 = load ptr, ptr %crl.addr, align 8
-  %sig_alg = getelementptr inbounds %struct.X509_crl_st, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %sig_alg, align 8
-  %2 = load ptr, ptr %crl.addr, align 8
-  %signature = getelementptr inbounds %struct.X509_crl_st, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %signature, align 8
-  %4 = load ptr, ptr %crl.addr, align 8
-  %crl1 = getelementptr inbounds %struct.X509_crl_st, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %crl1, align 8
-  %6 = load ptr, ptr %r.addr, align 8
-  %call = call i32 @ASN1_item_verify(ptr noundef @X509_CRL_INFO_it, ptr noundef %1, ptr noundef %3, ptr noundef %5, ptr noundef %6)
-  ret i32 %call
+define internal i32 @def_crl_verify(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8, !tbaa !23
+  %6 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !108
+  %8 = load ptr, ptr %3, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !109
+  %11 = load ptr, ptr %3, align 8, !tbaa !23
+  %12 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = load ptr, ptr %4, align 8, !tbaa !45
+  %15 = call i32 @ASN1_item_verify(ptr noundef @X509_CRL_INFO_it, ptr noundef %7, ptr noundef %10, ptr noundef %13, ptr noundef %14)
+  ret i32 %15
 }
 
 declare void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef) #1
@@ -1567,148 +1637,272 @@ declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) #1
 declare i32 @ASN1_INTEGER_cmp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @crl_revoked_issuer_match(ptr noundef %crl, ptr noundef %nm, ptr noundef %rev) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %crl.addr = alloca ptr, align 8
-  %nm.addr = alloca ptr, align 8
-  %rev.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %gen = alloca ptr, align 8
-  store ptr %crl, ptr %crl.addr, align 8
-  store ptr %nm, ptr %nm.addr, align 8
-  store ptr %rev, ptr %rev.addr, align 8
-  %0 = load ptr, ptr %rev.addr, align 8
-  %issuer = getelementptr inbounds %struct.x509_revoked_st, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %issuer, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end8, label %if.then
+define internal i32 @crl_revoked_issuer_match(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %1, ptr %6, align 8, !tbaa !106
+  store ptr %2, ptr %7, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %11 = load ptr, ptr %7, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %11, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8, !tbaa !101
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %30, label %15
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %nm.addr, align 8
-  %tobool1 = icmp ne ptr %2, null
-  br i1 %tobool1, label %if.end, label %if.then2
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !106
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %19, label %18
 
-if.then2:                                         ; preds = %if.then
-  store i32 1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %15
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %74
 
-if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr %nm.addr, align 8
-  %4 = load ptr, ptr %crl.addr, align 8
-  %crl3 = getelementptr inbounds %struct.X509_crl_st, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %crl3, align 8
-  %issuer4 = getelementptr inbounds %struct.X509_crl_info_st, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %issuer4, align 8
-  %call = call i32 @X509_NAME_cmp(ptr noundef %3, ptr noundef %6)
-  %tobool5 = icmp ne i32 %call, 0
-  br i1 %tobool5, label %if.end7, label %if.then6
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %6, align 8, !tbaa !106
+  %21 = load ptr, ptr %5, align 8, !tbaa !23
+  %22 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !25
+  %24 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !98
+  %26 = call i32 @X509_NAME_cmp(ptr noundef %20, ptr noundef %25)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %29, label %28
 
-if.then6:                                         ; preds = %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %19
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %74
 
-if.end7:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %19
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %74
 
-if.end8:                                          ; preds = %entry
-  %7 = load ptr, ptr %nm.addr, align 8
-  %tobool9 = icmp ne ptr %7, null
-  br i1 %tobool9, label %if.end13, label %if.then10
+30:                                               ; preds = %3
+  %31 = load ptr, ptr %6, align 8, !tbaa !106
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %39, label %33
 
-if.then10:                                        ; preds = %if.end8
-  %8 = load ptr, ptr %crl.addr, align 8
-  %crl11 = getelementptr inbounds %struct.X509_crl_st, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %crl11, align 8
-  %issuer12 = getelementptr inbounds %struct.X509_crl_info_st, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %issuer12, align 8
-  store ptr %10, ptr %nm.addr, align 8
-  br label %if.end13
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %5, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw %struct.X509_crl_st, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !25
+  %37 = getelementptr inbounds nuw %struct.X509_crl_info_st, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !98
+  store ptr %38, ptr %6, align 8, !tbaa !106
+  br label %39
 
-if.end13:                                         ; preds = %if.then10, %if.end8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+39:                                               ; preds = %33, %30
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %40
 
-for.cond:                                         ; preds = %for.inc, %if.end13
-  %11 = load i64, ptr %i, align 8
-  %12 = load ptr, ptr %rev.addr, align 8
-  %issuer14 = getelementptr inbounds %struct.x509_revoked_st, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %issuer14, align 8
-  %call15 = call i64 @sk_num(ptr noundef %13)
-  %cmp = icmp ult i64 %11, %call15
-  br i1 %cmp, label %for.body, label %for.end
+40:                                               ; preds = %70, %39
+  %41 = load i64, ptr %8, align 8, !tbaa !13
+  %42 = load ptr, ptr %7, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8, !tbaa !101
+  %45 = call i64 @sk_num(ptr noundef %44)
+  %46 = icmp ult i64 %41, %45
+  br i1 %46, label %47, label %73
 
-for.body:                                         ; preds = %for.cond
-  %14 = load ptr, ptr %rev.addr, align 8
-  %issuer16 = getelementptr inbounds %struct.x509_revoked_st, ptr %14, i32 0, i32 3
-  %15 = load ptr, ptr %issuer16, align 8
-  %16 = load i64, ptr %i, align 8
-  %call17 = call ptr @sk_value(ptr noundef %15, i64 noundef %16)
-  store ptr %call17, ptr %gen, align 8
-  %17 = load ptr, ptr %gen, align 8
-  %type = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %17, i32 0, i32 0
-  %18 = load i32, ptr %type, align 8
-  %cmp18 = icmp ne i32 %18, 4
-  br i1 %cmp18, label %if.then19, label %if.end20
+47:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %48 = load ptr, ptr %7, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw %struct.x509_revoked_st, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8, !tbaa !101
+  %51 = load i64, ptr %8, align 8, !tbaa !13
+  %52 = call ptr @sk_value(ptr noundef %50, i64 noundef %51)
+  store ptr %52, ptr %10, align 8, !tbaa !110
+  %53 = load ptr, ptr %10, align 8, !tbaa !110
+  %54 = getelementptr inbounds nuw %struct.GENERAL_NAME_st, ptr %53, i32 0, i32 0
+  %55 = load i32, ptr %54, align 8, !tbaa !112
+  %56 = icmp ne i32 %55, 4
+  br i1 %56, label %57, label %58
 
-if.then19:                                        ; preds = %for.body
-  br label %for.inc
+57:                                               ; preds = %47
+  store i32 4, ptr %9, align 4
+  br label %67
 
-if.end20:                                         ; preds = %for.body
-  %19 = load ptr, ptr %nm.addr, align 8
-  %20 = load ptr, ptr %gen, align 8
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %d, align 8
-  %call21 = call i32 @X509_NAME_cmp(ptr noundef %19, ptr noundef %21)
-  %tobool22 = icmp ne i32 %call21, 0
-  br i1 %tobool22, label %if.end24, label %if.then23
+58:                                               ; preds = %47
+  %59 = load ptr, ptr %6, align 8, !tbaa !106
+  %60 = load ptr, ptr %10, align 8, !tbaa !110
+  %61 = getelementptr inbounds nuw %struct.GENERAL_NAME_st, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !96
+  %63 = call i32 @X509_NAME_cmp(ptr noundef %59, ptr noundef %62)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %66, label %65
 
-if.then23:                                        ; preds = %if.end20
-  store i32 1, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %58
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %67
 
-if.end24:                                         ; preds = %if.end20
-  br label %for.inc
+66:                                               ; preds = %58
+  store i32 0, ptr %9, align 4
+  br label %67
 
-for.inc:                                          ; preds = %if.end24, %if.then19
-  %22 = load i64, ptr %i, align 8
-  %inc = add i64 %22, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !12
+67:                                               ; preds = %66, %65, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %68 = load i32, ptr %9, align 4
+  switch i32 %68, label %74 [
+    i32 0, label %69
+    i32 4, label %70
+  ]
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %67
+  br label %70
 
-return:                                           ; preds = %for.end, %if.then23, %if.end7, %if.then6, %if.then2
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
+70:                                               ; preds = %69, %67
+  %71 = load i64, ptr %8, align 8, !tbaa !13
+  %72 = add i64 %71, 1
+  store i64 %72, ptr %8, align 8, !tbaa !13
+  br label %40, !llvm.loop !114
+
+73:                                               ; preds = %40
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %74
+
+74:                                               ; preds = %73, %67, %29, %28, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %75 = load i32, ptr %4, align 4
+  ret i32 %75
 }
 
 declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) #1
 
 declare i32 @ASN1_item_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p2 _ZTS15x509_revoked_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p2 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS15x509_revoked_st", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p2 _ZTS16X509_crl_info_st", !8, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS16X509_crl_info_st", !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p2 _ZTS11X509_crl_st", !8, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS11X509_crl_st", !8, i64 0}
+!25 = !{!26, !20, i64 0}
+!26 = !{!"X509_crl_st", !20, i64 0, !27, i64 8, !28, i64 16, !29, i64 24, !29, i64 28, !30, i64 32, !31, i64 40, !29, i64 48, !29, i64 52, !28, i64 56, !28, i64 64, !9, i64 72, !32, i64 96, !33, i64 104, !8, i64 112}
+!27 = !{!"p1 _ZTS13X509_algor_st", !8, i64 0}
+!28 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!29 = !{!"int", !9, i64 0}
+!30 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !8, i64 0}
+!31 = !{!"p1 _ZTS21ISSUING_DIST_POINT_st", !8, i64 0}
+!32 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !8, i64 0}
+!33 = !{!"p1 _ZTS18x509_crl_method_st", !8, i64 0}
+!34 = !{!35, !37, i64 40}
+!35 = !{!"X509_crl_info_st", !28, i64 0, !27, i64 8, !36, i64 16, !28, i64 24, !28, i64 32, !37, i64 40, !38, i64 48, !39, i64 56}
+!36 = !{!"p1 _ZTS12X509_name_st", !8, i64 0}
+!37 = !{!"p1 _ZTS21stack_st_X509_REVOKED", !8, i64 0}
+!38 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !8, i64 0}
+!39 = !{!"ASN1_ENCODING_st", !40, i64 0, !14, i64 8, !29, i64 16}
+!40 = !{!"p1 omnipotent char", !8, i64 0}
+!41 = !{!35, !29, i64 72}
+!42 = !{!43, !28, i64 0}
+!43 = !{!"x509_revoked_st", !28, i64 0, !28, i64 8, !38, i64 16, !44, i64 24, !29, i64 32, !29, i64 36}
+!44 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !8, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!47 = !{!26, !33, i64 104}
+!48 = !{!49, !8, i64 32}
+!49 = !{!"x509_crl_method_st", !29, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
+!50 = !{!28, !28, i64 0}
+!51 = !{!49, !8, i64 24}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS7x509_st", !8, i64 0}
+!54 = !{!33, !33, i64 0}
+!55 = !{!8, !8, i64 0}
+!56 = !{!49, !8, i64 8}
+!57 = !{!49, !8, i64 16}
+!58 = !{!49, !29, i64 0}
+!59 = !{!26, !8, i64 112}
+!60 = !{!29, !29, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p2 _ZTS13ASN1_VALUE_st", !8, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS12ASN1_ITEM_st", !8, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS13ASN1_VALUE_st", !8, i64 0}
+!67 = !{!26, !31, i64 40}
+!68 = !{!26, !30, i64 32}
+!69 = !{!26, !29, i64 28}
+!70 = !{!26, !29, i64 48}
+!71 = !{!26, !29, i64 52}
+!72 = !{!26, !32, i64 96}
+!73 = !{!26, !28, i64 56}
+!74 = !{!26, !28, i64 64}
+!75 = !{!35, !38, i64 48}
+!76 = !{!38, !38, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTS17X509_extension_st", !8, i64 0}
+!79 = !{!80, !81, i64 0}
+!80 = !{!"X509_extension_st", !81, i64 0, !29, i64 8, !28, i64 16}
+!81 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
+!82 = !{!80, !29, i64 8}
+!83 = distinct !{!83, !84}
+!84 = !{!"llvm.loop.mustprogress"}
+!85 = !{!31, !31, i64 0}
+!86 = !{!87, !29, i64 8}
+!87 = !{!"ISSUING_DIST_POINT_st", !88, i64 0, !29, i64 8, !29, i64 12, !28, i64 16, !29, i64 24, !29, i64 28}
+!88 = !{!"p1 _ZTS18DIST_POINT_NAME_st", !8, i64 0}
+!89 = !{!87, !29, i64 12}
+!90 = !{!87, !29, i64 28}
+!91 = !{!87, !29, i64 24}
+!92 = !{!87, !28, i64 16}
+!93 = !{!94, !29, i64 0}
+!94 = !{!"asn1_string_st", !29, i64 0, !29, i64 4, !40, i64 8, !14, i64 16}
+!95 = !{!94, !40, i64 8}
+!96 = !{!9, !9, i64 0}
+!97 = !{!87, !88, i64 0}
+!98 = !{!35, !36, i64 16}
+!99 = !{!37, !37, i64 0}
+!100 = !{!44, !44, i64 0}
+!101 = !{!43, !44, i64 24}
+!102 = !{!43, !29, i64 32}
+!103 = !{!43, !38, i64 16}
+!104 = distinct !{!104, !84}
+!105 = distinct !{!105, !84}
+!106 = !{!36, !36, i64 0}
+!107 = distinct !{!107, !84}
+!108 = !{!26, !27, i64 8}
+!109 = !{!26, !28, i64 16}
+!110 = !{!111, !111, i64 0}
+!111 = !{!"p1 _ZTS15GENERAL_NAME_st", !8, i64 0}
+!112 = !{!113, !29, i64 0}
+!113 = !{!"GENERAL_NAME_st", !29, i64 0, !9, i64 8}
+!114 = distinct !{!114, !84}

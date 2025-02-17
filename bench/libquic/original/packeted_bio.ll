@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -97,637 +97,688 @@ $_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERKS2_ = comdat any
 @.str.2 = private unnamed_addr constant [28 x i8] c"Packeted BIO was truncated\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z17PacketedBioCreateP7timeval(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %out_timeout) #0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %out_timeout.addr = alloca ptr, align 8
-  %bio = alloca %"class.std::unique_ptr", align 8
-  %cleanup.dest.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %out_timeout, ptr %out_timeout.addr, align 8
-  %call = call ptr @BIO_new(ptr noundef @_ZN12_GLOBAL__N_121g_packeted_bio_methodE)
-  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %bio, ptr noundef %call) #8
-  %call1 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %bio) #8
-  br i1 %call1, label %if.end, label %if.then
+define hidden void @_Z17PacketedBioCreateP7timeval(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::unique_ptr", align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %7 = call ptr @BIO_new(ptr noundef @_ZN12_GLOBAL__N_121g_packeted_bio_methodE)
+  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7) #11
+  %8 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  br i1 %8, label %10, label %9
 
-if.then:                                          ; preds = %entry
-  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2IS2_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr null) #8
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+9:                                                ; preds = %2
+  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2IS2_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr null) #11
+  store i32 1, ptr %6, align 4
+  br label %14
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %out_timeout.addr, align 8
-  %call2 = call noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %bio) #8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %call2, i32 0, i32 9
-  store ptr %0, ptr %ptr, align 8
-  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %bio) #8
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !6
+  %12 = call noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  %13 = getelementptr inbounds nuw %struct.bio_st, ptr %12, i32 0, i32 9
+  store ptr %11, ptr %13, align 8, !tbaa !11
+  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store i32 1, ptr %6, align 4
+  br label %14
 
-cleanup:                                          ; preds = %if.end, %if.then
-  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bio) #8
+14:                                               ; preds = %10, %9
+  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
 declare void @BIO_vfree(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare ptr @BIO_new(ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  invoke void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !20
+  invoke void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
+8:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  %cmp = icmp eq ptr %call, null
-  %cond = select i1 %cmp, i1 false, i1 true
-  ret i1 %cond
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2IS2_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  call void @llvm.memset.p0.i64(ptr align 8 %_M_t, i8 0, i64 8, i1 false)
-  call void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %_M_t2 = getelementptr inbounds %"class.std::unique_ptr", ptr %1, i32 0, i32 0
-  call void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %_M_t2) #8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
-  store ptr %call, ptr %__ptr, align 8
-  %0 = load ptr, ptr %__ptr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  %2 = load ptr, ptr %__ptr, align 8
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   %3 = load ptr, ptr %2, align 8
-  invoke void @_ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont, %entry
-  %4 = load ptr, ptr %__ptr, align 8
-  store ptr null, ptr %4, align 8
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #9
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_113PacketedWriteEP6bio_stPKci(ptr noundef %bio, ptr noundef %in, i32 noundef %inl) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %inl.addr = alloca i32, align 4
-  %header = alloca [5 x i8], align 1
-  %ret = alloca i32, align 4
-  store ptr %bio, ptr %bio.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i32 %inl, ptr %inl.addr, align 4
-  %0 = load ptr, ptr %bio.addr, align 8
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 10
-  %1 = load ptr, ptr %next_bio, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_clear_retry_flags(ptr noundef %2)
-  %arrayidx = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 0
-  store i8 80, ptr %arrayidx, align 1
-  %3 = load i32, ptr %inl.addr, align 4
-  %shr = ashr i32 %3, 24
-  %and = and i32 %shr, 255
-  %conv = trunc i32 %and to i8
-  %arrayidx1 = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 1
-  store i8 %conv, ptr %arrayidx1, align 1
-  %4 = load i32, ptr %inl.addr, align 4
-  %shr2 = ashr i32 %4, 16
-  %and3 = and i32 %shr2, 255
-  %conv4 = trunc i32 %and3 to i8
-  %arrayidx5 = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 2
-  store i8 %conv4, ptr %arrayidx5, align 1
-  %5 = load i32, ptr %inl.addr, align 4
-  %shr6 = ashr i32 %5, 8
-  %and7 = and i32 %shr6, 255
-  %conv8 = trunc i32 %and7 to i8
-  %arrayidx9 = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 3
-  store i8 %conv8, ptr %arrayidx9, align 1
-  %6 = load i32, ptr %inl.addr, align 4
-  %and10 = and i32 %6, 255
-  %conv11 = trunc i32 %and10 to i8
-  %arrayidx12 = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 4
-  store i8 %conv11, ptr %arrayidx12, align 1
-  %7 = load ptr, ptr %bio.addr, align 8
-  %next_bio13 = getelementptr inbounds %struct.bio_st, ptr %7, i32 0, i32 10
-  %8 = load ptr, ptr %next_bio13, align 8
-  %arraydecay = getelementptr inbounds [5 x i8], ptr %header, i64 0, i64 0
-  %call = call i32 @BIO_write(ptr noundef %8, ptr noundef %arraydecay, i32 noundef 5)
-  store i32 %call, ptr %ret, align 4
-  %9 = load i32, ptr %ret, align 4
-  %cmp14 = icmp sle i32 %9, 0
-  br i1 %cmp14, label %if.then15, label %if.end16
-
-if.then15:                                        ; preds = %if.end
-  %10 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_copy_next_retry(ptr noundef %10)
-  %11 = load i32, ptr %ret, align 4
-  store i32 %11, ptr %retval, align 4
-  br label %return
-
-if.end16:                                         ; preds = %if.end
-  %12 = load ptr, ptr %bio.addr, align 8
-  %next_bio17 = getelementptr inbounds %struct.bio_st, ptr %12, i32 0, i32 10
-  %13 = load ptr, ptr %next_bio17, align 8
-  %14 = load ptr, ptr %in.addr, align 8
-  %15 = load i32, ptr %inl.addr, align 4
-  %call18 = call i32 @BIO_write(ptr noundef %13, ptr noundef %14, i32 noundef %15)
-  store i32 %call18, ptr %ret, align 4
-  %16 = load i32, ptr %ret, align 4
-  %cmp19 = icmp slt i32 %16, 0
-  br i1 %cmp19, label %if.then22, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end16
-  %17 = load i32, ptr %inl.addr, align 4
-  %cmp20 = icmp sgt i32 %17, 0
-  br i1 %cmp20, label %land.lhs.true, label %if.end23
-
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %18 = load i32, ptr %ret, align 4
-  %cmp21 = icmp eq i32 %18, 0
-  br i1 %cmp21, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %land.lhs.true, %if.end16
-  %19 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_copy_next_retry(ptr noundef %19)
-  %20 = load i32, ptr %ret, align 4
-  store i32 %20, ptr %retval, align 4
-  br label %return
-
-if.end23:                                         ; preds = %land.lhs.true, %lor.lhs.false
-  %21 = load i32, ptr %ret, align 4
-  store i32 %21, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end23, %if.then22, %if.then15, %if.then
-  %22 = load i32, ptr %retval, align 4
-  ret i32 %22
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_112PacketedReadEP6bio_stPci(ptr noundef %bio, ptr noundef %out, i32 noundef %outl) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %outl.addr = alloca i32, align 4
-  %opcode = alloca i8, align 1
-  %ret = alloca i32, align 4
-  %buf = alloca [8 x i8], align 1
-  %timeout = alloca i64, align 8
-  %out_timeout = alloca ptr, align 8
-  %len_bytes = alloca [4 x i8], align 1
-  %len = alloca i32, align 4
-  %buf72 = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i32 %outl, ptr %outl.addr, align 4
-  %0 = load ptr, ptr %bio.addr, align 8
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 10
-  %1 = load ptr, ptr %next_bio, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_clear_retry_flags(ptr noundef %2)
-  %3 = load ptr, ptr %bio.addr, align 8
-  %next_bio1 = getelementptr inbounds %struct.bio_st, ptr %3, i32 0, i32 10
-  %4 = load ptr, ptr %next_bio1, align 8
-  %call = call noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %4, ptr noundef %opcode, i64 noundef 1)
-  store i32 %call, ptr %ret, align 4
-  %5 = load i32, ptr %ret, align 4
-  %cmp2 = icmp sle i32 %5, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %6 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_copy_next_retry(ptr noundef %6)
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %8 = load i8, ptr %opcode, align 1
-  %conv = zext i8 %8 to i32
-  %cmp5 = icmp eq i32 %conv, 84
-  br i1 %cmp5, label %if.then6, label %if.end45
-
-if.then6:                                         ; preds = %if.end4
-  %9 = load ptr, ptr %bio.addr, align 8
-  %next_bio7 = getelementptr inbounds %struct.bio_st, ptr %9, i32 0, i32 10
-  %10 = load ptr, ptr %next_bio7, align 8
-  %arraydecay = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 0
-  %call8 = call noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %10, ptr noundef %arraydecay, i64 noundef 8)
-  store i32 %call8, ptr %ret, align 4
-  %11 = load i32, ptr %ret, align 4
-  %cmp9 = icmp sle i32 %11, 0
-  br i1 %cmp9, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %if.then6
-  %12 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_copy_next_retry(ptr noundef %12)
-  %13 = load i32, ptr %ret, align 4
-  store i32 %13, ptr %retval, align 4
-  br label %return
-
-if.end11:                                         ; preds = %if.then6
-  %arrayidx = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 0
-  %14 = load i8, ptr %arrayidx, align 1
-  %conv12 = zext i8 %14 to i64
-  %shl = shl i64 %conv12, 56
-  %arrayidx13 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 1
-  %15 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %15 to i64
-  %shl15 = shl i64 %conv14, 48
-  %or = or i64 %shl, %shl15
-  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 2
-  %16 = load i8, ptr %arrayidx16, align 1
-  %conv17 = zext i8 %16 to i64
-  %shl18 = shl i64 %conv17, 40
-  %or19 = or i64 %or, %shl18
-  %arrayidx20 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 3
-  %17 = load i8, ptr %arrayidx20, align 1
-  %conv21 = zext i8 %17 to i64
-  %shl22 = shl i64 %conv21, 32
-  %or23 = or i64 %or19, %shl22
-  %arrayidx24 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 4
-  %18 = load i8, ptr %arrayidx24, align 1
-  %conv25 = zext i8 %18 to i64
-  %shl26 = shl i64 %conv25, 24
-  %or27 = or i64 %or23, %shl26
-  %arrayidx28 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 5
-  %19 = load i8, ptr %arrayidx28, align 1
-  %conv29 = zext i8 %19 to i64
-  %shl30 = shl i64 %conv29, 16
-  %or31 = or i64 %or27, %shl30
-  %arrayidx32 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 6
-  %20 = load i8, ptr %arrayidx32, align 1
-  %conv33 = zext i8 %20 to i64
-  %shl34 = shl i64 %conv33, 8
-  %or35 = or i64 %or31, %shl34
-  %arrayidx36 = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 7
-  %21 = load i8, ptr %arrayidx36, align 1
-  %conv37 = zext i8 %21 to i64
-  %or38 = or i64 %or35, %conv37
-  store i64 %or38, ptr %timeout, align 8
-  %22 = load i64, ptr %timeout, align 8
-  %div = udiv i64 %22, 1000
-  store i64 %div, ptr %timeout, align 8
-  %23 = load ptr, ptr %bio.addr, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %23, i32 0, i32 9
-  %24 = load ptr, ptr %ptr, align 8
-  store ptr %24, ptr %out_timeout, align 8
-  %25 = load i64, ptr %timeout, align 8
-  %rem = urem i64 %25, 1000000
-  %26 = load ptr, ptr %out_timeout, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %26, i32 0, i32 1
-  store i64 %rem, ptr %tv_usec, align 8
-  %27 = load i64, ptr %timeout, align 8
-  %div39 = udiv i64 %27, 1000000
-  %28 = load ptr, ptr %out_timeout, align 8
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %28, i32 0, i32 0
-  store i64 %div39, ptr %tv_sec, align 8
-  %29 = load ptr, ptr %bio.addr, align 8
-  %next_bio40 = getelementptr inbounds %struct.bio_st, ptr %29, i32 0, i32 10
-  %30 = load ptr, ptr %next_bio40, align 8
-  %call41 = call i32 @BIO_write(ptr noundef %30, ptr noundef @_ZN12_GLOBAL__N_117kOpcodeTimeoutAckE, i32 noundef 1)
-  store i32 %call41, ptr %ret, align 4
-  %31 = load i32, ptr %ret, align 4
-  %cmp42 = icmp sle i32 %31, 0
-  br i1 %cmp42, label %if.then43, label %if.end44
-
-if.then43:                                        ; preds = %if.end11
-  %32 = load i32, ptr %ret, align 4
-  store i32 %32, ptr %retval, align 4
-  br label %return
-
-if.end44:                                         ; preds = %if.end11
-  %33 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_set_retry_read(ptr noundef %33)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end45:                                         ; preds = %if.end4
-  %34 = load i8, ptr %opcode, align 1
-  %conv46 = zext i8 %34 to i32
-  %cmp47 = icmp ne i32 %conv46, 80
-  br i1 %cmp47, label %if.then48, label %if.end51
-
-if.then48:                                        ; preds = %if.end45
-  %35 = load ptr, ptr @stderr, align 8
-  %36 = load i8, ptr %opcode, align 1
-  %conv49 = zext i8 %36 to i32
-  %call50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.1, i32 noundef %conv49)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end51:                                         ; preds = %if.end45
-  %37 = load ptr, ptr %bio.addr, align 8
-  %next_bio52 = getelementptr inbounds %struct.bio_st, ptr %37, i32 0, i32 10
-  %38 = load ptr, ptr %next_bio52, align 8
-  %arraydecay53 = getelementptr inbounds [4 x i8], ptr %len_bytes, i64 0, i64 0
-  %call54 = call noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %38, ptr noundef %arraydecay53, i64 noundef 4)
-  store i32 %call54, ptr %ret, align 4
-  %39 = load i32, ptr %ret, align 4
-  %cmp55 = icmp sle i32 %39, 0
-  br i1 %cmp55, label %if.then56, label %if.end57
-
-if.then56:                                        ; preds = %if.end51
-  %40 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_copy_next_retry(ptr noundef %40)
-  %41 = load i32, ptr %ret, align 4
-  store i32 %41, ptr %retval, align 4
-  br label %return
-
-if.end57:                                         ; preds = %if.end51
-  %arrayidx58 = getelementptr inbounds [4 x i8], ptr %len_bytes, i64 0, i64 0
-  %42 = load i8, ptr %arrayidx58, align 1
-  %conv59 = zext i8 %42 to i32
-  %shl60 = shl i32 %conv59, 24
-  %arrayidx61 = getelementptr inbounds [4 x i8], ptr %len_bytes, i64 0, i64 1
-  %43 = load i8, ptr %arrayidx61, align 1
-  %conv62 = zext i8 %43 to i32
-  %shl63 = shl i32 %conv62, 16
-  %or64 = or i32 %shl60, %shl63
-  %arrayidx65 = getelementptr inbounds [4 x i8], ptr %len_bytes, i64 0, i64 2
-  %44 = load i8, ptr %arrayidx65, align 1
-  %conv66 = zext i8 %44 to i32
-  %shl67 = shl i32 %conv66, 8
-  %or68 = or i32 %or64, %shl67
-  %arrayidx69 = getelementptr inbounds [4 x i8], ptr %len_bytes, i64 0, i64 3
-  %45 = load i8, ptr %arrayidx69, align 1
-  %conv70 = zext i8 %45 to i32
-  %or71 = or i32 %or68, %conv70
-  store i32 %or71, ptr %len, align 4
-  %46 = load i32, ptr %len, align 4
-  %conv73 = zext i32 %46 to i64
-  %call74 = call noalias ptr @malloc(i64 noundef %conv73) #10
-  store ptr %call74, ptr %buf72, align 8
-  %47 = load ptr, ptr %buf72, align 8
-  %cmp75 = icmp eq ptr %47, null
-  br i1 %cmp75, label %if.then76, label %if.end77
-
-if.then76:                                        ; preds = %if.end57
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end77:                                         ; preds = %if.end57
-  %48 = load ptr, ptr %bio.addr, align 8
-  %next_bio78 = getelementptr inbounds %struct.bio_st, ptr %48, i32 0, i32 10
-  %49 = load ptr, ptr %next_bio78, align 8
-  %50 = load ptr, ptr %buf72, align 8
-  %51 = load i32, ptr %len, align 4
-  %conv79 = zext i32 %51 to i64
-  %call80 = call noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %49, ptr noundef %50, i64 noundef %conv79)
-  store i32 %call80, ptr %ret, align 4
-  %52 = load i32, ptr %ret, align 4
-  %cmp81 = icmp sle i32 %52, 0
-  br i1 %cmp81, label %if.then82, label %if.end84
-
-if.then82:                                        ; preds = %if.end77
-  %53 = load ptr, ptr @stderr, align 8
-  %call83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.2)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end84:                                         ; preds = %if.end77
-  %54 = load i32, ptr %outl.addr, align 4
-  %55 = load i32, ptr %len, align 4
-  %cmp85 = icmp sgt i32 %54, %55
-  br i1 %cmp85, label %if.then86, label %if.end87
-
-if.then86:                                        ; preds = %if.end84
-  %56 = load i32, ptr %len, align 4
-  store i32 %56, ptr %outl.addr, align 4
-  br label %if.end87
-
-if.end87:                                         ; preds = %if.then86, %if.end84
-  %57 = load ptr, ptr %out.addr, align 8
-  %58 = load ptr, ptr %buf72, align 8
-  %59 = load i32, ptr %outl.addr, align 4
-  %conv88 = sext i32 %59 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %58, i64 %conv88, i1 false)
-  %60 = load ptr, ptr %buf72, align 8
-  call void @free(ptr noundef %60) #8
-  %61 = load i32, ptr %outl.addr, align 4
-  store i32 %61, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end87, %if.then82, %if.then76, %if.then56, %if.then48, %if.end44, %if.then43, %if.then10, %if.then3, %if.then
-  %62 = load i32, ptr %retval, align 4
-  ret i32 %62
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_112PacketedCtrlEP6bio_stilPv(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %bio.addr = alloca ptr, align 8
-  %cmd.addr = alloca i32, align 4
-  %num.addr = alloca i64, align 8
-  %ptr.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %bio, ptr %bio.addr, align 8
-  store i32 %cmd, ptr %cmd.addr, align 4
-  store i64 %num, ptr %num.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 10
-  %1 = load ptr, ptr %next_bio, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_clear_retry_flags(ptr noundef %2)
-  %3 = load ptr, ptr %bio.addr, align 8
-  %next_bio1 = getelementptr inbounds %struct.bio_st, ptr %3, i32 0, i32 10
-  %4 = load ptr, ptr %next_bio1, align 8
-  %5 = load i32, ptr %cmd.addr, align 4
-  %6 = load i64, ptr %num.addr, align 8
-  %7 = load ptr, ptr %ptr.addr, align 8
-  %call = call i64 @BIO_ctrl(ptr noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef %7)
-  %conv = trunc i64 %call to i32
-  store i32 %conv, ptr %ret, align 4
-  %8 = load ptr, ptr %bio.addr, align 8
-  call void @BIO_copy_next_retry(ptr noundef %8)
-  %9 = load i32, ptr %ret, align 4
-  %conv2 = sext i32 %9 to i64
-  store i64 %conv2, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i64, ptr %retval, align 8
-  ret i64 %10
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %5 = icmp eq ptr %4, null
+  %6 = select i1 %5, i1 false, i1 true
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st(ptr noundef %bio) #2 {
-entry:
-  %bio.addr = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 3
-  store i32 1, ptr %init, align 8
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2IS2_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 8, i1 false)
+  call void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !18
+  %8 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i32 0, i32 0
+  call void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %6, ptr %3, align 8, !tbaa !23
+  %7 = load ptr, ptr %3, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %12 = load ptr, ptr %3, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  invoke void @_ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %10
+  br label %15
+
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8, !tbaa !23
+  store ptr null, ptr %16, align 8, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret void
+
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #12
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN12_GLOBAL__N_113PacketedWriteEP6bio_stPKci(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca [5 x i8], align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !25
+  store i32 %2, ptr %7, align 4, !tbaa !26
+  %11 = load ptr, ptr %5, align 8, !tbaa !20
+  %12 = getelementptr inbounds nuw %struct.bio_st, ptr %11, i32 0, i32 10
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  br label %69
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @BIO_clear_retry_flags(ptr noundef %17)
+  call void @llvm.lifetime.start.p0(i64 5, ptr %8) #11
+  %18 = getelementptr inbounds [5 x i8], ptr %8, i64 0, i64 0
+  store i8 80, ptr %18, align 1, !tbaa !28
+  %19 = load i32, ptr %7, align 4, !tbaa !26
+  %20 = ashr i32 %19, 24
+  %21 = and i32 %20, 255
+  %22 = trunc i32 %21 to i8
+  %23 = getelementptr inbounds [5 x i8], ptr %8, i64 0, i64 1
+  store i8 %22, ptr %23, align 1, !tbaa !28
+  %24 = load i32, ptr %7, align 4, !tbaa !26
+  %25 = ashr i32 %24, 16
+  %26 = and i32 %25, 255
+  %27 = trunc i32 %26 to i8
+  %28 = getelementptr inbounds [5 x i8], ptr %8, i64 0, i64 2
+  store i8 %27, ptr %28, align 1, !tbaa !28
+  %29 = load i32, ptr %7, align 4, !tbaa !26
+  %30 = ashr i32 %29, 8
+  %31 = and i32 %30, 255
+  %32 = trunc i32 %31 to i8
+  %33 = getelementptr inbounds [5 x i8], ptr %8, i64 0, i64 3
+  store i8 %32, ptr %33, align 1, !tbaa !28
+  %34 = load i32, ptr %7, align 4, !tbaa !26
+  %35 = and i32 %34, 255
+  %36 = trunc i32 %35 to i8
+  %37 = getelementptr inbounds [5 x i8], ptr %8, i64 0, i64 4
+  store i8 %36, ptr %37, align 1, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %38 = load ptr, ptr %5, align 8, !tbaa !20
+  %39 = getelementptr inbounds nuw %struct.bio_st, ptr %38, i32 0, i32 10
+  %40 = load ptr, ptr %39, align 8, !tbaa !27
+  %41 = getelementptr inbounds [5 x i8], ptr %8, i64 0, i64 0
+  %42 = call i32 @BIO_write(ptr noundef %40, ptr noundef %41, i32 noundef 5)
+  store i32 %42, ptr %9, align 4, !tbaa !26
+  %43 = load i32, ptr %9, align 4, !tbaa !26
+  %44 = icmp sle i32 %43, 0
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %16
+  %46 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @BIO_copy_next_retry(ptr noundef %46)
+  %47 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %47, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %68
+
+48:                                               ; preds = %16
+  %49 = load ptr, ptr %5, align 8, !tbaa !20
+  %50 = getelementptr inbounds nuw %struct.bio_st, ptr %49, i32 0, i32 10
+  %51 = load ptr, ptr %50, align 8, !tbaa !27
+  %52 = load ptr, ptr %6, align 8, !tbaa !25
+  %53 = load i32, ptr %7, align 4, !tbaa !26
+  %54 = call i32 @BIO_write(ptr noundef %51, ptr noundef %52, i32 noundef %53)
+  store i32 %54, ptr %9, align 4, !tbaa !26
+  %55 = load i32, ptr %9, align 4, !tbaa !26
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %63, label %57
+
+57:                                               ; preds = %48
+  %58 = load i32, ptr %7, align 4, !tbaa !26
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %60, label %66
+
+60:                                               ; preds = %57
+  %61 = load i32, ptr %9, align 4, !tbaa !26
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %66
+
+63:                                               ; preds = %60, %48
+  %64 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @BIO_copy_next_retry(ptr noundef %64)
+  %65 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %65, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %68
+
+66:                                               ; preds = %60, %57
+  %67 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %67, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %68
+
+68:                                               ; preds = %66, %63, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 5, ptr %8) #11
+  br label %69
+
+69:                                               ; preds = %68, %15
+  %70 = load i32, ptr %4, align 4
+  ret i32 %70
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN12_GLOBAL__N_112PacketedReadEP6bio_stPci(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca [8 x i8], align 1
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca [4 x i8], align 1
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !25
+  store i32 %2, ptr %7, align 4, !tbaa !26
+  %17 = load ptr, ptr %5, align 8, !tbaa !20
+  %18 = getelementptr inbounds nuw %struct.bio_st, ptr %17, i32 0, i32 10
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  br label %186
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @BIO_clear_retry_flags(ptr noundef %23)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %24 = load ptr, ptr %5, align 8, !tbaa !20
+  %25 = getelementptr inbounds nuw %struct.bio_st, ptr %24, i32 0, i32 10
+  %26 = load ptr, ptr %25, align 8, !tbaa !27
+  %27 = call noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %26, ptr noundef %8, i64 noundef 1)
+  store i32 %27, ptr %9, align 4, !tbaa !26
+  %28 = load i32, ptr %9, align 4, !tbaa !26
+  %29 = icmp sle i32 %28, 0
+  br i1 %29, label %30, label %33
+
+30:                                               ; preds = %22
+  %31 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @BIO_copy_next_retry(ptr noundef %31)
+  %32 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %32, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %185
+
+33:                                               ; preds = %22
+  %34 = load i8, ptr %8, align 1, !tbaa !28
+  %35 = zext i8 %34 to i32
+  %36 = icmp eq i32 %35, 84
+  br i1 %36, label %37, label %112
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %38 = load ptr, ptr %5, align 8, !tbaa !20
+  %39 = getelementptr inbounds nuw %struct.bio_st, ptr %38, i32 0, i32 10
+  %40 = load ptr, ptr %39, align 8, !tbaa !27
+  %41 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 0
+  %42 = call noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %40, ptr noundef %41, i64 noundef 8)
+  store i32 %42, ptr %9, align 4, !tbaa !26
+  %43 = load i32, ptr %9, align 4, !tbaa !26
+  %44 = icmp sle i32 %43, 0
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @BIO_copy_next_retry(ptr noundef %46)
+  %47 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %47, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %111
+
+48:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %49 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 0
+  %50 = load i8, ptr %49, align 1, !tbaa !28
+  %51 = zext i8 %50 to i64
+  %52 = shl i64 %51, 56
+  %53 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !28
+  %55 = zext i8 %54 to i64
+  %56 = shl i64 %55, 48
+  %57 = or i64 %52, %56
+  %58 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 2
+  %59 = load i8, ptr %58, align 1, !tbaa !28
+  %60 = zext i8 %59 to i64
+  %61 = shl i64 %60, 40
+  %62 = or i64 %57, %61
+  %63 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 3
+  %64 = load i8, ptr %63, align 1, !tbaa !28
+  %65 = zext i8 %64 to i64
+  %66 = shl i64 %65, 32
+  %67 = or i64 %62, %66
+  %68 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 4
+  %69 = load i8, ptr %68, align 1, !tbaa !28
+  %70 = zext i8 %69 to i64
+  %71 = shl i64 %70, 24
+  %72 = or i64 %67, %71
+  %73 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 5
+  %74 = load i8, ptr %73, align 1, !tbaa !28
+  %75 = zext i8 %74 to i64
+  %76 = shl i64 %75, 16
+  %77 = or i64 %72, %76
+  %78 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 6
+  %79 = load i8, ptr %78, align 1, !tbaa !28
+  %80 = zext i8 %79 to i64
+  %81 = shl i64 %80, 8
+  %82 = or i64 %77, %81
+  %83 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 7
+  %84 = load i8, ptr %83, align 1, !tbaa !28
+  %85 = zext i8 %84 to i64
+  %86 = or i64 %82, %85
+  store i64 %86, ptr %12, align 8, !tbaa !29
+  %87 = load i64, ptr %12, align 8, !tbaa !29
+  %88 = udiv i64 %87, 1000
+  store i64 %88, ptr %12, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %89 = load ptr, ptr %5, align 8, !tbaa !20
+  %90 = getelementptr inbounds nuw %struct.bio_st, ptr %89, i32 0, i32 9
+  %91 = load ptr, ptr %90, align 8, !tbaa !11
+  store ptr %91, ptr %13, align 8, !tbaa !6
+  %92 = load i64, ptr %12, align 8, !tbaa !29
+  %93 = urem i64 %92, 1000000
+  %94 = load ptr, ptr %13, align 8, !tbaa !6
+  %95 = getelementptr inbounds nuw %struct.timeval, ptr %94, i32 0, i32 1
+  store i64 %93, ptr %95, align 8, !tbaa !30
+  %96 = load i64, ptr %12, align 8, !tbaa !29
+  %97 = udiv i64 %96, 1000000
+  %98 = load ptr, ptr %13, align 8, !tbaa !6
+  %99 = getelementptr inbounds nuw %struct.timeval, ptr %98, i32 0, i32 0
+  store i64 %97, ptr %99, align 8, !tbaa !32
+  %100 = load ptr, ptr %5, align 8, !tbaa !20
+  %101 = getelementptr inbounds nuw %struct.bio_st, ptr %100, i32 0, i32 10
+  %102 = load ptr, ptr %101, align 8, !tbaa !27
+  %103 = call i32 @BIO_write(ptr noundef %102, ptr noundef @_ZN12_GLOBAL__N_117kOpcodeTimeoutAckE, i32 noundef 1)
+  store i32 %103, ptr %9, align 4, !tbaa !26
+  %104 = load i32, ptr %9, align 4, !tbaa !26
+  %105 = icmp sle i32 %104, 0
+  br i1 %105, label %106, label %108
+
+106:                                              ; preds = %48
+  %107 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %107, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %110
+
+108:                                              ; preds = %48
+  %109 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @BIO_set_retry_read(ptr noundef %109)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %110
+
+110:                                              ; preds = %108, %106
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  br label %111
+
+111:                                              ; preds = %110, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  br label %185
+
+112:                                              ; preds = %33
+  %113 = load i8, ptr %8, align 1, !tbaa !28
+  %114 = zext i8 %113 to i32
+  %115 = icmp ne i32 %114, 80
+  br i1 %115, label %116, label %121
+
+116:                                              ; preds = %112
+  %117 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %118 = load i8, ptr %8, align 1, !tbaa !28
+  %119 = zext i8 %118 to i32
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef @.str.1, i32 noundef %119) #11
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %185
+
+121:                                              ; preds = %112
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  %122 = load ptr, ptr %5, align 8, !tbaa !20
+  %123 = getelementptr inbounds nuw %struct.bio_st, ptr %122, i32 0, i32 10
+  %124 = load ptr, ptr %123, align 8, !tbaa !27
+  %125 = getelementptr inbounds [4 x i8], ptr %14, i64 0, i64 0
+  %126 = call noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %124, ptr noundef %125, i64 noundef 4)
+  store i32 %126, ptr %9, align 4, !tbaa !26
+  %127 = load i32, ptr %9, align 4, !tbaa !26
+  %128 = icmp sle i32 %127, 0
+  br i1 %128, label %129, label %132
+
+129:                                              ; preds = %121
+  %130 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @BIO_copy_next_retry(ptr noundef %130)
+  %131 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %131, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
+
+132:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  %133 = getelementptr inbounds [4 x i8], ptr %14, i64 0, i64 0
+  %134 = load i8, ptr %133, align 1, !tbaa !28
+  %135 = zext i8 %134 to i32
+  %136 = shl i32 %135, 24
+  %137 = getelementptr inbounds [4 x i8], ptr %14, i64 0, i64 1
+  %138 = load i8, ptr %137, align 1, !tbaa !28
+  %139 = zext i8 %138 to i32
+  %140 = shl i32 %139, 16
+  %141 = or i32 %136, %140
+  %142 = getelementptr inbounds [4 x i8], ptr %14, i64 0, i64 2
+  %143 = load i8, ptr %142, align 1, !tbaa !28
+  %144 = zext i8 %143 to i32
+  %145 = shl i32 %144, 8
+  %146 = or i32 %141, %145
+  %147 = getelementptr inbounds [4 x i8], ptr %14, i64 0, i64 3
+  %148 = load i8, ptr %147, align 1, !tbaa !28
+  %149 = zext i8 %148 to i32
+  %150 = or i32 %146, %149
+  store i32 %150, ptr %15, align 4, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  %151 = load i32, ptr %15, align 4, !tbaa !26
+  %152 = zext i32 %151 to i64
+  %153 = call noalias ptr @malloc(i64 noundef %152) #13
+  store ptr %153, ptr %16, align 8, !tbaa !25
+  %154 = load ptr, ptr %16, align 8, !tbaa !25
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %156, label %157
+
+156:                                              ; preds = %132
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %183
+
+157:                                              ; preds = %132
+  %158 = load ptr, ptr %5, align 8, !tbaa !20
+  %159 = getelementptr inbounds nuw %struct.bio_st, ptr %158, i32 0, i32 10
+  %160 = load ptr, ptr %159, align 8, !tbaa !27
+  %161 = load ptr, ptr %16, align 8, !tbaa !25
+  %162 = load i32, ptr %15, align 4, !tbaa !26
+  %163 = zext i32 %162 to i64
+  %164 = call noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %160, ptr noundef %161, i64 noundef %163)
+  store i32 %164, ptr %9, align 4, !tbaa !26
+  %165 = load i32, ptr %9, align 4, !tbaa !26
+  %166 = icmp sle i32 %165, 0
+  br i1 %166, label %167, label %170
+
+167:                                              ; preds = %157
+  %168 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef @.str.2) #11
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %183
+
+170:                                              ; preds = %157
+  %171 = load i32, ptr %7, align 4, !tbaa !26
+  %172 = load i32, ptr %15, align 4, !tbaa !26
+  %173 = icmp sgt i32 %171, %172
+  br i1 %173, label %174, label %176
+
+174:                                              ; preds = %170
+  %175 = load i32, ptr %15, align 4, !tbaa !26
+  store i32 %175, ptr %7, align 4, !tbaa !26
+  br label %176
+
+176:                                              ; preds = %174, %170
+  %177 = load ptr, ptr %6, align 8, !tbaa !25
+  %178 = load ptr, ptr %16, align 8, !tbaa !25
+  %179 = load i32, ptr %7, align 4, !tbaa !26
+  %180 = sext i32 %179 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr align 1 %178, i64 %180, i1 false)
+  %181 = load ptr, ptr %16, align 8, !tbaa !25
+  call void @free(ptr noundef %181) #11
+  %182 = load i32, ptr %7, align 4, !tbaa !26
+  store i32 %182, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %183
+
+183:                                              ; preds = %176, %167, %156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  br label %184
+
+184:                                              ; preds = %183, %129
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  br label %185
+
+185:                                              ; preds = %184, %116, %111, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #11
+  br label %186
+
+186:                                              ; preds = %185, %21
+  %187 = load i32, ptr %4, align 4
+  ret i32 %187
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i64 @_ZN12_GLOBAL__N_112PacketedCtrlEP6bio_stilPv(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !20
+  store i32 %1, ptr %7, align 4, !tbaa !26
+  store i64 %2, ptr %8, align 8, !tbaa !29
+  store ptr %3, ptr %9, align 8, !tbaa !35
+  %11 = load ptr, ptr %6, align 8, !tbaa !20
+  %12 = getelementptr inbounds nuw %struct.bio_st, ptr %11, i32 0, i32 10
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %4
+  store i64 0, ptr %5, align 8
+  br label %29
+
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %6, align 8, !tbaa !20
+  call void @BIO_clear_retry_flags(ptr noundef %17)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  %18 = load ptr, ptr %6, align 8, !tbaa !20
+  %19 = getelementptr inbounds nuw %struct.bio_st, ptr %18, i32 0, i32 10
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  %21 = load i32, ptr %7, align 4, !tbaa !26
+  %22 = load i64, ptr %8, align 8, !tbaa !29
+  %23 = load ptr, ptr %9, align 8, !tbaa !35
+  %24 = call i64 @BIO_ctrl(ptr noundef %20, i32 noundef %21, i64 noundef %22, ptr noundef %23)
+  %25 = trunc i64 %24 to i32
+  store i32 %25, ptr %10, align 4, !tbaa !26
+  %26 = load ptr, ptr %6, align 8, !tbaa !20
+  call void @BIO_copy_next_retry(ptr noundef %26)
+  %27 = load i32, ptr %10, align 4, !tbaa !26
+  %28 = sext i32 %27 to i64
+  store i64 %28, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  br label %29
+
+29:                                               ; preds = %16, %15
+  %30 = load i64, ptr %5, align 8
+  ret i64 %30
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i32 @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
+  %4 = getelementptr inbounds nuw %struct.bio_st, ptr %3, i32 0, i32 3
+  store i32 1, ptr %4, align 8, !tbaa !36
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_112PacketedFreeEP6bio_st(ptr noundef %bio) #2 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef i32 @_ZN12_GLOBAL__N_112PacketedFreeEP6bio_st(ptr noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+6:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %10
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %bio.addr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %1, i32 0, i32 3
-  store i32 0, ptr %init, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw %struct.bio_st, ptr %8, i32 0, i32 3
+  store i32 0, ptr %9, align 8, !tbaa !36
+  store i32 1, ptr %2, align 4
+  br label %10
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+10:                                               ; preds = %7, %6
+  %11 = load i32, ptr %2, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_120PacketedCallbackCtrlEP6bio_stiPFlS1_iPKcillE(ptr noundef %bio, i32 noundef %cmd, ptr noundef %fp) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %bio.addr = alloca ptr, align 8
-  %cmd.addr = alloca i32, align 4
-  %fp.addr = alloca ptr, align 8
-  store ptr %bio, ptr %bio.addr, align 8
-  store i32 %cmd, ptr %cmd.addr, align 4
-  store ptr %fp, ptr %fp.addr, align 8
-  %0 = load ptr, ptr %bio.addr, align 8
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %0, i32 0, i32 10
-  %1 = load ptr, ptr %next_bio, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef i64 @_ZN12_GLOBAL__N_120PacketedCallbackCtrlEP6bio_stiPFlS1_iPKcillE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store i32 %1, ptr %6, align 4, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw %struct.bio_st, ptr %8, i32 0, i32 10
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %3
+  store i64 0, ptr %4, align 8
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %bio.addr, align 8
-  %next_bio1 = getelementptr inbounds %struct.bio_st, ptr %2, i32 0, i32 10
-  %3 = load ptr, ptr %next_bio1, align 8
-  %4 = load i32, ptr %cmd.addr, align 4
-  %5 = load ptr, ptr %fp.addr, align 8
-  %call = call i64 @BIO_callback_ctrl(ptr noundef %3, i32 noundef %4, ptr noundef %5)
-  store i64 %call, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !20
+  %15 = getelementptr inbounds nuw %struct.bio_st, ptr %14, i32 0, i32 10
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %17 = load i32, ptr %6, align 4, !tbaa !26
+  %18 = load ptr, ptr %7, align 8, !tbaa !35
+  %19 = call i64 @BIO_callback_ctrl(ptr noundef %16, i32 noundef %17, ptr noundef %18)
+  store i64 %19, ptr %4, align 8
+  br label %20
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i64, ptr %retval, align 8
-  ret i64 %6
+20:                                               ; preds = %13, %12
+  %21 = load i64, ptr %4, align 8
+  ret i64 %21
 }
 
 declare void @BIO_clear_retry_flags(ptr noundef) #1
@@ -737,85 +788,105 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) #1
 declare void @BIO_copy_next_retry(ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %bio, ptr noundef %out, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bio.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %chunk_len = alloca i32, align 4
-  %ret = alloca i32, align 4
-  store ptr %bio, ptr %bio.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  br label %while.cond
+define internal noundef i32 @_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !25
+  store i64 %2, ptr %7, align 8, !tbaa !29
+  br label %11
 
-while.cond:                                       ; preds = %if.end4, %entry
-  %0 = load i64, ptr %len.addr, align 8
-  %cmp = icmp ugt i64 %0, 0
-  br i1 %cmp, label %while.body, label %while.end
+11:                                               ; preds = %40, %3
+  %12 = load i64, ptr %7, align 8, !tbaa !29
+  %13 = icmp ugt i64 %12, 0
+  br i1 %13, label %14, label %41
 
-while.body:                                       ; preds = %while.cond
-  store i32 2147483647, ptr %chunk_len, align 4
-  %1 = load i64, ptr %len.addr, align 8
-  %cmp1 = icmp ule i64 %1, 2147483647
-  br i1 %cmp1, label %if.then, label %if.end
+14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 2147483647, ptr %8, align 4, !tbaa !26
+  %15 = load i64, ptr %7, align 8, !tbaa !29
+  %16 = icmp ule i64 %15, 2147483647
+  br i1 %16, label %17, label %20
 
-if.then:                                          ; preds = %while.body
-  %2 = load i64, ptr %len.addr, align 8
-  %conv = trunc i64 %2 to i32
-  store i32 %conv, ptr %chunk_len, align 4
-  br label %if.end
+17:                                               ; preds = %14
+  %18 = load i64, ptr %7, align 8, !tbaa !29
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %8, align 4, !tbaa !26
+  br label %20
 
-if.end:                                           ; preds = %if.then, %while.body
-  %3 = load ptr, ptr %bio.addr, align 8
-  %4 = load ptr, ptr %out.addr, align 8
-  %5 = load i32, ptr %chunk_len, align 4
-  %call = call i32 @BIO_read(ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  store i32 %call, ptr %ret, align 4
-  %6 = load i32, ptr %ret, align 4
-  %cmp2 = icmp sle i32 %6, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+20:                                               ; preds = %17, %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %21 = load ptr, ptr %5, align 8, !tbaa !20
+  %22 = load ptr, ptr %6, align 8, !tbaa !25
+  %23 = load i32, ptr %8, align 4, !tbaa !26
+  %24 = call i32 @BIO_read(ptr noundef %21, ptr noundef %22, i32 noundef %23)
+  store i32 %24, ptr %9, align 4, !tbaa !26
+  %25 = load i32, ptr %9, align 4, !tbaa !26
+  %26 = icmp sle i32 %25, 0
+  br i1 %26, label %27, label %29
 
-if.then3:                                         ; preds = %if.end
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %20
+  %28 = load i32, ptr %9, align 4, !tbaa !26
+  store i32 %28, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %38
 
-if.end4:                                          ; preds = %if.end
-  %8 = load i32, ptr %ret, align 4
-  %9 = load ptr, ptr %out.addr, align 8
-  %idx.ext = sext i32 %8 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %idx.ext
-  store ptr %add.ptr, ptr %out.addr, align 8
-  %10 = load i32, ptr %ret, align 4
-  %conv5 = sext i32 %10 to i64
-  %11 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %11, %conv5
-  store i64 %sub, ptr %len.addr, align 8
-  br label %while.cond, !llvm.loop !7
+29:                                               ; preds = %20
+  %30 = load i32, ptr %9, align 4, !tbaa !26
+  %31 = load ptr, ptr %6, align 8, !tbaa !25
+  %32 = sext i32 %30 to i64
+  %33 = getelementptr inbounds i8, ptr %31, i64 %32
+  store ptr %33, ptr %6, align 8, !tbaa !25
+  %34 = load i32, ptr %9, align 4, !tbaa !26
+  %35 = sext i32 %34 to i64
+  %36 = load i64, ptr %7, align 8, !tbaa !29
+  %37 = sub i64 %36, %35
+  store i64 %37, ptr %7, align 8, !tbaa !29
+  store i32 0, ptr %10, align 4
+  br label %38
 
-while.end:                                        ; preds = %while.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %29, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  %39 = load i32, ptr %10, align 4
+  switch i32 %39, label %44 [
+    i32 0, label %40
+    i32 1, label %42
+  ]
 
-return:                                           ; preds = %while.end, %if.then3
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+40:                                               ; preds = %38
+  br label %11, !llvm.loop !37
+
+41:                                               ; preds = %11
+  store i32 1, ptr %4, align 4
+  br label %42
+
+42:                                               ; preds = %41, %38
+  %43 = load i32, ptr %4, align 4
+  ret i32 %43
+
+44:                                               ; preds = %38
+  unreachable
 }
 
 declare void @BIO_set_retry_read(ptr noundef) #1
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #3
+declare noalias ptr @malloc(i64 noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #4
 
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) #1
 
@@ -824,66 +895,62 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) #1
 declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  call void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  call void @_ZNSt10_Head_baseILm0EP6bio_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EP6bio_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
-  call void @_ZSt9terminatev() #9
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
+  call void @_ZSt9terminatev() #12
   unreachable
 }
 
@@ -892,339 +959,363 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EP6bio_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_head_impl, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EP6bio_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #8
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !39
+  call void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__u.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__u, ptr %__u.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__u.addr, align 8
-  %_M_t2 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %0, i32 0, i32 0
-  call void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %_M_t2) #8
-  %1 = load ptr, ptr %__u.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #8
-  store ptr null, ptr %call, align 8
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  store ptr %1, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !41
+  %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %7, i32 0, i32 0
+  call void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %9 = load ptr, ptr %4, align 8, !tbaa !41
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  store ptr null, ptr %10, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #8
+define linkonce_odr hidden void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !43
+  store ptr %1, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !43
+  call void @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEEC2EOS3_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %1) #8
-  %2 = load ptr, ptr %.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1, ptr align 8 %2, i64 8, i1 false)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEEC2EOS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  %7 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !55
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEEC2EOS3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__in) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__in.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__in, ptr %__in.addr, align 8
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEEC2EOS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6bio_stJ14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6bio_stJ14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6bio_stJ14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6bio_stJ14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #2 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #10 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !20
+  call void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %7 = load ptr, ptr %4, align 8, !tbaa !20
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %7, ptr %8, align 8, !tbaa !20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
+define linkonce_odr hidden void @_ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  call void @BIO_vfree(ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr %0, ptr %call, align 8
-  ret void
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %obj) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  %0 = load ptr, ptr %obj.addr, align 8
-  call void @BIO_vfree(ptr noundef %0)
-  ret void
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #2 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #2 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNKSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6bio_stJ14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #8
-  %0 = load ptr, ptr %call, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6bio_stJ14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6bio_stJ14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6bio_stJ14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #2 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
-  ret ptr %call
-}
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind allocsize(0) }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6bio_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #2 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
-}
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind allocsize(0) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS7timeval", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}
+!11 = !{!12, !8, i64 48}
+!12 = !{!"_ZTS6bio_st", !13, i64 0, !8, i64 8, !14, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !8, i64 48, !16, i64 56, !17, i64 64, !17, i64 72}
+!13 = !{!"p1 _ZTS13bio_method_st", !8, i64 0}
+!14 = !{!"p1 omnipotent char", !8, i64 0}
+!15 = !{!"int", !9, i64 0}
+!16 = !{!"p1 _ZTS6bio_st", !8, i64 0}
+!17 = !{!"long", !9, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE", !8, i64 0}
+!20 = !{!16, !16, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"std::nullptr_t", !9, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p2 _ZTS6bio_st", !8, i64 0}
+!25 = !{!14, !14, i64 0}
+!26 = !{!15, !15, i64 0}
+!27 = !{!12, !16, i64 56}
+!28 = !{!9, !9, i64 0}
+!29 = !{!17, !17, i64 0}
+!30 = !{!31, !17, i64 8}
+!31 = !{!"_ZTS7timeval", !17, i64 0, !17, i64 8}
+!32 = !{!31, !17, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!35 = !{!8, !8, i64 0}
+!36 = !{!12, !15, i64 24}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSSt15__uniq_ptr_dataI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEELb1ELb1EE", !8, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSSt15__uniq_ptr_implI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEE", !8, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSSt5tupleIJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE", !8, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTSSt11_Tuple_implILm0EJP6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEEE", !8, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSSt11_Tuple_implILm1EJ14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEEE", !8, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTSSt10_Head_baseILm0EP6bio_stLb0EE", !8, i64 0}
+!51 = !{!52, !16, i64 0}
+!52 = !{!"_ZTSSt10_Head_baseILm0EP6bio_stLb0EE", !16, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSSt10_Head_baseILm1E14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEELb1EE", !8, i64 0}
+!55 = !{i64 0, i64 8, !20}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEE", !8, i64 0}

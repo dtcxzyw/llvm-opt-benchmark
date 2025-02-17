@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
@@ -13,760 +13,841 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_aes_256_xts() #0 {
-entry:
   ret ptr @aes_256_xts
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aes_xts_init_key(ptr noundef %ctx, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %iv.addr = alloca ptr, align 8
-  %enc.addr = alloca i32, align 4
-  %xctx = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %iv, ptr %iv.addr, align 8
-  store i32 %enc, ptr %enc.addr, align 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %cipher_data, align 8
-  store ptr %1, ptr %xctx, align 8
-  %2 = load ptr, ptr %iv.addr, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.end, label %land.lhs.true
+define internal i32 @aes_xts_init_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !11
+  store i32 %3, ptr %9, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %12 = load ptr, ptr %6, align 8, !tbaa !6
+  %13 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
+  store ptr %14, ptr %10, align 8, !tbaa !18
+  %15 = load ptr, ptr %8, align 8, !tbaa !11
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %21, label %17
 
-land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr %key.addr, align 8
-  %tobool1 = icmp ne ptr %3, null
-  br i1 %tobool1, label %if.end, label %if.then
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %7, align 8, !tbaa !11
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %land.lhs.true
-  store i32 1, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %17
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %88
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load ptr, ptr %key.addr, align 8
-  %tobool2 = icmp ne ptr %4, null
-  br i1 %tobool2, label %if.then3, label %if.end20
+21:                                               ; preds = %17, %4
+  %22 = load ptr, ptr %7, align 8, !tbaa !11
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %74
 
-if.then3:                                         ; preds = %if.end
-  %5 = load i32, ptr %enc.addr, align 4
-  %tobool4 = icmp ne i32 %5, 0
-  br i1 %tobool4, label %if.then5, label %if.else
+24:                                               ; preds = %21
+  %25 = load i32, ptr %9, align 4, !tbaa !13
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %39
 
-if.then5:                                         ; preds = %if.then3
-  %6 = load ptr, ptr %key.addr, align 8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %key_len = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %key_len, align 8
-  %mul = mul i32 %8, 4
-  %9 = load ptr, ptr %xctx, align 8
-  %ks1 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %9, i32 0, i32 0
-  %call = call i32 @AES_set_encrypt_key(ptr noundef %6, i32 noundef %mul, ptr noundef %ks1)
-  %10 = load ptr, ptr %xctx, align 8
-  %xts = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %10, i32 0, i32 2
-  %block1 = getelementptr inbounds %struct.xts128_context, ptr %xts, i32 0, i32 2
-  store ptr @AES_encrypt, ptr %block1, align 8
-  br label %if.end12
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %7, align 8, !tbaa !11
+  %29 = load ptr, ptr %6, align 8, !tbaa !6
+  %30 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %29, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8, !tbaa !19
+  %32 = mul i32 %31, 4
+  %33 = load ptr, ptr %10, align 8, !tbaa !18
+  %34 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %33, i32 0, i32 0
+  %35 = call i32 @AES_set_encrypt_key(ptr noundef %28, i32 noundef %32, ptr noundef %34)
+  %36 = load ptr, ptr %10, align 8, !tbaa !18
+  %37 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %36, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %struct.xts128_context, ptr %37, i32 0, i32 2
+  store ptr @AES_encrypt, ptr %38, align 8, !tbaa !20
+  br label %51
 
-if.else:                                          ; preds = %if.then3
-  %11 = load ptr, ptr %key.addr, align 8
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %key_len6 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %12, i32 0, i32 3
-  %13 = load i32, ptr %key_len6, align 8
-  %mul7 = mul i32 %13, 4
-  %14 = load ptr, ptr %xctx, align 8
-  %ks18 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %14, i32 0, i32 0
-  %call9 = call i32 @AES_set_decrypt_key(ptr noundef %11, i32 noundef %mul7, ptr noundef %ks18)
-  %15 = load ptr, ptr %xctx, align 8
-  %xts10 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %15, i32 0, i32 2
-  %block111 = getelementptr inbounds %struct.xts128_context, ptr %xts10, i32 0, i32 2
-  store ptr @AES_decrypt, ptr %block111, align 8
-  br label %if.end12
+39:                                               ; preds = %24
+  %40 = load ptr, ptr %7, align 8, !tbaa !11
+  %41 = load ptr, ptr %6, align 8, !tbaa !6
+  %42 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %41, i32 0, i32 3
+  %43 = load i32, ptr %42, align 8, !tbaa !19
+  %44 = mul i32 %43, 4
+  %45 = load ptr, ptr %10, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %45, i32 0, i32 0
+  %47 = call i32 @AES_set_decrypt_key(ptr noundef %40, i32 noundef %44, ptr noundef %46)
+  %48 = load ptr, ptr %10, align 8, !tbaa !18
+  %49 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %48, i32 0, i32 2
+  %50 = getelementptr inbounds nuw %struct.xts128_context, ptr %49, i32 0, i32 2
+  store ptr @AES_decrypt, ptr %50, align 8, !tbaa !20
+  br label %51
 
-if.end12:                                         ; preds = %if.else, %if.then5
-  %16 = load ptr, ptr %key.addr, align 8
-  %17 = load ptr, ptr %ctx.addr, align 8
-  %key_len13 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %17, i32 0, i32 3
-  %18 = load i32, ptr %key_len13, align 8
-  %div = udiv i32 %18, 2
-  %idx.ext = zext i32 %div to i64
-  %add.ptr = getelementptr inbounds i8, ptr %16, i64 %idx.ext
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %key_len14 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %19, i32 0, i32 3
-  %20 = load i32, ptr %key_len14, align 8
-  %mul15 = mul i32 %20, 4
-  %21 = load ptr, ptr %xctx, align 8
-  %ks2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %21, i32 0, i32 1
-  %call16 = call i32 @AES_set_encrypt_key(ptr noundef %add.ptr, i32 noundef %mul15, ptr noundef %ks2)
-  %22 = load ptr, ptr %xctx, align 8
-  %xts17 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %22, i32 0, i32 2
-  %block2 = getelementptr inbounds %struct.xts128_context, ptr %xts17, i32 0, i32 3
-  store ptr @AES_encrypt, ptr %block2, align 8
-  %23 = load ptr, ptr %xctx, align 8
-  %ks118 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %xctx, align 8
-  %xts19 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %24, i32 0, i32 2
-  %key1 = getelementptr inbounds %struct.xts128_context, ptr %xts19, i32 0, i32 0
-  store ptr %ks118, ptr %key1, align 8
-  br label %if.end20
+51:                                               ; preds = %39, %27
+  %52 = load ptr, ptr %7, align 8, !tbaa !11
+  %53 = load ptr, ptr %6, align 8, !tbaa !6
+  %54 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %53, i32 0, i32 3
+  %55 = load i32, ptr %54, align 8, !tbaa !19
+  %56 = udiv i32 %55, 2
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 %57
+  %59 = load ptr, ptr %6, align 8, !tbaa !6
+  %60 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %59, i32 0, i32 3
+  %61 = load i32, ptr %60, align 8, !tbaa !19
+  %62 = mul i32 %61, 4
+  %63 = load ptr, ptr %10, align 8, !tbaa !18
+  %64 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %63, i32 0, i32 1
+  %65 = call i32 @AES_set_encrypt_key(ptr noundef %58, i32 noundef %62, ptr noundef %64)
+  %66 = load ptr, ptr %10, align 8, !tbaa !18
+  %67 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %66, i32 0, i32 2
+  %68 = getelementptr inbounds nuw %struct.xts128_context, ptr %67, i32 0, i32 3
+  store ptr @AES_encrypt, ptr %68, align 8, !tbaa !23
+  %69 = load ptr, ptr %10, align 8, !tbaa !18
+  %70 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %10, align 8, !tbaa !18
+  %72 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %71, i32 0, i32 2
+  %73 = getelementptr inbounds nuw %struct.xts128_context, ptr %72, i32 0, i32 0
+  store ptr %70, ptr %73, align 8, !tbaa !24
+  br label %74
 
-if.end20:                                         ; preds = %if.end12, %if.end
-  %25 = load ptr, ptr %iv.addr, align 8
-  %tobool21 = icmp ne ptr %25, null
-  br i1 %tobool21, label %if.then22, label %if.end26
+74:                                               ; preds = %51, %21
+  %75 = load ptr, ptr %8, align 8, !tbaa !11
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %87
 
-if.then22:                                        ; preds = %if.end20
-  %26 = load ptr, ptr %xctx, align 8
-  %ks223 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %xctx, align 8
-  %xts24 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %27, i32 0, i32 2
-  %key2 = getelementptr inbounds %struct.xts128_context, ptr %xts24, i32 0, i32 1
-  store ptr %ks223, ptr %key2, align 8
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %iv25 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %28, i32 0, i32 7
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %iv25, i64 0, i64 0
-  %29 = load ptr, ptr %iv.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay, ptr align 1 %29, i64 16, i1 false)
-  br label %if.end26
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %10, align 8, !tbaa !18
+  %79 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %10, align 8, !tbaa !18
+  %81 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %80, i32 0, i32 2
+  %82 = getelementptr inbounds nuw %struct.xts128_context, ptr %81, i32 0, i32 1
+  store ptr %79, ptr %82, align 8, !tbaa !25
+  %83 = load ptr, ptr %6, align 8, !tbaa !6
+  %84 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %83, i32 0, i32 7
+  %85 = getelementptr inbounds [16 x i8], ptr %84, i64 0, i64 0
+  %86 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr align 1 %86, i64 16, i1 false)
+  br label %87
 
-if.end26:                                         ; preds = %if.then22, %if.end20
-  store i32 1, ptr %retval, align 4
-  br label %return
+87:                                               ; preds = %77, %74
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %88
 
-return:                                           ; preds = %if.end26, %if.then
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+88:                                               ; preds = %87, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %89 = load i32, ptr %5, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aes_xts_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %xctx = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %cipher_data, align 8
-  store ptr %1, ptr %xctx, align 8
-  %2 = load ptr, ptr %xctx, align 8
-  %xts = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %2, i32 0, i32 2
-  %key1 = getelementptr inbounds %struct.xts128_context, ptr %xts, i32 0, i32 0
-  %3 = load ptr, ptr %key1, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+define internal i32 @aes_xts_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !11
+  store i64 %3, ptr %9, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %12 = load ptr, ptr %6, align 8, !tbaa !6
+  %13 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
+  store ptr %14, ptr %10, align 8, !tbaa !18
+  %15 = load ptr, ptr %10, align 8, !tbaa !18
+  %16 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %15, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.xts128_context, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %49
 
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %xctx, align 8
-  %xts1 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %4, i32 0, i32 2
-  %key2 = getelementptr inbounds %struct.xts128_context, ptr %xts1, i32 0, i32 1
-  %5 = load ptr, ptr %key2, align 8
-  %tobool2 = icmp ne ptr %5, null
-  br i1 %tobool2, label %lor.lhs.false3, label %if.then
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %10, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %21, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %struct.xts128_context, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %49
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %out.addr, align 8
-  %tobool4 = icmp ne ptr %6, null
-  br i1 %tobool4, label %lor.lhs.false5, label %if.then
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %7, align 8, !tbaa !11
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %49
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %7 = load ptr, ptr %in.addr, align 8
-  %tobool6 = icmp ne ptr %7, null
-  br i1 %tobool6, label %lor.lhs.false7, label %if.then
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %8, align 8, !tbaa !11
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %49
 
-lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %8 = load i64, ptr %len.addr, align 8
-  %cmp = icmp ult i64 %8, 16
-  br i1 %cmp, label %if.then, label %lor.lhs.false8
+32:                                               ; preds = %29
+  %33 = load i64, ptr %9, align 8, !tbaa !26
+  %34 = icmp ult i64 %33, 16
+  br i1 %34, label %49, label %35
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false7
-  %9 = load ptr, ptr %xctx, align 8
-  %xts9 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %10, i32 0, i32 7
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %iv, i64 0, i64 0
-  %11 = load ptr, ptr %in.addr, align 8
-  %12 = load ptr, ptr %out.addr, align 8
-  %13 = load i64, ptr %len.addr, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %14, i32 0, i32 4
-  %15 = load i32, ptr %encrypt, align 4
-  %call = call i64 @CRYPTO_xts128_encrypt(ptr noundef %xts9, ptr noundef %arraydecay, ptr noundef %11, ptr noundef %12, i64 noundef %13, i32 noundef %15)
-  %tobool10 = icmp ne i64 %call, 0
-  br i1 %tobool10, label %if.end, label %if.then
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %10, align 8, !tbaa !18
+  %37 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %6, align 8, !tbaa !6
+  %39 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %38, i32 0, i32 7
+  %40 = getelementptr inbounds [16 x i8], ptr %39, i64 0, i64 0
+  %41 = load ptr, ptr %8, align 8, !tbaa !11
+  %42 = load ptr, ptr %7, align 8, !tbaa !11
+  %43 = load i64, ptr %9, align 8, !tbaa !26
+  %44 = load ptr, ptr %6, align 8, !tbaa !6
+  %45 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %44, i32 0, i32 4
+  %46 = load i32, ptr %45, align 4, !tbaa !28
+  %47 = call i64 @CRYPTO_xts128_encrypt(ptr noundef %37, ptr noundef %40, ptr noundef %41, ptr noundef %42, i64 noundef %43, i32 noundef %46)
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %50, label %49
 
-if.then:                                          ; preds = %lor.lhs.false8, %lor.lhs.false7, %lor.lhs.false5, %lor.lhs.false3, %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %35, %32, %29, %26, %20, %4
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %51
 
-if.end:                                           ; preds = %lor.lhs.false8
-  store i32 1, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %35
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %51
 
-return:                                           ; preds = %if.end, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+51:                                               ; preds = %50, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %52 = load i32, ptr %5, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aes_xts_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %c.addr = alloca ptr, align 8
-  %type.addr = alloca i32, align 4
-  %arg.addr = alloca i32, align 4
-  %ptr.addr = alloca ptr, align 8
-  %xctx = alloca ptr, align 8
-  %out = alloca ptr, align 8
-  %xctx_out = alloca ptr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store i32 %type, ptr %type.addr, align 4
-  store i32 %arg, ptr %arg.addr, align 4
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %c.addr, align 8
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %cipher_data, align 8
-  store ptr %1, ptr %xctx, align 8
-  %2 = load i32, ptr %type.addr, align 4
-  %cmp = icmp eq i32 %2, 8
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @aes_xts_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store i32 %1, ptr %7, align 4, !tbaa !13
+  store i32 %2, ptr %8, align 4, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %14 = load ptr, ptr %6, align 8, !tbaa !6
+  %15 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !15
+  store ptr %16, ptr %10, align 8, !tbaa !18
+  %17 = load i32, ptr %7, align 4, !tbaa !13
+  %18 = icmp eq i32 %17, 8
+  br i1 %18, label %19, label %67
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %ptr.addr, align 8
-  store ptr %3, ptr %out, align 8
-  %4 = load ptr, ptr %out, align 8
-  %cipher_data1 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %cipher_data1, align 8
-  store ptr %5, ptr %xctx_out, align 8
-  %6 = load ptr, ptr %xctx, align 8
-  %xts = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %6, i32 0, i32 2
-  %key1 = getelementptr inbounds %struct.xts128_context, ptr %xts, i32 0, i32 0
-  %7 = load ptr, ptr %key1, align 8
-  %tobool = icmp ne ptr %7, null
-  br i1 %tobool, label %if.then2, label %if.end10
+19:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %20 = load ptr, ptr %9, align 8, !tbaa !18
+  store ptr %20, ptr %11, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %21 = load ptr, ptr %11, align 8, !tbaa !6
+  %22 = getelementptr inbounds nuw %struct.evp_cipher_ctx_st, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !15
+  store ptr %23, ptr %12, align 8, !tbaa !18
+  %24 = load ptr, ptr %10, align 8, !tbaa !18
+  %25 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %24, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %struct.xts128_context, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !24
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %44
 
-if.then2:                                         ; preds = %if.then
-  %8 = load ptr, ptr %xctx, align 8
-  %xts3 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %8, i32 0, i32 2
-  %key14 = getelementptr inbounds %struct.xts128_context, ptr %xts3, i32 0, i32 0
-  %9 = load ptr, ptr %key14, align 8
-  %10 = load ptr, ptr %xctx, align 8
-  %ks1 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %10, i32 0, i32 0
-  %cmp5 = icmp ne ptr %9, %ks1
-  br i1 %cmp5, label %if.then6, label %if.end
+29:                                               ; preds = %19
+  %30 = load ptr, ptr %10, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %30, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %struct.xts128_context, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  %34 = load ptr, ptr %10, align 8, !tbaa !18
+  %35 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %34, i32 0, i32 0
+  %36 = icmp ne ptr %33, %35
+  br i1 %36, label %37, label %38
 
-if.then6:                                         ; preds = %if.then2
-  store i32 0, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %29
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %66
 
-if.end:                                           ; preds = %if.then2
-  %11 = load ptr, ptr %xctx_out, align 8
-  %ks17 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %xctx_out, align 8
-  %xts8 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %12, i32 0, i32 2
-  %key19 = getelementptr inbounds %struct.xts128_context, ptr %xts8, i32 0, i32 0
-  store ptr %ks17, ptr %key19, align 8
-  br label %if.end10
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %12, align 8, !tbaa !18
+  %40 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %12, align 8, !tbaa !18
+  %42 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %41, i32 0, i32 2
+  %43 = getelementptr inbounds nuw %struct.xts128_context, ptr %42, i32 0, i32 0
+  store ptr %40, ptr %43, align 8, !tbaa !24
+  br label %44
 
-if.end10:                                         ; preds = %if.end, %if.then
-  %13 = load ptr, ptr %xctx, align 8
-  %xts11 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %13, i32 0, i32 2
-  %key2 = getelementptr inbounds %struct.xts128_context, ptr %xts11, i32 0, i32 1
-  %14 = load ptr, ptr %key2, align 8
-  %tobool12 = icmp ne ptr %14, null
-  br i1 %tobool12, label %if.then13, label %if.end22
+44:                                               ; preds = %38, %19
+  %45 = load ptr, ptr %10, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %45, i32 0, i32 2
+  %47 = getelementptr inbounds nuw %struct.xts128_context, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !25
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %65
 
-if.then13:                                        ; preds = %if.end10
-  %15 = load ptr, ptr %xctx, align 8
-  %xts14 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %15, i32 0, i32 2
-  %key215 = getelementptr inbounds %struct.xts128_context, ptr %xts14, i32 0, i32 1
-  %16 = load ptr, ptr %key215, align 8
-  %17 = load ptr, ptr %xctx, align 8
-  %ks2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %17, i32 0, i32 1
-  %cmp16 = icmp ne ptr %16, %ks2
-  br i1 %cmp16, label %if.then17, label %if.end18
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %10, align 8, !tbaa !18
+  %52 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %51, i32 0, i32 2
+  %53 = getelementptr inbounds nuw %struct.xts128_context, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !25
+  %55 = load ptr, ptr %10, align 8, !tbaa !18
+  %56 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %55, i32 0, i32 1
+  %57 = icmp ne ptr %54, %56
+  br i1 %57, label %58, label %59
 
-if.then17:                                        ; preds = %if.then13
-  store i32 0, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %50
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %66
 
-if.end18:                                         ; preds = %if.then13
-  %18 = load ptr, ptr %xctx_out, align 8
-  %ks219 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %xctx_out, align 8
-  %xts20 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %19, i32 0, i32 2
-  %key221 = getelementptr inbounds %struct.xts128_context, ptr %xts20, i32 0, i32 1
-  store ptr %ks219, ptr %key221, align 8
-  br label %if.end22
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %12, align 8, !tbaa !18
+  %61 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %12, align 8, !tbaa !18
+  %63 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %62, i32 0, i32 2
+  %64 = getelementptr inbounds nuw %struct.xts128_context, ptr %63, i32 0, i32 1
+  store ptr %61, ptr %64, align 8, !tbaa !25
+  br label %65
 
-if.end22:                                         ; preds = %if.end18, %if.end10
-  store i32 1, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %59, %44
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %66
 
-if.else:                                          ; preds = %entry
-  %20 = load i32, ptr %type.addr, align 4
-  %cmp23 = icmp ne i32 %20, 0
-  br i1 %cmp23, label %if.then24, label %if.end25
+66:                                               ; preds = %65, %58, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  br label %79
 
-if.then24:                                        ; preds = %if.else
-  store i32 -1, ptr %retval, align 4
-  br label %return
+67:                                               ; preds = %4
+  %68 = load i32, ptr %7, align 4, !tbaa !13
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %71
 
-if.end25:                                         ; preds = %if.else
-  br label %if.end26
+70:                                               ; preds = %67
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %79
 
-if.end26:                                         ; preds = %if.end25
-  %21 = load ptr, ptr %xctx, align 8
-  %xts27 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %21, i32 0, i32 2
-  %key128 = getelementptr inbounds %struct.xts128_context, ptr %xts27, i32 0, i32 0
-  store ptr null, ptr %key128, align 8
-  %22 = load ptr, ptr %xctx, align 8
-  %xts29 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %22, i32 0, i32 2
-  %key230 = getelementptr inbounds %struct.xts128_context, ptr %xts29, i32 0, i32 1
-  store ptr null, ptr %key230, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %67
+  br label %72
 
-return:                                           ; preds = %if.end26, %if.then24, %if.end22, %if.then17, %if.then6
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %10, align 8, !tbaa !18
+  %74 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %73, i32 0, i32 2
+  %75 = getelementptr inbounds nuw %struct.xts128_context, ptr %74, i32 0, i32 0
+  store ptr null, ptr %75, align 8, !tbaa !24
+  %76 = load ptr, ptr %10, align 8, !tbaa !18
+  %77 = getelementptr inbounds nuw %struct.EVP_AES_XTS_CTX, ptr %76, i32 0, i32 2
+  %78 = getelementptr inbounds nuw %struct.xts128_context, ptr %77, i32 0, i32 1
+  store ptr null, ptr %78, align 8, !tbaa !25
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %79
+
+79:                                               ; preds = %72, %70, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %80 = load i32, ptr %5, align 4
+  ret i32 %80
 }
 
-declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @AES_encrypt(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @AES_set_decrypt_key(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @AES_encrypt(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @AES_decrypt(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @AES_set_decrypt_key(ptr noundef, i32 noundef, ptr noundef) #2
+
+declare void @AES_decrypt(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @CRYPTO_xts128_encrypt(ptr noundef %ctx, ptr noundef %iv, ptr noundef %inp, ptr noundef %out, i64 noundef %len, i32 noundef %enc) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %ctx.addr = alloca ptr, align 8
-  %iv.addr = alloca ptr, align 8
-  %inp.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %enc.addr = alloca i32, align 4
-  %tweak = alloca %union.anon.0, align 8
-  %scratch = alloca %union.anon.0, align 8
-  %i = alloca i32, align 4
-  %carry = alloca i32, align 4
-  %res = alloca i32, align 4
-  %c = alloca i8, align 1
-  %tweak1 = alloca %union.anon.1, align 8
-  %carry69 = alloca i32, align 4
-  %res70 = alloca i32, align 4
-  %c110 = alloca i8, align 1
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %iv, ptr %iv.addr, align 8
-  store ptr %inp, ptr %inp.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store i32 %enc, ptr %enc.addr, align 4
-  %0 = load i64, ptr %len.addr, align 8
-  %cmp = icmp ult i64 %0, 16
-  br i1 %cmp, label %if.then, label %if.end
+define internal i64 @CRYPTO_xts128_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %union.anon.0, align 8
+  %15 = alloca %union.anon.0, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i8, align 1
+  %21 = alloca %union.anon.1, align 8
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i8, align 1
+  store ptr %0, ptr %8, align 8, !tbaa !29
+  store ptr %1, ptr %9, align 8, !tbaa !11
+  store ptr %2, ptr %10, align 8, !tbaa !11
+  store ptr %3, ptr %11, align 8, !tbaa !11
+  store i64 %4, ptr %12, align 8, !tbaa !26
+  store i32 %5, ptr %13, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  %25 = load i64, ptr %12, align 8, !tbaa !26
+  %26 = icmp ult i64 %25, 16
+  br i1 %26, label %27, label %28
 
-if.then:                                          ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %6
+  store i64 0, ptr %7, align 8
+  store i32 1, ptr %17, align 4
+  br label %300
 
-if.end:                                           ; preds = %entry
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %tweak, i64 0, i64 0
-  %1 = load ptr, ptr %iv.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %1, i64 16, i1 false)
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %block2 = getelementptr inbounds %struct.xts128_context, ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %block2, align 8
-  %arraydecay1 = getelementptr inbounds [16 x i8], ptr %tweak, i64 0, i64 0
-  %arraydecay2 = getelementptr inbounds [16 x i8], ptr %tweak, i64 0, i64 0
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %key2 = getelementptr inbounds %struct.xts128_context, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %key2, align 8
-  call void %3(ptr noundef %arraydecay1, ptr noundef %arraydecay2, ptr noundef %5)
-  %6 = load i32, ptr %enc.addr, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %if.end5, label %land.lhs.true
+28:                                               ; preds = %6
+  %29 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 0
+  %30 = load ptr, ptr %9, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 1 %30, i64 16, i1 false)
+  %31 = load ptr, ptr %8, align 8, !tbaa !29
+  %32 = getelementptr inbounds nuw %struct.xts128_context, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8, !tbaa !31
+  %34 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 0
+  %35 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 0
+  %36 = load ptr, ptr %8, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw %struct.xts128_context, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !32
+  call void %33(ptr noundef %34, ptr noundef %35, ptr noundef %38)
+  %39 = load i32, ptr %13, align 4, !tbaa !13
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %48, label %41
 
-land.lhs.true:                                    ; preds = %if.end
-  %7 = load i64, ptr %len.addr, align 8
-  %rem = urem i64 %7, 16
-  %tobool3 = icmp ne i64 %rem, 0
-  br i1 %tobool3, label %if.then4, label %if.end5
+41:                                               ; preds = %28
+  %42 = load i64, ptr %12, align 8, !tbaa !26
+  %43 = urem i64 %42, 16
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %48
 
-if.then4:                                         ; preds = %land.lhs.true
-  %8 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %8, 16
-  store i64 %sub, ptr %len.addr, align 8
-  br label %if.end5
+45:                                               ; preds = %41
+  %46 = load i64, ptr %12, align 8, !tbaa !26
+  %47 = sub i64 %46, 16
+  store i64 %47, ptr %12, align 8, !tbaa !26
+  br label %48
 
-if.end5:                                          ; preds = %if.then4, %land.lhs.true, %if.end
-  br label %while.cond
+48:                                               ; preds = %45, %41, %28
+  br label %49
 
-while.cond:                                       ; preds = %if.end27, %if.end5
-  %9 = load i64, ptr %len.addr, align 8
-  %cmp6 = icmp uge i64 %9, 16
-  br i1 %cmp6, label %while.body, label %while.end
+49:                                               ; preds = %98, %48
+  %50 = load i64, ptr %12, align 8, !tbaa !26
+  %51 = icmp uge i64 %50, 16
+  br i1 %51, label %52, label %121
 
-while.body:                                       ; preds = %while.cond
-  %10 = load ptr, ptr %inp.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %10, i64 0
-  %11 = load i64, ptr %arrayidx, align 8
-  %arrayidx7 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %12 = load i64, ptr %arrayidx7, align 8
-  %xor = xor i64 %11, %12
-  %arrayidx8 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 0
-  store i64 %xor, ptr %arrayidx8, align 8
-  %13 = load ptr, ptr %inp.addr, align 8
-  %arrayidx9 = getelementptr inbounds i64, ptr %13, i64 1
-  %14 = load i64, ptr %arrayidx9, align 8
-  %arrayidx10 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %15 = load i64, ptr %arrayidx10, align 8
-  %xor11 = xor i64 %14, %15
-  %arrayidx12 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  store i64 %xor11, ptr %arrayidx12, align 8
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %block1 = getelementptr inbounds %struct.xts128_context, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %block1, align 8
-  %arraydecay13 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  %arraydecay14 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  %18 = load ptr, ptr %ctx.addr, align 8
-  %key1 = getelementptr inbounds %struct.xts128_context, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %key1, align 8
-  call void %17(ptr noundef %arraydecay13, ptr noundef %arraydecay14, ptr noundef %19)
-  %arrayidx15 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %20 = load i64, ptr %arrayidx15, align 8
-  %arrayidx16 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 0
-  %21 = load i64, ptr %arrayidx16, align 8
-  %xor17 = xor i64 %21, %20
-  store i64 %xor17, ptr %arrayidx16, align 8
-  %22 = load ptr, ptr %out.addr, align 8
-  %arrayidx18 = getelementptr inbounds i64, ptr %22, i64 0
-  store i64 %xor17, ptr %arrayidx18, align 8
-  %arrayidx19 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %23 = load i64, ptr %arrayidx19, align 8
-  %arrayidx20 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  %24 = load i64, ptr %arrayidx20, align 8
-  %xor21 = xor i64 %24, %23
-  store i64 %xor21, ptr %arrayidx20, align 8
-  %25 = load ptr, ptr %out.addr, align 8
-  %arrayidx22 = getelementptr inbounds i64, ptr %25, i64 1
-  store i64 %xor21, ptr %arrayidx22, align 8
-  %26 = load ptr, ptr %inp.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr %add.ptr, ptr %inp.addr, align 8
-  %27 = load ptr, ptr %out.addr, align 8
-  %add.ptr23 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %add.ptr23, ptr %out.addr, align 8
-  %28 = load i64, ptr %len.addr, align 8
-  %sub24 = sub i64 %28, 16
-  store i64 %sub24, ptr %len.addr, align 8
-  %29 = load i64, ptr %len.addr, align 8
-  %cmp25 = icmp eq i64 %29, 0
-  br i1 %cmp25, label %if.then26, label %if.end27
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %10, align 8, !tbaa !11
+  %54 = getelementptr inbounds i64, ptr %53, i64 0
+  %55 = load i64, ptr %54, align 8, !tbaa !26
+  %56 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %57 = load i64, ptr %56, align 8, !tbaa !33
+  %58 = xor i64 %55, %57
+  %59 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  store i64 %58, ptr %59, align 8, !tbaa !33
+  %60 = load ptr, ptr %10, align 8, !tbaa !11
+  %61 = getelementptr inbounds i64, ptr %60, i64 1
+  %62 = load i64, ptr %61, align 8, !tbaa !26
+  %63 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %64 = load i64, ptr %63, align 8, !tbaa !33
+  %65 = xor i64 %62, %64
+  %66 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 1
+  store i64 %65, ptr %66, align 8, !tbaa !33
+  %67 = load ptr, ptr %8, align 8, !tbaa !29
+  %68 = getelementptr inbounds nuw %struct.xts128_context, ptr %67, i32 0, i32 2
+  %69 = load ptr, ptr %68, align 8, !tbaa !34
+  %70 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %71 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %72 = load ptr, ptr %8, align 8, !tbaa !29
+  %73 = getelementptr inbounds nuw %struct.xts128_context, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !35
+  call void %69(ptr noundef %70, ptr noundef %71, ptr noundef %74)
+  %75 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %76 = load i64, ptr %75, align 8, !tbaa !33
+  %77 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  %78 = load i64, ptr %77, align 8, !tbaa !33
+  %79 = xor i64 %78, %76
+  store i64 %79, ptr %77, align 8, !tbaa !33
+  %80 = load ptr, ptr %11, align 8, !tbaa !11
+  %81 = getelementptr inbounds i64, ptr %80, i64 0
+  store i64 %79, ptr %81, align 8, !tbaa !26
+  %82 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %83 = load i64, ptr %82, align 8, !tbaa !33
+  %84 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 1
+  %85 = load i64, ptr %84, align 8, !tbaa !33
+  %86 = xor i64 %85, %83
+  store i64 %86, ptr %84, align 8, !tbaa !33
+  %87 = load ptr, ptr %11, align 8, !tbaa !11
+  %88 = getelementptr inbounds i64, ptr %87, i64 1
+  store i64 %86, ptr %88, align 8, !tbaa !26
+  %89 = load ptr, ptr %10, align 8, !tbaa !11
+  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  store ptr %90, ptr %10, align 8, !tbaa !11
+  %91 = load ptr, ptr %11, align 8, !tbaa !11
+  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  store ptr %92, ptr %11, align 8, !tbaa !11
+  %93 = load i64, ptr %12, align 8, !tbaa !26
+  %94 = sub i64 %93, 16
+  store i64 %94, ptr %12, align 8, !tbaa !26
+  %95 = load i64, ptr %12, align 8, !tbaa !26
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %97, label %98
 
-if.then26:                                        ; preds = %while.body
-  store i64 1, ptr %retval, align 8
-  br label %return
+97:                                               ; preds = %52
+  store i64 1, ptr %7, align 8
+  store i32 1, ptr %17, align 4
+  br label %300
 
-if.end27:                                         ; preds = %while.body
-  %arrayidx28 = getelementptr inbounds [4 x i32], ptr %tweak, i64 0, i64 3
-  %30 = load i32, ptr %arrayidx28, align 4
-  %shr = ashr i32 %30, 31
-  %and = and i32 135, %shr
-  store i32 %and, ptr %res, align 4
-  %arrayidx29 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %31 = load i64, ptr %arrayidx29, align 8
-  %shr30 = lshr i64 %31, 63
-  %conv = trunc i64 %shr30 to i32
-  store i32 %conv, ptr %carry, align 4
-  %arrayidx31 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %32 = load i64, ptr %arrayidx31, align 8
-  %shl = shl i64 %32, 1
-  %33 = load i32, ptr %res, align 4
-  %conv32 = zext i32 %33 to i64
-  %xor33 = xor i64 %shl, %conv32
-  %arrayidx34 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  store i64 %xor33, ptr %arrayidx34, align 8
-  %arrayidx35 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %34 = load i64, ptr %arrayidx35, align 8
-  %shl36 = shl i64 %34, 1
-  %35 = load i32, ptr %carry, align 4
-  %conv37 = zext i32 %35 to i64
-  %or = or i64 %shl36, %conv37
-  %arrayidx38 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  store i64 %or, ptr %arrayidx38, align 8
-  br label %while.cond, !llvm.loop !7
+98:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  %99 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 3
+  %100 = load i32, ptr %99, align 4, !tbaa !33
+  %101 = ashr i32 %100, 31
+  %102 = and i32 135, %101
+  store i32 %102, ptr %19, align 4, !tbaa !13
+  %103 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %104 = load i64, ptr %103, align 8, !tbaa !33
+  %105 = lshr i64 %104, 63
+  %106 = trunc i64 %105 to i32
+  store i32 %106, ptr %18, align 4, !tbaa !13
+  %107 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %108 = load i64, ptr %107, align 8, !tbaa !33
+  %109 = shl i64 %108, 1
+  %110 = load i32, ptr %19, align 4, !tbaa !13
+  %111 = zext i32 %110 to i64
+  %112 = xor i64 %109, %111
+  %113 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  store i64 %112, ptr %113, align 8, !tbaa !33
+  %114 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %115 = load i64, ptr %114, align 8, !tbaa !33
+  %116 = shl i64 %115, 1
+  %117 = load i32, ptr %18, align 4, !tbaa !13
+  %118 = zext i32 %117 to i64
+  %119 = or i64 %116, %118
+  %120 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  store i64 %119, ptr %120, align 8, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  br label %49, !llvm.loop !36
 
-while.end:                                        ; preds = %while.cond
-  %36 = load i32, ptr %enc.addr, align 4
-  %tobool39 = icmp ne i32 %36, 0
-  br i1 %tobool39, label %if.then40, label %if.else
+121:                                              ; preds = %49
+  %122 = load i32, ptr %13, align 4, !tbaa !13
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %183
 
-if.then40:                                        ; preds = %while.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+124:                                              ; preds = %121
+  store i32 0, ptr %16, align 4, !tbaa !13
+  br label %125
 
-for.cond:                                         ; preds = %for.inc, %if.then40
-  %37 = load i32, ptr %i, align 4
-  %conv41 = zext i32 %37 to i64
-  %38 = load i64, ptr %len.addr, align 8
-  %cmp42 = icmp ult i64 %conv41, %38
-  br i1 %cmp42, label %for.body, label %for.end
+125:                                              ; preds = %148, %124
+  %126 = load i32, ptr %16, align 4, !tbaa !13
+  %127 = zext i32 %126 to i64
+  %128 = load i64, ptr %12, align 8, !tbaa !26
+  %129 = icmp ult i64 %127, %128
+  br i1 %129, label %130, label %151
 
-for.body:                                         ; preds = %for.cond
-  %39 = load ptr, ptr %inp.addr, align 8
-  %40 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %40 to i64
-  %arrayidx44 = getelementptr inbounds i8, ptr %39, i64 %idxprom
-  %41 = load i8, ptr %arrayidx44, align 1
-  store i8 %41, ptr %c, align 1
-  %42 = load i32, ptr %i, align 4
-  %idxprom45 = zext i32 %42 to i64
-  %arrayidx46 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %idxprom45
-  %43 = load i8, ptr %arrayidx46, align 1
-  %44 = load ptr, ptr %out.addr, align 8
-  %45 = load i32, ptr %i, align 4
-  %idxprom47 = zext i32 %45 to i64
-  %arrayidx48 = getelementptr inbounds i8, ptr %44, i64 %idxprom47
-  store i8 %43, ptr %arrayidx48, align 1
-  %46 = load i8, ptr %c, align 1
-  %47 = load i32, ptr %i, align 4
-  %idxprom49 = zext i32 %47 to i64
-  %arrayidx50 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %idxprom49
-  store i8 %46, ptr %arrayidx50, align 1
-  br label %for.inc
+130:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #4
+  %131 = load ptr, ptr %10, align 8, !tbaa !11
+  %132 = load i32, ptr %16, align 4, !tbaa !13
+  %133 = zext i32 %132 to i64
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %133
+  %135 = load i8, ptr %134, align 1, !tbaa !33
+  store i8 %135, ptr %20, align 1, !tbaa !33
+  %136 = load i32, ptr %16, align 4, !tbaa !13
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %137
+  %139 = load i8, ptr %138, align 1, !tbaa !33
+  %140 = load ptr, ptr %11, align 8, !tbaa !11
+  %141 = load i32, ptr %16, align 4, !tbaa !13
+  %142 = zext i32 %141 to i64
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 %142
+  store i8 %139, ptr %143, align 1, !tbaa !33
+  %144 = load i8, ptr %20, align 1, !tbaa !33
+  %145 = load i32, ptr %16, align 4, !tbaa !13
+  %146 = zext i32 %145 to i64
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %146
+  store i8 %144, ptr %147, align 1, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #4
+  br label %148
 
-for.inc:                                          ; preds = %for.body
-  %48 = load i32, ptr %i, align 4
-  %inc = add i32 %48, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+148:                                              ; preds = %130
+  %149 = load i32, ptr %16, align 4, !tbaa !13
+  %150 = add i32 %149, 1
+  store i32 %150, ptr %16, align 4, !tbaa !13
+  br label %125, !llvm.loop !38
 
-for.end:                                          ; preds = %for.cond
-  %arrayidx51 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %49 = load i64, ptr %arrayidx51, align 8
-  %arrayidx52 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 0
-  %50 = load i64, ptr %arrayidx52, align 8
-  %xor53 = xor i64 %50, %49
-  store i64 %xor53, ptr %arrayidx52, align 8
-  %arrayidx54 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %51 = load i64, ptr %arrayidx54, align 8
-  %arrayidx55 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  %52 = load i64, ptr %arrayidx55, align 8
-  %xor56 = xor i64 %52, %51
-  store i64 %xor56, ptr %arrayidx55, align 8
-  %53 = load ptr, ptr %ctx.addr, align 8
-  %block157 = getelementptr inbounds %struct.xts128_context, ptr %53, i32 0, i32 2
-  %54 = load ptr, ptr %block157, align 8
-  %arraydecay58 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  %arraydecay59 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  %55 = load ptr, ptr %ctx.addr, align 8
-  %key160 = getelementptr inbounds %struct.xts128_context, ptr %55, i32 0, i32 0
-  %56 = load ptr, ptr %key160, align 8
-  call void %54(ptr noundef %arraydecay58, ptr noundef %arraydecay59, ptr noundef %56)
-  %arrayidx61 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %57 = load i64, ptr %arrayidx61, align 8
-  %arrayidx62 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 0
-  %58 = load i64, ptr %arrayidx62, align 8
-  %xor63 = xor i64 %58, %57
-  store i64 %xor63, ptr %arrayidx62, align 8
-  %arrayidx64 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %59 = load i64, ptr %arrayidx64, align 8
-  %arrayidx65 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  %60 = load i64, ptr %arrayidx65, align 8
-  %xor66 = xor i64 %60, %59
-  store i64 %xor66, ptr %arrayidx65, align 8
-  %61 = load ptr, ptr %out.addr, align 8
-  %add.ptr67 = getelementptr inbounds i8, ptr %61, i64 -16
-  %arraydecay68 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr67, ptr align 8 %arraydecay68, i64 16, i1 false)
-  br label %if.end141
+151:                                              ; preds = %125
+  %152 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %153 = load i64, ptr %152, align 8, !tbaa !33
+  %154 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  %155 = load i64, ptr %154, align 8, !tbaa !33
+  %156 = xor i64 %155, %153
+  store i64 %156, ptr %154, align 8, !tbaa !33
+  %157 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %158 = load i64, ptr %157, align 8, !tbaa !33
+  %159 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 1
+  %160 = load i64, ptr %159, align 8, !tbaa !33
+  %161 = xor i64 %160, %158
+  store i64 %161, ptr %159, align 8, !tbaa !33
+  %162 = load ptr, ptr %8, align 8, !tbaa !29
+  %163 = getelementptr inbounds nuw %struct.xts128_context, ptr %162, i32 0, i32 2
+  %164 = load ptr, ptr %163, align 8, !tbaa !34
+  %165 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %166 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %167 = load ptr, ptr %8, align 8, !tbaa !29
+  %168 = getelementptr inbounds nuw %struct.xts128_context, ptr %167, i32 0, i32 0
+  %169 = load ptr, ptr %168, align 8, !tbaa !35
+  call void %164(ptr noundef %165, ptr noundef %166, ptr noundef %169)
+  %170 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %171 = load i64, ptr %170, align 8, !tbaa !33
+  %172 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  %173 = load i64, ptr %172, align 8, !tbaa !33
+  %174 = xor i64 %173, %171
+  store i64 %174, ptr %172, align 8, !tbaa !33
+  %175 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %176 = load i64, ptr %175, align 8, !tbaa !33
+  %177 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 1
+  %178 = load i64, ptr %177, align 8, !tbaa !33
+  %179 = xor i64 %178, %176
+  store i64 %179, ptr %177, align 8, !tbaa !33
+  %180 = load ptr, ptr %11, align 8, !tbaa !11
+  %181 = getelementptr inbounds i8, ptr %180, i64 -16
+  %182 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr align 8 %182, i64 16, i1 false)
+  br label %299
 
-if.else:                                          ; preds = %while.end
-  %arrayidx71 = getelementptr inbounds [4 x i32], ptr %tweak, i64 0, i64 3
-  %62 = load i32, ptr %arrayidx71, align 4
-  %shr72 = ashr i32 %62, 31
-  %and73 = and i32 135, %shr72
-  store i32 %and73, ptr %res70, align 4
-  %arrayidx74 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %63 = load i64, ptr %arrayidx74, align 8
-  %shr75 = lshr i64 %63, 63
-  %conv76 = trunc i64 %shr75 to i32
-  store i32 %conv76, ptr %carry69, align 4
-  %arrayidx77 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %64 = load i64, ptr %arrayidx77, align 8
-  %shl78 = shl i64 %64, 1
-  %65 = load i32, ptr %res70, align 4
-  %conv79 = zext i32 %65 to i64
-  %xor80 = xor i64 %shl78, %conv79
-  %arrayidx81 = getelementptr inbounds [2 x i64], ptr %tweak1, i64 0, i64 0
-  store i64 %xor80, ptr %arrayidx81, align 8
-  %arrayidx82 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %66 = load i64, ptr %arrayidx82, align 8
-  %shl83 = shl i64 %66, 1
-  %67 = load i32, ptr %carry69, align 4
-  %conv84 = zext i32 %67 to i64
-  %or85 = or i64 %shl83, %conv84
-  %arrayidx86 = getelementptr inbounds [2 x i64], ptr %tweak1, i64 0, i64 1
-  store i64 %or85, ptr %arrayidx86, align 8
-  %68 = load ptr, ptr %inp.addr, align 8
-  %arrayidx87 = getelementptr inbounds i64, ptr %68, i64 0
-  %69 = load i64, ptr %arrayidx87, align 8
-  %arrayidx88 = getelementptr inbounds [2 x i64], ptr %tweak1, i64 0, i64 0
-  %70 = load i64, ptr %arrayidx88, align 8
-  %xor89 = xor i64 %69, %70
-  %arrayidx90 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 0
-  store i64 %xor89, ptr %arrayidx90, align 8
-  %71 = load ptr, ptr %inp.addr, align 8
-  %arrayidx91 = getelementptr inbounds i64, ptr %71, i64 1
-  %72 = load i64, ptr %arrayidx91, align 8
-  %arrayidx92 = getelementptr inbounds [2 x i64], ptr %tweak1, i64 0, i64 1
-  %73 = load i64, ptr %arrayidx92, align 8
-  %xor93 = xor i64 %72, %73
-  %arrayidx94 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  store i64 %xor93, ptr %arrayidx94, align 8
-  %74 = load ptr, ptr %ctx.addr, align 8
-  %block195 = getelementptr inbounds %struct.xts128_context, ptr %74, i32 0, i32 2
-  %75 = load ptr, ptr %block195, align 8
-  %arraydecay96 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  %arraydecay97 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  %76 = load ptr, ptr %ctx.addr, align 8
-  %key198 = getelementptr inbounds %struct.xts128_context, ptr %76, i32 0, i32 0
-  %77 = load ptr, ptr %key198, align 8
-  call void %75(ptr noundef %arraydecay96, ptr noundef %arraydecay97, ptr noundef %77)
-  %arrayidx99 = getelementptr inbounds [2 x i64], ptr %tweak1, i64 0, i64 0
-  %78 = load i64, ptr %arrayidx99, align 8
-  %arrayidx100 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 0
-  %79 = load i64, ptr %arrayidx100, align 8
-  %xor101 = xor i64 %79, %78
-  store i64 %xor101, ptr %arrayidx100, align 8
-  %arrayidx102 = getelementptr inbounds [2 x i64], ptr %tweak1, i64 0, i64 1
-  %80 = load i64, ptr %arrayidx102, align 8
-  %arrayidx103 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  %81 = load i64, ptr %arrayidx103, align 8
-  %xor104 = xor i64 %81, %80
-  store i64 %xor104, ptr %arrayidx103, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond105
+183:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
+  %184 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 3
+  %185 = load i32, ptr %184, align 4, !tbaa !33
+  %186 = ashr i32 %185, 31
+  %187 = and i32 135, %186
+  store i32 %187, ptr %23, align 4, !tbaa !13
+  %188 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %189 = load i64, ptr %188, align 8, !tbaa !33
+  %190 = lshr i64 %189, 63
+  %191 = trunc i64 %190 to i32
+  store i32 %191, ptr %22, align 4, !tbaa !13
+  %192 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %193 = load i64, ptr %192, align 8, !tbaa !33
+  %194 = shl i64 %193, 1
+  %195 = load i32, ptr %23, align 4, !tbaa !13
+  %196 = zext i32 %195 to i64
+  %197 = xor i64 %194, %196
+  %198 = getelementptr inbounds [2 x i64], ptr %21, i64 0, i64 0
+  store i64 %197, ptr %198, align 8, !tbaa !33
+  %199 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %200 = load i64, ptr %199, align 8, !tbaa !33
+  %201 = shl i64 %200, 1
+  %202 = load i32, ptr %22, align 4, !tbaa !13
+  %203 = zext i32 %202 to i64
+  %204 = or i64 %201, %203
+  %205 = getelementptr inbounds [2 x i64], ptr %21, i64 0, i64 1
+  store i64 %204, ptr %205, align 8, !tbaa !33
+  %206 = load ptr, ptr %10, align 8, !tbaa !11
+  %207 = getelementptr inbounds i64, ptr %206, i64 0
+  %208 = load i64, ptr %207, align 8, !tbaa !26
+  %209 = getelementptr inbounds [2 x i64], ptr %21, i64 0, i64 0
+  %210 = load i64, ptr %209, align 8, !tbaa !33
+  %211 = xor i64 %208, %210
+  %212 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  store i64 %211, ptr %212, align 8, !tbaa !33
+  %213 = load ptr, ptr %10, align 8, !tbaa !11
+  %214 = getelementptr inbounds i64, ptr %213, i64 1
+  %215 = load i64, ptr %214, align 8, !tbaa !26
+  %216 = getelementptr inbounds [2 x i64], ptr %21, i64 0, i64 1
+  %217 = load i64, ptr %216, align 8, !tbaa !33
+  %218 = xor i64 %215, %217
+  %219 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 1
+  store i64 %218, ptr %219, align 8, !tbaa !33
+  %220 = load ptr, ptr %8, align 8, !tbaa !29
+  %221 = getelementptr inbounds nuw %struct.xts128_context, ptr %220, i32 0, i32 2
+  %222 = load ptr, ptr %221, align 8, !tbaa !34
+  %223 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %224 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %225 = load ptr, ptr %8, align 8, !tbaa !29
+  %226 = getelementptr inbounds nuw %struct.xts128_context, ptr %225, i32 0, i32 0
+  %227 = load ptr, ptr %226, align 8, !tbaa !35
+  call void %222(ptr noundef %223, ptr noundef %224, ptr noundef %227)
+  %228 = getelementptr inbounds [2 x i64], ptr %21, i64 0, i64 0
+  %229 = load i64, ptr %228, align 8, !tbaa !33
+  %230 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  %231 = load i64, ptr %230, align 8, !tbaa !33
+  %232 = xor i64 %231, %229
+  store i64 %232, ptr %230, align 8, !tbaa !33
+  %233 = getelementptr inbounds [2 x i64], ptr %21, i64 0, i64 1
+  %234 = load i64, ptr %233, align 8, !tbaa !33
+  %235 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 1
+  %236 = load i64, ptr %235, align 8, !tbaa !33
+  %237 = xor i64 %236, %234
+  store i64 %237, ptr %235, align 8, !tbaa !33
+  store i32 0, ptr %16, align 4, !tbaa !13
+  br label %238
 
-for.cond105:                                      ; preds = %for.inc120, %if.else
-  %82 = load i32, ptr %i, align 4
-  %conv106 = zext i32 %82 to i64
-  %83 = load i64, ptr %len.addr, align 8
-  %cmp107 = icmp ult i64 %conv106, %83
-  br i1 %cmp107, label %for.body109, label %for.end122
+238:                                              ; preds = %263, %183
+  %239 = load i32, ptr %16, align 4, !tbaa !13
+  %240 = zext i32 %239 to i64
+  %241 = load i64, ptr %12, align 8, !tbaa !26
+  %242 = icmp ult i64 %240, %241
+  br i1 %242, label %243, label %266
 
-for.body109:                                      ; preds = %for.cond105
-  %84 = load ptr, ptr %inp.addr, align 8
-  %85 = load i32, ptr %i, align 4
-  %add = add i32 16, %85
-  %idxprom111 = zext i32 %add to i64
-  %arrayidx112 = getelementptr inbounds i8, ptr %84, i64 %idxprom111
-  %86 = load i8, ptr %arrayidx112, align 1
-  store i8 %86, ptr %c110, align 1
-  %87 = load i32, ptr %i, align 4
-  %idxprom113 = zext i32 %87 to i64
-  %arrayidx114 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %idxprom113
-  %88 = load i8, ptr %arrayidx114, align 1
-  %89 = load ptr, ptr %out.addr, align 8
-  %90 = load i32, ptr %i, align 4
-  %add115 = add i32 16, %90
-  %idxprom116 = zext i32 %add115 to i64
-  %arrayidx117 = getelementptr inbounds i8, ptr %89, i64 %idxprom116
-  store i8 %88, ptr %arrayidx117, align 1
-  %91 = load i8, ptr %c110, align 1
-  %92 = load i32, ptr %i, align 4
-  %idxprom118 = zext i32 %92 to i64
-  %arrayidx119 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %idxprom118
-  store i8 %91, ptr %arrayidx119, align 1
-  br label %for.inc120
+243:                                              ; preds = %238
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #4
+  %244 = load ptr, ptr %10, align 8, !tbaa !11
+  %245 = load i32, ptr %16, align 4, !tbaa !13
+  %246 = add i32 16, %245
+  %247 = zext i32 %246 to i64
+  %248 = getelementptr inbounds nuw i8, ptr %244, i64 %247
+  %249 = load i8, ptr %248, align 1, !tbaa !33
+  store i8 %249, ptr %24, align 1, !tbaa !33
+  %250 = load i32, ptr %16, align 4, !tbaa !13
+  %251 = zext i32 %250 to i64
+  %252 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %251
+  %253 = load i8, ptr %252, align 1, !tbaa !33
+  %254 = load ptr, ptr %11, align 8, !tbaa !11
+  %255 = load i32, ptr %16, align 4, !tbaa !13
+  %256 = add i32 16, %255
+  %257 = zext i32 %256 to i64
+  %258 = getelementptr inbounds nuw i8, ptr %254, i64 %257
+  store i8 %253, ptr %258, align 1, !tbaa !33
+  %259 = load i8, ptr %24, align 1, !tbaa !33
+  %260 = load i32, ptr %16, align 4, !tbaa !13
+  %261 = zext i32 %260 to i64
+  %262 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %261
+  store i8 %259, ptr %262, align 1, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #4
+  br label %263
 
-for.inc120:                                       ; preds = %for.body109
-  %93 = load i32, ptr %i, align 4
-  %inc121 = add i32 %93, 1
-  store i32 %inc121, ptr %i, align 4
-  br label %for.cond105, !llvm.loop !10
+263:                                              ; preds = %243
+  %264 = load i32, ptr %16, align 4, !tbaa !13
+  %265 = add i32 %264, 1
+  store i32 %265, ptr %16, align 4, !tbaa !13
+  br label %238, !llvm.loop !39
 
-for.end122:                                       ; preds = %for.cond105
-  %arrayidx123 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %94 = load i64, ptr %arrayidx123, align 8
-  %arrayidx124 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 0
-  %95 = load i64, ptr %arrayidx124, align 8
-  %xor125 = xor i64 %95, %94
-  store i64 %xor125, ptr %arrayidx124, align 8
-  %arrayidx126 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %96 = load i64, ptr %arrayidx126, align 8
-  %arrayidx127 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  %97 = load i64, ptr %arrayidx127, align 8
-  %xor128 = xor i64 %97, %96
-  store i64 %xor128, ptr %arrayidx127, align 8
-  %98 = load ptr, ptr %ctx.addr, align 8
-  %block1129 = getelementptr inbounds %struct.xts128_context, ptr %98, i32 0, i32 2
-  %99 = load ptr, ptr %block1129, align 8
-  %arraydecay130 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  %arraydecay131 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 0
-  %100 = load ptr, ptr %ctx.addr, align 8
-  %key1132 = getelementptr inbounds %struct.xts128_context, ptr %100, i32 0, i32 0
-  %101 = load ptr, ptr %key1132, align 8
-  call void %99(ptr noundef %arraydecay130, ptr noundef %arraydecay131, ptr noundef %101)
-  %arrayidx133 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 0
-  %102 = load i64, ptr %arrayidx133, align 8
-  %arrayidx134 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 0
-  %103 = load i64, ptr %arrayidx134, align 8
-  %xor135 = xor i64 %102, %103
-  %104 = load ptr, ptr %out.addr, align 8
-  %arrayidx136 = getelementptr inbounds i64, ptr %104, i64 0
-  store i64 %xor135, ptr %arrayidx136, align 8
-  %arrayidx137 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  %105 = load i64, ptr %arrayidx137, align 8
-  %arrayidx138 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %106 = load i64, ptr %arrayidx138, align 8
-  %xor139 = xor i64 %105, %106
-  %107 = load ptr, ptr %out.addr, align 8
-  %arrayidx140 = getelementptr inbounds i64, ptr %107, i64 1
-  store i64 %xor139, ptr %arrayidx140, align 8
-  br label %if.end141
+266:                                              ; preds = %238
+  %267 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %268 = load i64, ptr %267, align 8, !tbaa !33
+  %269 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  %270 = load i64, ptr %269, align 8, !tbaa !33
+  %271 = xor i64 %270, %268
+  store i64 %271, ptr %269, align 8, !tbaa !33
+  %272 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %273 = load i64, ptr %272, align 8, !tbaa !33
+  %274 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 1
+  %275 = load i64, ptr %274, align 8, !tbaa !33
+  %276 = xor i64 %275, %273
+  store i64 %276, ptr %274, align 8, !tbaa !33
+  %277 = load ptr, ptr %8, align 8, !tbaa !29
+  %278 = getelementptr inbounds nuw %struct.xts128_context, ptr %277, i32 0, i32 2
+  %279 = load ptr, ptr %278, align 8, !tbaa !34
+  %280 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %281 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 0
+  %282 = load ptr, ptr %8, align 8, !tbaa !29
+  %283 = getelementptr inbounds nuw %struct.xts128_context, ptr %282, i32 0, i32 0
+  %284 = load ptr, ptr %283, align 8, !tbaa !35
+  call void %279(ptr noundef %280, ptr noundef %281, ptr noundef %284)
+  %285 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  %286 = load i64, ptr %285, align 8, !tbaa !33
+  %287 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %288 = load i64, ptr %287, align 8, !tbaa !33
+  %289 = xor i64 %286, %288
+  %290 = load ptr, ptr %11, align 8, !tbaa !11
+  %291 = getelementptr inbounds i64, ptr %290, i64 0
+  store i64 %289, ptr %291, align 8, !tbaa !26
+  %292 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 1
+  %293 = load i64, ptr %292, align 8, !tbaa !33
+  %294 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %295 = load i64, ptr %294, align 8, !tbaa !33
+  %296 = xor i64 %293, %295
+  %297 = load ptr, ptr %11, align 8, !tbaa !11
+  %298 = getelementptr inbounds i64, ptr %297, i64 1
+  store i64 %296, ptr %298, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #4
+  br label %299
 
-if.end141:                                        ; preds = %for.end122, %for.end
-  store i64 1, ptr %retval, align 8
-  br label %return
+299:                                              ; preds = %266, %151
+  store i64 1, ptr %7, align 8
+  store i32 1, ptr %17, align 4
+  br label %300
 
-return:                                           ; preds = %if.end141, %if.then26, %if.then
-  %108 = load i64, ptr %retval, align 8
-  ret i64 %108
+300:                                              ; preds = %299, %97, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #4
+  %301 = load i64, ptr %7, align 8
+  ret i64 %301
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS17evp_cipher_ctx_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !9, i64 0}
+!15 = !{!16, !8, i64 16}
+!16 = !{!"evp_cipher_ctx_st", !17, i64 0, !8, i64 8, !8, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !9, i64 36, !9, i64 52, !9, i64 68, !14, i64 100, !14, i64 104, !14, i64 108, !14, i64 112, !9, i64 116}
+!17 = !{!"p1 _ZTS13evp_cipher_st", !8, i64 0}
+!18 = !{!8, !8, i64 0}
+!19 = !{!16, !14, i64 24}
+!20 = !{!21, !8, i64 512}
+!21 = !{!"", !9, i64 0, !9, i64 248, !22, i64 496}
+!22 = !{!"xts128_context", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
+!23 = !{!21, !8, i64 520}
+!24 = !{!21, !8, i64 496}
+!25 = !{!21, !8, i64 504}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"long", !9, i64 0}
+!28 = !{!16, !14, i64 28}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS14xts128_context", !8, i64 0}
+!31 = !{!22, !8, i64 24}
+!32 = !{!22, !8, i64 8}
+!33 = !{!9, !9, i64 0}
+!34 = !{!22, !8, i64 16}
+!35 = !{!22, !8, i64 0}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.mustprogress"}
+!38 = distinct !{!38, !37}
+!39 = distinct !{!39, !37}

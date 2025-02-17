@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/x509_lu.ll'
 source_filename = "bench/libquic/original/x509_lu.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.x509_object_st = type { i32, %union.anon }
 %union.anon = type { ptr }
@@ -15,1831 +15,1896 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509_lu.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @X509_LOOKUP_new(ptr noundef %method) local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return, label %if.end
+define hidden noundef ptr @X509_LOOKUP_new(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %13, label %4
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %call, align 8
-  %skip = getelementptr inbounds nuw i8, ptr %call, i64 4
-  store i32 0, ptr %skip, align 4
-  %method1 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %method, ptr %method1, align 8
-  %method_data = getelementptr inbounds nuw i8, ptr %call, i64 16
-  %new_item = getelementptr inbounds nuw i8, ptr %method, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %method_data, i8 0, i64 16, i1 false)
-  %0 = load ptr, ptr %new_item, align 8
-  %cmp2.not = icmp eq ptr %0, null
-  br i1 %cmp2.not, label %return, label %land.lhs.true
+4:                                                ; preds = %1
+  store i32 0, ptr %2, align 8, !tbaa !6
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %5, align 4, !tbaa !15
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %0, ptr %6, align 8, !tbaa !16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %13, label %10
 
-land.lhs.true:                                    ; preds = %if.end
-  %call4 = tail call i32 %0(ptr noundef nonnull %call) #10
-  %tobool.not = icmp eq i32 %call4, 0
-  br i1 %tobool.not, label %if.then5, label %return
+10:                                               ; preds = %4
+  %11 = tail call i32 %9(ptr noundef nonnull %2) #10
+  %.not15 = icmp eq i32 %11, 0
+  br i1 %.not15, label %12, label %13
 
-if.then5:                                         ; preds = %land.lhs.true
-  tail call void @free(ptr noundef nonnull %call) #10
-  br label %return
+12:                                               ; preds = %10
+  tail call void @free(ptr noundef nonnull %2) #10
+  br label %13
 
-return:                                           ; preds = %if.end, %land.lhs.true, %entry, %if.then5
-  %retval.0 = phi ptr [ null, %if.then5 ], [ null, %entry ], [ %call, %land.lhs.true ], [ %call, %if.end ]
-  ret ptr %retval.0
+13:                                               ; preds = %4, %10, %1, %12
+  %.0 = phi ptr [ null, %12 ], [ null, %1 ], [ %2, %10 ], [ %2, %4 ]
+  ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_LOOKUP_free(ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %ctx, null
-  br i1 %cmp, label %return, label %if.end
+define hidden void @X509_LOOKUP_free(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %11, label %3
 
-if.end:                                           ; preds = %entry
-  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %method, align 8
-  %cmp1.not = icmp eq ptr %0, null
-  br i1 %cmp1.not, label %if.end7, label %land.lhs.true
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %10, label %6
 
-land.lhs.true:                                    ; preds = %if.end
-  %free = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %free, align 8
-  %cmp3.not = icmp eq ptr %1, null
-  br i1 %cmp3.not, label %if.end7, label %if.then4
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %.not8 = icmp eq ptr %8, null
+  br i1 %.not8, label %10, label %9
 
-if.then4:                                         ; preds = %land.lhs.true
-  tail call void %1(ptr noundef nonnull %ctx) #10
-  br label %if.end7
+9:                                                ; preds = %6
+  tail call void %8(ptr noundef nonnull %0) #10
+  br label %10
 
-if.end7:                                          ; preds = %if.then4, %land.lhs.true, %if.end
-  tail call void @free(ptr noundef nonnull %ctx) #10
-  br label %return
+10:                                               ; preds = %9, %6, %3
+  tail call void @free(ptr noundef nonnull %0) #10
+  br label %11
 
-return:                                           ; preds = %entry, %if.end7
+11:                                               ; preds = %1, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_LOOKUP_init(ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %method, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %if.end
+define hidden i32 @X509_LOOKUP_init(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %10, label %5
 
-if.end:                                           ; preds = %entry
-  %init = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %init, align 8
-  %cmp2.not = icmp eq ptr %1, null
-  br i1 %cmp2.not, label %return, label %if.then3
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %10, label %8
 
-if.then3:                                         ; preds = %if.end
-  %call = tail call i32 %1(ptr noundef nonnull %ctx) #10
-  br label %return
+8:                                                ; preds = %5
+  %9 = tail call i32 %7(ptr noundef nonnull %0) #10
+  br label %10
 
-return:                                           ; preds = %if.end, %entry, %if.then3
-  %retval.0 = phi i32 [ %call, %if.then3 ], [ 0, %entry ], [ 1, %if.end ]
-  ret i32 %retval.0
+10:                                               ; preds = %5, %1, %8
+  %.0 = phi i32 [ %9, %8 ], [ 0, %1 ], [ 1, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_LOOKUP_shutdown(ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %method, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %if.end
+define hidden i32 @X509_LOOKUP_shutdown(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %10, label %5
 
-if.end:                                           ; preds = %entry
-  %shutdown = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load ptr, ptr %shutdown, align 8
-  %cmp2.not = icmp eq ptr %1, null
-  br i1 %cmp2.not, label %return, label %if.then3
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %10, label %8
 
-if.then3:                                         ; preds = %if.end
-  %call = tail call i32 %1(ptr noundef nonnull %ctx) #10
-  br label %return
+8:                                                ; preds = %5
+  %9 = tail call i32 %7(ptr noundef nonnull %0) #10
+  br label %10
 
-return:                                           ; preds = %if.end, %entry, %if.then3
-  %retval.0 = phi i32 [ %call, %if.then3 ], [ 0, %entry ], [ 1, %if.end ]
-  ret i32 %retval.0
+10:                                               ; preds = %5, %1, %8
+  %.0 = phi i32 [ %9, %8 ], [ 0, %1 ], [ 1, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_LOOKUP_ctrl(ptr noundef %ctx, i32 noundef %cmd, ptr noundef %argc, i64 noundef %argl, ptr noundef %ret) local_unnamed_addr #0 {
-entry:
-  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %method, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %if.end
+define hidden i32 @X509_LOOKUP_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-if.end:                                           ; preds = %entry
-  %ctrl = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1 = load ptr, ptr %ctrl, align 8
-  %cmp2.not = icmp eq ptr %1, null
-  br i1 %cmp2.not, label %return, label %if.then3
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %14, label %12
 
-if.then3:                                         ; preds = %if.end
-  %call = tail call i32 %1(ptr noundef nonnull %ctx, i32 noundef %cmd, ptr noundef %argc, i64 noundef %argl, ptr noundef %ret) #10
-  br label %return
+12:                                               ; preds = %9
+  %13 = tail call i32 %11(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
+  br label %14
 
-return:                                           ; preds = %if.end, %entry, %if.then3
-  %retval.0 = phi i32 [ %call, %if.then3 ], [ -1, %entry ], [ 1, %if.end ]
-  ret i32 %retval.0
+14:                                               ; preds = %9, %5, %12
+  %.0 = phi i32 [ %13, %12 ], [ -1, %5 ], [ 1, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_LOOKUP_by_subject(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %ret) local_unnamed_addr #0 {
-entry:
-  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %method, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+define hidden i32 @X509_LOOKUP_by_subject(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !16
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %17, label %8
 
-lor.lhs.false:                                    ; preds = %entry
-  %get_by_subject = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1 = load ptr, ptr %get_by_subject, align 8
-  %cmp2 = icmp eq ptr %1, null
-  br i1 %cmp2, label %return, label %if.end
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %17, label %12
 
-if.end:                                           ; preds = %lor.lhs.false
-  %skip = getelementptr inbounds nuw i8, ptr %ctx, i64 4
-  %2 = load i32, ptr %skip, align 4
-  %tobool.not = icmp eq i32 %2, 0
-  br i1 %tobool.not, label %if.end4, label %return
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !15
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %17
 
-if.end4:                                          ; preds = %if.end
-  %call = tail call i32 %1(ptr noundef nonnull %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %ret) #10
-  br label %return
+15:                                               ; preds = %12
+  %16 = tail call i32 %10(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #10
+  br label %17
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end4
-  %retval.0 = phi i32 [ %call, %if.end4 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ]
-  ret i32 %retval.0
+17:                                               ; preds = %12, %4, %8, %15
+  %.0 = phi i32 [ %16, %15 ], [ 0, %8 ], [ 0, %4 ], [ 0, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_LOOKUP_by_issuer_serial(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %serial, ptr noundef %ret) local_unnamed_addr #0 {
-entry:
-  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %method, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+define hidden i32 @X509_LOOKUP_by_issuer_serial(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %15, label %9
 
-lor.lhs.false:                                    ; preds = %entry
-  %get_by_issuer_serial = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %1 = load ptr, ptr %get_by_issuer_serial, align 8
-  %cmp2 = icmp eq ptr %1, null
-  br i1 %cmp2, label %return, label %if.end
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %15, label %13
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %serial, ptr noundef %ret) #10
-  br label %return
+13:                                               ; preds = %9
+  %14 = tail call i32 %11(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #10
+  br label %15
 
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ %call, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %retval.0
+15:                                               ; preds = %5, %9, %13
+  %.0 = phi i32 [ %14, %13 ], [ 0, %9 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_LOOKUP_by_fingerprint(ptr noundef %ctx, i32 noundef %type, ptr noundef %bytes, i32 noundef %len, ptr noundef %ret) local_unnamed_addr #0 {
-entry:
-  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %method, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+define hidden i32 @X509_LOOKUP_by_fingerprint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %15, label %9
 
-lor.lhs.false:                                    ; preds = %entry
-  %get_by_fingerprint = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1 = load ptr, ptr %get_by_fingerprint, align 8
-  %cmp2 = icmp eq ptr %1, null
-  br i1 %cmp2, label %return, label %if.end
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %15, label %13
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %ctx, i32 noundef %type, ptr noundef %bytes, i32 noundef %len, ptr noundef %ret) #10
-  br label %return
+13:                                               ; preds = %9
+  %14 = tail call i32 %11(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #10
+  br label %15
 
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ %call, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %retval.0
+15:                                               ; preds = %5, %9, %13
+  %.0 = phi i32 [ %14, %13 ], [ 0, %9 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_LOOKUP_by_alias(ptr noundef %ctx, i32 noundef %type, ptr noundef %str, i32 noundef %len, ptr noundef %ret) local_unnamed_addr #0 {
-entry:
-  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %method, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+define hidden i32 @X509_LOOKUP_by_alias(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %15, label %9
 
-lor.lhs.false:                                    ; preds = %entry
-  %get_by_alias = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1 = load ptr, ptr %get_by_alias, align 8
-  %cmp2 = icmp eq ptr %1, null
-  br i1 %cmp2, label %return, label %if.end
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %15, label %13
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %ctx, i32 noundef %type, ptr noundef %str, i32 noundef %len, ptr noundef %ret) #10
-  br label %return
+13:                                               ; preds = %9
+  %14 = tail call i32 %11(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #10
+  br label %15
 
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ %call, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %retval.0
+15:                                               ; preds = %5, %9, %13
+  %.0 = phi i32 [ %14, %13 ], [ 0, %9 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @X509_STORE_new() local_unnamed_addr #0 {
-entry:
   %calloc = tail call dereferenceable_or_null(184) ptr @calloc(i64 1, i64 184)
-  %cmp = icmp eq ptr %calloc, null
-  br i1 %cmp, label %return, label %if.end
+  %1 = icmp eq ptr %calloc, null
+  br i1 %1, label %29, label %2
 
-if.end:                                           ; preds = %entry
-  %objs_lock = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  tail call void @CRYPTO_MUTEX_init(ptr noundef nonnull %objs_lock) #10
-  %call1 = tail call ptr @sk_new(ptr noundef nonnull @x509_object_cmp) #10
-  %objs = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store ptr %call1, ptr %objs, align 8
-  %cmp3 = icmp eq ptr %call1, null
-  br i1 %cmp3, label %if.then16, label %if.end5
+2:                                                ; preds = %0
+  %3 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  tail call void @CRYPTO_MUTEX_init(ptr noundef nonnull %3) #10
+  %4 = tail call ptr @sk_new(ptr noundef nonnull @x509_object_cmp) #10
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
+  store ptr %4, ptr %5, align 8, !tbaa !27
+  %6 = icmp eq ptr %4, null
+  br i1 %6, label %17, label %7
 
-if.end5:                                          ; preds = %if.end
-  store i32 1, ptr %calloc, align 8
-  %call6 = tail call ptr @sk_new_null() #10
-  %get_cert_methods = getelementptr inbounds nuw i8, ptr %calloc, i64 72
-  store ptr %call6, ptr %get_cert_methods, align 8
-  %cmp8 = icmp eq ptr %call6, null
-  br i1 %cmp8, label %if.then16, label %if.end10
+7:                                                ; preds = %2
+  store i32 1, ptr %calloc, align 8, !tbaa !32
+  %8 = tail call ptr @sk_new_null() #10
+  %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
+  store ptr %8, ptr %9, align 8, !tbaa !33
+  %10 = icmp eq ptr %8, null
+  br i1 %10, label %17, label %11
 
-if.end10:                                         ; preds = %if.end5
-  %call11 = tail call ptr @X509_VERIFY_PARAM_new() #10
-  %param = getelementptr inbounds nuw i8, ptr %calloc, i64 80
-  store ptr %call11, ptr %param, align 8
-  %cmp13 = icmp eq ptr %call11, null
-  br i1 %cmp13, label %if.then16, label %if.end15
+11:                                               ; preds = %7
+  %12 = tail call ptr @X509_VERIFY_PARAM_new() #10
+  %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
+  store ptr %12, ptr %13, align 8, !tbaa !34
+  %14 = icmp eq ptr %12, null
+  br i1 %14, label %17, label %15
 
-if.end15:                                         ; preds = %if.end10
-  %references = getelementptr inbounds nuw i8, ptr %calloc, i64 176
-  store i32 1, ptr %references, align 8
-  br label %return
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %calloc, i64 176
+  store i32 1, ptr %16, align 8, !tbaa !35
+  br label %29
 
-if.then16:                                        ; preds = %if.end, %if.end5, %if.end10
-  tail call void @CRYPTO_MUTEX_cleanup(ptr noundef nonnull %objs_lock) #10
-  %param18 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
-  %0 = load ptr, ptr %param18, align 8
-  %tobool19.not = icmp eq ptr %0, null
-  br i1 %tobool19.not, label %if.end22, label %if.then20
+17:                                               ; preds = %2, %7, %11
+  tail call void @CRYPTO_MUTEX_cleanup(ptr noundef nonnull %3) #10
+  %18 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %21, label %20
 
-if.then20:                                        ; preds = %if.then16
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %0) #10
-  br label %if.end22
+20:                                               ; preds = %17
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %19) #10
+  br label %21
 
-if.end22:                                         ; preds = %if.then20, %if.then16
-  %get_cert_methods23 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
-  %1 = load ptr, ptr %get_cert_methods23, align 8
-  %tobool24.not = icmp eq ptr %1, null
-  br i1 %tobool24.not, label %if.end27, label %if.then25
+21:                                               ; preds = %20, %17
+  %22 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
+  %23 = load ptr, ptr %22, align 8, !tbaa !33
+  %.not25 = icmp eq ptr %23, null
+  br i1 %.not25, label %25, label %24
 
-if.then25:                                        ; preds = %if.end22
-  tail call void @sk_free(ptr noundef nonnull %1) #10
-  br label %if.end27
+24:                                               ; preds = %21
+  tail call void @sk_free(ptr noundef nonnull %23) #10
+  br label %25
 
-if.end27:                                         ; preds = %if.then25, %if.end22
-  %2 = load ptr, ptr %objs, align 8
-  %tobool29.not = icmp eq ptr %2, null
-  br i1 %tobool29.not, label %if.end32, label %if.then30
+25:                                               ; preds = %24, %21
+  %26 = load ptr, ptr %5, align 8, !tbaa !27
+  %.not26 = icmp eq ptr %26, null
+  br i1 %.not26, label %28, label %27
 
-if.then30:                                        ; preds = %if.end27
-  tail call void @sk_free(ptr noundef nonnull %2) #10
-  br label %if.end32
+27:                                               ; preds = %25
+  tail call void @sk_free(ptr noundef nonnull %26) #10
+  br label %28
 
-if.end32:                                         ; preds = %if.then30, %if.end27
+28:                                               ; preds = %27, %25
   tail call void @free(ptr noundef nonnull %calloc) #10
-  br label %return
+  br label %29
 
-return:                                           ; preds = %entry, %if.end32, %if.end15
-  %retval.0 = phi ptr [ null, %if.end32 ], [ %calloc, %if.end15 ], [ null, %entry ]
-  ret ptr %retval.0
+29:                                               ; preds = %0, %28, %15
+  %.0 = phi ptr [ null, %28 ], [ %calloc, %15 ], [ null, %0 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @CRYPTO_MUTEX_init(ptr noundef) local_unnamed_addr #4
+declare void @CRYPTO_MUTEX_init(ptr noundef) local_unnamed_addr #5
 
-declare ptr @sk_new(ptr noundef) local_unnamed_addr #4
+declare ptr @sk_new(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
-entry:
-  %0 = load ptr, ptr %a, align 8
-  %1 = load i32, ptr %0, align 8
-  %2 = load ptr, ptr %b, align 8
-  %3 = load i32, ptr %2, align 8
-  %sub = sub nsw i32 %1, %3
-  %tobool.not = icmp eq i32 %sub, 0
-  br i1 %tobool.not, label %if.end, label %return
+define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !36
+  %4 = load i32, ptr %3, align 8, !tbaa !38
+  %5 = load ptr, ptr %1, align 8, !tbaa !36
+  %6 = load i32, ptr %5, align 8, !tbaa !38
+  %7 = sub nsw i32 %4, %6
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %8, label %21
 
-if.end:                                           ; preds = %entry
-  switch i32 %1, label %return [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb4
+8:                                                ; preds = %2
+  switch i32 %4, label %21 [
+    i32 1, label %9
+    i32 2, label %15
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %data = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %data, align 8
-  %data3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %data3, align 8
-  %call = tail call i32 @X509_subject_name_cmp(ptr noundef %4, ptr noundef %5) #10
-  br label %return
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !40
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !40
+  %14 = tail call i32 @X509_subject_name_cmp(ptr noundef %11, ptr noundef %13) #10
+  br label %21
 
-sw.bb4:                                           ; preds = %if.end
-  %data5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %data5, align 8
-  %data6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %data6, align 8
-  %call7 = tail call i32 @X509_CRL_cmp(ptr noundef %6, ptr noundef %7) #10
-  br label %return
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !40
+  %20 = tail call i32 @X509_CRL_cmp(ptr noundef %17, ptr noundef %19) #10
+  br label %21
 
-return:                                           ; preds = %sw.bb, %sw.bb4, %if.end, %entry
-  %retval.0 = phi i32 [ %sub, %entry ], [ 0, %if.end ], [ %call7, %sw.bb4 ], [ %call, %sw.bb ]
-  ret i32 %retval.0
+21:                                               ; preds = %9, %15, %8, %2
+  %.010 = phi i32 [ %7, %2 ], [ 0, %8 ], [ %20, %15 ], [ %14, %9 ]
+  ret i32 %.010
 }
 
-declare ptr @sk_new_null() local_unnamed_addr #4
+declare ptr @sk_new_null() local_unnamed_addr #5
 
-declare ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #4
+declare ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #5
 
-declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #4
+declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #5
 
-declare void @X509_VERIFY_PARAM_free(ptr noundef) local_unnamed_addr #4
+declare void @X509_VERIFY_PARAM_free(ptr noundef) local_unnamed_addr #5
 
-declare void @sk_free(ptr noundef) local_unnamed_addr #4
+declare void @sk_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_STORE_up_ref(ptr noundef %store) local_unnamed_addr #0 {
-entry:
-  %references = getelementptr inbounds nuw i8, ptr %store, i64 176
-  tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %references) #10
+define hidden void @X509_STORE_up_ref(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %2) #10
   ret void
 }
 
-declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #4
+declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_STORE_free(ptr noundef %vfy) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %vfy, null
-  br i1 %cmp, label %return, label %if.end
+define hidden void @X509_STORE_free(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %31, label %3
 
-if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds nuw i8, ptr %vfy, i64 176
-  %call = tail call i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef nonnull %references) #10
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end2
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %5 = tail call i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef nonnull %4) #10
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %31, label %6
 
-if.end2:                                          ; preds = %if.end
-  %objs_lock = getelementptr inbounds nuw i8, ptr %vfy, i64 16
-  tail call void @CRYPTO_MUTEX_cleanup(ptr noundef nonnull %objs_lock) #10
-  %get_cert_methods = getelementptr inbounds nuw i8, ptr %vfy, i64 72
-  %0 = load ptr, ptr %get_cert_methods, align 8
-  %call317 = tail call i64 @sk_num(ptr noundef %0) #10
-  %cmp418.not = icmp eq i64 %call317, 0
-  br i1 %cmp418.not, label %for.end, label %for.body
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @CRYPTO_MUTEX_cleanup(ptr noundef nonnull %7) #10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = tail call i64 @sk_num(ptr noundef %9) #10
+  %.not21 = icmp eq i64 %10, 0
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %if.end2, %X509_LOOKUP_free.exit
-  %j.019 = phi i64 [ %inc, %X509_LOOKUP_free.exit ], [ 0, %if.end2 ]
-  %call5 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %j.019) #10
-  %method.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
-  %1 = load ptr, ptr %method.i, align 8
-  %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %X509_LOOKUP_free.exit, label %if.end.i
+.lr.ph:                                           ; preds = %6, %X509_LOOKUP_free.exit
+  %.020 = phi i64 [ %22, %X509_LOOKUP_free.exit ], [ 0, %6 ]
+  %11 = tail call ptr @sk_value(ptr noundef %9, i64 noundef %.020) #10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %X509_LOOKUP_free.exit, label %15
 
-if.end.i:                                         ; preds = %for.body
-  %shutdown.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %2 = load ptr, ptr %shutdown.i, align 8
-  %cmp2.not.i = icmp eq ptr %2, null
-  br i1 %cmp2.not.i, label %land.lhs.true.i, label %if.end.i14
+15:                                               ; preds = %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %X509_LOOKUP_shutdown.exit.thread, label %X509_LOOKUP_shutdown.exit
 
-if.end.i14:                                       ; preds = %if.end.i
-  %call.i = tail call i32 %2(ptr noundef nonnull %call5) #10
-  %.pr.pre = load ptr, ptr %method.i, align 8
-  %cmp1.not.i = icmp eq ptr %.pr.pre, null
-  br i1 %cmp1.not.i, label %X509_LOOKUP_free.exit, label %land.lhs.true.i
+X509_LOOKUP_shutdown.exit:                        ; preds = %15
+  %18 = tail call i32 %17(ptr noundef nonnull %11) #10
+  %.pr.pre = load ptr, ptr %12, align 8, !tbaa !16
+  %.not.i18 = icmp eq ptr %.pr.pre, null
+  br i1 %.not.i18, label %X509_LOOKUP_free.exit, label %X509_LOOKUP_shutdown.exit.thread
 
-land.lhs.true.i:                                  ; preds = %if.end.i, %if.end.i14
-  %.pr23 = phi ptr [ %.pr.pre, %if.end.i14 ], [ %1, %if.end.i ]
-  %free.i = getelementptr inbounds nuw i8, ptr %.pr23, i64 16
-  %3 = load ptr, ptr %free.i, align 8
-  %cmp3.not.i = icmp eq ptr %3, null
-  br i1 %cmp3.not.i, label %X509_LOOKUP_free.exit, label %if.then4.i
+X509_LOOKUP_shutdown.exit.thread:                 ; preds = %15, %X509_LOOKUP_shutdown.exit
+  %.pr25 = phi ptr [ %.pr.pre, %X509_LOOKUP_shutdown.exit ], [ %13, %15 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.pr25, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !19
+  %.not8.i = icmp eq ptr %20, null
+  br i1 %.not8.i, label %X509_LOOKUP_free.exit, label %21
 
-if.then4.i:                                       ; preds = %land.lhs.true.i
-  tail call void %3(ptr noundef nonnull %call5) #10
+21:                                               ; preds = %X509_LOOKUP_shutdown.exit.thread
+  tail call void %20(ptr noundef nonnull %11) #10
   br label %X509_LOOKUP_free.exit
 
-X509_LOOKUP_free.exit:                            ; preds = %for.body, %if.end.i14, %land.lhs.true.i, %if.then4.i
-  tail call void @free(ptr noundef nonnull %call5) #10
-  %inc = add nuw i64 %j.019, 1
-  %call3 = tail call i64 @sk_num(ptr noundef %0) #10
-  %cmp4 = icmp ult i64 %inc, %call3
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !7
+X509_LOOKUP_free.exit:                            ; preds = %.lr.ph, %X509_LOOKUP_shutdown.exit, %X509_LOOKUP_shutdown.exit.thread, %21
+  tail call void @free(ptr noundef nonnull %11) #10
+  %22 = add nuw i64 %.020, 1
+  %23 = tail call i64 @sk_num(ptr noundef %9) #10
+  %24 = icmp ult i64 %22, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
-for.end:                                          ; preds = %X509_LOOKUP_free.exit, %if.end2
-  tail call void @sk_free(ptr noundef %0) #10
-  %objs = getelementptr inbounds nuw i8, ptr %vfy, i64 8
-  %4 = load ptr, ptr %objs, align 8
-  tail call void @sk_pop_free(ptr noundef %4, ptr noundef nonnull @cleanup) #10
-  %param = getelementptr inbounds nuw i8, ptr %vfy, i64 80
-  %5 = load ptr, ptr %param, align 8
-  %tobool7.not = icmp eq ptr %5, null
-  br i1 %tobool7.not, label %if.end10, label %if.then8
+._crit_edge:                                      ; preds = %X509_LOOKUP_free.exit, %6
+  tail call void @sk_free(ptr noundef %9) #10
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !27
+  tail call void @sk_pop_free(ptr noundef %26, ptr noundef nonnull @cleanup) #10
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %28 = load ptr, ptr %27, align 8, !tbaa !34
+  %.not17 = icmp eq ptr %28, null
+  br i1 %.not17, label %30, label %29
 
-if.then8:                                         ; preds = %for.end
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %5) #10
-  br label %if.end10
+29:                                               ; preds = %._crit_edge
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %28) #10
+  br label %30
 
-if.end10:                                         ; preds = %if.then8, %for.end
-  tail call void @free(ptr noundef nonnull %vfy) #10
-  br label %return
+30:                                               ; preds = %29, %._crit_edge
+  tail call void @free(ptr noundef nonnull %0) #10
+  br label %31
 
-return:                                           ; preds = %if.end, %entry, %if.end10
+31:                                               ; preds = %3, %1, %30
   ret void
 }
 
-declare i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef) local_unnamed_addr #4
+declare i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef) local_unnamed_addr #5
 
-declare i64 @sk_num(ptr noundef) local_unnamed_addr #4
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #5
 
-declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup(ptr noundef captures(address_is_null) %a) #0 {
-entry:
-  %cmp = icmp eq ptr %a, null
-  br i1 %cmp, label %return, label %if.end
+define internal void @cleanup(ptr noundef captures(address_is_null) %0) #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %12, label %3
 
-if.end:                                           ; preds = %entry
-  %0 = load i32, ptr %a, align 8
-  switch i32 %0, label %if.end9 [
-    i32 1, label %if.then2
-    i32 2, label %if.then5
+3:                                                ; preds = %1
+  %4 = load i32, ptr %0, align 8, !tbaa !38
+  switch i32 %4, label %11 [
+    i32 1, label %5
+    i32 2, label %8
   ]
 
-if.then2:                                         ; preds = %if.end
-  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %1 = load ptr, ptr %data, align 8
-  tail call void @X509_free(ptr noundef %1) #10
-  br label %if.end9
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
+  tail call void @X509_free(ptr noundef %7) #10
+  br label %11
 
-if.then5:                                         ; preds = %if.end
-  %data6 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %2 = load ptr, ptr %data6, align 8
-  tail call void @X509_CRL_free(ptr noundef %2) #10
-  br label %if.end9
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !40
+  tail call void @X509_CRL_free(ptr noundef %10) #10
+  br label %11
 
-if.end9:                                          ; preds = %if.end, %if.then5, %if.then2
-  tail call void @free(ptr noundef nonnull %a) #10
-  br label %return
+11:                                               ; preds = %3, %8, %5
+  tail call void @free(ptr noundef nonnull %0) #10
+  br label %12
 
-return:                                           ; preds = %entry, %if.end9
+12:                                               ; preds = %1, %11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_STORE_add_lookup(ptr noundef %v, ptr noundef %m) local_unnamed_addr #0 {
-entry:
-  %get_cert_methods = getelementptr inbounds nuw i8, ptr %v, i64 72
-  %0 = load ptr, ptr %get_cert_methods, align 8
-  %call18 = tail call i64 @sk_num(ptr noundef %0) #10
-  %cmp19.not = icmp eq i64 %call18, 0
-  br i1 %cmp19.not, label %for.end, label %for.body
+define hidden ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
+  %5 = tail call i64 @sk_num(ptr noundef %4) #10
+  %.not22 = icmp eq i64 %5, 0
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-for.cond:                                         ; preds = %for.body
-  %inc = add nuw i64 %i.020, 1
-  %call = tail call i64 @sk_num(ptr noundef %0) #10
-  %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+6:                                                ; preds = %.lr.ph
+  %7 = add nuw i64 %.01721, 1
+  %8 = tail call i64 @sk_num(ptr noundef %4) #10
+  %9 = icmp ult i64 %7, %8
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
-for.body:                                         ; preds = %entry, %for.cond
-  %i.020 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
-  %call1 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %i.020) #10
-  %method = getelementptr inbounds nuw i8, ptr %call1, i64 8
-  %1 = load ptr, ptr %method, align 8
-  %cmp2 = icmp eq ptr %m, %1
-  br i1 %cmp2, label %return, label %for.cond
+.lr.ph:                                           ; preds = %2, %6
+  %.01721 = phi i64 [ %7, %6 ], [ 0, %2 ]
+  %10 = tail call ptr @sk_value(ptr noundef %4, i64 noundef %.01721) #10
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
+  %13 = icmp eq ptr %1, %12
+  br i1 %13, label %X509_LOOKUP_new.exit.thread, label %6
 
-for.end:                                          ; preds = %for.cond, %entry
-  %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
-  %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %return, label %if.end.i
+._crit_edge:                                      ; preds = %6, %2
+  %14 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %X509_LOOKUP_new.exit.thread, label %16
 
-if.end.i:                                         ; preds = %for.end
-  store i32 0, ptr %call.i, align 8
-  %skip.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
-  store i32 0, ptr %skip.i, align 4
-  %method1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store ptr %m, ptr %method1.i, align 8
-  %method_data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  %new_item.i = getelementptr inbounds nuw i8, ptr %m, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %method_data.i, i8 0, i64 16, i1 false)
-  %2 = load ptr, ptr %new_item.i, align 8
-  %cmp2.not.i = icmp eq ptr %2, null
-  br i1 %cmp2.not.i, label %if.else, label %land.lhs.true.i
+16:                                               ; preds = %._crit_edge
+  store i32 0, ptr %14, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i32 0, ptr %17, align 4, !tbaa !15
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %1, ptr %18, align 8, !tbaa !16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %X509_LOOKUP_new.exit, label %22
 
-land.lhs.true.i:                                  ; preds = %if.end.i
-  %call4.i = tail call i32 %2(ptr noundef nonnull %call.i) #10
-  %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %return.sink.split, label %if.else
+22:                                               ; preds = %16
+  %23 = tail call i32 %21(ptr noundef nonnull %14) #10
+  %.not15.i = icmp eq i32 %23, 0
+  br i1 %.not15.i, label %X509_LOOKUP_new.exit.thread.sink.split, label %X509_LOOKUP_new.exit
 
-if.else:                                          ; preds = %land.lhs.true.i, %if.end.i
-  %store_ctx = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store ptr %v, ptr %store_ctx, align 8
-  %3 = load ptr, ptr %get_cert_methods, align 8
-  %call7 = tail call i64 @sk_push(ptr noundef %3, ptr noundef nonnull %call.i) #10
-  %tobool.not = icmp eq i64 %call7, 0
-  br i1 %tobool.not, label %if.end.i14, label %return
+X509_LOOKUP_new.exit:                             ; preds = %22, %16
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %0, ptr %24, align 8, !tbaa !44
+  %25 = load ptr, ptr %3, align 8, !tbaa !33
+  %26 = tail call i64 @sk_push(ptr noundef %25, ptr noundef nonnull %14) #10
+  %.not = icmp eq i64 %26, 0
+  br i1 %.not, label %27, label %X509_LOOKUP_new.exit.thread
 
-if.end.i14:                                       ; preds = %if.else
-  %4 = load ptr, ptr %method1.i, align 8
-  %cmp1.not.i = icmp eq ptr %4, null
-  br i1 %cmp1.not.i, label %return.sink.split, label %land.lhs.true.i15
+27:                                               ; preds = %X509_LOOKUP_new.exit
+  %28 = load ptr, ptr %18, align 8, !tbaa !16
+  %.not.i19 = icmp eq ptr %28, null
+  br i1 %.not.i19, label %X509_LOOKUP_new.exit.thread.sink.split, label %29
 
-land.lhs.true.i15:                                ; preds = %if.end.i14
-  %free.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %5 = load ptr, ptr %free.i, align 8
-  %cmp3.not.i = icmp eq ptr %5, null
-  br i1 %cmp3.not.i, label %return.sink.split, label %if.then4.i
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %.not8.i = icmp eq ptr %31, null
+  br i1 %.not8.i, label %X509_LOOKUP_new.exit.thread.sink.split, label %32
 
-if.then4.i:                                       ; preds = %land.lhs.true.i15
-  tail call void %5(ptr noundef nonnull %call.i) #10
-  br label %return.sink.split
+32:                                               ; preds = %29
+  tail call void %31(ptr noundef nonnull %14) #10
+  br label %X509_LOOKUP_new.exit.thread.sink.split
 
-return.sink.split:                                ; preds = %if.then4.i, %land.lhs.true.i15, %if.end.i14, %land.lhs.true.i
-  tail call void @free(ptr noundef nonnull %call.i) #10
-  br label %return
+X509_LOOKUP_new.exit.thread.sink.split:           ; preds = %32, %29, %27, %22
+  tail call void @free(ptr noundef nonnull %14) #10
+  br label %X509_LOOKUP_new.exit.thread
 
-return:                                           ; preds = %for.body, %return.sink.split, %for.end, %if.else
-  %retval.0 = phi ptr [ %call.i, %if.else ], [ null, %for.end ], [ null, %return.sink.split ], [ %call1, %for.body ]
-  ret ptr %retval.0
+X509_LOOKUP_new.exit.thread:                      ; preds = %.lr.ph, %X509_LOOKUP_new.exit.thread.sink.split, %._crit_edge, %X509_LOOKUP_new.exit
+  %.0 = phi ptr [ %14, %X509_LOOKUP_new.exit ], [ null, %._crit_edge ], [ null, %X509_LOOKUP_new.exit.thread.sink.split ], [ %10, %.lr.ph ]
+  ret ptr %.0
 }
 
-declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr noundef captures(none) %vs, i32 noundef %type, ptr noundef %name, ptr noundef writeonly captures(none) %ret) local_unnamed_addr #0 {
-entry:
-  %stmp.i.i.i = alloca %struct.x509_object_st, align 8
-  %x509_s.i.i.i = alloca %struct.x509_st, align 8
-  %cinf_s.i.i.i = alloca %struct.x509_cinf_st, align 8
-  %crl_s.i.i.i = alloca %struct.X509_crl_st, align 8
-  %crl_info_s.i.i.i = alloca %struct.X509_crl_info_st, align 8
-  %idx.i.i.i = alloca i64, align 8
-  %stmp = alloca %struct.x509_object_st, align 8
-  %0 = load ptr, ptr %vs, align 8
-  %objs_lock = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #10
-  %objs = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load ptr, ptr %objs, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %x509_s.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %cinf_s.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %crl_s.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %crl_info_s.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %idx.i.i.i)
-  store i32 %type, ptr %stmp.i.i.i, align 8
-  switch i32 %type, label %X509_OBJECT_idx_by_subject.exit.thread.i [
-    i32 1, label %sw.bb.i.i.i
-    i32 2, label %sw.bb2.i.i.i
+define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+  %5 = alloca %struct.x509_object_st, align 8
+  %6 = alloca %struct.x509_st, align 8
+  %7 = alloca %struct.x509_cinf_st, align 8
+  %8 = alloca %struct.X509_crl_st, align 8
+  %9 = alloca %struct.X509_crl_info_st, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %struct.x509_object_st, align 8
+  %12 = load ptr, ptr %0, align 8, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %13) #10
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #10
+  store i32 %1, ptr %5, align 8, !tbaa !38
+  switch i32 %1, label %X509_OBJECT_idx_by_subject.exit.thread.i [
+    i32 1, label %16
+    i32 2, label %19
   ]
 
-sw.bb.i.i.i:                                      ; preds = %entry
-  %data.i.i.i = getelementptr inbounds nuw i8, ptr %stmp.i.i.i, i64 8
-  store ptr %x509_s.i.i.i, ptr %data.i.i.i, align 8
-  store ptr %cinf_s.i.i.i, ptr %x509_s.i.i.i, align 8
-  %subject.i.i.i = getelementptr inbounds nuw i8, ptr %cinf_s.i.i.i, i64 40
-  store ptr %name, ptr %subject.i.i.i, align 8
-  br label %sw.epilog.i.i.i
+16:                                               ; preds = %4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %6, ptr %17, align 8, !tbaa !40
+  store ptr %7, ptr %6, align 8, !tbaa !55
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %2, ptr %18, align 8, !tbaa !67
+  br label %22
 
-sw.bb2.i.i.i:                                     ; preds = %entry
-  %data3.i.i.i = getelementptr inbounds nuw i8, ptr %stmp.i.i.i, i64 8
-  store ptr %crl_s.i.i.i, ptr %data3.i.i.i, align 8
-  store ptr %crl_info_s.i.i.i, ptr %crl_s.i.i.i, align 8
-  %issuer.i.i.i = getelementptr inbounds nuw i8, ptr %crl_info_s.i.i.i, i64 16
-  store ptr %name, ptr %issuer.i.i.i, align 8
-  br label %sw.epilog.i.i.i
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %8, ptr %20, align 8, !tbaa !40
+  store ptr %9, ptr %8, align 8, !tbaa !74
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %2, ptr %21, align 8, !tbaa !80
+  br label %22
 
-sw.epilog.i.i.i:                                  ; preds = %sw.bb2.i.i.i, %sw.bb.i.i.i
-  %call.i.i.i = call i32 @sk_find(ptr noundef %1, ptr noundef nonnull %idx.i.i.i, ptr noundef nonnull %stmp.i.i.i) #10
-  %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %X509_OBJECT_idx_by_subject.exit.thread.i, label %X509_OBJECT_idx_by_subject.exit.i
+22:                                               ; preds = %19, %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  %23 = call i32 @sk_find(ptr noundef %15, ptr noundef nonnull %10, ptr noundef nonnull %5) #10
+  %.not.i.i.i = icmp eq i32 %23, 0
+  %24 = load i64, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  br i1 %.not.i.i.i, label %X509_OBJECT_idx_by_subject.exit.thread.i, label %X509_OBJECT_idx_by_subject.exit.i
 
-X509_OBJECT_idx_by_subject.exit.thread.i:         ; preds = %sw.epilog.i.i.i, %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %x509_s.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %cinf_s.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %crl_s.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %crl_info_s.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i.i.i)
+X509_OBJECT_idx_by_subject.exit.thread.i:         ; preds = %22, %4
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   br label %X509_OBJECT_retrieve_by_subject.exit
 
-X509_OBJECT_idx_by_subject.exit.i:                ; preds = %sw.epilog.i.i.i
-  %2 = load i64, ptr %idx.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %x509_s.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %cinf_s.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %crl_s.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %crl_info_s.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i.i.i)
-  %3 = and i64 %2, 4294967295
-  %cmp.i = icmp eq i64 %3, 4294967295
-  br i1 %cmp.i, label %X509_OBJECT_retrieve_by_subject.exit, label %if.end.i
+X509_OBJECT_idx_by_subject.exit.i:                ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  %25 = and i64 %24, 4294967295
+  %26 = icmp eq i64 %25, 4294967295
+  br i1 %26, label %X509_OBJECT_retrieve_by_subject.exit, label %27
 
-if.end.i:                                         ; preds = %X509_OBJECT_idx_by_subject.exit.i
-  %sext.i = shl i64 %2, 32
-  %conv.i = ashr exact i64 %sext.i, 32
-  %call1.i = call ptr @sk_value(ptr noundef %1, i64 noundef %conv.i) #10
+27:                                               ; preds = %X509_OBJECT_idx_by_subject.exit.i
+  %sext.i = shl i64 %24, 32
+  %28 = ashr exact i64 %sext.i, 32
+  %29 = call ptr @sk_value(ptr noundef %15, i64 noundef %28) #10
   br label %X509_OBJECT_retrieve_by_subject.exit
 
-X509_OBJECT_retrieve_by_subject.exit:             ; preds = %X509_OBJECT_idx_by_subject.exit.thread.i, %X509_OBJECT_idx_by_subject.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %call1.i, %if.end.i ], [ null, %X509_OBJECT_idx_by_subject.exit.i ], [ null, %X509_OBJECT_idx_by_subject.exit.thread.i ]
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock) #10
-  %cmp = icmp eq ptr %retval.0.i, null
-  %cmp3 = icmp eq i32 %type, 2
-  %or.cond = or i1 %cmp3, %cmp
-  br i1 %or.cond, label %if.then, label %if.end22
+X509_OBJECT_retrieve_by_subject.exit:             ; preds = %X509_OBJECT_idx_by_subject.exit.thread.i, %X509_OBJECT_idx_by_subject.exit.i, %27
+  %.0.i = phi ptr [ %29, %27 ], [ null, %X509_OBJECT_idx_by_subject.exit.i ], [ null, %X509_OBJECT_idx_by_subject.exit.thread.i ]
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %13) #10
+  %30 = icmp eq ptr %.0.i, null
+  %31 = icmp eq i32 %1, 2
+  %or.cond = or i1 %31, %30
+  br i1 %or.cond, label %32, label %61
 
-if.then:                                          ; preds = %X509_OBJECT_retrieve_by_subject.exit
-  %current_method = getelementptr inbounds nuw i8, ptr %vs, i64 8
-  %4 = load i32, ptr %current_method, align 8
-  %get_cert_methods = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %get_cert_methods, align 8
-  %call433 = call i64 @sk_num(ptr noundef %5) #10
-  %conv34 = trunc i64 %call433 to i32
-  %cmp535 = icmp slt i32 %4, %conv34
-  br i1 %cmp535, label %for.body.preheader, label %for.end
+32:                                               ; preds = %X509_OBJECT_retrieve_by_subject.exit
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load i32, ptr %33, align 8, !tbaa !83
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %36 = load ptr, ptr %35, align 8, !tbaa !33
+  %37 = call i64 @sk_num(ptr noundef %36) #10
+  %38 = trunc i64 %37 to i32
+  %39 = icmp slt i32 %34, %38
+  br i1 %39, label %.lr.ph.preheader, label %._crit_edge
 
-for.body.preheader:                               ; preds = %if.then
-  %6 = sext i32 %4 to i64
-  br label %for.body
+.lr.ph.preheader:                                 ; preds = %32
+  %40 = sext i32 %34 to i64
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %7 = load ptr, ptr %get_cert_methods, align 8
-  %call9 = call ptr @sk_value(ptr noundef %7, i64 noundef %indvars.iv) #10
-  %method.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
-  %8 = load ptr, ptr %method.i, align 8
-  %cmp.i21 = icmp eq ptr %8, null
-  br i1 %cmp.i21, label %for.inc, label %lor.lhs.false.i
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
+  %indvars.iv = phi i64 [ %40, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
+  %41 = load ptr, ptr %35, align 8, !tbaa !33
+  %42 = call ptr @sk_value(ptr noundef %41, i64 noundef %indvars.iv) #10
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !16
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.thread, label %46
 
-lor.lhs.false.i:                                  ; preds = %for.body
-  %get_by_subject.i = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %9 = load ptr, ptr %get_by_subject.i, align 8
-  %cmp2.i = icmp eq ptr %9, null
-  br i1 %cmp2.i, label %for.inc, label %if.end.i22
+46:                                               ; preds = %.lr.ph
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %48 = load ptr, ptr %47, align 8, !tbaa !23
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.thread, label %50
 
-if.end.i22:                                       ; preds = %lor.lhs.false.i
-  %skip.i = getelementptr inbounds nuw i8, ptr %call9, i64 4
-  %10 = load i32, ptr %skip.i, align 4
-  %tobool.not.i = icmp eq i32 %10, 0
-  br i1 %tobool.not.i, label %X509_LOOKUP_by_subject.exit, label %for.inc
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %52 = load i32, ptr %51, align 4, !tbaa !15
+  %.not.i = icmp eq i32 %52, 0
+  br i1 %.not.i, label %X509_LOOKUP_by_subject.exit, label %.thread
 
-X509_LOOKUP_by_subject.exit:                      ; preds = %if.end.i22
-  %call.i = call i32 %9(ptr noundef nonnull %call9, i32 noundef %type, ptr noundef %name, ptr noundef nonnull %stmp) #10
-  %cmp11 = icmp slt i32 %call.i, 0
-  br i1 %cmp11, label %if.then13, label %if.else
+X509_LOOKUP_by_subject.exit:                      ; preds = %50
+  %53 = call i32 %48(ptr noundef nonnull %42, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %11) #10
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %55, label %56
 
-if.then13:                                        ; preds = %X509_LOOKUP_by_subject.exit
-  store i32 %call.i, ptr %current_method, align 8
-  br label %return
+55:                                               ; preds = %X509_LOOKUP_by_subject.exit
+  store i32 %53, ptr %33, align 8, !tbaa !83
+  br label %X509_OBJECT_up_ref_count.exit
 
-if.else:                                          ; preds = %X509_LOOKUP_by_subject.exit
-  %tobool.not = icmp eq i32 %call.i, 0
-  br i1 %tobool.not, label %for.inc, label %for.end.thread
+56:                                               ; preds = %X509_LOOKUP_by_subject.exit
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %.thread, label %.thread40
 
-for.end.thread:                                   ; preds = %if.else
-  store i32 0, ptr %current_method, align 8
-  br label %if.end22
+.thread40:                                        ; preds = %56
+  store i32 0, ptr %33, align 8, !tbaa !83
+  br label %61
 
-for.inc:                                          ; preds = %lor.lhs.false.i, %for.body, %if.end.i22, %if.else
+.thread:                                          ; preds = %46, %.lr.ph, %50, %56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %11 = load ptr, ptr %get_cert_methods, align 8
-  %call4 = call i64 @sk_num(ptr noundef %11) #10
-  %sext = shl i64 %call4, 32
-  %12 = ashr exact i64 %sext, 32
-  %cmp5 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !10
+  %57 = load ptr, ptr %35, align 8, !tbaa !33
+  %58 = call i64 @sk_num(ptr noundef %57) #10
+  %sext = shl i64 %58, 32
+  %59 = ashr exact i64 %sext, 32
+  %60 = icmp slt i64 %indvars.iv.next, %59
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
-for.end:                                          ; preds = %for.inc, %if.then
-  store i32 0, ptr %current_method, align 8
-  br i1 %cmp, label %return, label %if.end22
+._crit_edge:                                      ; preds = %.thread, %32
+  store i32 0, ptr %33, align 8, !tbaa !83
+  br i1 %30, label %X509_OBJECT_up_ref_count.exit, label %61
 
-if.end22:                                         ; preds = %for.end.thread, %for.end, %X509_OBJECT_retrieve_by_subject.exit
-  %tmp.0 = phi ptr [ %retval.0.i, %for.end ], [ %retval.0.i, %X509_OBJECT_retrieve_by_subject.exit ], [ %stmp, %for.end.thread ]
-  %13 = load i32, ptr %tmp.0, align 8
-  store i32 %13, ptr %ret, align 8
-  %data = getelementptr inbounds nuw i8, ptr %tmp.0, i64 8
-  %14 = load ptr, ptr %data, align 8
-  %data25 = getelementptr inbounds nuw i8, ptr %ret, i64 8
-  store ptr %14, ptr %data25, align 8
-  switch i32 %13, label %return [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb1.i
+61:                                               ; preds = %.thread40, %._crit_edge, %X509_OBJECT_retrieve_by_subject.exit
+  %.031 = phi ptr [ %.0.i, %._crit_edge ], [ %.0.i, %X509_OBJECT_retrieve_by_subject.exit ], [ %11, %.thread40 ]
+  %62 = load i32, ptr %.031, align 8, !tbaa !38
+  store i32 %62, ptr %3, align 8, !tbaa !38
+  %63 = getelementptr inbounds nuw i8, ptr %.031, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !40
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %64, ptr %65, align 8, !tbaa !40
+  switch i32 %62, label %X509_OBJECT_up_ref_count.exit [
+    i32 1, label %66
+    i32 2, label %68
   ]
 
-sw.bb.i:                                          ; preds = %if.end22
-  %call.i24 = call ptr @X509_up_ref(ptr noundef %14) #10
-  br label %return
+66:                                               ; preds = %61
+  %67 = call ptr @X509_up_ref(ptr noundef %64) #10
+  br label %X509_OBJECT_up_ref_count.exit
 
-sw.bb1.i:                                         ; preds = %if.end22
-  call void @X509_CRL_up_ref(ptr noundef %14) #10
-  br label %return
+68:                                               ; preds = %61
+  call void @X509_CRL_up_ref(ptr noundef %64) #10
+  br label %X509_OBJECT_up_ref_count.exit
 
-return:                                           ; preds = %sw.bb1.i, %sw.bb.i, %if.end22, %for.end, %if.then13
-  %retval.0 = phi i32 [ %call.i, %if.then13 ], [ 0, %for.end ], [ 1, %if.end22 ], [ 1, %sw.bb.i ], [ 1, %sw.bb1.i ]
-  ret i32 %retval.0
+X509_OBJECT_up_ref_count.exit:                    ; preds = %68, %66, %61, %._crit_edge, %55
+  %.0 = phi i32 [ %53, %55 ], [ 0, %._crit_edge ], [ 1, %61 ], [ 1, %66 ], [ 1, %68 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
+  ret i32 %.0
 }
 
-declare void @CRYPTO_MUTEX_lock_write(ptr noundef) local_unnamed_addr #4
+declare void @CRYPTO_MUTEX_lock_write(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_OBJECT_retrieve_by_subject(ptr noundef %h, i32 noundef %type, ptr noundef %name) local_unnamed_addr #0 {
-entry:
-  %stmp.i.i = alloca %struct.x509_object_st, align 8
-  %x509_s.i.i = alloca %struct.x509_st, align 8
-  %cinf_s.i.i = alloca %struct.x509_cinf_st, align 8
-  %crl_s.i.i = alloca %struct.X509_crl_st, align 8
-  %crl_info_s.i.i = alloca %struct.X509_crl_info_st, align 8
-  %idx.i.i = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %x509_s.i.i)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %cinf_s.i.i)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %crl_s.i.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %crl_info_s.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %idx.i.i)
-  store i32 %type, ptr %stmp.i.i, align 8
-  switch i32 %type, label %X509_OBJECT_idx_by_subject.exit.thread [
-    i32 1, label %sw.bb.i.i
-    i32 2, label %sw.bb2.i.i
+define hidden ptr @X509_OBJECT_retrieve_by_subject(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.x509_object_st, align 8
+  %5 = alloca %struct.x509_st, align 8
+  %6 = alloca %struct.x509_cinf_st, align 8
+  %7 = alloca %struct.X509_crl_st, align 8
+  %8 = alloca %struct.X509_crl_info_st, align 8
+  %9 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #10
+  store i32 %1, ptr %4, align 8, !tbaa !38
+  switch i32 %1, label %X509_OBJECT_idx_by_subject.exit.thread [
+    i32 1, label %10
+    i32 2, label %13
   ]
 
-sw.bb.i.i:                                        ; preds = %entry
-  %data.i.i = getelementptr inbounds nuw i8, ptr %stmp.i.i, i64 8
-  store ptr %x509_s.i.i, ptr %data.i.i, align 8
-  store ptr %cinf_s.i.i, ptr %x509_s.i.i, align 8
-  %subject.i.i = getelementptr inbounds nuw i8, ptr %cinf_s.i.i, i64 40
-  store ptr %name, ptr %subject.i.i, align 8
-  br label %sw.epilog.i.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %5, ptr %11, align 8, !tbaa !40
+  store ptr %6, ptr %5, align 8, !tbaa !55
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %2, ptr %12, align 8, !tbaa !67
+  br label %16
 
-sw.bb2.i.i:                                       ; preds = %entry
-  %data3.i.i = getelementptr inbounds nuw i8, ptr %stmp.i.i, i64 8
-  store ptr %crl_s.i.i, ptr %data3.i.i, align 8
-  store ptr %crl_info_s.i.i, ptr %crl_s.i.i, align 8
-  %issuer.i.i = getelementptr inbounds nuw i8, ptr %crl_info_s.i.i, i64 16
-  store ptr %name, ptr %issuer.i.i, align 8
-  br label %sw.epilog.i.i
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %7, ptr %14, align 8, !tbaa !40
+  store ptr %8, ptr %7, align 8, !tbaa !74
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %2, ptr %15, align 8, !tbaa !80
+  br label %16
 
-sw.epilog.i.i:                                    ; preds = %sw.bb2.i.i, %sw.bb.i.i
-  %call.i.i = call i32 @sk_find(ptr noundef %h, ptr noundef nonnull %idx.i.i, ptr noundef nonnull %stmp.i.i) #10
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %X509_OBJECT_idx_by_subject.exit.thread, label %X509_OBJECT_idx_by_subject.exit
+16:                                               ; preds = %13, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  %17 = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %4) #10
+  %.not.i.i = icmp eq i32 %17, 0
+  %18 = load i64, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  br i1 %.not.i.i, label %X509_OBJECT_idx_by_subject.exit.thread, label %X509_OBJECT_idx_by_subject.exit
 
-X509_OBJECT_idx_by_subject.exit.thread:           ; preds = %entry, %sw.epilog.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %x509_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %cinf_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %crl_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %crl_info_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i.i)
-  br label %return
+X509_OBJECT_idx_by_subject.exit.thread:           ; preds = %3, %16
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  br label %24
 
-X509_OBJECT_idx_by_subject.exit:                  ; preds = %sw.epilog.i.i
-  %0 = load i64, ptr %idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %x509_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %cinf_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %crl_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %crl_info_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i.i)
-  %1 = and i64 %0, 4294967295
-  %cmp = icmp eq i64 %1, 4294967295
-  br i1 %cmp, label %return, label %if.end
+X509_OBJECT_idx_by_subject.exit:                  ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  %19 = and i64 %18, 4294967295
+  %20 = icmp eq i64 %19, 4294967295
+  br i1 %20, label %24, label %21
 
-if.end:                                           ; preds = %X509_OBJECT_idx_by_subject.exit
-  %sext = shl i64 %0, 32
-  %conv = ashr exact i64 %sext, 32
-  %call1 = call ptr @sk_value(ptr noundef %h, i64 noundef %conv) #10
-  br label %return
+21:                                               ; preds = %X509_OBJECT_idx_by_subject.exit
+  %sext = shl i64 %18, 32
+  %22 = ashr exact i64 %sext, 32
+  %23 = call ptr @sk_value(ptr noundef %0, i64 noundef %22) #10
+  br label %24
 
-return:                                           ; preds = %X509_OBJECT_idx_by_subject.exit.thread, %X509_OBJECT_idx_by_subject.exit, %if.end
-  %retval.0 = phi ptr [ %call1, %if.end ], [ null, %X509_OBJECT_idx_by_subject.exit ], [ null, %X509_OBJECT_idx_by_subject.exit.thread ]
-  ret ptr %retval.0
+24:                                               ; preds = %X509_OBJECT_idx_by_subject.exit.thread, %X509_OBJECT_idx_by_subject.exit, %21
+  %.0 = phi ptr [ %23, %21 ], [ null, %X509_OBJECT_idx_by_subject.exit ], [ null, %X509_OBJECT_idx_by_subject.exit.thread ]
+  ret ptr %.0
 }
 
-declare void @CRYPTO_MUTEX_unlock(ptr noundef) local_unnamed_addr #4
+declare void @CRYPTO_MUTEX_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_OBJECT_up_ref_count(ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr %a, align 8
-  switch i32 %0, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb1
+define hidden void @X509_OBJECT_up_ref_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+  %2 = load i32, ptr %0, align 8, !tbaa !38
+  switch i32 %2, label %10 [
+    i32 1, label %3
+    i32 2, label %7
   ]
 
-sw.bb:                                            ; preds = %entry
-  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %1 = load ptr, ptr %data, align 8
-  %call = tail call ptr @X509_up_ref(ptr noundef %1) #10
-  br label %sw.epilog
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %6 = tail call ptr @X509_up_ref(ptr noundef %5) #10
+  br label %10
 
-sw.bb1:                                           ; preds = %entry
-  %data2 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %2 = load ptr, ptr %data2, align 8
-  tail call void @X509_CRL_up_ref(ptr noundef %2) #10
-  br label %sw.epilog
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  tail call void @X509_CRL_up_ref(ptr noundef %9) #10
+  br label %10
 
-sw.epilog:                                        ; preds = %sw.bb1, %sw.bb, %entry
+10:                                               ; preds = %7, %3, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_STORE_add_cert(ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %x, null
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @X509_STORE_add_cert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %1, null
+  br i1 %3, label %24, label %4
 
-if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %if.then2, label %X509_OBJECT_up_ref_count.exit
+4:                                                ; preds = %2
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %X509_OBJECT_up_ref_count.exit
 
-if.then2:                                         ; preds = %if.end
+7:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 349) #10
-  br label %return
+  br label %24
 
-X509_OBJECT_up_ref_count.exit:                    ; preds = %if.end
-  store i32 1, ptr %call, align 8
-  %data = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %x, ptr %data, align 8
-  %objs_lock = getelementptr inbounds nuw i8, ptr %ctx, i64 16
-  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #10
-  %call.i = tail call ptr @X509_up_ref(ptr noundef nonnull %x) #10
-  %objs = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %objs, align 8
-  %call4 = tail call ptr @X509_OBJECT_retrieve_match(ptr noundef %0, ptr noundef nonnull %call)
-  %tobool.not = icmp eq ptr %call4, null
-  br i1 %tobool.not, label %if.else, label %if.then5
+X509_OBJECT_up_ref_count.exit:                    ; preds = %4
+  store i32 1, ptr %5, align 8, !tbaa !38
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %9) #10
+  %10 = tail call ptr @X509_up_ref(ptr noundef nonnull %1) #10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
+  %13 = tail call ptr @X509_OBJECT_retrieve_match(ptr noundef %12, ptr noundef nonnull %5)
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %20, label %14
 
-if.then5:                                         ; preds = %X509_OBJECT_up_ref_count.exit
-  %1 = load i32, ptr %call, align 8
-  switch i32 %1, label %X509_OBJECT_free_contents.exit [
-    i32 1, label %sw.bb.i14
-    i32 2, label %sw.bb1.i12
+14:                                               ; preds = %X509_OBJECT_up_ref_count.exit
+  %15 = load i32, ptr %5, align 8, !tbaa !38
+  switch i32 %15, label %X509_OBJECT_free_contents.exit [
+    i32 1, label %16
+    i32 2, label %18
   ]
 
-sw.bb.i14:                                        ; preds = %if.then5
-  %2 = load ptr, ptr %data, align 8
-  tail call void @X509_free(ptr noundef %2) #10
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %8, align 8, !tbaa !40
+  tail call void @X509_free(ptr noundef %17) #10
   br label %X509_OBJECT_free_contents.exit
 
-sw.bb1.i12:                                       ; preds = %if.then5
-  %3 = load ptr, ptr %data, align 8
-  tail call void @X509_CRL_free(ptr noundef %3) #10
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %8, align 8, !tbaa !40
+  tail call void @X509_CRL_free(ptr noundef %19) #10
   br label %X509_OBJECT_free_contents.exit
 
-X509_OBJECT_free_contents.exit:                   ; preds = %if.then5, %sw.bb.i14, %sw.bb1.i12
-  tail call void @free(ptr noundef nonnull %call) #10
+X509_OBJECT_free_contents.exit:                   ; preds = %14, %16, %18
+  tail call void @free(ptr noundef nonnull %5) #10
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 105, ptr noundef nonnull @.str, i32 noundef 362) #10
-  br label %if.end8
+  br label %23
 
-if.else:                                          ; preds = %X509_OBJECT_up_ref_count.exit
-  %4 = load ptr, ptr %objs, align 8
-  %call7 = tail call i64 @sk_push(ptr noundef %4, ptr noundef nonnull %call) #10
-  br label %if.end8
+20:                                               ; preds = %X509_OBJECT_up_ref_count.exit
+  %21 = load ptr, ptr %11, align 8, !tbaa !27
+  %22 = tail call i64 @sk_push(ptr noundef %21, ptr noundef nonnull %5) #10
+  br label %23
 
-if.end8:                                          ; preds = %if.else, %X509_OBJECT_free_contents.exit
-  %ret.0 = phi i32 [ 0, %X509_OBJECT_free_contents.exit ], [ 1, %if.else ]
-  tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock) #10
-  br label %return
+23:                                               ; preds = %20, %X509_OBJECT_free_contents.exit
+  %.0 = phi i32 [ 0, %X509_OBJECT_free_contents.exit ], [ 1, %20 ]
+  tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %9) #10
+  br label %24
 
-return:                                           ; preds = %entry, %if.end8, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ %ret.0, %if.end8 ], [ 0, %entry ]
-  ret i32 %retval.0
+24:                                               ; preds = %2, %23, %7
+  %.015 = phi i32 [ 0, %7 ], [ %.0, %23 ], [ 0, %2 ]
+  ret i32 %.015
 }
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_OBJECT_retrieve_match(ptr noundef %h, ptr noundef %x) local_unnamed_addr #0 {
-entry:
-  %idx = alloca i64, align 8
-  %call = call i32 @sk_find(ptr noundef %h, ptr noundef nonnull %idx, ptr noundef %x) #10
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+define hidden ptr @X509_OBJECT_retrieve_match(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  %4 = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1) #10
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %x509_object_cmp.exit.thread25, label %5
 
-if.end:                                           ; preds = %entry
-  %0 = load i32, ptr %x, align 8
-  %.off = add i32 %0, -1
+5:                                                ; preds = %2
+  %6 = load i32, ptr %1, align 8, !tbaa !38
+  %.off = add i32 %6, -1
   %switch = icmp ult i32 %.off, 2
-  %1 = load i64, ptr %idx, align 8
-  br i1 %switch, label %if.end5, label %if.then3
+  %7 = load i64, ptr %3, align 8, !tbaa !85
+  br i1 %switch, label %10, label %8
 
-if.then3:                                         ; preds = %if.end
-  %call4 = call ptr @sk_value(ptr noundef %h, i64 noundef %1) #10
-  br label %return
+8:                                                ; preds = %5
+  %9 = call ptr @sk_value(ptr noundef %0, i64 noundef %7) #10
+  br label %x509_object_cmp.exit.thread25
 
-if.end5:                                          ; preds = %if.end
-  %call619 = call i64 @sk_num(ptr noundef %h) #10
-  %cmp720 = icmp ult i64 %1, %call619
-  br i1 %cmp720, label %for.body.lr.ph, label %return
+10:                                               ; preds = %5
+  %11 = call i64 @sk_num(ptr noundef %0) #10
+  %12 = icmp ult i64 %7, %11
+  br i1 %12, label %.lr.ph, label %x509_object_cmp.exit.thread25
 
-for.body.lr.ph:                                   ; preds = %if.end5
-  %data6.i = getelementptr inbounds nuw i8, ptr %x, i64 8
-  br label %for.body
+.lr.ph:                                           ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %14
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.021 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %call8 = call ptr @sk_value(ptr noundef %h, i64 noundef %i.021) #10
-  %2 = load i32, ptr %call8, align 8
-  %3 = load i32, ptr %x, align 8
-  %tobool.not.i = icmp eq i32 %2, %3
-  br i1 %tobool.not.i, label %if.end.i, label %return
+14:                                               ; preds = %.lr.ph, %40
+  %.028 = phi i64 [ %7, %.lr.ph ], [ %41, %40 ]
+  %15 = call ptr @sk_value(ptr noundef %0, i64 noundef %.028) #10
+  %16 = load i32, ptr %15, align 8, !tbaa !38
+  %17 = load i32, ptr %1, align 8, !tbaa !38
+  %.not.i = icmp eq i32 %16, %17
+  br i1 %.not.i, label %18, label %x509_object_cmp.exit.thread25
 
-if.end.i:                                         ; preds = %for.body
-  switch i32 %2, label %if.end12 [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb4.i
+18:                                               ; preds = %14
+  switch i32 %16, label %x509_object_cmp.exit.thread [
+    i32 1, label %19
+    i32 2, label %24
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i
-  %data.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
-  %4 = load ptr, ptr %data.i, align 8
-  %5 = load ptr, ptr %data6.i, align 8
-  %call.i = call i32 @X509_subject_name_cmp(ptr noundef %4, ptr noundef %5) #10
+19:                                               ; preds = %18
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
+  %22 = load ptr, ptr %13, align 8, !tbaa !40
+  %23 = call i32 @X509_subject_name_cmp(ptr noundef %21, ptr noundef %22) #10
   br label %x509_object_cmp.exit
 
-sw.bb4.i:                                         ; preds = %if.end.i
-  %data5.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
-  %6 = load ptr, ptr %data5.i, align 8
-  %7 = load ptr, ptr %data6.i, align 8
-  %call7.i = call i32 @X509_CRL_cmp(ptr noundef %6, ptr noundef %7) #10
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %27 = load ptr, ptr %13, align 8, !tbaa !40
+  %28 = call i32 @X509_CRL_cmp(ptr noundef %26, ptr noundef %27) #10
   br label %x509_object_cmp.exit
 
-x509_object_cmp.exit:                             ; preds = %sw.bb.i, %sw.bb4.i
-  %retval.0.i = phi i32 [ %call7.i, %sw.bb4.i ], [ %call.i, %sw.bb.i ]
-  %tobool10.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool10.not, label %if.end12thread-pre-split, label %return
+x509_object_cmp.exit:                             ; preds = %19, %24
+  %.010.i = phi i32 [ %28, %24 ], [ %23, %19 ]
+  %.not12 = icmp eq i32 %.010.i, 0
+  br i1 %.not12, label %thread-pre-split, label %x509_object_cmp.exit.thread25
 
-if.end12thread-pre-split:                         ; preds = %x509_object_cmp.exit
-  %.pr = load i32, ptr %x, align 8
-  br label %if.end12
+thread-pre-split:                                 ; preds = %x509_object_cmp.exit
+  %.pr = load i32, ptr %1, align 8, !tbaa !38
+  br label %x509_object_cmp.exit.thread
 
-if.end12:                                         ; preds = %if.end.i, %if.end12thread-pre-split
-  %8 = phi i32 [ %.pr, %if.end12thread-pre-split ], [ %2, %if.end.i ]
-  switch i32 %8, label %return [
-    i32 1, label %if.then15
-    i32 2, label %if.then23
+x509_object_cmp.exit.thread:                      ; preds = %18, %thread-pre-split
+  %29 = phi i32 [ %.pr, %thread-pre-split ], [ %16, %18 ]
+  switch i32 %29, label %x509_object_cmp.exit.thread25 [
+    i32 1, label %30
+    i32 2, label %35
   ]
 
-if.then15:                                        ; preds = %if.end12
-  %data = getelementptr inbounds nuw i8, ptr %call8, i64 8
-  %9 = load ptr, ptr %data, align 8
-  %10 = load ptr, ptr %data6.i, align 8
-  %call17 = call i32 @X509_cmp(ptr noundef %9, ptr noundef %10) #10
-  %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %return, label %for.inc
+30:                                               ; preds = %x509_object_cmp.exit.thread
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !40
+  %33 = load ptr, ptr %13, align 8, !tbaa !40
+  %34 = call i32 @X509_cmp(ptr noundef %32, ptr noundef %33) #10
+  %.not14 = icmp eq i32 %34, 0
+  br i1 %.not14, label %x509_object_cmp.exit.thread25, label %40
 
-if.then23:                                        ; preds = %if.end12
-  %data24 = getelementptr inbounds nuw i8, ptr %call8, i64 8
-  %11 = load ptr, ptr %data24, align 8
-  %12 = load ptr, ptr %data6.i, align 8
-  %call26 = call i32 @X509_CRL_match(ptr noundef %11, ptr noundef %12) #10
-  %tobool27.not = icmp eq i32 %call26, 0
-  br i1 %tobool27.not, label %return, label %for.inc
+35:                                               ; preds = %x509_object_cmp.exit.thread
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !40
+  %38 = load ptr, ptr %13, align 8, !tbaa !40
+  %39 = call i32 @X509_CRL_match(ptr noundef %37, ptr noundef %38) #10
+  %.not13 = icmp eq i32 %39, 0
+  br i1 %.not13, label %x509_object_cmp.exit.thread25, label %40
 
-for.inc:                                          ; preds = %if.then15, %if.then23
-  %inc = add nuw i64 %i.021, 1
-  %call6 = call i64 @sk_num(ptr noundef %h) #10
-  %cmp7 = icmp ult i64 %inc, %call6
-  br i1 %cmp7, label %for.body, label %return, !llvm.loop !11
+40:                                               ; preds = %30, %35
+  %41 = add nuw i64 %.028, 1
+  %42 = call i64 @sk_num(ptr noundef %0) #10
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %14, label %x509_object_cmp.exit.thread25, !llvm.loop !86
 
-return:                                           ; preds = %x509_object_cmp.exit, %for.inc, %if.then15, %if.then23, %if.end12, %for.body, %if.end5, %entry, %if.then3
-  %retval.0 = phi ptr [ %call4, %if.then3 ], [ null, %entry ], [ null, %if.end5 ], [ null, %x509_object_cmp.exit ], [ null, %for.inc ], [ %call8, %if.then15 ], [ %call8, %if.then23 ], [ %call8, %if.end12 ], [ null, %for.body ]
-  ret ptr %retval.0
+x509_object_cmp.exit.thread25:                    ; preds = %x509_object_cmp.exit, %40, %30, %35, %x509_object_cmp.exit.thread, %14, %10, %2, %8
+  %.07 = phi ptr [ %9, %8 ], [ null, %2 ], [ null, %10 ], [ null, %x509_object_cmp.exit ], [ null, %40 ], [ %15, %30 ], [ %15, %35 ], [ %15, %x509_object_cmp.exit.thread ], [ null, %14 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  ret ptr %.07
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_OBJECT_free_contents(ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr %a, align 8
-  switch i32 %0, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb1
+define hidden void @X509_OBJECT_free_contents(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+  %2 = load i32, ptr %0, align 8, !tbaa !38
+  switch i32 %2, label %9 [
+    i32 1, label %3
+    i32 2, label %6
   ]
 
-sw.bb:                                            ; preds = %entry
-  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %1 = load ptr, ptr %data, align 8
-  tail call void @X509_free(ptr noundef %1) #10
-  br label %sw.epilog
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  tail call void @X509_free(ptr noundef %5) #10
+  br label %9
 
-sw.bb1:                                           ; preds = %entry
-  %data2 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %2 = load ptr, ptr %data2, align 8
-  tail call void @X509_CRL_free(ptr noundef %2) #10
-  br label %sw.epilog
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  tail call void @X509_CRL_free(ptr noundef %8) #10
+  br label %9
 
-sw.epilog:                                        ; preds = %sw.bb1, %sw.bb, %entry
+9:                                                ; preds = %6, %3, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_STORE_add_crl(ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %x, null
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @X509_STORE_add_crl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %1, null
+  br i1 %3, label %23, label %4
 
-if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %if.then2, label %X509_OBJECT_up_ref_count.exit
+4:                                                ; preds = %2
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %X509_OBJECT_up_ref_count.exit
 
-if.then2:                                         ; preds = %if.end
+7:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 381) #10
-  br label %return
+  br label %23
 
-X509_OBJECT_up_ref_count.exit:                    ; preds = %if.end
-  store i32 2, ptr %call, align 8
-  %data = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %x, ptr %data, align 8
-  %objs_lock = getelementptr inbounds nuw i8, ptr %ctx, i64 16
-  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #10
-  tail call void @X509_CRL_up_ref(ptr noundef nonnull %x) #10
-  %objs = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %objs, align 8
-  %call4 = tail call ptr @X509_OBJECT_retrieve_match(ptr noundef %0, ptr noundef nonnull %call)
-  %tobool.not = icmp eq ptr %call4, null
-  br i1 %tobool.not, label %if.else, label %if.then5
+X509_OBJECT_up_ref_count.exit:                    ; preds = %4
+  store i32 2, ptr %5, align 8, !tbaa !38
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %9) #10
+  tail call void @X509_CRL_up_ref(ptr noundef nonnull %1) #10
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %12 = tail call ptr @X509_OBJECT_retrieve_match(ptr noundef %11, ptr noundef nonnull %5)
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %19, label %13
 
-if.then5:                                         ; preds = %X509_OBJECT_up_ref_count.exit
-  %1 = load i32, ptr %call, align 8
-  switch i32 %1, label %X509_OBJECT_free_contents.exit [
-    i32 1, label %sw.bb.i14
-    i32 2, label %sw.bb1.i12
+13:                                               ; preds = %X509_OBJECT_up_ref_count.exit
+  %14 = load i32, ptr %5, align 8, !tbaa !38
+  switch i32 %14, label %X509_OBJECT_free_contents.exit [
+    i32 1, label %15
+    i32 2, label %17
   ]
 
-sw.bb.i14:                                        ; preds = %if.then5
-  %2 = load ptr, ptr %data, align 8
-  tail call void @X509_free(ptr noundef %2) #10
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %8, align 8, !tbaa !40
+  tail call void @X509_free(ptr noundef %16) #10
   br label %X509_OBJECT_free_contents.exit
 
-sw.bb1.i12:                                       ; preds = %if.then5
-  %3 = load ptr, ptr %data, align 8
-  tail call void @X509_CRL_free(ptr noundef %3) #10
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8, !tbaa !40
+  tail call void @X509_CRL_free(ptr noundef %18) #10
   br label %X509_OBJECT_free_contents.exit
 
-X509_OBJECT_free_contents.exit:                   ; preds = %if.then5, %sw.bb.i14, %sw.bb1.i12
-  tail call void @free(ptr noundef nonnull %call) #10
+X509_OBJECT_free_contents.exit:                   ; preds = %13, %15, %17
+  tail call void @free(ptr noundef nonnull %5) #10
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 105, ptr noundef nonnull @.str, i32 noundef 394) #10
-  br label %if.end8
+  br label %22
 
-if.else:                                          ; preds = %X509_OBJECT_up_ref_count.exit
-  %4 = load ptr, ptr %objs, align 8
-  %call7 = tail call i64 @sk_push(ptr noundef %4, ptr noundef nonnull %call) #10
-  br label %if.end8
+19:                                               ; preds = %X509_OBJECT_up_ref_count.exit
+  %20 = load ptr, ptr %10, align 8, !tbaa !27
+  %21 = tail call i64 @sk_push(ptr noundef %20, ptr noundef nonnull %5) #10
+  br label %22
 
-if.end8:                                          ; preds = %if.else, %X509_OBJECT_free_contents.exit
-  %ret.0 = phi i32 [ 0, %X509_OBJECT_free_contents.exit ], [ 1, %if.else ]
-  tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock) #10
-  br label %return
+22:                                               ; preds = %19, %X509_OBJECT_free_contents.exit
+  %.0 = phi i32 [ 0, %X509_OBJECT_free_contents.exit ], [ 1, %19 ]
+  tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %9) #10
+  br label %23
 
-return:                                           ; preds = %entry, %if.end8, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ %ret.0, %if.end8 ], [ 0, %entry ]
-  ret i32 %retval.0
+23:                                               ; preds = %2, %22, %7
+  %.015 = phi i32 [ 0, %7 ], [ %.0, %22 ], [ 0, %2 ]
+  ret i32 %.015
 }
 
-declare ptr @X509_up_ref(ptr noundef) local_unnamed_addr #4
+declare ptr @X509_up_ref(ptr noundef) local_unnamed_addr #5
 
-declare void @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #4
+declare void @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #5
 
-declare void @X509_free(ptr noundef) #4
+declare void @X509_free(ptr noundef) #5
 
-declare void @X509_CRL_free(ptr noundef) #4
+declare void @X509_CRL_free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_OBJECT_idx_by_subject(ptr noundef %h, i32 noundef %type, ptr noundef %name) local_unnamed_addr #0 {
-entry:
-  %stmp.i = alloca %struct.x509_object_st, align 8
-  %x509_s.i = alloca %struct.x509_st, align 8
-  %cinf_s.i = alloca %struct.x509_cinf_st, align 8
-  %crl_s.i = alloca %struct.X509_crl_st, align 8
-  %crl_info_s.i = alloca %struct.X509_crl_info_st, align 8
-  %idx.i = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmp.i)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %x509_s.i)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %cinf_s.i)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %crl_s.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %crl_info_s.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %idx.i)
-  store i32 %type, ptr %stmp.i, align 8
-  switch i32 %type, label %x509_object_idx_cnt.exit [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb2.i
+define hidden i32 @X509_OBJECT_idx_by_subject(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.x509_object_st, align 8
+  %5 = alloca %struct.x509_st, align 8
+  %6 = alloca %struct.x509_cinf_st, align 8
+  %7 = alloca %struct.X509_crl_st, align 8
+  %8 = alloca %struct.X509_crl_info_st, align 8
+  %9 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #10
+  store i32 %1, ptr %4, align 8, !tbaa !38
+  switch i32 %1, label %x509_object_idx_cnt.exit [
+    i32 1, label %10
+    i32 2, label %13
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %data.i = getelementptr inbounds nuw i8, ptr %stmp.i, i64 8
-  store ptr %x509_s.i, ptr %data.i, align 8
-  store ptr %cinf_s.i, ptr %x509_s.i, align 8
-  %subject.i = getelementptr inbounds nuw i8, ptr %cinf_s.i, i64 40
-  store ptr %name, ptr %subject.i, align 8
-  br label %sw.epilog.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %5, ptr %11, align 8, !tbaa !40
+  store ptr %6, ptr %5, align 8, !tbaa !55
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %2, ptr %12, align 8, !tbaa !67
+  br label %16
 
-sw.bb2.i:                                         ; preds = %entry
-  %data3.i = getelementptr inbounds nuw i8, ptr %stmp.i, i64 8
-  store ptr %crl_s.i, ptr %data3.i, align 8
-  store ptr %crl_info_s.i, ptr %crl_s.i, align 8
-  %issuer.i = getelementptr inbounds nuw i8, ptr %crl_info_s.i, i64 16
-  store ptr %name, ptr %issuer.i, align 8
-  br label %sw.epilog.i
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %7, ptr %14, align 8, !tbaa !40
+  store ptr %8, ptr %7, align 8, !tbaa !74
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %2, ptr %15, align 8, !tbaa !80
+  br label %16
 
-sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb.i
-  %call.i = call i32 @sk_find(ptr noundef %h, ptr noundef nonnull %idx.i, ptr noundef nonnull %stmp.i) #10
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %x509_object_idx_cnt.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %sw.epilog.i
-  %0 = load i64, ptr %idx.i, align 8
-  %conv17.i = trunc i64 %0 to i32
+16:                                               ; preds = %13, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  %17 = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %4) #10
+  %.not.i = icmp eq i32 %17, 0
+  %18 = load i64, ptr %9, align 8
+  %19 = trunc i64 %18 to i32
+  %.1.i = select i1 %.not.i, i32 -1, i32 %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   br label %x509_object_idx_cnt.exit
 
-x509_object_idx_cnt.exit:                         ; preds = %entry, %sw.epilog.i, %if.end.i
-  %retval.0.i = phi i32 [ %conv17.i, %if.end.i ], [ -1, %entry ], [ -1, %sw.epilog.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %x509_s.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %cinf_s.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %crl_s.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %crl_info_s.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i)
-  ret i32 %retval.0.i
+x509_object_idx_cnt.exit:                         ; preds = %3, %16
+  %.013.i = phi i32 [ %.1.i, %16 ], [ -1, %3 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  ret i32 %.013.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %h, i32 noundef %type, ptr noundef %name, ptr noundef captures(address_is_null) %pnmatch) unnamed_addr #0 {
-entry:
-  %stmp = alloca %struct.x509_object_st, align 8
-  %x509_s = alloca %struct.x509_st, align 8
-  %cinf_s = alloca %struct.x509_cinf_st, align 8
-  %crl_s = alloca %struct.X509_crl_st, align 8
-  %crl_info_s = alloca %struct.X509_crl_info_st, align 8
-  %idx = alloca i64, align 8
-  store i32 %type, ptr %stmp, align 8
-  switch i32 %type, label %return [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb2
+define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+  %5 = alloca %struct.x509_object_st, align 8
+  %6 = alloca %struct.x509_st, align 8
+  %7 = alloca %struct.x509_cinf_st, align 8
+  %8 = alloca %struct.X509_crl_st, align 8
+  %9 = alloca %struct.X509_crl_info_st, align 8
+  %10 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #10
+  store i32 %1, ptr %5, align 8, !tbaa !38
+  switch i32 %1, label %51 [
+    i32 1, label %11
+    i32 2, label %14
   ]
 
-sw.bb:                                            ; preds = %entry
-  %data = getelementptr inbounds nuw i8, ptr %stmp, i64 8
-  store ptr %x509_s, ptr %data, align 8
-  store ptr %cinf_s, ptr %x509_s, align 8
-  %subject = getelementptr inbounds nuw i8, ptr %cinf_s, i64 40
-  store ptr %name, ptr %subject, align 8
-  br label %sw.epilog
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %6, ptr %12, align 8, !tbaa !40
+  store ptr %7, ptr %6, align 8, !tbaa !55
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %2, ptr %13, align 8, !tbaa !67
+  br label %17
 
-sw.bb2:                                           ; preds = %entry
-  %data3 = getelementptr inbounds nuw i8, ptr %stmp, i64 8
-  store ptr %crl_s, ptr %data3, align 8
-  store ptr %crl_info_s, ptr %crl_s, align 8
-  %issuer = getelementptr inbounds nuw i8, ptr %crl_info_s, i64 16
-  store ptr %name, ptr %issuer, align 8
-  br label %sw.epilog
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %8, ptr %15, align 8, !tbaa !40
+  store ptr %9, ptr %8, align 8, !tbaa !74
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %2, ptr %16, align 8, !tbaa !80
+  br label %17
 
-sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
-  %call = call i32 @sk_find(ptr noundef %h, ptr noundef nonnull %idx, ptr noundef nonnull %stmp) #10
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+17:                                               ; preds = %14, %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  %18 = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %5) #10
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %50, label %19
 
-if.end:                                           ; preds = %sw.epilog
-  %cmp.not = icmp eq ptr %pnmatch, null
-  br i1 %cmp.not, label %if.end16, label %if.then4
+19:                                               ; preds = %17
+  %.not15 = icmp eq ptr %3, null
+  br i1 %.not15, label %x509_object_cmp.exit.thread20, label %20
 
-if.then4:                                         ; preds = %if.end
-  store i32 1, ptr %pnmatch, align 4
-  %0 = load i64, ptr %idx, align 8
-  %1 = trunc i64 %0 to i32
-  %tidx.014 = add i32 %1, 1
-  %call515 = call i64 @sk_num(ptr noundef %h) #10
-  %conv616 = trunc i64 %call515 to i32
-  %cmp717 = icmp slt i32 %tidx.014, %conv616
-  br i1 %cmp717, label %for.body.lr.ph, label %if.end16
+20:                                               ; preds = %19
+  store i32 1, ptr %3, align 4, !tbaa !87
+  %21 = load i64, ptr %10, align 8, !tbaa !85
+  %22 = trunc i64 %21 to i32
+  %.023 = add i32 %22, 1
+  %23 = call i64 @sk_num(ptr noundef %0) #10
+  %24 = trunc i64 %23 to i32
+  %25 = icmp slt i32 %.023, %24
+  br i1 %25, label %.lr.ph, label %x509_object_cmp.exit.thread20
 
-for.body.lr.ph:                                   ; preds = %if.then4
-  %data6.i = getelementptr inbounds nuw i8, ptr %stmp, i64 8
-  %2 = sext i32 %tidx.014 to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %27 = sext i32 %.023 to i64
+  br label %28
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end14
-  %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %if.end14 ]
-  %call10 = call ptr @sk_value(ptr noundef %h, i64 noundef %indvars.iv) #10
-  %3 = load i32, ptr %call10, align 8
-  %4 = load i32, ptr %stmp, align 8
-  %tobool.not.i = icmp eq i32 %3, %4
-  br i1 %tobool.not.i, label %if.end.i, label %if.end16
+28:                                               ; preds = %.lr.ph, %x509_object_cmp.exit.thread
+  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %x509_object_cmp.exit.thread ]
+  %29 = call ptr @sk_value(ptr noundef %0, i64 noundef %indvars.iv) #10
+  %30 = load i32, ptr %29, align 8, !tbaa !38
+  %31 = load i32, ptr %5, align 8, !tbaa !38
+  %.not.i = icmp eq i32 %30, %31
+  br i1 %.not.i, label %32, label %x509_object_cmp.exit.thread20
 
-if.end.i:                                         ; preds = %for.body
-  switch i32 %3, label %if.end14 [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb4.i
+32:                                               ; preds = %28
+  switch i32 %30, label %x509_object_cmp.exit.thread [
+    i32 1, label %33
+    i32 2, label %38
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i
-  %data.i = getelementptr inbounds nuw i8, ptr %call10, i64 8
-  %5 = load ptr, ptr %data.i, align 8
-  %6 = load ptr, ptr %data6.i, align 8
-  %call.i = call i32 @X509_subject_name_cmp(ptr noundef %5, ptr noundef %6) #10
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !40
+  %36 = load ptr, ptr %26, align 8, !tbaa !40
+  %37 = call i32 @X509_subject_name_cmp(ptr noundef %35, ptr noundef %36) #10
   br label %x509_object_cmp.exit
 
-sw.bb4.i:                                         ; preds = %if.end.i
-  %data5.i = getelementptr inbounds nuw i8, ptr %call10, i64 8
-  %7 = load ptr, ptr %data5.i, align 8
-  %8 = load ptr, ptr %data6.i, align 8
-  %call7.i = call i32 @X509_CRL_cmp(ptr noundef %7, ptr noundef %8) #10
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !40
+  %41 = load ptr, ptr %26, align 8, !tbaa !40
+  %42 = call i32 @X509_CRL_cmp(ptr noundef %40, ptr noundef %41) #10
   br label %x509_object_cmp.exit
 
-x509_object_cmp.exit:                             ; preds = %sw.bb.i, %sw.bb4.i
-  %retval.0.i = phi i32 [ %call7.i, %sw.bb4.i ], [ %call.i, %sw.bb.i ]
-  %tobool12.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool12.not, label %if.end14, label %if.end16
+x509_object_cmp.exit:                             ; preds = %33, %38
+  %.010.i = phi i32 [ %42, %38 ], [ %37, %33 ]
+  %.not16 = icmp eq i32 %.010.i, 0
+  br i1 %.not16, label %x509_object_cmp.exit.thread, label %x509_object_cmp.exit.thread20
 
-if.end14:                                         ; preds = %if.end.i, %x509_object_cmp.exit
-  %9 = load i32, ptr %pnmatch, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %pnmatch, align 4
+x509_object_cmp.exit.thread:                      ; preds = %32, %x509_object_cmp.exit
+  %43 = load i32, ptr %3, align 4, !tbaa !87
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %3, align 4, !tbaa !87
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %call5 = call i64 @sk_num(ptr noundef %h) #10
-  %sext = shl i64 %call5, 32
-  %10 = ashr exact i64 %sext, 32
-  %cmp7 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %cmp7, label %for.body, label %if.end16, !llvm.loop !12
+  %45 = call i64 @sk_num(ptr noundef %0) #10
+  %sext = shl i64 %45, 32
+  %46 = ashr exact i64 %sext, 32
+  %47 = icmp slt i64 %indvars.iv.next, %46
+  br i1 %47, label %28, label %x509_object_cmp.exit.thread20, !llvm.loop !88
 
-if.end16:                                         ; preds = %x509_object_cmp.exit, %if.end14, %for.body, %if.then4, %if.end
-  %11 = load i64, ptr %idx, align 8
-  %conv17 = trunc i64 %11 to i32
-  br label %return
+x509_object_cmp.exit.thread20:                    ; preds = %x509_object_cmp.exit, %x509_object_cmp.exit.thread, %28, %20, %19
+  %48 = load i64, ptr %10, align 8, !tbaa !85
+  %49 = trunc i64 %48 to i32
+  br label %50
 
-return:                                           ; preds = %sw.epilog, %entry, %if.end16
-  %retval.0 = phi i32 [ %conv17, %if.end16 ], [ -1, %entry ], [ -1, %sw.epilog ]
-  ret i32 %retval.0
+50:                                               ; preds = %17, %x509_object_cmp.exit.thread20
+  %.1 = phi i32 [ %49, %x509_object_cmp.exit.thread20 ], [ -1, %17 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  br label %51
+
+51:                                               ; preds = %4, %50
+  %.013 = phi i32 [ %.1, %50 ], [ -1, %4 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %ctx, ptr noundef %nm) local_unnamed_addr #0 {
-entry:
-  %cnt = alloca i32, align 4
-  %xobj = alloca %struct.x509_object_st, align 8
-  %call = tail call ptr @sk_new_null() #10
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return, label %if.end
+define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.x509_object_st, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  %5 = tail call ptr @sk_new_null() #10
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %59, label %7
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %ctx, align 8
-  %objs_lock = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #10
-  %1 = load ptr, ptr %ctx, align 8
-  %objs = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load ptr, ptr %objs, align 8
-  %call3 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %2, i32 noundef 1, ptr noundef %nm, ptr noundef nonnull %cnt)
-  %cmp4 = icmp slt i32 %call3, 0
-  br i1 %cmp4, label %if.then5, label %if.end21
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %0, align 8, !tbaa !45
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %9) #10
+  %10 = load ptr, ptr %0, align 8, !tbaa !45
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
+  %13 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %12, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3)
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %15, label %38
 
-if.then5:                                         ; preds = %if.end
-  %3 = load ptr, ptr %ctx, align 8
-  %objs_lock7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock7) #10
-  %call8 = call i32 @X509_STORE_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 1, ptr noundef %nm, ptr noundef nonnull %xobj)
-  %tobool.not = icmp eq i32 %call8, 0
-  br i1 %tobool.not, label %if.then9, label %if.end10
+15:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  %16 = load ptr, ptr %0, align 8, !tbaa !45
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %17) #10
+  %18 = call i32 @X509_STORE_get_by_subject(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %4)
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %.thread, label %19
 
-if.then9:                                         ; preds = %if.then5
-  call void @sk_free(ptr noundef nonnull %call) #10
-  br label %return
-
-if.end10:                                         ; preds = %if.then5
-  %4 = load i32, ptr %xobj, align 8
-  switch i32 %4, label %X509_OBJECT_free_contents.exit [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb1.i
+19:                                               ; preds = %15
+  %20 = load i32, ptr %4, align 8, !tbaa !38
+  switch i32 %20, label %X509_OBJECT_free_contents.exit [
+    i32 1, label %21
+    i32 2, label %24
   ]
 
-sw.bb.i:                                          ; preds = %if.end10
-  %data.i = getelementptr inbounds nuw i8, ptr %xobj, i64 8
-  %5 = load ptr, ptr %data.i, align 8
-  call void @X509_free(ptr noundef %5) #10
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !40
+  call void @X509_free(ptr noundef %23) #10
   br label %X509_OBJECT_free_contents.exit
 
-sw.bb1.i:                                         ; preds = %if.end10
-  %data2.i = getelementptr inbounds nuw i8, ptr %xobj, i64 8
-  %6 = load ptr, ptr %data2.i, align 8
-  call void @X509_CRL_free(ptr noundef %6) #10
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  call void @X509_CRL_free(ptr noundef %26) #10
   br label %X509_OBJECT_free_contents.exit
 
-X509_OBJECT_free_contents.exit:                   ; preds = %if.end10, %sw.bb.i, %sw.bb1.i
-  %7 = load ptr, ptr %ctx, align 8
-  %objs_lock12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock12) #10
-  %8 = load ptr, ptr %ctx, align 8
-  %objs14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %9 = load ptr, ptr %objs14, align 8
-  %call15 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %9, i32 noundef 1, ptr noundef %nm, ptr noundef nonnull %cnt)
-  %cmp16 = icmp slt i32 %call15, 0
-  br i1 %cmp16, label %if.then17, label %if.end21
+X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
+  %27 = load ptr, ptr %0, align 8, !tbaa !45
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %28) #10
+  %29 = load ptr, ptr %0, align 8, !tbaa !45
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
+  %32 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %31, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3)
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %37
 
-if.then17:                                        ; preds = %X509_OBJECT_free_contents.exit
-  %10 = load ptr, ptr %ctx, align 8
-  %objs_lock19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock19) #10
-  call void @sk_free(ptr noundef nonnull %call) #10
-  br label %return
+34:                                               ; preds = %X509_OBJECT_free_contents.exit
+  %35 = load ptr, ptr %0, align 8, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %36) #10
+  br label %.thread
 
-if.end21:                                         ; preds = %X509_OBJECT_free_contents.exit, %if.end
-  %idx.0 = phi i32 [ %call15, %X509_OBJECT_free_contents.exit ], [ %call3, %if.end ]
-  %11 = load i32, ptr %cnt, align 4
-  %cmp2222 = icmp sgt i32 %11, 0
-  br i1 %cmp2222, label %for.body.preheader, label %for.end
+.thread:                                          ; preds = %15, %34
+  call void @sk_free(ptr noundef nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  br label %59
 
-for.body.preheader:                               ; preds = %if.end21
-  %12 = zext nneg i32 %idx.0 to i64
-  br label %for.body
+37:                                               ; preds = %X509_OBJECT_free_contents.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  br label %38
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ %12, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %i.024 = phi i32 [ 0, %for.body.preheader ], [ %inc, %for.inc ]
-  %13 = load ptr, ptr %ctx, align 8
-  %objs24 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %14 = load ptr, ptr %objs24, align 8
-  %call25 = call ptr @sk_value(ptr noundef %14, i64 noundef %indvars.iv) #10
-  %data = getelementptr inbounds nuw i8, ptr %call25, i64 8
-  %15 = load ptr, ptr %data, align 8
-  %call26 = call ptr @X509_up_ref(ptr noundef %15) #10
-  %call27 = call i64 @sk_push(ptr noundef nonnull %call, ptr noundef %call26) #10
-  %tobool28.not = icmp eq i64 %call27, 0
-  br i1 %tobool28.not, label %if.then29, label %for.inc
+38:                                               ; preds = %37, %7
+  %.031 = phi i32 [ %32, %37 ], [ %13, %7 ]
+  %39 = load i32, ptr %3, align 4, !tbaa !87
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.lr.ph.preheader, label %._crit_edge
 
-if.then29:                                        ; preds = %for.body
-  %16 = load ptr, ptr %ctx, align 8
-  %objs_lock31 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock31) #10
-  call void @X509_free(ptr noundef %15) #10
-  call void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @X509_free) #10
-  br label %return
+.lr.ph.preheader:                                 ; preds = %38
+  %41 = zext nneg i32 %.031 to i64
+  br label %.lr.ph
 
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i32 %i.024, 1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
+  %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
+  %.03041 = phi i32 [ 0, %.lr.ph.preheader ], [ %54, %53 ]
+  %42 = load ptr, ptr %0, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !27
+  %45 = call ptr @sk_value(ptr noundef %44, i64 noundef %indvars.iv) #10
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !40
+  %48 = call ptr @X509_up_ref(ptr noundef %47) #10
+  %49 = call i64 @sk_push(ptr noundef nonnull %5, ptr noundef %48) #10
+  %.not37 = icmp eq i64 %49, 0
+  br i1 %.not37, label %50, label %53
+
+50:                                               ; preds = %.lr.ph
+  %51 = load ptr, ptr %0, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %52) #10
+  call void @X509_free(ptr noundef %47) #10
+  call void @sk_pop_free(ptr noundef nonnull %5, ptr noundef nonnull @X509_free) #10
+  br label %59
+
+53:                                               ; preds = %.lr.ph
+  %54 = add nuw nsw i32 %.03041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr %cnt, align 4
-  %cmp22 = icmp slt i32 %inc, %17
-  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !13
+  %55 = load i32, ptr %3, align 4, !tbaa !87
+  %56 = icmp slt i32 %54, %55
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !89
 
-for.end:                                          ; preds = %for.inc, %if.end21
-  %18 = load ptr, ptr %ctx, align 8
-  %objs_lock35 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock35) #10
-  br label %return
+._crit_edge:                                      ; preds = %53, %38
+  %57 = load ptr, ptr %0, align 8, !tbaa !45
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %58) #10
+  br label %59
 
-return:                                           ; preds = %entry, %for.end, %if.then29, %if.then17, %if.then9
-  %retval.0 = phi ptr [ null, %if.then17 ], [ null, %if.then29 ], [ %call, %for.end ], [ null, %if.then9 ], [ null, %entry ]
-  ret ptr %retval.0
+59:                                               ; preds = %.thread, %2, %._crit_edge, %50
+  %.029 = phi ptr [ null, %50 ], [ %5, %._crit_edge ], [ null, %2 ], [ null, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  ret ptr %.029
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_STORE_get1_crls(ptr noundef captures(none) %ctx, ptr noundef %nm) local_unnamed_addr #0 {
-entry:
-  %cnt = alloca i32, align 4
-  %xobj = alloca %struct.x509_object_st, align 8
-  %call = tail call ptr @sk_new_null() #10
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return, label %if.end
+define hidden ptr @X509_STORE_get1_crls(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.x509_object_st, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  %5 = tail call ptr @sk_new_null() #10
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %47, label %7
 
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @X509_STORE_get_by_subject(ptr noundef %ctx, i32 noundef 2, ptr noundef %nm, ptr noundef nonnull %xobj)
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %if.then2, label %if.end3
+7:                                                ; preds = %2
+  %8 = call i32 @X509_STORE_get_by_subject(ptr noundef %0, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %4)
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %9, label %10
 
-if.then2:                                         ; preds = %if.end
-  tail call void @sk_free(ptr noundef nonnull %call) #10
-  br label %return
+9:                                                ; preds = %7
+  tail call void @sk_free(ptr noundef nonnull %5) #10
+  br label %47
 
-if.end3:                                          ; preds = %if.end
-  %0 = load i32, ptr %xobj, align 8
-  switch i32 %0, label %X509_OBJECT_free_contents.exit [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb1.i
+10:                                               ; preds = %7
+  %11 = load i32, ptr %4, align 8, !tbaa !38
+  switch i32 %11, label %X509_OBJECT_free_contents.exit [
+    i32 1, label %12
+    i32 2, label %15
   ]
 
-sw.bb.i:                                          ; preds = %if.end3
-  %data.i = getelementptr inbounds nuw i8, ptr %xobj, i64 8
-  %1 = load ptr, ptr %data.i, align 8
-  tail call void @X509_free(ptr noundef %1) #10
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  tail call void @X509_free(ptr noundef %14) #10
   br label %X509_OBJECT_free_contents.exit
 
-sw.bb1.i:                                         ; preds = %if.end3
-  %data2.i = getelementptr inbounds nuw i8, ptr %xobj, i64 8
-  %2 = load ptr, ptr %data2.i, align 8
-  tail call void @X509_CRL_free(ptr noundef %2) #10
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !40
+  tail call void @X509_CRL_free(ptr noundef %17) #10
   br label %X509_OBJECT_free_contents.exit
 
-X509_OBJECT_free_contents.exit:                   ; preds = %if.end3, %sw.bb.i, %sw.bb1.i
-  %3 = load ptr, ptr %ctx, align 8
-  %objs_lock = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #10
-  %4 = load ptr, ptr %ctx, align 8
-  %objs = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = load ptr, ptr %objs, align 8
-  %call6 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %5, i32 noundef 2, ptr noundef %nm, ptr noundef nonnull %cnt)
-  %cmp7 = icmp slt i32 %call6, 0
-  br i1 %cmp7, label %if.then8, label %for.cond.preheader
+X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
+  %18 = load ptr, ptr %0, align 8, !tbaa !45
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %19) #10
+  %20 = load ptr, ptr %0, align 8, !tbaa !45
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !27
+  %23 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %22, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %3)
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %28, label %.preheader
 
-for.cond.preheader:                               ; preds = %X509_OBJECT_free_contents.exit
-  %6 = load i32, ptr %cnt, align 4
-  %cmp1218 = icmp sgt i32 %6, 0
-  br i1 %cmp1218, label %for.body.preheader, label %for.end
+.preheader:                                       ; preds = %X509_OBJECT_free_contents.exit
+  %25 = load i32, ptr %3, align 4, !tbaa !87
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %7 = zext nneg i32 %call6 to i64
-  br label %for.body
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %27 = zext nneg i32 %23 to i64
+  br label %.lr.ph
 
-if.then8:                                         ; preds = %X509_OBJECT_free_contents.exit
-  %8 = load ptr, ptr %ctx, align 8
-  %objs_lock10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock10) #10
-  call void @sk_free(ptr noundef nonnull %call) #10
-  br label %return
+28:                                               ; preds = %X509_OBJECT_free_contents.exit
+  %29 = load ptr, ptr %0, align 8, !tbaa !45
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %30) #10
+  call void @sk_free(ptr noundef nonnull %5) #10
+  br label %47
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ %7, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %i.020 = phi i32 [ 0, %for.body.preheader ], [ %inc, %for.inc ]
-  %9 = load ptr, ptr %ctx, align 8
-  %objs14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = load ptr, ptr %objs14, align 8
-  %call15 = call ptr @sk_value(ptr noundef %10, i64 noundef %indvars.iv) #10
-  %data = getelementptr inbounds nuw i8, ptr %call15, i64 8
-  %11 = load ptr, ptr %data, align 8
-  call void @X509_CRL_up_ref(ptr noundef %11) #10
-  %call16 = call i64 @sk_push(ptr noundef nonnull %call, ptr noundef %11) #10
-  %tobool17.not = icmp eq i64 %call16, 0
-  br i1 %tobool17.not, label %if.then18, label %for.inc
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
+  %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
+  %.02430 = phi i32 [ 0, %.lr.ph.preheader ], [ %42, %41 ]
+  %31 = load ptr, ptr %0, align 8, !tbaa !45
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %34 = call ptr @sk_value(ptr noundef %33, i64 noundef %indvars.iv) #10
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
+  call void @X509_CRL_up_ref(ptr noundef %36) #10
+  %37 = call i64 @sk_push(ptr noundef nonnull %5, ptr noundef %36) #10
+  %.not28 = icmp eq i64 %37, 0
+  br i1 %.not28, label %38, label %41
 
-if.then18:                                        ; preds = %for.body
-  %12 = load ptr, ptr %ctx, align 8
-  %objs_lock20 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock20) #10
-  call void @X509_CRL_free(ptr noundef %11) #10
-  call void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @X509_CRL_free) #10
-  br label %return
+38:                                               ; preds = %.lr.ph
+  %39 = load ptr, ptr %0, align 8, !tbaa !45
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %40) #10
+  call void @X509_CRL_free(ptr noundef %36) #10
+  call void @sk_pop_free(ptr noundef nonnull %5, ptr noundef nonnull @X509_CRL_free) #10
+  br label %47
 
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i32 %i.020, 1
+41:                                               ; preds = %.lr.ph
+  %42 = add nuw nsw i32 %.02430, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %cnt, align 4
-  %cmp12 = icmp slt i32 %inc, %13
-  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !14
+  %43 = load i32, ptr %3, align 4, !tbaa !87
+  %44 = icmp slt i32 %42, %43
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
-for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %14 = load ptr, ptr %ctx, align 8
-  %objs_lock24 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock24) #10
-  br label %return
+._crit_edge:                                      ; preds = %41, %.preheader
+  %45 = load ptr, ptr %0, align 8, !tbaa !45
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %46) #10
+  br label %47
 
-return:                                           ; preds = %entry, %for.end, %if.then18, %if.then8, %if.then2
-  %retval.0 = phi ptr [ null, %if.then8 ], [ null, %if.then18 ], [ %call, %for.end ], [ null, %if.then2 ], [ null, %entry ]
-  ret ptr %retval.0
+47:                                               ; preds = %2, %._crit_edge, %38, %28, %9
+  %.0 = phi ptr [ null, %28 ], [ null, %38 ], [ %5, %._crit_edge ], [ null, %9 ], [ null, %2 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  ret ptr %.0
 }
 
-declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @X509_CRL_match(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @X509_CRL_match(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @X509_STORE_CTX_get1_issuer(ptr noundef writeonly captures(none) %issuer, ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
-entry:
-  %stmp.i.i = alloca %struct.x509_object_st, align 8
-  %x509_s.i.i = alloca %struct.x509_st, align 8
-  %cinf_s.i.i = alloca %struct.x509_cinf_st, align 8
-  %idx.i.i = alloca i64, align 8
-  %obj = alloca %struct.x509_object_st, align 8
-  %call = tail call ptr @X509_get_issuer_name(ptr noundef %x) #10
-  %call1 = call i32 @X509_STORE_get_by_subject(ptr noundef %ctx, i32 noundef 1, ptr noundef %call, ptr noundef nonnull %obj)
-  switch i32 %call1, label %if.then5 [
-    i32 1, label %if.end7
-    i32 -1, label %if.then3
-    i32 0, label %return
+define hidden range(i32 -1, 2) i32 @X509_STORE_CTX_get1_issuer(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.x509_object_st, align 8
+  %5 = alloca %struct.x509_st, align 8
+  %6 = alloca %struct.x509_cinf_st, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.x509_object_st, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  %9 = tail call ptr @X509_get_issuer_name(ptr noundef %2) #10
+  %10 = call i32 @X509_STORE_get_by_subject(ptr noundef %1, i32 noundef 1, ptr noundef %9, ptr noundef nonnull %8)
+  switch i32 %10, label %19 [
+    i32 1, label %27
+    i32 -1, label %11
+    i32 0, label %X509_OBJECT_free_contents.exit42
   ]
 
-if.then3:                                         ; preds = %entry
-  %0 = load i32, ptr %obj, align 8
-  switch i32 %0, label %X509_OBJECT_free_contents.exit [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb1.i
+11:                                               ; preds = %3
+  %12 = load i32, ptr %8, align 8, !tbaa !38
+  switch i32 %12, label %X509_OBJECT_free_contents.exit [
+    i32 1, label %13
+    i32 2, label %16
   ]
 
-sw.bb.i:                                          ; preds = %if.then3
-  %data.i = getelementptr inbounds nuw i8, ptr %obj, i64 8
-  %1 = load ptr, ptr %data.i, align 8
-  tail call void @X509_free(ptr noundef %1) #10
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !40
+  tail call void @X509_free(ptr noundef %15) #10
   br label %X509_OBJECT_free_contents.exit
 
-sw.bb1.i:                                         ; preds = %if.then3
-  %data2.i = getelementptr inbounds nuw i8, ptr %obj, i64 8
-  %2 = load ptr, ptr %data2.i, align 8
-  tail call void @X509_CRL_free(ptr noundef %2) #10
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  tail call void @X509_CRL_free(ptr noundef %18) #10
   br label %X509_OBJECT_free_contents.exit
 
-X509_OBJECT_free_contents.exit:                   ; preds = %if.then3, %sw.bb.i, %sw.bb1.i
+X509_OBJECT_free_contents.exit:                   ; preds = %11, %13, %16
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 127, ptr noundef nonnull @.str, i32 noundef 621) #10
-  br label %return
+  br label %X509_OBJECT_free_contents.exit42
 
-if.then5:                                         ; preds = %entry
-  %3 = load i32, ptr %obj, align 8
-  switch i32 %3, label %return [
-    i32 1, label %sw.bb.i26
-    i32 2, label %sw.bb1.i24
+19:                                               ; preds = %3
+  %20 = load i32, ptr %8, align 8, !tbaa !38
+  switch i32 %20, label %X509_OBJECT_free_contents.exit42 [
+    i32 1, label %21
+    i32 2, label %24
   ]
 
-sw.bb.i26:                                        ; preds = %if.then5
-  %data.i27 = getelementptr inbounds nuw i8, ptr %obj, i64 8
-  %4 = load ptr, ptr %data.i27, align 8
-  tail call void @X509_free(ptr noundef %4) #10
-  br label %return
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !40
+  tail call void @X509_free(ptr noundef %23) #10
+  br label %X509_OBJECT_free_contents.exit42
 
-sw.bb1.i24:                                       ; preds = %if.then5
-  %data2.i25 = getelementptr inbounds nuw i8, ptr %obj, i64 8
-  %5 = load ptr, ptr %data2.i25, align 8
-  tail call void @X509_CRL_free(ptr noundef %5) #10
-  br label %return
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  tail call void @X509_CRL_free(ptr noundef %26) #10
+  br label %X509_OBJECT_free_contents.exit42
 
-if.end7:                                          ; preds = %entry
-  %check_issued = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %6 = load ptr, ptr %check_issued, align 8
-  %data = getelementptr inbounds nuw i8, ptr %obj, i64 8
-  %7 = load ptr, ptr %data, align 8
-  %call8 = tail call i32 %6(ptr noundef %ctx, ptr noundef %x, ptr noundef %7) #10
-  %tobool.not = icmp eq i32 %call8, 0
-  br i1 %tobool.not, label %if.end11, label %if.then9
+27:                                               ; preds = %3
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %29 = load ptr, ptr %28, align 8, !tbaa !91
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  %32 = tail call i32 %29(ptr noundef %1, ptr noundef %2, ptr noundef %31) #10
+  %.not36 = icmp eq i32 %32, 0
+  br i1 %.not36, label %34, label %33
 
-if.then9:                                         ; preds = %if.end7
-  store ptr %7, ptr %issuer, align 8
-  br label %return
+33:                                               ; preds = %27
+  store ptr %31, ptr %0, align 8, !tbaa !92
+  br label %X509_OBJECT_free_contents.exit42
 
-if.end11:                                         ; preds = %if.end7
-  %8 = load i32, ptr %obj, align 8
-  switch i32 %8, label %X509_OBJECT_free_contents.exit33 [
-    i32 1, label %sw.bb.i31
-    i32 2, label %sw.bb1.i29
+34:                                               ; preds = %27
+  %35 = load i32, ptr %8, align 8, !tbaa !38
+  switch i32 %35, label %X509_OBJECT_free_contents.exit43 [
+    i32 1, label %36
+    i32 2, label %37
   ]
 
-sw.bb.i31:                                        ; preds = %if.end11
-  tail call void @X509_free(ptr noundef %7) #10
-  br label %X509_OBJECT_free_contents.exit33
+36:                                               ; preds = %34
+  tail call void @X509_free(ptr noundef %31) #10
+  br label %X509_OBJECT_free_contents.exit43
 
-sw.bb1.i29:                                       ; preds = %if.end11
-  tail call void @X509_CRL_free(ptr noundef %7) #10
-  br label %X509_OBJECT_free_contents.exit33
+37:                                               ; preds = %34
+  tail call void @X509_CRL_free(ptr noundef %31) #10
+  br label %X509_OBJECT_free_contents.exit43
 
-X509_OBJECT_free_contents.exit33:                 ; preds = %if.end11, %sw.bb.i31, %sw.bb1.i29
-  %9 = load ptr, ptr %ctx, align 8
-  %objs_lock = getelementptr inbounds nuw i8, ptr %9, i64 16
-  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #10
-  %10 = load ptr, ptr %ctx, align 8
-  %objs = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %11 = load ptr, ptr %objs, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %x509_s.i.i)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %cinf_s.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %idx.i.i)
-  store i32 1, ptr %stmp.i.i, align 8
-  %data.i.i = getelementptr inbounds nuw i8, ptr %stmp.i.i, i64 8
-  store ptr %x509_s.i.i, ptr %data.i.i, align 8
-  store ptr %cinf_s.i.i, ptr %x509_s.i.i, align 8
-  %subject.i.i = getelementptr inbounds nuw i8, ptr %cinf_s.i.i, i64 40
-  store ptr %call, ptr %subject.i.i, align 8
-  %call.i.i = call i32 @sk_find(ptr noundef %11, ptr noundef nonnull %idx.i.i, ptr noundef nonnull %stmp.i.i) #10
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %X509_OBJECT_idx_by_subject.exit.thread, label %X509_OBJECT_idx_by_subject.exit
+X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
+  %38 = load ptr, ptr %1, align 8, !tbaa !45
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %39) #10
+  %40 = load ptr, ptr %1, align 8, !tbaa !45
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #10
+  store i32 1, ptr %4, align 8, !tbaa !38
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %5, ptr %43, align 8, !tbaa !40
+  store ptr %6, ptr %5, align 8, !tbaa !55
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %9, ptr %44, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  %45 = call i32 @sk_find(ptr noundef %42, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
+  %.not.i.i = icmp eq i32 %45, 0
+  %46 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  %47 = and i64 %46, 4294967295
+  %.not3744 = icmp eq i64 %47, 4294967295
+  %.not37 = select i1 %.not.i.i, i1 true, i1 %.not3744
+  br i1 %.not37, label %.loopexit, label %48
 
-X509_OBJECT_idx_by_subject.exit.thread:           ; preds = %X509_OBJECT_free_contents.exit33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %x509_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %cinf_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i.i)
-  br label %if.end42
+48:                                               ; preds = %X509_OBJECT_free_contents.exit43
+  %sext = shl i64 %46, 32
+  %49 = ashr exact i64 %sext, 32
+  %50 = load ptr, ptr %1, align 8, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !27
+  %53 = call i64 @sk_num(ptr noundef %52) #10
+  %54 = icmp ult i64 %49, %53
+  br i1 %54, label %.lr.ph, label %.loopexit
 
-X509_OBJECT_idx_by_subject.exit:                  ; preds = %X509_OBJECT_free_contents.exit33
-  %12 = load i64, ptr %idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %x509_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %cinf_s.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx.i.i)
-  %13 = and i64 %12, 4294967295
-  %cmp15.not = icmp eq i64 %13, 4294967295
-  br i1 %cmp15.not, label %if.end42, label %if.then16
+55:                                               ; preds = %72
+  %56 = add nuw i64 %.046, 1
+  %57 = load ptr, ptr %1, align 8, !tbaa !45
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !27
+  %60 = call i64 @sk_num(ptr noundef %59) #10
+  %61 = icmp ult i64 %56, %60
+  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !93
 
-if.then16:                                        ; preds = %X509_OBJECT_idx_by_subject.exit
-  %sext = shl i64 %12, 32
-  %conv = ashr exact i64 %sext, 32
-  %14 = load ptr, ptr %ctx, align 8
-  %objs1836 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %15 = load ptr, ptr %objs1836, align 8
-  %call1937 = call i64 @sk_num(ptr noundef %15) #10
-  %cmp2038 = icmp ult i64 %conv, %call1937
-  br i1 %cmp2038, label %for.body, label %if.end42
+.lr.ph:                                           ; preds = %48, %55
+  %.046 = phi i64 [ %56, %55 ], [ %49, %48 ]
+  %62 = load ptr, ptr %1, align 8, !tbaa !45
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !27
+  %65 = call ptr @sk_value(ptr noundef %64, i64 noundef %.046) #10
+  %66 = load i32, ptr %65, align 8, !tbaa !38
+  %.not38 = icmp eq i32 %66, 1
+  br i1 %.not38, label %67, label %.loopexit
 
-for.cond:                                         ; preds = %if.end34
-  %inc = add nuw i64 %i.039, 1
-  %16 = load ptr, ptr %ctx, align 8
-  %objs18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %17 = load ptr, ptr %objs18, align 8
-  %call19 = call i64 @sk_num(ptr noundef %17) #10
-  %cmp20 = icmp ult i64 %inc, %call19
-  br i1 %cmp20, label %for.body, label %if.end42, !llvm.loop !15
+67:                                               ; preds = %.lr.ph
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !40
+  %70 = call ptr @X509_get_subject_name(ptr noundef %69) #10
+  %71 = call i32 @X509_NAME_cmp(ptr noundef %9, ptr noundef %70) #10
+  %.not39 = icmp eq i32 %71, 0
+  br i1 %.not39, label %72, label %.loopexit
 
-for.body:                                         ; preds = %if.then16, %for.cond
-  %i.039 = phi i64 [ %inc, %for.cond ], [ %conv, %if.then16 ]
-  %18 = load ptr, ptr %ctx, align 8
-  %objs23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %19 = load ptr, ptr %objs23, align 8
-  %call24 = call ptr @sk_value(ptr noundef %19, i64 noundef %i.039) #10
-  %20 = load i32, ptr %call24, align 8
-  %cmp25.not = icmp eq i32 %20, 1
-  br i1 %cmp25.not, label %if.end28, label %if.end42
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %28, align 8, !tbaa !91
+  %74 = load ptr, ptr %68, align 8, !tbaa !40
+  %75 = call i32 %73(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %74) #10
+  %.not40 = icmp eq i32 %75, 0
+  br i1 %.not40, label %55, label %76
 
-if.end28:                                         ; preds = %for.body
-  %data29 = getelementptr inbounds nuw i8, ptr %call24, i64 8
-  %21 = load ptr, ptr %data29, align 8
-  %call30 = call ptr @X509_get_subject_name(ptr noundef %21) #10
-  %call31 = call i32 @X509_NAME_cmp(ptr noundef %call, ptr noundef %call30) #10
-  %tobool32.not = icmp eq i32 %call31, 0
-  br i1 %tobool32.not, label %if.end34, label %if.end42
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %68, align 8, !tbaa !40
+  store ptr %77, ptr %0, align 8, !tbaa !92
+  call void @X509_OBJECT_up_ref_count(ptr noundef nonnull %65)
+  br label %.loopexit
 
-if.end34:                                         ; preds = %if.end28
-  %22 = load ptr, ptr %check_issued, align 8
-  %23 = load ptr, ptr %data29, align 8
-  %call37 = call i32 %22(ptr noundef nonnull %ctx, ptr noundef %x, ptr noundef %23) #10
-  %tobool38.not = icmp eq i32 %call37, 0
-  br i1 %tobool38.not, label %for.cond, label %if.then39
+.loopexit:                                        ; preds = %67, %.lr.ph, %55, %48, %76, %X509_OBJECT_free_contents.exit43
+  %.032 = phi i32 [ 1, %76 ], [ 0, %X509_OBJECT_free_contents.exit43 ], [ 0, %48 ], [ 0, %55 ], [ 0, %.lr.ph ], [ 0, %67 ]
+  %78 = load ptr, ptr %1, align 8, !tbaa !45
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %79) #10
+  br label %X509_OBJECT_free_contents.exit42
 
-if.then39:                                        ; preds = %if.end34
-  %24 = load ptr, ptr %data29, align 8
-  store ptr %24, ptr %issuer, align 8
-  call void @X509_OBJECT_up_ref_count(ptr noundef nonnull %call24)
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.end28, %for.body, %for.cond, %if.then16, %X509_OBJECT_idx_by_subject.exit.thread, %if.then39, %X509_OBJECT_idx_by_subject.exit
-  %ret.0 = phi i32 [ 1, %if.then39 ], [ 0, %X509_OBJECT_idx_by_subject.exit ], [ 0, %X509_OBJECT_idx_by_subject.exit.thread ], [ 0, %if.then16 ], [ 0, %for.cond ], [ 0, %for.body ], [ 0, %if.end28 ]
-  %25 = load ptr, ptr %ctx, align 8
-  %objs_lock44 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock44) #10
-  br label %return
-
-return:                                           ; preds = %sw.bb1.i24, %sw.bb.i26, %if.then5, %entry, %if.end42, %if.then9, %X509_OBJECT_free_contents.exit
-  %retval.0 = phi i32 [ -1, %X509_OBJECT_free_contents.exit ], [ 1, %if.then9 ], [ %ret.0, %if.end42 ], [ %call1, %entry ], [ -1, %if.then5 ], [ -1, %sw.bb.i26 ], [ -1, %sw.bb1.i24 ]
-  ret i32 %retval.0
+X509_OBJECT_free_contents.exit42:                 ; preds = %24, %21, %19, %3, %.loopexit, %33, %X509_OBJECT_free_contents.exit
+  %.033 = phi i32 [ -1, %X509_OBJECT_free_contents.exit ], [ 1, %33 ], [ %.032, %.loopexit ], [ %10, %3 ], [ -1, %19 ], [ -1, %21 ], [ -1, %24 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  ret i32 %.033
 }
 
-declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #4
+declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #5
 
-declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #4
+declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_set_flags(ptr noundef readonly captures(none) %ctx, i64 noundef %flags) local_unnamed_addr #0 {
-entry:
-  %param = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %0 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set_flags(ptr noundef %0, i64 noundef %flags) #10
-  ret i32 %call
+define hidden i32 @X509_STORE_set_flags(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %5 = tail call i32 @X509_VERIFY_PARAM_set_flags(ptr noundef %4, i64 noundef %1) #10
+  ret i32 %5
 }
 
-declare i32 @X509_VERIFY_PARAM_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @X509_VERIFY_PARAM_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_STORE_set_depth(ptr noundef readonly captures(none) %ctx, i32 noundef %depth) local_unnamed_addr #0 {
-entry:
-  %param = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %0 = load ptr, ptr %param, align 8
-  tail call void @X509_VERIFY_PARAM_set_depth(ptr noundef %0, i32 noundef %depth) #10
+define hidden noundef i32 @X509_STORE_set_depth(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  tail call void @X509_VERIFY_PARAM_set_depth(ptr noundef %4, i32 noundef %1) #10
   ret i32 1
 }
 
-declare void @X509_VERIFY_PARAM_set_depth(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @X509_VERIFY_PARAM_set_depth(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_set_purpose(ptr noundef readonly captures(none) %ctx, i32 noundef %purpose) local_unnamed_addr #0 {
-entry:
-  %param = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %0 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %0, i32 noundef %purpose) #10
-  ret i32 %call
+define hidden i32 @X509_STORE_set_purpose(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %5 = tail call i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %4, i32 noundef %1) #10
+  ret i32 %5
 }
 
-declare i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_set_trust(ptr noundef readonly captures(none) %ctx, i32 noundef %trust) local_unnamed_addr #0 {
-entry:
-  %param = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %0 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %0, i32 noundef %trust) #10
-  ret i32 %call
+define hidden i32 @X509_STORE_set_trust(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %5 = tail call i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %4, i32 noundef %1) #10
+  ret i32 %5
 }
 
-declare i32 @X509_VERIFY_PARAM_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @X509_VERIFY_PARAM_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_set1_param(ptr noundef readonly captures(none) %ctx, ptr noundef %param) local_unnamed_addr #0 {
-entry:
-  %param1 = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  %0 = load ptr, ptr %param1, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set1(ptr noundef %0, ptr noundef %param) #10
-  ret i32 %call
+define hidden i32 @X509_STORE_set1_param(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %5 = tail call i32 @X509_VERIFY_PARAM_set1(ptr noundef %4, ptr noundef %1) #10
+  ret i32 %5
 }
 
-declare i32 @X509_VERIFY_PARAM_set1(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @X509_VERIFY_PARAM_set1(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_STORE_set_verify_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %ctx, ptr noundef %verify_cb) local_unnamed_addr #5 {
-entry:
-  %verify_cb1 = getelementptr inbounds nuw i8, ptr %ctx, i64 96
-  store ptr %verify_cb, ptr %verify_cb1, align 8
+define hidden void @X509_STORE_set_verify_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #6 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %1, ptr %3, align 8, !tbaa !94
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_STORE_set_lookup_crls_cb(ptr noundef writeonly captures(none) initializes((160, 168)) %ctx, ptr noundef %cb) local_unnamed_addr #5 {
-entry:
-  %lookup_crls = getelementptr inbounds nuw i8, ptr %ctx, i64 160
-  store ptr %cb, ptr %lookup_crls, align 8
+define hidden void @X509_STORE_set_lookup_crls_cb(ptr noundef writeonly captures(none) initializes((160, 168)) %0, ptr noundef %1) local_unnamed_addr #6 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %1, ptr %3, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @X509_STORE_CTX_get0_store(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #6 {
-entry:
-  %0 = load ptr, ptr %ctx, align 8
-  ret ptr %0
+define hidden ptr @X509_STORE_CTX_get0_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  ret ptr %2
 }
 
-declare i32 @X509_subject_name_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @X509_subject_name_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @X509_CRL_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @X509_CRL_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #9 = { nounwind allocsize(0) }
 attributes #10 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"x509_lookup_st", !8, i64 0, !8, i64 4, !11, i64 8, !13, i64 16, !14, i64 24}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 _ZTS21x509_lookup_method_st", !12, i64 0}
+!12 = !{!"any pointer", !9, i64 0}
+!13 = !{!"p1 omnipotent char", !12, i64 0}
+!14 = !{!"p1 _ZTS13x509_store_st", !12, i64 0}
+!15 = !{!7, !8, i64 4}
+!16 = !{!7, !11, i64 8}
+!17 = !{!18, !12, i64 8}
+!18 = !{!"x509_lookup_method_st", !13, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72}
+!19 = !{!18, !12, i64 16}
+!20 = !{!18, !12, i64 24}
+!21 = !{!18, !12, i64 32}
+!22 = !{!18, !12, i64 40}
+!23 = !{!18, !12, i64 48}
+!24 = !{!18, !12, i64 56}
+!25 = !{!18, !12, i64 64}
+!26 = !{!18, !12, i64 72}
+!27 = !{!28, !29, i64 8}
+!28 = !{!"x509_store_st", !8, i64 0, !29, i64 8, !9, i64 16, !30, i64 72, !31, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !8, i64 176}
+!29 = !{!"p1 _ZTS20stack_st_X509_OBJECT", !12, i64 0}
+!30 = !{!"p1 _ZTS20stack_st_X509_LOOKUP", !12, i64 0}
+!31 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !12, i64 0}
+!32 = !{!28, !8, i64 0}
+!33 = !{!28, !30, i64 72}
+!34 = !{!28, !31, i64 80}
+!35 = !{!28, !8, i64 176}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS14x509_object_st", !12, i64 0}
+!38 = !{!39, !8, i64 0}
+!39 = !{!"x509_object_st", !8, i64 0, !9, i64 8}
+!40 = !{!9, !9, i64 0}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = distinct !{!43, !42}
+!44 = !{!7, !14, i64 24}
+!45 = !{!46, !14, i64 0}
+!46 = !{!"x509_store_ctx_st", !14, i64 0, !8, i64 8, !47, i64 16, !48, i64 24, !49, i64 32, !31, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !8, i64 152, !8, i64 156, !48, i64 160, !50, i64 168, !8, i64 176, !8, i64 180, !8, i64 184, !47, i64 192, !47, i64 200, !51, i64 208, !8, i64 216, !8, i64 220, !52, i64 224, !53, i64 232}
+!47 = !{!"p1 _ZTS7x509_st", !12, i64 0}
+!48 = !{!"p1 _ZTS13stack_st_X509", !12, i64 0}
+!49 = !{!"p1 _ZTS17stack_st_X509_CRL", !12, i64 0}
+!50 = !{!"p1 _ZTS19X509_POLICY_TREE_st", !12, i64 0}
+!51 = !{!"p1 _ZTS11X509_crl_st", !12, i64 0}
+!52 = !{!"p1 _ZTS17x509_store_ctx_st", !12, i64 0}
+!53 = !{!"crypto_ex_data_st", !54, i64 0}
+!54 = !{!"p1 _ZTS13stack_st_void", !12, i64 0}
+!55 = !{!56, !57, i64 0}
+!56 = !{!"x509_st", !57, i64 0, !58, i64 8, !59, i64 16, !8, i64 24, !8, i64 28, !13, i64 32, !53, i64 40, !60, i64 48, !60, i64 56, !60, i64 64, !60, i64 72, !60, i64 80, !60, i64 88, !59, i64 96, !61, i64 104, !62, i64 112, !63, i64 120, !64, i64 128, !65, i64 136, !9, i64 144, !66, i64 168}
+!57 = !{!"p1 _ZTS12x509_cinf_st", !12, i64 0}
+!58 = !{!"p1 _ZTS13X509_algor_st", !12, i64 0}
+!59 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
+!60 = !{!"long", !9, i64 0}
+!61 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !12, i64 0}
+!62 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !12, i64 0}
+!63 = !{!"p1 _ZTS19stack_st_DIST_POINT", !12, i64 0}
+!64 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !12, i64 0}
+!65 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !12, i64 0}
+!66 = !{!"p1 _ZTS16x509_cert_aux_st", !12, i64 0}
+!67 = !{!68, !69, i64 40}
+!68 = !{!"x509_cinf_st", !59, i64 0, !59, i64 8, !58, i64 16, !69, i64 24, !70, i64 32, !69, i64 40, !71, i64 48, !59, i64 56, !59, i64 64, !72, i64 72, !73, i64 80}
+!69 = !{!"p1 _ZTS12X509_name_st", !12, i64 0}
+!70 = !{!"p1 _ZTS11X509_val_st", !12, i64 0}
+!71 = !{!"p1 _ZTS14X509_pubkey_st", !12, i64 0}
+!72 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !12, i64 0}
+!73 = !{!"ASN1_ENCODING_st", !13, i64 0, !60, i64 8, !8, i64 16}
+!74 = !{!75, !76, i64 0}
+!75 = !{!"X509_crl_st", !76, i64 0, !58, i64 8, !59, i64 16, !8, i64 24, !8, i64 28, !61, i64 32, !77, i64 40, !8, i64 48, !8, i64 52, !59, i64 56, !59, i64 64, !9, i64 72, !78, i64 96, !79, i64 104, !12, i64 112}
+!76 = !{!"p1 _ZTS16X509_crl_info_st", !12, i64 0}
+!77 = !{!"p1 _ZTS21ISSUING_DIST_POINT_st", !12, i64 0}
+!78 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !12, i64 0}
+!79 = !{!"p1 _ZTS18x509_crl_method_st", !12, i64 0}
+!80 = !{!81, !69, i64 16}
+!81 = !{!"X509_crl_info_st", !59, i64 0, !58, i64 8, !69, i64 16, !59, i64 24, !59, i64 32, !82, i64 40, !72, i64 48, !73, i64 56}
+!82 = !{!"p1 _ZTS21stack_st_X509_REVOKED", !12, i64 0}
+!83 = !{!46, !8, i64 8}
+!84 = distinct !{!84, !42}
+!85 = !{!60, !60, i64 0}
+!86 = distinct !{!86, !42}
+!87 = !{!8, !8, i64 0}
+!88 = distinct !{!88, !42}
+!89 = distinct !{!89, !42}
+!90 = distinct !{!90, !42}
+!91 = !{!46, !12, i64 80}
+!92 = !{!47, !47, i64 0}
+!93 = distinct !{!93, !42}
+!94 = !{!28, !12, i64 96}
+!95 = !{!28, !12, i64 160}

@@ -1,807 +1,816 @@
 ; ModuleID = 'bench/libquic/original/gcd.ll'
 source_filename = "bench/libquic/original/gcd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.bignum_st = type { ptr, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/gcd.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_gcd(ptr noundef %r, ptr noundef %in_a, ptr noundef %in_b, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  tail call void @BN_CTX_start(ptr noundef %ctx) #3
-  %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call1 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %cmp = icmp eq ptr %call, null
-  %cmp2 = icmp eq ptr %call1, null
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp2
-  br i1 %or.cond, label %err, label %if.end
+define hidden range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  tail call void @BN_CTX_start(ptr noundef %3) #3
+  %5 = tail call ptr @BN_CTX_get(ptr noundef %3) #3
+  %6 = tail call ptr @BN_CTX_get(ptr noundef %3) #3
+  %7 = icmp eq ptr %5, null
+  %8 = icmp eq ptr %6, null
+  %or.cond = select i1 %7, i1 true, i1 %8
+  br i1 %or.cond, label %euclid.exit.thread, label %9
 
-if.end:                                           ; preds = %entry
-  %call3 = tail call ptr @BN_copy(ptr noundef nonnull %call, ptr noundef %in_a) #3
-  %cmp4 = icmp eq ptr %call3, null
-  br i1 %cmp4, label %err, label %if.end6
+9:                                                ; preds = %4
+  %10 = tail call ptr @BN_copy(ptr noundef nonnull %5, ptr noundef %1) #3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %euclid.exit.thread, label %12
 
-if.end6:                                          ; preds = %if.end
-  %call7 = tail call ptr @BN_copy(ptr noundef nonnull %call1, ptr noundef %in_b) #3
-  %cmp8 = icmp eq ptr %call7, null
-  br i1 %cmp8, label %err, label %if.end10
+12:                                               ; preds = %9
+  %13 = tail call ptr @BN_copy(ptr noundef nonnull %6, ptr noundef %2) #3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %euclid.exit.thread, label %15
 
-if.end10:                                         ; preds = %if.end6
-  %neg = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store i32 0, ptr %neg, align 8
-  %neg11 = getelementptr inbounds nuw i8, ptr %call1, i64 16
-  store i32 0, ptr %neg11, align 8
-  %call12 = tail call i32 @BN_cmp(ptr noundef nonnull %call, ptr noundef nonnull %call1) #3
-  %cmp13 = icmp slt i32 %call12, 0
-  %spec.select = select i1 %cmp13, ptr %call1, ptr %call
-  %spec.select16 = select i1 %cmp13, ptr %call, ptr %call1
-  %call43.i = tail call i32 @BN_is_zero(ptr noundef nonnull %spec.select16) #3
-  %tobool.not44.i = icmp eq i32 %call43.i, 0
-  br i1 %tobool.not44.i, label %while.body.i, label %if.end19
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 0, ptr %16, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 0, ptr %17, align 8, !tbaa !6
+  %18 = tail call i32 @BN_cmp(ptr noundef nonnull %5, ptr noundef nonnull %6) #3
+  %19 = icmp slt i32 %18, 0
+  %spec.select = select i1 %19, ptr %6, ptr %5
+  %spec.select28 = select i1 %19, ptr %5, ptr %6
+  %20 = tail call i32 @BN_is_zero(ptr noundef nonnull %spec.select28) #3
+  %.not61.i = icmp eq i32 %20, 0
+  br i1 %.not61.i, label %.lr.ph.i, label %euclid.exit.thread31
 
-while.body.i:                                     ; preds = %if.end10, %if.end47.i
-  %shifts.047.i = phi i32 [ %shifts.1.i, %if.end47.i ], [ 0, %if.end10 ]
-  %b.addr.046.i = phi ptr [ %b.addr.1.i, %if.end47.i ], [ %spec.select16, %if.end10 ]
-  %a.addr.045.i = phi ptr [ %a.addr.1.i, %if.end47.i ], [ %spec.select, %if.end10 ]
-  %call1.i = tail call i32 @BN_is_odd(ptr noundef %a.addr.045.i) #3
-  %tobool2.not.i = icmp eq i32 %call1.i, 0
-  %call26.i = tail call i32 @BN_is_odd(ptr noundef %b.addr.046.i) #3
-  %tobool27.not.i = icmp eq i32 %call26.i, 0
-  br i1 %tobool2.not.i, label %if.else25.i, label %if.then.i
+.lr.ph.i:                                         ; preds = %15, %47
+  %.064.i = phi i32 [ %.1.i, %47 ], [ 0, %15 ]
+  %.03863.i = phi ptr [ %.139.i, %47 ], [ %spec.select28, %15 ]
+  %.04062.i = phi ptr [ %.141.i, %47 ], [ %spec.select, %15 ]
+  %21 = tail call i32 @BN_is_odd(ptr noundef %.04062.i) #3
+  %.not45.i = icmp eq i32 %21, 0
+  %22 = tail call i32 @BN_is_odd(ptr noundef %.03863.i) #3
+  %.not46.i = icmp eq i32 %22, 0
+  br i1 %.not45.i, label %36, label %23
 
-if.then.i:                                        ; preds = %while.body.i
-  br i1 %tobool27.not.i, label %if.else.i, label %if.then5.i
+23:                                               ; preds = %.lr.ph.i
+  br i1 %.not46.i, label %31, label %24
 
-if.then5.i:                                       ; preds = %if.then.i
-  %call6.i = tail call i32 @BN_sub(ptr noundef %a.addr.045.i, ptr noundef %a.addr.045.i, ptr noundef %b.addr.046.i) #3
-  %tobool7.not.i = icmp eq i32 %call6.i, 0
-  br i1 %tobool7.not.i, label %err, label %if.end.i
+24:                                               ; preds = %23
+  %25 = tail call i32 @BN_sub(ptr noundef %.04062.i, ptr noundef %.04062.i, ptr noundef %.03863.i) #3
+  %.not52.i = icmp eq i32 %25, 0
+  br i1 %.not52.i, label %euclid.exit.thread, label %26
 
-if.end.i:                                         ; preds = %if.then5.i
-  %call9.i = tail call i32 @BN_rshift1(ptr noundef %a.addr.045.i, ptr noundef %a.addr.045.i) #3
-  %tobool10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %tobool10.not.i, label %err, label %if.end12.i
+26:                                               ; preds = %24
+  %27 = tail call i32 @BN_rshift1(ptr noundef %.04062.i, ptr noundef %.04062.i) #3
+  %.not53.i = icmp eq i32 %27, 0
+  br i1 %.not53.i, label %euclid.exit.thread, label %28
 
-if.end12.i:                                       ; preds = %if.end.i
-  %call13.i = tail call i32 @BN_cmp(ptr noundef %a.addr.045.i, ptr noundef %b.addr.046.i) #3
-  %cmp.i = icmp slt i32 %call13.i, 0
-  %spec.select.i = select i1 %cmp.i, ptr %b.addr.046.i, ptr %a.addr.045.i
-  %spec.select35.i = select i1 %cmp.i, ptr %a.addr.045.i, ptr %b.addr.046.i
-  br label %if.end47.i
+28:                                               ; preds = %26
+  %29 = tail call i32 @BN_cmp(ptr noundef %.04062.i, ptr noundef %.03863.i) #3
+  %30 = icmp slt i32 %29, 0
+  %spec.select.i = select i1 %30, ptr %.03863.i, ptr %.04062.i
+  %spec.select54.i = select i1 %30, ptr %.04062.i, ptr %.03863.i
+  br label %47
 
-if.else.i:                                        ; preds = %if.then.i
-  %call16.i = tail call i32 @BN_rshift1(ptr noundef %b.addr.046.i, ptr noundef %b.addr.046.i) #3
-  %tobool17.not.i = icmp eq i32 %call16.i, 0
-  br i1 %tobool17.not.i, label %err, label %if.end19.i
+31:                                               ; preds = %23
+  %32 = tail call i32 @BN_rshift1(ptr noundef %.03863.i, ptr noundef %.03863.i) #3
+  %.not51.i = icmp eq i32 %32, 0
+  br i1 %.not51.i, label %euclid.exit.thread, label %33
 
-if.end19.i:                                       ; preds = %if.else.i
-  %call20.i = tail call i32 @BN_cmp(ptr noundef %a.addr.045.i, ptr noundef %b.addr.046.i) #3
-  %cmp21.i = icmp slt i32 %call20.i, 0
-  %spec.select36.i = select i1 %cmp21.i, ptr %b.addr.046.i, ptr %a.addr.045.i
-  %spec.select37.i = select i1 %cmp21.i, ptr %a.addr.045.i, ptr %b.addr.046.i
-  br label %if.end47.i
+33:                                               ; preds = %31
+  %34 = tail call i32 @BN_cmp(ptr noundef %.04062.i, ptr noundef %.03863.i) #3
+  %35 = icmp slt i32 %34, 0
+  %spec.select55.i = select i1 %35, ptr %.03863.i, ptr %.04062.i
+  %spec.select56.i = select i1 %35, ptr %.04062.i, ptr %.03863.i
+  br label %47
 
-if.else25.i:                                      ; preds = %while.body.i
-  %call38.i = tail call i32 @BN_rshift1(ptr noundef %a.addr.045.i, ptr noundef %a.addr.045.i) #3
-  %tobool39.not.i = icmp eq i32 %call38.i, 0
-  br i1 %tobool27.not.i, label %if.else37.i, label %if.then28.i
+36:                                               ; preds = %.lr.ph.i
+  %37 = tail call i32 @BN_rshift1(ptr noundef %.04062.i, ptr noundef %.04062.i) #3
+  %.not47.i = icmp eq i32 %37, 0
+  br i1 %.not46.i, label %42, label %38
 
-if.then28.i:                                      ; preds = %if.else25.i
-  br i1 %tobool39.not.i, label %err, label %if.end32.i
+38:                                               ; preds = %36
+  br i1 %.not47.i, label %euclid.exit.thread, label %39
 
-if.end32.i:                                       ; preds = %if.then28.i
-  %call33.i = tail call i32 @BN_cmp(ptr noundef %a.addr.045.i, ptr noundef %b.addr.046.i) #3
-  %cmp34.i = icmp slt i32 %call33.i, 0
-  %spec.select38.i = select i1 %cmp34.i, ptr %b.addr.046.i, ptr %a.addr.045.i
-  %spec.select39.i = select i1 %cmp34.i, ptr %a.addr.045.i, ptr %b.addr.046.i
-  br label %if.end47.i
+39:                                               ; preds = %38
+  %40 = tail call i32 @BN_cmp(ptr noundef %.04062.i, ptr noundef %.03863.i) #3
+  %41 = icmp slt i32 %40, 0
+  %spec.select57.i = select i1 %41, ptr %.03863.i, ptr %.04062.i
+  %spec.select58.i = select i1 %41, ptr %.04062.i, ptr %.03863.i
+  br label %47
 
-if.else37.i:                                      ; preds = %if.else25.i
-  br i1 %tobool39.not.i, label %err, label %if.end41.i
+42:                                               ; preds = %36
+  br i1 %.not47.i, label %euclid.exit.thread, label %43
 
-if.end41.i:                                       ; preds = %if.else37.i
-  %call42.i = tail call i32 @BN_rshift1(ptr noundef %b.addr.046.i, ptr noundef %b.addr.046.i) #3
-  %tobool43.not.i = icmp eq i32 %call42.i, 0
-  br i1 %tobool43.not.i, label %err, label %if.end45.i
+43:                                               ; preds = %42
+  %44 = tail call i32 @BN_rshift1(ptr noundef %.03863.i, ptr noundef %.03863.i) #3
+  %.not48.i = icmp eq i32 %44, 0
+  br i1 %.not48.i, label %euclid.exit.thread, label %45
 
-if.end45.i:                                       ; preds = %if.end41.i
-  %inc.i = add nsw i32 %shifts.047.i, 1
-  br label %if.end47.i
+45:                                               ; preds = %43
+  %46 = add nsw i32 %.064.i, 1
+  br label %47
 
-if.end47.i:                                       ; preds = %if.end45.i, %if.end32.i, %if.end19.i, %if.end12.i
-  %a.addr.1.i = phi ptr [ %a.addr.045.i, %if.end45.i ], [ %spec.select.i, %if.end12.i ], [ %spec.select36.i, %if.end19.i ], [ %spec.select38.i, %if.end32.i ]
-  %b.addr.1.i = phi ptr [ %b.addr.046.i, %if.end45.i ], [ %spec.select35.i, %if.end12.i ], [ %spec.select37.i, %if.end19.i ], [ %spec.select39.i, %if.end32.i ]
-  %shifts.1.i = phi i32 [ %inc.i, %if.end45.i ], [ %shifts.047.i, %if.end12.i ], [ %shifts.047.i, %if.end19.i ], [ %shifts.047.i, %if.end32.i ]
-  %call.i = tail call i32 @BN_is_zero(ptr noundef %b.addr.1.i) #3
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %while.body.i, label %while.end.i, !llvm.loop !7
+47:                                               ; preds = %45, %39, %33, %28
+  %.141.i = phi ptr [ %.04062.i, %45 ], [ %spec.select.i, %28 ], [ %spec.select55.i, %33 ], [ %spec.select57.i, %39 ]
+  %.139.i = phi ptr [ %.03863.i, %45 ], [ %spec.select54.i, %28 ], [ %spec.select56.i, %33 ], [ %spec.select58.i, %39 ]
+  %.1.i = phi i32 [ %46, %45 ], [ %.064.i, %28 ], [ %.064.i, %33 ], [ %.064.i, %39 ]
+  %48 = tail call i32 @BN_is_zero(ptr noundef %.139.i) #3
+  %.not.i = icmp eq i32 %48, 0
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
 
-while.end.i:                                      ; preds = %if.end47.i
-  %tobool48.not.i = icmp eq i32 %shifts.1.i, 0
-  br i1 %tobool48.not.i, label %euclid.exit, label %if.then49.i
+._crit_edge.i:                                    ; preds = %47
+  %.not43.i = icmp eq i32 %.1.i, 0
+  br i1 %.not43.i, label %euclid.exit, label %49
 
-if.then49.i:                                      ; preds = %while.end.i
-  %call50.i = tail call i32 @BN_lshift(ptr noundef %a.addr.1.i, ptr noundef %a.addr.1.i, i32 noundef %shifts.1.i) #3
-  %tobool51.not.i = icmp eq i32 %call50.i, 0
-  %cmp17 = icmp eq ptr %a.addr.1.i, null
-  %or.cond24 = select i1 %tobool51.not.i, i1 true, i1 %cmp17
-  br i1 %or.cond24, label %err, label %if.end19
+49:                                               ; preds = %._crit_edge.i
+  %50 = tail call i32 @BN_lshift(ptr noundef %.141.i, ptr noundef %.141.i, i32 noundef %.1.i) #3
+  %.not44.i = icmp eq i32 %50, 0
+  %51 = icmp eq ptr %.141.i, null
+  %or.cond34 = select i1 %.not44.i, i1 true, i1 %51
+  br i1 %or.cond34, label %euclid.exit.thread, label %euclid.exit.thread31
 
-euclid.exit:                                      ; preds = %while.end.i
-  %cmp17.old = icmp eq ptr %a.addr.1.i, null
-  br i1 %cmp17.old, label %err, label %if.end19
+euclid.exit:                                      ; preds = %._crit_edge.i
+  %.old = icmp eq ptr %.141.i, null
+  br i1 %.old, label %euclid.exit.thread, label %euclid.exit.thread31
 
-if.end19:                                         ; preds = %if.then49.i, %if.end10, %euclid.exit
-  %retval.0.i23 = phi ptr [ %a.addr.1.i, %euclid.exit ], [ %spec.select, %if.end10 ], [ %a.addr.1.i, %if.then49.i ]
-  %call20 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef nonnull %retval.0.i23) #3
-  %cmp21 = icmp ne ptr %call20, null
-  %spec.select17 = zext i1 %cmp21 to i32
-  br label %err
+euclid.exit.thread31:                             ; preds = %49, %15, %euclid.exit
+  %.042.i33 = phi ptr [ %.141.i, %euclid.exit ], [ %spec.select, %15 ], [ %.141.i, %49 ]
+  %52 = tail call ptr @BN_copy(ptr noundef %0, ptr noundef nonnull %.042.i33) #3
+  %53 = icmp ne ptr %52, null
+  %spec.select29 = zext i1 %53 to i32
+  br label %euclid.exit.thread
 
-err:                                              ; preds = %if.end41.i, %if.else37.i, %if.then28.i, %if.else.i, %if.end.i, %if.then5.i, %if.then49.i, %if.end19, %euclid.exit, %if.end6, %if.end, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end6 ], [ 0, %euclid.exit ], [ %spec.select17, %if.end19 ], [ 0, %if.then49.i ], [ 0, %if.then5.i ], [ 0, %if.end.i ], [ 0, %if.else.i ], [ 0, %if.then28.i ], [ 0, %if.else37.i ], [ 0, %if.end41.i ]
-  tail call void @BN_CTX_end(ptr noundef %ctx) #3
-  ret i32 %ret.0
+euclid.exit.thread:                               ; preds = %43, %42, %38, %31, %26, %24, %49, %euclid.exit.thread31, %euclid.exit, %12, %9, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %euclid.exit ], [ %spec.select29, %euclid.exit.thread31 ], [ 0, %49 ], [ 0, %24 ], [ 0, %26 ], [ 0, %31 ], [ 0, %38 ], [ 0, %42 ], [ 0, %43 ]
+  tail call void @BN_CTX_end(ptr noundef %3) #3
+  ret i32 %.0
 }
 
-declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #1
+declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
+declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @BN_mod_inverse_ex(ptr noundef %out, ptr noundef writeonly captures(none) initializes((0, 4)) %out_no_inverse, ptr noundef %a, ptr noundef %n, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %local_A.i = alloca %struct.bignum_st, align 8
-  %local_B.i = alloca %struct.bignum_st, align 8
-  %flags = getelementptr inbounds nuw i8, ptr %a, i64 20
-  %0 = load i32, ptr %flags, align 4
-  %and = and i32 %0, 4
-  %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %lor.lhs.false, label %if.then
+define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = alloca %struct.bignum_st, align 8
+  %7 = alloca %struct.bignum_st, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %9 = load i32, ptr %8, align 4, !tbaa !15
+  %10 = and i32 %9, 4
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %15
 
-lor.lhs.false:                                    ; preds = %entry
-  %flags1 = getelementptr inbounds nuw i8, ptr %n, i64 20
-  %1 = load i32, ptr %flags1, align 4
-  %and2 = and i32 %1, 4
-  %cmp3.not = icmp eq i32 %and2, 0
-  br i1 %cmp3.not, label %if.end, label %if.then
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %13 = load i32, ptr %12, align 4, !tbaa !15
+  %14 = and i32 %13, 4
+  %.not187 = icmp eq i32 %14, 0
+  br i1 %.not187, label %71, label %15
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %local_A.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %local_B.i)
-  store i32 0, ptr %out_no_inverse, align 4
-  tail call void @BN_CTX_start(ptr noundef %ctx) #3
-  %call.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call1.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call2.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call3.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call4.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call5.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call6.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %cmp.i = icmp eq ptr %call6.i, null
-  br i1 %cmp.i, label %err.i, label %if.end.i
+15:                                               ; preds = %11, %5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #3
+  store i32 0, ptr %1, align 4, !tbaa !16
+  tail call void @BN_CTX_start(ptr noundef %4) #3
+  %16 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %17 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %18 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %19 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %20 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %21 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %22 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %.thread105.i, label %24
 
-if.end.i:                                         ; preds = %if.then
-  %cmp7.i = icmp eq ptr %out, null
-  br i1 %cmp7.i, label %if.end10.i, label %if.end13.i
+24:                                               ; preds = %15
+  %25 = icmp eq ptr %0, null
+  br i1 %25, label %26, label %.thread.i
 
-if.end10.i:                                       ; preds = %if.end.i
-  %call9.i = tail call ptr @BN_new() #3
-  %cmp11.i = icmp eq ptr %call9.i, null
-  br i1 %cmp11.i, label %if.then77.i, label %if.end13.i
+26:                                               ; preds = %24
+  %27 = tail call ptr @BN_new() #3
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %.thread105.thread.i, label %.thread.i
 
-if.end13.i:                                       ; preds = %if.end10.i, %if.end.i
-  %R.157.i = phi ptr [ %call9.i, %if.end10.i ], [ %out, %if.end.i ]
-  tail call void @BN_zero(ptr noundef %call5.i) #3
-  %call14.i = tail call i32 @BN_one(ptr noundef %call2.i) #3
-  %tobool.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool.not.i, label %err.i, label %lor.lhs.false.i
+.thread.i:                                        ; preds = %26, %24
+  %.182103.i = phi ptr [ %27, %26 ], [ %0, %24 ]
+  tail call void @BN_zero(ptr noundef %21) #3
+  %29 = tail call i32 @BN_one(ptr noundef %18) #3
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %.thread105.i, label %30
 
-lor.lhs.false.i:                                  ; preds = %if.end13.i
-  %call15.i = tail call ptr @BN_copy(ptr noundef %call1.i, ptr noundef nonnull %a) #3
-  %cmp16.i = icmp eq ptr %call15.i, null
-  br i1 %cmp16.i, label %err.i, label %lor.lhs.false17.i
+30:                                               ; preds = %.thread.i
+  %31 = tail call ptr @BN_copy(ptr noundef %17, ptr noundef nonnull %2) #3
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %.thread105.i, label %33
 
-lor.lhs.false17.i:                                ; preds = %lor.lhs.false.i
-  %call18.i = tail call ptr @BN_copy(ptr noundef %call.i, ptr noundef %n) #3
-  %cmp19.i = icmp eq ptr %call18.i, null
-  br i1 %cmp19.i, label %err.i, label %if.end21.i
+33:                                               ; preds = %30
+  %34 = tail call ptr @BN_copy(ptr noundef %16, ptr noundef %3) #3
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %.thread105.i, label %36
 
-if.end21.i:                                       ; preds = %lor.lhs.false17.i
-  %neg.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store i32 0, ptr %neg.i, align 8
-  %neg22.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
-  %2 = load i32, ptr %neg22.i, align 8
-  %tobool23.not.i = icmp eq i32 %2, 0
-  br i1 %tobool23.not.i, label %lor.lhs.false24.i, label %if.then27.i
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 0, ptr %37, align 8, !tbaa !6
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %39 = load i32, ptr %38, align 8, !tbaa !6
+  %.not90.i = icmp eq i32 %39, 0
+  br i1 %.not90.i, label %40, label %43
 
-lor.lhs.false24.i:                                ; preds = %if.end21.i
-  %call25.i = tail call i32 @BN_ucmp(ptr noundef nonnull %call1.i, ptr noundef nonnull %call.i) #3
-  %cmp26.i = icmp sgt i32 %call25.i, -1
-  br i1 %cmp26.i, label %if.then27.i, label %if.end32.i
+40:                                               ; preds = %36
+  %41 = tail call i32 @BN_ucmp(ptr noundef nonnull %17, ptr noundef nonnull %16) #3
+  %42 = icmp sgt i32 %41, -1
+  br i1 %42, label %43, label %45
 
-if.then27.i:                                      ; preds = %lor.lhs.false24.i, %if.end21.i
-  call void @BN_with_flags(ptr noundef nonnull %local_B.i, ptr noundef nonnull %call1.i, i32 noundef 4) #3
-  %call28.i = call i32 @BN_nnmod(ptr noundef nonnull %call1.i, ptr noundef nonnull %local_B.i, ptr noundef nonnull %call.i, ptr noundef %ctx) #3
-  %tobool29.not.i = icmp eq i32 %call28.i, 0
-  br i1 %tobool29.not.i, label %err.i, label %if.end32.i
+43:                                               ; preds = %40, %36
+  call void @BN_with_flags(ptr noundef nonnull %7, ptr noundef nonnull %17, i32 noundef 4) #3
+  %44 = call i32 @BN_nnmod(ptr noundef nonnull %17, ptr noundef nonnull %7, ptr noundef nonnull %16, ptr noundef %4) #3
+  %.not91.i = icmp eq i32 %44, 0
+  br i1 %.not91.i, label %.thread105.i, label %45
 
-if.end32.i:                                       ; preds = %if.then27.i, %lor.lhs.false24.i
-  %call3368.i = call i32 @BN_is_zero(ptr noundef nonnull %call1.i) #3
-  %tobool34.not69.i = icmp eq i32 %call3368.i, 0
-  br i1 %tobool34.not69.i, label %while.body.i, label %if.then48.i
+45:                                               ; preds = %43, %40
+  %46 = call i32 @BN_is_zero(ptr noundef nonnull %17) #3
+  %.not92122.i = icmp eq i32 %46, 0
+  br i1 %.not92122.i, label %.lr.ph.i, label %._crit_edge.thread.i
 
-while.body.i:                                     ; preds = %if.end32.i, %if.end46.i
-  %A.075.i = phi ptr [ %B.073.i, %if.end46.i ], [ %call.i, %if.end32.i ]
-  %sign.074.i = phi i32 [ %sub.i, %if.end46.i ], [ -1, %if.end32.i ]
-  %B.073.i = phi ptr [ %M.070.i, %if.end46.i ], [ %call1.i, %if.end32.i ]
-  %X.072.i = phi ptr [ %A.075.i, %if.end46.i ], [ %call2.i, %if.end32.i ]
-  %Y.071.i = phi ptr [ %X.072.i, %if.end46.i ], [ %call5.i, %if.end32.i ]
-  %M.070.i = phi ptr [ %Y.071.i, %if.end46.i ], [ %call4.i, %if.end32.i ]
-  call void @BN_with_flags(ptr noundef nonnull %local_A.i, ptr noundef %A.075.i, i32 noundef 4) #3
-  %call35.i = call i32 @BN_div(ptr noundef %call3.i, ptr noundef %M.070.i, ptr noundef nonnull %local_A.i, ptr noundef %B.073.i, ptr noundef %ctx) #3
-  %tobool36.not.i = icmp eq i32 %call35.i, 0
-  br i1 %tobool36.not.i, label %err.i, label %if.end38.i
+.lr.ph.i:                                         ; preds = %45, %52
+  %.075128.i = phi i32 [ %53, %52 ], [ -1, %45 ]
+  %.077127.i = phi ptr [ %.079126.i, %52 ], [ %16, %45 ]
+  %.079126.i = phi ptr [ %.087123.i, %52 ], [ %17, %45 ]
+  %.083125.i = phi ptr [ %.077127.i, %52 ], [ %18, %45 ]
+  %.085124.i = phi ptr [ %.083125.i, %52 ], [ %21, %45 ]
+  %.087123.i = phi ptr [ %.085124.i, %52 ], [ %20, %45 ]
+  call void @BN_with_flags(ptr noundef nonnull %6, ptr noundef %.077127.i, i32 noundef 4) #3
+  %47 = call i32 @BN_div(ptr noundef %19, ptr noundef %.087123.i, ptr noundef nonnull %6, ptr noundef %.079126.i, ptr noundef %4) #3
+  %.not98.i = icmp eq i32 %47, 0
+  br i1 %.not98.i, label %.thread105.i, label %48
 
-if.end38.i:                                       ; preds = %while.body.i
-  %call39.i = call i32 @BN_mul(ptr noundef %A.075.i, ptr noundef %call3.i, ptr noundef %X.072.i, ptr noundef %ctx) #3
-  %tobool40.not.i = icmp eq i32 %call39.i, 0
-  br i1 %tobool40.not.i, label %err.i, label %if.end42.i
+48:                                               ; preds = %.lr.ph.i
+  %49 = call i32 @BN_mul(ptr noundef %.077127.i, ptr noundef %19, ptr noundef %.083125.i, ptr noundef %4) #3
+  %.not99.i = icmp eq i32 %49, 0
+  br i1 %.not99.i, label %.thread105.i, label %50
 
-if.end42.i:                                       ; preds = %if.end38.i
-  %call43.i = call i32 @BN_add(ptr noundef %A.075.i, ptr noundef %A.075.i, ptr noundef %Y.071.i) #3
-  %tobool44.not.i = icmp eq i32 %call43.i, 0
-  br i1 %tobool44.not.i, label %err.i, label %if.end46.i
+50:                                               ; preds = %48
+  %51 = call i32 @BN_add(ptr noundef %.077127.i, ptr noundef %.077127.i, ptr noundef %.085124.i) #3
+  %.not100.i = icmp eq i32 %51, 0
+  br i1 %.not100.i, label %.thread105.i, label %52
 
-if.end46.i:                                       ; preds = %if.end42.i
-  %sub.i = sub nsw i32 0, %sign.074.i
-  %call33.i = call i32 @BN_is_zero(ptr noundef %M.070.i) #3
-  %tobool34.not.i = icmp eq i32 %call33.i, 0
-  br i1 %tobool34.not.i, label %while.body.i, label %while.end.i, !llvm.loop !9
+52:                                               ; preds = %50
+  %53 = sub nsw i32 0, %.075128.i
+  %54 = call i32 @BN_is_zero(ptr noundef %.087123.i) #3
+  %.not92.i = icmp eq i32 %54, 0
+  br i1 %.not92.i, label %.lr.ph.i, label %._crit_edge.i
 
-while.end.i:                                      ; preds = %if.end46.i
-  %3 = icmp sgt i32 %sign.074.i, 0
-  br i1 %3, label %if.then48.i, label %if.end53.i
+._crit_edge.i:                                    ; preds = %52
+  %55 = icmp sgt i32 %.075128.i, 0
+  br i1 %55, label %._crit_edge.thread.i, label %57
 
-if.then48.i:                                      ; preds = %while.end.i, %if.end32.i
-  %A.0.lcssa86.i = phi ptr [ %B.073.i, %while.end.i ], [ %call.i, %if.end32.i ]
-  %Y.0.lcssa84.i = phi ptr [ %X.072.i, %while.end.i ], [ %call5.i, %if.end32.i ]
-  %call49.i = call i32 @BN_sub(ptr noundef %Y.0.lcssa84.i, ptr noundef %n, ptr noundef %Y.0.lcssa84.i) #3
-  %tobool50.not.i = icmp eq i32 %call49.i, 0
-  br i1 %tobool50.not.i, label %err.i, label %if.end53.i
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %45
+  %.077.lcssa139.i = phi ptr [ %.079126.i, %._crit_edge.i ], [ %16, %45 ]
+  %.085.lcssa137.i = phi ptr [ %.083125.i, %._crit_edge.i ], [ %21, %45 ]
+  %56 = call i32 @BN_sub(ptr noundef %.085.lcssa137.i, ptr noundef %3, ptr noundef %.085.lcssa137.i) #3
+  %.not93.i = icmp eq i32 %56, 0
+  br i1 %.not93.i, label %.thread105.i, label %57
 
-if.end53.i:                                       ; preds = %if.then48.i, %while.end.i
-  %A.0.lcssa85.i = phi ptr [ %A.0.lcssa86.i, %if.then48.i ], [ %B.073.i, %while.end.i ]
-  %Y.0.lcssa83.i = phi ptr [ %Y.0.lcssa84.i, %if.then48.i ], [ %X.072.i, %while.end.i ]
-  %call54.i = call i32 @BN_is_one(ptr noundef %A.0.lcssa85.i) #3
-  %tobool55.not.i = icmp eq i32 %call54.i, 0
-  br i1 %tobool55.not.i, label %if.else72.i, label %if.then56.i
+57:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
+  %.077.lcssa138.i = phi ptr [ %.077.lcssa139.i, %._crit_edge.thread.i ], [ %.079126.i, %._crit_edge.i ]
+  %.085.lcssa136.i = phi ptr [ %.085.lcssa137.i, %._crit_edge.thread.i ], [ %.083125.i, %._crit_edge.i ]
+  %58 = call i32 @BN_is_one(ptr noundef %.077.lcssa138.i) #3
+  %.not94.i = icmp eq i32 %58, 0
+  br i1 %.not94.i, label %69, label %59
 
-if.then56.i:                                      ; preds = %if.end53.i
-  %neg57.i = getelementptr inbounds nuw i8, ptr %Y.0.lcssa83.i, i64 16
-  %4 = load i32, ptr %neg57.i, align 8
-  %tobool58.not.i = icmp eq i32 %4, 0
-  br i1 %tobool58.not.i, label %land.lhs.true.i, label %if.else66.i
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %.085.lcssa136.i, i64 16
+  %61 = load i32, ptr %60, align 8, !tbaa !6
+  %.not95.i = icmp eq i32 %61, 0
+  br i1 %.not95.i, label %62, label %67
 
-land.lhs.true.i:                                  ; preds = %if.then56.i
-  %call59.i = call i32 @BN_ucmp(ptr noundef nonnull %Y.0.lcssa83.i, ptr noundef %n) #3
-  %cmp60.i = icmp slt i32 %call59.i, 0
-  br i1 %cmp60.i, label %if.then61.i, label %if.else66.i
+62:                                               ; preds = %59
+  %63 = call i32 @BN_ucmp(ptr noundef nonnull %.085.lcssa136.i, ptr noundef %3) #3
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %65, label %67
 
-if.then61.i:                                      ; preds = %land.lhs.true.i
-  %call62.i = call ptr @BN_copy(ptr noundef nonnull %R.157.i, ptr noundef nonnull %Y.0.lcssa83.i) #3
-  %tobool63.not.i = icmp eq ptr %call62.i, null
-  br i1 %tobool63.not.i, label %err.i, label %BN_mod_inverse_no_branch.exit
+65:                                               ; preds = %62
+  %66 = call ptr @BN_copy(ptr noundef nonnull %.182103.i, ptr noundef nonnull %.085.lcssa136.i) #3
+  %.not96.i = icmp eq ptr %66, null
+  br i1 %.not96.i, label %.thread105.i, label %BN_mod_inverse_no_branch.exit
 
-if.else66.i:                                      ; preds = %land.lhs.true.i, %if.then56.i
-  %call67.i = call i32 @BN_nnmod(ptr noundef nonnull %R.157.i, ptr noundef nonnull %Y.0.lcssa83.i, ptr noundef %n, ptr noundef %ctx) #3
-  %tobool68.not.i = icmp eq i32 %call67.i, 0
-  br i1 %tobool68.not.i, label %err.i, label %BN_mod_inverse_no_branch.exit
+67:                                               ; preds = %62, %59
+  %68 = call i32 @BN_nnmod(ptr noundef nonnull %.182103.i, ptr noundef nonnull %.085.lcssa136.i, ptr noundef %3, ptr noundef %4) #3
+  %.not97.i = icmp eq i32 %68, 0
+  br i1 %.not97.i, label %.thread105.i, label %BN_mod_inverse_no_branch.exit
 
-if.else72.i:                                      ; preds = %if.end53.i
-  store i32 1, ptr %out_no_inverse, align 4
+69:                                               ; preds = %57
+  store i32 1, ptr %1, align 4, !tbaa !16
   call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str, i32 noundef 699) #3
-  br label %err.i
+  br label %.thread105.i
 
-err.i:                                            ; preds = %if.end42.i, %if.end38.i, %while.body.i, %if.else72.i, %if.else66.i, %if.then61.i, %if.then48.i, %if.then27.i, %lor.lhs.false17.i, %lor.lhs.false.i, %if.end13.i, %if.then
-  %R.0.i = phi ptr [ null, %if.then ], [ %R.157.i, %lor.lhs.false.i ], [ %R.157.i, %lor.lhs.false17.i ], [ %R.157.i, %if.else66.i ], [ %R.157.i, %if.then61.i ], [ %R.157.i, %if.else72.i ], [ %R.157.i, %if.then48.i ], [ %R.157.i, %if.then27.i ], [ %R.157.i, %if.end13.i ], [ %R.157.i, %while.body.i ], [ %R.157.i, %if.end38.i ], [ %R.157.i, %if.end42.i ]
-  %cmp76.i = icmp eq ptr %out, null
-  br i1 %cmp76.i, label %if.then77.i, label %BN_mod_inverse_no_branch.exit
+.thread105.i:                                     ; preds = %50, %48, %.lr.ph.i, %69, %67, %65, %._crit_edge.thread.i, %43, %33, %30, %.thread.i, %15
+  %.081.i = phi ptr [ null, %15 ], [ %.182103.i, %30 ], [ %.182103.i, %33 ], [ %.182103.i, %67 ], [ %.182103.i, %65 ], [ %.182103.i, %69 ], [ %.182103.i, %._crit_edge.thread.i ], [ %.182103.i, %43 ], [ %.182103.i, %.thread.i ], [ %.182103.i, %.lr.ph.i ], [ %.182103.i, %48 ], [ %.182103.i, %50 ]
+  %70 = icmp eq ptr %0, null
+  br i1 %70, label %.thread105.thread.i, label %BN_mod_inverse_no_branch.exit
 
-if.then77.i:                                      ; preds = %err.i, %if.end10.i
-  %R.089.i = phi ptr [ %R.0.i, %err.i ], [ null, %if.end10.i ]
-  call void @BN_free(ptr noundef %R.089.i) #3
+.thread105.thread.i:                              ; preds = %.thread105.i, %26
+  %.081141.i = phi ptr [ %.081.i, %.thread105.i ], [ null, %26 ]
+  call void @BN_free(ptr noundef %.081141.i) #3
   br label %BN_mod_inverse_no_branch.exit
 
-BN_mod_inverse_no_branch.exit:                    ; preds = %if.then61.i, %if.else66.i, %err.i, %if.then77.i
-  %ret.064.i = phi ptr [ null, %if.then77.i ], [ null, %err.i ], [ %R.157.i, %if.then61.i ], [ %R.157.i, %if.else66.i ]
-  call void @BN_CTX_end(ptr noundef %ctx) #3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %local_A.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %local_B.i)
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  store i32 0, ptr %out_no_inverse, align 4
-  tail call void @BN_CTX_start(ptr noundef %ctx) #3
-  %call4 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call5 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call6 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call7 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call8 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call9 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %call10 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %cmp11 = icmp eq ptr %call10, null
-  br i1 %cmp11, label %err, label %if.end13
-
-if.end13:                                         ; preds = %if.end
-  %cmp14 = icmp eq ptr %out, null
-  br i1 %cmp14, label %if.end17, label %if.end20
-
-if.end17:                                         ; preds = %if.end13
-  %call16 = tail call ptr @BN_new() #3
-  %cmp18 = icmp eq ptr %call16, null
-  br i1 %cmp18, label %if.then272, label %if.end20
-
-if.end20:                                         ; preds = %if.end13, %if.end17
-  %R.1148 = phi ptr [ %call16, %if.end17 ], [ %out, %if.end13 ]
-  tail call void @BN_zero(ptr noundef %call9) #3
-  %call21 = tail call i32 @BN_one(ptr noundef %call6) #3
-  %tobool.not = icmp eq i32 %call21, 0
-  br i1 %tobool.not, label %err, label %lor.lhs.false22
-
-lor.lhs.false22:                                  ; preds = %if.end20
-  %call23 = tail call ptr @BN_copy(ptr noundef %call5, ptr noundef nonnull %a) #3
-  %cmp24 = icmp eq ptr %call23, null
-  br i1 %cmp24, label %err, label %lor.lhs.false25
-
-lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %call26 = tail call ptr @BN_copy(ptr noundef %call4, ptr noundef nonnull %n) #3
-  %cmp27 = icmp eq ptr %call26, null
-  br i1 %cmp27, label %err, label %if.end29
-
-if.end29:                                         ; preds = %lor.lhs.false25
-  %neg = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  store i32 0, ptr %neg, align 8
-  %neg30 = getelementptr inbounds nuw i8, ptr %call5, i64 16
-  %5 = load i32, ptr %neg30, align 8
-  %tobool31.not = icmp eq i32 %5, 0
-  br i1 %tobool31.not, label %lor.lhs.false32, label %if.then35
-
-lor.lhs.false32:                                  ; preds = %if.end29
-  %call33 = tail call i32 @BN_ucmp(ptr noundef nonnull %call5, ptr noundef nonnull %call4) #3
-  %cmp34 = icmp sgt i32 %call33, -1
-  br i1 %cmp34, label %if.then35, label %if.end40
-
-if.then35:                                        ; preds = %lor.lhs.false32, %if.end29
-  %call36 = tail call i32 @BN_nnmod(ptr noundef nonnull %call5, ptr noundef nonnull %call5, ptr noundef nonnull %call4, ptr noundef %ctx) #3
-  %tobool37.not = icmp eq i32 %call36, 0
-  br i1 %tobool37.not, label %err, label %if.end40
-
-if.end40:                                         ; preds = %if.then35, %lor.lhs.false32
-  %call41 = tail call i32 @BN_is_odd(ptr noundef nonnull %n) #3
-  %tobool42.not = icmp eq i32 %call41, 0
-  br i1 %tobool42.not, label %if.else120, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end40
-  %call43 = tail call i32 @BN_num_bits(ptr noundef nonnull %n) #3
-  %cmp44 = icmp ult i32 %call43, 2049
-  br i1 %cmp44, label %while.cond.preheader, label %if.else120
-
-while.cond.preheader:                             ; preds = %land.lhs.true
-  %call46175 = tail call i32 @BN_is_zero(ptr noundef nonnull %call5) #3
-  %tobool47.not176 = icmp eq i32 %call46175, 0
-  br i1 %tobool47.not176, label %while.cond48, label %if.then242
-
-while.cond48:                                     ; preds = %while.cond.preheader, %while.cond48.backedge
-  %shift.0 = phi i32 [ %shift.0.be, %while.cond48.backedge ], [ 0, %while.cond.preheader ]
-  %call49 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %call5, i32 noundef %shift.0) #3
-  %tobool50.not = icmp eq i32 %call49, 0
-  br i1 %tobool50.not, label %while.body52, label %while.end
-
-while.body52:                                     ; preds = %while.cond48
-  %inc = add nuw nsw i32 %shift.0, 1
-  %call53 = tail call i32 @BN_is_odd(ptr noundef %call6) #3
-  %tobool54.not = icmp eq i32 %call53, 0
-  br i1 %tobool54.not, label %if.end60, label %if.then55
-
-if.then55:                                        ; preds = %while.body52
-  %call56 = tail call i32 @BN_uadd(ptr noundef %call6, ptr noundef %call6, ptr noundef nonnull %n) #3
-  %tobool57.not = icmp eq i32 %call56, 0
-  br i1 %tobool57.not, label %err, label %if.end60
-
-if.end60:                                         ; preds = %if.then55, %while.body52
-  %call61 = tail call i32 @BN_rshift1(ptr noundef %call6, ptr noundef %call6) #3
-  %tobool62.not = icmp eq i32 %call61, 0
-  br i1 %tobool62.not, label %err, label %while.cond48.backedge
-
-while.cond48.backedge:                            ; preds = %if.end60, %if.end118
-  %shift.0.be = phi i32 [ %inc, %if.end60 ], [ 0, %if.end118 ]
-  br label %while.cond48, !llvm.loop !10
-
-while.end:                                        ; preds = %while.cond48
-  %cmp65.not = icmp eq i32 %shift.0, 0
-  br i1 %cmp65.not, label %while.cond72.preheader, label %if.then66
-
-if.then66:                                        ; preds = %while.end
-  %call67 = tail call i32 @BN_rshift(ptr noundef nonnull %call5, ptr noundef nonnull %call5, i32 noundef %shift.0) #3
-  %tobool68.not = icmp eq i32 %call67, 0
-  br i1 %tobool68.not, label %err, label %while.cond72.preheader
-
-while.cond72.preheader:                           ; preds = %if.then66, %while.end
-  br label %while.cond72
-
-while.cond72:                                     ; preds = %while.cond72.preheader, %if.end85
-  %shift.1 = phi i32 [ %inc77, %if.end85 ], [ 0, %while.cond72.preheader ]
-  %call73 = tail call i32 @BN_is_bit_set(ptr noundef %call4, i32 noundef %shift.1) #3
-  %tobool74.not = icmp eq i32 %call73, 0
-  br i1 %tobool74.not, label %while.body76, label %while.end90
-
-while.body76:                                     ; preds = %while.cond72
-  %inc77 = add nuw nsw i32 %shift.1, 1
-  %call78 = tail call i32 @BN_is_odd(ptr noundef %call9) #3
-  %tobool79.not = icmp eq i32 %call78, 0
-  br i1 %tobool79.not, label %if.end85, label %if.then80
-
-if.then80:                                        ; preds = %while.body76
-  %call81 = tail call i32 @BN_uadd(ptr noundef %call9, ptr noundef %call9, ptr noundef nonnull %n) #3
-  %tobool82.not = icmp eq i32 %call81, 0
-  br i1 %tobool82.not, label %err, label %if.end85
-
-if.end85:                                         ; preds = %if.then80, %while.body76
-  %call86 = tail call i32 @BN_rshift1(ptr noundef %call9, ptr noundef %call9) #3
-  %tobool87.not = icmp eq i32 %call86, 0
-  br i1 %tobool87.not, label %err, label %while.cond72, !llvm.loop !11
-
-while.end90:                                      ; preds = %while.cond72
-  %cmp91.not = icmp eq i32 %shift.1, 0
-  br i1 %cmp91.not, label %if.end97, label %if.then92
-
-if.then92:                                        ; preds = %while.end90
-  %call93 = tail call i32 @BN_rshift(ptr noundef %call4, ptr noundef %call4, i32 noundef %shift.1) #3
-  %tobool94.not = icmp eq i32 %call93, 0
-  br i1 %tobool94.not, label %err, label %if.end97
-
-if.end97:                                         ; preds = %if.then92, %while.end90
-  %call98 = tail call i32 @BN_ucmp(ptr noundef nonnull %call5, ptr noundef %call4) #3
-  %cmp99 = icmp sgt i32 %call98, -1
-  br i1 %cmp99, label %if.then100, label %if.else109
-
-if.then100:                                       ; preds = %if.end97
-  %call101 = tail call i32 @BN_uadd(ptr noundef %call6, ptr noundef %call6, ptr noundef %call9) #3
-  %tobool102.not = icmp eq i32 %call101, 0
-  br i1 %tobool102.not, label %err, label %if.end104
-
-if.end104:                                        ; preds = %if.then100
-  %call105 = tail call i32 @BN_usub(ptr noundef nonnull %call5, ptr noundef nonnull %call5, ptr noundef %call4) #3
-  %tobool106.not = icmp eq i32 %call105, 0
-  br i1 %tobool106.not, label %err, label %if.end118
-
-if.else109:                                       ; preds = %if.end97
-  %call110 = tail call i32 @BN_uadd(ptr noundef %call9, ptr noundef %call9, ptr noundef %call6) #3
-  %tobool111.not = icmp eq i32 %call110, 0
-  br i1 %tobool111.not, label %err, label %if.end113
-
-if.end113:                                        ; preds = %if.else109
-  %call114 = tail call i32 @BN_usub(ptr noundef %call4, ptr noundef %call4, ptr noundef nonnull %call5) #3
-  %tobool115.not = icmp eq i32 %call114, 0
-  br i1 %tobool115.not, label %err, label %if.end118
-
-if.end118:                                        ; preds = %if.end113, %if.end104
-  %call46 = tail call i32 @BN_is_zero(ptr noundef nonnull %call5) #3
-  %tobool47.not = icmp eq i32 %call46, 0
-  br i1 %tobool47.not, label %while.cond48.backedge, label %if.then242
-
-if.else120:                                       ; preds = %land.lhs.true, %if.end40
-  %call122177 = tail call i32 @BN_is_zero(ptr noundef nonnull %call5) #3
-  %tobool123.not178 = icmp eq i32 %call122177, 0
-  br i1 %tobool123.not178, label %while.body125.lr.ph, label %if.then242
-
-while.body125.lr.ph:                              ; preds = %if.else120
-  %top = getelementptr inbounds nuw i8, ptr %call7, i64 8
-  br label %while.body125
-
-while.body125:                                    ; preds = %while.body125.lr.ph, %if.end238
-  %sign.1184 = phi i32 [ -1, %while.body125.lr.ph ], [ %sub, %if.end238 ]
-  %A.1183 = phi ptr [ %call4, %while.body125.lr.ph ], [ %B.0182, %if.end238 ]
-  %B.0182 = phi ptr [ %call5, %while.body125.lr.ph ], [ %M.0181, %if.end238 ]
-  %M.0181 = phi ptr [ %call8, %while.body125.lr.ph ], [ %Y.1180, %if.end238 ]
-  %Y.1180 = phi ptr [ %call9, %while.body125.lr.ph ], [ %X.0179, %if.end238 ]
-  %X.0179 = phi ptr [ %call6, %while.body125.lr.ph ], [ %A.1183, %if.end238 ]
-  %call126 = tail call i32 @BN_num_bits(ptr noundef %A.1183) #3
-  %call127 = tail call i32 @BN_num_bits(ptr noundef %B.0182) #3
-  %cmp128 = icmp eq i32 %call126, %call127
-  br i1 %cmp128, label %if.then129, label %if.else138
-
-if.then129:                                       ; preds = %while.body125
-  %call130 = tail call i32 @BN_one(ptr noundef %call7) #3
-  %tobool131.not = icmp eq i32 %call130, 0
-  br i1 %tobool131.not, label %err, label %if.end133
-
-if.end133:                                        ; preds = %if.then129
-  %call134 = tail call i32 @BN_sub(ptr noundef %M.0181, ptr noundef %A.1183, ptr noundef %B.0182) #3
-  %tobool135.not = icmp eq i32 %call134, 0
-  br i1 %tobool135.not, label %err, label %if.end191
-
-if.else138:                                       ; preds = %while.body125
-  %call139 = tail call i32 @BN_num_bits(ptr noundef %A.1183) #3
-  %call140 = tail call i32 @BN_num_bits(ptr noundef %B.0182) #3
-  %add = add i32 %call140, 1
-  %cmp141 = icmp eq i32 %call139, %add
-  br i1 %cmp141, label %if.then142, label %if.else185
-
-if.then142:                                       ; preds = %if.else138
-  %call143 = tail call i32 @BN_lshift1(ptr noundef nonnull %call10, ptr noundef %B.0182) #3
-  %tobool144.not = icmp eq i32 %call143, 0
-  br i1 %tobool144.not, label %err, label %if.end146
-
-if.end146:                                        ; preds = %if.then142
-  %call147 = tail call i32 @BN_ucmp(ptr noundef %A.1183, ptr noundef nonnull %call10) #3
-  %cmp148 = icmp slt i32 %call147, 0
-  br i1 %cmp148, label %if.then149, label %if.else158
-
-if.then149:                                       ; preds = %if.end146
-  %call150 = tail call i32 @BN_one(ptr noundef %call7) #3
-  %tobool151.not = icmp eq i32 %call150, 0
-  br i1 %tobool151.not, label %err, label %if.end153
-
-if.end153:                                        ; preds = %if.then149
-  %call154 = tail call i32 @BN_sub(ptr noundef %M.0181, ptr noundef %A.1183, ptr noundef %B.0182) #3
-  %tobool155.not = icmp eq i32 %call154, 0
-  br i1 %tobool155.not, label %err, label %if.end191
-
-if.else158:                                       ; preds = %if.end146
-  %call159 = tail call i32 @BN_sub(ptr noundef %M.0181, ptr noundef %A.1183, ptr noundef nonnull %call10) #3
-  %tobool160.not = icmp eq i32 %call159, 0
-  br i1 %tobool160.not, label %err, label %if.end162
-
-if.end162:                                        ; preds = %if.else158
-  %call163 = tail call i32 @BN_add(ptr noundef %call7, ptr noundef nonnull %call10, ptr noundef %B.0182) #3
-  %tobool164.not = icmp eq i32 %call163, 0
-  br i1 %tobool164.not, label %err, label %if.end166
-
-if.end166:                                        ; preds = %if.end162
-  %call167 = tail call i32 @BN_ucmp(ptr noundef %A.1183, ptr noundef %call7) #3
-  %cmp168 = icmp slt i32 %call167, 0
-  br i1 %cmp168, label %if.then169, label %if.else174
-
-if.then169:                                       ; preds = %if.end166
-  %call170 = tail call i32 @BN_set_word(ptr noundef %call7, i64 noundef 2) #3
-  %tobool171.not = icmp eq i32 %call170, 0
-  br i1 %tobool171.not, label %err, label %if.end191
-
-if.else174:                                       ; preds = %if.end166
-  %call175 = tail call i32 @BN_set_word(ptr noundef %call7, i64 noundef 3) #3
-  %tobool176.not = icmp eq i32 %call175, 0
-  br i1 %tobool176.not, label %err, label %if.end178
-
-if.end178:                                        ; preds = %if.else174
-  %call179 = tail call i32 @BN_sub(ptr noundef %M.0181, ptr noundef %M.0181, ptr noundef %B.0182) #3
-  %tobool180.not = icmp eq i32 %call179, 0
-  br i1 %tobool180.not, label %err, label %if.end191
-
-if.else185:                                       ; preds = %if.else138
-  %call186 = tail call i32 @BN_div(ptr noundef %call7, ptr noundef %M.0181, ptr noundef %A.1183, ptr noundef %B.0182, ptr noundef %ctx) #3
-  %tobool187.not = icmp eq i32 %call186, 0
-  br i1 %tobool187.not, label %err, label %if.end191
-
-if.end191:                                        ; preds = %if.then169, %if.end178, %if.end153, %if.else185, %if.end133
-  %call192 = tail call i32 @BN_is_one(ptr noundef %call7) #3
-  %tobool193.not = icmp eq i32 %call192, 0
-  br i1 %tobool193.not, label %if.else199, label %if.then194
-
-if.then194:                                       ; preds = %if.end191
-  %call195 = tail call i32 @BN_add(ptr noundef %A.1183, ptr noundef %X.0179, ptr noundef %Y.1180) #3
-  %tobool196.not = icmp eq i32 %call195, 0
-  br i1 %tobool196.not, label %err, label %if.end238
-
-if.else199:                                       ; preds = %if.end191
-  %call200 = tail call i32 @BN_is_word(ptr noundef %call7, i64 noundef 2) #3
-  %tobool201.not = icmp eq i32 %call200, 0
-  br i1 %tobool201.not, label %if.else207, label %if.then202
-
-if.then202:                                       ; preds = %if.else199
-  %call203 = tail call i32 @BN_lshift1(ptr noundef %A.1183, ptr noundef %X.0179) #3
-  %tobool204.not = icmp eq i32 %call203, 0
-  br i1 %tobool204.not, label %err, label %if.end233
-
-if.else207:                                       ; preds = %if.else199
-  %call208 = tail call i32 @BN_is_word(ptr noundef %call7, i64 noundef 4) #3
-  %tobool209.not = icmp eq i32 %call208, 0
-  br i1 %tobool209.not, label %if.else215, label %if.then210
-
-if.then210:                                       ; preds = %if.else207
-  %call211 = tail call i32 @BN_lshift(ptr noundef %A.1183, ptr noundef %X.0179, i32 noundef 2) #3
-  %tobool212.not = icmp eq i32 %call211, 0
-  br i1 %tobool212.not, label %err, label %if.end233
-
-if.else215:                                       ; preds = %if.else207
-  %6 = load i32, ptr %top, align 8
-  %cmp216 = icmp eq i32 %6, 1
-  br i1 %cmp216, label %if.then217, label %if.else226
-
-if.then217:                                       ; preds = %if.else215
-  %call218 = tail call ptr @BN_copy(ptr noundef %A.1183, ptr noundef %X.0179) #3
-  %tobool219.not = icmp eq ptr %call218, null
-  br i1 %tobool219.not, label %err, label %if.end221
-
-if.end221:                                        ; preds = %if.then217
-  %7 = load ptr, ptr %call7, align 8
-  %8 = load i64, ptr %7, align 8
-  %call222 = tail call i32 @BN_mul_word(ptr noundef %A.1183, i64 noundef %8) #3
-  %tobool223.not = icmp eq i32 %call222, 0
-  br i1 %tobool223.not, label %err, label %if.end233
-
-if.else226:                                       ; preds = %if.else215
-  %call227 = tail call i32 @BN_mul(ptr noundef %A.1183, ptr noundef nonnull %call7, ptr noundef %X.0179, ptr noundef %ctx) #3
-  %tobool228.not = icmp eq i32 %call227, 0
-  br i1 %tobool228.not, label %err, label %if.end233
-
-if.end233:                                        ; preds = %if.then210, %if.else226, %if.end221, %if.then202
-  %call234 = tail call i32 @BN_add(ptr noundef %A.1183, ptr noundef %A.1183, ptr noundef %Y.1180) #3
-  %tobool235.not = icmp eq i32 %call234, 0
-  br i1 %tobool235.not, label %err, label %if.end238
-
-if.end238:                                        ; preds = %if.end233, %if.then194
-  %sub = sub nsw i32 0, %sign.1184
-  %call122 = tail call i32 @BN_is_zero(ptr noundef %M.0181) #3
-  %tobool123.not = icmp eq i32 %call122, 0
-  br i1 %tobool123.not, label %while.body125, label %if.end240, !llvm.loop !12
-
-if.end240:                                        ; preds = %if.end238
-  %9 = icmp sgt i32 %sign.1184, 0
-  br i1 %9, label %if.then242, label %if.end247
-
-if.then242:                                       ; preds = %if.end118, %if.else120, %while.cond.preheader, %if.end240
-  %A.0157 = phi ptr [ %B.0182, %if.end240 ], [ %call4, %while.cond.preheader ], [ %call4, %if.else120 ], [ %call4, %if.end118 ]
-  %Y.0154 = phi ptr [ %X.0179, %if.end240 ], [ %call9, %while.cond.preheader ], [ %call9, %if.else120 ], [ %call9, %if.end118 ]
-  %call243 = tail call i32 @BN_sub(ptr noundef %Y.0154, ptr noundef nonnull %n, ptr noundef %Y.0154) #3
-  %tobool244.not = icmp eq i32 %call243, 0
-  br i1 %tobool244.not, label %err, label %if.end247
-
-if.end247:                                        ; preds = %if.then242, %if.end240
-  %A.0156 = phi ptr [ %A.0157, %if.then242 ], [ %B.0182, %if.end240 ]
-  %Y.0155 = phi ptr [ %Y.0154, %if.then242 ], [ %X.0179, %if.end240 ]
-  %call248 = tail call i32 @BN_is_one(ptr noundef %A.0156) #3
-  %tobool249.not = icmp eq i32 %call248, 0
-  br i1 %tobool249.not, label %if.else267, label %if.then250
-
-if.then250:                                       ; preds = %if.end247
-  %neg251 = getelementptr inbounds nuw i8, ptr %Y.0155, i64 16
-  %10 = load i32, ptr %neg251, align 8
-  %tobool252.not = icmp eq i32 %10, 0
-  br i1 %tobool252.not, label %land.lhs.true253, label %if.else261
-
-land.lhs.true253:                                 ; preds = %if.then250
-  %call254 = tail call i32 @BN_ucmp(ptr noundef nonnull %Y.0155, ptr noundef nonnull %n) #3
-  %cmp255 = icmp slt i32 %call254, 0
-  br i1 %cmp255, label %if.then256, label %if.else261
-
-if.then256:                                       ; preds = %land.lhs.true253
-  %call257 = tail call ptr @BN_copy(ptr noundef nonnull %R.1148, ptr noundef nonnull %Y.0155) #3
-  %tobool258.not = icmp eq ptr %call257, null
-  br i1 %tobool258.not, label %err, label %if.end273
-
-if.else261:                                       ; preds = %land.lhs.true253, %if.then250
-  %call262 = tail call i32 @BN_nnmod(ptr noundef nonnull %R.1148, ptr noundef nonnull %Y.0155, ptr noundef nonnull %n, ptr noundef %ctx) #3
-  %tobool263.not = icmp eq i32 %call262, 0
-  br i1 %tobool263.not, label %err, label %if.end273
-
-if.else267:                                       ; preds = %if.end247
-  store i32 1, ptr %out_no_inverse, align 4
+BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread105.i, %.thread105.thread.i
+  %.076118.i = phi ptr [ null, %.thread105.thread.i ], [ null, %.thread105.i ], [ %.182103.i, %65 ], [ %.182103.i, %67 ]
+  call void @BN_CTX_end(ptr noundef %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #3
+  br label %227
+
+71:                                               ; preds = %11
+  store i32 0, ptr %1, align 4, !tbaa !16
+  tail call void @BN_CTX_start(ptr noundef %4) #3
+  %72 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %73 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %74 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %75 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %76 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %77 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %78 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %.thread243, label %80
+
+80:                                               ; preds = %71
+  %81 = icmp eq ptr %0, null
+  br i1 %81, label %82, label %.thread
+
+82:                                               ; preds = %80
+  %83 = tail call ptr @BN_new() #3
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %.thread243.thread, label %.thread
+
+.thread:                                          ; preds = %80, %82
+  %.1172241 = phi ptr [ %83, %82 ], [ %0, %80 ]
+  tail call void @BN_zero(ptr noundef %77) #3
+  %85 = tail call i32 @BN_one(ptr noundef %74) #3
+  %.not188 = icmp eq i32 %85, 0
+  br i1 %.not188, label %.thread243, label %86
+
+86:                                               ; preds = %.thread
+  %87 = tail call ptr @BN_copy(ptr noundef %73, ptr noundef nonnull %2) #3
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %.thread243, label %89
+
+89:                                               ; preds = %86
+  %90 = tail call ptr @BN_copy(ptr noundef %72, ptr noundef nonnull %3) #3
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %.thread243, label %92
+
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store i32 0, ptr %93, align 8, !tbaa !6
+  %94 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %95 = load i32, ptr %94, align 8, !tbaa !6
+  %.not189 = icmp eq i32 %95, 0
+  br i1 %.not189, label %96, label %99
+
+96:                                               ; preds = %92
+  %97 = tail call i32 @BN_ucmp(ptr noundef nonnull %73, ptr noundef nonnull %72) #3
+  %98 = icmp sgt i32 %97, -1
+  br i1 %98, label %99, label %101
+
+99:                                               ; preds = %96, %92
+  %100 = tail call i32 @BN_nnmod(ptr noundef nonnull %73, ptr noundef nonnull %73, ptr noundef nonnull %72, ptr noundef %4) #3
+  %.not190 = icmp eq i32 %100, 0
+  br i1 %.not190, label %.thread243, label %101
+
+101:                                              ; preds = %99, %96
+  %102 = tail call i32 @BN_is_odd(ptr noundef nonnull %3) #3
+  %.not191 = icmp eq i32 %102, 0
+  br i1 %.not191, label %143, label %103
+
+103:                                              ; preds = %101
+  %104 = tail call i32 @BN_num_bits(ptr noundef nonnull %3) #3
+  %105 = icmp ult i32 %104, 2049
+  br i1 %105, label %.preheader271, label %143
+
+.preheader271:                                    ; preds = %103
+  %106 = tail call i32 @BN_is_zero(ptr noundef nonnull %73) #3
+  %.not214281 = icmp eq i32 %106, 0
+  br i1 %.not214281, label %.preheader, label %.thread256
+
+.preheader:                                       ; preds = %.preheader271, %.preheader.backedge
+  %.0165 = phi i32 [ %.0165.be, %.preheader.backedge ], [ 0, %.preheader271 ]
+  %107 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %73, i32 noundef %.0165) #3
+  %.not215 = icmp eq i32 %107, 0
+  br i1 %.not215, label %108, label %115
+
+108:                                              ; preds = %.preheader
+  %109 = add nuw nsw i32 %.0165, 1
+  %110 = tail call i32 @BN_is_odd(ptr noundef %74) #3
+  %.not228 = icmp eq i32 %110, 0
+  br i1 %.not228, label %113, label %111
+
+111:                                              ; preds = %108
+  %112 = tail call i32 @BN_uadd(ptr noundef %74, ptr noundef %74, ptr noundef nonnull %3) #3
+  %.not229 = icmp eq i32 %112, 0
+  br i1 %.not229, label %.thread243, label %113
+
+113:                                              ; preds = %111, %108
+  %114 = tail call i32 @BN_rshift1(ptr noundef %74, ptr noundef %74) #3
+  %.not230 = icmp eq i32 %114, 0
+  br i1 %.not230, label %.thread243, label %.preheader.backedge
+
+.preheader.backedge:                              ; preds = %113, %141
+  %.0165.be = phi i32 [ %109, %113 ], [ 0, %141 ]
+  br label %.preheader, !llvm.loop !17
+
+115:                                              ; preds = %.preheader
+  %.not216 = icmp eq i32 %.0165, 0
+  br i1 %.not216, label %.preheader331, label %116
+
+116:                                              ; preds = %115
+  %117 = tail call i32 @BN_rshift(ptr noundef nonnull %73, ptr noundef nonnull %73, i32 noundef %.0165) #3
+  %.not217 = icmp eq i32 %117, 0
+  br i1 %.not217, label %.thread243, label %.preheader331
+
+.preheader331:                                    ; preds = %116, %115
+  br label %118
+
+118:                                              ; preds = %.preheader331, %125
+  %.1 = phi i32 [ %121, %125 ], [ 0, %.preheader331 ]
+  %119 = tail call i32 @BN_is_bit_set(ptr noundef %72, i32 noundef %.1) #3
+  %.not218 = icmp eq i32 %119, 0
+  br i1 %.not218, label %120, label %127
+
+120:                                              ; preds = %118
+  %121 = add nuw nsw i32 %.1, 1
+  %122 = tail call i32 @BN_is_odd(ptr noundef %77) #3
+  %.not225 = icmp eq i32 %122, 0
+  br i1 %.not225, label %125, label %123
+
+123:                                              ; preds = %120
+  %124 = tail call i32 @BN_uadd(ptr noundef %77, ptr noundef %77, ptr noundef nonnull %3) #3
+  %.not226 = icmp eq i32 %124, 0
+  br i1 %.not226, label %.thread243, label %125
+
+125:                                              ; preds = %123, %120
+  %126 = tail call i32 @BN_rshift1(ptr noundef %77, ptr noundef %77) #3
+  %.not227 = icmp eq i32 %126, 0
+  br i1 %.not227, label %.thread243, label %118, !llvm.loop !18
+
+127:                                              ; preds = %118
+  %.not219 = icmp eq i32 %.1, 0
+  br i1 %.not219, label %130, label %128
+
+128:                                              ; preds = %127
+  %129 = tail call i32 @BN_rshift(ptr noundef %72, ptr noundef %72, i32 noundef %.1) #3
+  %.not220 = icmp eq i32 %129, 0
+  br i1 %.not220, label %.thread243, label %130
+
+130:                                              ; preds = %128, %127
+  %131 = tail call i32 @BN_ucmp(ptr noundef nonnull %73, ptr noundef %72) #3
+  %132 = icmp sgt i32 %131, -1
+  br i1 %132, label %133, label %137
+
+133:                                              ; preds = %130
+  %134 = tail call i32 @BN_uadd(ptr noundef %74, ptr noundef %74, ptr noundef %77) #3
+  %.not223 = icmp eq i32 %134, 0
+  br i1 %.not223, label %.thread243, label %135
+
+135:                                              ; preds = %133
+  %136 = tail call i32 @BN_usub(ptr noundef nonnull %73, ptr noundef nonnull %73, ptr noundef %72) #3
+  %.not224 = icmp eq i32 %136, 0
+  br i1 %.not224, label %.thread243, label %141
+
+137:                                              ; preds = %130
+  %138 = tail call i32 @BN_uadd(ptr noundef %77, ptr noundef %77, ptr noundef %74) #3
+  %.not221 = icmp eq i32 %138, 0
+  br i1 %.not221, label %.thread243, label %139
+
+139:                                              ; preds = %137
+  %140 = tail call i32 @BN_usub(ptr noundef %72, ptr noundef %72, ptr noundef nonnull %73) #3
+  %.not222 = icmp eq i32 %140, 0
+  br i1 %.not222, label %.thread243, label %141
+
+141:                                              ; preds = %139, %135
+  %142 = tail call i32 @BN_is_zero(ptr noundef nonnull %73) #3
+  %.not214 = icmp eq i32 %142, 0
+  br i1 %.not214, label %.preheader.backedge, label %.thread256
+
+143:                                              ; preds = %103, %101
+  %144 = tail call i32 @BN_is_zero(ptr noundef nonnull %73) #3
+  %.not192282 = icmp eq i32 %144, 0
+  br i1 %.not192282, label %.lr.ph, label %.thread256
+
+.lr.ph:                                           ; preds = %143
+  %145 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  br label %146
+
+146:                                              ; preds = %.lr.ph, %208
+  %.1169288 = phi i32 [ -1, %.lr.ph ], [ %209, %208 ]
+  %.1174287 = phi ptr [ %72, %.lr.ph ], [ %.0176286, %208 ]
+  %.0176286 = phi ptr [ %73, %.lr.ph ], [ %.0178285, %208 ]
+  %.0178285 = phi ptr [ %76, %.lr.ph ], [ %.1181284, %208 ]
+  %.1181284 = phi ptr [ %77, %.lr.ph ], [ %.0183283, %208 ]
+  %.0183283 = phi ptr [ %74, %.lr.ph ], [ %.1174287, %208 ]
+  %147 = tail call i32 @BN_num_bits(ptr noundef %.1174287) #3
+  %148 = tail call i32 @BN_num_bits(ptr noundef %.0176286) #3
+  %149 = icmp eq i32 %147, %148
+  br i1 %149, label %150, label %154
+
+150:                                              ; preds = %146
+  %151 = tail call i32 @BN_one(ptr noundef %75) #3
+  %.not202 = icmp eq i32 %151, 0
+  br i1 %.not202, label %.thread243, label %152
+
+152:                                              ; preds = %150
+  %153 = tail call i32 @BN_sub(ptr noundef %.0178285, ptr noundef %.1174287, ptr noundef %.0176286) #3
+  %.not203 = icmp eq i32 %153, 0
+  br i1 %.not203, label %.thread243, label %183
+
+154:                                              ; preds = %146
+  %155 = tail call i32 @BN_num_bits(ptr noundef %.1174287) #3
+  %156 = tail call i32 @BN_num_bits(ptr noundef %.0176286) #3
+  %157 = add i32 %156, 1
+  %158 = icmp eq i32 %155, %157
+  br i1 %158, label %159, label %181
+
+159:                                              ; preds = %154
+  %160 = tail call i32 @BN_lshift1(ptr noundef nonnull %78, ptr noundef %.0176286) #3
+  %.not194 = icmp eq i32 %160, 0
+  br i1 %.not194, label %.thread243, label %161
+
+161:                                              ; preds = %159
+  %162 = tail call i32 @BN_ucmp(ptr noundef %.1174287, ptr noundef nonnull %78) #3
+  %163 = icmp slt i32 %162, 0
+  br i1 %163, label %164, label %168
+
+164:                                              ; preds = %161
+  %165 = tail call i32 @BN_one(ptr noundef %75) #3
+  %.not200 = icmp eq i32 %165, 0
+  br i1 %.not200, label %.thread243, label %166
+
+166:                                              ; preds = %164
+  %167 = tail call i32 @BN_sub(ptr noundef %.0178285, ptr noundef %.1174287, ptr noundef %.0176286) #3
+  %.not201 = icmp eq i32 %167, 0
+  br i1 %.not201, label %.thread243, label %183
+
+168:                                              ; preds = %161
+  %169 = tail call i32 @BN_sub(ptr noundef %.0178285, ptr noundef %.1174287, ptr noundef nonnull %78) #3
+  %.not195 = icmp eq i32 %169, 0
+  br i1 %.not195, label %.thread243, label %170
+
+170:                                              ; preds = %168
+  %171 = tail call i32 @BN_add(ptr noundef %75, ptr noundef nonnull %78, ptr noundef %.0176286) #3
+  %.not196 = icmp eq i32 %171, 0
+  br i1 %.not196, label %.thread243, label %172
+
+172:                                              ; preds = %170
+  %173 = tail call i32 @BN_ucmp(ptr noundef %.1174287, ptr noundef %75) #3
+  %174 = icmp slt i32 %173, 0
+  br i1 %174, label %175, label %177
+
+175:                                              ; preds = %172
+  %176 = tail call i32 @BN_set_word(ptr noundef %75, i64 noundef 2) #3
+  %.not199 = icmp eq i32 %176, 0
+  br i1 %.not199, label %.thread243, label %183
+
+177:                                              ; preds = %172
+  %178 = tail call i32 @BN_set_word(ptr noundef %75, i64 noundef 3) #3
+  %.not197 = icmp eq i32 %178, 0
+  br i1 %.not197, label %.thread243, label %179
+
+179:                                              ; preds = %177
+  %180 = tail call i32 @BN_sub(ptr noundef %.0178285, ptr noundef %.0178285, ptr noundef %.0176286) #3
+  %.not198 = icmp eq i32 %180, 0
+  br i1 %.not198, label %.thread243, label %183
+
+181:                                              ; preds = %154
+  %182 = tail call i32 @BN_div(ptr noundef %75, ptr noundef %.0178285, ptr noundef %.1174287, ptr noundef %.0176286, ptr noundef %4) #3
+  %.not193 = icmp eq i32 %182, 0
+  br i1 %.not193, label %.thread243, label %183
+
+183:                                              ; preds = %175, %179, %166, %181, %152
+  %184 = tail call i32 @BN_is_one(ptr noundef %75) #3
+  %.not204 = icmp eq i32 %184, 0
+  br i1 %.not204, label %187, label %185
+
+185:                                              ; preds = %183
+  %186 = tail call i32 @BN_add(ptr noundef %.1174287, ptr noundef %.0183283, ptr noundef %.1181284) #3
+  %.not213 = icmp eq i32 %186, 0
+  br i1 %.not213, label %.thread243, label %208
+
+187:                                              ; preds = %183
+  %188 = tail call i32 @BN_is_word(ptr noundef %75, i64 noundef 2) #3
+  %.not205 = icmp eq i32 %188, 0
+  br i1 %.not205, label %191, label %189
+
+189:                                              ; preds = %187
+  %190 = tail call i32 @BN_lshift1(ptr noundef %.1174287, ptr noundef %.0183283) #3
+  %.not211 = icmp eq i32 %190, 0
+  br i1 %.not211, label %.thread243, label %206
+
+191:                                              ; preds = %187
+  %192 = tail call i32 @BN_is_word(ptr noundef %75, i64 noundef 4) #3
+  %.not206 = icmp eq i32 %192, 0
+  br i1 %.not206, label %195, label %193
+
+193:                                              ; preds = %191
+  %194 = tail call i32 @BN_lshift(ptr noundef %.1174287, ptr noundef %.0183283, i32 noundef 2) #3
+  %.not210 = icmp eq i32 %194, 0
+  br i1 %.not210, label %.thread243, label %206
+
+195:                                              ; preds = %191
+  %196 = load i32, ptr %145, align 8, !tbaa !19
+  %197 = icmp eq i32 %196, 1
+  br i1 %197, label %198, label %204
+
+198:                                              ; preds = %195
+  %199 = tail call ptr @BN_copy(ptr noundef %.1174287, ptr noundef %.0183283) #3
+  %.not208 = icmp eq ptr %199, null
+  br i1 %.not208, label %.thread243, label %200
+
+200:                                              ; preds = %198
+  %201 = load ptr, ptr %75, align 8, !tbaa !20
+  %202 = load i64, ptr %201, align 8, !tbaa !21
+  %203 = tail call i32 @BN_mul_word(ptr noundef %.1174287, i64 noundef %202) #3
+  %.not209 = icmp eq i32 %203, 0
+  br i1 %.not209, label %.thread243, label %206
+
+204:                                              ; preds = %195
+  %205 = tail call i32 @BN_mul(ptr noundef %.1174287, ptr noundef nonnull %75, ptr noundef %.0183283, ptr noundef %4) #3
+  %.not207 = icmp eq i32 %205, 0
+  br i1 %.not207, label %.thread243, label %206
+
+206:                                              ; preds = %193, %204, %200, %189
+  %207 = tail call i32 @BN_add(ptr noundef %.1174287, ptr noundef %.1174287, ptr noundef %.1181284) #3
+  %.not212 = icmp eq i32 %207, 0
+  br i1 %.not212, label %.thread243, label %208
+
+208:                                              ; preds = %185, %206
+  %209 = sub nsw i32 0, %.1169288
+  %210 = tail call i32 @BN_is_zero(ptr noundef %.0178285) #3
+  %.not192 = icmp eq i32 %210, 0
+  br i1 %.not192, label %146, label %._crit_edge
+
+._crit_edge:                                      ; preds = %208
+  %211 = icmp sgt i32 %.1169288, 0
+  br i1 %211, label %.thread256, label %213
+
+.thread256:                                       ; preds = %141, %143, %.preheader271, %._crit_edge
+  %.0173263 = phi ptr [ %.0176286, %._crit_edge ], [ %72, %.preheader271 ], [ %72, %143 ], [ %72, %141 ]
+  %.0180260 = phi ptr [ %.0183283, %._crit_edge ], [ %77, %.preheader271 ], [ %77, %143 ], [ %77, %141 ]
+  %212 = tail call i32 @BN_sub(ptr noundef %.0180260, ptr noundef nonnull %3, ptr noundef %.0180260) #3
+  %.not231 = icmp eq i32 %212, 0
+  br i1 %.not231, label %.thread243, label %213
+
+213:                                              ; preds = %.thread256, %._crit_edge
+  %.0173262 = phi ptr [ %.0173263, %.thread256 ], [ %.0176286, %._crit_edge ]
+  %.0180261 = phi ptr [ %.0180260, %.thread256 ], [ %.0183283, %._crit_edge ]
+  %214 = tail call i32 @BN_is_one(ptr noundef %.0173262) #3
+  %.not232 = icmp eq i32 %214, 0
+  br i1 %.not232, label %225, label %215
+
+215:                                              ; preds = %213
+  %216 = getelementptr inbounds nuw i8, ptr %.0180261, i64 16
+  %217 = load i32, ptr %216, align 8, !tbaa !6
+  %.not233 = icmp eq i32 %217, 0
+  br i1 %.not233, label %218, label %223
+
+218:                                              ; preds = %215
+  %219 = tail call i32 @BN_ucmp(ptr noundef nonnull %.0180261, ptr noundef nonnull %3) #3
+  %220 = icmp slt i32 %219, 0
+  br i1 %220, label %221, label %223
+
+221:                                              ; preds = %218
+  %222 = tail call ptr @BN_copy(ptr noundef nonnull %.1172241, ptr noundef nonnull %.0180261) #3
+  %.not234 = icmp eq ptr %222, null
+  br i1 %.not234, label %.thread243, label %.thread264
+
+223:                                              ; preds = %218, %215
+  %224 = tail call i32 @BN_nnmod(ptr noundef nonnull %.1172241, ptr noundef nonnull %.0180261, ptr noundef nonnull %3, ptr noundef %4) #3
+  %.not235 = icmp eq i32 %224, 0
+  br i1 %.not235, label %.thread243, label %.thread264
+
+225:                                              ; preds = %213
+  store i32 1, ptr %1, align 4, !tbaa !16
   tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str, i32 noundef 529) #3
-  br label %err
+  br label %.thread243
 
-err:                                              ; preds = %if.end113, %if.else109, %if.end104, %if.then100, %if.then92, %if.then66, %if.end60, %if.then55, %if.end85, %if.then80, %if.end233, %if.else226, %if.end221, %if.then217, %if.then210, %if.then202, %if.then194, %if.else185, %if.end178, %if.else174, %if.then169, %if.end162, %if.else158, %if.end153, %if.then149, %if.then142, %if.end133, %if.then129, %if.else261, %if.then256, %if.then242, %if.then35, %if.end20, %lor.lhs.false22, %lor.lhs.false25, %if.end, %if.else267
-  %R.0 = phi ptr [ null, %if.end ], [ %R.1148, %lor.lhs.false22 ], [ %R.1148, %lor.lhs.false25 ], [ %R.1148, %if.else261 ], [ %R.1148, %if.then256 ], [ %R.1148, %if.else267 ], [ %R.1148, %if.then242 ], [ %R.1148, %if.then35 ], [ %R.1148, %if.end20 ], [ %R.1148, %if.then129 ], [ %R.1148, %if.end133 ], [ %R.1148, %if.then142 ], [ %R.1148, %if.then149 ], [ %R.1148, %if.end153 ], [ %R.1148, %if.else158 ], [ %R.1148, %if.end162 ], [ %R.1148, %if.then169 ], [ %R.1148, %if.else174 ], [ %R.1148, %if.end178 ], [ %R.1148, %if.else185 ], [ %R.1148, %if.then194 ], [ %R.1148, %if.then202 ], [ %R.1148, %if.then210 ], [ %R.1148, %if.then217 ], [ %R.1148, %if.end221 ], [ %R.1148, %if.else226 ], [ %R.1148, %if.end233 ], [ %R.1148, %if.then80 ], [ %R.1148, %if.end85 ], [ %R.1148, %if.then55 ], [ %R.1148, %if.end60 ], [ %R.1148, %if.then66 ], [ %R.1148, %if.then92 ], [ %R.1148, %if.then100 ], [ %R.1148, %if.end104 ], [ %R.1148, %if.else109 ], [ %R.1148, %if.end113 ]
-  %cmp271 = icmp eq ptr %out, null
-  br i1 %cmp271, label %if.then272, label %if.end273
+.thread243:                                       ; preds = %139, %137, %135, %133, %128, %116, %113, %111, %125, %123, %206, %204, %200, %198, %193, %189, %185, %181, %179, %177, %175, %170, %168, %166, %164, %159, %152, %150, %223, %221, %.thread256, %99, %.thread, %86, %89, %71, %225
+  %.0171 = phi ptr [ null, %71 ], [ %.1172241, %86 ], [ %.1172241, %89 ], [ %.1172241, %223 ], [ %.1172241, %221 ], [ %.1172241, %225 ], [ %.1172241, %.thread256 ], [ %.1172241, %99 ], [ %.1172241, %.thread ], [ %.1172241, %150 ], [ %.1172241, %152 ], [ %.1172241, %159 ], [ %.1172241, %164 ], [ %.1172241, %166 ], [ %.1172241, %168 ], [ %.1172241, %170 ], [ %.1172241, %175 ], [ %.1172241, %177 ], [ %.1172241, %179 ], [ %.1172241, %181 ], [ %.1172241, %185 ], [ %.1172241, %189 ], [ %.1172241, %193 ], [ %.1172241, %198 ], [ %.1172241, %200 ], [ %.1172241, %204 ], [ %.1172241, %206 ], [ %.1172241, %123 ], [ %.1172241, %125 ], [ %.1172241, %111 ], [ %.1172241, %113 ], [ %.1172241, %116 ], [ %.1172241, %128 ], [ %.1172241, %133 ], [ %.1172241, %135 ], [ %.1172241, %137 ], [ %.1172241, %139 ]
+  %226 = icmp eq ptr %0, null
+  br i1 %226, label %.thread243.thread, label %.thread264
 
-if.then272:                                       ; preds = %if.end17, %err
-  %R.0202 = phi ptr [ %R.0, %err ], [ null, %if.end17 ]
-  tail call void @BN_free(ptr noundef %R.0202) #3
-  br label %if.end273
+.thread243.thread:                                ; preds = %82, %.thread243
+  %.0171305 = phi ptr [ %.0171, %.thread243 ], [ null, %82 ]
+  tail call void @BN_free(ptr noundef %.0171305) #3
+  br label %.thread264
 
-if.end273:                                        ; preds = %if.then256, %if.else261, %if.then272, %err
-  %ret.0163 = phi ptr [ null, %if.then272 ], [ null, %err ], [ %R.1148, %if.then256 ], [ %R.1148, %if.else261 ]
-  tail call void @BN_CTX_end(ptr noundef %ctx) #3
-  br label %return
+.thread264:                                       ; preds = %221, %223, %.thread243.thread, %.thread243
+  %.0170268 = phi ptr [ null, %.thread243.thread ], [ null, %.thread243 ], [ %.1172241, %221 ], [ %.1172241, %223 ]
+  tail call void @BN_CTX_end(ptr noundef %4) #3
+  br label %227
 
-return:                                           ; preds = %if.end273, %BN_mod_inverse_no_branch.exit
-  %retval.0 = phi ptr [ %ret.064.i, %BN_mod_inverse_no_branch.exit ], [ %ret.0163, %if.end273 ]
-  ret ptr %retval.0
+227:                                              ; preds = %.thread264, %BN_mod_inverse_no_branch.exit
+  %.0 = phi ptr [ %.076118.i, %BN_mod_inverse_no_branch.exit ], [ %.0170268, %.thread264 ]
+  ret ptr %.0
 }
 
-declare ptr @BN_new() local_unnamed_addr #1
+declare ptr @BN_new() local_unnamed_addr #2
 
-declare void @BN_zero(ptr noundef) local_unnamed_addr #1
+declare void @BN_zero(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_one(ptr noundef) local_unnamed_addr #1
+declare i32 @BN_one(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #1
+declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_uadd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_uadd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_rshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @BN_rshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_usub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_usub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_lshift1(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_lshift1(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #1
+declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_word(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @BN_is_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #1
+declare void @BN_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @BN_mod_inverse(ptr noundef %out, ptr noundef %a, ptr noundef %n, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %no_inverse = alloca i32, align 4
-  %call = call ptr @BN_mod_inverse_ex(ptr noundef %out, ptr noundef nonnull %no_inverse, ptr noundef %a, ptr noundef %n, ptr noundef %ctx)
-  ret ptr %call
+define hidden ptr @BN_mod_inverse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  %6 = call ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  ret ptr %6
 }
 
-declare void @BN_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @BN_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !12, i64 16}
+!7 = !{!"bignum_st", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20}
+!8 = !{!"p1 long", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"int", !10, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!7, !12, i64 20}
+!16 = !{!12, !12, i64 0}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = !{!7, !12, i64 8}
+!20 = !{!7, !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !10, i64 0}

@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/example_mul.ll'
 source_filename = "bench/libquic/original/example_mul.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [8 x i8] c"failed\0A\00", align 1
@@ -9,76 +9,75 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
-entry:
   tail call void @CRYPTO_library_init() #3
-  %call.i = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef 415) #3
-  %call1.i = tail call ptr @EC_POINT_new(ptr noundef %call.i) #3
-  %call2.i = tail call ptr @EC_POINT_new(ptr noundef %call.i) #3
-  %call3.i = tail call ptr @BN_new() #3
-  %cmp.i = icmp eq ptr %call1.i, null
-  %cmp4.i = icmp eq ptr %call2.i, null
-  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp4.i
-  %cmp6.i = icmp eq ptr %call.i, null
-  %or.cond1.i = or i1 %cmp6.i, %or.cond.i
-  %cmp8.i = icmp eq ptr %call3.i, null
-  %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp8.i
-  br i1 %or.cond2.i, label %if.then.critedge, label %lor.lhs.false9.i
+  %1 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef 415) #3
+  %2 = tail call ptr @EC_POINT_new(ptr noundef %1) #3
+  %3 = tail call ptr @EC_POINT_new(ptr noundef %1) #3
+  %4 = tail call ptr @BN_new() #3
+  %5 = icmp eq ptr %2, null
+  %6 = icmp eq ptr %3, null
+  %or.cond.i = select i1 %5, i1 true, i1 %6
+  %7 = icmp eq ptr %1, null
+  %or.cond3.i = or i1 %7, %or.cond.i
+  %8 = icmp eq ptr %4, null
+  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %8
+  br i1 %or.cond5.i, label %.critedge, label %9
 
-lor.lhs.false9.i:                                 ; preds = %entry
-  %call10.i = tail call i32 @EC_POINT_set_to_infinity(ptr noundef nonnull %call.i, ptr noundef nonnull %call1.i) #3
-  %tobool.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool.not.i, label %if.then.critedge, label %lor.lhs.false11.i
+9:                                                ; preds = %0
+  %10 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef nonnull %1, ptr noundef nonnull %2) #3
+  %.not.i = icmp eq i32 %10, 0
+  br i1 %.not.i, label %.critedge, label %11
 
-lor.lhs.false11.i:                                ; preds = %lor.lhs.false9.i
-  %call12.i = tail call i32 @BN_set_word(ptr noundef nonnull %call3.i, i64 noundef 10) #3
-  %tobool13.not.i = icmp eq i32 %call12.i, 0
-  br i1 %tobool13.not.i, label %if.then.critedge, label %if.end.i
+11:                                               ; preds = %9
+  %12 = tail call i32 @BN_set_word(ptr noundef nonnull %4, i64 noundef 10) #3
+  %.not36.i = icmp eq i32 %12, 0
+  br i1 %.not36.i, label %.critedge, label %13
 
-if.end.i:                                         ; preds = %lor.lhs.false11.i
-  %call14.i = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call.i, ptr noundef nonnull %call2.i, ptr noundef null, ptr noundef nonnull %call1.i, ptr noundef nonnull %call3.i, ptr noundef null) #3
-  %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %if.then.critedge, label %lor.lhs.false16.i
+13:                                               ; preds = %11
+  %14 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef null) #3
+  %.not37.i = icmp eq i32 %14, 0
+  br i1 %.not37.i, label %.critedge, label %15
 
-lor.lhs.false16.i:                                ; preds = %if.end.i
-  %call17.i = tail call i32 @EC_POINT_is_at_infinity(ptr noundef nonnull %call.i, ptr noundef nonnull %call2.i) #3
-  %tobool18.not.i = icmp eq i32 %call17.i, 0
-  br i1 %tobool18.not.i, label %if.then.critedge, label %if.end20.i
+15:                                               ; preds = %13
+  %16 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
+  %.not38.i = icmp eq i32 %16, 0
+  br i1 %.not38.i, label %.critedge, label %17
 
-if.end20.i:                                       ; preds = %lor.lhs.false16.i
-  %call21.i = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %call.i) #3
-  %call22.i = tail call ptr @BN_value_one() #3
-  %call23.i = tail call i32 @EC_POINT_mul(ptr noundef nonnull %call.i, ptr noundef nonnull %call2.i, ptr noundef %call22.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %call3.i, ptr noundef null) #3
-  %tobool24.not.i = icmp eq i32 %call23.i, 0
-  br i1 %tobool24.not.i, label %if.then.critedge, label %lor.lhs.false25.i
+17:                                               ; preds = %15
+  %18 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %1) #3
+  %19 = tail call ptr @BN_value_one() #3
+  %20 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef null) #3
+  %.not39.i = icmp eq i32 %20, 0
+  br i1 %.not39.i, label %.critedge, label %example_EC_POINT_mul.exit
 
-lor.lhs.false25.i:                                ; preds = %if.end20.i
-  %call26.i = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %call.i, ptr noundef nonnull %call2.i, ptr noundef %call21.i, ptr noundef null) #3
-  %cmp27.not.i.not = icmp eq i32 %call26.i, 0
-  tail call void @BN_free(ptr noundef nonnull %call3.i) #3
-  tail call void @EC_POINT_free(ptr noundef nonnull %call2.i) #3
-  tail call void @EC_POINT_free(ptr noundef nonnull %call1.i) #3
-  tail call void @EC_GROUP_free(ptr noundef nonnull %call.i) #3
-  br i1 %cmp27.not.i.not, label %if.end, label %if.then
+example_EC_POINT_mul.exit:                        ; preds = %17
+  %21 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %18, ptr noundef null) #3
+  %.not40.i.not = icmp eq i32 %21, 0
+  tail call void @BN_free(ptr noundef nonnull %4) #3
+  tail call void @EC_POINT_free(ptr noundef nonnull %3) #3
+  tail call void @EC_POINT_free(ptr noundef nonnull %2) #3
+  tail call void @EC_GROUP_free(ptr noundef nonnull %1) #3
+  br i1 %.not40.i.not, label %25, label %22
 
-if.then.critedge:                                 ; preds = %lor.lhs.false9.i, %lor.lhs.false11.i, %if.end.i, %lor.lhs.false16.i, %if.end20.i, %entry
-  tail call void @BN_free(ptr noundef %call3.i) #3
-  tail call void @EC_POINT_free(ptr noundef %call2.i) #3
-  tail call void @EC_POINT_free(ptr noundef %call1.i) #3
-  tail call void @EC_GROUP_free(ptr noundef %call.i) #3
-  br label %if.then
+.critedge:                                        ; preds = %9, %11, %13, %15, %17, %0
+  tail call void @BN_free(ptr noundef %4) #3
+  tail call void @EC_POINT_free(ptr noundef %3) #3
+  tail call void @EC_POINT_free(ptr noundef %2) #3
+  tail call void @EC_GROUP_free(ptr noundef %1) #3
+  br label %22
 
-if.then:                                          ; preds = %if.then.critedge, %lor.lhs.false25.i
-  %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str, i64 7, i64 1, ptr %0) #4
-  br label %return
+22:                                               ; preds = %.critedge, %example_EC_POINT_mul.exit
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %24 = tail call i64 @fwrite(ptr nonnull @.str, i64 7, i64 1, ptr %23) #4
+  br label %26
 
-if.end:                                           ; preds = %lor.lhs.false25.i
+25:                                               ; preds = %example_EC_POINT_mul.exit
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %return
+  br label %26
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %if.then ]
-  ret i32 %retval.0
+26:                                               ; preds = %25, %22
+  %.0 = phi i32 [ 0, %25 ], [ 1, %22 ]
+  ret i32 %.0
 }
 
 declare void @CRYPTO_library_init() local_unnamed_addr #1
@@ -115,18 +114,22 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { nounwind }
 attributes #4 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}

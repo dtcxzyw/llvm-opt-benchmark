@@ -29,6 +29,7 @@ supported_project = [
     "libevent",
     "libjpeg-turbo",
     "libpng",
+    "libquic",
 ]
 
 modify_only = [

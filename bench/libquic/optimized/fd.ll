@@ -1,414 +1,400 @@
 ; ModuleID = 'bench/libquic/original/fd.ll'
 source_filename = "bench/libquic/original/fd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
-@methods_fdp = internal constant %struct.bio_method_st { i32 1284, ptr @.str, ptr @fd_write, ptr @fd_read, ptr @fd_puts, ptr @fd_gets, ptr @fd_ctrl, ptr @fd_new, ptr @fd_free, ptr null }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"file descriptor\00", align 1
+@methods_fdp = internal constant { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 1284, [4 x i8] zeroinitializer, ptr @.str, ptr @fd_write, ptr @fd_read, ptr @fd_puts, ptr @fd_gets, ptr @fd_ctrl, ptr @fd_new, ptr @fd_free, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @bio_fd_should_retry(i32 noundef %i) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq i32 %i, -1
-  br i1 %cmp, label %if.then, label %return
+define hidden range(i32 0, 2) i32 @bio_fd_should_retry(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = icmp eq i32 %0, -1
+  br i1 %2, label %3, label %bio_fd_non_fatal_error.exit
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #9
-  %0 = load i32, ptr %call, align 4
-  switch i32 %0, label %if.end.i [
-    i32 115, label %return
-    i32 114, label %return
-    i32 107, label %return
-    i32 71, label %return
-    i32 11, label %return
-    i32 4, label %return
+3:                                                ; preds = %1
+  %4 = tail call ptr @__errno_location() #9
+  %5 = load i32, ptr %4, align 4, !tbaa !6
+  switch i32 %5, label %6 [
+    i32 115, label %bio_fd_non_fatal_error.exit
+    i32 114, label %bio_fd_non_fatal_error.exit
+    i32 107, label %bio_fd_non_fatal_error.exit
+    i32 71, label %bio_fd_non_fatal_error.exit
+    i32 11, label %bio_fd_non_fatal_error.exit
+    i32 4, label %bio_fd_non_fatal_error.exit
   ]
 
-if.end.i:                                         ; preds = %if.then
-  br label %return
+6:                                                ; preds = %3
+  br label %bio_fd_non_fatal_error.exit
 
-return:                                           ; preds = %if.end.i, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end.i ], [ 1, %if.then ], [ 1, %if.then ], [ 1, %if.then ], [ 1, %if.then ], [ 1, %if.then ], [ 1, %if.then ]
-  ret i32 %retval.0
+bio_fd_non_fatal_error.exit:                      ; preds = %6, %3, %3, %3, %3, %3, %3, %1
+  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @BIO_new_fd(i32 noundef %fd, i32 noundef %close_flag) local_unnamed_addr #2 {
-entry:
-  %call1 = tail call ptr @BIO_new(ptr noundef nonnull @methods_fdp) #10
-  %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %return, label %if.end
+define hidden ptr @BIO_new_fd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+  %3 = tail call ptr @BIO_new(ptr noundef nonnull @methods_fdp) #10
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %8, label %5
 
-if.end:                                           ; preds = %entry
-  %conv.i = sext i32 %close_flag to i64
-  %call.i = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call1, i32 noundef 104, i64 noundef %conv.i, i32 noundef %fd) #10
-  br label %return
+5:                                                ; preds = %2
+  %6 = sext i32 %1 to i64
+  %7 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %3, i32 noundef 104, i64 noundef %6, i32 noundef %0) #10
+  br label %8
 
-return:                                           ; preds = %entry, %if.end
-  ret ptr %call1
+8:                                                ; preds = %2, %5
+  ret ptr %3
 }
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @BIO_s_fd() local_unnamed_addr #4 {
-entry:
   ret ptr @methods_fdp
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_set_fd(ptr noundef %bio, i32 noundef %fd, i32 noundef %close_flag) local_unnamed_addr #2 {
-entry:
-  %conv = sext i32 %close_flag to i64
-  %call = tail call i64 @BIO_int_ctrl(ptr noundef %bio, i32 noundef 104, i64 noundef %conv, i32 noundef %fd) #10
-  %conv1 = trunc i64 %call to i32
-  ret i32 %conv1
+define hidden i32 @BIO_set_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = sext i32 %2 to i64
+  %5 = tail call i64 @BIO_int_ctrl(ptr noundef %0, i32 noundef 104, i64 noundef %4, i32 noundef %1) #10
+  %6 = trunc i64 %5 to i32
+  ret i32 %6
 }
 
 declare i64 @BIO_int_ctrl(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BIO_get_fd(ptr noundef %bio, ptr noundef %out_fd) local_unnamed_addr #2 {
-entry:
-  %call = tail call i64 @BIO_ctrl(ptr noundef %bio, i32 noundef 105, i64 noundef 0, ptr noundef %out_fd) #10
-  %conv = trunc i64 %call to i32
-  ret i32 %conv
+define hidden i32 @BIO_get_fd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = tail call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 105, i64 noundef 0, ptr noundef %1) #10
+  %4 = trunc i64 %3 to i32
+  ret i32 %4
 }
 
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_write(ptr noundef %b, ptr noundef readonly captures(none) %in, i32 noundef %inl) #2 {
-entry:
-  %num = getelementptr inbounds nuw i8, ptr %b, i64 40
-  %0 = load i32, ptr %num, align 8
-  %conv = sext i32 %inl to i64
-  %call = tail call i64 @write(i32 noundef %0, ptr noundef %in, i64 noundef %conv) #10
-  %conv1 = trunc i64 %call to i32
-  tail call void @BIO_clear_retry_flags(ptr noundef %b) #10
-  %cmp.i = icmp eq i32 %conv1, -1
-  br i1 %cmp.i, label %if.then.i, label %if.end5
+define internal noundef i32 @fd_write(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load i32, ptr %4, align 8, !tbaa !10
+  %6 = sext i32 %2 to i64
+  %7 = tail call i64 @write(i32 noundef %5, ptr noundef %1, i64 noundef %6) #10
+  %8 = trunc i64 %7 to i32
+  tail call void @BIO_clear_retry_flags(ptr noundef %0) #10
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %10, label %bio_fd_should_retry.exit.thread
 
-if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @__errno_location() #9
-  %1 = load i32, ptr %call.i, align 4
-  switch i32 %1, label %if.end5 [
-    i32 115, label %if.then4
-    i32 114, label %if.then4
-    i32 107, label %if.then4
-    i32 71, label %if.then4
-    i32 11, label %if.then4
-    i32 4, label %if.then4
+10:                                               ; preds = %3
+  %11 = tail call ptr @__errno_location() #9
+  %12 = load i32, ptr %11, align 4, !tbaa !6
+  switch i32 %12, label %bio_fd_should_retry.exit.thread [
+    i32 115, label %bio_fd_should_retry.exit
+    i32 114, label %bio_fd_should_retry.exit
+    i32 107, label %bio_fd_should_retry.exit
+    i32 71, label %bio_fd_should_retry.exit
+    i32 11, label %bio_fd_should_retry.exit
+    i32 4, label %bio_fd_should_retry.exit
   ]
 
-if.then4:                                         ; preds = %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i
-  tail call void @BIO_set_retry_write(ptr noundef nonnull %b) #10
-  br label %if.end5
+bio_fd_should_retry.exit:                         ; preds = %10, %10, %10, %10, %10, %10
+  tail call void @BIO_set_retry_write(ptr noundef nonnull %0) #10
+  br label %bio_fd_should_retry.exit.thread
 
-if.end5:                                          ; preds = %if.then.i, %if.then4, %entry
-  ret i32 %conv1
+bio_fd_should_retry.exit.thread:                  ; preds = %10, %bio_fd_should_retry.exit, %3
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_read(ptr noundef %b, ptr noundef captures(none) %out, i32 noundef %outl) #2 {
-entry:
-  %num = getelementptr inbounds nuw i8, ptr %b, i64 40
-  %0 = load i32, ptr %num, align 8
-  %conv = sext i32 %outl to i64
-  %call = tail call i64 @read(i32 noundef %0, ptr noundef %out, i64 noundef %conv) #10
-  %conv1 = trunc i64 %call to i32
-  tail call void @BIO_clear_retry_flags(ptr noundef %b) #10
-  %cmp.i = icmp eq i32 %conv1, -1
-  br i1 %cmp.i, label %if.then.i, label %if.end5
+define internal noundef i32 @fd_read(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load i32, ptr %4, align 8, !tbaa !10
+  %6 = sext i32 %2 to i64
+  %7 = tail call i64 @read(i32 noundef %5, ptr noundef %1, i64 noundef %6) #10
+  %8 = trunc i64 %7 to i32
+  tail call void @BIO_clear_retry_flags(ptr noundef %0) #10
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %10, label %bio_fd_should_retry.exit.thread
 
-if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @__errno_location() #9
-  %1 = load i32, ptr %call.i, align 4
-  switch i32 %1, label %if.end5 [
-    i32 115, label %if.then4
-    i32 114, label %if.then4
-    i32 107, label %if.then4
-    i32 71, label %if.then4
-    i32 11, label %if.then4
-    i32 4, label %if.then4
+10:                                               ; preds = %3
+  %11 = tail call ptr @__errno_location() #9
+  %12 = load i32, ptr %11, align 4, !tbaa !6
+  switch i32 %12, label %bio_fd_should_retry.exit.thread [
+    i32 115, label %bio_fd_should_retry.exit
+    i32 114, label %bio_fd_should_retry.exit
+    i32 107, label %bio_fd_should_retry.exit
+    i32 71, label %bio_fd_should_retry.exit
+    i32 11, label %bio_fd_should_retry.exit
+    i32 4, label %bio_fd_should_retry.exit
   ]
 
-if.then4:                                         ; preds = %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i
-  tail call void @BIO_set_retry_read(ptr noundef nonnull %b) #10
-  br label %if.end5
+bio_fd_should_retry.exit:                         ; preds = %10, %10, %10, %10, %10, %10
+  tail call void @BIO_set_retry_read(ptr noundef nonnull %0) #10
+  br label %bio_fd_should_retry.exit.thread
 
-if.end5:                                          ; preds = %if.then.i, %if.then4, %entry
-  ret i32 %conv1
+bio_fd_should_retry.exit.thread:                  ; preds = %10, %bio_fd_should_retry.exit, %3
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_puts(ptr noundef %bp, ptr noundef readonly captures(none) %str) #2 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #11
-  %num.i = getelementptr inbounds nuw i8, ptr %bp, i64 40
-  %0 = load i32, ptr %num.i, align 8
-  %sext = shl i64 %call, 32
-  %conv.i = ashr exact i64 %sext, 32
-  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %str, i64 noundef %conv.i) #10
-  %conv1.i = trunc i64 %call.i to i32
-  tail call void @BIO_clear_retry_flags(ptr noundef %bp) #10
-  %cmp.i.i = icmp eq i32 %conv1.i, -1
-  br i1 %cmp.i.i, label %if.then.i.i, label %fd_write.exit
+define internal noundef i32 @fd_puts(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load i32, ptr %4, align 8, !tbaa !10
+  %sext = shl i64 %3, 32
+  %6 = ashr exact i64 %sext, 32
+  %7 = tail call i64 @write(i32 noundef %5, ptr noundef nonnull readonly %1, i64 noundef %6) #10
+  %8 = trunc i64 %7 to i32
+  tail call void @BIO_clear_retry_flags(ptr noundef %0) #10
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %10, label %fd_write.exit
 
-if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @__errno_location() #9
-  %1 = load i32, ptr %call.i.i, align 4
-  switch i32 %1, label %fd_write.exit [
-    i32 115, label %if.then4.i
-    i32 114, label %if.then4.i
-    i32 107, label %if.then4.i
-    i32 71, label %if.then4.i
-    i32 11, label %if.then4.i
-    i32 4, label %if.then4.i
+10:                                               ; preds = %2
+  %11 = tail call ptr @__errno_location() #9
+  %12 = load i32, ptr %11, align 4, !tbaa !6
+  switch i32 %12, label %fd_write.exit [
+    i32 115, label %bio_fd_should_retry.exit.i
+    i32 114, label %bio_fd_should_retry.exit.i
+    i32 107, label %bio_fd_should_retry.exit.i
+    i32 71, label %bio_fd_should_retry.exit.i
+    i32 11, label %bio_fd_should_retry.exit.i
+    i32 4, label %bio_fd_should_retry.exit.i
   ]
 
-if.then4.i:                                       ; preds = %if.then.i.i, %if.then.i.i, %if.then.i.i, %if.then.i.i, %if.then.i.i, %if.then.i.i
-  tail call void @BIO_set_retry_write(ptr noundef nonnull %bp) #10
+bio_fd_should_retry.exit.i:                       ; preds = %10, %10, %10, %10, %10, %10
+  tail call void @BIO_set_retry_write(ptr noundef nonnull %0) #10
   br label %fd_write.exit
 
-fd_write.exit:                                    ; preds = %entry, %if.then.i.i, %if.then4.i
-  ret i32 %conv1.i
+fd_write.exit:                                    ; preds = %2, %10, %bio_fd_should_retry.exit.i
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_gets(ptr noundef %bp, ptr noundef %buf, i32 noundef %size) #2 {
-entry:
-  %idx.ext = sext i32 %size to i64
-  %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
-  %add.ptr1 = getelementptr i8, ptr %add.ptr, i64 -1
-  %cmp = icmp slt i32 %size, 1
-  br i1 %cmp, label %return, label %while.cond.preheader
+define internal noundef i32 @fd_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
+  %4 = sext i32 %2 to i64
+  %5 = getelementptr i8, ptr %1, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 -1
+  %7 = icmp slt i32 %2, 1
+  br i1 %7, label %27, label %.preheader
 
-while.cond.preheader:                             ; preds = %entry
-  %cmp212 = icmp ult ptr %buf, %add.ptr1
-  br i1 %cmp212, label %land.lhs.true.lr.ph, label %while.end
+.preheader:                                       ; preds = %3
+  %8 = icmp ult ptr %1, %6
+  br i1 %8, label %.lr.ph, label %.critedge
 
-land.lhs.true.lr.ph:                              ; preds = %while.cond.preheader
-  %num.i = getelementptr inbounds nuw i8, ptr %bp, i64 40
-  br label %land.lhs.true
+.lr.ph:                                           ; preds = %.preheader
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %10
 
-land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %while.body
-  %ptr.013 = phi ptr [ %buf, %land.lhs.true.lr.ph ], [ %incdec.ptr, %while.body ]
-  %0 = load i32, ptr %num.i, align 8
-  %call.i = tail call i64 @read(i32 noundef %0, ptr noundef %ptr.013, i64 noundef 1) #10
-  %conv1.i = trunc i64 %call.i to i32
-  tail call void @BIO_clear_retry_flags(ptr noundef %bp) #10
-  %cmp.i.i = icmp eq i32 %conv1.i, -1
-  br i1 %cmp.i.i, label %if.then.i.i, label %fd_read.exit
+10:                                               ; preds = %.lr.ph, %21
+  %.01316 = phi ptr [ %1, %.lr.ph ], [ %22, %21 ]
+  %11 = load i32, ptr %9, align 8, !tbaa !10
+  %12 = tail call i64 @read(i32 noundef %11, ptr noundef %.01316, i64 noundef 1) #10
+  %13 = trunc i64 %12 to i32
+  tail call void @BIO_clear_retry_flags(ptr noundef %0) #10
+  %14 = icmp eq i32 %13, -1
+  br i1 %14, label %15, label %fd_read.exit
 
-if.then.i.i:                                      ; preds = %land.lhs.true
-  %call.i.i = tail call ptr @__errno_location() #9
-  %1 = load i32, ptr %call.i.i, align 4
-  switch i32 %1, label %while.end [
-    i32 115, label %if.then4.i
-    i32 114, label %if.then4.i
-    i32 107, label %if.then4.i
-    i32 71, label %if.then4.i
-    i32 11, label %if.then4.i
-    i32 4, label %if.then4.i
+15:                                               ; preds = %10
+  %16 = tail call ptr @__errno_location() #9
+  %17 = load i32, ptr %16, align 4, !tbaa !6
+  switch i32 %17, label %.critedge [
+    i32 115, label %bio_fd_should_retry.exit.i
+    i32 114, label %bio_fd_should_retry.exit.i
+    i32 107, label %bio_fd_should_retry.exit.i
+    i32 71, label %bio_fd_should_retry.exit.i
+    i32 11, label %bio_fd_should_retry.exit.i
+    i32 4, label %bio_fd_should_retry.exit.i
   ]
 
-if.then4.i:                                       ; preds = %if.then.i.i, %if.then.i.i, %if.then.i.i, %if.then.i.i, %if.then.i.i, %if.then.i.i
-  tail call void @BIO_set_retry_read(ptr noundef nonnull %bp) #10
-  br label %while.end
+bio_fd_should_retry.exit.i:                       ; preds = %15, %15, %15, %15, %15, %15
+  tail call void @BIO_set_retry_read(ptr noundef nonnull %0) #10
+  br label %.critedge
 
-fd_read.exit:                                     ; preds = %land.lhs.true
-  %cmp3 = icmp sgt i32 %conv1.i, 0
-  br i1 %cmp3, label %land.rhs, label %while.end
+fd_read.exit:                                     ; preds = %10
+  %18 = icmp sgt i32 %13, 0
+  br i1 %18, label %19, label %.critedge
 
-land.rhs:                                         ; preds = %fd_read.exit
-  %2 = load i8, ptr %ptr.013, align 1
-  %cmp4.not = icmp eq i8 %2, 10
-  br i1 %cmp4.not, label %while.end, label %while.body
+19:                                               ; preds = %fd_read.exit
+  %20 = load i8, ptr %.01316, align 1, !tbaa !17
+  %.not = icmp eq i8 %20, 10
+  br i1 %.not, label %.critedge, label %21
 
-while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.013, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %add.ptr1
-  br i1 %exitcond.not, label %while.end, label %land.lhs.true, !llvm.loop !7
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %.01316, i64 1
+  %exitcond.not = icmp eq ptr %22, %6
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !18
 
-while.end:                                        ; preds = %land.rhs, %while.body, %fd_read.exit, %while.cond.preheader, %if.then4.i, %if.then.i.i
-  %ptr.011 = phi ptr [ %ptr.013, %if.then4.i ], [ %ptr.013, %if.then.i.i ], [ %buf, %while.cond.preheader ], [ %ptr.013, %land.rhs ], [ %add.ptr1, %while.body ], [ %ptr.013, %fd_read.exit ]
-  store i8 0, ptr %ptr.011, align 1
-  %sub.ptr.lhs.cast = ptrtoint ptr %ptr.011 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv7 = trunc i64 %sub.ptr.sub to i32
-  br label %return
+.critedge:                                        ; preds = %19, %21, %fd_read.exit, %.preheader, %bio_fd_should_retry.exit.i, %15
+  %.01315 = phi ptr [ %.01316, %bio_fd_should_retry.exit.i ], [ %.01316, %15 ], [ %1, %.preheader ], [ %.01316, %19 ], [ %6, %21 ], [ %.01316, %fd_read.exit ]
+  store i8 0, ptr %.01315, align 1, !tbaa !17
+  %23 = ptrtoint ptr %.01315 to i64
+  %24 = ptrtoint ptr %1 to i64
+  %25 = sub i64 %23, %24
+  %26 = trunc i64 %25 to i32
+  br label %27
 
-return:                                           ; preds = %entry, %while.end
-  %retval.0 = phi i32 [ %conv7, %while.end ], [ 0, %entry ]
-  ret i32 %retval.0
+27:                                               ; preds = %3, %.critedge
+  %.0 = phi i32 [ %26, %.critedge ], [ 0, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %b, i32 noundef %cmd, i64 noundef %num, ptr noundef captures(address_is_null) %ptr) #2 {
-entry:
-  switch i32 %cmd, label %sw.default [
-    i32 1, label %sw.bb
-    i32 128, label %sw.bb1
-    i32 133, label %sw.bb3
-    i32 3, label %sw.bb3
-    i32 104, label %sw.bb10
-    i32 105, label %sw.bb14
-    i32 8, label %sw.bb25
-    i32 9, label %sw.bb28
-    i32 11, label %return
+define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #2 {
+  switch i32 %1, label %51 [
+    i32 1, label %5
+    i32 128, label %6
+    i32 133, label %13
+    i32 3, label %13
+    i32 104, label %20
+    i32 105, label %38
+    i32 8, label %44
+    i32 9, label %48
+    i32 11, label %52
   ]
 
-sw.bb:                                            ; preds = %entry
-  br label %sw.bb1
+5:                                                ; preds = %4
+  br label %6
 
-sw.bb1:                                           ; preds = %sw.bb, %entry
-  %num.addr.0 = phi i64 [ %num, %entry ], [ 0, %sw.bb ]
-  %init = getelementptr inbounds nuw i8, ptr %b, i64 24
-  %0 = load i32, ptr %init, align 8
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %return, label %if.then
+6:                                                ; preds = %5, %4
+  %.023 = phi i64 [ %2, %4 ], [ 0, %5 ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !20
+  %.not27 = icmp eq i32 %8, 0
+  br i1 %.not27, label %52, label %9
 
-if.then:                                          ; preds = %sw.bb1
-  %num2 = getelementptr inbounds nuw i8, ptr %b, i64 40
-  %1 = load i32, ptr %num2, align 8
-  %call = tail call i64 @lseek(i32 noundef %1, i64 noundef %num.addr.0, i32 noundef 0) #10
-  br label %return
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = load i32, ptr %10, align 8, !tbaa !10
+  %12 = tail call i64 @lseek(i32 noundef %11, i64 noundef %.023, i32 noundef 0) #10
+  br label %52
 
-sw.bb3:                                           ; preds = %entry, %entry
-  %init4 = getelementptr inbounds nuw i8, ptr %b, i64 24
-  %2 = load i32, ptr %init4, align 8
-  %tobool5.not = icmp eq i32 %2, 0
-  br i1 %tobool5.not, label %return, label %if.then6
+13:                                               ; preds = %4, %4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load i32, ptr %14, align 8, !tbaa !20
+  %.not26 = icmp eq i32 %15, 0
+  br i1 %.not26, label %52, label %16
 
-if.then6:                                         ; preds = %sw.bb3
-  %num7 = getelementptr inbounds nuw i8, ptr %b, i64 40
-  %3 = load i32, ptr %num7, align 8
-  %call8 = tail call i64 @lseek(i32 noundef %3, i64 noundef 0, i32 noundef 1) #10
-  br label %return
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = load i32, ptr %17, align 8, !tbaa !10
+  %19 = tail call i64 @lseek(i32 noundef %18, i64 noundef 0, i32 noundef 1) #10
+  br label %52
 
-sw.bb10:                                          ; preds = %entry
-  %cmp.i = icmp eq ptr %b, null
-  br i1 %cmp.i, label %fd_free.exit, label %if.end.i
+20:                                               ; preds = %4
+  %21 = icmp eq ptr %0, null
+  br i1 %21, label %fd_free.exit, label %22
 
-if.end.i:                                         ; preds = %sw.bb10
-  %shutdown.i = getelementptr inbounds nuw i8, ptr %b, i64 28
-  %4 = load i32, ptr %shutdown.i, align 4
-  %tobool.not.i = icmp eq i32 %4, 0
-  br i1 %tobool.not.i, label %fd_free.exit, label %if.then1.i
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %24 = load i32, ptr %23, align 4, !tbaa !21
+  %.not.i = icmp eq i32 %24, 0
+  br i1 %.not.i, label %fd_free.exit, label %25
 
-if.then1.i:                                       ; preds = %if.end.i
-  %init.i = getelementptr inbounds nuw i8, ptr %b, i64 24
-  %5 = load i32, ptr %init.i, align 8
-  %tobool2.not.i = icmp eq i32 %5, 0
-  br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load i32, ptr %26, align 8, !tbaa !20
+  %.not6.i = icmp eq i32 %27, 0
+  br i1 %.not6.i, label %32, label %28
 
-if.then3.i:                                       ; preds = %if.then1.i
-  %num.i = getelementptr inbounds nuw i8, ptr %b, i64 40
-  %6 = load i32, ptr %num.i, align 8
-  %call.i = tail call i32 @close(i32 noundef %6) #10
-  br label %if.end4.i
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = load i32, ptr %29, align 8, !tbaa !10
+  %31 = tail call i32 @close(i32 noundef %30) #10
+  br label %32
 
-if.end4.i:                                        ; preds = %if.then3.i, %if.then1.i
-  store i32 0, ptr %init.i, align 8
+32:                                               ; preds = %28, %25
+  store i32 0, ptr %26, align 8, !tbaa !20
   br label %fd_free.exit
 
-fd_free.exit:                                     ; preds = %sw.bb10, %if.end.i, %if.end4.i
-  %7 = load i32, ptr %ptr, align 4
-  %num12 = getelementptr inbounds nuw i8, ptr %b, i64 40
-  store i32 %7, ptr %num12, align 8
-  %conv = trunc i64 %num to i32
-  %shutdown = getelementptr inbounds nuw i8, ptr %b, i64 28
-  store i32 %conv, ptr %shutdown, align 4
-  %init13 = getelementptr inbounds nuw i8, ptr %b, i64 24
-  store i32 1, ptr %init13, align 8
-  br label %return
+fd_free.exit:                                     ; preds = %20, %22, %32
+  %33 = load i32, ptr %3, align 4, !tbaa !6
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %33, ptr %34, align 8, !tbaa !10
+  %35 = trunc i64 %2 to i32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %35, ptr %36, align 4, !tbaa !21
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 1, ptr %37, align 8, !tbaa !20
+  br label %52
 
-sw.bb14:                                          ; preds = %entry
-  %init15 = getelementptr inbounds nuw i8, ptr %b, i64 24
-  %8 = load i32, ptr %init15, align 8
-  %tobool16.not = icmp eq i32 %8, 0
-  br i1 %tobool16.not, label %return, label %if.then17
+38:                                               ; preds = %4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %40 = load i32, ptr %39, align 8, !tbaa !20
+  %.not = icmp eq i32 %40, 0
+  br i1 %.not, label %52, label %41
 
-if.then17:                                        ; preds = %sw.bb14
-  %cmp.not = icmp eq ptr %ptr, null
-  %num22.phi.trans.insert = getelementptr inbounds nuw i8, ptr %b, i64 40
-  %.pre = load i32, ptr %num22.phi.trans.insert, align 8
-  br i1 %cmp.not, label %if.end21, label %if.then19
+41:                                               ; preds = %38
+  %.not25 = icmp eq ptr %3, null
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !10
+  br i1 %.not25, label %._crit_edge, label %42
 
-if.then19:                                        ; preds = %if.then17
-  store i32 %.pre, ptr %ptr, align 4
-  br label %if.end21
+42:                                               ; preds = %41
+  store i32 %.pre, ptr %3, align 4, !tbaa !6
+  br label %._crit_edge
 
-if.end21:                                         ; preds = %if.then17, %if.then19
-  %conv23 = sext i32 %.pre to i64
-  br label %return
+._crit_edge:                                      ; preds = %41, %42
+  %43 = sext i32 %.pre to i64
+  br label %52
 
-sw.bb25:                                          ; preds = %entry
-  %shutdown26 = getelementptr inbounds nuw i8, ptr %b, i64 28
-  %9 = load i32, ptr %shutdown26, align 4
-  %conv27 = sext i32 %9 to i64
-  br label %return
+44:                                               ; preds = %4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %46 = load i32, ptr %45, align 4, !tbaa !21
+  %47 = sext i32 %46 to i64
+  br label %52
 
-sw.bb28:                                          ; preds = %entry
-  %conv29 = trunc i64 %num to i32
-  %shutdown30 = getelementptr inbounds nuw i8, ptr %b, i64 28
-  store i32 %conv29, ptr %shutdown30, align 4
-  br label %return
+48:                                               ; preds = %4
+  %49 = trunc i64 %2 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %49, ptr %50, align 4, !tbaa !21
+  br label %52
 
-sw.default:                                       ; preds = %entry
-  br label %return
+51:                                               ; preds = %4
+  br label %52
 
-return:                                           ; preds = %fd_free.exit, %sw.bb25, %sw.bb28, %sw.default, %if.then, %sw.bb1, %if.then6, %sw.bb3, %sw.bb14, %entry, %if.end21
-  %retval.0 = phi i64 [ %conv23, %if.end21 ], [ 0, %sw.default ], [ 1, %sw.bb28 ], [ %conv27, %sw.bb25 ], [ 1, %fd_free.exit ], [ %call8, %if.then6 ], [ 0, %sw.bb3 ], [ %call, %if.then ], [ 0, %sw.bb1 ], [ -1, %sw.bb14 ], [ 1, %entry ]
-  ret i64 %retval.0
+52:                                               ; preds = %fd_free.exit, %44, %48, %51, %9, %6, %16, %13, %38, %4, %._crit_edge
+  %.0 = phi i64 [ %43, %._crit_edge ], [ 0, %51 ], [ 1, %48 ], [ %47, %44 ], [ 1, %fd_free.exit ], [ %19, %16 ], [ 0, %13 ], [ %12, %9 ], [ 0, %6 ], [ -1, %38 ], [ 1, %4 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fd_new(ptr noundef writeonly captures(none) initializes((40, 44)) %bio) #5 {
-entry:
-  %num = getelementptr inbounds nuw i8, ptr %bio, i64 40
-  store i32 -1, ptr %num, align 8
+define internal noundef i32 @fd_new(ptr noundef writeonly captures(none) initializes((40, 44)) %0) #5 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 -1, ptr %2, align 8, !tbaa !10
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_null) %bio) #2 {
-entry:
-  %cmp = icmp eq ptr %bio, null
-  br i1 %cmp, label %return, label %if.end
+define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_null) %0) #2 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %14, label %3
 
-if.end:                                           ; preds = %entry
-  %shutdown = getelementptr inbounds nuw i8, ptr %bio, i64 28
-  %0 = load i32, ptr %shutdown, align 4
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %return, label %if.then1
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %14, label %6
 
-if.then1:                                         ; preds = %if.end
-  %init = getelementptr inbounds nuw i8, ptr %bio, i64 24
-  %1 = load i32, ptr %init, align 8
-  %tobool2.not = icmp eq i32 %1, 0
-  br i1 %tobool2.not, label %if.end4, label %if.then3
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !20
+  %.not6 = icmp eq i32 %8, 0
+  br i1 %.not6, label %13, label %9
 
-if.then3:                                         ; preds = %if.then1
-  %num = getelementptr inbounds nuw i8, ptr %bio, i64 40
-  %2 = load i32, ptr %num, align 8
-  %call = tail call i32 @close(i32 noundef %2) #10
-  br label %if.end4
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = load i32, ptr %10, align 8, !tbaa !10
+  %12 = tail call i32 @close(i32 noundef %11) #10
+  br label %13
 
-if.end4:                                          ; preds = %if.then3, %if.then1
-  store i32 0, ptr %init, align 8
-  br label %return
+13:                                               ; preds = %9, %6
+  store i32 0, ptr %7, align 8, !tbaa !20
+  br label %14
 
-return:                                           ; preds = %if.end, %if.end4, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end4 ], [ 1, %if.end ]
-  ret i32 %retval.0
+14:                                               ; preds = %3, %13, %1
+  %.0 = phi i32 [ 0, %1 ], [ 1, %13 ], [ 1, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree
@@ -431,27 +417,40 @@ declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !7, i64 40}
+!11 = !{!"bio_st", !12, i64 0, !13, i64 8, !14, i64 16, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !7, i64 40, !7, i64 44, !13, i64 48, !15, i64 56, !16, i64 64, !16, i64 72}
+!12 = !{!"p1 _ZTS13bio_method_st", !13, i64 0}
+!13 = !{!"any pointer", !8, i64 0}
+!14 = !{!"p1 omnipotent char", !13, i64 0}
+!15 = !{!"p1 _ZTS6bio_st", !13, i64 0}
+!16 = !{!"long", !8, i64 0}
+!17 = !{!8, !8, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!11, !7, i64 24}
+!21 = !{!11, !7, i64 28}

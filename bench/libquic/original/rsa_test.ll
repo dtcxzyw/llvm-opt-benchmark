@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -233,1920 +233,2160 @@ $_ZNSt10unique_ptrIh11OpenSSLFreeIhEE11get_deleterEv = comdat any
 @.str.23 = private unnamed_addr constant [12 x i8] c"hello world\00", align 1
 @.str.24 = private unnamed_addr constant [33 x i8] c"%d-prime key failed to decrypt.\0A\00", align 1
 @_ZZL20TestMultiPrimeKeygenvE8kMessage = internal constant [13 x i8] c"Hello world.\00", align 1
-@_ZZL20TestMultiPrimeKeygenvE5kBits = internal constant i64 1024, align 8
 @_ZL15kEstonianRSAKey = internal constant [269 x i8] c"0\82\01\09\02\82\01\00\96\A6.\9CNj\C3\CC\CD\8Fp\C3U\BF^\9C\D4\F3\17\C3\97p\AE\DF\12\\\15\80\03\EF+\18\9Dj\CBR\22\C1\81\B8~a\E8\0Fy$\0F\82p$N) \05T\EB\D4\A9eY\B6<u\95/L\F6\9D\D1\AF_\14\14\E7%\EA\A5G]\C6>(\8D\DCT\87*|\10\E9\C6v-\E7y\D8\0E\BB\A9\AC\B5\18\98\D6Gn\06p\BF\9E\82%\95N\FDp\D7sE.\C1\1Fz\9A\9D`\C0\1Fg\06*N\87?\19\88idM\9Fu\F5\D3\1AA=5\17\B6\D1D\0D%\8B\E7\949\B0|\AF>j\FA\8D\90!\0F\8AC\947|*\15L\A0\FA\A9/!\A6o\8E/\89\BC\BB3\F81\FC\DF\CDh\9A\BCu\06\95\F1=\EF\CAv'\D2\BA\8E\0E\1CC\D7p\B9\C6\15\CA\D5M\87\B9\D1\AE\DEis\00*\97QK0\01\C2\85\D0\05\CC.\E8\C7B\E7\94Q\E3\F5\195\DCW\96\E7\D9\B4I\02\03\01\00\01", align 16
 @_ZL16kExponent1RSAKey = internal constant [268 x i8] c"0\82\01\08\02\82\01\01\00\CF\86\9A}\\\9F\BD3\BB\C2\B1\06\A8>\C5\18\F3\01\04\DDz8\0E\8E\8D\10\AA\F8dI\82\A6\16\9D\D9\AE^\7F\9BS\CB\BB)\DA\98G&\88.\1Dd\B3\BC~\96:\A7\D6\87\F6\F5?\A7;\D3\C5\D5a<c\05\F9\BCd\1Dqe\F5\C8\E8dA5\88\81k*$\BB\DD\9FuO\EA5\E52vZ\8Bz\B5\92e4\B7\88B]A\0B\D1\00-CGU`<\0E`\04\\\88\13\C7BU\1612\81\BA\DE\A9V\EB\DBf\7F1\BA\E8\87\1A\CC\AD\90\86K\A7m\D5\C1\B7\E7gVA\F7\03\B3\09ac\B5\B0\19{\C5\91\C8\96[j\80\A1S\0F\9AG\B5\9ADS\BD\93\E3\E4\CE\0C\17\11Q\1D\FDlt\E4\EC*\CEW'\CC\83\98\082,\D5u\A9'\FE\AA^H\C9F\9A)?\E6\01M\97Jp\D1]\F8\C0\0B#\CB\BE\F5p\0B\C2\F2\C03\9C\C4\8B9~=\C6#9\9A\98\DD\02\01\01", align 16
 @.str.25 = private unnamed_addr constant [49 x i8] c"kExponent1RSAKey parsed but should have failed.\0A\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr noundef %argv) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %argc.addr = alloca i32, align 4
-  %argv.addr = alloca ptr, align 8
-  store i32 0, ptr %retval, align 4
-  store i32 %argc, ptr %argc.addr, align 4
-  store ptr %argv, ptr %argv.addr, align 8
+define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store i32 0, ptr %3, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !10
   call void @CRYPTO_library_init()
-  %call = call noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef @_ZL5kKey1, i64 noundef 316, ptr noundef @_ZL16kOAEPCiphertext1, i64 noundef 64)
-  br i1 %call, label %lor.lhs.false, label %if.then
+  %6 = call noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef @_ZL5kKey1, i64 noundef 316, ptr noundef @_ZL16kOAEPCiphertext1, i64 noundef 64)
+  br i1 %6, label %7, label %29
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = call noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef @_ZL5kKey2, i64 noundef 254, ptr noundef @_ZL16kOAEPCiphertext2, i64 noundef 50)
-  br i1 %call1, label %lor.lhs.false2, label %if.then
+7:                                                ; preds = %2
+  %8 = call noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef @_ZL5kKey2, i64 noundef 254, ptr noundef @_ZL16kOAEPCiphertext2, i64 noundef 50)
+  br i1 %8, label %9, label %29
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %call3 = call noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef @_ZL5kKey3, i64 noundef 607, ptr noundef @_ZL16kOAEPCiphertext3, i64 noundef 128)
-  br i1 %call3, label %lor.lhs.false4, label %if.then
+9:                                                ; preds = %7
+  %10 = call noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef @_ZL5kKey3, i64 noundef 607, ptr noundef @_ZL16kOAEPCiphertext3, i64 noundef 128)
+  br i1 %10, label %11, label %29
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %call5 = call noundef zeroext i1 @_ZL14TestOnlyDGivenv()
-  br i1 %call5, label %lor.lhs.false6, label %if.then
+11:                                               ; preds = %9
+  %12 = call noundef zeroext i1 @_ZL14TestOnlyDGivenv()
+  br i1 %12, label %13, label %29
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %call7 = call noundef zeroext i1 @_ZL20TestRecoverCRTParamsv()
-  br i1 %call7, label %lor.lhs.false8, label %if.then
+13:                                               ; preds = %11
+  %14 = call noundef zeroext i1 @_ZL20TestRecoverCRTParamsv()
+  br i1 %14, label %15, label %29
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %call9 = call noundef zeroext i1 @_ZL10TestBadKeyv()
-  br i1 %call9, label %lor.lhs.false10, label %if.then
+15:                                               ; preds = %13
+  %16 = call noundef zeroext i1 @_ZL10TestBadKeyv()
+  br i1 %16, label %17, label %29
 
-lor.lhs.false10:                                  ; preds = %lor.lhs.false8
-  %call11 = call noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 2, ptr noundef @_ZL12kTwoPrimeKey, i64 noundef 1189, ptr noundef @_ZL25kTwoPrimeEncryptedMessage, i64 noundef 256)
-  br i1 %call11, label %lor.lhs.false12, label %if.then
+17:                                               ; preds = %15
+  %18 = call noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 2, ptr noundef @_ZL12kTwoPrimeKey, i64 noundef 1189, ptr noundef @_ZL25kTwoPrimeEncryptedMessage, i64 noundef 256)
+  br i1 %18, label %19, label %29
 
-lor.lhs.false12:                                  ; preds = %lor.lhs.false10
-  %call13 = call noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 3, ptr noundef @_ZL14kThreePrimeKey, i64 noundef 1243, ptr noundef @_ZL27kThreePrimeEncryptedMessage, i64 noundef 256)
-  br i1 %call13, label %lor.lhs.false14, label %if.then
+19:                                               ; preds = %17
+  %20 = call noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 3, ptr noundef @_ZL14kThreePrimeKey, i64 noundef 1243, ptr noundef @_ZL27kThreePrimeEncryptedMessage, i64 noundef 256)
+  br i1 %20, label %21, label %29
 
-lor.lhs.false14:                                  ; preds = %lor.lhs.false12
-  %call15 = call noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 6, ptr noundef @_ZL12kSixPrimeKey, i64 noundef 1316, ptr noundef @_ZL25kSixPrimeEncryptedMessage, i64 noundef 256)
-  br i1 %call15, label %lor.lhs.false16, label %if.then
+21:                                               ; preds = %19
+  %22 = call noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 6, ptr noundef @_ZL12kSixPrimeKey, i64 noundef 1316, ptr noundef @_ZL25kSixPrimeEncryptedMessage, i64 noundef 256)
+  br i1 %22, label %23, label %29
 
-lor.lhs.false16:                                  ; preds = %lor.lhs.false14
-  %call17 = call noundef zeroext i1 @_ZL20TestMultiPrimeKeygenv()
-  br i1 %call17, label %lor.lhs.false18, label %if.then
+23:                                               ; preds = %21
+  %24 = call noundef zeroext i1 @_ZL20TestMultiPrimeKeygenv()
+  br i1 %24, label %25, label %29
 
-lor.lhs.false18:                                  ; preds = %lor.lhs.false16
-  %call19 = call noundef zeroext i1 @_ZL8TestASN1v()
-  br i1 %call19, label %lor.lhs.false20, label %if.then
+25:                                               ; preds = %23
+  %26 = call noundef zeroext i1 @_ZL8TestASN1v()
+  br i1 %26, label %27, label %29
 
-lor.lhs.false20:                                  ; preds = %lor.lhs.false18
-  %call21 = call noundef zeroext i1 @_ZL15TestBadExponentv()
-  br i1 %call21, label %if.end, label %if.then
+27:                                               ; preds = %25
+  %28 = call noundef zeroext i1 @_ZL15TestBadExponentv()
+  br i1 %28, label %30, label %29
 
-if.then:                                          ; preds = %lor.lhs.false20, %lor.lhs.false18, %lor.lhs.false16, %lor.lhs.false14, %lor.lhs.false12, %lor.lhs.false10, %lor.lhs.false8, %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %2
+  store i32 1, ptr %3, align 4
+  br label %32
 
-if.end:                                           ; preds = %lor.lhs.false20
-  %call22 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  store i32 0, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %27
+  %31 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+  store i32 0, ptr %3, align 4
+  br label %32
 
-return:                                           ; preds = %if.end, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+32:                                               ; preds = %30, %29
+  %33 = load i32, ptr %3, align 4
+  ret i32 %33
 }
 
 declare void @CRYPTO_library_init() #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef %der, i64 noundef %der_len, ptr noundef %oaep_ciphertext, i64 noundef %oaep_ciphertext_len) #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %der.addr = alloca ptr, align 8
-  %der_len.addr = alloca i64, align 8
-  %oaep_ciphertext.addr = alloca ptr, align 8
-  %oaep_ciphertext_len.addr = alloca i64, align 8
-  %key = alloca %"class.std::unique_ptr", align 8
-  %cleanup.dest.slot = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ciphertext = alloca [256 x i8], align 16
-  %ciphertext_len = alloca i64, align 8
-  %plaintext = alloca [256 x i8], align 16
-  %plaintext_len = alloca i64, align 8
-  %i = alloca i64, align 8
-  %len = alloca i64, align 8
-  store ptr %der, ptr %der.addr, align 8
-  store i64 %der_len, ptr %der_len.addr, align 8
-  store ptr %oaep_ciphertext, ptr %oaep_ciphertext.addr, align 8
-  store i64 %oaep_ciphertext_len, ptr %oaep_ciphertext_len.addr, align 8
-  %0 = load ptr, ptr %der.addr, align 8
-  %1 = load i64, ptr %der_len.addr, align 8
-  %call = call ptr @RSA_private_key_from_bytes(ptr noundef %0, i64 noundef %1)
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef %call) #9
-  %call1 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  br i1 %call1, label %if.end, label %if.then
+define internal noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %"class.std::unique_ptr", align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca [256 x i8], align 16
+  %15 = alloca i64, align 8
+  %16 = alloca [256 x i8], align 16
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !13
+  store i64 %1, ptr %7, align 8, !tbaa !15
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store i64 %3, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %20 = load ptr, ptr %6, align 8, !tbaa !13
+  %21 = load i64, ptr %7, align 8, !tbaa !15
+  %22 = call ptr @RSA_private_key_from_bytes(ptr noundef %20, i64 noundef %21)
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %22) #11
+  %23 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  br i1 %23, label %25, label %24
 
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+24:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %210
 
-if.end:                                           ; preds = %entry
-  %call2 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call3 = invoke i32 @RSA_check_key(ptr noundef %call2)
-          to label %invoke.cont unwind label %lpad
+25:                                               ; preds = %4
+  %26 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %27 = invoke i32 @RSA_check_key(ptr noundef %26)
+          to label %28 unwind label %33
 
-invoke.cont:                                      ; preds = %if.end
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.end7, label %if.then4
+28:                                               ; preds = %25
+  %29 = icmp ne i32 %27, 0
+  br i1 %29, label %37, label %30
 
-if.then4:                                         ; preds = %invoke.cont
-  %2 = load ptr, ptr @stderr, align 8
-  %call6 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.1)
-          to label %invoke.cont5 unwind label %lpad
+30:                                               ; preds = %28
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.1) #11
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %210
 
-invoke.cont5:                                     ; preds = %if.then4
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad:                                             ; preds = %if.end112, %if.then109, %for.body102, %if.end94, %if.then91, %for.body, %if.then77, %if.end65, %if.then62, %if.end49, %if.then46, %lor.lhs.false40, %if.end34, %if.then31, %if.end18, %if.then15, %lor.lhs.false, %if.end7, %if.then4, %if.end
-  %3 = landingpad { ptr, i32 }
+33:                                               ; preds = %25
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  br label %eh.resume
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %12, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %13, align 4
+  br label %212
 
-if.end7:                                          ; preds = %invoke.cont
-  store i64 0, ptr %ciphertext_len, align 8
-  %call8 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 0
-  %call10 = invoke i32 @RSA_encrypt(ptr noundef %call8, ptr noundef %ciphertext_len, ptr noundef %arraydecay, i64 noundef 256, ptr noundef @_ZL10kPlaintext, i64 noundef 8, i32 noundef 1)
-          to label %invoke.cont9 unwind label %lpad
+37:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 256, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  store i64 0, ptr %15, align 8, !tbaa !15
+  %38 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %39 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 0
+  %40 = invoke i32 @RSA_encrypt(ptr noundef %38, ptr noundef %15, ptr noundef %39, i64 noundef 256, ptr noundef @_ZL10kPlaintext, i64 noundef 8, i32 noundef 1)
+          to label %41 unwind label %53
 
-invoke.cont9:                                     ; preds = %if.end7
-  %tobool11 = icmp ne i32 %call10, 0
-  br i1 %tobool11, label %lor.lhs.false, label %if.then15
+41:                                               ; preds = %37
+  %42 = icmp ne i32 %40, 0
+  br i1 %42, label %43, label %50
 
-lor.lhs.false:                                    ; preds = %invoke.cont9
-  %6 = load i64, ptr %ciphertext_len, align 8
-  %call12 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call14 = invoke i32 @RSA_size(ptr noundef %call12)
-          to label %invoke.cont13 unwind label %lpad
+43:                                               ; preds = %41
+  %44 = load i64, ptr %15, align 8, !tbaa !15
+  %45 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %46 = invoke i32 @RSA_size(ptr noundef %45)
+          to label %47 unwind label %53
 
-invoke.cont13:                                    ; preds = %lor.lhs.false
-  %conv = zext i32 %call14 to i64
-  %cmp = icmp ne i64 %6, %conv
-  br i1 %cmp, label %if.then15, label %if.end18
+47:                                               ; preds = %43
+  %48 = zext i32 %46 to i64
+  %49 = icmp ne i64 %44, %48
+  br i1 %49, label %50, label %57
 
-if.then15:                                        ; preds = %invoke.cont13, %invoke.cont9
-  %7 = load ptr, ptr @stderr, align 8
-  %call17 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.2)
-          to label %invoke.cont16 unwind label %lpad
+50:                                               ; preds = %47, %41
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.2) #11
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %208
 
-invoke.cont16:                                    ; preds = %if.then15
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+53:                                               ; preds = %43, %37
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %12, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %13, align 4
+  br label %209
 
-if.end18:                                         ; preds = %invoke.cont13
-  store i64 0, ptr %plaintext_len, align 8
-  %call19 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %arraydecay20 = getelementptr inbounds [256 x i8], ptr %plaintext, i64 0, i64 0
-  %arraydecay21 = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 0
-  %8 = load i64, ptr %ciphertext_len, align 8
-  %call23 = invoke i32 @RSA_decrypt(ptr noundef %call19, ptr noundef %plaintext_len, ptr noundef %arraydecay20, i64 noundef 256, ptr noundef %arraydecay21, i64 noundef %8, i32 noundef 1)
-          to label %invoke.cont22 unwind label %lpad
+57:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 256, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  store i64 0, ptr %17, align 8, !tbaa !15
+  %58 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %59 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %60 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 0
+  %61 = load i64, ptr %15, align 8, !tbaa !15
+  %62 = invoke i32 @RSA_decrypt(ptr noundef %58, ptr noundef %17, ptr noundef %59, i64 noundef 256, ptr noundef %60, i64 noundef %61, i32 noundef 1)
+          to label %63 unwind label %76
 
-invoke.cont22:                                    ; preds = %if.end18
-  %tobool24 = icmp ne i32 %call23, 0
-  br i1 %tobool24, label %lor.lhs.false25, label %if.then31
+63:                                               ; preds = %57
+  %64 = icmp ne i32 %62, 0
+  br i1 %64, label %65, label %73
 
-lor.lhs.false25:                                  ; preds = %invoke.cont22
-  %9 = load i64, ptr %plaintext_len, align 8
-  %cmp26 = icmp ne i64 %9, 8
-  br i1 %cmp26, label %if.then31, label %lor.lhs.false27
+65:                                               ; preds = %63
+  %66 = load i64, ptr %17, align 8, !tbaa !15
+  %67 = icmp ne i64 %66, 8
+  br i1 %67, label %73, label %68
 
-lor.lhs.false27:                                  ; preds = %lor.lhs.false25
-  %arraydecay28 = getelementptr inbounds [256 x i8], ptr %plaintext, i64 0, i64 0
-  %10 = load i64, ptr %plaintext_len, align 8
-  %call29 = call i32 @memcmp(ptr noundef %arraydecay28, ptr noundef @_ZL10kPlaintext, i64 noundef %10) #10
-  %cmp30 = icmp ne i32 %call29, 0
-  br i1 %cmp30, label %if.then31, label %if.end34
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %70 = load i64, ptr %17, align 8, !tbaa !15
+  %71 = call i32 @memcmp(ptr noundef %69, ptr noundef @_ZL10kPlaintext, i64 noundef %70) #12
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %80
 
-if.then31:                                        ; preds = %lor.lhs.false27, %lor.lhs.false25, %invoke.cont22
-  %11 = load ptr, ptr @stderr, align 8
-  %call33 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.3)
-          to label %invoke.cont32 unwind label %lpad
+73:                                               ; preds = %68, %65, %63
+  %74 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef @.str.3) #11
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %206
 
-invoke.cont32:                                    ; preds = %if.then31
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+76:                                               ; preds = %115, %96, %86, %80, %57
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %12, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %13, align 4
+  br label %207
 
-if.end34:                                         ; preds = %lor.lhs.false27
-  store i64 0, ptr %ciphertext_len, align 8
-  %call35 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %arraydecay36 = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 0
-  %call38 = invoke i32 @RSA_encrypt(ptr noundef %call35, ptr noundef %ciphertext_len, ptr noundef %arraydecay36, i64 noundef 256, ptr noundef @_ZL10kPlaintext, i64 noundef 8, i32 noundef 4)
-          to label %invoke.cont37 unwind label %lpad
+80:                                               ; preds = %68
+  store i64 0, ptr %15, align 8, !tbaa !15
+  %81 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %82 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 0
+  %83 = invoke i32 @RSA_encrypt(ptr noundef %81, ptr noundef %15, ptr noundef %82, i64 noundef 256, ptr noundef @_ZL10kPlaintext, i64 noundef 8, i32 noundef 4)
+          to label %84 unwind label %76
 
-invoke.cont37:                                    ; preds = %if.end34
-  %tobool39 = icmp ne i32 %call38, 0
-  br i1 %tobool39, label %lor.lhs.false40, label %if.then46
+84:                                               ; preds = %80
+  %85 = icmp ne i32 %83, 0
+  br i1 %85, label %86, label %93
 
-lor.lhs.false40:                                  ; preds = %invoke.cont37
-  %12 = load i64, ptr %ciphertext_len, align 8
-  %call41 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call43 = invoke i32 @RSA_size(ptr noundef %call41)
-          to label %invoke.cont42 unwind label %lpad
+86:                                               ; preds = %84
+  %87 = load i64, ptr %15, align 8, !tbaa !15
+  %88 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %89 = invoke i32 @RSA_size(ptr noundef %88)
+          to label %90 unwind label %76
 
-invoke.cont42:                                    ; preds = %lor.lhs.false40
-  %conv44 = zext i32 %call43 to i64
-  %cmp45 = icmp ne i64 %12, %conv44
-  br i1 %cmp45, label %if.then46, label %if.end49
+90:                                               ; preds = %86
+  %91 = zext i32 %89 to i64
+  %92 = icmp ne i64 %87, %91
+  br i1 %92, label %93, label %96
 
-if.then46:                                        ; preds = %invoke.cont42, %invoke.cont37
-  %13 = load ptr, ptr @stderr, align 8
-  %call48 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.4)
-          to label %invoke.cont47 unwind label %lpad
+93:                                               ; preds = %90, %84
+  %94 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef @.str.4) #11
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %206
 
-invoke.cont47:                                    ; preds = %if.then46
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+96:                                               ; preds = %90
+  store i64 0, ptr %17, align 8, !tbaa !15
+  %97 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %98 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %99 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 0
+  %100 = load i64, ptr %15, align 8, !tbaa !15
+  %101 = invoke i32 @RSA_decrypt(ptr noundef %97, ptr noundef %17, ptr noundef %98, i64 noundef 256, ptr noundef %99, i64 noundef %100, i32 noundef 4)
+          to label %102 unwind label %76
 
-if.end49:                                         ; preds = %invoke.cont42
-  store i64 0, ptr %plaintext_len, align 8
-  %call50 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %arraydecay51 = getelementptr inbounds [256 x i8], ptr %plaintext, i64 0, i64 0
-  %arraydecay52 = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 0
-  %14 = load i64, ptr %ciphertext_len, align 8
-  %call54 = invoke i32 @RSA_decrypt(ptr noundef %call50, ptr noundef %plaintext_len, ptr noundef %arraydecay51, i64 noundef 256, ptr noundef %arraydecay52, i64 noundef %14, i32 noundef 4)
-          to label %invoke.cont53 unwind label %lpad
+102:                                              ; preds = %96
+  %103 = icmp ne i32 %101, 0
+  br i1 %103, label %104, label %112
 
-invoke.cont53:                                    ; preds = %if.end49
-  %tobool55 = icmp ne i32 %call54, 0
-  br i1 %tobool55, label %lor.lhs.false56, label %if.then62
+104:                                              ; preds = %102
+  %105 = load i64, ptr %17, align 8, !tbaa !15
+  %106 = icmp ne i64 %105, 8
+  br i1 %106, label %112, label %107
 
-lor.lhs.false56:                                  ; preds = %invoke.cont53
-  %15 = load i64, ptr %plaintext_len, align 8
-  %cmp57 = icmp ne i64 %15, 8
-  br i1 %cmp57, label %if.then62, label %lor.lhs.false58
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %109 = load i64, ptr %17, align 8, !tbaa !15
+  %110 = call i32 @memcmp(ptr noundef %108, ptr noundef @_ZL10kPlaintext, i64 noundef %109) #12
+  %111 = icmp ne i32 %110, 0
+  br i1 %111, label %112, label %115
 
-lor.lhs.false58:                                  ; preds = %lor.lhs.false56
-  %arraydecay59 = getelementptr inbounds [256 x i8], ptr %plaintext, i64 0, i64 0
-  %16 = load i64, ptr %plaintext_len, align 8
-  %call60 = call i32 @memcmp(ptr noundef %arraydecay59, ptr noundef @_ZL10kPlaintext, i64 noundef %16) #10
-  %cmp61 = icmp ne i32 %call60, 0
-  br i1 %cmp61, label %if.then62, label %if.end65
+112:                                              ; preds = %107, %104, %102
+  %113 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef @.str.5) #11
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %206
 
-if.then62:                                        ; preds = %lor.lhs.false58, %lor.lhs.false56, %invoke.cont53
-  %17 = load ptr, ptr @stderr, align 8
-  %call64 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.5)
-          to label %invoke.cont63 unwind label %lpad
+115:                                              ; preds = %107
+  store i64 0, ptr %17, align 8, !tbaa !15
+  %116 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %117 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %118 = load ptr, ptr %8, align 8, !tbaa !13
+  %119 = load i64, ptr %9, align 8, !tbaa !15
+  %120 = invoke i32 @RSA_decrypt(ptr noundef %116, ptr noundef %17, ptr noundef %117, i64 noundef 256, ptr noundef %118, i64 noundef %119, i32 noundef 4)
+          to label %121 unwind label %76
 
-invoke.cont63:                                    ; preds = %if.then62
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+121:                                              ; preds = %115
+  %122 = icmp ne i32 %120, 0
+  br i1 %122, label %123, label %131
 
-if.end65:                                         ; preds = %lor.lhs.false58
-  store i64 0, ptr %plaintext_len, align 8
-  %call66 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %arraydecay67 = getelementptr inbounds [256 x i8], ptr %plaintext, i64 0, i64 0
-  %18 = load ptr, ptr %oaep_ciphertext.addr, align 8
-  %19 = load i64, ptr %oaep_ciphertext_len.addr, align 8
-  %call69 = invoke i32 @RSA_decrypt(ptr noundef %call66, ptr noundef %plaintext_len, ptr noundef %arraydecay67, i64 noundef 256, ptr noundef %18, i64 noundef %19, i32 noundef 4)
-          to label %invoke.cont68 unwind label %lpad
+123:                                              ; preds = %121
+  %124 = load i64, ptr %17, align 8, !tbaa !15
+  %125 = icmp ne i64 %124, 8
+  br i1 %125, label %131, label %126
 
-invoke.cont68:                                    ; preds = %if.end65
-  %tobool70 = icmp ne i32 %call69, 0
-  br i1 %tobool70, label %lor.lhs.false71, label %if.then77
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %128 = load i64, ptr %17, align 8, !tbaa !15
+  %129 = call i32 @memcmp(ptr noundef %127, ptr noundef @_ZL10kPlaintext, i64 noundef %128) #12
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %134
 
-lor.lhs.false71:                                  ; preds = %invoke.cont68
-  %20 = load i64, ptr %plaintext_len, align 8
-  %cmp72 = icmp ne i64 %20, 8
-  br i1 %cmp72, label %if.then77, label %lor.lhs.false73
+131:                                              ; preds = %126, %123, %121
+  %132 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef @.str.6) #11
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %206
 
-lor.lhs.false73:                                  ; preds = %lor.lhs.false71
-  %arraydecay74 = getelementptr inbounds [256 x i8], ptr %plaintext, i64 0, i64 0
-  %21 = load i64, ptr %plaintext_len, align 8
-  %call75 = call i32 @memcmp(ptr noundef %arraydecay74, ptr noundef @_ZL10kPlaintext, i64 noundef %21) #10
-  %cmp76 = icmp ne i32 %call75, 0
-  br i1 %cmp76, label %if.then77, label %if.end80
+134:                                              ; preds = %126
+  %135 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 0
+  %136 = load ptr, ptr %8, align 8, !tbaa !13
+  %137 = load i64, ptr %9, align 8, !tbaa !15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %135, ptr align 1 %136, i64 %137, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  store i64 0, ptr %18, align 8, !tbaa !15
+  br label %138
 
-if.then77:                                        ; preds = %lor.lhs.false73, %lor.lhs.false71, %invoke.cont68
-  %22 = load ptr, ptr @stderr, align 8
-  %call79 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.6)
-          to label %invoke.cont78 unwind label %lpad
+138:                                              ; preds = %172, %134
+  %139 = load i64, ptr %18, align 8, !tbaa !15
+  %140 = load i64, ptr %9, align 8, !tbaa !15
+  %141 = icmp ult i64 %139, %140
+  br i1 %141, label %143, label %142
 
-invoke.cont78:                                    ; preds = %if.then77
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+142:                                              ; preds = %138
+  store i32 2, ptr %11, align 4
+  br label %175
 
-if.end80:                                         ; preds = %lor.lhs.false73
-  %arraydecay81 = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 0
-  %23 = load ptr, ptr %oaep_ciphertext.addr, align 8
-  %24 = load i64, ptr %oaep_ciphertext_len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay81, ptr align 1 %23, i64 %24, i1 false)
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+143:                                              ; preds = %138
+  %144 = load i64, ptr %18, align 8, !tbaa !15
+  %145 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %144
+  %146 = load i8, ptr %145, align 1, !tbaa !19
+  %147 = zext i8 %146 to i32
+  %148 = xor i32 %147, 1
+  %149 = trunc i32 %148 to i8
+  store i8 %149, ptr %145, align 1, !tbaa !19
+  %150 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %151 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %152 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 0
+  %153 = load i64, ptr %9, align 8, !tbaa !15
+  %154 = invoke i32 @RSA_decrypt(ptr noundef %150, ptr noundef %17, ptr noundef %151, i64 noundef 256, ptr noundef %152, i64 noundef %153, i32 noundef 4)
+          to label %155 unwind label %160
 
-for.cond:                                         ; preds = %for.inc, %if.end80
-  %25 = load i64, ptr %i, align 8
-  %26 = load i64, ptr %oaep_ciphertext_len.addr, align 8
-  %cmp82 = icmp ult i64 %25, %26
-  br i1 %cmp82, label %for.body, label %for.end
+155:                                              ; preds = %143
+  %156 = icmp ne i32 %154, 0
+  br i1 %156, label %157, label %164
 
-for.body:                                         ; preds = %for.cond
-  %27 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 %27
-  %28 = load i8, ptr %arrayidx, align 1
-  %conv83 = zext i8 %28 to i32
-  %xor = xor i32 %conv83, 1
-  %conv84 = trunc i32 %xor to i8
-  store i8 %conv84, ptr %arrayidx, align 1
-  %call85 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %arraydecay86 = getelementptr inbounds [256 x i8], ptr %plaintext, i64 0, i64 0
-  %arraydecay87 = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 0
-  %29 = load i64, ptr %oaep_ciphertext_len.addr, align 8
-  %call89 = invoke i32 @RSA_decrypt(ptr noundef %call85, ptr noundef %plaintext_len, ptr noundef %arraydecay86, i64 noundef 256, ptr noundef %arraydecay87, i64 noundef %29, i32 noundef 4)
-          to label %invoke.cont88 unwind label %lpad
+157:                                              ; preds = %155
+  %158 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef @.str.7) #11
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %175
 
-invoke.cont88:                                    ; preds = %for.body
-  %tobool90 = icmp ne i32 %call89, 0
-  br i1 %tobool90, label %if.then91, label %if.end94
+160:                                              ; preds = %164, %143
+  %161 = landingpad { ptr, i32 }
+          cleanup
+  %162 = extractvalue { ptr, i32 } %161, 0
+  store ptr %162, ptr %12, align 8
+  %163 = extractvalue { ptr, i32 } %161, 1
+  store i32 %163, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  br label %207
 
-if.then91:                                        ; preds = %invoke.cont88
-  %30 = load ptr, ptr @stderr, align 8
-  %call93 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.7)
-          to label %invoke.cont92 unwind label %lpad
-
-invoke.cont92:                                    ; preds = %if.then91
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end94:                                         ; preds = %invoke.cont88
+164:                                              ; preds = %155
   invoke void @ERR_clear_error()
-          to label %invoke.cont95 unwind label %lpad
+          to label %165 unwind label %160
 
-invoke.cont95:                                    ; preds = %if.end94
-  %31 = load i64, ptr %i, align 8
-  %arrayidx96 = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 %31
-  %32 = load i8, ptr %arrayidx96, align 1
-  %conv97 = zext i8 %32 to i32
-  %xor98 = xor i32 %conv97, 1
-  %conv99 = trunc i32 %xor98 to i8
-  store i8 %conv99, ptr %arrayidx96, align 1
-  br label %for.inc
+165:                                              ; preds = %164
+  %166 = load i64, ptr %18, align 8, !tbaa !15
+  %167 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %166
+  %168 = load i8, ptr %167, align 1, !tbaa !19
+  %169 = zext i8 %168 to i32
+  %170 = xor i32 %169, 1
+  %171 = trunc i32 %170 to i8
+  store i8 %171, ptr %167, align 1, !tbaa !19
+  br label %172
 
-for.inc:                                          ; preds = %invoke.cont95
-  %33 = load i64, ptr %i, align 8
-  %inc = add i64 %33, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
+172:                                              ; preds = %165
+  %173 = load i64, ptr %18, align 8, !tbaa !15
+  %174 = add i64 %173, 1
+  store i64 %174, ptr %18, align 8, !tbaa !15
+  br label %138, !llvm.loop !20
 
-for.end:                                          ; preds = %for.cond
-  store i64 0, ptr %len, align 8
-  br label %for.cond100
+175:                                              ; preds = %157, %142
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  %176 = load i32, ptr %11, align 4
+  switch i32 %176, label %206 [
+    i32 2, label %177
+  ]
 
-for.cond100:                                      ; preds = %for.inc114, %for.end
-  %34 = load i64, ptr %len, align 8
-  %35 = load i64, ptr %oaep_ciphertext_len.addr, align 8
-  %cmp101 = icmp ult i64 %34, %35
-  br i1 %cmp101, label %for.body102, label %for.end116
+177:                                              ; preds = %175
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
+  store i64 0, ptr %19, align 8, !tbaa !15
+  br label %178
 
-for.body102:                                      ; preds = %for.cond100
-  %call103 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %arraydecay104 = getelementptr inbounds [256 x i8], ptr %plaintext, i64 0, i64 0
-  %arraydecay105 = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 0
-  %36 = load i64, ptr %len, align 8
-  %call107 = invoke i32 @RSA_decrypt(ptr noundef %call103, ptr noundef %plaintext_len, ptr noundef %arraydecay104, i64 noundef 256, ptr noundef %arraydecay105, i64 noundef %36, i32 noundef 4)
-          to label %invoke.cont106 unwind label %lpad
+178:                                              ; preds = %200, %177
+  %179 = load i64, ptr %19, align 8, !tbaa !15
+  %180 = load i64, ptr %9, align 8, !tbaa !15
+  %181 = icmp ult i64 %179, %180
+  br i1 %181, label %183, label %182
 
-invoke.cont106:                                   ; preds = %for.body102
-  %tobool108 = icmp ne i32 %call107, 0
-  br i1 %tobool108, label %if.then109, label %if.end112
+182:                                              ; preds = %178
+  store i32 5, ptr %11, align 4
+  br label %203
 
-if.then109:                                       ; preds = %invoke.cont106
-  %37 = load ptr, ptr @stderr, align 8
-  %call111 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.7)
-          to label %invoke.cont110 unwind label %lpad
+183:                                              ; preds = %178
+  %184 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %185 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %186 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 0
+  %187 = load i64, ptr %19, align 8, !tbaa !15
+  %188 = invoke i32 @RSA_decrypt(ptr noundef %184, ptr noundef %17, ptr noundef %185, i64 noundef 256, ptr noundef %186, i64 noundef %187, i32 noundef 4)
+          to label %189 unwind label %194
 
-invoke.cont110:                                   ; preds = %if.then109
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+189:                                              ; preds = %183
+  %190 = icmp ne i32 %188, 0
+  br i1 %190, label %191, label %198
 
-if.end112:                                        ; preds = %invoke.cont106
+191:                                              ; preds = %189
+  %192 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef @.str.7) #11
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %203
+
+194:                                              ; preds = %198, %183
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %12, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  br label %207
+
+198:                                              ; preds = %189
   invoke void @ERR_clear_error()
-          to label %invoke.cont113 unwind label %lpad
+          to label %199 unwind label %194
 
-invoke.cont113:                                   ; preds = %if.end112
-  br label %for.inc114
+199:                                              ; preds = %198
+  br label %200
 
-for.inc114:                                       ; preds = %invoke.cont113
-  %38 = load i64, ptr %len, align 8
-  %inc115 = add i64 %38, 1
-  store i64 %inc115, ptr %len, align 8
-  br label %for.cond100, !llvm.loop !9
+200:                                              ; preds = %199
+  %201 = load i64, ptr %19, align 8, !tbaa !15
+  %202 = add i64 %201, 1
+  store i64 %202, ptr %19, align 8, !tbaa !15
+  br label %178, !llvm.loop !22
 
-for.end116:                                       ; preds = %for.cond100
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+203:                                              ; preds = %191, %182
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  %204 = load i32, ptr %11, align 4
+  switch i32 %204, label %206 [
+    i32 5, label %205
+  ]
 
-cleanup:                                          ; preds = %for.end116, %invoke.cont110, %invoke.cont92, %invoke.cont78, %invoke.cont63, %invoke.cont47, %invoke.cont32, %invoke.cont16, %invoke.cont5, %if.then
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %39 = load i1, ptr %retval, align 1
-  ret i1 %39
+205:                                              ; preds = %203
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %206
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val117 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val117
+206:                                              ; preds = %205, %203, %175, %131, %112, %93, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 256, ptr %16) #11
+  br label %208
+
+207:                                              ; preds = %194, %160, %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 256, ptr %16) #11
+  br label %209
+
+208:                                              ; preds = %206, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 256, ptr %14) #11
+  br label %210
+
+209:                                              ; preds = %207, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 256, ptr %14) #11
+  br label %212
+
+210:                                              ; preds = %208, %30, %24
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  %211 = load i1, ptr %5, align 1
+  ret i1 %211
+
+212:                                              ; preds = %209, %33
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %213
+
+213:                                              ; preds = %212
+  %214 = load ptr, ptr %12, align 8
+  %215 = load i32, ptr %13, align 4
+  %216 = insertvalue { ptr, i32 } poison, ptr %214, 0
+  %217 = insertvalue { ptr, i32 } %216, i32 %215, 1
+  resume { ptr, i32 } %217
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL14TestOnlyDGivenv() #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %buf = alloca [64 x i8], align 16
-  %buf_len = alloca i32, align 4
-  %key = alloca %"class.std::unique_ptr", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %kDummyHash = alloca [16 x i8], align 16
-  %key2 = alloca %"class.std::unique_ptr", align 8
-  store i32 64, ptr %buf_len, align 4
-  %call = call ptr @RSA_new()
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef %call) #9
-  %call1 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  br i1 %call1, label %lor.lhs.false, label %if.then
+  %1 = alloca i1, align 1
+  %2 = alloca [64 x i8], align 16
+  %3 = alloca i32, align 4
+  %4 = alloca %"class.std::unique_ptr", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca [16 x i8], align 16
+  %9 = alloca %"class.std::unique_ptr", align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %2) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 64, ptr %3, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %10 = call ptr @RSA_new()
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %10) #11
+  %11 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  br i1 %11, label %12, label %36
 
-lor.lhs.false:                                    ; preds = %entry
-  %call2 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %n = getelementptr inbounds %struct.rsa_st, ptr %call2, i32 0, i32 1
-  %call3 = invoke i32 @BN_hex2bn(ptr noundef %n, ptr noundef @_ZZL14TestOnlyDGivenvE2kN)
-          to label %invoke.cont unwind label %lpad
+12:                                               ; preds = %0
+  %13 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %14 = getelementptr inbounds nuw %struct.rsa_st, ptr %13, i32 0, i32 1
+  %15 = invoke i32 @BN_hex2bn(ptr noundef %14, ptr noundef @_ZZL14TestOnlyDGivenvE2kN)
+          to label %16 unwind label %37
 
-invoke.cont:                                      ; preds = %lor.lhs.false
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %lor.lhs.false4, label %if.then
+16:                                               ; preds = %12
+  %17 = icmp ne i32 %15, 0
+  br i1 %17, label %18, label %36
 
-lor.lhs.false4:                                   ; preds = %invoke.cont
-  %call5 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %e = getelementptr inbounds %struct.rsa_st, ptr %call5, i32 0, i32 2
-  %call7 = invoke i32 @BN_hex2bn(ptr noundef %e, ptr noundef @_ZZL14TestOnlyDGivenvE2kE)
-          to label %invoke.cont6 unwind label %lpad
+18:                                               ; preds = %16
+  %19 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %20 = getelementptr inbounds nuw %struct.rsa_st, ptr %19, i32 0, i32 2
+  %21 = invoke i32 @BN_hex2bn(ptr noundef %20, ptr noundef @_ZZL14TestOnlyDGivenvE2kE)
+          to label %22 unwind label %37
 
-invoke.cont6:                                     ; preds = %lor.lhs.false4
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %lor.lhs.false9, label %if.then
+22:                                               ; preds = %18
+  %23 = icmp ne i32 %21, 0
+  br i1 %23, label %24, label %36
 
-lor.lhs.false9:                                   ; preds = %invoke.cont6
-  %call10 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %d = getelementptr inbounds %struct.rsa_st, ptr %call10, i32 0, i32 3
-  %call12 = invoke i32 @BN_hex2bn(ptr noundef %d, ptr noundef @_ZZL14TestOnlyDGivenvE2kD)
-          to label %invoke.cont11 unwind label %lpad
+24:                                               ; preds = %22
+  %25 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %26 = getelementptr inbounds nuw %struct.rsa_st, ptr %25, i32 0, i32 3
+  %27 = invoke i32 @BN_hex2bn(ptr noundef %26, ptr noundef @_ZZL14TestOnlyDGivenvE2kD)
+          to label %28 unwind label %37
 
-invoke.cont11:                                    ; preds = %lor.lhs.false9
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %lor.lhs.false14, label %if.then
+28:                                               ; preds = %24
+  %29 = icmp ne i32 %27, 0
+  br i1 %29, label %30, label %36
 
-lor.lhs.false14:                                  ; preds = %invoke.cont11
-  %call15 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call17 = invoke i32 @RSA_size(ptr noundef %call15)
-          to label %invoke.cont16 unwind label %lpad
+30:                                               ; preds = %28
+  %31 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %32 = invoke i32 @RSA_size(ptr noundef %31)
+          to label %33 unwind label %37
 
-invoke.cont16:                                    ; preds = %lor.lhs.false14
-  %conv = zext i32 %call17 to i64
-  %cmp = icmp ugt i64 %conv, 64
-  br i1 %cmp, label %if.then, label %if.end
+33:                                               ; preds = %30
+  %34 = zext i32 %32 to i64
+  %35 = icmp ugt i64 %34, 64
+  br i1 %35, label %36, label %41
 
-if.then:                                          ; preds = %invoke.cont16, %invoke.cont11, %invoke.cont6, %invoke.cont, %entry
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup98
+36:                                               ; preds = %33, %28, %22, %16, %0
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %148
 
-lpad:                                             ; preds = %if.end48, %invoke.cont45, %if.then44, %if.end36, %invoke.cont33, %if.then32, %if.end26, %invoke.cont23, %if.then22, %if.end, %lor.lhs.false14, %lor.lhs.false9, %lor.lhs.false4, %lor.lhs.false
-  %0 = landingpad { ptr, i32 }
+37:                                               ; preds = %46, %41, %30, %24, %18, %12
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
+  br label %150
 
-if.end:                                           ; preds = %invoke.cont16
-  %call18 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call20 = invoke i32 @RSA_check_key(ptr noundef %call18)
-          to label %invoke.cont19 unwind label %lpad
+41:                                               ; preds = %33
+  %42 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %43 = invoke i32 @RSA_check_key(ptr noundef %42)
+          to label %44 unwind label %37
 
-invoke.cont19:                                    ; preds = %if.end
-  %tobool21 = icmp ne i32 %call20, 0
-  br i1 %tobool21, label %if.end26, label %if.then22
+44:                                               ; preds = %41
+  %45 = icmp ne i32 %43, 0
+  br i1 %45, label %51, label %46
 
-if.then22:                                        ; preds = %invoke.cont19
-  %3 = load ptr, ptr @stderr, align 8
-  %call24 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.8)
-          to label %invoke.cont23 unwind label %lpad
+46:                                               ; preds = %44
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.8) #11
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %49)
+          to label %50 unwind label %37
 
-invoke.cont23:                                    ; preds = %if.then22
-  %4 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %4)
-          to label %invoke.cont25 unwind label %lpad
+50:                                               ; preds = %46
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %148
 
-invoke.cont25:                                    ; preds = %invoke.cont23
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup98
+51:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #11
+  call void @llvm.memset.p0.i64(ptr align 16 %8, i8 0, i64 16, i1 false)
+  %52 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  %53 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 0
+  %54 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %55 = invoke i32 @RSA_sign(i32 noundef 672, ptr noundef %52, i32 noundef 16, ptr noundef %53, ptr noundef %3, ptr noundef %54)
+          to label %56 unwind label %63
 
-if.end26:                                         ; preds = %invoke.cont19
-  call void @llvm.memset.p0.i64(ptr align 16 %kDummyHash, i8 0, i64 16, i1 false)
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %kDummyHash, i64 0, i64 0
-  %arraydecay27 = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 0
-  %call28 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call30 = invoke i32 @RSA_sign(i32 noundef 672, ptr noundef %arraydecay, i32 noundef 16, ptr noundef %arraydecay27, ptr noundef %buf_len, ptr noundef %call28)
-          to label %invoke.cont29 unwind label %lpad
+56:                                               ; preds = %51
+  %57 = icmp ne i32 %55, 0
+  br i1 %57, label %67, label %58
 
-invoke.cont29:                                    ; preds = %if.end26
-  %tobool31 = icmp ne i32 %call30, 0
-  br i1 %tobool31, label %if.end36, label %if.then32
+58:                                               ; preds = %56
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.9) #11
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %61)
+          to label %62 unwind label %63
 
-if.then32:                                        ; preds = %invoke.cont29
-  %5 = load ptr, ptr @stderr, align 8
-  %call34 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.9)
-          to label %invoke.cont33 unwind label %lpad
+62:                                               ; preds = %58
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %146
 
-invoke.cont33:                                    ; preds = %if.then32
-  %6 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %6)
-          to label %invoke.cont35 unwind label %lpad
-
-invoke.cont35:                                    ; preds = %invoke.cont33
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup98
-
-if.end36:                                         ; preds = %invoke.cont29
-  %arraydecay37 = getelementptr inbounds [16 x i8], ptr %kDummyHash, i64 0, i64 0
-  %arraydecay38 = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 0
-  %7 = load i32, ptr %buf_len, align 4
-  %conv39 = zext i32 %7 to i64
-  %call40 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call42 = invoke i32 @RSA_verify(i32 noundef 672, ptr noundef %arraydecay37, i64 noundef 16, ptr noundef %arraydecay38, i64 noundef %conv39, ptr noundef %call40)
-          to label %invoke.cont41 unwind label %lpad
-
-invoke.cont41:                                    ; preds = %if.end36
-  %tobool43 = icmp ne i32 %call42, 0
-  br i1 %tobool43, label %if.end48, label %if.then44
-
-if.then44:                                        ; preds = %invoke.cont41
-  %8 = load ptr, ptr @stderr, align 8
-  %call46 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.10)
-          to label %invoke.cont45 unwind label %lpad
-
-invoke.cont45:                                    ; preds = %if.then44
-  %9 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %9)
-          to label %invoke.cont47 unwind label %lpad
-
-invoke.cont47:                                    ; preds = %invoke.cont45
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup98
-
-if.end48:                                         ; preds = %invoke.cont41
-  %call50 = invoke ptr @RSA_new()
-          to label %invoke.cont49 unwind label %lpad
-
-invoke.cont49:                                    ; preds = %if.end48
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %key2, ptr noundef %call50) #9
-  %call51 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  br i1 %call51, label %lor.lhs.false52, label %if.then65
-
-lor.lhs.false52:                                  ; preds = %invoke.cont49
-  %call53 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %n54 = getelementptr inbounds %struct.rsa_st, ptr %call53, i32 0, i32 1
-  %call57 = invoke i32 @BN_hex2bn(ptr noundef %n54, ptr noundef @_ZZL14TestOnlyDGivenvE2kN)
-          to label %invoke.cont56 unwind label %lpad55
-
-invoke.cont56:                                    ; preds = %lor.lhs.false52
-  %tobool58 = icmp ne i32 %call57, 0
-  br i1 %tobool58, label %lor.lhs.false59, label %if.then65
-
-lor.lhs.false59:                                  ; preds = %invoke.cont56
-  %call60 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %d61 = getelementptr inbounds %struct.rsa_st, ptr %call60, i32 0, i32 3
-  %call63 = invoke i32 @BN_hex2bn(ptr noundef %d61, ptr noundef @_ZZL14TestOnlyDGivenvE2kD)
-          to label %invoke.cont62 unwind label %lpad55
-
-invoke.cont62:                                    ; preds = %lor.lhs.false59
-  %tobool64 = icmp ne i32 %call63, 0
-  br i1 %tobool64, label %if.end66, label %if.then65
-
-if.then65:                                        ; preds = %invoke.cont62, %invoke.cont56, %invoke.cont49
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad55:                                           ; preds = %invoke.cont94, %if.then93, %if.end85, %invoke.cont82, %if.then81, %if.end74, %if.end66, %lor.lhs.false59, %lor.lhs.false52
-  %10 = landingpad { ptr, i32 }
+63:                                               ; preds = %76, %67, %58, %51
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  br label %ehcleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %5, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %6, align 4
+  br label %147
 
-if.end66:                                         ; preds = %invoke.cont62
-  %call67 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %flags = getelementptr inbounds %struct.rsa_st, ptr %call67, i32 0, i32 12
-  %13 = load i32, ptr %flags, align 4
-  %or = or i32 %13, 8
-  store i32 %or, ptr %flags, align 4
-  %call68 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %call70 = invoke i32 @RSA_size(ptr noundef %call68)
-          to label %invoke.cont69 unwind label %lpad55
+67:                                               ; preds = %56
+  %68 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  %69 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 0
+  %70 = load i32, ptr %3, align 4, !tbaa !6
+  %71 = zext i32 %70 to i64
+  %72 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %73 = invoke i32 @RSA_verify(i32 noundef 672, ptr noundef %68, i64 noundef 16, ptr noundef %69, i64 noundef %71, ptr noundef %72)
+          to label %74 unwind label %63
 
-invoke.cont69:                                    ; preds = %if.end66
-  %conv71 = zext i32 %call70 to i64
-  %cmp72 = icmp ugt i64 %conv71, 64
-  br i1 %cmp72, label %if.then73, label %if.end74
+74:                                               ; preds = %67
+  %75 = icmp ne i32 %73, 0
+  br i1 %75, label %81, label %76
 
-if.then73:                                        ; preds = %invoke.cont69
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+76:                                               ; preds = %74
+  %77 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef @.str.10) #11
+  %79 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %79)
+          to label %80 unwind label %63
 
-if.end74:                                         ; preds = %invoke.cont69
-  %arraydecay75 = getelementptr inbounds [16 x i8], ptr %kDummyHash, i64 0, i64 0
-  %arraydecay76 = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 0
-  %call77 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %call79 = invoke i32 @RSA_sign(i32 noundef 672, ptr noundef %arraydecay75, i32 noundef 16, ptr noundef %arraydecay76, ptr noundef %buf_len, ptr noundef %call77)
-          to label %invoke.cont78 unwind label %lpad55
+80:                                               ; preds = %76
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %146
 
-invoke.cont78:                                    ; preds = %if.end74
-  %tobool80 = icmp ne i32 %call79, 0
-  br i1 %tobool80, label %if.end85, label %if.then81
+81:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %82 = invoke ptr @RSA_new()
+          to label %83 unwind label %98
 
-if.then81:                                        ; preds = %invoke.cont78
-  %14 = load ptr, ptr @stderr, align 8
-  %call83 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.11)
-          to label %invoke.cont82 unwind label %lpad55
+83:                                               ; preds = %81
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %82) #11
+  %84 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br i1 %84, label %85, label %97
 
-invoke.cont82:                                    ; preds = %if.then81
-  %15 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %15)
-          to label %invoke.cont84 unwind label %lpad55
+85:                                               ; preds = %83
+  %86 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %87 = getelementptr inbounds nuw %struct.rsa_st, ptr %86, i32 0, i32 1
+  %88 = invoke i32 @BN_hex2bn(ptr noundef %87, ptr noundef @_ZZL14TestOnlyDGivenvE2kN)
+          to label %89 unwind label %102
 
-invoke.cont84:                                    ; preds = %invoke.cont82
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+89:                                               ; preds = %85
+  %90 = icmp ne i32 %88, 0
+  br i1 %90, label %91, label %97
 
-if.end85:                                         ; preds = %invoke.cont78
-  %arraydecay86 = getelementptr inbounds [16 x i8], ptr %kDummyHash, i64 0, i64 0
-  %arraydecay87 = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 0
-  %16 = load i32, ptr %buf_len, align 4
-  %conv88 = zext i32 %16 to i64
-  %call89 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call91 = invoke i32 @RSA_verify(i32 noundef 672, ptr noundef %arraydecay86, i64 noundef 16, ptr noundef %arraydecay87, i64 noundef %conv88, ptr noundef %call89)
-          to label %invoke.cont90 unwind label %lpad55
+91:                                               ; preds = %89
+  %92 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %93 = getelementptr inbounds nuw %struct.rsa_st, ptr %92, i32 0, i32 3
+  %94 = invoke i32 @BN_hex2bn(ptr noundef %93, ptr noundef @_ZZL14TestOnlyDGivenvE2kD)
+          to label %95 unwind label %102
 
-invoke.cont90:                                    ; preds = %if.end85
-  %tobool92 = icmp ne i32 %call91, 0
-  br i1 %tobool92, label %if.end97, label %if.then93
+95:                                               ; preds = %91
+  %96 = icmp ne i32 %94, 0
+  br i1 %96, label %106, label %97
 
-if.then93:                                        ; preds = %invoke.cont90
-  %17 = load ptr, ptr @stderr, align 8
-  %call95 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.12)
-          to label %invoke.cont94 unwind label %lpad55
+97:                                               ; preds = %95, %89, %83
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %144
 
-invoke.cont94:                                    ; preds = %if.then93
-  %18 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %18)
-          to label %invoke.cont96 unwind label %lpad55
+98:                                               ; preds = %81
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %5, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %6, align 4
+  br label %145
 
-invoke.cont96:                                    ; preds = %invoke.cont94
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+102:                                              ; preds = %138, %129, %124, %117, %106, %91, %85
+  %103 = landingpad { ptr, i32 }
+          cleanup
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %5, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %6, align 4
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %145
 
-if.end97:                                         ; preds = %invoke.cont90
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+106:                                              ; preds = %95
+  %107 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %108 = getelementptr inbounds nuw %struct.rsa_st, ptr %107, i32 0, i32 12
+  %109 = load i32, ptr %108, align 4, !tbaa !23
+  %110 = or i32 %109, 8
+  store i32 %110, ptr %108, align 4, !tbaa !23
+  %111 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %112 = invoke i32 @RSA_size(ptr noundef %111)
+          to label %113 unwind label %102
 
-cleanup:                                          ; preds = %if.end97, %invoke.cont96, %invoke.cont84, %if.then73, %if.then65
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  br label %cleanup98
+113:                                              ; preds = %106
+  %114 = zext i32 %112 to i64
+  %115 = icmp ugt i64 %114, 64
+  br i1 %115, label %116, label %117
 
-cleanup98:                                        ; preds = %cleanup, %invoke.cont47, %invoke.cont35, %invoke.cont25, %if.then
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %19 = load i1, ptr %retval, align 1
-  ret i1 %19
+116:                                              ; preds = %113
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %144
 
-ehcleanup:                                        ; preds = %lpad55, %lpad
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  br label %eh.resume
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  %119 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 0
+  %120 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %121 = invoke i32 @RSA_sign(i32 noundef 672, ptr noundef %118, i32 noundef 16, ptr noundef %119, ptr noundef %3, ptr noundef %120)
+          to label %122 unwind label %102
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val99 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val99
+122:                                              ; preds = %117
+  %123 = icmp ne i32 %121, 0
+  br i1 %123, label %129, label %124
+
+124:                                              ; preds = %122
+  %125 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef @.str.11) #11
+  %127 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %127)
+          to label %128 unwind label %102
+
+128:                                              ; preds = %124
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %144
+
+129:                                              ; preds = %122
+  %130 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 0
+  %131 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 0
+  %132 = load i32, ptr %3, align 4, !tbaa !6
+  %133 = zext i32 %132 to i64
+  %134 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %135 = invoke i32 @RSA_verify(i32 noundef 672, ptr noundef %130, i64 noundef 16, ptr noundef %131, i64 noundef %133, ptr noundef %134)
+          to label %136 unwind label %102
+
+136:                                              ; preds = %129
+  %137 = icmp ne i32 %135, 0
+  br i1 %137, label %143, label %138
+
+138:                                              ; preds = %136
+  %139 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef @.str.12) #11
+  %141 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %141)
+          to label %142 unwind label %102
+
+142:                                              ; preds = %138
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %144
+
+143:                                              ; preds = %136
+  store i1 true, ptr %1, align 1
+  store i32 1, ptr %7, align 4
+  br label %144
+
+144:                                              ; preds = %143, %142, %128, %116, %97
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  br label %146
+
+145:                                              ; preds = %102, %98
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  br label %147
+
+146:                                              ; preds = %144, %80, %62
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #11
+  br label %148
+
+147:                                              ; preds = %145, %63
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #11
+  br label %150
+
+148:                                              ; preds = %146, %50, %36
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %2) #11
+  %149 = load i1, ptr %1, align 1
+  ret i1 %149
+
+150:                                              ; preds = %147, %37
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %2) #11
+  br label %151
+
+151:                                              ; preds = %150
+  %152 = load ptr, ptr %5, align 8
+  %153 = load i32, ptr %6, align 4
+  %154 = insertvalue { ptr, i32 } poison, ptr %152, 0
+  %155 = insertvalue { ptr, i32 } %154, i32 %153, 1
+  resume { ptr, i32 } %155
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL20TestRecoverCRTParamsv() #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %e = alloca %"class.std::unique_ptr.2", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %i = alloca i32, align 4
-  %key1 = alloca %"class.std::unique_ptr", align 8
-  %key2 = alloca %"class.std::unique_ptr", align 8
-  %buf = alloca [128 x i8], align 16
-  %buf_len = alloca i32, align 4
-  %kDummyHash = alloca [16 x i8], align 16
-  %call = call ptr @BN_new()
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %e, ptr noundef %call) #9
-  %call1 = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  br i1 %call1, label %lor.lhs.false, label %if.then
+  %1 = alloca i1, align 1
+  %2 = alloca %"class.std::unique_ptr.2", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.std::unique_ptr", align 8
+  %8 = alloca %"class.std::unique_ptr", align 8
+  %9 = alloca [128 x i8], align 16
+  %10 = alloca i32, align 4
+  %11 = alloca [16 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %12 = call ptr @BN_new()
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %12) #11
+  %13 = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  br i1 %13, label %14, label %19
 
-lor.lhs.false:                                    ; preds = %entry
-  %call2 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  %call3 = invoke i32 @BN_set_word(ptr noundef %call2, i64 noundef 65537)
-          to label %invoke.cont unwind label %lpad
+14:                                               ; preds = %0
+  %15 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %16 = invoke i32 @BN_set_word(ptr noundef %15, i64 noundef 65537)
+          to label %17 unwind label %20
 
-invoke.cont:                                      ; preds = %lor.lhs.false
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.end, label %if.then
+17:                                               ; preds = %14
+  %18 = icmp ne i32 %16, 0
+  br i1 %18, label %24, label %19
 
-if.then:                                          ; preds = %invoke.cont, %entry
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup110
+19:                                               ; preds = %17, %0
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %192
 
-lpad:                                             ; preds = %for.body, %if.end, %lor.lhs.false
-  %0 = landingpad { ptr, i32 }
+20:                                               ; preds = %24, %14
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  br label %ehcleanup111
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
+  br label %194
 
-if.end:                                           ; preds = %invoke.cont
+24:                                               ; preds = %17
   invoke void @ERR_clear_error()
-          to label %invoke.cont4 unwind label %lpad
+          to label %25 unwind label %20
 
-invoke.cont4:                                     ; preds = %if.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 0, ptr %6, align 4, !tbaa !6
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %invoke.cont4
-  %3 = load i32, ptr %i, align 4
-  %cmp = icmp ult i32 %3, 1
-  br i1 %cmp, label %for.body, label %for.end
+26:                                               ; preds = %181, %25
+  %27 = load i32, ptr %6, align 4, !tbaa !6
+  %28 = icmp ult i32 %27, 1
+  br i1 %28, label %30, label %29
 
-for.body:                                         ; preds = %for.cond
-  %call6 = invoke ptr @RSA_new()
-          to label %invoke.cont5 unwind label %lpad
+29:                                               ; preds = %26
+  store i32 2, ptr %5, align 4
+  br label %189
 
-invoke.cont5:                                     ; preds = %for.body
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %key1, ptr noundef %call6) #9
-  %call7 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %key1) #9
-  br i1 %call7, label %lor.lhs.false8, label %if.then15
+30:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %31 = invoke ptr @RSA_new()
+          to label %32 unwind label %45
 
-lor.lhs.false8:                                   ; preds = %invoke.cont5
-  %call9 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key1) #9
-  %call10 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  %call13 = invoke i32 @RSA_generate_key_ex(ptr noundef %call9, i32 noundef 512, ptr noundef %call10, ptr noundef null)
-          to label %invoke.cont12 unwind label %lpad11
+32:                                               ; preds = %30
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %31) #11
+  %33 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  br i1 %33, label %34, label %40
 
-invoke.cont12:                                    ; preds = %lor.lhs.false8
-  %tobool14 = icmp ne i32 %call13, 0
-  br i1 %tobool14, label %if.end19, label %if.then15
+34:                                               ; preds = %32
+  %35 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %36 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %37 = invoke i32 @RSA_generate_key_ex(ptr noundef %35, i32 noundef 512, ptr noundef %36, ptr noundef null)
+          to label %38 unwind label %49
 
-if.then15:                                        ; preds = %invoke.cont12, %invoke.cont5
-  %4 = load ptr, ptr @stderr, align 8
-  %call17 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.13)
-          to label %invoke.cont16 unwind label %lpad11
+38:                                               ; preds = %34
+  %39 = icmp ne i32 %37, 0
+  br i1 %39, label %53, label %40
 
-invoke.cont16:                                    ; preds = %if.then15
-  %5 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %5)
-          to label %invoke.cont18 unwind label %lpad11
+40:                                               ; preds = %38, %32
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.13) #11
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %43)
+          to label %44 unwind label %49
 
-invoke.cont18:                                    ; preds = %invoke.cont16
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup109
+44:                                               ; preds = %40
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %178
 
-lpad11:                                           ; preds = %if.end28, %invoke.cont25, %if.then24, %if.end19, %invoke.cont16, %if.then15, %lor.lhs.false8
-  %6 = landingpad { ptr, i32 }
+45:                                               ; preds = %30
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %3, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %4, align 4
+  br label %188
 
-if.end19:                                         ; preds = %invoke.cont12
-  %call20 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key1) #9
-  %call22 = invoke i32 @RSA_check_key(ptr noundef %call20)
-          to label %invoke.cont21 unwind label %lpad11
-
-invoke.cont21:                                    ; preds = %if.end19
-  %tobool23 = icmp ne i32 %call22, 0
-  br i1 %tobool23, label %if.end28, label %if.then24
-
-if.then24:                                        ; preds = %invoke.cont21
-  %9 = load ptr, ptr @stderr, align 8
-  %call26 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.14)
-          to label %invoke.cont25 unwind label %lpad11
-
-invoke.cont25:                                    ; preds = %if.then24
-  %10 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %10)
-          to label %invoke.cont27 unwind label %lpad11
-
-invoke.cont27:                                    ; preds = %invoke.cont25
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup109
-
-if.end28:                                         ; preds = %invoke.cont21
-  %call30 = invoke ptr @RSA_new()
-          to label %invoke.cont29 unwind label %lpad11
-
-invoke.cont29:                                    ; preds = %if.end28
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %key2, ptr noundef %call30) #9
-  %call31 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  br i1 %call31, label %if.end33, label %if.then32
-
-if.then32:                                        ; preds = %invoke.cont29
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end33:                                         ; preds = %invoke.cont29
-  %call34 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key1) #9
-  %n = getelementptr inbounds %struct.rsa_st, ptr %call34, i32 0, i32 1
-  %11 = load ptr, ptr %n, align 8
-  %call37 = invoke ptr @BN_dup(ptr noundef %11)
-          to label %invoke.cont36 unwind label %lpad35
-
-invoke.cont36:                                    ; preds = %if.end33
-  %call38 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %n39 = getelementptr inbounds %struct.rsa_st, ptr %call38, i32 0, i32 1
-  store ptr %call37, ptr %n39, align 8
-  %call40 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key1) #9
-  %e41 = getelementptr inbounds %struct.rsa_st, ptr %call40, i32 0, i32 2
-  %12 = load ptr, ptr %e41, align 8
-  %call43 = invoke ptr @BN_dup(ptr noundef %12)
-          to label %invoke.cont42 unwind label %lpad35
-
-invoke.cont42:                                    ; preds = %invoke.cont36
-  %call44 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %e45 = getelementptr inbounds %struct.rsa_st, ptr %call44, i32 0, i32 2
-  store ptr %call43, ptr %e45, align 8
-  %call46 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key1) #9
-  %d = getelementptr inbounds %struct.rsa_st, ptr %call46, i32 0, i32 3
-  %13 = load ptr, ptr %d, align 8
-  %call48 = invoke ptr @BN_dup(ptr noundef %13)
-          to label %invoke.cont47 unwind label %lpad35
-
-invoke.cont47:                                    ; preds = %invoke.cont42
-  %call49 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %d50 = getelementptr inbounds %struct.rsa_st, ptr %call49, i32 0, i32 3
-  store ptr %call48, ptr %d50, align 8
-  %call51 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %n52 = getelementptr inbounds %struct.rsa_st, ptr %call51, i32 0, i32 1
-  %14 = load ptr, ptr %n52, align 8
-  %cmp53 = icmp eq ptr %14, null
-  br i1 %cmp53, label %if.then62, label %lor.lhs.false54
-
-lor.lhs.false54:                                  ; preds = %invoke.cont47
-  %call55 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %e56 = getelementptr inbounds %struct.rsa_st, ptr %call55, i32 0, i32 2
-  %15 = load ptr, ptr %e56, align 8
-  %cmp57 = icmp eq ptr %15, null
-  br i1 %cmp57, label %if.then62, label %lor.lhs.false58
-
-lor.lhs.false58:                                  ; preds = %lor.lhs.false54
-  %call59 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %d60 = getelementptr inbounds %struct.rsa_st, ptr %call59, i32 0, i32 3
-  %16 = load ptr, ptr %d60, align 8
-  %cmp61 = icmp eq ptr %16, null
-  br i1 %cmp61, label %if.then62, label %if.end63
-
-if.then62:                                        ; preds = %lor.lhs.false58, %lor.lhs.false54, %invoke.cont47
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad35:                                           ; preds = %invoke.cont105, %if.then104, %if.end97, %invoke.cont94, %if.then93, %if.end87, %invoke.cont84, %if.then83, %if.end78, %if.end72, %invoke.cont69, %if.then68, %if.end63, %invoke.cont42, %invoke.cont36, %if.end33
-  %17 = landingpad { ptr, i32 }
+49:                                               ; preds = %58, %53, %40, %34
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  br label %ehcleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %3, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %4, align 4
+  br label %187
 
-if.end63:                                         ; preds = %lor.lhs.false58
-  %call64 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %call66 = invoke i32 @RSA_recover_crt_params(ptr noundef %call64)
-          to label %invoke.cont65 unwind label %lpad35
+53:                                               ; preds = %38
+  %54 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %55 = invoke i32 @RSA_check_key(ptr noundef %54)
+          to label %56 unwind label %49
 
-invoke.cont65:                                    ; preds = %if.end63
-  %tobool67 = icmp ne i32 %call66, 0
-  br i1 %tobool67, label %if.end72, label %if.then68
+56:                                               ; preds = %53
+  %57 = icmp ne i32 %55, 0
+  br i1 %57, label %63, label %58
 
-if.then68:                                        ; preds = %invoke.cont65
-  %20 = load ptr, ptr @stderr, align 8
-  %call70 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.15)
-          to label %invoke.cont69 unwind label %lpad35
+58:                                               ; preds = %56
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.14) #11
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %61)
+          to label %62 unwind label %49
 
-invoke.cont69:                                    ; preds = %if.then68
-  %21 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %21)
-          to label %invoke.cont71 unwind label %lpad35
+62:                                               ; preds = %58
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %178
 
-invoke.cont71:                                    ; preds = %invoke.cont69
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+63:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %64 = invoke ptr @RSA_new()
+          to label %65 unwind label %68
 
-if.end72:                                         ; preds = %invoke.cont65
-  store i32 128, ptr %buf_len, align 4
-  %call73 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %call75 = invoke i32 @RSA_size(ptr noundef %call73)
-          to label %invoke.cont74 unwind label %lpad35
+65:                                               ; preds = %63
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %64) #11
+  %66 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  br i1 %66, label %72, label %67
 
-invoke.cont74:                                    ; preds = %if.end72
-  %22 = load i32, ptr %buf_len, align 4
-  %cmp76 = icmp ugt i32 %call75, %22
-  br i1 %cmp76, label %if.then77, label %if.end78
+67:                                               ; preds = %65
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %177
 
-if.then77:                                        ; preds = %invoke.cont74
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+68:                                               ; preds = %63
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %3, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %4, align 4
+  br label %186
 
-if.end78:                                         ; preds = %invoke.cont74
-  %call79 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %call81 = invoke i32 @RSA_check_key(ptr noundef %call79)
-          to label %invoke.cont80 unwind label %lpad35
+72:                                               ; preds = %65
+  %73 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %74 = getelementptr inbounds nuw %struct.rsa_st, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !32
+  %76 = invoke ptr @BN_dup(ptr noundef %75)
+          to label %77 unwind label %109
 
-invoke.cont80:                                    ; preds = %if.end78
-  %tobool82 = icmp ne i32 %call81, 0
-  br i1 %tobool82, label %if.end87, label %if.then83
+77:                                               ; preds = %72
+  %78 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %79 = getelementptr inbounds nuw %struct.rsa_st, ptr %78, i32 0, i32 1
+  store ptr %76, ptr %79, align 8, !tbaa !32
+  %80 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %81 = getelementptr inbounds nuw %struct.rsa_st, ptr %80, i32 0, i32 2
+  %82 = load ptr, ptr %81, align 8, !tbaa !33
+  %83 = invoke ptr @BN_dup(ptr noundef %82)
+          to label %84 unwind label %109
 
-if.then83:                                        ; preds = %invoke.cont80
-  %23 = load ptr, ptr @stderr, align 8
-  %call85 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.16)
-          to label %invoke.cont84 unwind label %lpad35
+84:                                               ; preds = %77
+  %85 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %86 = getelementptr inbounds nuw %struct.rsa_st, ptr %85, i32 0, i32 2
+  store ptr %83, ptr %86, align 8, !tbaa !33
+  %87 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %88 = getelementptr inbounds nuw %struct.rsa_st, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8, !tbaa !34
+  %90 = invoke ptr @BN_dup(ptr noundef %89)
+          to label %91 unwind label %109
 
-invoke.cont84:                                    ; preds = %if.then83
-  %24 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %24)
-          to label %invoke.cont86 unwind label %lpad35
+91:                                               ; preds = %84
+  %92 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %93 = getelementptr inbounds nuw %struct.rsa_st, ptr %92, i32 0, i32 3
+  store ptr %90, ptr %93, align 8, !tbaa !34
+  %94 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %95 = getelementptr inbounds nuw %struct.rsa_st, ptr %94, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8, !tbaa !32
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %108, label %98
 
-invoke.cont86:                                    ; preds = %invoke.cont84
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+98:                                               ; preds = %91
+  %99 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %100 = getelementptr inbounds nuw %struct.rsa_st, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8, !tbaa !33
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %108, label %103
 
-if.end87:                                         ; preds = %invoke.cont80
-  call void @llvm.memset.p0.i64(ptr align 16 %kDummyHash, i8 0, i64 16, i1 false)
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %kDummyHash, i64 0, i64 0
-  %arraydecay88 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 0
-  %call89 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %call91 = invoke i32 @RSA_sign(i32 noundef 672, ptr noundef %arraydecay, i32 noundef 16, ptr noundef %arraydecay88, ptr noundef %buf_len, ptr noundef %call89)
-          to label %invoke.cont90 unwind label %lpad35
+103:                                              ; preds = %98
+  %104 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %105 = getelementptr inbounds nuw %struct.rsa_st, ptr %104, i32 0, i32 3
+  %106 = load ptr, ptr %105, align 8, !tbaa !34
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %108, label %113
 
-invoke.cont90:                                    ; preds = %if.end87
-  %tobool92 = icmp ne i32 %call91, 0
-  br i1 %tobool92, label %if.end97, label %if.then93
+108:                                              ; preds = %103, %98, %91
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %177
 
-if.then93:                                        ; preds = %invoke.cont90
-  %25 = load ptr, ptr @stderr, align 8
-  %call95 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.17)
-          to label %invoke.cont94 unwind label %lpad35
+109:                                              ; preds = %118, %113, %84, %77, %72
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %3, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %4, align 4
+  br label %185
 
-invoke.cont94:                                    ; preds = %if.then93
-  %26 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %26)
-          to label %invoke.cont96 unwind label %lpad35
+113:                                              ; preds = %103
+  %114 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %115 = invoke i32 @RSA_recover_crt_params(ptr noundef %114)
+          to label %116 unwind label %109
 
-invoke.cont96:                                    ; preds = %invoke.cont94
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+116:                                              ; preds = %113
+  %117 = icmp ne i32 %115, 0
+  br i1 %117, label %123, label %118
 
-if.end97:                                         ; preds = %invoke.cont90
-  %arraydecay98 = getelementptr inbounds [16 x i8], ptr %kDummyHash, i64 0, i64 0
-  %arraydecay99 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 0
-  %27 = load i32, ptr %buf_len, align 4
-  %conv = zext i32 %27 to i64
-  %call100 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  %call102 = invoke i32 @RSA_verify(i32 noundef 672, ptr noundef %arraydecay98, i64 noundef 16, ptr noundef %arraydecay99, i64 noundef %conv, ptr noundef %call100)
-          to label %invoke.cont101 unwind label %lpad35
+118:                                              ; preds = %116
+  %119 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef @.str.15) #11
+  %121 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %121)
+          to label %122 unwind label %109
 
-invoke.cont101:                                   ; preds = %if.end97
-  %tobool103 = icmp ne i32 %call102, 0
-  br i1 %tobool103, label %if.end108, label %if.then104
+122:                                              ; preds = %118
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %177
 
-if.then104:                                       ; preds = %invoke.cont101
-  %28 = load ptr, ptr @stderr, align 8
-  %call106 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.18)
-          to label %invoke.cont105 unwind label %lpad35
+123:                                              ; preds = %116
+  call void @llvm.lifetime.start.p0(i64 128, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 128, ptr %10, align 4, !tbaa !6
+  %124 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %125 = invoke i32 @RSA_size(ptr noundef %124)
+          to label %126 unwind label %130
 
-invoke.cont105:                                   ; preds = %if.then104
-  %29 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %29)
-          to label %invoke.cont107 unwind label %lpad35
+126:                                              ; preds = %123
+  %127 = load i32, ptr %10, align 4, !tbaa !6
+  %128 = icmp ugt i32 %125, %127
+  br i1 %128, label %129, label %134
 
-invoke.cont107:                                   ; preds = %invoke.cont105
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+129:                                              ; preds = %126
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %176
 
-if.end108:                                        ; preds = %invoke.cont101
-  store i32 0, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+130:                                              ; preds = %139, %134, %123
+  %131 = landingpad { ptr, i32 }
+          cleanup
+  %132 = extractvalue { ptr, i32 } %131, 0
+  store ptr %132, ptr %3, align 8
+  %133 = extractvalue { ptr, i32 } %131, 1
+  store i32 %133, ptr %4, align 4
+  br label %184
 
-cleanup:                                          ; preds = %if.end108, %invoke.cont107, %invoke.cont96, %invoke.cont86, %if.then77, %invoke.cont71, %if.then62, %if.then32
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key2) #9
-  br label %cleanup109
+134:                                              ; preds = %126
+  %135 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %136 = invoke i32 @RSA_check_key(ptr noundef %135)
+          to label %137 unwind label %130
 
-cleanup109:                                       ; preds = %cleanup, %invoke.cont27, %invoke.cont18
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key1) #9
-  %cleanup.dest = load i32, ptr %cleanup.dest.slot, align 4
-  switch i32 %cleanup.dest, label %cleanup110 [
-    i32 0, label %cleanup.cont
+137:                                              ; preds = %134
+  %138 = icmp ne i32 %136, 0
+  br i1 %138, label %144, label %139
+
+139:                                              ; preds = %137
+  %140 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef @.str.16) #11
+  %142 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %142)
+          to label %143 unwind label %130
+
+143:                                              ; preds = %139
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %176
+
+144:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #11
+  call void @llvm.memset.p0.i64(ptr align 16 %11, i8 0, i64 16, i1 false)
+  %145 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 0
+  %146 = getelementptr inbounds [128 x i8], ptr %9, i64 0, i64 0
+  %147 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %148 = invoke i32 @RSA_sign(i32 noundef 672, ptr noundef %145, i32 noundef 16, ptr noundef %146, ptr noundef %10, ptr noundef %147)
+          to label %149 unwind label %156
+
+149:                                              ; preds = %144
+  %150 = icmp ne i32 %148, 0
+  br i1 %150, label %160, label %151
+
+151:                                              ; preds = %149
+  %152 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef @.str.17) #11
+  %154 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %154)
+          to label %155 unwind label %156
+
+155:                                              ; preds = %151
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %175
+
+156:                                              ; preds = %169, %160, %151, %144
+  %157 = landingpad { ptr, i32 }
+          cleanup
+  %158 = extractvalue { ptr, i32 } %157, 0
+  store ptr %158, ptr %3, align 8
+  %159 = extractvalue { ptr, i32 } %157, 1
+  store i32 %159, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #11
+  br label %184
+
+160:                                              ; preds = %149
+  %161 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 0
+  %162 = getelementptr inbounds [128 x i8], ptr %9, i64 0, i64 0
+  %163 = load i32, ptr %10, align 4, !tbaa !6
+  %164 = zext i32 %163 to i64
+  %165 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %166 = invoke i32 @RSA_verify(i32 noundef 672, ptr noundef %161, i64 noundef 16, ptr noundef %162, i64 noundef %164, ptr noundef %165)
+          to label %167 unwind label %156
+
+167:                                              ; preds = %160
+  %168 = icmp ne i32 %166, 0
+  br i1 %168, label %174, label %169
+
+169:                                              ; preds = %167
+  %170 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef @.str.18) #11
+  %172 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %172)
+          to label %173 unwind label %156
+
+173:                                              ; preds = %169
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %175
+
+174:                                              ; preds = %167
+  store i32 0, ptr %5, align 4
+  br label %175
+
+175:                                              ; preds = %174, %173, %155
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #11
+  br label %176
+
+176:                                              ; preds = %175, %143, %129
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr %9) #11
+  br label %177
+
+177:                                              ; preds = %176, %122, %108, %67
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %178
+
+178:                                              ; preds = %177, %62, %44
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  %179 = load i32, ptr %5, align 4
+  switch i32 %179, label %189 [
+    i32 0, label %180
   ]
 
-cleanup.cont:                                     ; preds = %cleanup109
-  br label %for.inc
+180:                                              ; preds = %178
+  br label %181
 
-for.inc:                                          ; preds = %cleanup.cont
-  %30 = load i32, ptr %i, align 4
-  %inc = add i32 %30, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
+181:                                              ; preds = %180
+  %182 = load i32, ptr %6, align 4, !tbaa !6
+  %183 = add i32 %182, 1
+  store i32 %183, ptr %6, align 4, !tbaa !6
+  br label %26, !llvm.loop !35
 
-ehcleanup:                                        ; preds = %lpad35, %lpad11
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key1) #9
-  br label %ehcleanup111
+184:                                              ; preds = %156, %130
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr %9) #11
+  br label %185
 
-for.end:                                          ; preds = %for.cond
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup110
+185:                                              ; preds = %184, %109
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  br label %186
 
-cleanup110:                                       ; preds = %for.end, %cleanup109, %if.then
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  %31 = load i1, ptr %retval, align 1
-  ret i1 %31
+186:                                              ; preds = %185, %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %187
 
-ehcleanup111:                                     ; preds = %ehcleanup, %lpad
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  br label %eh.resume
+187:                                              ; preds = %186, %49
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  br label %188
 
-eh.resume:                                        ; preds = %ehcleanup111
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val112 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val112
+188:                                              ; preds = %187, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  br label %194
+
+189:                                              ; preds = %178, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %190 = load i32, ptr %5, align 4
+  switch i32 %190, label %192 [
+    i32 2, label %191
+  ]
+
+191:                                              ; preds = %189
+  store i1 true, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %192
+
+192:                                              ; preds = %191, %189, %19
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  %193 = load i1, ptr %1, align 1
+  ret i1 %193
+
+194:                                              ; preds = %188, %20
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  br label %195
+
+195:                                              ; preds = %194
+  %196 = load ptr, ptr %3, align 8
+  %197 = load i32, ptr %4, align 4
+  %198 = insertvalue { ptr, i32 } poison, ptr %196, 0
+  %199 = insertvalue { ptr, i32 } %198, i32 %197, 1
+  resume { ptr, i32 } %199
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL10TestBadKeyv() #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %key = alloca %"class.std::unique_ptr", align 8
-  %e = alloca %"class.std::unique_ptr.2", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %call = call ptr @RSA_new()
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef %call) #9
-  %call1 = invoke ptr @BN_new()
-          to label %invoke.cont unwind label %lpad
+  %1 = alloca i1, align 1
+  %2 = alloca %"class.std::unique_ptr", align 8
+  %3 = alloca %"class.std::unique_ptr.2", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %7 = call ptr @RSA_new()
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %8 = invoke ptr @BN_new()
+          to label %9 unwind label %19
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %e, ptr noundef %call1) #9
-  %call2 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  br i1 %call2, label %lor.lhs.false, label %if.then
+9:                                                ; preds = %0
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %8) #11
+  %10 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  br i1 %10, label %11, label %18
 
-lor.lhs.false:                                    ; preds = %invoke.cont
-  %call3 = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  br i1 %call3, label %lor.lhs.false4, label %if.then
+11:                                               ; preds = %9
+  %12 = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  br i1 %12, label %13, label %18
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %call5 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  %call8 = invoke i32 @BN_set_word(ptr noundef %call5, i64 noundef 65537)
-          to label %invoke.cont7 unwind label %lpad6
+13:                                               ; preds = %11
+  %14 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %15 = invoke i32 @BN_set_word(ptr noundef %14, i64 noundef 65537)
+          to label %16 unwind label %23
 
-invoke.cont7:                                     ; preds = %lor.lhs.false4
-  %tobool = icmp ne i32 %call8, 0
-  br i1 %tobool, label %if.end, label %if.then
+16:                                               ; preds = %13
+  %17 = icmp ne i32 %15, 0
+  br i1 %17, label %27, label %18
 
-if.then:                                          ; preds = %invoke.cont7, %lor.lhs.false, %invoke.cont
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+18:                                               ; preds = %16, %11, %9
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %6, align 4
+  br label %65
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %67
 
-lpad6:                                            ; preds = %if.end39, %if.then36, %if.end31, %invoke.cont28, %if.then27, %invoke.cont22, %if.end18, %invoke.cont15, %if.then14, %if.end, %lor.lhs.false4
-  %3 = landingpad { ptr, i32 }
+23:                                               ; preds = %63, %55, %50, %46, %38, %33, %27, %13
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  br label %ehcleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  br label %67
 
-if.end:                                           ; preds = %invoke.cont7
-  %call9 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call10 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  %call12 = invoke i32 @RSA_generate_key_ex(ptr noundef %call9, i32 noundef 512, ptr noundef %call10, ptr noundef null)
-          to label %invoke.cont11 unwind label %lpad6
+27:                                               ; preds = %16
+  %28 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %29 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %30 = invoke i32 @RSA_generate_key_ex(ptr noundef %28, i32 noundef 512, ptr noundef %29, ptr noundef null)
+          to label %31 unwind label %23
 
-invoke.cont11:                                    ; preds = %if.end
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.end18, label %if.then14
+31:                                               ; preds = %27
+  %32 = icmp ne i32 %30, 0
+  br i1 %32, label %38, label %33
 
-if.then14:                                        ; preds = %invoke.cont11
-  %6 = load ptr, ptr @stderr, align 8
-  %call16 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.13)
-          to label %invoke.cont15 unwind label %lpad6
+33:                                               ; preds = %31
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.13) #11
+  %36 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %36)
+          to label %37 unwind label %23
 
-invoke.cont15:                                    ; preds = %if.then14
-  %7 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %7)
-          to label %invoke.cont17 unwind label %lpad6
+37:                                               ; preds = %33
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %6, align 4
+  br label %65
 
-invoke.cont17:                                    ; preds = %invoke.cont15
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+38:                                               ; preds = %31
+  %39 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %40 = getelementptr inbounds nuw %struct.rsa_st, ptr %39, i32 0, i32 4
+  %41 = load ptr, ptr %40, align 8, !tbaa !36
+  %42 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %43 = getelementptr inbounds nuw %struct.rsa_st, ptr %42, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8, !tbaa !36
+  %45 = invoke ptr @BN_value_one()
+          to label %46 unwind label %23
 
-if.end18:                                         ; preds = %invoke.cont11
-  %call19 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %p = getelementptr inbounds %struct.rsa_st, ptr %call19, i32 0, i32 4
-  %8 = load ptr, ptr %p, align 8
-  %call20 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %p21 = getelementptr inbounds %struct.rsa_st, ptr %call20, i32 0, i32 4
-  %9 = load ptr, ptr %p21, align 8
-  %call23 = invoke ptr @BN_value_one()
-          to label %invoke.cont22 unwind label %lpad6
+46:                                               ; preds = %38
+  %47 = invoke i32 @BN_add(ptr noundef %41, ptr noundef %44, ptr noundef %45)
+          to label %48 unwind label %23
 
-invoke.cont22:                                    ; preds = %if.end18
-  %call25 = invoke i32 @BN_add(ptr noundef %8, ptr noundef %9, ptr noundef %call23)
-          to label %invoke.cont24 unwind label %lpad6
+48:                                               ; preds = %46
+  %49 = icmp ne i32 %47, 0
+  br i1 %49, label %55, label %50
 
-invoke.cont24:                                    ; preds = %invoke.cont22
-  %tobool26 = icmp ne i32 %call25, 0
-  br i1 %tobool26, label %if.end31, label %if.then27
+50:                                               ; preds = %48
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.19) #11
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %53)
+          to label %54 unwind label %23
 
-if.then27:                                        ; preds = %invoke.cont24
-  %10 = load ptr, ptr @stderr, align 8
-  %call29 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.19)
-          to label %invoke.cont28 unwind label %lpad6
+54:                                               ; preds = %50
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %6, align 4
+  br label %65
 
-invoke.cont28:                                    ; preds = %if.then27
-  %11 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %11)
-          to label %invoke.cont30 unwind label %lpad6
+55:                                               ; preds = %48
+  %56 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %57 = invoke i32 @RSA_check_key(ptr noundef %56)
+          to label %58 unwind label %23
 
-invoke.cont30:                                    ; preds = %invoke.cont28
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+58:                                               ; preds = %55
+  %59 = icmp ne i32 %57, 0
+  br i1 %59, label %60, label %63
 
-if.end31:                                         ; preds = %invoke.cont24
-  %call32 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %call34 = invoke i32 @RSA_check_key(ptr noundef %call32)
-          to label %invoke.cont33 unwind label %lpad6
+60:                                               ; preds = %58
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.20) #11
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %6, align 4
+  br label %65
 
-invoke.cont33:                                    ; preds = %if.end31
-  %tobool35 = icmp ne i32 %call34, 0
-  br i1 %tobool35, label %if.then36, label %if.end39
-
-if.then36:                                        ; preds = %invoke.cont33
-  %12 = load ptr, ptr @stderr, align 8
-  %call38 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.20)
-          to label %invoke.cont37 unwind label %lpad6
-
-invoke.cont37:                                    ; preds = %if.then36
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end39:                                         ; preds = %invoke.cont33
+63:                                               ; preds = %58
   invoke void @ERR_clear_error()
-          to label %invoke.cont40 unwind label %lpad6
+          to label %64 unwind label %23
 
-invoke.cont40:                                    ; preds = %if.end39
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+64:                                               ; preds = %63
+  store i1 true, ptr %1, align 1
+  store i32 1, ptr %6, align 4
+  br label %65
 
-cleanup:                                          ; preds = %invoke.cont40, %invoke.cont37, %invoke.cont30, %invoke.cont17, %if.then
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  %13 = load i1, ptr %retval, align 1
-  ret i1 %13
+65:                                               ; preds = %64, %60, %54, %37, %18
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  %66 = load i1, ptr %1, align 1
+  ret i1 %66
 
-ehcleanup:                                        ; preds = %lpad6, %lpad
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #9
-  br label %eh.resume
+67:                                               ; preds = %23, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  br label %68
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val42 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val42
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %4, align 8
+  %70 = load i32, ptr %5, align 4
+  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
+  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
+  resume { ptr, i32 } %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef %nprimes, ptr noundef %der, i64 noundef %der_size, ptr noundef %enc, i64 noundef %enc_size) #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %nprimes.addr = alloca i32, align 4
-  %der.addr = alloca ptr, align 8
-  %der_size.addr = alloca i64, align 8
-  %enc.addr = alloca ptr, align 8
-  %enc_size.addr = alloca i64, align 8
-  %rsa = alloca %"class.std::unique_ptr", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %out = alloca [256 x i8], align 16
-  %out_len = alloca i64, align 8
-  store i32 %nprimes, ptr %nprimes.addr, align 4
-  store ptr %der, ptr %der.addr, align 8
-  store i64 %der_size, ptr %der_size.addr, align 8
-  store ptr %enc, ptr %enc.addr, align 8
-  store i64 %enc_size, ptr %enc_size.addr, align 8
-  %0 = load i64, ptr %der_size.addr, align 8
-  %call = call ptr @d2i_RSAPrivateKey(ptr noundef null, ptr noundef %der.addr, i64 noundef %0)
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %rsa, ptr noundef %call) #9
-  %call1 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br i1 %call1, label %if.end, label %if.then
+define internal noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca i1, align 1
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca %"class.std::unique_ptr", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca [256 x i8], align 16
+  %17 = alloca i64, align 8
+  store i32 %0, ptr %7, align 4, !tbaa !6
+  store ptr %1, ptr %8, align 8, !tbaa !13
+  store i64 %2, ptr %9, align 8, !tbaa !15
+  store ptr %3, ptr %10, align 8, !tbaa !13
+  store i64 %4, ptr %11, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %18 = load i64, ptr %9, align 8, !tbaa !15
+  %19 = call ptr @d2i_RSAPrivateKey(ptr noundef null, ptr noundef %8, i64 noundef %18)
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %19) #11
+  %20 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  br i1 %20, label %31, label %21
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @stderr, align 8
-  %2 = load i32, ptr %nprimes.addr, align 4
-  %call2 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.21, i32 noundef %2)
-          to label %invoke.cont unwind label %lpad
+21:                                               ; preds = %5
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %23 = load i32, ptr %7, align 4, !tbaa !6
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.21, i32 noundef %23) #11
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %25)
+          to label %26 unwind label %27
 
-invoke.cont:                                      ; preds = %if.then
-  %3 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %3)
-          to label %invoke.cont3 unwind label %lpad
+26:                                               ; preds = %21
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %15, align 4
+  br label %69
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad:                                             ; preds = %invoke.cont21, %if.then20, %if.end11, %invoke.cont8, %if.then7, %if.end, %invoke.cont, %if.then
-  %4 = landingpad { ptr, i32 }
+27:                                               ; preds = %36, %31, %21
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br label %eh.resume
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  br label %71
 
-if.end:                                           ; preds = %entry
-  %call4 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %call6 = invoke i32 @RSA_check_key(ptr noundef %call4)
-          to label %invoke.cont5 unwind label %lpad
+31:                                               ; preds = %5
+  %32 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  %33 = invoke i32 @RSA_check_key(ptr noundef %32)
+          to label %34 unwind label %27
 
-invoke.cont5:                                     ; preds = %if.end
-  %tobool = icmp ne i32 %call6, 0
-  br i1 %tobool, label %if.end11, label %if.then7
+34:                                               ; preds = %31
+  %35 = icmp ne i32 %33, 0
+  br i1 %35, label %42, label %36
 
-if.then7:                                         ; preds = %invoke.cont5
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = load i32, ptr %nprimes.addr, align 4
-  %call9 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.22, i32 noundef %8)
-          to label %invoke.cont8 unwind label %lpad
+36:                                               ; preds = %34
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %38 = load i32, ptr %7, align 4, !tbaa !6
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.22, i32 noundef %38) #11
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %40)
+          to label %41 unwind label %27
 
-invoke.cont8:                                     ; preds = %if.then7
-  %9 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %9)
-          to label %invoke.cont10 unwind label %lpad
+41:                                               ; preds = %36
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %15, align 4
+  br label %69
 
-invoke.cont10:                                    ; preds = %invoke.cont8
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+42:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 256, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  %43 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  %44 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %45 = load ptr, ptr %10, align 8, !tbaa !13
+  %46 = load i64, ptr %11, align 8, !tbaa !15
+  %47 = invoke i32 @RSA_decrypt(ptr noundef %43, ptr noundef %17, ptr noundef %44, i64 noundef 256, ptr noundef %45, i64 noundef %46, i32 noundef 1)
+          to label %48 unwind label %63
 
-if.end11:                                         ; preds = %invoke.cont5
-  %call12 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %out, i64 0, i64 0
-  %10 = load ptr, ptr %enc.addr, align 8
-  %11 = load i64, ptr %enc_size.addr, align 8
-  %call14 = invoke i32 @RSA_decrypt(ptr noundef %call12, ptr noundef %out_len, ptr noundef %arraydecay, i64 noundef 256, ptr noundef %10, i64 noundef %11, i32 noundef 1)
-          to label %invoke.cont13 unwind label %lpad
+48:                                               ; preds = %42
+  %49 = icmp ne i32 %47, 0
+  br i1 %49, label %50, label %57
 
-invoke.cont13:                                    ; preds = %if.end11
-  %tobool15 = icmp ne i32 %call14, 0
-  br i1 %tobool15, label %lor.lhs.false, label %if.then20
+50:                                               ; preds = %48
+  %51 = load i64, ptr %17, align 8, !tbaa !15
+  %52 = icmp ne i64 %51, 11
+  br i1 %52, label %57, label %53
 
-lor.lhs.false:                                    ; preds = %invoke.cont13
-  %12 = load i64, ptr %out_len, align 8
-  %cmp = icmp ne i64 %12, 11
-  br i1 %cmp, label %if.then20, label %lor.lhs.false16
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 0
+  %55 = call i32 @memcmp(ptr noundef %54, ptr noundef @.str.23, i64 noundef 11) #12
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %67
 
-lor.lhs.false16:                                  ; preds = %lor.lhs.false
-  %arraydecay17 = getelementptr inbounds [256 x i8], ptr %out, i64 0, i64 0
-  %call18 = call i32 @memcmp(ptr noundef %arraydecay17, ptr noundef @.str.23, i64 noundef 11) #10
-  %cmp19 = icmp ne i32 %call18, 0
-  br i1 %cmp19, label %if.then20, label %if.end24
+57:                                               ; preds = %53, %50, %48
+  %58 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %59 = load i32, ptr %7, align 4, !tbaa !6
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.24, i32 noundef %59) #11
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %61)
+          to label %62 unwind label %63
 
-if.then20:                                        ; preds = %lor.lhs.false16, %lor.lhs.false, %invoke.cont13
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = load i32, ptr %nprimes.addr, align 4
-  %call22 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.24, i32 noundef %14)
-          to label %invoke.cont21 unwind label %lpad
+62:                                               ; preds = %57
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %15, align 4
+  br label %68
 
-invoke.cont21:                                    ; preds = %if.then20
-  %15 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %15)
-          to label %invoke.cont23 unwind label %lpad
+63:                                               ; preds = %57, %42
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %13, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 256, ptr %16) #11
+  br label %71
 
-invoke.cont23:                                    ; preds = %invoke.cont21
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+67:                                               ; preds = %53
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %15, align 4
+  br label %68
 
-if.end24:                                         ; preds = %lor.lhs.false16
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+68:                                               ; preds = %67, %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 256, ptr %16) #11
+  br label %69
 
-cleanup:                                          ; preds = %if.end24, %invoke.cont23, %invoke.cont10, %invoke.cont3
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %16 = load i1, ptr %retval, align 1
-  ret i1 %16
+69:                                               ; preds = %68, %41, %26
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %70 = load i1, ptr %6, align 1
+  ret i1 %70
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val25 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val25
+71:                                               ; preds = %63, %27
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %13, align 8
+  %74 = load i32, ptr %14, align 4
+  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
+  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
+  resume { ptr, i32 } %76
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL20TestMultiPrimeKeygenv() #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %encrypted = alloca [128 x i8], align 16
-  %decrypted = alloca [128 x i8], align 16
-  %encrypted_len = alloca i64, align 8
-  %decrypted_len = alloca i64, align 8
-  %rsa = alloca %"class.std::unique_ptr", align 8
-  %e = alloca %"class.std::unique_ptr.2", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %call = call ptr @RSA_new()
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %rsa, ptr noundef %call) #9
-  %call1 = invoke ptr @BN_new()
-          to label %invoke.cont unwind label %lpad
+  %1 = alloca i1, align 1
+  %2 = alloca [128 x i8], align 16
+  %3 = alloca [128 x i8], align 16
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %"class.std::unique_ptr", align 8
+  %7 = alloca %"class.std::unique_ptr.2", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 128, ptr %2) #11
+  call void @llvm.lifetime.start.p0(i64 128, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %11 = call ptr @RSA_new()
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %11) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %12 = invoke ptr @BN_new()
+          to label %13 unwind label %57
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %e, ptr noundef %call1) #9
-  %call2 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br i1 %call2, label %lor.lhs.false, label %if.then
+13:                                               ; preds = %0
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %12) #11
+  %14 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  br i1 %14, label %15, label %54
 
-lor.lhs.false:                                    ; preds = %invoke.cont
-  %call3 = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  br i1 %call3, label %lor.lhs.false4, label %if.then
+15:                                               ; preds = %13
+  %16 = call noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  br i1 %16, label %17, label %54
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %call5 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  %call8 = invoke i32 @BN_set_word(ptr noundef %call5, i64 noundef 65537)
-          to label %invoke.cont7 unwind label %lpad6
+17:                                               ; preds = %15
+  %18 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %19 = invoke i32 @BN_set_word(ptr noundef %18, i64 noundef 65537)
+          to label %20 unwind label %61
 
-invoke.cont7:                                     ; preds = %lor.lhs.false4
-  %tobool = icmp ne i32 %call8, 0
-  br i1 %tobool, label %lor.lhs.false9, label %if.then
+20:                                               ; preds = %17
+  %21 = icmp ne i32 %19, 0
+  br i1 %21, label %22, label %54
 
-lor.lhs.false9:                                   ; preds = %invoke.cont7
-  %call10 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %call11 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  %call13 = invoke i32 @RSA_generate_multi_prime_key(ptr noundef %call10, i32 noundef 1024, i32 noundef 3, ptr noundef %call11, ptr noundef null)
-          to label %invoke.cont12 unwind label %lpad6
+22:                                               ; preds = %20
+  %23 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %24 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %25 = invoke i32 @RSA_generate_multi_prime_key(ptr noundef %23, i32 noundef 1024, i32 noundef 3, ptr noundef %24, ptr noundef null)
+          to label %26 unwind label %61
 
-invoke.cont12:                                    ; preds = %lor.lhs.false9
-  %tobool14 = icmp ne i32 %call13, 0
-  br i1 %tobool14, label %lor.lhs.false15, label %if.then
+26:                                               ; preds = %22
+  %27 = icmp ne i32 %25, 0
+  br i1 %27, label %28, label %54
 
-lor.lhs.false15:                                  ; preds = %invoke.cont12
-  %call16 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %call18 = invoke i32 @RSA_check_key(ptr noundef %call16)
-          to label %invoke.cont17 unwind label %lpad6
+28:                                               ; preds = %26
+  %29 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %30 = invoke i32 @RSA_check_key(ptr noundef %29)
+          to label %31 unwind label %61
 
-invoke.cont17:                                    ; preds = %lor.lhs.false15
-  %tobool19 = icmp ne i32 %call18, 0
-  br i1 %tobool19, label %lor.lhs.false20, label %if.then
+31:                                               ; preds = %28
+  %32 = icmp ne i32 %30, 0
+  br i1 %32, label %33, label %54
 
-lor.lhs.false20:                                  ; preds = %invoke.cont17
-  %call21 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %arraydecay = getelementptr inbounds [128 x i8], ptr %encrypted, i64 0, i64 0
-  %call23 = invoke i32 @RSA_encrypt(ptr noundef %call21, ptr noundef %encrypted_len, ptr noundef %arraydecay, i64 noundef 128, ptr noundef @_ZZL20TestMultiPrimeKeygenvE8kMessage, i64 noundef 13, i32 noundef 1)
-          to label %invoke.cont22 unwind label %lpad6
+33:                                               ; preds = %31
+  %34 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %35 = getelementptr inbounds [128 x i8], ptr %2, i64 0, i64 0
+  %36 = invoke i32 @RSA_encrypt(ptr noundef %34, ptr noundef %4, ptr noundef %35, i64 noundef 128, ptr noundef @_ZZL20TestMultiPrimeKeygenvE8kMessage, i64 noundef 13, i32 noundef 1)
+          to label %37 unwind label %61
 
-invoke.cont22:                                    ; preds = %lor.lhs.false20
-  %tobool24 = icmp ne i32 %call23, 0
-  br i1 %tobool24, label %lor.lhs.false25, label %if.then
+37:                                               ; preds = %33
+  %38 = icmp ne i32 %36, 0
+  br i1 %38, label %39, label %54
 
-lor.lhs.false25:                                  ; preds = %invoke.cont22
-  %call26 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %arraydecay27 = getelementptr inbounds [128 x i8], ptr %decrypted, i64 0, i64 0
-  %arraydecay28 = getelementptr inbounds [128 x i8], ptr %encrypted, i64 0, i64 0
-  %0 = load i64, ptr %encrypted_len, align 8
-  %call30 = invoke i32 @RSA_decrypt(ptr noundef %call26, ptr noundef %decrypted_len, ptr noundef %arraydecay27, i64 noundef 128, ptr noundef %arraydecay28, i64 noundef %0, i32 noundef 1)
-          to label %invoke.cont29 unwind label %lpad6
+39:                                               ; preds = %37
+  %40 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %41 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
+  %42 = getelementptr inbounds [128 x i8], ptr %2, i64 0, i64 0
+  %43 = load i64, ptr %4, align 8, !tbaa !15
+  %44 = invoke i32 @RSA_decrypt(ptr noundef %40, ptr noundef %5, ptr noundef %41, i64 noundef 128, ptr noundef %42, i64 noundef %43, i32 noundef 1)
+          to label %45 unwind label %61
 
-invoke.cont29:                                    ; preds = %lor.lhs.false25
-  %tobool31 = icmp ne i32 %call30, 0
-  br i1 %tobool31, label %lor.lhs.false32, label %if.then
+45:                                               ; preds = %39
+  %46 = icmp ne i32 %44, 0
+  br i1 %46, label %47, label %54
 
-lor.lhs.false32:                                  ; preds = %invoke.cont29
-  %1 = load i64, ptr %decrypted_len, align 8
-  %cmp = icmp ne i64 %1, 13
-  br i1 %cmp, label %if.then, label %lor.lhs.false33
+47:                                               ; preds = %45
+  %48 = load i64, ptr %5, align 8, !tbaa !15
+  %49 = icmp ne i64 %48, 13
+  br i1 %49, label %54, label %50
 
-lor.lhs.false33:                                  ; preds = %lor.lhs.false32
-  %arraydecay34 = getelementptr inbounds [128 x i8], ptr %decrypted, i64 0, i64 0
-  %call35 = call i32 @memcmp(ptr noundef %arraydecay34, ptr noundef @_ZZL20TestMultiPrimeKeygenvE8kMessage, i64 noundef 13) #10
-  %cmp36 = icmp ne i32 %call35, 0
-  br i1 %cmp36, label %if.then, label %if.end
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
+  %52 = call i32 @memcmp(ptr noundef %51, ptr noundef @_ZZL20TestMultiPrimeKeygenvE8kMessage, i64 noundef 13) #12
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %65
 
-if.then:                                          ; preds = %lor.lhs.false33, %lor.lhs.false32, %invoke.cont29, %invoke.cont22, %invoke.cont17, %invoke.cont12, %invoke.cont7, %lor.lhs.false, %invoke.cont
-  %2 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %2)
-          to label %invoke.cont37 unwind label %lpad6
+54:                                               ; preds = %50, %47, %45, %37, %31, %26, %20, %15, %13
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !17
+  invoke void @ERR_print_errors_fp(ptr noundef %55)
+          to label %56 unwind label %61
 
-invoke.cont37:                                    ; preds = %if.then
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+56:                                               ; preds = %54
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %10, align 4
+  br label %66
 
-lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+57:                                               ; preds = %0
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %8, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %9, align 4
+  br label %68
 
-lpad6:                                            ; preds = %if.then, %lor.lhs.false25, %lor.lhs.false20, %lor.lhs.false15, %lor.lhs.false9, %lor.lhs.false4
-  %6 = landingpad { ptr, i32 }
+61:                                               ; preds = %54, %39, %33, %28, %22, %17
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  br label %ehcleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %8, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %9, align 4
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  br label %68
 
-if.end:                                           ; preds = %lor.lhs.false33
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+65:                                               ; preds = %50
+  store i1 true, ptr %1, align 1
+  store i32 1, ptr %10, align 4
+  br label %66
 
-cleanup:                                          ; preds = %if.end, %invoke.cont37
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e) #9
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %9 = load i1, ptr %retval, align 1
-  ret i1 %9
+66:                                               ; preds = %65, %56
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr %3) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr %2) #11
+  %67 = load i1, ptr %1, align 1
+  ret i1 %67
 
-ehcleanup:                                        ; preds = %lpad6, %lpad
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br label %eh.resume
+68:                                               ; preds = %61, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr %3) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr %2) #11
+  br label %69
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val39 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val39
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %8, align 8
+  %71 = load i32, ptr %9, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL8TestASN1v() #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %rsa = alloca %"class.std::unique_ptr", align 8
-  %cleanup.dest.slot = alloca i32, align 4
-  %der = alloca ptr, align 8
-  %der_len = alloca i64, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %delete_der = alloca %"class.std::unique_ptr.11", align 8
-  %der2 = alloca ptr, align 8
-  %der2_len = alloca i64, align 8
-  %delete_der2 = alloca %"class.std::unique_ptr.11", align 8
-  %cbs = alloca %struct.cbs_st, align 8
-  %call = call ptr @RSA_private_key_from_bytes(ptr noundef @_ZL5kKey1, i64 noundef 316)
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %rsa, ptr noundef %call) #9
-  %call1 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br i1 %call1, label %if.end, label %if.then
+  %1 = alloca i1, align 1
+  %2 = alloca %"class.std::unique_ptr", align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.std::unique_ptr.11", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"class.std::unique_ptr.11", align 8
+  %12 = alloca %struct.cbs_st, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %13 = call ptr @RSA_private_key_from_bytes(ptr noundef @_ZL5kKey1, i64 noundef 316)
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %13) #11
+  %14 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  br i1 %14, label %16, label %15
 
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup65
+15:                                               ; preds = %0
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %128
 
-if.end:                                           ; preds = %entry
-  %call2 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %call3 = invoke i32 @RSA_private_key_to_bytes(ptr noundef %der, ptr noundef %der_len, ptr noundef %call2)
-          to label %invoke.cont unwind label %lpad
+16:                                               ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %17 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %18 = invoke i32 @RSA_private_key_to_bytes(ptr noundef %4, ptr noundef %5, ptr noundef %17)
+          to label %19 unwind label %22
 
-invoke.cont:                                      ; preds = %if.end
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.end5, label %if.then4
+19:                                               ; preds = %16
+  %20 = icmp ne i32 %18, 0
+  br i1 %20, label %26, label %21
 
-if.then4:                                         ; preds = %invoke.cont
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup65
+21:                                               ; preds = %19
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %126
 
-lpad:                                             ; preds = %if.end
-  %0 = landingpad { ptr, i32 }
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  br label %ehcleanup66
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %6, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %7, align 4
+  br label %127
 
-if.end5:                                          ; preds = %invoke.cont
-  %3 = load ptr, ptr %der, align 8
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %delete_der, ptr noundef %3) #9
-  %4 = load i64, ptr %der_len, align 8
-  %cmp = icmp ne i64 %4, 316
-  br i1 %cmp, label %if.then8, label %lor.lhs.false
+26:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %27 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %27) #11
+  %28 = load i64, ptr %5, align 8, !tbaa !15
+  %29 = icmp ne i64 %28, 316
+  br i1 %29, label %35, label %30
 
-lor.lhs.false:                                    ; preds = %if.end5
-  %5 = load ptr, ptr %der, align 8
-  %6 = load i64, ptr %der_len, align 8
-  %call6 = call i32 @memcmp(ptr noundef %5, ptr noundef @_ZL5kKey1, i64 noundef %6) #10
-  %cmp7 = icmp ne i32 %call6, 0
-  br i1 %cmp7, label %if.then8, label %if.end9
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %4, align 8, !tbaa !13
+  %32 = load i64, ptr %5, align 8, !tbaa !15
+  %33 = call i32 @memcmp(ptr noundef %31, ptr noundef @_ZL5kKey1, i64 noundef %32) #12
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %36
 
-if.then8:                                         ; preds = %lor.lhs.false, %if.end5
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup64
+35:                                               ; preds = %30, %26
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %124
 
-if.end9:                                          ; preds = %lor.lhs.false
-  %call10 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %call13 = invoke i32 @RSA_public_key_to_bytes(ptr noundef %der, ptr noundef %der_len, ptr noundef %call10)
-          to label %invoke.cont12 unwind label %lpad11
+36:                                               ; preds = %30
+  %37 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %38 = invoke i32 @RSA_public_key_to_bytes(ptr noundef %4, ptr noundef %5, ptr noundef %37)
+          to label %39 unwind label %42
 
-invoke.cont12:                                    ; preds = %if.end9
-  %tobool14 = icmp ne i32 %call13, 0
-  br i1 %tobool14, label %if.end16, label %if.then15
+39:                                               ; preds = %36
+  %40 = icmp ne i32 %38, 0
+  br i1 %40, label %46, label %41
 
-if.then15:                                        ; preds = %invoke.cont12
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup64
+41:                                               ; preds = %39
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %124
 
-lpad11:                                           ; preds = %if.end27, %if.end16, %if.end9
-  %7 = landingpad { ptr, i32 }
+42:                                               ; preds = %46, %36
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %6, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %7, align 4
+  br label %125
 
-if.end16:                                         ; preds = %invoke.cont12
-  %10 = load ptr, ptr %der, align 8
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh(ptr noundef nonnull align 8 dereferenceable(8) %delete_der, ptr noundef %10) #9
-  %11 = load ptr, ptr %der, align 8
-  %12 = load i64, ptr %der_len, align 8
-  %call18 = invoke ptr @RSA_public_key_from_bytes(ptr noundef %11, i64 noundef %12)
-          to label %invoke.cont17 unwind label %lpad11
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %47) #11
+  %48 = load ptr, ptr %4, align 8, !tbaa !13
+  %49 = load i64, ptr %5, align 8, !tbaa !15
+  %50 = invoke ptr @RSA_public_key_from_bytes(ptr noundef %48, i64 noundef %49)
+          to label %51 unwind label %42
 
-invoke.cont17:                                    ; preds = %if.end16
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %rsa, ptr noundef %call18) #9
-  %call19 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br i1 %call19, label %lor.lhs.false20, label %if.then26
+51:                                               ; preds = %46
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %50) #11
+  %52 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  br i1 %52, label %53, label %63
 
-lor.lhs.false20:                                  ; preds = %invoke.cont17
-  %call21 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %p = getelementptr inbounds %struct.rsa_st, ptr %call21, i32 0, i32 4
-  %13 = load ptr, ptr %p, align 8
-  %cmp22 = icmp ne ptr %13, null
-  br i1 %cmp22, label %if.then26, label %lor.lhs.false23
+53:                                               ; preds = %51
+  %54 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %55 = getelementptr inbounds nuw %struct.rsa_st, ptr %54, i32 0, i32 4
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %63, label %58
 
-lor.lhs.false23:                                  ; preds = %lor.lhs.false20
-  %call24 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %q = getelementptr inbounds %struct.rsa_st, ptr %call24, i32 0, i32 5
-  %14 = load ptr, ptr %q, align 8
-  %cmp25 = icmp ne ptr %14, null
-  br i1 %cmp25, label %if.then26, label %if.end27
+58:                                               ; preds = %53
+  %59 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %60 = getelementptr inbounds nuw %struct.rsa_st, ptr %59, i32 0, i32 5
+  %61 = load ptr, ptr %60, align 8, !tbaa !37
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %64
 
-if.then26:                                        ; preds = %lor.lhs.false23, %lor.lhs.false20, %invoke.cont17
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup64
+63:                                               ; preds = %58, %53, %51
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %124
 
-if.end27:                                         ; preds = %lor.lhs.false23
-  %call28 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %call30 = invoke i32 @RSA_public_key_to_bytes(ptr noundef %der2, ptr noundef %der2_len, ptr noundef %call28)
-          to label %invoke.cont29 unwind label %lpad11
+64:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %65 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %66 = invoke i32 @RSA_public_key_to_bytes(ptr noundef %9, ptr noundef %10, ptr noundef %65)
+          to label %67 unwind label %70
 
-invoke.cont29:                                    ; preds = %if.end27
-  %tobool31 = icmp ne i32 %call30, 0
-  br i1 %tobool31, label %if.end33, label %if.then32
+67:                                               ; preds = %64
+  %68 = icmp ne i32 %66, 0
+  br i1 %68, label %74, label %69
 
-if.then32:                                        ; preds = %invoke.cont29
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup64
+69:                                               ; preds = %67
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %122
 
-if.end33:                                         ; preds = %invoke.cont29
-  %15 = load ptr, ptr %der2, align 8
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %delete_der2, ptr noundef %15) #9
-  %16 = load i64, ptr %der_len, align 8
-  %17 = load i64, ptr %der2_len, align 8
-  %cmp34 = icmp ne i64 %16, %17
-  br i1 %cmp34, label %if.then38, label %lor.lhs.false35
-
-lor.lhs.false35:                                  ; preds = %if.end33
-  %18 = load ptr, ptr %der, align 8
-  %19 = load ptr, ptr %der2, align 8
-  %20 = load i64, ptr %der_len, align 8
-  %call36 = call i32 @memcmp(ptr noundef %18, ptr noundef %19, i64 noundef %20) #10
-  %cmp37 = icmp ne i32 %call36, 0
-  br i1 %cmp37, label %if.then38, label %if.end39
-
-if.then38:                                        ; preds = %lor.lhs.false35, %if.end33
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end39:                                         ; preds = %lor.lhs.false35
-  %call40 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %call43 = invoke i32 @RSA_private_key_to_bytes(ptr noundef %der, ptr noundef %der_len, ptr noundef %call40)
-          to label %invoke.cont42 unwind label %lpad41
-
-invoke.cont42:                                    ; preds = %if.end39
-  %tobool44 = icmp ne i32 %call43, 0
-  br i1 %tobool44, label %if.then45, label %if.end46
-
-if.then45:                                        ; preds = %invoke.cont42
-  %21 = load ptr, ptr %der, align 8
-  call void @free(ptr noundef %21) #9
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad41:                                           ; preds = %lor.lhs.false58, %invoke.cont54, %invoke.cont53, %if.end52, %invoke.cont47, %if.end46, %if.end39
-  %22 = landingpad { ptr, i32 }
+70:                                               ; preds = %64
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delete_der2) #9
-  br label %ehcleanup
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %6, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %7, align 4
+  br label %123
 
-if.end46:                                         ; preds = %invoke.cont42
+74:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %75 = load ptr, ptr %9, align 8, !tbaa !13
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %75) #11
+  %76 = load i64, ptr %5, align 8, !tbaa !15
+  %77 = load i64, ptr %10, align 8, !tbaa !15
+  %78 = icmp ne i64 %76, %77
+  br i1 %78, label %85, label %79
+
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %4, align 8, !tbaa !13
+  %81 = load ptr, ptr %9, align 8, !tbaa !13
+  %82 = load i64, ptr %5, align 8, !tbaa !15
+  %83 = call i32 @memcmp(ptr noundef %80, ptr noundef %81, i64 noundef %82) #12
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %86
+
+85:                                               ; preds = %79, %74
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %120
+
+86:                                               ; preds = %79
+  %87 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %88 = invoke i32 @RSA_private_key_to_bytes(ptr noundef %4, ptr noundef %5, ptr noundef %87)
+          to label %89 unwind label %93
+
+89:                                               ; preds = %86
+  %90 = icmp ne i32 %88, 0
+  br i1 %90, label %91, label %97
+
+91:                                               ; preds = %89
+  %92 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @free(ptr noundef %92) #11
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %120
+
+93:                                               ; preds = %103, %98, %97, %86
+  %94 = landingpad { ptr, i32 }
+          cleanup
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %6, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %7, align 4
+  br label %121
+
+97:                                               ; preds = %89
   invoke void @ERR_clear_error()
-          to label %invoke.cont47 unwind label %lpad41
+          to label %98 unwind label %93
 
-invoke.cont47:                                    ; preds = %if.end46
-  %call49 = invoke ptr @RSA_public_key_from_bytes(ptr noundef @_ZL15kEstonianRSAKey, i64 noundef 269)
-          to label %invoke.cont48 unwind label %lpad41
+98:                                               ; preds = %97
+  %99 = invoke ptr @RSA_public_key_from_bytes(ptr noundef @_ZL15kEstonianRSAKey, i64 noundef 269)
+          to label %100 unwind label %93
 
-invoke.cont48:                                    ; preds = %invoke.cont47
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %rsa, ptr noundef %call49) #9
-  %call50 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br i1 %call50, label %if.then51, label %if.end52
+100:                                              ; preds = %98
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %99) #11
+  %101 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  br i1 %101, label %102, label %103
 
-if.then51:                                        ; preds = %invoke.cont48
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+102:                                              ; preds = %100
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %120
 
-if.end52:                                         ; preds = %invoke.cont48
+103:                                              ; preds = %100
   invoke void @ERR_clear_error()
-          to label %invoke.cont53 unwind label %lpad41
+          to label %104 unwind label %93
 
-invoke.cont53:                                    ; preds = %if.end52
-  invoke void @CBS_init(ptr noundef %cbs, ptr noundef @_ZL15kEstonianRSAKey, i64 noundef 269)
-          to label %invoke.cont54 unwind label %lpad41
+104:                                              ; preds = %103
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #11
+  invoke void @CBS_init(ptr noundef %12, ptr noundef @_ZL15kEstonianRSAKey, i64 noundef 269)
+          to label %105 unwind label %114
 
-invoke.cont54:                                    ; preds = %invoke.cont53
-  %call56 = invoke ptr @RSA_parse_public_key_buggy(ptr noundef %cbs)
-          to label %invoke.cont55 unwind label %lpad41
+105:                                              ; preds = %104
+  %106 = invoke ptr @RSA_parse_public_key_buggy(ptr noundef %12)
+          to label %107 unwind label %114
 
-invoke.cont55:                                    ; preds = %invoke.cont54
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %rsa, ptr noundef %call56) #9
-  %call57 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br i1 %call57, label %lor.lhs.false58, label %if.then62
+107:                                              ; preds = %105
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %106) #11
+  %108 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  br i1 %108, label %109, label %113
 
-lor.lhs.false58:                                  ; preds = %invoke.cont55
-  %call60 = invoke i64 @CBS_len(ptr noundef %cbs)
-          to label %invoke.cont59 unwind label %lpad41
+109:                                              ; preds = %107
+  %110 = invoke i64 @CBS_len(ptr noundef %12)
+          to label %111 unwind label %114
 
-invoke.cont59:                                    ; preds = %lor.lhs.false58
-  %cmp61 = icmp ne i64 %call60, 0
-  br i1 %cmp61, label %if.then62, label %if.end63
+111:                                              ; preds = %109
+  %112 = icmp ne i64 %110, 0
+  br i1 %112, label %113, label %118
 
-if.then62:                                        ; preds = %invoke.cont59, %invoke.cont55
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+113:                                              ; preds = %111, %107
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %119
 
-if.end63:                                         ; preds = %invoke.cont59
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+114:                                              ; preds = %109, %105, %104
+  %115 = landingpad { ptr, i32 }
+          cleanup
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %6, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #11
+  br label %121
 
-cleanup:                                          ; preds = %if.end63, %if.then62, %if.then51, %if.then45, %if.then38
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delete_der2) #9
-  br label %cleanup64
+118:                                              ; preds = %111
+  store i1 true, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %119
 
-cleanup64:                                        ; preds = %cleanup, %if.then32, %if.then26, %if.then15, %if.then8
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delete_der) #9
-  br label %cleanup65
+119:                                              ; preds = %118, %113
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #11
+  br label %120
 
-ehcleanup:                                        ; preds = %lpad41, %lpad11
-  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delete_der) #9
-  br label %ehcleanup66
+120:                                              ; preds = %119, %102, %91, %85
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  br label %122
 
-cleanup65:                                        ; preds = %cleanup64, %if.then4, %if.then
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %25 = load i1, ptr %retval, align 1
-  ret i1 %25
+121:                                              ; preds = %114, %93
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  br label %123
 
-ehcleanup66:                                      ; preds = %ehcleanup, %lpad
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br label %eh.resume
+122:                                              ; preds = %120, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  br label %124
 
-eh.resume:                                        ; preds = %ehcleanup66
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val67 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val67
+123:                                              ; preds = %121, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  br label %125
+
+124:                                              ; preds = %122, %63, %41, %35
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %126
+
+125:                                              ; preds = %123, %42
+  call void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %127
+
+126:                                              ; preds = %124, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  br label %128
+
+127:                                              ; preds = %125, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  br label %130
+
+128:                                              ; preds = %126, %15
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  %129 = load i1, ptr %1, align 1
+  ret i1 %129
+
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %6, align 8
+  %132 = load i32, ptr %7, align 4
+  %133 = insertvalue { ptr, i32 } poison, ptr %131, 0
+  %134 = insertvalue { ptr, i32 } %133, i32 %132, 1
+  resume { ptr, i32 } %134
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL15TestBadExponentv() #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %rsa = alloca %"class.std::unique_ptr", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %call = call ptr @RSA_public_key_from_bytes(ptr noundef @_ZL16kExponent1RSAKey, i64 noundef 268)
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %rsa, ptr noundef %call) #9
-  %call1 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br i1 %call1, label %if.then, label %if.end
+  %1 = alloca i1, align 1
+  %2 = alloca %"class.std::unique_ptr", align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %6 = call ptr @RSA_public_key_from_bytes(ptr noundef @_ZL16kExponent1RSAKey, i64 noundef 268)
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #11
+  %7 = call noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  br i1 %7, label %8, label %11
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %call2 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str.25)
-          to label %invoke.cont unwind label %lpad
+8:                                                ; preds = %0
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.25) #11
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %17
 
-invoke.cont:                                      ; preds = %if.then
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad:                                             ; preds = %if.end, %if.then
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  br label %eh.resume
-
-if.end:                                           ; preds = %entry
+11:                                               ; preds = %0
   invoke void @ERR_clear_error()
-          to label %invoke.cont3 unwind label %lpad
+          to label %12 unwind label %13
 
-invoke.cont3:                                     ; preds = %if.end
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+12:                                               ; preds = %11
+  store i1 true, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %17
 
-cleanup:                                          ; preds = %invoke.cont3, %invoke.cont
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rsa) #9
-  %4 = load i1, ptr %retval, align 1
-  ret i1 %4
+13:                                               ; preds = %11
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %4, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %5, align 4
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  br label %19
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
+17:                                               ; preds = %12, %8
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  %18 = load i1, ptr %1, align 1
+  ret i1 %18
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %4, align 8
+  %21 = load i32, ptr %5, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 declare i32 @printf(ptr noundef, ...) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @RSA_free(ptr noundef) #1
 
 declare ptr @RSA_private_key_from_bytes(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  invoke void @_ZNSt15__uniq_ptr_dataI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !40
+  invoke void @_ZNSt15__uniq_ptr_dataI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
+8:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %cmp = icmp eq ptr %call, null
-  %cond = select i1 %cmp, i1 false, i1 true
-  ret i1 %cond
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %5 = icmp eq ptr %4, null
+  %6 = select i1 %5, i1 false, i1 true
+  ret i1 %6
 }
 
 declare i32 @RSA_check_key(ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNKSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
 
 declare i32 @RSA_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
@@ -2155,68 +2395,71 @@ declare i32 @RSA_size(ptr noundef) #1
 declare i32 @RSA_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @ERR_clear_error() #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  store ptr %call, ptr %__ptr, align 8
-  %0 = load ptr, ptr %__ptr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %6, ptr %3, align 8, !tbaa !42
+  %7 = load ptr, ptr %3, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
 
-if.then:                                          ; preds = %entry
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %2 = load ptr, ptr %__ptr, align 8
-  %3 = load ptr, ptr %2, align 8
-  invoke void @_ZN14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %12 = load ptr, ptr %3, align 8, !tbaa !42
+  %13 = load ptr, ptr %12, align 8, !tbaa !40
+  invoke void @_ZN14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+14:                                               ; preds = %10
+  br label %15
 
-if.end:                                           ; preds = %invoke.cont, %entry
-  %4 = load ptr, ptr %__ptr, align 8
-  store ptr null, ptr %4, align 8
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8, !tbaa !42
+  store ptr null, ptr %16, align 8, !tbaa !40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #11
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #13
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #9
-  call void @_ZSt9terminatev() #11
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
+  call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -2225,255 +2468,232 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5tupleIJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr %0, ptr %call, align 8
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %7 = load ptr, ptr %4, align 8, !tbaa !40
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %7, ptr %8, align 8, !tbaa !40
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt5tupleIJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  call void @_ZNSt10_Head_baseILm0EP6rsa_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EP6rsa_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EP6rsa_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_head_impl, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EP6rsa_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6rsa_stJ14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6rsa_stJ14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6rsa_stJ14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6rsa_stJ14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6rsa_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6rsa_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6rsa_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6rsa_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  %0 = load ptr, ptr %call, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6rsa_stJ14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6rsa_stJ14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6rsa_stJ14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP6rsa_stJ14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6rsa_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6rsa_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6rsa_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.1", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP6rsa_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %obj) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  %0 = load ptr, ptr %obj.addr, align 8
-  call void @RSA_free(ptr noundef %0)
+define linkonce_odr hidden void @_ZN14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !60
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @RSA_free(ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  ret ptr %3
 }
 
 declare ptr @RSA_new() #1
@@ -2481,19 +2701,18 @@ declare ptr @RSA_new() #1
 declare i32 @BN_hex2bn(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 declare void @ERR_print_errors_fp(ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i32 @RSA_sign(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -2504,52 +2723,49 @@ declare void @BN_free(ptr noundef) #1
 declare ptr @BN_new() #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.2", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  invoke void @_ZNSt15__uniq_ptr_dataI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !64
+  invoke void @_ZNSt15__uniq_ptr_dataI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
+8:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %cmp = icmp eq ptr %call, null
-  %cond = select i1 %cmp, i1 false, i1 true
-  ret i1 %cond
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %5 = icmp eq ptr %4, null
+  %6 = select i1 %5, i1 false, i1 true
+  ret i1 %6
 }
 
 declare i32 @BN_set_word(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.2", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNKSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 declare i32 @RSA_generate_key_ex(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
@@ -2559,306 +2775,283 @@ declare ptr @BN_dup(ptr noundef) #1
 declare i32 @RSA_recover_crt_params(ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.2", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  store ptr %call, ptr %__ptr, align 8
-  %0 = load ptr, ptr %__ptr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %6, ptr %3, align 8, !tbaa !65
+  %7 = load ptr, ptr %3, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !64
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
 
-if.then:                                          ; preds = %entry
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %2 = load ptr, ptr %__ptr, align 8
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %12 = load ptr, ptr %3, align 8, !tbaa !65
+  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  invoke void @_ZN14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %10
+  br label %15
+
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8, !tbaa !65
+  store ptr null, ptr %16, align 8, !tbaa !64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret void
+
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #13
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !64
+  call void @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.4", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %7 = load ptr, ptr %4, align 8, !tbaa !64
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %7, ptr %8, align 8, !tbaa !64
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
   %3 = load ptr, ptr %2, align 8
-  invoke void @_ZN14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
+  invoke void @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont, %entry
-  %4 = load ptr, ptr %__ptr, align 8
-  store ptr null, ptr %4, align 8
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #11
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5tupleIJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr %0, ptr %call, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.4", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  call void @_ZNSt10_Head_baseILm0EP9bignum_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EP9bignum_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EP9bignum_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.9", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_head_impl, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EP9bignum_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.9", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !79
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP9bignum_stJ14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP9bignum_stJ14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP9bignum_stJ14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP9bignum_stJ14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP9bignum_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP9bignum_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP9bignum_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.9", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP9bignum_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.9", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  %0 = load ptr, ptr %call, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.4", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP9bignum_stJ14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP9bignum_stJ14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP9bignum_stJ14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP9bignum_stJ14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP9bignum_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP9bignum_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP9bignum_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.9", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP9bignum_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.9", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.2", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %obj) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  %0 = load ptr, ptr %obj.addr, align 8
-  call void @BN_free(ptr noundef %0)
+define linkonce_odr hidden void @_ZN14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !83
+  store ptr %1, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %4, align 8, !tbaa !64
+  call void @BN_free(ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.4", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
+  %3 = load ptr, ptr %2, align 8, !tbaa !81
+  ret ptr %3
 }
 
 declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) #1
@@ -2872,63 +3065,60 @@ declare i32 @RSA_generate_multi_prime_key(ptr noundef, i32 noundef, i32 noundef,
 declare i32 @RSA_private_key_to_bytes(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.11", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  invoke void @_ZNSt15__uniq_ptr_dataIh11OpenSSLFreeIhELb1ELb1EECI2St15__uniq_ptr_implIhS1_EEPh(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEEC2IS1_vEEPh(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.11", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !13
+  invoke void @_ZNSt15__uniq_ptr_dataIh11OpenSSLFreeIhELb1ELb1EECI2St15__uniq_ptr_implIhS1_EEPh(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
+8:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #13
   unreachable
 }
 
 declare i32 @RSA_public_key_to_bytes(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.11", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE5resetEPh(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0) #9
+define linkonce_odr hidden void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.11", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE5resetEPh(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0) #9
+define linkonce_odr hidden void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7) #11
   ret void
 }
 
 declare ptr @RSA_public_key_from_bytes(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #8
+declare void @free(ptr noundef) #5
 
 declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) #1
 
@@ -2937,347 +3127,427 @@ declare ptr @RSA_parse_public_key_buggy(ptr noundef) #1
 declare i64 @CBS_len(ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.11", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  store ptr %call, ptr %__ptr, align 8
-  %0 = load ptr, ptr %__ptr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr.11", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %6, ptr %3, align 8, !tbaa !10
+  %7 = load ptr, ptr %3, align 8, !tbaa !10
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-if.then:                                          ; preds = %entry
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIh11OpenSSLFreeIhEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %2 = load ptr, ptr %__ptr, align 8
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIh11OpenSSLFreeIhEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %12 = load ptr, ptr %3, align 8, !tbaa !10
+  %13 = load ptr, ptr %12, align 8, !tbaa !13
+  call void @_ZN11OpenSSLFreeIhEclEPh(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !10
+  store ptr null, ptr %15, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIh11OpenSSLFreeIhELb1ELb1EECI2St15__uniq_ptr_implIhS1_EEPh(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !87
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEEC2EPh(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEEC2EPh(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.13", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJPh11OpenSSLFreeIhEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES0_S2_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %7 = load ptr, ptr %4, align 8, !tbaa !13
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %7, ptr %8, align 8, !tbaa !13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJPh11OpenSSLFreeIhEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES0_S2_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN11OpenSSLFreeIhEclEPh(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
-  br label %if.end
+  invoke void @_ZNSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %4 unwind label %5
 
-if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %__ptr, align 8
-  store ptr null, ptr %4, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIh11OpenSSLFreeIhELb1ELb1EECI2St15__uniq_ptr_implIhS1_EEPh(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEEC2EPh(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEEC2EPh(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.13", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5tupleIJPh11OpenSSLFreeIhEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES0_S2_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr %0, ptr %call, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJPh11OpenSSLFreeIhEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES0_S2_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.13", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPh11OpenSSLFreeIhEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS7_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.13", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPh11OpenSSLFreeIhEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS7_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  call void @_ZNSt10_Head_baseILm0EPhLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EPhLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt10_Head_baseILm1E11OpenSSLFreeIhELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1E11OpenSSLFreeIhELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EPhLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.18", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_head_impl, align 8
+define linkonce_odr void @_ZNSt10_Head_baseILm0EPhLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !97
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.18", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !99
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm1E11OpenSSLFreeIhELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1E11OpenSSLFreeIhELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPh11OpenSSLFreeIhEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS7_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPhJ11OpenSSLFreeIhEEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPh11OpenSSLFreeIhEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPhJ11OpenSSLFreeIhEEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPhJ11OpenSSLFreeIhEEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPhJ11OpenSSLFreeIhEEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPhLb0EE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPhLb0EE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPhLb0EE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.18", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPhLb0EE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !97
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.18", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE5resetEPh(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__old_p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %0 = load ptr, ptr %call, align 8
-  store ptr %0, ptr %__old_p, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr %1, ptr %call2, align 8
-  %2 = load ptr, ptr %__old_p, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE5resetEPh(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %8, ptr %5, align 8, !tbaa !13
+  %9 = load ptr, ptr %4, align 8, !tbaa !13
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  store ptr %9, ptr %10, align 8, !tbaa !13
+  %11 = load ptr, ptr %5, align 8, !tbaa !13
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %3 = load ptr, ptr %__old_p, align 8
-  invoke void @_ZN11OpenSSLFreeIhEclEPh(ptr noundef nonnull align 1 dereferenceable(1) %call3, ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
+13:                                               ; preds = %2
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %15 = load ptr, ptr %5, align 8, !tbaa !13
+  invoke void @_ZN11OpenSSLFreeIhEclEPh(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef %15)
+          to label %16 unwind label %18
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+16:                                               ; preds = %13
+  br label %17
 
-if.end:                                           ; preds = %invoke.cont, %entry
+17:                                               ; preds = %16, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #11
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.13", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPh11OpenSSLFreeIhEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS7_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.13", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPh11OpenSSLFreeIhEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS7_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN11OpenSSLFreeIhEclEPh(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %buf) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  %0 = load ptr, ptr %buf.addr, align 8
-  call void @free(ptr noundef %0) #9
+define linkonce_odr hidden void @_ZN11OpenSSLFreeIhEclEPh(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !103
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @free(ptr noundef %5) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPh11OpenSSLFreeIhEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS7_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E11OpenSSLFreeIhEJEERT0_RSt11_Tuple_implIXT_EJS2_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPh11OpenSSLFreeIhEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E11OpenSSLFreeIhEJEERT0_RSt11_Tuple_implIXT_EJS2_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E11OpenSSLFreeIhEJEERT0_RSt11_Tuple_implIXT_EJS2_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #3 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEE7_M_headERS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1E11OpenSSLFreeIhEJEERT0_RSt11_Tuple_implIXT_EJS2_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEE7_M_headERS2_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEE7_M_headERS2_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #3 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E11OpenSSLFreeIhELb1EE7_M_headERS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEE7_M_headERS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E11OpenSSLFreeIhELb1EE7_M_headERS2_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E11OpenSSLFreeIhELb1EE7_M_headERS2_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #3 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1E11OpenSSLFreeIhELb1EE7_M_headERS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8, !tbaa !101
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__old_p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %0 = load ptr, ptr %call, align 8
-  store ptr %0, ptr %__old_p, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr %1, ptr %call2, align 8
-  %2 = load ptr, ptr %__old_p, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  store ptr %8, ptr %5, align 8, !tbaa !40
+  %9 = load ptr, ptr %4, align 8, !tbaa !40
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  store ptr %9, ptr %10, align 8, !tbaa !40
+  %11 = load ptr, ptr %5, align 8, !tbaa !40
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %3 = load ptr, ptr %__old_p, align 8
-  invoke void @_ZN14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %call3, ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
+13:                                               ; preds = %2
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %15 = load ptr, ptr %5, align 8, !tbaa !40
+  invoke void @_ZN14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef %15)
+          to label %16 unwind label %18
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+16:                                               ; preds = %13
+  br label %17
 
-if.end:                                           ; preds = %invoke.cont, %entry
+17:                                               ; preds = %16, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #11
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIh11OpenSSLFreeIhEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.11", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #9
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIh11OpenSSLFreeIhEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.11", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIh11OpenSSLFreeIhEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret ptr %5
 }
 
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn nounwind }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p2 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !12, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!19 = !{!8, !8, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21}
+!23 = !{!24, !7, i64 92}
+!24 = !{!"_ZTS6rsa_st", !25, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !26, i64 48, !26, i64 56, !26, i64 64, !27, i64 72, !28, i64 80, !7, i64 88, !7, i64 92, !8, i64 96, !30, i64 152, !30, i64 160, !30, i64 168, !7, i64 176, !31, i64 184, !14, i64 192}
+!25 = !{!"p1 _ZTS11rsa_meth_st", !12, i64 0}
+!26 = !{!"p1 _ZTS9bignum_st", !12, i64 0}
+!27 = !{!"p1 _ZTS29stack_st_RSA_additional_prime", !12, i64 0}
+!28 = !{!"_ZTS17crypto_ex_data_st", !29, i64 0}
+!29 = !{!"p1 _ZTS13stack_st_void", !12, i64 0}
+!30 = !{!"p1 _ZTS14bn_mont_ctx_st", !12, i64 0}
+!31 = !{!"p2 _ZTS14bn_blinding_st", !12, i64 0}
+!32 = !{!24, !26, i64 8}
+!33 = !{!24, !26, i64 16}
+!34 = !{!24, !26, i64 24}
+!35 = distinct !{!35, !21}
+!36 = !{!24, !26, i64 32}
+!37 = !{!24, !26, i64 40}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE", !12, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS6rsa_st", !12, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p2 _ZTS6rsa_st", !12, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSSt15__uniq_ptr_dataI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEELb1ELb1EE", !12, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSSt15__uniq_ptr_implI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE", !12, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSSt5tupleIJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE", !12, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSSt11_Tuple_implILm0EJP6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEEE", !12, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSSt11_Tuple_implILm1EJ14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEEEE", !12, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSSt10_Head_baseILm0EP6rsa_stLb0EE", !12, i64 0}
+!56 = !{!57, !41, i64 0}
+!57 = !{!"_ZTSSt10_Head_baseILm0EP6rsa_stLb0EE", !41, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSSt10_Head_baseILm1E14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEELb1EE", !12, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS14OpenSSLDeleterI6rsa_stXadL_Z8RSA_freeEEE", !12, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTSSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE", !12, i64 0}
+!64 = !{!26, !26, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p2 _ZTS9bignum_st", !12, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSSt15__uniq_ptr_dataI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEELb1ELb1EE", !12, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTSSt15__uniq_ptr_implI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE", !12, i64 0}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTSSt5tupleIJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE", !12, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSSt11_Tuple_implILm0EJP9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEE", !12, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTSSt11_Tuple_implILm1EJ14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEEE", !12, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSSt10_Head_baseILm0EP9bignum_stLb0EE", !12, i64 0}
+!79 = !{!80, !26, i64 0}
+!80 = !{!"_ZTSSt10_Head_baseILm0EP9bignum_stLb0EE", !26, i64 0}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 _ZTSSt10_Head_baseILm1E14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEELb1EE", !12, i64 0}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEE", !12, i64 0}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 _ZTSSt10unique_ptrIh11OpenSSLFreeIhEE", !12, i64 0}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTSSt15__uniq_ptr_dataIh11OpenSSLFreeIhELb1ELb1EE", !12, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSSt15__uniq_ptr_implIh11OpenSSLFreeIhEE", !12, i64 0}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTSSt5tupleIJPh11OpenSSLFreeIhEEE", !12, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTSSt11_Tuple_implILm0EJPh11OpenSSLFreeIhEEE", !12, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 _ZTSSt11_Tuple_implILm1EJ11OpenSSLFreeIhEEE", !12, i64 0}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTSSt10_Head_baseILm0EPhLb0EE", !12, i64 0}
+!99 = !{!100, !14, i64 0}
+!100 = !{!"_ZTSSt10_Head_baseILm0EPhLb0EE", !14, i64 0}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTSSt10_Head_baseILm1E11OpenSSLFreeIhELb1EE", !12, i64 0}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTS11OpenSSLFreeIhE", !12, i64 0}

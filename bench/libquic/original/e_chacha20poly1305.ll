@@ -1,790 +1,850 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.evp_aead_st = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.aead_chacha20_poly1305_ctx = type { [32 x i8], i8 }
 %struct.evp_aead_ctx_st = type { ptr, ptr }
 
-@aead_chacha20_poly1305 = internal constant %struct.evp_aead_st { i8 32, i8 12, i8 16, i8 16, ptr @aead_chacha20_poly1305_init, ptr null, ptr @aead_chacha20_poly1305_cleanup, ptr @aead_chacha20_poly1305_seal, ptr @aead_chacha20_poly1305_open, ptr null, ptr null }, align 8
-@aead_chacha20_poly1305_old = internal constant %struct.evp_aead_st { i8 32, i8 8, i8 16, i8 16, ptr @aead_chacha20_poly1305_init, ptr null, ptr @aead_chacha20_poly1305_cleanup, ptr @aead_chacha20_poly1305_old_seal, ptr @aead_chacha20_poly1305_old_open, ptr null, ptr null }, align 8
+@aead_chacha20_poly1305 = internal constant { i8, i8, i8, i8, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i8 32, i8 12, i8 16, i8 16, [4 x i8] zeroinitializer, ptr @aead_chacha20_poly1305_init, ptr null, ptr @aead_chacha20_poly1305_cleanup, ptr @aead_chacha20_poly1305_seal, ptr @aead_chacha20_poly1305_open, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [138 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/cipher/e_chacha20poly1305.c\00", align 1
 @poly1305_update_padded_16.padding = internal constant [16 x i8] zeroinitializer, align 16
+@aead_chacha20_poly1305_old = internal constant { i8, i8, i8, i8, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i8 32, i8 8, i8 16, i8 16, [4 x i8] zeroinitializer, ptr @aead_chacha20_poly1305_init, ptr null, ptr @aead_chacha20_poly1305_cleanup, ptr @aead_chacha20_poly1305_old_seal, ptr @aead_chacha20_poly1305_old_open, ptr null, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_aead_chacha20_poly1305() #0 {
-entry:
   ret ptr @aead_chacha20_poly1305
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EVP_aead_chacha20_poly1305_old() #0 {
-entry:
   ret ptr @aead_chacha20_poly1305_old
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aead_chacha20_poly1305_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i64, align 8
-  %tag_len.addr = alloca i64, align 8
-  %c20_ctx = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i64 %key_len, ptr %key_len.addr, align 8
-  store i64 %tag_len, ptr %tag_len.addr, align 8
-  %0 = load i64, ptr %tag_len.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @aead_chacha20_poly1305_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store i64 %2, ptr %8, align 8, !tbaa !13
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load i64, ptr %9, align 8, !tbaa !13
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  store i64 16, ptr %tag_len.addr, align 8
-  br label %if.end
+14:                                               ; preds = %4
+  store i64 16, ptr %9, align 8, !tbaa !13
+  br label %15
 
-if.end:                                           ; preds = %if.then, %entry
-  %1 = load i64, ptr %tag_len.addr, align 8
-  %cmp1 = icmp ugt i64 %1, 16
-  br i1 %cmp1, label %if.then2, label %if.end3
+15:                                               ; preds = %14, %4
+  %16 = load i64, ptr %9, align 8, !tbaa !13
+  %17 = icmp ugt i64 %16, 16
+  br i1 %17, label %18, label %19
 
-if.then2:                                         ; preds = %if.end
+18:                                               ; preds = %15
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 117, ptr noundef @.str, i32 noundef 45)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
 
-if.end3:                                          ; preds = %if.end
-  %2 = load i64, ptr %key_len.addr, align 8
-  %cmp4 = icmp ne i64 %2, 32
-  br i1 %cmp4, label %if.then5, label %if.end6
+19:                                               ; preds = %15
+  %20 = load i64, ptr %8, align 8, !tbaa !13
+  %21 = icmp ne i64 %20, 32
+  br i1 %21, label %22, label %23
 
-if.then5:                                         ; preds = %if.end3
-  store i32 0, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %19
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
 
-if.end6:                                          ; preds = %if.end3
-  %call = call noalias ptr @malloc(i64 noundef 33) #6
-  store ptr %call, ptr %c20_ctx, align 8
-  %3 = load ptr, ptr %c20_ctx, align 8
-  %cmp7 = icmp eq ptr %3, null
-  br i1 %cmp7, label %if.then8, label %if.end9
+23:                                               ; preds = %19
+  %24 = call noalias ptr @malloc(i64 noundef 33) #8
+  store ptr %24, ptr %10, align 8, !tbaa !15
+  %25 = load ptr, ptr %10, align 8, !tbaa !15
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %28
 
-if.then8:                                         ; preds = %if.end6
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %23
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
 
-if.end9:                                          ; preds = %if.end6
-  %4 = load ptr, ptr %c20_ctx, align 8
-  %key10 = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %4, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %key10, i64 0, i64 0
-  %5 = load ptr, ptr %key.addr, align 8
-  %6 = load i64, ptr %key_len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arraydecay, ptr align 1 %5, i64 %6, i1 false)
-  %7 = load i64, ptr %tag_len.addr, align 8
-  %conv = trunc i64 %7 to i8
-  %8 = load ptr, ptr %c20_ctx, align 8
-  %tag_len11 = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %8, i32 0, i32 1
-  store i8 %conv, ptr %tag_len11, align 1
-  %9 = load ptr, ptr %c20_ctx, align 8
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %10, i32 0, i32 1
-  store ptr %9, ptr %aead_state, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %10, align 8, !tbaa !15
+  %30 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds [32 x i8], ptr %30, i64 0, i64 0
+  %32 = load ptr, ptr %7, align 8, !tbaa !11
+  %33 = load i64, ptr %8, align 8, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %32, i64 %33, i1 false)
+  %34 = load i64, ptr %9, align 8, !tbaa !13
+  %35 = trunc i64 %34 to i8
+  %36 = load ptr, ptr %10, align 8, !tbaa !15
+  %37 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %36, i32 0, i32 1
+  store i8 %35, ptr %37, align 1, !tbaa !17
+  %38 = load ptr, ptr %10, align 8, !tbaa !15
+  %39 = load ptr, ptr %6, align 8, !tbaa !6
+  %40 = getelementptr inbounds nuw %struct.evp_aead_ctx_st, ptr %39, i32 0, i32 1
+  store ptr %38, ptr %40, align 8, !tbaa !19
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
 
-return:                                           ; preds = %if.end9, %if.then8, %if.then5, %if.then2
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+41:                                               ; preds = %28, %27, %22, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %42 = load i32, ptr %5, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @aead_chacha20_poly1305_cleanup(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %c20_ctx = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %aead_state, align 8
-  store ptr %1, ptr %c20_ctx, align 8
-  %2 = load ptr, ptr %c20_ctx, align 8
-  %key = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %2, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %key, i64 0, i64 0
-  call void @OPENSSL_cleanse(ptr noundef %arraydecay, i64 noundef 32)
-  %3 = load ptr, ptr %c20_ctx, align 8
-  call void @free(ptr noundef %3) #7
+define internal void @aead_chacha20_poly1305_cleanup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !6
+  %5 = getelementptr inbounds nuw %struct.evp_aead_ctx_st, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
+  store ptr %6, ptr %3, align 8, !tbaa !15
+  %7 = load ptr, ptr %3, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds [32 x i8], ptr %8, i64 0, i64 0
+  call void @OPENSSL_cleanse(ptr noundef %9, i64 noundef 32)
+  %10 = load ptr, ptr %3, align 8, !tbaa !15
+  call void @free(ptr noundef %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aead_chacha20_poly1305_seal(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %max_out_len.addr = alloca i64, align 8
-  %nonce.addr = alloca ptr, align 8
-  %nonce_len.addr = alloca i64, align 8
-  %in.addr = alloca ptr, align 8
-  %in_len.addr = alloca i64, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  store i64 %max_out_len, ptr %max_out_len.addr, align 8
-  store ptr %nonce, ptr %nonce.addr, align 8
-  store i64 %nonce_len, ptr %nonce_len.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %in_len, ptr %in_len.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  %0 = load i64, ptr %nonce_len.addr, align 8
-  %cmp = icmp ne i64 %0, 12
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @aead_chacha20_poly1305_seal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9) #0 {
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %12, align 8, !tbaa !6
+  store ptr %1, ptr %13, align 8, !tbaa !11
+  store ptr %2, ptr %14, align 8, !tbaa !22
+  store i64 %3, ptr %15, align 8, !tbaa !13
+  store ptr %4, ptr %16, align 8, !tbaa !11
+  store i64 %5, ptr %17, align 8, !tbaa !13
+  store ptr %6, ptr %18, align 8, !tbaa !11
+  store i64 %7, ptr %19, align 8, !tbaa !13
+  store ptr %8, ptr %20, align 8, !tbaa !11
+  store i64 %9, ptr %21, align 8, !tbaa !13
+  %22 = load i64, ptr %17, align 8, !tbaa !13
+  %23 = icmp ne i64 %22, 12
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %entry
+24:                                               ; preds = %10
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 121, ptr noundef @.str, i32 noundef 209)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  br label %36
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %2 = load ptr, ptr %out.addr, align 8
-  %3 = load ptr, ptr %out_len.addr, align 8
-  %4 = load i64, ptr %max_out_len.addr, align 8
-  %5 = load ptr, ptr %nonce.addr, align 8
-  %6 = load ptr, ptr %in.addr, align 8
-  %7 = load i64, ptr %in_len.addr, align 8
-  %8 = load ptr, ptr %ad.addr, align 8
-  %9 = load i64, ptr %ad_len.addr, align 8
-  %call = call i32 @seal_impl(ptr noundef @poly1305_update, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %10
+  %26 = load ptr, ptr %12, align 8, !tbaa !6
+  %27 = load ptr, ptr %13, align 8, !tbaa !11
+  %28 = load ptr, ptr %14, align 8, !tbaa !22
+  %29 = load i64, ptr %15, align 8, !tbaa !13
+  %30 = load ptr, ptr %16, align 8, !tbaa !11
+  %31 = load ptr, ptr %18, align 8, !tbaa !11
+  %32 = load i64, ptr %19, align 8, !tbaa !13
+  %33 = load ptr, ptr %20, align 8, !tbaa !11
+  %34 = load i64, ptr %21, align 8, !tbaa !13
+  %35 = call i32 @seal_impl(ptr noundef @poly1305_update, ptr noundef %26, ptr noundef %27, ptr noundef %28, i64 noundef %29, ptr noundef %30, ptr noundef %31, i64 noundef %32, ptr noundef %33, i64 noundef %34)
+  store i32 %35, ptr %11, align 4
+  br label %36
 
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+36:                                               ; preds = %25, %24
+  %37 = load i32, ptr %11, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aead_chacha20_poly1305_open(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %max_out_len.addr = alloca i64, align 8
-  %nonce.addr = alloca ptr, align 8
-  %nonce_len.addr = alloca i64, align 8
-  %in.addr = alloca ptr, align 8
-  %in_len.addr = alloca i64, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  store i64 %max_out_len, ptr %max_out_len.addr, align 8
-  store ptr %nonce, ptr %nonce.addr, align 8
-  store i64 %nonce_len, ptr %nonce_len.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %in_len, ptr %in_len.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  %0 = load i64, ptr %nonce_len.addr, align 8
-  %cmp = icmp ne i64 %0, 12
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @aead_chacha20_poly1305_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9) #0 {
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  store ptr %0, ptr %12, align 8, !tbaa !6
+  store ptr %1, ptr %13, align 8, !tbaa !11
+  store ptr %2, ptr %14, align 8, !tbaa !22
+  store i64 %3, ptr %15, align 8, !tbaa !13
+  store ptr %4, ptr %16, align 8, !tbaa !11
+  store i64 %5, ptr %17, align 8, !tbaa !13
+  store ptr %6, ptr %18, align 8, !tbaa !11
+  store i64 %7, ptr %19, align 8, !tbaa !13
+  store ptr %8, ptr %20, align 8, !tbaa !11
+  store i64 %9, ptr %21, align 8, !tbaa !13
+  %22 = load i64, ptr %17, align 8, !tbaa !13
+  %23 = icmp ne i64 %22, 12
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %entry
+24:                                               ; preds = %10
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 121, ptr noundef @.str, i32 noundef 222)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  br label %36
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %2 = load ptr, ptr %out.addr, align 8
-  %3 = load ptr, ptr %out_len.addr, align 8
-  %4 = load i64, ptr %max_out_len.addr, align 8
-  %5 = load ptr, ptr %nonce.addr, align 8
-  %6 = load ptr, ptr %in.addr, align 8
-  %7 = load i64, ptr %in_len.addr, align 8
-  %8 = load ptr, ptr %ad.addr, align 8
-  %9 = load i64, ptr %ad_len.addr, align 8
-  %call = call i32 @open_impl(ptr noundef @poly1305_update, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %10
+  %26 = load ptr, ptr %12, align 8, !tbaa !6
+  %27 = load ptr, ptr %13, align 8, !tbaa !11
+  %28 = load ptr, ptr %14, align 8, !tbaa !22
+  %29 = load i64, ptr %15, align 8, !tbaa !13
+  %30 = load ptr, ptr %16, align 8, !tbaa !11
+  %31 = load ptr, ptr %18, align 8, !tbaa !11
+  %32 = load i64, ptr %19, align 8, !tbaa !13
+  %33 = load ptr, ptr %20, align 8, !tbaa !11
+  %34 = load i64, ptr %21, align 8, !tbaa !13
+  %35 = call i32 @open_impl(ptr noundef @poly1305_update, ptr noundef %26, ptr noundef %27, ptr noundef %28, i64 noundef %29, ptr noundef %30, ptr noundef %31, i64 noundef %32, ptr noundef %33, i64 noundef %34)
+  store i32 %35, ptr %11, align 4
+  br label %36
 
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+36:                                               ; preds = %25, %24
+  %37 = load i32, ptr %11, align 4
+  ret i32 %37
 }
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @seal_impl(ptr noundef %poly1305_update, ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %poly1305_update.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %max_out_len.addr = alloca i64, align 8
-  %nonce.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %in_len.addr = alloca i64, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  %c20_ctx = alloca ptr, align 8
-  %in_len_64 = alloca i64, align 8
-  %tag = alloca [16 x i8], align 16
-  store ptr %poly1305_update, ptr %poly1305_update.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  store i64 %max_out_len, ptr %max_out_len.addr, align 8
-  store ptr %nonce, ptr %nonce.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %in_len, ptr %in_len.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %aead_state, align 8
-  store ptr %1, ptr %c20_ctx, align 8
-  %2 = load i64, ptr %in_len.addr, align 8
-  store i64 %2, ptr %in_len_64, align 8
-  %3 = load i64, ptr %in_len_64, align 8
-  %cmp = icmp uge i64 %3, 274877906880
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @seal_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9) #0 {
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca [16 x i8], align 16
+  store ptr %0, ptr %12, align 8, !tbaa !24
+  store ptr %1, ptr %13, align 8, !tbaa !6
+  store ptr %2, ptr %14, align 8, !tbaa !11
+  store ptr %3, ptr %15, align 8, !tbaa !22
+  store i64 %4, ptr %16, align 8, !tbaa !13
+  store ptr %5, ptr %17, align 8, !tbaa !11
+  store ptr %6, ptr %18, align 8, !tbaa !11
+  store i64 %7, ptr %19, align 8, !tbaa !13
+  store ptr %8, ptr %20, align 8, !tbaa !11
+  store i64 %9, ptr %21, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %26 = load ptr, ptr %13, align 8, !tbaa !6
+  %27 = getelementptr inbounds nuw %struct.evp_aead_ctx_st, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !19
+  store ptr %28, ptr %22, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  %29 = load i64, ptr %19, align 8, !tbaa !13
+  store i64 %29, ptr %23, align 8, !tbaa !13
+  %30 = load i64, ptr %23, align 8, !tbaa !13
+  %31 = icmp uge i64 %30, 274877906880
+  br i1 %31, label %32, label %33
 
-if.then:                                          ; preds = %entry
+32:                                               ; preds = %10
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 117, ptr noundef @.str, i32 noundef 121)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  store i32 1, ptr %24, align 4
+  br label %84
 
-if.end:                                           ; preds = %entry
-  %4 = load i64, ptr %in_len.addr, align 8
-  %5 = load ptr, ptr %c20_ctx, align 8
-  %tag_len = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %5, i32 0, i32 1
-  %6 = load i8, ptr %tag_len, align 1
-  %conv = zext i8 %6 to i64
-  %add = add i64 %4, %conv
-  %7 = load i64, ptr %in_len.addr, align 8
-  %cmp1 = icmp ult i64 %add, %7
-  br i1 %cmp1, label %if.then3, label %if.end4
+33:                                               ; preds = %10
+  %34 = load i64, ptr %19, align 8, !tbaa !13
+  %35 = load ptr, ptr %22, align 8, !tbaa !15
+  %36 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %35, i32 0, i32 1
+  %37 = load i8, ptr %36, align 1, !tbaa !17
+  %38 = zext i8 %37 to i64
+  %39 = add i64 %34, %38
+  %40 = load i64, ptr %19, align 8, !tbaa !13
+  %41 = icmp ult i64 %39, %40
+  br i1 %41, label %42, label %43
 
-if.then3:                                         ; preds = %if.end
+42:                                               ; preds = %33
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 117, ptr noundef @.str, i32 noundef 126)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  store i32 1, ptr %24, align 4
+  br label %84
 
-if.end4:                                          ; preds = %if.end
-  %8 = load i64, ptr %max_out_len.addr, align 8
-  %9 = load i64, ptr %in_len.addr, align 8
-  %10 = load ptr, ptr %c20_ctx, align 8
-  %tag_len5 = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %10, i32 0, i32 1
-  %11 = load i8, ptr %tag_len5, align 1
-  %conv6 = zext i8 %11 to i64
-  %add7 = add i64 %9, %conv6
-  %cmp8 = icmp ult i64 %8, %add7
-  br i1 %cmp8, label %if.then10, label %if.end11
+43:                                               ; preds = %33
+  %44 = load i64, ptr %16, align 8, !tbaa !13
+  %45 = load i64, ptr %19, align 8, !tbaa !13
+  %46 = load ptr, ptr %22, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %46, i32 0, i32 1
+  %48 = load i8, ptr %47, align 1, !tbaa !17
+  %49 = zext i8 %48 to i64
+  %50 = add i64 %45, %49
+  %51 = icmp ult i64 %44, %50
+  br i1 %51, label %52, label %53
 
-if.then10:                                        ; preds = %if.end4
+52:                                               ; preds = %43
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 103, ptr noundef @.str, i32 noundef 131)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  store i32 1, ptr %24, align 4
+  br label %84
 
-if.end11:                                         ; preds = %if.end4
-  %12 = load ptr, ptr %out.addr, align 8
-  %13 = load ptr, ptr %in.addr, align 8
-  %14 = load i64, ptr %in_len.addr, align 8
-  %15 = load ptr, ptr %c20_ctx, align 8
-  %key = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %15, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %key, i64 0, i64 0
-  %16 = load ptr, ptr %nonce.addr, align 8
-  call void @CRYPTO_chacha_20(ptr noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %arraydecay, ptr noundef %16, i32 noundef 1)
-  %17 = load ptr, ptr %poly1305_update.addr, align 8
-  %arraydecay12 = getelementptr inbounds [16 x i8], ptr %tag, i64 0, i64 0
-  %18 = load ptr, ptr %c20_ctx, align 8
-  %19 = load ptr, ptr %nonce.addr, align 8
-  %20 = load ptr, ptr %ad.addr, align 8
-  %21 = load i64, ptr %ad_len.addr, align 8
-  %22 = load ptr, ptr %out.addr, align 8
-  %23 = load i64, ptr %in_len.addr, align 8
-  call void @aead_poly1305(ptr noundef %17, ptr noundef %arraydecay12, ptr noundef %18, ptr noundef %19, ptr noundef %20, i64 noundef %21, ptr noundef %22, i64 noundef %23)
-  %24 = load ptr, ptr %out.addr, align 8
-  %25 = load i64, ptr %in_len.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %24, i64 %25
-  %arraydecay13 = getelementptr inbounds [16 x i8], ptr %tag, i64 0, i64 0
-  %26 = load ptr, ptr %c20_ctx, align 8
-  %tag_len14 = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %26, i32 0, i32 1
-  %27 = load i8, ptr %tag_len14, align 1
-  %conv15 = zext i8 %27 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 16 %arraydecay13, i64 %conv15, i1 false)
-  %28 = load i64, ptr %in_len.addr, align 8
-  %29 = load ptr, ptr %c20_ctx, align 8
-  %tag_len16 = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %29, i32 0, i32 1
-  %30 = load i8, ptr %tag_len16, align 1
-  %conv17 = zext i8 %30 to i64
-  %add18 = add i64 %28, %conv17
-  %31 = load ptr, ptr %out_len.addr, align 8
-  store i64 %add18, ptr %31, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+53:                                               ; preds = %43
+  %54 = load ptr, ptr %14, align 8, !tbaa !11
+  %55 = load ptr, ptr %18, align 8, !tbaa !11
+  %56 = load i64, ptr %19, align 8, !tbaa !13
+  %57 = load ptr, ptr %22, align 8, !tbaa !15
+  %58 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds [32 x i8], ptr %58, i64 0, i64 0
+  %60 = load ptr, ptr %17, align 8, !tbaa !11
+  call void @CRYPTO_chacha_20(ptr noundef %54, ptr noundef %55, i64 noundef %56, ptr noundef %59, ptr noundef %60, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #7
+  %61 = load ptr, ptr %12, align 8, !tbaa !24
+  %62 = getelementptr inbounds [16 x i8], ptr %25, i64 0, i64 0
+  %63 = load ptr, ptr %22, align 8, !tbaa !15
+  %64 = load ptr, ptr %17, align 8, !tbaa !11
+  %65 = load ptr, ptr %20, align 8, !tbaa !11
+  %66 = load i64, ptr %21, align 8, !tbaa !13
+  %67 = load ptr, ptr %14, align 8, !tbaa !11
+  %68 = load i64, ptr %19, align 8, !tbaa !13
+  call void @aead_poly1305(ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, i64 noundef %66, ptr noundef %67, i64 noundef %68)
+  %69 = load ptr, ptr %14, align 8, !tbaa !11
+  %70 = load i64, ptr %19, align 8, !tbaa !13
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %70
+  %72 = getelementptr inbounds [16 x i8], ptr %25, i64 0, i64 0
+  %73 = load ptr, ptr %22, align 8, !tbaa !15
+  %74 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %73, i32 0, i32 1
+  %75 = load i8, ptr %74, align 1, !tbaa !17
+  %76 = zext i8 %75 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 16 %72, i64 %76, i1 false)
+  %77 = load i64, ptr %19, align 8, !tbaa !13
+  %78 = load ptr, ptr %22, align 8, !tbaa !15
+  %79 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %78, i32 0, i32 1
+  %80 = load i8, ptr %79, align 1, !tbaa !17
+  %81 = zext i8 %80 to i64
+  %82 = add i64 %77, %81
+  %83 = load ptr, ptr %15, align 8, !tbaa !22
+  store i64 %82, ptr %83, align 8, !tbaa !13
+  store i32 1, ptr %11, align 4
+  store i32 1, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #7
+  br label %84
 
-return:                                           ; preds = %if.end11, %if.then10, %if.then3, %if.then
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
+84:                                               ; preds = %53, %52, %42, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  %85 = load i32, ptr %11, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @poly1305_update(ptr noundef %ctx, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %ciphertext, i64 noundef %ciphertext_len) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  %ciphertext.addr = alloca ptr, align 8
-  %ciphertext_len.addr = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  store ptr %ciphertext, ptr %ciphertext.addr, align 8
-  store i64 %ciphertext_len, ptr %ciphertext_len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %1 = load ptr, ptr %ad.addr, align 8
-  %2 = load i64, ptr %ad_len.addr, align 8
-  call void @poly1305_update_padded_16(ptr noundef %0, ptr noundef %1, i64 noundef %2)
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %4 = load ptr, ptr %ciphertext.addr, align 8
-  %5 = load i64, ptr %ciphertext_len.addr, align 8
-  call void @poly1305_update_padded_16(ptr noundef %3, ptr noundef %4, i64 noundef %5)
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %7 = load i64, ptr %ad_len.addr, align 8
-  call void @poly1305_update_length(ptr noundef %6, i64 noundef %7)
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %9 = load i64, ptr %ciphertext_len.addr, align 8
-  call void @poly1305_update_length(ptr noundef %8, i64 noundef %9)
+define internal void @poly1305_update(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !11
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store i64 %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !11
+  store i64 %4, ptr %10, align 8, !tbaa !13
+  %11 = load ptr, ptr %6, align 8, !tbaa !11
+  %12 = load ptr, ptr %7, align 8, !tbaa !11
+  %13 = load i64, ptr %8, align 8, !tbaa !13
+  call void @poly1305_update_padded_16(ptr noundef %11, ptr noundef %12, i64 noundef %13)
+  %14 = load ptr, ptr %6, align 8, !tbaa !11
+  %15 = load ptr, ptr %9, align 8, !tbaa !11
+  %16 = load i64, ptr %10, align 8, !tbaa !13
+  call void @poly1305_update_padded_16(ptr noundef %14, ptr noundef %15, i64 noundef %16)
+  %17 = load ptr, ptr %6, align 8, !tbaa !11
+  %18 = load i64, ptr %8, align 8, !tbaa !13
+  call void @poly1305_update_length(ptr noundef %17, i64 noundef %18)
+  %19 = load ptr, ptr %6, align 8, !tbaa !11
+  %20 = load i64, ptr %10, align 8, !tbaa !13
+  call void @poly1305_update_length(ptr noundef %19, i64 noundef %20)
   ret void
 }
 
-declare void @CRYPTO_chacha_20(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #1
+declare void @CRYPTO_chacha_20(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @aead_poly1305(ptr noundef %update, ptr noundef %tag, ptr noundef %c20_ctx, ptr noundef %nonce, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %ciphertext, i64 noundef %ciphertext_len) #0 {
-entry:
-  %update.addr = alloca ptr, align 8
-  %tag.addr = alloca ptr, align 8
-  %c20_ctx.addr = alloca ptr, align 8
-  %nonce.addr = alloca ptr, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  %ciphertext.addr = alloca ptr, align 8
-  %ciphertext_len.addr = alloca i64, align 8
-  %poly1305_key = alloca [32 x i8], align 16
-  %ctx = alloca [512 x i8], align 16
-  store ptr %update, ptr %update.addr, align 8
-  store ptr %tag, ptr %tag.addr, align 8
-  store ptr %c20_ctx, ptr %c20_ctx.addr, align 8
-  store ptr %nonce, ptr %nonce.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  store ptr %ciphertext, ptr %ciphertext.addr, align 8
-  store i64 %ciphertext_len, ptr %ciphertext_len.addr, align 8
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %poly1305_key, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %arraydecay, i8 0, i64 32, i1 false)
-  %arraydecay1 = getelementptr inbounds [32 x i8], ptr %poly1305_key, i64 0, i64 0
-  %arraydecay2 = getelementptr inbounds [32 x i8], ptr %poly1305_key, i64 0, i64 0
-  %0 = load ptr, ptr %c20_ctx.addr, align 8
-  %key = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %0, i32 0, i32 0
-  %arraydecay3 = getelementptr inbounds [32 x i8], ptr %key, i64 0, i64 0
-  %1 = load ptr, ptr %nonce.addr, align 8
-  call void @CRYPTO_chacha_20(ptr noundef %arraydecay1, ptr noundef %arraydecay2, i64 noundef 32, ptr noundef %arraydecay3, ptr noundef %1, i32 noundef 0)
-  %arraydecay4 = getelementptr inbounds [32 x i8], ptr %poly1305_key, i64 0, i64 0
-  call void @CRYPTO_poly1305_init(ptr noundef %ctx, ptr noundef %arraydecay4)
-  %2 = load ptr, ptr %update.addr, align 8
-  %3 = load ptr, ptr %ad.addr, align 8
-  %4 = load i64, ptr %ad_len.addr, align 8
-  %5 = load ptr, ptr %ciphertext.addr, align 8
-  %6 = load i64, ptr %ciphertext_len.addr, align 8
-  call void %2(ptr noundef %ctx, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6)
-  %7 = load ptr, ptr %tag.addr, align 8
-  call void @CRYPTO_poly1305_finish(ptr noundef %ctx, ptr noundef %7)
+define internal void @aead_poly1305(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca [32 x i8], align 16
+  %18 = alloca [512 x i8], align 16
+  store ptr %0, ptr %9, align 8, !tbaa !24
+  store ptr %1, ptr %10, align 8, !tbaa !11
+  store ptr %2, ptr %11, align 8, !tbaa !15
+  store ptr %3, ptr %12, align 8, !tbaa !11
+  store ptr %4, ptr %13, align 8, !tbaa !11
+  store i64 %5, ptr %14, align 8, !tbaa !13
+  store ptr %6, ptr %15, align 8, !tbaa !11
+  store i64 %7, ptr %16, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #7
+  %19 = getelementptr inbounds [32 x i8], ptr %17, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %19, i8 0, i64 32, i1 false)
+  %20 = getelementptr inbounds [32 x i8], ptr %17, i64 0, i64 0
+  %21 = getelementptr inbounds [32 x i8], ptr %17, i64 0, i64 0
+  %22 = load ptr, ptr %11, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [32 x i8], ptr %23, i64 0, i64 0
+  %25 = load ptr, ptr %12, align 8, !tbaa !11
+  call void @CRYPTO_chacha_20(ptr noundef %20, ptr noundef %21, i64 noundef 32, ptr noundef %24, ptr noundef %25, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 512, ptr %18) #7
+  %26 = getelementptr inbounds [32 x i8], ptr %17, i64 0, i64 0
+  call void @CRYPTO_poly1305_init(ptr noundef %18, ptr noundef %26)
+  %27 = load ptr, ptr %9, align 8, !tbaa !24
+  %28 = load ptr, ptr %13, align 8, !tbaa !11
+  %29 = load i64, ptr %14, align 8, !tbaa !13
+  %30 = load ptr, ptr %15, align 8, !tbaa !11
+  %31 = load i64, ptr %16, align 8, !tbaa !13
+  call void %27(ptr noundef %18, ptr noundef %28, i64 noundef %29, ptr noundef %30, i64 noundef %31)
+  %32 = load ptr, ptr %10, align 8, !tbaa !11
+  call void @CRYPTO_poly1305_finish(ptr noundef %18, ptr noundef %32)
+  call void @llvm.lifetime.end.p0(i64 512, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #7
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare void @CRYPTO_poly1305_init(ptr noundef, ptr noundef) #1
+declare void @CRYPTO_poly1305_init(ptr noundef, ptr noundef) #2
 
-declare void @CRYPTO_poly1305_finish(ptr noundef, ptr noundef) #1
+declare void @CRYPTO_poly1305_finish(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @poly1305_update_padded_16(ptr noundef %poly1305, ptr noundef %data, i64 noundef %data_len) #0 {
-entry:
-  %poly1305.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %data_len.addr = alloca i64, align 8
-  store ptr %poly1305, ptr %poly1305.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %data_len, ptr %data_len.addr, align 8
-  %0 = load ptr, ptr %poly1305.addr, align 8
-  %1 = load ptr, ptr %data.addr, align 8
-  %2 = load i64, ptr %data_len.addr, align 8
-  call void @CRYPTO_poly1305_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
-  %3 = load i64, ptr %data_len.addr, align 8
-  %rem = urem i64 %3, 16
-  %cmp = icmp ne i64 %rem, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @poly1305_update_padded_16(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store i64 %2, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = load i64, ptr %6, align 8, !tbaa !13
+  call void @CRYPTO_poly1305_update(ptr noundef %7, ptr noundef %8, i64 noundef %9)
+  %10 = load i64, ptr %6, align 8, !tbaa !13
+  %11 = urem i64 %10, 16
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %18
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %poly1305.addr, align 8
-  %5 = load i64, ptr %data_len.addr, align 8
-  %rem1 = urem i64 %5, 16
-  %sub = sub i64 16, %rem1
-  call void @CRYPTO_poly1305_update(ptr noundef %4, ptr noundef @poly1305_update_padded_16.padding, i64 noundef %sub)
-  br label %if.end
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8, !tbaa !11
+  %15 = load i64, ptr %6, align 8, !tbaa !13
+  %16 = urem i64 %15, 16
+  %17 = sub i64 16, %16
+  call void @CRYPTO_poly1305_update(ptr noundef %14, ptr noundef @poly1305_update_padded_16.padding, i64 noundef %17)
+  br label %18
 
-if.end:                                           ; preds = %if.then, %entry
+18:                                               ; preds = %13, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @poly1305_update_length(ptr noundef %poly1305, i64 noundef %data_len) #0 {
-entry:
-  %poly1305.addr = alloca ptr, align 8
-  %data_len.addr = alloca i64, align 8
-  %length_bytes = alloca [8 x i8], align 1
-  %i = alloca i32, align 4
-  store ptr %poly1305, ptr %poly1305.addr, align 8
-  store i64 %data_len, ptr %data_len.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @poly1305_update_length(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca [8 x i8], align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i64 %1, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 0, ptr %6, align 4, !tbaa !25
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %conv = zext i32 %0 to i64
-  %cmp = icmp ult i64 %conv, 8
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %19, %2
+  %8 = load i32, ptr %6, align 4, !tbaa !25
+  %9 = zext i32 %8 to i64
+  %10 = icmp ult i64 %9, 8
+  br i1 %10, label %11, label %22
 
-for.body:                                         ; preds = %for.cond
-  %1 = load i64, ptr %data_len.addr, align 8
-  %conv2 = trunc i64 %1 to i8
-  %2 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [8 x i8], ptr %length_bytes, i64 0, i64 %idxprom
-  store i8 %conv2, ptr %arrayidx, align 1
-  %3 = load i64, ptr %data_len.addr, align 8
-  %shr = lshr i64 %3, 8
-  store i64 %shr, ptr %data_len.addr, align 8
-  br label %for.inc
+11:                                               ; preds = %7
+  %12 = load i64, ptr %4, align 8, !tbaa !13
+  %13 = trunc i64 %12 to i8
+  %14 = load i32, ptr %6, align 4, !tbaa !25
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %15
+  store i8 %13, ptr %16, align 1, !tbaa !27
+  %17 = load i64, ptr %4, align 8, !tbaa !13
+  %18 = lshr i64 %17, 8
+  store i64 %18, ptr %4, align 8, !tbaa !13
+  br label %19
 
-for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  %inc = add i32 %4, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+19:                                               ; preds = %11
+  %20 = load i32, ptr %6, align 4, !tbaa !25
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %6, align 4, !tbaa !25
+  br label %7, !llvm.loop !28
 
-for.end:                                          ; preds = %for.cond
-  %5 = load ptr, ptr %poly1305.addr, align 8
-  %arraydecay = getelementptr inbounds [8 x i8], ptr %length_bytes, i64 0, i64 0
-  call void @CRYPTO_poly1305_update(ptr noundef %5, ptr noundef %arraydecay, i64 noundef 8)
+22:                                               ; preds = %7
+  %23 = load ptr, ptr %3, align 8, !tbaa !11
+  %24 = getelementptr inbounds [8 x i8], ptr %5, i64 0, i64 0
+  call void @CRYPTO_poly1305_update(ptr noundef %23, ptr noundef %24, i64 noundef 8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
-declare void @CRYPTO_poly1305_update(ptr noundef, ptr noundef, i64 noundef) #1
+declare void @CRYPTO_poly1305_update(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @open_impl(ptr noundef %poly1305_update, ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %poly1305_update.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %max_out_len.addr = alloca i64, align 8
-  %nonce.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %in_len.addr = alloca i64, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  %c20_ctx = alloca ptr, align 8
-  %plaintext_len = alloca i64, align 8
-  %in_len_64 = alloca i64, align 8
-  %tag = alloca [16 x i8], align 16
-  store ptr %poly1305_update, ptr %poly1305_update.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  store i64 %max_out_len, ptr %max_out_len.addr, align 8
-  store ptr %nonce, ptr %nonce.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %in_len, ptr %in_len.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %aead_state = getelementptr inbounds %struct.evp_aead_ctx_st, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %aead_state, align 8
-  store ptr %1, ptr %c20_ctx, align 8
-  %2 = load i64, ptr %in_len.addr, align 8
-  store i64 %2, ptr %in_len_64, align 8
-  %3 = load i64, ptr %in_len.addr, align 8
-  %4 = load ptr, ptr %c20_ctx, align 8
-  %tag_len = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %4, i32 0, i32 1
-  %5 = load i8, ptr %tag_len, align 1
-  %conv = zext i8 %5 to i64
-  %cmp = icmp ult i64 %3, %conv
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @open_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9) #0 {
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca [16 x i8], align 16
+  store ptr %0, ptr %12, align 8, !tbaa !24
+  store ptr %1, ptr %13, align 8, !tbaa !6
+  store ptr %2, ptr %14, align 8, !tbaa !11
+  store ptr %3, ptr %15, align 8, !tbaa !22
+  store i64 %4, ptr %16, align 8, !tbaa !13
+  store ptr %5, ptr %17, align 8, !tbaa !11
+  store ptr %6, ptr %18, align 8, !tbaa !11
+  store i64 %7, ptr %19, align 8, !tbaa !13
+  store ptr %8, ptr %20, align 8, !tbaa !11
+  store i64 %9, ptr %21, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %27 = load ptr, ptr %13, align 8, !tbaa !6
+  %28 = getelementptr inbounds nuw %struct.evp_aead_ctx_st, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !19
+  store ptr %29, ptr %22, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  %30 = load i64, ptr %19, align 8, !tbaa !13
+  store i64 %30, ptr %24, align 8, !tbaa !13
+  %31 = load i64, ptr %19, align 8, !tbaa !13
+  %32 = load ptr, ptr %22, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %32, i32 0, i32 1
+  %34 = load i8, ptr %33, align 1, !tbaa !17
+  %35 = zext i8 %34 to i64
+  %36 = icmp ult i64 %31, %35
+  br i1 %36, label %37, label %38
 
-if.then:                                          ; preds = %entry
+37:                                               ; preds = %10
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 101, ptr noundef @.str, i32 noundef 155)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  store i32 1, ptr %25, align 4
+  br label %79
 
-if.end:                                           ; preds = %entry
-  %6 = load i64, ptr %in_len_64, align 8
-  %cmp2 = icmp uge i64 %6, 274877906880
-  br i1 %cmp2, label %if.then4, label %if.end5
+38:                                               ; preds = %10
+  %39 = load i64, ptr %24, align 8, !tbaa !13
+  %40 = icmp uge i64 %39, 274877906880
+  br i1 %40, label %41, label %42
 
-if.then4:                                         ; preds = %if.end
+41:                                               ; preds = %38
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 117, ptr noundef @.str, i32 noundef 166)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  store i32 1, ptr %25, align 4
+  br label %79
 
-if.end5:                                          ; preds = %if.end
-  %7 = load i64, ptr %in_len.addr, align 8
-  %8 = load ptr, ptr %c20_ctx, align 8
-  %tag_len6 = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %8, i32 0, i32 1
-  %9 = load i8, ptr %tag_len6, align 1
-  %conv7 = zext i8 %9 to i64
-  %sub = sub i64 %7, %conv7
-  store i64 %sub, ptr %plaintext_len, align 8
-  %10 = load ptr, ptr %poly1305_update.addr, align 8
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %tag, i64 0, i64 0
-  %11 = load ptr, ptr %c20_ctx, align 8
-  %12 = load ptr, ptr %nonce.addr, align 8
-  %13 = load ptr, ptr %ad.addr, align 8
-  %14 = load i64, ptr %ad_len.addr, align 8
-  %15 = load ptr, ptr %in.addr, align 8
-  %16 = load i64, ptr %plaintext_len, align 8
-  call void @aead_poly1305(ptr noundef %10, ptr noundef %arraydecay, ptr noundef %11, ptr noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16)
-  %arraydecay8 = getelementptr inbounds [16 x i8], ptr %tag, i64 0, i64 0
-  %17 = load ptr, ptr %in.addr, align 8
-  %18 = load i64, ptr %plaintext_len, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %17, i64 %18
-  %19 = load ptr, ptr %c20_ctx, align 8
-  %tag_len9 = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %19, i32 0, i32 1
-  %20 = load i8, ptr %tag_len9, align 1
-  %conv10 = zext i8 %20 to i64
-  %call = call i32 @CRYPTO_memcmp(ptr noundef %arraydecay8, ptr noundef %add.ptr, i64 noundef %conv10)
-  %cmp11 = icmp ne i32 %call, 0
-  br i1 %cmp11, label %if.then13, label %if.end14
+42:                                               ; preds = %38
+  %43 = load i64, ptr %19, align 8, !tbaa !13
+  %44 = load ptr, ptr %22, align 8, !tbaa !15
+  %45 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %44, i32 0, i32 1
+  %46 = load i8, ptr %45, align 1, !tbaa !17
+  %47 = zext i8 %46 to i64
+  %48 = sub i64 %43, %47
+  store i64 %48, ptr %23, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #7
+  %49 = load ptr, ptr %12, align 8, !tbaa !24
+  %50 = getelementptr inbounds [16 x i8], ptr %26, i64 0, i64 0
+  %51 = load ptr, ptr %22, align 8, !tbaa !15
+  %52 = load ptr, ptr %17, align 8, !tbaa !11
+  %53 = load ptr, ptr %20, align 8, !tbaa !11
+  %54 = load i64, ptr %21, align 8, !tbaa !13
+  %55 = load ptr, ptr %18, align 8, !tbaa !11
+  %56 = load i64, ptr %23, align 8, !tbaa !13
+  call void @aead_poly1305(ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, i64 noundef %54, ptr noundef %55, i64 noundef %56)
+  %57 = getelementptr inbounds [16 x i8], ptr %26, i64 0, i64 0
+  %58 = load ptr, ptr %18, align 8, !tbaa !11
+  %59 = load i64, ptr %23, align 8, !tbaa !13
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
+  %61 = load ptr, ptr %22, align 8, !tbaa !15
+  %62 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %61, i32 0, i32 1
+  %63 = load i8, ptr %62, align 1, !tbaa !17
+  %64 = zext i8 %63 to i64
+  %65 = call i32 @CRYPTO_memcmp(ptr noundef %57, ptr noundef %60, i64 noundef %64)
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %68
 
-if.then13:                                        ; preds = %if.end5
+67:                                               ; preds = %42
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 101, ptr noundef @.str, i32 noundef 175)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  store i32 1, ptr %25, align 4
+  br label %78
 
-if.end14:                                         ; preds = %if.end5
-  %21 = load ptr, ptr %out.addr, align 8
-  %22 = load ptr, ptr %in.addr, align 8
-  %23 = load i64, ptr %plaintext_len, align 8
-  %24 = load ptr, ptr %c20_ctx, align 8
-  %key = getelementptr inbounds %struct.aead_chacha20_poly1305_ctx, ptr %24, i32 0, i32 0
-  %arraydecay15 = getelementptr inbounds [32 x i8], ptr %key, i64 0, i64 0
-  %25 = load ptr, ptr %nonce.addr, align 8
-  call void @CRYPTO_chacha_20(ptr noundef %21, ptr noundef %22, i64 noundef %23, ptr noundef %arraydecay15, ptr noundef %25, i32 noundef 1)
-  %26 = load i64, ptr %plaintext_len, align 8
-  %27 = load ptr, ptr %out_len.addr, align 8
-  store i64 %26, ptr %27, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %42
+  %69 = load ptr, ptr %14, align 8, !tbaa !11
+  %70 = load ptr, ptr %18, align 8, !tbaa !11
+  %71 = load i64, ptr %23, align 8, !tbaa !13
+  %72 = load ptr, ptr %22, align 8, !tbaa !15
+  %73 = getelementptr inbounds nuw %struct.aead_chacha20_poly1305_ctx, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds [32 x i8], ptr %73, i64 0, i64 0
+  %75 = load ptr, ptr %17, align 8, !tbaa !11
+  call void @CRYPTO_chacha_20(ptr noundef %69, ptr noundef %70, i64 noundef %71, ptr noundef %74, ptr noundef %75, i32 noundef 1)
+  %76 = load i64, ptr %23, align 8, !tbaa !13
+  %77 = load ptr, ptr %15, align 8, !tbaa !22
+  store i64 %76, ptr %77, align 8, !tbaa !13
+  store i32 1, ptr %11, align 4
+  store i32 1, ptr %25, align 4
+  br label %78
 
-return:                                           ; preds = %if.end14, %if.then13, %if.then4, %if.then
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+78:                                               ; preds = %68, %67
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #7
+  br label %79
+
+79:                                               ; preds = %78, %41, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  %80 = load i32, ptr %11, align 4
+  ret i32 %80
 }
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aead_chacha20_poly1305_old_seal(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %max_out_len.addr = alloca i64, align 8
-  %nonce.addr = alloca ptr, align 8
-  %nonce_len.addr = alloca i64, align 8
-  %in.addr = alloca ptr, align 8
-  %in_len.addr = alloca i64, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  %nonce_96 = alloca [12 x i8], align 1
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  store i64 %max_out_len, ptr %max_out_len.addr, align 8
-  store ptr %nonce, ptr %nonce.addr, align 8
-  store i64 %nonce_len, ptr %nonce_len.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %in_len, ptr %in_len.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  %0 = load i64, ptr %nonce_len.addr, align 8
-  %cmp = icmp ne i64 %0, 8
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @aead_chacha20_poly1305_old_seal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9) #0 {
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca [12 x i8], align 1
+  store ptr %0, ptr %12, align 8, !tbaa !6
+  store ptr %1, ptr %13, align 8, !tbaa !11
+  store ptr %2, ptr %14, align 8, !tbaa !22
+  store i64 %3, ptr %15, align 8, !tbaa !13
+  store ptr %4, ptr %16, align 8, !tbaa !11
+  store i64 %5, ptr %17, align 8, !tbaa !13
+  store ptr %6, ptr %18, align 8, !tbaa !11
+  store i64 %7, ptr %19, align 8, !tbaa !13
+  store ptr %8, ptr %20, align 8, !tbaa !11
+  store i64 %9, ptr %21, align 8, !tbaa !13
+  %23 = load i64, ptr %17, align 8, !tbaa !13
+  %24 = icmp ne i64 %23, 8
+  br i1 %24, label %25, label %26
 
-if.then:                                          ; preds = %entry
+25:                                               ; preds = %10
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 121, ptr noundef @.str, i32 noundef 261)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  br label %41
 
-if.end:                                           ; preds = %entry
-  %arraydecay = getelementptr inbounds [12 x i8], ptr %nonce_96, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 1 %arraydecay, i8 0, i64 4, i1 false)
-  %arraydecay1 = getelementptr inbounds [12 x i8], ptr %nonce_96, i64 0, i64 0
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay1, i64 4
-  %1 = load ptr, ptr %nonce.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %1, i64 8, i1 false)
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %3 = load ptr, ptr %out.addr, align 8
-  %4 = load ptr, ptr %out_len.addr, align 8
-  %5 = load i64, ptr %max_out_len.addr, align 8
-  %arraydecay2 = getelementptr inbounds [12 x i8], ptr %nonce_96, i64 0, i64 0
-  %6 = load ptr, ptr %in.addr, align 8
-  %7 = load i64, ptr %in_len.addr, align 8
-  %8 = load ptr, ptr %ad.addr, align 8
-  %9 = load i64, ptr %ad_len.addr, align 8
-  %call = call i32 @seal_impl(ptr noundef @poly1305_update_old, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %arraydecay2, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 12, ptr %22) #7
+  %27 = getelementptr inbounds [12 x i8], ptr %22, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 4, i1 false)
+  %28 = getelementptr inbounds [12 x i8], ptr %22, i64 0, i64 0
+  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = load ptr, ptr %16, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %30, i64 8, i1 false)
+  %31 = load ptr, ptr %12, align 8, !tbaa !6
+  %32 = load ptr, ptr %13, align 8, !tbaa !11
+  %33 = load ptr, ptr %14, align 8, !tbaa !22
+  %34 = load i64, ptr %15, align 8, !tbaa !13
+  %35 = getelementptr inbounds [12 x i8], ptr %22, i64 0, i64 0
+  %36 = load ptr, ptr %18, align 8, !tbaa !11
+  %37 = load i64, ptr %19, align 8, !tbaa !13
+  %38 = load ptr, ptr %20, align 8, !tbaa !11
+  %39 = load i64, ptr %21, align 8, !tbaa !13
+  %40 = call i32 @seal_impl(ptr noundef @poly1305_update_old, ptr noundef %31, ptr noundef %32, ptr noundef %33, i64 noundef %34, ptr noundef %35, ptr noundef %36, i64 noundef %37, ptr noundef %38, i64 noundef %39)
+  store i32 %40, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 12, ptr %22) #7
+  br label %41
 
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+41:                                               ; preds = %26, %25
+  %42 = load i32, ptr %11, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aead_chacha20_poly1305_old_open(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %max_out_len.addr = alloca i64, align 8
-  %nonce.addr = alloca ptr, align 8
-  %nonce_len.addr = alloca i64, align 8
-  %in.addr = alloca ptr, align 8
-  %in_len.addr = alloca i64, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  %nonce_96 = alloca [12 x i8], align 1
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  store i64 %max_out_len, ptr %max_out_len.addr, align 8
-  store ptr %nonce, ptr %nonce.addr, align 8
-  store i64 %nonce_len, ptr %nonce_len.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %in_len, ptr %in_len.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  %0 = load i64, ptr %nonce_len.addr, align 8
-  %cmp = icmp ne i64 %0, 8
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @aead_chacha20_poly1305_old_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9) #0 {
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca [12 x i8], align 1
+  store ptr %0, ptr %12, align 8, !tbaa !6
+  store ptr %1, ptr %13, align 8, !tbaa !11
+  store ptr %2, ptr %14, align 8, !tbaa !22
+  store i64 %3, ptr %15, align 8, !tbaa !13
+  store ptr %4, ptr %16, align 8, !tbaa !11
+  store i64 %5, ptr %17, align 8, !tbaa !13
+  store ptr %6, ptr %18, align 8, !tbaa !11
+  store i64 %7, ptr %19, align 8, !tbaa !13
+  store ptr %8, ptr %20, align 8, !tbaa !11
+  store i64 %9, ptr %21, align 8, !tbaa !13
+  %23 = load i64, ptr %17, align 8, !tbaa !13
+  %24 = icmp ne i64 %23, 8
+  br i1 %24, label %25, label %26
 
-if.then:                                          ; preds = %entry
+25:                                               ; preds = %10
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 121, ptr noundef @.str, i32 noundef 276)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %11, align 4
+  br label %41
 
-if.end:                                           ; preds = %entry
-  %arraydecay = getelementptr inbounds [12 x i8], ptr %nonce_96, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 1 %arraydecay, i8 0, i64 4, i1 false)
-  %arraydecay1 = getelementptr inbounds [12 x i8], ptr %nonce_96, i64 0, i64 0
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay1, i64 4
-  %1 = load ptr, ptr %nonce.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %1, i64 8, i1 false)
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %3 = load ptr, ptr %out.addr, align 8
-  %4 = load ptr, ptr %out_len.addr, align 8
-  %5 = load i64, ptr %max_out_len.addr, align 8
-  %arraydecay2 = getelementptr inbounds [12 x i8], ptr %nonce_96, i64 0, i64 0
-  %6 = load ptr, ptr %in.addr, align 8
-  %7 = load i64, ptr %in_len.addr, align 8
-  %8 = load ptr, ptr %ad.addr, align 8
-  %9 = load i64, ptr %ad_len.addr, align 8
-  %call = call i32 @open_impl(ptr noundef @poly1305_update_old, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %arraydecay2, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 12, ptr %22) #7
+  %27 = getelementptr inbounds [12 x i8], ptr %22, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 4, i1 false)
+  %28 = getelementptr inbounds [12 x i8], ptr %22, i64 0, i64 0
+  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = load ptr, ptr %16, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %30, i64 8, i1 false)
+  %31 = load ptr, ptr %12, align 8, !tbaa !6
+  %32 = load ptr, ptr %13, align 8, !tbaa !11
+  %33 = load ptr, ptr %14, align 8, !tbaa !22
+  %34 = load i64, ptr %15, align 8, !tbaa !13
+  %35 = getelementptr inbounds [12 x i8], ptr %22, i64 0, i64 0
+  %36 = load ptr, ptr %18, align 8, !tbaa !11
+  %37 = load i64, ptr %19, align 8, !tbaa !13
+  %38 = load ptr, ptr %20, align 8, !tbaa !11
+  %39 = load i64, ptr %21, align 8, !tbaa !13
+  %40 = call i32 @open_impl(ptr noundef @poly1305_update_old, ptr noundef %31, ptr noundef %32, ptr noundef %33, i64 noundef %34, ptr noundef %35, ptr noundef %36, i64 noundef %37, ptr noundef %38, i64 noundef %39)
+  store i32 %40, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 12, ptr %22) #7
+  br label %41
 
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+41:                                               ; preds = %26, %25
+  %42 = load i32, ptr %11, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @poly1305_update_old(ptr noundef %ctx, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %ciphertext, i64 noundef %ciphertext_len) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %ad.addr = alloca ptr, align 8
-  %ad_len.addr = alloca i64, align 8
-  %ciphertext.addr = alloca ptr, align 8
-  %ciphertext_len.addr = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  store i64 %ad_len, ptr %ad_len.addr, align 8
-  store ptr %ciphertext, ptr %ciphertext.addr, align 8
-  store i64 %ciphertext_len, ptr %ciphertext_len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %1 = load ptr, ptr %ad.addr, align 8
-  %2 = load i64, ptr %ad_len.addr, align 8
-  call void @CRYPTO_poly1305_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %4 = load i64, ptr %ad_len.addr, align 8
-  call void @poly1305_update_length(ptr noundef %3, i64 noundef %4)
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %6 = load ptr, ptr %ciphertext.addr, align 8
-  %7 = load i64, ptr %ciphertext_len.addr, align 8
-  call void @CRYPTO_poly1305_update(ptr noundef %5, ptr noundef %6, i64 noundef %7)
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %9 = load i64, ptr %ciphertext_len.addr, align 8
-  call void @poly1305_update_length(ptr noundef %8, i64 noundef %9)
+define internal void @poly1305_update_old(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !11
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store i64 %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !11
+  store i64 %4, ptr %10, align 8, !tbaa !13
+  %11 = load ptr, ptr %6, align 8, !tbaa !11
+  %12 = load ptr, ptr %7, align 8, !tbaa !11
+  %13 = load i64, ptr %8, align 8, !tbaa !13
+  call void @CRYPTO_poly1305_update(ptr noundef %11, ptr noundef %12, i64 noundef %13)
+  %14 = load ptr, ptr %6, align 8, !tbaa !11
+  %15 = load i64, ptr %8, align 8, !tbaa !13
+  call void @poly1305_update_length(ptr noundef %14, i64 noundef %15)
+  %16 = load ptr, ptr %6, align 8, !tbaa !11
+  %17 = load ptr, ptr %9, align 8, !tbaa !11
+  %18 = load i64, ptr %10, align 8, !tbaa !13
+  call void @CRYPTO_poly1305_update(ptr noundef %16, ptr noundef %17, i64 noundef %18)
+  %19 = load ptr, ptr %6, align 8, !tbaa !11
+  %20 = load i64, ptr %10, align 8, !tbaa !13
+  call void @poly1305_update_length(ptr noundef %19, i64 noundef %20)
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS15evp_aead_ctx_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS26aead_chacha20_poly1305_ctx", !8, i64 0}
+!17 = !{!18, !9, i64 32}
+!18 = !{!"aead_chacha20_poly1305_ctx", !9, i64 0, !9, i64 32}
+!19 = !{!20, !8, i64 8}
+!20 = !{!"evp_aead_ctx_st", !21, i64 0, !8, i64 8}
+!21 = !{!"p1 _ZTS11evp_aead_st", !8, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 long", !8, i64 0}
+!24 = !{!8, !8, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"int", !9, i64 0}
+!27 = !{!9, !9, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}

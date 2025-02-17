@@ -1,12 +1,12 @@
 ; ModuleID = 'bench/libquic/original/ec.ll'
 source_filename = "bench/libquic/original/ec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.built_in_curve = type { i32, [8 x i8], i8, ptr, ptr }
 %struct.EC_builtin_curve = type { i32, ptr }
 
-@OPENSSL_built_in_curves = hidden local_unnamed_addr constant [5 x %struct.built_in_curve] [%struct.built_in_curve { i32 716, [8 x i8] c"+\81\04\00#\00\00\00", i8 5, ptr @P521, ptr null }, %struct.built_in_curve { i32 715, [8 x i8] c"+\81\04\00\22\00\00\00", i8 5, ptr @P384, ptr null }, %struct.built_in_curve { i32 415, [8 x i8] c"*\86H\CE=\03\01\07", i8 8, ptr @P256, ptr @EC_GFp_nistz256_method }, %struct.built_in_curve { i32 713, [8 x i8] c"+\81\04\00!\00\00\00", i8 5, ptr @P224, ptr @EC_GFp_nistp224_method }, %struct.built_in_curve zeroinitializer], align 16
+@OPENSSL_built_in_curves = hidden local_unnamed_addr constant [5 x { i32, [8 x i8], i8, [3 x i8], ptr, ptr }] [{ i32, [8 x i8], i8, [3 x i8], ptr, ptr } { i32 716, [8 x i8] c"+\81\04\00#\00\00\00", i8 5, [3 x i8] zeroinitializer, ptr @P521, ptr null }, { i32, [8 x i8], i8, [3 x i8], ptr, ptr } { i32 715, [8 x i8] c"+\81\04\00\22\00\00\00", i8 5, [3 x i8] zeroinitializer, ptr @P384, ptr null }, { i32, [8 x i8], i8, [3 x i8], ptr, ptr } { i32 415, [8 x i8] c"*\86H\CE=\03\01\07", i8 8, [3 x i8] zeroinitializer, ptr @P256, ptr @EC_GFp_nistz256_method }, { i32, [8 x i8], i8, [3 x i8], ptr, ptr } { i32 713, [8 x i8] c"+\81\04\00!\00\00\00", i8 5, [3 x i8] zeroinitializer, ptr @P224, ptr @EC_GFp_nistp224_method }, { i32, [8 x i8], i8, [3 x i8], ptr, ptr } zeroinitializer], align 16
 @.str = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/ec.c\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"NIST P-521\00", align 1
 @P521 = internal constant <{ ptr, i8, i8, [396 x i8] }> <{ ptr @.str.1, i8 66, i8 1, [396 x i8] c"\01\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\01\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FC\00Q\95>\B9a\8E\1C\9A\1F\92\9A!\A0\B6\85@\EE\A2\DAr[\99\B3\15\F3\B8\B4\89\91\8E\F1\09\E1V\199Q\EC~\93{\16R\C0\BD;\B1\BF\075s\DF\88=,4\F1\EFE\1F\D4kP?\00\00\C6\85\8E\06\B7\04\04\E9\CD\9E>\CBf#\95\B4B\9Cd\819\05?\B5!\F8(\AF`kM=\BA\A1K^w\EF\E7Y(\FE\1D\C1'\A2\FF\A8\DE3H\B3\C1\85jB\9B\F9~~1\C2\E5\BDf\01\189)jx\9A;\C0\04\\\8A_\B4,}\1B\D9\98\F5DIW\9BDh\17\AF\BD\17'>f,\97\EEr\99^\F4&@\C5P\B9\01?\AD\07a5<p\86\A2r\C2@\88\BE\94v\9F\D1fP\01\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FAQ\86\87\83\BF/\96k\7F\CC\01H\F7\09\A5\D0;\B5\C9\B8\89\9CG\AE\BBo\B7\1E\918d\09" }>, align 8
@@ -24,51 +24,50 @@ declare ptr @EC_GFp_nistz256_method() #0
 declare ptr @EC_GFp_nistp224_method() #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ec_group_new(ptr noundef %meth) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %meth, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden noundef ptr @ec_group_new(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %3, label %4
 
-if.then:                                          ; preds = %entry
+3:                                                ; preds = %1
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 343) #11
-  br label %return
+  br label %17
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %meth, align 8
-  %cmp1 = icmp eq ptr %0, null
-  br i1 %cmp1, label %if.then2, label %if.end3
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %0, align 8, !tbaa !6
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %8
 
-if.then2:                                         ; preds = %if.end
+7:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 348) #11
-  br label %return
+  br label %17
 
-if.end3:                                          ; preds = %if.end
+8:                                                ; preds = %4
   %calloc = tail call dereferenceable_or_null(192) ptr @calloc(i64 1, i64 192)
-  %cmp4 = icmp eq ptr %calloc, null
-  br i1 %cmp4, label %if.then5, label %if.end6
+  %9 = icmp eq ptr %calloc, null
+  br i1 %9, label %10, label %11
 
-if.then5:                                         ; preds = %if.end3
+10:                                               ; preds = %8
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 354) #11
-  br label %return
+  br label %17
 
-if.end6:                                          ; preds = %if.end3
-  store ptr %meth, ptr %calloc, align 8
-  %order = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  tail call void @BN_init(ptr noundef nonnull %order) #11
-  %cofactor = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  tail call void @BN_init(ptr noundef nonnull %cofactor) #11
-  %1 = load ptr, ptr %meth, align 8
-  %call9 = tail call i32 %1(ptr noundef nonnull %calloc) #11
-  %tobool.not = icmp eq i32 %call9, 0
-  br i1 %tobool.not, label %if.then10, label %return
+11:                                               ; preds = %8
+  store ptr %0, ptr %calloc, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  tail call void @BN_init(ptr noundef nonnull %12) #11
+  %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
+  tail call void @BN_init(ptr noundef nonnull %13) #11
+  %14 = load ptr, ptr %0, align 8, !tbaa !6
+  %15 = tail call i32 %14(ptr noundef nonnull %calloc) #11
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %16, label %17
 
-if.then10:                                        ; preds = %if.end6
+16:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %calloc) #11
-  br label %return
+  br label %17
 
-return:                                           ; preds = %if.end6, %if.then10, %if.then5, %if.then2, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %if.then5 ], [ null, %if.then10 ], [ %calloc, %if.end6 ]
-  ret ptr %retval.0
+17:                                               ; preds = %11, %16, %10, %7, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %10 ], [ null, %16 ], [ %calloc, %11 ]
+  ret ptr %.0
 }
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -82,965 +81,944 @@ declare void @BN_init(ptr noundef) local_unnamed_addr #0
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @EC_GROUP_new_curve_GFp(ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %call = tail call ptr @EC_GFp_mont_method() #11
-  %call1 = tail call ptr @ec_group_new(ptr noundef %call)
-  %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %return, label %if.end
+define hidden noundef ptr @EC_GROUP_new_curve_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+  %5 = tail call ptr @EC_GFp_mont_method() #11
+  %6 = tail call ptr @ec_group_new(ptr noundef %5)
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %27, label %8
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %call1, align 8
-  %group_set_curve = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %group_set_curve, align 8
-  %cmp3 = icmp eq ptr %1, null
-  br i1 %cmp3, label %if.then4, label %if.end5
+8:                                                ; preds = %4
+  %9 = load ptr, ptr %6, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then4:                                         ; preds = %if.end
+13:                                               ; preds = %8
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 382) #11
-  br label %return
+  br label %27
 
-if.end5:                                          ; preds = %if.end
-  %call8 = tail call i32 %1(ptr noundef nonnull %call1, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #11
-  %tobool.not = icmp eq i32 %call8, 0
-  br i1 %tobool.not, label %if.end.i, label %return
+14:                                               ; preds = %8
+  %15 = tail call i32 %11(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #11
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %16, label %27
 
-if.end.i:                                         ; preds = %if.end5
-  %2 = load ptr, ptr %call1, align 8
-  %group_finish.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load ptr, ptr %group_finish.i, align 8
-  %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %if.end4.i, label %if.then1.i
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %6, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !20
+  %.not9.i = icmp eq ptr %19, null
+  br i1 %.not9.i, label %21, label %20
 
-if.then1.i:                                       ; preds = %if.end.i
-  tail call void %3(ptr noundef nonnull %call1) #11
-  br label %if.end4.i
+20:                                               ; preds = %16
+  tail call void %19(ptr noundef nonnull %6) #11
+  br label %21
 
-if.end4.i:                                        ; preds = %if.then1.i, %if.end.i
-  %generator.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
-  %4 = load ptr, ptr %generator.i, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i, label %EC_GROUP_free.exit, label %if.end.i.i
+21:                                               ; preds = %20, %16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
+  %.not.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i, label %EC_GROUP_free.exit, label %24
 
-if.end.i.i:                                       ; preds = %if.end4.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %4) #11
-  tail call void @free(ptr noundef nonnull %4) #11
+24:                                               ; preds = %21
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %23) #11
+  tail call void @free(ptr noundef nonnull %23) #11
   br label %EC_GROUP_free.exit
 
-EC_GROUP_free.exit:                               ; preds = %if.end4.i, %if.end.i.i
-  %order.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order.i) #11
-  %cofactor.i = getelementptr inbounds nuw i8, ptr %call1, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #11
-  tail call void @free(ptr noundef nonnull %call1) #11
-  br label %return
+EC_GROUP_free.exit:                               ; preds = %21, %24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  tail call void @BN_free(ptr noundef nonnull %25) #11
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  tail call void @BN_free(ptr noundef nonnull %26) #11
+  tail call void @free(ptr noundef nonnull %6) #11
+  br label %27
 
-return:                                           ; preds = %if.end5, %entry, %EC_GROUP_free.exit, %if.then4
-  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %EC_GROUP_free.exit ], [ null, %entry ], [ %call1, %if.end5 ]
-  ret ptr %retval.0
+27:                                               ; preds = %14, %4, %EC_GROUP_free.exit, %13
+  %.0 = phi ptr [ null, %13 ], [ null, %EC_GROUP_free.exit ], [ null, %4 ], [ %6, %14 ]
+  ret ptr %.0
 }
 
 declare ptr @EC_GFp_mont_method() local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @EC_GROUP_free(ptr noundef %group) local_unnamed_addr #1 {
-entry:
-  %tobool.not = icmp eq ptr %group, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden void @EC_GROUP_free(ptr noundef %0) local_unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %13, label %2
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %group, align 8
-  %group_finish = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load ptr, ptr %group_finish, align 8
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %if.end4, label %if.then1
+2:                                                ; preds = %1
+  %3 = load ptr, ptr %0, align 8, !tbaa !11
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %.not9 = icmp eq ptr %5, null
+  br i1 %.not9, label %7, label %6
 
-if.then1:                                         ; preds = %if.end
-  tail call void %1(ptr noundef nonnull %group) #11
-  br label %if.end4
+6:                                                ; preds = %2
+  tail call void %5(ptr noundef nonnull %0) #11
+  br label %7
 
-if.end4:                                          ; preds = %if.then1, %if.end
-  %generator = getelementptr inbounds nuw i8, ptr %group, i64 8
-  %2 = load ptr, ptr %generator, align 8
-  %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %EC_POINT_free.exit, label %if.end.i
+7:                                                ; preds = %6, %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %EC_POINT_free.exit, label %10
 
-if.end.i:                                         ; preds = %if.end4
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %2) #11
-  tail call void @free(ptr noundef nonnull %2) #11
+10:                                               ; preds = %7
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %9) #11
+  tail call void @free(ptr noundef nonnull %9) #11
   br label %EC_POINT_free.exit
 
-EC_POINT_free.exit:                               ; preds = %if.end4, %if.end.i
-  %order = getelementptr inbounds nuw i8, ptr %group, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order) #11
-  %cofactor = getelementptr inbounds nuw i8, ptr %group, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor) #11
-  tail call void @free(ptr noundef nonnull %group) #11
-  br label %return
+EC_POINT_free.exit:                               ; preds = %7, %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @BN_free(ptr noundef nonnull %11) #11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @BN_free(ptr noundef nonnull %12) #11
+  tail call void @free(ptr noundef nonnull %0) #11
+  br label %13
 
-return:                                           ; preds = %entry, %EC_POINT_free.exit
+13:                                               ; preds = %1, %EC_POINT_free.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_GROUP_set_generator(ptr noundef %group, ptr noundef %generator, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #1 {
-entry:
-  %curve_name = getelementptr inbounds nuw i8, ptr %group, i64 64
-  %0 = load i32, ptr %curve_name, align 8
-  %cmp.not = icmp eq i32 %0, 0
-  br i1 %cmp.not, label %lor.lhs.false, label %return
+define hidden range(i32 0, 2) i32 @EC_GROUP_set_generator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = load i32, ptr %5, align 8, !tbaa !22
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %31
 
-lor.lhs.false:                                    ; preds = %entry
-  %generator1 = getelementptr inbounds nuw i8, ptr %group, i64 8
-  %1 = load ptr, ptr %generator1, align 8
-  %cmp2.not = icmp eq ptr %1, null
-  br i1 %cmp2.not, label %if.end.i, label %return
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %.not12 = icmp eq ptr %9, null
+  br i1 %.not12, label %10, label %31
 
-if.end.i:                                         ; preds = %lor.lhs.false
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
-  %cmp1.i = icmp eq ptr %call.i, null
-  br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
+10:                                               ; preds = %7
+  %11 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then2.i:                                       ; preds = %if.end.i
+13:                                               ; preds = %10
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
   br label %EC_POINT_new.exit.thread
 
-if.end3.i:                                        ; preds = %if.end.i
-  %2 = load ptr, ptr %group, align 8
-  store ptr %2, ptr %call.i, align 8
-  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #11
-  %tobool.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool.not.i, label %if.then6.i, label %land.lhs.true
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %0, align 8, !tbaa !11
+  store ptr %15, ptr %11, align 8, !tbaa !23
+  %16 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %11) #11
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %18
 
-if.then6.i:                                       ; preds = %if.end3.i
-  tail call void @free(ptr noundef nonnull %call.i) #11
+17:                                               ; preds = %14
+  tail call void @free(ptr noundef nonnull %11) #11
   br label %EC_POINT_new.exit.thread
 
-EC_POINT_new.exit.thread:                         ; preds = %if.then2.i, %if.then6.i
-  store ptr null, ptr %generator1, align 8
-  br label %return
+EC_POINT_new.exit.thread:                         ; preds = %13, %17
+  store ptr null, ptr %8, align 8, !tbaa !21
+  br label %31
 
-land.lhs.true:                                    ; preds = %if.end3.i
-  store ptr %call.i, ptr %generator1, align 8
-  %3 = load ptr, ptr %call.i, align 8
-  %4 = load ptr, ptr %generator, align 8
-  %cmp.not.i = icmp eq ptr %3, %4
-  br i1 %cmp.not.i, label %if.end.i10, label %EC_POINT_copy.exit.thread
+18:                                               ; preds = %14
+  store ptr %11, ptr %8, align 8, !tbaa !21
+  %19 = load ptr, ptr %11, align 8, !tbaa !23
+  %20 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not.i16 = icmp eq ptr %19, %20
+  br i1 %.not.i16, label %21, label %EC_POINT_copy.exit.thread
 
-EC_POINT_copy.exit.thread:                        ; preds = %land.lhs.true
+EC_POINT_copy.exit.thread:                        ; preds = %18
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #11
-  br label %return
+  br label %31
 
-if.end.i10:                                       ; preds = %land.lhs.true
-  %cmp2.i = icmp eq ptr %call.i, %generator
-  br i1 %cmp2.i, label %land.lhs.true8, label %EC_POINT_copy.exit
+21:                                               ; preds = %18
+  %22 = icmp eq ptr %11, %1
+  br i1 %22, label %EC_POINT_copy.exit.thread22, label %EC_POINT_copy.exit
 
-EC_POINT_copy.exit:                               ; preds = %if.end.i10
-  %call.i11 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %generator) #11
-  %tobool.not = icmp eq i32 %call.i11, 0
-  br i1 %tobool.not, label %return, label %land.lhs.true8
+EC_POINT_copy.exit:                               ; preds = %21
+  %23 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %11, ptr noundef nonnull %1) #11
+  %.not14 = icmp eq i32 %23, 0
+  br i1 %.not14, label %31, label %EC_POINT_copy.exit.thread22
 
-land.lhs.true8:                                   ; preds = %if.end.i10, %EC_POINT_copy.exit
-  %order9 = getelementptr inbounds nuw i8, ptr %group, i64 16
-  %call10 = tail call ptr @BN_copy(ptr noundef nonnull %order9, ptr noundef %order) #11
-  %tobool11.not = icmp eq ptr %call10, null
-  br i1 %tobool11.not, label %return, label %land.rhs
+EC_POINT_copy.exit.thread22:                      ; preds = %21, %EC_POINT_copy.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = tail call ptr @BN_copy(ptr noundef nonnull %24, ptr noundef %2) #11
+  %.not15 = icmp eq ptr %25, null
+  br i1 %.not15, label %31, label %26
 
-land.rhs:                                         ; preds = %land.lhs.true8
-  %cofactor12 = getelementptr inbounds nuw i8, ptr %group, i64 40
-  %call13 = tail call ptr @BN_copy(ptr noundef nonnull %cofactor12, ptr noundef %cofactor) #11
-  %tobool14 = icmp ne ptr %call13, null
-  %5 = zext i1 %tobool14 to i32
-  br label %return
+26:                                               ; preds = %EC_POINT_copy.exit.thread22
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %28 = tail call ptr @BN_copy(ptr noundef nonnull %27, ptr noundef %3) #11
+  %29 = icmp ne ptr %28, null
+  %30 = zext i1 %29 to i32
+  br label %31
 
-return:                                           ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_new.exit.thread, %EC_POINT_copy.exit, %land.lhs.true8, %land.rhs, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true8 ], [ 0, %EC_POINT_copy.exit ], [ %5, %land.rhs ], [ 0, %EC_POINT_new.exit.thread ], [ 0, %EC_POINT_copy.exit.thread ]
-  ret i32 %retval.0
+31:                                               ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_new.exit.thread, %EC_POINT_copy.exit, %EC_POINT_copy.exit.thread22, %26, %4, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %EC_POINT_copy.exit.thread22 ], [ 0, %EC_POINT_copy.exit ], [ %30, %26 ], [ 0, %EC_POINT_new.exit.thread ], [ 0, %EC_POINT_copy.exit.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @EC_POINT_new(ptr noundef readonly captures(address_is_null) %group) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %group, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden noundef ptr @EC_POINT_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %3, label %4
 
-if.then:                                          ; preds = %entry
+3:                                                ; preds = %1
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 680) #11
-  br label %return
+  br label %12
 
-if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
-  %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %if.then2, label %if.end3
+4:                                                ; preds = %1
+  %5 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %8
 
-if.then2:                                         ; preds = %if.end
+7:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
-  br label %return
+  br label %12
 
-if.end3:                                          ; preds = %if.end
-  %0 = load ptr, ptr %group, align 8
-  store ptr %0, ptr %call, align 8
-  %call5 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call) #11
-  %tobool.not = icmp eq i32 %call5, 0
-  br i1 %tobool.not, label %if.then6, label %return
+8:                                                ; preds = %4
+  %9 = load ptr, ptr %0, align 8, !tbaa !11
+  store ptr %9, ptr %5, align 8, !tbaa !23
+  %10 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %5) #11
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %12
 
-if.then6:                                         ; preds = %if.end3
-  tail call void @free(ptr noundef nonnull %call) #11
-  br label %return
+11:                                               ; preds = %8
+  tail call void @free(ptr noundef nonnull %5) #11
+  br label %12
 
-return:                                           ; preds = %if.end3, %if.then6, %if.then2, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %if.then6 ], [ %call, %if.end3 ]
-  ret ptr %retval.0
+12:                                               ; preds = %8, %11, %7, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %11 ], [ %5, %8 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %dest, align 8
-  %1 = load ptr, ptr %src, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden i32 @EC_POINT_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %3, %4
+  br i1 %.not, label %6, label %5
 
-if.then:                                          ; preds = %entry
+5:                                                ; preds = %2
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #11
-  br label %return
+  br label %10
 
-if.end:                                           ; preds = %entry
-  %cmp2 = icmp eq ptr %dest, %src
-  br i1 %cmp2, label %return, label %if.end4
+6:                                                ; preds = %2
+  %7 = icmp eq ptr %0, %1
+  br i1 %7, label %10, label %8
 
-if.end4:                                          ; preds = %if.end
-  %call = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %dest, ptr noundef nonnull %src) #11
-  br label %return
+8:                                                ; preds = %6
+  %9 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
+  br label %10
 
-return:                                           ; preds = %if.end, %if.end4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end4 ], [ 1, %if.end ]
-  ret i32 %retval.0
+10:                                               ; preds = %6, %8, %5
+  %.0 = phi i32 [ 0, %5 ], [ %9, %8 ], [ 1, %6 ]
+  ret i32 %.0
 }
 
 declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @EC_GROUP_new_arbitrary(ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %gx, ptr noundef %gy, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #1 {
-entry:
-  %call = tail call ptr @BN_CTX_new() #11
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return, label %if.end
+define hidden noundef ptr @EC_GROUP_new_arbitrary(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+  %8 = tail call ptr @BN_CTX_new() #11
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %34, label %10
 
-if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef nonnull %call)
-  %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %return.sink.split, label %if.end.i
+10:                                               ; preds = %7
+  %11 = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %.sink.split, label %13
 
-if.end.i:                                         ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
-  %cmp1.i = icmp eq ptr %call.i, null
-  br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
+13:                                               ; preds = %10
+  %14 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-if.then2.i:                                       ; preds = %if.end.i
+16:                                               ; preds = %13
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
-  br label %if.end.i20
+  br label %EC_POINT_free.exit32
 
-if.end3.i:                                        ; preds = %if.end.i
-  %0 = load ptr, ptr %call1, align 8
-  store ptr %0, ptr %call.i, align 8
-  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #11
-  %tobool.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool.not.i, label %if.then6.i, label %lor.lhs.false
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %11, align 8, !tbaa !11
+  store ptr %18, ptr %14, align 8, !tbaa !23
+  %19 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %14) #11
+  %.not.i = icmp eq i32 %19, 0
+  br i1 %.not.i, label %20, label %EC_POINT_new.exit
 
-if.then6.i:                                       ; preds = %if.end3.i
-  tail call void @free(ptr noundef nonnull %call.i) #11
-  br label %if.end.i20
+20:                                               ; preds = %17
+  tail call void @free(ptr noundef nonnull %14) #11
+  br label %EC_POINT_free.exit32
 
-lor.lhs.false:                                    ; preds = %if.end3.i
-  %call7 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %call1, ptr noundef nonnull %call.i, ptr noundef %gx, ptr noundef %gy, ptr noundef nonnull %call)
-  %tobool.not = icmp eq i32 %call7, 0
-  br i1 %tobool.not, label %EC_POINT_free.exit18.thread, label %lor.lhs.false8
+EC_POINT_new.exit:                                ; preds = %17
+  %21 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %8)
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %EC_POINT_free.exit32.thread, label %22
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %call9 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %call1, ptr noundef nonnull %call.i, ptr noundef %order, ptr noundef %cofactor)
-  %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %EC_POINT_free.exit18.thread, label %EC_POINT_free.exit
+22:                                               ; preds = %EC_POINT_new.exit
+  %23 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef %5, ptr noundef %6)
+  %.not29 = icmp eq i32 %23, 0
+  br i1 %.not29, label %EC_POINT_free.exit32.thread, label %EC_POINT_free.exit
 
-EC_POINT_free.exit:                               ; preds = %lor.lhs.false8
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #11
-  br label %return.sink.split.sink.split
+EC_POINT_free.exit:                               ; preds = %22
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %14) #11
+  br label %.sink.split.sink.split
 
-EC_POINT_free.exit18.thread:                      ; preds = %lor.lhs.false, %lor.lhs.false8
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #11
-  tail call void @free(ptr noundef nonnull %call.i) #11
-  br label %if.end.i20
+EC_POINT_free.exit32.thread:                      ; preds = %EC_POINT_new.exit, %22
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %14) #11
+  tail call void @free(ptr noundef nonnull %14) #11
+  br label %EC_POINT_free.exit32
 
-if.end.i20:                                       ; preds = %if.then6.i, %if.then2.i, %EC_POINT_free.exit18.thread
-  %1 = load ptr, ptr %call1, align 8
-  %group_finish.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load ptr, ptr %group_finish.i, align 8
-  %cmp.not.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i, label %if.end4.i, label %if.then1.i
+EC_POINT_free.exit32:                             ; preds = %20, %16, %EC_POINT_free.exit32.thread
+  %24 = load ptr, ptr %11, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %.not9.i = icmp eq ptr %26, null
+  br i1 %.not9.i, label %28, label %27
 
-if.then1.i:                                       ; preds = %if.end.i20
-  tail call void %2(ptr noundef nonnull %call1) #11
-  br label %if.end4.i
+27:                                               ; preds = %EC_POINT_free.exit32
+  tail call void %26(ptr noundef nonnull %11) #11
+  br label %28
 
-if.end4.i:                                        ; preds = %if.then1.i, %if.end.i20
-  %generator.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
-  %3 = load ptr, ptr %generator.i, align 8
-  %tobool.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i, label %EC_POINT_free.exit.i, label %if.end.i.i
+28:                                               ; preds = %27, %EC_POINT_free.exit32
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !21
+  %.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i, label %EC_POINT_free.exit.i, label %31
 
-if.end.i.i:                                       ; preds = %if.end4.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %3) #11
-  tail call void @free(ptr noundef nonnull %3) #11
+31:                                               ; preds = %28
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %30) #11
+  tail call void @free(ptr noundef nonnull %30) #11
   br label %EC_POINT_free.exit.i
 
-EC_POINT_free.exit.i:                             ; preds = %if.end.i.i, %if.end4.i
-  %order.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order.i) #11
-  %cofactor.i = getelementptr inbounds nuw i8, ptr %call1, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #11
-  br label %return.sink.split.sink.split
+EC_POINT_free.exit.i:                             ; preds = %31, %28
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  tail call void @BN_free(ptr noundef nonnull %32) #11
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  tail call void @BN_free(ptr noundef nonnull %33) #11
+  br label %.sink.split.sink.split
 
-return.sink.split.sink.split:                     ; preds = %EC_POINT_free.exit, %EC_POINT_free.exit.i
-  %call1.sink = phi ptr [ %call1, %EC_POINT_free.exit.i ], [ %call.i, %EC_POINT_free.exit ]
-  %retval.0.ph.ph = phi ptr [ null, %EC_POINT_free.exit.i ], [ %call1, %EC_POINT_free.exit ]
-  tail call void @free(ptr noundef nonnull %call1.sink) #11
-  br label %return.sink.split
+.sink.split.sink.split:                           ; preds = %EC_POINT_free.exit, %EC_POINT_free.exit.i
+  %.sink = phi ptr [ %11, %EC_POINT_free.exit.i ], [ %14, %EC_POINT_free.exit ]
+  %.0.ph.ph = phi ptr [ null, %EC_POINT_free.exit.i ], [ %11, %EC_POINT_free.exit ]
+  tail call void @free(ptr noundef nonnull %.sink) #11
+  br label %.sink.split
 
-return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end
-  %retval.0.ph = phi ptr [ null, %if.end ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
-  tail call void @BN_CTX_free(ptr noundef nonnull %call) #11
-  br label %return
+.sink.split:                                      ; preds = %.sink.split.sink.split, %10
+  %.0.ph = phi ptr [ null, %10 ], [ %.0.ph.ph, %.sink.split.sink.split ]
+  tail call void @BN_CTX_free(ptr noundef nonnull %8) #11
+  br label %34
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %retval.0.ph, %return.sink.split ]
-  ret ptr %retval.0
+34:                                               ; preds = %.sink.split, %7
+  %.0 = phi ptr [ null, %7 ], [ %.0.ph, %.sink.split ]
+  ret ptr %.0
 }
 
 declare ptr @BN_CTX_new() local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+  %6 = load ptr, ptr %0, align 8, !tbaa !11
+  %7 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %9, label %8
 
-if.then:                                          ; preds = %entry
+8:                                                ; preds = %5
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 827) #11
-  br label %return
+  br label %16
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_point_set_affine_coordinates(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #11
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end3
+9:                                                ; preds = %5
+  %10 = tail call i32 @ec_GFp_simple_point_set_affine_coordinates(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
+  %.not10 = icmp eq i32 %10, 0
+  br i1 %.not10, label %16, label %11
 
-if.end3:                                          ; preds = %if.end
-  %2 = load ptr, ptr %group, align 8
-  %3 = load ptr, ptr %point, align 8
-  %cmp.not.i = icmp eq ptr %2, %3
-  br i1 %cmp.not.i, label %EC_POINT_is_on_curve.exit, label %EC_POINT_is_on_curve.exit.thread
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %0, align 8, !tbaa !11
+  %13 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not.i = icmp eq ptr %12, %13
+  br i1 %.not.i, label %EC_POINT_is_on_curve.exit, label %EC_POINT_is_on_curve.exit.thread
 
-EC_POINT_is_on_curve.exit.thread:                 ; preds = %if.end3
+EC_POINT_is_on_curve.exit.thread:                 ; preds = %11
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 773) #11
-  br label %if.then6
+  br label %15
 
-EC_POINT_is_on_curve.exit:                        ; preds = %if.end3
-  %call.i = tail call i32 @ec_GFp_simple_is_on_curve(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #11
-  %tobool5.not = icmp eq i32 %call.i, 0
-  br i1 %tobool5.not, label %if.then6, label %return
+EC_POINT_is_on_curve.exit:                        ; preds = %11
+  %14 = tail call i32 @ec_GFp_simple_is_on_curve(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %4) #11
+  %.not11 = icmp eq i32 %14, 0
+  br i1 %.not11, label %15, label %16
 
-if.then6:                                         ; preds = %EC_POINT_is_on_curve.exit.thread, %EC_POINT_is_on_curve.exit
+15:                                               ; preds = %EC_POINT_is_on_curve.exit.thread, %EC_POINT_is_on_curve.exit
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 120, ptr noundef nonnull @.str, i32 noundef 835) #11
-  br label %return
+  br label %16
 
-return:                                           ; preds = %EC_POINT_is_on_curve.exit, %if.end, %if.then6, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then6 ], [ 0, %if.end ], [ 1, %EC_POINT_is_on_curve.exit ]
-  ret i32 %retval.0
+16:                                               ; preds = %EC_POINT_is_on_curve.exit, %9, %15, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %15 ], [ 0, %9 ], [ 1, %EC_POINT_is_on_curve.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @EC_POINT_free(ptr noundef %point) local_unnamed_addr #1 {
-entry:
-  %tobool.not = icmp eq ptr %point, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden void @EC_POINT_free(ptr noundef %0) local_unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %3, label %2
 
-if.end:                                           ; preds = %entry
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %point) #11
-  tail call void @free(ptr noundef nonnull %point) #11
-  br label %return
+2:                                                ; preds = %1
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %0) #11
+  tail call void @free(ptr noundef nonnull %0) #11
+  br label %3
 
-return:                                           ; preds = %entry, %if.end
+3:                                                ; preds = %1, %2
   ret void
 }
 
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %nid) local_unnamed_addr #1 {
-entry:
-  %cmp521 = icmp eq i32 %nid, 716
-  br i1 %cmp521, label %if.then, label %for.cond
+define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unnamed_addr #1 {
+  %2 = icmp eq i32 %0, 716
+  br i1 %2, label %._crit_edge, label %.lr.ph
 
-for.cond:                                         ; preds = %entry, %for.body
-  %indvars.iv22 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv22, 1
+.lr.ph:                                           ; preds = %1, %3
+  %indvars.iv26 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv26, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %if.then7, label %for.body, !llvm.loop !7
+  br i1 %exitcond, label %.thread, label %3, !llvm.loop !25
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv.next
-  %0 = load i32, ptr %arrayidx, align 16
-  %cmp5 = icmp eq i32 %0, %nid
-  br i1 %cmp5, label %if.then, label %for.cond, !llvm.loop !7
+3:                                                ; preds = %.lr.ph
+  %4 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv.next
+  %5 = load i32, ptr %4, align 16, !tbaa !27
+  %6 = icmp eq i32 %5, %0
+  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
-if.then:                                          ; preds = %for.body, %entry
-  %indvars.iv.lcssa = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx13.lcssa = phi ptr [ @OPENSSL_built_in_curves, %entry ], [ %arrayidx, %for.body ]
-  %call.i = tail call ptr @BN_CTX_new() #11
-  %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+._crit_edge:                                      ; preds = %3, %1
+  %indvars.iv.lcssa = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
+  %.lcssa = phi ptr [ @OPENSSL_built_in_curves, %1 ], [ %4, %3 ]
+  %7 = tail call ptr @BN_CTX_new() #11
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
 
-if.then.i:                                        ; preds = %if.then
+9:                                                ; preds = %._crit_edge
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 450) #11
-  br label %for.end
+  br label %99
 
-if.end.i:                                         ; preds = %if.then
-  %data1.i = getelementptr inbounds nuw i8, ptr %arrayidx13.lcssa, i64 16
-  %1 = load ptr, ptr %data1.i, align 8
-  %param_len2.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load i8, ptr %param_len2.i, align 8
-  %conv.i = zext i8 %2 to i32
-  %data3.i = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %conv4.i = zext i8 %2 to i64
-  %call5.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %data3.i, i64 noundef %conv4.i, ptr noundef null) #11
-  %tobool.not.i = icmp eq ptr %call5.i, null
-  br i1 %tobool.not.i, label %if.then19.i, label %lor.lhs.false.i
+10:                                               ; preds = %._crit_edge
+  %11 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i8, ptr %13, align 8, !tbaa !31
+  %15 = zext i8 %14 to i32
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 10
+  %17 = zext i8 %14 to i64
+  %18 = tail call ptr @BN_bin2bn(ptr noundef nonnull %16, i64 noundef %17, ptr noundef null) #11
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %27, label %19
 
-lor.lhs.false.i:                                  ; preds = %if.end.i
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %data3.i, i64 %conv4.i
-  %call10.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr8.i, i64 noundef %conv4.i, ptr noundef null) #11
-  %tobool11.not.i = icmp eq ptr %call10.i, null
-  br i1 %tobool11.not.i, label %if.then19.i, label %lor.lhs.false12.i
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %21 = tail call ptr @BN_bin2bn(ptr noundef nonnull %20, i64 noundef %17, ptr noundef null) #11
+  %.not84.i = icmp eq ptr %21, null
+  br i1 %.not84.i, label %27, label %22
 
-lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i
-  %mul13.i = shl nuw nsw i32 %conv.i, 1
-  %idx.ext14.i = zext nneg i32 %mul13.i to i64
-  %add.ptr15.i = getelementptr inbounds nuw i8, ptr %data3.i, i64 %idx.ext14.i
-  %call17.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr15.i, i64 noundef %conv4.i, ptr noundef null) #11
-  %tobool18.not.i = icmp eq ptr %call17.i, null
-  br i1 %tobool18.not.i, label %if.then19.i, label %if.end20.i
+22:                                               ; preds = %19
+  %23 = shl nuw nsw i32 %15, 1
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 %24
+  %26 = tail call ptr @BN_bin2bn(ptr noundef nonnull %25, i64 noundef %17, ptr noundef null) #11
+  %.not85.i = icmp eq ptr %26, null
+  br i1 %.not85.i, label %27, label %28
 
-if.then19.i:                                      ; preds = %lor.lhs.false12.i, %lor.lhs.false.i, %if.end.i
-  %a.1.i = phi ptr [ %call10.i, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %if.end.i ]
+27:                                               ; preds = %22, %19, %10
+  %.161.i = phi ptr [ %21, %22 ], [ null, %19 ], [ null, %10 ]
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 461) #11
-  br label %for.end
+  br label %99
 
-if.end20.i:                                       ; preds = %lor.lhs.false12.i
-  %method.i = getelementptr inbounds nuw i8, ptr %arrayidx13.lcssa, i64 24
-  %3 = load ptr, ptr %method.i, align 8
-  %cmp21.not.i = icmp eq ptr %3, null
-  br i1 %cmp21.not.i, label %if.else.i, label %if.then23.i
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
+  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  %.not86.i = icmp eq ptr %30, null
+  br i1 %.not86.i, label %40, label %31
 
-if.then23.i:                                      ; preds = %if.end20.i
-  %call25.i = tail call ptr %3() #11
-  %call26.i = tail call ptr @ec_group_new(ptr noundef %call25.i)
-  %cmp27.i = icmp eq ptr %call26.i, null
-  br i1 %cmp27.i, label %if.then85.thread104.i, label %lor.lhs.false29.i
+31:                                               ; preds = %28
+  %32 = tail call ptr %30() #11
+  %33 = tail call ptr @ec_group_new(ptr noundef %32)
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %.thread152.i, label %35
 
-if.then85.thread104.i:                            ; preds = %if.then23.i
+.thread152.i:                                     ; preds = %31
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 469) #11
-  br label %for.end
+  br label %99
 
-lor.lhs.false29.i:                                ; preds = %if.then23.i
-  %4 = load ptr, ptr %call26.i, align 8
-  %group_set_curve.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %5 = load ptr, ptr %group_set_curve.i, align 8
-  %call31.i = tail call i32 %5(ptr noundef nonnull %call26.i, ptr noundef nonnull %call5.i, ptr noundef nonnull %call10.i, ptr noundef nonnull %call17.i, ptr noundef nonnull %call.i) #11
-  %tobool32.not.i = icmp eq i32 %call31.i, 0
-  br i1 %tobool32.not.i, label %if.then85.i, label %if.end.i.i
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %33, align 8, !tbaa !11
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !19
+  %39 = tail call i32 %38(ptr noundef nonnull %33, ptr noundef nonnull %18, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %7) #11
+  %.not87.i = icmp eq i32 %39, 0
+  br i1 %.not87.i, label %87, label %44
 
-if.else.i:                                        ; preds = %if.end20.i
-  %call35.i = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef nonnull %call5.i, ptr noundef nonnull %call10.i, ptr noundef nonnull %call17.i, ptr noundef nonnull %call.i)
-  %cmp36.i = icmp eq ptr %call35.i, null
-  br i1 %cmp36.i, label %if.then38.i, label %if.end.i.i
+40:                                               ; preds = %28
+  %41 = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef nonnull %18, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %7)
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %44
 
-if.then38.i:                                      ; preds = %if.else.i
+43:                                               ; preds = %40
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 474) #11
-  br label %for.end
+  br label %99
 
-if.end.i.i:                                       ; preds = %if.else.i, %lor.lhs.false29.i
-  %group.1.i = phi ptr [ %call26.i, %lor.lhs.false29.i ], [ %call35.i, %if.else.i ]
-  %call.i.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
-  %cmp1.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
+44:                                               ; preds = %40, %35
+  %.1.i = phi ptr [ %33, %35 ], [ %41, %40 ]
+  %45 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %48
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
+47:                                               ; preds = %44
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
-  br label %if.then44.i
+  br label %52
 
-if.end3.i.i:                                      ; preds = %if.end.i.i
-  %6 = load ptr, ptr %group.1.i, align 8
-  store ptr %6, ptr %call.i.i, align 8
-  %call5.i.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i.i) #11
-  %tobool.not.i.i = icmp eq i32 %call5.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then6.i.i, label %if.end45.i
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %.1.i, align 8, !tbaa !11
+  store ptr %49, ptr %45, align 8, !tbaa !23
+  %50 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %45) #11
+  %.not.i.i = icmp eq i32 %50, 0
+  br i1 %.not.i.i, label %51, label %EC_POINT_new.exit.i
 
-if.then6.i.i:                                     ; preds = %if.end3.i.i
-  tail call void @free(ptr noundef nonnull %call.i.i) #11
-  br label %if.then44.i
+51:                                               ; preds = %48
+  tail call void @free(ptr noundef nonnull %45) #11
+  br label %52
 
-if.then44.i:                                      ; preds = %if.then6.i.i, %if.then2.i.i
+52:                                               ; preds = %51, %47
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 480) #11
-  br label %if.end.i47.i
+  br label %.thread120.i
 
-if.end45.i:                                       ; preds = %if.end3.i.i
-  %mul46.i = mul nuw nsw i32 %conv.i, 3
-  %idx.ext47.i = zext nneg i32 %mul46.i to i64
-  %add.ptr48.i = getelementptr inbounds nuw i8, ptr %data3.i, i64 %idx.ext47.i
-  %call50.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr48.i, i64 noundef %conv4.i, ptr noundef null) #11
-  %tobool51.not.i = icmp eq ptr %call50.i, null
-  br i1 %tobool51.not.i, label %if.then59.i, label %lor.lhs.false52.i
+EC_POINT_new.exit.i:                              ; preds = %48
+  %53 = mul nuw nsw i32 %15, 3
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 %54
+  %56 = tail call ptr @BN_bin2bn(ptr noundef nonnull %55, i64 noundef %17, ptr noundef null) #11
+  %.not88.i = icmp eq ptr %56, null
+  br i1 %.not88.i, label %62, label %57
 
-lor.lhs.false52.i:                                ; preds = %if.end45.i
-  %mul53.i = shl nuw nsw i32 %conv.i, 2
-  %idx.ext54.i = zext nneg i32 %mul53.i to i64
-  %add.ptr55.i = getelementptr inbounds nuw i8, ptr %data3.i, i64 %idx.ext54.i
-  %call57.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr55.i, i64 noundef %conv4.i, ptr noundef null) #11
-  %tobool58.not.i = icmp eq ptr %call57.i, null
-  br i1 %tobool58.not.i, label %if.then59.i, label %if.end60.i
+57:                                               ; preds = %EC_POINT_new.exit.i
+  %58 = shl nuw nsw i32 %15, 2
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 %59
+  %61 = tail call ptr @BN_bin2bn(ptr noundef nonnull %60, i64 noundef %17, ptr noundef null) #11
+  %.not89.i = icmp eq ptr %61, null
+  br i1 %.not89.i, label %62, label %63
 
-if.then59.i:                                      ; preds = %lor.lhs.false52.i, %if.end45.i
+62:                                               ; preds = %57, %EC_POINT_new.exit.i
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 486) #11
-  br label %if.end.i47.i
+  br label %.thread120.i
 
-if.end60.i:                                       ; preds = %lor.lhs.false52.i
-  %call61.i = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %group.1.i, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call50.i, ptr noundef nonnull %call57.i, ptr noundef nonnull %call.i)
-  %tobool62.not.i = icmp eq i32 %call61.i, 0
-  br i1 %tobool62.not.i, label %if.then63.i, label %if.end64.i
+63:                                               ; preds = %57
+  %64 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %.1.i, ptr noundef nonnull %45, ptr noundef nonnull %56, ptr noundef nonnull %61, ptr noundef nonnull %7)
+  %.not90.i = icmp eq i32 %64, 0
+  br i1 %.not90.i, label %65, label %66
 
-if.then63.i:                                      ; preds = %if.end60.i
+65:                                               ; preds = %63
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 491) #11
-  br label %if.end.i47.i
+  br label %.thread120.i
 
-if.end64.i:                                       ; preds = %if.end60.i
-  %mul65.i = mul nuw nsw i32 %conv.i, 5
-  %idx.ext66.i = zext nneg i32 %mul65.i to i64
-  %add.ptr67.i = getelementptr inbounds nuw i8, ptr %data3.i, i64 %idx.ext66.i
-  %order.i = getelementptr inbounds nuw i8, ptr %group.1.i, i64 16
-  %call69.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr67.i, i64 noundef %conv4.i, ptr noundef nonnull %order.i) #11
-  %tobool70.not.i = icmp eq ptr %call69.i, null
-  br i1 %tobool70.not.i, label %if.then76.i, label %lor.lhs.false71.i
+66:                                               ; preds = %63
+  %67 = mul nuw nsw i32 %15, 5
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %16, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  %71 = tail call ptr @BN_bin2bn(ptr noundef nonnull %69, i64 noundef %17, ptr noundef nonnull %70) #11
+  %.not91.i = icmp eq ptr %71, null
+  br i1 %.not91.i, label %78, label %72
 
-lor.lhs.false71.i:                                ; preds = %if.end64.i
-  %cofactor.i = getelementptr inbounds nuw i8, ptr %group.1.i, i64 40
-  %cofactor72.i = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %7 = load i8, ptr %cofactor72.i, align 1
-  %conv73.i = zext i8 %7 to i64
-  %call74.i = tail call i32 @BN_set_word(ptr noundef nonnull %cofactor.i, i64 noundef %conv73.i) #11
-  %tobool75.not.i = icmp eq i32 %call74.i, 0
-  br i1 %tobool75.not.i, label %if.then76.i, label %if.end77.i
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 9
+  %75 = load i8, ptr %74, align 1, !tbaa !31
+  %76 = zext i8 %75 to i64
+  %77 = tail call i32 @BN_set_word(ptr noundef nonnull %73, i64 noundef %76) #11
+  %.not92.i = icmp eq i32 %77, 0
+  br i1 %.not92.i, label %78, label %79
 
-if.then76.i:                                      ; preds = %lor.lhs.false71.i, %if.end64.i
+78:                                               ; preds = %72, %66
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 496) #11
-  br label %if.end.i47.i
+  br label %.thread120.i
 
-if.end77.i:                                       ; preds = %lor.lhs.false71.i
+79:                                               ; preds = %72
   tail call void @CRYPTO_once(ptr noundef nonnull @built_in_curve_scalar_field_monts_once, ptr noundef nonnull @built_in_curve_scalar_field_monts_init) #11
-  %8 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8
-  %cmp78.not.i = icmp eq ptr %8, null
-  br i1 %cmp78.not.i, label %err.i, label %if.then80.i
+  %80 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  %.not93.i = icmp eq ptr %80, null
+  br i1 %.not93.i, label %85, label %81
 
-if.then80.i:                                      ; preds = %if.end77.i
-  %arrayidx82.i = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.lcssa
-  %9 = load ptr, ptr %arrayidx82.i, align 8
-  %mont_data.i = getelementptr inbounds nuw i8, ptr %group.1.i, i64 72
-  store ptr %9, ptr %mont_data.i, align 8
-  br label %err.i
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.lcssa
+  %83 = load ptr, ptr %82, align 8, !tbaa !35
+  %84 = getelementptr inbounds nuw i8, ptr %.1.i, i64 72
+  store ptr %83, ptr %84, align 8, !tbaa !36
+  br label %85
 
-err.i:                                            ; preds = %if.then80.i, %if.end77.i
-  %generator.i = getelementptr inbounds nuw i8, ptr %group.1.i, i64 8
-  store ptr %call.i.i, ptr %generator.i, align 8
-  br label %for.end
+85:                                               ; preds = %81, %79
+  %86 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  store ptr %45, ptr %86, align 8, !tbaa !21
+  br label %99
 
-if.then85.i:                                      ; preds = %lor.lhs.false29.i
+87:                                               ; preds = %35
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 469) #11
-  br label %if.end.i47.i
+  br label %.thread120.i
 
-if.end.i47.i:                                     ; preds = %if.then85.i, %if.then76.i, %if.then63.i, %if.then59.i, %if.then44.i
-  %group.0.ph93.i = phi ptr [ %call26.i, %if.then85.i ], [ %group.1.i, %if.then59.i ], [ %group.1.i, %if.then63.i ], [ %group.1.i, %if.then76.i ], [ %group.1.i, %if.then44.i ]
-  %P.0.ph91.i = phi ptr [ null, %if.then85.i ], [ %call.i.i, %if.then59.i ], [ %call.i.i, %if.then63.i ], [ %call.i.i, %if.then76.i ], [ null, %if.then44.i ]
-  %y.0.ph83.i = phi ptr [ null, %if.then85.i ], [ null, %if.then59.i ], [ %call57.i, %if.then63.i ], [ %call57.i, %if.then76.i ], [ null, %if.then44.i ]
-  %x.0.ph81.i = phi ptr [ null, %if.then85.i ], [ %call50.i, %if.then59.i ], [ %call50.i, %if.then63.i ], [ %call50.i, %if.then76.i ], [ null, %if.then44.i ]
-  %10 = load ptr, ptr %group.0.ph93.i, align 8
-  %group_finish.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %11 = load ptr, ptr %group_finish.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i, label %if.end4.i.i, label %if.then1.i.i
+.thread120.i:                                     ; preds = %87, %78, %65, %62, %52
+  %.0.ph141.i = phi ptr [ %33, %87 ], [ %.1.i, %62 ], [ %.1.i, %65 ], [ %.1.i, %78 ], [ %.1.i, %52 ]
+  %.058.ph139.i = phi ptr [ null, %87 ], [ %45, %62 ], [ %45, %65 ], [ %45, %78 ], [ null, %52 ]
+  %.065.ph131.i = phi ptr [ null, %87 ], [ null, %62 ], [ %61, %65 ], [ %61, %78 ], [ null, %52 ]
+  %.067.ph129.i = phi ptr [ null, %87 ], [ %56, %62 ], [ %56, %65 ], [ %56, %78 ], [ null, %52 ]
+  %88 = load ptr, ptr %.0.ph141.i, align 8, !tbaa !11
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !20
+  %.not9.i.i = icmp eq ptr %90, null
+  br i1 %.not9.i.i, label %92, label %91
 
-if.then1.i.i:                                     ; preds = %if.end.i47.i
-  tail call void %11(ptr noundef nonnull %group.0.ph93.i) #11
-  br label %if.end4.i.i
+91:                                               ; preds = %.thread120.i
+  tail call void %90(ptr noundef nonnull %.0.ph141.i) #11
+  br label %92
 
-if.end4.i.i:                                      ; preds = %if.then1.i.i, %if.end.i47.i
-  %generator.i.i = getelementptr inbounds nuw i8, ptr %group.0.ph93.i, i64 8
-  %12 = load ptr, ptr %generator.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i, label %if.end86.i, label %if.end.i.i.i
+92:                                               ; preds = %91, %.thread120.i
+  %93 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !21
+  %.not.i.i.i = icmp eq ptr %94, null
+  br i1 %.not.i.i.i, label %EC_GROUP_free.exit.i, label %95
 
-if.end.i.i.i:                                     ; preds = %if.end4.i.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %12) #11
-  tail call void @free(ptr noundef nonnull %12) #11
-  br label %if.end86.i
+95:                                               ; preds = %92
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %94) #11
+  tail call void @free(ptr noundef nonnull %94) #11
+  br label %EC_GROUP_free.exit.i
 
-if.end86.i:                                       ; preds = %if.end.i.i.i, %if.end4.i.i
-  %order.i.i = getelementptr inbounds nuw i8, ptr %group.0.ph93.i, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order.i.i) #11
-  %cofactor.i.i = getelementptr inbounds nuw i8, ptr %group.0.ph93.i, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor.i.i) #11
-  tail call void @free(ptr noundef nonnull %group.0.ph93.i) #11
-  %tobool.not.i48.i = icmp eq ptr %P.0.ph91.i, null
-  br i1 %tobool.not.i48.i, label %for.end, label %if.end.i49.i
+EC_GROUP_free.exit.i:                             ; preds = %95, %92
+  %96 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 16
+  tail call void @BN_free(ptr noundef nonnull %96) #11
+  %97 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 40
+  tail call void @BN_free(ptr noundef nonnull %97) #11
+  tail call void @free(ptr noundef nonnull %.0.ph141.i) #11
+  %.not.i96.i = icmp eq ptr %.058.ph139.i, null
+  br i1 %.not.i96.i, label %99, label %98
 
-if.end.i49.i:                                     ; preds = %if.end86.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %P.0.ph91.i) #11
-  tail call void @free(ptr noundef nonnull %P.0.ph91.i) #11
-  br label %for.end
+98:                                               ; preds = %EC_GROUP_free.exit.i
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %.058.ph139.i) #11
+  tail call void @free(ptr noundef nonnull %.058.ph139.i) #11
+  br label %99
 
-for.end:                                          ; preds = %if.end.i49.i, %if.end86.i, %err.i, %if.then38.i, %if.then85.thread104.i, %if.then19.i, %if.then.i
-  %group.2119.i = phi ptr [ null, %if.end86.i ], [ null, %if.end.i49.i ], [ null, %if.then85.thread104.i ], [ %group.1.i, %err.i ], [ null, %if.then19.i ], [ null, %if.then38.i ], [ null, %if.then.i ]
-  %x.060118.i = phi ptr [ %x.0.ph81.i, %if.end86.i ], [ %x.0.ph81.i, %if.end.i49.i ], [ null, %if.then85.thread104.i ], [ %call50.i, %err.i ], [ null, %if.then19.i ], [ null, %if.then38.i ], [ null, %if.then.i ]
-  %y.062117.i = phi ptr [ %y.0.ph83.i, %if.end86.i ], [ %y.0.ph83.i, %if.end.i49.i ], [ null, %if.then85.thread104.i ], [ %call57.i, %err.i ], [ null, %if.then19.i ], [ null, %if.then38.i ], [ null, %if.then.i ]
-  %b.064116.i = phi ptr [ %call17.i, %if.end86.i ], [ %call17.i, %if.end.i49.i ], [ %call17.i, %if.then85.thread104.i ], [ %call17.i, %err.i ], [ null, %if.then19.i ], [ %call17.i, %if.then38.i ], [ null, %if.then.i ]
-  %a.066115.i = phi ptr [ %call10.i, %if.end86.i ], [ %call10.i, %if.end.i49.i ], [ %call10.i, %if.then85.thread104.i ], [ %call10.i, %err.i ], [ %a.1.i, %if.then19.i ], [ %call10.i, %if.then38.i ], [ null, %if.then.i ]
-  %p.068114.i = phi ptr [ %call5.i, %if.end86.i ], [ %call5.i, %if.end.i49.i ], [ %call5.i, %if.then85.thread104.i ], [ %call5.i, %err.i ], [ %call5.i, %if.then19.i ], [ %call5.i, %if.then38.i ], [ null, %if.then.i ]
-  tail call void @BN_CTX_free(ptr noundef %call.i) #11
-  tail call void @BN_free(ptr noundef %p.068114.i) #11
-  tail call void @BN_free(ptr noundef %a.066115.i) #11
-  tail call void @BN_free(ptr noundef %b.064116.i) #11
-  tail call void @BN_free(ptr noundef %x.060118.i) #11
-  tail call void @BN_free(ptr noundef %y.062117.i) #11
-  %cmp6 = icmp eq ptr %group.2119.i, null
-  br i1 %cmp6, label %if.then7, label %if.end8
+99:                                               ; preds = %98, %EC_GROUP_free.exit.i, %85, %43, %.thread152.i, %27, %9
+  %.2167.i = phi ptr [ null, %EC_GROUP_free.exit.i ], [ null, %98 ], [ null, %.thread152.i ], [ %.1.i, %85 ], [ null, %27 ], [ null, %43 ], [ null, %9 ]
+  %.067106166.i = phi ptr [ %.067.ph129.i, %EC_GROUP_free.exit.i ], [ %.067.ph129.i, %98 ], [ null, %.thread152.i ], [ %56, %85 ], [ null, %27 ], [ null, %43 ], [ null, %9 ]
+  %.065108165.i = phi ptr [ %.065.ph131.i, %EC_GROUP_free.exit.i ], [ %.065.ph131.i, %98 ], [ null, %.thread152.i ], [ %61, %85 ], [ null, %27 ], [ null, %43 ], [ null, %9 ]
+  %.063110164.i = phi ptr [ %26, %EC_GROUP_free.exit.i ], [ %26, %98 ], [ %26, %.thread152.i ], [ %26, %85 ], [ null, %27 ], [ %26, %43 ], [ null, %9 ]
+  %.060112163.i = phi ptr [ %21, %EC_GROUP_free.exit.i ], [ %21, %98 ], [ %21, %.thread152.i ], [ %21, %85 ], [ %.161.i, %27 ], [ %21, %43 ], [ null, %9 ]
+  %.059114162.i = phi ptr [ %18, %EC_GROUP_free.exit.i ], [ %18, %98 ], [ %18, %.thread152.i ], [ %18, %85 ], [ %18, %27 ], [ %18, %43 ], [ null, %9 ]
+  tail call void @BN_CTX_free(ptr noundef %7) #11
+  tail call void @BN_free(ptr noundef %.059114162.i) #11
+  tail call void @BN_free(ptr noundef %.060112163.i) #11
+  tail call void @BN_free(ptr noundef %.063110164.i) #11
+  tail call void @BN_free(ptr noundef %.067106166.i) #11
+  tail call void @BN_free(ptr noundef %.065108165.i) #11
+  %100 = icmp eq ptr %.2167.i, null
+  br i1 %100, label %.thread, label %101
 
-if.then7:                                         ; preds = %for.cond, %for.end
+.thread:                                          ; preds = %.lr.ph, %99
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 539) #11
-  br label %return
+  br label %103
 
-if.end8:                                          ; preds = %for.end
-  %curve_name = getelementptr inbounds nuw i8, ptr %group.2119.i, i64 64
-  store i32 %nid, ptr %curve_name, align 8
-  br label %return
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %.2167.i, i64 64
+  store i32 %0, ptr %102, align 8, !tbaa !22
+  br label %103
 
-return:                                           ; preds = %if.end8, %if.then7
-  %retval.0 = phi ptr [ null, %if.then7 ], [ %group.2119.i, %if.end8 ]
-  ret ptr %retval.0
+103:                                              ; preds = %101, %.thread
+  %.010 = phi ptr [ null, %.thread ], [ %.2167.i, %101 ]
+  ret ptr %.010
 }
 
 declare void @BN_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_group_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %dest, align 8
-  %group_copy = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %group_copy, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @ec_group_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !11
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %8
 
-if.then:                                          ; preds = %entry
+7:                                                ; preds = %2
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 565) #11
-  br label %return
+  br label %54
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %src, align 8
-  %cmp3.not = icmp eq ptr %0, %2
-  br i1 %cmp3.not, label %if.end5, label %if.then4
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %1, align 8, !tbaa !11
+  %.not = icmp eq ptr %3, %9
+  br i1 %.not, label %11, label %10
 
-if.then4:                                         ; preds = %if.end
+10:                                               ; preds = %8
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 569) #11
-  br label %return
+  br label %54
 
-if.end5:                                          ; preds = %if.end
-  %cmp6 = icmp eq ptr %dest, %src
-  br i1 %cmp6, label %return, label %if.end8
+11:                                               ; preds = %8
+  %12 = icmp eq ptr %0, %1
+  br i1 %12, label %54, label %13
 
-if.end8:                                          ; preds = %if.end5
-  %mont_data = getelementptr inbounds nuw i8, ptr %src, i64 72
-  %3 = load ptr, ptr %mont_data, align 8
-  %mont_data9 = getelementptr inbounds nuw i8, ptr %dest, i64 72
-  store ptr %3, ptr %mont_data9, align 8
-  %generator = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %4 = load ptr, ptr %generator, align 8
-  %cmp10.not = icmp eq ptr %4, null
-  %generator26 = getelementptr inbounds nuw i8, ptr %dest, i64 8
-  %5 = load ptr, ptr %generator26, align 8
-  %tobool.not.i28 = icmp eq ptr %5, null
-  br i1 %cmp10.not, label %if.else, label %if.then11
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %15, ptr %16, align 8, !tbaa !36
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  %.not27 = icmp eq ptr %18, null
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  %.not.i33 = icmp eq ptr %20, null
+  br i1 %.not27, label %37, label %21
 
-if.then11:                                        ; preds = %if.end8
-  br i1 %tobool.not.i28, label %if.end.i, label %if.end20
+21:                                               ; preds = %13
+  br i1 %.not.i33, label %22, label %29
 
-if.end.i:                                         ; preds = %if.then11
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
-  %cmp1.i = icmp eq ptr %call.i, null
-  br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
+22:                                               ; preds = %21
+  %23 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
 
-if.then2.i:                                       ; preds = %if.end.i
+25:                                               ; preds = %22
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
   br label %EC_POINT_new.exit.thread
 
-if.end3.i:                                        ; preds = %if.end.i
-  store ptr %0, ptr %call.i, align 8
-  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #11
-  %tobool.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool.not.i, label %if.then6.i, label %EC_POINT_new.exit
+26:                                               ; preds = %22
+  store ptr %3, ptr %23, align 8, !tbaa !23
+  %27 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %23) #11
+  %.not.i = icmp eq i32 %27, 0
+  br i1 %.not.i, label %28, label %EC_POINT_new.exit
 
-if.then6.i:                                       ; preds = %if.end3.i
-  tail call void @free(ptr noundef nonnull %call.i) #11
+28:                                               ; preds = %26
+  tail call void @free(ptr noundef nonnull %23) #11
   br label %EC_POINT_new.exit.thread
 
-EC_POINT_new.exit.thread:                         ; preds = %if.then2.i, %if.then6.i
-  store ptr null, ptr %generator26, align 8
-  br label %return
+EC_POINT_new.exit.thread:                         ; preds = %25, %28
+  store ptr null, ptr %19, align 8, !tbaa !21
+  br label %54
 
-EC_POINT_new.exit:                                ; preds = %if.end3.i
-  store ptr %call.i, ptr %generator26, align 8
-  %.pre = load ptr, ptr %generator, align 8
-  br label %if.end20
+EC_POINT_new.exit:                                ; preds = %26
+  store ptr %23, ptr %19, align 8, !tbaa !21
+  %.pre = load ptr, ptr %17, align 8, !tbaa !21
+  br label %29
 
-if.end20:                                         ; preds = %EC_POINT_new.exit, %if.then11
-  %6 = phi ptr [ %.pre, %EC_POINT_new.exit ], [ %4, %if.then11 ]
-  %7 = phi ptr [ %call.i, %EC_POINT_new.exit ], [ %5, %if.then11 ]
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %6, align 8
-  %cmp.not.i = icmp eq ptr %8, %9
-  br i1 %cmp.not.i, label %if.end.i26, label %EC_POINT_copy.exit.thread
+29:                                               ; preds = %EC_POINT_new.exit, %21
+  %30 = phi ptr [ %.pre, %EC_POINT_new.exit ], [ %18, %21 ]
+  %31 = phi ptr [ %23, %EC_POINT_new.exit ], [ %20, %21 ]
+  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  %33 = load ptr, ptr %30, align 8, !tbaa !23
+  %.not.i31 = icmp eq ptr %32, %33
+  br i1 %.not.i31, label %34, label %EC_POINT_copy.exit.thread
 
-EC_POINT_copy.exit.thread:                        ; preds = %if.end20
+EC_POINT_copy.exit.thread:                        ; preds = %29
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #11
-  br label %return
+  br label %54
 
-if.end.i26:                                       ; preds = %if.end20
-  %cmp2.i = icmp eq ptr %7, %6
-  br i1 %cmp2.i, label %if.end28, label %EC_POINT_copy.exit
+34:                                               ; preds = %29
+  %35 = icmp eq ptr %31, %30
+  br i1 %35, label %EC_POINT_copy.exit.thread37, label %EC_POINT_copy.exit
 
-EC_POINT_copy.exit:                               ; preds = %if.end.i26
-  %call.i27 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %7, ptr noundef nonnull %6) #11
-  %tobool.not = icmp eq i32 %call.i27, 0
-  br i1 %tobool.not, label %return, label %if.end28
+EC_POINT_copy.exit:                               ; preds = %34
+  %36 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %31, ptr noundef nonnull %30) #11
+  %.not28 = icmp eq i32 %36, 0
+  br i1 %.not28, label %54, label %EC_POINT_copy.exit.thread37
 
-if.else:                                          ; preds = %if.end8
-  br i1 %tobool.not.i28, label %EC_POINT_clear_free.exit, label %if.end.i29
+37:                                               ; preds = %13
+  br i1 %.not.i33, label %EC_POINT_clear_free.exit, label %38
 
-if.end.i29:                                       ; preds = %if.else
-  tail call void @ec_GFp_simple_point_clear_finish(ptr noundef nonnull %5) #11
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 80) #11
-  tail call void @free(ptr noundef nonnull %5) #11
+38:                                               ; preds = %37
+  tail call void @ec_GFp_simple_point_clear_finish(ptr noundef nonnull %20) #11
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %20, i64 noundef 80) #11
+  tail call void @free(ptr noundef nonnull %20) #11
   br label %EC_POINT_clear_free.exit
 
-EC_POINT_clear_free.exit:                         ; preds = %if.else, %if.end.i29
-  store ptr null, ptr %generator26, align 8
-  br label %if.end28
+EC_POINT_clear_free.exit:                         ; preds = %37, %38
+  store ptr null, ptr %19, align 8, !tbaa !21
+  br label %EC_POINT_copy.exit.thread37
 
-if.end28:                                         ; preds = %if.end.i26, %EC_POINT_copy.exit, %EC_POINT_clear_free.exit
-  %order = getelementptr inbounds nuw i8, ptr %dest, i64 16
-  %order29 = getelementptr inbounds nuw i8, ptr %src, i64 16
-  %call30 = tail call ptr @BN_copy(ptr noundef nonnull %order, ptr noundef nonnull %order29) #11
-  %tobool31.not = icmp eq ptr %call30, null
-  br i1 %tobool31.not, label %return, label %lor.lhs.false
+EC_POINT_copy.exit.thread37:                      ; preds = %34, %EC_POINT_copy.exit, %EC_POINT_clear_free.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = tail call ptr @BN_copy(ptr noundef nonnull %39, ptr noundef nonnull %40) #11
+  %.not29 = icmp eq ptr %41, null
+  br i1 %.not29, label %54, label %42
 
-lor.lhs.false:                                    ; preds = %if.end28
-  %cofactor = getelementptr inbounds nuw i8, ptr %dest, i64 40
-  %cofactor32 = getelementptr inbounds nuw i8, ptr %src, i64 40
-  %call33 = tail call ptr @BN_copy(ptr noundef nonnull %cofactor, ptr noundef nonnull %cofactor32) #11
-  %tobool34.not = icmp eq ptr %call33, null
-  br i1 %tobool34.not, label %return, label %if.end36
+42:                                               ; preds = %EC_POINT_copy.exit.thread37
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %45 = tail call ptr @BN_copy(ptr noundef nonnull %43, ptr noundef nonnull %44) #11
+  %.not30 = icmp eq ptr %45, null
+  br i1 %.not30, label %54, label %46
 
-if.end36:                                         ; preds = %lor.lhs.false
-  %curve_name = getelementptr inbounds nuw i8, ptr %src, i64 64
-  %10 = load i32, ptr %curve_name, align 8
-  %curve_name37 = getelementptr inbounds nuw i8, ptr %dest, i64 64
-  store i32 %10, ptr %curve_name37, align 8
-  %11 = load ptr, ptr %dest, align 8
-  %group_copy39 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %12 = load ptr, ptr %group_copy39, align 8
-  %call40 = tail call i32 %12(ptr noundef nonnull %dest, ptr noundef nonnull %src) #11
-  br label %return
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %48 = load i32, ptr %47, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %48, ptr %49, align 8, !tbaa !22
+  %50 = load ptr, ptr %0, align 8, !tbaa !11
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !37
+  %53 = tail call i32 %52(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
+  br label %54
 
-return:                                           ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_new.exit.thread, %if.end28, %lor.lhs.false, %EC_POINT_copy.exit, %if.end5, %if.end36, %if.then4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ %call40, %if.end36 ], [ 1, %if.end5 ], [ 0, %EC_POINT_copy.exit ], [ 0, %lor.lhs.false ], [ 0, %if.end28 ], [ 0, %EC_POINT_new.exit.thread ], [ 0, %EC_POINT_copy.exit.thread ]
-  ret i32 %retval.0
+54:                                               ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_new.exit.thread, %EC_POINT_copy.exit.thread37, %42, %EC_POINT_copy.exit, %11, %46, %10, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ %53, %46 ], [ 1, %11 ], [ 0, %EC_POINT_copy.exit ], [ 0, %42 ], [ 0, %EC_POINT_copy.exit.thread37 ], [ 0, %EC_POINT_new.exit.thread ], [ 0, %EC_POINT_copy.exit.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @EC_POINT_clear_free(ptr noundef %point) local_unnamed_addr #1 {
-entry:
-  %tobool.not = icmp eq ptr %point, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden void @EC_POINT_clear_free(ptr noundef %0) local_unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %3, label %2
 
-if.end:                                           ; preds = %entry
-  tail call void @ec_GFp_simple_point_clear_finish(ptr noundef nonnull %point) #11
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %point, i64 noundef 80) #11
-  tail call void @free(ptr noundef nonnull %point) #11
-  br label %return
+2:                                                ; preds = %1
+  tail call void @ec_GFp_simple_point_clear_finish(ptr noundef nonnull %0) #11
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef 80) #11
+  tail call void @free(ptr noundef nonnull %0) #11
+  br label %3
 
-return:                                           ; preds = %entry, %if.end
+3:                                                ; preds = %1, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ec_group_get_mont_data(ptr noundef readonly captures(none) %group) local_unnamed_addr #4 {
-entry:
-  %mont_data = getelementptr inbounds nuw i8, ptr %group, i64 72
-  %0 = load ptr, ptr %mont_data, align 8
-  ret ptr %0
+define hidden ptr @ec_group_get_mont_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @EC_GROUP_dup(ptr noundef %a) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %a, null
-  br i1 %cmp, label %return, label %if.end
+define hidden noundef ptr @EC_GROUP_dup(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %20, label %3
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %a, align 8
-  %call = tail call ptr @ec_group_new(ptr noundef %0)
-  %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %return, label %if.end3
+3:                                                ; preds = %1
+  %4 = load ptr, ptr %0, align 8, !tbaa !11
+  %5 = tail call ptr @ec_group_new(ptr noundef %4)
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %20, label %7
 
-if.end3:                                          ; preds = %if.end
-  %call4 = tail call i32 @ec_group_copy(ptr noundef nonnull %call, ptr noundef nonnull %a)
-  %tobool.not = icmp eq i32 %call4, 0
-  br i1 %tobool.not, label %if.end.i, label %return
+7:                                                ; preds = %3
+  %8 = tail call i32 @ec_group_copy(ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %9, label %20
 
-if.end.i:                                         ; preds = %if.end3
-  %1 = load ptr, ptr %call, align 8
-  %group_finish.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load ptr, ptr %group_finish.i, align 8
-  %cmp.not.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i, label %if.end4.i, label %if.then1.i
+9:                                                ; preds = %7
+  %10 = load ptr, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  %.not9.i = icmp eq ptr %12, null
+  br i1 %.not9.i, label %14, label %13
 
-if.then1.i:                                       ; preds = %if.end.i
-  tail call void %2(ptr noundef nonnull %call) #11
-  br label %if.end4.i
+13:                                               ; preds = %9
+  tail call void %12(ptr noundef nonnull %5) #11
+  br label %14
 
-if.end4.i:                                        ; preds = %if.then1.i, %if.end.i
-  %generator.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %3 = load ptr, ptr %generator.i, align 8
-  %tobool.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i, label %EC_GROUP_free.exit, label %if.end.i.i
+14:                                               ; preds = %13, %9
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  %.not.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i, label %EC_GROUP_free.exit, label %17
 
-if.end.i.i:                                       ; preds = %if.end4.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %3) #11
-  tail call void @free(ptr noundef nonnull %3) #11
+17:                                               ; preds = %14
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %16) #11
+  tail call void @free(ptr noundef nonnull %16) #11
   br label %EC_GROUP_free.exit
 
-EC_GROUP_free.exit:                               ; preds = %if.end4.i, %if.end.i.i
-  %order.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order.i) #11
-  %cofactor.i = getelementptr inbounds nuw i8, ptr %call, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #11
-  tail call void @free(ptr noundef nonnull %call) #11
-  br label %return
+EC_GROUP_free.exit:                               ; preds = %14, %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  tail call void @BN_free(ptr noundef nonnull %18) #11
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  tail call void @BN_free(ptr noundef nonnull %19) #11
+  tail call void @free(ptr noundef nonnull %5) #11
+  br label %20
 
-return:                                           ; preds = %if.end3, %if.end, %entry, %EC_GROUP_free.exit
-  %retval.0 = phi ptr [ null, %EC_GROUP_free.exit ], [ null, %entry ], [ null, %if.end ], [ %call, %if.end3 ]
-  ret ptr %retval.0
+20:                                               ; preds = %7, %3, %1, %EC_GROUP_free.exit
+  %.08 = phi ptr [ null, %EC_GROUP_free.exit ], [ null, %1 ], [ null, %3 ], [ %5, %7 ]
+  ret ptr %.08
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @EC_GROUP_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readnone captures(none) %ignored) local_unnamed_addr #4 {
-entry:
-  %curve_name = getelementptr inbounds nuw i8, ptr %a, i64 64
-  %0 = load i32, ptr %curve_name, align 8
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %lor.end, label %lor.lhs.false
+define hidden range(i32 0, 2) i32 @EC_GROUP_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = load i32, ptr %4, align 8, !tbaa !22
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %14, label %7
 
-lor.lhs.false:                                    ; preds = %entry
-  %curve_name1 = getelementptr inbounds nuw i8, ptr %b, i64 64
-  %1 = load i32, ptr %curve_name1, align 8
-  %cmp2 = icmp eq i32 %1, 0
-  br i1 %cmp2, label %lor.end, label %lor.rhs
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %9 = load i32, ptr %8, align 8, !tbaa !22
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %14, label %11
 
-lor.rhs:                                          ; preds = %lor.lhs.false
-  %cmp5 = icmp ne i32 %0, %1
-  %2 = zext i1 %cmp5 to i32
-  br label %lor.end
+11:                                               ; preds = %7
+  %12 = icmp ne i32 %5, %9
+  %13 = zext i1 %12 to i32
+  br label %14
 
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %entry
-  %lor.ext = phi i32 [ 1, %lor.lhs.false ], [ 1, %entry ], [ %2, %lor.rhs ]
-  ret i32 %lor.ext
+14:                                               ; preds = %11, %7, %3
+  %15 = phi i32 [ 1, %7 ], [ 1, %3 ], [ %13, %11 ]
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @EC_GROUP_get0_generator(ptr noundef readonly captures(none) %group) local_unnamed_addr #4 {
-entry:
-  %generator = getelementptr inbounds nuw i8, ptr %group, i64 8
-  %0 = load ptr, ptr %generator, align 8
-  ret ptr %0
+define hidden ptr @EC_GROUP_get0_generator(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @EC_GROUP_get0_order(ptr noundef readnone captures(ret: address, provenance) %group) local_unnamed_addr #5 {
-entry:
-  %order = getelementptr inbounds nuw i8, ptr %group, i64 16
-  ret ptr %order
+define hidden nonnull ptr @EC_GROUP_get0_order(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_GROUP_get_order(ptr noundef %group, ptr noundef %order, ptr noundef readnone captures(none) %ctx) local_unnamed_addr #1 {
-entry:
-  %order.i = getelementptr inbounds nuw i8, ptr %group, i64 16
-  %call1 = tail call ptr @BN_copy(ptr noundef %order, ptr noundef nonnull %order.i) #11
-  %cmp = icmp ne ptr %call1, null
-  %. = zext i1 %cmp to i32
+define hidden range(i32 0, 2) i32 @EC_GROUP_get_order(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = tail call ptr @BN_copy(ptr noundef %1, ptr noundef nonnull %4) #11
+  %6 = icmp ne ptr %5, null
+  %. = zext i1 %6 to i32
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr noundef %group, ptr noundef %cofactor, ptr noundef readnone captures(none) %ctx) local_unnamed_addr #1 {
-entry:
-  %cofactor1 = getelementptr inbounds nuw i8, ptr %group, i64 40
-  %call = tail call ptr @BN_copy(ptr noundef %cofactor, ptr noundef nonnull %cofactor1) #11
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = tail call ptr @BN_copy(ptr noundef %1, ptr noundef nonnull %4) #11
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %9, label %6
 
-if.end:                                           ; preds = %entry
-  %call3 = tail call i32 @BN_is_zero(ptr noundef nonnull %cofactor1) #11
-  %tobool4.not = icmp eq i32 %call3, 0
-  %lnot.ext = zext i1 %tobool4.not to i32
-  br label %return
+6:                                                ; preds = %3
+  %7 = tail call i32 @BN_is_zero(ptr noundef nonnull %4) #11
+  %.not3 = icmp eq i32 %7, 0
+  %8 = zext i1 %.not3 to i32
+  br label %9
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ %lnot.ext, %if.end ], [ 0, %entry ]
-  ret i32 %retval.0
+9:                                                ; preds = %3, %6
+  %.0 = phi i32 [ %8, %6 ], [ 0, %3 ]
+  ret i32 %.0
 }
 
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_GROUP_get_curve_GFp(ptr noundef %group, ptr noundef %out_p, ptr noundef %out_a, ptr noundef %out_b, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @ec_GFp_simple_group_get_curve(ptr noundef %group, ptr noundef %out_p, ptr noundef %out_a, ptr noundef %out_b, ptr noundef %ctx) #11
-  ret i32 %call
+define hidden i32 @EC_GROUP_get_curve_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+  %6 = tail call i32 @ec_GFp_simple_group_get_curve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
+  ret i32 %6
 }
 
 declare i32 @ec_GFp_simple_group_get_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EC_GROUP_get_curve_name(ptr noundef readonly captures(none) %group) local_unnamed_addr #4 {
-entry:
-  %curve_name = getelementptr inbounds nuw i8, ptr %group, i64 64
-  %0 = load i32, ptr %curve_name, align 8
-  ret i32 %0
+define hidden i32 @EC_GROUP_get_curve_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load i32, ptr %2, align 8, !tbaa !22
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_GROUP_get_degree(ptr noundef %group) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @ec_GFp_simple_group_get_degree(ptr noundef %group) #11
-  ret i32 %call
+define hidden i32 @EC_GROUP_get_degree(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = tail call i32 @ec_GFp_simple_group_get_degree(ptr noundef %0) #11
+  ret i32 %2
 }
 
 declare i32 @ec_GFp_simple_group_get_degree(ptr noundef) local_unnamed_addr #0
@@ -1056,443 +1034,426 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare i32 @ec_GFp_simple_point_copy(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @EC_POINT_dup(ptr noundef %a, ptr noundef readonly captures(address_is_null) %group) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %a, null
-  br i1 %cmp, label %return, label %if.end
+define hidden noundef ptr @EC_POINT_dup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %EC_POINT_copy.exit.thread16, label %4
 
-if.end:                                           ; preds = %entry
-  %cmp.i = icmp eq ptr %group, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+4:                                                ; preds = %2
+  %5 = icmp eq ptr %1, null
+  br i1 %5, label %6, label %7
 
-if.then.i:                                        ; preds = %if.end
+6:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 680) #11
-  br label %if.then2
+  br label %15
 
-if.end.i:                                         ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
-  %cmp1.i = icmp eq ptr %call.i, null
-  br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
+7:                                                ; preds = %4
+  %8 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
-if.then2.i:                                       ; preds = %if.end.i
+10:                                               ; preds = %7
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
-  br label %if.then2
+  br label %15
 
-if.end3.i:                                        ; preds = %if.end.i
-  %0 = load ptr, ptr %group, align 8
-  store ptr %0, ptr %call.i, align 8
-  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #11
-  %tobool.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool.not.i, label %if.then6.i, label %if.end3
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %1, align 8, !tbaa !11
+  store ptr %12, ptr %8, align 8, !tbaa !23
+  %13 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %8) #11
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %14, label %EC_POINT_new.exit
 
-if.then6.i:                                       ; preds = %if.end3.i
-  tail call void @free(ptr noundef nonnull %call.i) #11
-  br label %if.then2
+14:                                               ; preds = %11
+  tail call void @free(ptr noundef nonnull %8) #11
+  br label %15
 
-if.then2:                                         ; preds = %if.then.i, %if.then2.i, %if.then6.i
+15:                                               ; preds = %6, %10, %14
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 742) #11
-  br label %return
+  br label %EC_POINT_copy.exit.thread16
 
-if.end3:                                          ; preds = %if.end3.i
-  %1 = load ptr, ptr %call.i, align 8
-  %2 = load ptr, ptr %a, align 8
-  %cmp.not.i = icmp eq ptr %1, %2
-  br i1 %cmp.not.i, label %if.end.i7, label %EC_POINT_copy.exit.thread
+EC_POINT_new.exit:                                ; preds = %11
+  %16 = load ptr, ptr %8, align 8, !tbaa !23
+  %17 = load ptr, ptr %0, align 8, !tbaa !23
+  %.not.i10 = icmp eq ptr %16, %17
+  br i1 %.not.i10, label %18, label %EC_POINT_copy.exit.thread
 
-EC_POINT_copy.exit.thread:                        ; preds = %if.end3
+EC_POINT_copy.exit.thread:                        ; preds = %EC_POINT_new.exit
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #11
   br label %EC_POINT_free.exit
 
-if.end.i7:                                        ; preds = %if.end3
-  %cmp2.i = icmp eq ptr %call.i, %a
-  br i1 %cmp2.i, label %return, label %EC_POINT_copy.exit
+18:                                               ; preds = %EC_POINT_new.exit
+  %19 = icmp eq ptr %8, %0
+  br i1 %19, label %EC_POINT_copy.exit.thread16, label %EC_POINT_copy.exit
 
-EC_POINT_copy.exit:                               ; preds = %if.end.i7
-  %call.i8 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %a) #11
-  %tobool.not = icmp eq i32 %call.i8, 0
-  br i1 %tobool.not, label %EC_POINT_free.exit, label %return
+EC_POINT_copy.exit:                               ; preds = %18
+  %20 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %8, ptr noundef nonnull %0) #11
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %EC_POINT_free.exit, label %EC_POINT_copy.exit.thread16
 
 EC_POINT_free.exit:                               ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_copy.exit
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #11
-  tail call void @free(ptr noundef nonnull %call.i) #11
-  br label %return
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %8) #11
+  tail call void @free(ptr noundef nonnull %8) #11
+  br label %EC_POINT_copy.exit.thread16
 
-return:                                           ; preds = %if.end.i7, %EC_POINT_copy.exit, %entry, %EC_POINT_free.exit, %if.then2
-  %retval.0 = phi ptr [ null, %if.then2 ], [ null, %EC_POINT_free.exit ], [ null, %entry ], [ %call.i, %EC_POINT_copy.exit ], [ %call.i, %if.end.i7 ]
-  ret ptr %retval.0
+EC_POINT_copy.exit.thread16:                      ; preds = %18, %EC_POINT_copy.exit, %2, %EC_POINT_free.exit, %15
+  %.0 = phi ptr [ null, %15 ], [ null, %EC_POINT_free.exit ], [ null, %2 ], [ %8, %EC_POINT_copy.exit ], [ %8, %18 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_set_to_infinity(ptr noundef %group, ptr noundef %point) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden i32 @EC_POINT_set_to_infinity(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !11
+  %4 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %3, %4
+  br i1 %.not, label %6, label %5
 
-if.then:                                          ; preds = %entry
+5:                                                ; preds = %2
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 756) #11
-  br label %return
+  br label %8
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_point_set_to_infinity(ptr noundef nonnull %group, ptr noundef nonnull %point) #11
-  br label %return
+6:                                                ; preds = %2
+  %7 = tail call i32 @ec_GFp_simple_point_set_to_infinity(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
+  br label %8
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+8:                                                ; preds = %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %7, %6 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_point_set_to_infinity(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %point) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !11
+  %4 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %3, %4
+  br i1 %.not, label %6, label %5
 
-if.then:                                          ; preds = %entry
+5:                                                ; preds = %2
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 764) #11
-  br label %return
+  br label %8
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_is_at_infinity(ptr noundef nonnull %group, ptr noundef nonnull %point) #11
-  br label %return
+6:                                                ; preds = %2
+  %7 = tail call i32 @ec_GFp_simple_is_at_infinity(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
+  br label %8
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+8:                                                ; preds = %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ %7, %6 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_is_at_infinity(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_is_on_curve(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden i32 @EC_POINT_is_on_curve(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load ptr, ptr %0, align 8, !tbaa !11
+  %5 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %4, %5
+  br i1 %.not, label %7, label %6
 
-if.then:                                          ; preds = %entry
+6:                                                ; preds = %3
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 773) #11
-  br label %return
+  br label %9
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_is_on_curve(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #11
-  br label %return
+7:                                                ; preds = %3
+  %8 = tail call i32 @ec_GFp_simple_is_on_curve(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #11
+  br label %9
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+9:                                                ; preds = %7, %6
+  %.0 = phi i32 [ 0, %6 ], [ %8, %7 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_is_on_curve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_cmp(ptr noundef %group, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %a, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %lor.lhs.false, label %if.then
+define hidden i32 @EC_POINT_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+  %5 = load ptr, ptr %0, align 8, !tbaa !11
+  %6 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %7, label %9
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %b, align 8
-  %cmp4.not = icmp eq ptr %0, %2
-  br i1 %cmp4.not, label %if.end, label %if.then
+7:                                                ; preds = %4
+  %8 = load ptr, ptr %2, align 8, !tbaa !23
+  %.not9 = icmp eq ptr %5, %8
+  br i1 %.not9, label %10, label %9
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
+9:                                                ; preds = %7, %4
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 782) #11
-  br label %return
+  br label %12
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @ec_GFp_simple_cmp(ptr noundef nonnull %group, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef %ctx) #11
-  br label %return
+10:                                               ; preds = %7
+  %11 = tail call i32 @ec_GFp_simple_cmp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) #11
+  br label %12
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+12:                                               ; preds = %10, %9
+  %.0 = phi i32 [ -1, %9 ], [ %11, %10 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_make_affine(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden i32 @EC_POINT_make_affine(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load ptr, ptr %0, align 8, !tbaa !11
+  %5 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %4, %5
+  br i1 %.not, label %7, label %6
 
-if.then:                                          ; preds = %entry
+6:                                                ; preds = %3
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 790) #11
-  br label %return
+  br label %9
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_make_affine(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #11
-  br label %return
+7:                                                ; preds = %3
+  %8 = tail call i32 @ec_GFp_simple_make_affine(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #11
+  br label %9
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+9:                                                ; preds = %7, %6
+  %.0 = phi i32 [ 0, %6 ], [ %8, %7 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_make_affine(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINTs_make_affine(ptr noundef %group, i64 noundef %num, ptr noundef %points, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %cmp6.not = icmp eq i64 %num, 0
-  br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
+define hidden i32 @EC_POINTs_make_affine(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+  %.not13 = icmp eq i64 %1, 0
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
-  %0 = load ptr, ptr %group, align 8
-  br label %for.body
+.lr.ph:                                           ; preds = %4
+  %5 = load ptr, ptr %0, align 8, !tbaa !11
+  br label %8
 
-for.cond:                                         ; preds = %for.body
-  %inc = add nuw i64 %i.07, 1
-  %exitcond.not = icmp eq i64 %inc, %num
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+6:                                                ; preds = %8
+  %7 = add nuw i64 %.012, 1
+  %exitcond.not = icmp eq i64 %7, %1
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !38
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %i.07 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds ptr, ptr %points, i64 %i.07
-  %1 = load ptr, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %1, align 8
-  %cmp2.not = icmp eq ptr %0, %2
-  br i1 %cmp2.not, label %for.cond, label %if.then
+8:                                                ; preds = %.lr.ph, %6
+  %.012 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.012
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %.not = icmp eq ptr %5, %11
+  br i1 %.not, label %6, label %12
 
-if.then:                                          ; preds = %for.body
+12:                                               ; preds = %8
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 802) #11
-  br label %return
+  br label %14
 
-for.end:                                          ; preds = %for.cond, %entry
-  %call = tail call i32 @ec_GFp_simple_points_make_affine(ptr noundef %group, i64 noundef %num, ptr noundef %points, ptr noundef %ctx) #11
-  br label %return
+._crit_edge:                                      ; preds = %6, %4
+  %13 = tail call i32 @ec_GFp_simple_points_make_affine(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #11
+  br label %14
 
-return:                                           ; preds = %for.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %for.end ]
-  ret i32 %retval.0
+14:                                               ; preds = %._crit_edge, %12
+  %.010 = phi i32 [ 0, %12 ], [ %13, %._crit_edge ]
+  ret i32 %.010
 }
 
 declare i32 @ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %point_get_affine_coordinates = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load ptr, ptr %point_get_affine_coordinates, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+  %6 = load ptr, ptr %0, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
+10:                                               ; preds = %5
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 813) #11
-  br label %return
+  br label %16
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %point, align 8
-  %cmp3.not = icmp eq ptr %0, %2
-  br i1 %cmp3.not, label %if.end5, label %if.then4
+11:                                               ; preds = %5
+  %12 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %6, %12
+  br i1 %.not, label %14, label %13
 
-if.then4:                                         ; preds = %if.end
+13:                                               ; preds = %11
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 817) #11
-  br label %return
+  br label %16
 
-if.end5:                                          ; preds = %if.end
-  %call = tail call i32 %1(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #11
-  br label %return
+14:                                               ; preds = %11
+  %15 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
+  br label %16
 
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ %call, %if.end5 ]
-  ret i32 %retval.0
+16:                                               ; preds = %14, %13, %10
+  %.0 = phi i32 [ 0, %10 ], [ 0, %13 ], [ %15, %14 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_point_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_add(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %r, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %lor.lhs.false, label %if.then
+define hidden i32 @EC_POINT_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+  %6 = load ptr, ptr %0, align 8, !tbaa !11
+  %7 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %8, label %12
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %a, align 8
-  %cmp4.not = icmp eq ptr %0, %2
-  br i1 %cmp4.not, label %lor.lhs.false5, label %if.then
+8:                                                ; preds = %5
+  %9 = load ptr, ptr %2, align 8, !tbaa !23
+  %.not13 = icmp eq ptr %6, %9
+  br i1 %.not13, label %10, label %12
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %b, align 8
-  %cmp8.not = icmp eq ptr %0, %3
-  br i1 %cmp8.not, label %if.end, label %if.then
+10:                                               ; preds = %8
+  %11 = load ptr, ptr %3, align 8, !tbaa !23
+  %.not14 = icmp eq ptr %6, %11
+  br i1 %.not14, label %13, label %12
 
-if.then:                                          ; preds = %lor.lhs.false5, %lor.lhs.false, %entry
+12:                                               ; preds = %10, %8, %5
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 846) #11
-  br label %return
+  br label %15
 
-if.end:                                           ; preds = %lor.lhs.false5
-  %call = tail call i32 @ec_GFp_simple_add(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef %ctx) #11
-  br label %return
+13:                                               ; preds = %10
+  %14 = tail call i32 @ec_GFp_simple_add(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #11
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+15:                                               ; preds = %13, %12
+  %.0 = phi i32 [ 0, %12 ], [ %14, %13 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_dbl(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %r, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %lor.lhs.false, label %if.then
+define hidden i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+  %5 = load ptr, ptr %0, align 8, !tbaa !11
+  %6 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %7, label %9
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %a, align 8
-  %cmp4.not = icmp eq ptr %0, %2
-  br i1 %cmp4.not, label %if.end, label %if.then
+7:                                                ; preds = %4
+  %8 = load ptr, ptr %2, align 8, !tbaa !23
+  %.not9 = icmp eq ptr %5, %8
+  br i1 %.not9, label %10, label %9
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
+9:                                                ; preds = %7, %4
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 856) #11
-  br label %return
+  br label %12
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @ec_GFp_simple_dbl(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef nonnull %a, ptr noundef %ctx) #11
-  br label %return
+10:                                               ; preds = %7
+  %11 = tail call i32 @ec_GFp_simple_dbl(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) #11
+  br label %12
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+12:                                               ; preds = %10, %9
+  %.0 = phi i32 [ 0, %9 ], [ %11, %10 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_dbl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_invert(ptr noundef %group, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %a, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden i32 @EC_POINT_invert(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load ptr, ptr %0, align 8, !tbaa !11
+  %5 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %4, %5
+  br i1 %.not, label %7, label %6
 
-if.then:                                          ; preds = %entry
+6:                                                ; preds = %3
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 865) #11
-  br label %return
+  br label %9
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_invert(ptr noundef nonnull %group, ptr noundef nonnull %a, ptr noundef %ctx) #11
-  br label %return
+7:                                                ; preds = %3
+  %8 = tail call i32 @ec_GFp_simple_invert(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #11
+  br label %9
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+9:                                                ; preds = %7, %6
+  %.0 = phi i32 [ 0, %6 ], [ %8, %7 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_invert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_POINT_mul(ptr noundef %group, ptr noundef %r, ptr noundef %g_scalar, ptr noundef %p, ptr noundef %p_scalar, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %g_scalar, null
-  %cmp1 = icmp eq ptr %p_scalar, null
-  %or.cond = and i1 %cmp, %cmp1
-  %0 = icmp eq ptr %p, null
-  %cmp5.not.not = xor i1 %0, %cmp1
-  %or.cond11.not = or i1 %cmp5.not.not, %or.cond
-  br i1 %or.cond11.not, label %if.then, label %if.end
+define hidden i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+  %7 = icmp eq ptr %2, null
+  %8 = icmp eq ptr %4, null
+  %or.cond = and i1 %7, %8
+  %9 = icmp eq ptr %3, null
+  %.not.not = xor i1 %9, %8
+  %or.cond22.not = or i1 %.not.not, %or.cond
+  br i1 %or.cond22.not, label %10, label %11
 
-if.then:                                          ; preds = %entry
+10:                                               ; preds = %6
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 878) #11
-  br label %return
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %group, align 8
-  %2 = load ptr, ptr %r, align 8
-  %cmp8.not = icmp eq ptr %1, %2
-  br i1 %cmp8.not, label %lor.lhs.false10, label %if.then18
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %0, align 8, !tbaa !11
+  %13 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not19 = icmp eq ptr %12, %13
+  br i1 %.not19, label %14, label %17
 
-lor.lhs.false10:                                  ; preds = %if.end
-  br i1 %0, label %if.end19, label %land.lhs.true13
+14:                                               ; preds = %11
+  br i1 %9, label %18, label %15
 
-land.lhs.true13:                                  ; preds = %lor.lhs.false10
-  %3 = load ptr, ptr %p, align 8
-  %cmp16.not = icmp eq ptr %1, %3
-  br i1 %cmp16.not, label %if.end19, label %if.then18
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %3, align 8, !tbaa !23
+  %.not21 = icmp eq ptr %12, %16
+  br i1 %.not21, label %18, label %17
 
-if.then18:                                        ; preds = %land.lhs.true13, %if.end
+17:                                               ; preds = %15, %11
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 884) #11
-  br label %return
+  br label %22
 
-if.end19:                                         ; preds = %land.lhs.true13, %lor.lhs.false10
-  %mul = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %mul, align 8
-  %call = tail call i32 %4(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef %g_scalar, ptr noundef %p, ptr noundef %p_scalar, ptr noundef %ctx) #11
-  br label %return
+18:                                               ; preds = %15, %14
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  %21 = tail call i32 %20(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #11
+  br label %22
 
-return:                                           ; preds = %if.end19, %if.then18, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then18 ], [ %call, %if.end19 ]
-  ret i32 %retval.0
+22:                                               ; preds = %18, %17, %10
+  %.0 = phi i32 [ 0, %10 ], [ 0, %17 ], [ %21, %18 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_point_set_Jprojective_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden i32 @ec_point_set_Jprojective_coordinates_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+  %7 = load ptr, ptr %0, align 8, !tbaa !11
+  %8 = load ptr, ptr %1, align 8, !tbaa !23
+  %.not = icmp eq ptr %7, %8
+  br i1 %.not, label %10, label %9
 
-if.then:                                          ; preds = %entry
+9:                                                ; preds = %6
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 895) #11
-  br label %return
+  br label %12
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) #11
-  br label %return
+10:                                               ; preds = %6
+  %11 = tail call i32 @ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #11
+  br label %12
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+12:                                               ; preds = %10, %9
+  %.0 = phi i32 [ 0, %9 ], [ %11, %10 ]
+  ret i32 %.0
 }
 
 declare i32 @ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @EC_GROUP_set_asn1_flag(ptr noundef readnone captures(none) %group, i32 noundef %flag) local_unnamed_addr #5 {
-entry:
+define hidden void @EC_GROUP_set_asn1_flag(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noalias noundef ptr @EC_GROUP_method_of(ptr noundef readnone captures(none) %group) local_unnamed_addr #5 {
-entry:
+define hidden noalias noundef ptr @EC_GROUP_method_of(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @EC_METHOD_get_field_type(ptr noundef readnone captures(none) %meth) local_unnamed_addr #5 {
-entry:
+define hidden noundef i32 @EC_METHOD_get_field_type(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret i32 406
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @EC_GROUP_set_point_conversion_form(ptr noundef readnone captures(none) %group, i32 noundef %form) local_unnamed_addr #6 {
-entry:
-  %cmp.not = icmp eq i32 %form, 4
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden void @EC_GROUP_set_point_conversion_form(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+  %.not = icmp eq i32 %1, 4
+  br i1 %.not, label %4, label %3
 
-if.then:                                          ; preds = %entry
+3:                                                ; preds = %2
   tail call void @abort() #13
   unreachable
 
-if.end:                                           ; preds = %entry
+4:                                                ; preds = %2
   ret void
 }
 
@@ -1500,32 +1461,32 @@ if.end:                                           ; preds = %entry
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr noundef writeonly captures(none) %out_curves, i64 noundef %max_num_curves) local_unnamed_addr #8 {
-entry:
-  %cmp211.not = icmp eq i64 %max_num_curves, 0
-  br i1 %cmp211.not, label %for.end19, label %for.body.preheader
+define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #8 {
+.preheader:
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-for.body.preheader:                               ; preds = %entry
-  %0 = add i64 %max_num_curves, -1
-  %umin = tail call i64 @llvm.umin.i64(i64 %0, i64 3)
-  br label %for.body
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %2 = add i64 %1, -1
+  %umin = tail call i64 @llvm.umin.i64(i64 %2, i64 3)
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx7 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv
-  %data = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 16
-  %1 = load ptr, ptr %data, align 16
-  %2 = load ptr, ptr %1, align 8
-  %arrayidx9 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %out_curves, i64 %indvars.iv
-  %comment10 = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 8
-  store ptr %2, ptr %comment10, align 8
-  %3 = load i32, ptr %arrayidx7, align 16
-  store i32 %3, ptr %arrayidx9, align 8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %3 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 16, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
+  %7 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %6, ptr %8, align 8, !tbaa !44
+  %9 = load i32, ptr %3, align 16, !tbaa !27
+  store i32 %9, ptr %7, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %umin
-  br i1 %exitcond.not, label %for.end19, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
-for.end19:                                        ; preds = %for.body, %entry
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   ret i64 4
 }
 
@@ -1537,66 +1498,65 @@ declare void @CRYPTO_once(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define internal void @built_in_curve_scalar_field_monts_init() #1 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
-  store ptr %call, ptr @built_in_curve_scalar_field_monts, align 8
-  %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %return, label %if.end4
+  %1 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
+  store ptr %1, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %26, label %3
 
-if.end4:                                          ; preds = %entry
-  %call5 = tail call ptr @BN_new() #11
-  %call6 = tail call ptr @BN_CTX_new() #11
-  %cmp7 = icmp eq ptr %call6, null
-  %cmp9 = icmp eq ptr %call5, null
-  %or.cond = select i1 %cmp7, i1 true, i1 %cmp9
-  br i1 %or.cond, label %err, label %for.body
+3:                                                ; preds = %0
+  %4 = tail call ptr @BN_new() #11
+  %5 = tail call ptr @BN_CTX_new() #11
+  %6 = icmp eq ptr %5, null
+  %7 = icmp eq ptr %4, null
+  %or.cond = select i1 %6, i1 true, i1 %7
+  br i1 %or.cond, label %.thread, label %.lr.ph
 
-for.body:                                         ; preds = %if.end4, %if.end33
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end33 ], [ 0, %if.end4 ]
-  %data = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv, i32 3
-  %0 = load ptr, ptr %data, align 16
-  %param_len18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load i8, ptr %param_len18, align 8
-  %call21 = tail call ptr @BN_MONT_CTX_new() #11
-  %cmp22 = icmp eq ptr %call21, null
-  br i1 %cmp22, label %err, label %if.end25
+.lr.ph:                                           ; preds = %3, %22
+  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %3 ]
+  %8 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv, i32 3
+  %9 = load ptr, ptr %8, align 16, !tbaa !30
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i8, ptr %10, align 8, !tbaa !31
+  %12 = tail call ptr @BN_MONT_CTX_new() #11
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %.thread, label %14
 
-if.end25:                                         ; preds = %for.body
-  %data20 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %conv19 = zext i8 %1 to i64
-  %mul26 = mul nuw nsw i64 %conv19, 5
-  %add.ptr = getelementptr inbounds nuw i8, ptr %data20, i64 %mul26
-  %call28 = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr, i64 noundef %conv19, ptr noundef %call5) #11
-  %tobool.not = icmp eq ptr %call28, null
-  br i1 %tobool.not, label %err, label %lor.lhs.false29
+14:                                               ; preds = %.lr.ph
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %16 = zext i8 %11 to i64
+  %17 = mul nuw nsw i64 %16, 5
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %19 = tail call ptr @BN_bin2bn(ptr noundef nonnull %18, i64 noundef %16, ptr noundef %4) #11
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %.thread, label %20
 
-lor.lhs.false29:                                  ; preds = %if.end25
-  %call30 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call21, ptr noundef %call5, ptr noundef %call6) #11
-  %tobool31.not = icmp eq i32 %call30, 0
-  br i1 %tobool31.not, label %err, label %if.end33
+20:                                               ; preds = %14
+  %21 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5) #11
+  %.not32 = icmp eq i32 %21, 0
+  br i1 %.not32, label %.thread, label %22
 
-if.end33:                                         ; preds = %lor.lhs.false29
-  %2 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8
-  %arrayidx35 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  store ptr %call21, ptr %arrayidx35, align 8
+22:                                               ; preds = %20
+  %23 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  store ptr %12, ptr %24, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %out, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
-err:                                              ; preds = %if.end25, %lor.lhs.false29, %for.body, %if.end4
-  %mont_ctx.0 = phi ptr [ null, %if.end4 ], [ %call21, %if.end25 ], [ %call21, %lor.lhs.false29 ], [ null, %for.body ]
-  tail call void @BN_MONT_CTX_free(ptr noundef %mont_ctx.0) #11
-  %3 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8
-  tail call void @free(ptr noundef %3) #11
-  store ptr null, ptr @built_in_curve_scalar_field_monts, align 8
-  br label %out
+.thread:                                          ; preds = %14, %20, %.lr.ph, %3
+  %.026 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %12, %20 ], [ %12, %14 ]
+  tail call void @BN_MONT_CTX_free(ptr noundef %.026) #11
+  %25 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  tail call void @free(ptr noundef %25) #11
+  store ptr null, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  br label %.loopexit
 
-out:                                              ; preds = %if.end33, %err
-  tail call void @BN_free(ptr noundef %call5) #11
-  tail call void @BN_CTX_free(ptr noundef %call6) #11
-  br label %return
+.loopexit:                                        ; preds = %22, %.thread
+  tail call void @BN_free(ptr noundef %4) #11
+  tail call void @BN_CTX_free(ptr noundef %5) #11
+  br label %26
 
-return:                                           ; preds = %entry, %out
+26:                                               ; preds = %0, %.loopexit
   ret void
 }
 
@@ -1614,32 +1574,69 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0) }
 attributes #13 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"ec_method_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"ec_group_st", !13, i64 0, !14, i64 8, !15, i64 16, !15, i64 40, !17, i64 64, !18, i64 72, !15, i64 80, !15, i64 104, !15, i64 128, !17, i64 152, !18, i64 160, !15, i64 168}
+!13 = !{!"p1 _ZTS12ec_method_st", !8, i64 0}
+!14 = !{!"p1 _ZTS11ec_point_st", !8, i64 0}
+!15 = !{!"bignum_st", !16, i64 0, !17, i64 8, !17, i64 12, !17, i64 16, !17, i64 20}
+!16 = !{!"p1 long", !8, i64 0}
+!17 = !{!"int", !9, i64 0}
+!18 = !{!"p1 _ZTS14bn_mont_ctx_st", !8, i64 0}
+!19 = !{!7, !8, i64 24}
+!20 = !{!7, !8, i64 8}
+!21 = !{!12, !14, i64 8}
+!22 = !{!12, !17, i64 64}
+!23 = !{!24, !13, i64 0}
+!24 = !{!"ec_point_st", !13, i64 0, !15, i64 8, !15, i64 32, !15, i64 56}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!28, !17, i64 0}
+!28 = !{!"built_in_curve", !17, i64 0, !9, i64 4, !9, i64 12, !29, i64 16, !8, i64 24}
+!29 = !{!"p1 _ZTS10curve_data", !8, i64 0}
+!30 = !{!28, !29, i64 16}
+!31 = !{!9, !9, i64 0}
+!32 = !{!28, !8, i64 24}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p2 _ZTS14bn_mont_ctx_st", !8, i64 0}
+!35 = !{!18, !18, i64 0}
+!36 = !{!12, !18, i64 72}
+!37 = !{!7, !8, i64 16}
+!38 = distinct !{!38, !26}
+!39 = !{!14, !14, i64 0}
+!40 = !{!7, !8, i64 32}
+!41 = !{!7, !8, i64 40}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 omnipotent char", !8, i64 0}
+!44 = !{!45, !43, i64 8}
+!45 = !{!"", !17, i64 0, !43, i64 8}
+!46 = !{!45, !17, i64 0}
+!47 = distinct !{!47, !26}
+!48 = distinct !{!48, !26}

@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/cast.ll'
 source_filename = "bench/libquic/original/cast.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @CAST_S_table0 = external local_unnamed_addr constant [256 x i32], align 16
 @CAST_S_table1 = external local_unnamed_addr constant [256 x i32], align 16
@@ -13,2553 +13,2571 @@ target triple = "x86_64-unknown-linux-gnu"
 @CAST_S_table7 = external local_unnamed_addr constant [256 x i32], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @CAST_ecb_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef readonly captures(none) %ks, i32 noundef %enc) local_unnamed_addr #0 {
-entry:
-  %d = alloca [2 x i32], align 4
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %in, i64 1
-  %0 = load i8, ptr %in, align 1
-  %conv = zext i8 %0 to i32
-  %shl = shl nuw i32 %conv, 24
-  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %in, i64 2
-  %1 = load i8, ptr %incdec.ptr, align 1
-  %conv3 = zext i8 %1 to i32
-  %shl4 = shl nuw nsw i32 %conv3, 16
-  %or = or disjoint i32 %shl4, %shl
-  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %in, i64 3
-  %2 = load i8, ptr %incdec.ptr2, align 1
-  %conv9 = zext i8 %2 to i32
-  %shl10 = shl nuw nsw i32 %conv9, 8
-  %or13 = or disjoint i32 %shl10, %or
-  %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %in, i64 4
-  %3 = load i8, ptr %incdec.ptr8, align 1
-  %4 = zext i8 %3 to i32
-  %5 = or disjoint i32 %or13, %4
-  store i32 %5, ptr %d, align 4
-  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %in, i64 5
-  %6 = load i8, ptr %incdec.ptr15, align 1
-  %conv22 = zext i8 %6 to i32
-  %shl23 = shl nuw i32 %conv22, 24
-  %arrayidx25 = getelementptr inbounds nuw i8, ptr %d, i64 4
-  %incdec.ptr26 = getelementptr inbounds nuw i8, ptr %in, i64 6
-  %7 = load i8, ptr %incdec.ptr21, align 1
-  %conv27 = zext i8 %7 to i32
-  %shl28 = shl nuw nsw i32 %conv27, 16
-  %or31 = or disjoint i32 %shl28, %shl23
-  %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %in, i64 7
-  %8 = load i8, ptr %incdec.ptr26, align 1
-  %conv34 = zext i8 %8 to i32
-  %shl35 = shl nuw nsw i32 %conv34, 8
-  %or38 = or disjoint i32 %shl35, %or31
-  %9 = load i8, ptr %incdec.ptr33, align 1
-  %10 = zext i8 %9 to i32
-  %11 = or disjoint i32 %or38, %10
-  store i32 %11, ptr %arrayidx25, align 4
-  %tobool.not = icmp eq i32 %enc, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define hidden void @CAST_ecb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = alloca [2 x i32], align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %7 = load i8, ptr %0, align 1, !tbaa !6
+  %8 = zext i8 %7 to i32
+  %9 = shl nuw i32 %8, 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %11 = load i8, ptr %6, align 1, !tbaa !6
+  %12 = zext i8 %11 to i32
+  %13 = shl nuw nsw i32 %12, 16
+  %14 = or disjoint i32 %13, %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %16 = load i8, ptr %10, align 1, !tbaa !6
+  %17 = zext i8 %16 to i32
+  %18 = shl nuw nsw i32 %17, 8
+  %19 = or disjoint i32 %18, %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %21 = load i8, ptr %15, align 1, !tbaa !6
+  %22 = zext i8 %21 to i32
+  %23 = or disjoint i32 %19, %22
+  store i32 %23, ptr %5, align 4, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %25 = load i8, ptr %20, align 1, !tbaa !6
+  %26 = zext i8 %25 to i32
+  %27 = shl nuw i32 %26, 24
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %30 = load i8, ptr %24, align 1, !tbaa !6
+  %31 = zext i8 %30 to i32
+  %32 = shl nuw nsw i32 %31, 16
+  %33 = or disjoint i32 %32, %27
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %35 = load i8, ptr %29, align 1, !tbaa !6
+  %36 = zext i8 %35 to i32
+  %37 = shl nuw nsw i32 %36, 8
+  %38 = or disjoint i32 %37, %33
+  %39 = load i8, ptr %34, align 1, !tbaa !6
+  %40 = zext i8 %39 to i32
+  %41 = or disjoint i32 %38, %40
+  store i32 %41, ptr %28, align 4, !tbaa !9
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %43, label %42
 
-if.then:                                          ; preds = %entry
-  call void @CAST_encrypt(ptr noundef nonnull %d, ptr noundef %ks)
-  br label %if.end
+42:                                               ; preds = %4
+  call void @CAST_encrypt(ptr noundef nonnull %5, ptr noundef %2)
+  br label %44
 
-if.else:                                          ; preds = %entry
-  call void @CAST_decrypt(ptr noundef nonnull %d, ptr noundef %ks)
-  br label %if.end
+43:                                               ; preds = %4
+  call void @CAST_decrypt(ptr noundef nonnull %5, ptr noundef %2)
+  br label %44
 
-if.end:                                           ; preds = %if.else, %if.then
-  %12 = load i32, ptr %d, align 4
-  %shr = lshr i32 %12, 24
-  %conv48 = trunc nuw i32 %shr to i8
-  %incdec.ptr49 = getelementptr inbounds nuw i8, ptr %out, i64 1
-  store i8 %conv48, ptr %out, align 1
-  %shr51 = lshr i32 %12, 16
-  %conv53 = trunc i32 %shr51 to i8
-  %incdec.ptr54 = getelementptr inbounds nuw i8, ptr %out, i64 2
-  store i8 %conv53, ptr %incdec.ptr49, align 1
-  %shr56 = lshr i32 %12, 8
-  %conv58 = trunc i32 %shr56 to i8
-  %incdec.ptr59 = getelementptr inbounds nuw i8, ptr %out, i64 3
-  store i8 %conv58, ptr %incdec.ptr54, align 1
-  %conv62 = trunc i32 %12 to i8
-  %incdec.ptr63 = getelementptr inbounds nuw i8, ptr %out, i64 4
-  store i8 %conv62, ptr %incdec.ptr59, align 1
-  %13 = load i32, ptr %arrayidx25, align 4
-  %shr65 = lshr i32 %13, 24
-  %conv67 = trunc nuw i32 %shr65 to i8
-  %incdec.ptr68 = getelementptr inbounds nuw i8, ptr %out, i64 5
-  store i8 %conv67, ptr %incdec.ptr63, align 1
-  %shr70 = lshr i32 %13, 16
-  %conv72 = trunc i32 %shr70 to i8
-  %incdec.ptr73 = getelementptr inbounds nuw i8, ptr %out, i64 6
-  store i8 %conv72, ptr %incdec.ptr68, align 1
-  %shr75 = lshr i32 %13, 8
-  %conv77 = trunc i32 %shr75 to i8
-  %incdec.ptr78 = getelementptr inbounds nuw i8, ptr %out, i64 7
-  store i8 %conv77, ptr %incdec.ptr73, align 1
-  %conv81 = trunc i32 %13 to i8
-  store i8 %conv81, ptr %incdec.ptr78, align 1
+44:                                               ; preds = %43, %42
+  %45 = load i32, ptr %5, align 4, !tbaa !9
+  %46 = lshr i32 %45, 24
+  %47 = trunc nuw i32 %46 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %47, ptr %1, align 1, !tbaa !6
+  %49 = lshr i32 %45, 16
+  %50 = trunc i32 %49 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %50, ptr %48, align 1, !tbaa !6
+  %52 = lshr i32 %45, 8
+  %53 = trunc i32 %52 to i8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %53, ptr %51, align 1, !tbaa !6
+  %55 = trunc i32 %45 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i8 %55, ptr %54, align 1, !tbaa !6
+  %57 = load i32, ptr %28, align 4, !tbaa !9
+  %58 = lshr i32 %57, 24
+  %59 = trunc nuw i32 %58 to i8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  store i8 %59, ptr %56, align 1, !tbaa !6
+  %61 = lshr i32 %57, 16
+  %62 = trunc i32 %61 to i8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  store i8 %62, ptr %60, align 1, !tbaa !6
+  %64 = lshr i32 %57, 8
+  %65 = trunc i32 %64 to i8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  store i8 %65, ptr %63, align 1, !tbaa !6
+  %67 = trunc i32 %57 to i8
+  store i8 %67, ptr %66, align 1, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @CAST_encrypt(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr %0, align 4, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = load i32, ptr %1, align 4, !tbaa !9
+  %7 = add i32 %6, %5
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %10 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 %9)
+  %11 = lshr i32 %10, 8
+  %12 = and i32 %11, 255
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %13
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = and i32 %10, 255
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = lshr i32 %10, 24
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = lshr i32 %10, 16
+  %25 = and i32 %24, 255
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !9
+  %29 = xor i32 %19, %15
+  %.narrow = sub i32 %29, %23
+  %.narrow248 = add i32 %.narrow, %28
+  %30 = xor i32 %.narrow248, %3
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = load i32, ptr %31, align 4, !tbaa !9
+  %33 = xor i32 %30, %32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %35 = load i32, ptr %34, align 4, !tbaa !9
+  %36 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 %35)
+  %37 = lshr i32 %36, 8
+  %38 = and i32 %37, 255
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4, !tbaa !9
+  %42 = and i32 %36, 255
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %43
+  %45 = load i32, ptr %44, align 4, !tbaa !9
+  %46 = lshr i32 %36, 24
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !9
+  %50 = lshr i32 %36, 16
+  %51 = and i32 %50, 255
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !9
+  %55 = sub i32 %41, %45
+  %.narrow249 = add i32 %55, %49
+  %56 = xor i32 %54, %.narrow249
+  %57 = xor i32 %56, %5
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %59 = load i32, ptr %58, align 4, !tbaa !9
+  %60 = sub i32 %59, %57
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %62 = load i32, ptr %61, align 4, !tbaa !9
+  %63 = tail call i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 %62)
+  %64 = lshr i32 %63, 8
+  %65 = and i32 %64, 255
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %66
+  %68 = load i32, ptr %67, align 4, !tbaa !9
+  %69 = and i32 %63, 255
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !9
+  %73 = lshr i32 %63, 24
+  %74 = zext nneg i32 %73 to i64
+  %75 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %74
+  %76 = load i32, ptr %75, align 4, !tbaa !9
+  %77 = lshr i32 %63, 16
+  %78 = and i32 %77, 255
+  %79 = zext nneg i32 %78 to i64
+  %80 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !9
+  %82 = add i32 %72, %68
+  %83 = xor i32 %82, %76
+  %.narrow250 = sub i32 %83, %81
+  %84 = xor i32 %.narrow250, %30
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %86 = load i32, ptr %85, align 4, !tbaa !9
+  %87 = add i32 %84, %86
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %89 = load i32, ptr %88, align 4, !tbaa !9
+  %90 = tail call i32 @llvm.fshl.i32(i32 %87, i32 %87, i32 %89)
+  %91 = lshr i32 %90, 8
+  %92 = and i32 %91, 255
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %93
+  %95 = load i32, ptr %94, align 4, !tbaa !9
+  %96 = and i32 %90, 255
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !9
+  %100 = lshr i32 %90, 24
+  %101 = zext nneg i32 %100 to i64
+  %102 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !9
+  %104 = lshr i32 %90, 16
+  %105 = and i32 %104, 255
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %106
+  %108 = load i32, ptr %107, align 4, !tbaa !9
+  %109 = xor i32 %99, %95
+  %.narrow251 = sub i32 %109, %103
+  %.narrow252 = add i32 %.narrow251, %108
+  %110 = xor i32 %.narrow252, %57
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %112 = load i32, ptr %111, align 4, !tbaa !9
+  %113 = xor i32 %110, %112
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %115 = load i32, ptr %114, align 4, !tbaa !9
+  %116 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 %115)
+  %117 = lshr i32 %116, 8
+  %118 = and i32 %117, 255
+  %119 = zext nneg i32 %118 to i64
+  %120 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %119
+  %121 = load i32, ptr %120, align 4, !tbaa !9
+  %122 = and i32 %116, 255
+  %123 = zext nneg i32 %122 to i64
+  %124 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %123
+  %125 = load i32, ptr %124, align 4, !tbaa !9
+  %126 = lshr i32 %116, 24
+  %127 = zext nneg i32 %126 to i64
+  %128 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %127
+  %129 = load i32, ptr %128, align 4, !tbaa !9
+  %130 = lshr i32 %116, 16
+  %131 = and i32 %130, 255
+  %132 = zext nneg i32 %131 to i64
+  %133 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !9
+  %135 = sub i32 %121, %125
+  %.narrow253 = add i32 %135, %129
+  %136 = xor i32 %134, %.narrow253
+  %137 = xor i32 %136, %84
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %139 = load i32, ptr %138, align 4, !tbaa !9
+  %140 = sub i32 %139, %137
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %142 = load i32, ptr %141, align 4, !tbaa !9
+  %143 = tail call i32 @llvm.fshl.i32(i32 %140, i32 %140, i32 %142)
+  %144 = lshr i32 %143, 8
+  %145 = and i32 %144, 255
+  %146 = zext nneg i32 %145 to i64
+  %147 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %146
+  %148 = load i32, ptr %147, align 4, !tbaa !9
+  %149 = and i32 %143, 255
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %150
+  %152 = load i32, ptr %151, align 4, !tbaa !9
+  %153 = lshr i32 %143, 24
+  %154 = zext nneg i32 %153 to i64
+  %155 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %154
+  %156 = load i32, ptr %155, align 4, !tbaa !9
+  %157 = lshr i32 %143, 16
+  %158 = and i32 %157, 255
+  %159 = zext nneg i32 %158 to i64
+  %160 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %159
+  %161 = load i32, ptr %160, align 4, !tbaa !9
+  %162 = add i32 %152, %148
+  %163 = xor i32 %162, %156
+  %.narrow254 = sub i32 %163, %161
+  %164 = xor i32 %.narrow254, %110
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %166 = load i32, ptr %165, align 4, !tbaa !9
+  %167 = add i32 %164, %166
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %169 = load i32, ptr %168, align 4, !tbaa !9
+  %170 = tail call i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 %169)
+  %171 = lshr i32 %170, 8
+  %172 = and i32 %171, 255
+  %173 = zext nneg i32 %172 to i64
+  %174 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %173
+  %175 = load i32, ptr %174, align 4, !tbaa !9
+  %176 = and i32 %170, 255
+  %177 = zext nneg i32 %176 to i64
+  %178 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %177
+  %179 = load i32, ptr %178, align 4, !tbaa !9
+  %180 = lshr i32 %170, 24
+  %181 = zext nneg i32 %180 to i64
+  %182 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %181
+  %183 = load i32, ptr %182, align 4, !tbaa !9
+  %184 = lshr i32 %170, 16
+  %185 = and i32 %184, 255
+  %186 = zext nneg i32 %185 to i64
+  %187 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !9
+  %189 = xor i32 %179, %175
+  %.narrow255 = sub i32 %189, %183
+  %.narrow256 = add i32 %.narrow255, %188
+  %190 = xor i32 %.narrow256, %137
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %192 = load i32, ptr %191, align 4, !tbaa !9
+  %193 = xor i32 %190, %192
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %195 = load i32, ptr %194, align 4, !tbaa !9
+  %196 = tail call i32 @llvm.fshl.i32(i32 %193, i32 %193, i32 %195)
+  %197 = lshr i32 %196, 8
+  %198 = and i32 %197, 255
+  %199 = zext nneg i32 %198 to i64
+  %200 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %199
+  %201 = load i32, ptr %200, align 4, !tbaa !9
+  %202 = and i32 %196, 255
+  %203 = zext nneg i32 %202 to i64
+  %204 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %203
+  %205 = load i32, ptr %204, align 4, !tbaa !9
+  %206 = lshr i32 %196, 24
+  %207 = zext nneg i32 %206 to i64
+  %208 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %207
+  %209 = load i32, ptr %208, align 4, !tbaa !9
+  %210 = lshr i32 %196, 16
+  %211 = and i32 %210, 255
+  %212 = zext nneg i32 %211 to i64
+  %213 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %212
+  %214 = load i32, ptr %213, align 4, !tbaa !9
+  %215 = sub i32 %201, %205
+  %.narrow257 = add i32 %215, %209
+  %216 = xor i32 %214, %.narrow257
+  %217 = xor i32 %216, %164
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %219 = load i32, ptr %218, align 4, !tbaa !9
+  %220 = sub i32 %219, %217
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %222 = load i32, ptr %221, align 4, !tbaa !9
+  %223 = tail call i32 @llvm.fshl.i32(i32 %220, i32 %220, i32 %222)
+  %224 = lshr i32 %223, 8
+  %225 = and i32 %224, 255
+  %226 = zext nneg i32 %225 to i64
+  %227 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %226
+  %228 = load i32, ptr %227, align 4, !tbaa !9
+  %229 = and i32 %223, 255
+  %230 = zext nneg i32 %229 to i64
+  %231 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %230
+  %232 = load i32, ptr %231, align 4, !tbaa !9
+  %233 = lshr i32 %223, 24
+  %234 = zext nneg i32 %233 to i64
+  %235 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %234
+  %236 = load i32, ptr %235, align 4, !tbaa !9
+  %237 = lshr i32 %223, 16
+  %238 = and i32 %237, 255
+  %239 = zext nneg i32 %238 to i64
+  %240 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %239
+  %241 = load i32, ptr %240, align 4, !tbaa !9
+  %242 = add i32 %232, %228
+  %243 = xor i32 %242, %236
+  %.narrow258 = sub i32 %243, %241
+  %244 = xor i32 %.narrow258, %190
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %246 = load i32, ptr %245, align 4, !tbaa !9
+  %247 = add i32 %244, %246
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %249 = load i32, ptr %248, align 4, !tbaa !9
+  %250 = tail call i32 @llvm.fshl.i32(i32 %247, i32 %247, i32 %249)
+  %251 = lshr i32 %250, 8
+  %252 = and i32 %251, 255
+  %253 = zext nneg i32 %252 to i64
+  %254 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %253
+  %255 = load i32, ptr %254, align 4, !tbaa !9
+  %256 = and i32 %250, 255
+  %257 = zext nneg i32 %256 to i64
+  %258 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %257
+  %259 = load i32, ptr %258, align 4, !tbaa !9
+  %260 = lshr i32 %250, 24
+  %261 = zext nneg i32 %260 to i64
+  %262 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %261
+  %263 = load i32, ptr %262, align 4, !tbaa !9
+  %264 = lshr i32 %250, 16
+  %265 = and i32 %264, 255
+  %266 = zext nneg i32 %265 to i64
+  %267 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %266
+  %268 = load i32, ptr %267, align 4, !tbaa !9
+  %269 = xor i32 %259, %255
+  %.narrow259 = sub i32 %269, %263
+  %.narrow260 = add i32 %.narrow259, %268
+  %270 = xor i32 %.narrow260, %217
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %272 = load i32, ptr %271, align 4, !tbaa !9
+  %273 = xor i32 %270, %272
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %275 = load i32, ptr %274, align 4, !tbaa !9
+  %276 = tail call i32 @llvm.fshl.i32(i32 %273, i32 %273, i32 %275)
+  %277 = lshr i32 %276, 8
+  %278 = and i32 %277, 255
+  %279 = zext nneg i32 %278 to i64
+  %280 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %279
+  %281 = load i32, ptr %280, align 4, !tbaa !9
+  %282 = and i32 %276, 255
+  %283 = zext nneg i32 %282 to i64
+  %284 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %283
+  %285 = load i32, ptr %284, align 4, !tbaa !9
+  %286 = lshr i32 %276, 24
+  %287 = zext nneg i32 %286 to i64
+  %288 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %287
+  %289 = load i32, ptr %288, align 4, !tbaa !9
+  %290 = lshr i32 %276, 16
+  %291 = and i32 %290, 255
+  %292 = zext nneg i32 %291 to i64
+  %293 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %292
+  %294 = load i32, ptr %293, align 4, !tbaa !9
+  %295 = sub i32 %281, %285
+  %.narrow261 = add i32 %295, %289
+  %296 = xor i32 %294, %.narrow261
+  %297 = xor i32 %296, %244
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %299 = load i32, ptr %298, align 4, !tbaa !9
+  %300 = sub i32 %299, %297
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %302 = load i32, ptr %301, align 4, !tbaa !9
+  %303 = tail call i32 @llvm.fshl.i32(i32 %300, i32 %300, i32 %302)
+  %304 = lshr i32 %303, 8
+  %305 = and i32 %304, 255
+  %306 = zext nneg i32 %305 to i64
+  %307 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %306
+  %308 = load i32, ptr %307, align 4, !tbaa !9
+  %309 = and i32 %303, 255
+  %310 = zext nneg i32 %309 to i64
+  %311 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %310
+  %312 = load i32, ptr %311, align 4, !tbaa !9
+  %313 = lshr i32 %303, 24
+  %314 = zext nneg i32 %313 to i64
+  %315 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %314
+  %316 = load i32, ptr %315, align 4, !tbaa !9
+  %317 = lshr i32 %303, 16
+  %318 = and i32 %317, 255
+  %319 = zext nneg i32 %318 to i64
+  %320 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %319
+  %321 = load i32, ptr %320, align 4, !tbaa !9
+  %322 = add i32 %312, %308
+  %323 = xor i32 %322, %316
+  %.narrow262 = sub i32 %323, %321
+  %324 = xor i32 %.narrow262, %270
+  %325 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %326 = load i32, ptr %325, align 4, !tbaa !11
+  %.not = icmp eq i32 %326, 0
+  br i1 %.not, label %327, label %434
+
+327:                                              ; preds = %2
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %329 = load i32, ptr %328, align 4, !tbaa !9
+  %330 = add i32 %329, %324
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %332 = load i32, ptr %331, align 4, !tbaa !9
+  %333 = tail call i32 @llvm.fshl.i32(i32 %330, i32 %330, i32 %332)
+  %334 = lshr i32 %333, 8
+  %335 = and i32 %334, 255
+  %336 = zext nneg i32 %335 to i64
+  %337 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %336
+  %338 = load i32, ptr %337, align 4, !tbaa !9
+  %339 = and i32 %333, 255
+  %340 = zext nneg i32 %339 to i64
+  %341 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %340
+  %342 = load i32, ptr %341, align 4, !tbaa !9
+  %343 = lshr i32 %333, 24
+  %344 = zext nneg i32 %343 to i64
+  %345 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %344
+  %346 = load i32, ptr %345, align 4, !tbaa !9
+  %347 = lshr i32 %333, 16
+  %348 = and i32 %347, 255
+  %349 = zext nneg i32 %348 to i64
+  %350 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %349
+  %351 = load i32, ptr %350, align 4, !tbaa !9
+  %352 = xor i32 %342, %338
+  %.narrow263 = sub i32 %352, %346
+  %.narrow264 = add i32 %.narrow263, %351
+  %353 = xor i32 %.narrow264, %297
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %355 = load i32, ptr %354, align 4, !tbaa !9
+  %356 = xor i32 %353, %355
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %358 = load i32, ptr %357, align 4, !tbaa !9
+  %359 = tail call i32 @llvm.fshl.i32(i32 %356, i32 %356, i32 %358)
+  %360 = lshr i32 %359, 8
+  %361 = and i32 %360, 255
+  %362 = zext nneg i32 %361 to i64
+  %363 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %362
+  %364 = load i32, ptr %363, align 4, !tbaa !9
+  %365 = and i32 %359, 255
+  %366 = zext nneg i32 %365 to i64
+  %367 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %366
+  %368 = load i32, ptr %367, align 4, !tbaa !9
+  %369 = lshr i32 %359, 24
+  %370 = zext nneg i32 %369 to i64
+  %371 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %370
+  %372 = load i32, ptr %371, align 4, !tbaa !9
+  %373 = lshr i32 %359, 16
+  %374 = and i32 %373, 255
+  %375 = zext nneg i32 %374 to i64
+  %376 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %375
+  %377 = load i32, ptr %376, align 4, !tbaa !9
+  %378 = sub i32 %364, %368
+  %.narrow265 = add i32 %378, %372
+  %379 = xor i32 %377, %.narrow265
+  %380 = xor i32 %379, %324
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %382 = load i32, ptr %381, align 4, !tbaa !9
+  %383 = sub i32 %382, %380
+  %384 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %385 = load i32, ptr %384, align 4, !tbaa !9
+  %386 = tail call i32 @llvm.fshl.i32(i32 %383, i32 %383, i32 %385)
+  %387 = lshr i32 %386, 8
+  %388 = and i32 %387, 255
+  %389 = zext nneg i32 %388 to i64
+  %390 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %389
+  %391 = load i32, ptr %390, align 4, !tbaa !9
+  %392 = and i32 %386, 255
+  %393 = zext nneg i32 %392 to i64
+  %394 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %393
+  %395 = load i32, ptr %394, align 4, !tbaa !9
+  %396 = lshr i32 %386, 24
+  %397 = zext nneg i32 %396 to i64
+  %398 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %397
+  %399 = load i32, ptr %398, align 4, !tbaa !9
+  %400 = lshr i32 %386, 16
+  %401 = and i32 %400, 255
+  %402 = zext nneg i32 %401 to i64
+  %403 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %402
+  %404 = load i32, ptr %403, align 4, !tbaa !9
+  %405 = add i32 %395, %391
+  %406 = xor i32 %405, %399
+  %.narrow266 = sub i32 %406, %404
+  %407 = xor i32 %.narrow266, %353
+  %408 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %409 = load i32, ptr %408, align 4, !tbaa !9
+  %410 = add i32 %407, %409
+  %411 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %412 = load i32, ptr %411, align 4, !tbaa !9
+  %413 = tail call i32 @llvm.fshl.i32(i32 %410, i32 %410, i32 %412)
+  %414 = lshr i32 %413, 8
+  %415 = and i32 %414, 255
+  %416 = zext nneg i32 %415 to i64
+  %417 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %416
+  %418 = load i32, ptr %417, align 4, !tbaa !9
+  %419 = and i32 %413, 255
+  %420 = zext nneg i32 %419 to i64
+  %421 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %420
+  %422 = load i32, ptr %421, align 4, !tbaa !9
+  %423 = lshr i32 %413, 24
+  %424 = zext nneg i32 %423 to i64
+  %425 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %424
+  %426 = load i32, ptr %425, align 4, !tbaa !9
+  %427 = lshr i32 %413, 16
+  %428 = and i32 %427, 255
+  %429 = zext nneg i32 %428 to i64
+  %430 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %429
+  %431 = load i32, ptr %430, align 4, !tbaa !9
+  %432 = xor i32 %422, %418
+  %.narrow267 = sub i32 %432, %426
+  %.narrow268 = add i32 %.narrow267, %431
+  %433 = xor i32 %.narrow268, %380
+  br label %434
+
+434:                                              ; preds = %327, %2
+  %.0247 = phi i32 [ %324, %2 ], [ %433, %327 ]
+  %.0 = phi i32 [ %297, %2 ], [ %407, %327 ]
+  store i32 %.0, ptr %4, align 4, !tbaa !9
+  store i32 %.0247, ptr %0, align 4, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @CAST_encrypt(ptr noundef captures(none) %data, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr %data, align 4
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %data, i64 4
-  %1 = load i32, ptr %arrayidx3, align 4
-  %2 = load i32, ptr %key, align 4
-  %add = add i32 %2, %1
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %key, i64 4
-  %3 = load i32, ptr %arrayidx5, align 4
-  %or = tail call i32 @llvm.fshl.i32(i32 %add, i32 %add, i32 %3)
-  %shr10 = lshr i32 %or, 8
-  %and11 = and i32 %shr10, 255
-  %idxprom = zext nneg i32 %and11 to i64
-  %arrayidx12 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom
-  %4 = load i32, ptr %arrayidx12, align 4
-  %and13 = and i32 %or, 255
-  %idxprom14 = zext nneg i32 %and13 to i64
-  %arrayidx15 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom14
-  %5 = load i32, ptr %arrayidx15, align 4
-  %shr16 = lshr i32 %or, 24
-  %idxprom18 = zext nneg i32 %shr16 to i64
-  %arrayidx19 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom18
-  %6 = load i32, ptr %arrayidx19, align 4
-  %shr20 = lshr i32 %or, 16
-  %and21 = and i32 %shr20, 255
-  %idxprom22 = zext nneg i32 %and21 to i64
-  %arrayidx23 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom22
-  %7 = load i32, ptr %arrayidx23, align 4
-  %xor = xor i32 %5, %4
-  %sub27.narrow = sub i32 %xor, %6
-  %add30.narrow = add i32 %sub27.narrow, %7
-  %xor33179 = xor i32 %add30.narrow, %0
-  %arrayidx39 = getelementptr inbounds nuw i8, ptr %key, i64 8
-  %8 = load i32, ptr %arrayidx39, align 4
-  %xor40 = xor i32 %xor33179, %8
-  %arrayidx42 = getelementptr inbounds nuw i8, ptr %key, i64 12
-  %9 = load i32, ptr %arrayidx42, align 4
-  %or48 = tail call i32 @llvm.fshl.i32(i32 %xor40, i32 %xor40, i32 %9)
-  %shr52 = lshr i32 %or48, 8
-  %and53 = and i32 %shr52, 255
-  %idxprom54 = zext nneg i32 %and53 to i64
-  %arrayidx55 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom54
-  %10 = load i32, ptr %arrayidx55, align 4
-  %and56 = and i32 %or48, 255
-  %idxprom57 = zext nneg i32 %and56 to i64
-  %arrayidx58 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom57
-  %11 = load i32, ptr %arrayidx58, align 4
-  %shr59 = lshr i32 %or48, 24
-  %idxprom61 = zext nneg i32 %shr59 to i64
-  %arrayidx62 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom61
-  %12 = load i32, ptr %arrayidx62, align 4
-  %shr63 = lshr i32 %or48, 16
-  %and64 = and i32 %shr63, 255
-  %idxprom65 = zext nneg i32 %and64 to i64
-  %arrayidx66 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom65
-  %13 = load i32, ptr %arrayidx66, align 4
-  %sub67 = sub i32 %10, %11
-  %add71.narrow = add i32 %sub67, %12
-  %14 = xor i32 %13, %add71.narrow
-  %xor77181 = xor i32 %14, %1
-  %arrayidx83 = getelementptr inbounds nuw i8, ptr %key, i64 16
-  %15 = load i32, ptr %arrayidx83, align 4
-  %sub84 = sub i32 %15, %xor77181
-  %arrayidx86 = getelementptr inbounds nuw i8, ptr %key, i64 20
-  %16 = load i32, ptr %arrayidx86, align 4
-  %or92 = tail call i32 @llvm.fshl.i32(i32 %sub84, i32 %sub84, i32 %16)
-  %shr96 = lshr i32 %or92, 8
-  %and97 = and i32 %shr96, 255
-  %idxprom98 = zext nneg i32 %and97 to i64
-  %arrayidx99 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom98
-  %17 = load i32, ptr %arrayidx99, align 4
-  %and100 = and i32 %or92, 255
-  %idxprom101 = zext nneg i32 %and100 to i64
-  %arrayidx102 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom101
-  %18 = load i32, ptr %arrayidx102, align 4
-  %shr103 = lshr i32 %or92, 24
-  %idxprom105 = zext nneg i32 %shr103 to i64
-  %arrayidx106 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom105
-  %19 = load i32, ptr %arrayidx106, align 4
-  %shr107 = lshr i32 %or92, 16
-  %and108 = and i32 %shr107, 255
-  %idxprom109 = zext nneg i32 %and108 to i64
-  %arrayidx110 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom109
-  %20 = load i32, ptr %arrayidx110, align 4
-  %add111 = add i32 %18, %17
-  %xor115182 = xor i32 %add111, %19
-  %sub118.narrow = sub i32 %xor115182, %20
-  %xor121183 = xor i32 %sub118.narrow, %xor33179
-  %arrayidx127 = getelementptr inbounds nuw i8, ptr %key, i64 24
-  %21 = load i32, ptr %arrayidx127, align 4
-  %add128 = add i32 %xor121183, %21
-  %arrayidx130 = getelementptr inbounds nuw i8, ptr %key, i64 28
-  %22 = load i32, ptr %arrayidx130, align 4
-  %or136 = tail call i32 @llvm.fshl.i32(i32 %add128, i32 %add128, i32 %22)
-  %shr140 = lshr i32 %or136, 8
-  %and141 = and i32 %shr140, 255
-  %idxprom142 = zext nneg i32 %and141 to i64
-  %arrayidx143 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom142
-  %23 = load i32, ptr %arrayidx143, align 4
-  %and144 = and i32 %or136, 255
-  %idxprom145 = zext nneg i32 %and144 to i64
-  %arrayidx146 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom145
-  %24 = load i32, ptr %arrayidx146, align 4
-  %shr147 = lshr i32 %or136, 24
-  %idxprom149 = zext nneg i32 %shr147 to i64
-  %arrayidx150 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom149
-  %25 = load i32, ptr %arrayidx150, align 4
-  %shr151 = lshr i32 %or136, 16
-  %and152 = and i32 %shr151, 255
-  %idxprom153 = zext nneg i32 %and152 to i64
-  %arrayidx154 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom153
-  %26 = load i32, ptr %arrayidx154, align 4
-  %xor155 = xor i32 %24, %23
-  %sub159.narrow = sub i32 %xor155, %25
-  %add162.narrow = add i32 %sub159.narrow, %26
-  %xor165184 = xor i32 %add162.narrow, %xor77181
-  %arrayidx171 = getelementptr inbounds nuw i8, ptr %key, i64 32
-  %27 = load i32, ptr %arrayidx171, align 4
-  %xor172 = xor i32 %xor165184, %27
-  %arrayidx174 = getelementptr inbounds nuw i8, ptr %key, i64 36
-  %28 = load i32, ptr %arrayidx174, align 4
-  %or180 = tail call i32 @llvm.fshl.i32(i32 %xor172, i32 %xor172, i32 %28)
-  %shr184 = lshr i32 %or180, 8
-  %and185 = and i32 %shr184, 255
-  %idxprom186 = zext nneg i32 %and185 to i64
-  %arrayidx187 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom186
-  %29 = load i32, ptr %arrayidx187, align 4
-  %and188 = and i32 %or180, 255
-  %idxprom189 = zext nneg i32 %and188 to i64
-  %arrayidx190 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom189
-  %30 = load i32, ptr %arrayidx190, align 4
-  %shr191 = lshr i32 %or180, 24
-  %idxprom193 = zext nneg i32 %shr191 to i64
-  %arrayidx194 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom193
-  %31 = load i32, ptr %arrayidx194, align 4
-  %shr195 = lshr i32 %or180, 16
-  %and196 = and i32 %shr195, 255
-  %idxprom197 = zext nneg i32 %and196 to i64
-  %arrayidx198 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom197
-  %32 = load i32, ptr %arrayidx198, align 4
-  %sub199 = sub i32 %29, %30
-  %add203.narrow = add i32 %sub199, %31
-  %33 = xor i32 %32, %add203.narrow
-  %xor209186 = xor i32 %33, %xor121183
-  %arrayidx215 = getelementptr inbounds nuw i8, ptr %key, i64 40
-  %34 = load i32, ptr %arrayidx215, align 4
-  %sub216 = sub i32 %34, %xor209186
-  %arrayidx218 = getelementptr inbounds nuw i8, ptr %key, i64 44
-  %35 = load i32, ptr %arrayidx218, align 4
-  %or224 = tail call i32 @llvm.fshl.i32(i32 %sub216, i32 %sub216, i32 %35)
-  %shr228 = lshr i32 %or224, 8
-  %and229 = and i32 %shr228, 255
-  %idxprom230 = zext nneg i32 %and229 to i64
-  %arrayidx231 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom230
-  %36 = load i32, ptr %arrayidx231, align 4
-  %and232 = and i32 %or224, 255
-  %idxprom233 = zext nneg i32 %and232 to i64
-  %arrayidx234 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom233
-  %37 = load i32, ptr %arrayidx234, align 4
-  %shr235 = lshr i32 %or224, 24
-  %idxprom237 = zext nneg i32 %shr235 to i64
-  %arrayidx238 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom237
-  %38 = load i32, ptr %arrayidx238, align 4
-  %shr239 = lshr i32 %or224, 16
-  %and240 = and i32 %shr239, 255
-  %idxprom241 = zext nneg i32 %and240 to i64
-  %arrayidx242 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom241
-  %39 = load i32, ptr %arrayidx242, align 4
-  %add243 = add i32 %37, %36
-  %xor247187 = xor i32 %add243, %38
-  %sub250.narrow = sub i32 %xor247187, %39
-  %xor253188 = xor i32 %sub250.narrow, %xor165184
-  %arrayidx259 = getelementptr inbounds nuw i8, ptr %key, i64 48
-  %40 = load i32, ptr %arrayidx259, align 4
-  %add260 = add i32 %xor253188, %40
-  %arrayidx262 = getelementptr inbounds nuw i8, ptr %key, i64 52
-  %41 = load i32, ptr %arrayidx262, align 4
-  %or268 = tail call i32 @llvm.fshl.i32(i32 %add260, i32 %add260, i32 %41)
-  %shr272 = lshr i32 %or268, 8
-  %and273 = and i32 %shr272, 255
-  %idxprom274 = zext nneg i32 %and273 to i64
-  %arrayidx275 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom274
-  %42 = load i32, ptr %arrayidx275, align 4
-  %and276 = and i32 %or268, 255
-  %idxprom277 = zext nneg i32 %and276 to i64
-  %arrayidx278 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom277
-  %43 = load i32, ptr %arrayidx278, align 4
-  %shr279 = lshr i32 %or268, 24
-  %idxprom281 = zext nneg i32 %shr279 to i64
-  %arrayidx282 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom281
-  %44 = load i32, ptr %arrayidx282, align 4
-  %shr283 = lshr i32 %or268, 16
-  %and284 = and i32 %shr283, 255
-  %idxprom285 = zext nneg i32 %and284 to i64
-  %arrayidx286 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom285
-  %45 = load i32, ptr %arrayidx286, align 4
-  %xor287 = xor i32 %43, %42
-  %sub291.narrow = sub i32 %xor287, %44
-  %add294.narrow = add i32 %sub291.narrow, %45
-  %xor297189 = xor i32 %add294.narrow, %xor209186
-  %arrayidx303 = getelementptr inbounds nuw i8, ptr %key, i64 56
-  %46 = load i32, ptr %arrayidx303, align 4
-  %xor304 = xor i32 %xor297189, %46
-  %arrayidx306 = getelementptr inbounds nuw i8, ptr %key, i64 60
-  %47 = load i32, ptr %arrayidx306, align 4
-  %or312 = tail call i32 @llvm.fshl.i32(i32 %xor304, i32 %xor304, i32 %47)
-  %shr316 = lshr i32 %or312, 8
-  %and317 = and i32 %shr316, 255
-  %idxprom318 = zext nneg i32 %and317 to i64
-  %arrayidx319 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom318
-  %48 = load i32, ptr %arrayidx319, align 4
-  %and320 = and i32 %or312, 255
-  %idxprom321 = zext nneg i32 %and320 to i64
-  %arrayidx322 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom321
-  %49 = load i32, ptr %arrayidx322, align 4
-  %shr323 = lshr i32 %or312, 24
-  %idxprom325 = zext nneg i32 %shr323 to i64
-  %arrayidx326 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom325
-  %50 = load i32, ptr %arrayidx326, align 4
-  %shr327 = lshr i32 %or312, 16
-  %and328 = and i32 %shr327, 255
-  %idxprom329 = zext nneg i32 %and328 to i64
-  %arrayidx330 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom329
-  %51 = load i32, ptr %arrayidx330, align 4
-  %sub331 = sub i32 %48, %49
-  %add335.narrow = add i32 %sub331, %50
-  %52 = xor i32 %51, %add335.narrow
-  %xor341191 = xor i32 %52, %xor253188
-  %arrayidx347 = getelementptr inbounds nuw i8, ptr %key, i64 64
-  %53 = load i32, ptr %arrayidx347, align 4
-  %sub348 = sub i32 %53, %xor341191
-  %arrayidx350 = getelementptr inbounds nuw i8, ptr %key, i64 68
-  %54 = load i32, ptr %arrayidx350, align 4
-  %or356 = tail call i32 @llvm.fshl.i32(i32 %sub348, i32 %sub348, i32 %54)
-  %shr360 = lshr i32 %or356, 8
-  %and361 = and i32 %shr360, 255
-  %idxprom362 = zext nneg i32 %and361 to i64
-  %arrayidx363 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom362
-  %55 = load i32, ptr %arrayidx363, align 4
-  %and364 = and i32 %or356, 255
-  %idxprom365 = zext nneg i32 %and364 to i64
-  %arrayidx366 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom365
-  %56 = load i32, ptr %arrayidx366, align 4
-  %shr367 = lshr i32 %or356, 24
-  %idxprom369 = zext nneg i32 %shr367 to i64
-  %arrayidx370 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom369
-  %57 = load i32, ptr %arrayidx370, align 4
-  %shr371 = lshr i32 %or356, 16
-  %and372 = and i32 %shr371, 255
-  %idxprom373 = zext nneg i32 %and372 to i64
-  %arrayidx374 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom373
-  %58 = load i32, ptr %arrayidx374, align 4
-  %add375 = add i32 %56, %55
-  %xor379192 = xor i32 %add375, %57
-  %sub382.narrow = sub i32 %xor379192, %58
-  %xor385193 = xor i32 %sub382.narrow, %xor297189
-  %arrayidx391 = getelementptr inbounds nuw i8, ptr %key, i64 72
-  %59 = load i32, ptr %arrayidx391, align 4
-  %add392 = add i32 %xor385193, %59
-  %arrayidx394 = getelementptr inbounds nuw i8, ptr %key, i64 76
-  %60 = load i32, ptr %arrayidx394, align 4
-  %or400 = tail call i32 @llvm.fshl.i32(i32 %add392, i32 %add392, i32 %60)
-  %shr404 = lshr i32 %or400, 8
-  %and405 = and i32 %shr404, 255
-  %idxprom406 = zext nneg i32 %and405 to i64
-  %arrayidx407 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom406
-  %61 = load i32, ptr %arrayidx407, align 4
-  %and408 = and i32 %or400, 255
-  %idxprom409 = zext nneg i32 %and408 to i64
-  %arrayidx410 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom409
-  %62 = load i32, ptr %arrayidx410, align 4
-  %shr411 = lshr i32 %or400, 24
-  %idxprom413 = zext nneg i32 %shr411 to i64
-  %arrayidx414 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom413
-  %63 = load i32, ptr %arrayidx414, align 4
-  %shr415 = lshr i32 %or400, 16
-  %and416 = and i32 %shr415, 255
-  %idxprom417 = zext nneg i32 %and416 to i64
-  %arrayidx418 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom417
-  %64 = load i32, ptr %arrayidx418, align 4
-  %xor419 = xor i32 %62, %61
-  %sub423.narrow = sub i32 %xor419, %63
-  %add426.narrow = add i32 %sub423.narrow, %64
-  %xor429194 = xor i32 %add426.narrow, %xor341191
-  %arrayidx435 = getelementptr inbounds nuw i8, ptr %key, i64 80
-  %65 = load i32, ptr %arrayidx435, align 4
-  %xor436 = xor i32 %xor429194, %65
-  %arrayidx438 = getelementptr inbounds nuw i8, ptr %key, i64 84
-  %66 = load i32, ptr %arrayidx438, align 4
-  %or444 = tail call i32 @llvm.fshl.i32(i32 %xor436, i32 %xor436, i32 %66)
-  %shr448 = lshr i32 %or444, 8
-  %and449 = and i32 %shr448, 255
-  %idxprom450 = zext nneg i32 %and449 to i64
-  %arrayidx451 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom450
-  %67 = load i32, ptr %arrayidx451, align 4
-  %and452 = and i32 %or444, 255
-  %idxprom453 = zext nneg i32 %and452 to i64
-  %arrayidx454 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom453
-  %68 = load i32, ptr %arrayidx454, align 4
-  %shr455 = lshr i32 %or444, 24
-  %idxprom457 = zext nneg i32 %shr455 to i64
-  %arrayidx458 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom457
-  %69 = load i32, ptr %arrayidx458, align 4
-  %shr459 = lshr i32 %or444, 16
-  %and460 = and i32 %shr459, 255
-  %idxprom461 = zext nneg i32 %and460 to i64
-  %arrayidx462 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom461
-  %70 = load i32, ptr %arrayidx462, align 4
-  %sub463 = sub i32 %67, %68
-  %add467.narrow = add i32 %sub463, %69
-  %71 = xor i32 %70, %add467.narrow
-  %xor473196 = xor i32 %71, %xor385193
-  %arrayidx479 = getelementptr inbounds nuw i8, ptr %key, i64 88
-  %72 = load i32, ptr %arrayidx479, align 4
-  %sub480 = sub i32 %72, %xor473196
-  %arrayidx482 = getelementptr inbounds nuw i8, ptr %key, i64 92
-  %73 = load i32, ptr %arrayidx482, align 4
-  %or488 = tail call i32 @llvm.fshl.i32(i32 %sub480, i32 %sub480, i32 %73)
-  %shr492 = lshr i32 %or488, 8
-  %and493 = and i32 %shr492, 255
-  %idxprom494 = zext nneg i32 %and493 to i64
-  %arrayidx495 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom494
-  %74 = load i32, ptr %arrayidx495, align 4
-  %and496 = and i32 %or488, 255
-  %idxprom497 = zext nneg i32 %and496 to i64
-  %arrayidx498 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom497
-  %75 = load i32, ptr %arrayidx498, align 4
-  %shr499 = lshr i32 %or488, 24
-  %idxprom501 = zext nneg i32 %shr499 to i64
-  %arrayidx502 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom501
-  %76 = load i32, ptr %arrayidx502, align 4
-  %shr503 = lshr i32 %or488, 16
-  %and504 = and i32 %shr503, 255
-  %idxprom505 = zext nneg i32 %and504 to i64
-  %arrayidx506 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom505
-  %77 = load i32, ptr %arrayidx506, align 4
-  %add507 = add i32 %75, %74
-  %xor511197 = xor i32 %add507, %76
-  %sub514.narrow = sub i32 %xor511197, %77
-  %xor517198 = xor i32 %sub514.narrow, %xor429194
-  %short_key = getelementptr inbounds nuw i8, ptr %key, i64 128
-  %78 = load i32, ptr %short_key, align 4
-  %tobool.not = icmp eq i32 %78, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+define hidden void @CAST_decrypt(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr %0, align 4, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %7 = load i32, ptr %6, align 4, !tbaa !11
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %8, label %115
 
-if.then:                                          ; preds = %entry
-  %arrayidx523 = getelementptr inbounds nuw i8, ptr %key, i64 96
-  %79 = load i32, ptr %arrayidx523, align 4
-  %add524 = add i32 %79, %xor517198
-  %arrayidx526 = getelementptr inbounds nuw i8, ptr %key, i64 100
-  %80 = load i32, ptr %arrayidx526, align 4
-  %or532 = tail call i32 @llvm.fshl.i32(i32 %add524, i32 %add524, i32 %80)
-  %shr536 = lshr i32 %or532, 8
-  %and537 = and i32 %shr536, 255
-  %idxprom538 = zext nneg i32 %and537 to i64
-  %arrayidx539 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom538
-  %81 = load i32, ptr %arrayidx539, align 4
-  %and540 = and i32 %or532, 255
-  %idxprom541 = zext nneg i32 %and540 to i64
-  %arrayidx542 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom541
-  %82 = load i32, ptr %arrayidx542, align 4
-  %shr543 = lshr i32 %or532, 24
-  %idxprom545 = zext nneg i32 %shr543 to i64
-  %arrayidx546 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom545
-  %83 = load i32, ptr %arrayidx546, align 4
-  %shr547 = lshr i32 %or532, 16
-  %and548 = and i32 %shr547, 255
-  %idxprom549 = zext nneg i32 %and548 to i64
-  %arrayidx550 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom549
-  %84 = load i32, ptr %arrayidx550, align 4
-  %xor551 = xor i32 %82, %81
-  %sub555.narrow = sub i32 %xor551, %83
-  %add558.narrow = add i32 %sub555.narrow, %84
-  %xor561199 = xor i32 %add558.narrow, %xor473196
-  %arrayidx567 = getelementptr inbounds nuw i8, ptr %key, i64 104
-  %85 = load i32, ptr %arrayidx567, align 4
-  %xor568 = xor i32 %xor561199, %85
-  %arrayidx570 = getelementptr inbounds nuw i8, ptr %key, i64 108
-  %86 = load i32, ptr %arrayidx570, align 4
-  %or576 = tail call i32 @llvm.fshl.i32(i32 %xor568, i32 %xor568, i32 %86)
-  %shr580 = lshr i32 %or576, 8
-  %and581 = and i32 %shr580, 255
-  %idxprom582 = zext nneg i32 %and581 to i64
-  %arrayidx583 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom582
-  %87 = load i32, ptr %arrayidx583, align 4
-  %and584 = and i32 %or576, 255
-  %idxprom585 = zext nneg i32 %and584 to i64
-  %arrayidx586 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom585
-  %88 = load i32, ptr %arrayidx586, align 4
-  %shr587 = lshr i32 %or576, 24
-  %idxprom589 = zext nneg i32 %shr587 to i64
-  %arrayidx590 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom589
-  %89 = load i32, ptr %arrayidx590, align 4
-  %shr591 = lshr i32 %or576, 16
-  %and592 = and i32 %shr591, 255
-  %idxprom593 = zext nneg i32 %and592 to i64
-  %arrayidx594 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom593
-  %90 = load i32, ptr %arrayidx594, align 4
-  %sub595 = sub i32 %87, %88
-  %add599.narrow = add i32 %sub595, %89
-  %91 = xor i32 %90, %add599.narrow
-  %xor605201 = xor i32 %91, %xor517198
-  %arrayidx611 = getelementptr inbounds nuw i8, ptr %key, i64 112
-  %92 = load i32, ptr %arrayidx611, align 4
-  %sub612 = sub i32 %92, %xor605201
-  %arrayidx614 = getelementptr inbounds nuw i8, ptr %key, i64 116
-  %93 = load i32, ptr %arrayidx614, align 4
-  %or620 = tail call i32 @llvm.fshl.i32(i32 %sub612, i32 %sub612, i32 %93)
-  %shr624 = lshr i32 %or620, 8
-  %and625 = and i32 %shr624, 255
-  %idxprom626 = zext nneg i32 %and625 to i64
-  %arrayidx627 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom626
-  %94 = load i32, ptr %arrayidx627, align 4
-  %and628 = and i32 %or620, 255
-  %idxprom629 = zext nneg i32 %and628 to i64
-  %arrayidx630 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom629
-  %95 = load i32, ptr %arrayidx630, align 4
-  %shr631 = lshr i32 %or620, 24
-  %idxprom633 = zext nneg i32 %shr631 to i64
-  %arrayidx634 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom633
-  %96 = load i32, ptr %arrayidx634, align 4
-  %shr635 = lshr i32 %or620, 16
-  %and636 = and i32 %shr635, 255
-  %idxprom637 = zext nneg i32 %and636 to i64
-  %arrayidx638 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom637
-  %97 = load i32, ptr %arrayidx638, align 4
-  %add639 = add i32 %95, %94
-  %xor643202 = xor i32 %add639, %96
-  %sub646.narrow = sub i32 %xor643202, %97
-  %xor649203 = xor i32 %sub646.narrow, %xor561199
-  %arrayidx655 = getelementptr inbounds nuw i8, ptr %key, i64 120
-  %98 = load i32, ptr %arrayidx655, align 4
-  %add656 = add i32 %xor649203, %98
-  %arrayidx658 = getelementptr inbounds nuw i8, ptr %key, i64 124
-  %99 = load i32, ptr %arrayidx658, align 4
-  %or664 = tail call i32 @llvm.fshl.i32(i32 %add656, i32 %add656, i32 %99)
-  %shr668 = lshr i32 %or664, 8
-  %and669 = and i32 %shr668, 255
-  %idxprom670 = zext nneg i32 %and669 to i64
-  %arrayidx671 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom670
-  %100 = load i32, ptr %arrayidx671, align 4
-  %and672 = and i32 %or664, 255
-  %idxprom673 = zext nneg i32 %and672 to i64
-  %arrayidx674 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom673
-  %101 = load i32, ptr %arrayidx674, align 4
-  %shr675 = lshr i32 %or664, 24
-  %idxprom677 = zext nneg i32 %shr675 to i64
-  %arrayidx678 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom677
-  %102 = load i32, ptr %arrayidx678, align 4
-  %shr679 = lshr i32 %or664, 16
-  %and680 = and i32 %shr679, 255
-  %idxprom681 = zext nneg i32 %and680 to i64
-  %arrayidx682 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom681
-  %103 = load i32, ptr %arrayidx682, align 4
-  %xor683 = xor i32 %101, %100
-  %sub687.narrow = sub i32 %xor683, %102
-  %add690.narrow = add i32 %sub687.narrow, %103
-  %xor693204 = xor i32 %add690.narrow, %xor605201
-  br label %if.end
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = add i32 %10, %5
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %14 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 %13)
+  %15 = lshr i32 %14, 8
+  %16 = and i32 %15, 255
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = and i32 %14, 255
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = lshr i32 %14, 24
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %25
+  %27 = load i32, ptr %26, align 4, !tbaa !9
+  %28 = lshr i32 %14, 16
+  %29 = and i32 %28, 255
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !9
+  %33 = xor i32 %23, %19
+  %.narrow = sub i32 %33, %27
+  %.narrow248 = add i32 %.narrow, %32
+  %34 = xor i32 %.narrow248, %3
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %36 = load i32, ptr %35, align 4, !tbaa !9
+  %37 = sub i32 %36, %34
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %39 = load i32, ptr %38, align 4, !tbaa !9
+  %40 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 %39)
+  %41 = lshr i32 %40, 8
+  %42 = and i32 %41, 255
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %43
+  %45 = load i32, ptr %44, align 4, !tbaa !9
+  %46 = and i32 %40, 255
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !9
+  %50 = lshr i32 %40, 24
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !9
+  %54 = lshr i32 %40, 16
+  %55 = and i32 %54, 255
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %56
+  %58 = load i32, ptr %57, align 4, !tbaa !9
+  %59 = add i32 %49, %45
+  %60 = xor i32 %59, %53
+  %.narrow249 = sub i32 %60, %58
+  %61 = xor i32 %.narrow249, %5
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %63 = load i32, ptr %62, align 4, !tbaa !9
+  %64 = xor i32 %61, %63
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %66 = load i32, ptr %65, align 4, !tbaa !9
+  %67 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 %66)
+  %68 = lshr i32 %67, 8
+  %69 = and i32 %68, 255
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !9
+  %73 = and i32 %67, 255
+  %74 = zext nneg i32 %73 to i64
+  %75 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %74
+  %76 = load i32, ptr %75, align 4, !tbaa !9
+  %77 = lshr i32 %67, 24
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !9
+  %81 = lshr i32 %67, 16
+  %82 = and i32 %81, 255
+  %83 = zext nneg i32 %82 to i64
+  %84 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !9
+  %86 = sub i32 %72, %76
+  %.narrow250 = add i32 %86, %80
+  %87 = xor i32 %85, %.narrow250
+  %88 = xor i32 %87, %34
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %90 = load i32, ptr %89, align 4, !tbaa !9
+  %91 = add i32 %88, %90
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %93 = load i32, ptr %92, align 4, !tbaa !9
+  %94 = tail call i32 @llvm.fshl.i32(i32 %91, i32 %91, i32 %93)
+  %95 = lshr i32 %94, 8
+  %96 = and i32 %95, 255
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !9
+  %100 = and i32 %94, 255
+  %101 = zext nneg i32 %100 to i64
+  %102 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !9
+  %104 = lshr i32 %94, 24
+  %105 = zext nneg i32 %104 to i64
+  %106 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %105
+  %107 = load i32, ptr %106, align 4, !tbaa !9
+  %108 = lshr i32 %94, 16
+  %109 = and i32 %108, 255
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %110
+  %112 = load i32, ptr %111, align 4, !tbaa !9
+  %113 = xor i32 %103, %99
+  %.narrow251 = sub i32 %113, %107
+  %.narrow252 = add i32 %.narrow251, %112
+  %114 = xor i32 %.narrow252, %61
+  br label %115
 
-if.end:                                           ; preds = %if.then, %entry
-  %r.0 = phi i32 [ %xor517198, %entry ], [ %xor693204, %if.then ]
-  %l.0 = phi i32 [ %xor473196, %entry ], [ %xor649203, %if.then ]
-  store i32 %l.0, ptr %arrayidx3, align 4
-  store i32 %r.0, ptr %data, align 4
+115:                                              ; preds = %8, %2
+  %.0247 = phi i32 [ %5, %2 ], [ %114, %8 ]
+  %.0 = phi i32 [ %3, %2 ], [ %88, %8 ]
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %117 = load i32, ptr %116, align 4, !tbaa !9
+  %118 = sub i32 %117, %.0247
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %120 = load i32, ptr %119, align 4, !tbaa !9
+  %121 = tail call i32 @llvm.fshl.i32(i32 %118, i32 %118, i32 %120)
+  %122 = lshr i32 %121, 8
+  %123 = and i32 %122, 255
+  %124 = zext nneg i32 %123 to i64
+  %125 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %124
+  %126 = load i32, ptr %125, align 4, !tbaa !9
+  %127 = and i32 %121, 255
+  %128 = zext nneg i32 %127 to i64
+  %129 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %128
+  %130 = load i32, ptr %129, align 4, !tbaa !9
+  %131 = lshr i32 %121, 24
+  %132 = zext nneg i32 %131 to i64
+  %133 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !9
+  %135 = lshr i32 %121, 16
+  %136 = and i32 %135, 255
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !9
+  %140 = add i32 %130, %126
+  %141 = xor i32 %140, %134
+  %.narrow253 = sub i32 %141, %139
+  %142 = xor i32 %.narrow253, %.0
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %144 = load i32, ptr %143, align 4, !tbaa !9
+  %145 = xor i32 %142, %144
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %147 = load i32, ptr %146, align 4, !tbaa !9
+  %148 = tail call i32 @llvm.fshl.i32(i32 %145, i32 %145, i32 %147)
+  %149 = lshr i32 %148, 8
+  %150 = and i32 %149, 255
+  %151 = zext nneg i32 %150 to i64
+  %152 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %151
+  %153 = load i32, ptr %152, align 4, !tbaa !9
+  %154 = and i32 %148, 255
+  %155 = zext nneg i32 %154 to i64
+  %156 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4, !tbaa !9
+  %158 = lshr i32 %148, 24
+  %159 = zext nneg i32 %158 to i64
+  %160 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %159
+  %161 = load i32, ptr %160, align 4, !tbaa !9
+  %162 = lshr i32 %148, 16
+  %163 = and i32 %162, 255
+  %164 = zext nneg i32 %163 to i64
+  %165 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %164
+  %166 = load i32, ptr %165, align 4, !tbaa !9
+  %167 = sub i32 %153, %157
+  %.narrow254 = add i32 %167, %161
+  %168 = xor i32 %166, %.narrow254
+  %169 = xor i32 %168, %.0247
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %171 = load i32, ptr %170, align 4, !tbaa !9
+  %172 = add i32 %169, %171
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %174 = load i32, ptr %173, align 4, !tbaa !9
+  %175 = tail call i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 %174)
+  %176 = lshr i32 %175, 8
+  %177 = and i32 %176, 255
+  %178 = zext nneg i32 %177 to i64
+  %179 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %178
+  %180 = load i32, ptr %179, align 4, !tbaa !9
+  %181 = and i32 %175, 255
+  %182 = zext nneg i32 %181 to i64
+  %183 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %182
+  %184 = load i32, ptr %183, align 4, !tbaa !9
+  %185 = lshr i32 %175, 24
+  %186 = zext nneg i32 %185 to i64
+  %187 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !9
+  %189 = lshr i32 %175, 16
+  %190 = and i32 %189, 255
+  %191 = zext nneg i32 %190 to i64
+  %192 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %191
+  %193 = load i32, ptr %192, align 4, !tbaa !9
+  %194 = xor i32 %184, %180
+  %.narrow255 = sub i32 %194, %188
+  %.narrow256 = add i32 %.narrow255, %193
+  %195 = xor i32 %.narrow256, %142
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %197 = load i32, ptr %196, align 4, !tbaa !9
+  %198 = sub i32 %197, %195
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %200 = load i32, ptr %199, align 4, !tbaa !9
+  %201 = tail call i32 @llvm.fshl.i32(i32 %198, i32 %198, i32 %200)
+  %202 = lshr i32 %201, 8
+  %203 = and i32 %202, 255
+  %204 = zext nneg i32 %203 to i64
+  %205 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %204
+  %206 = load i32, ptr %205, align 4, !tbaa !9
+  %207 = and i32 %201, 255
+  %208 = zext nneg i32 %207 to i64
+  %209 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %208
+  %210 = load i32, ptr %209, align 4, !tbaa !9
+  %211 = lshr i32 %201, 24
+  %212 = zext nneg i32 %211 to i64
+  %213 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %212
+  %214 = load i32, ptr %213, align 4, !tbaa !9
+  %215 = lshr i32 %201, 16
+  %216 = and i32 %215, 255
+  %217 = zext nneg i32 %216 to i64
+  %218 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %217
+  %219 = load i32, ptr %218, align 4, !tbaa !9
+  %220 = add i32 %210, %206
+  %221 = xor i32 %220, %214
+  %.narrow257 = sub i32 %221, %219
+  %222 = xor i32 %.narrow257, %169
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %224 = load i32, ptr %223, align 4, !tbaa !9
+  %225 = xor i32 %222, %224
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %227 = load i32, ptr %226, align 4, !tbaa !9
+  %228 = tail call i32 @llvm.fshl.i32(i32 %225, i32 %225, i32 %227)
+  %229 = lshr i32 %228, 8
+  %230 = and i32 %229, 255
+  %231 = zext nneg i32 %230 to i64
+  %232 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %231
+  %233 = load i32, ptr %232, align 4, !tbaa !9
+  %234 = and i32 %228, 255
+  %235 = zext nneg i32 %234 to i64
+  %236 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %235
+  %237 = load i32, ptr %236, align 4, !tbaa !9
+  %238 = lshr i32 %228, 24
+  %239 = zext nneg i32 %238 to i64
+  %240 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %239
+  %241 = load i32, ptr %240, align 4, !tbaa !9
+  %242 = lshr i32 %228, 16
+  %243 = and i32 %242, 255
+  %244 = zext nneg i32 %243 to i64
+  %245 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %244
+  %246 = load i32, ptr %245, align 4, !tbaa !9
+  %247 = sub i32 %233, %237
+  %.narrow258 = add i32 %247, %241
+  %248 = xor i32 %246, %.narrow258
+  %249 = xor i32 %248, %195
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %251 = load i32, ptr %250, align 4, !tbaa !9
+  %252 = add i32 %249, %251
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %254 = load i32, ptr %253, align 4, !tbaa !9
+  %255 = tail call i32 @llvm.fshl.i32(i32 %252, i32 %252, i32 %254)
+  %256 = lshr i32 %255, 8
+  %257 = and i32 %256, 255
+  %258 = zext nneg i32 %257 to i64
+  %259 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %258
+  %260 = load i32, ptr %259, align 4, !tbaa !9
+  %261 = and i32 %255, 255
+  %262 = zext nneg i32 %261 to i64
+  %263 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %262
+  %264 = load i32, ptr %263, align 4, !tbaa !9
+  %265 = lshr i32 %255, 24
+  %266 = zext nneg i32 %265 to i64
+  %267 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %266
+  %268 = load i32, ptr %267, align 4, !tbaa !9
+  %269 = lshr i32 %255, 16
+  %270 = and i32 %269, 255
+  %271 = zext nneg i32 %270 to i64
+  %272 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %271
+  %273 = load i32, ptr %272, align 4, !tbaa !9
+  %274 = xor i32 %264, %260
+  %.narrow259 = sub i32 %274, %268
+  %.narrow260 = add i32 %.narrow259, %273
+  %275 = xor i32 %.narrow260, %222
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %277 = load i32, ptr %276, align 4, !tbaa !9
+  %278 = sub i32 %277, %275
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %280 = load i32, ptr %279, align 4, !tbaa !9
+  %281 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %278, i32 %280)
+  %282 = lshr i32 %281, 8
+  %283 = and i32 %282, 255
+  %284 = zext nneg i32 %283 to i64
+  %285 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %284
+  %286 = load i32, ptr %285, align 4, !tbaa !9
+  %287 = and i32 %281, 255
+  %288 = zext nneg i32 %287 to i64
+  %289 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %288
+  %290 = load i32, ptr %289, align 4, !tbaa !9
+  %291 = lshr i32 %281, 24
+  %292 = zext nneg i32 %291 to i64
+  %293 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %292
+  %294 = load i32, ptr %293, align 4, !tbaa !9
+  %295 = lshr i32 %281, 16
+  %296 = and i32 %295, 255
+  %297 = zext nneg i32 %296 to i64
+  %298 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %297
+  %299 = load i32, ptr %298, align 4, !tbaa !9
+  %300 = add i32 %290, %286
+  %301 = xor i32 %300, %294
+  %.narrow261 = sub i32 %301, %299
+  %302 = xor i32 %.narrow261, %249
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %304 = load i32, ptr %303, align 4, !tbaa !9
+  %305 = xor i32 %302, %304
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %307 = load i32, ptr %306, align 4, !tbaa !9
+  %308 = tail call i32 @llvm.fshl.i32(i32 %305, i32 %305, i32 %307)
+  %309 = lshr i32 %308, 8
+  %310 = and i32 %309, 255
+  %311 = zext nneg i32 %310 to i64
+  %312 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %311
+  %313 = load i32, ptr %312, align 4, !tbaa !9
+  %314 = and i32 %308, 255
+  %315 = zext nneg i32 %314 to i64
+  %316 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %315
+  %317 = load i32, ptr %316, align 4, !tbaa !9
+  %318 = lshr i32 %308, 24
+  %319 = zext nneg i32 %318 to i64
+  %320 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %319
+  %321 = load i32, ptr %320, align 4, !tbaa !9
+  %322 = lshr i32 %308, 16
+  %323 = and i32 %322, 255
+  %324 = zext nneg i32 %323 to i64
+  %325 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %324
+  %326 = load i32, ptr %325, align 4, !tbaa !9
+  %327 = sub i32 %313, %317
+  %.narrow262 = add i32 %327, %321
+  %328 = xor i32 %326, %.narrow262
+  %329 = xor i32 %328, %275
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %331 = load i32, ptr %330, align 4, !tbaa !9
+  %332 = add i32 %329, %331
+  %333 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %334 = load i32, ptr %333, align 4, !tbaa !9
+  %335 = tail call i32 @llvm.fshl.i32(i32 %332, i32 %332, i32 %334)
+  %336 = lshr i32 %335, 8
+  %337 = and i32 %336, 255
+  %338 = zext nneg i32 %337 to i64
+  %339 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %338
+  %340 = load i32, ptr %339, align 4, !tbaa !9
+  %341 = and i32 %335, 255
+  %342 = zext nneg i32 %341 to i64
+  %343 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %342
+  %344 = load i32, ptr %343, align 4, !tbaa !9
+  %345 = lshr i32 %335, 24
+  %346 = zext nneg i32 %345 to i64
+  %347 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %346
+  %348 = load i32, ptr %347, align 4, !tbaa !9
+  %349 = lshr i32 %335, 16
+  %350 = and i32 %349, 255
+  %351 = zext nneg i32 %350 to i64
+  %352 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %351
+  %353 = load i32, ptr %352, align 4, !tbaa !9
+  %354 = xor i32 %344, %340
+  %.narrow263 = sub i32 %354, %348
+  %.narrow264 = add i32 %.narrow263, %353
+  %355 = xor i32 %.narrow264, %302
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %357 = load i32, ptr %356, align 4, !tbaa !9
+  %358 = sub i32 %357, %355
+  %359 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %360 = load i32, ptr %359, align 4, !tbaa !9
+  %361 = tail call i32 @llvm.fshl.i32(i32 %358, i32 %358, i32 %360)
+  %362 = lshr i32 %361, 8
+  %363 = and i32 %362, 255
+  %364 = zext nneg i32 %363 to i64
+  %365 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %364
+  %366 = load i32, ptr %365, align 4, !tbaa !9
+  %367 = and i32 %361, 255
+  %368 = zext nneg i32 %367 to i64
+  %369 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %368
+  %370 = load i32, ptr %369, align 4, !tbaa !9
+  %371 = lshr i32 %361, 24
+  %372 = zext nneg i32 %371 to i64
+  %373 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %372
+  %374 = load i32, ptr %373, align 4, !tbaa !9
+  %375 = lshr i32 %361, 16
+  %376 = and i32 %375, 255
+  %377 = zext nneg i32 %376 to i64
+  %378 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %377
+  %379 = load i32, ptr %378, align 4, !tbaa !9
+  %380 = add i32 %370, %366
+  %381 = xor i32 %380, %374
+  %.narrow265 = sub i32 %381, %379
+  %382 = xor i32 %.narrow265, %329
+  %383 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %384 = load i32, ptr %383, align 4, !tbaa !9
+  %385 = xor i32 %382, %384
+  %386 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %387 = load i32, ptr %386, align 4, !tbaa !9
+  %388 = tail call i32 @llvm.fshl.i32(i32 %385, i32 %385, i32 %387)
+  %389 = lshr i32 %388, 8
+  %390 = and i32 %389, 255
+  %391 = zext nneg i32 %390 to i64
+  %392 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %391
+  %393 = load i32, ptr %392, align 4, !tbaa !9
+  %394 = and i32 %388, 255
+  %395 = zext nneg i32 %394 to i64
+  %396 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %395
+  %397 = load i32, ptr %396, align 4, !tbaa !9
+  %398 = lshr i32 %388, 24
+  %399 = zext nneg i32 %398 to i64
+  %400 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %399
+  %401 = load i32, ptr %400, align 4, !tbaa !9
+  %402 = lshr i32 %388, 16
+  %403 = and i32 %402, 255
+  %404 = zext nneg i32 %403 to i64
+  %405 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %404
+  %406 = load i32, ptr %405, align 4, !tbaa !9
+  %407 = sub i32 %393, %397
+  %.narrow266 = add i32 %407, %401
+  %408 = xor i32 %406, %.narrow266
+  %409 = xor i32 %408, %355
+  %410 = load i32, ptr %1, align 4, !tbaa !9
+  %411 = add i32 %409, %410
+  %412 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %413 = load i32, ptr %412, align 4, !tbaa !9
+  %414 = tail call i32 @llvm.fshl.i32(i32 %411, i32 %411, i32 %413)
+  %415 = lshr i32 %414, 8
+  %416 = and i32 %415, 255
+  %417 = zext nneg i32 %416 to i64
+  %418 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %417
+  %419 = load i32, ptr %418, align 4, !tbaa !9
+  %420 = and i32 %414, 255
+  %421 = zext nneg i32 %420 to i64
+  %422 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %421
+  %423 = load i32, ptr %422, align 4, !tbaa !9
+  %424 = lshr i32 %414, 24
+  %425 = zext nneg i32 %424 to i64
+  %426 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %425
+  %427 = load i32, ptr %426, align 4, !tbaa !9
+  %428 = lshr i32 %414, 16
+  %429 = and i32 %428, 255
+  %430 = zext nneg i32 %429 to i64
+  %431 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %430
+  %432 = load i32, ptr %431, align 4, !tbaa !9
+  %433 = xor i32 %423, %419
+  %.narrow267 = sub i32 %433, %427
+  %.narrow268 = add i32 %.narrow267, %432
+  %434 = xor i32 %.narrow268, %382
+  store i32 %409, ptr %4, align 4, !tbaa !9
+  store i32 %434, ptr %0, align 4, !tbaa !9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @CAST_decrypt(ptr noundef captures(none) %data, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr %data, align 4
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %data, i64 4
-  %1 = load i32, ptr %arrayidx3, align 4
-  %short_key = getelementptr inbounds nuw i8, ptr %key, i64 128
-  %2 = load i32, ptr %short_key, align 4
-  %tobool.not = icmp eq i32 %2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %key, i64 120
-  %3 = load i32, ptr %arrayidx4, align 4
-  %add = add i32 %3, %1
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %key, i64 124
-  %4 = load i32, ptr %arrayidx5, align 4
-  %or = tail call i32 @llvm.fshl.i32(i32 %add, i32 %add, i32 %4)
-  %shr10 = lshr i32 %or, 8
-  %and11 = and i32 %shr10, 255
-  %idxprom = zext nneg i32 %and11 to i64
-  %arrayidx12 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx12, align 4
-  %and13 = and i32 %or, 255
-  %idxprom14 = zext nneg i32 %and13 to i64
-  %arrayidx15 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom14
-  %6 = load i32, ptr %arrayidx15, align 4
-  %shr16 = lshr i32 %or, 24
-  %idxprom18 = zext nneg i32 %shr16 to i64
-  %arrayidx19 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom18
-  %7 = load i32, ptr %arrayidx19, align 4
-  %shr20 = lshr i32 %or, 16
-  %and21 = and i32 %shr20, 255
-  %idxprom22 = zext nneg i32 %and21 to i64
-  %arrayidx23 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom22
-  %8 = load i32, ptr %arrayidx23, align 4
-  %xor = xor i32 %6, %5
-  %sub27.narrow = sub i32 %xor, %7
-  %add30.narrow = add i32 %sub27.narrow, %8
-  %xor33179 = xor i32 %add30.narrow, %0
-  %arrayidx39 = getelementptr inbounds nuw i8, ptr %key, i64 112
-  %9 = load i32, ptr %arrayidx39, align 4
-  %sub40 = sub i32 %9, %xor33179
-  %arrayidx42 = getelementptr inbounds nuw i8, ptr %key, i64 116
-  %10 = load i32, ptr %arrayidx42, align 4
-  %or48 = tail call i32 @llvm.fshl.i32(i32 %sub40, i32 %sub40, i32 %10)
-  %shr52 = lshr i32 %or48, 8
-  %and53 = and i32 %shr52, 255
-  %idxprom54 = zext nneg i32 %and53 to i64
-  %arrayidx55 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom54
-  %11 = load i32, ptr %arrayidx55, align 4
-  %and56 = and i32 %or48, 255
-  %idxprom57 = zext nneg i32 %and56 to i64
-  %arrayidx58 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom57
-  %12 = load i32, ptr %arrayidx58, align 4
-  %shr59 = lshr i32 %or48, 24
-  %idxprom61 = zext nneg i32 %shr59 to i64
-  %arrayidx62 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom61
-  %13 = load i32, ptr %arrayidx62, align 4
-  %shr63 = lshr i32 %or48, 16
-  %and64 = and i32 %shr63, 255
-  %idxprom65 = zext nneg i32 %and64 to i64
-  %arrayidx66 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom65
-  %14 = load i32, ptr %arrayidx66, align 4
-  %add67 = add i32 %12, %11
-  %xor71180 = xor i32 %add67, %13
-  %sub74.narrow = sub i32 %xor71180, %14
-  %xor77181 = xor i32 %sub74.narrow, %1
-  %arrayidx83 = getelementptr inbounds nuw i8, ptr %key, i64 104
-  %15 = load i32, ptr %arrayidx83, align 4
-  %xor84 = xor i32 %xor77181, %15
-  %arrayidx86 = getelementptr inbounds nuw i8, ptr %key, i64 108
-  %16 = load i32, ptr %arrayidx86, align 4
-  %or92 = tail call i32 @llvm.fshl.i32(i32 %xor84, i32 %xor84, i32 %16)
-  %shr96 = lshr i32 %or92, 8
-  %and97 = and i32 %shr96, 255
-  %idxprom98 = zext nneg i32 %and97 to i64
-  %arrayidx99 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom98
-  %17 = load i32, ptr %arrayidx99, align 4
-  %and100 = and i32 %or92, 255
-  %idxprom101 = zext nneg i32 %and100 to i64
-  %arrayidx102 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom101
-  %18 = load i32, ptr %arrayidx102, align 4
-  %shr103 = lshr i32 %or92, 24
-  %idxprom105 = zext nneg i32 %shr103 to i64
-  %arrayidx106 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom105
-  %19 = load i32, ptr %arrayidx106, align 4
-  %shr107 = lshr i32 %or92, 16
-  %and108 = and i32 %shr107, 255
-  %idxprom109 = zext nneg i32 %and108 to i64
-  %arrayidx110 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom109
-  %20 = load i32, ptr %arrayidx110, align 4
-  %sub111 = sub i32 %17, %18
-  %add115.narrow = add i32 %sub111, %19
-  %21 = xor i32 %20, %add115.narrow
-  %xor121183 = xor i32 %21, %xor33179
-  %arrayidx127 = getelementptr inbounds nuw i8, ptr %key, i64 96
-  %22 = load i32, ptr %arrayidx127, align 4
-  %add128 = add i32 %xor121183, %22
-  %arrayidx130 = getelementptr inbounds nuw i8, ptr %key, i64 100
-  %23 = load i32, ptr %arrayidx130, align 4
-  %or136 = tail call i32 @llvm.fshl.i32(i32 %add128, i32 %add128, i32 %23)
-  %shr140 = lshr i32 %or136, 8
-  %and141 = and i32 %shr140, 255
-  %idxprom142 = zext nneg i32 %and141 to i64
-  %arrayidx143 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom142
-  %24 = load i32, ptr %arrayidx143, align 4
-  %and144 = and i32 %or136, 255
-  %idxprom145 = zext nneg i32 %and144 to i64
-  %arrayidx146 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom145
-  %25 = load i32, ptr %arrayidx146, align 4
-  %shr147 = lshr i32 %or136, 24
-  %idxprom149 = zext nneg i32 %shr147 to i64
-  %arrayidx150 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom149
-  %26 = load i32, ptr %arrayidx150, align 4
-  %shr151 = lshr i32 %or136, 16
-  %and152 = and i32 %shr151, 255
-  %idxprom153 = zext nneg i32 %and152 to i64
-  %arrayidx154 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom153
-  %27 = load i32, ptr %arrayidx154, align 4
-  %xor155 = xor i32 %25, %24
-  %sub159.narrow = sub i32 %xor155, %26
-  %add162.narrow = add i32 %sub159.narrow, %27
-  %xor165184 = xor i32 %add162.narrow, %xor77181
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %r.0 = phi i32 [ %1, %entry ], [ %xor165184, %if.then ]
-  %l.0 = phi i32 [ %0, %entry ], [ %xor121183, %if.then ]
-  %arrayidx171 = getelementptr inbounds nuw i8, ptr %key, i64 88
-  %28 = load i32, ptr %arrayidx171, align 4
-  %sub172 = sub i32 %28, %r.0
-  %arrayidx174 = getelementptr inbounds nuw i8, ptr %key, i64 92
-  %29 = load i32, ptr %arrayidx174, align 4
-  %or180 = tail call i32 @llvm.fshl.i32(i32 %sub172, i32 %sub172, i32 %29)
-  %shr184 = lshr i32 %or180, 8
-  %and185 = and i32 %shr184, 255
-  %idxprom186 = zext nneg i32 %and185 to i64
-  %arrayidx187 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom186
-  %30 = load i32, ptr %arrayidx187, align 4
-  %and188 = and i32 %or180, 255
-  %idxprom189 = zext nneg i32 %and188 to i64
-  %arrayidx190 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom189
-  %31 = load i32, ptr %arrayidx190, align 4
-  %shr191 = lshr i32 %or180, 24
-  %idxprom193 = zext nneg i32 %shr191 to i64
-  %arrayidx194 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom193
-  %32 = load i32, ptr %arrayidx194, align 4
-  %shr195 = lshr i32 %or180, 16
-  %and196 = and i32 %shr195, 255
-  %idxprom197 = zext nneg i32 %and196 to i64
-  %arrayidx198 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom197
-  %33 = load i32, ptr %arrayidx198, align 4
-  %add199 = add i32 %31, %30
-  %xor203185 = xor i32 %add199, %32
-  %sub206.narrow = sub i32 %xor203185, %33
-  %xor209186 = xor i32 %sub206.narrow, %l.0
-  %arrayidx215 = getelementptr inbounds nuw i8, ptr %key, i64 80
-  %34 = load i32, ptr %arrayidx215, align 4
-  %xor216 = xor i32 %xor209186, %34
-  %arrayidx218 = getelementptr inbounds nuw i8, ptr %key, i64 84
-  %35 = load i32, ptr %arrayidx218, align 4
-  %or224 = tail call i32 @llvm.fshl.i32(i32 %xor216, i32 %xor216, i32 %35)
-  %shr228 = lshr i32 %or224, 8
-  %and229 = and i32 %shr228, 255
-  %idxprom230 = zext nneg i32 %and229 to i64
-  %arrayidx231 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom230
-  %36 = load i32, ptr %arrayidx231, align 4
-  %and232 = and i32 %or224, 255
-  %idxprom233 = zext nneg i32 %and232 to i64
-  %arrayidx234 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom233
-  %37 = load i32, ptr %arrayidx234, align 4
-  %shr235 = lshr i32 %or224, 24
-  %idxprom237 = zext nneg i32 %shr235 to i64
-  %arrayidx238 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom237
-  %38 = load i32, ptr %arrayidx238, align 4
-  %shr239 = lshr i32 %or224, 16
-  %and240 = and i32 %shr239, 255
-  %idxprom241 = zext nneg i32 %and240 to i64
-  %arrayidx242 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom241
-  %39 = load i32, ptr %arrayidx242, align 4
-  %sub243 = sub i32 %36, %37
-  %add247.narrow = add i32 %sub243, %38
-  %40 = xor i32 %39, %add247.narrow
-  %xor253188 = xor i32 %40, %r.0
-  %arrayidx259 = getelementptr inbounds nuw i8, ptr %key, i64 72
-  %41 = load i32, ptr %arrayidx259, align 4
-  %add260 = add i32 %xor253188, %41
-  %arrayidx262 = getelementptr inbounds nuw i8, ptr %key, i64 76
-  %42 = load i32, ptr %arrayidx262, align 4
-  %or268 = tail call i32 @llvm.fshl.i32(i32 %add260, i32 %add260, i32 %42)
-  %shr272 = lshr i32 %or268, 8
-  %and273 = and i32 %shr272, 255
-  %idxprom274 = zext nneg i32 %and273 to i64
-  %arrayidx275 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom274
-  %43 = load i32, ptr %arrayidx275, align 4
-  %and276 = and i32 %or268, 255
-  %idxprom277 = zext nneg i32 %and276 to i64
-  %arrayidx278 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom277
-  %44 = load i32, ptr %arrayidx278, align 4
-  %shr279 = lshr i32 %or268, 24
-  %idxprom281 = zext nneg i32 %shr279 to i64
-  %arrayidx282 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom281
-  %45 = load i32, ptr %arrayidx282, align 4
-  %shr283 = lshr i32 %or268, 16
-  %and284 = and i32 %shr283, 255
-  %idxprom285 = zext nneg i32 %and284 to i64
-  %arrayidx286 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom285
-  %46 = load i32, ptr %arrayidx286, align 4
-  %xor287 = xor i32 %44, %43
-  %sub291.narrow = sub i32 %xor287, %45
-  %add294.narrow = add i32 %sub291.narrow, %46
-  %xor297189 = xor i32 %add294.narrow, %xor209186
-  %arrayidx303 = getelementptr inbounds nuw i8, ptr %key, i64 64
-  %47 = load i32, ptr %arrayidx303, align 4
-  %sub304 = sub i32 %47, %xor297189
-  %arrayidx306 = getelementptr inbounds nuw i8, ptr %key, i64 68
-  %48 = load i32, ptr %arrayidx306, align 4
-  %or312 = tail call i32 @llvm.fshl.i32(i32 %sub304, i32 %sub304, i32 %48)
-  %shr316 = lshr i32 %or312, 8
-  %and317 = and i32 %shr316, 255
-  %idxprom318 = zext nneg i32 %and317 to i64
-  %arrayidx319 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom318
-  %49 = load i32, ptr %arrayidx319, align 4
-  %and320 = and i32 %or312, 255
-  %idxprom321 = zext nneg i32 %and320 to i64
-  %arrayidx322 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom321
-  %50 = load i32, ptr %arrayidx322, align 4
-  %shr323 = lshr i32 %or312, 24
-  %idxprom325 = zext nneg i32 %shr323 to i64
-  %arrayidx326 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom325
-  %51 = load i32, ptr %arrayidx326, align 4
-  %shr327 = lshr i32 %or312, 16
-  %and328 = and i32 %shr327, 255
-  %idxprom329 = zext nneg i32 %and328 to i64
-  %arrayidx330 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom329
-  %52 = load i32, ptr %arrayidx330, align 4
-  %add331 = add i32 %50, %49
-  %xor335190 = xor i32 %add331, %51
-  %sub338.narrow = sub i32 %xor335190, %52
-  %xor341191 = xor i32 %sub338.narrow, %xor253188
-  %arrayidx347 = getelementptr inbounds nuw i8, ptr %key, i64 56
-  %53 = load i32, ptr %arrayidx347, align 4
-  %xor348 = xor i32 %xor341191, %53
-  %arrayidx350 = getelementptr inbounds nuw i8, ptr %key, i64 60
-  %54 = load i32, ptr %arrayidx350, align 4
-  %or356 = tail call i32 @llvm.fshl.i32(i32 %xor348, i32 %xor348, i32 %54)
-  %shr360 = lshr i32 %or356, 8
-  %and361 = and i32 %shr360, 255
-  %idxprom362 = zext nneg i32 %and361 to i64
-  %arrayidx363 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom362
-  %55 = load i32, ptr %arrayidx363, align 4
-  %and364 = and i32 %or356, 255
-  %idxprom365 = zext nneg i32 %and364 to i64
-  %arrayidx366 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom365
-  %56 = load i32, ptr %arrayidx366, align 4
-  %shr367 = lshr i32 %or356, 24
-  %idxprom369 = zext nneg i32 %shr367 to i64
-  %arrayidx370 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom369
-  %57 = load i32, ptr %arrayidx370, align 4
-  %shr371 = lshr i32 %or356, 16
-  %and372 = and i32 %shr371, 255
-  %idxprom373 = zext nneg i32 %and372 to i64
-  %arrayidx374 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom373
-  %58 = load i32, ptr %arrayidx374, align 4
-  %sub375 = sub i32 %55, %56
-  %add379.narrow = add i32 %sub375, %57
-  %59 = xor i32 %58, %add379.narrow
-  %xor385193 = xor i32 %59, %xor297189
-  %arrayidx391 = getelementptr inbounds nuw i8, ptr %key, i64 48
-  %60 = load i32, ptr %arrayidx391, align 4
-  %add392 = add i32 %xor385193, %60
-  %arrayidx394 = getelementptr inbounds nuw i8, ptr %key, i64 52
-  %61 = load i32, ptr %arrayidx394, align 4
-  %or400 = tail call i32 @llvm.fshl.i32(i32 %add392, i32 %add392, i32 %61)
-  %shr404 = lshr i32 %or400, 8
-  %and405 = and i32 %shr404, 255
-  %idxprom406 = zext nneg i32 %and405 to i64
-  %arrayidx407 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom406
-  %62 = load i32, ptr %arrayidx407, align 4
-  %and408 = and i32 %or400, 255
-  %idxprom409 = zext nneg i32 %and408 to i64
-  %arrayidx410 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom409
-  %63 = load i32, ptr %arrayidx410, align 4
-  %shr411 = lshr i32 %or400, 24
-  %idxprom413 = zext nneg i32 %shr411 to i64
-  %arrayidx414 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom413
-  %64 = load i32, ptr %arrayidx414, align 4
-  %shr415 = lshr i32 %or400, 16
-  %and416 = and i32 %shr415, 255
-  %idxprom417 = zext nneg i32 %and416 to i64
-  %arrayidx418 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom417
-  %65 = load i32, ptr %arrayidx418, align 4
-  %xor419 = xor i32 %63, %62
-  %sub423.narrow = sub i32 %xor419, %64
-  %add426.narrow = add i32 %sub423.narrow, %65
-  %xor429194 = xor i32 %add426.narrow, %xor341191
-  %arrayidx435 = getelementptr inbounds nuw i8, ptr %key, i64 40
-  %66 = load i32, ptr %arrayidx435, align 4
-  %sub436 = sub i32 %66, %xor429194
-  %arrayidx438 = getelementptr inbounds nuw i8, ptr %key, i64 44
-  %67 = load i32, ptr %arrayidx438, align 4
-  %or444 = tail call i32 @llvm.fshl.i32(i32 %sub436, i32 %sub436, i32 %67)
-  %shr448 = lshr i32 %or444, 8
-  %and449 = and i32 %shr448, 255
-  %idxprom450 = zext nneg i32 %and449 to i64
-  %arrayidx451 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom450
-  %68 = load i32, ptr %arrayidx451, align 4
-  %and452 = and i32 %or444, 255
-  %idxprom453 = zext nneg i32 %and452 to i64
-  %arrayidx454 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom453
-  %69 = load i32, ptr %arrayidx454, align 4
-  %shr455 = lshr i32 %or444, 24
-  %idxprom457 = zext nneg i32 %shr455 to i64
-  %arrayidx458 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom457
-  %70 = load i32, ptr %arrayidx458, align 4
-  %shr459 = lshr i32 %or444, 16
-  %and460 = and i32 %shr459, 255
-  %idxprom461 = zext nneg i32 %and460 to i64
-  %arrayidx462 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom461
-  %71 = load i32, ptr %arrayidx462, align 4
-  %add463 = add i32 %69, %68
-  %xor467195 = xor i32 %add463, %70
-  %sub470.narrow = sub i32 %xor467195, %71
-  %xor473196 = xor i32 %sub470.narrow, %xor385193
-  %arrayidx479 = getelementptr inbounds nuw i8, ptr %key, i64 32
-  %72 = load i32, ptr %arrayidx479, align 4
-  %xor480 = xor i32 %xor473196, %72
-  %arrayidx482 = getelementptr inbounds nuw i8, ptr %key, i64 36
-  %73 = load i32, ptr %arrayidx482, align 4
-  %or488 = tail call i32 @llvm.fshl.i32(i32 %xor480, i32 %xor480, i32 %73)
-  %shr492 = lshr i32 %or488, 8
-  %and493 = and i32 %shr492, 255
-  %idxprom494 = zext nneg i32 %and493 to i64
-  %arrayidx495 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom494
-  %74 = load i32, ptr %arrayidx495, align 4
-  %and496 = and i32 %or488, 255
-  %idxprom497 = zext nneg i32 %and496 to i64
-  %arrayidx498 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom497
-  %75 = load i32, ptr %arrayidx498, align 4
-  %shr499 = lshr i32 %or488, 24
-  %idxprom501 = zext nneg i32 %shr499 to i64
-  %arrayidx502 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom501
-  %76 = load i32, ptr %arrayidx502, align 4
-  %shr503 = lshr i32 %or488, 16
-  %and504 = and i32 %shr503, 255
-  %idxprom505 = zext nneg i32 %and504 to i64
-  %arrayidx506 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom505
-  %77 = load i32, ptr %arrayidx506, align 4
-  %sub507 = sub i32 %74, %75
-  %add511.narrow = add i32 %sub507, %76
-  %78 = xor i32 %77, %add511.narrow
-  %xor517198 = xor i32 %78, %xor429194
-  %arrayidx523 = getelementptr inbounds nuw i8, ptr %key, i64 24
-  %79 = load i32, ptr %arrayidx523, align 4
-  %add524 = add i32 %xor517198, %79
-  %arrayidx526 = getelementptr inbounds nuw i8, ptr %key, i64 28
-  %80 = load i32, ptr %arrayidx526, align 4
-  %or532 = tail call i32 @llvm.fshl.i32(i32 %add524, i32 %add524, i32 %80)
-  %shr536 = lshr i32 %or532, 8
-  %and537 = and i32 %shr536, 255
-  %idxprom538 = zext nneg i32 %and537 to i64
-  %arrayidx539 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom538
-  %81 = load i32, ptr %arrayidx539, align 4
-  %and540 = and i32 %or532, 255
-  %idxprom541 = zext nneg i32 %and540 to i64
-  %arrayidx542 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom541
-  %82 = load i32, ptr %arrayidx542, align 4
-  %shr543 = lshr i32 %or532, 24
-  %idxprom545 = zext nneg i32 %shr543 to i64
-  %arrayidx546 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom545
-  %83 = load i32, ptr %arrayidx546, align 4
-  %shr547 = lshr i32 %or532, 16
-  %and548 = and i32 %shr547, 255
-  %idxprom549 = zext nneg i32 %and548 to i64
-  %arrayidx550 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom549
-  %84 = load i32, ptr %arrayidx550, align 4
-  %xor551 = xor i32 %82, %81
-  %sub555.narrow = sub i32 %xor551, %83
-  %add558.narrow = add i32 %sub555.narrow, %84
-  %xor561199 = xor i32 %add558.narrow, %xor473196
-  %arrayidx567 = getelementptr inbounds nuw i8, ptr %key, i64 16
-  %85 = load i32, ptr %arrayidx567, align 4
-  %sub568 = sub i32 %85, %xor561199
-  %arrayidx570 = getelementptr inbounds nuw i8, ptr %key, i64 20
-  %86 = load i32, ptr %arrayidx570, align 4
-  %or576 = tail call i32 @llvm.fshl.i32(i32 %sub568, i32 %sub568, i32 %86)
-  %shr580 = lshr i32 %or576, 8
-  %and581 = and i32 %shr580, 255
-  %idxprom582 = zext nneg i32 %and581 to i64
-  %arrayidx583 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom582
-  %87 = load i32, ptr %arrayidx583, align 4
-  %and584 = and i32 %or576, 255
-  %idxprom585 = zext nneg i32 %and584 to i64
-  %arrayidx586 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom585
-  %88 = load i32, ptr %arrayidx586, align 4
-  %shr587 = lshr i32 %or576, 24
-  %idxprom589 = zext nneg i32 %shr587 to i64
-  %arrayidx590 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom589
-  %89 = load i32, ptr %arrayidx590, align 4
-  %shr591 = lshr i32 %or576, 16
-  %and592 = and i32 %shr591, 255
-  %idxprom593 = zext nneg i32 %and592 to i64
-  %arrayidx594 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom593
-  %90 = load i32, ptr %arrayidx594, align 4
-  %add595 = add i32 %88, %87
-  %xor599200 = xor i32 %add595, %89
-  %sub602.narrow = sub i32 %xor599200, %90
-  %xor605201 = xor i32 %sub602.narrow, %xor517198
-  %arrayidx611 = getelementptr inbounds nuw i8, ptr %key, i64 8
-  %91 = load i32, ptr %arrayidx611, align 4
-  %xor612 = xor i32 %xor605201, %91
-  %arrayidx614 = getelementptr inbounds nuw i8, ptr %key, i64 12
-  %92 = load i32, ptr %arrayidx614, align 4
-  %or620 = tail call i32 @llvm.fshl.i32(i32 %xor612, i32 %xor612, i32 %92)
-  %shr624 = lshr i32 %or620, 8
-  %and625 = and i32 %shr624, 255
-  %idxprom626 = zext nneg i32 %and625 to i64
-  %arrayidx627 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom626
-  %93 = load i32, ptr %arrayidx627, align 4
-  %and628 = and i32 %or620, 255
-  %idxprom629 = zext nneg i32 %and628 to i64
-  %arrayidx630 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom629
-  %94 = load i32, ptr %arrayidx630, align 4
-  %shr631 = lshr i32 %or620, 24
-  %idxprom633 = zext nneg i32 %shr631 to i64
-  %arrayidx634 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom633
-  %95 = load i32, ptr %arrayidx634, align 4
-  %shr635 = lshr i32 %or620, 16
-  %and636 = and i32 %shr635, 255
-  %idxprom637 = zext nneg i32 %and636 to i64
-  %arrayidx638 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom637
-  %96 = load i32, ptr %arrayidx638, align 4
-  %sub639 = sub i32 %93, %94
-  %add643.narrow = add i32 %sub639, %95
-  %97 = xor i32 %96, %add643.narrow
-  %xor649203 = xor i32 %97, %xor561199
-  %98 = load i32, ptr %key, align 4
-  %add656 = add i32 %xor649203, %98
-  %arrayidx658 = getelementptr inbounds nuw i8, ptr %key, i64 4
-  %99 = load i32, ptr %arrayidx658, align 4
-  %or664 = tail call i32 @llvm.fshl.i32(i32 %add656, i32 %add656, i32 %99)
-  %shr668 = lshr i32 %or664, 8
-  %and669 = and i32 %shr668, 255
-  %idxprom670 = zext nneg i32 %and669 to i64
-  %arrayidx671 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table0, i64 0, i64 %idxprom670
-  %100 = load i32, ptr %arrayidx671, align 4
-  %and672 = and i32 %or664, 255
-  %idxprom673 = zext nneg i32 %and672 to i64
-  %arrayidx674 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table1, i64 0, i64 %idxprom673
-  %101 = load i32, ptr %arrayidx674, align 4
-  %shr675 = lshr i32 %or664, 24
-  %idxprom677 = zext nneg i32 %shr675 to i64
-  %arrayidx678 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table2, i64 0, i64 %idxprom677
-  %102 = load i32, ptr %arrayidx678, align 4
-  %shr679 = lshr i32 %or664, 16
-  %and680 = and i32 %shr679, 255
-  %idxprom681 = zext nneg i32 %and680 to i64
-  %arrayidx682 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table3, i64 0, i64 %idxprom681
-  %103 = load i32, ptr %arrayidx682, align 4
-  %xor683 = xor i32 %101, %100
-  %sub687.narrow = sub i32 %xor683, %102
-  %add690.narrow = add i32 %sub687.narrow, %103
-  %xor693204 = xor i32 %add690.narrow, %xor605201
-  store i32 %xor649203, ptr %arrayidx3, align 4
-  store i32 %xor693204, ptr %data, align 4
-  ret void
-}
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @CAST_cbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef readonly captures(none) %ks, ptr noundef captures(none) %iv, i32 noundef %enc) local_unnamed_addr #1 {
-entry:
-  %tin = alloca [2 x i32], align 4
-  %tobool.not = icmp eq i32 %enc, 0
-  %incdec.ptr236 = getelementptr inbounds nuw i8, ptr %iv, i64 1
-  %0 = load i8, ptr %iv, align 1
-  %conv237 = zext i8 %0 to i32
-  %shl238 = shl nuw i32 %conv237, 24
-  %incdec.ptr240 = getelementptr inbounds nuw i8, ptr %iv, i64 2
-  %1 = load i8, ptr %incdec.ptr236, align 1
-  %conv241 = zext i8 %1 to i32
-  %shl242 = shl nuw nsw i32 %conv241, 16
-  %or244 = or disjoint i32 %shl242, %shl238
-  %incdec.ptr246 = getelementptr inbounds nuw i8, ptr %iv, i64 3
-  %2 = load i8, ptr %incdec.ptr240, align 1
-  %conv247 = zext i8 %2 to i32
-  %shl248 = shl nuw nsw i32 %conv247, 8
-  %or250 = or disjoint i32 %or244, %shl248
-  %incdec.ptr252 = getelementptr inbounds nuw i8, ptr %iv, i64 4
-  %3 = load i8, ptr %incdec.ptr246, align 1
-  %conv253 = zext i8 %3 to i32
-  %or255 = or disjoint i32 %or250, %conv253
-  %incdec.ptr257 = getelementptr inbounds nuw i8, ptr %iv, i64 5
-  %4 = load i8, ptr %incdec.ptr252, align 1
-  %conv258 = zext i8 %4 to i32
-  %shl259 = shl nuw i32 %conv258, 24
-  %incdec.ptr261 = getelementptr inbounds nuw i8, ptr %iv, i64 6
-  %5 = load i8, ptr %incdec.ptr257, align 1
-  %conv262 = zext i8 %5 to i32
-  %shl263 = shl nuw nsw i32 %conv262, 16
-  %or265 = or disjoint i32 %shl263, %shl259
-  %incdec.ptr267 = getelementptr inbounds nuw i8, ptr %iv, i64 7
-  %6 = load i8, ptr %incdec.ptr261, align 1
-  %conv268 = zext i8 %6 to i32
-  %shl269 = shl nuw nsw i32 %conv268, 8
-  %or271 = or disjoint i32 %or265, %shl269
-  %7 = load i8, ptr %incdec.ptr267, align 1
-  %conv274 = zext i8 %7 to i32
-  %or276 = or disjoint i32 %or271, %conv274
-  %l.1226 = add nsw i64 %length, -8
-  %cmp281227 = icmp sgt i64 %length, 7
-  br i1 %tobool.not, label %if.else, label %if.then
+define hidden void @CAST_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #2 {
+  %7 = alloca [2 x i32], align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  %.not = icmp eq i32 %5, 0
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %9 = load i8, ptr %4, align 1, !tbaa !6
+  %10 = zext i8 %9 to i32
+  %11 = shl nuw i32 %10, 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %13 = load i8, ptr %8, align 1, !tbaa !6
+  %14 = zext i8 %13 to i32
+  %15 = shl nuw nsw i32 %14, 16
+  %16 = or disjoint i32 %15, %11
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %18 = load i8, ptr %12, align 1, !tbaa !6
+  %19 = zext i8 %18 to i32
+  %20 = shl nuw nsw i32 %19, 8
+  %21 = or disjoint i32 %16, %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %23 = load i8, ptr %17, align 1, !tbaa !6
+  %24 = zext i8 %23 to i32
+  %25 = or disjoint i32 %21, %24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %27 = load i8, ptr %22, align 1, !tbaa !6
+  %28 = zext i8 %27 to i32
+  %29 = shl nuw i32 %28, 24
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %31 = load i8, ptr %26, align 1, !tbaa !6
+  %32 = zext i8 %31 to i32
+  %33 = shl nuw nsw i32 %32, 16
+  %34 = or disjoint i32 %33, %29
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %36 = load i8, ptr %30, align 1, !tbaa !6
+  %37 = zext i8 %36 to i32
+  %38 = shl nuw nsw i32 %37, 8
+  %39 = or disjoint i32 %34, %38
+  %40 = load i8, ptr %35, align 1, !tbaa !6
+  %41 = zext i8 %40 to i32
+  %42 = or disjoint i32 %39, %41
+  %.1269 = add nsw i64 %2, -8
+  %43 = icmp sgt i64 %2, 7
+  br i1 %.not, label %182, label %44
 
-if.then:                                          ; preds = %entry
-  br i1 %cmp281227, label %for.body.lr.ph, label %for.end
+44:                                               ; preds = %6
+  br i1 %43, label %.lr.ph, label %._crit_edge
 
-for.body.lr.ph:                                   ; preds = %if.then
-  %arrayidx83 = getelementptr inbounds nuw i8, ptr %tin, i64 4
-  br label %for.body
+.lr.ph:                                           ; preds = %44
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  br label %46
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %l.0220 = phi i64 [ %l.1226, %for.body.lr.ph ], [ %l.0, %for.body ]
-  %tout1.0219 = phi i32 [ %or276, %for.body.lr.ph ], [ %17, %for.body ]
-  %tout0.0218 = phi i32 [ %or255, %for.body.lr.ph ], [ %16, %for.body ]
-  %in.addr.0217 = phi ptr [ %in, %for.body.lr.ph ], [ %incdec.ptr77, %for.body ]
-  %out.addr.0216 = phi ptr [ %out, %for.body.lr.ph ], [ %incdec.ptr113, %for.body ]
-  %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %in.addr.0217, i64 1
-  %8 = load i8, ptr %in.addr.0217, align 1
-  %conv41 = zext i8 %8 to i32
-  %shl42 = shl nuw i32 %conv41, 24
-  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %in.addr.0217, i64 2
-  %9 = load i8, ptr %incdec.ptr40, align 1
-  %conv45 = zext i8 %9 to i32
-  %shl46 = shl nuw nsw i32 %conv45, 16
-  %or48 = or disjoint i32 %shl46, %shl42
-  %incdec.ptr50 = getelementptr inbounds nuw i8, ptr %in.addr.0217, i64 3
-  %10 = load i8, ptr %incdec.ptr44, align 1
-  %conv51 = zext i8 %10 to i32
-  %shl52 = shl nuw nsw i32 %conv51, 8
-  %or54 = or disjoint i32 %or48, %shl52
-  %incdec.ptr56 = getelementptr inbounds nuw i8, ptr %in.addr.0217, i64 4
-  %11 = load i8, ptr %incdec.ptr50, align 1
-  %conv57 = zext i8 %11 to i32
-  %or59 = or disjoint i32 %or54, %conv57
-  %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %in.addr.0217, i64 5
-  %12 = load i8, ptr %incdec.ptr56, align 1
-  %conv62 = zext i8 %12 to i32
-  %shl63 = shl nuw i32 %conv62, 24
-  %incdec.ptr65 = getelementptr inbounds nuw i8, ptr %in.addr.0217, i64 6
-  %13 = load i8, ptr %incdec.ptr61, align 1
-  %conv66 = zext i8 %13 to i32
-  %shl67 = shl nuw nsw i32 %conv66, 16
-  %or69 = or disjoint i32 %shl67, %shl63
-  %incdec.ptr71 = getelementptr inbounds nuw i8, ptr %in.addr.0217, i64 7
-  %14 = load i8, ptr %incdec.ptr65, align 1
-  %conv72 = zext i8 %14 to i32
-  %shl73 = shl nuw nsw i32 %conv72, 8
-  %or75 = or disjoint i32 %or69, %shl73
-  %incdec.ptr77 = getelementptr inbounds nuw i8, ptr %in.addr.0217, i64 8
-  %15 = load i8, ptr %incdec.ptr71, align 1
-  %conv78 = zext i8 %15 to i32
-  %or80 = or disjoint i32 %or75, %conv78
-  %xor = xor i32 %or59, %tout0.0218
-  %xor82 = xor i32 %or80, %tout1.0219
-  store i32 %xor, ptr %tin, align 4
-  store i32 %xor82, ptr %arrayidx83, align 4
-  call void @CAST_encrypt(ptr noundef nonnull %tin, ptr noundef %ks)
-  %16 = load i32, ptr %tin, align 4
-  %17 = load i32, ptr %arrayidx83, align 4
-  %shr = lshr i32 %16, 24
-  %conv86 = trunc nuw i32 %shr to i8
-  %incdec.ptr87 = getelementptr inbounds nuw i8, ptr %out.addr.0216, i64 1
-  store i8 %conv86, ptr %out.addr.0216, align 1
-  %shr88 = lshr i32 %16, 16
-  %conv90 = trunc i32 %shr88 to i8
-  %incdec.ptr91 = getelementptr inbounds nuw i8, ptr %out.addr.0216, i64 2
-  store i8 %conv90, ptr %incdec.ptr87, align 1
-  %shr92 = lshr i32 %16, 8
-  %conv94 = trunc i32 %shr92 to i8
-  %incdec.ptr95 = getelementptr inbounds nuw i8, ptr %out.addr.0216, i64 3
-  store i8 %conv94, ptr %incdec.ptr91, align 1
-  %conv97 = trunc i32 %16 to i8
-  %incdec.ptr98 = getelementptr inbounds nuw i8, ptr %out.addr.0216, i64 4
-  store i8 %conv97, ptr %incdec.ptr95, align 1
-  %shr99 = lshr i32 %17, 24
-  %conv101 = trunc nuw i32 %shr99 to i8
-  %incdec.ptr102 = getelementptr inbounds nuw i8, ptr %out.addr.0216, i64 5
-  store i8 %conv101, ptr %incdec.ptr98, align 1
-  %shr103 = lshr i32 %17, 16
-  %conv105 = trunc i32 %shr103 to i8
-  %incdec.ptr106 = getelementptr inbounds nuw i8, ptr %out.addr.0216, i64 6
-  store i8 %conv105, ptr %incdec.ptr102, align 1
-  %shr107 = lshr i32 %17, 8
-  %conv109 = trunc i32 %shr107 to i8
-  %incdec.ptr110 = getelementptr inbounds nuw i8, ptr %out.addr.0216, i64 7
-  store i8 %conv109, ptr %incdec.ptr106, align 1
-  %conv112 = trunc i32 %17 to i8
-  %incdec.ptr113 = getelementptr inbounds nuw i8, ptr %out.addr.0216, i64 8
-  store i8 %conv112, ptr %incdec.ptr110, align 1
-  %l.0 = add nsw i64 %l.0220, -8
-  %cmp = icmp samesign ugt i64 %l.0220, 7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
+46:                                               ; preds = %.lr.ph, %46
+  %.0263 = phi i64 [ %.1269, %.lr.ph ], [ %.0, %46 ]
+  %.0229262 = phi i32 [ %42, %.lr.ph ], [ %86, %46 ]
+  %.0231261 = phi i32 [ %25, %.lr.ph ], [ %85, %46 ]
+  %.0239260 = phi ptr [ %0, %.lr.ph ], [ %79, %46 ]
+  %.0247259 = phi ptr [ %1, %.lr.ph ], [ %108, %46 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.0239260, i64 1
+  %48 = load i8, ptr %.0239260, align 1, !tbaa !6
+  %49 = zext i8 %48 to i32
+  %50 = shl nuw i32 %49, 24
+  %51 = getelementptr inbounds nuw i8, ptr %.0239260, i64 2
+  %52 = load i8, ptr %47, align 1, !tbaa !6
+  %53 = zext i8 %52 to i32
+  %54 = shl nuw nsw i32 %53, 16
+  %55 = or disjoint i32 %54, %50
+  %56 = getelementptr inbounds nuw i8, ptr %.0239260, i64 3
+  %57 = load i8, ptr %51, align 1, !tbaa !6
+  %58 = zext i8 %57 to i32
+  %59 = shl nuw nsw i32 %58, 8
+  %60 = or disjoint i32 %55, %59
+  %61 = getelementptr inbounds nuw i8, ptr %.0239260, i64 4
+  %62 = load i8, ptr %56, align 1, !tbaa !6
+  %63 = zext i8 %62 to i32
+  %64 = or disjoint i32 %60, %63
+  %65 = getelementptr inbounds nuw i8, ptr %.0239260, i64 5
+  %66 = load i8, ptr %61, align 1, !tbaa !6
+  %67 = zext i8 %66 to i32
+  %68 = shl nuw i32 %67, 24
+  %69 = getelementptr inbounds nuw i8, ptr %.0239260, i64 6
+  %70 = load i8, ptr %65, align 1, !tbaa !6
+  %71 = zext i8 %70 to i32
+  %72 = shl nuw nsw i32 %71, 16
+  %73 = or disjoint i32 %72, %68
+  %74 = getelementptr inbounds nuw i8, ptr %.0239260, i64 7
+  %75 = load i8, ptr %69, align 1, !tbaa !6
+  %76 = zext i8 %75 to i32
+  %77 = shl nuw nsw i32 %76, 8
+  %78 = or disjoint i32 %73, %77
+  %79 = getelementptr inbounds nuw i8, ptr %.0239260, i64 8
+  %80 = load i8, ptr %74, align 1, !tbaa !6
+  %81 = zext i8 %80 to i32
+  %82 = or disjoint i32 %78, %81
+  %83 = xor i32 %64, %.0231261
+  %84 = xor i32 %82, %.0229262
+  store i32 %83, ptr %7, align 4, !tbaa !9
+  store i32 %84, ptr %45, align 4, !tbaa !9
+  call void @CAST_encrypt(ptr noundef nonnull %7, ptr noundef %3)
+  %85 = load i32, ptr %7, align 4, !tbaa !9
+  %86 = load i32, ptr %45, align 4, !tbaa !9
+  %87 = lshr i32 %85, 24
+  %88 = trunc nuw i32 %87 to i8
+  %89 = getelementptr inbounds nuw i8, ptr %.0247259, i64 1
+  store i8 %88, ptr %.0247259, align 1, !tbaa !6
+  %90 = lshr i32 %85, 16
+  %91 = trunc i32 %90 to i8
+  %92 = getelementptr inbounds nuw i8, ptr %.0247259, i64 2
+  store i8 %91, ptr %89, align 1, !tbaa !6
+  %93 = lshr i32 %85, 8
+  %94 = trunc i32 %93 to i8
+  %95 = getelementptr inbounds nuw i8, ptr %.0247259, i64 3
+  store i8 %94, ptr %92, align 1, !tbaa !6
+  %96 = trunc i32 %85 to i8
+  %97 = getelementptr inbounds nuw i8, ptr %.0247259, i64 4
+  store i8 %96, ptr %95, align 1, !tbaa !6
+  %98 = lshr i32 %86, 24
+  %99 = trunc nuw i32 %98 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %.0247259, i64 5
+  store i8 %99, ptr %97, align 1, !tbaa !6
+  %101 = lshr i32 %86, 16
+  %102 = trunc i32 %101 to i8
+  %103 = getelementptr inbounds nuw i8, ptr %.0247259, i64 6
+  store i8 %102, ptr %100, align 1, !tbaa !6
+  %104 = lshr i32 %86, 8
+  %105 = trunc i32 %104 to i8
+  %106 = getelementptr inbounds nuw i8, ptr %.0247259, i64 7
+  store i8 %105, ptr %103, align 1, !tbaa !6
+  %107 = trunc i32 %86 to i8
+  %108 = getelementptr inbounds nuw i8, ptr %.0247259, i64 8
+  store i8 %107, ptr %106, align 1, !tbaa !6
+  %.0 = add nsw i64 %.0263, -8
+  %109 = icmp samesign ugt i64 %.0263, 7
+  br i1 %109, label %46, label %._crit_edge, !llvm.loop !13
 
-for.end:                                          ; preds = %for.body, %if.then
-  %out.addr.0.lcssa = phi ptr [ %out, %if.then ], [ %incdec.ptr113, %for.body ]
-  %in.addr.0.lcssa = phi ptr [ %in, %if.then ], [ %incdec.ptr77, %for.body ]
-  %tout0.0.lcssa = phi i32 [ %or255, %if.then ], [ %16, %for.body ]
-  %tout1.0.lcssa = phi i32 [ %or276, %if.then ], [ %17, %for.body ]
-  %l.0.in.lcssa = phi i64 [ %length, %if.then ], [ %l.0220, %for.body ]
-  %l.0.lcssa = phi i64 [ %l.1226, %if.then ], [ %l.0, %for.body ]
-  %cmp115.not = icmp eq i64 %l.0.in.lcssa, 0
-  br i1 %cmp115.not, label %for.end.if.end_crit_edge, label %if.then117
+._crit_edge:                                      ; preds = %46, %44
+  %.0247.lcssa = phi ptr [ %1, %44 ], [ %108, %46 ]
+  %.0239.lcssa = phi ptr [ %0, %44 ], [ %79, %46 ]
+  %.0231.lcssa = phi i32 [ %25, %44 ], [ %85, %46 ]
+  %.0229.lcssa = phi i32 [ %42, %44 ], [ %86, %46 ]
+  %.0.in.lcssa = phi i64 [ %2, %44 ], [ %.0263, %46 ]
+  %.0.lcssa = phi i64 [ %.1269, %44 ], [ %.0, %46 ]
+  %.not257 = icmp eq i64 %.0.in.lcssa, 0
+  br i1 %.not257, label %._crit_edge._crit_edge, label %110
 
-for.end.if.end_crit_edge:                         ; preds = %for.end
-  %.pre = lshr i32 %tout0.0.lcssa, 24
-  %.pre242 = trunc nuw i32 %.pre to i8
-  %.pre243 = lshr i32 %tout0.0.lcssa, 16
-  %.pre244 = trunc i32 %.pre243 to i8
-  %.pre245 = lshr i32 %tout0.0.lcssa, 8
-  %.pre246 = trunc i32 %.pre245 to i8
-  %.pre247 = trunc i32 %tout0.0.lcssa to i8
-  %.pre248 = lshr i32 %tout1.0.lcssa, 24
-  %.pre249 = trunc nuw i32 %.pre248 to i8
-  %.pre250 = lshr i32 %tout1.0.lcssa, 16
-  %.pre251 = trunc i32 %.pre250 to i8
-  %.pre252 = lshr i32 %tout1.0.lcssa, 8
-  %.pre253 = trunc i32 %.pre252 to i8
-  %.pre254 = trunc i32 %tout1.0.lcssa to i8
-  br label %if.end
+._crit_edge._crit_edge:                           ; preds = %._crit_edge
+  %.pre = lshr i32 %.0231.lcssa, 24
+  %.pre293 = trunc nuw i32 %.pre to i8
+  %.pre295 = lshr i32 %.0231.lcssa, 16
+  %.pre297 = trunc i32 %.pre295 to i8
+  %.pre299 = lshr i32 %.0231.lcssa, 8
+  %.pre301 = trunc i32 %.pre299 to i8
+  %.pre303 = trunc i32 %.0231.lcssa to i8
+  %.pre305 = lshr i32 %.0229.lcssa, 24
+  %.pre307 = trunc nuw i32 %.pre305 to i8
+  %.pre309 = lshr i32 %.0229.lcssa, 16
+  %.pre311 = trunc i32 %.pre309 to i8
+  %.pre313 = lshr i32 %.0229.lcssa, 8
+  %.pre315 = trunc i32 %.pre313 to i8
+  %.pre317 = trunc i32 %.0229.lcssa to i8
+  br label %181
 
-if.then117:                                       ; preds = %for.end
-  %18 = getelementptr i8, ptr %in.addr.0.lcssa, i64 %l.0.lcssa
-  %add.ptr118 = getelementptr i8, ptr %in.addr.0.lcssa, i64 %l.0.in.lcssa
-  switch i64 %l.0.in.lcssa, label %sw.epilog [
-    i64 1, label %sw.bb162
-    i64 7, label %sw.bb123
-    i64 6, label %sw.bb130
-    i64 5, label %sw.bb137
-    i64 4, label %sw.bb144
-    i64 3, label %sw.bb148
-    i64 2, label %sw.bb155
+110:                                              ; preds = %._crit_edge
+  %111 = getelementptr i8, ptr %.0239.lcssa, i64 %.0.lcssa
+  %112 = getelementptr i8, ptr %.0239.lcssa, i64 %.0.in.lcssa
+  switch i64 %.0.in.lcssa, label %154 [
+    i64 1, label %148
+    i64 7, label %113
+    i64 6, label %118
+    i64 5, label %126
+    i64 4, label %132
+    i64 3, label %136
+    i64 2, label %142
   ]
 
-sw.bb123:                                         ; preds = %if.then117
-  %incdec.ptr124 = getelementptr i8, ptr %18, i64 7
-  %19 = load i8, ptr %incdec.ptr124, align 1
-  %conv125 = zext i8 %19 to i32
-  %shl126 = shl nuw nsw i32 %conv125, 8
-  br label %sw.bb130
+113:                                              ; preds = %110
+  %114 = getelementptr i8, ptr %111, i64 7
+  %115 = load i8, ptr %114, align 1, !tbaa !6
+  %116 = zext i8 %115 to i32
+  %117 = shl nuw nsw i32 %116, 8
+  br label %118
 
-sw.bb130:                                         ; preds = %sw.bb123, %if.then117
-  %20 = phi i64 [ 8, %if.then117 ], [ 7, %sw.bb123 ]
-  %tin1.2 = phi i32 [ 0, %if.then117 ], [ %shl126, %sw.bb123 ]
-  %21 = getelementptr i8, ptr %18, i64 %20
-  %incdec.ptr131 = getelementptr inbounds i8, ptr %21, i64 -1
-  %22 = load i8, ptr %incdec.ptr131, align 1
-  %conv132 = zext i8 %22 to i32
-  %shl133 = shl nuw nsw i32 %conv132, 16
-  %23 = or i32 %shl133, %tin1.2
-  br label %sw.bb137
+118:                                              ; preds = %113, %110
+  %119 = phi i64 [ 8, %110 ], [ 7, %113 ]
+  %.2 = phi i32 [ 0, %110 ], [ %117, %113 ]
+  %120 = getelementptr i8, ptr %111, i64 %119
+  %121 = getelementptr inbounds i8, ptr %120, i64 -1
+  %122 = load i8, ptr %121, align 1, !tbaa !6
+  %123 = zext i8 %122 to i32
+  %124 = shl nuw nsw i32 %123, 16
+  %125 = or i32 %124, %.2
+  br label %126
 
-sw.bb137:                                         ; preds = %sw.bb130, %if.then117
-  %in.addr.3 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr131, %sw.bb130 ]
-  %tin1.3 = phi i32 [ 0, %if.then117 ], [ %23, %sw.bb130 ]
-  %incdec.ptr138 = getelementptr inbounds i8, ptr %in.addr.3, i64 -1
-  %24 = load i8, ptr %incdec.ptr138, align 1
-  %conv139 = zext i8 %24 to i32
-  %shl140 = shl nuw i32 %conv139, 24
-  %or142 = or i32 %shl140, %tin1.3
-  br label %sw.bb144
+126:                                              ; preds = %118, %110
+  %.3242 = phi ptr [ %112, %110 ], [ %121, %118 ]
+  %.3 = phi i32 [ 0, %110 ], [ %125, %118 ]
+  %127 = getelementptr inbounds i8, ptr %.3242, i64 -1
+  %128 = load i8, ptr %127, align 1, !tbaa !6
+  %129 = zext i8 %128 to i32
+  %130 = shl nuw i32 %129, 24
+  %131 = or i32 %130, %.3
+  br label %132
 
-sw.bb144:                                         ; preds = %sw.bb137, %if.then117
-  %in.addr.4 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr138, %sw.bb137 ]
-  %tin1.4 = phi i32 [ 0, %if.then117 ], [ %or142, %sw.bb137 ]
-  %incdec.ptr145 = getelementptr inbounds i8, ptr %in.addr.4, i64 -1
-  %25 = load i8, ptr %incdec.ptr145, align 1
-  %26 = zext i8 %25 to i32
-  br label %sw.bb148
+132:                                              ; preds = %126, %110
+  %.4243 = phi ptr [ %112, %110 ], [ %127, %126 ]
+  %.4 = phi i32 [ 0, %110 ], [ %131, %126 ]
+  %133 = getelementptr inbounds i8, ptr %.4243, i64 -1
+  %134 = load i8, ptr %133, align 1, !tbaa !6
+  %135 = zext i8 %134 to i32
+  br label %136
 
-sw.bb148:                                         ; preds = %sw.bb144, %if.then117
-  %in.addr.5 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr145, %sw.bb144 ]
-  %tin0.1 = phi i32 [ 0, %if.then117 ], [ %26, %sw.bb144 ]
-  %tin1.5 = phi i32 [ 0, %if.then117 ], [ %tin1.4, %sw.bb144 ]
-  %incdec.ptr149 = getelementptr inbounds i8, ptr %in.addr.5, i64 -1
-  %27 = load i8, ptr %incdec.ptr149, align 1
-  %conv150 = zext i8 %27 to i32
-  %shl151 = shl nuw nsw i32 %conv150, 8
-  %or153 = or disjoint i32 %shl151, %tin0.1
-  br label %sw.bb155
+136:                                              ; preds = %132, %110
+  %.5244 = phi ptr [ %112, %110 ], [ %133, %132 ]
+  %.1236 = phi i32 [ 0, %110 ], [ %135, %132 ]
+  %.5 = phi i32 [ 0, %110 ], [ %.4, %132 ]
+  %137 = getelementptr inbounds i8, ptr %.5244, i64 -1
+  %138 = load i8, ptr %137, align 1, !tbaa !6
+  %139 = zext i8 %138 to i32
+  %140 = shl nuw nsw i32 %139, 8
+  %141 = or disjoint i32 %140, %.1236
+  br label %142
 
-sw.bb155:                                         ; preds = %sw.bb148, %if.then117
-  %in.addr.6 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr149, %sw.bb148 ]
-  %tin0.2 = phi i32 [ 0, %if.then117 ], [ %or153, %sw.bb148 ]
-  %tin1.6 = phi i32 [ 0, %if.then117 ], [ %tin1.5, %sw.bb148 ]
-  %incdec.ptr156 = getelementptr inbounds i8, ptr %in.addr.6, i64 -1
-  %28 = load i8, ptr %incdec.ptr156, align 1
-  %conv157 = zext i8 %28 to i32
-  %shl158 = shl nuw nsw i32 %conv157, 16
-  %29 = or i32 %shl158, %tin0.2
-  br label %sw.bb162
+142:                                              ; preds = %136, %110
+  %.6245 = phi ptr [ %112, %110 ], [ %137, %136 ]
+  %.2237 = phi i32 [ 0, %110 ], [ %141, %136 ]
+  %.6 = phi i32 [ 0, %110 ], [ %.5, %136 ]
+  %143 = getelementptr inbounds i8, ptr %.6245, i64 -1
+  %144 = load i8, ptr %143, align 1, !tbaa !6
+  %145 = zext i8 %144 to i32
+  %146 = shl nuw nsw i32 %145, 16
+  %147 = or i32 %146, %.2237
+  br label %148
 
-sw.bb162:                                         ; preds = %if.then117, %sw.bb155
-  %in.addr.7 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr156, %sw.bb155 ]
-  %tin0.3 = phi i32 [ 0, %if.then117 ], [ %29, %sw.bb155 ]
-  %tin1.7 = phi i32 [ 0, %if.then117 ], [ %tin1.6, %sw.bb155 ]
-  %incdec.ptr163 = getelementptr inbounds i8, ptr %in.addr.7, i64 -1
-  %30 = load i8, ptr %incdec.ptr163, align 1
-  %conv164 = zext i8 %30 to i32
-  %shl165 = shl nuw i32 %conv164, 24
-  %or167 = or i32 %shl165, %tin0.3
-  br label %sw.epilog
+148:                                              ; preds = %110, %142
+  %.7246 = phi ptr [ %112, %110 ], [ %143, %142 ]
+  %.3238 = phi i32 [ 0, %110 ], [ %147, %142 ]
+  %.7 = phi i32 [ 0, %110 ], [ %.6, %142 ]
+  %149 = getelementptr inbounds i8, ptr %.7246, i64 -1
+  %150 = load i8, ptr %149, align 1, !tbaa !6
+  %151 = zext i8 %150 to i32
+  %152 = shl nuw i32 %151, 24
+  %153 = or i32 %152, %.3238
+  br label %154
 
-sw.epilog:                                        ; preds = %sw.bb162, %if.then117
-  %tin0.0 = phi i32 [ 0, %if.then117 ], [ %or167, %sw.bb162 ]
-  %tin1.0 = phi i32 [ 0, %if.then117 ], [ %tin1.7, %sw.bb162 ]
-  %xor169 = xor i32 %tin0.0, %tout0.0.lcssa
-  %xor170 = xor i32 %tin1.0, %tout1.0.lcssa
-  store i32 %xor169, ptr %tin, align 4
-  %arrayidx172 = getelementptr inbounds nuw i8, ptr %tin, i64 4
-  store i32 %xor170, ptr %arrayidx172, align 4
-  call void @CAST_encrypt(ptr noundef nonnull %tin, ptr noundef %ks)
-  %31 = load i32, ptr %tin, align 4
-  %32 = load i32, ptr %arrayidx172, align 4
-  %shr176 = lshr i32 %31, 24
-  %conv178 = trunc nuw i32 %shr176 to i8
-  %incdec.ptr179 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 1
-  store i8 %conv178, ptr %out.addr.0.lcssa, align 1
-  %shr180 = lshr i32 %31, 16
-  %conv182 = trunc i32 %shr180 to i8
-  %incdec.ptr183 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 2
-  store i8 %conv182, ptr %incdec.ptr179, align 1
-  %shr184 = lshr i32 %31, 8
-  %conv186 = trunc i32 %shr184 to i8
-  %incdec.ptr187 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 3
-  store i8 %conv186, ptr %incdec.ptr183, align 1
-  %conv189 = trunc i32 %31 to i8
-  %incdec.ptr190 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 4
-  store i8 %conv189, ptr %incdec.ptr187, align 1
-  %shr191 = lshr i32 %32, 24
-  %conv193 = trunc nuw i32 %shr191 to i8
-  %incdec.ptr194 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 5
-  store i8 %conv193, ptr %incdec.ptr190, align 1
-  %shr195 = lshr i32 %32, 16
-  %conv197 = trunc i32 %shr195 to i8
-  %incdec.ptr198 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 6
-  store i8 %conv197, ptr %incdec.ptr194, align 1
-  %shr199 = lshr i32 %32, 8
-  %conv201 = trunc i32 %shr199 to i8
-  %incdec.ptr202 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 7
-  store i8 %conv201, ptr %incdec.ptr198, align 1
-  %conv204 = trunc i32 %32 to i8
-  store i8 %conv204, ptr %incdec.ptr202, align 1
-  br label %if.end
+154:                                              ; preds = %148, %110
+  %.0235 = phi i32 [ 0, %110 ], [ %153, %148 ]
+  %.0233 = phi i32 [ 0, %110 ], [ %.7, %148 ]
+  %155 = xor i32 %.0235, %.0231.lcssa
+  %156 = xor i32 %.0233, %.0229.lcssa
+  store i32 %155, ptr %7, align 4, !tbaa !9
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %156, ptr %157, align 4, !tbaa !9
+  call void @CAST_encrypt(ptr noundef nonnull %7, ptr noundef %3)
+  %158 = load i32, ptr %7, align 4, !tbaa !9
+  %159 = load i32, ptr %157, align 4, !tbaa !9
+  %160 = lshr i32 %158, 24
+  %161 = trunc nuw i32 %160 to i8
+  %162 = getelementptr inbounds nuw i8, ptr %.0247.lcssa, i64 1
+  store i8 %161, ptr %.0247.lcssa, align 1, !tbaa !6
+  %163 = lshr i32 %158, 16
+  %164 = trunc i32 %163 to i8
+  %165 = getelementptr inbounds nuw i8, ptr %.0247.lcssa, i64 2
+  store i8 %164, ptr %162, align 1, !tbaa !6
+  %166 = lshr i32 %158, 8
+  %167 = trunc i32 %166 to i8
+  %168 = getelementptr inbounds nuw i8, ptr %.0247.lcssa, i64 3
+  store i8 %167, ptr %165, align 1, !tbaa !6
+  %169 = trunc i32 %158 to i8
+  %170 = getelementptr inbounds nuw i8, ptr %.0247.lcssa, i64 4
+  store i8 %169, ptr %168, align 1, !tbaa !6
+  %171 = lshr i32 %159, 24
+  %172 = trunc nuw i32 %171 to i8
+  %173 = getelementptr inbounds nuw i8, ptr %.0247.lcssa, i64 5
+  store i8 %172, ptr %170, align 1, !tbaa !6
+  %174 = lshr i32 %159, 16
+  %175 = trunc i32 %174 to i8
+  %176 = getelementptr inbounds nuw i8, ptr %.0247.lcssa, i64 6
+  store i8 %175, ptr %173, align 1, !tbaa !6
+  %177 = lshr i32 %159, 8
+  %178 = trunc i32 %177 to i8
+  %179 = getelementptr inbounds nuw i8, ptr %.0247.lcssa, i64 7
+  store i8 %178, ptr %176, align 1, !tbaa !6
+  %180 = trunc i32 %159 to i8
+  store i8 %180, ptr %179, align 1, !tbaa !6
+  br label %181
 
-if.end:                                           ; preds = %for.end.if.end_crit_edge, %sw.epilog
-  %conv234.pre-phi = phi i8 [ %.pre254, %for.end.if.end_crit_edge ], [ %conv204, %sw.epilog ]
-  %conv231.pre-phi = phi i8 [ %.pre253, %for.end.if.end_crit_edge ], [ %conv201, %sw.epilog ]
-  %conv227.pre-phi = phi i8 [ %.pre251, %for.end.if.end_crit_edge ], [ %conv197, %sw.epilog ]
-  %conv223.pre-phi = phi i8 [ %.pre249, %for.end.if.end_crit_edge ], [ %conv193, %sw.epilog ]
-  %conv219.pre-phi = phi i8 [ %.pre247, %for.end.if.end_crit_edge ], [ %conv189, %sw.epilog ]
-  %conv216.pre-phi = phi i8 [ %.pre246, %for.end.if.end_crit_edge ], [ %conv186, %sw.epilog ]
-  %conv212.pre-phi = phi i8 [ %.pre244, %for.end.if.end_crit_edge ], [ %conv182, %sw.epilog ]
-  %conv208.pre-phi = phi i8 [ %.pre242, %for.end.if.end_crit_edge ], [ %conv178, %sw.epilog ]
-  store i8 %conv208.pre-phi, ptr %iv, align 1
-  store i8 %conv212.pre-phi, ptr %incdec.ptr236, align 1
-  store i8 %conv216.pre-phi, ptr %incdec.ptr240, align 1
-  store i8 %conv219.pre-phi, ptr %incdec.ptr246, align 1
-  store i8 %conv223.pre-phi, ptr %incdec.ptr252, align 1
-  store i8 %conv227.pre-phi, ptr %incdec.ptr257, align 1
-  store i8 %conv231.pre-phi, ptr %incdec.ptr261, align 1
-  br label %if.end491
+181:                                              ; preds = %._crit_edge._crit_edge, %154
+  %.pre-phi318 = phi i8 [ %.pre317, %._crit_edge._crit_edge ], [ %180, %154 ]
+  %.pre-phi316 = phi i8 [ %.pre315, %._crit_edge._crit_edge ], [ %178, %154 ]
+  %.pre-phi312 = phi i8 [ %.pre311, %._crit_edge._crit_edge ], [ %175, %154 ]
+  %.pre-phi308 = phi i8 [ %.pre307, %._crit_edge._crit_edge ], [ %172, %154 ]
+  %.pre-phi304 = phi i8 [ %.pre303, %._crit_edge._crit_edge ], [ %169, %154 ]
+  %.pre-phi302 = phi i8 [ %.pre301, %._crit_edge._crit_edge ], [ %167, %154 ]
+  %.pre-phi298 = phi i8 [ %.pre297, %._crit_edge._crit_edge ], [ %164, %154 ]
+  %.pre-phi294 = phi i8 [ %.pre293, %._crit_edge._crit_edge ], [ %161, %154 ]
+  store i8 %.pre-phi294, ptr %4, align 1, !tbaa !6
+  store i8 %.pre-phi298, ptr %8, align 1, !tbaa !6
+  store i8 %.pre-phi302, ptr %12, align 1, !tbaa !6
+  store i8 %.pre-phi304, ptr %17, align 1, !tbaa !6
+  store i8 %.pre-phi308, ptr %22, align 1, !tbaa !6
+  store i8 %.pre-phi312, ptr %26, align 1, !tbaa !6
+  store i8 %.pre-phi316, ptr %30, align 1, !tbaa !6
+  br label %335
 
-if.else:                                          ; preds = %entry
-  br i1 %cmp281227, label %for.body283.lr.ph, label %for.end365
+182:                                              ; preds = %6
+  br i1 %43, label %.lr.ph276, label %._crit_edge277
 
-for.body283.lr.ph:                                ; preds = %if.else
-  %arrayidx327 = getelementptr inbounds nuw i8, ptr %tin, i64 4
-  br label %for.body283
+.lr.ph276:                                        ; preds = %182
+  %183 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  br label %184
 
-for.body283:                                      ; preds = %for.body283.lr.ph, %for.body283
-  %l.1232 = phi i64 [ %l.1226, %for.body283.lr.ph ], [ %l.1, %for.body283 ]
-  %xor1.0231 = phi i32 [ %or276, %for.body283.lr.ph ], [ %or324, %for.body283 ]
-  %xor0.0230 = phi i32 [ %or255, %for.body283.lr.ph ], [ %or303, %for.body283 ]
-  %in.addr.8229 = phi ptr [ %in, %for.body283.lr.ph ], [ %incdec.ptr321, %for.body283 ]
-  %out.addr.1228 = phi ptr [ %out, %for.body283.lr.ph ], [ %incdec.ptr362, %for.body283 ]
-  %incdec.ptr284 = getelementptr inbounds nuw i8, ptr %in.addr.8229, i64 1
-  %33 = load i8, ptr %in.addr.8229, align 1
-  %conv285 = zext i8 %33 to i32
-  %shl286 = shl nuw i32 %conv285, 24
-  %incdec.ptr288 = getelementptr inbounds nuw i8, ptr %in.addr.8229, i64 2
-  %34 = load i8, ptr %incdec.ptr284, align 1
-  %conv289 = zext i8 %34 to i32
-  %shl290 = shl nuw nsw i32 %conv289, 16
-  %or292 = or disjoint i32 %shl290, %shl286
-  %incdec.ptr294 = getelementptr inbounds nuw i8, ptr %in.addr.8229, i64 3
-  %35 = load i8, ptr %incdec.ptr288, align 1
-  %conv295 = zext i8 %35 to i32
-  %shl296 = shl nuw nsw i32 %conv295, 8
-  %or298 = or disjoint i32 %or292, %shl296
-  %incdec.ptr300 = getelementptr inbounds nuw i8, ptr %in.addr.8229, i64 4
-  %36 = load i8, ptr %incdec.ptr294, align 1
-  %conv301 = zext i8 %36 to i32
-  %or303 = or disjoint i32 %or298, %conv301
-  %incdec.ptr305 = getelementptr inbounds nuw i8, ptr %in.addr.8229, i64 5
-  %37 = load i8, ptr %incdec.ptr300, align 1
-  %conv306 = zext i8 %37 to i32
-  %shl307 = shl nuw i32 %conv306, 24
-  %incdec.ptr309 = getelementptr inbounds nuw i8, ptr %in.addr.8229, i64 6
-  %38 = load i8, ptr %incdec.ptr305, align 1
-  %conv310 = zext i8 %38 to i32
-  %shl311 = shl nuw nsw i32 %conv310, 16
-  %or313 = or disjoint i32 %shl311, %shl307
-  %incdec.ptr315 = getelementptr inbounds nuw i8, ptr %in.addr.8229, i64 7
-  %39 = load i8, ptr %incdec.ptr309, align 1
-  %conv316 = zext i8 %39 to i32
-  %shl317 = shl nuw nsw i32 %conv316, 8
-  %or319 = or disjoint i32 %or313, %shl317
-  %incdec.ptr321 = getelementptr inbounds nuw i8, ptr %in.addr.8229, i64 8
-  %40 = load i8, ptr %incdec.ptr315, align 1
-  %conv322 = zext i8 %40 to i32
-  %or324 = or disjoint i32 %or319, %conv322
-  store i32 %or303, ptr %tin, align 4
-  store i32 %or324, ptr %arrayidx327, align 4
-  call void @CAST_decrypt(ptr noundef nonnull %tin, ptr noundef %ks)
-  %41 = load i32, ptr %tin, align 4
-  %xor330 = xor i32 %41, %xor0.0230
-  %42 = load i32, ptr %arrayidx327, align 4
-  %xor332 = xor i32 %42, %xor1.0231
-  %shr333 = lshr i32 %xor330, 24
-  %conv335 = trunc nuw i32 %shr333 to i8
-  %incdec.ptr336 = getelementptr inbounds nuw i8, ptr %out.addr.1228, i64 1
-  store i8 %conv335, ptr %out.addr.1228, align 1
-  %shr337 = lshr i32 %xor330, 16
-  %conv339 = trunc i32 %shr337 to i8
-  %incdec.ptr340 = getelementptr inbounds nuw i8, ptr %out.addr.1228, i64 2
-  store i8 %conv339, ptr %incdec.ptr336, align 1
-  %shr341 = lshr i32 %xor330, 8
-  %conv343 = trunc i32 %shr341 to i8
-  %incdec.ptr344 = getelementptr inbounds nuw i8, ptr %out.addr.1228, i64 3
-  store i8 %conv343, ptr %incdec.ptr340, align 1
-  %conv346 = trunc i32 %xor330 to i8
-  %incdec.ptr347 = getelementptr inbounds nuw i8, ptr %out.addr.1228, i64 4
-  store i8 %conv346, ptr %incdec.ptr344, align 1
-  %shr348 = lshr i32 %xor332, 24
-  %conv350 = trunc nuw i32 %shr348 to i8
-  %incdec.ptr351 = getelementptr inbounds nuw i8, ptr %out.addr.1228, i64 5
-  store i8 %conv350, ptr %incdec.ptr347, align 1
-  %shr352 = lshr i32 %xor332, 16
-  %conv354 = trunc i32 %shr352 to i8
-  %incdec.ptr355 = getelementptr inbounds nuw i8, ptr %out.addr.1228, i64 6
-  store i8 %conv354, ptr %incdec.ptr351, align 1
-  %shr356 = lshr i32 %xor332, 8
-  %conv358 = trunc i32 %shr356 to i8
-  %incdec.ptr359 = getelementptr inbounds nuw i8, ptr %out.addr.1228, i64 7
-  store i8 %conv358, ptr %incdec.ptr355, align 1
-  %conv361 = trunc i32 %xor332 to i8
-  %incdec.ptr362 = getelementptr inbounds nuw i8, ptr %out.addr.1228, i64 8
-  store i8 %conv361, ptr %incdec.ptr359, align 1
-  %l.1 = add nsw i64 %l.1232, -8
-  %cmp281 = icmp samesign ugt i64 %l.1232, 7
-  br i1 %cmp281, label %for.body283, label %for.end365, !llvm.loop !9
+184:                                              ; preds = %.lr.ph276, %184
+  %.1274 = phi i64 [ %.1269, %.lr.ph276 ], [ %.1, %184 ]
+  %.0225273 = phi i32 [ %42, %.lr.ph276 ], [ %220, %184 ]
+  %.0227272 = phi i32 [ %25, %.lr.ph276 ], [ %202, %184 ]
+  %.8271 = phi ptr [ %0, %.lr.ph276 ], [ %217, %184 ]
+  %.1248270 = phi ptr [ %1, %.lr.ph276 ], [ %246, %184 ]
+  %185 = getelementptr inbounds nuw i8, ptr %.8271, i64 1
+  %186 = load i8, ptr %.8271, align 1, !tbaa !6
+  %187 = zext i8 %186 to i32
+  %188 = shl nuw i32 %187, 24
+  %189 = getelementptr inbounds nuw i8, ptr %.8271, i64 2
+  %190 = load i8, ptr %185, align 1, !tbaa !6
+  %191 = zext i8 %190 to i32
+  %192 = shl nuw nsw i32 %191, 16
+  %193 = or disjoint i32 %192, %188
+  %194 = getelementptr inbounds nuw i8, ptr %.8271, i64 3
+  %195 = load i8, ptr %189, align 1, !tbaa !6
+  %196 = zext i8 %195 to i32
+  %197 = shl nuw nsw i32 %196, 8
+  %198 = or disjoint i32 %193, %197
+  %199 = getelementptr inbounds nuw i8, ptr %.8271, i64 4
+  %200 = load i8, ptr %194, align 1, !tbaa !6
+  %201 = zext i8 %200 to i32
+  %202 = or disjoint i32 %198, %201
+  %203 = getelementptr inbounds nuw i8, ptr %.8271, i64 5
+  %204 = load i8, ptr %199, align 1, !tbaa !6
+  %205 = zext i8 %204 to i32
+  %206 = shl nuw i32 %205, 24
+  %207 = getelementptr inbounds nuw i8, ptr %.8271, i64 6
+  %208 = load i8, ptr %203, align 1, !tbaa !6
+  %209 = zext i8 %208 to i32
+  %210 = shl nuw nsw i32 %209, 16
+  %211 = or disjoint i32 %210, %206
+  %212 = getelementptr inbounds nuw i8, ptr %.8271, i64 7
+  %213 = load i8, ptr %207, align 1, !tbaa !6
+  %214 = zext i8 %213 to i32
+  %215 = shl nuw nsw i32 %214, 8
+  %216 = or disjoint i32 %211, %215
+  %217 = getelementptr inbounds nuw i8, ptr %.8271, i64 8
+  %218 = load i8, ptr %212, align 1, !tbaa !6
+  %219 = zext i8 %218 to i32
+  %220 = or disjoint i32 %216, %219
+  store i32 %202, ptr %7, align 4, !tbaa !9
+  store i32 %220, ptr %183, align 4, !tbaa !9
+  call void @CAST_decrypt(ptr noundef nonnull %7, ptr noundef %3)
+  %221 = load i32, ptr %7, align 4, !tbaa !9
+  %222 = xor i32 %221, %.0227272
+  %223 = load i32, ptr %183, align 4, !tbaa !9
+  %224 = xor i32 %223, %.0225273
+  %225 = lshr i32 %222, 24
+  %226 = trunc nuw i32 %225 to i8
+  %227 = getelementptr inbounds nuw i8, ptr %.1248270, i64 1
+  store i8 %226, ptr %.1248270, align 1, !tbaa !6
+  %228 = lshr i32 %222, 16
+  %229 = trunc i32 %228 to i8
+  %230 = getelementptr inbounds nuw i8, ptr %.1248270, i64 2
+  store i8 %229, ptr %227, align 1, !tbaa !6
+  %231 = lshr i32 %222, 8
+  %232 = trunc i32 %231 to i8
+  %233 = getelementptr inbounds nuw i8, ptr %.1248270, i64 3
+  store i8 %232, ptr %230, align 1, !tbaa !6
+  %234 = trunc i32 %222 to i8
+  %235 = getelementptr inbounds nuw i8, ptr %.1248270, i64 4
+  store i8 %234, ptr %233, align 1, !tbaa !6
+  %236 = lshr i32 %224, 24
+  %237 = trunc nuw i32 %236 to i8
+  %238 = getelementptr inbounds nuw i8, ptr %.1248270, i64 5
+  store i8 %237, ptr %235, align 1, !tbaa !6
+  %239 = lshr i32 %224, 16
+  %240 = trunc i32 %239 to i8
+  %241 = getelementptr inbounds nuw i8, ptr %.1248270, i64 6
+  store i8 %240, ptr %238, align 1, !tbaa !6
+  %242 = lshr i32 %224, 8
+  %243 = trunc i32 %242 to i8
+  %244 = getelementptr inbounds nuw i8, ptr %.1248270, i64 7
+  store i8 %243, ptr %241, align 1, !tbaa !6
+  %245 = trunc i32 %224 to i8
+  %246 = getelementptr inbounds nuw i8, ptr %.1248270, i64 8
+  store i8 %245, ptr %244, align 1, !tbaa !6
+  %.1 = add nsw i64 %.1274, -8
+  %247 = icmp samesign ugt i64 %.1274, 7
+  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !15
 
-for.end365:                                       ; preds = %for.body283, %if.else
-  %out.addr.1.lcssa = phi ptr [ %out, %if.else ], [ %incdec.ptr362, %for.body283 ]
-  %in.addr.8.lcssa = phi ptr [ %in, %if.else ], [ %incdec.ptr321, %for.body283 ]
-  %xor0.0.lcssa = phi i32 [ %or255, %if.else ], [ %or303, %for.body283 ]
-  %xor1.0.lcssa = phi i32 [ %or276, %if.else ], [ %or324, %for.body283 ]
-  %l.1.in.lcssa = phi i64 [ %length, %if.else ], [ %l.1232, %for.body283 ]
-  %l.1.lcssa = phi i64 [ %l.1226, %if.else ], [ %l.1, %for.body283 ]
-  %cmp366.not = icmp eq i64 %l.1.in.lcssa, 0
-  br i1 %cmp366.not, label %if.end460, label %if.then368
+._crit_edge277:                                   ; preds = %184, %182
+  %.1248.lcssa = phi ptr [ %1, %182 ], [ %246, %184 ]
+  %.8.lcssa = phi ptr [ %0, %182 ], [ %217, %184 ]
+  %.0227.lcssa = phi i32 [ %25, %182 ], [ %202, %184 ]
+  %.0225.lcssa = phi i32 [ %42, %182 ], [ %220, %184 ]
+  %.1.in.lcssa = phi i64 [ %2, %182 ], [ %.1274, %184 ]
+  %.1.lcssa = phi i64 [ %.1269, %182 ], [ %.1, %184 ]
+  %.not256 = icmp eq i64 %.1.in.lcssa, 0
+  br i1 %.not256, label %320, label %248
 
-if.then368:                                       ; preds = %for.end365
-  %incdec.ptr369 = getelementptr inbounds nuw i8, ptr %in.addr.8.lcssa, i64 1
-  %43 = load i8, ptr %in.addr.8.lcssa, align 1
-  %conv370 = zext i8 %43 to i32
-  %shl371 = shl nuw i32 %conv370, 24
-  %incdec.ptr373 = getelementptr inbounds nuw i8, ptr %in.addr.8.lcssa, i64 2
-  %44 = load i8, ptr %incdec.ptr369, align 1
-  %conv374 = zext i8 %44 to i32
-  %shl375 = shl nuw nsw i32 %conv374, 16
-  %or377 = or disjoint i32 %shl375, %shl371
-  %incdec.ptr379 = getelementptr inbounds nuw i8, ptr %in.addr.8.lcssa, i64 3
-  %45 = load i8, ptr %incdec.ptr373, align 1
-  %conv380 = zext i8 %45 to i32
-  %shl381 = shl nuw nsw i32 %conv380, 8
-  %or383 = or disjoint i32 %or377, %shl381
-  %incdec.ptr385 = getelementptr inbounds nuw i8, ptr %in.addr.8.lcssa, i64 4
-  %46 = load i8, ptr %incdec.ptr379, align 1
-  %conv386 = zext i8 %46 to i32
-  %or388 = or disjoint i32 %or383, %conv386
-  %incdec.ptr390 = getelementptr inbounds nuw i8, ptr %in.addr.8.lcssa, i64 5
-  %47 = load i8, ptr %incdec.ptr385, align 1
-  %conv391 = zext i8 %47 to i32
-  %shl392 = shl nuw i32 %conv391, 24
-  %incdec.ptr394 = getelementptr inbounds nuw i8, ptr %in.addr.8.lcssa, i64 6
-  %48 = load i8, ptr %incdec.ptr390, align 1
-  %conv395 = zext i8 %48 to i32
-  %shl396 = shl nuw nsw i32 %conv395, 16
-  %or398 = or disjoint i32 %shl396, %shl392
-  %incdec.ptr400 = getelementptr inbounds nuw i8, ptr %in.addr.8.lcssa, i64 7
-  %49 = load i8, ptr %incdec.ptr394, align 1
-  %conv401 = zext i8 %49 to i32
-  %shl402 = shl nuw nsw i32 %conv401, 8
-  %or404 = or disjoint i32 %or398, %shl402
-  %50 = load i8, ptr %incdec.ptr400, align 1
-  %conv407 = zext i8 %50 to i32
-  %or409 = or disjoint i32 %or404, %conv407
-  store i32 %or388, ptr %tin, align 4
-  %arrayidx412 = getelementptr inbounds nuw i8, ptr %tin, i64 4
-  store i32 %or409, ptr %arrayidx412, align 4
-  call void @CAST_decrypt(ptr noundef nonnull %tin, ptr noundef %ks)
-  %51 = load i32, ptr %tin, align 4
-  %xor415 = xor i32 %51, %xor0.0.lcssa
-  %52 = load i32, ptr %arrayidx412, align 4
-  %xor417 = xor i32 %52, %xor1.0.lcssa
-  %53 = getelementptr i8, ptr %out.addr.1.lcssa, i64 %l.1.lcssa
-  %add.ptr419 = getelementptr i8, ptr %out.addr.1.lcssa, i64 %l.1.in.lcssa
-  switch i64 %l.1.in.lcssa, label %if.end460 [
-    i64 1, label %sw.bb454
-    i64 7, label %sw.bb425
-    i64 6, label %sw.bb430
-    i64 5, label %sw.bb435
-    i64 4, label %sw.bb440
-    i64 3, label %sw.bb444
-    i64 2, label %sw.bb449
+248:                                              ; preds = %._crit_edge277
+  %249 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 1
+  %250 = load i8, ptr %.8.lcssa, align 1, !tbaa !6
+  %251 = zext i8 %250 to i32
+  %252 = shl nuw i32 %251, 24
+  %253 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 2
+  %254 = load i8, ptr %249, align 1, !tbaa !6
+  %255 = zext i8 %254 to i32
+  %256 = shl nuw nsw i32 %255, 16
+  %257 = or disjoint i32 %256, %252
+  %258 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 3
+  %259 = load i8, ptr %253, align 1, !tbaa !6
+  %260 = zext i8 %259 to i32
+  %261 = shl nuw nsw i32 %260, 8
+  %262 = or disjoint i32 %257, %261
+  %263 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
+  %264 = load i8, ptr %258, align 1, !tbaa !6
+  %265 = zext i8 %264 to i32
+  %266 = or disjoint i32 %262, %265
+  %267 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 5
+  %268 = load i8, ptr %263, align 1, !tbaa !6
+  %269 = zext i8 %268 to i32
+  %270 = shl nuw i32 %269, 24
+  %271 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 6
+  %272 = load i8, ptr %267, align 1, !tbaa !6
+  %273 = zext i8 %272 to i32
+  %274 = shl nuw nsw i32 %273, 16
+  %275 = or disjoint i32 %274, %270
+  %276 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 7
+  %277 = load i8, ptr %271, align 1, !tbaa !6
+  %278 = zext i8 %277 to i32
+  %279 = shl nuw nsw i32 %278, 8
+  %280 = or disjoint i32 %275, %279
+  %281 = load i8, ptr %276, align 1, !tbaa !6
+  %282 = zext i8 %281 to i32
+  %283 = or disjoint i32 %280, %282
+  store i32 %266, ptr %7, align 4, !tbaa !9
+  %284 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %283, ptr %284, align 4, !tbaa !9
+  call void @CAST_decrypt(ptr noundef nonnull %7, ptr noundef %3)
+  %285 = load i32, ptr %7, align 4, !tbaa !9
+  %286 = xor i32 %285, %.0227.lcssa
+  %287 = load i32, ptr %284, align 4, !tbaa !9
+  %288 = xor i32 %287, %.0225.lcssa
+  %289 = getelementptr i8, ptr %.1248.lcssa, i64 %.1.lcssa
+  %290 = getelementptr i8, ptr %.1248.lcssa, i64 %.1.in.lcssa
+  switch i64 %.1.in.lcssa, label %320 [
+    i64 1, label %316
+    i64 7, label %291
+    i64 6, label %295
+    i64 5, label %301
+    i64 4, label %305
+    i64 3, label %308
+    i64 2, label %312
   ]
 
-sw.bb425:                                         ; preds = %if.then368
-  %shr426 = lshr i32 %xor417, 8
-  %conv428 = trunc i32 %shr426 to i8
-  %incdec.ptr429 = getelementptr i8, ptr %53, i64 7
-  store i8 %conv428, ptr %incdec.ptr429, align 1
-  br label %sw.bb430
+291:                                              ; preds = %248
+  %292 = lshr i32 %288, 8
+  %293 = trunc i32 %292 to i8
+  %294 = getelementptr i8, ptr %289, i64 7
+  store i8 %293, ptr %294, align 1, !tbaa !6
+  br label %295
 
-sw.bb430:                                         ; preds = %sw.bb425, %if.then368
-  %54 = phi i64 [ 8, %if.then368 ], [ 7, %sw.bb425 ]
-  %55 = getelementptr i8, ptr %53, i64 %54
-  %shr431 = lshr i32 %xor417, 16
-  %conv433 = trunc i32 %shr431 to i8
-  %incdec.ptr434 = getelementptr inbounds i8, ptr %55, i64 -1
-  store i8 %conv433, ptr %incdec.ptr434, align 1
-  br label %sw.bb435
+295:                                              ; preds = %291, %248
+  %296 = phi i64 [ 8, %248 ], [ 7, %291 ]
+  %297 = getelementptr i8, ptr %289, i64 %296
+  %298 = lshr i32 %288, 16
+  %299 = trunc i32 %298 to i8
+  %300 = getelementptr inbounds i8, ptr %297, i64 -1
+  store i8 %299, ptr %300, align 1, !tbaa !6
+  br label %301
 
-sw.bb435:                                         ; preds = %sw.bb430, %if.then368
-  %out.addr.4 = phi ptr [ %add.ptr419, %if.then368 ], [ %incdec.ptr434, %sw.bb430 ]
-  %shr436 = lshr i32 %xor417, 24
-  %conv438 = trunc nuw i32 %shr436 to i8
-  %incdec.ptr439 = getelementptr inbounds i8, ptr %out.addr.4, i64 -1
-  store i8 %conv438, ptr %incdec.ptr439, align 1
-  br label %sw.bb440
+301:                                              ; preds = %295, %248
+  %.4251 = phi ptr [ %290, %248 ], [ %300, %295 ]
+  %302 = lshr i32 %288, 24
+  %303 = trunc nuw i32 %302 to i8
+  %304 = getelementptr inbounds i8, ptr %.4251, i64 -1
+  store i8 %303, ptr %304, align 1, !tbaa !6
+  br label %305
 
-sw.bb440:                                         ; preds = %sw.bb435, %if.then368
-  %out.addr.5 = phi ptr [ %add.ptr419, %if.then368 ], [ %incdec.ptr439, %sw.bb435 ]
-  %conv442 = trunc i32 %xor415 to i8
-  %incdec.ptr443 = getelementptr inbounds i8, ptr %out.addr.5, i64 -1
-  store i8 %conv442, ptr %incdec.ptr443, align 1
-  br label %sw.bb444
+305:                                              ; preds = %301, %248
+  %.5252 = phi ptr [ %290, %248 ], [ %304, %301 ]
+  %306 = trunc i32 %286 to i8
+  %307 = getelementptr inbounds i8, ptr %.5252, i64 -1
+  store i8 %306, ptr %307, align 1, !tbaa !6
+  br label %308
 
-sw.bb444:                                         ; preds = %sw.bb440, %if.then368
-  %out.addr.6 = phi ptr [ %add.ptr419, %if.then368 ], [ %incdec.ptr443, %sw.bb440 ]
-  %shr445 = lshr i32 %xor415, 8
-  %conv447 = trunc i32 %shr445 to i8
-  %incdec.ptr448 = getelementptr inbounds i8, ptr %out.addr.6, i64 -1
-  store i8 %conv447, ptr %incdec.ptr448, align 1
-  br label %sw.bb449
+308:                                              ; preds = %305, %248
+  %.6253 = phi ptr [ %290, %248 ], [ %307, %305 ]
+  %309 = lshr i32 %286, 8
+  %310 = trunc i32 %309 to i8
+  %311 = getelementptr inbounds i8, ptr %.6253, i64 -1
+  store i8 %310, ptr %311, align 1, !tbaa !6
+  br label %312
 
-sw.bb449:                                         ; preds = %sw.bb444, %if.then368
-  %out.addr.7 = phi ptr [ %add.ptr419, %if.then368 ], [ %incdec.ptr448, %sw.bb444 ]
-  %shr450 = lshr i32 %xor415, 16
-  %conv452 = trunc i32 %shr450 to i8
-  %incdec.ptr453 = getelementptr inbounds i8, ptr %out.addr.7, i64 -1
-  store i8 %conv452, ptr %incdec.ptr453, align 1
-  br label %sw.bb454
+312:                                              ; preds = %308, %248
+  %.7254 = phi ptr [ %290, %248 ], [ %311, %308 ]
+  %313 = lshr i32 %286, 16
+  %314 = trunc i32 %313 to i8
+  %315 = getelementptr inbounds i8, ptr %.7254, i64 -1
+  store i8 %314, ptr %315, align 1, !tbaa !6
+  br label %316
 
-sw.bb454:                                         ; preds = %if.then368, %sw.bb449
-  %out.addr.8 = phi ptr [ %add.ptr419, %if.then368 ], [ %incdec.ptr453, %sw.bb449 ]
-  %shr455 = lshr i32 %xor415, 24
-  %conv457 = trunc nuw i32 %shr455 to i8
-  %incdec.ptr458 = getelementptr inbounds i8, ptr %out.addr.8, i64 -1
-  store i8 %conv457, ptr %incdec.ptr458, align 1
-  br label %if.end460
+316:                                              ; preds = %248, %312
+  %.8255 = phi ptr [ %290, %248 ], [ %315, %312 ]
+  %317 = lshr i32 %286, 24
+  %318 = trunc nuw i32 %317 to i8
+  %319 = getelementptr inbounds i8, ptr %.8255, i64 -1
+  store i8 %318, ptr %319, align 1, !tbaa !6
+  br label %320
 
-if.end460:                                        ; preds = %if.then368, %sw.bb454, %for.end365
-  %xor0.1 = phi i32 [ %xor0.0.lcssa, %for.end365 ], [ %or388, %sw.bb454 ], [ %or388, %if.then368 ]
-  %xor1.1 = phi i32 [ %xor1.0.lcssa, %for.end365 ], [ %or409, %sw.bb454 ], [ %or409, %if.then368 ]
-  %shr461 = lshr i32 %xor0.1, 24
-  %conv463 = trunc nuw i32 %shr461 to i8
-  store i8 %conv463, ptr %iv, align 1
-  %shr465 = lshr i32 %xor0.1, 16
-  %conv467 = trunc i32 %shr465 to i8
-  store i8 %conv467, ptr %incdec.ptr236, align 1
-  %shr469 = lshr i32 %xor0.1, 8
-  %conv471 = trunc i32 %shr469 to i8
-  store i8 %conv471, ptr %incdec.ptr240, align 1
-  %conv474 = trunc i32 %xor0.1 to i8
-  store i8 %conv474, ptr %incdec.ptr246, align 1
-  %shr476 = lshr i32 %xor1.1, 24
-  %conv478 = trunc nuw i32 %shr476 to i8
-  store i8 %conv478, ptr %incdec.ptr252, align 1
-  %shr480 = lshr i32 %xor1.1, 16
-  %conv482 = trunc i32 %shr480 to i8
-  store i8 %conv482, ptr %incdec.ptr257, align 1
-  %shr484 = lshr i32 %xor1.1, 8
-  %conv486 = trunc i32 %shr484 to i8
-  store i8 %conv486, ptr %incdec.ptr261, align 1
-  %conv489 = trunc i32 %xor1.1 to i8
-  br label %if.end491
+320:                                              ; preds = %248, %316, %._crit_edge277
+  %.1228 = phi i32 [ %.0227.lcssa, %._crit_edge277 ], [ %266, %316 ], [ %266, %248 ]
+  %.1226 = phi i32 [ %.0225.lcssa, %._crit_edge277 ], [ %283, %316 ], [ %283, %248 ]
+  %321 = lshr i32 %.1228, 24
+  %322 = trunc nuw i32 %321 to i8
+  store i8 %322, ptr %4, align 1, !tbaa !6
+  %323 = lshr i32 %.1228, 16
+  %324 = trunc i32 %323 to i8
+  store i8 %324, ptr %8, align 1, !tbaa !6
+  %325 = lshr i32 %.1228, 8
+  %326 = trunc i32 %325 to i8
+  store i8 %326, ptr %12, align 1, !tbaa !6
+  %327 = trunc i32 %.1228 to i8
+  store i8 %327, ptr %17, align 1, !tbaa !6
+  %328 = lshr i32 %.1226, 24
+  %329 = trunc nuw i32 %328 to i8
+  store i8 %329, ptr %22, align 1, !tbaa !6
+  %330 = lshr i32 %.1226, 16
+  %331 = trunc i32 %330 to i8
+  store i8 %331, ptr %26, align 1, !tbaa !6
+  %332 = lshr i32 %.1226, 8
+  %333 = trunc i32 %332 to i8
+  store i8 %333, ptr %30, align 1, !tbaa !6
+  %334 = trunc i32 %.1226 to i8
+  br label %335
 
-if.end491:                                        ; preds = %if.end460, %if.end
-  %conv489.sink = phi i8 [ %conv489, %if.end460 ], [ %conv234.pre-phi, %if.end ]
-  store i8 %conv489.sink, ptr %incdec.ptr267, align 1
+335:                                              ; preds = %320, %181
+  %.sink = phi i8 [ %334, %320 ], [ %.pre-phi318, %181 ]
+  store i8 %.sink, ptr %35, align 1, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @CAST_set_key(ptr noundef writeonly captures(none) %key, i64 noundef %len, ptr noundef readonly captures(none) %data) local_unnamed_addr #2 {
-entry:
-  %x = alloca [16 x i32], align 16
-  %k = alloca [32 x i32], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %x, i8 0, i64 64, i1 false)
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %len, i64 16)
-  %cmp3187.not = icmp eq i64 %len, 0
-  br i1 %cmp3187.not, label %if.end14, label %for.body4
+define hidden void @CAST_set_key(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+  %4 = alloca [16 x i32], align 16
+  %5 = alloca [32 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !tbaa !9
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %1, i64 16)
+  %.not220 = icmp eq i64 %1, 0
+  br i1 %.not220, label %._crit_edge.thread, label %.lr.ph
 
-for.body4:                                        ; preds = %entry, %for.body4
-  %i.1188 = phi i64 [ %inc8, %for.body4 ], [ 0, %entry ]
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %data, i64 %i.1188
-  %0 = load i8, ptr %arrayidx5, align 1
-  %conv = zext i8 %0 to i32
-  %arrayidx6 = getelementptr inbounds nuw [16 x i32], ptr %x, i64 0, i64 %i.1188
-  store i32 %conv, ptr %arrayidx6, align 4
-  %inc8 = add nuw nsw i64 %i.1188, 1
-  %exitcond.not = icmp eq i64 %inc8, %spec.store.select
-  br i1 %exitcond.not, label %for.end9, label %for.body4, !llvm.loop !10
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.1196 = phi i64 [ %10, %.lr.ph ], [ 0, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.1196
+  %7 = load i8, ptr %6, align 1, !tbaa !6
+  %8 = zext i8 %7 to i32
+  %9 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %.1196
+  store i32 %8, ptr %9, align 4, !tbaa !9
+  %10 = add nuw nsw i64 %.1196, 1
+  %exitcond.not = icmp eq i64 %10, %spec.store.select
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-for.end9:                                         ; preds = %for.body4
-  %cmp10 = icmp ult i64 %len, 11
-  %spec.select = zext i1 %cmp10 to i32
-  br label %if.end14
+._crit_edge:                                      ; preds = %.lr.ph
+  %11 = icmp ult i64 %1, 11
+  %spec.select = zext i1 %11 to i32
+  br label %._crit_edge.thread
 
-if.end14:                                         ; preds = %for.end9, %entry
-  %.sink = phi i32 [ 1, %entry ], [ %spec.select, %for.end9 ]
-  %1 = getelementptr inbounds nuw i8, ptr %key, i64 128
-  store i32 %.sink, ptr %1, align 4
-  %2 = load i32, ptr %x, align 16
-  %shl = shl i32 %2, 24
-  %arrayidx17 = getelementptr inbounds nuw i8, ptr %x, i64 4
-  %3 = load i32, ptr %arrayidx17, align 4
-  %shl18 = shl i32 %3, 16
-  %or = or i32 %shl18, %shl
-  %arrayidx19 = getelementptr inbounds nuw i8, ptr %x, i64 8
-  %4 = load i32, ptr %arrayidx19, align 8
-  %shl20 = shl i32 %4, 8
-  %or21 = or i32 %or, %shl20
-  %arrayidx22 = getelementptr inbounds nuw i8, ptr %x, i64 12
-  %5 = load i32, ptr %arrayidx22, align 4
-  %or23 = or i32 %or21, %5
-  %arrayidx27 = getelementptr inbounds nuw i8, ptr %x, i64 16
-  %6 = load i32, ptr %arrayidx27, align 16
-  %shl28 = shl i32 %6, 24
-  %arrayidx29 = getelementptr inbounds nuw i8, ptr %x, i64 20
-  %7 = load i32, ptr %arrayidx29, align 4
-  %shl30 = shl i32 %7, 16
-  %or31 = or i32 %shl30, %shl28
-  %arrayidx32 = getelementptr inbounds nuw i8, ptr %x, i64 24
-  %8 = load i32, ptr %arrayidx32, align 8
-  %shl33 = shl i32 %8, 8
-  %or34 = or i32 %or31, %shl33
-  %arrayidx35 = getelementptr inbounds nuw i8, ptr %x, i64 28
-  %9 = load i32, ptr %arrayidx35, align 4
-  %or36 = or i32 %or34, %9
-  %arrayidx41 = getelementptr inbounds nuw i8, ptr %x, i64 32
-  %10 = load i32, ptr %arrayidx41, align 16
-  %shl42 = shl i32 %10, 24
-  %arrayidx43 = getelementptr inbounds nuw i8, ptr %x, i64 36
-  %11 = load i32, ptr %arrayidx43, align 4
-  %shl44 = shl i32 %11, 16
-  %or45 = or i32 %shl44, %shl42
-  %arrayidx46 = getelementptr inbounds nuw i8, ptr %x, i64 40
-  %12 = load i32, ptr %arrayidx46, align 8
-  %shl47 = shl i32 %12, 8
-  %or48 = or i32 %or45, %shl47
-  %arrayidx49 = getelementptr inbounds nuw i8, ptr %x, i64 44
-  %13 = load i32, ptr %arrayidx49, align 4
-  %or50 = or i32 %or48, %13
-  %arrayidx55 = getelementptr inbounds nuw i8, ptr %x, i64 48
-  %14 = load i32, ptr %arrayidx55, align 16
-  %shl56 = shl i32 %14, 24
-  %arrayidx57 = getelementptr inbounds nuw i8, ptr %x, i64 52
-  %15 = load i32, ptr %arrayidx57, align 4
-  %shl58 = shl i32 %15, 16
-  %or59 = or i32 %shl58, %shl56
-  %arrayidx60 = getelementptr inbounds nuw i8, ptr %x, i64 56
-  %16 = load i32, ptr %arrayidx60, align 8
-  %shl61 = shl i32 %16, 8
-  %or62 = or i32 %or59, %shl61
-  %arrayidx63 = getelementptr inbounds nuw i8, ptr %x, i64 60
-  %17 = load i32, ptr %arrayidx63, align 4
-  %or64 = or i32 %or62, %17
-  %idxprom74.phi.trans.insert = zext i32 %17 to i64
-  %arrayidx75.phi.trans.insert = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom74.phi.trans.insert
-  %.pre = load i32, ptr %arrayidx75.phi.trans.insert, align 4
-  %idxprom86.phi.trans.insert = zext i32 %10 to i64
-  %arrayidx87.phi.trans.insert = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom86.phi.trans.insert
-  %.pre191 = load i32, ptr %arrayidx87.phi.trans.insert, align 4
-  br label %for.cond69
+._crit_edge.thread:                               ; preds = %._crit_edge, %3
+  %.sink = phi i32 [ 1, %3 ], [ %spec.select, %._crit_edge ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %.sink, ptr %12, align 4, !tbaa !11
+  %13 = load i32, ptr %4, align 16, !tbaa !9
+  %14 = shl i32 %13, 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = shl i32 %16, 16
+  %18 = or i32 %17, %14
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = shl i32 %20, 8
+  %22 = or i32 %18, %21
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = or i32 %22, %24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %27 = load i32, ptr %26, align 16, !tbaa !9
+  %28 = shl i32 %27, 24
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %30 = load i32, ptr %29, align 4, !tbaa !9
+  %31 = shl i32 %30, 16
+  %32 = or i32 %31, %28
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %34 = load i32, ptr %33, align 8, !tbaa !9
+  %35 = shl i32 %34, 8
+  %36 = or i32 %32, %35
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %38 = load i32, ptr %37, align 4, !tbaa !9
+  %39 = or i32 %36, %38
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %41 = load i32, ptr %40, align 16, !tbaa !9
+  %42 = shl i32 %41, 24
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %44 = load i32, ptr %43, align 4, !tbaa !9
+  %45 = shl i32 %44, 16
+  %46 = or i32 %45, %42
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %48 = load i32, ptr %47, align 8, !tbaa !9
+  %49 = shl i32 %48, 8
+  %50 = or i32 %46, %49
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %52 = load i32, ptr %51, align 4, !tbaa !9
+  %53 = or i32 %50, %52
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %55 = load i32, ptr %54, align 16, !tbaa !9
+  %56 = shl i32 %55, 24
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %58 = load i32, ptr %57, align 4, !tbaa !9
+  %59 = shl i32 %58, 16
+  %60 = or i32 %59, %56
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %62 = load i32, ptr %61, align 8, !tbaa !9
+  %63 = shl i32 %62, 8
+  %64 = or i32 %60, %63
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %66 = load i32, ptr %65, align 4, !tbaa !9
+  %67 = or i32 %64, %66
+  %.phi.trans.insert = zext i32 %66 to i64
+  %.phi.trans.insert237 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert237, align 4, !tbaa !9
+  %.phi.trans.insert238 = zext i32 %41 to i64
+  %.phi.trans.insert239 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %.phi.trans.insert238
+  %.pre240 = load i32, ptr %.phi.trans.insert239, align 4, !tbaa !9
+  br label %68
 
-for.cond69:                                       ; preds = %for.cond69, %if.end14
-  %18 = phi i32 [ %.pre191, %if.end14 ], [ %245, %for.cond69 ]
-  %19 = phi i32 [ %.pre, %if.end14 ], [ %247, %for.cond69 ]
-  %20 = phi i32 [ %13, %if.end14 ], [ %and791, %for.cond69 ]
-  %21 = phi i32 [ %11, %if.end14 ], [ %and797, %for.cond69 ]
-  %22 = phi i32 [ %12, %if.end14 ], [ %and794, %for.cond69 ]
-  %23 = phi i32 [ %16, %if.end14 ], [ %and827, %for.cond69 ]
-  %24 = phi i32 [ %14, %if.end14 ], [ %shr832, %for.cond69 ]
-  %25 = phi i32 [ %15, %if.end14 ], [ %and830, %for.cond69 ]
-  %X.sroa.0.0 = phi i32 [ %or23, %if.end14 ], [ %xor723, %for.cond69 ]
-  %X.sroa.5.0 = phi i32 [ %or36, %if.end14 ], [ %xor756, %for.cond69 ]
-  %X.sroa.10.0 = phi i32 [ %or50, %if.end14 ], [ %xor789, %for.cond69 ]
-  %X.sroa.15.0 = phi i32 [ %or64, %if.end14 ], [ %xor822, %for.cond69 ]
-  %K.0 = phi ptr [ %k, %if.end14 ], [ %add.ptr, %for.cond69 ]
-  %idxprom = zext i32 %25 to i64
-  %arrayidx72 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom
-  %26 = load i32, ptr %arrayidx72, align 4
-  %xor = xor i32 %26, %X.sroa.0.0
-  %xor76 = xor i32 %xor, %19
-  %idxprom78 = zext i32 %24 to i64
-  %arrayidx79 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom78
-  %27 = load i32, ptr %arrayidx79, align 4
-  %xor80 = xor i32 %xor76, %27
-  %idxprom82 = zext i32 %23 to i64
-  %arrayidx83 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom82
-  %28 = load i32, ptr %arrayidx83, align 4
-  %xor84 = xor i32 %xor80, %28
-  %xor88 = xor i32 %xor84, %18
-  %and90 = and i32 %xor88, 255
-  %shr = lshr i32 %xor88, 8
-  %and92 = and i32 %shr, 255
-  %shr94 = lshr i32 %xor88, 16
-  %and95 = and i32 %shr94, 255
-  %shr97 = lshr i32 %xor88, 24
-  %idxprom102 = zext nneg i32 %shr97 to i64
-  %arrayidx103 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom102
-  %29 = load i32, ptr %arrayidx103, align 4
-  %xor104 = xor i32 %29, %X.sroa.10.0
-  %idxprom106 = zext nneg i32 %and92 to i64
-  %arrayidx107 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom106
-  %30 = load i32, ptr %arrayidx107, align 4
-  %xor108 = xor i32 %xor104, %30
-  %idxprom110 = zext nneg i32 %and95 to i64
-  %arrayidx111 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom110
-  %31 = load i32, ptr %arrayidx111, align 4
-  %idxprom114 = zext nneg i32 %and90 to i64
-  %arrayidx115 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom114
-  %32 = load i32, ptr %arrayidx115, align 4
-  %idxprom118 = zext i32 %22 to i64
-  %arrayidx119 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom118
-  %33 = load i32, ptr %arrayidx119, align 4
-  %34 = xor i32 %xor108, %32
-  %35 = xor i32 %34, %33
-  %xor120 = xor i32 %35, %31
-  %and122 = and i32 %xor120, 255
-  %shr124 = lshr i32 %xor120, 8
-  %and125 = and i32 %shr124, 255
-  %shr127 = lshr i32 %xor120, 16
-  %and128 = and i32 %shr127, 255
-  %shr130 = lshr i32 %xor120, 24
-  %idxprom135 = zext nneg i32 %and122 to i64
-  %arrayidx136 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom135
-  %36 = load i32, ptr %arrayidx136, align 4
-  %idxprom139 = zext nneg i32 %and125 to i64
-  %arrayidx140 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom139
-  %37 = load i32, ptr %arrayidx140, align 4
-  %idxprom143 = zext nneg i32 %and128 to i64
-  %arrayidx144 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom143
-  %38 = load i32, ptr %arrayidx144, align 4
-  %idxprom147 = zext nneg i32 %shr130 to i64
-  %arrayidx148 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom147
-  %39 = load i32, ptr %arrayidx148, align 4
-  %idxprom151 = zext i32 %21 to i64
-  %arrayidx152 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom151
-  %40 = load i32, ptr %arrayidx152, align 4
-  %41 = xor i32 %X.sroa.15.0, %36
-  %42 = xor i32 %41, %40
-  %43 = xor i32 %42, %37
-  %44 = xor i32 %43, %38
-  %xor153 = xor i32 %44, %39
-  %and155 = and i32 %xor153, 255
-  %shr157 = lshr i32 %xor153, 8
-  %and158 = and i32 %shr157, 255
-  %shr160 = lshr i32 %xor153, 16
-  %and161 = and i32 %shr160, 255
-  %shr163 = lshr i32 %xor153, 24
-  %idxprom168 = zext nneg i32 %and158 to i64
-  %arrayidx169 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom168
-  %45 = load i32, ptr %arrayidx169, align 4
-  %idxprom172 = zext nneg i32 %and161 to i64
-  %arrayidx173 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom172
-  %46 = load i32, ptr %arrayidx173, align 4
-  %idxprom176 = zext nneg i32 %and155 to i64
-  %arrayidx177 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom176
-  %47 = load i32, ptr %arrayidx177, align 4
-  %idxprom180 = zext nneg i32 %shr163 to i64
-  %arrayidx181 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom180
-  %48 = load i32, ptr %arrayidx181, align 4
-  %idxprom184 = zext i32 %20 to i64
-  %arrayidx185 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom184
-  %49 = load i32, ptr %arrayidx185, align 4
-  %50 = xor i32 %X.sroa.5.0, %47
-  %51 = xor i32 %50, %48
-  %52 = xor i32 %51, %49
-  %53 = xor i32 %52, %45
-  %xor186 = xor i32 %53, %46
-  %and188 = and i32 %xor186, 255
-  %shr190 = lshr i32 %xor186, 8
-  %and191 = and i32 %shr190, 255
-  %shr193 = lshr i32 %xor186, 16
-  %and194 = and i32 %shr193, 255
-  %shr196 = lshr i32 %xor186, 24
-  %arrayidx201 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom180
-  %54 = load i32, ptr %arrayidx201, align 4
-  %arrayidx208 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom135
-  %55 = load i32, ptr %arrayidx208, align 4
-  %arrayidx212 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom139
-  %56 = load i32, ptr %arrayidx212, align 4
-  %arrayidx216 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom106
-  %57 = load i32, ptr %arrayidx216, align 4
-  %58 = xor i32 %54, %55
-  %59 = xor i32 %58, %57
-  %60 = xor i32 %59, %46
-  %xor217 = xor i32 %60, %56
-  store i32 %xor217, ptr %K.0, align 4
-  %arrayidx224 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom176
-  %61 = load i32, ptr %arrayidx224, align 4
-  %62 = xor i32 %37, %61
-  %63 = xor i32 %62, %38
-  %64 = xor i32 %63, %39
-  %xor237 = xor i32 %64, %45
-  %arrayidx238 = getelementptr inbounds nuw i8, ptr %K.0, i64 4
-  store i32 %xor237, ptr %arrayidx238, align 4
-  %idxprom240 = zext nneg i32 %shr196 to i64
-  %arrayidx241 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom240
-  %65 = load i32, ptr %arrayidx241, align 4
-  %idxprom243 = zext nneg i32 %and194 to i64
-  %arrayidx244 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom243
-  %66 = load i32, ptr %arrayidx244, align 4
-  %xor245 = xor i32 %66, %65
-  %arrayidx248 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom114
-  %67 = load i32, ptr %arrayidx248, align 4
-  %xor249 = xor i32 %xor245, %67
-  %arrayidx252 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom106
-  %68 = load i32, ptr %arrayidx252, align 4
-  %arrayidx256 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom172
-  %69 = load i32, ptr %arrayidx256, align 4
-  %70 = xor i32 %xor249, %69
-  %xor257 = xor i32 %70, %68
-  %arrayidx258 = getelementptr inbounds nuw i8, ptr %K.0, i64 8
-  store i32 %xor257, ptr %arrayidx258, align 4
-  %idxprom260 = zext nneg i32 %and191 to i64
-  %arrayidx261 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom260
-  %71 = load i32, ptr %arrayidx261, align 4
-  %idxprom263 = zext nneg i32 %and188 to i64
-  %arrayidx264 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom263
-  %72 = load i32, ptr %arrayidx264, align 4
-  %arrayidx272 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom102
-  %73 = load i32, ptr %arrayidx272, align 4
-  %arrayidx276 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom240
-  %74 = load i32, ptr %arrayidx276, align 4
-  %75 = xor i32 %71, %72
-  %76 = xor i32 %75, %73
-  %77 = xor i32 %76, %74
-  %xor277 = xor i32 %77, %31
-  %arrayidx278 = getelementptr inbounds nuw i8, ptr %K.0, i64 12
-  store i32 %xor277, ptr %arrayidx278, align 4
-  %arrayidx282 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom143
-  %78 = load i32, ptr %arrayidx282, align 4
-  %arrayidx286 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom135
-  %79 = load i32, ptr %arrayidx286, align 4
-  %arrayidx290 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom147
-  %80 = load i32, ptr %arrayidx290, align 4
-  %arrayidx298 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom102
-  %81 = load i32, ptr %arrayidx298, align 4
-  %82 = xor i32 %78, %79
-  %83 = xor i32 %82, %80
-  %84 = xor i32 %83, %81
-  %85 = xor i32 %84, %xor153
-  %xor299 = xor i32 %85, %56
-  %and301 = and i32 %xor299, 255
-  %shr303 = lshr i32 %xor299, 8
-  %and304 = and i32 %shr303, 255
-  %shr306 = lshr i32 %xor299, 16
-  %and307 = and i32 %shr306, 255
-  %shr309 = lshr i32 %xor299, 24
-  %idxprom314 = zext nneg i32 %shr309 to i64
-  %arrayidx315 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom314
-  %86 = load i32, ptr %arrayidx315, align 4
-  %idxprom318 = zext nneg i32 %and304 to i64
-  %arrayidx319 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom318
-  %87 = load i32, ptr %arrayidx319, align 4
-  %idxprom322 = zext nneg i32 %and307 to i64
-  %arrayidx323 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom322
-  %88 = load i32, ptr %arrayidx323, align 4
-  %idxprom326 = zext nneg i32 %and301 to i64
-  %arrayidx327 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom326
-  %89 = load i32, ptr %arrayidx327, align 4
-  %90 = xor i32 %86, %88
-  %91 = xor i32 %90, %89
-  %92 = xor i32 %91, %xor88
-  %93 = xor i32 %92, %68
-  %xor332 = xor i32 %93, %87
-  %and334 = and i32 %xor332, 255
-  %shr336 = lshr i32 %xor332, 8
-  %and337 = and i32 %shr336, 255
-  %shr339 = lshr i32 %xor332, 16
-  %and340 = and i32 %shr339, 255
-  %shr342 = lshr i32 %xor332, 24
-  %idxprom347 = zext nneg i32 %and334 to i64
-  %arrayidx348 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom347
-  %94 = load i32, ptr %arrayidx348, align 4
-  %idxprom351 = zext nneg i32 %and337 to i64
-  %arrayidx352 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom351
-  %95 = load i32, ptr %arrayidx352, align 4
-  %96 = xor i32 %95, %94
-  %idxprom355 = zext nneg i32 %and340 to i64
-  %arrayidx356 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom355
-  %97 = load i32, ptr %arrayidx356, align 4
-  %idxprom359 = zext nneg i32 %shr342 to i64
-  %arrayidx360 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom359
-  %98 = load i32, ptr %arrayidx360, align 4
-  %arrayidx364 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom110
-  %99 = load i32, ptr %arrayidx364, align 4
-  %100 = xor i32 %97, %98
-  %101 = xor i32 %100, %99
-  %102 = xor i32 %101, %xor120
-  %xor365 = xor i32 %102, %96
-  %and367 = and i32 %xor365, 255
-  %shr369 = lshr i32 %xor365, 8
-  %and370 = and i32 %shr369, 255
-  %shr372 = lshr i32 %xor365, 16
-  %and373 = and i32 %shr372, 255
-  %shr375 = lshr i32 %xor365, 24
-  %idxprom380 = zext nneg i32 %and370 to i64
-  %arrayidx381 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom380
-  %103 = load i32, ptr %arrayidx381, align 4
-  %idxprom384 = zext nneg i32 %and373 to i64
-  %arrayidx385 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom384
-  %104 = load i32, ptr %arrayidx385, align 4
-  %idxprom388 = zext nneg i32 %and367 to i64
-  %arrayidx389 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom388
-  %105 = load i32, ptr %arrayidx389, align 4
-  %idxprom392 = zext nneg i32 %shr375 to i64
-  %arrayidx393 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom392
-  %106 = load i32, ptr %arrayidx393, align 4
-  %arrayidx397 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom114
-  %107 = load i32, ptr %arrayidx397, align 4
-  %108 = xor i32 %103, %104
-  %109 = xor i32 %108, %105
-  %110 = xor i32 %109, %106
-  %111 = xor i32 %110, %107
-  %xor398 = xor i32 %111, %xor186
-  %and400 = and i32 %xor398, 255
-  %shr402 = lshr i32 %xor398, 8
-  %and403 = and i32 %shr402, 255
-  %shr405 = lshr i32 %xor398, 16
-  %and406 = and i32 %shr405, 255
-  %shr408 = lshr i32 %xor398, 24
-  %arrayidx413 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom326
-  %112 = load i32, ptr %arrayidx413, align 4
-  %idxprom419 = zext nneg i32 %shr408 to i64
-  %arrayidx420 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom419
-  %113 = load i32, ptr %arrayidx420, align 4
-  %idxprom423 = zext nneg i32 %and406 to i64
-  %arrayidx424 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom423
-  %114 = load i32, ptr %arrayidx424, align 4
-  %arrayidx428 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom392
-  %115 = load i32, ptr %arrayidx428, align 4
-  %116 = xor i32 %112, %114
-  %117 = xor i32 %116, %115
-  %118 = xor i32 %117, %87
-  %xor429 = xor i32 %118, %113
-  %arrayidx430 = getelementptr inbounds nuw i8, ptr %K.0, i64 16
-  store i32 %xor429, ptr %arrayidx430, align 4
-  %arrayidx433 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom322
-  %119 = load i32, ptr %arrayidx433, align 4
-  %arrayidx436 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom314
-  %120 = load i32, ptr %arrayidx436, align 4
-  %xor437 = xor i32 %120, %119
-  %idxprom439 = zext nneg i32 %and403 to i64
-  %arrayidx440 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom439
-  %121 = load i32, ptr %arrayidx440, align 4
-  %xor441 = xor i32 %xor437, %121
-  %idxprom443 = zext nneg i32 %and400 to i64
-  %arrayidx444 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom443
-  %122 = load i32, ptr %arrayidx444, align 4
-  %xor445 = xor i32 %xor441, %122
-  %arrayidx448 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom423
-  %123 = load i32, ptr %arrayidx448, align 4
-  %xor449 = xor i32 %xor445, %123
-  %arrayidx450 = getelementptr inbounds nuw i8, ptr %K.0, i64 20
-  store i32 %xor449, ptr %arrayidx450, align 4
-  %arrayidx460 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom392
-  %124 = load i32, ptr %arrayidx460, align 4
-  %arrayidx464 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom384
-  %125 = load i32, ptr %arrayidx464, align 4
-  %arrayidx468 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom326
-  %126 = load i32, ptr %arrayidx468, align 4
-  %127 = xor i32 %125, %126
-  %128 = xor i32 %127, %96
-  %xor469 = xor i32 %128, %124
-  %arrayidx470 = getelementptr inbounds nuw i8, ptr %K.0, i64 24
-  store i32 %xor469, ptr %arrayidx470, align 4
-  %arrayidx473 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom355
-  %129 = load i32, ptr %arrayidx473, align 4
-  %arrayidx476 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom359
-  %130 = load i32, ptr %arrayidx476, align 4
-  %xor477 = xor i32 %130, %129
-  %arrayidx480 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom380
-  %131 = load i32, ptr %arrayidx480, align 4
-  %xor481 = xor i32 %xor477, %131
-  %arrayidx484 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom388
-  %132 = load i32, ptr %arrayidx484, align 4
-  %xor485 = xor i32 %xor481, %132
-  %arrayidx488 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom347
-  %133 = load i32, ptr %arrayidx488, align 4
-  %xor489 = xor i32 %xor485, %133
-  %arrayidx490 = getelementptr inbounds nuw i8, ptr %K.0, i64 28
-  store i32 %xor489, ptr %arrayidx490, align 4
-  %arrayidx494 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom423
-  %134 = load i32, ptr %arrayidx494, align 4
-  %arrayidx498 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom443
-  %135 = load i32, ptr %arrayidx498, align 4
-  %arrayidx506 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom439
-  %136 = load i32, ptr %arrayidx506, align 4
-  %137 = xor i32 %134, %135
-  %138 = xor i32 %137, %136
-  %139 = xor i32 %138, %xor299
-  %140 = xor i32 %139, %113
-  %xor511 = xor i32 %140, %124
-  %and513 = and i32 %xor511, 255
-  %shr515 = lshr i32 %xor511, 8
-  %and516 = and i32 %shr515, 255
-  %shr518 = lshr i32 %xor511, 16
-  %and519 = and i32 %shr518, 255
-  %shr521 = lshr i32 %xor511, 24
-  %idxprom526 = zext nneg i32 %shr521 to i64
-  %arrayidx527 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom526
-  %141 = load i32, ptr %arrayidx527, align 4
-  %idxprom530 = zext nneg i32 %and516 to i64
-  %arrayidx531 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom530
-  %142 = load i32, ptr %arrayidx531, align 4
-  %idxprom534 = zext nneg i32 %and519 to i64
-  %arrayidx535 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom534
-  %143 = load i32, ptr %arrayidx535, align 4
-  %idxprom538 = zext nneg i32 %and513 to i64
-  %arrayidx539 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom538
-  %144 = load i32, ptr %arrayidx539, align 4
-  %arrayidx543 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom380
-  %145 = load i32, ptr %arrayidx543, align 4
-  %146 = xor i32 %141, %143
-  %147 = xor i32 %146, %144
-  %148 = xor i32 %147, %145
-  %149 = xor i32 %148, %xor365
-  %xor544 = xor i32 %149, %142
-  %and546 = and i32 %xor544, 255
-  %shr548 = lshr i32 %xor544, 8
-  %and549 = and i32 %shr548, 255
-  %shr551 = lshr i32 %xor544, 16
-  %and552 = and i32 %shr551, 255
-  %shr554 = lshr i32 %xor544, 24
-  %idxprom559 = zext nneg i32 %and546 to i64
-  %arrayidx560 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom559
-  %150 = load i32, ptr %arrayidx560, align 4
-  %idxprom563 = zext nneg i32 %and549 to i64
-  %arrayidx564 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom563
-  %151 = load i32, ptr %arrayidx564, align 4
-  %152 = xor i32 %151, %150
-  %idxprom567 = zext nneg i32 %and552 to i64
-  %arrayidx568 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom567
-  %153 = load i32, ptr %arrayidx568, align 4
-  %idxprom571 = zext nneg i32 %shr554 to i64
-  %arrayidx572 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom571
-  %154 = load i32, ptr %arrayidx572, align 4
-  %arrayidx576 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom384
-  %155 = load i32, ptr %arrayidx576, align 4
-  %156 = xor i32 %153, %154
-  %157 = xor i32 %156, %155
-  %158 = xor i32 %157, %xor398
-  %xor577 = xor i32 %158, %152
-  %and579 = and i32 %xor577, 255
-  %shr581 = lshr i32 %xor577, 8
-  %and582 = and i32 %shr581, 255
-  %shr584 = lshr i32 %xor577, 16
-  %and585 = and i32 %shr584, 255
-  %shr587 = lshr i32 %xor577, 24
-  %idxprom592 = zext nneg i32 %and582 to i64
-  %arrayidx593 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom592
-  %159 = load i32, ptr %arrayidx593, align 4
-  %idxprom596 = zext nneg i32 %and585 to i64
-  %arrayidx597 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom596
-  %160 = load i32, ptr %arrayidx597, align 4
-  %idxprom600 = zext nneg i32 %and579 to i64
-  %arrayidx601 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom600
-  %161 = load i32, ptr %arrayidx601, align 4
-  %idxprom604 = zext nneg i32 %shr587 to i64
-  %arrayidx605 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom604
-  %162 = load i32, ptr %arrayidx605, align 4
-  %arrayidx609 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom388
-  %163 = load i32, ptr %arrayidx609, align 4
-  %164 = xor i32 %159, %160
-  %165 = xor i32 %164, %161
-  %166 = xor i32 %165, %162
-  %167 = xor i32 %166, %163
-  %xor610 = xor i32 %167, %xor332
-  %and612 = and i32 %xor610, 255
-  %shr614 = lshr i32 %xor610, 8
-  %and615 = and i32 %shr614, 255
-  %shr617 = lshr i32 %xor610, 16
-  %and618 = and i32 %shr617, 255
-  %shr620 = lshr i32 %xor610, 24
-  %arrayidx625 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom538
-  %168 = load i32, ptr %arrayidx625, align 4
-  %idxprom631 = zext nneg i32 %shr620 to i64
-  %arrayidx632 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom631
-  %169 = load i32, ptr %arrayidx632, align 4
-  %idxprom635 = zext nneg i32 %and618 to i64
-  %arrayidx636 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom635
-  %170 = load i32, ptr %arrayidx636, align 4
-  %arrayidx640 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom596
-  %171 = load i32, ptr %arrayidx640, align 4
-  %172 = xor i32 %168, %169
-  %173 = xor i32 %172, %170
-  %174 = xor i32 %173, %171
-  %xor641 = xor i32 %174, %142
-  %arrayidx642 = getelementptr inbounds nuw i8, ptr %K.0, i64 32
-  store i32 %xor641, ptr %arrayidx642, align 4
-  %arrayidx645 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom534
-  %175 = load i32, ptr %arrayidx645, align 4
-  %arrayidx648 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom526
-  %176 = load i32, ptr %arrayidx648, align 4
-  %idxprom651 = zext nneg i32 %and615 to i64
-  %arrayidx652 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom651
-  %177 = load i32, ptr %arrayidx652, align 4
-  %idxprom655 = zext nneg i32 %and612 to i64
-  %arrayidx656 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom655
-  %178 = load i32, ptr %arrayidx656, align 4
-  %arrayidx660 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom631
-  %179 = load i32, ptr %arrayidx660, align 4
-  %180 = xor i32 %176, %177
-  %181 = xor i32 %180, %178
-  %182 = xor i32 %181, %179
-  %xor661 = xor i32 %182, %175
-  %arrayidx662 = getelementptr inbounds nuw i8, ptr %K.0, i64 36
-  store i32 %xor661, ptr %arrayidx662, align 4
-  %arrayidx672 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom604
-  %183 = load i32, ptr %arrayidx672, align 4
-  %arrayidx676 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom596
-  %184 = load i32, ptr %arrayidx676, align 4
-  %arrayidx680 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom530
-  %185 = load i32, ptr %arrayidx680, align 4
-  %186 = xor i32 %183, %184
-  %187 = xor i32 %186, %185
-  %xor681 = xor i32 %187, %152
-  %arrayidx682 = getelementptr inbounds nuw i8, ptr %K.0, i64 40
-  store i32 %xor681, ptr %arrayidx682, align 4
-  %arrayidx685 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom567
-  %188 = load i32, ptr %arrayidx685, align 4
-  %arrayidx688 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom571
-  %189 = load i32, ptr %arrayidx688, align 4
-  %arrayidx692 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom592
-  %190 = load i32, ptr %arrayidx692, align 4
-  %arrayidx696 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom600
-  %191 = load i32, ptr %arrayidx696, align 4
-  %arrayidx700 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom563
-  %192 = load i32, ptr %arrayidx700, align 4
-  %193 = xor i32 %189, %190
-  %194 = xor i32 %193, %191
-  %195 = xor i32 %194, %188
-  %xor701 = xor i32 %195, %192
-  %arrayidx702 = getelementptr inbounds nuw i8, ptr %K.0, i64 44
-  store i32 %xor701, ptr %arrayidx702, align 4
-  %arrayidx710 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom559
-  %196 = load i32, ptr %arrayidx710, align 4
-  %arrayidx714 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom571
-  %197 = load i32, ptr %arrayidx714, align 4
-  %arrayidx722 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom526
-  %198 = load i32, ptr %arrayidx722, align 4
-  %199 = xor i32 %196, %197
-  %200 = xor i32 %199, %198
-  %201 = xor i32 %200, %188
-  %202 = xor i32 %201, %192
-  %xor723 = xor i32 %202, %xor577
-  %and725 = and i32 %xor723, 255
-  %shr727 = lshr i32 %xor723, 8
-  %and728 = and i32 %shr727, 255
-  %shr730 = lshr i32 %xor723, 16
-  %and731 = and i32 %shr730, 255
-  %shr733 = lshr i32 %xor723, 24
-  %idxprom738 = zext nneg i32 %shr733 to i64
-  %arrayidx739 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom738
-  %203 = load i32, ptr %arrayidx739, align 4
-  %idxprom742 = zext nneg i32 %and728 to i64
-  %arrayidx743 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom742
-  %204 = load i32, ptr %arrayidx743, align 4
-  %idxprom746 = zext nneg i32 %and731 to i64
-  %arrayidx747 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom746
-  %205 = load i32, ptr %arrayidx747, align 4
-  %idxprom750 = zext nneg i32 %and725 to i64
-  %arrayidx751 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom750
-  %206 = load i32, ptr %arrayidx751, align 4
-  %arrayidx755 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom530
-  %207 = load i32, ptr %arrayidx755, align 4
-  %208 = xor i32 %203, %204
-  %209 = xor i32 %208, %206
-  %210 = xor i32 %209, %207
-  %211 = xor i32 %210, %xor511
-  %xor756 = xor i32 %211, %205
-  %and758 = and i32 %xor756, 255
-  %shr760 = lshr i32 %xor756, 8
-  %and761 = and i32 %shr760, 255
-  %shr763 = lshr i32 %xor756, 16
-  %and764 = and i32 %shr763, 255
-  %shr766 = lshr i32 %xor756, 24
-  %idxprom771 = zext nneg i32 %and758 to i64
-  %arrayidx772 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom771
-  %212 = load i32, ptr %arrayidx772, align 4
-  %idxprom775 = zext nneg i32 %and761 to i64
-  %arrayidx776 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom775
-  %213 = load i32, ptr %arrayidx776, align 4
-  %idxprom779 = zext nneg i32 %and764 to i64
-  %arrayidx780 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom779
-  %214 = load i32, ptr %arrayidx780, align 4
-  %idxprom783 = zext nneg i32 %shr766 to i64
-  %arrayidx784 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom783
-  %215 = load i32, ptr %arrayidx784, align 4
-  %216 = xor i32 %212, %213
-  %217 = xor i32 %216, %214
-  %218 = xor i32 %217, %215
-  %219 = xor i32 %218, %xor544
-  %xor789 = xor i32 %219, %175
-  %and791 = and i32 %xor789, 255
-  %shr793 = lshr i32 %xor789, 8
-  %and794 = and i32 %shr793, 255
-  %shr796 = lshr i32 %xor789, 16
-  %and797 = and i32 %shr796, 255
-  %shr799 = lshr i32 %xor789, 24
-  %idxprom804 = zext nneg i32 %and794 to i64
-  %arrayidx805 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom804
-  %220 = load i32, ptr %arrayidx805, align 4
-  %idxprom808 = zext nneg i32 %and797 to i64
-  %arrayidx809 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom808
-  %221 = load i32, ptr %arrayidx809, align 4
-  %idxprom812 = zext nneg i32 %and791 to i64
-  %arrayidx813 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom812
-  %222 = load i32, ptr %arrayidx813, align 4
-  %idxprom816 = zext nneg i32 %shr799 to i64
-  %arrayidx817 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom816
-  %223 = load i32, ptr %arrayidx817, align 4
-  %arrayidx821 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom538
-  %224 = load i32, ptr %arrayidx821, align 4
-  %225 = xor i32 %222, %223
-  %226 = xor i32 %225, %224
-  %227 = xor i32 %226, %xor610
-  %228 = xor i32 %227, %220
-  %xor822 = xor i32 %228, %221
-  %and824 = and i32 %xor822, 255
-  %shr826 = lshr i32 %xor822, 8
-  %and827 = and i32 %shr826, 255
-  %shr829 = lshr i32 %xor822, 16
-  %and830 = and i32 %shr829, 255
-  %shr832 = lshr i32 %xor822, 24
-  %arrayidx837 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom816
-  %229 = load i32, ptr %arrayidx837, align 4
-  %arrayidx844 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom771
-  %230 = load i32, ptr %arrayidx844, align 4
-  %arrayidx848 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom775
-  %231 = load i32, ptr %arrayidx848, align 4
-  %arrayidx852 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom750
-  %232 = load i32, ptr %arrayidx852, align 4
-  %233 = xor i32 %229, %230
-  %234 = xor i32 %233, %231
-  %235 = xor i32 %234, %232
-  %xor853 = xor i32 %235, %221
-  %arrayidx854 = getelementptr inbounds nuw i8, ptr %K.0, i64 48
-  store i32 %xor853, ptr %arrayidx854, align 4
-  %arrayidx860 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom812
-  %236 = load i32, ptr %arrayidx860, align 4
-  %arrayidx872 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom771
-  %237 = load i32, ptr %arrayidx872, align 4
-  %238 = xor i32 %236, %237
-  %239 = xor i32 %238, %214
-  %240 = xor i32 %239, %215
-  %xor873 = xor i32 %240, %220
-  %arrayidx874 = getelementptr inbounds nuw i8, ptr %K.0, i64 52
-  store i32 %xor873, ptr %arrayidx874, align 4
-  %idxprom876 = zext nneg i32 %shr832 to i64
-  %arrayidx877 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom876
-  %241 = load i32, ptr %arrayidx877, align 4
-  %idxprom879 = zext nneg i32 %and830 to i64
-  %arrayidx880 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom879
-  %242 = load i32, ptr %arrayidx880, align 4
-  %xor881 = xor i32 %242, %241
-  %arrayidx884 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom750
-  %243 = load i32, ptr %arrayidx884, align 4
-  %xor885 = xor i32 %xor881, %243
-  %arrayidx888 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom742
-  %244 = load i32, ptr %arrayidx888, align 4
-  %xor889 = xor i32 %xor885, %244
-  %arrayidx892 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %idxprom816
-  %245 = load i32, ptr %arrayidx892, align 4
-  %xor893 = xor i32 %xor889, %245
-  %arrayidx894 = getelementptr inbounds nuw i8, ptr %K.0, i64 56
-  store i32 %xor893, ptr %arrayidx894, align 4
-  %idxprom896 = zext nneg i32 %and827 to i64
-  %arrayidx897 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %idxprom896
-  %246 = load i32, ptr %arrayidx897, align 4
-  %idxprom899 = zext nneg i32 %and824 to i64
-  %arrayidx900 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %idxprom899
-  %247 = load i32, ptr %arrayidx900, align 4
-  %arrayidx908 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom738
-  %248 = load i32, ptr %arrayidx908, align 4
-  %arrayidx912 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %idxprom879
-  %249 = load i32, ptr %arrayidx912, align 4
-  %250 = xor i32 %246, %248
-  %251 = xor i32 %250, %249
-  %252 = xor i32 %251, %247
-  %xor913 = xor i32 %252, %205
-  %arrayidx914 = getelementptr inbounds nuw i8, ptr %K.0, i64 60
-  store i32 %xor913, ptr %arrayidx914, align 4
-  %cmp915.not = icmp eq ptr %K.0, %k
-  %add.ptr = getelementptr inbounds nuw i8, ptr %K.0, i64 64
-  br i1 %cmp915.not, label %for.cond69, label %for.body923
+68:                                               ; preds = %68, %._crit_edge.thread
+  %69 = phi i32 [ %.pre240, %._crit_edge.thread ], [ %650, %68 ]
+  %70 = phi i32 [ %.pre, %._crit_edge.thread ], [ %658, %68 ]
+  %71 = phi i32 [ %52, %._crit_edge.thread ], [ %583, %68 ]
+  %72 = phi i32 [ %44, %._crit_edge.thread ], [ %587, %68 ]
+  %73 = phi i32 [ %48, %._crit_edge.thread ], [ %585, %68 ]
+  %74 = phi i32 [ %62, %._crit_edge.thread ], [ %610, %68 ]
+  %75 = phi i32 [ %55, %._crit_edge.thread ], [ %613, %68 ]
+  %76 = phi i32 [ %58, %._crit_edge.thread ], [ %612, %68 ]
+  %.sroa.0114.0 = phi i32 [ %25, %._crit_edge.thread ], [ %534, %68 ]
+  %.sroa.7.0 = phi i32 [ %39, %._crit_edge.thread ], [ %559, %68 ]
+  %.sroa.12.0 = phi i32 [ %53, %._crit_edge.thread ], [ %582, %68 ]
+  %.sroa.17.0 = phi i32 [ %67, %._crit_edge.thread ], [ %607, %68 ]
+  %.0193 = phi ptr [ %5, %._crit_edge.thread ], [ %668, %68 ]
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !9
+  %80 = xor i32 %79, %.sroa.0114.0
+  %81 = xor i32 %80, %70
+  %82 = zext i32 %75 to i64
+  %83 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %82
+  %84 = load i32, ptr %83, align 4, !tbaa !9
+  %85 = xor i32 %81, %84
+  %86 = zext i32 %74 to i64
+  %87 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %86
+  %88 = load i32, ptr %87, align 4, !tbaa !9
+  %89 = xor i32 %85, %88
+  %90 = xor i32 %89, %69
+  %91 = and i32 %90, 255
+  %92 = lshr i32 %90, 8
+  %93 = and i32 %92, 255
+  %94 = lshr i32 %90, 16
+  %95 = and i32 %94, 255
+  %96 = lshr i32 %90, 24
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !9
+  %100 = xor i32 %99, %.sroa.12.0
+  %101 = zext nneg i32 %93 to i64
+  %102 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !9
+  %104 = xor i32 %100, %103
+  %105 = zext nneg i32 %95 to i64
+  %106 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %105
+  %107 = load i32, ptr %106, align 4, !tbaa !9
+  %108 = zext nneg i32 %91 to i64
+  %109 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %108
+  %110 = load i32, ptr %109, align 4, !tbaa !9
+  %111 = zext i32 %73 to i64
+  %112 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %111
+  %113 = load i32, ptr %112, align 4, !tbaa !9
+  %114 = xor i32 %104, %110
+  %115 = xor i32 %114, %113
+  %116 = xor i32 %115, %107
+  %117 = and i32 %116, 255
+  %118 = lshr i32 %116, 8
+  %119 = and i32 %118, 255
+  %120 = lshr i32 %116, 16
+  %121 = and i32 %120, 255
+  %122 = lshr i32 %116, 24
+  %123 = zext nneg i32 %117 to i64
+  %124 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %123
+  %125 = load i32, ptr %124, align 4, !tbaa !9
+  %126 = zext nneg i32 %119 to i64
+  %127 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %126
+  %128 = load i32, ptr %127, align 4, !tbaa !9
+  %129 = zext nneg i32 %121 to i64
+  %130 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !9
+  %132 = zext nneg i32 %122 to i64
+  %133 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !9
+  %135 = zext i32 %72 to i64
+  %136 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %135
+  %137 = load i32, ptr %136, align 4, !tbaa !9
+  %138 = xor i32 %.sroa.17.0, %125
+  %139 = xor i32 %138, %137
+  %140 = xor i32 %139, %128
+  %141 = xor i32 %140, %131
+  %142 = xor i32 %141, %134
+  %143 = and i32 %142, 255
+  %144 = lshr i32 %142, 8
+  %145 = and i32 %144, 255
+  %146 = lshr i32 %142, 16
+  %147 = and i32 %146, 255
+  %148 = lshr i32 %142, 24
+  %149 = zext nneg i32 %145 to i64
+  %150 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %149
+  %151 = load i32, ptr %150, align 4, !tbaa !9
+  %152 = zext nneg i32 %147 to i64
+  %153 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %152
+  %154 = load i32, ptr %153, align 4, !tbaa !9
+  %155 = zext nneg i32 %143 to i64
+  %156 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4, !tbaa !9
+  %158 = zext nneg i32 %148 to i64
+  %159 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !9
+  %161 = zext i32 %71 to i64
+  %162 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !9
+  %164 = xor i32 %.sroa.7.0, %157
+  %165 = xor i32 %164, %160
+  %166 = xor i32 %165, %163
+  %167 = xor i32 %166, %151
+  %168 = xor i32 %167, %154
+  %169 = and i32 %168, 255
+  %170 = lshr i32 %168, 8
+  %171 = and i32 %170, 255
+  %172 = lshr i32 %168, 16
+  %173 = and i32 %172, 255
+  %174 = lshr i32 %168, 24
+  %175 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %158
+  %176 = load i32, ptr %175, align 4, !tbaa !9
+  %177 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %123
+  %178 = load i32, ptr %177, align 4, !tbaa !9
+  %179 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %126
+  %180 = load i32, ptr %179, align 4, !tbaa !9
+  %181 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %101
+  %182 = load i32, ptr %181, align 4, !tbaa !9
+  %183 = xor i32 %176, %178
+  %184 = xor i32 %183, %182
+  %185 = xor i32 %184, %154
+  %186 = xor i32 %185, %180
+  store i32 %186, ptr %.0193, align 4, !tbaa !9
+  %187 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %155
+  %188 = load i32, ptr %187, align 4, !tbaa !9
+  %189 = xor i32 %128, %188
+  %190 = xor i32 %189, %131
+  %191 = xor i32 %190, %134
+  %192 = xor i32 %191, %151
+  %193 = getelementptr inbounds nuw i8, ptr %.0193, i64 4
+  store i32 %192, ptr %193, align 4, !tbaa !9
+  %194 = zext nneg i32 %174 to i64
+  %195 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %194
+  %196 = load i32, ptr %195, align 4, !tbaa !9
+  %197 = zext nneg i32 %173 to i64
+  %198 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %197
+  %199 = load i32, ptr %198, align 4, !tbaa !9
+  %200 = xor i32 %199, %196
+  %201 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %108
+  %202 = load i32, ptr %201, align 4, !tbaa !9
+  %203 = xor i32 %200, %202
+  %204 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %101
+  %205 = load i32, ptr %204, align 4, !tbaa !9
+  %206 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %152
+  %207 = load i32, ptr %206, align 4, !tbaa !9
+  %208 = xor i32 %203, %207
+  %209 = xor i32 %208, %205
+  %210 = getelementptr inbounds nuw i8, ptr %.0193, i64 8
+  store i32 %209, ptr %210, align 4, !tbaa !9
+  %211 = zext nneg i32 %171 to i64
+  %212 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %211
+  %213 = load i32, ptr %212, align 4, !tbaa !9
+  %214 = zext nneg i32 %169 to i64
+  %215 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %214
+  %216 = load i32, ptr %215, align 4, !tbaa !9
+  %217 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %97
+  %218 = load i32, ptr %217, align 4, !tbaa !9
+  %219 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %194
+  %220 = load i32, ptr %219, align 4, !tbaa !9
+  %221 = xor i32 %213, %216
+  %222 = xor i32 %221, %218
+  %223 = xor i32 %222, %220
+  %224 = xor i32 %223, %107
+  %225 = getelementptr inbounds nuw i8, ptr %.0193, i64 12
+  store i32 %224, ptr %225, align 4, !tbaa !9
+  %226 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %129
+  %227 = load i32, ptr %226, align 4, !tbaa !9
+  %228 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %123
+  %229 = load i32, ptr %228, align 4, !tbaa !9
+  %230 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %132
+  %231 = load i32, ptr %230, align 4, !tbaa !9
+  %232 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %97
+  %233 = load i32, ptr %232, align 4, !tbaa !9
+  %234 = xor i32 %227, %229
+  %235 = xor i32 %234, %231
+  %236 = xor i32 %235, %233
+  %237 = xor i32 %236, %142
+  %238 = xor i32 %237, %180
+  %239 = and i32 %238, 255
+  %240 = lshr i32 %238, 8
+  %241 = and i32 %240, 255
+  %242 = lshr i32 %238, 16
+  %243 = and i32 %242, 255
+  %244 = lshr i32 %238, 24
+  %245 = zext nneg i32 %244 to i64
+  %246 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %245
+  %247 = load i32, ptr %246, align 4, !tbaa !9
+  %248 = zext nneg i32 %241 to i64
+  %249 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %248
+  %250 = load i32, ptr %249, align 4, !tbaa !9
+  %251 = zext nneg i32 %243 to i64
+  %252 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %251
+  %253 = load i32, ptr %252, align 4, !tbaa !9
+  %254 = zext nneg i32 %239 to i64
+  %255 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %254
+  %256 = load i32, ptr %255, align 4, !tbaa !9
+  %257 = xor i32 %247, %253
+  %258 = xor i32 %257, %256
+  %259 = xor i32 %258, %90
+  %260 = xor i32 %259, %205
+  %261 = xor i32 %260, %250
+  %262 = and i32 %261, 255
+  %263 = lshr i32 %261, 8
+  %264 = and i32 %263, 255
+  %265 = lshr i32 %261, 16
+  %266 = and i32 %265, 255
+  %267 = lshr i32 %261, 24
+  %268 = zext nneg i32 %262 to i64
+  %269 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %268
+  %270 = load i32, ptr %269, align 4, !tbaa !9
+  %271 = zext nneg i32 %264 to i64
+  %272 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %271
+  %273 = load i32, ptr %272, align 4, !tbaa !9
+  %274 = xor i32 %273, %270
+  %275 = zext nneg i32 %266 to i64
+  %276 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %275
+  %277 = load i32, ptr %276, align 4, !tbaa !9
+  %278 = zext nneg i32 %267 to i64
+  %279 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %278
+  %280 = load i32, ptr %279, align 4, !tbaa !9
+  %281 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %105
+  %282 = load i32, ptr %281, align 4, !tbaa !9
+  %283 = xor i32 %277, %280
+  %284 = xor i32 %283, %282
+  %285 = xor i32 %284, %116
+  %286 = xor i32 %285, %274
+  %287 = and i32 %286, 255
+  %288 = lshr i32 %286, 8
+  %289 = and i32 %288, 255
+  %290 = lshr i32 %286, 16
+  %291 = and i32 %290, 255
+  %292 = lshr i32 %286, 24
+  %293 = zext nneg i32 %289 to i64
+  %294 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %293
+  %295 = load i32, ptr %294, align 4, !tbaa !9
+  %296 = zext nneg i32 %291 to i64
+  %297 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %296
+  %298 = load i32, ptr %297, align 4, !tbaa !9
+  %299 = zext nneg i32 %287 to i64
+  %300 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %299
+  %301 = load i32, ptr %300, align 4, !tbaa !9
+  %302 = zext nneg i32 %292 to i64
+  %303 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %302
+  %304 = load i32, ptr %303, align 4, !tbaa !9
+  %305 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %108
+  %306 = load i32, ptr %305, align 4, !tbaa !9
+  %307 = xor i32 %295, %298
+  %308 = xor i32 %307, %301
+  %309 = xor i32 %308, %304
+  %310 = xor i32 %309, %306
+  %311 = xor i32 %310, %168
+  %312 = and i32 %311, 255
+  %313 = lshr i32 %311, 8
+  %314 = and i32 %313, 255
+  %315 = lshr i32 %311, 16
+  %316 = and i32 %315, 255
+  %317 = lshr i32 %311, 24
+  %318 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %254
+  %319 = load i32, ptr %318, align 4, !tbaa !9
+  %320 = zext nneg i32 %317 to i64
+  %321 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %320
+  %322 = load i32, ptr %321, align 4, !tbaa !9
+  %323 = zext nneg i32 %316 to i64
+  %324 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %323
+  %325 = load i32, ptr %324, align 4, !tbaa !9
+  %326 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %302
+  %327 = load i32, ptr %326, align 4, !tbaa !9
+  %328 = xor i32 %319, %325
+  %329 = xor i32 %328, %327
+  %330 = xor i32 %329, %250
+  %331 = xor i32 %330, %322
+  %332 = getelementptr inbounds nuw i8, ptr %.0193, i64 16
+  store i32 %331, ptr %332, align 4, !tbaa !9
+  %333 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %251
+  %334 = load i32, ptr %333, align 4, !tbaa !9
+  %335 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %245
+  %336 = load i32, ptr %335, align 4, !tbaa !9
+  %337 = xor i32 %336, %334
+  %338 = zext nneg i32 %314 to i64
+  %339 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %338
+  %340 = load i32, ptr %339, align 4, !tbaa !9
+  %341 = xor i32 %337, %340
+  %342 = zext nneg i32 %312 to i64
+  %343 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %342
+  %344 = load i32, ptr %343, align 4, !tbaa !9
+  %345 = xor i32 %341, %344
+  %346 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %323
+  %347 = load i32, ptr %346, align 4, !tbaa !9
+  %348 = xor i32 %345, %347
+  %349 = getelementptr inbounds nuw i8, ptr %.0193, i64 20
+  store i32 %348, ptr %349, align 4, !tbaa !9
+  %350 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %302
+  %351 = load i32, ptr %350, align 4, !tbaa !9
+  %352 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %296
+  %353 = load i32, ptr %352, align 4, !tbaa !9
+  %354 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %254
+  %355 = load i32, ptr %354, align 4, !tbaa !9
+  %356 = xor i32 %353, %355
+  %357 = xor i32 %356, %274
+  %358 = xor i32 %357, %351
+  %359 = getelementptr inbounds nuw i8, ptr %.0193, i64 24
+  store i32 %358, ptr %359, align 4, !tbaa !9
+  %360 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %275
+  %361 = load i32, ptr %360, align 4, !tbaa !9
+  %362 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %278
+  %363 = load i32, ptr %362, align 4, !tbaa !9
+  %364 = xor i32 %363, %361
+  %365 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %293
+  %366 = load i32, ptr %365, align 4, !tbaa !9
+  %367 = xor i32 %364, %366
+  %368 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %299
+  %369 = load i32, ptr %368, align 4, !tbaa !9
+  %370 = xor i32 %367, %369
+  %371 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %268
+  %372 = load i32, ptr %371, align 4, !tbaa !9
+  %373 = xor i32 %370, %372
+  %374 = getelementptr inbounds nuw i8, ptr %.0193, i64 28
+  store i32 %373, ptr %374, align 4, !tbaa !9
+  %375 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %323
+  %376 = load i32, ptr %375, align 4, !tbaa !9
+  %377 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %342
+  %378 = load i32, ptr %377, align 4, !tbaa !9
+  %379 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %338
+  %380 = load i32, ptr %379, align 4, !tbaa !9
+  %381 = xor i32 %376, %378
+  %382 = xor i32 %381, %380
+  %383 = xor i32 %382, %238
+  %384 = xor i32 %383, %322
+  %385 = xor i32 %384, %351
+  %386 = and i32 %385, 255
+  %387 = lshr i32 %385, 8
+  %388 = and i32 %387, 255
+  %389 = lshr i32 %385, 16
+  %390 = and i32 %389, 255
+  %391 = lshr i32 %385, 24
+  %392 = zext nneg i32 %391 to i64
+  %393 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %392
+  %394 = load i32, ptr %393, align 4, !tbaa !9
+  %395 = zext nneg i32 %388 to i64
+  %396 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %395
+  %397 = load i32, ptr %396, align 4, !tbaa !9
+  %398 = zext nneg i32 %390 to i64
+  %399 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %398
+  %400 = load i32, ptr %399, align 4, !tbaa !9
+  %401 = zext nneg i32 %386 to i64
+  %402 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %401
+  %403 = load i32, ptr %402, align 4, !tbaa !9
+  %404 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %293
+  %405 = load i32, ptr %404, align 4, !tbaa !9
+  %406 = xor i32 %394, %400
+  %407 = xor i32 %406, %403
+  %408 = xor i32 %407, %405
+  %409 = xor i32 %408, %286
+  %410 = xor i32 %409, %397
+  %411 = and i32 %410, 255
+  %412 = lshr i32 %410, 8
+  %413 = and i32 %412, 255
+  %414 = lshr i32 %410, 16
+  %415 = and i32 %414, 255
+  %416 = lshr i32 %410, 24
+  %417 = zext nneg i32 %411 to i64
+  %418 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %417
+  %419 = load i32, ptr %418, align 4, !tbaa !9
+  %420 = zext nneg i32 %413 to i64
+  %421 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %420
+  %422 = load i32, ptr %421, align 4, !tbaa !9
+  %423 = xor i32 %422, %419
+  %424 = zext nneg i32 %415 to i64
+  %425 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %424
+  %426 = load i32, ptr %425, align 4, !tbaa !9
+  %427 = zext nneg i32 %416 to i64
+  %428 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %427
+  %429 = load i32, ptr %428, align 4, !tbaa !9
+  %430 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %296
+  %431 = load i32, ptr %430, align 4, !tbaa !9
+  %432 = xor i32 %426, %429
+  %433 = xor i32 %432, %431
+  %434 = xor i32 %433, %311
+  %435 = xor i32 %434, %423
+  %436 = and i32 %435, 255
+  %437 = lshr i32 %435, 8
+  %438 = and i32 %437, 255
+  %439 = lshr i32 %435, 16
+  %440 = and i32 %439, 255
+  %441 = lshr i32 %435, 24
+  %442 = zext nneg i32 %438 to i64
+  %443 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %442
+  %444 = load i32, ptr %443, align 4, !tbaa !9
+  %445 = zext nneg i32 %440 to i64
+  %446 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %445
+  %447 = load i32, ptr %446, align 4, !tbaa !9
+  %448 = zext nneg i32 %436 to i64
+  %449 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %448
+  %450 = load i32, ptr %449, align 4, !tbaa !9
+  %451 = zext nneg i32 %441 to i64
+  %452 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %451
+  %453 = load i32, ptr %452, align 4, !tbaa !9
+  %454 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %299
+  %455 = load i32, ptr %454, align 4, !tbaa !9
+  %456 = xor i32 %444, %447
+  %457 = xor i32 %456, %450
+  %458 = xor i32 %457, %453
+  %459 = xor i32 %458, %455
+  %460 = xor i32 %459, %261
+  %461 = and i32 %460, 255
+  %462 = lshr i32 %460, 8
+  %463 = and i32 %462, 255
+  %464 = lshr i32 %460, 16
+  %465 = and i32 %464, 255
+  %466 = lshr i32 %460, 24
+  %467 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %401
+  %468 = load i32, ptr %467, align 4, !tbaa !9
+  %469 = zext nneg i32 %466 to i64
+  %470 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %469
+  %471 = load i32, ptr %470, align 4, !tbaa !9
+  %472 = zext nneg i32 %465 to i64
+  %473 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %472
+  %474 = load i32, ptr %473, align 4, !tbaa !9
+  %475 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %445
+  %476 = load i32, ptr %475, align 4, !tbaa !9
+  %477 = xor i32 %468, %471
+  %478 = xor i32 %477, %474
+  %479 = xor i32 %478, %476
+  %480 = xor i32 %479, %397
+  %481 = getelementptr inbounds nuw i8, ptr %.0193, i64 32
+  store i32 %480, ptr %481, align 4, !tbaa !9
+  %482 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %398
+  %483 = load i32, ptr %482, align 4, !tbaa !9
+  %484 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %392
+  %485 = load i32, ptr %484, align 4, !tbaa !9
+  %486 = zext nneg i32 %463 to i64
+  %487 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %486
+  %488 = load i32, ptr %487, align 4, !tbaa !9
+  %489 = zext nneg i32 %461 to i64
+  %490 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %489
+  %491 = load i32, ptr %490, align 4, !tbaa !9
+  %492 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %469
+  %493 = load i32, ptr %492, align 4, !tbaa !9
+  %494 = xor i32 %485, %488
+  %495 = xor i32 %494, %491
+  %496 = xor i32 %495, %493
+  %497 = xor i32 %496, %483
+  %498 = getelementptr inbounds nuw i8, ptr %.0193, i64 36
+  store i32 %497, ptr %498, align 4, !tbaa !9
+  %499 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %451
+  %500 = load i32, ptr %499, align 4, !tbaa !9
+  %501 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %445
+  %502 = load i32, ptr %501, align 4, !tbaa !9
+  %503 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %395
+  %504 = load i32, ptr %503, align 4, !tbaa !9
+  %505 = xor i32 %500, %502
+  %506 = xor i32 %505, %504
+  %507 = xor i32 %506, %423
+  %508 = getelementptr inbounds nuw i8, ptr %.0193, i64 40
+  store i32 %507, ptr %508, align 4, !tbaa !9
+  %509 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %424
+  %510 = load i32, ptr %509, align 4, !tbaa !9
+  %511 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %427
+  %512 = load i32, ptr %511, align 4, !tbaa !9
+  %513 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %442
+  %514 = load i32, ptr %513, align 4, !tbaa !9
+  %515 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %448
+  %516 = load i32, ptr %515, align 4, !tbaa !9
+  %517 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %420
+  %518 = load i32, ptr %517, align 4, !tbaa !9
+  %519 = xor i32 %512, %514
+  %520 = xor i32 %519, %516
+  %521 = xor i32 %520, %510
+  %522 = xor i32 %521, %518
+  %523 = getelementptr inbounds nuw i8, ptr %.0193, i64 44
+  store i32 %522, ptr %523, align 4, !tbaa !9
+  %524 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %417
+  %525 = load i32, ptr %524, align 4, !tbaa !9
+  %526 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %427
+  %527 = load i32, ptr %526, align 4, !tbaa !9
+  %528 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %392
+  %529 = load i32, ptr %528, align 4, !tbaa !9
+  %530 = xor i32 %525, %527
+  %531 = xor i32 %530, %529
+  %532 = xor i32 %531, %510
+  %533 = xor i32 %532, %518
+  %534 = xor i32 %533, %435
+  %535 = and i32 %534, 255
+  %536 = lshr i32 %534, 8
+  %537 = and i32 %536, 255
+  %538 = lshr i32 %534, 16
+  %539 = and i32 %538, 255
+  %540 = lshr i32 %534, 24
+  %541 = zext nneg i32 %540 to i64
+  %542 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %541
+  %543 = load i32, ptr %542, align 4, !tbaa !9
+  %544 = zext nneg i32 %537 to i64
+  %545 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %544
+  %546 = load i32, ptr %545, align 4, !tbaa !9
+  %547 = zext nneg i32 %539 to i64
+  %548 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %547
+  %549 = load i32, ptr %548, align 4, !tbaa !9
+  %550 = zext nneg i32 %535 to i64
+  %551 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %550
+  %552 = load i32, ptr %551, align 4, !tbaa !9
+  %553 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %395
+  %554 = load i32, ptr %553, align 4, !tbaa !9
+  %555 = xor i32 %543, %546
+  %556 = xor i32 %555, %552
+  %557 = xor i32 %556, %554
+  %558 = xor i32 %557, %385
+  %559 = xor i32 %558, %549
+  %560 = and i32 %559, 255
+  %561 = lshr i32 %559, 8
+  %562 = and i32 %561, 255
+  %563 = lshr i32 %559, 16
+  %564 = and i32 %563, 255
+  %565 = lshr i32 %559, 24
+  %566 = zext nneg i32 %560 to i64
+  %567 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %566
+  %568 = load i32, ptr %567, align 4, !tbaa !9
+  %569 = zext nneg i32 %562 to i64
+  %570 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %569
+  %571 = load i32, ptr %570, align 4, !tbaa !9
+  %572 = zext nneg i32 %564 to i64
+  %573 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %572
+  %574 = load i32, ptr %573, align 4, !tbaa !9
+  %575 = zext nneg i32 %565 to i64
+  %576 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %575
+  %577 = load i32, ptr %576, align 4, !tbaa !9
+  %578 = xor i32 %568, %571
+  %579 = xor i32 %578, %574
+  %580 = xor i32 %579, %577
+  %581 = xor i32 %580, %410
+  %582 = xor i32 %581, %483
+  %583 = and i32 %582, 255
+  %584 = lshr i32 %582, 8
+  %585 = and i32 %584, 255
+  %586 = lshr i32 %582, 16
+  %587 = and i32 %586, 255
+  %588 = lshr i32 %582, 24
+  %589 = zext nneg i32 %585 to i64
+  %590 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %589
+  %591 = load i32, ptr %590, align 4, !tbaa !9
+  %592 = zext nneg i32 %587 to i64
+  %593 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %592
+  %594 = load i32, ptr %593, align 4, !tbaa !9
+  %595 = zext nneg i32 %583 to i64
+  %596 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %595
+  %597 = load i32, ptr %596, align 4, !tbaa !9
+  %598 = zext nneg i32 %588 to i64
+  %599 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %598
+  %600 = load i32, ptr %599, align 4, !tbaa !9
+  %601 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %401
+  %602 = load i32, ptr %601, align 4, !tbaa !9
+  %603 = xor i32 %597, %600
+  %604 = xor i32 %603, %602
+  %605 = xor i32 %604, %460
+  %606 = xor i32 %605, %591
+  %607 = xor i32 %606, %594
+  %608 = and i32 %607, 255
+  %609 = lshr i32 %607, 8
+  %610 = and i32 %609, 255
+  %611 = lshr i32 %607, 16
+  %612 = and i32 %611, 255
+  %613 = lshr i32 %607, 24
+  %614 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %598
+  %615 = load i32, ptr %614, align 4, !tbaa !9
+  %616 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %566
+  %617 = load i32, ptr %616, align 4, !tbaa !9
+  %618 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %569
+  %619 = load i32, ptr %618, align 4, !tbaa !9
+  %620 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %550
+  %621 = load i32, ptr %620, align 4, !tbaa !9
+  %622 = xor i32 %615, %617
+  %623 = xor i32 %622, %619
+  %624 = xor i32 %623, %621
+  %625 = xor i32 %624, %594
+  %626 = getelementptr inbounds nuw i8, ptr %.0193, i64 48
+  store i32 %625, ptr %626, align 4, !tbaa !9
+  %627 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %595
+  %628 = load i32, ptr %627, align 4, !tbaa !9
+  %629 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %566
+  %630 = load i32, ptr %629, align 4, !tbaa !9
+  %631 = xor i32 %628, %630
+  %632 = xor i32 %631, %574
+  %633 = xor i32 %632, %577
+  %634 = xor i32 %633, %591
+  %635 = getelementptr inbounds nuw i8, ptr %.0193, i64 52
+  store i32 %634, ptr %635, align 4, !tbaa !9
+  %636 = zext nneg i32 %613 to i64
+  %637 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %636
+  %638 = load i32, ptr %637, align 4, !tbaa !9
+  %639 = zext nneg i32 %612 to i64
+  %640 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %639
+  %641 = load i32, ptr %640, align 4, !tbaa !9
+  %642 = xor i32 %641, %638
+  %643 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %550
+  %644 = load i32, ptr %643, align 4, !tbaa !9
+  %645 = xor i32 %642, %644
+  %646 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %544
+  %647 = load i32, ptr %646, align 4, !tbaa !9
+  %648 = xor i32 %645, %647
+  %649 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table6, i64 0, i64 %598
+  %650 = load i32, ptr %649, align 4, !tbaa !9
+  %651 = xor i32 %648, %650
+  %652 = getelementptr inbounds nuw i8, ptr %.0193, i64 56
+  store i32 %651, ptr %652, align 4, !tbaa !9
+  %653 = zext nneg i32 %610 to i64
+  %654 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table4, i64 0, i64 %653
+  %655 = load i32, ptr %654, align 4, !tbaa !9
+  %656 = zext nneg i32 %608 to i64
+  %657 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table5, i64 0, i64 %656
+  %658 = load i32, ptr %657, align 4, !tbaa !9
+  %659 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %541
+  %660 = load i32, ptr %659, align 4, !tbaa !9
+  %661 = getelementptr inbounds nuw [256 x i32], ptr @CAST_S_table7, i64 0, i64 %639
+  %662 = load i32, ptr %661, align 4, !tbaa !9
+  %663 = xor i32 %655, %660
+  %664 = xor i32 %663, %662
+  %665 = xor i32 %664, %658
+  %666 = xor i32 %665, %549
+  %667 = getelementptr inbounds nuw i8, ptr %.0193, i64 60
+  store i32 %666, ptr %667, align 4, !tbaa !9
+  %.not = icmp eq ptr %.0193, %5
+  %668 = getelementptr inbounds nuw i8, ptr %.0193, i64 64
+  br i1 %.not, label %68, label %.preheader
 
-for.body923:                                      ; preds = %for.cond69, %for.body923
-  %i.2189 = phi i64 [ %inc935, %for.body923 ], [ 0, %for.cond69 ]
-  %arrayidx924 = getelementptr inbounds nuw [32 x i32], ptr %k, i64 0, i64 %i.2189
-  %253 = load i32, ptr %arrayidx924, align 4
-  %mul = shl nuw nsw i64 %i.2189, 1
-  %arrayidx926 = getelementptr inbounds nuw [32 x i32], ptr %key, i64 0, i64 %mul
-  store i32 %253, ptr %arrayidx926, align 4
-  %add = or disjoint i64 %i.2189, 16
-  %arrayidx927 = getelementptr inbounds nuw [32 x i32], ptr %k, i64 0, i64 %add
-  %254 = load i32, ptr %arrayidx927, align 4
-  %255 = and i32 %254, 31
-  %and929 = xor i32 %255, 16
-  %add932 = or disjoint i64 %mul, 1
-  %arrayidx933 = getelementptr inbounds nuw [32 x i32], ptr %key, i64 0, i64 %add932
-  store i32 %and929, ptr %arrayidx933, align 4
-  %inc935 = add nuw nsw i64 %i.2189, 1
-  %exitcond190.not = icmp eq i64 %inc935, 16
-  br i1 %exitcond190.not, label %for.end936, label %for.body923, !llvm.loop !11
+.preheader:                                       ; preds = %68, %.preheader
+  %.2219 = phi i64 [ %680, %.preheader ], [ 0, %68 ]
+  %669 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %.2219
+  %670 = load i32, ptr %669, align 4, !tbaa !9
+  %671 = shl nuw nsw i64 %.2219, 1
+  %672 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %671
+  store i32 %670, ptr %672, align 4, !tbaa !9
+  %673 = or disjoint i64 %.2219, 16
+  %674 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %673
+  %675 = load i32, ptr %674, align 4, !tbaa !9
+  %676 = and i32 %675, 31
+  %677 = xor i32 %676, 16
+  %678 = or disjoint i64 %671, 1
+  %679 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %678
+  store i32 %677, ptr %679, align 4, !tbaa !9
+  %680 = add nuw nsw i64 %.2219, 1
+  %exitcond236.not = icmp eq i64 %680, 16
+  br i1 %exitcond236.not, label %681, label %.preheader, !llvm.loop !17
 
-for.end936:                                       ; preds = %for.body923
+681:                                              ; preds = %.preheader
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @CAST_cfb64_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef readonly captures(none) %schedule, ptr noundef captures(none) %ivec, ptr noundef captures(none) %num, i32 noundef %enc) local_unnamed_addr #2 {
-entry:
-  %ti = alloca [2 x i32], align 4
-  %0 = load i32, ptr %num, align 4
-  %tobool.not = icmp eq i32 %enc, 0
-  %tobool83.not95 = icmp eq i64 %length, 0
-  br i1 %tobool.not, label %while.cond81.preheader, label %while.cond.preheader
+define hidden void @CAST_cfb64_encrypt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
+  %8 = alloca [2 x i32], align 4
+  %9 = load i32, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  %.not = icmp eq i32 %6, 0
+  %.not107115 = icmp eq i64 %2, 0
+  br i1 %.not, label %.preheader, label %.preheader109
 
-while.cond.preheader:                             ; preds = %entry
-  br i1 %tobool83.not95, label %if.end179, label %while.body.lr.ph
+.preheader109:                                    ; preds = %7
+  br i1 %.not107115, label %.loopexit, label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ivec, i64 1
-  %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %ivec, i64 2
-  %incdec.ptr9 = getelementptr inbounds nuw i8, ptr %ivec, i64 3
-  %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %ivec, i64 4
-  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %ivec, i64 5
-  %incdec.ptr24 = getelementptr inbounds nuw i8, ptr %ivec, i64 6
-  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %ivec, i64 7
-  %arrayidx41 = getelementptr inbounds nuw i8, ptr %ti, i64 4
-  br label %while.body
+.lr.ph:                                           ; preds = %.preheader109
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  br label %26
 
-while.cond81.preheader:                           ; preds = %entry
-  br i1 %tobool83.not95, label %if.end179, label %while.body84.lr.ph
+.preheader:                                       ; preds = %7
+  br i1 %.not107115, label %.loopexit, label %.lr.ph119
 
-while.body84.lr.ph:                               ; preds = %while.cond81.preheader
-  %incdec.ptr88 = getelementptr inbounds nuw i8, ptr %ivec, i64 1
-  %incdec.ptr92 = getelementptr inbounds nuw i8, ptr %ivec, i64 2
-  %incdec.ptr98 = getelementptr inbounds nuw i8, ptr %ivec, i64 3
-  %incdec.ptr104 = getelementptr inbounds nuw i8, ptr %ivec, i64 4
-  %incdec.ptr110 = getelementptr inbounds nuw i8, ptr %ivec, i64 5
-  %incdec.ptr114 = getelementptr inbounds nuw i8, ptr %ivec, i64 6
-  %incdec.ptr120 = getelementptr inbounds nuw i8, ptr %ivec, i64 7
-  %arrayidx131 = getelementptr inbounds nuw i8, ptr %ti, i64 4
-  br label %while.body84
+.lr.ph119:                                        ; preds = %.preheader
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  br label %84
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %dec93.in = phi i64 [ %length, %while.body.lr.ph ], [ %dec93, %if.end ]
-  %n.092 = phi i32 [ %0, %while.body.lr.ph ], [ %and80, %if.end ]
-  %in.addr.091 = phi ptr [ %in, %while.body.lr.ph ], [ %incdec.ptr72, %if.end ]
-  %out.addr.090 = phi ptr [ %out, %while.body.lr.ph ], [ %incdec.ptr77, %if.end ]
-  %dec93 = add nsw i64 %dec93.in, -1
-  %cmp = icmp eq i32 %n.092, 0
-  br i1 %cmp, label %if.then2, label %if.end
+26:                                               ; preds = %.lr.ph, %74
+  %.in = phi i64 [ %2, %.lr.ph ], [ %27, %74 ]
+  %.0100114 = phi i32 [ %9, %.lr.ph ], [ %83, %74 ]
+  %.0103113 = phi ptr [ %0, %.lr.ph ], [ %75, %74 ]
+  %.0105112 = phi ptr [ %1, %.lr.ph ], [ %81, %74 ]
+  %27 = add nsw i64 %.in, -1
+  %28 = icmp eq i32 %.0100114, 0
+  br i1 %28, label %29, label %74
 
-if.then2:                                         ; preds = %while.body
-  %1 = load i8, ptr %ivec, align 1
-  %conv = zext i8 %1 to i32
-  %shl = shl nuw i32 %conv, 24
-  %2 = load i8, ptr %incdec.ptr, align 1
-  %conv5 = zext i8 %2 to i32
-  %shl6 = shl nuw nsw i32 %conv5, 16
-  %or = or disjoint i32 %shl6, %shl
-  %3 = load i8, ptr %incdec.ptr4, align 1
-  %conv10 = zext i8 %3 to i32
-  %shl11 = shl nuw nsw i32 %conv10, 8
-  %or13 = or disjoint i32 %or, %shl11
-  %4 = load i8, ptr %incdec.ptr9, align 1
-  %conv16 = zext i8 %4 to i32
-  %or18 = or disjoint i32 %or13, %conv16
-  store i32 %or18, ptr %ti, align 4
-  %5 = load i8, ptr %incdec.ptr15, align 1
-  %conv21 = zext i8 %5 to i32
-  %shl22 = shl nuw i32 %conv21, 24
-  %6 = load i8, ptr %incdec.ptr20, align 1
-  %conv25 = zext i8 %6 to i32
-  %shl26 = shl nuw nsw i32 %conv25, 16
-  %or28 = or disjoint i32 %shl26, %shl22
-  %7 = load i8, ptr %incdec.ptr24, align 1
-  %conv31 = zext i8 %7 to i32
-  %shl32 = shl nuw nsw i32 %conv31, 8
-  %or34 = or disjoint i32 %or28, %shl32
-  %8 = load i8, ptr %incdec.ptr30, align 1
-  %conv37 = zext i8 %8 to i32
-  %or39 = or disjoint i32 %or34, %conv37
-  store i32 %or39, ptr %arrayidx41, align 4
-  call void @CAST_encrypt(ptr noundef nonnull %ti, ptr noundef %schedule)
-  %9 = load i32, ptr %ti, align 4
-  %shr = lshr i32 %9, 24
-  %conv43 = trunc nuw i32 %shr to i8
-  store i8 %conv43, ptr %ivec, align 1
-  %shr45 = lshr i32 %9, 16
-  %conv47 = trunc i32 %shr45 to i8
-  store i8 %conv47, ptr %incdec.ptr, align 1
-  %shr49 = lshr i32 %9, 8
-  %conv51 = trunc i32 %shr49 to i8
-  store i8 %conv51, ptr %incdec.ptr4, align 1
-  %conv54 = trunc i32 %9 to i8
-  store i8 %conv54, ptr %incdec.ptr9, align 1
-  %10 = load i32, ptr %arrayidx41, align 4
-  %shr57 = lshr i32 %10, 24
-  %conv59 = trunc nuw i32 %shr57 to i8
-  store i8 %conv59, ptr %incdec.ptr15, align 1
-  %shr61 = lshr i32 %10, 16
-  %conv63 = trunc i32 %shr61 to i8
-  store i8 %conv63, ptr %incdec.ptr20, align 1
-  %shr65 = lshr i32 %10, 8
-  %conv67 = trunc i32 %shr65 to i8
-  store i8 %conv67, ptr %incdec.ptr24, align 1
-  %conv70 = trunc i32 %10 to i8
-  store i8 %conv70, ptr %incdec.ptr30, align 1
-  br label %if.end
+29:                                               ; preds = %26
+  %30 = load i8, ptr %4, align 1, !tbaa !6
+  %31 = zext i8 %30 to i32
+  %32 = shl nuw i32 %31, 24
+  %33 = load i8, ptr %10, align 1, !tbaa !6
+  %34 = zext i8 %33 to i32
+  %35 = shl nuw nsw i32 %34, 16
+  %36 = or disjoint i32 %35, %32
+  %37 = load i8, ptr %11, align 1, !tbaa !6
+  %38 = zext i8 %37 to i32
+  %39 = shl nuw nsw i32 %38, 8
+  %40 = or disjoint i32 %36, %39
+  %41 = load i8, ptr %12, align 1, !tbaa !6
+  %42 = zext i8 %41 to i32
+  %43 = or disjoint i32 %40, %42
+  store i32 %43, ptr %8, align 4, !tbaa !9
+  %44 = load i8, ptr %13, align 1, !tbaa !6
+  %45 = zext i8 %44 to i32
+  %46 = shl nuw i32 %45, 24
+  %47 = load i8, ptr %14, align 1, !tbaa !6
+  %48 = zext i8 %47 to i32
+  %49 = shl nuw nsw i32 %48, 16
+  %50 = or disjoint i32 %49, %46
+  %51 = load i8, ptr %15, align 1, !tbaa !6
+  %52 = zext i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = or disjoint i32 %50, %53
+  %55 = load i8, ptr %16, align 1, !tbaa !6
+  %56 = zext i8 %55 to i32
+  %57 = or disjoint i32 %54, %56
+  store i32 %57, ptr %17, align 4, !tbaa !9
+  call void @CAST_encrypt(ptr noundef nonnull %8, ptr noundef %3)
+  %58 = load i32, ptr %8, align 4, !tbaa !9
+  %59 = lshr i32 %58, 24
+  %60 = trunc nuw i32 %59 to i8
+  store i8 %60, ptr %4, align 1, !tbaa !6
+  %61 = lshr i32 %58, 16
+  %62 = trunc i32 %61 to i8
+  store i8 %62, ptr %10, align 1, !tbaa !6
+  %63 = lshr i32 %58, 8
+  %64 = trunc i32 %63 to i8
+  store i8 %64, ptr %11, align 1, !tbaa !6
+  %65 = trunc i32 %58 to i8
+  store i8 %65, ptr %12, align 1, !tbaa !6
+  %66 = load i32, ptr %17, align 4, !tbaa !9
+  %67 = lshr i32 %66, 24
+  %68 = trunc nuw i32 %67 to i8
+  store i8 %68, ptr %13, align 1, !tbaa !6
+  %69 = lshr i32 %66, 16
+  %70 = trunc i32 %69 to i8
+  store i8 %70, ptr %14, align 1, !tbaa !6
+  %71 = lshr i32 %66, 8
+  %72 = trunc i32 %71 to i8
+  store i8 %72, ptr %15, align 1, !tbaa !6
+  %73 = trunc i32 %66 to i8
+  store i8 %73, ptr %16, align 1, !tbaa !6
+  br label %74
 
-if.end:                                           ; preds = %if.then2, %while.body
-  %incdec.ptr72 = getelementptr inbounds nuw i8, ptr %in.addr.091, i64 1
-  %11 = load i8, ptr %in.addr.091, align 1
-  %idxprom = sext i32 %n.092 to i64
-  %arrayidx74 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom
-  %12 = load i8, ptr %arrayidx74, align 1
-  %xor86 = xor i8 %12, %11
-  %incdec.ptr77 = getelementptr inbounds nuw i8, ptr %out.addr.090, i64 1
-  store i8 %xor86, ptr %out.addr.090, align 1
-  store i8 %xor86, ptr %arrayidx74, align 1
-  %add = add nsw i32 %n.092, 1
-  %and80 = and i32 %add, 7
-  %tobool1.not = icmp eq i64 %dec93, 0
-  br i1 %tobool1.not, label %if.end179, label %while.body, !llvm.loop !12
+74:                                               ; preds = %29, %26
+  %75 = getelementptr inbounds nuw i8, ptr %.0103113, i64 1
+  %76 = load i8, ptr %.0103113, align 1, !tbaa !6
+  %77 = sext i32 %.0100114 to i64
+  %78 = getelementptr inbounds i8, ptr %4, i64 %77
+  %79 = load i8, ptr %78, align 1, !tbaa !6
+  %80 = xor i8 %79, %76
+  %81 = getelementptr inbounds nuw i8, ptr %.0105112, i64 1
+  store i8 %80, ptr %.0105112, align 1, !tbaa !6
+  store i8 %80, ptr %78, align 1, !tbaa !6
+  %82 = add nsw i32 %.0100114, 1
+  %83 = and i32 %82, 7
+  %.not108 = icmp eq i64 %27, 0
+  br i1 %.not108, label %.loopexit, label %26, !llvm.loop !18
 
-while.body84:                                     ; preds = %while.body84.lr.ph, %if.end165
-  %dec8299.in = phi i64 [ %length, %while.body84.lr.ph ], [ %dec8299, %if.end165 ]
-  %n.298 = phi i32 [ %0, %while.body84.lr.ph ], [ %and177, %if.end165 ]
-  %in.addr.197 = phi ptr [ %in, %while.body84.lr.ph ], [ %incdec.ptr166, %if.end165 ]
-  %out.addr.196 = phi ptr [ %out, %while.body84.lr.ph ], [ %incdec.ptr175, %if.end165 ]
-  %dec8299 = add nsw i64 %dec8299.in, -1
-  %cmp85 = icmp eq i32 %n.298, 0
-  br i1 %cmp85, label %if.then87, label %if.end165
+84:                                               ; preds = %.lr.ph119, %132
+  %.in121 = phi i64 [ %2, %.lr.ph119 ], [ %85, %132 ]
+  %.2102118 = phi i32 [ %9, %.lr.ph119 ], [ %141, %132 ]
+  %.1104117 = phi ptr [ %0, %.lr.ph119 ], [ %133, %132 ]
+  %.1106116 = phi ptr [ %1, %.lr.ph119 ], [ %139, %132 ]
+  %85 = add nsw i64 %.in121, -1
+  %86 = icmp eq i32 %.2102118, 0
+  br i1 %86, label %87, label %132
 
-if.then87:                                        ; preds = %while.body84
-  %13 = load i8, ptr %ivec, align 1
-  %conv89 = zext i8 %13 to i32
-  %shl90 = shl nuw i32 %conv89, 24
-  %14 = load i8, ptr %incdec.ptr88, align 1
-  %conv93 = zext i8 %14 to i32
-  %shl94 = shl nuw nsw i32 %conv93, 16
-  %or96 = or disjoint i32 %shl94, %shl90
-  %15 = load i8, ptr %incdec.ptr92, align 1
-  %conv99 = zext i8 %15 to i32
-  %shl100 = shl nuw nsw i32 %conv99, 8
-  %or102 = or disjoint i32 %or96, %shl100
-  %16 = load i8, ptr %incdec.ptr98, align 1
-  %conv105 = zext i8 %16 to i32
-  %or107 = or disjoint i32 %or102, %conv105
-  store i32 %or107, ptr %ti, align 4
-  %17 = load i8, ptr %incdec.ptr104, align 1
-  %conv111 = zext i8 %17 to i32
-  %shl112 = shl nuw i32 %conv111, 24
-  %18 = load i8, ptr %incdec.ptr110, align 1
-  %conv115 = zext i8 %18 to i32
-  %shl116 = shl nuw nsw i32 %conv115, 16
-  %or118 = or disjoint i32 %shl116, %shl112
-  %19 = load i8, ptr %incdec.ptr114, align 1
-  %conv121 = zext i8 %19 to i32
-  %shl122 = shl nuw nsw i32 %conv121, 8
-  %or124 = or disjoint i32 %or118, %shl122
-  %20 = load i8, ptr %incdec.ptr120, align 1
-  %conv127 = zext i8 %20 to i32
-  %or129 = or disjoint i32 %or124, %conv127
-  store i32 %or129, ptr %arrayidx131, align 4
-  call void @CAST_encrypt(ptr noundef nonnull %ti, ptr noundef %schedule)
-  %21 = load i32, ptr %ti, align 4
-  %shr134 = lshr i32 %21, 24
-  %conv136 = trunc nuw i32 %shr134 to i8
-  store i8 %conv136, ptr %ivec, align 1
-  %shr138 = lshr i32 %21, 16
-  %conv140 = trunc i32 %shr138 to i8
-  store i8 %conv140, ptr %incdec.ptr88, align 1
-  %shr142 = lshr i32 %21, 8
-  %conv144 = trunc i32 %shr142 to i8
-  store i8 %conv144, ptr %incdec.ptr92, align 1
-  %conv147 = trunc i32 %21 to i8
-  store i8 %conv147, ptr %incdec.ptr98, align 1
-  %22 = load i32, ptr %arrayidx131, align 4
-  %shr150 = lshr i32 %22, 24
-  %conv152 = trunc nuw i32 %shr150 to i8
-  store i8 %conv152, ptr %incdec.ptr104, align 1
-  %shr154 = lshr i32 %22, 16
-  %conv156 = trunc i32 %shr154 to i8
-  store i8 %conv156, ptr %incdec.ptr110, align 1
-  %shr158 = lshr i32 %22, 8
-  %conv160 = trunc i32 %shr158 to i8
-  store i8 %conv160, ptr %incdec.ptr114, align 1
-  %conv163 = trunc i32 %22 to i8
-  store i8 %conv163, ptr %incdec.ptr120, align 1
-  br label %if.end165
+87:                                               ; preds = %84
+  %88 = load i8, ptr %4, align 1, !tbaa !6
+  %89 = zext i8 %88 to i32
+  %90 = shl nuw i32 %89, 24
+  %91 = load i8, ptr %18, align 1, !tbaa !6
+  %92 = zext i8 %91 to i32
+  %93 = shl nuw nsw i32 %92, 16
+  %94 = or disjoint i32 %93, %90
+  %95 = load i8, ptr %19, align 1, !tbaa !6
+  %96 = zext i8 %95 to i32
+  %97 = shl nuw nsw i32 %96, 8
+  %98 = or disjoint i32 %94, %97
+  %99 = load i8, ptr %20, align 1, !tbaa !6
+  %100 = zext i8 %99 to i32
+  %101 = or disjoint i32 %98, %100
+  store i32 %101, ptr %8, align 4, !tbaa !9
+  %102 = load i8, ptr %21, align 1, !tbaa !6
+  %103 = zext i8 %102 to i32
+  %104 = shl nuw i32 %103, 24
+  %105 = load i8, ptr %22, align 1, !tbaa !6
+  %106 = zext i8 %105 to i32
+  %107 = shl nuw nsw i32 %106, 16
+  %108 = or disjoint i32 %107, %104
+  %109 = load i8, ptr %23, align 1, !tbaa !6
+  %110 = zext i8 %109 to i32
+  %111 = shl nuw nsw i32 %110, 8
+  %112 = or disjoint i32 %108, %111
+  %113 = load i8, ptr %24, align 1, !tbaa !6
+  %114 = zext i8 %113 to i32
+  %115 = or disjoint i32 %112, %114
+  store i32 %115, ptr %25, align 4, !tbaa !9
+  call void @CAST_encrypt(ptr noundef nonnull %8, ptr noundef %3)
+  %116 = load i32, ptr %8, align 4, !tbaa !9
+  %117 = lshr i32 %116, 24
+  %118 = trunc nuw i32 %117 to i8
+  store i8 %118, ptr %4, align 1, !tbaa !6
+  %119 = lshr i32 %116, 16
+  %120 = trunc i32 %119 to i8
+  store i8 %120, ptr %18, align 1, !tbaa !6
+  %121 = lshr i32 %116, 8
+  %122 = trunc i32 %121 to i8
+  store i8 %122, ptr %19, align 1, !tbaa !6
+  %123 = trunc i32 %116 to i8
+  store i8 %123, ptr %20, align 1, !tbaa !6
+  %124 = load i32, ptr %25, align 4, !tbaa !9
+  %125 = lshr i32 %124, 24
+  %126 = trunc nuw i32 %125 to i8
+  store i8 %126, ptr %21, align 1, !tbaa !6
+  %127 = lshr i32 %124, 16
+  %128 = trunc i32 %127 to i8
+  store i8 %128, ptr %22, align 1, !tbaa !6
+  %129 = lshr i32 %124, 8
+  %130 = trunc i32 %129 to i8
+  store i8 %130, ptr %23, align 1, !tbaa !6
+  %131 = trunc i32 %124 to i8
+  store i8 %131, ptr %24, align 1, !tbaa !6
+  br label %132
 
-if.end165:                                        ; preds = %if.then87, %while.body84
-  %incdec.ptr166 = getelementptr inbounds nuw i8, ptr %in.addr.197, i64 1
-  %23 = load i8, ptr %in.addr.197, align 1
-  %idxprom167 = sext i32 %n.298 to i64
-  %arrayidx168 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom167
-  %24 = load i8, ptr %arrayidx168, align 1
-  store i8 %23, ptr %arrayidx168, align 1
-  %xor17385 = xor i8 %24, %23
-  %incdec.ptr175 = getelementptr inbounds nuw i8, ptr %out.addr.196, i64 1
-  store i8 %xor17385, ptr %out.addr.196, align 1
-  %add176 = add nsw i32 %n.298, 1
-  %and177 = and i32 %add176, 7
-  %tobool83.not = icmp eq i64 %dec8299, 0
-  br i1 %tobool83.not, label %if.end179, label %while.body84, !llvm.loop !13
+132:                                              ; preds = %87, %84
+  %133 = getelementptr inbounds nuw i8, ptr %.1104117, i64 1
+  %134 = load i8, ptr %.1104117, align 1, !tbaa !6
+  %135 = sext i32 %.2102118 to i64
+  %136 = getelementptr inbounds i8, ptr %4, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !6
+  store i8 %134, ptr %136, align 1, !tbaa !6
+  %138 = xor i8 %137, %134
+  %139 = getelementptr inbounds nuw i8, ptr %.1106116, i64 1
+  store i8 %138, ptr %.1106116, align 1, !tbaa !6
+  %140 = add nsw i32 %.2102118, 1
+  %141 = and i32 %140, 7
+  %.not107 = icmp eq i64 %85, 0
+  br i1 %.not107, label %.loopexit, label %84, !llvm.loop !19
 
-if.end179:                                        ; preds = %if.end, %if.end165, %while.cond.preheader, %while.cond81.preheader
-  %n.1 = phi i32 [ %0, %while.cond81.preheader ], [ %0, %while.cond.preheader ], [ %and177, %if.end165 ], [ %and80, %if.end ]
-  store i32 %n.1, ptr %num, align 4
+.loopexit:                                        ; preds = %74, %132, %.preheader109, %.preheader
+  %.1101 = phi i32 [ %9, %.preheader ], [ %9, %.preheader109 ], [ %141, %132 ], [ %83, %74 ]
+  store i32 %.1101, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #3
+declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #3
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !10, i64 128}
+!12 = !{!"cast_key_st", !7, i64 0, !10, i64 128}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14}

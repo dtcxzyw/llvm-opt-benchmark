@@ -1,528 +1,536 @@
 ; ModuleID = 'bench/libquic/original/oct.ll'
 source_filename = "bench/libquic/original/oct.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/oct.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_POINT_oct2point(ptr noundef %group, ptr noundef %point, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden range(i32 0, 2) i32 @EC_POINT_oct2point(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = load ptr, ptr %0, align 8, !tbaa !6
+  %7 = load ptr, ptr %1, align 8, !tbaa !17
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %9, label %8
 
-if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 256) #2
-  br label %return
+8:                                                ; preds = %5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 256) #3
+  br label %ec_GFp_simple_oct2point.exit
 
-if.end:                                           ; preds = %entry
-  %cmp.i = icmp eq i64 %len, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+9:                                                ; preds = %5
+  %10 = icmp eq i64 %3, 0
+  br i1 %10, label %11, label %12
 
-if.then.i:                                        ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 183) #2
-  br label %return
+11:                                               ; preds = %9
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 183) #3
+  br label %ec_GFp_simple_oct2point.exit
 
-if.end.i:                                         ; preds = %if.end
-  %2 = load i8, ptr %buf, align 1
-  %conv.i = zext i8 %2 to i32
-  %and.i = and i32 %conv.i, 1
-  %and1.i = and i32 %conv.i, 254
-  %trunc.i = trunc nuw i32 %and1.i to i8
-  switch i8 %trunc.i, label %if.then9.i [
-    i8 4, label %lor.lhs.false.i
-    i8 2, label %lor.lhs.false.i
+12:                                               ; preds = %9
+  %13 = load i8, ptr %2, align 1, !tbaa !19
+  %14 = zext i8 %13 to i32
+  %15 = and i32 %14, 1
+  %16 = and i32 %14, 254
+  %trunc.i = trunc nuw i32 %16 to i8
+  switch i8 %trunc.i, label %18 [
+    i8 4, label %17
+    i8 2, label %17
   ]
 
-lor.lhs.false.i:                                  ; preds = %if.end.i, %if.end.i
-  %or.cond1.i = icmp eq i8 %2, 5
-  br i1 %or.cond1.i, label %if.then9.i, label %if.end10.i
+17:                                               ; preds = %12, %12
+  %or.cond3.i = icmp eq i8 %13, 5
+  br i1 %or.cond3.i, label %18, label %19
 
-if.then9.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 192) #2
-  br label %return
+18:                                               ; preds = %17, %12
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 192) #3
+  br label %ec_GFp_simple_oct2point.exit
 
-if.end10.i:                                       ; preds = %lor.lhs.false.i
-  %field.i = getelementptr inbounds nuw i8, ptr %group, i64 80
-  %call.i = tail call i32 @BN_num_bytes(ptr noundef nonnull %field.i) #2
-  %conv11.i = zext i32 %call.i to i64
-  %cmp12.i = icmp eq i32 %and1.i, 2
-  %add.i = add nuw nsw i64 %conv11.i, 1
-  %mul.i = shl nuw nsw i64 %conv11.i, 1
-  %add14.i = or disjoint i64 %mul.i, 1
-  %cond.i = select i1 %cmp12.i, i64 %add.i, i64 %add14.i
-  %cmp15.not.i = icmp eq i64 %len, %cond.i
-  br i1 %cmp15.not.i, label %if.end18.i, label %if.then17.i
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %21 = tail call i32 @BN_num_bytes(ptr noundef nonnull %20) #3
+  %22 = zext i32 %21 to i64
+  %23 = icmp eq i32 %16, 2
+  %24 = add nuw nsw i64 %22, 1
+  %25 = shl nuw nsw i64 %22, 1
+  %26 = or disjoint i64 %25, 1
+  %27 = select i1 %23, i64 %24, i64 %26
+  %.not.i = icmp eq i64 %3, %27
+  br i1 %.not.i, label %29, label %28
 
-if.then17.i:                                      ; preds = %if.end10.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 201) #2
-  br label %return
+28:                                               ; preds = %19
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 201) #3
+  br label %ec_GFp_simple_oct2point.exit
 
-if.end18.i:                                       ; preds = %if.end10.i
-  %cmp19.i = icmp eq ptr %ctx, null
-  br i1 %cmp19.i, label %if.then21.i, label %if.end27.i
+29:                                               ; preds = %19
+  %30 = icmp eq ptr %4, null
+  br i1 %30, label %31, label %34
 
-if.then21.i:                                      ; preds = %if.end18.i
-  %call22.i = tail call ptr @BN_CTX_new() #2
-  %cmp23.i = icmp eq ptr %call22.i, null
-  br i1 %cmp23.i, label %return, label %if.end27.i
+31:                                               ; preds = %29
+  %32 = tail call ptr @BN_CTX_new() #3
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %ec_GFp_simple_oct2point.exit, label %34
 
-if.end27.i:                                       ; preds = %if.then21.i, %if.end18.i
-  %new_ctx.0.i = phi ptr [ %call22.i, %if.then21.i ], [ null, %if.end18.i ]
-  %ctx.addr.0.i = phi ptr [ %call22.i, %if.then21.i ], [ %ctx, %if.end18.i ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0.i) #2
-  %call28.i = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0.i) #2
-  %call29.i = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0.i) #2
-  %cmp30.i = icmp eq ptr %call28.i, null
-  %cmp33.i = icmp eq ptr %call29.i, null
-  %or.cond2.i = select i1 %cmp30.i, i1 true, i1 %cmp33.i
-  br i1 %or.cond2.i, label %err.i, label %if.end36.i
+34:                                               ; preds = %31, %29
+  %.053.i = phi ptr [ %32, %31 ], [ null, %29 ]
+  %.052.i = phi ptr [ %32, %31 ], [ %4, %29 ]
+  tail call void @BN_CTX_start(ptr noundef nonnull %.052.i) #3
+  %35 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.052.i) #3
+  %36 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.052.i) #3
+  %37 = icmp eq ptr %35, null
+  %38 = icmp eq ptr %36, null
+  %or.cond5.i = select i1 %37, i1 true, i1 %38
+  br i1 %or.cond5.i, label %59, label %39
 
-if.end36.i:                                       ; preds = %if.end27.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 1
-  %call37.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr.i, i64 noundef %conv11.i, ptr noundef nonnull %call28.i) #2
-  %tobool38.not.i = icmp eq ptr %call37.i, null
-  br i1 %tobool38.not.i, label %err.i, label %if.end40.i
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %41 = tail call ptr @BN_bin2bn(ptr noundef nonnull %40, i64 noundef %22, ptr noundef nonnull %35) #3
+  %.not59.i = icmp eq ptr %41, null
+  br i1 %.not59.i, label %59, label %42
 
-if.end40.i:                                       ; preds = %if.end36.i
-  %call42.i = tail call i32 @BN_ucmp(ptr noundef nonnull %call28.i, ptr noundef nonnull %field.i) #2
-  %cmp43.i = icmp sgt i32 %call42.i, -1
-  br i1 %cmp43.i, label %if.then45.i, label %if.end46.i
+42:                                               ; preds = %39
+  %43 = tail call i32 @BN_ucmp(ptr noundef nonnull %35, ptr noundef nonnull %20) #3
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %45, label %46
 
-if.then45.i:                                      ; preds = %if.end40.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 223) #2
-  br label %err.i
+45:                                               ; preds = %42
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 223) #3
+  br label %59
 
-if.end46.i:                                       ; preds = %if.end40.i
-  br i1 %cmp12.i, label %if.then49.i, label %if.else.i
+46:                                               ; preds = %42
+  br i1 %23, label %47, label %49
 
-if.then49.i:                                      ; preds = %if.end46.i
-  %call50.i = tail call i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef nonnull %call28.i, i32 noundef %and.i, ptr noundef nonnull %ctx.addr.0.i)
-  %tobool51.not.i = icmp eq i32 %call50.i, 0
-  br i1 %tobool51.not.i, label %err.i, label %if.end70.i
+47:                                               ; preds = %46
+  %48 = tail call i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %35, i32 noundef %15, ptr noundef nonnull %.052.i)
+  %.not62.i = icmp eq i32 %48, 0
+  br i1 %.not62.i, label %59, label %58
 
-if.else.i:                                        ; preds = %if.end46.i
-  %add.ptr55.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %conv11.i
-  %call56.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr55.i, i64 noundef %conv11.i, ptr noundef nonnull %call29.i) #2
-  %tobool57.not.i = icmp eq ptr %call56.i, null
-  br i1 %tobool57.not.i, label %err.i, label %if.end59.i
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 %22
+  %51 = tail call ptr @BN_bin2bn(ptr noundef nonnull %50, i64 noundef %22, ptr noundef nonnull %36) #3
+  %.not60.i = icmp eq ptr %51, null
+  br i1 %.not60.i, label %59, label %52
 
-if.end59.i:                                       ; preds = %if.else.i
-  %call61.i = tail call i32 @BN_ucmp(ptr noundef nonnull %call29.i, ptr noundef nonnull %field.i) #2
-  %cmp62.i = icmp sgt i32 %call61.i, -1
-  br i1 %cmp62.i, label %if.then64.i, label %if.end65.i
+52:                                               ; preds = %49
+  %53 = tail call i32 @BN_ucmp(ptr noundef nonnull %36, ptr noundef nonnull %20) #3
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %55, label %56
 
-if.then64.i:                                      ; preds = %if.end59.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 236) #2
-  br label %err.i
+55:                                               ; preds = %52
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 236) #3
+  br label %59
 
-if.end65.i:                                       ; preds = %if.end59.i
-  %call66.i = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef nonnull %call28.i, ptr noundef nonnull %call29.i, ptr noundef nonnull %ctx.addr.0.i) #2
-  %tobool67.not.i = icmp eq i32 %call66.i, 0
-  br i1 %tobool67.not.i, label %err.i, label %if.end70.i
+56:                                               ; preds = %52
+  %57 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %.052.i) #3
+  %.not61.i = icmp eq i32 %57, 0
+  br i1 %.not61.i, label %59, label %58
 
-if.end70.i:                                       ; preds = %if.end65.i, %if.then49.i
-  br label %err.i
+58:                                               ; preds = %56, %47
+  br label %59
 
-err.i:                                            ; preds = %if.end70.i, %if.end65.i, %if.then64.i, %if.else.i, %if.then49.i, %if.then45.i, %if.end36.i, %if.end27.i
-  %ret.0.i = phi i32 [ 0, %if.end27.i ], [ 0, %if.then45.i ], [ 1, %if.end70.i ], [ 0, %if.then49.i ], [ 0, %if.then64.i ], [ 0, %if.end65.i ], [ 0, %if.else.i ], [ 0, %if.end36.i ]
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0.i) #2
-  tail call void @BN_CTX_free(ptr noundef %new_ctx.0.i) #2
-  br label %return
+59:                                               ; preds = %58, %56, %55, %49, %47, %45, %39, %34
+  %.0.i = phi i32 [ 0, %34 ], [ 0, %45 ], [ 1, %58 ], [ 0, %47 ], [ 0, %55 ], [ 0, %56 ], [ 0, %49 ], [ 0, %39 ]
+  tail call void @BN_CTX_end(ptr noundef nonnull %.052.i) #3
+  tail call void @BN_CTX_free(ptr noundef %.053.i) #3
+  br label %ec_GFp_simple_oct2point.exit
 
-return:                                           ; preds = %err.i, %if.then21.i, %if.then17.i, %if.then9.i, %if.then.i, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then.i ], [ 0, %if.then9.i ], [ 0, %if.then17.i ], [ %ret.0.i, %err.i ], [ 0, %if.then21.i ]
-  ret i32 %retval.0
+ec_GFp_simple_oct2point.exit:                     ; preds = %59, %31, %28, %18, %11, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %18 ], [ 0, %28 ], [ %.0.i, %59 ], [ 0, %31 ]
+  ret i32 %.0
 }
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 8589934592) i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden range(i64 0, 8589934592) i64 @EC_POINT_point2oct(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+  %7 = load ptr, ptr %0, align 8, !tbaa !6
+  %8 = load ptr, ptr %1, align 8, !tbaa !17
+  %.not = icmp eq ptr %7, %8
+  br i1 %.not, label %10, label %9
 
-if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 266) #2
-  br label %return
+9:                                                ; preds = %6
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 266) #3
+  br label %56
 
-if.end:                                           ; preds = %entry
-  switch i32 %form, label %if.then.i [
-    i32 4, label %if.end.i
-    i32 2, label %if.end.i
+10:                                               ; preds = %6
+  switch i32 %2, label %11 [
+    i32 4, label %12
+    i32 2, label %12
   ]
 
-if.then.i:                                        ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 111, ptr noundef nonnull @.str, i32 noundef 89) #2
+11:                                               ; preds = %10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 111, ptr noundef nonnull @.str, i32 noundef 89) #3
   br label %ec_GFp_simple_point2oct.exit
 
-if.end.i:                                         ; preds = %if.end, %if.end
-  %call.i = tail call i32 @EC_POINT_is_at_infinity(ptr noundef nonnull %group, ptr noundef nonnull %point) #2
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.end3.i, label %if.then2.i
+12:                                               ; preds = %10, %10
+  %13 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef nonnull %0, ptr noundef nonnull %1) #3
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %15, label %14
 
-if.then2.i:                                       ; preds = %if.end.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 119, ptr noundef nonnull @.str, i32 noundef 94) #2
+14:                                               ; preds = %12
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 119, ptr noundef nonnull @.str, i32 noundef 94) #3
   br label %ec_GFp_simple_point2oct.exit
 
-if.end3.i:                                        ; preds = %if.end.i
-  %field.i = getelementptr inbounds nuw i8, ptr %group, i64 80
-  %call4.i = tail call i32 @BN_num_bytes(ptr noundef nonnull %field.i) #2
-  %conv.i = zext i32 %call4.i to i64
-  %cmp5.i = icmp eq i32 %form, 2
-  %add.i = add nuw nsw i64 %conv.i, 1
-  %mul.i = shl nuw nsw i64 %conv.i, 1
-  %add7.i = or disjoint i64 %mul.i, 1
-  %cond.i = select i1 %cmp5.i, i64 %add.i, i64 %add7.i
-  %cmp8.not.i = icmp eq ptr %buf, null
-  br i1 %cmp8.not.i, label %ec_GFp_simple_point2oct.exit, label %if.then10.i
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %17 = tail call i32 @BN_num_bytes(ptr noundef nonnull %16) #3
+  %18 = zext i32 %17 to i64
+  %19 = icmp eq i32 %2, 2
+  %20 = add nuw nsw i64 %18, 1
+  %21 = shl nuw nsw i64 %18, 1
+  %22 = or disjoint i64 %21, 1
+  %23 = select i1 %19, i64 %20, i64 %22
+  %.not65.i = icmp eq ptr %3, null
+  br i1 %.not65.i, label %ec_GFp_simple_point2oct.exit, label %24
 
-if.then10.i:                                      ; preds = %if.end3.i
-  %cmp11.i = icmp ult i64 %len, %cond.i
-  br i1 %cmp11.i, label %if.then13.i, label %if.end14.i
+24:                                               ; preds = %15
+  %25 = icmp ult i64 %4, %23
+  br i1 %25, label %26, label %27
 
-if.then13.i:                                      ; preds = %if.then10.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 106) #2
+26:                                               ; preds = %24
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 106) #3
   br label %ec_GFp_simple_point2oct.exit
 
-if.end14.i:                                       ; preds = %if.then10.i
-  %cmp15.i = icmp eq ptr %ctx, null
-  br i1 %cmp15.i, label %if.then17.i, label %if.end23.i
+27:                                               ; preds = %24
+  %28 = icmp eq ptr %5, null
+  br i1 %28, label %29, label %32
 
-if.then17.i:                                      ; preds = %if.end14.i
-  %call18.i = tail call ptr @BN_CTX_new() #2
-  %cmp19.i = icmp eq ptr %call18.i, null
-  br i1 %cmp19.i, label %ec_GFp_simple_point2oct.exit, label %if.end23.i
+29:                                               ; preds = %27
+  %30 = tail call ptr @BN_CTX_new() #3
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %ec_GFp_simple_point2oct.exit, label %32
 
-if.end23.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %new_ctx.2.i = phi ptr [ %call18.i, %if.then17.i ], [ null, %if.end14.i ]
-  %ctx.addr.2.i = phi ptr [ %call18.i, %if.then17.i ], [ %ctx, %if.end14.i ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.2.i) #2
-  %call24.i = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.2.i) #2
-  %call25.i = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.2.i) #2
-  %cmp26.i = icmp eq ptr %call25.i, null
-  br i1 %cmp26.i, label %if.then69.i, label %if.end29.i
+32:                                               ; preds = %29, %27
+  %.255.i = phi ptr [ %30, %29 ], [ null, %27 ]
+  %.2.i = phi ptr [ %30, %29 ], [ %5, %27 ]
+  tail call void @BN_CTX_start(ptr noundef nonnull %.2.i) #3
+  %33 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.2.i) #3
+  %34 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.2.i) #3
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %55, label %36
 
-if.end29.i:                                       ; preds = %if.end23.i
-  %call30.i = tail call i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %call24.i, ptr noundef nonnull %call25.i, ptr noundef nonnull %ctx.addr.2.i) #2
-  %tobool31.not.i = icmp eq i32 %call30.i, 0
-  br i1 %tobool31.not.i, label %if.then69.i, label %if.end33.i
+36:                                               ; preds = %32
+  %37 = tail call i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %33, ptr noundef nonnull %34, ptr noundef nonnull %.2.i) #3
+  %.not66.i = icmp eq i32 %37, 0
+  br i1 %.not66.i, label %55, label %38
 
-if.end33.i:                                       ; preds = %if.end29.i
-  br i1 %cmp5.i, label %land.lhs.true36.i, label %if.else.i
+38:                                               ; preds = %36
+  br i1 %19, label %39, label %41
 
-land.lhs.true36.i:                                ; preds = %if.end33.i
-  %call37.i = tail call i32 @BN_is_odd(ptr noundef nonnull %call25.i) #2
-  %tobool38.not.i = icmp eq i32 %call37.i, 0
-  br i1 %tobool38.not.i, label %if.else.i, label %if.end44.i
+39:                                               ; preds = %38
+  %40 = tail call i32 @BN_is_odd(ptr noundef nonnull %34) #3
+  %.not67.i = icmp eq i32 %40, 0
+  br i1 %.not67.i, label %41, label %43
 
-if.else.i:                                        ; preds = %land.lhs.true36.i, %if.end33.i
-  %conv42.i = trunc nuw i32 %form to i8
-  br label %if.end44.i
+41:                                               ; preds = %39, %38
+  %42 = trunc nuw i32 %2 to i8
+  br label %43
 
-if.end44.i:                                       ; preds = %if.else.i, %land.lhs.true36.i
-  %storemerge.i = phi i8 [ %conv42.i, %if.else.i ], [ 3, %land.lhs.true36.i ]
-  store i8 %storemerge.i, ptr %buf, align 1
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 1
-  %call45.i = tail call i32 @BN_bn2bin_padded(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i, ptr noundef %call24.i) #2
-  %tobool46.not.i = icmp eq i32 %call45.i, 0
-  br i1 %tobool46.not.i, label %if.then69.sink.split.i, label %if.end48.i
+43:                                               ; preds = %41, %39
+  %storemerge.i = phi i8 [ %42, %41 ], [ 3, %39 ]
+  store i8 %storemerge.i, ptr %3, align 1, !tbaa !19
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %45 = tail call i32 @BN_bn2bin_padded(ptr noundef nonnull %44, i64 noundef %18, ptr noundef %33) #3
+  %.not68.i = icmp eq i32 %45, 0
+  br i1 %.not68.i, label %.sink.split.i, label %46
 
-if.end48.i:                                       ; preds = %if.end44.i
-  %cmp50.i = icmp eq i32 %form, 4
-  br i1 %cmp50.i, label %if.then52.i, label %if.end59.i
+46:                                               ; preds = %43
+  %47 = icmp eq i32 %2, 4
+  br i1 %47, label %48, label %53
 
-if.then52.i:                                      ; preds = %if.end48.i
-  %add.ptr53.i = getelementptr inbounds nuw i8, ptr %buf, i64 %add.i
-  %call54.i = tail call i32 @BN_bn2bin_padded(ptr noundef nonnull %add.ptr53.i, i64 noundef %conv.i, ptr noundef nonnull %call25.i) #2
-  %tobool55.not.i = icmp eq i32 %call54.i, 0
-  br i1 %tobool55.not.i, label %if.then69.sink.split.i, label %if.end57.i
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 %20
+  %50 = tail call i32 @BN_bn2bin_padded(ptr noundef nonnull %49, i64 noundef %18, ptr noundef nonnull %34) #3
+  %.not69.i = icmp eq i32 %50, 0
+  br i1 %.not69.i, label %.sink.split.i, label %51
 
-if.end57.i:                                       ; preds = %if.then52.i
-  %add58.i = add nuw nsw i64 %add.i, %conv.i
-  br label %if.end59.i
+51:                                               ; preds = %48
+  %52 = add nuw nsw i64 %20, %18
+  br label %53
 
-if.end59.i:                                       ; preds = %if.end57.i, %if.end48.i
-  %i.0.i = phi i64 [ %add58.i, %if.end57.i ], [ %add.i, %if.end48.i ]
-  %cmp60.not.i = icmp eq i64 %i.0.i, %cond.i
-  br i1 %cmp60.not.i, label %if.then66.i, label %if.then69.sink.split.i
+53:                                               ; preds = %51, %46
+  %.0.i = phi i64 [ %52, %51 ], [ %20, %46 ]
+  %.not70.i = icmp eq i64 %.0.i, %23
+  br i1 %.not70.i, label %54, label %.sink.split.i
 
-if.then66.i:                                      ; preds = %if.end59.i
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.2.i) #2
+54:                                               ; preds = %53
+  tail call void @BN_CTX_end(ptr noundef nonnull %.2.i) #3
   br label %ec_GFp_simple_point2oct.exit
 
-if.then69.sink.split.i:                           ; preds = %if.end59.i, %if.then52.i, %if.end44.i
-  %.sink.i = phi i32 [ 138, %if.end44.i ], [ 145, %if.then52.i ], [ 152, %if.end59.i ]
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef %.sink.i) #2
-  br label %if.then69.i
+.sink.split.i:                                    ; preds = %53, %48, %43
+  %.sink.i = phi i32 [ 138, %43 ], [ 145, %48 ], [ 152, %53 ]
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef %.sink.i) #3
+  br label %55
 
-if.then69.i:                                      ; preds = %if.then69.sink.split.i, %if.end29.i, %if.end23.i
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.2.i) #2
+55:                                               ; preds = %.sink.split.i, %36, %32
+  tail call void @BN_CTX_end(ptr noundef nonnull %.2.i) #3
   br label %ec_GFp_simple_point2oct.exit
 
-ec_GFp_simple_point2oct.exit:                     ; preds = %if.then.i, %if.then2.i, %if.end3.i, %if.then13.i, %if.then17.i, %if.then66.i, %if.then69.i
-  %new_ctx.045.sink.i = phi ptr [ %new_ctx.2.i, %if.then66.i ], [ null, %if.end3.i ], [ %new_ctx.2.i, %if.then69.i ], [ null, %if.then.i ], [ null, %if.then2.i ], [ null, %if.then13.i ], [ null, %if.then17.i ]
-  %retval.0.i = phi i64 [ %cond.i, %if.then66.i ], [ %cond.i, %if.end3.i ], [ 0, %if.then69.i ], [ 0, %if.then.i ], [ 0, %if.then2.i ], [ 0, %if.then13.i ], [ 0, %if.then17.i ]
-  tail call void @BN_CTX_free(ptr noundef %new_ctx.045.sink.i) #2
-  br label %return
+ec_GFp_simple_point2oct.exit:                     ; preds = %11, %14, %15, %26, %29, %54, %55
+  %.05381.sink.i = phi ptr [ %.255.i, %54 ], [ null, %15 ], [ %.255.i, %55 ], [ null, %11 ], [ null, %14 ], [ null, %26 ], [ null, %29 ]
+  %.051.i = phi i64 [ %23, %54 ], [ %23, %15 ], [ 0, %55 ], [ 0, %11 ], [ 0, %14 ], [ 0, %26 ], [ 0, %29 ]
+  tail call void @BN_CTX_free(ptr noundef %.05381.sink.i) #3
+  br label %56
 
-return:                                           ; preds = %ec_GFp_simple_point2oct.exit, %if.then
-  %retval.0 = phi i64 [ 0, %if.then ], [ %retval.0.i, %ec_GFp_simple_point2oct.exit ]
-  ret i64 %retval.0
+56:                                               ; preds = %ec_GFp_simple_point2oct.exit, %9
+  %.0 = phi i64 [ 0, %9 ], [ %.051.i, %ec_GFp_simple_point2oct.exit ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_POINT_point2cbb(ptr noundef %out, ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %p = alloca ptr, align 8
-  %call = tail call i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef null, i64 noundef 0, ptr noundef %ctx)
-  %cmp = icmp eq i64 %call, 0
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @EC_POINT_point2cbb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = alloca ptr, align 8
+  %7 = tail call i64 @EC_POINT_point2oct(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef %4)
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %18, label %9
 
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @CBB_add_space(ptr noundef %out, ptr noundef nonnull %p, i64 noundef %call) #2
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %return, label %land.rhs
+9:                                                ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  %10 = call i32 @CBB_add_space(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %7) #3
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %16, label %11
 
-land.rhs:                                         ; preds = %if.end
-  %0 = load ptr, ptr %p, align 8
-  %call2 = call i64 @EC_POINT_point2oct(ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef %0, i64 noundef %call, ptr noundef %ctx)
-  %cmp3 = icmp eq i64 %call2, %call
-  %1 = zext i1 %cmp3 to i32
-  br label %return
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %6, align 8, !tbaa !20
+  %13 = call i64 @EC_POINT_point2oct(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %12, i64 noundef %7, ptr noundef %4)
+  %14 = icmp eq i64 %13, %7
+  %15 = zext i1 %14 to i32
+  br label %16
 
-return:                                           ; preds = %if.end, %land.rhs, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %1, %land.rhs ]
-  ret i32 %retval.0
+16:                                               ; preds = %11, %9
+  %17 = phi i32 [ 0, %9 ], [ %15, %11 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  br label %18
+
+18:                                               ; preds = %5, %16
+  %.0 = phi i32 [ %17, %16 ], [ 0, %5 ]
+  ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @CBB_add_space(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ec_GFp_simple_set_compressed_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @BN_is_negative(ptr noundef %x) #2
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_set_compressed_coordinates(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call i32 @BN_is_negative(ptr noundef %2) #3
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %field = getelementptr inbounds nuw i8, ptr %group, i64 80
-  %call1 = tail call i32 @BN_cmp(ptr noundef %x, ptr noundef nonnull %field) #2
-  %cmp = icmp sgt i32 %call1, -1
-  br i1 %cmp, label %if.then, label %if.end
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef nonnull %8) #3
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str, i32 noundef 287) #2
-  br label %return
+11:                                               ; preds = %7, %5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str, i32 noundef 287) #3
+  br label %101
 
-if.end:                                           ; preds = %lor.lhs.false
-  tail call void @ERR_clear_error() #2
-  %cmp2 = icmp eq ptr %ctx, null
-  br i1 %cmp2, label %if.then3, label %if.end8
+12:                                               ; preds = %7
+  tail call void @ERR_clear_error() #3
+  %13 = icmp eq ptr %4, null
+  br i1 %13, label %14, label %17
 
-if.then3:                                         ; preds = %if.end
-  %call4 = tail call ptr @BN_CTX_new() #2
-  %cmp5 = icmp eq ptr %call4, null
-  br i1 %cmp5, label %return, label %if.end8
+14:                                               ; preds = %12
+  %15 = tail call ptr @BN_CTX_new() #3
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %101, label %17
 
-if.end8:                                          ; preds = %if.then3, %if.end
-  %new_ctx.0 = phi ptr [ %call4, %if.then3 ], [ null, %if.end ]
-  %ctx.addr.0 = phi ptr [ %call4, %if.then3 ], [ %ctx, %if.end ]
-  %cmp9 = icmp ne i32 %y_bit, 0
-  %conv = zext i1 %cmp9 to i32
-  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #2
-  %call10 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #2
-  %call11 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #2
-  %call12 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #2
-  %cmp13 = icmp eq ptr %call12, null
-  br i1 %cmp13, label %err157, label %if.end16
+17:                                               ; preds = %14, %12
+  %.0112 = phi ptr [ %15, %14 ], [ null, %12 ]
+  %.0111 = phi ptr [ %15, %14 ], [ %4, %12 ]
+  %18 = icmp ne i32 %3, 0
+  %19 = zext i1 %18 to i32
+  tail call void @BN_CTX_start(ptr noundef nonnull %.0111) #3
+  %20 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.0111) #3
+  %21 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.0111) #3
+  %22 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.0111) #3
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %100, label %24
 
-if.end16:                                         ; preds = %if.end8
-  %0 = load ptr, ptr %group, align 8
-  %field_decode = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1 = load ptr, ptr %field_decode, align 8
-  %cmp17 = icmp eq ptr %1, null
-  br i1 %cmp17, label %if.then19, label %if.else
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %0, align 8, !tbaa !6
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %38
 
-if.then19:                                        ; preds = %if.end16
-  %field_sqr = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %2 = load ptr, ptr %field_sqr, align 8
-  %call21 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %err157, label %lor.lhs.false23
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %31 = load ptr, ptr %30, align 8, !tbaa !24
+  %32 = tail call i32 %31(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %2, ptr noundef nonnull %.0111) #3
+  %.not121 = icmp eq i32 %32, 0
+  br i1 %.not121, label %100, label %33
 
-lor.lhs.false23:                                  ; preds = %if.then19
-  %3 = load ptr, ptr %group, align 8
-  %field_mul = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %4 = load ptr, ptr %field_mul, align 8
-  %call25 = tail call i32 %4(ptr noundef nonnull %group, ptr noundef %call10, ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %err157, label %if.end38
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %0, align 8, !tbaa !6
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
+  %36 = load ptr, ptr %35, align 8, !tbaa !25
+  %37 = tail call i32 %36(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %21, ptr noundef %2, ptr noundef nonnull %.0111) #3
+  %.not122 = icmp eq i32 %37, 0
+  br i1 %.not122, label %100, label %42
 
-if.else:                                          ; preds = %if.end16
-  %call30 = tail call i32 @BN_mod_sqr(ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %field, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool31.not = icmp eq i32 %call30, 0
-  br i1 %tobool31.not, label %err157, label %lor.lhs.false32
+38:                                               ; preds = %24
+  %39 = tail call i32 @BN_mod_sqr(ptr noundef %21, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %.0111) #3
+  %.not119 = icmp eq i32 %39, 0
+  br i1 %.not119, label %100, label %40
 
-lor.lhs.false32:                                  ; preds = %if.else
-  %call34 = tail call i32 @BN_mod_mul(ptr noundef %call10, ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %field, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool35.not = icmp eq i32 %call34, 0
-  br i1 %tobool35.not, label %err157, label %if.end38
+40:                                               ; preds = %38
+  %41 = tail call i32 @BN_mod_mul(ptr noundef %20, ptr noundef %21, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %.0111) #3
+  %.not120 = icmp eq i32 %41, 0
+  br i1 %.not120, label %100, label %42
 
-if.end38:                                         ; preds = %lor.lhs.false32, %lor.lhs.false23
-  %a_is_minus3 = getelementptr inbounds nuw i8, ptr %group, i64 152
-  %5 = load i32, ptr %a_is_minus3, align 8
-  %tobool39.not = icmp eq i32 %5, 0
-  br i1 %tobool39.not, label %if.else54, label %if.then40
+42:                                               ; preds = %40, %33
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %44 = load i32, ptr %43, align 8, !tbaa !26
+  %.not123 = icmp eq i32 %44, 0
+  br i1 %.not123, label %51, label %45
 
-if.then40:                                        ; preds = %if.end38
-  %call42 = tail call i32 @BN_mod_lshift1_quick(ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %field) #2
-  %tobool43.not = icmp eq i32 %call42, 0
-  br i1 %tobool43.not, label %err157, label %lor.lhs.false44
+45:                                               ; preds = %42
+  %46 = tail call i32 @BN_mod_lshift1_quick(ptr noundef %21, ptr noundef %2, ptr noundef nonnull %8) #3
+  %.not129 = icmp eq i32 %46, 0
+  br i1 %.not129, label %100, label %47
 
-lor.lhs.false44:                                  ; preds = %if.then40
-  %call46 = tail call i32 @BN_mod_add_quick(ptr noundef %call11, ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %field) #2
-  %tobool47.not = icmp eq i32 %call46, 0
-  br i1 %tobool47.not, label %err157, label %lor.lhs.false48
+47:                                               ; preds = %45
+  %48 = tail call i32 @BN_mod_add_quick(ptr noundef %21, ptr noundef %21, ptr noundef %2, ptr noundef nonnull %8) #3
+  %.not130 = icmp eq i32 %48, 0
+  br i1 %.not130, label %100, label %49
 
-lor.lhs.false48:                                  ; preds = %lor.lhs.false44
-  %call50 = tail call i32 @BN_mod_sub_quick(ptr noundef %call10, ptr noundef %call10, ptr noundef %call11, ptr noundef nonnull %field) #2
-  %tobool51.not = icmp eq i32 %call50, 0
-  br i1 %tobool51.not, label %err157, label %if.end83
+49:                                               ; preds = %47
+  %50 = tail call i32 @BN_mod_sub_quick(ptr noundef %20, ptr noundef %20, ptr noundef %21, ptr noundef nonnull %8) #3
+  %.not131 = icmp eq i32 %50, 0
+  br i1 %.not131, label %100, label %67
 
-if.else54:                                        ; preds = %if.end38
-  %6 = load ptr, ptr %group, align 8
-  %field_decode56 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %7 = load ptr, ptr %field_decode56, align 8
-  %tobool57.not = icmp eq ptr %7, null
-  br i1 %tobool57.not, label %if.else69, label %if.then58
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %0, align 8, !tbaa !6
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
+  %54 = load ptr, ptr %53, align 8, !tbaa !22
+  %.not124 = icmp eq ptr %54, null
+  br i1 %.not124, label %60, label %55
 
-if.then58:                                        ; preds = %if.else54
-  %a = getelementptr inbounds nuw i8, ptr %group, i64 104
-  %call61 = tail call i32 %7(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %a, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool62.not = icmp eq i32 %call61, 0
-  br i1 %tobool62.not, label %err157, label %lor.lhs.false63
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %57 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef %21, ptr noundef nonnull %56, ptr noundef nonnull %.0111) #3
+  %.not126 = icmp eq i32 %57, 0
+  br i1 %.not126, label %100, label %58
 
-lor.lhs.false63:                                  ; preds = %if.then58
-  %call65 = tail call i32 @BN_mod_mul(ptr noundef %call11, ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %field, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool66.not = icmp eq i32 %call65, 0
-  br i1 %tobool66.not, label %err157, label %if.end77
+58:                                               ; preds = %55
+  %59 = tail call i32 @BN_mod_mul(ptr noundef %21, ptr noundef %21, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %.0111) #3
+  %.not127 = icmp eq i32 %59, 0
+  br i1 %.not127, label %100, label %65
 
-if.else69:                                        ; preds = %if.else54
-  %field_mul71 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %8 = load ptr, ptr %field_mul71, align 8
-  %a72 = getelementptr inbounds nuw i8, ptr %group, i64 104
-  %call73 = tail call i32 %8(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %a72, ptr noundef %x, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool74.not = icmp eq i32 %call73, 0
-  br i1 %tobool74.not, label %err157, label %if.end77
+60:                                               ; preds = %51
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 56
+  %62 = load ptr, ptr %61, align 8, !tbaa !25
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %64 = tail call i32 %62(ptr noundef nonnull %0, ptr noundef %21, ptr noundef nonnull %63, ptr noundef %2, ptr noundef nonnull %.0111) #3
+  %.not125 = icmp eq i32 %64, 0
+  br i1 %.not125, label %100, label %65
 
-if.end77:                                         ; preds = %if.else69, %lor.lhs.false63
-  %call79 = tail call i32 @BN_mod_add_quick(ptr noundef %call10, ptr noundef %call10, ptr noundef %call11, ptr noundef nonnull %field) #2
-  %tobool80.not = icmp eq i32 %call79, 0
-  br i1 %tobool80.not, label %err157, label %if.end83
+65:                                               ; preds = %60, %58
+  %66 = tail call i32 @BN_mod_add_quick(ptr noundef %20, ptr noundef %20, ptr noundef %21, ptr noundef nonnull %8) #3
+  %.not128 = icmp eq i32 %66, 0
+  br i1 %.not128, label %100, label %67
 
-if.end83:                                         ; preds = %if.end77, %lor.lhs.false48
-  %9 = load ptr, ptr %group, align 8
-  %field_decode85 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %10 = load ptr, ptr %field_decode85, align 8
-  %tobool86.not = icmp eq ptr %10, null
-  %b99 = getelementptr inbounds nuw i8, ptr %group, i64 128
-  br i1 %tobool86.not, label %if.else98, label %if.then87
+67:                                               ; preds = %65, %49
+  %68 = load ptr, ptr %0, align 8, !tbaa !6
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 80
+  %70 = load ptr, ptr %69, align 8, !tbaa !22
+  %.not132 = icmp eq ptr %70, null
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br i1 %.not132, label %76, label %72
 
-if.then87:                                        ; preds = %if.end83
-  %call90 = tail call i32 %10(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %b99, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool91.not = icmp eq i32 %call90, 0
-  br i1 %tobool91.not, label %err157, label %lor.lhs.false92
+72:                                               ; preds = %67
+  %73 = tail call i32 %70(ptr noundef nonnull %0, ptr noundef %21, ptr noundef nonnull %71, ptr noundef nonnull %.0111) #3
+  %.not134 = icmp eq i32 %73, 0
+  br i1 %.not134, label %100, label %74
 
-lor.lhs.false92:                                  ; preds = %if.then87
-  %call94 = tail call i32 @BN_mod_add_quick(ptr noundef %call10, ptr noundef %call10, ptr noundef %call11, ptr noundef nonnull %field) #2
-  %tobool95.not = icmp eq i32 %call94, 0
-  br i1 %tobool95.not, label %err157, label %if.end105
+74:                                               ; preds = %72
+  %75 = tail call i32 @BN_mod_add_quick(ptr noundef %20, ptr noundef %20, ptr noundef %21, ptr noundef nonnull %8) #3
+  %.not135 = icmp eq i32 %75, 0
+  br i1 %.not135, label %100, label %78
 
-if.else98:                                        ; preds = %if.end83
-  %call101 = tail call i32 @BN_mod_add_quick(ptr noundef %call10, ptr noundef %call10, ptr noundef nonnull %b99, ptr noundef nonnull %field) #2
-  %tobool102.not = icmp eq i32 %call101, 0
-  br i1 %tobool102.not, label %err157, label %if.end105
+76:                                               ; preds = %67
+  %77 = tail call i32 @BN_mod_add_quick(ptr noundef %20, ptr noundef %20, ptr noundef nonnull %71, ptr noundef nonnull %8) #3
+  %.not133 = icmp eq i32 %77, 0
+  br i1 %.not133, label %100, label %78
 
-if.end105:                                        ; preds = %if.else98, %lor.lhs.false92
-  %call107 = tail call ptr @BN_mod_sqrt(ptr noundef nonnull %call12, ptr noundef %call10, ptr noundef nonnull %field, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool108.not = icmp eq ptr %call107, null
-  br i1 %tobool108.not, label %if.then109, label %if.end122
+78:                                               ; preds = %76, %74
+  %79 = tail call ptr @BN_mod_sqrt(ptr noundef nonnull %22, ptr noundef %20, ptr noundef nonnull %8, ptr noundef nonnull %.0111) #3
+  %.not136 = icmp eq ptr %79, null
+  br i1 %.not136, label %80, label %85
 
-if.then109:                                       ; preds = %if.end105
-  %call110 = tail call i32 @ERR_peek_last_error() #2
-  %11 = and i32 %call110, -16773121
-  %or.cond = icmp eq i32 %11, 50331758
-  br i1 %or.cond, label %if.then119, label %if.else120
+80:                                               ; preds = %78
+  %81 = tail call i32 @ERR_peek_last_error() #3
+  %82 = and i32 %81, -16773121
+  %or.cond = icmp eq i32 %82, 50331758
+  br i1 %or.cond, label %83, label %84
 
-if.then119:                                       ; preds = %if.then109
-  tail call void @ERR_clear_error() #2
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 107, ptr noundef nonnull @.str, i32 noundef 375) #2
-  br label %err157
+83:                                               ; preds = %80
+  tail call void @ERR_clear_error() #3
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 107, ptr noundef nonnull @.str, i32 noundef 375) #3
+  br label %100
 
-if.else120:                                       ; preds = %if.then109
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 377) #2
-  br label %err157
+84:                                               ; preds = %80
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 377) #3
+  br label %100
 
-if.end122:                                        ; preds = %if.end105
-  %call123 = tail call i32 @BN_is_odd(ptr noundef nonnull %call12) #2
-  %cmp124.not = icmp eq i32 %call123, %conv
-  br i1 %cmp124.not, label %if.end147, label %if.then126
+85:                                               ; preds = %78
+  %86 = tail call i32 @BN_is_odd(ptr noundef nonnull %22) #3
+  %.not137 = icmp eq i32 %86, %19
+  br i1 %.not137, label %95, label %87
 
-if.then126:                                       ; preds = %if.end122
-  %call127 = tail call i32 @BN_is_zero(ptr noundef nonnull %call12) #2
-  %tobool128.not = icmp eq i32 %call127, 0
-  br i1 %tobool128.not, label %if.end141, label %if.then129
+87:                                               ; preds = %85
+  %88 = tail call i32 @BN_is_zero(ptr noundef nonnull %22) #3
+  %.not138 = icmp eq i32 %88, 0
+  br i1 %.not138, label %93, label %89
 
-if.then129:                                       ; preds = %if.then126
-  %call131 = tail call i32 @BN_kronecker(ptr noundef %x, ptr noundef nonnull %field, ptr noundef nonnull %ctx.addr.0) #2
-  switch i32 %call131, label %if.else139 [
-    i32 -2, label %err157
-    i32 1, label %if.then138
+89:                                               ; preds = %87
+  %90 = tail call i32 @BN_kronecker(ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %.0111) #3
+  switch i32 %90, label %92 [
+    i32 -2, label %100
+    i32 1, label %91
   ]
 
-if.then138:                                       ; preds = %if.then129
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str, i32 noundef 392) #2
-  br label %err157
+91:                                               ; preds = %89
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str, i32 noundef 392) #3
+  br label %100
 
-if.else139:                                       ; preds = %if.then129
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 107, ptr noundef nonnull @.str, i32 noundef 395) #2
-  br label %err157
+92:                                               ; preds = %89
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 107, ptr noundef nonnull @.str, i32 noundef 395) #3
+  br label %100
 
-if.end141:                                        ; preds = %if.then126
-  %call143 = tail call i32 @BN_usub(ptr noundef nonnull %call12, ptr noundef nonnull %field, ptr noundef nonnull %call12) #2
-  %tobool144.not = icmp eq i32 %call143, 0
-  br i1 %tobool144.not, label %err157, label %if.end147
+93:                                               ; preds = %87
+  %94 = tail call i32 @BN_usub(ptr noundef nonnull %22, ptr noundef nonnull %8, ptr noundef nonnull %22) #3
+  %.not139 = icmp eq i32 %94, 0
+  br i1 %.not139, label %100, label %95
 
-if.end147:                                        ; preds = %if.end141, %if.end122
-  %call148 = tail call i32 @BN_is_odd(ptr noundef nonnull %call12) #2
-  %cmp149.not = icmp eq i32 %call148, %conv
-  br i1 %cmp149.not, label %if.end152, label %if.then151
+95:                                               ; preds = %93, %85
+  %96 = tail call i32 @BN_is_odd(ptr noundef nonnull %22) #3
+  %.not140 = icmp eq i32 %96, %19
+  br i1 %.not140, label %98, label %97
 
-if.then151:                                       ; preds = %if.end147
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 404) #2
-  br label %err157
+97:                                               ; preds = %95
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 404) #3
+  br label %100
 
-if.end152:                                        ; preds = %if.end147
-  %call153 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %group, ptr noundef %point, ptr noundef %x, ptr noundef nonnull %call12, ptr noundef nonnull %ctx.addr.0) #2
-  %tobool154.not = icmp ne i32 %call153, 0
-  %spec.select = zext i1 %tobool154.not to i32
-  br label %err157
+98:                                               ; preds = %95
+  %99 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %22, ptr noundef nonnull %.0111) #3
+  %.not141 = icmp ne i32 %99, 0
+  %spec.select = zext i1 %.not141 to i32
+  br label %100
 
-err157:                                           ; preds = %if.end152, %if.then129, %if.end141, %if.then138, %if.else139, %if.then119, %if.else120, %if.else98, %if.then87, %lor.lhs.false92, %if.end77, %if.else69, %if.then58, %lor.lhs.false63, %if.then40, %lor.lhs.false44, %lor.lhs.false48, %if.else, %lor.lhs.false32, %if.then19, %lor.lhs.false23, %if.end8, %if.then151
-  %ret.0 = phi i32 [ 0, %if.end8 ], [ 0, %if.then129 ], [ 0, %if.then138 ], [ 0, %if.else139 ], [ 0, %if.then151 ], [ 0, %if.end141 ], [ 0, %if.then119 ], [ 0, %if.else120 ], [ 0, %lor.lhs.false92 ], [ 0, %if.then87 ], [ 0, %if.else98 ], [ 0, %lor.lhs.false48 ], [ 0, %lor.lhs.false44 ], [ 0, %if.then40 ], [ 0, %if.end77 ], [ 0, %lor.lhs.false63 ], [ 0, %if.then58 ], [ 0, %if.else69 ], [ 0, %lor.lhs.false23 ], [ 0, %if.then19 ], [ 0, %lor.lhs.false32 ], [ 0, %if.else ], [ %spec.select, %if.end152 ]
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0) #2
-  tail call void @BN_CTX_free(ptr noundef %new_ctx.0) #2
-  br label %return
+100:                                              ; preds = %98, %89, %92, %91, %83, %84, %93, %76, %72, %74, %65, %60, %55, %58, %45, %47, %49, %38, %40, %29, %33, %17, %97
+  %.0110 = phi i32 [ 0, %17 ], [ 0, %97 ], [ 0, %93 ], [ 0, %74 ], [ 0, %72 ], [ 0, %76 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 0, %65 ], [ 0, %58 ], [ 0, %55 ], [ 0, %60 ], [ 0, %33 ], [ 0, %29 ], [ 0, %40 ], [ 0, %38 ], [ 0, %84 ], [ 0, %83 ], [ 0, %91 ], [ 0, %92 ], [ 0, %89 ], [ %spec.select, %98 ]
+  tail call void @BN_CTX_end(ptr noundef nonnull %.0111) #3
+  tail call void @BN_CTX_free(ptr noundef %.0112) #3
+  br label %101
 
-return:                                           ; preds = %if.then3, %err157, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %ret.0, %err157 ], [ 0, %if.then3 ]
-  ret i32 %retval.0
+101:                                              ; preds = %100, %14, %11
+  %.0 = phi i32 [ 0, %11 ], [ %.0110, %100 ], [ 0, %14 ]
+  ret i32 %.0
 }
 
 declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
@@ -566,24 +574,23 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %group, align 8
-  %1 = load ptr, ptr %point, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden range(i32 0, 2) i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = load ptr, ptr %0, align 8, !tbaa !6
+  %7 = load ptr, ptr %1, align 8, !tbaa !17
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %9, label %8
 
-if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 424) #2
-  br label %return
+8:                                                ; preds = %5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 424) #3
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_set_compressed_coordinates(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, i32 noundef %y_bit, ptr noundef %ctx)
-  br label %return
+9:                                                ; preds = %5
+  %10 = tail call i32 @ec_GFp_simple_set_compressed_coordinates(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %call, %if.end ]
-  ret i32 %retval.0
+11:                                               ; preds = %9, %8
+  %.0 = phi i32 [ 0, %8 ], [ %10, %9 ]
+  ret i32 %.0
 }
 
 declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
@@ -598,16 +605,37 @@ declare i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr n
 
 declare i32 @BN_bn2bin_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"ec_group_st", !8, i64 0, !12, i64 8, !13, i64 16, !13, i64 40, !15, i64 64, !16, i64 72, !13, i64 80, !13, i64 104, !13, i64 128, !15, i64 152, !16, i64 160, !13, i64 168}
+!8 = !{!"p1 _ZTS12ec_method_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"p1 _ZTS11ec_point_st", !9, i64 0}
+!13 = !{!"bignum_st", !14, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20}
+!14 = !{!"p1 long", !9, i64 0}
+!15 = !{!"int", !10, i64 0}
+!16 = !{!"p1 _ZTS14bn_mont_ctx_st", !9, i64 0}
+!17 = !{!18, !8, i64 0}
+!18 = !{!"ec_point_st", !8, i64 0, !13, i64 8, !13, i64 32, !13, i64 56}
+!19 = !{!10, !10, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 omnipotent char", !9, i64 0}
+!22 = !{!23, !9, i64 80}
+!23 = !{!"ec_method_st", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80}
+!24 = !{!23, !9, i64 64}
+!25 = !{!23, !9, i64 56}
+!26 = !{!7, !15, i64 152}

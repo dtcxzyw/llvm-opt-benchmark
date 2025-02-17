@@ -1,6226 +1,6327 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.RIPEMD160state_st = type { [5 x i32], i32, i32, [64 x i8], i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RIPEMD160_Update(ptr noundef %c, ptr noundef %data_, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %c.addr = alloca ptr, align 8
-  %data_.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %data = alloca ptr, align 8
-  %l = alloca i32, align 4
-  %n = alloca i64, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store ptr %data_, ptr %data_.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %data_.addr, align 8
-  store ptr %0, ptr %data, align 8
-  %1 = load i64, ptr %len.addr, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @RIPEMD160_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store i64 %2, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %12 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %12, ptr %8, align 8, !tbaa !14
+  %13 = load i64, ptr %7, align 8, !tbaa !12
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %3
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %136
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %c.addr, align 8
-  %Nl = getelementptr inbounds %struct.RIPEMD160state_st, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %Nl, align 4
-  %4 = load i64, ptr %len.addr, align 8
-  %conv = trunc i64 %4 to i32
-  %shl = shl i32 %conv, 3
-  %add = add i32 %3, %shl
-  store i32 %add, ptr %l, align 4
-  %5 = load i32, ptr %l, align 4
-  %6 = load ptr, ptr %c.addr, align 8
-  %Nl1 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %Nl1, align 4
-  %cmp2 = icmp ult i32 %5, %7
-  br i1 %cmp2, label %if.then4, label %if.end5
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %17 = load ptr, ptr %5, align 8, !tbaa !6
+  %18 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4, !tbaa !16
+  %20 = load i64, ptr %7, align 8, !tbaa !12
+  %21 = trunc i64 %20 to i32
+  %22 = shl i32 %21, 3
+  %23 = add i32 %19, %22
+  store i32 %23, ptr %10, align 4, !tbaa !19
+  %24 = load i32, ptr %10, align 4, !tbaa !19
+  %25 = load ptr, ptr %5, align 8, !tbaa !6
+  %26 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !16
+  %28 = icmp ult i32 %24, %27
+  br i1 %28, label %29, label %34
 
-if.then4:                                         ; preds = %if.end
-  %8 = load ptr, ptr %c.addr, align 8
-  %Nh = getelementptr inbounds %struct.RIPEMD160state_st, ptr %8, i32 0, i32 2
-  %9 = load i32, ptr %Nh, align 4
-  %inc = add i32 %9, 1
-  store i32 %inc, ptr %Nh, align 4
-  br label %if.end5
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %5, align 8, !tbaa !6
+  %31 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %30, i32 0, i32 2
+  %32 = load i32, ptr %31, align 4, !tbaa !20
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %31, align 4, !tbaa !20
+  br label %34
 
-if.end5:                                          ; preds = %if.then4, %if.end
-  %10 = load i64, ptr %len.addr, align 8
-  %shr = lshr i64 %10, 29
-  %conv6 = trunc i64 %shr to i32
-  %11 = load ptr, ptr %c.addr, align 8
-  %Nh7 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %11, i32 0, i32 2
-  %12 = load i32, ptr %Nh7, align 4
-  %add8 = add i32 %12, %conv6
-  store i32 %add8, ptr %Nh7, align 4
-  %13 = load i32, ptr %l, align 4
-  %14 = load ptr, ptr %c.addr, align 8
-  %Nl9 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %14, i32 0, i32 1
-  store i32 %13, ptr %Nl9, align 4
-  %15 = load ptr, ptr %c.addr, align 8
-  %num = getelementptr inbounds %struct.RIPEMD160state_st, ptr %15, i32 0, i32 4
-  %16 = load i32, ptr %num, align 4
-  %conv10 = zext i32 %16 to i64
-  store i64 %conv10, ptr %n, align 8
-  %17 = load i64, ptr %n, align 8
-  %cmp11 = icmp ne i64 %17, 0
-  br i1 %cmp11, label %if.then13, label %if.end37
+34:                                               ; preds = %29, %16
+  %35 = load i64, ptr %7, align 8, !tbaa !12
+  %36 = lshr i64 %35, 29
+  %37 = trunc i64 %36 to i32
+  %38 = load ptr, ptr %5, align 8, !tbaa !6
+  %39 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 4, !tbaa !20
+  %41 = add i32 %40, %37
+  store i32 %41, ptr %39, align 4, !tbaa !20
+  %42 = load i32, ptr %10, align 4, !tbaa !19
+  %43 = load ptr, ptr %5, align 8, !tbaa !6
+  %44 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %43, i32 0, i32 1
+  store i32 %42, ptr %44, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %45 = load ptr, ptr %5, align 8, !tbaa !6
+  %46 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %46, align 4, !tbaa !21
+  %48 = zext i32 %47 to i64
+  store i64 %48, ptr %11, align 8, !tbaa !12
+  %49 = load i64, ptr %11, align 8, !tbaa !12
+  %50 = icmp ne i64 %49, 0
+  br i1 %50, label %51, label %102
 
-if.then13:                                        ; preds = %if.end5
-  %18 = load i64, ptr %len.addr, align 8
-  %cmp14 = icmp uge i64 %18, 64
-  br i1 %cmp14, label %if.then19, label %lor.lhs.false
+51:                                               ; preds = %34
+  %52 = load i64, ptr %7, align 8, !tbaa !12
+  %53 = icmp uge i64 %52, 64
+  br i1 %53, label %59, label %54
 
-lor.lhs.false:                                    ; preds = %if.then13
-  %19 = load i64, ptr %len.addr, align 8
-  %20 = load i64, ptr %n, align 8
-  %add16 = add i64 %19, %20
-  %cmp17 = icmp uge i64 %add16, 64
-  br i1 %cmp17, label %if.then19, label %if.else
+54:                                               ; preds = %51
+  %55 = load i64, ptr %7, align 8, !tbaa !12
+  %56 = load i64, ptr %11, align 8, !tbaa !12
+  %57 = add i64 %55, %56
+  %58 = icmp uge i64 %57, 64
+  br i1 %58, label %59, label %87
 
-if.then19:                                        ; preds = %lor.lhs.false, %if.then13
-  %21 = load ptr, ptr %c.addr, align 8
-  %data20 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %21, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [64 x i8], ptr %data20, i64 0, i64 0
-  %22 = load i64, ptr %n, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %22
-  %23 = load ptr, ptr %data, align 8
-  %24 = load i64, ptr %n, align 8
-  %sub = sub i64 64, %24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %23, i64 %sub, i1 false)
-  %25 = load ptr, ptr %c.addr, align 8
-  %h = getelementptr inbounds %struct.RIPEMD160state_st, ptr %25, i32 0, i32 0
-  %arraydecay21 = getelementptr inbounds [5 x i32], ptr %h, i64 0, i64 0
-  %26 = load ptr, ptr %c.addr, align 8
-  %data22 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %26, i32 0, i32 3
-  %arraydecay23 = getelementptr inbounds [64 x i8], ptr %data22, i64 0, i64 0
-  call void @ripemd160_block_data_order(ptr noundef %arraydecay21, ptr noundef %arraydecay23, i64 noundef 1)
-  %27 = load i64, ptr %n, align 8
-  %sub24 = sub i64 64, %27
-  store i64 %sub24, ptr %n, align 8
-  %28 = load i64, ptr %n, align 8
-  %29 = load ptr, ptr %data, align 8
-  %add.ptr25 = getelementptr inbounds i8, ptr %29, i64 %28
-  store ptr %add.ptr25, ptr %data, align 8
-  %30 = load i64, ptr %n, align 8
-  %31 = load i64, ptr %len.addr, align 8
-  %sub26 = sub i64 %31, %30
-  store i64 %sub26, ptr %len.addr, align 8
-  %32 = load ptr, ptr %c.addr, align 8
-  %num27 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %32, i32 0, i32 4
-  store i32 0, ptr %num27, align 4
-  %33 = load ptr, ptr %c.addr, align 8
-  %data28 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %33, i32 0, i32 3
-  %arraydecay29 = getelementptr inbounds [64 x i8], ptr %data28, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %arraydecay29, i8 0, i64 64, i1 false)
-  br label %if.end36
+59:                                               ; preds = %54, %51
+  %60 = load ptr, ptr %5, align 8, !tbaa !6
+  %61 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %60, i32 0, i32 3
+  %62 = getelementptr inbounds [64 x i8], ptr %61, i64 0, i64 0
+  %63 = load i64, ptr %11, align 8, !tbaa !12
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 %63
+  %65 = load ptr, ptr %8, align 8, !tbaa !14
+  %66 = load i64, ptr %11, align 8, !tbaa !12
+  %67 = sub i64 64, %66
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %65, i64 %67, i1 false)
+  %68 = load ptr, ptr %5, align 8, !tbaa !6
+  %69 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds [5 x i32], ptr %69, i64 0, i64 0
+  %71 = load ptr, ptr %5, align 8, !tbaa !6
+  %72 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %71, i32 0, i32 3
+  %73 = getelementptr inbounds [64 x i8], ptr %72, i64 0, i64 0
+  call void @ripemd160_block_data_order(ptr noundef %70, ptr noundef %73, i64 noundef 1)
+  %74 = load i64, ptr %11, align 8, !tbaa !12
+  %75 = sub i64 64, %74
+  store i64 %75, ptr %11, align 8, !tbaa !12
+  %76 = load i64, ptr %11, align 8, !tbaa !12
+  %77 = load ptr, ptr %8, align 8, !tbaa !14
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %76
+  store ptr %78, ptr %8, align 8, !tbaa !14
+  %79 = load i64, ptr %11, align 8, !tbaa !12
+  %80 = load i64, ptr %7, align 8, !tbaa !12
+  %81 = sub i64 %80, %79
+  store i64 %81, ptr %7, align 8, !tbaa !12
+  %82 = load ptr, ptr %5, align 8, !tbaa !6
+  %83 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %82, i32 0, i32 4
+  store i32 0, ptr %83, align 4, !tbaa !21
+  %84 = load ptr, ptr %5, align 8, !tbaa !6
+  %85 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %84, i32 0, i32 3
+  %86 = getelementptr inbounds [64 x i8], ptr %85, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %86, i8 0, i64 64, i1 false)
+  br label %101
 
-if.else:                                          ; preds = %lor.lhs.false
-  %34 = load ptr, ptr %c.addr, align 8
-  %data30 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %34, i32 0, i32 3
-  %arraydecay31 = getelementptr inbounds [64 x i8], ptr %data30, i64 0, i64 0
-  %35 = load i64, ptr %n, align 8
-  %add.ptr32 = getelementptr inbounds i8, ptr %arraydecay31, i64 %35
-  %36 = load ptr, ptr %data, align 8
-  %37 = load i64, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr32, ptr align 1 %36, i64 %37, i1 false)
-  %38 = load i64, ptr %len.addr, align 8
-  %conv33 = trunc i64 %38 to i32
-  %39 = load ptr, ptr %c.addr, align 8
-  %num34 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %39, i32 0, i32 4
-  %40 = load i32, ptr %num34, align 4
-  %add35 = add i32 %40, %conv33
-  store i32 %add35, ptr %num34, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+87:                                               ; preds = %54
+  %88 = load ptr, ptr %5, align 8, !tbaa !6
+  %89 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %88, i32 0, i32 3
+  %90 = getelementptr inbounds [64 x i8], ptr %89, i64 0, i64 0
+  %91 = load i64, ptr %11, align 8, !tbaa !12
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %91
+  %93 = load ptr, ptr %8, align 8, !tbaa !14
+  %94 = load i64, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 1 %93, i64 %94, i1 false)
+  %95 = load i64, ptr %7, align 8, !tbaa !12
+  %96 = trunc i64 %95 to i32
+  %97 = load ptr, ptr %5, align 8, !tbaa !6
+  %98 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %97, i32 0, i32 4
+  %99 = load i32, ptr %98, align 4, !tbaa !21
+  %100 = add i32 %99, %96
+  store i32 %100, ptr %98, align 4, !tbaa !21
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %135
 
-if.end36:                                         ; preds = %if.then19
-  br label %if.end37
+101:                                              ; preds = %59
+  br label %102
 
-if.end37:                                         ; preds = %if.end36, %if.end5
-  %41 = load i64, ptr %len.addr, align 8
-  %div = udiv i64 %41, 64
-  store i64 %div, ptr %n, align 8
-  %42 = load i64, ptr %n, align 8
-  %cmp38 = icmp ugt i64 %42, 0
-  br i1 %cmp38, label %if.then40, label %if.end45
+102:                                              ; preds = %101, %34
+  %103 = load i64, ptr %7, align 8, !tbaa !12
+  %104 = udiv i64 %103, 64
+  store i64 %104, ptr %11, align 8, !tbaa !12
+  %105 = load i64, ptr %11, align 8, !tbaa !12
+  %106 = icmp ugt i64 %105, 0
+  br i1 %106, label %107, label %121
 
-if.then40:                                        ; preds = %if.end37
-  %43 = load ptr, ptr %c.addr, align 8
-  %h41 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %43, i32 0, i32 0
-  %arraydecay42 = getelementptr inbounds [5 x i32], ptr %h41, i64 0, i64 0
-  %44 = load ptr, ptr %data, align 8
-  %45 = load i64, ptr %n, align 8
-  call void @ripemd160_block_data_order(ptr noundef %arraydecay42, ptr noundef %44, i64 noundef %45)
-  %46 = load i64, ptr %n, align 8
-  %mul = mul i64 %46, 64
-  store i64 %mul, ptr %n, align 8
-  %47 = load i64, ptr %n, align 8
-  %48 = load ptr, ptr %data, align 8
-  %add.ptr43 = getelementptr inbounds i8, ptr %48, i64 %47
-  store ptr %add.ptr43, ptr %data, align 8
-  %49 = load i64, ptr %n, align 8
-  %50 = load i64, ptr %len.addr, align 8
-  %sub44 = sub i64 %50, %49
-  store i64 %sub44, ptr %len.addr, align 8
-  br label %if.end45
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %5, align 8, !tbaa !6
+  %109 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %108, i32 0, i32 0
+  %110 = getelementptr inbounds [5 x i32], ptr %109, i64 0, i64 0
+  %111 = load ptr, ptr %8, align 8, !tbaa !14
+  %112 = load i64, ptr %11, align 8, !tbaa !12
+  call void @ripemd160_block_data_order(ptr noundef %110, ptr noundef %111, i64 noundef %112)
+  %113 = load i64, ptr %11, align 8, !tbaa !12
+  %114 = mul i64 %113, 64
+  store i64 %114, ptr %11, align 8, !tbaa !12
+  %115 = load i64, ptr %11, align 8, !tbaa !12
+  %116 = load ptr, ptr %8, align 8, !tbaa !14
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %115
+  store ptr %117, ptr %8, align 8, !tbaa !14
+  %118 = load i64, ptr %11, align 8, !tbaa !12
+  %119 = load i64, ptr %7, align 8, !tbaa !12
+  %120 = sub i64 %119, %118
+  store i64 %120, ptr %7, align 8, !tbaa !12
+  br label %121
 
-if.end45:                                         ; preds = %if.then40, %if.end37
-  %51 = load i64, ptr %len.addr, align 8
-  %cmp46 = icmp ne i64 %51, 0
-  br i1 %cmp46, label %if.then48, label %if.end53
+121:                                              ; preds = %107, %102
+  %122 = load i64, ptr %7, align 8, !tbaa !12
+  %123 = icmp ne i64 %122, 0
+  br i1 %123, label %124, label %134
 
-if.then48:                                        ; preds = %if.end45
-  %52 = load i64, ptr %len.addr, align 8
-  %conv49 = trunc i64 %52 to i32
-  %53 = load ptr, ptr %c.addr, align 8
-  %num50 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %53, i32 0, i32 4
-  store i32 %conv49, ptr %num50, align 4
-  %54 = load ptr, ptr %c.addr, align 8
-  %data51 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %54, i32 0, i32 3
-  %arraydecay52 = getelementptr inbounds [64 x i8], ptr %data51, i64 0, i64 0
-  %55 = load ptr, ptr %data, align 8
-  %56 = load i64, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay52, ptr align 1 %55, i64 %56, i1 false)
-  br label %if.end53
+124:                                              ; preds = %121
+  %125 = load i64, ptr %7, align 8, !tbaa !12
+  %126 = trunc i64 %125 to i32
+  %127 = load ptr, ptr %5, align 8, !tbaa !6
+  %128 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %127, i32 0, i32 4
+  store i32 %126, ptr %128, align 4, !tbaa !21
+  %129 = load ptr, ptr %5, align 8, !tbaa !6
+  %130 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %129, i32 0, i32 3
+  %131 = getelementptr inbounds [64 x i8], ptr %130, i64 0, i64 0
+  %132 = load ptr, ptr %8, align 8, !tbaa !14
+  %133 = load i64, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %131, ptr align 1 %132, i64 %133, i1 false)
+  br label %134
 
-if.end53:                                         ; preds = %if.then48, %if.end45
-  store i32 1, ptr %retval, align 4
-  br label %return
+134:                                              ; preds = %124, %121
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %135
 
-return:                                           ; preds = %if.end53, %if.else, %if.then
-  %57 = load i32, ptr %retval, align 4
-  ret i32 %57
+135:                                              ; preds = %134, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  br label %136
+
+136:                                              ; preds = %135, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %137 = load i32, ptr %4, align 4
+  ret i32 %137
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @ripemd160_block_data_order(ptr noundef %h, ptr noundef %data, i64 noundef %num) #0 {
-entry:
-  %h.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %num.addr = alloca i64, align 8
-  %A = alloca i32, align 4
-  %B = alloca i32, align 4
-  %C = alloca i32, align 4
-  %D = alloca i32, align 4
-  %E = alloca i32, align 4
-  %a = alloca i32, align 4
-  %b = alloca i32, align 4
-  %c = alloca i32, align 4
-  %d = alloca i32, align 4
-  %e = alloca i32, align 4
-  %l = alloca i32, align 4
-  %XX0 = alloca i32, align 4
-  %XX1 = alloca i32, align 4
-  %XX2 = alloca i32, align 4
-  %XX3 = alloca i32, align 4
-  %XX4 = alloca i32, align 4
-  %XX5 = alloca i32, align 4
-  %XX6 = alloca i32, align 4
-  %XX7 = alloca i32, align 4
-  %XX8 = alloca i32, align 4
-  %XX9 = alloca i32, align 4
-  %XX10 = alloca i32, align 4
-  %XX11 = alloca i32, align 4
-  %XX12 = alloca i32, align 4
-  %XX13 = alloca i32, align 4
-  %XX14 = alloca i32, align 4
-  %XX15 = alloca i32, align 4
-  store ptr %h, ptr %h.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %num, ptr %num.addr, align 8
-  br label %for.cond
+define internal void @ripemd160_block_data_order(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  store i64 %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #4
+  br label %34
 
-for.cond:                                         ; preds = %for.body, %entry
-  %0 = load i64, ptr %num.addr, align 8
-  %dec = add i64 %0, -1
-  store i64 %dec, ptr %num.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %for.body, label %for.end
+34:                                               ; preds = %38, %3
+  %35 = load i64, ptr %6, align 8, !tbaa !12
+  %36 = add i64 %35, -1
+  store i64 %36, ptr %6, align 8, !tbaa !12
+  %37 = icmp ne i64 %35, 0
+  br i1 %37, label %38, label %4920
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %h.addr, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %A, align 4
-  %3 = load ptr, ptr %h.addr, align 8
-  %arrayidx1 = getelementptr inbounds i32, ptr %3, i64 1
-  %4 = load i32, ptr %arrayidx1, align 4
-  store i32 %4, ptr %B, align 4
-  %5 = load ptr, ptr %h.addr, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %5, i64 2
-  %6 = load i32, ptr %arrayidx2, align 4
-  store i32 %6, ptr %C, align 4
-  %7 = load ptr, ptr %h.addr, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %7, i64 3
-  %8 = load i32, ptr %arrayidx3, align 4
-  store i32 %8, ptr %D, align 4
-  %9 = load ptr, ptr %h.addr, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %9, i64 4
-  %10 = load i32, ptr %arrayidx4, align 4
-  store i32 %10, ptr %E, align 4
-  %11 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %11, i32 1
-  store ptr %incdec.ptr, ptr %data.addr, align 8
-  %12 = load i8, ptr %11, align 1
-  %conv = zext i8 %12 to i32
-  store i32 %conv, ptr %l, align 4
-  %13 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %13, i32 1
-  store ptr %incdec.ptr5, ptr %data.addr, align 8
-  %14 = load i8, ptr %13, align 1
-  %conv6 = zext i8 %14 to i32
-  %shl = shl i32 %conv6, 8
-  %15 = load i32, ptr %l, align 4
-  %or = or i32 %15, %shl
-  store i32 %or, ptr %l, align 4
-  %16 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %16, i32 1
-  store ptr %incdec.ptr7, ptr %data.addr, align 8
-  %17 = load i8, ptr %16, align 1
-  %conv8 = zext i8 %17 to i32
-  %shl9 = shl i32 %conv8, 16
-  %18 = load i32, ptr %l, align 4
-  %or10 = or i32 %18, %shl9
-  store i32 %or10, ptr %l, align 4
-  %19 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %19, i32 1
-  store ptr %incdec.ptr11, ptr %data.addr, align 8
-  %20 = load i8, ptr %19, align 1
-  %conv12 = zext i8 %20 to i32
-  %shl13 = shl i32 %conv12, 24
-  %21 = load i32, ptr %l, align 4
-  %or14 = or i32 %21, %shl13
-  store i32 %or14, ptr %l, align 4
-  %22 = load i32, ptr %l, align 4
-  store i32 %22, ptr %XX0, align 4
-  %23 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %23, i32 1
-  store ptr %incdec.ptr15, ptr %data.addr, align 8
-  %24 = load i8, ptr %23, align 1
-  %conv16 = zext i8 %24 to i32
-  store i32 %conv16, ptr %l, align 4
-  %25 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %25, i32 1
-  store ptr %incdec.ptr17, ptr %data.addr, align 8
-  %26 = load i8, ptr %25, align 1
-  %conv18 = zext i8 %26 to i32
-  %shl19 = shl i32 %conv18, 8
-  %27 = load i32, ptr %l, align 4
-  %or20 = or i32 %27, %shl19
-  store i32 %or20, ptr %l, align 4
-  %28 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %28, i32 1
-  store ptr %incdec.ptr21, ptr %data.addr, align 8
-  %29 = load i8, ptr %28, align 1
-  %conv22 = zext i8 %29 to i32
-  %shl23 = shl i32 %conv22, 16
-  %30 = load i32, ptr %l, align 4
-  %or24 = or i32 %30, %shl23
-  store i32 %or24, ptr %l, align 4
-  %31 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %31, i32 1
-  store ptr %incdec.ptr25, ptr %data.addr, align 8
-  %32 = load i8, ptr %31, align 1
-  %conv26 = zext i8 %32 to i32
-  %shl27 = shl i32 %conv26, 24
-  %33 = load i32, ptr %l, align 4
-  %or28 = or i32 %33, %shl27
-  store i32 %or28, ptr %l, align 4
-  %34 = load i32, ptr %l, align 4
-  store i32 %34, ptr %XX1, align 4
-  %35 = load i32, ptr %B, align 4
-  %36 = load i32, ptr %C, align 4
-  %xor = xor i32 %35, %36
-  %37 = load i32, ptr %D, align 4
-  %xor29 = xor i32 %xor, %37
-  %38 = load i32, ptr %XX0, align 4
-  %add = add i32 %xor29, %38
-  %39 = load i32, ptr %A, align 4
-  %add30 = add i32 %39, %add
-  store i32 %add30, ptr %A, align 4
-  %40 = load i32, ptr %A, align 4
-  %shl31 = shl i32 %40, 11
-  %41 = load i32, ptr %A, align 4
-  %and = and i32 %41, -1
-  %shr = lshr i32 %and, 21
-  %or32 = or i32 %shl31, %shr
-  %42 = load i32, ptr %E, align 4
-  %add33 = add i32 %or32, %42
-  store i32 %add33, ptr %A, align 4
-  %43 = load i32, ptr %C, align 4
-  %shl34 = shl i32 %43, 10
-  %44 = load i32, ptr %C, align 4
-  %and35 = and i32 %44, -1
-  %shr36 = lshr i32 %and35, 22
-  %or37 = or i32 %shl34, %shr36
-  store i32 %or37, ptr %C, align 4
-  %45 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr38 = getelementptr inbounds i8, ptr %45, i32 1
-  store ptr %incdec.ptr38, ptr %data.addr, align 8
-  %46 = load i8, ptr %45, align 1
-  %conv39 = zext i8 %46 to i32
-  store i32 %conv39, ptr %l, align 4
-  %47 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr40 = getelementptr inbounds i8, ptr %47, i32 1
-  store ptr %incdec.ptr40, ptr %data.addr, align 8
-  %48 = load i8, ptr %47, align 1
-  %conv41 = zext i8 %48 to i32
-  %shl42 = shl i32 %conv41, 8
-  %49 = load i32, ptr %l, align 4
-  %or43 = or i32 %49, %shl42
-  store i32 %or43, ptr %l, align 4
-  %50 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %50, i32 1
-  store ptr %incdec.ptr44, ptr %data.addr, align 8
-  %51 = load i8, ptr %50, align 1
-  %conv45 = zext i8 %51 to i32
-  %shl46 = shl i32 %conv45, 16
-  %52 = load i32, ptr %l, align 4
-  %or47 = or i32 %52, %shl46
-  store i32 %or47, ptr %l, align 4
-  %53 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr48 = getelementptr inbounds i8, ptr %53, i32 1
-  store ptr %incdec.ptr48, ptr %data.addr, align 8
-  %54 = load i8, ptr %53, align 1
-  %conv49 = zext i8 %54 to i32
-  %shl50 = shl i32 %conv49, 24
-  %55 = load i32, ptr %l, align 4
-  %or51 = or i32 %55, %shl50
-  store i32 %or51, ptr %l, align 4
-  %56 = load i32, ptr %l, align 4
-  store i32 %56, ptr %XX2, align 4
-  %57 = load i32, ptr %A, align 4
-  %58 = load i32, ptr %B, align 4
-  %xor52 = xor i32 %57, %58
-  %59 = load i32, ptr %C, align 4
-  %xor53 = xor i32 %xor52, %59
-  %60 = load i32, ptr %XX1, align 4
-  %add54 = add i32 %xor53, %60
-  %61 = load i32, ptr %E, align 4
-  %add55 = add i32 %61, %add54
-  store i32 %add55, ptr %E, align 4
-  %62 = load i32, ptr %E, align 4
-  %shl56 = shl i32 %62, 14
-  %63 = load i32, ptr %E, align 4
-  %and57 = and i32 %63, -1
-  %shr58 = lshr i32 %and57, 18
-  %or59 = or i32 %shl56, %shr58
-  %64 = load i32, ptr %D, align 4
-  %add60 = add i32 %or59, %64
-  store i32 %add60, ptr %E, align 4
-  %65 = load i32, ptr %B, align 4
-  %shl61 = shl i32 %65, 10
-  %66 = load i32, ptr %B, align 4
-  %and62 = and i32 %66, -1
-  %shr63 = lshr i32 %and62, 22
-  %or64 = or i32 %shl61, %shr63
-  store i32 %or64, ptr %B, align 4
-  %67 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %67, i32 1
-  store ptr %incdec.ptr65, ptr %data.addr, align 8
-  %68 = load i8, ptr %67, align 1
-  %conv66 = zext i8 %68 to i32
-  store i32 %conv66, ptr %l, align 4
-  %69 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr67 = getelementptr inbounds i8, ptr %69, i32 1
-  store ptr %incdec.ptr67, ptr %data.addr, align 8
-  %70 = load i8, ptr %69, align 1
-  %conv68 = zext i8 %70 to i32
-  %shl69 = shl i32 %conv68, 8
-  %71 = load i32, ptr %l, align 4
-  %or70 = or i32 %71, %shl69
-  store i32 %or70, ptr %l, align 4
-  %72 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr71 = getelementptr inbounds i8, ptr %72, i32 1
-  store ptr %incdec.ptr71, ptr %data.addr, align 8
-  %73 = load i8, ptr %72, align 1
-  %conv72 = zext i8 %73 to i32
-  %shl73 = shl i32 %conv72, 16
-  %74 = load i32, ptr %l, align 4
-  %or74 = or i32 %74, %shl73
-  store i32 %or74, ptr %l, align 4
-  %75 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr75 = getelementptr inbounds i8, ptr %75, i32 1
-  store ptr %incdec.ptr75, ptr %data.addr, align 8
-  %76 = load i8, ptr %75, align 1
-  %conv76 = zext i8 %76 to i32
-  %shl77 = shl i32 %conv76, 24
-  %77 = load i32, ptr %l, align 4
-  %or78 = or i32 %77, %shl77
-  store i32 %or78, ptr %l, align 4
-  %78 = load i32, ptr %l, align 4
-  store i32 %78, ptr %XX3, align 4
-  %79 = load i32, ptr %E, align 4
-  %80 = load i32, ptr %A, align 4
-  %xor79 = xor i32 %79, %80
-  %81 = load i32, ptr %B, align 4
-  %xor80 = xor i32 %xor79, %81
-  %82 = load i32, ptr %XX2, align 4
-  %add81 = add i32 %xor80, %82
-  %83 = load i32, ptr %D, align 4
-  %add82 = add i32 %83, %add81
-  store i32 %add82, ptr %D, align 4
-  %84 = load i32, ptr %D, align 4
-  %shl83 = shl i32 %84, 15
-  %85 = load i32, ptr %D, align 4
-  %and84 = and i32 %85, -1
-  %shr85 = lshr i32 %and84, 17
-  %or86 = or i32 %shl83, %shr85
-  %86 = load i32, ptr %C, align 4
-  %add87 = add i32 %or86, %86
-  store i32 %add87, ptr %D, align 4
-  %87 = load i32, ptr %A, align 4
-  %shl88 = shl i32 %87, 10
-  %88 = load i32, ptr %A, align 4
-  %and89 = and i32 %88, -1
-  %shr90 = lshr i32 %and89, 22
-  %or91 = or i32 %shl88, %shr90
-  store i32 %or91, ptr %A, align 4
-  %89 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %89, i32 1
-  store ptr %incdec.ptr92, ptr %data.addr, align 8
-  %90 = load i8, ptr %89, align 1
-  %conv93 = zext i8 %90 to i32
-  store i32 %conv93, ptr %l, align 4
-  %91 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr94 = getelementptr inbounds i8, ptr %91, i32 1
-  store ptr %incdec.ptr94, ptr %data.addr, align 8
-  %92 = load i8, ptr %91, align 1
-  %conv95 = zext i8 %92 to i32
-  %shl96 = shl i32 %conv95, 8
-  %93 = load i32, ptr %l, align 4
-  %or97 = or i32 %93, %shl96
-  store i32 %or97, ptr %l, align 4
-  %94 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr98 = getelementptr inbounds i8, ptr %94, i32 1
-  store ptr %incdec.ptr98, ptr %data.addr, align 8
-  %95 = load i8, ptr %94, align 1
-  %conv99 = zext i8 %95 to i32
-  %shl100 = shl i32 %conv99, 16
-  %96 = load i32, ptr %l, align 4
-  %or101 = or i32 %96, %shl100
-  store i32 %or101, ptr %l, align 4
-  %97 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr102 = getelementptr inbounds i8, ptr %97, i32 1
-  store ptr %incdec.ptr102, ptr %data.addr, align 8
-  %98 = load i8, ptr %97, align 1
-  %conv103 = zext i8 %98 to i32
-  %shl104 = shl i32 %conv103, 24
-  %99 = load i32, ptr %l, align 4
-  %or105 = or i32 %99, %shl104
-  store i32 %or105, ptr %l, align 4
-  %100 = load i32, ptr %l, align 4
-  store i32 %100, ptr %XX4, align 4
-  %101 = load i32, ptr %D, align 4
-  %102 = load i32, ptr %E, align 4
-  %xor106 = xor i32 %101, %102
-  %103 = load i32, ptr %A, align 4
-  %xor107 = xor i32 %xor106, %103
-  %104 = load i32, ptr %XX3, align 4
-  %add108 = add i32 %xor107, %104
-  %105 = load i32, ptr %C, align 4
-  %add109 = add i32 %105, %add108
-  store i32 %add109, ptr %C, align 4
-  %106 = load i32, ptr %C, align 4
-  %shl110 = shl i32 %106, 12
-  %107 = load i32, ptr %C, align 4
-  %and111 = and i32 %107, -1
-  %shr112 = lshr i32 %and111, 20
-  %or113 = or i32 %shl110, %shr112
-  %108 = load i32, ptr %B, align 4
-  %add114 = add i32 %or113, %108
-  store i32 %add114, ptr %C, align 4
-  %109 = load i32, ptr %E, align 4
-  %shl115 = shl i32 %109, 10
-  %110 = load i32, ptr %E, align 4
-  %and116 = and i32 %110, -1
-  %shr117 = lshr i32 %and116, 22
-  %or118 = or i32 %shl115, %shr117
-  store i32 %or118, ptr %E, align 4
-  %111 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr119 = getelementptr inbounds i8, ptr %111, i32 1
-  store ptr %incdec.ptr119, ptr %data.addr, align 8
-  %112 = load i8, ptr %111, align 1
-  %conv120 = zext i8 %112 to i32
-  store i32 %conv120, ptr %l, align 4
-  %113 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr121 = getelementptr inbounds i8, ptr %113, i32 1
-  store ptr %incdec.ptr121, ptr %data.addr, align 8
-  %114 = load i8, ptr %113, align 1
-  %conv122 = zext i8 %114 to i32
-  %shl123 = shl i32 %conv122, 8
-  %115 = load i32, ptr %l, align 4
-  %or124 = or i32 %115, %shl123
-  store i32 %or124, ptr %l, align 4
-  %116 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr125 = getelementptr inbounds i8, ptr %116, i32 1
-  store ptr %incdec.ptr125, ptr %data.addr, align 8
-  %117 = load i8, ptr %116, align 1
-  %conv126 = zext i8 %117 to i32
-  %shl127 = shl i32 %conv126, 16
-  %118 = load i32, ptr %l, align 4
-  %or128 = or i32 %118, %shl127
-  store i32 %or128, ptr %l, align 4
-  %119 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr129 = getelementptr inbounds i8, ptr %119, i32 1
-  store ptr %incdec.ptr129, ptr %data.addr, align 8
-  %120 = load i8, ptr %119, align 1
-  %conv130 = zext i8 %120 to i32
-  %shl131 = shl i32 %conv130, 24
-  %121 = load i32, ptr %l, align 4
-  %or132 = or i32 %121, %shl131
-  store i32 %or132, ptr %l, align 4
-  %122 = load i32, ptr %l, align 4
-  store i32 %122, ptr %XX5, align 4
-  %123 = load i32, ptr %C, align 4
-  %124 = load i32, ptr %D, align 4
-  %xor133 = xor i32 %123, %124
-  %125 = load i32, ptr %E, align 4
-  %xor134 = xor i32 %xor133, %125
-  %126 = load i32, ptr %XX4, align 4
-  %add135 = add i32 %xor134, %126
-  %127 = load i32, ptr %B, align 4
-  %add136 = add i32 %127, %add135
-  store i32 %add136, ptr %B, align 4
-  %128 = load i32, ptr %B, align 4
-  %shl137 = shl i32 %128, 5
-  %129 = load i32, ptr %B, align 4
-  %and138 = and i32 %129, -1
-  %shr139 = lshr i32 %and138, 27
-  %or140 = or i32 %shl137, %shr139
-  %130 = load i32, ptr %A, align 4
-  %add141 = add i32 %or140, %130
-  store i32 %add141, ptr %B, align 4
-  %131 = load i32, ptr %D, align 4
-  %shl142 = shl i32 %131, 10
-  %132 = load i32, ptr %D, align 4
-  %and143 = and i32 %132, -1
-  %shr144 = lshr i32 %and143, 22
-  %or145 = or i32 %shl142, %shr144
-  store i32 %or145, ptr %D, align 4
-  %133 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr146 = getelementptr inbounds i8, ptr %133, i32 1
-  store ptr %incdec.ptr146, ptr %data.addr, align 8
-  %134 = load i8, ptr %133, align 1
-  %conv147 = zext i8 %134 to i32
-  store i32 %conv147, ptr %l, align 4
-  %135 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr148 = getelementptr inbounds i8, ptr %135, i32 1
-  store ptr %incdec.ptr148, ptr %data.addr, align 8
-  %136 = load i8, ptr %135, align 1
-  %conv149 = zext i8 %136 to i32
-  %shl150 = shl i32 %conv149, 8
-  %137 = load i32, ptr %l, align 4
-  %or151 = or i32 %137, %shl150
-  store i32 %or151, ptr %l, align 4
-  %138 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr152 = getelementptr inbounds i8, ptr %138, i32 1
-  store ptr %incdec.ptr152, ptr %data.addr, align 8
-  %139 = load i8, ptr %138, align 1
-  %conv153 = zext i8 %139 to i32
-  %shl154 = shl i32 %conv153, 16
-  %140 = load i32, ptr %l, align 4
-  %or155 = or i32 %140, %shl154
-  store i32 %or155, ptr %l, align 4
-  %141 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr156 = getelementptr inbounds i8, ptr %141, i32 1
-  store ptr %incdec.ptr156, ptr %data.addr, align 8
-  %142 = load i8, ptr %141, align 1
-  %conv157 = zext i8 %142 to i32
-  %shl158 = shl i32 %conv157, 24
-  %143 = load i32, ptr %l, align 4
-  %or159 = or i32 %143, %shl158
-  store i32 %or159, ptr %l, align 4
-  %144 = load i32, ptr %l, align 4
-  store i32 %144, ptr %XX6, align 4
-  %145 = load i32, ptr %B, align 4
-  %146 = load i32, ptr %C, align 4
-  %xor160 = xor i32 %145, %146
-  %147 = load i32, ptr %D, align 4
-  %xor161 = xor i32 %xor160, %147
-  %148 = load i32, ptr %XX5, align 4
-  %add162 = add i32 %xor161, %148
-  %149 = load i32, ptr %A, align 4
-  %add163 = add i32 %149, %add162
-  store i32 %add163, ptr %A, align 4
-  %150 = load i32, ptr %A, align 4
-  %shl164 = shl i32 %150, 8
-  %151 = load i32, ptr %A, align 4
-  %and165 = and i32 %151, -1
-  %shr166 = lshr i32 %and165, 24
-  %or167 = or i32 %shl164, %shr166
-  %152 = load i32, ptr %E, align 4
-  %add168 = add i32 %or167, %152
-  store i32 %add168, ptr %A, align 4
-  %153 = load i32, ptr %C, align 4
-  %shl169 = shl i32 %153, 10
-  %154 = load i32, ptr %C, align 4
-  %and170 = and i32 %154, -1
-  %shr171 = lshr i32 %and170, 22
-  %or172 = or i32 %shl169, %shr171
-  store i32 %or172, ptr %C, align 4
-  %155 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr173 = getelementptr inbounds i8, ptr %155, i32 1
-  store ptr %incdec.ptr173, ptr %data.addr, align 8
-  %156 = load i8, ptr %155, align 1
-  %conv174 = zext i8 %156 to i32
-  store i32 %conv174, ptr %l, align 4
-  %157 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr175 = getelementptr inbounds i8, ptr %157, i32 1
-  store ptr %incdec.ptr175, ptr %data.addr, align 8
-  %158 = load i8, ptr %157, align 1
-  %conv176 = zext i8 %158 to i32
-  %shl177 = shl i32 %conv176, 8
-  %159 = load i32, ptr %l, align 4
-  %or178 = or i32 %159, %shl177
-  store i32 %or178, ptr %l, align 4
-  %160 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr179 = getelementptr inbounds i8, ptr %160, i32 1
-  store ptr %incdec.ptr179, ptr %data.addr, align 8
-  %161 = load i8, ptr %160, align 1
-  %conv180 = zext i8 %161 to i32
-  %shl181 = shl i32 %conv180, 16
-  %162 = load i32, ptr %l, align 4
-  %or182 = or i32 %162, %shl181
-  store i32 %or182, ptr %l, align 4
-  %163 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr183 = getelementptr inbounds i8, ptr %163, i32 1
-  store ptr %incdec.ptr183, ptr %data.addr, align 8
-  %164 = load i8, ptr %163, align 1
-  %conv184 = zext i8 %164 to i32
-  %shl185 = shl i32 %conv184, 24
-  %165 = load i32, ptr %l, align 4
-  %or186 = or i32 %165, %shl185
-  store i32 %or186, ptr %l, align 4
-  %166 = load i32, ptr %l, align 4
-  store i32 %166, ptr %XX7, align 4
-  %167 = load i32, ptr %A, align 4
-  %168 = load i32, ptr %B, align 4
-  %xor187 = xor i32 %167, %168
-  %169 = load i32, ptr %C, align 4
-  %xor188 = xor i32 %xor187, %169
-  %170 = load i32, ptr %XX6, align 4
-  %add189 = add i32 %xor188, %170
-  %171 = load i32, ptr %E, align 4
-  %add190 = add i32 %171, %add189
-  store i32 %add190, ptr %E, align 4
-  %172 = load i32, ptr %E, align 4
-  %shl191 = shl i32 %172, 7
-  %173 = load i32, ptr %E, align 4
-  %and192 = and i32 %173, -1
-  %shr193 = lshr i32 %and192, 25
-  %or194 = or i32 %shl191, %shr193
-  %174 = load i32, ptr %D, align 4
-  %add195 = add i32 %or194, %174
-  store i32 %add195, ptr %E, align 4
-  %175 = load i32, ptr %B, align 4
-  %shl196 = shl i32 %175, 10
-  %176 = load i32, ptr %B, align 4
-  %and197 = and i32 %176, -1
-  %shr198 = lshr i32 %and197, 22
-  %or199 = or i32 %shl196, %shr198
-  store i32 %or199, ptr %B, align 4
-  %177 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr200 = getelementptr inbounds i8, ptr %177, i32 1
-  store ptr %incdec.ptr200, ptr %data.addr, align 8
-  %178 = load i8, ptr %177, align 1
-  %conv201 = zext i8 %178 to i32
-  store i32 %conv201, ptr %l, align 4
-  %179 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr202 = getelementptr inbounds i8, ptr %179, i32 1
-  store ptr %incdec.ptr202, ptr %data.addr, align 8
-  %180 = load i8, ptr %179, align 1
-  %conv203 = zext i8 %180 to i32
-  %shl204 = shl i32 %conv203, 8
-  %181 = load i32, ptr %l, align 4
-  %or205 = or i32 %181, %shl204
-  store i32 %or205, ptr %l, align 4
-  %182 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr206 = getelementptr inbounds i8, ptr %182, i32 1
-  store ptr %incdec.ptr206, ptr %data.addr, align 8
-  %183 = load i8, ptr %182, align 1
-  %conv207 = zext i8 %183 to i32
-  %shl208 = shl i32 %conv207, 16
-  %184 = load i32, ptr %l, align 4
-  %or209 = or i32 %184, %shl208
-  store i32 %or209, ptr %l, align 4
-  %185 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr210 = getelementptr inbounds i8, ptr %185, i32 1
-  store ptr %incdec.ptr210, ptr %data.addr, align 8
-  %186 = load i8, ptr %185, align 1
-  %conv211 = zext i8 %186 to i32
-  %shl212 = shl i32 %conv211, 24
-  %187 = load i32, ptr %l, align 4
-  %or213 = or i32 %187, %shl212
-  store i32 %or213, ptr %l, align 4
-  %188 = load i32, ptr %l, align 4
-  store i32 %188, ptr %XX8, align 4
-  %189 = load i32, ptr %E, align 4
-  %190 = load i32, ptr %A, align 4
-  %xor214 = xor i32 %189, %190
-  %191 = load i32, ptr %B, align 4
-  %xor215 = xor i32 %xor214, %191
-  %192 = load i32, ptr %XX7, align 4
-  %add216 = add i32 %xor215, %192
-  %193 = load i32, ptr %D, align 4
-  %add217 = add i32 %193, %add216
-  store i32 %add217, ptr %D, align 4
-  %194 = load i32, ptr %D, align 4
-  %shl218 = shl i32 %194, 9
-  %195 = load i32, ptr %D, align 4
-  %and219 = and i32 %195, -1
-  %shr220 = lshr i32 %and219, 23
-  %or221 = or i32 %shl218, %shr220
-  %196 = load i32, ptr %C, align 4
-  %add222 = add i32 %or221, %196
-  store i32 %add222, ptr %D, align 4
-  %197 = load i32, ptr %A, align 4
-  %shl223 = shl i32 %197, 10
-  %198 = load i32, ptr %A, align 4
-  %and224 = and i32 %198, -1
-  %shr225 = lshr i32 %and224, 22
-  %or226 = or i32 %shl223, %shr225
-  store i32 %or226, ptr %A, align 4
-  %199 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr227 = getelementptr inbounds i8, ptr %199, i32 1
-  store ptr %incdec.ptr227, ptr %data.addr, align 8
-  %200 = load i8, ptr %199, align 1
-  %conv228 = zext i8 %200 to i32
-  store i32 %conv228, ptr %l, align 4
-  %201 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr229 = getelementptr inbounds i8, ptr %201, i32 1
-  store ptr %incdec.ptr229, ptr %data.addr, align 8
-  %202 = load i8, ptr %201, align 1
-  %conv230 = zext i8 %202 to i32
-  %shl231 = shl i32 %conv230, 8
-  %203 = load i32, ptr %l, align 4
-  %or232 = or i32 %203, %shl231
-  store i32 %or232, ptr %l, align 4
-  %204 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr233 = getelementptr inbounds i8, ptr %204, i32 1
-  store ptr %incdec.ptr233, ptr %data.addr, align 8
-  %205 = load i8, ptr %204, align 1
-  %conv234 = zext i8 %205 to i32
-  %shl235 = shl i32 %conv234, 16
-  %206 = load i32, ptr %l, align 4
-  %or236 = or i32 %206, %shl235
-  store i32 %or236, ptr %l, align 4
-  %207 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr237 = getelementptr inbounds i8, ptr %207, i32 1
-  store ptr %incdec.ptr237, ptr %data.addr, align 8
-  %208 = load i8, ptr %207, align 1
-  %conv238 = zext i8 %208 to i32
-  %shl239 = shl i32 %conv238, 24
-  %209 = load i32, ptr %l, align 4
-  %or240 = or i32 %209, %shl239
-  store i32 %or240, ptr %l, align 4
-  %210 = load i32, ptr %l, align 4
-  store i32 %210, ptr %XX9, align 4
-  %211 = load i32, ptr %D, align 4
-  %212 = load i32, ptr %E, align 4
-  %xor241 = xor i32 %211, %212
-  %213 = load i32, ptr %A, align 4
-  %xor242 = xor i32 %xor241, %213
-  %214 = load i32, ptr %XX8, align 4
-  %add243 = add i32 %xor242, %214
-  %215 = load i32, ptr %C, align 4
-  %add244 = add i32 %215, %add243
-  store i32 %add244, ptr %C, align 4
-  %216 = load i32, ptr %C, align 4
-  %shl245 = shl i32 %216, 11
-  %217 = load i32, ptr %C, align 4
-  %and246 = and i32 %217, -1
-  %shr247 = lshr i32 %and246, 21
-  %or248 = or i32 %shl245, %shr247
-  %218 = load i32, ptr %B, align 4
-  %add249 = add i32 %or248, %218
-  store i32 %add249, ptr %C, align 4
-  %219 = load i32, ptr %E, align 4
-  %shl250 = shl i32 %219, 10
-  %220 = load i32, ptr %E, align 4
-  %and251 = and i32 %220, -1
-  %shr252 = lshr i32 %and251, 22
-  %or253 = or i32 %shl250, %shr252
-  store i32 %or253, ptr %E, align 4
-  %221 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr254 = getelementptr inbounds i8, ptr %221, i32 1
-  store ptr %incdec.ptr254, ptr %data.addr, align 8
-  %222 = load i8, ptr %221, align 1
-  %conv255 = zext i8 %222 to i32
-  store i32 %conv255, ptr %l, align 4
-  %223 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr256 = getelementptr inbounds i8, ptr %223, i32 1
-  store ptr %incdec.ptr256, ptr %data.addr, align 8
-  %224 = load i8, ptr %223, align 1
-  %conv257 = zext i8 %224 to i32
-  %shl258 = shl i32 %conv257, 8
-  %225 = load i32, ptr %l, align 4
-  %or259 = or i32 %225, %shl258
-  store i32 %or259, ptr %l, align 4
-  %226 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr260 = getelementptr inbounds i8, ptr %226, i32 1
-  store ptr %incdec.ptr260, ptr %data.addr, align 8
-  %227 = load i8, ptr %226, align 1
-  %conv261 = zext i8 %227 to i32
-  %shl262 = shl i32 %conv261, 16
-  %228 = load i32, ptr %l, align 4
-  %or263 = or i32 %228, %shl262
-  store i32 %or263, ptr %l, align 4
-  %229 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr264 = getelementptr inbounds i8, ptr %229, i32 1
-  store ptr %incdec.ptr264, ptr %data.addr, align 8
-  %230 = load i8, ptr %229, align 1
-  %conv265 = zext i8 %230 to i32
-  %shl266 = shl i32 %conv265, 24
-  %231 = load i32, ptr %l, align 4
-  %or267 = or i32 %231, %shl266
-  store i32 %or267, ptr %l, align 4
-  %232 = load i32, ptr %l, align 4
-  store i32 %232, ptr %XX10, align 4
-  %233 = load i32, ptr %C, align 4
-  %234 = load i32, ptr %D, align 4
-  %xor268 = xor i32 %233, %234
-  %235 = load i32, ptr %E, align 4
-  %xor269 = xor i32 %xor268, %235
-  %236 = load i32, ptr %XX9, align 4
-  %add270 = add i32 %xor269, %236
-  %237 = load i32, ptr %B, align 4
-  %add271 = add i32 %237, %add270
-  store i32 %add271, ptr %B, align 4
-  %238 = load i32, ptr %B, align 4
-  %shl272 = shl i32 %238, 13
-  %239 = load i32, ptr %B, align 4
-  %and273 = and i32 %239, -1
-  %shr274 = lshr i32 %and273, 19
-  %or275 = or i32 %shl272, %shr274
-  %240 = load i32, ptr %A, align 4
-  %add276 = add i32 %or275, %240
-  store i32 %add276, ptr %B, align 4
-  %241 = load i32, ptr %D, align 4
-  %shl277 = shl i32 %241, 10
-  %242 = load i32, ptr %D, align 4
-  %and278 = and i32 %242, -1
-  %shr279 = lshr i32 %and278, 22
-  %or280 = or i32 %shl277, %shr279
-  store i32 %or280, ptr %D, align 4
-  %243 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr281 = getelementptr inbounds i8, ptr %243, i32 1
-  store ptr %incdec.ptr281, ptr %data.addr, align 8
-  %244 = load i8, ptr %243, align 1
-  %conv282 = zext i8 %244 to i32
-  store i32 %conv282, ptr %l, align 4
-  %245 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr283 = getelementptr inbounds i8, ptr %245, i32 1
-  store ptr %incdec.ptr283, ptr %data.addr, align 8
-  %246 = load i8, ptr %245, align 1
-  %conv284 = zext i8 %246 to i32
-  %shl285 = shl i32 %conv284, 8
-  %247 = load i32, ptr %l, align 4
-  %or286 = or i32 %247, %shl285
-  store i32 %or286, ptr %l, align 4
-  %248 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr287 = getelementptr inbounds i8, ptr %248, i32 1
-  store ptr %incdec.ptr287, ptr %data.addr, align 8
-  %249 = load i8, ptr %248, align 1
-  %conv288 = zext i8 %249 to i32
-  %shl289 = shl i32 %conv288, 16
-  %250 = load i32, ptr %l, align 4
-  %or290 = or i32 %250, %shl289
-  store i32 %or290, ptr %l, align 4
-  %251 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr291 = getelementptr inbounds i8, ptr %251, i32 1
-  store ptr %incdec.ptr291, ptr %data.addr, align 8
-  %252 = load i8, ptr %251, align 1
-  %conv292 = zext i8 %252 to i32
-  %shl293 = shl i32 %conv292, 24
-  %253 = load i32, ptr %l, align 4
-  %or294 = or i32 %253, %shl293
-  store i32 %or294, ptr %l, align 4
-  %254 = load i32, ptr %l, align 4
-  store i32 %254, ptr %XX11, align 4
-  %255 = load i32, ptr %B, align 4
-  %256 = load i32, ptr %C, align 4
-  %xor295 = xor i32 %255, %256
-  %257 = load i32, ptr %D, align 4
-  %xor296 = xor i32 %xor295, %257
-  %258 = load i32, ptr %XX10, align 4
-  %add297 = add i32 %xor296, %258
-  %259 = load i32, ptr %A, align 4
-  %add298 = add i32 %259, %add297
-  store i32 %add298, ptr %A, align 4
-  %260 = load i32, ptr %A, align 4
-  %shl299 = shl i32 %260, 14
-  %261 = load i32, ptr %A, align 4
-  %and300 = and i32 %261, -1
-  %shr301 = lshr i32 %and300, 18
-  %or302 = or i32 %shl299, %shr301
-  %262 = load i32, ptr %E, align 4
-  %add303 = add i32 %or302, %262
-  store i32 %add303, ptr %A, align 4
-  %263 = load i32, ptr %C, align 4
-  %shl304 = shl i32 %263, 10
-  %264 = load i32, ptr %C, align 4
-  %and305 = and i32 %264, -1
-  %shr306 = lshr i32 %and305, 22
-  %or307 = or i32 %shl304, %shr306
-  store i32 %or307, ptr %C, align 4
-  %265 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr308 = getelementptr inbounds i8, ptr %265, i32 1
-  store ptr %incdec.ptr308, ptr %data.addr, align 8
-  %266 = load i8, ptr %265, align 1
-  %conv309 = zext i8 %266 to i32
-  store i32 %conv309, ptr %l, align 4
-  %267 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr310 = getelementptr inbounds i8, ptr %267, i32 1
-  store ptr %incdec.ptr310, ptr %data.addr, align 8
-  %268 = load i8, ptr %267, align 1
-  %conv311 = zext i8 %268 to i32
-  %shl312 = shl i32 %conv311, 8
-  %269 = load i32, ptr %l, align 4
-  %or313 = or i32 %269, %shl312
-  store i32 %or313, ptr %l, align 4
-  %270 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr314 = getelementptr inbounds i8, ptr %270, i32 1
-  store ptr %incdec.ptr314, ptr %data.addr, align 8
-  %271 = load i8, ptr %270, align 1
-  %conv315 = zext i8 %271 to i32
-  %shl316 = shl i32 %conv315, 16
-  %272 = load i32, ptr %l, align 4
-  %or317 = or i32 %272, %shl316
-  store i32 %or317, ptr %l, align 4
-  %273 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr318 = getelementptr inbounds i8, ptr %273, i32 1
-  store ptr %incdec.ptr318, ptr %data.addr, align 8
-  %274 = load i8, ptr %273, align 1
-  %conv319 = zext i8 %274 to i32
-  %shl320 = shl i32 %conv319, 24
-  %275 = load i32, ptr %l, align 4
-  %or321 = or i32 %275, %shl320
-  store i32 %or321, ptr %l, align 4
-  %276 = load i32, ptr %l, align 4
-  store i32 %276, ptr %XX12, align 4
-  %277 = load i32, ptr %A, align 4
-  %278 = load i32, ptr %B, align 4
-  %xor322 = xor i32 %277, %278
-  %279 = load i32, ptr %C, align 4
-  %xor323 = xor i32 %xor322, %279
-  %280 = load i32, ptr %XX11, align 4
-  %add324 = add i32 %xor323, %280
-  %281 = load i32, ptr %E, align 4
-  %add325 = add i32 %281, %add324
-  store i32 %add325, ptr %E, align 4
-  %282 = load i32, ptr %E, align 4
-  %shl326 = shl i32 %282, 15
-  %283 = load i32, ptr %E, align 4
-  %and327 = and i32 %283, -1
-  %shr328 = lshr i32 %and327, 17
-  %or329 = or i32 %shl326, %shr328
-  %284 = load i32, ptr %D, align 4
-  %add330 = add i32 %or329, %284
-  store i32 %add330, ptr %E, align 4
-  %285 = load i32, ptr %B, align 4
-  %shl331 = shl i32 %285, 10
-  %286 = load i32, ptr %B, align 4
-  %and332 = and i32 %286, -1
-  %shr333 = lshr i32 %and332, 22
-  %or334 = or i32 %shl331, %shr333
-  store i32 %or334, ptr %B, align 4
-  %287 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr335 = getelementptr inbounds i8, ptr %287, i32 1
-  store ptr %incdec.ptr335, ptr %data.addr, align 8
-  %288 = load i8, ptr %287, align 1
-  %conv336 = zext i8 %288 to i32
-  store i32 %conv336, ptr %l, align 4
-  %289 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr337 = getelementptr inbounds i8, ptr %289, i32 1
-  store ptr %incdec.ptr337, ptr %data.addr, align 8
-  %290 = load i8, ptr %289, align 1
-  %conv338 = zext i8 %290 to i32
-  %shl339 = shl i32 %conv338, 8
-  %291 = load i32, ptr %l, align 4
-  %or340 = or i32 %291, %shl339
-  store i32 %or340, ptr %l, align 4
-  %292 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr341 = getelementptr inbounds i8, ptr %292, i32 1
-  store ptr %incdec.ptr341, ptr %data.addr, align 8
-  %293 = load i8, ptr %292, align 1
-  %conv342 = zext i8 %293 to i32
-  %shl343 = shl i32 %conv342, 16
-  %294 = load i32, ptr %l, align 4
-  %or344 = or i32 %294, %shl343
-  store i32 %or344, ptr %l, align 4
-  %295 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr345 = getelementptr inbounds i8, ptr %295, i32 1
-  store ptr %incdec.ptr345, ptr %data.addr, align 8
-  %296 = load i8, ptr %295, align 1
-  %conv346 = zext i8 %296 to i32
-  %shl347 = shl i32 %conv346, 24
-  %297 = load i32, ptr %l, align 4
-  %or348 = or i32 %297, %shl347
-  store i32 %or348, ptr %l, align 4
-  %298 = load i32, ptr %l, align 4
-  store i32 %298, ptr %XX13, align 4
-  %299 = load i32, ptr %E, align 4
-  %300 = load i32, ptr %A, align 4
-  %xor349 = xor i32 %299, %300
-  %301 = load i32, ptr %B, align 4
-  %xor350 = xor i32 %xor349, %301
-  %302 = load i32, ptr %XX12, align 4
-  %add351 = add i32 %xor350, %302
-  %303 = load i32, ptr %D, align 4
-  %add352 = add i32 %303, %add351
-  store i32 %add352, ptr %D, align 4
-  %304 = load i32, ptr %D, align 4
-  %shl353 = shl i32 %304, 6
-  %305 = load i32, ptr %D, align 4
-  %and354 = and i32 %305, -1
-  %shr355 = lshr i32 %and354, 26
-  %or356 = or i32 %shl353, %shr355
-  %306 = load i32, ptr %C, align 4
-  %add357 = add i32 %or356, %306
-  store i32 %add357, ptr %D, align 4
-  %307 = load i32, ptr %A, align 4
-  %shl358 = shl i32 %307, 10
-  %308 = load i32, ptr %A, align 4
-  %and359 = and i32 %308, -1
-  %shr360 = lshr i32 %and359, 22
-  %or361 = or i32 %shl358, %shr360
-  store i32 %or361, ptr %A, align 4
-  %309 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr362 = getelementptr inbounds i8, ptr %309, i32 1
-  store ptr %incdec.ptr362, ptr %data.addr, align 8
-  %310 = load i8, ptr %309, align 1
-  %conv363 = zext i8 %310 to i32
-  store i32 %conv363, ptr %l, align 4
-  %311 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr364 = getelementptr inbounds i8, ptr %311, i32 1
-  store ptr %incdec.ptr364, ptr %data.addr, align 8
-  %312 = load i8, ptr %311, align 1
-  %conv365 = zext i8 %312 to i32
-  %shl366 = shl i32 %conv365, 8
-  %313 = load i32, ptr %l, align 4
-  %or367 = or i32 %313, %shl366
-  store i32 %or367, ptr %l, align 4
-  %314 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr368 = getelementptr inbounds i8, ptr %314, i32 1
-  store ptr %incdec.ptr368, ptr %data.addr, align 8
-  %315 = load i8, ptr %314, align 1
-  %conv369 = zext i8 %315 to i32
-  %shl370 = shl i32 %conv369, 16
-  %316 = load i32, ptr %l, align 4
-  %or371 = or i32 %316, %shl370
-  store i32 %or371, ptr %l, align 4
-  %317 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr372 = getelementptr inbounds i8, ptr %317, i32 1
-  store ptr %incdec.ptr372, ptr %data.addr, align 8
-  %318 = load i8, ptr %317, align 1
-  %conv373 = zext i8 %318 to i32
-  %shl374 = shl i32 %conv373, 24
-  %319 = load i32, ptr %l, align 4
-  %or375 = or i32 %319, %shl374
-  store i32 %or375, ptr %l, align 4
-  %320 = load i32, ptr %l, align 4
-  store i32 %320, ptr %XX14, align 4
-  %321 = load i32, ptr %D, align 4
-  %322 = load i32, ptr %E, align 4
-  %xor376 = xor i32 %321, %322
-  %323 = load i32, ptr %A, align 4
-  %xor377 = xor i32 %xor376, %323
-  %324 = load i32, ptr %XX13, align 4
-  %add378 = add i32 %xor377, %324
-  %325 = load i32, ptr %C, align 4
-  %add379 = add i32 %325, %add378
-  store i32 %add379, ptr %C, align 4
-  %326 = load i32, ptr %C, align 4
-  %shl380 = shl i32 %326, 7
-  %327 = load i32, ptr %C, align 4
-  %and381 = and i32 %327, -1
-  %shr382 = lshr i32 %and381, 25
-  %or383 = or i32 %shl380, %shr382
-  %328 = load i32, ptr %B, align 4
-  %add384 = add i32 %or383, %328
-  store i32 %add384, ptr %C, align 4
-  %329 = load i32, ptr %E, align 4
-  %shl385 = shl i32 %329, 10
-  %330 = load i32, ptr %E, align 4
-  %and386 = and i32 %330, -1
-  %shr387 = lshr i32 %and386, 22
-  %or388 = or i32 %shl385, %shr387
-  store i32 %or388, ptr %E, align 4
-  %331 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr389 = getelementptr inbounds i8, ptr %331, i32 1
-  store ptr %incdec.ptr389, ptr %data.addr, align 8
-  %332 = load i8, ptr %331, align 1
-  %conv390 = zext i8 %332 to i32
-  store i32 %conv390, ptr %l, align 4
-  %333 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr391 = getelementptr inbounds i8, ptr %333, i32 1
-  store ptr %incdec.ptr391, ptr %data.addr, align 8
-  %334 = load i8, ptr %333, align 1
-  %conv392 = zext i8 %334 to i32
-  %shl393 = shl i32 %conv392, 8
-  %335 = load i32, ptr %l, align 4
-  %or394 = or i32 %335, %shl393
-  store i32 %or394, ptr %l, align 4
-  %336 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr395 = getelementptr inbounds i8, ptr %336, i32 1
-  store ptr %incdec.ptr395, ptr %data.addr, align 8
-  %337 = load i8, ptr %336, align 1
-  %conv396 = zext i8 %337 to i32
-  %shl397 = shl i32 %conv396, 16
-  %338 = load i32, ptr %l, align 4
-  %or398 = or i32 %338, %shl397
-  store i32 %or398, ptr %l, align 4
-  %339 = load ptr, ptr %data.addr, align 8
-  %incdec.ptr399 = getelementptr inbounds i8, ptr %339, i32 1
-  store ptr %incdec.ptr399, ptr %data.addr, align 8
-  %340 = load i8, ptr %339, align 1
-  %conv400 = zext i8 %340 to i32
-  %shl401 = shl i32 %conv400, 24
-  %341 = load i32, ptr %l, align 4
-  %or402 = or i32 %341, %shl401
-  store i32 %or402, ptr %l, align 4
-  %342 = load i32, ptr %l, align 4
-  store i32 %342, ptr %XX15, align 4
-  %343 = load i32, ptr %C, align 4
-  %344 = load i32, ptr %D, align 4
-  %xor403 = xor i32 %343, %344
-  %345 = load i32, ptr %E, align 4
-  %xor404 = xor i32 %xor403, %345
-  %346 = load i32, ptr %XX14, align 4
-  %add405 = add i32 %xor404, %346
-  %347 = load i32, ptr %B, align 4
-  %add406 = add i32 %347, %add405
-  store i32 %add406, ptr %B, align 4
-  %348 = load i32, ptr %B, align 4
-  %shl407 = shl i32 %348, 9
-  %349 = load i32, ptr %B, align 4
-  %and408 = and i32 %349, -1
-  %shr409 = lshr i32 %and408, 23
-  %or410 = or i32 %shl407, %shr409
-  %350 = load i32, ptr %A, align 4
-  %add411 = add i32 %or410, %350
-  store i32 %add411, ptr %B, align 4
-  %351 = load i32, ptr %D, align 4
-  %shl412 = shl i32 %351, 10
-  %352 = load i32, ptr %D, align 4
-  %and413 = and i32 %352, -1
-  %shr414 = lshr i32 %and413, 22
-  %or415 = or i32 %shl412, %shr414
-  store i32 %or415, ptr %D, align 4
-  %353 = load i32, ptr %B, align 4
-  %354 = load i32, ptr %C, align 4
-  %xor416 = xor i32 %353, %354
-  %355 = load i32, ptr %D, align 4
-  %xor417 = xor i32 %xor416, %355
-  %356 = load i32, ptr %XX15, align 4
-  %add418 = add i32 %xor417, %356
-  %357 = load i32, ptr %A, align 4
-  %add419 = add i32 %357, %add418
-  store i32 %add419, ptr %A, align 4
-  %358 = load i32, ptr %A, align 4
-  %shl420 = shl i32 %358, 8
-  %359 = load i32, ptr %A, align 4
-  %and421 = and i32 %359, -1
-  %shr422 = lshr i32 %and421, 24
-  %or423 = or i32 %shl420, %shr422
-  %360 = load i32, ptr %E, align 4
-  %add424 = add i32 %or423, %360
-  store i32 %add424, ptr %A, align 4
-  %361 = load i32, ptr %C, align 4
-  %shl425 = shl i32 %361, 10
-  %362 = load i32, ptr %C, align 4
-  %and426 = and i32 %362, -1
-  %shr427 = lshr i32 %and426, 22
-  %or428 = or i32 %shl425, %shr427
-  store i32 %or428, ptr %C, align 4
-  %363 = load i32, ptr %B, align 4
-  %364 = load i32, ptr %C, align 4
-  %xor429 = xor i32 %363, %364
-  %365 = load i32, ptr %A, align 4
-  %and430 = and i32 %xor429, %365
-  %366 = load i32, ptr %C, align 4
-  %xor431 = xor i32 %and430, %366
-  %367 = load i32, ptr %XX7, align 4
-  %add432 = add i32 %xor431, %367
-  %conv433 = zext i32 %add432 to i64
-  %add434 = add nsw i64 %conv433, 1518500249
-  %368 = load i32, ptr %E, align 4
-  %conv435 = zext i32 %368 to i64
-  %add436 = add nsw i64 %conv435, %add434
-  %conv437 = trunc i64 %add436 to i32
-  store i32 %conv437, ptr %E, align 4
-  %369 = load i32, ptr %E, align 4
-  %shl438 = shl i32 %369, 7
-  %370 = load i32, ptr %E, align 4
-  %and439 = and i32 %370, -1
-  %shr440 = lshr i32 %and439, 25
-  %or441 = or i32 %shl438, %shr440
-  %371 = load i32, ptr %D, align 4
-  %add442 = add i32 %or441, %371
-  store i32 %add442, ptr %E, align 4
-  %372 = load i32, ptr %B, align 4
-  %shl443 = shl i32 %372, 10
-  %373 = load i32, ptr %B, align 4
-  %and444 = and i32 %373, -1
-  %shr445 = lshr i32 %and444, 22
-  %or446 = or i32 %shl443, %shr445
-  store i32 %or446, ptr %B, align 4
-  %374 = load i32, ptr %A, align 4
-  %375 = load i32, ptr %B, align 4
-  %xor447 = xor i32 %374, %375
-  %376 = load i32, ptr %E, align 4
-  %and448 = and i32 %xor447, %376
-  %377 = load i32, ptr %B, align 4
-  %xor449 = xor i32 %and448, %377
-  %378 = load i32, ptr %XX4, align 4
-  %add450 = add i32 %xor449, %378
-  %conv451 = zext i32 %add450 to i64
-  %add452 = add nsw i64 %conv451, 1518500249
-  %379 = load i32, ptr %D, align 4
-  %conv453 = zext i32 %379 to i64
-  %add454 = add nsw i64 %conv453, %add452
-  %conv455 = trunc i64 %add454 to i32
-  store i32 %conv455, ptr %D, align 4
-  %380 = load i32, ptr %D, align 4
-  %shl456 = shl i32 %380, 6
-  %381 = load i32, ptr %D, align 4
-  %and457 = and i32 %381, -1
-  %shr458 = lshr i32 %and457, 26
-  %or459 = or i32 %shl456, %shr458
-  %382 = load i32, ptr %C, align 4
-  %add460 = add i32 %or459, %382
-  store i32 %add460, ptr %D, align 4
-  %383 = load i32, ptr %A, align 4
-  %shl461 = shl i32 %383, 10
-  %384 = load i32, ptr %A, align 4
-  %and462 = and i32 %384, -1
-  %shr463 = lshr i32 %and462, 22
-  %or464 = or i32 %shl461, %shr463
-  store i32 %or464, ptr %A, align 4
-  %385 = load i32, ptr %E, align 4
-  %386 = load i32, ptr %A, align 4
-  %xor465 = xor i32 %385, %386
-  %387 = load i32, ptr %D, align 4
-  %and466 = and i32 %xor465, %387
-  %388 = load i32, ptr %A, align 4
-  %xor467 = xor i32 %and466, %388
-  %389 = load i32, ptr %XX13, align 4
-  %add468 = add i32 %xor467, %389
-  %conv469 = zext i32 %add468 to i64
-  %add470 = add nsw i64 %conv469, 1518500249
-  %390 = load i32, ptr %C, align 4
-  %conv471 = zext i32 %390 to i64
-  %add472 = add nsw i64 %conv471, %add470
-  %conv473 = trunc i64 %add472 to i32
-  store i32 %conv473, ptr %C, align 4
-  %391 = load i32, ptr %C, align 4
-  %shl474 = shl i32 %391, 8
-  %392 = load i32, ptr %C, align 4
-  %and475 = and i32 %392, -1
-  %shr476 = lshr i32 %and475, 24
-  %or477 = or i32 %shl474, %shr476
-  %393 = load i32, ptr %B, align 4
-  %add478 = add i32 %or477, %393
-  store i32 %add478, ptr %C, align 4
-  %394 = load i32, ptr %E, align 4
-  %shl479 = shl i32 %394, 10
-  %395 = load i32, ptr %E, align 4
-  %and480 = and i32 %395, -1
-  %shr481 = lshr i32 %and480, 22
-  %or482 = or i32 %shl479, %shr481
-  store i32 %or482, ptr %E, align 4
-  %396 = load i32, ptr %D, align 4
-  %397 = load i32, ptr %E, align 4
-  %xor483 = xor i32 %396, %397
-  %398 = load i32, ptr %C, align 4
-  %and484 = and i32 %xor483, %398
-  %399 = load i32, ptr %E, align 4
-  %xor485 = xor i32 %and484, %399
-  %400 = load i32, ptr %XX1, align 4
-  %add486 = add i32 %xor485, %400
-  %conv487 = zext i32 %add486 to i64
-  %add488 = add nsw i64 %conv487, 1518500249
-  %401 = load i32, ptr %B, align 4
-  %conv489 = zext i32 %401 to i64
-  %add490 = add nsw i64 %conv489, %add488
-  %conv491 = trunc i64 %add490 to i32
-  store i32 %conv491, ptr %B, align 4
-  %402 = load i32, ptr %B, align 4
-  %shl492 = shl i32 %402, 13
-  %403 = load i32, ptr %B, align 4
-  %and493 = and i32 %403, -1
-  %shr494 = lshr i32 %and493, 19
-  %or495 = or i32 %shl492, %shr494
-  %404 = load i32, ptr %A, align 4
-  %add496 = add i32 %or495, %404
-  store i32 %add496, ptr %B, align 4
-  %405 = load i32, ptr %D, align 4
-  %shl497 = shl i32 %405, 10
-  %406 = load i32, ptr %D, align 4
-  %and498 = and i32 %406, -1
-  %shr499 = lshr i32 %and498, 22
-  %or500 = or i32 %shl497, %shr499
-  store i32 %or500, ptr %D, align 4
-  %407 = load i32, ptr %C, align 4
-  %408 = load i32, ptr %D, align 4
-  %xor501 = xor i32 %407, %408
-  %409 = load i32, ptr %B, align 4
-  %and502 = and i32 %xor501, %409
-  %410 = load i32, ptr %D, align 4
-  %xor503 = xor i32 %and502, %410
-  %411 = load i32, ptr %XX10, align 4
-  %add504 = add i32 %xor503, %411
-  %conv505 = zext i32 %add504 to i64
-  %add506 = add nsw i64 %conv505, 1518500249
-  %412 = load i32, ptr %A, align 4
-  %conv507 = zext i32 %412 to i64
-  %add508 = add nsw i64 %conv507, %add506
-  %conv509 = trunc i64 %add508 to i32
-  store i32 %conv509, ptr %A, align 4
-  %413 = load i32, ptr %A, align 4
-  %shl510 = shl i32 %413, 11
-  %414 = load i32, ptr %A, align 4
-  %and511 = and i32 %414, -1
-  %shr512 = lshr i32 %and511, 21
-  %or513 = or i32 %shl510, %shr512
-  %415 = load i32, ptr %E, align 4
-  %add514 = add i32 %or513, %415
-  store i32 %add514, ptr %A, align 4
-  %416 = load i32, ptr %C, align 4
-  %shl515 = shl i32 %416, 10
-  %417 = load i32, ptr %C, align 4
-  %and516 = and i32 %417, -1
-  %shr517 = lshr i32 %and516, 22
-  %or518 = or i32 %shl515, %shr517
-  store i32 %or518, ptr %C, align 4
-  %418 = load i32, ptr %B, align 4
-  %419 = load i32, ptr %C, align 4
-  %xor519 = xor i32 %418, %419
-  %420 = load i32, ptr %A, align 4
-  %and520 = and i32 %xor519, %420
-  %421 = load i32, ptr %C, align 4
-  %xor521 = xor i32 %and520, %421
-  %422 = load i32, ptr %XX6, align 4
-  %add522 = add i32 %xor521, %422
-  %conv523 = zext i32 %add522 to i64
-  %add524 = add nsw i64 %conv523, 1518500249
-  %423 = load i32, ptr %E, align 4
-  %conv525 = zext i32 %423 to i64
-  %add526 = add nsw i64 %conv525, %add524
-  %conv527 = trunc i64 %add526 to i32
-  store i32 %conv527, ptr %E, align 4
-  %424 = load i32, ptr %E, align 4
-  %shl528 = shl i32 %424, 9
-  %425 = load i32, ptr %E, align 4
-  %and529 = and i32 %425, -1
-  %shr530 = lshr i32 %and529, 23
-  %or531 = or i32 %shl528, %shr530
-  %426 = load i32, ptr %D, align 4
-  %add532 = add i32 %or531, %426
-  store i32 %add532, ptr %E, align 4
-  %427 = load i32, ptr %B, align 4
-  %shl533 = shl i32 %427, 10
-  %428 = load i32, ptr %B, align 4
-  %and534 = and i32 %428, -1
-  %shr535 = lshr i32 %and534, 22
-  %or536 = or i32 %shl533, %shr535
-  store i32 %or536, ptr %B, align 4
-  %429 = load i32, ptr %A, align 4
-  %430 = load i32, ptr %B, align 4
-  %xor537 = xor i32 %429, %430
-  %431 = load i32, ptr %E, align 4
-  %and538 = and i32 %xor537, %431
-  %432 = load i32, ptr %B, align 4
-  %xor539 = xor i32 %and538, %432
-  %433 = load i32, ptr %XX15, align 4
-  %add540 = add i32 %xor539, %433
-  %conv541 = zext i32 %add540 to i64
-  %add542 = add nsw i64 %conv541, 1518500249
-  %434 = load i32, ptr %D, align 4
-  %conv543 = zext i32 %434 to i64
-  %add544 = add nsw i64 %conv543, %add542
-  %conv545 = trunc i64 %add544 to i32
-  store i32 %conv545, ptr %D, align 4
-  %435 = load i32, ptr %D, align 4
-  %shl546 = shl i32 %435, 7
-  %436 = load i32, ptr %D, align 4
-  %and547 = and i32 %436, -1
-  %shr548 = lshr i32 %and547, 25
-  %or549 = or i32 %shl546, %shr548
-  %437 = load i32, ptr %C, align 4
-  %add550 = add i32 %or549, %437
-  store i32 %add550, ptr %D, align 4
-  %438 = load i32, ptr %A, align 4
-  %shl551 = shl i32 %438, 10
-  %439 = load i32, ptr %A, align 4
-  %and552 = and i32 %439, -1
-  %shr553 = lshr i32 %and552, 22
-  %or554 = or i32 %shl551, %shr553
-  store i32 %or554, ptr %A, align 4
-  %440 = load i32, ptr %E, align 4
-  %441 = load i32, ptr %A, align 4
-  %xor555 = xor i32 %440, %441
-  %442 = load i32, ptr %D, align 4
-  %and556 = and i32 %xor555, %442
-  %443 = load i32, ptr %A, align 4
-  %xor557 = xor i32 %and556, %443
-  %444 = load i32, ptr %XX3, align 4
-  %add558 = add i32 %xor557, %444
-  %conv559 = zext i32 %add558 to i64
-  %add560 = add nsw i64 %conv559, 1518500249
-  %445 = load i32, ptr %C, align 4
-  %conv561 = zext i32 %445 to i64
-  %add562 = add nsw i64 %conv561, %add560
-  %conv563 = trunc i64 %add562 to i32
-  store i32 %conv563, ptr %C, align 4
-  %446 = load i32, ptr %C, align 4
-  %shl564 = shl i32 %446, 15
-  %447 = load i32, ptr %C, align 4
-  %and565 = and i32 %447, -1
-  %shr566 = lshr i32 %and565, 17
-  %or567 = or i32 %shl564, %shr566
-  %448 = load i32, ptr %B, align 4
-  %add568 = add i32 %or567, %448
-  store i32 %add568, ptr %C, align 4
-  %449 = load i32, ptr %E, align 4
-  %shl569 = shl i32 %449, 10
-  %450 = load i32, ptr %E, align 4
-  %and570 = and i32 %450, -1
-  %shr571 = lshr i32 %and570, 22
-  %or572 = or i32 %shl569, %shr571
-  store i32 %or572, ptr %E, align 4
-  %451 = load i32, ptr %D, align 4
-  %452 = load i32, ptr %E, align 4
-  %xor573 = xor i32 %451, %452
-  %453 = load i32, ptr %C, align 4
-  %and574 = and i32 %xor573, %453
-  %454 = load i32, ptr %E, align 4
-  %xor575 = xor i32 %and574, %454
-  %455 = load i32, ptr %XX12, align 4
-  %add576 = add i32 %xor575, %455
-  %conv577 = zext i32 %add576 to i64
-  %add578 = add nsw i64 %conv577, 1518500249
-  %456 = load i32, ptr %B, align 4
-  %conv579 = zext i32 %456 to i64
-  %add580 = add nsw i64 %conv579, %add578
-  %conv581 = trunc i64 %add580 to i32
-  store i32 %conv581, ptr %B, align 4
-  %457 = load i32, ptr %B, align 4
-  %shl582 = shl i32 %457, 7
-  %458 = load i32, ptr %B, align 4
-  %and583 = and i32 %458, -1
-  %shr584 = lshr i32 %and583, 25
-  %or585 = or i32 %shl582, %shr584
-  %459 = load i32, ptr %A, align 4
-  %add586 = add i32 %or585, %459
-  store i32 %add586, ptr %B, align 4
-  %460 = load i32, ptr %D, align 4
-  %shl587 = shl i32 %460, 10
-  %461 = load i32, ptr %D, align 4
-  %and588 = and i32 %461, -1
-  %shr589 = lshr i32 %and588, 22
-  %or590 = or i32 %shl587, %shr589
-  store i32 %or590, ptr %D, align 4
-  %462 = load i32, ptr %C, align 4
-  %463 = load i32, ptr %D, align 4
-  %xor591 = xor i32 %462, %463
-  %464 = load i32, ptr %B, align 4
-  %and592 = and i32 %xor591, %464
-  %465 = load i32, ptr %D, align 4
-  %xor593 = xor i32 %and592, %465
-  %466 = load i32, ptr %XX0, align 4
-  %add594 = add i32 %xor593, %466
-  %conv595 = zext i32 %add594 to i64
-  %add596 = add nsw i64 %conv595, 1518500249
-  %467 = load i32, ptr %A, align 4
-  %conv597 = zext i32 %467 to i64
-  %add598 = add nsw i64 %conv597, %add596
-  %conv599 = trunc i64 %add598 to i32
-  store i32 %conv599, ptr %A, align 4
-  %468 = load i32, ptr %A, align 4
-  %shl600 = shl i32 %468, 12
-  %469 = load i32, ptr %A, align 4
-  %and601 = and i32 %469, -1
-  %shr602 = lshr i32 %and601, 20
-  %or603 = or i32 %shl600, %shr602
-  %470 = load i32, ptr %E, align 4
-  %add604 = add i32 %or603, %470
-  store i32 %add604, ptr %A, align 4
-  %471 = load i32, ptr %C, align 4
-  %shl605 = shl i32 %471, 10
-  %472 = load i32, ptr %C, align 4
-  %and606 = and i32 %472, -1
-  %shr607 = lshr i32 %and606, 22
-  %or608 = or i32 %shl605, %shr607
-  store i32 %or608, ptr %C, align 4
-  %473 = load i32, ptr %B, align 4
-  %474 = load i32, ptr %C, align 4
-  %xor609 = xor i32 %473, %474
-  %475 = load i32, ptr %A, align 4
-  %and610 = and i32 %xor609, %475
-  %476 = load i32, ptr %C, align 4
-  %xor611 = xor i32 %and610, %476
-  %477 = load i32, ptr %XX9, align 4
-  %add612 = add i32 %xor611, %477
-  %conv613 = zext i32 %add612 to i64
-  %add614 = add nsw i64 %conv613, 1518500249
-  %478 = load i32, ptr %E, align 4
-  %conv615 = zext i32 %478 to i64
-  %add616 = add nsw i64 %conv615, %add614
-  %conv617 = trunc i64 %add616 to i32
-  store i32 %conv617, ptr %E, align 4
-  %479 = load i32, ptr %E, align 4
-  %shl618 = shl i32 %479, 15
-  %480 = load i32, ptr %E, align 4
-  %and619 = and i32 %480, -1
-  %shr620 = lshr i32 %and619, 17
-  %or621 = or i32 %shl618, %shr620
-  %481 = load i32, ptr %D, align 4
-  %add622 = add i32 %or621, %481
-  store i32 %add622, ptr %E, align 4
-  %482 = load i32, ptr %B, align 4
-  %shl623 = shl i32 %482, 10
-  %483 = load i32, ptr %B, align 4
-  %and624 = and i32 %483, -1
-  %shr625 = lshr i32 %and624, 22
-  %or626 = or i32 %shl623, %shr625
-  store i32 %or626, ptr %B, align 4
-  %484 = load i32, ptr %A, align 4
-  %485 = load i32, ptr %B, align 4
-  %xor627 = xor i32 %484, %485
-  %486 = load i32, ptr %E, align 4
-  %and628 = and i32 %xor627, %486
-  %487 = load i32, ptr %B, align 4
-  %xor629 = xor i32 %and628, %487
-  %488 = load i32, ptr %XX5, align 4
-  %add630 = add i32 %xor629, %488
-  %conv631 = zext i32 %add630 to i64
-  %add632 = add nsw i64 %conv631, 1518500249
-  %489 = load i32, ptr %D, align 4
-  %conv633 = zext i32 %489 to i64
-  %add634 = add nsw i64 %conv633, %add632
-  %conv635 = trunc i64 %add634 to i32
-  store i32 %conv635, ptr %D, align 4
-  %490 = load i32, ptr %D, align 4
-  %shl636 = shl i32 %490, 9
-  %491 = load i32, ptr %D, align 4
-  %and637 = and i32 %491, -1
-  %shr638 = lshr i32 %and637, 23
-  %or639 = or i32 %shl636, %shr638
-  %492 = load i32, ptr %C, align 4
-  %add640 = add i32 %or639, %492
-  store i32 %add640, ptr %D, align 4
-  %493 = load i32, ptr %A, align 4
-  %shl641 = shl i32 %493, 10
-  %494 = load i32, ptr %A, align 4
-  %and642 = and i32 %494, -1
-  %shr643 = lshr i32 %and642, 22
-  %or644 = or i32 %shl641, %shr643
-  store i32 %or644, ptr %A, align 4
-  %495 = load i32, ptr %E, align 4
-  %496 = load i32, ptr %A, align 4
-  %xor645 = xor i32 %495, %496
-  %497 = load i32, ptr %D, align 4
-  %and646 = and i32 %xor645, %497
-  %498 = load i32, ptr %A, align 4
-  %xor647 = xor i32 %and646, %498
-  %499 = load i32, ptr %XX2, align 4
-  %add648 = add i32 %xor647, %499
-  %conv649 = zext i32 %add648 to i64
-  %add650 = add nsw i64 %conv649, 1518500249
-  %500 = load i32, ptr %C, align 4
-  %conv651 = zext i32 %500 to i64
-  %add652 = add nsw i64 %conv651, %add650
-  %conv653 = trunc i64 %add652 to i32
-  store i32 %conv653, ptr %C, align 4
-  %501 = load i32, ptr %C, align 4
-  %shl654 = shl i32 %501, 11
-  %502 = load i32, ptr %C, align 4
-  %and655 = and i32 %502, -1
-  %shr656 = lshr i32 %and655, 21
-  %or657 = or i32 %shl654, %shr656
-  %503 = load i32, ptr %B, align 4
-  %add658 = add i32 %or657, %503
-  store i32 %add658, ptr %C, align 4
-  %504 = load i32, ptr %E, align 4
-  %shl659 = shl i32 %504, 10
-  %505 = load i32, ptr %E, align 4
-  %and660 = and i32 %505, -1
-  %shr661 = lshr i32 %and660, 22
-  %or662 = or i32 %shl659, %shr661
-  store i32 %or662, ptr %E, align 4
-  %506 = load i32, ptr %D, align 4
-  %507 = load i32, ptr %E, align 4
-  %xor663 = xor i32 %506, %507
-  %508 = load i32, ptr %C, align 4
-  %and664 = and i32 %xor663, %508
-  %509 = load i32, ptr %E, align 4
-  %xor665 = xor i32 %and664, %509
-  %510 = load i32, ptr %XX14, align 4
-  %add666 = add i32 %xor665, %510
-  %conv667 = zext i32 %add666 to i64
-  %add668 = add nsw i64 %conv667, 1518500249
-  %511 = load i32, ptr %B, align 4
-  %conv669 = zext i32 %511 to i64
-  %add670 = add nsw i64 %conv669, %add668
-  %conv671 = trunc i64 %add670 to i32
-  store i32 %conv671, ptr %B, align 4
-  %512 = load i32, ptr %B, align 4
-  %shl672 = shl i32 %512, 7
-  %513 = load i32, ptr %B, align 4
-  %and673 = and i32 %513, -1
-  %shr674 = lshr i32 %and673, 25
-  %or675 = or i32 %shl672, %shr674
-  %514 = load i32, ptr %A, align 4
-  %add676 = add i32 %or675, %514
-  store i32 %add676, ptr %B, align 4
-  %515 = load i32, ptr %D, align 4
-  %shl677 = shl i32 %515, 10
-  %516 = load i32, ptr %D, align 4
-  %and678 = and i32 %516, -1
-  %shr679 = lshr i32 %and678, 22
-  %or680 = or i32 %shl677, %shr679
-  store i32 %or680, ptr %D, align 4
-  %517 = load i32, ptr %C, align 4
-  %518 = load i32, ptr %D, align 4
-  %xor681 = xor i32 %517, %518
-  %519 = load i32, ptr %B, align 4
-  %and682 = and i32 %xor681, %519
-  %520 = load i32, ptr %D, align 4
-  %xor683 = xor i32 %and682, %520
-  %521 = load i32, ptr %XX11, align 4
-  %add684 = add i32 %xor683, %521
-  %conv685 = zext i32 %add684 to i64
-  %add686 = add nsw i64 %conv685, 1518500249
-  %522 = load i32, ptr %A, align 4
-  %conv687 = zext i32 %522 to i64
-  %add688 = add nsw i64 %conv687, %add686
-  %conv689 = trunc i64 %add688 to i32
-  store i32 %conv689, ptr %A, align 4
-  %523 = load i32, ptr %A, align 4
-  %shl690 = shl i32 %523, 13
-  %524 = load i32, ptr %A, align 4
-  %and691 = and i32 %524, -1
-  %shr692 = lshr i32 %and691, 19
-  %or693 = or i32 %shl690, %shr692
-  %525 = load i32, ptr %E, align 4
-  %add694 = add i32 %or693, %525
-  store i32 %add694, ptr %A, align 4
-  %526 = load i32, ptr %C, align 4
-  %shl695 = shl i32 %526, 10
-  %527 = load i32, ptr %C, align 4
-  %and696 = and i32 %527, -1
-  %shr697 = lshr i32 %and696, 22
-  %or698 = or i32 %shl695, %shr697
-  store i32 %or698, ptr %C, align 4
-  %528 = load i32, ptr %B, align 4
-  %529 = load i32, ptr %C, align 4
-  %xor699 = xor i32 %528, %529
-  %530 = load i32, ptr %A, align 4
-  %and700 = and i32 %xor699, %530
-  %531 = load i32, ptr %C, align 4
-  %xor701 = xor i32 %and700, %531
-  %532 = load i32, ptr %XX8, align 4
-  %add702 = add i32 %xor701, %532
-  %conv703 = zext i32 %add702 to i64
-  %add704 = add nsw i64 %conv703, 1518500249
-  %533 = load i32, ptr %E, align 4
-  %conv705 = zext i32 %533 to i64
-  %add706 = add nsw i64 %conv705, %add704
-  %conv707 = trunc i64 %add706 to i32
-  store i32 %conv707, ptr %E, align 4
-  %534 = load i32, ptr %E, align 4
-  %shl708 = shl i32 %534, 12
-  %535 = load i32, ptr %E, align 4
-  %and709 = and i32 %535, -1
-  %shr710 = lshr i32 %and709, 20
-  %or711 = or i32 %shl708, %shr710
-  %536 = load i32, ptr %D, align 4
-  %add712 = add i32 %or711, %536
-  store i32 %add712, ptr %E, align 4
-  %537 = load i32, ptr %B, align 4
-  %shl713 = shl i32 %537, 10
-  %538 = load i32, ptr %B, align 4
-  %and714 = and i32 %538, -1
-  %shr715 = lshr i32 %and714, 22
-  %or716 = or i32 %shl713, %shr715
-  store i32 %or716, ptr %B, align 4
-  %539 = load i32, ptr %A, align 4
-  %not = xor i32 %539, -1
-  %540 = load i32, ptr %E, align 4
-  %or717 = or i32 %not, %540
-  %541 = load i32, ptr %B, align 4
-  %xor718 = xor i32 %or717, %541
-  %542 = load i32, ptr %XX3, align 4
-  %add719 = add i32 %xor718, %542
-  %conv720 = zext i32 %add719 to i64
-  %add721 = add nsw i64 %conv720, 1859775393
-  %543 = load i32, ptr %D, align 4
-  %conv722 = zext i32 %543 to i64
-  %add723 = add nsw i64 %conv722, %add721
-  %conv724 = trunc i64 %add723 to i32
-  store i32 %conv724, ptr %D, align 4
-  %544 = load i32, ptr %D, align 4
-  %shl725 = shl i32 %544, 11
-  %545 = load i32, ptr %D, align 4
-  %and726 = and i32 %545, -1
-  %shr727 = lshr i32 %and726, 21
-  %or728 = or i32 %shl725, %shr727
-  %546 = load i32, ptr %C, align 4
-  %add729 = add i32 %or728, %546
-  store i32 %add729, ptr %D, align 4
-  %547 = load i32, ptr %A, align 4
-  %shl730 = shl i32 %547, 10
-  %548 = load i32, ptr %A, align 4
-  %and731 = and i32 %548, -1
-  %shr732 = lshr i32 %and731, 22
-  %or733 = or i32 %shl730, %shr732
-  store i32 %or733, ptr %A, align 4
-  %549 = load i32, ptr %E, align 4
-  %not734 = xor i32 %549, -1
-  %550 = load i32, ptr %D, align 4
-  %or735 = or i32 %not734, %550
-  %551 = load i32, ptr %A, align 4
-  %xor736 = xor i32 %or735, %551
-  %552 = load i32, ptr %XX10, align 4
-  %add737 = add i32 %xor736, %552
-  %conv738 = zext i32 %add737 to i64
-  %add739 = add nsw i64 %conv738, 1859775393
-  %553 = load i32, ptr %C, align 4
-  %conv740 = zext i32 %553 to i64
-  %add741 = add nsw i64 %conv740, %add739
-  %conv742 = trunc i64 %add741 to i32
-  store i32 %conv742, ptr %C, align 4
-  %554 = load i32, ptr %C, align 4
-  %shl743 = shl i32 %554, 13
-  %555 = load i32, ptr %C, align 4
-  %and744 = and i32 %555, -1
-  %shr745 = lshr i32 %and744, 19
-  %or746 = or i32 %shl743, %shr745
-  %556 = load i32, ptr %B, align 4
-  %add747 = add i32 %or746, %556
-  store i32 %add747, ptr %C, align 4
-  %557 = load i32, ptr %E, align 4
-  %shl748 = shl i32 %557, 10
-  %558 = load i32, ptr %E, align 4
-  %and749 = and i32 %558, -1
-  %shr750 = lshr i32 %and749, 22
-  %or751 = or i32 %shl748, %shr750
-  store i32 %or751, ptr %E, align 4
-  %559 = load i32, ptr %D, align 4
-  %not752 = xor i32 %559, -1
-  %560 = load i32, ptr %C, align 4
-  %or753 = or i32 %not752, %560
-  %561 = load i32, ptr %E, align 4
-  %xor754 = xor i32 %or753, %561
-  %562 = load i32, ptr %XX14, align 4
-  %add755 = add i32 %xor754, %562
-  %conv756 = zext i32 %add755 to i64
-  %add757 = add nsw i64 %conv756, 1859775393
-  %563 = load i32, ptr %B, align 4
-  %conv758 = zext i32 %563 to i64
-  %add759 = add nsw i64 %conv758, %add757
-  %conv760 = trunc i64 %add759 to i32
-  store i32 %conv760, ptr %B, align 4
-  %564 = load i32, ptr %B, align 4
-  %shl761 = shl i32 %564, 6
-  %565 = load i32, ptr %B, align 4
-  %and762 = and i32 %565, -1
-  %shr763 = lshr i32 %and762, 26
-  %or764 = or i32 %shl761, %shr763
-  %566 = load i32, ptr %A, align 4
-  %add765 = add i32 %or764, %566
-  store i32 %add765, ptr %B, align 4
-  %567 = load i32, ptr %D, align 4
-  %shl766 = shl i32 %567, 10
-  %568 = load i32, ptr %D, align 4
-  %and767 = and i32 %568, -1
-  %shr768 = lshr i32 %and767, 22
-  %or769 = or i32 %shl766, %shr768
-  store i32 %or769, ptr %D, align 4
-  %569 = load i32, ptr %C, align 4
-  %not770 = xor i32 %569, -1
-  %570 = load i32, ptr %B, align 4
-  %or771 = or i32 %not770, %570
-  %571 = load i32, ptr %D, align 4
-  %xor772 = xor i32 %or771, %571
-  %572 = load i32, ptr %XX4, align 4
-  %add773 = add i32 %xor772, %572
-  %conv774 = zext i32 %add773 to i64
-  %add775 = add nsw i64 %conv774, 1859775393
-  %573 = load i32, ptr %A, align 4
-  %conv776 = zext i32 %573 to i64
-  %add777 = add nsw i64 %conv776, %add775
-  %conv778 = trunc i64 %add777 to i32
-  store i32 %conv778, ptr %A, align 4
-  %574 = load i32, ptr %A, align 4
-  %shl779 = shl i32 %574, 7
-  %575 = load i32, ptr %A, align 4
-  %and780 = and i32 %575, -1
-  %shr781 = lshr i32 %and780, 25
-  %or782 = or i32 %shl779, %shr781
-  %576 = load i32, ptr %E, align 4
-  %add783 = add i32 %or782, %576
-  store i32 %add783, ptr %A, align 4
-  %577 = load i32, ptr %C, align 4
-  %shl784 = shl i32 %577, 10
-  %578 = load i32, ptr %C, align 4
-  %and785 = and i32 %578, -1
-  %shr786 = lshr i32 %and785, 22
-  %or787 = or i32 %shl784, %shr786
-  store i32 %or787, ptr %C, align 4
-  %579 = load i32, ptr %B, align 4
-  %not788 = xor i32 %579, -1
-  %580 = load i32, ptr %A, align 4
-  %or789 = or i32 %not788, %580
-  %581 = load i32, ptr %C, align 4
-  %xor790 = xor i32 %or789, %581
-  %582 = load i32, ptr %XX9, align 4
-  %add791 = add i32 %xor790, %582
-  %conv792 = zext i32 %add791 to i64
-  %add793 = add nsw i64 %conv792, 1859775393
-  %583 = load i32, ptr %E, align 4
-  %conv794 = zext i32 %583 to i64
-  %add795 = add nsw i64 %conv794, %add793
-  %conv796 = trunc i64 %add795 to i32
-  store i32 %conv796, ptr %E, align 4
-  %584 = load i32, ptr %E, align 4
-  %shl797 = shl i32 %584, 14
-  %585 = load i32, ptr %E, align 4
-  %and798 = and i32 %585, -1
-  %shr799 = lshr i32 %and798, 18
-  %or800 = or i32 %shl797, %shr799
-  %586 = load i32, ptr %D, align 4
-  %add801 = add i32 %or800, %586
-  store i32 %add801, ptr %E, align 4
-  %587 = load i32, ptr %B, align 4
-  %shl802 = shl i32 %587, 10
-  %588 = load i32, ptr %B, align 4
-  %and803 = and i32 %588, -1
-  %shr804 = lshr i32 %and803, 22
-  %or805 = or i32 %shl802, %shr804
-  store i32 %or805, ptr %B, align 4
-  %589 = load i32, ptr %A, align 4
-  %not806 = xor i32 %589, -1
-  %590 = load i32, ptr %E, align 4
-  %or807 = or i32 %not806, %590
-  %591 = load i32, ptr %B, align 4
-  %xor808 = xor i32 %or807, %591
-  %592 = load i32, ptr %XX15, align 4
-  %add809 = add i32 %xor808, %592
-  %conv810 = zext i32 %add809 to i64
-  %add811 = add nsw i64 %conv810, 1859775393
-  %593 = load i32, ptr %D, align 4
-  %conv812 = zext i32 %593 to i64
-  %add813 = add nsw i64 %conv812, %add811
-  %conv814 = trunc i64 %add813 to i32
-  store i32 %conv814, ptr %D, align 4
-  %594 = load i32, ptr %D, align 4
-  %shl815 = shl i32 %594, 9
-  %595 = load i32, ptr %D, align 4
-  %and816 = and i32 %595, -1
-  %shr817 = lshr i32 %and816, 23
-  %or818 = or i32 %shl815, %shr817
-  %596 = load i32, ptr %C, align 4
-  %add819 = add i32 %or818, %596
-  store i32 %add819, ptr %D, align 4
-  %597 = load i32, ptr %A, align 4
-  %shl820 = shl i32 %597, 10
-  %598 = load i32, ptr %A, align 4
-  %and821 = and i32 %598, -1
-  %shr822 = lshr i32 %and821, 22
-  %or823 = or i32 %shl820, %shr822
-  store i32 %or823, ptr %A, align 4
-  %599 = load i32, ptr %E, align 4
-  %not824 = xor i32 %599, -1
-  %600 = load i32, ptr %D, align 4
-  %or825 = or i32 %not824, %600
-  %601 = load i32, ptr %A, align 4
-  %xor826 = xor i32 %or825, %601
-  %602 = load i32, ptr %XX8, align 4
-  %add827 = add i32 %xor826, %602
-  %conv828 = zext i32 %add827 to i64
-  %add829 = add nsw i64 %conv828, 1859775393
-  %603 = load i32, ptr %C, align 4
-  %conv830 = zext i32 %603 to i64
-  %add831 = add nsw i64 %conv830, %add829
-  %conv832 = trunc i64 %add831 to i32
-  store i32 %conv832, ptr %C, align 4
-  %604 = load i32, ptr %C, align 4
-  %shl833 = shl i32 %604, 13
-  %605 = load i32, ptr %C, align 4
-  %and834 = and i32 %605, -1
-  %shr835 = lshr i32 %and834, 19
-  %or836 = or i32 %shl833, %shr835
-  %606 = load i32, ptr %B, align 4
-  %add837 = add i32 %or836, %606
-  store i32 %add837, ptr %C, align 4
-  %607 = load i32, ptr %E, align 4
-  %shl838 = shl i32 %607, 10
-  %608 = load i32, ptr %E, align 4
-  %and839 = and i32 %608, -1
-  %shr840 = lshr i32 %and839, 22
-  %or841 = or i32 %shl838, %shr840
-  store i32 %or841, ptr %E, align 4
-  %609 = load i32, ptr %D, align 4
-  %not842 = xor i32 %609, -1
-  %610 = load i32, ptr %C, align 4
-  %or843 = or i32 %not842, %610
-  %611 = load i32, ptr %E, align 4
-  %xor844 = xor i32 %or843, %611
-  %612 = load i32, ptr %XX1, align 4
-  %add845 = add i32 %xor844, %612
-  %conv846 = zext i32 %add845 to i64
-  %add847 = add nsw i64 %conv846, 1859775393
-  %613 = load i32, ptr %B, align 4
-  %conv848 = zext i32 %613 to i64
-  %add849 = add nsw i64 %conv848, %add847
-  %conv850 = trunc i64 %add849 to i32
-  store i32 %conv850, ptr %B, align 4
-  %614 = load i32, ptr %B, align 4
-  %shl851 = shl i32 %614, 15
-  %615 = load i32, ptr %B, align 4
-  %and852 = and i32 %615, -1
-  %shr853 = lshr i32 %and852, 17
-  %or854 = or i32 %shl851, %shr853
-  %616 = load i32, ptr %A, align 4
-  %add855 = add i32 %or854, %616
-  store i32 %add855, ptr %B, align 4
-  %617 = load i32, ptr %D, align 4
-  %shl856 = shl i32 %617, 10
-  %618 = load i32, ptr %D, align 4
-  %and857 = and i32 %618, -1
-  %shr858 = lshr i32 %and857, 22
-  %or859 = or i32 %shl856, %shr858
-  store i32 %or859, ptr %D, align 4
-  %619 = load i32, ptr %C, align 4
-  %not860 = xor i32 %619, -1
-  %620 = load i32, ptr %B, align 4
-  %or861 = or i32 %not860, %620
-  %621 = load i32, ptr %D, align 4
-  %xor862 = xor i32 %or861, %621
-  %622 = load i32, ptr %XX2, align 4
-  %add863 = add i32 %xor862, %622
-  %conv864 = zext i32 %add863 to i64
-  %add865 = add nsw i64 %conv864, 1859775393
-  %623 = load i32, ptr %A, align 4
-  %conv866 = zext i32 %623 to i64
-  %add867 = add nsw i64 %conv866, %add865
-  %conv868 = trunc i64 %add867 to i32
-  store i32 %conv868, ptr %A, align 4
-  %624 = load i32, ptr %A, align 4
-  %shl869 = shl i32 %624, 14
-  %625 = load i32, ptr %A, align 4
-  %and870 = and i32 %625, -1
-  %shr871 = lshr i32 %and870, 18
-  %or872 = or i32 %shl869, %shr871
-  %626 = load i32, ptr %E, align 4
-  %add873 = add i32 %or872, %626
-  store i32 %add873, ptr %A, align 4
-  %627 = load i32, ptr %C, align 4
-  %shl874 = shl i32 %627, 10
-  %628 = load i32, ptr %C, align 4
-  %and875 = and i32 %628, -1
-  %shr876 = lshr i32 %and875, 22
-  %or877 = or i32 %shl874, %shr876
-  store i32 %or877, ptr %C, align 4
-  %629 = load i32, ptr %B, align 4
-  %not878 = xor i32 %629, -1
-  %630 = load i32, ptr %A, align 4
-  %or879 = or i32 %not878, %630
-  %631 = load i32, ptr %C, align 4
-  %xor880 = xor i32 %or879, %631
-  %632 = load i32, ptr %XX7, align 4
-  %add881 = add i32 %xor880, %632
-  %conv882 = zext i32 %add881 to i64
-  %add883 = add nsw i64 %conv882, 1859775393
-  %633 = load i32, ptr %E, align 4
-  %conv884 = zext i32 %633 to i64
-  %add885 = add nsw i64 %conv884, %add883
-  %conv886 = trunc i64 %add885 to i32
-  store i32 %conv886, ptr %E, align 4
-  %634 = load i32, ptr %E, align 4
-  %shl887 = shl i32 %634, 8
-  %635 = load i32, ptr %E, align 4
-  %and888 = and i32 %635, -1
-  %shr889 = lshr i32 %and888, 24
-  %or890 = or i32 %shl887, %shr889
-  %636 = load i32, ptr %D, align 4
-  %add891 = add i32 %or890, %636
-  store i32 %add891, ptr %E, align 4
-  %637 = load i32, ptr %B, align 4
-  %shl892 = shl i32 %637, 10
-  %638 = load i32, ptr %B, align 4
-  %and893 = and i32 %638, -1
-  %shr894 = lshr i32 %and893, 22
-  %or895 = or i32 %shl892, %shr894
-  store i32 %or895, ptr %B, align 4
-  %639 = load i32, ptr %A, align 4
-  %not896 = xor i32 %639, -1
-  %640 = load i32, ptr %E, align 4
-  %or897 = or i32 %not896, %640
-  %641 = load i32, ptr %B, align 4
-  %xor898 = xor i32 %or897, %641
-  %642 = load i32, ptr %XX0, align 4
-  %add899 = add i32 %xor898, %642
-  %conv900 = zext i32 %add899 to i64
-  %add901 = add nsw i64 %conv900, 1859775393
-  %643 = load i32, ptr %D, align 4
-  %conv902 = zext i32 %643 to i64
-  %add903 = add nsw i64 %conv902, %add901
-  %conv904 = trunc i64 %add903 to i32
-  store i32 %conv904, ptr %D, align 4
-  %644 = load i32, ptr %D, align 4
-  %shl905 = shl i32 %644, 13
-  %645 = load i32, ptr %D, align 4
-  %and906 = and i32 %645, -1
-  %shr907 = lshr i32 %and906, 19
-  %or908 = or i32 %shl905, %shr907
-  %646 = load i32, ptr %C, align 4
-  %add909 = add i32 %or908, %646
-  store i32 %add909, ptr %D, align 4
-  %647 = load i32, ptr %A, align 4
-  %shl910 = shl i32 %647, 10
-  %648 = load i32, ptr %A, align 4
-  %and911 = and i32 %648, -1
-  %shr912 = lshr i32 %and911, 22
-  %or913 = or i32 %shl910, %shr912
-  store i32 %or913, ptr %A, align 4
-  %649 = load i32, ptr %E, align 4
-  %not914 = xor i32 %649, -1
-  %650 = load i32, ptr %D, align 4
-  %or915 = or i32 %not914, %650
-  %651 = load i32, ptr %A, align 4
-  %xor916 = xor i32 %or915, %651
-  %652 = load i32, ptr %XX6, align 4
-  %add917 = add i32 %xor916, %652
-  %conv918 = zext i32 %add917 to i64
-  %add919 = add nsw i64 %conv918, 1859775393
-  %653 = load i32, ptr %C, align 4
-  %conv920 = zext i32 %653 to i64
-  %add921 = add nsw i64 %conv920, %add919
-  %conv922 = trunc i64 %add921 to i32
-  store i32 %conv922, ptr %C, align 4
-  %654 = load i32, ptr %C, align 4
-  %shl923 = shl i32 %654, 6
-  %655 = load i32, ptr %C, align 4
-  %and924 = and i32 %655, -1
-  %shr925 = lshr i32 %and924, 26
-  %or926 = or i32 %shl923, %shr925
-  %656 = load i32, ptr %B, align 4
-  %add927 = add i32 %or926, %656
-  store i32 %add927, ptr %C, align 4
-  %657 = load i32, ptr %E, align 4
-  %shl928 = shl i32 %657, 10
-  %658 = load i32, ptr %E, align 4
-  %and929 = and i32 %658, -1
-  %shr930 = lshr i32 %and929, 22
-  %or931 = or i32 %shl928, %shr930
-  store i32 %or931, ptr %E, align 4
-  %659 = load i32, ptr %D, align 4
-  %not932 = xor i32 %659, -1
-  %660 = load i32, ptr %C, align 4
-  %or933 = or i32 %not932, %660
-  %661 = load i32, ptr %E, align 4
-  %xor934 = xor i32 %or933, %661
-  %662 = load i32, ptr %XX13, align 4
-  %add935 = add i32 %xor934, %662
-  %conv936 = zext i32 %add935 to i64
-  %add937 = add nsw i64 %conv936, 1859775393
-  %663 = load i32, ptr %B, align 4
-  %conv938 = zext i32 %663 to i64
-  %add939 = add nsw i64 %conv938, %add937
-  %conv940 = trunc i64 %add939 to i32
-  store i32 %conv940, ptr %B, align 4
-  %664 = load i32, ptr %B, align 4
-  %shl941 = shl i32 %664, 5
-  %665 = load i32, ptr %B, align 4
-  %and942 = and i32 %665, -1
-  %shr943 = lshr i32 %and942, 27
-  %or944 = or i32 %shl941, %shr943
-  %666 = load i32, ptr %A, align 4
-  %add945 = add i32 %or944, %666
-  store i32 %add945, ptr %B, align 4
-  %667 = load i32, ptr %D, align 4
-  %shl946 = shl i32 %667, 10
-  %668 = load i32, ptr %D, align 4
-  %and947 = and i32 %668, -1
-  %shr948 = lshr i32 %and947, 22
-  %or949 = or i32 %shl946, %shr948
-  store i32 %or949, ptr %D, align 4
-  %669 = load i32, ptr %C, align 4
-  %not950 = xor i32 %669, -1
-  %670 = load i32, ptr %B, align 4
-  %or951 = or i32 %not950, %670
-  %671 = load i32, ptr %D, align 4
-  %xor952 = xor i32 %or951, %671
-  %672 = load i32, ptr %XX11, align 4
-  %add953 = add i32 %xor952, %672
-  %conv954 = zext i32 %add953 to i64
-  %add955 = add nsw i64 %conv954, 1859775393
-  %673 = load i32, ptr %A, align 4
-  %conv956 = zext i32 %673 to i64
-  %add957 = add nsw i64 %conv956, %add955
-  %conv958 = trunc i64 %add957 to i32
-  store i32 %conv958, ptr %A, align 4
-  %674 = load i32, ptr %A, align 4
-  %shl959 = shl i32 %674, 12
-  %675 = load i32, ptr %A, align 4
-  %and960 = and i32 %675, -1
-  %shr961 = lshr i32 %and960, 20
-  %or962 = or i32 %shl959, %shr961
-  %676 = load i32, ptr %E, align 4
-  %add963 = add i32 %or962, %676
-  store i32 %add963, ptr %A, align 4
-  %677 = load i32, ptr %C, align 4
-  %shl964 = shl i32 %677, 10
-  %678 = load i32, ptr %C, align 4
-  %and965 = and i32 %678, -1
-  %shr966 = lshr i32 %and965, 22
-  %or967 = or i32 %shl964, %shr966
-  store i32 %or967, ptr %C, align 4
-  %679 = load i32, ptr %B, align 4
-  %not968 = xor i32 %679, -1
-  %680 = load i32, ptr %A, align 4
-  %or969 = or i32 %not968, %680
-  %681 = load i32, ptr %C, align 4
-  %xor970 = xor i32 %or969, %681
-  %682 = load i32, ptr %XX5, align 4
-  %add971 = add i32 %xor970, %682
-  %conv972 = zext i32 %add971 to i64
-  %add973 = add nsw i64 %conv972, 1859775393
-  %683 = load i32, ptr %E, align 4
-  %conv974 = zext i32 %683 to i64
-  %add975 = add nsw i64 %conv974, %add973
-  %conv976 = trunc i64 %add975 to i32
-  store i32 %conv976, ptr %E, align 4
-  %684 = load i32, ptr %E, align 4
-  %shl977 = shl i32 %684, 7
-  %685 = load i32, ptr %E, align 4
-  %and978 = and i32 %685, -1
-  %shr979 = lshr i32 %and978, 25
-  %or980 = or i32 %shl977, %shr979
-  %686 = load i32, ptr %D, align 4
-  %add981 = add i32 %or980, %686
-  store i32 %add981, ptr %E, align 4
-  %687 = load i32, ptr %B, align 4
-  %shl982 = shl i32 %687, 10
-  %688 = load i32, ptr %B, align 4
-  %and983 = and i32 %688, -1
-  %shr984 = lshr i32 %and983, 22
-  %or985 = or i32 %shl982, %shr984
-  store i32 %or985, ptr %B, align 4
-  %689 = load i32, ptr %A, align 4
-  %not986 = xor i32 %689, -1
-  %690 = load i32, ptr %E, align 4
-  %or987 = or i32 %not986, %690
-  %691 = load i32, ptr %B, align 4
-  %xor988 = xor i32 %or987, %691
-  %692 = load i32, ptr %XX12, align 4
-  %add989 = add i32 %xor988, %692
-  %conv990 = zext i32 %add989 to i64
-  %add991 = add nsw i64 %conv990, 1859775393
-  %693 = load i32, ptr %D, align 4
-  %conv992 = zext i32 %693 to i64
-  %add993 = add nsw i64 %conv992, %add991
-  %conv994 = trunc i64 %add993 to i32
-  store i32 %conv994, ptr %D, align 4
-  %694 = load i32, ptr %D, align 4
-  %shl995 = shl i32 %694, 5
-  %695 = load i32, ptr %D, align 4
-  %and996 = and i32 %695, -1
-  %shr997 = lshr i32 %and996, 27
-  %or998 = or i32 %shl995, %shr997
-  %696 = load i32, ptr %C, align 4
-  %add999 = add i32 %or998, %696
-  store i32 %add999, ptr %D, align 4
-  %697 = load i32, ptr %A, align 4
-  %shl1000 = shl i32 %697, 10
-  %698 = load i32, ptr %A, align 4
-  %and1001 = and i32 %698, -1
-  %shr1002 = lshr i32 %and1001, 22
-  %or1003 = or i32 %shl1000, %shr1002
-  store i32 %or1003, ptr %A, align 4
-  %699 = load i32, ptr %D, align 4
-  %700 = load i32, ptr %E, align 4
-  %xor1004 = xor i32 %699, %700
-  %701 = load i32, ptr %A, align 4
-  %and1005 = and i32 %xor1004, %701
-  %702 = load i32, ptr %E, align 4
-  %xor1006 = xor i32 %and1005, %702
-  %703 = load i32, ptr %XX1, align 4
-  %add1007 = add i32 %xor1006, %703
-  %conv1008 = zext i32 %add1007 to i64
-  %add1009 = add nsw i64 %conv1008, 2400959708
-  %704 = load i32, ptr %C, align 4
-  %conv1010 = zext i32 %704 to i64
-  %add1011 = add nsw i64 %conv1010, %add1009
-  %conv1012 = trunc i64 %add1011 to i32
-  store i32 %conv1012, ptr %C, align 4
-  %705 = load i32, ptr %C, align 4
-  %shl1013 = shl i32 %705, 11
-  %706 = load i32, ptr %C, align 4
-  %and1014 = and i32 %706, -1
-  %shr1015 = lshr i32 %and1014, 21
-  %or1016 = or i32 %shl1013, %shr1015
-  %707 = load i32, ptr %B, align 4
-  %add1017 = add i32 %or1016, %707
-  store i32 %add1017, ptr %C, align 4
-  %708 = load i32, ptr %E, align 4
-  %shl1018 = shl i32 %708, 10
-  %709 = load i32, ptr %E, align 4
-  %and1019 = and i32 %709, -1
-  %shr1020 = lshr i32 %and1019, 22
-  %or1021 = or i32 %shl1018, %shr1020
-  store i32 %or1021, ptr %E, align 4
-  %710 = load i32, ptr %C, align 4
-  %711 = load i32, ptr %D, align 4
-  %xor1022 = xor i32 %710, %711
-  %712 = load i32, ptr %E, align 4
-  %and1023 = and i32 %xor1022, %712
-  %713 = load i32, ptr %D, align 4
-  %xor1024 = xor i32 %and1023, %713
-  %714 = load i32, ptr %XX9, align 4
-  %add1025 = add i32 %xor1024, %714
-  %conv1026 = zext i32 %add1025 to i64
-  %add1027 = add nsw i64 %conv1026, 2400959708
-  %715 = load i32, ptr %B, align 4
-  %conv1028 = zext i32 %715 to i64
-  %add1029 = add nsw i64 %conv1028, %add1027
-  %conv1030 = trunc i64 %add1029 to i32
-  store i32 %conv1030, ptr %B, align 4
-  %716 = load i32, ptr %B, align 4
-  %shl1031 = shl i32 %716, 12
-  %717 = load i32, ptr %B, align 4
-  %and1032 = and i32 %717, -1
-  %shr1033 = lshr i32 %and1032, 20
-  %or1034 = or i32 %shl1031, %shr1033
-  %718 = load i32, ptr %A, align 4
-  %add1035 = add i32 %or1034, %718
-  store i32 %add1035, ptr %B, align 4
-  %719 = load i32, ptr %D, align 4
-  %shl1036 = shl i32 %719, 10
-  %720 = load i32, ptr %D, align 4
-  %and1037 = and i32 %720, -1
-  %shr1038 = lshr i32 %and1037, 22
-  %or1039 = or i32 %shl1036, %shr1038
-  store i32 %or1039, ptr %D, align 4
-  %721 = load i32, ptr %B, align 4
-  %722 = load i32, ptr %C, align 4
-  %xor1040 = xor i32 %721, %722
-  %723 = load i32, ptr %D, align 4
-  %and1041 = and i32 %xor1040, %723
-  %724 = load i32, ptr %C, align 4
-  %xor1042 = xor i32 %and1041, %724
-  %725 = load i32, ptr %XX11, align 4
-  %add1043 = add i32 %xor1042, %725
-  %conv1044 = zext i32 %add1043 to i64
-  %add1045 = add nsw i64 %conv1044, 2400959708
-  %726 = load i32, ptr %A, align 4
-  %conv1046 = zext i32 %726 to i64
-  %add1047 = add nsw i64 %conv1046, %add1045
-  %conv1048 = trunc i64 %add1047 to i32
-  store i32 %conv1048, ptr %A, align 4
-  %727 = load i32, ptr %A, align 4
-  %shl1049 = shl i32 %727, 14
-  %728 = load i32, ptr %A, align 4
-  %and1050 = and i32 %728, -1
-  %shr1051 = lshr i32 %and1050, 18
-  %or1052 = or i32 %shl1049, %shr1051
-  %729 = load i32, ptr %E, align 4
-  %add1053 = add i32 %or1052, %729
-  store i32 %add1053, ptr %A, align 4
-  %730 = load i32, ptr %C, align 4
-  %shl1054 = shl i32 %730, 10
-  %731 = load i32, ptr %C, align 4
-  %and1055 = and i32 %731, -1
-  %shr1056 = lshr i32 %and1055, 22
-  %or1057 = or i32 %shl1054, %shr1056
-  store i32 %or1057, ptr %C, align 4
-  %732 = load i32, ptr %A, align 4
-  %733 = load i32, ptr %B, align 4
-  %xor1058 = xor i32 %732, %733
-  %734 = load i32, ptr %C, align 4
-  %and1059 = and i32 %xor1058, %734
-  %735 = load i32, ptr %B, align 4
-  %xor1060 = xor i32 %and1059, %735
-  %736 = load i32, ptr %XX10, align 4
-  %add1061 = add i32 %xor1060, %736
-  %conv1062 = zext i32 %add1061 to i64
-  %add1063 = add nsw i64 %conv1062, 2400959708
-  %737 = load i32, ptr %E, align 4
-  %conv1064 = zext i32 %737 to i64
-  %add1065 = add nsw i64 %conv1064, %add1063
-  %conv1066 = trunc i64 %add1065 to i32
-  store i32 %conv1066, ptr %E, align 4
-  %738 = load i32, ptr %E, align 4
-  %shl1067 = shl i32 %738, 15
-  %739 = load i32, ptr %E, align 4
-  %and1068 = and i32 %739, -1
-  %shr1069 = lshr i32 %and1068, 17
-  %or1070 = or i32 %shl1067, %shr1069
-  %740 = load i32, ptr %D, align 4
-  %add1071 = add i32 %or1070, %740
-  store i32 %add1071, ptr %E, align 4
-  %741 = load i32, ptr %B, align 4
-  %shl1072 = shl i32 %741, 10
-  %742 = load i32, ptr %B, align 4
-  %and1073 = and i32 %742, -1
-  %shr1074 = lshr i32 %and1073, 22
-  %or1075 = or i32 %shl1072, %shr1074
-  store i32 %or1075, ptr %B, align 4
-  %743 = load i32, ptr %E, align 4
-  %744 = load i32, ptr %A, align 4
-  %xor1076 = xor i32 %743, %744
-  %745 = load i32, ptr %B, align 4
-  %and1077 = and i32 %xor1076, %745
-  %746 = load i32, ptr %A, align 4
-  %xor1078 = xor i32 %and1077, %746
-  %747 = load i32, ptr %XX0, align 4
-  %add1079 = add i32 %xor1078, %747
-  %conv1080 = zext i32 %add1079 to i64
-  %add1081 = add nsw i64 %conv1080, 2400959708
-  %748 = load i32, ptr %D, align 4
-  %conv1082 = zext i32 %748 to i64
-  %add1083 = add nsw i64 %conv1082, %add1081
-  %conv1084 = trunc i64 %add1083 to i32
-  store i32 %conv1084, ptr %D, align 4
-  %749 = load i32, ptr %D, align 4
-  %shl1085 = shl i32 %749, 14
-  %750 = load i32, ptr %D, align 4
-  %and1086 = and i32 %750, -1
-  %shr1087 = lshr i32 %and1086, 18
-  %or1088 = or i32 %shl1085, %shr1087
-  %751 = load i32, ptr %C, align 4
-  %add1089 = add i32 %or1088, %751
-  store i32 %add1089, ptr %D, align 4
-  %752 = load i32, ptr %A, align 4
-  %shl1090 = shl i32 %752, 10
-  %753 = load i32, ptr %A, align 4
-  %and1091 = and i32 %753, -1
-  %shr1092 = lshr i32 %and1091, 22
-  %or1093 = or i32 %shl1090, %shr1092
-  store i32 %or1093, ptr %A, align 4
-  %754 = load i32, ptr %D, align 4
-  %755 = load i32, ptr %E, align 4
-  %xor1094 = xor i32 %754, %755
-  %756 = load i32, ptr %A, align 4
-  %and1095 = and i32 %xor1094, %756
-  %757 = load i32, ptr %E, align 4
-  %xor1096 = xor i32 %and1095, %757
-  %758 = load i32, ptr %XX8, align 4
-  %add1097 = add i32 %xor1096, %758
-  %conv1098 = zext i32 %add1097 to i64
-  %add1099 = add nsw i64 %conv1098, 2400959708
-  %759 = load i32, ptr %C, align 4
-  %conv1100 = zext i32 %759 to i64
-  %add1101 = add nsw i64 %conv1100, %add1099
-  %conv1102 = trunc i64 %add1101 to i32
-  store i32 %conv1102, ptr %C, align 4
-  %760 = load i32, ptr %C, align 4
-  %shl1103 = shl i32 %760, 15
-  %761 = load i32, ptr %C, align 4
-  %and1104 = and i32 %761, -1
-  %shr1105 = lshr i32 %and1104, 17
-  %or1106 = or i32 %shl1103, %shr1105
-  %762 = load i32, ptr %B, align 4
-  %add1107 = add i32 %or1106, %762
-  store i32 %add1107, ptr %C, align 4
-  %763 = load i32, ptr %E, align 4
-  %shl1108 = shl i32 %763, 10
-  %764 = load i32, ptr %E, align 4
-  %and1109 = and i32 %764, -1
-  %shr1110 = lshr i32 %and1109, 22
-  %or1111 = or i32 %shl1108, %shr1110
-  store i32 %or1111, ptr %E, align 4
-  %765 = load i32, ptr %C, align 4
-  %766 = load i32, ptr %D, align 4
-  %xor1112 = xor i32 %765, %766
-  %767 = load i32, ptr %E, align 4
-  %and1113 = and i32 %xor1112, %767
-  %768 = load i32, ptr %D, align 4
-  %xor1114 = xor i32 %and1113, %768
-  %769 = load i32, ptr %XX12, align 4
-  %add1115 = add i32 %xor1114, %769
-  %conv1116 = zext i32 %add1115 to i64
-  %add1117 = add nsw i64 %conv1116, 2400959708
-  %770 = load i32, ptr %B, align 4
-  %conv1118 = zext i32 %770 to i64
-  %add1119 = add nsw i64 %conv1118, %add1117
-  %conv1120 = trunc i64 %add1119 to i32
-  store i32 %conv1120, ptr %B, align 4
-  %771 = load i32, ptr %B, align 4
-  %shl1121 = shl i32 %771, 9
-  %772 = load i32, ptr %B, align 4
-  %and1122 = and i32 %772, -1
-  %shr1123 = lshr i32 %and1122, 23
-  %or1124 = or i32 %shl1121, %shr1123
-  %773 = load i32, ptr %A, align 4
-  %add1125 = add i32 %or1124, %773
-  store i32 %add1125, ptr %B, align 4
-  %774 = load i32, ptr %D, align 4
-  %shl1126 = shl i32 %774, 10
-  %775 = load i32, ptr %D, align 4
-  %and1127 = and i32 %775, -1
-  %shr1128 = lshr i32 %and1127, 22
-  %or1129 = or i32 %shl1126, %shr1128
-  store i32 %or1129, ptr %D, align 4
-  %776 = load i32, ptr %B, align 4
-  %777 = load i32, ptr %C, align 4
-  %xor1130 = xor i32 %776, %777
-  %778 = load i32, ptr %D, align 4
-  %and1131 = and i32 %xor1130, %778
-  %779 = load i32, ptr %C, align 4
-  %xor1132 = xor i32 %and1131, %779
-  %780 = load i32, ptr %XX4, align 4
-  %add1133 = add i32 %xor1132, %780
-  %conv1134 = zext i32 %add1133 to i64
-  %add1135 = add nsw i64 %conv1134, 2400959708
-  %781 = load i32, ptr %A, align 4
-  %conv1136 = zext i32 %781 to i64
-  %add1137 = add nsw i64 %conv1136, %add1135
-  %conv1138 = trunc i64 %add1137 to i32
-  store i32 %conv1138, ptr %A, align 4
-  %782 = load i32, ptr %A, align 4
-  %shl1139 = shl i32 %782, 8
-  %783 = load i32, ptr %A, align 4
-  %and1140 = and i32 %783, -1
-  %shr1141 = lshr i32 %and1140, 24
-  %or1142 = or i32 %shl1139, %shr1141
-  %784 = load i32, ptr %E, align 4
-  %add1143 = add i32 %or1142, %784
-  store i32 %add1143, ptr %A, align 4
-  %785 = load i32, ptr %C, align 4
-  %shl1144 = shl i32 %785, 10
-  %786 = load i32, ptr %C, align 4
-  %and1145 = and i32 %786, -1
-  %shr1146 = lshr i32 %and1145, 22
-  %or1147 = or i32 %shl1144, %shr1146
-  store i32 %or1147, ptr %C, align 4
-  %787 = load i32, ptr %A, align 4
-  %788 = load i32, ptr %B, align 4
-  %xor1148 = xor i32 %787, %788
-  %789 = load i32, ptr %C, align 4
-  %and1149 = and i32 %xor1148, %789
-  %790 = load i32, ptr %B, align 4
-  %xor1150 = xor i32 %and1149, %790
-  %791 = load i32, ptr %XX13, align 4
-  %add1151 = add i32 %xor1150, %791
-  %conv1152 = zext i32 %add1151 to i64
-  %add1153 = add nsw i64 %conv1152, 2400959708
-  %792 = load i32, ptr %E, align 4
-  %conv1154 = zext i32 %792 to i64
-  %add1155 = add nsw i64 %conv1154, %add1153
-  %conv1156 = trunc i64 %add1155 to i32
-  store i32 %conv1156, ptr %E, align 4
-  %793 = load i32, ptr %E, align 4
-  %shl1157 = shl i32 %793, 9
-  %794 = load i32, ptr %E, align 4
-  %and1158 = and i32 %794, -1
-  %shr1159 = lshr i32 %and1158, 23
-  %or1160 = or i32 %shl1157, %shr1159
-  %795 = load i32, ptr %D, align 4
-  %add1161 = add i32 %or1160, %795
-  store i32 %add1161, ptr %E, align 4
-  %796 = load i32, ptr %B, align 4
-  %shl1162 = shl i32 %796, 10
-  %797 = load i32, ptr %B, align 4
-  %and1163 = and i32 %797, -1
-  %shr1164 = lshr i32 %and1163, 22
-  %or1165 = or i32 %shl1162, %shr1164
-  store i32 %or1165, ptr %B, align 4
-  %798 = load i32, ptr %E, align 4
-  %799 = load i32, ptr %A, align 4
-  %xor1166 = xor i32 %798, %799
-  %800 = load i32, ptr %B, align 4
-  %and1167 = and i32 %xor1166, %800
-  %801 = load i32, ptr %A, align 4
-  %xor1168 = xor i32 %and1167, %801
-  %802 = load i32, ptr %XX3, align 4
-  %add1169 = add i32 %xor1168, %802
-  %conv1170 = zext i32 %add1169 to i64
-  %add1171 = add nsw i64 %conv1170, 2400959708
-  %803 = load i32, ptr %D, align 4
-  %conv1172 = zext i32 %803 to i64
-  %add1173 = add nsw i64 %conv1172, %add1171
-  %conv1174 = trunc i64 %add1173 to i32
-  store i32 %conv1174, ptr %D, align 4
-  %804 = load i32, ptr %D, align 4
-  %shl1175 = shl i32 %804, 14
-  %805 = load i32, ptr %D, align 4
-  %and1176 = and i32 %805, -1
-  %shr1177 = lshr i32 %and1176, 18
-  %or1178 = or i32 %shl1175, %shr1177
-  %806 = load i32, ptr %C, align 4
-  %add1179 = add i32 %or1178, %806
-  store i32 %add1179, ptr %D, align 4
-  %807 = load i32, ptr %A, align 4
-  %shl1180 = shl i32 %807, 10
-  %808 = load i32, ptr %A, align 4
-  %and1181 = and i32 %808, -1
-  %shr1182 = lshr i32 %and1181, 22
-  %or1183 = or i32 %shl1180, %shr1182
-  store i32 %or1183, ptr %A, align 4
-  %809 = load i32, ptr %D, align 4
-  %810 = load i32, ptr %E, align 4
-  %xor1184 = xor i32 %809, %810
-  %811 = load i32, ptr %A, align 4
-  %and1185 = and i32 %xor1184, %811
-  %812 = load i32, ptr %E, align 4
-  %xor1186 = xor i32 %and1185, %812
-  %813 = load i32, ptr %XX7, align 4
-  %add1187 = add i32 %xor1186, %813
-  %conv1188 = zext i32 %add1187 to i64
-  %add1189 = add nsw i64 %conv1188, 2400959708
-  %814 = load i32, ptr %C, align 4
-  %conv1190 = zext i32 %814 to i64
-  %add1191 = add nsw i64 %conv1190, %add1189
-  %conv1192 = trunc i64 %add1191 to i32
-  store i32 %conv1192, ptr %C, align 4
-  %815 = load i32, ptr %C, align 4
-  %shl1193 = shl i32 %815, 5
-  %816 = load i32, ptr %C, align 4
-  %and1194 = and i32 %816, -1
-  %shr1195 = lshr i32 %and1194, 27
-  %or1196 = or i32 %shl1193, %shr1195
-  %817 = load i32, ptr %B, align 4
-  %add1197 = add i32 %or1196, %817
-  store i32 %add1197, ptr %C, align 4
-  %818 = load i32, ptr %E, align 4
-  %shl1198 = shl i32 %818, 10
-  %819 = load i32, ptr %E, align 4
-  %and1199 = and i32 %819, -1
-  %shr1200 = lshr i32 %and1199, 22
-  %or1201 = or i32 %shl1198, %shr1200
-  store i32 %or1201, ptr %E, align 4
-  %820 = load i32, ptr %C, align 4
-  %821 = load i32, ptr %D, align 4
-  %xor1202 = xor i32 %820, %821
-  %822 = load i32, ptr %E, align 4
-  %and1203 = and i32 %xor1202, %822
-  %823 = load i32, ptr %D, align 4
-  %xor1204 = xor i32 %and1203, %823
-  %824 = load i32, ptr %XX15, align 4
-  %add1205 = add i32 %xor1204, %824
-  %conv1206 = zext i32 %add1205 to i64
-  %add1207 = add nsw i64 %conv1206, 2400959708
-  %825 = load i32, ptr %B, align 4
-  %conv1208 = zext i32 %825 to i64
-  %add1209 = add nsw i64 %conv1208, %add1207
-  %conv1210 = trunc i64 %add1209 to i32
-  store i32 %conv1210, ptr %B, align 4
-  %826 = load i32, ptr %B, align 4
-  %shl1211 = shl i32 %826, 6
-  %827 = load i32, ptr %B, align 4
-  %and1212 = and i32 %827, -1
-  %shr1213 = lshr i32 %and1212, 26
-  %or1214 = or i32 %shl1211, %shr1213
-  %828 = load i32, ptr %A, align 4
-  %add1215 = add i32 %or1214, %828
-  store i32 %add1215, ptr %B, align 4
-  %829 = load i32, ptr %D, align 4
-  %shl1216 = shl i32 %829, 10
-  %830 = load i32, ptr %D, align 4
-  %and1217 = and i32 %830, -1
-  %shr1218 = lshr i32 %and1217, 22
-  %or1219 = or i32 %shl1216, %shr1218
-  store i32 %or1219, ptr %D, align 4
-  %831 = load i32, ptr %B, align 4
-  %832 = load i32, ptr %C, align 4
-  %xor1220 = xor i32 %831, %832
-  %833 = load i32, ptr %D, align 4
-  %and1221 = and i32 %xor1220, %833
-  %834 = load i32, ptr %C, align 4
-  %xor1222 = xor i32 %and1221, %834
-  %835 = load i32, ptr %XX14, align 4
-  %add1223 = add i32 %xor1222, %835
-  %conv1224 = zext i32 %add1223 to i64
-  %add1225 = add nsw i64 %conv1224, 2400959708
-  %836 = load i32, ptr %A, align 4
-  %conv1226 = zext i32 %836 to i64
-  %add1227 = add nsw i64 %conv1226, %add1225
-  %conv1228 = trunc i64 %add1227 to i32
-  store i32 %conv1228, ptr %A, align 4
-  %837 = load i32, ptr %A, align 4
-  %shl1229 = shl i32 %837, 8
-  %838 = load i32, ptr %A, align 4
-  %and1230 = and i32 %838, -1
-  %shr1231 = lshr i32 %and1230, 24
-  %or1232 = or i32 %shl1229, %shr1231
-  %839 = load i32, ptr %E, align 4
-  %add1233 = add i32 %or1232, %839
-  store i32 %add1233, ptr %A, align 4
-  %840 = load i32, ptr %C, align 4
-  %shl1234 = shl i32 %840, 10
-  %841 = load i32, ptr %C, align 4
-  %and1235 = and i32 %841, -1
-  %shr1236 = lshr i32 %and1235, 22
-  %or1237 = or i32 %shl1234, %shr1236
-  store i32 %or1237, ptr %C, align 4
-  %842 = load i32, ptr %A, align 4
-  %843 = load i32, ptr %B, align 4
-  %xor1238 = xor i32 %842, %843
-  %844 = load i32, ptr %C, align 4
-  %and1239 = and i32 %xor1238, %844
-  %845 = load i32, ptr %B, align 4
-  %xor1240 = xor i32 %and1239, %845
-  %846 = load i32, ptr %XX5, align 4
-  %add1241 = add i32 %xor1240, %846
-  %conv1242 = zext i32 %add1241 to i64
-  %add1243 = add nsw i64 %conv1242, 2400959708
-  %847 = load i32, ptr %E, align 4
-  %conv1244 = zext i32 %847 to i64
-  %add1245 = add nsw i64 %conv1244, %add1243
-  %conv1246 = trunc i64 %add1245 to i32
-  store i32 %conv1246, ptr %E, align 4
-  %848 = load i32, ptr %E, align 4
-  %shl1247 = shl i32 %848, 6
-  %849 = load i32, ptr %E, align 4
-  %and1248 = and i32 %849, -1
-  %shr1249 = lshr i32 %and1248, 26
-  %or1250 = or i32 %shl1247, %shr1249
-  %850 = load i32, ptr %D, align 4
-  %add1251 = add i32 %or1250, %850
-  store i32 %add1251, ptr %E, align 4
-  %851 = load i32, ptr %B, align 4
-  %shl1252 = shl i32 %851, 10
-  %852 = load i32, ptr %B, align 4
-  %and1253 = and i32 %852, -1
-  %shr1254 = lshr i32 %and1253, 22
-  %or1255 = or i32 %shl1252, %shr1254
-  store i32 %or1255, ptr %B, align 4
-  %853 = load i32, ptr %E, align 4
-  %854 = load i32, ptr %A, align 4
-  %xor1256 = xor i32 %853, %854
-  %855 = load i32, ptr %B, align 4
-  %and1257 = and i32 %xor1256, %855
-  %856 = load i32, ptr %A, align 4
-  %xor1258 = xor i32 %and1257, %856
-  %857 = load i32, ptr %XX6, align 4
-  %add1259 = add i32 %xor1258, %857
-  %conv1260 = zext i32 %add1259 to i64
-  %add1261 = add nsw i64 %conv1260, 2400959708
-  %858 = load i32, ptr %D, align 4
-  %conv1262 = zext i32 %858 to i64
-  %add1263 = add nsw i64 %conv1262, %add1261
-  %conv1264 = trunc i64 %add1263 to i32
-  store i32 %conv1264, ptr %D, align 4
-  %859 = load i32, ptr %D, align 4
-  %shl1265 = shl i32 %859, 5
-  %860 = load i32, ptr %D, align 4
-  %and1266 = and i32 %860, -1
-  %shr1267 = lshr i32 %and1266, 27
-  %or1268 = or i32 %shl1265, %shr1267
-  %861 = load i32, ptr %C, align 4
-  %add1269 = add i32 %or1268, %861
-  store i32 %add1269, ptr %D, align 4
-  %862 = load i32, ptr %A, align 4
-  %shl1270 = shl i32 %862, 10
-  %863 = load i32, ptr %A, align 4
-  %and1271 = and i32 %863, -1
-  %shr1272 = lshr i32 %and1271, 22
-  %or1273 = or i32 %shl1270, %shr1272
-  store i32 %or1273, ptr %A, align 4
-  %864 = load i32, ptr %D, align 4
-  %865 = load i32, ptr %E, align 4
-  %xor1274 = xor i32 %864, %865
-  %866 = load i32, ptr %A, align 4
-  %and1275 = and i32 %xor1274, %866
-  %867 = load i32, ptr %E, align 4
-  %xor1276 = xor i32 %and1275, %867
-  %868 = load i32, ptr %XX2, align 4
-  %add1277 = add i32 %xor1276, %868
-  %conv1278 = zext i32 %add1277 to i64
-  %add1279 = add nsw i64 %conv1278, 2400959708
-  %869 = load i32, ptr %C, align 4
-  %conv1280 = zext i32 %869 to i64
-  %add1281 = add nsw i64 %conv1280, %add1279
-  %conv1282 = trunc i64 %add1281 to i32
-  store i32 %conv1282, ptr %C, align 4
-  %870 = load i32, ptr %C, align 4
-  %shl1283 = shl i32 %870, 12
-  %871 = load i32, ptr %C, align 4
-  %and1284 = and i32 %871, -1
-  %shr1285 = lshr i32 %and1284, 20
-  %or1286 = or i32 %shl1283, %shr1285
-  %872 = load i32, ptr %B, align 4
-  %add1287 = add i32 %or1286, %872
-  store i32 %add1287, ptr %C, align 4
-  %873 = load i32, ptr %E, align 4
-  %shl1288 = shl i32 %873, 10
-  %874 = load i32, ptr %E, align 4
-  %and1289 = and i32 %874, -1
-  %shr1290 = lshr i32 %and1289, 22
-  %or1291 = or i32 %shl1288, %shr1290
-  store i32 %or1291, ptr %E, align 4
-  %875 = load i32, ptr %E, align 4
-  %not1292 = xor i32 %875, -1
-  %876 = load i32, ptr %D, align 4
-  %or1293 = or i32 %not1292, %876
-  %877 = load i32, ptr %C, align 4
-  %xor1294 = xor i32 %or1293, %877
-  %878 = load i32, ptr %XX4, align 4
-  %add1295 = add i32 %xor1294, %878
-  %conv1296 = zext i32 %add1295 to i64
-  %add1297 = add nsw i64 %conv1296, 2840853838
-  %879 = load i32, ptr %B, align 4
-  %conv1298 = zext i32 %879 to i64
-  %add1299 = add nsw i64 %conv1298, %add1297
-  %conv1300 = trunc i64 %add1299 to i32
-  store i32 %conv1300, ptr %B, align 4
-  %880 = load i32, ptr %B, align 4
-  %shl1301 = shl i32 %880, 9
-  %881 = load i32, ptr %B, align 4
-  %and1302 = and i32 %881, -1
-  %shr1303 = lshr i32 %and1302, 23
-  %or1304 = or i32 %shl1301, %shr1303
-  %882 = load i32, ptr %A, align 4
-  %add1305 = add i32 %or1304, %882
-  store i32 %add1305, ptr %B, align 4
-  %883 = load i32, ptr %D, align 4
-  %shl1306 = shl i32 %883, 10
-  %884 = load i32, ptr %D, align 4
-  %and1307 = and i32 %884, -1
-  %shr1308 = lshr i32 %and1307, 22
-  %or1309 = or i32 %shl1306, %shr1308
-  store i32 %or1309, ptr %D, align 4
-  %885 = load i32, ptr %D, align 4
-  %not1310 = xor i32 %885, -1
-  %886 = load i32, ptr %C, align 4
-  %or1311 = or i32 %not1310, %886
-  %887 = load i32, ptr %B, align 4
-  %xor1312 = xor i32 %or1311, %887
-  %888 = load i32, ptr %XX0, align 4
-  %add1313 = add i32 %xor1312, %888
-  %conv1314 = zext i32 %add1313 to i64
-  %add1315 = add nsw i64 %conv1314, 2840853838
-  %889 = load i32, ptr %A, align 4
-  %conv1316 = zext i32 %889 to i64
-  %add1317 = add nsw i64 %conv1316, %add1315
-  %conv1318 = trunc i64 %add1317 to i32
-  store i32 %conv1318, ptr %A, align 4
-  %890 = load i32, ptr %A, align 4
-  %shl1319 = shl i32 %890, 15
-  %891 = load i32, ptr %A, align 4
-  %and1320 = and i32 %891, -1
-  %shr1321 = lshr i32 %and1320, 17
-  %or1322 = or i32 %shl1319, %shr1321
-  %892 = load i32, ptr %E, align 4
-  %add1323 = add i32 %or1322, %892
-  store i32 %add1323, ptr %A, align 4
-  %893 = load i32, ptr %C, align 4
-  %shl1324 = shl i32 %893, 10
-  %894 = load i32, ptr %C, align 4
-  %and1325 = and i32 %894, -1
-  %shr1326 = lshr i32 %and1325, 22
-  %or1327 = or i32 %shl1324, %shr1326
-  store i32 %or1327, ptr %C, align 4
-  %895 = load i32, ptr %C, align 4
-  %not1328 = xor i32 %895, -1
-  %896 = load i32, ptr %B, align 4
-  %or1329 = or i32 %not1328, %896
-  %897 = load i32, ptr %A, align 4
-  %xor1330 = xor i32 %or1329, %897
-  %898 = load i32, ptr %XX5, align 4
-  %add1331 = add i32 %xor1330, %898
-  %conv1332 = zext i32 %add1331 to i64
-  %add1333 = add nsw i64 %conv1332, 2840853838
-  %899 = load i32, ptr %E, align 4
-  %conv1334 = zext i32 %899 to i64
-  %add1335 = add nsw i64 %conv1334, %add1333
-  %conv1336 = trunc i64 %add1335 to i32
-  store i32 %conv1336, ptr %E, align 4
-  %900 = load i32, ptr %E, align 4
-  %shl1337 = shl i32 %900, 5
-  %901 = load i32, ptr %E, align 4
-  %and1338 = and i32 %901, -1
-  %shr1339 = lshr i32 %and1338, 27
-  %or1340 = or i32 %shl1337, %shr1339
-  %902 = load i32, ptr %D, align 4
-  %add1341 = add i32 %or1340, %902
-  store i32 %add1341, ptr %E, align 4
-  %903 = load i32, ptr %B, align 4
-  %shl1342 = shl i32 %903, 10
-  %904 = load i32, ptr %B, align 4
-  %and1343 = and i32 %904, -1
-  %shr1344 = lshr i32 %and1343, 22
-  %or1345 = or i32 %shl1342, %shr1344
-  store i32 %or1345, ptr %B, align 4
-  %905 = load i32, ptr %B, align 4
-  %not1346 = xor i32 %905, -1
-  %906 = load i32, ptr %A, align 4
-  %or1347 = or i32 %not1346, %906
-  %907 = load i32, ptr %E, align 4
-  %xor1348 = xor i32 %or1347, %907
-  %908 = load i32, ptr %XX9, align 4
-  %add1349 = add i32 %xor1348, %908
-  %conv1350 = zext i32 %add1349 to i64
-  %add1351 = add nsw i64 %conv1350, 2840853838
-  %909 = load i32, ptr %D, align 4
-  %conv1352 = zext i32 %909 to i64
-  %add1353 = add nsw i64 %conv1352, %add1351
-  %conv1354 = trunc i64 %add1353 to i32
-  store i32 %conv1354, ptr %D, align 4
-  %910 = load i32, ptr %D, align 4
-  %shl1355 = shl i32 %910, 11
-  %911 = load i32, ptr %D, align 4
-  %and1356 = and i32 %911, -1
-  %shr1357 = lshr i32 %and1356, 21
-  %or1358 = or i32 %shl1355, %shr1357
-  %912 = load i32, ptr %C, align 4
-  %add1359 = add i32 %or1358, %912
-  store i32 %add1359, ptr %D, align 4
-  %913 = load i32, ptr %A, align 4
-  %shl1360 = shl i32 %913, 10
-  %914 = load i32, ptr %A, align 4
-  %and1361 = and i32 %914, -1
-  %shr1362 = lshr i32 %and1361, 22
-  %or1363 = or i32 %shl1360, %shr1362
-  store i32 %or1363, ptr %A, align 4
-  %915 = load i32, ptr %A, align 4
-  %not1364 = xor i32 %915, -1
-  %916 = load i32, ptr %E, align 4
-  %or1365 = or i32 %not1364, %916
-  %917 = load i32, ptr %D, align 4
-  %xor1366 = xor i32 %or1365, %917
-  %918 = load i32, ptr %XX7, align 4
-  %add1367 = add i32 %xor1366, %918
-  %conv1368 = zext i32 %add1367 to i64
-  %add1369 = add nsw i64 %conv1368, 2840853838
-  %919 = load i32, ptr %C, align 4
-  %conv1370 = zext i32 %919 to i64
-  %add1371 = add nsw i64 %conv1370, %add1369
-  %conv1372 = trunc i64 %add1371 to i32
-  store i32 %conv1372, ptr %C, align 4
-  %920 = load i32, ptr %C, align 4
-  %shl1373 = shl i32 %920, 6
-  %921 = load i32, ptr %C, align 4
-  %and1374 = and i32 %921, -1
-  %shr1375 = lshr i32 %and1374, 26
-  %or1376 = or i32 %shl1373, %shr1375
-  %922 = load i32, ptr %B, align 4
-  %add1377 = add i32 %or1376, %922
-  store i32 %add1377, ptr %C, align 4
-  %923 = load i32, ptr %E, align 4
-  %shl1378 = shl i32 %923, 10
-  %924 = load i32, ptr %E, align 4
-  %and1379 = and i32 %924, -1
-  %shr1380 = lshr i32 %and1379, 22
-  %or1381 = or i32 %shl1378, %shr1380
-  store i32 %or1381, ptr %E, align 4
-  %925 = load i32, ptr %E, align 4
-  %not1382 = xor i32 %925, -1
-  %926 = load i32, ptr %D, align 4
-  %or1383 = or i32 %not1382, %926
-  %927 = load i32, ptr %C, align 4
-  %xor1384 = xor i32 %or1383, %927
-  %928 = load i32, ptr %XX12, align 4
-  %add1385 = add i32 %xor1384, %928
-  %conv1386 = zext i32 %add1385 to i64
-  %add1387 = add nsw i64 %conv1386, 2840853838
-  %929 = load i32, ptr %B, align 4
-  %conv1388 = zext i32 %929 to i64
-  %add1389 = add nsw i64 %conv1388, %add1387
-  %conv1390 = trunc i64 %add1389 to i32
-  store i32 %conv1390, ptr %B, align 4
-  %930 = load i32, ptr %B, align 4
-  %shl1391 = shl i32 %930, 8
-  %931 = load i32, ptr %B, align 4
-  %and1392 = and i32 %931, -1
-  %shr1393 = lshr i32 %and1392, 24
-  %or1394 = or i32 %shl1391, %shr1393
-  %932 = load i32, ptr %A, align 4
-  %add1395 = add i32 %or1394, %932
-  store i32 %add1395, ptr %B, align 4
-  %933 = load i32, ptr %D, align 4
-  %shl1396 = shl i32 %933, 10
-  %934 = load i32, ptr %D, align 4
-  %and1397 = and i32 %934, -1
-  %shr1398 = lshr i32 %and1397, 22
-  %or1399 = or i32 %shl1396, %shr1398
-  store i32 %or1399, ptr %D, align 4
-  %935 = load i32, ptr %D, align 4
-  %not1400 = xor i32 %935, -1
-  %936 = load i32, ptr %C, align 4
-  %or1401 = or i32 %not1400, %936
-  %937 = load i32, ptr %B, align 4
-  %xor1402 = xor i32 %or1401, %937
-  %938 = load i32, ptr %XX2, align 4
-  %add1403 = add i32 %xor1402, %938
-  %conv1404 = zext i32 %add1403 to i64
-  %add1405 = add nsw i64 %conv1404, 2840853838
-  %939 = load i32, ptr %A, align 4
-  %conv1406 = zext i32 %939 to i64
-  %add1407 = add nsw i64 %conv1406, %add1405
-  %conv1408 = trunc i64 %add1407 to i32
-  store i32 %conv1408, ptr %A, align 4
-  %940 = load i32, ptr %A, align 4
-  %shl1409 = shl i32 %940, 13
-  %941 = load i32, ptr %A, align 4
-  %and1410 = and i32 %941, -1
-  %shr1411 = lshr i32 %and1410, 19
-  %or1412 = or i32 %shl1409, %shr1411
-  %942 = load i32, ptr %E, align 4
-  %add1413 = add i32 %or1412, %942
-  store i32 %add1413, ptr %A, align 4
-  %943 = load i32, ptr %C, align 4
-  %shl1414 = shl i32 %943, 10
-  %944 = load i32, ptr %C, align 4
-  %and1415 = and i32 %944, -1
-  %shr1416 = lshr i32 %and1415, 22
-  %or1417 = or i32 %shl1414, %shr1416
-  store i32 %or1417, ptr %C, align 4
-  %945 = load i32, ptr %C, align 4
-  %not1418 = xor i32 %945, -1
-  %946 = load i32, ptr %B, align 4
-  %or1419 = or i32 %not1418, %946
-  %947 = load i32, ptr %A, align 4
-  %xor1420 = xor i32 %or1419, %947
-  %948 = load i32, ptr %XX10, align 4
-  %add1421 = add i32 %xor1420, %948
-  %conv1422 = zext i32 %add1421 to i64
-  %add1423 = add nsw i64 %conv1422, 2840853838
-  %949 = load i32, ptr %E, align 4
-  %conv1424 = zext i32 %949 to i64
-  %add1425 = add nsw i64 %conv1424, %add1423
-  %conv1426 = trunc i64 %add1425 to i32
-  store i32 %conv1426, ptr %E, align 4
-  %950 = load i32, ptr %E, align 4
-  %shl1427 = shl i32 %950, 12
-  %951 = load i32, ptr %E, align 4
-  %and1428 = and i32 %951, -1
-  %shr1429 = lshr i32 %and1428, 20
-  %or1430 = or i32 %shl1427, %shr1429
-  %952 = load i32, ptr %D, align 4
-  %add1431 = add i32 %or1430, %952
-  store i32 %add1431, ptr %E, align 4
-  %953 = load i32, ptr %B, align 4
-  %shl1432 = shl i32 %953, 10
-  %954 = load i32, ptr %B, align 4
-  %and1433 = and i32 %954, -1
-  %shr1434 = lshr i32 %and1433, 22
-  %or1435 = or i32 %shl1432, %shr1434
-  store i32 %or1435, ptr %B, align 4
-  %955 = load i32, ptr %B, align 4
-  %not1436 = xor i32 %955, -1
-  %956 = load i32, ptr %A, align 4
-  %or1437 = or i32 %not1436, %956
-  %957 = load i32, ptr %E, align 4
-  %xor1438 = xor i32 %or1437, %957
-  %958 = load i32, ptr %XX14, align 4
-  %add1439 = add i32 %xor1438, %958
-  %conv1440 = zext i32 %add1439 to i64
-  %add1441 = add nsw i64 %conv1440, 2840853838
-  %959 = load i32, ptr %D, align 4
-  %conv1442 = zext i32 %959 to i64
-  %add1443 = add nsw i64 %conv1442, %add1441
-  %conv1444 = trunc i64 %add1443 to i32
-  store i32 %conv1444, ptr %D, align 4
-  %960 = load i32, ptr %D, align 4
-  %shl1445 = shl i32 %960, 5
-  %961 = load i32, ptr %D, align 4
-  %and1446 = and i32 %961, -1
-  %shr1447 = lshr i32 %and1446, 27
-  %or1448 = or i32 %shl1445, %shr1447
-  %962 = load i32, ptr %C, align 4
-  %add1449 = add i32 %or1448, %962
-  store i32 %add1449, ptr %D, align 4
-  %963 = load i32, ptr %A, align 4
-  %shl1450 = shl i32 %963, 10
-  %964 = load i32, ptr %A, align 4
-  %and1451 = and i32 %964, -1
-  %shr1452 = lshr i32 %and1451, 22
-  %or1453 = or i32 %shl1450, %shr1452
-  store i32 %or1453, ptr %A, align 4
-  %965 = load i32, ptr %A, align 4
-  %not1454 = xor i32 %965, -1
-  %966 = load i32, ptr %E, align 4
-  %or1455 = or i32 %not1454, %966
-  %967 = load i32, ptr %D, align 4
-  %xor1456 = xor i32 %or1455, %967
-  %968 = load i32, ptr %XX1, align 4
-  %add1457 = add i32 %xor1456, %968
-  %conv1458 = zext i32 %add1457 to i64
-  %add1459 = add nsw i64 %conv1458, 2840853838
-  %969 = load i32, ptr %C, align 4
-  %conv1460 = zext i32 %969 to i64
-  %add1461 = add nsw i64 %conv1460, %add1459
-  %conv1462 = trunc i64 %add1461 to i32
-  store i32 %conv1462, ptr %C, align 4
-  %970 = load i32, ptr %C, align 4
-  %shl1463 = shl i32 %970, 12
-  %971 = load i32, ptr %C, align 4
-  %and1464 = and i32 %971, -1
-  %shr1465 = lshr i32 %and1464, 20
-  %or1466 = or i32 %shl1463, %shr1465
-  %972 = load i32, ptr %B, align 4
-  %add1467 = add i32 %or1466, %972
-  store i32 %add1467, ptr %C, align 4
-  %973 = load i32, ptr %E, align 4
-  %shl1468 = shl i32 %973, 10
-  %974 = load i32, ptr %E, align 4
-  %and1469 = and i32 %974, -1
-  %shr1470 = lshr i32 %and1469, 22
-  %or1471 = or i32 %shl1468, %shr1470
-  store i32 %or1471, ptr %E, align 4
-  %975 = load i32, ptr %E, align 4
-  %not1472 = xor i32 %975, -1
-  %976 = load i32, ptr %D, align 4
-  %or1473 = or i32 %not1472, %976
-  %977 = load i32, ptr %C, align 4
-  %xor1474 = xor i32 %or1473, %977
-  %978 = load i32, ptr %XX3, align 4
-  %add1475 = add i32 %xor1474, %978
-  %conv1476 = zext i32 %add1475 to i64
-  %add1477 = add nsw i64 %conv1476, 2840853838
-  %979 = load i32, ptr %B, align 4
-  %conv1478 = zext i32 %979 to i64
-  %add1479 = add nsw i64 %conv1478, %add1477
-  %conv1480 = trunc i64 %add1479 to i32
-  store i32 %conv1480, ptr %B, align 4
-  %980 = load i32, ptr %B, align 4
-  %shl1481 = shl i32 %980, 13
-  %981 = load i32, ptr %B, align 4
-  %and1482 = and i32 %981, -1
-  %shr1483 = lshr i32 %and1482, 19
-  %or1484 = or i32 %shl1481, %shr1483
-  %982 = load i32, ptr %A, align 4
-  %add1485 = add i32 %or1484, %982
-  store i32 %add1485, ptr %B, align 4
-  %983 = load i32, ptr %D, align 4
-  %shl1486 = shl i32 %983, 10
-  %984 = load i32, ptr %D, align 4
-  %and1487 = and i32 %984, -1
-  %shr1488 = lshr i32 %and1487, 22
-  %or1489 = or i32 %shl1486, %shr1488
-  store i32 %or1489, ptr %D, align 4
-  %985 = load i32, ptr %D, align 4
-  %not1490 = xor i32 %985, -1
-  %986 = load i32, ptr %C, align 4
-  %or1491 = or i32 %not1490, %986
-  %987 = load i32, ptr %B, align 4
-  %xor1492 = xor i32 %or1491, %987
-  %988 = load i32, ptr %XX8, align 4
-  %add1493 = add i32 %xor1492, %988
-  %conv1494 = zext i32 %add1493 to i64
-  %add1495 = add nsw i64 %conv1494, 2840853838
-  %989 = load i32, ptr %A, align 4
-  %conv1496 = zext i32 %989 to i64
-  %add1497 = add nsw i64 %conv1496, %add1495
-  %conv1498 = trunc i64 %add1497 to i32
-  store i32 %conv1498, ptr %A, align 4
-  %990 = load i32, ptr %A, align 4
-  %shl1499 = shl i32 %990, 14
-  %991 = load i32, ptr %A, align 4
-  %and1500 = and i32 %991, -1
-  %shr1501 = lshr i32 %and1500, 18
-  %or1502 = or i32 %shl1499, %shr1501
-  %992 = load i32, ptr %E, align 4
-  %add1503 = add i32 %or1502, %992
-  store i32 %add1503, ptr %A, align 4
-  %993 = load i32, ptr %C, align 4
-  %shl1504 = shl i32 %993, 10
-  %994 = load i32, ptr %C, align 4
-  %and1505 = and i32 %994, -1
-  %shr1506 = lshr i32 %and1505, 22
-  %or1507 = or i32 %shl1504, %shr1506
-  store i32 %or1507, ptr %C, align 4
-  %995 = load i32, ptr %C, align 4
-  %not1508 = xor i32 %995, -1
-  %996 = load i32, ptr %B, align 4
-  %or1509 = or i32 %not1508, %996
-  %997 = load i32, ptr %A, align 4
-  %xor1510 = xor i32 %or1509, %997
-  %998 = load i32, ptr %XX11, align 4
-  %add1511 = add i32 %xor1510, %998
-  %conv1512 = zext i32 %add1511 to i64
-  %add1513 = add nsw i64 %conv1512, 2840853838
-  %999 = load i32, ptr %E, align 4
-  %conv1514 = zext i32 %999 to i64
-  %add1515 = add nsw i64 %conv1514, %add1513
-  %conv1516 = trunc i64 %add1515 to i32
-  store i32 %conv1516, ptr %E, align 4
-  %1000 = load i32, ptr %E, align 4
-  %shl1517 = shl i32 %1000, 11
-  %1001 = load i32, ptr %E, align 4
-  %and1518 = and i32 %1001, -1
-  %shr1519 = lshr i32 %and1518, 21
-  %or1520 = or i32 %shl1517, %shr1519
-  %1002 = load i32, ptr %D, align 4
-  %add1521 = add i32 %or1520, %1002
-  store i32 %add1521, ptr %E, align 4
-  %1003 = load i32, ptr %B, align 4
-  %shl1522 = shl i32 %1003, 10
-  %1004 = load i32, ptr %B, align 4
-  %and1523 = and i32 %1004, -1
-  %shr1524 = lshr i32 %and1523, 22
-  %or1525 = or i32 %shl1522, %shr1524
-  store i32 %or1525, ptr %B, align 4
-  %1005 = load i32, ptr %B, align 4
-  %not1526 = xor i32 %1005, -1
-  %1006 = load i32, ptr %A, align 4
-  %or1527 = or i32 %not1526, %1006
-  %1007 = load i32, ptr %E, align 4
-  %xor1528 = xor i32 %or1527, %1007
-  %1008 = load i32, ptr %XX6, align 4
-  %add1529 = add i32 %xor1528, %1008
-  %conv1530 = zext i32 %add1529 to i64
-  %add1531 = add nsw i64 %conv1530, 2840853838
-  %1009 = load i32, ptr %D, align 4
-  %conv1532 = zext i32 %1009 to i64
-  %add1533 = add nsw i64 %conv1532, %add1531
-  %conv1534 = trunc i64 %add1533 to i32
-  store i32 %conv1534, ptr %D, align 4
-  %1010 = load i32, ptr %D, align 4
-  %shl1535 = shl i32 %1010, 8
-  %1011 = load i32, ptr %D, align 4
-  %and1536 = and i32 %1011, -1
-  %shr1537 = lshr i32 %and1536, 24
-  %or1538 = or i32 %shl1535, %shr1537
-  %1012 = load i32, ptr %C, align 4
-  %add1539 = add i32 %or1538, %1012
-  store i32 %add1539, ptr %D, align 4
-  %1013 = load i32, ptr %A, align 4
-  %shl1540 = shl i32 %1013, 10
-  %1014 = load i32, ptr %A, align 4
-  %and1541 = and i32 %1014, -1
-  %shr1542 = lshr i32 %and1541, 22
-  %or1543 = or i32 %shl1540, %shr1542
-  store i32 %or1543, ptr %A, align 4
-  %1015 = load i32, ptr %A, align 4
-  %not1544 = xor i32 %1015, -1
-  %1016 = load i32, ptr %E, align 4
-  %or1545 = or i32 %not1544, %1016
-  %1017 = load i32, ptr %D, align 4
-  %xor1546 = xor i32 %or1545, %1017
-  %1018 = load i32, ptr %XX15, align 4
-  %add1547 = add i32 %xor1546, %1018
-  %conv1548 = zext i32 %add1547 to i64
-  %add1549 = add nsw i64 %conv1548, 2840853838
-  %1019 = load i32, ptr %C, align 4
-  %conv1550 = zext i32 %1019 to i64
-  %add1551 = add nsw i64 %conv1550, %add1549
-  %conv1552 = trunc i64 %add1551 to i32
-  store i32 %conv1552, ptr %C, align 4
-  %1020 = load i32, ptr %C, align 4
-  %shl1553 = shl i32 %1020, 5
-  %1021 = load i32, ptr %C, align 4
-  %and1554 = and i32 %1021, -1
-  %shr1555 = lshr i32 %and1554, 27
-  %or1556 = or i32 %shl1553, %shr1555
-  %1022 = load i32, ptr %B, align 4
-  %add1557 = add i32 %or1556, %1022
-  store i32 %add1557, ptr %C, align 4
-  %1023 = load i32, ptr %E, align 4
-  %shl1558 = shl i32 %1023, 10
-  %1024 = load i32, ptr %E, align 4
-  %and1559 = and i32 %1024, -1
-  %shr1560 = lshr i32 %and1559, 22
-  %or1561 = or i32 %shl1558, %shr1560
-  store i32 %or1561, ptr %E, align 4
-  %1025 = load i32, ptr %E, align 4
-  %not1562 = xor i32 %1025, -1
-  %1026 = load i32, ptr %D, align 4
-  %or1563 = or i32 %not1562, %1026
-  %1027 = load i32, ptr %C, align 4
-  %xor1564 = xor i32 %or1563, %1027
-  %1028 = load i32, ptr %XX13, align 4
-  %add1565 = add i32 %xor1564, %1028
-  %conv1566 = zext i32 %add1565 to i64
-  %add1567 = add nsw i64 %conv1566, 2840853838
-  %1029 = load i32, ptr %B, align 4
-  %conv1568 = zext i32 %1029 to i64
-  %add1569 = add nsw i64 %conv1568, %add1567
-  %conv1570 = trunc i64 %add1569 to i32
-  store i32 %conv1570, ptr %B, align 4
-  %1030 = load i32, ptr %B, align 4
-  %shl1571 = shl i32 %1030, 6
-  %1031 = load i32, ptr %B, align 4
-  %and1572 = and i32 %1031, -1
-  %shr1573 = lshr i32 %and1572, 26
-  %or1574 = or i32 %shl1571, %shr1573
-  %1032 = load i32, ptr %A, align 4
-  %add1575 = add i32 %or1574, %1032
-  store i32 %add1575, ptr %B, align 4
-  %1033 = load i32, ptr %D, align 4
-  %shl1576 = shl i32 %1033, 10
-  %1034 = load i32, ptr %D, align 4
-  %and1577 = and i32 %1034, -1
-  %shr1578 = lshr i32 %and1577, 22
-  %or1579 = or i32 %shl1576, %shr1578
-  store i32 %or1579, ptr %D, align 4
-  %1035 = load i32, ptr %A, align 4
-  store i32 %1035, ptr %a, align 4
-  %1036 = load i32, ptr %B, align 4
-  store i32 %1036, ptr %b, align 4
-  %1037 = load i32, ptr %C, align 4
-  store i32 %1037, ptr %c, align 4
-  %1038 = load i32, ptr %D, align 4
-  store i32 %1038, ptr %d, align 4
-  %1039 = load i32, ptr %E, align 4
-  store i32 %1039, ptr %e, align 4
-  %1040 = load ptr, ptr %h.addr, align 8
-  %arrayidx1580 = getelementptr inbounds i32, ptr %1040, i64 0
-  %1041 = load i32, ptr %arrayidx1580, align 4
-  store i32 %1041, ptr %A, align 4
-  %1042 = load ptr, ptr %h.addr, align 8
-  %arrayidx1581 = getelementptr inbounds i32, ptr %1042, i64 1
-  %1043 = load i32, ptr %arrayidx1581, align 4
-  store i32 %1043, ptr %B, align 4
-  %1044 = load ptr, ptr %h.addr, align 8
-  %arrayidx1582 = getelementptr inbounds i32, ptr %1044, i64 2
-  %1045 = load i32, ptr %arrayidx1582, align 4
-  store i32 %1045, ptr %C, align 4
-  %1046 = load ptr, ptr %h.addr, align 8
-  %arrayidx1583 = getelementptr inbounds i32, ptr %1046, i64 3
-  %1047 = load i32, ptr %arrayidx1583, align 4
-  store i32 %1047, ptr %D, align 4
-  %1048 = load ptr, ptr %h.addr, align 8
-  %arrayidx1584 = getelementptr inbounds i32, ptr %1048, i64 4
-  %1049 = load i32, ptr %arrayidx1584, align 4
-  store i32 %1049, ptr %E, align 4
-  %1050 = load i32, ptr %D, align 4
-  %not1585 = xor i32 %1050, -1
-  %1051 = load i32, ptr %C, align 4
-  %or1586 = or i32 %not1585, %1051
-  %1052 = load i32, ptr %B, align 4
-  %xor1587 = xor i32 %or1586, %1052
-  %1053 = load i32, ptr %XX5, align 4
-  %add1588 = add i32 %xor1587, %1053
-  %conv1589 = zext i32 %add1588 to i64
-  %add1590 = add nsw i64 %conv1589, 1352829926
-  %1054 = load i32, ptr %A, align 4
-  %conv1591 = zext i32 %1054 to i64
-  %add1592 = add nsw i64 %conv1591, %add1590
-  %conv1593 = trunc i64 %add1592 to i32
-  store i32 %conv1593, ptr %A, align 4
-  %1055 = load i32, ptr %A, align 4
-  %shl1594 = shl i32 %1055, 8
-  %1056 = load i32, ptr %A, align 4
-  %and1595 = and i32 %1056, -1
-  %shr1596 = lshr i32 %and1595, 24
-  %or1597 = or i32 %shl1594, %shr1596
-  %1057 = load i32, ptr %E, align 4
-  %add1598 = add i32 %or1597, %1057
-  store i32 %add1598, ptr %A, align 4
-  %1058 = load i32, ptr %C, align 4
-  %shl1599 = shl i32 %1058, 10
-  %1059 = load i32, ptr %C, align 4
-  %and1600 = and i32 %1059, -1
-  %shr1601 = lshr i32 %and1600, 22
-  %or1602 = or i32 %shl1599, %shr1601
-  store i32 %or1602, ptr %C, align 4
-  %1060 = load i32, ptr %C, align 4
-  %not1603 = xor i32 %1060, -1
-  %1061 = load i32, ptr %B, align 4
-  %or1604 = or i32 %not1603, %1061
-  %1062 = load i32, ptr %A, align 4
-  %xor1605 = xor i32 %or1604, %1062
-  %1063 = load i32, ptr %XX14, align 4
-  %add1606 = add i32 %xor1605, %1063
-  %conv1607 = zext i32 %add1606 to i64
-  %add1608 = add nsw i64 %conv1607, 1352829926
-  %1064 = load i32, ptr %E, align 4
-  %conv1609 = zext i32 %1064 to i64
-  %add1610 = add nsw i64 %conv1609, %add1608
-  %conv1611 = trunc i64 %add1610 to i32
-  store i32 %conv1611, ptr %E, align 4
-  %1065 = load i32, ptr %E, align 4
-  %shl1612 = shl i32 %1065, 9
-  %1066 = load i32, ptr %E, align 4
-  %and1613 = and i32 %1066, -1
-  %shr1614 = lshr i32 %and1613, 23
-  %or1615 = or i32 %shl1612, %shr1614
-  %1067 = load i32, ptr %D, align 4
-  %add1616 = add i32 %or1615, %1067
-  store i32 %add1616, ptr %E, align 4
-  %1068 = load i32, ptr %B, align 4
-  %shl1617 = shl i32 %1068, 10
-  %1069 = load i32, ptr %B, align 4
-  %and1618 = and i32 %1069, -1
-  %shr1619 = lshr i32 %and1618, 22
-  %or1620 = or i32 %shl1617, %shr1619
-  store i32 %or1620, ptr %B, align 4
-  %1070 = load i32, ptr %B, align 4
-  %not1621 = xor i32 %1070, -1
-  %1071 = load i32, ptr %A, align 4
-  %or1622 = or i32 %not1621, %1071
-  %1072 = load i32, ptr %E, align 4
-  %xor1623 = xor i32 %or1622, %1072
-  %1073 = load i32, ptr %XX7, align 4
-  %add1624 = add i32 %xor1623, %1073
-  %conv1625 = zext i32 %add1624 to i64
-  %add1626 = add nsw i64 %conv1625, 1352829926
-  %1074 = load i32, ptr %D, align 4
-  %conv1627 = zext i32 %1074 to i64
-  %add1628 = add nsw i64 %conv1627, %add1626
-  %conv1629 = trunc i64 %add1628 to i32
-  store i32 %conv1629, ptr %D, align 4
-  %1075 = load i32, ptr %D, align 4
-  %shl1630 = shl i32 %1075, 9
-  %1076 = load i32, ptr %D, align 4
-  %and1631 = and i32 %1076, -1
-  %shr1632 = lshr i32 %and1631, 23
-  %or1633 = or i32 %shl1630, %shr1632
-  %1077 = load i32, ptr %C, align 4
-  %add1634 = add i32 %or1633, %1077
-  store i32 %add1634, ptr %D, align 4
-  %1078 = load i32, ptr %A, align 4
-  %shl1635 = shl i32 %1078, 10
-  %1079 = load i32, ptr %A, align 4
-  %and1636 = and i32 %1079, -1
-  %shr1637 = lshr i32 %and1636, 22
-  %or1638 = or i32 %shl1635, %shr1637
-  store i32 %or1638, ptr %A, align 4
-  %1080 = load i32, ptr %A, align 4
-  %not1639 = xor i32 %1080, -1
-  %1081 = load i32, ptr %E, align 4
-  %or1640 = or i32 %not1639, %1081
-  %1082 = load i32, ptr %D, align 4
-  %xor1641 = xor i32 %or1640, %1082
-  %1083 = load i32, ptr %XX0, align 4
-  %add1642 = add i32 %xor1641, %1083
-  %conv1643 = zext i32 %add1642 to i64
-  %add1644 = add nsw i64 %conv1643, 1352829926
-  %1084 = load i32, ptr %C, align 4
-  %conv1645 = zext i32 %1084 to i64
-  %add1646 = add nsw i64 %conv1645, %add1644
-  %conv1647 = trunc i64 %add1646 to i32
-  store i32 %conv1647, ptr %C, align 4
-  %1085 = load i32, ptr %C, align 4
-  %shl1648 = shl i32 %1085, 11
-  %1086 = load i32, ptr %C, align 4
-  %and1649 = and i32 %1086, -1
-  %shr1650 = lshr i32 %and1649, 21
-  %or1651 = or i32 %shl1648, %shr1650
-  %1087 = load i32, ptr %B, align 4
-  %add1652 = add i32 %or1651, %1087
-  store i32 %add1652, ptr %C, align 4
-  %1088 = load i32, ptr %E, align 4
-  %shl1653 = shl i32 %1088, 10
-  %1089 = load i32, ptr %E, align 4
-  %and1654 = and i32 %1089, -1
-  %shr1655 = lshr i32 %and1654, 22
-  %or1656 = or i32 %shl1653, %shr1655
-  store i32 %or1656, ptr %E, align 4
-  %1090 = load i32, ptr %E, align 4
-  %not1657 = xor i32 %1090, -1
-  %1091 = load i32, ptr %D, align 4
-  %or1658 = or i32 %not1657, %1091
-  %1092 = load i32, ptr %C, align 4
-  %xor1659 = xor i32 %or1658, %1092
-  %1093 = load i32, ptr %XX9, align 4
-  %add1660 = add i32 %xor1659, %1093
-  %conv1661 = zext i32 %add1660 to i64
-  %add1662 = add nsw i64 %conv1661, 1352829926
-  %1094 = load i32, ptr %B, align 4
-  %conv1663 = zext i32 %1094 to i64
-  %add1664 = add nsw i64 %conv1663, %add1662
-  %conv1665 = trunc i64 %add1664 to i32
-  store i32 %conv1665, ptr %B, align 4
-  %1095 = load i32, ptr %B, align 4
-  %shl1666 = shl i32 %1095, 13
-  %1096 = load i32, ptr %B, align 4
-  %and1667 = and i32 %1096, -1
-  %shr1668 = lshr i32 %and1667, 19
-  %or1669 = or i32 %shl1666, %shr1668
-  %1097 = load i32, ptr %A, align 4
-  %add1670 = add i32 %or1669, %1097
-  store i32 %add1670, ptr %B, align 4
-  %1098 = load i32, ptr %D, align 4
-  %shl1671 = shl i32 %1098, 10
-  %1099 = load i32, ptr %D, align 4
-  %and1672 = and i32 %1099, -1
-  %shr1673 = lshr i32 %and1672, 22
-  %or1674 = or i32 %shl1671, %shr1673
-  store i32 %or1674, ptr %D, align 4
-  %1100 = load i32, ptr %D, align 4
-  %not1675 = xor i32 %1100, -1
-  %1101 = load i32, ptr %C, align 4
-  %or1676 = or i32 %not1675, %1101
-  %1102 = load i32, ptr %B, align 4
-  %xor1677 = xor i32 %or1676, %1102
-  %1103 = load i32, ptr %XX2, align 4
-  %add1678 = add i32 %xor1677, %1103
-  %conv1679 = zext i32 %add1678 to i64
-  %add1680 = add nsw i64 %conv1679, 1352829926
-  %1104 = load i32, ptr %A, align 4
-  %conv1681 = zext i32 %1104 to i64
-  %add1682 = add nsw i64 %conv1681, %add1680
-  %conv1683 = trunc i64 %add1682 to i32
-  store i32 %conv1683, ptr %A, align 4
-  %1105 = load i32, ptr %A, align 4
-  %shl1684 = shl i32 %1105, 15
-  %1106 = load i32, ptr %A, align 4
-  %and1685 = and i32 %1106, -1
-  %shr1686 = lshr i32 %and1685, 17
-  %or1687 = or i32 %shl1684, %shr1686
-  %1107 = load i32, ptr %E, align 4
-  %add1688 = add i32 %or1687, %1107
-  store i32 %add1688, ptr %A, align 4
-  %1108 = load i32, ptr %C, align 4
-  %shl1689 = shl i32 %1108, 10
-  %1109 = load i32, ptr %C, align 4
-  %and1690 = and i32 %1109, -1
-  %shr1691 = lshr i32 %and1690, 22
-  %or1692 = or i32 %shl1689, %shr1691
-  store i32 %or1692, ptr %C, align 4
-  %1110 = load i32, ptr %C, align 4
-  %not1693 = xor i32 %1110, -1
-  %1111 = load i32, ptr %B, align 4
-  %or1694 = or i32 %not1693, %1111
-  %1112 = load i32, ptr %A, align 4
-  %xor1695 = xor i32 %or1694, %1112
-  %1113 = load i32, ptr %XX11, align 4
-  %add1696 = add i32 %xor1695, %1113
-  %conv1697 = zext i32 %add1696 to i64
-  %add1698 = add nsw i64 %conv1697, 1352829926
-  %1114 = load i32, ptr %E, align 4
-  %conv1699 = zext i32 %1114 to i64
-  %add1700 = add nsw i64 %conv1699, %add1698
-  %conv1701 = trunc i64 %add1700 to i32
-  store i32 %conv1701, ptr %E, align 4
-  %1115 = load i32, ptr %E, align 4
-  %shl1702 = shl i32 %1115, 15
-  %1116 = load i32, ptr %E, align 4
-  %and1703 = and i32 %1116, -1
-  %shr1704 = lshr i32 %and1703, 17
-  %or1705 = or i32 %shl1702, %shr1704
-  %1117 = load i32, ptr %D, align 4
-  %add1706 = add i32 %or1705, %1117
-  store i32 %add1706, ptr %E, align 4
-  %1118 = load i32, ptr %B, align 4
-  %shl1707 = shl i32 %1118, 10
-  %1119 = load i32, ptr %B, align 4
-  %and1708 = and i32 %1119, -1
-  %shr1709 = lshr i32 %and1708, 22
-  %or1710 = or i32 %shl1707, %shr1709
-  store i32 %or1710, ptr %B, align 4
-  %1120 = load i32, ptr %B, align 4
-  %not1711 = xor i32 %1120, -1
-  %1121 = load i32, ptr %A, align 4
-  %or1712 = or i32 %not1711, %1121
-  %1122 = load i32, ptr %E, align 4
-  %xor1713 = xor i32 %or1712, %1122
-  %1123 = load i32, ptr %XX4, align 4
-  %add1714 = add i32 %xor1713, %1123
-  %conv1715 = zext i32 %add1714 to i64
-  %add1716 = add nsw i64 %conv1715, 1352829926
-  %1124 = load i32, ptr %D, align 4
-  %conv1717 = zext i32 %1124 to i64
-  %add1718 = add nsw i64 %conv1717, %add1716
-  %conv1719 = trunc i64 %add1718 to i32
-  store i32 %conv1719, ptr %D, align 4
-  %1125 = load i32, ptr %D, align 4
-  %shl1720 = shl i32 %1125, 5
-  %1126 = load i32, ptr %D, align 4
-  %and1721 = and i32 %1126, -1
-  %shr1722 = lshr i32 %and1721, 27
-  %or1723 = or i32 %shl1720, %shr1722
-  %1127 = load i32, ptr %C, align 4
-  %add1724 = add i32 %or1723, %1127
-  store i32 %add1724, ptr %D, align 4
-  %1128 = load i32, ptr %A, align 4
-  %shl1725 = shl i32 %1128, 10
-  %1129 = load i32, ptr %A, align 4
-  %and1726 = and i32 %1129, -1
-  %shr1727 = lshr i32 %and1726, 22
-  %or1728 = or i32 %shl1725, %shr1727
-  store i32 %or1728, ptr %A, align 4
-  %1130 = load i32, ptr %A, align 4
-  %not1729 = xor i32 %1130, -1
-  %1131 = load i32, ptr %E, align 4
-  %or1730 = or i32 %not1729, %1131
-  %1132 = load i32, ptr %D, align 4
-  %xor1731 = xor i32 %or1730, %1132
-  %1133 = load i32, ptr %XX13, align 4
-  %add1732 = add i32 %xor1731, %1133
-  %conv1733 = zext i32 %add1732 to i64
-  %add1734 = add nsw i64 %conv1733, 1352829926
-  %1134 = load i32, ptr %C, align 4
-  %conv1735 = zext i32 %1134 to i64
-  %add1736 = add nsw i64 %conv1735, %add1734
-  %conv1737 = trunc i64 %add1736 to i32
-  store i32 %conv1737, ptr %C, align 4
-  %1135 = load i32, ptr %C, align 4
-  %shl1738 = shl i32 %1135, 7
-  %1136 = load i32, ptr %C, align 4
-  %and1739 = and i32 %1136, -1
-  %shr1740 = lshr i32 %and1739, 25
-  %or1741 = or i32 %shl1738, %shr1740
-  %1137 = load i32, ptr %B, align 4
-  %add1742 = add i32 %or1741, %1137
-  store i32 %add1742, ptr %C, align 4
-  %1138 = load i32, ptr %E, align 4
-  %shl1743 = shl i32 %1138, 10
-  %1139 = load i32, ptr %E, align 4
-  %and1744 = and i32 %1139, -1
-  %shr1745 = lshr i32 %and1744, 22
-  %or1746 = or i32 %shl1743, %shr1745
-  store i32 %or1746, ptr %E, align 4
-  %1140 = load i32, ptr %E, align 4
-  %not1747 = xor i32 %1140, -1
-  %1141 = load i32, ptr %D, align 4
-  %or1748 = or i32 %not1747, %1141
-  %1142 = load i32, ptr %C, align 4
-  %xor1749 = xor i32 %or1748, %1142
-  %1143 = load i32, ptr %XX6, align 4
-  %add1750 = add i32 %xor1749, %1143
-  %conv1751 = zext i32 %add1750 to i64
-  %add1752 = add nsw i64 %conv1751, 1352829926
-  %1144 = load i32, ptr %B, align 4
-  %conv1753 = zext i32 %1144 to i64
-  %add1754 = add nsw i64 %conv1753, %add1752
-  %conv1755 = trunc i64 %add1754 to i32
-  store i32 %conv1755, ptr %B, align 4
-  %1145 = load i32, ptr %B, align 4
-  %shl1756 = shl i32 %1145, 7
-  %1146 = load i32, ptr %B, align 4
-  %and1757 = and i32 %1146, -1
-  %shr1758 = lshr i32 %and1757, 25
-  %or1759 = or i32 %shl1756, %shr1758
-  %1147 = load i32, ptr %A, align 4
-  %add1760 = add i32 %or1759, %1147
-  store i32 %add1760, ptr %B, align 4
-  %1148 = load i32, ptr %D, align 4
-  %shl1761 = shl i32 %1148, 10
-  %1149 = load i32, ptr %D, align 4
-  %and1762 = and i32 %1149, -1
-  %shr1763 = lshr i32 %and1762, 22
-  %or1764 = or i32 %shl1761, %shr1763
-  store i32 %or1764, ptr %D, align 4
-  %1150 = load i32, ptr %D, align 4
-  %not1765 = xor i32 %1150, -1
-  %1151 = load i32, ptr %C, align 4
-  %or1766 = or i32 %not1765, %1151
-  %1152 = load i32, ptr %B, align 4
-  %xor1767 = xor i32 %or1766, %1152
-  %1153 = load i32, ptr %XX15, align 4
-  %add1768 = add i32 %xor1767, %1153
-  %conv1769 = zext i32 %add1768 to i64
-  %add1770 = add nsw i64 %conv1769, 1352829926
-  %1154 = load i32, ptr %A, align 4
-  %conv1771 = zext i32 %1154 to i64
-  %add1772 = add nsw i64 %conv1771, %add1770
-  %conv1773 = trunc i64 %add1772 to i32
-  store i32 %conv1773, ptr %A, align 4
-  %1155 = load i32, ptr %A, align 4
-  %shl1774 = shl i32 %1155, 8
-  %1156 = load i32, ptr %A, align 4
-  %and1775 = and i32 %1156, -1
-  %shr1776 = lshr i32 %and1775, 24
-  %or1777 = or i32 %shl1774, %shr1776
-  %1157 = load i32, ptr %E, align 4
-  %add1778 = add i32 %or1777, %1157
-  store i32 %add1778, ptr %A, align 4
-  %1158 = load i32, ptr %C, align 4
-  %shl1779 = shl i32 %1158, 10
-  %1159 = load i32, ptr %C, align 4
-  %and1780 = and i32 %1159, -1
-  %shr1781 = lshr i32 %and1780, 22
-  %or1782 = or i32 %shl1779, %shr1781
-  store i32 %or1782, ptr %C, align 4
-  %1160 = load i32, ptr %C, align 4
-  %not1783 = xor i32 %1160, -1
-  %1161 = load i32, ptr %B, align 4
-  %or1784 = or i32 %not1783, %1161
-  %1162 = load i32, ptr %A, align 4
-  %xor1785 = xor i32 %or1784, %1162
-  %1163 = load i32, ptr %XX8, align 4
-  %add1786 = add i32 %xor1785, %1163
-  %conv1787 = zext i32 %add1786 to i64
-  %add1788 = add nsw i64 %conv1787, 1352829926
-  %1164 = load i32, ptr %E, align 4
-  %conv1789 = zext i32 %1164 to i64
-  %add1790 = add nsw i64 %conv1789, %add1788
-  %conv1791 = trunc i64 %add1790 to i32
-  store i32 %conv1791, ptr %E, align 4
-  %1165 = load i32, ptr %E, align 4
-  %shl1792 = shl i32 %1165, 11
-  %1166 = load i32, ptr %E, align 4
-  %and1793 = and i32 %1166, -1
-  %shr1794 = lshr i32 %and1793, 21
-  %or1795 = or i32 %shl1792, %shr1794
-  %1167 = load i32, ptr %D, align 4
-  %add1796 = add i32 %or1795, %1167
-  store i32 %add1796, ptr %E, align 4
-  %1168 = load i32, ptr %B, align 4
-  %shl1797 = shl i32 %1168, 10
-  %1169 = load i32, ptr %B, align 4
-  %and1798 = and i32 %1169, -1
-  %shr1799 = lshr i32 %and1798, 22
-  %or1800 = or i32 %shl1797, %shr1799
-  store i32 %or1800, ptr %B, align 4
-  %1170 = load i32, ptr %B, align 4
-  %not1801 = xor i32 %1170, -1
-  %1171 = load i32, ptr %A, align 4
-  %or1802 = or i32 %not1801, %1171
-  %1172 = load i32, ptr %E, align 4
-  %xor1803 = xor i32 %or1802, %1172
-  %1173 = load i32, ptr %XX1, align 4
-  %add1804 = add i32 %xor1803, %1173
-  %conv1805 = zext i32 %add1804 to i64
-  %add1806 = add nsw i64 %conv1805, 1352829926
-  %1174 = load i32, ptr %D, align 4
-  %conv1807 = zext i32 %1174 to i64
-  %add1808 = add nsw i64 %conv1807, %add1806
-  %conv1809 = trunc i64 %add1808 to i32
-  store i32 %conv1809, ptr %D, align 4
-  %1175 = load i32, ptr %D, align 4
-  %shl1810 = shl i32 %1175, 14
-  %1176 = load i32, ptr %D, align 4
-  %and1811 = and i32 %1176, -1
-  %shr1812 = lshr i32 %and1811, 18
-  %or1813 = or i32 %shl1810, %shr1812
-  %1177 = load i32, ptr %C, align 4
-  %add1814 = add i32 %or1813, %1177
-  store i32 %add1814, ptr %D, align 4
-  %1178 = load i32, ptr %A, align 4
-  %shl1815 = shl i32 %1178, 10
-  %1179 = load i32, ptr %A, align 4
-  %and1816 = and i32 %1179, -1
-  %shr1817 = lshr i32 %and1816, 22
-  %or1818 = or i32 %shl1815, %shr1817
-  store i32 %or1818, ptr %A, align 4
-  %1180 = load i32, ptr %A, align 4
-  %not1819 = xor i32 %1180, -1
-  %1181 = load i32, ptr %E, align 4
-  %or1820 = or i32 %not1819, %1181
-  %1182 = load i32, ptr %D, align 4
-  %xor1821 = xor i32 %or1820, %1182
-  %1183 = load i32, ptr %XX10, align 4
-  %add1822 = add i32 %xor1821, %1183
-  %conv1823 = zext i32 %add1822 to i64
-  %add1824 = add nsw i64 %conv1823, 1352829926
-  %1184 = load i32, ptr %C, align 4
-  %conv1825 = zext i32 %1184 to i64
-  %add1826 = add nsw i64 %conv1825, %add1824
-  %conv1827 = trunc i64 %add1826 to i32
-  store i32 %conv1827, ptr %C, align 4
-  %1185 = load i32, ptr %C, align 4
-  %shl1828 = shl i32 %1185, 14
-  %1186 = load i32, ptr %C, align 4
-  %and1829 = and i32 %1186, -1
-  %shr1830 = lshr i32 %and1829, 18
-  %or1831 = or i32 %shl1828, %shr1830
-  %1187 = load i32, ptr %B, align 4
-  %add1832 = add i32 %or1831, %1187
-  store i32 %add1832, ptr %C, align 4
-  %1188 = load i32, ptr %E, align 4
-  %shl1833 = shl i32 %1188, 10
-  %1189 = load i32, ptr %E, align 4
-  %and1834 = and i32 %1189, -1
-  %shr1835 = lshr i32 %and1834, 22
-  %or1836 = or i32 %shl1833, %shr1835
-  store i32 %or1836, ptr %E, align 4
-  %1190 = load i32, ptr %E, align 4
-  %not1837 = xor i32 %1190, -1
-  %1191 = load i32, ptr %D, align 4
-  %or1838 = or i32 %not1837, %1191
-  %1192 = load i32, ptr %C, align 4
-  %xor1839 = xor i32 %or1838, %1192
-  %1193 = load i32, ptr %XX3, align 4
-  %add1840 = add i32 %xor1839, %1193
-  %conv1841 = zext i32 %add1840 to i64
-  %add1842 = add nsw i64 %conv1841, 1352829926
-  %1194 = load i32, ptr %B, align 4
-  %conv1843 = zext i32 %1194 to i64
-  %add1844 = add nsw i64 %conv1843, %add1842
-  %conv1845 = trunc i64 %add1844 to i32
-  store i32 %conv1845, ptr %B, align 4
-  %1195 = load i32, ptr %B, align 4
-  %shl1846 = shl i32 %1195, 12
-  %1196 = load i32, ptr %B, align 4
-  %and1847 = and i32 %1196, -1
-  %shr1848 = lshr i32 %and1847, 20
-  %or1849 = or i32 %shl1846, %shr1848
-  %1197 = load i32, ptr %A, align 4
-  %add1850 = add i32 %or1849, %1197
-  store i32 %add1850, ptr %B, align 4
-  %1198 = load i32, ptr %D, align 4
-  %shl1851 = shl i32 %1198, 10
-  %1199 = load i32, ptr %D, align 4
-  %and1852 = and i32 %1199, -1
-  %shr1853 = lshr i32 %and1852, 22
-  %or1854 = or i32 %shl1851, %shr1853
-  store i32 %or1854, ptr %D, align 4
-  %1200 = load i32, ptr %D, align 4
-  %not1855 = xor i32 %1200, -1
-  %1201 = load i32, ptr %C, align 4
-  %or1856 = or i32 %not1855, %1201
-  %1202 = load i32, ptr %B, align 4
-  %xor1857 = xor i32 %or1856, %1202
-  %1203 = load i32, ptr %XX12, align 4
-  %add1858 = add i32 %xor1857, %1203
-  %conv1859 = zext i32 %add1858 to i64
-  %add1860 = add nsw i64 %conv1859, 1352829926
-  %1204 = load i32, ptr %A, align 4
-  %conv1861 = zext i32 %1204 to i64
-  %add1862 = add nsw i64 %conv1861, %add1860
-  %conv1863 = trunc i64 %add1862 to i32
-  store i32 %conv1863, ptr %A, align 4
-  %1205 = load i32, ptr %A, align 4
-  %shl1864 = shl i32 %1205, 6
-  %1206 = load i32, ptr %A, align 4
-  %and1865 = and i32 %1206, -1
-  %shr1866 = lshr i32 %and1865, 26
-  %or1867 = or i32 %shl1864, %shr1866
-  %1207 = load i32, ptr %E, align 4
-  %add1868 = add i32 %or1867, %1207
-  store i32 %add1868, ptr %A, align 4
-  %1208 = load i32, ptr %C, align 4
-  %shl1869 = shl i32 %1208, 10
-  %1209 = load i32, ptr %C, align 4
-  %and1870 = and i32 %1209, -1
-  %shr1871 = lshr i32 %and1870, 22
-  %or1872 = or i32 %shl1869, %shr1871
-  store i32 %or1872, ptr %C, align 4
-  %1210 = load i32, ptr %A, align 4
-  %1211 = load i32, ptr %B, align 4
-  %xor1873 = xor i32 %1210, %1211
-  %1212 = load i32, ptr %C, align 4
-  %and1874 = and i32 %xor1873, %1212
-  %1213 = load i32, ptr %B, align 4
-  %xor1875 = xor i32 %and1874, %1213
-  %1214 = load i32, ptr %XX6, align 4
-  %add1876 = add i32 %xor1875, %1214
-  %conv1877 = zext i32 %add1876 to i64
-  %add1878 = add nsw i64 %conv1877, 1548603684
-  %1215 = load i32, ptr %E, align 4
-  %conv1879 = zext i32 %1215 to i64
-  %add1880 = add nsw i64 %conv1879, %add1878
-  %conv1881 = trunc i64 %add1880 to i32
-  store i32 %conv1881, ptr %E, align 4
-  %1216 = load i32, ptr %E, align 4
-  %shl1882 = shl i32 %1216, 9
-  %1217 = load i32, ptr %E, align 4
-  %and1883 = and i32 %1217, -1
-  %shr1884 = lshr i32 %and1883, 23
-  %or1885 = or i32 %shl1882, %shr1884
-  %1218 = load i32, ptr %D, align 4
-  %add1886 = add i32 %or1885, %1218
-  store i32 %add1886, ptr %E, align 4
-  %1219 = load i32, ptr %B, align 4
-  %shl1887 = shl i32 %1219, 10
-  %1220 = load i32, ptr %B, align 4
-  %and1888 = and i32 %1220, -1
-  %shr1889 = lshr i32 %and1888, 22
-  %or1890 = or i32 %shl1887, %shr1889
-  store i32 %or1890, ptr %B, align 4
-  %1221 = load i32, ptr %E, align 4
-  %1222 = load i32, ptr %A, align 4
-  %xor1891 = xor i32 %1221, %1222
-  %1223 = load i32, ptr %B, align 4
-  %and1892 = and i32 %xor1891, %1223
-  %1224 = load i32, ptr %A, align 4
-  %xor1893 = xor i32 %and1892, %1224
-  %1225 = load i32, ptr %XX11, align 4
-  %add1894 = add i32 %xor1893, %1225
-  %conv1895 = zext i32 %add1894 to i64
-  %add1896 = add nsw i64 %conv1895, 1548603684
-  %1226 = load i32, ptr %D, align 4
-  %conv1897 = zext i32 %1226 to i64
-  %add1898 = add nsw i64 %conv1897, %add1896
-  %conv1899 = trunc i64 %add1898 to i32
-  store i32 %conv1899, ptr %D, align 4
-  %1227 = load i32, ptr %D, align 4
-  %shl1900 = shl i32 %1227, 13
-  %1228 = load i32, ptr %D, align 4
-  %and1901 = and i32 %1228, -1
-  %shr1902 = lshr i32 %and1901, 19
-  %or1903 = or i32 %shl1900, %shr1902
-  %1229 = load i32, ptr %C, align 4
-  %add1904 = add i32 %or1903, %1229
-  store i32 %add1904, ptr %D, align 4
-  %1230 = load i32, ptr %A, align 4
-  %shl1905 = shl i32 %1230, 10
-  %1231 = load i32, ptr %A, align 4
-  %and1906 = and i32 %1231, -1
-  %shr1907 = lshr i32 %and1906, 22
-  %or1908 = or i32 %shl1905, %shr1907
-  store i32 %or1908, ptr %A, align 4
-  %1232 = load i32, ptr %D, align 4
-  %1233 = load i32, ptr %E, align 4
-  %xor1909 = xor i32 %1232, %1233
-  %1234 = load i32, ptr %A, align 4
-  %and1910 = and i32 %xor1909, %1234
-  %1235 = load i32, ptr %E, align 4
-  %xor1911 = xor i32 %and1910, %1235
-  %1236 = load i32, ptr %XX3, align 4
-  %add1912 = add i32 %xor1911, %1236
-  %conv1913 = zext i32 %add1912 to i64
-  %add1914 = add nsw i64 %conv1913, 1548603684
-  %1237 = load i32, ptr %C, align 4
-  %conv1915 = zext i32 %1237 to i64
-  %add1916 = add nsw i64 %conv1915, %add1914
-  %conv1917 = trunc i64 %add1916 to i32
-  store i32 %conv1917, ptr %C, align 4
-  %1238 = load i32, ptr %C, align 4
-  %shl1918 = shl i32 %1238, 15
-  %1239 = load i32, ptr %C, align 4
-  %and1919 = and i32 %1239, -1
-  %shr1920 = lshr i32 %and1919, 17
-  %or1921 = or i32 %shl1918, %shr1920
-  %1240 = load i32, ptr %B, align 4
-  %add1922 = add i32 %or1921, %1240
-  store i32 %add1922, ptr %C, align 4
-  %1241 = load i32, ptr %E, align 4
-  %shl1923 = shl i32 %1241, 10
-  %1242 = load i32, ptr %E, align 4
-  %and1924 = and i32 %1242, -1
-  %shr1925 = lshr i32 %and1924, 22
-  %or1926 = or i32 %shl1923, %shr1925
-  store i32 %or1926, ptr %E, align 4
-  %1243 = load i32, ptr %C, align 4
-  %1244 = load i32, ptr %D, align 4
-  %xor1927 = xor i32 %1243, %1244
-  %1245 = load i32, ptr %E, align 4
-  %and1928 = and i32 %xor1927, %1245
-  %1246 = load i32, ptr %D, align 4
-  %xor1929 = xor i32 %and1928, %1246
-  %1247 = load i32, ptr %XX7, align 4
-  %add1930 = add i32 %xor1929, %1247
-  %conv1931 = zext i32 %add1930 to i64
-  %add1932 = add nsw i64 %conv1931, 1548603684
-  %1248 = load i32, ptr %B, align 4
-  %conv1933 = zext i32 %1248 to i64
-  %add1934 = add nsw i64 %conv1933, %add1932
-  %conv1935 = trunc i64 %add1934 to i32
-  store i32 %conv1935, ptr %B, align 4
-  %1249 = load i32, ptr %B, align 4
-  %shl1936 = shl i32 %1249, 7
-  %1250 = load i32, ptr %B, align 4
-  %and1937 = and i32 %1250, -1
-  %shr1938 = lshr i32 %and1937, 25
-  %or1939 = or i32 %shl1936, %shr1938
-  %1251 = load i32, ptr %A, align 4
-  %add1940 = add i32 %or1939, %1251
-  store i32 %add1940, ptr %B, align 4
-  %1252 = load i32, ptr %D, align 4
-  %shl1941 = shl i32 %1252, 10
-  %1253 = load i32, ptr %D, align 4
-  %and1942 = and i32 %1253, -1
-  %shr1943 = lshr i32 %and1942, 22
-  %or1944 = or i32 %shl1941, %shr1943
-  store i32 %or1944, ptr %D, align 4
-  %1254 = load i32, ptr %B, align 4
-  %1255 = load i32, ptr %C, align 4
-  %xor1945 = xor i32 %1254, %1255
-  %1256 = load i32, ptr %D, align 4
-  %and1946 = and i32 %xor1945, %1256
-  %1257 = load i32, ptr %C, align 4
-  %xor1947 = xor i32 %and1946, %1257
-  %1258 = load i32, ptr %XX0, align 4
-  %add1948 = add i32 %xor1947, %1258
-  %conv1949 = zext i32 %add1948 to i64
-  %add1950 = add nsw i64 %conv1949, 1548603684
-  %1259 = load i32, ptr %A, align 4
-  %conv1951 = zext i32 %1259 to i64
-  %add1952 = add nsw i64 %conv1951, %add1950
-  %conv1953 = trunc i64 %add1952 to i32
-  store i32 %conv1953, ptr %A, align 4
-  %1260 = load i32, ptr %A, align 4
-  %shl1954 = shl i32 %1260, 12
-  %1261 = load i32, ptr %A, align 4
-  %and1955 = and i32 %1261, -1
-  %shr1956 = lshr i32 %and1955, 20
-  %or1957 = or i32 %shl1954, %shr1956
-  %1262 = load i32, ptr %E, align 4
-  %add1958 = add i32 %or1957, %1262
-  store i32 %add1958, ptr %A, align 4
-  %1263 = load i32, ptr %C, align 4
-  %shl1959 = shl i32 %1263, 10
-  %1264 = load i32, ptr %C, align 4
-  %and1960 = and i32 %1264, -1
-  %shr1961 = lshr i32 %and1960, 22
-  %or1962 = or i32 %shl1959, %shr1961
-  store i32 %or1962, ptr %C, align 4
-  %1265 = load i32, ptr %A, align 4
-  %1266 = load i32, ptr %B, align 4
-  %xor1963 = xor i32 %1265, %1266
-  %1267 = load i32, ptr %C, align 4
-  %and1964 = and i32 %xor1963, %1267
-  %1268 = load i32, ptr %B, align 4
-  %xor1965 = xor i32 %and1964, %1268
-  %1269 = load i32, ptr %XX13, align 4
-  %add1966 = add i32 %xor1965, %1269
-  %conv1967 = zext i32 %add1966 to i64
-  %add1968 = add nsw i64 %conv1967, 1548603684
-  %1270 = load i32, ptr %E, align 4
-  %conv1969 = zext i32 %1270 to i64
-  %add1970 = add nsw i64 %conv1969, %add1968
-  %conv1971 = trunc i64 %add1970 to i32
-  store i32 %conv1971, ptr %E, align 4
-  %1271 = load i32, ptr %E, align 4
-  %shl1972 = shl i32 %1271, 8
-  %1272 = load i32, ptr %E, align 4
-  %and1973 = and i32 %1272, -1
-  %shr1974 = lshr i32 %and1973, 24
-  %or1975 = or i32 %shl1972, %shr1974
-  %1273 = load i32, ptr %D, align 4
-  %add1976 = add i32 %or1975, %1273
-  store i32 %add1976, ptr %E, align 4
-  %1274 = load i32, ptr %B, align 4
-  %shl1977 = shl i32 %1274, 10
-  %1275 = load i32, ptr %B, align 4
-  %and1978 = and i32 %1275, -1
-  %shr1979 = lshr i32 %and1978, 22
-  %or1980 = or i32 %shl1977, %shr1979
-  store i32 %or1980, ptr %B, align 4
-  %1276 = load i32, ptr %E, align 4
-  %1277 = load i32, ptr %A, align 4
-  %xor1981 = xor i32 %1276, %1277
-  %1278 = load i32, ptr %B, align 4
-  %and1982 = and i32 %xor1981, %1278
-  %1279 = load i32, ptr %A, align 4
-  %xor1983 = xor i32 %and1982, %1279
-  %1280 = load i32, ptr %XX5, align 4
-  %add1984 = add i32 %xor1983, %1280
-  %conv1985 = zext i32 %add1984 to i64
-  %add1986 = add nsw i64 %conv1985, 1548603684
-  %1281 = load i32, ptr %D, align 4
-  %conv1987 = zext i32 %1281 to i64
-  %add1988 = add nsw i64 %conv1987, %add1986
-  %conv1989 = trunc i64 %add1988 to i32
-  store i32 %conv1989, ptr %D, align 4
-  %1282 = load i32, ptr %D, align 4
-  %shl1990 = shl i32 %1282, 9
-  %1283 = load i32, ptr %D, align 4
-  %and1991 = and i32 %1283, -1
-  %shr1992 = lshr i32 %and1991, 23
-  %or1993 = or i32 %shl1990, %shr1992
-  %1284 = load i32, ptr %C, align 4
-  %add1994 = add i32 %or1993, %1284
-  store i32 %add1994, ptr %D, align 4
-  %1285 = load i32, ptr %A, align 4
-  %shl1995 = shl i32 %1285, 10
-  %1286 = load i32, ptr %A, align 4
-  %and1996 = and i32 %1286, -1
-  %shr1997 = lshr i32 %and1996, 22
-  %or1998 = or i32 %shl1995, %shr1997
-  store i32 %or1998, ptr %A, align 4
-  %1287 = load i32, ptr %D, align 4
-  %1288 = load i32, ptr %E, align 4
-  %xor1999 = xor i32 %1287, %1288
-  %1289 = load i32, ptr %A, align 4
-  %and2000 = and i32 %xor1999, %1289
-  %1290 = load i32, ptr %E, align 4
-  %xor2001 = xor i32 %and2000, %1290
-  %1291 = load i32, ptr %XX10, align 4
-  %add2002 = add i32 %xor2001, %1291
-  %conv2003 = zext i32 %add2002 to i64
-  %add2004 = add nsw i64 %conv2003, 1548603684
-  %1292 = load i32, ptr %C, align 4
-  %conv2005 = zext i32 %1292 to i64
-  %add2006 = add nsw i64 %conv2005, %add2004
-  %conv2007 = trunc i64 %add2006 to i32
-  store i32 %conv2007, ptr %C, align 4
-  %1293 = load i32, ptr %C, align 4
-  %shl2008 = shl i32 %1293, 11
-  %1294 = load i32, ptr %C, align 4
-  %and2009 = and i32 %1294, -1
-  %shr2010 = lshr i32 %and2009, 21
-  %or2011 = or i32 %shl2008, %shr2010
-  %1295 = load i32, ptr %B, align 4
-  %add2012 = add i32 %or2011, %1295
-  store i32 %add2012, ptr %C, align 4
-  %1296 = load i32, ptr %E, align 4
-  %shl2013 = shl i32 %1296, 10
-  %1297 = load i32, ptr %E, align 4
-  %and2014 = and i32 %1297, -1
-  %shr2015 = lshr i32 %and2014, 22
-  %or2016 = or i32 %shl2013, %shr2015
-  store i32 %or2016, ptr %E, align 4
-  %1298 = load i32, ptr %C, align 4
-  %1299 = load i32, ptr %D, align 4
-  %xor2017 = xor i32 %1298, %1299
-  %1300 = load i32, ptr %E, align 4
-  %and2018 = and i32 %xor2017, %1300
-  %1301 = load i32, ptr %D, align 4
-  %xor2019 = xor i32 %and2018, %1301
-  %1302 = load i32, ptr %XX14, align 4
-  %add2020 = add i32 %xor2019, %1302
-  %conv2021 = zext i32 %add2020 to i64
-  %add2022 = add nsw i64 %conv2021, 1548603684
-  %1303 = load i32, ptr %B, align 4
-  %conv2023 = zext i32 %1303 to i64
-  %add2024 = add nsw i64 %conv2023, %add2022
-  %conv2025 = trunc i64 %add2024 to i32
-  store i32 %conv2025, ptr %B, align 4
-  %1304 = load i32, ptr %B, align 4
-  %shl2026 = shl i32 %1304, 7
-  %1305 = load i32, ptr %B, align 4
-  %and2027 = and i32 %1305, -1
-  %shr2028 = lshr i32 %and2027, 25
-  %or2029 = or i32 %shl2026, %shr2028
-  %1306 = load i32, ptr %A, align 4
-  %add2030 = add i32 %or2029, %1306
-  store i32 %add2030, ptr %B, align 4
-  %1307 = load i32, ptr %D, align 4
-  %shl2031 = shl i32 %1307, 10
-  %1308 = load i32, ptr %D, align 4
-  %and2032 = and i32 %1308, -1
-  %shr2033 = lshr i32 %and2032, 22
-  %or2034 = or i32 %shl2031, %shr2033
-  store i32 %or2034, ptr %D, align 4
-  %1309 = load i32, ptr %B, align 4
-  %1310 = load i32, ptr %C, align 4
-  %xor2035 = xor i32 %1309, %1310
-  %1311 = load i32, ptr %D, align 4
-  %and2036 = and i32 %xor2035, %1311
-  %1312 = load i32, ptr %C, align 4
-  %xor2037 = xor i32 %and2036, %1312
-  %1313 = load i32, ptr %XX15, align 4
-  %add2038 = add i32 %xor2037, %1313
-  %conv2039 = zext i32 %add2038 to i64
-  %add2040 = add nsw i64 %conv2039, 1548603684
-  %1314 = load i32, ptr %A, align 4
-  %conv2041 = zext i32 %1314 to i64
-  %add2042 = add nsw i64 %conv2041, %add2040
-  %conv2043 = trunc i64 %add2042 to i32
-  store i32 %conv2043, ptr %A, align 4
-  %1315 = load i32, ptr %A, align 4
-  %shl2044 = shl i32 %1315, 7
-  %1316 = load i32, ptr %A, align 4
-  %and2045 = and i32 %1316, -1
-  %shr2046 = lshr i32 %and2045, 25
-  %or2047 = or i32 %shl2044, %shr2046
-  %1317 = load i32, ptr %E, align 4
-  %add2048 = add i32 %or2047, %1317
-  store i32 %add2048, ptr %A, align 4
-  %1318 = load i32, ptr %C, align 4
-  %shl2049 = shl i32 %1318, 10
-  %1319 = load i32, ptr %C, align 4
-  %and2050 = and i32 %1319, -1
-  %shr2051 = lshr i32 %and2050, 22
-  %or2052 = or i32 %shl2049, %shr2051
-  store i32 %or2052, ptr %C, align 4
-  %1320 = load i32, ptr %A, align 4
-  %1321 = load i32, ptr %B, align 4
-  %xor2053 = xor i32 %1320, %1321
-  %1322 = load i32, ptr %C, align 4
-  %and2054 = and i32 %xor2053, %1322
-  %1323 = load i32, ptr %B, align 4
-  %xor2055 = xor i32 %and2054, %1323
-  %1324 = load i32, ptr %XX8, align 4
-  %add2056 = add i32 %xor2055, %1324
-  %conv2057 = zext i32 %add2056 to i64
-  %add2058 = add nsw i64 %conv2057, 1548603684
-  %1325 = load i32, ptr %E, align 4
-  %conv2059 = zext i32 %1325 to i64
-  %add2060 = add nsw i64 %conv2059, %add2058
-  %conv2061 = trunc i64 %add2060 to i32
-  store i32 %conv2061, ptr %E, align 4
-  %1326 = load i32, ptr %E, align 4
-  %shl2062 = shl i32 %1326, 12
-  %1327 = load i32, ptr %E, align 4
-  %and2063 = and i32 %1327, -1
-  %shr2064 = lshr i32 %and2063, 20
-  %or2065 = or i32 %shl2062, %shr2064
-  %1328 = load i32, ptr %D, align 4
-  %add2066 = add i32 %or2065, %1328
-  store i32 %add2066, ptr %E, align 4
-  %1329 = load i32, ptr %B, align 4
-  %shl2067 = shl i32 %1329, 10
-  %1330 = load i32, ptr %B, align 4
-  %and2068 = and i32 %1330, -1
-  %shr2069 = lshr i32 %and2068, 22
-  %or2070 = or i32 %shl2067, %shr2069
-  store i32 %or2070, ptr %B, align 4
-  %1331 = load i32, ptr %E, align 4
-  %1332 = load i32, ptr %A, align 4
-  %xor2071 = xor i32 %1331, %1332
-  %1333 = load i32, ptr %B, align 4
-  %and2072 = and i32 %xor2071, %1333
-  %1334 = load i32, ptr %A, align 4
-  %xor2073 = xor i32 %and2072, %1334
-  %1335 = load i32, ptr %XX12, align 4
-  %add2074 = add i32 %xor2073, %1335
-  %conv2075 = zext i32 %add2074 to i64
-  %add2076 = add nsw i64 %conv2075, 1548603684
-  %1336 = load i32, ptr %D, align 4
-  %conv2077 = zext i32 %1336 to i64
-  %add2078 = add nsw i64 %conv2077, %add2076
-  %conv2079 = trunc i64 %add2078 to i32
-  store i32 %conv2079, ptr %D, align 4
-  %1337 = load i32, ptr %D, align 4
-  %shl2080 = shl i32 %1337, 7
-  %1338 = load i32, ptr %D, align 4
-  %and2081 = and i32 %1338, -1
-  %shr2082 = lshr i32 %and2081, 25
-  %or2083 = or i32 %shl2080, %shr2082
-  %1339 = load i32, ptr %C, align 4
-  %add2084 = add i32 %or2083, %1339
-  store i32 %add2084, ptr %D, align 4
-  %1340 = load i32, ptr %A, align 4
-  %shl2085 = shl i32 %1340, 10
-  %1341 = load i32, ptr %A, align 4
-  %and2086 = and i32 %1341, -1
-  %shr2087 = lshr i32 %and2086, 22
-  %or2088 = or i32 %shl2085, %shr2087
-  store i32 %or2088, ptr %A, align 4
-  %1342 = load i32, ptr %D, align 4
-  %1343 = load i32, ptr %E, align 4
-  %xor2089 = xor i32 %1342, %1343
-  %1344 = load i32, ptr %A, align 4
-  %and2090 = and i32 %xor2089, %1344
-  %1345 = load i32, ptr %E, align 4
-  %xor2091 = xor i32 %and2090, %1345
-  %1346 = load i32, ptr %XX4, align 4
-  %add2092 = add i32 %xor2091, %1346
-  %conv2093 = zext i32 %add2092 to i64
-  %add2094 = add nsw i64 %conv2093, 1548603684
-  %1347 = load i32, ptr %C, align 4
-  %conv2095 = zext i32 %1347 to i64
-  %add2096 = add nsw i64 %conv2095, %add2094
-  %conv2097 = trunc i64 %add2096 to i32
-  store i32 %conv2097, ptr %C, align 4
-  %1348 = load i32, ptr %C, align 4
-  %shl2098 = shl i32 %1348, 6
-  %1349 = load i32, ptr %C, align 4
-  %and2099 = and i32 %1349, -1
-  %shr2100 = lshr i32 %and2099, 26
-  %or2101 = or i32 %shl2098, %shr2100
-  %1350 = load i32, ptr %B, align 4
-  %add2102 = add i32 %or2101, %1350
-  store i32 %add2102, ptr %C, align 4
-  %1351 = load i32, ptr %E, align 4
-  %shl2103 = shl i32 %1351, 10
-  %1352 = load i32, ptr %E, align 4
-  %and2104 = and i32 %1352, -1
-  %shr2105 = lshr i32 %and2104, 22
-  %or2106 = or i32 %shl2103, %shr2105
-  store i32 %or2106, ptr %E, align 4
-  %1353 = load i32, ptr %C, align 4
-  %1354 = load i32, ptr %D, align 4
-  %xor2107 = xor i32 %1353, %1354
-  %1355 = load i32, ptr %E, align 4
-  %and2108 = and i32 %xor2107, %1355
-  %1356 = load i32, ptr %D, align 4
-  %xor2109 = xor i32 %and2108, %1356
-  %1357 = load i32, ptr %XX9, align 4
-  %add2110 = add i32 %xor2109, %1357
-  %conv2111 = zext i32 %add2110 to i64
-  %add2112 = add nsw i64 %conv2111, 1548603684
-  %1358 = load i32, ptr %B, align 4
-  %conv2113 = zext i32 %1358 to i64
-  %add2114 = add nsw i64 %conv2113, %add2112
-  %conv2115 = trunc i64 %add2114 to i32
-  store i32 %conv2115, ptr %B, align 4
-  %1359 = load i32, ptr %B, align 4
-  %shl2116 = shl i32 %1359, 15
-  %1360 = load i32, ptr %B, align 4
-  %and2117 = and i32 %1360, -1
-  %shr2118 = lshr i32 %and2117, 17
-  %or2119 = or i32 %shl2116, %shr2118
-  %1361 = load i32, ptr %A, align 4
-  %add2120 = add i32 %or2119, %1361
-  store i32 %add2120, ptr %B, align 4
-  %1362 = load i32, ptr %D, align 4
-  %shl2121 = shl i32 %1362, 10
-  %1363 = load i32, ptr %D, align 4
-  %and2122 = and i32 %1363, -1
-  %shr2123 = lshr i32 %and2122, 22
-  %or2124 = or i32 %shl2121, %shr2123
-  store i32 %or2124, ptr %D, align 4
-  %1364 = load i32, ptr %B, align 4
-  %1365 = load i32, ptr %C, align 4
-  %xor2125 = xor i32 %1364, %1365
-  %1366 = load i32, ptr %D, align 4
-  %and2126 = and i32 %xor2125, %1366
-  %1367 = load i32, ptr %C, align 4
-  %xor2127 = xor i32 %and2126, %1367
-  %1368 = load i32, ptr %XX1, align 4
-  %add2128 = add i32 %xor2127, %1368
-  %conv2129 = zext i32 %add2128 to i64
-  %add2130 = add nsw i64 %conv2129, 1548603684
-  %1369 = load i32, ptr %A, align 4
-  %conv2131 = zext i32 %1369 to i64
-  %add2132 = add nsw i64 %conv2131, %add2130
-  %conv2133 = trunc i64 %add2132 to i32
-  store i32 %conv2133, ptr %A, align 4
-  %1370 = load i32, ptr %A, align 4
-  %shl2134 = shl i32 %1370, 13
-  %1371 = load i32, ptr %A, align 4
-  %and2135 = and i32 %1371, -1
-  %shr2136 = lshr i32 %and2135, 19
-  %or2137 = or i32 %shl2134, %shr2136
-  %1372 = load i32, ptr %E, align 4
-  %add2138 = add i32 %or2137, %1372
-  store i32 %add2138, ptr %A, align 4
-  %1373 = load i32, ptr %C, align 4
-  %shl2139 = shl i32 %1373, 10
-  %1374 = load i32, ptr %C, align 4
-  %and2140 = and i32 %1374, -1
-  %shr2141 = lshr i32 %and2140, 22
-  %or2142 = or i32 %shl2139, %shr2141
-  store i32 %or2142, ptr %C, align 4
-  %1375 = load i32, ptr %A, align 4
-  %1376 = load i32, ptr %B, align 4
-  %xor2143 = xor i32 %1375, %1376
-  %1377 = load i32, ptr %C, align 4
-  %and2144 = and i32 %xor2143, %1377
-  %1378 = load i32, ptr %B, align 4
-  %xor2145 = xor i32 %and2144, %1378
-  %1379 = load i32, ptr %XX2, align 4
-  %add2146 = add i32 %xor2145, %1379
-  %conv2147 = zext i32 %add2146 to i64
-  %add2148 = add nsw i64 %conv2147, 1548603684
-  %1380 = load i32, ptr %E, align 4
-  %conv2149 = zext i32 %1380 to i64
-  %add2150 = add nsw i64 %conv2149, %add2148
-  %conv2151 = trunc i64 %add2150 to i32
-  store i32 %conv2151, ptr %E, align 4
-  %1381 = load i32, ptr %E, align 4
-  %shl2152 = shl i32 %1381, 11
-  %1382 = load i32, ptr %E, align 4
-  %and2153 = and i32 %1382, -1
-  %shr2154 = lshr i32 %and2153, 21
-  %or2155 = or i32 %shl2152, %shr2154
-  %1383 = load i32, ptr %D, align 4
-  %add2156 = add i32 %or2155, %1383
-  store i32 %add2156, ptr %E, align 4
-  %1384 = load i32, ptr %B, align 4
-  %shl2157 = shl i32 %1384, 10
-  %1385 = load i32, ptr %B, align 4
-  %and2158 = and i32 %1385, -1
-  %shr2159 = lshr i32 %and2158, 22
-  %or2160 = or i32 %shl2157, %shr2159
-  store i32 %or2160, ptr %B, align 4
-  %1386 = load i32, ptr %A, align 4
-  %not2161 = xor i32 %1386, -1
-  %1387 = load i32, ptr %E, align 4
-  %or2162 = or i32 %not2161, %1387
-  %1388 = load i32, ptr %B, align 4
-  %xor2163 = xor i32 %or2162, %1388
-  %1389 = load i32, ptr %XX15, align 4
-  %add2164 = add i32 %xor2163, %1389
-  %conv2165 = zext i32 %add2164 to i64
-  %add2166 = add nsw i64 %conv2165, 1836072691
-  %1390 = load i32, ptr %D, align 4
-  %conv2167 = zext i32 %1390 to i64
-  %add2168 = add nsw i64 %conv2167, %add2166
-  %conv2169 = trunc i64 %add2168 to i32
-  store i32 %conv2169, ptr %D, align 4
-  %1391 = load i32, ptr %D, align 4
-  %shl2170 = shl i32 %1391, 9
-  %1392 = load i32, ptr %D, align 4
-  %and2171 = and i32 %1392, -1
-  %shr2172 = lshr i32 %and2171, 23
-  %or2173 = or i32 %shl2170, %shr2172
-  %1393 = load i32, ptr %C, align 4
-  %add2174 = add i32 %or2173, %1393
-  store i32 %add2174, ptr %D, align 4
-  %1394 = load i32, ptr %A, align 4
-  %shl2175 = shl i32 %1394, 10
-  %1395 = load i32, ptr %A, align 4
-  %and2176 = and i32 %1395, -1
-  %shr2177 = lshr i32 %and2176, 22
-  %or2178 = or i32 %shl2175, %shr2177
-  store i32 %or2178, ptr %A, align 4
-  %1396 = load i32, ptr %E, align 4
-  %not2179 = xor i32 %1396, -1
-  %1397 = load i32, ptr %D, align 4
-  %or2180 = or i32 %not2179, %1397
-  %1398 = load i32, ptr %A, align 4
-  %xor2181 = xor i32 %or2180, %1398
-  %1399 = load i32, ptr %XX5, align 4
-  %add2182 = add i32 %xor2181, %1399
-  %conv2183 = zext i32 %add2182 to i64
-  %add2184 = add nsw i64 %conv2183, 1836072691
-  %1400 = load i32, ptr %C, align 4
-  %conv2185 = zext i32 %1400 to i64
-  %add2186 = add nsw i64 %conv2185, %add2184
-  %conv2187 = trunc i64 %add2186 to i32
-  store i32 %conv2187, ptr %C, align 4
-  %1401 = load i32, ptr %C, align 4
-  %shl2188 = shl i32 %1401, 7
-  %1402 = load i32, ptr %C, align 4
-  %and2189 = and i32 %1402, -1
-  %shr2190 = lshr i32 %and2189, 25
-  %or2191 = or i32 %shl2188, %shr2190
-  %1403 = load i32, ptr %B, align 4
-  %add2192 = add i32 %or2191, %1403
-  store i32 %add2192, ptr %C, align 4
-  %1404 = load i32, ptr %E, align 4
-  %shl2193 = shl i32 %1404, 10
-  %1405 = load i32, ptr %E, align 4
-  %and2194 = and i32 %1405, -1
-  %shr2195 = lshr i32 %and2194, 22
-  %or2196 = or i32 %shl2193, %shr2195
-  store i32 %or2196, ptr %E, align 4
-  %1406 = load i32, ptr %D, align 4
-  %not2197 = xor i32 %1406, -1
-  %1407 = load i32, ptr %C, align 4
-  %or2198 = or i32 %not2197, %1407
-  %1408 = load i32, ptr %E, align 4
-  %xor2199 = xor i32 %or2198, %1408
-  %1409 = load i32, ptr %XX1, align 4
-  %add2200 = add i32 %xor2199, %1409
-  %conv2201 = zext i32 %add2200 to i64
-  %add2202 = add nsw i64 %conv2201, 1836072691
-  %1410 = load i32, ptr %B, align 4
-  %conv2203 = zext i32 %1410 to i64
-  %add2204 = add nsw i64 %conv2203, %add2202
-  %conv2205 = trunc i64 %add2204 to i32
-  store i32 %conv2205, ptr %B, align 4
-  %1411 = load i32, ptr %B, align 4
-  %shl2206 = shl i32 %1411, 15
-  %1412 = load i32, ptr %B, align 4
-  %and2207 = and i32 %1412, -1
-  %shr2208 = lshr i32 %and2207, 17
-  %or2209 = or i32 %shl2206, %shr2208
-  %1413 = load i32, ptr %A, align 4
-  %add2210 = add i32 %or2209, %1413
-  store i32 %add2210, ptr %B, align 4
-  %1414 = load i32, ptr %D, align 4
-  %shl2211 = shl i32 %1414, 10
-  %1415 = load i32, ptr %D, align 4
-  %and2212 = and i32 %1415, -1
-  %shr2213 = lshr i32 %and2212, 22
-  %or2214 = or i32 %shl2211, %shr2213
-  store i32 %or2214, ptr %D, align 4
-  %1416 = load i32, ptr %C, align 4
-  %not2215 = xor i32 %1416, -1
-  %1417 = load i32, ptr %B, align 4
-  %or2216 = or i32 %not2215, %1417
-  %1418 = load i32, ptr %D, align 4
-  %xor2217 = xor i32 %or2216, %1418
-  %1419 = load i32, ptr %XX3, align 4
-  %add2218 = add i32 %xor2217, %1419
-  %conv2219 = zext i32 %add2218 to i64
-  %add2220 = add nsw i64 %conv2219, 1836072691
-  %1420 = load i32, ptr %A, align 4
-  %conv2221 = zext i32 %1420 to i64
-  %add2222 = add nsw i64 %conv2221, %add2220
-  %conv2223 = trunc i64 %add2222 to i32
-  store i32 %conv2223, ptr %A, align 4
-  %1421 = load i32, ptr %A, align 4
-  %shl2224 = shl i32 %1421, 11
-  %1422 = load i32, ptr %A, align 4
-  %and2225 = and i32 %1422, -1
-  %shr2226 = lshr i32 %and2225, 21
-  %or2227 = or i32 %shl2224, %shr2226
-  %1423 = load i32, ptr %E, align 4
-  %add2228 = add i32 %or2227, %1423
-  store i32 %add2228, ptr %A, align 4
-  %1424 = load i32, ptr %C, align 4
-  %shl2229 = shl i32 %1424, 10
-  %1425 = load i32, ptr %C, align 4
-  %and2230 = and i32 %1425, -1
-  %shr2231 = lshr i32 %and2230, 22
-  %or2232 = or i32 %shl2229, %shr2231
-  store i32 %or2232, ptr %C, align 4
-  %1426 = load i32, ptr %B, align 4
-  %not2233 = xor i32 %1426, -1
-  %1427 = load i32, ptr %A, align 4
-  %or2234 = or i32 %not2233, %1427
-  %1428 = load i32, ptr %C, align 4
-  %xor2235 = xor i32 %or2234, %1428
-  %1429 = load i32, ptr %XX7, align 4
-  %add2236 = add i32 %xor2235, %1429
-  %conv2237 = zext i32 %add2236 to i64
-  %add2238 = add nsw i64 %conv2237, 1836072691
-  %1430 = load i32, ptr %E, align 4
-  %conv2239 = zext i32 %1430 to i64
-  %add2240 = add nsw i64 %conv2239, %add2238
-  %conv2241 = trunc i64 %add2240 to i32
-  store i32 %conv2241, ptr %E, align 4
-  %1431 = load i32, ptr %E, align 4
-  %shl2242 = shl i32 %1431, 8
-  %1432 = load i32, ptr %E, align 4
-  %and2243 = and i32 %1432, -1
-  %shr2244 = lshr i32 %and2243, 24
-  %or2245 = or i32 %shl2242, %shr2244
-  %1433 = load i32, ptr %D, align 4
-  %add2246 = add i32 %or2245, %1433
-  store i32 %add2246, ptr %E, align 4
-  %1434 = load i32, ptr %B, align 4
-  %shl2247 = shl i32 %1434, 10
-  %1435 = load i32, ptr %B, align 4
-  %and2248 = and i32 %1435, -1
-  %shr2249 = lshr i32 %and2248, 22
-  %or2250 = or i32 %shl2247, %shr2249
-  store i32 %or2250, ptr %B, align 4
-  %1436 = load i32, ptr %A, align 4
-  %not2251 = xor i32 %1436, -1
-  %1437 = load i32, ptr %E, align 4
-  %or2252 = or i32 %not2251, %1437
-  %1438 = load i32, ptr %B, align 4
-  %xor2253 = xor i32 %or2252, %1438
-  %1439 = load i32, ptr %XX14, align 4
-  %add2254 = add i32 %xor2253, %1439
-  %conv2255 = zext i32 %add2254 to i64
-  %add2256 = add nsw i64 %conv2255, 1836072691
-  %1440 = load i32, ptr %D, align 4
-  %conv2257 = zext i32 %1440 to i64
-  %add2258 = add nsw i64 %conv2257, %add2256
-  %conv2259 = trunc i64 %add2258 to i32
-  store i32 %conv2259, ptr %D, align 4
-  %1441 = load i32, ptr %D, align 4
-  %shl2260 = shl i32 %1441, 6
-  %1442 = load i32, ptr %D, align 4
-  %and2261 = and i32 %1442, -1
-  %shr2262 = lshr i32 %and2261, 26
-  %or2263 = or i32 %shl2260, %shr2262
-  %1443 = load i32, ptr %C, align 4
-  %add2264 = add i32 %or2263, %1443
-  store i32 %add2264, ptr %D, align 4
-  %1444 = load i32, ptr %A, align 4
-  %shl2265 = shl i32 %1444, 10
-  %1445 = load i32, ptr %A, align 4
-  %and2266 = and i32 %1445, -1
-  %shr2267 = lshr i32 %and2266, 22
-  %or2268 = or i32 %shl2265, %shr2267
-  store i32 %or2268, ptr %A, align 4
-  %1446 = load i32, ptr %E, align 4
-  %not2269 = xor i32 %1446, -1
-  %1447 = load i32, ptr %D, align 4
-  %or2270 = or i32 %not2269, %1447
-  %1448 = load i32, ptr %A, align 4
-  %xor2271 = xor i32 %or2270, %1448
-  %1449 = load i32, ptr %XX6, align 4
-  %add2272 = add i32 %xor2271, %1449
-  %conv2273 = zext i32 %add2272 to i64
-  %add2274 = add nsw i64 %conv2273, 1836072691
-  %1450 = load i32, ptr %C, align 4
-  %conv2275 = zext i32 %1450 to i64
-  %add2276 = add nsw i64 %conv2275, %add2274
-  %conv2277 = trunc i64 %add2276 to i32
-  store i32 %conv2277, ptr %C, align 4
-  %1451 = load i32, ptr %C, align 4
-  %shl2278 = shl i32 %1451, 6
-  %1452 = load i32, ptr %C, align 4
-  %and2279 = and i32 %1452, -1
-  %shr2280 = lshr i32 %and2279, 26
-  %or2281 = or i32 %shl2278, %shr2280
-  %1453 = load i32, ptr %B, align 4
-  %add2282 = add i32 %or2281, %1453
-  store i32 %add2282, ptr %C, align 4
-  %1454 = load i32, ptr %E, align 4
-  %shl2283 = shl i32 %1454, 10
-  %1455 = load i32, ptr %E, align 4
-  %and2284 = and i32 %1455, -1
-  %shr2285 = lshr i32 %and2284, 22
-  %or2286 = or i32 %shl2283, %shr2285
-  store i32 %or2286, ptr %E, align 4
-  %1456 = load i32, ptr %D, align 4
-  %not2287 = xor i32 %1456, -1
-  %1457 = load i32, ptr %C, align 4
-  %or2288 = or i32 %not2287, %1457
-  %1458 = load i32, ptr %E, align 4
-  %xor2289 = xor i32 %or2288, %1458
-  %1459 = load i32, ptr %XX9, align 4
-  %add2290 = add i32 %xor2289, %1459
-  %conv2291 = zext i32 %add2290 to i64
-  %add2292 = add nsw i64 %conv2291, 1836072691
-  %1460 = load i32, ptr %B, align 4
-  %conv2293 = zext i32 %1460 to i64
-  %add2294 = add nsw i64 %conv2293, %add2292
-  %conv2295 = trunc i64 %add2294 to i32
-  store i32 %conv2295, ptr %B, align 4
-  %1461 = load i32, ptr %B, align 4
-  %shl2296 = shl i32 %1461, 14
-  %1462 = load i32, ptr %B, align 4
-  %and2297 = and i32 %1462, -1
-  %shr2298 = lshr i32 %and2297, 18
-  %or2299 = or i32 %shl2296, %shr2298
-  %1463 = load i32, ptr %A, align 4
-  %add2300 = add i32 %or2299, %1463
-  store i32 %add2300, ptr %B, align 4
-  %1464 = load i32, ptr %D, align 4
-  %shl2301 = shl i32 %1464, 10
-  %1465 = load i32, ptr %D, align 4
-  %and2302 = and i32 %1465, -1
-  %shr2303 = lshr i32 %and2302, 22
-  %or2304 = or i32 %shl2301, %shr2303
-  store i32 %or2304, ptr %D, align 4
-  %1466 = load i32, ptr %C, align 4
-  %not2305 = xor i32 %1466, -1
-  %1467 = load i32, ptr %B, align 4
-  %or2306 = or i32 %not2305, %1467
-  %1468 = load i32, ptr %D, align 4
-  %xor2307 = xor i32 %or2306, %1468
-  %1469 = load i32, ptr %XX11, align 4
-  %add2308 = add i32 %xor2307, %1469
-  %conv2309 = zext i32 %add2308 to i64
-  %add2310 = add nsw i64 %conv2309, 1836072691
-  %1470 = load i32, ptr %A, align 4
-  %conv2311 = zext i32 %1470 to i64
-  %add2312 = add nsw i64 %conv2311, %add2310
-  %conv2313 = trunc i64 %add2312 to i32
-  store i32 %conv2313, ptr %A, align 4
-  %1471 = load i32, ptr %A, align 4
-  %shl2314 = shl i32 %1471, 12
-  %1472 = load i32, ptr %A, align 4
-  %and2315 = and i32 %1472, -1
-  %shr2316 = lshr i32 %and2315, 20
-  %or2317 = or i32 %shl2314, %shr2316
-  %1473 = load i32, ptr %E, align 4
-  %add2318 = add i32 %or2317, %1473
-  store i32 %add2318, ptr %A, align 4
-  %1474 = load i32, ptr %C, align 4
-  %shl2319 = shl i32 %1474, 10
-  %1475 = load i32, ptr %C, align 4
-  %and2320 = and i32 %1475, -1
-  %shr2321 = lshr i32 %and2320, 22
-  %or2322 = or i32 %shl2319, %shr2321
-  store i32 %or2322, ptr %C, align 4
-  %1476 = load i32, ptr %B, align 4
-  %not2323 = xor i32 %1476, -1
-  %1477 = load i32, ptr %A, align 4
-  %or2324 = or i32 %not2323, %1477
-  %1478 = load i32, ptr %C, align 4
-  %xor2325 = xor i32 %or2324, %1478
-  %1479 = load i32, ptr %XX8, align 4
-  %add2326 = add i32 %xor2325, %1479
-  %conv2327 = zext i32 %add2326 to i64
-  %add2328 = add nsw i64 %conv2327, 1836072691
-  %1480 = load i32, ptr %E, align 4
-  %conv2329 = zext i32 %1480 to i64
-  %add2330 = add nsw i64 %conv2329, %add2328
-  %conv2331 = trunc i64 %add2330 to i32
-  store i32 %conv2331, ptr %E, align 4
-  %1481 = load i32, ptr %E, align 4
-  %shl2332 = shl i32 %1481, 13
-  %1482 = load i32, ptr %E, align 4
-  %and2333 = and i32 %1482, -1
-  %shr2334 = lshr i32 %and2333, 19
-  %or2335 = or i32 %shl2332, %shr2334
-  %1483 = load i32, ptr %D, align 4
-  %add2336 = add i32 %or2335, %1483
-  store i32 %add2336, ptr %E, align 4
-  %1484 = load i32, ptr %B, align 4
-  %shl2337 = shl i32 %1484, 10
-  %1485 = load i32, ptr %B, align 4
-  %and2338 = and i32 %1485, -1
-  %shr2339 = lshr i32 %and2338, 22
-  %or2340 = or i32 %shl2337, %shr2339
-  store i32 %or2340, ptr %B, align 4
-  %1486 = load i32, ptr %A, align 4
-  %not2341 = xor i32 %1486, -1
-  %1487 = load i32, ptr %E, align 4
-  %or2342 = or i32 %not2341, %1487
-  %1488 = load i32, ptr %B, align 4
-  %xor2343 = xor i32 %or2342, %1488
-  %1489 = load i32, ptr %XX12, align 4
-  %add2344 = add i32 %xor2343, %1489
-  %conv2345 = zext i32 %add2344 to i64
-  %add2346 = add nsw i64 %conv2345, 1836072691
-  %1490 = load i32, ptr %D, align 4
-  %conv2347 = zext i32 %1490 to i64
-  %add2348 = add nsw i64 %conv2347, %add2346
-  %conv2349 = trunc i64 %add2348 to i32
-  store i32 %conv2349, ptr %D, align 4
-  %1491 = load i32, ptr %D, align 4
-  %shl2350 = shl i32 %1491, 5
-  %1492 = load i32, ptr %D, align 4
-  %and2351 = and i32 %1492, -1
-  %shr2352 = lshr i32 %and2351, 27
-  %or2353 = or i32 %shl2350, %shr2352
-  %1493 = load i32, ptr %C, align 4
-  %add2354 = add i32 %or2353, %1493
-  store i32 %add2354, ptr %D, align 4
-  %1494 = load i32, ptr %A, align 4
-  %shl2355 = shl i32 %1494, 10
-  %1495 = load i32, ptr %A, align 4
-  %and2356 = and i32 %1495, -1
-  %shr2357 = lshr i32 %and2356, 22
-  %or2358 = or i32 %shl2355, %shr2357
-  store i32 %or2358, ptr %A, align 4
-  %1496 = load i32, ptr %E, align 4
-  %not2359 = xor i32 %1496, -1
-  %1497 = load i32, ptr %D, align 4
-  %or2360 = or i32 %not2359, %1497
-  %1498 = load i32, ptr %A, align 4
-  %xor2361 = xor i32 %or2360, %1498
-  %1499 = load i32, ptr %XX2, align 4
-  %add2362 = add i32 %xor2361, %1499
-  %conv2363 = zext i32 %add2362 to i64
-  %add2364 = add nsw i64 %conv2363, 1836072691
-  %1500 = load i32, ptr %C, align 4
-  %conv2365 = zext i32 %1500 to i64
-  %add2366 = add nsw i64 %conv2365, %add2364
-  %conv2367 = trunc i64 %add2366 to i32
-  store i32 %conv2367, ptr %C, align 4
-  %1501 = load i32, ptr %C, align 4
-  %shl2368 = shl i32 %1501, 14
-  %1502 = load i32, ptr %C, align 4
-  %and2369 = and i32 %1502, -1
-  %shr2370 = lshr i32 %and2369, 18
-  %or2371 = or i32 %shl2368, %shr2370
-  %1503 = load i32, ptr %B, align 4
-  %add2372 = add i32 %or2371, %1503
-  store i32 %add2372, ptr %C, align 4
-  %1504 = load i32, ptr %E, align 4
-  %shl2373 = shl i32 %1504, 10
-  %1505 = load i32, ptr %E, align 4
-  %and2374 = and i32 %1505, -1
-  %shr2375 = lshr i32 %and2374, 22
-  %or2376 = or i32 %shl2373, %shr2375
-  store i32 %or2376, ptr %E, align 4
-  %1506 = load i32, ptr %D, align 4
-  %not2377 = xor i32 %1506, -1
-  %1507 = load i32, ptr %C, align 4
-  %or2378 = or i32 %not2377, %1507
-  %1508 = load i32, ptr %E, align 4
-  %xor2379 = xor i32 %or2378, %1508
-  %1509 = load i32, ptr %XX10, align 4
-  %add2380 = add i32 %xor2379, %1509
-  %conv2381 = zext i32 %add2380 to i64
-  %add2382 = add nsw i64 %conv2381, 1836072691
-  %1510 = load i32, ptr %B, align 4
-  %conv2383 = zext i32 %1510 to i64
-  %add2384 = add nsw i64 %conv2383, %add2382
-  %conv2385 = trunc i64 %add2384 to i32
-  store i32 %conv2385, ptr %B, align 4
-  %1511 = load i32, ptr %B, align 4
-  %shl2386 = shl i32 %1511, 13
-  %1512 = load i32, ptr %B, align 4
-  %and2387 = and i32 %1512, -1
-  %shr2388 = lshr i32 %and2387, 19
-  %or2389 = or i32 %shl2386, %shr2388
-  %1513 = load i32, ptr %A, align 4
-  %add2390 = add i32 %or2389, %1513
-  store i32 %add2390, ptr %B, align 4
-  %1514 = load i32, ptr %D, align 4
-  %shl2391 = shl i32 %1514, 10
-  %1515 = load i32, ptr %D, align 4
-  %and2392 = and i32 %1515, -1
-  %shr2393 = lshr i32 %and2392, 22
-  %or2394 = or i32 %shl2391, %shr2393
-  store i32 %or2394, ptr %D, align 4
-  %1516 = load i32, ptr %C, align 4
-  %not2395 = xor i32 %1516, -1
-  %1517 = load i32, ptr %B, align 4
-  %or2396 = or i32 %not2395, %1517
-  %1518 = load i32, ptr %D, align 4
-  %xor2397 = xor i32 %or2396, %1518
-  %1519 = load i32, ptr %XX0, align 4
-  %add2398 = add i32 %xor2397, %1519
-  %conv2399 = zext i32 %add2398 to i64
-  %add2400 = add nsw i64 %conv2399, 1836072691
-  %1520 = load i32, ptr %A, align 4
-  %conv2401 = zext i32 %1520 to i64
-  %add2402 = add nsw i64 %conv2401, %add2400
-  %conv2403 = trunc i64 %add2402 to i32
-  store i32 %conv2403, ptr %A, align 4
-  %1521 = load i32, ptr %A, align 4
-  %shl2404 = shl i32 %1521, 13
-  %1522 = load i32, ptr %A, align 4
-  %and2405 = and i32 %1522, -1
-  %shr2406 = lshr i32 %and2405, 19
-  %or2407 = or i32 %shl2404, %shr2406
-  %1523 = load i32, ptr %E, align 4
-  %add2408 = add i32 %or2407, %1523
-  store i32 %add2408, ptr %A, align 4
-  %1524 = load i32, ptr %C, align 4
-  %shl2409 = shl i32 %1524, 10
-  %1525 = load i32, ptr %C, align 4
-  %and2410 = and i32 %1525, -1
-  %shr2411 = lshr i32 %and2410, 22
-  %or2412 = or i32 %shl2409, %shr2411
-  store i32 %or2412, ptr %C, align 4
-  %1526 = load i32, ptr %B, align 4
-  %not2413 = xor i32 %1526, -1
-  %1527 = load i32, ptr %A, align 4
-  %or2414 = or i32 %not2413, %1527
-  %1528 = load i32, ptr %C, align 4
-  %xor2415 = xor i32 %or2414, %1528
-  %1529 = load i32, ptr %XX4, align 4
-  %add2416 = add i32 %xor2415, %1529
-  %conv2417 = zext i32 %add2416 to i64
-  %add2418 = add nsw i64 %conv2417, 1836072691
-  %1530 = load i32, ptr %E, align 4
-  %conv2419 = zext i32 %1530 to i64
-  %add2420 = add nsw i64 %conv2419, %add2418
-  %conv2421 = trunc i64 %add2420 to i32
-  store i32 %conv2421, ptr %E, align 4
-  %1531 = load i32, ptr %E, align 4
-  %shl2422 = shl i32 %1531, 7
-  %1532 = load i32, ptr %E, align 4
-  %and2423 = and i32 %1532, -1
-  %shr2424 = lshr i32 %and2423, 25
-  %or2425 = or i32 %shl2422, %shr2424
-  %1533 = load i32, ptr %D, align 4
-  %add2426 = add i32 %or2425, %1533
-  store i32 %add2426, ptr %E, align 4
-  %1534 = load i32, ptr %B, align 4
-  %shl2427 = shl i32 %1534, 10
-  %1535 = load i32, ptr %B, align 4
-  %and2428 = and i32 %1535, -1
-  %shr2429 = lshr i32 %and2428, 22
-  %or2430 = or i32 %shl2427, %shr2429
-  store i32 %or2430, ptr %B, align 4
-  %1536 = load i32, ptr %A, align 4
-  %not2431 = xor i32 %1536, -1
-  %1537 = load i32, ptr %E, align 4
-  %or2432 = or i32 %not2431, %1537
-  %1538 = load i32, ptr %B, align 4
-  %xor2433 = xor i32 %or2432, %1538
-  %1539 = load i32, ptr %XX13, align 4
-  %add2434 = add i32 %xor2433, %1539
-  %conv2435 = zext i32 %add2434 to i64
-  %add2436 = add nsw i64 %conv2435, 1836072691
-  %1540 = load i32, ptr %D, align 4
-  %conv2437 = zext i32 %1540 to i64
-  %add2438 = add nsw i64 %conv2437, %add2436
-  %conv2439 = trunc i64 %add2438 to i32
-  store i32 %conv2439, ptr %D, align 4
-  %1541 = load i32, ptr %D, align 4
-  %shl2440 = shl i32 %1541, 5
-  %1542 = load i32, ptr %D, align 4
-  %and2441 = and i32 %1542, -1
-  %shr2442 = lshr i32 %and2441, 27
-  %or2443 = or i32 %shl2440, %shr2442
-  %1543 = load i32, ptr %C, align 4
-  %add2444 = add i32 %or2443, %1543
-  store i32 %add2444, ptr %D, align 4
-  %1544 = load i32, ptr %A, align 4
-  %shl2445 = shl i32 %1544, 10
-  %1545 = load i32, ptr %A, align 4
-  %and2446 = and i32 %1545, -1
-  %shr2447 = lshr i32 %and2446, 22
-  %or2448 = or i32 %shl2445, %shr2447
-  store i32 %or2448, ptr %A, align 4
-  %1546 = load i32, ptr %E, align 4
-  %1547 = load i32, ptr %A, align 4
-  %xor2449 = xor i32 %1546, %1547
-  %1548 = load i32, ptr %D, align 4
-  %and2450 = and i32 %xor2449, %1548
-  %1549 = load i32, ptr %A, align 4
-  %xor2451 = xor i32 %and2450, %1549
-  %1550 = load i32, ptr %XX8, align 4
-  %add2452 = add i32 %xor2451, %1550
-  %conv2453 = zext i32 %add2452 to i64
-  %add2454 = add nsw i64 %conv2453, 2053994217
-  %1551 = load i32, ptr %C, align 4
-  %conv2455 = zext i32 %1551 to i64
-  %add2456 = add nsw i64 %conv2455, %add2454
-  %conv2457 = trunc i64 %add2456 to i32
-  store i32 %conv2457, ptr %C, align 4
-  %1552 = load i32, ptr %C, align 4
-  %shl2458 = shl i32 %1552, 15
-  %1553 = load i32, ptr %C, align 4
-  %and2459 = and i32 %1553, -1
-  %shr2460 = lshr i32 %and2459, 17
-  %or2461 = or i32 %shl2458, %shr2460
-  %1554 = load i32, ptr %B, align 4
-  %add2462 = add i32 %or2461, %1554
-  store i32 %add2462, ptr %C, align 4
-  %1555 = load i32, ptr %E, align 4
-  %shl2463 = shl i32 %1555, 10
-  %1556 = load i32, ptr %E, align 4
-  %and2464 = and i32 %1556, -1
-  %shr2465 = lshr i32 %and2464, 22
-  %or2466 = or i32 %shl2463, %shr2465
-  store i32 %or2466, ptr %E, align 4
-  %1557 = load i32, ptr %D, align 4
-  %1558 = load i32, ptr %E, align 4
-  %xor2467 = xor i32 %1557, %1558
-  %1559 = load i32, ptr %C, align 4
-  %and2468 = and i32 %xor2467, %1559
-  %1560 = load i32, ptr %E, align 4
-  %xor2469 = xor i32 %and2468, %1560
-  %1561 = load i32, ptr %XX6, align 4
-  %add2470 = add i32 %xor2469, %1561
-  %conv2471 = zext i32 %add2470 to i64
-  %add2472 = add nsw i64 %conv2471, 2053994217
-  %1562 = load i32, ptr %B, align 4
-  %conv2473 = zext i32 %1562 to i64
-  %add2474 = add nsw i64 %conv2473, %add2472
-  %conv2475 = trunc i64 %add2474 to i32
-  store i32 %conv2475, ptr %B, align 4
-  %1563 = load i32, ptr %B, align 4
-  %shl2476 = shl i32 %1563, 5
-  %1564 = load i32, ptr %B, align 4
-  %and2477 = and i32 %1564, -1
-  %shr2478 = lshr i32 %and2477, 27
-  %or2479 = or i32 %shl2476, %shr2478
-  %1565 = load i32, ptr %A, align 4
-  %add2480 = add i32 %or2479, %1565
-  store i32 %add2480, ptr %B, align 4
-  %1566 = load i32, ptr %D, align 4
-  %shl2481 = shl i32 %1566, 10
-  %1567 = load i32, ptr %D, align 4
-  %and2482 = and i32 %1567, -1
-  %shr2483 = lshr i32 %and2482, 22
-  %or2484 = or i32 %shl2481, %shr2483
-  store i32 %or2484, ptr %D, align 4
-  %1568 = load i32, ptr %C, align 4
-  %1569 = load i32, ptr %D, align 4
-  %xor2485 = xor i32 %1568, %1569
-  %1570 = load i32, ptr %B, align 4
-  %and2486 = and i32 %xor2485, %1570
-  %1571 = load i32, ptr %D, align 4
-  %xor2487 = xor i32 %and2486, %1571
-  %1572 = load i32, ptr %XX4, align 4
-  %add2488 = add i32 %xor2487, %1572
-  %conv2489 = zext i32 %add2488 to i64
-  %add2490 = add nsw i64 %conv2489, 2053994217
-  %1573 = load i32, ptr %A, align 4
-  %conv2491 = zext i32 %1573 to i64
-  %add2492 = add nsw i64 %conv2491, %add2490
-  %conv2493 = trunc i64 %add2492 to i32
-  store i32 %conv2493, ptr %A, align 4
-  %1574 = load i32, ptr %A, align 4
-  %shl2494 = shl i32 %1574, 8
-  %1575 = load i32, ptr %A, align 4
-  %and2495 = and i32 %1575, -1
-  %shr2496 = lshr i32 %and2495, 24
-  %or2497 = or i32 %shl2494, %shr2496
-  %1576 = load i32, ptr %E, align 4
-  %add2498 = add i32 %or2497, %1576
-  store i32 %add2498, ptr %A, align 4
-  %1577 = load i32, ptr %C, align 4
-  %shl2499 = shl i32 %1577, 10
-  %1578 = load i32, ptr %C, align 4
-  %and2500 = and i32 %1578, -1
-  %shr2501 = lshr i32 %and2500, 22
-  %or2502 = or i32 %shl2499, %shr2501
-  store i32 %or2502, ptr %C, align 4
-  %1579 = load i32, ptr %B, align 4
-  %1580 = load i32, ptr %C, align 4
-  %xor2503 = xor i32 %1579, %1580
-  %1581 = load i32, ptr %A, align 4
-  %and2504 = and i32 %xor2503, %1581
-  %1582 = load i32, ptr %C, align 4
-  %xor2505 = xor i32 %and2504, %1582
-  %1583 = load i32, ptr %XX1, align 4
-  %add2506 = add i32 %xor2505, %1583
-  %conv2507 = zext i32 %add2506 to i64
-  %add2508 = add nsw i64 %conv2507, 2053994217
-  %1584 = load i32, ptr %E, align 4
-  %conv2509 = zext i32 %1584 to i64
-  %add2510 = add nsw i64 %conv2509, %add2508
-  %conv2511 = trunc i64 %add2510 to i32
-  store i32 %conv2511, ptr %E, align 4
-  %1585 = load i32, ptr %E, align 4
-  %shl2512 = shl i32 %1585, 11
-  %1586 = load i32, ptr %E, align 4
-  %and2513 = and i32 %1586, -1
-  %shr2514 = lshr i32 %and2513, 21
-  %or2515 = or i32 %shl2512, %shr2514
-  %1587 = load i32, ptr %D, align 4
-  %add2516 = add i32 %or2515, %1587
-  store i32 %add2516, ptr %E, align 4
-  %1588 = load i32, ptr %B, align 4
-  %shl2517 = shl i32 %1588, 10
-  %1589 = load i32, ptr %B, align 4
-  %and2518 = and i32 %1589, -1
-  %shr2519 = lshr i32 %and2518, 22
-  %or2520 = or i32 %shl2517, %shr2519
-  store i32 %or2520, ptr %B, align 4
-  %1590 = load i32, ptr %A, align 4
-  %1591 = load i32, ptr %B, align 4
-  %xor2521 = xor i32 %1590, %1591
-  %1592 = load i32, ptr %E, align 4
-  %and2522 = and i32 %xor2521, %1592
-  %1593 = load i32, ptr %B, align 4
-  %xor2523 = xor i32 %and2522, %1593
-  %1594 = load i32, ptr %XX3, align 4
-  %add2524 = add i32 %xor2523, %1594
-  %conv2525 = zext i32 %add2524 to i64
-  %add2526 = add nsw i64 %conv2525, 2053994217
-  %1595 = load i32, ptr %D, align 4
-  %conv2527 = zext i32 %1595 to i64
-  %add2528 = add nsw i64 %conv2527, %add2526
-  %conv2529 = trunc i64 %add2528 to i32
-  store i32 %conv2529, ptr %D, align 4
-  %1596 = load i32, ptr %D, align 4
-  %shl2530 = shl i32 %1596, 14
-  %1597 = load i32, ptr %D, align 4
-  %and2531 = and i32 %1597, -1
-  %shr2532 = lshr i32 %and2531, 18
-  %or2533 = or i32 %shl2530, %shr2532
-  %1598 = load i32, ptr %C, align 4
-  %add2534 = add i32 %or2533, %1598
-  store i32 %add2534, ptr %D, align 4
-  %1599 = load i32, ptr %A, align 4
-  %shl2535 = shl i32 %1599, 10
-  %1600 = load i32, ptr %A, align 4
-  %and2536 = and i32 %1600, -1
-  %shr2537 = lshr i32 %and2536, 22
-  %or2538 = or i32 %shl2535, %shr2537
-  store i32 %or2538, ptr %A, align 4
-  %1601 = load i32, ptr %E, align 4
-  %1602 = load i32, ptr %A, align 4
-  %xor2539 = xor i32 %1601, %1602
-  %1603 = load i32, ptr %D, align 4
-  %and2540 = and i32 %xor2539, %1603
-  %1604 = load i32, ptr %A, align 4
-  %xor2541 = xor i32 %and2540, %1604
-  %1605 = load i32, ptr %XX11, align 4
-  %add2542 = add i32 %xor2541, %1605
-  %conv2543 = zext i32 %add2542 to i64
-  %add2544 = add nsw i64 %conv2543, 2053994217
-  %1606 = load i32, ptr %C, align 4
-  %conv2545 = zext i32 %1606 to i64
-  %add2546 = add nsw i64 %conv2545, %add2544
-  %conv2547 = trunc i64 %add2546 to i32
-  store i32 %conv2547, ptr %C, align 4
-  %1607 = load i32, ptr %C, align 4
-  %shl2548 = shl i32 %1607, 14
-  %1608 = load i32, ptr %C, align 4
-  %and2549 = and i32 %1608, -1
-  %shr2550 = lshr i32 %and2549, 18
-  %or2551 = or i32 %shl2548, %shr2550
-  %1609 = load i32, ptr %B, align 4
-  %add2552 = add i32 %or2551, %1609
-  store i32 %add2552, ptr %C, align 4
-  %1610 = load i32, ptr %E, align 4
-  %shl2553 = shl i32 %1610, 10
-  %1611 = load i32, ptr %E, align 4
-  %and2554 = and i32 %1611, -1
-  %shr2555 = lshr i32 %and2554, 22
-  %or2556 = or i32 %shl2553, %shr2555
-  store i32 %or2556, ptr %E, align 4
-  %1612 = load i32, ptr %D, align 4
-  %1613 = load i32, ptr %E, align 4
-  %xor2557 = xor i32 %1612, %1613
-  %1614 = load i32, ptr %C, align 4
-  %and2558 = and i32 %xor2557, %1614
-  %1615 = load i32, ptr %E, align 4
-  %xor2559 = xor i32 %and2558, %1615
-  %1616 = load i32, ptr %XX15, align 4
-  %add2560 = add i32 %xor2559, %1616
-  %conv2561 = zext i32 %add2560 to i64
-  %add2562 = add nsw i64 %conv2561, 2053994217
-  %1617 = load i32, ptr %B, align 4
-  %conv2563 = zext i32 %1617 to i64
-  %add2564 = add nsw i64 %conv2563, %add2562
-  %conv2565 = trunc i64 %add2564 to i32
-  store i32 %conv2565, ptr %B, align 4
-  %1618 = load i32, ptr %B, align 4
-  %shl2566 = shl i32 %1618, 6
-  %1619 = load i32, ptr %B, align 4
-  %and2567 = and i32 %1619, -1
-  %shr2568 = lshr i32 %and2567, 26
-  %or2569 = or i32 %shl2566, %shr2568
-  %1620 = load i32, ptr %A, align 4
-  %add2570 = add i32 %or2569, %1620
-  store i32 %add2570, ptr %B, align 4
-  %1621 = load i32, ptr %D, align 4
-  %shl2571 = shl i32 %1621, 10
-  %1622 = load i32, ptr %D, align 4
-  %and2572 = and i32 %1622, -1
-  %shr2573 = lshr i32 %and2572, 22
-  %or2574 = or i32 %shl2571, %shr2573
-  store i32 %or2574, ptr %D, align 4
-  %1623 = load i32, ptr %C, align 4
-  %1624 = load i32, ptr %D, align 4
-  %xor2575 = xor i32 %1623, %1624
-  %1625 = load i32, ptr %B, align 4
-  %and2576 = and i32 %xor2575, %1625
-  %1626 = load i32, ptr %D, align 4
-  %xor2577 = xor i32 %and2576, %1626
-  %1627 = load i32, ptr %XX0, align 4
-  %add2578 = add i32 %xor2577, %1627
-  %conv2579 = zext i32 %add2578 to i64
-  %add2580 = add nsw i64 %conv2579, 2053994217
-  %1628 = load i32, ptr %A, align 4
-  %conv2581 = zext i32 %1628 to i64
-  %add2582 = add nsw i64 %conv2581, %add2580
-  %conv2583 = trunc i64 %add2582 to i32
-  store i32 %conv2583, ptr %A, align 4
-  %1629 = load i32, ptr %A, align 4
-  %shl2584 = shl i32 %1629, 14
-  %1630 = load i32, ptr %A, align 4
-  %and2585 = and i32 %1630, -1
-  %shr2586 = lshr i32 %and2585, 18
-  %or2587 = or i32 %shl2584, %shr2586
-  %1631 = load i32, ptr %E, align 4
-  %add2588 = add i32 %or2587, %1631
-  store i32 %add2588, ptr %A, align 4
-  %1632 = load i32, ptr %C, align 4
-  %shl2589 = shl i32 %1632, 10
-  %1633 = load i32, ptr %C, align 4
-  %and2590 = and i32 %1633, -1
-  %shr2591 = lshr i32 %and2590, 22
-  %or2592 = or i32 %shl2589, %shr2591
-  store i32 %or2592, ptr %C, align 4
-  %1634 = load i32, ptr %B, align 4
-  %1635 = load i32, ptr %C, align 4
-  %xor2593 = xor i32 %1634, %1635
-  %1636 = load i32, ptr %A, align 4
-  %and2594 = and i32 %xor2593, %1636
-  %1637 = load i32, ptr %C, align 4
-  %xor2595 = xor i32 %and2594, %1637
-  %1638 = load i32, ptr %XX5, align 4
-  %add2596 = add i32 %xor2595, %1638
-  %conv2597 = zext i32 %add2596 to i64
-  %add2598 = add nsw i64 %conv2597, 2053994217
-  %1639 = load i32, ptr %E, align 4
-  %conv2599 = zext i32 %1639 to i64
-  %add2600 = add nsw i64 %conv2599, %add2598
-  %conv2601 = trunc i64 %add2600 to i32
-  store i32 %conv2601, ptr %E, align 4
-  %1640 = load i32, ptr %E, align 4
-  %shl2602 = shl i32 %1640, 6
-  %1641 = load i32, ptr %E, align 4
-  %and2603 = and i32 %1641, -1
-  %shr2604 = lshr i32 %and2603, 26
-  %or2605 = or i32 %shl2602, %shr2604
-  %1642 = load i32, ptr %D, align 4
-  %add2606 = add i32 %or2605, %1642
-  store i32 %add2606, ptr %E, align 4
-  %1643 = load i32, ptr %B, align 4
-  %shl2607 = shl i32 %1643, 10
-  %1644 = load i32, ptr %B, align 4
-  %and2608 = and i32 %1644, -1
-  %shr2609 = lshr i32 %and2608, 22
-  %or2610 = or i32 %shl2607, %shr2609
-  store i32 %or2610, ptr %B, align 4
-  %1645 = load i32, ptr %A, align 4
-  %1646 = load i32, ptr %B, align 4
-  %xor2611 = xor i32 %1645, %1646
-  %1647 = load i32, ptr %E, align 4
-  %and2612 = and i32 %xor2611, %1647
-  %1648 = load i32, ptr %B, align 4
-  %xor2613 = xor i32 %and2612, %1648
-  %1649 = load i32, ptr %XX12, align 4
-  %add2614 = add i32 %xor2613, %1649
-  %conv2615 = zext i32 %add2614 to i64
-  %add2616 = add nsw i64 %conv2615, 2053994217
-  %1650 = load i32, ptr %D, align 4
-  %conv2617 = zext i32 %1650 to i64
-  %add2618 = add nsw i64 %conv2617, %add2616
-  %conv2619 = trunc i64 %add2618 to i32
-  store i32 %conv2619, ptr %D, align 4
-  %1651 = load i32, ptr %D, align 4
-  %shl2620 = shl i32 %1651, 9
-  %1652 = load i32, ptr %D, align 4
-  %and2621 = and i32 %1652, -1
-  %shr2622 = lshr i32 %and2621, 23
-  %or2623 = or i32 %shl2620, %shr2622
-  %1653 = load i32, ptr %C, align 4
-  %add2624 = add i32 %or2623, %1653
-  store i32 %add2624, ptr %D, align 4
-  %1654 = load i32, ptr %A, align 4
-  %shl2625 = shl i32 %1654, 10
-  %1655 = load i32, ptr %A, align 4
-  %and2626 = and i32 %1655, -1
-  %shr2627 = lshr i32 %and2626, 22
-  %or2628 = or i32 %shl2625, %shr2627
-  store i32 %or2628, ptr %A, align 4
-  %1656 = load i32, ptr %E, align 4
-  %1657 = load i32, ptr %A, align 4
-  %xor2629 = xor i32 %1656, %1657
-  %1658 = load i32, ptr %D, align 4
-  %and2630 = and i32 %xor2629, %1658
-  %1659 = load i32, ptr %A, align 4
-  %xor2631 = xor i32 %and2630, %1659
-  %1660 = load i32, ptr %XX2, align 4
-  %add2632 = add i32 %xor2631, %1660
-  %conv2633 = zext i32 %add2632 to i64
-  %add2634 = add nsw i64 %conv2633, 2053994217
-  %1661 = load i32, ptr %C, align 4
-  %conv2635 = zext i32 %1661 to i64
-  %add2636 = add nsw i64 %conv2635, %add2634
-  %conv2637 = trunc i64 %add2636 to i32
-  store i32 %conv2637, ptr %C, align 4
-  %1662 = load i32, ptr %C, align 4
-  %shl2638 = shl i32 %1662, 12
-  %1663 = load i32, ptr %C, align 4
-  %and2639 = and i32 %1663, -1
-  %shr2640 = lshr i32 %and2639, 20
-  %or2641 = or i32 %shl2638, %shr2640
-  %1664 = load i32, ptr %B, align 4
-  %add2642 = add i32 %or2641, %1664
-  store i32 %add2642, ptr %C, align 4
-  %1665 = load i32, ptr %E, align 4
-  %shl2643 = shl i32 %1665, 10
-  %1666 = load i32, ptr %E, align 4
-  %and2644 = and i32 %1666, -1
-  %shr2645 = lshr i32 %and2644, 22
-  %or2646 = or i32 %shl2643, %shr2645
-  store i32 %or2646, ptr %E, align 4
-  %1667 = load i32, ptr %D, align 4
-  %1668 = load i32, ptr %E, align 4
-  %xor2647 = xor i32 %1667, %1668
-  %1669 = load i32, ptr %C, align 4
-  %and2648 = and i32 %xor2647, %1669
-  %1670 = load i32, ptr %E, align 4
-  %xor2649 = xor i32 %and2648, %1670
-  %1671 = load i32, ptr %XX13, align 4
-  %add2650 = add i32 %xor2649, %1671
-  %conv2651 = zext i32 %add2650 to i64
-  %add2652 = add nsw i64 %conv2651, 2053994217
-  %1672 = load i32, ptr %B, align 4
-  %conv2653 = zext i32 %1672 to i64
-  %add2654 = add nsw i64 %conv2653, %add2652
-  %conv2655 = trunc i64 %add2654 to i32
-  store i32 %conv2655, ptr %B, align 4
-  %1673 = load i32, ptr %B, align 4
-  %shl2656 = shl i32 %1673, 9
-  %1674 = load i32, ptr %B, align 4
-  %and2657 = and i32 %1674, -1
-  %shr2658 = lshr i32 %and2657, 23
-  %or2659 = or i32 %shl2656, %shr2658
-  %1675 = load i32, ptr %A, align 4
-  %add2660 = add i32 %or2659, %1675
-  store i32 %add2660, ptr %B, align 4
-  %1676 = load i32, ptr %D, align 4
-  %shl2661 = shl i32 %1676, 10
-  %1677 = load i32, ptr %D, align 4
-  %and2662 = and i32 %1677, -1
-  %shr2663 = lshr i32 %and2662, 22
-  %or2664 = or i32 %shl2661, %shr2663
-  store i32 %or2664, ptr %D, align 4
-  %1678 = load i32, ptr %C, align 4
-  %1679 = load i32, ptr %D, align 4
-  %xor2665 = xor i32 %1678, %1679
-  %1680 = load i32, ptr %B, align 4
-  %and2666 = and i32 %xor2665, %1680
-  %1681 = load i32, ptr %D, align 4
-  %xor2667 = xor i32 %and2666, %1681
-  %1682 = load i32, ptr %XX9, align 4
-  %add2668 = add i32 %xor2667, %1682
-  %conv2669 = zext i32 %add2668 to i64
-  %add2670 = add nsw i64 %conv2669, 2053994217
-  %1683 = load i32, ptr %A, align 4
-  %conv2671 = zext i32 %1683 to i64
-  %add2672 = add nsw i64 %conv2671, %add2670
-  %conv2673 = trunc i64 %add2672 to i32
-  store i32 %conv2673, ptr %A, align 4
-  %1684 = load i32, ptr %A, align 4
-  %shl2674 = shl i32 %1684, 12
-  %1685 = load i32, ptr %A, align 4
-  %and2675 = and i32 %1685, -1
-  %shr2676 = lshr i32 %and2675, 20
-  %or2677 = or i32 %shl2674, %shr2676
-  %1686 = load i32, ptr %E, align 4
-  %add2678 = add i32 %or2677, %1686
-  store i32 %add2678, ptr %A, align 4
-  %1687 = load i32, ptr %C, align 4
-  %shl2679 = shl i32 %1687, 10
-  %1688 = load i32, ptr %C, align 4
-  %and2680 = and i32 %1688, -1
-  %shr2681 = lshr i32 %and2680, 22
-  %or2682 = or i32 %shl2679, %shr2681
-  store i32 %or2682, ptr %C, align 4
-  %1689 = load i32, ptr %B, align 4
-  %1690 = load i32, ptr %C, align 4
-  %xor2683 = xor i32 %1689, %1690
-  %1691 = load i32, ptr %A, align 4
-  %and2684 = and i32 %xor2683, %1691
-  %1692 = load i32, ptr %C, align 4
-  %xor2685 = xor i32 %and2684, %1692
-  %1693 = load i32, ptr %XX7, align 4
-  %add2686 = add i32 %xor2685, %1693
-  %conv2687 = zext i32 %add2686 to i64
-  %add2688 = add nsw i64 %conv2687, 2053994217
-  %1694 = load i32, ptr %E, align 4
-  %conv2689 = zext i32 %1694 to i64
-  %add2690 = add nsw i64 %conv2689, %add2688
-  %conv2691 = trunc i64 %add2690 to i32
-  store i32 %conv2691, ptr %E, align 4
-  %1695 = load i32, ptr %E, align 4
-  %shl2692 = shl i32 %1695, 5
-  %1696 = load i32, ptr %E, align 4
-  %and2693 = and i32 %1696, -1
-  %shr2694 = lshr i32 %and2693, 27
-  %or2695 = or i32 %shl2692, %shr2694
-  %1697 = load i32, ptr %D, align 4
-  %add2696 = add i32 %or2695, %1697
-  store i32 %add2696, ptr %E, align 4
-  %1698 = load i32, ptr %B, align 4
-  %shl2697 = shl i32 %1698, 10
-  %1699 = load i32, ptr %B, align 4
-  %and2698 = and i32 %1699, -1
-  %shr2699 = lshr i32 %and2698, 22
-  %or2700 = or i32 %shl2697, %shr2699
-  store i32 %or2700, ptr %B, align 4
-  %1700 = load i32, ptr %A, align 4
-  %1701 = load i32, ptr %B, align 4
-  %xor2701 = xor i32 %1700, %1701
-  %1702 = load i32, ptr %E, align 4
-  %and2702 = and i32 %xor2701, %1702
-  %1703 = load i32, ptr %B, align 4
-  %xor2703 = xor i32 %and2702, %1703
-  %1704 = load i32, ptr %XX10, align 4
-  %add2704 = add i32 %xor2703, %1704
-  %conv2705 = zext i32 %add2704 to i64
-  %add2706 = add nsw i64 %conv2705, 2053994217
-  %1705 = load i32, ptr %D, align 4
-  %conv2707 = zext i32 %1705 to i64
-  %add2708 = add nsw i64 %conv2707, %add2706
-  %conv2709 = trunc i64 %add2708 to i32
-  store i32 %conv2709, ptr %D, align 4
-  %1706 = load i32, ptr %D, align 4
-  %shl2710 = shl i32 %1706, 15
-  %1707 = load i32, ptr %D, align 4
-  %and2711 = and i32 %1707, -1
-  %shr2712 = lshr i32 %and2711, 17
-  %or2713 = or i32 %shl2710, %shr2712
-  %1708 = load i32, ptr %C, align 4
-  %add2714 = add i32 %or2713, %1708
-  store i32 %add2714, ptr %D, align 4
-  %1709 = load i32, ptr %A, align 4
-  %shl2715 = shl i32 %1709, 10
-  %1710 = load i32, ptr %A, align 4
-  %and2716 = and i32 %1710, -1
-  %shr2717 = lshr i32 %and2716, 22
-  %or2718 = or i32 %shl2715, %shr2717
-  store i32 %or2718, ptr %A, align 4
-  %1711 = load i32, ptr %E, align 4
-  %1712 = load i32, ptr %A, align 4
-  %xor2719 = xor i32 %1711, %1712
-  %1713 = load i32, ptr %D, align 4
-  %and2720 = and i32 %xor2719, %1713
-  %1714 = load i32, ptr %A, align 4
-  %xor2721 = xor i32 %and2720, %1714
-  %1715 = load i32, ptr %XX14, align 4
-  %add2722 = add i32 %xor2721, %1715
-  %conv2723 = zext i32 %add2722 to i64
-  %add2724 = add nsw i64 %conv2723, 2053994217
-  %1716 = load i32, ptr %C, align 4
-  %conv2725 = zext i32 %1716 to i64
-  %add2726 = add nsw i64 %conv2725, %add2724
-  %conv2727 = trunc i64 %add2726 to i32
-  store i32 %conv2727, ptr %C, align 4
-  %1717 = load i32, ptr %C, align 4
-  %shl2728 = shl i32 %1717, 8
-  %1718 = load i32, ptr %C, align 4
-  %and2729 = and i32 %1718, -1
-  %shr2730 = lshr i32 %and2729, 24
-  %or2731 = or i32 %shl2728, %shr2730
-  %1719 = load i32, ptr %B, align 4
-  %add2732 = add i32 %or2731, %1719
-  store i32 %add2732, ptr %C, align 4
-  %1720 = load i32, ptr %E, align 4
-  %shl2733 = shl i32 %1720, 10
-  %1721 = load i32, ptr %E, align 4
-  %and2734 = and i32 %1721, -1
-  %shr2735 = lshr i32 %and2734, 22
-  %or2736 = or i32 %shl2733, %shr2735
-  store i32 %or2736, ptr %E, align 4
-  %1722 = load i32, ptr %C, align 4
-  %1723 = load i32, ptr %D, align 4
-  %xor2737 = xor i32 %1722, %1723
-  %1724 = load i32, ptr %E, align 4
-  %xor2738 = xor i32 %xor2737, %1724
-  %1725 = load i32, ptr %XX12, align 4
-  %add2739 = add i32 %xor2738, %1725
-  %1726 = load i32, ptr %B, align 4
-  %add2740 = add i32 %1726, %add2739
-  store i32 %add2740, ptr %B, align 4
-  %1727 = load i32, ptr %B, align 4
-  %shl2741 = shl i32 %1727, 8
-  %1728 = load i32, ptr %B, align 4
-  %and2742 = and i32 %1728, -1
-  %shr2743 = lshr i32 %and2742, 24
-  %or2744 = or i32 %shl2741, %shr2743
-  %1729 = load i32, ptr %A, align 4
-  %add2745 = add i32 %or2744, %1729
-  store i32 %add2745, ptr %B, align 4
-  %1730 = load i32, ptr %D, align 4
-  %shl2746 = shl i32 %1730, 10
-  %1731 = load i32, ptr %D, align 4
-  %and2747 = and i32 %1731, -1
-  %shr2748 = lshr i32 %and2747, 22
-  %or2749 = or i32 %shl2746, %shr2748
-  store i32 %or2749, ptr %D, align 4
-  %1732 = load i32, ptr %B, align 4
-  %1733 = load i32, ptr %C, align 4
-  %xor2750 = xor i32 %1732, %1733
-  %1734 = load i32, ptr %D, align 4
-  %xor2751 = xor i32 %xor2750, %1734
-  %1735 = load i32, ptr %XX15, align 4
-  %add2752 = add i32 %xor2751, %1735
-  %1736 = load i32, ptr %A, align 4
-  %add2753 = add i32 %1736, %add2752
-  store i32 %add2753, ptr %A, align 4
-  %1737 = load i32, ptr %A, align 4
-  %shl2754 = shl i32 %1737, 5
-  %1738 = load i32, ptr %A, align 4
-  %and2755 = and i32 %1738, -1
-  %shr2756 = lshr i32 %and2755, 27
-  %or2757 = or i32 %shl2754, %shr2756
-  %1739 = load i32, ptr %E, align 4
-  %add2758 = add i32 %or2757, %1739
-  store i32 %add2758, ptr %A, align 4
-  %1740 = load i32, ptr %C, align 4
-  %shl2759 = shl i32 %1740, 10
-  %1741 = load i32, ptr %C, align 4
-  %and2760 = and i32 %1741, -1
-  %shr2761 = lshr i32 %and2760, 22
-  %or2762 = or i32 %shl2759, %shr2761
-  store i32 %or2762, ptr %C, align 4
-  %1742 = load i32, ptr %A, align 4
-  %1743 = load i32, ptr %B, align 4
-  %xor2763 = xor i32 %1742, %1743
-  %1744 = load i32, ptr %C, align 4
-  %xor2764 = xor i32 %xor2763, %1744
-  %1745 = load i32, ptr %XX10, align 4
-  %add2765 = add i32 %xor2764, %1745
-  %1746 = load i32, ptr %E, align 4
-  %add2766 = add i32 %1746, %add2765
-  store i32 %add2766, ptr %E, align 4
-  %1747 = load i32, ptr %E, align 4
-  %shl2767 = shl i32 %1747, 12
-  %1748 = load i32, ptr %E, align 4
-  %and2768 = and i32 %1748, -1
-  %shr2769 = lshr i32 %and2768, 20
-  %or2770 = or i32 %shl2767, %shr2769
-  %1749 = load i32, ptr %D, align 4
-  %add2771 = add i32 %or2770, %1749
-  store i32 %add2771, ptr %E, align 4
-  %1750 = load i32, ptr %B, align 4
-  %shl2772 = shl i32 %1750, 10
-  %1751 = load i32, ptr %B, align 4
-  %and2773 = and i32 %1751, -1
-  %shr2774 = lshr i32 %and2773, 22
-  %or2775 = or i32 %shl2772, %shr2774
-  store i32 %or2775, ptr %B, align 4
-  %1752 = load i32, ptr %E, align 4
-  %1753 = load i32, ptr %A, align 4
-  %xor2776 = xor i32 %1752, %1753
-  %1754 = load i32, ptr %B, align 4
-  %xor2777 = xor i32 %xor2776, %1754
-  %1755 = load i32, ptr %XX4, align 4
-  %add2778 = add i32 %xor2777, %1755
-  %1756 = load i32, ptr %D, align 4
-  %add2779 = add i32 %1756, %add2778
-  store i32 %add2779, ptr %D, align 4
-  %1757 = load i32, ptr %D, align 4
-  %shl2780 = shl i32 %1757, 9
-  %1758 = load i32, ptr %D, align 4
-  %and2781 = and i32 %1758, -1
-  %shr2782 = lshr i32 %and2781, 23
-  %or2783 = or i32 %shl2780, %shr2782
-  %1759 = load i32, ptr %C, align 4
-  %add2784 = add i32 %or2783, %1759
-  store i32 %add2784, ptr %D, align 4
-  %1760 = load i32, ptr %A, align 4
-  %shl2785 = shl i32 %1760, 10
-  %1761 = load i32, ptr %A, align 4
-  %and2786 = and i32 %1761, -1
-  %shr2787 = lshr i32 %and2786, 22
-  %or2788 = or i32 %shl2785, %shr2787
-  store i32 %or2788, ptr %A, align 4
-  %1762 = load i32, ptr %D, align 4
-  %1763 = load i32, ptr %E, align 4
-  %xor2789 = xor i32 %1762, %1763
-  %1764 = load i32, ptr %A, align 4
-  %xor2790 = xor i32 %xor2789, %1764
-  %1765 = load i32, ptr %XX1, align 4
-  %add2791 = add i32 %xor2790, %1765
-  %1766 = load i32, ptr %C, align 4
-  %add2792 = add i32 %1766, %add2791
-  store i32 %add2792, ptr %C, align 4
-  %1767 = load i32, ptr %C, align 4
-  %shl2793 = shl i32 %1767, 12
-  %1768 = load i32, ptr %C, align 4
-  %and2794 = and i32 %1768, -1
-  %shr2795 = lshr i32 %and2794, 20
-  %or2796 = or i32 %shl2793, %shr2795
-  %1769 = load i32, ptr %B, align 4
-  %add2797 = add i32 %or2796, %1769
-  store i32 %add2797, ptr %C, align 4
-  %1770 = load i32, ptr %E, align 4
-  %shl2798 = shl i32 %1770, 10
-  %1771 = load i32, ptr %E, align 4
-  %and2799 = and i32 %1771, -1
-  %shr2800 = lshr i32 %and2799, 22
-  %or2801 = or i32 %shl2798, %shr2800
-  store i32 %or2801, ptr %E, align 4
-  %1772 = load i32, ptr %C, align 4
-  %1773 = load i32, ptr %D, align 4
-  %xor2802 = xor i32 %1772, %1773
-  %1774 = load i32, ptr %E, align 4
-  %xor2803 = xor i32 %xor2802, %1774
-  %1775 = load i32, ptr %XX5, align 4
-  %add2804 = add i32 %xor2803, %1775
-  %1776 = load i32, ptr %B, align 4
-  %add2805 = add i32 %1776, %add2804
-  store i32 %add2805, ptr %B, align 4
-  %1777 = load i32, ptr %B, align 4
-  %shl2806 = shl i32 %1777, 5
-  %1778 = load i32, ptr %B, align 4
-  %and2807 = and i32 %1778, -1
-  %shr2808 = lshr i32 %and2807, 27
-  %or2809 = or i32 %shl2806, %shr2808
-  %1779 = load i32, ptr %A, align 4
-  %add2810 = add i32 %or2809, %1779
-  store i32 %add2810, ptr %B, align 4
-  %1780 = load i32, ptr %D, align 4
-  %shl2811 = shl i32 %1780, 10
-  %1781 = load i32, ptr %D, align 4
-  %and2812 = and i32 %1781, -1
-  %shr2813 = lshr i32 %and2812, 22
-  %or2814 = or i32 %shl2811, %shr2813
-  store i32 %or2814, ptr %D, align 4
-  %1782 = load i32, ptr %B, align 4
-  %1783 = load i32, ptr %C, align 4
-  %xor2815 = xor i32 %1782, %1783
-  %1784 = load i32, ptr %D, align 4
-  %xor2816 = xor i32 %xor2815, %1784
-  %1785 = load i32, ptr %XX8, align 4
-  %add2817 = add i32 %xor2816, %1785
-  %1786 = load i32, ptr %A, align 4
-  %add2818 = add i32 %1786, %add2817
-  store i32 %add2818, ptr %A, align 4
-  %1787 = load i32, ptr %A, align 4
-  %shl2819 = shl i32 %1787, 14
-  %1788 = load i32, ptr %A, align 4
-  %and2820 = and i32 %1788, -1
-  %shr2821 = lshr i32 %and2820, 18
-  %or2822 = or i32 %shl2819, %shr2821
-  %1789 = load i32, ptr %E, align 4
-  %add2823 = add i32 %or2822, %1789
-  store i32 %add2823, ptr %A, align 4
-  %1790 = load i32, ptr %C, align 4
-  %shl2824 = shl i32 %1790, 10
-  %1791 = load i32, ptr %C, align 4
-  %and2825 = and i32 %1791, -1
-  %shr2826 = lshr i32 %and2825, 22
-  %or2827 = or i32 %shl2824, %shr2826
-  store i32 %or2827, ptr %C, align 4
-  %1792 = load i32, ptr %A, align 4
-  %1793 = load i32, ptr %B, align 4
-  %xor2828 = xor i32 %1792, %1793
-  %1794 = load i32, ptr %C, align 4
-  %xor2829 = xor i32 %xor2828, %1794
-  %1795 = load i32, ptr %XX7, align 4
-  %add2830 = add i32 %xor2829, %1795
-  %1796 = load i32, ptr %E, align 4
-  %add2831 = add i32 %1796, %add2830
-  store i32 %add2831, ptr %E, align 4
-  %1797 = load i32, ptr %E, align 4
-  %shl2832 = shl i32 %1797, 6
-  %1798 = load i32, ptr %E, align 4
-  %and2833 = and i32 %1798, -1
-  %shr2834 = lshr i32 %and2833, 26
-  %or2835 = or i32 %shl2832, %shr2834
-  %1799 = load i32, ptr %D, align 4
-  %add2836 = add i32 %or2835, %1799
-  store i32 %add2836, ptr %E, align 4
-  %1800 = load i32, ptr %B, align 4
-  %shl2837 = shl i32 %1800, 10
-  %1801 = load i32, ptr %B, align 4
-  %and2838 = and i32 %1801, -1
-  %shr2839 = lshr i32 %and2838, 22
-  %or2840 = or i32 %shl2837, %shr2839
-  store i32 %or2840, ptr %B, align 4
-  %1802 = load i32, ptr %E, align 4
-  %1803 = load i32, ptr %A, align 4
-  %xor2841 = xor i32 %1802, %1803
-  %1804 = load i32, ptr %B, align 4
-  %xor2842 = xor i32 %xor2841, %1804
-  %1805 = load i32, ptr %XX6, align 4
-  %add2843 = add i32 %xor2842, %1805
-  %1806 = load i32, ptr %D, align 4
-  %add2844 = add i32 %1806, %add2843
-  store i32 %add2844, ptr %D, align 4
-  %1807 = load i32, ptr %D, align 4
-  %shl2845 = shl i32 %1807, 8
-  %1808 = load i32, ptr %D, align 4
-  %and2846 = and i32 %1808, -1
-  %shr2847 = lshr i32 %and2846, 24
-  %or2848 = or i32 %shl2845, %shr2847
-  %1809 = load i32, ptr %C, align 4
-  %add2849 = add i32 %or2848, %1809
-  store i32 %add2849, ptr %D, align 4
-  %1810 = load i32, ptr %A, align 4
-  %shl2850 = shl i32 %1810, 10
-  %1811 = load i32, ptr %A, align 4
-  %and2851 = and i32 %1811, -1
-  %shr2852 = lshr i32 %and2851, 22
-  %or2853 = or i32 %shl2850, %shr2852
-  store i32 %or2853, ptr %A, align 4
-  %1812 = load i32, ptr %D, align 4
-  %1813 = load i32, ptr %E, align 4
-  %xor2854 = xor i32 %1812, %1813
-  %1814 = load i32, ptr %A, align 4
-  %xor2855 = xor i32 %xor2854, %1814
-  %1815 = load i32, ptr %XX2, align 4
-  %add2856 = add i32 %xor2855, %1815
-  %1816 = load i32, ptr %C, align 4
-  %add2857 = add i32 %1816, %add2856
-  store i32 %add2857, ptr %C, align 4
-  %1817 = load i32, ptr %C, align 4
-  %shl2858 = shl i32 %1817, 13
-  %1818 = load i32, ptr %C, align 4
-  %and2859 = and i32 %1818, -1
-  %shr2860 = lshr i32 %and2859, 19
-  %or2861 = or i32 %shl2858, %shr2860
-  %1819 = load i32, ptr %B, align 4
-  %add2862 = add i32 %or2861, %1819
-  store i32 %add2862, ptr %C, align 4
-  %1820 = load i32, ptr %E, align 4
-  %shl2863 = shl i32 %1820, 10
-  %1821 = load i32, ptr %E, align 4
-  %and2864 = and i32 %1821, -1
-  %shr2865 = lshr i32 %and2864, 22
-  %or2866 = or i32 %shl2863, %shr2865
-  store i32 %or2866, ptr %E, align 4
-  %1822 = load i32, ptr %C, align 4
-  %1823 = load i32, ptr %D, align 4
-  %xor2867 = xor i32 %1822, %1823
-  %1824 = load i32, ptr %E, align 4
-  %xor2868 = xor i32 %xor2867, %1824
-  %1825 = load i32, ptr %XX13, align 4
-  %add2869 = add i32 %xor2868, %1825
-  %1826 = load i32, ptr %B, align 4
-  %add2870 = add i32 %1826, %add2869
-  store i32 %add2870, ptr %B, align 4
-  %1827 = load i32, ptr %B, align 4
-  %shl2871 = shl i32 %1827, 6
-  %1828 = load i32, ptr %B, align 4
-  %and2872 = and i32 %1828, -1
-  %shr2873 = lshr i32 %and2872, 26
-  %or2874 = or i32 %shl2871, %shr2873
-  %1829 = load i32, ptr %A, align 4
-  %add2875 = add i32 %or2874, %1829
-  store i32 %add2875, ptr %B, align 4
-  %1830 = load i32, ptr %D, align 4
-  %shl2876 = shl i32 %1830, 10
-  %1831 = load i32, ptr %D, align 4
-  %and2877 = and i32 %1831, -1
-  %shr2878 = lshr i32 %and2877, 22
-  %or2879 = or i32 %shl2876, %shr2878
-  store i32 %or2879, ptr %D, align 4
-  %1832 = load i32, ptr %B, align 4
-  %1833 = load i32, ptr %C, align 4
-  %xor2880 = xor i32 %1832, %1833
-  %1834 = load i32, ptr %D, align 4
-  %xor2881 = xor i32 %xor2880, %1834
-  %1835 = load i32, ptr %XX14, align 4
-  %add2882 = add i32 %xor2881, %1835
-  %1836 = load i32, ptr %A, align 4
-  %add2883 = add i32 %1836, %add2882
-  store i32 %add2883, ptr %A, align 4
-  %1837 = load i32, ptr %A, align 4
-  %shl2884 = shl i32 %1837, 5
-  %1838 = load i32, ptr %A, align 4
-  %and2885 = and i32 %1838, -1
-  %shr2886 = lshr i32 %and2885, 27
-  %or2887 = or i32 %shl2884, %shr2886
-  %1839 = load i32, ptr %E, align 4
-  %add2888 = add i32 %or2887, %1839
-  store i32 %add2888, ptr %A, align 4
-  %1840 = load i32, ptr %C, align 4
-  %shl2889 = shl i32 %1840, 10
-  %1841 = load i32, ptr %C, align 4
-  %and2890 = and i32 %1841, -1
-  %shr2891 = lshr i32 %and2890, 22
-  %or2892 = or i32 %shl2889, %shr2891
-  store i32 %or2892, ptr %C, align 4
-  %1842 = load i32, ptr %A, align 4
-  %1843 = load i32, ptr %B, align 4
-  %xor2893 = xor i32 %1842, %1843
-  %1844 = load i32, ptr %C, align 4
-  %xor2894 = xor i32 %xor2893, %1844
-  %1845 = load i32, ptr %XX0, align 4
-  %add2895 = add i32 %xor2894, %1845
-  %1846 = load i32, ptr %E, align 4
-  %add2896 = add i32 %1846, %add2895
-  store i32 %add2896, ptr %E, align 4
-  %1847 = load i32, ptr %E, align 4
-  %shl2897 = shl i32 %1847, 15
-  %1848 = load i32, ptr %E, align 4
-  %and2898 = and i32 %1848, -1
-  %shr2899 = lshr i32 %and2898, 17
-  %or2900 = or i32 %shl2897, %shr2899
-  %1849 = load i32, ptr %D, align 4
-  %add2901 = add i32 %or2900, %1849
-  store i32 %add2901, ptr %E, align 4
-  %1850 = load i32, ptr %B, align 4
-  %shl2902 = shl i32 %1850, 10
-  %1851 = load i32, ptr %B, align 4
-  %and2903 = and i32 %1851, -1
-  %shr2904 = lshr i32 %and2903, 22
-  %or2905 = or i32 %shl2902, %shr2904
-  store i32 %or2905, ptr %B, align 4
-  %1852 = load i32, ptr %E, align 4
-  %1853 = load i32, ptr %A, align 4
-  %xor2906 = xor i32 %1852, %1853
-  %1854 = load i32, ptr %B, align 4
-  %xor2907 = xor i32 %xor2906, %1854
-  %1855 = load i32, ptr %XX3, align 4
-  %add2908 = add i32 %xor2907, %1855
-  %1856 = load i32, ptr %D, align 4
-  %add2909 = add i32 %1856, %add2908
-  store i32 %add2909, ptr %D, align 4
-  %1857 = load i32, ptr %D, align 4
-  %shl2910 = shl i32 %1857, 13
-  %1858 = load i32, ptr %D, align 4
-  %and2911 = and i32 %1858, -1
-  %shr2912 = lshr i32 %and2911, 19
-  %or2913 = or i32 %shl2910, %shr2912
-  %1859 = load i32, ptr %C, align 4
-  %add2914 = add i32 %or2913, %1859
-  store i32 %add2914, ptr %D, align 4
-  %1860 = load i32, ptr %A, align 4
-  %shl2915 = shl i32 %1860, 10
-  %1861 = load i32, ptr %A, align 4
-  %and2916 = and i32 %1861, -1
-  %shr2917 = lshr i32 %and2916, 22
-  %or2918 = or i32 %shl2915, %shr2917
-  store i32 %or2918, ptr %A, align 4
-  %1862 = load i32, ptr %D, align 4
-  %1863 = load i32, ptr %E, align 4
-  %xor2919 = xor i32 %1862, %1863
-  %1864 = load i32, ptr %A, align 4
-  %xor2920 = xor i32 %xor2919, %1864
-  %1865 = load i32, ptr %XX9, align 4
-  %add2921 = add i32 %xor2920, %1865
-  %1866 = load i32, ptr %C, align 4
-  %add2922 = add i32 %1866, %add2921
-  store i32 %add2922, ptr %C, align 4
-  %1867 = load i32, ptr %C, align 4
-  %shl2923 = shl i32 %1867, 11
-  %1868 = load i32, ptr %C, align 4
-  %and2924 = and i32 %1868, -1
-  %shr2925 = lshr i32 %and2924, 21
-  %or2926 = or i32 %shl2923, %shr2925
-  %1869 = load i32, ptr %B, align 4
-  %add2927 = add i32 %or2926, %1869
-  store i32 %add2927, ptr %C, align 4
-  %1870 = load i32, ptr %E, align 4
-  %shl2928 = shl i32 %1870, 10
-  %1871 = load i32, ptr %E, align 4
-  %and2929 = and i32 %1871, -1
-  %shr2930 = lshr i32 %and2929, 22
-  %or2931 = or i32 %shl2928, %shr2930
-  store i32 %or2931, ptr %E, align 4
-  %1872 = load i32, ptr %C, align 4
-  %1873 = load i32, ptr %D, align 4
-  %xor2932 = xor i32 %1872, %1873
-  %1874 = load i32, ptr %E, align 4
-  %xor2933 = xor i32 %xor2932, %1874
-  %1875 = load i32, ptr %XX11, align 4
-  %add2934 = add i32 %xor2933, %1875
-  %1876 = load i32, ptr %B, align 4
-  %add2935 = add i32 %1876, %add2934
-  store i32 %add2935, ptr %B, align 4
-  %1877 = load i32, ptr %B, align 4
-  %shl2936 = shl i32 %1877, 11
-  %1878 = load i32, ptr %B, align 4
-  %and2937 = and i32 %1878, -1
-  %shr2938 = lshr i32 %and2937, 21
-  %or2939 = or i32 %shl2936, %shr2938
-  %1879 = load i32, ptr %A, align 4
-  %add2940 = add i32 %or2939, %1879
-  store i32 %add2940, ptr %B, align 4
-  %1880 = load i32, ptr %D, align 4
-  %shl2941 = shl i32 %1880, 10
-  %1881 = load i32, ptr %D, align 4
-  %and2942 = and i32 %1881, -1
-  %shr2943 = lshr i32 %and2942, 22
-  %or2944 = or i32 %shl2941, %shr2943
-  store i32 %or2944, ptr %D, align 4
-  %1882 = load ptr, ptr %h.addr, align 8
-  %arrayidx2945 = getelementptr inbounds i32, ptr %1882, i64 1
-  %1883 = load i32, ptr %arrayidx2945, align 4
-  %1884 = load i32, ptr %c, align 4
-  %add2946 = add i32 %1883, %1884
-  %1885 = load i32, ptr %D, align 4
-  %add2947 = add i32 %add2946, %1885
-  store i32 %add2947, ptr %D, align 4
-  %1886 = load ptr, ptr %h.addr, align 8
-  %arrayidx2948 = getelementptr inbounds i32, ptr %1886, i64 2
-  %1887 = load i32, ptr %arrayidx2948, align 4
-  %1888 = load i32, ptr %d, align 4
-  %add2949 = add i32 %1887, %1888
-  %1889 = load i32, ptr %E, align 4
-  %add2950 = add i32 %add2949, %1889
-  %1890 = load ptr, ptr %h.addr, align 8
-  %arrayidx2951 = getelementptr inbounds i32, ptr %1890, i64 1
-  store i32 %add2950, ptr %arrayidx2951, align 4
-  %1891 = load ptr, ptr %h.addr, align 8
-  %arrayidx2952 = getelementptr inbounds i32, ptr %1891, i64 3
-  %1892 = load i32, ptr %arrayidx2952, align 4
-  %1893 = load i32, ptr %e, align 4
-  %add2953 = add i32 %1892, %1893
-  %1894 = load i32, ptr %A, align 4
-  %add2954 = add i32 %add2953, %1894
-  %1895 = load ptr, ptr %h.addr, align 8
-  %arrayidx2955 = getelementptr inbounds i32, ptr %1895, i64 2
-  store i32 %add2954, ptr %arrayidx2955, align 4
-  %1896 = load ptr, ptr %h.addr, align 8
-  %arrayidx2956 = getelementptr inbounds i32, ptr %1896, i64 4
-  %1897 = load i32, ptr %arrayidx2956, align 4
-  %1898 = load i32, ptr %a, align 4
-  %add2957 = add i32 %1897, %1898
-  %1899 = load i32, ptr %B, align 4
-  %add2958 = add i32 %add2957, %1899
-  %1900 = load ptr, ptr %h.addr, align 8
-  %arrayidx2959 = getelementptr inbounds i32, ptr %1900, i64 3
-  store i32 %add2958, ptr %arrayidx2959, align 4
-  %1901 = load ptr, ptr %h.addr, align 8
-  %arrayidx2960 = getelementptr inbounds i32, ptr %1901, i64 0
-  %1902 = load i32, ptr %arrayidx2960, align 4
-  %1903 = load i32, ptr %b, align 4
-  %add2961 = add i32 %1902, %1903
-  %1904 = load i32, ptr %C, align 4
-  %add2962 = add i32 %add2961, %1904
-  %1905 = load ptr, ptr %h.addr, align 8
-  %arrayidx2963 = getelementptr inbounds i32, ptr %1905, i64 4
-  store i32 %add2962, ptr %arrayidx2963, align 4
-  %1906 = load i32, ptr %D, align 4
-  %1907 = load ptr, ptr %h.addr, align 8
-  %arrayidx2964 = getelementptr inbounds i32, ptr %1907, i64 0
-  store i32 %1906, ptr %arrayidx2964, align 4
-  br label %for.cond, !llvm.loop !7
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %4, align 8, !tbaa !22
+  %40 = getelementptr inbounds i32, ptr %39, i64 0
+  %41 = load i32, ptr %40, align 4, !tbaa !19
+  store i32 %41, ptr %7, align 4, !tbaa !19
+  %42 = load ptr, ptr %4, align 8, !tbaa !22
+  %43 = getelementptr inbounds i32, ptr %42, i64 1
+  %44 = load i32, ptr %43, align 4, !tbaa !19
+  store i32 %44, ptr %8, align 4, !tbaa !19
+  %45 = load ptr, ptr %4, align 8, !tbaa !22
+  %46 = getelementptr inbounds i32, ptr %45, i64 2
+  %47 = load i32, ptr %46, align 4, !tbaa !19
+  store i32 %47, ptr %9, align 4, !tbaa !19
+  %48 = load ptr, ptr %4, align 8, !tbaa !22
+  %49 = getelementptr inbounds i32, ptr %48, i64 3
+  %50 = load i32, ptr %49, align 4, !tbaa !19
+  store i32 %50, ptr %10, align 4, !tbaa !19
+  %51 = load ptr, ptr %4, align 8, !tbaa !22
+  %52 = getelementptr inbounds i32, ptr %51, i64 4
+  %53 = load i32, ptr %52, align 4, !tbaa !19
+  store i32 %53, ptr %11, align 4, !tbaa !19
+  %54 = load ptr, ptr %5, align 8, !tbaa !14
+  %55 = getelementptr inbounds nuw i8, ptr %54, i32 1
+  store ptr %55, ptr %5, align 8, !tbaa !14
+  %56 = load i8, ptr %54, align 1, !tbaa !24
+  %57 = zext i8 %56 to i32
+  store i32 %57, ptr %17, align 4, !tbaa !19
+  %58 = load ptr, ptr %5, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw i8, ptr %58, i32 1
+  store ptr %59, ptr %5, align 8, !tbaa !14
+  %60 = load i8, ptr %58, align 1, !tbaa !24
+  %61 = zext i8 %60 to i32
+  %62 = shl i32 %61, 8
+  %63 = load i32, ptr %17, align 4, !tbaa !19
+  %64 = or i32 %63, %62
+  store i32 %64, ptr %17, align 4, !tbaa !19
+  %65 = load ptr, ptr %5, align 8, !tbaa !14
+  %66 = getelementptr inbounds nuw i8, ptr %65, i32 1
+  store ptr %66, ptr %5, align 8, !tbaa !14
+  %67 = load i8, ptr %65, align 1, !tbaa !24
+  %68 = zext i8 %67 to i32
+  %69 = shl i32 %68, 16
+  %70 = load i32, ptr %17, align 4, !tbaa !19
+  %71 = or i32 %70, %69
+  store i32 %71, ptr %17, align 4, !tbaa !19
+  %72 = load ptr, ptr %5, align 8, !tbaa !14
+  %73 = getelementptr inbounds nuw i8, ptr %72, i32 1
+  store ptr %73, ptr %5, align 8, !tbaa !14
+  %74 = load i8, ptr %72, align 1, !tbaa !24
+  %75 = zext i8 %74 to i32
+  %76 = shl i32 %75, 24
+  %77 = load i32, ptr %17, align 4, !tbaa !19
+  %78 = or i32 %77, %76
+  store i32 %78, ptr %17, align 4, !tbaa !19
+  %79 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %79, ptr %18, align 4, !tbaa !19
+  %80 = load ptr, ptr %5, align 8, !tbaa !14
+  %81 = getelementptr inbounds nuw i8, ptr %80, i32 1
+  store ptr %81, ptr %5, align 8, !tbaa !14
+  %82 = load i8, ptr %80, align 1, !tbaa !24
+  %83 = zext i8 %82 to i32
+  store i32 %83, ptr %17, align 4, !tbaa !19
+  %84 = load ptr, ptr %5, align 8, !tbaa !14
+  %85 = getelementptr inbounds nuw i8, ptr %84, i32 1
+  store ptr %85, ptr %5, align 8, !tbaa !14
+  %86 = load i8, ptr %84, align 1, !tbaa !24
+  %87 = zext i8 %86 to i32
+  %88 = shl i32 %87, 8
+  %89 = load i32, ptr %17, align 4, !tbaa !19
+  %90 = or i32 %89, %88
+  store i32 %90, ptr %17, align 4, !tbaa !19
+  %91 = load ptr, ptr %5, align 8, !tbaa !14
+  %92 = getelementptr inbounds nuw i8, ptr %91, i32 1
+  store ptr %92, ptr %5, align 8, !tbaa !14
+  %93 = load i8, ptr %91, align 1, !tbaa !24
+  %94 = zext i8 %93 to i32
+  %95 = shl i32 %94, 16
+  %96 = load i32, ptr %17, align 4, !tbaa !19
+  %97 = or i32 %96, %95
+  store i32 %97, ptr %17, align 4, !tbaa !19
+  %98 = load ptr, ptr %5, align 8, !tbaa !14
+  %99 = getelementptr inbounds nuw i8, ptr %98, i32 1
+  store ptr %99, ptr %5, align 8, !tbaa !14
+  %100 = load i8, ptr %98, align 1, !tbaa !24
+  %101 = zext i8 %100 to i32
+  %102 = shl i32 %101, 24
+  %103 = load i32, ptr %17, align 4, !tbaa !19
+  %104 = or i32 %103, %102
+  store i32 %104, ptr %17, align 4, !tbaa !19
+  %105 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %105, ptr %19, align 4, !tbaa !19
+  %106 = load i32, ptr %8, align 4, !tbaa !19
+  %107 = load i32, ptr %9, align 4, !tbaa !19
+  %108 = xor i32 %106, %107
+  %109 = load i32, ptr %10, align 4, !tbaa !19
+  %110 = xor i32 %108, %109
+  %111 = load i32, ptr %18, align 4, !tbaa !19
+  %112 = add i32 %110, %111
+  %113 = load i32, ptr %7, align 4, !tbaa !19
+  %114 = add i32 %113, %112
+  store i32 %114, ptr %7, align 4, !tbaa !19
+  %115 = load i32, ptr %7, align 4, !tbaa !19
+  %116 = shl i32 %115, 11
+  %117 = load i32, ptr %7, align 4, !tbaa !19
+  %118 = and i32 %117, -1
+  %119 = lshr i32 %118, 21
+  %120 = or i32 %116, %119
+  %121 = load i32, ptr %11, align 4, !tbaa !19
+  %122 = add i32 %120, %121
+  store i32 %122, ptr %7, align 4, !tbaa !19
+  %123 = load i32, ptr %9, align 4, !tbaa !19
+  %124 = shl i32 %123, 10
+  %125 = load i32, ptr %9, align 4, !tbaa !19
+  %126 = and i32 %125, -1
+  %127 = lshr i32 %126, 22
+  %128 = or i32 %124, %127
+  store i32 %128, ptr %9, align 4, !tbaa !19
+  %129 = load ptr, ptr %5, align 8, !tbaa !14
+  %130 = getelementptr inbounds nuw i8, ptr %129, i32 1
+  store ptr %130, ptr %5, align 8, !tbaa !14
+  %131 = load i8, ptr %129, align 1, !tbaa !24
+  %132 = zext i8 %131 to i32
+  store i32 %132, ptr %17, align 4, !tbaa !19
+  %133 = load ptr, ptr %5, align 8, !tbaa !14
+  %134 = getelementptr inbounds nuw i8, ptr %133, i32 1
+  store ptr %134, ptr %5, align 8, !tbaa !14
+  %135 = load i8, ptr %133, align 1, !tbaa !24
+  %136 = zext i8 %135 to i32
+  %137 = shl i32 %136, 8
+  %138 = load i32, ptr %17, align 4, !tbaa !19
+  %139 = or i32 %138, %137
+  store i32 %139, ptr %17, align 4, !tbaa !19
+  %140 = load ptr, ptr %5, align 8, !tbaa !14
+  %141 = getelementptr inbounds nuw i8, ptr %140, i32 1
+  store ptr %141, ptr %5, align 8, !tbaa !14
+  %142 = load i8, ptr %140, align 1, !tbaa !24
+  %143 = zext i8 %142 to i32
+  %144 = shl i32 %143, 16
+  %145 = load i32, ptr %17, align 4, !tbaa !19
+  %146 = or i32 %145, %144
+  store i32 %146, ptr %17, align 4, !tbaa !19
+  %147 = load ptr, ptr %5, align 8, !tbaa !14
+  %148 = getelementptr inbounds nuw i8, ptr %147, i32 1
+  store ptr %148, ptr %5, align 8, !tbaa !14
+  %149 = load i8, ptr %147, align 1, !tbaa !24
+  %150 = zext i8 %149 to i32
+  %151 = shl i32 %150, 24
+  %152 = load i32, ptr %17, align 4, !tbaa !19
+  %153 = or i32 %152, %151
+  store i32 %153, ptr %17, align 4, !tbaa !19
+  %154 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %154, ptr %20, align 4, !tbaa !19
+  %155 = load i32, ptr %7, align 4, !tbaa !19
+  %156 = load i32, ptr %8, align 4, !tbaa !19
+  %157 = xor i32 %155, %156
+  %158 = load i32, ptr %9, align 4, !tbaa !19
+  %159 = xor i32 %157, %158
+  %160 = load i32, ptr %19, align 4, !tbaa !19
+  %161 = add i32 %159, %160
+  %162 = load i32, ptr %11, align 4, !tbaa !19
+  %163 = add i32 %162, %161
+  store i32 %163, ptr %11, align 4, !tbaa !19
+  %164 = load i32, ptr %11, align 4, !tbaa !19
+  %165 = shl i32 %164, 14
+  %166 = load i32, ptr %11, align 4, !tbaa !19
+  %167 = and i32 %166, -1
+  %168 = lshr i32 %167, 18
+  %169 = or i32 %165, %168
+  %170 = load i32, ptr %10, align 4, !tbaa !19
+  %171 = add i32 %169, %170
+  store i32 %171, ptr %11, align 4, !tbaa !19
+  %172 = load i32, ptr %8, align 4, !tbaa !19
+  %173 = shl i32 %172, 10
+  %174 = load i32, ptr %8, align 4, !tbaa !19
+  %175 = and i32 %174, -1
+  %176 = lshr i32 %175, 22
+  %177 = or i32 %173, %176
+  store i32 %177, ptr %8, align 4, !tbaa !19
+  %178 = load ptr, ptr %5, align 8, !tbaa !14
+  %179 = getelementptr inbounds nuw i8, ptr %178, i32 1
+  store ptr %179, ptr %5, align 8, !tbaa !14
+  %180 = load i8, ptr %178, align 1, !tbaa !24
+  %181 = zext i8 %180 to i32
+  store i32 %181, ptr %17, align 4, !tbaa !19
+  %182 = load ptr, ptr %5, align 8, !tbaa !14
+  %183 = getelementptr inbounds nuw i8, ptr %182, i32 1
+  store ptr %183, ptr %5, align 8, !tbaa !14
+  %184 = load i8, ptr %182, align 1, !tbaa !24
+  %185 = zext i8 %184 to i32
+  %186 = shl i32 %185, 8
+  %187 = load i32, ptr %17, align 4, !tbaa !19
+  %188 = or i32 %187, %186
+  store i32 %188, ptr %17, align 4, !tbaa !19
+  %189 = load ptr, ptr %5, align 8, !tbaa !14
+  %190 = getelementptr inbounds nuw i8, ptr %189, i32 1
+  store ptr %190, ptr %5, align 8, !tbaa !14
+  %191 = load i8, ptr %189, align 1, !tbaa !24
+  %192 = zext i8 %191 to i32
+  %193 = shl i32 %192, 16
+  %194 = load i32, ptr %17, align 4, !tbaa !19
+  %195 = or i32 %194, %193
+  store i32 %195, ptr %17, align 4, !tbaa !19
+  %196 = load ptr, ptr %5, align 8, !tbaa !14
+  %197 = getelementptr inbounds nuw i8, ptr %196, i32 1
+  store ptr %197, ptr %5, align 8, !tbaa !14
+  %198 = load i8, ptr %196, align 1, !tbaa !24
+  %199 = zext i8 %198 to i32
+  %200 = shl i32 %199, 24
+  %201 = load i32, ptr %17, align 4, !tbaa !19
+  %202 = or i32 %201, %200
+  store i32 %202, ptr %17, align 4, !tbaa !19
+  %203 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %203, ptr %21, align 4, !tbaa !19
+  %204 = load i32, ptr %11, align 4, !tbaa !19
+  %205 = load i32, ptr %7, align 4, !tbaa !19
+  %206 = xor i32 %204, %205
+  %207 = load i32, ptr %8, align 4, !tbaa !19
+  %208 = xor i32 %206, %207
+  %209 = load i32, ptr %20, align 4, !tbaa !19
+  %210 = add i32 %208, %209
+  %211 = load i32, ptr %10, align 4, !tbaa !19
+  %212 = add i32 %211, %210
+  store i32 %212, ptr %10, align 4, !tbaa !19
+  %213 = load i32, ptr %10, align 4, !tbaa !19
+  %214 = shl i32 %213, 15
+  %215 = load i32, ptr %10, align 4, !tbaa !19
+  %216 = and i32 %215, -1
+  %217 = lshr i32 %216, 17
+  %218 = or i32 %214, %217
+  %219 = load i32, ptr %9, align 4, !tbaa !19
+  %220 = add i32 %218, %219
+  store i32 %220, ptr %10, align 4, !tbaa !19
+  %221 = load i32, ptr %7, align 4, !tbaa !19
+  %222 = shl i32 %221, 10
+  %223 = load i32, ptr %7, align 4, !tbaa !19
+  %224 = and i32 %223, -1
+  %225 = lshr i32 %224, 22
+  %226 = or i32 %222, %225
+  store i32 %226, ptr %7, align 4, !tbaa !19
+  %227 = load ptr, ptr %5, align 8, !tbaa !14
+  %228 = getelementptr inbounds nuw i8, ptr %227, i32 1
+  store ptr %228, ptr %5, align 8, !tbaa !14
+  %229 = load i8, ptr %227, align 1, !tbaa !24
+  %230 = zext i8 %229 to i32
+  store i32 %230, ptr %17, align 4, !tbaa !19
+  %231 = load ptr, ptr %5, align 8, !tbaa !14
+  %232 = getelementptr inbounds nuw i8, ptr %231, i32 1
+  store ptr %232, ptr %5, align 8, !tbaa !14
+  %233 = load i8, ptr %231, align 1, !tbaa !24
+  %234 = zext i8 %233 to i32
+  %235 = shl i32 %234, 8
+  %236 = load i32, ptr %17, align 4, !tbaa !19
+  %237 = or i32 %236, %235
+  store i32 %237, ptr %17, align 4, !tbaa !19
+  %238 = load ptr, ptr %5, align 8, !tbaa !14
+  %239 = getelementptr inbounds nuw i8, ptr %238, i32 1
+  store ptr %239, ptr %5, align 8, !tbaa !14
+  %240 = load i8, ptr %238, align 1, !tbaa !24
+  %241 = zext i8 %240 to i32
+  %242 = shl i32 %241, 16
+  %243 = load i32, ptr %17, align 4, !tbaa !19
+  %244 = or i32 %243, %242
+  store i32 %244, ptr %17, align 4, !tbaa !19
+  %245 = load ptr, ptr %5, align 8, !tbaa !14
+  %246 = getelementptr inbounds nuw i8, ptr %245, i32 1
+  store ptr %246, ptr %5, align 8, !tbaa !14
+  %247 = load i8, ptr %245, align 1, !tbaa !24
+  %248 = zext i8 %247 to i32
+  %249 = shl i32 %248, 24
+  %250 = load i32, ptr %17, align 4, !tbaa !19
+  %251 = or i32 %250, %249
+  store i32 %251, ptr %17, align 4, !tbaa !19
+  %252 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %252, ptr %22, align 4, !tbaa !19
+  %253 = load i32, ptr %10, align 4, !tbaa !19
+  %254 = load i32, ptr %11, align 4, !tbaa !19
+  %255 = xor i32 %253, %254
+  %256 = load i32, ptr %7, align 4, !tbaa !19
+  %257 = xor i32 %255, %256
+  %258 = load i32, ptr %21, align 4, !tbaa !19
+  %259 = add i32 %257, %258
+  %260 = load i32, ptr %9, align 4, !tbaa !19
+  %261 = add i32 %260, %259
+  store i32 %261, ptr %9, align 4, !tbaa !19
+  %262 = load i32, ptr %9, align 4, !tbaa !19
+  %263 = shl i32 %262, 12
+  %264 = load i32, ptr %9, align 4, !tbaa !19
+  %265 = and i32 %264, -1
+  %266 = lshr i32 %265, 20
+  %267 = or i32 %263, %266
+  %268 = load i32, ptr %8, align 4, !tbaa !19
+  %269 = add i32 %267, %268
+  store i32 %269, ptr %9, align 4, !tbaa !19
+  %270 = load i32, ptr %11, align 4, !tbaa !19
+  %271 = shl i32 %270, 10
+  %272 = load i32, ptr %11, align 4, !tbaa !19
+  %273 = and i32 %272, -1
+  %274 = lshr i32 %273, 22
+  %275 = or i32 %271, %274
+  store i32 %275, ptr %11, align 4, !tbaa !19
+  %276 = load ptr, ptr %5, align 8, !tbaa !14
+  %277 = getelementptr inbounds nuw i8, ptr %276, i32 1
+  store ptr %277, ptr %5, align 8, !tbaa !14
+  %278 = load i8, ptr %276, align 1, !tbaa !24
+  %279 = zext i8 %278 to i32
+  store i32 %279, ptr %17, align 4, !tbaa !19
+  %280 = load ptr, ptr %5, align 8, !tbaa !14
+  %281 = getelementptr inbounds nuw i8, ptr %280, i32 1
+  store ptr %281, ptr %5, align 8, !tbaa !14
+  %282 = load i8, ptr %280, align 1, !tbaa !24
+  %283 = zext i8 %282 to i32
+  %284 = shl i32 %283, 8
+  %285 = load i32, ptr %17, align 4, !tbaa !19
+  %286 = or i32 %285, %284
+  store i32 %286, ptr %17, align 4, !tbaa !19
+  %287 = load ptr, ptr %5, align 8, !tbaa !14
+  %288 = getelementptr inbounds nuw i8, ptr %287, i32 1
+  store ptr %288, ptr %5, align 8, !tbaa !14
+  %289 = load i8, ptr %287, align 1, !tbaa !24
+  %290 = zext i8 %289 to i32
+  %291 = shl i32 %290, 16
+  %292 = load i32, ptr %17, align 4, !tbaa !19
+  %293 = or i32 %292, %291
+  store i32 %293, ptr %17, align 4, !tbaa !19
+  %294 = load ptr, ptr %5, align 8, !tbaa !14
+  %295 = getelementptr inbounds nuw i8, ptr %294, i32 1
+  store ptr %295, ptr %5, align 8, !tbaa !14
+  %296 = load i8, ptr %294, align 1, !tbaa !24
+  %297 = zext i8 %296 to i32
+  %298 = shl i32 %297, 24
+  %299 = load i32, ptr %17, align 4, !tbaa !19
+  %300 = or i32 %299, %298
+  store i32 %300, ptr %17, align 4, !tbaa !19
+  %301 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %301, ptr %23, align 4, !tbaa !19
+  %302 = load i32, ptr %9, align 4, !tbaa !19
+  %303 = load i32, ptr %10, align 4, !tbaa !19
+  %304 = xor i32 %302, %303
+  %305 = load i32, ptr %11, align 4, !tbaa !19
+  %306 = xor i32 %304, %305
+  %307 = load i32, ptr %22, align 4, !tbaa !19
+  %308 = add i32 %306, %307
+  %309 = load i32, ptr %8, align 4, !tbaa !19
+  %310 = add i32 %309, %308
+  store i32 %310, ptr %8, align 4, !tbaa !19
+  %311 = load i32, ptr %8, align 4, !tbaa !19
+  %312 = shl i32 %311, 5
+  %313 = load i32, ptr %8, align 4, !tbaa !19
+  %314 = and i32 %313, -1
+  %315 = lshr i32 %314, 27
+  %316 = or i32 %312, %315
+  %317 = load i32, ptr %7, align 4, !tbaa !19
+  %318 = add i32 %316, %317
+  store i32 %318, ptr %8, align 4, !tbaa !19
+  %319 = load i32, ptr %10, align 4, !tbaa !19
+  %320 = shl i32 %319, 10
+  %321 = load i32, ptr %10, align 4, !tbaa !19
+  %322 = and i32 %321, -1
+  %323 = lshr i32 %322, 22
+  %324 = or i32 %320, %323
+  store i32 %324, ptr %10, align 4, !tbaa !19
+  %325 = load ptr, ptr %5, align 8, !tbaa !14
+  %326 = getelementptr inbounds nuw i8, ptr %325, i32 1
+  store ptr %326, ptr %5, align 8, !tbaa !14
+  %327 = load i8, ptr %325, align 1, !tbaa !24
+  %328 = zext i8 %327 to i32
+  store i32 %328, ptr %17, align 4, !tbaa !19
+  %329 = load ptr, ptr %5, align 8, !tbaa !14
+  %330 = getelementptr inbounds nuw i8, ptr %329, i32 1
+  store ptr %330, ptr %5, align 8, !tbaa !14
+  %331 = load i8, ptr %329, align 1, !tbaa !24
+  %332 = zext i8 %331 to i32
+  %333 = shl i32 %332, 8
+  %334 = load i32, ptr %17, align 4, !tbaa !19
+  %335 = or i32 %334, %333
+  store i32 %335, ptr %17, align 4, !tbaa !19
+  %336 = load ptr, ptr %5, align 8, !tbaa !14
+  %337 = getelementptr inbounds nuw i8, ptr %336, i32 1
+  store ptr %337, ptr %5, align 8, !tbaa !14
+  %338 = load i8, ptr %336, align 1, !tbaa !24
+  %339 = zext i8 %338 to i32
+  %340 = shl i32 %339, 16
+  %341 = load i32, ptr %17, align 4, !tbaa !19
+  %342 = or i32 %341, %340
+  store i32 %342, ptr %17, align 4, !tbaa !19
+  %343 = load ptr, ptr %5, align 8, !tbaa !14
+  %344 = getelementptr inbounds nuw i8, ptr %343, i32 1
+  store ptr %344, ptr %5, align 8, !tbaa !14
+  %345 = load i8, ptr %343, align 1, !tbaa !24
+  %346 = zext i8 %345 to i32
+  %347 = shl i32 %346, 24
+  %348 = load i32, ptr %17, align 4, !tbaa !19
+  %349 = or i32 %348, %347
+  store i32 %349, ptr %17, align 4, !tbaa !19
+  %350 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %350, ptr %24, align 4, !tbaa !19
+  %351 = load i32, ptr %8, align 4, !tbaa !19
+  %352 = load i32, ptr %9, align 4, !tbaa !19
+  %353 = xor i32 %351, %352
+  %354 = load i32, ptr %10, align 4, !tbaa !19
+  %355 = xor i32 %353, %354
+  %356 = load i32, ptr %23, align 4, !tbaa !19
+  %357 = add i32 %355, %356
+  %358 = load i32, ptr %7, align 4, !tbaa !19
+  %359 = add i32 %358, %357
+  store i32 %359, ptr %7, align 4, !tbaa !19
+  %360 = load i32, ptr %7, align 4, !tbaa !19
+  %361 = shl i32 %360, 8
+  %362 = load i32, ptr %7, align 4, !tbaa !19
+  %363 = and i32 %362, -1
+  %364 = lshr i32 %363, 24
+  %365 = or i32 %361, %364
+  %366 = load i32, ptr %11, align 4, !tbaa !19
+  %367 = add i32 %365, %366
+  store i32 %367, ptr %7, align 4, !tbaa !19
+  %368 = load i32, ptr %9, align 4, !tbaa !19
+  %369 = shl i32 %368, 10
+  %370 = load i32, ptr %9, align 4, !tbaa !19
+  %371 = and i32 %370, -1
+  %372 = lshr i32 %371, 22
+  %373 = or i32 %369, %372
+  store i32 %373, ptr %9, align 4, !tbaa !19
+  %374 = load ptr, ptr %5, align 8, !tbaa !14
+  %375 = getelementptr inbounds nuw i8, ptr %374, i32 1
+  store ptr %375, ptr %5, align 8, !tbaa !14
+  %376 = load i8, ptr %374, align 1, !tbaa !24
+  %377 = zext i8 %376 to i32
+  store i32 %377, ptr %17, align 4, !tbaa !19
+  %378 = load ptr, ptr %5, align 8, !tbaa !14
+  %379 = getelementptr inbounds nuw i8, ptr %378, i32 1
+  store ptr %379, ptr %5, align 8, !tbaa !14
+  %380 = load i8, ptr %378, align 1, !tbaa !24
+  %381 = zext i8 %380 to i32
+  %382 = shl i32 %381, 8
+  %383 = load i32, ptr %17, align 4, !tbaa !19
+  %384 = or i32 %383, %382
+  store i32 %384, ptr %17, align 4, !tbaa !19
+  %385 = load ptr, ptr %5, align 8, !tbaa !14
+  %386 = getelementptr inbounds nuw i8, ptr %385, i32 1
+  store ptr %386, ptr %5, align 8, !tbaa !14
+  %387 = load i8, ptr %385, align 1, !tbaa !24
+  %388 = zext i8 %387 to i32
+  %389 = shl i32 %388, 16
+  %390 = load i32, ptr %17, align 4, !tbaa !19
+  %391 = or i32 %390, %389
+  store i32 %391, ptr %17, align 4, !tbaa !19
+  %392 = load ptr, ptr %5, align 8, !tbaa !14
+  %393 = getelementptr inbounds nuw i8, ptr %392, i32 1
+  store ptr %393, ptr %5, align 8, !tbaa !14
+  %394 = load i8, ptr %392, align 1, !tbaa !24
+  %395 = zext i8 %394 to i32
+  %396 = shl i32 %395, 24
+  %397 = load i32, ptr %17, align 4, !tbaa !19
+  %398 = or i32 %397, %396
+  store i32 %398, ptr %17, align 4, !tbaa !19
+  %399 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %399, ptr %25, align 4, !tbaa !19
+  %400 = load i32, ptr %7, align 4, !tbaa !19
+  %401 = load i32, ptr %8, align 4, !tbaa !19
+  %402 = xor i32 %400, %401
+  %403 = load i32, ptr %9, align 4, !tbaa !19
+  %404 = xor i32 %402, %403
+  %405 = load i32, ptr %24, align 4, !tbaa !19
+  %406 = add i32 %404, %405
+  %407 = load i32, ptr %11, align 4, !tbaa !19
+  %408 = add i32 %407, %406
+  store i32 %408, ptr %11, align 4, !tbaa !19
+  %409 = load i32, ptr %11, align 4, !tbaa !19
+  %410 = shl i32 %409, 7
+  %411 = load i32, ptr %11, align 4, !tbaa !19
+  %412 = and i32 %411, -1
+  %413 = lshr i32 %412, 25
+  %414 = or i32 %410, %413
+  %415 = load i32, ptr %10, align 4, !tbaa !19
+  %416 = add i32 %414, %415
+  store i32 %416, ptr %11, align 4, !tbaa !19
+  %417 = load i32, ptr %8, align 4, !tbaa !19
+  %418 = shl i32 %417, 10
+  %419 = load i32, ptr %8, align 4, !tbaa !19
+  %420 = and i32 %419, -1
+  %421 = lshr i32 %420, 22
+  %422 = or i32 %418, %421
+  store i32 %422, ptr %8, align 4, !tbaa !19
+  %423 = load ptr, ptr %5, align 8, !tbaa !14
+  %424 = getelementptr inbounds nuw i8, ptr %423, i32 1
+  store ptr %424, ptr %5, align 8, !tbaa !14
+  %425 = load i8, ptr %423, align 1, !tbaa !24
+  %426 = zext i8 %425 to i32
+  store i32 %426, ptr %17, align 4, !tbaa !19
+  %427 = load ptr, ptr %5, align 8, !tbaa !14
+  %428 = getelementptr inbounds nuw i8, ptr %427, i32 1
+  store ptr %428, ptr %5, align 8, !tbaa !14
+  %429 = load i8, ptr %427, align 1, !tbaa !24
+  %430 = zext i8 %429 to i32
+  %431 = shl i32 %430, 8
+  %432 = load i32, ptr %17, align 4, !tbaa !19
+  %433 = or i32 %432, %431
+  store i32 %433, ptr %17, align 4, !tbaa !19
+  %434 = load ptr, ptr %5, align 8, !tbaa !14
+  %435 = getelementptr inbounds nuw i8, ptr %434, i32 1
+  store ptr %435, ptr %5, align 8, !tbaa !14
+  %436 = load i8, ptr %434, align 1, !tbaa !24
+  %437 = zext i8 %436 to i32
+  %438 = shl i32 %437, 16
+  %439 = load i32, ptr %17, align 4, !tbaa !19
+  %440 = or i32 %439, %438
+  store i32 %440, ptr %17, align 4, !tbaa !19
+  %441 = load ptr, ptr %5, align 8, !tbaa !14
+  %442 = getelementptr inbounds nuw i8, ptr %441, i32 1
+  store ptr %442, ptr %5, align 8, !tbaa !14
+  %443 = load i8, ptr %441, align 1, !tbaa !24
+  %444 = zext i8 %443 to i32
+  %445 = shl i32 %444, 24
+  %446 = load i32, ptr %17, align 4, !tbaa !19
+  %447 = or i32 %446, %445
+  store i32 %447, ptr %17, align 4, !tbaa !19
+  %448 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %448, ptr %26, align 4, !tbaa !19
+  %449 = load i32, ptr %11, align 4, !tbaa !19
+  %450 = load i32, ptr %7, align 4, !tbaa !19
+  %451 = xor i32 %449, %450
+  %452 = load i32, ptr %8, align 4, !tbaa !19
+  %453 = xor i32 %451, %452
+  %454 = load i32, ptr %25, align 4, !tbaa !19
+  %455 = add i32 %453, %454
+  %456 = load i32, ptr %10, align 4, !tbaa !19
+  %457 = add i32 %456, %455
+  store i32 %457, ptr %10, align 4, !tbaa !19
+  %458 = load i32, ptr %10, align 4, !tbaa !19
+  %459 = shl i32 %458, 9
+  %460 = load i32, ptr %10, align 4, !tbaa !19
+  %461 = and i32 %460, -1
+  %462 = lshr i32 %461, 23
+  %463 = or i32 %459, %462
+  %464 = load i32, ptr %9, align 4, !tbaa !19
+  %465 = add i32 %463, %464
+  store i32 %465, ptr %10, align 4, !tbaa !19
+  %466 = load i32, ptr %7, align 4, !tbaa !19
+  %467 = shl i32 %466, 10
+  %468 = load i32, ptr %7, align 4, !tbaa !19
+  %469 = and i32 %468, -1
+  %470 = lshr i32 %469, 22
+  %471 = or i32 %467, %470
+  store i32 %471, ptr %7, align 4, !tbaa !19
+  %472 = load ptr, ptr %5, align 8, !tbaa !14
+  %473 = getelementptr inbounds nuw i8, ptr %472, i32 1
+  store ptr %473, ptr %5, align 8, !tbaa !14
+  %474 = load i8, ptr %472, align 1, !tbaa !24
+  %475 = zext i8 %474 to i32
+  store i32 %475, ptr %17, align 4, !tbaa !19
+  %476 = load ptr, ptr %5, align 8, !tbaa !14
+  %477 = getelementptr inbounds nuw i8, ptr %476, i32 1
+  store ptr %477, ptr %5, align 8, !tbaa !14
+  %478 = load i8, ptr %476, align 1, !tbaa !24
+  %479 = zext i8 %478 to i32
+  %480 = shl i32 %479, 8
+  %481 = load i32, ptr %17, align 4, !tbaa !19
+  %482 = or i32 %481, %480
+  store i32 %482, ptr %17, align 4, !tbaa !19
+  %483 = load ptr, ptr %5, align 8, !tbaa !14
+  %484 = getelementptr inbounds nuw i8, ptr %483, i32 1
+  store ptr %484, ptr %5, align 8, !tbaa !14
+  %485 = load i8, ptr %483, align 1, !tbaa !24
+  %486 = zext i8 %485 to i32
+  %487 = shl i32 %486, 16
+  %488 = load i32, ptr %17, align 4, !tbaa !19
+  %489 = or i32 %488, %487
+  store i32 %489, ptr %17, align 4, !tbaa !19
+  %490 = load ptr, ptr %5, align 8, !tbaa !14
+  %491 = getelementptr inbounds nuw i8, ptr %490, i32 1
+  store ptr %491, ptr %5, align 8, !tbaa !14
+  %492 = load i8, ptr %490, align 1, !tbaa !24
+  %493 = zext i8 %492 to i32
+  %494 = shl i32 %493, 24
+  %495 = load i32, ptr %17, align 4, !tbaa !19
+  %496 = or i32 %495, %494
+  store i32 %496, ptr %17, align 4, !tbaa !19
+  %497 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %497, ptr %27, align 4, !tbaa !19
+  %498 = load i32, ptr %10, align 4, !tbaa !19
+  %499 = load i32, ptr %11, align 4, !tbaa !19
+  %500 = xor i32 %498, %499
+  %501 = load i32, ptr %7, align 4, !tbaa !19
+  %502 = xor i32 %500, %501
+  %503 = load i32, ptr %26, align 4, !tbaa !19
+  %504 = add i32 %502, %503
+  %505 = load i32, ptr %9, align 4, !tbaa !19
+  %506 = add i32 %505, %504
+  store i32 %506, ptr %9, align 4, !tbaa !19
+  %507 = load i32, ptr %9, align 4, !tbaa !19
+  %508 = shl i32 %507, 11
+  %509 = load i32, ptr %9, align 4, !tbaa !19
+  %510 = and i32 %509, -1
+  %511 = lshr i32 %510, 21
+  %512 = or i32 %508, %511
+  %513 = load i32, ptr %8, align 4, !tbaa !19
+  %514 = add i32 %512, %513
+  store i32 %514, ptr %9, align 4, !tbaa !19
+  %515 = load i32, ptr %11, align 4, !tbaa !19
+  %516 = shl i32 %515, 10
+  %517 = load i32, ptr %11, align 4, !tbaa !19
+  %518 = and i32 %517, -1
+  %519 = lshr i32 %518, 22
+  %520 = or i32 %516, %519
+  store i32 %520, ptr %11, align 4, !tbaa !19
+  %521 = load ptr, ptr %5, align 8, !tbaa !14
+  %522 = getelementptr inbounds nuw i8, ptr %521, i32 1
+  store ptr %522, ptr %5, align 8, !tbaa !14
+  %523 = load i8, ptr %521, align 1, !tbaa !24
+  %524 = zext i8 %523 to i32
+  store i32 %524, ptr %17, align 4, !tbaa !19
+  %525 = load ptr, ptr %5, align 8, !tbaa !14
+  %526 = getelementptr inbounds nuw i8, ptr %525, i32 1
+  store ptr %526, ptr %5, align 8, !tbaa !14
+  %527 = load i8, ptr %525, align 1, !tbaa !24
+  %528 = zext i8 %527 to i32
+  %529 = shl i32 %528, 8
+  %530 = load i32, ptr %17, align 4, !tbaa !19
+  %531 = or i32 %530, %529
+  store i32 %531, ptr %17, align 4, !tbaa !19
+  %532 = load ptr, ptr %5, align 8, !tbaa !14
+  %533 = getelementptr inbounds nuw i8, ptr %532, i32 1
+  store ptr %533, ptr %5, align 8, !tbaa !14
+  %534 = load i8, ptr %532, align 1, !tbaa !24
+  %535 = zext i8 %534 to i32
+  %536 = shl i32 %535, 16
+  %537 = load i32, ptr %17, align 4, !tbaa !19
+  %538 = or i32 %537, %536
+  store i32 %538, ptr %17, align 4, !tbaa !19
+  %539 = load ptr, ptr %5, align 8, !tbaa !14
+  %540 = getelementptr inbounds nuw i8, ptr %539, i32 1
+  store ptr %540, ptr %5, align 8, !tbaa !14
+  %541 = load i8, ptr %539, align 1, !tbaa !24
+  %542 = zext i8 %541 to i32
+  %543 = shl i32 %542, 24
+  %544 = load i32, ptr %17, align 4, !tbaa !19
+  %545 = or i32 %544, %543
+  store i32 %545, ptr %17, align 4, !tbaa !19
+  %546 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %546, ptr %28, align 4, !tbaa !19
+  %547 = load i32, ptr %9, align 4, !tbaa !19
+  %548 = load i32, ptr %10, align 4, !tbaa !19
+  %549 = xor i32 %547, %548
+  %550 = load i32, ptr %11, align 4, !tbaa !19
+  %551 = xor i32 %549, %550
+  %552 = load i32, ptr %27, align 4, !tbaa !19
+  %553 = add i32 %551, %552
+  %554 = load i32, ptr %8, align 4, !tbaa !19
+  %555 = add i32 %554, %553
+  store i32 %555, ptr %8, align 4, !tbaa !19
+  %556 = load i32, ptr %8, align 4, !tbaa !19
+  %557 = shl i32 %556, 13
+  %558 = load i32, ptr %8, align 4, !tbaa !19
+  %559 = and i32 %558, -1
+  %560 = lshr i32 %559, 19
+  %561 = or i32 %557, %560
+  %562 = load i32, ptr %7, align 4, !tbaa !19
+  %563 = add i32 %561, %562
+  store i32 %563, ptr %8, align 4, !tbaa !19
+  %564 = load i32, ptr %10, align 4, !tbaa !19
+  %565 = shl i32 %564, 10
+  %566 = load i32, ptr %10, align 4, !tbaa !19
+  %567 = and i32 %566, -1
+  %568 = lshr i32 %567, 22
+  %569 = or i32 %565, %568
+  store i32 %569, ptr %10, align 4, !tbaa !19
+  %570 = load ptr, ptr %5, align 8, !tbaa !14
+  %571 = getelementptr inbounds nuw i8, ptr %570, i32 1
+  store ptr %571, ptr %5, align 8, !tbaa !14
+  %572 = load i8, ptr %570, align 1, !tbaa !24
+  %573 = zext i8 %572 to i32
+  store i32 %573, ptr %17, align 4, !tbaa !19
+  %574 = load ptr, ptr %5, align 8, !tbaa !14
+  %575 = getelementptr inbounds nuw i8, ptr %574, i32 1
+  store ptr %575, ptr %5, align 8, !tbaa !14
+  %576 = load i8, ptr %574, align 1, !tbaa !24
+  %577 = zext i8 %576 to i32
+  %578 = shl i32 %577, 8
+  %579 = load i32, ptr %17, align 4, !tbaa !19
+  %580 = or i32 %579, %578
+  store i32 %580, ptr %17, align 4, !tbaa !19
+  %581 = load ptr, ptr %5, align 8, !tbaa !14
+  %582 = getelementptr inbounds nuw i8, ptr %581, i32 1
+  store ptr %582, ptr %5, align 8, !tbaa !14
+  %583 = load i8, ptr %581, align 1, !tbaa !24
+  %584 = zext i8 %583 to i32
+  %585 = shl i32 %584, 16
+  %586 = load i32, ptr %17, align 4, !tbaa !19
+  %587 = or i32 %586, %585
+  store i32 %587, ptr %17, align 4, !tbaa !19
+  %588 = load ptr, ptr %5, align 8, !tbaa !14
+  %589 = getelementptr inbounds nuw i8, ptr %588, i32 1
+  store ptr %589, ptr %5, align 8, !tbaa !14
+  %590 = load i8, ptr %588, align 1, !tbaa !24
+  %591 = zext i8 %590 to i32
+  %592 = shl i32 %591, 24
+  %593 = load i32, ptr %17, align 4, !tbaa !19
+  %594 = or i32 %593, %592
+  store i32 %594, ptr %17, align 4, !tbaa !19
+  %595 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %595, ptr %29, align 4, !tbaa !19
+  %596 = load i32, ptr %8, align 4, !tbaa !19
+  %597 = load i32, ptr %9, align 4, !tbaa !19
+  %598 = xor i32 %596, %597
+  %599 = load i32, ptr %10, align 4, !tbaa !19
+  %600 = xor i32 %598, %599
+  %601 = load i32, ptr %28, align 4, !tbaa !19
+  %602 = add i32 %600, %601
+  %603 = load i32, ptr %7, align 4, !tbaa !19
+  %604 = add i32 %603, %602
+  store i32 %604, ptr %7, align 4, !tbaa !19
+  %605 = load i32, ptr %7, align 4, !tbaa !19
+  %606 = shl i32 %605, 14
+  %607 = load i32, ptr %7, align 4, !tbaa !19
+  %608 = and i32 %607, -1
+  %609 = lshr i32 %608, 18
+  %610 = or i32 %606, %609
+  %611 = load i32, ptr %11, align 4, !tbaa !19
+  %612 = add i32 %610, %611
+  store i32 %612, ptr %7, align 4, !tbaa !19
+  %613 = load i32, ptr %9, align 4, !tbaa !19
+  %614 = shl i32 %613, 10
+  %615 = load i32, ptr %9, align 4, !tbaa !19
+  %616 = and i32 %615, -1
+  %617 = lshr i32 %616, 22
+  %618 = or i32 %614, %617
+  store i32 %618, ptr %9, align 4, !tbaa !19
+  %619 = load ptr, ptr %5, align 8, !tbaa !14
+  %620 = getelementptr inbounds nuw i8, ptr %619, i32 1
+  store ptr %620, ptr %5, align 8, !tbaa !14
+  %621 = load i8, ptr %619, align 1, !tbaa !24
+  %622 = zext i8 %621 to i32
+  store i32 %622, ptr %17, align 4, !tbaa !19
+  %623 = load ptr, ptr %5, align 8, !tbaa !14
+  %624 = getelementptr inbounds nuw i8, ptr %623, i32 1
+  store ptr %624, ptr %5, align 8, !tbaa !14
+  %625 = load i8, ptr %623, align 1, !tbaa !24
+  %626 = zext i8 %625 to i32
+  %627 = shl i32 %626, 8
+  %628 = load i32, ptr %17, align 4, !tbaa !19
+  %629 = or i32 %628, %627
+  store i32 %629, ptr %17, align 4, !tbaa !19
+  %630 = load ptr, ptr %5, align 8, !tbaa !14
+  %631 = getelementptr inbounds nuw i8, ptr %630, i32 1
+  store ptr %631, ptr %5, align 8, !tbaa !14
+  %632 = load i8, ptr %630, align 1, !tbaa !24
+  %633 = zext i8 %632 to i32
+  %634 = shl i32 %633, 16
+  %635 = load i32, ptr %17, align 4, !tbaa !19
+  %636 = or i32 %635, %634
+  store i32 %636, ptr %17, align 4, !tbaa !19
+  %637 = load ptr, ptr %5, align 8, !tbaa !14
+  %638 = getelementptr inbounds nuw i8, ptr %637, i32 1
+  store ptr %638, ptr %5, align 8, !tbaa !14
+  %639 = load i8, ptr %637, align 1, !tbaa !24
+  %640 = zext i8 %639 to i32
+  %641 = shl i32 %640, 24
+  %642 = load i32, ptr %17, align 4, !tbaa !19
+  %643 = or i32 %642, %641
+  store i32 %643, ptr %17, align 4, !tbaa !19
+  %644 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %644, ptr %30, align 4, !tbaa !19
+  %645 = load i32, ptr %7, align 4, !tbaa !19
+  %646 = load i32, ptr %8, align 4, !tbaa !19
+  %647 = xor i32 %645, %646
+  %648 = load i32, ptr %9, align 4, !tbaa !19
+  %649 = xor i32 %647, %648
+  %650 = load i32, ptr %29, align 4, !tbaa !19
+  %651 = add i32 %649, %650
+  %652 = load i32, ptr %11, align 4, !tbaa !19
+  %653 = add i32 %652, %651
+  store i32 %653, ptr %11, align 4, !tbaa !19
+  %654 = load i32, ptr %11, align 4, !tbaa !19
+  %655 = shl i32 %654, 15
+  %656 = load i32, ptr %11, align 4, !tbaa !19
+  %657 = and i32 %656, -1
+  %658 = lshr i32 %657, 17
+  %659 = or i32 %655, %658
+  %660 = load i32, ptr %10, align 4, !tbaa !19
+  %661 = add i32 %659, %660
+  store i32 %661, ptr %11, align 4, !tbaa !19
+  %662 = load i32, ptr %8, align 4, !tbaa !19
+  %663 = shl i32 %662, 10
+  %664 = load i32, ptr %8, align 4, !tbaa !19
+  %665 = and i32 %664, -1
+  %666 = lshr i32 %665, 22
+  %667 = or i32 %663, %666
+  store i32 %667, ptr %8, align 4, !tbaa !19
+  %668 = load ptr, ptr %5, align 8, !tbaa !14
+  %669 = getelementptr inbounds nuw i8, ptr %668, i32 1
+  store ptr %669, ptr %5, align 8, !tbaa !14
+  %670 = load i8, ptr %668, align 1, !tbaa !24
+  %671 = zext i8 %670 to i32
+  store i32 %671, ptr %17, align 4, !tbaa !19
+  %672 = load ptr, ptr %5, align 8, !tbaa !14
+  %673 = getelementptr inbounds nuw i8, ptr %672, i32 1
+  store ptr %673, ptr %5, align 8, !tbaa !14
+  %674 = load i8, ptr %672, align 1, !tbaa !24
+  %675 = zext i8 %674 to i32
+  %676 = shl i32 %675, 8
+  %677 = load i32, ptr %17, align 4, !tbaa !19
+  %678 = or i32 %677, %676
+  store i32 %678, ptr %17, align 4, !tbaa !19
+  %679 = load ptr, ptr %5, align 8, !tbaa !14
+  %680 = getelementptr inbounds nuw i8, ptr %679, i32 1
+  store ptr %680, ptr %5, align 8, !tbaa !14
+  %681 = load i8, ptr %679, align 1, !tbaa !24
+  %682 = zext i8 %681 to i32
+  %683 = shl i32 %682, 16
+  %684 = load i32, ptr %17, align 4, !tbaa !19
+  %685 = or i32 %684, %683
+  store i32 %685, ptr %17, align 4, !tbaa !19
+  %686 = load ptr, ptr %5, align 8, !tbaa !14
+  %687 = getelementptr inbounds nuw i8, ptr %686, i32 1
+  store ptr %687, ptr %5, align 8, !tbaa !14
+  %688 = load i8, ptr %686, align 1, !tbaa !24
+  %689 = zext i8 %688 to i32
+  %690 = shl i32 %689, 24
+  %691 = load i32, ptr %17, align 4, !tbaa !19
+  %692 = or i32 %691, %690
+  store i32 %692, ptr %17, align 4, !tbaa !19
+  %693 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %693, ptr %31, align 4, !tbaa !19
+  %694 = load i32, ptr %11, align 4, !tbaa !19
+  %695 = load i32, ptr %7, align 4, !tbaa !19
+  %696 = xor i32 %694, %695
+  %697 = load i32, ptr %8, align 4, !tbaa !19
+  %698 = xor i32 %696, %697
+  %699 = load i32, ptr %30, align 4, !tbaa !19
+  %700 = add i32 %698, %699
+  %701 = load i32, ptr %10, align 4, !tbaa !19
+  %702 = add i32 %701, %700
+  store i32 %702, ptr %10, align 4, !tbaa !19
+  %703 = load i32, ptr %10, align 4, !tbaa !19
+  %704 = shl i32 %703, 6
+  %705 = load i32, ptr %10, align 4, !tbaa !19
+  %706 = and i32 %705, -1
+  %707 = lshr i32 %706, 26
+  %708 = or i32 %704, %707
+  %709 = load i32, ptr %9, align 4, !tbaa !19
+  %710 = add i32 %708, %709
+  store i32 %710, ptr %10, align 4, !tbaa !19
+  %711 = load i32, ptr %7, align 4, !tbaa !19
+  %712 = shl i32 %711, 10
+  %713 = load i32, ptr %7, align 4, !tbaa !19
+  %714 = and i32 %713, -1
+  %715 = lshr i32 %714, 22
+  %716 = or i32 %712, %715
+  store i32 %716, ptr %7, align 4, !tbaa !19
+  %717 = load ptr, ptr %5, align 8, !tbaa !14
+  %718 = getelementptr inbounds nuw i8, ptr %717, i32 1
+  store ptr %718, ptr %5, align 8, !tbaa !14
+  %719 = load i8, ptr %717, align 1, !tbaa !24
+  %720 = zext i8 %719 to i32
+  store i32 %720, ptr %17, align 4, !tbaa !19
+  %721 = load ptr, ptr %5, align 8, !tbaa !14
+  %722 = getelementptr inbounds nuw i8, ptr %721, i32 1
+  store ptr %722, ptr %5, align 8, !tbaa !14
+  %723 = load i8, ptr %721, align 1, !tbaa !24
+  %724 = zext i8 %723 to i32
+  %725 = shl i32 %724, 8
+  %726 = load i32, ptr %17, align 4, !tbaa !19
+  %727 = or i32 %726, %725
+  store i32 %727, ptr %17, align 4, !tbaa !19
+  %728 = load ptr, ptr %5, align 8, !tbaa !14
+  %729 = getelementptr inbounds nuw i8, ptr %728, i32 1
+  store ptr %729, ptr %5, align 8, !tbaa !14
+  %730 = load i8, ptr %728, align 1, !tbaa !24
+  %731 = zext i8 %730 to i32
+  %732 = shl i32 %731, 16
+  %733 = load i32, ptr %17, align 4, !tbaa !19
+  %734 = or i32 %733, %732
+  store i32 %734, ptr %17, align 4, !tbaa !19
+  %735 = load ptr, ptr %5, align 8, !tbaa !14
+  %736 = getelementptr inbounds nuw i8, ptr %735, i32 1
+  store ptr %736, ptr %5, align 8, !tbaa !14
+  %737 = load i8, ptr %735, align 1, !tbaa !24
+  %738 = zext i8 %737 to i32
+  %739 = shl i32 %738, 24
+  %740 = load i32, ptr %17, align 4, !tbaa !19
+  %741 = or i32 %740, %739
+  store i32 %741, ptr %17, align 4, !tbaa !19
+  %742 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %742, ptr %32, align 4, !tbaa !19
+  %743 = load i32, ptr %10, align 4, !tbaa !19
+  %744 = load i32, ptr %11, align 4, !tbaa !19
+  %745 = xor i32 %743, %744
+  %746 = load i32, ptr %7, align 4, !tbaa !19
+  %747 = xor i32 %745, %746
+  %748 = load i32, ptr %31, align 4, !tbaa !19
+  %749 = add i32 %747, %748
+  %750 = load i32, ptr %9, align 4, !tbaa !19
+  %751 = add i32 %750, %749
+  store i32 %751, ptr %9, align 4, !tbaa !19
+  %752 = load i32, ptr %9, align 4, !tbaa !19
+  %753 = shl i32 %752, 7
+  %754 = load i32, ptr %9, align 4, !tbaa !19
+  %755 = and i32 %754, -1
+  %756 = lshr i32 %755, 25
+  %757 = or i32 %753, %756
+  %758 = load i32, ptr %8, align 4, !tbaa !19
+  %759 = add i32 %757, %758
+  store i32 %759, ptr %9, align 4, !tbaa !19
+  %760 = load i32, ptr %11, align 4, !tbaa !19
+  %761 = shl i32 %760, 10
+  %762 = load i32, ptr %11, align 4, !tbaa !19
+  %763 = and i32 %762, -1
+  %764 = lshr i32 %763, 22
+  %765 = or i32 %761, %764
+  store i32 %765, ptr %11, align 4, !tbaa !19
+  %766 = load ptr, ptr %5, align 8, !tbaa !14
+  %767 = getelementptr inbounds nuw i8, ptr %766, i32 1
+  store ptr %767, ptr %5, align 8, !tbaa !14
+  %768 = load i8, ptr %766, align 1, !tbaa !24
+  %769 = zext i8 %768 to i32
+  store i32 %769, ptr %17, align 4, !tbaa !19
+  %770 = load ptr, ptr %5, align 8, !tbaa !14
+  %771 = getelementptr inbounds nuw i8, ptr %770, i32 1
+  store ptr %771, ptr %5, align 8, !tbaa !14
+  %772 = load i8, ptr %770, align 1, !tbaa !24
+  %773 = zext i8 %772 to i32
+  %774 = shl i32 %773, 8
+  %775 = load i32, ptr %17, align 4, !tbaa !19
+  %776 = or i32 %775, %774
+  store i32 %776, ptr %17, align 4, !tbaa !19
+  %777 = load ptr, ptr %5, align 8, !tbaa !14
+  %778 = getelementptr inbounds nuw i8, ptr %777, i32 1
+  store ptr %778, ptr %5, align 8, !tbaa !14
+  %779 = load i8, ptr %777, align 1, !tbaa !24
+  %780 = zext i8 %779 to i32
+  %781 = shl i32 %780, 16
+  %782 = load i32, ptr %17, align 4, !tbaa !19
+  %783 = or i32 %782, %781
+  store i32 %783, ptr %17, align 4, !tbaa !19
+  %784 = load ptr, ptr %5, align 8, !tbaa !14
+  %785 = getelementptr inbounds nuw i8, ptr %784, i32 1
+  store ptr %785, ptr %5, align 8, !tbaa !14
+  %786 = load i8, ptr %784, align 1, !tbaa !24
+  %787 = zext i8 %786 to i32
+  %788 = shl i32 %787, 24
+  %789 = load i32, ptr %17, align 4, !tbaa !19
+  %790 = or i32 %789, %788
+  store i32 %790, ptr %17, align 4, !tbaa !19
+  %791 = load i32, ptr %17, align 4, !tbaa !19
+  store i32 %791, ptr %33, align 4, !tbaa !19
+  %792 = load i32, ptr %9, align 4, !tbaa !19
+  %793 = load i32, ptr %10, align 4, !tbaa !19
+  %794 = xor i32 %792, %793
+  %795 = load i32, ptr %11, align 4, !tbaa !19
+  %796 = xor i32 %794, %795
+  %797 = load i32, ptr %32, align 4, !tbaa !19
+  %798 = add i32 %796, %797
+  %799 = load i32, ptr %8, align 4, !tbaa !19
+  %800 = add i32 %799, %798
+  store i32 %800, ptr %8, align 4, !tbaa !19
+  %801 = load i32, ptr %8, align 4, !tbaa !19
+  %802 = shl i32 %801, 9
+  %803 = load i32, ptr %8, align 4, !tbaa !19
+  %804 = and i32 %803, -1
+  %805 = lshr i32 %804, 23
+  %806 = or i32 %802, %805
+  %807 = load i32, ptr %7, align 4, !tbaa !19
+  %808 = add i32 %806, %807
+  store i32 %808, ptr %8, align 4, !tbaa !19
+  %809 = load i32, ptr %10, align 4, !tbaa !19
+  %810 = shl i32 %809, 10
+  %811 = load i32, ptr %10, align 4, !tbaa !19
+  %812 = and i32 %811, -1
+  %813 = lshr i32 %812, 22
+  %814 = or i32 %810, %813
+  store i32 %814, ptr %10, align 4, !tbaa !19
+  %815 = load i32, ptr %8, align 4, !tbaa !19
+  %816 = load i32, ptr %9, align 4, !tbaa !19
+  %817 = xor i32 %815, %816
+  %818 = load i32, ptr %10, align 4, !tbaa !19
+  %819 = xor i32 %817, %818
+  %820 = load i32, ptr %33, align 4, !tbaa !19
+  %821 = add i32 %819, %820
+  %822 = load i32, ptr %7, align 4, !tbaa !19
+  %823 = add i32 %822, %821
+  store i32 %823, ptr %7, align 4, !tbaa !19
+  %824 = load i32, ptr %7, align 4, !tbaa !19
+  %825 = shl i32 %824, 8
+  %826 = load i32, ptr %7, align 4, !tbaa !19
+  %827 = and i32 %826, -1
+  %828 = lshr i32 %827, 24
+  %829 = or i32 %825, %828
+  %830 = load i32, ptr %11, align 4, !tbaa !19
+  %831 = add i32 %829, %830
+  store i32 %831, ptr %7, align 4, !tbaa !19
+  %832 = load i32, ptr %9, align 4, !tbaa !19
+  %833 = shl i32 %832, 10
+  %834 = load i32, ptr %9, align 4, !tbaa !19
+  %835 = and i32 %834, -1
+  %836 = lshr i32 %835, 22
+  %837 = or i32 %833, %836
+  store i32 %837, ptr %9, align 4, !tbaa !19
+  %838 = load i32, ptr %8, align 4, !tbaa !19
+  %839 = load i32, ptr %9, align 4, !tbaa !19
+  %840 = xor i32 %838, %839
+  %841 = load i32, ptr %7, align 4, !tbaa !19
+  %842 = and i32 %840, %841
+  %843 = load i32, ptr %9, align 4, !tbaa !19
+  %844 = xor i32 %842, %843
+  %845 = load i32, ptr %25, align 4, !tbaa !19
+  %846 = add i32 %844, %845
+  %847 = zext i32 %846 to i64
+  %848 = add nsw i64 %847, 1518500249
+  %849 = load i32, ptr %11, align 4, !tbaa !19
+  %850 = zext i32 %849 to i64
+  %851 = add nsw i64 %850, %848
+  %852 = trunc i64 %851 to i32
+  store i32 %852, ptr %11, align 4, !tbaa !19
+  %853 = load i32, ptr %11, align 4, !tbaa !19
+  %854 = shl i32 %853, 7
+  %855 = load i32, ptr %11, align 4, !tbaa !19
+  %856 = and i32 %855, -1
+  %857 = lshr i32 %856, 25
+  %858 = or i32 %854, %857
+  %859 = load i32, ptr %10, align 4, !tbaa !19
+  %860 = add i32 %858, %859
+  store i32 %860, ptr %11, align 4, !tbaa !19
+  %861 = load i32, ptr %8, align 4, !tbaa !19
+  %862 = shl i32 %861, 10
+  %863 = load i32, ptr %8, align 4, !tbaa !19
+  %864 = and i32 %863, -1
+  %865 = lshr i32 %864, 22
+  %866 = or i32 %862, %865
+  store i32 %866, ptr %8, align 4, !tbaa !19
+  %867 = load i32, ptr %7, align 4, !tbaa !19
+  %868 = load i32, ptr %8, align 4, !tbaa !19
+  %869 = xor i32 %867, %868
+  %870 = load i32, ptr %11, align 4, !tbaa !19
+  %871 = and i32 %869, %870
+  %872 = load i32, ptr %8, align 4, !tbaa !19
+  %873 = xor i32 %871, %872
+  %874 = load i32, ptr %22, align 4, !tbaa !19
+  %875 = add i32 %873, %874
+  %876 = zext i32 %875 to i64
+  %877 = add nsw i64 %876, 1518500249
+  %878 = load i32, ptr %10, align 4, !tbaa !19
+  %879 = zext i32 %878 to i64
+  %880 = add nsw i64 %879, %877
+  %881 = trunc i64 %880 to i32
+  store i32 %881, ptr %10, align 4, !tbaa !19
+  %882 = load i32, ptr %10, align 4, !tbaa !19
+  %883 = shl i32 %882, 6
+  %884 = load i32, ptr %10, align 4, !tbaa !19
+  %885 = and i32 %884, -1
+  %886 = lshr i32 %885, 26
+  %887 = or i32 %883, %886
+  %888 = load i32, ptr %9, align 4, !tbaa !19
+  %889 = add i32 %887, %888
+  store i32 %889, ptr %10, align 4, !tbaa !19
+  %890 = load i32, ptr %7, align 4, !tbaa !19
+  %891 = shl i32 %890, 10
+  %892 = load i32, ptr %7, align 4, !tbaa !19
+  %893 = and i32 %892, -1
+  %894 = lshr i32 %893, 22
+  %895 = or i32 %891, %894
+  store i32 %895, ptr %7, align 4, !tbaa !19
+  %896 = load i32, ptr %11, align 4, !tbaa !19
+  %897 = load i32, ptr %7, align 4, !tbaa !19
+  %898 = xor i32 %896, %897
+  %899 = load i32, ptr %10, align 4, !tbaa !19
+  %900 = and i32 %898, %899
+  %901 = load i32, ptr %7, align 4, !tbaa !19
+  %902 = xor i32 %900, %901
+  %903 = load i32, ptr %31, align 4, !tbaa !19
+  %904 = add i32 %902, %903
+  %905 = zext i32 %904 to i64
+  %906 = add nsw i64 %905, 1518500249
+  %907 = load i32, ptr %9, align 4, !tbaa !19
+  %908 = zext i32 %907 to i64
+  %909 = add nsw i64 %908, %906
+  %910 = trunc i64 %909 to i32
+  store i32 %910, ptr %9, align 4, !tbaa !19
+  %911 = load i32, ptr %9, align 4, !tbaa !19
+  %912 = shl i32 %911, 8
+  %913 = load i32, ptr %9, align 4, !tbaa !19
+  %914 = and i32 %913, -1
+  %915 = lshr i32 %914, 24
+  %916 = or i32 %912, %915
+  %917 = load i32, ptr %8, align 4, !tbaa !19
+  %918 = add i32 %916, %917
+  store i32 %918, ptr %9, align 4, !tbaa !19
+  %919 = load i32, ptr %11, align 4, !tbaa !19
+  %920 = shl i32 %919, 10
+  %921 = load i32, ptr %11, align 4, !tbaa !19
+  %922 = and i32 %921, -1
+  %923 = lshr i32 %922, 22
+  %924 = or i32 %920, %923
+  store i32 %924, ptr %11, align 4, !tbaa !19
+  %925 = load i32, ptr %10, align 4, !tbaa !19
+  %926 = load i32, ptr %11, align 4, !tbaa !19
+  %927 = xor i32 %925, %926
+  %928 = load i32, ptr %9, align 4, !tbaa !19
+  %929 = and i32 %927, %928
+  %930 = load i32, ptr %11, align 4, !tbaa !19
+  %931 = xor i32 %929, %930
+  %932 = load i32, ptr %19, align 4, !tbaa !19
+  %933 = add i32 %931, %932
+  %934 = zext i32 %933 to i64
+  %935 = add nsw i64 %934, 1518500249
+  %936 = load i32, ptr %8, align 4, !tbaa !19
+  %937 = zext i32 %936 to i64
+  %938 = add nsw i64 %937, %935
+  %939 = trunc i64 %938 to i32
+  store i32 %939, ptr %8, align 4, !tbaa !19
+  %940 = load i32, ptr %8, align 4, !tbaa !19
+  %941 = shl i32 %940, 13
+  %942 = load i32, ptr %8, align 4, !tbaa !19
+  %943 = and i32 %942, -1
+  %944 = lshr i32 %943, 19
+  %945 = or i32 %941, %944
+  %946 = load i32, ptr %7, align 4, !tbaa !19
+  %947 = add i32 %945, %946
+  store i32 %947, ptr %8, align 4, !tbaa !19
+  %948 = load i32, ptr %10, align 4, !tbaa !19
+  %949 = shl i32 %948, 10
+  %950 = load i32, ptr %10, align 4, !tbaa !19
+  %951 = and i32 %950, -1
+  %952 = lshr i32 %951, 22
+  %953 = or i32 %949, %952
+  store i32 %953, ptr %10, align 4, !tbaa !19
+  %954 = load i32, ptr %9, align 4, !tbaa !19
+  %955 = load i32, ptr %10, align 4, !tbaa !19
+  %956 = xor i32 %954, %955
+  %957 = load i32, ptr %8, align 4, !tbaa !19
+  %958 = and i32 %956, %957
+  %959 = load i32, ptr %10, align 4, !tbaa !19
+  %960 = xor i32 %958, %959
+  %961 = load i32, ptr %28, align 4, !tbaa !19
+  %962 = add i32 %960, %961
+  %963 = zext i32 %962 to i64
+  %964 = add nsw i64 %963, 1518500249
+  %965 = load i32, ptr %7, align 4, !tbaa !19
+  %966 = zext i32 %965 to i64
+  %967 = add nsw i64 %966, %964
+  %968 = trunc i64 %967 to i32
+  store i32 %968, ptr %7, align 4, !tbaa !19
+  %969 = load i32, ptr %7, align 4, !tbaa !19
+  %970 = shl i32 %969, 11
+  %971 = load i32, ptr %7, align 4, !tbaa !19
+  %972 = and i32 %971, -1
+  %973 = lshr i32 %972, 21
+  %974 = or i32 %970, %973
+  %975 = load i32, ptr %11, align 4, !tbaa !19
+  %976 = add i32 %974, %975
+  store i32 %976, ptr %7, align 4, !tbaa !19
+  %977 = load i32, ptr %9, align 4, !tbaa !19
+  %978 = shl i32 %977, 10
+  %979 = load i32, ptr %9, align 4, !tbaa !19
+  %980 = and i32 %979, -1
+  %981 = lshr i32 %980, 22
+  %982 = or i32 %978, %981
+  store i32 %982, ptr %9, align 4, !tbaa !19
+  %983 = load i32, ptr %8, align 4, !tbaa !19
+  %984 = load i32, ptr %9, align 4, !tbaa !19
+  %985 = xor i32 %983, %984
+  %986 = load i32, ptr %7, align 4, !tbaa !19
+  %987 = and i32 %985, %986
+  %988 = load i32, ptr %9, align 4, !tbaa !19
+  %989 = xor i32 %987, %988
+  %990 = load i32, ptr %24, align 4, !tbaa !19
+  %991 = add i32 %989, %990
+  %992 = zext i32 %991 to i64
+  %993 = add nsw i64 %992, 1518500249
+  %994 = load i32, ptr %11, align 4, !tbaa !19
+  %995 = zext i32 %994 to i64
+  %996 = add nsw i64 %995, %993
+  %997 = trunc i64 %996 to i32
+  store i32 %997, ptr %11, align 4, !tbaa !19
+  %998 = load i32, ptr %11, align 4, !tbaa !19
+  %999 = shl i32 %998, 9
+  %1000 = load i32, ptr %11, align 4, !tbaa !19
+  %1001 = and i32 %1000, -1
+  %1002 = lshr i32 %1001, 23
+  %1003 = or i32 %999, %1002
+  %1004 = load i32, ptr %10, align 4, !tbaa !19
+  %1005 = add i32 %1003, %1004
+  store i32 %1005, ptr %11, align 4, !tbaa !19
+  %1006 = load i32, ptr %8, align 4, !tbaa !19
+  %1007 = shl i32 %1006, 10
+  %1008 = load i32, ptr %8, align 4, !tbaa !19
+  %1009 = and i32 %1008, -1
+  %1010 = lshr i32 %1009, 22
+  %1011 = or i32 %1007, %1010
+  store i32 %1011, ptr %8, align 4, !tbaa !19
+  %1012 = load i32, ptr %7, align 4, !tbaa !19
+  %1013 = load i32, ptr %8, align 4, !tbaa !19
+  %1014 = xor i32 %1012, %1013
+  %1015 = load i32, ptr %11, align 4, !tbaa !19
+  %1016 = and i32 %1014, %1015
+  %1017 = load i32, ptr %8, align 4, !tbaa !19
+  %1018 = xor i32 %1016, %1017
+  %1019 = load i32, ptr %33, align 4, !tbaa !19
+  %1020 = add i32 %1018, %1019
+  %1021 = zext i32 %1020 to i64
+  %1022 = add nsw i64 %1021, 1518500249
+  %1023 = load i32, ptr %10, align 4, !tbaa !19
+  %1024 = zext i32 %1023 to i64
+  %1025 = add nsw i64 %1024, %1022
+  %1026 = trunc i64 %1025 to i32
+  store i32 %1026, ptr %10, align 4, !tbaa !19
+  %1027 = load i32, ptr %10, align 4, !tbaa !19
+  %1028 = shl i32 %1027, 7
+  %1029 = load i32, ptr %10, align 4, !tbaa !19
+  %1030 = and i32 %1029, -1
+  %1031 = lshr i32 %1030, 25
+  %1032 = or i32 %1028, %1031
+  %1033 = load i32, ptr %9, align 4, !tbaa !19
+  %1034 = add i32 %1032, %1033
+  store i32 %1034, ptr %10, align 4, !tbaa !19
+  %1035 = load i32, ptr %7, align 4, !tbaa !19
+  %1036 = shl i32 %1035, 10
+  %1037 = load i32, ptr %7, align 4, !tbaa !19
+  %1038 = and i32 %1037, -1
+  %1039 = lshr i32 %1038, 22
+  %1040 = or i32 %1036, %1039
+  store i32 %1040, ptr %7, align 4, !tbaa !19
+  %1041 = load i32, ptr %11, align 4, !tbaa !19
+  %1042 = load i32, ptr %7, align 4, !tbaa !19
+  %1043 = xor i32 %1041, %1042
+  %1044 = load i32, ptr %10, align 4, !tbaa !19
+  %1045 = and i32 %1043, %1044
+  %1046 = load i32, ptr %7, align 4, !tbaa !19
+  %1047 = xor i32 %1045, %1046
+  %1048 = load i32, ptr %21, align 4, !tbaa !19
+  %1049 = add i32 %1047, %1048
+  %1050 = zext i32 %1049 to i64
+  %1051 = add nsw i64 %1050, 1518500249
+  %1052 = load i32, ptr %9, align 4, !tbaa !19
+  %1053 = zext i32 %1052 to i64
+  %1054 = add nsw i64 %1053, %1051
+  %1055 = trunc i64 %1054 to i32
+  store i32 %1055, ptr %9, align 4, !tbaa !19
+  %1056 = load i32, ptr %9, align 4, !tbaa !19
+  %1057 = shl i32 %1056, 15
+  %1058 = load i32, ptr %9, align 4, !tbaa !19
+  %1059 = and i32 %1058, -1
+  %1060 = lshr i32 %1059, 17
+  %1061 = or i32 %1057, %1060
+  %1062 = load i32, ptr %8, align 4, !tbaa !19
+  %1063 = add i32 %1061, %1062
+  store i32 %1063, ptr %9, align 4, !tbaa !19
+  %1064 = load i32, ptr %11, align 4, !tbaa !19
+  %1065 = shl i32 %1064, 10
+  %1066 = load i32, ptr %11, align 4, !tbaa !19
+  %1067 = and i32 %1066, -1
+  %1068 = lshr i32 %1067, 22
+  %1069 = or i32 %1065, %1068
+  store i32 %1069, ptr %11, align 4, !tbaa !19
+  %1070 = load i32, ptr %10, align 4, !tbaa !19
+  %1071 = load i32, ptr %11, align 4, !tbaa !19
+  %1072 = xor i32 %1070, %1071
+  %1073 = load i32, ptr %9, align 4, !tbaa !19
+  %1074 = and i32 %1072, %1073
+  %1075 = load i32, ptr %11, align 4, !tbaa !19
+  %1076 = xor i32 %1074, %1075
+  %1077 = load i32, ptr %30, align 4, !tbaa !19
+  %1078 = add i32 %1076, %1077
+  %1079 = zext i32 %1078 to i64
+  %1080 = add nsw i64 %1079, 1518500249
+  %1081 = load i32, ptr %8, align 4, !tbaa !19
+  %1082 = zext i32 %1081 to i64
+  %1083 = add nsw i64 %1082, %1080
+  %1084 = trunc i64 %1083 to i32
+  store i32 %1084, ptr %8, align 4, !tbaa !19
+  %1085 = load i32, ptr %8, align 4, !tbaa !19
+  %1086 = shl i32 %1085, 7
+  %1087 = load i32, ptr %8, align 4, !tbaa !19
+  %1088 = and i32 %1087, -1
+  %1089 = lshr i32 %1088, 25
+  %1090 = or i32 %1086, %1089
+  %1091 = load i32, ptr %7, align 4, !tbaa !19
+  %1092 = add i32 %1090, %1091
+  store i32 %1092, ptr %8, align 4, !tbaa !19
+  %1093 = load i32, ptr %10, align 4, !tbaa !19
+  %1094 = shl i32 %1093, 10
+  %1095 = load i32, ptr %10, align 4, !tbaa !19
+  %1096 = and i32 %1095, -1
+  %1097 = lshr i32 %1096, 22
+  %1098 = or i32 %1094, %1097
+  store i32 %1098, ptr %10, align 4, !tbaa !19
+  %1099 = load i32, ptr %9, align 4, !tbaa !19
+  %1100 = load i32, ptr %10, align 4, !tbaa !19
+  %1101 = xor i32 %1099, %1100
+  %1102 = load i32, ptr %8, align 4, !tbaa !19
+  %1103 = and i32 %1101, %1102
+  %1104 = load i32, ptr %10, align 4, !tbaa !19
+  %1105 = xor i32 %1103, %1104
+  %1106 = load i32, ptr %18, align 4, !tbaa !19
+  %1107 = add i32 %1105, %1106
+  %1108 = zext i32 %1107 to i64
+  %1109 = add nsw i64 %1108, 1518500249
+  %1110 = load i32, ptr %7, align 4, !tbaa !19
+  %1111 = zext i32 %1110 to i64
+  %1112 = add nsw i64 %1111, %1109
+  %1113 = trunc i64 %1112 to i32
+  store i32 %1113, ptr %7, align 4, !tbaa !19
+  %1114 = load i32, ptr %7, align 4, !tbaa !19
+  %1115 = shl i32 %1114, 12
+  %1116 = load i32, ptr %7, align 4, !tbaa !19
+  %1117 = and i32 %1116, -1
+  %1118 = lshr i32 %1117, 20
+  %1119 = or i32 %1115, %1118
+  %1120 = load i32, ptr %11, align 4, !tbaa !19
+  %1121 = add i32 %1119, %1120
+  store i32 %1121, ptr %7, align 4, !tbaa !19
+  %1122 = load i32, ptr %9, align 4, !tbaa !19
+  %1123 = shl i32 %1122, 10
+  %1124 = load i32, ptr %9, align 4, !tbaa !19
+  %1125 = and i32 %1124, -1
+  %1126 = lshr i32 %1125, 22
+  %1127 = or i32 %1123, %1126
+  store i32 %1127, ptr %9, align 4, !tbaa !19
+  %1128 = load i32, ptr %8, align 4, !tbaa !19
+  %1129 = load i32, ptr %9, align 4, !tbaa !19
+  %1130 = xor i32 %1128, %1129
+  %1131 = load i32, ptr %7, align 4, !tbaa !19
+  %1132 = and i32 %1130, %1131
+  %1133 = load i32, ptr %9, align 4, !tbaa !19
+  %1134 = xor i32 %1132, %1133
+  %1135 = load i32, ptr %27, align 4, !tbaa !19
+  %1136 = add i32 %1134, %1135
+  %1137 = zext i32 %1136 to i64
+  %1138 = add nsw i64 %1137, 1518500249
+  %1139 = load i32, ptr %11, align 4, !tbaa !19
+  %1140 = zext i32 %1139 to i64
+  %1141 = add nsw i64 %1140, %1138
+  %1142 = trunc i64 %1141 to i32
+  store i32 %1142, ptr %11, align 4, !tbaa !19
+  %1143 = load i32, ptr %11, align 4, !tbaa !19
+  %1144 = shl i32 %1143, 15
+  %1145 = load i32, ptr %11, align 4, !tbaa !19
+  %1146 = and i32 %1145, -1
+  %1147 = lshr i32 %1146, 17
+  %1148 = or i32 %1144, %1147
+  %1149 = load i32, ptr %10, align 4, !tbaa !19
+  %1150 = add i32 %1148, %1149
+  store i32 %1150, ptr %11, align 4, !tbaa !19
+  %1151 = load i32, ptr %8, align 4, !tbaa !19
+  %1152 = shl i32 %1151, 10
+  %1153 = load i32, ptr %8, align 4, !tbaa !19
+  %1154 = and i32 %1153, -1
+  %1155 = lshr i32 %1154, 22
+  %1156 = or i32 %1152, %1155
+  store i32 %1156, ptr %8, align 4, !tbaa !19
+  %1157 = load i32, ptr %7, align 4, !tbaa !19
+  %1158 = load i32, ptr %8, align 4, !tbaa !19
+  %1159 = xor i32 %1157, %1158
+  %1160 = load i32, ptr %11, align 4, !tbaa !19
+  %1161 = and i32 %1159, %1160
+  %1162 = load i32, ptr %8, align 4, !tbaa !19
+  %1163 = xor i32 %1161, %1162
+  %1164 = load i32, ptr %23, align 4, !tbaa !19
+  %1165 = add i32 %1163, %1164
+  %1166 = zext i32 %1165 to i64
+  %1167 = add nsw i64 %1166, 1518500249
+  %1168 = load i32, ptr %10, align 4, !tbaa !19
+  %1169 = zext i32 %1168 to i64
+  %1170 = add nsw i64 %1169, %1167
+  %1171 = trunc i64 %1170 to i32
+  store i32 %1171, ptr %10, align 4, !tbaa !19
+  %1172 = load i32, ptr %10, align 4, !tbaa !19
+  %1173 = shl i32 %1172, 9
+  %1174 = load i32, ptr %10, align 4, !tbaa !19
+  %1175 = and i32 %1174, -1
+  %1176 = lshr i32 %1175, 23
+  %1177 = or i32 %1173, %1176
+  %1178 = load i32, ptr %9, align 4, !tbaa !19
+  %1179 = add i32 %1177, %1178
+  store i32 %1179, ptr %10, align 4, !tbaa !19
+  %1180 = load i32, ptr %7, align 4, !tbaa !19
+  %1181 = shl i32 %1180, 10
+  %1182 = load i32, ptr %7, align 4, !tbaa !19
+  %1183 = and i32 %1182, -1
+  %1184 = lshr i32 %1183, 22
+  %1185 = or i32 %1181, %1184
+  store i32 %1185, ptr %7, align 4, !tbaa !19
+  %1186 = load i32, ptr %11, align 4, !tbaa !19
+  %1187 = load i32, ptr %7, align 4, !tbaa !19
+  %1188 = xor i32 %1186, %1187
+  %1189 = load i32, ptr %10, align 4, !tbaa !19
+  %1190 = and i32 %1188, %1189
+  %1191 = load i32, ptr %7, align 4, !tbaa !19
+  %1192 = xor i32 %1190, %1191
+  %1193 = load i32, ptr %20, align 4, !tbaa !19
+  %1194 = add i32 %1192, %1193
+  %1195 = zext i32 %1194 to i64
+  %1196 = add nsw i64 %1195, 1518500249
+  %1197 = load i32, ptr %9, align 4, !tbaa !19
+  %1198 = zext i32 %1197 to i64
+  %1199 = add nsw i64 %1198, %1196
+  %1200 = trunc i64 %1199 to i32
+  store i32 %1200, ptr %9, align 4, !tbaa !19
+  %1201 = load i32, ptr %9, align 4, !tbaa !19
+  %1202 = shl i32 %1201, 11
+  %1203 = load i32, ptr %9, align 4, !tbaa !19
+  %1204 = and i32 %1203, -1
+  %1205 = lshr i32 %1204, 21
+  %1206 = or i32 %1202, %1205
+  %1207 = load i32, ptr %8, align 4, !tbaa !19
+  %1208 = add i32 %1206, %1207
+  store i32 %1208, ptr %9, align 4, !tbaa !19
+  %1209 = load i32, ptr %11, align 4, !tbaa !19
+  %1210 = shl i32 %1209, 10
+  %1211 = load i32, ptr %11, align 4, !tbaa !19
+  %1212 = and i32 %1211, -1
+  %1213 = lshr i32 %1212, 22
+  %1214 = or i32 %1210, %1213
+  store i32 %1214, ptr %11, align 4, !tbaa !19
+  %1215 = load i32, ptr %10, align 4, !tbaa !19
+  %1216 = load i32, ptr %11, align 4, !tbaa !19
+  %1217 = xor i32 %1215, %1216
+  %1218 = load i32, ptr %9, align 4, !tbaa !19
+  %1219 = and i32 %1217, %1218
+  %1220 = load i32, ptr %11, align 4, !tbaa !19
+  %1221 = xor i32 %1219, %1220
+  %1222 = load i32, ptr %32, align 4, !tbaa !19
+  %1223 = add i32 %1221, %1222
+  %1224 = zext i32 %1223 to i64
+  %1225 = add nsw i64 %1224, 1518500249
+  %1226 = load i32, ptr %8, align 4, !tbaa !19
+  %1227 = zext i32 %1226 to i64
+  %1228 = add nsw i64 %1227, %1225
+  %1229 = trunc i64 %1228 to i32
+  store i32 %1229, ptr %8, align 4, !tbaa !19
+  %1230 = load i32, ptr %8, align 4, !tbaa !19
+  %1231 = shl i32 %1230, 7
+  %1232 = load i32, ptr %8, align 4, !tbaa !19
+  %1233 = and i32 %1232, -1
+  %1234 = lshr i32 %1233, 25
+  %1235 = or i32 %1231, %1234
+  %1236 = load i32, ptr %7, align 4, !tbaa !19
+  %1237 = add i32 %1235, %1236
+  store i32 %1237, ptr %8, align 4, !tbaa !19
+  %1238 = load i32, ptr %10, align 4, !tbaa !19
+  %1239 = shl i32 %1238, 10
+  %1240 = load i32, ptr %10, align 4, !tbaa !19
+  %1241 = and i32 %1240, -1
+  %1242 = lshr i32 %1241, 22
+  %1243 = or i32 %1239, %1242
+  store i32 %1243, ptr %10, align 4, !tbaa !19
+  %1244 = load i32, ptr %9, align 4, !tbaa !19
+  %1245 = load i32, ptr %10, align 4, !tbaa !19
+  %1246 = xor i32 %1244, %1245
+  %1247 = load i32, ptr %8, align 4, !tbaa !19
+  %1248 = and i32 %1246, %1247
+  %1249 = load i32, ptr %10, align 4, !tbaa !19
+  %1250 = xor i32 %1248, %1249
+  %1251 = load i32, ptr %29, align 4, !tbaa !19
+  %1252 = add i32 %1250, %1251
+  %1253 = zext i32 %1252 to i64
+  %1254 = add nsw i64 %1253, 1518500249
+  %1255 = load i32, ptr %7, align 4, !tbaa !19
+  %1256 = zext i32 %1255 to i64
+  %1257 = add nsw i64 %1256, %1254
+  %1258 = trunc i64 %1257 to i32
+  store i32 %1258, ptr %7, align 4, !tbaa !19
+  %1259 = load i32, ptr %7, align 4, !tbaa !19
+  %1260 = shl i32 %1259, 13
+  %1261 = load i32, ptr %7, align 4, !tbaa !19
+  %1262 = and i32 %1261, -1
+  %1263 = lshr i32 %1262, 19
+  %1264 = or i32 %1260, %1263
+  %1265 = load i32, ptr %11, align 4, !tbaa !19
+  %1266 = add i32 %1264, %1265
+  store i32 %1266, ptr %7, align 4, !tbaa !19
+  %1267 = load i32, ptr %9, align 4, !tbaa !19
+  %1268 = shl i32 %1267, 10
+  %1269 = load i32, ptr %9, align 4, !tbaa !19
+  %1270 = and i32 %1269, -1
+  %1271 = lshr i32 %1270, 22
+  %1272 = or i32 %1268, %1271
+  store i32 %1272, ptr %9, align 4, !tbaa !19
+  %1273 = load i32, ptr %8, align 4, !tbaa !19
+  %1274 = load i32, ptr %9, align 4, !tbaa !19
+  %1275 = xor i32 %1273, %1274
+  %1276 = load i32, ptr %7, align 4, !tbaa !19
+  %1277 = and i32 %1275, %1276
+  %1278 = load i32, ptr %9, align 4, !tbaa !19
+  %1279 = xor i32 %1277, %1278
+  %1280 = load i32, ptr %26, align 4, !tbaa !19
+  %1281 = add i32 %1279, %1280
+  %1282 = zext i32 %1281 to i64
+  %1283 = add nsw i64 %1282, 1518500249
+  %1284 = load i32, ptr %11, align 4, !tbaa !19
+  %1285 = zext i32 %1284 to i64
+  %1286 = add nsw i64 %1285, %1283
+  %1287 = trunc i64 %1286 to i32
+  store i32 %1287, ptr %11, align 4, !tbaa !19
+  %1288 = load i32, ptr %11, align 4, !tbaa !19
+  %1289 = shl i32 %1288, 12
+  %1290 = load i32, ptr %11, align 4, !tbaa !19
+  %1291 = and i32 %1290, -1
+  %1292 = lshr i32 %1291, 20
+  %1293 = or i32 %1289, %1292
+  %1294 = load i32, ptr %10, align 4, !tbaa !19
+  %1295 = add i32 %1293, %1294
+  store i32 %1295, ptr %11, align 4, !tbaa !19
+  %1296 = load i32, ptr %8, align 4, !tbaa !19
+  %1297 = shl i32 %1296, 10
+  %1298 = load i32, ptr %8, align 4, !tbaa !19
+  %1299 = and i32 %1298, -1
+  %1300 = lshr i32 %1299, 22
+  %1301 = or i32 %1297, %1300
+  store i32 %1301, ptr %8, align 4, !tbaa !19
+  %1302 = load i32, ptr %7, align 4, !tbaa !19
+  %1303 = xor i32 %1302, -1
+  %1304 = load i32, ptr %11, align 4, !tbaa !19
+  %1305 = or i32 %1303, %1304
+  %1306 = load i32, ptr %8, align 4, !tbaa !19
+  %1307 = xor i32 %1305, %1306
+  %1308 = load i32, ptr %21, align 4, !tbaa !19
+  %1309 = add i32 %1307, %1308
+  %1310 = zext i32 %1309 to i64
+  %1311 = add nsw i64 %1310, 1859775393
+  %1312 = load i32, ptr %10, align 4, !tbaa !19
+  %1313 = zext i32 %1312 to i64
+  %1314 = add nsw i64 %1313, %1311
+  %1315 = trunc i64 %1314 to i32
+  store i32 %1315, ptr %10, align 4, !tbaa !19
+  %1316 = load i32, ptr %10, align 4, !tbaa !19
+  %1317 = shl i32 %1316, 11
+  %1318 = load i32, ptr %10, align 4, !tbaa !19
+  %1319 = and i32 %1318, -1
+  %1320 = lshr i32 %1319, 21
+  %1321 = or i32 %1317, %1320
+  %1322 = load i32, ptr %9, align 4, !tbaa !19
+  %1323 = add i32 %1321, %1322
+  store i32 %1323, ptr %10, align 4, !tbaa !19
+  %1324 = load i32, ptr %7, align 4, !tbaa !19
+  %1325 = shl i32 %1324, 10
+  %1326 = load i32, ptr %7, align 4, !tbaa !19
+  %1327 = and i32 %1326, -1
+  %1328 = lshr i32 %1327, 22
+  %1329 = or i32 %1325, %1328
+  store i32 %1329, ptr %7, align 4, !tbaa !19
+  %1330 = load i32, ptr %11, align 4, !tbaa !19
+  %1331 = xor i32 %1330, -1
+  %1332 = load i32, ptr %10, align 4, !tbaa !19
+  %1333 = or i32 %1331, %1332
+  %1334 = load i32, ptr %7, align 4, !tbaa !19
+  %1335 = xor i32 %1333, %1334
+  %1336 = load i32, ptr %28, align 4, !tbaa !19
+  %1337 = add i32 %1335, %1336
+  %1338 = zext i32 %1337 to i64
+  %1339 = add nsw i64 %1338, 1859775393
+  %1340 = load i32, ptr %9, align 4, !tbaa !19
+  %1341 = zext i32 %1340 to i64
+  %1342 = add nsw i64 %1341, %1339
+  %1343 = trunc i64 %1342 to i32
+  store i32 %1343, ptr %9, align 4, !tbaa !19
+  %1344 = load i32, ptr %9, align 4, !tbaa !19
+  %1345 = shl i32 %1344, 13
+  %1346 = load i32, ptr %9, align 4, !tbaa !19
+  %1347 = and i32 %1346, -1
+  %1348 = lshr i32 %1347, 19
+  %1349 = or i32 %1345, %1348
+  %1350 = load i32, ptr %8, align 4, !tbaa !19
+  %1351 = add i32 %1349, %1350
+  store i32 %1351, ptr %9, align 4, !tbaa !19
+  %1352 = load i32, ptr %11, align 4, !tbaa !19
+  %1353 = shl i32 %1352, 10
+  %1354 = load i32, ptr %11, align 4, !tbaa !19
+  %1355 = and i32 %1354, -1
+  %1356 = lshr i32 %1355, 22
+  %1357 = or i32 %1353, %1356
+  store i32 %1357, ptr %11, align 4, !tbaa !19
+  %1358 = load i32, ptr %10, align 4, !tbaa !19
+  %1359 = xor i32 %1358, -1
+  %1360 = load i32, ptr %9, align 4, !tbaa !19
+  %1361 = or i32 %1359, %1360
+  %1362 = load i32, ptr %11, align 4, !tbaa !19
+  %1363 = xor i32 %1361, %1362
+  %1364 = load i32, ptr %32, align 4, !tbaa !19
+  %1365 = add i32 %1363, %1364
+  %1366 = zext i32 %1365 to i64
+  %1367 = add nsw i64 %1366, 1859775393
+  %1368 = load i32, ptr %8, align 4, !tbaa !19
+  %1369 = zext i32 %1368 to i64
+  %1370 = add nsw i64 %1369, %1367
+  %1371 = trunc i64 %1370 to i32
+  store i32 %1371, ptr %8, align 4, !tbaa !19
+  %1372 = load i32, ptr %8, align 4, !tbaa !19
+  %1373 = shl i32 %1372, 6
+  %1374 = load i32, ptr %8, align 4, !tbaa !19
+  %1375 = and i32 %1374, -1
+  %1376 = lshr i32 %1375, 26
+  %1377 = or i32 %1373, %1376
+  %1378 = load i32, ptr %7, align 4, !tbaa !19
+  %1379 = add i32 %1377, %1378
+  store i32 %1379, ptr %8, align 4, !tbaa !19
+  %1380 = load i32, ptr %10, align 4, !tbaa !19
+  %1381 = shl i32 %1380, 10
+  %1382 = load i32, ptr %10, align 4, !tbaa !19
+  %1383 = and i32 %1382, -1
+  %1384 = lshr i32 %1383, 22
+  %1385 = or i32 %1381, %1384
+  store i32 %1385, ptr %10, align 4, !tbaa !19
+  %1386 = load i32, ptr %9, align 4, !tbaa !19
+  %1387 = xor i32 %1386, -1
+  %1388 = load i32, ptr %8, align 4, !tbaa !19
+  %1389 = or i32 %1387, %1388
+  %1390 = load i32, ptr %10, align 4, !tbaa !19
+  %1391 = xor i32 %1389, %1390
+  %1392 = load i32, ptr %22, align 4, !tbaa !19
+  %1393 = add i32 %1391, %1392
+  %1394 = zext i32 %1393 to i64
+  %1395 = add nsw i64 %1394, 1859775393
+  %1396 = load i32, ptr %7, align 4, !tbaa !19
+  %1397 = zext i32 %1396 to i64
+  %1398 = add nsw i64 %1397, %1395
+  %1399 = trunc i64 %1398 to i32
+  store i32 %1399, ptr %7, align 4, !tbaa !19
+  %1400 = load i32, ptr %7, align 4, !tbaa !19
+  %1401 = shl i32 %1400, 7
+  %1402 = load i32, ptr %7, align 4, !tbaa !19
+  %1403 = and i32 %1402, -1
+  %1404 = lshr i32 %1403, 25
+  %1405 = or i32 %1401, %1404
+  %1406 = load i32, ptr %11, align 4, !tbaa !19
+  %1407 = add i32 %1405, %1406
+  store i32 %1407, ptr %7, align 4, !tbaa !19
+  %1408 = load i32, ptr %9, align 4, !tbaa !19
+  %1409 = shl i32 %1408, 10
+  %1410 = load i32, ptr %9, align 4, !tbaa !19
+  %1411 = and i32 %1410, -1
+  %1412 = lshr i32 %1411, 22
+  %1413 = or i32 %1409, %1412
+  store i32 %1413, ptr %9, align 4, !tbaa !19
+  %1414 = load i32, ptr %8, align 4, !tbaa !19
+  %1415 = xor i32 %1414, -1
+  %1416 = load i32, ptr %7, align 4, !tbaa !19
+  %1417 = or i32 %1415, %1416
+  %1418 = load i32, ptr %9, align 4, !tbaa !19
+  %1419 = xor i32 %1417, %1418
+  %1420 = load i32, ptr %27, align 4, !tbaa !19
+  %1421 = add i32 %1419, %1420
+  %1422 = zext i32 %1421 to i64
+  %1423 = add nsw i64 %1422, 1859775393
+  %1424 = load i32, ptr %11, align 4, !tbaa !19
+  %1425 = zext i32 %1424 to i64
+  %1426 = add nsw i64 %1425, %1423
+  %1427 = trunc i64 %1426 to i32
+  store i32 %1427, ptr %11, align 4, !tbaa !19
+  %1428 = load i32, ptr %11, align 4, !tbaa !19
+  %1429 = shl i32 %1428, 14
+  %1430 = load i32, ptr %11, align 4, !tbaa !19
+  %1431 = and i32 %1430, -1
+  %1432 = lshr i32 %1431, 18
+  %1433 = or i32 %1429, %1432
+  %1434 = load i32, ptr %10, align 4, !tbaa !19
+  %1435 = add i32 %1433, %1434
+  store i32 %1435, ptr %11, align 4, !tbaa !19
+  %1436 = load i32, ptr %8, align 4, !tbaa !19
+  %1437 = shl i32 %1436, 10
+  %1438 = load i32, ptr %8, align 4, !tbaa !19
+  %1439 = and i32 %1438, -1
+  %1440 = lshr i32 %1439, 22
+  %1441 = or i32 %1437, %1440
+  store i32 %1441, ptr %8, align 4, !tbaa !19
+  %1442 = load i32, ptr %7, align 4, !tbaa !19
+  %1443 = xor i32 %1442, -1
+  %1444 = load i32, ptr %11, align 4, !tbaa !19
+  %1445 = or i32 %1443, %1444
+  %1446 = load i32, ptr %8, align 4, !tbaa !19
+  %1447 = xor i32 %1445, %1446
+  %1448 = load i32, ptr %33, align 4, !tbaa !19
+  %1449 = add i32 %1447, %1448
+  %1450 = zext i32 %1449 to i64
+  %1451 = add nsw i64 %1450, 1859775393
+  %1452 = load i32, ptr %10, align 4, !tbaa !19
+  %1453 = zext i32 %1452 to i64
+  %1454 = add nsw i64 %1453, %1451
+  %1455 = trunc i64 %1454 to i32
+  store i32 %1455, ptr %10, align 4, !tbaa !19
+  %1456 = load i32, ptr %10, align 4, !tbaa !19
+  %1457 = shl i32 %1456, 9
+  %1458 = load i32, ptr %10, align 4, !tbaa !19
+  %1459 = and i32 %1458, -1
+  %1460 = lshr i32 %1459, 23
+  %1461 = or i32 %1457, %1460
+  %1462 = load i32, ptr %9, align 4, !tbaa !19
+  %1463 = add i32 %1461, %1462
+  store i32 %1463, ptr %10, align 4, !tbaa !19
+  %1464 = load i32, ptr %7, align 4, !tbaa !19
+  %1465 = shl i32 %1464, 10
+  %1466 = load i32, ptr %7, align 4, !tbaa !19
+  %1467 = and i32 %1466, -1
+  %1468 = lshr i32 %1467, 22
+  %1469 = or i32 %1465, %1468
+  store i32 %1469, ptr %7, align 4, !tbaa !19
+  %1470 = load i32, ptr %11, align 4, !tbaa !19
+  %1471 = xor i32 %1470, -1
+  %1472 = load i32, ptr %10, align 4, !tbaa !19
+  %1473 = or i32 %1471, %1472
+  %1474 = load i32, ptr %7, align 4, !tbaa !19
+  %1475 = xor i32 %1473, %1474
+  %1476 = load i32, ptr %26, align 4, !tbaa !19
+  %1477 = add i32 %1475, %1476
+  %1478 = zext i32 %1477 to i64
+  %1479 = add nsw i64 %1478, 1859775393
+  %1480 = load i32, ptr %9, align 4, !tbaa !19
+  %1481 = zext i32 %1480 to i64
+  %1482 = add nsw i64 %1481, %1479
+  %1483 = trunc i64 %1482 to i32
+  store i32 %1483, ptr %9, align 4, !tbaa !19
+  %1484 = load i32, ptr %9, align 4, !tbaa !19
+  %1485 = shl i32 %1484, 13
+  %1486 = load i32, ptr %9, align 4, !tbaa !19
+  %1487 = and i32 %1486, -1
+  %1488 = lshr i32 %1487, 19
+  %1489 = or i32 %1485, %1488
+  %1490 = load i32, ptr %8, align 4, !tbaa !19
+  %1491 = add i32 %1489, %1490
+  store i32 %1491, ptr %9, align 4, !tbaa !19
+  %1492 = load i32, ptr %11, align 4, !tbaa !19
+  %1493 = shl i32 %1492, 10
+  %1494 = load i32, ptr %11, align 4, !tbaa !19
+  %1495 = and i32 %1494, -1
+  %1496 = lshr i32 %1495, 22
+  %1497 = or i32 %1493, %1496
+  store i32 %1497, ptr %11, align 4, !tbaa !19
+  %1498 = load i32, ptr %10, align 4, !tbaa !19
+  %1499 = xor i32 %1498, -1
+  %1500 = load i32, ptr %9, align 4, !tbaa !19
+  %1501 = or i32 %1499, %1500
+  %1502 = load i32, ptr %11, align 4, !tbaa !19
+  %1503 = xor i32 %1501, %1502
+  %1504 = load i32, ptr %19, align 4, !tbaa !19
+  %1505 = add i32 %1503, %1504
+  %1506 = zext i32 %1505 to i64
+  %1507 = add nsw i64 %1506, 1859775393
+  %1508 = load i32, ptr %8, align 4, !tbaa !19
+  %1509 = zext i32 %1508 to i64
+  %1510 = add nsw i64 %1509, %1507
+  %1511 = trunc i64 %1510 to i32
+  store i32 %1511, ptr %8, align 4, !tbaa !19
+  %1512 = load i32, ptr %8, align 4, !tbaa !19
+  %1513 = shl i32 %1512, 15
+  %1514 = load i32, ptr %8, align 4, !tbaa !19
+  %1515 = and i32 %1514, -1
+  %1516 = lshr i32 %1515, 17
+  %1517 = or i32 %1513, %1516
+  %1518 = load i32, ptr %7, align 4, !tbaa !19
+  %1519 = add i32 %1517, %1518
+  store i32 %1519, ptr %8, align 4, !tbaa !19
+  %1520 = load i32, ptr %10, align 4, !tbaa !19
+  %1521 = shl i32 %1520, 10
+  %1522 = load i32, ptr %10, align 4, !tbaa !19
+  %1523 = and i32 %1522, -1
+  %1524 = lshr i32 %1523, 22
+  %1525 = or i32 %1521, %1524
+  store i32 %1525, ptr %10, align 4, !tbaa !19
+  %1526 = load i32, ptr %9, align 4, !tbaa !19
+  %1527 = xor i32 %1526, -1
+  %1528 = load i32, ptr %8, align 4, !tbaa !19
+  %1529 = or i32 %1527, %1528
+  %1530 = load i32, ptr %10, align 4, !tbaa !19
+  %1531 = xor i32 %1529, %1530
+  %1532 = load i32, ptr %20, align 4, !tbaa !19
+  %1533 = add i32 %1531, %1532
+  %1534 = zext i32 %1533 to i64
+  %1535 = add nsw i64 %1534, 1859775393
+  %1536 = load i32, ptr %7, align 4, !tbaa !19
+  %1537 = zext i32 %1536 to i64
+  %1538 = add nsw i64 %1537, %1535
+  %1539 = trunc i64 %1538 to i32
+  store i32 %1539, ptr %7, align 4, !tbaa !19
+  %1540 = load i32, ptr %7, align 4, !tbaa !19
+  %1541 = shl i32 %1540, 14
+  %1542 = load i32, ptr %7, align 4, !tbaa !19
+  %1543 = and i32 %1542, -1
+  %1544 = lshr i32 %1543, 18
+  %1545 = or i32 %1541, %1544
+  %1546 = load i32, ptr %11, align 4, !tbaa !19
+  %1547 = add i32 %1545, %1546
+  store i32 %1547, ptr %7, align 4, !tbaa !19
+  %1548 = load i32, ptr %9, align 4, !tbaa !19
+  %1549 = shl i32 %1548, 10
+  %1550 = load i32, ptr %9, align 4, !tbaa !19
+  %1551 = and i32 %1550, -1
+  %1552 = lshr i32 %1551, 22
+  %1553 = or i32 %1549, %1552
+  store i32 %1553, ptr %9, align 4, !tbaa !19
+  %1554 = load i32, ptr %8, align 4, !tbaa !19
+  %1555 = xor i32 %1554, -1
+  %1556 = load i32, ptr %7, align 4, !tbaa !19
+  %1557 = or i32 %1555, %1556
+  %1558 = load i32, ptr %9, align 4, !tbaa !19
+  %1559 = xor i32 %1557, %1558
+  %1560 = load i32, ptr %25, align 4, !tbaa !19
+  %1561 = add i32 %1559, %1560
+  %1562 = zext i32 %1561 to i64
+  %1563 = add nsw i64 %1562, 1859775393
+  %1564 = load i32, ptr %11, align 4, !tbaa !19
+  %1565 = zext i32 %1564 to i64
+  %1566 = add nsw i64 %1565, %1563
+  %1567 = trunc i64 %1566 to i32
+  store i32 %1567, ptr %11, align 4, !tbaa !19
+  %1568 = load i32, ptr %11, align 4, !tbaa !19
+  %1569 = shl i32 %1568, 8
+  %1570 = load i32, ptr %11, align 4, !tbaa !19
+  %1571 = and i32 %1570, -1
+  %1572 = lshr i32 %1571, 24
+  %1573 = or i32 %1569, %1572
+  %1574 = load i32, ptr %10, align 4, !tbaa !19
+  %1575 = add i32 %1573, %1574
+  store i32 %1575, ptr %11, align 4, !tbaa !19
+  %1576 = load i32, ptr %8, align 4, !tbaa !19
+  %1577 = shl i32 %1576, 10
+  %1578 = load i32, ptr %8, align 4, !tbaa !19
+  %1579 = and i32 %1578, -1
+  %1580 = lshr i32 %1579, 22
+  %1581 = or i32 %1577, %1580
+  store i32 %1581, ptr %8, align 4, !tbaa !19
+  %1582 = load i32, ptr %7, align 4, !tbaa !19
+  %1583 = xor i32 %1582, -1
+  %1584 = load i32, ptr %11, align 4, !tbaa !19
+  %1585 = or i32 %1583, %1584
+  %1586 = load i32, ptr %8, align 4, !tbaa !19
+  %1587 = xor i32 %1585, %1586
+  %1588 = load i32, ptr %18, align 4, !tbaa !19
+  %1589 = add i32 %1587, %1588
+  %1590 = zext i32 %1589 to i64
+  %1591 = add nsw i64 %1590, 1859775393
+  %1592 = load i32, ptr %10, align 4, !tbaa !19
+  %1593 = zext i32 %1592 to i64
+  %1594 = add nsw i64 %1593, %1591
+  %1595 = trunc i64 %1594 to i32
+  store i32 %1595, ptr %10, align 4, !tbaa !19
+  %1596 = load i32, ptr %10, align 4, !tbaa !19
+  %1597 = shl i32 %1596, 13
+  %1598 = load i32, ptr %10, align 4, !tbaa !19
+  %1599 = and i32 %1598, -1
+  %1600 = lshr i32 %1599, 19
+  %1601 = or i32 %1597, %1600
+  %1602 = load i32, ptr %9, align 4, !tbaa !19
+  %1603 = add i32 %1601, %1602
+  store i32 %1603, ptr %10, align 4, !tbaa !19
+  %1604 = load i32, ptr %7, align 4, !tbaa !19
+  %1605 = shl i32 %1604, 10
+  %1606 = load i32, ptr %7, align 4, !tbaa !19
+  %1607 = and i32 %1606, -1
+  %1608 = lshr i32 %1607, 22
+  %1609 = or i32 %1605, %1608
+  store i32 %1609, ptr %7, align 4, !tbaa !19
+  %1610 = load i32, ptr %11, align 4, !tbaa !19
+  %1611 = xor i32 %1610, -1
+  %1612 = load i32, ptr %10, align 4, !tbaa !19
+  %1613 = or i32 %1611, %1612
+  %1614 = load i32, ptr %7, align 4, !tbaa !19
+  %1615 = xor i32 %1613, %1614
+  %1616 = load i32, ptr %24, align 4, !tbaa !19
+  %1617 = add i32 %1615, %1616
+  %1618 = zext i32 %1617 to i64
+  %1619 = add nsw i64 %1618, 1859775393
+  %1620 = load i32, ptr %9, align 4, !tbaa !19
+  %1621 = zext i32 %1620 to i64
+  %1622 = add nsw i64 %1621, %1619
+  %1623 = trunc i64 %1622 to i32
+  store i32 %1623, ptr %9, align 4, !tbaa !19
+  %1624 = load i32, ptr %9, align 4, !tbaa !19
+  %1625 = shl i32 %1624, 6
+  %1626 = load i32, ptr %9, align 4, !tbaa !19
+  %1627 = and i32 %1626, -1
+  %1628 = lshr i32 %1627, 26
+  %1629 = or i32 %1625, %1628
+  %1630 = load i32, ptr %8, align 4, !tbaa !19
+  %1631 = add i32 %1629, %1630
+  store i32 %1631, ptr %9, align 4, !tbaa !19
+  %1632 = load i32, ptr %11, align 4, !tbaa !19
+  %1633 = shl i32 %1632, 10
+  %1634 = load i32, ptr %11, align 4, !tbaa !19
+  %1635 = and i32 %1634, -1
+  %1636 = lshr i32 %1635, 22
+  %1637 = or i32 %1633, %1636
+  store i32 %1637, ptr %11, align 4, !tbaa !19
+  %1638 = load i32, ptr %10, align 4, !tbaa !19
+  %1639 = xor i32 %1638, -1
+  %1640 = load i32, ptr %9, align 4, !tbaa !19
+  %1641 = or i32 %1639, %1640
+  %1642 = load i32, ptr %11, align 4, !tbaa !19
+  %1643 = xor i32 %1641, %1642
+  %1644 = load i32, ptr %31, align 4, !tbaa !19
+  %1645 = add i32 %1643, %1644
+  %1646 = zext i32 %1645 to i64
+  %1647 = add nsw i64 %1646, 1859775393
+  %1648 = load i32, ptr %8, align 4, !tbaa !19
+  %1649 = zext i32 %1648 to i64
+  %1650 = add nsw i64 %1649, %1647
+  %1651 = trunc i64 %1650 to i32
+  store i32 %1651, ptr %8, align 4, !tbaa !19
+  %1652 = load i32, ptr %8, align 4, !tbaa !19
+  %1653 = shl i32 %1652, 5
+  %1654 = load i32, ptr %8, align 4, !tbaa !19
+  %1655 = and i32 %1654, -1
+  %1656 = lshr i32 %1655, 27
+  %1657 = or i32 %1653, %1656
+  %1658 = load i32, ptr %7, align 4, !tbaa !19
+  %1659 = add i32 %1657, %1658
+  store i32 %1659, ptr %8, align 4, !tbaa !19
+  %1660 = load i32, ptr %10, align 4, !tbaa !19
+  %1661 = shl i32 %1660, 10
+  %1662 = load i32, ptr %10, align 4, !tbaa !19
+  %1663 = and i32 %1662, -1
+  %1664 = lshr i32 %1663, 22
+  %1665 = or i32 %1661, %1664
+  store i32 %1665, ptr %10, align 4, !tbaa !19
+  %1666 = load i32, ptr %9, align 4, !tbaa !19
+  %1667 = xor i32 %1666, -1
+  %1668 = load i32, ptr %8, align 4, !tbaa !19
+  %1669 = or i32 %1667, %1668
+  %1670 = load i32, ptr %10, align 4, !tbaa !19
+  %1671 = xor i32 %1669, %1670
+  %1672 = load i32, ptr %29, align 4, !tbaa !19
+  %1673 = add i32 %1671, %1672
+  %1674 = zext i32 %1673 to i64
+  %1675 = add nsw i64 %1674, 1859775393
+  %1676 = load i32, ptr %7, align 4, !tbaa !19
+  %1677 = zext i32 %1676 to i64
+  %1678 = add nsw i64 %1677, %1675
+  %1679 = trunc i64 %1678 to i32
+  store i32 %1679, ptr %7, align 4, !tbaa !19
+  %1680 = load i32, ptr %7, align 4, !tbaa !19
+  %1681 = shl i32 %1680, 12
+  %1682 = load i32, ptr %7, align 4, !tbaa !19
+  %1683 = and i32 %1682, -1
+  %1684 = lshr i32 %1683, 20
+  %1685 = or i32 %1681, %1684
+  %1686 = load i32, ptr %11, align 4, !tbaa !19
+  %1687 = add i32 %1685, %1686
+  store i32 %1687, ptr %7, align 4, !tbaa !19
+  %1688 = load i32, ptr %9, align 4, !tbaa !19
+  %1689 = shl i32 %1688, 10
+  %1690 = load i32, ptr %9, align 4, !tbaa !19
+  %1691 = and i32 %1690, -1
+  %1692 = lshr i32 %1691, 22
+  %1693 = or i32 %1689, %1692
+  store i32 %1693, ptr %9, align 4, !tbaa !19
+  %1694 = load i32, ptr %8, align 4, !tbaa !19
+  %1695 = xor i32 %1694, -1
+  %1696 = load i32, ptr %7, align 4, !tbaa !19
+  %1697 = or i32 %1695, %1696
+  %1698 = load i32, ptr %9, align 4, !tbaa !19
+  %1699 = xor i32 %1697, %1698
+  %1700 = load i32, ptr %23, align 4, !tbaa !19
+  %1701 = add i32 %1699, %1700
+  %1702 = zext i32 %1701 to i64
+  %1703 = add nsw i64 %1702, 1859775393
+  %1704 = load i32, ptr %11, align 4, !tbaa !19
+  %1705 = zext i32 %1704 to i64
+  %1706 = add nsw i64 %1705, %1703
+  %1707 = trunc i64 %1706 to i32
+  store i32 %1707, ptr %11, align 4, !tbaa !19
+  %1708 = load i32, ptr %11, align 4, !tbaa !19
+  %1709 = shl i32 %1708, 7
+  %1710 = load i32, ptr %11, align 4, !tbaa !19
+  %1711 = and i32 %1710, -1
+  %1712 = lshr i32 %1711, 25
+  %1713 = or i32 %1709, %1712
+  %1714 = load i32, ptr %10, align 4, !tbaa !19
+  %1715 = add i32 %1713, %1714
+  store i32 %1715, ptr %11, align 4, !tbaa !19
+  %1716 = load i32, ptr %8, align 4, !tbaa !19
+  %1717 = shl i32 %1716, 10
+  %1718 = load i32, ptr %8, align 4, !tbaa !19
+  %1719 = and i32 %1718, -1
+  %1720 = lshr i32 %1719, 22
+  %1721 = or i32 %1717, %1720
+  store i32 %1721, ptr %8, align 4, !tbaa !19
+  %1722 = load i32, ptr %7, align 4, !tbaa !19
+  %1723 = xor i32 %1722, -1
+  %1724 = load i32, ptr %11, align 4, !tbaa !19
+  %1725 = or i32 %1723, %1724
+  %1726 = load i32, ptr %8, align 4, !tbaa !19
+  %1727 = xor i32 %1725, %1726
+  %1728 = load i32, ptr %30, align 4, !tbaa !19
+  %1729 = add i32 %1727, %1728
+  %1730 = zext i32 %1729 to i64
+  %1731 = add nsw i64 %1730, 1859775393
+  %1732 = load i32, ptr %10, align 4, !tbaa !19
+  %1733 = zext i32 %1732 to i64
+  %1734 = add nsw i64 %1733, %1731
+  %1735 = trunc i64 %1734 to i32
+  store i32 %1735, ptr %10, align 4, !tbaa !19
+  %1736 = load i32, ptr %10, align 4, !tbaa !19
+  %1737 = shl i32 %1736, 5
+  %1738 = load i32, ptr %10, align 4, !tbaa !19
+  %1739 = and i32 %1738, -1
+  %1740 = lshr i32 %1739, 27
+  %1741 = or i32 %1737, %1740
+  %1742 = load i32, ptr %9, align 4, !tbaa !19
+  %1743 = add i32 %1741, %1742
+  store i32 %1743, ptr %10, align 4, !tbaa !19
+  %1744 = load i32, ptr %7, align 4, !tbaa !19
+  %1745 = shl i32 %1744, 10
+  %1746 = load i32, ptr %7, align 4, !tbaa !19
+  %1747 = and i32 %1746, -1
+  %1748 = lshr i32 %1747, 22
+  %1749 = or i32 %1745, %1748
+  store i32 %1749, ptr %7, align 4, !tbaa !19
+  %1750 = load i32, ptr %10, align 4, !tbaa !19
+  %1751 = load i32, ptr %11, align 4, !tbaa !19
+  %1752 = xor i32 %1750, %1751
+  %1753 = load i32, ptr %7, align 4, !tbaa !19
+  %1754 = and i32 %1752, %1753
+  %1755 = load i32, ptr %11, align 4, !tbaa !19
+  %1756 = xor i32 %1754, %1755
+  %1757 = load i32, ptr %19, align 4, !tbaa !19
+  %1758 = add i32 %1756, %1757
+  %1759 = zext i32 %1758 to i64
+  %1760 = add nsw i64 %1759, 2400959708
+  %1761 = load i32, ptr %9, align 4, !tbaa !19
+  %1762 = zext i32 %1761 to i64
+  %1763 = add nsw i64 %1762, %1760
+  %1764 = trunc i64 %1763 to i32
+  store i32 %1764, ptr %9, align 4, !tbaa !19
+  %1765 = load i32, ptr %9, align 4, !tbaa !19
+  %1766 = shl i32 %1765, 11
+  %1767 = load i32, ptr %9, align 4, !tbaa !19
+  %1768 = and i32 %1767, -1
+  %1769 = lshr i32 %1768, 21
+  %1770 = or i32 %1766, %1769
+  %1771 = load i32, ptr %8, align 4, !tbaa !19
+  %1772 = add i32 %1770, %1771
+  store i32 %1772, ptr %9, align 4, !tbaa !19
+  %1773 = load i32, ptr %11, align 4, !tbaa !19
+  %1774 = shl i32 %1773, 10
+  %1775 = load i32, ptr %11, align 4, !tbaa !19
+  %1776 = and i32 %1775, -1
+  %1777 = lshr i32 %1776, 22
+  %1778 = or i32 %1774, %1777
+  store i32 %1778, ptr %11, align 4, !tbaa !19
+  %1779 = load i32, ptr %9, align 4, !tbaa !19
+  %1780 = load i32, ptr %10, align 4, !tbaa !19
+  %1781 = xor i32 %1779, %1780
+  %1782 = load i32, ptr %11, align 4, !tbaa !19
+  %1783 = and i32 %1781, %1782
+  %1784 = load i32, ptr %10, align 4, !tbaa !19
+  %1785 = xor i32 %1783, %1784
+  %1786 = load i32, ptr %27, align 4, !tbaa !19
+  %1787 = add i32 %1785, %1786
+  %1788 = zext i32 %1787 to i64
+  %1789 = add nsw i64 %1788, 2400959708
+  %1790 = load i32, ptr %8, align 4, !tbaa !19
+  %1791 = zext i32 %1790 to i64
+  %1792 = add nsw i64 %1791, %1789
+  %1793 = trunc i64 %1792 to i32
+  store i32 %1793, ptr %8, align 4, !tbaa !19
+  %1794 = load i32, ptr %8, align 4, !tbaa !19
+  %1795 = shl i32 %1794, 12
+  %1796 = load i32, ptr %8, align 4, !tbaa !19
+  %1797 = and i32 %1796, -1
+  %1798 = lshr i32 %1797, 20
+  %1799 = or i32 %1795, %1798
+  %1800 = load i32, ptr %7, align 4, !tbaa !19
+  %1801 = add i32 %1799, %1800
+  store i32 %1801, ptr %8, align 4, !tbaa !19
+  %1802 = load i32, ptr %10, align 4, !tbaa !19
+  %1803 = shl i32 %1802, 10
+  %1804 = load i32, ptr %10, align 4, !tbaa !19
+  %1805 = and i32 %1804, -1
+  %1806 = lshr i32 %1805, 22
+  %1807 = or i32 %1803, %1806
+  store i32 %1807, ptr %10, align 4, !tbaa !19
+  %1808 = load i32, ptr %8, align 4, !tbaa !19
+  %1809 = load i32, ptr %9, align 4, !tbaa !19
+  %1810 = xor i32 %1808, %1809
+  %1811 = load i32, ptr %10, align 4, !tbaa !19
+  %1812 = and i32 %1810, %1811
+  %1813 = load i32, ptr %9, align 4, !tbaa !19
+  %1814 = xor i32 %1812, %1813
+  %1815 = load i32, ptr %29, align 4, !tbaa !19
+  %1816 = add i32 %1814, %1815
+  %1817 = zext i32 %1816 to i64
+  %1818 = add nsw i64 %1817, 2400959708
+  %1819 = load i32, ptr %7, align 4, !tbaa !19
+  %1820 = zext i32 %1819 to i64
+  %1821 = add nsw i64 %1820, %1818
+  %1822 = trunc i64 %1821 to i32
+  store i32 %1822, ptr %7, align 4, !tbaa !19
+  %1823 = load i32, ptr %7, align 4, !tbaa !19
+  %1824 = shl i32 %1823, 14
+  %1825 = load i32, ptr %7, align 4, !tbaa !19
+  %1826 = and i32 %1825, -1
+  %1827 = lshr i32 %1826, 18
+  %1828 = or i32 %1824, %1827
+  %1829 = load i32, ptr %11, align 4, !tbaa !19
+  %1830 = add i32 %1828, %1829
+  store i32 %1830, ptr %7, align 4, !tbaa !19
+  %1831 = load i32, ptr %9, align 4, !tbaa !19
+  %1832 = shl i32 %1831, 10
+  %1833 = load i32, ptr %9, align 4, !tbaa !19
+  %1834 = and i32 %1833, -1
+  %1835 = lshr i32 %1834, 22
+  %1836 = or i32 %1832, %1835
+  store i32 %1836, ptr %9, align 4, !tbaa !19
+  %1837 = load i32, ptr %7, align 4, !tbaa !19
+  %1838 = load i32, ptr %8, align 4, !tbaa !19
+  %1839 = xor i32 %1837, %1838
+  %1840 = load i32, ptr %9, align 4, !tbaa !19
+  %1841 = and i32 %1839, %1840
+  %1842 = load i32, ptr %8, align 4, !tbaa !19
+  %1843 = xor i32 %1841, %1842
+  %1844 = load i32, ptr %28, align 4, !tbaa !19
+  %1845 = add i32 %1843, %1844
+  %1846 = zext i32 %1845 to i64
+  %1847 = add nsw i64 %1846, 2400959708
+  %1848 = load i32, ptr %11, align 4, !tbaa !19
+  %1849 = zext i32 %1848 to i64
+  %1850 = add nsw i64 %1849, %1847
+  %1851 = trunc i64 %1850 to i32
+  store i32 %1851, ptr %11, align 4, !tbaa !19
+  %1852 = load i32, ptr %11, align 4, !tbaa !19
+  %1853 = shl i32 %1852, 15
+  %1854 = load i32, ptr %11, align 4, !tbaa !19
+  %1855 = and i32 %1854, -1
+  %1856 = lshr i32 %1855, 17
+  %1857 = or i32 %1853, %1856
+  %1858 = load i32, ptr %10, align 4, !tbaa !19
+  %1859 = add i32 %1857, %1858
+  store i32 %1859, ptr %11, align 4, !tbaa !19
+  %1860 = load i32, ptr %8, align 4, !tbaa !19
+  %1861 = shl i32 %1860, 10
+  %1862 = load i32, ptr %8, align 4, !tbaa !19
+  %1863 = and i32 %1862, -1
+  %1864 = lshr i32 %1863, 22
+  %1865 = or i32 %1861, %1864
+  store i32 %1865, ptr %8, align 4, !tbaa !19
+  %1866 = load i32, ptr %11, align 4, !tbaa !19
+  %1867 = load i32, ptr %7, align 4, !tbaa !19
+  %1868 = xor i32 %1866, %1867
+  %1869 = load i32, ptr %8, align 4, !tbaa !19
+  %1870 = and i32 %1868, %1869
+  %1871 = load i32, ptr %7, align 4, !tbaa !19
+  %1872 = xor i32 %1870, %1871
+  %1873 = load i32, ptr %18, align 4, !tbaa !19
+  %1874 = add i32 %1872, %1873
+  %1875 = zext i32 %1874 to i64
+  %1876 = add nsw i64 %1875, 2400959708
+  %1877 = load i32, ptr %10, align 4, !tbaa !19
+  %1878 = zext i32 %1877 to i64
+  %1879 = add nsw i64 %1878, %1876
+  %1880 = trunc i64 %1879 to i32
+  store i32 %1880, ptr %10, align 4, !tbaa !19
+  %1881 = load i32, ptr %10, align 4, !tbaa !19
+  %1882 = shl i32 %1881, 14
+  %1883 = load i32, ptr %10, align 4, !tbaa !19
+  %1884 = and i32 %1883, -1
+  %1885 = lshr i32 %1884, 18
+  %1886 = or i32 %1882, %1885
+  %1887 = load i32, ptr %9, align 4, !tbaa !19
+  %1888 = add i32 %1886, %1887
+  store i32 %1888, ptr %10, align 4, !tbaa !19
+  %1889 = load i32, ptr %7, align 4, !tbaa !19
+  %1890 = shl i32 %1889, 10
+  %1891 = load i32, ptr %7, align 4, !tbaa !19
+  %1892 = and i32 %1891, -1
+  %1893 = lshr i32 %1892, 22
+  %1894 = or i32 %1890, %1893
+  store i32 %1894, ptr %7, align 4, !tbaa !19
+  %1895 = load i32, ptr %10, align 4, !tbaa !19
+  %1896 = load i32, ptr %11, align 4, !tbaa !19
+  %1897 = xor i32 %1895, %1896
+  %1898 = load i32, ptr %7, align 4, !tbaa !19
+  %1899 = and i32 %1897, %1898
+  %1900 = load i32, ptr %11, align 4, !tbaa !19
+  %1901 = xor i32 %1899, %1900
+  %1902 = load i32, ptr %26, align 4, !tbaa !19
+  %1903 = add i32 %1901, %1902
+  %1904 = zext i32 %1903 to i64
+  %1905 = add nsw i64 %1904, 2400959708
+  %1906 = load i32, ptr %9, align 4, !tbaa !19
+  %1907 = zext i32 %1906 to i64
+  %1908 = add nsw i64 %1907, %1905
+  %1909 = trunc i64 %1908 to i32
+  store i32 %1909, ptr %9, align 4, !tbaa !19
+  %1910 = load i32, ptr %9, align 4, !tbaa !19
+  %1911 = shl i32 %1910, 15
+  %1912 = load i32, ptr %9, align 4, !tbaa !19
+  %1913 = and i32 %1912, -1
+  %1914 = lshr i32 %1913, 17
+  %1915 = or i32 %1911, %1914
+  %1916 = load i32, ptr %8, align 4, !tbaa !19
+  %1917 = add i32 %1915, %1916
+  store i32 %1917, ptr %9, align 4, !tbaa !19
+  %1918 = load i32, ptr %11, align 4, !tbaa !19
+  %1919 = shl i32 %1918, 10
+  %1920 = load i32, ptr %11, align 4, !tbaa !19
+  %1921 = and i32 %1920, -1
+  %1922 = lshr i32 %1921, 22
+  %1923 = or i32 %1919, %1922
+  store i32 %1923, ptr %11, align 4, !tbaa !19
+  %1924 = load i32, ptr %9, align 4, !tbaa !19
+  %1925 = load i32, ptr %10, align 4, !tbaa !19
+  %1926 = xor i32 %1924, %1925
+  %1927 = load i32, ptr %11, align 4, !tbaa !19
+  %1928 = and i32 %1926, %1927
+  %1929 = load i32, ptr %10, align 4, !tbaa !19
+  %1930 = xor i32 %1928, %1929
+  %1931 = load i32, ptr %30, align 4, !tbaa !19
+  %1932 = add i32 %1930, %1931
+  %1933 = zext i32 %1932 to i64
+  %1934 = add nsw i64 %1933, 2400959708
+  %1935 = load i32, ptr %8, align 4, !tbaa !19
+  %1936 = zext i32 %1935 to i64
+  %1937 = add nsw i64 %1936, %1934
+  %1938 = trunc i64 %1937 to i32
+  store i32 %1938, ptr %8, align 4, !tbaa !19
+  %1939 = load i32, ptr %8, align 4, !tbaa !19
+  %1940 = shl i32 %1939, 9
+  %1941 = load i32, ptr %8, align 4, !tbaa !19
+  %1942 = and i32 %1941, -1
+  %1943 = lshr i32 %1942, 23
+  %1944 = or i32 %1940, %1943
+  %1945 = load i32, ptr %7, align 4, !tbaa !19
+  %1946 = add i32 %1944, %1945
+  store i32 %1946, ptr %8, align 4, !tbaa !19
+  %1947 = load i32, ptr %10, align 4, !tbaa !19
+  %1948 = shl i32 %1947, 10
+  %1949 = load i32, ptr %10, align 4, !tbaa !19
+  %1950 = and i32 %1949, -1
+  %1951 = lshr i32 %1950, 22
+  %1952 = or i32 %1948, %1951
+  store i32 %1952, ptr %10, align 4, !tbaa !19
+  %1953 = load i32, ptr %8, align 4, !tbaa !19
+  %1954 = load i32, ptr %9, align 4, !tbaa !19
+  %1955 = xor i32 %1953, %1954
+  %1956 = load i32, ptr %10, align 4, !tbaa !19
+  %1957 = and i32 %1955, %1956
+  %1958 = load i32, ptr %9, align 4, !tbaa !19
+  %1959 = xor i32 %1957, %1958
+  %1960 = load i32, ptr %22, align 4, !tbaa !19
+  %1961 = add i32 %1959, %1960
+  %1962 = zext i32 %1961 to i64
+  %1963 = add nsw i64 %1962, 2400959708
+  %1964 = load i32, ptr %7, align 4, !tbaa !19
+  %1965 = zext i32 %1964 to i64
+  %1966 = add nsw i64 %1965, %1963
+  %1967 = trunc i64 %1966 to i32
+  store i32 %1967, ptr %7, align 4, !tbaa !19
+  %1968 = load i32, ptr %7, align 4, !tbaa !19
+  %1969 = shl i32 %1968, 8
+  %1970 = load i32, ptr %7, align 4, !tbaa !19
+  %1971 = and i32 %1970, -1
+  %1972 = lshr i32 %1971, 24
+  %1973 = or i32 %1969, %1972
+  %1974 = load i32, ptr %11, align 4, !tbaa !19
+  %1975 = add i32 %1973, %1974
+  store i32 %1975, ptr %7, align 4, !tbaa !19
+  %1976 = load i32, ptr %9, align 4, !tbaa !19
+  %1977 = shl i32 %1976, 10
+  %1978 = load i32, ptr %9, align 4, !tbaa !19
+  %1979 = and i32 %1978, -1
+  %1980 = lshr i32 %1979, 22
+  %1981 = or i32 %1977, %1980
+  store i32 %1981, ptr %9, align 4, !tbaa !19
+  %1982 = load i32, ptr %7, align 4, !tbaa !19
+  %1983 = load i32, ptr %8, align 4, !tbaa !19
+  %1984 = xor i32 %1982, %1983
+  %1985 = load i32, ptr %9, align 4, !tbaa !19
+  %1986 = and i32 %1984, %1985
+  %1987 = load i32, ptr %8, align 4, !tbaa !19
+  %1988 = xor i32 %1986, %1987
+  %1989 = load i32, ptr %31, align 4, !tbaa !19
+  %1990 = add i32 %1988, %1989
+  %1991 = zext i32 %1990 to i64
+  %1992 = add nsw i64 %1991, 2400959708
+  %1993 = load i32, ptr %11, align 4, !tbaa !19
+  %1994 = zext i32 %1993 to i64
+  %1995 = add nsw i64 %1994, %1992
+  %1996 = trunc i64 %1995 to i32
+  store i32 %1996, ptr %11, align 4, !tbaa !19
+  %1997 = load i32, ptr %11, align 4, !tbaa !19
+  %1998 = shl i32 %1997, 9
+  %1999 = load i32, ptr %11, align 4, !tbaa !19
+  %2000 = and i32 %1999, -1
+  %2001 = lshr i32 %2000, 23
+  %2002 = or i32 %1998, %2001
+  %2003 = load i32, ptr %10, align 4, !tbaa !19
+  %2004 = add i32 %2002, %2003
+  store i32 %2004, ptr %11, align 4, !tbaa !19
+  %2005 = load i32, ptr %8, align 4, !tbaa !19
+  %2006 = shl i32 %2005, 10
+  %2007 = load i32, ptr %8, align 4, !tbaa !19
+  %2008 = and i32 %2007, -1
+  %2009 = lshr i32 %2008, 22
+  %2010 = or i32 %2006, %2009
+  store i32 %2010, ptr %8, align 4, !tbaa !19
+  %2011 = load i32, ptr %11, align 4, !tbaa !19
+  %2012 = load i32, ptr %7, align 4, !tbaa !19
+  %2013 = xor i32 %2011, %2012
+  %2014 = load i32, ptr %8, align 4, !tbaa !19
+  %2015 = and i32 %2013, %2014
+  %2016 = load i32, ptr %7, align 4, !tbaa !19
+  %2017 = xor i32 %2015, %2016
+  %2018 = load i32, ptr %21, align 4, !tbaa !19
+  %2019 = add i32 %2017, %2018
+  %2020 = zext i32 %2019 to i64
+  %2021 = add nsw i64 %2020, 2400959708
+  %2022 = load i32, ptr %10, align 4, !tbaa !19
+  %2023 = zext i32 %2022 to i64
+  %2024 = add nsw i64 %2023, %2021
+  %2025 = trunc i64 %2024 to i32
+  store i32 %2025, ptr %10, align 4, !tbaa !19
+  %2026 = load i32, ptr %10, align 4, !tbaa !19
+  %2027 = shl i32 %2026, 14
+  %2028 = load i32, ptr %10, align 4, !tbaa !19
+  %2029 = and i32 %2028, -1
+  %2030 = lshr i32 %2029, 18
+  %2031 = or i32 %2027, %2030
+  %2032 = load i32, ptr %9, align 4, !tbaa !19
+  %2033 = add i32 %2031, %2032
+  store i32 %2033, ptr %10, align 4, !tbaa !19
+  %2034 = load i32, ptr %7, align 4, !tbaa !19
+  %2035 = shl i32 %2034, 10
+  %2036 = load i32, ptr %7, align 4, !tbaa !19
+  %2037 = and i32 %2036, -1
+  %2038 = lshr i32 %2037, 22
+  %2039 = or i32 %2035, %2038
+  store i32 %2039, ptr %7, align 4, !tbaa !19
+  %2040 = load i32, ptr %10, align 4, !tbaa !19
+  %2041 = load i32, ptr %11, align 4, !tbaa !19
+  %2042 = xor i32 %2040, %2041
+  %2043 = load i32, ptr %7, align 4, !tbaa !19
+  %2044 = and i32 %2042, %2043
+  %2045 = load i32, ptr %11, align 4, !tbaa !19
+  %2046 = xor i32 %2044, %2045
+  %2047 = load i32, ptr %25, align 4, !tbaa !19
+  %2048 = add i32 %2046, %2047
+  %2049 = zext i32 %2048 to i64
+  %2050 = add nsw i64 %2049, 2400959708
+  %2051 = load i32, ptr %9, align 4, !tbaa !19
+  %2052 = zext i32 %2051 to i64
+  %2053 = add nsw i64 %2052, %2050
+  %2054 = trunc i64 %2053 to i32
+  store i32 %2054, ptr %9, align 4, !tbaa !19
+  %2055 = load i32, ptr %9, align 4, !tbaa !19
+  %2056 = shl i32 %2055, 5
+  %2057 = load i32, ptr %9, align 4, !tbaa !19
+  %2058 = and i32 %2057, -1
+  %2059 = lshr i32 %2058, 27
+  %2060 = or i32 %2056, %2059
+  %2061 = load i32, ptr %8, align 4, !tbaa !19
+  %2062 = add i32 %2060, %2061
+  store i32 %2062, ptr %9, align 4, !tbaa !19
+  %2063 = load i32, ptr %11, align 4, !tbaa !19
+  %2064 = shl i32 %2063, 10
+  %2065 = load i32, ptr %11, align 4, !tbaa !19
+  %2066 = and i32 %2065, -1
+  %2067 = lshr i32 %2066, 22
+  %2068 = or i32 %2064, %2067
+  store i32 %2068, ptr %11, align 4, !tbaa !19
+  %2069 = load i32, ptr %9, align 4, !tbaa !19
+  %2070 = load i32, ptr %10, align 4, !tbaa !19
+  %2071 = xor i32 %2069, %2070
+  %2072 = load i32, ptr %11, align 4, !tbaa !19
+  %2073 = and i32 %2071, %2072
+  %2074 = load i32, ptr %10, align 4, !tbaa !19
+  %2075 = xor i32 %2073, %2074
+  %2076 = load i32, ptr %33, align 4, !tbaa !19
+  %2077 = add i32 %2075, %2076
+  %2078 = zext i32 %2077 to i64
+  %2079 = add nsw i64 %2078, 2400959708
+  %2080 = load i32, ptr %8, align 4, !tbaa !19
+  %2081 = zext i32 %2080 to i64
+  %2082 = add nsw i64 %2081, %2079
+  %2083 = trunc i64 %2082 to i32
+  store i32 %2083, ptr %8, align 4, !tbaa !19
+  %2084 = load i32, ptr %8, align 4, !tbaa !19
+  %2085 = shl i32 %2084, 6
+  %2086 = load i32, ptr %8, align 4, !tbaa !19
+  %2087 = and i32 %2086, -1
+  %2088 = lshr i32 %2087, 26
+  %2089 = or i32 %2085, %2088
+  %2090 = load i32, ptr %7, align 4, !tbaa !19
+  %2091 = add i32 %2089, %2090
+  store i32 %2091, ptr %8, align 4, !tbaa !19
+  %2092 = load i32, ptr %10, align 4, !tbaa !19
+  %2093 = shl i32 %2092, 10
+  %2094 = load i32, ptr %10, align 4, !tbaa !19
+  %2095 = and i32 %2094, -1
+  %2096 = lshr i32 %2095, 22
+  %2097 = or i32 %2093, %2096
+  store i32 %2097, ptr %10, align 4, !tbaa !19
+  %2098 = load i32, ptr %8, align 4, !tbaa !19
+  %2099 = load i32, ptr %9, align 4, !tbaa !19
+  %2100 = xor i32 %2098, %2099
+  %2101 = load i32, ptr %10, align 4, !tbaa !19
+  %2102 = and i32 %2100, %2101
+  %2103 = load i32, ptr %9, align 4, !tbaa !19
+  %2104 = xor i32 %2102, %2103
+  %2105 = load i32, ptr %32, align 4, !tbaa !19
+  %2106 = add i32 %2104, %2105
+  %2107 = zext i32 %2106 to i64
+  %2108 = add nsw i64 %2107, 2400959708
+  %2109 = load i32, ptr %7, align 4, !tbaa !19
+  %2110 = zext i32 %2109 to i64
+  %2111 = add nsw i64 %2110, %2108
+  %2112 = trunc i64 %2111 to i32
+  store i32 %2112, ptr %7, align 4, !tbaa !19
+  %2113 = load i32, ptr %7, align 4, !tbaa !19
+  %2114 = shl i32 %2113, 8
+  %2115 = load i32, ptr %7, align 4, !tbaa !19
+  %2116 = and i32 %2115, -1
+  %2117 = lshr i32 %2116, 24
+  %2118 = or i32 %2114, %2117
+  %2119 = load i32, ptr %11, align 4, !tbaa !19
+  %2120 = add i32 %2118, %2119
+  store i32 %2120, ptr %7, align 4, !tbaa !19
+  %2121 = load i32, ptr %9, align 4, !tbaa !19
+  %2122 = shl i32 %2121, 10
+  %2123 = load i32, ptr %9, align 4, !tbaa !19
+  %2124 = and i32 %2123, -1
+  %2125 = lshr i32 %2124, 22
+  %2126 = or i32 %2122, %2125
+  store i32 %2126, ptr %9, align 4, !tbaa !19
+  %2127 = load i32, ptr %7, align 4, !tbaa !19
+  %2128 = load i32, ptr %8, align 4, !tbaa !19
+  %2129 = xor i32 %2127, %2128
+  %2130 = load i32, ptr %9, align 4, !tbaa !19
+  %2131 = and i32 %2129, %2130
+  %2132 = load i32, ptr %8, align 4, !tbaa !19
+  %2133 = xor i32 %2131, %2132
+  %2134 = load i32, ptr %23, align 4, !tbaa !19
+  %2135 = add i32 %2133, %2134
+  %2136 = zext i32 %2135 to i64
+  %2137 = add nsw i64 %2136, 2400959708
+  %2138 = load i32, ptr %11, align 4, !tbaa !19
+  %2139 = zext i32 %2138 to i64
+  %2140 = add nsw i64 %2139, %2137
+  %2141 = trunc i64 %2140 to i32
+  store i32 %2141, ptr %11, align 4, !tbaa !19
+  %2142 = load i32, ptr %11, align 4, !tbaa !19
+  %2143 = shl i32 %2142, 6
+  %2144 = load i32, ptr %11, align 4, !tbaa !19
+  %2145 = and i32 %2144, -1
+  %2146 = lshr i32 %2145, 26
+  %2147 = or i32 %2143, %2146
+  %2148 = load i32, ptr %10, align 4, !tbaa !19
+  %2149 = add i32 %2147, %2148
+  store i32 %2149, ptr %11, align 4, !tbaa !19
+  %2150 = load i32, ptr %8, align 4, !tbaa !19
+  %2151 = shl i32 %2150, 10
+  %2152 = load i32, ptr %8, align 4, !tbaa !19
+  %2153 = and i32 %2152, -1
+  %2154 = lshr i32 %2153, 22
+  %2155 = or i32 %2151, %2154
+  store i32 %2155, ptr %8, align 4, !tbaa !19
+  %2156 = load i32, ptr %11, align 4, !tbaa !19
+  %2157 = load i32, ptr %7, align 4, !tbaa !19
+  %2158 = xor i32 %2156, %2157
+  %2159 = load i32, ptr %8, align 4, !tbaa !19
+  %2160 = and i32 %2158, %2159
+  %2161 = load i32, ptr %7, align 4, !tbaa !19
+  %2162 = xor i32 %2160, %2161
+  %2163 = load i32, ptr %24, align 4, !tbaa !19
+  %2164 = add i32 %2162, %2163
+  %2165 = zext i32 %2164 to i64
+  %2166 = add nsw i64 %2165, 2400959708
+  %2167 = load i32, ptr %10, align 4, !tbaa !19
+  %2168 = zext i32 %2167 to i64
+  %2169 = add nsw i64 %2168, %2166
+  %2170 = trunc i64 %2169 to i32
+  store i32 %2170, ptr %10, align 4, !tbaa !19
+  %2171 = load i32, ptr %10, align 4, !tbaa !19
+  %2172 = shl i32 %2171, 5
+  %2173 = load i32, ptr %10, align 4, !tbaa !19
+  %2174 = and i32 %2173, -1
+  %2175 = lshr i32 %2174, 27
+  %2176 = or i32 %2172, %2175
+  %2177 = load i32, ptr %9, align 4, !tbaa !19
+  %2178 = add i32 %2176, %2177
+  store i32 %2178, ptr %10, align 4, !tbaa !19
+  %2179 = load i32, ptr %7, align 4, !tbaa !19
+  %2180 = shl i32 %2179, 10
+  %2181 = load i32, ptr %7, align 4, !tbaa !19
+  %2182 = and i32 %2181, -1
+  %2183 = lshr i32 %2182, 22
+  %2184 = or i32 %2180, %2183
+  store i32 %2184, ptr %7, align 4, !tbaa !19
+  %2185 = load i32, ptr %10, align 4, !tbaa !19
+  %2186 = load i32, ptr %11, align 4, !tbaa !19
+  %2187 = xor i32 %2185, %2186
+  %2188 = load i32, ptr %7, align 4, !tbaa !19
+  %2189 = and i32 %2187, %2188
+  %2190 = load i32, ptr %11, align 4, !tbaa !19
+  %2191 = xor i32 %2189, %2190
+  %2192 = load i32, ptr %20, align 4, !tbaa !19
+  %2193 = add i32 %2191, %2192
+  %2194 = zext i32 %2193 to i64
+  %2195 = add nsw i64 %2194, 2400959708
+  %2196 = load i32, ptr %9, align 4, !tbaa !19
+  %2197 = zext i32 %2196 to i64
+  %2198 = add nsw i64 %2197, %2195
+  %2199 = trunc i64 %2198 to i32
+  store i32 %2199, ptr %9, align 4, !tbaa !19
+  %2200 = load i32, ptr %9, align 4, !tbaa !19
+  %2201 = shl i32 %2200, 12
+  %2202 = load i32, ptr %9, align 4, !tbaa !19
+  %2203 = and i32 %2202, -1
+  %2204 = lshr i32 %2203, 20
+  %2205 = or i32 %2201, %2204
+  %2206 = load i32, ptr %8, align 4, !tbaa !19
+  %2207 = add i32 %2205, %2206
+  store i32 %2207, ptr %9, align 4, !tbaa !19
+  %2208 = load i32, ptr %11, align 4, !tbaa !19
+  %2209 = shl i32 %2208, 10
+  %2210 = load i32, ptr %11, align 4, !tbaa !19
+  %2211 = and i32 %2210, -1
+  %2212 = lshr i32 %2211, 22
+  %2213 = or i32 %2209, %2212
+  store i32 %2213, ptr %11, align 4, !tbaa !19
+  %2214 = load i32, ptr %11, align 4, !tbaa !19
+  %2215 = xor i32 %2214, -1
+  %2216 = load i32, ptr %10, align 4, !tbaa !19
+  %2217 = or i32 %2215, %2216
+  %2218 = load i32, ptr %9, align 4, !tbaa !19
+  %2219 = xor i32 %2217, %2218
+  %2220 = load i32, ptr %22, align 4, !tbaa !19
+  %2221 = add i32 %2219, %2220
+  %2222 = zext i32 %2221 to i64
+  %2223 = add nsw i64 %2222, 2840853838
+  %2224 = load i32, ptr %8, align 4, !tbaa !19
+  %2225 = zext i32 %2224 to i64
+  %2226 = add nsw i64 %2225, %2223
+  %2227 = trunc i64 %2226 to i32
+  store i32 %2227, ptr %8, align 4, !tbaa !19
+  %2228 = load i32, ptr %8, align 4, !tbaa !19
+  %2229 = shl i32 %2228, 9
+  %2230 = load i32, ptr %8, align 4, !tbaa !19
+  %2231 = and i32 %2230, -1
+  %2232 = lshr i32 %2231, 23
+  %2233 = or i32 %2229, %2232
+  %2234 = load i32, ptr %7, align 4, !tbaa !19
+  %2235 = add i32 %2233, %2234
+  store i32 %2235, ptr %8, align 4, !tbaa !19
+  %2236 = load i32, ptr %10, align 4, !tbaa !19
+  %2237 = shl i32 %2236, 10
+  %2238 = load i32, ptr %10, align 4, !tbaa !19
+  %2239 = and i32 %2238, -1
+  %2240 = lshr i32 %2239, 22
+  %2241 = or i32 %2237, %2240
+  store i32 %2241, ptr %10, align 4, !tbaa !19
+  %2242 = load i32, ptr %10, align 4, !tbaa !19
+  %2243 = xor i32 %2242, -1
+  %2244 = load i32, ptr %9, align 4, !tbaa !19
+  %2245 = or i32 %2243, %2244
+  %2246 = load i32, ptr %8, align 4, !tbaa !19
+  %2247 = xor i32 %2245, %2246
+  %2248 = load i32, ptr %18, align 4, !tbaa !19
+  %2249 = add i32 %2247, %2248
+  %2250 = zext i32 %2249 to i64
+  %2251 = add nsw i64 %2250, 2840853838
+  %2252 = load i32, ptr %7, align 4, !tbaa !19
+  %2253 = zext i32 %2252 to i64
+  %2254 = add nsw i64 %2253, %2251
+  %2255 = trunc i64 %2254 to i32
+  store i32 %2255, ptr %7, align 4, !tbaa !19
+  %2256 = load i32, ptr %7, align 4, !tbaa !19
+  %2257 = shl i32 %2256, 15
+  %2258 = load i32, ptr %7, align 4, !tbaa !19
+  %2259 = and i32 %2258, -1
+  %2260 = lshr i32 %2259, 17
+  %2261 = or i32 %2257, %2260
+  %2262 = load i32, ptr %11, align 4, !tbaa !19
+  %2263 = add i32 %2261, %2262
+  store i32 %2263, ptr %7, align 4, !tbaa !19
+  %2264 = load i32, ptr %9, align 4, !tbaa !19
+  %2265 = shl i32 %2264, 10
+  %2266 = load i32, ptr %9, align 4, !tbaa !19
+  %2267 = and i32 %2266, -1
+  %2268 = lshr i32 %2267, 22
+  %2269 = or i32 %2265, %2268
+  store i32 %2269, ptr %9, align 4, !tbaa !19
+  %2270 = load i32, ptr %9, align 4, !tbaa !19
+  %2271 = xor i32 %2270, -1
+  %2272 = load i32, ptr %8, align 4, !tbaa !19
+  %2273 = or i32 %2271, %2272
+  %2274 = load i32, ptr %7, align 4, !tbaa !19
+  %2275 = xor i32 %2273, %2274
+  %2276 = load i32, ptr %23, align 4, !tbaa !19
+  %2277 = add i32 %2275, %2276
+  %2278 = zext i32 %2277 to i64
+  %2279 = add nsw i64 %2278, 2840853838
+  %2280 = load i32, ptr %11, align 4, !tbaa !19
+  %2281 = zext i32 %2280 to i64
+  %2282 = add nsw i64 %2281, %2279
+  %2283 = trunc i64 %2282 to i32
+  store i32 %2283, ptr %11, align 4, !tbaa !19
+  %2284 = load i32, ptr %11, align 4, !tbaa !19
+  %2285 = shl i32 %2284, 5
+  %2286 = load i32, ptr %11, align 4, !tbaa !19
+  %2287 = and i32 %2286, -1
+  %2288 = lshr i32 %2287, 27
+  %2289 = or i32 %2285, %2288
+  %2290 = load i32, ptr %10, align 4, !tbaa !19
+  %2291 = add i32 %2289, %2290
+  store i32 %2291, ptr %11, align 4, !tbaa !19
+  %2292 = load i32, ptr %8, align 4, !tbaa !19
+  %2293 = shl i32 %2292, 10
+  %2294 = load i32, ptr %8, align 4, !tbaa !19
+  %2295 = and i32 %2294, -1
+  %2296 = lshr i32 %2295, 22
+  %2297 = or i32 %2293, %2296
+  store i32 %2297, ptr %8, align 4, !tbaa !19
+  %2298 = load i32, ptr %8, align 4, !tbaa !19
+  %2299 = xor i32 %2298, -1
+  %2300 = load i32, ptr %7, align 4, !tbaa !19
+  %2301 = or i32 %2299, %2300
+  %2302 = load i32, ptr %11, align 4, !tbaa !19
+  %2303 = xor i32 %2301, %2302
+  %2304 = load i32, ptr %27, align 4, !tbaa !19
+  %2305 = add i32 %2303, %2304
+  %2306 = zext i32 %2305 to i64
+  %2307 = add nsw i64 %2306, 2840853838
+  %2308 = load i32, ptr %10, align 4, !tbaa !19
+  %2309 = zext i32 %2308 to i64
+  %2310 = add nsw i64 %2309, %2307
+  %2311 = trunc i64 %2310 to i32
+  store i32 %2311, ptr %10, align 4, !tbaa !19
+  %2312 = load i32, ptr %10, align 4, !tbaa !19
+  %2313 = shl i32 %2312, 11
+  %2314 = load i32, ptr %10, align 4, !tbaa !19
+  %2315 = and i32 %2314, -1
+  %2316 = lshr i32 %2315, 21
+  %2317 = or i32 %2313, %2316
+  %2318 = load i32, ptr %9, align 4, !tbaa !19
+  %2319 = add i32 %2317, %2318
+  store i32 %2319, ptr %10, align 4, !tbaa !19
+  %2320 = load i32, ptr %7, align 4, !tbaa !19
+  %2321 = shl i32 %2320, 10
+  %2322 = load i32, ptr %7, align 4, !tbaa !19
+  %2323 = and i32 %2322, -1
+  %2324 = lshr i32 %2323, 22
+  %2325 = or i32 %2321, %2324
+  store i32 %2325, ptr %7, align 4, !tbaa !19
+  %2326 = load i32, ptr %7, align 4, !tbaa !19
+  %2327 = xor i32 %2326, -1
+  %2328 = load i32, ptr %11, align 4, !tbaa !19
+  %2329 = or i32 %2327, %2328
+  %2330 = load i32, ptr %10, align 4, !tbaa !19
+  %2331 = xor i32 %2329, %2330
+  %2332 = load i32, ptr %25, align 4, !tbaa !19
+  %2333 = add i32 %2331, %2332
+  %2334 = zext i32 %2333 to i64
+  %2335 = add nsw i64 %2334, 2840853838
+  %2336 = load i32, ptr %9, align 4, !tbaa !19
+  %2337 = zext i32 %2336 to i64
+  %2338 = add nsw i64 %2337, %2335
+  %2339 = trunc i64 %2338 to i32
+  store i32 %2339, ptr %9, align 4, !tbaa !19
+  %2340 = load i32, ptr %9, align 4, !tbaa !19
+  %2341 = shl i32 %2340, 6
+  %2342 = load i32, ptr %9, align 4, !tbaa !19
+  %2343 = and i32 %2342, -1
+  %2344 = lshr i32 %2343, 26
+  %2345 = or i32 %2341, %2344
+  %2346 = load i32, ptr %8, align 4, !tbaa !19
+  %2347 = add i32 %2345, %2346
+  store i32 %2347, ptr %9, align 4, !tbaa !19
+  %2348 = load i32, ptr %11, align 4, !tbaa !19
+  %2349 = shl i32 %2348, 10
+  %2350 = load i32, ptr %11, align 4, !tbaa !19
+  %2351 = and i32 %2350, -1
+  %2352 = lshr i32 %2351, 22
+  %2353 = or i32 %2349, %2352
+  store i32 %2353, ptr %11, align 4, !tbaa !19
+  %2354 = load i32, ptr %11, align 4, !tbaa !19
+  %2355 = xor i32 %2354, -1
+  %2356 = load i32, ptr %10, align 4, !tbaa !19
+  %2357 = or i32 %2355, %2356
+  %2358 = load i32, ptr %9, align 4, !tbaa !19
+  %2359 = xor i32 %2357, %2358
+  %2360 = load i32, ptr %30, align 4, !tbaa !19
+  %2361 = add i32 %2359, %2360
+  %2362 = zext i32 %2361 to i64
+  %2363 = add nsw i64 %2362, 2840853838
+  %2364 = load i32, ptr %8, align 4, !tbaa !19
+  %2365 = zext i32 %2364 to i64
+  %2366 = add nsw i64 %2365, %2363
+  %2367 = trunc i64 %2366 to i32
+  store i32 %2367, ptr %8, align 4, !tbaa !19
+  %2368 = load i32, ptr %8, align 4, !tbaa !19
+  %2369 = shl i32 %2368, 8
+  %2370 = load i32, ptr %8, align 4, !tbaa !19
+  %2371 = and i32 %2370, -1
+  %2372 = lshr i32 %2371, 24
+  %2373 = or i32 %2369, %2372
+  %2374 = load i32, ptr %7, align 4, !tbaa !19
+  %2375 = add i32 %2373, %2374
+  store i32 %2375, ptr %8, align 4, !tbaa !19
+  %2376 = load i32, ptr %10, align 4, !tbaa !19
+  %2377 = shl i32 %2376, 10
+  %2378 = load i32, ptr %10, align 4, !tbaa !19
+  %2379 = and i32 %2378, -1
+  %2380 = lshr i32 %2379, 22
+  %2381 = or i32 %2377, %2380
+  store i32 %2381, ptr %10, align 4, !tbaa !19
+  %2382 = load i32, ptr %10, align 4, !tbaa !19
+  %2383 = xor i32 %2382, -1
+  %2384 = load i32, ptr %9, align 4, !tbaa !19
+  %2385 = or i32 %2383, %2384
+  %2386 = load i32, ptr %8, align 4, !tbaa !19
+  %2387 = xor i32 %2385, %2386
+  %2388 = load i32, ptr %20, align 4, !tbaa !19
+  %2389 = add i32 %2387, %2388
+  %2390 = zext i32 %2389 to i64
+  %2391 = add nsw i64 %2390, 2840853838
+  %2392 = load i32, ptr %7, align 4, !tbaa !19
+  %2393 = zext i32 %2392 to i64
+  %2394 = add nsw i64 %2393, %2391
+  %2395 = trunc i64 %2394 to i32
+  store i32 %2395, ptr %7, align 4, !tbaa !19
+  %2396 = load i32, ptr %7, align 4, !tbaa !19
+  %2397 = shl i32 %2396, 13
+  %2398 = load i32, ptr %7, align 4, !tbaa !19
+  %2399 = and i32 %2398, -1
+  %2400 = lshr i32 %2399, 19
+  %2401 = or i32 %2397, %2400
+  %2402 = load i32, ptr %11, align 4, !tbaa !19
+  %2403 = add i32 %2401, %2402
+  store i32 %2403, ptr %7, align 4, !tbaa !19
+  %2404 = load i32, ptr %9, align 4, !tbaa !19
+  %2405 = shl i32 %2404, 10
+  %2406 = load i32, ptr %9, align 4, !tbaa !19
+  %2407 = and i32 %2406, -1
+  %2408 = lshr i32 %2407, 22
+  %2409 = or i32 %2405, %2408
+  store i32 %2409, ptr %9, align 4, !tbaa !19
+  %2410 = load i32, ptr %9, align 4, !tbaa !19
+  %2411 = xor i32 %2410, -1
+  %2412 = load i32, ptr %8, align 4, !tbaa !19
+  %2413 = or i32 %2411, %2412
+  %2414 = load i32, ptr %7, align 4, !tbaa !19
+  %2415 = xor i32 %2413, %2414
+  %2416 = load i32, ptr %28, align 4, !tbaa !19
+  %2417 = add i32 %2415, %2416
+  %2418 = zext i32 %2417 to i64
+  %2419 = add nsw i64 %2418, 2840853838
+  %2420 = load i32, ptr %11, align 4, !tbaa !19
+  %2421 = zext i32 %2420 to i64
+  %2422 = add nsw i64 %2421, %2419
+  %2423 = trunc i64 %2422 to i32
+  store i32 %2423, ptr %11, align 4, !tbaa !19
+  %2424 = load i32, ptr %11, align 4, !tbaa !19
+  %2425 = shl i32 %2424, 12
+  %2426 = load i32, ptr %11, align 4, !tbaa !19
+  %2427 = and i32 %2426, -1
+  %2428 = lshr i32 %2427, 20
+  %2429 = or i32 %2425, %2428
+  %2430 = load i32, ptr %10, align 4, !tbaa !19
+  %2431 = add i32 %2429, %2430
+  store i32 %2431, ptr %11, align 4, !tbaa !19
+  %2432 = load i32, ptr %8, align 4, !tbaa !19
+  %2433 = shl i32 %2432, 10
+  %2434 = load i32, ptr %8, align 4, !tbaa !19
+  %2435 = and i32 %2434, -1
+  %2436 = lshr i32 %2435, 22
+  %2437 = or i32 %2433, %2436
+  store i32 %2437, ptr %8, align 4, !tbaa !19
+  %2438 = load i32, ptr %8, align 4, !tbaa !19
+  %2439 = xor i32 %2438, -1
+  %2440 = load i32, ptr %7, align 4, !tbaa !19
+  %2441 = or i32 %2439, %2440
+  %2442 = load i32, ptr %11, align 4, !tbaa !19
+  %2443 = xor i32 %2441, %2442
+  %2444 = load i32, ptr %32, align 4, !tbaa !19
+  %2445 = add i32 %2443, %2444
+  %2446 = zext i32 %2445 to i64
+  %2447 = add nsw i64 %2446, 2840853838
+  %2448 = load i32, ptr %10, align 4, !tbaa !19
+  %2449 = zext i32 %2448 to i64
+  %2450 = add nsw i64 %2449, %2447
+  %2451 = trunc i64 %2450 to i32
+  store i32 %2451, ptr %10, align 4, !tbaa !19
+  %2452 = load i32, ptr %10, align 4, !tbaa !19
+  %2453 = shl i32 %2452, 5
+  %2454 = load i32, ptr %10, align 4, !tbaa !19
+  %2455 = and i32 %2454, -1
+  %2456 = lshr i32 %2455, 27
+  %2457 = or i32 %2453, %2456
+  %2458 = load i32, ptr %9, align 4, !tbaa !19
+  %2459 = add i32 %2457, %2458
+  store i32 %2459, ptr %10, align 4, !tbaa !19
+  %2460 = load i32, ptr %7, align 4, !tbaa !19
+  %2461 = shl i32 %2460, 10
+  %2462 = load i32, ptr %7, align 4, !tbaa !19
+  %2463 = and i32 %2462, -1
+  %2464 = lshr i32 %2463, 22
+  %2465 = or i32 %2461, %2464
+  store i32 %2465, ptr %7, align 4, !tbaa !19
+  %2466 = load i32, ptr %7, align 4, !tbaa !19
+  %2467 = xor i32 %2466, -1
+  %2468 = load i32, ptr %11, align 4, !tbaa !19
+  %2469 = or i32 %2467, %2468
+  %2470 = load i32, ptr %10, align 4, !tbaa !19
+  %2471 = xor i32 %2469, %2470
+  %2472 = load i32, ptr %19, align 4, !tbaa !19
+  %2473 = add i32 %2471, %2472
+  %2474 = zext i32 %2473 to i64
+  %2475 = add nsw i64 %2474, 2840853838
+  %2476 = load i32, ptr %9, align 4, !tbaa !19
+  %2477 = zext i32 %2476 to i64
+  %2478 = add nsw i64 %2477, %2475
+  %2479 = trunc i64 %2478 to i32
+  store i32 %2479, ptr %9, align 4, !tbaa !19
+  %2480 = load i32, ptr %9, align 4, !tbaa !19
+  %2481 = shl i32 %2480, 12
+  %2482 = load i32, ptr %9, align 4, !tbaa !19
+  %2483 = and i32 %2482, -1
+  %2484 = lshr i32 %2483, 20
+  %2485 = or i32 %2481, %2484
+  %2486 = load i32, ptr %8, align 4, !tbaa !19
+  %2487 = add i32 %2485, %2486
+  store i32 %2487, ptr %9, align 4, !tbaa !19
+  %2488 = load i32, ptr %11, align 4, !tbaa !19
+  %2489 = shl i32 %2488, 10
+  %2490 = load i32, ptr %11, align 4, !tbaa !19
+  %2491 = and i32 %2490, -1
+  %2492 = lshr i32 %2491, 22
+  %2493 = or i32 %2489, %2492
+  store i32 %2493, ptr %11, align 4, !tbaa !19
+  %2494 = load i32, ptr %11, align 4, !tbaa !19
+  %2495 = xor i32 %2494, -1
+  %2496 = load i32, ptr %10, align 4, !tbaa !19
+  %2497 = or i32 %2495, %2496
+  %2498 = load i32, ptr %9, align 4, !tbaa !19
+  %2499 = xor i32 %2497, %2498
+  %2500 = load i32, ptr %21, align 4, !tbaa !19
+  %2501 = add i32 %2499, %2500
+  %2502 = zext i32 %2501 to i64
+  %2503 = add nsw i64 %2502, 2840853838
+  %2504 = load i32, ptr %8, align 4, !tbaa !19
+  %2505 = zext i32 %2504 to i64
+  %2506 = add nsw i64 %2505, %2503
+  %2507 = trunc i64 %2506 to i32
+  store i32 %2507, ptr %8, align 4, !tbaa !19
+  %2508 = load i32, ptr %8, align 4, !tbaa !19
+  %2509 = shl i32 %2508, 13
+  %2510 = load i32, ptr %8, align 4, !tbaa !19
+  %2511 = and i32 %2510, -1
+  %2512 = lshr i32 %2511, 19
+  %2513 = or i32 %2509, %2512
+  %2514 = load i32, ptr %7, align 4, !tbaa !19
+  %2515 = add i32 %2513, %2514
+  store i32 %2515, ptr %8, align 4, !tbaa !19
+  %2516 = load i32, ptr %10, align 4, !tbaa !19
+  %2517 = shl i32 %2516, 10
+  %2518 = load i32, ptr %10, align 4, !tbaa !19
+  %2519 = and i32 %2518, -1
+  %2520 = lshr i32 %2519, 22
+  %2521 = or i32 %2517, %2520
+  store i32 %2521, ptr %10, align 4, !tbaa !19
+  %2522 = load i32, ptr %10, align 4, !tbaa !19
+  %2523 = xor i32 %2522, -1
+  %2524 = load i32, ptr %9, align 4, !tbaa !19
+  %2525 = or i32 %2523, %2524
+  %2526 = load i32, ptr %8, align 4, !tbaa !19
+  %2527 = xor i32 %2525, %2526
+  %2528 = load i32, ptr %26, align 4, !tbaa !19
+  %2529 = add i32 %2527, %2528
+  %2530 = zext i32 %2529 to i64
+  %2531 = add nsw i64 %2530, 2840853838
+  %2532 = load i32, ptr %7, align 4, !tbaa !19
+  %2533 = zext i32 %2532 to i64
+  %2534 = add nsw i64 %2533, %2531
+  %2535 = trunc i64 %2534 to i32
+  store i32 %2535, ptr %7, align 4, !tbaa !19
+  %2536 = load i32, ptr %7, align 4, !tbaa !19
+  %2537 = shl i32 %2536, 14
+  %2538 = load i32, ptr %7, align 4, !tbaa !19
+  %2539 = and i32 %2538, -1
+  %2540 = lshr i32 %2539, 18
+  %2541 = or i32 %2537, %2540
+  %2542 = load i32, ptr %11, align 4, !tbaa !19
+  %2543 = add i32 %2541, %2542
+  store i32 %2543, ptr %7, align 4, !tbaa !19
+  %2544 = load i32, ptr %9, align 4, !tbaa !19
+  %2545 = shl i32 %2544, 10
+  %2546 = load i32, ptr %9, align 4, !tbaa !19
+  %2547 = and i32 %2546, -1
+  %2548 = lshr i32 %2547, 22
+  %2549 = or i32 %2545, %2548
+  store i32 %2549, ptr %9, align 4, !tbaa !19
+  %2550 = load i32, ptr %9, align 4, !tbaa !19
+  %2551 = xor i32 %2550, -1
+  %2552 = load i32, ptr %8, align 4, !tbaa !19
+  %2553 = or i32 %2551, %2552
+  %2554 = load i32, ptr %7, align 4, !tbaa !19
+  %2555 = xor i32 %2553, %2554
+  %2556 = load i32, ptr %29, align 4, !tbaa !19
+  %2557 = add i32 %2555, %2556
+  %2558 = zext i32 %2557 to i64
+  %2559 = add nsw i64 %2558, 2840853838
+  %2560 = load i32, ptr %11, align 4, !tbaa !19
+  %2561 = zext i32 %2560 to i64
+  %2562 = add nsw i64 %2561, %2559
+  %2563 = trunc i64 %2562 to i32
+  store i32 %2563, ptr %11, align 4, !tbaa !19
+  %2564 = load i32, ptr %11, align 4, !tbaa !19
+  %2565 = shl i32 %2564, 11
+  %2566 = load i32, ptr %11, align 4, !tbaa !19
+  %2567 = and i32 %2566, -1
+  %2568 = lshr i32 %2567, 21
+  %2569 = or i32 %2565, %2568
+  %2570 = load i32, ptr %10, align 4, !tbaa !19
+  %2571 = add i32 %2569, %2570
+  store i32 %2571, ptr %11, align 4, !tbaa !19
+  %2572 = load i32, ptr %8, align 4, !tbaa !19
+  %2573 = shl i32 %2572, 10
+  %2574 = load i32, ptr %8, align 4, !tbaa !19
+  %2575 = and i32 %2574, -1
+  %2576 = lshr i32 %2575, 22
+  %2577 = or i32 %2573, %2576
+  store i32 %2577, ptr %8, align 4, !tbaa !19
+  %2578 = load i32, ptr %8, align 4, !tbaa !19
+  %2579 = xor i32 %2578, -1
+  %2580 = load i32, ptr %7, align 4, !tbaa !19
+  %2581 = or i32 %2579, %2580
+  %2582 = load i32, ptr %11, align 4, !tbaa !19
+  %2583 = xor i32 %2581, %2582
+  %2584 = load i32, ptr %24, align 4, !tbaa !19
+  %2585 = add i32 %2583, %2584
+  %2586 = zext i32 %2585 to i64
+  %2587 = add nsw i64 %2586, 2840853838
+  %2588 = load i32, ptr %10, align 4, !tbaa !19
+  %2589 = zext i32 %2588 to i64
+  %2590 = add nsw i64 %2589, %2587
+  %2591 = trunc i64 %2590 to i32
+  store i32 %2591, ptr %10, align 4, !tbaa !19
+  %2592 = load i32, ptr %10, align 4, !tbaa !19
+  %2593 = shl i32 %2592, 8
+  %2594 = load i32, ptr %10, align 4, !tbaa !19
+  %2595 = and i32 %2594, -1
+  %2596 = lshr i32 %2595, 24
+  %2597 = or i32 %2593, %2596
+  %2598 = load i32, ptr %9, align 4, !tbaa !19
+  %2599 = add i32 %2597, %2598
+  store i32 %2599, ptr %10, align 4, !tbaa !19
+  %2600 = load i32, ptr %7, align 4, !tbaa !19
+  %2601 = shl i32 %2600, 10
+  %2602 = load i32, ptr %7, align 4, !tbaa !19
+  %2603 = and i32 %2602, -1
+  %2604 = lshr i32 %2603, 22
+  %2605 = or i32 %2601, %2604
+  store i32 %2605, ptr %7, align 4, !tbaa !19
+  %2606 = load i32, ptr %7, align 4, !tbaa !19
+  %2607 = xor i32 %2606, -1
+  %2608 = load i32, ptr %11, align 4, !tbaa !19
+  %2609 = or i32 %2607, %2608
+  %2610 = load i32, ptr %10, align 4, !tbaa !19
+  %2611 = xor i32 %2609, %2610
+  %2612 = load i32, ptr %33, align 4, !tbaa !19
+  %2613 = add i32 %2611, %2612
+  %2614 = zext i32 %2613 to i64
+  %2615 = add nsw i64 %2614, 2840853838
+  %2616 = load i32, ptr %9, align 4, !tbaa !19
+  %2617 = zext i32 %2616 to i64
+  %2618 = add nsw i64 %2617, %2615
+  %2619 = trunc i64 %2618 to i32
+  store i32 %2619, ptr %9, align 4, !tbaa !19
+  %2620 = load i32, ptr %9, align 4, !tbaa !19
+  %2621 = shl i32 %2620, 5
+  %2622 = load i32, ptr %9, align 4, !tbaa !19
+  %2623 = and i32 %2622, -1
+  %2624 = lshr i32 %2623, 27
+  %2625 = or i32 %2621, %2624
+  %2626 = load i32, ptr %8, align 4, !tbaa !19
+  %2627 = add i32 %2625, %2626
+  store i32 %2627, ptr %9, align 4, !tbaa !19
+  %2628 = load i32, ptr %11, align 4, !tbaa !19
+  %2629 = shl i32 %2628, 10
+  %2630 = load i32, ptr %11, align 4, !tbaa !19
+  %2631 = and i32 %2630, -1
+  %2632 = lshr i32 %2631, 22
+  %2633 = or i32 %2629, %2632
+  store i32 %2633, ptr %11, align 4, !tbaa !19
+  %2634 = load i32, ptr %11, align 4, !tbaa !19
+  %2635 = xor i32 %2634, -1
+  %2636 = load i32, ptr %10, align 4, !tbaa !19
+  %2637 = or i32 %2635, %2636
+  %2638 = load i32, ptr %9, align 4, !tbaa !19
+  %2639 = xor i32 %2637, %2638
+  %2640 = load i32, ptr %31, align 4, !tbaa !19
+  %2641 = add i32 %2639, %2640
+  %2642 = zext i32 %2641 to i64
+  %2643 = add nsw i64 %2642, 2840853838
+  %2644 = load i32, ptr %8, align 4, !tbaa !19
+  %2645 = zext i32 %2644 to i64
+  %2646 = add nsw i64 %2645, %2643
+  %2647 = trunc i64 %2646 to i32
+  store i32 %2647, ptr %8, align 4, !tbaa !19
+  %2648 = load i32, ptr %8, align 4, !tbaa !19
+  %2649 = shl i32 %2648, 6
+  %2650 = load i32, ptr %8, align 4, !tbaa !19
+  %2651 = and i32 %2650, -1
+  %2652 = lshr i32 %2651, 26
+  %2653 = or i32 %2649, %2652
+  %2654 = load i32, ptr %7, align 4, !tbaa !19
+  %2655 = add i32 %2653, %2654
+  store i32 %2655, ptr %8, align 4, !tbaa !19
+  %2656 = load i32, ptr %10, align 4, !tbaa !19
+  %2657 = shl i32 %2656, 10
+  %2658 = load i32, ptr %10, align 4, !tbaa !19
+  %2659 = and i32 %2658, -1
+  %2660 = lshr i32 %2659, 22
+  %2661 = or i32 %2657, %2660
+  store i32 %2661, ptr %10, align 4, !tbaa !19
+  %2662 = load i32, ptr %7, align 4, !tbaa !19
+  store i32 %2662, ptr %12, align 4, !tbaa !19
+  %2663 = load i32, ptr %8, align 4, !tbaa !19
+  store i32 %2663, ptr %13, align 4, !tbaa !19
+  %2664 = load i32, ptr %9, align 4, !tbaa !19
+  store i32 %2664, ptr %14, align 4, !tbaa !19
+  %2665 = load i32, ptr %10, align 4, !tbaa !19
+  store i32 %2665, ptr %15, align 4, !tbaa !19
+  %2666 = load i32, ptr %11, align 4, !tbaa !19
+  store i32 %2666, ptr %16, align 4, !tbaa !19
+  %2667 = load ptr, ptr %4, align 8, !tbaa !22
+  %2668 = getelementptr inbounds i32, ptr %2667, i64 0
+  %2669 = load i32, ptr %2668, align 4, !tbaa !19
+  store i32 %2669, ptr %7, align 4, !tbaa !19
+  %2670 = load ptr, ptr %4, align 8, !tbaa !22
+  %2671 = getelementptr inbounds i32, ptr %2670, i64 1
+  %2672 = load i32, ptr %2671, align 4, !tbaa !19
+  store i32 %2672, ptr %8, align 4, !tbaa !19
+  %2673 = load ptr, ptr %4, align 8, !tbaa !22
+  %2674 = getelementptr inbounds i32, ptr %2673, i64 2
+  %2675 = load i32, ptr %2674, align 4, !tbaa !19
+  store i32 %2675, ptr %9, align 4, !tbaa !19
+  %2676 = load ptr, ptr %4, align 8, !tbaa !22
+  %2677 = getelementptr inbounds i32, ptr %2676, i64 3
+  %2678 = load i32, ptr %2677, align 4, !tbaa !19
+  store i32 %2678, ptr %10, align 4, !tbaa !19
+  %2679 = load ptr, ptr %4, align 8, !tbaa !22
+  %2680 = getelementptr inbounds i32, ptr %2679, i64 4
+  %2681 = load i32, ptr %2680, align 4, !tbaa !19
+  store i32 %2681, ptr %11, align 4, !tbaa !19
+  %2682 = load i32, ptr %10, align 4, !tbaa !19
+  %2683 = xor i32 %2682, -1
+  %2684 = load i32, ptr %9, align 4, !tbaa !19
+  %2685 = or i32 %2683, %2684
+  %2686 = load i32, ptr %8, align 4, !tbaa !19
+  %2687 = xor i32 %2685, %2686
+  %2688 = load i32, ptr %23, align 4, !tbaa !19
+  %2689 = add i32 %2687, %2688
+  %2690 = zext i32 %2689 to i64
+  %2691 = add nsw i64 %2690, 1352829926
+  %2692 = load i32, ptr %7, align 4, !tbaa !19
+  %2693 = zext i32 %2692 to i64
+  %2694 = add nsw i64 %2693, %2691
+  %2695 = trunc i64 %2694 to i32
+  store i32 %2695, ptr %7, align 4, !tbaa !19
+  %2696 = load i32, ptr %7, align 4, !tbaa !19
+  %2697 = shl i32 %2696, 8
+  %2698 = load i32, ptr %7, align 4, !tbaa !19
+  %2699 = and i32 %2698, -1
+  %2700 = lshr i32 %2699, 24
+  %2701 = or i32 %2697, %2700
+  %2702 = load i32, ptr %11, align 4, !tbaa !19
+  %2703 = add i32 %2701, %2702
+  store i32 %2703, ptr %7, align 4, !tbaa !19
+  %2704 = load i32, ptr %9, align 4, !tbaa !19
+  %2705 = shl i32 %2704, 10
+  %2706 = load i32, ptr %9, align 4, !tbaa !19
+  %2707 = and i32 %2706, -1
+  %2708 = lshr i32 %2707, 22
+  %2709 = or i32 %2705, %2708
+  store i32 %2709, ptr %9, align 4, !tbaa !19
+  %2710 = load i32, ptr %9, align 4, !tbaa !19
+  %2711 = xor i32 %2710, -1
+  %2712 = load i32, ptr %8, align 4, !tbaa !19
+  %2713 = or i32 %2711, %2712
+  %2714 = load i32, ptr %7, align 4, !tbaa !19
+  %2715 = xor i32 %2713, %2714
+  %2716 = load i32, ptr %32, align 4, !tbaa !19
+  %2717 = add i32 %2715, %2716
+  %2718 = zext i32 %2717 to i64
+  %2719 = add nsw i64 %2718, 1352829926
+  %2720 = load i32, ptr %11, align 4, !tbaa !19
+  %2721 = zext i32 %2720 to i64
+  %2722 = add nsw i64 %2721, %2719
+  %2723 = trunc i64 %2722 to i32
+  store i32 %2723, ptr %11, align 4, !tbaa !19
+  %2724 = load i32, ptr %11, align 4, !tbaa !19
+  %2725 = shl i32 %2724, 9
+  %2726 = load i32, ptr %11, align 4, !tbaa !19
+  %2727 = and i32 %2726, -1
+  %2728 = lshr i32 %2727, 23
+  %2729 = or i32 %2725, %2728
+  %2730 = load i32, ptr %10, align 4, !tbaa !19
+  %2731 = add i32 %2729, %2730
+  store i32 %2731, ptr %11, align 4, !tbaa !19
+  %2732 = load i32, ptr %8, align 4, !tbaa !19
+  %2733 = shl i32 %2732, 10
+  %2734 = load i32, ptr %8, align 4, !tbaa !19
+  %2735 = and i32 %2734, -1
+  %2736 = lshr i32 %2735, 22
+  %2737 = or i32 %2733, %2736
+  store i32 %2737, ptr %8, align 4, !tbaa !19
+  %2738 = load i32, ptr %8, align 4, !tbaa !19
+  %2739 = xor i32 %2738, -1
+  %2740 = load i32, ptr %7, align 4, !tbaa !19
+  %2741 = or i32 %2739, %2740
+  %2742 = load i32, ptr %11, align 4, !tbaa !19
+  %2743 = xor i32 %2741, %2742
+  %2744 = load i32, ptr %25, align 4, !tbaa !19
+  %2745 = add i32 %2743, %2744
+  %2746 = zext i32 %2745 to i64
+  %2747 = add nsw i64 %2746, 1352829926
+  %2748 = load i32, ptr %10, align 4, !tbaa !19
+  %2749 = zext i32 %2748 to i64
+  %2750 = add nsw i64 %2749, %2747
+  %2751 = trunc i64 %2750 to i32
+  store i32 %2751, ptr %10, align 4, !tbaa !19
+  %2752 = load i32, ptr %10, align 4, !tbaa !19
+  %2753 = shl i32 %2752, 9
+  %2754 = load i32, ptr %10, align 4, !tbaa !19
+  %2755 = and i32 %2754, -1
+  %2756 = lshr i32 %2755, 23
+  %2757 = or i32 %2753, %2756
+  %2758 = load i32, ptr %9, align 4, !tbaa !19
+  %2759 = add i32 %2757, %2758
+  store i32 %2759, ptr %10, align 4, !tbaa !19
+  %2760 = load i32, ptr %7, align 4, !tbaa !19
+  %2761 = shl i32 %2760, 10
+  %2762 = load i32, ptr %7, align 4, !tbaa !19
+  %2763 = and i32 %2762, -1
+  %2764 = lshr i32 %2763, 22
+  %2765 = or i32 %2761, %2764
+  store i32 %2765, ptr %7, align 4, !tbaa !19
+  %2766 = load i32, ptr %7, align 4, !tbaa !19
+  %2767 = xor i32 %2766, -1
+  %2768 = load i32, ptr %11, align 4, !tbaa !19
+  %2769 = or i32 %2767, %2768
+  %2770 = load i32, ptr %10, align 4, !tbaa !19
+  %2771 = xor i32 %2769, %2770
+  %2772 = load i32, ptr %18, align 4, !tbaa !19
+  %2773 = add i32 %2771, %2772
+  %2774 = zext i32 %2773 to i64
+  %2775 = add nsw i64 %2774, 1352829926
+  %2776 = load i32, ptr %9, align 4, !tbaa !19
+  %2777 = zext i32 %2776 to i64
+  %2778 = add nsw i64 %2777, %2775
+  %2779 = trunc i64 %2778 to i32
+  store i32 %2779, ptr %9, align 4, !tbaa !19
+  %2780 = load i32, ptr %9, align 4, !tbaa !19
+  %2781 = shl i32 %2780, 11
+  %2782 = load i32, ptr %9, align 4, !tbaa !19
+  %2783 = and i32 %2782, -1
+  %2784 = lshr i32 %2783, 21
+  %2785 = or i32 %2781, %2784
+  %2786 = load i32, ptr %8, align 4, !tbaa !19
+  %2787 = add i32 %2785, %2786
+  store i32 %2787, ptr %9, align 4, !tbaa !19
+  %2788 = load i32, ptr %11, align 4, !tbaa !19
+  %2789 = shl i32 %2788, 10
+  %2790 = load i32, ptr %11, align 4, !tbaa !19
+  %2791 = and i32 %2790, -1
+  %2792 = lshr i32 %2791, 22
+  %2793 = or i32 %2789, %2792
+  store i32 %2793, ptr %11, align 4, !tbaa !19
+  %2794 = load i32, ptr %11, align 4, !tbaa !19
+  %2795 = xor i32 %2794, -1
+  %2796 = load i32, ptr %10, align 4, !tbaa !19
+  %2797 = or i32 %2795, %2796
+  %2798 = load i32, ptr %9, align 4, !tbaa !19
+  %2799 = xor i32 %2797, %2798
+  %2800 = load i32, ptr %27, align 4, !tbaa !19
+  %2801 = add i32 %2799, %2800
+  %2802 = zext i32 %2801 to i64
+  %2803 = add nsw i64 %2802, 1352829926
+  %2804 = load i32, ptr %8, align 4, !tbaa !19
+  %2805 = zext i32 %2804 to i64
+  %2806 = add nsw i64 %2805, %2803
+  %2807 = trunc i64 %2806 to i32
+  store i32 %2807, ptr %8, align 4, !tbaa !19
+  %2808 = load i32, ptr %8, align 4, !tbaa !19
+  %2809 = shl i32 %2808, 13
+  %2810 = load i32, ptr %8, align 4, !tbaa !19
+  %2811 = and i32 %2810, -1
+  %2812 = lshr i32 %2811, 19
+  %2813 = or i32 %2809, %2812
+  %2814 = load i32, ptr %7, align 4, !tbaa !19
+  %2815 = add i32 %2813, %2814
+  store i32 %2815, ptr %8, align 4, !tbaa !19
+  %2816 = load i32, ptr %10, align 4, !tbaa !19
+  %2817 = shl i32 %2816, 10
+  %2818 = load i32, ptr %10, align 4, !tbaa !19
+  %2819 = and i32 %2818, -1
+  %2820 = lshr i32 %2819, 22
+  %2821 = or i32 %2817, %2820
+  store i32 %2821, ptr %10, align 4, !tbaa !19
+  %2822 = load i32, ptr %10, align 4, !tbaa !19
+  %2823 = xor i32 %2822, -1
+  %2824 = load i32, ptr %9, align 4, !tbaa !19
+  %2825 = or i32 %2823, %2824
+  %2826 = load i32, ptr %8, align 4, !tbaa !19
+  %2827 = xor i32 %2825, %2826
+  %2828 = load i32, ptr %20, align 4, !tbaa !19
+  %2829 = add i32 %2827, %2828
+  %2830 = zext i32 %2829 to i64
+  %2831 = add nsw i64 %2830, 1352829926
+  %2832 = load i32, ptr %7, align 4, !tbaa !19
+  %2833 = zext i32 %2832 to i64
+  %2834 = add nsw i64 %2833, %2831
+  %2835 = trunc i64 %2834 to i32
+  store i32 %2835, ptr %7, align 4, !tbaa !19
+  %2836 = load i32, ptr %7, align 4, !tbaa !19
+  %2837 = shl i32 %2836, 15
+  %2838 = load i32, ptr %7, align 4, !tbaa !19
+  %2839 = and i32 %2838, -1
+  %2840 = lshr i32 %2839, 17
+  %2841 = or i32 %2837, %2840
+  %2842 = load i32, ptr %11, align 4, !tbaa !19
+  %2843 = add i32 %2841, %2842
+  store i32 %2843, ptr %7, align 4, !tbaa !19
+  %2844 = load i32, ptr %9, align 4, !tbaa !19
+  %2845 = shl i32 %2844, 10
+  %2846 = load i32, ptr %9, align 4, !tbaa !19
+  %2847 = and i32 %2846, -1
+  %2848 = lshr i32 %2847, 22
+  %2849 = or i32 %2845, %2848
+  store i32 %2849, ptr %9, align 4, !tbaa !19
+  %2850 = load i32, ptr %9, align 4, !tbaa !19
+  %2851 = xor i32 %2850, -1
+  %2852 = load i32, ptr %8, align 4, !tbaa !19
+  %2853 = or i32 %2851, %2852
+  %2854 = load i32, ptr %7, align 4, !tbaa !19
+  %2855 = xor i32 %2853, %2854
+  %2856 = load i32, ptr %29, align 4, !tbaa !19
+  %2857 = add i32 %2855, %2856
+  %2858 = zext i32 %2857 to i64
+  %2859 = add nsw i64 %2858, 1352829926
+  %2860 = load i32, ptr %11, align 4, !tbaa !19
+  %2861 = zext i32 %2860 to i64
+  %2862 = add nsw i64 %2861, %2859
+  %2863 = trunc i64 %2862 to i32
+  store i32 %2863, ptr %11, align 4, !tbaa !19
+  %2864 = load i32, ptr %11, align 4, !tbaa !19
+  %2865 = shl i32 %2864, 15
+  %2866 = load i32, ptr %11, align 4, !tbaa !19
+  %2867 = and i32 %2866, -1
+  %2868 = lshr i32 %2867, 17
+  %2869 = or i32 %2865, %2868
+  %2870 = load i32, ptr %10, align 4, !tbaa !19
+  %2871 = add i32 %2869, %2870
+  store i32 %2871, ptr %11, align 4, !tbaa !19
+  %2872 = load i32, ptr %8, align 4, !tbaa !19
+  %2873 = shl i32 %2872, 10
+  %2874 = load i32, ptr %8, align 4, !tbaa !19
+  %2875 = and i32 %2874, -1
+  %2876 = lshr i32 %2875, 22
+  %2877 = or i32 %2873, %2876
+  store i32 %2877, ptr %8, align 4, !tbaa !19
+  %2878 = load i32, ptr %8, align 4, !tbaa !19
+  %2879 = xor i32 %2878, -1
+  %2880 = load i32, ptr %7, align 4, !tbaa !19
+  %2881 = or i32 %2879, %2880
+  %2882 = load i32, ptr %11, align 4, !tbaa !19
+  %2883 = xor i32 %2881, %2882
+  %2884 = load i32, ptr %22, align 4, !tbaa !19
+  %2885 = add i32 %2883, %2884
+  %2886 = zext i32 %2885 to i64
+  %2887 = add nsw i64 %2886, 1352829926
+  %2888 = load i32, ptr %10, align 4, !tbaa !19
+  %2889 = zext i32 %2888 to i64
+  %2890 = add nsw i64 %2889, %2887
+  %2891 = trunc i64 %2890 to i32
+  store i32 %2891, ptr %10, align 4, !tbaa !19
+  %2892 = load i32, ptr %10, align 4, !tbaa !19
+  %2893 = shl i32 %2892, 5
+  %2894 = load i32, ptr %10, align 4, !tbaa !19
+  %2895 = and i32 %2894, -1
+  %2896 = lshr i32 %2895, 27
+  %2897 = or i32 %2893, %2896
+  %2898 = load i32, ptr %9, align 4, !tbaa !19
+  %2899 = add i32 %2897, %2898
+  store i32 %2899, ptr %10, align 4, !tbaa !19
+  %2900 = load i32, ptr %7, align 4, !tbaa !19
+  %2901 = shl i32 %2900, 10
+  %2902 = load i32, ptr %7, align 4, !tbaa !19
+  %2903 = and i32 %2902, -1
+  %2904 = lshr i32 %2903, 22
+  %2905 = or i32 %2901, %2904
+  store i32 %2905, ptr %7, align 4, !tbaa !19
+  %2906 = load i32, ptr %7, align 4, !tbaa !19
+  %2907 = xor i32 %2906, -1
+  %2908 = load i32, ptr %11, align 4, !tbaa !19
+  %2909 = or i32 %2907, %2908
+  %2910 = load i32, ptr %10, align 4, !tbaa !19
+  %2911 = xor i32 %2909, %2910
+  %2912 = load i32, ptr %31, align 4, !tbaa !19
+  %2913 = add i32 %2911, %2912
+  %2914 = zext i32 %2913 to i64
+  %2915 = add nsw i64 %2914, 1352829926
+  %2916 = load i32, ptr %9, align 4, !tbaa !19
+  %2917 = zext i32 %2916 to i64
+  %2918 = add nsw i64 %2917, %2915
+  %2919 = trunc i64 %2918 to i32
+  store i32 %2919, ptr %9, align 4, !tbaa !19
+  %2920 = load i32, ptr %9, align 4, !tbaa !19
+  %2921 = shl i32 %2920, 7
+  %2922 = load i32, ptr %9, align 4, !tbaa !19
+  %2923 = and i32 %2922, -1
+  %2924 = lshr i32 %2923, 25
+  %2925 = or i32 %2921, %2924
+  %2926 = load i32, ptr %8, align 4, !tbaa !19
+  %2927 = add i32 %2925, %2926
+  store i32 %2927, ptr %9, align 4, !tbaa !19
+  %2928 = load i32, ptr %11, align 4, !tbaa !19
+  %2929 = shl i32 %2928, 10
+  %2930 = load i32, ptr %11, align 4, !tbaa !19
+  %2931 = and i32 %2930, -1
+  %2932 = lshr i32 %2931, 22
+  %2933 = or i32 %2929, %2932
+  store i32 %2933, ptr %11, align 4, !tbaa !19
+  %2934 = load i32, ptr %11, align 4, !tbaa !19
+  %2935 = xor i32 %2934, -1
+  %2936 = load i32, ptr %10, align 4, !tbaa !19
+  %2937 = or i32 %2935, %2936
+  %2938 = load i32, ptr %9, align 4, !tbaa !19
+  %2939 = xor i32 %2937, %2938
+  %2940 = load i32, ptr %24, align 4, !tbaa !19
+  %2941 = add i32 %2939, %2940
+  %2942 = zext i32 %2941 to i64
+  %2943 = add nsw i64 %2942, 1352829926
+  %2944 = load i32, ptr %8, align 4, !tbaa !19
+  %2945 = zext i32 %2944 to i64
+  %2946 = add nsw i64 %2945, %2943
+  %2947 = trunc i64 %2946 to i32
+  store i32 %2947, ptr %8, align 4, !tbaa !19
+  %2948 = load i32, ptr %8, align 4, !tbaa !19
+  %2949 = shl i32 %2948, 7
+  %2950 = load i32, ptr %8, align 4, !tbaa !19
+  %2951 = and i32 %2950, -1
+  %2952 = lshr i32 %2951, 25
+  %2953 = or i32 %2949, %2952
+  %2954 = load i32, ptr %7, align 4, !tbaa !19
+  %2955 = add i32 %2953, %2954
+  store i32 %2955, ptr %8, align 4, !tbaa !19
+  %2956 = load i32, ptr %10, align 4, !tbaa !19
+  %2957 = shl i32 %2956, 10
+  %2958 = load i32, ptr %10, align 4, !tbaa !19
+  %2959 = and i32 %2958, -1
+  %2960 = lshr i32 %2959, 22
+  %2961 = or i32 %2957, %2960
+  store i32 %2961, ptr %10, align 4, !tbaa !19
+  %2962 = load i32, ptr %10, align 4, !tbaa !19
+  %2963 = xor i32 %2962, -1
+  %2964 = load i32, ptr %9, align 4, !tbaa !19
+  %2965 = or i32 %2963, %2964
+  %2966 = load i32, ptr %8, align 4, !tbaa !19
+  %2967 = xor i32 %2965, %2966
+  %2968 = load i32, ptr %33, align 4, !tbaa !19
+  %2969 = add i32 %2967, %2968
+  %2970 = zext i32 %2969 to i64
+  %2971 = add nsw i64 %2970, 1352829926
+  %2972 = load i32, ptr %7, align 4, !tbaa !19
+  %2973 = zext i32 %2972 to i64
+  %2974 = add nsw i64 %2973, %2971
+  %2975 = trunc i64 %2974 to i32
+  store i32 %2975, ptr %7, align 4, !tbaa !19
+  %2976 = load i32, ptr %7, align 4, !tbaa !19
+  %2977 = shl i32 %2976, 8
+  %2978 = load i32, ptr %7, align 4, !tbaa !19
+  %2979 = and i32 %2978, -1
+  %2980 = lshr i32 %2979, 24
+  %2981 = or i32 %2977, %2980
+  %2982 = load i32, ptr %11, align 4, !tbaa !19
+  %2983 = add i32 %2981, %2982
+  store i32 %2983, ptr %7, align 4, !tbaa !19
+  %2984 = load i32, ptr %9, align 4, !tbaa !19
+  %2985 = shl i32 %2984, 10
+  %2986 = load i32, ptr %9, align 4, !tbaa !19
+  %2987 = and i32 %2986, -1
+  %2988 = lshr i32 %2987, 22
+  %2989 = or i32 %2985, %2988
+  store i32 %2989, ptr %9, align 4, !tbaa !19
+  %2990 = load i32, ptr %9, align 4, !tbaa !19
+  %2991 = xor i32 %2990, -1
+  %2992 = load i32, ptr %8, align 4, !tbaa !19
+  %2993 = or i32 %2991, %2992
+  %2994 = load i32, ptr %7, align 4, !tbaa !19
+  %2995 = xor i32 %2993, %2994
+  %2996 = load i32, ptr %26, align 4, !tbaa !19
+  %2997 = add i32 %2995, %2996
+  %2998 = zext i32 %2997 to i64
+  %2999 = add nsw i64 %2998, 1352829926
+  %3000 = load i32, ptr %11, align 4, !tbaa !19
+  %3001 = zext i32 %3000 to i64
+  %3002 = add nsw i64 %3001, %2999
+  %3003 = trunc i64 %3002 to i32
+  store i32 %3003, ptr %11, align 4, !tbaa !19
+  %3004 = load i32, ptr %11, align 4, !tbaa !19
+  %3005 = shl i32 %3004, 11
+  %3006 = load i32, ptr %11, align 4, !tbaa !19
+  %3007 = and i32 %3006, -1
+  %3008 = lshr i32 %3007, 21
+  %3009 = or i32 %3005, %3008
+  %3010 = load i32, ptr %10, align 4, !tbaa !19
+  %3011 = add i32 %3009, %3010
+  store i32 %3011, ptr %11, align 4, !tbaa !19
+  %3012 = load i32, ptr %8, align 4, !tbaa !19
+  %3013 = shl i32 %3012, 10
+  %3014 = load i32, ptr %8, align 4, !tbaa !19
+  %3015 = and i32 %3014, -1
+  %3016 = lshr i32 %3015, 22
+  %3017 = or i32 %3013, %3016
+  store i32 %3017, ptr %8, align 4, !tbaa !19
+  %3018 = load i32, ptr %8, align 4, !tbaa !19
+  %3019 = xor i32 %3018, -1
+  %3020 = load i32, ptr %7, align 4, !tbaa !19
+  %3021 = or i32 %3019, %3020
+  %3022 = load i32, ptr %11, align 4, !tbaa !19
+  %3023 = xor i32 %3021, %3022
+  %3024 = load i32, ptr %19, align 4, !tbaa !19
+  %3025 = add i32 %3023, %3024
+  %3026 = zext i32 %3025 to i64
+  %3027 = add nsw i64 %3026, 1352829926
+  %3028 = load i32, ptr %10, align 4, !tbaa !19
+  %3029 = zext i32 %3028 to i64
+  %3030 = add nsw i64 %3029, %3027
+  %3031 = trunc i64 %3030 to i32
+  store i32 %3031, ptr %10, align 4, !tbaa !19
+  %3032 = load i32, ptr %10, align 4, !tbaa !19
+  %3033 = shl i32 %3032, 14
+  %3034 = load i32, ptr %10, align 4, !tbaa !19
+  %3035 = and i32 %3034, -1
+  %3036 = lshr i32 %3035, 18
+  %3037 = or i32 %3033, %3036
+  %3038 = load i32, ptr %9, align 4, !tbaa !19
+  %3039 = add i32 %3037, %3038
+  store i32 %3039, ptr %10, align 4, !tbaa !19
+  %3040 = load i32, ptr %7, align 4, !tbaa !19
+  %3041 = shl i32 %3040, 10
+  %3042 = load i32, ptr %7, align 4, !tbaa !19
+  %3043 = and i32 %3042, -1
+  %3044 = lshr i32 %3043, 22
+  %3045 = or i32 %3041, %3044
+  store i32 %3045, ptr %7, align 4, !tbaa !19
+  %3046 = load i32, ptr %7, align 4, !tbaa !19
+  %3047 = xor i32 %3046, -1
+  %3048 = load i32, ptr %11, align 4, !tbaa !19
+  %3049 = or i32 %3047, %3048
+  %3050 = load i32, ptr %10, align 4, !tbaa !19
+  %3051 = xor i32 %3049, %3050
+  %3052 = load i32, ptr %28, align 4, !tbaa !19
+  %3053 = add i32 %3051, %3052
+  %3054 = zext i32 %3053 to i64
+  %3055 = add nsw i64 %3054, 1352829926
+  %3056 = load i32, ptr %9, align 4, !tbaa !19
+  %3057 = zext i32 %3056 to i64
+  %3058 = add nsw i64 %3057, %3055
+  %3059 = trunc i64 %3058 to i32
+  store i32 %3059, ptr %9, align 4, !tbaa !19
+  %3060 = load i32, ptr %9, align 4, !tbaa !19
+  %3061 = shl i32 %3060, 14
+  %3062 = load i32, ptr %9, align 4, !tbaa !19
+  %3063 = and i32 %3062, -1
+  %3064 = lshr i32 %3063, 18
+  %3065 = or i32 %3061, %3064
+  %3066 = load i32, ptr %8, align 4, !tbaa !19
+  %3067 = add i32 %3065, %3066
+  store i32 %3067, ptr %9, align 4, !tbaa !19
+  %3068 = load i32, ptr %11, align 4, !tbaa !19
+  %3069 = shl i32 %3068, 10
+  %3070 = load i32, ptr %11, align 4, !tbaa !19
+  %3071 = and i32 %3070, -1
+  %3072 = lshr i32 %3071, 22
+  %3073 = or i32 %3069, %3072
+  store i32 %3073, ptr %11, align 4, !tbaa !19
+  %3074 = load i32, ptr %11, align 4, !tbaa !19
+  %3075 = xor i32 %3074, -1
+  %3076 = load i32, ptr %10, align 4, !tbaa !19
+  %3077 = or i32 %3075, %3076
+  %3078 = load i32, ptr %9, align 4, !tbaa !19
+  %3079 = xor i32 %3077, %3078
+  %3080 = load i32, ptr %21, align 4, !tbaa !19
+  %3081 = add i32 %3079, %3080
+  %3082 = zext i32 %3081 to i64
+  %3083 = add nsw i64 %3082, 1352829926
+  %3084 = load i32, ptr %8, align 4, !tbaa !19
+  %3085 = zext i32 %3084 to i64
+  %3086 = add nsw i64 %3085, %3083
+  %3087 = trunc i64 %3086 to i32
+  store i32 %3087, ptr %8, align 4, !tbaa !19
+  %3088 = load i32, ptr %8, align 4, !tbaa !19
+  %3089 = shl i32 %3088, 12
+  %3090 = load i32, ptr %8, align 4, !tbaa !19
+  %3091 = and i32 %3090, -1
+  %3092 = lshr i32 %3091, 20
+  %3093 = or i32 %3089, %3092
+  %3094 = load i32, ptr %7, align 4, !tbaa !19
+  %3095 = add i32 %3093, %3094
+  store i32 %3095, ptr %8, align 4, !tbaa !19
+  %3096 = load i32, ptr %10, align 4, !tbaa !19
+  %3097 = shl i32 %3096, 10
+  %3098 = load i32, ptr %10, align 4, !tbaa !19
+  %3099 = and i32 %3098, -1
+  %3100 = lshr i32 %3099, 22
+  %3101 = or i32 %3097, %3100
+  store i32 %3101, ptr %10, align 4, !tbaa !19
+  %3102 = load i32, ptr %10, align 4, !tbaa !19
+  %3103 = xor i32 %3102, -1
+  %3104 = load i32, ptr %9, align 4, !tbaa !19
+  %3105 = or i32 %3103, %3104
+  %3106 = load i32, ptr %8, align 4, !tbaa !19
+  %3107 = xor i32 %3105, %3106
+  %3108 = load i32, ptr %30, align 4, !tbaa !19
+  %3109 = add i32 %3107, %3108
+  %3110 = zext i32 %3109 to i64
+  %3111 = add nsw i64 %3110, 1352829926
+  %3112 = load i32, ptr %7, align 4, !tbaa !19
+  %3113 = zext i32 %3112 to i64
+  %3114 = add nsw i64 %3113, %3111
+  %3115 = trunc i64 %3114 to i32
+  store i32 %3115, ptr %7, align 4, !tbaa !19
+  %3116 = load i32, ptr %7, align 4, !tbaa !19
+  %3117 = shl i32 %3116, 6
+  %3118 = load i32, ptr %7, align 4, !tbaa !19
+  %3119 = and i32 %3118, -1
+  %3120 = lshr i32 %3119, 26
+  %3121 = or i32 %3117, %3120
+  %3122 = load i32, ptr %11, align 4, !tbaa !19
+  %3123 = add i32 %3121, %3122
+  store i32 %3123, ptr %7, align 4, !tbaa !19
+  %3124 = load i32, ptr %9, align 4, !tbaa !19
+  %3125 = shl i32 %3124, 10
+  %3126 = load i32, ptr %9, align 4, !tbaa !19
+  %3127 = and i32 %3126, -1
+  %3128 = lshr i32 %3127, 22
+  %3129 = or i32 %3125, %3128
+  store i32 %3129, ptr %9, align 4, !tbaa !19
+  %3130 = load i32, ptr %7, align 4, !tbaa !19
+  %3131 = load i32, ptr %8, align 4, !tbaa !19
+  %3132 = xor i32 %3130, %3131
+  %3133 = load i32, ptr %9, align 4, !tbaa !19
+  %3134 = and i32 %3132, %3133
+  %3135 = load i32, ptr %8, align 4, !tbaa !19
+  %3136 = xor i32 %3134, %3135
+  %3137 = load i32, ptr %24, align 4, !tbaa !19
+  %3138 = add i32 %3136, %3137
+  %3139 = zext i32 %3138 to i64
+  %3140 = add nsw i64 %3139, 1548603684
+  %3141 = load i32, ptr %11, align 4, !tbaa !19
+  %3142 = zext i32 %3141 to i64
+  %3143 = add nsw i64 %3142, %3140
+  %3144 = trunc i64 %3143 to i32
+  store i32 %3144, ptr %11, align 4, !tbaa !19
+  %3145 = load i32, ptr %11, align 4, !tbaa !19
+  %3146 = shl i32 %3145, 9
+  %3147 = load i32, ptr %11, align 4, !tbaa !19
+  %3148 = and i32 %3147, -1
+  %3149 = lshr i32 %3148, 23
+  %3150 = or i32 %3146, %3149
+  %3151 = load i32, ptr %10, align 4, !tbaa !19
+  %3152 = add i32 %3150, %3151
+  store i32 %3152, ptr %11, align 4, !tbaa !19
+  %3153 = load i32, ptr %8, align 4, !tbaa !19
+  %3154 = shl i32 %3153, 10
+  %3155 = load i32, ptr %8, align 4, !tbaa !19
+  %3156 = and i32 %3155, -1
+  %3157 = lshr i32 %3156, 22
+  %3158 = or i32 %3154, %3157
+  store i32 %3158, ptr %8, align 4, !tbaa !19
+  %3159 = load i32, ptr %11, align 4, !tbaa !19
+  %3160 = load i32, ptr %7, align 4, !tbaa !19
+  %3161 = xor i32 %3159, %3160
+  %3162 = load i32, ptr %8, align 4, !tbaa !19
+  %3163 = and i32 %3161, %3162
+  %3164 = load i32, ptr %7, align 4, !tbaa !19
+  %3165 = xor i32 %3163, %3164
+  %3166 = load i32, ptr %29, align 4, !tbaa !19
+  %3167 = add i32 %3165, %3166
+  %3168 = zext i32 %3167 to i64
+  %3169 = add nsw i64 %3168, 1548603684
+  %3170 = load i32, ptr %10, align 4, !tbaa !19
+  %3171 = zext i32 %3170 to i64
+  %3172 = add nsw i64 %3171, %3169
+  %3173 = trunc i64 %3172 to i32
+  store i32 %3173, ptr %10, align 4, !tbaa !19
+  %3174 = load i32, ptr %10, align 4, !tbaa !19
+  %3175 = shl i32 %3174, 13
+  %3176 = load i32, ptr %10, align 4, !tbaa !19
+  %3177 = and i32 %3176, -1
+  %3178 = lshr i32 %3177, 19
+  %3179 = or i32 %3175, %3178
+  %3180 = load i32, ptr %9, align 4, !tbaa !19
+  %3181 = add i32 %3179, %3180
+  store i32 %3181, ptr %10, align 4, !tbaa !19
+  %3182 = load i32, ptr %7, align 4, !tbaa !19
+  %3183 = shl i32 %3182, 10
+  %3184 = load i32, ptr %7, align 4, !tbaa !19
+  %3185 = and i32 %3184, -1
+  %3186 = lshr i32 %3185, 22
+  %3187 = or i32 %3183, %3186
+  store i32 %3187, ptr %7, align 4, !tbaa !19
+  %3188 = load i32, ptr %10, align 4, !tbaa !19
+  %3189 = load i32, ptr %11, align 4, !tbaa !19
+  %3190 = xor i32 %3188, %3189
+  %3191 = load i32, ptr %7, align 4, !tbaa !19
+  %3192 = and i32 %3190, %3191
+  %3193 = load i32, ptr %11, align 4, !tbaa !19
+  %3194 = xor i32 %3192, %3193
+  %3195 = load i32, ptr %21, align 4, !tbaa !19
+  %3196 = add i32 %3194, %3195
+  %3197 = zext i32 %3196 to i64
+  %3198 = add nsw i64 %3197, 1548603684
+  %3199 = load i32, ptr %9, align 4, !tbaa !19
+  %3200 = zext i32 %3199 to i64
+  %3201 = add nsw i64 %3200, %3198
+  %3202 = trunc i64 %3201 to i32
+  store i32 %3202, ptr %9, align 4, !tbaa !19
+  %3203 = load i32, ptr %9, align 4, !tbaa !19
+  %3204 = shl i32 %3203, 15
+  %3205 = load i32, ptr %9, align 4, !tbaa !19
+  %3206 = and i32 %3205, -1
+  %3207 = lshr i32 %3206, 17
+  %3208 = or i32 %3204, %3207
+  %3209 = load i32, ptr %8, align 4, !tbaa !19
+  %3210 = add i32 %3208, %3209
+  store i32 %3210, ptr %9, align 4, !tbaa !19
+  %3211 = load i32, ptr %11, align 4, !tbaa !19
+  %3212 = shl i32 %3211, 10
+  %3213 = load i32, ptr %11, align 4, !tbaa !19
+  %3214 = and i32 %3213, -1
+  %3215 = lshr i32 %3214, 22
+  %3216 = or i32 %3212, %3215
+  store i32 %3216, ptr %11, align 4, !tbaa !19
+  %3217 = load i32, ptr %9, align 4, !tbaa !19
+  %3218 = load i32, ptr %10, align 4, !tbaa !19
+  %3219 = xor i32 %3217, %3218
+  %3220 = load i32, ptr %11, align 4, !tbaa !19
+  %3221 = and i32 %3219, %3220
+  %3222 = load i32, ptr %10, align 4, !tbaa !19
+  %3223 = xor i32 %3221, %3222
+  %3224 = load i32, ptr %25, align 4, !tbaa !19
+  %3225 = add i32 %3223, %3224
+  %3226 = zext i32 %3225 to i64
+  %3227 = add nsw i64 %3226, 1548603684
+  %3228 = load i32, ptr %8, align 4, !tbaa !19
+  %3229 = zext i32 %3228 to i64
+  %3230 = add nsw i64 %3229, %3227
+  %3231 = trunc i64 %3230 to i32
+  store i32 %3231, ptr %8, align 4, !tbaa !19
+  %3232 = load i32, ptr %8, align 4, !tbaa !19
+  %3233 = shl i32 %3232, 7
+  %3234 = load i32, ptr %8, align 4, !tbaa !19
+  %3235 = and i32 %3234, -1
+  %3236 = lshr i32 %3235, 25
+  %3237 = or i32 %3233, %3236
+  %3238 = load i32, ptr %7, align 4, !tbaa !19
+  %3239 = add i32 %3237, %3238
+  store i32 %3239, ptr %8, align 4, !tbaa !19
+  %3240 = load i32, ptr %10, align 4, !tbaa !19
+  %3241 = shl i32 %3240, 10
+  %3242 = load i32, ptr %10, align 4, !tbaa !19
+  %3243 = and i32 %3242, -1
+  %3244 = lshr i32 %3243, 22
+  %3245 = or i32 %3241, %3244
+  store i32 %3245, ptr %10, align 4, !tbaa !19
+  %3246 = load i32, ptr %8, align 4, !tbaa !19
+  %3247 = load i32, ptr %9, align 4, !tbaa !19
+  %3248 = xor i32 %3246, %3247
+  %3249 = load i32, ptr %10, align 4, !tbaa !19
+  %3250 = and i32 %3248, %3249
+  %3251 = load i32, ptr %9, align 4, !tbaa !19
+  %3252 = xor i32 %3250, %3251
+  %3253 = load i32, ptr %18, align 4, !tbaa !19
+  %3254 = add i32 %3252, %3253
+  %3255 = zext i32 %3254 to i64
+  %3256 = add nsw i64 %3255, 1548603684
+  %3257 = load i32, ptr %7, align 4, !tbaa !19
+  %3258 = zext i32 %3257 to i64
+  %3259 = add nsw i64 %3258, %3256
+  %3260 = trunc i64 %3259 to i32
+  store i32 %3260, ptr %7, align 4, !tbaa !19
+  %3261 = load i32, ptr %7, align 4, !tbaa !19
+  %3262 = shl i32 %3261, 12
+  %3263 = load i32, ptr %7, align 4, !tbaa !19
+  %3264 = and i32 %3263, -1
+  %3265 = lshr i32 %3264, 20
+  %3266 = or i32 %3262, %3265
+  %3267 = load i32, ptr %11, align 4, !tbaa !19
+  %3268 = add i32 %3266, %3267
+  store i32 %3268, ptr %7, align 4, !tbaa !19
+  %3269 = load i32, ptr %9, align 4, !tbaa !19
+  %3270 = shl i32 %3269, 10
+  %3271 = load i32, ptr %9, align 4, !tbaa !19
+  %3272 = and i32 %3271, -1
+  %3273 = lshr i32 %3272, 22
+  %3274 = or i32 %3270, %3273
+  store i32 %3274, ptr %9, align 4, !tbaa !19
+  %3275 = load i32, ptr %7, align 4, !tbaa !19
+  %3276 = load i32, ptr %8, align 4, !tbaa !19
+  %3277 = xor i32 %3275, %3276
+  %3278 = load i32, ptr %9, align 4, !tbaa !19
+  %3279 = and i32 %3277, %3278
+  %3280 = load i32, ptr %8, align 4, !tbaa !19
+  %3281 = xor i32 %3279, %3280
+  %3282 = load i32, ptr %31, align 4, !tbaa !19
+  %3283 = add i32 %3281, %3282
+  %3284 = zext i32 %3283 to i64
+  %3285 = add nsw i64 %3284, 1548603684
+  %3286 = load i32, ptr %11, align 4, !tbaa !19
+  %3287 = zext i32 %3286 to i64
+  %3288 = add nsw i64 %3287, %3285
+  %3289 = trunc i64 %3288 to i32
+  store i32 %3289, ptr %11, align 4, !tbaa !19
+  %3290 = load i32, ptr %11, align 4, !tbaa !19
+  %3291 = shl i32 %3290, 8
+  %3292 = load i32, ptr %11, align 4, !tbaa !19
+  %3293 = and i32 %3292, -1
+  %3294 = lshr i32 %3293, 24
+  %3295 = or i32 %3291, %3294
+  %3296 = load i32, ptr %10, align 4, !tbaa !19
+  %3297 = add i32 %3295, %3296
+  store i32 %3297, ptr %11, align 4, !tbaa !19
+  %3298 = load i32, ptr %8, align 4, !tbaa !19
+  %3299 = shl i32 %3298, 10
+  %3300 = load i32, ptr %8, align 4, !tbaa !19
+  %3301 = and i32 %3300, -1
+  %3302 = lshr i32 %3301, 22
+  %3303 = or i32 %3299, %3302
+  store i32 %3303, ptr %8, align 4, !tbaa !19
+  %3304 = load i32, ptr %11, align 4, !tbaa !19
+  %3305 = load i32, ptr %7, align 4, !tbaa !19
+  %3306 = xor i32 %3304, %3305
+  %3307 = load i32, ptr %8, align 4, !tbaa !19
+  %3308 = and i32 %3306, %3307
+  %3309 = load i32, ptr %7, align 4, !tbaa !19
+  %3310 = xor i32 %3308, %3309
+  %3311 = load i32, ptr %23, align 4, !tbaa !19
+  %3312 = add i32 %3310, %3311
+  %3313 = zext i32 %3312 to i64
+  %3314 = add nsw i64 %3313, 1548603684
+  %3315 = load i32, ptr %10, align 4, !tbaa !19
+  %3316 = zext i32 %3315 to i64
+  %3317 = add nsw i64 %3316, %3314
+  %3318 = trunc i64 %3317 to i32
+  store i32 %3318, ptr %10, align 4, !tbaa !19
+  %3319 = load i32, ptr %10, align 4, !tbaa !19
+  %3320 = shl i32 %3319, 9
+  %3321 = load i32, ptr %10, align 4, !tbaa !19
+  %3322 = and i32 %3321, -1
+  %3323 = lshr i32 %3322, 23
+  %3324 = or i32 %3320, %3323
+  %3325 = load i32, ptr %9, align 4, !tbaa !19
+  %3326 = add i32 %3324, %3325
+  store i32 %3326, ptr %10, align 4, !tbaa !19
+  %3327 = load i32, ptr %7, align 4, !tbaa !19
+  %3328 = shl i32 %3327, 10
+  %3329 = load i32, ptr %7, align 4, !tbaa !19
+  %3330 = and i32 %3329, -1
+  %3331 = lshr i32 %3330, 22
+  %3332 = or i32 %3328, %3331
+  store i32 %3332, ptr %7, align 4, !tbaa !19
+  %3333 = load i32, ptr %10, align 4, !tbaa !19
+  %3334 = load i32, ptr %11, align 4, !tbaa !19
+  %3335 = xor i32 %3333, %3334
+  %3336 = load i32, ptr %7, align 4, !tbaa !19
+  %3337 = and i32 %3335, %3336
+  %3338 = load i32, ptr %11, align 4, !tbaa !19
+  %3339 = xor i32 %3337, %3338
+  %3340 = load i32, ptr %28, align 4, !tbaa !19
+  %3341 = add i32 %3339, %3340
+  %3342 = zext i32 %3341 to i64
+  %3343 = add nsw i64 %3342, 1548603684
+  %3344 = load i32, ptr %9, align 4, !tbaa !19
+  %3345 = zext i32 %3344 to i64
+  %3346 = add nsw i64 %3345, %3343
+  %3347 = trunc i64 %3346 to i32
+  store i32 %3347, ptr %9, align 4, !tbaa !19
+  %3348 = load i32, ptr %9, align 4, !tbaa !19
+  %3349 = shl i32 %3348, 11
+  %3350 = load i32, ptr %9, align 4, !tbaa !19
+  %3351 = and i32 %3350, -1
+  %3352 = lshr i32 %3351, 21
+  %3353 = or i32 %3349, %3352
+  %3354 = load i32, ptr %8, align 4, !tbaa !19
+  %3355 = add i32 %3353, %3354
+  store i32 %3355, ptr %9, align 4, !tbaa !19
+  %3356 = load i32, ptr %11, align 4, !tbaa !19
+  %3357 = shl i32 %3356, 10
+  %3358 = load i32, ptr %11, align 4, !tbaa !19
+  %3359 = and i32 %3358, -1
+  %3360 = lshr i32 %3359, 22
+  %3361 = or i32 %3357, %3360
+  store i32 %3361, ptr %11, align 4, !tbaa !19
+  %3362 = load i32, ptr %9, align 4, !tbaa !19
+  %3363 = load i32, ptr %10, align 4, !tbaa !19
+  %3364 = xor i32 %3362, %3363
+  %3365 = load i32, ptr %11, align 4, !tbaa !19
+  %3366 = and i32 %3364, %3365
+  %3367 = load i32, ptr %10, align 4, !tbaa !19
+  %3368 = xor i32 %3366, %3367
+  %3369 = load i32, ptr %32, align 4, !tbaa !19
+  %3370 = add i32 %3368, %3369
+  %3371 = zext i32 %3370 to i64
+  %3372 = add nsw i64 %3371, 1548603684
+  %3373 = load i32, ptr %8, align 4, !tbaa !19
+  %3374 = zext i32 %3373 to i64
+  %3375 = add nsw i64 %3374, %3372
+  %3376 = trunc i64 %3375 to i32
+  store i32 %3376, ptr %8, align 4, !tbaa !19
+  %3377 = load i32, ptr %8, align 4, !tbaa !19
+  %3378 = shl i32 %3377, 7
+  %3379 = load i32, ptr %8, align 4, !tbaa !19
+  %3380 = and i32 %3379, -1
+  %3381 = lshr i32 %3380, 25
+  %3382 = or i32 %3378, %3381
+  %3383 = load i32, ptr %7, align 4, !tbaa !19
+  %3384 = add i32 %3382, %3383
+  store i32 %3384, ptr %8, align 4, !tbaa !19
+  %3385 = load i32, ptr %10, align 4, !tbaa !19
+  %3386 = shl i32 %3385, 10
+  %3387 = load i32, ptr %10, align 4, !tbaa !19
+  %3388 = and i32 %3387, -1
+  %3389 = lshr i32 %3388, 22
+  %3390 = or i32 %3386, %3389
+  store i32 %3390, ptr %10, align 4, !tbaa !19
+  %3391 = load i32, ptr %8, align 4, !tbaa !19
+  %3392 = load i32, ptr %9, align 4, !tbaa !19
+  %3393 = xor i32 %3391, %3392
+  %3394 = load i32, ptr %10, align 4, !tbaa !19
+  %3395 = and i32 %3393, %3394
+  %3396 = load i32, ptr %9, align 4, !tbaa !19
+  %3397 = xor i32 %3395, %3396
+  %3398 = load i32, ptr %33, align 4, !tbaa !19
+  %3399 = add i32 %3397, %3398
+  %3400 = zext i32 %3399 to i64
+  %3401 = add nsw i64 %3400, 1548603684
+  %3402 = load i32, ptr %7, align 4, !tbaa !19
+  %3403 = zext i32 %3402 to i64
+  %3404 = add nsw i64 %3403, %3401
+  %3405 = trunc i64 %3404 to i32
+  store i32 %3405, ptr %7, align 4, !tbaa !19
+  %3406 = load i32, ptr %7, align 4, !tbaa !19
+  %3407 = shl i32 %3406, 7
+  %3408 = load i32, ptr %7, align 4, !tbaa !19
+  %3409 = and i32 %3408, -1
+  %3410 = lshr i32 %3409, 25
+  %3411 = or i32 %3407, %3410
+  %3412 = load i32, ptr %11, align 4, !tbaa !19
+  %3413 = add i32 %3411, %3412
+  store i32 %3413, ptr %7, align 4, !tbaa !19
+  %3414 = load i32, ptr %9, align 4, !tbaa !19
+  %3415 = shl i32 %3414, 10
+  %3416 = load i32, ptr %9, align 4, !tbaa !19
+  %3417 = and i32 %3416, -1
+  %3418 = lshr i32 %3417, 22
+  %3419 = or i32 %3415, %3418
+  store i32 %3419, ptr %9, align 4, !tbaa !19
+  %3420 = load i32, ptr %7, align 4, !tbaa !19
+  %3421 = load i32, ptr %8, align 4, !tbaa !19
+  %3422 = xor i32 %3420, %3421
+  %3423 = load i32, ptr %9, align 4, !tbaa !19
+  %3424 = and i32 %3422, %3423
+  %3425 = load i32, ptr %8, align 4, !tbaa !19
+  %3426 = xor i32 %3424, %3425
+  %3427 = load i32, ptr %26, align 4, !tbaa !19
+  %3428 = add i32 %3426, %3427
+  %3429 = zext i32 %3428 to i64
+  %3430 = add nsw i64 %3429, 1548603684
+  %3431 = load i32, ptr %11, align 4, !tbaa !19
+  %3432 = zext i32 %3431 to i64
+  %3433 = add nsw i64 %3432, %3430
+  %3434 = trunc i64 %3433 to i32
+  store i32 %3434, ptr %11, align 4, !tbaa !19
+  %3435 = load i32, ptr %11, align 4, !tbaa !19
+  %3436 = shl i32 %3435, 12
+  %3437 = load i32, ptr %11, align 4, !tbaa !19
+  %3438 = and i32 %3437, -1
+  %3439 = lshr i32 %3438, 20
+  %3440 = or i32 %3436, %3439
+  %3441 = load i32, ptr %10, align 4, !tbaa !19
+  %3442 = add i32 %3440, %3441
+  store i32 %3442, ptr %11, align 4, !tbaa !19
+  %3443 = load i32, ptr %8, align 4, !tbaa !19
+  %3444 = shl i32 %3443, 10
+  %3445 = load i32, ptr %8, align 4, !tbaa !19
+  %3446 = and i32 %3445, -1
+  %3447 = lshr i32 %3446, 22
+  %3448 = or i32 %3444, %3447
+  store i32 %3448, ptr %8, align 4, !tbaa !19
+  %3449 = load i32, ptr %11, align 4, !tbaa !19
+  %3450 = load i32, ptr %7, align 4, !tbaa !19
+  %3451 = xor i32 %3449, %3450
+  %3452 = load i32, ptr %8, align 4, !tbaa !19
+  %3453 = and i32 %3451, %3452
+  %3454 = load i32, ptr %7, align 4, !tbaa !19
+  %3455 = xor i32 %3453, %3454
+  %3456 = load i32, ptr %30, align 4, !tbaa !19
+  %3457 = add i32 %3455, %3456
+  %3458 = zext i32 %3457 to i64
+  %3459 = add nsw i64 %3458, 1548603684
+  %3460 = load i32, ptr %10, align 4, !tbaa !19
+  %3461 = zext i32 %3460 to i64
+  %3462 = add nsw i64 %3461, %3459
+  %3463 = trunc i64 %3462 to i32
+  store i32 %3463, ptr %10, align 4, !tbaa !19
+  %3464 = load i32, ptr %10, align 4, !tbaa !19
+  %3465 = shl i32 %3464, 7
+  %3466 = load i32, ptr %10, align 4, !tbaa !19
+  %3467 = and i32 %3466, -1
+  %3468 = lshr i32 %3467, 25
+  %3469 = or i32 %3465, %3468
+  %3470 = load i32, ptr %9, align 4, !tbaa !19
+  %3471 = add i32 %3469, %3470
+  store i32 %3471, ptr %10, align 4, !tbaa !19
+  %3472 = load i32, ptr %7, align 4, !tbaa !19
+  %3473 = shl i32 %3472, 10
+  %3474 = load i32, ptr %7, align 4, !tbaa !19
+  %3475 = and i32 %3474, -1
+  %3476 = lshr i32 %3475, 22
+  %3477 = or i32 %3473, %3476
+  store i32 %3477, ptr %7, align 4, !tbaa !19
+  %3478 = load i32, ptr %10, align 4, !tbaa !19
+  %3479 = load i32, ptr %11, align 4, !tbaa !19
+  %3480 = xor i32 %3478, %3479
+  %3481 = load i32, ptr %7, align 4, !tbaa !19
+  %3482 = and i32 %3480, %3481
+  %3483 = load i32, ptr %11, align 4, !tbaa !19
+  %3484 = xor i32 %3482, %3483
+  %3485 = load i32, ptr %22, align 4, !tbaa !19
+  %3486 = add i32 %3484, %3485
+  %3487 = zext i32 %3486 to i64
+  %3488 = add nsw i64 %3487, 1548603684
+  %3489 = load i32, ptr %9, align 4, !tbaa !19
+  %3490 = zext i32 %3489 to i64
+  %3491 = add nsw i64 %3490, %3488
+  %3492 = trunc i64 %3491 to i32
+  store i32 %3492, ptr %9, align 4, !tbaa !19
+  %3493 = load i32, ptr %9, align 4, !tbaa !19
+  %3494 = shl i32 %3493, 6
+  %3495 = load i32, ptr %9, align 4, !tbaa !19
+  %3496 = and i32 %3495, -1
+  %3497 = lshr i32 %3496, 26
+  %3498 = or i32 %3494, %3497
+  %3499 = load i32, ptr %8, align 4, !tbaa !19
+  %3500 = add i32 %3498, %3499
+  store i32 %3500, ptr %9, align 4, !tbaa !19
+  %3501 = load i32, ptr %11, align 4, !tbaa !19
+  %3502 = shl i32 %3501, 10
+  %3503 = load i32, ptr %11, align 4, !tbaa !19
+  %3504 = and i32 %3503, -1
+  %3505 = lshr i32 %3504, 22
+  %3506 = or i32 %3502, %3505
+  store i32 %3506, ptr %11, align 4, !tbaa !19
+  %3507 = load i32, ptr %9, align 4, !tbaa !19
+  %3508 = load i32, ptr %10, align 4, !tbaa !19
+  %3509 = xor i32 %3507, %3508
+  %3510 = load i32, ptr %11, align 4, !tbaa !19
+  %3511 = and i32 %3509, %3510
+  %3512 = load i32, ptr %10, align 4, !tbaa !19
+  %3513 = xor i32 %3511, %3512
+  %3514 = load i32, ptr %27, align 4, !tbaa !19
+  %3515 = add i32 %3513, %3514
+  %3516 = zext i32 %3515 to i64
+  %3517 = add nsw i64 %3516, 1548603684
+  %3518 = load i32, ptr %8, align 4, !tbaa !19
+  %3519 = zext i32 %3518 to i64
+  %3520 = add nsw i64 %3519, %3517
+  %3521 = trunc i64 %3520 to i32
+  store i32 %3521, ptr %8, align 4, !tbaa !19
+  %3522 = load i32, ptr %8, align 4, !tbaa !19
+  %3523 = shl i32 %3522, 15
+  %3524 = load i32, ptr %8, align 4, !tbaa !19
+  %3525 = and i32 %3524, -1
+  %3526 = lshr i32 %3525, 17
+  %3527 = or i32 %3523, %3526
+  %3528 = load i32, ptr %7, align 4, !tbaa !19
+  %3529 = add i32 %3527, %3528
+  store i32 %3529, ptr %8, align 4, !tbaa !19
+  %3530 = load i32, ptr %10, align 4, !tbaa !19
+  %3531 = shl i32 %3530, 10
+  %3532 = load i32, ptr %10, align 4, !tbaa !19
+  %3533 = and i32 %3532, -1
+  %3534 = lshr i32 %3533, 22
+  %3535 = or i32 %3531, %3534
+  store i32 %3535, ptr %10, align 4, !tbaa !19
+  %3536 = load i32, ptr %8, align 4, !tbaa !19
+  %3537 = load i32, ptr %9, align 4, !tbaa !19
+  %3538 = xor i32 %3536, %3537
+  %3539 = load i32, ptr %10, align 4, !tbaa !19
+  %3540 = and i32 %3538, %3539
+  %3541 = load i32, ptr %9, align 4, !tbaa !19
+  %3542 = xor i32 %3540, %3541
+  %3543 = load i32, ptr %19, align 4, !tbaa !19
+  %3544 = add i32 %3542, %3543
+  %3545 = zext i32 %3544 to i64
+  %3546 = add nsw i64 %3545, 1548603684
+  %3547 = load i32, ptr %7, align 4, !tbaa !19
+  %3548 = zext i32 %3547 to i64
+  %3549 = add nsw i64 %3548, %3546
+  %3550 = trunc i64 %3549 to i32
+  store i32 %3550, ptr %7, align 4, !tbaa !19
+  %3551 = load i32, ptr %7, align 4, !tbaa !19
+  %3552 = shl i32 %3551, 13
+  %3553 = load i32, ptr %7, align 4, !tbaa !19
+  %3554 = and i32 %3553, -1
+  %3555 = lshr i32 %3554, 19
+  %3556 = or i32 %3552, %3555
+  %3557 = load i32, ptr %11, align 4, !tbaa !19
+  %3558 = add i32 %3556, %3557
+  store i32 %3558, ptr %7, align 4, !tbaa !19
+  %3559 = load i32, ptr %9, align 4, !tbaa !19
+  %3560 = shl i32 %3559, 10
+  %3561 = load i32, ptr %9, align 4, !tbaa !19
+  %3562 = and i32 %3561, -1
+  %3563 = lshr i32 %3562, 22
+  %3564 = or i32 %3560, %3563
+  store i32 %3564, ptr %9, align 4, !tbaa !19
+  %3565 = load i32, ptr %7, align 4, !tbaa !19
+  %3566 = load i32, ptr %8, align 4, !tbaa !19
+  %3567 = xor i32 %3565, %3566
+  %3568 = load i32, ptr %9, align 4, !tbaa !19
+  %3569 = and i32 %3567, %3568
+  %3570 = load i32, ptr %8, align 4, !tbaa !19
+  %3571 = xor i32 %3569, %3570
+  %3572 = load i32, ptr %20, align 4, !tbaa !19
+  %3573 = add i32 %3571, %3572
+  %3574 = zext i32 %3573 to i64
+  %3575 = add nsw i64 %3574, 1548603684
+  %3576 = load i32, ptr %11, align 4, !tbaa !19
+  %3577 = zext i32 %3576 to i64
+  %3578 = add nsw i64 %3577, %3575
+  %3579 = trunc i64 %3578 to i32
+  store i32 %3579, ptr %11, align 4, !tbaa !19
+  %3580 = load i32, ptr %11, align 4, !tbaa !19
+  %3581 = shl i32 %3580, 11
+  %3582 = load i32, ptr %11, align 4, !tbaa !19
+  %3583 = and i32 %3582, -1
+  %3584 = lshr i32 %3583, 21
+  %3585 = or i32 %3581, %3584
+  %3586 = load i32, ptr %10, align 4, !tbaa !19
+  %3587 = add i32 %3585, %3586
+  store i32 %3587, ptr %11, align 4, !tbaa !19
+  %3588 = load i32, ptr %8, align 4, !tbaa !19
+  %3589 = shl i32 %3588, 10
+  %3590 = load i32, ptr %8, align 4, !tbaa !19
+  %3591 = and i32 %3590, -1
+  %3592 = lshr i32 %3591, 22
+  %3593 = or i32 %3589, %3592
+  store i32 %3593, ptr %8, align 4, !tbaa !19
+  %3594 = load i32, ptr %7, align 4, !tbaa !19
+  %3595 = xor i32 %3594, -1
+  %3596 = load i32, ptr %11, align 4, !tbaa !19
+  %3597 = or i32 %3595, %3596
+  %3598 = load i32, ptr %8, align 4, !tbaa !19
+  %3599 = xor i32 %3597, %3598
+  %3600 = load i32, ptr %33, align 4, !tbaa !19
+  %3601 = add i32 %3599, %3600
+  %3602 = zext i32 %3601 to i64
+  %3603 = add nsw i64 %3602, 1836072691
+  %3604 = load i32, ptr %10, align 4, !tbaa !19
+  %3605 = zext i32 %3604 to i64
+  %3606 = add nsw i64 %3605, %3603
+  %3607 = trunc i64 %3606 to i32
+  store i32 %3607, ptr %10, align 4, !tbaa !19
+  %3608 = load i32, ptr %10, align 4, !tbaa !19
+  %3609 = shl i32 %3608, 9
+  %3610 = load i32, ptr %10, align 4, !tbaa !19
+  %3611 = and i32 %3610, -1
+  %3612 = lshr i32 %3611, 23
+  %3613 = or i32 %3609, %3612
+  %3614 = load i32, ptr %9, align 4, !tbaa !19
+  %3615 = add i32 %3613, %3614
+  store i32 %3615, ptr %10, align 4, !tbaa !19
+  %3616 = load i32, ptr %7, align 4, !tbaa !19
+  %3617 = shl i32 %3616, 10
+  %3618 = load i32, ptr %7, align 4, !tbaa !19
+  %3619 = and i32 %3618, -1
+  %3620 = lshr i32 %3619, 22
+  %3621 = or i32 %3617, %3620
+  store i32 %3621, ptr %7, align 4, !tbaa !19
+  %3622 = load i32, ptr %11, align 4, !tbaa !19
+  %3623 = xor i32 %3622, -1
+  %3624 = load i32, ptr %10, align 4, !tbaa !19
+  %3625 = or i32 %3623, %3624
+  %3626 = load i32, ptr %7, align 4, !tbaa !19
+  %3627 = xor i32 %3625, %3626
+  %3628 = load i32, ptr %23, align 4, !tbaa !19
+  %3629 = add i32 %3627, %3628
+  %3630 = zext i32 %3629 to i64
+  %3631 = add nsw i64 %3630, 1836072691
+  %3632 = load i32, ptr %9, align 4, !tbaa !19
+  %3633 = zext i32 %3632 to i64
+  %3634 = add nsw i64 %3633, %3631
+  %3635 = trunc i64 %3634 to i32
+  store i32 %3635, ptr %9, align 4, !tbaa !19
+  %3636 = load i32, ptr %9, align 4, !tbaa !19
+  %3637 = shl i32 %3636, 7
+  %3638 = load i32, ptr %9, align 4, !tbaa !19
+  %3639 = and i32 %3638, -1
+  %3640 = lshr i32 %3639, 25
+  %3641 = or i32 %3637, %3640
+  %3642 = load i32, ptr %8, align 4, !tbaa !19
+  %3643 = add i32 %3641, %3642
+  store i32 %3643, ptr %9, align 4, !tbaa !19
+  %3644 = load i32, ptr %11, align 4, !tbaa !19
+  %3645 = shl i32 %3644, 10
+  %3646 = load i32, ptr %11, align 4, !tbaa !19
+  %3647 = and i32 %3646, -1
+  %3648 = lshr i32 %3647, 22
+  %3649 = or i32 %3645, %3648
+  store i32 %3649, ptr %11, align 4, !tbaa !19
+  %3650 = load i32, ptr %10, align 4, !tbaa !19
+  %3651 = xor i32 %3650, -1
+  %3652 = load i32, ptr %9, align 4, !tbaa !19
+  %3653 = or i32 %3651, %3652
+  %3654 = load i32, ptr %11, align 4, !tbaa !19
+  %3655 = xor i32 %3653, %3654
+  %3656 = load i32, ptr %19, align 4, !tbaa !19
+  %3657 = add i32 %3655, %3656
+  %3658 = zext i32 %3657 to i64
+  %3659 = add nsw i64 %3658, 1836072691
+  %3660 = load i32, ptr %8, align 4, !tbaa !19
+  %3661 = zext i32 %3660 to i64
+  %3662 = add nsw i64 %3661, %3659
+  %3663 = trunc i64 %3662 to i32
+  store i32 %3663, ptr %8, align 4, !tbaa !19
+  %3664 = load i32, ptr %8, align 4, !tbaa !19
+  %3665 = shl i32 %3664, 15
+  %3666 = load i32, ptr %8, align 4, !tbaa !19
+  %3667 = and i32 %3666, -1
+  %3668 = lshr i32 %3667, 17
+  %3669 = or i32 %3665, %3668
+  %3670 = load i32, ptr %7, align 4, !tbaa !19
+  %3671 = add i32 %3669, %3670
+  store i32 %3671, ptr %8, align 4, !tbaa !19
+  %3672 = load i32, ptr %10, align 4, !tbaa !19
+  %3673 = shl i32 %3672, 10
+  %3674 = load i32, ptr %10, align 4, !tbaa !19
+  %3675 = and i32 %3674, -1
+  %3676 = lshr i32 %3675, 22
+  %3677 = or i32 %3673, %3676
+  store i32 %3677, ptr %10, align 4, !tbaa !19
+  %3678 = load i32, ptr %9, align 4, !tbaa !19
+  %3679 = xor i32 %3678, -1
+  %3680 = load i32, ptr %8, align 4, !tbaa !19
+  %3681 = or i32 %3679, %3680
+  %3682 = load i32, ptr %10, align 4, !tbaa !19
+  %3683 = xor i32 %3681, %3682
+  %3684 = load i32, ptr %21, align 4, !tbaa !19
+  %3685 = add i32 %3683, %3684
+  %3686 = zext i32 %3685 to i64
+  %3687 = add nsw i64 %3686, 1836072691
+  %3688 = load i32, ptr %7, align 4, !tbaa !19
+  %3689 = zext i32 %3688 to i64
+  %3690 = add nsw i64 %3689, %3687
+  %3691 = trunc i64 %3690 to i32
+  store i32 %3691, ptr %7, align 4, !tbaa !19
+  %3692 = load i32, ptr %7, align 4, !tbaa !19
+  %3693 = shl i32 %3692, 11
+  %3694 = load i32, ptr %7, align 4, !tbaa !19
+  %3695 = and i32 %3694, -1
+  %3696 = lshr i32 %3695, 21
+  %3697 = or i32 %3693, %3696
+  %3698 = load i32, ptr %11, align 4, !tbaa !19
+  %3699 = add i32 %3697, %3698
+  store i32 %3699, ptr %7, align 4, !tbaa !19
+  %3700 = load i32, ptr %9, align 4, !tbaa !19
+  %3701 = shl i32 %3700, 10
+  %3702 = load i32, ptr %9, align 4, !tbaa !19
+  %3703 = and i32 %3702, -1
+  %3704 = lshr i32 %3703, 22
+  %3705 = or i32 %3701, %3704
+  store i32 %3705, ptr %9, align 4, !tbaa !19
+  %3706 = load i32, ptr %8, align 4, !tbaa !19
+  %3707 = xor i32 %3706, -1
+  %3708 = load i32, ptr %7, align 4, !tbaa !19
+  %3709 = or i32 %3707, %3708
+  %3710 = load i32, ptr %9, align 4, !tbaa !19
+  %3711 = xor i32 %3709, %3710
+  %3712 = load i32, ptr %25, align 4, !tbaa !19
+  %3713 = add i32 %3711, %3712
+  %3714 = zext i32 %3713 to i64
+  %3715 = add nsw i64 %3714, 1836072691
+  %3716 = load i32, ptr %11, align 4, !tbaa !19
+  %3717 = zext i32 %3716 to i64
+  %3718 = add nsw i64 %3717, %3715
+  %3719 = trunc i64 %3718 to i32
+  store i32 %3719, ptr %11, align 4, !tbaa !19
+  %3720 = load i32, ptr %11, align 4, !tbaa !19
+  %3721 = shl i32 %3720, 8
+  %3722 = load i32, ptr %11, align 4, !tbaa !19
+  %3723 = and i32 %3722, -1
+  %3724 = lshr i32 %3723, 24
+  %3725 = or i32 %3721, %3724
+  %3726 = load i32, ptr %10, align 4, !tbaa !19
+  %3727 = add i32 %3725, %3726
+  store i32 %3727, ptr %11, align 4, !tbaa !19
+  %3728 = load i32, ptr %8, align 4, !tbaa !19
+  %3729 = shl i32 %3728, 10
+  %3730 = load i32, ptr %8, align 4, !tbaa !19
+  %3731 = and i32 %3730, -1
+  %3732 = lshr i32 %3731, 22
+  %3733 = or i32 %3729, %3732
+  store i32 %3733, ptr %8, align 4, !tbaa !19
+  %3734 = load i32, ptr %7, align 4, !tbaa !19
+  %3735 = xor i32 %3734, -1
+  %3736 = load i32, ptr %11, align 4, !tbaa !19
+  %3737 = or i32 %3735, %3736
+  %3738 = load i32, ptr %8, align 4, !tbaa !19
+  %3739 = xor i32 %3737, %3738
+  %3740 = load i32, ptr %32, align 4, !tbaa !19
+  %3741 = add i32 %3739, %3740
+  %3742 = zext i32 %3741 to i64
+  %3743 = add nsw i64 %3742, 1836072691
+  %3744 = load i32, ptr %10, align 4, !tbaa !19
+  %3745 = zext i32 %3744 to i64
+  %3746 = add nsw i64 %3745, %3743
+  %3747 = trunc i64 %3746 to i32
+  store i32 %3747, ptr %10, align 4, !tbaa !19
+  %3748 = load i32, ptr %10, align 4, !tbaa !19
+  %3749 = shl i32 %3748, 6
+  %3750 = load i32, ptr %10, align 4, !tbaa !19
+  %3751 = and i32 %3750, -1
+  %3752 = lshr i32 %3751, 26
+  %3753 = or i32 %3749, %3752
+  %3754 = load i32, ptr %9, align 4, !tbaa !19
+  %3755 = add i32 %3753, %3754
+  store i32 %3755, ptr %10, align 4, !tbaa !19
+  %3756 = load i32, ptr %7, align 4, !tbaa !19
+  %3757 = shl i32 %3756, 10
+  %3758 = load i32, ptr %7, align 4, !tbaa !19
+  %3759 = and i32 %3758, -1
+  %3760 = lshr i32 %3759, 22
+  %3761 = or i32 %3757, %3760
+  store i32 %3761, ptr %7, align 4, !tbaa !19
+  %3762 = load i32, ptr %11, align 4, !tbaa !19
+  %3763 = xor i32 %3762, -1
+  %3764 = load i32, ptr %10, align 4, !tbaa !19
+  %3765 = or i32 %3763, %3764
+  %3766 = load i32, ptr %7, align 4, !tbaa !19
+  %3767 = xor i32 %3765, %3766
+  %3768 = load i32, ptr %24, align 4, !tbaa !19
+  %3769 = add i32 %3767, %3768
+  %3770 = zext i32 %3769 to i64
+  %3771 = add nsw i64 %3770, 1836072691
+  %3772 = load i32, ptr %9, align 4, !tbaa !19
+  %3773 = zext i32 %3772 to i64
+  %3774 = add nsw i64 %3773, %3771
+  %3775 = trunc i64 %3774 to i32
+  store i32 %3775, ptr %9, align 4, !tbaa !19
+  %3776 = load i32, ptr %9, align 4, !tbaa !19
+  %3777 = shl i32 %3776, 6
+  %3778 = load i32, ptr %9, align 4, !tbaa !19
+  %3779 = and i32 %3778, -1
+  %3780 = lshr i32 %3779, 26
+  %3781 = or i32 %3777, %3780
+  %3782 = load i32, ptr %8, align 4, !tbaa !19
+  %3783 = add i32 %3781, %3782
+  store i32 %3783, ptr %9, align 4, !tbaa !19
+  %3784 = load i32, ptr %11, align 4, !tbaa !19
+  %3785 = shl i32 %3784, 10
+  %3786 = load i32, ptr %11, align 4, !tbaa !19
+  %3787 = and i32 %3786, -1
+  %3788 = lshr i32 %3787, 22
+  %3789 = or i32 %3785, %3788
+  store i32 %3789, ptr %11, align 4, !tbaa !19
+  %3790 = load i32, ptr %10, align 4, !tbaa !19
+  %3791 = xor i32 %3790, -1
+  %3792 = load i32, ptr %9, align 4, !tbaa !19
+  %3793 = or i32 %3791, %3792
+  %3794 = load i32, ptr %11, align 4, !tbaa !19
+  %3795 = xor i32 %3793, %3794
+  %3796 = load i32, ptr %27, align 4, !tbaa !19
+  %3797 = add i32 %3795, %3796
+  %3798 = zext i32 %3797 to i64
+  %3799 = add nsw i64 %3798, 1836072691
+  %3800 = load i32, ptr %8, align 4, !tbaa !19
+  %3801 = zext i32 %3800 to i64
+  %3802 = add nsw i64 %3801, %3799
+  %3803 = trunc i64 %3802 to i32
+  store i32 %3803, ptr %8, align 4, !tbaa !19
+  %3804 = load i32, ptr %8, align 4, !tbaa !19
+  %3805 = shl i32 %3804, 14
+  %3806 = load i32, ptr %8, align 4, !tbaa !19
+  %3807 = and i32 %3806, -1
+  %3808 = lshr i32 %3807, 18
+  %3809 = or i32 %3805, %3808
+  %3810 = load i32, ptr %7, align 4, !tbaa !19
+  %3811 = add i32 %3809, %3810
+  store i32 %3811, ptr %8, align 4, !tbaa !19
+  %3812 = load i32, ptr %10, align 4, !tbaa !19
+  %3813 = shl i32 %3812, 10
+  %3814 = load i32, ptr %10, align 4, !tbaa !19
+  %3815 = and i32 %3814, -1
+  %3816 = lshr i32 %3815, 22
+  %3817 = or i32 %3813, %3816
+  store i32 %3817, ptr %10, align 4, !tbaa !19
+  %3818 = load i32, ptr %9, align 4, !tbaa !19
+  %3819 = xor i32 %3818, -1
+  %3820 = load i32, ptr %8, align 4, !tbaa !19
+  %3821 = or i32 %3819, %3820
+  %3822 = load i32, ptr %10, align 4, !tbaa !19
+  %3823 = xor i32 %3821, %3822
+  %3824 = load i32, ptr %29, align 4, !tbaa !19
+  %3825 = add i32 %3823, %3824
+  %3826 = zext i32 %3825 to i64
+  %3827 = add nsw i64 %3826, 1836072691
+  %3828 = load i32, ptr %7, align 4, !tbaa !19
+  %3829 = zext i32 %3828 to i64
+  %3830 = add nsw i64 %3829, %3827
+  %3831 = trunc i64 %3830 to i32
+  store i32 %3831, ptr %7, align 4, !tbaa !19
+  %3832 = load i32, ptr %7, align 4, !tbaa !19
+  %3833 = shl i32 %3832, 12
+  %3834 = load i32, ptr %7, align 4, !tbaa !19
+  %3835 = and i32 %3834, -1
+  %3836 = lshr i32 %3835, 20
+  %3837 = or i32 %3833, %3836
+  %3838 = load i32, ptr %11, align 4, !tbaa !19
+  %3839 = add i32 %3837, %3838
+  store i32 %3839, ptr %7, align 4, !tbaa !19
+  %3840 = load i32, ptr %9, align 4, !tbaa !19
+  %3841 = shl i32 %3840, 10
+  %3842 = load i32, ptr %9, align 4, !tbaa !19
+  %3843 = and i32 %3842, -1
+  %3844 = lshr i32 %3843, 22
+  %3845 = or i32 %3841, %3844
+  store i32 %3845, ptr %9, align 4, !tbaa !19
+  %3846 = load i32, ptr %8, align 4, !tbaa !19
+  %3847 = xor i32 %3846, -1
+  %3848 = load i32, ptr %7, align 4, !tbaa !19
+  %3849 = or i32 %3847, %3848
+  %3850 = load i32, ptr %9, align 4, !tbaa !19
+  %3851 = xor i32 %3849, %3850
+  %3852 = load i32, ptr %26, align 4, !tbaa !19
+  %3853 = add i32 %3851, %3852
+  %3854 = zext i32 %3853 to i64
+  %3855 = add nsw i64 %3854, 1836072691
+  %3856 = load i32, ptr %11, align 4, !tbaa !19
+  %3857 = zext i32 %3856 to i64
+  %3858 = add nsw i64 %3857, %3855
+  %3859 = trunc i64 %3858 to i32
+  store i32 %3859, ptr %11, align 4, !tbaa !19
+  %3860 = load i32, ptr %11, align 4, !tbaa !19
+  %3861 = shl i32 %3860, 13
+  %3862 = load i32, ptr %11, align 4, !tbaa !19
+  %3863 = and i32 %3862, -1
+  %3864 = lshr i32 %3863, 19
+  %3865 = or i32 %3861, %3864
+  %3866 = load i32, ptr %10, align 4, !tbaa !19
+  %3867 = add i32 %3865, %3866
+  store i32 %3867, ptr %11, align 4, !tbaa !19
+  %3868 = load i32, ptr %8, align 4, !tbaa !19
+  %3869 = shl i32 %3868, 10
+  %3870 = load i32, ptr %8, align 4, !tbaa !19
+  %3871 = and i32 %3870, -1
+  %3872 = lshr i32 %3871, 22
+  %3873 = or i32 %3869, %3872
+  store i32 %3873, ptr %8, align 4, !tbaa !19
+  %3874 = load i32, ptr %7, align 4, !tbaa !19
+  %3875 = xor i32 %3874, -1
+  %3876 = load i32, ptr %11, align 4, !tbaa !19
+  %3877 = or i32 %3875, %3876
+  %3878 = load i32, ptr %8, align 4, !tbaa !19
+  %3879 = xor i32 %3877, %3878
+  %3880 = load i32, ptr %30, align 4, !tbaa !19
+  %3881 = add i32 %3879, %3880
+  %3882 = zext i32 %3881 to i64
+  %3883 = add nsw i64 %3882, 1836072691
+  %3884 = load i32, ptr %10, align 4, !tbaa !19
+  %3885 = zext i32 %3884 to i64
+  %3886 = add nsw i64 %3885, %3883
+  %3887 = trunc i64 %3886 to i32
+  store i32 %3887, ptr %10, align 4, !tbaa !19
+  %3888 = load i32, ptr %10, align 4, !tbaa !19
+  %3889 = shl i32 %3888, 5
+  %3890 = load i32, ptr %10, align 4, !tbaa !19
+  %3891 = and i32 %3890, -1
+  %3892 = lshr i32 %3891, 27
+  %3893 = or i32 %3889, %3892
+  %3894 = load i32, ptr %9, align 4, !tbaa !19
+  %3895 = add i32 %3893, %3894
+  store i32 %3895, ptr %10, align 4, !tbaa !19
+  %3896 = load i32, ptr %7, align 4, !tbaa !19
+  %3897 = shl i32 %3896, 10
+  %3898 = load i32, ptr %7, align 4, !tbaa !19
+  %3899 = and i32 %3898, -1
+  %3900 = lshr i32 %3899, 22
+  %3901 = or i32 %3897, %3900
+  store i32 %3901, ptr %7, align 4, !tbaa !19
+  %3902 = load i32, ptr %11, align 4, !tbaa !19
+  %3903 = xor i32 %3902, -1
+  %3904 = load i32, ptr %10, align 4, !tbaa !19
+  %3905 = or i32 %3903, %3904
+  %3906 = load i32, ptr %7, align 4, !tbaa !19
+  %3907 = xor i32 %3905, %3906
+  %3908 = load i32, ptr %20, align 4, !tbaa !19
+  %3909 = add i32 %3907, %3908
+  %3910 = zext i32 %3909 to i64
+  %3911 = add nsw i64 %3910, 1836072691
+  %3912 = load i32, ptr %9, align 4, !tbaa !19
+  %3913 = zext i32 %3912 to i64
+  %3914 = add nsw i64 %3913, %3911
+  %3915 = trunc i64 %3914 to i32
+  store i32 %3915, ptr %9, align 4, !tbaa !19
+  %3916 = load i32, ptr %9, align 4, !tbaa !19
+  %3917 = shl i32 %3916, 14
+  %3918 = load i32, ptr %9, align 4, !tbaa !19
+  %3919 = and i32 %3918, -1
+  %3920 = lshr i32 %3919, 18
+  %3921 = or i32 %3917, %3920
+  %3922 = load i32, ptr %8, align 4, !tbaa !19
+  %3923 = add i32 %3921, %3922
+  store i32 %3923, ptr %9, align 4, !tbaa !19
+  %3924 = load i32, ptr %11, align 4, !tbaa !19
+  %3925 = shl i32 %3924, 10
+  %3926 = load i32, ptr %11, align 4, !tbaa !19
+  %3927 = and i32 %3926, -1
+  %3928 = lshr i32 %3927, 22
+  %3929 = or i32 %3925, %3928
+  store i32 %3929, ptr %11, align 4, !tbaa !19
+  %3930 = load i32, ptr %10, align 4, !tbaa !19
+  %3931 = xor i32 %3930, -1
+  %3932 = load i32, ptr %9, align 4, !tbaa !19
+  %3933 = or i32 %3931, %3932
+  %3934 = load i32, ptr %11, align 4, !tbaa !19
+  %3935 = xor i32 %3933, %3934
+  %3936 = load i32, ptr %28, align 4, !tbaa !19
+  %3937 = add i32 %3935, %3936
+  %3938 = zext i32 %3937 to i64
+  %3939 = add nsw i64 %3938, 1836072691
+  %3940 = load i32, ptr %8, align 4, !tbaa !19
+  %3941 = zext i32 %3940 to i64
+  %3942 = add nsw i64 %3941, %3939
+  %3943 = trunc i64 %3942 to i32
+  store i32 %3943, ptr %8, align 4, !tbaa !19
+  %3944 = load i32, ptr %8, align 4, !tbaa !19
+  %3945 = shl i32 %3944, 13
+  %3946 = load i32, ptr %8, align 4, !tbaa !19
+  %3947 = and i32 %3946, -1
+  %3948 = lshr i32 %3947, 19
+  %3949 = or i32 %3945, %3948
+  %3950 = load i32, ptr %7, align 4, !tbaa !19
+  %3951 = add i32 %3949, %3950
+  store i32 %3951, ptr %8, align 4, !tbaa !19
+  %3952 = load i32, ptr %10, align 4, !tbaa !19
+  %3953 = shl i32 %3952, 10
+  %3954 = load i32, ptr %10, align 4, !tbaa !19
+  %3955 = and i32 %3954, -1
+  %3956 = lshr i32 %3955, 22
+  %3957 = or i32 %3953, %3956
+  store i32 %3957, ptr %10, align 4, !tbaa !19
+  %3958 = load i32, ptr %9, align 4, !tbaa !19
+  %3959 = xor i32 %3958, -1
+  %3960 = load i32, ptr %8, align 4, !tbaa !19
+  %3961 = or i32 %3959, %3960
+  %3962 = load i32, ptr %10, align 4, !tbaa !19
+  %3963 = xor i32 %3961, %3962
+  %3964 = load i32, ptr %18, align 4, !tbaa !19
+  %3965 = add i32 %3963, %3964
+  %3966 = zext i32 %3965 to i64
+  %3967 = add nsw i64 %3966, 1836072691
+  %3968 = load i32, ptr %7, align 4, !tbaa !19
+  %3969 = zext i32 %3968 to i64
+  %3970 = add nsw i64 %3969, %3967
+  %3971 = trunc i64 %3970 to i32
+  store i32 %3971, ptr %7, align 4, !tbaa !19
+  %3972 = load i32, ptr %7, align 4, !tbaa !19
+  %3973 = shl i32 %3972, 13
+  %3974 = load i32, ptr %7, align 4, !tbaa !19
+  %3975 = and i32 %3974, -1
+  %3976 = lshr i32 %3975, 19
+  %3977 = or i32 %3973, %3976
+  %3978 = load i32, ptr %11, align 4, !tbaa !19
+  %3979 = add i32 %3977, %3978
+  store i32 %3979, ptr %7, align 4, !tbaa !19
+  %3980 = load i32, ptr %9, align 4, !tbaa !19
+  %3981 = shl i32 %3980, 10
+  %3982 = load i32, ptr %9, align 4, !tbaa !19
+  %3983 = and i32 %3982, -1
+  %3984 = lshr i32 %3983, 22
+  %3985 = or i32 %3981, %3984
+  store i32 %3985, ptr %9, align 4, !tbaa !19
+  %3986 = load i32, ptr %8, align 4, !tbaa !19
+  %3987 = xor i32 %3986, -1
+  %3988 = load i32, ptr %7, align 4, !tbaa !19
+  %3989 = or i32 %3987, %3988
+  %3990 = load i32, ptr %9, align 4, !tbaa !19
+  %3991 = xor i32 %3989, %3990
+  %3992 = load i32, ptr %22, align 4, !tbaa !19
+  %3993 = add i32 %3991, %3992
+  %3994 = zext i32 %3993 to i64
+  %3995 = add nsw i64 %3994, 1836072691
+  %3996 = load i32, ptr %11, align 4, !tbaa !19
+  %3997 = zext i32 %3996 to i64
+  %3998 = add nsw i64 %3997, %3995
+  %3999 = trunc i64 %3998 to i32
+  store i32 %3999, ptr %11, align 4, !tbaa !19
+  %4000 = load i32, ptr %11, align 4, !tbaa !19
+  %4001 = shl i32 %4000, 7
+  %4002 = load i32, ptr %11, align 4, !tbaa !19
+  %4003 = and i32 %4002, -1
+  %4004 = lshr i32 %4003, 25
+  %4005 = or i32 %4001, %4004
+  %4006 = load i32, ptr %10, align 4, !tbaa !19
+  %4007 = add i32 %4005, %4006
+  store i32 %4007, ptr %11, align 4, !tbaa !19
+  %4008 = load i32, ptr %8, align 4, !tbaa !19
+  %4009 = shl i32 %4008, 10
+  %4010 = load i32, ptr %8, align 4, !tbaa !19
+  %4011 = and i32 %4010, -1
+  %4012 = lshr i32 %4011, 22
+  %4013 = or i32 %4009, %4012
+  store i32 %4013, ptr %8, align 4, !tbaa !19
+  %4014 = load i32, ptr %7, align 4, !tbaa !19
+  %4015 = xor i32 %4014, -1
+  %4016 = load i32, ptr %11, align 4, !tbaa !19
+  %4017 = or i32 %4015, %4016
+  %4018 = load i32, ptr %8, align 4, !tbaa !19
+  %4019 = xor i32 %4017, %4018
+  %4020 = load i32, ptr %31, align 4, !tbaa !19
+  %4021 = add i32 %4019, %4020
+  %4022 = zext i32 %4021 to i64
+  %4023 = add nsw i64 %4022, 1836072691
+  %4024 = load i32, ptr %10, align 4, !tbaa !19
+  %4025 = zext i32 %4024 to i64
+  %4026 = add nsw i64 %4025, %4023
+  %4027 = trunc i64 %4026 to i32
+  store i32 %4027, ptr %10, align 4, !tbaa !19
+  %4028 = load i32, ptr %10, align 4, !tbaa !19
+  %4029 = shl i32 %4028, 5
+  %4030 = load i32, ptr %10, align 4, !tbaa !19
+  %4031 = and i32 %4030, -1
+  %4032 = lshr i32 %4031, 27
+  %4033 = or i32 %4029, %4032
+  %4034 = load i32, ptr %9, align 4, !tbaa !19
+  %4035 = add i32 %4033, %4034
+  store i32 %4035, ptr %10, align 4, !tbaa !19
+  %4036 = load i32, ptr %7, align 4, !tbaa !19
+  %4037 = shl i32 %4036, 10
+  %4038 = load i32, ptr %7, align 4, !tbaa !19
+  %4039 = and i32 %4038, -1
+  %4040 = lshr i32 %4039, 22
+  %4041 = or i32 %4037, %4040
+  store i32 %4041, ptr %7, align 4, !tbaa !19
+  %4042 = load i32, ptr %11, align 4, !tbaa !19
+  %4043 = load i32, ptr %7, align 4, !tbaa !19
+  %4044 = xor i32 %4042, %4043
+  %4045 = load i32, ptr %10, align 4, !tbaa !19
+  %4046 = and i32 %4044, %4045
+  %4047 = load i32, ptr %7, align 4, !tbaa !19
+  %4048 = xor i32 %4046, %4047
+  %4049 = load i32, ptr %26, align 4, !tbaa !19
+  %4050 = add i32 %4048, %4049
+  %4051 = zext i32 %4050 to i64
+  %4052 = add nsw i64 %4051, 2053994217
+  %4053 = load i32, ptr %9, align 4, !tbaa !19
+  %4054 = zext i32 %4053 to i64
+  %4055 = add nsw i64 %4054, %4052
+  %4056 = trunc i64 %4055 to i32
+  store i32 %4056, ptr %9, align 4, !tbaa !19
+  %4057 = load i32, ptr %9, align 4, !tbaa !19
+  %4058 = shl i32 %4057, 15
+  %4059 = load i32, ptr %9, align 4, !tbaa !19
+  %4060 = and i32 %4059, -1
+  %4061 = lshr i32 %4060, 17
+  %4062 = or i32 %4058, %4061
+  %4063 = load i32, ptr %8, align 4, !tbaa !19
+  %4064 = add i32 %4062, %4063
+  store i32 %4064, ptr %9, align 4, !tbaa !19
+  %4065 = load i32, ptr %11, align 4, !tbaa !19
+  %4066 = shl i32 %4065, 10
+  %4067 = load i32, ptr %11, align 4, !tbaa !19
+  %4068 = and i32 %4067, -1
+  %4069 = lshr i32 %4068, 22
+  %4070 = or i32 %4066, %4069
+  store i32 %4070, ptr %11, align 4, !tbaa !19
+  %4071 = load i32, ptr %10, align 4, !tbaa !19
+  %4072 = load i32, ptr %11, align 4, !tbaa !19
+  %4073 = xor i32 %4071, %4072
+  %4074 = load i32, ptr %9, align 4, !tbaa !19
+  %4075 = and i32 %4073, %4074
+  %4076 = load i32, ptr %11, align 4, !tbaa !19
+  %4077 = xor i32 %4075, %4076
+  %4078 = load i32, ptr %24, align 4, !tbaa !19
+  %4079 = add i32 %4077, %4078
+  %4080 = zext i32 %4079 to i64
+  %4081 = add nsw i64 %4080, 2053994217
+  %4082 = load i32, ptr %8, align 4, !tbaa !19
+  %4083 = zext i32 %4082 to i64
+  %4084 = add nsw i64 %4083, %4081
+  %4085 = trunc i64 %4084 to i32
+  store i32 %4085, ptr %8, align 4, !tbaa !19
+  %4086 = load i32, ptr %8, align 4, !tbaa !19
+  %4087 = shl i32 %4086, 5
+  %4088 = load i32, ptr %8, align 4, !tbaa !19
+  %4089 = and i32 %4088, -1
+  %4090 = lshr i32 %4089, 27
+  %4091 = or i32 %4087, %4090
+  %4092 = load i32, ptr %7, align 4, !tbaa !19
+  %4093 = add i32 %4091, %4092
+  store i32 %4093, ptr %8, align 4, !tbaa !19
+  %4094 = load i32, ptr %10, align 4, !tbaa !19
+  %4095 = shl i32 %4094, 10
+  %4096 = load i32, ptr %10, align 4, !tbaa !19
+  %4097 = and i32 %4096, -1
+  %4098 = lshr i32 %4097, 22
+  %4099 = or i32 %4095, %4098
+  store i32 %4099, ptr %10, align 4, !tbaa !19
+  %4100 = load i32, ptr %9, align 4, !tbaa !19
+  %4101 = load i32, ptr %10, align 4, !tbaa !19
+  %4102 = xor i32 %4100, %4101
+  %4103 = load i32, ptr %8, align 4, !tbaa !19
+  %4104 = and i32 %4102, %4103
+  %4105 = load i32, ptr %10, align 4, !tbaa !19
+  %4106 = xor i32 %4104, %4105
+  %4107 = load i32, ptr %22, align 4, !tbaa !19
+  %4108 = add i32 %4106, %4107
+  %4109 = zext i32 %4108 to i64
+  %4110 = add nsw i64 %4109, 2053994217
+  %4111 = load i32, ptr %7, align 4, !tbaa !19
+  %4112 = zext i32 %4111 to i64
+  %4113 = add nsw i64 %4112, %4110
+  %4114 = trunc i64 %4113 to i32
+  store i32 %4114, ptr %7, align 4, !tbaa !19
+  %4115 = load i32, ptr %7, align 4, !tbaa !19
+  %4116 = shl i32 %4115, 8
+  %4117 = load i32, ptr %7, align 4, !tbaa !19
+  %4118 = and i32 %4117, -1
+  %4119 = lshr i32 %4118, 24
+  %4120 = or i32 %4116, %4119
+  %4121 = load i32, ptr %11, align 4, !tbaa !19
+  %4122 = add i32 %4120, %4121
+  store i32 %4122, ptr %7, align 4, !tbaa !19
+  %4123 = load i32, ptr %9, align 4, !tbaa !19
+  %4124 = shl i32 %4123, 10
+  %4125 = load i32, ptr %9, align 4, !tbaa !19
+  %4126 = and i32 %4125, -1
+  %4127 = lshr i32 %4126, 22
+  %4128 = or i32 %4124, %4127
+  store i32 %4128, ptr %9, align 4, !tbaa !19
+  %4129 = load i32, ptr %8, align 4, !tbaa !19
+  %4130 = load i32, ptr %9, align 4, !tbaa !19
+  %4131 = xor i32 %4129, %4130
+  %4132 = load i32, ptr %7, align 4, !tbaa !19
+  %4133 = and i32 %4131, %4132
+  %4134 = load i32, ptr %9, align 4, !tbaa !19
+  %4135 = xor i32 %4133, %4134
+  %4136 = load i32, ptr %19, align 4, !tbaa !19
+  %4137 = add i32 %4135, %4136
+  %4138 = zext i32 %4137 to i64
+  %4139 = add nsw i64 %4138, 2053994217
+  %4140 = load i32, ptr %11, align 4, !tbaa !19
+  %4141 = zext i32 %4140 to i64
+  %4142 = add nsw i64 %4141, %4139
+  %4143 = trunc i64 %4142 to i32
+  store i32 %4143, ptr %11, align 4, !tbaa !19
+  %4144 = load i32, ptr %11, align 4, !tbaa !19
+  %4145 = shl i32 %4144, 11
+  %4146 = load i32, ptr %11, align 4, !tbaa !19
+  %4147 = and i32 %4146, -1
+  %4148 = lshr i32 %4147, 21
+  %4149 = or i32 %4145, %4148
+  %4150 = load i32, ptr %10, align 4, !tbaa !19
+  %4151 = add i32 %4149, %4150
+  store i32 %4151, ptr %11, align 4, !tbaa !19
+  %4152 = load i32, ptr %8, align 4, !tbaa !19
+  %4153 = shl i32 %4152, 10
+  %4154 = load i32, ptr %8, align 4, !tbaa !19
+  %4155 = and i32 %4154, -1
+  %4156 = lshr i32 %4155, 22
+  %4157 = or i32 %4153, %4156
+  store i32 %4157, ptr %8, align 4, !tbaa !19
+  %4158 = load i32, ptr %7, align 4, !tbaa !19
+  %4159 = load i32, ptr %8, align 4, !tbaa !19
+  %4160 = xor i32 %4158, %4159
+  %4161 = load i32, ptr %11, align 4, !tbaa !19
+  %4162 = and i32 %4160, %4161
+  %4163 = load i32, ptr %8, align 4, !tbaa !19
+  %4164 = xor i32 %4162, %4163
+  %4165 = load i32, ptr %21, align 4, !tbaa !19
+  %4166 = add i32 %4164, %4165
+  %4167 = zext i32 %4166 to i64
+  %4168 = add nsw i64 %4167, 2053994217
+  %4169 = load i32, ptr %10, align 4, !tbaa !19
+  %4170 = zext i32 %4169 to i64
+  %4171 = add nsw i64 %4170, %4168
+  %4172 = trunc i64 %4171 to i32
+  store i32 %4172, ptr %10, align 4, !tbaa !19
+  %4173 = load i32, ptr %10, align 4, !tbaa !19
+  %4174 = shl i32 %4173, 14
+  %4175 = load i32, ptr %10, align 4, !tbaa !19
+  %4176 = and i32 %4175, -1
+  %4177 = lshr i32 %4176, 18
+  %4178 = or i32 %4174, %4177
+  %4179 = load i32, ptr %9, align 4, !tbaa !19
+  %4180 = add i32 %4178, %4179
+  store i32 %4180, ptr %10, align 4, !tbaa !19
+  %4181 = load i32, ptr %7, align 4, !tbaa !19
+  %4182 = shl i32 %4181, 10
+  %4183 = load i32, ptr %7, align 4, !tbaa !19
+  %4184 = and i32 %4183, -1
+  %4185 = lshr i32 %4184, 22
+  %4186 = or i32 %4182, %4185
+  store i32 %4186, ptr %7, align 4, !tbaa !19
+  %4187 = load i32, ptr %11, align 4, !tbaa !19
+  %4188 = load i32, ptr %7, align 4, !tbaa !19
+  %4189 = xor i32 %4187, %4188
+  %4190 = load i32, ptr %10, align 4, !tbaa !19
+  %4191 = and i32 %4189, %4190
+  %4192 = load i32, ptr %7, align 4, !tbaa !19
+  %4193 = xor i32 %4191, %4192
+  %4194 = load i32, ptr %29, align 4, !tbaa !19
+  %4195 = add i32 %4193, %4194
+  %4196 = zext i32 %4195 to i64
+  %4197 = add nsw i64 %4196, 2053994217
+  %4198 = load i32, ptr %9, align 4, !tbaa !19
+  %4199 = zext i32 %4198 to i64
+  %4200 = add nsw i64 %4199, %4197
+  %4201 = trunc i64 %4200 to i32
+  store i32 %4201, ptr %9, align 4, !tbaa !19
+  %4202 = load i32, ptr %9, align 4, !tbaa !19
+  %4203 = shl i32 %4202, 14
+  %4204 = load i32, ptr %9, align 4, !tbaa !19
+  %4205 = and i32 %4204, -1
+  %4206 = lshr i32 %4205, 18
+  %4207 = or i32 %4203, %4206
+  %4208 = load i32, ptr %8, align 4, !tbaa !19
+  %4209 = add i32 %4207, %4208
+  store i32 %4209, ptr %9, align 4, !tbaa !19
+  %4210 = load i32, ptr %11, align 4, !tbaa !19
+  %4211 = shl i32 %4210, 10
+  %4212 = load i32, ptr %11, align 4, !tbaa !19
+  %4213 = and i32 %4212, -1
+  %4214 = lshr i32 %4213, 22
+  %4215 = or i32 %4211, %4214
+  store i32 %4215, ptr %11, align 4, !tbaa !19
+  %4216 = load i32, ptr %10, align 4, !tbaa !19
+  %4217 = load i32, ptr %11, align 4, !tbaa !19
+  %4218 = xor i32 %4216, %4217
+  %4219 = load i32, ptr %9, align 4, !tbaa !19
+  %4220 = and i32 %4218, %4219
+  %4221 = load i32, ptr %11, align 4, !tbaa !19
+  %4222 = xor i32 %4220, %4221
+  %4223 = load i32, ptr %33, align 4, !tbaa !19
+  %4224 = add i32 %4222, %4223
+  %4225 = zext i32 %4224 to i64
+  %4226 = add nsw i64 %4225, 2053994217
+  %4227 = load i32, ptr %8, align 4, !tbaa !19
+  %4228 = zext i32 %4227 to i64
+  %4229 = add nsw i64 %4228, %4226
+  %4230 = trunc i64 %4229 to i32
+  store i32 %4230, ptr %8, align 4, !tbaa !19
+  %4231 = load i32, ptr %8, align 4, !tbaa !19
+  %4232 = shl i32 %4231, 6
+  %4233 = load i32, ptr %8, align 4, !tbaa !19
+  %4234 = and i32 %4233, -1
+  %4235 = lshr i32 %4234, 26
+  %4236 = or i32 %4232, %4235
+  %4237 = load i32, ptr %7, align 4, !tbaa !19
+  %4238 = add i32 %4236, %4237
+  store i32 %4238, ptr %8, align 4, !tbaa !19
+  %4239 = load i32, ptr %10, align 4, !tbaa !19
+  %4240 = shl i32 %4239, 10
+  %4241 = load i32, ptr %10, align 4, !tbaa !19
+  %4242 = and i32 %4241, -1
+  %4243 = lshr i32 %4242, 22
+  %4244 = or i32 %4240, %4243
+  store i32 %4244, ptr %10, align 4, !tbaa !19
+  %4245 = load i32, ptr %9, align 4, !tbaa !19
+  %4246 = load i32, ptr %10, align 4, !tbaa !19
+  %4247 = xor i32 %4245, %4246
+  %4248 = load i32, ptr %8, align 4, !tbaa !19
+  %4249 = and i32 %4247, %4248
+  %4250 = load i32, ptr %10, align 4, !tbaa !19
+  %4251 = xor i32 %4249, %4250
+  %4252 = load i32, ptr %18, align 4, !tbaa !19
+  %4253 = add i32 %4251, %4252
+  %4254 = zext i32 %4253 to i64
+  %4255 = add nsw i64 %4254, 2053994217
+  %4256 = load i32, ptr %7, align 4, !tbaa !19
+  %4257 = zext i32 %4256 to i64
+  %4258 = add nsw i64 %4257, %4255
+  %4259 = trunc i64 %4258 to i32
+  store i32 %4259, ptr %7, align 4, !tbaa !19
+  %4260 = load i32, ptr %7, align 4, !tbaa !19
+  %4261 = shl i32 %4260, 14
+  %4262 = load i32, ptr %7, align 4, !tbaa !19
+  %4263 = and i32 %4262, -1
+  %4264 = lshr i32 %4263, 18
+  %4265 = or i32 %4261, %4264
+  %4266 = load i32, ptr %11, align 4, !tbaa !19
+  %4267 = add i32 %4265, %4266
+  store i32 %4267, ptr %7, align 4, !tbaa !19
+  %4268 = load i32, ptr %9, align 4, !tbaa !19
+  %4269 = shl i32 %4268, 10
+  %4270 = load i32, ptr %9, align 4, !tbaa !19
+  %4271 = and i32 %4270, -1
+  %4272 = lshr i32 %4271, 22
+  %4273 = or i32 %4269, %4272
+  store i32 %4273, ptr %9, align 4, !tbaa !19
+  %4274 = load i32, ptr %8, align 4, !tbaa !19
+  %4275 = load i32, ptr %9, align 4, !tbaa !19
+  %4276 = xor i32 %4274, %4275
+  %4277 = load i32, ptr %7, align 4, !tbaa !19
+  %4278 = and i32 %4276, %4277
+  %4279 = load i32, ptr %9, align 4, !tbaa !19
+  %4280 = xor i32 %4278, %4279
+  %4281 = load i32, ptr %23, align 4, !tbaa !19
+  %4282 = add i32 %4280, %4281
+  %4283 = zext i32 %4282 to i64
+  %4284 = add nsw i64 %4283, 2053994217
+  %4285 = load i32, ptr %11, align 4, !tbaa !19
+  %4286 = zext i32 %4285 to i64
+  %4287 = add nsw i64 %4286, %4284
+  %4288 = trunc i64 %4287 to i32
+  store i32 %4288, ptr %11, align 4, !tbaa !19
+  %4289 = load i32, ptr %11, align 4, !tbaa !19
+  %4290 = shl i32 %4289, 6
+  %4291 = load i32, ptr %11, align 4, !tbaa !19
+  %4292 = and i32 %4291, -1
+  %4293 = lshr i32 %4292, 26
+  %4294 = or i32 %4290, %4293
+  %4295 = load i32, ptr %10, align 4, !tbaa !19
+  %4296 = add i32 %4294, %4295
+  store i32 %4296, ptr %11, align 4, !tbaa !19
+  %4297 = load i32, ptr %8, align 4, !tbaa !19
+  %4298 = shl i32 %4297, 10
+  %4299 = load i32, ptr %8, align 4, !tbaa !19
+  %4300 = and i32 %4299, -1
+  %4301 = lshr i32 %4300, 22
+  %4302 = or i32 %4298, %4301
+  store i32 %4302, ptr %8, align 4, !tbaa !19
+  %4303 = load i32, ptr %7, align 4, !tbaa !19
+  %4304 = load i32, ptr %8, align 4, !tbaa !19
+  %4305 = xor i32 %4303, %4304
+  %4306 = load i32, ptr %11, align 4, !tbaa !19
+  %4307 = and i32 %4305, %4306
+  %4308 = load i32, ptr %8, align 4, !tbaa !19
+  %4309 = xor i32 %4307, %4308
+  %4310 = load i32, ptr %30, align 4, !tbaa !19
+  %4311 = add i32 %4309, %4310
+  %4312 = zext i32 %4311 to i64
+  %4313 = add nsw i64 %4312, 2053994217
+  %4314 = load i32, ptr %10, align 4, !tbaa !19
+  %4315 = zext i32 %4314 to i64
+  %4316 = add nsw i64 %4315, %4313
+  %4317 = trunc i64 %4316 to i32
+  store i32 %4317, ptr %10, align 4, !tbaa !19
+  %4318 = load i32, ptr %10, align 4, !tbaa !19
+  %4319 = shl i32 %4318, 9
+  %4320 = load i32, ptr %10, align 4, !tbaa !19
+  %4321 = and i32 %4320, -1
+  %4322 = lshr i32 %4321, 23
+  %4323 = or i32 %4319, %4322
+  %4324 = load i32, ptr %9, align 4, !tbaa !19
+  %4325 = add i32 %4323, %4324
+  store i32 %4325, ptr %10, align 4, !tbaa !19
+  %4326 = load i32, ptr %7, align 4, !tbaa !19
+  %4327 = shl i32 %4326, 10
+  %4328 = load i32, ptr %7, align 4, !tbaa !19
+  %4329 = and i32 %4328, -1
+  %4330 = lshr i32 %4329, 22
+  %4331 = or i32 %4327, %4330
+  store i32 %4331, ptr %7, align 4, !tbaa !19
+  %4332 = load i32, ptr %11, align 4, !tbaa !19
+  %4333 = load i32, ptr %7, align 4, !tbaa !19
+  %4334 = xor i32 %4332, %4333
+  %4335 = load i32, ptr %10, align 4, !tbaa !19
+  %4336 = and i32 %4334, %4335
+  %4337 = load i32, ptr %7, align 4, !tbaa !19
+  %4338 = xor i32 %4336, %4337
+  %4339 = load i32, ptr %20, align 4, !tbaa !19
+  %4340 = add i32 %4338, %4339
+  %4341 = zext i32 %4340 to i64
+  %4342 = add nsw i64 %4341, 2053994217
+  %4343 = load i32, ptr %9, align 4, !tbaa !19
+  %4344 = zext i32 %4343 to i64
+  %4345 = add nsw i64 %4344, %4342
+  %4346 = trunc i64 %4345 to i32
+  store i32 %4346, ptr %9, align 4, !tbaa !19
+  %4347 = load i32, ptr %9, align 4, !tbaa !19
+  %4348 = shl i32 %4347, 12
+  %4349 = load i32, ptr %9, align 4, !tbaa !19
+  %4350 = and i32 %4349, -1
+  %4351 = lshr i32 %4350, 20
+  %4352 = or i32 %4348, %4351
+  %4353 = load i32, ptr %8, align 4, !tbaa !19
+  %4354 = add i32 %4352, %4353
+  store i32 %4354, ptr %9, align 4, !tbaa !19
+  %4355 = load i32, ptr %11, align 4, !tbaa !19
+  %4356 = shl i32 %4355, 10
+  %4357 = load i32, ptr %11, align 4, !tbaa !19
+  %4358 = and i32 %4357, -1
+  %4359 = lshr i32 %4358, 22
+  %4360 = or i32 %4356, %4359
+  store i32 %4360, ptr %11, align 4, !tbaa !19
+  %4361 = load i32, ptr %10, align 4, !tbaa !19
+  %4362 = load i32, ptr %11, align 4, !tbaa !19
+  %4363 = xor i32 %4361, %4362
+  %4364 = load i32, ptr %9, align 4, !tbaa !19
+  %4365 = and i32 %4363, %4364
+  %4366 = load i32, ptr %11, align 4, !tbaa !19
+  %4367 = xor i32 %4365, %4366
+  %4368 = load i32, ptr %31, align 4, !tbaa !19
+  %4369 = add i32 %4367, %4368
+  %4370 = zext i32 %4369 to i64
+  %4371 = add nsw i64 %4370, 2053994217
+  %4372 = load i32, ptr %8, align 4, !tbaa !19
+  %4373 = zext i32 %4372 to i64
+  %4374 = add nsw i64 %4373, %4371
+  %4375 = trunc i64 %4374 to i32
+  store i32 %4375, ptr %8, align 4, !tbaa !19
+  %4376 = load i32, ptr %8, align 4, !tbaa !19
+  %4377 = shl i32 %4376, 9
+  %4378 = load i32, ptr %8, align 4, !tbaa !19
+  %4379 = and i32 %4378, -1
+  %4380 = lshr i32 %4379, 23
+  %4381 = or i32 %4377, %4380
+  %4382 = load i32, ptr %7, align 4, !tbaa !19
+  %4383 = add i32 %4381, %4382
+  store i32 %4383, ptr %8, align 4, !tbaa !19
+  %4384 = load i32, ptr %10, align 4, !tbaa !19
+  %4385 = shl i32 %4384, 10
+  %4386 = load i32, ptr %10, align 4, !tbaa !19
+  %4387 = and i32 %4386, -1
+  %4388 = lshr i32 %4387, 22
+  %4389 = or i32 %4385, %4388
+  store i32 %4389, ptr %10, align 4, !tbaa !19
+  %4390 = load i32, ptr %9, align 4, !tbaa !19
+  %4391 = load i32, ptr %10, align 4, !tbaa !19
+  %4392 = xor i32 %4390, %4391
+  %4393 = load i32, ptr %8, align 4, !tbaa !19
+  %4394 = and i32 %4392, %4393
+  %4395 = load i32, ptr %10, align 4, !tbaa !19
+  %4396 = xor i32 %4394, %4395
+  %4397 = load i32, ptr %27, align 4, !tbaa !19
+  %4398 = add i32 %4396, %4397
+  %4399 = zext i32 %4398 to i64
+  %4400 = add nsw i64 %4399, 2053994217
+  %4401 = load i32, ptr %7, align 4, !tbaa !19
+  %4402 = zext i32 %4401 to i64
+  %4403 = add nsw i64 %4402, %4400
+  %4404 = trunc i64 %4403 to i32
+  store i32 %4404, ptr %7, align 4, !tbaa !19
+  %4405 = load i32, ptr %7, align 4, !tbaa !19
+  %4406 = shl i32 %4405, 12
+  %4407 = load i32, ptr %7, align 4, !tbaa !19
+  %4408 = and i32 %4407, -1
+  %4409 = lshr i32 %4408, 20
+  %4410 = or i32 %4406, %4409
+  %4411 = load i32, ptr %11, align 4, !tbaa !19
+  %4412 = add i32 %4410, %4411
+  store i32 %4412, ptr %7, align 4, !tbaa !19
+  %4413 = load i32, ptr %9, align 4, !tbaa !19
+  %4414 = shl i32 %4413, 10
+  %4415 = load i32, ptr %9, align 4, !tbaa !19
+  %4416 = and i32 %4415, -1
+  %4417 = lshr i32 %4416, 22
+  %4418 = or i32 %4414, %4417
+  store i32 %4418, ptr %9, align 4, !tbaa !19
+  %4419 = load i32, ptr %8, align 4, !tbaa !19
+  %4420 = load i32, ptr %9, align 4, !tbaa !19
+  %4421 = xor i32 %4419, %4420
+  %4422 = load i32, ptr %7, align 4, !tbaa !19
+  %4423 = and i32 %4421, %4422
+  %4424 = load i32, ptr %9, align 4, !tbaa !19
+  %4425 = xor i32 %4423, %4424
+  %4426 = load i32, ptr %25, align 4, !tbaa !19
+  %4427 = add i32 %4425, %4426
+  %4428 = zext i32 %4427 to i64
+  %4429 = add nsw i64 %4428, 2053994217
+  %4430 = load i32, ptr %11, align 4, !tbaa !19
+  %4431 = zext i32 %4430 to i64
+  %4432 = add nsw i64 %4431, %4429
+  %4433 = trunc i64 %4432 to i32
+  store i32 %4433, ptr %11, align 4, !tbaa !19
+  %4434 = load i32, ptr %11, align 4, !tbaa !19
+  %4435 = shl i32 %4434, 5
+  %4436 = load i32, ptr %11, align 4, !tbaa !19
+  %4437 = and i32 %4436, -1
+  %4438 = lshr i32 %4437, 27
+  %4439 = or i32 %4435, %4438
+  %4440 = load i32, ptr %10, align 4, !tbaa !19
+  %4441 = add i32 %4439, %4440
+  store i32 %4441, ptr %11, align 4, !tbaa !19
+  %4442 = load i32, ptr %8, align 4, !tbaa !19
+  %4443 = shl i32 %4442, 10
+  %4444 = load i32, ptr %8, align 4, !tbaa !19
+  %4445 = and i32 %4444, -1
+  %4446 = lshr i32 %4445, 22
+  %4447 = or i32 %4443, %4446
+  store i32 %4447, ptr %8, align 4, !tbaa !19
+  %4448 = load i32, ptr %7, align 4, !tbaa !19
+  %4449 = load i32, ptr %8, align 4, !tbaa !19
+  %4450 = xor i32 %4448, %4449
+  %4451 = load i32, ptr %11, align 4, !tbaa !19
+  %4452 = and i32 %4450, %4451
+  %4453 = load i32, ptr %8, align 4, !tbaa !19
+  %4454 = xor i32 %4452, %4453
+  %4455 = load i32, ptr %28, align 4, !tbaa !19
+  %4456 = add i32 %4454, %4455
+  %4457 = zext i32 %4456 to i64
+  %4458 = add nsw i64 %4457, 2053994217
+  %4459 = load i32, ptr %10, align 4, !tbaa !19
+  %4460 = zext i32 %4459 to i64
+  %4461 = add nsw i64 %4460, %4458
+  %4462 = trunc i64 %4461 to i32
+  store i32 %4462, ptr %10, align 4, !tbaa !19
+  %4463 = load i32, ptr %10, align 4, !tbaa !19
+  %4464 = shl i32 %4463, 15
+  %4465 = load i32, ptr %10, align 4, !tbaa !19
+  %4466 = and i32 %4465, -1
+  %4467 = lshr i32 %4466, 17
+  %4468 = or i32 %4464, %4467
+  %4469 = load i32, ptr %9, align 4, !tbaa !19
+  %4470 = add i32 %4468, %4469
+  store i32 %4470, ptr %10, align 4, !tbaa !19
+  %4471 = load i32, ptr %7, align 4, !tbaa !19
+  %4472 = shl i32 %4471, 10
+  %4473 = load i32, ptr %7, align 4, !tbaa !19
+  %4474 = and i32 %4473, -1
+  %4475 = lshr i32 %4474, 22
+  %4476 = or i32 %4472, %4475
+  store i32 %4476, ptr %7, align 4, !tbaa !19
+  %4477 = load i32, ptr %11, align 4, !tbaa !19
+  %4478 = load i32, ptr %7, align 4, !tbaa !19
+  %4479 = xor i32 %4477, %4478
+  %4480 = load i32, ptr %10, align 4, !tbaa !19
+  %4481 = and i32 %4479, %4480
+  %4482 = load i32, ptr %7, align 4, !tbaa !19
+  %4483 = xor i32 %4481, %4482
+  %4484 = load i32, ptr %32, align 4, !tbaa !19
+  %4485 = add i32 %4483, %4484
+  %4486 = zext i32 %4485 to i64
+  %4487 = add nsw i64 %4486, 2053994217
+  %4488 = load i32, ptr %9, align 4, !tbaa !19
+  %4489 = zext i32 %4488 to i64
+  %4490 = add nsw i64 %4489, %4487
+  %4491 = trunc i64 %4490 to i32
+  store i32 %4491, ptr %9, align 4, !tbaa !19
+  %4492 = load i32, ptr %9, align 4, !tbaa !19
+  %4493 = shl i32 %4492, 8
+  %4494 = load i32, ptr %9, align 4, !tbaa !19
+  %4495 = and i32 %4494, -1
+  %4496 = lshr i32 %4495, 24
+  %4497 = or i32 %4493, %4496
+  %4498 = load i32, ptr %8, align 4, !tbaa !19
+  %4499 = add i32 %4497, %4498
+  store i32 %4499, ptr %9, align 4, !tbaa !19
+  %4500 = load i32, ptr %11, align 4, !tbaa !19
+  %4501 = shl i32 %4500, 10
+  %4502 = load i32, ptr %11, align 4, !tbaa !19
+  %4503 = and i32 %4502, -1
+  %4504 = lshr i32 %4503, 22
+  %4505 = or i32 %4501, %4504
+  store i32 %4505, ptr %11, align 4, !tbaa !19
+  %4506 = load i32, ptr %9, align 4, !tbaa !19
+  %4507 = load i32, ptr %10, align 4, !tbaa !19
+  %4508 = xor i32 %4506, %4507
+  %4509 = load i32, ptr %11, align 4, !tbaa !19
+  %4510 = xor i32 %4508, %4509
+  %4511 = load i32, ptr %30, align 4, !tbaa !19
+  %4512 = add i32 %4510, %4511
+  %4513 = load i32, ptr %8, align 4, !tbaa !19
+  %4514 = add i32 %4513, %4512
+  store i32 %4514, ptr %8, align 4, !tbaa !19
+  %4515 = load i32, ptr %8, align 4, !tbaa !19
+  %4516 = shl i32 %4515, 8
+  %4517 = load i32, ptr %8, align 4, !tbaa !19
+  %4518 = and i32 %4517, -1
+  %4519 = lshr i32 %4518, 24
+  %4520 = or i32 %4516, %4519
+  %4521 = load i32, ptr %7, align 4, !tbaa !19
+  %4522 = add i32 %4520, %4521
+  store i32 %4522, ptr %8, align 4, !tbaa !19
+  %4523 = load i32, ptr %10, align 4, !tbaa !19
+  %4524 = shl i32 %4523, 10
+  %4525 = load i32, ptr %10, align 4, !tbaa !19
+  %4526 = and i32 %4525, -1
+  %4527 = lshr i32 %4526, 22
+  %4528 = or i32 %4524, %4527
+  store i32 %4528, ptr %10, align 4, !tbaa !19
+  %4529 = load i32, ptr %8, align 4, !tbaa !19
+  %4530 = load i32, ptr %9, align 4, !tbaa !19
+  %4531 = xor i32 %4529, %4530
+  %4532 = load i32, ptr %10, align 4, !tbaa !19
+  %4533 = xor i32 %4531, %4532
+  %4534 = load i32, ptr %33, align 4, !tbaa !19
+  %4535 = add i32 %4533, %4534
+  %4536 = load i32, ptr %7, align 4, !tbaa !19
+  %4537 = add i32 %4536, %4535
+  store i32 %4537, ptr %7, align 4, !tbaa !19
+  %4538 = load i32, ptr %7, align 4, !tbaa !19
+  %4539 = shl i32 %4538, 5
+  %4540 = load i32, ptr %7, align 4, !tbaa !19
+  %4541 = and i32 %4540, -1
+  %4542 = lshr i32 %4541, 27
+  %4543 = or i32 %4539, %4542
+  %4544 = load i32, ptr %11, align 4, !tbaa !19
+  %4545 = add i32 %4543, %4544
+  store i32 %4545, ptr %7, align 4, !tbaa !19
+  %4546 = load i32, ptr %9, align 4, !tbaa !19
+  %4547 = shl i32 %4546, 10
+  %4548 = load i32, ptr %9, align 4, !tbaa !19
+  %4549 = and i32 %4548, -1
+  %4550 = lshr i32 %4549, 22
+  %4551 = or i32 %4547, %4550
+  store i32 %4551, ptr %9, align 4, !tbaa !19
+  %4552 = load i32, ptr %7, align 4, !tbaa !19
+  %4553 = load i32, ptr %8, align 4, !tbaa !19
+  %4554 = xor i32 %4552, %4553
+  %4555 = load i32, ptr %9, align 4, !tbaa !19
+  %4556 = xor i32 %4554, %4555
+  %4557 = load i32, ptr %28, align 4, !tbaa !19
+  %4558 = add i32 %4556, %4557
+  %4559 = load i32, ptr %11, align 4, !tbaa !19
+  %4560 = add i32 %4559, %4558
+  store i32 %4560, ptr %11, align 4, !tbaa !19
+  %4561 = load i32, ptr %11, align 4, !tbaa !19
+  %4562 = shl i32 %4561, 12
+  %4563 = load i32, ptr %11, align 4, !tbaa !19
+  %4564 = and i32 %4563, -1
+  %4565 = lshr i32 %4564, 20
+  %4566 = or i32 %4562, %4565
+  %4567 = load i32, ptr %10, align 4, !tbaa !19
+  %4568 = add i32 %4566, %4567
+  store i32 %4568, ptr %11, align 4, !tbaa !19
+  %4569 = load i32, ptr %8, align 4, !tbaa !19
+  %4570 = shl i32 %4569, 10
+  %4571 = load i32, ptr %8, align 4, !tbaa !19
+  %4572 = and i32 %4571, -1
+  %4573 = lshr i32 %4572, 22
+  %4574 = or i32 %4570, %4573
+  store i32 %4574, ptr %8, align 4, !tbaa !19
+  %4575 = load i32, ptr %11, align 4, !tbaa !19
+  %4576 = load i32, ptr %7, align 4, !tbaa !19
+  %4577 = xor i32 %4575, %4576
+  %4578 = load i32, ptr %8, align 4, !tbaa !19
+  %4579 = xor i32 %4577, %4578
+  %4580 = load i32, ptr %22, align 4, !tbaa !19
+  %4581 = add i32 %4579, %4580
+  %4582 = load i32, ptr %10, align 4, !tbaa !19
+  %4583 = add i32 %4582, %4581
+  store i32 %4583, ptr %10, align 4, !tbaa !19
+  %4584 = load i32, ptr %10, align 4, !tbaa !19
+  %4585 = shl i32 %4584, 9
+  %4586 = load i32, ptr %10, align 4, !tbaa !19
+  %4587 = and i32 %4586, -1
+  %4588 = lshr i32 %4587, 23
+  %4589 = or i32 %4585, %4588
+  %4590 = load i32, ptr %9, align 4, !tbaa !19
+  %4591 = add i32 %4589, %4590
+  store i32 %4591, ptr %10, align 4, !tbaa !19
+  %4592 = load i32, ptr %7, align 4, !tbaa !19
+  %4593 = shl i32 %4592, 10
+  %4594 = load i32, ptr %7, align 4, !tbaa !19
+  %4595 = and i32 %4594, -1
+  %4596 = lshr i32 %4595, 22
+  %4597 = or i32 %4593, %4596
+  store i32 %4597, ptr %7, align 4, !tbaa !19
+  %4598 = load i32, ptr %10, align 4, !tbaa !19
+  %4599 = load i32, ptr %11, align 4, !tbaa !19
+  %4600 = xor i32 %4598, %4599
+  %4601 = load i32, ptr %7, align 4, !tbaa !19
+  %4602 = xor i32 %4600, %4601
+  %4603 = load i32, ptr %19, align 4, !tbaa !19
+  %4604 = add i32 %4602, %4603
+  %4605 = load i32, ptr %9, align 4, !tbaa !19
+  %4606 = add i32 %4605, %4604
+  store i32 %4606, ptr %9, align 4, !tbaa !19
+  %4607 = load i32, ptr %9, align 4, !tbaa !19
+  %4608 = shl i32 %4607, 12
+  %4609 = load i32, ptr %9, align 4, !tbaa !19
+  %4610 = and i32 %4609, -1
+  %4611 = lshr i32 %4610, 20
+  %4612 = or i32 %4608, %4611
+  %4613 = load i32, ptr %8, align 4, !tbaa !19
+  %4614 = add i32 %4612, %4613
+  store i32 %4614, ptr %9, align 4, !tbaa !19
+  %4615 = load i32, ptr %11, align 4, !tbaa !19
+  %4616 = shl i32 %4615, 10
+  %4617 = load i32, ptr %11, align 4, !tbaa !19
+  %4618 = and i32 %4617, -1
+  %4619 = lshr i32 %4618, 22
+  %4620 = or i32 %4616, %4619
+  store i32 %4620, ptr %11, align 4, !tbaa !19
+  %4621 = load i32, ptr %9, align 4, !tbaa !19
+  %4622 = load i32, ptr %10, align 4, !tbaa !19
+  %4623 = xor i32 %4621, %4622
+  %4624 = load i32, ptr %11, align 4, !tbaa !19
+  %4625 = xor i32 %4623, %4624
+  %4626 = load i32, ptr %23, align 4, !tbaa !19
+  %4627 = add i32 %4625, %4626
+  %4628 = load i32, ptr %8, align 4, !tbaa !19
+  %4629 = add i32 %4628, %4627
+  store i32 %4629, ptr %8, align 4, !tbaa !19
+  %4630 = load i32, ptr %8, align 4, !tbaa !19
+  %4631 = shl i32 %4630, 5
+  %4632 = load i32, ptr %8, align 4, !tbaa !19
+  %4633 = and i32 %4632, -1
+  %4634 = lshr i32 %4633, 27
+  %4635 = or i32 %4631, %4634
+  %4636 = load i32, ptr %7, align 4, !tbaa !19
+  %4637 = add i32 %4635, %4636
+  store i32 %4637, ptr %8, align 4, !tbaa !19
+  %4638 = load i32, ptr %10, align 4, !tbaa !19
+  %4639 = shl i32 %4638, 10
+  %4640 = load i32, ptr %10, align 4, !tbaa !19
+  %4641 = and i32 %4640, -1
+  %4642 = lshr i32 %4641, 22
+  %4643 = or i32 %4639, %4642
+  store i32 %4643, ptr %10, align 4, !tbaa !19
+  %4644 = load i32, ptr %8, align 4, !tbaa !19
+  %4645 = load i32, ptr %9, align 4, !tbaa !19
+  %4646 = xor i32 %4644, %4645
+  %4647 = load i32, ptr %10, align 4, !tbaa !19
+  %4648 = xor i32 %4646, %4647
+  %4649 = load i32, ptr %26, align 4, !tbaa !19
+  %4650 = add i32 %4648, %4649
+  %4651 = load i32, ptr %7, align 4, !tbaa !19
+  %4652 = add i32 %4651, %4650
+  store i32 %4652, ptr %7, align 4, !tbaa !19
+  %4653 = load i32, ptr %7, align 4, !tbaa !19
+  %4654 = shl i32 %4653, 14
+  %4655 = load i32, ptr %7, align 4, !tbaa !19
+  %4656 = and i32 %4655, -1
+  %4657 = lshr i32 %4656, 18
+  %4658 = or i32 %4654, %4657
+  %4659 = load i32, ptr %11, align 4, !tbaa !19
+  %4660 = add i32 %4658, %4659
+  store i32 %4660, ptr %7, align 4, !tbaa !19
+  %4661 = load i32, ptr %9, align 4, !tbaa !19
+  %4662 = shl i32 %4661, 10
+  %4663 = load i32, ptr %9, align 4, !tbaa !19
+  %4664 = and i32 %4663, -1
+  %4665 = lshr i32 %4664, 22
+  %4666 = or i32 %4662, %4665
+  store i32 %4666, ptr %9, align 4, !tbaa !19
+  %4667 = load i32, ptr %7, align 4, !tbaa !19
+  %4668 = load i32, ptr %8, align 4, !tbaa !19
+  %4669 = xor i32 %4667, %4668
+  %4670 = load i32, ptr %9, align 4, !tbaa !19
+  %4671 = xor i32 %4669, %4670
+  %4672 = load i32, ptr %25, align 4, !tbaa !19
+  %4673 = add i32 %4671, %4672
+  %4674 = load i32, ptr %11, align 4, !tbaa !19
+  %4675 = add i32 %4674, %4673
+  store i32 %4675, ptr %11, align 4, !tbaa !19
+  %4676 = load i32, ptr %11, align 4, !tbaa !19
+  %4677 = shl i32 %4676, 6
+  %4678 = load i32, ptr %11, align 4, !tbaa !19
+  %4679 = and i32 %4678, -1
+  %4680 = lshr i32 %4679, 26
+  %4681 = or i32 %4677, %4680
+  %4682 = load i32, ptr %10, align 4, !tbaa !19
+  %4683 = add i32 %4681, %4682
+  store i32 %4683, ptr %11, align 4, !tbaa !19
+  %4684 = load i32, ptr %8, align 4, !tbaa !19
+  %4685 = shl i32 %4684, 10
+  %4686 = load i32, ptr %8, align 4, !tbaa !19
+  %4687 = and i32 %4686, -1
+  %4688 = lshr i32 %4687, 22
+  %4689 = or i32 %4685, %4688
+  store i32 %4689, ptr %8, align 4, !tbaa !19
+  %4690 = load i32, ptr %11, align 4, !tbaa !19
+  %4691 = load i32, ptr %7, align 4, !tbaa !19
+  %4692 = xor i32 %4690, %4691
+  %4693 = load i32, ptr %8, align 4, !tbaa !19
+  %4694 = xor i32 %4692, %4693
+  %4695 = load i32, ptr %24, align 4, !tbaa !19
+  %4696 = add i32 %4694, %4695
+  %4697 = load i32, ptr %10, align 4, !tbaa !19
+  %4698 = add i32 %4697, %4696
+  store i32 %4698, ptr %10, align 4, !tbaa !19
+  %4699 = load i32, ptr %10, align 4, !tbaa !19
+  %4700 = shl i32 %4699, 8
+  %4701 = load i32, ptr %10, align 4, !tbaa !19
+  %4702 = and i32 %4701, -1
+  %4703 = lshr i32 %4702, 24
+  %4704 = or i32 %4700, %4703
+  %4705 = load i32, ptr %9, align 4, !tbaa !19
+  %4706 = add i32 %4704, %4705
+  store i32 %4706, ptr %10, align 4, !tbaa !19
+  %4707 = load i32, ptr %7, align 4, !tbaa !19
+  %4708 = shl i32 %4707, 10
+  %4709 = load i32, ptr %7, align 4, !tbaa !19
+  %4710 = and i32 %4709, -1
+  %4711 = lshr i32 %4710, 22
+  %4712 = or i32 %4708, %4711
+  store i32 %4712, ptr %7, align 4, !tbaa !19
+  %4713 = load i32, ptr %10, align 4, !tbaa !19
+  %4714 = load i32, ptr %11, align 4, !tbaa !19
+  %4715 = xor i32 %4713, %4714
+  %4716 = load i32, ptr %7, align 4, !tbaa !19
+  %4717 = xor i32 %4715, %4716
+  %4718 = load i32, ptr %20, align 4, !tbaa !19
+  %4719 = add i32 %4717, %4718
+  %4720 = load i32, ptr %9, align 4, !tbaa !19
+  %4721 = add i32 %4720, %4719
+  store i32 %4721, ptr %9, align 4, !tbaa !19
+  %4722 = load i32, ptr %9, align 4, !tbaa !19
+  %4723 = shl i32 %4722, 13
+  %4724 = load i32, ptr %9, align 4, !tbaa !19
+  %4725 = and i32 %4724, -1
+  %4726 = lshr i32 %4725, 19
+  %4727 = or i32 %4723, %4726
+  %4728 = load i32, ptr %8, align 4, !tbaa !19
+  %4729 = add i32 %4727, %4728
+  store i32 %4729, ptr %9, align 4, !tbaa !19
+  %4730 = load i32, ptr %11, align 4, !tbaa !19
+  %4731 = shl i32 %4730, 10
+  %4732 = load i32, ptr %11, align 4, !tbaa !19
+  %4733 = and i32 %4732, -1
+  %4734 = lshr i32 %4733, 22
+  %4735 = or i32 %4731, %4734
+  store i32 %4735, ptr %11, align 4, !tbaa !19
+  %4736 = load i32, ptr %9, align 4, !tbaa !19
+  %4737 = load i32, ptr %10, align 4, !tbaa !19
+  %4738 = xor i32 %4736, %4737
+  %4739 = load i32, ptr %11, align 4, !tbaa !19
+  %4740 = xor i32 %4738, %4739
+  %4741 = load i32, ptr %31, align 4, !tbaa !19
+  %4742 = add i32 %4740, %4741
+  %4743 = load i32, ptr %8, align 4, !tbaa !19
+  %4744 = add i32 %4743, %4742
+  store i32 %4744, ptr %8, align 4, !tbaa !19
+  %4745 = load i32, ptr %8, align 4, !tbaa !19
+  %4746 = shl i32 %4745, 6
+  %4747 = load i32, ptr %8, align 4, !tbaa !19
+  %4748 = and i32 %4747, -1
+  %4749 = lshr i32 %4748, 26
+  %4750 = or i32 %4746, %4749
+  %4751 = load i32, ptr %7, align 4, !tbaa !19
+  %4752 = add i32 %4750, %4751
+  store i32 %4752, ptr %8, align 4, !tbaa !19
+  %4753 = load i32, ptr %10, align 4, !tbaa !19
+  %4754 = shl i32 %4753, 10
+  %4755 = load i32, ptr %10, align 4, !tbaa !19
+  %4756 = and i32 %4755, -1
+  %4757 = lshr i32 %4756, 22
+  %4758 = or i32 %4754, %4757
+  store i32 %4758, ptr %10, align 4, !tbaa !19
+  %4759 = load i32, ptr %8, align 4, !tbaa !19
+  %4760 = load i32, ptr %9, align 4, !tbaa !19
+  %4761 = xor i32 %4759, %4760
+  %4762 = load i32, ptr %10, align 4, !tbaa !19
+  %4763 = xor i32 %4761, %4762
+  %4764 = load i32, ptr %32, align 4, !tbaa !19
+  %4765 = add i32 %4763, %4764
+  %4766 = load i32, ptr %7, align 4, !tbaa !19
+  %4767 = add i32 %4766, %4765
+  store i32 %4767, ptr %7, align 4, !tbaa !19
+  %4768 = load i32, ptr %7, align 4, !tbaa !19
+  %4769 = shl i32 %4768, 5
+  %4770 = load i32, ptr %7, align 4, !tbaa !19
+  %4771 = and i32 %4770, -1
+  %4772 = lshr i32 %4771, 27
+  %4773 = or i32 %4769, %4772
+  %4774 = load i32, ptr %11, align 4, !tbaa !19
+  %4775 = add i32 %4773, %4774
+  store i32 %4775, ptr %7, align 4, !tbaa !19
+  %4776 = load i32, ptr %9, align 4, !tbaa !19
+  %4777 = shl i32 %4776, 10
+  %4778 = load i32, ptr %9, align 4, !tbaa !19
+  %4779 = and i32 %4778, -1
+  %4780 = lshr i32 %4779, 22
+  %4781 = or i32 %4777, %4780
+  store i32 %4781, ptr %9, align 4, !tbaa !19
+  %4782 = load i32, ptr %7, align 4, !tbaa !19
+  %4783 = load i32, ptr %8, align 4, !tbaa !19
+  %4784 = xor i32 %4782, %4783
+  %4785 = load i32, ptr %9, align 4, !tbaa !19
+  %4786 = xor i32 %4784, %4785
+  %4787 = load i32, ptr %18, align 4, !tbaa !19
+  %4788 = add i32 %4786, %4787
+  %4789 = load i32, ptr %11, align 4, !tbaa !19
+  %4790 = add i32 %4789, %4788
+  store i32 %4790, ptr %11, align 4, !tbaa !19
+  %4791 = load i32, ptr %11, align 4, !tbaa !19
+  %4792 = shl i32 %4791, 15
+  %4793 = load i32, ptr %11, align 4, !tbaa !19
+  %4794 = and i32 %4793, -1
+  %4795 = lshr i32 %4794, 17
+  %4796 = or i32 %4792, %4795
+  %4797 = load i32, ptr %10, align 4, !tbaa !19
+  %4798 = add i32 %4796, %4797
+  store i32 %4798, ptr %11, align 4, !tbaa !19
+  %4799 = load i32, ptr %8, align 4, !tbaa !19
+  %4800 = shl i32 %4799, 10
+  %4801 = load i32, ptr %8, align 4, !tbaa !19
+  %4802 = and i32 %4801, -1
+  %4803 = lshr i32 %4802, 22
+  %4804 = or i32 %4800, %4803
+  store i32 %4804, ptr %8, align 4, !tbaa !19
+  %4805 = load i32, ptr %11, align 4, !tbaa !19
+  %4806 = load i32, ptr %7, align 4, !tbaa !19
+  %4807 = xor i32 %4805, %4806
+  %4808 = load i32, ptr %8, align 4, !tbaa !19
+  %4809 = xor i32 %4807, %4808
+  %4810 = load i32, ptr %21, align 4, !tbaa !19
+  %4811 = add i32 %4809, %4810
+  %4812 = load i32, ptr %10, align 4, !tbaa !19
+  %4813 = add i32 %4812, %4811
+  store i32 %4813, ptr %10, align 4, !tbaa !19
+  %4814 = load i32, ptr %10, align 4, !tbaa !19
+  %4815 = shl i32 %4814, 13
+  %4816 = load i32, ptr %10, align 4, !tbaa !19
+  %4817 = and i32 %4816, -1
+  %4818 = lshr i32 %4817, 19
+  %4819 = or i32 %4815, %4818
+  %4820 = load i32, ptr %9, align 4, !tbaa !19
+  %4821 = add i32 %4819, %4820
+  store i32 %4821, ptr %10, align 4, !tbaa !19
+  %4822 = load i32, ptr %7, align 4, !tbaa !19
+  %4823 = shl i32 %4822, 10
+  %4824 = load i32, ptr %7, align 4, !tbaa !19
+  %4825 = and i32 %4824, -1
+  %4826 = lshr i32 %4825, 22
+  %4827 = or i32 %4823, %4826
+  store i32 %4827, ptr %7, align 4, !tbaa !19
+  %4828 = load i32, ptr %10, align 4, !tbaa !19
+  %4829 = load i32, ptr %11, align 4, !tbaa !19
+  %4830 = xor i32 %4828, %4829
+  %4831 = load i32, ptr %7, align 4, !tbaa !19
+  %4832 = xor i32 %4830, %4831
+  %4833 = load i32, ptr %27, align 4, !tbaa !19
+  %4834 = add i32 %4832, %4833
+  %4835 = load i32, ptr %9, align 4, !tbaa !19
+  %4836 = add i32 %4835, %4834
+  store i32 %4836, ptr %9, align 4, !tbaa !19
+  %4837 = load i32, ptr %9, align 4, !tbaa !19
+  %4838 = shl i32 %4837, 11
+  %4839 = load i32, ptr %9, align 4, !tbaa !19
+  %4840 = and i32 %4839, -1
+  %4841 = lshr i32 %4840, 21
+  %4842 = or i32 %4838, %4841
+  %4843 = load i32, ptr %8, align 4, !tbaa !19
+  %4844 = add i32 %4842, %4843
+  store i32 %4844, ptr %9, align 4, !tbaa !19
+  %4845 = load i32, ptr %11, align 4, !tbaa !19
+  %4846 = shl i32 %4845, 10
+  %4847 = load i32, ptr %11, align 4, !tbaa !19
+  %4848 = and i32 %4847, -1
+  %4849 = lshr i32 %4848, 22
+  %4850 = or i32 %4846, %4849
+  store i32 %4850, ptr %11, align 4, !tbaa !19
+  %4851 = load i32, ptr %9, align 4, !tbaa !19
+  %4852 = load i32, ptr %10, align 4, !tbaa !19
+  %4853 = xor i32 %4851, %4852
+  %4854 = load i32, ptr %11, align 4, !tbaa !19
+  %4855 = xor i32 %4853, %4854
+  %4856 = load i32, ptr %29, align 4, !tbaa !19
+  %4857 = add i32 %4855, %4856
+  %4858 = load i32, ptr %8, align 4, !tbaa !19
+  %4859 = add i32 %4858, %4857
+  store i32 %4859, ptr %8, align 4, !tbaa !19
+  %4860 = load i32, ptr %8, align 4, !tbaa !19
+  %4861 = shl i32 %4860, 11
+  %4862 = load i32, ptr %8, align 4, !tbaa !19
+  %4863 = and i32 %4862, -1
+  %4864 = lshr i32 %4863, 21
+  %4865 = or i32 %4861, %4864
+  %4866 = load i32, ptr %7, align 4, !tbaa !19
+  %4867 = add i32 %4865, %4866
+  store i32 %4867, ptr %8, align 4, !tbaa !19
+  %4868 = load i32, ptr %10, align 4, !tbaa !19
+  %4869 = shl i32 %4868, 10
+  %4870 = load i32, ptr %10, align 4, !tbaa !19
+  %4871 = and i32 %4870, -1
+  %4872 = lshr i32 %4871, 22
+  %4873 = or i32 %4869, %4872
+  store i32 %4873, ptr %10, align 4, !tbaa !19
+  %4874 = load ptr, ptr %4, align 8, !tbaa !22
+  %4875 = getelementptr inbounds i32, ptr %4874, i64 1
+  %4876 = load i32, ptr %4875, align 4, !tbaa !19
+  %4877 = load i32, ptr %14, align 4, !tbaa !19
+  %4878 = add i32 %4876, %4877
+  %4879 = load i32, ptr %10, align 4, !tbaa !19
+  %4880 = add i32 %4878, %4879
+  store i32 %4880, ptr %10, align 4, !tbaa !19
+  %4881 = load ptr, ptr %4, align 8, !tbaa !22
+  %4882 = getelementptr inbounds i32, ptr %4881, i64 2
+  %4883 = load i32, ptr %4882, align 4, !tbaa !19
+  %4884 = load i32, ptr %15, align 4, !tbaa !19
+  %4885 = add i32 %4883, %4884
+  %4886 = load i32, ptr %11, align 4, !tbaa !19
+  %4887 = add i32 %4885, %4886
+  %4888 = load ptr, ptr %4, align 8, !tbaa !22
+  %4889 = getelementptr inbounds i32, ptr %4888, i64 1
+  store i32 %4887, ptr %4889, align 4, !tbaa !19
+  %4890 = load ptr, ptr %4, align 8, !tbaa !22
+  %4891 = getelementptr inbounds i32, ptr %4890, i64 3
+  %4892 = load i32, ptr %4891, align 4, !tbaa !19
+  %4893 = load i32, ptr %16, align 4, !tbaa !19
+  %4894 = add i32 %4892, %4893
+  %4895 = load i32, ptr %7, align 4, !tbaa !19
+  %4896 = add i32 %4894, %4895
+  %4897 = load ptr, ptr %4, align 8, !tbaa !22
+  %4898 = getelementptr inbounds i32, ptr %4897, i64 2
+  store i32 %4896, ptr %4898, align 4, !tbaa !19
+  %4899 = load ptr, ptr %4, align 8, !tbaa !22
+  %4900 = getelementptr inbounds i32, ptr %4899, i64 4
+  %4901 = load i32, ptr %4900, align 4, !tbaa !19
+  %4902 = load i32, ptr %12, align 4, !tbaa !19
+  %4903 = add i32 %4901, %4902
+  %4904 = load i32, ptr %8, align 4, !tbaa !19
+  %4905 = add i32 %4903, %4904
+  %4906 = load ptr, ptr %4, align 8, !tbaa !22
+  %4907 = getelementptr inbounds i32, ptr %4906, i64 3
+  store i32 %4905, ptr %4907, align 4, !tbaa !19
+  %4908 = load ptr, ptr %4, align 8, !tbaa !22
+  %4909 = getelementptr inbounds i32, ptr %4908, i64 0
+  %4910 = load i32, ptr %4909, align 4, !tbaa !19
+  %4911 = load i32, ptr %13, align 4, !tbaa !19
+  %4912 = add i32 %4910, %4911
+  %4913 = load i32, ptr %9, align 4, !tbaa !19
+  %4914 = add i32 %4912, %4913
+  %4915 = load ptr, ptr %4, align 8, !tbaa !22
+  %4916 = getelementptr inbounds i32, ptr %4915, i64 4
+  store i32 %4914, ptr %4916, align 4, !tbaa !19
+  %4917 = load i32, ptr %10, align 4, !tbaa !19
+  %4918 = load ptr, ptr %4, align 8, !tbaa !22
+  %4919 = getelementptr inbounds i32, ptr %4918, i64 0
+  store i32 %4917, ptr %4919, align 4, !tbaa !19
+  br label %34, !llvm.loop !25
 
-for.end:                                          ; preds = %for.cond
+4920:                                             ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @RIPEMD160_Transform(ptr noundef %c, ptr noundef %data) #0 {
-entry:
-  %c.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %0 = load ptr, ptr %c.addr, align 8
-  %h = getelementptr inbounds %struct.RIPEMD160state_st, ptr %0, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [5 x i32], ptr %h, i64 0, i64 0
-  %1 = load ptr, ptr %data.addr, align 8
-  call void @ripemd160_block_data_order(ptr noundef %arraydecay, ptr noundef %1, i64 noundef 1)
+define hidden void @RIPEMD160_Transform(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @ripemd160_block_data_order(ptr noundef %7, ptr noundef %8, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RIPEMD160_Final(ptr noundef %md, ptr noundef %c) #0 {
-entry:
-  %md.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  %n = alloca i64, align 8
-  %p = alloca ptr, align 8
-  %ll = alloca i64, align 8
-  store ptr %md, ptr %md.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  %0 = load ptr, ptr %c.addr, align 8
-  %num = getelementptr inbounds %struct.RIPEMD160state_st, ptr %0, i32 0, i32 4
-  %1 = load i32, ptr %num, align 4
-  %conv = zext i32 %1 to i64
-  store i64 %conv, ptr %n, align 8
-  %2 = load ptr, ptr %c.addr, align 8
-  %data = getelementptr inbounds %struct.RIPEMD160state_st, ptr %2, i32 0, i32 3
-  %3 = load i64, ptr %n, align 8
-  %arrayidx = getelementptr inbounds [64 x i8], ptr %data, i64 0, i64 %3
-  store i8 -128, ptr %arrayidx, align 1
-  %4 = load i64, ptr %n, align 8
-  %inc = add i64 %4, 1
-  store i64 %inc, ptr %n, align 8
-  %5 = load i64, ptr %n, align 8
-  %cmp = icmp ugt i64 %5, 56
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @RIPEMD160_Final(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !6
+  %9 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %8, i32 0, i32 4
+  %10 = load i32, ptr %9, align 4, !tbaa !21
+  %11 = zext i32 %10 to i64
+  store i64 %11, ptr %5, align 8, !tbaa !12
+  %12 = load ptr, ptr %4, align 8, !tbaa !6
+  %13 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %12, i32 0, i32 3
+  %14 = load i64, ptr %5, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 0, i64 %14
+  store i8 -128, ptr %15, align 1, !tbaa !24
+  %16 = load i64, ptr %5, align 8, !tbaa !12
+  %17 = add i64 %16, 1
+  store i64 %17, ptr %5, align 8, !tbaa !12
+  %18 = load i64, ptr %5, align 8, !tbaa !12
+  %19 = icmp ugt i64 %18, 56
+  br i1 %19, label %20, label %34
 
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %c.addr, align 8
-  %data2 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %6, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [64 x i8], ptr %data2, i64 0, i64 0
-  %7 = load i64, ptr %n, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %7
-  %8 = load i64, ptr %n, align 8
-  %sub = sub i64 64, %8
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub, i1 false)
-  store i64 0, ptr %n, align 8
-  %9 = load ptr, ptr %c.addr, align 8
-  %h = getelementptr inbounds %struct.RIPEMD160state_st, ptr %9, i32 0, i32 0
-  %arraydecay3 = getelementptr inbounds [5 x i32], ptr %h, i64 0, i64 0
-  %10 = load ptr, ptr %c.addr, align 8
-  %data4 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %10, i32 0, i32 3
-  %arraydecay5 = getelementptr inbounds [64 x i8], ptr %data4, i64 0, i64 0
-  call void @ripemd160_block_data_order(ptr noundef %arraydecay3, ptr noundef %arraydecay5, i64 noundef 1)
-  br label %if.end
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %4, align 8, !tbaa !6
+  %22 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
+  %24 = load i64, ptr %5, align 8, !tbaa !12
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
+  %26 = load i64, ptr %5, align 8, !tbaa !12
+  %27 = sub i64 64, %26
+  call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %27, i1 false)
+  store i64 0, ptr %5, align 8, !tbaa !12
+  %28 = load ptr, ptr %4, align 8, !tbaa !6
+  %29 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds [5 x i32], ptr %29, i64 0, i64 0
+  %31 = load ptr, ptr %4, align 8, !tbaa !6
+  %32 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %31, i32 0, i32 3
+  %33 = getelementptr inbounds [64 x i8], ptr %32, i64 0, i64 0
+  call void @ripemd160_block_data_order(ptr noundef %30, ptr noundef %33, i64 noundef 1)
+  br label %34
 
-if.end:                                           ; preds = %if.then, %entry
-  %11 = load ptr, ptr %c.addr, align 8
-  %data6 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %11, i32 0, i32 3
-  %arraydecay7 = getelementptr inbounds [64 x i8], ptr %data6, i64 0, i64 0
-  %12 = load i64, ptr %n, align 8
-  %add.ptr8 = getelementptr inbounds i8, ptr %arraydecay7, i64 %12
-  %13 = load i64, ptr %n, align 8
-  %sub9 = sub i64 56, %13
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr8, i8 0, i64 %sub9, i1 false)
-  %14 = load ptr, ptr %c.addr, align 8
-  %data10 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %14, i32 0, i32 3
-  %arraydecay11 = getelementptr inbounds [64 x i8], ptr %data10, i64 0, i64 0
-  %add.ptr12 = getelementptr inbounds i8, ptr %arraydecay11, i64 64
-  %add.ptr13 = getelementptr inbounds i8, ptr %add.ptr12, i64 -8
-  store ptr %add.ptr13, ptr %p, align 8
-  %15 = load ptr, ptr %c.addr, align 8
-  %Nl = getelementptr inbounds %struct.RIPEMD160state_st, ptr %15, i32 0, i32 1
-  %16 = load i32, ptr %Nl, align 4
-  %and = and i32 %16, 255
-  %conv14 = trunc i32 %and to i8
-  %17 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %17, i32 1
-  store ptr %incdec.ptr, ptr %p, align 8
-  store i8 %conv14, ptr %17, align 1
-  %18 = load ptr, ptr %c.addr, align 8
-  %Nl15 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %18, i32 0, i32 1
-  %19 = load i32, ptr %Nl15, align 4
-  %shr = lshr i32 %19, 8
-  %and16 = and i32 %shr, 255
-  %conv17 = trunc i32 %and16 to i8
-  %20 = load ptr, ptr %p, align 8
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %20, i32 1
-  store ptr %incdec.ptr18, ptr %p, align 8
-  store i8 %conv17, ptr %20, align 1
-  %21 = load ptr, ptr %c.addr, align 8
-  %Nl19 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %21, i32 0, i32 1
-  %22 = load i32, ptr %Nl19, align 4
-  %shr20 = lshr i32 %22, 16
-  %and21 = and i32 %shr20, 255
-  %conv22 = trunc i32 %and21 to i8
-  %23 = load ptr, ptr %p, align 8
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %23, i32 1
-  store ptr %incdec.ptr23, ptr %p, align 8
-  store i8 %conv22, ptr %23, align 1
-  %24 = load ptr, ptr %c.addr, align 8
-  %Nl24 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %24, i32 0, i32 1
-  %25 = load i32, ptr %Nl24, align 4
-  %shr25 = lshr i32 %25, 24
-  %and26 = and i32 %shr25, 255
-  %conv27 = trunc i32 %and26 to i8
-  %26 = load ptr, ptr %p, align 8
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %26, i32 1
-  store ptr %incdec.ptr28, ptr %p, align 8
-  store i8 %conv27, ptr %26, align 1
-  %27 = load ptr, ptr %c.addr, align 8
-  %Nh = getelementptr inbounds %struct.RIPEMD160state_st, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %Nh, align 4
-  %and29 = and i32 %28, 255
-  %conv30 = trunc i32 %and29 to i8
-  %29 = load ptr, ptr %p, align 8
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %29, i32 1
-  store ptr %incdec.ptr31, ptr %p, align 8
-  store i8 %conv30, ptr %29, align 1
-  %30 = load ptr, ptr %c.addr, align 8
-  %Nh32 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %30, i32 0, i32 2
-  %31 = load i32, ptr %Nh32, align 4
-  %shr33 = lshr i32 %31, 8
-  %and34 = and i32 %shr33, 255
-  %conv35 = trunc i32 %and34 to i8
-  %32 = load ptr, ptr %p, align 8
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %32, i32 1
-  store ptr %incdec.ptr36, ptr %p, align 8
-  store i8 %conv35, ptr %32, align 1
-  %33 = load ptr, ptr %c.addr, align 8
-  %Nh37 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %33, i32 0, i32 2
-  %34 = load i32, ptr %Nh37, align 4
-  %shr38 = lshr i32 %34, 16
-  %and39 = and i32 %shr38, 255
-  %conv40 = trunc i32 %and39 to i8
-  %35 = load ptr, ptr %p, align 8
-  %incdec.ptr41 = getelementptr inbounds i8, ptr %35, i32 1
-  store ptr %incdec.ptr41, ptr %p, align 8
-  store i8 %conv40, ptr %35, align 1
-  %36 = load ptr, ptr %c.addr, align 8
-  %Nh42 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %36, i32 0, i32 2
-  %37 = load i32, ptr %Nh42, align 4
-  %shr43 = lshr i32 %37, 24
-  %and44 = and i32 %shr43, 255
-  %conv45 = trunc i32 %and44 to i8
-  %38 = load ptr, ptr %p, align 8
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %38, i32 1
-  store ptr %incdec.ptr46, ptr %p, align 8
-  store i8 %conv45, ptr %38, align 1
-  %39 = load ptr, ptr %c.addr, align 8
-  %h47 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %39, i32 0, i32 0
-  %arraydecay48 = getelementptr inbounds [5 x i32], ptr %h47, i64 0, i64 0
-  %40 = load ptr, ptr %c.addr, align 8
-  %data49 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %40, i32 0, i32 3
-  %arraydecay50 = getelementptr inbounds [64 x i8], ptr %data49, i64 0, i64 0
-  call void @ripemd160_block_data_order(ptr noundef %arraydecay48, ptr noundef %arraydecay50, i64 noundef 1)
-  %41 = load ptr, ptr %c.addr, align 8
-  %num51 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %41, i32 0, i32 4
-  store i32 0, ptr %num51, align 4
-  %42 = load ptr, ptr %c.addr, align 8
-  %data52 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %42, i32 0, i32 3
-  %arraydecay53 = getelementptr inbounds [64 x i8], ptr %data52, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %arraydecay53, i8 0, i64 64, i1 false)
-  br label %do.body
+34:                                               ; preds = %20, %2
+  %35 = load ptr, ptr %4, align 8, !tbaa !6
+  %36 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %35, i32 0, i32 3
+  %37 = getelementptr inbounds [64 x i8], ptr %36, i64 0, i64 0
+  %38 = load i64, ptr %5, align 8, !tbaa !12
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
+  %40 = load i64, ptr %5, align 8, !tbaa !12
+  %41 = sub i64 56, %40
+  call void @llvm.memset.p0.i64(ptr align 1 %39, i8 0, i64 %41, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %42 = load ptr, ptr %4, align 8, !tbaa !6
+  %43 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %42, i32 0, i32 3
+  %44 = getelementptr inbounds [64 x i8], ptr %43, i64 0, i64 0
+  %45 = getelementptr inbounds i8, ptr %44, i64 64
+  %46 = getelementptr inbounds i8, ptr %45, i64 -8
+  store ptr %46, ptr %6, align 8, !tbaa !14
+  %47 = load ptr, ptr %4, align 8, !tbaa !6
+  %48 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4, !tbaa !16
+  %50 = and i32 %49, 255
+  %51 = trunc i32 %50 to i8
+  %52 = load ptr, ptr %6, align 8, !tbaa !14
+  %53 = getelementptr inbounds nuw i8, ptr %52, i32 1
+  store ptr %53, ptr %6, align 8, !tbaa !14
+  store i8 %51, ptr %52, align 1, !tbaa !24
+  %54 = load ptr, ptr %4, align 8, !tbaa !6
+  %55 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %54, i32 0, i32 1
+  %56 = load i32, ptr %55, align 4, !tbaa !16
+  %57 = lshr i32 %56, 8
+  %58 = and i32 %57, 255
+  %59 = trunc i32 %58 to i8
+  %60 = load ptr, ptr %6, align 8, !tbaa !14
+  %61 = getelementptr inbounds nuw i8, ptr %60, i32 1
+  store ptr %61, ptr %6, align 8, !tbaa !14
+  store i8 %59, ptr %60, align 1, !tbaa !24
+  %62 = load ptr, ptr %4, align 8, !tbaa !6
+  %63 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 4, !tbaa !16
+  %65 = lshr i32 %64, 16
+  %66 = and i32 %65, 255
+  %67 = trunc i32 %66 to i8
+  %68 = load ptr, ptr %6, align 8, !tbaa !14
+  %69 = getelementptr inbounds nuw i8, ptr %68, i32 1
+  store ptr %69, ptr %6, align 8, !tbaa !14
+  store i8 %67, ptr %68, align 1, !tbaa !24
+  %70 = load ptr, ptr %4, align 8, !tbaa !6
+  %71 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %70, i32 0, i32 1
+  %72 = load i32, ptr %71, align 4, !tbaa !16
+  %73 = lshr i32 %72, 24
+  %74 = and i32 %73, 255
+  %75 = trunc i32 %74 to i8
+  %76 = load ptr, ptr %6, align 8, !tbaa !14
+  %77 = getelementptr inbounds nuw i8, ptr %76, i32 1
+  store ptr %77, ptr %6, align 8, !tbaa !14
+  store i8 %75, ptr %76, align 1, !tbaa !24
+  %78 = load ptr, ptr %4, align 8, !tbaa !6
+  %79 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %78, i32 0, i32 2
+  %80 = load i32, ptr %79, align 4, !tbaa !20
+  %81 = and i32 %80, 255
+  %82 = trunc i32 %81 to i8
+  %83 = load ptr, ptr %6, align 8, !tbaa !14
+  %84 = getelementptr inbounds nuw i8, ptr %83, i32 1
+  store ptr %84, ptr %6, align 8, !tbaa !14
+  store i8 %82, ptr %83, align 1, !tbaa !24
+  %85 = load ptr, ptr %4, align 8, !tbaa !6
+  %86 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %85, i32 0, i32 2
+  %87 = load i32, ptr %86, align 4, !tbaa !20
+  %88 = lshr i32 %87, 8
+  %89 = and i32 %88, 255
+  %90 = trunc i32 %89 to i8
+  %91 = load ptr, ptr %6, align 8, !tbaa !14
+  %92 = getelementptr inbounds nuw i8, ptr %91, i32 1
+  store ptr %92, ptr %6, align 8, !tbaa !14
+  store i8 %90, ptr %91, align 1, !tbaa !24
+  %93 = load ptr, ptr %4, align 8, !tbaa !6
+  %94 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %93, i32 0, i32 2
+  %95 = load i32, ptr %94, align 4, !tbaa !20
+  %96 = lshr i32 %95, 16
+  %97 = and i32 %96, 255
+  %98 = trunc i32 %97 to i8
+  %99 = load ptr, ptr %6, align 8, !tbaa !14
+  %100 = getelementptr inbounds nuw i8, ptr %99, i32 1
+  store ptr %100, ptr %6, align 8, !tbaa !14
+  store i8 %98, ptr %99, align 1, !tbaa !24
+  %101 = load ptr, ptr %4, align 8, !tbaa !6
+  %102 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %101, i32 0, i32 2
+  %103 = load i32, ptr %102, align 4, !tbaa !20
+  %104 = lshr i32 %103, 24
+  %105 = and i32 %104, 255
+  %106 = trunc i32 %105 to i8
+  %107 = load ptr, ptr %6, align 8, !tbaa !14
+  %108 = getelementptr inbounds nuw i8, ptr %107, i32 1
+  store ptr %108, ptr %6, align 8, !tbaa !14
+  store i8 %106, ptr %107, align 1, !tbaa !24
+  %109 = load ptr, ptr %4, align 8, !tbaa !6
+  %110 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %109, i32 0, i32 0
+  %111 = getelementptr inbounds [5 x i32], ptr %110, i64 0, i64 0
+  %112 = load ptr, ptr %4, align 8, !tbaa !6
+  %113 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %112, i32 0, i32 3
+  %114 = getelementptr inbounds [64 x i8], ptr %113, i64 0, i64 0
+  call void @ripemd160_block_data_order(ptr noundef %111, ptr noundef %114, i64 noundef 1)
+  %115 = load ptr, ptr %4, align 8, !tbaa !6
+  %116 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %115, i32 0, i32 4
+  store i32 0, ptr %116, align 4, !tbaa !21
+  %117 = load ptr, ptr %4, align 8, !tbaa !6
+  %118 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %117, i32 0, i32 3
+  %119 = getelementptr inbounds [64 x i8], ptr %118, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %119, i8 0, i64 64, i1 false)
+  br label %120
 
-do.body:                                          ; preds = %if.end
-  %43 = load ptr, ptr %c.addr, align 8
-  %h54 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %43, i32 0, i32 0
-  %arrayidx55 = getelementptr inbounds [5 x i32], ptr %h54, i64 0, i64 0
-  %44 = load i32, ptr %arrayidx55, align 4
-  %conv56 = zext i32 %44 to i64
-  store i64 %conv56, ptr %ll, align 8
-  %45 = load i64, ptr %ll, align 8
-  %and57 = and i64 %45, 255
-  %conv58 = trunc i64 %and57 to i8
-  %46 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr59 = getelementptr inbounds i8, ptr %46, i32 1
-  store ptr %incdec.ptr59, ptr %md.addr, align 8
-  store i8 %conv58, ptr %46, align 1
-  %47 = load i64, ptr %ll, align 8
-  %shr60 = lshr i64 %47, 8
-  %and61 = and i64 %shr60, 255
-  %conv62 = trunc i64 %and61 to i8
-  %48 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %48, i32 1
-  store ptr %incdec.ptr63, ptr %md.addr, align 8
-  store i8 %conv62, ptr %48, align 1
-  %49 = load i64, ptr %ll, align 8
-  %shr64 = lshr i64 %49, 16
-  %and65 = and i64 %shr64, 255
-  %conv66 = trunc i64 %and65 to i8
-  %50 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr67 = getelementptr inbounds i8, ptr %50, i32 1
-  store ptr %incdec.ptr67, ptr %md.addr, align 8
-  store i8 %conv66, ptr %50, align 1
-  %51 = load i64, ptr %ll, align 8
-  %shr68 = lshr i64 %51, 24
-  %and69 = and i64 %shr68, 255
-  %conv70 = trunc i64 %and69 to i8
-  %52 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr71 = getelementptr inbounds i8, ptr %52, i32 1
-  store ptr %incdec.ptr71, ptr %md.addr, align 8
-  store i8 %conv70, ptr %52, align 1
-  %53 = load ptr, ptr %c.addr, align 8
-  %h72 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %53, i32 0, i32 0
-  %arrayidx73 = getelementptr inbounds [5 x i32], ptr %h72, i64 0, i64 1
-  %54 = load i32, ptr %arrayidx73, align 4
-  %conv74 = zext i32 %54 to i64
-  store i64 %conv74, ptr %ll, align 8
-  %55 = load i64, ptr %ll, align 8
-  %and75 = and i64 %55, 255
-  %conv76 = trunc i64 %and75 to i8
-  %56 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %56, i32 1
-  store ptr %incdec.ptr77, ptr %md.addr, align 8
-  store i8 %conv76, ptr %56, align 1
-  %57 = load i64, ptr %ll, align 8
-  %shr78 = lshr i64 %57, 8
-  %and79 = and i64 %shr78, 255
-  %conv80 = trunc i64 %and79 to i8
-  %58 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %58, i32 1
-  store ptr %incdec.ptr81, ptr %md.addr, align 8
-  store i8 %conv80, ptr %58, align 1
-  %59 = load i64, ptr %ll, align 8
-  %shr82 = lshr i64 %59, 16
-  %and83 = and i64 %shr82, 255
-  %conv84 = trunc i64 %and83 to i8
-  %60 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr85 = getelementptr inbounds i8, ptr %60, i32 1
-  store ptr %incdec.ptr85, ptr %md.addr, align 8
-  store i8 %conv84, ptr %60, align 1
-  %61 = load i64, ptr %ll, align 8
-  %shr86 = lshr i64 %61, 24
-  %and87 = and i64 %shr86, 255
-  %conv88 = trunc i64 %and87 to i8
-  %62 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr89 = getelementptr inbounds i8, ptr %62, i32 1
-  store ptr %incdec.ptr89, ptr %md.addr, align 8
-  store i8 %conv88, ptr %62, align 1
-  %63 = load ptr, ptr %c.addr, align 8
-  %h90 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %63, i32 0, i32 0
-  %arrayidx91 = getelementptr inbounds [5 x i32], ptr %h90, i64 0, i64 2
-  %64 = load i32, ptr %arrayidx91, align 4
-  %conv92 = zext i32 %64 to i64
-  store i64 %conv92, ptr %ll, align 8
-  %65 = load i64, ptr %ll, align 8
-  %and93 = and i64 %65, 255
-  %conv94 = trunc i64 %and93 to i8
-  %66 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr95 = getelementptr inbounds i8, ptr %66, i32 1
-  store ptr %incdec.ptr95, ptr %md.addr, align 8
-  store i8 %conv94, ptr %66, align 1
-  %67 = load i64, ptr %ll, align 8
-  %shr96 = lshr i64 %67, 8
-  %and97 = and i64 %shr96, 255
-  %conv98 = trunc i64 %and97 to i8
-  %68 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr99 = getelementptr inbounds i8, ptr %68, i32 1
-  store ptr %incdec.ptr99, ptr %md.addr, align 8
-  store i8 %conv98, ptr %68, align 1
-  %69 = load i64, ptr %ll, align 8
-  %shr100 = lshr i64 %69, 16
-  %and101 = and i64 %shr100, 255
-  %conv102 = trunc i64 %and101 to i8
-  %70 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr103 = getelementptr inbounds i8, ptr %70, i32 1
-  store ptr %incdec.ptr103, ptr %md.addr, align 8
-  store i8 %conv102, ptr %70, align 1
-  %71 = load i64, ptr %ll, align 8
-  %shr104 = lshr i64 %71, 24
-  %and105 = and i64 %shr104, 255
-  %conv106 = trunc i64 %and105 to i8
-  %72 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr107 = getelementptr inbounds i8, ptr %72, i32 1
-  store ptr %incdec.ptr107, ptr %md.addr, align 8
-  store i8 %conv106, ptr %72, align 1
-  %73 = load ptr, ptr %c.addr, align 8
-  %h108 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %73, i32 0, i32 0
-  %arrayidx109 = getelementptr inbounds [5 x i32], ptr %h108, i64 0, i64 3
-  %74 = load i32, ptr %arrayidx109, align 4
-  %conv110 = zext i32 %74 to i64
-  store i64 %conv110, ptr %ll, align 8
-  %75 = load i64, ptr %ll, align 8
-  %and111 = and i64 %75, 255
-  %conv112 = trunc i64 %and111 to i8
-  %76 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr113 = getelementptr inbounds i8, ptr %76, i32 1
-  store ptr %incdec.ptr113, ptr %md.addr, align 8
-  store i8 %conv112, ptr %76, align 1
-  %77 = load i64, ptr %ll, align 8
-  %shr114 = lshr i64 %77, 8
-  %and115 = and i64 %shr114, 255
-  %conv116 = trunc i64 %and115 to i8
-  %78 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr117 = getelementptr inbounds i8, ptr %78, i32 1
-  store ptr %incdec.ptr117, ptr %md.addr, align 8
-  store i8 %conv116, ptr %78, align 1
-  %79 = load i64, ptr %ll, align 8
-  %shr118 = lshr i64 %79, 16
-  %and119 = and i64 %shr118, 255
-  %conv120 = trunc i64 %and119 to i8
-  %80 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr121 = getelementptr inbounds i8, ptr %80, i32 1
-  store ptr %incdec.ptr121, ptr %md.addr, align 8
-  store i8 %conv120, ptr %80, align 1
-  %81 = load i64, ptr %ll, align 8
-  %shr122 = lshr i64 %81, 24
-  %and123 = and i64 %shr122, 255
-  %conv124 = trunc i64 %and123 to i8
-  %82 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr125 = getelementptr inbounds i8, ptr %82, i32 1
-  store ptr %incdec.ptr125, ptr %md.addr, align 8
-  store i8 %conv124, ptr %82, align 1
-  %83 = load ptr, ptr %c.addr, align 8
-  %h126 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %83, i32 0, i32 0
-  %arrayidx127 = getelementptr inbounds [5 x i32], ptr %h126, i64 0, i64 4
-  %84 = load i32, ptr %arrayidx127, align 4
-  %conv128 = zext i32 %84 to i64
-  store i64 %conv128, ptr %ll, align 8
-  %85 = load i64, ptr %ll, align 8
-  %and129 = and i64 %85, 255
-  %conv130 = trunc i64 %and129 to i8
-  %86 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr131 = getelementptr inbounds i8, ptr %86, i32 1
-  store ptr %incdec.ptr131, ptr %md.addr, align 8
-  store i8 %conv130, ptr %86, align 1
-  %87 = load i64, ptr %ll, align 8
-  %shr132 = lshr i64 %87, 8
-  %and133 = and i64 %shr132, 255
-  %conv134 = trunc i64 %and133 to i8
-  %88 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr135 = getelementptr inbounds i8, ptr %88, i32 1
-  store ptr %incdec.ptr135, ptr %md.addr, align 8
-  store i8 %conv134, ptr %88, align 1
-  %89 = load i64, ptr %ll, align 8
-  %shr136 = lshr i64 %89, 16
-  %and137 = and i64 %shr136, 255
-  %conv138 = trunc i64 %and137 to i8
-  %90 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr139 = getelementptr inbounds i8, ptr %90, i32 1
-  store ptr %incdec.ptr139, ptr %md.addr, align 8
-  store i8 %conv138, ptr %90, align 1
-  %91 = load i64, ptr %ll, align 8
-  %shr140 = lshr i64 %91, 24
-  %and141 = and i64 %shr140, 255
-  %conv142 = trunc i64 %and141 to i8
-  %92 = load ptr, ptr %md.addr, align 8
-  %incdec.ptr143 = getelementptr inbounds i8, ptr %92, i32 1
-  store ptr %incdec.ptr143, ptr %md.addr, align 8
-  store i8 %conv142, ptr %92, align 1
-  br label %do.end
+120:                                              ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %121 = load ptr, ptr %4, align 8, !tbaa !6
+  %122 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %121, i32 0, i32 0
+  %123 = getelementptr inbounds [5 x i32], ptr %122, i64 0, i64 0
+  %124 = load i32, ptr %123, align 4, !tbaa !19
+  %125 = zext i32 %124 to i64
+  store i64 %125, ptr %7, align 8, !tbaa !12
+  %126 = load i64, ptr %7, align 8, !tbaa !12
+  %127 = and i64 %126, 255
+  %128 = trunc i64 %127 to i8
+  %129 = load ptr, ptr %3, align 8, !tbaa !14
+  %130 = getelementptr inbounds nuw i8, ptr %129, i32 1
+  store ptr %130, ptr %3, align 8, !tbaa !14
+  store i8 %128, ptr %129, align 1, !tbaa !24
+  %131 = load i64, ptr %7, align 8, !tbaa !12
+  %132 = lshr i64 %131, 8
+  %133 = and i64 %132, 255
+  %134 = trunc i64 %133 to i8
+  %135 = load ptr, ptr %3, align 8, !tbaa !14
+  %136 = getelementptr inbounds nuw i8, ptr %135, i32 1
+  store ptr %136, ptr %3, align 8, !tbaa !14
+  store i8 %134, ptr %135, align 1, !tbaa !24
+  %137 = load i64, ptr %7, align 8, !tbaa !12
+  %138 = lshr i64 %137, 16
+  %139 = and i64 %138, 255
+  %140 = trunc i64 %139 to i8
+  %141 = load ptr, ptr %3, align 8, !tbaa !14
+  %142 = getelementptr inbounds nuw i8, ptr %141, i32 1
+  store ptr %142, ptr %3, align 8, !tbaa !14
+  store i8 %140, ptr %141, align 1, !tbaa !24
+  %143 = load i64, ptr %7, align 8, !tbaa !12
+  %144 = lshr i64 %143, 24
+  %145 = and i64 %144, 255
+  %146 = trunc i64 %145 to i8
+  %147 = load ptr, ptr %3, align 8, !tbaa !14
+  %148 = getelementptr inbounds nuw i8, ptr %147, i32 1
+  store ptr %148, ptr %3, align 8, !tbaa !14
+  store i8 %146, ptr %147, align 1, !tbaa !24
+  %149 = load ptr, ptr %4, align 8, !tbaa !6
+  %150 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %149, i32 0, i32 0
+  %151 = getelementptr inbounds [5 x i32], ptr %150, i64 0, i64 1
+  %152 = load i32, ptr %151, align 4, !tbaa !19
+  %153 = zext i32 %152 to i64
+  store i64 %153, ptr %7, align 8, !tbaa !12
+  %154 = load i64, ptr %7, align 8, !tbaa !12
+  %155 = and i64 %154, 255
+  %156 = trunc i64 %155 to i8
+  %157 = load ptr, ptr %3, align 8, !tbaa !14
+  %158 = getelementptr inbounds nuw i8, ptr %157, i32 1
+  store ptr %158, ptr %3, align 8, !tbaa !14
+  store i8 %156, ptr %157, align 1, !tbaa !24
+  %159 = load i64, ptr %7, align 8, !tbaa !12
+  %160 = lshr i64 %159, 8
+  %161 = and i64 %160, 255
+  %162 = trunc i64 %161 to i8
+  %163 = load ptr, ptr %3, align 8, !tbaa !14
+  %164 = getelementptr inbounds nuw i8, ptr %163, i32 1
+  store ptr %164, ptr %3, align 8, !tbaa !14
+  store i8 %162, ptr %163, align 1, !tbaa !24
+  %165 = load i64, ptr %7, align 8, !tbaa !12
+  %166 = lshr i64 %165, 16
+  %167 = and i64 %166, 255
+  %168 = trunc i64 %167 to i8
+  %169 = load ptr, ptr %3, align 8, !tbaa !14
+  %170 = getelementptr inbounds nuw i8, ptr %169, i32 1
+  store ptr %170, ptr %3, align 8, !tbaa !14
+  store i8 %168, ptr %169, align 1, !tbaa !24
+  %171 = load i64, ptr %7, align 8, !tbaa !12
+  %172 = lshr i64 %171, 24
+  %173 = and i64 %172, 255
+  %174 = trunc i64 %173 to i8
+  %175 = load ptr, ptr %3, align 8, !tbaa !14
+  %176 = getelementptr inbounds nuw i8, ptr %175, i32 1
+  store ptr %176, ptr %3, align 8, !tbaa !14
+  store i8 %174, ptr %175, align 1, !tbaa !24
+  %177 = load ptr, ptr %4, align 8, !tbaa !6
+  %178 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %177, i32 0, i32 0
+  %179 = getelementptr inbounds [5 x i32], ptr %178, i64 0, i64 2
+  %180 = load i32, ptr %179, align 4, !tbaa !19
+  %181 = zext i32 %180 to i64
+  store i64 %181, ptr %7, align 8, !tbaa !12
+  %182 = load i64, ptr %7, align 8, !tbaa !12
+  %183 = and i64 %182, 255
+  %184 = trunc i64 %183 to i8
+  %185 = load ptr, ptr %3, align 8, !tbaa !14
+  %186 = getelementptr inbounds nuw i8, ptr %185, i32 1
+  store ptr %186, ptr %3, align 8, !tbaa !14
+  store i8 %184, ptr %185, align 1, !tbaa !24
+  %187 = load i64, ptr %7, align 8, !tbaa !12
+  %188 = lshr i64 %187, 8
+  %189 = and i64 %188, 255
+  %190 = trunc i64 %189 to i8
+  %191 = load ptr, ptr %3, align 8, !tbaa !14
+  %192 = getelementptr inbounds nuw i8, ptr %191, i32 1
+  store ptr %192, ptr %3, align 8, !tbaa !14
+  store i8 %190, ptr %191, align 1, !tbaa !24
+  %193 = load i64, ptr %7, align 8, !tbaa !12
+  %194 = lshr i64 %193, 16
+  %195 = and i64 %194, 255
+  %196 = trunc i64 %195 to i8
+  %197 = load ptr, ptr %3, align 8, !tbaa !14
+  %198 = getelementptr inbounds nuw i8, ptr %197, i32 1
+  store ptr %198, ptr %3, align 8, !tbaa !14
+  store i8 %196, ptr %197, align 1, !tbaa !24
+  %199 = load i64, ptr %7, align 8, !tbaa !12
+  %200 = lshr i64 %199, 24
+  %201 = and i64 %200, 255
+  %202 = trunc i64 %201 to i8
+  %203 = load ptr, ptr %3, align 8, !tbaa !14
+  %204 = getelementptr inbounds nuw i8, ptr %203, i32 1
+  store ptr %204, ptr %3, align 8, !tbaa !14
+  store i8 %202, ptr %203, align 1, !tbaa !24
+  %205 = load ptr, ptr %4, align 8, !tbaa !6
+  %206 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %205, i32 0, i32 0
+  %207 = getelementptr inbounds [5 x i32], ptr %206, i64 0, i64 3
+  %208 = load i32, ptr %207, align 4, !tbaa !19
+  %209 = zext i32 %208 to i64
+  store i64 %209, ptr %7, align 8, !tbaa !12
+  %210 = load i64, ptr %7, align 8, !tbaa !12
+  %211 = and i64 %210, 255
+  %212 = trunc i64 %211 to i8
+  %213 = load ptr, ptr %3, align 8, !tbaa !14
+  %214 = getelementptr inbounds nuw i8, ptr %213, i32 1
+  store ptr %214, ptr %3, align 8, !tbaa !14
+  store i8 %212, ptr %213, align 1, !tbaa !24
+  %215 = load i64, ptr %7, align 8, !tbaa !12
+  %216 = lshr i64 %215, 8
+  %217 = and i64 %216, 255
+  %218 = trunc i64 %217 to i8
+  %219 = load ptr, ptr %3, align 8, !tbaa !14
+  %220 = getelementptr inbounds nuw i8, ptr %219, i32 1
+  store ptr %220, ptr %3, align 8, !tbaa !14
+  store i8 %218, ptr %219, align 1, !tbaa !24
+  %221 = load i64, ptr %7, align 8, !tbaa !12
+  %222 = lshr i64 %221, 16
+  %223 = and i64 %222, 255
+  %224 = trunc i64 %223 to i8
+  %225 = load ptr, ptr %3, align 8, !tbaa !14
+  %226 = getelementptr inbounds nuw i8, ptr %225, i32 1
+  store ptr %226, ptr %3, align 8, !tbaa !14
+  store i8 %224, ptr %225, align 1, !tbaa !24
+  %227 = load i64, ptr %7, align 8, !tbaa !12
+  %228 = lshr i64 %227, 24
+  %229 = and i64 %228, 255
+  %230 = trunc i64 %229 to i8
+  %231 = load ptr, ptr %3, align 8, !tbaa !14
+  %232 = getelementptr inbounds nuw i8, ptr %231, i32 1
+  store ptr %232, ptr %3, align 8, !tbaa !14
+  store i8 %230, ptr %231, align 1, !tbaa !24
+  %233 = load ptr, ptr %4, align 8, !tbaa !6
+  %234 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %233, i32 0, i32 0
+  %235 = getelementptr inbounds [5 x i32], ptr %234, i64 0, i64 4
+  %236 = load i32, ptr %235, align 4, !tbaa !19
+  %237 = zext i32 %236 to i64
+  store i64 %237, ptr %7, align 8, !tbaa !12
+  %238 = load i64, ptr %7, align 8, !tbaa !12
+  %239 = and i64 %238, 255
+  %240 = trunc i64 %239 to i8
+  %241 = load ptr, ptr %3, align 8, !tbaa !14
+  %242 = getelementptr inbounds nuw i8, ptr %241, i32 1
+  store ptr %242, ptr %3, align 8, !tbaa !14
+  store i8 %240, ptr %241, align 1, !tbaa !24
+  %243 = load i64, ptr %7, align 8, !tbaa !12
+  %244 = lshr i64 %243, 8
+  %245 = and i64 %244, 255
+  %246 = trunc i64 %245 to i8
+  %247 = load ptr, ptr %3, align 8, !tbaa !14
+  %248 = getelementptr inbounds nuw i8, ptr %247, i32 1
+  store ptr %248, ptr %3, align 8, !tbaa !14
+  store i8 %246, ptr %247, align 1, !tbaa !24
+  %249 = load i64, ptr %7, align 8, !tbaa !12
+  %250 = lshr i64 %249, 16
+  %251 = and i64 %250, 255
+  %252 = trunc i64 %251 to i8
+  %253 = load ptr, ptr %3, align 8, !tbaa !14
+  %254 = getelementptr inbounds nuw i8, ptr %253, i32 1
+  store ptr %254, ptr %3, align 8, !tbaa !14
+  store i8 %252, ptr %253, align 1, !tbaa !24
+  %255 = load i64, ptr %7, align 8, !tbaa !12
+  %256 = lshr i64 %255, 24
+  %257 = and i64 %256, 255
+  %258 = trunc i64 %257 to i8
+  %259 = load ptr, ptr %3, align 8, !tbaa !14
+  %260 = getelementptr inbounds nuw i8, ptr %259, i32 1
+  store ptr %260, ptr %3, align 8, !tbaa !14
+  store i8 %258, ptr %259, align 1, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  br label %261
 
-do.end:                                           ; preds = %do.body
+261:                                              ; preds = %120
+  br label %262
+
+262:                                              ; preds = %261
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RIPEMD160_Init(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 96, i1 false)
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %h = getelementptr inbounds %struct.RIPEMD160state_st, ptr %1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %h, i64 0, i64 0
-  store i32 1732584193, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %h1 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [5 x i32], ptr %h1, i64 0, i64 1
-  store i32 -271733879, ptr %arrayidx2, align 4
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %h3 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %3, i32 0, i32 0
-  %arrayidx4 = getelementptr inbounds [5 x i32], ptr %h3, i64 0, i64 2
-  store i32 -1732584194, ptr %arrayidx4, align 4
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %h5 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %4, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [5 x i32], ptr %h5, i64 0, i64 3
-  store i32 271733878, ptr %arrayidx6, align 4
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %h7 = getelementptr inbounds %struct.RIPEMD160state_st, ptr %5, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [5 x i32], ptr %h7, i64 0, i64 4
-  store i32 -1009589776, ptr %arrayidx8, align 4
+define hidden i32 @RIPEMD160_Init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 0, i64 96, i1 false)
+  %4 = load ptr, ptr %2, align 8, !tbaa !6
+  %5 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 0
+  store i32 1732584193, ptr %6, align 4, !tbaa !19
+  %7 = load ptr, ptr %2, align 8, !tbaa !6
+  %8 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 1
+  store i32 -271733879, ptr %9, align 4, !tbaa !19
+  %10 = load ptr, ptr %2, align 8, !tbaa !6
+  %11 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds [5 x i32], ptr %11, i64 0, i64 2
+  store i32 -1732584194, ptr %12, align 4, !tbaa !19
+  %13 = load ptr, ptr %2, align 8, !tbaa !6
+  %14 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [5 x i32], ptr %14, i64 0, i64 3
+  store i32 271733878, ptr %15, align 4, !tbaa !19
+  %16 = load ptr, ptr %2, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw %struct.RIPEMD160state_st, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [5 x i32], ptr %17, i64 0, i64 4
+  store i32 -1009589776, ptr %18, align 4, !tbaa !19
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @RIPEMD160(ptr noundef %data, i64 noundef %len, ptr noundef %out) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %out.addr = alloca ptr, align 8
-  %ctx = alloca %struct.RIPEMD160state_st, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %call = call i32 @RIPEMD160_Init(ptr noundef %ctx)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden ptr @RIPEMD160(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.RIPEMD160state_st, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !14
+  store i64 %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 96, ptr %8) #4
+  %10 = call i32 @RIPEMD160_Init(ptr noundef %8)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %13, label %12
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %data.addr, align 8
-  %1 = load i64, ptr %len.addr, align 8
-  %call1 = call i32 @RIPEMD160_Update(ptr noundef %ctx, ptr noundef %0, i64 noundef %1)
-  %2 = load ptr, ptr %out.addr, align 8
-  %call2 = call i32 @RIPEMD160_Final(ptr noundef %2, ptr noundef %ctx)
-  %3 = load ptr, ptr %out.addr, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !14
+  %15 = load i64, ptr %6, align 8, !tbaa !12
+  %16 = call i32 @RIPEMD160_Update(ptr noundef %8, ptr noundef %14, i64 noundef %15)
+  %17 = load ptr, ptr %7, align 8, !tbaa !14
+  %18 = call i32 @RIPEMD160_Final(ptr noundef %17, ptr noundef %8)
+  %19 = load ptr, ptr %7, align 8, !tbaa !14
+  store ptr %19, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %20
 
-return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+20:                                               ; preds = %13, %12
+  call void @llvm.lifetime.end.p0(i64 96, ptr %8) #4
+  %21 = load ptr, ptr %4, align 8
+  ret ptr %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS17RIPEMD160state_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!8, !8, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !8, i64 0}
+!16 = !{!17, !18, i64 20}
+!17 = !{!"RIPEMD160state_st", !9, i64 0, !18, i64 20, !18, i64 24, !9, i64 28, !18, i64 92}
+!18 = !{!"int", !9, i64 0}
+!19 = !{!18, !18, i64 0}
+!20 = !{!17, !18, i64 24}
+!21 = !{!17, !18, i64 92}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !8, i64 0}
+!24 = !{!9, !9, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}

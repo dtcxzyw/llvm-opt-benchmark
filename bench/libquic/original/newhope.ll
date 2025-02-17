@@ -1,26 +1,24 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.newhope_poly_st = type { [1024 x i16] }
 %struct.sha256_state_st = type { [8 x i32], i32, i32, [64 x i8], i32, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @NEWHOPE_POLY_new() #0 {
-entry:
-  %call = call noalias ptr @malloc(i64 noundef 2048) #4
-  ret ptr %call
+  %1 = call noalias ptr @malloc(i64 noundef 2048) #5
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind allocsize(0)
 declare noalias ptr @malloc(i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @NEWHOPE_POLY_free(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @free(ptr noundef %0) #5
+define hidden void @NEWHOPE_POLY_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @free(ptr noundef %3) #6
   ret void
 }
 
@@ -28,41 +26,53 @@ entry:
 declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @NEWHOPE_keygen(ptr noundef %servermsg, ptr noundef %sk) #0 {
-entry:
-  %servermsg.addr = alloca ptr, align 8
-  %sk.addr = alloca ptr, align 8
-  %a = alloca %struct.newhope_poly_st, align 32
-  %seed = alloca ptr, align 8
-  %e = alloca %struct.newhope_poly_st, align 32
-  %r = alloca %struct.newhope_poly_st, align 32
-  %pk = alloca %struct.newhope_poly_st, align 32
-  store ptr %servermsg, ptr %servermsg.addr, align 8
-  store ptr %sk, ptr %sk.addr, align 8
-  %0 = load ptr, ptr %sk.addr, align 8
-  call void @newhope_poly_getnoise(ptr noundef %0)
-  %1 = load ptr, ptr %sk.addr, align 8
-  call void @newhope_poly_ntt(ptr noundef %1)
-  %2 = load ptr, ptr %servermsg.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 1792
-  store ptr %arrayidx, ptr %seed, align 8
-  %3 = load ptr, ptr %seed, align 8
-  %call = call i32 @RAND_bytes(ptr noundef %3, i64 noundef 32)
-  %4 = load ptr, ptr %seed, align 8
-  call void @newhope_poly_uniform(ptr noundef %a, ptr noundef %4)
-  call void @newhope_poly_getnoise(ptr noundef %e)
-  call void @newhope_poly_ntt(ptr noundef %e)
-  %5 = load ptr, ptr %sk.addr, align 8
-  call void @newhope_poly_pointwise(ptr noundef %r, ptr noundef %5, ptr noundef %a)
-  call void @newhope_poly_add(ptr noundef %pk, ptr noundef %e, ptr noundef %r)
-  %6 = load ptr, ptr %servermsg.addr, align 8
-  call void @newhope_poly_tobytes(ptr noundef %6, ptr noundef %pk)
+define hidden void @NEWHOPE_keygen(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.newhope_poly_st, align 32
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.newhope_poly_st, align 32
+  %8 = alloca %struct.newhope_poly_st, align 32
+  %9 = alloca %struct.newhope_poly_st, align 32
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  %10 = load ptr, ptr %4, align 8, !tbaa !6
+  call void @newhope_poly_getnoise(ptr noundef %10)
+  %11 = load ptr, ptr %4, align 8, !tbaa !6
+  call void @newhope_poly_ntt(ptr noundef %11)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  %13 = getelementptr inbounds i8, ptr %12, i64 1792
+  store ptr %13, ptr %6, align 8, !tbaa !11
+  %14 = load ptr, ptr %6, align 8, !tbaa !11
+  %15 = call i32 @RAND_bytes(ptr noundef %14, i64 noundef 32)
+  %16 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @newhope_poly_uniform(ptr noundef %5, ptr noundef %16)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %7) #6
+  call void @newhope_poly_getnoise(ptr noundef %7)
+  call void @newhope_poly_ntt(ptr noundef %7)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %9) #6
+  %17 = load ptr, ptr %4, align 8, !tbaa !6
+  call void @newhope_poly_pointwise(ptr noundef %8, ptr noundef %17, ptr noundef %5)
+  call void @newhope_poly_add(ptr noundef %9, ptr noundef %7, ptr noundef %8)
+  %18 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @newhope_poly_tobytes(ptr noundef %18, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %5) #6
   ret void
 }
 
 declare void @newhope_poly_getnoise(ptr noundef) #3
 
 declare void @newhope_poly_ntt(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) #3
 
@@ -74,93 +84,125 @@ declare void @newhope_poly_add(ptr noundef, ptr noundef, ptr noundef) #3
 
 declare void @newhope_poly_tobytes(ptr noundef, ptr noundef) #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: nounwind uwtable
-define hidden i32 @NEWHOPE_client_compute_key(ptr noundef %key, ptr noundef %clientmsg, ptr noundef %servermsg, i64 noundef %msg_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %key.addr = alloca ptr, align 8
-  %clientmsg.addr = alloca ptr, align 8
-  %servermsg.addr = alloca ptr, align 8
-  %msg_len.addr = alloca i64, align 8
-  %sp = alloca %struct.newhope_poly_st, align 32
-  %ep = alloca %struct.newhope_poly_st, align 32
-  %a = alloca %struct.newhope_poly_st, align 32
-  %seed = alloca ptr, align 8
-  %bp = alloca %struct.newhope_poly_st, align 32
-  %v = alloca %struct.newhope_poly_st, align 32
-  %pk = alloca %struct.newhope_poly_st, align 32
-  %epp = alloca %struct.newhope_poly_st, align 32
-  %c = alloca %struct.newhope_poly_st, align 32
-  %reconciliation = alloca ptr, align 8
-  %k = alloca [32 x i8], align 16
-  %ctx = alloca %struct.sha256_state_st, align 4
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %clientmsg, ptr %clientmsg.addr, align 8
-  store ptr %servermsg, ptr %servermsg.addr, align 8
-  store i64 %msg_len, ptr %msg_len.addr, align 8
-  %0 = load i64, ptr %msg_len.addr, align 8
-  %cmp = icmp ne i64 %0, 1824
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @NEWHOPE_client_compute_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %struct.newhope_poly_st, align 32
+  %11 = alloca %struct.newhope_poly_st, align 32
+  %12 = alloca %struct.newhope_poly_st, align 32
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct.newhope_poly_st, align 32
+  %15 = alloca %struct.newhope_poly_st, align 32
+  %16 = alloca %struct.newhope_poly_st, align 32
+  %17 = alloca %struct.newhope_poly_st, align 32
+  %18 = alloca %struct.newhope_poly_st, align 32
+  %19 = alloca ptr, align 8
+  %20 = alloca [32 x i8], align 16
+  %21 = alloca %struct.sha256_state_st, align 4
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !11
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !11
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  %23 = load i64, ptr %9, align 8, !tbaa !13
+  %24 = icmp ne i64 %23, 1824
+  br i1 %24, label %25, label %26
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %4
+  store i32 0, ptr %5, align 4
+  br label %49
 
-if.end:                                           ; preds = %entry
-  call void @newhope_poly_getnoise(ptr noundef %sp)
-  call void @newhope_poly_ntt(ptr noundef %sp)
-  call void @newhope_poly_getnoise(ptr noundef %ep)
-  call void @newhope_poly_ntt(ptr noundef %ep)
-  %1 = load ptr, ptr %servermsg.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 1792
-  store ptr %arrayidx, ptr %seed, align 8
-  %2 = load ptr, ptr %seed, align 8
-  call void @newhope_poly_uniform(ptr noundef %a, ptr noundef %2)
-  call void @newhope_poly_pointwise(ptr noundef %bp, ptr noundef %a, ptr noundef %sp)
-  call void @newhope_poly_add(ptr noundef %bp, ptr noundef %bp, ptr noundef %ep)
-  %3 = load ptr, ptr %clientmsg.addr, align 8
-  call void @newhope_poly_tobytes(ptr noundef %3, ptr noundef %bp)
-  %4 = load ptr, ptr %servermsg.addr, align 8
-  call void @newhope_poly_frombytes(ptr noundef %pk, ptr noundef %4)
-  call void @newhope_poly_getnoise(ptr noundef %epp)
-  call void @newhope_poly_pointwise(ptr noundef %v, ptr noundef %pk, ptr noundef %sp)
-  call void @newhope_poly_invntt(ptr noundef %v)
-  call void @newhope_poly_add(ptr noundef %v, ptr noundef %v, ptr noundef %epp)
-  %5 = load ptr, ptr %clientmsg.addr, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %5, i64 1792
-  store ptr %arrayidx1, ptr %reconciliation, align 8
-  call void @newhope_helprec(ptr noundef %c, ptr noundef %v)
-  %6 = load ptr, ptr %reconciliation, align 8
-  call void @encode_rec(ptr noundef %c, ptr noundef %6)
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %k, i64 0, i64 0
-  call void @newhope_reconcile(ptr noundef %arraydecay, ptr noundef %v, ptr noundef %c)
-  %call = call i32 @SHA256_Init(ptr noundef %ctx)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then8
+26:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %10) #6
+  call void @newhope_poly_getnoise(ptr noundef %10)
+  call void @newhope_poly_ntt(ptr noundef %10)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %11) #6
+  call void @newhope_poly_getnoise(ptr noundef %11)
+  call void @newhope_poly_ntt(ptr noundef %11)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %27 = load ptr, ptr %8, align 8, !tbaa !11
+  %28 = getelementptr inbounds i8, ptr %27, i64 1792
+  store ptr %28, ptr %13, align 8, !tbaa !11
+  %29 = load ptr, ptr %13, align 8, !tbaa !11
+  call void @newhope_poly_uniform(ptr noundef %12, ptr noundef %29)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %14) #6
+  call void @newhope_poly_pointwise(ptr noundef %14, ptr noundef %12, ptr noundef %10)
+  call void @newhope_poly_add(ptr noundef %14, ptr noundef %14, ptr noundef %11)
+  %30 = load ptr, ptr %7, align 8, !tbaa !11
+  call void @newhope_poly_tobytes(ptr noundef %30, ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %16) #6
+  %31 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @newhope_poly_frombytes(ptr noundef %16, ptr noundef %31)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %17) #6
+  call void @newhope_poly_getnoise(ptr noundef %17)
+  call void @newhope_poly_pointwise(ptr noundef %15, ptr noundef %16, ptr noundef %10)
+  call void @newhope_poly_invntt(ptr noundef %15)
+  call void @newhope_poly_add(ptr noundef %15, ptr noundef %15, ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %32 = load ptr, ptr %7, align 8, !tbaa !11
+  %33 = getelementptr inbounds i8, ptr %32, i64 1792
+  store ptr %33, ptr %19, align 8, !tbaa !11
+  call void @newhope_helprec(ptr noundef %18, ptr noundef %15)
+  %34 = load ptr, ptr %19, align 8, !tbaa !11
+  call void @encode_rec(ptr noundef %18, ptr noundef %34)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #6
+  %35 = getelementptr inbounds [32 x i8], ptr %20, i64 0, i64 0
+  call void @newhope_reconcile(ptr noundef %35, ptr noundef %15, ptr noundef %18)
+  call void @llvm.lifetime.start.p0(i64 112, ptr %21) #6
+  %36 = call i32 @SHA256_Init(ptr noundef %21)
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %46
 
-lor.lhs.false:                                    ; preds = %if.end
-  %arraydecay2 = getelementptr inbounds [32 x i8], ptr %k, i64 0, i64 0
-  %call3 = call i32 @SHA256_Update(ptr noundef %ctx, ptr noundef %arraydecay2, i64 noundef 32)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %lor.lhs.false5, label %if.then8
+38:                                               ; preds = %26
+  %39 = getelementptr inbounds [32 x i8], ptr %20, i64 0, i64 0
+  %40 = call i32 @SHA256_Update(ptr noundef %21, ptr noundef %39, i64 noundef 32)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %46
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %key.addr, align 8
-  %call6 = call i32 @SHA256_Final(ptr noundef %7, ptr noundef %ctx)
-  %tobool7 = icmp ne i32 %call6, 0
-  br i1 %tobool7, label %if.end9, label %if.then8
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %6, align 8, !tbaa !11
+  %44 = call i32 @SHA256_Final(ptr noundef %43, ptr noundef %21)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %47, label %46
 
-if.then8:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+46:                                               ; preds = %42, %38, %26
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %22, align 4
+  br label %48
 
-if.end9:                                          ; preds = %lor.lhs.false5
-  store i32 1, ptr %retval, align 4
-  br label %return
+47:                                               ; preds = %42
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %22, align 4
+  br label %48
 
-return:                                           ; preds = %if.end9, %if.then8, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+48:                                               ; preds = %47, %46
+  call void @llvm.lifetime.end.p0(i64 112, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %10) #6
+  br label %49
+
+49:                                               ; preds = %48, %25
+  %50 = load i32, ptr %5, align 4
+  ret i32 %50
 }
 
 declare void @newhope_poly_frombytes(ptr noundef, ptr noundef) #3
@@ -170,78 +212,79 @@ declare void @newhope_poly_invntt(ptr noundef) #3
 declare void @newhope_helprec(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @encode_rec(ptr noundef %c, ptr noundef %r) #0 {
-entry:
-  %c.addr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %c, ptr %c.addr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @encode_rec(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  store i32 0, ptr %5, align 4, !tbaa !15
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 256
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %56, %2
+  %7 = load i32, ptr %5, align 4, !tbaa !15
+  %8 = icmp slt i32 %7, 256
+  br i1 %8, label %9, label %59
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %c.addr, align 8
-  %coeffs = getelementptr inbounds %struct.newhope_poly_st, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %i, align 4
-  %mul = mul nsw i32 4, %2
-  %idxprom = sext i32 %mul to i64
-  %arrayidx = getelementptr inbounds [1024 x i16], ptr %coeffs, i64 0, i64 %idxprom
-  %3 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %3 to i32
-  %4 = load ptr, ptr %c.addr, align 8
-  %coeffs1 = getelementptr inbounds %struct.newhope_poly_st, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %i, align 4
-  %mul2 = mul nsw i32 4, %5
-  %add = add nsw i32 %mul2, 1
-  %idxprom3 = sext i32 %add to i64
-  %arrayidx4 = getelementptr inbounds [1024 x i16], ptr %coeffs1, i64 0, i64 %idxprom3
-  %6 = load i16, ptr %arrayidx4, align 2
-  %conv5 = zext i16 %6 to i32
-  %shl = shl i32 %conv5, 2
-  %or = or i32 %conv, %shl
-  %7 = load ptr, ptr %c.addr, align 8
-  %coeffs6 = getelementptr inbounds %struct.newhope_poly_st, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %i, align 4
-  %mul7 = mul nsw i32 4, %8
-  %add8 = add nsw i32 %mul7, 2
-  %idxprom9 = sext i32 %add8 to i64
-  %arrayidx10 = getelementptr inbounds [1024 x i16], ptr %coeffs6, i64 0, i64 %idxprom9
-  %9 = load i16, ptr %arrayidx10, align 2
-  %conv11 = zext i16 %9 to i32
-  %shl12 = shl i32 %conv11, 4
-  %or13 = or i32 %or, %shl12
-  %10 = load ptr, ptr %c.addr, align 8
-  %coeffs14 = getelementptr inbounds %struct.newhope_poly_st, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %i, align 4
-  %mul15 = mul nsw i32 4, %11
-  %add16 = add nsw i32 %mul15, 3
-  %idxprom17 = sext i32 %add16 to i64
-  %arrayidx18 = getelementptr inbounds [1024 x i16], ptr %coeffs14, i64 0, i64 %idxprom17
-  %12 = load i16, ptr %arrayidx18, align 2
-  %conv19 = zext i16 %12 to i32
-  %shl20 = shl i32 %conv19, 6
-  %or21 = or i32 %or13, %shl20
-  %conv22 = trunc i32 %or21 to i8
-  %13 = load ptr, ptr %r.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom23 = sext i32 %14 to i64
-  %arrayidx24 = getelementptr inbounds i8, ptr %13, i64 %idxprom23
-  store i8 %conv22, ptr %arrayidx24, align 1
-  br label %for.inc
+9:                                                ; preds = %6
+  %10 = load ptr, ptr %3, align 8, !tbaa !6
+  %11 = getelementptr inbounds nuw %struct.newhope_poly_st, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %5, align 4, !tbaa !15
+  %13 = mul nsw i32 4, %12
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds [1024 x i16], ptr %11, i64 0, i64 %14
+  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %17 = zext i16 %16 to i32
+  %18 = load ptr, ptr %3, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.newhope_poly_st, ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %5, align 4, !tbaa !15
+  %21 = mul nsw i32 4, %20
+  %22 = add nsw i32 %21, 1
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [1024 x i16], ptr %19, i64 0, i64 %23
+  %25 = load i16, ptr %24, align 2, !tbaa !17
+  %26 = zext i16 %25 to i32
+  %27 = shl i32 %26, 2
+  %28 = or i32 %17, %27
+  %29 = load ptr, ptr %3, align 8, !tbaa !6
+  %30 = getelementptr inbounds nuw %struct.newhope_poly_st, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %5, align 4, !tbaa !15
+  %32 = mul nsw i32 4, %31
+  %33 = add nsw i32 %32, 2
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [1024 x i16], ptr %30, i64 0, i64 %34
+  %36 = load i16, ptr %35, align 2, !tbaa !17
+  %37 = zext i16 %36 to i32
+  %38 = shl i32 %37, 4
+  %39 = or i32 %28, %38
+  %40 = load ptr, ptr %3, align 8, !tbaa !6
+  %41 = getelementptr inbounds nuw %struct.newhope_poly_st, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %5, align 4, !tbaa !15
+  %43 = mul nsw i32 4, %42
+  %44 = add nsw i32 %43, 3
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [1024 x i16], ptr %41, i64 0, i64 %45
+  %47 = load i16, ptr %46, align 2, !tbaa !17
+  %48 = zext i16 %47 to i32
+  %49 = shl i32 %48, 6
+  %50 = or i32 %39, %49
+  %51 = trunc i32 %50 to i8
+  %52 = load ptr, ptr %4, align 8, !tbaa !11
+  %53 = load i32, ptr %5, align 4, !tbaa !15
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %52, i64 %54
+  store i8 %51, ptr %55, align 1, !tbaa !19
+  br label %56
 
-for.inc:                                          ; preds = %for.body
-  %15 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %15, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+56:                                               ; preds = %9
+  %57 = load i32, ptr %5, align 4, !tbaa !15
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %5, align 4, !tbaa !15
+  br label %6, !llvm.loop !20
 
-for.end:                                          ; preds = %for.cond
+59:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret void
 }
 
@@ -254,184 +297,216 @@ declare i32 @SHA256_Update(ptr noundef, ptr noundef, i64 noundef) #3
 declare i32 @SHA256_Final(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @NEWHOPE_server_compute_key(ptr noundef %key, ptr noundef %sk, ptr noundef %clientmsg, i64 noundef %msg_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %key.addr = alloca ptr, align 8
-  %sk.addr = alloca ptr, align 8
-  %clientmsg.addr = alloca ptr, align 8
-  %msg_len.addr = alloca i64, align 8
-  %bp = alloca %struct.newhope_poly_st, align 32
-  %v = alloca %struct.newhope_poly_st, align 32
-  %c = alloca %struct.newhope_poly_st, align 32
-  %reconciliation = alloca ptr, align 8
-  %k = alloca [32 x i8], align 16
-  %ctx = alloca %struct.sha256_state_st, align 4
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %sk, ptr %sk.addr, align 8
-  store ptr %clientmsg, ptr %clientmsg.addr, align 8
-  store i64 %msg_len, ptr %msg_len.addr, align 8
-  %0 = load i64, ptr %msg_len.addr, align 8
-  %cmp = icmp ne i64 %0, 2048
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @NEWHOPE_server_compute_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %struct.newhope_poly_st, align 32
+  %11 = alloca %struct.newhope_poly_st, align 32
+  %12 = alloca %struct.newhope_poly_st, align 32
+  %13 = alloca ptr, align 8
+  %14 = alloca [32 x i8], align 16
+  %15 = alloca %struct.sha256_state_st, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !11
+  store ptr %1, ptr %7, align 8, !tbaa !6
+  store ptr %2, ptr %8, align 8, !tbaa !11
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  %17 = load i64, ptr %9, align 8, !tbaa !13
+  %18 = icmp ne i64 %17, 2048
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %4
+  store i32 0, ptr %5, align 4
+  br label %40
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %clientmsg.addr, align 8
-  call void @newhope_poly_frombytes(ptr noundef %bp, ptr noundef %1)
-  %2 = load ptr, ptr %sk.addr, align 8
-  call void @newhope_poly_pointwise(ptr noundef %v, ptr noundef %2, ptr noundef %bp)
-  call void @newhope_poly_invntt(ptr noundef %v)
-  %3 = load ptr, ptr %clientmsg.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 1792
-  store ptr %arrayidx, ptr %reconciliation, align 8
-  %4 = load ptr, ptr %reconciliation, align 8
-  call void @decode_rec(ptr noundef %4, ptr noundef %c)
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %k, i64 0, i64 0
-  call void @newhope_reconcile(ptr noundef %arraydecay, ptr noundef %v, ptr noundef %c)
-  %call = call i32 @SHA256_Init(ptr noundef %ctx)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then7
+20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %10) #6
+  %21 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @newhope_poly_frombytes(ptr noundef %10, ptr noundef %21)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %11) #6
+  %22 = load ptr, ptr %7, align 8, !tbaa !6
+  call void @newhope_poly_pointwise(ptr noundef %11, ptr noundef %22, ptr noundef %10)
+  call void @newhope_poly_invntt(ptr noundef %11)
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %23 = load ptr, ptr %8, align 8, !tbaa !11
+  %24 = getelementptr inbounds i8, ptr %23, i64 1792
+  store ptr %24, ptr %13, align 8, !tbaa !11
+  %25 = load ptr, ptr %13, align 8, !tbaa !11
+  call void @decode_rec(ptr noundef %25, ptr noundef %12)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #6
+  %26 = getelementptr inbounds [32 x i8], ptr %14, i64 0, i64 0
+  call void @newhope_reconcile(ptr noundef %26, ptr noundef %11, ptr noundef %12)
+  call void @llvm.lifetime.start.p0(i64 112, ptr %15) #6
+  %27 = call i32 @SHA256_Init(ptr noundef %15)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %37
 
-lor.lhs.false:                                    ; preds = %if.end
-  %arraydecay1 = getelementptr inbounds [32 x i8], ptr %k, i64 0, i64 0
-  %call2 = call i32 @SHA256_Update(ptr noundef %ctx, ptr noundef %arraydecay1, i64 noundef 32)
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %lor.lhs.false4, label %if.then7
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds [32 x i8], ptr %14, i64 0, i64 0
+  %31 = call i32 @SHA256_Update(ptr noundef %15, ptr noundef %30, i64 noundef 32)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %37
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %key.addr, align 8
-  %call5 = call i32 @SHA256_Final(ptr noundef %5, ptr noundef %ctx)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.end8, label %if.then7
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %6, align 8, !tbaa !11
+  %35 = call i32 @SHA256_Final(ptr noundef %34, ptr noundef %15)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %38, label %37
 
-if.then7:                                         ; preds = %lor.lhs.false4, %lor.lhs.false, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %33, %29, %20
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %39
 
-if.end8:                                          ; preds = %lor.lhs.false4
-  store i32 1, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %33
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %39
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+39:                                               ; preds = %38, %37
+  call void @llvm.lifetime.end.p0(i64 112, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %10) #6
+  br label %40
+
+40:                                               ; preds = %39, %19
+  %41 = load i32, ptr %5, align 4
+  ret i32 %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_rec(ptr noundef %r, ptr noundef %c) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @decode_rec(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  store i32 0, ptr %5, align 4, !tbaa !15
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 256
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %72, %2
+  %7 = load i32, ptr %5, align 4, !tbaa !15
+  %8 = icmp slt i32 %7, 256
+  br i1 %8, label %9, label %75
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %r.addr, align 8
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %3 to i32
-  %and = and i32 %conv, 3
-  %conv1 = trunc i32 %and to i16
-  %4 = load ptr, ptr %c.addr, align 8
-  %coeffs = getelementptr inbounds %struct.newhope_poly_st, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %i, align 4
-  %mul = mul nsw i32 4, %5
-  %add = add nsw i32 %mul, 0
-  %idxprom2 = sext i32 %add to i64
-  %arrayidx3 = getelementptr inbounds [1024 x i16], ptr %coeffs, i64 0, i64 %idxprom2
-  store i16 %conv1, ptr %arrayidx3, align 2
-  %6 = load ptr, ptr %r.addr, align 8
-  %7 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %7 to i64
-  %arrayidx5 = getelementptr inbounds i8, ptr %6, i64 %idxprom4
-  %8 = load i8, ptr %arrayidx5, align 1
-  %conv6 = zext i8 %8 to i32
-  %shr = ashr i32 %conv6, 2
-  %and7 = and i32 %shr, 3
-  %conv8 = trunc i32 %and7 to i16
-  %9 = load ptr, ptr %c.addr, align 8
-  %coeffs9 = getelementptr inbounds %struct.newhope_poly_st, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %i, align 4
-  %mul10 = mul nsw i32 4, %10
-  %add11 = add nsw i32 %mul10, 1
-  %idxprom12 = sext i32 %add11 to i64
-  %arrayidx13 = getelementptr inbounds [1024 x i16], ptr %coeffs9, i64 0, i64 %idxprom12
-  store i16 %conv8, ptr %arrayidx13, align 2
-  %11 = load ptr, ptr %r.addr, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %12 to i64
-  %arrayidx15 = getelementptr inbounds i8, ptr %11, i64 %idxprom14
-  %13 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %13 to i32
-  %shr17 = ashr i32 %conv16, 4
-  %and18 = and i32 %shr17, 3
-  %conv19 = trunc i32 %and18 to i16
-  %14 = load ptr, ptr %c.addr, align 8
-  %coeffs20 = getelementptr inbounds %struct.newhope_poly_st, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %i, align 4
-  %mul21 = mul nsw i32 4, %15
-  %add22 = add nsw i32 %mul21, 2
-  %idxprom23 = sext i32 %add22 to i64
-  %arrayidx24 = getelementptr inbounds [1024 x i16], ptr %coeffs20, i64 0, i64 %idxprom23
-  store i16 %conv19, ptr %arrayidx24, align 2
-  %16 = load ptr, ptr %r.addr, align 8
-  %17 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %17 to i64
-  %arrayidx26 = getelementptr inbounds i8, ptr %16, i64 %idxprom25
-  %18 = load i8, ptr %arrayidx26, align 1
-  %conv27 = zext i8 %18 to i32
-  %shr28 = ashr i32 %conv27, 6
-  %conv29 = trunc i32 %shr28 to i16
-  %19 = load ptr, ptr %c.addr, align 8
-  %coeffs30 = getelementptr inbounds %struct.newhope_poly_st, ptr %19, i32 0, i32 0
-  %20 = load i32, ptr %i, align 4
-  %mul31 = mul nsw i32 4, %20
-  %add32 = add nsw i32 %mul31, 3
-  %idxprom33 = sext i32 %add32 to i64
-  %arrayidx34 = getelementptr inbounds [1024 x i16], ptr %coeffs30, i64 0, i64 %idxprom33
-  store i16 %conv29, ptr %arrayidx34, align 2
-  br label %for.inc
+9:                                                ; preds = %6
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = load i32, ptr %5, align 4, !tbaa !15
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds i8, ptr %10, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !19
+  %15 = zext i8 %14 to i32
+  %16 = and i32 %15, 3
+  %17 = trunc i32 %16 to i16
+  %18 = load ptr, ptr %4, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.newhope_poly_st, ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %5, align 4, !tbaa !15
+  %21 = mul nsw i32 4, %20
+  %22 = add nsw i32 %21, 0
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [1024 x i16], ptr %19, i64 0, i64 %23
+  store i16 %17, ptr %24, align 2, !tbaa !17
+  %25 = load ptr, ptr %3, align 8, !tbaa !11
+  %26 = load i32, ptr %5, align 4, !tbaa !15
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i8, ptr %25, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !19
+  %30 = zext i8 %29 to i32
+  %31 = ashr i32 %30, 2
+  %32 = and i32 %31, 3
+  %33 = trunc i32 %32 to i16
+  %34 = load ptr, ptr %4, align 8, !tbaa !6
+  %35 = getelementptr inbounds nuw %struct.newhope_poly_st, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %5, align 4, !tbaa !15
+  %37 = mul nsw i32 4, %36
+  %38 = add nsw i32 %37, 1
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [1024 x i16], ptr %35, i64 0, i64 %39
+  store i16 %33, ptr %40, align 2, !tbaa !17
+  %41 = load ptr, ptr %3, align 8, !tbaa !11
+  %42 = load i32, ptr %5, align 4, !tbaa !15
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %41, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !19
+  %46 = zext i8 %45 to i32
+  %47 = ashr i32 %46, 4
+  %48 = and i32 %47, 3
+  %49 = trunc i32 %48 to i16
+  %50 = load ptr, ptr %4, align 8, !tbaa !6
+  %51 = getelementptr inbounds nuw %struct.newhope_poly_st, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %5, align 4, !tbaa !15
+  %53 = mul nsw i32 4, %52
+  %54 = add nsw i32 %53, 2
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds [1024 x i16], ptr %51, i64 0, i64 %55
+  store i16 %49, ptr %56, align 2, !tbaa !17
+  %57 = load ptr, ptr %3, align 8, !tbaa !11
+  %58 = load i32, ptr %5, align 4, !tbaa !15
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i8, ptr %57, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !19
+  %62 = zext i8 %61 to i32
+  %63 = ashr i32 %62, 6
+  %64 = trunc i32 %63 to i16
+  %65 = load ptr, ptr %4, align 8, !tbaa !6
+  %66 = getelementptr inbounds nuw %struct.newhope_poly_st, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %5, align 4, !tbaa !15
+  %68 = mul nsw i32 4, %67
+  %69 = add nsw i32 %68, 3
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [1024 x i16], ptr %66, i64 0, i64 %70
+  store i16 %64, ptr %71, align 2, !tbaa !17
+  br label %72
 
-for.inc:                                          ; preds = %for.body
-  %21 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %21, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+72:                                               ; preds = %9
+  %73 = load i32, ptr %5, align 4, !tbaa !15
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %5, align 4, !tbaa !15
+  br label %6, !llvm.loop !22
 
-for.end:                                          ; preds = %for.cond
+75:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) }
-attributes #5 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind allocsize(0) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS15newhope_poly_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !9, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !9, i64 0}
+!19 = !{!9, !9, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21}

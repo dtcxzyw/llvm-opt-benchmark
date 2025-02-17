@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.net::TcpCubicSenderBytes" = type { %"class.net::TcpCubicSenderBase.base", %"class.net::CubicBytes", i64, i64, i64, i64, i64, i64, i64, i64 }
 %"class.net::TcpCubicSenderBase.base" = type <{ %"class.net::SendAlgorithmInterface", %"class.net::HybridSlowStart", %"class.net::PrrSender", ptr, ptr, i8, [3 x i8], i32, i64, i64, i64, i8, i8, i8, i8, i8 }>
@@ -49,99 +49,101 @@ $_ZN7logging17LogMessageVoidifyanERSo = comdat any
 
 $_ZNK3net8RttStats7min_rttEv = comdat any
 
-@_ZTVN3net19TcpCubicSenderBytesE = dso_local unnamed_addr constant { [29 x ptr] } { [29 x ptr] [ptr null, ptr @_ZTIN3net19TcpCubicSenderBytesE, ptr @_ZN3net19TcpCubicSenderBytesD1Ev, ptr @_ZN3net19TcpCubicSenderBytesD0Ev, ptr @_ZN3net18TcpCubicSenderBase13SetFromConfigERKNS_10QuicConfigENS_11PerspectiveE, ptr @_ZN3net19TcpCubicSenderBytes25SetNumEmulatedConnectionsEi, ptr @_ZN3net18TcpCubicSenderBase17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_, ptr @_ZN3net18TcpCubicSenderBase12OnPacketSentENS_8QuicTimeEmmmNS_22HasRetransmittableDataE, ptr @_ZN3net18TcpCubicSenderBase23OnRetransmissionTimeoutEb, ptr @_ZN3net19TcpCubicSenderBytes21OnConnectionMigrationEv, ptr @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm, ptr @_ZNK3net18TcpCubicSenderBase10PacingRateEm, ptr @_ZNK3net18TcpCubicSenderBase17BandwidthEstimateEv, ptr @_ZNK3net18TcpCubicSenderBase19RetransmissionDelayEv, ptr @_ZNK3net19TcpCubicSenderBytes19GetCongestionWindowEv, ptr @_ZNK3net18TcpCubicSenderBase11InSlowStartEv, ptr @_ZNK3net18TcpCubicSenderBase10InRecoveryEv, ptr @_ZNK3net19TcpCubicSenderBytes21GetSlowStartThresholdEv, ptr @_ZNK3net19TcpCubicSenderBytes24GetCongestionControlTypeEv, ptr @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNetworkParametersEb, ptr @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev, ptr @_ZN3net18TcpCubicSenderBase20OnApplicationLimitedEm, ptr @_ZN3net19TcpCubicSenderBytes38SetCongestionWindowFromBandwidthAndRttENS_13QuicBandwidthENS_8QuicTime5DeltaE, ptr @_ZN3net19TcpCubicSenderBytes28SetCongestionWindowInPacketsEm, ptr @_ZN3net19TcpCubicSenderBytes31SetMinCongestionWindowInPacketsEm, ptr @_ZN3net19TcpCubicSenderBytes13ExitSlowstartEv, ptr @_ZN3net19TcpCubicSenderBytes12OnPacketLostEmmm, ptr @_ZN3net19TcpCubicSenderBytes17MaybeIncreaseCwndEmmm, ptr @_ZN3net19TcpCubicSenderBytes27HandleRetransmissionTimeoutEv] }, align 8
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZStorSt12_Ios_IostateS_ = comdat any
+
+@_ZTVN3net19TcpCubicSenderBytesE = unnamed_addr constant { [29 x ptr] } { [29 x ptr] [ptr null, ptr @_ZTIN3net19TcpCubicSenderBytesE, ptr @_ZN3net19TcpCubicSenderBytesD1Ev, ptr @_ZN3net19TcpCubicSenderBytesD0Ev, ptr @_ZN3net18TcpCubicSenderBase13SetFromConfigERKNS_10QuicConfigENS_11PerspectiveE, ptr @_ZN3net19TcpCubicSenderBytes25SetNumEmulatedConnectionsEi, ptr @_ZN3net18TcpCubicSenderBase17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_, ptr @_ZN3net18TcpCubicSenderBase12OnPacketSentENS_8QuicTimeEmmmNS_22HasRetransmittableDataE, ptr @_ZN3net18TcpCubicSenderBase23OnRetransmissionTimeoutEb, ptr @_ZN3net19TcpCubicSenderBytes21OnConnectionMigrationEv, ptr @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm, ptr @_ZNK3net18TcpCubicSenderBase10PacingRateEm, ptr @_ZNK3net18TcpCubicSenderBase17BandwidthEstimateEv, ptr @_ZNK3net18TcpCubicSenderBase19RetransmissionDelayEv, ptr @_ZNK3net19TcpCubicSenderBytes19GetCongestionWindowEv, ptr @_ZNK3net18TcpCubicSenderBase11InSlowStartEv, ptr @_ZNK3net18TcpCubicSenderBase10InRecoveryEv, ptr @_ZNK3net19TcpCubicSenderBytes21GetSlowStartThresholdEv, ptr @_ZNK3net19TcpCubicSenderBytes24GetCongestionControlTypeEv, ptr @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNetworkParametersEb, ptr @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev, ptr @_ZN3net18TcpCubicSenderBase20OnApplicationLimitedEm, ptr @_ZN3net19TcpCubicSenderBytes38SetCongestionWindowFromBandwidthAndRttENS_13QuicBandwidthENS_8QuicTime5DeltaE, ptr @_ZN3net19TcpCubicSenderBytes28SetCongestionWindowInPacketsEm, ptr @_ZN3net19TcpCubicSenderBytes31SetMinCongestionWindowInPacketsEm, ptr @_ZN3net19TcpCubicSenderBytes13ExitSlowstartEv, ptr @_ZN3net19TcpCubicSenderBytes12OnPacketLostEmmm, ptr @_ZN3net19TcpCubicSenderBytes17MaybeIncreaseCwndEmmm, ptr @_ZN3net19TcpCubicSenderBytes27HandleRetransmissionTimeoutEv] }, align 8
 @FLAGS_quic_no_lower_bw_resumption_limit = external global i8, align 1
 @.str = private unnamed_addr constant [156 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/src/net/quic/core/congestion_control/tcp_cubic_sender_bytes.cc\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"Never increase the CWND during recovery.\00", align 1
+@_ZTIN3net19TcpCubicSenderBytesE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net19TcpCubicSenderBytesE, ptr @_ZTIN3net18TcpCubicSenderBaseE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN3net19TcpCubicSenderBytesE = dso_local constant [28 x i8] c"N3net19TcpCubicSenderBytesE\00", align 1
+@_ZTSN3net19TcpCubicSenderBytesE = constant [28 x i8] c"N3net19TcpCubicSenderBytesE\00", align 1
 @_ZTIN3net18TcpCubicSenderBaseE = external constant ptr
-@_ZTIN3net19TcpCubicSenderBytesE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net19TcpCubicSenderBytesE, ptr @_ZTIN3net18TcpCubicSenderBaseE }, align 8
 
-@_ZN3net19TcpCubicSenderBytesC1EPKNS_9QuicClockEPKNS_8RttStatsEbmmPNS_19QuicConnectionStatsE = dso_local unnamed_addr alias void (ptr, ptr, ptr, i1, i64, i64, ptr), ptr @_ZN3net19TcpCubicSenderBytesC2EPKNS_9QuicClockEPKNS_8RttStatsEbmmPNS_19QuicConnectionStatsE
-@_ZN3net19TcpCubicSenderBytesD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net19TcpCubicSenderBytesD2Ev
+@_ZN3net19TcpCubicSenderBytesC1EPKNS_9QuicClockEPKNS_8RttStatsEbmmPNS_19QuicConnectionStatsE = unnamed_addr alias void (ptr, ptr, ptr, i1, i64, i64, ptr), ptr @_ZN3net19TcpCubicSenderBytesC2EPKNS_9QuicClockEPKNS_8RttStatsEbmmPNS_19QuicConnectionStatsE
+@_ZN3net19TcpCubicSenderBytesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3net19TcpCubicSenderBytesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytesC2EPKNS_9QuicClockEPKNS_8RttStatsEbmmPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, i64 noundef %initial_tcp_congestion_window, i64 noundef %max_congestion_window, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %clock.addr = alloca ptr, align 8
-  %rtt_stats.addr = alloca ptr, align 8
-  %reno.addr = alloca i8, align 1
-  %initial_tcp_congestion_window.addr = alloca i64, align 8
-  %max_congestion_window.addr = alloca i64, align 8
-  %stats.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %clock, ptr %clock.addr, align 8
-  store ptr %rtt_stats, ptr %rtt_stats.addr, align 8
-  %frombool = zext i1 %reno to i8
-  store i8 %frombool, ptr %reno.addr, align 1
-  store i64 %initial_tcp_congestion_window, ptr %initial_tcp_congestion_window.addr, align 8
-  store i64 %max_congestion_window, ptr %max_congestion_window.addr, align 8
-  store ptr %stats, ptr %stats.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %clock.addr, align 8
-  %1 = load ptr, ptr %rtt_stats.addr, align 8
-  %2 = load i8, ptr %reno.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %3 = load ptr, ptr %stats.addr, align 8
-  call void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %this1, ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, ptr noundef %3)
-  %4 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN3net19TcpCubicSenderBytesE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %this1, align 8
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %clock.addr, align 8
-  invoke void @_ZN3net10CubicBytesC1EPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, ptr noundef %5)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN3net19TcpCubicSenderBytesC2EPKNS_9QuicClockEPKNS_8RttStatsEbmmPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store ptr %2, ptr %10, align 8, !tbaa !10
+  %17 = zext i1 %3 to i8
+  store i8 %17, ptr %11, align 1, !tbaa !12
+  store i64 %4, ptr %12, align 8, !tbaa !14
+  store i64 %5, ptr %13, align 8, !tbaa !14
+  store ptr %6, ptr %14, align 8, !tbaa !16
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8, !tbaa !8
+  %20 = load ptr, ptr %10, align 8, !tbaa !10
+  %21 = load i8, ptr %11, align 1, !tbaa !12, !range !18, !noundef !19
+  %22 = trunc i8 %21 to i1
+  %23 = load ptr, ptr %14, align 8, !tbaa !16
+  call void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %18, ptr noundef %19, ptr noundef %20, i1 noundef zeroext %22, ptr noundef %23)
+  store ptr getelementptr inbounds inrange(-16, 216) ({ [29 x ptr] }, ptr @_ZTVN3net19TcpCubicSenderBytesE, i32 0, i32 0, i32 2), ptr %18, align 8, !tbaa !20
+  %24 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 1
+  %25 = load ptr, ptr %9, align 8, !tbaa !8
+  invoke void @_ZN3net10CubicBytesC1EPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(88) %24, ptr noundef %25)
+          to label %26 unwind label %47
 
-invoke.cont:                                      ; preds = %entry
-  %num_acked_packets_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %num_acked_packets_, align 8
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %6 = load i64, ptr %initial_tcp_congestion_window.addr, align 8
-  %mul = mul i64 %6, 1460
-  store i64 %mul, ptr %congestion_window_, align 8
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 4
-  store i64 2920, ptr %min_congestion_window_, align 8
-  %max_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 5
-  %7 = load i64, ptr %max_congestion_window.addr, align 8
-  %mul2 = mul i64 %7, 1460
-  store i64 %mul2, ptr %max_congestion_window_, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 6
-  %8 = load i64, ptr %max_congestion_window.addr, align 8
-  %mul3 = mul i64 %8, 1460
-  store i64 %mul3, ptr %slowstart_threshold_, align 8
-  %initial_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 7
-  %9 = load i64, ptr %initial_tcp_congestion_window.addr, align 8
-  %mul4 = mul i64 %9, 1460
-  store i64 %mul4, ptr %initial_tcp_congestion_window_, align 8
-  %initial_max_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 8
-  %10 = load i64, ptr %max_congestion_window.addr, align 8
-  %mul5 = mul i64 %10, 1460
-  store i64 %mul5, ptr %initial_max_tcp_congestion_window_, align 8
-  %min_slow_start_exit_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 9
-  %min_congestion_window_6 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 4
-  %11 = load i64, ptr %min_congestion_window_6, align 8
-  store i64 %11, ptr %min_slow_start_exit_window_, align 8
+26:                                               ; preds = %7
+  %27 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 2
+  store i64 0, ptr %27, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 3
+  %29 = load i64, ptr %12, align 8, !tbaa !14
+  %30 = mul i64 %29, 1460
+  store i64 %30, ptr %28, align 8, !tbaa !34
+  %31 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 4
+  store i64 2920, ptr %31, align 8, !tbaa !35
+  %32 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 5
+  %33 = load i64, ptr %13, align 8, !tbaa !14
+  %34 = mul i64 %33, 1460
+  store i64 %34, ptr %32, align 8, !tbaa !36
+  %35 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 6
+  %36 = load i64, ptr %13, align 8, !tbaa !14
+  %37 = mul i64 %36, 1460
+  store i64 %37, ptr %35, align 8, !tbaa !37
+  %38 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 7
+  %39 = load i64, ptr %12, align 8, !tbaa !14
+  %40 = mul i64 %39, 1460
+  store i64 %40, ptr %38, align 8, !tbaa !38
+  %41 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 8
+  %42 = load i64, ptr %13, align 8, !tbaa !14
+  %43 = mul i64 %42, 1460
+  store i64 %43, ptr %41, align 8, !tbaa !39
+  %44 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 9
+  %45 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %18, i32 0, i32 4
+  %46 = load i64, ptr %45, align 8, !tbaa !35
+  store i64 %46, ptr %44, align 8, !tbaa !40
   ret void
 
-lpad:                                             ; preds = %entry
-  %12 = landingpad { ptr, i32 }
+47:                                               ; preds = %7
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  call void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(141) %this1) #6
-  br label %eh.resume
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %15, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %16, align 4
+  call void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(141) %18) #9
+  br label %51
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val7
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %15, align 8
+  %53 = load i32, ptr %16, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 }
 
 declare void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141), ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) unnamed_addr #1
@@ -154,23 +156,21 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(141)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytesD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(141) %this1) #6
+define void @_ZN3net19TcpCubicSenderBytesD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(141) %3) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytesD0Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3net19TcpCubicSenderBytesD1Ev(ptr noundef nonnull align 8 dereferenceable(296) %this1) #6
-  call void @_ZdlPv(ptr noundef %this1) #7
+define void @_ZN3net19TcpCubicSenderBytesD0Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3net19TcpCubicSenderBytesD1Ev(ptr noundef nonnull align 8 dereferenceable(296) %3) #9
+  call void @_ZdlPv(ptr noundef %3) #10
   ret void
 }
 
@@ -178,168 +178,176 @@ entry:
 declare void @_ZdlPv(ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes38SetCongestionWindowFromBandwidthAndRttENS_13QuicBandwidthENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(296) %this, i64 %bandwidth.coerce, i64 %rtt.coerce0, i64 %rtt.coerce1) unnamed_addr #0 align 2 {
-entry:
-  %bandwidth = alloca %"class.net::QuicBandwidth", align 8
-  %rtt = alloca %"class.net::QuicTime::Delta", align 8
-  %this.addr = alloca ptr, align 8
-  %new_congestion_window = alloca i64, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp = alloca i64, align 8
-  %ref.tmp4 = alloca i64, align 8
-  %ref.tmp6 = alloca i64, align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicBandwidth", ptr %bandwidth, i32 0, i32 0
-  store i64 %bandwidth.coerce, ptr %coerce.dive, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %rtt, i32 0, i32 0
-  store i64 %rtt.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %rtt, i32 0, i32 1
-  store i64 %rtt.coerce1, ptr %1, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %rtt, i64 16, i1 false)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %call = call noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerPeriodENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(8) %bandwidth, i64 %3, i64 %5)
-  store i64 %call, ptr %new_congestion_window, align 8
-  %6 = load i8, ptr @FLAGS_quic_no_lower_bw_resumption_limit, align 1
-  %tobool = trunc i8 %6 to i1
-  br i1 %tobool, label %if.then, label %if.else
+define void @_ZN3net19TcpCubicSenderBytes38SetCongestionWindowFromBandwidthAndRttENS_13QuicBandwidthENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
+  %5 = alloca %"class.net::QuicBandwidth", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %"class.net::QuicTime::Delta", align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = getelementptr inbounds nuw %"class.net::QuicBandwidth", ptr %5, i32 0, i32 0
+  store i64 %1, ptr %13, align 8
+  %14 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %14, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %15, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  %16 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !41
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = call noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerPeriodENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 %18, i64 %20)
+  store i64 %21, ptr %8, align 8, !tbaa !14
+  %22 = load i8, ptr @FLAGS_quic_no_lower_bw_resumption_limit, align 1, !tbaa !12, !range !18, !noundef !19
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %30
 
-if.then:                                          ; preds = %entry
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 4
-  store i64 292000, ptr %ref.tmp, align 8
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %new_congestion_window, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %min_congestion_window_, ptr noundef nonnull align 8 dereferenceable(8) %call2)
-  %7 = load i64, ptr %call3, align 8
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %7, ptr %congestion_window_, align 8
-  br label %if.end
+24:                                               ; preds = %4
+  %25 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %16, i32 0, i32 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  store i64 292000, ptr %10, align 8, !tbaa !14
+  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26)
+  %28 = load i64, ptr %27, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %16, i32 0, i32 3
+  store i64 %28, ptr %29, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  br label %35
 
-if.else:                                          ; preds = %entry
-  store i64 292000, ptr %ref.tmp4, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %new_congestion_window, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
-  store i64 14600, ptr %ref.tmp6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6)
-  %8 = load i64, ptr %call7, align 8
-  %congestion_window_8 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %8, ptr %congestion_window_8, align 8
-  br label %if.end
+30:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  store i64 292000, ptr %11, align 8, !tbaa !14
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  store i64 14600, ptr %12, align 8, !tbaa !14
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %33 = load i64, ptr %32, align 8, !tbaa !14
+  %34 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %16, i32 0, i32 3
+  store i64 %33, ptr %34, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  br label %35
 
-if.end:                                           ; preds = %if.else, %if.then
+35:                                               ; preds = %30, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerPeriodENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(8), i64, i64) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store ptr %1, ptr %5, align 8, !tbaa !42
+  %6 = load ptr, ptr %4, align 8, !tbaa !42
+  %7 = load i64, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %5, align 8, !tbaa !42
+  %9 = load i64, ptr %8, align 8, !tbaa !14
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !42
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !42
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #3 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store ptr %1, ptr %5, align 8, !tbaa !42
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
+  %7 = load i64, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8, !tbaa !42
+  %9 = load i64, ptr %8, align 8, !tbaa !14
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !42
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !42
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes28SetCongestionWindowInPacketsEm(ptr noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %congestion_window) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %congestion_window.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %congestion_window, ptr %congestion_window.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %congestion_window.addr, align 8
-  %mul = mul i64 %0, 1460
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %mul, ptr %congestion_window_, align 8
+define void @_ZN3net19TcpCubicSenderBytes28SetCongestionWindowInPacketsEm(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !14
+  %7 = mul i64 %6, 1460
+  %8 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %5, i32 0, i32 3
+  store i64 %7, ptr %8, align 8, !tbaa !34
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes31SetMinCongestionWindowInPacketsEm(ptr noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %congestion_window) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %congestion_window.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %congestion_window, ptr %congestion_window.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %congestion_window.addr, align 8
-  %mul = mul i64 %0, 1460
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 4
-  store i64 %mul, ptr %min_congestion_window_, align 8
+define void @_ZN3net19TcpCubicSenderBytes31SetMinCongestionWindowInPacketsEm(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !14
+  %7 = mul i64 %6, 1460
+  %8 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %5, i32 0, i32 4
+  store i64 %7, ptr %8, align 8, !tbaa !35
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes25SetNumEmulatedConnectionsEi(ptr noundef nonnull align 8 dereferenceable(296) %this, i32 noundef %num_connections) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %num_connections.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %num_connections, ptr %num_connections.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %num_connections.addr, align 4
-  call void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr noundef nonnull align 8 dereferenceable(141) %this1, i32 noundef %0)
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 1
-  %num_connections_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 7
-  %1 = load i32, ptr %num_connections_, align 4
-  call void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, i32 noundef %1)
+define void @_ZN3net19TcpCubicSenderBytes25SetNumEmulatedConnectionsEi(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !44
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !44
+  call void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr noundef nonnull align 8 dereferenceable(141) %5, i32 noundef %6)
+  %7 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %5, i32 0, i32 7
+  %9 = load i32, ptr %8, align 4, !tbaa !45
+  call void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr noundef nonnull align 8 dereferenceable(88) %7, i32 noundef %9)
   ret void
 }
 
@@ -348,314 +356,316 @@ declare void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr nound
 declare void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes13ExitSlowstartEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %congestion_window_, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 6
-  store i64 %0, ptr %slowstart_threshold_, align 8
+define void @_ZN3net19TcpCubicSenderBytes13ExitSlowstartEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8, !tbaa !34
+  %6 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 6
+  store i64 %5, ptr %6, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes12OnPacketLostEmmm(ptr noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %packet_number, i64 noundef %lost_bytes, i64 noundef %bytes_in_flight) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %packet_number.addr = alloca i64, align 8
-  %lost_bytes.addr = alloca i64, align 8
-  %bytes_in_flight.addr = alloca i64, align 8
-  %ref.tmp = alloca i64, align 8
-  %true_if_passed = alloca %"class.logging::CheckOpResult", align 8
-  %ref.tmp33 = alloca %"class.logging::LogMessage", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %packet_number, ptr %packet_number.addr, align 8
-  store i64 %lost_bytes, ptr %lost_bytes.addr, align 8
-  store i64 %bytes_in_flight, ptr %bytes_in_flight.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %packet_number.addr, align 8
-  %largest_sent_at_last_cutback_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 10
-  %1 = load i64, ptr %largest_sent_at_last_cutback_, align 8
-  %cmp = icmp ule i64 %0, %1
-  br i1 %cmp, label %if.then, label %if.end9
+define void @_ZN3net19TcpCubicSenderBytes12OnPacketLostEmmm(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %"class.logging::CheckOpResult", align 8
+  %11 = alloca %"class.logging::LogMessage", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store i64 %2, ptr %7, align 8, !tbaa !14
+  store i64 %3, ptr %8, align 8, !tbaa !14
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i64, ptr %6, align 8, !tbaa !14
+  %16 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 10
+  %17 = load i64, ptr %16, align 8, !tbaa !46
+  %18 = icmp ule i64 %15, %17
+  br i1 %18, label %19, label %52
 
-if.then:                                          ; preds = %entry
-  %last_cutback_exited_slowstart_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 12
-  %2 = load i8, ptr %last_cutback_exited_slowstart_, align 1
-  %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %if.then2, label %if.end8
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 12
+  %21 = load i8, ptr %20, align 1, !tbaa !47, !range !18, !noundef !19
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %51
 
-if.then2:                                         ; preds = %if.then
-  %stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %stats_, align 8
-  %slowstart_packets_lost = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %3, i32 0, i32 14
-  %4 = load i64, ptr %slowstart_packets_lost, align 8
-  %inc = add i64 %4, 1
-  store i64 %inc, ptr %slowstart_packets_lost, align 8
-  %5 = load i64, ptr %lost_bytes.addr, align 8
-  %stats_3 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 4
-  %6 = load ptr, ptr %stats_3, align 8
-  %slowstart_bytes_lost = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %6, i32 0, i32 15
-  %7 = load i64, ptr %slowstart_bytes_lost, align 8
-  %add = add i64 %7, %5
-  store i64 %add, ptr %slowstart_bytes_lost, align 8
-  %slow_start_large_reduction_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 13
-  %8 = load i8, ptr %slow_start_large_reduction_, align 2
-  %tobool4 = trunc i8 %8 to i1
-  br i1 %tobool4, label %if.then5, label %if.end
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 4
+  %25 = load ptr, ptr %24, align 8, !tbaa !48
+  %26 = getelementptr inbounds nuw %"struct.net::QuicConnectionStats", ptr %25, i32 0, i32 14
+  %27 = load i64, ptr %26, align 8, !tbaa !49
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %26, align 8, !tbaa !49
+  %29 = load i64, ptr %7, align 8, !tbaa !14
+  %30 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8, !tbaa !48
+  %32 = getelementptr inbounds nuw %"struct.net::QuicConnectionStats", ptr %31, i32 0, i32 15
+  %33 = load i64, ptr %32, align 8, !tbaa !52
+  %34 = add i64 %33, %29
+  store i64 %34, ptr %32, align 8, !tbaa !52
+  %35 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 13
+  %36 = load i8, ptr %35, align 2, !tbaa !53, !range !18, !noundef !19
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %50
 
-if.then5:                                         ; preds = %if.then2
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %9 = load i64, ptr %congestion_window_, align 8
-  %10 = load i64, ptr %lost_bytes.addr, align 8
-  %sub = sub i64 %9, %10
-  store i64 %sub, ptr %ref.tmp, align 8
-  %min_slow_start_exit_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 9
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %min_slow_start_exit_window_)
-  %11 = load i64, ptr %call, align 8
-  %congestion_window_6 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %11, ptr %congestion_window_6, align 8
-  %congestion_window_7 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %12 = load i64, ptr %congestion_window_7, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 6
-  store i64 %12, ptr %slowstart_threshold_, align 8
-  br label %if.end
+38:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %39 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %40 = load i64, ptr %39, align 8, !tbaa !34
+  %41 = load i64, ptr %7, align 8, !tbaa !14
+  %42 = sub i64 %40, %41
+  store i64 %42, ptr %9, align 8, !tbaa !14
+  %43 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 9
+  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %43)
+  %45 = load i64, ptr %44, align 8, !tbaa !14
+  %46 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  store i64 %45, ptr %46, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  %47 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %48 = load i64, ptr %47, align 8, !tbaa !34
+  %49 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 6
+  store i64 %48, ptr %49, align 8, !tbaa !37
+  br label %50
 
-if.end:                                           ; preds = %if.then5, %if.then2
-  br label %if.end8
+50:                                               ; preds = %38, %23
+  br label %51
 
-if.end8:                                          ; preds = %if.end, %if.then
-  br label %return
+51:                                               ; preds = %50, %19
+  br label %155
 
-if.end9:                                          ; preds = %entry
-  %stats_10 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 4
-  %13 = load ptr, ptr %stats_10, align 8
-  %tcp_loss_events = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %13, i32 0, i32 29
-  %14 = load i32, ptr %tcp_loss_events, align 8
-  %inc11 = add i32 %14, 1
-  store i32 %inc11, ptr %tcp_loss_events, align 8
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
-  %15 = load ptr, ptr %vfn, align 8
-  %call12 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(141) %this1)
-  %last_cutback_exited_slowstart_13 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 12
-  %frombool = zext i1 %call12 to i8
-  store i8 %frombool, ptr %last_cutback_exited_slowstart_13, align 1
-  %vtable14 = load ptr, ptr %this1, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 13
-  %16 = load ptr, ptr %vfn15, align 8
-  %call16 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(141) %this1)
-  br i1 %call16, label %if.then17, label %if.end21
+52:                                               ; preds = %4
+  %53 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 4
+  %54 = load ptr, ptr %53, align 8, !tbaa !48
+  %55 = getelementptr inbounds nuw %"struct.net::QuicConnectionStats", ptr %54, i32 0, i32 29
+  %56 = load i32, ptr %55, align 8, !tbaa !54
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %55, align 8, !tbaa !54
+  %58 = load ptr, ptr %14, align 8, !tbaa !20
+  %59 = getelementptr inbounds ptr, ptr %58, i64 13
+  %60 = load ptr, ptr %59, align 8
+  %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(141) %14)
+  %62 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 12
+  %63 = zext i1 %61 to i8
+  store i8 %63, ptr %62, align 1, !tbaa !47
+  %64 = load ptr, ptr %14, align 8, !tbaa !20
+  %65 = getelementptr inbounds ptr, ptr %64, i64 13
+  %66 = load ptr, ptr %65, align 8
+  %67 = call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(141) %14)
+  br i1 %67, label %68, label %74
 
-if.then17:                                        ; preds = %if.end9
-  %stats_18 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 4
-  %17 = load ptr, ptr %stats_18, align 8
-  %slowstart_packets_lost19 = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %17, i32 0, i32 14
-  %18 = load i64, ptr %slowstart_packets_lost19, align 8
-  %inc20 = add i64 %18, 1
-  store i64 %inc20, ptr %slowstart_packets_lost19, align 8
-  br label %if.end21
+68:                                               ; preds = %52
+  %69 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 4
+  %70 = load ptr, ptr %69, align 8, !tbaa !48
+  %71 = getelementptr inbounds nuw %"struct.net::QuicConnectionStats", ptr %70, i32 0, i32 14
+  %72 = load i64, ptr %71, align 8, !tbaa !49
+  %73 = add i64 %72, 1
+  store i64 %73, ptr %71, align 8, !tbaa !49
+  br label %74
 
-if.end21:                                         ; preds = %if.then17, %if.end9
-  %no_prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 15
-  %19 = load i8, ptr %no_prr_, align 4
-  %tobool22 = trunc i8 %19 to i1
-  br i1 %tobool22, label %if.end24, label %if.then23
+74:                                               ; preds = %68, %52
+  %75 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 15
+  %76 = load i8, ptr %75, align 4, !tbaa !55, !range !18, !noundef !19
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %81, label %78
 
-if.then23:                                        ; preds = %if.end21
-  %prr_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 2
-  %20 = load i64, ptr %bytes_in_flight.addr, align 8
-  call void @_ZN3net9PrrSender12OnPacketLostEm(ptr noundef nonnull align 8 dereferenceable(32) %prr_, i64 noundef %20)
-  br label %if.end24
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 2
+  %80 = load i64, ptr %8, align 8, !tbaa !14
+  call void @_ZN3net9PrrSender12OnPacketLostEm(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %80)
+  br label %81
 
-if.end24:                                         ; preds = %if.then23, %if.end21
-  %slow_start_large_reduction_25 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 13
-  %21 = load i8, ptr %slow_start_large_reduction_25, align 2
-  %tobool26 = trunc i8 %21 to i1
-  br i1 %tobool26, label %land.lhs.true, label %if.else46
+81:                                               ; preds = %78, %74
+  %82 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 13
+  %83 = load i8, ptr %82, align 2, !tbaa !53, !range !18, !noundef !19
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %118
 
-land.lhs.true:                                    ; preds = %if.end24
-  %vtable27 = load ptr, ptr %this1, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 13
-  %22 = load ptr, ptr %vfn28, align 8
-  %call29 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(141) %this1)
-  br i1 %call29, label %if.then30, label %if.else46
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %14, align 8, !tbaa !20
+  %87 = getelementptr inbounds ptr, ptr %86, i64 13
+  %88 = load ptr, ptr %87, align 8
+  %89 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(141) %14)
+  br i1 %89, label %90, label %118
 
-if.then30:                                        ; preds = %land.lhs.true
-  call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed, ptr noundef null)
-  %call31 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
-  br i1 %call31, label %if.then32, label %if.else
+90:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef null)
+  %91 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  br i1 %91, label %92, label %93
 
-if.then32:                                        ; preds = %if.then30
-  br label %if.end36
+92:                                               ; preds = %90
+  br label %101
 
-if.else:                                          ; preds = %if.then30
-  %call34 = call noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
-  call void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp33, ptr noundef @.str, i32 noundef 119, i32 noundef 0, ptr noundef %call34)
-  %call35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp33)
-          to label %invoke.cont unwind label %lpad
+93:                                               ; preds = %90
+  call void @llvm.lifetime.start.p0(i64 408, ptr %11) #9
+  %94 = call noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  call void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %11, ptr noundef @.str, i32 noundef 119, i32 noundef 0, ptr noundef %94)
+  %95 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %11)
+          to label %96 unwind label %97
 
-invoke.cont:                                      ; preds = %if.else
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp33) #6
-  br label %if.end36
+96:                                               ; preds = %93
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %11) #9
+  call void @llvm.lifetime.end.p0(i64 408, ptr %11) #9
+  br label %101
 
-lpad:                                             ; preds = %if.else
-  %23 = landingpad { ptr, i32 }
+97:                                               ; preds = %93
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp33) #6
-  br label %eh.resume
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %12, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %13, align 4
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %11) #9
+  call void @llvm.lifetime.end.p0(i64 408, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  br label %156
 
-if.end36:                                         ; preds = %invoke.cont, %if.then32
-  %congestion_window_37 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %26 = load i64, ptr %congestion_window_37, align 8
-  %initial_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 7
-  %27 = load i64, ptr %initial_tcp_congestion_window_, align 8
-  %mul = mul i64 2, %27
-  %cmp38 = icmp uge i64 %26, %mul
-  br i1 %cmp38, label %if.then39, label %if.end42
+101:                                              ; preds = %96, %92
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  %102 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %103 = load i64, ptr %102, align 8, !tbaa !34
+  %104 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 7
+  %105 = load i64, ptr %104, align 8, !tbaa !38
+  %106 = mul i64 2, %105
+  %107 = icmp uge i64 %103, %106
+  br i1 %107, label %108, label %113
 
-if.then39:                                        ; preds = %if.end36
-  %congestion_window_40 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %28 = load i64, ptr %congestion_window_40, align 8
-  %div = udiv i64 %28, 2
-  %min_slow_start_exit_window_41 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 9
-  store i64 %div, ptr %min_slow_start_exit_window_41, align 8
-  br label %if.end42
+108:                                              ; preds = %101
+  %109 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %110 = load i64, ptr %109, align 8, !tbaa !34
+  %111 = udiv i64 %110, 2
+  %112 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 9
+  store i64 %111, ptr %112, align 8, !tbaa !40
+  br label %113
 
-if.end42:                                         ; preds = %if.then39, %if.end36
-  %congestion_window_43 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %29 = load i64, ptr %congestion_window_43, align 8
-  %sub44 = sub i64 %29, 1460
-  %congestion_window_45 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %sub44, ptr %congestion_window_45, align 8
-  br label %if.end59
+113:                                              ; preds = %108, %101
+  %114 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %115 = load i64, ptr %114, align 8, !tbaa !34
+  %116 = sub i64 %115, 1460
+  %117 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  store i64 %116, ptr %117, align 8, !tbaa !34
+  br label %137
 
-if.else46:                                        ; preds = %land.lhs.true, %if.end24
-  %reno_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 5
-  %30 = load i8, ptr %reno_, align 8
-  %tobool47 = trunc i8 %30 to i1
-  br i1 %tobool47, label %if.then48, label %if.else54
+118:                                              ; preds = %85, %81
+  %119 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 5
+  %120 = load i8, ptr %119, align 8, !tbaa !56, !range !18, !noundef !19
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %122, label %130
 
-if.then48:                                        ; preds = %if.else46
-  %congestion_window_49 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %31 = load i64, ptr %congestion_window_49, align 8
-  %conv = uitofp i64 %31 to float
-  %call50 = call noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnull align 8 dereferenceable(141) %this1)
-  %mul51 = fmul float %conv, %call50
-  %conv52 = fptoui float %mul51 to i64
-  %congestion_window_53 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %conv52, ptr %congestion_window_53, align 8
-  br label %if.end58
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %124 = load i64, ptr %123, align 8, !tbaa !34
+  %125 = uitofp i64 %124 to float
+  %126 = call noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnull align 8 dereferenceable(141) %14)
+  %127 = fmul float %125, %126
+  %128 = fptoui float %127 to i64
+  %129 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  store i64 %128, ptr %129, align 8, !tbaa !34
+  br label %136
 
-if.else54:                                        ; preds = %if.else46
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 1
-  %congestion_window_55 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %32 = load i64, ptr %congestion_window_55, align 8
-  %call56 = call noundef i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, i64 noundef %32)
-  %congestion_window_57 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %call56, ptr %congestion_window_57, align 8
-  br label %if.end58
+130:                                              ; preds = %118
+  %131 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 1
+  %132 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %133 = load i64, ptr %132, align 8, !tbaa !34
+  %134 = call noundef i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr noundef nonnull align 8 dereferenceable(88) %131, i64 noundef %133)
+  %135 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  store i64 %134, ptr %135, align 8, !tbaa !34
+  br label %136
 
-if.end58:                                         ; preds = %if.else54, %if.then48
-  br label %if.end59
+136:                                              ; preds = %130, %122
+  br label %137
 
-if.end59:                                         ; preds = %if.end58, %if.end42
-  %congestion_window_60 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %33 = load i64, ptr %congestion_window_60, align 8
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 4
-  %34 = load i64, ptr %min_congestion_window_, align 8
-  %cmp61 = icmp ult i64 %33, %34
-  br i1 %cmp61, label %if.then62, label %if.end65
+137:                                              ; preds = %136, %113
+  %138 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %139 = load i64, ptr %138, align 8, !tbaa !34
+  %140 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 4
+  %141 = load i64, ptr %140, align 8, !tbaa !35
+  %142 = icmp ult i64 %139, %141
+  br i1 %142, label %143, label %147
 
-if.then62:                                        ; preds = %if.end59
-  %min_congestion_window_63 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 4
-  %35 = load i64, ptr %min_congestion_window_63, align 8
-  %congestion_window_64 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %35, ptr %congestion_window_64, align 8
-  br label %if.end65
+143:                                              ; preds = %137
+  %144 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 4
+  %145 = load i64, ptr %144, align 8, !tbaa !35
+  %146 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  store i64 %145, ptr %146, align 8, !tbaa !34
+  br label %147
 
-if.end65:                                         ; preds = %if.then62, %if.end59
-  %congestion_window_66 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %36 = load i64, ptr %congestion_window_66, align 8
-  %slowstart_threshold_67 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 6
-  store i64 %36, ptr %slowstart_threshold_67, align 8
-  %largest_sent_packet_number_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 8
-  %37 = load i64, ptr %largest_sent_packet_number_, align 8
-  %largest_sent_at_last_cutback_68 = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 10
-  store i64 %37, ptr %largest_sent_at_last_cutback_68, align 8
-  %num_acked_packets_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %num_acked_packets_, align 8
-  br label %return
+147:                                              ; preds = %143, %137
+  %148 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 3
+  %149 = load i64, ptr %148, align 8, !tbaa !34
+  %150 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 6
+  store i64 %149, ptr %150, align 8, !tbaa !37
+  %151 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 8
+  %152 = load i64, ptr %151, align 8, !tbaa !57
+  %153 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %14, i32 0, i32 10
+  store i64 %152, ptr %153, align 8, !tbaa !46
+  %154 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %14, i32 0, i32 2
+  store i64 0, ptr %154, align 8, !tbaa !22
+  br label %155
 
-return:                                           ; preds = %if.end65, %if.end8
+155:                                              ; preds = %147, %51
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val69 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val69
+156:                                              ; preds = %97
+  %157 = load ptr, ptr %12, align 8
+  %158 = load i32, ptr %13, align 4
+  %159 = insertvalue { ptr, i32 } poison, ptr %157, 0
+  %160 = insertvalue { ptr, i32 } %159, i32 %158, 1
+  resume { ptr, i32 } %160
 }
 
 declare void @_ZN3net9PrrSender12OnPacketLostEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %message) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %message.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %message, ptr %message.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message.addr, align 8
-  store ptr %0, ptr %message_, align 8
+define linkonce_odr void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !58
+  store ptr %1, ptr %4, align 8, !tbaa !60
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !60
+  store ptr %7, ptr %6, align 8, !tbaa !62
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message_, align 8
-  %tobool = icmp ne ptr %0, null
-  %lnot = xor i1 %tobool, true
-  ret i1 %lnot
+define linkonce_odr noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %6 = icmp ne ptr %5, null
+  %7 = xor i1 %6, true
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message_, align 8
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  ret ptr %5
 }
 
 declare void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %stream_ = getelementptr inbounds %"class.logging::LogMessage", ptr %this1, i32 0, i32 2
-  ret ptr %stream_
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::LogMessage", ptr %3, i32 0, i32 2
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind
@@ -666,232 +676,282 @@ declare noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnu
 declare noundef i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK3net19TcpCubicSenderBytes19GetCongestionWindowEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %congestion_window_, align 8
-  ret i64 %0
+define noundef i64 @_ZNK3net19TcpCubicSenderBytes19GetCongestionWindowEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8, !tbaa !34
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK3net19TcpCubicSenderBytes21GetSlowStartThresholdEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 6
-  %0 = load i64, ptr %slowstart_threshold_, align 8
-  ret i64 %0
+define noundef i64 @_ZNK3net19TcpCubicSenderBytes21GetSlowStartThresholdEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 6
+  %5 = load i64, ptr %4, align 8, !tbaa !37
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes17MaybeIncreaseCwndEmmm(ptr noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %acked_packet_number, i64 noundef %acked_bytes, i64 noundef %bytes_in_flight) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %acked_packet_number.addr = alloca i64, align 8
-  %acked_bytes.addr = alloca i64, align 8
-  %bytes_in_flight.addr = alloca i64, align 8
-  %ref.tmp = alloca %"class.logging::LogMessageVoidify", align 1
-  %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp30 = alloca i64, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %acked_packet_number, ptr %acked_packet_number.addr, align 8
-  store i64 %acked_bytes, ptr %acked_bytes.addr, align 8
-  store i64 %bytes_in_flight, ptr %bytes_in_flight.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %call, label %land.lhs.true, label %cond.true
+define void @_ZN3net19TcpCubicSenderBytes17MaybeIncreaseCwndEmmm(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %"class.logging::LogMessageVoidify", align 1
+  %10 = alloca %"class.logging::LogMessage", align 8
+  %11 = alloca i1, align 1
+  %12 = alloca i1, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca %"class.net::QuicTime::Delta", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store i64 %2, ptr %7, align 8, !tbaa !14
+  store i64 %3, ptr %8, align 8, !tbaa !14
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #9
+  store i1 false, ptr %11, align 1
+  store i1 false, ptr %12, align 1
+  br i1 %18, label %19, label %24
 
-land.lhs.true:                                    ; preds = %entry
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
-  %0 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(141) %this1)
-  br i1 %call2, label %cond.false, label %cond.true
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %17, align 8, !tbaa !20
+  %21 = getelementptr inbounds ptr, ptr %20, i64 14
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(141) %17)
+  br i1 %23, label %25, label %24
 
-cond.true:                                        ; preds = %land.lhs.true, %entry
-  br label %cond.end
+24:                                               ; preds = %19, %4
+  br label %31
 
-cond.false:                                       ; preds = %land.lhs.true
-  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef @.str, i32 noundef 156, i32 noundef 2)
-  store i1 true, ptr %cleanup.cond, align 1
-  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3)
-          to label %invoke.cont unwind label %lpad
+25:                                               ; preds = %19
+  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  call void @llvm.lifetime.start.p0(i64 408, ptr %10) #9
+  store i1 true, ptr %11, align 1
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %10, ptr noundef @.str, i32 noundef 156, i32 noundef 2)
+  store i1 true, ptr %12, align 1
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %10)
+          to label %27 unwind label %42
 
-invoke.cont:                                      ; preds = %cond.false
-  %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef @.str.1)
-          to label %invoke.cont5 unwind label %lpad
+27:                                               ; preds = %25
+  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef @.str.1)
+          to label %29 unwind label %42
 
-invoke.cont5:                                     ; preds = %invoke.cont
-  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call6)
-          to label %invoke.cont7 unwind label %lpad
+29:                                               ; preds = %27
+  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %30 unwind label %42
 
-invoke.cont7:                                     ; preds = %invoke.cont5
-  br label %cond.end
+30:                                               ; preds = %29
+  br label %31
 
-cond.end:                                         ; preds = %invoke.cont7, %cond.true
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+31:                                               ; preds = %30, %24
+  %32 = load i1, ptr %12, align 1
+  br i1 %32, label %33, label %34
 
-cleanup.action:                                   ; preds = %cond.end
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3) #6
-  br label %cleanup.done
+33:                                               ; preds = %31
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %10) #9
+  br label %34
 
-cleanup.done:                                     ; preds = %cleanup.action, %cond.end
-  %1 = load i64, ptr %bytes_in_flight.addr, align 8
-  %call11 = call noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase13IsCwndLimitedEm(ptr noundef nonnull align 8 dereferenceable(141) %this1, i64 noundef %1)
-  br i1 %call11, label %if.end, label %if.then
+34:                                               ; preds = %33, %31
+  %35 = load i1, ptr %11, align 1
+  br i1 %35, label %36, label %37
 
-if.then:                                          ; preds = %cleanup.done
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 1
-  call void @_ZN3net10CubicBytes20OnApplicationLimitedEv(ptr noundef nonnull align 8 dereferenceable(88) %cubic_)
-  br label %if.end37
+36:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 408, ptr %10) #9
+  br label %37
 
-lpad:                                             ; preds = %invoke.cont5, %invoke.cont, %cond.false
-  %2 = landingpad { ptr, i32 }
+37:                                               ; preds = %36, %34
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #9
+  %38 = load i64, ptr %8, align 8, !tbaa !14
+  %39 = call noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase13IsCwndLimitedEm(ptr noundef nonnull align 8 dereferenceable(141) %17, i64 noundef %38)
+  br i1 %39, label %52, label %40
+
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 1
+  call void @_ZN3net10CubicBytes20OnApplicationLimitedEv(ptr noundef nonnull align 8 dereferenceable(88) %41)
+  br label %113
+
+42:                                               ; preds = %29, %27, %25
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  %cleanup.is_active8 = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active8, label %cleanup.action9, label %cleanup.done10
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  %46 = load i1, ptr %12, align 1
+  br i1 %46, label %47, label %48
 
-cleanup.action9:                                  ; preds = %lpad
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3) #6
-  br label %cleanup.done10
+47:                                               ; preds = %42
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %10) #9
+  br label %48
 
-cleanup.done10:                                   ; preds = %cleanup.action9, %lpad
-  br label %eh.resume
+48:                                               ; preds = %47, %42
+  %49 = load i1, ptr %11, align 1
+  br i1 %49, label %50, label %51
 
-if.end:                                           ; preds = %cleanup.done
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %5 = load i64, ptr %congestion_window_, align 8
-  %max_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 5
-  %6 = load i64, ptr %max_congestion_window_, align 8
-  %cmp = icmp uge i64 %5, %6
-  br i1 %cmp, label %if.then12, label %if.end13
+50:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 408, ptr %10) #9
+  br label %51
 
-if.then12:                                        ; preds = %if.end
-  br label %if.end37
+51:                                               ; preds = %50, %48
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #9
+  br label %114
 
-if.end13:                                         ; preds = %if.end
-  %vtable14 = load ptr, ptr %this1, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 13
-  %7 = load ptr, ptr %vfn15, align 8
-  %call16 = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(141) %this1)
-  br i1 %call16, label %if.then17, label %if.end19
+52:                                               ; preds = %37
+  %53 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 3
+  %54 = load i64, ptr %53, align 8, !tbaa !34
+  %55 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 5
+  %56 = load i64, ptr %55, align 8, !tbaa !36
+  %57 = icmp uge i64 %54, %56
+  br i1 %57, label %58, label %59
 
-if.then17:                                        ; preds = %if.end13
-  %congestion_window_18 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %8 = load i64, ptr %congestion_window_18, align 8
-  %add = add i64 %8, 1460
-  store i64 %add, ptr %congestion_window_18, align 8
-  br label %if.end37
+58:                                               ; preds = %52
+  br label %113
 
-if.end19:                                         ; preds = %if.end13
-  %reno_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 5
-  %9 = load i8, ptr %reno_, align 8
-  %tobool = trunc i8 %9 to i1
-  br i1 %tobool, label %if.then20, label %if.else
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %17, align 8, !tbaa !20
+  %61 = getelementptr inbounds ptr, ptr %60, i64 13
+  %62 = load ptr, ptr %61, align 8
+  %63 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(141) %17)
+  br i1 %63, label %64, label %68
 
-if.then20:                                        ; preds = %if.end19
-  %num_acked_packets_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 2
-  %10 = load i64, ptr %num_acked_packets_, align 8
-  %inc = add i64 %10, 1
-  store i64 %inc, ptr %num_acked_packets_, align 8
-  %num_acked_packets_21 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 2
-  %11 = load i64, ptr %num_acked_packets_21, align 8
-  %num_connections_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 7
-  %12 = load i32, ptr %num_connections_, align 4
-  %conv = zext i32 %12 to i64
-  %mul = mul i64 %11, %conv
-  %congestion_window_22 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %13 = load i64, ptr %congestion_window_22, align 8
-  %div = udiv i64 %13, 1460
-  %cmp23 = icmp uge i64 %mul, %div
-  br i1 %cmp23, label %if.then24, label %if.end28
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 3
+  %66 = load i64, ptr %65, align 8, !tbaa !34
+  %67 = add i64 %66, 1460
+  store i64 %67, ptr %65, align 8, !tbaa !34
+  br label %113
 
-if.then24:                                        ; preds = %if.then20
-  %congestion_window_25 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %14 = load i64, ptr %congestion_window_25, align 8
-  %add26 = add i64 %14, 1460
-  store i64 %add26, ptr %congestion_window_25, align 8
-  %num_acked_packets_27 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %num_acked_packets_27, align 8
-  br label %if.end28
+68:                                               ; preds = %59
+  %69 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %17, i32 0, i32 5
+  %70 = load i8, ptr %69, align 8, !tbaa !56, !range !18, !noundef !19
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %92
 
-if.end28:                                         ; preds = %if.then24, %if.then20
-  br label %if.end37
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 2
+  %74 = load i64, ptr %73, align 8, !tbaa !22
+  %75 = add i64 %74, 1
+  store i64 %75, ptr %73, align 8, !tbaa !22
+  %76 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 2
+  %77 = load i64, ptr %76, align 8, !tbaa !22
+  %78 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %17, i32 0, i32 7
+  %79 = load i32, ptr %78, align 4, !tbaa !45
+  %80 = zext i32 %79 to i64
+  %81 = mul i64 %77, %80
+  %82 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 3
+  %83 = load i64, ptr %82, align 8, !tbaa !34
+  %84 = udiv i64 %83, 1460
+  %85 = icmp uge i64 %81, %84
+  br i1 %85, label %86, label %91
 
-if.else:                                          ; preds = %if.end19
-  %max_congestion_window_29 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 5
-  %cubic_31 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 1
-  %15 = load i64, ptr %acked_bytes.addr, align 8
-  %congestion_window_32 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %16 = load i64, ptr %congestion_window_32, align 8
-  %rtt_stats_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 3
-  %17 = load ptr, ptr %rtt_stats_, align 8
-  %call33 = call { i64, i64 } @_ZNK3net8RttStats7min_rttEv(ptr noundef nonnull align 8 dereferenceable(224) %17)
-  %18 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %19 = extractvalue { i64, i64 } %call33, 0
-  store i64 %19, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %21 = extractvalue { i64, i64 } %call33, 1
-  store i64 %21, ptr %20, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  %call34 = call noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(88) %cubic_31, i64 noundef %15, i64 noundef %16, i64 %23, i64 %25)
-  store i64 %call34, ptr %ref.tmp30, align 8
-  %call35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %max_congestion_window_29, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30)
-  %26 = load i64, ptr %call35, align 8
-  %congestion_window_36 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %26, ptr %congestion_window_36, align 8
-  br label %if.end37
+86:                                               ; preds = %72
+  %87 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 3
+  %88 = load i64, ptr %87, align 8, !tbaa !34
+  %89 = add i64 %88, 1460
+  store i64 %89, ptr %87, align 8, !tbaa !34
+  %90 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 2
+  store i64 0, ptr %90, align 8, !tbaa !22
+  br label %91
 
-if.end37:                                         ; preds = %if.else, %if.end28, %if.then17, %if.then12, %if.then
+91:                                               ; preds = %86, %72
+  br label %113
+
+92:                                               ; preds = %68
+  %93 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  %94 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 1
+  %95 = load i64, ptr %7, align 8, !tbaa !14
+  %96 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 3
+  %97 = load i64, ptr %96, align 8, !tbaa !34
+  %98 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %17, i32 0, i32 3
+  %99 = load ptr, ptr %98, align 8, !tbaa !66
+  %100 = call { i64, i64 } @_ZNK3net8RttStats7min_rttEv(ptr noundef nonnull align 8 dereferenceable(224) %99)
+  %101 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 0
+  %102 = extractvalue { i64, i64 } %100, 0
+  store i64 %102, ptr %101, align 8
+  %103 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 1
+  %104 = extractvalue { i64, i64 } %100, 1
+  store i64 %104, ptr %103, align 8
+  %105 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 0
+  %106 = load i64, ptr %105, align 8
+  %107 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 1
+  %108 = load i64, ptr %107, align 8
+  %109 = call noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(88) %94, i64 noundef %95, i64 noundef %97, i64 %106, i64 %108)
+  store i64 %109, ptr %15, align 8, !tbaa !14
+  %110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %111 = load i64, ptr %110, align 8, !tbaa !14
+  %112 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %17, i32 0, i32 3
+  store i64 %111, ptr %112, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  br label %113
+
+113:                                              ; preds = %40, %58, %64, %92, %91
   ret void
 
-eh.resume:                                        ; preds = %cleanup.done10
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val38 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val38
+114:                                              ; preds = %51
+  %115 = load ptr, ptr %13, align 8
+  %116 = load i32, ptr %14, align 4
+  %117 = insertvalue { ptr, i32 } poison, ptr %115, 0
+  %118 = insertvalue { ptr, i32 } %117, i32 %116, 1
+  resume { ptr, i32 } %118
 }
 
 declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
+define linkonce_odr void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !69
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #8 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !71
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %13, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !69
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %10 = getelementptr i8, ptr %9, i64 -24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %12, i32 noundef 1)
+  br label %19
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !69
+  %15 = load ptr, ptr %4, align 8, !tbaa !71
+  %16 = load ptr, ptr %4, align 8, !tbaa !71
+  %17 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %16)
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15, i64 noundef %17)
+  br label %19
+
+19:                                               ; preds = %13, %7
+  %20 = load ptr, ptr %3, align 8, !tbaa !69
+  ret ptr %20
+}
 
 declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
@@ -902,79 +962,75 @@ declare void @_ZN3net10CubicBytes20OnApplicationLimitedEv(ptr noundef nonnull al
 declare noundef i64 @_ZN3net10CubicBytes24CongestionWindowAfterAckEmmNS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef, i64 noundef, i64, i64) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZNK3net8RttStats7min_rttEv(ptr noundef nonnull align 8 dereferenceable(224) %this) #3 comdat align 2 {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %min_rtt_, i64 16, i1 false)
-  %0 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %0
+define linkonce_odr { i64, i64 } @_ZNK3net8RttStats7min_rttEv(ptr noundef nonnull align 8 dereferenceable(224) %0) #3 comdat align 2 {
+  %2 = alloca %"class.net::QuicTime::Delta", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.net::RttStats", ptr %4, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !41
+  %6 = load { i64, i64 }, ptr %2, align 8
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes27HandleRetransmissionTimeoutEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 1
-  call void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull align 8 dereferenceable(88) %cubic_)
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %congestion_window_, align 8
-  %div = udiv i64 %0, 2
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 6
-  store i64 %div, ptr %slowstart_threshold_, align 8
-  %min_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 4
-  %1 = load i64, ptr %min_congestion_window_, align 8
-  %congestion_window_2 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %1, ptr %congestion_window_2, align 8
+define void @_ZN3net19TcpCubicSenderBytes27HandleRetransmissionTimeoutEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 1
+  call void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
+  %5 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 3
+  %6 = load i64, ptr %5, align 8, !tbaa !34
+  %7 = udiv i64 %6, 2
+  %8 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 6
+  store i64 %7, ptr %8, align 8, !tbaa !37
+  %9 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 4
+  %10 = load i64, ptr %9, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 3
+  store i64 %10, ptr %11, align 8, !tbaa !34
   ret void
 }
 
 declare void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull align 8 dereferenceable(88)) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19TcpCubicSenderBytes21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(141) %this1)
-  %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 1
-  call void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull align 8 dereferenceable(88) %cubic_)
-  %num_acked_packets_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %num_acked_packets_, align 8
-  %initial_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 7
-  %0 = load i64, ptr %initial_tcp_congestion_window_, align 8
-  %congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 3
-  store i64 %0, ptr %congestion_window_, align 8
-  %initial_max_tcp_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 8
-  %1 = load i64, ptr %initial_max_tcp_congestion_window_, align 8
-  %max_congestion_window_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 5
-  store i64 %1, ptr %max_congestion_window_, align 8
-  %initial_max_tcp_congestion_window_2 = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 8
-  %2 = load i64, ptr %initial_max_tcp_congestion_window_2, align 8
-  %slowstart_threshold_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 6
-  store i64 %2, ptr %slowstart_threshold_, align 8
+define void @_ZN3net19TcpCubicSenderBytes21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(141) %3)
+  %4 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 1
+  call void @_ZN3net10CubicBytes5ResetEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
+  %5 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 2
+  store i64 0, ptr %5, align 8, !tbaa !22
+  %6 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 7
+  %7 = load i64, ptr %6, align 8, !tbaa !38
+  %8 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 3
+  store i64 %7, ptr %8, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 8
+  %10 = load i64, ptr %9, align 8, !tbaa !39
+  %11 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 5
+  store i64 %10, ptr %11, align 8, !tbaa !36
+  %12 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 8
+  %13 = load i64, ptr %12, align 8, !tbaa !39
+  %14 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBytes", ptr %3, i32 0, i32 6
+  store i64 %13, ptr %14, align 8, !tbaa !37
   ret void
 }
 
 declare void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(141)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK3net19TcpCubicSenderBytes24GetCongestionControlTypeEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %reno_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 5
-  %0 = load i8, ptr %reno_, align 8
-  %tobool = trunc i8 %0 to i1
-  %cond = select i1 %tobool, i32 3, i32 1
-  ret i32 %cond
+define noundef i32 @_ZNK3net19TcpCubicSenderBytes24GetCongestionControlTypeEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::TcpCubicSenderBase", ptr %3, i32 0, i32 5
+  %5 = load i8, ptr %4, align 8, !tbaa !56, !range !18, !noundef !19
+  %6 = trunc i8 %5 to i1
+  %7 = select i1 %6, i32 3, i32 1
+  ret i32 %7
 }
 
 declare void @_ZN3net18TcpCubicSenderBase13SetFromConfigERKNS_10QuicConfigENS_11PerspectiveE(ptr noundef nonnull align 8 dereferenceable(141), ptr noundef nonnull align 8 dereferenceable(600), i32 noundef) unnamed_addr #1
@@ -999,23 +1055,158 @@ declare noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase10InRecoveryEv(ptr nound
 
 declare void @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNetworkParametersEb(ptr noundef nonnull align 8 dereferenceable(141), ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext) unnamed_addr #1
 
-declare void @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(141)) unnamed_addr #1
+declare void @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(141)) unnamed_addr #1
 
 declare void @_ZN3net18TcpCubicSenderBase20OnApplicationLimitedEm(ptr noundef nonnull align 8 dereferenceable(141), i64 noundef) unnamed_addr #1
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { builtin nounwind }
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store i32 %1, ptr %4, align 4, !tbaa !75
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !75
+  %8 = call noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %6, i32 noundef %7)
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %5, i32 noundef %8)
+  ret void
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
+  %4 = call i64 @strlen(ptr noundef %3) #9
+  ret i64 %4
+}
+
+declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) #1
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %0, i32 noundef %1) #7 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !75
+  store i32 %1, ptr %4, align 4, !tbaa !75
+  %5 = load i32, ptr %3, align 4, !tbaa !75
+  %6 = load i32, ptr %4, align 4, !tbaa !75
+  %7 = or i32 %5, %6
+  ret i32 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::ios_base", ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 8, !tbaa !77
+  ret i32 %5
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #2
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3net19TcpCubicSenderBytesE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN3net9QuicClockE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN3net8RttStatsE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"bool", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN3net19QuicConnectionStatsE", !5, i64 0}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"vtable pointer", !7, i64 0}
+!22 = !{!23, !15, i64 232}
+!23 = !{!"_ZTSN3net19TcpCubicSenderBytesE", !24, i64 0, !32, i64 144, !15, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !15, i64 264, !15, i64 272, !15, i64 280, !15, i64 288}
+!24 = !{!"_ZTSN3net18TcpCubicSenderBaseE", !25, i64 0, !26, i64 8, !31, i64 56, !11, i64 88, !17, i64 96, !13, i64 104, !28, i64 108, !15, i64 112, !15, i64 120, !15, i64 128, !13, i64 136, !13, i64 137, !13, i64 138, !13, i64 139, !13, i64 140}
+!25 = !{!"_ZTSN3net22SendAlgorithmInterfaceE"}
+!26 = !{!"_ZTSN3net15HybridSlowStartE", !13, i64 0, !27, i64 4, !15, i64 8, !15, i64 16, !28, i64 24, !29, i64 32}
+!27 = !{!"_ZTSN3net15HybridSlowStart12HystartStateE", !6, i64 0}
+!28 = !{!"int", !6, i64 0}
+!29 = !{!"_ZTSN3net8QuicTime5DeltaE", !30, i64 0, !15, i64 8}
+!30 = !{!"_ZTSN4base9TimeDeltaE", !15, i64 0}
+!31 = !{!"_ZTSN3net9PrrSenderE", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24}
+!32 = !{!"_ZTSN3net10CubicBytesE", !9, i64 0, !28, i64 8, !33, i64 16, !33, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !28, i64 72, !15, i64 80}
+!33 = !{!"_ZTSN3net8QuicTimeE", !15, i64 0}
+!34 = !{!23, !15, i64 240}
+!35 = !{!23, !15, i64 248}
+!36 = !{!23, !15, i64 256}
+!37 = !{!23, !15, i64 264}
+!38 = !{!23, !15, i64 272}
+!39 = !{!23, !15, i64 280}
+!40 = !{!23, !15, i64 288}
+!41 = !{i64 0, i64 8, !14, i64 8, i64 8, !14}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 long", !5, i64 0}
+!44 = !{!28, !28, i64 0}
+!45 = !{!24, !28, i64 108}
+!46 = !{!24, !15, i64 128}
+!47 = !{!24, !13, i64 137}
+!48 = !{!24, !17, i64 96}
+!49 = !{!50, !15, i64 112}
+!50 = !{!"_ZTSN3net19QuicConnectionStatsE", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !51, i64 200, !15, i64 208, !15, i64 216, !15, i64 224, !28, i64 232, !33, i64 240}
+!51 = !{!"_ZTSN3net13QuicBandwidthE", !15, i64 0}
+!52 = !{!50, !15, i64 120}
+!53 = !{!24, !13, i64 138}
+!54 = !{!50, !28, i64 232}
+!55 = !{!24, !13, i64 140}
+!56 = !{!24, !13, i64 104}
+!57 = !{!24, !15, i64 112}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN7logging13CheckOpResultE", !5, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!62 = !{!63, !61, i64 0}
+!63 = !{!"_ZTSN7logging13CheckOpResultE", !61, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTSN7logging10LogMessageE", !5, i64 0}
+!66 = !{!24, !11, i64 88}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSN7logging17LogMessageVoidifyE", !5, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTSSo", !5, i64 0}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 omnipotent char", !5, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSSt9basic_iosIcSt11char_traitsIcEE", !5, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!77 = !{!78, !76, i64 32}
+!78 = !{!"_ZTSSt8ios_base", !15, i64 8, !15, i64 16, !79, i64 24, !76, i64 28, !76, i64 32, !80, i64 40, !81, i64 48, !6, i64 64, !28, i64 192, !82, i64 200, !83, i64 208}
+!79 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!80 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
+!81 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !15, i64 8}
+!82 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
+!83 = !{!"_ZTSSt6locale", !84, i64 0}
+!84 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}

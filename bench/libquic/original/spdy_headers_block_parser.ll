@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.net::SpdyHeadersBlockParser" = type <{ ptr, i32, [4 x i8], i64, i64, i32, i32, ptr, %"struct.net::SpdyPinnableBufferPiece", %"struct.net::SpdyPinnableBufferPiece", i32, i32, i32, [4 x i8] }>
 %"struct.net::SpdyPinnableBufferPiece" = type { ptr, i64, %"class.std::unique_ptr" }
@@ -41,89 +41,92 @@ $_ZN4base11NetToHost32Ej = comdat any
 
 $_ZN4base8ByteSwapEj = comdat any
 
-@_ZN3net22SpdyHeadersBlockParser19kMaximumFieldLengthE = dso_local constant i64 16384, align 8
-@_ZTVN3net22SpdyHeadersBlockParserE = dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN3net22SpdyHeadersBlockParserE, ptr @_ZN3net22SpdyHeadersBlockParserD1Ev, ptr @_ZN3net22SpdyHeadersBlockParserD0Ev] }, align 8
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZStorSt12_Ios_IostateS_ = comdat any
+
+@_ZN3net22SpdyHeadersBlockParser19kMaximumFieldLengthE = constant i64 16384, align 8
+@_ZTVN3net22SpdyHeadersBlockParserE = unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN3net22SpdyHeadersBlockParserE, ptr @_ZN3net22SpdyHeadersBlockParserD1Ev, ptr @_ZN3net22SpdyHeadersBlockParserD0Ev] }, align 8
 @.str = private unnamed_addr constant [135 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/src/net/spdy/spdy_headers_block_parser.cc\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"Unexpected error: \00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"Unexpected stream id: \00", align 1
 @.str.3 = private unnamed_addr constant [12 x i8] c" (expected \00", align 1
 @.str.4 = private unnamed_addr constant [2 x i8] c")\00", align 1
 @.str.5 = private unnamed_addr constant [34 x i8] c"Expected nonzero stream id, saw: \00", align 1
+@_ZTIN3net22SpdyHeadersBlockParserE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3net22SpdyHeadersBlockParserE }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN3net22SpdyHeadersBlockParserE = dso_local constant [31 x i8] c"N3net22SpdyHeadersBlockParserE\00", align 1
-@_ZTIN3net22SpdyHeadersBlockParserE = dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3net22SpdyHeadersBlockParserE }, align 8
+@_ZTSN3net22SpdyHeadersBlockParserE = constant [31 x i8] c"N3net22SpdyHeadersBlockParserE\00", align 1
 
-@_ZN3net22SpdyHeadersBlockParserC1ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE = dso_local unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN3net22SpdyHeadersBlockParserC2ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE
-@_ZN3net22SpdyHeadersBlockParserD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net22SpdyHeadersBlockParserD2Ev
+@_ZN3net22SpdyHeadersBlockParserC1ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE = unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN3net22SpdyHeadersBlockParserC2ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE
+@_ZN3net22SpdyHeadersBlockParserD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3net22SpdyHeadersBlockParserD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParserC2ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE(ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %spdy_version, ptr noundef %handler) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %spdy_version.addr = alloca i32, align 4
-  %handler.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %spdy_version, ptr %spdy_version.addr, align 4
-  store ptr %handler, ptr %handler.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %state_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 1
-  store i32 0, ptr %state_, align 8
-  %max_headers_in_block_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 3
-  %call = call noundef i64 @_ZN3net22SpdyHeadersBlockParser18MaxNumberOfHeadersEv()
-  store i64 %call, ptr %max_headers_in_block_, align 8
-  %total_bytes_received_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 4
-  store i64 0, ptr %total_bytes_received_, align 8
-  %remaining_key_value_pairs_for_frame_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 5
-  store i32 0, ptr %remaining_key_value_pairs_for_frame_, align 8
-  %handler_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 7
-  %1 = load ptr, ptr %handler.addr, align 8
-  store ptr %1, ptr %handler_, align 8
-  %headers_block_prefix_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 8
-  call void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %headers_block_prefix_)
-  %key_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 9
-  invoke void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN3net22SpdyHeadersBlockParserC2ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %9 = load ptr, ptr %4, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i32 0, i32 0, i32 2), ptr %9, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 1
+  store i32 0, ptr %10, align 8, !tbaa !14
+  %11 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 3
+  %12 = call noundef i64 @_ZN3net22SpdyHeadersBlockParser18MaxNumberOfHeadersEv()
+  store i64 %12, ptr %11, align 8, !tbaa !28
+  %13 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 4
+  store i64 0, ptr %13, align 8, !tbaa !29
+  %14 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 5
+  store i32 0, ptr %14, align 8, !tbaa !30
+  %15 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 7
+  %16 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %16, ptr %15, align 8, !tbaa !31
+  %17 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 8
+  call void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 9
+  invoke void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %19 unwind label %24
 
-invoke.cont:                                      ; preds = %entry
-  %stream_id_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 10
-  store i32 0, ptr %stream_id_, align 8
-  %error_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 0, ptr %error_, align 4
-  %spdy_version_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 12
-  %2 = load i32, ptr %spdy_version.addr, align 4
-  store i32 %2, ptr %spdy_version_, align 8
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 10
+  store i32 0, ptr %20, align 8, !tbaa !32
+  %21 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 11
+  store i32 0, ptr %21, align 4, !tbaa !33
+  %22 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 12
+  %23 = load i32, ptr %5, align 4, !tbaa !8
+  store i32 %23, ptr %22, align 8, !tbaa !34
   ret void
 
-lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+24:                                               ; preds = %3
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %headers_block_prefix_) #7
-  br label %eh.resume
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #10
+  br label %28
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN3net22SpdyHeadersBlockParser18MaxNumberOfHeadersEv() #1 align 2 {
-entry:
-  %max_bytes_for_headers = alloca i64, align 8
-  store i64 16380, ptr %max_bytes_for_headers, align 8
-  %0 = load i64, ptr %max_bytes_for_headers, align 8
-  %div = udiv i64 %0, 8
-  ret i64 %div
+define noundef i64 @_ZN3net22SpdyHeadersBlockParser18MaxNumberOfHeadersEv() #1 align 2 {
+  %1 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #10
+  store i64 16380, ptr %1, align 8, !tbaa !35
+  %2 = load i64, ptr %1, align 8, !tbaa !35
+  %3 = udiv i64 %2, 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #10
+  ret i64 %3
 }
 
 declare void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
@@ -134,28 +137,25 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParserD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %key_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 9
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_) #7
-  %headers_block_prefix_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 8
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %headers_block_prefix_) #7
+define void @_ZN3net22SpdyHeadersBlockParserD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %3, i32 0, i32 9
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
+  %5 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %3, i32 0, i32 8
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParserD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3net22SpdyHeadersBlockParserD1Ev(ptr noundef nonnull align 8 dereferenceable(108) %this1) #7
-  call void @_ZdlPv(ptr noundef %this1) #8
+define void @_ZN3net22SpdyHeadersBlockParserD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3net22SpdyHeadersBlockParserD1Ev(ptr noundef nonnull align 8 dereferenceable(108) %3) #10
+  call void @_ZdlPv(ptr noundef %3) #11
   ret void
 }
 
@@ -163,650 +163,804 @@ entry:
 declare void @_ZdlPv(ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %stream_id, ptr noundef %headers_data, i64 noundef %headers_data_length) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %stream_id.addr = alloca i32, align 4
-  %headers_data.addr = alloca ptr, align 8
-  %headers_data_length.addr = alloca i64, align 8
-  %ref.tmp = alloca %"class.logging::LogMessageVoidify", align 1
-  %ref.tmp6 = alloca %"class.logging::LogMessage", align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp29 = alloca %"class.logging::LogMessageVoidify", align 1
-  %ref.tmp30 = alloca %"class.logging::LogMessage", align 8
-  %cleanup.cond31 = alloca i1, align 1
-  %ref.tmp62 = alloca %"class.logging::LogMessageVoidify", align 1
-  %ref.tmp63 = alloca %"class.logging::LogMessage", align 8
-  %cleanup.cond64 = alloca i1, align 1
-  %prefix = alloca %"struct.net::SpdyPinnableBufferPiece", align 8
-  %key = alloca %"struct.net::SpdyPinnableBufferPiece", align 8
-  %value = alloca %"struct.net::SpdyPinnableBufferPiece", align 8
-  %reader = alloca %"class.net::SpdyPrefixedBufferReader", align 8
-  %next_state = alloca i32, align 4
-  %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %agg.tmp118 = alloca %"class.base::BasicStringPiece", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %stream_id, ptr %stream_id.addr, align 4
-  store ptr %headers_data, ptr %headers_data.addr, align 8
-  store i64 %headers_data_length, ptr %headers_data_length.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %error_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %0 = load i32, ptr %error_, align 4
-  %cmp = icmp eq i32 %0, 1
-  br i1 %cmp, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %"class.logging::LogMessageVoidify", align 1
+  %11 = alloca %"class.logging::LogMessage", align 8
+  %12 = alloca i1, align 1
+  %13 = alloca i1, align 1
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca %"class.logging::LogMessageVoidify", align 1
+  %17 = alloca %"class.logging::LogMessage", align 8
+  %18 = alloca i1, align 1
+  %19 = alloca i1, align 1
+  %20 = alloca %"class.logging::LogMessageVoidify", align 1
+  %21 = alloca %"class.logging::LogMessage", align 8
+  %22 = alloca i1, align 1
+  %23 = alloca i1, align 1
+  %24 = alloca %"struct.net::SpdyPinnableBufferPiece", align 8
+  %25 = alloca %"struct.net::SpdyPinnableBufferPiece", align 8
+  %26 = alloca %"struct.net::SpdyPinnableBufferPiece", align 8
+  %27 = alloca %"class.net::SpdyPrefixedBufferReader", align 8
+  %28 = alloca i32, align 4
+  %29 = alloca %"class.base::BasicStringPiece", align 8
+  %30 = alloca %"class.base::BasicStringPiece", align 8
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !36
+  store ptr %2, ptr %8, align 8, !tbaa !37
+  store i64 %3, ptr %9, align 8, !tbaa !35
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  %34 = load i32, ptr %33, align 4, !tbaa !33
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %36, label %38
 
-if.then:                                          ; preds = %entry
-  %error_2 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 0, ptr %error_2, align 4
-  br label %if.end
+36:                                               ; preds = %4
+  %37 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  store i32 0, ptr %37, align 4, !tbaa !33
+  br label %38
 
-if.end:                                           ; preds = %if.then, %entry
-  %error_3 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %1 = load i32, ptr %error_3, align 4
-  %cmp4 = icmp ne i32 %1, 0
-  br i1 %cmp4, label %if.then5, label %if.end17
+38:                                               ; preds = %36, %4
+  %39 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  %40 = load i32, ptr %39, align 4, !tbaa !33
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %72
 
-if.then5:                                         ; preds = %if.end
-  %call = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %call, label %cond.false, label %cond.true
+42:                                               ; preds = %38
+  %43 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #10
+  store i1 false, ptr %12, align 1
+  store i1 false, ptr %13, align 1
+  br i1 %43, label %45, label %44
 
-cond.true:                                        ; preds = %if.then5
-  br label %cond.end
+44:                                               ; preds = %42
+  br label %55
 
-cond.false:                                       ; preds = %if.then5
-  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6, ptr noundef @.str, i32 noundef 49, i32 noundef 2)
-  store i1 true, ptr %cleanup.cond, align 1
-  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6)
-          to label %invoke.cont unwind label %lpad
+45:                                               ; preds = %42
+  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @llvm.lifetime.start.p0(i64 408, ptr %11) #10
+  store i1 true, ptr %12, align 1
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %11, ptr noundef @.str, i32 noundef 49, i32 noundef 2)
+  store i1 true, ptr %13, align 1
+  %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %11)
+          to label %47 unwind label %62
 
-invoke.cont:                                      ; preds = %cond.false
-  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef @.str.1)
-          to label %invoke.cont8 unwind label %lpad
+47:                                               ; preds = %45
+  %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef @.str.1)
+          to label %49 unwind label %62
 
-invoke.cont8:                                     ; preds = %invoke.cont
-  %error_10 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %2 = load i32, ptr %error_10, align 4
-  %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call9, i32 noundef %2)
-          to label %invoke.cont11 unwind label %lpad
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  %51 = load i32, ptr %50, align 4, !tbaa !33
+  %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %51)
+          to label %53 unwind label %62
 
-invoke.cont11:                                    ; preds = %invoke.cont8
-  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call12)
-          to label %invoke.cont13 unwind label %lpad
+53:                                               ; preds = %49
+  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %52)
+          to label %54 unwind label %62
 
-invoke.cont13:                                    ; preds = %invoke.cont11
-  br label %cond.end
+54:                                               ; preds = %53
+  br label %55
 
-cond.end:                                         ; preds = %invoke.cont13, %cond.true
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+55:                                               ; preds = %54, %44
+  %56 = load i1, ptr %13, align 1
+  br i1 %56, label %57, label %58
 
-cleanup.action:                                   ; preds = %cond.end
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #7
-  br label %cleanup.done
+57:                                               ; preds = %55
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %11) #10
+  br label %58
 
-cleanup.done:                                     ; preds = %cleanup.action, %cond.end
-  store i1 false, ptr %retval, align 1
-  br label %return
+58:                                               ; preds = %57, %55
+  %59 = load i1, ptr %12, align 1
+  br i1 %59, label %60, label %61
 
-lpad:                                             ; preds = %invoke.cont11, %invoke.cont8, %invoke.cont, %cond.false
-  %3 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  call void @llvm.lifetime.end.p0(i64 408, ptr %11) #10
+  br label %61
+
+61:                                               ; preds = %60, %58
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #10
+  store i1 false, ptr %5, align 1
+  br label %326
+
+62:                                               ; preds = %53, %49, %47, %45
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  %cleanup.is_active14 = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active14, label %cleanup.action15, label %cleanup.done16
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %14, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %15, align 4
+  %66 = load i1, ptr %13, align 1
+  br i1 %66, label %67, label %68
 
-cleanup.action15:                                 ; preds = %lpad
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #7
-  br label %cleanup.done16
+67:                                               ; preds = %62
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %11) #10
+  br label %68
 
-cleanup.done16:                                   ; preds = %cleanup.action15, %lpad
-  br label %eh.resume
+68:                                               ; preds = %67, %62
+  %69 = load i1, ptr %12, align 1
+  br i1 %69, label %70, label %71
 
-if.end17:                                         ; preds = %if.end
-  %state_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 1
-  %6 = load i32, ptr %state_, align 8
-  %cmp18 = icmp eq i32 %6, 0
-  br i1 %cmp18, label %land.lhs.true, label %if.end22
+70:                                               ; preds = %68
+  call void @llvm.lifetime.end.p0(i64 408, ptr %11) #10
+  br label %71
 
-land.lhs.true:                                    ; preds = %if.end17
-  %stream_id_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 10
-  %7 = load i32, ptr %stream_id_, align 8
-  %cmp19 = icmp eq i32 %7, 0
-  br i1 %cmp19, label %if.then20, label %if.end22
+71:                                               ; preds = %70, %68
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #10
+  br label %328
 
-if.then20:                                        ; preds = %land.lhs.true
-  %8 = load i32, ptr %stream_id.addr, align 4
-  %stream_id_21 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 10
-  store i32 %8, ptr %stream_id_21, align 8
-  br label %if.end22
+72:                                               ; preds = %38
+  %73 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 1
+  %74 = load i32, ptr %73, align 8, !tbaa !14
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %83
 
-if.end22:                                         ; preds = %if.then20, %land.lhs.true, %if.end17
-  %9 = load i32, ptr %stream_id.addr, align 4
-  %stream_id_23 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 10
-  %10 = load i32, ptr %stream_id_23, align 8
-  %cmp24 = icmp ne i32 %9, %10
-  br i1 %cmp24, label %if.then25, label %if.end55
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 10
+  %78 = load i32, ptr %77, align 8, !tbaa !32
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %83
 
-if.then25:                                        ; preds = %if.end22
-  %call26 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  store i1 false, ptr %cleanup.cond31, align 1
-  br i1 %call26, label %cond.false28, label %cond.true27
+80:                                               ; preds = %76
+  %81 = load i32, ptr %7, align 4, !tbaa !36
+  %82 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 10
+  store i32 %81, ptr %82, align 8, !tbaa !32
+  br label %83
 
-cond.true27:                                      ; preds = %if.then25
-  br label %cond.end47
+83:                                               ; preds = %80, %76, %72
+  %84 = load i32, ptr %7, align 4, !tbaa !36
+  %85 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 10
+  %86 = load i32, ptr %85, align 8, !tbaa !32
+  %87 = icmp ne i32 %84, %86
+  br i1 %87, label %88, label %126
 
-cond.false28:                                     ; preds = %if.then25
-  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29)
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp30, ptr noundef @.str, i32 noundef 59, i32 noundef 2)
-  store i1 true, ptr %cleanup.cond31, align 1
-  %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp30)
-          to label %invoke.cont33 unwind label %lpad32
+88:                                               ; preds = %83
+  %89 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #10
+  store i1 false, ptr %18, align 1
+  store i1 false, ptr %19, align 1
+  br i1 %89, label %91, label %90
 
-invoke.cont33:                                    ; preds = %cond.false28
-  %call36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call34, ptr noundef @.str.2)
-          to label %invoke.cont35 unwind label %lpad32
+90:                                               ; preds = %88
+  br label %108
 
-invoke.cont35:                                    ; preds = %invoke.cont33
-  %11 = load i32, ptr %stream_id.addr, align 4
-  %call38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call36, i32 noundef %11)
-          to label %invoke.cont37 unwind label %lpad32
+91:                                               ; preds = %88
+  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16)
+  call void @llvm.lifetime.start.p0(i64 408, ptr %17) #10
+  store i1 true, ptr %18, align 1
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %17, ptr noundef @.str, i32 noundef 59, i32 noundef 2)
+  store i1 true, ptr %19, align 1
+  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %17)
+          to label %93 unwind label %116
 
-invoke.cont37:                                    ; preds = %invoke.cont35
-  %call40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call38, ptr noundef @.str.3)
-          to label %invoke.cont39 unwind label %lpad32
+93:                                               ; preds = %91
+  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef @.str.2)
+          to label %95 unwind label %116
 
-invoke.cont39:                                    ; preds = %invoke.cont37
-  %stream_id_41 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 10
-  %12 = load i32, ptr %stream_id_41, align 8
-  %call43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call40, i32 noundef %12)
-          to label %invoke.cont42 unwind label %lpad32
+95:                                               ; preds = %93
+  %96 = load i32, ptr %7, align 4, !tbaa !36
+  %97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %94, i32 noundef %96)
+          to label %98 unwind label %116
 
-invoke.cont42:                                    ; preds = %invoke.cont39
-  %call45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call43, ptr noundef @.str.4)
-          to label %invoke.cont44 unwind label %lpad32
+98:                                               ; preds = %95
+  %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef @.str.3)
+          to label %100 unwind label %116
 
-invoke.cont44:                                    ; preds = %invoke.cont42
-  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(8) %call45)
-          to label %invoke.cont46 unwind label %lpad32
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 10
+  %102 = load i32, ptr %101, align 8, !tbaa !32
+  %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %99, i32 noundef %102)
+          to label %104 unwind label %116
 
-invoke.cont46:                                    ; preds = %invoke.cont44
-  br label %cond.end47
+104:                                              ; preds = %100
+  %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef @.str.4)
+          to label %106 unwind label %116
 
-cond.end47:                                       ; preds = %invoke.cont46, %cond.true27
-  %cleanup.is_active48 = load i1, ptr %cleanup.cond31, align 1
-  br i1 %cleanup.is_active48, label %cleanup.action49, label %cleanup.done50
+106:                                              ; preds = %104
+  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %105)
+          to label %107 unwind label %116
 
-cleanup.action49:                                 ; preds = %cond.end47
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp30) #7
-  br label %cleanup.done50
+107:                                              ; preds = %106
+  br label %108
 
-cleanup.done50:                                   ; preds = %cleanup.action49, %cond.end47
-  %error_54 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 5, ptr %error_54, align 4
-  store i1 false, ptr %retval, align 1
-  br label %return
+108:                                              ; preds = %107, %90
+  %109 = load i1, ptr %19, align 1
+  br i1 %109, label %110, label %111
 
-lpad32:                                           ; preds = %invoke.cont44, %invoke.cont42, %invoke.cont39, %invoke.cont37, %invoke.cont35, %invoke.cont33, %cond.false28
-  %13 = landingpad { ptr, i32 }
+110:                                              ; preds = %108
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %17) #10
+  br label %111
+
+111:                                              ; preds = %110, %108
+  %112 = load i1, ptr %18, align 1
+  br i1 %112, label %113, label %114
+
+113:                                              ; preds = %111
+  call void @llvm.lifetime.end.p0(i64 408, ptr %17) #10
+  br label %114
+
+114:                                              ; preds = %113, %111
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #10
+  %115 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  store i32 5, ptr %115, align 4, !tbaa !33
+  store i1 false, ptr %5, align 1
+  br label %326
+
+116:                                              ; preds = %106, %104, %100, %98, %95, %93, %91
+  %117 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  %cleanup.is_active51 = load i1, ptr %cleanup.cond31, align 1
-  br i1 %cleanup.is_active51, label %cleanup.action52, label %cleanup.done53
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %14, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %15, align 4
+  %120 = load i1, ptr %19, align 1
+  br i1 %120, label %121, label %122
 
-cleanup.action52:                                 ; preds = %lpad32
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp30) #7
-  br label %cleanup.done53
+121:                                              ; preds = %116
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %17) #10
+  br label %122
 
-cleanup.done53:                                   ; preds = %cleanup.action52, %lpad32
-  br label %eh.resume
+122:                                              ; preds = %121, %116
+  %123 = load i1, ptr %18, align 1
+  br i1 %123, label %124, label %125
 
-if.end55:                                         ; preds = %if.end22
-  %stream_id_56 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 10
-  %16 = load i32, ptr %stream_id_56, align 8
-  %cmp57 = icmp eq i32 %16, 0
-  br i1 %cmp57, label %if.then58, label %if.end82
+124:                                              ; preds = %122
+  call void @llvm.lifetime.end.p0(i64 408, ptr %17) #10
+  br label %125
 
-if.then58:                                        ; preds = %if.end55
-  %call59 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  store i1 false, ptr %cleanup.cond64, align 1
-  br i1 %call59, label %cond.false61, label %cond.true60
+125:                                              ; preds = %124, %122
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #10
+  br label %328
 
-cond.true60:                                      ; preds = %if.then58
-  br label %cond.end74
+126:                                              ; preds = %83
+  %127 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 10
+  %128 = load i32, ptr %127, align 8, !tbaa !32
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %161
 
-cond.false61:                                     ; preds = %if.then58
-  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62)
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp63, ptr noundef @.str, i32 noundef 65, i32 noundef 2)
-  store i1 true, ptr %cleanup.cond64, align 1
-  %call67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp63)
-          to label %invoke.cont66 unwind label %lpad65
+130:                                              ; preds = %126
+  %131 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #10
+  store i1 false, ptr %22, align 1
+  store i1 false, ptr %23, align 1
+  br i1 %131, label %133, label %132
 
-invoke.cont66:                                    ; preds = %cond.false61
-  %call69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call67, ptr noundef @.str.5)
-          to label %invoke.cont68 unwind label %lpad65
+132:                                              ; preds = %130
+  br label %143
 
-invoke.cont68:                                    ; preds = %invoke.cont66
-  %stream_id_70 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 10
-  %17 = load i32, ptr %stream_id_70, align 8
-  %call72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call69, i32 noundef %17)
-          to label %invoke.cont71 unwind label %lpad65
+133:                                              ; preds = %130
+  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20)
+  call void @llvm.lifetime.start.p0(i64 408, ptr %21) #10
+  store i1 true, ptr %22, align 1
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %21, ptr noundef @.str, i32 noundef 65, i32 noundef 2)
+  store i1 true, ptr %23, align 1
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %21)
+          to label %135 unwind label %151
 
-invoke.cont71:                                    ; preds = %invoke.cont68
-  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62, ptr noundef nonnull align 8 dereferenceable(8) %call72)
-          to label %invoke.cont73 unwind label %lpad65
+135:                                              ; preds = %133
+  %136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef @.str.5)
+          to label %137 unwind label %151
 
-invoke.cont73:                                    ; preds = %invoke.cont71
-  br label %cond.end74
+137:                                              ; preds = %135
+  %138 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 10
+  %139 = load i32, ptr %138, align 8, !tbaa !32
+  %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %136, i32 noundef %139)
+          to label %141 unwind label %151
 
-cond.end74:                                       ; preds = %invoke.cont73, %cond.true60
-  %cleanup.is_active75 = load i1, ptr %cleanup.cond64, align 1
-  br i1 %cleanup.is_active75, label %cleanup.action76, label %cleanup.done77
+141:                                              ; preds = %137
+  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(8) %140)
+          to label %142 unwind label %151
 
-cleanup.action76:                                 ; preds = %cond.end74
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp63) #7
-  br label %cleanup.done77
+142:                                              ; preds = %141
+  br label %143
 
-cleanup.done77:                                   ; preds = %cleanup.action76, %cond.end74
-  %error_81 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 5, ptr %error_81, align 4
-  store i1 false, ptr %retval, align 1
-  br label %return
+143:                                              ; preds = %142, %132
+  %144 = load i1, ptr %23, align 1
+  br i1 %144, label %145, label %146
 
-lpad65:                                           ; preds = %invoke.cont71, %invoke.cont68, %invoke.cont66, %cond.false61
-  %18 = landingpad { ptr, i32 }
+145:                                              ; preds = %143
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %21) #10
+  br label %146
+
+146:                                              ; preds = %145, %143
+  %147 = load i1, ptr %22, align 1
+  br i1 %147, label %148, label %149
+
+148:                                              ; preds = %146
+  call void @llvm.lifetime.end.p0(i64 408, ptr %21) #10
+  br label %149
+
+149:                                              ; preds = %148, %146
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #10
+  %150 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  store i32 5, ptr %150, align 4, !tbaa !33
+  store i1 false, ptr %5, align 1
+  br label %326
+
+151:                                              ; preds = %141, %137, %135, %133
+  %152 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
-  %cleanup.is_active78 = load i1, ptr %cleanup.cond64, align 1
-  br i1 %cleanup.is_active78, label %cleanup.action79, label %cleanup.done80
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %14, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %15, align 4
+  %155 = load i1, ptr %23, align 1
+  br i1 %155, label %156, label %157
 
-cleanup.action79:                                 ; preds = %lpad65
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp63) #7
-  br label %cleanup.done80
+156:                                              ; preds = %151
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %21) #10
+  br label %157
 
-cleanup.done80:                                   ; preds = %cleanup.action79, %lpad65
-  br label %eh.resume
+157:                                              ; preds = %156, %151
+  %158 = load i1, ptr %22, align 1
+  br i1 %158, label %159, label %160
 
-if.end82:                                         ; preds = %if.end55
-  %21 = load i64, ptr %headers_data_length.addr, align 8
-  %total_bytes_received_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 4
-  %22 = load i64, ptr %total_bytes_received_, align 8
-  %add = add i64 %22, %21
-  store i64 %add, ptr %total_bytes_received_, align 8
-  call void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %prefix)
-  invoke void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key)
-          to label %invoke.cont84 unwind label %lpad83
+159:                                              ; preds = %157
+  call void @llvm.lifetime.end.p0(i64 408, ptr %21) #10
+  br label %160
 
-invoke.cont84:                                    ; preds = %if.end82
-  invoke void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value)
-          to label %invoke.cont86 unwind label %lpad85
+160:                                              ; preds = %159, %157
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #10
+  br label %328
 
-invoke.cont86:                                    ; preds = %invoke.cont84
-  %headers_block_prefix_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 8
-  invoke void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %prefix, ptr noundef %headers_block_prefix_)
-          to label %invoke.cont88 unwind label %lpad87
+161:                                              ; preds = %126
+  %162 = load i64, ptr %9, align 8, !tbaa !35
+  %163 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 4
+  %164 = load i64, ptr %163, align 8, !tbaa !29
+  %165 = add i64 %164, %162
+  store i64 %165, ptr %163, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 24, ptr %24) #10
+  call void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %25) #10
+  invoke void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
+          to label %166 unwind label %186
 
-invoke.cont88:                                    ; preds = %invoke.cont86
-  %key_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 9
-  invoke void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef %key_)
-          to label %invoke.cont89 unwind label %lpad87
+166:                                              ; preds = %161
+  call void @llvm.lifetime.start.p0(i64 24, ptr %26) #10
+  invoke void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %167 unwind label %190
 
-invoke.cont89:                                    ; preds = %invoke.cont88
-  %call91 = invoke noundef ptr @_ZNK3net23SpdyPinnableBufferPiece6bufferEv(ptr noundef nonnull align 8 dereferenceable(24) %prefix)
-          to label %invoke.cont90 unwind label %lpad87
+167:                                              ; preds = %166
+  %168 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 8
+  invoke void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %168)
+          to label %169 unwind label %194
 
-invoke.cont90:                                    ; preds = %invoke.cont89
-  %call93 = invoke noundef i64 @_ZNK3net23SpdyPinnableBufferPiece6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %prefix)
-          to label %invoke.cont92 unwind label %lpad87
+169:                                              ; preds = %167
+  %170 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 9
+  invoke void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef %170)
+          to label %171 unwind label %194
 
-invoke.cont92:                                    ; preds = %invoke.cont90
-  %23 = load ptr, ptr %headers_data.addr, align 8
-  %24 = load i64, ptr %headers_data_length.addr, align 8
-  invoke void @_ZN3net24SpdyPrefixedBufferReaderC1EPKcmS2_m(ptr noundef nonnull align 8 dereferenceable(32) %reader, ptr noundef %call91, i64 noundef %call93, ptr noundef %23, i64 noundef %24)
-          to label %invoke.cont94 unwind label %lpad87
+171:                                              ; preds = %169
+  call void @llvm.lifetime.start.p0(i64 32, ptr %27) #10
+  %172 = invoke noundef ptr @_ZNK3net23SpdyPinnableBufferPiece6bufferEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %173 unwind label %198
 
-invoke.cont94:                                    ; preds = %invoke.cont92
-  br label %while.cond
+173:                                              ; preds = %171
+  %174 = invoke noundef i64 @_ZNK3net23SpdyPinnableBufferPiece6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %175 unwind label %198
 
-while.cond:                                       ; preds = %if.end168, %invoke.cont94
-  %error_95 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %25 = load i32, ptr %error_95, align 4
-  %cmp96 = icmp eq i32 %25, 0
-  br i1 %cmp96, label %while.body, label %while.end
+175:                                              ; preds = %173
+  %176 = load ptr, ptr %8, align 8, !tbaa !37
+  %177 = load i64, ptr %9, align 8, !tbaa !35
+  invoke void @_ZN3net24SpdyPrefixedBufferReaderC1EPKcmS2_m(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef %172, i64 noundef %174, ptr noundef %176, i64 noundef %177)
+          to label %178 unwind label %198
 
-while.body:                                       ; preds = %while.cond
-  store i32 5, ptr %next_state, align 4
-  %state_97 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 1
-  %26 = load i32, ptr %state_97, align 8
-  switch i32 %26, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb99
-    i32 2, label %sw.bb101
-    i32 3, label %sw.bb107
-    i32 4, label %sw.bb109
-    i32 5, label %sw.bb123
+178:                                              ; preds = %175
+  br label %179
+
+179:                                              ; preds = %317, %178
+  %180 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  %181 = load i32, ptr %180, align 4, !tbaa !33
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %183, label %318
+
+183:                                              ; preds = %179
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #10
+  store i32 5, ptr %28, align 4, !tbaa !38
+  %184 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 1
+  %185 = load i32, ptr %184, align 8, !tbaa !14
+  switch i32 %185, label %280 [
+    i32 0, label %202
+    i32 1, label %208
+    i32 2, label %210
+    i32 3, label %219
+    i32 4, label %221
+    i32 5, label %257
   ]
 
-lpad83:                                           ; preds = %if.end82
-  %27 = landingpad { ptr, i32 }
+186:                                              ; preds = %161
+  %187 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
-  br label %ehcleanup171
+  %188 = extractvalue { ptr, i32 } %187, 0
+  store ptr %188, ptr %14, align 8
+  %189 = extractvalue { ptr, i32 } %187, 1
+  store i32 %189, ptr %15, align 4
+  br label %325
 
-lpad85:                                           ; preds = %invoke.cont84
-  %30 = landingpad { ptr, i32 }
+190:                                              ; preds = %166
+  %191 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %192 = extractvalue { ptr, i32 } %191, 0
+  store ptr %192, ptr %14, align 8
+  %193 = extractvalue { ptr, i32 } %191, 1
+  store i32 %193, ptr %15, align 4
+  br label %324
 
-lpad87:                                           ; preds = %invoke.cont163, %invoke.cont160, %if.end159, %invoke.cont156, %if.then154, %invoke.cont131, %if.else126, %invoke.cont119, %invoke.cont116, %if.else, %sw.bb109, %sw.bb107, %sw.bb101, %sw.bb99, %sw.bb, %invoke.cont92, %invoke.cont90, %invoke.cont89, %invoke.cont88, %invoke.cont86
-  %33 = landingpad { ptr, i32 }
+194:                                              ; preds = %169, %167
+  %195 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value) #7
-  br label %ehcleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %14, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %15, align 4
+  br label %323
 
-sw.bb:                                            ; preds = %while.body
-  store i32 1, ptr %next_state, align 4
-  invoke void @_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %this1, ptr noundef %reader)
-          to label %invoke.cont98 unwind label %lpad87
+198:                                              ; preds = %175, %173, %171
+  %199 = landingpad { ptr, i32 }
+          cleanup
+  %200 = extractvalue { ptr, i32 } %199, 0
+  store ptr %200, ptr %14, align 8
+  %201 = extractvalue { ptr, i32 } %199, 1
+  store i32 %201, ptr %15, align 4
+  br label %322
 
-invoke.cont98:                                    ; preds = %sw.bb
-  br label %sw.epilog
+202:                                              ; preds = %183
+  store i32 1, ptr %28, align 4, !tbaa !38
+  invoke void @_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %32, ptr noundef %27)
+          to label %203 unwind label %204
 
-sw.bb99:                                          ; preds = %while.body
-  store i32 2, ptr %next_state, align 4
-  invoke void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %this1, ptr noundef %reader)
-          to label %invoke.cont100 unwind label %lpad87
+203:                                              ; preds = %202
+  br label %280
 
-invoke.cont100:                                   ; preds = %sw.bb99
-  br label %sw.epilog
+204:                                              ; preds = %310, %307, %305, %302, %300, %271, %263, %239, %233, %229, %221, %219, %210, %208, %202
+  %205 = landingpad { ptr, i32 }
+          cleanup
+  %206 = extractvalue { ptr, i32 } %205, 0
+  store ptr %206, ptr %14, align 8
+  %207 = extractvalue { ptr, i32 } %205, 1
+  store i32 %207, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #10
+  br label %322
 
-sw.bb101:                                         ; preds = %while.body
-  store i32 3, ptr %next_state, align 4
-  %next_field_length_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 6
-  %36 = load i32, ptr %next_field_length_, align 4
-  %conv = zext i32 %36 to i64
-  %call103 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32) %reader, i64 noundef %conv, ptr noundef %key)
-          to label %invoke.cont102 unwind label %lpad87
+208:                                              ; preds = %183
+  store i32 2, ptr %28, align 4, !tbaa !38
+  invoke void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %32, ptr noundef %27)
+          to label %209 unwind label %204
 
-invoke.cont102:                                   ; preds = %sw.bb101
-  br i1 %call103, label %if.end106, label %if.then104
+209:                                              ; preds = %208
+  br label %280
 
-if.then104:                                       ; preds = %invoke.cont102
-  %error_105 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 1, ptr %error_105, align 4
-  br label %if.end106
+210:                                              ; preds = %183
+  store i32 3, ptr %28, align 4, !tbaa !38
+  %211 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 6
+  %212 = load i32, ptr %211, align 4, !tbaa !39
+  %213 = zext i32 %212 to i64
+  %214 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %213, ptr noundef %25)
+          to label %215 unwind label %204
 
-if.end106:                                        ; preds = %if.then104, %invoke.cont102
-  br label %sw.epilog
+215:                                              ; preds = %210
+  br i1 %214, label %218, label %216
 
-sw.bb107:                                         ; preds = %while.body
-  store i32 4, ptr %next_state, align 4
-  invoke void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %this1, ptr noundef %reader)
-          to label %invoke.cont108 unwind label %lpad87
+216:                                              ; preds = %215
+  %217 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  store i32 1, ptr %217, align 4, !tbaa !33
+  br label %218
 
-invoke.cont108:                                   ; preds = %sw.bb107
-  br label %sw.epilog
+218:                                              ; preds = %216, %215
+  br label %280
 
-sw.bb109:                                         ; preds = %while.body
-  store i32 5, ptr %next_state, align 4
-  %next_field_length_110 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 6
-  %37 = load i32, ptr %next_field_length_110, align 4
-  %conv111 = zext i32 %37 to i64
-  %call113 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32) %reader, i64 noundef %conv111, ptr noundef %value)
-          to label %invoke.cont112 unwind label %lpad87
+219:                                              ; preds = %183
+  store i32 4, ptr %28, align 4, !tbaa !38
+  invoke void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %32, ptr noundef %27)
+          to label %220 unwind label %204
 
-invoke.cont112:                                   ; preds = %sw.bb109
-  br i1 %call113, label %if.else, label %if.then114
+220:                                              ; preds = %219
+  br label %280
 
-if.then114:                                       ; preds = %invoke.cont112
-  %error_115 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 1, ptr %error_115, align 4
-  br label %if.end122
+221:                                              ; preds = %183
+  store i32 5, ptr %28, align 4, !tbaa !38
+  %222 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 6
+  %223 = load i32, ptr %222, align 4, !tbaa !39
+  %224 = zext i32 %223 to i64
+  %225 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %224, ptr noundef %26)
+          to label %226 unwind label %204
 
-if.else:                                          ; preds = %invoke.cont112
-  %handler_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 7
-  %38 = load ptr, ptr %handler_, align 8
-  %call117 = invoke { ptr, i64 } @_ZNK3net23SpdyPinnableBufferPiececvN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEv(ptr noundef nonnull align 8 dereferenceable(24) %key)
-          to label %invoke.cont116 unwind label %lpad87
+226:                                              ; preds = %221
+  br i1 %225, label %229, label %227
 
-invoke.cont116:                                   ; preds = %if.else
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %40 = extractvalue { ptr, i64 } %call117, 0
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %42 = extractvalue { ptr, i64 } %call117, 1
-  store i64 %42, ptr %41, align 8
-  %call120 = invoke { ptr, i64 } @_ZNK3net23SpdyPinnableBufferPiececvN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEv(ptr noundef nonnull align 8 dereferenceable(24) %value)
-          to label %invoke.cont119 unwind label %lpad87
+227:                                              ; preds = %226
+  %228 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  store i32 1, ptr %228, align 4, !tbaa !33
+  br label %256
 
-invoke.cont119:                                   ; preds = %invoke.cont116
-  %43 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp118, i32 0, i32 0
-  %44 = extractvalue { ptr, i64 } %call120, 0
-  store ptr %44, ptr %43, align 8
-  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp118, i32 0, i32 1
-  %46 = extractvalue { ptr, i64 } %call120, 1
-  store i64 %46, ptr %45, align 8
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp118, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp118, i32 0, i32 1
-  %54 = load i64, ptr %53, align 8
-  %vtable = load ptr, ptr %38, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %55 = load ptr, ptr %vfn, align 8
-  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr %48, i64 %50, ptr %52, i64 %54)
-          to label %invoke.cont121 unwind label %lpad87
+229:                                              ; preds = %226
+  %230 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 7
+  %231 = load ptr, ptr %230, align 8, !tbaa !31
+  %232 = invoke { ptr, i64 } @_ZNK3net23SpdyPinnableBufferPiececvN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEv(ptr noundef nonnull align 8 dereferenceable(24) %25)
+          to label %233 unwind label %204
 
-invoke.cont121:                                   ; preds = %invoke.cont119
-  br label %if.end122
+233:                                              ; preds = %229
+  %234 = getelementptr inbounds nuw { ptr, i64 }, ptr %29, i32 0, i32 0
+  %235 = extractvalue { ptr, i64 } %232, 0
+  store ptr %235, ptr %234, align 8
+  %236 = getelementptr inbounds nuw { ptr, i64 }, ptr %29, i32 0, i32 1
+  %237 = extractvalue { ptr, i64 } %232, 1
+  store i64 %237, ptr %236, align 8
+  %238 = invoke { ptr, i64 } @_ZNK3net23SpdyPinnableBufferPiececvN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEv(ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %239 unwind label %204
 
-if.end122:                                        ; preds = %invoke.cont121, %if.then114
-  br label %sw.epilog
+239:                                              ; preds = %233
+  %240 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 0
+  %241 = extractvalue { ptr, i64 } %238, 0
+  store ptr %241, ptr %240, align 8
+  %242 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 1
+  %243 = extractvalue { ptr, i64 } %238, 1
+  store i64 %243, ptr %242, align 8
+  %244 = getelementptr inbounds nuw { ptr, i64 }, ptr %29, i32 0, i32 0
+  %245 = load ptr, ptr %244, align 8
+  %246 = getelementptr inbounds nuw { ptr, i64 }, ptr %29, i32 0, i32 1
+  %247 = load i64, ptr %246, align 8
+  %248 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 0
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 1
+  %251 = load i64, ptr %250, align 8
+  %252 = load ptr, ptr %231, align 8, !tbaa !12
+  %253 = getelementptr inbounds ptr, ptr %252, i64 3
+  %254 = load ptr, ptr %253, align 8
+  invoke void %254(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr %245, i64 %247, ptr %249, i64 %251)
+          to label %255 unwind label %204
 
-sw.bb123:                                         ; preds = %while.body
-  %remaining_key_value_pairs_for_frame_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 5
-  %56 = load i32, ptr %remaining_key_value_pairs_for_frame_, align 8
-  %dec = add i32 %56, -1
-  store i32 %dec, ptr %remaining_key_value_pairs_for_frame_, align 8
-  %cmp124 = icmp ugt i32 %dec, 0
-  br i1 %cmp124, label %if.then125, label %if.else126
+255:                                              ; preds = %239
+  br label %256
 
-if.then125:                                       ; preds = %sw.bb123
-  store i32 1, ptr %next_state, align 4
-  br label %if.end139
+256:                                              ; preds = %255, %227
+  br label %280
 
-if.else126:                                       ; preds = %sw.bb123
-  store i32 0, ptr %next_state, align 4
-  %handler_127 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 7
-  %57 = load ptr, ptr %handler_127, align 8
-  %total_bytes_received_128 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 4
-  %58 = load i64, ptr %total_bytes_received_128, align 8
-  %vtable129 = load ptr, ptr %57, align 8
-  %vfn130 = getelementptr inbounds ptr, ptr %vtable129, i64 4
-  %59 = load ptr, ptr %vfn130, align 8
-  invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %57, i64 noundef %58)
-          to label %invoke.cont131 unwind label %lpad87
+257:                                              ; preds = %183
+  %258 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 5
+  %259 = load i32, ptr %258, align 8, !tbaa !30
+  %260 = add i32 %259, -1
+  store i32 %260, ptr %258, align 8, !tbaa !30
+  %261 = icmp ugt i32 %260, 0
+  br i1 %261, label %262, label %263
 
-invoke.cont131:                                   ; preds = %if.else126
-  %stream_id_132 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 10
-  store i32 0, ptr %stream_id_132, align 8
-  %call134 = invoke noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(32) %reader)
-          to label %invoke.cont133 unwind label %lpad87
+262:                                              ; preds = %257
+  store i32 1, ptr %28, align 4, !tbaa !38
+  br label %279
 
-invoke.cont133:                                   ; preds = %invoke.cont131
-  %cmp135 = icmp ne i64 %call134, 0
-  br i1 %cmp135, label %if.then136, label %if.end138
+263:                                              ; preds = %257
+  store i32 0, ptr %28, align 4, !tbaa !38
+  %264 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 7
+  %265 = load ptr, ptr %264, align 8, !tbaa !31
+  %266 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 4
+  %267 = load i64, ptr %266, align 8, !tbaa !29
+  %268 = load ptr, ptr %265, align 8, !tbaa !12
+  %269 = getelementptr inbounds ptr, ptr %268, i64 4
+  %270 = load ptr, ptr %269, align 8
+  invoke void %270(ptr noundef nonnull align 8 dereferenceable(8) %265, i64 noundef %267)
+          to label %271 unwind label %204
 
-if.then136:                                       ; preds = %invoke.cont133
-  %error_137 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 2, ptr %error_137, align 4
-  br label %if.end138
+271:                                              ; preds = %263
+  %272 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 10
+  store i32 0, ptr %272, align 8, !tbaa !32
+  %273 = invoke noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+          to label %274 unwind label %204
 
-if.end138:                                        ; preds = %if.then136, %invoke.cont133
-  br label %if.end139
+274:                                              ; preds = %271
+  %275 = icmp ne i64 %273, 0
+  br i1 %275, label %276, label %278
 
-if.end139:                                        ; preds = %if.end138, %if.then125
-  br label %sw.epilog
+276:                                              ; preds = %274
+  %277 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  store i32 2, ptr %277, align 4, !tbaa !33
+  br label %278
 
-sw.epilog:                                        ; preds = %if.end139, %if.end122, %invoke.cont108, %if.end106, %invoke.cont100, %invoke.cont98, %while.body
-  %error_140 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %60 = load i32, ptr %error_140, align 4
-  %cmp141 = icmp eq i32 %60, 0
-  br i1 %cmp141, label %if.then142, label %if.else148
+278:                                              ; preds = %276, %274
+  br label %279
 
-if.then142:                                       ; preds = %sw.epilog
-  %61 = load i32, ptr %next_state, align 4
-  %state_143 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 1
-  store i32 %61, ptr %state_143, align 8
-  %62 = load i32, ptr %next_state, align 4
-  %cmp144 = icmp eq i32 %62, 0
-  br i1 %cmp144, label %if.then145, label %if.end147
+279:                                              ; preds = %278, %262
+  br label %280
 
-if.then145:                                       ; preds = %if.then142
-  %total_bytes_received_146 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 4
-  store i64 0, ptr %total_bytes_received_146, align 8
-  br label %while.end
+280:                                              ; preds = %183, %279, %256, %220, %218, %209, %203
+  %281 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  %282 = load i32, ptr %281, align 4, !tbaa !33
+  %283 = icmp eq i32 %282, 0
+  br i1 %283, label %284, label %292
 
-if.end147:                                        ; preds = %if.then142
-  br label %if.end168
+284:                                              ; preds = %280
+  %285 = load i32, ptr %28, align 4, !tbaa !38
+  %286 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 1
+  store i32 %285, ptr %286, align 8, !tbaa !14
+  %287 = load i32, ptr %28, align 4, !tbaa !38
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %289, label %291
 
-if.else148:                                       ; preds = %sw.epilog
-  %error_149 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %63 = load i32, ptr %error_149, align 4
-  %cmp150 = icmp eq i32 %63, 1
-  br i1 %cmp150, label %if.then151, label %if.end167
+289:                                              ; preds = %284
+  %290 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 4
+  store i64 0, ptr %290, align 8, !tbaa !29
+  store i32 3, ptr %31, align 4
+  br label %315
 
-if.then151:                                       ; preds = %if.else148
-  %state_152 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 1
-  %64 = load i32, ptr %state_152, align 8
-  %cmp153 = icmp sgt i32 %64, 2
-  br i1 %cmp153, label %if.then154, label %if.end159
+291:                                              ; preds = %284
+  br label %314
 
-if.then154:                                       ; preds = %if.then151
-  %key_155 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 9
-  invoke void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %key_155, ptr noundef %key)
-          to label %invoke.cont156 unwind label %lpad87
+292:                                              ; preds = %280
+  %293 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  %294 = load i32, ptr %293, align 4, !tbaa !33
+  %295 = icmp eq i32 %294, 1
+  br i1 %295, label %296, label %313
 
-invoke.cont156:                                   ; preds = %if.then154
-  %key_157 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 9
-  invoke void @_ZN3net23SpdyPinnableBufferPiece3PinEv(ptr noundef nonnull align 8 dereferenceable(24) %key_157)
-          to label %invoke.cont158 unwind label %lpad87
+296:                                              ; preds = %292
+  %297 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 1
+  %298 = load i32, ptr %297, align 8, !tbaa !14
+  %299 = icmp sgt i32 %298, 2
+  br i1 %299, label %300, label %305
 
-invoke.cont158:                                   ; preds = %invoke.cont156
-  br label %if.end159
+300:                                              ; preds = %296
+  %301 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 9
+  invoke void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %301, ptr noundef %25)
+          to label %302 unwind label %204
 
-if.end159:                                        ; preds = %invoke.cont158, %if.then151
-  %call161 = invoke noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(32) %reader)
-          to label %invoke.cont160 unwind label %lpad87
+302:                                              ; preds = %300
+  %303 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 9
+  invoke void @_ZN3net23SpdyPinnableBufferPiece3PinEv(ptr noundef nonnull align 8 dereferenceable(24) %303)
+          to label %304 unwind label %204
 
-invoke.cont160:                                   ; preds = %if.end159
-  %headers_block_prefix_162 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 8
-  %call164 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32) %reader, i64 noundef %call161, ptr noundef %headers_block_prefix_162)
-          to label %invoke.cont163 unwind label %lpad87
+304:                                              ; preds = %302
+  br label %305
 
-invoke.cont163:                                   ; preds = %invoke.cont160
-  %headers_block_prefix_165 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 8
-  invoke void @_ZN3net23SpdyPinnableBufferPiece3PinEv(ptr noundef nonnull align 8 dereferenceable(24) %headers_block_prefix_165)
-          to label %invoke.cont166 unwind label %lpad87
+305:                                              ; preds = %304, %296
+  %306 = invoke noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+          to label %307 unwind label %204
 
-invoke.cont166:                                   ; preds = %invoke.cont163
-  br label %if.end167
+307:                                              ; preds = %305
+  %308 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 8
+  %309 = invoke noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %306, ptr noundef %308)
+          to label %310 unwind label %204
 
-if.end167:                                        ; preds = %invoke.cont166, %if.else148
-  br label %if.end168
+310:                                              ; preds = %307
+  %311 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 8
+  invoke void @_ZN3net23SpdyPinnableBufferPiece3PinEv(ptr noundef nonnull align 8 dereferenceable(24) %311)
+          to label %312 unwind label %204
 
-if.end168:                                        ; preds = %if.end167, %if.end147
-  br label %while.cond, !llvm.loop !5
+312:                                              ; preds = %310
+  br label %313
 
-while.end:                                        ; preds = %if.then145, %while.cond
-  %error_169 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %65 = load i32, ptr %error_169, align 4
-  %cmp170 = icmp eq i32 %65, 0
-  store i1 %cmp170, ptr %retval, align 1
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value) #7
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key) #7
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %prefix) #7
-  br label %return
+313:                                              ; preds = %312, %292
+  br label %314
 
-ehcleanup:                                        ; preds = %lpad87, %lpad85
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key) #7
-  br label %ehcleanup171
+314:                                              ; preds = %313, %291
+  store i32 0, ptr %31, align 4
+  br label %315
 
-ehcleanup171:                                     ; preds = %ehcleanup, %lpad83
-  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %prefix) #7
-  br label %eh.resume
+315:                                              ; preds = %314, %289
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #10
+  %316 = load i32, ptr %31, align 4
+  switch i32 %316, label %333 [
+    i32 0, label %317
+    i32 3, label %318
+  ]
 
-return:                                           ; preds = %while.end, %cleanup.done77, %cleanup.done50, %cleanup.done
-  %66 = load i1, ptr %retval, align 1
-  ret i1 %66
+317:                                              ; preds = %315
+  br label %179, !llvm.loop !40
 
-eh.resume:                                        ; preds = %ehcleanup171, %cleanup.done80, %cleanup.done53, %cleanup.done16
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val172 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val172
+318:                                              ; preds = %315, %179
+  %319 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %32, i32 0, i32 11
+  %320 = load i32, ptr %319, align 4, !tbaa !33
+  %321 = icmp eq i32 %320, 0
+  store i1 %321, ptr %5, align 1
+  store i32 1, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %27) #10
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %26) #10
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %25) #10
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #10
+  br label %326
+
+322:                                              ; preds = %204, %198
+  call void @llvm.lifetime.end.p0(i64 32, ptr %27) #10
+  br label %323
+
+323:                                              ; preds = %322, %194
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #10
+  br label %324
+
+324:                                              ; preds = %323, %190
+  call void @llvm.lifetime.end.p0(i64 24, ptr %26) #10
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  br label %325
+
+325:                                              ; preds = %324, %186
+  call void @llvm.lifetime.end.p0(i64 24, ptr %25) #10
+  call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #10
+  br label %328
+
+326:                                              ; preds = %318, %149, %114, %61
+  %327 = load i1, ptr %5, align 1
+  ret i1 %327
+
+328:                                              ; preds = %325, %160, %125, %71
+  %329 = load ptr, ptr %14, align 8
+  %330 = load i32, ptr %15, align 4
+  %331 = insertvalue { ptr, i32 } poison, ptr %329, 0
+  %332 = insertvalue { ptr, i32 } %331, i32 %330, 1
+  resume { ptr, i32 } %332
+
+333:                                              ; preds = %315
+  unreachable
 }
 
 declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
+define linkonce_odr void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !44
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #2
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #6 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %13, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !44
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  %10 = getelementptr i8, ptr %9, i64 -24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %12, i32 noundef 1)
+  br label %19
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !44
+  %15 = load ptr, ptr %4, align 8, !tbaa !37
+  %16 = load ptr, ptr %4, align 8, !tbaa !37
+  %17 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %16)
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15, i64 noundef %17)
+  br label %19
+
+19:                                               ; preds = %13, %7
+  %20 = load ptr, ptr %3, align 8, !tbaa !44
+  ret ptr %20
+}
 
 declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %stream_ = getelementptr inbounds %"class.logging::LogMessage", ptr %this1, i32 0, i32 2
-  ret ptr %stream_
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::LogMessage", ptr %3, i32 0, i32 2
+  ret ptr %4
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #2
@@ -814,131 +968,140 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 ; Function Attrs: nounwind
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i32 %1, ptr %4, align 4, !tbaa !36
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !36
+  %7 = zext i32 %6 to i64
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %7)
+  ret ptr %8
+}
 
 declare void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK3net23SpdyPinnableBufferPiece6bufferEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %buffer_, align 8
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZNK3net23SpdyPinnableBufferPiece6bufferEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.net::SpdyPinnableBufferPiece", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK3net23SpdyPinnableBufferPiece6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %length_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %length_, align 8
-  ret i64 %0
+define linkonce_odr noundef i64 @_ZNK3net23SpdyPinnableBufferPiece6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.net::SpdyPinnableBufferPiece", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !51
+  ret i64 %5
 }
 
 declare void @_ZN3net24SpdyPrefixedBufferReaderC1EPKcmS2_m(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef %reader) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %reader.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %reader, ptr %reader.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %reader.addr, align 8
-  %remaining_key_value_pairs_for_frame_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 5
-  call void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr noundef nonnull align 8 dereferenceable(108) %this1, ptr noundef %0, ptr noundef %remaining_key_value_pairs_for_frame_)
-  %error_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %1 = load i32, ptr %error_, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define void @_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !52
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !52
+  %7 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 5
+  call void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr noundef nonnull align 8 dereferenceable(108) %5, ptr noundef %6, ptr noundef %7)
+  %8 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 11
+  %9 = load i32, ptr %8, align 4, !tbaa !33
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %20
 
-land.lhs.true:                                    ; preds = %entry
-  %remaining_key_value_pairs_for_frame_2 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %remaining_key_value_pairs_for_frame_2, align 8
-  %conv = zext i32 %2 to i64
-  %max_headers_in_block_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 3
-  %3 = load i64, ptr %max_headers_in_block_, align 8
-  %cmp3 = icmp ugt i64 %conv, %3
-  br i1 %cmp3, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 5
+  %13 = load i32, ptr %12, align 8, !tbaa !30
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 3
+  %16 = load i64, ptr %15, align 8, !tbaa !28
+  %17 = icmp ugt i64 %14, %16
+  br i1 %17, label %18, label %20
 
-if.then:                                          ; preds = %land.lhs.true
-  %error_4 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 3, ptr %error_4, align 4
-  br label %if.end
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 11
+  store i32 3, ptr %19, align 4, !tbaa !33
+  br label %20
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %error_5 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %4 = load i32, ptr %error_5, align 4
-  %cmp6 = icmp eq i32 %4, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+20:                                               ; preds = %18, %11, %2
+  %21 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 11
+  %22 = load i32, ptr %21, align 4, !tbaa !33
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %30
 
-if.then7:                                         ; preds = %if.end
-  %handler_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 7
-  %5 = load ptr, ptr %handler_, align 8
-  %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %6 = load ptr, ptr %vfn, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %if.end8
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 7
+  %26 = load ptr, ptr %25, align 8, !tbaa !31
+  %27 = load ptr, ptr %26, align 8, !tbaa !12
+  %28 = getelementptr inbounds ptr, ptr %27, i64 2
+  %29 = load ptr, ptr %28, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %26)
+  br label %30
 
-if.end8:                                          ; preds = %if.then7, %if.end
+30:                                               ; preds = %24, %20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef %reader) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %reader.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %reader, ptr %reader.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %reader.addr, align 8
-  %next_field_length_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 6
-  call void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr noundef nonnull align 8 dereferenceable(108) %this1, ptr noundef %0, ptr noundef %next_field_length_)
-  %error_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  %1 = load i32, ptr %error_, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !52
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !52
+  %7 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 6
+  call void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr noundef nonnull align 8 dereferenceable(108) %5, ptr noundef %6, ptr noundef %7)
+  %8 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 11
+  %9 = load i32, ptr %8, align 4, !tbaa !33
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %18
 
-land.lhs.true:                                    ; preds = %entry
-  %next_field_length_2 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 6
-  %2 = load i32, ptr %next_field_length_2, align 4
-  %conv = zext i32 %2 to i64
-  %cmp3 = icmp ugt i64 %conv, 16384
-  br i1 %cmp3, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 6
+  %13 = load i32, ptr %12, align 4, !tbaa !39
+  %14 = zext i32 %13 to i64
+  %15 = icmp ugt i64 %14, 16384
+  br i1 %15, label %16, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %error_4 = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 4, ptr %error_4, align 4
-  br label %if.end
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %5, i32 0, i32 11
+  store i32 4, ptr %17, align 4, !tbaa !33
+  br label %18
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+18:                                               ; preds = %16, %11, %2
   ret void
 }
 
 declare noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { ptr, i64 } @_ZNK3net23SpdyPinnableBufferPiececvN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.base::BasicStringPiece", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %buffer_, align 8
-  %length_ = getelementptr inbounds %"struct.net::SpdyPinnableBufferPiece", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %length_, align 8
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %0, i64 noundef %1)
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+define linkonce_odr { ptr, i64 } @_ZNK3net23SpdyPinnableBufferPiececvN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca %"class.base::BasicStringPiece", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !48
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.net::SpdyPinnableBufferPiece", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
+  %7 = getelementptr inbounds nuw %"struct.net::SpdyPinnableBufferPiece", ptr %4, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8, !tbaa !51
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %6, i64 noundef %8)
+  %9 = load { ptr, i64 }, ptr %2, align 8
+  ret { ptr, i64 } %9
 }
 
 declare noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
@@ -946,85 +1109,236 @@ declare noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr noundef n
 declare void @_ZN3net23SpdyPinnableBufferPiece3PinEv(ptr noundef nonnull align 8 dereferenceable(24)) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef %reader, ptr noundef %parsed_length) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %reader.addr = alloca ptr, align 8
-  %parsed_length.addr = alloca ptr, align 8
-  %buffer = alloca [4 x i8], align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %reader, ptr %reader.addr, align 8
-  store ptr %parsed_length, ptr %parsed_length.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %buffer, i8 0, i64 4, i1 false)
-  %0 = load ptr, ptr %reader.addr, align 8
-  %arraydecay = getelementptr inbounds [4 x i8], ptr %buffer, i64 0, i64 0
-  %call = call noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 4, ptr noundef %arraydecay)
-  br i1 %call, label %if.end, label %if.then
+define void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca [4 x i8], align 1
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !52
+  store ptr %2, ptr %6, align 8, !tbaa !54
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 4, i1 false)
+  %10 = load ptr, ptr %5, align 8, !tbaa !52
+  %11 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 0
+  %12 = call noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 4, ptr noundef %11)
+  br i1 %12, label %15, label %13
 
-if.then:                                          ; preds = %entry
-  %error_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
-  store i32 1, ptr %error_, align 4
-  br label %return
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw %"class.net::SpdyHeadersBlockParser", ptr %9, i32 0, i32 11
+  store i32 1, ptr %14, align 4, !tbaa !33
+  store i32 1, ptr %8, align 4
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %arraydecay2 = getelementptr inbounds [4 x i8], ptr %buffer, i64 0, i64 0
-  %1 = load i32, ptr %arraydecay2, align 1
-  %call3 = call noundef i32 @_ZN4base11NetToHost32Ej(i32 noundef %1)
-  %2 = load ptr, ptr %parsed_length.addr, align 8
-  store i32 %call3, ptr %2, align 4
-  br label %return
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 0
+  %17 = load i32, ptr %16, align 1, !tbaa !36
+  %18 = call noundef i32 @_ZN4base11NetToHost32Ej(i32 noundef %17)
+  %19 = load ptr, ptr %6, align 8, !tbaa !54
+  store i32 %18, ptr %19, align 4, !tbaa !36
+  store i32 0, ptr %8, align 4
+  br label %20
 
-return:                                           ; preds = %if.end, %if.then
+20:                                               ; preds = %15, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  %21 = load i32, ptr %8, align 4
+  switch i32 %21, label %23 [
+    i32 0, label %22
+    i32 1, label %22
+  ]
+
+22:                                               ; preds = %20, %20
   ret void
+
+23:                                               ; preds = %20
+  unreachable
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) #2
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4base11NetToHost32Ej(i32 noundef %x) #0 comdat {
-entry:
-  %x.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %call = call noundef i32 @_ZN4base8ByteSwapEj(i32 noundef %0)
-  ret i32 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN4base11NetToHost32Ej(i32 noundef %0) #6 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !36
+  %3 = load i32, ptr %2, align 4, !tbaa !36
+  %4 = call noundef i32 @_ZN4base8ByteSwapEj(i32 noundef %3)
+  ret i32 %4
 }
 
-declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #2
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4base8ByteSwapEj(i32 noundef %x) #1 comdat {
-entry:
-  %x.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %0 = load i32, ptr %x.addr, align 4
-  %1 = call i32 @llvm.bswap.i32(i32 %0)
-  ret i32 %1
+define available_externally void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  store i64 %2, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.base::BasicStringPiece", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !37
+  store ptr %9, ptr %8, align 8, !tbaa !58
+  %10 = getelementptr inbounds nuw %"class.base::BasicStringPiece", ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8, !tbaa !35
+  store i64 %11, ptr %10, align 8, !tbaa !60
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN4base8ByteSwapEj(i32 noundef %0) #8 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !36
+  %3 = load i32, ptr %2, align 4, !tbaa !36
+  %4 = call i32 @llvm.bswap.i32(i32 %3)
+  ret i32 %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #9
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { builtin nounwind }
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store i32 %1, ptr %4, align 4, !tbaa !63
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !63
+  %8 = call noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %6, i32 noundef %7)
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %5, i32 noundef %8)
+  ret void
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %4 = call i64 @strlen(ptr noundef %3) #10
+  ret i64 %4
+}
+
+declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) #2
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %0, i32 noundef %1) #8 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !63
+  store i32 %1, ptr %4, align 4, !tbaa !63
+  %5 = load i32, ptr %3, align 4, !tbaa !63
+  %6 = load i32, ptr %4, align 4, !tbaa !63
+  %7 = or i32 %5, %6
+  ret i32 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::ios_base", ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 8, !tbaa !65
+  ret i32 %5
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #3
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #2
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3net22SpdyHeadersBlockParserE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"_ZTSN3net16SpdyMajorVersionE", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN3net27SpdyHeadersHandlerInterfaceE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"vtable pointer", !7, i64 0}
+!14 = !{!15, !16, i64 8}
+!15 = !{!"_ZTSN3net22SpdyHeadersBlockParserE", !16, i64 8, !17, i64 16, !17, i64 24, !18, i64 32, !18, i64 36, !11, i64 40, !19, i64 48, !19, i64 72, !18, i64 96, !27, i64 100, !9, i64 104}
+!16 = !{!"_ZTSN3net22SpdyHeadersBlockParser11ParserStateE", !6, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!"int", !6, i64 0}
+!19 = !{!"_ZTSN3net23SpdyPinnableBufferPieceE", !20, i64 0, !17, i64 8, !21, i64 16}
+!20 = !{!"p1 omnipotent char", !5, i64 0}
+!21 = !{!"_ZTSSt10unique_ptrIA_cSt14default_deleteIS0_EE", !22, i64 0}
+!22 = !{!"_ZTSSt15__uniq_ptr_dataIcSt14default_deleteIA_cELb1ELb1EE", !23, i64 0}
+!23 = !{!"_ZTSSt15__uniq_ptr_implIcSt14default_deleteIA_cEE", !24, i64 0}
+!24 = !{!"_ZTSSt5tupleIJPcSt14default_deleteIA_cEEE", !25, i64 0}
+!25 = !{!"_ZTSSt11_Tuple_implILm0EJPcSt14default_deleteIA_cEEE", !26, i64 0}
+!26 = !{!"_ZTSSt10_Head_baseILm0EPcLb0EE", !20, i64 0}
+!27 = !{!"_ZTSN3net22SpdyHeadersBlockParser11ParserErrorE", !6, i64 0}
+!28 = !{!15, !17, i64 16}
+!29 = !{!15, !17, i64 24}
+!30 = !{!15, !18, i64 32}
+!31 = !{!15, !11, i64 40}
+!32 = !{!15, !18, i64 96}
+!33 = !{!15, !27, i64 100}
+!34 = !{!15, !9, i64 104}
+!35 = !{!17, !17, i64 0}
+!36 = !{!18, !18, i64 0}
+!37 = !{!20, !20, i64 0}
+!38 = !{!16, !16, i64 0}
+!39 = !{!15, !18, i64 36}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSN7logging17LogMessageVoidifyE", !5, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSSo", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSN7logging10LogMessageE", !5, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSN3net23SpdyPinnableBufferPieceE", !5, i64 0}
+!50 = !{!19, !20, i64 0}
+!51 = !{!19, !17, i64 8}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN3net24SpdyPrefixedBufferReaderE", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 int", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !5, i64 0}
+!58 = !{!59, !20, i64 0}
+!59 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !20, i64 0, !17, i64 8}
+!60 = !{!59, !17, i64 8}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSSt9basic_iosIcSt11char_traitsIcEE", !5, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!65 = !{!66, !64, i64 32}
+!66 = !{!"_ZTSSt8ios_base", !17, i64 8, !17, i64 16, !67, i64 24, !64, i64 28, !64, i64 32, !68, i64 40, !69, i64 48, !6, i64 64, !18, i64 192, !70, i64 200, !71, i64 208}
+!67 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!68 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
+!69 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !17, i64 8}
+!70 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
+!71 = !{!"_ZTSSt6locale", !72, i64 0}
+!72 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}

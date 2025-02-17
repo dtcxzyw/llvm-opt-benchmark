@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.hmac_ctx_st = type { ptr, %struct.env_md_ctx_st, %struct.env_md_ctx_st, %struct.env_md_ctx_st }
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
@@ -7,574 +7,632 @@ target triple = "x86_64-unknown-linux-gnu"
 @HMAC.static_out_buffer = internal global [64 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @HMAC(ptr noundef %evp_md, ptr noundef %key, i64 noundef %key_len, ptr noundef %data, i64 noundef %data_len, ptr noundef %out, ptr noundef %out_len) #0 {
-entry:
-  %evp_md.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i64, align 8
-  %data.addr = alloca ptr, align 8
-  %data_len.addr = alloca i64, align 8
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %ctx = alloca %struct.hmac_ctx_st, align 8
-  store ptr %evp_md, ptr %evp_md.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i64 %key_len, ptr %key_len.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %data_len, ptr %data_len.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  %0 = load ptr, ptr %out.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @HMAC(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %struct.hmac_ctx_st, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !6
+  store ptr %1, ptr %9, align 8, !tbaa !11
+  store i64 %2, ptr %10, align 8, !tbaa !12
+  store ptr %3, ptr %11, align 8, !tbaa !14
+  store i64 %4, ptr %12, align 8, !tbaa !12
+  store ptr %5, ptr %13, align 8, !tbaa !14
+  store ptr %6, ptr %14, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 104, ptr %15) #5
+  %16 = load ptr, ptr %13, align 8, !tbaa !14
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
-if.then:                                          ; preds = %entry
-  store ptr @HMAC.static_out_buffer, ptr %out.addr, align 8
-  br label %if.end
+18:                                               ; preds = %7
+  store ptr @HMAC.static_out_buffer, ptr %13, align 8, !tbaa !14
+  br label %19
 
-if.end:                                           ; preds = %if.then, %entry
-  call void @HMAC_CTX_init(ptr noundef %ctx)
-  %1 = load ptr, ptr %key.addr, align 8
-  %2 = load i64, ptr %key_len.addr, align 8
-  %3 = load ptr, ptr %evp_md.addr, align 8
-  %call = call i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef null)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then6
+19:                                               ; preds = %18, %7
+  call void @HMAC_CTX_init(ptr noundef %15)
+  %20 = load ptr, ptr %9, align 8, !tbaa !11
+  %21 = load i64, ptr %10, align 8, !tbaa !12
+  %22 = load ptr, ptr %8, align 8, !tbaa !6
+  %23 = call i32 @HMAC_Init_ex(ptr noundef %15, ptr noundef %20, i64 noundef %21, ptr noundef %22, ptr noundef null)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %35
 
-lor.lhs.false:                                    ; preds = %if.end
-  %4 = load ptr, ptr %data.addr, align 8
-  %5 = load i64, ptr %data_len.addr, align 8
-  %call1 = call i32 @HMAC_Update(ptr noundef %ctx, ptr noundef %4, i64 noundef %5)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %lor.lhs.false3, label %if.then6
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %11, align 8, !tbaa !14
+  %27 = load i64, ptr %12, align 8, !tbaa !12
+  %28 = call i32 @HMAC_Update(ptr noundef %15, ptr noundef %26, i64 noundef %27)
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %35
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %out.addr, align 8
-  %7 = load ptr, ptr %out_len.addr, align 8
-  %call4 = call i32 @HMAC_Final(ptr noundef %ctx, ptr noundef %6, ptr noundef %7)
-  %tobool5 = icmp ne i32 %call4, 0
-  br i1 %tobool5, label %if.end7, label %if.then6
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %13, align 8, !tbaa !14
+  %32 = load ptr, ptr %14, align 8, !tbaa !16
+  %33 = call i32 @HMAC_Final(ptr noundef %15, ptr noundef %31, ptr noundef %32)
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %36, label %35
 
-if.then6:                                         ; preds = %lor.lhs.false3, %lor.lhs.false, %if.end
-  store ptr null, ptr %out.addr, align 8
-  br label %if.end7
+35:                                               ; preds = %30, %25, %19
+  store ptr null, ptr %13, align 8, !tbaa !14
+  br label %36
 
-if.end7:                                          ; preds = %if.then6, %lor.lhs.false3
-  call void @HMAC_CTX_cleanup(ptr noundef %ctx)
-  %8 = load ptr, ptr %out.addr, align 8
-  ret ptr %8
+36:                                               ; preds = %35, %30
+  call void @HMAC_CTX_cleanup(ptr noundef %15)
+  %37 = load ptr, ptr %13, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 104, ptr %15) #5
+  ret ptr %37
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define hidden void @HMAC_CTX_init(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %md = getelementptr inbounds %struct.hmac_ctx_st, ptr %0, i32 0, i32 0
-  store ptr null, ptr %md, align 8
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %i_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %1, i32 0, i32 2
-  call void @EVP_MD_CTX_init(ptr noundef %i_ctx)
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %o_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %2, i32 0, i32 3
-  call void @EVP_MD_CTX_init(ptr noundef %o_ctx)
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %3, i32 0, i32 1
-  call void @EVP_MD_CTX_init(ptr noundef %md_ctx)
+define hidden void @HMAC_CTX_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %4 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %2, align 8, !tbaa !18
+  %6 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %5, i32 0, i32 2
+  call void @EVP_MD_CTX_init(ptr noundef %6)
+  %7 = load ptr, ptr %2, align 8, !tbaa !18
+  %8 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %7, i32 0, i32 3
+  call void @EVP_MD_CTX_init(ptr noundef %8)
+  %9 = load ptr, ptr %2, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %9, i32 0, i32 1
+  call void @EVP_MD_CTX_init(ptr noundef %10)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %md, ptr noundef %impl) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i64, align 8
-  %md.addr = alloca ptr, align 8
-  %impl.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %pad = alloca [128 x i8], align 16
-  %key_block = alloca [128 x i8], align 16
-  %key_block_len = alloca i32, align 4
-  %block_size = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i64 %key_len, ptr %key_len.addr, align 8
-  store ptr %md, ptr %md.addr, align 8
-  store ptr %impl, ptr %impl.addr, align 8
-  %0 = load ptr, ptr %md.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @HMAC_Init_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca [128 x i8], align 16
+  %14 = alloca [128 x i8], align 16
+  %15 = alloca i32, align 4
+  %16 = alloca i64, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !18
+  store ptr %1, ptr %8, align 8, !tbaa !11
+  store i64 %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !6
+  store ptr %4, ptr %11, align 8, !tbaa !25
+  %18 = load ptr, ptr %10, align 8, !tbaa !6
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %24
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %md1 = getelementptr inbounds %struct.hmac_ctx_st, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %md1, align 8
-  store ptr %2, ptr %md.addr, align 8
-  br label %if.end
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !20
+  store ptr %23, ptr %10, align 8, !tbaa !6
+  br label %24
 
-if.end:                                           ; preds = %if.then, %entry
-  %3 = load ptr, ptr %md.addr, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %md2 = getelementptr inbounds %struct.hmac_ctx_st, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %md2, align 8
-  %cmp3 = icmp ne ptr %3, %5
-  br i1 %cmp3, label %if.then5, label %lor.lhs.false
+24:                                               ; preds = %20, %5
+  %25 = load ptr, ptr %10, align 8, !tbaa !6
+  %26 = load ptr, ptr %7, align 8, !tbaa !18
+  %27 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !20
+  %29 = icmp ne ptr %25, %28
+  br i1 %29, label %33, label %30
 
-lor.lhs.false:                                    ; preds = %if.end
-  %6 = load ptr, ptr %key.addr, align 8
-  %cmp4 = icmp ne ptr %6, null
-  br i1 %cmp4, label %if.then5, label %if.end65
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %8, align 8, !tbaa !11
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %148
 
-if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  %7 = load ptr, ptr %md.addr, align 8
-  %call = call i64 @EVP_MD_block_size(ptr noundef %7)
-  store i64 %call, ptr %block_size, align 8
-  %8 = load i64, ptr %block_size, align 8
-  %9 = load i64, ptr %key_len.addr, align 8
-  %cmp6 = icmp ult i64 %8, %9
-  br i1 %cmp6, label %if.then7, label %if.else
+33:                                               ; preds = %30, %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 128, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 128, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %34 = load ptr, ptr %10, align 8, !tbaa !6
+  %35 = call i64 @EVP_MD_block_size(ptr noundef %34)
+  store i64 %35, ptr %16, align 8, !tbaa !12
+  %36 = load i64, ptr %16, align 8, !tbaa !12
+  %37 = load i64, ptr %9, align 8, !tbaa !12
+  %38 = icmp ult i64 %36, %37
+  br i1 %38, label %39, label %61
 
-if.then7:                                         ; preds = %if.then5
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %md.addr, align 8
-  %12 = load ptr, ptr %impl.addr, align 8
-  %call8 = call i32 @EVP_DigestInit_ex(ptr noundef %md_ctx, ptr noundef %11, ptr noundef %12)
-  %tobool = icmp ne i32 %call8, 0
-  br i1 %tobool, label %lor.lhs.false9, label %if.then17
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %7, align 8, !tbaa !18
+  %41 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %10, align 8, !tbaa !6
+  %43 = load ptr, ptr %11, align 8, !tbaa !25
+  %44 = call i32 @EVP_DigestInit_ex(ptr noundef %41, ptr noundef %42, ptr noundef %43)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %59
 
-lor.lhs.false9:                                   ; preds = %if.then7
-  %13 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx10 = getelementptr inbounds %struct.hmac_ctx_st, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %key.addr, align 8
-  %15 = load i64, ptr %key_len.addr, align 8
-  %call11 = call i32 @EVP_DigestUpdate(ptr noundef %md_ctx10, ptr noundef %14, i64 noundef %15)
-  %tobool12 = icmp ne i32 %call11, 0
-  br i1 %tobool12, label %lor.lhs.false13, label %if.then17
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %7, align 8, !tbaa !18
+  %48 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %8, align 8, !tbaa !11
+  %50 = load i64, ptr %9, align 8, !tbaa !12
+  %51 = call i32 @EVP_DigestUpdate(ptr noundef %48, ptr noundef %49, i64 noundef %50)
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %59
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false9
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx14 = getelementptr inbounds %struct.hmac_ctx_st, ptr %16, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [128 x i8], ptr %key_block, i64 0, i64 0
-  %call15 = call i32 @EVP_DigestFinal_ex(ptr noundef %md_ctx14, ptr noundef %arraydecay, ptr noundef %key_block_len)
-  %tobool16 = icmp ne i32 %call15, 0
-  br i1 %tobool16, label %if.end18, label %if.then17
+53:                                               ; preds = %46
+  %54 = load ptr, ptr %7, align 8, !tbaa !18
+  %55 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %54, i32 0, i32 1
+  %56 = getelementptr inbounds [128 x i8], ptr %14, i64 0, i64 0
+  %57 = call i32 @EVP_DigestFinal_ex(ptr noundef %55, ptr noundef %56, ptr noundef %15)
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %60, label %59
 
-if.then17:                                        ; preds = %lor.lhs.false13, %lor.lhs.false9, %if.then7
-  store i32 0, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %53, %46, %39
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %145
 
-if.end18:                                         ; preds = %lor.lhs.false13
-  br label %if.end20
+60:                                               ; preds = %53
+  br label %67
 
-if.else:                                          ; preds = %if.then5
-  %arraydecay19 = getelementptr inbounds [128 x i8], ptr %key_block, i64 0, i64 0
-  %17 = load ptr, ptr %key.addr, align 8
-  %18 = load i64, ptr %key_len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay19, ptr align 1 %17, i64 %18, i1 false)
-  %19 = load i64, ptr %key_len.addr, align 8
-  %conv = trunc i64 %19 to i32
-  store i32 %conv, ptr %key_block_len, align 4
-  br label %if.end20
+61:                                               ; preds = %33
+  %62 = getelementptr inbounds [128 x i8], ptr %14, i64 0, i64 0
+  %63 = load ptr, ptr %8, align 8, !tbaa !11
+  %64 = load i64, ptr %9, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %62, ptr align 1 %63, i64 %64, i1 false)
+  %65 = load i64, ptr %9, align 8, !tbaa !12
+  %66 = trunc i64 %65 to i32
+  store i32 %66, ptr %15, align 4, !tbaa !27
+  br label %67
 
-if.end20:                                         ; preds = %if.else, %if.end18
-  %20 = load i32, ptr %key_block_len, align 4
-  %cmp21 = icmp ne i32 %20, 128
-  br i1 %cmp21, label %if.then23, label %if.end25
+67:                                               ; preds = %61, %60
+  %68 = load i32, ptr %15, align 4, !tbaa !27
+  %69 = icmp ne i32 %68, 128
+  br i1 %69, label %70, label %77
 
-if.then23:                                        ; preds = %if.end20
-  %21 = load i32, ptr %key_block_len, align 4
-  %idxprom = zext i32 %21 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %key_block, i64 0, i64 %idxprom
-  %22 = load i32, ptr %key_block_len, align 4
-  %conv24 = zext i32 %22 to i64
-  %sub = sub i64 128, %conv24
-  call void @llvm.memset.p0.i64(ptr align 1 %arrayidx, i8 0, i64 %sub, i1 false)
-  br label %if.end25
+70:                                               ; preds = %67
+  %71 = load i32, ptr %15, align 4, !tbaa !27
+  %72 = zext i32 %71 to i64
+  %73 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %72
+  %74 = load i32, ptr %15, align 4, !tbaa !27
+  %75 = zext i32 %74 to i64
+  %76 = sub i64 128, %75
+  call void @llvm.memset.p0.i64(ptr align 1 %73, i8 0, i64 %76, i1 false)
+  br label %77
 
-if.end25:                                         ; preds = %if.then23, %if.end20
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+77:                                               ; preds = %70, %67
+  store i64 0, ptr %12, align 8, !tbaa !12
+  br label %78
 
-for.cond:                                         ; preds = %for.inc, %if.end25
-  %23 = load i64, ptr %i, align 8
-  %cmp26 = icmp ult i64 %23, 128
-  br i1 %cmp26, label %for.body, label %for.end
+78:                                               ; preds = %90, %77
+  %79 = load i64, ptr %12, align 8, !tbaa !12
+  %80 = icmp ult i64 %79, 128
+  br i1 %80, label %81, label %93
 
-for.body:                                         ; preds = %for.cond
-  %24 = load i64, ptr %i, align 8
-  %arrayidx28 = getelementptr inbounds [128 x i8], ptr %key_block, i64 0, i64 %24
-  %25 = load i8, ptr %arrayidx28, align 1
-  %conv29 = zext i8 %25 to i32
-  %xor = xor i32 54, %conv29
-  %conv30 = trunc i32 %xor to i8
-  %26 = load i64, ptr %i, align 8
-  %arrayidx31 = getelementptr inbounds [128 x i8], ptr %pad, i64 0, i64 %26
-  store i8 %conv30, ptr %arrayidx31, align 1
-  br label %for.inc
+81:                                               ; preds = %78
+  %82 = load i64, ptr %12, align 8, !tbaa !12
+  %83 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %82
+  %84 = load i8, ptr %83, align 1, !tbaa !29
+  %85 = zext i8 %84 to i32
+  %86 = xor i32 54, %85
+  %87 = trunc i32 %86 to i8
+  %88 = load i64, ptr %12, align 8, !tbaa !12
+  %89 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %88
+  store i8 %87, ptr %89, align 1, !tbaa !29
+  br label %90
 
-for.inc:                                          ; preds = %for.body
-  %27 = load i64, ptr %i, align 8
-  %inc = add i64 %27, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
+90:                                               ; preds = %81
+  %91 = load i64, ptr %12, align 8, !tbaa !12
+  %92 = add i64 %91, 1
+  store i64 %92, ptr %12, align 8, !tbaa !12
+  br label %78, !llvm.loop !30
 
-for.end:                                          ; preds = %for.cond
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %i_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %md.addr, align 8
-  %30 = load ptr, ptr %impl.addr, align 8
-  %call32 = call i32 @EVP_DigestInit_ex(ptr noundef %i_ctx, ptr noundef %29, ptr noundef %30)
-  %tobool33 = icmp ne i32 %call32, 0
-  br i1 %tobool33, label %lor.lhs.false34, label %if.then40
+93:                                               ; preds = %78
+  %94 = load ptr, ptr %7, align 8, !tbaa !18
+  %95 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %94, i32 0, i32 2
+  %96 = load ptr, ptr %10, align 8, !tbaa !6
+  %97 = load ptr, ptr %11, align 8, !tbaa !25
+  %98 = call i32 @EVP_DigestInit_ex(ptr noundef %95, ptr noundef %96, ptr noundef %97)
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %108
 
-lor.lhs.false34:                                  ; preds = %for.end
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %i_ctx35 = getelementptr inbounds %struct.hmac_ctx_st, ptr %31, i32 0, i32 2
-  %arraydecay36 = getelementptr inbounds [128 x i8], ptr %pad, i64 0, i64 0
-  %32 = load ptr, ptr %md.addr, align 8
-  %call37 = call i64 @EVP_MD_block_size(ptr noundef %32)
-  %call38 = call i32 @EVP_DigestUpdate(ptr noundef %i_ctx35, ptr noundef %arraydecay36, i64 noundef %call37)
-  %tobool39 = icmp ne i32 %call38, 0
-  br i1 %tobool39, label %if.end41, label %if.then40
+100:                                              ; preds = %93
+  %101 = load ptr, ptr %7, align 8, !tbaa !18
+  %102 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %101, i32 0, i32 2
+  %103 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 0
+  %104 = load ptr, ptr %10, align 8, !tbaa !6
+  %105 = call i64 @EVP_MD_block_size(ptr noundef %104)
+  %106 = call i32 @EVP_DigestUpdate(ptr noundef %102, ptr noundef %103, i64 noundef %105)
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %109, label %108
 
-if.then40:                                        ; preds = %lor.lhs.false34, %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+108:                                              ; preds = %100, %93
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %145
 
-if.end41:                                         ; preds = %lor.lhs.false34
-  store i64 0, ptr %i, align 8
-  br label %for.cond42
+109:                                              ; preds = %100
+  store i64 0, ptr %12, align 8, !tbaa !12
+  br label %110
 
-for.cond42:                                       ; preds = %for.inc51, %if.end41
-  %33 = load i64, ptr %i, align 8
-  %cmp43 = icmp ult i64 %33, 128
-  br i1 %cmp43, label %for.body45, label %for.end53
+110:                                              ; preds = %122, %109
+  %111 = load i64, ptr %12, align 8, !tbaa !12
+  %112 = icmp ult i64 %111, 128
+  br i1 %112, label %113, label %125
 
-for.body45:                                       ; preds = %for.cond42
-  %34 = load i64, ptr %i, align 8
-  %arrayidx46 = getelementptr inbounds [128 x i8], ptr %key_block, i64 0, i64 %34
-  %35 = load i8, ptr %arrayidx46, align 1
-  %conv47 = zext i8 %35 to i32
-  %xor48 = xor i32 92, %conv47
-  %conv49 = trunc i32 %xor48 to i8
-  %36 = load i64, ptr %i, align 8
-  %arrayidx50 = getelementptr inbounds [128 x i8], ptr %pad, i64 0, i64 %36
-  store i8 %conv49, ptr %arrayidx50, align 1
-  br label %for.inc51
+113:                                              ; preds = %110
+  %114 = load i64, ptr %12, align 8, !tbaa !12
+  %115 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %114
+  %116 = load i8, ptr %115, align 1, !tbaa !29
+  %117 = zext i8 %116 to i32
+  %118 = xor i32 92, %117
+  %119 = trunc i32 %118 to i8
+  %120 = load i64, ptr %12, align 8, !tbaa !12
+  %121 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %120
+  store i8 %119, ptr %121, align 1, !tbaa !29
+  br label %122
 
-for.inc51:                                        ; preds = %for.body45
-  %37 = load i64, ptr %i, align 8
-  %inc52 = add i64 %37, 1
-  store i64 %inc52, ptr %i, align 8
-  br label %for.cond42, !llvm.loop !9
+122:                                              ; preds = %113
+  %123 = load i64, ptr %12, align 8, !tbaa !12
+  %124 = add i64 %123, 1
+  store i64 %124, ptr %12, align 8, !tbaa !12
+  br label %110, !llvm.loop !32
 
-for.end53:                                        ; preds = %for.cond42
-  %38 = load ptr, ptr %ctx.addr, align 8
-  %o_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %38, i32 0, i32 3
-  %39 = load ptr, ptr %md.addr, align 8
-  %40 = load ptr, ptr %impl.addr, align 8
-  %call54 = call i32 @EVP_DigestInit_ex(ptr noundef %o_ctx, ptr noundef %39, ptr noundef %40)
-  %tobool55 = icmp ne i32 %call54, 0
-  br i1 %tobool55, label %lor.lhs.false56, label %if.then62
+125:                                              ; preds = %110
+  %126 = load ptr, ptr %7, align 8, !tbaa !18
+  %127 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %126, i32 0, i32 3
+  %128 = load ptr, ptr %10, align 8, !tbaa !6
+  %129 = load ptr, ptr %11, align 8, !tbaa !25
+  %130 = call i32 @EVP_DigestInit_ex(ptr noundef %127, ptr noundef %128, ptr noundef %129)
+  %131 = icmp ne i32 %130, 0
+  br i1 %131, label %132, label %140
 
-lor.lhs.false56:                                  ; preds = %for.end53
-  %41 = load ptr, ptr %ctx.addr, align 8
-  %o_ctx57 = getelementptr inbounds %struct.hmac_ctx_st, ptr %41, i32 0, i32 3
-  %arraydecay58 = getelementptr inbounds [128 x i8], ptr %pad, i64 0, i64 0
-  %42 = load ptr, ptr %md.addr, align 8
-  %call59 = call i64 @EVP_MD_block_size(ptr noundef %42)
-  %call60 = call i32 @EVP_DigestUpdate(ptr noundef %o_ctx57, ptr noundef %arraydecay58, i64 noundef %call59)
-  %tobool61 = icmp ne i32 %call60, 0
-  br i1 %tobool61, label %if.end63, label %if.then62
+132:                                              ; preds = %125
+  %133 = load ptr, ptr %7, align 8, !tbaa !18
+  %134 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %133, i32 0, i32 3
+  %135 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 0
+  %136 = load ptr, ptr %10, align 8, !tbaa !6
+  %137 = call i64 @EVP_MD_block_size(ptr noundef %136)
+  %138 = call i32 @EVP_DigestUpdate(ptr noundef %134, ptr noundef %135, i64 noundef %137)
+  %139 = icmp ne i32 %138, 0
+  br i1 %139, label %141, label %140
 
-if.then62:                                        ; preds = %lor.lhs.false56, %for.end53
-  store i32 0, ptr %retval, align 4
-  br label %return
+140:                                              ; preds = %132, %125
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %145
 
-if.end63:                                         ; preds = %lor.lhs.false56
-  %43 = load ptr, ptr %md.addr, align 8
-  %44 = load ptr, ptr %ctx.addr, align 8
-  %md64 = getelementptr inbounds %struct.hmac_ctx_st, ptr %44, i32 0, i32 0
-  store ptr %43, ptr %md64, align 8
-  br label %if.end65
+141:                                              ; preds = %132
+  %142 = load ptr, ptr %10, align 8, !tbaa !6
+  %143 = load ptr, ptr %7, align 8, !tbaa !18
+  %144 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %143, i32 0, i32 0
+  store ptr %142, ptr %144, align 8, !tbaa !20
+  store i32 0, ptr %17, align 4
+  br label %145
 
-if.end65:                                         ; preds = %if.end63, %lor.lhs.false
-  %45 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx66 = getelementptr inbounds %struct.hmac_ctx_st, ptr %45, i32 0, i32 1
-  %46 = load ptr, ptr %ctx.addr, align 8
-  %i_ctx67 = getelementptr inbounds %struct.hmac_ctx_st, ptr %46, i32 0, i32 2
-  %call68 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %md_ctx66, ptr noundef %i_ctx67)
-  %tobool69 = icmp ne i32 %call68, 0
-  br i1 %tobool69, label %if.end71, label %if.then70
+145:                                              ; preds = %141, %140, %108, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %146 = load i32, ptr %17, align 4
+  switch i32 %146, label %159 [
+    i32 0, label %147
+    i32 1, label %157
+  ]
 
-if.then70:                                        ; preds = %if.end65
-  store i32 0, ptr %retval, align 4
-  br label %return
+147:                                              ; preds = %145
+  br label %148
 
-if.end71:                                         ; preds = %if.end65
-  store i32 1, ptr %retval, align 4
-  br label %return
+148:                                              ; preds = %147, %30
+  %149 = load ptr, ptr %7, align 8, !tbaa !18
+  %150 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %149, i32 0, i32 1
+  %151 = load ptr, ptr %7, align 8, !tbaa !18
+  %152 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %151, i32 0, i32 2
+  %153 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %150, ptr noundef %152)
+  %154 = icmp ne i32 %153, 0
+  br i1 %154, label %156, label %155
 
-return:                                           ; preds = %if.end71, %if.then70, %if.then62, %if.then40, %if.then17
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+155:                                              ; preds = %148
+  store i32 0, ptr %6, align 4
+  br label %157
+
+156:                                              ; preds = %148
+  store i32 1, ptr %6, align 4
+  br label %157
+
+157:                                              ; preds = %156, %155, %145
+  %158 = load i32, ptr %6, align 4
+  ret i32 %158
+
+159:                                              ; preds = %145
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_Update(ptr noundef %ctx, ptr noundef %data, i64 noundef %data_len) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %data_len.addr = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %data_len, ptr %data_len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %data.addr, align 8
-  %2 = load i64, ptr %data_len.addr, align 8
-  %call = call i32 @EVP_DigestUpdate(ptr noundef %md_ctx, ptr noundef %1, i64 noundef %2)
-  ret i32 %call
+define hidden i32 @HMAC_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  store i64 %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !18
+  %8 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %5, align 8, !tbaa !14
+  %10 = load i64, ptr %6, align 8, !tbaa !12
+  %11 = call i32 @EVP_DigestUpdate(ptr noundef %8, ptr noundef %9, i64 noundef %10)
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_Final(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %buf = alloca [64 x i8], align 16
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %0, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @EVP_DigestFinal_ex(ptr noundef %md_ctx, ptr noundef %arraydecay, ptr noundef %i)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+define hidden i32 @HMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca [64 x i8], align 16
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr %9) #5
+  %11 = load ptr, ptr %5, align 8, !tbaa !18
+  %12 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %11, i32 0, i32 1
+  %13 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 0
+  %14 = call i32 @EVP_DigestFinal_ex(ptr noundef %12, ptr noundef %13, ptr noundef %8)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %38
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx1 = getelementptr inbounds %struct.hmac_ctx_st, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %o_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %2, i32 0, i32 3
-  %call2 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %md_ctx1, ptr noundef %o_ctx)
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %lor.lhs.false4, label %if.then
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !18
+  %18 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %5, align 8, !tbaa !18
+  %20 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %19, i32 0, i32 3
+  %21 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %18, ptr noundef %20)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %38
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx5 = getelementptr inbounds %struct.hmac_ctx_st, ptr %3, i32 0, i32 1
-  %arraydecay6 = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 0
-  %4 = load i32, ptr %i, align 4
-  %conv = zext i32 %4 to i64
-  %call7 = call i32 @EVP_DigestUpdate(ptr noundef %md_ctx5, ptr noundef %arraydecay6, i64 noundef %conv)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %lor.lhs.false9, label %if.then
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %5, align 8, !tbaa !18
+  %25 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %24, i32 0, i32 1
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 0
+  %27 = load i32, ptr %8, align 4, !tbaa !27
+  %28 = zext i32 %27 to i64
+  %29 = call i32 @EVP_DigestUpdate(ptr noundef %25, ptr noundef %26, i64 noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %38
 
-lor.lhs.false9:                                   ; preds = %lor.lhs.false4
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx10 = getelementptr inbounds %struct.hmac_ctx_st, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %out.addr, align 8
-  %7 = load ptr, ptr %out_len.addr, align 8
-  %call11 = call i32 @EVP_DigestFinal_ex(ptr noundef %md_ctx10, ptr noundef %6, ptr noundef %7)
-  %tobool12 = icmp ne i32 %call11, 0
-  br i1 %tobool12, label %if.end, label %if.then
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %5, align 8, !tbaa !18
+  %33 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %6, align 8, !tbaa !14
+  %35 = load ptr, ptr %7, align 8, !tbaa !16
+  %36 = call i32 @EVP_DigestFinal_ex(ptr noundef %33, ptr noundef %34, ptr noundef %35)
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %40, label %38
 
-if.then:                                          ; preds = %lor.lhs.false9, %lor.lhs.false4, %lor.lhs.false, %entry
-  %8 = load ptr, ptr %out_len.addr, align 8
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %31, %23, %16, %3
+  %39 = load ptr, ptr %7, align 8, !tbaa !16
+  store i32 0, ptr %39, align 4, !tbaa !27
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %41
 
-if.end:                                           ; preds = %lor.lhs.false9
-  store i32 1, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %31
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %41
 
-return:                                           ; preds = %if.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+41:                                               ; preds = %40, %38
+  call void @llvm.lifetime.end.p0(i64 64, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %42 = load i32, ptr %4, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @HMAC_CTX_cleanup(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %i_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %0, i32 0, i32 2
-  %call = call i32 @EVP_MD_CTX_cleanup(ptr noundef %i_ctx)
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %o_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %1, i32 0, i32 3
-  %call1 = call i32 @EVP_MD_CTX_cleanup(ptr noundef %o_ctx)
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %2, i32 0, i32 1
-  %call2 = call i32 @EVP_MD_CTX_cleanup(ptr noundef %md_ctx)
-  %3 = load ptr, ptr %ctx.addr, align 8
-  call void @OPENSSL_cleanse(ptr noundef %3, i64 noundef 104)
+define hidden void @HMAC_CTX_cleanup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %4 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %3, i32 0, i32 2
+  %5 = call i32 @EVP_MD_CTX_cleanup(ptr noundef %4)
+  %6 = load ptr, ptr %2, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %6, i32 0, i32 3
+  %8 = call i32 @EVP_MD_CTX_cleanup(ptr noundef %7)
+  %9 = load ptr, ptr %2, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %9, i32 0, i32 1
+  %11 = call i32 @EVP_MD_CTX_cleanup(ptr noundef %10)
+  %12 = load ptr, ptr %2, align 8, !tbaa !18
+  call void @OPENSSL_cleanse(ptr noundef %12, i64 noundef 104)
   ret void
 }
 
-declare void @EVP_MD_CTX_init(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @EVP_MD_CTX_cleanup(ptr noundef) #1
+declare void @EVP_MD_CTX_init(ptr noundef) #2
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) #1
+declare i32 @EVP_MD_CTX_cleanup(ptr noundef) #2
 
-declare i64 @EVP_MD_block_size(ptr noundef) #1
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) #2
 
-declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) #1
+declare i64 @EVP_MD_block_size(ptr noundef) #2
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) #2
+
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) #1
+declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @HMAC_size(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %md = getelementptr inbounds %struct.hmac_ctx_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %md, align 8
-  %call = call i64 @EVP_MD_size(ptr noundef %1)
-  ret i64 %call
+define hidden i64 @HMAC_size(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %4 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %6 = call i64 @EVP_MD_size(ptr noundef %5)
+  ret i64 %6
 }
 
-declare i64 @EVP_MD_size(ptr noundef) #1
+declare i64 @EVP_MD_size(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_CTX_copy_ex(ptr noundef %dest, ptr noundef %src) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  %0 = load ptr, ptr %dest.addr, align 8
-  %i_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %src.addr, align 8
-  %i_ctx1 = getelementptr inbounds %struct.hmac_ctx_st, ptr %1, i32 0, i32 2
-  %call = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %i_ctx, ptr noundef %i_ctx1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+define hidden i32 @HMAC_CTX_copy_ex(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %5, align 8, !tbaa !18
+  %9 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %8, i32 0, i32 2
+  %10 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %7, ptr noundef %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %26
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %dest.addr, align 8
-  %o_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %src.addr, align 8
-  %o_ctx2 = getelementptr inbounds %struct.hmac_ctx_st, ptr %3, i32 0, i32 3
-  %call3 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %o_ctx, ptr noundef %o_ctx2)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %lor.lhs.false5, label %if.then
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %5, align 8, !tbaa !18
+  %16 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %15, i32 0, i32 3
+  %17 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %14, ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %26
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %dest.addr, align 8
-  %md_ctx = getelementptr inbounds %struct.hmac_ctx_st, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %src.addr, align 8
-  %md_ctx6 = getelementptr inbounds %struct.hmac_ctx_st, ptr %5, i32 0, i32 1
-  %call7 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %md_ctx, ptr noundef %md_ctx6)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.end, label %if.then
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %4, align 8, !tbaa !18
+  %21 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %22, i32 0, i32 1
+  %24 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %21, ptr noundef %23)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %27, label %26
 
-if.then:                                          ; preds = %lor.lhs.false5, %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %19, %12, %2
+  store i32 0, ptr %3, align 4
+  br label %33
 
-if.end:                                           ; preds = %lor.lhs.false5
-  %6 = load ptr, ptr %src.addr, align 8
-  %md = getelementptr inbounds %struct.hmac_ctx_st, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %md, align 8
-  %8 = load ptr, ptr %dest.addr, align 8
-  %md9 = getelementptr inbounds %struct.hmac_ctx_st, ptr %8, i32 0, i32 0
-  store ptr %7, ptr %md9, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %5, align 8, !tbaa !18
+  %29 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !20
+  %31 = load ptr, ptr %4, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw %struct.hmac_ctx_st, ptr %31, i32 0, i32 0
+  store ptr %30, ptr %32, align 8, !tbaa !20
+  store i32 1, ptr %3, align 4
+  br label %33
 
-return:                                           ; preds = %if.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
-}
-
-; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_Init(ptr noundef %ctx, ptr noundef %key, i32 noundef %key_len, ptr noundef %md) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i32, align 4
-  %md.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %key_len, ptr %key_len.addr, align 4
-  store ptr %md, ptr %md.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %md.addr, align 8
-  %tobool1 = icmp ne ptr %1, null
-  br i1 %tobool1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %ctx.addr, align 8
-  call void @HMAC_CTX_init(ptr noundef %2)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %4 = load ptr, ptr %key.addr, align 8
-  %5 = load i32, ptr %key_len.addr, align 4
-  %conv = sext i32 %5 to i64
-  %6 = load ptr, ptr %md.addr, align 8
-  %call = call i32 @HMAC_Init_ex(ptr noundef %3, ptr noundef %4, i64 noundef %conv, ptr noundef %6, ptr noundef null)
-  ret i32 %call
+33:                                               ; preds = %27, %26
+  %34 = load i32, ptr %3, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_CTX_copy(ptr noundef %dest, ptr noundef %src) #0 {
-entry:
-  %dest.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  %0 = load ptr, ptr %dest.addr, align 8
-  call void @HMAC_CTX_init(ptr noundef %0)
-  %1 = load ptr, ptr %dest.addr, align 8
-  %2 = load ptr, ptr %src.addr, align 8
-  %call = call i32 @HMAC_CTX_copy_ex(ptr noundef %1, ptr noundef %2)
-  ret i32 %call
+define hidden i32 @HMAC_Init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store i32 %2, ptr %7, align 4, !tbaa !27
+  store ptr %3, ptr %8, align 8, !tbaa !6
+  %9 = load ptr, ptr %6, align 8, !tbaa !11
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %4
+  %12 = load ptr, ptr %8, align 8, !tbaa !6
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @HMAC_CTX_init(ptr noundef %15)
+  br label %16
+
+16:                                               ; preds = %14, %11, %4
+  %17 = load ptr, ptr %5, align 8, !tbaa !18
+  %18 = load ptr, ptr %6, align 8, !tbaa !11
+  %19 = load i32, ptr %7, align 4, !tbaa !27
+  %20 = sext i32 %19 to i64
+  %21 = load ptr, ptr %8, align 8, !tbaa !6
+  %22 = call i32 @HMAC_Init_ex(ptr noundef %17, ptr noundef %18, i64 noundef %20, ptr noundef %21, ptr noundef null)
+  ret i32 %22
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+; Function Attrs: nounwind uwtable
+define hidden i32 @HMAC_CTX_copy(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !18
+  call void @HMAC_CTX_init(ptr noundef %5)
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
+  %7 = load ptr, ptr %4, align 8, !tbaa !18
+  %8 = call i32 @HMAC_CTX_copy_ex(ptr noundef %6, ptr noundef %7)
+  ret i32 %8
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS9env_md_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!8, !8, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !8, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 int", !8, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS11hmac_ctx_st", !8, i64 0}
+!20 = !{!21, !7, i64 0}
+!21 = !{!"hmac_ctx_st", !7, i64 0, !22, i64 8, !22, i64 40, !22, i64 72}
+!22 = !{!"env_md_ctx_st", !7, i64 0, !8, i64 8, !23, i64 16, !24, i64 24}
+!23 = !{!"p1 _ZTS15evp_pkey_ctx_st", !8, i64 0}
+!24 = !{!"p1 _ZTS15evp_md_pctx_ops", !8, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS9engine_st", !8, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"int", !9, i64 0}
+!29 = !{!9, !9, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = distinct !{!32, !31}

@@ -1,1156 +1,1209 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.fe25519 = type { [5 x i64] }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @x25519_x86_64(ptr noundef %out, ptr noundef %scalar, ptr noundef %point) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %scalar.addr = alloca ptr, align 8
-  %point.addr = alloca ptr, align 8
-  %e = alloca [32 x i8], align 16
-  %t = alloca %struct.fe25519, align 8
-  %z = alloca %struct.fe25519, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %scalar, ptr %scalar.addr, align 8
-  store ptr %point, ptr %point.addr, align 8
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %e, i64 0, i64 0
-  %0 = load ptr, ptr %scalar.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay, ptr align 1 %0, i64 32, i1 false)
-  %arrayidx = getelementptr inbounds [32 x i8], ptr %e, i64 0, i64 0
-  %1 = load i8, ptr %arrayidx, align 16
-  %conv = zext i8 %1 to i32
-  %and = and i32 %conv, 248
-  %conv1 = trunc i32 %and to i8
-  store i8 %conv1, ptr %arrayidx, align 16
-  %arrayidx2 = getelementptr inbounds [32 x i8], ptr %e, i64 0, i64 31
-  %2 = load i8, ptr %arrayidx2, align 1
-  %conv3 = zext i8 %2 to i32
-  %and4 = and i32 %conv3, 127
-  %conv5 = trunc i32 %and4 to i8
-  store i8 %conv5, ptr %arrayidx2, align 1
-  %arrayidx6 = getelementptr inbounds [32 x i8], ptr %e, i64 0, i64 31
-  %3 = load i8, ptr %arrayidx6, align 1
-  %conv7 = zext i8 %3 to i32
-  %or = or i32 %conv7, 64
-  %conv8 = trunc i32 %or to i8
-  store i8 %conv8, ptr %arrayidx6, align 1
-  %4 = load ptr, ptr %point.addr, align 8
-  call void @fe25519_unpack(ptr noundef %t, ptr noundef %4)
-  %arraydecay9 = getelementptr inbounds [32 x i8], ptr %e, i64 0, i64 0
-  call void @mladder(ptr noundef %t, ptr noundef %z, ptr noundef %arraydecay9)
-  call void @fe25519_invert(ptr noundef %z, ptr noundef %z)
-  call void @x25519_x86_64_mul(ptr noundef %t, ptr noundef %t, ptr noundef %z)
-  %5 = load ptr, ptr %out.addr, align 8
-  call void @fe25519_pack(ptr noundef %5, ptr noundef %t)
+define hidden void @x25519_x86_64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca [32 x i8], align 16
+  %8 = alloca %struct.fe25519, align 8
+  %9 = alloca %struct.fe25519, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !6
+  store ptr %2, ptr %6, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #4
+  %10 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 0
+  %11 = load ptr, ptr %5, align 8, !tbaa !6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %10, ptr align 1 %11, i64 32, i1 false)
+  %12 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 0
+  %13 = load i8, ptr %12, align 16, !tbaa !11
+  %14 = zext i8 %13 to i32
+  %15 = and i32 %14, 248
+  %16 = trunc i32 %15 to i8
+  store i8 %16, ptr %12, align 16, !tbaa !11
+  %17 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 31
+  %18 = load i8, ptr %17, align 1, !tbaa !11
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 127
+  %21 = trunc i32 %20 to i8
+  store i8 %21, ptr %17, align 1, !tbaa !11
+  %22 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 31
+  %23 = load i8, ptr %22, align 1, !tbaa !11
+  %24 = zext i8 %23 to i32
+  %25 = or i32 %24, 64
+  %26 = trunc i32 %25 to i8
+  store i8 %26, ptr %22, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 40, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %9) #4
+  %27 = load ptr, ptr %6, align 8, !tbaa !6
+  call void @fe25519_unpack(ptr noundef %8, ptr noundef %27)
+  %28 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 0
+  call void @mladder(ptr noundef %8, ptr noundef %9, ptr noundef %28)
+  call void @fe25519_invert(ptr noundef %9, ptr noundef %9)
+  call void @x25519_x86_64_mul(ptr noundef %8, ptr noundef %8, ptr noundef %9)
+  %29 = load ptr, ptr %4, align 8, !tbaa !6
+  call void @fe25519_pack(ptr noundef %29, ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #4
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @fe25519_unpack(ptr noundef %r, ptr noundef %x) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %x.addr = alloca ptr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  %0 = load ptr, ptr %x.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 0
-  %1 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %1 to i64
-  %2 = load ptr, ptr %r.addr, align 8
-  %v = getelementptr inbounds %struct.fe25519, ptr %2, i32 0, i32 0
-  %arrayidx1 = getelementptr inbounds [5 x i64], ptr %v, i64 0, i64 0
-  store i64 %conv, ptr %arrayidx1, align 8
-  %3 = load ptr, ptr %x.addr, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %3, i64 1
-  %4 = load i8, ptr %arrayidx2, align 1
-  %conv3 = zext i8 %4 to i64
-  %shl = shl i64 %conv3, 8
-  %5 = load ptr, ptr %r.addr, align 8
-  %v4 = getelementptr inbounds %struct.fe25519, ptr %5, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [5 x i64], ptr %v4, i64 0, i64 0
-  %6 = load i64, ptr %arrayidx5, align 8
-  %add = add i64 %6, %shl
-  store i64 %add, ptr %arrayidx5, align 8
-  %7 = load ptr, ptr %x.addr, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %7, i64 2
-  %8 = load i8, ptr %arrayidx6, align 1
-  %conv7 = zext i8 %8 to i64
-  %shl8 = shl i64 %conv7, 16
-  %9 = load ptr, ptr %r.addr, align 8
-  %v9 = getelementptr inbounds %struct.fe25519, ptr %9, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [5 x i64], ptr %v9, i64 0, i64 0
-  %10 = load i64, ptr %arrayidx10, align 8
-  %add11 = add i64 %10, %shl8
-  store i64 %add11, ptr %arrayidx10, align 8
-  %11 = load ptr, ptr %x.addr, align 8
-  %arrayidx12 = getelementptr inbounds i8, ptr %11, i64 3
-  %12 = load i8, ptr %arrayidx12, align 1
-  %conv13 = zext i8 %12 to i64
-  %shl14 = shl i64 %conv13, 24
-  %13 = load ptr, ptr %r.addr, align 8
-  %v15 = getelementptr inbounds %struct.fe25519, ptr %13, i32 0, i32 0
-  %arrayidx16 = getelementptr inbounds [5 x i64], ptr %v15, i64 0, i64 0
-  %14 = load i64, ptr %arrayidx16, align 8
-  %add17 = add i64 %14, %shl14
-  store i64 %add17, ptr %arrayidx16, align 8
-  %15 = load ptr, ptr %x.addr, align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %15, i64 4
-  %16 = load i8, ptr %arrayidx18, align 1
-  %conv19 = zext i8 %16 to i64
-  %shl20 = shl i64 %conv19, 32
-  %17 = load ptr, ptr %r.addr, align 8
-  %v21 = getelementptr inbounds %struct.fe25519, ptr %17, i32 0, i32 0
-  %arrayidx22 = getelementptr inbounds [5 x i64], ptr %v21, i64 0, i64 0
-  %18 = load i64, ptr %arrayidx22, align 8
-  %add23 = add i64 %18, %shl20
-  store i64 %add23, ptr %arrayidx22, align 8
-  %19 = load ptr, ptr %x.addr, align 8
-  %arrayidx24 = getelementptr inbounds i8, ptr %19, i64 5
-  %20 = load i8, ptr %arrayidx24, align 1
-  %conv25 = zext i8 %20 to i64
-  %shl26 = shl i64 %conv25, 40
-  %21 = load ptr, ptr %r.addr, align 8
-  %v27 = getelementptr inbounds %struct.fe25519, ptr %21, i32 0, i32 0
-  %arrayidx28 = getelementptr inbounds [5 x i64], ptr %v27, i64 0, i64 0
-  %22 = load i64, ptr %arrayidx28, align 8
-  %add29 = add i64 %22, %shl26
-  store i64 %add29, ptr %arrayidx28, align 8
-  %23 = load ptr, ptr %x.addr, align 8
-  %arrayidx30 = getelementptr inbounds i8, ptr %23, i64 6
-  %24 = load i8, ptr %arrayidx30, align 1
-  %conv31 = zext i8 %24 to i64
-  %and = and i64 %conv31, 7
-  %shl32 = shl i64 %and, 48
-  %25 = load ptr, ptr %r.addr, align 8
-  %v33 = getelementptr inbounds %struct.fe25519, ptr %25, i32 0, i32 0
-  %arrayidx34 = getelementptr inbounds [5 x i64], ptr %v33, i64 0, i64 0
-  %26 = load i64, ptr %arrayidx34, align 8
-  %add35 = add i64 %26, %shl32
-  store i64 %add35, ptr %arrayidx34, align 8
-  %27 = load ptr, ptr %x.addr, align 8
-  %arrayidx36 = getelementptr inbounds i8, ptr %27, i64 6
-  %28 = load i8, ptr %arrayidx36, align 1
-  %conv37 = zext i8 %28 to i32
-  %shr = ashr i32 %conv37, 3
-  %conv38 = sext i32 %shr to i64
-  %29 = load ptr, ptr %r.addr, align 8
-  %v39 = getelementptr inbounds %struct.fe25519, ptr %29, i32 0, i32 0
-  %arrayidx40 = getelementptr inbounds [5 x i64], ptr %v39, i64 0, i64 1
-  store i64 %conv38, ptr %arrayidx40, align 8
-  %30 = load ptr, ptr %x.addr, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %30, i64 7
-  %31 = load i8, ptr %arrayidx41, align 1
-  %conv42 = zext i8 %31 to i64
-  %shl43 = shl i64 %conv42, 5
-  %32 = load ptr, ptr %r.addr, align 8
-  %v44 = getelementptr inbounds %struct.fe25519, ptr %32, i32 0, i32 0
-  %arrayidx45 = getelementptr inbounds [5 x i64], ptr %v44, i64 0, i64 1
-  %33 = load i64, ptr %arrayidx45, align 8
-  %add46 = add i64 %33, %shl43
-  store i64 %add46, ptr %arrayidx45, align 8
-  %34 = load ptr, ptr %x.addr, align 8
-  %arrayidx47 = getelementptr inbounds i8, ptr %34, i64 8
-  %35 = load i8, ptr %arrayidx47, align 1
-  %conv48 = zext i8 %35 to i64
-  %shl49 = shl i64 %conv48, 13
-  %36 = load ptr, ptr %r.addr, align 8
-  %v50 = getelementptr inbounds %struct.fe25519, ptr %36, i32 0, i32 0
-  %arrayidx51 = getelementptr inbounds [5 x i64], ptr %v50, i64 0, i64 1
-  %37 = load i64, ptr %arrayidx51, align 8
-  %add52 = add i64 %37, %shl49
-  store i64 %add52, ptr %arrayidx51, align 8
-  %38 = load ptr, ptr %x.addr, align 8
-  %arrayidx53 = getelementptr inbounds i8, ptr %38, i64 9
-  %39 = load i8, ptr %arrayidx53, align 1
-  %conv54 = zext i8 %39 to i64
-  %shl55 = shl i64 %conv54, 21
-  %40 = load ptr, ptr %r.addr, align 8
-  %v56 = getelementptr inbounds %struct.fe25519, ptr %40, i32 0, i32 0
-  %arrayidx57 = getelementptr inbounds [5 x i64], ptr %v56, i64 0, i64 1
-  %41 = load i64, ptr %arrayidx57, align 8
-  %add58 = add i64 %41, %shl55
-  store i64 %add58, ptr %arrayidx57, align 8
-  %42 = load ptr, ptr %x.addr, align 8
-  %arrayidx59 = getelementptr inbounds i8, ptr %42, i64 10
-  %43 = load i8, ptr %arrayidx59, align 1
-  %conv60 = zext i8 %43 to i64
-  %shl61 = shl i64 %conv60, 29
-  %44 = load ptr, ptr %r.addr, align 8
-  %v62 = getelementptr inbounds %struct.fe25519, ptr %44, i32 0, i32 0
-  %arrayidx63 = getelementptr inbounds [5 x i64], ptr %v62, i64 0, i64 1
-  %45 = load i64, ptr %arrayidx63, align 8
-  %add64 = add i64 %45, %shl61
-  store i64 %add64, ptr %arrayidx63, align 8
-  %46 = load ptr, ptr %x.addr, align 8
-  %arrayidx65 = getelementptr inbounds i8, ptr %46, i64 11
-  %47 = load i8, ptr %arrayidx65, align 1
-  %conv66 = zext i8 %47 to i64
-  %shl67 = shl i64 %conv66, 37
-  %48 = load ptr, ptr %r.addr, align 8
-  %v68 = getelementptr inbounds %struct.fe25519, ptr %48, i32 0, i32 0
-  %arrayidx69 = getelementptr inbounds [5 x i64], ptr %v68, i64 0, i64 1
-  %49 = load i64, ptr %arrayidx69, align 8
-  %add70 = add i64 %49, %shl67
-  store i64 %add70, ptr %arrayidx69, align 8
-  %50 = load ptr, ptr %x.addr, align 8
-  %arrayidx71 = getelementptr inbounds i8, ptr %50, i64 12
-  %51 = load i8, ptr %arrayidx71, align 1
-  %conv72 = zext i8 %51 to i64
-  %and73 = and i64 %conv72, 63
-  %shl74 = shl i64 %and73, 45
-  %52 = load ptr, ptr %r.addr, align 8
-  %v75 = getelementptr inbounds %struct.fe25519, ptr %52, i32 0, i32 0
-  %arrayidx76 = getelementptr inbounds [5 x i64], ptr %v75, i64 0, i64 1
-  %53 = load i64, ptr %arrayidx76, align 8
-  %add77 = add i64 %53, %shl74
-  store i64 %add77, ptr %arrayidx76, align 8
-  %54 = load ptr, ptr %x.addr, align 8
-  %arrayidx78 = getelementptr inbounds i8, ptr %54, i64 12
-  %55 = load i8, ptr %arrayidx78, align 1
-  %conv79 = zext i8 %55 to i32
-  %shr80 = ashr i32 %conv79, 6
-  %conv81 = sext i32 %shr80 to i64
-  %56 = load ptr, ptr %r.addr, align 8
-  %v82 = getelementptr inbounds %struct.fe25519, ptr %56, i32 0, i32 0
-  %arrayidx83 = getelementptr inbounds [5 x i64], ptr %v82, i64 0, i64 2
-  store i64 %conv81, ptr %arrayidx83, align 8
-  %57 = load ptr, ptr %x.addr, align 8
-  %arrayidx84 = getelementptr inbounds i8, ptr %57, i64 13
-  %58 = load i8, ptr %arrayidx84, align 1
-  %conv85 = zext i8 %58 to i64
-  %shl86 = shl i64 %conv85, 2
-  %59 = load ptr, ptr %r.addr, align 8
-  %v87 = getelementptr inbounds %struct.fe25519, ptr %59, i32 0, i32 0
-  %arrayidx88 = getelementptr inbounds [5 x i64], ptr %v87, i64 0, i64 2
-  %60 = load i64, ptr %arrayidx88, align 8
-  %add89 = add i64 %60, %shl86
-  store i64 %add89, ptr %arrayidx88, align 8
-  %61 = load ptr, ptr %x.addr, align 8
-  %arrayidx90 = getelementptr inbounds i8, ptr %61, i64 14
-  %62 = load i8, ptr %arrayidx90, align 1
-  %conv91 = zext i8 %62 to i64
-  %shl92 = shl i64 %conv91, 10
-  %63 = load ptr, ptr %r.addr, align 8
-  %v93 = getelementptr inbounds %struct.fe25519, ptr %63, i32 0, i32 0
-  %arrayidx94 = getelementptr inbounds [5 x i64], ptr %v93, i64 0, i64 2
-  %64 = load i64, ptr %arrayidx94, align 8
-  %add95 = add i64 %64, %shl92
-  store i64 %add95, ptr %arrayidx94, align 8
-  %65 = load ptr, ptr %x.addr, align 8
-  %arrayidx96 = getelementptr inbounds i8, ptr %65, i64 15
-  %66 = load i8, ptr %arrayidx96, align 1
-  %conv97 = zext i8 %66 to i64
-  %shl98 = shl i64 %conv97, 18
-  %67 = load ptr, ptr %r.addr, align 8
-  %v99 = getelementptr inbounds %struct.fe25519, ptr %67, i32 0, i32 0
-  %arrayidx100 = getelementptr inbounds [5 x i64], ptr %v99, i64 0, i64 2
-  %68 = load i64, ptr %arrayidx100, align 8
-  %add101 = add i64 %68, %shl98
-  store i64 %add101, ptr %arrayidx100, align 8
-  %69 = load ptr, ptr %x.addr, align 8
-  %arrayidx102 = getelementptr inbounds i8, ptr %69, i64 16
-  %70 = load i8, ptr %arrayidx102, align 1
-  %conv103 = zext i8 %70 to i64
-  %shl104 = shl i64 %conv103, 26
-  %71 = load ptr, ptr %r.addr, align 8
-  %v105 = getelementptr inbounds %struct.fe25519, ptr %71, i32 0, i32 0
-  %arrayidx106 = getelementptr inbounds [5 x i64], ptr %v105, i64 0, i64 2
-  %72 = load i64, ptr %arrayidx106, align 8
-  %add107 = add i64 %72, %shl104
-  store i64 %add107, ptr %arrayidx106, align 8
-  %73 = load ptr, ptr %x.addr, align 8
-  %arrayidx108 = getelementptr inbounds i8, ptr %73, i64 17
-  %74 = load i8, ptr %arrayidx108, align 1
-  %conv109 = zext i8 %74 to i64
-  %shl110 = shl i64 %conv109, 34
-  %75 = load ptr, ptr %r.addr, align 8
-  %v111 = getelementptr inbounds %struct.fe25519, ptr %75, i32 0, i32 0
-  %arrayidx112 = getelementptr inbounds [5 x i64], ptr %v111, i64 0, i64 2
-  %76 = load i64, ptr %arrayidx112, align 8
-  %add113 = add i64 %76, %shl110
-  store i64 %add113, ptr %arrayidx112, align 8
-  %77 = load ptr, ptr %x.addr, align 8
-  %arrayidx114 = getelementptr inbounds i8, ptr %77, i64 18
-  %78 = load i8, ptr %arrayidx114, align 1
-  %conv115 = zext i8 %78 to i64
-  %shl116 = shl i64 %conv115, 42
-  %79 = load ptr, ptr %r.addr, align 8
-  %v117 = getelementptr inbounds %struct.fe25519, ptr %79, i32 0, i32 0
-  %arrayidx118 = getelementptr inbounds [5 x i64], ptr %v117, i64 0, i64 2
-  %80 = load i64, ptr %arrayidx118, align 8
-  %add119 = add i64 %80, %shl116
-  store i64 %add119, ptr %arrayidx118, align 8
-  %81 = load ptr, ptr %x.addr, align 8
-  %arrayidx120 = getelementptr inbounds i8, ptr %81, i64 19
-  %82 = load i8, ptr %arrayidx120, align 1
-  %conv121 = zext i8 %82 to i64
-  %and122 = and i64 %conv121, 1
-  %shl123 = shl i64 %and122, 50
-  %83 = load ptr, ptr %r.addr, align 8
-  %v124 = getelementptr inbounds %struct.fe25519, ptr %83, i32 0, i32 0
-  %arrayidx125 = getelementptr inbounds [5 x i64], ptr %v124, i64 0, i64 2
-  %84 = load i64, ptr %arrayidx125, align 8
-  %add126 = add i64 %84, %shl123
-  store i64 %add126, ptr %arrayidx125, align 8
-  %85 = load ptr, ptr %x.addr, align 8
-  %arrayidx127 = getelementptr inbounds i8, ptr %85, i64 19
-  %86 = load i8, ptr %arrayidx127, align 1
-  %conv128 = zext i8 %86 to i32
-  %shr129 = ashr i32 %conv128, 1
-  %conv130 = sext i32 %shr129 to i64
-  %87 = load ptr, ptr %r.addr, align 8
-  %v131 = getelementptr inbounds %struct.fe25519, ptr %87, i32 0, i32 0
-  %arrayidx132 = getelementptr inbounds [5 x i64], ptr %v131, i64 0, i64 3
-  store i64 %conv130, ptr %arrayidx132, align 8
-  %88 = load ptr, ptr %x.addr, align 8
-  %arrayidx133 = getelementptr inbounds i8, ptr %88, i64 20
-  %89 = load i8, ptr %arrayidx133, align 1
-  %conv134 = zext i8 %89 to i64
-  %shl135 = shl i64 %conv134, 7
-  %90 = load ptr, ptr %r.addr, align 8
-  %v136 = getelementptr inbounds %struct.fe25519, ptr %90, i32 0, i32 0
-  %arrayidx137 = getelementptr inbounds [5 x i64], ptr %v136, i64 0, i64 3
-  %91 = load i64, ptr %arrayidx137, align 8
-  %add138 = add i64 %91, %shl135
-  store i64 %add138, ptr %arrayidx137, align 8
-  %92 = load ptr, ptr %x.addr, align 8
-  %arrayidx139 = getelementptr inbounds i8, ptr %92, i64 21
-  %93 = load i8, ptr %arrayidx139, align 1
-  %conv140 = zext i8 %93 to i64
-  %shl141 = shl i64 %conv140, 15
-  %94 = load ptr, ptr %r.addr, align 8
-  %v142 = getelementptr inbounds %struct.fe25519, ptr %94, i32 0, i32 0
-  %arrayidx143 = getelementptr inbounds [5 x i64], ptr %v142, i64 0, i64 3
-  %95 = load i64, ptr %arrayidx143, align 8
-  %add144 = add i64 %95, %shl141
-  store i64 %add144, ptr %arrayidx143, align 8
-  %96 = load ptr, ptr %x.addr, align 8
-  %arrayidx145 = getelementptr inbounds i8, ptr %96, i64 22
-  %97 = load i8, ptr %arrayidx145, align 1
-  %conv146 = zext i8 %97 to i64
-  %shl147 = shl i64 %conv146, 23
-  %98 = load ptr, ptr %r.addr, align 8
-  %v148 = getelementptr inbounds %struct.fe25519, ptr %98, i32 0, i32 0
-  %arrayidx149 = getelementptr inbounds [5 x i64], ptr %v148, i64 0, i64 3
-  %99 = load i64, ptr %arrayidx149, align 8
-  %add150 = add i64 %99, %shl147
-  store i64 %add150, ptr %arrayidx149, align 8
-  %100 = load ptr, ptr %x.addr, align 8
-  %arrayidx151 = getelementptr inbounds i8, ptr %100, i64 23
-  %101 = load i8, ptr %arrayidx151, align 1
-  %conv152 = zext i8 %101 to i64
-  %shl153 = shl i64 %conv152, 31
-  %102 = load ptr, ptr %r.addr, align 8
-  %v154 = getelementptr inbounds %struct.fe25519, ptr %102, i32 0, i32 0
-  %arrayidx155 = getelementptr inbounds [5 x i64], ptr %v154, i64 0, i64 3
-  %103 = load i64, ptr %arrayidx155, align 8
-  %add156 = add i64 %103, %shl153
-  store i64 %add156, ptr %arrayidx155, align 8
-  %104 = load ptr, ptr %x.addr, align 8
-  %arrayidx157 = getelementptr inbounds i8, ptr %104, i64 24
-  %105 = load i8, ptr %arrayidx157, align 1
-  %conv158 = zext i8 %105 to i64
-  %shl159 = shl i64 %conv158, 39
-  %106 = load ptr, ptr %r.addr, align 8
-  %v160 = getelementptr inbounds %struct.fe25519, ptr %106, i32 0, i32 0
-  %arrayidx161 = getelementptr inbounds [5 x i64], ptr %v160, i64 0, i64 3
-  %107 = load i64, ptr %arrayidx161, align 8
-  %add162 = add i64 %107, %shl159
-  store i64 %add162, ptr %arrayidx161, align 8
-  %108 = load ptr, ptr %x.addr, align 8
-  %arrayidx163 = getelementptr inbounds i8, ptr %108, i64 25
-  %109 = load i8, ptr %arrayidx163, align 1
-  %conv164 = zext i8 %109 to i64
-  %and165 = and i64 %conv164, 15
-  %shl166 = shl i64 %and165, 47
-  %110 = load ptr, ptr %r.addr, align 8
-  %v167 = getelementptr inbounds %struct.fe25519, ptr %110, i32 0, i32 0
-  %arrayidx168 = getelementptr inbounds [5 x i64], ptr %v167, i64 0, i64 3
-  %111 = load i64, ptr %arrayidx168, align 8
-  %add169 = add i64 %111, %shl166
-  store i64 %add169, ptr %arrayidx168, align 8
-  %112 = load ptr, ptr %x.addr, align 8
-  %arrayidx170 = getelementptr inbounds i8, ptr %112, i64 25
-  %113 = load i8, ptr %arrayidx170, align 1
-  %conv171 = zext i8 %113 to i32
-  %shr172 = ashr i32 %conv171, 4
-  %conv173 = sext i32 %shr172 to i64
-  %114 = load ptr, ptr %r.addr, align 8
-  %v174 = getelementptr inbounds %struct.fe25519, ptr %114, i32 0, i32 0
-  %arrayidx175 = getelementptr inbounds [5 x i64], ptr %v174, i64 0, i64 4
-  store i64 %conv173, ptr %arrayidx175, align 8
-  %115 = load ptr, ptr %x.addr, align 8
-  %arrayidx176 = getelementptr inbounds i8, ptr %115, i64 26
-  %116 = load i8, ptr %arrayidx176, align 1
-  %conv177 = zext i8 %116 to i64
-  %shl178 = shl i64 %conv177, 4
-  %117 = load ptr, ptr %r.addr, align 8
-  %v179 = getelementptr inbounds %struct.fe25519, ptr %117, i32 0, i32 0
-  %arrayidx180 = getelementptr inbounds [5 x i64], ptr %v179, i64 0, i64 4
-  %118 = load i64, ptr %arrayidx180, align 8
-  %add181 = add i64 %118, %shl178
-  store i64 %add181, ptr %arrayidx180, align 8
-  %119 = load ptr, ptr %x.addr, align 8
-  %arrayidx182 = getelementptr inbounds i8, ptr %119, i64 27
-  %120 = load i8, ptr %arrayidx182, align 1
-  %conv183 = zext i8 %120 to i64
-  %shl184 = shl i64 %conv183, 12
-  %121 = load ptr, ptr %r.addr, align 8
-  %v185 = getelementptr inbounds %struct.fe25519, ptr %121, i32 0, i32 0
-  %arrayidx186 = getelementptr inbounds [5 x i64], ptr %v185, i64 0, i64 4
-  %122 = load i64, ptr %arrayidx186, align 8
-  %add187 = add i64 %122, %shl184
-  store i64 %add187, ptr %arrayidx186, align 8
-  %123 = load ptr, ptr %x.addr, align 8
-  %arrayidx188 = getelementptr inbounds i8, ptr %123, i64 28
-  %124 = load i8, ptr %arrayidx188, align 1
-  %conv189 = zext i8 %124 to i64
-  %shl190 = shl i64 %conv189, 20
-  %125 = load ptr, ptr %r.addr, align 8
-  %v191 = getelementptr inbounds %struct.fe25519, ptr %125, i32 0, i32 0
-  %arrayidx192 = getelementptr inbounds [5 x i64], ptr %v191, i64 0, i64 4
-  %126 = load i64, ptr %arrayidx192, align 8
-  %add193 = add i64 %126, %shl190
-  store i64 %add193, ptr %arrayidx192, align 8
-  %127 = load ptr, ptr %x.addr, align 8
-  %arrayidx194 = getelementptr inbounds i8, ptr %127, i64 29
-  %128 = load i8, ptr %arrayidx194, align 1
-  %conv195 = zext i8 %128 to i64
-  %shl196 = shl i64 %conv195, 28
-  %129 = load ptr, ptr %r.addr, align 8
-  %v197 = getelementptr inbounds %struct.fe25519, ptr %129, i32 0, i32 0
-  %arrayidx198 = getelementptr inbounds [5 x i64], ptr %v197, i64 0, i64 4
-  %130 = load i64, ptr %arrayidx198, align 8
-  %add199 = add i64 %130, %shl196
-  store i64 %add199, ptr %arrayidx198, align 8
-  %131 = load ptr, ptr %x.addr, align 8
-  %arrayidx200 = getelementptr inbounds i8, ptr %131, i64 30
-  %132 = load i8, ptr %arrayidx200, align 1
-  %conv201 = zext i8 %132 to i64
-  %shl202 = shl i64 %conv201, 36
-  %133 = load ptr, ptr %r.addr, align 8
-  %v203 = getelementptr inbounds %struct.fe25519, ptr %133, i32 0, i32 0
-  %arrayidx204 = getelementptr inbounds [5 x i64], ptr %v203, i64 0, i64 4
-  %134 = load i64, ptr %arrayidx204, align 8
-  %add205 = add i64 %134, %shl202
-  store i64 %add205, ptr %arrayidx204, align 8
-  %135 = load ptr, ptr %x.addr, align 8
-  %arrayidx206 = getelementptr inbounds i8, ptr %135, i64 31
-  %136 = load i8, ptr %arrayidx206, align 1
-  %conv207 = zext i8 %136 to i64
-  %and208 = and i64 %conv207, 127
-  %shl209 = shl i64 %and208, 44
-  %137 = load ptr, ptr %r.addr, align 8
-  %v210 = getelementptr inbounds %struct.fe25519, ptr %137, i32 0, i32 0
-  %arrayidx211 = getelementptr inbounds [5 x i64], ptr %v210, i64 0, i64 4
-  %138 = load i64, ptr %arrayidx211, align 8
-  %add212 = add i64 %138, %shl209
-  store i64 %add212, ptr %arrayidx211, align 8
+define internal void @fe25519_unpack(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  %7 = load i8, ptr %6, align 1, !tbaa !11
+  %8 = zext i8 %7 to i64
+  %9 = load ptr, ptr %3, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw %struct.fe25519, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 0
+  store i64 %8, ptr %11, align 8, !tbaa !13
+  %12 = load ptr, ptr %4, align 8, !tbaa !6
+  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = load i8, ptr %13, align 1, !tbaa !11
+  %15 = zext i8 %14 to i64
+  %16 = shl i64 %15, 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw %struct.fe25519, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds [5 x i64], ptr %18, i64 0, i64 0
+  %20 = load i64, ptr %19, align 8, !tbaa !13
+  %21 = add i64 %20, %16
+  store i64 %21, ptr %19, align 8, !tbaa !13
+  %22 = load ptr, ptr %4, align 8, !tbaa !6
+  %23 = getelementptr inbounds i8, ptr %22, i64 2
+  %24 = load i8, ptr %23, align 1, !tbaa !11
+  %25 = zext i8 %24 to i64
+  %26 = shl i64 %25, 16
+  %27 = load ptr, ptr %3, align 8, !tbaa !12
+  %28 = getelementptr inbounds nuw %struct.fe25519, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [5 x i64], ptr %28, i64 0, i64 0
+  %30 = load i64, ptr %29, align 8, !tbaa !13
+  %31 = add i64 %30, %26
+  store i64 %31, ptr %29, align 8, !tbaa !13
+  %32 = load ptr, ptr %4, align 8, !tbaa !6
+  %33 = getelementptr inbounds i8, ptr %32, i64 3
+  %34 = load i8, ptr %33, align 1, !tbaa !11
+  %35 = zext i8 %34 to i64
+  %36 = shl i64 %35, 24
+  %37 = load ptr, ptr %3, align 8, !tbaa !12
+  %38 = getelementptr inbounds nuw %struct.fe25519, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds [5 x i64], ptr %38, i64 0, i64 0
+  %40 = load i64, ptr %39, align 8, !tbaa !13
+  %41 = add i64 %40, %36
+  store i64 %41, ptr %39, align 8, !tbaa !13
+  %42 = load ptr, ptr %4, align 8, !tbaa !6
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = load i8, ptr %43, align 1, !tbaa !11
+  %45 = zext i8 %44 to i64
+  %46 = shl i64 %45, 32
+  %47 = load ptr, ptr %3, align 8, !tbaa !12
+  %48 = getelementptr inbounds nuw %struct.fe25519, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds [5 x i64], ptr %48, i64 0, i64 0
+  %50 = load i64, ptr %49, align 8, !tbaa !13
+  %51 = add i64 %50, %46
+  store i64 %51, ptr %49, align 8, !tbaa !13
+  %52 = load ptr, ptr %4, align 8, !tbaa !6
+  %53 = getelementptr inbounds i8, ptr %52, i64 5
+  %54 = load i8, ptr %53, align 1, !tbaa !11
+  %55 = zext i8 %54 to i64
+  %56 = shl i64 %55, 40
+  %57 = load ptr, ptr %3, align 8, !tbaa !12
+  %58 = getelementptr inbounds nuw %struct.fe25519, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds [5 x i64], ptr %58, i64 0, i64 0
+  %60 = load i64, ptr %59, align 8, !tbaa !13
+  %61 = add i64 %60, %56
+  store i64 %61, ptr %59, align 8, !tbaa !13
+  %62 = load ptr, ptr %4, align 8, !tbaa !6
+  %63 = getelementptr inbounds i8, ptr %62, i64 6
+  %64 = load i8, ptr %63, align 1, !tbaa !11
+  %65 = zext i8 %64 to i64
+  %66 = and i64 %65, 7
+  %67 = shl i64 %66, 48
+  %68 = load ptr, ptr %3, align 8, !tbaa !12
+  %69 = getelementptr inbounds nuw %struct.fe25519, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds [5 x i64], ptr %69, i64 0, i64 0
+  %71 = load i64, ptr %70, align 8, !tbaa !13
+  %72 = add i64 %71, %67
+  store i64 %72, ptr %70, align 8, !tbaa !13
+  %73 = load ptr, ptr %4, align 8, !tbaa !6
+  %74 = getelementptr inbounds i8, ptr %73, i64 6
+  %75 = load i8, ptr %74, align 1, !tbaa !11
+  %76 = zext i8 %75 to i32
+  %77 = ashr i32 %76, 3
+  %78 = sext i32 %77 to i64
+  %79 = load ptr, ptr %3, align 8, !tbaa !12
+  %80 = getelementptr inbounds nuw %struct.fe25519, ptr %79, i32 0, i32 0
+  %81 = getelementptr inbounds [5 x i64], ptr %80, i64 0, i64 1
+  store i64 %78, ptr %81, align 8, !tbaa !13
+  %82 = load ptr, ptr %4, align 8, !tbaa !6
+  %83 = getelementptr inbounds i8, ptr %82, i64 7
+  %84 = load i8, ptr %83, align 1, !tbaa !11
+  %85 = zext i8 %84 to i64
+  %86 = shl i64 %85, 5
+  %87 = load ptr, ptr %3, align 8, !tbaa !12
+  %88 = getelementptr inbounds nuw %struct.fe25519, ptr %87, i32 0, i32 0
+  %89 = getelementptr inbounds [5 x i64], ptr %88, i64 0, i64 1
+  %90 = load i64, ptr %89, align 8, !tbaa !13
+  %91 = add i64 %90, %86
+  store i64 %91, ptr %89, align 8, !tbaa !13
+  %92 = load ptr, ptr %4, align 8, !tbaa !6
+  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = load i8, ptr %93, align 1, !tbaa !11
+  %95 = zext i8 %94 to i64
+  %96 = shl i64 %95, 13
+  %97 = load ptr, ptr %3, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw %struct.fe25519, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds [5 x i64], ptr %98, i64 0, i64 1
+  %100 = load i64, ptr %99, align 8, !tbaa !13
+  %101 = add i64 %100, %96
+  store i64 %101, ptr %99, align 8, !tbaa !13
+  %102 = load ptr, ptr %4, align 8, !tbaa !6
+  %103 = getelementptr inbounds i8, ptr %102, i64 9
+  %104 = load i8, ptr %103, align 1, !tbaa !11
+  %105 = zext i8 %104 to i64
+  %106 = shl i64 %105, 21
+  %107 = load ptr, ptr %3, align 8, !tbaa !12
+  %108 = getelementptr inbounds nuw %struct.fe25519, ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds [5 x i64], ptr %108, i64 0, i64 1
+  %110 = load i64, ptr %109, align 8, !tbaa !13
+  %111 = add i64 %110, %106
+  store i64 %111, ptr %109, align 8, !tbaa !13
+  %112 = load ptr, ptr %4, align 8, !tbaa !6
+  %113 = getelementptr inbounds i8, ptr %112, i64 10
+  %114 = load i8, ptr %113, align 1, !tbaa !11
+  %115 = zext i8 %114 to i64
+  %116 = shl i64 %115, 29
+  %117 = load ptr, ptr %3, align 8, !tbaa !12
+  %118 = getelementptr inbounds nuw %struct.fe25519, ptr %117, i32 0, i32 0
+  %119 = getelementptr inbounds [5 x i64], ptr %118, i64 0, i64 1
+  %120 = load i64, ptr %119, align 8, !tbaa !13
+  %121 = add i64 %120, %116
+  store i64 %121, ptr %119, align 8, !tbaa !13
+  %122 = load ptr, ptr %4, align 8, !tbaa !6
+  %123 = getelementptr inbounds i8, ptr %122, i64 11
+  %124 = load i8, ptr %123, align 1, !tbaa !11
+  %125 = zext i8 %124 to i64
+  %126 = shl i64 %125, 37
+  %127 = load ptr, ptr %3, align 8, !tbaa !12
+  %128 = getelementptr inbounds nuw %struct.fe25519, ptr %127, i32 0, i32 0
+  %129 = getelementptr inbounds [5 x i64], ptr %128, i64 0, i64 1
+  %130 = load i64, ptr %129, align 8, !tbaa !13
+  %131 = add i64 %130, %126
+  store i64 %131, ptr %129, align 8, !tbaa !13
+  %132 = load ptr, ptr %4, align 8, !tbaa !6
+  %133 = getelementptr inbounds i8, ptr %132, i64 12
+  %134 = load i8, ptr %133, align 1, !tbaa !11
+  %135 = zext i8 %134 to i64
+  %136 = and i64 %135, 63
+  %137 = shl i64 %136, 45
+  %138 = load ptr, ptr %3, align 8, !tbaa !12
+  %139 = getelementptr inbounds nuw %struct.fe25519, ptr %138, i32 0, i32 0
+  %140 = getelementptr inbounds [5 x i64], ptr %139, i64 0, i64 1
+  %141 = load i64, ptr %140, align 8, !tbaa !13
+  %142 = add i64 %141, %137
+  store i64 %142, ptr %140, align 8, !tbaa !13
+  %143 = load ptr, ptr %4, align 8, !tbaa !6
+  %144 = getelementptr inbounds i8, ptr %143, i64 12
+  %145 = load i8, ptr %144, align 1, !tbaa !11
+  %146 = zext i8 %145 to i32
+  %147 = ashr i32 %146, 6
+  %148 = sext i32 %147 to i64
+  %149 = load ptr, ptr %3, align 8, !tbaa !12
+  %150 = getelementptr inbounds nuw %struct.fe25519, ptr %149, i32 0, i32 0
+  %151 = getelementptr inbounds [5 x i64], ptr %150, i64 0, i64 2
+  store i64 %148, ptr %151, align 8, !tbaa !13
+  %152 = load ptr, ptr %4, align 8, !tbaa !6
+  %153 = getelementptr inbounds i8, ptr %152, i64 13
+  %154 = load i8, ptr %153, align 1, !tbaa !11
+  %155 = zext i8 %154 to i64
+  %156 = shl i64 %155, 2
+  %157 = load ptr, ptr %3, align 8, !tbaa !12
+  %158 = getelementptr inbounds nuw %struct.fe25519, ptr %157, i32 0, i32 0
+  %159 = getelementptr inbounds [5 x i64], ptr %158, i64 0, i64 2
+  %160 = load i64, ptr %159, align 8, !tbaa !13
+  %161 = add i64 %160, %156
+  store i64 %161, ptr %159, align 8, !tbaa !13
+  %162 = load ptr, ptr %4, align 8, !tbaa !6
+  %163 = getelementptr inbounds i8, ptr %162, i64 14
+  %164 = load i8, ptr %163, align 1, !tbaa !11
+  %165 = zext i8 %164 to i64
+  %166 = shl i64 %165, 10
+  %167 = load ptr, ptr %3, align 8, !tbaa !12
+  %168 = getelementptr inbounds nuw %struct.fe25519, ptr %167, i32 0, i32 0
+  %169 = getelementptr inbounds [5 x i64], ptr %168, i64 0, i64 2
+  %170 = load i64, ptr %169, align 8, !tbaa !13
+  %171 = add i64 %170, %166
+  store i64 %171, ptr %169, align 8, !tbaa !13
+  %172 = load ptr, ptr %4, align 8, !tbaa !6
+  %173 = getelementptr inbounds i8, ptr %172, i64 15
+  %174 = load i8, ptr %173, align 1, !tbaa !11
+  %175 = zext i8 %174 to i64
+  %176 = shl i64 %175, 18
+  %177 = load ptr, ptr %3, align 8, !tbaa !12
+  %178 = getelementptr inbounds nuw %struct.fe25519, ptr %177, i32 0, i32 0
+  %179 = getelementptr inbounds [5 x i64], ptr %178, i64 0, i64 2
+  %180 = load i64, ptr %179, align 8, !tbaa !13
+  %181 = add i64 %180, %176
+  store i64 %181, ptr %179, align 8, !tbaa !13
+  %182 = load ptr, ptr %4, align 8, !tbaa !6
+  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %184 = load i8, ptr %183, align 1, !tbaa !11
+  %185 = zext i8 %184 to i64
+  %186 = shl i64 %185, 26
+  %187 = load ptr, ptr %3, align 8, !tbaa !12
+  %188 = getelementptr inbounds nuw %struct.fe25519, ptr %187, i32 0, i32 0
+  %189 = getelementptr inbounds [5 x i64], ptr %188, i64 0, i64 2
+  %190 = load i64, ptr %189, align 8, !tbaa !13
+  %191 = add i64 %190, %186
+  store i64 %191, ptr %189, align 8, !tbaa !13
+  %192 = load ptr, ptr %4, align 8, !tbaa !6
+  %193 = getelementptr inbounds i8, ptr %192, i64 17
+  %194 = load i8, ptr %193, align 1, !tbaa !11
+  %195 = zext i8 %194 to i64
+  %196 = shl i64 %195, 34
+  %197 = load ptr, ptr %3, align 8, !tbaa !12
+  %198 = getelementptr inbounds nuw %struct.fe25519, ptr %197, i32 0, i32 0
+  %199 = getelementptr inbounds [5 x i64], ptr %198, i64 0, i64 2
+  %200 = load i64, ptr %199, align 8, !tbaa !13
+  %201 = add i64 %200, %196
+  store i64 %201, ptr %199, align 8, !tbaa !13
+  %202 = load ptr, ptr %4, align 8, !tbaa !6
+  %203 = getelementptr inbounds i8, ptr %202, i64 18
+  %204 = load i8, ptr %203, align 1, !tbaa !11
+  %205 = zext i8 %204 to i64
+  %206 = shl i64 %205, 42
+  %207 = load ptr, ptr %3, align 8, !tbaa !12
+  %208 = getelementptr inbounds nuw %struct.fe25519, ptr %207, i32 0, i32 0
+  %209 = getelementptr inbounds [5 x i64], ptr %208, i64 0, i64 2
+  %210 = load i64, ptr %209, align 8, !tbaa !13
+  %211 = add i64 %210, %206
+  store i64 %211, ptr %209, align 8, !tbaa !13
+  %212 = load ptr, ptr %4, align 8, !tbaa !6
+  %213 = getelementptr inbounds i8, ptr %212, i64 19
+  %214 = load i8, ptr %213, align 1, !tbaa !11
+  %215 = zext i8 %214 to i64
+  %216 = and i64 %215, 1
+  %217 = shl i64 %216, 50
+  %218 = load ptr, ptr %3, align 8, !tbaa !12
+  %219 = getelementptr inbounds nuw %struct.fe25519, ptr %218, i32 0, i32 0
+  %220 = getelementptr inbounds [5 x i64], ptr %219, i64 0, i64 2
+  %221 = load i64, ptr %220, align 8, !tbaa !13
+  %222 = add i64 %221, %217
+  store i64 %222, ptr %220, align 8, !tbaa !13
+  %223 = load ptr, ptr %4, align 8, !tbaa !6
+  %224 = getelementptr inbounds i8, ptr %223, i64 19
+  %225 = load i8, ptr %224, align 1, !tbaa !11
+  %226 = zext i8 %225 to i32
+  %227 = ashr i32 %226, 1
+  %228 = sext i32 %227 to i64
+  %229 = load ptr, ptr %3, align 8, !tbaa !12
+  %230 = getelementptr inbounds nuw %struct.fe25519, ptr %229, i32 0, i32 0
+  %231 = getelementptr inbounds [5 x i64], ptr %230, i64 0, i64 3
+  store i64 %228, ptr %231, align 8, !tbaa !13
+  %232 = load ptr, ptr %4, align 8, !tbaa !6
+  %233 = getelementptr inbounds i8, ptr %232, i64 20
+  %234 = load i8, ptr %233, align 1, !tbaa !11
+  %235 = zext i8 %234 to i64
+  %236 = shl i64 %235, 7
+  %237 = load ptr, ptr %3, align 8, !tbaa !12
+  %238 = getelementptr inbounds nuw %struct.fe25519, ptr %237, i32 0, i32 0
+  %239 = getelementptr inbounds [5 x i64], ptr %238, i64 0, i64 3
+  %240 = load i64, ptr %239, align 8, !tbaa !13
+  %241 = add i64 %240, %236
+  store i64 %241, ptr %239, align 8, !tbaa !13
+  %242 = load ptr, ptr %4, align 8, !tbaa !6
+  %243 = getelementptr inbounds i8, ptr %242, i64 21
+  %244 = load i8, ptr %243, align 1, !tbaa !11
+  %245 = zext i8 %244 to i64
+  %246 = shl i64 %245, 15
+  %247 = load ptr, ptr %3, align 8, !tbaa !12
+  %248 = getelementptr inbounds nuw %struct.fe25519, ptr %247, i32 0, i32 0
+  %249 = getelementptr inbounds [5 x i64], ptr %248, i64 0, i64 3
+  %250 = load i64, ptr %249, align 8, !tbaa !13
+  %251 = add i64 %250, %246
+  store i64 %251, ptr %249, align 8, !tbaa !13
+  %252 = load ptr, ptr %4, align 8, !tbaa !6
+  %253 = getelementptr inbounds i8, ptr %252, i64 22
+  %254 = load i8, ptr %253, align 1, !tbaa !11
+  %255 = zext i8 %254 to i64
+  %256 = shl i64 %255, 23
+  %257 = load ptr, ptr %3, align 8, !tbaa !12
+  %258 = getelementptr inbounds nuw %struct.fe25519, ptr %257, i32 0, i32 0
+  %259 = getelementptr inbounds [5 x i64], ptr %258, i64 0, i64 3
+  %260 = load i64, ptr %259, align 8, !tbaa !13
+  %261 = add i64 %260, %256
+  store i64 %261, ptr %259, align 8, !tbaa !13
+  %262 = load ptr, ptr %4, align 8, !tbaa !6
+  %263 = getelementptr inbounds i8, ptr %262, i64 23
+  %264 = load i8, ptr %263, align 1, !tbaa !11
+  %265 = zext i8 %264 to i64
+  %266 = shl i64 %265, 31
+  %267 = load ptr, ptr %3, align 8, !tbaa !12
+  %268 = getelementptr inbounds nuw %struct.fe25519, ptr %267, i32 0, i32 0
+  %269 = getelementptr inbounds [5 x i64], ptr %268, i64 0, i64 3
+  %270 = load i64, ptr %269, align 8, !tbaa !13
+  %271 = add i64 %270, %266
+  store i64 %271, ptr %269, align 8, !tbaa !13
+  %272 = load ptr, ptr %4, align 8, !tbaa !6
+  %273 = getelementptr inbounds i8, ptr %272, i64 24
+  %274 = load i8, ptr %273, align 1, !tbaa !11
+  %275 = zext i8 %274 to i64
+  %276 = shl i64 %275, 39
+  %277 = load ptr, ptr %3, align 8, !tbaa !12
+  %278 = getelementptr inbounds nuw %struct.fe25519, ptr %277, i32 0, i32 0
+  %279 = getelementptr inbounds [5 x i64], ptr %278, i64 0, i64 3
+  %280 = load i64, ptr %279, align 8, !tbaa !13
+  %281 = add i64 %280, %276
+  store i64 %281, ptr %279, align 8, !tbaa !13
+  %282 = load ptr, ptr %4, align 8, !tbaa !6
+  %283 = getelementptr inbounds i8, ptr %282, i64 25
+  %284 = load i8, ptr %283, align 1, !tbaa !11
+  %285 = zext i8 %284 to i64
+  %286 = and i64 %285, 15
+  %287 = shl i64 %286, 47
+  %288 = load ptr, ptr %3, align 8, !tbaa !12
+  %289 = getelementptr inbounds nuw %struct.fe25519, ptr %288, i32 0, i32 0
+  %290 = getelementptr inbounds [5 x i64], ptr %289, i64 0, i64 3
+  %291 = load i64, ptr %290, align 8, !tbaa !13
+  %292 = add i64 %291, %287
+  store i64 %292, ptr %290, align 8, !tbaa !13
+  %293 = load ptr, ptr %4, align 8, !tbaa !6
+  %294 = getelementptr inbounds i8, ptr %293, i64 25
+  %295 = load i8, ptr %294, align 1, !tbaa !11
+  %296 = zext i8 %295 to i32
+  %297 = ashr i32 %296, 4
+  %298 = sext i32 %297 to i64
+  %299 = load ptr, ptr %3, align 8, !tbaa !12
+  %300 = getelementptr inbounds nuw %struct.fe25519, ptr %299, i32 0, i32 0
+  %301 = getelementptr inbounds [5 x i64], ptr %300, i64 0, i64 4
+  store i64 %298, ptr %301, align 8, !tbaa !13
+  %302 = load ptr, ptr %4, align 8, !tbaa !6
+  %303 = getelementptr inbounds i8, ptr %302, i64 26
+  %304 = load i8, ptr %303, align 1, !tbaa !11
+  %305 = zext i8 %304 to i64
+  %306 = shl i64 %305, 4
+  %307 = load ptr, ptr %3, align 8, !tbaa !12
+  %308 = getelementptr inbounds nuw %struct.fe25519, ptr %307, i32 0, i32 0
+  %309 = getelementptr inbounds [5 x i64], ptr %308, i64 0, i64 4
+  %310 = load i64, ptr %309, align 8, !tbaa !13
+  %311 = add i64 %310, %306
+  store i64 %311, ptr %309, align 8, !tbaa !13
+  %312 = load ptr, ptr %4, align 8, !tbaa !6
+  %313 = getelementptr inbounds i8, ptr %312, i64 27
+  %314 = load i8, ptr %313, align 1, !tbaa !11
+  %315 = zext i8 %314 to i64
+  %316 = shl i64 %315, 12
+  %317 = load ptr, ptr %3, align 8, !tbaa !12
+  %318 = getelementptr inbounds nuw %struct.fe25519, ptr %317, i32 0, i32 0
+  %319 = getelementptr inbounds [5 x i64], ptr %318, i64 0, i64 4
+  %320 = load i64, ptr %319, align 8, !tbaa !13
+  %321 = add i64 %320, %316
+  store i64 %321, ptr %319, align 8, !tbaa !13
+  %322 = load ptr, ptr %4, align 8, !tbaa !6
+  %323 = getelementptr inbounds i8, ptr %322, i64 28
+  %324 = load i8, ptr %323, align 1, !tbaa !11
+  %325 = zext i8 %324 to i64
+  %326 = shl i64 %325, 20
+  %327 = load ptr, ptr %3, align 8, !tbaa !12
+  %328 = getelementptr inbounds nuw %struct.fe25519, ptr %327, i32 0, i32 0
+  %329 = getelementptr inbounds [5 x i64], ptr %328, i64 0, i64 4
+  %330 = load i64, ptr %329, align 8, !tbaa !13
+  %331 = add i64 %330, %326
+  store i64 %331, ptr %329, align 8, !tbaa !13
+  %332 = load ptr, ptr %4, align 8, !tbaa !6
+  %333 = getelementptr inbounds i8, ptr %332, i64 29
+  %334 = load i8, ptr %333, align 1, !tbaa !11
+  %335 = zext i8 %334 to i64
+  %336 = shl i64 %335, 28
+  %337 = load ptr, ptr %3, align 8, !tbaa !12
+  %338 = getelementptr inbounds nuw %struct.fe25519, ptr %337, i32 0, i32 0
+  %339 = getelementptr inbounds [5 x i64], ptr %338, i64 0, i64 4
+  %340 = load i64, ptr %339, align 8, !tbaa !13
+  %341 = add i64 %340, %336
+  store i64 %341, ptr %339, align 8, !tbaa !13
+  %342 = load ptr, ptr %4, align 8, !tbaa !6
+  %343 = getelementptr inbounds i8, ptr %342, i64 30
+  %344 = load i8, ptr %343, align 1, !tbaa !11
+  %345 = zext i8 %344 to i64
+  %346 = shl i64 %345, 36
+  %347 = load ptr, ptr %3, align 8, !tbaa !12
+  %348 = getelementptr inbounds nuw %struct.fe25519, ptr %347, i32 0, i32 0
+  %349 = getelementptr inbounds [5 x i64], ptr %348, i64 0, i64 4
+  %350 = load i64, ptr %349, align 8, !tbaa !13
+  %351 = add i64 %350, %346
+  store i64 %351, ptr %349, align 8, !tbaa !13
+  %352 = load ptr, ptr %4, align 8, !tbaa !6
+  %353 = getelementptr inbounds i8, ptr %352, i64 31
+  %354 = load i8, ptr %353, align 1, !tbaa !11
+  %355 = zext i8 %354 to i64
+  %356 = and i64 %355, 127
+  %357 = shl i64 %356, 44
+  %358 = load ptr, ptr %3, align 8, !tbaa !12
+  %359 = getelementptr inbounds nuw %struct.fe25519, ptr %358, i32 0, i32 0
+  %360 = getelementptr inbounds [5 x i64], ptr %359, i64 0, i64 4
+  %361 = load i64, ptr %360, align 8, !tbaa !13
+  %362 = add i64 %361, %357
+  store i64 %362, ptr %360, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mladder(ptr noundef %xr, ptr noundef %zr, ptr noundef %s) #0 {
-entry:
-  %xr.addr = alloca ptr, align 8
-  %zr.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %work = alloca [5 x %struct.fe25519], align 16
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %prevbit = alloca i8, align 1
-  %bit = alloca i8, align 1
-  %swap = alloca i64, align 8
-  store ptr %xr, ptr %xr.addr, align 8
-  store ptr %zr, ptr %zr.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %arrayidx = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 0
-  %0 = load ptr, ptr %xr.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %0, i64 40, i1 false)
-  %arraydecay = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 0
-  %add.ptr = getelementptr inbounds %struct.fe25519, ptr %arraydecay, i64 1
-  call void @fe25519_setint(ptr noundef %add.ptr, i32 noundef 1)
-  %arraydecay1 = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 0
-  %add.ptr2 = getelementptr inbounds %struct.fe25519, ptr %arraydecay1, i64 2
-  call void @fe25519_setint(ptr noundef %add.ptr2, i32 noundef 0)
-  %arrayidx3 = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 3
-  %1 = load ptr, ptr %xr.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx3, ptr align 8 %1, i64 40, i1 false)
-  %arraydecay4 = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 0
-  %add.ptr5 = getelementptr inbounds %struct.fe25519, ptr %arraydecay4, i64 4
-  call void @fe25519_setint(ptr noundef %add.ptr5, i32 noundef 1)
-  store i8 0, ptr %prevbit, align 1
-  store i32 6, ptr %j, align 4
-  store i32 31, ptr %i, align 4
-  br label %for.cond
+define internal void @mladder(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca [5 x %struct.fe25519], align 16
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 200, ptr %7) #4
+  %13 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 0
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %13, ptr align 8 %14, i64 40, i1 false), !tbaa.struct !15
+  %15 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 0
+  %16 = getelementptr inbounds %struct.fe25519, ptr %15, i64 1
+  call void @fe25519_setint(ptr noundef %16, i32 noundef 1)
+  %17 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 0
+  %18 = getelementptr inbounds %struct.fe25519, ptr %17, i64 2
+  call void @fe25519_setint(ptr noundef %18, i32 noundef 0)
+  %19 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 3
+  %20 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %20, i64 40, i1 false), !tbaa.struct !15
+  %21 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 0
+  %22 = getelementptr inbounds %struct.fe25519, ptr %21, i64 4
+  call void @fe25519_setint(ptr noundef %22, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  store i8 0, ptr %10, align 1, !tbaa !11
+  store i32 6, ptr %9, align 4, !tbaa !16
+  store i32 31, ptr %8, align 4, !tbaa !16
+  br label %23
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %cmp = icmp sge i32 %2, 0
-  br i1 %cmp, label %for.body, label %for.end
+23:                                               ; preds = %55, %3
+  %24 = load i32, ptr %8, align 4, !tbaa !16
+  %25 = icmp sge i32 %24, 0
+  br i1 %25, label %26, label %58
 
-for.body:                                         ; preds = %for.cond
-  br label %while.cond
+26:                                               ; preds = %23
+  br label %27
 
-while.cond:                                       ; preds = %while.body, %for.body
-  %3 = load i32, ptr %j, align 4
-  %cmp6 = icmp sge i32 %3, 0
-  br i1 %cmp6, label %while.body, label %while.end
+27:                                               ; preds = %30, %26
+  %28 = load i32, ptr %9, align 4, !tbaa !16
+  %29 = icmp sge i32 %28, 0
+  br i1 %29, label %30, label %54
 
-while.body:                                       ; preds = %while.cond
-  %4 = load ptr, ptr %s.addr, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx7 = getelementptr inbounds i8, ptr %4, i64 %idxprom
-  %6 = load i8, ptr %arrayidx7, align 1
-  %conv = zext i8 %6 to i32
-  %7 = load i32, ptr %j, align 4
-  %shr = ashr i32 %conv, %7
-  %and = and i32 1, %shr
-  %conv8 = trunc i32 %and to i8
-  store i8 %conv8, ptr %bit, align 1
-  %8 = load i8, ptr %bit, align 1
-  %conv9 = zext i8 %8 to i32
-  %9 = load i8, ptr %prevbit, align 1
-  %conv10 = zext i8 %9 to i32
-  %xor = xor i32 %conv9, %conv10
-  %conv11 = sext i32 %xor to i64
-  store i64 %conv11, ptr %swap, align 8
-  %10 = load i8, ptr %bit, align 1
-  store i8 %10, ptr %prevbit, align 1
-  %arraydecay12 = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 0
-  %add.ptr13 = getelementptr inbounds %struct.fe25519, ptr %arraydecay12, i64 1
-  %11 = load i64, ptr %swap, align 8
-  call void @x25519_x86_64_work_cswap(ptr noundef %add.ptr13, i64 noundef %11)
-  %arraydecay14 = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 0
-  call void @x25519_x86_64_ladderstep(ptr noundef %arraydecay14)
-  %12 = load i32, ptr %j, align 4
-  %sub = sub nsw i32 %12, 1
-  store i32 %sub, ptr %j, align 4
-  br label %while.cond, !llvm.loop !7
+30:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  %31 = load ptr, ptr %6, align 8, !tbaa !6
+  %32 = load i32, ptr %8, align 4, !tbaa !16
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %31, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !11
+  %36 = zext i8 %35 to i32
+  %37 = load i32, ptr %9, align 4, !tbaa !16
+  %38 = ashr i32 %36, %37
+  %39 = and i32 1, %38
+  %40 = trunc i32 %39 to i8
+  store i8 %40, ptr %11, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %41 = load i8, ptr %11, align 1, !tbaa !11
+  %42 = zext i8 %41 to i32
+  %43 = load i8, ptr %10, align 1, !tbaa !11
+  %44 = zext i8 %43 to i32
+  %45 = xor i32 %42, %44
+  %46 = sext i32 %45 to i64
+  store i64 %46, ptr %12, align 8, !tbaa !13
+  %47 = load i8, ptr %11, align 1, !tbaa !11
+  store i8 %47, ptr %10, align 1, !tbaa !11
+  %48 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 0
+  %49 = getelementptr inbounds %struct.fe25519, ptr %48, i64 1
+  %50 = load i64, ptr %12, align 8, !tbaa !13
+  call void @x25519_x86_64_work_cswap(ptr noundef %49, i64 noundef %50)
+  %51 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 0
+  call void @x25519_x86_64_ladderstep(ptr noundef %51)
+  %52 = load i32, ptr %9, align 4, !tbaa !16
+  %53 = sub nsw i32 %52, 1
+  store i32 %53, ptr %9, align 4, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  br label %27, !llvm.loop !18
 
-while.end:                                        ; preds = %while.cond
-  store i32 7, ptr %j, align 4
-  br label %for.inc
+54:                                               ; preds = %27
+  store i32 7, ptr %9, align 4, !tbaa !16
+  br label %55
 
-for.inc:                                          ; preds = %while.end
-  %13 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %13, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+55:                                               ; preds = %54
+  %56 = load i32, ptr %8, align 4, !tbaa !16
+  %57 = add nsw i32 %56, -1
+  store i32 %57, ptr %8, align 4, !tbaa !16
+  br label %23, !llvm.loop !20
 
-for.end:                                          ; preds = %for.cond
-  %14 = load ptr, ptr %xr.addr, align 8
-  %arrayidx15 = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %arrayidx15, i64 40, i1 false)
-  %15 = load ptr, ptr %zr.addr, align 8
-  %arrayidx16 = getelementptr inbounds [5 x %struct.fe25519], ptr %work, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 16 %arrayidx16, i64 40, i1 false)
+58:                                               ; preds = %23
+  %59 = load ptr, ptr %4, align 8, !tbaa !12
+  %60 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr align 8 %60, i64 40, i1 false), !tbaa.struct !15
+  %61 = load ptr, ptr %5, align 8, !tbaa !12
+  %62 = getelementptr inbounds [5 x %struct.fe25519], ptr %7, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 16 %62, i64 40, i1 false), !tbaa.struct !15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 200, ptr %7) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fe25519_invert(ptr noundef %r, ptr noundef %x) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %x.addr = alloca ptr, align 8
-  %z2 = alloca %struct.fe25519, align 8
-  %z9 = alloca %struct.fe25519, align 8
-  %z11 = alloca %struct.fe25519, align 8
-  %z2_5_0 = alloca %struct.fe25519, align 8
-  %z2_10_0 = alloca %struct.fe25519, align 8
-  %z2_20_0 = alloca %struct.fe25519, align 8
-  %z2_50_0 = alloca %struct.fe25519, align 8
-  %z2_100_0 = alloca %struct.fe25519, align 8
-  %t = alloca %struct.fe25519, align 8
-  %i = alloca i32, align 4
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  %0 = load ptr, ptr %x.addr, align 8
-  call void @x25519_x86_64_square(ptr noundef %z2, ptr noundef %0)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %z2)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  %1 = load ptr, ptr %x.addr, align 8
-  call void @x25519_x86_64_mul(ptr noundef %z9, ptr noundef %t, ptr noundef %1)
-  call void @x25519_x86_64_mul(ptr noundef %z11, ptr noundef %z9, ptr noundef %z2)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %z11)
-  call void @x25519_x86_64_mul(ptr noundef %z2_5_0, ptr noundef %t, ptr noundef %z9)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %z2_5_0)
-  store i32 1, ptr %i, align 4
-  br label %for.cond
+define internal void @fe25519_invert(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.fe25519, align 8
+  %6 = alloca %struct.fe25519, align 8
+  %7 = alloca %struct.fe25519, align 8
+  %8 = alloca %struct.fe25519, align 8
+  %9 = alloca %struct.fe25519, align 8
+  %10 = alloca %struct.fe25519, align 8
+  %11 = alloca %struct.fe25519, align 8
+  %12 = alloca %struct.fe25519, align 8
+  %13 = alloca %struct.fe25519, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 40, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  %15 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @x25519_x86_64_square(ptr noundef %5, ptr noundef %15)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %5)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  %16 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @x25519_x86_64_mul(ptr noundef %6, ptr noundef %13, ptr noundef %16)
+  call void @x25519_x86_64_mul(ptr noundef %7, ptr noundef %6, ptr noundef %5)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %7)
+  call void @x25519_x86_64_mul(ptr noundef %8, ptr noundef %13, ptr noundef %6)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %8)
+  store i32 1, ptr %14, align 4, !tbaa !16
+  br label %17
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %2, 5
-  br i1 %cmp, label %for.body, label %for.end
+17:                                               ; preds = %21, %2
+  %18 = load i32, ptr %14, align 4, !tbaa !16
+  %19 = icmp slt i32 %18, 5
+  br i1 %19, label %20, label %24
 
-for.body:                                         ; preds = %for.cond
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  br label %for.inc
+20:                                               ; preds = %17
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  br label %21
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
+21:                                               ; preds = %20
+  %22 = load i32, ptr %14, align 4, !tbaa !16
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %14, align 4, !tbaa !16
+  br label %17, !llvm.loop !21
 
-for.end:                                          ; preds = %for.cond
-  call void @x25519_x86_64_mul(ptr noundef %z2_10_0, ptr noundef %t, ptr noundef %z2_5_0)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %z2_10_0)
-  store i32 1, ptr %i, align 4
-  br label %for.cond1
+24:                                               ; preds = %17
+  call void @x25519_x86_64_mul(ptr noundef %9, ptr noundef %13, ptr noundef %8)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %9)
+  store i32 1, ptr %14, align 4, !tbaa !16
+  br label %25
 
-for.cond1:                                        ; preds = %for.inc4, %for.end
-  %4 = load i32, ptr %i, align 4
-  %cmp2 = icmp slt i32 %4, 10
-  br i1 %cmp2, label %for.body3, label %for.end6
+25:                                               ; preds = %29, %24
+  %26 = load i32, ptr %14, align 4, !tbaa !16
+  %27 = icmp slt i32 %26, 10
+  br i1 %27, label %28, label %32
 
-for.body3:                                        ; preds = %for.cond1
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  br label %for.inc4
+28:                                               ; preds = %25
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  br label %29
 
-for.inc4:                                         ; preds = %for.body3
-  %5 = load i32, ptr %i, align 4
-  %inc5 = add nsw i32 %5, 1
-  store i32 %inc5, ptr %i, align 4
-  br label %for.cond1, !llvm.loop !11
+29:                                               ; preds = %28
+  %30 = load i32, ptr %14, align 4, !tbaa !16
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %14, align 4, !tbaa !16
+  br label %25, !llvm.loop !22
 
-for.end6:                                         ; preds = %for.cond1
-  call void @x25519_x86_64_mul(ptr noundef %z2_20_0, ptr noundef %t, ptr noundef %z2_10_0)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %z2_20_0)
-  store i32 1, ptr %i, align 4
-  br label %for.cond7
+32:                                               ; preds = %25
+  call void @x25519_x86_64_mul(ptr noundef %10, ptr noundef %13, ptr noundef %9)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %10)
+  store i32 1, ptr %14, align 4, !tbaa !16
+  br label %33
 
-for.cond7:                                        ; preds = %for.inc10, %for.end6
-  %6 = load i32, ptr %i, align 4
-  %cmp8 = icmp slt i32 %6, 20
-  br i1 %cmp8, label %for.body9, label %for.end12
+33:                                               ; preds = %37, %32
+  %34 = load i32, ptr %14, align 4, !tbaa !16
+  %35 = icmp slt i32 %34, 20
+  br i1 %35, label %36, label %40
 
-for.body9:                                        ; preds = %for.cond7
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  br label %for.inc10
+36:                                               ; preds = %33
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  br label %37
 
-for.inc10:                                        ; preds = %for.body9
-  %7 = load i32, ptr %i, align 4
-  %inc11 = add nsw i32 %7, 1
-  store i32 %inc11, ptr %i, align 4
-  br label %for.cond7, !llvm.loop !12
+37:                                               ; preds = %36
+  %38 = load i32, ptr %14, align 4, !tbaa !16
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %14, align 4, !tbaa !16
+  br label %33, !llvm.loop !23
 
-for.end12:                                        ; preds = %for.cond7
-  call void @x25519_x86_64_mul(ptr noundef %t, ptr noundef %t, ptr noundef %z2_20_0)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  store i32 1, ptr %i, align 4
-  br label %for.cond13
+40:                                               ; preds = %33
+  call void @x25519_x86_64_mul(ptr noundef %13, ptr noundef %13, ptr noundef %10)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  store i32 1, ptr %14, align 4, !tbaa !16
+  br label %41
 
-for.cond13:                                       ; preds = %for.inc16, %for.end12
-  %8 = load i32, ptr %i, align 4
-  %cmp14 = icmp slt i32 %8, 10
-  br i1 %cmp14, label %for.body15, label %for.end18
+41:                                               ; preds = %45, %40
+  %42 = load i32, ptr %14, align 4, !tbaa !16
+  %43 = icmp slt i32 %42, 10
+  br i1 %43, label %44, label %48
 
-for.body15:                                       ; preds = %for.cond13
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  br label %for.inc16
+44:                                               ; preds = %41
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  br label %45
 
-for.inc16:                                        ; preds = %for.body15
-  %9 = load i32, ptr %i, align 4
-  %inc17 = add nsw i32 %9, 1
-  store i32 %inc17, ptr %i, align 4
-  br label %for.cond13, !llvm.loop !13
+45:                                               ; preds = %44
+  %46 = load i32, ptr %14, align 4, !tbaa !16
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %14, align 4, !tbaa !16
+  br label %41, !llvm.loop !24
 
-for.end18:                                        ; preds = %for.cond13
-  call void @x25519_x86_64_mul(ptr noundef %z2_50_0, ptr noundef %t, ptr noundef %z2_10_0)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %z2_50_0)
-  store i32 1, ptr %i, align 4
-  br label %for.cond19
+48:                                               ; preds = %41
+  call void @x25519_x86_64_mul(ptr noundef %11, ptr noundef %13, ptr noundef %9)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %11)
+  store i32 1, ptr %14, align 4, !tbaa !16
+  br label %49
 
-for.cond19:                                       ; preds = %for.inc22, %for.end18
-  %10 = load i32, ptr %i, align 4
-  %cmp20 = icmp slt i32 %10, 50
-  br i1 %cmp20, label %for.body21, label %for.end24
+49:                                               ; preds = %53, %48
+  %50 = load i32, ptr %14, align 4, !tbaa !16
+  %51 = icmp slt i32 %50, 50
+  br i1 %51, label %52, label %56
 
-for.body21:                                       ; preds = %for.cond19
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  br label %for.inc22
+52:                                               ; preds = %49
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  br label %53
 
-for.inc22:                                        ; preds = %for.body21
-  %11 = load i32, ptr %i, align 4
-  %inc23 = add nsw i32 %11, 1
-  store i32 %inc23, ptr %i, align 4
-  br label %for.cond19, !llvm.loop !14
+53:                                               ; preds = %52
+  %54 = load i32, ptr %14, align 4, !tbaa !16
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %14, align 4, !tbaa !16
+  br label %49, !llvm.loop !25
 
-for.end24:                                        ; preds = %for.cond19
-  call void @x25519_x86_64_mul(ptr noundef %z2_100_0, ptr noundef %t, ptr noundef %z2_50_0)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %z2_100_0)
-  store i32 1, ptr %i, align 4
-  br label %for.cond25
+56:                                               ; preds = %49
+  call void @x25519_x86_64_mul(ptr noundef %12, ptr noundef %13, ptr noundef %11)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %12)
+  store i32 1, ptr %14, align 4, !tbaa !16
+  br label %57
 
-for.cond25:                                       ; preds = %for.inc28, %for.end24
-  %12 = load i32, ptr %i, align 4
-  %cmp26 = icmp slt i32 %12, 100
-  br i1 %cmp26, label %for.body27, label %for.end30
+57:                                               ; preds = %61, %56
+  %58 = load i32, ptr %14, align 4, !tbaa !16
+  %59 = icmp slt i32 %58, 100
+  br i1 %59, label %60, label %64
 
-for.body27:                                       ; preds = %for.cond25
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  br label %for.inc28
+60:                                               ; preds = %57
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  br label %61
 
-for.inc28:                                        ; preds = %for.body27
-  %13 = load i32, ptr %i, align 4
-  %inc29 = add nsw i32 %13, 1
-  store i32 %inc29, ptr %i, align 4
-  br label %for.cond25, !llvm.loop !15
+61:                                               ; preds = %60
+  %62 = load i32, ptr %14, align 4, !tbaa !16
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %14, align 4, !tbaa !16
+  br label %57, !llvm.loop !26
 
-for.end30:                                        ; preds = %for.cond25
-  call void @x25519_x86_64_mul(ptr noundef %t, ptr noundef %t, ptr noundef %z2_100_0)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  store i32 1, ptr %i, align 4
-  br label %for.cond31
+64:                                               ; preds = %57
+  call void @x25519_x86_64_mul(ptr noundef %13, ptr noundef %13, ptr noundef %12)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  store i32 1, ptr %14, align 4, !tbaa !16
+  br label %65
 
-for.cond31:                                       ; preds = %for.inc34, %for.end30
-  %14 = load i32, ptr %i, align 4
-  %cmp32 = icmp slt i32 %14, 50
-  br i1 %cmp32, label %for.body33, label %for.end36
+65:                                               ; preds = %69, %64
+  %66 = load i32, ptr %14, align 4, !tbaa !16
+  %67 = icmp slt i32 %66, 50
+  br i1 %67, label %68, label %72
 
-for.body33:                                       ; preds = %for.cond31
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  br label %for.inc34
+68:                                               ; preds = %65
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  br label %69
 
-for.inc34:                                        ; preds = %for.body33
-  %15 = load i32, ptr %i, align 4
-  %inc35 = add nsw i32 %15, 1
-  store i32 %inc35, ptr %i, align 4
-  br label %for.cond31, !llvm.loop !16
+69:                                               ; preds = %68
+  %70 = load i32, ptr %14, align 4, !tbaa !16
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %14, align 4, !tbaa !16
+  br label %65, !llvm.loop !27
 
-for.end36:                                        ; preds = %for.cond31
-  call void @x25519_x86_64_mul(ptr noundef %t, ptr noundef %t, ptr noundef %z2_50_0)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  call void @x25519_x86_64_square(ptr noundef %t, ptr noundef %t)
-  %16 = load ptr, ptr %r.addr, align 8
-  call void @x25519_x86_64_mul(ptr noundef %16, ptr noundef %t, ptr noundef %z11)
+72:                                               ; preds = %65
+  call void @x25519_x86_64_mul(ptr noundef %13, ptr noundef %13, ptr noundef %11)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  call void @x25519_x86_64_square(ptr noundef %13, ptr noundef %13)
+  %73 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @x25519_x86_64_mul(ptr noundef %73, ptr noundef %13, ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %5) #4
   ret void
 }
 
-declare void @x25519_x86_64_mul(ptr noundef, ptr noundef, ptr noundef) #2
+declare void @x25519_x86_64_mul(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @fe25519_pack(ptr noundef %r, ptr noundef %x) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %x.addr = alloca ptr, align 8
-  %t = alloca %struct.fe25519, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  %0 = load ptr, ptr %x.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %t, ptr align 8 %0, i64 40, i1 false)
-  call void @x25519_x86_64_freeze(ptr noundef %t)
-  %v = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [5 x i64], ptr %v, i64 0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %and = and i64 %1, 255
-  %conv = trunc i64 %and to i8
-  %2 = load ptr, ptr %r.addr, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %2, i64 0
-  store i8 %conv, ptr %arrayidx1, align 1
-  %v2 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [5 x i64], ptr %v2, i64 0, i64 0
-  %3 = load i64, ptr %arrayidx3, align 8
-  %shr = lshr i64 %3, 8
-  %and4 = and i64 %shr, 255
-  %conv5 = trunc i64 %and4 to i8
-  %4 = load ptr, ptr %r.addr, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %4, i64 1
-  store i8 %conv5, ptr %arrayidx6, align 1
-  %v7 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [5 x i64], ptr %v7, i64 0, i64 0
-  %5 = load i64, ptr %arrayidx8, align 8
-  %shr9 = lshr i64 %5, 16
-  %and10 = and i64 %shr9, 255
-  %conv11 = trunc i64 %and10 to i8
-  %6 = load ptr, ptr %r.addr, align 8
-  %arrayidx12 = getelementptr inbounds i8, ptr %6, i64 2
-  store i8 %conv11, ptr %arrayidx12, align 1
-  %v13 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx14 = getelementptr inbounds [5 x i64], ptr %v13, i64 0, i64 0
-  %7 = load i64, ptr %arrayidx14, align 8
-  %shr15 = lshr i64 %7, 24
-  %and16 = and i64 %shr15, 255
-  %conv17 = trunc i64 %and16 to i8
-  %8 = load ptr, ptr %r.addr, align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %8, i64 3
-  store i8 %conv17, ptr %arrayidx18, align 1
-  %v19 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx20 = getelementptr inbounds [5 x i64], ptr %v19, i64 0, i64 0
-  %9 = load i64, ptr %arrayidx20, align 8
-  %shr21 = lshr i64 %9, 32
-  %and22 = and i64 %shr21, 255
-  %conv23 = trunc i64 %and22 to i8
-  %10 = load ptr, ptr %r.addr, align 8
-  %arrayidx24 = getelementptr inbounds i8, ptr %10, i64 4
-  store i8 %conv23, ptr %arrayidx24, align 1
-  %v25 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx26 = getelementptr inbounds [5 x i64], ptr %v25, i64 0, i64 0
-  %11 = load i64, ptr %arrayidx26, align 8
-  %shr27 = lshr i64 %11, 40
-  %and28 = and i64 %shr27, 255
-  %conv29 = trunc i64 %and28 to i8
-  %12 = load ptr, ptr %r.addr, align 8
-  %arrayidx30 = getelementptr inbounds i8, ptr %12, i64 5
-  store i8 %conv29, ptr %arrayidx30, align 1
-  %v31 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx32 = getelementptr inbounds [5 x i64], ptr %v31, i64 0, i64 0
-  %13 = load i64, ptr %arrayidx32, align 8
-  %shr33 = lshr i64 %13, 48
-  %conv34 = trunc i64 %shr33 to i8
-  %14 = load ptr, ptr %r.addr, align 8
-  %arrayidx35 = getelementptr inbounds i8, ptr %14, i64 6
-  store i8 %conv34, ptr %arrayidx35, align 1
-  %v36 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx37 = getelementptr inbounds [5 x i64], ptr %v36, i64 0, i64 1
-  %15 = load i64, ptr %arrayidx37, align 8
-  %shl = shl i64 %15, 3
-  %and38 = and i64 %shl, 248
-  %conv39 = trunc i64 %and38 to i8
-  %conv40 = zext i8 %conv39 to i32
-  %16 = load ptr, ptr %r.addr, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %16, i64 6
-  %17 = load i8, ptr %arrayidx41, align 1
-  %conv42 = zext i8 %17 to i32
-  %xor = xor i32 %conv42, %conv40
-  %conv43 = trunc i32 %xor to i8
-  store i8 %conv43, ptr %arrayidx41, align 1
-  %v44 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx45 = getelementptr inbounds [5 x i64], ptr %v44, i64 0, i64 1
-  %18 = load i64, ptr %arrayidx45, align 8
-  %shr46 = lshr i64 %18, 5
-  %and47 = and i64 %shr46, 255
-  %conv48 = trunc i64 %and47 to i8
-  %19 = load ptr, ptr %r.addr, align 8
-  %arrayidx49 = getelementptr inbounds i8, ptr %19, i64 7
-  store i8 %conv48, ptr %arrayidx49, align 1
-  %v50 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx51 = getelementptr inbounds [5 x i64], ptr %v50, i64 0, i64 1
-  %20 = load i64, ptr %arrayidx51, align 8
-  %shr52 = lshr i64 %20, 13
-  %and53 = and i64 %shr52, 255
-  %conv54 = trunc i64 %and53 to i8
-  %21 = load ptr, ptr %r.addr, align 8
-  %arrayidx55 = getelementptr inbounds i8, ptr %21, i64 8
-  store i8 %conv54, ptr %arrayidx55, align 1
-  %v56 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx57 = getelementptr inbounds [5 x i64], ptr %v56, i64 0, i64 1
-  %22 = load i64, ptr %arrayidx57, align 8
-  %shr58 = lshr i64 %22, 21
-  %and59 = and i64 %shr58, 255
-  %conv60 = trunc i64 %and59 to i8
-  %23 = load ptr, ptr %r.addr, align 8
-  %arrayidx61 = getelementptr inbounds i8, ptr %23, i64 9
-  store i8 %conv60, ptr %arrayidx61, align 1
-  %v62 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx63 = getelementptr inbounds [5 x i64], ptr %v62, i64 0, i64 1
-  %24 = load i64, ptr %arrayidx63, align 8
-  %shr64 = lshr i64 %24, 29
-  %and65 = and i64 %shr64, 255
-  %conv66 = trunc i64 %and65 to i8
-  %25 = load ptr, ptr %r.addr, align 8
-  %arrayidx67 = getelementptr inbounds i8, ptr %25, i64 10
-  store i8 %conv66, ptr %arrayidx67, align 1
-  %v68 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx69 = getelementptr inbounds [5 x i64], ptr %v68, i64 0, i64 1
-  %26 = load i64, ptr %arrayidx69, align 8
-  %shr70 = lshr i64 %26, 37
-  %and71 = and i64 %shr70, 255
-  %conv72 = trunc i64 %and71 to i8
-  %27 = load ptr, ptr %r.addr, align 8
-  %arrayidx73 = getelementptr inbounds i8, ptr %27, i64 11
-  store i8 %conv72, ptr %arrayidx73, align 1
-  %v74 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx75 = getelementptr inbounds [5 x i64], ptr %v74, i64 0, i64 1
-  %28 = load i64, ptr %arrayidx75, align 8
-  %shr76 = lshr i64 %28, 45
-  %conv77 = trunc i64 %shr76 to i8
-  %29 = load ptr, ptr %r.addr, align 8
-  %arrayidx78 = getelementptr inbounds i8, ptr %29, i64 12
-  store i8 %conv77, ptr %arrayidx78, align 1
-  %v79 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx80 = getelementptr inbounds [5 x i64], ptr %v79, i64 0, i64 2
-  %30 = load i64, ptr %arrayidx80, align 8
-  %shl81 = shl i64 %30, 6
-  %and82 = and i64 %shl81, 192
-  %conv83 = trunc i64 %and82 to i8
-  %conv84 = zext i8 %conv83 to i32
-  %31 = load ptr, ptr %r.addr, align 8
-  %arrayidx85 = getelementptr inbounds i8, ptr %31, i64 12
-  %32 = load i8, ptr %arrayidx85, align 1
-  %conv86 = zext i8 %32 to i32
-  %xor87 = xor i32 %conv86, %conv84
-  %conv88 = trunc i32 %xor87 to i8
-  store i8 %conv88, ptr %arrayidx85, align 1
-  %v89 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx90 = getelementptr inbounds [5 x i64], ptr %v89, i64 0, i64 2
-  %33 = load i64, ptr %arrayidx90, align 8
-  %shr91 = lshr i64 %33, 2
-  %and92 = and i64 %shr91, 255
-  %conv93 = trunc i64 %and92 to i8
-  %34 = load ptr, ptr %r.addr, align 8
-  %arrayidx94 = getelementptr inbounds i8, ptr %34, i64 13
-  store i8 %conv93, ptr %arrayidx94, align 1
-  %v95 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx96 = getelementptr inbounds [5 x i64], ptr %v95, i64 0, i64 2
-  %35 = load i64, ptr %arrayidx96, align 8
-  %shr97 = lshr i64 %35, 10
-  %and98 = and i64 %shr97, 255
-  %conv99 = trunc i64 %and98 to i8
-  %36 = load ptr, ptr %r.addr, align 8
-  %arrayidx100 = getelementptr inbounds i8, ptr %36, i64 14
-  store i8 %conv99, ptr %arrayidx100, align 1
-  %v101 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx102 = getelementptr inbounds [5 x i64], ptr %v101, i64 0, i64 2
-  %37 = load i64, ptr %arrayidx102, align 8
-  %shr103 = lshr i64 %37, 18
-  %and104 = and i64 %shr103, 255
-  %conv105 = trunc i64 %and104 to i8
-  %38 = load ptr, ptr %r.addr, align 8
-  %arrayidx106 = getelementptr inbounds i8, ptr %38, i64 15
-  store i8 %conv105, ptr %arrayidx106, align 1
-  %v107 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx108 = getelementptr inbounds [5 x i64], ptr %v107, i64 0, i64 2
-  %39 = load i64, ptr %arrayidx108, align 8
-  %shr109 = lshr i64 %39, 26
-  %and110 = and i64 %shr109, 255
-  %conv111 = trunc i64 %and110 to i8
-  %40 = load ptr, ptr %r.addr, align 8
-  %arrayidx112 = getelementptr inbounds i8, ptr %40, i64 16
-  store i8 %conv111, ptr %arrayidx112, align 1
-  %v113 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx114 = getelementptr inbounds [5 x i64], ptr %v113, i64 0, i64 2
-  %41 = load i64, ptr %arrayidx114, align 8
-  %shr115 = lshr i64 %41, 34
-  %and116 = and i64 %shr115, 255
-  %conv117 = trunc i64 %and116 to i8
-  %42 = load ptr, ptr %r.addr, align 8
-  %arrayidx118 = getelementptr inbounds i8, ptr %42, i64 17
-  store i8 %conv117, ptr %arrayidx118, align 1
-  %v119 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx120 = getelementptr inbounds [5 x i64], ptr %v119, i64 0, i64 2
-  %43 = load i64, ptr %arrayidx120, align 8
-  %shr121 = lshr i64 %43, 42
-  %and122 = and i64 %shr121, 255
-  %conv123 = trunc i64 %and122 to i8
-  %44 = load ptr, ptr %r.addr, align 8
-  %arrayidx124 = getelementptr inbounds i8, ptr %44, i64 18
-  store i8 %conv123, ptr %arrayidx124, align 1
-  %v125 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx126 = getelementptr inbounds [5 x i64], ptr %v125, i64 0, i64 2
-  %45 = load i64, ptr %arrayidx126, align 8
-  %shr127 = lshr i64 %45, 50
-  %conv128 = trunc i64 %shr127 to i8
-  %46 = load ptr, ptr %r.addr, align 8
-  %arrayidx129 = getelementptr inbounds i8, ptr %46, i64 19
-  store i8 %conv128, ptr %arrayidx129, align 1
-  %v130 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx131 = getelementptr inbounds [5 x i64], ptr %v130, i64 0, i64 3
-  %47 = load i64, ptr %arrayidx131, align 8
-  %shl132 = shl i64 %47, 1
-  %and133 = and i64 %shl132, 254
-  %conv134 = trunc i64 %and133 to i8
-  %conv135 = zext i8 %conv134 to i32
-  %48 = load ptr, ptr %r.addr, align 8
-  %arrayidx136 = getelementptr inbounds i8, ptr %48, i64 19
-  %49 = load i8, ptr %arrayidx136, align 1
-  %conv137 = zext i8 %49 to i32
-  %xor138 = xor i32 %conv137, %conv135
-  %conv139 = trunc i32 %xor138 to i8
-  store i8 %conv139, ptr %arrayidx136, align 1
-  %v140 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx141 = getelementptr inbounds [5 x i64], ptr %v140, i64 0, i64 3
-  %50 = load i64, ptr %arrayidx141, align 8
-  %shr142 = lshr i64 %50, 7
-  %and143 = and i64 %shr142, 255
-  %conv144 = trunc i64 %and143 to i8
-  %51 = load ptr, ptr %r.addr, align 8
-  %arrayidx145 = getelementptr inbounds i8, ptr %51, i64 20
-  store i8 %conv144, ptr %arrayidx145, align 1
-  %v146 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx147 = getelementptr inbounds [5 x i64], ptr %v146, i64 0, i64 3
-  %52 = load i64, ptr %arrayidx147, align 8
-  %shr148 = lshr i64 %52, 15
-  %and149 = and i64 %shr148, 255
-  %conv150 = trunc i64 %and149 to i8
-  %53 = load ptr, ptr %r.addr, align 8
-  %arrayidx151 = getelementptr inbounds i8, ptr %53, i64 21
-  store i8 %conv150, ptr %arrayidx151, align 1
-  %v152 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx153 = getelementptr inbounds [5 x i64], ptr %v152, i64 0, i64 3
-  %54 = load i64, ptr %arrayidx153, align 8
-  %shr154 = lshr i64 %54, 23
-  %and155 = and i64 %shr154, 255
-  %conv156 = trunc i64 %and155 to i8
-  %55 = load ptr, ptr %r.addr, align 8
-  %arrayidx157 = getelementptr inbounds i8, ptr %55, i64 22
-  store i8 %conv156, ptr %arrayidx157, align 1
-  %v158 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx159 = getelementptr inbounds [5 x i64], ptr %v158, i64 0, i64 3
-  %56 = load i64, ptr %arrayidx159, align 8
-  %shr160 = lshr i64 %56, 31
-  %and161 = and i64 %shr160, 255
-  %conv162 = trunc i64 %and161 to i8
-  %57 = load ptr, ptr %r.addr, align 8
-  %arrayidx163 = getelementptr inbounds i8, ptr %57, i64 23
-  store i8 %conv162, ptr %arrayidx163, align 1
-  %v164 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx165 = getelementptr inbounds [5 x i64], ptr %v164, i64 0, i64 3
-  %58 = load i64, ptr %arrayidx165, align 8
-  %shr166 = lshr i64 %58, 39
-  %and167 = and i64 %shr166, 255
-  %conv168 = trunc i64 %and167 to i8
-  %59 = load ptr, ptr %r.addr, align 8
-  %arrayidx169 = getelementptr inbounds i8, ptr %59, i64 24
-  store i8 %conv168, ptr %arrayidx169, align 1
-  %v170 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx171 = getelementptr inbounds [5 x i64], ptr %v170, i64 0, i64 3
-  %60 = load i64, ptr %arrayidx171, align 8
-  %shr172 = lshr i64 %60, 47
-  %conv173 = trunc i64 %shr172 to i8
-  %61 = load ptr, ptr %r.addr, align 8
-  %arrayidx174 = getelementptr inbounds i8, ptr %61, i64 25
-  store i8 %conv173, ptr %arrayidx174, align 1
-  %v175 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx176 = getelementptr inbounds [5 x i64], ptr %v175, i64 0, i64 4
-  %62 = load i64, ptr %arrayidx176, align 8
-  %shl177 = shl i64 %62, 4
-  %and178 = and i64 %shl177, 240
-  %conv179 = trunc i64 %and178 to i8
-  %conv180 = zext i8 %conv179 to i32
-  %63 = load ptr, ptr %r.addr, align 8
-  %arrayidx181 = getelementptr inbounds i8, ptr %63, i64 25
-  %64 = load i8, ptr %arrayidx181, align 1
-  %conv182 = zext i8 %64 to i32
-  %xor183 = xor i32 %conv182, %conv180
-  %conv184 = trunc i32 %xor183 to i8
-  store i8 %conv184, ptr %arrayidx181, align 1
-  %v185 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx186 = getelementptr inbounds [5 x i64], ptr %v185, i64 0, i64 4
-  %65 = load i64, ptr %arrayidx186, align 8
-  %shr187 = lshr i64 %65, 4
-  %and188 = and i64 %shr187, 255
-  %conv189 = trunc i64 %and188 to i8
-  %66 = load ptr, ptr %r.addr, align 8
-  %arrayidx190 = getelementptr inbounds i8, ptr %66, i64 26
-  store i8 %conv189, ptr %arrayidx190, align 1
-  %v191 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx192 = getelementptr inbounds [5 x i64], ptr %v191, i64 0, i64 4
-  %67 = load i64, ptr %arrayidx192, align 8
-  %shr193 = lshr i64 %67, 12
-  %and194 = and i64 %shr193, 255
-  %conv195 = trunc i64 %and194 to i8
-  %68 = load ptr, ptr %r.addr, align 8
-  %arrayidx196 = getelementptr inbounds i8, ptr %68, i64 27
-  store i8 %conv195, ptr %arrayidx196, align 1
-  %v197 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx198 = getelementptr inbounds [5 x i64], ptr %v197, i64 0, i64 4
-  %69 = load i64, ptr %arrayidx198, align 8
-  %shr199 = lshr i64 %69, 20
-  %and200 = and i64 %shr199, 255
-  %conv201 = trunc i64 %and200 to i8
-  %70 = load ptr, ptr %r.addr, align 8
-  %arrayidx202 = getelementptr inbounds i8, ptr %70, i64 28
-  store i8 %conv201, ptr %arrayidx202, align 1
-  %v203 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx204 = getelementptr inbounds [5 x i64], ptr %v203, i64 0, i64 4
-  %71 = load i64, ptr %arrayidx204, align 8
-  %shr205 = lshr i64 %71, 28
-  %and206 = and i64 %shr205, 255
-  %conv207 = trunc i64 %and206 to i8
-  %72 = load ptr, ptr %r.addr, align 8
-  %arrayidx208 = getelementptr inbounds i8, ptr %72, i64 29
-  store i8 %conv207, ptr %arrayidx208, align 1
-  %v209 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx210 = getelementptr inbounds [5 x i64], ptr %v209, i64 0, i64 4
-  %73 = load i64, ptr %arrayidx210, align 8
-  %shr211 = lshr i64 %73, 36
-  %and212 = and i64 %shr211, 255
-  %conv213 = trunc i64 %and212 to i8
-  %74 = load ptr, ptr %r.addr, align 8
-  %arrayidx214 = getelementptr inbounds i8, ptr %74, i64 30
-  store i8 %conv213, ptr %arrayidx214, align 1
-  %v215 = getelementptr inbounds %struct.fe25519, ptr %t, i32 0, i32 0
-  %arrayidx216 = getelementptr inbounds [5 x i64], ptr %v215, i64 0, i64 4
-  %75 = load i64, ptr %arrayidx216, align 8
-  %shr217 = lshr i64 %75, 44
-  %conv218 = trunc i64 %shr217 to i8
-  %76 = load ptr, ptr %r.addr, align 8
-  %arrayidx219 = getelementptr inbounds i8, ptr %76, i64 31
-  store i8 %conv218, ptr %arrayidx219, align 1
+define internal void @fe25519_pack(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.fe25519, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 40, ptr %5) #4
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 40, i1 false), !tbaa.struct !15
+  call void @x25519_x86_64_freeze(ptr noundef %5)
+  %7 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds [5 x i64], ptr %7, i64 0, i64 0
+  %9 = load i64, ptr %8, align 8, !tbaa !13
+  %10 = and i64 %9, 255
+  %11 = trunc i64 %10 to i8
+  %12 = load ptr, ptr %3, align 8, !tbaa !6
+  %13 = getelementptr inbounds i8, ptr %12, i64 0
+  store i8 %11, ptr %13, align 1, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %15 = getelementptr inbounds [5 x i64], ptr %14, i64 0, i64 0
+  %16 = load i64, ptr %15, align 8, !tbaa !13
+  %17 = lshr i64 %16, 8
+  %18 = and i64 %17, 255
+  %19 = trunc i64 %18 to i8
+  %20 = load ptr, ptr %3, align 8, !tbaa !6
+  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  store i8 %19, ptr %21, align 1, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %23 = getelementptr inbounds [5 x i64], ptr %22, i64 0, i64 0
+  %24 = load i64, ptr %23, align 8, !tbaa !13
+  %25 = lshr i64 %24, 16
+  %26 = and i64 %25, 255
+  %27 = trunc i64 %26 to i8
+  %28 = load ptr, ptr %3, align 8, !tbaa !6
+  %29 = getelementptr inbounds i8, ptr %28, i64 2
+  store i8 %27, ptr %29, align 1, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %31 = getelementptr inbounds [5 x i64], ptr %30, i64 0, i64 0
+  %32 = load i64, ptr %31, align 8, !tbaa !13
+  %33 = lshr i64 %32, 24
+  %34 = and i64 %33, 255
+  %35 = trunc i64 %34 to i8
+  %36 = load ptr, ptr %3, align 8, !tbaa !6
+  %37 = getelementptr inbounds i8, ptr %36, i64 3
+  store i8 %35, ptr %37, align 1, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %39 = getelementptr inbounds [5 x i64], ptr %38, i64 0, i64 0
+  %40 = load i64, ptr %39, align 8, !tbaa !13
+  %41 = lshr i64 %40, 32
+  %42 = and i64 %41, 255
+  %43 = trunc i64 %42 to i8
+  %44 = load ptr, ptr %3, align 8, !tbaa !6
+  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  store i8 %43, ptr %45, align 1, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %47 = getelementptr inbounds [5 x i64], ptr %46, i64 0, i64 0
+  %48 = load i64, ptr %47, align 8, !tbaa !13
+  %49 = lshr i64 %48, 40
+  %50 = and i64 %49, 255
+  %51 = trunc i64 %50 to i8
+  %52 = load ptr, ptr %3, align 8, !tbaa !6
+  %53 = getelementptr inbounds i8, ptr %52, i64 5
+  store i8 %51, ptr %53, align 1, !tbaa !11
+  %54 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %55 = getelementptr inbounds [5 x i64], ptr %54, i64 0, i64 0
+  %56 = load i64, ptr %55, align 8, !tbaa !13
+  %57 = lshr i64 %56, 48
+  %58 = trunc i64 %57 to i8
+  %59 = load ptr, ptr %3, align 8, !tbaa !6
+  %60 = getelementptr inbounds i8, ptr %59, i64 6
+  store i8 %58, ptr %60, align 1, !tbaa !11
+  %61 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %62 = getelementptr inbounds [5 x i64], ptr %61, i64 0, i64 1
+  %63 = load i64, ptr %62, align 8, !tbaa !13
+  %64 = shl i64 %63, 3
+  %65 = and i64 %64, 248
+  %66 = trunc i64 %65 to i8
+  %67 = zext i8 %66 to i32
+  %68 = load ptr, ptr %3, align 8, !tbaa !6
+  %69 = getelementptr inbounds i8, ptr %68, i64 6
+  %70 = load i8, ptr %69, align 1, !tbaa !11
+  %71 = zext i8 %70 to i32
+  %72 = xor i32 %71, %67
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %69, align 1, !tbaa !11
+  %74 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %75 = getelementptr inbounds [5 x i64], ptr %74, i64 0, i64 1
+  %76 = load i64, ptr %75, align 8, !tbaa !13
+  %77 = lshr i64 %76, 5
+  %78 = and i64 %77, 255
+  %79 = trunc i64 %78 to i8
+  %80 = load ptr, ptr %3, align 8, !tbaa !6
+  %81 = getelementptr inbounds i8, ptr %80, i64 7
+  store i8 %79, ptr %81, align 1, !tbaa !11
+  %82 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %83 = getelementptr inbounds [5 x i64], ptr %82, i64 0, i64 1
+  %84 = load i64, ptr %83, align 8, !tbaa !13
+  %85 = lshr i64 %84, 13
+  %86 = and i64 %85, 255
+  %87 = trunc i64 %86 to i8
+  %88 = load ptr, ptr %3, align 8, !tbaa !6
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  store i8 %87, ptr %89, align 1, !tbaa !11
+  %90 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %91 = getelementptr inbounds [5 x i64], ptr %90, i64 0, i64 1
+  %92 = load i64, ptr %91, align 8, !tbaa !13
+  %93 = lshr i64 %92, 21
+  %94 = and i64 %93, 255
+  %95 = trunc i64 %94 to i8
+  %96 = load ptr, ptr %3, align 8, !tbaa !6
+  %97 = getelementptr inbounds i8, ptr %96, i64 9
+  store i8 %95, ptr %97, align 1, !tbaa !11
+  %98 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %99 = getelementptr inbounds [5 x i64], ptr %98, i64 0, i64 1
+  %100 = load i64, ptr %99, align 8, !tbaa !13
+  %101 = lshr i64 %100, 29
+  %102 = and i64 %101, 255
+  %103 = trunc i64 %102 to i8
+  %104 = load ptr, ptr %3, align 8, !tbaa !6
+  %105 = getelementptr inbounds i8, ptr %104, i64 10
+  store i8 %103, ptr %105, align 1, !tbaa !11
+  %106 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %107 = getelementptr inbounds [5 x i64], ptr %106, i64 0, i64 1
+  %108 = load i64, ptr %107, align 8, !tbaa !13
+  %109 = lshr i64 %108, 37
+  %110 = and i64 %109, 255
+  %111 = trunc i64 %110 to i8
+  %112 = load ptr, ptr %3, align 8, !tbaa !6
+  %113 = getelementptr inbounds i8, ptr %112, i64 11
+  store i8 %111, ptr %113, align 1, !tbaa !11
+  %114 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %115 = getelementptr inbounds [5 x i64], ptr %114, i64 0, i64 1
+  %116 = load i64, ptr %115, align 8, !tbaa !13
+  %117 = lshr i64 %116, 45
+  %118 = trunc i64 %117 to i8
+  %119 = load ptr, ptr %3, align 8, !tbaa !6
+  %120 = getelementptr inbounds i8, ptr %119, i64 12
+  store i8 %118, ptr %120, align 1, !tbaa !11
+  %121 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %122 = getelementptr inbounds [5 x i64], ptr %121, i64 0, i64 2
+  %123 = load i64, ptr %122, align 8, !tbaa !13
+  %124 = shl i64 %123, 6
+  %125 = and i64 %124, 192
+  %126 = trunc i64 %125 to i8
+  %127 = zext i8 %126 to i32
+  %128 = load ptr, ptr %3, align 8, !tbaa !6
+  %129 = getelementptr inbounds i8, ptr %128, i64 12
+  %130 = load i8, ptr %129, align 1, !tbaa !11
+  %131 = zext i8 %130 to i32
+  %132 = xor i32 %131, %127
+  %133 = trunc i32 %132 to i8
+  store i8 %133, ptr %129, align 1, !tbaa !11
+  %134 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %135 = getelementptr inbounds [5 x i64], ptr %134, i64 0, i64 2
+  %136 = load i64, ptr %135, align 8, !tbaa !13
+  %137 = lshr i64 %136, 2
+  %138 = and i64 %137, 255
+  %139 = trunc i64 %138 to i8
+  %140 = load ptr, ptr %3, align 8, !tbaa !6
+  %141 = getelementptr inbounds i8, ptr %140, i64 13
+  store i8 %139, ptr %141, align 1, !tbaa !11
+  %142 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %143 = getelementptr inbounds [5 x i64], ptr %142, i64 0, i64 2
+  %144 = load i64, ptr %143, align 8, !tbaa !13
+  %145 = lshr i64 %144, 10
+  %146 = and i64 %145, 255
+  %147 = trunc i64 %146 to i8
+  %148 = load ptr, ptr %3, align 8, !tbaa !6
+  %149 = getelementptr inbounds i8, ptr %148, i64 14
+  store i8 %147, ptr %149, align 1, !tbaa !11
+  %150 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %151 = getelementptr inbounds [5 x i64], ptr %150, i64 0, i64 2
+  %152 = load i64, ptr %151, align 8, !tbaa !13
+  %153 = lshr i64 %152, 18
+  %154 = and i64 %153, 255
+  %155 = trunc i64 %154 to i8
+  %156 = load ptr, ptr %3, align 8, !tbaa !6
+  %157 = getelementptr inbounds i8, ptr %156, i64 15
+  store i8 %155, ptr %157, align 1, !tbaa !11
+  %158 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %159 = getelementptr inbounds [5 x i64], ptr %158, i64 0, i64 2
+  %160 = load i64, ptr %159, align 8, !tbaa !13
+  %161 = lshr i64 %160, 26
+  %162 = and i64 %161, 255
+  %163 = trunc i64 %162 to i8
+  %164 = load ptr, ptr %3, align 8, !tbaa !6
+  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  store i8 %163, ptr %165, align 1, !tbaa !11
+  %166 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %167 = getelementptr inbounds [5 x i64], ptr %166, i64 0, i64 2
+  %168 = load i64, ptr %167, align 8, !tbaa !13
+  %169 = lshr i64 %168, 34
+  %170 = and i64 %169, 255
+  %171 = trunc i64 %170 to i8
+  %172 = load ptr, ptr %3, align 8, !tbaa !6
+  %173 = getelementptr inbounds i8, ptr %172, i64 17
+  store i8 %171, ptr %173, align 1, !tbaa !11
+  %174 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %175 = getelementptr inbounds [5 x i64], ptr %174, i64 0, i64 2
+  %176 = load i64, ptr %175, align 8, !tbaa !13
+  %177 = lshr i64 %176, 42
+  %178 = and i64 %177, 255
+  %179 = trunc i64 %178 to i8
+  %180 = load ptr, ptr %3, align 8, !tbaa !6
+  %181 = getelementptr inbounds i8, ptr %180, i64 18
+  store i8 %179, ptr %181, align 1, !tbaa !11
+  %182 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %183 = getelementptr inbounds [5 x i64], ptr %182, i64 0, i64 2
+  %184 = load i64, ptr %183, align 8, !tbaa !13
+  %185 = lshr i64 %184, 50
+  %186 = trunc i64 %185 to i8
+  %187 = load ptr, ptr %3, align 8, !tbaa !6
+  %188 = getelementptr inbounds i8, ptr %187, i64 19
+  store i8 %186, ptr %188, align 1, !tbaa !11
+  %189 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %190 = getelementptr inbounds [5 x i64], ptr %189, i64 0, i64 3
+  %191 = load i64, ptr %190, align 8, !tbaa !13
+  %192 = shl i64 %191, 1
+  %193 = and i64 %192, 254
+  %194 = trunc i64 %193 to i8
+  %195 = zext i8 %194 to i32
+  %196 = load ptr, ptr %3, align 8, !tbaa !6
+  %197 = getelementptr inbounds i8, ptr %196, i64 19
+  %198 = load i8, ptr %197, align 1, !tbaa !11
+  %199 = zext i8 %198 to i32
+  %200 = xor i32 %199, %195
+  %201 = trunc i32 %200 to i8
+  store i8 %201, ptr %197, align 1, !tbaa !11
+  %202 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %203 = getelementptr inbounds [5 x i64], ptr %202, i64 0, i64 3
+  %204 = load i64, ptr %203, align 8, !tbaa !13
+  %205 = lshr i64 %204, 7
+  %206 = and i64 %205, 255
+  %207 = trunc i64 %206 to i8
+  %208 = load ptr, ptr %3, align 8, !tbaa !6
+  %209 = getelementptr inbounds i8, ptr %208, i64 20
+  store i8 %207, ptr %209, align 1, !tbaa !11
+  %210 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %211 = getelementptr inbounds [5 x i64], ptr %210, i64 0, i64 3
+  %212 = load i64, ptr %211, align 8, !tbaa !13
+  %213 = lshr i64 %212, 15
+  %214 = and i64 %213, 255
+  %215 = trunc i64 %214 to i8
+  %216 = load ptr, ptr %3, align 8, !tbaa !6
+  %217 = getelementptr inbounds i8, ptr %216, i64 21
+  store i8 %215, ptr %217, align 1, !tbaa !11
+  %218 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %219 = getelementptr inbounds [5 x i64], ptr %218, i64 0, i64 3
+  %220 = load i64, ptr %219, align 8, !tbaa !13
+  %221 = lshr i64 %220, 23
+  %222 = and i64 %221, 255
+  %223 = trunc i64 %222 to i8
+  %224 = load ptr, ptr %3, align 8, !tbaa !6
+  %225 = getelementptr inbounds i8, ptr %224, i64 22
+  store i8 %223, ptr %225, align 1, !tbaa !11
+  %226 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %227 = getelementptr inbounds [5 x i64], ptr %226, i64 0, i64 3
+  %228 = load i64, ptr %227, align 8, !tbaa !13
+  %229 = lshr i64 %228, 31
+  %230 = and i64 %229, 255
+  %231 = trunc i64 %230 to i8
+  %232 = load ptr, ptr %3, align 8, !tbaa !6
+  %233 = getelementptr inbounds i8, ptr %232, i64 23
+  store i8 %231, ptr %233, align 1, !tbaa !11
+  %234 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %235 = getelementptr inbounds [5 x i64], ptr %234, i64 0, i64 3
+  %236 = load i64, ptr %235, align 8, !tbaa !13
+  %237 = lshr i64 %236, 39
+  %238 = and i64 %237, 255
+  %239 = trunc i64 %238 to i8
+  %240 = load ptr, ptr %3, align 8, !tbaa !6
+  %241 = getelementptr inbounds i8, ptr %240, i64 24
+  store i8 %239, ptr %241, align 1, !tbaa !11
+  %242 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %243 = getelementptr inbounds [5 x i64], ptr %242, i64 0, i64 3
+  %244 = load i64, ptr %243, align 8, !tbaa !13
+  %245 = lshr i64 %244, 47
+  %246 = trunc i64 %245 to i8
+  %247 = load ptr, ptr %3, align 8, !tbaa !6
+  %248 = getelementptr inbounds i8, ptr %247, i64 25
+  store i8 %246, ptr %248, align 1, !tbaa !11
+  %249 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %250 = getelementptr inbounds [5 x i64], ptr %249, i64 0, i64 4
+  %251 = load i64, ptr %250, align 8, !tbaa !13
+  %252 = shl i64 %251, 4
+  %253 = and i64 %252, 240
+  %254 = trunc i64 %253 to i8
+  %255 = zext i8 %254 to i32
+  %256 = load ptr, ptr %3, align 8, !tbaa !6
+  %257 = getelementptr inbounds i8, ptr %256, i64 25
+  %258 = load i8, ptr %257, align 1, !tbaa !11
+  %259 = zext i8 %258 to i32
+  %260 = xor i32 %259, %255
+  %261 = trunc i32 %260 to i8
+  store i8 %261, ptr %257, align 1, !tbaa !11
+  %262 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %263 = getelementptr inbounds [5 x i64], ptr %262, i64 0, i64 4
+  %264 = load i64, ptr %263, align 8, !tbaa !13
+  %265 = lshr i64 %264, 4
+  %266 = and i64 %265, 255
+  %267 = trunc i64 %266 to i8
+  %268 = load ptr, ptr %3, align 8, !tbaa !6
+  %269 = getelementptr inbounds i8, ptr %268, i64 26
+  store i8 %267, ptr %269, align 1, !tbaa !11
+  %270 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %271 = getelementptr inbounds [5 x i64], ptr %270, i64 0, i64 4
+  %272 = load i64, ptr %271, align 8, !tbaa !13
+  %273 = lshr i64 %272, 12
+  %274 = and i64 %273, 255
+  %275 = trunc i64 %274 to i8
+  %276 = load ptr, ptr %3, align 8, !tbaa !6
+  %277 = getelementptr inbounds i8, ptr %276, i64 27
+  store i8 %275, ptr %277, align 1, !tbaa !11
+  %278 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %279 = getelementptr inbounds [5 x i64], ptr %278, i64 0, i64 4
+  %280 = load i64, ptr %279, align 8, !tbaa !13
+  %281 = lshr i64 %280, 20
+  %282 = and i64 %281, 255
+  %283 = trunc i64 %282 to i8
+  %284 = load ptr, ptr %3, align 8, !tbaa !6
+  %285 = getelementptr inbounds i8, ptr %284, i64 28
+  store i8 %283, ptr %285, align 1, !tbaa !11
+  %286 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %287 = getelementptr inbounds [5 x i64], ptr %286, i64 0, i64 4
+  %288 = load i64, ptr %287, align 8, !tbaa !13
+  %289 = lshr i64 %288, 28
+  %290 = and i64 %289, 255
+  %291 = trunc i64 %290 to i8
+  %292 = load ptr, ptr %3, align 8, !tbaa !6
+  %293 = getelementptr inbounds i8, ptr %292, i64 29
+  store i8 %291, ptr %293, align 1, !tbaa !11
+  %294 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %295 = getelementptr inbounds [5 x i64], ptr %294, i64 0, i64 4
+  %296 = load i64, ptr %295, align 8, !tbaa !13
+  %297 = lshr i64 %296, 36
+  %298 = and i64 %297, 255
+  %299 = trunc i64 %298 to i8
+  %300 = load ptr, ptr %3, align 8, !tbaa !6
+  %301 = getelementptr inbounds i8, ptr %300, i64 30
+  store i8 %299, ptr %301, align 1, !tbaa !11
+  %302 = getelementptr inbounds nuw %struct.fe25519, ptr %5, i32 0, i32 0
+  %303 = getelementptr inbounds [5 x i64], ptr %302, i64 0, i64 4
+  %304 = load i64, ptr %303, align 8, !tbaa !13
+  %305 = lshr i64 %304, 44
+  %306 = trunc i64 %305 to i8
+  %307 = load ptr, ptr %3, align 8, !tbaa !6
+  %308 = getelementptr inbounds i8, ptr %307, i64 31
+  store i8 %306, ptr %308, align 1, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %5) #4
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @fe25519_setint(ptr noundef %r, i32 noundef %v) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %v.addr = alloca i32, align 4
-  store ptr %r, ptr %r.addr, align 8
-  store i32 %v, ptr %v.addr, align 4
-  %0 = load i32, ptr %v.addr, align 4
-  %conv = zext i32 %0 to i64
-  %1 = load ptr, ptr %r.addr, align 8
-  %v1 = getelementptr inbounds %struct.fe25519, ptr %1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [5 x i64], ptr %v1, i64 0, i64 0
-  store i64 %conv, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %r.addr, align 8
-  %v2 = getelementptr inbounds %struct.fe25519, ptr %2, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [5 x i64], ptr %v2, i64 0, i64 1
-  store i64 0, ptr %arrayidx3, align 8
-  %3 = load ptr, ptr %r.addr, align 8
-  %v4 = getelementptr inbounds %struct.fe25519, ptr %3, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [5 x i64], ptr %v4, i64 0, i64 2
-  store i64 0, ptr %arrayidx5, align 8
-  %4 = load ptr, ptr %r.addr, align 8
-  %v6 = getelementptr inbounds %struct.fe25519, ptr %4, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [5 x i64], ptr %v6, i64 0, i64 3
-  store i64 0, ptr %arrayidx7, align 8
-  %5 = load ptr, ptr %r.addr, align 8
-  %v8 = getelementptr inbounds %struct.fe25519, ptr %5, i32 0, i32 0
-  %arrayidx9 = getelementptr inbounds [5 x i64], ptr %v8, i64 0, i64 4
-  store i64 0, ptr %arrayidx9, align 8
+define internal void @fe25519_setint(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i32 %1, ptr %4, align 4, !tbaa !16
+  %5 = load i32, ptr %4, align 4, !tbaa !16
+  %6 = zext i32 %5 to i64
+  %7 = load ptr, ptr %3, align 8, !tbaa !12
+  %8 = getelementptr inbounds nuw %struct.fe25519, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds [5 x i64], ptr %8, i64 0, i64 0
+  store i64 %6, ptr %9, align 8, !tbaa !13
+  %10 = load ptr, ptr %3, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw %struct.fe25519, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds [5 x i64], ptr %11, i64 0, i64 1
+  store i64 0, ptr %12, align 8, !tbaa !13
+  %13 = load ptr, ptr %3, align 8, !tbaa !12
+  %14 = getelementptr inbounds nuw %struct.fe25519, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [5 x i64], ptr %14, i64 0, i64 2
+  store i64 0, ptr %15, align 8, !tbaa !13
+  %16 = load ptr, ptr %3, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw %struct.fe25519, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [5 x i64], ptr %17, i64 0, i64 3
+  store i64 0, ptr %18, align 8, !tbaa !13
+  %19 = load ptr, ptr %3, align 8, !tbaa !12
+  %20 = getelementptr inbounds nuw %struct.fe25519, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds [5 x i64], ptr %20, i64 0, i64 4
+  store i64 0, ptr %21, align 8, !tbaa !13
   ret void
 }
 
-declare void @x25519_x86_64_work_cswap(ptr noundef, i64 noundef) #2
+declare void @x25519_x86_64_work_cswap(ptr noundef, i64 noundef) #3
 
-declare void @x25519_x86_64_ladderstep(ptr noundef) #2
+declare void @x25519_x86_64_ladderstep(ptr noundef) #3
 
-declare void @x25519_x86_64_square(ptr noundef, ptr noundef) #2
+declare void @x25519_x86_64_square(ptr noundef, ptr noundef) #3
 
-declare void @x25519_x86_64_freeze(ptr noundef) #2
+declare void @x25519_x86_64_freeze(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!9, !9, i64 0}
+!12 = !{!8, !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = !{i64 0, i64 40, !11}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !9, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}
+!27 = distinct !{!27, !19}

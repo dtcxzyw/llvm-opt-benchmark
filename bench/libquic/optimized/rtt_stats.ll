@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/rtt_stats.ll'
 source_filename = "bench/libquic/original/rtt_stats.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -22,506 +22,522 @@ $_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2
 @.str.1 = private unnamed_addr constant [47 x i8] c"Ignoring measured send_delta, because it's is \00", align 1
 @.str.2 = private unnamed_addr constant [51 x i8] c"either infinite, zero, or negative.  send_delta = \00", align 1
 
-@_ZN3net8RttStatsC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net8RttStatsC2Ev
+@_ZN3net8RttStatsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3net8RttStatsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net8RttStatsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 116), (120, 224)) %this) unnamed_addr #0 align 2 {
-entry:
-  %initial_rtt_us_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
-  store i64 100000, ptr %initial_rtt_us_, align 8
-  %forced_windowed_min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %windowed_min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store i64 0, ptr %windowed_min_rtt_, align 8
-  %window_length.sroa.2.0.window_length_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %forced_windowed_min_rtt_, i8 0, i64 28, i1 false)
-  store i64 10000000, ptr %window_length.sroa.2.0.window_length_.sroa_idx.i, align 8
-  %zero_value_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %zero_value_.i, i8 0, i64 88, i1 false)
+define void @_ZN3net8RttStatsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 116), (120, 224)) %0) unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
+  store i64 100000, ptr %2, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 0, ptr %4, align 8, !tbaa !13
+  %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
+  store i64 10000000, ptr %.sroa.214.0..sroa_idx.i, align 8, !tbaa !13
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net8RttStats23SampleNewWindowedMinRttEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((88, 116)) %this, i32 noundef %num_samples) local_unnamed_addr #0 align 2 {
-entry:
-  %num_samples_for_forced_min_ = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store i32 %num_samples, ptr %num_samples_for_forced_min_, align 8
-  %forced_windowed_min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %forced_windowed_min_rtt_, i8 0, i64 24, i1 false)
+define void @_ZN3net8RttStats23SampleNewWindowedMinRttEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((88, 116)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %1, ptr %3, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net8RttStats21ExpireSmoothedMetricsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
-entry:
-  %mean_deviation_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %smoothed_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %agg.tmp.sroa.2.0.smoothed_rtt_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.smoothed_rtt_.sroa_idx, align 8
-  %agg.tmp3.sroa.2.0.latest_rtt_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %agg.tmp3.sroa.2.0.copyload = load i64, ptr %agg.tmp3.sroa.2.0.latest_rtt_.sroa_idx, align 8
-  %sub.i = sub nsw i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
-  %0 = tail call noundef i64 @llvm.abs.i64(i64 %sub.i, i1 true)
-  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
-  %cmp.i.i = icmp slt i64 %agg.tmp.sroa.2.0.copyload.i, %0
-  %agg.tmp.sroa.0.0.copyload.i.sroa.speculate.load.false = load i64, ptr %mean_deviation_, align 8
-  %agg.tmp.sroa.0.0.copyload.i.sroa.speculated = select i1 %cmp.i.i, i64 0, i64 %agg.tmp.sroa.0.0.copyload.i.sroa.speculate.load.false
-  store i64 %agg.tmp.sroa.0.0.copyload.i.sroa.speculated, ptr %mean_deviation_, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %agg.tmp.sroa.2.0.copyload.i, i64 %0)
-  store i64 %.sroa.speculated, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
-  %cmp.i.i7 = icmp slt i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
-  %__b.__a.i8 = select i1 %cmp.i.i7, ptr %this, ptr %smoothed_rtt_
-  %agg.tmp.sroa.0.0.copyload.i9 = load i64, ptr %__b.__a.i8, align 8
-  store i64 %agg.tmp.sroa.0.0.copyload.i9, ptr %smoothed_rtt_, align 8
-  %time_offset_.i10 = getelementptr inbounds nuw i8, ptr %__b.__a.i8, i64 8
-  %1 = load i64, ptr %time_offset_.i10, align 8
-  store i64 %1, ptr %agg.tmp.sroa.2.0.smoothed_rtt_.sroa_idx, align 8
+define void @_ZN3net8RttStats21ExpireSmoothedMetricsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(224) %0) local_unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !13
+  %4 = sub nsw i64 %.sroa.22.0.copyload, %.sroa.2.0.copyload
+  %5 = tail call noundef i64 @llvm.abs.i64(i64 %4, i1 true)
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !13
+  %6 = icmp slt i64 %.sroa.22.0.copyload.i, %5
+  %.sroa.0.0.copyload.i.sroa.speculate.load.false = load i64, ptr %2, align 8, !tbaa !13
+  %.sroa.0.0.copyload.i.sroa.speculated = select i1 %6, i64 0, i64 %.sroa.0.0.copyload.i.sroa.speculate.load.false
+  store i64 %.sroa.0.0.copyload.i.sroa.speculated, ptr %2, align 8, !tbaa !15
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.sroa.22.0.copyload.i, i64 %5)
+  store i64 %.sroa.speculated, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !16
+  %7 = icmp slt i64 %.sroa.22.0.copyload, %.sroa.2.0.copyload
+  %..i8 = select i1 %7, ptr %0, ptr %3
+  %.sroa.0.0.copyload.i9 = load i64, ptr %..i8, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload.i9, ptr %3, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %..i8, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !16
+  store i64 %9, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net8RttStats9UpdateRttENS_8QuicTime5DeltaES2_S1_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 %send_delta.coerce0, i64 %send_delta.coerce1, i64 %ack_delay.coerce0, i64 %ack_delay.coerce1, i64 %now.coerce) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp6 = alloca %"class.logging::LogMessage", align 8
-  %0 = add i64 %send_delta.coerce1, -9223372036854775807
-  %or.cond = icmp ult i64 %0, -9223372036854775806
-  br i1 %or.cond, label %if.then, label %if.end
+define void @_ZN3net8RttStats9UpdateRttENS_8QuicTime5DeltaES2_S1_(ptr noundef nonnull align 8 dereferenceable(224) %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.logging::LogMessage", align 8
+  %8 = add i64 %2, -9223372036854775807
+  %or.cond = icmp ult i64 %8, -9223372036854775806
+  br i1 %or.cond, label %.critedge, label %17
 
-if.then:                                          ; preds = %entry
-  %call5 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 1)
-  br i1 %call5, label %cond.false, label %if.end81
+.critedge:                                        ; preds = %6
+  %9 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 1)
+  br i1 %9, label %10, label %.critedge42
 
-cond.false:                                       ; preds = %if.then
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6, ptr noundef nonnull @.str, i32 noundef 61, i32 noundef 1)
-  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
-  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
-          to label %invoke.cont8 unwind label %lpad
+10:                                               ; preds = %.critedge
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %7) #9
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %7, ptr noundef nonnull @.str, i32 noundef 61, i32 noundef 1)
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.1, i64 noundef 46)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %15
 
-invoke.cont8:                                     ; preds = %cond.false
-  %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @.str.2)
-          to label %invoke.cont10 unwind label %lpad
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
+  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.2, i64 noundef 50)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 unwind label %15
 
-invoke.cont10:                                    ; preds = %invoke.cont8
-  %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call11, i64 noundef %send_delta.coerce1)
-          to label %cleanup.action unwind label %lpad
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %2)
+          to label %.critedge41 unwind label %15
 
-cleanup.action:                                   ; preds = %invoke.cont10
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #8
-  br label %if.end81
+.critedge41:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %7) #9
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %7) #9
+  br label %.critedge42
 
-lpad:                                             ; preds = %invoke.cont10, %invoke.cont8, %cond.false
-  %1 = landingpad { ptr, i32 }
+15:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %10
+  %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #8
-  resume { ptr, i32 } %1
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %7) #9
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %7) #9
+  resume { ptr, i32 } %16
 
-if.end:                                           ; preds = %entry
-  %time_offset_.i4 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load i64, ptr %time_offset_.i4, align 8
-  %cmp.i5 = icmp eq i64 %2, 0
-  %cmp.i.i6 = icmp slt i64 %send_delta.coerce1, %2
-  %or.cond62 = or i1 %cmp.i5, %cmp.i.i6
-  br i1 %or.cond62, label %if.then26, label %if.end29
+17:                                               ; preds = %6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load i64, ptr %18, align 8, !tbaa !16
+  %20 = icmp eq i64 %19, 0
+  %21 = icmp slt i64 %2, %19
+  %or.cond83 = or i1 %20, %21
+  br i1 %or.cond83, label %22, label %24
 
-if.then26:                                        ; preds = %if.end
-  %min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i64 %send_delta.coerce0, ptr %min_rtt_, align 8
-  store i64 %send_delta.coerce1, ptr %time_offset_.i4, align 8
-  br label %if.end29
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %1, ptr %23, align 8, !tbaa !15
+  store i64 %2, ptr %18, align 8, !tbaa !16
+  br label %24
 
-if.end29:                                         ; preds = %if.end, %if.then26
-  %windowed_min_rtt_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  tail call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %windowed_min_rtt_.i, i64 %send_delta.coerce0, i64 %send_delta.coerce1, i64 %now.coerce)
-  %num_samples_for_forced_min_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %3 = load i32, ptr %num_samples_for_forced_min_.i, align 8
-  %cmp.i8 = icmp eq i32 %3, 0
-  br i1 %cmp.i8, label %_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit, label %if.end.i
+24:                                               ; preds = %17, %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  tail call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %25, i64 %1, i64 %2, i64 %5)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %27 = load i32, ptr %26, align 8, !tbaa !14
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit, label %29
 
-if.end.i:                                         ; preds = %if.end29
-  %forced_windowed_min_rtt_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %time_offset_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %4 = load i64, ptr %time_offset_.i.i, align 8
-  %cmp.i.i9 = icmp eq i64 %4, 0
-  %cmp.i.i.i = icmp sge i64 %4, %send_delta.coerce1
-  %or.cond.i = or i1 %cmp.i.i9, %cmp.i.i.i
-  br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %32 = load i64, ptr %31, align 8, !tbaa !16
+  %33 = icmp eq i64 %32, 0
+  %34 = icmp sge i64 %32, %2
+  %or.cond.i = or i1 %33, %34
+  br i1 %or.cond.i, label %35, label %37
 
-if.then8.i:                                       ; preds = %if.end.i
-  store i64 %send_delta.coerce0, ptr %forced_windowed_min_rtt_.i, align 8
-  store i64 %send_delta.coerce1, ptr %time_offset_.i.i, align 8
-  %forced_windowed_min_rtt_time_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store i64 %now.coerce, ptr %forced_windowed_min_rtt_time_.i, align 8
-  br label %if.end11.i
+35:                                               ; preds = %29
+  store i64 %1, ptr %30, align 8, !tbaa !15
+  store i64 %2, ptr %31, align 8, !tbaa !16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 %5, ptr %36, align 8, !tbaa !13
+  br label %37
 
-if.end11.i:                                       ; preds = %if.then8.i, %if.end.i
-  %agg.tmp16.sroa.2.0.copyload.i = phi i64 [ %4, %if.end.i ], [ %send_delta.coerce1, %if.then8.i ]
-  %cmp13.i = icmp eq i32 %3, 1
-  br i1 %cmp13.i, label %if.then14.i, label %if.end21.i
+37:                                               ; preds = %35, %29
+  %.sroa.2.0.copyload.i = phi i64 [ %32, %29 ], [ %2, %35 ]
+  %38 = icmp eq i32 %27, 1
+  br i1 %38, label %39, label %50
 
-if.then14.i:                                      ; preds = %if.end11.i
-  %agg.tmp16.sroa.0.0.copyload.i = load i64, ptr %forced_windowed_min_rtt_.i, align 8
-  %forced_windowed_min_rtt_time_19.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %agg.tmp18.sroa.0.0.copyload.i = load i64, ptr %forced_windowed_min_rtt_time_19.i, align 8
-  %estimates_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
-  store i64 %agg.tmp16.sroa.0.0.copyload.i, ptr %arrayidx.i.i, align 8
-  %time_offset_3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
-  store i64 %agg.tmp16.sroa.2.0.copyload.i, ptr %time_offset_3.i.i.i.i, align 8
-  %time.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
-  store i64 %agg.tmp18.sroa.0.0.copyload.i, ptr %time.i1.i.i, align 8
-  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store i64 %agg.tmp16.sroa.0.0.copyload.i, ptr %arrayidx5.i.i, align 8
-  %time_offset_3.i.i4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store i64 %agg.tmp16.sroa.2.0.copyload.i, ptr %time_offset_3.i.i4.i.i, align 8
-  %time.i5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store i64 %agg.tmp18.sroa.0.0.copyload.i, ptr %time.i5.i.i, align 8
-  store i64 %agg.tmp16.sroa.0.0.copyload.i, ptr %estimates_.i.i, align 8
-  %time_offset_3.i.i9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store i64 %agg.tmp16.sroa.2.0.copyload.i, ptr %time_offset_3.i.i9.i.i, align 8
-  %time.i10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  store i64 %agg.tmp18.sroa.0.0.copyload.i, ptr %time.i10.i.i, align 8
-  br label %if.end21.i
+39:                                               ; preds = %37
+  %.sroa.01.0.copyload.i = load i64, ptr %30, align 8, !tbaa !13
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %.sroa.0.0.copyload.i44 = load i64, ptr %40, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i64 %.sroa.01.0.copyload.i, ptr %42, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store i64 %.sroa.2.0.copyload.i, ptr %43, align 8, !tbaa !16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i64 %.sroa.0.0.copyload.i44, ptr %44, align 8, !tbaa !13
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i64 %.sroa.01.0.copyload.i, ptr %45, align 8, !tbaa !15
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i64 %.sroa.2.0.copyload.i, ptr %46, align 8, !tbaa !16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 %.sroa.0.0.copyload.i44, ptr %47, align 8, !tbaa !13
+  store i64 %.sroa.01.0.copyload.i, ptr %41, align 8, !tbaa !15
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 %.sroa.2.0.copyload.i, ptr %48, align 8, !tbaa !16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i64 %.sroa.0.0.copyload.i44, ptr %49, align 8, !tbaa !13
+  br label %50
 
-if.end21.i:                                       ; preds = %if.then14.i, %if.end11.i
-  %dec.i = add i32 %3, -1
-  store i32 %dec.i, ptr %num_samples_for_forced_min_.i, align 8
+50:                                               ; preds = %39, %37
+  %51 = add i32 %27, -1
+  store i32 %51, ptr %26, align 8, !tbaa !14
   br label %_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit
 
-_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit: ; preds = %if.end29, %if.end21.i
-  %smoothed_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %previous_srtt_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %agg.tmp.sroa.0.0.copyload.i10 = load i64, ptr %smoothed_rtt_, align 8
-  store i64 %agg.tmp.sroa.0.0.copyload.i10, ptr %previous_srtt_, align 8
-  %time_offset_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %5 = load i64, ptr %time_offset_.i11, align 8
-  %time_offset_3.i12 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i64 %5, ptr %time_offset_3.i12, align 8
-  %cmp.i.i13 = icmp slt i64 %ack_delay.coerce1, %send_delta.coerce1
-  %rtt_sample.sroa.0.0 = select i1 %cmp.i.i13, i64 0, i64 %send_delta.coerce0
-  %sub.i = select i1 %cmp.i.i13, i64 %ack_delay.coerce1, i64 0
-  %rtt_sample.sroa.8.0 = sub nsw i64 %send_delta.coerce1, %sub.i
-  store i64 %rtt_sample.sroa.0.0, ptr %this, align 8
-  %time_offset_3.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 %rtt_sample.sroa.8.0, ptr %time_offset_3.i19, align 8
-  %cmp.i21 = icmp eq i64 %5, 0
-  br i1 %cmp.i21, label %if.then47, label %if.else
+_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit: ; preds = %24, %50
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.0.0.copyload.i45 = load i64, ptr %52, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload.i45, ptr %53, align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %55 = load i64, ptr %54, align 8, !tbaa !16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %55, ptr %56, align 8, !tbaa !16
+  %57 = icmp slt i64 %4, %2
+  %.sroa.064.0 = select i1 %57, i64 0, i64 %1
+  %58 = select i1 %57, i64 %4, i64 0
+  %.sroa.10.0 = sub nsw i64 %2, %58
+  store i64 %.sroa.064.0, ptr %0, align 8, !tbaa !15
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.10.0, ptr %59, align 8, !tbaa !16
+  %60 = icmp eq i64 %55, 0
+  br i1 %60, label %61, label %65
 
-if.then47:                                        ; preds = %_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit
-  store i64 %rtt_sample.sroa.0.0, ptr %smoothed_rtt_, align 8
-  store i64 %rtt_sample.sroa.8.0, ptr %time_offset_.i11, align 8
-  %div = sdiv i64 %rtt_sample.sroa.8.0, 2
-  %mean_deviation_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i64 0, ptr %mean_deviation_, align 8
-  %time_offset_3.i29 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store i64 %div, ptr %time_offset_3.i29, align 8
-  br label %if.end81
+61:                                               ; preds = %_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit
+  store i64 %.sroa.064.0, ptr %52, align 8, !tbaa !15
+  store i64 %.sroa.10.0, ptr %54, align 8, !tbaa !16
+  %62 = sdiv i64 %.sroa.10.0, 2
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 0, ptr %63, align 8, !tbaa !15
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %62, ptr %64, align 8, !tbaa !16
+  br label %.critedge42
 
-if.else:                                          ; preds = %_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit
-  %mean_deviation_55 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %time_offset_.i30 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %6 = load i64, ptr %time_offset_.i30, align 8
-  %conv = sitofp i64 %6 to float
-  %sub.i31 = sub nsw i64 %5, %rtt_sample.sroa.8.0
-  %7 = tail call noundef i64 @llvm.abs.i64(i64 %sub.i31, i1 true)
-  %conv64 = uitofp nneg i64 %7 to float
-  %mul65 = fmul float %conv64, 2.500000e-01
-  %8 = tail call float @llvm.fmuladd.f32(float %conv, float 7.500000e-01, float %mul65)
-  %conv66 = fptosi float %8 to i64
-  store i64 0, ptr %mean_deviation_55, align 8
-  store i64 %conv66, ptr %time_offset_.i30, align 8
-  %conv.i.i = sitofp i64 %5 to double
-  %mul.i.i = fmul double %conv.i.i, 8.750000e-01
-  %call.i.i = tail call i64 @llround(double noundef %mul.i.i) #8
-  %conv.i.i38 = sitofp i64 %rtt_sample.sroa.8.0 to double
-  %mul.i.i39 = fmul double %conv.i.i38, 1.250000e-01
-  %call.i.i40 = tail call i64 @llround(double noundef %mul.i.i39) #8
-  %add.i = add nsw i64 %call.i.i40, %call.i.i
-  store i64 0, ptr %smoothed_rtt_, align 8
-  store i64 %add.i, ptr %time_offset_.i11, align 8
-  br label %if.end81
+65:                                               ; preds = %_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %68 = load i64, ptr %67, align 8, !tbaa !16
+  %69 = sitofp i64 %68 to float
+  %70 = sub nsw i64 %55, %.sroa.10.0
+  %71 = tail call noundef i64 @llvm.abs.i64(i64 %70, i1 true)
+  %72 = uitofp nneg i64 %71 to float
+  %73 = fmul float %72, 2.500000e-01
+  %74 = tail call float @llvm.fmuladd.f32(float %69, float 7.500000e-01, float %73)
+  %75 = fptosi float %74 to i64
+  store i64 0, ptr %66, align 8, !tbaa !15
+  store i64 %75, ptr %67, align 8, !tbaa !16
+  %76 = sitofp i64 %55 to double
+  %77 = fmul double %76, 8.750000e-01
+  %78 = tail call i64 @llround(double noundef %77) #9, !tbaa !17
+  %79 = sitofp i64 %.sroa.10.0 to double
+  %80 = fmul double %79, 1.250000e-01
+  %81 = tail call i64 @llround(double noundef %80) #9, !tbaa !17
+  %82 = add nsw i64 %81, %78
+  store i64 0, ptr %52, align 8, !tbaa !15
+  store i64 %82, ptr %54, align 8, !tbaa !16
+  br label %.critedge42
 
-if.end81:                                         ; preds = %if.then, %cleanup.action, %if.else, %if.then47
+.critedge42:                                      ; preds = %61, %65, %.critedge41, %.critedge
   ret void
 }
 
-declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) local_unnamed_addr #4
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
-
-declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
-
 ; Function Attrs: nounwind
-declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #4
+declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 %rtt_sample.coerce0, i64 %rtt_sample.coerce1, i64 %now.coerce) local_unnamed_addr #2 align 2 {
-entry:
-  %windowed_min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 120
-  tail call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %windowed_min_rtt_, i64 %rtt_sample.coerce0, i64 %rtt_sample.coerce1, i64 %now.coerce)
-  %num_samples_for_forced_min_ = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %0 = load i32, ptr %num_samples_for_forced_min_, align 8
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %return, label %if.end
+define void @_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_(ptr noundef nonnull align 8 dereferenceable(224) %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #3 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  tail call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 %1, i64 %2, i64 %3)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %7 = load i32, ptr %6, align 8, !tbaa !14
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %32, label %9
 
-if.end:                                           ; preds = %entry
-  %forced_windowed_min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %time_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %1 = load i64, ptr %time_offset_.i, align 8
-  %cmp.i = icmp eq i64 %1, 0
-  %cmp.i.i = icmp sge i64 %1, %rtt_sample.coerce1
-  %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then8, label %if.end11
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = load i64, ptr %11, align 8, !tbaa !16
+  %13 = icmp eq i64 %12, 0
+  %14 = icmp sge i64 %12, %2
+  %or.cond = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond, label %15, label %17
 
-if.then8:                                         ; preds = %if.end
-  store i64 %rtt_sample.coerce0, ptr %forced_windowed_min_rtt_, align 8
-  store i64 %rtt_sample.coerce1, ptr %time_offset_.i, align 8
-  %forced_windowed_min_rtt_time_ = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store i64 %now.coerce, ptr %forced_windowed_min_rtt_time_, align 8
-  br label %if.end11
+15:                                               ; preds = %9
+  store i64 %1, ptr %10, align 8, !tbaa !15
+  store i64 %2, ptr %11, align 8, !tbaa !16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 %3, ptr %16, align 8, !tbaa !13
+  br label %17
 
-if.end11:                                         ; preds = %if.end, %if.then8
-  %agg.tmp16.sroa.2.0.copyload = phi i64 [ %1, %if.end ], [ %rtt_sample.coerce1, %if.then8 ]
-  %cmp13 = icmp eq i32 %0, 1
-  br i1 %cmp13, label %if.then14, label %if.end21
+17:                                               ; preds = %9, %15
+  %.sroa.2.0.copyload = phi i64 [ %12, %9 ], [ %2, %15 ]
+  %18 = icmp eq i32 %7, 1
+  br i1 %18, label %19, label %30
 
-if.then14:                                        ; preds = %if.end11
-  %agg.tmp16.sroa.0.0.copyload = load i64, ptr %forced_windowed_min_rtt_, align 8
-  %forced_windowed_min_rtt_time_19 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %agg.tmp18.sroa.0.0.copyload = load i64, ptr %forced_windowed_min_rtt_time_19, align 8
-  %estimates_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 200
-  store i64 %agg.tmp16.sroa.0.0.copyload, ptr %arrayidx.i, align 8
-  %time_offset_3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
-  store i64 %agg.tmp16.sroa.2.0.copyload, ptr %time_offset_3.i.i.i, align 8
-  %time.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 216
-  store i64 %agg.tmp18.sroa.0.0.copyload, ptr %time.i1.i, align 8
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store i64 %agg.tmp16.sroa.0.0.copyload, ptr %arrayidx5.i, align 8
-  %time_offset_3.i.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store i64 %agg.tmp16.sroa.2.0.copyload, ptr %time_offset_3.i.i4.i, align 8
-  %time.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store i64 %agg.tmp18.sroa.0.0.copyload, ptr %time.i5.i, align 8
-  store i64 %agg.tmp16.sroa.0.0.copyload, ptr %estimates_.i, align 8
-  %time_offset_3.i.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store i64 %agg.tmp16.sroa.2.0.copyload, ptr %time_offset_3.i.i9.i, align 8
-  %time.i10.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  store i64 %agg.tmp18.sroa.0.0.copyload, ptr %time.i10.i, align 8
-  br label %if.end21
+19:                                               ; preds = %17
+  %.sroa.01.0.copyload = load i64, ptr %10, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %.sroa.0.0.copyload = load i64, ptr %20, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i64 %.sroa.01.0.copyload, ptr %22, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store i64 %.sroa.2.0.copyload, ptr %23, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i64 %.sroa.0.0.copyload, ptr %24, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i64 %.sroa.01.0.copyload, ptr %25, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i64 %.sroa.2.0.copyload, ptr %26, align 8, !tbaa !16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 %.sroa.0.0.copyload, ptr %27, align 8, !tbaa !13
+  store i64 %.sroa.01.0.copyload, ptr %21, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 %.sroa.2.0.copyload, ptr %28, align 8, !tbaa !16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i64 %.sroa.0.0.copyload, ptr %29, align 8, !tbaa !13
+  br label %30
 
-if.end21:                                         ; preds = %if.then14, %if.end11
-  %dec = add i32 %0, -1
-  store i32 %dec, ptr %num_samples_for_forced_min_, align 8
-  br label %return
+30:                                               ; preds = %19, %17
+  %31 = add i32 %7, -1
+  store i32 %31, ptr %6, align 8, !tbaa !14
+  br label %32
 
-return:                                           ; preds = %entry, %if.end21
+32:                                               ; preds = %4, %30
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 %new_sample.coerce0, i64 %new_sample.coerce1, i64 %new_time.coerce) local_unnamed_addr #2 comdat align 2 {
-entry:
-  %estimates_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %agg.tmp.sroa.2.0.sample.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.sample.sroa_idx, align 8
-  %agg.tmp2.sroa.2.0.zero_value_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %agg.tmp2.sroa.2.0.copyload = load i64, ptr %agg.tmp2.sroa.2.0.zero_value_.sroa_idx, align 8
-  %cmp.i = icmp ne i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  %cmp.i.i.i.not = icmp slt i64 %agg.tmp.sroa.2.0.copyload, %new_sample.coerce1
-  %or.cond = select i1 %cmp.i, i1 %cmp.i.i.i.not, i1 false
-  br i1 %or.cond, label %lor.rhs, label %if.then
+define linkonce_odr void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #3 comdat align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.266.0.copyload = load i64, ptr %.sroa.266.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.264.0.copyload = load i64, ptr %.sroa.264.0..sroa_idx, align 8, !tbaa !13
+  %6 = icmp ne i64 %.sroa.266.0.copyload, %.sroa.264.0.copyload
+  %.not = icmp slt i64 %.sroa.266.0.copyload, %2
+  %or.cond = select i1 %6, i1 %.not, i1 false
+  br i1 %or.cond, label %7, label %.critedge
 
-lor.rhs:                                          ; preds = %entry
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %time = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %agg.tmp9.sroa.0.0.copyload = load i64, ptr %time, align 8
-  %sub.i = sub nsw i64 %new_time.coerce, %agg.tmp9.sroa.0.0.copyload
-  %agg.tmp15.sroa.2.0.window_length_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %agg.tmp15.sroa.2.0.copyload = load i64, ptr %agg.tmp15.sroa.2.0.window_length_.sroa_idx, align 8
-  %cmp.i.i = icmp slt i64 %agg.tmp15.sroa.2.0.copyload, %sub.i
-  br i1 %cmp.i.i, label %if.then, label %if.end
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.sroa.059.0.copyload = load i64, ptr %9, align 8, !tbaa !13
+  %10 = sub nsw i64 %3, %.sroa.059.0.copyload
+  %.sroa.258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.258.0.copyload = load i64, ptr %.sroa.258.0..sroa_idx, align 8, !tbaa !13
+  %11 = icmp slt i64 %.sroa.258.0.copyload, %10
+  br i1 %11, label %.critedge, label %19
 
-if.then:                                          ; preds = %entry, %lor.rhs
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store i64 %new_sample.coerce0, ptr %arrayidx.i, align 8
-  %time_offset_3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store i64 %new_sample.coerce1, ptr %time_offset_3.i.i.i, align 8
-  %time.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store i64 %new_time.coerce, ptr %time.i1.i, align 8
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i64 %new_sample.coerce0, ptr %arrayidx5.i, align 8
-  %time_offset_3.i.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i64 %new_sample.coerce1, ptr %time_offset_3.i.i4.i, align 8
-  %time.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store i64 %new_time.coerce, ptr %time.i5.i, align 8
-  store i64 %new_sample.coerce0, ptr %estimates_, align 8
-  store i64 %new_sample.coerce1, ptr %agg.tmp.sroa.2.0.sample.sroa_idx, align 8
-  %time.i10.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i64 %new_time.coerce, ptr %time.i10.i, align 8
-  br label %if.end175
+.critedge:                                        ; preds = %4, %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %1, ptr %12, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %2, ptr %13, align 8, !tbaa !16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 %3, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %1, ptr %15, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %2, ptr %16, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %3, ptr %17, align 8, !tbaa !13
+  store i64 %1, ptr %5, align 8, !tbaa !15
+  store i64 %2, ptr %.sroa.266.0..sroa_idx, align 8, !tbaa !16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %3, ptr %18, align 8, !tbaa !13
+  br label %.critedge4
 
-if.end:                                           ; preds = %lor.rhs
-  %arrayidx22 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %agg.tmp2.sroa.2.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %agg.tmp2.sroa.2.0.copyload.i14 = load i64, ptr %agg.tmp2.sroa.2.0..sroa_idx.i13, align 8
-  %cmp.i.i.i15.not = icmp slt i64 %agg.tmp2.sroa.2.0.copyload.i14, %new_sample.coerce1
-  br i1 %cmp.i.i.i15.not, label %if.else, label %if.then25
+19:                                               ; preds = %7
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.2.0..sroa_idx.i80 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.sroa.2.0.copyload.i81 = load i64, ptr %.sroa.2.0..sroa_idx.i80, align 8, !tbaa !13
+  %.not136 = icmp slt i64 %.sroa.2.0.copyload.i81, %2
+  br i1 %.not136, label %24, label %21
 
-if.then25:                                        ; preds = %if.end
-  store i64 %new_sample.coerce0, ptr %arrayidx22, align 8
-  store i64 %new_sample.coerce1, ptr %agg.tmp2.sroa.2.0..sroa_idx.i13, align 8
-  %time.i16 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store i64 %new_time.coerce, ptr %time.i16, align 8
-  store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
-  %time_offset_3.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store i64 %new_sample.coerce1, ptr %time_offset_3.i.i19, align 8
-  br label %if.end52.sink.split
+21:                                               ; preds = %19
+  store i64 %1, ptr %20, align 8, !tbaa !15
+  store i64 %2, ptr %.sroa.2.0..sroa_idx.i80, align 8, !tbaa !16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %3, ptr %22, align 8, !tbaa !13
+  store i64 %1, ptr %8, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %2, ptr %23, align 8, !tbaa !16
+  br label %.sink.split
 
-if.else:                                          ; preds = %if.end
-  %agg.tmp2.sroa.2.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %agg.tmp2.sroa.2.0.copyload.i25 = load i64, ptr %agg.tmp2.sroa.2.0..sroa_idx.i24, align 8
-  %cmp.i.i.i26.not = icmp slt i64 %agg.tmp2.sroa.2.0.copyload.i25, %new_sample.coerce1
-  br i1 %cmp.i.i.i26.not, label %if.end52, label %if.then43
+24:                                               ; preds = %19
+  %.sroa.2.0..sroa_idx.i86 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.sroa.2.0.copyload.i87 = load i64, ptr %.sroa.2.0..sroa_idx.i86, align 8, !tbaa !13
+  %.not137 = icmp slt i64 %.sroa.2.0.copyload.i87, %2
+  br i1 %.not137, label %26, label %25
 
-if.then43:                                        ; preds = %if.else
-  store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
-  store i64 %new_sample.coerce1, ptr %agg.tmp2.sroa.2.0..sroa_idx.i24, align 8
-  br label %if.end52.sink.split
+25:                                               ; preds = %24
+  store i64 %1, ptr %8, align 8, !tbaa !15
+  store i64 %2, ptr %.sroa.2.0..sroa_idx.i86, align 8, !tbaa !16
+  br label %.sink.split
 
-if.end52.sink.split:                              ; preds = %if.then25, %if.then43
-  %.ph = phi i64 [ %new_sample.coerce1, %if.then25 ], [ %agg.tmp2.sroa.2.0.copyload.i14, %if.then43 ]
-  store i64 %new_time.coerce, ptr %time, align 8
-  br label %if.end52
+.sink.split:                                      ; preds = %21, %25
+  %.ph = phi i64 [ %2, %21 ], [ %.sroa.2.0.copyload.i81, %25 ]
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  br label %26
 
-if.end52:                                         ; preds = %if.end52.sink.split, %if.else
-  %0 = phi i64 [ %agg.tmp9.sroa.0.0.copyload, %if.else ], [ %new_time.coerce, %if.end52.sink.split ]
-  %1 = phi i64 [ %agg.tmp2.sroa.2.0.copyload.i25, %if.else ], [ %new_sample.coerce1, %if.end52.sink.split ]
-  %2 = phi i64 [ %agg.tmp2.sroa.2.0.copyload.i14, %if.else ], [ %.ph, %if.end52.sink.split ]
-  %time58 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %agg.tmp55.sroa.0.0.copyload = load i64, ptr %time58, align 8
-  %sub.i34 = sub nsw i64 %new_time.coerce, %agg.tmp55.sroa.0.0.copyload
-  %cmp.i.i36 = icmp slt i64 %agg.tmp15.sroa.2.0.copyload, %sub.i34
-  br i1 %cmp.i.i36, label %if.then65, label %if.end107
+26:                                               ; preds = %.sink.split, %24
+  %27 = phi i64 [ %.sroa.059.0.copyload, %24 ], [ %3, %.sink.split ]
+  %28 = phi i64 [ %.sroa.2.0.copyload.i87, %24 ], [ %2, %.sink.split ]
+  %29 = phi i64 [ %.sroa.2.0.copyload.i81, %24 ], [ %.ph, %.sink.split ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.044.0.copyload = load i64, ptr %30, align 8, !tbaa !13
+  %31 = sub nsw i64 %3, %.sroa.044.0.copyload
+  %32 = icmp slt i64 %.sroa.258.0.copyload, %31
+  br i1 %32, label %33, label %40
 
-if.then65:                                        ; preds = %if.end52
-  %agg.tmp.sroa.0.0.copyload.i.i37 = load i64, ptr %arrayidx22, align 8
-  store i64 %agg.tmp.sroa.0.0.copyload.i.i37, ptr %estimates_, align 8
-  store i64 %2, ptr %agg.tmp.sroa.2.0.sample.sroa_idx, align 8
-  %time3.i41 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %3 = load i64, ptr %time3.i41, align 8
-  store i64 %3, ptr %time58, align 8
-  %agg.tmp.sroa.0.0.copyload.i.i42 = load i64, ptr %arrayidx11, align 8
-  store i64 %agg.tmp.sroa.0.0.copyload.i.i42, ptr %arrayidx22, align 8
-  %time_offset_.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store i64 %1, ptr %agg.tmp2.sroa.2.0..sroa_idx.i13, align 8
-  store i64 %0, ptr %time3.i41, align 8
-  store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
-  store i64 %new_sample.coerce1, ptr %time_offset_.i.i43, align 8
-  store i64 %new_time.coerce, ptr %time, align 8
-  %sub.i54 = sub nsw i64 %new_time.coerce, %3
-  %cmp.i.i56 = icmp slt i64 %agg.tmp15.sroa.2.0.copyload, %sub.i54
-  br i1 %cmp.i.i56, label %if.then95, label %if.end175
+33:                                               ; preds = %26
+  %.sroa.0.0.copyload.i.i91 = load i64, ptr %20, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload.i.i91, ptr %5, align 8, !tbaa !15
+  store i64 %29, ptr %.sroa.266.0..sroa_idx, align 8, !tbaa !16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %35 = load i64, ptr %34, align 8, !tbaa !13
+  store i64 %35, ptr %30, align 8, !tbaa !13
+  %.sroa.0.0.copyload.i.i92 = load i64, ptr %8, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload.i.i92, ptr %20, align 8, !tbaa !15
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %28, ptr %.sroa.2.0..sroa_idx.i80, align 8, !tbaa !16
+  store i64 %27, ptr %34, align 8, !tbaa !13
+  store i64 %1, ptr %8, align 8, !tbaa !15
+  store i64 %2, ptr %36, align 8, !tbaa !16
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  %37 = sub nsw i64 %3, %35
+  %38 = icmp slt i64 %.sroa.258.0.copyload, %37
+  br i1 %38, label %39, label %.critedge4
 
-if.then95:                                        ; preds = %if.then65
-  store i64 %agg.tmp.sroa.0.0.copyload.i.i42, ptr %estimates_, align 8
-  store i64 %1, ptr %agg.tmp.sroa.2.0.sample.sroa_idx, align 8
-  store i64 %0, ptr %time58, align 8
-  store i64 %new_sample.coerce0, ptr %arrayidx22, align 8
-  store i64 %new_sample.coerce1, ptr %agg.tmp2.sroa.2.0..sroa_idx.i13, align 8
-  store i64 %new_time.coerce, ptr %time3.i41, align 8
-  br label %if.end175
+39:                                               ; preds = %33
+  store i64 %.sroa.0.0.copyload.i.i92, ptr %5, align 8, !tbaa !15
+  store i64 %28, ptr %.sroa.266.0..sroa_idx, align 8, !tbaa !16
+  store i64 %27, ptr %30, align 8, !tbaa !13
+  store i64 %1, ptr %20, align 8, !tbaa !15
+  store i64 %2, ptr %.sroa.2.0..sroa_idx.i80, align 8, !tbaa !16
+  store i64 %3, ptr %34, align 8, !tbaa !13
+  br label %.critedge4
 
-if.end107:                                        ; preds = %if.end52
-  %cmp.i67 = icmp eq i64 %2, %agg.tmp.sroa.2.0.copyload
-  br i1 %cmp.i67, label %land.lhs.true, label %if.end142
+40:                                               ; preds = %26
+  %41 = icmp eq i64 %29, %.sroa.266.0.copyload
+  br i1 %41, label %42, label %.critedge2
 
-land.lhs.true:                                    ; preds = %if.end107
-  %time122 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %agg.tmp119.sroa.0.0.copyload = load i64, ptr %time122, align 8
-  %sub.i68 = sub nsw i64 %new_time.coerce, %agg.tmp119.sroa.0.0.copyload
-  %shr.i = ashr i64 %agg.tmp15.sroa.2.0.copyload, 2
-  %cmp.i.i71 = icmp slt i64 %shr.i, %sub.i68
-  br i1 %cmp.i.i71, label %if.then131, label %if.end142
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.sroa.025.0.copyload = load i64, ptr %43, align 8, !tbaa !13
+  %44 = sub nsw i64 %3, %.sroa.025.0.copyload
+  %45 = ashr i64 %.sroa.258.0.copyload, 2
+  %46 = icmp slt i64 %45, %44
+  br i1 %46, label %47, label %.critedge2
 
-if.then131:                                       ; preds = %land.lhs.true
-  store i64 %new_sample.coerce0, ptr %arrayidx22, align 8
-  store i64 %new_sample.coerce1, ptr %agg.tmp2.sroa.2.0..sroa_idx.i13, align 8
-  store i64 %new_time.coerce, ptr %time122, align 8
-  store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
-  %time_offset_3.i.i81 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store i64 %new_sample.coerce1, ptr %time_offset_3.i.i81, align 8
-  store i64 %new_time.coerce, ptr %time, align 8
-  br label %if.end175
+47:                                               ; preds = %42
+  store i64 %1, ptr %20, align 8, !tbaa !15
+  store i64 %2, ptr %.sroa.2.0..sroa_idx.i80, align 8, !tbaa !16
+  store i64 %3, ptr %43, align 8, !tbaa !13
+  store i64 %1, ptr %8, align 8, !tbaa !15
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %2, ptr %48, align 8, !tbaa !16
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  br label %.critedge4
 
-if.end142:                                        ; preds = %land.lhs.true, %if.end107
-  %agg.tmp143.sroa.2.0.sample146.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %cmp.i84 = icmp eq i64 %1, %2
-  br i1 %cmp.i84, label %land.lhs.true152, label %if.end175
+.critedge2:                                       ; preds = %40, %42
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %49 = icmp eq i64 %28, %29
+  br i1 %49, label %50, label %.critedge4
 
-land.lhs.true152:                                 ; preds = %if.end142
-  %sub.i85 = sub nsw i64 %new_time.coerce, %0
-  %shr.i87 = ashr i64 %agg.tmp15.sroa.2.0.copyload, 1
-  %cmp.i.i89 = icmp slt i64 %shr.i87, %sub.i85
-  br i1 %cmp.i.i89, label %if.then167, label %if.end175
+50:                                               ; preds = %.critedge2
+  %51 = sub nsw i64 %3, %27
+  %52 = ashr i64 %.sroa.258.0.copyload, 1
+  %53 = icmp slt i64 %52, %51
+  br i1 %53, label %54, label %.critedge4
 
-if.then167:                                       ; preds = %land.lhs.true152
-  store i64 %new_sample.coerce0, ptr %arrayidx11, align 8
-  store i64 %new_sample.coerce1, ptr %agg.tmp143.sroa.2.0.sample146.sroa_idx, align 8
-  store i64 %new_time.coerce, ptr %time, align 8
-  br label %if.end175
+54:                                               ; preds = %50
+  store i64 %1, ptr %8, align 8, !tbaa !15
+  store i64 %2, ptr %.sroa.217.0..sroa_idx, align 8, !tbaa !16
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  br label %.critedge4
 
-if.end175:                                        ; preds = %if.then65, %if.then95, %if.then167, %land.lhs.true152, %if.end142, %if.then131, %if.then
+.critedge4:                                       ; preds = %.critedge2, %33, %39, %54, %50, %47, %.critedge
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net8RttStats21OnConnectionMigrationEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 48), (64, 88), (112, 116), (152, 224)) %this) local_unnamed_addr #0 align 2 {
-entry:
-  %mean_deviation_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %initial_rtt_us_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mean_deviation_, i8 0, i64 16, i1 false)
-  store i64 100000, ptr %initial_rtt_us_, align 8
-  %num_samples_for_forced_min_ = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store i32 0, ptr %num_samples_for_forced_min_, align 8
-  %estimates_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %estimates_.i, i8 0, i64 72, i1 false)
+define void @_ZN3net8RttStats21OnConnectionMigrationEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 48), (64, 88), (112, 116), (152, 224)) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  store i64 100000, ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 0, ptr %4, align 8, !tbaa !14
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #5
+declare i64 @llvm.abs.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare i64 @llround(double noundef) local_unnamed_addr #4
+declare i64 @llround(double noundef) local_unnamed_addr #5
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #7
+declare i64 @llvm.smax.i64(i64, i64) #8
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !7, i64 80}
+!4 = !{!"_ZTSN3net8RttStatsE", !5, i64 0, !5, i64 16, !5, i64 32, !5, i64 48, !5, i64 64, !7, i64 80, !5, i64 88, !10, i64 104, !11, i64 112, !12, i64 120}
+!5 = !{!"_ZTSN3net8QuicTime5DeltaE", !6, i64 0, !7, i64 8}
+!6 = !{!"_ZTSN4base9TimeDeltaE", !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"_ZTSN3net8QuicTimeE", !7, i64 0}
+!11 = !{!"int", !8, i64 0}
+!12 = !{!"_ZTSN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EE", !5, i64 0, !5, i64 16, !8, i64 32}
+!13 = !{!7, !7, i64 0}
+!14 = !{!4, !11, i64 112}
+!15 = !{!6, !7, i64 0}
+!16 = !{!5, !7, i64 8}
+!17 = !{!11, !11, i64 0}

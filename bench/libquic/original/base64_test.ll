@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.TestVector = type { ptr, ptr }
 
@@ -31,369 +31,469 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress norecurse uwtable
 define hidden noundef i32 @main() #0 {
-entry:
-  %retval = alloca i32, align 4
-  store i32 0, ptr %retval, align 4
+  %1 = alloca i32, align 4
+  store i32 0, ptr %1, align 4
   call void @CRYPTO_library_init()
-  %call = call noundef zeroext i1 @_ZL10TestEncodev()
-  br i1 %call, label %lor.lhs.false, label %if.then
+  %2 = call noundef zeroext i1 @_ZL10TestEncodev()
+  br i1 %2, label %3, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = call noundef zeroext i1 @_ZL10TestDecodev()
-  br i1 %call1, label %if.end, label %if.then
+3:                                                ; preds = %0
+  %4 = call noundef zeroext i1 @_ZL10TestDecodev()
+  br i1 %4, label %6, label %5
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+5:                                                ; preds = %3, %0
+  store i32 1, ptr %1, align 4
+  br label %8
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call2 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  store i32 0, ptr %retval, align 4
-  br label %return
+6:                                                ; preds = %3
+  %7 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+  store i32 0, ptr %1, align 4
+  br label %8
 
-return:                                           ; preds = %if.end, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+8:                                                ; preds = %6, %5
+  %9 = load i32, ptr %1, align 4
+  ret i32 %9
 }
 
 declare void @CRYPTO_library_init() #1
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL10TestEncodev() #2 {
-entry:
-  %retval = alloca i1, align 1
-  %i = alloca i64, align 8
-  %t = alloca ptr, align 8
-  %out = alloca [9 x i8], align 1
-  %len = alloca i64, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+  %1 = alloca i1, align 1
+  %2 = alloca i64, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca [9 x i8], align 1
+  %6 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #6
+  store i64 0, ptr %2, align 8, !tbaa !6
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 7
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %53, %0
+  %8 = load i64, ptr %2, align 8, !tbaa !6
+  %9 = icmp ult i64 %8, 7
+  br i1 %9, label %11, label %10
 
-for.body:                                         ; preds = %for.cond
-  %1 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %1
-  store ptr %arrayidx, ptr %t, align 8
-  %arraydecay = getelementptr inbounds [9 x i8], ptr %out, i64 0, i64 0
-  %2 = load ptr, ptr %t, align 8
-  %decoded = getelementptr inbounds %struct.TestVector, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %decoded, align 8
-  %4 = load ptr, ptr %t, align 8
-  %decoded1 = getelementptr inbounds %struct.TestVector, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %decoded1, align 8
-  %call = call i64 @strlen(ptr noundef %5) #4
-  %call2 = call i64 @EVP_EncodeBlock(ptr noundef %arraydecay, ptr noundef %3, i64 noundef %call)
-  store i64 %call2, ptr %len, align 8
-  %6 = load i64, ptr %len, align 8
-  %7 = load ptr, ptr %t, align 8
-  %encoded = getelementptr inbounds %struct.TestVector, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %encoded, align 8
-  %call3 = call i64 @strlen(ptr noundef %8) #4
-  %cmp4 = icmp ne i64 %6, %call3
-  br i1 %cmp4, label %if.then, label %lor.lhs.false
+10:                                               ; preds = %7
+  store i32 2, ptr %3, align 4
+  br label %56
 
-lor.lhs.false:                                    ; preds = %for.body
-  %arraydecay5 = getelementptr inbounds [9 x i8], ptr %out, i64 0, i64 0
-  %9 = load ptr, ptr %t, align 8
-  %encoded6 = getelementptr inbounds %struct.TestVector, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %encoded6, align 8
-  %11 = load i64, ptr %len, align 8
-  %call7 = call i32 @memcmp(ptr noundef %arraydecay5, ptr noundef %10, i64 noundef %11) #4
-  %cmp8 = icmp ne i32 %call7, 0
-  br i1 %cmp8, label %if.then, label %if.end
+11:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %12 = load i64, ptr %2, align 8, !tbaa !6
+  %13 = getelementptr inbounds nuw [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %12
+  store ptr %13, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 9, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %14 = getelementptr inbounds [9 x i8], ptr %5, i64 0, i64 0
+  %15 = load ptr, ptr %4, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %struct.TestVector, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !13
+  %18 = load ptr, ptr %4, align 8, !tbaa !10
+  %19 = getelementptr inbounds nuw %struct.TestVector, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !13
+  %21 = call i64 @strlen(ptr noundef %20) #7
+  %22 = call i64 @EVP_EncodeBlock(ptr noundef %14, ptr noundef %17, i64 noundef %21)
+  store i64 %22, ptr %6, align 8, !tbaa !6
+  %23 = load i64, ptr %6, align 8, !tbaa !6
+  %24 = load ptr, ptr %4, align 8, !tbaa !10
+  %25 = getelementptr inbounds nuw %struct.TestVector, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !16
+  %27 = call i64 @strlen(ptr noundef %26) #7
+  %28 = icmp ne i64 %23, %27
+  br i1 %28, label %37, label %29
 
-if.then:                                          ; preds = %lor.lhs.false, %for.body
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load ptr, ptr %t, align 8
-  %decoded9 = getelementptr inbounds %struct.TestVector, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %decoded9, align 8
-  %15 = load i64, ptr %len, align 8
-  %conv = trunc i64 %15 to i32
-  %arraydecay10 = getelementptr inbounds [9 x i8], ptr %out, i64 0, i64 0
-  %16 = load ptr, ptr %t, align 8
-  %encoded11 = getelementptr inbounds %struct.TestVector, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %encoded11, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.1, ptr noundef %14, i32 noundef %conv, ptr noundef %arraydecay10, ptr noundef %17)
-  store i1 false, ptr %retval, align 1
-  br label %return
+29:                                               ; preds = %11
+  %30 = getelementptr inbounds [9 x i8], ptr %5, i64 0, i64 0
+  %31 = load ptr, ptr %4, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw %struct.TestVector, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %34 = load i64, ptr %6, align 8, !tbaa !6
+  %35 = call i32 @memcmp(ptr noundef %30, ptr noundef %33, i64 noundef %34) #7
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %49
 
-if.end:                                           ; preds = %lor.lhs.false
-  br label %for.inc
+37:                                               ; preds = %29, %11
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %39 = load ptr, ptr %4, align 8, !tbaa !10
+  %40 = getelementptr inbounds nuw %struct.TestVector, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !13
+  %42 = load i64, ptr %6, align 8, !tbaa !6
+  %43 = trunc i64 %42 to i32
+  %44 = getelementptr inbounds [9 x i8], ptr %5, i64 0, i64 0
+  %45 = load ptr, ptr %4, align 8, !tbaa !10
+  %46 = getelementptr inbounds nuw %struct.TestVector, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !16
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.1, ptr noundef %41, i32 noundef %43, ptr noundef %44, ptr noundef %47) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %3, align 4
+  br label %50
 
-for.inc:                                          ; preds = %if.end
-  %18 = load i64, ptr %i, align 8
-  %inc = add i64 %18, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
+49:                                               ; preds = %29
+  store i32 0, ptr %3, align 4
+  br label %50
 
-for.end:                                          ; preds = %for.cond
-  store i1 true, ptr %retval, align 1
-  br label %return
+50:                                               ; preds = %49, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 9, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %51 = load i32, ptr %3, align 4
+  switch i32 %51, label %56 [
+    i32 0, label %52
+  ]
 
-return:                                           ; preds = %for.end, %if.then
-  %19 = load i1, ptr %retval, align 1
-  ret i1 %19
+52:                                               ; preds = %50
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load i64, ptr %2, align 8, !tbaa !6
+  %55 = add i64 %54, 1
+  store i64 %55, ptr %2, align 8, !tbaa !6
+  br label %7, !llvm.loop !19
+
+56:                                               ; preds = %50, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #6
+  %57 = load i32, ptr %3, align 4
+  switch i32 %57, label %61 [
+    i32 2, label %58
+    i32 1, label %59
+  ]
+
+58:                                               ; preds = %56
+  store i1 true, ptr %1, align 1
+  br label %59
+
+59:                                               ; preds = %58, %56
+  %60 = load i1, ptr %1, align 1
+  ret i1 %60
+
+61:                                               ; preds = %56
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL10TestDecodev() #2 {
-entry:
-  %retval = alloca i1, align 1
-  %out = alloca [6 x i8], align 1
-  %len = alloca i64, align 8
-  %i = alloca i64, align 8
-  %t = alloca ptr, align 8
-  %expected_len = alloca i64, align 8
-  %ret = alloca i32, align 4
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+  %1 = alloca i1, align 1
+  %2 = alloca [6 x i8], align 1
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 6, ptr %2) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  store i64 0, ptr %4, align 8, !tbaa !6
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 7
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %133, %0
+  %10 = load i64, ptr %4, align 8, !tbaa !6
+  %11 = icmp ult i64 %10, 7
+  br i1 %11, label %13, label %12
 
-for.body:                                         ; preds = %for.cond
-  %1 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %1
-  store ptr %arrayidx, ptr %t, align 8
-  %2 = load ptr, ptr %t, align 8
-  %decoded = getelementptr inbounds %struct.TestVector, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %decoded, align 8
-  %call = call i64 @strlen(ptr noundef %3) #4
-  store i64 %call, ptr %expected_len, align 8
-  %arraydecay = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %4 = load ptr, ptr %t, align 8
-  %encoded = getelementptr inbounds %struct.TestVector, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %encoded, align 8
-  %6 = load ptr, ptr %t, align 8
-  %encoded1 = getelementptr inbounds %struct.TestVector, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %encoded1, align 8
-  %call2 = call i64 @strlen(ptr noundef %7) #4
-  %call3 = call i32 @EVP_DecodeBase64(ptr noundef %arraydecay, ptr noundef %len, i64 noundef 6, ptr noundef %5, i64 noundef %call2)
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.end, label %if.then
+12:                                               ; preds = %9
+  store i32 2, ptr %5, align 4
+  br label %136
 
-if.then:                                          ; preds = %for.body
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = load ptr, ptr %t, align 8
-  %encoded4 = getelementptr inbounds %struct.TestVector, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %encoded4, align 8
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.15, ptr noundef %10)
-  store i1 false, ptr %retval, align 1
-  br label %return
+13:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %14 = load i64, ptr %4, align 8, !tbaa !6
+  %15 = getelementptr inbounds nuw [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %14
+  store ptr %15, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %16 = load ptr, ptr %6, align 8, !tbaa !10
+  %17 = getelementptr inbounds nuw %struct.TestVector, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %19 = call i64 @strlen(ptr noundef %18) #7
+  store i64 %19, ptr %7, align 8, !tbaa !6
+  %20 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %21 = load ptr, ptr %6, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw %struct.TestVector, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !16
+  %24 = load ptr, ptr %6, align 8, !tbaa !10
+  %25 = getelementptr inbounds nuw %struct.TestVector, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !16
+  %27 = call i64 @strlen(ptr noundef %26) #7
+  %28 = call i32 @EVP_DecodeBase64(ptr noundef %20, ptr noundef %3, i64 noundef 6, ptr noundef %23, i64 noundef %27)
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %36, label %30
 
-if.end:                                           ; preds = %for.body
-  %11 = load i64, ptr %len, align 8
-  %12 = load ptr, ptr %t, align 8
-  %decoded6 = getelementptr inbounds %struct.TestVector, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %decoded6, align 8
-  %call7 = call i64 @strlen(ptr noundef %13) #4
-  %cmp8 = icmp ne i64 %11, %call7
-  br i1 %cmp8, label %if.then13, label %lor.lhs.false
+30:                                               ; preds = %13
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %32 = load ptr, ptr %6, align 8, !tbaa !10
+  %33 = getelementptr inbounds nuw %struct.TestVector, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !16
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.15, ptr noundef %34) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %130
 
-lor.lhs.false:                                    ; preds = %if.end
-  %arraydecay9 = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %14 = load ptr, ptr %t, align 8
-  %decoded10 = getelementptr inbounds %struct.TestVector, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %decoded10, align 8
-  %16 = load i64, ptr %len, align 8
-  %call11 = call i32 @memcmp(ptr noundef %arraydecay9, ptr noundef %15, i64 noundef %16) #4
-  %cmp12 = icmp ne i32 %call11, 0
-  br i1 %cmp12, label %if.then13, label %if.end18
+36:                                               ; preds = %13
+  %37 = load i64, ptr %3, align 8, !tbaa !6
+  %38 = load ptr, ptr %6, align 8, !tbaa !10
+  %39 = getelementptr inbounds nuw %struct.TestVector, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
+  %41 = call i64 @strlen(ptr noundef %40) #7
+  %42 = icmp ne i64 %37, %41
+  br i1 %42, label %51, label %43
 
-if.then13:                                        ; preds = %lor.lhs.false, %if.end
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = load ptr, ptr %t, align 8
-  %encoded14 = getelementptr inbounds %struct.TestVector, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %encoded14, align 8
-  %20 = load i64, ptr %len, align 8
-  %conv = trunc i64 %20 to i32
-  %arraydecay15 = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %21 = load ptr, ptr %t, align 8
-  %decoded16 = getelementptr inbounds %struct.TestVector, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %decoded16, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.16, ptr noundef %19, i32 noundef %conv, ptr noundef %arraydecay15, ptr noundef %22)
-  store i1 false, ptr %retval, align 1
-  br label %return
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %45 = load ptr, ptr %6, align 8, !tbaa !10
+  %46 = getelementptr inbounds nuw %struct.TestVector, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !13
+  %48 = load i64, ptr %3, align 8, !tbaa !6
+  %49 = call i32 @memcmp(ptr noundef %44, ptr noundef %47, i64 noundef %48) #7
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %63
 
-if.end18:                                         ; preds = %lor.lhs.false
-  %arraydecay19 = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %23 = load ptr, ptr %t, align 8
-  %encoded20 = getelementptr inbounds %struct.TestVector, ptr %23, i32 0, i32 1
-  %24 = load ptr, ptr %encoded20, align 8
-  %25 = load ptr, ptr %t, align 8
-  %encoded21 = getelementptr inbounds %struct.TestVector, ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %encoded21, align 8
-  %call22 = call i64 @strlen(ptr noundef %26) #4
-  %call23 = call i32 @EVP_DecodeBlock(ptr noundef %arraydecay19, ptr noundef %24, i64 noundef %call22)
-  store i32 %call23, ptr %ret, align 4
-  %27 = load i32, ptr %ret, align 4
-  %cmp24 = icmp slt i32 %27, 0
-  br i1 %cmp24, label %if.then25, label %if.end28
+51:                                               ; preds = %43, %36
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %53 = load ptr, ptr %6, align 8, !tbaa !10
+  %54 = getelementptr inbounds nuw %struct.TestVector, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8, !tbaa !16
+  %56 = load i64, ptr %3, align 8, !tbaa !6
+  %57 = trunc i64 %56 to i32
+  %58 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %59 = load ptr, ptr %6, align 8, !tbaa !10
+  %60 = getelementptr inbounds nuw %struct.TestVector, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8, !tbaa !13
+  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef @.str.16, ptr noundef %55, i32 noundef %57, ptr noundef %58, ptr noundef %61) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %130
 
-if.then25:                                        ; preds = %if.end18
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = load ptr, ptr %t, align 8
-  %encoded26 = getelementptr inbounds %struct.TestVector, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %encoded26, align 8
-  %call27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.15, ptr noundef %30)
-  store i1 false, ptr %retval, align 1
-  br label %return
+63:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %64 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %65 = load ptr, ptr %6, align 8, !tbaa !10
+  %66 = getelementptr inbounds nuw %struct.TestVector, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !16
+  %68 = load ptr, ptr %6, align 8, !tbaa !10
+  %69 = getelementptr inbounds nuw %struct.TestVector, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !16
+  %71 = call i64 @strlen(ptr noundef %70) #7
+  %72 = call i32 @EVP_DecodeBlock(ptr noundef %64, ptr noundef %67, i64 noundef %71)
+  store i32 %72, ptr %8, align 4, !tbaa !21
+  %73 = load i32, ptr %8, align 4, !tbaa !21
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %75, label %81
 
-if.end28:                                         ; preds = %if.end18
-  %31 = load i32, ptr %ret, align 4
-  %rem = srem i32 %31, 3
-  %cmp29 = icmp ne i32 %rem, 0
-  br i1 %cmp29, label %if.then30, label %if.end32
+75:                                               ; preds = %63
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %77 = load ptr, ptr %6, align 8, !tbaa !10
+  %78 = getelementptr inbounds nuw %struct.TestVector, ptr %77, i32 0, i32 1
+  %79 = load ptr, ptr %78, align 8, !tbaa !16
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.15, ptr noundef %79) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %129
 
-if.then30:                                        ; preds = %if.end28
-  %32 = load ptr, ptr @stderr, align 8
-  %call31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.17)
-  store i1 false, ptr %retval, align 1
-  br label %return
+81:                                               ; preds = %63
+  %82 = load i32, ptr %8, align 4, !tbaa !21
+  %83 = srem i32 %82, 3
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %88
 
-if.end32:                                         ; preds = %if.end28
-  %33 = load i64, ptr %expected_len, align 8
-  %rem33 = urem i64 %33, 3
-  %cmp34 = icmp ne i64 %rem33, 0
-  br i1 %cmp34, label %if.then35, label %if.end40
+85:                                               ; preds = %81
+  %86 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef @.str.17) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %129
 
-if.then35:                                        ; preds = %if.end32
-  %34 = load i64, ptr %expected_len, align 8
-  %rem36 = urem i64 %34, 3
-  %sub = sub i64 3, %rem36
-  %35 = load i32, ptr %ret, align 4
-  %conv37 = sext i32 %35 to i64
-  %sub38 = sub i64 %conv37, %sub
-  %conv39 = trunc i64 %sub38 to i32
-  store i32 %conv39, ptr %ret, align 4
-  br label %if.end40
+88:                                               ; preds = %81
+  %89 = load i64, ptr %7, align 8, !tbaa !6
+  %90 = urem i64 %89, 3
+  %91 = icmp ne i64 %90, 0
+  br i1 %91, label %92, label %100
 
-if.end40:                                         ; preds = %if.then35, %if.end32
-  %36 = load i32, ptr %ret, align 4
-  %conv41 = sext i32 %36 to i64
-  %37 = load ptr, ptr %t, align 8
-  %decoded42 = getelementptr inbounds %struct.TestVector, ptr %37, i32 0, i32 0
-  %38 = load ptr, ptr %decoded42, align 8
-  %call43 = call i64 @strlen(ptr noundef %38) #4
-  %cmp44 = icmp ne i64 %conv41, %call43
-  br i1 %cmp44, label %if.then51, label %lor.lhs.false45
+92:                                               ; preds = %88
+  %93 = load i64, ptr %7, align 8, !tbaa !6
+  %94 = urem i64 %93, 3
+  %95 = sub i64 3, %94
+  %96 = load i32, ptr %8, align 4, !tbaa !21
+  %97 = sext i32 %96 to i64
+  %98 = sub i64 %97, %95
+  %99 = trunc i64 %98 to i32
+  store i32 %99, ptr %8, align 4, !tbaa !21
+  br label %100
 
-lor.lhs.false45:                                  ; preds = %if.end40
-  %arraydecay46 = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %39 = load ptr, ptr %t, align 8
-  %decoded47 = getelementptr inbounds %struct.TestVector, ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %decoded47, align 8
-  %41 = load i32, ptr %ret, align 4
-  %conv48 = sext i32 %41 to i64
-  %call49 = call i32 @memcmp(ptr noundef %arraydecay46, ptr noundef %40, i64 noundef %conv48) #4
-  %cmp50 = icmp ne i32 %call49, 0
-  br i1 %cmp50, label %if.then51, label %if.end56
+100:                                              ; preds = %92, %88
+  %101 = load i32, ptr %8, align 4, !tbaa !21
+  %102 = sext i32 %101 to i64
+  %103 = load ptr, ptr %6, align 8, !tbaa !10
+  %104 = getelementptr inbounds nuw %struct.TestVector, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8, !tbaa !13
+  %106 = call i64 @strlen(ptr noundef %105) #7
+  %107 = icmp ne i64 %102, %106
+  br i1 %107, label %117, label %108
 
-if.then51:                                        ; preds = %lor.lhs.false45, %if.end40
-  %42 = load ptr, ptr @stderr, align 8
-  %43 = load ptr, ptr %t, align 8
-  %encoded52 = getelementptr inbounds %struct.TestVector, ptr %43, i32 0, i32 1
-  %44 = load ptr, ptr %encoded52, align 8
-  %45 = load i32, ptr %ret, align 4
-  %arraydecay53 = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %46 = load ptr, ptr %t, align 8
-  %decoded54 = getelementptr inbounds %struct.TestVector, ptr %46, i32 0, i32 0
-  %47 = load ptr, ptr %decoded54, align 8
-  %call55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.16, ptr noundef %44, i32 noundef %45, ptr noundef %arraydecay53, ptr noundef %47)
-  store i1 false, ptr %retval, align 1
-  br label %return
+108:                                              ; preds = %100
+  %109 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %110 = load ptr, ptr %6, align 8, !tbaa !10
+  %111 = getelementptr inbounds nuw %struct.TestVector, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8, !tbaa !13
+  %113 = load i32, ptr %8, align 4, !tbaa !21
+  %114 = sext i32 %113 to i64
+  %115 = call i32 @memcmp(ptr noundef %109, ptr noundef %112, i64 noundef %114) #7
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %128
 
-if.end56:                                         ; preds = %lor.lhs.false45
-  br label %for.inc
+117:                                              ; preds = %108, %100
+  %118 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %119 = load ptr, ptr %6, align 8, !tbaa !10
+  %120 = getelementptr inbounds nuw %struct.TestVector, ptr %119, i32 0, i32 1
+  %121 = load ptr, ptr %120, align 8, !tbaa !16
+  %122 = load i32, ptr %8, align 4, !tbaa !21
+  %123 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %124 = load ptr, ptr %6, align 8, !tbaa !10
+  %125 = getelementptr inbounds nuw %struct.TestVector, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8, !tbaa !13
+  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef @.str.16, ptr noundef %121, i32 noundef %122, ptr noundef %123, ptr noundef %126) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %129
 
-for.inc:                                          ; preds = %if.end56
-  %48 = load i64, ptr %i, align 8
-  %inc = add i64 %48, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+128:                                              ; preds = %108
+  store i32 0, ptr %5, align 4
+  br label %129
 
-for.end:                                          ; preds = %for.cond
-  %arraydecay57 = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %call58 = call i32 @EVP_DecodeBase64(ptr noundef %arraydecay57, ptr noundef %len, i64 noundef 6, ptr noundef @.str.18, i64 noundef 4)
-  %tobool59 = icmp ne i32 %call58, 0
-  br i1 %tobool59, label %if.then60, label %if.end62
+129:                                              ; preds = %128, %117, %85, %75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  br label %130
 
-if.then60:                                        ; preds = %for.end
-  %49 = load ptr, ptr @stderr, align 8
-  %call61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.19)
-  store i1 false, ptr %retval, align 1
-  br label %return
+130:                                              ; preds = %129, %51, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %131 = load i32, ptr %5, align 4
+  switch i32 %131, label %136 [
+    i32 0, label %132
+  ]
 
-if.end62:                                         ; preds = %for.end
-  %arraydecay63 = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %call64 = call i32 @EVP_DecodeBase64(ptr noundef %arraydecay63, ptr noundef %len, i64 noundef 6, ptr noundef @.str.20, i64 noundef 4)
-  %tobool65 = icmp ne i32 %call64, 0
-  br i1 %tobool65, label %if.then66, label %if.end68
+132:                                              ; preds = %130
+  br label %133
 
-if.then66:                                        ; preds = %if.end62
-  %50 = load ptr, ptr @stderr, align 8
-  %call67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.19)
-  store i1 false, ptr %retval, align 1
-  br label %return
+133:                                              ; preds = %132
+  %134 = load i64, ptr %4, align 8, !tbaa !6
+  %135 = add i64 %134, 1
+  store i64 %135, ptr %4, align 8, !tbaa !6
+  br label %9, !llvm.loop !23
 
-if.end68:                                         ; preds = %if.end62
-  %arraydecay69 = getelementptr inbounds [6 x i8], ptr %out, i64 0, i64 0
-  %call70 = call i32 @EVP_DecodeBase64(ptr noundef %arraydecay69, ptr noundef %len, i64 noundef 6, ptr noundef @.str.21, i64 noundef 4)
-  %tobool71 = icmp ne i32 %call70, 0
-  br i1 %tobool71, label %if.then72, label %if.end74
+136:                                              ; preds = %130, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %137 = load i32, ptr %5, align 4
+  switch i32 %137, label %160 [
+    i32 2, label %138
+  ]
 
-if.then72:                                        ; preds = %if.end68
-  %51 = load ptr, ptr @stderr, align 8
-  %call73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.22)
-  store i1 false, ptr %retval, align 1
-  br label %return
+138:                                              ; preds = %136
+  %139 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %140 = call i32 @EVP_DecodeBase64(ptr noundef %139, ptr noundef %3, i64 noundef 6, ptr noundef @.str.18, i64 noundef 4)
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %142, label %145
 
-if.end74:                                         ; preds = %if.end68
-  store i1 true, ptr %retval, align 1
-  br label %return
+142:                                              ; preds = %138
+  %143 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef @.str.19) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %160
 
-return:                                           ; preds = %if.end74, %if.then72, %if.then66, %if.then60, %if.then51, %if.then30, %if.then25, %if.then13, %if.then
-  %52 = load i1, ptr %retval, align 1
-  ret i1 %52
+145:                                              ; preds = %138
+  %146 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %147 = call i32 @EVP_DecodeBase64(ptr noundef %146, ptr noundef %3, i64 noundef 6, ptr noundef @.str.20, i64 noundef 4)
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %149, label %152
+
+149:                                              ; preds = %145
+  %150 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef @.str.19) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %160
+
+152:                                              ; preds = %145
+  %153 = getelementptr inbounds [6 x i8], ptr %2, i64 0, i64 0
+  %154 = call i32 @EVP_DecodeBase64(ptr noundef %153, ptr noundef %3, i64 noundef 6, ptr noundef @.str.21, i64 noundef 4)
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %156, label %159
+
+156:                                              ; preds = %152
+  %157 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef @.str.22) #6
+  store i1 false, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %160
+
+159:                                              ; preds = %152
+  store i1 true, ptr %1, align 1
+  store i32 1, ptr %5, align 4
+  br label %160
+
+160:                                              ; preds = %159, %156, %149, %142, %136
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  call void @llvm.lifetime.end.p0(i64 6, ptr %2) #6
+  %161 = load i1, ptr %1, align 1
+  ret i1 %161
 }
 
 declare i32 @printf(ptr noundef, ...) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 declare i64 @EVP_EncodeBlock(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @EVP_DecodeBase64(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #1
 
 declare i32 @EVP_DecodeBlock(ptr noundef, ptr noundef, i64 noundef) #1
 
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS10TestVector", !12, i64 0}
+!12 = !{!"any pointer", !8, i64 0}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"_ZTS10TestVector", !15, i64 0, !15, i64 8}
+!15 = !{!"p1 omnipotent char", !12, i64 0}
+!16 = !{!14, !15, i64 8}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !8, i64 0}
+!23 = distinct !{!23, !20}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.srtp_protection_profile_st = type { ptr, i64 }
 %struct.ssl_ctx_st = type { ptr, %union.crypto_mutex_st, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, i16, ptr, ptr, [16 x i8], [16 x i8], [16 x i8], ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i8, ptr, i32 }
@@ -15,320 +15,396 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/d1_srtp.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SSL_CTX_set_srtp_profiles(ptr noundef %ctx, ptr noundef %profiles) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %profiles.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %profiles, ptr %profiles.addr, align 8
-  %0 = load ptr, ptr %profiles.addr, align 8
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %srtp_profiles = getelementptr inbounds %struct.ssl_ctx_st, ptr %1, i32 0, i32 63
-  %call = call i32 @ssl_ctx_make_profiles(ptr noundef %0, ptr noundef %srtp_profiles)
-  ret i32 %call
+define hidden i32 @SSL_CTX_set_srtp_profiles(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  %6 = load ptr, ptr %3, align 8, !tbaa !6
+  %7 = getelementptr inbounds nuw %struct.ssl_ctx_st, ptr %6, i32 0, i32 63
+  %8 = call i32 @ssl_ctx_make_profiles(ptr noundef %5, ptr noundef %7)
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl_ctx_make_profiles(ptr noundef %profiles_string, ptr noundef %out) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %profiles_string.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %profiles = alloca ptr, align 8
-  %col = alloca ptr, align 8
-  %ptr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %profiles_string, ptr %profiles_string.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %profiles_string.addr, align 8
-  store ptr %0, ptr %ptr, align 8
-  %call = call ptr @sk_new_null()
-  store ptr %call, ptr %profiles, align 8
-  %1 = load ptr, ptr %profiles, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @ssl_ctx_make_profiles(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %11 = load ptr, ptr %4, align 8, !tbaa !11
+  store ptr %11, ptr %8, align 8, !tbaa !11
+  %12 = call ptr @sk_new_null()
+  store ptr %12, ptr %6, align 8, !tbaa !15
+  %13 = load ptr, ptr %6, align 8, !tbaa !15
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
+15:                                               ; preds = %2
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 211, ptr noundef @.str.4, i32 noundef 170)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end:                                           ; preds = %entry
-  br label %do.body
+16:                                               ; preds = %2
+  br label %17
 
-do.body:                                          ; preds = %do.cond, %if.end
-  %2 = load ptr, ptr %ptr, align 8
-  %call1 = call ptr @strchr(ptr noundef %2, i32 noundef 58) #3
-  store ptr %call1, ptr %col, align 8
-  %3 = load ptr, ptr %ptr, align 8
-  %4 = load ptr, ptr %col, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %cond.true, label %cond.false
+17:                                               ; preds = %51, %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %18 = load ptr, ptr %8, align 8, !tbaa !11
+  %19 = call ptr @strchr(ptr noundef %18, i32 noundef 58) #5
+  store ptr %19, ptr %7, align 8, !tbaa !11
+  %20 = load ptr, ptr %8, align 8, !tbaa !11
+  %21 = load ptr, ptr %7, align 8, !tbaa !11
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %29
 
-cond.true:                                        ; preds = %do.body
-  %5 = load ptr, ptr %col, align 8
-  %6 = load ptr, ptr %ptr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  br label %cond.end
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %7, align 8, !tbaa !11
+  %25 = load ptr, ptr %8, align 8, !tbaa !11
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  br label %32
 
-cond.false:                                       ; preds = %do.body
-  %7 = load ptr, ptr %ptr, align 8
-  %call2 = call i64 @strlen(ptr noundef %7) #3
-  br label %cond.end
+29:                                               ; preds = %17
+  %30 = load ptr, ptr %8, align 8, !tbaa !11
+  %31 = call i64 @strlen(ptr noundef %30) #5
+  br label %32
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub.ptr.sub, %cond.true ], [ %call2, %cond.false ]
-  %call3 = call i32 @find_profile_by_name(ptr noundef %3, ptr noundef %p, i64 noundef %cond)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.else
+32:                                               ; preds = %29, %23
+  %33 = phi i64 [ %28, %23 ], [ %31, %29 ]
+  %34 = call i32 @find_profile_by_name(ptr noundef %20, ptr noundef %10, i64 noundef %33)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %40
 
-if.then5:                                         ; preds = %cond.end
-  %8 = load ptr, ptr %profiles, align 8
-  %9 = load ptr, ptr %p, align 8
-  %call6 = call i64 @sk_push(ptr noundef %8, ptr noundef %9)
-  br label %if.end7
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %6, align 8, !tbaa !15
+  %38 = load ptr, ptr %10, align 8, !tbaa !17
+  %39 = call i64 @sk_push(ptr noundef %37, ptr noundef %38)
+  br label %41
 
-if.else:                                          ; preds = %cond.end
+40:                                               ; preds = %32
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 212, ptr noundef @.str.4, i32 noundef 182)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %48
 
-if.end7:                                          ; preds = %if.then5
-  %10 = load ptr, ptr %col, align 8
-  %tobool8 = icmp ne ptr %10, null
-  br i1 %tobool8, label %if.then9, label %if.end10
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %7, align 8, !tbaa !11
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %47
 
-if.then9:                                         ; preds = %if.end7
-  %11 = load ptr, ptr %col, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 1
-  store ptr %add.ptr, ptr %ptr, align 8
-  br label %if.end10
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %7, align 8, !tbaa !11
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store ptr %46, ptr %8, align 8, !tbaa !11
+  br label %47
 
-if.end10:                                         ; preds = %if.then9, %if.end7
-  br label %do.cond
+47:                                               ; preds = %44, %41
+  store i32 0, ptr %9, align 4
+  br label %48
 
-do.cond:                                          ; preds = %if.end10
-  %12 = load ptr, ptr %col, align 8
-  %tobool11 = icmp ne ptr %12, null
-  br i1 %tobool11, label %do.body, label %do.end, !llvm.loop !7
+48:                                               ; preds = %47, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %49 = load i32, ptr %9, align 4
+  switch i32 %49, label %57 [
+    i32 0, label %50
+  ]
 
-do.end:                                           ; preds = %do.cond
-  %13 = load ptr, ptr %profiles, align 8
-  %14 = load ptr, ptr %out.addr, align 8
-  store ptr %13, ptr %14, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %48
+  br label %51
 
-return:                                           ; preds = %do.end, %if.else, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %7, align 8, !tbaa !11
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %17, label %54, !llvm.loop !19
+
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %6, align 8, !tbaa !15
+  %56 = load ptr, ptr %5, align 8, !tbaa !13
+  store ptr %55, ptr %56, align 8, !tbaa !15
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
+
+57:                                               ; preds = %54, %48, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %58 = load i32, ptr %3, align 4
+  ret i32 %58
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SSL_set_srtp_profiles(ptr noundef %ssl, ptr noundef %profiles) #0 {
-entry:
-  %ssl.addr = alloca ptr, align 8
-  %profiles.addr = alloca ptr, align 8
-  store ptr %ssl, ptr %ssl.addr, align 8
-  store ptr %profiles, ptr %profiles.addr, align 8
-  %0 = load ptr, ptr %profiles.addr, align 8
-  %1 = load ptr, ptr %ssl.addr, align 8
-  %srtp_profiles = getelementptr inbounds %struct.ssl_st, ptr %1, i32 0, i32 45
-  %call = call i32 @ssl_ctx_make_profiles(ptr noundef %0, ptr noundef %srtp_profiles)
-  ret i32 %call
+define hidden i32 @SSL_set_srtp_profiles(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  %6 = load ptr, ptr %3, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw %struct.ssl_st, ptr %6, i32 0, i32 45
+  %8 = call i32 @ssl_ctx_make_profiles(ptr noundef %5, ptr noundef %7)
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SSL_get_srtp_profiles(ptr noundef %ssl) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %ssl.addr = alloca ptr, align 8
-  store ptr %ssl, ptr %ssl.addr, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @SSL_get_srtp_profiles(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  %4 = load ptr, ptr %3, align 8, !tbaa !21
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+6:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %30
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ssl.addr, align 8
-  %srtp_profiles = getelementptr inbounds %struct.ssl_st, ptr %1, i32 0, i32 45
-  %2 = load ptr, ptr %srtp_profiles, align 8
-  %cmp1 = icmp ne ptr %2, null
-  br i1 %cmp1, label %if.then2, label %if.end4
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw %struct.ssl_st, ptr %8, i32 0, i32 45
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %16
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %ssl.addr, align 8
-  %srtp_profiles3 = getelementptr inbounds %struct.ssl_st, ptr %3, i32 0, i32 45
-  %4 = load ptr, ptr %srtp_profiles3, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %3, align 8, !tbaa !21
+  %14 = getelementptr inbounds nuw %struct.ssl_st, ptr %13, i32 0, i32 45
+  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  store ptr %15, ptr %2, align 8
+  br label %30
 
-if.end4:                                          ; preds = %if.end
-  %5 = load ptr, ptr %ssl.addr, align 8
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %5, i32 0, i32 31
-  %6 = load ptr, ptr %ctx, align 8
-  %srtp_profiles5 = getelementptr inbounds %struct.ssl_ctx_st, ptr %6, i32 0, i32 63
-  %7 = load ptr, ptr %srtp_profiles5, align 8
-  %cmp6 = icmp ne ptr %7, null
-  br i1 %cmp6, label %if.then7, label %if.end10
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %3, align 8, !tbaa !21
+  %18 = getelementptr inbounds nuw %struct.ssl_st, ptr %17, i32 0, i32 31
+  %19 = load ptr, ptr %18, align 8, !tbaa !45
+  %20 = getelementptr inbounds nuw %struct.ssl_ctx_st, ptr %19, i32 0, i32 63
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %29
 
-if.then7:                                         ; preds = %if.end4
-  %8 = load ptr, ptr %ssl.addr, align 8
-  %ctx8 = getelementptr inbounds %struct.ssl_st, ptr %8, i32 0, i32 31
-  %9 = load ptr, ptr %ctx8, align 8
-  %srtp_profiles9 = getelementptr inbounds %struct.ssl_ctx_st, ptr %9, i32 0, i32 63
-  %10 = load ptr, ptr %srtp_profiles9, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %3, align 8, !tbaa !21
+  %25 = getelementptr inbounds nuw %struct.ssl_st, ptr %24, i32 0, i32 31
+  %26 = load ptr, ptr %25, align 8, !tbaa !45
+  %27 = getelementptr inbounds nuw %struct.ssl_ctx_st, ptr %26, i32 0, i32 63
+  %28 = load ptr, ptr %27, align 8, !tbaa !46
+  store ptr %28, ptr %2, align 8
+  br label %30
 
-if.end10:                                         ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %16
+  store ptr null, ptr %2, align 8
+  br label %30
 
-return:                                           ; preds = %if.end10, %if.then7, %if.then2, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+30:                                               ; preds = %29, %23, %12, %6
+  %31 = load ptr, ptr %2, align 8
+  ret ptr %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SSL_get_selected_srtp_profile(ptr noundef %ssl) #0 {
-entry:
-  %ssl.addr = alloca ptr, align 8
-  store ptr %ssl, ptr %ssl.addr, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %srtp_profile = getelementptr inbounds %struct.ssl_st, ptr %0, i32 0, i32 46
-  %1 = load ptr, ptr %srtp_profile, align 8
-  ret ptr %1
+define hidden ptr @SSL_get_selected_srtp_profile(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = getelementptr inbounds nuw %struct.ssl_st, ptr %3, i32 0, i32 46
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SSL_CTX_set_tlsext_use_srtp(ptr noundef %ctx, ptr noundef %profiles) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %profiles.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %profiles, ptr %profiles.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %1 = load ptr, ptr %profiles.addr, align 8
-  %call = call i32 @SSL_CTX_set_srtp_profiles(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  %lnot = xor i1 %tobool, true
-  %lnot.ext = zext i1 %lnot to i32
-  ret i32 %lnot.ext
+define hidden i32 @SSL_CTX_set_tlsext_use_srtp(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !6
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = call i32 @SSL_CTX_set_srtp_profiles(ptr noundef %5, ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SSL_set_tlsext_use_srtp(ptr noundef %ssl, ptr noundef %profiles) #0 {
-entry:
-  %ssl.addr = alloca ptr, align 8
-  %profiles.addr = alloca ptr, align 8
-  store ptr %ssl, ptr %ssl.addr, align 8
-  store ptr %profiles, ptr %profiles.addr, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %1 = load ptr, ptr %profiles.addr, align 8
-  %call = call i32 @SSL_set_srtp_profiles(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  %lnot = xor i1 %tobool, true
-  %lnot.ext = zext i1 %lnot to i32
-  ret i32 %lnot.ext
+define hidden i32 @SSL_set_tlsext_use_srtp(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !21
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = call i32 @SSL_set_srtp_profiles(ptr noundef %5, ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  ret i32 %10
 }
 
-declare ptr @sk_new_null() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare ptr @sk_new_null() #2
+
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #2
+declare ptr @strchr(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @find_profile_by_name(ptr noundef %profile_name, ptr noundef %pptr, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %profile_name.addr = alloca ptr, align 8
-  %pptr.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %p = alloca ptr, align 8
-  store ptr %profile_name, ptr %profile_name.addr, align 8
-  store ptr %pptr, ptr %pptr.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store ptr @kSRTPProfiles, ptr %p, align 8
-  br label %while.cond
+define internal i32 @find_profile_by_name(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store i64 %2, ptr %7, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  store ptr @kSRTPProfiles, ptr %8, align 8, !tbaa !17
+  br label %10
 
-while.cond:                                       ; preds = %if.end, %entry
-  %0 = load ptr, ptr %p, align 8
-  %name = getelementptr inbounds %struct.srtp_protection_profile_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %name, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %while.body, label %while.end
+10:                                               ; preds = %33, %3
+  %11 = load ptr, ptr %8, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw %struct.srtp_protection_profile_st, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %36
 
-while.body:                                       ; preds = %while.cond
-  %2 = load i64, ptr %len.addr, align 8
-  %3 = load ptr, ptr %p, align 8
-  %name1 = getelementptr inbounds %struct.srtp_protection_profile_st, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %name1, align 8
-  %call = call i64 @strlen(ptr noundef %4) #3
-  %cmp = icmp eq i64 %2, %call
-  br i1 %cmp, label %land.lhs.true, label %if.end
+15:                                               ; preds = %10
+  %16 = load i64, ptr %7, align 8, !tbaa !55
+  %17 = load ptr, ptr %8, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw %struct.srtp_protection_profile_st, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !56
+  %20 = call i64 @strlen(ptr noundef %19) #5
+  %21 = icmp eq i64 %16, %20
+  br i1 %21, label %22, label %33
 
-land.lhs.true:                                    ; preds = %while.body
-  %5 = load ptr, ptr %p, align 8
-  %name2 = getelementptr inbounds %struct.srtp_protection_profile_st, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %name2, align 8
-  %7 = load ptr, ptr %profile_name.addr, align 8
-  %8 = load i64, ptr %len.addr, align 8
-  %call3 = call i32 @strncmp(ptr noundef %6, ptr noundef %7, i64 noundef %8) #3
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.end, label %if.then
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %8, align 8, !tbaa !17
+  %24 = getelementptr inbounds nuw %struct.srtp_protection_profile_st, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
+  %26 = load ptr, ptr %5, align 8, !tbaa !11
+  %27 = load i64, ptr %7, align 8, !tbaa !55
+  %28 = call i32 @strncmp(ptr noundef %25, ptr noundef %26, i64 noundef %27) #5
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %33, label %30
 
-if.then:                                          ; preds = %land.lhs.true
-  %9 = load ptr, ptr %p, align 8
-  %10 = load ptr, ptr %pptr.addr, align 8
-  store ptr %9, ptr %10, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %22
+  %31 = load ptr, ptr %8, align 8, !tbaa !17
+  %32 = load ptr, ptr %6, align 8, !tbaa !53
+  store ptr %31, ptr %32, align 8, !tbaa !17
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %37
 
-if.end:                                           ; preds = %land.lhs.true, %while.body
-  %11 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds %struct.srtp_protection_profile_st, ptr %11, i32 1
-  store ptr %incdec.ptr, ptr %p, align 8
-  br label %while.cond, !llvm.loop !9
+33:                                               ; preds = %22, %15
+  %34 = load ptr, ptr %8, align 8, !tbaa !17
+  %35 = getelementptr inbounds nuw %struct.srtp_protection_profile_st, ptr %34, i32 1
+  store ptr %35, ptr %8, align 8, !tbaa !17
+  br label %10, !llvm.loop !58
 
-while.end:                                        ; preds = %while.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %10
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %37
 
-return:                                           ; preds = %while.end, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+37:                                               ; preds = %36, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %38 = load i32, ptr %4, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
-declare i64 @sk_push(ptr noundef, ptr noundef) #1
+declare i64 @sk_push(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS10ssl_ctx_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p2 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS26srtp_protection_profile_st", !8, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS6ssl_st", !8, i64 0}
+!23 = !{!24, !16, i64 328}
+!24 = !{!"ssl_st", !25, i64 0, !26, i64 4, !26, i64 6, !27, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !8, i64 40, !25, i64 48, !25, i64 52, !29, i64 56, !12, i64 64, !25, i64 72, !25, i64 76, !30, i64 80, !31, i64 88, !8, i64 96, !8, i64 104, !32, i64 112, !33, i64 120, !34, i64 128, !35, i64 136, !25, i64 144, !25, i64 148, !9, i64 152, !36, i64 184, !8, i64 192, !8, i64 200, !12, i64 208, !8, i64 216, !8, i64 224, !7, i64 232, !37, i64 240, !38, i64 248, !40, i64 256, !25, i64 264, !25, i64 268, !25, i64 272, !25, i64 276, !26, i64 280, !12, i64 288, !25, i64 296, !37, i64 304, !41, i64 312, !7, i64 320, !16, i64 328, !18, i64 336, !42, i64 344, !12, i64 352, !25, i64 360, !25, i64 364, !43, i64 368, !44, i64 376, !9, i64 384, !25, i64 385, !25, i64 385, !25, i64 385, !25, i64 385, !25, i64 385, !25, i64 385, !25, i64 388}
+!25 = !{!"int", !9, i64 0}
+!26 = !{!"short", !9, i64 0}
+!27 = !{!"p1 _ZTS22ssl_protocol_method_st", !8, i64 0}
+!28 = !{!"p1 _ZTS6bio_st", !8, i64 0}
+!29 = !{!"p1 _ZTS10buf_mem_st", !8, i64 0}
+!30 = !{!"p1 _ZTS13ssl3_state_st", !8, i64 0}
+!31 = !{!"p1 _ZTS14dtls1_state_st", !8, i64 0}
+!32 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !8, i64 0}
+!33 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !8, i64 0}
+!34 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !8, i64 0}
+!35 = !{!"p1 _ZTS7cert_st", !8, i64 0}
+!36 = !{!"p1 _ZTS14ssl_session_st", !8, i64 0}
+!37 = !{!"long", !9, i64 0}
+!38 = !{!"crypto_ex_data_st", !39, i64 0}
+!39 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
+!40 = !{!"p1 _ZTS18stack_st_X509_NAME", !8, i64 0}
+!41 = !{!"p1 short", !8, i64 0}
+!42 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!43 = !{!"p1 _ZTS17evp_cipher_ctx_st", !8, i64 0}
+!44 = !{!"p1 _ZTS13env_md_ctx_st", !8, i64 0}
+!45 = !{!24, !7, i64 232}
+!46 = !{!47, !16, i64 568}
+!47 = !{!"ssl_ctx_st", !27, i64 0, !9, i64 8, !26, i64 64, !26, i64 66, !33, i64 72, !34, i64 80, !33, i64 88, !33, i64 96, !48, i64 104, !49, i64 112, !37, i64 120, !36, i64 128, !36, i64 136, !25, i64 144, !25, i64 148, !37, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !25, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !38, i64 240, !50, i64 248, !50, i64 256, !8, i64 264, !40, i64 272, !25, i64 280, !25, i64 284, !25, i64 288, !35, i64 296, !8, i64 304, !8, i64 312, !25, i64 320, !25, i64 324, !9, i64 328, !8, i64 360, !32, i64 368, !8, i64 376, !8, i64 384, !26, i64 392, !8, i64 400, !8, i64 408, !9, i64 416, !9, i64 432, !9, i64 448, !8, i64 464, !12, i64 472, !8, i64 480, !8, i64 488, !9, i64 496, !8, i64 504, !8, i64 512, !8, i64 520, !8, i64 528, !8, i64 536, !8, i64 544, !12, i64 552, !25, i64 560, !16, i64 568, !37, i64 576, !41, i64 584, !42, i64 592, !12, i64 600, !37, i64 608, !12, i64 616, !37, i64 624, !8, i64 632, !8, i64 640, !25, i64 648, !25, i64 648, !25, i64 648, !25, i64 648, !51, i64 656, !25, i64 664}
+!48 = !{!"p1 _ZTS13x509_store_st", !8, i64 0}
+!49 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !8, i64 0}
+!50 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !8, i64 0}
+!51 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
+!52 = !{!24, !18, i64 336}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p2 _ZTS26srtp_protection_profile_st", !8, i64 0}
+!55 = !{!37, !37, i64 0}
+!56 = !{!57, !12, i64 0}
+!57 = !{!"srtp_protection_profile_st", !12, i64 0, !37, i64 8}
+!58 = distinct !{!58, !20}

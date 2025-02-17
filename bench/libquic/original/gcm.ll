@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { i64 }
 %union.anon.1 = type { i64 }
@@ -22,3879 +22,4089 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.CRYPTO_gcm128_finish.is_endian = private unnamed_addr constant %union.anon.6 { i64 1 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_gcm128_init(ptr noundef %ctx, ptr noundef %key, ptr noundef %block) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %block.addr = alloca ptr, align 8
-  %is_endian = alloca %union.anon, align 8
-  %ret = alloca i64, align 8
-  %tmp = alloca i64, align 8
-  %ret7 = alloca i64, align 8
-  %tmp10 = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %block, ptr %block.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %is_endian, ptr align 8 @__const.CRYPTO_gcm128_init.is_endian, i64 8, i1 false)
-  %0 = load ptr, ptr %ctx.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 384, i1 false)
-  %1 = load ptr, ptr %block.addr, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %block1 = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 11
-  store ptr %1, ptr %block1, align 8
-  %3 = load ptr, ptr %block.addr, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %H = getelementptr inbounds %struct.gcm128_context, ptr %4, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %H, i64 0, i64 0
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %H2 = getelementptr inbounds %struct.gcm128_context, ptr %5, i32 0, i32 5
-  %arraydecay3 = getelementptr inbounds [16 x i8], ptr %H2, i64 0, i64 0
-  %6 = load ptr, ptr %key.addr, align 8
-  call void %3(ptr noundef %arraydecay, ptr noundef %arraydecay3, ptr noundef %6)
-  %7 = load i8, ptr %is_endian, align 8
-  %tobool = icmp ne i8 %7, 0
-  br i1 %tobool, label %if.then, label %if.end
+define hidden void @CRYPTO_gcm128_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.anon, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 @__const.CRYPTO_gcm128_init.is_endian, i64 8, i1 false)
+  %13 = load ptr, ptr %4, align 8, !tbaa !6
+  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 384, i1 false)
+  %14 = load ptr, ptr %6, align 8, !tbaa !11
+  %15 = load ptr, ptr %4, align 8, !tbaa !6
+  %16 = getelementptr inbounds nuw %struct.gcm128_context, ptr %15, i32 0, i32 11
+  store ptr %14, ptr %16, align 8, !tbaa !12
+  %17 = load ptr, ptr %6, align 8, !tbaa !11
+  %18 = load ptr, ptr %4, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.gcm128_context, ptr %18, i32 0, i32 5
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 0, i64 0
+  %21 = load ptr, ptr %4, align 8, !tbaa !6
+  %22 = getelementptr inbounds nuw %struct.gcm128_context, ptr %21, i32 0, i32 5
+  %23 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
+  %24 = load ptr, ptr %5, align 8, !tbaa !11
+  call void %17(ptr noundef %20, ptr noundef %23, ptr noundef %24)
+  %25 = load i8, ptr %7, align 8, !tbaa !15
+  %26 = icmp ne i8 %25, 0
+  br i1 %26, label %27, label %50
 
-if.then:                                          ; preds = %entry
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %H4 = getelementptr inbounds %struct.gcm128_context, ptr %8, i32 0, i32 5
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %H4, i64 0, i64 0
-  %9 = load i64, ptr %arrayidx, align 8
-  store i64 %9, ptr %ret, align 8
-  %10 = load i64, ptr %ret, align 8
-  %11 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %10) #4, !srcloc !7
-  store i64 %11, ptr %ret, align 8
-  %12 = load i64, ptr %ret, align 8
-  store i64 %12, ptr %tmp, align 8
-  %13 = load i64, ptr %tmp, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %H5 = getelementptr inbounds %struct.gcm128_context, ptr %14, i32 0, i32 5
-  %arrayidx6 = getelementptr inbounds [2 x i64], ptr %H5, i64 0, i64 0
-  store i64 %13, ptr %arrayidx6, align 8
-  %15 = load ptr, ptr %ctx.addr, align 8
-  %H8 = getelementptr inbounds %struct.gcm128_context, ptr %15, i32 0, i32 5
-  %arrayidx9 = getelementptr inbounds [2 x i64], ptr %H8, i64 0, i64 1
-  %16 = load i64, ptr %arrayidx9, align 8
-  store i64 %16, ptr %ret7, align 8
-  %17 = load i64, ptr %ret7, align 8
-  %18 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %17) #4, !srcloc !8
-  store i64 %18, ptr %ret7, align 8
-  %19 = load i64, ptr %ret7, align 8
-  store i64 %19, ptr %tmp10, align 8
-  %20 = load i64, ptr %tmp10, align 8
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %H11 = getelementptr inbounds %struct.gcm128_context, ptr %21, i32 0, i32 5
-  %arrayidx12 = getelementptr inbounds [2 x i64], ptr %H11, i64 0, i64 1
-  store i64 %20, ptr %arrayidx12, align 8
-  br label %if.end
+27:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %28 = load ptr, ptr %4, align 8, !tbaa !6
+  %29 = getelementptr inbounds nuw %struct.gcm128_context, ptr %28, i32 0, i32 5
+  %30 = getelementptr inbounds [2 x i64], ptr %29, i64 0, i64 0
+  %31 = load i64, ptr %30, align 8, !tbaa !15
+  store i64 %31, ptr %8, align 8, !tbaa !16
+  %32 = load i64, ptr %8, align 8, !tbaa !16
+  %33 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %32) #6, !srcloc !18
+  store i64 %33, ptr %8, align 8, !tbaa !16
+  %34 = load i64, ptr %8, align 8, !tbaa !16
+  store i64 %34, ptr %9, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %35 = load i64, ptr %9, align 8, !tbaa !16
+  %36 = load ptr, ptr %4, align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw %struct.gcm128_context, ptr %36, i32 0, i32 5
+  %38 = getelementptr inbounds [2 x i64], ptr %37, i64 0, i64 0
+  store i64 %35, ptr %38, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %39 = load ptr, ptr %4, align 8, !tbaa !6
+  %40 = getelementptr inbounds nuw %struct.gcm128_context, ptr %39, i32 0, i32 5
+  %41 = getelementptr inbounds [2 x i64], ptr %40, i64 0, i64 1
+  %42 = load i64, ptr %41, align 8, !tbaa !15
+  store i64 %42, ptr %10, align 8, !tbaa !16
+  %43 = load i64, ptr %10, align 8, !tbaa !16
+  %44 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %43) #6, !srcloc !19
+  store i64 %44, ptr %10, align 8, !tbaa !16
+  %45 = load i64, ptr %10, align 8, !tbaa !16
+  store i64 %45, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %46 = load i64, ptr %11, align 8, !tbaa !16
+  %47 = load ptr, ptr %4, align 8, !tbaa !6
+  %48 = getelementptr inbounds nuw %struct.gcm128_context, ptr %47, i32 0, i32 5
+  %49 = getelementptr inbounds [2 x i64], ptr %48, i64 0, i64 1
+  store i64 %46, ptr %49, align 8, !tbaa !15
+  br label %50
 
-if.end:                                           ; preds = %if.then, %entry
-  %call = call i32 @crypto_gcm_clmul_enabled()
-  %tobool13 = icmp ne i32 %call, 0
-  br i1 %tobool13, label %if.then14, label %if.end26
+50:                                               ; preds = %27, %3
+  %51 = call i32 @crypto_gcm_clmul_enabled()
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %81
 
-if.then14:                                        ; preds = %if.end
-  %22 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
-  %23 = load i32, ptr %22, align 4
-  %shr = lshr i32 %23, 22
-  %and = and i32 %shr, 65
-  %cmp = icmp eq i32 %and, 65
-  br i1 %cmp, label %if.then15, label %if.else
+53:                                               ; preds = %50
+  %54 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !tbaa !20
+  %55 = lshr i32 %54, 22
+  %56 = and i32 %55, 65
+  %57 = icmp eq i32 %56, 65
+  br i1 %57, label %58, label %69
 
-if.then15:                                        ; preds = %if.then14
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %24, i32 0, i32 6
-  %arraydecay16 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
-  %25 = load ptr, ptr %ctx.addr, align 8
-  %H17 = getelementptr inbounds %struct.gcm128_context, ptr %25, i32 0, i32 5
-  %arraydecay18 = getelementptr inbounds [2 x i64], ptr %H17, i64 0, i64 0
-  call void @gcm_init_avx(ptr noundef %arraydecay16, ptr noundef %arraydecay18)
-  %26 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %26, i32 0, i32 7
-  store ptr @gcm_gmult_avx, ptr %gmult, align 8
-  %27 = load ptr, ptr %ctx.addr, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %27, i32 0, i32 8
-  store ptr @gcm_ghash_avx, ptr %ghash, align 8
-  br label %if.end25
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %4, align 8, !tbaa !6
+  %60 = getelementptr inbounds nuw %struct.gcm128_context, ptr %59, i32 0, i32 6
+  %61 = getelementptr inbounds [16 x %struct.u128], ptr %60, i64 0, i64 0
+  %62 = load ptr, ptr %4, align 8, !tbaa !6
+  %63 = getelementptr inbounds nuw %struct.gcm128_context, ptr %62, i32 0, i32 5
+  %64 = getelementptr inbounds [2 x i64], ptr %63, i64 0, i64 0
+  call void @gcm_init_avx(ptr noundef %61, ptr noundef %64)
+  %65 = load ptr, ptr %4, align 8, !tbaa !6
+  %66 = getelementptr inbounds nuw %struct.gcm128_context, ptr %65, i32 0, i32 7
+  store ptr @gcm_gmult_avx, ptr %66, align 8, !tbaa !21
+  %67 = load ptr, ptr %4, align 8, !tbaa !6
+  %68 = getelementptr inbounds nuw %struct.gcm128_context, ptr %67, i32 0, i32 8
+  store ptr @gcm_ghash_avx, ptr %68, align 8, !tbaa !22
+  br label %80
 
-if.else:                                          ; preds = %if.then14
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %Htable19 = getelementptr inbounds %struct.gcm128_context, ptr %28, i32 0, i32 6
-  %arraydecay20 = getelementptr inbounds [16 x %struct.u128], ptr %Htable19, i64 0, i64 0
-  %29 = load ptr, ptr %ctx.addr, align 8
-  %H21 = getelementptr inbounds %struct.gcm128_context, ptr %29, i32 0, i32 5
-  %arraydecay22 = getelementptr inbounds [2 x i64], ptr %H21, i64 0, i64 0
-  call void @gcm_init_clmul(ptr noundef %arraydecay20, ptr noundef %arraydecay22)
-  %30 = load ptr, ptr %ctx.addr, align 8
-  %gmult23 = getelementptr inbounds %struct.gcm128_context, ptr %30, i32 0, i32 7
-  store ptr @gcm_gmult_clmul, ptr %gmult23, align 8
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %ghash24 = getelementptr inbounds %struct.gcm128_context, ptr %31, i32 0, i32 8
-  store ptr @gcm_ghash_clmul, ptr %ghash24, align 8
-  br label %if.end25
+69:                                               ; preds = %53
+  %70 = load ptr, ptr %4, align 8, !tbaa !6
+  %71 = getelementptr inbounds nuw %struct.gcm128_context, ptr %70, i32 0, i32 6
+  %72 = getelementptr inbounds [16 x %struct.u128], ptr %71, i64 0, i64 0
+  %73 = load ptr, ptr %4, align 8, !tbaa !6
+  %74 = getelementptr inbounds nuw %struct.gcm128_context, ptr %73, i32 0, i32 5
+  %75 = getelementptr inbounds [2 x i64], ptr %74, i64 0, i64 0
+  call void @gcm_init_clmul(ptr noundef %72, ptr noundef %75)
+  %76 = load ptr, ptr %4, align 8, !tbaa !6
+  %77 = getelementptr inbounds nuw %struct.gcm128_context, ptr %76, i32 0, i32 7
+  store ptr @gcm_gmult_clmul, ptr %77, align 8, !tbaa !21
+  %78 = load ptr, ptr %4, align 8, !tbaa !6
+  %79 = getelementptr inbounds nuw %struct.gcm128_context, ptr %78, i32 0, i32 8
+  store ptr @gcm_ghash_clmul, ptr %79, align 8, !tbaa !22
+  br label %80
 
-if.end25:                                         ; preds = %if.else, %if.then15
-  br label %return
+80:                                               ; preds = %69, %58
+  store i32 1, ptr %12, align 4
+  br label %92
 
-if.end26:                                         ; preds = %if.end
-  %32 = load ptr, ptr %ctx.addr, align 8
-  %Htable27 = getelementptr inbounds %struct.gcm128_context, ptr %32, i32 0, i32 6
-  %arraydecay28 = getelementptr inbounds [16 x %struct.u128], ptr %Htable27, i64 0, i64 0
-  %33 = load ptr, ptr %ctx.addr, align 8
-  %H29 = getelementptr inbounds %struct.gcm128_context, ptr %33, i32 0, i32 5
-  %arraydecay30 = getelementptr inbounds [2 x i64], ptr %H29, i64 0, i64 0
-  call void @gcm_init_4bit(ptr noundef %arraydecay28, ptr noundef %arraydecay30)
-  %34 = load ptr, ptr %ctx.addr, align 8
-  %gmult31 = getelementptr inbounds %struct.gcm128_context, ptr %34, i32 0, i32 7
-  store ptr @gcm_gmult_4bit, ptr %gmult31, align 8
-  %35 = load ptr, ptr %ctx.addr, align 8
-  %ghash32 = getelementptr inbounds %struct.gcm128_context, ptr %35, i32 0, i32 8
-  store ptr @gcm_ghash_4bit, ptr %ghash32, align 8
-  br label %return
+81:                                               ; preds = %50
+  %82 = load ptr, ptr %4, align 8, !tbaa !6
+  %83 = getelementptr inbounds nuw %struct.gcm128_context, ptr %82, i32 0, i32 6
+  %84 = getelementptr inbounds [16 x %struct.u128], ptr %83, i64 0, i64 0
+  %85 = load ptr, ptr %4, align 8, !tbaa !6
+  %86 = getelementptr inbounds nuw %struct.gcm128_context, ptr %85, i32 0, i32 5
+  %87 = getelementptr inbounds [2 x i64], ptr %86, i64 0, i64 0
+  call void @gcm_init_4bit(ptr noundef %84, ptr noundef %87)
+  %88 = load ptr, ptr %4, align 8, !tbaa !6
+  %89 = getelementptr inbounds nuw %struct.gcm128_context, ptr %88, i32 0, i32 7
+  store ptr @gcm_gmult_4bit, ptr %89, align 8, !tbaa !21
+  %90 = load ptr, ptr %4, align 8, !tbaa !6
+  %91 = getelementptr inbounds nuw %struct.gcm128_context, ptr %90, i32 0, i32 8
+  store ptr @gcm_ghash_4bit, ptr %91, align 8, !tbaa !22
+  store i32 0, ptr %12, align 4
+  br label %92
 
-return:                                           ; preds = %if.end26, %if.end25
+92:                                               ; preds = %81, %80
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  %93 = load i32, ptr %12, align 4
+  switch i32 %93, label %95 [
+    i32 0, label %94
+    i32 1, label %94
+  ]
+
+94:                                               ; preds = %92, %92
   ret void
+
+95:                                               ; preds = %92
+  unreachable
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @crypto_gcm_clmul_enabled() #0 {
-entry:
-  %0 = load i32, ptr @OPENSSL_ia32cap_P, align 16
-  %and = and i32 %0, 16777216
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %land.rhs, label %land.end
+  %1 = load i32, ptr @OPENSSL_ia32cap_P, align 16, !tbaa !20
+  %2 = and i32 %1, 16777216
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %8
 
-land.rhs:                                         ; preds = %entry
-  %1 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
-  %2 = load i32, ptr %1, align 4
-  %and1 = and i32 %2, 2
-  %tobool2 = icmp ne i32 %and1, 0
-  br label %land.end
+4:                                                ; preds = %0
+  %5 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4, !tbaa !20
+  %6 = and i32 %5, 2
+  %7 = icmp ne i32 %6, 0
+  br label %8
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
-  %land.ext = zext i1 %3 to i32
-  ret i32 %land.ext
+8:                                                ; preds = %4, %0
+  %9 = phi i1 [ false, %0 ], [ %7, %4 ]
+  %10 = zext i1 %9 to i32
+  ret i32 %10
 }
 
-declare void @gcm_init_avx(ptr noundef, ptr noundef) #3
+declare void @gcm_init_avx(ptr noundef, ptr noundef) #4
 
-declare void @gcm_gmult_avx(ptr noundef, ptr noundef) #3
+declare void @gcm_gmult_avx(ptr noundef, ptr noundef) #4
 
-declare void @gcm_ghash_avx(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare void @gcm_ghash_avx(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #4
 
-declare void @gcm_init_clmul(ptr noundef, ptr noundef) #3
+declare void @gcm_init_clmul(ptr noundef, ptr noundef) #4
 
-declare void @gcm_gmult_clmul(ptr noundef, ptr noundef) #3
+declare void @gcm_gmult_clmul(ptr noundef, ptr noundef) #4
 
-declare void @gcm_ghash_clmul(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare void @gcm_ghash_clmul(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @gcm_init_4bit(ptr noundef %Htable, ptr noundef %H) #0 {
-entry:
-  %Htable.addr = alloca ptr, align 8
-  %H.addr = alloca ptr, align 8
-  %V = alloca %struct.u128, align 8
-  %T = alloca i64, align 8
-  %T17 = alloca i64, align 8
-  %T35 = alloca i64, align 8
-  store ptr %Htable, ptr %Htable.addr, align 8
-  store ptr %H, ptr %H.addr, align 8
-  %0 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx = getelementptr inbounds %struct.u128, ptr %0, i64 0
-  %hi = getelementptr inbounds %struct.u128, ptr %arrayidx, i32 0, i32 0
-  store i64 0, ptr %hi, align 8
-  %1 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx1 = getelementptr inbounds %struct.u128, ptr %1, i64 0
-  %lo = getelementptr inbounds %struct.u128, ptr %arrayidx1, i32 0, i32 1
-  store i64 0, ptr %lo, align 8
-  %2 = load ptr, ptr %H.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %2, i64 0
-  %3 = load i64, ptr %arrayidx2, align 8
-  %hi3 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  store i64 %3, ptr %hi3, align 8
-  %4 = load ptr, ptr %H.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %4, i64 1
-  %5 = load i64, ptr %arrayidx4, align 8
-  %lo5 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  store i64 %5, ptr %lo5, align 8
-  %6 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx6 = getelementptr inbounds %struct.u128, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx6, ptr align 8 %V, i64 16, i1 false)
-  br label %do.body
+define internal void @gcm_init_4bit(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.u128, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #5
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  %10 = getelementptr inbounds %struct.u128, ptr %9, i64 0
+  %11 = getelementptr inbounds nuw %struct.u128, ptr %10, i32 0, i32 0
+  store i64 0, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  %13 = getelementptr inbounds %struct.u128, ptr %12, i64 0
+  %14 = getelementptr inbounds nuw %struct.u128, ptr %13, i32 0, i32 1
+  store i64 0, ptr %14, align 8, !tbaa !27
+  %15 = load ptr, ptr %4, align 8, !tbaa !23
+  %16 = getelementptr inbounds i64, ptr %15, i64 0
+  %17 = load i64, ptr %16, align 8, !tbaa !16
+  %18 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  store i64 %17, ptr %18, align 8, !tbaa !25
+  %19 = load ptr, ptr %4, align 8, !tbaa !23
+  %20 = getelementptr inbounds i64, ptr %19, i64 1
+  %21 = load i64, ptr %20, align 8, !tbaa !16
+  %22 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  store i64 %21, ptr %22, align 8, !tbaa !27
+  %23 = load ptr, ptr %3, align 8, !tbaa !11
+  %24 = getelementptr inbounds %struct.u128, ptr %23, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !28
+  br label %25
 
-do.body:                                          ; preds = %entry
-  %lo7 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %7 = load i64, ptr %lo7, align 8
-  %and = and i64 %7, 1
-  %sub = sub i64 0, %and
-  %and8 = and i64 -2233785415175766016, %sub
-  store i64 %and8, ptr %T, align 8
-  %hi9 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %8 = load i64, ptr %hi9, align 8
-  %shl = shl i64 %8, 63
-  %lo10 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %9 = load i64, ptr %lo10, align 8
-  %shr = lshr i64 %9, 1
-  %or = or i64 %shl, %shr
-  %lo11 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  store i64 %or, ptr %lo11, align 8
-  %hi12 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %10 = load i64, ptr %hi12, align 8
-  %shr13 = lshr i64 %10, 1
-  %11 = load i64, ptr %T, align 8
-  %xor = xor i64 %shr13, %11
-  %hi14 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  store i64 %xor, ptr %hi14, align 8
-  br label %do.end
+25:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %26 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8, !tbaa !27
+  %28 = and i64 %27, 1
+  %29 = sub i64 0, %28
+  %30 = and i64 -2233785415175766016, %29
+  store i64 %30, ptr %6, align 8, !tbaa !16
+  %31 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %32 = load i64, ptr %31, align 8, !tbaa !25
+  %33 = shl i64 %32, 63
+  %34 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8, !tbaa !27
+  %36 = lshr i64 %35, 1
+  %37 = or i64 %33, %36
+  %38 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  store i64 %37, ptr %38, align 8, !tbaa !27
+  %39 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %40 = load i64, ptr %39, align 8, !tbaa !25
+  %41 = lshr i64 %40, 1
+  %42 = load i64, ptr %6, align 8, !tbaa !16
+  %43 = xor i64 %41, %42
+  %44 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  store i64 %43, ptr %44, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  br label %45
 
-do.end:                                           ; preds = %do.body
-  %12 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx15 = getelementptr inbounds %struct.u128, ptr %12, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx15, ptr align 8 %V, i64 16, i1 false)
-  br label %do.body16
+45:                                               ; preds = %25
+  br label %46
 
-do.body16:                                        ; preds = %do.end
-  %lo18 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %13 = load i64, ptr %lo18, align 8
-  %and19 = and i64 %13, 1
-  %sub20 = sub i64 0, %and19
-  %and21 = and i64 -2233785415175766016, %sub20
-  store i64 %and21, ptr %T17, align 8
-  %hi22 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %14 = load i64, ptr %hi22, align 8
-  %shl23 = shl i64 %14, 63
-  %lo24 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %15 = load i64, ptr %lo24, align 8
-  %shr25 = lshr i64 %15, 1
-  %or26 = or i64 %shl23, %shr25
-  %lo27 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  store i64 %or26, ptr %lo27, align 8
-  %hi28 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %16 = load i64, ptr %hi28, align 8
-  %shr29 = lshr i64 %16, 1
-  %17 = load i64, ptr %T17, align 8
-  %xor30 = xor i64 %shr29, %17
-  %hi31 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  store i64 %xor30, ptr %hi31, align 8
-  br label %do.end32
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %3, align 8, !tbaa !11
+  %48 = getelementptr inbounds %struct.u128, ptr %47, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !28
+  br label %49
 
-do.end32:                                         ; preds = %do.body16
-  %18 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx33 = getelementptr inbounds %struct.u128, ptr %18, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx33, ptr align 8 %V, i64 16, i1 false)
-  br label %do.body34
+49:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %50 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8, !tbaa !27
+  %52 = and i64 %51, 1
+  %53 = sub i64 0, %52
+  %54 = and i64 -2233785415175766016, %53
+  store i64 %54, ptr %7, align 8, !tbaa !16
+  %55 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %56 = load i64, ptr %55, align 8, !tbaa !25
+  %57 = shl i64 %56, 63
+  %58 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8, !tbaa !27
+  %60 = lshr i64 %59, 1
+  %61 = or i64 %57, %60
+  %62 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  store i64 %61, ptr %62, align 8, !tbaa !27
+  %63 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %64 = load i64, ptr %63, align 8, !tbaa !25
+  %65 = lshr i64 %64, 1
+  %66 = load i64, ptr %7, align 8, !tbaa !16
+  %67 = xor i64 %65, %66
+  %68 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  store i64 %67, ptr %68, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  br label %69
 
-do.body34:                                        ; preds = %do.end32
-  %lo36 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %19 = load i64, ptr %lo36, align 8
-  %and37 = and i64 %19, 1
-  %sub38 = sub i64 0, %and37
-  %and39 = and i64 -2233785415175766016, %sub38
-  store i64 %and39, ptr %T35, align 8
-  %hi40 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %20 = load i64, ptr %hi40, align 8
-  %shl41 = shl i64 %20, 63
-  %lo42 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %21 = load i64, ptr %lo42, align 8
-  %shr43 = lshr i64 %21, 1
-  %or44 = or i64 %shl41, %shr43
-  %lo45 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  store i64 %or44, ptr %lo45, align 8
-  %hi46 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %22 = load i64, ptr %hi46, align 8
-  %shr47 = lshr i64 %22, 1
-  %23 = load i64, ptr %T35, align 8
-  %xor48 = xor i64 %shr47, %23
-  %hi49 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  store i64 %xor48, ptr %hi49, align 8
-  br label %do.end50
+69:                                               ; preds = %49
+  br label %70
 
-do.end50:                                         ; preds = %do.body34
-  %24 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx51 = getelementptr inbounds %struct.u128, ptr %24, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx51, ptr align 8 %V, i64 16, i1 false)
-  %hi52 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %25 = load i64, ptr %hi52, align 8
-  %26 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx53 = getelementptr inbounds %struct.u128, ptr %26, i64 2
-  %hi54 = getelementptr inbounds %struct.u128, ptr %arrayidx53, i32 0, i32 0
-  %27 = load i64, ptr %hi54, align 8
-  %xor55 = xor i64 %25, %27
-  %28 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx56 = getelementptr inbounds %struct.u128, ptr %28, i64 3
-  %hi57 = getelementptr inbounds %struct.u128, ptr %arrayidx56, i32 0, i32 0
-  store i64 %xor55, ptr %hi57, align 8
-  %lo58 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %29 = load i64, ptr %lo58, align 8
-  %30 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx59 = getelementptr inbounds %struct.u128, ptr %30, i64 2
-  %lo60 = getelementptr inbounds %struct.u128, ptr %arrayidx59, i32 0, i32 1
-  %31 = load i64, ptr %lo60, align 8
-  %xor61 = xor i64 %29, %31
-  %32 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx62 = getelementptr inbounds %struct.u128, ptr %32, i64 3
-  %lo63 = getelementptr inbounds %struct.u128, ptr %arrayidx62, i32 0, i32 1
-  store i64 %xor61, ptr %lo63, align 8
-  %33 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx64 = getelementptr inbounds %struct.u128, ptr %33, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %V, ptr align 8 %arrayidx64, i64 16, i1 false)
-  %hi65 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %34 = load i64, ptr %hi65, align 8
-  %35 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx66 = getelementptr inbounds %struct.u128, ptr %35, i64 1
-  %hi67 = getelementptr inbounds %struct.u128, ptr %arrayidx66, i32 0, i32 0
-  %36 = load i64, ptr %hi67, align 8
-  %xor68 = xor i64 %34, %36
-  %37 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx69 = getelementptr inbounds %struct.u128, ptr %37, i64 5
-  %hi70 = getelementptr inbounds %struct.u128, ptr %arrayidx69, i32 0, i32 0
-  store i64 %xor68, ptr %hi70, align 8
-  %lo71 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %38 = load i64, ptr %lo71, align 8
-  %39 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx72 = getelementptr inbounds %struct.u128, ptr %39, i64 1
-  %lo73 = getelementptr inbounds %struct.u128, ptr %arrayidx72, i32 0, i32 1
-  %40 = load i64, ptr %lo73, align 8
-  %xor74 = xor i64 %38, %40
-  %41 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx75 = getelementptr inbounds %struct.u128, ptr %41, i64 5
-  %lo76 = getelementptr inbounds %struct.u128, ptr %arrayidx75, i32 0, i32 1
-  store i64 %xor74, ptr %lo76, align 8
-  %hi77 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %42 = load i64, ptr %hi77, align 8
-  %43 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx78 = getelementptr inbounds %struct.u128, ptr %43, i64 2
-  %hi79 = getelementptr inbounds %struct.u128, ptr %arrayidx78, i32 0, i32 0
-  %44 = load i64, ptr %hi79, align 8
-  %xor80 = xor i64 %42, %44
-  %45 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx81 = getelementptr inbounds %struct.u128, ptr %45, i64 6
-  %hi82 = getelementptr inbounds %struct.u128, ptr %arrayidx81, i32 0, i32 0
-  store i64 %xor80, ptr %hi82, align 8
-  %lo83 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %46 = load i64, ptr %lo83, align 8
-  %47 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx84 = getelementptr inbounds %struct.u128, ptr %47, i64 2
-  %lo85 = getelementptr inbounds %struct.u128, ptr %arrayidx84, i32 0, i32 1
-  %48 = load i64, ptr %lo85, align 8
-  %xor86 = xor i64 %46, %48
-  %49 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx87 = getelementptr inbounds %struct.u128, ptr %49, i64 6
-  %lo88 = getelementptr inbounds %struct.u128, ptr %arrayidx87, i32 0, i32 1
-  store i64 %xor86, ptr %lo88, align 8
-  %hi89 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %50 = load i64, ptr %hi89, align 8
-  %51 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx90 = getelementptr inbounds %struct.u128, ptr %51, i64 3
-  %hi91 = getelementptr inbounds %struct.u128, ptr %arrayidx90, i32 0, i32 0
-  %52 = load i64, ptr %hi91, align 8
-  %xor92 = xor i64 %50, %52
-  %53 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx93 = getelementptr inbounds %struct.u128, ptr %53, i64 7
-  %hi94 = getelementptr inbounds %struct.u128, ptr %arrayidx93, i32 0, i32 0
-  store i64 %xor92, ptr %hi94, align 8
-  %lo95 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %54 = load i64, ptr %lo95, align 8
-  %55 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx96 = getelementptr inbounds %struct.u128, ptr %55, i64 3
-  %lo97 = getelementptr inbounds %struct.u128, ptr %arrayidx96, i32 0, i32 1
-  %56 = load i64, ptr %lo97, align 8
-  %xor98 = xor i64 %54, %56
-  %57 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx99 = getelementptr inbounds %struct.u128, ptr %57, i64 7
-  %lo100 = getelementptr inbounds %struct.u128, ptr %arrayidx99, i32 0, i32 1
-  store i64 %xor98, ptr %lo100, align 8
-  %58 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx101 = getelementptr inbounds %struct.u128, ptr %58, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %V, ptr align 8 %arrayidx101, i64 16, i1 false)
-  %hi102 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %59 = load i64, ptr %hi102, align 8
-  %60 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx103 = getelementptr inbounds %struct.u128, ptr %60, i64 1
-  %hi104 = getelementptr inbounds %struct.u128, ptr %arrayidx103, i32 0, i32 0
-  %61 = load i64, ptr %hi104, align 8
-  %xor105 = xor i64 %59, %61
-  %62 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx106 = getelementptr inbounds %struct.u128, ptr %62, i64 9
-  %hi107 = getelementptr inbounds %struct.u128, ptr %arrayidx106, i32 0, i32 0
-  store i64 %xor105, ptr %hi107, align 8
-  %lo108 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %63 = load i64, ptr %lo108, align 8
-  %64 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx109 = getelementptr inbounds %struct.u128, ptr %64, i64 1
-  %lo110 = getelementptr inbounds %struct.u128, ptr %arrayidx109, i32 0, i32 1
-  %65 = load i64, ptr %lo110, align 8
-  %xor111 = xor i64 %63, %65
-  %66 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx112 = getelementptr inbounds %struct.u128, ptr %66, i64 9
-  %lo113 = getelementptr inbounds %struct.u128, ptr %arrayidx112, i32 0, i32 1
-  store i64 %xor111, ptr %lo113, align 8
-  %hi114 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %67 = load i64, ptr %hi114, align 8
-  %68 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx115 = getelementptr inbounds %struct.u128, ptr %68, i64 2
-  %hi116 = getelementptr inbounds %struct.u128, ptr %arrayidx115, i32 0, i32 0
-  %69 = load i64, ptr %hi116, align 8
-  %xor117 = xor i64 %67, %69
-  %70 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx118 = getelementptr inbounds %struct.u128, ptr %70, i64 10
-  %hi119 = getelementptr inbounds %struct.u128, ptr %arrayidx118, i32 0, i32 0
-  store i64 %xor117, ptr %hi119, align 8
-  %lo120 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %71 = load i64, ptr %lo120, align 8
-  %72 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx121 = getelementptr inbounds %struct.u128, ptr %72, i64 2
-  %lo122 = getelementptr inbounds %struct.u128, ptr %arrayidx121, i32 0, i32 1
-  %73 = load i64, ptr %lo122, align 8
-  %xor123 = xor i64 %71, %73
-  %74 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx124 = getelementptr inbounds %struct.u128, ptr %74, i64 10
-  %lo125 = getelementptr inbounds %struct.u128, ptr %arrayidx124, i32 0, i32 1
-  store i64 %xor123, ptr %lo125, align 8
-  %hi126 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %75 = load i64, ptr %hi126, align 8
-  %76 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx127 = getelementptr inbounds %struct.u128, ptr %76, i64 3
-  %hi128 = getelementptr inbounds %struct.u128, ptr %arrayidx127, i32 0, i32 0
-  %77 = load i64, ptr %hi128, align 8
-  %xor129 = xor i64 %75, %77
-  %78 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx130 = getelementptr inbounds %struct.u128, ptr %78, i64 11
-  %hi131 = getelementptr inbounds %struct.u128, ptr %arrayidx130, i32 0, i32 0
-  store i64 %xor129, ptr %hi131, align 8
-  %lo132 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %79 = load i64, ptr %lo132, align 8
-  %80 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx133 = getelementptr inbounds %struct.u128, ptr %80, i64 3
-  %lo134 = getelementptr inbounds %struct.u128, ptr %arrayidx133, i32 0, i32 1
-  %81 = load i64, ptr %lo134, align 8
-  %xor135 = xor i64 %79, %81
-  %82 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx136 = getelementptr inbounds %struct.u128, ptr %82, i64 11
-  %lo137 = getelementptr inbounds %struct.u128, ptr %arrayidx136, i32 0, i32 1
-  store i64 %xor135, ptr %lo137, align 8
-  %hi138 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %83 = load i64, ptr %hi138, align 8
-  %84 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx139 = getelementptr inbounds %struct.u128, ptr %84, i64 4
-  %hi140 = getelementptr inbounds %struct.u128, ptr %arrayidx139, i32 0, i32 0
-  %85 = load i64, ptr %hi140, align 8
-  %xor141 = xor i64 %83, %85
-  %86 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx142 = getelementptr inbounds %struct.u128, ptr %86, i64 12
-  %hi143 = getelementptr inbounds %struct.u128, ptr %arrayidx142, i32 0, i32 0
-  store i64 %xor141, ptr %hi143, align 8
-  %lo144 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %87 = load i64, ptr %lo144, align 8
-  %88 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx145 = getelementptr inbounds %struct.u128, ptr %88, i64 4
-  %lo146 = getelementptr inbounds %struct.u128, ptr %arrayidx145, i32 0, i32 1
-  %89 = load i64, ptr %lo146, align 8
-  %xor147 = xor i64 %87, %89
-  %90 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx148 = getelementptr inbounds %struct.u128, ptr %90, i64 12
-  %lo149 = getelementptr inbounds %struct.u128, ptr %arrayidx148, i32 0, i32 1
-  store i64 %xor147, ptr %lo149, align 8
-  %hi150 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %91 = load i64, ptr %hi150, align 8
-  %92 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx151 = getelementptr inbounds %struct.u128, ptr %92, i64 5
-  %hi152 = getelementptr inbounds %struct.u128, ptr %arrayidx151, i32 0, i32 0
-  %93 = load i64, ptr %hi152, align 8
-  %xor153 = xor i64 %91, %93
-  %94 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx154 = getelementptr inbounds %struct.u128, ptr %94, i64 13
-  %hi155 = getelementptr inbounds %struct.u128, ptr %arrayidx154, i32 0, i32 0
-  store i64 %xor153, ptr %hi155, align 8
-  %lo156 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %95 = load i64, ptr %lo156, align 8
-  %96 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx157 = getelementptr inbounds %struct.u128, ptr %96, i64 5
-  %lo158 = getelementptr inbounds %struct.u128, ptr %arrayidx157, i32 0, i32 1
-  %97 = load i64, ptr %lo158, align 8
-  %xor159 = xor i64 %95, %97
-  %98 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx160 = getelementptr inbounds %struct.u128, ptr %98, i64 13
-  %lo161 = getelementptr inbounds %struct.u128, ptr %arrayidx160, i32 0, i32 1
-  store i64 %xor159, ptr %lo161, align 8
-  %hi162 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %99 = load i64, ptr %hi162, align 8
-  %100 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx163 = getelementptr inbounds %struct.u128, ptr %100, i64 6
-  %hi164 = getelementptr inbounds %struct.u128, ptr %arrayidx163, i32 0, i32 0
-  %101 = load i64, ptr %hi164, align 8
-  %xor165 = xor i64 %99, %101
-  %102 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx166 = getelementptr inbounds %struct.u128, ptr %102, i64 14
-  %hi167 = getelementptr inbounds %struct.u128, ptr %arrayidx166, i32 0, i32 0
-  store i64 %xor165, ptr %hi167, align 8
-  %lo168 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %103 = load i64, ptr %lo168, align 8
-  %104 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx169 = getelementptr inbounds %struct.u128, ptr %104, i64 6
-  %lo170 = getelementptr inbounds %struct.u128, ptr %arrayidx169, i32 0, i32 1
-  %105 = load i64, ptr %lo170, align 8
-  %xor171 = xor i64 %103, %105
-  %106 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx172 = getelementptr inbounds %struct.u128, ptr %106, i64 14
-  %lo173 = getelementptr inbounds %struct.u128, ptr %arrayidx172, i32 0, i32 1
-  store i64 %xor171, ptr %lo173, align 8
-  %hi174 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 0
-  %107 = load i64, ptr %hi174, align 8
-  %108 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx175 = getelementptr inbounds %struct.u128, ptr %108, i64 7
-  %hi176 = getelementptr inbounds %struct.u128, ptr %arrayidx175, i32 0, i32 0
-  %109 = load i64, ptr %hi176, align 8
-  %xor177 = xor i64 %107, %109
-  %110 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx178 = getelementptr inbounds %struct.u128, ptr %110, i64 15
-  %hi179 = getelementptr inbounds %struct.u128, ptr %arrayidx178, i32 0, i32 0
-  store i64 %xor177, ptr %hi179, align 8
-  %lo180 = getelementptr inbounds %struct.u128, ptr %V, i32 0, i32 1
-  %111 = load i64, ptr %lo180, align 8
-  %112 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx181 = getelementptr inbounds %struct.u128, ptr %112, i64 7
-  %lo182 = getelementptr inbounds %struct.u128, ptr %arrayidx181, i32 0, i32 1
-  %113 = load i64, ptr %lo182, align 8
-  %xor183 = xor i64 %111, %113
-  %114 = load ptr, ptr %Htable.addr, align 8
-  %arrayidx184 = getelementptr inbounds %struct.u128, ptr %114, i64 15
-  %lo185 = getelementptr inbounds %struct.u128, ptr %arrayidx184, i32 0, i32 1
-  store i64 %xor183, ptr %lo185, align 8
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %3, align 8, !tbaa !11
+  %72 = getelementptr inbounds %struct.u128, ptr %71, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !28
+  br label %73
+
+73:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %74 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %75 = load i64, ptr %74, align 8, !tbaa !27
+  %76 = and i64 %75, 1
+  %77 = sub i64 0, %76
+  %78 = and i64 -2233785415175766016, %77
+  store i64 %78, ptr %8, align 8, !tbaa !16
+  %79 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %80 = load i64, ptr %79, align 8, !tbaa !25
+  %81 = shl i64 %80, 63
+  %82 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %83 = load i64, ptr %82, align 8, !tbaa !27
+  %84 = lshr i64 %83, 1
+  %85 = or i64 %81, %84
+  %86 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  store i64 %85, ptr %86, align 8, !tbaa !27
+  %87 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %88 = load i64, ptr %87, align 8, !tbaa !25
+  %89 = lshr i64 %88, 1
+  %90 = load i64, ptr %8, align 8, !tbaa !16
+  %91 = xor i64 %89, %90
+  %92 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  store i64 %91, ptr %92, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %93
+
+93:                                               ; preds = %73
+  br label %94
+
+94:                                               ; preds = %93
+  %95 = load ptr, ptr %3, align 8, !tbaa !11
+  %96 = getelementptr inbounds %struct.u128, ptr %95, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %96, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !28
+  %97 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %98 = load i64, ptr %97, align 8, !tbaa !25
+  %99 = load ptr, ptr %3, align 8, !tbaa !11
+  %100 = getelementptr inbounds %struct.u128, ptr %99, i64 2
+  %101 = getelementptr inbounds nuw %struct.u128, ptr %100, i32 0, i32 0
+  %102 = load i64, ptr %101, align 8, !tbaa !25
+  %103 = xor i64 %98, %102
+  %104 = load ptr, ptr %3, align 8, !tbaa !11
+  %105 = getelementptr inbounds %struct.u128, ptr %104, i64 3
+  %106 = getelementptr inbounds nuw %struct.u128, ptr %105, i32 0, i32 0
+  store i64 %103, ptr %106, align 8, !tbaa !25
+  %107 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %108 = load i64, ptr %107, align 8, !tbaa !27
+  %109 = load ptr, ptr %3, align 8, !tbaa !11
+  %110 = getelementptr inbounds %struct.u128, ptr %109, i64 2
+  %111 = getelementptr inbounds nuw %struct.u128, ptr %110, i32 0, i32 1
+  %112 = load i64, ptr %111, align 8, !tbaa !27
+  %113 = xor i64 %108, %112
+  %114 = load ptr, ptr %3, align 8, !tbaa !11
+  %115 = getelementptr inbounds %struct.u128, ptr %114, i64 3
+  %116 = getelementptr inbounds nuw %struct.u128, ptr %115, i32 0, i32 1
+  store i64 %113, ptr %116, align 8, !tbaa !27
+  %117 = load ptr, ptr %3, align 8, !tbaa !11
+  %118 = getelementptr inbounds %struct.u128, ptr %117, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %118, i64 16, i1 false), !tbaa.struct !28
+  %119 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %120 = load i64, ptr %119, align 8, !tbaa !25
+  %121 = load ptr, ptr %3, align 8, !tbaa !11
+  %122 = getelementptr inbounds %struct.u128, ptr %121, i64 1
+  %123 = getelementptr inbounds nuw %struct.u128, ptr %122, i32 0, i32 0
+  %124 = load i64, ptr %123, align 8, !tbaa !25
+  %125 = xor i64 %120, %124
+  %126 = load ptr, ptr %3, align 8, !tbaa !11
+  %127 = getelementptr inbounds %struct.u128, ptr %126, i64 5
+  %128 = getelementptr inbounds nuw %struct.u128, ptr %127, i32 0, i32 0
+  store i64 %125, ptr %128, align 8, !tbaa !25
+  %129 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %130 = load i64, ptr %129, align 8, !tbaa !27
+  %131 = load ptr, ptr %3, align 8, !tbaa !11
+  %132 = getelementptr inbounds %struct.u128, ptr %131, i64 1
+  %133 = getelementptr inbounds nuw %struct.u128, ptr %132, i32 0, i32 1
+  %134 = load i64, ptr %133, align 8, !tbaa !27
+  %135 = xor i64 %130, %134
+  %136 = load ptr, ptr %3, align 8, !tbaa !11
+  %137 = getelementptr inbounds %struct.u128, ptr %136, i64 5
+  %138 = getelementptr inbounds nuw %struct.u128, ptr %137, i32 0, i32 1
+  store i64 %135, ptr %138, align 8, !tbaa !27
+  %139 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %140 = load i64, ptr %139, align 8, !tbaa !25
+  %141 = load ptr, ptr %3, align 8, !tbaa !11
+  %142 = getelementptr inbounds %struct.u128, ptr %141, i64 2
+  %143 = getelementptr inbounds nuw %struct.u128, ptr %142, i32 0, i32 0
+  %144 = load i64, ptr %143, align 8, !tbaa !25
+  %145 = xor i64 %140, %144
+  %146 = load ptr, ptr %3, align 8, !tbaa !11
+  %147 = getelementptr inbounds %struct.u128, ptr %146, i64 6
+  %148 = getelementptr inbounds nuw %struct.u128, ptr %147, i32 0, i32 0
+  store i64 %145, ptr %148, align 8, !tbaa !25
+  %149 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %150 = load i64, ptr %149, align 8, !tbaa !27
+  %151 = load ptr, ptr %3, align 8, !tbaa !11
+  %152 = getelementptr inbounds %struct.u128, ptr %151, i64 2
+  %153 = getelementptr inbounds nuw %struct.u128, ptr %152, i32 0, i32 1
+  %154 = load i64, ptr %153, align 8, !tbaa !27
+  %155 = xor i64 %150, %154
+  %156 = load ptr, ptr %3, align 8, !tbaa !11
+  %157 = getelementptr inbounds %struct.u128, ptr %156, i64 6
+  %158 = getelementptr inbounds nuw %struct.u128, ptr %157, i32 0, i32 1
+  store i64 %155, ptr %158, align 8, !tbaa !27
+  %159 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %160 = load i64, ptr %159, align 8, !tbaa !25
+  %161 = load ptr, ptr %3, align 8, !tbaa !11
+  %162 = getelementptr inbounds %struct.u128, ptr %161, i64 3
+  %163 = getelementptr inbounds nuw %struct.u128, ptr %162, i32 0, i32 0
+  %164 = load i64, ptr %163, align 8, !tbaa !25
+  %165 = xor i64 %160, %164
+  %166 = load ptr, ptr %3, align 8, !tbaa !11
+  %167 = getelementptr inbounds %struct.u128, ptr %166, i64 7
+  %168 = getelementptr inbounds nuw %struct.u128, ptr %167, i32 0, i32 0
+  store i64 %165, ptr %168, align 8, !tbaa !25
+  %169 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %170 = load i64, ptr %169, align 8, !tbaa !27
+  %171 = load ptr, ptr %3, align 8, !tbaa !11
+  %172 = getelementptr inbounds %struct.u128, ptr %171, i64 3
+  %173 = getelementptr inbounds nuw %struct.u128, ptr %172, i32 0, i32 1
+  %174 = load i64, ptr %173, align 8, !tbaa !27
+  %175 = xor i64 %170, %174
+  %176 = load ptr, ptr %3, align 8, !tbaa !11
+  %177 = getelementptr inbounds %struct.u128, ptr %176, i64 7
+  %178 = getelementptr inbounds nuw %struct.u128, ptr %177, i32 0, i32 1
+  store i64 %175, ptr %178, align 8, !tbaa !27
+  %179 = load ptr, ptr %3, align 8, !tbaa !11
+  %180 = getelementptr inbounds %struct.u128, ptr %179, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %180, i64 16, i1 false), !tbaa.struct !28
+  %181 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %182 = load i64, ptr %181, align 8, !tbaa !25
+  %183 = load ptr, ptr %3, align 8, !tbaa !11
+  %184 = getelementptr inbounds %struct.u128, ptr %183, i64 1
+  %185 = getelementptr inbounds nuw %struct.u128, ptr %184, i32 0, i32 0
+  %186 = load i64, ptr %185, align 8, !tbaa !25
+  %187 = xor i64 %182, %186
+  %188 = load ptr, ptr %3, align 8, !tbaa !11
+  %189 = getelementptr inbounds %struct.u128, ptr %188, i64 9
+  %190 = getelementptr inbounds nuw %struct.u128, ptr %189, i32 0, i32 0
+  store i64 %187, ptr %190, align 8, !tbaa !25
+  %191 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %192 = load i64, ptr %191, align 8, !tbaa !27
+  %193 = load ptr, ptr %3, align 8, !tbaa !11
+  %194 = getelementptr inbounds %struct.u128, ptr %193, i64 1
+  %195 = getelementptr inbounds nuw %struct.u128, ptr %194, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8, !tbaa !27
+  %197 = xor i64 %192, %196
+  %198 = load ptr, ptr %3, align 8, !tbaa !11
+  %199 = getelementptr inbounds %struct.u128, ptr %198, i64 9
+  %200 = getelementptr inbounds nuw %struct.u128, ptr %199, i32 0, i32 1
+  store i64 %197, ptr %200, align 8, !tbaa !27
+  %201 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %202 = load i64, ptr %201, align 8, !tbaa !25
+  %203 = load ptr, ptr %3, align 8, !tbaa !11
+  %204 = getelementptr inbounds %struct.u128, ptr %203, i64 2
+  %205 = getelementptr inbounds nuw %struct.u128, ptr %204, i32 0, i32 0
+  %206 = load i64, ptr %205, align 8, !tbaa !25
+  %207 = xor i64 %202, %206
+  %208 = load ptr, ptr %3, align 8, !tbaa !11
+  %209 = getelementptr inbounds %struct.u128, ptr %208, i64 10
+  %210 = getelementptr inbounds nuw %struct.u128, ptr %209, i32 0, i32 0
+  store i64 %207, ptr %210, align 8, !tbaa !25
+  %211 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %212 = load i64, ptr %211, align 8, !tbaa !27
+  %213 = load ptr, ptr %3, align 8, !tbaa !11
+  %214 = getelementptr inbounds %struct.u128, ptr %213, i64 2
+  %215 = getelementptr inbounds nuw %struct.u128, ptr %214, i32 0, i32 1
+  %216 = load i64, ptr %215, align 8, !tbaa !27
+  %217 = xor i64 %212, %216
+  %218 = load ptr, ptr %3, align 8, !tbaa !11
+  %219 = getelementptr inbounds %struct.u128, ptr %218, i64 10
+  %220 = getelementptr inbounds nuw %struct.u128, ptr %219, i32 0, i32 1
+  store i64 %217, ptr %220, align 8, !tbaa !27
+  %221 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %222 = load i64, ptr %221, align 8, !tbaa !25
+  %223 = load ptr, ptr %3, align 8, !tbaa !11
+  %224 = getelementptr inbounds %struct.u128, ptr %223, i64 3
+  %225 = getelementptr inbounds nuw %struct.u128, ptr %224, i32 0, i32 0
+  %226 = load i64, ptr %225, align 8, !tbaa !25
+  %227 = xor i64 %222, %226
+  %228 = load ptr, ptr %3, align 8, !tbaa !11
+  %229 = getelementptr inbounds %struct.u128, ptr %228, i64 11
+  %230 = getelementptr inbounds nuw %struct.u128, ptr %229, i32 0, i32 0
+  store i64 %227, ptr %230, align 8, !tbaa !25
+  %231 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %232 = load i64, ptr %231, align 8, !tbaa !27
+  %233 = load ptr, ptr %3, align 8, !tbaa !11
+  %234 = getelementptr inbounds %struct.u128, ptr %233, i64 3
+  %235 = getelementptr inbounds nuw %struct.u128, ptr %234, i32 0, i32 1
+  %236 = load i64, ptr %235, align 8, !tbaa !27
+  %237 = xor i64 %232, %236
+  %238 = load ptr, ptr %3, align 8, !tbaa !11
+  %239 = getelementptr inbounds %struct.u128, ptr %238, i64 11
+  %240 = getelementptr inbounds nuw %struct.u128, ptr %239, i32 0, i32 1
+  store i64 %237, ptr %240, align 8, !tbaa !27
+  %241 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %242 = load i64, ptr %241, align 8, !tbaa !25
+  %243 = load ptr, ptr %3, align 8, !tbaa !11
+  %244 = getelementptr inbounds %struct.u128, ptr %243, i64 4
+  %245 = getelementptr inbounds nuw %struct.u128, ptr %244, i32 0, i32 0
+  %246 = load i64, ptr %245, align 8, !tbaa !25
+  %247 = xor i64 %242, %246
+  %248 = load ptr, ptr %3, align 8, !tbaa !11
+  %249 = getelementptr inbounds %struct.u128, ptr %248, i64 12
+  %250 = getelementptr inbounds nuw %struct.u128, ptr %249, i32 0, i32 0
+  store i64 %247, ptr %250, align 8, !tbaa !25
+  %251 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %252 = load i64, ptr %251, align 8, !tbaa !27
+  %253 = load ptr, ptr %3, align 8, !tbaa !11
+  %254 = getelementptr inbounds %struct.u128, ptr %253, i64 4
+  %255 = getelementptr inbounds nuw %struct.u128, ptr %254, i32 0, i32 1
+  %256 = load i64, ptr %255, align 8, !tbaa !27
+  %257 = xor i64 %252, %256
+  %258 = load ptr, ptr %3, align 8, !tbaa !11
+  %259 = getelementptr inbounds %struct.u128, ptr %258, i64 12
+  %260 = getelementptr inbounds nuw %struct.u128, ptr %259, i32 0, i32 1
+  store i64 %257, ptr %260, align 8, !tbaa !27
+  %261 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %262 = load i64, ptr %261, align 8, !tbaa !25
+  %263 = load ptr, ptr %3, align 8, !tbaa !11
+  %264 = getelementptr inbounds %struct.u128, ptr %263, i64 5
+  %265 = getelementptr inbounds nuw %struct.u128, ptr %264, i32 0, i32 0
+  %266 = load i64, ptr %265, align 8, !tbaa !25
+  %267 = xor i64 %262, %266
+  %268 = load ptr, ptr %3, align 8, !tbaa !11
+  %269 = getelementptr inbounds %struct.u128, ptr %268, i64 13
+  %270 = getelementptr inbounds nuw %struct.u128, ptr %269, i32 0, i32 0
+  store i64 %267, ptr %270, align 8, !tbaa !25
+  %271 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %272 = load i64, ptr %271, align 8, !tbaa !27
+  %273 = load ptr, ptr %3, align 8, !tbaa !11
+  %274 = getelementptr inbounds %struct.u128, ptr %273, i64 5
+  %275 = getelementptr inbounds nuw %struct.u128, ptr %274, i32 0, i32 1
+  %276 = load i64, ptr %275, align 8, !tbaa !27
+  %277 = xor i64 %272, %276
+  %278 = load ptr, ptr %3, align 8, !tbaa !11
+  %279 = getelementptr inbounds %struct.u128, ptr %278, i64 13
+  %280 = getelementptr inbounds nuw %struct.u128, ptr %279, i32 0, i32 1
+  store i64 %277, ptr %280, align 8, !tbaa !27
+  %281 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %282 = load i64, ptr %281, align 8, !tbaa !25
+  %283 = load ptr, ptr %3, align 8, !tbaa !11
+  %284 = getelementptr inbounds %struct.u128, ptr %283, i64 6
+  %285 = getelementptr inbounds nuw %struct.u128, ptr %284, i32 0, i32 0
+  %286 = load i64, ptr %285, align 8, !tbaa !25
+  %287 = xor i64 %282, %286
+  %288 = load ptr, ptr %3, align 8, !tbaa !11
+  %289 = getelementptr inbounds %struct.u128, ptr %288, i64 14
+  %290 = getelementptr inbounds nuw %struct.u128, ptr %289, i32 0, i32 0
+  store i64 %287, ptr %290, align 8, !tbaa !25
+  %291 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %292 = load i64, ptr %291, align 8, !tbaa !27
+  %293 = load ptr, ptr %3, align 8, !tbaa !11
+  %294 = getelementptr inbounds %struct.u128, ptr %293, i64 6
+  %295 = getelementptr inbounds nuw %struct.u128, ptr %294, i32 0, i32 1
+  %296 = load i64, ptr %295, align 8, !tbaa !27
+  %297 = xor i64 %292, %296
+  %298 = load ptr, ptr %3, align 8, !tbaa !11
+  %299 = getelementptr inbounds %struct.u128, ptr %298, i64 14
+  %300 = getelementptr inbounds nuw %struct.u128, ptr %299, i32 0, i32 1
+  store i64 %297, ptr %300, align 8, !tbaa !27
+  %301 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 0
+  %302 = load i64, ptr %301, align 8, !tbaa !25
+  %303 = load ptr, ptr %3, align 8, !tbaa !11
+  %304 = getelementptr inbounds %struct.u128, ptr %303, i64 7
+  %305 = getelementptr inbounds nuw %struct.u128, ptr %304, i32 0, i32 0
+  %306 = load i64, ptr %305, align 8, !tbaa !25
+  %307 = xor i64 %302, %306
+  %308 = load ptr, ptr %3, align 8, !tbaa !11
+  %309 = getelementptr inbounds %struct.u128, ptr %308, i64 15
+  %310 = getelementptr inbounds nuw %struct.u128, ptr %309, i32 0, i32 0
+  store i64 %307, ptr %310, align 8, !tbaa !25
+  %311 = getelementptr inbounds nuw %struct.u128, ptr %5, i32 0, i32 1
+  %312 = load i64, ptr %311, align 8, !tbaa !27
+  %313 = load ptr, ptr %3, align 8, !tbaa !11
+  %314 = getelementptr inbounds %struct.u128, ptr %313, i64 7
+  %315 = getelementptr inbounds nuw %struct.u128, ptr %314, i32 0, i32 1
+  %316 = load i64, ptr %315, align 8, !tbaa !27
+  %317 = xor i64 %312, %316
+  %318 = load ptr, ptr %3, align 8, !tbaa !11
+  %319 = getelementptr inbounds %struct.u128, ptr %318, i64 15
+  %320 = getelementptr inbounds nuw %struct.u128, ptr %319, i32 0, i32 1
+  store i64 %317, ptr %320, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #5
   ret void
 }
 
-declare void @gcm_gmult_4bit(ptr noundef, ptr noundef) #3
+declare void @gcm_gmult_4bit(ptr noundef, ptr noundef) #4
 
-declare void @gcm_ghash_4bit(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare void @gcm_ghash_4bit(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_gcm128_setiv(ptr noundef %ctx, ptr noundef %key, ptr noundef %iv, i64 noundef %len) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %iv.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %is_endian = alloca %union.anon.1, align 8
-  %ctr = alloca i32, align 4
-  %gcm_gmult_p = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %len0 = alloca i64, align 8
-  %ret = alloca i64, align 8
-  %tmp = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %iv, ptr %iv.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %is_endian, ptr align 8 @__const.CRYPTO_gcm128_setiv.is_endian, i64 8, i1 false)
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %0, i32 0, i32 7
-  %1 = load ptr, ptr %gmult, align 8
-  store ptr %1, ptr %gcm_gmult_p, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %Yi = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %Yi, i64 0, i64 0
-  store i64 0, ptr %arrayidx, align 8
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %Yi1 = getelementptr inbounds %struct.gcm128_context, ptr %3, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [2 x i64], ptr %Yi1, i64 0, i64 1
-  store i64 0, ptr %arrayidx2, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %4, i32 0, i32 4
-  %arrayidx3 = getelementptr inbounds [2 x i64], ptr %Xi, i64 0, i64 0
-  store i64 0, ptr %arrayidx3, align 8
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %Xi4 = getelementptr inbounds %struct.gcm128_context, ptr %5, i32 0, i32 4
-  %arrayidx5 = getelementptr inbounds [2 x i64], ptr %Xi4, i64 0, i64 1
-  store i64 0, ptr %arrayidx5, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %len6 = getelementptr inbounds %struct.gcm128_context, ptr %6, i32 0, i32 3
-  %arrayidx7 = getelementptr inbounds [2 x i64], ptr %len6, i64 0, i64 0
-  store i64 0, ptr %arrayidx7, align 8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %len8 = getelementptr inbounds %struct.gcm128_context, ptr %7, i32 0, i32 3
-  %arrayidx9 = getelementptr inbounds [2 x i64], ptr %len8, i64 0, i64 1
-  store i64 0, ptr %arrayidx9, align 8
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %8, i32 0, i32 10
-  store i32 0, ptr %ares, align 4
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %9, i32 0, i32 9
-  store i32 0, ptr %mres, align 8
-  %10 = load i64, ptr %len.addr, align 8
-  %cmp = icmp eq i64 %10, 12
-  br i1 %cmp, label %if.then, label %if.else
+define hidden void @CRYPTO_gcm128_setiv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %union.anon.1, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !29
+  store i64 %3, ptr %8, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 @__const.CRYPTO_gcm128_setiv.is_endian, i64 8, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %16 = load ptr, ptr %5, align 8, !tbaa !6
+  %17 = getelementptr inbounds nuw %struct.gcm128_context, ptr %16, i32 0, i32 7
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  store ptr %18, ptr %11, align 8, !tbaa !11
+  %19 = load ptr, ptr %5, align 8, !tbaa !6
+  %20 = getelementptr inbounds nuw %struct.gcm128_context, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 0
+  store i64 0, ptr %21, align 8, !tbaa !15
+  %22 = load ptr, ptr %5, align 8, !tbaa !6
+  %23 = getelementptr inbounds nuw %struct.gcm128_context, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [2 x i64], ptr %23, i64 0, i64 1
+  store i64 0, ptr %24, align 8, !tbaa !15
+  %25 = load ptr, ptr %5, align 8, !tbaa !6
+  %26 = getelementptr inbounds nuw %struct.gcm128_context, ptr %25, i32 0, i32 4
+  %27 = getelementptr inbounds [2 x i64], ptr %26, i64 0, i64 0
+  store i64 0, ptr %27, align 8, !tbaa !15
+  %28 = load ptr, ptr %5, align 8, !tbaa !6
+  %29 = getelementptr inbounds nuw %struct.gcm128_context, ptr %28, i32 0, i32 4
+  %30 = getelementptr inbounds [2 x i64], ptr %29, i64 0, i64 1
+  store i64 0, ptr %30, align 8, !tbaa !15
+  %31 = load ptr, ptr %5, align 8, !tbaa !6
+  %32 = getelementptr inbounds nuw %struct.gcm128_context, ptr %31, i32 0, i32 3
+  %33 = getelementptr inbounds [2 x i64], ptr %32, i64 0, i64 0
+  store i64 0, ptr %33, align 8, !tbaa !15
+  %34 = load ptr, ptr %5, align 8, !tbaa !6
+  %35 = getelementptr inbounds nuw %struct.gcm128_context, ptr %34, i32 0, i32 3
+  %36 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 1
+  store i64 0, ptr %36, align 8, !tbaa !15
+  %37 = load ptr, ptr %5, align 8, !tbaa !6
+  %38 = getelementptr inbounds nuw %struct.gcm128_context, ptr %37, i32 0, i32 10
+  store i32 0, ptr %38, align 4, !tbaa !31
+  %39 = load ptr, ptr %5, align 8, !tbaa !6
+  %40 = getelementptr inbounds nuw %struct.gcm128_context, ptr %39, i32 0, i32 9
+  store i32 0, ptr %40, align 8, !tbaa !32
+  %41 = load i64, ptr %8, align 8, !tbaa !16
+  %42 = icmp eq i64 %41, 12
+  br i1 %42, label %43, label %51
 
-if.then:                                          ; preds = %entry
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %Yi10 = getelementptr inbounds %struct.gcm128_context, ptr %11, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %Yi10, i64 0, i64 0
-  %12 = load ptr, ptr %iv.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %12, i64 12, i1 false)
-  %13 = load ptr, ptr %ctx.addr, align 8
-  %Yi11 = getelementptr inbounds %struct.gcm128_context, ptr %13, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [16 x i8], ptr %Yi11, i64 0, i64 15
-  store i8 1, ptr %arrayidx12, align 1
-  store i32 1, ptr %ctr, align 4
-  br label %if.end87
+43:                                               ; preds = %4
+  %44 = load ptr, ptr %5, align 8, !tbaa !6
+  %45 = getelementptr inbounds nuw %struct.gcm128_context, ptr %44, i32 0, i32 0
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 0, i64 0
+  %47 = load ptr, ptr %7, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 1 %47, i64 12, i1 false)
+  %48 = load ptr, ptr %5, align 8, !tbaa !6
+  %49 = getelementptr inbounds nuw %struct.gcm128_context, ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds [16 x i8], ptr %49, i64 0, i64 15
+  store i8 1, ptr %50, align 1, !tbaa !15
+  store i32 1, ptr %10, align 4, !tbaa !20
+  br label %196
 
-if.else:                                          ; preds = %entry
-  %14 = load i64, ptr %len.addr, align 8
-  store i64 %14, ptr %len0, align 8
-  br label %while.cond
+51:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %52 = load i64, ptr %8, align 8, !tbaa !16
+  store i64 %52, ptr %13, align 8, !tbaa !16
+  br label %53
 
-while.cond:                                       ; preds = %for.end, %if.else
-  %15 = load i64, ptr %len.addr, align 8
-  %cmp13 = icmp uge i64 %15, 16
-  br i1 %cmp13, label %while.body, label %while.end
+53:                                               ; preds = %77, %51
+  %54 = load i64, ptr %8, align 8, !tbaa !16
+  %55 = icmp uge i64 %54, 16
+  br i1 %55, label %56, label %89
 
-while.body:                                       ; preds = %while.cond
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+56:                                               ; preds = %53
+  store i64 0, ptr %12, align 8, !tbaa !16
+  br label %57
 
-for.cond:                                         ; preds = %for.inc, %while.body
-  %16 = load i64, ptr %i, align 8
-  %cmp14 = icmp ult i64 %16, 16
-  br i1 %cmp14, label %for.body, label %for.end
+57:                                               ; preds = %74, %56
+  %58 = load i64, ptr %12, align 8, !tbaa !16
+  %59 = icmp ult i64 %58, 16
+  br i1 %59, label %60, label %77
 
-for.body:                                         ; preds = %for.cond
-  %17 = load ptr, ptr %iv.addr, align 8
-  %18 = load i64, ptr %i, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %17, i64 %18
-  %19 = load i8, ptr %arrayidx15, align 1
-  %conv = zext i8 %19 to i32
-  %20 = load ptr, ptr %ctx.addr, align 8
-  %Yi16 = getelementptr inbounds %struct.gcm128_context, ptr %20, i32 0, i32 0
-  %21 = load i64, ptr %i, align 8
-  %arrayidx17 = getelementptr inbounds [16 x i8], ptr %Yi16, i64 0, i64 %21
-  %22 = load i8, ptr %arrayidx17, align 1
-  %conv18 = zext i8 %22 to i32
-  %xor = xor i32 %conv18, %conv
-  %conv19 = trunc i32 %xor to i8
-  store i8 %conv19, ptr %arrayidx17, align 1
-  br label %for.inc
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %7, align 8, !tbaa !29
+  %62 = load i64, ptr %12, align 8, !tbaa !16
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !15
+  %65 = zext i8 %64 to i32
+  %66 = load ptr, ptr %5, align 8, !tbaa !6
+  %67 = getelementptr inbounds nuw %struct.gcm128_context, ptr %66, i32 0, i32 0
+  %68 = load i64, ptr %12, align 8, !tbaa !16
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !15
+  %71 = zext i8 %70 to i32
+  %72 = xor i32 %71, %65
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %69, align 1, !tbaa !15
+  br label %74
 
-for.inc:                                          ; preds = %for.body
-  %23 = load i64, ptr %i, align 8
-  %inc = add i64 %23, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+74:                                               ; preds = %60
+  %75 = load i64, ptr %12, align 8, !tbaa !16
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %12, align 8, !tbaa !16
+  br label %57, !llvm.loop !33
 
-for.end:                                          ; preds = %for.cond
-  %24 = load ptr, ptr %gcm_gmult_p, align 8
-  %25 = load ptr, ptr %ctx.addr, align 8
-  %Yi20 = getelementptr inbounds %struct.gcm128_context, ptr %25, i32 0, i32 0
-  %arraydecay21 = getelementptr inbounds [2 x i64], ptr %Yi20, i64 0, i64 0
-  %26 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %26, i32 0, i32 6
-  %arraydecay22 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
-  call void %24(ptr noundef %arraydecay21, ptr noundef %arraydecay22)
-  %27 = load ptr, ptr %iv.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %add.ptr, ptr %iv.addr, align 8
-  %28 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %28, 16
-  store i64 %sub, ptr %len.addr, align 8
-  br label %while.cond, !llvm.loop !11
+77:                                               ; preds = %57
+  %78 = load ptr, ptr %11, align 8, !tbaa !11
+  %79 = load ptr, ptr %5, align 8, !tbaa !6
+  %80 = getelementptr inbounds nuw %struct.gcm128_context, ptr %79, i32 0, i32 0
+  %81 = getelementptr inbounds [2 x i64], ptr %80, i64 0, i64 0
+  %82 = load ptr, ptr %5, align 8, !tbaa !6
+  %83 = getelementptr inbounds nuw %struct.gcm128_context, ptr %82, i32 0, i32 6
+  %84 = getelementptr inbounds [16 x %struct.u128], ptr %83, i64 0, i64 0
+  call void %78(ptr noundef %81, ptr noundef %84)
+  %85 = load ptr, ptr %7, align 8, !tbaa !29
+  %86 = getelementptr inbounds i8, ptr %85, i64 16
+  store ptr %86, ptr %7, align 8, !tbaa !29
+  %87 = load i64, ptr %8, align 8, !tbaa !16
+  %88 = sub i64 %87, 16
+  store i64 %88, ptr %8, align 8, !tbaa !16
+  br label %53, !llvm.loop !35
 
-while.end:                                        ; preds = %while.cond
-  %29 = load i64, ptr %len.addr, align 8
-  %tobool = icmp ne i64 %29, 0
-  br i1 %tobool, label %if.then23, label %if.end
+89:                                               ; preds = %53
+  %90 = load i64, ptr %8, align 8, !tbaa !16
+  %91 = icmp ne i64 %90, 0
+  br i1 %91, label %92, label %122
 
-if.then23:                                        ; preds = %while.end
-  store i64 0, ptr %i, align 8
-  br label %for.cond24
+92:                                               ; preds = %89
+  store i64 0, ptr %12, align 8, !tbaa !16
+  br label %93
 
-for.cond24:                                       ; preds = %for.inc35, %if.then23
-  %30 = load i64, ptr %i, align 8
-  %31 = load i64, ptr %len.addr, align 8
-  %cmp25 = icmp ult i64 %30, %31
-  br i1 %cmp25, label %for.body27, label %for.end37
+93:                                               ; preds = %111, %92
+  %94 = load i64, ptr %12, align 8, !tbaa !16
+  %95 = load i64, ptr %8, align 8, !tbaa !16
+  %96 = icmp ult i64 %94, %95
+  br i1 %96, label %97, label %114
 
-for.body27:                                       ; preds = %for.cond24
-  %32 = load ptr, ptr %iv.addr, align 8
-  %33 = load i64, ptr %i, align 8
-  %arrayidx28 = getelementptr inbounds i8, ptr %32, i64 %33
-  %34 = load i8, ptr %arrayidx28, align 1
-  %conv29 = zext i8 %34 to i32
-  %35 = load ptr, ptr %ctx.addr, align 8
-  %Yi30 = getelementptr inbounds %struct.gcm128_context, ptr %35, i32 0, i32 0
-  %36 = load i64, ptr %i, align 8
-  %arrayidx31 = getelementptr inbounds [16 x i8], ptr %Yi30, i64 0, i64 %36
-  %37 = load i8, ptr %arrayidx31, align 1
-  %conv32 = zext i8 %37 to i32
-  %xor33 = xor i32 %conv32, %conv29
-  %conv34 = trunc i32 %xor33 to i8
-  store i8 %conv34, ptr %arrayidx31, align 1
-  br label %for.inc35
+97:                                               ; preds = %93
+  %98 = load ptr, ptr %7, align 8, !tbaa !29
+  %99 = load i64, ptr %12, align 8, !tbaa !16
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
+  %101 = load i8, ptr %100, align 1, !tbaa !15
+  %102 = zext i8 %101 to i32
+  %103 = load ptr, ptr %5, align 8, !tbaa !6
+  %104 = getelementptr inbounds nuw %struct.gcm128_context, ptr %103, i32 0, i32 0
+  %105 = load i64, ptr %12, align 8, !tbaa !16
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 0, i64 %105
+  %107 = load i8, ptr %106, align 1, !tbaa !15
+  %108 = zext i8 %107 to i32
+  %109 = xor i32 %108, %102
+  %110 = trunc i32 %109 to i8
+  store i8 %110, ptr %106, align 1, !tbaa !15
+  br label %111
 
-for.inc35:                                        ; preds = %for.body27
-  %38 = load i64, ptr %i, align 8
-  %inc36 = add i64 %38, 1
-  store i64 %inc36, ptr %i, align 8
-  br label %for.cond24, !llvm.loop !12
+111:                                              ; preds = %97
+  %112 = load i64, ptr %12, align 8, !tbaa !16
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %12, align 8, !tbaa !16
+  br label %93, !llvm.loop !36
 
-for.end37:                                        ; preds = %for.cond24
-  %39 = load ptr, ptr %gcm_gmult_p, align 8
-  %40 = load ptr, ptr %ctx.addr, align 8
-  %Yi38 = getelementptr inbounds %struct.gcm128_context, ptr %40, i32 0, i32 0
-  %arraydecay39 = getelementptr inbounds [2 x i64], ptr %Yi38, i64 0, i64 0
-  %41 = load ptr, ptr %ctx.addr, align 8
-  %Htable40 = getelementptr inbounds %struct.gcm128_context, ptr %41, i32 0, i32 6
-  %arraydecay41 = getelementptr inbounds [16 x %struct.u128], ptr %Htable40, i64 0, i64 0
-  call void %39(ptr noundef %arraydecay39, ptr noundef %arraydecay41)
-  br label %if.end
+114:                                              ; preds = %93
+  %115 = load ptr, ptr %11, align 8, !tbaa !11
+  %116 = load ptr, ptr %5, align 8, !tbaa !6
+  %117 = getelementptr inbounds nuw %struct.gcm128_context, ptr %116, i32 0, i32 0
+  %118 = getelementptr inbounds [2 x i64], ptr %117, i64 0, i64 0
+  %119 = load ptr, ptr %5, align 8, !tbaa !6
+  %120 = getelementptr inbounds nuw %struct.gcm128_context, ptr %119, i32 0, i32 6
+  %121 = getelementptr inbounds [16 x %struct.u128], ptr %120, i64 0, i64 0
+  call void %115(ptr noundef %118, ptr noundef %121)
+  br label %122
 
-if.end:                                           ; preds = %for.end37, %while.end
-  %42 = load i64, ptr %len0, align 8
-  %shl = shl i64 %42, 3
-  store i64 %shl, ptr %len0, align 8
-  %43 = load i8, ptr %is_endian, align 8
-  %tobool42 = icmp ne i8 %43, 0
-  br i1 %tobool42, label %if.then43, label %if.else47
+122:                                              ; preds = %114, %89
+  %123 = load i64, ptr %13, align 8, !tbaa !16
+  %124 = shl i64 %123, 3
+  store i64 %124, ptr %13, align 8, !tbaa !16
+  %125 = load i8, ptr %9, align 8, !tbaa !15
+  %126 = icmp ne i8 %125, 0
+  br i1 %126, label %127, label %138
 
-if.then43:                                        ; preds = %if.end
-  %44 = load i64, ptr %len0, align 8
-  store i64 %44, ptr %ret, align 8
-  %45 = load i64, ptr %ret, align 8
-  %46 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %45) #4, !srcloc !13
-  store i64 %46, ptr %ret, align 8
-  %47 = load i64, ptr %ret, align 8
-  store i64 %47, ptr %tmp, align 8
-  %48 = load i64, ptr %tmp, align 8
-  %49 = load ptr, ptr %ctx.addr, align 8
-  %Yi44 = getelementptr inbounds %struct.gcm128_context, ptr %49, i32 0, i32 0
-  %arrayidx45 = getelementptr inbounds [2 x i64], ptr %Yi44, i64 0, i64 1
-  %50 = load i64, ptr %arrayidx45, align 8
-  %xor46 = xor i64 %50, %48
-  store i64 %xor46, ptr %arrayidx45, align 8
-  br label %if.end51
+127:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %128 = load i64, ptr %13, align 8, !tbaa !16
+  store i64 %128, ptr %14, align 8, !tbaa !16
+  %129 = load i64, ptr %14, align 8, !tbaa !16
+  %130 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %129) #6, !srcloc !37
+  store i64 %130, ptr %14, align 8, !tbaa !16
+  %131 = load i64, ptr %14, align 8, !tbaa !16
+  store i64 %131, ptr %15, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  %132 = load i64, ptr %15, align 8, !tbaa !16
+  %133 = load ptr, ptr %5, align 8, !tbaa !6
+  %134 = getelementptr inbounds nuw %struct.gcm128_context, ptr %133, i32 0, i32 0
+  %135 = getelementptr inbounds [2 x i64], ptr %134, i64 0, i64 1
+  %136 = load i64, ptr %135, align 8, !tbaa !15
+  %137 = xor i64 %136, %132
+  store i64 %137, ptr %135, align 8, !tbaa !15
+  br label %145
 
-if.else47:                                        ; preds = %if.end
-  %51 = load i64, ptr %len0, align 8
-  %52 = load ptr, ptr %ctx.addr, align 8
-  %Yi48 = getelementptr inbounds %struct.gcm128_context, ptr %52, i32 0, i32 0
-  %arrayidx49 = getelementptr inbounds [2 x i64], ptr %Yi48, i64 0, i64 1
-  %53 = load i64, ptr %arrayidx49, align 8
-  %xor50 = xor i64 %53, %51
-  store i64 %xor50, ptr %arrayidx49, align 8
-  br label %if.end51
+138:                                              ; preds = %122
+  %139 = load i64, ptr %13, align 8, !tbaa !16
+  %140 = load ptr, ptr %5, align 8, !tbaa !6
+  %141 = getelementptr inbounds nuw %struct.gcm128_context, ptr %140, i32 0, i32 0
+  %142 = getelementptr inbounds [2 x i64], ptr %141, i64 0, i64 1
+  %143 = load i64, ptr %142, align 8, !tbaa !15
+  %144 = xor i64 %143, %139
+  store i64 %144, ptr %142, align 8, !tbaa !15
+  br label %145
 
-if.end51:                                         ; preds = %if.else47, %if.then43
-  %54 = load ptr, ptr %gcm_gmult_p, align 8
-  %55 = load ptr, ptr %ctx.addr, align 8
-  %Yi52 = getelementptr inbounds %struct.gcm128_context, ptr %55, i32 0, i32 0
-  %arraydecay53 = getelementptr inbounds [2 x i64], ptr %Yi52, i64 0, i64 0
-  %56 = load ptr, ptr %ctx.addr, align 8
-  %Htable54 = getelementptr inbounds %struct.gcm128_context, ptr %56, i32 0, i32 6
-  %arraydecay55 = getelementptr inbounds [16 x %struct.u128], ptr %Htable54, i64 0, i64 0
-  call void %54(ptr noundef %arraydecay53, ptr noundef %arraydecay55)
-  %57 = load i8, ptr %is_endian, align 8
-  %tobool56 = icmp ne i8 %57, 0
-  br i1 %tobool56, label %if.then57, label %if.else83
+145:                                              ; preds = %138, %127
+  %146 = load ptr, ptr %11, align 8, !tbaa !11
+  %147 = load ptr, ptr %5, align 8, !tbaa !6
+  %148 = getelementptr inbounds nuw %struct.gcm128_context, ptr %147, i32 0, i32 0
+  %149 = getelementptr inbounds [2 x i64], ptr %148, i64 0, i64 0
+  %150 = load ptr, ptr %5, align 8, !tbaa !6
+  %151 = getelementptr inbounds nuw %struct.gcm128_context, ptr %150, i32 0, i32 6
+  %152 = getelementptr inbounds [16 x %struct.u128], ptr %151, i64 0, i64 0
+  call void %146(ptr noundef %149, ptr noundef %152)
+  %153 = load i8, ptr %9, align 8, !tbaa !15
+  %154 = icmp ne i8 %153, 0
+  br i1 %154, label %155, label %190
 
-if.then57:                                        ; preds = %if.end51
-  %58 = load ptr, ptr %ctx.addr, align 8
-  %Yi58 = getelementptr inbounds %struct.gcm128_context, ptr %58, i32 0, i32 0
-  %arraydecay59 = getelementptr inbounds [16 x i8], ptr %Yi58, i64 0, i64 0
-  %add.ptr60 = getelementptr inbounds i8, ptr %arraydecay59, i64 12
-  %arrayidx61 = getelementptr inbounds i8, ptr %add.ptr60, i64 0
-  %59 = load i8, ptr %arrayidx61, align 1
-  %conv62 = zext i8 %59 to i32
-  %shl63 = shl i32 %conv62, 24
-  %60 = load ptr, ptr %ctx.addr, align 8
-  %Yi64 = getelementptr inbounds %struct.gcm128_context, ptr %60, i32 0, i32 0
-  %arraydecay65 = getelementptr inbounds [16 x i8], ptr %Yi64, i64 0, i64 0
-  %add.ptr66 = getelementptr inbounds i8, ptr %arraydecay65, i64 12
-  %arrayidx67 = getelementptr inbounds i8, ptr %add.ptr66, i64 1
-  %61 = load i8, ptr %arrayidx67, align 1
-  %conv68 = zext i8 %61 to i32
-  %shl69 = shl i32 %conv68, 16
-  %or = or i32 %shl63, %shl69
-  %62 = load ptr, ptr %ctx.addr, align 8
-  %Yi70 = getelementptr inbounds %struct.gcm128_context, ptr %62, i32 0, i32 0
-  %arraydecay71 = getelementptr inbounds [16 x i8], ptr %Yi70, i64 0, i64 0
-  %add.ptr72 = getelementptr inbounds i8, ptr %arraydecay71, i64 12
-  %arrayidx73 = getelementptr inbounds i8, ptr %add.ptr72, i64 2
-  %63 = load i8, ptr %arrayidx73, align 1
-  %conv74 = zext i8 %63 to i32
-  %shl75 = shl i32 %conv74, 8
-  %or76 = or i32 %or, %shl75
-  %64 = load ptr, ptr %ctx.addr, align 8
-  %Yi77 = getelementptr inbounds %struct.gcm128_context, ptr %64, i32 0, i32 0
-  %arraydecay78 = getelementptr inbounds [16 x i8], ptr %Yi77, i64 0, i64 0
-  %add.ptr79 = getelementptr inbounds i8, ptr %arraydecay78, i64 12
-  %arrayidx80 = getelementptr inbounds i8, ptr %add.ptr79, i64 3
-  %65 = load i8, ptr %arrayidx80, align 1
-  %conv81 = zext i8 %65 to i32
-  %or82 = or i32 %or76, %conv81
-  store i32 %or82, ptr %ctr, align 4
-  br label %if.end86
+155:                                              ; preds = %145
+  %156 = load ptr, ptr %5, align 8, !tbaa !6
+  %157 = getelementptr inbounds nuw %struct.gcm128_context, ptr %156, i32 0, i32 0
+  %158 = getelementptr inbounds [16 x i8], ptr %157, i64 0, i64 0
+  %159 = getelementptr inbounds i8, ptr %158, i64 12
+  %160 = getelementptr inbounds i8, ptr %159, i64 0
+  %161 = load i8, ptr %160, align 1, !tbaa !15
+  %162 = zext i8 %161 to i32
+  %163 = shl i32 %162, 24
+  %164 = load ptr, ptr %5, align 8, !tbaa !6
+  %165 = getelementptr inbounds nuw %struct.gcm128_context, ptr %164, i32 0, i32 0
+  %166 = getelementptr inbounds [16 x i8], ptr %165, i64 0, i64 0
+  %167 = getelementptr inbounds i8, ptr %166, i64 12
+  %168 = getelementptr inbounds i8, ptr %167, i64 1
+  %169 = load i8, ptr %168, align 1, !tbaa !15
+  %170 = zext i8 %169 to i32
+  %171 = shl i32 %170, 16
+  %172 = or i32 %163, %171
+  %173 = load ptr, ptr %5, align 8, !tbaa !6
+  %174 = getelementptr inbounds nuw %struct.gcm128_context, ptr %173, i32 0, i32 0
+  %175 = getelementptr inbounds [16 x i8], ptr %174, i64 0, i64 0
+  %176 = getelementptr inbounds i8, ptr %175, i64 12
+  %177 = getelementptr inbounds i8, ptr %176, i64 2
+  %178 = load i8, ptr %177, align 1, !tbaa !15
+  %179 = zext i8 %178 to i32
+  %180 = shl i32 %179, 8
+  %181 = or i32 %172, %180
+  %182 = load ptr, ptr %5, align 8, !tbaa !6
+  %183 = getelementptr inbounds nuw %struct.gcm128_context, ptr %182, i32 0, i32 0
+  %184 = getelementptr inbounds [16 x i8], ptr %183, i64 0, i64 0
+  %185 = getelementptr inbounds i8, ptr %184, i64 12
+  %186 = getelementptr inbounds i8, ptr %185, i64 3
+  %187 = load i8, ptr %186, align 1, !tbaa !15
+  %188 = zext i8 %187 to i32
+  %189 = or i32 %181, %188
+  store i32 %189, ptr %10, align 4, !tbaa !20
+  br label %195
 
-if.else83:                                        ; preds = %if.end51
-  %66 = load ptr, ptr %ctx.addr, align 8
-  %Yi84 = getelementptr inbounds %struct.gcm128_context, ptr %66, i32 0, i32 0
-  %arrayidx85 = getelementptr inbounds [4 x i32], ptr %Yi84, i64 0, i64 3
-  %67 = load i32, ptr %arrayidx85, align 4
-  store i32 %67, ptr %ctr, align 4
-  br label %if.end86
+190:                                              ; preds = %145
+  %191 = load ptr, ptr %5, align 8, !tbaa !6
+  %192 = getelementptr inbounds nuw %struct.gcm128_context, ptr %191, i32 0, i32 0
+  %193 = getelementptr inbounds [4 x i32], ptr %192, i64 0, i64 3
+  %194 = load i32, ptr %193, align 4, !tbaa !15
+  store i32 %194, ptr %10, align 4, !tbaa !20
+  br label %195
 
-if.end86:                                         ; preds = %if.else83, %if.then57
-  br label %if.end87
+195:                                              ; preds = %190, %155
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  br label %196
 
-if.end87:                                         ; preds = %if.end86, %if.then
-  %68 = load ptr, ptr %ctx.addr, align 8
-  %block = getelementptr inbounds %struct.gcm128_context, ptr %68, i32 0, i32 11
-  %69 = load ptr, ptr %block, align 8
-  %70 = load ptr, ptr %ctx.addr, align 8
-  %Yi88 = getelementptr inbounds %struct.gcm128_context, ptr %70, i32 0, i32 0
-  %arraydecay89 = getelementptr inbounds [16 x i8], ptr %Yi88, i64 0, i64 0
-  %71 = load ptr, ptr %ctx.addr, align 8
-  %EK0 = getelementptr inbounds %struct.gcm128_context, ptr %71, i32 0, i32 2
-  %arraydecay90 = getelementptr inbounds [16 x i8], ptr %EK0, i64 0, i64 0
-  %72 = load ptr, ptr %key.addr, align 8
-  call void %69(ptr noundef %arraydecay89, ptr noundef %arraydecay90, ptr noundef %72)
-  %73 = load i32, ptr %ctr, align 4
-  %inc91 = add i32 %73, 1
-  store i32 %inc91, ptr %ctr, align 4
-  %74 = load i8, ptr %is_endian, align 8
-  %tobool92 = icmp ne i8 %74, 0
-  br i1 %tobool92, label %if.then93, label %if.else116
+196:                                              ; preds = %195, %43
+  %197 = load ptr, ptr %5, align 8, !tbaa !6
+  %198 = getelementptr inbounds nuw %struct.gcm128_context, ptr %197, i32 0, i32 11
+  %199 = load ptr, ptr %198, align 8, !tbaa !12
+  %200 = load ptr, ptr %5, align 8, !tbaa !6
+  %201 = getelementptr inbounds nuw %struct.gcm128_context, ptr %200, i32 0, i32 0
+  %202 = getelementptr inbounds [16 x i8], ptr %201, i64 0, i64 0
+  %203 = load ptr, ptr %5, align 8, !tbaa !6
+  %204 = getelementptr inbounds nuw %struct.gcm128_context, ptr %203, i32 0, i32 2
+  %205 = getelementptr inbounds [16 x i8], ptr %204, i64 0, i64 0
+  %206 = load ptr, ptr %6, align 8, !tbaa !11
+  call void %199(ptr noundef %202, ptr noundef %205, ptr noundef %206)
+  %207 = load i32, ptr %10, align 4, !tbaa !20
+  %208 = add i32 %207, 1
+  store i32 %208, ptr %10, align 4, !tbaa !20
+  %209 = load i8, ptr %9, align 8, !tbaa !15
+  %210 = icmp ne i8 %209, 0
+  br i1 %210, label %211, label %243
 
-if.then93:                                        ; preds = %if.end87
-  %75 = load i32, ptr %ctr, align 4
-  %shr = lshr i32 %75, 24
-  %conv94 = trunc i32 %shr to i8
-  %76 = load ptr, ptr %ctx.addr, align 8
-  %Yi95 = getelementptr inbounds %struct.gcm128_context, ptr %76, i32 0, i32 0
-  %arraydecay96 = getelementptr inbounds [16 x i8], ptr %Yi95, i64 0, i64 0
-  %add.ptr97 = getelementptr inbounds i8, ptr %arraydecay96, i64 12
-  %arrayidx98 = getelementptr inbounds i8, ptr %add.ptr97, i64 0
-  store i8 %conv94, ptr %arrayidx98, align 1
-  %77 = load i32, ptr %ctr, align 4
-  %shr99 = lshr i32 %77, 16
-  %conv100 = trunc i32 %shr99 to i8
-  %78 = load ptr, ptr %ctx.addr, align 8
-  %Yi101 = getelementptr inbounds %struct.gcm128_context, ptr %78, i32 0, i32 0
-  %arraydecay102 = getelementptr inbounds [16 x i8], ptr %Yi101, i64 0, i64 0
-  %add.ptr103 = getelementptr inbounds i8, ptr %arraydecay102, i64 12
-  %arrayidx104 = getelementptr inbounds i8, ptr %add.ptr103, i64 1
-  store i8 %conv100, ptr %arrayidx104, align 1
-  %79 = load i32, ptr %ctr, align 4
-  %shr105 = lshr i32 %79, 8
-  %conv106 = trunc i32 %shr105 to i8
-  %80 = load ptr, ptr %ctx.addr, align 8
-  %Yi107 = getelementptr inbounds %struct.gcm128_context, ptr %80, i32 0, i32 0
-  %arraydecay108 = getelementptr inbounds [16 x i8], ptr %Yi107, i64 0, i64 0
-  %add.ptr109 = getelementptr inbounds i8, ptr %arraydecay108, i64 12
-  %arrayidx110 = getelementptr inbounds i8, ptr %add.ptr109, i64 2
-  store i8 %conv106, ptr %arrayidx110, align 1
-  %81 = load i32, ptr %ctr, align 4
-  %conv111 = trunc i32 %81 to i8
-  %82 = load ptr, ptr %ctx.addr, align 8
-  %Yi112 = getelementptr inbounds %struct.gcm128_context, ptr %82, i32 0, i32 0
-  %arraydecay113 = getelementptr inbounds [16 x i8], ptr %Yi112, i64 0, i64 0
-  %add.ptr114 = getelementptr inbounds i8, ptr %arraydecay113, i64 12
-  %arrayidx115 = getelementptr inbounds i8, ptr %add.ptr114, i64 3
-  store i8 %conv111, ptr %arrayidx115, align 1
-  br label %if.end119
+211:                                              ; preds = %196
+  %212 = load i32, ptr %10, align 4, !tbaa !20
+  %213 = lshr i32 %212, 24
+  %214 = trunc i32 %213 to i8
+  %215 = load ptr, ptr %5, align 8, !tbaa !6
+  %216 = getelementptr inbounds nuw %struct.gcm128_context, ptr %215, i32 0, i32 0
+  %217 = getelementptr inbounds [16 x i8], ptr %216, i64 0, i64 0
+  %218 = getelementptr inbounds i8, ptr %217, i64 12
+  %219 = getelementptr inbounds i8, ptr %218, i64 0
+  store i8 %214, ptr %219, align 1, !tbaa !15
+  %220 = load i32, ptr %10, align 4, !tbaa !20
+  %221 = lshr i32 %220, 16
+  %222 = trunc i32 %221 to i8
+  %223 = load ptr, ptr %5, align 8, !tbaa !6
+  %224 = getelementptr inbounds nuw %struct.gcm128_context, ptr %223, i32 0, i32 0
+  %225 = getelementptr inbounds [16 x i8], ptr %224, i64 0, i64 0
+  %226 = getelementptr inbounds i8, ptr %225, i64 12
+  %227 = getelementptr inbounds i8, ptr %226, i64 1
+  store i8 %222, ptr %227, align 1, !tbaa !15
+  %228 = load i32, ptr %10, align 4, !tbaa !20
+  %229 = lshr i32 %228, 8
+  %230 = trunc i32 %229 to i8
+  %231 = load ptr, ptr %5, align 8, !tbaa !6
+  %232 = getelementptr inbounds nuw %struct.gcm128_context, ptr %231, i32 0, i32 0
+  %233 = getelementptr inbounds [16 x i8], ptr %232, i64 0, i64 0
+  %234 = getelementptr inbounds i8, ptr %233, i64 12
+  %235 = getelementptr inbounds i8, ptr %234, i64 2
+  store i8 %230, ptr %235, align 1, !tbaa !15
+  %236 = load i32, ptr %10, align 4, !tbaa !20
+  %237 = trunc i32 %236 to i8
+  %238 = load ptr, ptr %5, align 8, !tbaa !6
+  %239 = getelementptr inbounds nuw %struct.gcm128_context, ptr %238, i32 0, i32 0
+  %240 = getelementptr inbounds [16 x i8], ptr %239, i64 0, i64 0
+  %241 = getelementptr inbounds i8, ptr %240, i64 12
+  %242 = getelementptr inbounds i8, ptr %241, i64 3
+  store i8 %237, ptr %242, align 1, !tbaa !15
+  br label %248
 
-if.else116:                                       ; preds = %if.end87
-  %83 = load i32, ptr %ctr, align 4
-  %84 = load ptr, ptr %ctx.addr, align 8
-  %Yi117 = getelementptr inbounds %struct.gcm128_context, ptr %84, i32 0, i32 0
-  %arrayidx118 = getelementptr inbounds [4 x i32], ptr %Yi117, i64 0, i64 3
-  store i32 %83, ptr %arrayidx118, align 4
-  br label %if.end119
+243:                                              ; preds = %196
+  %244 = load i32, ptr %10, align 4, !tbaa !20
+  %245 = load ptr, ptr %5, align 8, !tbaa !6
+  %246 = getelementptr inbounds nuw %struct.gcm128_context, ptr %245, i32 0, i32 0
+  %247 = getelementptr inbounds [4 x i32], ptr %246, i64 0, i64 3
+  store i32 %244, ptr %247, align 4, !tbaa !15
+  br label %248
 
-if.end119:                                        ; preds = %if.else116, %if.then93
+248:                                              ; preds = %243, %211
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_gcm128_aad(ptr noundef %ctx, ptr noundef %aad, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %aad.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %i = alloca i64, align 8
-  %n = alloca i32, align 4
-  %alen = alloca i64, align 8
-  %gcm_gmult_p = alloca ptr, align 8
-  %gcm_ghash_p = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %aad, ptr %aad.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %len1 = getelementptr inbounds %struct.gcm128_context, ptr %0, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %len1, i64 0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  store i64 %1, ptr %alen, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 7
-  %3 = load ptr, ptr %gmult, align 8
-  store ptr %3, ptr %gcm_gmult_p, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %4, i32 0, i32 8
-  %5 = load ptr, ptr %ghash, align 8
-  store ptr %5, ptr %gcm_ghash_p, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %len2 = getelementptr inbounds %struct.gcm128_context, ptr %6, i32 0, i32 3
-  %arrayidx3 = getelementptr inbounds [2 x i64], ptr %len2, i64 0, i64 1
-  %7 = load i64, ptr %arrayidx3, align 8
-  %tobool = icmp ne i64 %7, 0
-  br i1 %tobool, label %if.then, label %if.end
+define hidden i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !29
+  store i64 %2, ptr %7, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %14 = load ptr, ptr %5, align 8, !tbaa !6
+  %15 = getelementptr inbounds nuw %struct.gcm128_context, ptr %14, i32 0, i32 3
+  %16 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 0
+  %17 = load i64, ptr %16, align 8, !tbaa !15
+  store i64 %17, ptr %10, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %18 = load ptr, ptr %5, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.gcm128_context, ptr %18, i32 0, i32 7
+  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  store ptr %20, ptr %11, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %21 = load ptr, ptr %5, align 8, !tbaa !6
+  %22 = getelementptr inbounds nuw %struct.gcm128_context, ptr %21, i32 0, i32 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  store ptr %23, ptr %12, align 8, !tbaa !11
+  %24 = load ptr, ptr %5, align 8, !tbaa !6
+  %25 = getelementptr inbounds nuw %struct.gcm128_context, ptr %24, i32 0, i32 3
+  %26 = getelementptr inbounds [2 x i64], ptr %25, i64 0, i64 1
+  %27 = load i64, ptr %26, align 8, !tbaa !15
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %30
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %148
 
-if.end:                                           ; preds = %entry
-  %8 = load i64, ptr %len.addr, align 8
-  %9 = load i64, ptr %alen, align 8
-  %add = add i64 %9, %8
-  store i64 %add, ptr %alen, align 8
-  %10 = load i64, ptr %alen, align 8
-  %cmp = icmp ugt i64 %10, 2305843009213693952
-  br i1 %cmp, label %if.then5, label %lor.lhs.false
+30:                                               ; preds = %3
+  %31 = load i64, ptr %7, align 8, !tbaa !16
+  %32 = load i64, ptr %10, align 8, !tbaa !16
+  %33 = add i64 %32, %31
+  store i64 %33, ptr %10, align 8, !tbaa !16
+  %34 = load i64, ptr %10, align 8, !tbaa !16
+  %35 = icmp ugt i64 %34, 2305843009213693952
+  br i1 %35, label %40, label %36
 
-lor.lhs.false:                                    ; preds = %if.end
-  %11 = load i64, ptr %alen, align 8
-  %12 = load i64, ptr %len.addr, align 8
-  %cmp4 = icmp ult i64 %11, %12
-  br i1 %cmp4, label %if.then5, label %if.end6
+36:                                               ; preds = %30
+  %37 = load i64, ptr %10, align 8, !tbaa !16
+  %38 = load i64, ptr %7, align 8, !tbaa !16
+  %39 = icmp ult i64 %37, %38
+  br i1 %39, label %40, label %41
 
-if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %36, %30
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %148
 
-if.end6:                                          ; preds = %lor.lhs.false
-  %13 = load i64, ptr %alen, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %len7 = getelementptr inbounds %struct.gcm128_context, ptr %14, i32 0, i32 3
-  %arrayidx8 = getelementptr inbounds [2 x i64], ptr %len7, i64 0, i64 0
-  store i64 %13, ptr %arrayidx8, align 8
-  %15 = load ptr, ptr %ctx.addr, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %15, i32 0, i32 10
-  %16 = load i32, ptr %ares, align 4
-  store i32 %16, ptr %n, align 4
-  %17 = load i32, ptr %n, align 4
-  %tobool9 = icmp ne i32 %17, 0
-  br i1 %tobool9, label %if.then10, label %if.end24
+41:                                               ; preds = %36
+  %42 = load i64, ptr %10, align 8, !tbaa !16
+  %43 = load ptr, ptr %5, align 8, !tbaa !6
+  %44 = getelementptr inbounds nuw %struct.gcm128_context, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds [2 x i64], ptr %44, i64 0, i64 0
+  store i64 %42, ptr %45, align 8, !tbaa !15
+  %46 = load ptr, ptr %5, align 8, !tbaa !6
+  %47 = getelementptr inbounds nuw %struct.gcm128_context, ptr %46, i32 0, i32 10
+  %48 = load i32, ptr %47, align 4, !tbaa !31
+  store i32 %48, ptr %9, align 4, !tbaa !20
+  %49 = load i32, ptr %9, align 4, !tbaa !20
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %95
 
-if.then10:                                        ; preds = %if.end6
-  br label %while.cond
+51:                                               ; preds = %41
+  br label %52
 
-while.cond:                                       ; preds = %while.body, %if.then10
-  %18 = load i32, ptr %n, align 4
-  %tobool11 = icmp ne i32 %18, 0
-  br i1 %tobool11, label %land.rhs, label %land.end
+52:                                               ; preds = %60, %51
+  %53 = load i32, ptr %9, align 4, !tbaa !20
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %58
 
-land.rhs:                                         ; preds = %while.cond
-  %19 = load i64, ptr %len.addr, align 8
-  %tobool12 = icmp ne i64 %19, 0
-  br label %land.end
+55:                                               ; preds = %52
+  %56 = load i64, ptr %7, align 8, !tbaa !16
+  %57 = icmp ne i64 %56, 0
+  br label %58
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %20 = phi i1 [ false, %while.cond ], [ %tobool12, %land.rhs ]
-  br i1 %20, label %while.body, label %while.end
+58:                                               ; preds = %55, %52
+  %59 = phi i1 [ false, %52 ], [ %57, %55 ]
+  br i1 %59, label %60, label %79
 
-while.body:                                       ; preds = %land.end
-  %21 = load ptr, ptr %aad.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %21, i32 1
-  store ptr %incdec.ptr, ptr %aad.addr, align 8
-  %22 = load i8, ptr %21, align 1
-  %conv = zext i8 %22 to i32
-  %23 = load ptr, ptr %ctx.addr, align 8
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %23, i32 0, i32 4
-  %24 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %24 to i64
-  %arrayidx13 = getelementptr inbounds [16 x i8], ptr %Xi, i64 0, i64 %idxprom
-  %25 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %25 to i32
-  %xor = xor i32 %conv14, %conv
-  %conv15 = trunc i32 %xor to i8
-  store i8 %conv15, ptr %arrayidx13, align 1
-  %26 = load i64, ptr %len.addr, align 8
-  %dec = add i64 %26, -1
-  store i64 %dec, ptr %len.addr, align 8
-  %27 = load i32, ptr %n, align 4
-  %add16 = add i32 %27, 1
-  %rem = urem i32 %add16, 16
-  store i32 %rem, ptr %n, align 4
-  br label %while.cond, !llvm.loop !14
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %6, align 8, !tbaa !29
+  %62 = getelementptr inbounds nuw i8, ptr %61, i32 1
+  store ptr %62, ptr %6, align 8, !tbaa !29
+  %63 = load i8, ptr %61, align 1, !tbaa !15
+  %64 = zext i8 %63 to i32
+  %65 = load ptr, ptr %5, align 8, !tbaa !6
+  %66 = getelementptr inbounds nuw %struct.gcm128_context, ptr %65, i32 0, i32 4
+  %67 = load i32, ptr %9, align 4, !tbaa !20
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !15
+  %71 = zext i8 %70 to i32
+  %72 = xor i32 %71, %64
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %69, align 1, !tbaa !15
+  %74 = load i64, ptr %7, align 8, !tbaa !16
+  %75 = add i64 %74, -1
+  store i64 %75, ptr %7, align 8, !tbaa !16
+  %76 = load i32, ptr %9, align 4, !tbaa !20
+  %77 = add i32 %76, 1
+  %78 = urem i32 %77, 16
+  store i32 %78, ptr %9, align 4, !tbaa !20
+  br label %52, !llvm.loop !38
 
-while.end:                                        ; preds = %land.end
-  %28 = load i32, ptr %n, align 4
-  %cmp17 = icmp eq i32 %28, 0
-  br i1 %cmp17, label %if.then19, label %if.else
+79:                                               ; preds = %58
+  %80 = load i32, ptr %9, align 4, !tbaa !20
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %90
 
-if.then19:                                        ; preds = %while.end
-  %29 = load ptr, ptr %gcm_gmult_p, align 8
-  %30 = load ptr, ptr %ctx.addr, align 8
-  %Xi20 = getelementptr inbounds %struct.gcm128_context, ptr %30, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [2 x i64], ptr %Xi20, i64 0, i64 0
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %31, i32 0, i32 6
-  %arraydecay21 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
-  call void %29(ptr noundef %arraydecay, ptr noundef %arraydecay21)
-  br label %if.end23
+82:                                               ; preds = %79
+  %83 = load ptr, ptr %11, align 8, !tbaa !11
+  %84 = load ptr, ptr %5, align 8, !tbaa !6
+  %85 = getelementptr inbounds nuw %struct.gcm128_context, ptr %84, i32 0, i32 4
+  %86 = getelementptr inbounds [2 x i64], ptr %85, i64 0, i64 0
+  %87 = load ptr, ptr %5, align 8, !tbaa !6
+  %88 = getelementptr inbounds nuw %struct.gcm128_context, ptr %87, i32 0, i32 6
+  %89 = getelementptr inbounds [16 x %struct.u128], ptr %88, i64 0, i64 0
+  call void %83(ptr noundef %86, ptr noundef %89)
+  br label %94
 
-if.else:                                          ; preds = %while.end
-  %32 = load i32, ptr %n, align 4
-  %33 = load ptr, ptr %ctx.addr, align 8
-  %ares22 = getelementptr inbounds %struct.gcm128_context, ptr %33, i32 0, i32 10
-  store i32 %32, ptr %ares22, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+90:                                               ; preds = %79
+  %91 = load i32, ptr %9, align 4, !tbaa !20
+  %92 = load ptr, ptr %5, align 8, !tbaa !6
+  %93 = getelementptr inbounds nuw %struct.gcm128_context, ptr %92, i32 0, i32 10
+  store i32 %91, ptr %93, align 4, !tbaa !31
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %148
 
-if.end23:                                         ; preds = %if.then19
-  br label %if.end24
+94:                                               ; preds = %82
+  br label %95
 
-if.end24:                                         ; preds = %if.end23, %if.end6
-  %34 = load i64, ptr %len.addr, align 8
-  %and = and i64 %34, -16
-  store i64 %and, ptr %i, align 8
-  %35 = load i64, ptr %i, align 8
-  %cmp25 = icmp ne i64 %35, 0
-  br i1 %cmp25, label %if.then27, label %if.end32
+95:                                               ; preds = %94, %41
+  %96 = load i64, ptr %7, align 8, !tbaa !16
+  %97 = and i64 %96, -16
+  store i64 %97, ptr %8, align 8, !tbaa !16
+  %98 = load i64, ptr %8, align 8, !tbaa !16
+  %99 = icmp ne i64 %98, 0
+  br i1 %99, label %100, label %116
 
-if.then27:                                        ; preds = %if.end24
-  %36 = load ptr, ptr %gcm_ghash_p, align 8
-  %37 = load ptr, ptr %ctx.addr, align 8
-  %Xi28 = getelementptr inbounds %struct.gcm128_context, ptr %37, i32 0, i32 4
-  %arraydecay29 = getelementptr inbounds [2 x i64], ptr %Xi28, i64 0, i64 0
-  %38 = load ptr, ptr %ctx.addr, align 8
-  %Htable30 = getelementptr inbounds %struct.gcm128_context, ptr %38, i32 0, i32 6
-  %arraydecay31 = getelementptr inbounds [16 x %struct.u128], ptr %Htable30, i64 0, i64 0
-  %39 = load ptr, ptr %aad.addr, align 8
-  %40 = load i64, ptr %i, align 8
-  call void %36(ptr noundef %arraydecay29, ptr noundef %arraydecay31, ptr noundef %39, i64 noundef %40)
-  %41 = load i64, ptr %i, align 8
-  %42 = load ptr, ptr %aad.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %42, i64 %41
-  store ptr %add.ptr, ptr %aad.addr, align 8
-  %43 = load i64, ptr %i, align 8
-  %44 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %44, %43
-  store i64 %sub, ptr %len.addr, align 8
-  br label %if.end32
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %12, align 8, !tbaa !11
+  %102 = load ptr, ptr %5, align 8, !tbaa !6
+  %103 = getelementptr inbounds nuw %struct.gcm128_context, ptr %102, i32 0, i32 4
+  %104 = getelementptr inbounds [2 x i64], ptr %103, i64 0, i64 0
+  %105 = load ptr, ptr %5, align 8, !tbaa !6
+  %106 = getelementptr inbounds nuw %struct.gcm128_context, ptr %105, i32 0, i32 6
+  %107 = getelementptr inbounds [16 x %struct.u128], ptr %106, i64 0, i64 0
+  %108 = load ptr, ptr %6, align 8, !tbaa !29
+  %109 = load i64, ptr %8, align 8, !tbaa !16
+  call void %101(ptr noundef %104, ptr noundef %107, ptr noundef %108, i64 noundef %109)
+  %110 = load i64, ptr %8, align 8, !tbaa !16
+  %111 = load ptr, ptr %6, align 8, !tbaa !29
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %110
+  store ptr %112, ptr %6, align 8, !tbaa !29
+  %113 = load i64, ptr %8, align 8, !tbaa !16
+  %114 = load i64, ptr %7, align 8, !tbaa !16
+  %115 = sub i64 %114, %113
+  store i64 %115, ptr %7, align 8, !tbaa !16
+  br label %116
 
-if.end32:                                         ; preds = %if.then27, %if.end24
-  %45 = load i64, ptr %len.addr, align 8
-  %tobool33 = icmp ne i64 %45, 0
-  br i1 %tobool33, label %if.then34, label %if.end45
+116:                                              ; preds = %100, %95
+  %117 = load i64, ptr %7, align 8, !tbaa !16
+  %118 = icmp ne i64 %117, 0
+  br i1 %118, label %119, label %144
 
-if.then34:                                        ; preds = %if.end32
-  %46 = load i64, ptr %len.addr, align 8
-  %conv35 = trunc i64 %46 to i32
-  store i32 %conv35, ptr %n, align 4
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+119:                                              ; preds = %116
+  %120 = load i64, ptr %7, align 8, !tbaa !16
+  %121 = trunc i64 %120 to i32
+  store i32 %121, ptr %9, align 4, !tbaa !20
+  store i64 0, ptr %8, align 8, !tbaa !16
+  br label %122
 
-for.cond:                                         ; preds = %for.inc, %if.then34
-  %47 = load i64, ptr %i, align 8
-  %48 = load i64, ptr %len.addr, align 8
-  %cmp36 = icmp ult i64 %47, %48
-  br i1 %cmp36, label %for.body, label %for.end
+122:                                              ; preds = %140, %119
+  %123 = load i64, ptr %8, align 8, !tbaa !16
+  %124 = load i64, ptr %7, align 8, !tbaa !16
+  %125 = icmp ult i64 %123, %124
+  br i1 %125, label %126, label %143
 
-for.body:                                         ; preds = %for.cond
-  %49 = load ptr, ptr %aad.addr, align 8
-  %50 = load i64, ptr %i, align 8
-  %arrayidx38 = getelementptr inbounds i8, ptr %49, i64 %50
-  %51 = load i8, ptr %arrayidx38, align 1
-  %conv39 = zext i8 %51 to i32
-  %52 = load ptr, ptr %ctx.addr, align 8
-  %Xi40 = getelementptr inbounds %struct.gcm128_context, ptr %52, i32 0, i32 4
-  %53 = load i64, ptr %i, align 8
-  %arrayidx41 = getelementptr inbounds [16 x i8], ptr %Xi40, i64 0, i64 %53
-  %54 = load i8, ptr %arrayidx41, align 1
-  %conv42 = zext i8 %54 to i32
-  %xor43 = xor i32 %conv42, %conv39
-  %conv44 = trunc i32 %xor43 to i8
-  store i8 %conv44, ptr %arrayidx41, align 1
-  br label %for.inc
+126:                                              ; preds = %122
+  %127 = load ptr, ptr %6, align 8, !tbaa !29
+  %128 = load i64, ptr %8, align 8, !tbaa !16
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !15
+  %131 = zext i8 %130 to i32
+  %132 = load ptr, ptr %5, align 8, !tbaa !6
+  %133 = getelementptr inbounds nuw %struct.gcm128_context, ptr %132, i32 0, i32 4
+  %134 = load i64, ptr %8, align 8, !tbaa !16
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 0, i64 %134
+  %136 = load i8, ptr %135, align 1, !tbaa !15
+  %137 = zext i8 %136 to i32
+  %138 = xor i32 %137, %131
+  %139 = trunc i32 %138 to i8
+  store i8 %139, ptr %135, align 1, !tbaa !15
+  br label %140
 
-for.inc:                                          ; preds = %for.body
-  %55 = load i64, ptr %i, align 8
-  %inc = add i64 %55, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !15
+140:                                              ; preds = %126
+  %141 = load i64, ptr %8, align 8, !tbaa !16
+  %142 = add i64 %141, 1
+  store i64 %142, ptr %8, align 8, !tbaa !16
+  br label %122, !llvm.loop !39
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end45
+143:                                              ; preds = %122
+  br label %144
 
-if.end45:                                         ; preds = %for.end, %if.end32
-  %56 = load i32, ptr %n, align 4
-  %57 = load ptr, ptr %ctx.addr, align 8
-  %ares46 = getelementptr inbounds %struct.gcm128_context, ptr %57, i32 0, i32 10
-  store i32 %56, ptr %ares46, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+144:                                              ; preds = %143, %116
+  %145 = load i32, ptr %9, align 4, !tbaa !20
+  %146 = load ptr, ptr %5, align 8, !tbaa !6
+  %147 = getelementptr inbounds nuw %struct.gcm128_context, ptr %146, i32 0, i32 10
+  store i32 %145, ptr %147, align 4, !tbaa !31
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %148
 
-return:                                           ; preds = %if.end45, %if.else, %if.then5, %if.then
-  %58 = load i32, ptr %retval, align 4
-  ret i32 %58
+148:                                              ; preds = %144, %90, %40, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %149 = load i32, ptr %4, align 4
+  ret i32 %149
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %is_endian = alloca %union.anon.2, align 8
-  %n = alloca i32, align 4
-  %ctr = alloca i32, align 4
-  %i = alloca i64, align 8
-  %mlen = alloca i64, align 8
-  %block = alloca ptr, align 8
-  %gcm_gmult_p = alloca ptr, align 8
-  %gcm_ghash_p = alloca ptr, align 8
-  %j = alloca i64, align 8
-  %out_t = alloca ptr, align 8
-  %in_t = alloca ptr, align 8
-  %j123 = alloca i64, align 8
-  %out_t128 = alloca ptr, align 8
-  %in_t129 = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %is_endian, ptr align 8 @__const.CRYPTO_gcm128_encrypt.is_endian, i64 8, i1 false)
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %len1 = getelementptr inbounds %struct.gcm128_context, ptr %0, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %len1, i64 0, i64 1
-  %1 = load i64, ptr %arrayidx, align 8
-  store i64 %1, ptr %mlen, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %block2 = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 11
-  %3 = load ptr, ptr %block2, align 8
-  store ptr %3, ptr %block, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %4, i32 0, i32 7
-  %5 = load ptr, ptr %gmult, align 8
-  store ptr %5, ptr %gcm_gmult_p, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %6, i32 0, i32 8
-  %7 = load ptr, ptr %ghash, align 8
-  store ptr %7, ptr %gcm_ghash_p, align 8
-  %8 = load i64, ptr %len.addr, align 8
-  %9 = load i64, ptr %mlen, align 8
-  %add = add i64 %9, %8
-  store i64 %add, ptr %mlen, align 8
-  %10 = load i64, ptr %mlen, align 8
-  %cmp = icmp ugt i64 %10, 68719476704
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca %union.anon.2, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i64, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !6
+  store ptr %1, ptr %8, align 8, !tbaa !11
+  store ptr %2, ptr %9, align 8, !tbaa !29
+  store ptr %3, ptr %10, align 8, !tbaa !29
+  store i64 %4, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 @__const.CRYPTO_gcm128_encrypt.is_endian, i64 8, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %27 = load ptr, ptr %7, align 8, !tbaa !6
+  %28 = getelementptr inbounds nuw %struct.gcm128_context, ptr %27, i32 0, i32 3
+  %29 = getelementptr inbounds [2 x i64], ptr %28, i64 0, i64 1
+  %30 = load i64, ptr %29, align 8, !tbaa !15
+  store i64 %30, ptr %16, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %31 = load ptr, ptr %7, align 8, !tbaa !6
+  %32 = getelementptr inbounds nuw %struct.gcm128_context, ptr %31, i32 0, i32 11
+  %33 = load ptr, ptr %32, align 8, !tbaa !12
+  store ptr %33, ptr %17, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  %34 = load ptr, ptr %7, align 8, !tbaa !6
+  %35 = getelementptr inbounds nuw %struct.gcm128_context, ptr %34, i32 0, i32 7
+  %36 = load ptr, ptr %35, align 8, !tbaa !21
+  store ptr %36, ptr %18, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %37 = load ptr, ptr %7, align 8, !tbaa !6
+  %38 = getelementptr inbounds nuw %struct.gcm128_context, ptr %37, i32 0, i32 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !22
+  store ptr %39, ptr %19, align 8, !tbaa !11
+  %40 = load i64, ptr %11, align 8, !tbaa !16
+  %41 = load i64, ptr %16, align 8, !tbaa !16
+  %42 = add i64 %41, %40
+  store i64 %42, ptr %16, align 8, !tbaa !16
+  %43 = load i64, ptr %16, align 8, !tbaa !16
+  %44 = icmp ugt i64 %43, 68719476704
+  br i1 %44, label %49, label %45
 
-lor.lhs.false:                                    ; preds = %entry
-  %11 = load i64, ptr %mlen, align 8
-  %12 = load i64, ptr %len.addr, align 8
-  %cmp3 = icmp ult i64 %11, %12
-  br i1 %cmp3, label %if.then, label %if.end
+45:                                               ; preds = %5
+  %46 = load i64, ptr %16, align 8, !tbaa !16
+  %47 = load i64, ptr %11, align 8, !tbaa !16
+  %48 = icmp ult i64 %46, %47
+  br i1 %48, label %49, label %50
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %45, %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %20, align 4
+  br label %471
 
-if.end:                                           ; preds = %lor.lhs.false
-  %13 = load i64, ptr %mlen, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %len4 = getelementptr inbounds %struct.gcm128_context, ptr %14, i32 0, i32 3
-  %arrayidx5 = getelementptr inbounds [2 x i64], ptr %len4, i64 0, i64 1
-  store i64 %13, ptr %arrayidx5, align 8
-  %15 = load ptr, ptr %ctx.addr, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %15, i32 0, i32 10
-  %16 = load i32, ptr %ares, align 4
-  %tobool = icmp ne i32 %16, 0
-  br i1 %tobool, label %if.then6, label %if.end9
+50:                                               ; preds = %45
+  %51 = load i64, ptr %16, align 8, !tbaa !16
+  %52 = load ptr, ptr %7, align 8, !tbaa !6
+  %53 = getelementptr inbounds nuw %struct.gcm128_context, ptr %52, i32 0, i32 3
+  %54 = getelementptr inbounds [2 x i64], ptr %53, i64 0, i64 1
+  store i64 %51, ptr %54, align 8, !tbaa !15
+  %55 = load ptr, ptr %7, align 8, !tbaa !6
+  %56 = getelementptr inbounds nuw %struct.gcm128_context, ptr %55, i32 0, i32 10
+  %57 = load i32, ptr %56, align 4, !tbaa !31
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %69
 
-if.then6:                                         ; preds = %if.end
-  %17 = load ptr, ptr %gcm_gmult_p, align 8
-  %18 = load ptr, ptr %ctx.addr, align 8
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %18, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [2 x i64], ptr %Xi, i64 0, i64 0
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %19, i32 0, i32 6
-  %arraydecay7 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
-  call void %17(ptr noundef %arraydecay, ptr noundef %arraydecay7)
-  %20 = load ptr, ptr %ctx.addr, align 8
-  %ares8 = getelementptr inbounds %struct.gcm128_context, ptr %20, i32 0, i32 10
-  store i32 0, ptr %ares8, align 4
-  br label %if.end9
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %18, align 8, !tbaa !11
+  %61 = load ptr, ptr %7, align 8, !tbaa !6
+  %62 = getelementptr inbounds nuw %struct.gcm128_context, ptr %61, i32 0, i32 4
+  %63 = getelementptr inbounds [2 x i64], ptr %62, i64 0, i64 0
+  %64 = load ptr, ptr %7, align 8, !tbaa !6
+  %65 = getelementptr inbounds nuw %struct.gcm128_context, ptr %64, i32 0, i32 6
+  %66 = getelementptr inbounds [16 x %struct.u128], ptr %65, i64 0, i64 0
+  call void %60(ptr noundef %63, ptr noundef %66)
+  %67 = load ptr, ptr %7, align 8, !tbaa !6
+  %68 = getelementptr inbounds nuw %struct.gcm128_context, ptr %67, i32 0, i32 10
+  store i32 0, ptr %68, align 4, !tbaa !31
+  br label %69
 
-if.end9:                                          ; preds = %if.then6, %if.end
-  %21 = load i8, ptr %is_endian, align 8
-  %tobool10 = icmp ne i8 %21, 0
-  br i1 %tobool10, label %if.then11, label %if.else
+69:                                               ; preds = %59, %50
+  %70 = load i8, ptr %12, align 8, !tbaa !15
+  %71 = icmp ne i8 %70, 0
+  br i1 %71, label %72, label %107
 
-if.then11:                                        ; preds = %if.end9
-  %22 = load ptr, ptr %ctx.addr, align 8
-  %Yi = getelementptr inbounds %struct.gcm128_context, ptr %22, i32 0, i32 0
-  %arraydecay12 = getelementptr inbounds [16 x i8], ptr %Yi, i64 0, i64 0
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay12, i64 12
-  %arrayidx13 = getelementptr inbounds i8, ptr %add.ptr, i64 0
-  %23 = load i8, ptr %arrayidx13, align 1
-  %conv = zext i8 %23 to i32
-  %shl = shl i32 %conv, 24
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %Yi14 = getelementptr inbounds %struct.gcm128_context, ptr %24, i32 0, i32 0
-  %arraydecay15 = getelementptr inbounds [16 x i8], ptr %Yi14, i64 0, i64 0
-  %add.ptr16 = getelementptr inbounds i8, ptr %arraydecay15, i64 12
-  %arrayidx17 = getelementptr inbounds i8, ptr %add.ptr16, i64 1
-  %25 = load i8, ptr %arrayidx17, align 1
-  %conv18 = zext i8 %25 to i32
-  %shl19 = shl i32 %conv18, 16
-  %or = or i32 %shl, %shl19
-  %26 = load ptr, ptr %ctx.addr, align 8
-  %Yi20 = getelementptr inbounds %struct.gcm128_context, ptr %26, i32 0, i32 0
-  %arraydecay21 = getelementptr inbounds [16 x i8], ptr %Yi20, i64 0, i64 0
-  %add.ptr22 = getelementptr inbounds i8, ptr %arraydecay21, i64 12
-  %arrayidx23 = getelementptr inbounds i8, ptr %add.ptr22, i64 2
-  %27 = load i8, ptr %arrayidx23, align 1
-  %conv24 = zext i8 %27 to i32
-  %shl25 = shl i32 %conv24, 8
-  %or26 = or i32 %or, %shl25
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %Yi27 = getelementptr inbounds %struct.gcm128_context, ptr %28, i32 0, i32 0
-  %arraydecay28 = getelementptr inbounds [16 x i8], ptr %Yi27, i64 0, i64 0
-  %add.ptr29 = getelementptr inbounds i8, ptr %arraydecay28, i64 12
-  %arrayidx30 = getelementptr inbounds i8, ptr %add.ptr29, i64 3
-  %29 = load i8, ptr %arrayidx30, align 1
-  %conv31 = zext i8 %29 to i32
-  %or32 = or i32 %or26, %conv31
-  store i32 %or32, ptr %ctr, align 4
-  br label %if.end35
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %7, align 8, !tbaa !6
+  %74 = getelementptr inbounds nuw %struct.gcm128_context, ptr %73, i32 0, i32 0
+  %75 = getelementptr inbounds [16 x i8], ptr %74, i64 0, i64 0
+  %76 = getelementptr inbounds i8, ptr %75, i64 12
+  %77 = getelementptr inbounds i8, ptr %76, i64 0
+  %78 = load i8, ptr %77, align 1, !tbaa !15
+  %79 = zext i8 %78 to i32
+  %80 = shl i32 %79, 24
+  %81 = load ptr, ptr %7, align 8, !tbaa !6
+  %82 = getelementptr inbounds nuw %struct.gcm128_context, ptr %81, i32 0, i32 0
+  %83 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 0
+  %84 = getelementptr inbounds i8, ptr %83, i64 12
+  %85 = getelementptr inbounds i8, ptr %84, i64 1
+  %86 = load i8, ptr %85, align 1, !tbaa !15
+  %87 = zext i8 %86 to i32
+  %88 = shl i32 %87, 16
+  %89 = or i32 %80, %88
+  %90 = load ptr, ptr %7, align 8, !tbaa !6
+  %91 = getelementptr inbounds nuw %struct.gcm128_context, ptr %90, i32 0, i32 0
+  %92 = getelementptr inbounds [16 x i8], ptr %91, i64 0, i64 0
+  %93 = getelementptr inbounds i8, ptr %92, i64 12
+  %94 = getelementptr inbounds i8, ptr %93, i64 2
+  %95 = load i8, ptr %94, align 1, !tbaa !15
+  %96 = zext i8 %95 to i32
+  %97 = shl i32 %96, 8
+  %98 = or i32 %89, %97
+  %99 = load ptr, ptr %7, align 8, !tbaa !6
+  %100 = getelementptr inbounds nuw %struct.gcm128_context, ptr %99, i32 0, i32 0
+  %101 = getelementptr inbounds [16 x i8], ptr %100, i64 0, i64 0
+  %102 = getelementptr inbounds i8, ptr %101, i64 12
+  %103 = getelementptr inbounds i8, ptr %102, i64 3
+  %104 = load i8, ptr %103, align 1, !tbaa !15
+  %105 = zext i8 %104 to i32
+  %106 = or i32 %98, %105
+  store i32 %106, ptr %14, align 4, !tbaa !20
+  br label %112
 
-if.else:                                          ; preds = %if.end9
-  %30 = load ptr, ptr %ctx.addr, align 8
-  %Yi33 = getelementptr inbounds %struct.gcm128_context, ptr %30, i32 0, i32 0
-  %arrayidx34 = getelementptr inbounds [4 x i32], ptr %Yi33, i64 0, i64 3
-  %31 = load i32, ptr %arrayidx34, align 4
-  store i32 %31, ptr %ctr, align 4
-  br label %if.end35
+107:                                              ; preds = %69
+  %108 = load ptr, ptr %7, align 8, !tbaa !6
+  %109 = getelementptr inbounds nuw %struct.gcm128_context, ptr %108, i32 0, i32 0
+  %110 = getelementptr inbounds [4 x i32], ptr %109, i64 0, i64 3
+  %111 = load i32, ptr %110, align 4, !tbaa !15
+  store i32 %111, ptr %14, align 4, !tbaa !20
+  br label %112
 
-if.end35:                                         ; preds = %if.else, %if.then11
-  %32 = load ptr, ptr %ctx.addr, align 8
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %32, i32 0, i32 9
-  %33 = load i32, ptr %mres, align 8
-  store i32 %33, ptr %n, align 4
-  %34 = load i32, ptr %n, align 4
-  %tobool36 = icmp ne i32 %34, 0
-  br i1 %tobool36, label %if.then37, label %if.end63
+112:                                              ; preds = %107, %72
+  %113 = load ptr, ptr %7, align 8, !tbaa !6
+  %114 = getelementptr inbounds nuw %struct.gcm128_context, ptr %113, i32 0, i32 9
+  %115 = load i32, ptr %114, align 8, !tbaa !32
+  store i32 %115, ptr %13, align 4, !tbaa !20
+  %116 = load i32, ptr %13, align 4, !tbaa !20
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %174
 
-if.then37:                                        ; preds = %if.end35
-  br label %while.cond
+118:                                              ; preds = %112
+  br label %119
 
-while.cond:                                       ; preds = %while.body, %if.then37
-  %35 = load i32, ptr %n, align 4
-  %tobool38 = icmp ne i32 %35, 0
-  br i1 %tobool38, label %land.rhs, label %land.end
+119:                                              ; preds = %127, %118
+  %120 = load i32, ptr %13, align 4, !tbaa !20
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %125
 
-land.rhs:                                         ; preds = %while.cond
-  %36 = load i64, ptr %len.addr, align 8
-  %tobool39 = icmp ne i64 %36, 0
-  br label %land.end
+122:                                              ; preds = %119
+  %123 = load i64, ptr %11, align 8, !tbaa !16
+  %124 = icmp ne i64 %123, 0
+  br label %125
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %37 = phi i1 [ false, %while.cond ], [ %tobool39, %land.rhs ]
-  br i1 %37, label %while.body, label %while.end
+125:                                              ; preds = %122, %119
+  %126 = phi i1 [ false, %119 ], [ %124, %122 ]
+  br i1 %126, label %127, label %158
 
-while.body:                                       ; preds = %land.end
-  %38 = load ptr, ptr %in.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %38, i32 1
-  store ptr %incdec.ptr, ptr %in.addr, align 8
-  %39 = load i8, ptr %38, align 1
-  %conv40 = zext i8 %39 to i32
-  %40 = load ptr, ptr %ctx.addr, align 8
-  %EKi = getelementptr inbounds %struct.gcm128_context, ptr %40, i32 0, i32 1
-  %41 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %41 to i64
-  %arrayidx41 = getelementptr inbounds [16 x i8], ptr %EKi, i64 0, i64 %idxprom
-  %42 = load i8, ptr %arrayidx41, align 1
-  %conv42 = zext i8 %42 to i32
-  %xor = xor i32 %conv40, %conv42
-  %conv43 = trunc i32 %xor to i8
-  %43 = load ptr, ptr %out.addr, align 8
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %43, i32 1
-  store ptr %incdec.ptr44, ptr %out.addr, align 8
-  store i8 %conv43, ptr %43, align 1
-  %conv45 = zext i8 %conv43 to i32
-  %44 = load ptr, ptr %ctx.addr, align 8
-  %Xi46 = getelementptr inbounds %struct.gcm128_context, ptr %44, i32 0, i32 4
-  %45 = load i32, ptr %n, align 4
-  %idxprom47 = zext i32 %45 to i64
-  %arrayidx48 = getelementptr inbounds [16 x i8], ptr %Xi46, i64 0, i64 %idxprom47
-  %46 = load i8, ptr %arrayidx48, align 1
-  %conv49 = zext i8 %46 to i32
-  %xor50 = xor i32 %conv49, %conv45
-  %conv51 = trunc i32 %xor50 to i8
-  store i8 %conv51, ptr %arrayidx48, align 1
-  %47 = load i64, ptr %len.addr, align 8
-  %dec = add i64 %47, -1
-  store i64 %dec, ptr %len.addr, align 8
-  %48 = load i32, ptr %n, align 4
-  %add52 = add i32 %48, 1
-  %rem = urem i32 %add52, 16
-  store i32 %rem, ptr %n, align 4
-  br label %while.cond, !llvm.loop !16
+127:                                              ; preds = %125
+  %128 = load ptr, ptr %9, align 8, !tbaa !29
+  %129 = getelementptr inbounds nuw i8, ptr %128, i32 1
+  store ptr %129, ptr %9, align 8, !tbaa !29
+  %130 = load i8, ptr %128, align 1, !tbaa !15
+  %131 = zext i8 %130 to i32
+  %132 = load ptr, ptr %7, align 8, !tbaa !6
+  %133 = getelementptr inbounds nuw %struct.gcm128_context, ptr %132, i32 0, i32 1
+  %134 = load i32, ptr %13, align 4, !tbaa !20
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 0, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !15
+  %138 = zext i8 %137 to i32
+  %139 = xor i32 %131, %138
+  %140 = trunc i32 %139 to i8
+  %141 = load ptr, ptr %10, align 8, !tbaa !29
+  %142 = getelementptr inbounds nuw i8, ptr %141, i32 1
+  store ptr %142, ptr %10, align 8, !tbaa !29
+  store i8 %140, ptr %141, align 1, !tbaa !15
+  %143 = zext i8 %140 to i32
+  %144 = load ptr, ptr %7, align 8, !tbaa !6
+  %145 = getelementptr inbounds nuw %struct.gcm128_context, ptr %144, i32 0, i32 4
+  %146 = load i32, ptr %13, align 4, !tbaa !20
+  %147 = zext i32 %146 to i64
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 0, i64 %147
+  %149 = load i8, ptr %148, align 1, !tbaa !15
+  %150 = zext i8 %149 to i32
+  %151 = xor i32 %150, %143
+  %152 = trunc i32 %151 to i8
+  store i8 %152, ptr %148, align 1, !tbaa !15
+  %153 = load i64, ptr %11, align 8, !tbaa !16
+  %154 = add i64 %153, -1
+  store i64 %154, ptr %11, align 8, !tbaa !16
+  %155 = load i32, ptr %13, align 4, !tbaa !20
+  %156 = add i32 %155, 1
+  %157 = urem i32 %156, 16
+  store i32 %157, ptr %13, align 4, !tbaa !20
+  br label %119, !llvm.loop !40
 
-while.end:                                        ; preds = %land.end
-  %49 = load i32, ptr %n, align 4
-  %cmp53 = icmp eq i32 %49, 0
-  br i1 %cmp53, label %if.then55, label %if.else60
+158:                                              ; preds = %125
+  %159 = load i32, ptr %13, align 4, !tbaa !20
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %161, label %169
 
-if.then55:                                        ; preds = %while.end
-  %50 = load ptr, ptr %gcm_gmult_p, align 8
-  %51 = load ptr, ptr %ctx.addr, align 8
-  %Xi56 = getelementptr inbounds %struct.gcm128_context, ptr %51, i32 0, i32 4
-  %arraydecay57 = getelementptr inbounds [2 x i64], ptr %Xi56, i64 0, i64 0
-  %52 = load ptr, ptr %ctx.addr, align 8
-  %Htable58 = getelementptr inbounds %struct.gcm128_context, ptr %52, i32 0, i32 6
-  %arraydecay59 = getelementptr inbounds [16 x %struct.u128], ptr %Htable58, i64 0, i64 0
-  call void %50(ptr noundef %arraydecay57, ptr noundef %arraydecay59)
-  br label %if.end62
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %18, align 8, !tbaa !11
+  %163 = load ptr, ptr %7, align 8, !tbaa !6
+  %164 = getelementptr inbounds nuw %struct.gcm128_context, ptr %163, i32 0, i32 4
+  %165 = getelementptr inbounds [2 x i64], ptr %164, i64 0, i64 0
+  %166 = load ptr, ptr %7, align 8, !tbaa !6
+  %167 = getelementptr inbounds nuw %struct.gcm128_context, ptr %166, i32 0, i32 6
+  %168 = getelementptr inbounds [16 x %struct.u128], ptr %167, i64 0, i64 0
+  call void %162(ptr noundef %165, ptr noundef %168)
+  br label %173
 
-if.else60:                                        ; preds = %while.end
-  %53 = load i32, ptr %n, align 4
-  %54 = load ptr, ptr %ctx.addr, align 8
-  %mres61 = getelementptr inbounds %struct.gcm128_context, ptr %54, i32 0, i32 9
-  store i32 %53, ptr %mres61, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+169:                                              ; preds = %158
+  %170 = load i32, ptr %13, align 4, !tbaa !20
+  %171 = load ptr, ptr %7, align 8, !tbaa !6
+  %172 = getelementptr inbounds nuw %struct.gcm128_context, ptr %171, i32 0, i32 9
+  store i32 %170, ptr %172, align 8, !tbaa !32
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %20, align 4
+  br label %471
 
-if.end62:                                         ; preds = %if.then55
-  br label %if.end63
+173:                                              ; preds = %161
+  br label %174
 
-if.end63:                                         ; preds = %if.end62, %if.end35
-  br label %while.cond64
+174:                                              ; preds = %173, %112
+  br label %175
 
-while.cond64:                                     ; preds = %while.end113, %if.end63
-  %55 = load i64, ptr %len.addr, align 8
-  %cmp65 = icmp uge i64 %55, 3072
-  br i1 %cmp65, label %while.body67, label %while.end120
+175:                                              ; preds = %262, %174
+  %176 = load i64, ptr %11, align 8, !tbaa !16
+  %177 = icmp uge i64 %176, 3072
+  br i1 %177, label %178, label %274
 
-while.body67:                                     ; preds = %while.cond64
-  store i64 3072, ptr %j, align 8
-  br label %while.cond68
+178:                                              ; preds = %175
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  store i64 3072, ptr %21, align 8, !tbaa !16
+  br label %179
 
-while.cond68:                                     ; preds = %for.end, %while.body67
-  %56 = load i64, ptr %j, align 8
-  %tobool69 = icmp ne i64 %56, 0
-  br i1 %tobool69, label %while.body70, label %while.end113
+179:                                              ; preds = %255, %178
+  %180 = load i64, ptr %21, align 8, !tbaa !16
+  %181 = icmp ne i64 %180, 0
+  br i1 %181, label %182, label %262
 
-while.body70:                                     ; preds = %while.cond68
-  %57 = load ptr, ptr %out.addr, align 8
-  store ptr %57, ptr %out_t, align 8
-  %58 = load ptr, ptr %in.addr, align 8
-  store ptr %58, ptr %in_t, align 8
-  %59 = load ptr, ptr %block, align 8
-  %60 = load ptr, ptr %ctx.addr, align 8
-  %Yi71 = getelementptr inbounds %struct.gcm128_context, ptr %60, i32 0, i32 0
-  %arraydecay72 = getelementptr inbounds [16 x i8], ptr %Yi71, i64 0, i64 0
-  %61 = load ptr, ptr %ctx.addr, align 8
-  %EKi73 = getelementptr inbounds %struct.gcm128_context, ptr %61, i32 0, i32 1
-  %arraydecay74 = getelementptr inbounds [16 x i8], ptr %EKi73, i64 0, i64 0
-  %62 = load ptr, ptr %key.addr, align 8
-  call void %59(ptr noundef %arraydecay72, ptr noundef %arraydecay74, ptr noundef %62)
-  %63 = load i32, ptr %ctr, align 4
-  %inc = add i32 %63, 1
-  store i32 %inc, ptr %ctr, align 4
-  %64 = load i8, ptr %is_endian, align 8
-  %tobool75 = icmp ne i8 %64, 0
-  br i1 %tobool75, label %if.then76, label %if.else99
+182:                                              ; preds = %179
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  %183 = load ptr, ptr %10, align 8, !tbaa !29
+  store ptr %183, ptr %22, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  %184 = load ptr, ptr %9, align 8, !tbaa !29
+  store ptr %184, ptr %23, align 8, !tbaa !23
+  %185 = load ptr, ptr %17, align 8, !tbaa !11
+  %186 = load ptr, ptr %7, align 8, !tbaa !6
+  %187 = getelementptr inbounds nuw %struct.gcm128_context, ptr %186, i32 0, i32 0
+  %188 = getelementptr inbounds [16 x i8], ptr %187, i64 0, i64 0
+  %189 = load ptr, ptr %7, align 8, !tbaa !6
+  %190 = getelementptr inbounds nuw %struct.gcm128_context, ptr %189, i32 0, i32 1
+  %191 = getelementptr inbounds [16 x i8], ptr %190, i64 0, i64 0
+  %192 = load ptr, ptr %8, align 8, !tbaa !11
+  call void %185(ptr noundef %188, ptr noundef %191, ptr noundef %192)
+  %193 = load i32, ptr %14, align 4, !tbaa !20
+  %194 = add i32 %193, 1
+  store i32 %194, ptr %14, align 4, !tbaa !20
+  %195 = load i8, ptr %12, align 8, !tbaa !15
+  %196 = icmp ne i8 %195, 0
+  br i1 %196, label %197, label %229
 
-if.then76:                                        ; preds = %while.body70
-  %65 = load i32, ptr %ctr, align 4
-  %shr = lshr i32 %65, 24
-  %conv77 = trunc i32 %shr to i8
-  %66 = load ptr, ptr %ctx.addr, align 8
-  %Yi78 = getelementptr inbounds %struct.gcm128_context, ptr %66, i32 0, i32 0
-  %arraydecay79 = getelementptr inbounds [16 x i8], ptr %Yi78, i64 0, i64 0
-  %add.ptr80 = getelementptr inbounds i8, ptr %arraydecay79, i64 12
-  %arrayidx81 = getelementptr inbounds i8, ptr %add.ptr80, i64 0
-  store i8 %conv77, ptr %arrayidx81, align 1
-  %67 = load i32, ptr %ctr, align 4
-  %shr82 = lshr i32 %67, 16
-  %conv83 = trunc i32 %shr82 to i8
-  %68 = load ptr, ptr %ctx.addr, align 8
-  %Yi84 = getelementptr inbounds %struct.gcm128_context, ptr %68, i32 0, i32 0
-  %arraydecay85 = getelementptr inbounds [16 x i8], ptr %Yi84, i64 0, i64 0
-  %add.ptr86 = getelementptr inbounds i8, ptr %arraydecay85, i64 12
-  %arrayidx87 = getelementptr inbounds i8, ptr %add.ptr86, i64 1
-  store i8 %conv83, ptr %arrayidx87, align 1
-  %69 = load i32, ptr %ctr, align 4
-  %shr88 = lshr i32 %69, 8
-  %conv89 = trunc i32 %shr88 to i8
-  %70 = load ptr, ptr %ctx.addr, align 8
-  %Yi90 = getelementptr inbounds %struct.gcm128_context, ptr %70, i32 0, i32 0
-  %arraydecay91 = getelementptr inbounds [16 x i8], ptr %Yi90, i64 0, i64 0
-  %add.ptr92 = getelementptr inbounds i8, ptr %arraydecay91, i64 12
-  %arrayidx93 = getelementptr inbounds i8, ptr %add.ptr92, i64 2
-  store i8 %conv89, ptr %arrayidx93, align 1
-  %71 = load i32, ptr %ctr, align 4
-  %conv94 = trunc i32 %71 to i8
-  %72 = load ptr, ptr %ctx.addr, align 8
-  %Yi95 = getelementptr inbounds %struct.gcm128_context, ptr %72, i32 0, i32 0
-  %arraydecay96 = getelementptr inbounds [16 x i8], ptr %Yi95, i64 0, i64 0
-  %add.ptr97 = getelementptr inbounds i8, ptr %arraydecay96, i64 12
-  %arrayidx98 = getelementptr inbounds i8, ptr %add.ptr97, i64 3
-  store i8 %conv94, ptr %arrayidx98, align 1
-  br label %if.end102
+197:                                              ; preds = %182
+  %198 = load i32, ptr %14, align 4, !tbaa !20
+  %199 = lshr i32 %198, 24
+  %200 = trunc i32 %199 to i8
+  %201 = load ptr, ptr %7, align 8, !tbaa !6
+  %202 = getelementptr inbounds nuw %struct.gcm128_context, ptr %201, i32 0, i32 0
+  %203 = getelementptr inbounds [16 x i8], ptr %202, i64 0, i64 0
+  %204 = getelementptr inbounds i8, ptr %203, i64 12
+  %205 = getelementptr inbounds i8, ptr %204, i64 0
+  store i8 %200, ptr %205, align 1, !tbaa !15
+  %206 = load i32, ptr %14, align 4, !tbaa !20
+  %207 = lshr i32 %206, 16
+  %208 = trunc i32 %207 to i8
+  %209 = load ptr, ptr %7, align 8, !tbaa !6
+  %210 = getelementptr inbounds nuw %struct.gcm128_context, ptr %209, i32 0, i32 0
+  %211 = getelementptr inbounds [16 x i8], ptr %210, i64 0, i64 0
+  %212 = getelementptr inbounds i8, ptr %211, i64 12
+  %213 = getelementptr inbounds i8, ptr %212, i64 1
+  store i8 %208, ptr %213, align 1, !tbaa !15
+  %214 = load i32, ptr %14, align 4, !tbaa !20
+  %215 = lshr i32 %214, 8
+  %216 = trunc i32 %215 to i8
+  %217 = load ptr, ptr %7, align 8, !tbaa !6
+  %218 = getelementptr inbounds nuw %struct.gcm128_context, ptr %217, i32 0, i32 0
+  %219 = getelementptr inbounds [16 x i8], ptr %218, i64 0, i64 0
+  %220 = getelementptr inbounds i8, ptr %219, i64 12
+  %221 = getelementptr inbounds i8, ptr %220, i64 2
+  store i8 %216, ptr %221, align 1, !tbaa !15
+  %222 = load i32, ptr %14, align 4, !tbaa !20
+  %223 = trunc i32 %222 to i8
+  %224 = load ptr, ptr %7, align 8, !tbaa !6
+  %225 = getelementptr inbounds nuw %struct.gcm128_context, ptr %224, i32 0, i32 0
+  %226 = getelementptr inbounds [16 x i8], ptr %225, i64 0, i64 0
+  %227 = getelementptr inbounds i8, ptr %226, i64 12
+  %228 = getelementptr inbounds i8, ptr %227, i64 3
+  store i8 %223, ptr %228, align 1, !tbaa !15
+  br label %234
 
-if.else99:                                        ; preds = %while.body70
-  %73 = load i32, ptr %ctr, align 4
-  %74 = load ptr, ptr %ctx.addr, align 8
-  %Yi100 = getelementptr inbounds %struct.gcm128_context, ptr %74, i32 0, i32 0
-  %arrayidx101 = getelementptr inbounds [4 x i32], ptr %Yi100, i64 0, i64 3
-  store i32 %73, ptr %arrayidx101, align 4
-  br label %if.end102
+229:                                              ; preds = %182
+  %230 = load i32, ptr %14, align 4, !tbaa !20
+  %231 = load ptr, ptr %7, align 8, !tbaa !6
+  %232 = getelementptr inbounds nuw %struct.gcm128_context, ptr %231, i32 0, i32 0
+  %233 = getelementptr inbounds [4 x i32], ptr %232, i64 0, i64 3
+  store i32 %230, ptr %233, align 4, !tbaa !15
+  br label %234
 
-if.end102:                                        ; preds = %if.else99, %if.then76
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+234:                                              ; preds = %229, %197
+  store i64 0, ptr %15, align 8, !tbaa !16
+  br label %235
 
-for.cond:                                         ; preds = %for.inc, %if.end102
-  %75 = load i64, ptr %i, align 8
-  %cmp103 = icmp ult i64 %75, 2
-  br i1 %cmp103, label %for.body, label %for.end
+235:                                              ; preds = %252, %234
+  %236 = load i64, ptr %15, align 8, !tbaa !16
+  %237 = icmp ult i64 %236, 2
+  br i1 %237, label %238, label %255
 
-for.body:                                         ; preds = %for.cond
-  %76 = load ptr, ptr %in_t, align 8
-  %77 = load i64, ptr %i, align 8
-  %arrayidx105 = getelementptr inbounds i64, ptr %76, i64 %77
-  %78 = load i64, ptr %arrayidx105, align 8
-  %79 = load ptr, ptr %ctx.addr, align 8
-  %EKi106 = getelementptr inbounds %struct.gcm128_context, ptr %79, i32 0, i32 1
-  %80 = load i64, ptr %i, align 8
-  %arrayidx107 = getelementptr inbounds [2 x i64], ptr %EKi106, i64 0, i64 %80
-  %81 = load i64, ptr %arrayidx107, align 8
-  %xor108 = xor i64 %78, %81
-  %82 = load ptr, ptr %out_t, align 8
-  %83 = load i64, ptr %i, align 8
-  %arrayidx109 = getelementptr inbounds i64, ptr %82, i64 %83
-  store i64 %xor108, ptr %arrayidx109, align 8
-  br label %for.inc
+238:                                              ; preds = %235
+  %239 = load ptr, ptr %23, align 8, !tbaa !23
+  %240 = load i64, ptr %15, align 8, !tbaa !16
+  %241 = getelementptr inbounds nuw i64, ptr %239, i64 %240
+  %242 = load i64, ptr %241, align 8, !tbaa !16
+  %243 = load ptr, ptr %7, align 8, !tbaa !6
+  %244 = getelementptr inbounds nuw %struct.gcm128_context, ptr %243, i32 0, i32 1
+  %245 = load i64, ptr %15, align 8, !tbaa !16
+  %246 = getelementptr inbounds nuw [2 x i64], ptr %244, i64 0, i64 %245
+  %247 = load i64, ptr %246, align 8, !tbaa !15
+  %248 = xor i64 %242, %247
+  %249 = load ptr, ptr %22, align 8, !tbaa !23
+  %250 = load i64, ptr %15, align 8, !tbaa !16
+  %251 = getelementptr inbounds nuw i64, ptr %249, i64 %250
+  store i64 %248, ptr %251, align 8, !tbaa !16
+  br label %252
 
-for.inc:                                          ; preds = %for.body
-  %84 = load i64, ptr %i, align 8
-  %inc110 = add i64 %84, 1
-  store i64 %inc110, ptr %i, align 8
-  br label %for.cond, !llvm.loop !17
+252:                                              ; preds = %238
+  %253 = load i64, ptr %15, align 8, !tbaa !16
+  %254 = add i64 %253, 1
+  store i64 %254, ptr %15, align 8, !tbaa !16
+  br label %235, !llvm.loop !41
 
-for.end:                                          ; preds = %for.cond
-  %85 = load ptr, ptr %out.addr, align 8
-  %add.ptr111 = getelementptr inbounds i8, ptr %85, i64 16
-  store ptr %add.ptr111, ptr %out.addr, align 8
-  %86 = load ptr, ptr %in.addr, align 8
-  %add.ptr112 = getelementptr inbounds i8, ptr %86, i64 16
-  store ptr %add.ptr112, ptr %in.addr, align 8
-  %87 = load i64, ptr %j, align 8
-  %sub = sub i64 %87, 16
-  store i64 %sub, ptr %j, align 8
-  br label %while.cond68, !llvm.loop !18
+255:                                              ; preds = %235
+  %256 = load ptr, ptr %10, align 8, !tbaa !29
+  %257 = getelementptr inbounds i8, ptr %256, i64 16
+  store ptr %257, ptr %10, align 8, !tbaa !29
+  %258 = load ptr, ptr %9, align 8, !tbaa !29
+  %259 = getelementptr inbounds i8, ptr %258, i64 16
+  store ptr %259, ptr %9, align 8, !tbaa !29
+  %260 = load i64, ptr %21, align 8, !tbaa !16
+  %261 = sub i64 %260, 16
+  store i64 %261, ptr %21, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  br label %179, !llvm.loop !42
 
-while.end113:                                     ; preds = %while.cond68
-  %88 = load ptr, ptr %gcm_ghash_p, align 8
-  %89 = load ptr, ptr %ctx.addr, align 8
-  %Xi114 = getelementptr inbounds %struct.gcm128_context, ptr %89, i32 0, i32 4
-  %arraydecay115 = getelementptr inbounds [2 x i64], ptr %Xi114, i64 0, i64 0
-  %90 = load ptr, ptr %ctx.addr, align 8
-  %Htable116 = getelementptr inbounds %struct.gcm128_context, ptr %90, i32 0, i32 6
-  %arraydecay117 = getelementptr inbounds [16 x %struct.u128], ptr %Htable116, i64 0, i64 0
-  %91 = load ptr, ptr %out.addr, align 8
-  %add.ptr118 = getelementptr inbounds i8, ptr %91, i64 -3072
-  call void %88(ptr noundef %arraydecay115, ptr noundef %arraydecay117, ptr noundef %add.ptr118, i64 noundef 3072)
-  %92 = load i64, ptr %len.addr, align 8
-  %sub119 = sub i64 %92, 3072
-  store i64 %sub119, ptr %len.addr, align 8
-  br label %while.cond64, !llvm.loop !19
+262:                                              ; preds = %179
+  %263 = load ptr, ptr %19, align 8, !tbaa !11
+  %264 = load ptr, ptr %7, align 8, !tbaa !6
+  %265 = getelementptr inbounds nuw %struct.gcm128_context, ptr %264, i32 0, i32 4
+  %266 = getelementptr inbounds [2 x i64], ptr %265, i64 0, i64 0
+  %267 = load ptr, ptr %7, align 8, !tbaa !6
+  %268 = getelementptr inbounds nuw %struct.gcm128_context, ptr %267, i32 0, i32 6
+  %269 = getelementptr inbounds [16 x %struct.u128], ptr %268, i64 0, i64 0
+  %270 = load ptr, ptr %10, align 8, !tbaa !29
+  %271 = getelementptr inbounds i8, ptr %270, i64 -3072
+  call void %263(ptr noundef %266, ptr noundef %269, ptr noundef %271, i64 noundef 3072)
+  %272 = load i64, ptr %11, align 8, !tbaa !16
+  %273 = sub i64 %272, 3072
+  store i64 %273, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  br label %175, !llvm.loop !43
 
-while.end120:                                     ; preds = %while.cond64
-  %93 = load i64, ptr %len.addr, align 8
-  %and = and i64 %93, -16
-  store i64 %and, ptr %i, align 8
-  %tobool121 = icmp ne i64 %and, 0
-  br i1 %tobool121, label %if.then122, label %if.end185
+274:                                              ; preds = %175
+  %275 = load i64, ptr %11, align 8, !tbaa !16
+  %276 = and i64 %275, -16
+  store i64 %276, ptr %15, align 8, !tbaa !16
+  %277 = icmp ne i64 %276, 0
+  br i1 %277, label %278, label %376
 
-if.then122:                                       ; preds = %while.end120
-  %94 = load i64, ptr %i, align 8
-  store i64 %94, ptr %j123, align 8
-  br label %while.cond124
+278:                                              ; preds = %274
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  %279 = load i64, ptr %15, align 8, !tbaa !16
+  store i64 %279, ptr %24, align 8, !tbaa !16
+  br label %280
 
-while.cond124:                                    ; preds = %for.end175, %if.then122
-  %95 = load i64, ptr %len.addr, align 8
-  %cmp125 = icmp uge i64 %95, 16
-  br i1 %cmp125, label %while.body127, label %while.end179
+280:                                              ; preds = %356, %278
+  %281 = load i64, ptr %11, align 8, !tbaa !16
+  %282 = icmp uge i64 %281, 16
+  br i1 %282, label %283, label %363
 
-while.body127:                                    ; preds = %while.cond124
-  %96 = load ptr, ptr %out.addr, align 8
-  store ptr %96, ptr %out_t128, align 8
-  %97 = load ptr, ptr %in.addr, align 8
-  store ptr %97, ptr %in_t129, align 8
-  %98 = load ptr, ptr %block, align 8
-  %99 = load ptr, ptr %ctx.addr, align 8
-  %Yi130 = getelementptr inbounds %struct.gcm128_context, ptr %99, i32 0, i32 0
-  %arraydecay131 = getelementptr inbounds [16 x i8], ptr %Yi130, i64 0, i64 0
-  %100 = load ptr, ptr %ctx.addr, align 8
-  %EKi132 = getelementptr inbounds %struct.gcm128_context, ptr %100, i32 0, i32 1
-  %arraydecay133 = getelementptr inbounds [16 x i8], ptr %EKi132, i64 0, i64 0
-  %101 = load ptr, ptr %key.addr, align 8
-  call void %98(ptr noundef %arraydecay131, ptr noundef %arraydecay133, ptr noundef %101)
-  %102 = load i32, ptr %ctr, align 4
-  %inc134 = add i32 %102, 1
-  store i32 %inc134, ptr %ctr, align 4
-  %103 = load i8, ptr %is_endian, align 8
-  %tobool135 = icmp ne i8 %103, 0
-  br i1 %tobool135, label %if.then136, label %if.else160
+283:                                              ; preds = %280
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
+  %284 = load ptr, ptr %10, align 8, !tbaa !29
+  store ptr %284, ptr %25, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #5
+  %285 = load ptr, ptr %9, align 8, !tbaa !29
+  store ptr %285, ptr %26, align 8, !tbaa !23
+  %286 = load ptr, ptr %17, align 8, !tbaa !11
+  %287 = load ptr, ptr %7, align 8, !tbaa !6
+  %288 = getelementptr inbounds nuw %struct.gcm128_context, ptr %287, i32 0, i32 0
+  %289 = getelementptr inbounds [16 x i8], ptr %288, i64 0, i64 0
+  %290 = load ptr, ptr %7, align 8, !tbaa !6
+  %291 = getelementptr inbounds nuw %struct.gcm128_context, ptr %290, i32 0, i32 1
+  %292 = getelementptr inbounds [16 x i8], ptr %291, i64 0, i64 0
+  %293 = load ptr, ptr %8, align 8, !tbaa !11
+  call void %286(ptr noundef %289, ptr noundef %292, ptr noundef %293)
+  %294 = load i32, ptr %14, align 4, !tbaa !20
+  %295 = add i32 %294, 1
+  store i32 %295, ptr %14, align 4, !tbaa !20
+  %296 = load i8, ptr %12, align 8, !tbaa !15
+  %297 = icmp ne i8 %296, 0
+  br i1 %297, label %298, label %330
 
-if.then136:                                       ; preds = %while.body127
-  %104 = load i32, ptr %ctr, align 4
-  %shr137 = lshr i32 %104, 24
-  %conv138 = trunc i32 %shr137 to i8
-  %105 = load ptr, ptr %ctx.addr, align 8
-  %Yi139 = getelementptr inbounds %struct.gcm128_context, ptr %105, i32 0, i32 0
-  %arraydecay140 = getelementptr inbounds [16 x i8], ptr %Yi139, i64 0, i64 0
-  %add.ptr141 = getelementptr inbounds i8, ptr %arraydecay140, i64 12
-  %arrayidx142 = getelementptr inbounds i8, ptr %add.ptr141, i64 0
-  store i8 %conv138, ptr %arrayidx142, align 1
-  %106 = load i32, ptr %ctr, align 4
-  %shr143 = lshr i32 %106, 16
-  %conv144 = trunc i32 %shr143 to i8
-  %107 = load ptr, ptr %ctx.addr, align 8
-  %Yi145 = getelementptr inbounds %struct.gcm128_context, ptr %107, i32 0, i32 0
-  %arraydecay146 = getelementptr inbounds [16 x i8], ptr %Yi145, i64 0, i64 0
-  %add.ptr147 = getelementptr inbounds i8, ptr %arraydecay146, i64 12
-  %arrayidx148 = getelementptr inbounds i8, ptr %add.ptr147, i64 1
-  store i8 %conv144, ptr %arrayidx148, align 1
-  %108 = load i32, ptr %ctr, align 4
-  %shr149 = lshr i32 %108, 8
-  %conv150 = trunc i32 %shr149 to i8
-  %109 = load ptr, ptr %ctx.addr, align 8
-  %Yi151 = getelementptr inbounds %struct.gcm128_context, ptr %109, i32 0, i32 0
-  %arraydecay152 = getelementptr inbounds [16 x i8], ptr %Yi151, i64 0, i64 0
-  %add.ptr153 = getelementptr inbounds i8, ptr %arraydecay152, i64 12
-  %arrayidx154 = getelementptr inbounds i8, ptr %add.ptr153, i64 2
-  store i8 %conv150, ptr %arrayidx154, align 1
-  %110 = load i32, ptr %ctr, align 4
-  %conv155 = trunc i32 %110 to i8
-  %111 = load ptr, ptr %ctx.addr, align 8
-  %Yi156 = getelementptr inbounds %struct.gcm128_context, ptr %111, i32 0, i32 0
-  %arraydecay157 = getelementptr inbounds [16 x i8], ptr %Yi156, i64 0, i64 0
-  %add.ptr158 = getelementptr inbounds i8, ptr %arraydecay157, i64 12
-  %arrayidx159 = getelementptr inbounds i8, ptr %add.ptr158, i64 3
-  store i8 %conv155, ptr %arrayidx159, align 1
-  br label %if.end163
+298:                                              ; preds = %283
+  %299 = load i32, ptr %14, align 4, !tbaa !20
+  %300 = lshr i32 %299, 24
+  %301 = trunc i32 %300 to i8
+  %302 = load ptr, ptr %7, align 8, !tbaa !6
+  %303 = getelementptr inbounds nuw %struct.gcm128_context, ptr %302, i32 0, i32 0
+  %304 = getelementptr inbounds [16 x i8], ptr %303, i64 0, i64 0
+  %305 = getelementptr inbounds i8, ptr %304, i64 12
+  %306 = getelementptr inbounds i8, ptr %305, i64 0
+  store i8 %301, ptr %306, align 1, !tbaa !15
+  %307 = load i32, ptr %14, align 4, !tbaa !20
+  %308 = lshr i32 %307, 16
+  %309 = trunc i32 %308 to i8
+  %310 = load ptr, ptr %7, align 8, !tbaa !6
+  %311 = getelementptr inbounds nuw %struct.gcm128_context, ptr %310, i32 0, i32 0
+  %312 = getelementptr inbounds [16 x i8], ptr %311, i64 0, i64 0
+  %313 = getelementptr inbounds i8, ptr %312, i64 12
+  %314 = getelementptr inbounds i8, ptr %313, i64 1
+  store i8 %309, ptr %314, align 1, !tbaa !15
+  %315 = load i32, ptr %14, align 4, !tbaa !20
+  %316 = lshr i32 %315, 8
+  %317 = trunc i32 %316 to i8
+  %318 = load ptr, ptr %7, align 8, !tbaa !6
+  %319 = getelementptr inbounds nuw %struct.gcm128_context, ptr %318, i32 0, i32 0
+  %320 = getelementptr inbounds [16 x i8], ptr %319, i64 0, i64 0
+  %321 = getelementptr inbounds i8, ptr %320, i64 12
+  %322 = getelementptr inbounds i8, ptr %321, i64 2
+  store i8 %317, ptr %322, align 1, !tbaa !15
+  %323 = load i32, ptr %14, align 4, !tbaa !20
+  %324 = trunc i32 %323 to i8
+  %325 = load ptr, ptr %7, align 8, !tbaa !6
+  %326 = getelementptr inbounds nuw %struct.gcm128_context, ptr %325, i32 0, i32 0
+  %327 = getelementptr inbounds [16 x i8], ptr %326, i64 0, i64 0
+  %328 = getelementptr inbounds i8, ptr %327, i64 12
+  %329 = getelementptr inbounds i8, ptr %328, i64 3
+  store i8 %324, ptr %329, align 1, !tbaa !15
+  br label %335
 
-if.else160:                                       ; preds = %while.body127
-  %112 = load i32, ptr %ctr, align 4
-  %113 = load ptr, ptr %ctx.addr, align 8
-  %Yi161 = getelementptr inbounds %struct.gcm128_context, ptr %113, i32 0, i32 0
-  %arrayidx162 = getelementptr inbounds [4 x i32], ptr %Yi161, i64 0, i64 3
-  store i32 %112, ptr %arrayidx162, align 4
-  br label %if.end163
+330:                                              ; preds = %283
+  %331 = load i32, ptr %14, align 4, !tbaa !20
+  %332 = load ptr, ptr %7, align 8, !tbaa !6
+  %333 = getelementptr inbounds nuw %struct.gcm128_context, ptr %332, i32 0, i32 0
+  %334 = getelementptr inbounds [4 x i32], ptr %333, i64 0, i64 3
+  store i32 %331, ptr %334, align 4, !tbaa !15
+  br label %335
 
-if.end163:                                        ; preds = %if.else160, %if.then136
-  store i64 0, ptr %i, align 8
-  br label %for.cond164
+335:                                              ; preds = %330, %298
+  store i64 0, ptr %15, align 8, !tbaa !16
+  br label %336
 
-for.cond164:                                      ; preds = %for.inc173, %if.end163
-  %114 = load i64, ptr %i, align 8
-  %cmp165 = icmp ult i64 %114, 2
-  br i1 %cmp165, label %for.body167, label %for.end175
+336:                                              ; preds = %353, %335
+  %337 = load i64, ptr %15, align 8, !tbaa !16
+  %338 = icmp ult i64 %337, 2
+  br i1 %338, label %339, label %356
 
-for.body167:                                      ; preds = %for.cond164
-  %115 = load ptr, ptr %in_t129, align 8
-  %116 = load i64, ptr %i, align 8
-  %arrayidx168 = getelementptr inbounds i64, ptr %115, i64 %116
-  %117 = load i64, ptr %arrayidx168, align 8
-  %118 = load ptr, ptr %ctx.addr, align 8
-  %EKi169 = getelementptr inbounds %struct.gcm128_context, ptr %118, i32 0, i32 1
-  %119 = load i64, ptr %i, align 8
-  %arrayidx170 = getelementptr inbounds [2 x i64], ptr %EKi169, i64 0, i64 %119
-  %120 = load i64, ptr %arrayidx170, align 8
-  %xor171 = xor i64 %117, %120
-  %121 = load ptr, ptr %out_t128, align 8
-  %122 = load i64, ptr %i, align 8
-  %arrayidx172 = getelementptr inbounds i64, ptr %121, i64 %122
-  store i64 %xor171, ptr %arrayidx172, align 8
-  br label %for.inc173
+339:                                              ; preds = %336
+  %340 = load ptr, ptr %26, align 8, !tbaa !23
+  %341 = load i64, ptr %15, align 8, !tbaa !16
+  %342 = getelementptr inbounds nuw i64, ptr %340, i64 %341
+  %343 = load i64, ptr %342, align 8, !tbaa !16
+  %344 = load ptr, ptr %7, align 8, !tbaa !6
+  %345 = getelementptr inbounds nuw %struct.gcm128_context, ptr %344, i32 0, i32 1
+  %346 = load i64, ptr %15, align 8, !tbaa !16
+  %347 = getelementptr inbounds nuw [2 x i64], ptr %345, i64 0, i64 %346
+  %348 = load i64, ptr %347, align 8, !tbaa !15
+  %349 = xor i64 %343, %348
+  %350 = load ptr, ptr %25, align 8, !tbaa !23
+  %351 = load i64, ptr %15, align 8, !tbaa !16
+  %352 = getelementptr inbounds nuw i64, ptr %350, i64 %351
+  store i64 %349, ptr %352, align 8, !tbaa !16
+  br label %353
 
-for.inc173:                                       ; preds = %for.body167
-  %123 = load i64, ptr %i, align 8
-  %inc174 = add i64 %123, 1
-  store i64 %inc174, ptr %i, align 8
-  br label %for.cond164, !llvm.loop !20
+353:                                              ; preds = %339
+  %354 = load i64, ptr %15, align 8, !tbaa !16
+  %355 = add i64 %354, 1
+  store i64 %355, ptr %15, align 8, !tbaa !16
+  br label %336, !llvm.loop !44
 
-for.end175:                                       ; preds = %for.cond164
-  %124 = load ptr, ptr %out.addr, align 8
-  %add.ptr176 = getelementptr inbounds i8, ptr %124, i64 16
-  store ptr %add.ptr176, ptr %out.addr, align 8
-  %125 = load ptr, ptr %in.addr, align 8
-  %add.ptr177 = getelementptr inbounds i8, ptr %125, i64 16
-  store ptr %add.ptr177, ptr %in.addr, align 8
-  %126 = load i64, ptr %len.addr, align 8
-  %sub178 = sub i64 %126, 16
-  store i64 %sub178, ptr %len.addr, align 8
-  br label %while.cond124, !llvm.loop !21
+356:                                              ; preds = %336
+  %357 = load ptr, ptr %10, align 8, !tbaa !29
+  %358 = getelementptr inbounds i8, ptr %357, i64 16
+  store ptr %358, ptr %10, align 8, !tbaa !29
+  %359 = load ptr, ptr %9, align 8, !tbaa !29
+  %360 = getelementptr inbounds i8, ptr %359, i64 16
+  store ptr %360, ptr %9, align 8, !tbaa !29
+  %361 = load i64, ptr %11, align 8, !tbaa !16
+  %362 = sub i64 %361, 16
+  store i64 %362, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  br label %280, !llvm.loop !45
 
-while.end179:                                     ; preds = %while.cond124
-  %127 = load ptr, ptr %gcm_ghash_p, align 8
-  %128 = load ptr, ptr %ctx.addr, align 8
-  %Xi180 = getelementptr inbounds %struct.gcm128_context, ptr %128, i32 0, i32 4
-  %arraydecay181 = getelementptr inbounds [2 x i64], ptr %Xi180, i64 0, i64 0
-  %129 = load ptr, ptr %ctx.addr, align 8
-  %Htable182 = getelementptr inbounds %struct.gcm128_context, ptr %129, i32 0, i32 6
-  %arraydecay183 = getelementptr inbounds [16 x %struct.u128], ptr %Htable182, i64 0, i64 0
-  %130 = load ptr, ptr %out.addr, align 8
-  %131 = load i64, ptr %j123, align 8
-  %idx.neg = sub i64 0, %131
-  %add.ptr184 = getelementptr inbounds i8, ptr %130, i64 %idx.neg
-  %132 = load i64, ptr %j123, align 8
-  call void %127(ptr noundef %arraydecay181, ptr noundef %arraydecay183, ptr noundef %add.ptr184, i64 noundef %132)
-  br label %if.end185
+363:                                              ; preds = %280
+  %364 = load ptr, ptr %19, align 8, !tbaa !11
+  %365 = load ptr, ptr %7, align 8, !tbaa !6
+  %366 = getelementptr inbounds nuw %struct.gcm128_context, ptr %365, i32 0, i32 4
+  %367 = getelementptr inbounds [2 x i64], ptr %366, i64 0, i64 0
+  %368 = load ptr, ptr %7, align 8, !tbaa !6
+  %369 = getelementptr inbounds nuw %struct.gcm128_context, ptr %368, i32 0, i32 6
+  %370 = getelementptr inbounds [16 x %struct.u128], ptr %369, i64 0, i64 0
+  %371 = load ptr, ptr %10, align 8, !tbaa !29
+  %372 = load i64, ptr %24, align 8, !tbaa !16
+  %373 = sub i64 0, %372
+  %374 = getelementptr inbounds i8, ptr %371, i64 %373
+  %375 = load i64, ptr %24, align 8, !tbaa !16
+  call void %364(ptr noundef %367, ptr noundef %370, ptr noundef %374, i64 noundef %375)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  br label %376
 
-if.end185:                                        ; preds = %while.end179, %while.end120
-  %133 = load i64, ptr %len.addr, align 8
-  %tobool186 = icmp ne i64 %133, 0
-  br i1 %tobool186, label %if.then187, label %if.end246
+376:                                              ; preds = %363, %274
+  %377 = load i64, ptr %11, align 8, !tbaa !16
+  %378 = icmp ne i64 %377, 0
+  br i1 %378, label %379, label %467
 
-if.then187:                                       ; preds = %if.end185
-  %134 = load ptr, ptr %block, align 8
-  %135 = load ptr, ptr %ctx.addr, align 8
-  %Yi188 = getelementptr inbounds %struct.gcm128_context, ptr %135, i32 0, i32 0
-  %arraydecay189 = getelementptr inbounds [16 x i8], ptr %Yi188, i64 0, i64 0
-  %136 = load ptr, ptr %ctx.addr, align 8
-  %EKi190 = getelementptr inbounds %struct.gcm128_context, ptr %136, i32 0, i32 1
-  %arraydecay191 = getelementptr inbounds [16 x i8], ptr %EKi190, i64 0, i64 0
-  %137 = load ptr, ptr %key.addr, align 8
-  call void %134(ptr noundef %arraydecay189, ptr noundef %arraydecay191, ptr noundef %137)
-  %138 = load i32, ptr %ctr, align 4
-  %inc192 = add i32 %138, 1
-  store i32 %inc192, ptr %ctr, align 4
-  %139 = load i8, ptr %is_endian, align 8
-  %tobool193 = icmp ne i8 %139, 0
-  br i1 %tobool193, label %if.then194, label %if.else218
+379:                                              ; preds = %376
+  %380 = load ptr, ptr %17, align 8, !tbaa !11
+  %381 = load ptr, ptr %7, align 8, !tbaa !6
+  %382 = getelementptr inbounds nuw %struct.gcm128_context, ptr %381, i32 0, i32 0
+  %383 = getelementptr inbounds [16 x i8], ptr %382, i64 0, i64 0
+  %384 = load ptr, ptr %7, align 8, !tbaa !6
+  %385 = getelementptr inbounds nuw %struct.gcm128_context, ptr %384, i32 0, i32 1
+  %386 = getelementptr inbounds [16 x i8], ptr %385, i64 0, i64 0
+  %387 = load ptr, ptr %8, align 8, !tbaa !11
+  call void %380(ptr noundef %383, ptr noundef %386, ptr noundef %387)
+  %388 = load i32, ptr %14, align 4, !tbaa !20
+  %389 = add i32 %388, 1
+  store i32 %389, ptr %14, align 4, !tbaa !20
+  %390 = load i8, ptr %12, align 8, !tbaa !15
+  %391 = icmp ne i8 %390, 0
+  br i1 %391, label %392, label %424
 
-if.then194:                                       ; preds = %if.then187
-  %140 = load i32, ptr %ctr, align 4
-  %shr195 = lshr i32 %140, 24
-  %conv196 = trunc i32 %shr195 to i8
-  %141 = load ptr, ptr %ctx.addr, align 8
-  %Yi197 = getelementptr inbounds %struct.gcm128_context, ptr %141, i32 0, i32 0
-  %arraydecay198 = getelementptr inbounds [16 x i8], ptr %Yi197, i64 0, i64 0
-  %add.ptr199 = getelementptr inbounds i8, ptr %arraydecay198, i64 12
-  %arrayidx200 = getelementptr inbounds i8, ptr %add.ptr199, i64 0
-  store i8 %conv196, ptr %arrayidx200, align 1
-  %142 = load i32, ptr %ctr, align 4
-  %shr201 = lshr i32 %142, 16
-  %conv202 = trunc i32 %shr201 to i8
-  %143 = load ptr, ptr %ctx.addr, align 8
-  %Yi203 = getelementptr inbounds %struct.gcm128_context, ptr %143, i32 0, i32 0
-  %arraydecay204 = getelementptr inbounds [16 x i8], ptr %Yi203, i64 0, i64 0
-  %add.ptr205 = getelementptr inbounds i8, ptr %arraydecay204, i64 12
-  %arrayidx206 = getelementptr inbounds i8, ptr %add.ptr205, i64 1
-  store i8 %conv202, ptr %arrayidx206, align 1
-  %144 = load i32, ptr %ctr, align 4
-  %shr207 = lshr i32 %144, 8
-  %conv208 = trunc i32 %shr207 to i8
-  %145 = load ptr, ptr %ctx.addr, align 8
-  %Yi209 = getelementptr inbounds %struct.gcm128_context, ptr %145, i32 0, i32 0
-  %arraydecay210 = getelementptr inbounds [16 x i8], ptr %Yi209, i64 0, i64 0
-  %add.ptr211 = getelementptr inbounds i8, ptr %arraydecay210, i64 12
-  %arrayidx212 = getelementptr inbounds i8, ptr %add.ptr211, i64 2
-  store i8 %conv208, ptr %arrayidx212, align 1
-  %146 = load i32, ptr %ctr, align 4
-  %conv213 = trunc i32 %146 to i8
-  %147 = load ptr, ptr %ctx.addr, align 8
-  %Yi214 = getelementptr inbounds %struct.gcm128_context, ptr %147, i32 0, i32 0
-  %arraydecay215 = getelementptr inbounds [16 x i8], ptr %Yi214, i64 0, i64 0
-  %add.ptr216 = getelementptr inbounds i8, ptr %arraydecay215, i64 12
-  %arrayidx217 = getelementptr inbounds i8, ptr %add.ptr216, i64 3
-  store i8 %conv213, ptr %arrayidx217, align 1
-  br label %if.end221
+392:                                              ; preds = %379
+  %393 = load i32, ptr %14, align 4, !tbaa !20
+  %394 = lshr i32 %393, 24
+  %395 = trunc i32 %394 to i8
+  %396 = load ptr, ptr %7, align 8, !tbaa !6
+  %397 = getelementptr inbounds nuw %struct.gcm128_context, ptr %396, i32 0, i32 0
+  %398 = getelementptr inbounds [16 x i8], ptr %397, i64 0, i64 0
+  %399 = getelementptr inbounds i8, ptr %398, i64 12
+  %400 = getelementptr inbounds i8, ptr %399, i64 0
+  store i8 %395, ptr %400, align 1, !tbaa !15
+  %401 = load i32, ptr %14, align 4, !tbaa !20
+  %402 = lshr i32 %401, 16
+  %403 = trunc i32 %402 to i8
+  %404 = load ptr, ptr %7, align 8, !tbaa !6
+  %405 = getelementptr inbounds nuw %struct.gcm128_context, ptr %404, i32 0, i32 0
+  %406 = getelementptr inbounds [16 x i8], ptr %405, i64 0, i64 0
+  %407 = getelementptr inbounds i8, ptr %406, i64 12
+  %408 = getelementptr inbounds i8, ptr %407, i64 1
+  store i8 %403, ptr %408, align 1, !tbaa !15
+  %409 = load i32, ptr %14, align 4, !tbaa !20
+  %410 = lshr i32 %409, 8
+  %411 = trunc i32 %410 to i8
+  %412 = load ptr, ptr %7, align 8, !tbaa !6
+  %413 = getelementptr inbounds nuw %struct.gcm128_context, ptr %412, i32 0, i32 0
+  %414 = getelementptr inbounds [16 x i8], ptr %413, i64 0, i64 0
+  %415 = getelementptr inbounds i8, ptr %414, i64 12
+  %416 = getelementptr inbounds i8, ptr %415, i64 2
+  store i8 %411, ptr %416, align 1, !tbaa !15
+  %417 = load i32, ptr %14, align 4, !tbaa !20
+  %418 = trunc i32 %417 to i8
+  %419 = load ptr, ptr %7, align 8, !tbaa !6
+  %420 = getelementptr inbounds nuw %struct.gcm128_context, ptr %419, i32 0, i32 0
+  %421 = getelementptr inbounds [16 x i8], ptr %420, i64 0, i64 0
+  %422 = getelementptr inbounds i8, ptr %421, i64 12
+  %423 = getelementptr inbounds i8, ptr %422, i64 3
+  store i8 %418, ptr %423, align 1, !tbaa !15
+  br label %429
 
-if.else218:                                       ; preds = %if.then187
-  %148 = load i32, ptr %ctr, align 4
-  %149 = load ptr, ptr %ctx.addr, align 8
-  %Yi219 = getelementptr inbounds %struct.gcm128_context, ptr %149, i32 0, i32 0
-  %arrayidx220 = getelementptr inbounds [4 x i32], ptr %Yi219, i64 0, i64 3
-  store i32 %148, ptr %arrayidx220, align 4
-  br label %if.end221
+424:                                              ; preds = %379
+  %425 = load i32, ptr %14, align 4, !tbaa !20
+  %426 = load ptr, ptr %7, align 8, !tbaa !6
+  %427 = getelementptr inbounds nuw %struct.gcm128_context, ptr %426, i32 0, i32 0
+  %428 = getelementptr inbounds [4 x i32], ptr %427, i64 0, i64 3
+  store i32 %425, ptr %428, align 4, !tbaa !15
+  br label %429
 
-if.end221:                                        ; preds = %if.else218, %if.then194
-  br label %while.cond222
+429:                                              ; preds = %424, %392
+  br label %430
 
-while.cond222:                                    ; preds = %while.body225, %if.end221
-  %150 = load i64, ptr %len.addr, align 8
-  %dec223 = add i64 %150, -1
-  store i64 %dec223, ptr %len.addr, align 8
-  %tobool224 = icmp ne i64 %150, 0
-  br i1 %tobool224, label %while.body225, label %while.end245
+430:                                              ; preds = %434, %429
+  %431 = load i64, ptr %11, align 8, !tbaa !16
+  %432 = add i64 %431, -1
+  store i64 %432, ptr %11, align 8, !tbaa !16
+  %433 = icmp ne i64 %431, 0
+  br i1 %433, label %434, label %466
 
-while.body225:                                    ; preds = %while.cond222
-  %151 = load ptr, ptr %in.addr, align 8
-  %152 = load i32, ptr %n, align 4
-  %idxprom226 = zext i32 %152 to i64
-  %arrayidx227 = getelementptr inbounds i8, ptr %151, i64 %idxprom226
-  %153 = load i8, ptr %arrayidx227, align 1
-  %conv228 = zext i8 %153 to i32
-  %154 = load ptr, ptr %ctx.addr, align 8
-  %EKi229 = getelementptr inbounds %struct.gcm128_context, ptr %154, i32 0, i32 1
-  %155 = load i32, ptr %n, align 4
-  %idxprom230 = zext i32 %155 to i64
-  %arrayidx231 = getelementptr inbounds [16 x i8], ptr %EKi229, i64 0, i64 %idxprom230
-  %156 = load i8, ptr %arrayidx231, align 1
-  %conv232 = zext i8 %156 to i32
-  %xor233 = xor i32 %conv228, %conv232
-  %conv234 = trunc i32 %xor233 to i8
-  %157 = load ptr, ptr %out.addr, align 8
-  %158 = load i32, ptr %n, align 4
-  %idxprom235 = zext i32 %158 to i64
-  %arrayidx236 = getelementptr inbounds i8, ptr %157, i64 %idxprom235
-  store i8 %conv234, ptr %arrayidx236, align 1
-  %conv237 = zext i8 %conv234 to i32
-  %159 = load ptr, ptr %ctx.addr, align 8
-  %Xi238 = getelementptr inbounds %struct.gcm128_context, ptr %159, i32 0, i32 4
-  %160 = load i32, ptr %n, align 4
-  %idxprom239 = zext i32 %160 to i64
-  %arrayidx240 = getelementptr inbounds [16 x i8], ptr %Xi238, i64 0, i64 %idxprom239
-  %161 = load i8, ptr %arrayidx240, align 1
-  %conv241 = zext i8 %161 to i32
-  %xor242 = xor i32 %conv241, %conv237
-  %conv243 = trunc i32 %xor242 to i8
-  store i8 %conv243, ptr %arrayidx240, align 1
-  %162 = load i32, ptr %n, align 4
-  %inc244 = add i32 %162, 1
-  store i32 %inc244, ptr %n, align 4
-  br label %while.cond222, !llvm.loop !22
+434:                                              ; preds = %430
+  %435 = load ptr, ptr %9, align 8, !tbaa !29
+  %436 = load i32, ptr %13, align 4, !tbaa !20
+  %437 = zext i32 %436 to i64
+  %438 = getelementptr inbounds nuw i8, ptr %435, i64 %437
+  %439 = load i8, ptr %438, align 1, !tbaa !15
+  %440 = zext i8 %439 to i32
+  %441 = load ptr, ptr %7, align 8, !tbaa !6
+  %442 = getelementptr inbounds nuw %struct.gcm128_context, ptr %441, i32 0, i32 1
+  %443 = load i32, ptr %13, align 4, !tbaa !20
+  %444 = zext i32 %443 to i64
+  %445 = getelementptr inbounds nuw [16 x i8], ptr %442, i64 0, i64 %444
+  %446 = load i8, ptr %445, align 1, !tbaa !15
+  %447 = zext i8 %446 to i32
+  %448 = xor i32 %440, %447
+  %449 = trunc i32 %448 to i8
+  %450 = load ptr, ptr %10, align 8, !tbaa !29
+  %451 = load i32, ptr %13, align 4, !tbaa !20
+  %452 = zext i32 %451 to i64
+  %453 = getelementptr inbounds nuw i8, ptr %450, i64 %452
+  store i8 %449, ptr %453, align 1, !tbaa !15
+  %454 = zext i8 %449 to i32
+  %455 = load ptr, ptr %7, align 8, !tbaa !6
+  %456 = getelementptr inbounds nuw %struct.gcm128_context, ptr %455, i32 0, i32 4
+  %457 = load i32, ptr %13, align 4, !tbaa !20
+  %458 = zext i32 %457 to i64
+  %459 = getelementptr inbounds nuw [16 x i8], ptr %456, i64 0, i64 %458
+  %460 = load i8, ptr %459, align 1, !tbaa !15
+  %461 = zext i8 %460 to i32
+  %462 = xor i32 %461, %454
+  %463 = trunc i32 %462 to i8
+  store i8 %463, ptr %459, align 1, !tbaa !15
+  %464 = load i32, ptr %13, align 4, !tbaa !20
+  %465 = add i32 %464, 1
+  store i32 %465, ptr %13, align 4, !tbaa !20
+  br label %430, !llvm.loop !46
 
-while.end245:                                     ; preds = %while.cond222
-  br label %if.end246
+466:                                              ; preds = %430
+  br label %467
 
-if.end246:                                        ; preds = %while.end245, %if.end185
-  %163 = load i32, ptr %n, align 4
-  %164 = load ptr, ptr %ctx.addr, align 8
-  %mres247 = getelementptr inbounds %struct.gcm128_context, ptr %164, i32 0, i32 9
-  store i32 %163, ptr %mres247, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+467:                                              ; preds = %466, %376
+  %468 = load i32, ptr %13, align 4, !tbaa !20
+  %469 = load ptr, ptr %7, align 8, !tbaa !6
+  %470 = getelementptr inbounds nuw %struct.gcm128_context, ptr %469, i32 0, i32 9
+  store i32 %468, ptr %470, align 8, !tbaa !32
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %20, align 4
+  br label %471
 
-return:                                           ; preds = %if.end246, %if.else60, %if.then
-  %165 = load i32, ptr %retval, align 4
-  ret i32 %165
+471:                                              ; preds = %467, %169, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %472 = load i32, ptr %6, align 4
+  ret i32 %472
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %is_endian = alloca %union.anon.3, align 8
-  %n = alloca i32, align 4
-  %ctr = alloca i32, align 4
-  %i = alloca i64, align 8
-  %mlen = alloca i64, align 8
-  %block = alloca ptr, align 8
-  %gcm_gmult_p = alloca ptr, align 8
-  %gcm_ghash_p = alloca ptr, align 8
-  %c = alloca i8, align 1
-  %j = alloca i64, align 8
-  %out_t = alloca ptr, align 8
-  %in_t = alloca ptr, align 8
-  %out_t131 = alloca ptr, align 8
-  %in_t132 = alloca ptr, align 8
-  %c224 = alloca i8, align 1
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %is_endian, ptr align 8 @__const.CRYPTO_gcm128_decrypt.is_endian, i64 8, i1 false)
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %len1 = getelementptr inbounds %struct.gcm128_context, ptr %0, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %len1, i64 0, i64 1
-  %1 = load i64, ptr %arrayidx, align 8
-  store i64 %1, ptr %mlen, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %block2 = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 11
-  %3 = load ptr, ptr %block2, align 8
-  store ptr %3, ptr %block, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %4, i32 0, i32 7
-  %5 = load ptr, ptr %gmult, align 8
-  store ptr %5, ptr %gcm_gmult_p, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %6, i32 0, i32 8
-  %7 = load ptr, ptr %ghash, align 8
-  store ptr %7, ptr %gcm_ghash_p, align 8
-  %8 = load i64, ptr %len.addr, align 8
-  %9 = load i64, ptr %mlen, align 8
-  %add = add i64 %9, %8
-  store i64 %add, ptr %mlen, align 8
-  %10 = load i64, ptr %mlen, align 8
-  %cmp = icmp ugt i64 %10, 68719476704
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca %union.anon.3, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i8, align 1
+  %22 = alloca i64, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca i8, align 1
+  store ptr %0, ptr %7, align 8, !tbaa !6
+  store ptr %1, ptr %8, align 8, !tbaa !11
+  store ptr %2, ptr %9, align 8, !tbaa !29
+  store ptr %3, ptr %10, align 8, !tbaa !29
+  store i64 %4, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 @__const.CRYPTO_gcm128_decrypt.is_endian, i64 8, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %28 = load ptr, ptr %7, align 8, !tbaa !6
+  %29 = getelementptr inbounds nuw %struct.gcm128_context, ptr %28, i32 0, i32 3
+  %30 = getelementptr inbounds [2 x i64], ptr %29, i64 0, i64 1
+  %31 = load i64, ptr %30, align 8, !tbaa !15
+  store i64 %31, ptr %16, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %32 = load ptr, ptr %7, align 8, !tbaa !6
+  %33 = getelementptr inbounds nuw %struct.gcm128_context, ptr %32, i32 0, i32 11
+  %34 = load ptr, ptr %33, align 8, !tbaa !12
+  store ptr %34, ptr %17, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  %35 = load ptr, ptr %7, align 8, !tbaa !6
+  %36 = getelementptr inbounds nuw %struct.gcm128_context, ptr %35, i32 0, i32 7
+  %37 = load ptr, ptr %36, align 8, !tbaa !21
+  store ptr %37, ptr %18, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %38 = load ptr, ptr %7, align 8, !tbaa !6
+  %39 = getelementptr inbounds nuw %struct.gcm128_context, ptr %38, i32 0, i32 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
+  store ptr %40, ptr %19, align 8, !tbaa !11
+  %41 = load i64, ptr %11, align 8, !tbaa !16
+  %42 = load i64, ptr %16, align 8, !tbaa !16
+  %43 = add i64 %42, %41
+  store i64 %43, ptr %16, align 8, !tbaa !16
+  %44 = load i64, ptr %16, align 8, !tbaa !16
+  %45 = icmp ugt i64 %44, 68719476704
+  br i1 %45, label %50, label %46
 
-lor.lhs.false:                                    ; preds = %entry
-  %11 = load i64, ptr %mlen, align 8
-  %12 = load i64, ptr %len.addr, align 8
-  %cmp3 = icmp ult i64 %11, %12
-  br i1 %cmp3, label %if.then, label %if.end
+46:                                               ; preds = %5
+  %47 = load i64, ptr %16, align 8, !tbaa !16
+  %48 = load i64, ptr %11, align 8, !tbaa !16
+  %49 = icmp ult i64 %47, %48
+  br i1 %49, label %50, label %51
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %46, %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %20, align 4
+  br label %472
 
-if.end:                                           ; preds = %lor.lhs.false
-  %13 = load i64, ptr %mlen, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %len4 = getelementptr inbounds %struct.gcm128_context, ptr %14, i32 0, i32 3
-  %arrayidx5 = getelementptr inbounds [2 x i64], ptr %len4, i64 0, i64 1
-  store i64 %13, ptr %arrayidx5, align 8
-  %15 = load ptr, ptr %ctx.addr, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %15, i32 0, i32 10
-  %16 = load i32, ptr %ares, align 4
-  %tobool = icmp ne i32 %16, 0
-  br i1 %tobool, label %if.then6, label %if.end9
+51:                                               ; preds = %46
+  %52 = load i64, ptr %16, align 8, !tbaa !16
+  %53 = load ptr, ptr %7, align 8, !tbaa !6
+  %54 = getelementptr inbounds nuw %struct.gcm128_context, ptr %53, i32 0, i32 3
+  %55 = getelementptr inbounds [2 x i64], ptr %54, i64 0, i64 1
+  store i64 %52, ptr %55, align 8, !tbaa !15
+  %56 = load ptr, ptr %7, align 8, !tbaa !6
+  %57 = getelementptr inbounds nuw %struct.gcm128_context, ptr %56, i32 0, i32 10
+  %58 = load i32, ptr %57, align 4, !tbaa !31
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %70
 
-if.then6:                                         ; preds = %if.end
-  %17 = load ptr, ptr %gcm_gmult_p, align 8
-  %18 = load ptr, ptr %ctx.addr, align 8
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %18, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [2 x i64], ptr %Xi, i64 0, i64 0
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %19, i32 0, i32 6
-  %arraydecay7 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
-  call void %17(ptr noundef %arraydecay, ptr noundef %arraydecay7)
-  %20 = load ptr, ptr %ctx.addr, align 8
-  %ares8 = getelementptr inbounds %struct.gcm128_context, ptr %20, i32 0, i32 10
-  store i32 0, ptr %ares8, align 4
-  br label %if.end9
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %18, align 8, !tbaa !11
+  %62 = load ptr, ptr %7, align 8, !tbaa !6
+  %63 = getelementptr inbounds nuw %struct.gcm128_context, ptr %62, i32 0, i32 4
+  %64 = getelementptr inbounds [2 x i64], ptr %63, i64 0, i64 0
+  %65 = load ptr, ptr %7, align 8, !tbaa !6
+  %66 = getelementptr inbounds nuw %struct.gcm128_context, ptr %65, i32 0, i32 6
+  %67 = getelementptr inbounds [16 x %struct.u128], ptr %66, i64 0, i64 0
+  call void %61(ptr noundef %64, ptr noundef %67)
+  %68 = load ptr, ptr %7, align 8, !tbaa !6
+  %69 = getelementptr inbounds nuw %struct.gcm128_context, ptr %68, i32 0, i32 10
+  store i32 0, ptr %69, align 4, !tbaa !31
+  br label %70
 
-if.end9:                                          ; preds = %if.then6, %if.end
-  %21 = load i8, ptr %is_endian, align 8
-  %tobool10 = icmp ne i8 %21, 0
-  br i1 %tobool10, label %if.then11, label %if.else
+70:                                               ; preds = %60, %51
+  %71 = load i8, ptr %12, align 8, !tbaa !15
+  %72 = icmp ne i8 %71, 0
+  br i1 %72, label %73, label %108
 
-if.then11:                                        ; preds = %if.end9
-  %22 = load ptr, ptr %ctx.addr, align 8
-  %Yi = getelementptr inbounds %struct.gcm128_context, ptr %22, i32 0, i32 0
-  %arraydecay12 = getelementptr inbounds [16 x i8], ptr %Yi, i64 0, i64 0
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay12, i64 12
-  %arrayidx13 = getelementptr inbounds i8, ptr %add.ptr, i64 0
-  %23 = load i8, ptr %arrayidx13, align 1
-  %conv = zext i8 %23 to i32
-  %shl = shl i32 %conv, 24
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %Yi14 = getelementptr inbounds %struct.gcm128_context, ptr %24, i32 0, i32 0
-  %arraydecay15 = getelementptr inbounds [16 x i8], ptr %Yi14, i64 0, i64 0
-  %add.ptr16 = getelementptr inbounds i8, ptr %arraydecay15, i64 12
-  %arrayidx17 = getelementptr inbounds i8, ptr %add.ptr16, i64 1
-  %25 = load i8, ptr %arrayidx17, align 1
-  %conv18 = zext i8 %25 to i32
-  %shl19 = shl i32 %conv18, 16
-  %or = or i32 %shl, %shl19
-  %26 = load ptr, ptr %ctx.addr, align 8
-  %Yi20 = getelementptr inbounds %struct.gcm128_context, ptr %26, i32 0, i32 0
-  %arraydecay21 = getelementptr inbounds [16 x i8], ptr %Yi20, i64 0, i64 0
-  %add.ptr22 = getelementptr inbounds i8, ptr %arraydecay21, i64 12
-  %arrayidx23 = getelementptr inbounds i8, ptr %add.ptr22, i64 2
-  %27 = load i8, ptr %arrayidx23, align 1
-  %conv24 = zext i8 %27 to i32
-  %shl25 = shl i32 %conv24, 8
-  %or26 = or i32 %or, %shl25
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %Yi27 = getelementptr inbounds %struct.gcm128_context, ptr %28, i32 0, i32 0
-  %arraydecay28 = getelementptr inbounds [16 x i8], ptr %Yi27, i64 0, i64 0
-  %add.ptr29 = getelementptr inbounds i8, ptr %arraydecay28, i64 12
-  %arrayidx30 = getelementptr inbounds i8, ptr %add.ptr29, i64 3
-  %29 = load i8, ptr %arrayidx30, align 1
-  %conv31 = zext i8 %29 to i32
-  %or32 = or i32 %or26, %conv31
-  store i32 %or32, ptr %ctr, align 4
-  br label %if.end35
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %7, align 8, !tbaa !6
+  %75 = getelementptr inbounds nuw %struct.gcm128_context, ptr %74, i32 0, i32 0
+  %76 = getelementptr inbounds [16 x i8], ptr %75, i64 0, i64 0
+  %77 = getelementptr inbounds i8, ptr %76, i64 12
+  %78 = getelementptr inbounds i8, ptr %77, i64 0
+  %79 = load i8, ptr %78, align 1, !tbaa !15
+  %80 = zext i8 %79 to i32
+  %81 = shl i32 %80, 24
+  %82 = load ptr, ptr %7, align 8, !tbaa !6
+  %83 = getelementptr inbounds nuw %struct.gcm128_context, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds [16 x i8], ptr %83, i64 0, i64 0
+  %85 = getelementptr inbounds i8, ptr %84, i64 12
+  %86 = getelementptr inbounds i8, ptr %85, i64 1
+  %87 = load i8, ptr %86, align 1, !tbaa !15
+  %88 = zext i8 %87 to i32
+  %89 = shl i32 %88, 16
+  %90 = or i32 %81, %89
+  %91 = load ptr, ptr %7, align 8, !tbaa !6
+  %92 = getelementptr inbounds nuw %struct.gcm128_context, ptr %91, i32 0, i32 0
+  %93 = getelementptr inbounds [16 x i8], ptr %92, i64 0, i64 0
+  %94 = getelementptr inbounds i8, ptr %93, i64 12
+  %95 = getelementptr inbounds i8, ptr %94, i64 2
+  %96 = load i8, ptr %95, align 1, !tbaa !15
+  %97 = zext i8 %96 to i32
+  %98 = shl i32 %97, 8
+  %99 = or i32 %90, %98
+  %100 = load ptr, ptr %7, align 8, !tbaa !6
+  %101 = getelementptr inbounds nuw %struct.gcm128_context, ptr %100, i32 0, i32 0
+  %102 = getelementptr inbounds [16 x i8], ptr %101, i64 0, i64 0
+  %103 = getelementptr inbounds i8, ptr %102, i64 12
+  %104 = getelementptr inbounds i8, ptr %103, i64 3
+  %105 = load i8, ptr %104, align 1, !tbaa !15
+  %106 = zext i8 %105 to i32
+  %107 = or i32 %99, %106
+  store i32 %107, ptr %14, align 4, !tbaa !20
+  br label %113
 
-if.else:                                          ; preds = %if.end9
-  %30 = load ptr, ptr %ctx.addr, align 8
-  %Yi33 = getelementptr inbounds %struct.gcm128_context, ptr %30, i32 0, i32 0
-  %arrayidx34 = getelementptr inbounds [4 x i32], ptr %Yi33, i64 0, i64 3
-  %31 = load i32, ptr %arrayidx34, align 4
-  store i32 %31, ptr %ctr, align 4
-  br label %if.end35
+108:                                              ; preds = %70
+  %109 = load ptr, ptr %7, align 8, !tbaa !6
+  %110 = getelementptr inbounds nuw %struct.gcm128_context, ptr %109, i32 0, i32 0
+  %111 = getelementptr inbounds [4 x i32], ptr %110, i64 0, i64 3
+  %112 = load i32, ptr %111, align 4, !tbaa !15
+  store i32 %112, ptr %14, align 4, !tbaa !20
+  br label %113
 
-if.end35:                                         ; preds = %if.else, %if.then11
-  %32 = load ptr, ptr %ctx.addr, align 8
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %32, i32 0, i32 9
-  %33 = load i32, ptr %mres, align 8
-  store i32 %33, ptr %n, align 4
-  %34 = load i32, ptr %n, align 4
-  %tobool36 = icmp ne i32 %34, 0
-  br i1 %tobool36, label %if.then37, label %if.end63
+113:                                              ; preds = %108, %73
+  %114 = load ptr, ptr %7, align 8, !tbaa !6
+  %115 = getelementptr inbounds nuw %struct.gcm128_context, ptr %114, i32 0, i32 9
+  %116 = load i32, ptr %115, align 8, !tbaa !32
+  store i32 %116, ptr %13, align 4, !tbaa !20
+  %117 = load i32, ptr %13, align 4, !tbaa !20
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %177
 
-if.then37:                                        ; preds = %if.end35
-  br label %while.cond
+119:                                              ; preds = %113
+  br label %120
 
-while.cond:                                       ; preds = %while.body, %if.then37
-  %35 = load i32, ptr %n, align 4
-  %tobool38 = icmp ne i32 %35, 0
-  br i1 %tobool38, label %land.rhs, label %land.end
+120:                                              ; preds = %128, %119
+  %121 = load i32, ptr %13, align 4, !tbaa !20
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %126
 
-land.rhs:                                         ; preds = %while.cond
-  %36 = load i64, ptr %len.addr, align 8
-  %tobool39 = icmp ne i64 %36, 0
-  br label %land.end
+123:                                              ; preds = %120
+  %124 = load i64, ptr %11, align 8, !tbaa !16
+  %125 = icmp ne i64 %124, 0
+  br label %126
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %37 = phi i1 [ false, %while.cond ], [ %tobool39, %land.rhs ]
-  br i1 %37, label %while.body, label %while.end
+126:                                              ; preds = %123, %120
+  %127 = phi i1 [ false, %120 ], [ %125, %123 ]
+  br i1 %127, label %128, label %161
 
-while.body:                                       ; preds = %land.end
-  %38 = load ptr, ptr %in.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %38, i32 1
-  store ptr %incdec.ptr, ptr %in.addr, align 8
-  %39 = load i8, ptr %38, align 1
-  store i8 %39, ptr %c, align 1
-  %40 = load i8, ptr %c, align 1
-  %conv40 = zext i8 %40 to i32
-  %41 = load ptr, ptr %ctx.addr, align 8
-  %EKi = getelementptr inbounds %struct.gcm128_context, ptr %41, i32 0, i32 1
-  %42 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %42 to i64
-  %arrayidx41 = getelementptr inbounds [16 x i8], ptr %EKi, i64 0, i64 %idxprom
-  %43 = load i8, ptr %arrayidx41, align 1
-  %conv42 = zext i8 %43 to i32
-  %xor = xor i32 %conv40, %conv42
-  %conv43 = trunc i32 %xor to i8
-  %44 = load ptr, ptr %out.addr, align 8
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %44, i32 1
-  store ptr %incdec.ptr44, ptr %out.addr, align 8
-  store i8 %conv43, ptr %44, align 1
-  %45 = load i8, ptr %c, align 1
-  %conv45 = zext i8 %45 to i32
-  %46 = load ptr, ptr %ctx.addr, align 8
-  %Xi46 = getelementptr inbounds %struct.gcm128_context, ptr %46, i32 0, i32 4
-  %47 = load i32, ptr %n, align 4
-  %idxprom47 = zext i32 %47 to i64
-  %arrayidx48 = getelementptr inbounds [16 x i8], ptr %Xi46, i64 0, i64 %idxprom47
-  %48 = load i8, ptr %arrayidx48, align 1
-  %conv49 = zext i8 %48 to i32
-  %xor50 = xor i32 %conv49, %conv45
-  %conv51 = trunc i32 %xor50 to i8
-  store i8 %conv51, ptr %arrayidx48, align 1
-  %49 = load i64, ptr %len.addr, align 8
-  %dec = add i64 %49, -1
-  store i64 %dec, ptr %len.addr, align 8
-  %50 = load i32, ptr %n, align 4
-  %add52 = add i32 %50, 1
-  %rem = urem i32 %add52, 16
-  store i32 %rem, ptr %n, align 4
-  br label %while.cond, !llvm.loop !23
+128:                                              ; preds = %126
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #5
+  %129 = load ptr, ptr %9, align 8, !tbaa !29
+  %130 = getelementptr inbounds nuw i8, ptr %129, i32 1
+  store ptr %130, ptr %9, align 8, !tbaa !29
+  %131 = load i8, ptr %129, align 1, !tbaa !15
+  store i8 %131, ptr %21, align 1, !tbaa !15
+  %132 = load i8, ptr %21, align 1, !tbaa !15
+  %133 = zext i8 %132 to i32
+  %134 = load ptr, ptr %7, align 8, !tbaa !6
+  %135 = getelementptr inbounds nuw %struct.gcm128_context, ptr %134, i32 0, i32 1
+  %136 = load i32, ptr %13, align 4, !tbaa !20
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 0, i64 %137
+  %139 = load i8, ptr %138, align 1, !tbaa !15
+  %140 = zext i8 %139 to i32
+  %141 = xor i32 %133, %140
+  %142 = trunc i32 %141 to i8
+  %143 = load ptr, ptr %10, align 8, !tbaa !29
+  %144 = getelementptr inbounds nuw i8, ptr %143, i32 1
+  store ptr %144, ptr %10, align 8, !tbaa !29
+  store i8 %142, ptr %143, align 1, !tbaa !15
+  %145 = load i8, ptr %21, align 1, !tbaa !15
+  %146 = zext i8 %145 to i32
+  %147 = load ptr, ptr %7, align 8, !tbaa !6
+  %148 = getelementptr inbounds nuw %struct.gcm128_context, ptr %147, i32 0, i32 4
+  %149 = load i32, ptr %13, align 4, !tbaa !20
+  %150 = zext i32 %149 to i64
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 0, i64 %150
+  %152 = load i8, ptr %151, align 1, !tbaa !15
+  %153 = zext i8 %152 to i32
+  %154 = xor i32 %153, %146
+  %155 = trunc i32 %154 to i8
+  store i8 %155, ptr %151, align 1, !tbaa !15
+  %156 = load i64, ptr %11, align 8, !tbaa !16
+  %157 = add i64 %156, -1
+  store i64 %157, ptr %11, align 8, !tbaa !16
+  %158 = load i32, ptr %13, align 4, !tbaa !20
+  %159 = add i32 %158, 1
+  %160 = urem i32 %159, 16
+  store i32 %160, ptr %13, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #5
+  br label %120, !llvm.loop !47
 
-while.end:                                        ; preds = %land.end
-  %51 = load i32, ptr %n, align 4
-  %cmp53 = icmp eq i32 %51, 0
-  br i1 %cmp53, label %if.then55, label %if.else60
+161:                                              ; preds = %126
+  %162 = load i32, ptr %13, align 4, !tbaa !20
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %164, label %172
 
-if.then55:                                        ; preds = %while.end
-  %52 = load ptr, ptr %gcm_gmult_p, align 8
-  %53 = load ptr, ptr %ctx.addr, align 8
-  %Xi56 = getelementptr inbounds %struct.gcm128_context, ptr %53, i32 0, i32 4
-  %arraydecay57 = getelementptr inbounds [2 x i64], ptr %Xi56, i64 0, i64 0
-  %54 = load ptr, ptr %ctx.addr, align 8
-  %Htable58 = getelementptr inbounds %struct.gcm128_context, ptr %54, i32 0, i32 6
-  %arraydecay59 = getelementptr inbounds [16 x %struct.u128], ptr %Htable58, i64 0, i64 0
-  call void %52(ptr noundef %arraydecay57, ptr noundef %arraydecay59)
-  br label %if.end62
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %18, align 8, !tbaa !11
+  %166 = load ptr, ptr %7, align 8, !tbaa !6
+  %167 = getelementptr inbounds nuw %struct.gcm128_context, ptr %166, i32 0, i32 4
+  %168 = getelementptr inbounds [2 x i64], ptr %167, i64 0, i64 0
+  %169 = load ptr, ptr %7, align 8, !tbaa !6
+  %170 = getelementptr inbounds nuw %struct.gcm128_context, ptr %169, i32 0, i32 6
+  %171 = getelementptr inbounds [16 x %struct.u128], ptr %170, i64 0, i64 0
+  call void %165(ptr noundef %168, ptr noundef %171)
+  br label %176
 
-if.else60:                                        ; preds = %while.end
-  %55 = load i32, ptr %n, align 4
-  %56 = load ptr, ptr %ctx.addr, align 8
-  %mres61 = getelementptr inbounds %struct.gcm128_context, ptr %56, i32 0, i32 9
-  store i32 %55, ptr %mres61, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+172:                                              ; preds = %161
+  %173 = load i32, ptr %13, align 4, !tbaa !20
+  %174 = load ptr, ptr %7, align 8, !tbaa !6
+  %175 = getelementptr inbounds nuw %struct.gcm128_context, ptr %174, i32 0, i32 9
+  store i32 %173, ptr %175, align 8, !tbaa !32
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %20, align 4
+  br label %472
 
-if.end62:                                         ; preds = %if.then55
-  br label %if.end63
+176:                                              ; preds = %164
+  br label %177
 
-if.end63:                                         ; preds = %if.end62, %if.end35
-  br label %while.cond64
+177:                                              ; preds = %176, %113
+  br label %178
 
-while.cond64:                                     ; preds = %while.end117, %if.end63
-  %57 = load i64, ptr %len.addr, align 8
-  %cmp65 = icmp uge i64 %57, 3072
-  br i1 %cmp65, label %while.body67, label %while.end119
+178:                                              ; preds = %273, %177
+  %179 = load i64, ptr %11, align 8, !tbaa !16
+  %180 = icmp uge i64 %179, 3072
+  br i1 %180, label %181, label %276
 
-while.body67:                                     ; preds = %while.cond64
-  store i64 3072, ptr %j, align 8
-  %58 = load ptr, ptr %gcm_ghash_p, align 8
-  %59 = load ptr, ptr %ctx.addr, align 8
-  %Xi68 = getelementptr inbounds %struct.gcm128_context, ptr %59, i32 0, i32 4
-  %arraydecay69 = getelementptr inbounds [2 x i64], ptr %Xi68, i64 0, i64 0
-  %60 = load ptr, ptr %ctx.addr, align 8
-  %Htable70 = getelementptr inbounds %struct.gcm128_context, ptr %60, i32 0, i32 6
-  %arraydecay71 = getelementptr inbounds [16 x %struct.u128], ptr %Htable70, i64 0, i64 0
-  %61 = load ptr, ptr %in.addr, align 8
-  call void %58(ptr noundef %arraydecay69, ptr noundef %arraydecay71, ptr noundef %61, i64 noundef 3072)
-  br label %while.cond72
+181:                                              ; preds = %178
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  store i64 3072, ptr %22, align 8, !tbaa !16
+  %182 = load ptr, ptr %19, align 8, !tbaa !11
+  %183 = load ptr, ptr %7, align 8, !tbaa !6
+  %184 = getelementptr inbounds nuw %struct.gcm128_context, ptr %183, i32 0, i32 4
+  %185 = getelementptr inbounds [2 x i64], ptr %184, i64 0, i64 0
+  %186 = load ptr, ptr %7, align 8, !tbaa !6
+  %187 = getelementptr inbounds nuw %struct.gcm128_context, ptr %186, i32 0, i32 6
+  %188 = getelementptr inbounds [16 x %struct.u128], ptr %187, i64 0, i64 0
+  %189 = load ptr, ptr %9, align 8, !tbaa !29
+  call void %182(ptr noundef %185, ptr noundef %188, ptr noundef %189, i64 noundef 3072)
+  br label %190
 
-while.cond72:                                     ; preds = %for.end, %while.body67
-  %62 = load i64, ptr %j, align 8
-  %tobool73 = icmp ne i64 %62, 0
-  br i1 %tobool73, label %while.body74, label %while.end117
+190:                                              ; preds = %266, %181
+  %191 = load i64, ptr %22, align 8, !tbaa !16
+  %192 = icmp ne i64 %191, 0
+  br i1 %192, label %193, label %273
 
-while.body74:                                     ; preds = %while.cond72
-  %63 = load ptr, ptr %out.addr, align 8
-  store ptr %63, ptr %out_t, align 8
-  %64 = load ptr, ptr %in.addr, align 8
-  store ptr %64, ptr %in_t, align 8
-  %65 = load ptr, ptr %block, align 8
-  %66 = load ptr, ptr %ctx.addr, align 8
-  %Yi75 = getelementptr inbounds %struct.gcm128_context, ptr %66, i32 0, i32 0
-  %arraydecay76 = getelementptr inbounds [16 x i8], ptr %Yi75, i64 0, i64 0
-  %67 = load ptr, ptr %ctx.addr, align 8
-  %EKi77 = getelementptr inbounds %struct.gcm128_context, ptr %67, i32 0, i32 1
-  %arraydecay78 = getelementptr inbounds [16 x i8], ptr %EKi77, i64 0, i64 0
-  %68 = load ptr, ptr %key.addr, align 8
-  call void %65(ptr noundef %arraydecay76, ptr noundef %arraydecay78, ptr noundef %68)
-  %69 = load i32, ptr %ctr, align 4
-  %inc = add i32 %69, 1
-  store i32 %inc, ptr %ctr, align 4
-  %70 = load i8, ptr %is_endian, align 8
-  %tobool79 = icmp ne i8 %70, 0
-  br i1 %tobool79, label %if.then80, label %if.else103
+193:                                              ; preds = %190
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  %194 = load ptr, ptr %10, align 8, !tbaa !29
+  store ptr %194, ptr %23, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  %195 = load ptr, ptr %9, align 8, !tbaa !29
+  store ptr %195, ptr %24, align 8, !tbaa !23
+  %196 = load ptr, ptr %17, align 8, !tbaa !11
+  %197 = load ptr, ptr %7, align 8, !tbaa !6
+  %198 = getelementptr inbounds nuw %struct.gcm128_context, ptr %197, i32 0, i32 0
+  %199 = getelementptr inbounds [16 x i8], ptr %198, i64 0, i64 0
+  %200 = load ptr, ptr %7, align 8, !tbaa !6
+  %201 = getelementptr inbounds nuw %struct.gcm128_context, ptr %200, i32 0, i32 1
+  %202 = getelementptr inbounds [16 x i8], ptr %201, i64 0, i64 0
+  %203 = load ptr, ptr %8, align 8, !tbaa !11
+  call void %196(ptr noundef %199, ptr noundef %202, ptr noundef %203)
+  %204 = load i32, ptr %14, align 4, !tbaa !20
+  %205 = add i32 %204, 1
+  store i32 %205, ptr %14, align 4, !tbaa !20
+  %206 = load i8, ptr %12, align 8, !tbaa !15
+  %207 = icmp ne i8 %206, 0
+  br i1 %207, label %208, label %240
 
-if.then80:                                        ; preds = %while.body74
-  %71 = load i32, ptr %ctr, align 4
-  %shr = lshr i32 %71, 24
-  %conv81 = trunc i32 %shr to i8
-  %72 = load ptr, ptr %ctx.addr, align 8
-  %Yi82 = getelementptr inbounds %struct.gcm128_context, ptr %72, i32 0, i32 0
-  %arraydecay83 = getelementptr inbounds [16 x i8], ptr %Yi82, i64 0, i64 0
-  %add.ptr84 = getelementptr inbounds i8, ptr %arraydecay83, i64 12
-  %arrayidx85 = getelementptr inbounds i8, ptr %add.ptr84, i64 0
-  store i8 %conv81, ptr %arrayidx85, align 1
-  %73 = load i32, ptr %ctr, align 4
-  %shr86 = lshr i32 %73, 16
-  %conv87 = trunc i32 %shr86 to i8
-  %74 = load ptr, ptr %ctx.addr, align 8
-  %Yi88 = getelementptr inbounds %struct.gcm128_context, ptr %74, i32 0, i32 0
-  %arraydecay89 = getelementptr inbounds [16 x i8], ptr %Yi88, i64 0, i64 0
-  %add.ptr90 = getelementptr inbounds i8, ptr %arraydecay89, i64 12
-  %arrayidx91 = getelementptr inbounds i8, ptr %add.ptr90, i64 1
-  store i8 %conv87, ptr %arrayidx91, align 1
-  %75 = load i32, ptr %ctr, align 4
-  %shr92 = lshr i32 %75, 8
-  %conv93 = trunc i32 %shr92 to i8
-  %76 = load ptr, ptr %ctx.addr, align 8
-  %Yi94 = getelementptr inbounds %struct.gcm128_context, ptr %76, i32 0, i32 0
-  %arraydecay95 = getelementptr inbounds [16 x i8], ptr %Yi94, i64 0, i64 0
-  %add.ptr96 = getelementptr inbounds i8, ptr %arraydecay95, i64 12
-  %arrayidx97 = getelementptr inbounds i8, ptr %add.ptr96, i64 2
-  store i8 %conv93, ptr %arrayidx97, align 1
-  %77 = load i32, ptr %ctr, align 4
-  %conv98 = trunc i32 %77 to i8
-  %78 = load ptr, ptr %ctx.addr, align 8
-  %Yi99 = getelementptr inbounds %struct.gcm128_context, ptr %78, i32 0, i32 0
-  %arraydecay100 = getelementptr inbounds [16 x i8], ptr %Yi99, i64 0, i64 0
-  %add.ptr101 = getelementptr inbounds i8, ptr %arraydecay100, i64 12
-  %arrayidx102 = getelementptr inbounds i8, ptr %add.ptr101, i64 3
-  store i8 %conv98, ptr %arrayidx102, align 1
-  br label %if.end106
+208:                                              ; preds = %193
+  %209 = load i32, ptr %14, align 4, !tbaa !20
+  %210 = lshr i32 %209, 24
+  %211 = trunc i32 %210 to i8
+  %212 = load ptr, ptr %7, align 8, !tbaa !6
+  %213 = getelementptr inbounds nuw %struct.gcm128_context, ptr %212, i32 0, i32 0
+  %214 = getelementptr inbounds [16 x i8], ptr %213, i64 0, i64 0
+  %215 = getelementptr inbounds i8, ptr %214, i64 12
+  %216 = getelementptr inbounds i8, ptr %215, i64 0
+  store i8 %211, ptr %216, align 1, !tbaa !15
+  %217 = load i32, ptr %14, align 4, !tbaa !20
+  %218 = lshr i32 %217, 16
+  %219 = trunc i32 %218 to i8
+  %220 = load ptr, ptr %7, align 8, !tbaa !6
+  %221 = getelementptr inbounds nuw %struct.gcm128_context, ptr %220, i32 0, i32 0
+  %222 = getelementptr inbounds [16 x i8], ptr %221, i64 0, i64 0
+  %223 = getelementptr inbounds i8, ptr %222, i64 12
+  %224 = getelementptr inbounds i8, ptr %223, i64 1
+  store i8 %219, ptr %224, align 1, !tbaa !15
+  %225 = load i32, ptr %14, align 4, !tbaa !20
+  %226 = lshr i32 %225, 8
+  %227 = trunc i32 %226 to i8
+  %228 = load ptr, ptr %7, align 8, !tbaa !6
+  %229 = getelementptr inbounds nuw %struct.gcm128_context, ptr %228, i32 0, i32 0
+  %230 = getelementptr inbounds [16 x i8], ptr %229, i64 0, i64 0
+  %231 = getelementptr inbounds i8, ptr %230, i64 12
+  %232 = getelementptr inbounds i8, ptr %231, i64 2
+  store i8 %227, ptr %232, align 1, !tbaa !15
+  %233 = load i32, ptr %14, align 4, !tbaa !20
+  %234 = trunc i32 %233 to i8
+  %235 = load ptr, ptr %7, align 8, !tbaa !6
+  %236 = getelementptr inbounds nuw %struct.gcm128_context, ptr %235, i32 0, i32 0
+  %237 = getelementptr inbounds [16 x i8], ptr %236, i64 0, i64 0
+  %238 = getelementptr inbounds i8, ptr %237, i64 12
+  %239 = getelementptr inbounds i8, ptr %238, i64 3
+  store i8 %234, ptr %239, align 1, !tbaa !15
+  br label %245
 
-if.else103:                                       ; preds = %while.body74
-  %79 = load i32, ptr %ctr, align 4
-  %80 = load ptr, ptr %ctx.addr, align 8
-  %Yi104 = getelementptr inbounds %struct.gcm128_context, ptr %80, i32 0, i32 0
-  %arrayidx105 = getelementptr inbounds [4 x i32], ptr %Yi104, i64 0, i64 3
-  store i32 %79, ptr %arrayidx105, align 4
-  br label %if.end106
+240:                                              ; preds = %193
+  %241 = load i32, ptr %14, align 4, !tbaa !20
+  %242 = load ptr, ptr %7, align 8, !tbaa !6
+  %243 = getelementptr inbounds nuw %struct.gcm128_context, ptr %242, i32 0, i32 0
+  %244 = getelementptr inbounds [4 x i32], ptr %243, i64 0, i64 3
+  store i32 %241, ptr %244, align 4, !tbaa !15
+  br label %245
 
-if.end106:                                        ; preds = %if.else103, %if.then80
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+245:                                              ; preds = %240, %208
+  store i64 0, ptr %15, align 8, !tbaa !16
+  br label %246
 
-for.cond:                                         ; preds = %for.inc, %if.end106
-  %81 = load i64, ptr %i, align 8
-  %cmp107 = icmp ult i64 %81, 2
-  br i1 %cmp107, label %for.body, label %for.end
+246:                                              ; preds = %263, %245
+  %247 = load i64, ptr %15, align 8, !tbaa !16
+  %248 = icmp ult i64 %247, 2
+  br i1 %248, label %249, label %266
 
-for.body:                                         ; preds = %for.cond
-  %82 = load ptr, ptr %in_t, align 8
-  %83 = load i64, ptr %i, align 8
-  %arrayidx109 = getelementptr inbounds i64, ptr %82, i64 %83
-  %84 = load i64, ptr %arrayidx109, align 8
-  %85 = load ptr, ptr %ctx.addr, align 8
-  %EKi110 = getelementptr inbounds %struct.gcm128_context, ptr %85, i32 0, i32 1
-  %86 = load i64, ptr %i, align 8
-  %arrayidx111 = getelementptr inbounds [2 x i64], ptr %EKi110, i64 0, i64 %86
-  %87 = load i64, ptr %arrayidx111, align 8
-  %xor112 = xor i64 %84, %87
-  %88 = load ptr, ptr %out_t, align 8
-  %89 = load i64, ptr %i, align 8
-  %arrayidx113 = getelementptr inbounds i64, ptr %88, i64 %89
-  store i64 %xor112, ptr %arrayidx113, align 8
-  br label %for.inc
+249:                                              ; preds = %246
+  %250 = load ptr, ptr %24, align 8, !tbaa !23
+  %251 = load i64, ptr %15, align 8, !tbaa !16
+  %252 = getelementptr inbounds nuw i64, ptr %250, i64 %251
+  %253 = load i64, ptr %252, align 8, !tbaa !16
+  %254 = load ptr, ptr %7, align 8, !tbaa !6
+  %255 = getelementptr inbounds nuw %struct.gcm128_context, ptr %254, i32 0, i32 1
+  %256 = load i64, ptr %15, align 8, !tbaa !16
+  %257 = getelementptr inbounds nuw [2 x i64], ptr %255, i64 0, i64 %256
+  %258 = load i64, ptr %257, align 8, !tbaa !15
+  %259 = xor i64 %253, %258
+  %260 = load ptr, ptr %23, align 8, !tbaa !23
+  %261 = load i64, ptr %15, align 8, !tbaa !16
+  %262 = getelementptr inbounds nuw i64, ptr %260, i64 %261
+  store i64 %259, ptr %262, align 8, !tbaa !16
+  br label %263
 
-for.inc:                                          ; preds = %for.body
-  %90 = load i64, ptr %i, align 8
-  %inc114 = add i64 %90, 1
-  store i64 %inc114, ptr %i, align 8
-  br label %for.cond, !llvm.loop !24
+263:                                              ; preds = %249
+  %264 = load i64, ptr %15, align 8, !tbaa !16
+  %265 = add i64 %264, 1
+  store i64 %265, ptr %15, align 8, !tbaa !16
+  br label %246, !llvm.loop !48
 
-for.end:                                          ; preds = %for.cond
-  %91 = load ptr, ptr %out.addr, align 8
-  %add.ptr115 = getelementptr inbounds i8, ptr %91, i64 16
-  store ptr %add.ptr115, ptr %out.addr, align 8
-  %92 = load ptr, ptr %in.addr, align 8
-  %add.ptr116 = getelementptr inbounds i8, ptr %92, i64 16
-  store ptr %add.ptr116, ptr %in.addr, align 8
-  %93 = load i64, ptr %j, align 8
-  %sub = sub i64 %93, 16
-  store i64 %sub, ptr %j, align 8
-  br label %while.cond72, !llvm.loop !25
+266:                                              ; preds = %246
+  %267 = load ptr, ptr %10, align 8, !tbaa !29
+  %268 = getelementptr inbounds i8, ptr %267, i64 16
+  store ptr %268, ptr %10, align 8, !tbaa !29
+  %269 = load ptr, ptr %9, align 8, !tbaa !29
+  %270 = getelementptr inbounds i8, ptr %269, i64 16
+  store ptr %270, ptr %9, align 8, !tbaa !29
+  %271 = load i64, ptr %22, align 8, !tbaa !16
+  %272 = sub i64 %271, 16
+  store i64 %272, ptr %22, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  br label %190, !llvm.loop !49
 
-while.end117:                                     ; preds = %while.cond72
-  %94 = load i64, ptr %len.addr, align 8
-  %sub118 = sub i64 %94, 3072
-  store i64 %sub118, ptr %len.addr, align 8
-  br label %while.cond64, !llvm.loop !26
+273:                                              ; preds = %190
+  %274 = load i64, ptr %11, align 8, !tbaa !16
+  %275 = sub i64 %274, 3072
+  store i64 %275, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  br label %178, !llvm.loop !50
 
-while.end119:                                     ; preds = %while.cond64
-  %95 = load i64, ptr %len.addr, align 8
-  %and = and i64 %95, -16
-  store i64 %and, ptr %i, align 8
-  %96 = load i64, ptr %i, align 8
-  %cmp120 = icmp ne i64 %96, 0
-  br i1 %cmp120, label %if.then122, label %if.end183
+276:                                              ; preds = %178
+  %277 = load i64, ptr %11, align 8, !tbaa !16
+  %278 = and i64 %277, -16
+  store i64 %278, ptr %15, align 8, !tbaa !16
+  %279 = load i64, ptr %15, align 8, !tbaa !16
+  %280 = icmp ne i64 %279, 0
+  br i1 %280, label %281, label %375
 
-if.then122:                                       ; preds = %while.end119
-  %97 = load ptr, ptr %gcm_ghash_p, align 8
-  %98 = load ptr, ptr %ctx.addr, align 8
-  %Xi123 = getelementptr inbounds %struct.gcm128_context, ptr %98, i32 0, i32 4
-  %arraydecay124 = getelementptr inbounds [2 x i64], ptr %Xi123, i64 0, i64 0
-  %99 = load ptr, ptr %ctx.addr, align 8
-  %Htable125 = getelementptr inbounds %struct.gcm128_context, ptr %99, i32 0, i32 6
-  %arraydecay126 = getelementptr inbounds [16 x %struct.u128], ptr %Htable125, i64 0, i64 0
-  %100 = load ptr, ptr %in.addr, align 8
-  %101 = load i64, ptr %i, align 8
-  call void %97(ptr noundef %arraydecay124, ptr noundef %arraydecay126, ptr noundef %100, i64 noundef %101)
-  br label %while.cond127
+281:                                              ; preds = %276
+  %282 = load ptr, ptr %19, align 8, !tbaa !11
+  %283 = load ptr, ptr %7, align 8, !tbaa !6
+  %284 = getelementptr inbounds nuw %struct.gcm128_context, ptr %283, i32 0, i32 4
+  %285 = getelementptr inbounds [2 x i64], ptr %284, i64 0, i64 0
+  %286 = load ptr, ptr %7, align 8, !tbaa !6
+  %287 = getelementptr inbounds nuw %struct.gcm128_context, ptr %286, i32 0, i32 6
+  %288 = getelementptr inbounds [16 x %struct.u128], ptr %287, i64 0, i64 0
+  %289 = load ptr, ptr %9, align 8, !tbaa !29
+  %290 = load i64, ptr %15, align 8, !tbaa !16
+  call void %282(ptr noundef %285, ptr noundef %288, ptr noundef %289, i64 noundef %290)
+  br label %291
 
-while.cond127:                                    ; preds = %for.end178, %if.then122
-  %102 = load i64, ptr %len.addr, align 8
-  %cmp128 = icmp uge i64 %102, 16
-  br i1 %cmp128, label %while.body130, label %while.end182
+291:                                              ; preds = %367, %281
+  %292 = load i64, ptr %11, align 8, !tbaa !16
+  %293 = icmp uge i64 %292, 16
+  br i1 %293, label %294, label %374
 
-while.body130:                                    ; preds = %while.cond127
-  %103 = load ptr, ptr %out.addr, align 8
-  store ptr %103, ptr %out_t131, align 8
-  %104 = load ptr, ptr %in.addr, align 8
-  store ptr %104, ptr %in_t132, align 8
-  %105 = load ptr, ptr %block, align 8
-  %106 = load ptr, ptr %ctx.addr, align 8
-  %Yi133 = getelementptr inbounds %struct.gcm128_context, ptr %106, i32 0, i32 0
-  %arraydecay134 = getelementptr inbounds [16 x i8], ptr %Yi133, i64 0, i64 0
-  %107 = load ptr, ptr %ctx.addr, align 8
-  %EKi135 = getelementptr inbounds %struct.gcm128_context, ptr %107, i32 0, i32 1
-  %arraydecay136 = getelementptr inbounds [16 x i8], ptr %EKi135, i64 0, i64 0
-  %108 = load ptr, ptr %key.addr, align 8
-  call void %105(ptr noundef %arraydecay134, ptr noundef %arraydecay136, ptr noundef %108)
-  %109 = load i32, ptr %ctr, align 4
-  %inc137 = add i32 %109, 1
-  store i32 %inc137, ptr %ctr, align 4
-  %110 = load i8, ptr %is_endian, align 8
-  %tobool138 = icmp ne i8 %110, 0
-  br i1 %tobool138, label %if.then139, label %if.else163
+294:                                              ; preds = %291
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
+  %295 = load ptr, ptr %10, align 8, !tbaa !29
+  store ptr %295, ptr %25, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #5
+  %296 = load ptr, ptr %9, align 8, !tbaa !29
+  store ptr %296, ptr %26, align 8, !tbaa !23
+  %297 = load ptr, ptr %17, align 8, !tbaa !11
+  %298 = load ptr, ptr %7, align 8, !tbaa !6
+  %299 = getelementptr inbounds nuw %struct.gcm128_context, ptr %298, i32 0, i32 0
+  %300 = getelementptr inbounds [16 x i8], ptr %299, i64 0, i64 0
+  %301 = load ptr, ptr %7, align 8, !tbaa !6
+  %302 = getelementptr inbounds nuw %struct.gcm128_context, ptr %301, i32 0, i32 1
+  %303 = getelementptr inbounds [16 x i8], ptr %302, i64 0, i64 0
+  %304 = load ptr, ptr %8, align 8, !tbaa !11
+  call void %297(ptr noundef %300, ptr noundef %303, ptr noundef %304)
+  %305 = load i32, ptr %14, align 4, !tbaa !20
+  %306 = add i32 %305, 1
+  store i32 %306, ptr %14, align 4, !tbaa !20
+  %307 = load i8, ptr %12, align 8, !tbaa !15
+  %308 = icmp ne i8 %307, 0
+  br i1 %308, label %309, label %341
 
-if.then139:                                       ; preds = %while.body130
-  %111 = load i32, ptr %ctr, align 4
-  %shr140 = lshr i32 %111, 24
-  %conv141 = trunc i32 %shr140 to i8
-  %112 = load ptr, ptr %ctx.addr, align 8
-  %Yi142 = getelementptr inbounds %struct.gcm128_context, ptr %112, i32 0, i32 0
-  %arraydecay143 = getelementptr inbounds [16 x i8], ptr %Yi142, i64 0, i64 0
-  %add.ptr144 = getelementptr inbounds i8, ptr %arraydecay143, i64 12
-  %arrayidx145 = getelementptr inbounds i8, ptr %add.ptr144, i64 0
-  store i8 %conv141, ptr %arrayidx145, align 1
-  %113 = load i32, ptr %ctr, align 4
-  %shr146 = lshr i32 %113, 16
-  %conv147 = trunc i32 %shr146 to i8
-  %114 = load ptr, ptr %ctx.addr, align 8
-  %Yi148 = getelementptr inbounds %struct.gcm128_context, ptr %114, i32 0, i32 0
-  %arraydecay149 = getelementptr inbounds [16 x i8], ptr %Yi148, i64 0, i64 0
-  %add.ptr150 = getelementptr inbounds i8, ptr %arraydecay149, i64 12
-  %arrayidx151 = getelementptr inbounds i8, ptr %add.ptr150, i64 1
-  store i8 %conv147, ptr %arrayidx151, align 1
-  %115 = load i32, ptr %ctr, align 4
-  %shr152 = lshr i32 %115, 8
-  %conv153 = trunc i32 %shr152 to i8
-  %116 = load ptr, ptr %ctx.addr, align 8
-  %Yi154 = getelementptr inbounds %struct.gcm128_context, ptr %116, i32 0, i32 0
-  %arraydecay155 = getelementptr inbounds [16 x i8], ptr %Yi154, i64 0, i64 0
-  %add.ptr156 = getelementptr inbounds i8, ptr %arraydecay155, i64 12
-  %arrayidx157 = getelementptr inbounds i8, ptr %add.ptr156, i64 2
-  store i8 %conv153, ptr %arrayidx157, align 1
-  %117 = load i32, ptr %ctr, align 4
-  %conv158 = trunc i32 %117 to i8
-  %118 = load ptr, ptr %ctx.addr, align 8
-  %Yi159 = getelementptr inbounds %struct.gcm128_context, ptr %118, i32 0, i32 0
-  %arraydecay160 = getelementptr inbounds [16 x i8], ptr %Yi159, i64 0, i64 0
-  %add.ptr161 = getelementptr inbounds i8, ptr %arraydecay160, i64 12
-  %arrayidx162 = getelementptr inbounds i8, ptr %add.ptr161, i64 3
-  store i8 %conv158, ptr %arrayidx162, align 1
-  br label %if.end166
+309:                                              ; preds = %294
+  %310 = load i32, ptr %14, align 4, !tbaa !20
+  %311 = lshr i32 %310, 24
+  %312 = trunc i32 %311 to i8
+  %313 = load ptr, ptr %7, align 8, !tbaa !6
+  %314 = getelementptr inbounds nuw %struct.gcm128_context, ptr %313, i32 0, i32 0
+  %315 = getelementptr inbounds [16 x i8], ptr %314, i64 0, i64 0
+  %316 = getelementptr inbounds i8, ptr %315, i64 12
+  %317 = getelementptr inbounds i8, ptr %316, i64 0
+  store i8 %312, ptr %317, align 1, !tbaa !15
+  %318 = load i32, ptr %14, align 4, !tbaa !20
+  %319 = lshr i32 %318, 16
+  %320 = trunc i32 %319 to i8
+  %321 = load ptr, ptr %7, align 8, !tbaa !6
+  %322 = getelementptr inbounds nuw %struct.gcm128_context, ptr %321, i32 0, i32 0
+  %323 = getelementptr inbounds [16 x i8], ptr %322, i64 0, i64 0
+  %324 = getelementptr inbounds i8, ptr %323, i64 12
+  %325 = getelementptr inbounds i8, ptr %324, i64 1
+  store i8 %320, ptr %325, align 1, !tbaa !15
+  %326 = load i32, ptr %14, align 4, !tbaa !20
+  %327 = lshr i32 %326, 8
+  %328 = trunc i32 %327 to i8
+  %329 = load ptr, ptr %7, align 8, !tbaa !6
+  %330 = getelementptr inbounds nuw %struct.gcm128_context, ptr %329, i32 0, i32 0
+  %331 = getelementptr inbounds [16 x i8], ptr %330, i64 0, i64 0
+  %332 = getelementptr inbounds i8, ptr %331, i64 12
+  %333 = getelementptr inbounds i8, ptr %332, i64 2
+  store i8 %328, ptr %333, align 1, !tbaa !15
+  %334 = load i32, ptr %14, align 4, !tbaa !20
+  %335 = trunc i32 %334 to i8
+  %336 = load ptr, ptr %7, align 8, !tbaa !6
+  %337 = getelementptr inbounds nuw %struct.gcm128_context, ptr %336, i32 0, i32 0
+  %338 = getelementptr inbounds [16 x i8], ptr %337, i64 0, i64 0
+  %339 = getelementptr inbounds i8, ptr %338, i64 12
+  %340 = getelementptr inbounds i8, ptr %339, i64 3
+  store i8 %335, ptr %340, align 1, !tbaa !15
+  br label %346
 
-if.else163:                                       ; preds = %while.body130
-  %119 = load i32, ptr %ctr, align 4
-  %120 = load ptr, ptr %ctx.addr, align 8
-  %Yi164 = getelementptr inbounds %struct.gcm128_context, ptr %120, i32 0, i32 0
-  %arrayidx165 = getelementptr inbounds [4 x i32], ptr %Yi164, i64 0, i64 3
-  store i32 %119, ptr %arrayidx165, align 4
-  br label %if.end166
+341:                                              ; preds = %294
+  %342 = load i32, ptr %14, align 4, !tbaa !20
+  %343 = load ptr, ptr %7, align 8, !tbaa !6
+  %344 = getelementptr inbounds nuw %struct.gcm128_context, ptr %343, i32 0, i32 0
+  %345 = getelementptr inbounds [4 x i32], ptr %344, i64 0, i64 3
+  store i32 %342, ptr %345, align 4, !tbaa !15
+  br label %346
 
-if.end166:                                        ; preds = %if.else163, %if.then139
-  store i64 0, ptr %i, align 8
-  br label %for.cond167
+346:                                              ; preds = %341, %309
+  store i64 0, ptr %15, align 8, !tbaa !16
+  br label %347
 
-for.cond167:                                      ; preds = %for.inc176, %if.end166
-  %121 = load i64, ptr %i, align 8
-  %cmp168 = icmp ult i64 %121, 2
-  br i1 %cmp168, label %for.body170, label %for.end178
+347:                                              ; preds = %364, %346
+  %348 = load i64, ptr %15, align 8, !tbaa !16
+  %349 = icmp ult i64 %348, 2
+  br i1 %349, label %350, label %367
 
-for.body170:                                      ; preds = %for.cond167
-  %122 = load ptr, ptr %in_t132, align 8
-  %123 = load i64, ptr %i, align 8
-  %arrayidx171 = getelementptr inbounds i64, ptr %122, i64 %123
-  %124 = load i64, ptr %arrayidx171, align 8
-  %125 = load ptr, ptr %ctx.addr, align 8
-  %EKi172 = getelementptr inbounds %struct.gcm128_context, ptr %125, i32 0, i32 1
-  %126 = load i64, ptr %i, align 8
-  %arrayidx173 = getelementptr inbounds [2 x i64], ptr %EKi172, i64 0, i64 %126
-  %127 = load i64, ptr %arrayidx173, align 8
-  %xor174 = xor i64 %124, %127
-  %128 = load ptr, ptr %out_t131, align 8
-  %129 = load i64, ptr %i, align 8
-  %arrayidx175 = getelementptr inbounds i64, ptr %128, i64 %129
-  store i64 %xor174, ptr %arrayidx175, align 8
-  br label %for.inc176
+350:                                              ; preds = %347
+  %351 = load ptr, ptr %26, align 8, !tbaa !23
+  %352 = load i64, ptr %15, align 8, !tbaa !16
+  %353 = getelementptr inbounds nuw i64, ptr %351, i64 %352
+  %354 = load i64, ptr %353, align 8, !tbaa !16
+  %355 = load ptr, ptr %7, align 8, !tbaa !6
+  %356 = getelementptr inbounds nuw %struct.gcm128_context, ptr %355, i32 0, i32 1
+  %357 = load i64, ptr %15, align 8, !tbaa !16
+  %358 = getelementptr inbounds nuw [2 x i64], ptr %356, i64 0, i64 %357
+  %359 = load i64, ptr %358, align 8, !tbaa !15
+  %360 = xor i64 %354, %359
+  %361 = load ptr, ptr %25, align 8, !tbaa !23
+  %362 = load i64, ptr %15, align 8, !tbaa !16
+  %363 = getelementptr inbounds nuw i64, ptr %361, i64 %362
+  store i64 %360, ptr %363, align 8, !tbaa !16
+  br label %364
 
-for.inc176:                                       ; preds = %for.body170
-  %130 = load i64, ptr %i, align 8
-  %inc177 = add i64 %130, 1
-  store i64 %inc177, ptr %i, align 8
-  br label %for.cond167, !llvm.loop !27
+364:                                              ; preds = %350
+  %365 = load i64, ptr %15, align 8, !tbaa !16
+  %366 = add i64 %365, 1
+  store i64 %366, ptr %15, align 8, !tbaa !16
+  br label %347, !llvm.loop !51
 
-for.end178:                                       ; preds = %for.cond167
-  %131 = load ptr, ptr %out.addr, align 8
-  %add.ptr179 = getelementptr inbounds i8, ptr %131, i64 16
-  store ptr %add.ptr179, ptr %out.addr, align 8
-  %132 = load ptr, ptr %in.addr, align 8
-  %add.ptr180 = getelementptr inbounds i8, ptr %132, i64 16
-  store ptr %add.ptr180, ptr %in.addr, align 8
-  %133 = load i64, ptr %len.addr, align 8
-  %sub181 = sub i64 %133, 16
-  store i64 %sub181, ptr %len.addr, align 8
-  br label %while.cond127, !llvm.loop !28
+367:                                              ; preds = %347
+  %368 = load ptr, ptr %10, align 8, !tbaa !29
+  %369 = getelementptr inbounds i8, ptr %368, i64 16
+  store ptr %369, ptr %10, align 8, !tbaa !29
+  %370 = load ptr, ptr %9, align 8, !tbaa !29
+  %371 = getelementptr inbounds i8, ptr %370, i64 16
+  store ptr %371, ptr %9, align 8, !tbaa !29
+  %372 = load i64, ptr %11, align 8, !tbaa !16
+  %373 = sub i64 %372, 16
+  store i64 %373, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  br label %291, !llvm.loop !52
 
-while.end182:                                     ; preds = %while.cond127
-  br label %if.end183
+374:                                              ; preds = %291
+  br label %375
 
-if.end183:                                        ; preds = %while.end182, %while.end119
-  %134 = load i64, ptr %len.addr, align 8
-  %tobool184 = icmp ne i64 %134, 0
-  br i1 %tobool184, label %if.then185, label %if.end245
+375:                                              ; preds = %374, %276
+  %376 = load i64, ptr %11, align 8, !tbaa !16
+  %377 = icmp ne i64 %376, 0
+  br i1 %377, label %378, label %468
 
-if.then185:                                       ; preds = %if.end183
-  %135 = load ptr, ptr %block, align 8
-  %136 = load ptr, ptr %ctx.addr, align 8
-  %Yi186 = getelementptr inbounds %struct.gcm128_context, ptr %136, i32 0, i32 0
-  %arraydecay187 = getelementptr inbounds [16 x i8], ptr %Yi186, i64 0, i64 0
-  %137 = load ptr, ptr %ctx.addr, align 8
-  %EKi188 = getelementptr inbounds %struct.gcm128_context, ptr %137, i32 0, i32 1
-  %arraydecay189 = getelementptr inbounds [16 x i8], ptr %EKi188, i64 0, i64 0
-  %138 = load ptr, ptr %key.addr, align 8
-  call void %135(ptr noundef %arraydecay187, ptr noundef %arraydecay189, ptr noundef %138)
-  %139 = load i32, ptr %ctr, align 4
-  %inc190 = add i32 %139, 1
-  store i32 %inc190, ptr %ctr, align 4
-  %140 = load i8, ptr %is_endian, align 8
-  %tobool191 = icmp ne i8 %140, 0
-  br i1 %tobool191, label %if.then192, label %if.else216
+378:                                              ; preds = %375
+  %379 = load ptr, ptr %17, align 8, !tbaa !11
+  %380 = load ptr, ptr %7, align 8, !tbaa !6
+  %381 = getelementptr inbounds nuw %struct.gcm128_context, ptr %380, i32 0, i32 0
+  %382 = getelementptr inbounds [16 x i8], ptr %381, i64 0, i64 0
+  %383 = load ptr, ptr %7, align 8, !tbaa !6
+  %384 = getelementptr inbounds nuw %struct.gcm128_context, ptr %383, i32 0, i32 1
+  %385 = getelementptr inbounds [16 x i8], ptr %384, i64 0, i64 0
+  %386 = load ptr, ptr %8, align 8, !tbaa !11
+  call void %379(ptr noundef %382, ptr noundef %385, ptr noundef %386)
+  %387 = load i32, ptr %14, align 4, !tbaa !20
+  %388 = add i32 %387, 1
+  store i32 %388, ptr %14, align 4, !tbaa !20
+  %389 = load i8, ptr %12, align 8, !tbaa !15
+  %390 = icmp ne i8 %389, 0
+  br i1 %390, label %391, label %423
 
-if.then192:                                       ; preds = %if.then185
-  %141 = load i32, ptr %ctr, align 4
-  %shr193 = lshr i32 %141, 24
-  %conv194 = trunc i32 %shr193 to i8
-  %142 = load ptr, ptr %ctx.addr, align 8
-  %Yi195 = getelementptr inbounds %struct.gcm128_context, ptr %142, i32 0, i32 0
-  %arraydecay196 = getelementptr inbounds [16 x i8], ptr %Yi195, i64 0, i64 0
-  %add.ptr197 = getelementptr inbounds i8, ptr %arraydecay196, i64 12
-  %arrayidx198 = getelementptr inbounds i8, ptr %add.ptr197, i64 0
-  store i8 %conv194, ptr %arrayidx198, align 1
-  %143 = load i32, ptr %ctr, align 4
-  %shr199 = lshr i32 %143, 16
-  %conv200 = trunc i32 %shr199 to i8
-  %144 = load ptr, ptr %ctx.addr, align 8
-  %Yi201 = getelementptr inbounds %struct.gcm128_context, ptr %144, i32 0, i32 0
-  %arraydecay202 = getelementptr inbounds [16 x i8], ptr %Yi201, i64 0, i64 0
-  %add.ptr203 = getelementptr inbounds i8, ptr %arraydecay202, i64 12
-  %arrayidx204 = getelementptr inbounds i8, ptr %add.ptr203, i64 1
-  store i8 %conv200, ptr %arrayidx204, align 1
-  %145 = load i32, ptr %ctr, align 4
-  %shr205 = lshr i32 %145, 8
-  %conv206 = trunc i32 %shr205 to i8
-  %146 = load ptr, ptr %ctx.addr, align 8
-  %Yi207 = getelementptr inbounds %struct.gcm128_context, ptr %146, i32 0, i32 0
-  %arraydecay208 = getelementptr inbounds [16 x i8], ptr %Yi207, i64 0, i64 0
-  %add.ptr209 = getelementptr inbounds i8, ptr %arraydecay208, i64 12
-  %arrayidx210 = getelementptr inbounds i8, ptr %add.ptr209, i64 2
-  store i8 %conv206, ptr %arrayidx210, align 1
-  %147 = load i32, ptr %ctr, align 4
-  %conv211 = trunc i32 %147 to i8
-  %148 = load ptr, ptr %ctx.addr, align 8
-  %Yi212 = getelementptr inbounds %struct.gcm128_context, ptr %148, i32 0, i32 0
-  %arraydecay213 = getelementptr inbounds [16 x i8], ptr %Yi212, i64 0, i64 0
-  %add.ptr214 = getelementptr inbounds i8, ptr %arraydecay213, i64 12
-  %arrayidx215 = getelementptr inbounds i8, ptr %add.ptr214, i64 3
-  store i8 %conv211, ptr %arrayidx215, align 1
-  br label %if.end219
+391:                                              ; preds = %378
+  %392 = load i32, ptr %14, align 4, !tbaa !20
+  %393 = lshr i32 %392, 24
+  %394 = trunc i32 %393 to i8
+  %395 = load ptr, ptr %7, align 8, !tbaa !6
+  %396 = getelementptr inbounds nuw %struct.gcm128_context, ptr %395, i32 0, i32 0
+  %397 = getelementptr inbounds [16 x i8], ptr %396, i64 0, i64 0
+  %398 = getelementptr inbounds i8, ptr %397, i64 12
+  %399 = getelementptr inbounds i8, ptr %398, i64 0
+  store i8 %394, ptr %399, align 1, !tbaa !15
+  %400 = load i32, ptr %14, align 4, !tbaa !20
+  %401 = lshr i32 %400, 16
+  %402 = trunc i32 %401 to i8
+  %403 = load ptr, ptr %7, align 8, !tbaa !6
+  %404 = getelementptr inbounds nuw %struct.gcm128_context, ptr %403, i32 0, i32 0
+  %405 = getelementptr inbounds [16 x i8], ptr %404, i64 0, i64 0
+  %406 = getelementptr inbounds i8, ptr %405, i64 12
+  %407 = getelementptr inbounds i8, ptr %406, i64 1
+  store i8 %402, ptr %407, align 1, !tbaa !15
+  %408 = load i32, ptr %14, align 4, !tbaa !20
+  %409 = lshr i32 %408, 8
+  %410 = trunc i32 %409 to i8
+  %411 = load ptr, ptr %7, align 8, !tbaa !6
+  %412 = getelementptr inbounds nuw %struct.gcm128_context, ptr %411, i32 0, i32 0
+  %413 = getelementptr inbounds [16 x i8], ptr %412, i64 0, i64 0
+  %414 = getelementptr inbounds i8, ptr %413, i64 12
+  %415 = getelementptr inbounds i8, ptr %414, i64 2
+  store i8 %410, ptr %415, align 1, !tbaa !15
+  %416 = load i32, ptr %14, align 4, !tbaa !20
+  %417 = trunc i32 %416 to i8
+  %418 = load ptr, ptr %7, align 8, !tbaa !6
+  %419 = getelementptr inbounds nuw %struct.gcm128_context, ptr %418, i32 0, i32 0
+  %420 = getelementptr inbounds [16 x i8], ptr %419, i64 0, i64 0
+  %421 = getelementptr inbounds i8, ptr %420, i64 12
+  %422 = getelementptr inbounds i8, ptr %421, i64 3
+  store i8 %417, ptr %422, align 1, !tbaa !15
+  br label %428
 
-if.else216:                                       ; preds = %if.then185
-  %149 = load i32, ptr %ctr, align 4
-  %150 = load ptr, ptr %ctx.addr, align 8
-  %Yi217 = getelementptr inbounds %struct.gcm128_context, ptr %150, i32 0, i32 0
-  %arrayidx218 = getelementptr inbounds [4 x i32], ptr %Yi217, i64 0, i64 3
-  store i32 %149, ptr %arrayidx218, align 4
-  br label %if.end219
+423:                                              ; preds = %378
+  %424 = load i32, ptr %14, align 4, !tbaa !20
+  %425 = load ptr, ptr %7, align 8, !tbaa !6
+  %426 = getelementptr inbounds nuw %struct.gcm128_context, ptr %425, i32 0, i32 0
+  %427 = getelementptr inbounds [4 x i32], ptr %426, i64 0, i64 3
+  store i32 %424, ptr %427, align 4, !tbaa !15
+  br label %428
 
-if.end219:                                        ; preds = %if.else216, %if.then192
-  br label %while.cond220
+428:                                              ; preds = %423, %391
+  br label %429
 
-while.cond220:                                    ; preds = %while.body223, %if.end219
-  %151 = load i64, ptr %len.addr, align 8
-  %dec221 = add i64 %151, -1
-  store i64 %dec221, ptr %len.addr, align 8
-  %tobool222 = icmp ne i64 %151, 0
-  br i1 %tobool222, label %while.body223, label %while.end244
+429:                                              ; preds = %433, %428
+  %430 = load i64, ptr %11, align 8, !tbaa !16
+  %431 = add i64 %430, -1
+  store i64 %431, ptr %11, align 8, !tbaa !16
+  %432 = icmp ne i64 %430, 0
+  br i1 %432, label %433, label %467
 
-while.body223:                                    ; preds = %while.cond220
-  %152 = load ptr, ptr %in.addr, align 8
-  %153 = load i32, ptr %n, align 4
-  %idxprom225 = zext i32 %153 to i64
-  %arrayidx226 = getelementptr inbounds i8, ptr %152, i64 %idxprom225
-  %154 = load i8, ptr %arrayidx226, align 1
-  store i8 %154, ptr %c224, align 1
-  %155 = load i8, ptr %c224, align 1
-  %conv227 = zext i8 %155 to i32
-  %156 = load ptr, ptr %ctx.addr, align 8
-  %Xi228 = getelementptr inbounds %struct.gcm128_context, ptr %156, i32 0, i32 4
-  %157 = load i32, ptr %n, align 4
-  %idxprom229 = zext i32 %157 to i64
-  %arrayidx230 = getelementptr inbounds [16 x i8], ptr %Xi228, i64 0, i64 %idxprom229
-  %158 = load i8, ptr %arrayidx230, align 1
-  %conv231 = zext i8 %158 to i32
-  %xor232 = xor i32 %conv231, %conv227
-  %conv233 = trunc i32 %xor232 to i8
-  store i8 %conv233, ptr %arrayidx230, align 1
-  %159 = load i8, ptr %c224, align 1
-  %conv234 = zext i8 %159 to i32
-  %160 = load ptr, ptr %ctx.addr, align 8
-  %EKi235 = getelementptr inbounds %struct.gcm128_context, ptr %160, i32 0, i32 1
-  %161 = load i32, ptr %n, align 4
-  %idxprom236 = zext i32 %161 to i64
-  %arrayidx237 = getelementptr inbounds [16 x i8], ptr %EKi235, i64 0, i64 %idxprom236
-  %162 = load i8, ptr %arrayidx237, align 1
-  %conv238 = zext i8 %162 to i32
-  %xor239 = xor i32 %conv234, %conv238
-  %conv240 = trunc i32 %xor239 to i8
-  %163 = load ptr, ptr %out.addr, align 8
-  %164 = load i32, ptr %n, align 4
-  %idxprom241 = zext i32 %164 to i64
-  %arrayidx242 = getelementptr inbounds i8, ptr %163, i64 %idxprom241
-  store i8 %conv240, ptr %arrayidx242, align 1
-  %165 = load i32, ptr %n, align 4
-  %inc243 = add i32 %165, 1
-  store i32 %inc243, ptr %n, align 4
-  br label %while.cond220, !llvm.loop !29
+433:                                              ; preds = %429
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #5
+  %434 = load ptr, ptr %9, align 8, !tbaa !29
+  %435 = load i32, ptr %13, align 4, !tbaa !20
+  %436 = zext i32 %435 to i64
+  %437 = getelementptr inbounds nuw i8, ptr %434, i64 %436
+  %438 = load i8, ptr %437, align 1, !tbaa !15
+  store i8 %438, ptr %27, align 1, !tbaa !15
+  %439 = load i8, ptr %27, align 1, !tbaa !15
+  %440 = zext i8 %439 to i32
+  %441 = load ptr, ptr %7, align 8, !tbaa !6
+  %442 = getelementptr inbounds nuw %struct.gcm128_context, ptr %441, i32 0, i32 4
+  %443 = load i32, ptr %13, align 4, !tbaa !20
+  %444 = zext i32 %443 to i64
+  %445 = getelementptr inbounds nuw [16 x i8], ptr %442, i64 0, i64 %444
+  %446 = load i8, ptr %445, align 1, !tbaa !15
+  %447 = zext i8 %446 to i32
+  %448 = xor i32 %447, %440
+  %449 = trunc i32 %448 to i8
+  store i8 %449, ptr %445, align 1, !tbaa !15
+  %450 = load i8, ptr %27, align 1, !tbaa !15
+  %451 = zext i8 %450 to i32
+  %452 = load ptr, ptr %7, align 8, !tbaa !6
+  %453 = getelementptr inbounds nuw %struct.gcm128_context, ptr %452, i32 0, i32 1
+  %454 = load i32, ptr %13, align 4, !tbaa !20
+  %455 = zext i32 %454 to i64
+  %456 = getelementptr inbounds nuw [16 x i8], ptr %453, i64 0, i64 %455
+  %457 = load i8, ptr %456, align 1, !tbaa !15
+  %458 = zext i8 %457 to i32
+  %459 = xor i32 %451, %458
+  %460 = trunc i32 %459 to i8
+  %461 = load ptr, ptr %10, align 8, !tbaa !29
+  %462 = load i32, ptr %13, align 4, !tbaa !20
+  %463 = zext i32 %462 to i64
+  %464 = getelementptr inbounds nuw i8, ptr %461, i64 %463
+  store i8 %460, ptr %464, align 1, !tbaa !15
+  %465 = load i32, ptr %13, align 4, !tbaa !20
+  %466 = add i32 %465, 1
+  store i32 %466, ptr %13, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #5
+  br label %429, !llvm.loop !53
 
-while.end244:                                     ; preds = %while.cond220
-  br label %if.end245
+467:                                              ; preds = %429
+  br label %468
 
-if.end245:                                        ; preds = %while.end244, %if.end183
-  %166 = load i32, ptr %n, align 4
-  %167 = load ptr, ptr %ctx.addr, align 8
-  %mres246 = getelementptr inbounds %struct.gcm128_context, ptr %167, i32 0, i32 9
-  store i32 %166, ptr %mres246, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+468:                                              ; preds = %467, %375
+  %469 = load i32, ptr %13, align 4, !tbaa !20
+  %470 = load ptr, ptr %7, align 8, !tbaa !6
+  %471 = getelementptr inbounds nuw %struct.gcm128_context, ptr %470, i32 0, i32 9
+  store i32 %469, ptr %471, align 8, !tbaa !32
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %20, align 4
+  br label %472
 
-return:                                           ; preds = %if.end245, %if.else60, %if.then
-  %168 = load i32, ptr %retval, align 4
-  ret i32 %168
+472:                                              ; preds = %468, %172, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %473 = load i32, ptr %6, align 4
+  ret i32 %473
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %stream) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %stream.addr = alloca ptr, align 8
-  %is_endian = alloca %union.anon.4, align 8
-  %n = alloca i32, align 4
-  %ctr = alloca i32, align 4
-  %mlen = alloca i64, align 8
-  %gcm_gmult_p = alloca ptr, align 8
-  %gcm_ghash_p = alloca ptr, align 8
-  %bulk = alloca i64, align 8
-  %i = alloca i64, align 8
-  %j = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %is_endian, ptr align 8 @__const.CRYPTO_gcm128_encrypt_ctr32.is_endian, i64 8, i1 false)
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %len1 = getelementptr inbounds %struct.gcm128_context, ptr %0, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %len1, i64 0, i64 1
-  %1 = load i64, ptr %arrayidx, align 8
-  store i64 %1, ptr %mlen, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 7
-  %3 = load ptr, ptr %gmult, align 8
-  store ptr %3, ptr %gcm_gmult_p, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %4, i32 0, i32 8
-  %5 = load ptr, ptr %ghash, align 8
-  store ptr %5, ptr %gcm_ghash_p, align 8
-  %6 = load i64, ptr %len.addr, align 8
-  %7 = load i64, ptr %mlen, align 8
-  %add = add i64 %7, %6
-  store i64 %add, ptr %mlen, align 8
-  %8 = load i64, ptr %mlen, align 8
-  %cmp = icmp ugt i64 %8, 68719476704
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %union.anon.4, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !6
+  store ptr %1, ptr %9, align 8, !tbaa !11
+  store ptr %2, ptr %10, align 8, !tbaa !29
+  store ptr %3, ptr %11, align 8, !tbaa !29
+  store i64 %4, ptr %12, align 8, !tbaa !16
+  store ptr %5, ptr %13, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 @__const.CRYPTO_gcm128_encrypt_ctr32.is_endian, i64 8, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %24 = load ptr, ptr %8, align 8, !tbaa !6
+  %25 = getelementptr inbounds nuw %struct.gcm128_context, ptr %24, i32 0, i32 3
+  %26 = getelementptr inbounds [2 x i64], ptr %25, i64 0, i64 1
+  %27 = load i64, ptr %26, align 8, !tbaa !15
+  store i64 %27, ptr %17, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  %28 = load ptr, ptr %8, align 8, !tbaa !6
+  %29 = getelementptr inbounds nuw %struct.gcm128_context, ptr %28, i32 0, i32 7
+  %30 = load ptr, ptr %29, align 8, !tbaa !21
+  store ptr %30, ptr %18, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %31 = load ptr, ptr %8, align 8, !tbaa !6
+  %32 = getelementptr inbounds nuw %struct.gcm128_context, ptr %31, i32 0, i32 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
+  store ptr %33, ptr %19, align 8, !tbaa !11
+  %34 = load i64, ptr %12, align 8, !tbaa !16
+  %35 = load i64, ptr %17, align 8, !tbaa !16
+  %36 = add i64 %35, %34
+  store i64 %36, ptr %17, align 8, !tbaa !16
+  %37 = load i64, ptr %17, align 8, !tbaa !16
+  %38 = icmp ugt i64 %37, 68719476704
+  br i1 %38, label %43, label %39
 
-lor.lhs.false:                                    ; preds = %entry
-  %9 = load i64, ptr %mlen, align 8
-  %10 = load i64, ptr %len.addr, align 8
-  %cmp2 = icmp ult i64 %9, %10
-  br i1 %cmp2, label %if.then, label %if.end
+39:                                               ; preds = %6
+  %40 = load i64, ptr %17, align 8, !tbaa !16
+  %41 = load i64, ptr %12, align 8, !tbaa !16
+  %42 = icmp ult i64 %40, %41
+  br i1 %42, label %43, label %44
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+43:                                               ; preds = %39, %6
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %20, align 4
+  br label %437
 
-if.end:                                           ; preds = %lor.lhs.false
-  %11 = load i64, ptr %mlen, align 8
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %len3 = getelementptr inbounds %struct.gcm128_context, ptr %12, i32 0, i32 3
-  %arrayidx4 = getelementptr inbounds [2 x i64], ptr %len3, i64 0, i64 1
-  store i64 %11, ptr %arrayidx4, align 8
-  %13 = load ptr, ptr %ctx.addr, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %13, i32 0, i32 10
-  %14 = load i32, ptr %ares, align 4
-  %tobool = icmp ne i32 %14, 0
-  br i1 %tobool, label %if.then5, label %if.end8
+44:                                               ; preds = %39
+  %45 = load i64, ptr %17, align 8, !tbaa !16
+  %46 = load ptr, ptr %8, align 8, !tbaa !6
+  %47 = getelementptr inbounds nuw %struct.gcm128_context, ptr %46, i32 0, i32 3
+  %48 = getelementptr inbounds [2 x i64], ptr %47, i64 0, i64 1
+  store i64 %45, ptr %48, align 8, !tbaa !15
+  %49 = load ptr, ptr %8, align 8, !tbaa !6
+  %50 = getelementptr inbounds nuw %struct.gcm128_context, ptr %49, i32 0, i32 10
+  %51 = load i32, ptr %50, align 4, !tbaa !31
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %63
 
-if.then5:                                         ; preds = %if.end
-  %15 = load ptr, ptr %gcm_gmult_p, align 8
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %16, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [2 x i64], ptr %Xi, i64 0, i64 0
-  %17 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %17, i32 0, i32 6
-  %arraydecay6 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
-  call void %15(ptr noundef %arraydecay, ptr noundef %arraydecay6)
-  %18 = load ptr, ptr %ctx.addr, align 8
-  %ares7 = getelementptr inbounds %struct.gcm128_context, ptr %18, i32 0, i32 10
-  store i32 0, ptr %ares7, align 4
-  br label %if.end8
+53:                                               ; preds = %44
+  %54 = load ptr, ptr %18, align 8, !tbaa !11
+  %55 = load ptr, ptr %8, align 8, !tbaa !6
+  %56 = getelementptr inbounds nuw %struct.gcm128_context, ptr %55, i32 0, i32 4
+  %57 = getelementptr inbounds [2 x i64], ptr %56, i64 0, i64 0
+  %58 = load ptr, ptr %8, align 8, !tbaa !6
+  %59 = getelementptr inbounds nuw %struct.gcm128_context, ptr %58, i32 0, i32 6
+  %60 = getelementptr inbounds [16 x %struct.u128], ptr %59, i64 0, i64 0
+  call void %54(ptr noundef %57, ptr noundef %60)
+  %61 = load ptr, ptr %8, align 8, !tbaa !6
+  %62 = getelementptr inbounds nuw %struct.gcm128_context, ptr %61, i32 0, i32 10
+  store i32 0, ptr %62, align 4, !tbaa !31
+  br label %63
 
-if.end8:                                          ; preds = %if.then5, %if.end
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %19, i32 0, i32 9
-  %20 = load i32, ptr %mres, align 8
-  store i32 %20, ptr %n, align 4
-  %21 = load i32, ptr %n, align 4
-  %tobool9 = icmp ne i32 %21, 0
-  br i1 %tobool9, label %if.then10, label %if.end34
+63:                                               ; preds = %53, %44
+  %64 = load ptr, ptr %8, align 8, !tbaa !6
+  %65 = getelementptr inbounds nuw %struct.gcm128_context, ptr %64, i32 0, i32 9
+  %66 = load i32, ptr %65, align 8, !tbaa !32
+  store i32 %66, ptr %15, align 4, !tbaa !20
+  %67 = load i32, ptr %15, align 4, !tbaa !20
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %125
 
-if.then10:                                        ; preds = %if.end8
-  br label %while.cond
+69:                                               ; preds = %63
+  br label %70
 
-while.cond:                                       ; preds = %while.body, %if.then10
-  %22 = load i32, ptr %n, align 4
-  %tobool11 = icmp ne i32 %22, 0
-  br i1 %tobool11, label %land.rhs, label %land.end
+70:                                               ; preds = %78, %69
+  %71 = load i32, ptr %15, align 4, !tbaa !20
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %76
 
-land.rhs:                                         ; preds = %while.cond
-  %23 = load i64, ptr %len.addr, align 8
-  %tobool12 = icmp ne i64 %23, 0
-  br label %land.end
+73:                                               ; preds = %70
+  %74 = load i64, ptr %12, align 8, !tbaa !16
+  %75 = icmp ne i64 %74, 0
+  br label %76
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %24 = phi i1 [ false, %while.cond ], [ %tobool12, %land.rhs ]
-  br i1 %24, label %while.body, label %while.end
+76:                                               ; preds = %73, %70
+  %77 = phi i1 [ false, %70 ], [ %75, %73 ]
+  br i1 %77, label %78, label %109
 
-while.body:                                       ; preds = %land.end
-  %25 = load ptr, ptr %in.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %25, i32 1
-  store ptr %incdec.ptr, ptr %in.addr, align 8
-  %26 = load i8, ptr %25, align 1
-  %conv = zext i8 %26 to i32
-  %27 = load ptr, ptr %ctx.addr, align 8
-  %EKi = getelementptr inbounds %struct.gcm128_context, ptr %27, i32 0, i32 1
-  %28 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %28 to i64
-  %arrayidx13 = getelementptr inbounds [16 x i8], ptr %EKi, i64 0, i64 %idxprom
-  %29 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %29 to i32
-  %xor = xor i32 %conv, %conv14
-  %conv15 = trunc i32 %xor to i8
-  %30 = load ptr, ptr %out.addr, align 8
-  %incdec.ptr16 = getelementptr inbounds i8, ptr %30, i32 1
-  store ptr %incdec.ptr16, ptr %out.addr, align 8
-  store i8 %conv15, ptr %30, align 1
-  %conv17 = zext i8 %conv15 to i32
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %Xi18 = getelementptr inbounds %struct.gcm128_context, ptr %31, i32 0, i32 4
-  %32 = load i32, ptr %n, align 4
-  %idxprom19 = zext i32 %32 to i64
-  %arrayidx20 = getelementptr inbounds [16 x i8], ptr %Xi18, i64 0, i64 %idxprom19
-  %33 = load i8, ptr %arrayidx20, align 1
-  %conv21 = zext i8 %33 to i32
-  %xor22 = xor i32 %conv21, %conv17
-  %conv23 = trunc i32 %xor22 to i8
-  store i8 %conv23, ptr %arrayidx20, align 1
-  %34 = load i64, ptr %len.addr, align 8
-  %dec = add i64 %34, -1
-  store i64 %dec, ptr %len.addr, align 8
-  %35 = load i32, ptr %n, align 4
-  %add24 = add i32 %35, 1
-  %rem = urem i32 %add24, 16
-  store i32 %rem, ptr %n, align 4
-  br label %while.cond, !llvm.loop !30
+78:                                               ; preds = %76
+  %79 = load ptr, ptr %10, align 8, !tbaa !29
+  %80 = getelementptr inbounds nuw i8, ptr %79, i32 1
+  store ptr %80, ptr %10, align 8, !tbaa !29
+  %81 = load i8, ptr %79, align 1, !tbaa !15
+  %82 = zext i8 %81 to i32
+  %83 = load ptr, ptr %8, align 8, !tbaa !6
+  %84 = getelementptr inbounds nuw %struct.gcm128_context, ptr %83, i32 0, i32 1
+  %85 = load i32, ptr %15, align 4, !tbaa !20
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 0, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !15
+  %89 = zext i8 %88 to i32
+  %90 = xor i32 %82, %89
+  %91 = trunc i32 %90 to i8
+  %92 = load ptr, ptr %11, align 8, !tbaa !29
+  %93 = getelementptr inbounds nuw i8, ptr %92, i32 1
+  store ptr %93, ptr %11, align 8, !tbaa !29
+  store i8 %91, ptr %92, align 1, !tbaa !15
+  %94 = zext i8 %91 to i32
+  %95 = load ptr, ptr %8, align 8, !tbaa !6
+  %96 = getelementptr inbounds nuw %struct.gcm128_context, ptr %95, i32 0, i32 4
+  %97 = load i32, ptr %15, align 4, !tbaa !20
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 0, i64 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !15
+  %101 = zext i8 %100 to i32
+  %102 = xor i32 %101, %94
+  %103 = trunc i32 %102 to i8
+  store i8 %103, ptr %99, align 1, !tbaa !15
+  %104 = load i64, ptr %12, align 8, !tbaa !16
+  %105 = add i64 %104, -1
+  store i64 %105, ptr %12, align 8, !tbaa !16
+  %106 = load i32, ptr %15, align 4, !tbaa !20
+  %107 = add i32 %106, 1
+  %108 = urem i32 %107, 16
+  store i32 %108, ptr %15, align 4, !tbaa !20
+  br label %70, !llvm.loop !54
 
-while.end:                                        ; preds = %land.end
-  %36 = load i32, ptr %n, align 4
-  %cmp25 = icmp eq i32 %36, 0
-  br i1 %cmp25, label %if.then27, label %if.else
+109:                                              ; preds = %76
+  %110 = load i32, ptr %15, align 4, !tbaa !20
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %120
 
-if.then27:                                        ; preds = %while.end
-  %37 = load ptr, ptr %gcm_gmult_p, align 8
-  %38 = load ptr, ptr %ctx.addr, align 8
-  %Xi28 = getelementptr inbounds %struct.gcm128_context, ptr %38, i32 0, i32 4
-  %arraydecay29 = getelementptr inbounds [2 x i64], ptr %Xi28, i64 0, i64 0
-  %39 = load ptr, ptr %ctx.addr, align 8
-  %Htable30 = getelementptr inbounds %struct.gcm128_context, ptr %39, i32 0, i32 6
-  %arraydecay31 = getelementptr inbounds [16 x %struct.u128], ptr %Htable30, i64 0, i64 0
-  call void %37(ptr noundef %arraydecay29, ptr noundef %arraydecay31)
-  br label %if.end33
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %18, align 8, !tbaa !11
+  %114 = load ptr, ptr %8, align 8, !tbaa !6
+  %115 = getelementptr inbounds nuw %struct.gcm128_context, ptr %114, i32 0, i32 4
+  %116 = getelementptr inbounds [2 x i64], ptr %115, i64 0, i64 0
+  %117 = load ptr, ptr %8, align 8, !tbaa !6
+  %118 = getelementptr inbounds nuw %struct.gcm128_context, ptr %117, i32 0, i32 6
+  %119 = getelementptr inbounds [16 x %struct.u128], ptr %118, i64 0, i64 0
+  call void %113(ptr noundef %116, ptr noundef %119)
+  br label %124
 
-if.else:                                          ; preds = %while.end
-  %40 = load i32, ptr %n, align 4
-  %41 = load ptr, ptr %ctx.addr, align 8
-  %mres32 = getelementptr inbounds %struct.gcm128_context, ptr %41, i32 0, i32 9
-  store i32 %40, ptr %mres32, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+120:                                              ; preds = %109
+  %121 = load i32, ptr %15, align 4, !tbaa !20
+  %122 = load ptr, ptr %8, align 8, !tbaa !6
+  %123 = getelementptr inbounds nuw %struct.gcm128_context, ptr %122, i32 0, i32 9
+  store i32 %121, ptr %123, align 8, !tbaa !32
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %20, align 4
+  br label %437
 
-if.end33:                                         ; preds = %if.then27
-  br label %if.end34
+124:                                              ; preds = %112
+  br label %125
 
-if.end34:                                         ; preds = %if.end33, %if.end8
-  %42 = load ptr, ptr %ctx.addr, align 8
-  %43 = load ptr, ptr %stream.addr, align 8
-  %call = call i32 @aesni_gcm_enabled(ptr noundef %42, ptr noundef %43)
-  %tobool35 = icmp ne i32 %call, 0
-  br i1 %tobool35, label %if.then36, label %if.end42
+125:                                              ; preds = %124, %63
+  %126 = load ptr, ptr %8, align 8, !tbaa !6
+  %127 = load ptr, ptr %13, align 8, !tbaa !11
+  %128 = call i32 @aesni_gcm_enabled(ptr noundef %126, ptr noundef %127)
+  %129 = icmp ne i32 %128, 0
+  br i1 %129, label %130, label %151
 
-if.then36:                                        ; preds = %if.end34
-  %44 = load ptr, ptr %in.addr, align 8
-  %45 = load ptr, ptr %out.addr, align 8
-  %46 = load i64, ptr %len.addr, align 8
-  %47 = load ptr, ptr %key.addr, align 8
-  %48 = load ptr, ptr %ctx.addr, align 8
-  %Yi = getelementptr inbounds %struct.gcm128_context, ptr %48, i32 0, i32 0
-  %arraydecay37 = getelementptr inbounds [16 x i8], ptr %Yi, i64 0, i64 0
-  %49 = load ptr, ptr %ctx.addr, align 8
-  %Xi38 = getelementptr inbounds %struct.gcm128_context, ptr %49, i32 0, i32 4
-  %arraydecay39 = getelementptr inbounds [2 x i64], ptr %Xi38, i64 0, i64 0
-  %call40 = call i64 @aesni_gcm_encrypt(ptr noundef %44, ptr noundef %45, i64 noundef %46, ptr noundef %47, ptr noundef %arraydecay37, ptr noundef %arraydecay39)
-  store i64 %call40, ptr %bulk, align 8
-  %50 = load i64, ptr %bulk, align 8
-  %51 = load ptr, ptr %in.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %51, i64 %50
-  store ptr %add.ptr, ptr %in.addr, align 8
-  %52 = load i64, ptr %bulk, align 8
-  %53 = load ptr, ptr %out.addr, align 8
-  %add.ptr41 = getelementptr inbounds i8, ptr %53, i64 %52
-  store ptr %add.ptr41, ptr %out.addr, align 8
-  %54 = load i64, ptr %bulk, align 8
-  %55 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %55, %54
-  store i64 %sub, ptr %len.addr, align 8
-  br label %if.end42
+130:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  %131 = load ptr, ptr %10, align 8, !tbaa !29
+  %132 = load ptr, ptr %11, align 8, !tbaa !29
+  %133 = load i64, ptr %12, align 8, !tbaa !16
+  %134 = load ptr, ptr %9, align 8, !tbaa !11
+  %135 = load ptr, ptr %8, align 8, !tbaa !6
+  %136 = getelementptr inbounds nuw %struct.gcm128_context, ptr %135, i32 0, i32 0
+  %137 = getelementptr inbounds [16 x i8], ptr %136, i64 0, i64 0
+  %138 = load ptr, ptr %8, align 8, !tbaa !6
+  %139 = getelementptr inbounds nuw %struct.gcm128_context, ptr %138, i32 0, i32 4
+  %140 = getelementptr inbounds [2 x i64], ptr %139, i64 0, i64 0
+  %141 = call i64 @aesni_gcm_encrypt(ptr noundef %131, ptr noundef %132, i64 noundef %133, ptr noundef %134, ptr noundef %137, ptr noundef %140)
+  store i64 %141, ptr %21, align 8, !tbaa !16
+  %142 = load i64, ptr %21, align 8, !tbaa !16
+  %143 = load ptr, ptr %10, align 8, !tbaa !29
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %142
+  store ptr %144, ptr %10, align 8, !tbaa !29
+  %145 = load i64, ptr %21, align 8, !tbaa !16
+  %146 = load ptr, ptr %11, align 8, !tbaa !29
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 %145
+  store ptr %147, ptr %11, align 8, !tbaa !29
+  %148 = load i64, ptr %21, align 8, !tbaa !16
+  %149 = load i64, ptr %12, align 8, !tbaa !16
+  %150 = sub i64 %149, %148
+  store i64 %150, ptr %12, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  br label %151
 
-if.end42:                                         ; preds = %if.then36, %if.end34
-  %56 = load i8, ptr %is_endian, align 8
-  %tobool43 = icmp ne i8 %56, 0
-  br i1 %tobool43, label %if.then44, label %if.else69
+151:                                              ; preds = %130, %125
+  %152 = load i8, ptr %14, align 8, !tbaa !15
+  %153 = icmp ne i8 %152, 0
+  br i1 %153, label %154, label %189
 
-if.then44:                                        ; preds = %if.end42
-  %57 = load ptr, ptr %ctx.addr, align 8
-  %Yi45 = getelementptr inbounds %struct.gcm128_context, ptr %57, i32 0, i32 0
-  %arraydecay46 = getelementptr inbounds [16 x i8], ptr %Yi45, i64 0, i64 0
-  %add.ptr47 = getelementptr inbounds i8, ptr %arraydecay46, i64 12
-  %arrayidx48 = getelementptr inbounds i8, ptr %add.ptr47, i64 0
-  %58 = load i8, ptr %arrayidx48, align 1
-  %conv49 = zext i8 %58 to i32
-  %shl = shl i32 %conv49, 24
-  %59 = load ptr, ptr %ctx.addr, align 8
-  %Yi50 = getelementptr inbounds %struct.gcm128_context, ptr %59, i32 0, i32 0
-  %arraydecay51 = getelementptr inbounds [16 x i8], ptr %Yi50, i64 0, i64 0
-  %add.ptr52 = getelementptr inbounds i8, ptr %arraydecay51, i64 12
-  %arrayidx53 = getelementptr inbounds i8, ptr %add.ptr52, i64 1
-  %60 = load i8, ptr %arrayidx53, align 1
-  %conv54 = zext i8 %60 to i32
-  %shl55 = shl i32 %conv54, 16
-  %or = or i32 %shl, %shl55
-  %61 = load ptr, ptr %ctx.addr, align 8
-  %Yi56 = getelementptr inbounds %struct.gcm128_context, ptr %61, i32 0, i32 0
-  %arraydecay57 = getelementptr inbounds [16 x i8], ptr %Yi56, i64 0, i64 0
-  %add.ptr58 = getelementptr inbounds i8, ptr %arraydecay57, i64 12
-  %arrayidx59 = getelementptr inbounds i8, ptr %add.ptr58, i64 2
-  %62 = load i8, ptr %arrayidx59, align 1
-  %conv60 = zext i8 %62 to i32
-  %shl61 = shl i32 %conv60, 8
-  %or62 = or i32 %or, %shl61
-  %63 = load ptr, ptr %ctx.addr, align 8
-  %Yi63 = getelementptr inbounds %struct.gcm128_context, ptr %63, i32 0, i32 0
-  %arraydecay64 = getelementptr inbounds [16 x i8], ptr %Yi63, i64 0, i64 0
-  %add.ptr65 = getelementptr inbounds i8, ptr %arraydecay64, i64 12
-  %arrayidx66 = getelementptr inbounds i8, ptr %add.ptr65, i64 3
-  %64 = load i8, ptr %arrayidx66, align 1
-  %conv67 = zext i8 %64 to i32
-  %or68 = or i32 %or62, %conv67
-  store i32 %or68, ptr %ctr, align 4
-  br label %if.end72
+154:                                              ; preds = %151
+  %155 = load ptr, ptr %8, align 8, !tbaa !6
+  %156 = getelementptr inbounds nuw %struct.gcm128_context, ptr %155, i32 0, i32 0
+  %157 = getelementptr inbounds [16 x i8], ptr %156, i64 0, i64 0
+  %158 = getelementptr inbounds i8, ptr %157, i64 12
+  %159 = getelementptr inbounds i8, ptr %158, i64 0
+  %160 = load i8, ptr %159, align 1, !tbaa !15
+  %161 = zext i8 %160 to i32
+  %162 = shl i32 %161, 24
+  %163 = load ptr, ptr %8, align 8, !tbaa !6
+  %164 = getelementptr inbounds nuw %struct.gcm128_context, ptr %163, i32 0, i32 0
+  %165 = getelementptr inbounds [16 x i8], ptr %164, i64 0, i64 0
+  %166 = getelementptr inbounds i8, ptr %165, i64 12
+  %167 = getelementptr inbounds i8, ptr %166, i64 1
+  %168 = load i8, ptr %167, align 1, !tbaa !15
+  %169 = zext i8 %168 to i32
+  %170 = shl i32 %169, 16
+  %171 = or i32 %162, %170
+  %172 = load ptr, ptr %8, align 8, !tbaa !6
+  %173 = getelementptr inbounds nuw %struct.gcm128_context, ptr %172, i32 0, i32 0
+  %174 = getelementptr inbounds [16 x i8], ptr %173, i64 0, i64 0
+  %175 = getelementptr inbounds i8, ptr %174, i64 12
+  %176 = getelementptr inbounds i8, ptr %175, i64 2
+  %177 = load i8, ptr %176, align 1, !tbaa !15
+  %178 = zext i8 %177 to i32
+  %179 = shl i32 %178, 8
+  %180 = or i32 %171, %179
+  %181 = load ptr, ptr %8, align 8, !tbaa !6
+  %182 = getelementptr inbounds nuw %struct.gcm128_context, ptr %181, i32 0, i32 0
+  %183 = getelementptr inbounds [16 x i8], ptr %182, i64 0, i64 0
+  %184 = getelementptr inbounds i8, ptr %183, i64 12
+  %185 = getelementptr inbounds i8, ptr %184, i64 3
+  %186 = load i8, ptr %185, align 1, !tbaa !15
+  %187 = zext i8 %186 to i32
+  %188 = or i32 %180, %187
+  store i32 %188, ptr %16, align 4, !tbaa !20
+  br label %194
 
-if.else69:                                        ; preds = %if.end42
-  %65 = load ptr, ptr %ctx.addr, align 8
-  %Yi70 = getelementptr inbounds %struct.gcm128_context, ptr %65, i32 0, i32 0
-  %arrayidx71 = getelementptr inbounds [4 x i32], ptr %Yi70, i64 0, i64 3
-  %66 = load i32, ptr %arrayidx71, align 4
-  store i32 %66, ptr %ctr, align 4
-  br label %if.end72
+189:                                              ; preds = %151
+  %190 = load ptr, ptr %8, align 8, !tbaa !6
+  %191 = getelementptr inbounds nuw %struct.gcm128_context, ptr %190, i32 0, i32 0
+  %192 = getelementptr inbounds [4 x i32], ptr %191, i64 0, i64 3
+  %193 = load i32, ptr %192, align 4, !tbaa !15
+  store i32 %193, ptr %16, align 4, !tbaa !20
+  br label %194
 
-if.end72:                                         ; preds = %if.else69, %if.then44
-  br label %while.cond73
+194:                                              ; preds = %189, %154
+  br label %195
 
-while.cond73:                                     ; preds = %if.end107, %if.end72
-  %67 = load i64, ptr %len.addr, align 8
-  %cmp74 = icmp uge i64 %67, 3072
-  br i1 %cmp74, label %while.body76, label %while.end115
+195:                                              ; preds = %247, %194
+  %196 = load i64, ptr %12, align 8, !tbaa !16
+  %197 = icmp uge i64 %196, 3072
+  br i1 %197, label %198, label %262
 
-while.body76:                                     ; preds = %while.cond73
-  %68 = load ptr, ptr %stream.addr, align 8
-  %69 = load ptr, ptr %in.addr, align 8
-  %70 = load ptr, ptr %out.addr, align 8
-  %71 = load ptr, ptr %key.addr, align 8
-  %72 = load ptr, ptr %ctx.addr, align 8
-  %Yi77 = getelementptr inbounds %struct.gcm128_context, ptr %72, i32 0, i32 0
-  %arraydecay78 = getelementptr inbounds [16 x i8], ptr %Yi77, i64 0, i64 0
-  call void %68(ptr noundef %69, ptr noundef %70, i64 noundef 192, ptr noundef %71, ptr noundef %arraydecay78)
-  %73 = load i32, ptr %ctr, align 4
-  %add79 = add i32 %73, 192
-  store i32 %add79, ptr %ctr, align 4
-  %74 = load i8, ptr %is_endian, align 8
-  %tobool80 = icmp ne i8 %74, 0
-  br i1 %tobool80, label %if.then81, label %if.else104
+198:                                              ; preds = %195
+  %199 = load ptr, ptr %13, align 8, !tbaa !11
+  %200 = load ptr, ptr %10, align 8, !tbaa !29
+  %201 = load ptr, ptr %11, align 8, !tbaa !29
+  %202 = load ptr, ptr %9, align 8, !tbaa !11
+  %203 = load ptr, ptr %8, align 8, !tbaa !6
+  %204 = getelementptr inbounds nuw %struct.gcm128_context, ptr %203, i32 0, i32 0
+  %205 = getelementptr inbounds [16 x i8], ptr %204, i64 0, i64 0
+  call void %199(ptr noundef %200, ptr noundef %201, i64 noundef 192, ptr noundef %202, ptr noundef %205)
+  %206 = load i32, ptr %16, align 4, !tbaa !20
+  %207 = add i32 %206, 192
+  store i32 %207, ptr %16, align 4, !tbaa !20
+  %208 = load i8, ptr %14, align 8, !tbaa !15
+  %209 = icmp ne i8 %208, 0
+  br i1 %209, label %210, label %242
 
-if.then81:                                        ; preds = %while.body76
-  %75 = load i32, ptr %ctr, align 4
-  %shr = lshr i32 %75, 24
-  %conv82 = trunc i32 %shr to i8
-  %76 = load ptr, ptr %ctx.addr, align 8
-  %Yi83 = getelementptr inbounds %struct.gcm128_context, ptr %76, i32 0, i32 0
-  %arraydecay84 = getelementptr inbounds [16 x i8], ptr %Yi83, i64 0, i64 0
-  %add.ptr85 = getelementptr inbounds i8, ptr %arraydecay84, i64 12
-  %arrayidx86 = getelementptr inbounds i8, ptr %add.ptr85, i64 0
-  store i8 %conv82, ptr %arrayidx86, align 1
-  %77 = load i32, ptr %ctr, align 4
-  %shr87 = lshr i32 %77, 16
-  %conv88 = trunc i32 %shr87 to i8
-  %78 = load ptr, ptr %ctx.addr, align 8
-  %Yi89 = getelementptr inbounds %struct.gcm128_context, ptr %78, i32 0, i32 0
-  %arraydecay90 = getelementptr inbounds [16 x i8], ptr %Yi89, i64 0, i64 0
-  %add.ptr91 = getelementptr inbounds i8, ptr %arraydecay90, i64 12
-  %arrayidx92 = getelementptr inbounds i8, ptr %add.ptr91, i64 1
-  store i8 %conv88, ptr %arrayidx92, align 1
-  %79 = load i32, ptr %ctr, align 4
-  %shr93 = lshr i32 %79, 8
-  %conv94 = trunc i32 %shr93 to i8
-  %80 = load ptr, ptr %ctx.addr, align 8
-  %Yi95 = getelementptr inbounds %struct.gcm128_context, ptr %80, i32 0, i32 0
-  %arraydecay96 = getelementptr inbounds [16 x i8], ptr %Yi95, i64 0, i64 0
-  %add.ptr97 = getelementptr inbounds i8, ptr %arraydecay96, i64 12
-  %arrayidx98 = getelementptr inbounds i8, ptr %add.ptr97, i64 2
-  store i8 %conv94, ptr %arrayidx98, align 1
-  %81 = load i32, ptr %ctr, align 4
-  %conv99 = trunc i32 %81 to i8
-  %82 = load ptr, ptr %ctx.addr, align 8
-  %Yi100 = getelementptr inbounds %struct.gcm128_context, ptr %82, i32 0, i32 0
-  %arraydecay101 = getelementptr inbounds [16 x i8], ptr %Yi100, i64 0, i64 0
-  %add.ptr102 = getelementptr inbounds i8, ptr %arraydecay101, i64 12
-  %arrayidx103 = getelementptr inbounds i8, ptr %add.ptr102, i64 3
-  store i8 %conv99, ptr %arrayidx103, align 1
-  br label %if.end107
+210:                                              ; preds = %198
+  %211 = load i32, ptr %16, align 4, !tbaa !20
+  %212 = lshr i32 %211, 24
+  %213 = trunc i32 %212 to i8
+  %214 = load ptr, ptr %8, align 8, !tbaa !6
+  %215 = getelementptr inbounds nuw %struct.gcm128_context, ptr %214, i32 0, i32 0
+  %216 = getelementptr inbounds [16 x i8], ptr %215, i64 0, i64 0
+  %217 = getelementptr inbounds i8, ptr %216, i64 12
+  %218 = getelementptr inbounds i8, ptr %217, i64 0
+  store i8 %213, ptr %218, align 1, !tbaa !15
+  %219 = load i32, ptr %16, align 4, !tbaa !20
+  %220 = lshr i32 %219, 16
+  %221 = trunc i32 %220 to i8
+  %222 = load ptr, ptr %8, align 8, !tbaa !6
+  %223 = getelementptr inbounds nuw %struct.gcm128_context, ptr %222, i32 0, i32 0
+  %224 = getelementptr inbounds [16 x i8], ptr %223, i64 0, i64 0
+  %225 = getelementptr inbounds i8, ptr %224, i64 12
+  %226 = getelementptr inbounds i8, ptr %225, i64 1
+  store i8 %221, ptr %226, align 1, !tbaa !15
+  %227 = load i32, ptr %16, align 4, !tbaa !20
+  %228 = lshr i32 %227, 8
+  %229 = trunc i32 %228 to i8
+  %230 = load ptr, ptr %8, align 8, !tbaa !6
+  %231 = getelementptr inbounds nuw %struct.gcm128_context, ptr %230, i32 0, i32 0
+  %232 = getelementptr inbounds [16 x i8], ptr %231, i64 0, i64 0
+  %233 = getelementptr inbounds i8, ptr %232, i64 12
+  %234 = getelementptr inbounds i8, ptr %233, i64 2
+  store i8 %229, ptr %234, align 1, !tbaa !15
+  %235 = load i32, ptr %16, align 4, !tbaa !20
+  %236 = trunc i32 %235 to i8
+  %237 = load ptr, ptr %8, align 8, !tbaa !6
+  %238 = getelementptr inbounds nuw %struct.gcm128_context, ptr %237, i32 0, i32 0
+  %239 = getelementptr inbounds [16 x i8], ptr %238, i64 0, i64 0
+  %240 = getelementptr inbounds i8, ptr %239, i64 12
+  %241 = getelementptr inbounds i8, ptr %240, i64 3
+  store i8 %236, ptr %241, align 1, !tbaa !15
+  br label %247
 
-if.else104:                                       ; preds = %while.body76
-  %83 = load i32, ptr %ctr, align 4
-  %84 = load ptr, ptr %ctx.addr, align 8
-  %Yi105 = getelementptr inbounds %struct.gcm128_context, ptr %84, i32 0, i32 0
-  %arrayidx106 = getelementptr inbounds [4 x i32], ptr %Yi105, i64 0, i64 3
-  store i32 %83, ptr %arrayidx106, align 4
-  br label %if.end107
+242:                                              ; preds = %198
+  %243 = load i32, ptr %16, align 4, !tbaa !20
+  %244 = load ptr, ptr %8, align 8, !tbaa !6
+  %245 = getelementptr inbounds nuw %struct.gcm128_context, ptr %244, i32 0, i32 0
+  %246 = getelementptr inbounds [4 x i32], ptr %245, i64 0, i64 3
+  store i32 %243, ptr %246, align 4, !tbaa !15
+  br label %247
 
-if.end107:                                        ; preds = %if.else104, %if.then81
-  %85 = load ptr, ptr %gcm_ghash_p, align 8
-  %86 = load ptr, ptr %ctx.addr, align 8
-  %Xi108 = getelementptr inbounds %struct.gcm128_context, ptr %86, i32 0, i32 4
-  %arraydecay109 = getelementptr inbounds [2 x i64], ptr %Xi108, i64 0, i64 0
-  %87 = load ptr, ptr %ctx.addr, align 8
-  %Htable110 = getelementptr inbounds %struct.gcm128_context, ptr %87, i32 0, i32 6
-  %arraydecay111 = getelementptr inbounds [16 x %struct.u128], ptr %Htable110, i64 0, i64 0
-  %88 = load ptr, ptr %out.addr, align 8
-  call void %85(ptr noundef %arraydecay109, ptr noundef %arraydecay111, ptr noundef %88, i64 noundef 3072)
-  %89 = load ptr, ptr %out.addr, align 8
-  %add.ptr112 = getelementptr inbounds i8, ptr %89, i64 3072
-  store ptr %add.ptr112, ptr %out.addr, align 8
-  %90 = load ptr, ptr %in.addr, align 8
-  %add.ptr113 = getelementptr inbounds i8, ptr %90, i64 3072
-  store ptr %add.ptr113, ptr %in.addr, align 8
-  %91 = load i64, ptr %len.addr, align 8
-  %sub114 = sub i64 %91, 3072
-  store i64 %sub114, ptr %len.addr, align 8
-  br label %while.cond73, !llvm.loop !31
+247:                                              ; preds = %242, %210
+  %248 = load ptr, ptr %19, align 8, !tbaa !11
+  %249 = load ptr, ptr %8, align 8, !tbaa !6
+  %250 = getelementptr inbounds nuw %struct.gcm128_context, ptr %249, i32 0, i32 4
+  %251 = getelementptr inbounds [2 x i64], ptr %250, i64 0, i64 0
+  %252 = load ptr, ptr %8, align 8, !tbaa !6
+  %253 = getelementptr inbounds nuw %struct.gcm128_context, ptr %252, i32 0, i32 6
+  %254 = getelementptr inbounds [16 x %struct.u128], ptr %253, i64 0, i64 0
+  %255 = load ptr, ptr %11, align 8, !tbaa !29
+  call void %248(ptr noundef %251, ptr noundef %254, ptr noundef %255, i64 noundef 3072)
+  %256 = load ptr, ptr %11, align 8, !tbaa !29
+  %257 = getelementptr inbounds i8, ptr %256, i64 3072
+  store ptr %257, ptr %11, align 8, !tbaa !29
+  %258 = load ptr, ptr %10, align 8, !tbaa !29
+  %259 = getelementptr inbounds i8, ptr %258, i64 3072
+  store ptr %259, ptr %10, align 8, !tbaa !29
+  %260 = load i64, ptr %12, align 8, !tbaa !16
+  %261 = sub i64 %260, 3072
+  store i64 %261, ptr %12, align 8, !tbaa !16
+  br label %195, !llvm.loop !55
 
-while.end115:                                     ; preds = %while.cond73
-  %92 = load i64, ptr %len.addr, align 8
-  %and = and i64 %92, -16
-  store i64 %and, ptr %i, align 8
-  %93 = load i64, ptr %i, align 8
-  %cmp116 = icmp ne i64 %93, 0
-  br i1 %cmp116, label %if.then118, label %if.end159
+262:                                              ; preds = %195
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  %263 = load i64, ptr %12, align 8, !tbaa !16
+  %264 = and i64 %263, -16
+  store i64 %264, ptr %22, align 8, !tbaa !16
+  %265 = load i64, ptr %22, align 8, !tbaa !16
+  %266 = icmp ne i64 %265, 0
+  br i1 %266, label %267, label %340
 
-if.then118:                                       ; preds = %while.end115
-  %94 = load i64, ptr %i, align 8
-  %div = udiv i64 %94, 16
-  store i64 %div, ptr %j, align 8
-  %95 = load ptr, ptr %stream.addr, align 8
-  %96 = load ptr, ptr %in.addr, align 8
-  %97 = load ptr, ptr %out.addr, align 8
-  %98 = load i64, ptr %j, align 8
-  %99 = load ptr, ptr %key.addr, align 8
-  %100 = load ptr, ptr %ctx.addr, align 8
-  %Yi119 = getelementptr inbounds %struct.gcm128_context, ptr %100, i32 0, i32 0
-  %arraydecay120 = getelementptr inbounds [16 x i8], ptr %Yi119, i64 0, i64 0
-  call void %95(ptr noundef %96, ptr noundef %97, i64 noundef %98, ptr noundef %99, ptr noundef %arraydecay120)
-  %101 = load i64, ptr %j, align 8
-  %conv121 = trunc i64 %101 to i32
-  %102 = load i32, ptr %ctr, align 4
-  %add122 = add i32 %102, %conv121
-  store i32 %add122, ptr %ctr, align 4
-  %103 = load i8, ptr %is_endian, align 8
-  %tobool123 = icmp ne i8 %103, 0
-  br i1 %tobool123, label %if.then124, label %if.else148
+267:                                              ; preds = %262
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  %268 = load i64, ptr %22, align 8, !tbaa !16
+  %269 = udiv i64 %268, 16
+  store i64 %269, ptr %23, align 8, !tbaa !16
+  %270 = load ptr, ptr %13, align 8, !tbaa !11
+  %271 = load ptr, ptr %10, align 8, !tbaa !29
+  %272 = load ptr, ptr %11, align 8, !tbaa !29
+  %273 = load i64, ptr %23, align 8, !tbaa !16
+  %274 = load ptr, ptr %9, align 8, !tbaa !11
+  %275 = load ptr, ptr %8, align 8, !tbaa !6
+  %276 = getelementptr inbounds nuw %struct.gcm128_context, ptr %275, i32 0, i32 0
+  %277 = getelementptr inbounds [16 x i8], ptr %276, i64 0, i64 0
+  call void %270(ptr noundef %271, ptr noundef %272, i64 noundef %273, ptr noundef %274, ptr noundef %277)
+  %278 = load i64, ptr %23, align 8, !tbaa !16
+  %279 = trunc i64 %278 to i32
+  %280 = load i32, ptr %16, align 4, !tbaa !20
+  %281 = add i32 %280, %279
+  store i32 %281, ptr %16, align 4, !tbaa !20
+  %282 = load i8, ptr %14, align 8, !tbaa !15
+  %283 = icmp ne i8 %282, 0
+  br i1 %283, label %284, label %316
 
-if.then124:                                       ; preds = %if.then118
-  %104 = load i32, ptr %ctr, align 4
-  %shr125 = lshr i32 %104, 24
-  %conv126 = trunc i32 %shr125 to i8
-  %105 = load ptr, ptr %ctx.addr, align 8
-  %Yi127 = getelementptr inbounds %struct.gcm128_context, ptr %105, i32 0, i32 0
-  %arraydecay128 = getelementptr inbounds [16 x i8], ptr %Yi127, i64 0, i64 0
-  %add.ptr129 = getelementptr inbounds i8, ptr %arraydecay128, i64 12
-  %arrayidx130 = getelementptr inbounds i8, ptr %add.ptr129, i64 0
-  store i8 %conv126, ptr %arrayidx130, align 1
-  %106 = load i32, ptr %ctr, align 4
-  %shr131 = lshr i32 %106, 16
-  %conv132 = trunc i32 %shr131 to i8
-  %107 = load ptr, ptr %ctx.addr, align 8
-  %Yi133 = getelementptr inbounds %struct.gcm128_context, ptr %107, i32 0, i32 0
-  %arraydecay134 = getelementptr inbounds [16 x i8], ptr %Yi133, i64 0, i64 0
-  %add.ptr135 = getelementptr inbounds i8, ptr %arraydecay134, i64 12
-  %arrayidx136 = getelementptr inbounds i8, ptr %add.ptr135, i64 1
-  store i8 %conv132, ptr %arrayidx136, align 1
-  %108 = load i32, ptr %ctr, align 4
-  %shr137 = lshr i32 %108, 8
-  %conv138 = trunc i32 %shr137 to i8
-  %109 = load ptr, ptr %ctx.addr, align 8
-  %Yi139 = getelementptr inbounds %struct.gcm128_context, ptr %109, i32 0, i32 0
-  %arraydecay140 = getelementptr inbounds [16 x i8], ptr %Yi139, i64 0, i64 0
-  %add.ptr141 = getelementptr inbounds i8, ptr %arraydecay140, i64 12
-  %arrayidx142 = getelementptr inbounds i8, ptr %add.ptr141, i64 2
-  store i8 %conv138, ptr %arrayidx142, align 1
-  %110 = load i32, ptr %ctr, align 4
-  %conv143 = trunc i32 %110 to i8
-  %111 = load ptr, ptr %ctx.addr, align 8
-  %Yi144 = getelementptr inbounds %struct.gcm128_context, ptr %111, i32 0, i32 0
-  %arraydecay145 = getelementptr inbounds [16 x i8], ptr %Yi144, i64 0, i64 0
-  %add.ptr146 = getelementptr inbounds i8, ptr %arraydecay145, i64 12
-  %arrayidx147 = getelementptr inbounds i8, ptr %add.ptr146, i64 3
-  store i8 %conv143, ptr %arrayidx147, align 1
-  br label %if.end151
+284:                                              ; preds = %267
+  %285 = load i32, ptr %16, align 4, !tbaa !20
+  %286 = lshr i32 %285, 24
+  %287 = trunc i32 %286 to i8
+  %288 = load ptr, ptr %8, align 8, !tbaa !6
+  %289 = getelementptr inbounds nuw %struct.gcm128_context, ptr %288, i32 0, i32 0
+  %290 = getelementptr inbounds [16 x i8], ptr %289, i64 0, i64 0
+  %291 = getelementptr inbounds i8, ptr %290, i64 12
+  %292 = getelementptr inbounds i8, ptr %291, i64 0
+  store i8 %287, ptr %292, align 1, !tbaa !15
+  %293 = load i32, ptr %16, align 4, !tbaa !20
+  %294 = lshr i32 %293, 16
+  %295 = trunc i32 %294 to i8
+  %296 = load ptr, ptr %8, align 8, !tbaa !6
+  %297 = getelementptr inbounds nuw %struct.gcm128_context, ptr %296, i32 0, i32 0
+  %298 = getelementptr inbounds [16 x i8], ptr %297, i64 0, i64 0
+  %299 = getelementptr inbounds i8, ptr %298, i64 12
+  %300 = getelementptr inbounds i8, ptr %299, i64 1
+  store i8 %295, ptr %300, align 1, !tbaa !15
+  %301 = load i32, ptr %16, align 4, !tbaa !20
+  %302 = lshr i32 %301, 8
+  %303 = trunc i32 %302 to i8
+  %304 = load ptr, ptr %8, align 8, !tbaa !6
+  %305 = getelementptr inbounds nuw %struct.gcm128_context, ptr %304, i32 0, i32 0
+  %306 = getelementptr inbounds [16 x i8], ptr %305, i64 0, i64 0
+  %307 = getelementptr inbounds i8, ptr %306, i64 12
+  %308 = getelementptr inbounds i8, ptr %307, i64 2
+  store i8 %303, ptr %308, align 1, !tbaa !15
+  %309 = load i32, ptr %16, align 4, !tbaa !20
+  %310 = trunc i32 %309 to i8
+  %311 = load ptr, ptr %8, align 8, !tbaa !6
+  %312 = getelementptr inbounds nuw %struct.gcm128_context, ptr %311, i32 0, i32 0
+  %313 = getelementptr inbounds [16 x i8], ptr %312, i64 0, i64 0
+  %314 = getelementptr inbounds i8, ptr %313, i64 12
+  %315 = getelementptr inbounds i8, ptr %314, i64 3
+  store i8 %310, ptr %315, align 1, !tbaa !15
+  br label %321
 
-if.else148:                                       ; preds = %if.then118
-  %112 = load i32, ptr %ctr, align 4
-  %113 = load ptr, ptr %ctx.addr, align 8
-  %Yi149 = getelementptr inbounds %struct.gcm128_context, ptr %113, i32 0, i32 0
-  %arrayidx150 = getelementptr inbounds [4 x i32], ptr %Yi149, i64 0, i64 3
-  store i32 %112, ptr %arrayidx150, align 4
-  br label %if.end151
+316:                                              ; preds = %267
+  %317 = load i32, ptr %16, align 4, !tbaa !20
+  %318 = load ptr, ptr %8, align 8, !tbaa !6
+  %319 = getelementptr inbounds nuw %struct.gcm128_context, ptr %318, i32 0, i32 0
+  %320 = getelementptr inbounds [4 x i32], ptr %319, i64 0, i64 3
+  store i32 %317, ptr %320, align 4, !tbaa !15
+  br label %321
 
-if.end151:                                        ; preds = %if.else148, %if.then124
-  %114 = load i64, ptr %i, align 8
-  %115 = load ptr, ptr %in.addr, align 8
-  %add.ptr152 = getelementptr inbounds i8, ptr %115, i64 %114
-  store ptr %add.ptr152, ptr %in.addr, align 8
-  %116 = load i64, ptr %i, align 8
-  %117 = load i64, ptr %len.addr, align 8
-  %sub153 = sub i64 %117, %116
-  store i64 %sub153, ptr %len.addr, align 8
-  %118 = load ptr, ptr %gcm_ghash_p, align 8
-  %119 = load ptr, ptr %ctx.addr, align 8
-  %Xi154 = getelementptr inbounds %struct.gcm128_context, ptr %119, i32 0, i32 4
-  %arraydecay155 = getelementptr inbounds [2 x i64], ptr %Xi154, i64 0, i64 0
-  %120 = load ptr, ptr %ctx.addr, align 8
-  %Htable156 = getelementptr inbounds %struct.gcm128_context, ptr %120, i32 0, i32 6
-  %arraydecay157 = getelementptr inbounds [16 x %struct.u128], ptr %Htable156, i64 0, i64 0
-  %121 = load ptr, ptr %out.addr, align 8
-  %122 = load i64, ptr %i, align 8
-  call void %118(ptr noundef %arraydecay155, ptr noundef %arraydecay157, ptr noundef %121, i64 noundef %122)
-  %123 = load i64, ptr %i, align 8
-  %124 = load ptr, ptr %out.addr, align 8
-  %add.ptr158 = getelementptr inbounds i8, ptr %124, i64 %123
-  store ptr %add.ptr158, ptr %out.addr, align 8
-  br label %if.end159
+321:                                              ; preds = %316, %284
+  %322 = load i64, ptr %22, align 8, !tbaa !16
+  %323 = load ptr, ptr %10, align 8, !tbaa !29
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 %322
+  store ptr %324, ptr %10, align 8, !tbaa !29
+  %325 = load i64, ptr %22, align 8, !tbaa !16
+  %326 = load i64, ptr %12, align 8, !tbaa !16
+  %327 = sub i64 %326, %325
+  store i64 %327, ptr %12, align 8, !tbaa !16
+  %328 = load ptr, ptr %19, align 8, !tbaa !11
+  %329 = load ptr, ptr %8, align 8, !tbaa !6
+  %330 = getelementptr inbounds nuw %struct.gcm128_context, ptr %329, i32 0, i32 4
+  %331 = getelementptr inbounds [2 x i64], ptr %330, i64 0, i64 0
+  %332 = load ptr, ptr %8, align 8, !tbaa !6
+  %333 = getelementptr inbounds nuw %struct.gcm128_context, ptr %332, i32 0, i32 6
+  %334 = getelementptr inbounds [16 x %struct.u128], ptr %333, i64 0, i64 0
+  %335 = load ptr, ptr %11, align 8, !tbaa !29
+  %336 = load i64, ptr %22, align 8, !tbaa !16
+  call void %328(ptr noundef %331, ptr noundef %334, ptr noundef %335, i64 noundef %336)
+  %337 = load i64, ptr %22, align 8, !tbaa !16
+  %338 = load ptr, ptr %11, align 8, !tbaa !29
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 %337
+  store ptr %339, ptr %11, align 8, !tbaa !29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  br label %340
 
-if.end159:                                        ; preds = %if.end151, %while.end115
-  %125 = load i64, ptr %len.addr, align 8
-  %tobool160 = icmp ne i64 %125, 0
-  br i1 %tobool160, label %if.then161, label %if.end219
+340:                                              ; preds = %321, %262
+  %341 = load i64, ptr %12, align 8, !tbaa !16
+  %342 = icmp ne i64 %341, 0
+  br i1 %342, label %343, label %433
 
-if.then161:                                       ; preds = %if.end159
-  %126 = load ptr, ptr %ctx.addr, align 8
-  %block = getelementptr inbounds %struct.gcm128_context, ptr %126, i32 0, i32 11
-  %127 = load ptr, ptr %block, align 8
-  %128 = load ptr, ptr %ctx.addr, align 8
-  %Yi162 = getelementptr inbounds %struct.gcm128_context, ptr %128, i32 0, i32 0
-  %arraydecay163 = getelementptr inbounds [16 x i8], ptr %Yi162, i64 0, i64 0
-  %129 = load ptr, ptr %ctx.addr, align 8
-  %EKi164 = getelementptr inbounds %struct.gcm128_context, ptr %129, i32 0, i32 1
-  %arraydecay165 = getelementptr inbounds [16 x i8], ptr %EKi164, i64 0, i64 0
-  %130 = load ptr, ptr %key.addr, align 8
-  call void %127(ptr noundef %arraydecay163, ptr noundef %arraydecay165, ptr noundef %130)
-  %131 = load i32, ptr %ctr, align 4
-  %inc = add i32 %131, 1
-  store i32 %inc, ptr %ctr, align 4
-  %132 = load i8, ptr %is_endian, align 8
-  %tobool166 = icmp ne i8 %132, 0
-  br i1 %tobool166, label %if.then167, label %if.else191
+343:                                              ; preds = %340
+  %344 = load ptr, ptr %8, align 8, !tbaa !6
+  %345 = getelementptr inbounds nuw %struct.gcm128_context, ptr %344, i32 0, i32 11
+  %346 = load ptr, ptr %345, align 8, !tbaa !12
+  %347 = load ptr, ptr %8, align 8, !tbaa !6
+  %348 = getelementptr inbounds nuw %struct.gcm128_context, ptr %347, i32 0, i32 0
+  %349 = getelementptr inbounds [16 x i8], ptr %348, i64 0, i64 0
+  %350 = load ptr, ptr %8, align 8, !tbaa !6
+  %351 = getelementptr inbounds nuw %struct.gcm128_context, ptr %350, i32 0, i32 1
+  %352 = getelementptr inbounds [16 x i8], ptr %351, i64 0, i64 0
+  %353 = load ptr, ptr %9, align 8, !tbaa !11
+  call void %346(ptr noundef %349, ptr noundef %352, ptr noundef %353)
+  %354 = load i32, ptr %16, align 4, !tbaa !20
+  %355 = add i32 %354, 1
+  store i32 %355, ptr %16, align 4, !tbaa !20
+  %356 = load i8, ptr %14, align 8, !tbaa !15
+  %357 = icmp ne i8 %356, 0
+  br i1 %357, label %358, label %390
 
-if.then167:                                       ; preds = %if.then161
-  %133 = load i32, ptr %ctr, align 4
-  %shr168 = lshr i32 %133, 24
-  %conv169 = trunc i32 %shr168 to i8
-  %134 = load ptr, ptr %ctx.addr, align 8
-  %Yi170 = getelementptr inbounds %struct.gcm128_context, ptr %134, i32 0, i32 0
-  %arraydecay171 = getelementptr inbounds [16 x i8], ptr %Yi170, i64 0, i64 0
-  %add.ptr172 = getelementptr inbounds i8, ptr %arraydecay171, i64 12
-  %arrayidx173 = getelementptr inbounds i8, ptr %add.ptr172, i64 0
-  store i8 %conv169, ptr %arrayidx173, align 1
-  %135 = load i32, ptr %ctr, align 4
-  %shr174 = lshr i32 %135, 16
-  %conv175 = trunc i32 %shr174 to i8
-  %136 = load ptr, ptr %ctx.addr, align 8
-  %Yi176 = getelementptr inbounds %struct.gcm128_context, ptr %136, i32 0, i32 0
-  %arraydecay177 = getelementptr inbounds [16 x i8], ptr %Yi176, i64 0, i64 0
-  %add.ptr178 = getelementptr inbounds i8, ptr %arraydecay177, i64 12
-  %arrayidx179 = getelementptr inbounds i8, ptr %add.ptr178, i64 1
-  store i8 %conv175, ptr %arrayidx179, align 1
-  %137 = load i32, ptr %ctr, align 4
-  %shr180 = lshr i32 %137, 8
-  %conv181 = trunc i32 %shr180 to i8
-  %138 = load ptr, ptr %ctx.addr, align 8
-  %Yi182 = getelementptr inbounds %struct.gcm128_context, ptr %138, i32 0, i32 0
-  %arraydecay183 = getelementptr inbounds [16 x i8], ptr %Yi182, i64 0, i64 0
-  %add.ptr184 = getelementptr inbounds i8, ptr %arraydecay183, i64 12
-  %arrayidx185 = getelementptr inbounds i8, ptr %add.ptr184, i64 2
-  store i8 %conv181, ptr %arrayidx185, align 1
-  %139 = load i32, ptr %ctr, align 4
-  %conv186 = trunc i32 %139 to i8
-  %140 = load ptr, ptr %ctx.addr, align 8
-  %Yi187 = getelementptr inbounds %struct.gcm128_context, ptr %140, i32 0, i32 0
-  %arraydecay188 = getelementptr inbounds [16 x i8], ptr %Yi187, i64 0, i64 0
-  %add.ptr189 = getelementptr inbounds i8, ptr %arraydecay188, i64 12
-  %arrayidx190 = getelementptr inbounds i8, ptr %add.ptr189, i64 3
-  store i8 %conv186, ptr %arrayidx190, align 1
-  br label %if.end194
+358:                                              ; preds = %343
+  %359 = load i32, ptr %16, align 4, !tbaa !20
+  %360 = lshr i32 %359, 24
+  %361 = trunc i32 %360 to i8
+  %362 = load ptr, ptr %8, align 8, !tbaa !6
+  %363 = getelementptr inbounds nuw %struct.gcm128_context, ptr %362, i32 0, i32 0
+  %364 = getelementptr inbounds [16 x i8], ptr %363, i64 0, i64 0
+  %365 = getelementptr inbounds i8, ptr %364, i64 12
+  %366 = getelementptr inbounds i8, ptr %365, i64 0
+  store i8 %361, ptr %366, align 1, !tbaa !15
+  %367 = load i32, ptr %16, align 4, !tbaa !20
+  %368 = lshr i32 %367, 16
+  %369 = trunc i32 %368 to i8
+  %370 = load ptr, ptr %8, align 8, !tbaa !6
+  %371 = getelementptr inbounds nuw %struct.gcm128_context, ptr %370, i32 0, i32 0
+  %372 = getelementptr inbounds [16 x i8], ptr %371, i64 0, i64 0
+  %373 = getelementptr inbounds i8, ptr %372, i64 12
+  %374 = getelementptr inbounds i8, ptr %373, i64 1
+  store i8 %369, ptr %374, align 1, !tbaa !15
+  %375 = load i32, ptr %16, align 4, !tbaa !20
+  %376 = lshr i32 %375, 8
+  %377 = trunc i32 %376 to i8
+  %378 = load ptr, ptr %8, align 8, !tbaa !6
+  %379 = getelementptr inbounds nuw %struct.gcm128_context, ptr %378, i32 0, i32 0
+  %380 = getelementptr inbounds [16 x i8], ptr %379, i64 0, i64 0
+  %381 = getelementptr inbounds i8, ptr %380, i64 12
+  %382 = getelementptr inbounds i8, ptr %381, i64 2
+  store i8 %377, ptr %382, align 1, !tbaa !15
+  %383 = load i32, ptr %16, align 4, !tbaa !20
+  %384 = trunc i32 %383 to i8
+  %385 = load ptr, ptr %8, align 8, !tbaa !6
+  %386 = getelementptr inbounds nuw %struct.gcm128_context, ptr %385, i32 0, i32 0
+  %387 = getelementptr inbounds [16 x i8], ptr %386, i64 0, i64 0
+  %388 = getelementptr inbounds i8, ptr %387, i64 12
+  %389 = getelementptr inbounds i8, ptr %388, i64 3
+  store i8 %384, ptr %389, align 1, !tbaa !15
+  br label %395
 
-if.else191:                                       ; preds = %if.then161
-  %141 = load i32, ptr %ctr, align 4
-  %142 = load ptr, ptr %ctx.addr, align 8
-  %Yi192 = getelementptr inbounds %struct.gcm128_context, ptr %142, i32 0, i32 0
-  %arrayidx193 = getelementptr inbounds [4 x i32], ptr %Yi192, i64 0, i64 3
-  store i32 %141, ptr %arrayidx193, align 4
-  br label %if.end194
+390:                                              ; preds = %343
+  %391 = load i32, ptr %16, align 4, !tbaa !20
+  %392 = load ptr, ptr %8, align 8, !tbaa !6
+  %393 = getelementptr inbounds nuw %struct.gcm128_context, ptr %392, i32 0, i32 0
+  %394 = getelementptr inbounds [4 x i32], ptr %393, i64 0, i64 3
+  store i32 %391, ptr %394, align 4, !tbaa !15
+  br label %395
 
-if.end194:                                        ; preds = %if.else191, %if.then167
-  br label %while.cond195
+395:                                              ; preds = %390, %358
+  br label %396
 
-while.cond195:                                    ; preds = %while.body198, %if.end194
-  %143 = load i64, ptr %len.addr, align 8
-  %dec196 = add i64 %143, -1
-  store i64 %dec196, ptr %len.addr, align 8
-  %tobool197 = icmp ne i64 %143, 0
-  br i1 %tobool197, label %while.body198, label %while.end218
+396:                                              ; preds = %400, %395
+  %397 = load i64, ptr %12, align 8, !tbaa !16
+  %398 = add i64 %397, -1
+  store i64 %398, ptr %12, align 8, !tbaa !16
+  %399 = icmp ne i64 %397, 0
+  br i1 %399, label %400, label %432
 
-while.body198:                                    ; preds = %while.cond195
-  %144 = load ptr, ptr %in.addr, align 8
-  %145 = load i32, ptr %n, align 4
-  %idxprom199 = zext i32 %145 to i64
-  %arrayidx200 = getelementptr inbounds i8, ptr %144, i64 %idxprom199
-  %146 = load i8, ptr %arrayidx200, align 1
-  %conv201 = zext i8 %146 to i32
-  %147 = load ptr, ptr %ctx.addr, align 8
-  %EKi202 = getelementptr inbounds %struct.gcm128_context, ptr %147, i32 0, i32 1
-  %148 = load i32, ptr %n, align 4
-  %idxprom203 = zext i32 %148 to i64
-  %arrayidx204 = getelementptr inbounds [16 x i8], ptr %EKi202, i64 0, i64 %idxprom203
-  %149 = load i8, ptr %arrayidx204, align 1
-  %conv205 = zext i8 %149 to i32
-  %xor206 = xor i32 %conv201, %conv205
-  %conv207 = trunc i32 %xor206 to i8
-  %150 = load ptr, ptr %out.addr, align 8
-  %151 = load i32, ptr %n, align 4
-  %idxprom208 = zext i32 %151 to i64
-  %arrayidx209 = getelementptr inbounds i8, ptr %150, i64 %idxprom208
-  store i8 %conv207, ptr %arrayidx209, align 1
-  %conv210 = zext i8 %conv207 to i32
-  %152 = load ptr, ptr %ctx.addr, align 8
-  %Xi211 = getelementptr inbounds %struct.gcm128_context, ptr %152, i32 0, i32 4
-  %153 = load i32, ptr %n, align 4
-  %idxprom212 = zext i32 %153 to i64
-  %arrayidx213 = getelementptr inbounds [16 x i8], ptr %Xi211, i64 0, i64 %idxprom212
-  %154 = load i8, ptr %arrayidx213, align 1
-  %conv214 = zext i8 %154 to i32
-  %xor215 = xor i32 %conv214, %conv210
-  %conv216 = trunc i32 %xor215 to i8
-  store i8 %conv216, ptr %arrayidx213, align 1
-  %155 = load i32, ptr %n, align 4
-  %inc217 = add i32 %155, 1
-  store i32 %inc217, ptr %n, align 4
-  br label %while.cond195, !llvm.loop !32
+400:                                              ; preds = %396
+  %401 = load ptr, ptr %10, align 8, !tbaa !29
+  %402 = load i32, ptr %15, align 4, !tbaa !20
+  %403 = zext i32 %402 to i64
+  %404 = getelementptr inbounds nuw i8, ptr %401, i64 %403
+  %405 = load i8, ptr %404, align 1, !tbaa !15
+  %406 = zext i8 %405 to i32
+  %407 = load ptr, ptr %8, align 8, !tbaa !6
+  %408 = getelementptr inbounds nuw %struct.gcm128_context, ptr %407, i32 0, i32 1
+  %409 = load i32, ptr %15, align 4, !tbaa !20
+  %410 = zext i32 %409 to i64
+  %411 = getelementptr inbounds nuw [16 x i8], ptr %408, i64 0, i64 %410
+  %412 = load i8, ptr %411, align 1, !tbaa !15
+  %413 = zext i8 %412 to i32
+  %414 = xor i32 %406, %413
+  %415 = trunc i32 %414 to i8
+  %416 = load ptr, ptr %11, align 8, !tbaa !29
+  %417 = load i32, ptr %15, align 4, !tbaa !20
+  %418 = zext i32 %417 to i64
+  %419 = getelementptr inbounds nuw i8, ptr %416, i64 %418
+  store i8 %415, ptr %419, align 1, !tbaa !15
+  %420 = zext i8 %415 to i32
+  %421 = load ptr, ptr %8, align 8, !tbaa !6
+  %422 = getelementptr inbounds nuw %struct.gcm128_context, ptr %421, i32 0, i32 4
+  %423 = load i32, ptr %15, align 4, !tbaa !20
+  %424 = zext i32 %423 to i64
+  %425 = getelementptr inbounds nuw [16 x i8], ptr %422, i64 0, i64 %424
+  %426 = load i8, ptr %425, align 1, !tbaa !15
+  %427 = zext i8 %426 to i32
+  %428 = xor i32 %427, %420
+  %429 = trunc i32 %428 to i8
+  store i8 %429, ptr %425, align 1, !tbaa !15
+  %430 = load i32, ptr %15, align 4, !tbaa !20
+  %431 = add i32 %430, 1
+  store i32 %431, ptr %15, align 4, !tbaa !20
+  br label %396, !llvm.loop !56
 
-while.end218:                                     ; preds = %while.cond195
-  br label %if.end219
+432:                                              ; preds = %396
+  br label %433
 
-if.end219:                                        ; preds = %while.end218, %if.end159
-  %156 = load i32, ptr %n, align 4
-  %157 = load ptr, ptr %ctx.addr, align 8
-  %mres220 = getelementptr inbounds %struct.gcm128_context, ptr %157, i32 0, i32 9
-  store i32 %156, ptr %mres220, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+433:                                              ; preds = %432, %340
+  %434 = load i32, ptr %15, align 4, !tbaa !20
+  %435 = load ptr, ptr %8, align 8, !tbaa !6
+  %436 = getelementptr inbounds nuw %struct.gcm128_context, ptr %435, i32 0, i32 9
+  store i32 %434, ptr %436, align 8, !tbaa !32
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %20, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  br label %437
 
-return:                                           ; preds = %if.end219, %if.else, %if.then
-  %158 = load i32, ptr %retval, align 4
-  ret i32 %158
+437:                                              ; preds = %433, %120, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  %438 = load i32, ptr %7, align 4
+  ret i32 %438
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_gcm_enabled(ptr noundef %ctx, ptr noundef %stream) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %stream.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  %0 = load ptr, ptr %stream.addr, align 8
-  %cmp = icmp eq ptr %0, @aesni_ctr32_encrypt_blocks
-  br i1 %cmp, label %land.rhs, label %land.end
+define internal i32 @aesni_gcm_enabled(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  %6 = icmp eq ptr %5, @aesni_ctr32_encrypt_blocks
+  br i1 %6, label %7, label %12
 
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %1, i32 0, i32 8
-  %2 = load ptr, ptr %ghash, align 8
-  %cmp1 = icmp eq ptr %2, @gcm_ghash_avx
-  br label %land.end
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !6
+  %9 = getelementptr inbounds nuw %struct.gcm128_context, ptr %8, i32 0, i32 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %11 = icmp eq ptr %10, @gcm_ghash_avx
+  br label %12
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
-  %land.ext = zext i1 %3 to i32
-  ret i32 %land.ext
+12:                                               ; preds = %7, %2
+  %13 = phi i1 [ false, %2 ], [ %11, %7 ]
+  %14 = zext i1 %13 to i32
+  ret i32 %14
 }
 
-declare i64 @aesni_gcm_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i64 @aesni_gcm_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %stream) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %stream.addr = alloca ptr, align 8
-  %is_endian = alloca %union.anon.5, align 8
-  %n = alloca i32, align 4
-  %ctr = alloca i32, align 4
-  %mlen = alloca i64, align 8
-  %gcm_gmult_p = alloca ptr, align 8
-  %gcm_ghash_p = alloca ptr, align 8
-  %c = alloca i8, align 1
-  %bulk = alloca i64, align 8
-  %i = alloca i64, align 8
-  %j = alloca i64, align 8
-  %c199 = alloca i8, align 1
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %is_endian, ptr align 8 @__const.CRYPTO_gcm128_decrypt_ctr32.is_endian, i64 8, i1 false)
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %len1 = getelementptr inbounds %struct.gcm128_context, ptr %0, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %len1, i64 0, i64 1
-  %1 = load i64, ptr %arrayidx, align 8
-  store i64 %1, ptr %mlen, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 7
-  %3 = load ptr, ptr %gmult, align 8
-  store ptr %3, ptr %gcm_gmult_p, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %4, i32 0, i32 8
-  %5 = load ptr, ptr %ghash, align 8
-  store ptr %5, ptr %gcm_ghash_p, align 8
-  %6 = load i64, ptr %len.addr, align 8
-  %7 = load i64, ptr %mlen, align 8
-  %add = add i64 %7, %6
-  store i64 %add, ptr %mlen, align 8
-  %8 = load i64, ptr %mlen, align 8
-  %cmp = icmp ugt i64 %8, 68719476704
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %union.anon.5, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i8, align 1
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i8, align 1
+  store ptr %0, ptr %8, align 8, !tbaa !6
+  store ptr %1, ptr %9, align 8, !tbaa !11
+  store ptr %2, ptr %10, align 8, !tbaa !29
+  store ptr %3, ptr %11, align 8, !tbaa !29
+  store i64 %4, ptr %12, align 8, !tbaa !16
+  store ptr %5, ptr %13, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 @__const.CRYPTO_gcm128_decrypt_ctr32.is_endian, i64 8, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %26 = load ptr, ptr %8, align 8, !tbaa !6
+  %27 = getelementptr inbounds nuw %struct.gcm128_context, ptr %26, i32 0, i32 3
+  %28 = getelementptr inbounds [2 x i64], ptr %27, i64 0, i64 1
+  %29 = load i64, ptr %28, align 8, !tbaa !15
+  store i64 %29, ptr %17, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  %30 = load ptr, ptr %8, align 8, !tbaa !6
+  %31 = getelementptr inbounds nuw %struct.gcm128_context, ptr %30, i32 0, i32 7
+  %32 = load ptr, ptr %31, align 8, !tbaa !21
+  store ptr %32, ptr %18, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %33 = load ptr, ptr %8, align 8, !tbaa !6
+  %34 = getelementptr inbounds nuw %struct.gcm128_context, ptr %33, i32 0, i32 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !22
+  store ptr %35, ptr %19, align 8, !tbaa !11
+  %36 = load i64, ptr %12, align 8, !tbaa !16
+  %37 = load i64, ptr %17, align 8, !tbaa !16
+  %38 = add i64 %37, %36
+  store i64 %38, ptr %17, align 8, !tbaa !16
+  %39 = load i64, ptr %17, align 8, !tbaa !16
+  %40 = icmp ugt i64 %39, 68719476704
+  br i1 %40, label %45, label %41
 
-lor.lhs.false:                                    ; preds = %entry
-  %9 = load i64, ptr %mlen, align 8
-  %10 = load i64, ptr %len.addr, align 8
-  %cmp2 = icmp ult i64 %9, %10
-  br i1 %cmp2, label %if.then, label %if.end
+41:                                               ; preds = %6
+  %42 = load i64, ptr %17, align 8, !tbaa !16
+  %43 = load i64, ptr %12, align 8, !tbaa !16
+  %44 = icmp ult i64 %42, %43
+  br i1 %44, label %45, label %46
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %41, %6
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %20, align 4
+  br label %443
 
-if.end:                                           ; preds = %lor.lhs.false
-  %11 = load i64, ptr %mlen, align 8
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %len3 = getelementptr inbounds %struct.gcm128_context, ptr %12, i32 0, i32 3
-  %arrayidx4 = getelementptr inbounds [2 x i64], ptr %len3, i64 0, i64 1
-  store i64 %11, ptr %arrayidx4, align 8
-  %13 = load ptr, ptr %ctx.addr, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %13, i32 0, i32 10
-  %14 = load i32, ptr %ares, align 4
-  %tobool = icmp ne i32 %14, 0
-  br i1 %tobool, label %if.then5, label %if.end8
+46:                                               ; preds = %41
+  %47 = load i64, ptr %17, align 8, !tbaa !16
+  %48 = load ptr, ptr %8, align 8, !tbaa !6
+  %49 = getelementptr inbounds nuw %struct.gcm128_context, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds [2 x i64], ptr %49, i64 0, i64 1
+  store i64 %47, ptr %50, align 8, !tbaa !15
+  %51 = load ptr, ptr %8, align 8, !tbaa !6
+  %52 = getelementptr inbounds nuw %struct.gcm128_context, ptr %51, i32 0, i32 10
+  %53 = load i32, ptr %52, align 4, !tbaa !31
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %65
 
-if.then5:                                         ; preds = %if.end
-  %15 = load ptr, ptr %gcm_gmult_p, align 8
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %16, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [2 x i64], ptr %Xi, i64 0, i64 0
-  %17 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %17, i32 0, i32 6
-  %arraydecay6 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
-  call void %15(ptr noundef %arraydecay, ptr noundef %arraydecay6)
-  %18 = load ptr, ptr %ctx.addr, align 8
-  %ares7 = getelementptr inbounds %struct.gcm128_context, ptr %18, i32 0, i32 10
-  store i32 0, ptr %ares7, align 4
-  br label %if.end8
+55:                                               ; preds = %46
+  %56 = load ptr, ptr %18, align 8, !tbaa !11
+  %57 = load ptr, ptr %8, align 8, !tbaa !6
+  %58 = getelementptr inbounds nuw %struct.gcm128_context, ptr %57, i32 0, i32 4
+  %59 = getelementptr inbounds [2 x i64], ptr %58, i64 0, i64 0
+  %60 = load ptr, ptr %8, align 8, !tbaa !6
+  %61 = getelementptr inbounds nuw %struct.gcm128_context, ptr %60, i32 0, i32 6
+  %62 = getelementptr inbounds [16 x %struct.u128], ptr %61, i64 0, i64 0
+  call void %56(ptr noundef %59, ptr noundef %62)
+  %63 = load ptr, ptr %8, align 8, !tbaa !6
+  %64 = getelementptr inbounds nuw %struct.gcm128_context, ptr %63, i32 0, i32 10
+  store i32 0, ptr %64, align 4, !tbaa !31
+  br label %65
 
-if.end8:                                          ; preds = %if.then5, %if.end
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %19, i32 0, i32 9
-  %20 = load i32, ptr %mres, align 8
-  store i32 %20, ptr %n, align 4
-  %21 = load i32, ptr %n, align 4
-  %tobool9 = icmp ne i32 %21, 0
-  br i1 %tobool9, label %if.then10, label %if.end34
+65:                                               ; preds = %55, %46
+  %66 = load ptr, ptr %8, align 8, !tbaa !6
+  %67 = getelementptr inbounds nuw %struct.gcm128_context, ptr %66, i32 0, i32 9
+  %68 = load i32, ptr %67, align 8, !tbaa !32
+  store i32 %68, ptr %15, align 4, !tbaa !20
+  %69 = load i32, ptr %15, align 4, !tbaa !20
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %129
 
-if.then10:                                        ; preds = %if.end8
-  br label %while.cond
+71:                                               ; preds = %65
+  br label %72
 
-while.cond:                                       ; preds = %while.body, %if.then10
-  %22 = load i32, ptr %n, align 4
-  %tobool11 = icmp ne i32 %22, 0
-  br i1 %tobool11, label %land.rhs, label %land.end
+72:                                               ; preds = %80, %71
+  %73 = load i32, ptr %15, align 4, !tbaa !20
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %78
 
-land.rhs:                                         ; preds = %while.cond
-  %23 = load i64, ptr %len.addr, align 8
-  %tobool12 = icmp ne i64 %23, 0
-  br label %land.end
+75:                                               ; preds = %72
+  %76 = load i64, ptr %12, align 8, !tbaa !16
+  %77 = icmp ne i64 %76, 0
+  br label %78
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %24 = phi i1 [ false, %while.cond ], [ %tobool12, %land.rhs ]
-  br i1 %24, label %while.body, label %while.end
+78:                                               ; preds = %75, %72
+  %79 = phi i1 [ false, %72 ], [ %77, %75 ]
+  br i1 %79, label %80, label %113
 
-while.body:                                       ; preds = %land.end
-  %25 = load ptr, ptr %in.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %25, i32 1
-  store ptr %incdec.ptr, ptr %in.addr, align 8
-  %26 = load i8, ptr %25, align 1
-  store i8 %26, ptr %c, align 1
-  %27 = load i8, ptr %c, align 1
-  %conv = zext i8 %27 to i32
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %EKi = getelementptr inbounds %struct.gcm128_context, ptr %28, i32 0, i32 1
-  %29 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %29 to i64
-  %arrayidx13 = getelementptr inbounds [16 x i8], ptr %EKi, i64 0, i64 %idxprom
-  %30 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %30 to i32
-  %xor = xor i32 %conv, %conv14
-  %conv15 = trunc i32 %xor to i8
-  %31 = load ptr, ptr %out.addr, align 8
-  %incdec.ptr16 = getelementptr inbounds i8, ptr %31, i32 1
-  store ptr %incdec.ptr16, ptr %out.addr, align 8
-  store i8 %conv15, ptr %31, align 1
-  %32 = load i8, ptr %c, align 1
-  %conv17 = zext i8 %32 to i32
-  %33 = load ptr, ptr %ctx.addr, align 8
-  %Xi18 = getelementptr inbounds %struct.gcm128_context, ptr %33, i32 0, i32 4
-  %34 = load i32, ptr %n, align 4
-  %idxprom19 = zext i32 %34 to i64
-  %arrayidx20 = getelementptr inbounds [16 x i8], ptr %Xi18, i64 0, i64 %idxprom19
-  %35 = load i8, ptr %arrayidx20, align 1
-  %conv21 = zext i8 %35 to i32
-  %xor22 = xor i32 %conv21, %conv17
-  %conv23 = trunc i32 %xor22 to i8
-  store i8 %conv23, ptr %arrayidx20, align 1
-  %36 = load i64, ptr %len.addr, align 8
-  %dec = add i64 %36, -1
-  store i64 %dec, ptr %len.addr, align 8
-  %37 = load i32, ptr %n, align 4
-  %add24 = add i32 %37, 1
-  %rem = urem i32 %add24, 16
-  store i32 %rem, ptr %n, align 4
-  br label %while.cond, !llvm.loop !33
+80:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #5
+  %81 = load ptr, ptr %10, align 8, !tbaa !29
+  %82 = getelementptr inbounds nuw i8, ptr %81, i32 1
+  store ptr %82, ptr %10, align 8, !tbaa !29
+  %83 = load i8, ptr %81, align 1, !tbaa !15
+  store i8 %83, ptr %21, align 1, !tbaa !15
+  %84 = load i8, ptr %21, align 1, !tbaa !15
+  %85 = zext i8 %84 to i32
+  %86 = load ptr, ptr %8, align 8, !tbaa !6
+  %87 = getelementptr inbounds nuw %struct.gcm128_context, ptr %86, i32 0, i32 1
+  %88 = load i32, ptr %15, align 4, !tbaa !20
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 0, i64 %89
+  %91 = load i8, ptr %90, align 1, !tbaa !15
+  %92 = zext i8 %91 to i32
+  %93 = xor i32 %85, %92
+  %94 = trunc i32 %93 to i8
+  %95 = load ptr, ptr %11, align 8, !tbaa !29
+  %96 = getelementptr inbounds nuw i8, ptr %95, i32 1
+  store ptr %96, ptr %11, align 8, !tbaa !29
+  store i8 %94, ptr %95, align 1, !tbaa !15
+  %97 = load i8, ptr %21, align 1, !tbaa !15
+  %98 = zext i8 %97 to i32
+  %99 = load ptr, ptr %8, align 8, !tbaa !6
+  %100 = getelementptr inbounds nuw %struct.gcm128_context, ptr %99, i32 0, i32 4
+  %101 = load i32, ptr %15, align 4, !tbaa !20
+  %102 = zext i32 %101 to i64
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 0, i64 %102
+  %104 = load i8, ptr %103, align 1, !tbaa !15
+  %105 = zext i8 %104 to i32
+  %106 = xor i32 %105, %98
+  %107 = trunc i32 %106 to i8
+  store i8 %107, ptr %103, align 1, !tbaa !15
+  %108 = load i64, ptr %12, align 8, !tbaa !16
+  %109 = add i64 %108, -1
+  store i64 %109, ptr %12, align 8, !tbaa !16
+  %110 = load i32, ptr %15, align 4, !tbaa !20
+  %111 = add i32 %110, 1
+  %112 = urem i32 %111, 16
+  store i32 %112, ptr %15, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #5
+  br label %72, !llvm.loop !57
 
-while.end:                                        ; preds = %land.end
-  %38 = load i32, ptr %n, align 4
-  %cmp25 = icmp eq i32 %38, 0
-  br i1 %cmp25, label %if.then27, label %if.else
+113:                                              ; preds = %78
+  %114 = load i32, ptr %15, align 4, !tbaa !20
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %124
 
-if.then27:                                        ; preds = %while.end
-  %39 = load ptr, ptr %gcm_gmult_p, align 8
-  %40 = load ptr, ptr %ctx.addr, align 8
-  %Xi28 = getelementptr inbounds %struct.gcm128_context, ptr %40, i32 0, i32 4
-  %arraydecay29 = getelementptr inbounds [2 x i64], ptr %Xi28, i64 0, i64 0
-  %41 = load ptr, ptr %ctx.addr, align 8
-  %Htable30 = getelementptr inbounds %struct.gcm128_context, ptr %41, i32 0, i32 6
-  %arraydecay31 = getelementptr inbounds [16 x %struct.u128], ptr %Htable30, i64 0, i64 0
-  call void %39(ptr noundef %arraydecay29, ptr noundef %arraydecay31)
-  br label %if.end33
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %18, align 8, !tbaa !11
+  %118 = load ptr, ptr %8, align 8, !tbaa !6
+  %119 = getelementptr inbounds nuw %struct.gcm128_context, ptr %118, i32 0, i32 4
+  %120 = getelementptr inbounds [2 x i64], ptr %119, i64 0, i64 0
+  %121 = load ptr, ptr %8, align 8, !tbaa !6
+  %122 = getelementptr inbounds nuw %struct.gcm128_context, ptr %121, i32 0, i32 6
+  %123 = getelementptr inbounds [16 x %struct.u128], ptr %122, i64 0, i64 0
+  call void %117(ptr noundef %120, ptr noundef %123)
+  br label %128
 
-if.else:                                          ; preds = %while.end
-  %42 = load i32, ptr %n, align 4
-  %43 = load ptr, ptr %ctx.addr, align 8
-  %mres32 = getelementptr inbounds %struct.gcm128_context, ptr %43, i32 0, i32 9
-  store i32 %42, ptr %mres32, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+124:                                              ; preds = %113
+  %125 = load i32, ptr %15, align 4, !tbaa !20
+  %126 = load ptr, ptr %8, align 8, !tbaa !6
+  %127 = getelementptr inbounds nuw %struct.gcm128_context, ptr %126, i32 0, i32 9
+  store i32 %125, ptr %127, align 8, !tbaa !32
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %20, align 4
+  br label %443
 
-if.end33:                                         ; preds = %if.then27
-  br label %if.end34
+128:                                              ; preds = %116
+  br label %129
 
-if.end34:                                         ; preds = %if.end33, %if.end8
-  %44 = load ptr, ptr %ctx.addr, align 8
-  %45 = load ptr, ptr %stream.addr, align 8
-  %call = call i32 @aesni_gcm_enabled(ptr noundef %44, ptr noundef %45)
-  %tobool35 = icmp ne i32 %call, 0
-  br i1 %tobool35, label %if.then36, label %if.end42
+129:                                              ; preds = %128, %65
+  %130 = load ptr, ptr %8, align 8, !tbaa !6
+  %131 = load ptr, ptr %13, align 8, !tbaa !11
+  %132 = call i32 @aesni_gcm_enabled(ptr noundef %130, ptr noundef %131)
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %155
 
-if.then36:                                        ; preds = %if.end34
-  %46 = load ptr, ptr %in.addr, align 8
-  %47 = load ptr, ptr %out.addr, align 8
-  %48 = load i64, ptr %len.addr, align 8
-  %49 = load ptr, ptr %key.addr, align 8
-  %50 = load ptr, ptr %ctx.addr, align 8
-  %Yi = getelementptr inbounds %struct.gcm128_context, ptr %50, i32 0, i32 0
-  %arraydecay37 = getelementptr inbounds [16 x i8], ptr %Yi, i64 0, i64 0
-  %51 = load ptr, ptr %ctx.addr, align 8
-  %Xi38 = getelementptr inbounds %struct.gcm128_context, ptr %51, i32 0, i32 4
-  %arraydecay39 = getelementptr inbounds [2 x i64], ptr %Xi38, i64 0, i64 0
-  %call40 = call i64 @aesni_gcm_decrypt(ptr noundef %46, ptr noundef %47, i64 noundef %48, ptr noundef %49, ptr noundef %arraydecay37, ptr noundef %arraydecay39)
-  store i64 %call40, ptr %bulk, align 8
-  %52 = load i64, ptr %bulk, align 8
-  %53 = load ptr, ptr %in.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %53, i64 %52
-  store ptr %add.ptr, ptr %in.addr, align 8
-  %54 = load i64, ptr %bulk, align 8
-  %55 = load ptr, ptr %out.addr, align 8
-  %add.ptr41 = getelementptr inbounds i8, ptr %55, i64 %54
-  store ptr %add.ptr41, ptr %out.addr, align 8
-  %56 = load i64, ptr %bulk, align 8
-  %57 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %57, %56
-  store i64 %sub, ptr %len.addr, align 8
-  br label %if.end42
+134:                                              ; preds = %129
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  %135 = load ptr, ptr %10, align 8, !tbaa !29
+  %136 = load ptr, ptr %11, align 8, !tbaa !29
+  %137 = load i64, ptr %12, align 8, !tbaa !16
+  %138 = load ptr, ptr %9, align 8, !tbaa !11
+  %139 = load ptr, ptr %8, align 8, !tbaa !6
+  %140 = getelementptr inbounds nuw %struct.gcm128_context, ptr %139, i32 0, i32 0
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 0, i64 0
+  %142 = load ptr, ptr %8, align 8, !tbaa !6
+  %143 = getelementptr inbounds nuw %struct.gcm128_context, ptr %142, i32 0, i32 4
+  %144 = getelementptr inbounds [2 x i64], ptr %143, i64 0, i64 0
+  %145 = call i64 @aesni_gcm_decrypt(ptr noundef %135, ptr noundef %136, i64 noundef %137, ptr noundef %138, ptr noundef %141, ptr noundef %144)
+  store i64 %145, ptr %22, align 8, !tbaa !16
+  %146 = load i64, ptr %22, align 8, !tbaa !16
+  %147 = load ptr, ptr %10, align 8, !tbaa !29
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 %146
+  store ptr %148, ptr %10, align 8, !tbaa !29
+  %149 = load i64, ptr %22, align 8, !tbaa !16
+  %150 = load ptr, ptr %11, align 8, !tbaa !29
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %149
+  store ptr %151, ptr %11, align 8, !tbaa !29
+  %152 = load i64, ptr %22, align 8, !tbaa !16
+  %153 = load i64, ptr %12, align 8, !tbaa !16
+  %154 = sub i64 %153, %152
+  store i64 %154, ptr %12, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  br label %155
 
-if.end42:                                         ; preds = %if.then36, %if.end34
-  %58 = load i8, ptr %is_endian, align 8
-  %tobool43 = icmp ne i8 %58, 0
-  br i1 %tobool43, label %if.then44, label %if.else69
+155:                                              ; preds = %134, %129
+  %156 = load i8, ptr %14, align 8, !tbaa !15
+  %157 = icmp ne i8 %156, 0
+  br i1 %157, label %158, label %193
 
-if.then44:                                        ; preds = %if.end42
-  %59 = load ptr, ptr %ctx.addr, align 8
-  %Yi45 = getelementptr inbounds %struct.gcm128_context, ptr %59, i32 0, i32 0
-  %arraydecay46 = getelementptr inbounds [16 x i8], ptr %Yi45, i64 0, i64 0
-  %add.ptr47 = getelementptr inbounds i8, ptr %arraydecay46, i64 12
-  %arrayidx48 = getelementptr inbounds i8, ptr %add.ptr47, i64 0
-  %60 = load i8, ptr %arrayidx48, align 1
-  %conv49 = zext i8 %60 to i32
-  %shl = shl i32 %conv49, 24
-  %61 = load ptr, ptr %ctx.addr, align 8
-  %Yi50 = getelementptr inbounds %struct.gcm128_context, ptr %61, i32 0, i32 0
-  %arraydecay51 = getelementptr inbounds [16 x i8], ptr %Yi50, i64 0, i64 0
-  %add.ptr52 = getelementptr inbounds i8, ptr %arraydecay51, i64 12
-  %arrayidx53 = getelementptr inbounds i8, ptr %add.ptr52, i64 1
-  %62 = load i8, ptr %arrayidx53, align 1
-  %conv54 = zext i8 %62 to i32
-  %shl55 = shl i32 %conv54, 16
-  %or = or i32 %shl, %shl55
-  %63 = load ptr, ptr %ctx.addr, align 8
-  %Yi56 = getelementptr inbounds %struct.gcm128_context, ptr %63, i32 0, i32 0
-  %arraydecay57 = getelementptr inbounds [16 x i8], ptr %Yi56, i64 0, i64 0
-  %add.ptr58 = getelementptr inbounds i8, ptr %arraydecay57, i64 12
-  %arrayidx59 = getelementptr inbounds i8, ptr %add.ptr58, i64 2
-  %64 = load i8, ptr %arrayidx59, align 1
-  %conv60 = zext i8 %64 to i32
-  %shl61 = shl i32 %conv60, 8
-  %or62 = or i32 %or, %shl61
-  %65 = load ptr, ptr %ctx.addr, align 8
-  %Yi63 = getelementptr inbounds %struct.gcm128_context, ptr %65, i32 0, i32 0
-  %arraydecay64 = getelementptr inbounds [16 x i8], ptr %Yi63, i64 0, i64 0
-  %add.ptr65 = getelementptr inbounds i8, ptr %arraydecay64, i64 12
-  %arrayidx66 = getelementptr inbounds i8, ptr %add.ptr65, i64 3
-  %66 = load i8, ptr %arrayidx66, align 1
-  %conv67 = zext i8 %66 to i32
-  %or68 = or i32 %or62, %conv67
-  store i32 %or68, ptr %ctr, align 4
-  br label %if.end72
+158:                                              ; preds = %155
+  %159 = load ptr, ptr %8, align 8, !tbaa !6
+  %160 = getelementptr inbounds nuw %struct.gcm128_context, ptr %159, i32 0, i32 0
+  %161 = getelementptr inbounds [16 x i8], ptr %160, i64 0, i64 0
+  %162 = getelementptr inbounds i8, ptr %161, i64 12
+  %163 = getelementptr inbounds i8, ptr %162, i64 0
+  %164 = load i8, ptr %163, align 1, !tbaa !15
+  %165 = zext i8 %164 to i32
+  %166 = shl i32 %165, 24
+  %167 = load ptr, ptr %8, align 8, !tbaa !6
+  %168 = getelementptr inbounds nuw %struct.gcm128_context, ptr %167, i32 0, i32 0
+  %169 = getelementptr inbounds [16 x i8], ptr %168, i64 0, i64 0
+  %170 = getelementptr inbounds i8, ptr %169, i64 12
+  %171 = getelementptr inbounds i8, ptr %170, i64 1
+  %172 = load i8, ptr %171, align 1, !tbaa !15
+  %173 = zext i8 %172 to i32
+  %174 = shl i32 %173, 16
+  %175 = or i32 %166, %174
+  %176 = load ptr, ptr %8, align 8, !tbaa !6
+  %177 = getelementptr inbounds nuw %struct.gcm128_context, ptr %176, i32 0, i32 0
+  %178 = getelementptr inbounds [16 x i8], ptr %177, i64 0, i64 0
+  %179 = getelementptr inbounds i8, ptr %178, i64 12
+  %180 = getelementptr inbounds i8, ptr %179, i64 2
+  %181 = load i8, ptr %180, align 1, !tbaa !15
+  %182 = zext i8 %181 to i32
+  %183 = shl i32 %182, 8
+  %184 = or i32 %175, %183
+  %185 = load ptr, ptr %8, align 8, !tbaa !6
+  %186 = getelementptr inbounds nuw %struct.gcm128_context, ptr %185, i32 0, i32 0
+  %187 = getelementptr inbounds [16 x i8], ptr %186, i64 0, i64 0
+  %188 = getelementptr inbounds i8, ptr %187, i64 12
+  %189 = getelementptr inbounds i8, ptr %188, i64 3
+  %190 = load i8, ptr %189, align 1, !tbaa !15
+  %191 = zext i8 %190 to i32
+  %192 = or i32 %184, %191
+  store i32 %192, ptr %16, align 4, !tbaa !20
+  br label %198
 
-if.else69:                                        ; preds = %if.end42
-  %67 = load ptr, ptr %ctx.addr, align 8
-  %Yi70 = getelementptr inbounds %struct.gcm128_context, ptr %67, i32 0, i32 0
-  %arrayidx71 = getelementptr inbounds [4 x i32], ptr %Yi70, i64 0, i64 3
-  %68 = load i32, ptr %arrayidx71, align 4
-  store i32 %68, ptr %ctr, align 4
-  br label %if.end72
+193:                                              ; preds = %155
+  %194 = load ptr, ptr %8, align 8, !tbaa !6
+  %195 = getelementptr inbounds nuw %struct.gcm128_context, ptr %194, i32 0, i32 0
+  %196 = getelementptr inbounds [4 x i32], ptr %195, i64 0, i64 3
+  %197 = load i32, ptr %196, align 4, !tbaa !15
+  store i32 %197, ptr %16, align 4, !tbaa !20
+  br label %198
 
-if.end72:                                         ; preds = %if.else69, %if.then44
-  br label %while.cond73
+198:                                              ; preds = %193, %158
+  br label %199
 
-while.cond73:                                     ; preds = %if.end111, %if.end72
-  %69 = load i64, ptr %len.addr, align 8
-  %cmp74 = icmp uge i64 %69, 3072
-  br i1 %cmp74, label %while.body76, label %while.end115
+199:                                              ; preds = %259, %198
+  %200 = load i64, ptr %12, align 8, !tbaa !16
+  %201 = icmp uge i64 %200, 3072
+  br i1 %201, label %202, label %266
 
-while.body76:                                     ; preds = %while.cond73
-  %70 = load ptr, ptr %gcm_ghash_p, align 8
-  %71 = load ptr, ptr %ctx.addr, align 8
-  %Xi77 = getelementptr inbounds %struct.gcm128_context, ptr %71, i32 0, i32 4
-  %arraydecay78 = getelementptr inbounds [2 x i64], ptr %Xi77, i64 0, i64 0
-  %72 = load ptr, ptr %ctx.addr, align 8
-  %Htable79 = getelementptr inbounds %struct.gcm128_context, ptr %72, i32 0, i32 6
-  %arraydecay80 = getelementptr inbounds [16 x %struct.u128], ptr %Htable79, i64 0, i64 0
-  %73 = load ptr, ptr %in.addr, align 8
-  call void %70(ptr noundef %arraydecay78, ptr noundef %arraydecay80, ptr noundef %73, i64 noundef 3072)
-  %74 = load ptr, ptr %stream.addr, align 8
-  %75 = load ptr, ptr %in.addr, align 8
-  %76 = load ptr, ptr %out.addr, align 8
-  %77 = load ptr, ptr %key.addr, align 8
-  %78 = load ptr, ptr %ctx.addr, align 8
-  %Yi81 = getelementptr inbounds %struct.gcm128_context, ptr %78, i32 0, i32 0
-  %arraydecay82 = getelementptr inbounds [16 x i8], ptr %Yi81, i64 0, i64 0
-  call void %74(ptr noundef %75, ptr noundef %76, i64 noundef 192, ptr noundef %77, ptr noundef %arraydecay82)
-  %79 = load i32, ptr %ctr, align 4
-  %add83 = add i32 %79, 192
-  store i32 %add83, ptr %ctr, align 4
-  %80 = load i8, ptr %is_endian, align 8
-  %tobool84 = icmp ne i8 %80, 0
-  br i1 %tobool84, label %if.then85, label %if.else108
+202:                                              ; preds = %199
+  %203 = load ptr, ptr %19, align 8, !tbaa !11
+  %204 = load ptr, ptr %8, align 8, !tbaa !6
+  %205 = getelementptr inbounds nuw %struct.gcm128_context, ptr %204, i32 0, i32 4
+  %206 = getelementptr inbounds [2 x i64], ptr %205, i64 0, i64 0
+  %207 = load ptr, ptr %8, align 8, !tbaa !6
+  %208 = getelementptr inbounds nuw %struct.gcm128_context, ptr %207, i32 0, i32 6
+  %209 = getelementptr inbounds [16 x %struct.u128], ptr %208, i64 0, i64 0
+  %210 = load ptr, ptr %10, align 8, !tbaa !29
+  call void %203(ptr noundef %206, ptr noundef %209, ptr noundef %210, i64 noundef 3072)
+  %211 = load ptr, ptr %13, align 8, !tbaa !11
+  %212 = load ptr, ptr %10, align 8, !tbaa !29
+  %213 = load ptr, ptr %11, align 8, !tbaa !29
+  %214 = load ptr, ptr %9, align 8, !tbaa !11
+  %215 = load ptr, ptr %8, align 8, !tbaa !6
+  %216 = getelementptr inbounds nuw %struct.gcm128_context, ptr %215, i32 0, i32 0
+  %217 = getelementptr inbounds [16 x i8], ptr %216, i64 0, i64 0
+  call void %211(ptr noundef %212, ptr noundef %213, i64 noundef 192, ptr noundef %214, ptr noundef %217)
+  %218 = load i32, ptr %16, align 4, !tbaa !20
+  %219 = add i32 %218, 192
+  store i32 %219, ptr %16, align 4, !tbaa !20
+  %220 = load i8, ptr %14, align 8, !tbaa !15
+  %221 = icmp ne i8 %220, 0
+  br i1 %221, label %222, label %254
 
-if.then85:                                        ; preds = %while.body76
-  %81 = load i32, ptr %ctr, align 4
-  %shr = lshr i32 %81, 24
-  %conv86 = trunc i32 %shr to i8
-  %82 = load ptr, ptr %ctx.addr, align 8
-  %Yi87 = getelementptr inbounds %struct.gcm128_context, ptr %82, i32 0, i32 0
-  %arraydecay88 = getelementptr inbounds [16 x i8], ptr %Yi87, i64 0, i64 0
-  %add.ptr89 = getelementptr inbounds i8, ptr %arraydecay88, i64 12
-  %arrayidx90 = getelementptr inbounds i8, ptr %add.ptr89, i64 0
-  store i8 %conv86, ptr %arrayidx90, align 1
-  %83 = load i32, ptr %ctr, align 4
-  %shr91 = lshr i32 %83, 16
-  %conv92 = trunc i32 %shr91 to i8
-  %84 = load ptr, ptr %ctx.addr, align 8
-  %Yi93 = getelementptr inbounds %struct.gcm128_context, ptr %84, i32 0, i32 0
-  %arraydecay94 = getelementptr inbounds [16 x i8], ptr %Yi93, i64 0, i64 0
-  %add.ptr95 = getelementptr inbounds i8, ptr %arraydecay94, i64 12
-  %arrayidx96 = getelementptr inbounds i8, ptr %add.ptr95, i64 1
-  store i8 %conv92, ptr %arrayidx96, align 1
-  %85 = load i32, ptr %ctr, align 4
-  %shr97 = lshr i32 %85, 8
-  %conv98 = trunc i32 %shr97 to i8
-  %86 = load ptr, ptr %ctx.addr, align 8
-  %Yi99 = getelementptr inbounds %struct.gcm128_context, ptr %86, i32 0, i32 0
-  %arraydecay100 = getelementptr inbounds [16 x i8], ptr %Yi99, i64 0, i64 0
-  %add.ptr101 = getelementptr inbounds i8, ptr %arraydecay100, i64 12
-  %arrayidx102 = getelementptr inbounds i8, ptr %add.ptr101, i64 2
-  store i8 %conv98, ptr %arrayidx102, align 1
-  %87 = load i32, ptr %ctr, align 4
-  %conv103 = trunc i32 %87 to i8
-  %88 = load ptr, ptr %ctx.addr, align 8
-  %Yi104 = getelementptr inbounds %struct.gcm128_context, ptr %88, i32 0, i32 0
-  %arraydecay105 = getelementptr inbounds [16 x i8], ptr %Yi104, i64 0, i64 0
-  %add.ptr106 = getelementptr inbounds i8, ptr %arraydecay105, i64 12
-  %arrayidx107 = getelementptr inbounds i8, ptr %add.ptr106, i64 3
-  store i8 %conv103, ptr %arrayidx107, align 1
-  br label %if.end111
+222:                                              ; preds = %202
+  %223 = load i32, ptr %16, align 4, !tbaa !20
+  %224 = lshr i32 %223, 24
+  %225 = trunc i32 %224 to i8
+  %226 = load ptr, ptr %8, align 8, !tbaa !6
+  %227 = getelementptr inbounds nuw %struct.gcm128_context, ptr %226, i32 0, i32 0
+  %228 = getelementptr inbounds [16 x i8], ptr %227, i64 0, i64 0
+  %229 = getelementptr inbounds i8, ptr %228, i64 12
+  %230 = getelementptr inbounds i8, ptr %229, i64 0
+  store i8 %225, ptr %230, align 1, !tbaa !15
+  %231 = load i32, ptr %16, align 4, !tbaa !20
+  %232 = lshr i32 %231, 16
+  %233 = trunc i32 %232 to i8
+  %234 = load ptr, ptr %8, align 8, !tbaa !6
+  %235 = getelementptr inbounds nuw %struct.gcm128_context, ptr %234, i32 0, i32 0
+  %236 = getelementptr inbounds [16 x i8], ptr %235, i64 0, i64 0
+  %237 = getelementptr inbounds i8, ptr %236, i64 12
+  %238 = getelementptr inbounds i8, ptr %237, i64 1
+  store i8 %233, ptr %238, align 1, !tbaa !15
+  %239 = load i32, ptr %16, align 4, !tbaa !20
+  %240 = lshr i32 %239, 8
+  %241 = trunc i32 %240 to i8
+  %242 = load ptr, ptr %8, align 8, !tbaa !6
+  %243 = getelementptr inbounds nuw %struct.gcm128_context, ptr %242, i32 0, i32 0
+  %244 = getelementptr inbounds [16 x i8], ptr %243, i64 0, i64 0
+  %245 = getelementptr inbounds i8, ptr %244, i64 12
+  %246 = getelementptr inbounds i8, ptr %245, i64 2
+  store i8 %241, ptr %246, align 1, !tbaa !15
+  %247 = load i32, ptr %16, align 4, !tbaa !20
+  %248 = trunc i32 %247 to i8
+  %249 = load ptr, ptr %8, align 8, !tbaa !6
+  %250 = getelementptr inbounds nuw %struct.gcm128_context, ptr %249, i32 0, i32 0
+  %251 = getelementptr inbounds [16 x i8], ptr %250, i64 0, i64 0
+  %252 = getelementptr inbounds i8, ptr %251, i64 12
+  %253 = getelementptr inbounds i8, ptr %252, i64 3
+  store i8 %248, ptr %253, align 1, !tbaa !15
+  br label %259
 
-if.else108:                                       ; preds = %while.body76
-  %89 = load i32, ptr %ctr, align 4
-  %90 = load ptr, ptr %ctx.addr, align 8
-  %Yi109 = getelementptr inbounds %struct.gcm128_context, ptr %90, i32 0, i32 0
-  %arrayidx110 = getelementptr inbounds [4 x i32], ptr %Yi109, i64 0, i64 3
-  store i32 %89, ptr %arrayidx110, align 4
-  br label %if.end111
+254:                                              ; preds = %202
+  %255 = load i32, ptr %16, align 4, !tbaa !20
+  %256 = load ptr, ptr %8, align 8, !tbaa !6
+  %257 = getelementptr inbounds nuw %struct.gcm128_context, ptr %256, i32 0, i32 0
+  %258 = getelementptr inbounds [4 x i32], ptr %257, i64 0, i64 3
+  store i32 %255, ptr %258, align 4, !tbaa !15
+  br label %259
 
-if.end111:                                        ; preds = %if.else108, %if.then85
-  %91 = load ptr, ptr %out.addr, align 8
-  %add.ptr112 = getelementptr inbounds i8, ptr %91, i64 3072
-  store ptr %add.ptr112, ptr %out.addr, align 8
-  %92 = load ptr, ptr %in.addr, align 8
-  %add.ptr113 = getelementptr inbounds i8, ptr %92, i64 3072
-  store ptr %add.ptr113, ptr %in.addr, align 8
-  %93 = load i64, ptr %len.addr, align 8
-  %sub114 = sub i64 %93, 3072
-  store i64 %sub114, ptr %len.addr, align 8
-  br label %while.cond73, !llvm.loop !34
+259:                                              ; preds = %254, %222
+  %260 = load ptr, ptr %11, align 8, !tbaa !29
+  %261 = getelementptr inbounds i8, ptr %260, i64 3072
+  store ptr %261, ptr %11, align 8, !tbaa !29
+  %262 = load ptr, ptr %10, align 8, !tbaa !29
+  %263 = getelementptr inbounds i8, ptr %262, i64 3072
+  store ptr %263, ptr %10, align 8, !tbaa !29
+  %264 = load i64, ptr %12, align 8, !tbaa !16
+  %265 = sub i64 %264, 3072
+  store i64 %265, ptr %12, align 8, !tbaa !16
+  br label %199, !llvm.loop !58
 
-while.end115:                                     ; preds = %while.cond73
-  %94 = load i64, ptr %len.addr, align 8
-  %and = and i64 %94, -16
-  store i64 %and, ptr %i, align 8
-  %95 = load i64, ptr %i, align 8
-  %cmp116 = icmp ne i64 %95, 0
-  br i1 %cmp116, label %if.then118, label %if.end159
+266:                                              ; preds = %199
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  %267 = load i64, ptr %12, align 8, !tbaa !16
+  %268 = and i64 %267, -16
+  store i64 %268, ptr %23, align 8, !tbaa !16
+  %269 = load i64, ptr %23, align 8, !tbaa !16
+  %270 = icmp ne i64 %269, 0
+  br i1 %270, label %271, label %344
 
-if.then118:                                       ; preds = %while.end115
-  %96 = load i64, ptr %i, align 8
-  %div = udiv i64 %96, 16
-  store i64 %div, ptr %j, align 8
-  %97 = load ptr, ptr %gcm_ghash_p, align 8
-  %98 = load ptr, ptr %ctx.addr, align 8
-  %Xi119 = getelementptr inbounds %struct.gcm128_context, ptr %98, i32 0, i32 4
-  %arraydecay120 = getelementptr inbounds [2 x i64], ptr %Xi119, i64 0, i64 0
-  %99 = load ptr, ptr %ctx.addr, align 8
-  %Htable121 = getelementptr inbounds %struct.gcm128_context, ptr %99, i32 0, i32 6
-  %arraydecay122 = getelementptr inbounds [16 x %struct.u128], ptr %Htable121, i64 0, i64 0
-  %100 = load ptr, ptr %in.addr, align 8
-  %101 = load i64, ptr %i, align 8
-  call void %97(ptr noundef %arraydecay120, ptr noundef %arraydecay122, ptr noundef %100, i64 noundef %101)
-  %102 = load ptr, ptr %stream.addr, align 8
-  %103 = load ptr, ptr %in.addr, align 8
-  %104 = load ptr, ptr %out.addr, align 8
-  %105 = load i64, ptr %j, align 8
-  %106 = load ptr, ptr %key.addr, align 8
-  %107 = load ptr, ptr %ctx.addr, align 8
-  %Yi123 = getelementptr inbounds %struct.gcm128_context, ptr %107, i32 0, i32 0
-  %arraydecay124 = getelementptr inbounds [16 x i8], ptr %Yi123, i64 0, i64 0
-  call void %102(ptr noundef %103, ptr noundef %104, i64 noundef %105, ptr noundef %106, ptr noundef %arraydecay124)
-  %108 = load i64, ptr %j, align 8
-  %conv125 = trunc i64 %108 to i32
-  %109 = load i32, ptr %ctr, align 4
-  %add126 = add i32 %109, %conv125
-  store i32 %add126, ptr %ctr, align 4
-  %110 = load i8, ptr %is_endian, align 8
-  %tobool127 = icmp ne i8 %110, 0
-  br i1 %tobool127, label %if.then128, label %if.else152
+271:                                              ; preds = %266
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  %272 = load i64, ptr %23, align 8, !tbaa !16
+  %273 = udiv i64 %272, 16
+  store i64 %273, ptr %24, align 8, !tbaa !16
+  %274 = load ptr, ptr %19, align 8, !tbaa !11
+  %275 = load ptr, ptr %8, align 8, !tbaa !6
+  %276 = getelementptr inbounds nuw %struct.gcm128_context, ptr %275, i32 0, i32 4
+  %277 = getelementptr inbounds [2 x i64], ptr %276, i64 0, i64 0
+  %278 = load ptr, ptr %8, align 8, !tbaa !6
+  %279 = getelementptr inbounds nuw %struct.gcm128_context, ptr %278, i32 0, i32 6
+  %280 = getelementptr inbounds [16 x %struct.u128], ptr %279, i64 0, i64 0
+  %281 = load ptr, ptr %10, align 8, !tbaa !29
+  %282 = load i64, ptr %23, align 8, !tbaa !16
+  call void %274(ptr noundef %277, ptr noundef %280, ptr noundef %281, i64 noundef %282)
+  %283 = load ptr, ptr %13, align 8, !tbaa !11
+  %284 = load ptr, ptr %10, align 8, !tbaa !29
+  %285 = load ptr, ptr %11, align 8, !tbaa !29
+  %286 = load i64, ptr %24, align 8, !tbaa !16
+  %287 = load ptr, ptr %9, align 8, !tbaa !11
+  %288 = load ptr, ptr %8, align 8, !tbaa !6
+  %289 = getelementptr inbounds nuw %struct.gcm128_context, ptr %288, i32 0, i32 0
+  %290 = getelementptr inbounds [16 x i8], ptr %289, i64 0, i64 0
+  call void %283(ptr noundef %284, ptr noundef %285, i64 noundef %286, ptr noundef %287, ptr noundef %290)
+  %291 = load i64, ptr %24, align 8, !tbaa !16
+  %292 = trunc i64 %291 to i32
+  %293 = load i32, ptr %16, align 4, !tbaa !20
+  %294 = add i32 %293, %292
+  store i32 %294, ptr %16, align 4, !tbaa !20
+  %295 = load i8, ptr %14, align 8, !tbaa !15
+  %296 = icmp ne i8 %295, 0
+  br i1 %296, label %297, label %329
 
-if.then128:                                       ; preds = %if.then118
-  %111 = load i32, ptr %ctr, align 4
-  %shr129 = lshr i32 %111, 24
-  %conv130 = trunc i32 %shr129 to i8
-  %112 = load ptr, ptr %ctx.addr, align 8
-  %Yi131 = getelementptr inbounds %struct.gcm128_context, ptr %112, i32 0, i32 0
-  %arraydecay132 = getelementptr inbounds [16 x i8], ptr %Yi131, i64 0, i64 0
-  %add.ptr133 = getelementptr inbounds i8, ptr %arraydecay132, i64 12
-  %arrayidx134 = getelementptr inbounds i8, ptr %add.ptr133, i64 0
-  store i8 %conv130, ptr %arrayidx134, align 1
-  %113 = load i32, ptr %ctr, align 4
-  %shr135 = lshr i32 %113, 16
-  %conv136 = trunc i32 %shr135 to i8
-  %114 = load ptr, ptr %ctx.addr, align 8
-  %Yi137 = getelementptr inbounds %struct.gcm128_context, ptr %114, i32 0, i32 0
-  %arraydecay138 = getelementptr inbounds [16 x i8], ptr %Yi137, i64 0, i64 0
-  %add.ptr139 = getelementptr inbounds i8, ptr %arraydecay138, i64 12
-  %arrayidx140 = getelementptr inbounds i8, ptr %add.ptr139, i64 1
-  store i8 %conv136, ptr %arrayidx140, align 1
-  %115 = load i32, ptr %ctr, align 4
-  %shr141 = lshr i32 %115, 8
-  %conv142 = trunc i32 %shr141 to i8
-  %116 = load ptr, ptr %ctx.addr, align 8
-  %Yi143 = getelementptr inbounds %struct.gcm128_context, ptr %116, i32 0, i32 0
-  %arraydecay144 = getelementptr inbounds [16 x i8], ptr %Yi143, i64 0, i64 0
-  %add.ptr145 = getelementptr inbounds i8, ptr %arraydecay144, i64 12
-  %arrayidx146 = getelementptr inbounds i8, ptr %add.ptr145, i64 2
-  store i8 %conv142, ptr %arrayidx146, align 1
-  %117 = load i32, ptr %ctr, align 4
-  %conv147 = trunc i32 %117 to i8
-  %118 = load ptr, ptr %ctx.addr, align 8
-  %Yi148 = getelementptr inbounds %struct.gcm128_context, ptr %118, i32 0, i32 0
-  %arraydecay149 = getelementptr inbounds [16 x i8], ptr %Yi148, i64 0, i64 0
-  %add.ptr150 = getelementptr inbounds i8, ptr %arraydecay149, i64 12
-  %arrayidx151 = getelementptr inbounds i8, ptr %add.ptr150, i64 3
-  store i8 %conv147, ptr %arrayidx151, align 1
-  br label %if.end155
+297:                                              ; preds = %271
+  %298 = load i32, ptr %16, align 4, !tbaa !20
+  %299 = lshr i32 %298, 24
+  %300 = trunc i32 %299 to i8
+  %301 = load ptr, ptr %8, align 8, !tbaa !6
+  %302 = getelementptr inbounds nuw %struct.gcm128_context, ptr %301, i32 0, i32 0
+  %303 = getelementptr inbounds [16 x i8], ptr %302, i64 0, i64 0
+  %304 = getelementptr inbounds i8, ptr %303, i64 12
+  %305 = getelementptr inbounds i8, ptr %304, i64 0
+  store i8 %300, ptr %305, align 1, !tbaa !15
+  %306 = load i32, ptr %16, align 4, !tbaa !20
+  %307 = lshr i32 %306, 16
+  %308 = trunc i32 %307 to i8
+  %309 = load ptr, ptr %8, align 8, !tbaa !6
+  %310 = getelementptr inbounds nuw %struct.gcm128_context, ptr %309, i32 0, i32 0
+  %311 = getelementptr inbounds [16 x i8], ptr %310, i64 0, i64 0
+  %312 = getelementptr inbounds i8, ptr %311, i64 12
+  %313 = getelementptr inbounds i8, ptr %312, i64 1
+  store i8 %308, ptr %313, align 1, !tbaa !15
+  %314 = load i32, ptr %16, align 4, !tbaa !20
+  %315 = lshr i32 %314, 8
+  %316 = trunc i32 %315 to i8
+  %317 = load ptr, ptr %8, align 8, !tbaa !6
+  %318 = getelementptr inbounds nuw %struct.gcm128_context, ptr %317, i32 0, i32 0
+  %319 = getelementptr inbounds [16 x i8], ptr %318, i64 0, i64 0
+  %320 = getelementptr inbounds i8, ptr %319, i64 12
+  %321 = getelementptr inbounds i8, ptr %320, i64 2
+  store i8 %316, ptr %321, align 1, !tbaa !15
+  %322 = load i32, ptr %16, align 4, !tbaa !20
+  %323 = trunc i32 %322 to i8
+  %324 = load ptr, ptr %8, align 8, !tbaa !6
+  %325 = getelementptr inbounds nuw %struct.gcm128_context, ptr %324, i32 0, i32 0
+  %326 = getelementptr inbounds [16 x i8], ptr %325, i64 0, i64 0
+  %327 = getelementptr inbounds i8, ptr %326, i64 12
+  %328 = getelementptr inbounds i8, ptr %327, i64 3
+  store i8 %323, ptr %328, align 1, !tbaa !15
+  br label %334
 
-if.else152:                                       ; preds = %if.then118
-  %119 = load i32, ptr %ctr, align 4
-  %120 = load ptr, ptr %ctx.addr, align 8
-  %Yi153 = getelementptr inbounds %struct.gcm128_context, ptr %120, i32 0, i32 0
-  %arrayidx154 = getelementptr inbounds [4 x i32], ptr %Yi153, i64 0, i64 3
-  store i32 %119, ptr %arrayidx154, align 4
-  br label %if.end155
+329:                                              ; preds = %271
+  %330 = load i32, ptr %16, align 4, !tbaa !20
+  %331 = load ptr, ptr %8, align 8, !tbaa !6
+  %332 = getelementptr inbounds nuw %struct.gcm128_context, ptr %331, i32 0, i32 0
+  %333 = getelementptr inbounds [4 x i32], ptr %332, i64 0, i64 3
+  store i32 %330, ptr %333, align 4, !tbaa !15
+  br label %334
 
-if.end155:                                        ; preds = %if.else152, %if.then128
-  %121 = load i64, ptr %i, align 8
-  %122 = load ptr, ptr %out.addr, align 8
-  %add.ptr156 = getelementptr inbounds i8, ptr %122, i64 %121
-  store ptr %add.ptr156, ptr %out.addr, align 8
-  %123 = load i64, ptr %i, align 8
-  %124 = load ptr, ptr %in.addr, align 8
-  %add.ptr157 = getelementptr inbounds i8, ptr %124, i64 %123
-  store ptr %add.ptr157, ptr %in.addr, align 8
-  %125 = load i64, ptr %i, align 8
-  %126 = load i64, ptr %len.addr, align 8
-  %sub158 = sub i64 %126, %125
-  store i64 %sub158, ptr %len.addr, align 8
-  br label %if.end159
+334:                                              ; preds = %329, %297
+  %335 = load i64, ptr %23, align 8, !tbaa !16
+  %336 = load ptr, ptr %11, align 8, !tbaa !29
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 %335
+  store ptr %337, ptr %11, align 8, !tbaa !29
+  %338 = load i64, ptr %23, align 8, !tbaa !16
+  %339 = load ptr, ptr %10, align 8, !tbaa !29
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 %338
+  store ptr %340, ptr %10, align 8, !tbaa !29
+  %341 = load i64, ptr %23, align 8, !tbaa !16
+  %342 = load i64, ptr %12, align 8, !tbaa !16
+  %343 = sub i64 %342, %341
+  store i64 %343, ptr %12, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  br label %344
 
-if.end159:                                        ; preds = %if.end155, %while.end115
-  %127 = load i64, ptr %len.addr, align 8
-  %tobool160 = icmp ne i64 %127, 0
-  br i1 %tobool160, label %if.then161, label %if.end220
+344:                                              ; preds = %334, %266
+  %345 = load i64, ptr %12, align 8, !tbaa !16
+  %346 = icmp ne i64 %345, 0
+  br i1 %346, label %347, label %439
 
-if.then161:                                       ; preds = %if.end159
-  %128 = load ptr, ptr %ctx.addr, align 8
-  %block = getelementptr inbounds %struct.gcm128_context, ptr %128, i32 0, i32 11
-  %129 = load ptr, ptr %block, align 8
-  %130 = load ptr, ptr %ctx.addr, align 8
-  %Yi162 = getelementptr inbounds %struct.gcm128_context, ptr %130, i32 0, i32 0
-  %arraydecay163 = getelementptr inbounds [16 x i8], ptr %Yi162, i64 0, i64 0
-  %131 = load ptr, ptr %ctx.addr, align 8
-  %EKi164 = getelementptr inbounds %struct.gcm128_context, ptr %131, i32 0, i32 1
-  %arraydecay165 = getelementptr inbounds [16 x i8], ptr %EKi164, i64 0, i64 0
-  %132 = load ptr, ptr %key.addr, align 8
-  call void %129(ptr noundef %arraydecay163, ptr noundef %arraydecay165, ptr noundef %132)
-  %133 = load i32, ptr %ctr, align 4
-  %inc = add i32 %133, 1
-  store i32 %inc, ptr %ctr, align 4
-  %134 = load i8, ptr %is_endian, align 8
-  %tobool166 = icmp ne i8 %134, 0
-  br i1 %tobool166, label %if.then167, label %if.else191
+347:                                              ; preds = %344
+  %348 = load ptr, ptr %8, align 8, !tbaa !6
+  %349 = getelementptr inbounds nuw %struct.gcm128_context, ptr %348, i32 0, i32 11
+  %350 = load ptr, ptr %349, align 8, !tbaa !12
+  %351 = load ptr, ptr %8, align 8, !tbaa !6
+  %352 = getelementptr inbounds nuw %struct.gcm128_context, ptr %351, i32 0, i32 0
+  %353 = getelementptr inbounds [16 x i8], ptr %352, i64 0, i64 0
+  %354 = load ptr, ptr %8, align 8, !tbaa !6
+  %355 = getelementptr inbounds nuw %struct.gcm128_context, ptr %354, i32 0, i32 1
+  %356 = getelementptr inbounds [16 x i8], ptr %355, i64 0, i64 0
+  %357 = load ptr, ptr %9, align 8, !tbaa !11
+  call void %350(ptr noundef %353, ptr noundef %356, ptr noundef %357)
+  %358 = load i32, ptr %16, align 4, !tbaa !20
+  %359 = add i32 %358, 1
+  store i32 %359, ptr %16, align 4, !tbaa !20
+  %360 = load i8, ptr %14, align 8, !tbaa !15
+  %361 = icmp ne i8 %360, 0
+  br i1 %361, label %362, label %394
 
-if.then167:                                       ; preds = %if.then161
-  %135 = load i32, ptr %ctr, align 4
-  %shr168 = lshr i32 %135, 24
-  %conv169 = trunc i32 %shr168 to i8
-  %136 = load ptr, ptr %ctx.addr, align 8
-  %Yi170 = getelementptr inbounds %struct.gcm128_context, ptr %136, i32 0, i32 0
-  %arraydecay171 = getelementptr inbounds [16 x i8], ptr %Yi170, i64 0, i64 0
-  %add.ptr172 = getelementptr inbounds i8, ptr %arraydecay171, i64 12
-  %arrayidx173 = getelementptr inbounds i8, ptr %add.ptr172, i64 0
-  store i8 %conv169, ptr %arrayidx173, align 1
-  %137 = load i32, ptr %ctr, align 4
-  %shr174 = lshr i32 %137, 16
-  %conv175 = trunc i32 %shr174 to i8
-  %138 = load ptr, ptr %ctx.addr, align 8
-  %Yi176 = getelementptr inbounds %struct.gcm128_context, ptr %138, i32 0, i32 0
-  %arraydecay177 = getelementptr inbounds [16 x i8], ptr %Yi176, i64 0, i64 0
-  %add.ptr178 = getelementptr inbounds i8, ptr %arraydecay177, i64 12
-  %arrayidx179 = getelementptr inbounds i8, ptr %add.ptr178, i64 1
-  store i8 %conv175, ptr %arrayidx179, align 1
-  %139 = load i32, ptr %ctr, align 4
-  %shr180 = lshr i32 %139, 8
-  %conv181 = trunc i32 %shr180 to i8
-  %140 = load ptr, ptr %ctx.addr, align 8
-  %Yi182 = getelementptr inbounds %struct.gcm128_context, ptr %140, i32 0, i32 0
-  %arraydecay183 = getelementptr inbounds [16 x i8], ptr %Yi182, i64 0, i64 0
-  %add.ptr184 = getelementptr inbounds i8, ptr %arraydecay183, i64 12
-  %arrayidx185 = getelementptr inbounds i8, ptr %add.ptr184, i64 2
-  store i8 %conv181, ptr %arrayidx185, align 1
-  %141 = load i32, ptr %ctr, align 4
-  %conv186 = trunc i32 %141 to i8
-  %142 = load ptr, ptr %ctx.addr, align 8
-  %Yi187 = getelementptr inbounds %struct.gcm128_context, ptr %142, i32 0, i32 0
-  %arraydecay188 = getelementptr inbounds [16 x i8], ptr %Yi187, i64 0, i64 0
-  %add.ptr189 = getelementptr inbounds i8, ptr %arraydecay188, i64 12
-  %arrayidx190 = getelementptr inbounds i8, ptr %add.ptr189, i64 3
-  store i8 %conv186, ptr %arrayidx190, align 1
-  br label %if.end194
+362:                                              ; preds = %347
+  %363 = load i32, ptr %16, align 4, !tbaa !20
+  %364 = lshr i32 %363, 24
+  %365 = trunc i32 %364 to i8
+  %366 = load ptr, ptr %8, align 8, !tbaa !6
+  %367 = getelementptr inbounds nuw %struct.gcm128_context, ptr %366, i32 0, i32 0
+  %368 = getelementptr inbounds [16 x i8], ptr %367, i64 0, i64 0
+  %369 = getelementptr inbounds i8, ptr %368, i64 12
+  %370 = getelementptr inbounds i8, ptr %369, i64 0
+  store i8 %365, ptr %370, align 1, !tbaa !15
+  %371 = load i32, ptr %16, align 4, !tbaa !20
+  %372 = lshr i32 %371, 16
+  %373 = trunc i32 %372 to i8
+  %374 = load ptr, ptr %8, align 8, !tbaa !6
+  %375 = getelementptr inbounds nuw %struct.gcm128_context, ptr %374, i32 0, i32 0
+  %376 = getelementptr inbounds [16 x i8], ptr %375, i64 0, i64 0
+  %377 = getelementptr inbounds i8, ptr %376, i64 12
+  %378 = getelementptr inbounds i8, ptr %377, i64 1
+  store i8 %373, ptr %378, align 1, !tbaa !15
+  %379 = load i32, ptr %16, align 4, !tbaa !20
+  %380 = lshr i32 %379, 8
+  %381 = trunc i32 %380 to i8
+  %382 = load ptr, ptr %8, align 8, !tbaa !6
+  %383 = getelementptr inbounds nuw %struct.gcm128_context, ptr %382, i32 0, i32 0
+  %384 = getelementptr inbounds [16 x i8], ptr %383, i64 0, i64 0
+  %385 = getelementptr inbounds i8, ptr %384, i64 12
+  %386 = getelementptr inbounds i8, ptr %385, i64 2
+  store i8 %381, ptr %386, align 1, !tbaa !15
+  %387 = load i32, ptr %16, align 4, !tbaa !20
+  %388 = trunc i32 %387 to i8
+  %389 = load ptr, ptr %8, align 8, !tbaa !6
+  %390 = getelementptr inbounds nuw %struct.gcm128_context, ptr %389, i32 0, i32 0
+  %391 = getelementptr inbounds [16 x i8], ptr %390, i64 0, i64 0
+  %392 = getelementptr inbounds i8, ptr %391, i64 12
+  %393 = getelementptr inbounds i8, ptr %392, i64 3
+  store i8 %388, ptr %393, align 1, !tbaa !15
+  br label %399
 
-if.else191:                                       ; preds = %if.then161
-  %143 = load i32, ptr %ctr, align 4
-  %144 = load ptr, ptr %ctx.addr, align 8
-  %Yi192 = getelementptr inbounds %struct.gcm128_context, ptr %144, i32 0, i32 0
-  %arrayidx193 = getelementptr inbounds [4 x i32], ptr %Yi192, i64 0, i64 3
-  store i32 %143, ptr %arrayidx193, align 4
-  br label %if.end194
+394:                                              ; preds = %347
+  %395 = load i32, ptr %16, align 4, !tbaa !20
+  %396 = load ptr, ptr %8, align 8, !tbaa !6
+  %397 = getelementptr inbounds nuw %struct.gcm128_context, ptr %396, i32 0, i32 0
+  %398 = getelementptr inbounds [4 x i32], ptr %397, i64 0, i64 3
+  store i32 %395, ptr %398, align 4, !tbaa !15
+  br label %399
 
-if.end194:                                        ; preds = %if.else191, %if.then167
-  br label %while.cond195
+399:                                              ; preds = %394, %362
+  br label %400
 
-while.cond195:                                    ; preds = %while.body198, %if.end194
-  %145 = load i64, ptr %len.addr, align 8
-  %dec196 = add i64 %145, -1
-  store i64 %dec196, ptr %len.addr, align 8
-  %tobool197 = icmp ne i64 %145, 0
-  br i1 %tobool197, label %while.body198, label %while.end219
+400:                                              ; preds = %404, %399
+  %401 = load i64, ptr %12, align 8, !tbaa !16
+  %402 = add i64 %401, -1
+  store i64 %402, ptr %12, align 8, !tbaa !16
+  %403 = icmp ne i64 %401, 0
+  br i1 %403, label %404, label %438
 
-while.body198:                                    ; preds = %while.cond195
-  %146 = load ptr, ptr %in.addr, align 8
-  %147 = load i32, ptr %n, align 4
-  %idxprom200 = zext i32 %147 to i64
-  %arrayidx201 = getelementptr inbounds i8, ptr %146, i64 %idxprom200
-  %148 = load i8, ptr %arrayidx201, align 1
-  store i8 %148, ptr %c199, align 1
-  %149 = load i8, ptr %c199, align 1
-  %conv202 = zext i8 %149 to i32
-  %150 = load ptr, ptr %ctx.addr, align 8
-  %Xi203 = getelementptr inbounds %struct.gcm128_context, ptr %150, i32 0, i32 4
-  %151 = load i32, ptr %n, align 4
-  %idxprom204 = zext i32 %151 to i64
-  %arrayidx205 = getelementptr inbounds [16 x i8], ptr %Xi203, i64 0, i64 %idxprom204
-  %152 = load i8, ptr %arrayidx205, align 1
-  %conv206 = zext i8 %152 to i32
-  %xor207 = xor i32 %conv206, %conv202
-  %conv208 = trunc i32 %xor207 to i8
-  store i8 %conv208, ptr %arrayidx205, align 1
-  %153 = load i8, ptr %c199, align 1
-  %conv209 = zext i8 %153 to i32
-  %154 = load ptr, ptr %ctx.addr, align 8
-  %EKi210 = getelementptr inbounds %struct.gcm128_context, ptr %154, i32 0, i32 1
-  %155 = load i32, ptr %n, align 4
-  %idxprom211 = zext i32 %155 to i64
-  %arrayidx212 = getelementptr inbounds [16 x i8], ptr %EKi210, i64 0, i64 %idxprom211
-  %156 = load i8, ptr %arrayidx212, align 1
-  %conv213 = zext i8 %156 to i32
-  %xor214 = xor i32 %conv209, %conv213
-  %conv215 = trunc i32 %xor214 to i8
-  %157 = load ptr, ptr %out.addr, align 8
-  %158 = load i32, ptr %n, align 4
-  %idxprom216 = zext i32 %158 to i64
-  %arrayidx217 = getelementptr inbounds i8, ptr %157, i64 %idxprom216
-  store i8 %conv215, ptr %arrayidx217, align 1
-  %159 = load i32, ptr %n, align 4
-  %inc218 = add i32 %159, 1
-  store i32 %inc218, ptr %n, align 4
-  br label %while.cond195, !llvm.loop !35
+404:                                              ; preds = %400
+  call void @llvm.lifetime.start.p0(i64 1, ptr %25) #5
+  %405 = load ptr, ptr %10, align 8, !tbaa !29
+  %406 = load i32, ptr %15, align 4, !tbaa !20
+  %407 = zext i32 %406 to i64
+  %408 = getelementptr inbounds nuw i8, ptr %405, i64 %407
+  %409 = load i8, ptr %408, align 1, !tbaa !15
+  store i8 %409, ptr %25, align 1, !tbaa !15
+  %410 = load i8, ptr %25, align 1, !tbaa !15
+  %411 = zext i8 %410 to i32
+  %412 = load ptr, ptr %8, align 8, !tbaa !6
+  %413 = getelementptr inbounds nuw %struct.gcm128_context, ptr %412, i32 0, i32 4
+  %414 = load i32, ptr %15, align 4, !tbaa !20
+  %415 = zext i32 %414 to i64
+  %416 = getelementptr inbounds nuw [16 x i8], ptr %413, i64 0, i64 %415
+  %417 = load i8, ptr %416, align 1, !tbaa !15
+  %418 = zext i8 %417 to i32
+  %419 = xor i32 %418, %411
+  %420 = trunc i32 %419 to i8
+  store i8 %420, ptr %416, align 1, !tbaa !15
+  %421 = load i8, ptr %25, align 1, !tbaa !15
+  %422 = zext i8 %421 to i32
+  %423 = load ptr, ptr %8, align 8, !tbaa !6
+  %424 = getelementptr inbounds nuw %struct.gcm128_context, ptr %423, i32 0, i32 1
+  %425 = load i32, ptr %15, align 4, !tbaa !20
+  %426 = zext i32 %425 to i64
+  %427 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 0, i64 %426
+  %428 = load i8, ptr %427, align 1, !tbaa !15
+  %429 = zext i8 %428 to i32
+  %430 = xor i32 %422, %429
+  %431 = trunc i32 %430 to i8
+  %432 = load ptr, ptr %11, align 8, !tbaa !29
+  %433 = load i32, ptr %15, align 4, !tbaa !20
+  %434 = zext i32 %433 to i64
+  %435 = getelementptr inbounds nuw i8, ptr %432, i64 %434
+  store i8 %431, ptr %435, align 1, !tbaa !15
+  %436 = load i32, ptr %15, align 4, !tbaa !20
+  %437 = add i32 %436, 1
+  store i32 %437, ptr %15, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %25) #5
+  br label %400, !llvm.loop !59
 
-while.end219:                                     ; preds = %while.cond195
-  br label %if.end220
+438:                                              ; preds = %400
+  br label %439
 
-if.end220:                                        ; preds = %while.end219, %if.end159
-  %160 = load i32, ptr %n, align 4
-  %161 = load ptr, ptr %ctx.addr, align 8
-  %mres221 = getelementptr inbounds %struct.gcm128_context, ptr %161, i32 0, i32 9
-  store i32 %160, ptr %mres221, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+439:                                              ; preds = %438, %344
+  %440 = load i32, ptr %15, align 4, !tbaa !20
+  %441 = load ptr, ptr %8, align 8, !tbaa !6
+  %442 = getelementptr inbounds nuw %struct.gcm128_context, ptr %441, i32 0, i32 9
+  store i32 %440, ptr %442, align 8, !tbaa !32
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %20, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  br label %443
 
-return:                                           ; preds = %if.end220, %if.else, %if.then
-  %162 = load i32, ptr %retval, align 4
-  ret i32 %162
+443:                                              ; preds = %439, %124, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  %444 = load i32, ptr %7, align 4
+  ret i32 %444
 }
 
-declare i64 @aesni_gcm_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i64 @aesni_gcm_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_gcm128_finish(ptr noundef %ctx, ptr noundef %tag, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %tag.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %is_endian = alloca %union.anon.6, align 8
-  %alen = alloca i64, align 8
-  %clen = alloca i64, align 8
-  %gcm_gmult_p = alloca ptr, align 8
-  %ret = alloca i64, align 8
-  %tmp = alloca i64, align 8
-  %ret9 = alloca i64, align 8
-  %tmp10 = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %tag, ptr %tag.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %is_endian, ptr align 8 @__const.CRYPTO_gcm128_finish.is_endian, i64 8, i1 false)
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %len1 = getelementptr inbounds %struct.gcm128_context, ptr %0, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %len1, i64 0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %shl = shl i64 %1, 3
-  store i64 %shl, ptr %alen, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %len2 = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 3
-  %arrayidx3 = getelementptr inbounds [2 x i64], ptr %len2, i64 0, i64 1
-  %3 = load i64, ptr %arrayidx3, align 8
-  %shl4 = shl i64 %3, 3
-  store i64 %shl4, ptr %clen, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %4, i32 0, i32 7
-  %5 = load ptr, ptr %gmult, align 8
-  store ptr %5, ptr %gcm_gmult_p, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %mres = getelementptr inbounds %struct.gcm128_context, ptr %6, i32 0, i32 9
-  %7 = load i32, ptr %mres, align 8
-  %tobool = icmp ne i32 %7, 0
-  br i1 %tobool, label %if.then, label %lor.lhs.false
+define hidden i32 @CRYPTO_gcm128_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %union.anon.6, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !29
+  store i64 %2, ptr %7, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 @__const.CRYPTO_gcm128_finish.is_endian, i64 8, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %17 = load ptr, ptr %5, align 8, !tbaa !6
+  %18 = getelementptr inbounds nuw %struct.gcm128_context, ptr %17, i32 0, i32 3
+  %19 = getelementptr inbounds [2 x i64], ptr %18, i64 0, i64 0
+  %20 = load i64, ptr %19, align 8, !tbaa !15
+  %21 = shl i64 %20, 3
+  store i64 %21, ptr %9, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %22 = load ptr, ptr %5, align 8, !tbaa !6
+  %23 = getelementptr inbounds nuw %struct.gcm128_context, ptr %22, i32 0, i32 3
+  %24 = getelementptr inbounds [2 x i64], ptr %23, i64 0, i64 1
+  %25 = load i64, ptr %24, align 8, !tbaa !15
+  %26 = shl i64 %25, 3
+  store i64 %26, ptr %10, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %27 = load ptr, ptr %5, align 8, !tbaa !6
+  %28 = getelementptr inbounds nuw %struct.gcm128_context, ptr %27, i32 0, i32 7
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
+  store ptr %29, ptr %11, align 8, !tbaa !11
+  %30 = load ptr, ptr %5, align 8, !tbaa !6
+  %31 = getelementptr inbounds nuw %struct.gcm128_context, ptr %30, i32 0, i32 9
+  %32 = load i32, ptr %31, align 8, !tbaa !32
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %39, label %34
 
-lor.lhs.false:                                    ; preds = %entry
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %ares = getelementptr inbounds %struct.gcm128_context, ptr %8, i32 0, i32 10
-  %9 = load i32, ptr %ares, align 4
-  %tobool5 = icmp ne i32 %9, 0
-  br i1 %tobool5, label %if.then, label %if.end
+34:                                               ; preds = %3
+  %35 = load ptr, ptr %5, align 8, !tbaa !6
+  %36 = getelementptr inbounds nuw %struct.gcm128_context, ptr %35, i32 0, i32 10
+  %37 = load i32, ptr %36, align 4, !tbaa !31
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %47
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %10 = load ptr, ptr %gcm_gmult_p, align 8
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %11, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [2 x i64], ptr %Xi, i64 0, i64 0
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %12, i32 0, i32 6
-  %arraydecay6 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
-  call void %10(ptr noundef %arraydecay, ptr noundef %arraydecay6)
-  br label %if.end
+39:                                               ; preds = %34, %3
+  %40 = load ptr, ptr %11, align 8, !tbaa !11
+  %41 = load ptr, ptr %5, align 8, !tbaa !6
+  %42 = getelementptr inbounds nuw %struct.gcm128_context, ptr %41, i32 0, i32 4
+  %43 = getelementptr inbounds [2 x i64], ptr %42, i64 0, i64 0
+  %44 = load ptr, ptr %5, align 8, !tbaa !6
+  %45 = getelementptr inbounds nuw %struct.gcm128_context, ptr %44, i32 0, i32 6
+  %46 = getelementptr inbounds [16 x %struct.u128], ptr %45, i64 0, i64 0
+  call void %40(ptr noundef %43, ptr noundef %46)
+  br label %47
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %13 = load i8, ptr %is_endian, align 8
-  %tobool7 = icmp ne i8 %13, 0
-  br i1 %tobool7, label %if.then8, label %if.end11
+47:                                               ; preds = %39, %34
+  %48 = load i8, ptr %8, align 8, !tbaa !15
+  %49 = icmp ne i8 %48, 0
+  br i1 %49, label %50, label %61
 
-if.then8:                                         ; preds = %if.end
-  %14 = load i64, ptr %alen, align 8
-  store i64 %14, ptr %ret, align 8
-  %15 = load i64, ptr %ret, align 8
-  %16 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %15) #4, !srcloc !36
-  store i64 %16, ptr %ret, align 8
-  %17 = load i64, ptr %ret, align 8
-  store i64 %17, ptr %tmp, align 8
-  %18 = load i64, ptr %tmp, align 8
-  store i64 %18, ptr %alen, align 8
-  %19 = load i64, ptr %clen, align 8
-  store i64 %19, ptr %ret9, align 8
-  %20 = load i64, ptr %ret9, align 8
-  %21 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %20) #4, !srcloc !37
-  store i64 %21, ptr %ret9, align 8
-  %22 = load i64, ptr %ret9, align 8
-  store i64 %22, ptr %tmp10, align 8
-  %23 = load i64, ptr %tmp10, align 8
-  store i64 %23, ptr %clen, align 8
-  br label %if.end11
+50:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %51 = load i64, ptr %9, align 8, !tbaa !16
+  store i64 %51, ptr %12, align 8, !tbaa !16
+  %52 = load i64, ptr %12, align 8, !tbaa !16
+  %53 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %52) #6, !srcloc !60
+  store i64 %53, ptr %12, align 8, !tbaa !16
+  %54 = load i64, ptr %12, align 8, !tbaa !16
+  store i64 %54, ptr %13, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %55 = load i64, ptr %13, align 8, !tbaa !16
+  store i64 %55, ptr %9, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %56 = load i64, ptr %10, align 8, !tbaa !16
+  store i64 %56, ptr %14, align 8, !tbaa !16
+  %57 = load i64, ptr %14, align 8, !tbaa !16
+  %58 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %57) #6, !srcloc !61
+  store i64 %58, ptr %14, align 8, !tbaa !16
+  %59 = load i64, ptr %14, align 8, !tbaa !16
+  store i64 %59, ptr %15, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  %60 = load i64, ptr %15, align 8, !tbaa !16
+  store i64 %60, ptr %10, align 8, !tbaa !16
+  br label %61
 
-if.end11:                                         ; preds = %if.then8, %if.end
-  %24 = load i64, ptr %alen, align 8
-  %25 = load ptr, ptr %ctx.addr, align 8
-  %Xi12 = getelementptr inbounds %struct.gcm128_context, ptr %25, i32 0, i32 4
-  %arrayidx13 = getelementptr inbounds [2 x i64], ptr %Xi12, i64 0, i64 0
-  %26 = load i64, ptr %arrayidx13, align 8
-  %xor = xor i64 %26, %24
-  store i64 %xor, ptr %arrayidx13, align 8
-  %27 = load i64, ptr %clen, align 8
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %Xi14 = getelementptr inbounds %struct.gcm128_context, ptr %28, i32 0, i32 4
-  %arrayidx15 = getelementptr inbounds [2 x i64], ptr %Xi14, i64 0, i64 1
-  %29 = load i64, ptr %arrayidx15, align 8
-  %xor16 = xor i64 %29, %27
-  store i64 %xor16, ptr %arrayidx15, align 8
-  %30 = load ptr, ptr %gcm_gmult_p, align 8
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %Xi17 = getelementptr inbounds %struct.gcm128_context, ptr %31, i32 0, i32 4
-  %arraydecay18 = getelementptr inbounds [2 x i64], ptr %Xi17, i64 0, i64 0
-  %32 = load ptr, ptr %ctx.addr, align 8
-  %Htable19 = getelementptr inbounds %struct.gcm128_context, ptr %32, i32 0, i32 6
-  %arraydecay20 = getelementptr inbounds [16 x %struct.u128], ptr %Htable19, i64 0, i64 0
-  call void %30(ptr noundef %arraydecay18, ptr noundef %arraydecay20)
-  %33 = load ptr, ptr %ctx.addr, align 8
-  %EK0 = getelementptr inbounds %struct.gcm128_context, ptr %33, i32 0, i32 2
-  %arrayidx21 = getelementptr inbounds [2 x i64], ptr %EK0, i64 0, i64 0
-  %34 = load i64, ptr %arrayidx21, align 8
-  %35 = load ptr, ptr %ctx.addr, align 8
-  %Xi22 = getelementptr inbounds %struct.gcm128_context, ptr %35, i32 0, i32 4
-  %arrayidx23 = getelementptr inbounds [2 x i64], ptr %Xi22, i64 0, i64 0
-  %36 = load i64, ptr %arrayidx23, align 8
-  %xor24 = xor i64 %36, %34
-  store i64 %xor24, ptr %arrayidx23, align 8
-  %37 = load ptr, ptr %ctx.addr, align 8
-  %EK025 = getelementptr inbounds %struct.gcm128_context, ptr %37, i32 0, i32 2
-  %arrayidx26 = getelementptr inbounds [2 x i64], ptr %EK025, i64 0, i64 1
-  %38 = load i64, ptr %arrayidx26, align 8
-  %39 = load ptr, ptr %ctx.addr, align 8
-  %Xi27 = getelementptr inbounds %struct.gcm128_context, ptr %39, i32 0, i32 4
-  %arrayidx28 = getelementptr inbounds [2 x i64], ptr %Xi27, i64 0, i64 1
-  %40 = load i64, ptr %arrayidx28, align 8
-  %xor29 = xor i64 %40, %38
-  store i64 %xor29, ptr %arrayidx28, align 8
-  %41 = load ptr, ptr %tag.addr, align 8
-  %tobool30 = icmp ne ptr %41, null
-  br i1 %tobool30, label %land.lhs.true, label %if.else
+61:                                               ; preds = %50, %47
+  %62 = load i64, ptr %9, align 8, !tbaa !16
+  %63 = load ptr, ptr %5, align 8, !tbaa !6
+  %64 = getelementptr inbounds nuw %struct.gcm128_context, ptr %63, i32 0, i32 4
+  %65 = getelementptr inbounds [2 x i64], ptr %64, i64 0, i64 0
+  %66 = load i64, ptr %65, align 8, !tbaa !15
+  %67 = xor i64 %66, %62
+  store i64 %67, ptr %65, align 8, !tbaa !15
+  %68 = load i64, ptr %10, align 8, !tbaa !16
+  %69 = load ptr, ptr %5, align 8, !tbaa !6
+  %70 = getelementptr inbounds nuw %struct.gcm128_context, ptr %69, i32 0, i32 4
+  %71 = getelementptr inbounds [2 x i64], ptr %70, i64 0, i64 1
+  %72 = load i64, ptr %71, align 8, !tbaa !15
+  %73 = xor i64 %72, %68
+  store i64 %73, ptr %71, align 8, !tbaa !15
+  %74 = load ptr, ptr %11, align 8, !tbaa !11
+  %75 = load ptr, ptr %5, align 8, !tbaa !6
+  %76 = getelementptr inbounds nuw %struct.gcm128_context, ptr %75, i32 0, i32 4
+  %77 = getelementptr inbounds [2 x i64], ptr %76, i64 0, i64 0
+  %78 = load ptr, ptr %5, align 8, !tbaa !6
+  %79 = getelementptr inbounds nuw %struct.gcm128_context, ptr %78, i32 0, i32 6
+  %80 = getelementptr inbounds [16 x %struct.u128], ptr %79, i64 0, i64 0
+  call void %74(ptr noundef %77, ptr noundef %80)
+  %81 = load ptr, ptr %5, align 8, !tbaa !6
+  %82 = getelementptr inbounds nuw %struct.gcm128_context, ptr %81, i32 0, i32 2
+  %83 = getelementptr inbounds [2 x i64], ptr %82, i64 0, i64 0
+  %84 = load i64, ptr %83, align 8, !tbaa !15
+  %85 = load ptr, ptr %5, align 8, !tbaa !6
+  %86 = getelementptr inbounds nuw %struct.gcm128_context, ptr %85, i32 0, i32 4
+  %87 = getelementptr inbounds [2 x i64], ptr %86, i64 0, i64 0
+  %88 = load i64, ptr %87, align 8, !tbaa !15
+  %89 = xor i64 %88, %84
+  store i64 %89, ptr %87, align 8, !tbaa !15
+  %90 = load ptr, ptr %5, align 8, !tbaa !6
+  %91 = getelementptr inbounds nuw %struct.gcm128_context, ptr %90, i32 0, i32 2
+  %92 = getelementptr inbounds [2 x i64], ptr %91, i64 0, i64 1
+  %93 = load i64, ptr %92, align 8, !tbaa !15
+  %94 = load ptr, ptr %5, align 8, !tbaa !6
+  %95 = getelementptr inbounds nuw %struct.gcm128_context, ptr %94, i32 0, i32 4
+  %96 = getelementptr inbounds [2 x i64], ptr %95, i64 0, i64 1
+  %97 = load i64, ptr %96, align 8, !tbaa !15
+  %98 = xor i64 %97, %93
+  store i64 %98, ptr %96, align 8, !tbaa !15
+  %99 = load ptr, ptr %6, align 8, !tbaa !29
+  %100 = icmp ne ptr %99, null
+  br i1 %100, label %101, label %113
 
-land.lhs.true:                                    ; preds = %if.end11
-  %42 = load i64, ptr %len.addr, align 8
-  %cmp = icmp ule i64 %42, 16
-  br i1 %cmp, label %if.then31, label %if.else
+101:                                              ; preds = %61
+  %102 = load i64, ptr %7, align 8, !tbaa !16
+  %103 = icmp ule i64 %102, 16
+  br i1 %103, label %104, label %113
 
-if.then31:                                        ; preds = %land.lhs.true
-  %43 = load ptr, ptr %ctx.addr, align 8
-  %Xi32 = getelementptr inbounds %struct.gcm128_context, ptr %43, i32 0, i32 4
-  %arraydecay33 = getelementptr inbounds [16 x i8], ptr %Xi32, i64 0, i64 0
-  %44 = load ptr, ptr %tag.addr, align 8
-  %45 = load i64, ptr %len.addr, align 8
-  %call = call i32 @CRYPTO_memcmp(ptr noundef %arraydecay33, ptr noundef %44, i64 noundef %45)
-  %cmp34 = icmp eq i32 %call, 0
-  %conv = zext i1 %cmp34 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %return
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %5, align 8, !tbaa !6
+  %106 = getelementptr inbounds nuw %struct.gcm128_context, ptr %105, i32 0, i32 4
+  %107 = getelementptr inbounds [16 x i8], ptr %106, i64 0, i64 0
+  %108 = load ptr, ptr %6, align 8, !tbaa !29
+  %109 = load i64, ptr %7, align 8, !tbaa !16
+  %110 = call i32 @CRYPTO_memcmp(ptr noundef %107, ptr noundef %108, i64 noundef %109)
+  %111 = icmp eq i32 %110, 0
+  %112 = zext i1 %111 to i32
+  store i32 %112, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %114
 
-if.else:                                          ; preds = %land.lhs.true, %if.end11
-  store i32 0, ptr %retval, align 4
-  br label %return
+113:                                              ; preds = %101, %61
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %114
 
-return:                                           ; preds = %if.else, %if.then31
-  %46 = load i32, ptr %retval, align 4
-  ret i32 %46
+114:                                              ; preds = %113, %104
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %115 = load i32, ptr %4, align 4
+  ret i32 %115
 }
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_gcm128_tag(ptr noundef %ctx, ptr noundef %tag, i64 noundef %len) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %tag.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %tag, ptr %tag.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %call = call i32 @CRYPTO_gcm128_finish(ptr noundef %0, ptr noundef null, i64 noundef 0)
-  %1 = load ptr, ptr %tag.addr, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %Xi = getelementptr inbounds %struct.gcm128_context, ptr %2, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %Xi, i64 0, i64 0
-  %3 = load i64, ptr %len.addr, align 8
-  %cmp = icmp ule i64 %3, 16
-  br i1 %cmp, label %cond.true, label %cond.false
+define hidden void @CRYPTO_gcm128_tag(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  store i64 %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8, !tbaa !6
+  %8 = call i32 @CRYPTO_gcm128_finish(ptr noundef %7, ptr noundef null, i64 noundef 0)
+  %9 = load ptr, ptr %5, align 8, !tbaa !29
+  %10 = load ptr, ptr %4, align 8, !tbaa !6
+  %11 = getelementptr inbounds nuw %struct.gcm128_context, ptr %10, i32 0, i32 4
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 0
+  %13 = load i64, ptr %6, align 8, !tbaa !16
+  %14 = icmp ule i64 %13, 16
+  br i1 %14, label %15, label %17
 
-cond.true:                                        ; preds = %entry
-  %4 = load i64, ptr %len.addr, align 8
-  br label %cond.end
+15:                                               ; preds = %3
+  %16 = load i64, ptr %6, align 8, !tbaa !16
+  br label %18
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+17:                                               ; preds = %3
+  br label %18
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %4, %cond.true ], [ 16, %cond.false ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 8 %arraydecay, i64 %cond, i1 false)
+18:                                               ; preds = %17, %15
+  %19 = phi i64 [ %16, %15 ], [ 16, %17 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 8 %12, i64 %19, i1 false)
   ret void
 }
 
-declare void @aesni_ctr32_encrypt_blocks(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
+declare void @aesni_ctr32_encrypt_blocks(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i64 2148206196}
-!8 = !{i64 2148206363}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = !{i64 2148206630}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = distinct !{!31, !10}
-!32 = distinct !{!32, !10}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10}
-!36 = !{i64 2148212094}
-!37 = !{i64 2148212254}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS14gcm128_context", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!8, !8, i64 0}
+!12 = !{!13, !8, i64 376}
+!13 = !{!"gcm128_context", !9, i64 0, !9, i64 16, !9, i64 32, !9, i64 48, !9, i64 64, !9, i64 80, !9, i64 96, !8, i64 352, !8, i64 360, !14, i64 368, !14, i64 372, !8, i64 376}
+!14 = !{!"int", !9, i64 0}
+!15 = !{!9, !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !9, i64 0}
+!18 = !{i64 2148216691}
+!19 = !{i64 2148216858}
+!20 = !{!14, !14, i64 0}
+!21 = !{!13, !8, i64 352}
+!22 = !{!13, !8, i64 360}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 long", !8, i64 0}
+!25 = !{!26, !17, i64 0}
+!26 = !{!"", !17, i64 0, !17, i64 8}
+!27 = !{!26, !17, i64 8}
+!28 = !{i64 0, i64 8, !16, i64 8, i64 8, !16}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 omnipotent char", !8, i64 0}
+!31 = !{!13, !14, i64 372}
+!32 = !{!13, !14, i64 368}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = distinct !{!35, !34}
+!36 = distinct !{!36, !34}
+!37 = !{i64 2148217125}
+!38 = distinct !{!38, !34}
+!39 = distinct !{!39, !34}
+!40 = distinct !{!40, !34}
+!41 = distinct !{!41, !34}
+!42 = distinct !{!42, !34}
+!43 = distinct !{!43, !34}
+!44 = distinct !{!44, !34}
+!45 = distinct !{!45, !34}
+!46 = distinct !{!46, !34}
+!47 = distinct !{!47, !34}
+!48 = distinct !{!48, !34}
+!49 = distinct !{!49, !34}
+!50 = distinct !{!50, !34}
+!51 = distinct !{!51, !34}
+!52 = distinct !{!52, !34}
+!53 = distinct !{!53, !34}
+!54 = distinct !{!54, !34}
+!55 = distinct !{!55, !34}
+!56 = distinct !{!56, !34}
+!57 = distinct !{!57, !34}
+!58 = distinct !{!58, !34}
+!59 = distinct !{!59, !34}
+!60 = !{i64 2148222589}
+!61 = !{i64 2148222749}

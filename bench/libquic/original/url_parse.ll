@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.url::Parsed" = type { %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", ptr }
 %"struct.url::Component" = type { i32, i32 }
@@ -61,283 +61,276 @@ $_ZN3url23CountConsecutiveSlashesItEEiPKT_ii = comdat any
 @_ZN3url11kFileSchemeE = external constant [0 x i8], align 1
 @_ZN3url17kFileSystemSchemeE = external constant [0 x i8], align 1
 
-@_ZN3url6ParsedC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3url6ParsedC2Ev
-@_ZN3url6ParsedC1ERKS0_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3url6ParsedC2ERKS0_
-@_ZN3url6ParsedD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3url6ParsedD2Ev
+@_ZN3url6ParsedC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3url6ParsedC2Ev
+@_ZN3url6ParsedC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3url6ParsedC2ERKS0_
+@_ZN3url6ParsedD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3url6ParsedD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url6ParsedC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 0
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %scheme)
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 1
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %username)
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 2
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %password)
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 3
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %host)
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 4
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %port)
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 5
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %path)
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 6
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %query)
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 7
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  store ptr null, ptr %inner_parsed_, align 8
+define void @_ZN3url6ParsedC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 0
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %5 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 1
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %5)
+  %6 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 2
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %6)
+  %7 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 3
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %7)
+  %8 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 4
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %8)
+  %9 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 5
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %9)
+  %10 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 6
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %11 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 7
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %11)
+  %12 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 8
+  store ptr null, ptr %12, align 8, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 0
-  store i32 0, ptr %begin, align 4
-  %len = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 1
-  store i32 -1, ptr %len, align 4
+define linkonce_odr void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4, !tbaa !14
+  %5 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 1
+  store i32 -1, ptr %5, align 4, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url6ParsedC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %other.addr, align 8
-  %scheme2 = getelementptr inbounds %"struct.url::Parsed", ptr %0, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scheme, ptr align 8 %scheme2, i64 8, i1 false)
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %username3 = getelementptr inbounds %"struct.url::Parsed", ptr %1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %username, ptr align 8 %username3, i64 8, i1 false)
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %password4 = getelementptr inbounds %"struct.url::Parsed", ptr %2, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %password, ptr align 8 %password4, i64 8, i1 false)
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %other.addr, align 8
-  %host5 = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %host, ptr align 8 %host5, i64 8, i1 false)
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %other.addr, align 8
-  %port6 = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %port, ptr align 8 %port6, i64 8, i1 false)
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %other.addr, align 8
-  %path7 = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %path, ptr align 8 %path7, i64 8, i1 false)
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %other.addr, align 8
-  %query8 = getelementptr inbounds %"struct.url::Parsed", ptr %6, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %query, ptr align 8 %query8, i64 8, i1 false)
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 7
-  %7 = load ptr, ptr %other.addr, align 8
-  %ref9 = getelementptr inbounds %"struct.url::Parsed", ptr %7, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref, ptr align 8 %ref9, i64 8, i1 false)
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  store ptr null, ptr %inner_parsed_, align 8
-  %8 = load ptr, ptr %other.addr, align 8
-  %inner_parsed_10 = getelementptr inbounds %"struct.url::Parsed", ptr %8, i32 0, i32 8
-  %9 = load ptr, ptr %inner_parsed_10, align 8
-  %tobool = icmp ne ptr %9, null
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZN3url6ParsedC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !16
+  %9 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %10, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 8, i1 false), !tbaa.struct !16
+  %12 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %14, i64 8, i1 false), !tbaa.struct !16
+  %15 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %16, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %17, i64 8, i1 false), !tbaa.struct !16
+  %18 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 4
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %19, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %20, i64 8, i1 false), !tbaa.struct !16
+  %21 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 5
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %22, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %23, i64 8, i1 false), !tbaa.struct !16
+  %24 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 6
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %25, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %26, i64 8, i1 false), !tbaa.struct !16
+  %27 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 7
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %28, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %29, i64 8, i1 false), !tbaa.struct !16
+  %30 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 8
+  store ptr null, ptr %30, align 8, !tbaa !8
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %31, i32 0, i32 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %39
 
-if.then:                                          ; preds = %entry
-  %10 = load ptr, ptr %other.addr, align 8
-  %inner_parsed_11 = getelementptr inbounds %"struct.url::Parsed", ptr %10, i32 0, i32 8
-  %11 = load ptr, ptr %inner_parsed_11, align 8
-  call void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %11)
-  br label %if.end
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %36, i32 0, i32 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !8
+  call void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %38)
+  br label %39
 
-if.end:                                           ; preds = %if.then, %entry
+39:                                               ; preds = %35, %2
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %inner_parsed.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %inner_parsed, ptr %inner_parsed.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %inner_parsed_, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.else, label %if.then
+define linkonce_odr void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %7, i32 0, i32 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %20, label %11
 
-if.then:                                          ; preds = %entry
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #8
-  %1 = load ptr, ptr %inner_parsed.addr, align 8
-  invoke void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef nonnull align 8 dereferenceable(72) %1)
-          to label %invoke.cont unwind label %lpad
+11:                                               ; preds = %2
+  %12 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #11
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  invoke void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %13)
+          to label %14 unwind label %16
 
-invoke.cont:                                      ; preds = %if.then
-  %inner_parsed_2 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  store ptr %call, ptr %inner_parsed_2, align 8
-  br label %if.end
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %7, i32 0, i32 8
+  store ptr %12, ptr %15, align 8, !tbaa !8
+  br label %25
 
-lpad:                                             ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+16:                                               ; preds = %11
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #9
-  br label %eh.resume
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %12) #12
+  br label %26
 
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %inner_parsed.addr, align 8
-  %inner_parsed_3 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  %6 = load ptr, ptr %inner_parsed_3, align 8
-  %call4 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3url6ParsedaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %5)
-  br label %if.end
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %7, i32 0, i32 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !8
+  %24 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3url6ParsedaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %21)
+  br label %25
 
-if.end:                                           ; preds = %if.else, %invoke.cont
+25:                                               ; preds = %20, %14
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN3url6ParsedaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %cmp = icmp ne ptr %this1, %0
-  br i1 %cmp, label %if.then, label %if.end12
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN3url6ParsedaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = icmp ne ptr %5, %6
+  br i1 %7, label %8, label %43
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %other.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %1, i32 0, i32 0
-  %scheme2 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scheme2, ptr align 8 %scheme, i64 8, i1 false)
-  %2 = load ptr, ptr %other.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %2, i32 0, i32 1
-  %username3 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %username3, ptr align 8 %username, i64 8, i1 false)
-  %3 = load ptr, ptr %other.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 2
-  %password4 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %password4, ptr align 8 %password, i64 8, i1 false)
-  %4 = load ptr, ptr %other.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 3
-  %host5 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %host5, ptr align 8 %host, i64 8, i1 false)
-  %5 = load ptr, ptr %other.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 4
-  %port6 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %port6, ptr align 8 %port, i64 8, i1 false)
-  %6 = load ptr, ptr %other.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %6, i32 0, i32 5
-  %path7 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %path7, ptr align 8 %path, i64 8, i1 false)
-  %7 = load ptr, ptr %other.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %7, i32 0, i32 6
-  %query8 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %query8, ptr align 8 %query, i64 8, i1 false)
-  %8 = load ptr, ptr %other.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %8, i32 0, i32 7
-  %ref9 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref9, ptr align 8 %ref, i64 8, i1 false)
-  %9 = load ptr, ptr %other.addr, align 8
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %9, i32 0, i32 8
-  %10 = load ptr, ptr %inner_parsed_, align 8
-  %tobool = icmp ne ptr %10, null
-  br i1 %tobool, label %if.then10, label %if.else
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %10, i64 8, i1 false), !tbaa.struct !16
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %13, i64 8, i1 false), !tbaa.struct !16
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %15, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %16, i64 8, i1 false), !tbaa.struct !16
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %19, i64 8, i1 false), !tbaa.struct !16
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %22, i64 8, i1 false), !tbaa.struct !16
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %24, i32 0, i32 5
+  %26 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %25, i64 8, i1 false), !tbaa.struct !16
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %27, i32 0, i32 6
+  %29 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %28, i64 8, i1 false), !tbaa.struct !16
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %30, i32 0, i32 7
+  %32 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %5, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %31, i64 8, i1 false), !tbaa.struct !16
+  %33 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %33, i32 0, i32 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %41
 
-if.then10:                                        ; preds = %if.then
-  %11 = load ptr, ptr %other.addr, align 8
-  %inner_parsed_11 = getelementptr inbounds %"struct.url::Parsed", ptr %11, i32 0, i32 8
-  %12 = load ptr, ptr %inner_parsed_11, align 8
-  call void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %12)
-  br label %if.end
+37:                                               ; preds = %8
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %38, i32 0, i32 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !8
+  call void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %40)
+  br label %42
 
-if.else:                                          ; preds = %if.then
-  call void @_ZN3url6Parsed18clear_inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  br label %if.end
+41:                                               ; preds = %8
+  call void @_ZN3url6Parsed18clear_inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
+  br label %42
 
-if.end:                                           ; preds = %if.else, %if.then10
-  br label %if.end12
+42:                                               ; preds = %41, %37
+  br label %43
 
-if.end12:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+43:                                               ; preds = %42, %2
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3url6Parsed18clear_inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %inner_parsed_, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr void @_ZN3url6Parsed18clear_inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %14
 
-if.then:                                          ; preds = %entry
-  %inner_parsed_2 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  %1 = load ptr, ptr %inner_parsed_2, align 8
-  %isnull = icmp eq ptr %1, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %12, label %11
 
-delete.notnull:                                   ; preds = %if.then
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %1) #10
-  call void @_ZdlPv(ptr noundef %1) #9
-  br label %delete.end
+11:                                               ; preds = %7
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #13
+  call void @_ZdlPv(ptr noundef %9) #12
+  br label %12
 
-delete.end:                                       ; preds = %delete.notnull, %if.then
-  %inner_parsed_3 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  store ptr null, ptr %inner_parsed_3, align 8
-  br label %if.end
+12:                                               ; preds = %11, %7
+  %13 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 8
+  store ptr null, ptr %13, align 8, !tbaa !8
+  br label %14
 
-if.end:                                           ; preds = %delete.end, %entry
+14:                                               ; preds = %12, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3url6ParsedD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %inner_parsed_, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define void @_ZN3url6ParsedD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-delete.notnull:                                   ; preds = %entry
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #10
-  call void @_ZdlPv(ptr noundef %0) #9
-  br label %delete.end
+7:                                                ; preds = %1
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #13
+  call void @_ZdlPv(ptr noundef %5) #12
+  br label %8
 
-delete.end:                                       ; preds = %delete.notnull, %entry
+8:                                                ; preds = %7, %1
   ret void
 }
 
@@ -345,5335 +338,5982 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZdlPv(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 7
-  %call = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  br i1 %call, label %if.then, label %if.end
+define noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #0 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %4, i32 0, i32 7
+  %6 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %6, label %7, label %10
 
-if.then:                                          ; preds = %entry
-  %ref2 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 7
-  %call3 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %ref2)
-  store i32 %call3, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %4, i32 0, i32 7
+  %9 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %8)
+  store i32 %9, ptr %2, align 4
+  br label %12
 
-if.end:                                           ; preds = %entry
-  %call4 = call noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 7, i1 noundef zeroext false)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %1
+  %11 = call noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 7, i1 noundef zeroext false)
+  store i32 %11, ptr %2, align 4
+  br label %12
 
-return:                                           ; preds = %if.end, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+12:                                               ; preds = %10, %7
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %len, align 4
-  %cmp = icmp ne i32 %0, -1
-  ret i1 %cmp
+define linkonce_odr noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %6 = icmp ne i32 %5, -1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %begin, align 4
-  %len = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %len, align 4
-  %add = add nsw i32 %0, %1
-  ret i32 %add
+define linkonce_odr noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !14
+  %6 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !15
+  %8 = add nsw i32 %5, %7
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %type, i1 noundef zeroext %include_delimiter) #0 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %type.addr = alloca i32, align 4
-  %include_delimiter.addr = alloca i8, align 1
-  %cur = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %type, ptr %type.addr, align 4
-  %frombool = zext i1 %include_delimiter to i8
-  store i8 %frombool, ptr %include_delimiter.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %type.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !18
+  %10 = zext i1 %2 to i8
+  store i8 %10, ptr %7, align 1, !tbaa !20
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i32, ptr %6, align 4, !tbaa !18
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %18
 
-if.then:                                          ; preds = %entry
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 0
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %scheme, i32 0, i32 0
-  %1 = load i32, ptr %begin, align 8
-  store i32 %1, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.url::Component", ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8, !tbaa !22
+  store i32 %17, ptr %4, align 4
+  br label %154
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %cur, align 4
-  %scheme2 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme2)
-  br i1 %call, label %if.then3, label %if.end6
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 0, ptr %8, align 4, !tbaa !17
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 0
+  %20 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  br i1 %20, label %21, label %25
 
-if.then3:                                         ; preds = %if.end
-  %scheme4 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 0
-  %call5 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme4)
-  %add = add nsw i32 %call5, 1
-  store i32 %add, ptr %cur, align 4
-  br label %if.end6
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 0
+  %23 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %22)
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %8, align 4, !tbaa !17
+  br label %25
 
-if.end6:                                          ; preds = %if.then3, %if.end
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 1
-  %call7 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %username)
-  br i1 %call7, label %if.then8, label %if.end17
+25:                                               ; preds = %21, %18
+  %26 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 1
+  %27 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %26)
+  br i1 %27, label %28, label %39
 
-if.then8:                                         ; preds = %if.end6
-  %2 = load i32, ptr %type.addr, align 4
-  %cmp9 = icmp sle i32 %2, 1
-  br i1 %cmp9, label %if.then10, label %if.end13
+28:                                               ; preds = %25
+  %29 = load i32, ptr %6, align 4, !tbaa !18
+  %30 = icmp sle i32 %29, 1
+  br i1 %30, label %31, label %35
 
-if.then10:                                        ; preds = %if.then8
-  %username11 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 1
-  %begin12 = getelementptr inbounds %"struct.url::Component", ptr %username11, i32 0, i32 0
-  %3 = load i32, ptr %begin12, align 8
-  store i32 %3, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %"struct.url::Component", ptr %32, i32 0, i32 0
+  %34 = load i32, ptr %33, align 8, !tbaa !23
+  store i32 %34, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end13:                                         ; preds = %if.then8
-  %username14 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 1
-  %call15 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %username14)
-  %add16 = add nsw i32 %call15, 1
-  store i32 %add16, ptr %cur, align 4
-  br label %if.end17
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 1
+  %37 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %36)
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %8, align 4, !tbaa !17
+  br label %39
 
-if.end17:                                         ; preds = %if.end13, %if.end6
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 2
-  %call18 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %password)
-  br i1 %call18, label %if.then19, label %if.end28
+39:                                               ; preds = %35, %25
+  %40 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 2
+  %41 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %40)
+  br i1 %41, label %42, label %53
 
-if.then19:                                        ; preds = %if.end17
-  %4 = load i32, ptr %type.addr, align 4
-  %cmp20 = icmp sle i32 %4, 2
-  br i1 %cmp20, label %if.then21, label %if.end24
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !18
+  %44 = icmp sle i32 %43, 2
+  br i1 %44, label %45, label %49
 
-if.then21:                                        ; preds = %if.then19
-  %password22 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 2
-  %begin23 = getelementptr inbounds %"struct.url::Component", ptr %password22, i32 0, i32 0
-  %5 = load i32, ptr %begin23, align 8
-  store i32 %5, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 2
+  %47 = getelementptr inbounds nuw %"struct.url::Component", ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %47, align 8, !tbaa !24
+  store i32 %48, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end24:                                         ; preds = %if.then19
-  %password25 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 2
-  %call26 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %password25)
-  %add27 = add nsw i32 %call26, 1
-  store i32 %add27, ptr %cur, align 4
-  br label %if.end28
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 2
+  %51 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %50)
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %8, align 4, !tbaa !17
+  br label %53
 
-if.end28:                                         ; preds = %if.end24, %if.end17
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 3
-  %call29 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %host)
-  br i1 %call29, label %if.then30, label %if.end38
+53:                                               ; preds = %49, %39
+  %54 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 3
+  %55 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %54)
+  br i1 %55, label %56, label %66
 
-if.then30:                                        ; preds = %if.end28
-  %6 = load i32, ptr %type.addr, align 4
-  %cmp31 = icmp sle i32 %6, 3
-  br i1 %cmp31, label %if.then32, label %if.end35
+56:                                               ; preds = %53
+  %57 = load i32, ptr %6, align 4, !tbaa !18
+  %58 = icmp sle i32 %57, 3
+  br i1 %58, label %59, label %63
 
-if.then32:                                        ; preds = %if.then30
-  %host33 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 3
-  %begin34 = getelementptr inbounds %"struct.url::Component", ptr %host33, i32 0, i32 0
-  %7 = load i32, ptr %begin34, align 8
-  store i32 %7, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 3
+  %61 = getelementptr inbounds nuw %"struct.url::Component", ptr %60, i32 0, i32 0
+  %62 = load i32, ptr %61, align 8, !tbaa !25
+  store i32 %62, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end35:                                         ; preds = %if.then30
-  %host36 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 3
-  %call37 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %host36)
-  store i32 %call37, ptr %cur, align 4
-  br label %if.end38
+63:                                               ; preds = %56
+  %64 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 3
+  %65 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %64)
+  store i32 %65, ptr %8, align 4, !tbaa !17
+  br label %66
 
-if.end38:                                         ; preds = %if.end35, %if.end28
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 4
-  %call39 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %port)
-  br i1 %call39, label %if.then40, label %if.end54
+66:                                               ; preds = %63, %53
+  %67 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 4
+  %68 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %67)
+  br i1 %68, label %69, label %93
 
-if.then40:                                        ; preds = %if.end38
-  %8 = load i32, ptr %type.addr, align 4
-  %cmp41 = icmp slt i32 %8, 4
-  br i1 %cmp41, label %if.then43, label %lor.lhs.false
+69:                                               ; preds = %66
+  %70 = load i32, ptr %6, align 4, !tbaa !18
+  %71 = icmp slt i32 %70, 4
+  br i1 %71, label %78, label %72
 
-lor.lhs.false:                                    ; preds = %if.then40
-  %9 = load i32, ptr %type.addr, align 4
-  %cmp42 = icmp eq i32 %9, 4
-  br i1 %cmp42, label %land.lhs.true, label %if.end46
+72:                                               ; preds = %69
+  %73 = load i32, ptr %6, align 4, !tbaa !18
+  %74 = icmp eq i32 %73, 4
+  br i1 %74, label %75, label %83
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %10 = load i8, ptr %include_delimiter.addr, align 1
-  %tobool = trunc i8 %10 to i1
-  br i1 %tobool, label %if.then43, label %if.end46
+75:                                               ; preds = %72
+  %76 = load i8, ptr %7, align 1, !tbaa !20, !range !26, !noundef !27
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %83
 
-if.then43:                                        ; preds = %land.lhs.true, %if.then40
-  %port44 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 4
-  %begin45 = getelementptr inbounds %"struct.url::Component", ptr %port44, i32 0, i32 0
-  %11 = load i32, ptr %begin45, align 8
-  %sub = sub nsw i32 %11, 1
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+78:                                               ; preds = %75, %69
+  %79 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 4
+  %80 = getelementptr inbounds nuw %"struct.url::Component", ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 8, !tbaa !28
+  %82 = sub nsw i32 %81, 1
+  store i32 %82, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end46:                                         ; preds = %land.lhs.true, %lor.lhs.false
-  %12 = load i32, ptr %type.addr, align 4
-  %cmp47 = icmp eq i32 %12, 4
-  br i1 %cmp47, label %if.then48, label %if.end51
+83:                                               ; preds = %75, %72
+  %84 = load i32, ptr %6, align 4, !tbaa !18
+  %85 = icmp eq i32 %84, 4
+  br i1 %85, label %86, label %90
 
-if.then48:                                        ; preds = %if.end46
-  %port49 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 4
-  %begin50 = getelementptr inbounds %"struct.url::Component", ptr %port49, i32 0, i32 0
-  %13 = load i32, ptr %begin50, align 8
-  store i32 %13, ptr %retval, align 4
-  br label %return
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 4
+  %88 = getelementptr inbounds nuw %"struct.url::Component", ptr %87, i32 0, i32 0
+  %89 = load i32, ptr %88, align 8, !tbaa !28
+  store i32 %89, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end51:                                         ; preds = %if.end46
-  %port52 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 4
-  %call53 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %port52)
-  store i32 %call53, ptr %cur, align 4
-  br label %if.end54
+90:                                               ; preds = %83
+  %91 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 4
+  %92 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %91)
+  store i32 %92, ptr %8, align 4, !tbaa !17
+  br label %93
 
-if.end54:                                         ; preds = %if.end51, %if.end38
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 5
-  %call55 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %path)
-  br i1 %call55, label %if.then56, label %if.end64
+93:                                               ; preds = %90, %66
+  %94 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 5
+  %95 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %94)
+  br i1 %95, label %96, label %106
 
-if.then56:                                        ; preds = %if.end54
-  %14 = load i32, ptr %type.addr, align 4
-  %cmp57 = icmp sle i32 %14, 5
-  br i1 %cmp57, label %if.then58, label %if.end61
+96:                                               ; preds = %93
+  %97 = load i32, ptr %6, align 4, !tbaa !18
+  %98 = icmp sle i32 %97, 5
+  br i1 %98, label %99, label %103
 
-if.then58:                                        ; preds = %if.then56
-  %path59 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 5
-  %begin60 = getelementptr inbounds %"struct.url::Component", ptr %path59, i32 0, i32 0
-  %15 = load i32, ptr %begin60, align 8
-  store i32 %15, ptr %retval, align 4
-  br label %return
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 5
+  %101 = getelementptr inbounds nuw %"struct.url::Component", ptr %100, i32 0, i32 0
+  %102 = load i32, ptr %101, align 8, !tbaa !29
+  store i32 %102, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end61:                                         ; preds = %if.then56
-  %path62 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 5
-  %call63 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %path62)
-  store i32 %call63, ptr %cur, align 4
-  br label %if.end64
+103:                                              ; preds = %96
+  %104 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 5
+  %105 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %104)
+  store i32 %105, ptr %8, align 4, !tbaa !17
+  br label %106
 
-if.end64:                                         ; preds = %if.end61, %if.end54
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 6
-  %call65 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %query)
-  br i1 %call65, label %if.then66, label %if.end84
+106:                                              ; preds = %103, %93
+  %107 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 6
+  %108 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %107)
+  br i1 %108, label %109, label %133
 
-if.then66:                                        ; preds = %if.end64
-  %16 = load i32, ptr %type.addr, align 4
-  %cmp67 = icmp slt i32 %16, 6
-  br i1 %cmp67, label %if.then72, label %lor.lhs.false68
+109:                                              ; preds = %106
+  %110 = load i32, ptr %6, align 4, !tbaa !18
+  %111 = icmp slt i32 %110, 6
+  br i1 %111, label %118, label %112
 
-lor.lhs.false68:                                  ; preds = %if.then66
-  %17 = load i32, ptr %type.addr, align 4
-  %cmp69 = icmp eq i32 %17, 6
-  br i1 %cmp69, label %land.lhs.true70, label %if.end76
+112:                                              ; preds = %109
+  %113 = load i32, ptr %6, align 4, !tbaa !18
+  %114 = icmp eq i32 %113, 6
+  br i1 %114, label %115, label %123
 
-land.lhs.true70:                                  ; preds = %lor.lhs.false68
-  %18 = load i8, ptr %include_delimiter.addr, align 1
-  %tobool71 = trunc i8 %18 to i1
-  br i1 %tobool71, label %if.then72, label %if.end76
+115:                                              ; preds = %112
+  %116 = load i8, ptr %7, align 1, !tbaa !20, !range !26, !noundef !27
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %118, label %123
 
-if.then72:                                        ; preds = %land.lhs.true70, %if.then66
-  %query73 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 6
-  %begin74 = getelementptr inbounds %"struct.url::Component", ptr %query73, i32 0, i32 0
-  %19 = load i32, ptr %begin74, align 8
-  %sub75 = sub nsw i32 %19, 1
-  store i32 %sub75, ptr %retval, align 4
-  br label %return
+118:                                              ; preds = %115, %109
+  %119 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 6
+  %120 = getelementptr inbounds nuw %"struct.url::Component", ptr %119, i32 0, i32 0
+  %121 = load i32, ptr %120, align 8, !tbaa !30
+  %122 = sub nsw i32 %121, 1
+  store i32 %122, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end76:                                         ; preds = %land.lhs.true70, %lor.lhs.false68
-  %20 = load i32, ptr %type.addr, align 4
-  %cmp77 = icmp eq i32 %20, 6
-  br i1 %cmp77, label %if.then78, label %if.end81
+123:                                              ; preds = %115, %112
+  %124 = load i32, ptr %6, align 4, !tbaa !18
+  %125 = icmp eq i32 %124, 6
+  br i1 %125, label %126, label %130
 
-if.then78:                                        ; preds = %if.end76
-  %query79 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 6
-  %begin80 = getelementptr inbounds %"struct.url::Component", ptr %query79, i32 0, i32 0
-  %21 = load i32, ptr %begin80, align 8
-  store i32 %21, ptr %retval, align 4
-  br label %return
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 6
+  %128 = getelementptr inbounds nuw %"struct.url::Component", ptr %127, i32 0, i32 0
+  %129 = load i32, ptr %128, align 8, !tbaa !30
+  store i32 %129, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end81:                                         ; preds = %if.end76
-  %query82 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 6
-  %call83 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %query82)
-  store i32 %call83, ptr %cur, align 4
-  br label %if.end84
+130:                                              ; preds = %123
+  %131 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 6
+  %132 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %131)
+  store i32 %132, ptr %8, align 4, !tbaa !17
+  br label %133
 
-if.end84:                                         ; preds = %if.end81, %if.end64
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 7
-  %call85 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  br i1 %call85, label %if.then86, label %if.end97
+133:                                              ; preds = %130, %106
+  %134 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 7
+  %135 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %134)
+  br i1 %135, label %136, label %151
 
-if.then86:                                        ; preds = %if.end84
-  %22 = load i32, ptr %type.addr, align 4
-  %cmp87 = icmp eq i32 %22, 7
-  br i1 %cmp87, label %land.lhs.true88, label %if.end93
+136:                                              ; preds = %133
+  %137 = load i32, ptr %6, align 4, !tbaa !18
+  %138 = icmp eq i32 %137, 7
+  br i1 %138, label %139, label %146
 
-land.lhs.true88:                                  ; preds = %if.then86
-  %23 = load i8, ptr %include_delimiter.addr, align 1
-  %tobool89 = trunc i8 %23 to i1
-  br i1 %tobool89, label %if.end93, label %if.then90
+139:                                              ; preds = %136
+  %140 = load i8, ptr %7, align 1, !tbaa !20, !range !26, !noundef !27
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %146, label %142
 
-if.then90:                                        ; preds = %land.lhs.true88
-  %ref91 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 7
-  %begin92 = getelementptr inbounds %"struct.url::Component", ptr %ref91, i32 0, i32 0
-  %24 = load i32, ptr %begin92, align 8
-  store i32 %24, ptr %retval, align 4
-  br label %return
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 7
+  %144 = getelementptr inbounds nuw %"struct.url::Component", ptr %143, i32 0, i32 0
+  %145 = load i32, ptr %144, align 8, !tbaa !31
+  store i32 %145, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end93:                                         ; preds = %land.lhs.true88, %if.then86
-  %ref94 = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 7
-  %begin95 = getelementptr inbounds %"struct.url::Component", ptr %ref94, i32 0, i32 0
-  %25 = load i32, ptr %begin95, align 8
-  %sub96 = sub nsw i32 %25, 1
-  store i32 %sub96, ptr %retval, align 4
-  br label %return
+146:                                              ; preds = %139, %136
+  %147 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %11, i32 0, i32 7
+  %148 = getelementptr inbounds nuw %"struct.url::Component", ptr %147, i32 0, i32 0
+  %149 = load i32, ptr %148, align 8, !tbaa !31
+  %150 = sub nsw i32 %149, 1
+  store i32 %150, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-if.end97:                                         ; preds = %if.end84
-  %26 = load i32, ptr %cur, align 4
-  store i32 %26, ptr %retval, align 4
-  br label %return
+151:                                              ; preds = %133
+  %152 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %152, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %153
 
-return:                                           ; preds = %if.end97, %if.end93, %if.then90, %if.then78, %if.then72, %if.then58, %if.then48, %if.then43, %if.then32, %if.then21, %if.then10, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+153:                                              ; preds = %151, %146, %142, %126, %118, %99, %86, %78, %59, %45, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %154
+
+154:                                              ; preds = %153, %14
+  %155 = load i32, ptr %4, align 4
+  ret i32 %155
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
-entry:
-  %retval = alloca %"struct.url::Component", align 4
-  %this.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %len = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 1, i1 noundef zeroext false)
-  store i32 %call, ptr %begin, align 4
-  %call2 = call noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %0 = load i32, ptr %begin, align 4
-  %sub = sub nsw i32 %call2, %0
-  store i32 %sub, ptr %len, align 4
-  %1 = load i32, ptr %len, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #0 align 2 {
+  %2 = alloca %"struct.url::Component", align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #13
+  %7 = call noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef 1, i1 noundef zeroext false)
+  store i32 %7, ptr %4, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %8 = call noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %9 = load i32, ptr %4, align 4, !tbaa !17
+  %10 = sub nsw i32 %8, %9
+  store i32 %10, ptr %5, align 4, !tbaa !17
+  %11 = load i32, ptr %5, align 4, !tbaa !17
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %16
 
-cond.true:                                        ; preds = %entry
-  %2 = load i32, ptr %begin, align 4
-  %3 = load i32, ptr %len, align 4
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %retval, i32 noundef %2, i32 noundef %3)
-  br label %cond.end
+13:                                               ; preds = %1
+  %14 = load i32, ptr %4, align 4, !tbaa !17
+  %15 = load i32, ptr %5, align 4, !tbaa !17
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %14, i32 noundef %15)
+  br label %17
 
-cond.false:                                       ; preds = %entry
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %retval)
-  br label %cond.end
+16:                                               ; preds = %1
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %2)
+  br label %17
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %4 = load i64, ptr %retval, align 4
-  ret i64 %4
+17:                                               ; preds = %16, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #13
+  %18 = load i64, ptr %2, align 4
+  ret i64 %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %b, i32 noundef %l) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %b.addr = alloca i32, align 4
-  %l.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %l, ptr %l.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %b.addr, align 4
-  store i32 %0, ptr %begin, align 4
-  %len = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %l.addr, align 4
-  store i32 %1, ptr %len, align 4
+define linkonce_odr void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store i32 %2, ptr %6, align 4, !tbaa !17
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.url::Component", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4, !tbaa !17
+  store i32 %9, ptr %8, align 4, !tbaa !14
+  %10 = getelementptr inbounds nuw %"struct.url::Component", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %11, ptr %10, align 4, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef %url, i32 noundef %url_len, ptr noundef %scheme) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %scheme.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %scheme, ptr %scheme.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load ptr, ptr %scheme.addr, align 8
-  %call = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  ret i1 %call
+define noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load i32, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !12
+  %10 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %7, i32 noundef %8, ptr noundef %9)
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %url, i32 noundef %url_len, ptr noundef %scheme) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %scheme.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %scheme, ptr %scheme.addr, align 8
-  store i32 0, ptr %begin, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %begin, align 4
-  %1 = load i32, ptr %url_len.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %2 = load ptr, ptr %url.addr, align 8
-  %3 = load i32, ptr %begin, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %4 to i16
-  %call = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %conv)
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %5 = phi i1 [ false, %while.cond ], [ %call, %land.rhs ]
-  br i1 %5, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %6 = load i32, ptr %begin, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %begin, align 4
-  br label %while.cond, !llvm.loop !5
-
-while.end:                                        ; preds = %land.end
-  %7 = load i32, ptr %begin, align 4
-  %8 = load i32, ptr %url_len.addr, align 4
-  %cmp1 = icmp eq i32 %7, %8
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %while.end
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %while.end
-  %9 = load i32, ptr %begin, align 4
-  store i32 %9, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %10 = load i32, ptr %i, align 4
-  %11 = load i32, ptr %url_len.addr, align 4
-  %cmp2 = icmp slt i32 %10, %11
-  br i1 %cmp2, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %url.addr, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %13 to i64
-  %arrayidx4 = getelementptr inbounds i8, ptr %12, i64 %idxprom3
-  %14 = load i8, ptr %arrayidx4, align 1
-  %conv5 = sext i8 %14 to i32
-  %cmp6 = icmp eq i32 %conv5, 58
-  br i1 %cmp6, label %if.then7, label %if.end9
-
-if.then7:                                         ; preds = %for.body
-  %15 = load i32, ptr %begin, align 4
-  %16 = load i32, ptr %i, align 4
-  %call8 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %15, i32 noundef %16)
-  store i64 %call8, ptr %ref.tmp, align 4
-  %17 = load ptr, ptr %scheme.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %ref.tmp, i64 8, i1 false)
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end9:                                          ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end9
-  %18 = load i32, ptr %i, align 4
-  %inc10 = add nsw i32 %18, 1
-  store i32 %inc10, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %for.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then7, %if.then
-  %19 = load i1, ptr %retval, align 1
-  ret i1 %19
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef %url, i32 noundef %url_len, ptr noundef %scheme) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %scheme.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %scheme, ptr %scheme.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load ptr, ptr %scheme.addr, align 8
-  %call = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %url, i32 noundef %url_len, ptr noundef %scheme) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %scheme.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %scheme, ptr %scheme.addr, align 8
-  store i32 0, ptr %begin, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %begin, align 4
-  %1 = load i32, ptr %url_len.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %2 = load ptr, ptr %url.addr, align 8
-  %3 = load i32, ptr %begin, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %call = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %4)
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %5 = phi i1 [ false, %while.cond ], [ %call, %land.rhs ]
-  br i1 %5, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %6 = load i32, ptr %begin, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %begin, align 4
-  br label %while.cond, !llvm.loop !8
-
-while.end:                                        ; preds = %land.end
-  %7 = load i32, ptr %begin, align 4
-  %8 = load i32, ptr %url_len.addr, align 4
-  %cmp1 = icmp eq i32 %7, %8
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %while.end
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %while.end
-  %9 = load i32, ptr %begin, align 4
-  store i32 %9, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %10 = load i32, ptr %i, align 4
-  %11 = load i32, ptr %url_len.addr, align 4
-  %cmp2 = icmp slt i32 %10, %11
-  br i1 %cmp2, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %url.addr, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %13 to i64
-  %arrayidx4 = getelementptr inbounds i16, ptr %12, i64 %idxprom3
-  %14 = load i16, ptr %arrayidx4, align 2
-  %conv = zext i16 %14 to i32
-  %cmp5 = icmp eq i32 %conv, 58
-  br i1 %cmp5, label %if.then6, label %if.end8
-
-if.then6:                                         ; preds = %for.body
-  %15 = load i32, ptr %begin, align 4
-  %16 = load i32, ptr %i, align 4
-  %call7 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %15, i32 noundef %16)
-  store i64 %call7, ptr %ref.tmp, align 4
-  %17 = load ptr, ptr %scheme.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %ref.tmp, i64 8, i1 false)
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end8:                                          ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end8
-  %18 = load i32, ptr %i, align 4
-  %inc9 = add nsw i32 %18, 1
-  store i32 %inc9, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %for.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then6, %if.then
-  %19 = load i1, ptr %retval, align 1
-  ret i1 %19
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext %ch) #0 {
-entry:
-  %ch.addr = alloca i16, align 2
-  store i16 %ch, ptr %ch.addr, align 2
-  %0 = load i16, ptr %ch.addr, align 2
-  %call = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %0)
-  br i1 %call, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i16, ptr %ch.addr, align 2
-  %conv = zext i16 %1 to i32
-  %cmp = icmp eq i32 %conv, 63
-  br i1 %cmp, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false
-  %2 = load i16, ptr %ch.addr, align 2
-  %conv1 = zext i16 %2 to i32
-  %cmp2 = icmp eq i32 %conv1, 35
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %entry
-  %3 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp2, %lor.rhs ]
-  ret i1 %3
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %ch) #1 comdat {
-entry:
-  %ch.addr = alloca i16, align 2
-  store i16 %ch, ptr %ch.addr, align 2
-  %0 = load i16, ptr %ch.addr, align 2
-  %conv = zext i16 %0 to i32
-  %cmp = icmp eq i32 %conv, 47
-  br i1 %cmp, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %entry
-  %1 = load i16, ptr %ch.addr, align 2
-  %conv1 = zext i16 %1 to i32
-  %cmp2 = icmp eq i32 %conv1, 92
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %cmp2, %lor.rhs ]
-  ret i1 %2
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url15ExtractFileNameEPKcRKNS_9ComponentEPS2_(ptr noundef %url, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef %file_name) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %file_name.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %file_name, ptr %file_name.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load ptr, ptr %path.addr, align 8
-  %2 = load ptr, ptr %file_name.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef %file_name) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %file_name.addr = alloca ptr, align 8
-  %file_end = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp13 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %file_name, ptr %file_name.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %file_name.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %1)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %path.addr, align 8
-  %call1 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
-  store i32 %call1, ptr %file_end, align 4
-  %3 = load ptr, ptr %path.addr, align 8
-  %call2 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %sub = sub nsw i32 %call2, 1
-  store i32 %sub, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %4 = load i32, ptr %i, align 4
-  %5 = load ptr, ptr %path.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %begin, align 4
-  %cmp = icmp sge i32 %4, %6
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %spec.addr, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %7, i64 %idxprom
-  %9 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %9 to i32
-  %cmp3 = icmp eq i32 %conv, 59
-  br i1 %cmp3, label %if.then4, label %if.else
-
-if.then4:                                         ; preds = %for.body
-  %10 = load i32, ptr %i, align 4
-  store i32 %10, ptr %file_end, align 4
-  br label %if.end12
-
-if.else:                                          ; preds = %for.body
-  %11 = load ptr, ptr %spec.addr, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %12 to i64
-  %arrayidx6 = getelementptr inbounds i8, ptr %11, i64 %idxprom5
-  %13 = load i8, ptr %arrayidx6, align 1
-  %conv7 = sext i8 %13 to i16
-  %call8 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %conv7)
-  br i1 %call8, label %if.then9, label %if.end11
-
-if.then9:                                         ; preds = %if.else
-  %14 = load i32, ptr %i, align 4
-  %add = add nsw i32 %14, 1
-  %15 = load i32, ptr %file_end, align 4
-  %call10 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add, i32 noundef %15)
-  store i64 %call10, ptr %ref.tmp, align 4
-  %16 = load ptr, ptr %file_name.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %ref.tmp, i64 8, i1 false)
-  br label %return
-
-if.end11:                                         ; preds = %if.else
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end11, %if.then4
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end12
-  %17 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %17, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %for.cond
-  %18 = load ptr, ptr %path.addr, align 8
-  %begin14 = getelementptr inbounds %"struct.url::Component", ptr %18, i32 0, i32 0
-  %19 = load i32, ptr %begin14, align 4
-  %20 = load i32, ptr %file_end, align 4
-  %call15 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %19, i32 noundef %20)
-  store i64 %call15, ptr %ref.tmp13, align 4
-  %21 = load ptr, ptr %file_name.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %ref.tmp13, i64 8, i1 false)
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then9, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url15ExtractFileNameEPKtRKNS_9ComponentEPS2_(ptr noundef %url, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef %file_name) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %file_name.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %file_name, ptr %file_name.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load ptr, ptr %path.addr, align 8
-  %2 = load ptr, ptr %file_name.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef %file_name) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %file_name.addr = alloca ptr, align 8
-  %file_end = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp12 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %file_name, ptr %file_name.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %file_name.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %1)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %path.addr, align 8
-  %call1 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
-  store i32 %call1, ptr %file_end, align 4
-  %3 = load ptr, ptr %path.addr, align 8
-  %call2 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %sub = sub nsw i32 %call2, 1
-  store i32 %sub, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %4 = load i32, ptr %i, align 4
-  %5 = load ptr, ptr %path.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %begin, align 4
-  %cmp = icmp sge i32 %4, %6
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %spec.addr, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %9 to i32
-  %cmp3 = icmp eq i32 %conv, 59
-  br i1 %cmp3, label %if.then4, label %if.else
-
-if.then4:                                         ; preds = %for.body
-  %10 = load i32, ptr %i, align 4
-  store i32 %10, ptr %file_end, align 4
-  br label %if.end11
-
-if.else:                                          ; preds = %for.body
-  %11 = load ptr, ptr %spec.addr, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %12 to i64
-  %arrayidx6 = getelementptr inbounds i16, ptr %11, i64 %idxprom5
-  %13 = load i16, ptr %arrayidx6, align 2
-  %call7 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %13)
-  br i1 %call7, label %if.then8, label %if.end10
-
-if.then8:                                         ; preds = %if.else
-  %14 = load i32, ptr %i, align 4
-  %add = add nsw i32 %14, 1
-  %15 = load i32, ptr %file_end, align 4
-  %call9 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add, i32 noundef %15)
-  store i64 %call9, ptr %ref.tmp, align 4
-  %16 = load ptr, ptr %file_name.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %ref.tmp, i64 8, i1 false)
-  br label %return
-
-if.end10:                                         ; preds = %if.else
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %if.then4
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end11
-  %17 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %17, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %for.cond
-  %18 = load ptr, ptr %path.addr, align 8
-  %begin13 = getelementptr inbounds %"struct.url::Component", ptr %18, i32 0, i32 0
-  %19 = load i32, ptr %begin13, align 4
-  %20 = load i32, ptr %file_end, align 4
-  %call14 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %19, i32 noundef %20)
-  store i64 %call14, ptr %ref.tmp12, align 4
-  %21 = load ptr, ptr %file_name.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %ref.tmp12, i64 8, i1 false)
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then8, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKcPNS_9ComponentES3_S3_(ptr noundef %url, ptr noundef %query, ptr noundef %key, ptr noundef %value) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %query.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store ptr %query, ptr %query.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load ptr, ptr %query.addr, align 8
-  %2 = load ptr, ptr %key.addr, align 8
-  %3 = load ptr, ptr %value.addr, align 8
-  %call = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueIcEEbPKT_PNS_9ComponentES6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueIcEEbPKT_PNS_9ComponentES6_S6_(ptr noundef %spec, ptr noundef %query, ptr noundef %key, ptr noundef %value) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %spec.addr = alloca ptr, align 8
-  %query.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %start = alloca i32, align 4
-  %cur = alloca i32, align 4
-  %end = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %query, ptr %query.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %query.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %query.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %begin, align 4
-  store i32 %2, ptr %start, align 4
-  %3 = load i32, ptr %start, align 4
-  store i32 %3, ptr %cur, align 4
-  %4 = load ptr, ptr %query.addr, align 8
-  %call1 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %4)
-  store i32 %call1, ptr %end, align 4
-  %5 = load i32, ptr %cur, align 4
-  %6 = load ptr, ptr %key.addr, align 8
-  %begin2 = getelementptr inbounds %"struct.url::Component", ptr %6, i32 0, i32 0
-  store i32 %5, ptr %begin2, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  %7 = load i32, ptr %cur, align 4
-  %8 = load i32, ptr %end, align 4
-  %cmp = icmp slt i32 %7, %8
-  br i1 %cmp, label %land.lhs.true, label %land.end
-
-land.lhs.true:                                    ; preds = %while.cond
-  %9 = load ptr, ptr %spec.addr, align 8
-  %10 = load i32, ptr %cur, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %9, i64 %idxprom
-  %11 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %11 to i32
-  %cmp3 = icmp ne i32 %conv, 38
-  br i1 %cmp3, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %land.lhs.true
-  %12 = load ptr, ptr %spec.addr, align 8
-  %13 = load i32, ptr %cur, align 4
-  %idxprom4 = sext i32 %13 to i64
-  %arrayidx5 = getelementptr inbounds i8, ptr %12, i64 %idxprom4
-  %14 = load i8, ptr %arrayidx5, align 1
-  %conv6 = sext i8 %14 to i32
-  %cmp7 = icmp ne i32 %conv6, 61
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %while.cond
-  %15 = phi i1 [ false, %land.lhs.true ], [ false, %while.cond ], [ %cmp7, %land.rhs ]
-  br i1 %15, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %16 = load i32, ptr %cur, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %cur, align 4
-  br label %while.cond, !llvm.loop !12
-
-while.end:                                        ; preds = %land.end
-  %17 = load i32, ptr %cur, align 4
-  %18 = load ptr, ptr %key.addr, align 8
-  %begin8 = getelementptr inbounds %"struct.url::Component", ptr %18, i32 0, i32 0
-  %19 = load i32, ptr %begin8, align 4
-  %sub = sub nsw i32 %17, %19
-  %20 = load ptr, ptr %key.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %20, i32 0, i32 1
-  store i32 %sub, ptr %len, align 4
-  %21 = load i32, ptr %cur, align 4
-  %22 = load i32, ptr %end, align 4
-  %cmp9 = icmp slt i32 %21, %22
-  br i1 %cmp9, label %land.lhs.true10, label %if.end17
-
-land.lhs.true10:                                  ; preds = %while.end
-  %23 = load ptr, ptr %spec.addr, align 8
-  %24 = load i32, ptr %cur, align 4
-  %idxprom11 = sext i32 %24 to i64
-  %arrayidx12 = getelementptr inbounds i8, ptr %23, i64 %idxprom11
-  %25 = load i8, ptr %arrayidx12, align 1
-  %conv13 = sext i8 %25 to i32
-  %cmp14 = icmp eq i32 %conv13, 61
-  br i1 %cmp14, label %if.then15, label %if.end17
-
-if.then15:                                        ; preds = %land.lhs.true10
-  %26 = load i32, ptr %cur, align 4
-  %inc16 = add nsw i32 %26, 1
-  store i32 %inc16, ptr %cur, align 4
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then15, %land.lhs.true10, %while.end
-  %27 = load i32, ptr %cur, align 4
-  %28 = load ptr, ptr %value.addr, align 8
-  %begin18 = getelementptr inbounds %"struct.url::Component", ptr %28, i32 0, i32 0
-  store i32 %27, ptr %begin18, align 4
-  br label %while.cond19
-
-while.cond19:                                     ; preds = %while.body27, %if.end17
-  %29 = load i32, ptr %cur, align 4
-  %30 = load i32, ptr %end, align 4
-  %cmp20 = icmp slt i32 %29, %30
-  br i1 %cmp20, label %land.rhs21, label %land.end26
-
-land.rhs21:                                       ; preds = %while.cond19
-  %31 = load ptr, ptr %spec.addr, align 8
-  %32 = load i32, ptr %cur, align 4
-  %idxprom22 = sext i32 %32 to i64
-  %arrayidx23 = getelementptr inbounds i8, ptr %31, i64 %idxprom22
-  %33 = load i8, ptr %arrayidx23, align 1
-  %conv24 = sext i8 %33 to i32
-  %cmp25 = icmp ne i32 %conv24, 38
-  br label %land.end26
-
-land.end26:                                       ; preds = %land.rhs21, %while.cond19
-  %34 = phi i1 [ false, %while.cond19 ], [ %cmp25, %land.rhs21 ]
-  br i1 %34, label %while.body27, label %while.end29
-
-while.body27:                                     ; preds = %land.end26
-  %35 = load i32, ptr %cur, align 4
-  %inc28 = add nsw i32 %35, 1
-  store i32 %inc28, ptr %cur, align 4
-  br label %while.cond19, !llvm.loop !13
-
-while.end29:                                      ; preds = %land.end26
-  %36 = load i32, ptr %cur, align 4
-  %37 = load ptr, ptr %value.addr, align 8
-  %begin30 = getelementptr inbounds %"struct.url::Component", ptr %37, i32 0, i32 0
-  %38 = load i32, ptr %begin30, align 4
-  %sub31 = sub nsw i32 %36, %38
-  %39 = load ptr, ptr %value.addr, align 8
-  %len32 = getelementptr inbounds %"struct.url::Component", ptr %39, i32 0, i32 1
-  store i32 %sub31, ptr %len32, align 4
-  %40 = load i32, ptr %cur, align 4
-  %41 = load i32, ptr %end, align 4
-  %cmp33 = icmp slt i32 %40, %41
-  br i1 %cmp33, label %land.lhs.true34, label %if.end41
-
-land.lhs.true34:                                  ; preds = %while.end29
-  %42 = load ptr, ptr %spec.addr, align 8
-  %43 = load i32, ptr %cur, align 4
-  %idxprom35 = sext i32 %43 to i64
-  %arrayidx36 = getelementptr inbounds i8, ptr %42, i64 %idxprom35
-  %44 = load i8, ptr %arrayidx36, align 1
-  %conv37 = sext i8 %44 to i32
-  %cmp38 = icmp eq i32 %conv37, 38
-  br i1 %cmp38, label %if.then39, label %if.end41
-
-if.then39:                                        ; preds = %land.lhs.true34
-  %45 = load i32, ptr %cur, align 4
-  %inc40 = add nsw i32 %45, 1
-  store i32 %inc40, ptr %cur, align 4
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.then39, %land.lhs.true34, %while.end29
-  %46 = load i32, ptr %cur, align 4
-  %47 = load i32, ptr %end, align 4
-  %call42 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %46, i32 noundef %47)
-  store i64 %call42, ptr %ref.tmp, align 4
-  %48 = load ptr, ptr %query.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %48, ptr align 4 %ref.tmp, i64 8, i1 false)
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end41, %if.then
-  %49 = load i1, ptr %retval, align 1
-  ret i1 %49
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKtPNS_9ComponentES3_S3_(ptr noundef %url, ptr noundef %query, ptr noundef %key, ptr noundef %value) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %query.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store ptr %query, ptr %query.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load ptr, ptr %query.addr, align 8
-  %2 = load ptr, ptr %key.addr, align 8
-  %3 = load ptr, ptr %value.addr, align 8
-  %call = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueItEEbPKT_PNS_9ComponentES6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueItEEbPKT_PNS_9ComponentES6_S6_(ptr noundef %spec, ptr noundef %query, ptr noundef %key, ptr noundef %value) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %spec.addr = alloca ptr, align 8
-  %query.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %start = alloca i32, align 4
-  %cur = alloca i32, align 4
-  %end = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %query, ptr %query.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %query.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %query.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %begin, align 4
-  store i32 %2, ptr %start, align 4
-  %3 = load i32, ptr %start, align 4
-  store i32 %3, ptr %cur, align 4
-  %4 = load ptr, ptr %query.addr, align 8
-  %call1 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %4)
-  store i32 %call1, ptr %end, align 4
-  %5 = load i32, ptr %cur, align 4
-  %6 = load ptr, ptr %key.addr, align 8
-  %begin2 = getelementptr inbounds %"struct.url::Component", ptr %6, i32 0, i32 0
-  store i32 %5, ptr %begin2, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  %7 = load i32, ptr %cur, align 4
-  %8 = load i32, ptr %end, align 4
-  %cmp = icmp slt i32 %7, %8
-  br i1 %cmp, label %land.lhs.true, label %land.end
-
-land.lhs.true:                                    ; preds = %while.cond
-  %9 = load ptr, ptr %spec.addr, align 8
-  %10 = load i32, ptr %cur, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %11 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %11 to i32
-  %cmp3 = icmp ne i32 %conv, 38
-  br i1 %cmp3, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %land.lhs.true
-  %12 = load ptr, ptr %spec.addr, align 8
-  %13 = load i32, ptr %cur, align 4
-  %idxprom4 = sext i32 %13 to i64
-  %arrayidx5 = getelementptr inbounds i16, ptr %12, i64 %idxprom4
-  %14 = load i16, ptr %arrayidx5, align 2
-  %conv6 = zext i16 %14 to i32
-  %cmp7 = icmp ne i32 %conv6, 61
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %while.cond
-  %15 = phi i1 [ false, %land.lhs.true ], [ false, %while.cond ], [ %cmp7, %land.rhs ]
-  br i1 %15, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %16 = load i32, ptr %cur, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %cur, align 4
-  br label %while.cond, !llvm.loop !14
-
-while.end:                                        ; preds = %land.end
-  %17 = load i32, ptr %cur, align 4
-  %18 = load ptr, ptr %key.addr, align 8
-  %begin8 = getelementptr inbounds %"struct.url::Component", ptr %18, i32 0, i32 0
-  %19 = load i32, ptr %begin8, align 4
-  %sub = sub nsw i32 %17, %19
-  %20 = load ptr, ptr %key.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %20, i32 0, i32 1
-  store i32 %sub, ptr %len, align 4
-  %21 = load i32, ptr %cur, align 4
-  %22 = load i32, ptr %end, align 4
-  %cmp9 = icmp slt i32 %21, %22
-  br i1 %cmp9, label %land.lhs.true10, label %if.end17
-
-land.lhs.true10:                                  ; preds = %while.end
-  %23 = load ptr, ptr %spec.addr, align 8
-  %24 = load i32, ptr %cur, align 4
-  %idxprom11 = sext i32 %24 to i64
-  %arrayidx12 = getelementptr inbounds i16, ptr %23, i64 %idxprom11
-  %25 = load i16, ptr %arrayidx12, align 2
-  %conv13 = zext i16 %25 to i32
-  %cmp14 = icmp eq i32 %conv13, 61
-  br i1 %cmp14, label %if.then15, label %if.end17
-
-if.then15:                                        ; preds = %land.lhs.true10
-  %26 = load i32, ptr %cur, align 4
-  %inc16 = add nsw i32 %26, 1
-  store i32 %inc16, ptr %cur, align 4
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then15, %land.lhs.true10, %while.end
-  %27 = load i32, ptr %cur, align 4
-  %28 = load ptr, ptr %value.addr, align 8
-  %begin18 = getelementptr inbounds %"struct.url::Component", ptr %28, i32 0, i32 0
-  store i32 %27, ptr %begin18, align 4
-  br label %while.cond19
-
-while.cond19:                                     ; preds = %while.body27, %if.end17
-  %29 = load i32, ptr %cur, align 4
-  %30 = load i32, ptr %end, align 4
-  %cmp20 = icmp slt i32 %29, %30
-  br i1 %cmp20, label %land.rhs21, label %land.end26
-
-land.rhs21:                                       ; preds = %while.cond19
-  %31 = load ptr, ptr %spec.addr, align 8
-  %32 = load i32, ptr %cur, align 4
-  %idxprom22 = sext i32 %32 to i64
-  %arrayidx23 = getelementptr inbounds i16, ptr %31, i64 %idxprom22
-  %33 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %33 to i32
-  %cmp25 = icmp ne i32 %conv24, 38
-  br label %land.end26
-
-land.end26:                                       ; preds = %land.rhs21, %while.cond19
-  %34 = phi i1 [ false, %while.cond19 ], [ %cmp25, %land.rhs21 ]
-  br i1 %34, label %while.body27, label %while.end29
-
-while.body27:                                     ; preds = %land.end26
-  %35 = load i32, ptr %cur, align 4
-  %inc28 = add nsw i32 %35, 1
-  store i32 %inc28, ptr %cur, align 4
-  br label %while.cond19, !llvm.loop !15
-
-while.end29:                                      ; preds = %land.end26
-  %36 = load i32, ptr %cur, align 4
-  %37 = load ptr, ptr %value.addr, align 8
-  %begin30 = getelementptr inbounds %"struct.url::Component", ptr %37, i32 0, i32 0
-  %38 = load i32, ptr %begin30, align 4
-  %sub31 = sub nsw i32 %36, %38
-  %39 = load ptr, ptr %value.addr, align 8
-  %len32 = getelementptr inbounds %"struct.url::Component", ptr %39, i32 0, i32 1
-  store i32 %sub31, ptr %len32, align 4
-  %40 = load i32, ptr %cur, align 4
-  %41 = load i32, ptr %end, align 4
-  %cmp33 = icmp slt i32 %40, %41
-  br i1 %cmp33, label %land.lhs.true34, label %if.end41
-
-land.lhs.true34:                                  ; preds = %while.end29
-  %42 = load ptr, ptr %spec.addr, align 8
-  %43 = load i32, ptr %cur, align 4
-  %idxprom35 = sext i32 %43 to i64
-  %arrayidx36 = getelementptr inbounds i16, ptr %42, i64 %idxprom35
-  %44 = load i16, ptr %arrayidx36, align 2
-  %conv37 = zext i16 %44 to i32
-  %cmp38 = icmp eq i32 %conv37, 38
-  br i1 %cmp38, label %if.then39, label %if.end41
-
-if.then39:                                        ; preds = %land.lhs.true34
-  %45 = load i32, ptr %cur, align 4
-  %inc40 = add nsw i32 %45, 1
-  store i32 %inc40, ptr %cur, align 4
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.then39, %land.lhs.true34, %while.end29
-  %46 = load i32, ptr %cur, align 4
-  %47 = load i32, ptr %end, align 4
-  %call42 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %46, i32 noundef %47)
-  store i64 %call42, ptr %ref.tmp, align 4
-  %48 = load ptr, ptr %query.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %48, ptr align 4 %ref.tmp, i64 8, i1 false)
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end41, %if.then
-  %49 = load i1, ptr %retval, align 1
-  ret i1 %49
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url14ParseAuthorityEPKcRKNS_9ComponentEPS2_S5_S5_S5_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %auth, ptr noundef %username, ptr noundef %password, ptr noundef %hostname, ptr noundef %port_num) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %auth.addr = alloca ptr, align 8
-  %username.addr = alloca ptr, align 8
-  %password.addr = alloca ptr, align 8
-  %hostname.addr = alloca ptr, align 8
-  %port_num.addr = alloca ptr, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %auth, ptr %auth.addr, align 8
-  store ptr %username, ptr %username.addr, align 8
-  store ptr %password, ptr %password.addr, align 8
-  store ptr %hostname, ptr %hostname.addr, align 8
-  store ptr %port_num, ptr %port_num.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load ptr, ptr %auth.addr, align 8
-  %2 = load ptr, ptr %username.addr, align 8
-  %3 = load ptr, ptr %password.addr, align 8
-  %4 = load ptr, ptr %hostname.addr, align 8
-  %5 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %auth, ptr noundef %username, ptr noundef %password, ptr noundef %hostname, ptr noundef %port_num) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %auth.addr = alloca ptr, align 8
-  %username.addr = alloca ptr, align 8
-  %password.addr = alloca ptr, align 8
-  %hostname.addr = alloca ptr, align 8
-  %port_num.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp13 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %auth, ptr %auth.addr, align 8
-  store ptr %username, ptr %username.addr, align 8
-  store ptr %password, ptr %password.addr, align 8
-  store ptr %hostname, ptr %hostname.addr, align 8
-  store ptr %port_num, ptr %port_num.addr, align 8
-  %0 = load ptr, ptr %auth.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %username.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
-  %3 = load ptr, ptr %password.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %4 = load ptr, ptr %hostname.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %4)
-  %5 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br label %if.end18
-
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %auth.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %begin, align 4
-  %8 = load ptr, ptr %auth.addr, align 8
-  %len1 = getelementptr inbounds %"struct.url::Component", ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %len1, align 4
-  %add = add nsw i32 %7, %9
-  %sub = sub nsw i32 %add, 1
-  store i32 %sub, ptr %i, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  %10 = load i32, ptr %i, align 4
-  %11 = load ptr, ptr %auth.addr, align 8
-  %begin2 = getelementptr inbounds %"struct.url::Component", ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %begin2, align 4
-  %cmp3 = icmp sgt i32 %10, %12
-  br i1 %cmp3, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %13 = load ptr, ptr %spec.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %13, i64 %idxprom
-  %15 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %15 to i32
-  %cmp4 = icmp ne i32 %conv, 64
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %16 = phi i1 [ false, %while.cond ], [ %cmp4, %land.rhs ]
-  br i1 %16, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %17 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %17, -1
-  store i32 %dec, ptr %i, align 4
-  br label %while.cond, !llvm.loop !16
-
-while.end:                                        ; preds = %land.end
-  %18 = load ptr, ptr %spec.addr, align 8
-  %19 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %19 to i64
-  %arrayidx6 = getelementptr inbounds i8, ptr %18, i64 %idxprom5
-  %20 = load i8, ptr %arrayidx6, align 1
-  %conv7 = sext i8 %20 to i32
-  %cmp8 = icmp eq i32 %conv7, 64
-  br i1 %cmp8, label %if.then9, label %if.else
-
-if.then9:                                         ; preds = %while.end
-  %21 = load ptr, ptr %spec.addr, align 8
-  %22 = load ptr, ptr %auth.addr, align 8
-  %begin10 = getelementptr inbounds %"struct.url::Component", ptr %22, i32 0, i32 0
-  %23 = load i32, ptr %begin10, align 4
-  %24 = load i32, ptr %i, align 4
-  %25 = load ptr, ptr %auth.addr, align 8
-  %begin11 = getelementptr inbounds %"struct.url::Component", ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %begin11, align 4
-  %sub12 = sub nsw i32 %24, %26
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef %23, i32 noundef %sub12)
-  %27 = load ptr, ptr %username.addr, align 8
-  %28 = load ptr, ptr %password.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_113ParseUserInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %21, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, ptr noundef %27, ptr noundef %28)
-  %29 = load ptr, ptr %spec.addr, align 8
-  %30 = load i32, ptr %i, align 4
-  %add14 = add nsw i32 %30, 1
-  %31 = load ptr, ptr %auth.addr, align 8
-  %begin15 = getelementptr inbounds %"struct.url::Component", ptr %31, i32 0, i32 0
-  %32 = load i32, ptr %begin15, align 4
-  %33 = load ptr, ptr %auth.addr, align 8
-  %len16 = getelementptr inbounds %"struct.url::Component", ptr %33, i32 0, i32 1
-  %34 = load i32, ptr %len16, align 4
-  %add17 = add nsw i32 %32, %34
-  %call = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add14, i32 noundef %add17)
-  store i64 %call, ptr %ref.tmp13, align 4
-  %35 = load ptr, ptr %hostname.addr, align 8
-  %36 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_115ParseServerInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp13, ptr noundef %35, ptr noundef %36)
-  br label %if.end18
-
-if.else:                                          ; preds = %while.end
-  %37 = load ptr, ptr %username.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %37)
-  %38 = load ptr, ptr %password.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %38)
-  %39 = load ptr, ptr %spec.addr, align 8
-  %40 = load ptr, ptr %auth.addr, align 8
-  %41 = load ptr, ptr %hostname.addr, align 8
-  %42 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_115ParseServerInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(8) %40, ptr noundef %41, ptr noundef %42)
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.else, %if.then9, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url14ParseAuthorityEPKtRKNS_9ComponentEPS2_S5_S5_S5_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %auth, ptr noundef %username, ptr noundef %password, ptr noundef %hostname, ptr noundef %port_num) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %auth.addr = alloca ptr, align 8
-  %username.addr = alloca ptr, align 8
-  %password.addr = alloca ptr, align 8
-  %hostname.addr = alloca ptr, align 8
-  %port_num.addr = alloca ptr, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %auth, ptr %auth.addr, align 8
-  store ptr %username, ptr %username.addr, align 8
-  store ptr %password, ptr %password.addr, align 8
-  store ptr %hostname, ptr %hostname.addr, align 8
-  store ptr %port_num, ptr %port_num.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load ptr, ptr %auth.addr, align 8
-  %2 = load ptr, ptr %username.addr, align 8
-  %3 = load ptr, ptr %password.addr, align 8
-  %4 = load ptr, ptr %hostname.addr, align 8
-  %5 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %auth, ptr noundef %username, ptr noundef %password, ptr noundef %hostname, ptr noundef %port_num) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %auth.addr = alloca ptr, align 8
-  %username.addr = alloca ptr, align 8
-  %password.addr = alloca ptr, align 8
-  %hostname.addr = alloca ptr, align 8
-  %port_num.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp13 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %auth, ptr %auth.addr, align 8
-  store ptr %username, ptr %username.addr, align 8
-  store ptr %password, ptr %password.addr, align 8
-  store ptr %hostname, ptr %hostname.addr, align 8
-  store ptr %port_num, ptr %port_num.addr, align 8
-  %0 = load ptr, ptr %auth.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %username.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
-  %3 = load ptr, ptr %password.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %4 = load ptr, ptr %hostname.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %4)
-  %5 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br label %if.end18
-
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %auth.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %begin, align 4
-  %8 = load ptr, ptr %auth.addr, align 8
-  %len1 = getelementptr inbounds %"struct.url::Component", ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %len1, align 4
-  %add = add nsw i32 %7, %9
-  %sub = sub nsw i32 %add, 1
-  store i32 %sub, ptr %i, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  %10 = load i32, ptr %i, align 4
-  %11 = load ptr, ptr %auth.addr, align 8
-  %begin2 = getelementptr inbounds %"struct.url::Component", ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %begin2, align 4
-  %cmp3 = icmp sgt i32 %10, %12
-  br i1 %cmp3, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %13 = load ptr, ptr %spec.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %13, i64 %idxprom
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %15 to i32
-  %cmp4 = icmp ne i32 %conv, 64
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %16 = phi i1 [ false, %while.cond ], [ %cmp4, %land.rhs ]
-  br i1 %16, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %17 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %17, -1
-  store i32 %dec, ptr %i, align 4
-  br label %while.cond, !llvm.loop !17
-
-while.end:                                        ; preds = %land.end
-  %18 = load ptr, ptr %spec.addr, align 8
-  %19 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %19 to i64
-  %arrayidx6 = getelementptr inbounds i16, ptr %18, i64 %idxprom5
-  %20 = load i16, ptr %arrayidx6, align 2
-  %conv7 = zext i16 %20 to i32
-  %cmp8 = icmp eq i32 %conv7, 64
-  br i1 %cmp8, label %if.then9, label %if.else
-
-if.then9:                                         ; preds = %while.end
-  %21 = load ptr, ptr %spec.addr, align 8
-  %22 = load ptr, ptr %auth.addr, align 8
-  %begin10 = getelementptr inbounds %"struct.url::Component", ptr %22, i32 0, i32 0
-  %23 = load i32, ptr %begin10, align 4
-  %24 = load i32, ptr %i, align 4
-  %25 = load ptr, ptr %auth.addr, align 8
-  %begin11 = getelementptr inbounds %"struct.url::Component", ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %begin11, align 4
-  %sub12 = sub nsw i32 %24, %26
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef %23, i32 noundef %sub12)
-  %27 = load ptr, ptr %username.addr, align 8
-  %28 = load ptr, ptr %password.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_113ParseUserInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %21, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, ptr noundef %27, ptr noundef %28)
-  %29 = load ptr, ptr %spec.addr, align 8
-  %30 = load i32, ptr %i, align 4
-  %add14 = add nsw i32 %30, 1
-  %31 = load ptr, ptr %auth.addr, align 8
-  %begin15 = getelementptr inbounds %"struct.url::Component", ptr %31, i32 0, i32 0
-  %32 = load i32, ptr %begin15, align 4
-  %33 = load ptr, ptr %auth.addr, align 8
-  %len16 = getelementptr inbounds %"struct.url::Component", ptr %33, i32 0, i32 1
-  %34 = load i32, ptr %len16, align 4
-  %add17 = add nsw i32 %32, %34
-  %call = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add14, i32 noundef %add17)
-  store i64 %call, ptr %ref.tmp13, align 4
-  %35 = load ptr, ptr %hostname.addr, align 8
-  %36 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_115ParseServerInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp13, ptr noundef %35, ptr noundef %36)
-  br label %if.end18
-
-if.else:                                          ; preds = %while.end
-  %37 = load ptr, ptr %username.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %37)
-  %38 = load ptr, ptr %password.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %38)
-  %39 = load ptr, ptr %spec.addr, align 8
-  %40 = load ptr, ptr %auth.addr, align 8
-  %41 = load ptr, ptr %hostname.addr, align 8
-  %42 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_115ParseServerInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(8) %40, ptr noundef %41, ptr noundef %42)
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.else, %if.then9, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr noundef %url, ptr noundef nonnull align 4 dereferenceable(8) %port) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %port.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store ptr %port, ptr %port.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load ptr, ptr %port.addr, align 8
-  %call = call noundef i32 @_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
-  ret i32 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %component) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %spec.addr = alloca ptr, align 8
-  %component.addr = alloca ptr, align 8
-  %kMaxDigits = alloca i32, align 4
-  %digits_comp = alloca %"struct.url::Component", align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %digits = alloca [6 x i8], align 1
-  %i17 = alloca i32, align 4
-  %ch = alloca i8, align 1
-  %port = alloca i32, align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %component, ptr %component.addr, align 8
-  store i32 5, ptr %kMaxDigits, align 4
-  %0 = load ptr, ptr %component.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %component.addr, align 8
-  %call1 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %1)
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %digits_comp, i32 noundef %call1, i32 noundef 0)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %2 = load i32, ptr %i, align 4
-  %3 = load ptr, ptr %component.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %len, align 4
-  %cmp = icmp slt i32 %2, %4
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %spec.addr, align 8
-  %6 = load ptr, ptr %component.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %begin, align 4
-  %8 = load i32, ptr %i, align 4
-  %add = add nsw i32 %7, %8
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i8, ptr %5, i64 %idxprom
-  %9 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %9 to i32
-  %cmp2 = icmp ne i32 %conv, 48
-  br i1 %cmp2, label %if.then3, label %if.end8
-
-if.then3:                                         ; preds = %for.body
-  %10 = load ptr, ptr %component.addr, align 8
-  %begin4 = getelementptr inbounds %"struct.url::Component", ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %begin4, align 4
-  %12 = load i32, ptr %i, align 4
-  %add5 = add nsw i32 %11, %12
-  %13 = load ptr, ptr %component.addr, align 8
-  %call6 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
-  %call7 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add5, i32 noundef %call6)
-  store i64 %call7, ptr %ref.tmp, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %digits_comp, ptr align 4 %ref.tmp, i64 8, i1 false)
-  br label %for.end
-
-if.end8:                                          ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end8
-  %14 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !18
-
-for.end:                                          ; preds = %if.then3, %for.cond
-  %len9 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 1
-  %15 = load i32, ptr %len9, align 4
-  %cmp10 = icmp eq i32 %15, 0
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end12:                                         ; preds = %for.end
-  %len13 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 1
-  %16 = load i32, ptr %len13, align 4
-  %cmp14 = icmp sgt i32 %16, 5
-  br i1 %cmp14, label %if.then15, label %if.end16
-
-if.then15:                                        ; preds = %if.end12
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.end16:                                         ; preds = %if.end12
-  store i32 0, ptr %i17, align 4
-  br label %for.cond18
-
-for.cond18:                                       ; preds = %for.inc32, %if.end16
-  %17 = load i32, ptr %i17, align 4
-  %len19 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 1
-  %18 = load i32, ptr %len19, align 4
-  %cmp20 = icmp slt i32 %17, %18
-  br i1 %cmp20, label %for.body21, label %for.end34
-
-for.body21:                                       ; preds = %for.cond18
-  %19 = load ptr, ptr %spec.addr, align 8
-  %begin22 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 0
-  %20 = load i32, ptr %begin22, align 4
-  %21 = load i32, ptr %i17, align 4
-  %add23 = add nsw i32 %20, %21
-  %idxprom24 = sext i32 %add23 to i64
-  %arrayidx25 = getelementptr inbounds i8, ptr %19, i64 %idxprom24
-  %22 = load i8, ptr %arrayidx25, align 1
-  store i8 %22, ptr %ch, align 1
-  %23 = load i8, ptr %ch, align 1
-  %conv26 = sext i8 %23 to i16
-  %call27 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_111IsPortDigitEt(i16 noundef zeroext %conv26)
-  br i1 %call27, label %if.end29, label %if.then28
-
-if.then28:                                        ; preds = %for.body21
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.end29:                                         ; preds = %for.body21
-  %24 = load i8, ptr %ch, align 1
-  %25 = load i32, ptr %i17, align 4
-  %idxprom30 = sext i32 %25 to i64
-  %arrayidx31 = getelementptr inbounds [6 x i8], ptr %digits, i64 0, i64 %idxprom30
-  store i8 %24, ptr %arrayidx31, align 1
-  br label %for.inc32
-
-for.inc32:                                        ; preds = %if.end29
-  %26 = load i32, ptr %i17, align 4
-  %inc33 = add nsw i32 %26, 1
-  store i32 %inc33, ptr %i17, align 4
-  br label %for.cond18, !llvm.loop !19
-
-for.end34:                                        ; preds = %for.cond18
-  %len35 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 1
-  %27 = load i32, ptr %len35, align 4
-  %idxprom36 = sext i32 %27 to i64
-  %arrayidx37 = getelementptr inbounds [6 x i8], ptr %digits, i64 0, i64 %idxprom36
-  store i8 0, ptr %arrayidx37, align 1
-  %arraydecay = getelementptr inbounds [6 x i8], ptr %digits, i64 0, i64 0
-  %call38 = call i32 @atoi(ptr noundef %arraydecay) #11
-  store i32 %call38, ptr %port, align 4
-  %28 = load i32, ptr %port, align 4
-  %cmp39 = icmp sgt i32 %28, 65535
-  br i1 %cmp39, label %if.then40, label %if.end41
-
-if.then40:                                        ; preds = %for.end34
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.end41:                                         ; preds = %for.end34
-  %29 = load i32, ptr %port, align 4
-  store i32 %29, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end41, %if.then40, %if.then28, %if.then15, %if.then11, %if.then
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef %url, ptr noundef nonnull align 4 dereferenceable(8) %port) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %port.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store ptr %port, ptr %port.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load ptr, ptr %port.addr, align 8
-  %call = call noundef i32 @_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
-  ret i32 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %component) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %spec.addr = alloca ptr, align 8
-  %component.addr = alloca ptr, align 8
-  %kMaxDigits = alloca i32, align 4
-  %digits_comp = alloca %"struct.url::Component", align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %digits = alloca [6 x i8], align 1
-  %i17 = alloca i32, align 4
-  %ch = alloca i16, align 2
-  %port = alloca i32, align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %component, ptr %component.addr, align 8
-  store i32 5, ptr %kMaxDigits, align 4
-  %0 = load ptr, ptr %component.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %component.addr, align 8
-  %call1 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %1)
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %digits_comp, i32 noundef %call1, i32 noundef 0)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %2 = load i32, ptr %i, align 4
-  %3 = load ptr, ptr %component.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %len, align 4
-  %cmp = icmp slt i32 %2, %4
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %spec.addr, align 8
-  %6 = load ptr, ptr %component.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %begin, align 4
-  %8 = load i32, ptr %i, align 4
-  %add = add nsw i32 %7, %8
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %5, i64 %idxprom
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %9 to i32
-  %cmp2 = icmp ne i32 %conv, 48
-  br i1 %cmp2, label %if.then3, label %if.end8
-
-if.then3:                                         ; preds = %for.body
-  %10 = load ptr, ptr %component.addr, align 8
-  %begin4 = getelementptr inbounds %"struct.url::Component", ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %begin4, align 4
-  %12 = load i32, ptr %i, align 4
-  %add5 = add nsw i32 %11, %12
-  %13 = load ptr, ptr %component.addr, align 8
-  %call6 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
-  %call7 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add5, i32 noundef %call6)
-  store i64 %call7, ptr %ref.tmp, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %digits_comp, ptr align 4 %ref.tmp, i64 8, i1 false)
-  br label %for.end
-
-if.end8:                                          ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end8
-  %14 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !20
-
-for.end:                                          ; preds = %if.then3, %for.cond
-  %len9 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 1
-  %15 = load i32, ptr %len9, align 4
-  %cmp10 = icmp eq i32 %15, 0
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end12:                                         ; preds = %for.end
-  %len13 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 1
-  %16 = load i32, ptr %len13, align 4
-  %cmp14 = icmp sgt i32 %16, 5
-  br i1 %cmp14, label %if.then15, label %if.end16
-
-if.then15:                                        ; preds = %if.end12
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.end16:                                         ; preds = %if.end12
-  store i32 0, ptr %i17, align 4
-  br label %for.cond18
-
-for.cond18:                                       ; preds = %for.inc32, %if.end16
-  %17 = load i32, ptr %i17, align 4
-  %len19 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 1
-  %18 = load i32, ptr %len19, align 4
-  %cmp20 = icmp slt i32 %17, %18
-  br i1 %cmp20, label %for.body21, label %for.end34
-
-for.body21:                                       ; preds = %for.cond18
-  %19 = load ptr, ptr %spec.addr, align 8
-  %begin22 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 0
-  %20 = load i32, ptr %begin22, align 4
-  %21 = load i32, ptr %i17, align 4
-  %add23 = add nsw i32 %20, %21
-  %idxprom24 = sext i32 %add23 to i64
-  %arrayidx25 = getelementptr inbounds i16, ptr %19, i64 %idxprom24
-  %22 = load i16, ptr %arrayidx25, align 2
-  store i16 %22, ptr %ch, align 2
-  %23 = load i16, ptr %ch, align 2
-  %call26 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_111IsPortDigitEt(i16 noundef zeroext %23)
-  br i1 %call26, label %if.end28, label %if.then27
-
-if.then27:                                        ; preds = %for.body21
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.end28:                                         ; preds = %for.body21
-  %24 = load i16, ptr %ch, align 2
-  %conv29 = trunc i16 %24 to i8
-  %25 = load i32, ptr %i17, align 4
-  %idxprom30 = sext i32 %25 to i64
-  %arrayidx31 = getelementptr inbounds [6 x i8], ptr %digits, i64 0, i64 %idxprom30
-  store i8 %conv29, ptr %arrayidx31, align 1
-  br label %for.inc32
-
-for.inc32:                                        ; preds = %if.end28
-  %26 = load i32, ptr %i17, align 4
-  %inc33 = add nsw i32 %26, 1
-  store i32 %inc33, ptr %i17, align 4
-  br label %for.cond18, !llvm.loop !21
-
-for.end34:                                        ; preds = %for.cond18
-  %len35 = getelementptr inbounds %"struct.url::Component", ptr %digits_comp, i32 0, i32 1
-  %27 = load i32, ptr %len35, align 4
-  %idxprom36 = sext i32 %27 to i64
-  %arrayidx37 = getelementptr inbounds [6 x i8], ptr %digits, i64 0, i64 %idxprom36
-  store i8 0, ptr %arrayidx37, align 1
-  %arraydecay = getelementptr inbounds [6 x i8], ptr %digits, i64 0, i64 0
-  %call38 = call i32 @atoi(ptr noundef %arraydecay) #11
-  store i32 %call38, ptr %port, align 4
-  %28 = load i32, ptr %port, align 4
-  %cmp39 = icmp sgt i32 %28, 65535
-  br i1 %cmp39, label %if.then40, label %if.end41
-
-if.then40:                                        ; preds = %for.end34
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.end41:                                         ; preds = %for.end34
-  %29 = load i32, ptr %port, align 4
-  store i32 %29, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end41, %if.then40, %if.then27, %if.then15, %if.then11, %if.then
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url16ParseStandardURLEPKciPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %after_scheme = alloca i32, align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  store i32 0, ptr %begin, align 4
-  %0 = load ptr, ptr %spec.addr, align 8
-  call void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %0, ptr noundef %begin, ptr noundef %spec_len.addr, i1 noundef zeroext true)
-  %1 = load ptr, ptr %spec.addr, align 8
-  %2 = load i32, ptr %spec_len.addr, align 4
-  %3 = load ptr, ptr %parsed.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %1, i32 noundef %2, ptr noundef %scheme)
-  br i1 %call, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %parsed.addr, align 8
-  %scheme1 = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 0
-  %call2 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme1)
-  %add = add nsw i32 %call2, 1
-  store i32 %add, ptr %after_scheme, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %parsed.addr, align 8
-  %scheme3 = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme3)
-  %6 = load i32, ptr %begin, align 4
-  store i32 %6, ptr %after_scheme, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %7 = load ptr, ptr %spec.addr, align 8
-  %8 = load i32, ptr %spec_len.addr, align 4
-  %9 = load i32, ptr %after_scheme, align 4
-  %10 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url16ParseStandardURLEPKtiPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %after_scheme = alloca i32, align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  store i32 0, ptr %begin, align 4
-  %0 = load ptr, ptr %spec.addr, align 8
-  call void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %0, ptr noundef %begin, ptr noundef %spec_len.addr, i1 noundef zeroext true)
-  %1 = load ptr, ptr %spec.addr, align 8
-  %2 = load i32, ptr %spec_len.addr, align 4
-  %3 = load ptr, ptr %parsed.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %1, i32 noundef %2, ptr noundef %scheme)
-  br i1 %call, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %parsed.addr, align 8
-  %scheme1 = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 0
-  %call2 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme1)
-  %add = add nsw i32 %call2, 1
-  store i32 %add, ptr %after_scheme, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %parsed.addr, align 8
-  %scheme3 = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme3)
-  %6 = load i32, ptr %begin, align 4
-  store i32 %6, ptr %after_scheme, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %7 = load ptr, ptr %spec.addr, align 8
-  %8 = load i32, ptr %spec_len.addr, align 4
-  %9 = load i32, ptr %after_scheme, align 4
-  %10 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr noundef %parsed) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %trim_path_end.addr = alloca i8, align 1
-  %parsed.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  %frombool = zext i1 %trim_path_end to i8
-  store i8 %frombool, ptr %trim_path_end.addr, align 1
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load i8, ptr %trim_path_end.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %3 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %tobool, ptr noundef %3)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, i1 noundef zeroext %trim_path_end, ptr noundef %parsed) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %trim_path_end.addr = alloca i8, align 1
-  %parsed.addr = alloca ptr, align 8
-  %scheme_begin = alloca i32, align 4
-  %path_begin = alloca i32, align 4
-  %true_if_passed = alloca %"class.logging::CheckOpResult", align 8
-  %ref.tmp = alloca %"class.logging::LogMessage", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp19 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  %frombool = zext i1 %trim_path_end to i8
-  store i8 %frombool, ptr %trim_path_end.addr, align 1
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %parsed.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %0, i32 0, i32 1
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %username)
-  %1 = load ptr, ptr %parsed.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %1, i32 0, i32 2
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %password)
-  %2 = load ptr, ptr %parsed.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %2, i32 0, i32 3
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %host)
-  %3 = load ptr, ptr %parsed.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 4
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %port)
-  %4 = load ptr, ptr %parsed.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path)
-  %5 = load ptr, ptr %parsed.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 6
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %query)
-  %6 = load ptr, ptr %parsed.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %6, i32 0, i32 7
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  store i32 0, ptr %scheme_begin, align 4
-  %7 = load ptr, ptr %spec.addr, align 8
-  %8 = load i8, ptr %trim_path_end.addr, align 1
-  %tobool = trunc i8 %8 to i1
-  call void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %7, ptr noundef %scheme_begin, ptr noundef %spec_len.addr, i1 noundef zeroext %tobool)
-  %9 = load i32, ptr %scheme_begin, align 4
-  %10 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp eq i32 %9, %10
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %11 = load ptr, ptr %parsed.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %11, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme)
-  %12 = load ptr, ptr %parsed.addr, align 8
-  %path1 = getelementptr inbounds %"struct.url::Parsed", ptr %12, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path1)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %13 = load ptr, ptr %spec.addr, align 8
-  %14 = load i32, ptr %scheme_begin, align 4
-  %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %13, i64 %idxprom
-  %15 = load i32, ptr %spec_len.addr, align 4
-  %16 = load i32, ptr %scheme_begin, align 4
-  %sub = sub nsw i32 %15, %16
-  %17 = load ptr, ptr %parsed.addr, align 8
-  %scheme2 = getelementptr inbounds %"struct.url::Parsed", ptr %17, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef %arrayidx, i32 noundef %sub, ptr noundef %scheme2)
-  br i1 %call, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.end
-  %18 = load i32, ptr %scheme_begin, align 4
-  %19 = load ptr, ptr %parsed.addr, align 8
-  %scheme4 = getelementptr inbounds %"struct.url::Parsed", ptr %19, i32 0, i32 0
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %scheme4, i32 0, i32 0
-  %20 = load i32, ptr %begin, align 8
-  %add = add nsw i32 %20, %18
-  store i32 %add, ptr %begin, align 8
-  %21 = load ptr, ptr %parsed.addr, align 8
-  %scheme5 = getelementptr inbounds %"struct.url::Parsed", ptr %21, i32 0, i32 0
-  %call6 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme5)
-  %add7 = add nsw i32 %call6, 1
-  store i32 %add7, ptr %path_begin, align 4
-  br label %if.end9
-
-if.else:                                          ; preds = %if.end
-  %22 = load ptr, ptr %parsed.addr, align 8
-  %scheme8 = getelementptr inbounds %"struct.url::Parsed", ptr %22, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme8)
-  %23 = load i32, ptr %scheme_begin, align 4
-  store i32 %23, ptr %path_begin, align 4
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.else, %if.then3
-  %24 = load i32, ptr %path_begin, align 4
-  %25 = load i32, ptr %spec_len.addr, align 4
-  %cmp10 = icmp eq i32 %24, %25
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %if.end9
-  br label %return
-
-if.end12:                                         ; preds = %if.end9
-  call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed, ptr noundef null)
-  %call13 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
-  br i1 %call13, label %if.then14, label %if.else15
-
-if.then14:                                        ; preds = %if.end12
-  br label %if.end18
-
-if.else15:                                        ; preds = %if.end12
-  %call16 = call noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
-  call void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp, ptr noundef @.str, i32 noundef 496, i32 noundef 0, ptr noundef %call16)
-  %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.else15
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #10
-  br label %if.end18
-
-lpad:                                             ; preds = %if.else15
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #10
-  br label %eh.resume
-
-if.end18:                                         ; preds = %invoke.cont, %if.then14
-  %29 = load ptr, ptr %spec.addr, align 8
-  %30 = load i32, ptr %path_begin, align 4
-  %31 = load i32, ptr %spec_len.addr, align 4
-  %call20 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %30, i32 noundef %31)
-  store i64 %call20, ptr %ref.tmp19, align 4
-  %32 = load ptr, ptr %parsed.addr, align 8
-  %path21 = getelementptr inbounds %"struct.url::Parsed", ptr %32, i32 0, i32 5
-  %33 = load ptr, ptr %parsed.addr, align 8
-  %query22 = getelementptr inbounds %"struct.url::Parsed", ptr %33, i32 0, i32 6
-  %34 = load ptr, ptr %parsed.addr, align 8
-  %ref23 = getelementptr inbounds %"struct.url::Parsed", ptr %34, i32 0, i32 7
-  call void @_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, ptr noundef %path21, ptr noundef %query22, ptr noundef %ref23)
-  br label %return
-
-return:                                           ; preds = %if.end18, %if.then11, %if.then
-  ret void
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val24 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val24
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr noundef %parsed) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %trim_path_end.addr = alloca i8, align 1
-  %parsed.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  %frombool = zext i1 %trim_path_end to i8
-  store i8 %frombool, ptr %trim_path_end.addr, align 1
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load i8, ptr %trim_path_end.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %3 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %tobool, ptr noundef %3)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, i1 noundef zeroext %trim_path_end, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %trim_path_end.addr = alloca i8, align 1
-  %parsed.addr = alloca ptr, align 8
-  %scheme_begin = alloca i32, align 4
-  %path_begin = alloca i32, align 4
-  %true_if_passed = alloca %"class.logging::CheckOpResult", align 8
-  %ref.tmp = alloca %"class.logging::LogMessage", align 8
-  %ref.tmp19 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  %frombool = zext i1 %trim_path_end to i8
-  store i8 %frombool, ptr %trim_path_end.addr, align 1
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %parsed.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %0, i32 0, i32 1
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %username)
-  %1 = load ptr, ptr %parsed.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %1, i32 0, i32 2
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %password)
-  %2 = load ptr, ptr %parsed.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %2, i32 0, i32 3
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %host)
-  %3 = load ptr, ptr %parsed.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 4
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %port)
-  %4 = load ptr, ptr %parsed.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path)
-  %5 = load ptr, ptr %parsed.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 6
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %query)
-  %6 = load ptr, ptr %parsed.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %6, i32 0, i32 7
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  store i32 0, ptr %scheme_begin, align 4
-  %7 = load ptr, ptr %spec.addr, align 8
-  %8 = load i8, ptr %trim_path_end.addr, align 1
-  %tobool = trunc i8 %8 to i1
-  call void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %7, ptr noundef %scheme_begin, ptr noundef %spec_len.addr, i1 noundef zeroext %tobool)
-  %9 = load i32, ptr %scheme_begin, align 4
-  %10 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp eq i32 %9, %10
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %11 = load ptr, ptr %parsed.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %11, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme)
-  %12 = load ptr, ptr %parsed.addr, align 8
-  %path1 = getelementptr inbounds %"struct.url::Parsed", ptr %12, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path1)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %13 = load ptr, ptr %spec.addr, align 8
-  %14 = load i32, ptr %scheme_begin, align 4
-  %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %13, i64 %idxprom
-  %15 = load i32, ptr %spec_len.addr, align 4
-  %16 = load i32, ptr %scheme_begin, align 4
-  %sub = sub nsw i32 %15, %16
-  %17 = load ptr, ptr %parsed.addr, align 8
-  %scheme2 = getelementptr inbounds %"struct.url::Parsed", ptr %17, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef %arrayidx, i32 noundef %sub, ptr noundef %scheme2)
-  br i1 %call, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.end
-  %18 = load i32, ptr %scheme_begin, align 4
-  %19 = load ptr, ptr %parsed.addr, align 8
-  %scheme4 = getelementptr inbounds %"struct.url::Parsed", ptr %19, i32 0, i32 0
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %scheme4, i32 0, i32 0
-  %20 = load i32, ptr %begin, align 8
-  %add = add nsw i32 %20, %18
-  store i32 %add, ptr %begin, align 8
-  %21 = load ptr, ptr %parsed.addr, align 8
-  %scheme5 = getelementptr inbounds %"struct.url::Parsed", ptr %21, i32 0, i32 0
-  %call6 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme5)
-  %add7 = add nsw i32 %call6, 1
-  store i32 %add7, ptr %path_begin, align 4
-  br label %if.end9
-
-if.else:                                          ; preds = %if.end
-  %22 = load ptr, ptr %parsed.addr, align 8
-  %scheme8 = getelementptr inbounds %"struct.url::Parsed", ptr %22, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme8)
-  %23 = load i32, ptr %scheme_begin, align 4
-  store i32 %23, ptr %path_begin, align 4
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.else, %if.then3
-  %24 = load i32, ptr %path_begin, align 4
-  %25 = load i32, ptr %spec_len.addr, align 4
-  %cmp10 = icmp eq i32 %24, %25
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %if.end9
-  br label %return
-
-if.end12:                                         ; preds = %if.end9
-  call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed, ptr noundef null)
-  %call13 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
-  br i1 %call13, label %if.then14, label %if.else15
-
-if.then14:                                        ; preds = %if.end12
-  br label %if.end18
-
-if.else15:                                        ; preds = %if.end12
-  %call16 = call noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
-  call void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp, ptr noundef @.str, i32 noundef 496, i32 noundef 0, ptr noundef %call16)
-  %call17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp)
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #10
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.else15, %if.then14
-  %26 = load ptr, ptr %spec.addr, align 8
-  %27 = load i32, ptr %path_begin, align 4
-  %28 = load i32, ptr %spec_len.addr, align 4
-  %call20 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %27, i32 noundef %28)
-  store i64 %call20, ptr %ref.tmp19, align 4
-  %29 = load ptr, ptr %parsed.addr, align 8
-  %path21 = getelementptr inbounds %"struct.url::Parsed", ptr %29, i32 0, i32 5
-  %30 = load ptr, ptr %parsed.addr, align 8
-  %query22 = getelementptr inbounds %"struct.url::Parsed", ptr %30, i32 0, i32 6
-  %31 = load ptr, ptr %parsed.addr, align 8
-  %ref23 = getelementptr inbounds %"struct.url::Parsed", ptr %31, i32 0, i32 7
-  call void @_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, ptr noundef %path21, ptr noundef %query22, ptr noundef %ref23)
-  br label %return
-
-return:                                           ; preds = %if.end18, %if.then11, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url18ParseFileSystemURLEPKciPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, ptr noundef %parsed) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %inner_start = alloca i32, align 4
-  %inner_scheme = alloca %"struct.url::Component", align 4
-  %inner_spec = alloca ptr, align 8
-  %inner_spec_len = alloca i32, align 4
-  %inner_parsed = alloca %"struct.url::Parsed", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %inner_path_end = alloca i32, align 4
-  %new_inner_path_length = alloca i32, align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %parsed.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %0, i32 0, i32 1
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %username)
-  %1 = load ptr, ptr %parsed.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %1, i32 0, i32 2
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %password)
-  %2 = load ptr, ptr %parsed.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %2, i32 0, i32 3
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %host)
-  %3 = load ptr, ptr %parsed.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 4
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %port)
-  %4 = load ptr, ptr %parsed.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path)
-  %5 = load ptr, ptr %parsed.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 7
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  %6 = load ptr, ptr %parsed.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %6, i32 0, i32 6
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %query)
-  %7 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url6Parsed18clear_inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
-  store i32 0, ptr %begin, align 4
-  %8 = load ptr, ptr %spec.addr, align 8
-  call void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %8, ptr noundef %begin, ptr noundef %spec_len.addr, i1 noundef zeroext true)
-  %9 = load i32, ptr %begin, align 4
-  %10 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp eq i32 %9, %10
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %11 = load ptr, ptr %parsed.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %11, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme)
-  br label %cleanup.cont
-
-if.end:                                           ; preds = %entry
-  store i32 -1, ptr %inner_start, align 4
-  %12 = load ptr, ptr %spec.addr, align 8
-  %13 = load i32, ptr %begin, align 4
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %12, i64 %idxprom
-  %14 = load i32, ptr %spec_len.addr, align 4
-  %15 = load i32, ptr %begin, align 4
-  %sub = sub nsw i32 %14, %15
-  %16 = load ptr, ptr %parsed.addr, align 8
-  %scheme1 = getelementptr inbounds %"struct.url::Parsed", ptr %16, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %arrayidx, i32 noundef %sub, ptr noundef %scheme1)
-  br i1 %call, label %if.then2, label %if.else
-
-if.then2:                                         ; preds = %if.end
-  %17 = load i32, ptr %begin, align 4
-  %18 = load ptr, ptr %parsed.addr, align 8
-  %scheme3 = getelementptr inbounds %"struct.url::Parsed", ptr %18, i32 0, i32 0
-  %begin4 = getelementptr inbounds %"struct.url::Component", ptr %scheme3, i32 0, i32 0
-  %19 = load i32, ptr %begin4, align 8
-  %add = add nsw i32 %19, %17
-  store i32 %add, ptr %begin4, align 8
-  %20 = load ptr, ptr %parsed.addr, align 8
-  %scheme5 = getelementptr inbounds %"struct.url::Parsed", ptr %20, i32 0, i32 0
-  %call6 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme5)
-  %21 = load i32, ptr %spec_len.addr, align 4
-  %sub7 = sub nsw i32 %21, 1
-  %cmp8 = icmp eq i32 %call6, %sub7
-  br i1 %cmp8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.then2
-  br label %cleanup.cont
-
-if.end10:                                         ; preds = %if.then2
-  %22 = load ptr, ptr %parsed.addr, align 8
-  %scheme11 = getelementptr inbounds %"struct.url::Parsed", ptr %22, i32 0, i32 0
-  %call12 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme11)
-  %add13 = add nsw i32 %call12, 1
-  store i32 %add13, ptr %inner_start, align 4
-  br label %if.end15
-
-if.else:                                          ; preds = %if.end
-  %23 = load ptr, ptr %parsed.addr, align 8
-  %scheme14 = getelementptr inbounds %"struct.url::Parsed", ptr %23, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme14)
-  br label %cleanup.cont
-
-if.end15:                                         ; preds = %if.end10
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme)
-  %24 = load ptr, ptr %spec.addr, align 8
-  %25 = load i32, ptr %inner_start, align 4
-  %idxprom16 = sext i32 %25 to i64
-  %arrayidx17 = getelementptr inbounds i8, ptr %24, i64 %idxprom16
-  store ptr %arrayidx17, ptr %inner_spec, align 8
-  %26 = load i32, ptr %spec_len.addr, align 4
-  %27 = load i32, ptr %inner_start, align 4
-  %sub18 = sub nsw i32 %26, %27
-  store i32 %sub18, ptr %inner_spec_len, align 4
-  %28 = load ptr, ptr %inner_spec, align 8
-  %29 = load i32, ptr %inner_spec_len, align 4
-  %call19 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %28, i32 noundef %29, ptr noundef %inner_scheme)
-  br i1 %call19, label %if.then20, label %if.else28
-
-if.then20:                                        ; preds = %if.end15
-  %30 = load i32, ptr %inner_start, align 4
-  %begin21 = getelementptr inbounds %"struct.url::Component", ptr %inner_scheme, i32 0, i32 0
-  %31 = load i32, ptr %begin21, align 4
-  %add22 = add nsw i32 %31, %30
-  store i32 %add22, ptr %begin21, align 4
-  %call23 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme)
-  %32 = load i32, ptr %spec_len.addr, align 4
-  %sub24 = sub nsw i32 %32, 1
-  %cmp25 = icmp eq i32 %call23, %sub24
-  br i1 %cmp25, label %if.then26, label %if.end27
-
-if.then26:                                        ; preds = %if.then20
-  br label %cleanup.cont
-
-if.end27:                                         ; preds = %if.then20
-  br label %if.end29
-
-if.else28:                                        ; preds = %if.end15
-  br label %cleanup.cont
-
-if.end29:                                         ; preds = %if.end27
-  call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed)
-  %33 = load ptr, ptr %spec.addr, align 8
-  %call30 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef %33, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme, ptr noundef @_ZN3url11kFileSchemeE)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end29
-  br i1 %call30, label %if.then31, label %if.else33
-
-if.then31:                                        ; preds = %invoke.cont
-  %34 = load ptr, ptr %inner_spec, align 8
-  %35 = load i32, ptr %inner_spec_len, align 4
-  invoke void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %34, i32 noundef %35, ptr noundef %inner_parsed)
-          to label %invoke.cont32 unwind label %lpad
-
-invoke.cont32:                                    ; preds = %if.then31
-  br label %if.end45
-
-lpad:                                             ; preds = %while.end, %lor.lhs.false81, %if.end45, %if.then40, %if.else37, %if.else33, %if.then31, %if.end29
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed) #10
-  br label %eh.resume
-
-if.else33:                                        ; preds = %invoke.cont
-  %39 = load ptr, ptr %spec.addr, align 8
-  %call35 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme, ptr noundef @_ZN3url17kFileSystemSchemeE)
-          to label %invoke.cont34 unwind label %lpad
-
-invoke.cont34:                                    ; preds = %if.else33
-  br i1 %call35, label %if.then36, label %if.else37
-
-if.then36:                                        ; preds = %invoke.cont34
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.else37:                                        ; preds = %invoke.cont34
-  %40 = load ptr, ptr %spec.addr, align 8
-  %call39 = invoke noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme)
-          to label %invoke.cont38 unwind label %lpad
-
-invoke.cont38:                                    ; preds = %if.else37
-  br i1 %call39, label %if.then40, label %if.else42
-
-if.then40:                                        ; preds = %invoke.cont38
-  %41 = load ptr, ptr %inner_spec, align 8
-  %42 = load i32, ptr %inner_spec_len, align 4
-  invoke void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %41, i32 noundef %42, ptr noundef %inner_parsed)
-          to label %invoke.cont41 unwind label %lpad
-
-invoke.cont41:                                    ; preds = %if.then40
-  br label %if.end43
-
-if.else42:                                        ; preds = %invoke.cont38
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end43:                                         ; preds = %invoke.cont41
-  br label %if.end44
-
-if.end44:                                         ; preds = %if.end43
-  br label %if.end45
-
-if.end45:                                         ; preds = %if.end44, %invoke.cont32
-  %43 = load i32, ptr %inner_start, align 4
-  %scheme46 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 0
-  %begin47 = getelementptr inbounds %"struct.url::Component", ptr %scheme46, i32 0, i32 0
-  %44 = load i32, ptr %begin47, align 8
-  %add48 = add nsw i32 %44, %43
-  store i32 %add48, ptr %begin47, align 8
-  %45 = load i32, ptr %inner_start, align 4
-  %username49 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 1
-  %begin50 = getelementptr inbounds %"struct.url::Component", ptr %username49, i32 0, i32 0
-  %46 = load i32, ptr %begin50, align 8
-  %add51 = add nsw i32 %46, %45
-  store i32 %add51, ptr %begin50, align 8
-  %47 = load i32, ptr %inner_start, align 4
-  %password52 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 2
-  %begin53 = getelementptr inbounds %"struct.url::Component", ptr %password52, i32 0, i32 0
-  %48 = load i32, ptr %begin53, align 8
-  %add54 = add nsw i32 %48, %47
-  store i32 %add54, ptr %begin53, align 8
-  %49 = load i32, ptr %inner_start, align 4
-  %host55 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 3
-  %begin56 = getelementptr inbounds %"struct.url::Component", ptr %host55, i32 0, i32 0
-  %50 = load i32, ptr %begin56, align 8
-  %add57 = add nsw i32 %50, %49
-  store i32 %add57, ptr %begin56, align 8
-  %51 = load i32, ptr %inner_start, align 4
-  %port58 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 4
-  %begin59 = getelementptr inbounds %"struct.url::Component", ptr %port58, i32 0, i32 0
-  %52 = load i32, ptr %begin59, align 8
-  %add60 = add nsw i32 %52, %51
-  store i32 %add60, ptr %begin59, align 8
-  %53 = load i32, ptr %inner_start, align 4
-  %query61 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 6
-  %begin62 = getelementptr inbounds %"struct.url::Component", ptr %query61, i32 0, i32 0
-  %54 = load i32, ptr %begin62, align 8
-  %add63 = add nsw i32 %54, %53
-  store i32 %add63, ptr %begin62, align 8
-  %55 = load i32, ptr %inner_start, align 4
-  %ref64 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 7
-  %begin65 = getelementptr inbounds %"struct.url::Component", ptr %ref64, i32 0, i32 0
-  %56 = load i32, ptr %begin65, align 8
-  %add66 = add nsw i32 %56, %55
-  store i32 %add66, ptr %begin65, align 8
-  %57 = load i32, ptr %inner_start, align 4
-  %path67 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %begin68 = getelementptr inbounds %"struct.url::Component", ptr %path67, i32 0, i32 0
-  %58 = load i32, ptr %begin68, align 8
-  %add69 = add nsw i32 %58, %57
-  store i32 %add69, ptr %begin68, align 8
-  %query70 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 6
-  %59 = load ptr, ptr %parsed.addr, align 8
-  %query71 = getelementptr inbounds %"struct.url::Parsed", ptr %59, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %query71, ptr align 8 %query70, i64 8, i1 false)
-  %query72 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 6
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %query72)
-  %ref73 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 7
-  %60 = load ptr, ptr %parsed.addr, align 8
-  %ref74 = getelementptr inbounds %"struct.url::Parsed", ptr %60, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref74, ptr align 8 %ref73, i64 8, i1 false)
-  %ref75 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 7
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %ref75)
-  %61 = load ptr, ptr %parsed.addr, align 8
-  invoke void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed)
-          to label %invoke.cont76 unwind label %lpad
-
-invoke.cont76:                                    ; preds = %if.end45
-  %scheme77 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 0
-  %call78 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme77)
-  br i1 %call78, label %lor.lhs.false, label %if.then84
-
-lor.lhs.false:                                    ; preds = %invoke.cont76
-  %path79 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %call80 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %path79)
-  br i1 %call80, label %lor.lhs.false81, label %if.then84
-
-lor.lhs.false81:                                  ; preds = %lor.lhs.false
-  %call83 = invoke noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed)
-          to label %invoke.cont82 unwind label %lpad
-
-invoke.cont82:                                    ; preds = %lor.lhs.false81
-  %tobool = icmp ne ptr %call83, null
-  br i1 %tobool, label %if.then84, label %if.end85
-
-if.then84:                                        ; preds = %invoke.cont82, %lor.lhs.false, %invoke.cont76
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end85:                                         ; preds = %invoke.cont82
-  %62 = load ptr, ptr %spec.addr, align 8
-  %path86 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %begin87 = getelementptr inbounds %"struct.url::Component", ptr %path86, i32 0, i32 0
-  %63 = load i32, ptr %begin87, align 8
-  %idxprom88 = sext i32 %63 to i64
-  %arrayidx89 = getelementptr inbounds i8, ptr %62, i64 %idxprom88
-  %64 = load i8, ptr %arrayidx89, align 1
-  %conv = sext i8 %64 to i16
-  %call90 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %conv)
-  br i1 %call90, label %if.end92, label %if.then91
-
-if.then91:                                        ; preds = %if.end85
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end92:                                         ; preds = %if.end85
-  %path93 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %begin94 = getelementptr inbounds %"struct.url::Component", ptr %path93, i32 0, i32 0
-  %65 = load i32, ptr %begin94, align 8
-  %add95 = add nsw i32 %65, 1
-  store i32 %add95, ptr %inner_path_end, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end92
-  %66 = load i32, ptr %inner_path_end, align 4
-  %67 = load i32, ptr %spec_len.addr, align 4
-  %cmp96 = icmp slt i32 %66, %67
-  br i1 %cmp96, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %68 = load ptr, ptr %spec.addr, align 8
-  %69 = load i32, ptr %inner_path_end, align 4
-  %idxprom97 = sext i32 %69 to i64
-  %arrayidx98 = getelementptr inbounds i8, ptr %68, i64 %idxprom97
-  %70 = load i8, ptr %arrayidx98, align 1
-  %conv99 = sext i8 %70 to i16
-  %call100 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %conv99)
-  %lnot = xor i1 %call100, true
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %71 = phi i1 [ false, %while.cond ], [ %lnot, %land.rhs ]
-  br i1 %71, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %72 = load i32, ptr %inner_path_end, align 4
-  %inc = add nsw i32 %72, 1
-  store i32 %inc, ptr %inner_path_end, align 4
-  br label %while.cond, !llvm.loop !22
-
-while.end:                                        ; preds = %land.end
-  %73 = load i32, ptr %inner_path_end, align 4
-  %74 = load ptr, ptr %parsed.addr, align 8
-  %path101 = getelementptr inbounds %"struct.url::Parsed", ptr %74, i32 0, i32 5
-  %begin102 = getelementptr inbounds %"struct.url::Component", ptr %path101, i32 0, i32 0
-  store i32 %73, ptr %begin102, align 8
-  %75 = load i32, ptr %inner_path_end, align 4
-  %path103 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %begin104 = getelementptr inbounds %"struct.url::Component", ptr %path103, i32 0, i32 0
-  %76 = load i32, ptr %begin104, align 8
-  %sub105 = sub nsw i32 %75, %76
-  store i32 %sub105, ptr %new_inner_path_length, align 4
-  %path106 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %len = getelementptr inbounds %"struct.url::Component", ptr %path106, i32 0, i32 1
-  %77 = load i32, ptr %len, align 4
-  %78 = load i32, ptr %new_inner_path_length, align 4
-  %sub107 = sub nsw i32 %77, %78
-  %79 = load ptr, ptr %parsed.addr, align 8
-  %path108 = getelementptr inbounds %"struct.url::Parsed", ptr %79, i32 0, i32 5
-  %len109 = getelementptr inbounds %"struct.url::Component", ptr %path108, i32 0, i32 1
-  store i32 %sub107, ptr %len109, align 4
-  %80 = load i32, ptr %new_inner_path_length, align 4
-  %81 = load ptr, ptr %parsed.addr, align 8
-  %call111 = invoke noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %81)
-          to label %invoke.cont110 unwind label %lpad
-
-invoke.cont110:                                   ; preds = %while.end
-  %path112 = getelementptr inbounds %"struct.url::Parsed", ptr %call111, i32 0, i32 5
-  %len113 = getelementptr inbounds %"struct.url::Component", ptr %path112, i32 0, i32 1
-  store i32 %80, ptr %len113, align 4
-  store i32 0, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont110, %if.then91, %if.then84, %if.else42, %if.then36
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed) #10
-  %cleanup.dest = load i32, ptr %cleanup.dest.slot, align 4
-  switch i32 %cleanup.dest, label %unreachable [
-    i32 0, label %cleanup.cont
-    i32 1, label %cleanup.cont
+define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 0, ptr %8, align 4, !tbaa !17
+  br label %12
+
+12:                                               ; preds = %26, %3
+  %13 = load i32, ptr %8, align 4, !tbaa !17
+  %14 = load i32, ptr %6, align 4, !tbaa !17
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %24
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8, !tbaa !32
+  %18 = load i32, ptr %8, align 4, !tbaa !17
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !34
+  %22 = sext i8 %21 to i16
+  %23 = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %22)
+  br label %24
+
+24:                                               ; preds = %16, %12
+  %25 = phi i1 [ false, %12 ], [ %23, %16 ]
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %24
+  %27 = load i32, ptr %8, align 4, !tbaa !17
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %8, align 4, !tbaa !17
+  br label %12, !llvm.loop !35
+
+29:                                               ; preds = %24
+  %30 = load i32, ptr %8, align 4, !tbaa !17
+  %31 = load i32, ptr %6, align 4, !tbaa !17
+  %32 = icmp eq i32 %30, %31
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %29
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %61
+
+34:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %35 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %35, ptr %10, align 4, !tbaa !17
+  br label %36
+
+36:                                               ; preds = %55, %34
+  %37 = load i32, ptr %10, align 4, !tbaa !17
+  %38 = load i32, ptr %6, align 4, !tbaa !17
+  %39 = icmp slt i32 %37, %38
+  br i1 %39, label %41, label %40
+
+40:                                               ; preds = %36
+  store i32 4, ptr %9, align 4
+  br label %58
+
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %5, align 8, !tbaa !32
+  %43 = load i32, ptr %10, align 4, !tbaa !17
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i8, ptr %42, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !34
+  %47 = sext i8 %46 to i32
+  %48 = icmp eq i32 %47, 58
+  br i1 %48, label %49, label %54
+
+49:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %50 = load i32, ptr %8, align 4, !tbaa !17
+  %51 = load i32, ptr %10, align 4, !tbaa !17
+  %52 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %50, i32 noundef %51)
+  store i64 %52, ptr %11, align 4
+  %53 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %53, ptr align 4 %11, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %58
+
+54:                                               ; preds = %41
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load i32, ptr %10, align 4, !tbaa !17
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %10, align 4, !tbaa !17
+  br label %36, !llvm.loop !37
+
+58:                                               ; preds = %49, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  %59 = load i32, ptr %9, align 4
+  switch i32 %59, label %61 [
+    i32 4, label %60
   ]
 
-cleanup.cont:                                     ; preds = %cleanup, %cleanup, %if.else28, %if.then26, %if.else, %if.then9, %if.then
+60:                                               ; preds = %58
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %61
+
+61:                                               ; preds = %60, %58, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  %62 = load i1, ptr %4, align 1
+  ret i1 %62
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !38
+  %8 = load i32, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !12
+  %10 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %7, i32 noundef %8, ptr noundef %9)
+  ret i1 %10
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 0, ptr %8, align 4, !tbaa !17
+  br label %12
+
+12:                                               ; preds = %25, %3
+  %13 = load i32, ptr %8, align 4, !tbaa !17
+  %14 = load i32, ptr %6, align 4, !tbaa !17
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %23
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8, !tbaa !38
+  %18 = load i32, ptr %8, align 4, !tbaa !17
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i16, ptr %17, i64 %19
+  %21 = load i16, ptr %20, align 2, !tbaa !40
+  %22 = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %21)
+  br label %23
+
+23:                                               ; preds = %16, %12
+  %24 = phi i1 [ false, %12 ], [ %22, %16 ]
+  br i1 %24, label %25, label %28
+
+25:                                               ; preds = %23
+  %26 = load i32, ptr %8, align 4, !tbaa !17
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %8, align 4, !tbaa !17
+  br label %12, !llvm.loop !42
+
+28:                                               ; preds = %23
+  %29 = load i32, ptr %8, align 4, !tbaa !17
+  %30 = load i32, ptr %6, align 4, !tbaa !17
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %28
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %60
+
+33:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %34 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %34, ptr %10, align 4, !tbaa !17
+  br label %35
+
+35:                                               ; preds = %54, %33
+  %36 = load i32, ptr %10, align 4, !tbaa !17
+  %37 = load i32, ptr %6, align 4, !tbaa !17
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %35
+  store i32 4, ptr %9, align 4
+  br label %57
+
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %5, align 8, !tbaa !38
+  %42 = load i32, ptr %10, align 4, !tbaa !17
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i16, ptr %41, i64 %43
+  %45 = load i16, ptr %44, align 2, !tbaa !40
+  %46 = zext i16 %45 to i32
+  %47 = icmp eq i32 %46, 58
+  br i1 %47, label %48, label %53
+
+48:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %49 = load i32, ptr %8, align 4, !tbaa !17
+  %50 = load i32, ptr %10, align 4, !tbaa !17
+  %51 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %49, i32 noundef %50)
+  store i64 %51, ptr %11, align 4
+  %52 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %52, ptr align 4 %11, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %57
+
+53:                                               ; preds = %40
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load i32, ptr %10, align 4, !tbaa !17
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %10, align 4, !tbaa !17
+  br label %35, !llvm.loop !43
+
+57:                                               ; preds = %48, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  %58 = load i32, ptr %9, align 4
+  switch i32 %58, label %60 [
+    i32 4, label %59
+  ]
+
+59:                                               ; preds = %57
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %60
+
+60:                                               ; preds = %59, %57, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  %61 = load i1, ptr %4, align 1
+  ret i1 %61
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext %0) #0 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !40
+  %3 = load i16, ptr %2, align 2, !tbaa !40
+  %4 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %3)
+  br i1 %4, label %13, label %5
+
+5:                                                ; preds = %1
+  %6 = load i16, ptr %2, align 2, !tbaa !40
+  %7 = zext i16 %6 to i32
+  %8 = icmp eq i32 %7, 63
+  br i1 %8, label %13, label %9
+
+9:                                                ; preds = %5
+  %10 = load i16, ptr %2, align 2, !tbaa !40
+  %11 = zext i16 %10 to i32
+  %12 = icmp eq i32 %11, 35
+  br label %13
+
+13:                                               ; preds = %9, %5, %1
+  %14 = phi i1 [ true, %5 ], [ true, %1 ], [ %12, %9 ]
+  ret i1 %14
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %0) #5 comdat {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !40
+  %3 = load i16, ptr %2, align 2, !tbaa !40
+  %4 = zext i16 %3 to i32
+  %5 = icmp eq i32 %4, 47
+  br i1 %5, label %10, label %6
+
+6:                                                ; preds = %1
+  %7 = load i16, ptr %2, align 2, !tbaa !40
+  %8 = zext i16 %7 to i32
+  %9 = icmp eq i32 %8, 92
+  br label %10
+
+10:                                               ; preds = %6, %1
+  %11 = phi i1 [ true, %1 ], [ %9, %6 ]
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url15ExtractFileNameEPKcRKNS_9ComponentEPS2_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load ptr, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_(ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_117DoExtractFileNameIcEEvPKT_RKNS_9ComponentEPS5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.url::Component", align 4
+  %11 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %12 = load ptr, ptr %5, align 8, !tbaa !12
+  %13 = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
+  br i1 %13, label %16, label %14
+
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %15)
+  br label %68
+
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %17 = load ptr, ptr %5, align 8, !tbaa !12
+  %18 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %17)
+  store i32 %18, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %19 = load ptr, ptr %5, align 8, !tbaa !12
+  %20 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %21 = sub nsw i32 %20, 1
+  store i32 %21, ptr %8, align 4, !tbaa !17
+  br label %22
+
+22:                                               ; preds = %55, %16
+  %23 = load i32, ptr %8, align 4, !tbaa !17
+  %24 = load ptr, ptr %5, align 8, !tbaa !12
+  %25 = getelementptr inbounds nuw %"struct.url::Component", ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 4, !tbaa !14
+  %27 = icmp sge i32 %23, %26
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %22
+  store i32 2, ptr %9, align 4
+  br label %58
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %4, align 8, !tbaa !32
+  %31 = load i32, ptr %8, align 4, !tbaa !17
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !34
+  %35 = sext i8 %34 to i32
+  %36 = icmp eq i32 %35, 59
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %29
+  %38 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %38, ptr %7, align 4, !tbaa !17
+  br label %54
+
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %4, align 8, !tbaa !32
+  %41 = load i32, ptr %8, align 4, !tbaa !17
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %40, i64 %42
+  %44 = load i8, ptr %43, align 1, !tbaa !34
+  %45 = sext i8 %44 to i16
+  %46 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %45)
+  br i1 %46, label %47, label %53
+
+47:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %48 = load i32, ptr %8, align 4, !tbaa !17
+  %49 = add nsw i32 %48, 1
+  %50 = load i32, ptr %7, align 4, !tbaa !17
+  %51 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %49, i32 noundef %50)
+  store i64 %51, ptr %10, align 4
+  %52 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %52, ptr align 4 %10, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  store i32 1, ptr %9, align 4
+  br label %58
+
+53:                                               ; preds = %39
+  br label %54
+
+54:                                               ; preds = %53, %37
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load i32, ptr %8, align 4, !tbaa !17
+  %57 = add nsw i32 %56, -1
+  store i32 %57, ptr %8, align 4, !tbaa !17
+  br label %22, !llvm.loop !44
+
+58:                                               ; preds = %47, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  %59 = load i32, ptr %9, align 4
+  switch i32 %59, label %67 [
+    i32 2, label %60
+  ]
+
+60:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %61 = load ptr, ptr %5, align 8, !tbaa !12
+  %62 = getelementptr inbounds nuw %"struct.url::Component", ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 4, !tbaa !14
+  %64 = load i32, ptr %7, align 4, !tbaa !17
+  %65 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %63, i32 noundef %64)
+  store i64 %65, ptr %11, align 4
+  %66 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %66, ptr align 4 %11, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  store i32 1, ptr %9, align 4
+  br label %67
+
+67:                                               ; preds = %60, %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  br label %68
+
+68:                                               ; preds = %67, %14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url15ExtractFileNameEPKtRKNS_9ComponentEPS2_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !38
+  %8 = load ptr, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_(ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_117DoExtractFileNameItEEvPKT_RKNS_9ComponentEPS5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.url::Component", align 4
+  %11 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %12 = load ptr, ptr %5, align 8, !tbaa !12
+  %13 = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
+  br i1 %13, label %16, label %14
+
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %15)
+  br label %67
+
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %17 = load ptr, ptr %5, align 8, !tbaa !12
+  %18 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %17)
+  store i32 %18, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %19 = load ptr, ptr %5, align 8, !tbaa !12
+  %20 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %21 = sub nsw i32 %20, 1
+  store i32 %21, ptr %8, align 4, !tbaa !17
+  br label %22
+
+22:                                               ; preds = %54, %16
+  %23 = load i32, ptr %8, align 4, !tbaa !17
+  %24 = load ptr, ptr %5, align 8, !tbaa !12
+  %25 = getelementptr inbounds nuw %"struct.url::Component", ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 4, !tbaa !14
+  %27 = icmp sge i32 %23, %26
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %22
+  store i32 2, ptr %9, align 4
+  br label %57
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %4, align 8, !tbaa !38
+  %31 = load i32, ptr %8, align 4, !tbaa !17
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i16, ptr %30, i64 %32
+  %34 = load i16, ptr %33, align 2, !tbaa !40
+  %35 = zext i16 %34 to i32
+  %36 = icmp eq i32 %35, 59
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %29
+  %38 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %38, ptr %7, align 4, !tbaa !17
+  br label %53
+
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %4, align 8, !tbaa !38
+  %41 = load i32, ptr %8, align 4, !tbaa !17
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i16, ptr %40, i64 %42
+  %44 = load i16, ptr %43, align 2, !tbaa !40
+  %45 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %44)
+  br i1 %45, label %46, label %52
+
+46:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %47 = load i32, ptr %8, align 4, !tbaa !17
+  %48 = add nsw i32 %47, 1
+  %49 = load i32, ptr %7, align 4, !tbaa !17
+  %50 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %48, i32 noundef %49)
+  store i64 %50, ptr %10, align 4
+  %51 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %51, ptr align 4 %10, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  store i32 1, ptr %9, align 4
+  br label %57
+
+52:                                               ; preds = %39
+  br label %53
+
+53:                                               ; preds = %52, %37
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load i32, ptr %8, align 4, !tbaa !17
+  %56 = add nsw i32 %55, -1
+  store i32 %56, ptr %8, align 4, !tbaa !17
+  br label %22, !llvm.loop !45
+
+57:                                               ; preds = %46, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  %58 = load i32, ptr %9, align 4
+  switch i32 %58, label %66 [
+    i32 2, label %59
+  ]
+
+59:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %60 = load ptr, ptr %5, align 8, !tbaa !12
+  %61 = getelementptr inbounds nuw %"struct.url::Component", ptr %60, i32 0, i32 0
+  %62 = load i32, ptr %61, align 4, !tbaa !14
+  %63 = load i32, ptr %7, align 4, !tbaa !17
+  %64 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %62, i32 noundef %63)
+  store i64 %64, ptr %11, align 4
+  %65 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr align 4 %11, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  store i32 1, ptr %9, align 4
+  br label %66
+
+66:                                               ; preds = %59, %57
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  br label %67
+
+67:                                               ; preds = %66, %14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKcPNS_9ComponentES3_S3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !32
+  %10 = load ptr, ptr %6, align 8, !tbaa !12
+  %11 = load ptr, ptr %7, align 8, !tbaa !12
+  %12 = load ptr, ptr %8, align 8, !tbaa !12
+  %13 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueIcEEbPKT_PNS_9ComponentES6_S6_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  ret i1 %13
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueIcEEbPKT_PNS_9ComponentES6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %6, align 8, !tbaa !32
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  %14 = load ptr, ptr %7, align 8, !tbaa !12
+  %15 = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %14)
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  br label %122
+
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %18 = load ptr, ptr %7, align 8, !tbaa !12
+  %19 = getelementptr inbounds nuw %"struct.url::Component", ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %19, align 4, !tbaa !14
+  store i32 %20, ptr %10, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %21 = load i32, ptr %10, align 4, !tbaa !17
+  store i32 %21, ptr %11, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %22 = load ptr, ptr %7, align 8, !tbaa !12
+  %23 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %22)
+  store i32 %23, ptr %12, align 4, !tbaa !17
+  %24 = load i32, ptr %11, align 4, !tbaa !17
+  %25 = load ptr, ptr %8, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw %"struct.url::Component", ptr %25, i32 0, i32 0
+  store i32 %24, ptr %26, align 4, !tbaa !14
+  br label %27
+
+27:                                               ; preds = %49, %17
+  %28 = load i32, ptr %11, align 4, !tbaa !17
+  %29 = load i32, ptr %12, align 4, !tbaa !17
+  %30 = icmp slt i32 %28, %29
+  br i1 %30, label %31, label %47
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %6, align 8, !tbaa !32
+  %33 = load i32, ptr %11, align 4, !tbaa !17
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !34
+  %37 = sext i8 %36 to i32
+  %38 = icmp ne i32 %37, 38
+  br i1 %38, label %39, label %47
+
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %6, align 8, !tbaa !32
+  %41 = load i32, ptr %11, align 4, !tbaa !17
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %40, i64 %42
+  %44 = load i8, ptr %43, align 1, !tbaa !34
+  %45 = sext i8 %44 to i32
+  %46 = icmp ne i32 %45, 61
+  br label %47
+
+47:                                               ; preds = %39, %31, %27
+  %48 = phi i1 [ false, %31 ], [ false, %27 ], [ %46, %39 ]
+  br i1 %48, label %49, label %52
+
+49:                                               ; preds = %47
+  %50 = load i32, ptr %11, align 4, !tbaa !17
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %11, align 4, !tbaa !17
+  br label %27, !llvm.loop !46
+
+52:                                               ; preds = %47
+  %53 = load i32, ptr %11, align 4, !tbaa !17
+  %54 = load ptr, ptr %8, align 8, !tbaa !12
+  %55 = getelementptr inbounds nuw %"struct.url::Component", ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4, !tbaa !14
+  %57 = sub nsw i32 %53, %56
+  %58 = load ptr, ptr %8, align 8, !tbaa !12
+  %59 = getelementptr inbounds nuw %"struct.url::Component", ptr %58, i32 0, i32 1
+  store i32 %57, ptr %59, align 4, !tbaa !15
+  %60 = load i32, ptr %11, align 4, !tbaa !17
+  %61 = load i32, ptr %12, align 4, !tbaa !17
+  %62 = icmp slt i32 %60, %61
+  br i1 %62, label %63, label %74
+
+63:                                               ; preds = %52
+  %64 = load ptr, ptr %6, align 8, !tbaa !32
+  %65 = load i32, ptr %11, align 4, !tbaa !17
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %64, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !34
+  %69 = sext i8 %68 to i32
+  %70 = icmp eq i32 %69, 61
+  br i1 %70, label %71, label %74
+
+71:                                               ; preds = %63
+  %72 = load i32, ptr %11, align 4, !tbaa !17
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %11, align 4, !tbaa !17
+  br label %74
+
+74:                                               ; preds = %71, %63, %52
+  %75 = load i32, ptr %11, align 4, !tbaa !17
+  %76 = load ptr, ptr %9, align 8, !tbaa !12
+  %77 = getelementptr inbounds nuw %"struct.url::Component", ptr %76, i32 0, i32 0
+  store i32 %75, ptr %77, align 4, !tbaa !14
+  br label %78
+
+78:                                               ; preds = %92, %74
+  %79 = load i32, ptr %11, align 4, !tbaa !17
+  %80 = load i32, ptr %12, align 4, !tbaa !17
+  %81 = icmp slt i32 %79, %80
+  br i1 %81, label %82, label %90
+
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %6, align 8, !tbaa !32
+  %84 = load i32, ptr %11, align 4, !tbaa !17
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %83, i64 %85
+  %87 = load i8, ptr %86, align 1, !tbaa !34
+  %88 = sext i8 %87 to i32
+  %89 = icmp ne i32 %88, 38
+  br label %90
+
+90:                                               ; preds = %82, %78
+  %91 = phi i1 [ false, %78 ], [ %89, %82 ]
+  br i1 %91, label %92, label %95
+
+92:                                               ; preds = %90
+  %93 = load i32, ptr %11, align 4, !tbaa !17
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %11, align 4, !tbaa !17
+  br label %78, !llvm.loop !47
+
+95:                                               ; preds = %90
+  %96 = load i32, ptr %11, align 4, !tbaa !17
+  %97 = load ptr, ptr %9, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw %"struct.url::Component", ptr %97, i32 0, i32 0
+  %99 = load i32, ptr %98, align 4, !tbaa !14
+  %100 = sub nsw i32 %96, %99
+  %101 = load ptr, ptr %9, align 8, !tbaa !12
+  %102 = getelementptr inbounds nuw %"struct.url::Component", ptr %101, i32 0, i32 1
+  store i32 %100, ptr %102, align 4, !tbaa !15
+  %103 = load i32, ptr %11, align 4, !tbaa !17
+  %104 = load i32, ptr %12, align 4, !tbaa !17
+  %105 = icmp slt i32 %103, %104
+  br i1 %105, label %106, label %117
+
+106:                                              ; preds = %95
+  %107 = load ptr, ptr %6, align 8, !tbaa !32
+  %108 = load i32, ptr %11, align 4, !tbaa !17
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i8, ptr %107, i64 %109
+  %111 = load i8, ptr %110, align 1, !tbaa !34
+  %112 = sext i8 %111 to i32
+  %113 = icmp eq i32 %112, 38
+  br i1 %113, label %114, label %117
+
+114:                                              ; preds = %106
+  %115 = load i32, ptr %11, align 4, !tbaa !17
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %11, align 4, !tbaa !17
+  br label %117
+
+117:                                              ; preds = %114, %106, %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %118 = load i32, ptr %11, align 4, !tbaa !17
+  %119 = load i32, ptr %12, align 4, !tbaa !17
+  %120 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %118, i32 noundef %119)
+  store i64 %120, ptr %13, align 4
+  %121 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %121, ptr align 4 %13, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  store i1 true, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  br label %122
+
+122:                                              ; preds = %117, %16
+  %123 = load i1, ptr %5, align 1
+  ret i1 %123
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3url20ExtractQueryKeyValueEPKtPNS_9ComponentES3_S3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !38
+  %10 = load ptr, ptr %6, align 8, !tbaa !12
+  %11 = load ptr, ptr %7, align 8, !tbaa !12
+  %12 = load ptr, ptr %8, align 8, !tbaa !12
+  %13 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueItEEbPKT_PNS_9ComponentES6_S6_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  ret i1 %13
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_122DoExtractQueryKeyValueItEEbPKT_PNS_9ComponentES6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %6, align 8, !tbaa !38
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  %14 = load ptr, ptr %7, align 8, !tbaa !12
+  %15 = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %14)
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  br label %122
+
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %18 = load ptr, ptr %7, align 8, !tbaa !12
+  %19 = getelementptr inbounds nuw %"struct.url::Component", ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %19, align 4, !tbaa !14
+  store i32 %20, ptr %10, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %21 = load i32, ptr %10, align 4, !tbaa !17
+  store i32 %21, ptr %11, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %22 = load ptr, ptr %7, align 8, !tbaa !12
+  %23 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %22)
+  store i32 %23, ptr %12, align 4, !tbaa !17
+  %24 = load i32, ptr %11, align 4, !tbaa !17
+  %25 = load ptr, ptr %8, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw %"struct.url::Component", ptr %25, i32 0, i32 0
+  store i32 %24, ptr %26, align 4, !tbaa !14
+  br label %27
+
+27:                                               ; preds = %49, %17
+  %28 = load i32, ptr %11, align 4, !tbaa !17
+  %29 = load i32, ptr %12, align 4, !tbaa !17
+  %30 = icmp slt i32 %28, %29
+  br i1 %30, label %31, label %47
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %6, align 8, !tbaa !38
+  %33 = load i32, ptr %11, align 4, !tbaa !17
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i16, ptr %32, i64 %34
+  %36 = load i16, ptr %35, align 2, !tbaa !40
+  %37 = zext i16 %36 to i32
+  %38 = icmp ne i32 %37, 38
+  br i1 %38, label %39, label %47
+
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %6, align 8, !tbaa !38
+  %41 = load i32, ptr %11, align 4, !tbaa !17
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i16, ptr %40, i64 %42
+  %44 = load i16, ptr %43, align 2, !tbaa !40
+  %45 = zext i16 %44 to i32
+  %46 = icmp ne i32 %45, 61
+  br label %47
+
+47:                                               ; preds = %39, %31, %27
+  %48 = phi i1 [ false, %31 ], [ false, %27 ], [ %46, %39 ]
+  br i1 %48, label %49, label %52
+
+49:                                               ; preds = %47
+  %50 = load i32, ptr %11, align 4, !tbaa !17
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %11, align 4, !tbaa !17
+  br label %27, !llvm.loop !48
+
+52:                                               ; preds = %47
+  %53 = load i32, ptr %11, align 4, !tbaa !17
+  %54 = load ptr, ptr %8, align 8, !tbaa !12
+  %55 = getelementptr inbounds nuw %"struct.url::Component", ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4, !tbaa !14
+  %57 = sub nsw i32 %53, %56
+  %58 = load ptr, ptr %8, align 8, !tbaa !12
+  %59 = getelementptr inbounds nuw %"struct.url::Component", ptr %58, i32 0, i32 1
+  store i32 %57, ptr %59, align 4, !tbaa !15
+  %60 = load i32, ptr %11, align 4, !tbaa !17
+  %61 = load i32, ptr %12, align 4, !tbaa !17
+  %62 = icmp slt i32 %60, %61
+  br i1 %62, label %63, label %74
+
+63:                                               ; preds = %52
+  %64 = load ptr, ptr %6, align 8, !tbaa !38
+  %65 = load i32, ptr %11, align 4, !tbaa !17
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i16, ptr %64, i64 %66
+  %68 = load i16, ptr %67, align 2, !tbaa !40
+  %69 = zext i16 %68 to i32
+  %70 = icmp eq i32 %69, 61
+  br i1 %70, label %71, label %74
+
+71:                                               ; preds = %63
+  %72 = load i32, ptr %11, align 4, !tbaa !17
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %11, align 4, !tbaa !17
+  br label %74
+
+74:                                               ; preds = %71, %63, %52
+  %75 = load i32, ptr %11, align 4, !tbaa !17
+  %76 = load ptr, ptr %9, align 8, !tbaa !12
+  %77 = getelementptr inbounds nuw %"struct.url::Component", ptr %76, i32 0, i32 0
+  store i32 %75, ptr %77, align 4, !tbaa !14
+  br label %78
+
+78:                                               ; preds = %92, %74
+  %79 = load i32, ptr %11, align 4, !tbaa !17
+  %80 = load i32, ptr %12, align 4, !tbaa !17
+  %81 = icmp slt i32 %79, %80
+  br i1 %81, label %82, label %90
+
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %6, align 8, !tbaa !38
+  %84 = load i32, ptr %11, align 4, !tbaa !17
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i16, ptr %83, i64 %85
+  %87 = load i16, ptr %86, align 2, !tbaa !40
+  %88 = zext i16 %87 to i32
+  %89 = icmp ne i32 %88, 38
+  br label %90
+
+90:                                               ; preds = %82, %78
+  %91 = phi i1 [ false, %78 ], [ %89, %82 ]
+  br i1 %91, label %92, label %95
+
+92:                                               ; preds = %90
+  %93 = load i32, ptr %11, align 4, !tbaa !17
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %11, align 4, !tbaa !17
+  br label %78, !llvm.loop !49
+
+95:                                               ; preds = %90
+  %96 = load i32, ptr %11, align 4, !tbaa !17
+  %97 = load ptr, ptr %9, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw %"struct.url::Component", ptr %97, i32 0, i32 0
+  %99 = load i32, ptr %98, align 4, !tbaa !14
+  %100 = sub nsw i32 %96, %99
+  %101 = load ptr, ptr %9, align 8, !tbaa !12
+  %102 = getelementptr inbounds nuw %"struct.url::Component", ptr %101, i32 0, i32 1
+  store i32 %100, ptr %102, align 4, !tbaa !15
+  %103 = load i32, ptr %11, align 4, !tbaa !17
+  %104 = load i32, ptr %12, align 4, !tbaa !17
+  %105 = icmp slt i32 %103, %104
+  br i1 %105, label %106, label %117
+
+106:                                              ; preds = %95
+  %107 = load ptr, ptr %6, align 8, !tbaa !38
+  %108 = load i32, ptr %11, align 4, !tbaa !17
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i16, ptr %107, i64 %109
+  %111 = load i16, ptr %110, align 2, !tbaa !40
+  %112 = zext i16 %111 to i32
+  %113 = icmp eq i32 %112, 38
+  br i1 %113, label %114, label %117
+
+114:                                              ; preds = %106
+  %115 = load i32, ptr %11, align 4, !tbaa !17
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %11, align 4, !tbaa !17
+  br label %117
+
+117:                                              ; preds = %114, %106, %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %118 = load i32, ptr %11, align 4, !tbaa !17
+  %119 = load i32, ptr %12, align 4, !tbaa !17
+  %120 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %118, i32 noundef %119)
+  store i64 %120, ptr %13, align 4
+  %121 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %121, ptr align 4 %13, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  store i1 true, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  br label %122
+
+122:                                              ; preds = %117, %16
+  %123 = load i1, ptr %5, align 1
+  ret i1 %123
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url14ParseAuthorityEPKcRKNS_9ComponentEPS2_S5_S5_S5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !32
+  store ptr %1, ptr %8, align 8, !tbaa !12
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !12
+  store ptr %5, ptr %12, align 8, !tbaa !12
+  %13 = load ptr, ptr %7, align 8, !tbaa !32
+  %14 = load ptr, ptr %8, align 8, !tbaa !12
+  %15 = load ptr, ptr %9, align 8, !tbaa !12
+  %16 = load ptr, ptr %10, align 8, !tbaa !12
+  %17 = load ptr, ptr %11, align 8, !tbaa !12
+  %18 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %"struct.url::Component", align 4
+  %15 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %7, align 8, !tbaa !32
+  store ptr %1, ptr %8, align 8, !tbaa !12
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !12
+  store ptr %5, ptr %12, align 8, !tbaa !12
+  %16 = load ptr, ptr %8, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw %"struct.url::Component", ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !15
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %22 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %22)
+  %23 = load ptr, ptr %11, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %24)
+  br label %94
+
+25:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %26 = load ptr, ptr %8, align 8, !tbaa !12
+  %27 = getelementptr inbounds nuw %"struct.url::Component", ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 4, !tbaa !14
+  %29 = load ptr, ptr %8, align 8, !tbaa !12
+  %30 = getelementptr inbounds nuw %"struct.url::Component", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4, !tbaa !15
+  %32 = add nsw i32 %28, %31
+  %33 = sub nsw i32 %32, 1
+  store i32 %33, ptr %13, align 4, !tbaa !17
+  br label %34
+
+34:                                               ; preds = %50, %25
+  %35 = load i32, ptr %13, align 4, !tbaa !17
+  %36 = load ptr, ptr %8, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw %"struct.url::Component", ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 4, !tbaa !14
+  %39 = icmp sgt i32 %35, %38
+  br i1 %39, label %40, label %48
+
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %7, align 8, !tbaa !32
+  %42 = load i32, ptr %13, align 4, !tbaa !17
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %41, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !34
+  %46 = sext i8 %45 to i32
+  %47 = icmp ne i32 %46, 64
+  br label %48
+
+48:                                               ; preds = %40, %34
+  %49 = phi i1 [ false, %34 ], [ %47, %40 ]
+  br i1 %49, label %50, label %53
+
+50:                                               ; preds = %48
+  %51 = load i32, ptr %13, align 4, !tbaa !17
+  %52 = add nsw i32 %51, -1
+  store i32 %52, ptr %13, align 4, !tbaa !17
+  br label %34, !llvm.loop !50
+
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %7, align 8, !tbaa !32
+  %55 = load i32, ptr %13, align 4, !tbaa !17
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i8, ptr %54, i64 %56
+  %58 = load i8, ptr %57, align 1, !tbaa !34
+  %59 = sext i8 %58 to i32
+  %60 = icmp eq i32 %59, 64
+  br i1 %60, label %61, label %86
+
+61:                                               ; preds = %53
+  %62 = load ptr, ptr %7, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #13
+  %63 = load ptr, ptr %8, align 8, !tbaa !12
+  %64 = getelementptr inbounds nuw %"struct.url::Component", ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 4, !tbaa !14
+  %66 = load i32, ptr %13, align 4, !tbaa !17
+  %67 = load ptr, ptr %8, align 8, !tbaa !12
+  %68 = getelementptr inbounds nuw %"struct.url::Component", ptr %67, i32 0, i32 0
+  %69 = load i32, ptr %68, align 4, !tbaa !14
+  %70 = sub nsw i32 %66, %69
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %14, i32 noundef %65, i32 noundef %70)
+  %71 = load ptr, ptr %9, align 8, !tbaa !12
+  %72 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_113ParseUserInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %62, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef %71, ptr noundef %72)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #13
+  %73 = load ptr, ptr %7, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  %74 = load i32, ptr %13, align 4, !tbaa !17
+  %75 = add nsw i32 %74, 1
+  %76 = load ptr, ptr %8, align 8, !tbaa !12
+  %77 = getelementptr inbounds nuw %"struct.url::Component", ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 4, !tbaa !14
+  %79 = load ptr, ptr %8, align 8, !tbaa !12
+  %80 = getelementptr inbounds nuw %"struct.url::Component", ptr %79, i32 0, i32 1
+  %81 = load i32, ptr %80, align 4, !tbaa !15
+  %82 = add nsw i32 %78, %81
+  %83 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %75, i32 noundef %82)
+  store i64 %83, ptr %15, align 4
+  %84 = load ptr, ptr %11, align 8, !tbaa !12
+  %85 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_115ParseServerInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %73, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %84, ptr noundef %85)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  br label %93
+
+86:                                               ; preds = %53
+  %87 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %87)
+  %88 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %88)
+  %89 = load ptr, ptr %7, align 8, !tbaa !32
+  %90 = load ptr, ptr %8, align 8, !tbaa !12
+  %91 = load ptr, ptr %11, align 8, !tbaa !12
+  %92 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_115ParseServerInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %89, ptr noundef nonnull align 4 dereferenceable(8) %90, ptr noundef %91, ptr noundef %92)
+  br label %93
+
+93:                                               ; preds = %86, %61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  br label %94
+
+94:                                               ; preds = %93, %20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url14ParseAuthorityEPKtRKNS_9ComponentEPS2_S5_S5_S5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !38
+  store ptr %1, ptr %8, align 8, !tbaa !12
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !12
+  store ptr %5, ptr %12, align 8, !tbaa !12
+  %13 = load ptr, ptr %7, align 8, !tbaa !38
+  %14 = load ptr, ptr %8, align 8, !tbaa !12
+  %15 = load ptr, ptr %9, align 8, !tbaa !12
+  %16 = load ptr, ptr %10, align 8, !tbaa !12
+  %17 = load ptr, ptr %11, align 8, !tbaa !12
+  %18 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %"struct.url::Component", align 4
+  %15 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %7, align 8, !tbaa !38
+  store ptr %1, ptr %8, align 8, !tbaa !12
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !12
+  store ptr %5, ptr %12, align 8, !tbaa !12
+  %16 = load ptr, ptr %8, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw %"struct.url::Component", ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !15
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %22 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %22)
+  %23 = load ptr, ptr %11, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %24)
+  br label %94
+
+25:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %26 = load ptr, ptr %8, align 8, !tbaa !12
+  %27 = getelementptr inbounds nuw %"struct.url::Component", ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 4, !tbaa !14
+  %29 = load ptr, ptr %8, align 8, !tbaa !12
+  %30 = getelementptr inbounds nuw %"struct.url::Component", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4, !tbaa !15
+  %32 = add nsw i32 %28, %31
+  %33 = sub nsw i32 %32, 1
+  store i32 %33, ptr %13, align 4, !tbaa !17
+  br label %34
+
+34:                                               ; preds = %50, %25
+  %35 = load i32, ptr %13, align 4, !tbaa !17
+  %36 = load ptr, ptr %8, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw %"struct.url::Component", ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 4, !tbaa !14
+  %39 = icmp sgt i32 %35, %38
+  br i1 %39, label %40, label %48
+
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %7, align 8, !tbaa !38
+  %42 = load i32, ptr %13, align 4, !tbaa !17
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i16, ptr %41, i64 %43
+  %45 = load i16, ptr %44, align 2, !tbaa !40
+  %46 = zext i16 %45 to i32
+  %47 = icmp ne i32 %46, 64
+  br label %48
+
+48:                                               ; preds = %40, %34
+  %49 = phi i1 [ false, %34 ], [ %47, %40 ]
+  br i1 %49, label %50, label %53
+
+50:                                               ; preds = %48
+  %51 = load i32, ptr %13, align 4, !tbaa !17
+  %52 = add nsw i32 %51, -1
+  store i32 %52, ptr %13, align 4, !tbaa !17
+  br label %34, !llvm.loop !51
+
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %7, align 8, !tbaa !38
+  %55 = load i32, ptr %13, align 4, !tbaa !17
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i16, ptr %54, i64 %56
+  %58 = load i16, ptr %57, align 2, !tbaa !40
+  %59 = zext i16 %58 to i32
+  %60 = icmp eq i32 %59, 64
+  br i1 %60, label %61, label %86
+
+61:                                               ; preds = %53
+  %62 = load ptr, ptr %7, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #13
+  %63 = load ptr, ptr %8, align 8, !tbaa !12
+  %64 = getelementptr inbounds nuw %"struct.url::Component", ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 4, !tbaa !14
+  %66 = load i32, ptr %13, align 4, !tbaa !17
+  %67 = load ptr, ptr %8, align 8, !tbaa !12
+  %68 = getelementptr inbounds nuw %"struct.url::Component", ptr %67, i32 0, i32 0
+  %69 = load i32, ptr %68, align 4, !tbaa !14
+  %70 = sub nsw i32 %66, %69
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %14, i32 noundef %65, i32 noundef %70)
+  %71 = load ptr, ptr %9, align 8, !tbaa !12
+  %72 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_113ParseUserInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %62, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef %71, ptr noundef %72)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #13
+  %73 = load ptr, ptr %7, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  %74 = load i32, ptr %13, align 4, !tbaa !17
+  %75 = add nsw i32 %74, 1
+  %76 = load ptr, ptr %8, align 8, !tbaa !12
+  %77 = getelementptr inbounds nuw %"struct.url::Component", ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 4, !tbaa !14
+  %79 = load ptr, ptr %8, align 8, !tbaa !12
+  %80 = getelementptr inbounds nuw %"struct.url::Component", ptr %79, i32 0, i32 1
+  %81 = load i32, ptr %80, align 4, !tbaa !15
+  %82 = add nsw i32 %78, %81
+  %83 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %75, i32 noundef %82)
+  store i64 %83, ptr %15, align 4
+  %84 = load ptr, ptr %11, align 8, !tbaa !12
+  %85 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_115ParseServerInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %73, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %84, ptr noundef %85)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  br label %93
+
+86:                                               ; preds = %53
+  %87 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %87)
+  %88 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %88)
+  %89 = load ptr, ptr %7, align 8, !tbaa !38
+  %90 = load ptr, ptr %8, align 8, !tbaa !12
+  %91 = load ptr, ptr %11, align 8, !tbaa !12
+  %92 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_115ParseServerInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %89, ptr noundef nonnull align 4 dereferenceable(8) %90, ptr noundef %91, ptr noundef %92)
+  br label %93
+
+93:                                               ; preds = %86, %61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  br label %94
+
+94:                                               ; preds = %93, %20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = call noundef i32 @_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE(ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
+  ret i32 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN3url12_GLOBAL__N_111DoParsePortIcEEiPKT_RKNS_9ComponentE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %"struct.url::Component", align 4
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.url::Component", align 4
+  %11 = alloca [6 x i8], align 1
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 5, ptr %6, align 4, !tbaa !17
+  %15 = load ptr, ptr %5, align 8, !tbaa !12
+  %16 = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %15)
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %112
+
+18:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %19 = load ptr, ptr %5, align 8, !tbaa !12
+  %20 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef %20, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %9, align 4, !tbaa !17
+  br label %21
+
+21:                                               ; preds = %50, %18
+  %22 = load i32, ptr %9, align 4, !tbaa !17
+  %23 = load ptr, ptr %5, align 8, !tbaa !12
+  %24 = getelementptr inbounds nuw %"struct.url::Component", ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4, !tbaa !15
+  %26 = icmp slt i32 %22, %25
+  br i1 %26, label %28, label %27
+
+27:                                               ; preds = %21
+  store i32 2, ptr %7, align 4
+  br label %53
+
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %4, align 8, !tbaa !32
+  %30 = load ptr, ptr %5, align 8, !tbaa !12
+  %31 = getelementptr inbounds nuw %"struct.url::Component", ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 4, !tbaa !14
+  %33 = load i32, ptr %9, align 4, !tbaa !17
+  %34 = add nsw i32 %32, %33
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i8, ptr %29, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !34
+  %38 = sext i8 %37 to i32
+  %39 = icmp ne i32 %38, 48
+  br i1 %39, label %40, label %49
+
+40:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %41 = load ptr, ptr %5, align 8, !tbaa !12
+  %42 = getelementptr inbounds nuw %"struct.url::Component", ptr %41, i32 0, i32 0
+  %43 = load i32, ptr %42, align 4, !tbaa !14
+  %44 = load i32, ptr %9, align 4, !tbaa !17
+  %45 = add nsw i32 %43, %44
+  %46 = load ptr, ptr %5, align 8, !tbaa !12
+  %47 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %46)
+  %48 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %45, i32 noundef %47)
+  store i64 %48, ptr %10, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %10, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  store i32 2, ptr %7, align 4
+  br label %53
+
+49:                                               ; preds = %28
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i32, ptr %9, align 4, !tbaa !17
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %9, align 4, !tbaa !17
+  br label %21, !llvm.loop !52
+
+53:                                               ; preds = %40, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 1
+  %56 = load i32, ptr %55, align 4, !tbaa !15
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %59
+
+58:                                               ; preds = %54
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %111
+
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 1
+  %61 = load i32, ptr %60, align 4, !tbaa !15
+  %62 = icmp sgt i32 %61, 5
+  br i1 %62, label %63, label %64
+
+63:                                               ; preds = %59
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %111
+
+64:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 6, ptr %11) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  store i32 0, ptr %12, align 4, !tbaa !17
+  br label %65
+
+65:                                               ; preds = %92, %64
+  %66 = load i32, ptr %12, align 4, !tbaa !17
+  %67 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 1
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = icmp slt i32 %66, %68
+  br i1 %69, label %71, label %70
+
+70:                                               ; preds = %65
+  store i32 5, ptr %7, align 4
+  br label %95
+
+71:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #13
+  %72 = load ptr, ptr %4, align 8, !tbaa !32
+  %73 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 0
+  %74 = load i32, ptr %73, align 4, !tbaa !14
+  %75 = load i32, ptr %12, align 4, !tbaa !17
+  %76 = add nsw i32 %74, %75
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i8, ptr %72, i64 %77
+  %79 = load i8, ptr %78, align 1, !tbaa !34
+  store i8 %79, ptr %13, align 1, !tbaa !34
+  %80 = load i8, ptr %13, align 1, !tbaa !34
+  %81 = sext i8 %80 to i16
+  %82 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_111IsPortDigitEt(i16 noundef zeroext %81)
+  br i1 %82, label %84, label %83
+
+83:                                               ; preds = %71
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %89
+
+84:                                               ; preds = %71
+  %85 = load i8, ptr %13, align 1, !tbaa !34
+  %86 = load i32, ptr %12, align 4, !tbaa !17
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds [6 x i8], ptr %11, i64 0, i64 %87
+  store i8 %85, ptr %88, align 1, !tbaa !34
+  store i32 0, ptr %7, align 4
+  br label %89
+
+89:                                               ; preds = %84, %83
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #13
+  %90 = load i32, ptr %7, align 4
+  switch i32 %90, label %95 [
+    i32 0, label %91
+  ]
+
+91:                                               ; preds = %89
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load i32, ptr %12, align 4, !tbaa !17
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %12, align 4, !tbaa !17
+  br label %65, !llvm.loop !53
+
+95:                                               ; preds = %89, %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  %96 = load i32, ptr %7, align 4
+  switch i32 %96, label %110 [
+    i32 5, label %97
+  ]
+
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 1
+  %99 = load i32, ptr %98, align 4, !tbaa !15
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds [6 x i8], ptr %11, i64 0, i64 %100
+  store i8 0, ptr %101, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %102 = getelementptr inbounds [6 x i8], ptr %11, i64 0, i64 0
+  %103 = call i32 @atoi(ptr noundef %102) #14
+  store i32 %103, ptr %14, align 4, !tbaa !17
+  %104 = load i32, ptr %14, align 4, !tbaa !17
+  %105 = icmp sgt i32 %104, 65535
+  br i1 %105, label %106, label %107
+
+106:                                              ; preds = %97
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %109
+
+107:                                              ; preds = %97
+  %108 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %108, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %109
+
+109:                                              ; preds = %107, %106
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  br label %110
+
+110:                                              ; preds = %109, %95
+  call void @llvm.lifetime.end.p0(i64 6, ptr %11) #13
+  br label %111
+
+111:                                              ; preds = %110, %63, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  br label %112
+
+112:                                              ; preds = %111, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  %113 = load i32, ptr %3, align 4
+  ret i32 %113
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !38
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = call noundef i32 @_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE(ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
+  ret i32 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN3url12_GLOBAL__N_111DoParsePortItEEiPKT_RKNS_9ComponentE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %"struct.url::Component", align 4
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.url::Component", align 4
+  %11 = alloca [6 x i8], align 1
+  %12 = alloca i32, align 4
+  %13 = alloca i16, align 2
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 5, ptr %6, align 4, !tbaa !17
+  %15 = load ptr, ptr %5, align 8, !tbaa !12
+  %16 = call noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %15)
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %112
+
+18:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %19 = load ptr, ptr %5, align 8, !tbaa !12
+  %20 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef %20, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %9, align 4, !tbaa !17
+  br label %21
+
+21:                                               ; preds = %50, %18
+  %22 = load i32, ptr %9, align 4, !tbaa !17
+  %23 = load ptr, ptr %5, align 8, !tbaa !12
+  %24 = getelementptr inbounds nuw %"struct.url::Component", ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4, !tbaa !15
+  %26 = icmp slt i32 %22, %25
+  br i1 %26, label %28, label %27
+
+27:                                               ; preds = %21
+  store i32 2, ptr %7, align 4
+  br label %53
+
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %4, align 8, !tbaa !38
+  %30 = load ptr, ptr %5, align 8, !tbaa !12
+  %31 = getelementptr inbounds nuw %"struct.url::Component", ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 4, !tbaa !14
+  %33 = load i32, ptr %9, align 4, !tbaa !17
+  %34 = add nsw i32 %32, %33
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i16, ptr %29, i64 %35
+  %37 = load i16, ptr %36, align 2, !tbaa !40
+  %38 = zext i16 %37 to i32
+  %39 = icmp ne i32 %38, 48
+  br i1 %39, label %40, label %49
+
+40:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %41 = load ptr, ptr %5, align 8, !tbaa !12
+  %42 = getelementptr inbounds nuw %"struct.url::Component", ptr %41, i32 0, i32 0
+  %43 = load i32, ptr %42, align 4, !tbaa !14
+  %44 = load i32, ptr %9, align 4, !tbaa !17
+  %45 = add nsw i32 %43, %44
+  %46 = load ptr, ptr %5, align 8, !tbaa !12
+  %47 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %46)
+  %48 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %45, i32 noundef %47)
+  store i64 %48, ptr %10, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %10, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  store i32 2, ptr %7, align 4
+  br label %53
+
+49:                                               ; preds = %28
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i32, ptr %9, align 4, !tbaa !17
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %9, align 4, !tbaa !17
+  br label %21, !llvm.loop !54
+
+53:                                               ; preds = %40, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 1
+  %56 = load i32, ptr %55, align 4, !tbaa !15
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %59
+
+58:                                               ; preds = %54
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %111
+
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 1
+  %61 = load i32, ptr %60, align 4, !tbaa !15
+  %62 = icmp sgt i32 %61, 5
+  br i1 %62, label %63, label %64
+
+63:                                               ; preds = %59
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %111
+
+64:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 6, ptr %11) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  store i32 0, ptr %12, align 4, !tbaa !17
+  br label %65
+
+65:                                               ; preds = %92, %64
+  %66 = load i32, ptr %12, align 4, !tbaa !17
+  %67 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 1
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = icmp slt i32 %66, %68
+  br i1 %69, label %71, label %70
+
+70:                                               ; preds = %65
+  store i32 5, ptr %7, align 4
+  br label %95
+
+71:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #13
+  %72 = load ptr, ptr %4, align 8, !tbaa !38
+  %73 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 0
+  %74 = load i32, ptr %73, align 4, !tbaa !14
+  %75 = load i32, ptr %12, align 4, !tbaa !17
+  %76 = add nsw i32 %74, %75
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i16, ptr %72, i64 %77
+  %79 = load i16, ptr %78, align 2, !tbaa !40
+  store i16 %79, ptr %13, align 2, !tbaa !40
+  %80 = load i16, ptr %13, align 2, !tbaa !40
+  %81 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_111IsPortDigitEt(i16 noundef zeroext %80)
+  br i1 %81, label %83, label %82
+
+82:                                               ; preds = %71
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %89
+
+83:                                               ; preds = %71
+  %84 = load i16, ptr %13, align 2, !tbaa !40
+  %85 = trunc i16 %84 to i8
+  %86 = load i32, ptr %12, align 4, !tbaa !17
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds [6 x i8], ptr %11, i64 0, i64 %87
+  store i8 %85, ptr %88, align 1, !tbaa !34
+  store i32 0, ptr %7, align 4
+  br label %89
+
+89:                                               ; preds = %83, %82
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #13
+  %90 = load i32, ptr %7, align 4
+  switch i32 %90, label %95 [
+    i32 0, label %91
+  ]
+
+91:                                               ; preds = %89
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load i32, ptr %12, align 4, !tbaa !17
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %12, align 4, !tbaa !17
+  br label %65, !llvm.loop !55
+
+95:                                               ; preds = %89, %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  %96 = load i32, ptr %7, align 4
+  switch i32 %96, label %110 [
+    i32 5, label %97
+  ]
+
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw %"struct.url::Component", ptr %8, i32 0, i32 1
+  %99 = load i32, ptr %98, align 4, !tbaa !15
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds [6 x i8], ptr %11, i64 0, i64 %100
+  store i8 0, ptr %101, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %102 = getelementptr inbounds [6 x i8], ptr %11, i64 0, i64 0
+  %103 = call i32 @atoi(ptr noundef %102) #14
+  store i32 %103, ptr %14, align 4, !tbaa !17
+  %104 = load i32, ptr %14, align 4, !tbaa !17
+  %105 = icmp sgt i32 %104, 65535
+  br i1 %105, label %106, label %107
+
+106:                                              ; preds = %97
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %109
+
+107:                                              ; preds = %97
+  %108 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %108, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %109
+
+109:                                              ; preds = %107, %106
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  br label %110
+
+110:                                              ; preds = %109, %95
+  call void @llvm.lifetime.end.p0(i64 6, ptr %11) #13
+  br label %111
+
+111:                                              ; preds = %110, %63, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  br label %112
+
+112:                                              ; preds = %111, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  %113 = load i32, ptr %3, align 4
+  ret i32 %113
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url16ParseStandardURLEPKciPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load i32, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %7, i32 noundef %8, ptr noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !17
+  %9 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %9, ptr noundef %7, ptr noundef %5, i1 noundef zeroext true)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %10 = load ptr, ptr %4, align 8, !tbaa !32
+  %11 = load i32, ptr %5, align 4, !tbaa !17
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %12, i32 0, i32 0
+  %14 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %10, i32 noundef %11, ptr noundef %13)
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %16, i32 0, i32 0
+  %18 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %17)
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %8, align 4, !tbaa !17
+  br label %24
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %6, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %21, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %22)
+  %23 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %23, ptr %8, align 4, !tbaa !17
+  br label %24
+
+24:                                               ; preds = %20, %15
+  %25 = load ptr, ptr %4, align 8, !tbaa !32
+  %26 = load i32, ptr %5, align 4, !tbaa !17
+  %27 = load i32, ptr %8, align 4, !tbaa !17
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url16ParseStandardURLEPKtiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !38
+  %8 = load i32, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE(ptr noundef %7, i32 noundef %8, ptr noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !17
+  %9 = load ptr, ptr %4, align 8, !tbaa !38
+  call void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %9, ptr noundef %7, ptr noundef %5, i1 noundef zeroext true)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %10 = load ptr, ptr %4, align 8, !tbaa !38
+  %11 = load i32, ptr %5, align 4, !tbaa !17
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %12, i32 0, i32 0
+  %14 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %10, i32 noundef %11, ptr noundef %13)
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %16, i32 0, i32 0
+  %18 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %17)
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %8, align 4, !tbaa !17
+  br label %24
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %6, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %21, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %22)
+  %23 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %23, ptr %8, align 4, !tbaa !17
+  br label %24
+
+24:                                               ; preds = %20, %15
+  %25 = load ptr, ptr %4, align 8, !tbaa !38
+  %26 = load i32, ptr %5, align 4, !tbaa !17
+  %27 = load i32, ptr %8, align 4, !tbaa !17
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  %9 = zext i1 %2 to i8
+  store i8 %9, ptr %7, align 1, !tbaa !20
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !32
+  %11 = load i32, ptr %6, align 4, !tbaa !17
+  %12 = load i8, ptr %7, align 1, !tbaa !20, !range !26, !noundef !27
+  %13 = trunc i8 %12 to i1
+  %14 = load ptr, ptr %8, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE(ptr noundef %10, i32 noundef %11, i1 noundef zeroext %13, ptr noundef %14)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.logging::CheckOpResult", align 8
+  %13 = alloca %"class.logging::LogMessage", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  %17 = zext i1 %2 to i8
+  store i8 %17, ptr %7, align 1, !tbaa !20
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %18 = load ptr, ptr %8, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %18, i32 0, i32 1
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %20 = load ptr, ptr %8, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %20, i32 0, i32 2
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %22, i32 0, i32 3
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %8, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %24, i32 0, i32 4
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %25)
+  %26 = load ptr, ptr %8, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %26, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %27)
+  %28 = load ptr, ptr %8, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %28, i32 0, i32 6
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %29)
+  %30 = load ptr, ptr %8, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %30, i32 0, i32 7
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %31)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %9, align 4, !tbaa !17
+  %32 = load ptr, ptr %5, align 8, !tbaa !32
+  %33 = load i8, ptr %7, align 1, !tbaa !20, !range !26, !noundef !27
+  %34 = trunc i8 %33 to i1
+  call void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %32, ptr noundef %9, ptr noundef %6, i1 noundef zeroext %34)
+  %35 = load i32, ptr %9, align 4, !tbaa !17
+  %36 = load i32, ptr %6, align 4, !tbaa !17
+  %37 = icmp eq i32 %35, %36
+  br i1 %37, label %38, label %43
+
+38:                                               ; preds = %4
+  %39 = load ptr, ptr %8, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %39, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %40)
+  %41 = load ptr, ptr %8, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %41, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %42)
+  store i32 1, ptr %10, align 4
+  br label %97
+
+43:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %44 = load ptr, ptr %5, align 8, !tbaa !32
+  %45 = load i32, ptr %9, align 4, !tbaa !17
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i8, ptr %44, i64 %46
+  %48 = load i32, ptr %6, align 4, !tbaa !17
+  %49 = load i32, ptr %9, align 4, !tbaa !17
+  %50 = sub nsw i32 %48, %49
+  %51 = load ptr, ptr %8, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %51, i32 0, i32 0
+  %53 = call noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef %47, i32 noundef %50, ptr noundef %52)
+  br i1 %53, label %54, label %65
+
+54:                                               ; preds = %43
+  %55 = load i32, ptr %9, align 4, !tbaa !17
+  %56 = load ptr, ptr %8, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds nuw %"struct.url::Component", ptr %57, i32 0, i32 0
+  %59 = load i32, ptr %58, align 8, !tbaa !22
+  %60 = add nsw i32 %59, %55
+  store i32 %60, ptr %58, align 8, !tbaa !22
+  %61 = load ptr, ptr %8, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %61, i32 0, i32 0
+  %63 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %62)
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %11, align 4, !tbaa !17
+  br label %69
+
+65:                                               ; preds = %43
+  %66 = load ptr, ptr %8, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %66, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %67)
+  %68 = load i32, ptr %9, align 4, !tbaa !17
+  store i32 %68, ptr %11, align 4, !tbaa !17
+  br label %69
+
+69:                                               ; preds = %65, %54
+  %70 = load i32, ptr %11, align 4, !tbaa !17
+  %71 = load i32, ptr %6, align 4, !tbaa !17
+  %72 = icmp eq i32 %70, %71
+  br i1 %72, label %73, label %74
+
+73:                                               ; preds = %69
+  store i32 1, ptr %10, align 4
+  br label %96
+
+74:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef null)
+  %75 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %74
+  br label %85
+
+77:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 408, ptr %13) #13
+  %78 = call noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  call void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %13, ptr noundef @.str, i32 noundef 496, i32 noundef 0, ptr noundef %78)
+  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %13)
+          to label %80 unwind label %81
+
+80:                                               ; preds = %77
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %13) #13
+  call void @llvm.lifetime.end.p0(i64 408, ptr %13) #13
+  br label %85
+
+81:                                               ; preds = %77
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %14, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %15, align 4
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %13) #13
+  call void @llvm.lifetime.end.p0(i64 408, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %100
+
+85:                                               ; preds = %80, %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %86 = load ptr, ptr %5, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #13
+  %87 = load i32, ptr %11, align 4, !tbaa !17
+  %88 = load i32, ptr %6, align 4, !tbaa !17
+  %89 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %87, i32 noundef %88)
+  store i64 %89, ptr %16, align 4
+  %90 = load ptr, ptr %8, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %90, i32 0, i32 5
+  %92 = load ptr, ptr %8, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %92, i32 0, i32 6
+  %94 = load ptr, ptr %8, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %94, i32 0, i32 7
+  call void @_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %86, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef %91, ptr noundef %93, ptr noundef %95)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #13
+  store i32 0, ptr %10, align 4
+  br label %96
+
+96:                                               ; preds = %85, %73
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %97
+
+97:                                               ; preds = %96, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  %98 = load i32, ptr %10, align 4
+  switch i32 %98, label %105 [
+    i32 0, label %99
+    i32 1, label %99
+  ]
+
+99:                                               ; preds = %97, %97
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val114 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val114
+100:                                              ; preds = %81
+  %101 = load ptr, ptr %14, align 8
+  %102 = load i32, ptr %15, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
 
-unreachable:                                      ; preds = %cleanup
+105:                                              ; preds = %97
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url18ParseFileSystemURLEPKtiPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2)
+define void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  %9 = zext i1 %2 to i8
+  store i8 %9, ptr %7, align 1, !tbaa !20
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !38
+  %11 = load i32, ptr %6, align 4, !tbaa !17
+  %12 = load i8, ptr %7, align 1, !tbaa !20, !range !26, !noundef !27
+  %13 = trunc i8 %12 to i1
+  %14 = load ptr, ptr %8, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE(ptr noundef %10, i32 noundef %11, i1 noundef zeroext %13, ptr noundef %14)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, ptr noundef %parsed) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %inner_start = alloca i32, align 4
-  %inner_scheme = alloca %"struct.url::Component", align 4
-  %inner_spec = alloca ptr, align 8
-  %inner_spec_len = alloca i32, align 4
-  %inner_parsed = alloca %"struct.url::Parsed", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %inner_path_end = alloca i32, align 4
-  %new_inner_path_length = alloca i32, align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %parsed.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %0, i32 0, i32 1
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %username)
-  %1 = load ptr, ptr %parsed.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %1, i32 0, i32 2
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %password)
-  %2 = load ptr, ptr %parsed.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %2, i32 0, i32 3
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %host)
-  %3 = load ptr, ptr %parsed.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 4
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %port)
-  %4 = load ptr, ptr %parsed.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path)
-  %5 = load ptr, ptr %parsed.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 7
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  %6 = load ptr, ptr %parsed.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %6, i32 0, i32 6
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %query)
-  %7 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url6Parsed18clear_inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
-  store i32 0, ptr %begin, align 4
-  %8 = load ptr, ptr %spec.addr, align 8
-  call void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %8, ptr noundef %begin, ptr noundef %spec_len.addr, i1 noundef zeroext true)
-  %9 = load i32, ptr %begin, align 4
-  %10 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp eq i32 %9, %10
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.logging::CheckOpResult", align 8
+  %13 = alloca %"class.logging::LogMessage", align 8
+  %14 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  %15 = zext i1 %2 to i8
+  store i8 %15, ptr %7, align 1, !tbaa !20
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %16 = load ptr, ptr %8, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %16, i32 0, i32 1
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %17)
+  %18 = load ptr, ptr %8, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %18, i32 0, i32 2
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %20 = load ptr, ptr %8, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %20, i32 0, i32 3
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %22, i32 0, i32 4
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %8, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %24, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %25)
+  %26 = load ptr, ptr %8, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %26, i32 0, i32 6
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %27)
+  %28 = load ptr, ptr %8, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %28, i32 0, i32 7
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %29)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %9, align 4, !tbaa !17
+  %30 = load ptr, ptr %5, align 8, !tbaa !38
+  %31 = load i8, ptr %7, align 1, !tbaa !20, !range !26, !noundef !27
+  %32 = trunc i8 %31 to i1
+  call void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %30, ptr noundef %9, ptr noundef %6, i1 noundef zeroext %32)
+  %33 = load i32, ptr %9, align 4, !tbaa !17
+  %34 = load i32, ptr %6, align 4, !tbaa !17
+  %35 = icmp eq i32 %33, %34
+  br i1 %35, label %36, label %41
 
-if.then:                                          ; preds = %entry
-  %11 = load ptr, ptr %parsed.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %11, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme)
-  br label %cleanup.cont
+36:                                               ; preds = %4
+  %37 = load ptr, ptr %8, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %37, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %38)
+  %39 = load ptr, ptr %8, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %39, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %40)
+  store i32 1, ptr %10, align 4
+  br label %90
 
-if.end:                                           ; preds = %entry
-  store i32 -1, ptr %inner_start, align 4
-  %12 = load ptr, ptr %spec.addr, align 8
-  %13 = load i32, ptr %begin, align 4
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %12, i64 %idxprom
-  %14 = load i32, ptr %spec_len.addr, align 4
-  %15 = load i32, ptr %begin, align 4
-  %sub = sub nsw i32 %14, %15
-  %16 = load ptr, ptr %parsed.addr, align 8
-  %scheme1 = getelementptr inbounds %"struct.url::Parsed", ptr %16, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %arrayidx, i32 noundef %sub, ptr noundef %scheme1)
-  br i1 %call, label %if.then2, label %if.else
+41:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %42 = load ptr, ptr %5, align 8, !tbaa !38
+  %43 = load i32, ptr %9, align 4, !tbaa !17
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i16, ptr %42, i64 %44
+  %46 = load i32, ptr %6, align 4, !tbaa !17
+  %47 = load i32, ptr %9, align 4, !tbaa !17
+  %48 = sub nsw i32 %46, %47
+  %49 = load ptr, ptr %8, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %49, i32 0, i32 0
+  %51 = call noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef %45, i32 noundef %48, ptr noundef %50)
+  br i1 %51, label %52, label %63
 
-if.then2:                                         ; preds = %if.end
-  %17 = load i32, ptr %begin, align 4
-  %18 = load ptr, ptr %parsed.addr, align 8
-  %scheme3 = getelementptr inbounds %"struct.url::Parsed", ptr %18, i32 0, i32 0
-  %begin4 = getelementptr inbounds %"struct.url::Component", ptr %scheme3, i32 0, i32 0
-  %19 = load i32, ptr %begin4, align 8
-  %add = add nsw i32 %19, %17
-  store i32 %add, ptr %begin4, align 8
-  %20 = load ptr, ptr %parsed.addr, align 8
-  %scheme5 = getelementptr inbounds %"struct.url::Parsed", ptr %20, i32 0, i32 0
-  %call6 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme5)
-  %21 = load i32, ptr %spec_len.addr, align 4
-  %sub7 = sub nsw i32 %21, 1
-  %cmp8 = icmp eq i32 %call6, %sub7
-  br i1 %cmp8, label %if.then9, label %if.end10
+52:                                               ; preds = %41
+  %53 = load i32, ptr %9, align 4, !tbaa !17
+  %54 = load ptr, ptr %8, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %"struct.url::Component", ptr %55, i32 0, i32 0
+  %57 = load i32, ptr %56, align 8, !tbaa !22
+  %58 = add nsw i32 %57, %53
+  store i32 %58, ptr %56, align 8, !tbaa !22
+  %59 = load ptr, ptr %8, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %59, i32 0, i32 0
+  %61 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %60)
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %11, align 4, !tbaa !17
+  br label %67
 
-if.then9:                                         ; preds = %if.then2
-  br label %cleanup.cont
+63:                                               ; preds = %41
+  %64 = load ptr, ptr %8, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %64, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %65)
+  %66 = load i32, ptr %9, align 4, !tbaa !17
+  store i32 %66, ptr %11, align 4, !tbaa !17
+  br label %67
 
-if.end10:                                         ; preds = %if.then2
-  %22 = load ptr, ptr %parsed.addr, align 8
-  %scheme11 = getelementptr inbounds %"struct.url::Parsed", ptr %22, i32 0, i32 0
-  %call12 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme11)
-  %add13 = add nsw i32 %call12, 1
-  store i32 %add13, ptr %inner_start, align 4
-  br label %if.end15
+67:                                               ; preds = %63, %52
+  %68 = load i32, ptr %11, align 4, !tbaa !17
+  %69 = load i32, ptr %6, align 4, !tbaa !17
+  %70 = icmp eq i32 %68, %69
+  br i1 %70, label %71, label %72
 
-if.else:                                          ; preds = %if.end
-  %23 = load ptr, ptr %parsed.addr, align 8
-  %scheme14 = getelementptr inbounds %"struct.url::Parsed", ptr %23, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme14)
-  br label %cleanup.cont
+71:                                               ; preds = %67
+  store i32 1, ptr %10, align 4
+  br label %89
 
-if.end15:                                         ; preds = %if.end10
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme)
-  %24 = load ptr, ptr %spec.addr, align 8
-  %25 = load i32, ptr %inner_start, align 4
-  %idxprom16 = sext i32 %25 to i64
-  %arrayidx17 = getelementptr inbounds i16, ptr %24, i64 %idxprom16
-  store ptr %arrayidx17, ptr %inner_spec, align 8
-  %26 = load i32, ptr %spec_len.addr, align 4
-  %27 = load i32, ptr %inner_start, align 4
-  %sub18 = sub nsw i32 %26, %27
-  store i32 %sub18, ptr %inner_spec_len, align 4
-  %28 = load ptr, ptr %inner_spec, align 8
-  %29 = load i32, ptr %inner_spec_len, align 4
-  %call19 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %28, i32 noundef %29, ptr noundef %inner_scheme)
-  br i1 %call19, label %if.then20, label %if.else28
+72:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef null)
+  %73 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  br i1 %73, label %74, label %75
 
-if.then20:                                        ; preds = %if.end15
-  %30 = load i32, ptr %inner_start, align 4
-  %begin21 = getelementptr inbounds %"struct.url::Component", ptr %inner_scheme, i32 0, i32 0
-  %31 = load i32, ptr %begin21, align 4
-  %add22 = add nsw i32 %31, %30
-  store i32 %add22, ptr %begin21, align 4
-  %call23 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme)
-  %32 = load i32, ptr %spec_len.addr, align 4
-  %sub24 = sub nsw i32 %32, 1
-  %cmp25 = icmp eq i32 %call23, %sub24
-  br i1 %cmp25, label %if.then26, label %if.end27
+74:                                               ; preds = %72
+  br label %78
 
-if.then26:                                        ; preds = %if.then20
-  br label %cleanup.cont
+75:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 408, ptr %13) #13
+  %76 = call noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  call void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %13, ptr noundef @.str, i32 noundef 496, i32 noundef 0, ptr noundef %76)
+  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %13)
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %13) #13
+  call void @llvm.lifetime.end.p0(i64 408, ptr %13) #13
+  br label %78
 
-if.end27:                                         ; preds = %if.then20
-  br label %if.end29
+78:                                               ; preds = %75, %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %79 = load ptr, ptr %5, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #13
+  %80 = load i32, ptr %11, align 4, !tbaa !17
+  %81 = load i32, ptr %6, align 4, !tbaa !17
+  %82 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %80, i32 noundef %81)
+  store i64 %82, ptr %14, align 4
+  %83 = load ptr, ptr %8, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %83, i32 0, i32 5
+  %85 = load ptr, ptr %8, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %85, i32 0, i32 6
+  %87 = load ptr, ptr %8, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %87, i32 0, i32 7
+  call void @_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %79, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef %84, ptr noundef %86, ptr noundef %88)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #13
+  store i32 0, ptr %10, align 4
+  br label %89
 
-if.else28:                                        ; preds = %if.end15
-  br label %cleanup.cont
+89:                                               ; preds = %78, %71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %90
 
-if.end29:                                         ; preds = %if.end27
-  call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed)
-  %33 = load ptr, ptr %spec.addr, align 8
-  %call30 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef %33, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme, ptr noundef @_ZN3url11kFileSchemeE)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end29
-  br i1 %call30, label %if.then31, label %if.else33
-
-if.then31:                                        ; preds = %invoke.cont
-  %34 = load ptr, ptr %inner_spec, align 8
-  %35 = load i32, ptr %inner_spec_len, align 4
-  invoke void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %34, i32 noundef %35, ptr noundef %inner_parsed)
-          to label %invoke.cont32 unwind label %lpad
-
-invoke.cont32:                                    ; preds = %if.then31
-  br label %if.end45
-
-lpad:                                             ; preds = %if.end45, %if.then40, %if.else37, %if.else33, %if.then31, %if.end29
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed) #10
-  br label %eh.resume
-
-if.else33:                                        ; preds = %invoke.cont
-  %39 = load ptr, ptr %spec.addr, align 8
-  %call35 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme, ptr noundef @_ZN3url17kFileSystemSchemeE)
-          to label %invoke.cont34 unwind label %lpad
-
-invoke.cont34:                                    ; preds = %if.else33
-  br i1 %call35, label %if.then36, label %if.else37
-
-if.then36:                                        ; preds = %invoke.cont34
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.else37:                                        ; preds = %invoke.cont34
-  %40 = load ptr, ptr %spec.addr, align 8
-  %call39 = invoke noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme)
-          to label %invoke.cont38 unwind label %lpad
-
-invoke.cont38:                                    ; preds = %if.else37
-  br i1 %call39, label %if.then40, label %if.else42
-
-if.then40:                                        ; preds = %invoke.cont38
-  %41 = load ptr, ptr %inner_spec, align 8
-  %42 = load i32, ptr %inner_spec_len, align 4
-  invoke void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE(ptr noundef %41, i32 noundef %42, ptr noundef %inner_parsed)
-          to label %invoke.cont41 unwind label %lpad
-
-invoke.cont41:                                    ; preds = %if.then40
-  br label %if.end43
-
-if.else42:                                        ; preds = %invoke.cont38
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end43:                                         ; preds = %invoke.cont41
-  br label %if.end44
-
-if.end44:                                         ; preds = %if.end43
-  br label %if.end45
-
-if.end45:                                         ; preds = %if.end44, %invoke.cont32
-  %43 = load i32, ptr %inner_start, align 4
-  %scheme46 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 0
-  %begin47 = getelementptr inbounds %"struct.url::Component", ptr %scheme46, i32 0, i32 0
-  %44 = load i32, ptr %begin47, align 8
-  %add48 = add nsw i32 %44, %43
-  store i32 %add48, ptr %begin47, align 8
-  %45 = load i32, ptr %inner_start, align 4
-  %username49 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 1
-  %begin50 = getelementptr inbounds %"struct.url::Component", ptr %username49, i32 0, i32 0
-  %46 = load i32, ptr %begin50, align 8
-  %add51 = add nsw i32 %46, %45
-  store i32 %add51, ptr %begin50, align 8
-  %47 = load i32, ptr %inner_start, align 4
-  %password52 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 2
-  %begin53 = getelementptr inbounds %"struct.url::Component", ptr %password52, i32 0, i32 0
-  %48 = load i32, ptr %begin53, align 8
-  %add54 = add nsw i32 %48, %47
-  store i32 %add54, ptr %begin53, align 8
-  %49 = load i32, ptr %inner_start, align 4
-  %host55 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 3
-  %begin56 = getelementptr inbounds %"struct.url::Component", ptr %host55, i32 0, i32 0
-  %50 = load i32, ptr %begin56, align 8
-  %add57 = add nsw i32 %50, %49
-  store i32 %add57, ptr %begin56, align 8
-  %51 = load i32, ptr %inner_start, align 4
-  %port58 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 4
-  %begin59 = getelementptr inbounds %"struct.url::Component", ptr %port58, i32 0, i32 0
-  %52 = load i32, ptr %begin59, align 8
-  %add60 = add nsw i32 %52, %51
-  store i32 %add60, ptr %begin59, align 8
-  %53 = load i32, ptr %inner_start, align 4
-  %query61 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 6
-  %begin62 = getelementptr inbounds %"struct.url::Component", ptr %query61, i32 0, i32 0
-  %54 = load i32, ptr %begin62, align 8
-  %add63 = add nsw i32 %54, %53
-  store i32 %add63, ptr %begin62, align 8
-  %55 = load i32, ptr %inner_start, align 4
-  %ref64 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 7
-  %begin65 = getelementptr inbounds %"struct.url::Component", ptr %ref64, i32 0, i32 0
-  %56 = load i32, ptr %begin65, align 8
-  %add66 = add nsw i32 %56, %55
-  store i32 %add66, ptr %begin65, align 8
-  %57 = load i32, ptr %inner_start, align 4
-  %path67 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %begin68 = getelementptr inbounds %"struct.url::Component", ptr %path67, i32 0, i32 0
-  %58 = load i32, ptr %begin68, align 8
-  %add69 = add nsw i32 %58, %57
-  store i32 %add69, ptr %begin68, align 8
-  %query70 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 6
-  %59 = load ptr, ptr %parsed.addr, align 8
-  %query71 = getelementptr inbounds %"struct.url::Parsed", ptr %59, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %query71, ptr align 8 %query70, i64 8, i1 false)
-  %query72 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 6
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %query72)
-  %ref73 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 7
-  %60 = load ptr, ptr %parsed.addr, align 8
-  %ref74 = getelementptr inbounds %"struct.url::Parsed", ptr %60, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref74, ptr align 8 %ref73, i64 8, i1 false)
-  %ref75 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 7
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %ref75)
-  %61 = load ptr, ptr %parsed.addr, align 8
-  invoke void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed)
-          to label %invoke.cont76 unwind label %lpad
-
-invoke.cont76:                                    ; preds = %if.end45
-  %scheme77 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 0
-  %call78 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme77)
-  br i1 %call78, label %lor.lhs.false, label %if.then83
-
-lor.lhs.false:                                    ; preds = %invoke.cont76
-  %path79 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %call80 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %path79)
-  br i1 %call80, label %lor.lhs.false81, label %if.then83
-
-lor.lhs.false81:                                  ; preds = %lor.lhs.false
-  %call82 = call noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed)
-  %tobool = icmp ne ptr %call82, null
-  br i1 %tobool, label %if.then83, label %if.end84
-
-if.then83:                                        ; preds = %lor.lhs.false81, %lor.lhs.false, %invoke.cont76
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end84:                                         ; preds = %lor.lhs.false81
-  %62 = load ptr, ptr %spec.addr, align 8
-  %path85 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %begin86 = getelementptr inbounds %"struct.url::Component", ptr %path85, i32 0, i32 0
-  %63 = load i32, ptr %begin86, align 8
-  %idxprom87 = sext i32 %63 to i64
-  %arrayidx88 = getelementptr inbounds i16, ptr %62, i64 %idxprom87
-  %64 = load i16, ptr %arrayidx88, align 2
-  %call89 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %64)
-  br i1 %call89, label %if.end91, label %if.then90
-
-if.then90:                                        ; preds = %if.end84
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end91:                                         ; preds = %if.end84
-  %path92 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %begin93 = getelementptr inbounds %"struct.url::Component", ptr %path92, i32 0, i32 0
-  %65 = load i32, ptr %begin93, align 8
-  %add94 = add nsw i32 %65, 1
-  store i32 %add94, ptr %inner_path_end, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end91
-  %66 = load i32, ptr %inner_path_end, align 4
-  %67 = load i32, ptr %spec_len.addr, align 4
-  %cmp95 = icmp slt i32 %66, %67
-  br i1 %cmp95, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %68 = load ptr, ptr %spec.addr, align 8
-  %69 = load i32, ptr %inner_path_end, align 4
-  %idxprom96 = sext i32 %69 to i64
-  %arrayidx97 = getelementptr inbounds i16, ptr %68, i64 %idxprom96
-  %70 = load i16, ptr %arrayidx97, align 2
-  %call98 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %70)
-  %lnot = xor i1 %call98, true
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %71 = phi i1 [ false, %while.cond ], [ %lnot, %land.rhs ]
-  br i1 %71, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %72 = load i32, ptr %inner_path_end, align 4
-  %inc = add nsw i32 %72, 1
-  store i32 %inc, ptr %inner_path_end, align 4
-  br label %while.cond, !llvm.loop !23
-
-while.end:                                        ; preds = %land.end
-  %73 = load i32, ptr %inner_path_end, align 4
-  %74 = load ptr, ptr %parsed.addr, align 8
-  %path99 = getelementptr inbounds %"struct.url::Parsed", ptr %74, i32 0, i32 5
-  %begin100 = getelementptr inbounds %"struct.url::Component", ptr %path99, i32 0, i32 0
-  store i32 %73, ptr %begin100, align 8
-  %75 = load i32, ptr %inner_path_end, align 4
-  %path101 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %begin102 = getelementptr inbounds %"struct.url::Component", ptr %path101, i32 0, i32 0
-  %76 = load i32, ptr %begin102, align 8
-  %sub103 = sub nsw i32 %75, %76
-  store i32 %sub103, ptr %new_inner_path_length, align 4
-  %path104 = getelementptr inbounds %"struct.url::Parsed", ptr %inner_parsed, i32 0, i32 5
-  %len = getelementptr inbounds %"struct.url::Component", ptr %path104, i32 0, i32 1
-  %77 = load i32, ptr %len, align 4
-  %78 = load i32, ptr %new_inner_path_length, align 4
-  %sub105 = sub nsw i32 %77, %78
-  %79 = load ptr, ptr %parsed.addr, align 8
-  %path106 = getelementptr inbounds %"struct.url::Parsed", ptr %79, i32 0, i32 5
-  %len107 = getelementptr inbounds %"struct.url::Component", ptr %path106, i32 0, i32 1
-  store i32 %sub105, ptr %len107, align 4
-  %80 = load i32, ptr %new_inner_path_length, align 4
-  %81 = load ptr, ptr %parsed.addr, align 8
-  %call108 = call noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %81)
-  %path109 = getelementptr inbounds %"struct.url::Parsed", ptr %call108, i32 0, i32 5
-  %len110 = getelementptr inbounds %"struct.url::Component", ptr %path109, i32 0, i32 1
-  store i32 %80, ptr %len110, align 4
-  store i32 0, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %while.end, %if.then90, %if.then83, %if.else42, %if.then36
-  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed) #10
-  %cleanup.dest = load i32, ptr %cleanup.dest.slot, align 4
-  switch i32 %cleanup.dest, label %unreachable [
-    i32 0, label %cleanup.cont
-    i32 1, label %cleanup.cont
+90:                                               ; preds = %89, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  %91 = load i32, ptr %10, align 4
+  switch i32 %91, label %93 [
+    i32 0, label %92
+    i32 1, label %92
   ]
 
-cleanup.cont:                                     ; preds = %cleanup, %cleanup, %if.else28, %if.then26, %if.else, %if.then9, %if.then
+92:                                               ; preds = %90, %90
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val111 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val111
-
-unreachable:                                      ; preds = %cleanup
+93:                                               ; preds = %90
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2)
+define void @_ZN3url18ParseFileSystemURLEPKciPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load i32, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %7, i32 noundef %8, ptr noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %path_begin = alloca i32, align 4
-  %path_end = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp29 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %parsed.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %0, i32 0, i32 1
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %username)
-  %1 = load ptr, ptr %parsed.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %1, i32 0, i32 2
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %password)
-  %2 = load ptr, ptr %parsed.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %2, i32 0, i32 3
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %host)
-  %3 = load ptr, ptr %parsed.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 4
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %port)
-  %4 = load ptr, ptr %parsed.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 7
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  %5 = load ptr, ptr %parsed.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 6
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %query)
-  store i32 0, ptr %begin, align 4
-  %6 = load ptr, ptr %spec.addr, align 8
-  call void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %6, ptr noundef %begin, ptr noundef %spec_len.addr, i1 noundef zeroext true)
-  %7 = load i32, ptr %begin, align 4
-  %8 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp eq i32 %7, %8
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.url::Component", align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %"struct.url::Parsed", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %18, i32 0, i32 1
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %20, i32 0, i32 2
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %22, i32 0, i32 3
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %6, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %24, i32 0, i32 4
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %25)
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %26, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %27)
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %28, i32 0, i32 7
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %29)
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %30, i32 0, i32 6
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %31)
+  %32 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url6Parsed18clear_inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %32)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !17
+  %33 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %33, ptr noundef %7, ptr noundef %5, i1 noundef zeroext true)
+  %34 = load i32, ptr %7, align 4, !tbaa !17
+  %35 = load i32, ptr %5, align 4, !tbaa !17
+  %36 = icmp eq i32 %34, %35
+  br i1 %36, label %37, label %40
 
-if.then:                                          ; preds = %entry
-  %9 = load ptr, ptr %parsed.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %9, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme)
-  %10 = load ptr, ptr %parsed.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %10, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path)
-  br label %if.end32
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %38, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %39)
+  store i32 1, ptr %8, align 4
+  br label %246
 
-if.end:                                           ; preds = %entry
-  store i32 -1, ptr %path_begin, align 4
-  store i32 -1, ptr %path_end, align 4
-  %11 = load ptr, ptr %spec.addr, align 8
-  %12 = load i32, ptr %begin, align 4
-  %idxprom = sext i32 %12 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %11, i64 %idxprom
-  %13 = load i32, ptr %spec_len.addr, align 4
-  %14 = load i32, ptr %begin, align 4
-  %sub = sub nsw i32 %13, %14
-  %15 = load ptr, ptr %parsed.addr, align 8
-  %scheme1 = getelementptr inbounds %"struct.url::Parsed", ptr %15, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef %arrayidx, i32 noundef %sub, ptr noundef %scheme1)
-  br i1 %call, label %if.then2, label %if.else
+40:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 -1, ptr %9, align 4, !tbaa !17
+  %41 = load ptr, ptr %4, align 8, !tbaa !32
+  %42 = load i32, ptr %7, align 4, !tbaa !17
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %41, i64 %43
+  %45 = load i32, ptr %5, align 4, !tbaa !17
+  %46 = load i32, ptr %7, align 4, !tbaa !17
+  %47 = sub nsw i32 %45, %46
+  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %48, i32 0, i32 0
+  %50 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %44, i32 noundef %47, ptr noundef %49)
+  br i1 %50, label %51, label %70
 
-if.then2:                                         ; preds = %if.end
-  %16 = load i32, ptr %begin, align 4
-  %17 = load ptr, ptr %parsed.addr, align 8
-  %scheme3 = getelementptr inbounds %"struct.url::Parsed", ptr %17, i32 0, i32 0
-  %begin4 = getelementptr inbounds %"struct.url::Component", ptr %scheme3, i32 0, i32 0
-  %18 = load i32, ptr %begin4, align 8
-  %add = add nsw i32 %18, %16
-  store i32 %add, ptr %begin4, align 8
-  %19 = load ptr, ptr %parsed.addr, align 8
-  %scheme5 = getelementptr inbounds %"struct.url::Parsed", ptr %19, i32 0, i32 0
-  %call6 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme5)
-  %20 = load i32, ptr %spec_len.addr, align 4
-  %sub7 = sub nsw i32 %20, 1
-  %cmp8 = icmp ne i32 %call6, %sub7
-  br i1 %cmp8, label %if.then9, label %if.end13
+51:                                               ; preds = %40
+  %52 = load i32, ptr %7, align 4, !tbaa !17
+  %53 = load ptr, ptr %6, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %"struct.url::Component", ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8, !tbaa !22
+  %57 = add nsw i32 %56, %52
+  store i32 %57, ptr %55, align 8, !tbaa !22
+  %58 = load ptr, ptr %6, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %58, i32 0, i32 0
+  %60 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %59)
+  %61 = load i32, ptr %5, align 4, !tbaa !17
+  %62 = sub nsw i32 %61, 1
+  %63 = icmp eq i32 %60, %62
+  br i1 %63, label %64, label %65
 
-if.then9:                                         ; preds = %if.then2
-  %21 = load ptr, ptr %parsed.addr, align 8
-  %scheme10 = getelementptr inbounds %"struct.url::Parsed", ptr %21, i32 0, i32 0
-  %call11 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme10)
-  %add12 = add nsw i32 %call11, 1
-  store i32 %add12, ptr %path_begin, align 4
-  %22 = load i32, ptr %spec_len.addr, align 4
-  store i32 %22, ptr %path_end, align 4
-  br label %if.end13
+64:                                               ; preds = %51
+  store i32 1, ptr %8, align 4
+  br label %245
 
-if.end13:                                         ; preds = %if.then9, %if.then2
-  br label %if.end15
+65:                                               ; preds = %51
+  %66 = load ptr, ptr %6, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %66, i32 0, i32 0
+  %68 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %67)
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %9, align 4, !tbaa !17
+  br label %73
 
-if.else:                                          ; preds = %if.end
-  %23 = load ptr, ptr %parsed.addr, align 8
-  %scheme14 = getelementptr inbounds %"struct.url::Parsed", ptr %23, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme14)
-  %24 = load i32, ptr %begin, align 4
-  store i32 %24, ptr %path_begin, align 4
-  %25 = load i32, ptr %spec_len.addr, align 4
-  store i32 %25, ptr %path_end, align 4
-  br label %if.end15
+70:                                               ; preds = %40
+  %71 = load ptr, ptr %6, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %71, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %72)
+  store i32 1, ptr %8, align 4
+  br label %245
 
-if.end15:                                         ; preds = %if.else, %if.end13
-  %26 = load i32, ptr %path_begin, align 4
-  store i32 %26, ptr %i, align 4
-  br label %for.cond
+73:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %74 = load ptr, ptr %4, align 8, !tbaa !32
+  %75 = load i32, ptr %9, align 4, !tbaa !17
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds i8, ptr %74, i64 %76
+  store ptr %77, ptr %11, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %78 = load i32, ptr %5, align 4, !tbaa !17
+  %79 = load i32, ptr %9, align 4, !tbaa !17
+  %80 = sub nsw i32 %78, %79
+  store i32 %80, ptr %12, align 4, !tbaa !17
+  %81 = load ptr, ptr %11, align 8, !tbaa !32
+  %82 = load i32, ptr %12, align 4, !tbaa !17
+  %83 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeIcEEbPKT_iPNS_9ComponentE(ptr noundef %81, i32 noundef %82, ptr noundef %10)
+  br i1 %83, label %84, label %95
 
-for.cond:                                         ; preds = %for.inc, %if.end15
-  %27 = load i32, ptr %i, align 4
-  %28 = load i32, ptr %path_end, align 4
-  %cmp16 = icmp slt i32 %27, %28
-  br i1 %cmp16, label %for.body, label %for.end
+84:                                               ; preds = %73
+  %85 = load i32, ptr %9, align 4, !tbaa !17
+  %86 = getelementptr inbounds nuw %"struct.url::Component", ptr %10, i32 0, i32 0
+  %87 = load i32, ptr %86, align 4, !tbaa !14
+  %88 = add nsw i32 %87, %85
+  store i32 %88, ptr %86, align 4, !tbaa !14
+  %89 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %90 = load i32, ptr %5, align 4, !tbaa !17
+  %91 = sub nsw i32 %90, 1
+  %92 = icmp eq i32 %89, %91
+  br i1 %92, label %93, label %94
 
-for.body:                                         ; preds = %for.cond
-  %29 = load ptr, ptr %spec.addr, align 8
-  %30 = load i32, ptr %i, align 4
-  %idxprom17 = sext i32 %30 to i64
-  %arrayidx18 = getelementptr inbounds i8, ptr %29, i64 %idxprom17
-  %31 = load i8, ptr %arrayidx18, align 1
-  %conv = sext i8 %31 to i32
-  %cmp19 = icmp eq i32 %conv, 63
-  br i1 %cmp19, label %if.then20, label %if.end24
+93:                                               ; preds = %84
+  store i32 1, ptr %8, align 4
+  br label %244
 
-if.then20:                                        ; preds = %for.body
-  %32 = load i32, ptr %i, align 4
-  %add21 = add nsw i32 %32, 1
-  %33 = load i32, ptr %path_end, align 4
-  %call22 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add21, i32 noundef %33)
-  store i64 %call22, ptr %ref.tmp, align 4
-  %34 = load ptr, ptr %parsed.addr, align 8
-  %query23 = getelementptr inbounds %"struct.url::Parsed", ptr %34, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %query23, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %35 = load i32, ptr %i, align 4
-  store i32 %35, ptr %path_end, align 4
-  br label %for.end
+94:                                               ; preds = %84
+  br label %96
 
-if.end24:                                         ; preds = %for.body
-  br label %for.inc
+95:                                               ; preds = %73
+  store i32 1, ptr %8, align 4
+  br label %244
 
-for.inc:                                          ; preds = %if.end24
-  %36 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %36, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !24
+96:                                               ; preds = %94
+  call void @llvm.lifetime.start.p0(i64 72, ptr %13) #13
+  call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13)
+  %97 = load ptr, ptr %4, align 8, !tbaa !32
+  %98 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef %97, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef @_ZN3url11kFileSchemeE)
+          to label %99 unwind label %104
 
-for.end:                                          ; preds = %if.then20, %for.cond
-  %37 = load i32, ptr %path_begin, align 4
-  %38 = load i32, ptr %path_end, align 4
-  %cmp25 = icmp eq i32 %37, %38
-  br i1 %cmp25, label %if.then26, label %if.else28
+99:                                               ; preds = %96
+  br i1 %98, label %100, label %108
 
-if.then26:                                        ; preds = %for.end
-  %39 = load ptr, ptr %parsed.addr, align 8
-  %path27 = getelementptr inbounds %"struct.url::Parsed", ptr %39, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path27)
-  br label %if.end32
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %11, align 8, !tbaa !32
+  %102 = load i32, ptr %12, align 4, !tbaa !17
+  invoke void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %101, i32 noundef %102, ptr noundef %13)
+          to label %103 unwind label %104
 
-if.else28:                                        ; preds = %for.end
-  %40 = load i32, ptr %path_begin, align 4
-  %41 = load i32, ptr %path_end, align 4
-  %call30 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %40, i32 noundef %41)
-  store i64 %call30, ptr %ref.tmp29, align 4
-  %42 = load ptr, ptr %parsed.addr, align 8
-  %path31 = getelementptr inbounds %"struct.url::Parsed", ptr %42, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %path31, ptr align 4 %ref.tmp29, i64 8, i1 false)
-  br label %if.end32
+103:                                              ; preds = %100
+  br label %124
 
-if.end32:                                         ; preds = %if.else28, %if.then26, %if.then
-  ret void
-}
+104:                                              ; preds = %180, %124, %117, %113, %108, %100, %96
+  %105 = landingpad { ptr, i32 }
+          cleanup
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %14, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %15, align 4
+  br label %253
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) #0 {
-entry:
-  %url.addr = alloca ptr, align 8
-  %url_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  store ptr %url, ptr %url.addr, align 8
-  store i32 %url_len, ptr %url_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %url.addr, align 8
-  %1 = load i32, ptr %url_len.addr, align 4
-  %2 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  ret void
-}
+108:                                              ; preds = %99
+  %109 = load ptr, ptr %4, align 8, !tbaa !32
+  %110 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef %109, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef @_ZN3url17kFileSystemSchemeE)
+          to label %111 unwind label %104
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %path_begin = alloca i32, align 4
-  %path_end = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp29 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %parsed.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %0, i32 0, i32 1
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %username)
-  %1 = load ptr, ptr %parsed.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %1, i32 0, i32 2
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %password)
-  %2 = load ptr, ptr %parsed.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %2, i32 0, i32 3
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %host)
-  %3 = load ptr, ptr %parsed.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %3, i32 0, i32 4
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %port)
-  %4 = load ptr, ptr %parsed.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 7
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %ref)
-  %5 = load ptr, ptr %parsed.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %5, i32 0, i32 6
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %query)
-  store i32 0, ptr %begin, align 4
-  %6 = load ptr, ptr %spec.addr, align 8
-  call void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %6, ptr noundef %begin, ptr noundef %spec_len.addr, i1 noundef zeroext true)
-  %7 = load i32, ptr %begin, align 4
-  %8 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp eq i32 %7, %8
-  br i1 %cmp, label %if.then, label %if.end
+111:                                              ; preds = %108
+  br i1 %110, label %112, label %113
 
-if.then:                                          ; preds = %entry
-  %9 = load ptr, ptr %parsed.addr, align 8
-  %scheme = getelementptr inbounds %"struct.url::Parsed", ptr %9, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme)
-  %10 = load ptr, ptr %parsed.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %10, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path)
-  br label %if.end32
+112:                                              ; preds = %111
+  store i32 1, ptr %8, align 4
+  br label %243
 
-if.end:                                           ; preds = %entry
-  store i32 -1, ptr %path_begin, align 4
-  store i32 -1, ptr %path_end, align 4
-  %11 = load ptr, ptr %spec.addr, align 8
-  %12 = load i32, ptr %begin, align 4
-  %idxprom = sext i32 %12 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %11, i64 %idxprom
-  %13 = load i32, ptr %spec_len.addr, align 4
-  %14 = load i32, ptr %begin, align 4
-  %sub = sub nsw i32 %13, %14
-  %15 = load ptr, ptr %parsed.addr, align 8
-  %scheme1 = getelementptr inbounds %"struct.url::Parsed", ptr %15, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef %arrayidx, i32 noundef %sub, ptr noundef %scheme1)
-  br i1 %call, label %if.then2, label %if.else
+113:                                              ; preds = %111
+  %114 = load ptr, ptr %4, align 8, !tbaa !32
+  %115 = invoke noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef %114, ptr noundef nonnull align 4 dereferenceable(8) %10)
+          to label %116 unwind label %104
 
-if.then2:                                         ; preds = %if.end
-  %16 = load i32, ptr %begin, align 4
-  %17 = load ptr, ptr %parsed.addr, align 8
-  %scheme3 = getelementptr inbounds %"struct.url::Parsed", ptr %17, i32 0, i32 0
-  %begin4 = getelementptr inbounds %"struct.url::Component", ptr %scheme3, i32 0, i32 0
-  %18 = load i32, ptr %begin4, align 8
-  %add = add nsw i32 %18, %16
-  store i32 %add, ptr %begin4, align 8
-  %19 = load ptr, ptr %parsed.addr, align 8
-  %scheme5 = getelementptr inbounds %"struct.url::Parsed", ptr %19, i32 0, i32 0
-  %call6 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme5)
-  %20 = load i32, ptr %spec_len.addr, align 4
-  %sub7 = sub nsw i32 %20, 1
-  %cmp8 = icmp ne i32 %call6, %sub7
-  br i1 %cmp8, label %if.then9, label %if.end13
+116:                                              ; preds = %113
+  br i1 %115, label %117, label %121
 
-if.then9:                                         ; preds = %if.then2
-  %21 = load ptr, ptr %parsed.addr, align 8
-  %scheme10 = getelementptr inbounds %"struct.url::Parsed", ptr %21, i32 0, i32 0
-  %call11 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme10)
-  %add12 = add nsw i32 %call11, 1
-  store i32 %add12, ptr %path_begin, align 4
-  %22 = load i32, ptr %spec_len.addr, align 4
-  store i32 %22, ptr %path_end, align 4
-  br label %if.end13
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %11, align 8, !tbaa !32
+  %119 = load i32, ptr %12, align 4, !tbaa !17
+  invoke void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %118, i32 noundef %119, ptr noundef %13)
+          to label %120 unwind label %104
 
-if.end13:                                         ; preds = %if.then9, %if.then2
-  br label %if.end15
+120:                                              ; preds = %117
+  br label %122
 
-if.else:                                          ; preds = %if.end
-  %23 = load ptr, ptr %parsed.addr, align 8
-  %scheme14 = getelementptr inbounds %"struct.url::Parsed", ptr %23, i32 0, i32 0
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %scheme14)
-  %24 = load i32, ptr %begin, align 4
-  store i32 %24, ptr %path_begin, align 4
-  %25 = load i32, ptr %spec_len.addr, align 4
-  store i32 %25, ptr %path_end, align 4
-  br label %if.end15
+121:                                              ; preds = %116
+  store i32 1, ptr %8, align 4
+  br label %243
 
-if.end15:                                         ; preds = %if.else, %if.end13
-  %26 = load i32, ptr %path_begin, align 4
-  store i32 %26, ptr %i, align 4
-  br label %for.cond
+122:                                              ; preds = %120
+  br label %123
 
-for.cond:                                         ; preds = %for.inc, %if.end15
-  %27 = load i32, ptr %i, align 4
-  %28 = load i32, ptr %path_end, align 4
-  %cmp16 = icmp slt i32 %27, %28
-  br i1 %cmp16, label %for.body, label %for.end
+123:                                              ; preds = %122
+  br label %124
 
-for.body:                                         ; preds = %for.cond
-  %29 = load ptr, ptr %spec.addr, align 8
-  %30 = load i32, ptr %i, align 4
-  %idxprom17 = sext i32 %30 to i64
-  %arrayidx18 = getelementptr inbounds i16, ptr %29, i64 %idxprom17
-  %31 = load i16, ptr %arrayidx18, align 2
-  %conv = zext i16 %31 to i32
-  %cmp19 = icmp eq i32 %conv, 63
-  br i1 %cmp19, label %if.then20, label %if.end24
+124:                                              ; preds = %123, %103
+  %125 = load i32, ptr %9, align 4, !tbaa !17
+  %126 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 0
+  %127 = getelementptr inbounds nuw %"struct.url::Component", ptr %126, i32 0, i32 0
+  %128 = load i32, ptr %127, align 8, !tbaa !22
+  %129 = add nsw i32 %128, %125
+  store i32 %129, ptr %127, align 8, !tbaa !22
+  %130 = load i32, ptr %9, align 4, !tbaa !17
+  %131 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 1
+  %132 = getelementptr inbounds nuw %"struct.url::Component", ptr %131, i32 0, i32 0
+  %133 = load i32, ptr %132, align 8, !tbaa !23
+  %134 = add nsw i32 %133, %130
+  store i32 %134, ptr %132, align 8, !tbaa !23
+  %135 = load i32, ptr %9, align 4, !tbaa !17
+  %136 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 2
+  %137 = getelementptr inbounds nuw %"struct.url::Component", ptr %136, i32 0, i32 0
+  %138 = load i32, ptr %137, align 8, !tbaa !24
+  %139 = add nsw i32 %138, %135
+  store i32 %139, ptr %137, align 8, !tbaa !24
+  %140 = load i32, ptr %9, align 4, !tbaa !17
+  %141 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 3
+  %142 = getelementptr inbounds nuw %"struct.url::Component", ptr %141, i32 0, i32 0
+  %143 = load i32, ptr %142, align 8, !tbaa !25
+  %144 = add nsw i32 %143, %140
+  store i32 %144, ptr %142, align 8, !tbaa !25
+  %145 = load i32, ptr %9, align 4, !tbaa !17
+  %146 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 4
+  %147 = getelementptr inbounds nuw %"struct.url::Component", ptr %146, i32 0, i32 0
+  %148 = load i32, ptr %147, align 8, !tbaa !28
+  %149 = add nsw i32 %148, %145
+  store i32 %149, ptr %147, align 8, !tbaa !28
+  %150 = load i32, ptr %9, align 4, !tbaa !17
+  %151 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 6
+  %152 = getelementptr inbounds nuw %"struct.url::Component", ptr %151, i32 0, i32 0
+  %153 = load i32, ptr %152, align 8, !tbaa !30
+  %154 = add nsw i32 %153, %150
+  store i32 %154, ptr %152, align 8, !tbaa !30
+  %155 = load i32, ptr %9, align 4, !tbaa !17
+  %156 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 7
+  %157 = getelementptr inbounds nuw %"struct.url::Component", ptr %156, i32 0, i32 0
+  %158 = load i32, ptr %157, align 8, !tbaa !31
+  %159 = add nsw i32 %158, %155
+  store i32 %159, ptr %157, align 8, !tbaa !31
+  %160 = load i32, ptr %9, align 4, !tbaa !17
+  %161 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %162 = getelementptr inbounds nuw %"struct.url::Component", ptr %161, i32 0, i32 0
+  %163 = load i32, ptr %162, align 8, !tbaa !29
+  %164 = add nsw i32 %163, %160
+  store i32 %164, ptr %162, align 8, !tbaa !29
+  %165 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 6
+  %166 = load ptr, ptr %6, align 8, !tbaa !3
+  %167 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %166, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %167, ptr align 8 %165, i64 8, i1 false), !tbaa.struct !16
+  %168 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 6
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %168)
+  %169 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 7
+  %170 = load ptr, ptr %6, align 8, !tbaa !3
+  %171 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %170, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %171, ptr align 8 %169, i64 8, i1 false), !tbaa.struct !16
+  %172 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 7
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %172)
+  %173 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %173, ptr noundef nonnull align 8 dereferenceable(72) %13)
+          to label %174 unwind label %104
 
-if.then20:                                        ; preds = %for.body
-  %32 = load i32, ptr %i, align 4
-  %add21 = add nsw i32 %32, 1
-  %33 = load i32, ptr %path_end, align 4
-  %call22 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add21, i32 noundef %33)
-  store i64 %call22, ptr %ref.tmp, align 4
-  %34 = load ptr, ptr %parsed.addr, align 8
-  %query23 = getelementptr inbounds %"struct.url::Parsed", ptr %34, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %query23, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %35 = load i32, ptr %i, align 4
-  store i32 %35, ptr %path_end, align 4
-  br label %for.end
+174:                                              ; preds = %124
+  %175 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 0
+  %176 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %175)
+  br i1 %176, label %177, label %184
 
-if.end24:                                         ; preds = %for.body
-  br label %for.inc
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %179 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %178)
+  br i1 %179, label %180, label %184
 
-for.inc:                                          ; preds = %if.end24
-  %36 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %36, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !25
+180:                                              ; preds = %177
+  %181 = invoke noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %13)
+          to label %182 unwind label %104
 
-for.end:                                          ; preds = %if.then20, %for.cond
-  %37 = load i32, ptr %path_begin, align 4
-  %38 = load i32, ptr %path_end, align 4
-  %cmp25 = icmp eq i32 %37, %38
-  br i1 %cmp25, label %if.then26, label %if.else28
+182:                                              ; preds = %180
+  %183 = icmp ne ptr %181, null
+  br i1 %183, label %184, label %185
 
-if.then26:                                        ; preds = %for.end
-  %39 = load ptr, ptr %parsed.addr, align 8
-  %path27 = getelementptr inbounds %"struct.url::Parsed", ptr %39, i32 0, i32 5
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %path27)
-  br label %if.end32
+184:                                              ; preds = %182, %177, %174
+  store i32 1, ptr %8, align 4
+  br label %243
 
-if.else28:                                        ; preds = %for.end
-  %40 = load i32, ptr %path_begin, align 4
-  %41 = load i32, ptr %path_end, align 4
-  %call30 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %40, i32 noundef %41)
-  store i64 %call30, ptr %ref.tmp29, align 4
-  %42 = load ptr, ptr %parsed.addr, align 8
-  %path31 = getelementptr inbounds %"struct.url::Parsed", ptr %42, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %path31, ptr align 4 %ref.tmp29, i64 8, i1 false)
-  br label %if.end32
+185:                                              ; preds = %182
+  %186 = load ptr, ptr %4, align 8, !tbaa !32
+  %187 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %188 = getelementptr inbounds nuw %"struct.url::Component", ptr %187, i32 0, i32 0
+  %189 = load i32, ptr %188, align 8, !tbaa !29
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds i8, ptr %186, i64 %190
+  %192 = load i8, ptr %191, align 1, !tbaa !34
+  %193 = sext i8 %192 to i16
+  %194 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %193)
+  br i1 %194, label %196, label %195
 
-if.end32:                                         ; preds = %if.else28, %if.then26, %if.then
-  ret void
-}
+195:                                              ; preds = %185
+  store i32 1, ptr %8, align 4
+  br label %243
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef %filepath, ptr noundef %query, ptr noundef %ref) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %filepath.addr = alloca ptr, align 8
-  %query.addr = alloca ptr, align 8
-  %ref.addr = alloca ptr, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %filepath, ptr %filepath.addr, align 8
-  store ptr %query, ptr %query.addr, align 8
-  store ptr %ref, ptr %ref.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load ptr, ptr %path.addr, align 8
-  %2 = load ptr, ptr %filepath.addr, align 8
-  %3 = load ptr, ptr %query.addr, align 8
-  %4 = load ptr, ptr %ref.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  ret void
-}
+196:                                              ; preds = %185
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  %197 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %198 = getelementptr inbounds nuw %"struct.url::Component", ptr %197, i32 0, i32 0
+  %199 = load i32, ptr %198, align 8, !tbaa !29
+  %200 = add nsw i32 %199, 1
+  store i32 %200, ptr %16, align 4, !tbaa !17
+  br label %201
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef %filepath, ptr noundef %query, ptr noundef %ref) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %filepath.addr = alloca ptr, align 8
-  %query.addr = alloca ptr, align 8
-  %ref.addr = alloca ptr, align 8
-  %path_end = alloca i32, align 4
-  %query_separator = alloca i32, align 4
-  %ref_separator = alloca i32, align 4
-  %i = alloca i32, align 4
-  %file_end = alloca i32, align 4
-  %query_end = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp18 = alloca %"struct.url::Component", align 4
-  %ref.tmp26 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %filepath, ptr %filepath.addr, align 8
-  store ptr %query, ptr %query.addr, align 8
-  store ptr %ref, ptr %ref.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %if.then, label %if.end
+201:                                              ; preds = %216, %196
+  %202 = load i32, ptr %16, align 4, !tbaa !17
+  %203 = load i32, ptr %5, align 4, !tbaa !17
+  %204 = icmp slt i32 %202, %203
+  br i1 %204, label %205, label %214
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %filepath.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
-  %3 = load ptr, ptr %query.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %4 = load ptr, ptr %ref.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br label %if.end30
+205:                                              ; preds = %201
+  %206 = load ptr, ptr %4, align 8, !tbaa !32
+  %207 = load i32, ptr %16, align 4, !tbaa !17
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds i8, ptr %206, i64 %208
+  %210 = load i8, ptr %209, align 1, !tbaa !34
+  %211 = sext i8 %210 to i16
+  %212 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %211)
+  %213 = xor i1 %212, true
+  br label %214
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %path.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %begin, align 4
-  %7 = load ptr, ptr %path.addr, align 8
-  %len1 = getelementptr inbounds %"struct.url::Component", ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %len1, align 4
-  %add = add nsw i32 %6, %8
-  store i32 %add, ptr %path_end, align 4
-  store i32 -1, ptr %query_separator, align 4
-  store i32 -1, ptr %ref_separator, align 4
-  %9 = load ptr, ptr %path.addr, align 8
-  %begin2 = getelementptr inbounds %"struct.url::Component", ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %begin2, align 4
-  store i32 %10, ptr %i, align 4
-  br label %for.cond
+214:                                              ; preds = %205, %201
+  %215 = phi i1 [ false, %201 ], [ %213, %205 ]
+  br i1 %215, label %216, label %219
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %11 = load i32, ptr %i, align 4
-  %12 = load i32, ptr %path_end, align 4
-  %cmp3 = icmp slt i32 %11, %12
-  br i1 %cmp3, label %for.body, label %for.end
+216:                                              ; preds = %214
+  %217 = load i32, ptr %16, align 4, !tbaa !17
+  %218 = add nsw i32 %217, 1
+  store i32 %218, ptr %16, align 4, !tbaa !17
+  br label %201, !llvm.loop !56
 
-for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %spec.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %13, i64 %idxprom
-  %15 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %15 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 63, label %sw.bb
-    i32 35, label %sw.bb8
+219:                                              ; preds = %214
+  %220 = load i32, ptr %16, align 4, !tbaa !17
+  %221 = load ptr, ptr %6, align 8, !tbaa !3
+  %222 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %221, i32 0, i32 5
+  %223 = getelementptr inbounds nuw %"struct.url::Component", ptr %222, i32 0, i32 0
+  store i32 %220, ptr %223, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #13
+  %224 = load i32, ptr %16, align 4, !tbaa !17
+  %225 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %226 = getelementptr inbounds nuw %"struct.url::Component", ptr %225, i32 0, i32 0
+  %227 = load i32, ptr %226, align 8, !tbaa !29
+  %228 = sub nsw i32 %224, %227
+  store i32 %228, ptr %17, align 4, !tbaa !17
+  %229 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %230 = getelementptr inbounds nuw %"struct.url::Component", ptr %229, i32 0, i32 1
+  %231 = load i32, ptr %230, align 4, !tbaa !57
+  %232 = load i32, ptr %17, align 4, !tbaa !17
+  %233 = sub nsw i32 %231, %232
+  %234 = load ptr, ptr %6, align 8, !tbaa !3
+  %235 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %234, i32 0, i32 5
+  %236 = getelementptr inbounds nuw %"struct.url::Component", ptr %235, i32 0, i32 1
+  store i32 %233, ptr %236, align 4, !tbaa !57
+  %237 = load i32, ptr %17, align 4, !tbaa !17
+  %238 = load ptr, ptr %6, align 8, !tbaa !3
+  %239 = invoke noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %238)
+          to label %240 unwind label %249
+
+240:                                              ; preds = %219
+  %241 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %239, i32 0, i32 5
+  %242 = getelementptr inbounds nuw %"struct.url::Component", ptr %241, i32 0, i32 1
+  store i32 %237, ptr %242, align 4, !tbaa !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  store i32 0, ptr %8, align 4
+  br label %243
+
+243:                                              ; preds = %240, %195, %184, %121, %112
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #13
+  call void @llvm.lifetime.end.p0(i64 72, ptr %13) #13
+  br label %244
+
+244:                                              ; preds = %243, %95, %93
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  br label %245
+
+245:                                              ; preds = %244, %70, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %246
+
+246:                                              ; preds = %245, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  %247 = load i32, ptr %8, align 4
+  switch i32 %247, label %259 [
+    i32 0, label %248
+    i32 1, label %248
   ]
 
-sw.bb:                                            ; preds = %for.body
-  %16 = load i32, ptr %ref_separator, align 4
-  %cmp4 = icmp slt i32 %16, 0
-  br i1 %cmp4, label %land.lhs.true, label %if.end7
+248:                                              ; preds = %246, %246
+  ret void
 
-land.lhs.true:                                    ; preds = %sw.bb
-  %17 = load i32, ptr %query_separator, align 4
-  %cmp5 = icmp slt i32 %17, 0
-  br i1 %cmp5, label %if.then6, label %if.end7
+249:                                              ; preds = %219
+  %250 = landingpad { ptr, i32 }
+          cleanup
+  %251 = extractvalue { ptr, i32 } %250, 0
+  store ptr %251, ptr %14, align 8
+  %252 = extractvalue { ptr, i32 } %250, 1
+  store i32 %252, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  br label %253
 
-if.then6:                                         ; preds = %land.lhs.true
-  %18 = load i32, ptr %i, align 4
-  store i32 %18, ptr %query_separator, align 4
-  br label %if.end7
+253:                                              ; preds = %249, %104
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #13
+  call void @llvm.lifetime.end.p0(i64 72, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  br label %254
 
-if.end7:                                          ; preds = %if.then6, %land.lhs.true, %sw.bb
-  br label %sw.epilog
+254:                                              ; preds = %253
+  %255 = load ptr, ptr %14, align 8
+  %256 = load i32, ptr %15, align 4
+  %257 = insertvalue { ptr, i32 } poison, ptr %255, 0
+  %258 = insertvalue { ptr, i32 } %257, i32 %256, 1
+  resume { ptr, i32 } %258
 
-sw.bb8:                                           ; preds = %for.body
-  %19 = load i32, ptr %ref_separator, align 4
-  %cmp9 = icmp slt i32 %19, 0
-  br i1 %cmp9, label %if.then10, label %if.end11
+259:                                              ; preds = %246
+  unreachable
+}
 
-if.then10:                                        ; preds = %sw.bb8
-  %20 = load i32, ptr %i, align 4
-  store i32 %20, ptr %ref_separator, align 4
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then10, %sw.bb8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %if.end11, %if.end7, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %sw.epilog
-  %21 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %21, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !26
-
-for.end:                                          ; preds = %for.cond
-  %22 = load i32, ptr %ref_separator, align 4
-  %cmp12 = icmp sge i32 %22, 0
-  br i1 %cmp12, label %if.then13, label %if.else
-
-if.then13:                                        ; preds = %for.end
-  %23 = load i32, ptr %ref_separator, align 4
-  store i32 %23, ptr %query_end, align 4
-  store i32 %23, ptr %file_end, align 4
-  %24 = load i32, ptr %ref_separator, align 4
-  %add14 = add nsw i32 %24, 1
-  %25 = load i32, ptr %path_end, align 4
-  %call = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add14, i32 noundef %25)
-  store i64 %call, ptr %ref.tmp, align 4
-  %26 = load ptr, ptr %ref.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %ref.tmp, i64 8, i1 false)
-  br label %if.end15
-
-if.else:                                          ; preds = %for.end
-  %27 = load i32, ptr %path_end, align 4
-  store i32 %27, ptr %query_end, align 4
-  store i32 %27, ptr %file_end, align 4
-  %28 = load ptr, ptr %ref.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %28)
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.else, %if.then13
-  %29 = load i32, ptr %query_separator, align 4
-  %cmp16 = icmp sge i32 %29, 0
-  br i1 %cmp16, label %if.then17, label %if.else21
-
-if.then17:                                        ; preds = %if.end15
-  %30 = load i32, ptr %query_separator, align 4
-  store i32 %30, ptr %file_end, align 4
-  %31 = load i32, ptr %query_separator, align 4
-  %add19 = add nsw i32 %31, 1
-  %32 = load i32, ptr %query_end, align 4
-  %call20 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add19, i32 noundef %32)
-  store i64 %call20, ptr %ref.tmp18, align 4
-  %33 = load ptr, ptr %query.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr align 4 %ref.tmp18, i64 8, i1 false)
-  br label %if.end22
-
-if.else21:                                        ; preds = %if.end15
-  %34 = load ptr, ptr %query.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %34)
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.else21, %if.then17
-  %35 = load i32, ptr %file_end, align 4
-  %36 = load ptr, ptr %path.addr, align 8
-  %begin23 = getelementptr inbounds %"struct.url::Component", ptr %36, i32 0, i32 0
-  %37 = load i32, ptr %begin23, align 4
-  %cmp24 = icmp ne i32 %35, %37
-  br i1 %cmp24, label %if.then25, label %if.else29
-
-if.then25:                                        ; preds = %if.end22
-  %38 = load ptr, ptr %path.addr, align 8
-  %begin27 = getelementptr inbounds %"struct.url::Component", ptr %38, i32 0, i32 0
-  %39 = load i32, ptr %begin27, align 4
-  %40 = load i32, ptr %file_end, align 4
-  %call28 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %39, i32 noundef %40)
-  store i64 %call28, ptr %ref.tmp26, align 4
-  %41 = load ptr, ptr %filepath.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 4 %ref.tmp26, i64 8, i1 false)
-  br label %if.end30
-
-if.else29:                                        ; preds = %if.end22
-  %42 = load ptr, ptr %filepath.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %42)
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.else29, %if.then25, %if.then
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url18ParseFileSystemURLEPKtiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !38
+  %8 = load i32, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE(ptr noundef %7, i32 noundef %8, ptr noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef %filepath, ptr noundef %query, ptr noundef %ref) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %filepath.addr = alloca ptr, align 8
-  %query.addr = alloca ptr, align 8
-  %ref.addr = alloca ptr, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %filepath, ptr %filepath.addr, align 8
-  store ptr %query, ptr %query.addr, align 8
-  store ptr %ref, ptr %ref.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load ptr, ptr %path.addr, align 8
-  %2 = load ptr, ptr %filepath.addr, align 8
-  %3 = load ptr, ptr %query.addr, align 8
-  %4 = load ptr, ptr %ref.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  ret void
-}
+define internal void @_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.url::Component", align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %"struct.url::Parsed", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %18, i32 0, i32 1
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %20, i32 0, i32 2
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %22, i32 0, i32 3
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %6, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %24, i32 0, i32 4
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %25)
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %26, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %27)
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %28, i32 0, i32 7
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %29)
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %30, i32 0, i32 6
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %31)
+  %32 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url6Parsed18clear_inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %32)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !17
+  %33 = load ptr, ptr %4, align 8, !tbaa !38
+  call void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %33, ptr noundef %7, ptr noundef %5, i1 noundef zeroext true)
+  %34 = load i32, ptr %7, align 4, !tbaa !17
+  %35 = load i32, ptr %5, align 4, !tbaa !17
+  %36 = icmp eq i32 %34, %35
+  br i1 %36, label %37, label %40
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path, ptr noundef %filepath, ptr noundef %query, ptr noundef %ref) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %filepath.addr = alloca ptr, align 8
-  %query.addr = alloca ptr, align 8
-  %ref.addr = alloca ptr, align 8
-  %path_end = alloca i32, align 4
-  %query_separator = alloca i32, align 4
-  %ref_separator = alloca i32, align 4
-  %i = alloca i32, align 4
-  %file_end = alloca i32, align 4
-  %query_end = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp18 = alloca %"struct.url::Component", align 4
-  %ref.tmp26 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %filepath, ptr %filepath.addr, align 8
-  store ptr %query, ptr %query.addr, align 8
-  store ptr %ref, ptr %ref.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %if.then, label %if.end
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %38, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %39)
+  store i32 1, ptr %8, align 4
+  br label %242
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %filepath.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
-  %3 = load ptr, ptr %query.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %4 = load ptr, ptr %ref.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br label %if.end30
+40:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 -1, ptr %9, align 4, !tbaa !17
+  %41 = load ptr, ptr %4, align 8, !tbaa !38
+  %42 = load i32, ptr %7, align 4, !tbaa !17
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i16, ptr %41, i64 %43
+  %45 = load i32, ptr %5, align 4, !tbaa !17
+  %46 = load i32, ptr %7, align 4, !tbaa !17
+  %47 = sub nsw i32 %45, %46
+  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %48, i32 0, i32 0
+  %50 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %44, i32 noundef %47, ptr noundef %49)
+  br i1 %50, label %51, label %70
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %path.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %begin, align 4
-  %7 = load ptr, ptr %path.addr, align 8
-  %len1 = getelementptr inbounds %"struct.url::Component", ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %len1, align 4
-  %add = add nsw i32 %6, %8
-  store i32 %add, ptr %path_end, align 4
-  store i32 -1, ptr %query_separator, align 4
-  store i32 -1, ptr %ref_separator, align 4
-  %9 = load ptr, ptr %path.addr, align 8
-  %begin2 = getelementptr inbounds %"struct.url::Component", ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %begin2, align 4
-  store i32 %10, ptr %i, align 4
-  br label %for.cond
+51:                                               ; preds = %40
+  %52 = load i32, ptr %7, align 4, !tbaa !17
+  %53 = load ptr, ptr %6, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %"struct.url::Component", ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8, !tbaa !22
+  %57 = add nsw i32 %56, %52
+  store i32 %57, ptr %55, align 8, !tbaa !22
+  %58 = load ptr, ptr %6, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %58, i32 0, i32 0
+  %60 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %59)
+  %61 = load i32, ptr %5, align 4, !tbaa !17
+  %62 = sub nsw i32 %61, 1
+  %63 = icmp eq i32 %60, %62
+  br i1 %63, label %64, label %65
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %11 = load i32, ptr %i, align 4
-  %12 = load i32, ptr %path_end, align 4
-  %cmp3 = icmp slt i32 %11, %12
-  br i1 %cmp3, label %for.body, label %for.end
+64:                                               ; preds = %51
+  store i32 1, ptr %8, align 4
+  br label %241
 
-for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %spec.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %14 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %13, i64 %idxprom
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %15 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 63, label %sw.bb
-    i32 35, label %sw.bb8
+65:                                               ; preds = %51
+  %66 = load ptr, ptr %6, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %66, i32 0, i32 0
+  %68 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %67)
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %9, align 4, !tbaa !17
+  br label %73
+
+70:                                               ; preds = %40
+  %71 = load ptr, ptr %6, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %71, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %72)
+  store i32 1, ptr %8, align 4
+  br label %241
+
+73:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %74 = load ptr, ptr %4, align 8, !tbaa !38
+  %75 = load i32, ptr %9, align 4, !tbaa !17
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds i16, ptr %74, i64 %76
+  store ptr %77, ptr %11, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %78 = load i32, ptr %5, align 4, !tbaa !17
+  %79 = load i32, ptr %9, align 4, !tbaa !17
+  %80 = sub nsw i32 %78, %79
+  store i32 %80, ptr %12, align 4, !tbaa !17
+  %81 = load ptr, ptr %11, align 8, !tbaa !38
+  %82 = load i32, ptr %12, align 4, !tbaa !17
+  %83 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_115DoExtractSchemeItEEbPKT_iPNS_9ComponentE(ptr noundef %81, i32 noundef %82, ptr noundef %10)
+  br i1 %83, label %84, label %95
+
+84:                                               ; preds = %73
+  %85 = load i32, ptr %9, align 4, !tbaa !17
+  %86 = getelementptr inbounds nuw %"struct.url::Component", ptr %10, i32 0, i32 0
+  %87 = load i32, ptr %86, align 4, !tbaa !14
+  %88 = add nsw i32 %87, %85
+  store i32 %88, ptr %86, align 4, !tbaa !14
+  %89 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %90 = load i32, ptr %5, align 4, !tbaa !17
+  %91 = sub nsw i32 %90, 1
+  %92 = icmp eq i32 %89, %91
+  br i1 %92, label %93, label %94
+
+93:                                               ; preds = %84
+  store i32 1, ptr %8, align 4
+  br label %240
+
+94:                                               ; preds = %84
+  br label %96
+
+95:                                               ; preds = %73
+  store i32 1, ptr %8, align 4
+  br label %240
+
+96:                                               ; preds = %94
+  call void @llvm.lifetime.start.p0(i64 72, ptr %13) #13
+  call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13)
+  %97 = load ptr, ptr %4, align 8, !tbaa !38
+  %98 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef %97, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef @_ZN3url11kFileSchemeE)
+          to label %99 unwind label %104
+
+99:                                               ; preds = %96
+  br i1 %98, label %100, label %108
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %11, align 8, !tbaa !38
+  %102 = load i32, ptr %12, align 4, !tbaa !17
+  invoke void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %101, i32 noundef %102, ptr noundef %13)
+          to label %103 unwind label %104
+
+103:                                              ; preds = %100
+  br label %124
+
+104:                                              ; preds = %124, %117, %113, %108, %100, %96
+  %105 = landingpad { ptr, i32 }
+          cleanup
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %14, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %15, align 4
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #13
+  call void @llvm.lifetime.end.p0(i64 72, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  br label %245
+
+108:                                              ; preds = %99
+  %109 = load ptr, ptr %4, align 8, !tbaa !38
+  %110 = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef %109, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef @_ZN3url17kFileSystemSchemeE)
+          to label %111 unwind label %104
+
+111:                                              ; preds = %108
+  br i1 %110, label %112, label %113
+
+112:                                              ; preds = %111
+  store i32 1, ptr %8, align 4
+  br label %239
+
+113:                                              ; preds = %111
+  %114 = load ptr, ptr %4, align 8, !tbaa !38
+  %115 = invoke noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef %114, ptr noundef nonnull align 4 dereferenceable(8) %10)
+          to label %116 unwind label %104
+
+116:                                              ; preds = %113
+  br i1 %115, label %117, label %121
+
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %11, align 8, !tbaa !38
+  %119 = load i32, ptr %12, align 4, !tbaa !17
+  invoke void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE(ptr noundef %118, i32 noundef %119, ptr noundef %13)
+          to label %120 unwind label %104
+
+120:                                              ; preds = %117
+  br label %122
+
+121:                                              ; preds = %116
+  store i32 1, ptr %8, align 4
+  br label %239
+
+122:                                              ; preds = %120
+  br label %123
+
+123:                                              ; preds = %122
+  br label %124
+
+124:                                              ; preds = %123, %103
+  %125 = load i32, ptr %9, align 4, !tbaa !17
+  %126 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 0
+  %127 = getelementptr inbounds nuw %"struct.url::Component", ptr %126, i32 0, i32 0
+  %128 = load i32, ptr %127, align 8, !tbaa !22
+  %129 = add nsw i32 %128, %125
+  store i32 %129, ptr %127, align 8, !tbaa !22
+  %130 = load i32, ptr %9, align 4, !tbaa !17
+  %131 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 1
+  %132 = getelementptr inbounds nuw %"struct.url::Component", ptr %131, i32 0, i32 0
+  %133 = load i32, ptr %132, align 8, !tbaa !23
+  %134 = add nsw i32 %133, %130
+  store i32 %134, ptr %132, align 8, !tbaa !23
+  %135 = load i32, ptr %9, align 4, !tbaa !17
+  %136 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 2
+  %137 = getelementptr inbounds nuw %"struct.url::Component", ptr %136, i32 0, i32 0
+  %138 = load i32, ptr %137, align 8, !tbaa !24
+  %139 = add nsw i32 %138, %135
+  store i32 %139, ptr %137, align 8, !tbaa !24
+  %140 = load i32, ptr %9, align 4, !tbaa !17
+  %141 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 3
+  %142 = getelementptr inbounds nuw %"struct.url::Component", ptr %141, i32 0, i32 0
+  %143 = load i32, ptr %142, align 8, !tbaa !25
+  %144 = add nsw i32 %143, %140
+  store i32 %144, ptr %142, align 8, !tbaa !25
+  %145 = load i32, ptr %9, align 4, !tbaa !17
+  %146 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 4
+  %147 = getelementptr inbounds nuw %"struct.url::Component", ptr %146, i32 0, i32 0
+  %148 = load i32, ptr %147, align 8, !tbaa !28
+  %149 = add nsw i32 %148, %145
+  store i32 %149, ptr %147, align 8, !tbaa !28
+  %150 = load i32, ptr %9, align 4, !tbaa !17
+  %151 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 6
+  %152 = getelementptr inbounds nuw %"struct.url::Component", ptr %151, i32 0, i32 0
+  %153 = load i32, ptr %152, align 8, !tbaa !30
+  %154 = add nsw i32 %153, %150
+  store i32 %154, ptr %152, align 8, !tbaa !30
+  %155 = load i32, ptr %9, align 4, !tbaa !17
+  %156 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 7
+  %157 = getelementptr inbounds nuw %"struct.url::Component", ptr %156, i32 0, i32 0
+  %158 = load i32, ptr %157, align 8, !tbaa !31
+  %159 = add nsw i32 %158, %155
+  store i32 %159, ptr %157, align 8, !tbaa !31
+  %160 = load i32, ptr %9, align 4, !tbaa !17
+  %161 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %162 = getelementptr inbounds nuw %"struct.url::Component", ptr %161, i32 0, i32 0
+  %163 = load i32, ptr %162, align 8, !tbaa !29
+  %164 = add nsw i32 %163, %160
+  store i32 %164, ptr %162, align 8, !tbaa !29
+  %165 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 6
+  %166 = load ptr, ptr %6, align 8, !tbaa !3
+  %167 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %166, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %167, ptr align 8 %165, i64 8, i1 false), !tbaa.struct !16
+  %168 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 6
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %168)
+  %169 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 7
+  %170 = load ptr, ptr %6, align 8, !tbaa !3
+  %171 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %170, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %171, ptr align 8 %169, i64 8, i1 false), !tbaa.struct !16
+  %172 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 7
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %172)
+  %173 = load ptr, ptr %6, align 8, !tbaa !3
+  invoke void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %173, ptr noundef nonnull align 8 dereferenceable(72) %13)
+          to label %174 unwind label %104
+
+174:                                              ; preds = %124
+  %175 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 0
+  %176 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %175)
+  br i1 %176, label %177, label %183
+
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %179 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %178)
+  br i1 %179, label %180, label %183
+
+180:                                              ; preds = %177
+  %181 = call noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %13)
+  %182 = icmp ne ptr %181, null
+  br i1 %182, label %183, label %184
+
+183:                                              ; preds = %180, %177, %174
+  store i32 1, ptr %8, align 4
+  br label %239
+
+184:                                              ; preds = %180
+  %185 = load ptr, ptr %4, align 8, !tbaa !38
+  %186 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %187 = getelementptr inbounds nuw %"struct.url::Component", ptr %186, i32 0, i32 0
+  %188 = load i32, ptr %187, align 8, !tbaa !29
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr inbounds i16, ptr %185, i64 %189
+  %191 = load i16, ptr %190, align 2, !tbaa !40
+  %192 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %191)
+  br i1 %192, label %194, label %193
+
+193:                                              ; preds = %184
+  store i32 1, ptr %8, align 4
+  br label %239
+
+194:                                              ; preds = %184
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  %195 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %196 = getelementptr inbounds nuw %"struct.url::Component", ptr %195, i32 0, i32 0
+  %197 = load i32, ptr %196, align 8, !tbaa !29
+  %198 = add nsw i32 %197, 1
+  store i32 %198, ptr %16, align 4, !tbaa !17
+  br label %199
+
+199:                                              ; preds = %213, %194
+  %200 = load i32, ptr %16, align 4, !tbaa !17
+  %201 = load i32, ptr %5, align 4, !tbaa !17
+  %202 = icmp slt i32 %200, %201
+  br i1 %202, label %203, label %211
+
+203:                                              ; preds = %199
+  %204 = load ptr, ptr %4, align 8, !tbaa !38
+  %205 = load i32, ptr %16, align 4, !tbaa !17
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr inbounds i16, ptr %204, i64 %206
+  %208 = load i16, ptr %207, align 2, !tbaa !40
+  %209 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %208)
+  %210 = xor i1 %209, true
+  br label %211
+
+211:                                              ; preds = %203, %199
+  %212 = phi i1 [ false, %199 ], [ %210, %203 ]
+  br i1 %212, label %213, label %216
+
+213:                                              ; preds = %211
+  %214 = load i32, ptr %16, align 4, !tbaa !17
+  %215 = add nsw i32 %214, 1
+  store i32 %215, ptr %16, align 4, !tbaa !17
+  br label %199, !llvm.loop !58
+
+216:                                              ; preds = %211
+  %217 = load i32, ptr %16, align 4, !tbaa !17
+  %218 = load ptr, ptr %6, align 8, !tbaa !3
+  %219 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %218, i32 0, i32 5
+  %220 = getelementptr inbounds nuw %"struct.url::Component", ptr %219, i32 0, i32 0
+  store i32 %217, ptr %220, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #13
+  %221 = load i32, ptr %16, align 4, !tbaa !17
+  %222 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %223 = getelementptr inbounds nuw %"struct.url::Component", ptr %222, i32 0, i32 0
+  %224 = load i32, ptr %223, align 8, !tbaa !29
+  %225 = sub nsw i32 %221, %224
+  store i32 %225, ptr %17, align 4, !tbaa !17
+  %226 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %13, i32 0, i32 5
+  %227 = getelementptr inbounds nuw %"struct.url::Component", ptr %226, i32 0, i32 1
+  %228 = load i32, ptr %227, align 4, !tbaa !57
+  %229 = load i32, ptr %17, align 4, !tbaa !17
+  %230 = sub nsw i32 %228, %229
+  %231 = load ptr, ptr %6, align 8, !tbaa !3
+  %232 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %231, i32 0, i32 5
+  %233 = getelementptr inbounds nuw %"struct.url::Component", ptr %232, i32 0, i32 1
+  store i32 %230, ptr %233, align 4, !tbaa !57
+  %234 = load i32, ptr %17, align 4, !tbaa !17
+  %235 = load ptr, ptr %6, align 8, !tbaa !3
+  %236 = call noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %235)
+  %237 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %236, i32 0, i32 5
+  %238 = getelementptr inbounds nuw %"struct.url::Component", ptr %237, i32 0, i32 1
+  store i32 %234, ptr %238, align 4, !tbaa !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  store i32 0, ptr %8, align 4
+  br label %239
+
+239:                                              ; preds = %216, %193, %183, %121, %112
+  call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #13
+  call void @llvm.lifetime.end.p0(i64 72, ptr %13) #13
+  br label %240
+
+240:                                              ; preds = %239, %95, %93
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  br label %241
+
+241:                                              ; preds = %240, %70, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %242
+
+242:                                              ; preds = %241, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  %243 = load i32, ptr %8, align 4
+  switch i32 %243, label %250 [
+    i32 0, label %244
+    i32 1, label %244
   ]
 
-sw.bb:                                            ; preds = %for.body
-  %16 = load i32, ptr %ref_separator, align 4
-  %cmp4 = icmp slt i32 %16, 0
-  br i1 %cmp4, label %land.lhs.true, label %if.end7
+244:                                              ; preds = %242, %242
+  ret void
 
-land.lhs.true:                                    ; preds = %sw.bb
-  %17 = load i32, ptr %query_separator, align 4
-  %cmp5 = icmp slt i32 %17, 0
-  br i1 %cmp5, label %if.then6, label %if.end7
+245:                                              ; preds = %104
+  %246 = load ptr, ptr %14, align 8
+  %247 = load i32, ptr %15, align 4
+  %248 = insertvalue { ptr, i32 } poison, ptr %246, 0
+  %249 = insertvalue { ptr, i32 } %248, i32 %247, 1
+  resume { ptr, i32 } %249
 
-if.then6:                                         ; preds = %land.lhs.true
-  %18 = load i32, ptr %i, align 4
-  store i32 %18, ptr %query_separator, align 4
-  br label %if.end7
+250:                                              ; preds = %242
+  unreachable
+}
 
-if.end7:                                          ; preds = %if.then6, %land.lhs.true, %sw.bb
-  br label %sw.epilog
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load i32, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %7, i32 noundef %8, ptr noundef %9)
+  ret void
+}
 
-sw.bb8:                                           ; preds = %for.body
-  %19 = load i32, ptr %ref_separator, align 4
-  %cmp9 = icmp slt i32 %19, 0
-  br i1 %cmp9, label %if.then10, label %if.end11
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"struct.url::Component", align 4
+  %13 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %14, i32 0, i32 1
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %15)
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %16, i32 0, i32 2
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %17)
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %18, i32 0, i32 3
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %20, i32 0, i32 4
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %22, i32 0, i32 7
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %6, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %24, i32 0, i32 6
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %25)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !17
+  %26 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %26, ptr noundef %7, ptr noundef %5, i1 noundef zeroext true)
+  %27 = load i32, ptr %7, align 4, !tbaa !17
+  %28 = load i32, ptr %5, align 4, !tbaa !17
+  %29 = icmp eq i32 %27, %28
+  br i1 %29, label %30, label %35
 
-if.then10:                                        ; preds = %sw.bb8
-  %20 = load i32, ptr %i, align 4
-  store i32 %20, ptr %ref_separator, align 4
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then10, %sw.bb8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %if.end11, %if.end7, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %sw.epilog
-  %21 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %21, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !27
-
-for.end:                                          ; preds = %for.cond
-  %22 = load i32, ptr %ref_separator, align 4
-  %cmp12 = icmp sge i32 %22, 0
-  br i1 %cmp12, label %if.then13, label %if.else
-
-if.then13:                                        ; preds = %for.end
-  %23 = load i32, ptr %ref_separator, align 4
-  store i32 %23, ptr %query_end, align 4
-  store i32 %23, ptr %file_end, align 4
-  %24 = load i32, ptr %ref_separator, align 4
-  %add14 = add nsw i32 %24, 1
-  %25 = load i32, ptr %path_end, align 4
-  %call = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add14, i32 noundef %25)
-  store i64 %call, ptr %ref.tmp, align 4
-  %26 = load ptr, ptr %ref.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %ref.tmp, i64 8, i1 false)
-  br label %if.end15
-
-if.else:                                          ; preds = %for.end
-  %27 = load i32, ptr %path_end, align 4
-  store i32 %27, ptr %query_end, align 4
-  store i32 %27, ptr %file_end, align 4
-  %28 = load ptr, ptr %ref.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %28)
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.else, %if.then13
-  %29 = load i32, ptr %query_separator, align 4
-  %cmp16 = icmp sge i32 %29, 0
-  br i1 %cmp16, label %if.then17, label %if.else21
-
-if.then17:                                        ; preds = %if.end15
-  %30 = load i32, ptr %query_separator, align 4
-  store i32 %30, ptr %file_end, align 4
-  %31 = load i32, ptr %query_separator, align 4
-  %add19 = add nsw i32 %31, 1
-  %32 = load i32, ptr %query_end, align 4
-  %call20 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add19, i32 noundef %32)
-  store i64 %call20, ptr %ref.tmp18, align 4
-  %33 = load ptr, ptr %query.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr align 4 %ref.tmp18, i64 8, i1 false)
-  br label %if.end22
-
-if.else21:                                        ; preds = %if.end15
-  %34 = load ptr, ptr %query.addr, align 8
+30:                                               ; preds = %3
+  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %31, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %32)
+  %33 = load ptr, ptr %6, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %33, i32 0, i32 5
   call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %34)
-  br label %if.end22
+  store i32 1, ptr %8, align 4
+  br label %113
 
-if.end22:                                         ; preds = %if.else21, %if.then17
-  %35 = load i32, ptr %file_end, align 4
-  %36 = load ptr, ptr %path.addr, align 8
-  %begin23 = getelementptr inbounds %"struct.url::Component", ptr %36, i32 0, i32 0
-  %37 = load i32, ptr %begin23, align 4
-  %cmp24 = icmp ne i32 %35, %37
-  br i1 %cmp24, label %if.then25, label %if.else29
+35:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 -1, ptr %9, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  store i32 -1, ptr %10, align 4, !tbaa !17
+  %36 = load ptr, ptr %4, align 8, !tbaa !32
+  %37 = load i32, ptr %7, align 4, !tbaa !17
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %36, i64 %38
+  %40 = load i32, ptr %5, align 4, !tbaa !17
+  %41 = load i32, ptr %7, align 4, !tbaa !17
+  %42 = sub nsw i32 %40, %41
+  %43 = load ptr, ptr %6, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %43, i32 0, i32 0
+  %45 = call noundef zeroext i1 @_ZN3url13ExtractSchemeEPKciPNS_9ComponentE(ptr noundef %39, i32 noundef %42, ptr noundef %44)
+  br i1 %45, label %46, label %66
 
-if.then25:                                        ; preds = %if.end22
-  %38 = load ptr, ptr %path.addr, align 8
-  %begin27 = getelementptr inbounds %"struct.url::Component", ptr %38, i32 0, i32 0
-  %39 = load i32, ptr %begin27, align 4
-  %40 = load i32, ptr %file_end, align 4
-  %call28 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %39, i32 noundef %40)
-  store i64 %call28, ptr %ref.tmp26, align 4
-  %41 = load ptr, ptr %filepath.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 4 %ref.tmp26, i64 8, i1 false)
-  br label %if.end30
+46:                                               ; preds = %35
+  %47 = load i32, ptr %7, align 4, !tbaa !17
+  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.url::Component", ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8, !tbaa !22
+  %52 = add nsw i32 %51, %47
+  store i32 %52, ptr %50, align 8, !tbaa !22
+  %53 = load ptr, ptr %6, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %53, i32 0, i32 0
+  %55 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %54)
+  %56 = load i32, ptr %5, align 4, !tbaa !17
+  %57 = sub nsw i32 %56, 1
+  %58 = icmp ne i32 %55, %57
+  br i1 %58, label %59, label %65
 
-if.else29:                                        ; preds = %if.end22
-  %42 = load ptr, ptr %filepath.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %42)
-  br label %if.end30
+59:                                               ; preds = %46
+  %60 = load ptr, ptr %6, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %60, i32 0, i32 0
+  %62 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %61)
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %9, align 4, !tbaa !17
+  %64 = load i32, ptr %5, align 4, !tbaa !17
+  store i32 %64, ptr %10, align 4, !tbaa !17
+  br label %65
 
-if.end30:                                         ; preds = %if.else29, %if.then25, %if.then
+65:                                               ; preds = %59, %46
+  br label %71
+
+66:                                               ; preds = %35
+  %67 = load ptr, ptr %6, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %67, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %68)
+  %69 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %69, ptr %9, align 4, !tbaa !17
+  %70 = load i32, ptr %5, align 4, !tbaa !17
+  store i32 %70, ptr %10, align 4, !tbaa !17
+  br label %71
+
+71:                                               ; preds = %66, %65
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %72 = load i32, ptr %9, align 4, !tbaa !17
+  store i32 %72, ptr %11, align 4, !tbaa !17
+  br label %73
+
+73:                                               ; preds = %95, %71
+  %74 = load i32, ptr %11, align 4, !tbaa !17
+  %75 = load i32, ptr %10, align 4, !tbaa !17
+  %76 = icmp slt i32 %74, %75
+  br i1 %76, label %78, label %77
+
+77:                                               ; preds = %73
+  store i32 2, ptr %8, align 4
+  br label %98
+
+78:                                               ; preds = %73
+  %79 = load ptr, ptr %4, align 8, !tbaa !32
+  %80 = load i32, ptr %11, align 4, !tbaa !17
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i8, ptr %79, i64 %81
+  %83 = load i8, ptr %82, align 1, !tbaa !34
+  %84 = sext i8 %83 to i32
+  %85 = icmp eq i32 %84, 63
+  br i1 %85, label %86, label %94
+
+86:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %87 = load i32, ptr %11, align 4, !tbaa !17
+  %88 = add nsw i32 %87, 1
+  %89 = load i32, ptr %10, align 4, !tbaa !17
+  %90 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %88, i32 noundef %89)
+  store i64 %90, ptr %12, align 4
+  %91 = load ptr, ptr %6, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %91, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %92, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %93 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %93, ptr %10, align 4, !tbaa !17
+  store i32 2, ptr %8, align 4
+  br label %98
+
+94:                                               ; preds = %78
+  br label %95
+
+95:                                               ; preds = %94
+  %96 = load i32, ptr %11, align 4, !tbaa !17
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %11, align 4, !tbaa !17
+  br label %73, !llvm.loop !59
+
+98:                                               ; preds = %86, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %99
+
+99:                                               ; preds = %98
+  %100 = load i32, ptr %9, align 4, !tbaa !17
+  %101 = load i32, ptr %10, align 4, !tbaa !17
+  %102 = icmp eq i32 %100, %101
+  br i1 %102, label %103, label %106
+
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %6, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %104, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %105)
+  br label %112
+
+106:                                              ; preds = %99
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %107 = load i32, ptr %9, align 4, !tbaa !17
+  %108 = load i32, ptr %10, align 4, !tbaa !17
+  %109 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %107, i32 noundef %108)
+  store i64 %109, ptr %13, align 4
+  %110 = load ptr, ptr %6, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %110, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %111, ptr align 4 %13, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  br label %112
+
+112:                                              ; preds = %106, %103
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %8, align 4
+  br label %113
+
+113:                                              ; preds = %112, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  %114 = load i32, ptr %8, align 4
+  switch i32 %114, label %116 [
+    i32 0, label %115
+    i32 1, label %115
+  ]
+
+115:                                              ; preds = %113, %113
+  ret void
+
+116:                                              ; preds = %113
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !38
+  %8 = load i32, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE(ptr noundef %7, i32 noundef %8, ptr noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url16ParseAfterSchemeEPKciiPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, i32 noundef %after_scheme, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %after_scheme.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store i32 %after_scheme, ptr %after_scheme.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load i32, ptr %spec_len.addr, align 4
-  %2 = load i32, ptr %after_scheme.addr, align 4
-  %3 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
+define internal void @_ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"struct.url::Component", align 4
+  %13 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %14, i32 0, i32 1
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %15)
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %16, i32 0, i32 2
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %17)
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %18, i32 0, i32 3
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %20, i32 0, i32 4
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %22, i32 0, i32 7
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %6, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %24, i32 0, i32 6
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %25)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !17
+  %26 = load ptr, ptr %4, align 8, !tbaa !38
+  call void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %26, ptr noundef %7, ptr noundef %5, i1 noundef zeroext true)
+  %27 = load i32, ptr %7, align 4, !tbaa !17
+  %28 = load i32, ptr %5, align 4, !tbaa !17
+  %29 = icmp eq i32 %27, %28
+  br i1 %29, label %30, label %35
+
+30:                                               ; preds = %3
+  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %31, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %32)
+  %33 = load ptr, ptr %6, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %33, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %34)
+  store i32 1, ptr %8, align 4
+  br label %113
+
+35:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 -1, ptr %9, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  store i32 -1, ptr %10, align 4, !tbaa !17
+  %36 = load ptr, ptr %4, align 8, !tbaa !38
+  %37 = load i32, ptr %7, align 4, !tbaa !17
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i16, ptr %36, i64 %38
+  %40 = load i32, ptr %5, align 4, !tbaa !17
+  %41 = load i32, ptr %7, align 4, !tbaa !17
+  %42 = sub nsw i32 %40, %41
+  %43 = load ptr, ptr %6, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %43, i32 0, i32 0
+  %45 = call noundef zeroext i1 @_ZN3url13ExtractSchemeEPKtiPNS_9ComponentE(ptr noundef %39, i32 noundef %42, ptr noundef %44)
+  br i1 %45, label %46, label %66
+
+46:                                               ; preds = %35
+  %47 = load i32, ptr %7, align 4, !tbaa !17
+  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.url::Component", ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8, !tbaa !22
+  %52 = add nsw i32 %51, %47
+  store i32 %52, ptr %50, align 8, !tbaa !22
+  %53 = load ptr, ptr %6, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %53, i32 0, i32 0
+  %55 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %54)
+  %56 = load i32, ptr %5, align 4, !tbaa !17
+  %57 = sub nsw i32 %56, 1
+  %58 = icmp ne i32 %55, %57
+  br i1 %58, label %59, label %65
+
+59:                                               ; preds = %46
+  %60 = load ptr, ptr %6, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %60, i32 0, i32 0
+  %62 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %61)
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %9, align 4, !tbaa !17
+  %64 = load i32, ptr %5, align 4, !tbaa !17
+  store i32 %64, ptr %10, align 4, !tbaa !17
+  br label %65
+
+65:                                               ; preds = %59, %46
+  br label %71
+
+66:                                               ; preds = %35
+  %67 = load ptr, ptr %6, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %67, i32 0, i32 0
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %68)
+  %69 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %69, ptr %9, align 4, !tbaa !17
+  %70 = load i32, ptr %5, align 4, !tbaa !17
+  store i32 %70, ptr %10, align 4, !tbaa !17
+  br label %71
+
+71:                                               ; preds = %66, %65
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %72 = load i32, ptr %9, align 4, !tbaa !17
+  store i32 %72, ptr %11, align 4, !tbaa !17
+  br label %73
+
+73:                                               ; preds = %95, %71
+  %74 = load i32, ptr %11, align 4, !tbaa !17
+  %75 = load i32, ptr %10, align 4, !tbaa !17
+  %76 = icmp slt i32 %74, %75
+  br i1 %76, label %78, label %77
+
+77:                                               ; preds = %73
+  store i32 2, ptr %8, align 4
+  br label %98
+
+78:                                               ; preds = %73
+  %79 = load ptr, ptr %4, align 8, !tbaa !38
+  %80 = load i32, ptr %11, align 4, !tbaa !17
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i16, ptr %79, i64 %81
+  %83 = load i16, ptr %82, align 2, !tbaa !40
+  %84 = zext i16 %83 to i32
+  %85 = icmp eq i32 %84, 63
+  br i1 %85, label %86, label %94
+
+86:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %87 = load i32, ptr %11, align 4, !tbaa !17
+  %88 = add nsw i32 %87, 1
+  %89 = load i32, ptr %10, align 4, !tbaa !17
+  %90 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %88, i32 noundef %89)
+  store i64 %90, ptr %12, align 4
+  %91 = load ptr, ptr %6, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %91, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %92, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %93 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %93, ptr %10, align 4, !tbaa !17
+  store i32 2, ptr %8, align 4
+  br label %98
+
+94:                                               ; preds = %78
+  br label %95
+
+95:                                               ; preds = %94
+  %96 = load i32, ptr %11, align 4, !tbaa !17
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %11, align 4, !tbaa !17
+  br label %73, !llvm.loop !60
+
+98:                                               ; preds = %86, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %99
+
+99:                                               ; preds = %98
+  %100 = load i32, ptr %9, align 4, !tbaa !17
+  %101 = load i32, ptr %10, align 4, !tbaa !17
+  %102 = icmp eq i32 %100, %101
+  br i1 %102, label %103, label %106
+
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %6, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %104, i32 0, i32 5
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %105)
+  br label %112
+
+106:                                              ; preds = %99
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %107 = load i32, ptr %9, align 4, !tbaa !17
+  %108 = load i32, ptr %10, align 4, !tbaa !17
+  %109 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %107, i32 noundef %108)
+  store i64 %109, ptr %13, align 4
+  %110 = load ptr, ptr %6, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %110, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %111, ptr align 4 %13, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  br label %112
+
+112:                                              ; preds = %106, %103
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %8, align 4
+  br label %113
+
+113:                                              ; preds = %112, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  %114 = load i32, ptr %8, align 4
+  switch i32 %114, label %116 [
+    i32 0, label %115
+    i32 1, label %115
+  ]
+
+115:                                              ; preds = %113, %113
+  ret void
+
+116:                                              ; preds = %113
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !32
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  store ptr %4, ptr %10, align 8, !tbaa !12
+  %11 = load ptr, ptr %6, align 8, !tbaa !32
+  %12 = load ptr, ptr %7, align 8, !tbaa !12
+  %13 = load ptr, ptr %8, align 8, !tbaa !12
+  %14 = load ptr, ptr %9, align 8, !tbaa !12
+  %15 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, i32 noundef %after_scheme, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %after_scheme.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  %num_slashes = alloca i32, align 4
-  %after_slashes = alloca i32, align 4
-  %authority = alloca %"struct.url::Component", align 4
-  %full_path = alloca %"struct.url::Component", align 4
-  %end_auth = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp2 = alloca %"struct.url::Component", align 4
-  %ref.tmp3 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store i32 %after_scheme, ptr %after_scheme.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load i32, ptr %after_scheme.addr, align 4
-  %2 = load i32, ptr %spec_len.addr, align 4
-  %call = call noundef i32 @_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii(ptr noundef %0, i32 noundef %1, i32 noundef %2)
-  store i32 %call, ptr %num_slashes, align 4
-  %3 = load i32, ptr %after_scheme.addr, align 4
-  %4 = load i32, ptr %num_slashes, align 4
-  %add = add nsw i32 %3, %4
-  store i32 %add, ptr %after_slashes, align 4
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %authority)
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %full_path)
-  %5 = load ptr, ptr %spec.addr, align 8
-  %6 = load i32, ptr %after_slashes, align 4
-  %7 = load i32, ptr %spec_len.addr, align 4
-  %call1 = call noundef i32 @_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorIcEEiPKT_ii(ptr noundef %5, i32 noundef %6, i32 noundef %7)
-  store i32 %call1, ptr %end_auth, align 4
-  %8 = load i32, ptr %after_slashes, align 4
-  %9 = load i32, ptr %end_auth, align 4
-  %10 = load i32, ptr %after_slashes, align 4
-  %sub = sub nsw i32 %9, %10
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef %8, i32 noundef %sub)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %authority, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %11 = load i32, ptr %end_auth, align 4
-  %12 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp eq i32 %11, %12
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca %"struct.url::Component", align 4
+  %18 = alloca %"struct.url::Component", align 4
+  %19 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %6, align 8, !tbaa !32
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  store ptr %4, ptr %10, align 8, !tbaa !12
+  %20 = load ptr, ptr %7, align 8, !tbaa !12
+  %21 = getelementptr inbounds nuw %"struct.url::Component", ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4, !tbaa !15
+  %23 = icmp eq i32 %22, -1
+  br i1 %23, label %24, label %28
 
-if.then:                                          ; preds = %entry
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %full_path, ptr align 4 %ref.tmp2, i64 8, i1 false)
-  br label %if.end
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %25)
+  %26 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %26)
+  %27 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %27)
+  br label %111
 
-if.else:                                          ; preds = %entry
-  %13 = load i32, ptr %end_auth, align 4
-  %14 = load i32, ptr %spec_len.addr, align 4
-  %15 = load i32, ptr %end_auth, align 4
-  %sub4 = sub nsw i32 %14, %15
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp3, i32 noundef %13, i32 noundef %sub4)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %full_path, ptr align 4 %ref.tmp3, i64 8, i1 false)
-  br label %if.end
+28:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %29 = load ptr, ptr %7, align 8, !tbaa !12
+  %30 = getelementptr inbounds nuw %"struct.url::Component", ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 4, !tbaa !14
+  %32 = load ptr, ptr %7, align 8, !tbaa !12
+  %33 = getelementptr inbounds nuw %"struct.url::Component", ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4, !tbaa !15
+  %35 = add nsw i32 %31, %34
+  store i32 %35, ptr %11, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  store i32 -1, ptr %12, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  store i32 -1, ptr %13, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %36 = load ptr, ptr %7, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw %"struct.url::Component", ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 4, !tbaa !14
+  store i32 %38, ptr %14, align 4, !tbaa !17
+  br label %39
 
-if.end:                                           ; preds = %if.else, %if.then
-  %16 = load ptr, ptr %spec.addr, align 8
-  %17 = load ptr, ptr %parsed.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %parsed.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %parsed.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %parsed.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %20, i32 0, i32 4
-  call void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(8) %authority, ptr noundef %username, ptr noundef %password, ptr noundef %host, ptr noundef %port)
-  %21 = load ptr, ptr %spec.addr, align 8
-  %22 = load ptr, ptr %parsed.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %22, i32 0, i32 5
-  %23 = load ptr, ptr %parsed.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %23, i32 0, i32 6
-  %24 = load ptr, ptr %parsed.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %24, i32 0, i32 7
-  call void @_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %21, ptr noundef nonnull align 4 dereferenceable(8) %full_path, ptr noundef %path, ptr noundef %query, ptr noundef %ref)
+39:                                               ; preds = %67, %28
+  %40 = load i32, ptr %14, align 4, !tbaa !17
+  %41 = load i32, ptr %11, align 4, !tbaa !17
+  %42 = icmp slt i32 %40, %41
+  br i1 %42, label %44, label %43
+
+43:                                               ; preds = %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  br label %70
+
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %6, align 8, !tbaa !32
+  %46 = load i32, ptr %14, align 4, !tbaa !17
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr %45, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !34
+  %50 = sext i8 %49 to i32
+  switch i32 %50, label %66 [
+    i32 63, label %51
+    i32 35, label %60
+  ]
+
+51:                                               ; preds = %44
+  %52 = load i32, ptr %13, align 4, !tbaa !17
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %54, label %59
+
+54:                                               ; preds = %51
+  %55 = load i32, ptr %12, align 4, !tbaa !17
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %54
+  %58 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %58, ptr %12, align 4, !tbaa !17
+  br label %59
+
+59:                                               ; preds = %57, %54, %51
+  br label %66
+
+60:                                               ; preds = %44
+  %61 = load i32, ptr %13, align 4, !tbaa !17
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %60
+  %64 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %64, ptr %13, align 4, !tbaa !17
+  br label %65
+
+65:                                               ; preds = %63, %60
+  br label %66
+
+66:                                               ; preds = %44, %65, %59
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i32, ptr %14, align 4, !tbaa !17
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %14, align 4, !tbaa !17
+  br label %39, !llvm.loop !61
+
+70:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  %71 = load i32, ptr %13, align 4, !tbaa !17
+  %72 = icmp sge i32 %71, 0
+  br i1 %72, label %73, label %80
+
+73:                                               ; preds = %70
+  %74 = load i32, ptr %13, align 4, !tbaa !17
+  store i32 %74, ptr %16, align 4, !tbaa !17
+  store i32 %74, ptr %15, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #13
+  %75 = load i32, ptr %13, align 4, !tbaa !17
+  %76 = add nsw i32 %75, 1
+  %77 = load i32, ptr %11, align 4, !tbaa !17
+  %78 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %76, i32 noundef %77)
+  store i64 %78, ptr %17, align 4
+  %79 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %79, ptr align 4 %17, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #13
+  br label %83
+
+80:                                               ; preds = %70
+  %81 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %81, ptr %16, align 4, !tbaa !17
+  store i32 %81, ptr %15, align 4, !tbaa !17
+  %82 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %82)
+  br label %83
+
+83:                                               ; preds = %80, %73
+  %84 = load i32, ptr %12, align 4, !tbaa !17
+  %85 = icmp sge i32 %84, 0
+  br i1 %85, label %86, label %93
+
+86:                                               ; preds = %83
+  %87 = load i32, ptr %12, align 4, !tbaa !17
+  store i32 %87, ptr %15, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  %88 = load i32, ptr %12, align 4, !tbaa !17
+  %89 = add nsw i32 %88, 1
+  %90 = load i32, ptr %16, align 4, !tbaa !17
+  %91 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %89, i32 noundef %90)
+  store i64 %91, ptr %18, align 4
+  %92 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %92, ptr align 4 %18, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  br label %95
+
+93:                                               ; preds = %83
+  %94 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %94)
+  br label %95
+
+95:                                               ; preds = %93, %86
+  %96 = load i32, ptr %15, align 4, !tbaa !17
+  %97 = load ptr, ptr %7, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw %"struct.url::Component", ptr %97, i32 0, i32 0
+  %99 = load i32, ptr %98, align 4, !tbaa !14
+  %100 = icmp ne i32 %96, %99
+  br i1 %100, label %101, label %108
+
+101:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #13
+  %102 = load ptr, ptr %7, align 8, !tbaa !12
+  %103 = getelementptr inbounds nuw %"struct.url::Component", ptr %102, i32 0, i32 0
+  %104 = load i32, ptr %103, align 4, !tbaa !14
+  %105 = load i32, ptr %15, align 4, !tbaa !17
+  %106 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %104, i32 noundef %105)
+  store i64 %106, ptr %19, align 4
+  %107 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %107, ptr align 4 %19, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #13
+  br label %110
+
+108:                                              ; preds = %95
+  %109 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %109)
+  br label %110
+
+110:                                              ; preds = %108, %101
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %111
+
+111:                                              ; preds = %110, %24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url16ParseAfterSchemeEPKtiiPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, i32 noundef %after_scheme, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %after_scheme.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store i32 %after_scheme, ptr %after_scheme.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load i32, ptr %spec_len.addr, align 4
-  %2 = load i32, ptr %after_scheme.addr, align 4
-  %3 = load ptr, ptr %parsed.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
+define void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !38
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  store ptr %4, ptr %10, align 8, !tbaa !12
+  %11 = load ptr, ptr %6, align 8, !tbaa !38
+  %12 = load ptr, ptr %7, align 8, !tbaa !12
+  %13 = load ptr, ptr %8, align 8, !tbaa !12
+  %14 = load ptr, ptr %9, align 8, !tbaa !12
+  %15 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %spec, i32 noundef %spec_len, i32 noundef %after_scheme, ptr noundef %parsed) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %spec_len.addr = alloca i32, align 4
-  %after_scheme.addr = alloca i32, align 4
-  %parsed.addr = alloca ptr, align 8
-  %num_slashes = alloca i32, align 4
-  %after_slashes = alloca i32, align 4
-  %authority = alloca %"struct.url::Component", align 4
-  %full_path = alloca %"struct.url::Component", align 4
-  %end_auth = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp2 = alloca %"struct.url::Component", align 4
-  %ref.tmp3 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  store i32 %after_scheme, ptr %after_scheme.addr, align 4
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load i32, ptr %after_scheme.addr, align 4
-  %2 = load i32, ptr %spec_len.addr, align 4
-  %call = call noundef i32 @_ZN3url23CountConsecutiveSlashesItEEiPKT_ii(ptr noundef %0, i32 noundef %1, i32 noundef %2)
-  store i32 %call, ptr %num_slashes, align 4
-  %3 = load i32, ptr %after_scheme.addr, align 4
-  %4 = load i32, ptr %num_slashes, align 4
-  %add = add nsw i32 %3, %4
-  store i32 %add, ptr %after_slashes, align 4
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %authority)
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %full_path)
-  %5 = load ptr, ptr %spec.addr, align 8
-  %6 = load i32, ptr %after_slashes, align 4
-  %7 = load i32, ptr %spec_len.addr, align 4
-  %call1 = call noundef i32 @_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorItEEiPKT_ii(ptr noundef %5, i32 noundef %6, i32 noundef %7)
-  store i32 %call1, ptr %end_auth, align 4
-  %8 = load i32, ptr %after_slashes, align 4
-  %9 = load i32, ptr %end_auth, align 4
-  %10 = load i32, ptr %after_slashes, align 4
-  %sub = sub nsw i32 %9, %10
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef %8, i32 noundef %sub)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %authority, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %11 = load i32, ptr %end_auth, align 4
-  %12 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp eq i32 %11, %12
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca %"struct.url::Component", align 4
+  %18 = alloca %"struct.url::Component", align 4
+  %19 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %6, align 8, !tbaa !38
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  store ptr %4, ptr %10, align 8, !tbaa !12
+  %20 = load ptr, ptr %7, align 8, !tbaa !12
+  %21 = getelementptr inbounds nuw %"struct.url::Component", ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4, !tbaa !15
+  %23 = icmp eq i32 %22, -1
+  br i1 %23, label %24, label %28
 
-if.then:                                          ; preds = %entry
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %full_path, ptr align 4 %ref.tmp2, i64 8, i1 false)
-  br label %if.end
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %25)
+  %26 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %26)
+  %27 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %27)
+  br label %111
 
-if.else:                                          ; preds = %entry
-  %13 = load i32, ptr %end_auth, align 4
-  %14 = load i32, ptr %spec_len.addr, align 4
-  %15 = load i32, ptr %end_auth, align 4
-  %sub4 = sub nsw i32 %14, %15
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp3, i32 noundef %13, i32 noundef %sub4)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %full_path, ptr align 4 %ref.tmp3, i64 8, i1 false)
-  br label %if.end
+28:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %29 = load ptr, ptr %7, align 8, !tbaa !12
+  %30 = getelementptr inbounds nuw %"struct.url::Component", ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 4, !tbaa !14
+  %32 = load ptr, ptr %7, align 8, !tbaa !12
+  %33 = getelementptr inbounds nuw %"struct.url::Component", ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 4, !tbaa !15
+  %35 = add nsw i32 %31, %34
+  store i32 %35, ptr %11, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  store i32 -1, ptr %12, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  store i32 -1, ptr %13, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %36 = load ptr, ptr %7, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw %"struct.url::Component", ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 4, !tbaa !14
+  store i32 %38, ptr %14, align 4, !tbaa !17
+  br label %39
 
-if.end:                                           ; preds = %if.else, %if.then
-  %16 = load ptr, ptr %spec.addr, align 8
-  %17 = load ptr, ptr %parsed.addr, align 8
-  %username = getelementptr inbounds %"struct.url::Parsed", ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %parsed.addr, align 8
-  %password = getelementptr inbounds %"struct.url::Parsed", ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %parsed.addr, align 8
-  %host = getelementptr inbounds %"struct.url::Parsed", ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %parsed.addr, align 8
-  %port = getelementptr inbounds %"struct.url::Parsed", ptr %20, i32 0, i32 4
-  call void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(8) %authority, ptr noundef %username, ptr noundef %password, ptr noundef %host, ptr noundef %port)
-  %21 = load ptr, ptr %spec.addr, align 8
-  %22 = load ptr, ptr %parsed.addr, align 8
-  %path = getelementptr inbounds %"struct.url::Parsed", ptr %22, i32 0, i32 5
-  %23 = load ptr, ptr %parsed.addr, align 8
-  %query = getelementptr inbounds %"struct.url::Parsed", ptr %23, i32 0, i32 6
-  %24 = load ptr, ptr %parsed.addr, align 8
-  %ref = getelementptr inbounds %"struct.url::Parsed", ptr %24, i32 0, i32 7
-  call void @_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %21, ptr noundef nonnull align 4 dereferenceable(8) %full_path, ptr noundef %path, ptr noundef %query, ptr noundef %ref)
+39:                                               ; preds = %67, %28
+  %40 = load i32, ptr %14, align 4, !tbaa !17
+  %41 = load i32, ptr %11, align 4, !tbaa !17
+  %42 = icmp slt i32 %40, %41
+  br i1 %42, label %44, label %43
+
+43:                                               ; preds = %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  br label %70
+
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %6, align 8, !tbaa !38
+  %46 = load i32, ptr %14, align 4, !tbaa !17
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i16, ptr %45, i64 %47
+  %49 = load i16, ptr %48, align 2, !tbaa !40
+  %50 = zext i16 %49 to i32
+  switch i32 %50, label %66 [
+    i32 63, label %51
+    i32 35, label %60
+  ]
+
+51:                                               ; preds = %44
+  %52 = load i32, ptr %13, align 4, !tbaa !17
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %54, label %59
+
+54:                                               ; preds = %51
+  %55 = load i32, ptr %12, align 4, !tbaa !17
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %54
+  %58 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %58, ptr %12, align 4, !tbaa !17
+  br label %59
+
+59:                                               ; preds = %57, %54, %51
+  br label %66
+
+60:                                               ; preds = %44
+  %61 = load i32, ptr %13, align 4, !tbaa !17
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %60
+  %64 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %64, ptr %13, align 4, !tbaa !17
+  br label %65
+
+65:                                               ; preds = %63, %60
+  br label %66
+
+66:                                               ; preds = %44, %65, %59
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i32, ptr %14, align 4, !tbaa !17
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %14, align 4, !tbaa !17
+  br label %39, !llvm.loop !62
+
+70:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  %71 = load i32, ptr %13, align 4, !tbaa !17
+  %72 = icmp sge i32 %71, 0
+  br i1 %72, label %73, label %80
+
+73:                                               ; preds = %70
+  %74 = load i32, ptr %13, align 4, !tbaa !17
+  store i32 %74, ptr %16, align 4, !tbaa !17
+  store i32 %74, ptr %15, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #13
+  %75 = load i32, ptr %13, align 4, !tbaa !17
+  %76 = add nsw i32 %75, 1
+  %77 = load i32, ptr %11, align 4, !tbaa !17
+  %78 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %76, i32 noundef %77)
+  store i64 %78, ptr %17, align 4
+  %79 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %79, ptr align 4 %17, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #13
+  br label %83
+
+80:                                               ; preds = %70
+  %81 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %81, ptr %16, align 4, !tbaa !17
+  store i32 %81, ptr %15, align 4, !tbaa !17
+  %82 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %82)
+  br label %83
+
+83:                                               ; preds = %80, %73
+  %84 = load i32, ptr %12, align 4, !tbaa !17
+  %85 = icmp sge i32 %84, 0
+  br i1 %85, label %86, label %93
+
+86:                                               ; preds = %83
+  %87 = load i32, ptr %12, align 4, !tbaa !17
+  store i32 %87, ptr %15, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  %88 = load i32, ptr %12, align 4, !tbaa !17
+  %89 = add nsw i32 %88, 1
+  %90 = load i32, ptr %16, align 4, !tbaa !17
+  %91 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %89, i32 noundef %90)
+  store i64 %91, ptr %18, align 4
+  %92 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %92, ptr align 4 %18, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  br label %95
+
+93:                                               ; preds = %83
+  %94 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %94)
+  br label %95
+
+95:                                               ; preds = %93, %86
+  %96 = load i32, ptr %15, align 4, !tbaa !17
+  %97 = load ptr, ptr %7, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw %"struct.url::Component", ptr %97, i32 0, i32 0
+  %99 = load i32, ptr %98, align 4, !tbaa !14
+  %100 = icmp ne i32 %96, %99
+  br i1 %100, label %101, label %108
+
+101:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #13
+  %102 = load ptr, ptr %7, align 8, !tbaa !12
+  %103 = getelementptr inbounds nuw %"struct.url::Component", ptr %102, i32 0, i32 0
+  %104 = load i32, ptr %103, align 4, !tbaa !14
+  %105 = load i32, ptr %15, align 4, !tbaa !17
+  %106 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %104, i32 noundef %105)
+  store i64 %106, ptr %19, align 4
+  %107 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %107, ptr align 4 %19, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #13
+  br label %110
+
+108:                                              ; preds = %95
+  %109 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %109)
+  br label %110
+
+110:                                              ; preds = %108, %101
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %111
+
+111:                                              ; preds = %110, %24
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url16ParseAfterSchemeEPKciiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i32 %2, ptr %7, align 4, !tbaa !17
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %9 = load ptr, ptr %5, align 8, !tbaa !32
+  %10 = load i32, ptr %6, align 4, !tbaa !17
+  %11 = load i32, ptr %7, align 4, !tbaa !17
+  %12 = load ptr, ptr %8, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.url::Component", align 4
+  %12 = alloca %"struct.url::Component", align 4
+  %13 = alloca i32, align 4
+  %14 = alloca %"struct.url::Component", align 4
+  %15 = alloca %"struct.url::Component", align 4
+  %16 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i32 %2, ptr %7, align 4, !tbaa !17
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %17 = load ptr, ptr %5, align 8, !tbaa !32
+  %18 = load i32, ptr %7, align 4, !tbaa !17
+  %19 = load i32, ptr %6, align 4, !tbaa !17
+  %20 = call noundef i32 @_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii(ptr noundef %17, i32 noundef %18, i32 noundef %19)
+  store i32 %20, ptr %9, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %21 = load i32, ptr %7, align 4, !tbaa !17
+  %22 = load i32, ptr %9, align 4, !tbaa !17
+  %23 = add nsw i32 %21, %22
+  store i32 %23, ptr %10, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %11)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %12)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %24 = load ptr, ptr %5, align 8, !tbaa !32
+  %25 = load i32, ptr %10, align 4, !tbaa !17
+  %26 = load i32, ptr %6, align 4, !tbaa !17
+  %27 = call noundef i32 @_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorIcEEiPKT_ii(ptr noundef %24, i32 noundef %25, i32 noundef %26)
+  store i32 %27, ptr %13, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #13
+  %28 = load i32, ptr %10, align 4, !tbaa !17
+  %29 = load i32, ptr %13, align 4, !tbaa !17
+  %30 = load i32, ptr %10, align 4, !tbaa !17
+  %31 = sub nsw i32 %29, %30
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %14, i32 noundef %28, i32 noundef %31)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %14, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #13
+  %32 = load i32, ptr %13, align 4, !tbaa !17
+  %33 = load i32, ptr %6, align 4, !tbaa !17
+  %34 = icmp eq i32 %32, %33
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %15)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %15, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  br label %41
+
+36:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #13
+  %37 = load i32, ptr %13, align 4, !tbaa !17
+  %38 = load i32, ptr %6, align 4, !tbaa !17
+  %39 = load i32, ptr %13, align 4, !tbaa !17
+  %40 = sub nsw i32 %38, %39
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %16, i32 noundef %37, i32 noundef %40)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %16, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #13
+  br label %41
+
+41:                                               ; preds = %36, %35
+  %42 = load ptr, ptr %5, align 8, !tbaa !32
+  %43 = load ptr, ptr %8, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %8, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %8, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %8, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %49, i32 0, i32 4
+  call void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %42, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef %50)
+  %51 = load ptr, ptr %5, align 8, !tbaa !32
+  %52 = load ptr, ptr %8, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %52, i32 0, i32 5
+  %54 = load ptr, ptr %8, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %54, i32 0, i32 6
+  %56 = load ptr, ptr %8, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %56, i32 0, i32 7
+  call void @_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %51, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %53, ptr noundef %55, ptr noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3url16ParseAfterSchemeEPKtiiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i32 %2, ptr %7, align 4, !tbaa !17
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %9 = load ptr, ptr %5, align 8, !tbaa !38
+  %10 = load i32, ptr %6, align 4, !tbaa !17
+  %11 = load i32, ptr %7, align 4, !tbaa !17
+  %12 = load ptr, ptr %8, align 8, !tbaa !3
+  call void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.url::Component", align 4
+  %12 = alloca %"struct.url::Component", align 4
+  %13 = alloca i32, align 4
+  %14 = alloca %"struct.url::Component", align 4
+  %15 = alloca %"struct.url::Component", align 4
+  %16 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i32 %2, ptr %7, align 4, !tbaa !17
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %17 = load ptr, ptr %5, align 8, !tbaa !38
+  %18 = load i32, ptr %7, align 4, !tbaa !17
+  %19 = load i32, ptr %6, align 4, !tbaa !17
+  %20 = call noundef i32 @_ZN3url23CountConsecutiveSlashesItEEiPKT_ii(ptr noundef %17, i32 noundef %18, i32 noundef %19)
+  store i32 %20, ptr %9, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %21 = load i32, ptr %7, align 4, !tbaa !17
+  %22 = load i32, ptr %9, align 4, !tbaa !17
+  %23 = add nsw i32 %21, %22
+  store i32 %23, ptr %10, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %11)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %12)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %24 = load ptr, ptr %5, align 8, !tbaa !38
+  %25 = load i32, ptr %10, align 4, !tbaa !17
+  %26 = load i32, ptr %6, align 4, !tbaa !17
+  %27 = call noundef i32 @_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorItEEiPKT_ii(ptr noundef %24, i32 noundef %25, i32 noundef %26)
+  store i32 %27, ptr %13, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #13
+  %28 = load i32, ptr %10, align 4, !tbaa !17
+  %29 = load i32, ptr %13, align 4, !tbaa !17
+  %30 = load i32, ptr %10, align 4, !tbaa !17
+  %31 = sub nsw i32 %29, %30
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %14, i32 noundef %28, i32 noundef %31)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %14, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #13
+  %32 = load i32, ptr %13, align 4, !tbaa !17
+  %33 = load i32, ptr %6, align 4, !tbaa !17
+  %34 = icmp eq i32 %32, %33
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %15)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %15, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  br label %41
+
+36:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #13
+  %37 = load i32, ptr %13, align 4, !tbaa !17
+  %38 = load i32, ptr %6, align 4, !tbaa !17
+  %39 = load i32, ptr %13, align 4, !tbaa !17
+  %40 = sub nsw i32 %38, %39
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %16, i32 noundef %37, i32 noundef %40)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %16, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #13
+  br label %41
+
+41:                                               ; preds = %36, %35
+  %42 = load ptr, ptr %5, align 8, !tbaa !38
+  %43 = load ptr, ptr %8, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %8, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %8, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %8, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %49, i32 0, i32 4
+  call void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKNS_9ComponentEPS5_S8_S8_S8_(ptr noundef %42, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef %50)
+  %51 = load ptr, ptr %5, align 8, !tbaa !38
+  %52 = load ptr, ptr %8, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %52, i32 0, i32 5
+  %54 = load ptr, ptr %8, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %54, i32 0, i32 6
+  %56 = load ptr, ptr %8, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %56, i32 0, i32 7
+  call void @_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_(ptr noundef %51, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %53, ptr noundef %55, ptr noundef %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) #6
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %ch) #1 comdat {
-entry:
-  %ch.addr = alloca i16, align 2
-  store i16 %ch, ptr %ch.addr, align 2
-  %0 = load i16, ptr %ch.addr, align 2
-  %conv = zext i16 %0 to i32
-  %cmp = icmp sle i32 %conv, 32
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %0) #5 comdat {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !40
+  %3 = load i16, ptr %2, align 2, !tbaa !40
+  %4 = zext i16 %3 to i32
+  %5 = icmp sle i32 %4, 32
+  ret i1 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZN3url9MakeRangeEii(i32 noundef %begin, i32 noundef %end) #0 comdat {
-entry:
-  %retval = alloca %"struct.url::Component", align 4
-  %begin.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  store i32 %begin, ptr %begin.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  %0 = load i32, ptr %begin.addr, align 4
-  %1 = load i32, ptr %end.addr, align 4
-  %2 = load i32, ptr %begin.addr, align 4
-  %sub = sub nsw i32 %1, %2
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %retval, i32 noundef %0, i32 noundef %sub)
-  %3 = load i64, ptr %retval, align 4
-  ret i64 %3
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %len, align 4
-  %cmp = icmp sgt i32 %0, 0
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr i64 @_ZN3url9MakeRangeEii(i32 noundef %0, i32 noundef %1) #7 comdat {
+  %3 = alloca %"struct.url::Component", align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !17
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  %6 = load i32, ptr %4, align 4, !tbaa !17
+  %7 = load i32, ptr %5, align 4, !tbaa !17
+  %8 = load i32, ptr %4, align 4, !tbaa !17
+  %9 = sub nsw i32 %7, %8
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %6, i32 noundef %9)
+  %10 = load i64, ptr %3, align 4
+  ret i64 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 0
-  store i32 0, ptr %begin, align 4
-  %len = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 1
-  store i32 -1, ptr %len, align 4
+define linkonce_odr noundef zeroext i1 @_ZNK3url9Component11is_nonemptyEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %6 = icmp sgt i32 %5, 0
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4, !tbaa !14
+  %5 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 1
+  store i32 -1, ptr %5, align 4, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_113ParseUserInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %user, ptr noundef %username, ptr noundef %password) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %user.addr = alloca ptr, align 8
-  %username.addr = alloca ptr, align 8
-  %password.addr = alloca ptr, align 8
-  %colon_offset = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp5 = alloca %"struct.url::Component", align 4
-  %ref.tmp12 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %user, ptr %user.addr, align 8
-  store ptr %username, ptr %username.addr, align 8
-  store ptr %password, ptr %password.addr, align 8
-  store i32 0, ptr %colon_offset, align 4
-  br label %while.cond
+define internal void @_ZN3url12_GLOBAL__N_113ParseUserInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.url::Component", align 4
+  %11 = alloca %"struct.url::Component", align 4
+  %12 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %9, align 4, !tbaa !17
+  br label %13
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %colon_offset, align 4
-  %1 = load ptr, ptr %user.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %len, align 4
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %land.rhs, label %land.end
+13:                                               ; preds = %33, %4
+  %14 = load i32, ptr %9, align 4, !tbaa !17
+  %15 = load ptr, ptr %6, align 8, !tbaa !12
+  %16 = getelementptr inbounds nuw %"struct.url::Component", ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 4, !tbaa !15
+  %18 = icmp slt i32 %14, %17
+  br i1 %18, label %19, label %31
 
-land.rhs:                                         ; preds = %while.cond
-  %3 = load ptr, ptr %spec.addr, align 8
-  %4 = load ptr, ptr %user.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %begin, align 4
-  %6 = load i32, ptr %colon_offset, align 4
-  %add = add nsw i32 %5, %6
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %idxprom
-  %7 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %7 to i32
-  %cmp1 = icmp ne i32 %conv, 58
-  br label %land.end
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %5, align 8, !tbaa !32
+  %21 = load ptr, ptr %6, align 8, !tbaa !12
+  %22 = getelementptr inbounds nuw %"struct.url::Component", ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 4, !tbaa !14
+  %24 = load i32, ptr %9, align 4, !tbaa !17
+  %25 = add nsw i32 %23, %24
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i8, ptr %20, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !34
+  %29 = sext i8 %28 to i32
+  %30 = icmp ne i32 %29, 58
+  br label %31
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %8 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %8, label %while.body, label %while.end
+31:                                               ; preds = %19, %13
+  %32 = phi i1 [ false, %13 ], [ %30, %19 ]
+  br i1 %32, label %33, label %36
 
-while.body:                                       ; preds = %land.end
-  %9 = load i32, ptr %colon_offset, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %colon_offset, align 4
-  br label %while.cond, !llvm.loop !28
+33:                                               ; preds = %31
+  %34 = load i32, ptr %9, align 4, !tbaa !17
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %9, align 4, !tbaa !17
+  br label %13, !llvm.loop !63
 
-while.end:                                        ; preds = %land.end
-  %10 = load i32, ptr %colon_offset, align 4
-  %11 = load ptr, ptr %user.addr, align 8
-  %len2 = getelementptr inbounds %"struct.url::Component", ptr %11, i32 0, i32 1
-  %12 = load i32, ptr %len2, align 4
-  %cmp3 = icmp slt i32 %10, %12
-  br i1 %cmp3, label %if.then, label %if.else
+36:                                               ; preds = %31
+  %37 = load i32, ptr %9, align 4, !tbaa !17
+  %38 = load ptr, ptr %6, align 8, !tbaa !12
+  %39 = getelementptr inbounds nuw %"struct.url::Component", ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4, !tbaa !15
+  %41 = icmp slt i32 %37, %40
+  br i1 %41, label %42, label %63
 
-if.then:                                          ; preds = %while.end
-  %13 = load ptr, ptr %user.addr, align 8
-  %begin4 = getelementptr inbounds %"struct.url::Component", ptr %13, i32 0, i32 0
-  %14 = load i32, ptr %begin4, align 4
-  %15 = load i32, ptr %colon_offset, align 4
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef %14, i32 noundef %15)
-  %16 = load ptr, ptr %username.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %17 = load ptr, ptr %user.addr, align 8
-  %begin6 = getelementptr inbounds %"struct.url::Component", ptr %17, i32 0, i32 0
-  %18 = load i32, ptr %begin6, align 4
-  %19 = load i32, ptr %colon_offset, align 4
-  %add7 = add nsw i32 %18, %19
-  %add8 = add nsw i32 %add7, 1
-  %20 = load ptr, ptr %user.addr, align 8
-  %begin9 = getelementptr inbounds %"struct.url::Component", ptr %20, i32 0, i32 0
-  %21 = load i32, ptr %begin9, align 4
-  %22 = load ptr, ptr %user.addr, align 8
-  %len10 = getelementptr inbounds %"struct.url::Component", ptr %22, i32 0, i32 1
-  %23 = load i32, ptr %len10, align 4
-  %add11 = add nsw i32 %21, %23
-  %call = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add8, i32 noundef %add11)
-  store i64 %call, ptr %ref.tmp5, align 4
-  %24 = load ptr, ptr %password.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %ref.tmp5, i64 8, i1 false)
-  br label %if.end
+42:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %43 = load ptr, ptr %6, align 8, !tbaa !12
+  %44 = getelementptr inbounds nuw %"struct.url::Component", ptr %43, i32 0, i32 0
+  %45 = load i32, ptr %44, align 4, !tbaa !14
+  %46 = load i32, ptr %9, align 4, !tbaa !17
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %45, i32 noundef %46)
+  %47 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 4 %10, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %48 = load ptr, ptr %6, align 8, !tbaa !12
+  %49 = getelementptr inbounds nuw %"struct.url::Component", ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %49, align 4, !tbaa !14
+  %51 = load i32, ptr %9, align 4, !tbaa !17
+  %52 = add nsw i32 %50, %51
+  %53 = add nsw i32 %52, 1
+  %54 = load ptr, ptr %6, align 8, !tbaa !12
+  %55 = getelementptr inbounds nuw %"struct.url::Component", ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4, !tbaa !14
+  %57 = load ptr, ptr %6, align 8, !tbaa !12
+  %58 = getelementptr inbounds nuw %"struct.url::Component", ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 4, !tbaa !15
+  %60 = add nsw i32 %56, %59
+  %61 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %53, i32 noundef %60)
+  store i64 %61, ptr %11, align 4
+  %62 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %62, ptr align 4 %11, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  br label %67
 
-if.else:                                          ; preds = %while.end
-  %25 = load ptr, ptr %user.addr, align 8
-  %26 = load ptr, ptr %username.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %25, i64 8, i1 false)
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp12)
-  %27 = load ptr, ptr %password.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %27, ptr align 4 %ref.tmp12, i64 8, i1 false)
-  br label %if.end
+63:                                               ; preds = %36
+  %64 = load ptr, ptr %6, align 8, !tbaa !12
+  %65 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr align 4 %64, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %12)
+  %66 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %66, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  br label %67
 
-if.end:                                           ; preds = %if.else, %if.then
+67:                                               ; preds = %63, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_115ParseServerInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %serverinfo, ptr noundef %hostname, ptr noundef %port_num) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %serverinfo.addr = alloca ptr, align 8
-  %hostname.addr = alloca ptr, align 8
-  %port_num.addr = alloca ptr, align 8
-  %ipv6_terminator = alloca i32, align 4
-  %colon = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp17 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %serverinfo, ptr %serverinfo.addr, align 8
-  store ptr %hostname, ptr %hostname.addr, align 8
-  store ptr %port_num, ptr %port_num.addr, align 8
-  %0 = load ptr, ptr %serverinfo.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZN3url12_GLOBAL__N_115ParseServerInfoIcEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"struct.url::Component", align 4
+  %13 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %14 = load ptr, ptr %6, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw %"struct.url::Component", ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !15
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %21
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %hostname.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
-  %3 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  br label %if.end20
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %20 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %20)
+  br label %90
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %spec.addr, align 8
-  %5 = load ptr, ptr %serverinfo.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %begin, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %idxprom
-  %7 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %7 to i32
-  %cmp1 = icmp eq i32 %conv, 91
-  br i1 %cmp1, label %cond.true, label %cond.false
+21:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %22 = load ptr, ptr %5, align 8, !tbaa !32
+  %23 = load ptr, ptr %6, align 8, !tbaa !12
+  %24 = getelementptr inbounds nuw %"struct.url::Component", ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 4, !tbaa !14
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i8, ptr %22, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !34
+  %29 = sext i8 %28 to i32
+  %30 = icmp eq i32 %29, 91
+  br i1 %30, label %31, label %34
 
-cond.true:                                        ; preds = %if.end
-  %8 = load ptr, ptr %serverinfo.addr, align 8
-  %call = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %8)
-  br label %cond.end
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %6, align 8, !tbaa !12
+  %33 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %32)
+  br label %35
 
-cond.false:                                       ; preds = %if.end
-  br label %cond.end
+34:                                               ; preds = %21
+  br label %35
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call, %cond.true ], [ -1, %cond.false ]
-  store i32 %cond, ptr %ipv6_terminator, align 4
-  store i32 -1, ptr %colon, align 4
-  %9 = load ptr, ptr %serverinfo.addr, align 8
-  %begin2 = getelementptr inbounds %"struct.url::Component", ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %begin2, align 4
-  store i32 %10, ptr %i, align 4
-  br label %for.cond
+35:                                               ; preds = %34, %31
+  %36 = phi i32 [ %33, %31 ], [ -1, %34 ]
+  store i32 %36, ptr %9, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  store i32 -1, ptr %10, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %37 = load ptr, ptr %6, align 8, !tbaa !12
+  %38 = getelementptr inbounds nuw %"struct.url::Component", ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %38, align 4, !tbaa !14
+  store i32 %39, ptr %11, align 4, !tbaa !17
+  br label %40
 
-for.cond:                                         ; preds = %for.inc, %cond.end
-  %11 = load i32, ptr %i, align 4
-  %12 = load ptr, ptr %serverinfo.addr, align 8
-  %call3 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %cmp4 = icmp slt i32 %11, %call3
-  br i1 %cmp4, label %for.body, label %for.end
+40:                                               ; preds = %58, %35
+  %41 = load i32, ptr %11, align 4, !tbaa !17
+  %42 = load ptr, ptr %6, align 8, !tbaa !12
+  %43 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %42)
+  %44 = icmp slt i32 %41, %43
+  br i1 %44, label %46, label %45
 
-for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %spec.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %14 to i64
-  %arrayidx6 = getelementptr inbounds i8, ptr %13, i64 %idxprom5
-  %15 = load i8, ptr %arrayidx6, align 1
-  %conv7 = sext i8 %15 to i32
-  switch i32 %conv7, label %sw.epilog [
-    i32 93, label %sw.bb
-    i32 58, label %sw.bb8
+45:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %61
+
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %5, align 8, !tbaa !32
+  %48 = load i32, ptr %11, align 4, !tbaa !17
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %47, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !34
+  %52 = sext i8 %51 to i32
+  switch i32 %52, label %57 [
+    i32 93, label %53
+    i32 58, label %55
   ]
 
-sw.bb:                                            ; preds = %for.body
-  %16 = load i32, ptr %i, align 4
-  store i32 %16, ptr %ipv6_terminator, align 4
-  br label %sw.epilog
+53:                                               ; preds = %46
+  %54 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %54, ptr %9, align 4, !tbaa !17
+  br label %57
 
-sw.bb8:                                           ; preds = %for.body
-  %17 = load i32, ptr %i, align 4
-  store i32 %17, ptr %colon, align 4
-  br label %sw.epilog
+55:                                               ; preds = %46
+  %56 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %56, ptr %10, align 4, !tbaa !17
+  br label %57
 
-sw.epilog:                                        ; preds = %sw.bb8, %sw.bb, %for.body
-  br label %for.inc
+57:                                               ; preds = %46, %55, %53
+  br label %58
 
-for.inc:                                          ; preds = %sw.epilog
-  %18 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %18, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !29
+58:                                               ; preds = %57
+  %59 = load i32, ptr %11, align 4, !tbaa !17
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %11, align 4, !tbaa !17
+  br label %40, !llvm.loop !64
 
-for.end:                                          ; preds = %for.cond
-  %19 = load i32, ptr %colon, align 4
-  %20 = load i32, ptr %ipv6_terminator, align 4
-  %cmp9 = icmp sgt i32 %19, %20
-  br i1 %cmp9, label %if.then10, label %if.else
+61:                                               ; preds = %45
+  %62 = load i32, ptr %10, align 4, !tbaa !17
+  %63 = load i32, ptr %9, align 4, !tbaa !17
+  %64 = icmp sgt i32 %62, %63
+  br i1 %64, label %65, label %85
 
-if.then10:                                        ; preds = %for.end
-  %21 = load ptr, ptr %serverinfo.addr, align 8
-  %begin11 = getelementptr inbounds %"struct.url::Component", ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %begin11, align 4
-  %23 = load i32, ptr %colon, align 4
-  %call12 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %22, i32 noundef %23)
-  store i64 %call12, ptr %ref.tmp, align 4
-  %24 = load ptr, ptr %hostname.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %25 = load ptr, ptr %hostname.addr, align 8
-  %len13 = getelementptr inbounds %"struct.url::Component", ptr %25, i32 0, i32 1
-  %26 = load i32, ptr %len13, align 4
-  %cmp14 = icmp eq i32 %26, 0
-  br i1 %cmp14, label %if.then15, label %if.end16
+65:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %66 = load ptr, ptr %6, align 8, !tbaa !12
+  %67 = getelementptr inbounds nuw %"struct.url::Component", ptr %66, i32 0, i32 0
+  %68 = load i32, ptr %67, align 4, !tbaa !14
+  %69 = load i32, ptr %10, align 4, !tbaa !17
+  %70 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %68, i32 noundef %69)
+  store i64 %70, ptr %12, align 4
+  %71 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %71, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %72 = load ptr, ptr %7, align 8, !tbaa !12
+  %73 = getelementptr inbounds nuw %"struct.url::Component", ptr %72, i32 0, i32 1
+  %74 = load i32, ptr %73, align 4, !tbaa !15
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %78
 
-if.then15:                                        ; preds = %if.then10
-  %27 = load ptr, ptr %hostname.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %27)
-  br label %if.end16
+76:                                               ; preds = %65
+  %77 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %77)
+  br label %78
 
-if.end16:                                         ; preds = %if.then15, %if.then10
-  %28 = load i32, ptr %colon, align 4
-  %add = add nsw i32 %28, 1
-  %29 = load ptr, ptr %serverinfo.addr, align 8
-  %call18 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %29)
-  %call19 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add, i32 noundef %call18)
-  store i64 %call19, ptr %ref.tmp17, align 4
-  %30 = load ptr, ptr %port_num.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %30, ptr align 4 %ref.tmp17, i64 8, i1 false)
-  br label %if.end20
+78:                                               ; preds = %76, %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %79 = load i32, ptr %10, align 4, !tbaa !17
+  %80 = add nsw i32 %79, 1
+  %81 = load ptr, ptr %6, align 8, !tbaa !12
+  %82 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %81)
+  %83 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %80, i32 noundef %82)
+  store i64 %83, ptr %13, align 4
+  %84 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %84, ptr align 4 %13, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  br label %89
 
-if.else:                                          ; preds = %for.end
-  %31 = load ptr, ptr %serverinfo.addr, align 8
-  %32 = load ptr, ptr %hostname.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %32, ptr align 4 %31, i64 8, i1 false)
-  %33 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %33)
-  br label %if.end20
+85:                                               ; preds = %61
+  %86 = load ptr, ptr %6, align 8, !tbaa !12
+  %87 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %87, ptr align 4 %86, i64 8, i1 false), !tbaa.struct !16
+  %88 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %88)
+  br label %89
 
-if.end20:                                         ; preds = %if.else, %if.end16, %if.then
+89:                                               ; preds = %85, %78
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %90
+
+90:                                               ; preds = %89, %18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_113ParseUserInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %user, ptr noundef %username, ptr noundef %password) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %user.addr = alloca ptr, align 8
-  %username.addr = alloca ptr, align 8
-  %password.addr = alloca ptr, align 8
-  %colon_offset = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp5 = alloca %"struct.url::Component", align 4
-  %ref.tmp12 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %user, ptr %user.addr, align 8
-  store ptr %username, ptr %username.addr, align 8
-  store ptr %password, ptr %password.addr, align 8
-  store i32 0, ptr %colon_offset, align 4
-  br label %while.cond
+define internal void @_ZN3url12_GLOBAL__N_113ParseUserInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.url::Component", align 4
+  %11 = alloca %"struct.url::Component", align 4
+  %12 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %9, align 4, !tbaa !17
+  br label %13
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %colon_offset, align 4
-  %1 = load ptr, ptr %user.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %len, align 4
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %land.rhs, label %land.end
+13:                                               ; preds = %33, %4
+  %14 = load i32, ptr %9, align 4, !tbaa !17
+  %15 = load ptr, ptr %6, align 8, !tbaa !12
+  %16 = getelementptr inbounds nuw %"struct.url::Component", ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 4, !tbaa !15
+  %18 = icmp slt i32 %14, %17
+  br i1 %18, label %19, label %31
 
-land.rhs:                                         ; preds = %while.cond
-  %3 = load ptr, ptr %spec.addr, align 8
-  %4 = load ptr, ptr %user.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %begin, align 4
-  %6 = load i32, ptr %colon_offset, align 4
-  %add = add nsw i32 %5, %6
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
-  %7 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %7 to i32
-  %cmp1 = icmp ne i32 %conv, 58
-  br label %land.end
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %5, align 8, !tbaa !38
+  %21 = load ptr, ptr %6, align 8, !tbaa !12
+  %22 = getelementptr inbounds nuw %"struct.url::Component", ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 4, !tbaa !14
+  %24 = load i32, ptr %9, align 4, !tbaa !17
+  %25 = add nsw i32 %23, %24
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i16, ptr %20, i64 %26
+  %28 = load i16, ptr %27, align 2, !tbaa !40
+  %29 = zext i16 %28 to i32
+  %30 = icmp ne i32 %29, 58
+  br label %31
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %8 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %8, label %while.body, label %while.end
+31:                                               ; preds = %19, %13
+  %32 = phi i1 [ false, %13 ], [ %30, %19 ]
+  br i1 %32, label %33, label %36
 
-while.body:                                       ; preds = %land.end
-  %9 = load i32, ptr %colon_offset, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %colon_offset, align 4
-  br label %while.cond, !llvm.loop !30
+33:                                               ; preds = %31
+  %34 = load i32, ptr %9, align 4, !tbaa !17
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %9, align 4, !tbaa !17
+  br label %13, !llvm.loop !65
 
-while.end:                                        ; preds = %land.end
-  %10 = load i32, ptr %colon_offset, align 4
-  %11 = load ptr, ptr %user.addr, align 8
-  %len2 = getelementptr inbounds %"struct.url::Component", ptr %11, i32 0, i32 1
-  %12 = load i32, ptr %len2, align 4
-  %cmp3 = icmp slt i32 %10, %12
-  br i1 %cmp3, label %if.then, label %if.else
+36:                                               ; preds = %31
+  %37 = load i32, ptr %9, align 4, !tbaa !17
+  %38 = load ptr, ptr %6, align 8, !tbaa !12
+  %39 = getelementptr inbounds nuw %"struct.url::Component", ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4, !tbaa !15
+  %41 = icmp slt i32 %37, %40
+  br i1 %41, label %42, label %63
 
-if.then:                                          ; preds = %while.end
-  %13 = load ptr, ptr %user.addr, align 8
-  %begin4 = getelementptr inbounds %"struct.url::Component", ptr %13, i32 0, i32 0
-  %14 = load i32, ptr %begin4, align 4
-  %15 = load i32, ptr %colon_offset, align 4
-  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef %14, i32 noundef %15)
-  %16 = load ptr, ptr %username.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %17 = load ptr, ptr %user.addr, align 8
-  %begin6 = getelementptr inbounds %"struct.url::Component", ptr %17, i32 0, i32 0
-  %18 = load i32, ptr %begin6, align 4
-  %19 = load i32, ptr %colon_offset, align 4
-  %add7 = add nsw i32 %18, %19
-  %add8 = add nsw i32 %add7, 1
-  %20 = load ptr, ptr %user.addr, align 8
-  %begin9 = getelementptr inbounds %"struct.url::Component", ptr %20, i32 0, i32 0
-  %21 = load i32, ptr %begin9, align 4
-  %22 = load ptr, ptr %user.addr, align 8
-  %len10 = getelementptr inbounds %"struct.url::Component", ptr %22, i32 0, i32 1
-  %23 = load i32, ptr %len10, align 4
-  %add11 = add nsw i32 %21, %23
-  %call = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add8, i32 noundef %add11)
-  store i64 %call, ptr %ref.tmp5, align 4
-  %24 = load ptr, ptr %password.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %ref.tmp5, i64 8, i1 false)
-  br label %if.end
+42:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %43 = load ptr, ptr %6, align 8, !tbaa !12
+  %44 = getelementptr inbounds nuw %"struct.url::Component", ptr %43, i32 0, i32 0
+  %45 = load i32, ptr %44, align 4, !tbaa !14
+  %46 = load i32, ptr %9, align 4, !tbaa !17
+  call void @_ZN3url9ComponentC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %45, i32 noundef %46)
+  %47 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 4 %10, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %48 = load ptr, ptr %6, align 8, !tbaa !12
+  %49 = getelementptr inbounds nuw %"struct.url::Component", ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %49, align 4, !tbaa !14
+  %51 = load i32, ptr %9, align 4, !tbaa !17
+  %52 = add nsw i32 %50, %51
+  %53 = add nsw i32 %52, 1
+  %54 = load ptr, ptr %6, align 8, !tbaa !12
+  %55 = getelementptr inbounds nuw %"struct.url::Component", ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4, !tbaa !14
+  %57 = load ptr, ptr %6, align 8, !tbaa !12
+  %58 = getelementptr inbounds nuw %"struct.url::Component", ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 4, !tbaa !15
+  %60 = add nsw i32 %56, %59
+  %61 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %53, i32 noundef %60)
+  store i64 %61, ptr %11, align 4
+  %62 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %62, ptr align 4 %11, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  br label %67
 
-if.else:                                          ; preds = %while.end
-  %25 = load ptr, ptr %user.addr, align 8
-  %26 = load ptr, ptr %username.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %25, i64 8, i1 false)
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp12)
-  %27 = load ptr, ptr %password.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %27, ptr align 4 %ref.tmp12, i64 8, i1 false)
-  br label %if.end
+63:                                               ; preds = %36
+  %64 = load ptr, ptr %6, align 8, !tbaa !12
+  %65 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr align 4 %64, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %12)
+  %66 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %66, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  br label %67
 
-if.end:                                           ; preds = %if.else, %if.then
+67:                                               ; preds = %63, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_115ParseServerInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %serverinfo, ptr noundef %hostname, ptr noundef %port_num) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %serverinfo.addr = alloca ptr, align 8
-  %hostname.addr = alloca ptr, align 8
-  %port_num.addr = alloca ptr, align 8
-  %ipv6_terminator = alloca i32, align 4
-  %colon = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  %ref.tmp17 = alloca %"struct.url::Component", align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %serverinfo, ptr %serverinfo.addr, align 8
-  store ptr %hostname, ptr %hostname.addr, align 8
-  store ptr %port_num, ptr %port_num.addr, align 8
-  %0 = load ptr, ptr %serverinfo.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZN3url12_GLOBAL__N_115ParseServerInfoItEEvPKT_RKNS_9ComponentEPS5_S8_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"struct.url::Component", align 4
+  %13 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %14 = load ptr, ptr %6, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw %"struct.url::Component", ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !15
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %21
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %hostname.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
-  %3 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  br label %if.end20
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  %20 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %20)
+  br label %90
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %spec.addr, align 8
-  %5 = load ptr, ptr %serverinfo.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %begin, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %7 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %7 to i32
-  %cmp1 = icmp eq i32 %conv, 91
-  br i1 %cmp1, label %cond.true, label %cond.false
+21:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %22 = load ptr, ptr %5, align 8, !tbaa !38
+  %23 = load ptr, ptr %6, align 8, !tbaa !12
+  %24 = getelementptr inbounds nuw %"struct.url::Component", ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 4, !tbaa !14
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i16, ptr %22, i64 %26
+  %28 = load i16, ptr %27, align 2, !tbaa !40
+  %29 = zext i16 %28 to i32
+  %30 = icmp eq i32 %29, 91
+  br i1 %30, label %31, label %34
 
-cond.true:                                        ; preds = %if.end
-  %8 = load ptr, ptr %serverinfo.addr, align 8
-  %call = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %8)
-  br label %cond.end
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %6, align 8, !tbaa !12
+  %33 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %32)
+  br label %35
 
-cond.false:                                       ; preds = %if.end
-  br label %cond.end
+34:                                               ; preds = %21
+  br label %35
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call, %cond.true ], [ -1, %cond.false ]
-  store i32 %cond, ptr %ipv6_terminator, align 4
-  store i32 -1, ptr %colon, align 4
-  %9 = load ptr, ptr %serverinfo.addr, align 8
-  %begin2 = getelementptr inbounds %"struct.url::Component", ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %begin2, align 4
-  store i32 %10, ptr %i, align 4
-  br label %for.cond
+35:                                               ; preds = %34, %31
+  %36 = phi i32 [ %33, %31 ], [ -1, %34 ]
+  store i32 %36, ptr %9, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  store i32 -1, ptr %10, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %37 = load ptr, ptr %6, align 8, !tbaa !12
+  %38 = getelementptr inbounds nuw %"struct.url::Component", ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %38, align 4, !tbaa !14
+  store i32 %39, ptr %11, align 4, !tbaa !17
+  br label %40
 
-for.cond:                                         ; preds = %for.inc, %cond.end
-  %11 = load i32, ptr %i, align 4
-  %12 = load ptr, ptr %serverinfo.addr, align 8
-  %call3 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %cmp4 = icmp slt i32 %11, %call3
-  br i1 %cmp4, label %for.body, label %for.end
+40:                                               ; preds = %58, %35
+  %41 = load i32, ptr %11, align 4, !tbaa !17
+  %42 = load ptr, ptr %6, align 8, !tbaa !12
+  %43 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %42)
+  %44 = icmp slt i32 %41, %43
+  br i1 %44, label %46, label %45
 
-for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %spec.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %14 to i64
-  %arrayidx6 = getelementptr inbounds i16, ptr %13, i64 %idxprom5
-  %15 = load i16, ptr %arrayidx6, align 2
-  %conv7 = zext i16 %15 to i32
-  switch i32 %conv7, label %sw.epilog [
-    i32 93, label %sw.bb
-    i32 58, label %sw.bb8
+45:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %61
+
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %5, align 8, !tbaa !38
+  %48 = load i32, ptr %11, align 4, !tbaa !17
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i16, ptr %47, i64 %49
+  %51 = load i16, ptr %50, align 2, !tbaa !40
+  %52 = zext i16 %51 to i32
+  switch i32 %52, label %57 [
+    i32 93, label %53
+    i32 58, label %55
   ]
 
-sw.bb:                                            ; preds = %for.body
-  %16 = load i32, ptr %i, align 4
-  store i32 %16, ptr %ipv6_terminator, align 4
-  br label %sw.epilog
+53:                                               ; preds = %46
+  %54 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %54, ptr %9, align 4, !tbaa !17
+  br label %57
 
-sw.bb8:                                           ; preds = %for.body
-  %17 = load i32, ptr %i, align 4
-  store i32 %17, ptr %colon, align 4
-  br label %sw.epilog
+55:                                               ; preds = %46
+  %56 = load i32, ptr %11, align 4, !tbaa !17
+  store i32 %56, ptr %10, align 4, !tbaa !17
+  br label %57
 
-sw.epilog:                                        ; preds = %sw.bb8, %sw.bb, %for.body
-  br label %for.inc
+57:                                               ; preds = %46, %55, %53
+  br label %58
 
-for.inc:                                          ; preds = %sw.epilog
-  %18 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %18, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !31
+58:                                               ; preds = %57
+  %59 = load i32, ptr %11, align 4, !tbaa !17
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %11, align 4, !tbaa !17
+  br label %40, !llvm.loop !66
 
-for.end:                                          ; preds = %for.cond
-  %19 = load i32, ptr %colon, align 4
-  %20 = load i32, ptr %ipv6_terminator, align 4
-  %cmp9 = icmp sgt i32 %19, %20
-  br i1 %cmp9, label %if.then10, label %if.else
+61:                                               ; preds = %45
+  %62 = load i32, ptr %10, align 4, !tbaa !17
+  %63 = load i32, ptr %9, align 4, !tbaa !17
+  %64 = icmp sgt i32 %62, %63
+  br i1 %64, label %65, label %85
 
-if.then10:                                        ; preds = %for.end
-  %21 = load ptr, ptr %serverinfo.addr, align 8
-  %begin11 = getelementptr inbounds %"struct.url::Component", ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %begin11, align 4
-  %23 = load i32, ptr %colon, align 4
-  %call12 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %22, i32 noundef %23)
-  store i64 %call12, ptr %ref.tmp, align 4
-  %24 = load ptr, ptr %hostname.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %ref.tmp, i64 8, i1 false)
-  %25 = load ptr, ptr %hostname.addr, align 8
-  %len13 = getelementptr inbounds %"struct.url::Component", ptr %25, i32 0, i32 1
-  %26 = load i32, ptr %len13, align 4
-  %cmp14 = icmp eq i32 %26, 0
-  br i1 %cmp14, label %if.then15, label %if.end16
+65:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %66 = load ptr, ptr %6, align 8, !tbaa !12
+  %67 = getelementptr inbounds nuw %"struct.url::Component", ptr %66, i32 0, i32 0
+  %68 = load i32, ptr %67, align 4, !tbaa !14
+  %69 = load i32, ptr %10, align 4, !tbaa !17
+  %70 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %68, i32 noundef %69)
+  store i64 %70, ptr %12, align 4
+  %71 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %71, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %72 = load ptr, ptr %7, align 8, !tbaa !12
+  %73 = getelementptr inbounds nuw %"struct.url::Component", ptr %72, i32 0, i32 1
+  %74 = load i32, ptr %73, align 4, !tbaa !15
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %78
 
-if.then15:                                        ; preds = %if.then10
-  %27 = load ptr, ptr %hostname.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %27)
-  br label %if.end16
+76:                                               ; preds = %65
+  %77 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %77)
+  br label %78
 
-if.end16:                                         ; preds = %if.then15, %if.then10
-  %28 = load i32, ptr %colon, align 4
-  %add = add nsw i32 %28, 1
-  %29 = load ptr, ptr %serverinfo.addr, align 8
-  %call18 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %29)
-  %call19 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %add, i32 noundef %call18)
-  store i64 %call19, ptr %ref.tmp17, align 4
-  %30 = load ptr, ptr %port_num.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %30, ptr align 4 %ref.tmp17, i64 8, i1 false)
-  br label %if.end20
+78:                                               ; preds = %76, %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %79 = load i32, ptr %10, align 4, !tbaa !17
+  %80 = add nsw i32 %79, 1
+  %81 = load ptr, ptr %6, align 8, !tbaa !12
+  %82 = call noundef i32 @_ZNK3url9Component3endEv(ptr noundef nonnull align 4 dereferenceable(8) %81)
+  %83 = call i64 @_ZN3url9MakeRangeEii(i32 noundef %80, i32 noundef %82)
+  store i64 %83, ptr %13, align 4
+  %84 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %84, ptr align 4 %13, i64 8, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  br label %89
 
-if.else:                                          ; preds = %for.end
-  %31 = load ptr, ptr %serverinfo.addr, align 8
-  %32 = load ptr, ptr %hostname.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %32, ptr align 4 %31, i64 8, i1 false)
-  %33 = load ptr, ptr %port_num.addr, align 8
-  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %33)
-  br label %if.end20
+85:                                               ; preds = %61
+  %86 = load ptr, ptr %6, align 8, !tbaa !12
+  %87 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %87, ptr align 4 %86, i64 8, i1 false), !tbaa.struct !16
+  %88 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url9Component5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %88)
+  br label %89
 
-if.end20:                                         ; preds = %if.else, %if.end16, %if.then
+89:                                               ; preds = %85, %78
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %90
+
+90:                                               ; preds = %89, %18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_111IsPortDigitEt(i16 noundef zeroext %ch) #1 {
-entry:
-  %ch.addr = alloca i16, align 2
-  store i16 %ch, ptr %ch.addr, align 2
-  %0 = load i16, ptr %ch.addr, align 2
-  %conv = zext i16 %0 to i32
-  %cmp = icmp sge i32 %conv, 48
-  br i1 %cmp, label %land.rhs, label %land.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_111IsPortDigitEt(i16 noundef zeroext %0) #5 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !40
+  %3 = load i16, ptr %2, align 2, !tbaa !40
+  %4 = zext i16 %3 to i32
+  %5 = icmp sge i32 %4, 48
+  br i1 %5, label %6, label %10
 
-land.rhs:                                         ; preds = %entry
-  %1 = load i16, ptr %ch.addr, align 2
-  %conv1 = zext i16 %1 to i32
-  %cmp2 = icmp sle i32 %conv1, 57
-  br label %land.end
+6:                                                ; preds = %1
+  %7 = load i16, ptr %2, align 2, !tbaa !40
+  %8 = zext i16 %7 to i32
+  %9 = icmp sle i32 %8, 57
+  br label %10
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp2, %land.rhs ]
-  ret i1 %2
+10:                                               ; preds = %6, %1
+  %11 = phi i1 [ false, %1 ], [ %9, %6 ]
+  ret i1 %11
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #5
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %spec, ptr noundef %begin, ptr noundef %len, i1 noundef zeroext %trim_path_end) #1 comdat {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %begin.addr = alloca ptr, align 8
-  %len.addr = alloca ptr, align 8
-  %trim_path_end.addr = alloca i8, align 1
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %begin, ptr %begin.addr, align 8
-  store ptr %len, ptr %len.addr, align 8
-  %frombool = zext i1 %trim_path_end to i8
-  store i8 %frombool, ptr %trim_path_end.addr, align 1
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load ptr, ptr %begin.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %2 = load ptr, ptr %len.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %cmp = icmp slt i32 %1, %3
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %4 = load ptr, ptr %spec.addr, align 8
-  %5 = load ptr, ptr %begin.addr, align 8
-  %6 = load i32, ptr %5, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %idxprom
-  %7 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %7 to i16
-  %call = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %conv)
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %8 = phi i1 [ false, %while.cond ], [ %call, %land.rhs ]
-  br i1 %8, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %9 = load ptr, ptr %begin.addr, align 8
-  %10 = load i32, ptr %9, align 4
-  %inc = add nsw i32 %10, 1
-  store i32 %inc, ptr %9, align 4
-  br label %while.cond, !llvm.loop !32
-
-while.end:                                        ; preds = %land.end
-  %11 = load i8, ptr %trim_path_end.addr, align 1
-  %tobool = trunc i8 %11 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %while.end
-  br label %while.cond1
-
-while.cond1:                                      ; preds = %while.body9, %if.then
-  %12 = load ptr, ptr %len.addr, align 8
-  %13 = load i32, ptr %12, align 4
-  %14 = load ptr, ptr %begin.addr, align 8
-  %15 = load i32, ptr %14, align 4
-  %cmp2 = icmp sgt i32 %13, %15
-  br i1 %cmp2, label %land.rhs3, label %land.end8
-
-land.rhs3:                                        ; preds = %while.cond1
-  %16 = load ptr, ptr %spec.addr, align 8
-  %17 = load ptr, ptr %len.addr, align 8
-  %18 = load i32, ptr %17, align 4
-  %sub = sub nsw i32 %18, 1
-  %idxprom4 = sext i32 %sub to i64
-  %arrayidx5 = getelementptr inbounds i8, ptr %16, i64 %idxprom4
-  %19 = load i8, ptr %arrayidx5, align 1
-  %conv6 = sext i8 %19 to i16
-  %call7 = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %conv6)
-  br label %land.end8
-
-land.end8:                                        ; preds = %land.rhs3, %while.cond1
-  %20 = phi i1 [ false, %while.cond1 ], [ %call7, %land.rhs3 ]
-  br i1 %20, label %while.body9, label %while.end10
-
-while.body9:                                      ; preds = %land.end8
-  %21 = load ptr, ptr %len.addr, align 8
-  %22 = load i32, ptr %21, align 4
-  %dec = add nsw i32 %22, -1
-  store i32 %dec, ptr %21, align 4
-  br label %while.cond1, !llvm.loop !33
-
-while.end10:                                      ; preds = %land.end8
-  br label %if.end
-
-if.end:                                           ; preds = %while.end10, %while.end
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %spec, ptr noundef %begin, ptr noundef %len, i1 noundef zeroext %trim_path_end) #1 comdat {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %begin.addr = alloca ptr, align 8
-  %len.addr = alloca ptr, align 8
-  %trim_path_end.addr = alloca i8, align 1
-  store ptr %spec, ptr %spec.addr, align 8
-  store ptr %begin, ptr %begin.addr, align 8
-  store ptr %len, ptr %len.addr, align 8
-  %frombool = zext i1 %trim_path_end to i8
-  store i8 %frombool, ptr %trim_path_end.addr, align 1
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load ptr, ptr %begin.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %2 = load ptr, ptr %len.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %cmp = icmp slt i32 %1, %3
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %4 = load ptr, ptr %spec.addr, align 8
-  %5 = load ptr, ptr %begin.addr, align 8
-  %6 = load i32, ptr %5, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %7 = load i16, ptr %arrayidx, align 2
-  %call = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %7)
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %8 = phi i1 [ false, %while.cond ], [ %call, %land.rhs ]
-  br i1 %8, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %9 = load ptr, ptr %begin.addr, align 8
-  %10 = load i32, ptr %9, align 4
-  %inc = add nsw i32 %10, 1
-  store i32 %inc, ptr %9, align 4
-  br label %while.cond, !llvm.loop !34
-
-while.end:                                        ; preds = %land.end
-  %11 = load i8, ptr %trim_path_end.addr, align 1
-  %tobool = trunc i8 %11 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %while.end
-  br label %while.cond1
-
-while.cond1:                                      ; preds = %while.body8, %if.then
-  %12 = load ptr, ptr %len.addr, align 8
-  %13 = load i32, ptr %12, align 4
-  %14 = load ptr, ptr %begin.addr, align 8
-  %15 = load i32, ptr %14, align 4
-  %cmp2 = icmp sgt i32 %13, %15
-  br i1 %cmp2, label %land.rhs3, label %land.end7
-
-land.rhs3:                                        ; preds = %while.cond1
-  %16 = load ptr, ptr %spec.addr, align 8
-  %17 = load ptr, ptr %len.addr, align 8
-  %18 = load i32, ptr %17, align 4
-  %sub = sub nsw i32 %18, 1
-  %idxprom4 = sext i32 %sub to i64
-  %arrayidx5 = getelementptr inbounds i16, ptr %16, i64 %idxprom4
-  %19 = load i16, ptr %arrayidx5, align 2
-  %call6 = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %19)
-  br label %land.end7
-
-land.end7:                                        ; preds = %land.rhs3, %while.cond1
-  %20 = phi i1 [ false, %while.cond1 ], [ %call6, %land.rhs3 ]
-  br i1 %20, label %while.body8, label %while.end9
-
-while.body8:                                      ; preds = %land.end7
-  %21 = load ptr, ptr %len.addr, align 8
-  %22 = load i32, ptr %21, align 4
-  %dec = add nsw i32 %22, -1
-  store i32 %dec, ptr %21, align 4
-  br label %while.cond1, !llvm.loop !35
-
-while.end9:                                       ; preds = %land.end7
-  br label %if.end
-
-if.end:                                           ; preds = %while.end9, %while.end
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %message) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %message.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %message, ptr %message.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message.addr, align 8
-  store ptr %0, ptr %message_, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message_, align 8
-  %tobool = icmp ne ptr %0, null
-  %lnot = xor i1 %tobool, true
-  ret i1 %lnot
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message_, align 8
-  ret ptr %0
-}
-
-declare void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef, ptr noundef) unnamed_addr #6
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %stream_ = getelementptr inbounds %"class.logging::LogMessage", ptr %this1, i32 0, i32 2
-  ret ptr %stream_
+; Function Attrs: inlinehint mustprogress nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #8 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #13
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #7
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #9
 
-declare noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) #6
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3url7TrimURLIcEEvPKT_PiS4_b(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) #5 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !67
+  store ptr %2, ptr %7, align 8, !tbaa !67
+  %9 = zext i1 %3 to i8
+  store i8 %9, ptr %8, align 1, !tbaa !20
+  br label %10
 
-declare void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef, i32 noundef, ptr noundef) #6
+10:                                               ; preds = %27, %4
+  %11 = load ptr, ptr %6, align 8, !tbaa !67
+  %12 = load i32, ptr %11, align 4, !tbaa !17
+  %13 = load ptr, ptr %7, align 8, !tbaa !67
+  %14 = load i32, ptr %13, align 4, !tbaa !17
+  %15 = icmp slt i32 %12, %14
+  br i1 %15, label %16, label %25
 
-declare noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) #6
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !32
+  %18 = load ptr, ptr %6, align 8, !tbaa !67
+  %19 = load i32, ptr %18, align 4, !tbaa !17
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %17, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !34
+  %23 = sext i8 %22 to i16
+  %24 = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %23)
+  br label %25
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %inner_parsed_ = getelementptr inbounds %"struct.url::Parsed", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %inner_parsed_, align 8
-  ret ptr %0
+25:                                               ; preds = %16, %10
+  %26 = phi i1 [ false, %10 ], [ %24, %16 ]
+  br i1 %26, label %27, label %31
+
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %6, align 8, !tbaa !67
+  %29 = load i32, ptr %28, align 4, !tbaa !17
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %28, align 4, !tbaa !17
+  br label %10, !llvm.loop !69
+
+31:                                               ; preds = %25
+  %32 = load i8, ptr %8, align 1, !tbaa !20, !range !26, !noundef !27
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %58
+
+34:                                               ; preds = %31
+  br label %35
+
+35:                                               ; preds = %53, %34
+  %36 = load ptr, ptr %7, align 8, !tbaa !67
+  %37 = load i32, ptr %36, align 4, !tbaa !17
+  %38 = load ptr, ptr %6, align 8, !tbaa !67
+  %39 = load i32, ptr %38, align 4, !tbaa !17
+  %40 = icmp sgt i32 %37, %39
+  br i1 %40, label %41, label %51
+
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %5, align 8, !tbaa !32
+  %43 = load ptr, ptr %7, align 8, !tbaa !67
+  %44 = load i32, ptr %43, align 4, !tbaa !17
+  %45 = sub nsw i32 %44, 1
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i8, ptr %42, i64 %46
+  %48 = load i8, ptr %47, align 1, !tbaa !34
+  %49 = sext i8 %48 to i16
+  %50 = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %49)
+  br label %51
+
+51:                                               ; preds = %41, %35
+  %52 = phi i1 [ false, %35 ], [ %50, %41 ]
+  br i1 %52, label %53, label %57
+
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %7, align 8, !tbaa !67
+  %55 = load i32, ptr %54, align 4, !tbaa !17
+  %56 = add nsw i32 %55, -1
+  store i32 %56, ptr %54, align 4, !tbaa !17
+  br label %35, !llvm.loop !70
+
+57:                                               ; preds = %51
+  br label %58
+
+58:                                               ; preds = %57, %31
+  ret void
 }
 
-declare noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) #6
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3url7TrimURLItEEvPKT_PiS4_b(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) #5 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store ptr %1, ptr %6, align 8, !tbaa !67
+  store ptr %2, ptr %7, align 8, !tbaa !67
+  %9 = zext i1 %3 to i8
+  store i8 %9, ptr %8, align 1, !tbaa !20
+  br label %10
 
-declare void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef, i32 noundef, ptr noundef) #6
+10:                                               ; preds = %26, %4
+  %11 = load ptr, ptr %6, align 8, !tbaa !67
+  %12 = load i32, ptr %11, align 4, !tbaa !17
+  %13 = load ptr, ptr %7, align 8, !tbaa !67
+  %14 = load i32, ptr %13, align 4, !tbaa !17
+  %15 = icmp slt i32 %12, %14
+  br i1 %15, label %16, label %24
 
-declare noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) #6
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !38
+  %18 = load ptr, ptr %6, align 8, !tbaa !67
+  %19 = load i32, ptr %18, align 4, !tbaa !17
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i16, ptr %17, i64 %20
+  %22 = load i16, ptr %21, align 2, !tbaa !40
+  %23 = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %22)
+  br label %24
+
+24:                                               ; preds = %16, %10
+  %25 = phi i1 [ false, %10 ], [ %23, %16 ]
+  br i1 %25, label %26, label %30
+
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %6, align 8, !tbaa !67
+  %28 = load i32, ptr %27, align 4, !tbaa !17
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %27, align 4, !tbaa !17
+  br label %10, !llvm.loop !71
+
+30:                                               ; preds = %24
+  %31 = load i8, ptr %8, align 1, !tbaa !20, !range !26, !noundef !27
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %56
+
+33:                                               ; preds = %30
+  br label %34
+
+34:                                               ; preds = %51, %33
+  %35 = load ptr, ptr %7, align 8, !tbaa !67
+  %36 = load i32, ptr %35, align 4, !tbaa !17
+  %37 = load ptr, ptr %6, align 8, !tbaa !67
+  %38 = load i32, ptr %37, align 4, !tbaa !17
+  %39 = icmp sgt i32 %36, %38
+  br i1 %39, label %40, label %49
+
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %5, align 8, !tbaa !38
+  %42 = load ptr, ptr %7, align 8, !tbaa !67
+  %43 = load i32, ptr %42, align 4, !tbaa !17
+  %44 = sub nsw i32 %43, 1
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i16, ptr %41, i64 %45
+  %47 = load i16, ptr %46, align 2, !tbaa !40
+  %48 = call noundef zeroext i1 @_ZN3url17ShouldTrimFromURLEt(i16 noundef zeroext %47)
+  br label %49
+
+49:                                               ; preds = %40, %34
+  %50 = phi i1 [ false, %34 ], [ %48, %40 ]
+  br i1 %50, label %51, label %55
+
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %7, align 8, !tbaa !67
+  %53 = load i32, ptr %52, align 4, !tbaa !17
+  %54 = add nsw i32 %53, -1
+  store i32 %54, ptr %52, align 4, !tbaa !17
+  br label %34, !llvm.loop !72
+
+55:                                               ; preds = %49
+  br label %56
+
+56:                                               ; preds = %55, %30
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii(ptr noundef %str, i32 noundef %begin_offset, i32 noundef %str_len) #1 comdat {
-entry:
-  %str.addr = alloca ptr, align 8
-  %begin_offset.addr = alloca i32, align 4
-  %str_len.addr = alloca i32, align 4
-  %count = alloca i32, align 4
-  store ptr %str, ptr %str.addr, align 8
-  store i32 %begin_offset, ptr %begin_offset.addr, align 4
-  store i32 %str_len, ptr %str_len.addr, align 4
-  store i32 0, ptr %count, align 4
-  br label %while.cond
+define linkonce_odr void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !75
+  store ptr %7, ptr %6, align 8, !tbaa !77
+  ret void
+}
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %begin_offset.addr, align 4
-  %1 = load i32, ptr %count, align 4
-  %add = add nsw i32 %0, %1
-  %2 = load i32, ptr %str_len.addr, align 4
-  %cmp = icmp slt i32 %add, %2
-  br i1 %cmp, label %land.rhs, label %land.end
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  %6 = icmp ne ptr %5, null
+  %7 = xor i1 %6, true
+  ret i1 %7
+}
 
-land.rhs:                                         ; preds = %while.cond
-  %3 = load ptr, ptr %str.addr, align 8
-  %4 = load i32, ptr %begin_offset.addr, align 4
-  %5 = load i32, ptr %count, align 4
-  %add1 = add nsw i32 %4, %5
-  %idxprom = sext i32 %add1 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %idxprom
-  %6 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %6 to i16
-  %call = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %conv)
-  br label %land.end
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  ret ptr %5
+}
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %7 = phi i1 [ false, %while.cond ], [ %call, %land.rhs ]
-  br i1 %7, label %while.body, label %while.end
+declare void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef, ptr noundef) unnamed_addr #10
 
-while.body:                                       ; preds = %land.end
-  %8 = load i32, ptr %count, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %count, align 4
-  br label %while.cond, !llvm.loop !36
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !79
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::LogMessage", ptr %3, i32 0, i32 2
+  ret ptr %4
+}
 
-while.end:                                        ; preds = %land.end
-  %9 = load i32, ptr %count, align 4
-  ret i32 %9
+; Function Attrs: nounwind
+declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #9
+
+declare noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) #10
+
+declare void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef, i32 noundef, ptr noundef) #10
+
+declare noundef zeroext i1 @_ZN3url10IsStandardEPKcRKNS_9ComponentE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) #10
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK3url6Parsed12inner_parsedEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %3, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  ret ptr %5
+}
+
+declare noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) #10
+
+declare void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef, i32 noundef, ptr noundef) #10
+
+declare noundef zeroext i1 @_ZN3url10IsStandardEPKtRKNS_9ComponentE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) #10
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii(ptr noundef %0, i32 noundef %1, i32 noundef %2) #5 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store i32 %2, ptr %6, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !17
+  br label %8
+
+8:                                                ; preds = %26, %3
+  %9 = load i32, ptr %5, align 4, !tbaa !17
+  %10 = load i32, ptr %7, align 4, !tbaa !17
+  %11 = add nsw i32 %9, %10
+  %12 = load i32, ptr %6, align 4, !tbaa !17
+  %13 = icmp slt i32 %11, %12
+  br i1 %13, label %14, label %24
+
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %4, align 8, !tbaa !32
+  %16 = load i32, ptr %5, align 4, !tbaa !17
+  %17 = load i32, ptr %7, align 4, !tbaa !17
+  %18 = add nsw i32 %16, %17
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %15, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !34
+  %22 = sext i8 %21 to i16
+  %23 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %22)
+  br label %24
+
+24:                                               ; preds = %14, %8
+  %25 = phi i1 [ false, %8 ], [ %23, %14 ]
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %24
+  %27 = load i32, ptr %7, align 4, !tbaa !17
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %7, align 4, !tbaa !17
+  br label %8, !llvm.loop !81
+
+29:                                               ; preds = %24
+  %30 = load i32, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  ret i32 %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorIcEEiPKT_ii(ptr noundef %spec, i32 noundef %start_offset, i32 noundef %spec_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %spec.addr = alloca ptr, align 8
-  %start_offset.addr = alloca i32, align 4
-  %spec_len.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %start_offset, ptr %start_offset.addr, align 4
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  %0 = load i32, ptr %start_offset.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+define internal noundef i32 @_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorIcEEiPKT_ii(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i32 %2, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %10 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %10, ptr %8, align 4, !tbaa !17
+  br label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+11:                                               ; preds = %27, %3
+  %12 = load i32, ptr %8, align 4, !tbaa !17
+  %13 = load i32, ptr %7, align 4, !tbaa !17
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %16, label %15
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %spec.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %idxprom
-  %5 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %5 to i16
-  %call = call noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext %conv)
-  br i1 %call, label %if.then, label %if.end
+15:                                               ; preds = %11
+  store i32 2, ptr %9, align 4
+  br label %30
 
-if.then:                                          ; preds = %for.body
-  %6 = load i32, ptr %i, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %5, align 8, !tbaa !32
+  %18 = load i32, ptr %8, align 4, !tbaa !17
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !34
+  %22 = sext i8 %21 to i16
+  %23 = call noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext %22)
+  br i1 %23, label %24, label %26
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+24:                                               ; preds = %16
+  %25 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %25, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %30
 
-for.inc:                                          ; preds = %if.end
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !37
+26:                                               ; preds = %16
+  br label %27
 
-for.end:                                          ; preds = %for.cond
-  %8 = load i32, ptr %spec_len.addr, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %26
+  %28 = load i32, ptr %8, align 4, !tbaa !17
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %8, align 4, !tbaa !17
+  br label %11, !llvm.loop !82
 
-return:                                           ; preds = %for.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+30:                                               ; preds = %24, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  %31 = load i32, ptr %9, align 4
+  switch i32 %31, label %36 [
+    i32 2, label %32
+    i32 1, label %34
+  ]
+
+32:                                               ; preds = %30
+  %33 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %33, ptr %4, align 4
+  br label %34
+
+34:                                               ; preds = %32, %30
+  %35 = load i32, ptr %4, align 4
+  ret i32 %35
+
+36:                                               ; preds = %30
+  unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN3url23CountConsecutiveSlashesItEEiPKT_ii(ptr noundef %str, i32 noundef %begin_offset, i32 noundef %str_len) #1 comdat {
-entry:
-  %str.addr = alloca ptr, align 8
-  %begin_offset.addr = alloca i32, align 4
-  %str_len.addr = alloca i32, align 4
-  %count = alloca i32, align 4
-  store ptr %str, ptr %str.addr, align 8
-  store i32 %begin_offset, ptr %begin_offset.addr, align 4
-  store i32 %str_len, ptr %str_len.addr, align 4
-  store i32 0, ptr %count, align 4
-  br label %while.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN3url23CountConsecutiveSlashesItEEiPKT_ii(ptr noundef %0, i32 noundef %1, i32 noundef %2) #5 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  store i32 %2, ptr %6, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !17
+  br label %8
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %begin_offset.addr, align 4
-  %1 = load i32, ptr %count, align 4
-  %add = add nsw i32 %0, %1
-  %2 = load i32, ptr %str_len.addr, align 4
-  %cmp = icmp slt i32 %add, %2
-  br i1 %cmp, label %land.rhs, label %land.end
+8:                                                ; preds = %25, %3
+  %9 = load i32, ptr %5, align 4, !tbaa !17
+  %10 = load i32, ptr %7, align 4, !tbaa !17
+  %11 = add nsw i32 %9, %10
+  %12 = load i32, ptr %6, align 4, !tbaa !17
+  %13 = icmp slt i32 %11, %12
+  br i1 %13, label %14, label %23
 
-land.rhs:                                         ; preds = %while.cond
-  %3 = load ptr, ptr %str.addr, align 8
-  %4 = load i32, ptr %begin_offset.addr, align 4
-  %5 = load i32, ptr %count, align 4
-  %add1 = add nsw i32 %4, %5
-  %idxprom = sext i32 %add1 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %call = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %6)
-  br label %land.end
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %4, align 8, !tbaa !38
+  %16 = load i32, ptr %5, align 4, !tbaa !17
+  %17 = load i32, ptr %7, align 4, !tbaa !17
+  %18 = add nsw i32 %16, %17
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i16, ptr %15, i64 %19
+  %21 = load i16, ptr %20, align 2, !tbaa !40
+  %22 = call noundef zeroext i1 @_ZN3url10IsURLSlashEt(i16 noundef zeroext %21)
+  br label %23
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %7 = phi i1 [ false, %while.cond ], [ %call, %land.rhs ]
-  br i1 %7, label %while.body, label %while.end
+23:                                               ; preds = %14, %8
+  %24 = phi i1 [ false, %8 ], [ %22, %14 ]
+  br i1 %24, label %25, label %28
 
-while.body:                                       ; preds = %land.end
-  %8 = load i32, ptr %count, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %count, align 4
-  br label %while.cond, !llvm.loop !38
+25:                                               ; preds = %23
+  %26 = load i32, ptr %7, align 4, !tbaa !17
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %7, align 4, !tbaa !17
+  br label %8, !llvm.loop !83
 
-while.end:                                        ; preds = %land.end
-  %9 = load i32, ptr %count, align 4
-  ret i32 %9
+28:                                               ; preds = %23
+  %29 = load i32, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  ret i32 %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorItEEiPKT_ii(ptr noundef %spec, i32 noundef %start_offset, i32 noundef %spec_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %spec.addr = alloca ptr, align 8
-  %start_offset.addr = alloca i32, align 4
-  %spec_len.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %start_offset, ptr %start_offset.addr, align 4
-  store i32 %spec_len, ptr %spec_len.addr, align 4
-  %0 = load i32, ptr %start_offset.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+define internal noundef i32 @_ZN3url12_GLOBAL__N_127FindNextAuthorityTerminatorItEEiPKT_ii(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !38
+  store i32 %1, ptr %6, align 4, !tbaa !17
+  store i32 %2, ptr %7, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %10 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %10, ptr %8, align 4, !tbaa !17
+  br label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %spec_len.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+11:                                               ; preds = %26, %3
+  %12 = load i32, ptr %8, align 4, !tbaa !17
+  %13 = load i32, ptr %7, align 4, !tbaa !17
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %16, label %15
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %spec.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
-  %5 = load i16, ptr %arrayidx, align 2
-  %call = call noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext %5)
-  br i1 %call, label %if.then, label %if.end
+15:                                               ; preds = %11
+  store i32 2, ptr %9, align 4
+  br label %29
 
-if.then:                                          ; preds = %for.body
-  %6 = load i32, ptr %i, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %5, align 8, !tbaa !38
+  %18 = load i32, ptr %8, align 4, !tbaa !17
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i16, ptr %17, i64 %19
+  %21 = load i16, ptr %20, align 2, !tbaa !40
+  %22 = call noundef zeroext i1 @_ZN3url21IsAuthorityTerminatorEt(i16 noundef zeroext %21)
+  br i1 %22, label %23, label %25
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+23:                                               ; preds = %16
+  %24 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %24, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %29
 
-for.inc:                                          ; preds = %if.end
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !39
+25:                                               ; preds = %16
+  br label %26
 
-for.end:                                          ; preds = %for.cond
-  %8 = load i32, ptr %spec_len.addr, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %25
+  %27 = load i32, ptr %8, align 4, !tbaa !17
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %8, align 4, !tbaa !17
+  br label %11, !llvm.loop !84
 
-return:                                           ; preds = %for.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+29:                                               ; preds = %23, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  %30 = load i32, ptr %9, align 4
+  switch i32 %30, label %35 [
+    i32 2, label %31
+    i32 1, label %33
+  ]
+
+31:                                               ; preds = %29
+  %32 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %32, ptr %4, align 4
+  br label %33
+
+33:                                               ; preds = %31, %29
+  %34 = load i32, ptr %4, align 4
+  ret i32 %34
+
+35:                                               ; preds = %29
+  unreachable
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { builtin allocsize(0) }
-attributes #9 = { builtin nounwind }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { builtin nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3url6ParsedE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !4, i64 64}
+!9 = !{!"_ZTSN3url6ParsedE", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !4, i64 64}
+!10 = !{!"_ZTSN3url9ComponentE", !11, i64 0, !11, i64 4}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN3url9ComponentE", !5, i64 0}
+!14 = !{!10, !11, i64 0}
+!15 = !{!10, !11, i64 4}
+!16 = !{i64 0, i64 4, !17, i64 4, i64 4, !17}
+!17 = !{!11, !11, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"_ZTSN3url6Parsed13ComponentTypeE", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"bool", !6, i64 0}
+!22 = !{!9, !11, i64 0}
+!23 = !{!9, !11, i64 8}
+!24 = !{!9, !11, i64 16}
+!25 = !{!9, !11, i64 24}
+!26 = !{i8 0, i8 2}
+!27 = !{}
+!28 = !{!9, !11, i64 32}
+!29 = !{!9, !11, i64 40}
+!30 = !{!9, !11, i64 48}
+!31 = !{!9, !11, i64 56}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 omnipotent char", !5, i64 0}
+!34 = !{!6, !6, i64 0}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.mustprogress"}
+!37 = distinct !{!37, !36}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 short", !5, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"short", !6, i64 0}
+!42 = distinct !{!42, !36}
+!43 = distinct !{!43, !36}
+!44 = distinct !{!44, !36}
+!45 = distinct !{!45, !36}
+!46 = distinct !{!46, !36}
+!47 = distinct !{!47, !36}
+!48 = distinct !{!48, !36}
+!49 = distinct !{!49, !36}
+!50 = distinct !{!50, !36}
+!51 = distinct !{!51, !36}
+!52 = distinct !{!52, !36}
+!53 = distinct !{!53, !36}
+!54 = distinct !{!54, !36}
+!55 = distinct !{!55, !36}
+!56 = distinct !{!56, !36}
+!57 = !{!9, !11, i64 44}
+!58 = distinct !{!58, !36}
+!59 = distinct !{!59, !36}
+!60 = distinct !{!60, !36}
+!61 = distinct !{!61, !36}
+!62 = distinct !{!62, !36}
+!63 = distinct !{!63, !36}
+!64 = distinct !{!64, !36}
+!65 = distinct !{!65, !36}
+!66 = distinct !{!66, !36}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 int", !5, i64 0}
+!69 = distinct !{!69, !36}
+!70 = distinct !{!70, !36}
+!71 = distinct !{!71, !36}
+!72 = distinct !{!72, !36}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSN7logging13CheckOpResultE", !5, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!77 = !{!78, !76, i64 0}
+!78 = !{!"_ZTSN7logging13CheckOpResultE", !76, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTSN7logging10LogMessageE", !5, i64 0}
+!81 = distinct !{!81, !36}
+!82 = distinct !{!82, !36}
+!83 = distinct !{!83, !36}
+!84 = distinct !{!84, !36}

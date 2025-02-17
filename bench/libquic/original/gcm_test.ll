@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.test_case = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.aes_key_st = type { [60 x i32], i32 }
@@ -83,653 +83,746 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @main() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %i = alloca i32, align 4
-  store i32 0, ptr %retval, align 4
-  store i32 0, ptr %ret, align 4
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 0, ptr %1, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #7
+  store i32 0, ptr %2, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   call void @CRYPTO_library_init()
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+  store i32 0, ptr %3, align 4, !tbaa !6
+  br label %4
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %conv = zext i32 %0 to i64
-  %cmp = icmp ult i64 %conv, 21
-  br i1 %cmp, label %for.body, label %for.end
+4:                                                ; preds = %17, %0
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = zext i32 %5 to i64
+  %7 = icmp ult i64 %6, 21
+  br i1 %7, label %8, label %20
 
-for.body:                                         ; preds = %for.cond
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [21 x %struct.test_case], ptr @test_cases, i64 0, i64 %idxprom
-  %call = call i32 @run_test_case(i32 noundef %1, ptr noundef %arrayidx)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+8:                                                ; preds = %4
+  %9 = load i32, ptr %3, align 4, !tbaa !6
+  %10 = load i32, ptr %3, align 4, !tbaa !6
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [21 x %struct.test_case], ptr @test_cases, i64 0, i64 %11
+  %13 = call i32 @run_test_case(i32 noundef %9, ptr noundef %12)
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %16, label %15
 
-if.then:                                          ; preds = %for.body
-  store i32 1, ptr %ret, align 4
-  br label %if.end
+15:                                               ; preds = %8
+  store i32 1, ptr %2, align 4, !tbaa !6
+  br label %16
 
-if.end:                                           ; preds = %if.then, %for.body
-  br label %for.inc
+16:                                               ; preds = %15, %8
+  br label %17
 
-for.inc:                                          ; preds = %if.end
-  %3 = load i32, ptr %i, align 4
-  %inc = add i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+17:                                               ; preds = %16
+  %18 = load i32, ptr %3, align 4, !tbaa !6
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %3, align 4, !tbaa !6
+  br label %4, !llvm.loop !10
 
-for.end:                                          ; preds = %for.cond
-  %4 = load i32, ptr %ret, align 4
-  %cmp2 = icmp eq i32 %4, 0
-  br i1 %cmp2, label %if.then4, label %if.end6
+20:                                               ; preds = %4
+  %21 = load i32, ptr %2, align 4, !tbaa !6
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %25
 
-if.then4:                                         ; preds = %for.end
-  %call5 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  br label %if.end6
+23:                                               ; preds = %20
+  %24 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+  br label %25
 
-if.end6:                                          ; preds = %if.then4, %for.end
-  %5 = load i32, ptr %ret, align 4
-  ret i32 %5
+25:                                               ; preds = %23, %20
+  %26 = load i32, ptr %2, align 4, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #7
+  ret i32 %26
 }
 
-declare void @CRYPTO_library_init() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @CRYPTO_library_init() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @run_test_case(i32 noundef %test_num, ptr noundef %test) #0 {
-entry:
-  %test_num.addr = alloca i32, align 4
-  %test.addr = alloca ptr, align 8
-  %key_len = alloca i64, align 8
-  %plaintext_len = alloca i64, align 8
-  %additional_data_len = alloca i64, align 8
-  %nonce_len = alloca i64, align 8
-  %ciphertext_len = alloca i64, align 8
-  %tag_len = alloca i64, align 8
-  %key = alloca ptr, align 8
-  %plaintext = alloca ptr, align 8
-  %additional_data = alloca ptr, align 8
-  %nonce = alloca ptr, align 8
-  %ciphertext = alloca ptr, align 8
-  %tag = alloca ptr, align 8
-  %out = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %aes_key = alloca %struct.aes_key_st, align 4
-  %ctx = alloca %struct.gcm128_context, align 8
-  store i32 %test_num, ptr %test_num.addr, align 4
-  store ptr %test, ptr %test.addr, align 8
-  store ptr null, ptr %key, align 8
-  store ptr null, ptr %plaintext, align 8
-  store ptr null, ptr %additional_data, align 8
-  store ptr null, ptr %nonce, align 8
-  store ptr null, ptr %ciphertext, align 8
-  store ptr null, ptr %tag, align 8
-  store ptr null, ptr %out, align 8
-  store i32 0, ptr %ret, align 4
-  %0 = load ptr, ptr %test.addr, align 8
-  %key1 = getelementptr inbounds %struct.test_case, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %key1, align 8
-  %2 = load i32, ptr %test_num.addr, align 4
-  %call = call i32 @decode_hex(ptr noundef %key, ptr noundef %key_len, ptr noundef %1, i32 noundef %2, ptr noundef @.str.1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+define internal i32 @run_test_case(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca %struct.aes_key_st, align 4
+  %20 = alloca %struct.gcm128_context, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  store ptr null, ptr %11, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr null, ptr %14, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  store ptr null, ptr %15, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  store ptr null, ptr %16, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  store ptr null, ptr %17, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  store i32 0, ptr %18, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 244, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 384, ptr %20) #7
+  %21 = load ptr, ptr %4, align 8, !tbaa !12
+  %22 = getelementptr inbounds nuw %struct.test_case, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
+  %24 = load i32, ptr %3, align 4, !tbaa !6
+  %25 = call i32 @decode_hex(ptr noundef %11, ptr noundef %5, ptr noundef %23, i32 noundef %24, ptr noundef @.str.1)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %62
 
-lor.lhs.false:                                    ; preds = %entry
-  %3 = load ptr, ptr %test.addr, align 8
-  %plaintext2 = getelementptr inbounds %struct.test_case, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %plaintext2, align 8
-  %5 = load i32, ptr %test_num.addr, align 4
-  %call3 = call i32 @decode_hex(ptr noundef %plaintext, ptr noundef %plaintext_len, ptr noundef %4, i32 noundef %5, ptr noundef @.str.2)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %lor.lhs.false5, label %if.then
+27:                                               ; preds = %2
+  %28 = load ptr, ptr %4, align 8, !tbaa !12
+  %29 = getelementptr inbounds nuw %struct.test_case, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !19
+  %31 = load i32, ptr %3, align 4, !tbaa !6
+  %32 = call i32 @decode_hex(ptr noundef %12, ptr noundef %6, ptr noundef %30, i32 noundef %31, ptr noundef @.str.2)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %62
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %test.addr, align 8
-  %additional_data6 = getelementptr inbounds %struct.test_case, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %additional_data6, align 8
-  %8 = load i32, ptr %test_num.addr, align 4
-  %call7 = call i32 @decode_hex(ptr noundef %additional_data, ptr noundef %additional_data_len, ptr noundef %7, i32 noundef %8, ptr noundef @.str.3)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %lor.lhs.false9, label %if.then
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %4, align 8, !tbaa !12
+  %36 = getelementptr inbounds nuw %struct.test_case, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !20
+  %38 = load i32, ptr %3, align 4, !tbaa !6
+  %39 = call i32 @decode_hex(ptr noundef %13, ptr noundef %7, ptr noundef %37, i32 noundef %38, ptr noundef @.str.3)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %62
 
-lor.lhs.false9:                                   ; preds = %lor.lhs.false5
-  %9 = load ptr, ptr %test.addr, align 8
-  %nonce10 = getelementptr inbounds %struct.test_case, ptr %9, i32 0, i32 3
-  %10 = load ptr, ptr %nonce10, align 8
-  %11 = load i32, ptr %test_num.addr, align 4
-  %call11 = call i32 @decode_hex(ptr noundef %nonce, ptr noundef %nonce_len, ptr noundef %10, i32 noundef %11, ptr noundef @.str.4)
-  %tobool12 = icmp ne i32 %call11, 0
-  br i1 %tobool12, label %lor.lhs.false13, label %if.then
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %4, align 8, !tbaa !12
+  %43 = getelementptr inbounds nuw %struct.test_case, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8, !tbaa !21
+  %45 = load i32, ptr %3, align 4, !tbaa !6
+  %46 = call i32 @decode_hex(ptr noundef %14, ptr noundef %8, ptr noundef %44, i32 noundef %45, ptr noundef @.str.4)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %62
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false9
-  %12 = load ptr, ptr %test.addr, align 8
-  %ciphertext14 = getelementptr inbounds %struct.test_case, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %ciphertext14, align 8
-  %14 = load i32, ptr %test_num.addr, align 4
-  %call15 = call i32 @decode_hex(ptr noundef %ciphertext, ptr noundef %ciphertext_len, ptr noundef %13, i32 noundef %14, ptr noundef @.str.5)
-  %tobool16 = icmp ne i32 %call15, 0
-  br i1 %tobool16, label %lor.lhs.false17, label %if.then
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %4, align 8, !tbaa !12
+  %50 = getelementptr inbounds nuw %struct.test_case, ptr %49, i32 0, i32 4
+  %51 = load ptr, ptr %50, align 8, !tbaa !22
+  %52 = load i32, ptr %3, align 4, !tbaa !6
+  %53 = call i32 @decode_hex(ptr noundef %15, ptr noundef %9, ptr noundef %51, i32 noundef %52, ptr noundef @.str.5)
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %62
 
-lor.lhs.false17:                                  ; preds = %lor.lhs.false13
-  %15 = load ptr, ptr %test.addr, align 8
-  %tag18 = getelementptr inbounds %struct.test_case, ptr %15, i32 0, i32 5
-  %16 = load ptr, ptr %tag18, align 8
-  %17 = load i32, ptr %test_num.addr, align 4
-  %call19 = call i32 @decode_hex(ptr noundef %tag, ptr noundef %tag_len, ptr noundef %16, i32 noundef %17, ptr noundef @.str.6)
-  %tobool20 = icmp ne i32 %call19, 0
-  br i1 %tobool20, label %if.end, label %if.then
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %4, align 8, !tbaa !12
+  %57 = getelementptr inbounds nuw %struct.test_case, ptr %56, i32 0, i32 5
+  %58 = load ptr, ptr %57, align 8, !tbaa !23
+  %59 = load i32, ptr %3, align 4, !tbaa !6
+  %60 = call i32 @decode_hex(ptr noundef %16, ptr noundef %10, ptr noundef %58, i32 noundef %59, ptr noundef @.str.6)
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %63, label %62
 
-if.then:                                          ; preds = %lor.lhs.false17, %lor.lhs.false13, %lor.lhs.false9, %lor.lhs.false5, %lor.lhs.false, %entry
-  br label %out85
+62:                                               ; preds = %55, %48, %41, %34, %27, %2
+  br label %196
 
-if.end:                                           ; preds = %lor.lhs.false17
-  %18 = load i64, ptr %plaintext_len, align 8
-  %19 = load i64, ptr %ciphertext_len, align 8
-  %cmp = icmp ne i64 %18, %19
-  br i1 %cmp, label %if.then21, label %if.end23
+63:                                               ; preds = %55
+  %64 = load i64, ptr %6, align 8, !tbaa !24
+  %65 = load i64, ptr %9, align 8, !tbaa !24
+  %66 = icmp ne i64 %64, %65
+  br i1 %66, label %67, label %71
 
-if.then21:                                        ; preds = %if.end
-  %20 = load ptr, ptr @stderr, align 8
-  %21 = load i32, ptr %test_num.addr, align 4
-  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.7, i32 noundef %21)
-  br label %out85
+67:                                               ; preds = %63
+  %68 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %69 = load i32, ptr %3, align 4, !tbaa !6
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef @.str.7, i32 noundef %69) #7
+  br label %196
 
-if.end23:                                         ; preds = %if.end
-  %22 = load i64, ptr %key_len, align 8
-  %cmp24 = icmp ne i64 %22, 16
-  br i1 %cmp24, label %land.lhs.true, label %if.end30
+71:                                               ; preds = %63
+  %72 = load i64, ptr %5, align 8, !tbaa !24
+  %73 = icmp ne i64 %72, 16
+  br i1 %73, label %74, label %84
 
-land.lhs.true:                                    ; preds = %if.end23
-  %23 = load i64, ptr %key_len, align 8
-  %cmp25 = icmp ne i64 %23, 24
-  br i1 %cmp25, label %land.lhs.true26, label %if.end30
+74:                                               ; preds = %71
+  %75 = load i64, ptr %5, align 8, !tbaa !24
+  %76 = icmp ne i64 %75, 24
+  br i1 %76, label %77, label %84
 
-land.lhs.true26:                                  ; preds = %land.lhs.true
-  %24 = load i64, ptr %key_len, align 8
-  %cmp27 = icmp ne i64 %24, 32
-  br i1 %cmp27, label %if.then28, label %if.end30
+77:                                               ; preds = %74
+  %78 = load i64, ptr %5, align 8, !tbaa !24
+  %79 = icmp ne i64 %78, 32
+  br i1 %79, label %80, label %84
 
-if.then28:                                        ; preds = %land.lhs.true26
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = load i32, ptr %test_num.addr, align 4
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.8, i32 noundef %26)
-  br label %out85
+80:                                               ; preds = %77
+  %81 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %82 = load i32, ptr %3, align 4, !tbaa !6
+  %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.8, i32 noundef %82) #7
+  br label %196
 
-if.end30:                                         ; preds = %land.lhs.true26, %land.lhs.true, %if.end23
-  %27 = load i64, ptr %tag_len, align 8
-  %cmp31 = icmp ne i64 %27, 16
-  br i1 %cmp31, label %if.then32, label %if.end34
+84:                                               ; preds = %77, %74, %71
+  %85 = load i64, ptr %10, align 8, !tbaa !24
+  %86 = icmp ne i64 %85, 16
+  br i1 %86, label %87, label %91
 
-if.then32:                                        ; preds = %if.end30
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = load i32, ptr %test_num.addr, align 4
-  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.9, i32 noundef %29)
-  br label %out85
+87:                                               ; preds = %84
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %89 = load i32, ptr %3, align 4, !tbaa !6
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.9, i32 noundef %89) #7
+  br label %196
 
-if.end34:                                         ; preds = %if.end30
-  %30 = load i64, ptr %plaintext_len, align 8
-  %call35 = call noalias ptr @malloc(i64 noundef %30) #6
-  store ptr %call35, ptr %out, align 8
-  %31 = load i64, ptr %plaintext_len, align 8
-  %cmp36 = icmp ne i64 %31, 0
-  br i1 %cmp36, label %land.lhs.true37, label %if.end40
+91:                                               ; preds = %84
+  %92 = load i64, ptr %6, align 8, !tbaa !24
+  %93 = call noalias ptr @malloc(i64 noundef %92) #8
+  store ptr %93, ptr %17, align 8, !tbaa !15
+  %94 = load i64, ptr %6, align 8, !tbaa !24
+  %95 = icmp ne i64 %94, 0
+  br i1 %95, label %96, label %100
 
-land.lhs.true37:                                  ; preds = %if.end34
-  %32 = load ptr, ptr %out, align 8
-  %cmp38 = icmp eq ptr %32, null
-  br i1 %cmp38, label %if.then39, label %if.end40
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %17, align 8, !tbaa !15
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %99, label %100
 
-if.then39:                                        ; preds = %land.lhs.true37
-  br label %out85
+99:                                               ; preds = %96
+  br label %196
 
-if.end40:                                         ; preds = %land.lhs.true37, %if.end34
-  %33 = load ptr, ptr %key, align 8
-  %34 = load i64, ptr %key_len, align 8
-  %mul = mul i64 %34, 8
-  %conv = trunc i64 %mul to i32
-  %call41 = call i32 @AES_set_encrypt_key(ptr noundef %33, i32 noundef %conv, ptr noundef %aes_key)
-  %tobool42 = icmp ne i32 %call41, 0
-  br i1 %tobool42, label %if.then43, label %if.end45
+100:                                              ; preds = %96, %91
+  %101 = load ptr, ptr %11, align 8, !tbaa !15
+  %102 = load i64, ptr %5, align 8, !tbaa !24
+  %103 = mul i64 %102, 8
+  %104 = trunc i64 %103 to i32
+  %105 = call i32 @AES_set_encrypt_key(ptr noundef %101, i32 noundef %104, ptr noundef %19)
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %111
 
-if.then43:                                        ; preds = %if.end40
-  %35 = load ptr, ptr @stderr, align 8
-  %36 = load i32, ptr %test_num.addr, align 4
-  %call44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.10, i32 noundef %36)
-  br label %out85
+107:                                              ; preds = %100
+  %108 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %109 = load i32, ptr %3, align 4, !tbaa !6
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef @.str.10, i32 noundef %109) #7
+  br label %196
 
-if.end45:                                         ; preds = %if.end40
-  call void @CRYPTO_gcm128_init(ptr noundef %ctx, ptr noundef %aes_key, ptr noundef @AES_encrypt)
-  %37 = load ptr, ptr %nonce, align 8
-  %38 = load i64, ptr %nonce_len, align 8
-  call void @CRYPTO_gcm128_setiv(ptr noundef %ctx, ptr noundef %aes_key, ptr noundef %37, i64 noundef %38)
-  %39 = load ptr, ptr %out, align 8
-  %40 = load i64, ptr %plaintext_len, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %39, i8 0, i64 %40, i1 false)
-  %41 = load ptr, ptr %additional_data, align 8
-  %tobool46 = icmp ne ptr %41, null
-  br i1 %tobool46, label %if.then47, label %if.end49
+111:                                              ; preds = %100
+  call void @CRYPTO_gcm128_init(ptr noundef %20, ptr noundef %19, ptr noundef @AES_encrypt)
+  %112 = load ptr, ptr %14, align 8, !tbaa !15
+  %113 = load i64, ptr %8, align 8, !tbaa !24
+  call void @CRYPTO_gcm128_setiv(ptr noundef %20, ptr noundef %19, ptr noundef %112, i64 noundef %113)
+  %114 = load ptr, ptr %17, align 8, !tbaa !15
+  %115 = load i64, ptr %6, align 8, !tbaa !24
+  call void @llvm.memset.p0.i64(ptr align 1 %114, i8 0, i64 %115, i1 false)
+  %116 = load ptr, ptr %13, align 8, !tbaa !15
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %122
 
-if.then47:                                        ; preds = %if.end45
-  %42 = load ptr, ptr %additional_data, align 8
-  %43 = load i64, ptr %additional_data_len, align 8
-  %call48 = call i32 @CRYPTO_gcm128_aad(ptr noundef %ctx, ptr noundef %42, i64 noundef %43)
-  br label %if.end49
+118:                                              ; preds = %111
+  %119 = load ptr, ptr %13, align 8, !tbaa !15
+  %120 = load i64, ptr %7, align 8, !tbaa !24
+  %121 = call i32 @CRYPTO_gcm128_aad(ptr noundef %20, ptr noundef %119, i64 noundef %120)
+  br label %122
 
-if.end49:                                         ; preds = %if.then47, %if.end45
-  %44 = load ptr, ptr %plaintext, align 8
-  %tobool50 = icmp ne ptr %44, null
-  br i1 %tobool50, label %if.then51, label %if.end53
+122:                                              ; preds = %118, %111
+  %123 = load ptr, ptr %12, align 8, !tbaa !15
+  %124 = icmp ne ptr %123, null
+  br i1 %124, label %125, label %130
 
-if.then51:                                        ; preds = %if.end49
-  %45 = load ptr, ptr %plaintext, align 8
-  %46 = load ptr, ptr %out, align 8
-  %47 = load i64, ptr %plaintext_len, align 8
-  %call52 = call i32 @CRYPTO_gcm128_encrypt(ptr noundef %ctx, ptr noundef %aes_key, ptr noundef %45, ptr noundef %46, i64 noundef %47)
-  br label %if.end53
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %12, align 8, !tbaa !15
+  %127 = load ptr, ptr %17, align 8, !tbaa !15
+  %128 = load i64, ptr %6, align 8, !tbaa !24
+  %129 = call i32 @CRYPTO_gcm128_encrypt(ptr noundef %20, ptr noundef %19, ptr noundef %126, ptr noundef %127, i64 noundef %128)
+  br label %130
 
-if.end53:                                         ; preds = %if.then51, %if.end49
-  %48 = load ptr, ptr %tag, align 8
-  %49 = load i64, ptr %tag_len, align 8
-  %call54 = call i32 @CRYPTO_gcm128_finish(ptr noundef %ctx, ptr noundef %48, i64 noundef %49)
-  %tobool55 = icmp ne i32 %call54, 0
-  br i1 %tobool55, label %lor.lhs.false56, label %if.then62
+130:                                              ; preds = %125, %122
+  %131 = load ptr, ptr %16, align 8, !tbaa !15
+  %132 = load i64, ptr %10, align 8, !tbaa !24
+  %133 = call i32 @CRYPTO_gcm128_finish(ptr noundef %20, ptr noundef %131, i64 noundef %132)
+  %134 = icmp ne i32 %133, 0
+  br i1 %134, label %135, label %144
 
-lor.lhs.false56:                                  ; preds = %if.end53
-  %50 = load ptr, ptr %ciphertext, align 8
-  %tobool57 = icmp ne ptr %50, null
-  br i1 %tobool57, label %land.lhs.true58, label %if.end64
+135:                                              ; preds = %130
+  %136 = load ptr, ptr %15, align 8, !tbaa !15
+  %137 = icmp ne ptr %136, null
+  br i1 %137, label %138, label %154
 
-land.lhs.true58:                                  ; preds = %lor.lhs.false56
-  %51 = load ptr, ptr %out, align 8
-  %52 = load ptr, ptr %ciphertext, align 8
-  %53 = load i64, ptr %plaintext_len, align 8
-  %call59 = call i32 @memcmp(ptr noundef %51, ptr noundef %52, i64 noundef %53) #7
-  %cmp60 = icmp ne i32 %call59, 0
-  br i1 %cmp60, label %if.then62, label %if.end64
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %17, align 8, !tbaa !15
+  %140 = load ptr, ptr %15, align 8, !tbaa !15
+  %141 = load i64, ptr %6, align 8, !tbaa !24
+  %142 = call i32 @memcmp(ptr noundef %139, ptr noundef %140, i64 noundef %141) #9
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %154
 
-if.then62:                                        ; preds = %land.lhs.true58, %if.end53
-  %54 = load ptr, ptr @stderr, align 8
-  %55 = load i32, ptr %test_num.addr, align 4
-  %call63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef @.str.11, i32 noundef %55)
-  %56 = load ptr, ptr @stderr, align 8
-  %57 = load ptr, ptr %out, align 8
-  %58 = load i64, ptr %plaintext_len, align 8
-  call void @hexdump(ptr noundef %56, ptr noundef @.str.12, ptr noundef %57, i64 noundef %58)
-  %59 = load ptr, ptr @stderr, align 8
-  %60 = load ptr, ptr %ciphertext, align 8
-  %61 = load i64, ptr %plaintext_len, align 8
-  call void @hexdump(ptr noundef %59, ptr noundef @.str.13, ptr noundef %60, i64 noundef %61)
-  br label %out85
+144:                                              ; preds = %138, %130
+  %145 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %146 = load i32, ptr %3, align 4, !tbaa !6
+  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef @.str.11, i32 noundef %146) #7
+  %148 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %149 = load ptr, ptr %17, align 8, !tbaa !15
+  %150 = load i64, ptr %6, align 8, !tbaa !24
+  call void @hexdump(ptr noundef %148, ptr noundef @.str.12, ptr noundef %149, i64 noundef %150)
+  %151 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %152 = load ptr, ptr %15, align 8, !tbaa !15
+  %153 = load i64, ptr %6, align 8, !tbaa !24
+  call void @hexdump(ptr noundef %151, ptr noundef @.str.13, ptr noundef %152, i64 noundef %153)
+  br label %196
 
-if.end64:                                         ; preds = %land.lhs.true58, %lor.lhs.false56
-  %62 = load ptr, ptr %nonce, align 8
-  %63 = load i64, ptr %nonce_len, align 8
-  call void @CRYPTO_gcm128_setiv(ptr noundef %ctx, ptr noundef %aes_key, ptr noundef %62, i64 noundef %63)
-  %64 = load ptr, ptr %out, align 8
-  %65 = load i64, ptr %plaintext_len, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %64, i8 0, i64 %65, i1 false)
-  %66 = load ptr, ptr %additional_data, align 8
-  %tobool65 = icmp ne ptr %66, null
-  br i1 %tobool65, label %if.then66, label %if.end68
+154:                                              ; preds = %138, %135
+  %155 = load ptr, ptr %14, align 8, !tbaa !15
+  %156 = load i64, ptr %8, align 8, !tbaa !24
+  call void @CRYPTO_gcm128_setiv(ptr noundef %20, ptr noundef %19, ptr noundef %155, i64 noundef %156)
+  %157 = load ptr, ptr %17, align 8, !tbaa !15
+  %158 = load i64, ptr %6, align 8, !tbaa !24
+  call void @llvm.memset.p0.i64(ptr align 1 %157, i8 0, i64 %158, i1 false)
+  %159 = load ptr, ptr %13, align 8, !tbaa !15
+  %160 = icmp ne ptr %159, null
+  br i1 %160, label %161, label %165
 
-if.then66:                                        ; preds = %if.end64
-  %67 = load ptr, ptr %additional_data, align 8
-  %68 = load i64, ptr %additional_data_len, align 8
-  %call67 = call i32 @CRYPTO_gcm128_aad(ptr noundef %ctx, ptr noundef %67, i64 noundef %68)
-  br label %if.end68
+161:                                              ; preds = %154
+  %162 = load ptr, ptr %13, align 8, !tbaa !15
+  %163 = load i64, ptr %7, align 8, !tbaa !24
+  %164 = call i32 @CRYPTO_gcm128_aad(ptr noundef %20, ptr noundef %162, i64 noundef %163)
+  br label %165
 
-if.end68:                                         ; preds = %if.then66, %if.end64
-  %69 = load ptr, ptr %ciphertext, align 8
-  %tobool69 = icmp ne ptr %69, null
-  br i1 %tobool69, label %if.then70, label %if.end72
+165:                                              ; preds = %161, %154
+  %166 = load ptr, ptr %15, align 8, !tbaa !15
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %168, label %173
 
-if.then70:                                        ; preds = %if.end68
-  %70 = load ptr, ptr %ciphertext, align 8
-  %71 = load ptr, ptr %out, align 8
-  %72 = load i64, ptr %plaintext_len, align 8
-  %call71 = call i32 @CRYPTO_gcm128_decrypt(ptr noundef %ctx, ptr noundef %aes_key, ptr noundef %70, ptr noundef %71, i64 noundef %72)
-  br label %if.end72
+168:                                              ; preds = %165
+  %169 = load ptr, ptr %15, align 8, !tbaa !15
+  %170 = load ptr, ptr %17, align 8, !tbaa !15
+  %171 = load i64, ptr %6, align 8, !tbaa !24
+  %172 = call i32 @CRYPTO_gcm128_decrypt(ptr noundef %20, ptr noundef %19, ptr noundef %169, ptr noundef %170, i64 noundef %171)
+  br label %173
 
-if.end72:                                         ; preds = %if.then70, %if.end68
-  %73 = load ptr, ptr %tag, align 8
-  %74 = load i64, ptr %tag_len, align 8
-  %call73 = call i32 @CRYPTO_gcm128_finish(ptr noundef %ctx, ptr noundef %73, i64 noundef %74)
-  %tobool74 = icmp ne i32 %call73, 0
-  br i1 %tobool74, label %if.end77, label %if.then75
+173:                                              ; preds = %168, %165
+  %174 = load ptr, ptr %16, align 8, !tbaa !15
+  %175 = load i64, ptr %10, align 8, !tbaa !24
+  %176 = call i32 @CRYPTO_gcm128_finish(ptr noundef %20, ptr noundef %174, i64 noundef %175)
+  %177 = icmp ne i32 %176, 0
+  br i1 %177, label %182, label %178
 
-if.then75:                                        ; preds = %if.end72
-  %75 = load ptr, ptr @stderr, align 8
-  %76 = load i32, ptr %test_num.addr, align 4
-  %call76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef @.str.14, i32 noundef %76)
-  br label %out85
+178:                                              ; preds = %173
+  %179 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %180 = load i32, ptr %3, align 4, !tbaa !6
+  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef @.str.14, i32 noundef %180) #7
+  br label %196
 
-if.end77:                                         ; preds = %if.end72
-  %77 = load ptr, ptr %plaintext, align 8
-  %tobool78 = icmp ne ptr %77, null
-  br i1 %tobool78, label %land.lhs.true79, label %if.end84
+182:                                              ; preds = %173
+  %183 = load ptr, ptr %12, align 8, !tbaa !15
+  %184 = icmp ne ptr %183, null
+  br i1 %184, label %185, label %195
 
-land.lhs.true79:                                  ; preds = %if.end77
-  %78 = load ptr, ptr %out, align 8
-  %79 = load ptr, ptr %plaintext, align 8
-  %80 = load i64, ptr %plaintext_len, align 8
-  %call80 = call i32 @memcmp(ptr noundef %78, ptr noundef %79, i64 noundef %80) #7
-  %tobool81 = icmp ne i32 %call80, 0
-  br i1 %tobool81, label %if.then82, label %if.end84
+185:                                              ; preds = %182
+  %186 = load ptr, ptr %17, align 8, !tbaa !15
+  %187 = load ptr, ptr %12, align 8, !tbaa !15
+  %188 = load i64, ptr %6, align 8, !tbaa !24
+  %189 = call i32 @memcmp(ptr noundef %186, ptr noundef %187, i64 noundef %188) #9
+  %190 = icmp ne i32 %189, 0
+  br i1 %190, label %191, label %195
 
-if.then82:                                        ; preds = %land.lhs.true79
-  %81 = load ptr, ptr @stderr, align 8
-  %82 = load i32, ptr %test_num.addr, align 4
-  %call83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.15, i32 noundef %82)
-  br label %out85
+191:                                              ; preds = %185
+  %192 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %193 = load i32, ptr %3, align 4, !tbaa !6
+  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef @.str.15, i32 noundef %193) #7
+  br label %196
 
-if.end84:                                         ; preds = %land.lhs.true79, %if.end77
-  store i32 1, ptr %ret, align 4
-  br label %out85
+195:                                              ; preds = %185, %182
+  store i32 1, ptr %18, align 4, !tbaa !6
+  br label %196
 
-out85:                                            ; preds = %if.end84, %if.then82, %if.then75, %if.then62, %if.then43, %if.then39, %if.then32, %if.then28, %if.then21, %if.then
-  %83 = load ptr, ptr %key, align 8
-  call void @free(ptr noundef %83) #8
-  %84 = load ptr, ptr %plaintext, align 8
-  call void @free(ptr noundef %84) #8
-  %85 = load ptr, ptr %additional_data, align 8
-  call void @free(ptr noundef %85) #8
-  %86 = load ptr, ptr %nonce, align 8
-  call void @free(ptr noundef %86) #8
-  %87 = load ptr, ptr %ciphertext, align 8
-  call void @free(ptr noundef %87) #8
-  %88 = load ptr, ptr %tag, align 8
-  call void @free(ptr noundef %88) #8
-  %89 = load ptr, ptr %out, align 8
-  call void @free(ptr noundef %89) #8
-  %90 = load i32, ptr %ret, align 4
-  ret i32 %90
+196:                                              ; preds = %195, %191, %178, %144, %107, %99, %87, %80, %67, %62
+  %197 = load ptr, ptr %11, align 8, !tbaa !15
+  call void @free(ptr noundef %197) #7
+  %198 = load ptr, ptr %12, align 8, !tbaa !15
+  call void @free(ptr noundef %198) #7
+  %199 = load ptr, ptr %13, align 8, !tbaa !15
+  call void @free(ptr noundef %199) #7
+  %200 = load ptr, ptr %14, align 8, !tbaa !15
+  call void @free(ptr noundef %200) #7
+  %201 = load ptr, ptr %15, align 8, !tbaa !15
+  call void @free(ptr noundef %201) #7
+  %202 = load ptr, ptr %16, align 8, !tbaa !15
+  call void @free(ptr noundef %202) #7
+  %203 = load ptr, ptr %17, align 8, !tbaa !15
+  call void @free(ptr noundef %203) #7
+  %204 = load i32, ptr %18, align 4, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 384, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 244, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret i32 %204
 }
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decode_hex(ptr noundef %out, ptr noundef %out_len, ptr noundef %in, i32 noundef %test_num, ptr noundef %description) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %out.addr = alloca ptr, align 8
-  %out_len.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %test_num.addr = alloca i32, align 4
-  %description.addr = alloca ptr, align 8
-  %buf = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %len = alloca i64, align 8
-  %v = alloca i8, align 1
-  %v2 = alloca i8, align 1
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %out_len, ptr %out_len.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i32 %test_num, ptr %test_num.addr, align 4
-  store ptr %description, ptr %description.addr, align 8
-  store ptr null, ptr %buf, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @decode_hex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i8, align 1
+  %17 = alloca i8, align 1
+  store ptr %0, ptr %7, align 8, !tbaa !28
+  store ptr %1, ptr %8, align 8, !tbaa !30
+  store ptr %2, ptr %9, align 8, !tbaa !15
+  store i32 %3, ptr %10, align 4, !tbaa !6
+  store ptr %4, ptr %11, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %18 = load ptr, ptr %9, align 8, !tbaa !15
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %23
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %out.addr, align 8
-  store ptr null, ptr %1, align 8
-  %2 = load ptr, ptr %out_len.addr, align 8
-  store i64 0, ptr %2, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8, !tbaa !28
+  store ptr null, ptr %21, align 8, !tbaa !15
+  %22 = load ptr, ptr %8, align 8, !tbaa !30
+  store i64 0, ptr %22, align 8, !tbaa !24
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %97
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %in.addr, align 8
-  %call = call i64 @strlen(ptr noundef %3) #7
-  store i64 %call, ptr %len, align 8
-  %4 = load i64, ptr %len, align 8
-  %and = and i64 %4, 1
-  %tobool = icmp ne i64 %and, 0
-  br i1 %tobool, label %if.then1, label %if.end3
+23:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %24 = load ptr, ptr %9, align 8, !tbaa !15
+  %25 = call i64 @strlen(ptr noundef %24) #9
+  store i64 %25, ptr %15, align 8, !tbaa !24
+  %26 = load i64, ptr %15, align 8, !tbaa !24
+  %27 = and i64 %26, 1
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %34
 
-if.then1:                                         ; preds = %if.end
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr %test_num.addr, align 4
-  %7 = load ptr, ptr %description.addr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.16, i32 noundef %6, ptr noundef %7)
-  br label %err
+29:                                               ; preds = %23
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %31 = load i32, ptr %10, align 4, !tbaa !6
+  %32 = load ptr, ptr %11, align 8, !tbaa !15
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.16, i32 noundef %31, ptr noundef %32) #7
+  br label %94
 
-if.end3:                                          ; preds = %if.end
-  %8 = load i64, ptr %len, align 8
-  %div = udiv i64 %8, 2
-  %call4 = call noalias ptr @malloc(i64 noundef %div) #6
-  store ptr %call4, ptr %buf, align 8
-  %9 = load ptr, ptr %buf, align 8
-  %cmp5 = icmp eq ptr %9, null
-  br i1 %cmp5, label %if.then6, label %if.end8
+34:                                               ; preds = %23
+  %35 = load i64, ptr %15, align 8, !tbaa !24
+  %36 = udiv i64 %35, 2
+  %37 = call noalias ptr @malloc(i64 noundef %36) #8
+  store ptr %37, ptr %12, align 8, !tbaa !15
+  %38 = load ptr, ptr %12, align 8, !tbaa !15
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %44
 
-if.then6:                                         ; preds = %if.end3
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = load i32, ptr %test_num.addr, align 4
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.17, i32 noundef %11)
-  br label %err
+40:                                               ; preds = %34
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %42 = load i32, ptr %10, align 4, !tbaa !6
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.17, i32 noundef %42) #7
+  br label %94
 
-if.end8:                                          ; preds = %if.end3
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+44:                                               ; preds = %34
+  store i64 0, ptr %13, align 8, !tbaa !24
+  br label %45
 
-for.cond:                                         ; preds = %for.inc, %if.end8
-  %12 = load i64, ptr %i, align 8
-  %13 = load i64, ptr %len, align 8
-  %cmp9 = icmp ult i64 %12, %13
-  br i1 %cmp9, label %for.body, label %for.end
+45:                                               ; preds = %85, %44
+  %46 = load i64, ptr %13, align 8, !tbaa !24
+  %47 = load i64, ptr %15, align 8, !tbaa !24
+  %48 = icmp ult i64 %46, %47
+  br i1 %48, label %49, label %88
 
-for.body:                                         ; preds = %for.cond
-  %14 = load ptr, ptr %in.addr, align 8
-  %15 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %14, i64 %15
-  %16 = load i8, ptr %arrayidx, align 1
-  %call10 = call i32 @from_hex(ptr noundef %v, i8 noundef signext %16)
-  %tobool11 = icmp ne i32 %call10, 0
-  br i1 %tobool11, label %lor.lhs.false, label %if.then15
+49:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #7
+  %50 = load ptr, ptr %9, align 8, !tbaa !15
+  %51 = load i64, ptr %13, align 8, !tbaa !24
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !32
+  %54 = call i32 @from_hex(ptr noundef %16, i8 noundef signext %53)
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %64
 
-lor.lhs.false:                                    ; preds = %for.body
-  %17 = load ptr, ptr %in.addr, align 8
-  %18 = load i64, ptr %i, align 8
-  %add = add i64 %18, 1
-  %arrayidx12 = getelementptr inbounds i8, ptr %17, i64 %add
-  %19 = load i8, ptr %arrayidx12, align 1
-  %call13 = call i32 @from_hex(ptr noundef %v2, i8 noundef signext %19)
-  %tobool14 = icmp ne i32 %call13, 0
-  br i1 %tobool14, label %if.end17, label %if.then15
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %9, align 8, !tbaa !15
+  %58 = load i64, ptr %13, align 8, !tbaa !24
+  %59 = add i64 %58, 1
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !32
+  %62 = call i32 @from_hex(ptr noundef %17, i8 noundef signext %61)
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %70, label %64
 
-if.then15:                                        ; preds = %lor.lhs.false, %for.body
-  %20 = load ptr, ptr @stderr, align 8
-  %21 = load i32, ptr %test_num.addr, align 4
-  %22 = load ptr, ptr %description.addr, align 8
-  %23 = load i64, ptr %i, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.18, i32 noundef %21, ptr noundef %22, i64 noundef %23)
-  br label %err
+64:                                               ; preds = %56, %49
+  %65 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %66 = load i32, ptr %10, align 4, !tbaa !6
+  %67 = load ptr, ptr %11, align 8, !tbaa !15
+  %68 = load i64, ptr %13, align 8, !tbaa !24
+  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef @.str.18, i32 noundef %66, ptr noundef %67, i64 noundef %68) #7
+  store i32 2, ptr %14, align 4
+  br label %82
 
-if.end17:                                         ; preds = %lor.lhs.false
-  %24 = load i8, ptr %v, align 1
-  %conv = zext i8 %24 to i32
-  %shl = shl i32 %conv, 4
-  %25 = load i8, ptr %v2, align 1
-  %conv18 = zext i8 %25 to i32
-  %or = or i32 %shl, %conv18
-  %conv19 = trunc i32 %or to i8
-  %26 = load ptr, ptr %buf, align 8
-  %27 = load i64, ptr %i, align 8
-  %div20 = udiv i64 %27, 2
-  %arrayidx21 = getelementptr inbounds i8, ptr %26, i64 %div20
-  store i8 %conv19, ptr %arrayidx21, align 1
-  br label %for.inc
+70:                                               ; preds = %56
+  %71 = load i8, ptr %16, align 1, !tbaa !32
+  %72 = zext i8 %71 to i32
+  %73 = shl i32 %72, 4
+  %74 = load i8, ptr %17, align 1, !tbaa !32
+  %75 = zext i8 %74 to i32
+  %76 = or i32 %73, %75
+  %77 = trunc i32 %76 to i8
+  %78 = load ptr, ptr %12, align 8, !tbaa !15
+  %79 = load i64, ptr %13, align 8, !tbaa !24
+  %80 = udiv i64 %79, 2
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %80
+  store i8 %77, ptr %81, align 1, !tbaa !32
+  store i32 0, ptr %14, align 4
+  br label %82
 
-for.inc:                                          ; preds = %if.end17
-  %28 = load i64, ptr %i, align 8
-  %add22 = add i64 %28, 2
-  store i64 %add22, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+82:                                               ; preds = %64, %70
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #7
+  %83 = load i32, ptr %14, align 4
+  switch i32 %83, label %96 [
+    i32 0, label %84
+    i32 2, label %94
+  ]
 
-for.end:                                          ; preds = %for.cond
-  %29 = load ptr, ptr %buf, align 8
-  %30 = load ptr, ptr %out.addr, align 8
-  store ptr %29, ptr %30, align 8
-  %31 = load i64, ptr %len, align 8
-  %div23 = udiv i64 %31, 2
-  %32 = load ptr, ptr %out_len.addr, align 8
-  store i64 %div23, ptr %32, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %82
+  br label %85
 
-err:                                              ; preds = %if.then15, %if.then6, %if.then1
-  %33 = load ptr, ptr %buf, align 8
-  call void @free(ptr noundef %33) #8
-  store i32 0, ptr %retval, align 4
-  br label %return
+85:                                               ; preds = %84
+  %86 = load i64, ptr %13, align 8, !tbaa !24
+  %87 = add i64 %86, 2
+  store i64 %87, ptr %13, align 8, !tbaa !24
+  br label %45, !llvm.loop !33
 
-return:                                           ; preds = %err, %for.end, %if.then
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
+88:                                               ; preds = %45
+  %89 = load ptr, ptr %12, align 8, !tbaa !15
+  %90 = load ptr, ptr %7, align 8, !tbaa !28
+  store ptr %89, ptr %90, align 8, !tbaa !15
+  %91 = load i64, ptr %15, align 8, !tbaa !24
+  %92 = udiv i64 %91, 2
+  %93 = load ptr, ptr %8, align 8, !tbaa !30
+  store i64 %92, ptr %93, align 8, !tbaa !24
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %96
+
+94:                                               ; preds = %82, %40, %29
+  %95 = load ptr, ptr %12, align 8, !tbaa !15
+  call void @free(ptr noundef %95) #7
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %96
+
+96:                                               ; preds = %94, %88, %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %97
+
+97:                                               ; preds = %96, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %98 = load i32, ptr %6, align 4
+  ret i32 %98
 }
-
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
-
-; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
-
-declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) #1
-
-declare void @CRYPTO_gcm128_init(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare void @AES_encrypt(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare void @CRYPTO_gcm128_setiv(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
-
-declare i32 @CRYPTO_gcm128_aad(ptr noundef, ptr noundef, i64 noundef) #1
-
-declare i32 @CRYPTO_gcm128_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
-
-declare i32 @CRYPTO_gcm128_finish(ptr noundef, ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
-
-declare void @hexdump(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
-
-declare i32 @CRYPTO_gcm128_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+
+; Function Attrs: nounwind allocsize(0)
+declare noalias ptr @malloc(i64 noundef) #4
+
+declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) #2
+
+declare void @CRYPTO_gcm128_init(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare void @AES_encrypt(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare void @CRYPTO_gcm128_setiv(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+declare i32 @CRYPTO_gcm128_aad(ptr noundef, ptr noundef, i64 noundef) #2
+
+declare i32 @CRYPTO_gcm128_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+
+declare i32 @CRYPTO_gcm128_finish(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
+
+declare void @hexdump(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+
+declare i32 @CRYPTO_gcm128_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #3
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @from_hex(ptr noundef %out, i8 noundef signext %in) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca i8, align 1
-  store ptr %out, ptr %out.addr, align 8
-  store i8 %in, ptr %in.addr, align 1
-  %0 = load i8, ptr %in.addr, align 1
-  %conv = sext i8 %0 to i32
-  %cmp = icmp sge i32 %conv, 48
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal i32 @from_hex(ptr noundef %0, i8 noundef signext %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store i8 %1, ptr %5, align 1, !tbaa !32
+  %6 = load i8, ptr %5, align 1, !tbaa !32
+  %7 = sext i8 %6 to i32
+  %8 = icmp sge i32 %7, 48
+  br i1 %8, label %9, label %19
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i8, ptr %in.addr, align 1
-  %conv2 = sext i8 %1 to i32
-  %cmp3 = icmp sle i32 %conv2, 57
-  br i1 %cmp3, label %if.then, label %if.end
+9:                                                ; preds = %2
+  %10 = load i8, ptr %5, align 1, !tbaa !32
+  %11 = sext i8 %10 to i32
+  %12 = icmp sle i32 %11, 57
+  br i1 %12, label %13, label %19
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i8, ptr %in.addr, align 1
-  %conv5 = sext i8 %2 to i32
-  %sub = sub nsw i32 %conv5, 48
-  %conv6 = trunc i32 %sub to i8
-  %3 = load ptr, ptr %out.addr, align 8
-  store i8 %conv6, ptr %3, align 1
-  store i32 1, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %9
+  %14 = load i8, ptr %5, align 1, !tbaa !32
+  %15 = sext i8 %14 to i32
+  %16 = sub nsw i32 %15, 48
+  %17 = trunc i32 %16 to i8
+  %18 = load ptr, ptr %4, align 8, !tbaa !15
+  store i8 %17, ptr %18, align 1, !tbaa !32
+  store i32 1, ptr %3, align 4
+  br label %50
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load i8, ptr %in.addr, align 1
-  %conv7 = sext i8 %4 to i32
-  %cmp8 = icmp sge i32 %conv7, 97
-  br i1 %cmp8, label %land.lhs.true10, label %if.end18
+19:                                               ; preds = %9, %2
+  %20 = load i8, ptr %5, align 1, !tbaa !32
+  %21 = sext i8 %20 to i32
+  %22 = icmp sge i32 %21, 97
+  br i1 %22, label %23, label %34
 
-land.lhs.true10:                                  ; preds = %if.end
-  %5 = load i8, ptr %in.addr, align 1
-  %conv11 = sext i8 %5 to i32
-  %cmp12 = icmp sle i32 %conv11, 102
-  br i1 %cmp12, label %if.then14, label %if.end18
+23:                                               ; preds = %19
+  %24 = load i8, ptr %5, align 1, !tbaa !32
+  %25 = sext i8 %24 to i32
+  %26 = icmp sle i32 %25, 102
+  br i1 %26, label %27, label %34
 
-if.then14:                                        ; preds = %land.lhs.true10
-  %6 = load i8, ptr %in.addr, align 1
-  %conv15 = sext i8 %6 to i32
-  %sub16 = sub nsw i32 %conv15, 97
-  %add = add nsw i32 %sub16, 10
-  %conv17 = trunc i32 %add to i8
-  %7 = load ptr, ptr %out.addr, align 8
-  store i8 %conv17, ptr %7, align 1
-  store i32 1, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %23
+  %28 = load i8, ptr %5, align 1, !tbaa !32
+  %29 = sext i8 %28 to i32
+  %30 = sub nsw i32 %29, 97
+  %31 = add nsw i32 %30, 10
+  %32 = trunc i32 %31 to i8
+  %33 = load ptr, ptr %4, align 8, !tbaa !15
+  store i8 %32, ptr %33, align 1, !tbaa !32
+  store i32 1, ptr %3, align 4
+  br label %50
 
-if.end18:                                         ; preds = %land.lhs.true10, %if.end
-  %8 = load i8, ptr %in.addr, align 1
-  %conv19 = sext i8 %8 to i32
-  %cmp20 = icmp sge i32 %conv19, 65
-  br i1 %cmp20, label %land.lhs.true22, label %if.end31
+34:                                               ; preds = %23, %19
+  %35 = load i8, ptr %5, align 1, !tbaa !32
+  %36 = sext i8 %35 to i32
+  %37 = icmp sge i32 %36, 65
+  br i1 %37, label %38, label %49
 
-land.lhs.true22:                                  ; preds = %if.end18
-  %9 = load i8, ptr %in.addr, align 1
-  %conv23 = sext i8 %9 to i32
-  %cmp24 = icmp sle i32 %conv23, 70
-  br i1 %cmp24, label %if.then26, label %if.end31
+38:                                               ; preds = %34
+  %39 = load i8, ptr %5, align 1, !tbaa !32
+  %40 = sext i8 %39 to i32
+  %41 = icmp sle i32 %40, 70
+  br i1 %41, label %42, label %49
 
-if.then26:                                        ; preds = %land.lhs.true22
-  %10 = load i8, ptr %in.addr, align 1
-  %conv27 = sext i8 %10 to i32
-  %sub28 = sub nsw i32 %conv27, 65
-  %add29 = add nsw i32 %sub28, 10
-  %conv30 = trunc i32 %add29 to i8
-  %11 = load ptr, ptr %out.addr, align 8
-  store i8 %conv30, ptr %11, align 1
-  store i32 1, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %38
+  %43 = load i8, ptr %5, align 1, !tbaa !32
+  %44 = sext i8 %43 to i32
+  %45 = sub nsw i32 %44, 65
+  %46 = add nsw i32 %45, 10
+  %47 = trunc i32 %46 to i8
+  %48 = load ptr, ptr %4, align 8, !tbaa !15
+  store i8 %47, ptr %48, align 1, !tbaa !32
+  store i32 1, ptr %3, align 4
+  br label %50
 
-if.end31:                                         ; preds = %land.lhs.true22, %if.end18
-  store i32 0, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %38, %34
+  store i32 0, ptr %3, align 4
+  br label %50
 
-return:                                           ; preds = %if.end31, %if.then26, %if.then14, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+50:                                               ; preds = %49, %42, %27, %13
+  %51 = load i32, ptr %3, align 4
+  ret i32 %51
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS9test_case", !14, i64 0}
+!14 = !{!"any pointer", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !14, i64 0}
+!17 = !{!18, !16, i64 0}
+!18 = !{!"test_case", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40}
+!19 = !{!18, !16, i64 8}
+!20 = !{!18, !16, i64 16}
+!21 = !{!18, !16, i64 24}
+!22 = !{!18, !16, i64 32}
+!23 = !{!18, !16, i64 40}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"long", !8, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p2 omnipotent char", !14, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 long", !14, i64 0}
+!32 = !{!8, !8, i64 0}
+!33 = distinct !{!33, !11}

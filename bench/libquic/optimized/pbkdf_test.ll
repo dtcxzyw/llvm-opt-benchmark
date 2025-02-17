@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/pbkdf_test.ll'
 source_filename = "bench/libquic/original/pbkdf_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [26 x i8] c"TestEmptyPassword failed\0A\00", align 1
@@ -35,122 +35,121 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress norecurse uwtable
 define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
-entry:
-  %key.i = alloca [10 x i8], align 1
+  %1 = alloca [10 x i8], align 1
   tail call void @CRYPTO_library_init()
-  %call.i = tail call ptr @EVP_sha1()
-  %call1.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call.i, i64 noundef 20, ptr noundef @__const._ZL17TestEmptyPasswordv.kKey)
-  br i1 %call1.i, label %_ZL17TestEmptyPasswordv.exit, label %if.then
+  %2 = tail call ptr @EVP_sha1()
+  %3 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %2, i64 noundef 20, ptr noundef @__const._ZL17TestEmptyPasswordv.kKey)
+  br i1 %3, label %_ZL17TestEmptyPasswordv.exit, label %_ZL17TestEmptyPasswordv.exit.thread
 
-_ZL17TestEmptyPasswordv.exit:                     ; preds = %entry
-  %call2.i = tail call ptr @EVP_sha1()
-  %call4.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.7, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call2.i, i64 noundef 20, ptr noundef @__const._ZL17TestEmptyPasswordv.kKey)
-  br i1 %call4.i, label %if.end, label %if.then
+_ZL17TestEmptyPasswordv.exit:                     ; preds = %0
+  %4 = tail call ptr @EVP_sha1()
+  %5 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.7, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %4, i64 noundef 20, ptr noundef @__const._ZL17TestEmptyPasswordv.kKey)
+  br i1 %5, label %8, label %_ZL17TestEmptyPasswordv.exit.thread
 
-if.then:                                          ; preds = %entry, %_ZL17TestEmptyPasswordv.exit
-  %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str, i64 25, i64 1, ptr %0) #7
-  br label %return
+_ZL17TestEmptyPasswordv.exit.thread:              ; preds = %0, %_ZL17TestEmptyPasswordv.exit
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %7 = tail call i64 @fwrite(ptr nonnull @.str, i64 25, i64 1, ptr %6) #7
+  br label %51
 
-if.end:                                           ; preds = %_ZL17TestEmptyPasswordv.exit
-  %call.i1 = tail call ptr @EVP_sha256()
-  %call1.i2 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef null, i64 noundef 0, i32 noundef 2, ptr noundef %call.i1, i64 noundef 32, ptr noundef @__const._ZL13TestEmptySaltv.kKey)
-  br i1 %call1.i2, label %_ZL13TestEmptySaltv.exit, label %if.then3
+8:                                                ; preds = %_ZL17TestEmptyPasswordv.exit
+  %9 = tail call ptr @EVP_sha256()
+  %10 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef null, i64 noundef 0, i32 noundef 2, ptr noundef %9, i64 noundef 32, ptr noundef @__const._ZL13TestEmptySaltv.kKey)
+  br i1 %10, label %_ZL13TestEmptySaltv.exit, label %_ZL13TestEmptySaltv.exit.thread
 
-_ZL13TestEmptySaltv.exit:                         ; preds = %if.end
-  %call2.i5 = tail call ptr @EVP_sha256()
-  %call4.i6 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.7, i64 noundef 0, i32 noundef 2, ptr noundef %call2.i5, i64 noundef 32, ptr noundef @__const._ZL13TestEmptySaltv.kKey)
-  br i1 %call4.i6, label %if.end5, label %if.then3
+_ZL13TestEmptySaltv.exit:                         ; preds = %8
+  %11 = tail call ptr @EVP_sha256()
+  %12 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.7, i64 noundef 0, i32 noundef 2, ptr noundef %11, i64 noundef 32, ptr noundef @__const._ZL13TestEmptySaltv.kKey)
+  br i1 %12, label %15, label %_ZL13TestEmptySaltv.exit.thread
 
-if.then3:                                         ; preds = %if.end, %_ZL13TestEmptySaltv.exit
-  %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 21, i64 1, ptr %2) #7
-  br label %return
+_ZL13TestEmptySaltv.exit.thread:                  ; preds = %8, %_ZL13TestEmptySaltv.exit
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 21, i64 1, ptr %13) #7
+  br label %51
 
-if.end5:                                          ; preds = %_ZL13TestEmptySaltv.exit
-  %call.i7 = tail call ptr @EVP_sha1()
-  %call1.i8 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %call.i7, i64 noundef 20, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey1)
-  br i1 %call1.i8, label %lor.lhs.false.i10, label %if.then7
+15:                                               ; preds = %_ZL13TestEmptySaltv.exit
+  %16 = tail call ptr @EVP_sha1()
+  %17 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 1, ptr noundef %16, i64 noundef 20, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey1)
+  br i1 %17, label %18, label %_ZL18TestRFC6070Vectorsv.exit.thread
 
-lor.lhs.false.i10:                                ; preds = %if.end5
-  %call2.i11 = tail call ptr @EVP_sha1()
-  %call4.i12 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 2, ptr noundef %call2.i11, i64 noundef 20, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey2)
-  br i1 %call4.i12, label %_ZL18TestRFC6070Vectorsv.exit, label %if.then7
+18:                                               ; preds = %15
+  %19 = tail call ptr @EVP_sha1()
+  %20 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 2, ptr noundef %19, i64 noundef 20, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey2)
+  br i1 %20, label %_ZL18TestRFC6070Vectorsv.exit, label %_ZL18TestRFC6070Vectorsv.exit.thread
 
-_ZL18TestRFC6070Vectorsv.exit:                    ; preds = %lor.lhs.false.i10
-  %call6.i = tail call ptr @EVP_sha1()
-  %call8.i = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.16, i64 noundef 9, ptr noundef nonnull @.str.17, i64 noundef 5, i32 noundef 4096, ptr noundef %call6.i, i64 noundef 16, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey3)
-  br i1 %call8.i, label %if.end9, label %if.then7
+_ZL18TestRFC6070Vectorsv.exit:                    ; preds = %18
+  %21 = tail call ptr @EVP_sha1()
+  %22 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.16, i64 noundef 9, ptr noundef nonnull @.str.17, i64 noundef 5, i32 noundef 4096, ptr noundef %21, i64 noundef 16, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey3)
+  br i1 %22, label %25, label %_ZL18TestRFC6070Vectorsv.exit.thread
 
-if.then7:                                         ; preds = %if.end5, %lor.lhs.false.i10, %_ZL18TestRFC6070Vectorsv.exit
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 26, i64 1, ptr %4) #7
-  br label %return
+_ZL18TestRFC6070Vectorsv.exit.thread:             ; preds = %15, %18, %_ZL18TestRFC6070Vectorsv.exit
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 26, i64 1, ptr %23) #7
+  br label %51
 
-if.end9:                                          ; preds = %_ZL18TestRFC6070Vectorsv.exit
-  %call.i13 = tail call ptr @EVP_sha256()
-  %call1.i14 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 2, ptr noundef %call.i13, i64 noundef 32, ptr noundef @__const._ZL8TestSHA2v.kKey1)
-  br i1 %call1.i14, label %_ZL8TestSHA2v.exit, label %if.then11
+25:                                               ; preds = %_ZL18TestRFC6070Vectorsv.exit
+  %26 = tail call ptr @EVP_sha256()
+  %27 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 4, i32 noundef 2, ptr noundef %26, i64 noundef 32, ptr noundef @__const._ZL8TestSHA2v.kKey1)
+  br i1 %27, label %_ZL8TestSHA2v.exit, label %_ZL8TestSHA2v.exit.thread
 
-_ZL8TestSHA2v.exit:                               ; preds = %if.end9
-  %call2.i17 = tail call ptr @EVP_sha512()
-  %call4.i18 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.18, i64 noundef 24, ptr noundef nonnull @.str.19, i64 noundef 36, i32 noundef 4096, ptr noundef %call2.i17, i64 noundef 64, ptr noundef @__const._ZL8TestSHA2v.kKey2)
-  br i1 %call4.i18, label %if.end13, label %if.then11
+_ZL8TestSHA2v.exit:                               ; preds = %25
+  %28 = tail call ptr @EVP_sha512()
+  %29 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.18, i64 noundef 24, ptr noundef nonnull @.str.19, i64 noundef 36, i32 noundef 4096, ptr noundef %28, i64 noundef 64, ptr noundef @__const._ZL8TestSHA2v.kKey2)
+  br i1 %29, label %32, label %_ZL8TestSHA2v.exit.thread
 
-if.then11:                                        ; preds = %if.end9, %_ZL8TestSHA2v.exit
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 16, i64 1, ptr %6) #7
-  br label %return
+_ZL8TestSHA2v.exit.thread:                        ; preds = %25, %_ZL8TestSHA2v.exit
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 16, i64 1, ptr %30) #7
+  br label %51
 
-if.end13:                                         ; preds = %_ZL8TestSHA2v.exit
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %key.i)
-  %call.i19 = tail call ptr @EVP_sha1()
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %key.i, i8 0, i64 10, i1 false)
-  %call1.i20 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @_ZZL18TestZeroIterationsvE5kSalt, i64 noundef 4, i32 noundef 1, ptr noundef %call.i19, i64 noundef 10, ptr noundef nonnull %key.i)
-  %tobool.not.i = icmp eq i32 %call1.i20, 0
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+32:                                               ; preds = %_ZL8TestSHA2v.exit
+  %33 = tail call ptr @EVP_sha1()
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %1) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, i8 0, i64 10, i1 false)
+  %34 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @_ZZL18TestZeroIterationsvE5kSalt, i64 noundef 4, i32 noundef 1, ptr noundef %33, i64 noundef 10, ptr noundef nonnull %1)
+  %.not.i = icmp eq i32 %34, 0
+  br i1 %.not.i, label %35, label %38
 
-if.then.i:                                        ; preds = %if.end13
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = call i64 @fwrite(ptr nonnull @.str.20, i64 32, i64 1, ptr %8) #7
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %37 = call i64 @fwrite(ptr nonnull @.str.20, i64 32, i64 1, ptr %36) #7
   br label %_ZL18TestZeroIterationsv.exit.thread
 
-if.end.i:                                         ; preds = %if.end13
-  %10 = load i8, ptr %key.i, align 1
-  %not.i = xor i8 %10, -1
-  store i8 %not.i, ptr %key.i, align 1
-  %call7.i = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @_ZZL18TestZeroIterationsvE5kSalt, i64 noundef 4, i32 noundef 0, ptr noundef %call.i19, i64 noundef 10, ptr noundef nonnull %key.i)
-  %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %_ZL18TestZeroIterationsv.exit, label %if.then9.i
+38:                                               ; preds = %32
+  %39 = load i8, ptr %1, align 1, !tbaa !11
+  %40 = xor i8 %39, -1
+  store i8 %40, ptr %1, align 1, !tbaa !11
+  %41 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @_ZZL18TestZeroIterationsvE5kSalt, i64 noundef 4, i32 noundef 0, ptr noundef %33, i64 noundef 10, ptr noundef nonnull %1)
+  %.not3.i = icmp eq i32 %41, 0
+  br i1 %.not3.i, label %_ZL18TestZeroIterationsv.exit, label %42
 
-if.then9.i:                                       ; preds = %if.end.i
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = call i64 @fwrite(ptr nonnull @.str.21, i64 39, i64 1, ptr %11) #7
+42:                                               ; preds = %38
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %44 = call i64 @fwrite(ptr nonnull @.str.21, i64 39, i64 1, ptr %43) #7
   br label %_ZL18TestZeroIterationsv.exit.thread
 
-_ZL18TestZeroIterationsv.exit.thread:             ; preds = %if.then9.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %key.i)
-  br label %if.then15
+_ZL18TestZeroIterationsv.exit.thread:             ; preds = %35, %42
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #8
+  br label %47
 
-_ZL18TestZeroIterationsv.exit:                    ; preds = %if.end.i
-  %13 = load i8, ptr %key.i, align 1
-  %cmp.i = icmp eq i8 %13, %10
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %key.i)
-  br i1 %cmp.i, label %if.end17, label %if.then15
+_ZL18TestZeroIterationsv.exit:                    ; preds = %38
+  %45 = load i8, ptr %1, align 1, !tbaa !11
+  %46 = icmp eq i8 %45, %39
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #8
+  br i1 %46, label %50, label %47
 
-if.then15:                                        ; preds = %_ZL18TestZeroIterationsv.exit.thread, %_ZL18TestZeroIterationsv.exit
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %14) #7
-  br label %return
+47:                                               ; preds = %_ZL18TestZeroIterationsv.exit.thread, %_ZL18TestZeroIterationsv.exit
+  %48 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %49 = call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %48) #7
+  br label %51
 
-if.end17:                                         ; preds = %_ZL18TestZeroIterationsv.exit
+50:                                               ; preds = %_ZL18TestZeroIterationsv.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @ERR_free_strings()
-  br label %return
+  br label %51
 
-return:                                           ; preds = %if.end17, %if.then15, %if.then11, %if.then7, %if.then3, %if.then
-  %retval.0 = phi i32 [ 0, %if.end17 ], [ 1, %if.then15 ], [ 1, %if.then11 ], [ 1, %if.then7 ], [ 1, %if.then3 ], [ 1, %if.then ]
-  ret i32 %retval.0
+51:                                               ; preds = %50, %47, %_ZL8TestSHA2v.exit.thread, %_ZL18TestRFC6070Vectorsv.exit.thread, %_ZL13TestEmptySaltv.exit.thread, %_ZL17TestEmptyPasswordv.exit.thread
+  %.0 = phi i32 [ 0, %50 ], [ 1, %47 ], [ 1, %_ZL8TestSHA2v.exit.thread ], [ 1, %_ZL18TestRFC6070Vectorsv.exit.thread ], [ 1, %_ZL13TestEmptySaltv.exit.thread ], [ 1, %_ZL17TestEmptyPasswordv.exit.thread ]
+  ret i32 %.0
 }
 
 declare void @CRYPTO_library_init() local_unnamed_addr #1
@@ -160,71 +159,78 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 declare void @ERR_free_strings() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef %password, i64 noundef range(i64 0, 25) %password_len, ptr noundef %salt, i64 noundef range(i64 0, 37) %salt_len, i32 noundef range(i32 1, 4097) %iterations, ptr noundef %digest, i64 noundef range(i64 16, 65) %key_len, ptr noundef nonnull readonly captures(none) %expected_key) unnamed_addr #0 {
-entry:
-  %key = alloca [64 x i8], align 16
-  %call1 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %password, i64 noundef %password_len, ptr noundef %salt, i64 noundef %salt_len, i32 noundef %iterations, ptr noundef %digest, i64 noundef %key_len, ptr noundef nonnull %key)
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %if.then2, label %if.end4
+define internal fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef %0, i64 noundef range(i64 0, 25) %1, ptr noundef %2, i64 noundef range(i64 0, 37) %3, i32 noundef range(i32 1, 4097) %4, ptr noundef %5, i64 noundef range(i64 16, 65) %6, ptr noundef nonnull readonly captures(none) %7) unnamed_addr #0 {
+  %9 = alloca [64 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #8
+  %10 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %9)
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %15
 
-if.then2:                                         ; preds = %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %1 = call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr %0) #7
-  %2 = load ptr, ptr @stderr, align 8
-  call void @ERR_print_errors_fp(ptr noundef %2)
-  br label %return
+11:                                               ; preds = %8
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %13 = call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr %12) #7
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !6
+  call void @ERR_print_errors_fp(ptr noundef %14)
+  br label %38
 
-if.end4:                                          ; preds = %entry
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %expected_key, i64 %key_len)
-  %cmp7.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp7.not, label %return, label %if.then8
+15:                                               ; preds = %8
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %7, i64 %6)
+  %.not14 = icmp eq i32 %bcmp, 0
+  br i1 %.not14, label %38, label %16
 
-if.then8:                                         ; preds = %if.end4
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = call i64 @fwrite(ptr nonnull @.str.10, i64 50, i64 1, ptr %3) #7
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = call i64 @fwrite(ptr nonnull @.str.11, i64 14, i64 1, ptr %5) #7
-  br label %for.body.i
+16:                                               ; preds = %15
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %18 = call i64 @fwrite(ptr nonnull @.str.10, i64 50, i64 1, ptr %17) #7
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %20 = call i64 @fwrite(ptr nonnull @.str.11, i64 14, i64 1, ptr %19) #7
+  br label %21
 
-for.body.i:                                       ; preds = %for.body.i, %if.then8
-  %i.03.i = phi i64 [ 0, %if.then8 ], [ %inc.i, %for.body.i ]
-  %7 = load ptr, ptr @stderr, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %expected_key, i64 %i.03.i
-  %8 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %8 to i32
-  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.14, i32 noundef %conv.i) #7
-  %inc.i = add nuw nsw i64 %i.03.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %key_len
-  br i1 %exitcond.not.i, label %_ZL12PrintDataHexPKvm.exit, label %for.body.i, !llvm.loop !7
+21:                                               ; preds = %21, %16
+  %.04.i = phi i64 [ 0, %16 ], [ %27, %21 ]
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %.04.i
+  %24 = load i8, ptr %23, align 1, !tbaa !11
+  %25 = zext i8 %24 to i32
+  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, i32 noundef %25) #9
+  %27 = add nuw nsw i64 %.04.i, 1
+  %exitcond.not.i = icmp eq i64 %27, %6
+  br i1 %exitcond.not.i, label %_ZL12PrintDataHexPKvm.exit, label %21, !llvm.loop !12
 
-_ZL12PrintDataHexPKvm.exit:                       ; preds = %for.body.i
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = call i64 @fwrite(ptr nonnull @.str.12, i64 13, i64 1, ptr %9) #7
-  br label %for.body.i6
+_ZL12PrintDataHexPKvm.exit:                       ; preds = %21
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %29 = call i64 @fwrite(ptr nonnull @.str.12, i64 13, i64 1, ptr %28) #7
+  br label %30
 
-for.body.i6:                                      ; preds = %for.body.i6, %_ZL12PrintDataHexPKvm.exit
-  %i.03.i7 = phi i64 [ 0, %_ZL12PrintDataHexPKvm.exit ], [ %inc.i11, %for.body.i6 ]
-  %11 = load ptr, ptr @stderr, align 8
-  %arrayidx.i8 = getelementptr inbounds nuw i8, ptr %key, i64 %i.03.i7
-  %12 = load i8, ptr %arrayidx.i8, align 1
-  %conv.i9 = zext i8 %12 to i32
-  %call.i10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.14, i32 noundef %conv.i9) #7
-  %inc.i11 = add nuw nsw i64 %i.03.i7, 1
-  %exitcond.not.i12 = icmp eq i64 %inc.i11, %key_len
-  br i1 %exitcond.not.i12, label %_ZL12PrintDataHexPKvm.exit13, label %for.body.i6, !llvm.loop !7
+30:                                               ; preds = %30, %_ZL12PrintDataHexPKvm.exit
+  %.04.i15 = phi i64 [ 0, %_ZL12PrintDataHexPKvm.exit ], [ %36, %30 ]
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 %.04.i15
+  %33 = load i8, ptr %32, align 1, !tbaa !11
+  %34 = zext i8 %33 to i32
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.14, i32 noundef %34) #9
+  %36 = add nuw nsw i64 %.04.i15, 1
+  %exitcond.not.i16 = icmp eq i64 %36, %6
+  br i1 %exitcond.not.i16, label %_ZL12PrintDataHexPKvm.exit17, label %30, !llvm.loop !12
 
-_ZL12PrintDataHexPKvm.exit13:                     ; preds = %for.body.i6
-  %13 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %13)
-  br label %return
+_ZL12PrintDataHexPKvm.exit17:                     ; preds = %30
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %fputc = call i32 @fputc(i32 10, ptr %37)
+  br label %38
 
-return:                                           ; preds = %if.end4, %_ZL12PrintDataHexPKvm.exit13, %if.then2
-  %retval.0 = phi i1 [ false, %_ZL12PrintDataHexPKvm.exit13 ], [ false, %if.then2 ], [ true, %if.end4 ]
-  ret i1 %retval.0
+38:                                               ; preds = %15, %_ZL12PrintDataHexPKvm.exit17, %11
+  %.0 = phi i1 [ false, %_ZL12PrintDataHexPKvm.exit17 ], [ false, %11 ], [ true, %15 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
+  ret i1 %.0
 }
 
 declare ptr @EVP_sha1() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @PKCS5_PBKDF2_HMAC(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -235,43 +241,44 @@ declare ptr @EVP_sha256() local_unnamed_addr #1
 declare ptr @EVP_sha512() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree nounwind }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree nounwind }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { cold }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}
+!11 = !{!9, !9, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}

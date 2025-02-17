@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/params.ll'
 source_filename = "bench/libquic/original/params.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.standard_parameters = type { %struct.bignum_st, %struct.bignum_st, %struct.bignum_st }
 %struct.bignum_st = type { ptr, i32, i32, i32, i32 }
@@ -27,156 +27,152 @@ target triple = "x86_64-unknown-linux-gnu"
 @dh1024_safe_prime_4 = internal constant [16 x i64] [i64 5802292317940729963, i64 -8712995370023270832, i64 1319896600921659048, i64 -7543917565666478629, i64 -1541447574348388804, i64 6936896934585491550, i64 6998237296162806620, i64 4483084360912938975, i64 4062545243323397, i64 3429243984362511176, i64 -6417900205751347806, i64 -426256083161111642, i64 3035536719735269232, i64 -7946740620755008162, i64 9003118708282128782, i64 -1831103311930203348], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_1024_160(ptr noundef readnone captures(none) %engine) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @DH_new() #2
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %get_standard_parameters.exit, label %if.end.i
+define hidden ptr @DH_get_1024_160(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @DH_new() #2
+  %.not.i = icmp eq ptr %2, null
+  br i1 %.not.i, label %get_standard_parameters.exit, label %3
 
-if.end.i:                                         ; preds = %entry
-  %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh1024_160) #2
-  store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh1024_160, i64 24)) #2
-  %q4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
-  store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh1024_160, i64 48)) #2
-  %g6.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store ptr %call5.i, ptr %g6.i, align 8
-  %0 = load ptr, ptr %call.i, align 8
-  %tobool8.not.i = icmp eq ptr %0, null
-  br i1 %tobool8.not.i, label %if.then14.i, label %lor.lhs.false.i
+3:                                                ; preds = %1
+  %4 = tail call ptr @BN_dup(ptr noundef nonnull @dh1024_160) #2
+  store ptr %4, ptr %2, align 8, !tbaa !6
+  %5 = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh1024_160, i64 24)) #2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store ptr %5, ptr %6, align 8, !tbaa !17
+  %7 = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh1024_160, i64 48)) #2
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %7, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %2, align 8, !tbaa !6
+  %.not14.i = icmp eq ptr %9, null
+  br i1 %.not14.i, label %12, label %10
 
-lor.lhs.false.i:                                  ; preds = %if.end.i
-  %1 = load ptr, ptr %q4.i, align 8
-  %tobool10.not.i = icmp eq ptr %1, null
-  %tobool13.not.i = icmp eq ptr %call5.i, null
-  %or.cond.i = select i1 %tobool10.not.i, i1 true, i1 %tobool13.not.i
-  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.exit
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !17
+  %.not15.i = icmp eq ptr %11, null
+  %.not16.i = icmp eq ptr %7, null
+  %or.cond.i = select i1 %.not15.i, i1 true, i1 %.not16.i
+  br i1 %or.cond.i, label %12, label %get_standard_parameters.exit
 
-if.then14.i:                                      ; preds = %lor.lhs.false.i, %if.end.i
-  tail call void @DH_free(ptr noundef nonnull %call.i) #2
+12:                                               ; preds = %10, %3
+  tail call void @DH_free(ptr noundef nonnull %2) #2
   br label %get_standard_parameters.exit
 
-get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.false.i, %if.then14.i
-  %retval.0.i = phi ptr [ null, %if.then14.i ], [ null, %entry ], [ %call.i, %lor.lhs.false.i ]
-  ret ptr %retval.0.i
+get_standard_parameters.exit:                     ; preds = %1, %10, %12
+  %.0.i = phi ptr [ null, %12 ], [ null, %1 ], [ %2, %10 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_2048_224(ptr noundef readnone captures(none) %engine) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @DH_new() #2
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %get_standard_parameters.exit, label %if.end.i
+define hidden ptr @DH_get_2048_224(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @DH_new() #2
+  %.not.i = icmp eq ptr %2, null
+  br i1 %.not.i, label %get_standard_parameters.exit, label %3
 
-if.end.i:                                         ; preds = %entry
-  %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_224) #2
-  store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_224, i64 24)) #2
-  %q4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
-  store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_224, i64 48)) #2
-  %g6.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store ptr %call5.i, ptr %g6.i, align 8
-  %0 = load ptr, ptr %call.i, align 8
-  %tobool8.not.i = icmp eq ptr %0, null
-  br i1 %tobool8.not.i, label %if.then14.i, label %lor.lhs.false.i
+3:                                                ; preds = %1
+  %4 = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_224) #2
+  store ptr %4, ptr %2, align 8, !tbaa !6
+  %5 = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_224, i64 24)) #2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store ptr %5, ptr %6, align 8, !tbaa !17
+  %7 = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_224, i64 48)) #2
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %7, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %2, align 8, !tbaa !6
+  %.not14.i = icmp eq ptr %9, null
+  br i1 %.not14.i, label %12, label %10
 
-lor.lhs.false.i:                                  ; preds = %if.end.i
-  %1 = load ptr, ptr %q4.i, align 8
-  %tobool10.not.i = icmp eq ptr %1, null
-  %tobool13.not.i = icmp eq ptr %call5.i, null
-  %or.cond.i = select i1 %tobool10.not.i, i1 true, i1 %tobool13.not.i
-  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.exit
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !17
+  %.not15.i = icmp eq ptr %11, null
+  %.not16.i = icmp eq ptr %7, null
+  %or.cond.i = select i1 %.not15.i, i1 true, i1 %.not16.i
+  br i1 %or.cond.i, label %12, label %get_standard_parameters.exit
 
-if.then14.i:                                      ; preds = %lor.lhs.false.i, %if.end.i
-  tail call void @DH_free(ptr noundef nonnull %call.i) #2
+12:                                               ; preds = %10, %3
+  tail call void @DH_free(ptr noundef nonnull %2) #2
   br label %get_standard_parameters.exit
 
-get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.false.i, %if.then14.i
-  %retval.0.i = phi ptr [ null, %if.then14.i ], [ null, %entry ], [ %call.i, %lor.lhs.false.i ]
-  ret ptr %retval.0.i
+get_standard_parameters.exit:                     ; preds = %1, %10, %12
+  %.0.i = phi ptr [ null, %12 ], [ null, %1 ], [ %2, %10 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_2048_256(ptr noundef readnone captures(none) %engine) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @DH_new() #2
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %get_standard_parameters.exit, label %if.end.i
+define hidden ptr @DH_get_2048_256(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @DH_new() #2
+  %.not.i = icmp eq ptr %2, null
+  br i1 %.not.i, label %get_standard_parameters.exit, label %3
 
-if.end.i:                                         ; preds = %entry
-  %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_256) #2
-  store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_256, i64 24)) #2
-  %q4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
-  store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_256, i64 48)) #2
-  %g6.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store ptr %call5.i, ptr %g6.i, align 8
-  %0 = load ptr, ptr %call.i, align 8
-  %tobool8.not.i = icmp eq ptr %0, null
-  br i1 %tobool8.not.i, label %if.then14.i, label %lor.lhs.false.i
+3:                                                ; preds = %1
+  %4 = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_256) #2
+  store ptr %4, ptr %2, align 8, !tbaa !6
+  %5 = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_256, i64 24)) #2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store ptr %5, ptr %6, align 8, !tbaa !17
+  %7 = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_256, i64 48)) #2
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %7, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %2, align 8, !tbaa !6
+  %.not14.i = icmp eq ptr %9, null
+  br i1 %.not14.i, label %12, label %10
 
-lor.lhs.false.i:                                  ; preds = %if.end.i
-  %1 = load ptr, ptr %q4.i, align 8
-  %tobool10.not.i = icmp eq ptr %1, null
-  %tobool13.not.i = icmp eq ptr %call5.i, null
-  %or.cond.i = select i1 %tobool10.not.i, i1 true, i1 %tobool13.not.i
-  br i1 %or.cond.i, label %if.then14.i, label %get_standard_parameters.exit
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !17
+  %.not15.i = icmp eq ptr %11, null
+  %.not16.i = icmp eq ptr %7, null
+  %or.cond.i = select i1 %.not15.i, i1 true, i1 %.not16.i
+  br i1 %or.cond.i, label %12, label %get_standard_parameters.exit
 
-if.then14.i:                                      ; preds = %lor.lhs.false.i, %if.end.i
-  tail call void @DH_free(ptr noundef nonnull %call.i) #2
+12:                                               ; preds = %10, %3
+  tail call void @DH_free(ptr noundef nonnull %2) #2
   br label %get_standard_parameters.exit
 
-get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.false.i, %if.then14.i
-  %retval.0.i = phi ptr [ null, %if.then14.i ], [ null, %entry ], [ %call.i, %lor.lhs.false.i ]
-  ret ptr %retval.0.i
+get_standard_parameters.exit:                     ; preds = %1, %10, %12
+  %.0.i = phi ptr [ null, %12 ], [ null, %1 ], [ %2, %10 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DH_check_standard_parameters(ptr noundef captures(none) %dh) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dh, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %for.end, label %lor.lhs.false
+define hidden void @DH_check_standard_parameters(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !6
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %.loopexit, label %4
 
-lor.lhs.false:                                    ; preds = %entry
-  %g = getelementptr inbounds nuw i8, ptr %dh, i64 8
-  %1 = load ptr, ptr %g, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %for.end, label %lor.lhs.false2
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.loopexit, label %8
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %call = tail call i32 @BN_num_bytes(ptr noundef nonnull %0) #2
-  %cmp4.not = icmp eq i32 %call, 128
-  br i1 %cmp4.not, label %lor.lhs.false5, label %for.end
+8:                                                ; preds = %4
+  %9 = tail call i32 @BN_num_bytes(ptr noundef nonnull %2) #2
+  %.not = icmp eq i32 %9, 128
+  br i1 %.not, label %10, label %.loopexit
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false2
-  %2 = load ptr, ptr %g, align 8
-  %call7 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef nonnull @bn_two) #2
-  %cmp8.not = icmp eq i32 %call7, 0
-  br i1 %cmp8.not, label %for.body, label %for.end
+10:                                               ; preds = %8
+  %11 = load ptr, ptr %5, align 8, !tbaa !18
+  %12 = tail call i32 @BN_cmp(ptr noundef %11, ptr noundef nonnull @bn_two) #2
+  %.not10 = icmp eq i32 %12, 0
+  br i1 %.not10, label %.preheader, label %.loopexit
 
-for.cond:                                         ; preds = %for.body
+13:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
-for.body:                                         ; preds = %lor.lhs.false5, %for.cond
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %lor.lhs.false5 ]
-  %3 = load ptr, ptr %dh, align 8
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.bignum_st], ptr @dh1024_safe_prime, i64 0, i64 %indvars.iv
-  %call12 = tail call i32 @BN_cmp(ptr noundef %3, ptr noundef nonnull %arrayidx) #2
-  %cmp13 = icmp eq i32 %call12, 0
-  br i1 %cmp13, label %if.then15, label %for.cond
+.preheader:                                       ; preds = %10, %13
+  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %10 ]
+  %14 = load ptr, ptr %0, align 8, !tbaa !6
+  %15 = getelementptr inbounds nuw [4 x %struct.bignum_st], ptr @dh1024_safe_prime, i64 0, i64 %indvars.iv
+  %16 = tail call i32 @BN_cmp(ptr noundef %14, ptr noundef nonnull %15) #2
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %13
 
-if.then15:                                        ; preds = %for.body
-  %priv_length = getelementptr inbounds nuw i8, ptr %dh, i64 32
-  store i32 161, ptr %priv_length, align 8
-  br label %for.end
+18:                                               ; preds = %.preheader
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 161, ptr %19, align 8, !tbaa !21
+  br label %.loopexit
 
-for.end:                                          ; preds = %for.cond, %entry, %lor.lhs.false, %lor.lhs.false2, %lor.lhs.false5, %if.then15
+.loopexit:                                        ; preds = %13, %18, %1, %4, %8, %10
   ret void
 }
 
@@ -190,18 +186,31 @@ declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 
 declare void @DH_free(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"dh_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !12, i64 32, !10, i64 40, !13, i64 96, !8, i64 104, !8, i64 112, !14, i64 120, !12, i64 128, !8, i64 136, !12, i64 144, !12, i64 148, !15, i64 152}
+!8 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"int", !10, i64 0}
+!13 = !{!"p1 _ZTS14bn_mont_ctx_st", !9, i64 0}
+!14 = !{!"p1 omnipotent char", !9, i64 0}
+!15 = !{!"crypto_ex_data_st", !16, i64 0}
+!16 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
+!17 = !{!7, !8, i64 104}
+!18 = !{!7, !8, i64 8}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!7, !12, i64 32}

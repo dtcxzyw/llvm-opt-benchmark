@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
 %"class.base::TimeDelta" = type { i64 }
@@ -78,6 +78,10 @@ $_ZN3netltENS_8QuicTime5DeltaES1_ = comdat any
 
 $_ZN3netmlENS_8QuicTime5DeltaEd = comdat any
 
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZStorSt12_Ios_IostateS_ = comdat any
+
 $_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_ = comdat any
 
 $_ZN3neteqENS_8QuicTime5DeltaES1_ = comdat any
@@ -96,1848 +100,2048 @@ $_ZN3netrsENS_8QuicTime5DeltaEm = comdat any
 @.str.1 = private unnamed_addr constant [47 x i8] c"Ignoring measured send_delta, because it's is \00", align 1
 @.str.2 = private unnamed_addr constant [51 x i8] c"either infinite, zero, or negative.  send_delta = \00", align 1
 
-@_ZN3net8RttStatsC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net8RttStatsC2Ev
+@_ZN3net8RttStatsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3net8RttStatsC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net8RttStatsC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp9 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp11 = alloca %"class.net::QuicTime", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %latest_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 0
-  %call = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %0 = getelementptr inbounds { i64, i64 }, ptr %latest_rtt_, i32 0, i32 0
-  %1 = extractvalue { i64, i64 } %call, 0
-  store i64 %1, ptr %0, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %latest_rtt_, i32 0, i32 1
-  %3 = extractvalue { i64, i64 } %call, 1
-  store i64 %3, ptr %2, align 8
-  %min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 1
-  %call2 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %4 = getelementptr inbounds { i64, i64 }, ptr %min_rtt_, i32 0, i32 0
-  %5 = extractvalue { i64, i64 } %call2, 0
-  store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %min_rtt_, i32 0, i32 1
-  %7 = extractvalue { i64, i64 } %call2, 1
-  store i64 %7, ptr %6, align 8
-  %smoothed_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  %call3 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %8 = getelementptr inbounds { i64, i64 }, ptr %smoothed_rtt_, i32 0, i32 0
-  %9 = extractvalue { i64, i64 } %call3, 0
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %smoothed_rtt_, i32 0, i32 1
-  %11 = extractvalue { i64, i64 } %call3, 1
-  store i64 %11, ptr %10, align 8
-  %previous_srtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 3
-  %call4 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %12 = getelementptr inbounds { i64, i64 }, ptr %previous_srtt_, i32 0, i32 0
-  %13 = extractvalue { i64, i64 } %call4, 0
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %previous_srtt_, i32 0, i32 1
-  %15 = extractvalue { i64, i64 } %call4, 1
-  store i64 %15, ptr %14, align 8
-  %mean_deviation_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 4
-  %call5 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %16 = getelementptr inbounds { i64, i64 }, ptr %mean_deviation_, i32 0, i32 0
-  %17 = extractvalue { i64, i64 } %call5, 0
-  store i64 %17, ptr %16, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %mean_deviation_, i32 0, i32 1
-  %19 = extractvalue { i64, i64 } %call5, 1
-  store i64 %19, ptr %18, align 8
-  %initial_rtt_us_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 5
-  store i64 100000, ptr %initial_rtt_us_, align 8
-  %forced_windowed_min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 6
-  %call6 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %20 = getelementptr inbounds { i64, i64 }, ptr %forced_windowed_min_rtt_, i32 0, i32 0
-  %21 = extractvalue { i64, i64 } %call6, 0
-  store i64 %21, ptr %20, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %forced_windowed_min_rtt_, i32 0, i32 1
-  %23 = extractvalue { i64, i64 } %call6, 1
-  store i64 %23, ptr %22, align 8
-  %forced_windowed_min_rtt_time_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 7
-  %call7 = call i64 @_ZN3net8QuicTime4ZeroEv()
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %forced_windowed_min_rtt_time_, i32 0, i32 0
-  store i64 %call7, ptr %coerce.dive, align 8
-  %num_samples_for_forced_min_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 8
-  store i32 0, ptr %num_samples_for_forced_min_, align 8
-  %windowed_min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 9
-  %call8 = call { i64, i64 } @_ZN3net8QuicTime5Delta16FromMillisecondsEl(i64 noundef 10000)
-  %24 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %25 = extractvalue { i64, i64 } %call8, 0
-  store i64 %25, ptr %24, align 8
-  %26 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %27 = extractvalue { i64, i64 } %call8, 1
-  store i64 %27, ptr %26, align 8
-  %call10 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %28 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp9, i32 0, i32 0
-  %29 = extractvalue { i64, i64 } %call10, 0
-  store i64 %29, ptr %28, align 8
-  %30 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp9, i32 0, i32 1
-  %31 = extractvalue { i64, i64 } %call10, 1
-  store i64 %31, ptr %30, align 8
-  %call12 = call i64 @_ZN3net8QuicTime4ZeroEv()
-  %coerce.dive13 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp11, i32 0, i32 0
-  store i64 %call12, ptr %coerce.dive13, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp9, i32 0, i32 0
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp9, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
-  %coerce.dive14 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp11, i32 0, i32 0
-  %40 = load i64, ptr %coerce.dive14, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EC2ES2_S2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %windowed_min_rtt_, i64 %33, i64 %35, i64 %37, i64 %39, i64 %40)
+define void @_ZN3net8RttStatsC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.net::QuicTime::Delta", align 8
+  %4 = alloca %"class.net::QuicTime::Delta", align 8
+  %5 = alloca %"class.net::QuicTime", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 0
+  %8 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %10 = extractvalue { i64, i64 } %8, 0
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %12 = extractvalue { i64, i64 } %8, 1
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 1
+  %14 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 0
+  %16 = extractvalue { i64, i64 } %14, 0
+  store i64 %16, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 1
+  %18 = extractvalue { i64, i64 } %14, 1
+  store i64 %18, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 2
+  %20 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %21 = getelementptr inbounds nuw { i64, i64 }, ptr %19, i32 0, i32 0
+  %22 = extractvalue { i64, i64 } %20, 0
+  store i64 %22, ptr %21, align 8
+  %23 = getelementptr inbounds nuw { i64, i64 }, ptr %19, i32 0, i32 1
+  %24 = extractvalue { i64, i64 } %20, 1
+  store i64 %24, ptr %23, align 8
+  %25 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 3
+  %26 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i32 0, i32 0
+  %28 = extractvalue { i64, i64 } %26, 0
+  store i64 %28, ptr %27, align 8
+  %29 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i32 0, i32 1
+  %30 = extractvalue { i64, i64 } %26, 1
+  store i64 %30, ptr %29, align 8
+  %31 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 4
+  %32 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %33 = getelementptr inbounds nuw { i64, i64 }, ptr %31, i32 0, i32 0
+  %34 = extractvalue { i64, i64 } %32, 0
+  store i64 %34, ptr %33, align 8
+  %35 = getelementptr inbounds nuw { i64, i64 }, ptr %31, i32 0, i32 1
+  %36 = extractvalue { i64, i64 } %32, 1
+  store i64 %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 5
+  store i64 100000, ptr %37, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 6
+  %39 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %40 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 0
+  %41 = extractvalue { i64, i64 } %39, 0
+  store i64 %41, ptr %40, align 8
+  %42 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 1
+  %43 = extractvalue { i64, i64 } %39, 1
+  store i64 %43, ptr %42, align 8
+  %44 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 7
+  %45 = call i64 @_ZN3net8QuicTime4ZeroEv()
+  %46 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %44, i32 0, i32 0
+  store i64 %45, ptr %46, align 8
+  %47 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 8
+  store i32 0, ptr %47, align 8, !tbaa !16
+  %48 = getelementptr inbounds nuw %"class.net::RttStats", ptr %6, i32 0, i32 9
+  %49 = call { i64, i64 } @_ZN3net8QuicTime5Delta16FromMillisecondsEl(i64 noundef 10000)
+  %50 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 0
+  %51 = extractvalue { i64, i64 } %49, 0
+  store i64 %51, ptr %50, align 8
+  %52 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 1
+  %53 = extractvalue { i64, i64 } %49, 1
+  store i64 %53, ptr %52, align 8
+  %54 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %55 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  %56 = extractvalue { i64, i64 } %54, 0
+  store i64 %56, ptr %55, align 8
+  %57 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  %58 = extractvalue { i64, i64 } %54, 1
+  store i64 %58, ptr %57, align 8
+  %59 = call i64 @_ZN3net8QuicTime4ZeroEv()
+  %60 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  store i64 %59, ptr %60, align 8
+  %61 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 0
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 1
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  %66 = load i64, ptr %65, align 8
+  %67 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  %68 = load i64, ptr %67, align 8
+  %69 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  %70 = load i64, ptr %69, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EC2ES2_S2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %48, i64 %62, i64 %64, i64 %66, i64 %68, i64 %70)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv() #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef 0)
-  %0 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %0
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv() #1 comdat align 2 {
+  %1 = alloca %"class.net::QuicTime::Delta", align 8
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 0)
+  %2 = load { i64, i64 }, ptr %1, align 8
+  ret { i64, i64 } %2
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZN3net8QuicTime4ZeroEv() #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.net::QuicTime", align 8
-  call void @_ZN3net8QuicTimeC2El(ptr noundef nonnull align 8 dereferenceable(8) %retval, i64 noundef 0)
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %retval, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive, align 8
-  ret i64 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3net8QuicTime5Delta16FromMillisecondsEl(i64 noundef %ms) #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %ms.addr = alloca i64, align 8
-  store i64 %ms, ptr %ms.addr, align 8
-  %0 = load i64, ptr %ms.addr, align 8
-  %mul = mul nsw i64 %0, 1000
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef %mul)
-  %1 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %1
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EC2ES2_S2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 %window_length.coerce0, i64 %window_length.coerce1, i64 %zero_value.coerce0, i64 %zero_value.coerce1, i64 %zero_time.coerce) unnamed_addr #0 comdat align 2 {
-entry:
-  %window_length = alloca %"class.net::QuicTime::Delta", align 8
-  %zero_value = alloca %"class.net::QuicTime::Delta", align 8
-  %zero_time = alloca %"class.net::QuicTime", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp3 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp5 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp7 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp10 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp12 = alloca %"class.net::QuicTime", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %window_length, i32 0, i32 0
-  store i64 %window_length.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %window_length, i32 0, i32 1
-  store i64 %window_length.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %zero_value, i32 0, i32 0
-  store i64 %zero_value.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %zero_value, i32 0, i32 1
-  store i64 %zero_value.coerce1, ptr %3, align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %zero_time, i32 0, i32 0
-  store i64 %zero_time.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %window_length_ = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %window_length_, ptr align 8 %window_length, i64 16, i1 false)
-  %zero_value_ = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %zero_value_, ptr align 8 %zero_value, i64 16, i1 false)
-  %estimates_ = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayinit.begin = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_, i64 0, i64 0
-  %zero_value_2 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %zero_value_2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %zero_time, i64 8, i1 false)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %coerce.dive4 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp3, i32 0, i32 0
-  %8 = load i64, ptr %coerce.dive4, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.begin, i64 %5, i64 %7, i64 %8)
-  %arrayinit.element = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayinit.begin, i64 1
-  %zero_value_6 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp5, ptr align 8 %zero_value_6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp7, ptr align 8 %zero_time, i64 8, i1 false)
-  %9 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 0
-  %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %coerce.dive8 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp7, i32 0, i32 0
-  %13 = load i64, ptr %coerce.dive8, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element, i64 %10, i64 %12, i64 %13)
-  %arrayinit.element9 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayinit.element, i64 1
-  %zero_value_11 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp10, ptr align 8 %zero_value_11, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp12, ptr align 8 %zero_time, i64 8, i1 false)
-  %14 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 0
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8
-  %coerce.dive13 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp12, i32 0, i32 0
-  %18 = load i64, ptr %coerce.dive13, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element9, i64 %15, i64 %17, i64 %18)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net8RttStats23SampleNewWindowedMinRttEj(ptr noundef nonnull align 8 dereferenceable(224) %this, i32 noundef %num_samples) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %num_samples.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp3 = alloca %"class.net::QuicTime", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %num_samples, ptr %num_samples.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %num_samples.addr, align 4
-  %num_samples_for_forced_min_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 8
-  store i32 %0, ptr %num_samples_for_forced_min_, align 8
-  %call = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %1 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %2 = extractvalue { i64, i64 } %call, 0
-  store i64 %2, ptr %1, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %4 = extractvalue { i64, i64 } %call, 1
-  store i64 %4, ptr %3, align 8
-  %forced_windowed_min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 6
-  %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %forced_windowed_min_rtt_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %call4 = call i64 @_ZN3net8QuicTime4ZeroEv()
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %ref.tmp3, i32 0, i32 0
-  store i64 %call4, ptr %coerce.dive, align 8
-  %forced_windowed_min_rtt_time_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %forced_windowed_min_rtt_time_, ptr align 8 %ref.tmp3, i64 8, i1 false)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.base::TimeDelta", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %delta_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %delta_2 = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %delta_2, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %"class.base::TimeDelta", ptr %agg.tmp, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base9TimeDeltaaSES0_(ptr noundef nonnull align 8 dereferenceable(8) %delta_, i64 %2)
-  %3 = load ptr, ptr %.addr, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %time_offset_, align 8
-  %time_offset_3 = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 1
-  store i64 %4, ptr %time_offset_3, align 8
-  ret ptr %this1
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net8RttStats21ExpireSmoothedMetricsEv(ptr noundef nonnull align 8 dereferenceable(224) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp2 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp3 = alloca %"class.net::QuicTime::Delta", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mean_deviation_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 4
-  %smoothed_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %smoothed_rtt_, i64 16, i1 false)
-  %latest_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %latest_rtt_, i64 16, i1 false)
-  %0 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr i64 @_ZN3net8QuicTime4ZeroEv() #1 comdat align 2 {
+  %1 = alloca %"class.net::QuicTime", align 8
+  call void @_ZN3net8QuicTimeC2El(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
+  %2 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %1, i32 0, i32 0
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp3, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp3, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %call = call { i64, i64 } @_ZN3netmiENS_8QuicTime5DeltaES1_(i64 %1, i64 %3, i64 %5, i64 %7)
-  %8 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp2, i32 0, i32 0
-  %9 = extractvalue { i64, i64 } %call, 0
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp2, i32 0, i32 1
-  %11 = extractvalue { i64, i64 } %call, 1
-  store i64 %11, ptr %10, align 8
-  %call4 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
-  %call5 = call noundef i64 @_ZSt3absl(i64 noundef %call4)
-  %call6 = call { i64, i64 } @_ZN3net8QuicTime5Delta16FromMicrosecondsEl(i64 noundef %call5)
-  %12 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %13 = extractvalue { i64, i64 } %call6, 0
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %15 = extractvalue { i64, i64 } %call6, 1
-  store i64 %15, ptr %14, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3maxIN3net8QuicTime5DeltaEERKT_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %mean_deviation_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %mean_deviation_8 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 4
-  %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %mean_deviation_8, ptr noundef nonnull align 8 dereferenceable(16) %call7)
-  %smoothed_rtt_10 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  %latest_rtt_11 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 0
-  %call12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3maxIN3net8QuicTime5DeltaEERKT_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %smoothed_rtt_10, ptr noundef nonnull align 8 dereferenceable(16) %latest_rtt_11)
-  %smoothed_rtt_13 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %smoothed_rtt_13, ptr noundef nonnull align 8 dereferenceable(16) %call12)
-  ret void
+  ret i64 %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3maxIN3net8QuicTime5DeltaEERKT_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__a, ptr noundef nonnull align 8 dereferenceable(16) %__b) #0 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp1 = alloca %"class.net::QuicTime::Delta", align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %0, i64 16, i1 false)
-  %1 = load ptr, ptr %__b.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %1, i64 16, i1 false)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %9 = load i64, ptr %8, align 8
-  %call = call noundef zeroext i1 @_ZN3netltENS_8QuicTime5DeltaES1_(i64 %3, i64 %5, i64 %7, i64 %9)
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %10 = load ptr, ptr %__b.addr, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %11 = load ptr, ptr %__a.addr, align 8
-  store ptr %11, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3net8QuicTime5Delta16FromMicrosecondsEl(i64 noundef %us) #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %us.addr = alloca i64, align 8
-  store i64 %us, ptr %us.addr, align 8
-  %0 = load i64, ptr %us.addr, align 8
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef %0)
-  %1 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt3absl(i64 noundef %__i) #2 comdat {
-entry:
-  %__i.addr = alloca i64, align 8
-  store i64 %__i, ptr %__i.addr, align 8
-  %0 = load i64, ptr %__i.addr, align 8
-  %1 = call i64 @llvm.abs.i64(i64 %0, i1 true)
-  ret i64 %1
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3netmiENS_8QuicTime5DeltaES1_(i64 %lhs.coerce0, i64 %lhs.coerce1, i64 %rhs.coerce0, i64 %rhs.coerce1) #0 comdat {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %lhs = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs = alloca %"class.net::QuicTime::Delta", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 1
-  store i64 %rhs.coerce1, ptr %3, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %lhs, i32 0, i32 1
-  %4 = load i64, ptr %time_offset_, align 8
-  %time_offset_1 = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %rhs, i32 0, i32 1
-  %5 = load i64, ptr %time_offset_1, align 8
-  %sub = sub nsw i64 %4, %5
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef %sub)
-  %6 = load { i64, i64 }, ptr %retval, align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3net8QuicTime5Delta16FromMillisecondsEl(i64 noundef %0) #1 comdat align 2 {
+  %2 = alloca %"class.net::QuicTime::Delta", align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !17
+  %4 = load i64, ptr %3, align 8, !tbaa !17
+  %5 = mul nsw i64 %4, 1000
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %5)
+  %6 = load { i64, i64 }, ptr %2, align 8
   ret { i64, i64 } %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %time_offset_, align 8
-  ret i64 %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.base::TimeDelta", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %delta_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %delta_2 = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %delta_2, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %"class.base::TimeDelta", ptr %agg.tmp, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base9TimeDeltaaSES0_(ptr noundef nonnull align 8 dereferenceable(8) %delta_, i64 %2)
-  %3 = load ptr, ptr %.addr, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %time_offset_, align 8
-  %time_offset_3 = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 1
-  store i64 %4, ptr %time_offset_3, align 8
-  ret ptr %this1
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EC2ES2_S2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 comdat align 2 {
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = alloca %"class.net::QuicTime::Delta", align 8
+  %9 = alloca %"class.net::QuicTime", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.net::QuicTime::Delta", align 8
+  %12 = alloca %"class.net::QuicTime", align 8
+  %13 = alloca %"class.net::QuicTime::Delta", align 8
+  %14 = alloca %"class.net::QuicTime", align 8
+  %15 = alloca %"class.net::QuicTime::Delta", align 8
+  %16 = alloca %"class.net::QuicTime", align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  store i64 %1, ptr %17, align 8
+  %18 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  store i64 %2, ptr %18, align 8
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  store i64 %3, ptr %19, align 8
+  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  store i64 %4, ptr %20, align 8
+  %21 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %9, i32 0, i32 0
+  store i64 %5, ptr %21, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !18
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %22, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !20
+  %24 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %22, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !20
+  %25 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %22, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %22, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %26, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !21
+  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %12, i32 0, i32 0
+  %32 = load i64, ptr %31, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 %28, i64 %30, i64 %32)
+  %33 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %25, i64 1
+  %34 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %22, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %34, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !21
+  %35 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 0
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %14, i32 0, i32 0
+  %40 = load i64, ptr %39, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 %36, i64 %38, i64 %40)
+  %41 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %25, i64 2
+  %42 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %22, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %42, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !21
+  %43 = getelementptr inbounds nuw { i64, i64 }, ptr %15, i32 0, i32 0
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds nuw { i64, i64 }, ptr %15, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %16, i32 0, i32 0
+  %48 = load i64, ptr %47, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 %44, i64 %46, i64 %48)
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net8RttStats9UpdateRttENS_8QuicTime5DeltaES2_S1_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 %send_delta.coerce0, i64 %send_delta.coerce1, i64 %ack_delay.coerce0, i64 %ack_delay.coerce1, i64 %now.coerce) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %send_delta = alloca %"class.net::QuicTime::Delta", align 8
-  %ack_delay = alloca %"class.net::QuicTime::Delta", align 8
-  %now = alloca %"class.net::QuicTime", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp2 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp = alloca %"class.logging::LogMessageVoidify", align 1
-  %ref.tmp6 = alloca %"class.logging::LogMessage", align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %agg.tmp22 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp24 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp30 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp31 = alloca %"class.net::QuicTime", align 8
-  %rtt_sample = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp34 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp35 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp38 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp39 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp40 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp50 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp54 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp57 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp58 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp60 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp70 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp71 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp72 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp75 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp76 = alloca %"class.net::QuicTime::Delta", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %send_delta, i32 0, i32 0
-  store i64 %send_delta.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %send_delta, i32 0, i32 1
-  store i64 %send_delta.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %ack_delay, i32 0, i32 0
-  store i64 %ack_delay.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %ack_delay, i32 0, i32 1
-  store i64 %ack_delay.coerce1, ptr %3, align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %now, i32 0, i32 0
-  store i64 %now.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3net8QuicTime5Delta10IsInfiniteEv(ptr noundef nonnull align 8 dereferenceable(16) %send_delta)
-  br i1 %call, label %if.then, label %lor.lhs.false
+define void @_ZN3net8RttStats23SampleNewWindowedMinRttEj(ptr noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !22
+  %7 = load ptr, ptr %3, align 8
+  %8 = load i32, ptr %4, align 4, !tbaa !22
+  %9 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 8
+  store i32 %8, ptr %9, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #9
+  %10 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  %12 = extractvalue { i64, i64 } %10, 0
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  %14 = extractvalue { i64, i64 } %10, 1
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 6
+  %16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %17 = call i64 @_ZN3net8QuicTime4ZeroEv()
+  %18 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %6, i32 0, i32 0
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  ret void
+}
 
-lor.lhs.false:                                    ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %send_delta, i64 16, i1 false)
-  %call3 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %5 = extractvalue { i64, i64 } %call3, 0
-  store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %7 = extractvalue { i64, i64 } %call3, 1
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.base::TimeDelta", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %8, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !21
+  %10 = getelementptr inbounds nuw %"class.base::TimeDelta", ptr %5, i32 0, i32 0
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base9TimeDeltaaSES0_(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %11)
+  %13 = load ptr, ptr %4, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !25
+  %16 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %6, i32 0, i32 1
+  store i64 %15, ptr %16, align 8, !tbaa !25
+  ret ptr %6
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3net8RttStats21ExpireSmoothedMetricsEv(ptr noundef nonnull align 8 dereferenceable(224) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.net::QuicTime::Delta", align 8
+  %4 = alloca %"class.net::QuicTime::Delta", align 8
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #9
+  %9 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !20
+  %10 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !20
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = call { i64, i64 } @_ZN3netmiENS_8QuicTime5DeltaES1_(i64 %12, i64 %14, i64 %16, i64 %18)
+  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  %21 = extractvalue { i64, i64 } %19, 0
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  %23 = extractvalue { i64, i64 } %19, 1
+  store i64 %23, ptr %22, align 8
+  %24 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %25 = call noundef i64 @_ZSt3absl(i64 noundef %24)
+  %26 = call { i64, i64 } @_ZN3net8QuicTime5Delta16FromMicrosecondsEl(i64 noundef %25)
+  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 0
+  %28 = extractvalue { i64, i64 } %26, 0
+  store i64 %28, ptr %27, align 8
+  %29 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 1
+  %30 = extractvalue { i64, i64 } %26, 1
+  store i64 %30, ptr %29, align 8
+  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3maxIN3net8QuicTime5DeltaEERKT_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %32 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 4
+  %33 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #9
+  %34 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 2
+  %35 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 0
+  %36 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3maxIN3net8QuicTime5DeltaEERKT_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35)
+  %37 = getelementptr inbounds nuw %"class.net::RttStats", ptr %7, i32 0, i32 2
+  %38 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %36)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3maxIN3net8QuicTime5DeltaEERKT_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !20
+  %9 = load ptr, ptr %5, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !20
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
+  %14 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
   %15 = load i64, ptr %14, align 8
-  %call4 = call noundef zeroext i1 @_ZN3netleENS_8QuicTime5DeltaES1_(i64 %9, i64 %11, i64 %13, i64 %15)
-  br i1 %call4, label %if.then, label %if.end
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  %18 = call noundef zeroext i1 @_ZN3netltENS_8QuicTime5DeltaES1_(i64 %11, i64 %13, i64 %15, i64 %17)
+  br i1 %18, label %19, label %21
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call5 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 1)
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %call5, label %cond.false, label %cond.true
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %5, align 8, !tbaa !23
+  store ptr %20, ptr %3, align 8
+  br label %23
 
-cond.true:                                        ; preds = %if.then
-  br label %cond.end
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %4, align 8, !tbaa !23
+  store ptr %22, ptr %3, align 8
+  br label %23
 
-cond.false:                                       ; preds = %if.then
-  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6, ptr noundef @.str, i32 noundef 61, i32 noundef 1)
-  store i1 true, ptr %cleanup.cond, align 1
-  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %cond.false
-  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef @.str.1)
-          to label %invoke.cont8 unwind label %lpad
-
-invoke.cont8:                                     ; preds = %invoke.cont
-  %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef @.str.2)
-          to label %invoke.cont10 unwind label %lpad
-
-invoke.cont10:                                    ; preds = %invoke.cont8
-  %call13 = invoke noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %send_delta)
-          to label %invoke.cont12 unwind label %lpad
-
-invoke.cont12:                                    ; preds = %invoke.cont10
-  %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call11, i64 noundef %call13)
-          to label %invoke.cont14 unwind label %lpad
-
-invoke.cont14:                                    ; preds = %invoke.cont12
-  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call15)
-          to label %invoke.cont16 unwind label %lpad
-
-invoke.cont16:                                    ; preds = %invoke.cont14
-  br label %cond.end
-
-cond.end:                                         ; preds = %invoke.cont16, %cond.true
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
-
-cleanup.action:                                   ; preds = %cond.end
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #6
-  br label %cleanup.done
-
-cleanup.done:                                     ; preds = %cleanup.action, %cond.end
-  br label %if.end81
-
-lpad:                                             ; preds = %invoke.cont14, %invoke.cont12, %invoke.cont10, %invoke.cont8, %invoke.cont, %cond.false
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
-  %cleanup.is_active17 = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active17, label %cleanup.action18, label %cleanup.done19
-
-cleanup.action18:                                 ; preds = %lpad
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #6
-  br label %cleanup.done19
-
-cleanup.done19:                                   ; preds = %cleanup.action18, %lpad
-  br label %eh.resume
-
-if.end:                                           ; preds = %lor.lhs.false
-  %min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 1
-  %call20 = call noundef zeroext i1 @_ZNK3net8QuicTime5Delta6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %min_rtt_)
-  br i1 %call20, label %if.then26, label %lor.lhs.false21
-
-lor.lhs.false21:                                  ; preds = %if.end
-  %min_rtt_23 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp22, ptr align 8 %min_rtt_23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp24, ptr align 8 %send_delta, i64 16, i1 false)
-  %19 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp22, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp22, i32 0, i32 1
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp24, i32 0, i32 0
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp24, i32 0, i32 1
-  %26 = load i64, ptr %25, align 8
-  %call25 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %20, i64 %22, i64 %24, i64 %26)
-  br i1 %call25, label %if.then26, label %if.end29
-
-if.then26:                                        ; preds = %lor.lhs.false21, %if.end
-  %min_rtt_27 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 1
-  %call28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %min_rtt_27, ptr noundef nonnull align 8 dereferenceable(16) %send_delta)
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.then26, %lor.lhs.false21
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp30, ptr align 8 %send_delta, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp31, ptr align 8 %now, i64 8, i1 false)
-  %27 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp30, i32 0, i32 0
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp30, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8
-  %coerce.dive32 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp31, i32 0, i32 0
-  %31 = load i64, ptr %coerce.dive32, align 8
-  call void @_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_(ptr noundef nonnull align 8 dereferenceable(224) %this1, i64 %28, i64 %30, i64 %31)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %rtt_sample, ptr align 8 %send_delta, i64 16, i1 false)
-  %smoothed_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  %previous_srtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 3
-  %call33 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %previous_srtt_, ptr noundef nonnull align 8 dereferenceable(16) %smoothed_rtt_)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp34, ptr align 8 %rtt_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp35, ptr align 8 %ack_delay, i64 16, i1 false)
-  %32 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 0
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp34, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp35, i32 0, i32 0
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp35, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
-  %call36 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %33, i64 %35, i64 %37, i64 %39)
-  br i1 %call36, label %if.then37, label %if.end43
-
-if.then37:                                        ; preds = %if.end29
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp39, ptr align 8 %rtt_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp40, ptr align 8 %ack_delay, i64 16, i1 false)
-  %40 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp39, i32 0, i32 0
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp39, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 0
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp40, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  %call41 = call { i64, i64 } @_ZN3netmiENS_8QuicTime5DeltaES1_(i64 %41, i64 %43, i64 %45, i64 %47)
-  %48 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp38, i32 0, i32 0
-  %49 = extractvalue { i64, i64 } %call41, 0
-  store i64 %49, ptr %48, align 8
-  %50 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp38, i32 0, i32 1
-  %51 = extractvalue { i64, i64 } %call41, 1
-  store i64 %51, ptr %50, align 8
-  %call42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %rtt_sample, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38)
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.then37, %if.end29
-  %latest_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 0
-  %call44 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %latest_rtt_, ptr noundef nonnull align 8 dereferenceable(16) %rtt_sample)
-  %smoothed_rtt_45 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  %call46 = call noundef zeroext i1 @_ZNK3net8QuicTime5Delta6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %smoothed_rtt_45)
-  br i1 %call46, label %if.then47, label %if.else
-
-if.then47:                                        ; preds = %if.end43
-  %smoothed_rtt_48 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  %call49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %smoothed_rtt_48, ptr noundef nonnull align 8 dereferenceable(16) %rtt_sample)
-  %call51 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %rtt_sample)
-  %div = sdiv i64 %call51, 2
-  %call52 = call { i64, i64 } @_ZN3net8QuicTime5Delta16FromMicrosecondsEl(i64 noundef %div)
-  %52 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp50, i32 0, i32 0
-  %53 = extractvalue { i64, i64 } %call52, 0
-  store i64 %53, ptr %52, align 8
-  %54 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp50, i32 0, i32 1
-  %55 = extractvalue { i64, i64 } %call52, 1
-  store i64 %55, ptr %54, align 8
-  %mean_deviation_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 4
-  %call53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %mean_deviation_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp50)
-  br label %if.end81
-
-if.else:                                          ; preds = %if.end43
-  %mean_deviation_55 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 4
-  %call56 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %mean_deviation_55)
-  %conv = sitofp i64 %call56 to float
-  %smoothed_rtt_59 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp58, ptr align 8 %smoothed_rtt_59, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp60, ptr align 8 %rtt_sample, i64 16, i1 false)
-  %56 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp58, i32 0, i32 0
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp58, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp60, i32 0, i32 0
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp60, i32 0, i32 1
-  %63 = load i64, ptr %62, align 8
-  %call61 = call { i64, i64 } @_ZN3netmiENS_8QuicTime5DeltaES1_(i64 %57, i64 %59, i64 %61, i64 %63)
-  %64 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp57, i32 0, i32 0
-  %65 = extractvalue { i64, i64 } %call61, 0
-  store i64 %65, ptr %64, align 8
-  %66 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp57, i32 0, i32 1
-  %67 = extractvalue { i64, i64 } %call61, 1
-  store i64 %67, ptr %66, align 8
-  %call62 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp57)
-  %call63 = call noundef i64 @_ZSt3absl(i64 noundef %call62)
-  %conv64 = sitofp i64 %call63 to float
-  %mul65 = fmul float 2.500000e-01, %conv64
-  %68 = call float @llvm.fmuladd.f32(float 7.500000e-01, float %conv, float %mul65)
-  %conv66 = fptosi float %68 to i64
-  %call67 = call { i64, i64 } @_ZN3net8QuicTime5Delta16FromMicrosecondsEl(i64 noundef %conv66)
-  %69 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp54, i32 0, i32 0
-  %70 = extractvalue { i64, i64 } %call67, 0
-  store i64 %70, ptr %69, align 8
-  %71 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp54, i32 0, i32 1
-  %72 = extractvalue { i64, i64 } %call67, 1
-  store i64 %72, ptr %71, align 8
-  %mean_deviation_68 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 4
-  %call69 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %mean_deviation_68, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp54)
-  %smoothed_rtt_73 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp72, ptr align 8 %smoothed_rtt_73, i64 16, i1 false)
-  %73 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp72, i32 0, i32 0
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp72, i32 0, i32 1
-  %76 = load i64, ptr %75, align 8
-  %call74 = call { i64, i64 } @_ZN3netmlEdNS_8QuicTime5DeltaE(double noundef 8.750000e-01, i64 %74, i64 %76)
-  %77 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp71, i32 0, i32 0
-  %78 = extractvalue { i64, i64 } %call74, 0
-  store i64 %78, ptr %77, align 8
-  %79 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp71, i32 0, i32 1
-  %80 = extractvalue { i64, i64 } %call74, 1
-  store i64 %80, ptr %79, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp76, ptr align 8 %rtt_sample, i64 16, i1 false)
-  %81 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp76, i32 0, i32 0
-  %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp76, i32 0, i32 1
-  %84 = load i64, ptr %83, align 8
-  %call77 = call { i64, i64 } @_ZN3netmlEdNS_8QuicTime5DeltaE(double noundef 1.250000e-01, i64 %82, i64 %84)
-  %85 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp75, i32 0, i32 0
-  %86 = extractvalue { i64, i64 } %call77, 0
-  store i64 %86, ptr %85, align 8
-  %87 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp75, i32 0, i32 1
-  %88 = extractvalue { i64, i64 } %call77, 1
-  store i64 %88, ptr %87, align 8
-  %89 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp71, i32 0, i32 0
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp71, i32 0, i32 1
-  %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp75, i32 0, i32 0
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp75, i32 0, i32 1
-  %96 = load i64, ptr %95, align 8
-  %call78 = call { i64, i64 } @_ZN3netplENS_8QuicTime5DeltaES1_(i64 %90, i64 %92, i64 %94, i64 %96)
-  %97 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp70, i32 0, i32 0
-  %98 = extractvalue { i64, i64 } %call78, 0
-  store i64 %98, ptr %97, align 8
-  %99 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp70, i32 0, i32 1
-  %100 = extractvalue { i64, i64 } %call78, 1
-  store i64 %100, ptr %99, align 8
-  %smoothed_rtt_79 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  %call80 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %smoothed_rtt_79, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp70)
-  br label %if.end81
-
-if.end81:                                         ; preds = %if.else, %if.then47, %cleanup.done
-  ret void
-
-eh.resume:                                        ; preds = %cleanup.done19
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val82 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val82
+23:                                               ; preds = %21, %19
+  %24 = load ptr, ptr %3, align 8
+  ret ptr %24
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3net8QuicTime5Delta10IsInfiniteEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %time_offset_, align 8
-  %cmp = icmp eq i64 %0, 9223372036854775807
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3net8QuicTime5Delta16FromMicrosecondsEl(i64 noundef %0) #1 comdat align 2 {
+  %2 = alloca %"class.net::QuicTime::Delta", align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !17
+  %4 = load i64, ptr %3, align 8, !tbaa !17
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %4)
+  %5 = load { i64, i64 }, ptr %2, align 8
+  ret { i64, i64 } %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3netleENS_8QuicTime5DeltaES1_(i64 %lhs.coerce0, i64 %lhs.coerce1, i64 %rhs.coerce0, i64 %rhs.coerce1) #2 comdat {
-entry:
-  %lhs = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp1 = alloca %"class.net::QuicTime::Delta", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 1
-  store i64 %rhs.coerce1, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %rhs, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %lhs, i64 16, i1 false)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt3absl(i64 noundef %0) #4 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %4 = call i64 @llvm.abs.i64(i64 %3, i1 true)
+  ret i64 %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3netmiENS_8QuicTime5DeltaES1_(i64 %0, i64 %1, i64 %2, i64 %3) #1 comdat {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  store i64 %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  store i64 %3, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %6, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %7, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !25
+  %16 = sub nsw i64 %13, %15
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16)
+  %17 = load { i64, i64 }, ptr %5, align 8
+  ret { i64, i64 } %17
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !25
+  ret i64 %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.base::TimeDelta", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %8, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !21
+  %10 = getelementptr inbounds nuw %"class.base::TimeDelta", ptr %5, i32 0, i32 0
   %11 = load i64, ptr %10, align 8
-  %call = call noundef zeroext i1 @_ZN3netltENS_8QuicTime5DeltaES1_(i64 %5, i64 %7, i64 %9, i64 %11)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base9TimeDeltaaSES0_(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %11)
+  %13 = load ptr, ptr %4, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !25
+  %16 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %6, i32 0, i32 1
+  store i64 %15, ptr %16, align 8, !tbaa !25
+  ret ptr %6
 }
 
-declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) #3
+; Function Attrs: mustprogress uwtable
+define void @_ZN3net8RttStats9UpdateRttENS_8QuicTime5DeltaES2_S1_(ptr noundef nonnull align 8 dereferenceable(224) %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = alloca %"class.net::QuicTime::Delta", align 8
+  %9 = alloca %"class.net::QuicTime", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.net::QuicTime::Delta", align 8
+  %12 = alloca %"class.net::QuicTime::Delta", align 8
+  %13 = alloca %"class.logging::LogMessageVoidify", align 1
+  %14 = alloca %"class.logging::LogMessage", align 8
+  %15 = alloca i1, align 1
+  %16 = alloca i1, align 1
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca %"class.net::QuicTime::Delta", align 8
+  %20 = alloca %"class.net::QuicTime::Delta", align 8
+  %21 = alloca %"class.net::QuicTime::Delta", align 8
+  %22 = alloca %"class.net::QuicTime", align 8
+  %23 = alloca %"class.net::QuicTime::Delta", align 8
+  %24 = alloca %"class.net::QuicTime::Delta", align 8
+  %25 = alloca %"class.net::QuicTime::Delta", align 8
+  %26 = alloca %"class.net::QuicTime::Delta", align 8
+  %27 = alloca %"class.net::QuicTime::Delta", align 8
+  %28 = alloca %"class.net::QuicTime::Delta", align 8
+  %29 = alloca %"class.net::QuicTime::Delta", align 8
+  %30 = alloca %"class.net::QuicTime::Delta", align 8
+  %31 = alloca %"class.net::QuicTime::Delta", align 8
+  %32 = alloca %"class.net::QuicTime::Delta", align 8
+  %33 = alloca %"class.net::QuicTime::Delta", align 8
+  %34 = alloca %"class.net::QuicTime::Delta", align 8
+  %35 = alloca %"class.net::QuicTime::Delta", align 8
+  %36 = alloca %"class.net::QuicTime::Delta", align 8
+  %37 = alloca %"class.net::QuicTime::Delta", align 8
+  %38 = alloca %"class.net::QuicTime::Delta", align 8
+  %39 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  store i64 %1, ptr %39, align 8
+  %40 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  store i64 %2, ptr %40, align 8
+  %41 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  store i64 %3, ptr %41, align 8
+  %42 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  store i64 %4, ptr %42, align 8
+  %43 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %9, i32 0, i32 0
+  store i64 %5, ptr %43, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !3
+  %44 = load ptr, ptr %10, align 8
+  %45 = call noundef zeroext i1 @_ZNK3net8QuicTime5Delta10IsInfiniteEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  br i1 %45, label %61, label %46
+
+46:                                               ; preds = %6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !20
+  %47 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %48 = getelementptr inbounds nuw { i64, i64 }, ptr %12, i32 0, i32 0
+  %49 = extractvalue { i64, i64 } %47, 0
+  store i64 %49, ptr %48, align 8
+  %50 = getelementptr inbounds nuw { i64, i64 }, ptr %12, i32 0, i32 1
+  %51 = extractvalue { i64, i64 } %47, 1
+  store i64 %51, ptr %50, align 8
+  %52 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 0
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds nuw { i64, i64 }, ptr %12, i32 0, i32 0
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds nuw { i64, i64 }, ptr %12, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8
+  %60 = call noundef zeroext i1 @_ZN3netleENS_8QuicTime5DeltaES1_(i64 %53, i64 %55, i64 %57, i64 %59)
+  br label %61
+
+61:                                               ; preds = %46, %6
+  %62 = phi i1 [ true, %6 ], [ %60, %46 ]
+  br i1 %62, label %63, label %95
+
+63:                                               ; preds = %61
+  %64 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #9
+  store i1 false, ptr %15, align 1
+  store i1 false, ptr %16, align 1
+  br i1 %64, label %66, label %65
+
+65:                                               ; preds = %63
+  br label %78
+
+66:                                               ; preds = %63
+  call void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13)
+  call void @llvm.lifetime.start.p0(i64 408, ptr %14) #9
+  store i1 true, ptr %15, align 1
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %14, ptr noundef @.str, i32 noundef 61, i32 noundef 1)
+  store i1 true, ptr %16, align 1
+  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %14)
+          to label %68 unwind label %85
+
+68:                                               ; preds = %66
+  %69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef @.str.1)
+          to label %70 unwind label %85
+
+70:                                               ; preds = %68
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef @.str.2)
+          to label %72 unwind label %85
+
+72:                                               ; preds = %70
+  %73 = invoke noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %74 unwind label %85
+
+74:                                               ; preds = %72
+  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %71, i64 noundef %73)
+          to label %76 unwind label %85
+
+76:                                               ; preds = %74
+  invoke void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %75)
+          to label %77 unwind label %85
+
+77:                                               ; preds = %76
+  br label %78
+
+78:                                               ; preds = %77, %65
+  %79 = load i1, ptr %16, align 1
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %78
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %14) #9
+  br label %81
+
+81:                                               ; preds = %80, %78
+  %82 = load i1, ptr %15, align 1
+  br i1 %82, label %83, label %84
+
+83:                                               ; preds = %81
+  call void @llvm.lifetime.end.p0(i64 408, ptr %14) #9
+  br label %84
+
+84:                                               ; preds = %83, %81
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #9
+  br label %229
+
+85:                                               ; preds = %76, %74, %72, %70, %68, %66
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %17, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %18, align 4
+  %89 = load i1, ptr %16, align 1
+  br i1 %89, label %90, label %91
+
+90:                                               ; preds = %85
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %14) #9
+  br label %91
+
+91:                                               ; preds = %90, %85
+  %92 = load i1, ptr %15, align 1
+  br i1 %92, label %93, label %94
+
+93:                                               ; preds = %91
+  call void @llvm.lifetime.end.p0(i64 408, ptr %14) #9
+  br label %94
+
+94:                                               ; preds = %93, %91
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #9
+  br label %230
+
+95:                                               ; preds = %61
+  %96 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 1
+  %97 = call noundef zeroext i1 @_ZNK3net8QuicTime5Delta6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %96)
+  br i1 %97, label %109, label %98
+
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %99, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !20
+  %100 = getelementptr inbounds nuw { i64, i64 }, ptr %19, i32 0, i32 0
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds nuw { i64, i64 }, ptr %19, i32 0, i32 1
+  %103 = load i64, ptr %102, align 8
+  %104 = getelementptr inbounds nuw { i64, i64 }, ptr %20, i32 0, i32 0
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds nuw { i64, i64 }, ptr %20, i32 0, i32 1
+  %107 = load i64, ptr %106, align 8
+  %108 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %101, i64 %103, i64 %105, i64 %107)
+  br i1 %108, label %109, label %112
+
+109:                                              ; preds = %98, %95
+  %110 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 1
+  %111 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  br label %112
+
+112:                                              ; preds = %109, %98
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !21
+  %113 = getelementptr inbounds nuw { i64, i64 }, ptr %21, i32 0, i32 0
+  %114 = load i64, ptr %113, align 8
+  %115 = getelementptr inbounds nuw { i64, i64 }, ptr %21, i32 0, i32 1
+  %116 = load i64, ptr %115, align 8
+  %117 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %22, i32 0, i32 0
+  %118 = load i64, ptr %117, align 8
+  call void @_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_(ptr noundef nonnull align 8 dereferenceable(224) %44, i64 %114, i64 %116, i64 %118)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !20
+  %119 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 2
+  %120 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 3
+  %121 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(16) %119)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %23, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !20
+  %122 = getelementptr inbounds nuw { i64, i64 }, ptr %24, i32 0, i32 0
+  %123 = load i64, ptr %122, align 8
+  %124 = getelementptr inbounds nuw { i64, i64 }, ptr %24, i32 0, i32 1
+  %125 = load i64, ptr %124, align 8
+  %126 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i32 0, i32 0
+  %127 = load i64, ptr %126, align 8
+  %128 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i32 0, i32 1
+  %129 = load i64, ptr %128, align 8
+  %130 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %123, i64 %125, i64 %127, i64 %129)
+  br i1 %130, label %131, label %146
+
+131:                                              ; preds = %112
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %23, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !20
+  %132 = getelementptr inbounds nuw { i64, i64 }, ptr %27, i32 0, i32 0
+  %133 = load i64, ptr %132, align 8
+  %134 = getelementptr inbounds nuw { i64, i64 }, ptr %27, i32 0, i32 1
+  %135 = load i64, ptr %134, align 8
+  %136 = getelementptr inbounds nuw { i64, i64 }, ptr %28, i32 0, i32 0
+  %137 = load i64, ptr %136, align 8
+  %138 = getelementptr inbounds nuw { i64, i64 }, ptr %28, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8
+  %140 = call { i64, i64 } @_ZN3netmiENS_8QuicTime5DeltaES1_(i64 %133, i64 %135, i64 %137, i64 %139)
+  %141 = getelementptr inbounds nuw { i64, i64 }, ptr %26, i32 0, i32 0
+  %142 = extractvalue { i64, i64 } %140, 0
+  store i64 %142, ptr %141, align 8
+  %143 = getelementptr inbounds nuw { i64, i64 }, ptr %26, i32 0, i32 1
+  %144 = extractvalue { i64, i64 } %140, 1
+  store i64 %144, ptr %143, align 8
+  %145 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %26)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #9
+  br label %146
+
+146:                                              ; preds = %131, %112
+  %147 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 0
+  %148 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %23)
+  %149 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 2
+  %150 = call noundef zeroext i1 @_ZNK3net8QuicTime5Delta6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %149)
+  br i1 %150, label %151, label %163
+
+151:                                              ; preds = %146
+  %152 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 2
+  %153 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull align 8 dereferenceable(16) %23)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #9
+  %154 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
+  %155 = sdiv i64 %154, 2
+  %156 = call { i64, i64 } @_ZN3net8QuicTime5Delta16FromMicrosecondsEl(i64 noundef %155)
+  %157 = getelementptr inbounds nuw { i64, i64 }, ptr %29, i32 0, i32 0
+  %158 = extractvalue { i64, i64 } %156, 0
+  store i64 %158, ptr %157, align 8
+  %159 = getelementptr inbounds nuw { i64, i64 }, ptr %29, i32 0, i32 1
+  %160 = extractvalue { i64, i64 } %156, 1
+  store i64 %160, ptr %159, align 8
+  %161 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 4
+  %162 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull align 8 dereferenceable(16) %29)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #9
+  br label %228
+
+163:                                              ; preds = %146
+  call void @llvm.lifetime.start.p0(i64 16, ptr %30) #9
+  %164 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 4
+  %165 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %164)
+  %166 = sitofp i64 %165 to float
+  call void @llvm.lifetime.start.p0(i64 16, ptr %31) #9
+  %167 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %167, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %23, i64 16, i1 false), !tbaa.struct !20
+  %168 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i32 0, i32 0
+  %169 = load i64, ptr %168, align 8
+  %170 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i32 0, i32 1
+  %171 = load i64, ptr %170, align 8
+  %172 = getelementptr inbounds nuw { i64, i64 }, ptr %33, i32 0, i32 0
+  %173 = load i64, ptr %172, align 8
+  %174 = getelementptr inbounds nuw { i64, i64 }, ptr %33, i32 0, i32 1
+  %175 = load i64, ptr %174, align 8
+  %176 = call { i64, i64 } @_ZN3netmiENS_8QuicTime5DeltaES1_(i64 %169, i64 %171, i64 %173, i64 %175)
+  %177 = getelementptr inbounds nuw { i64, i64 }, ptr %31, i32 0, i32 0
+  %178 = extractvalue { i64, i64 } %176, 0
+  store i64 %178, ptr %177, align 8
+  %179 = getelementptr inbounds nuw { i64, i64 }, ptr %31, i32 0, i32 1
+  %180 = extractvalue { i64, i64 } %176, 1
+  store i64 %180, ptr %179, align 8
+  %181 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %182 = call noundef i64 @_ZSt3absl(i64 noundef %181)
+  %183 = sitofp i64 %182 to float
+  %184 = fmul float 2.500000e-01, %183
+  %185 = call float @llvm.fmuladd.f32(float 7.500000e-01, float %166, float %184)
+  %186 = fptosi float %185 to i64
+  %187 = call { i64, i64 } @_ZN3net8QuicTime5Delta16FromMicrosecondsEl(i64 noundef %186)
+  %188 = getelementptr inbounds nuw { i64, i64 }, ptr %30, i32 0, i32 0
+  %189 = extractvalue { i64, i64 } %187, 0
+  store i64 %189, ptr %188, align 8
+  %190 = getelementptr inbounds nuw { i64, i64 }, ptr %30, i32 0, i32 1
+  %191 = extractvalue { i64, i64 } %187, 1
+  store i64 %191, ptr %190, align 8
+  %192 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 4
+  %193 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %31) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %30) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %34) #9
+  %194 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %194, i64 16, i1 false), !tbaa.struct !20
+  %195 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i32 0, i32 0
+  %196 = load i64, ptr %195, align 8
+  %197 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i32 0, i32 1
+  %198 = load i64, ptr %197, align 8
+  %199 = call { i64, i64 } @_ZN3netmlEdNS_8QuicTime5DeltaE(double noundef 8.750000e-01, i64 %196, i64 %198)
+  %200 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i32 0, i32 0
+  %201 = extractvalue { i64, i64 } %199, 0
+  store i64 %201, ptr %200, align 8
+  %202 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i32 0, i32 1
+  %203 = extractvalue { i64, i64 } %199, 1
+  store i64 %203, ptr %202, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %23, i64 16, i1 false), !tbaa.struct !20
+  %204 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 0
+  %205 = load i64, ptr %204, align 8
+  %206 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 1
+  %207 = load i64, ptr %206, align 8
+  %208 = call { i64, i64 } @_ZN3netmlEdNS_8QuicTime5DeltaE(double noundef 1.250000e-01, i64 %205, i64 %207)
+  %209 = getelementptr inbounds nuw { i64, i64 }, ptr %37, i32 0, i32 0
+  %210 = extractvalue { i64, i64 } %208, 0
+  store i64 %210, ptr %209, align 8
+  %211 = getelementptr inbounds nuw { i64, i64 }, ptr %37, i32 0, i32 1
+  %212 = extractvalue { i64, i64 } %208, 1
+  store i64 %212, ptr %211, align 8
+  %213 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i32 0, i32 0
+  %214 = load i64, ptr %213, align 8
+  %215 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i32 0, i32 1
+  %216 = load i64, ptr %215, align 8
+  %217 = getelementptr inbounds nuw { i64, i64 }, ptr %37, i32 0, i32 0
+  %218 = load i64, ptr %217, align 8
+  %219 = getelementptr inbounds nuw { i64, i64 }, ptr %37, i32 0, i32 1
+  %220 = load i64, ptr %219, align 8
+  %221 = call { i64, i64 } @_ZN3netplENS_8QuicTime5DeltaES1_(i64 %214, i64 %216, i64 %218, i64 %220)
+  %222 = getelementptr inbounds nuw { i64, i64 }, ptr %34, i32 0, i32 0
+  %223 = extractvalue { i64, i64 } %221, 0
+  store i64 %223, ptr %222, align 8
+  %224 = getelementptr inbounds nuw { i64, i64 }, ptr %34, i32 0, i32 1
+  %225 = extractvalue { i64, i64 } %221, 1
+  store i64 %225, ptr %224, align 8
+  %226 = getelementptr inbounds nuw %"class.net::RttStats", ptr %44, i32 0, i32 2
+  %227 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %226, ptr noundef nonnull align 8 dereferenceable(16) %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %34) #9
+  br label %228
+
+228:                                              ; preds = %163, %151
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #9
+  br label %229
+
+229:                                              ; preds = %228, %84
+  ret void
+
+230:                                              ; preds = %94
+  %231 = load ptr, ptr %17, align 8
+  %232 = load i32, ptr %18, align 4
+  %233 = insertvalue { ptr, i32 } poison, ptr %231, 0
+  %234 = insertvalue { ptr, i32 } %233, i32 %232, 1
+  resume { ptr, i32 } %234
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK3net8QuicTime5Delta10IsInfiniteEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !25
+  %6 = icmp eq i64 %5, 9223372036854775807
+  ret i1 %6
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3netleENS_8QuicTime5DeltaES1_(i64 %0, i64 %1, i64 %2, i64 %3) #1 comdat {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = alloca %"class.net::QuicTime::Delta", align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = call noundef zeroext i1 @_ZN3netltENS_8QuicTime5DeltaES1_(i64 %14, i64 %16, i64 %18, i64 %20)
+  %22 = xor i1 %21, true
+  ret i1 %22
+}
+
+declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN7logging17LogMessageVoidifyC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
+define linkonce_odr void @_ZN7logging17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !28
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #3
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %13, label %7
 
-declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #3
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %10 = getelementptr i8, ptr %9, i64 -24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %12, i32 noundef 1)
+  br label %19
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !28
+  %15 = load ptr, ptr %4, align 8, !tbaa !30
+  %16 = load ptr, ptr %4, align 8, !tbaa !30
+  %17 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %16)
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15, i64 noundef %17)
+  br label %19
+
+19:                                               ; preds = %13, %7
+  %20 = load ptr, ptr %3, align 8, !tbaa !28
+  ret ptr %20
+}
+
+declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %stream_ = getelementptr inbounds %"class.logging::LogMessage", ptr %this1, i32 0, i32 2
-  ret ptr %stream_
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::LogMessage", ptr %3, i32 0, i32 2
+  ret ptr %4
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #3
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !17
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %6)
+  ret ptr %7
+}
 
 ; Function Attrs: nounwind
-declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #4
+declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3net8QuicTime5Delta6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %time_offset_, align 8
-  %cmp = icmp eq i64 %0, 0
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK3net8QuicTime5Delta6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !25
+  %6 = icmp eq i64 %5, 0
+  ret i1 %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %lhs.coerce0, i64 %lhs.coerce1, i64 %rhs.coerce0, i64 %rhs.coerce1) #2 comdat {
-entry:
-  %lhs = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp1 = alloca %"class.net::QuicTime::Delta", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 1
-  store i64 %rhs.coerce1, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %rhs, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %lhs, i64 16, i1 false)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
-  %call = call noundef zeroext i1 @_ZN3netltENS_8QuicTime5DeltaES1_(i64 %5, i64 %7, i64 %9, i64 %11)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 %rtt_sample.coerce0, i64 %rtt_sample.coerce1, i64 %now.coerce) #0 align 2 {
-entry:
-  %rtt_sample = alloca %"class.net::QuicTime::Delta", align 8
-  %now = alloca %"class.net::QuicTime", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp2 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp4 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp5 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp16 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp18 = alloca %"class.net::QuicTime", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %rtt_sample, i32 0, i32 0
-  store i64 %rtt_sample.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %rtt_sample, i32 0, i32 1
-  store i64 %rtt_sample.coerce1, ptr %1, align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %now, i32 0, i32 0
-  store i64 %now.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %windowed_min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %rtt_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %now, i64 8, i1 false)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %coerce.dive3 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp2, i32 0, i32 0
-  %6 = load i64, ptr %coerce.dive3, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %windowed_min_rtt_, i64 %3, i64 %5, i64 %6)
-  %num_samples_for_forced_min_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 8
-  %7 = load i32, ptr %num_samples_for_forced_min_, align 8
-  %cmp = icmp ule i32 %7, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %forced_windowed_min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 6
-  %call = call noundef zeroext i1 @_ZNK3net8QuicTime5Delta6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %forced_windowed_min_rtt_)
-  br i1 %call, label %if.then8, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp4, ptr align 8 %rtt_sample, i64 16, i1 false)
-  %forced_windowed_min_rtt_6 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp5, ptr align 8 %forced_windowed_min_rtt_6, i64 16, i1 false)
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp4, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp4, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 0
-  %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp5, i32 0, i32 1
-  %15 = load i64, ptr %14, align 8
-  %call7 = call noundef zeroext i1 @_ZN3netleENS_8QuicTime5DeltaES1_(i64 %9, i64 %11, i64 %13, i64 %15)
-  br i1 %call7, label %if.then8, label %if.end11
-
-if.then8:                                         ; preds = %lor.lhs.false, %if.end
-  %forced_windowed_min_rtt_9 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 6
-  %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %forced_windowed_min_rtt_9, ptr noundef nonnull align 8 dereferenceable(16) %rtt_sample)
-  %forced_windowed_min_rtt_time_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %forced_windowed_min_rtt_time_, ptr align 8 %now, i64 8, i1 false)
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then8, %lor.lhs.false
-  %num_samples_for_forced_min_12 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 8
-  %16 = load i32, ptr %num_samples_for_forced_min_12, align 8
-  %cmp13 = icmp eq i32 %16, 1
-  br i1 %cmp13, label %if.then14, label %if.end21
-
-if.then14:                                        ; preds = %if.end11
-  %windowed_min_rtt_15 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 9
-  %forced_windowed_min_rtt_17 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp16, ptr align 8 %forced_windowed_min_rtt_17, i64 16, i1 false)
-  %forced_windowed_min_rtt_time_19 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp18, ptr align 8 %forced_windowed_min_rtt_time_19, i64 8, i1 false)
-  %17 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp16, i32 0, i32 0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %0, i64 %1, i64 %2, i64 %3) #4 comdat {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = alloca %"class.net::QuicTime::Delta", align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp16, i32 0, i32 1
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
   %20 = load i64, ptr %19, align 8
-  %coerce.dive20 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp18, i32 0, i32 0
-  %21 = load i64, ptr %coerce.dive20, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E5ResetES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %windowed_min_rtt_15, i64 %18, i64 %20, i64 %21)
-  br label %if.end21
+  %21 = call noundef zeroext i1 @_ZN3netltENS_8QuicTime5DeltaES1_(i64 %14, i64 %16, i64 %18, i64 %20)
+  ret i1 %21
+}
 
-if.end21:                                         ; preds = %if.then14, %if.end11
-  %num_samples_for_forced_min_22 = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 8
-  %22 = load i32, ptr %num_samples_for_forced_min_22, align 8
-  %dec = add i32 %22, -1
-  store i32 %dec, ptr %num_samples_for_forced_min_22, align 8
-  br label %return
+; Function Attrs: mustprogress uwtable
+define void @_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_(ptr noundef nonnull align 8 dereferenceable(224) %0, i64 %1, i64 %2, i64 %3) #0 align 2 {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.net::QuicTime::Delta", align 8
+  %9 = alloca %"class.net::QuicTime", align 8
+  %10 = alloca %"class.net::QuicTime::Delta", align 8
+  %11 = alloca %"class.net::QuicTime::Delta", align 8
+  %12 = alloca %"class.net::QuicTime::Delta", align 8
+  %13 = alloca %"class.net::QuicTime", align 8
+  %14 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %1, ptr %14, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %15, align 8
+  %16 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %6, i32 0, i32 0
+  store i64 %3, ptr %16, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %9, i32 0, i32 0
+  %24 = load i64, ptr %23, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 %20, i64 %22, i64 %24)
+  %25 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 8
+  %26 = load i32, ptr %25, align 8, !tbaa !16
+  %27 = icmp ule i32 %26, 0
+  br i1 %27, label %28, label %29
 
-return:                                           ; preds = %if.end21, %if.then
+28:                                               ; preds = %4
+  br label %65
+
+29:                                               ; preds = %4
+  %30 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 6
+  %31 = call noundef zeroext i1 @_ZNK3net8QuicTime5Delta6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+  br i1 %31, label %43, label %32
+
+32:                                               ; preds = %29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  %33 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %33, i64 16, i1 false), !tbaa.struct !20
+  %34 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i32 0, i32 1
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 1
+  %41 = load i64, ptr %40, align 8
+  %42 = call noundef zeroext i1 @_ZN3netleENS_8QuicTime5DeltaES1_(i64 %35, i64 %37, i64 %39, i64 %41)
+  br i1 %42, label %43, label %47
+
+43:                                               ; preds = %32, %29
+  %44 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 6
+  %45 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %46 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  br label %47
+
+47:                                               ; preds = %43, %32
+  %48 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 8
+  %49 = load i32, ptr %48, align 8, !tbaa !16
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %51, label %61
+
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 9
+  %53 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %53, i64 16, i1 false), !tbaa.struct !20
+  %54 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %54, i64 8, i1 false), !tbaa.struct !21
+  %55 = getelementptr inbounds nuw { i64, i64 }, ptr %12, i32 0, i32 0
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds nuw { i64, i64 }, ptr %12, i32 0, i32 1
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %13, i32 0, i32 0
+  %60 = load i64, ptr %59, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E5ResetES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %52, i64 %56, i64 %58, i64 %60)
+  br label %61
+
+61:                                               ; preds = %51, %47
+  %62 = getelementptr inbounds nuw %"class.net::RttStats", ptr %17, i32 0, i32 8
+  %63 = load i32, ptr %62, align 8, !tbaa !16
+  %64 = add i32 %63, -1
+  store i32 %64, ptr %62, align 8, !tbaa !16
+  br label %65
+
+65:                                               ; preds = %61, %28
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3netplENS_8QuicTime5DeltaES1_(i64 %lhs.coerce0, i64 %lhs.coerce1, i64 %rhs.coerce0, i64 %rhs.coerce1) #0 comdat {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %lhs = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs = alloca %"class.net::QuicTime::Delta", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 1
-  store i64 %rhs.coerce1, ptr %3, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %lhs, i32 0, i32 1
-  %4 = load i64, ptr %time_offset_, align 8
-  %time_offset_1 = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %rhs, i32 0, i32 1
-  %5 = load i64, ptr %time_offset_1, align 8
-  %add = add nsw i64 %4, %5
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef %add)
-  %6 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %6
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3netplENS_8QuicTime5DeltaES1_(i64 %0, i64 %1, i64 %2, i64 %3) #1 comdat {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  store i64 %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  store i64 %3, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %6, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %7, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !25
+  %16 = add nsw i64 %13, %15
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16)
+  %17 = load { i64, i64 }, ptr %5, align 8
+  ret { i64, i64 } %17
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3netmlEdNS_8QuicTime5DeltaE(double noundef %lhs, i64 %rhs.coerce0, i64 %rhs.coerce1) #0 comdat {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs = alloca %"class.net::QuicTime::Delta", align 8
-  %lhs.addr = alloca double, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 1
-  store i64 %rhs.coerce1, ptr %1, align 8
-  store double %lhs, ptr %lhs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %rhs, i64 16, i1 false)
-  %2 = load double, ptr %lhs.addr, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  %call = call { i64, i64 } @_ZN3netmlENS_8QuicTime5DeltaEd(i64 %4, i64 %6, double noundef %2)
-  %7 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 0
-  %8 = extractvalue { i64, i64 } %call, 0
-  store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds { i64, i64 }, ptr %retval, i32 0, i32 1
-  %10 = extractvalue { i64, i64 } %call, 1
-  store i64 %10, ptr %9, align 8
-  %11 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %11
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 %new_sample.coerce0, i64 %new_sample.coerce1, i64 %new_time.coerce) #0 comdat align 2 {
-entry:
-  %new_sample = alloca %"class.net::QuicTime::Delta", align 8
-  %new_time = alloca %"class.net::QuicTime", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp2 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp = alloca %"struct.net::MinFilter", align 1
-  %agg.tmp7 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp8 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp9 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp15 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp17 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp18 = alloca %"class.net::QuicTime", align 8
-  %ref.tmp20 = alloca %"struct.net::MinFilter", align 1
-  %ref.tmp26 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
-  %agg.tmp27 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp28 = alloca %"class.net::QuicTime", align 8
-  %ref.tmp38 = alloca %"struct.net::MinFilter", align 1
-  %ref.tmp44 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
-  %agg.tmp45 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp46 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp53 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp54 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp55 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp62 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp76 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
-  %agg.tmp77 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp78 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp83 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp84 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp85 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp92 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp108 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp112 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp117 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp118 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp119 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp126 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp127 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp132 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
-  %agg.tmp133 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp134 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp143 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp147 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp153 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp154 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp155 = alloca %"class.net::QuicTime", align 8
-  %agg.tmp162 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp163 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp168 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
-  %agg.tmp169 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp170 = alloca %"class.net::QuicTime", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %new_sample, i32 0, i32 0
-  store i64 %new_sample.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %new_sample, i32 0, i32 1
-  store i64 %new_sample.coerce1, ptr %1, align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %new_time, i32 0, i32 0
-  store i64 %new_time.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %estimates_ = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_, i64 0, i64 0
-  %sample = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %sample, i64 16, i1 false)
-  %zero_value_ = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %zero_value_, i64 16, i1 false)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %9 = load i64, ptr %8, align 8
-  %call = call noundef zeroext i1 @_ZN3neteqENS_8QuicTime5DeltaES1_(i64 %3, i64 %5, i64 %7, i64 %9)
-  br i1 %call, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %estimates_3 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx4 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_3, i64 0, i64 0
-  %sample5 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx4, i32 0, i32 0
-  %call6 = call noundef zeroext i1 @_ZNK3net9MinFilterINS_8QuicTime5DeltaEEclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %new_sample, ptr noundef nonnull align 8 dereferenceable(16) %sample5)
-  br i1 %call6, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp8, ptr align 8 %new_time, i64 8, i1 false)
-  %estimates_10 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx11 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_10, i64 0, i64 2
-  %time = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx11, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp9, ptr align 8 %time, i64 8, i1 false)
-  %coerce.dive12 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp8, i32 0, i32 0
-  %10 = load i64, ptr %coerce.dive12, align 8
-  %coerce.dive13 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp9, i32 0, i32 0
-  %11 = load i64, ptr %coerce.dive13, align 8
-  %call14 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %10, i64 %11)
-  %12 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp7, i32 0, i32 0
-  %13 = extractvalue { i64, i64 } %call14, 0
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp7, i32 0, i32 1
-  %15 = extractvalue { i64, i64 } %call14, 1
-  store i64 %15, ptr %14, align 8
-  %window_length_ = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp15, ptr align 8 %window_length_, i64 16, i1 false)
-  %16 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp7, i32 0, i32 0
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp7, i32 0, i32 1
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp15, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp15, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  %call16 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %17, i64 %19, i64 %21, i64 %23)
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %entry
-  %24 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %call16, %lor.rhs ]
-  br i1 %24, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.end
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp17, ptr align 8 %new_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp18, ptr align 8 %new_time, i64 8, i1 false)
-  %25 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp17, i32 0, i32 0
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp17, i32 0, i32 1
-  %28 = load i64, ptr %27, align 8
-  %coerce.dive19 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp18, i32 0, i32 0
-  %29 = load i64, ptr %coerce.dive19, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E5ResetES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %this1, i64 %26, i64 %28, i64 %29)
-  br label %if.end175
-
-if.end:                                           ; preds = %lor.end
-  %estimates_21 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx22 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_21, i64 0, i64 1
-  %sample23 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx22, i32 0, i32 0
-  %call24 = call noundef zeroext i1 @_ZNK3net9MinFilterINS_8QuicTime5DeltaEEclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %new_sample, ptr noundef nonnull align 8 dereferenceable(16) %sample23)
-  br i1 %call24, label %if.then25, label %if.else
-
-if.then25:                                        ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp27, ptr align 8 %new_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp28, ptr align 8 %new_time, i64 8, i1 false)
-  %30 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp27, i32 0, i32 0
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp27, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  %coerce.dive29 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp28, i32 0, i32 0
-  %34 = load i64, ptr %coerce.dive29, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp26, i64 %31, i64 %33, i64 %34)
-  %estimates_30 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx31 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_30, i64 0, i64 1
-  %call32 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx31, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp26)
-  %estimates_33 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx34 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_33, i64 0, i64 1
-  %estimates_35 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx36 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_35, i64 0, i64 2
-  %call37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx36, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx34)
-  br label %if.end52
-
-if.else:                                          ; preds = %if.end
-  %estimates_39 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx40 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_39, i64 0, i64 2
-  %sample41 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx40, i32 0, i32 0
-  %call42 = call noundef zeroext i1 @_ZNK3net9MinFilterINS_8QuicTime5DeltaEEclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(16) %new_sample, ptr noundef nonnull align 8 dereferenceable(16) %sample41)
-  br i1 %call42, label %if.then43, label %if.end51
-
-if.then43:                                        ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp45, ptr align 8 %new_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp46, ptr align 8 %new_time, i64 8, i1 false)
-  %35 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp45, i32 0, i32 0
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp45, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
-  %coerce.dive47 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp46, i32 0, i32 0
-  %39 = load i64, ptr %coerce.dive47, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp44, i64 %36, i64 %38, i64 %39)
-  %estimates_48 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx49 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_48, i64 0, i64 2
-  %call50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx49, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp44)
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.then43, %if.else
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.end51, %if.then25
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp54, ptr align 8 %new_time, i64 8, i1 false)
-  %estimates_56 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx57 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_56, i64 0, i64 0
-  %time58 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx57, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp55, ptr align 8 %time58, i64 8, i1 false)
-  %coerce.dive59 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp54, i32 0, i32 0
-  %40 = load i64, ptr %coerce.dive59, align 8
-  %coerce.dive60 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp55, i32 0, i32 0
-  %41 = load i64, ptr %coerce.dive60, align 8
-  %call61 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %40, i64 %41)
-  %42 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp53, i32 0, i32 0
-  %43 = extractvalue { i64, i64 } %call61, 0
-  store i64 %43, ptr %42, align 8
-  %44 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp53, i32 0, i32 1
-  %45 = extractvalue { i64, i64 } %call61, 1
-  store i64 %45, ptr %44, align 8
-  %window_length_63 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp62, ptr align 8 %window_length_63, i64 16, i1 false)
-  %46 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp53, i32 0, i32 0
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp53, i32 0, i32 1
-  %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp62, i32 0, i32 0
-  %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp62, i32 0, i32 1
-  %53 = load i64, ptr %52, align 8
-  %call64 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %47, i64 %49, i64 %51, i64 %53)
-  br i1 %call64, label %if.then65, label %if.end107
-
-if.then65:                                        ; preds = %if.end52
-  %estimates_66 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx67 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_66, i64 0, i64 1
-  %estimates_68 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx69 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_68, i64 0, i64 0
-  %call70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx69, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx67)
-  %estimates_71 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx72 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_71, i64 0, i64 2
-  %estimates_73 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx74 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_73, i64 0, i64 1
-  %call75 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx74, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx72)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp77, ptr align 8 %new_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp78, ptr align 8 %new_time, i64 8, i1 false)
-  %54 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp77, i32 0, i32 0
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp77, i32 0, i32 1
-  %57 = load i64, ptr %56, align 8
-  %coerce.dive79 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp78, i32 0, i32 0
-  %58 = load i64, ptr %coerce.dive79, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp76, i64 %55, i64 %57, i64 %58)
-  %estimates_80 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx81 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_80, i64 0, i64 2
-  %call82 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx81, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp76)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp84, ptr align 8 %new_time, i64 8, i1 false)
-  %estimates_86 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx87 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_86, i64 0, i64 0
-  %time88 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx87, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp85, ptr align 8 %time88, i64 8, i1 false)
-  %coerce.dive89 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp84, i32 0, i32 0
-  %59 = load i64, ptr %coerce.dive89, align 8
-  %coerce.dive90 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp85, i32 0, i32 0
-  %60 = load i64, ptr %coerce.dive90, align 8
-  %call91 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %59, i64 %60)
-  %61 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp83, i32 0, i32 0
-  %62 = extractvalue { i64, i64 } %call91, 0
-  store i64 %62, ptr %61, align 8
-  %63 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp83, i32 0, i32 1
-  %64 = extractvalue { i64, i64 } %call91, 1
-  store i64 %64, ptr %63, align 8
-  %window_length_93 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp92, ptr align 8 %window_length_93, i64 16, i1 false)
-  %65 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp83, i32 0, i32 0
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp83, i32 0, i32 1
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp92, i32 0, i32 0
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp92, i32 0, i32 1
-  %72 = load i64, ptr %71, align 8
-  %call94 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %66, i64 %68, i64 %70, i64 %72)
-  br i1 %call94, label %if.then95, label %if.end106
-
-if.then95:                                        ; preds = %if.then65
-  %estimates_96 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx97 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_96, i64 0, i64 1
-  %estimates_98 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx99 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_98, i64 0, i64 0
-  %call100 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx99, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx97)
-  %estimates_101 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx102 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_101, i64 0, i64 2
-  %estimates_103 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx104 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_103, i64 0, i64 1
-  %call105 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx104, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx102)
-  br label %if.end106
-
-if.end106:                                        ; preds = %if.then95, %if.then65
-  br label %if.end175
-
-if.end107:                                        ; preds = %if.end52
-  %estimates_109 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx110 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_109, i64 0, i64 1
-  %sample111 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx110, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp108, ptr align 8 %sample111, i64 16, i1 false)
-  %estimates_113 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx114 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_113, i64 0, i64 0
-  %sample115 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx114, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp112, ptr align 8 %sample115, i64 16, i1 false)
-  %73 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp108, i32 0, i32 0
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp108, i32 0, i32 1
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp112, i32 0, i32 0
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp112, i32 0, i32 1
-  %80 = load i64, ptr %79, align 8
-  %call116 = call noundef zeroext i1 @_ZN3neteqENS_8QuicTime5DeltaES1_(i64 %74, i64 %76, i64 %78, i64 %80)
-  br i1 %call116, label %land.lhs.true, label %if.end142
-
-land.lhs.true:                                    ; preds = %if.end107
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp118, ptr align 8 %new_time, i64 8, i1 false)
-  %estimates_120 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx121 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_120, i64 0, i64 1
-  %time122 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx121, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp119, ptr align 8 %time122, i64 8, i1 false)
-  %coerce.dive123 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp118, i32 0, i32 0
-  %81 = load i64, ptr %coerce.dive123, align 8
-  %coerce.dive124 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp119, i32 0, i32 0
-  %82 = load i64, ptr %coerce.dive124, align 8
-  %call125 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %81, i64 %82)
-  %83 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp117, i32 0, i32 0
-  %84 = extractvalue { i64, i64 } %call125, 0
-  store i64 %84, ptr %83, align 8
-  %85 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp117, i32 0, i32 1
-  %86 = extractvalue { i64, i64 } %call125, 1
-  store i64 %86, ptr %85, align 8
-  %window_length_128 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp127, ptr align 8 %window_length_128, i64 16, i1 false)
-  %87 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp127, i32 0, i32 0
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp127, i32 0, i32 1
-  %90 = load i64, ptr %89, align 8
-  %call129 = call { i64, i64 } @_ZN3netrsENS_8QuicTime5DeltaEm(i64 %88, i64 %90, i64 noundef 2)
-  %91 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp126, i32 0, i32 0
-  %92 = extractvalue { i64, i64 } %call129, 0
-  store i64 %92, ptr %91, align 8
-  %93 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp126, i32 0, i32 1
-  %94 = extractvalue { i64, i64 } %call129, 1
-  store i64 %94, ptr %93, align 8
-  %95 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp117, i32 0, i32 0
-  %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp117, i32 0, i32 1
-  %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp126, i32 0, i32 0
-  %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp126, i32 0, i32 1
-  %102 = load i64, ptr %101, align 8
-  %call130 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %96, i64 %98, i64 %100, i64 %102)
-  br i1 %call130, label %if.then131, label %if.end142
-
-if.then131:                                       ; preds = %land.lhs.true
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp133, ptr align 8 %new_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp134, ptr align 8 %new_time, i64 8, i1 false)
-  %103 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp133, i32 0, i32 0
-  %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp133, i32 0, i32 1
-  %106 = load i64, ptr %105, align 8
-  %coerce.dive135 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp134, i32 0, i32 0
-  %107 = load i64, ptr %coerce.dive135, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp132, i64 %104, i64 %106, i64 %107)
-  %estimates_136 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx137 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_136, i64 0, i64 1
-  %call138 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx137, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp132)
-  %estimates_139 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx140 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_139, i64 0, i64 2
-  %call141 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx140, ptr noundef nonnull align 8 dereferenceable(24) %call138)
-  br label %if.end175
-
-if.end142:                                        ; preds = %land.lhs.true, %if.end107
-  %estimates_144 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx145 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_144, i64 0, i64 2
-  %sample146 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx145, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp143, ptr align 8 %sample146, i64 16, i1 false)
-  %estimates_148 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx149 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_148, i64 0, i64 1
-  %sample150 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx149, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp147, ptr align 8 %sample150, i64 16, i1 false)
-  %108 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp143, i32 0, i32 0
-  %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp143, i32 0, i32 1
-  %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp147, i32 0, i32 0
-  %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp147, i32 0, i32 1
-  %115 = load i64, ptr %114, align 8
-  %call151 = call noundef zeroext i1 @_ZN3neteqENS_8QuicTime5DeltaES1_(i64 %109, i64 %111, i64 %113, i64 %115)
-  br i1 %call151, label %land.lhs.true152, label %if.end175
-
-land.lhs.true152:                                 ; preds = %if.end142
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp154, ptr align 8 %new_time, i64 8, i1 false)
-  %estimates_156 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx157 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_156, i64 0, i64 2
-  %time158 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %arrayidx157, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp155, ptr align 8 %time158, i64 8, i1 false)
-  %coerce.dive159 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp154, i32 0, i32 0
-  %116 = load i64, ptr %coerce.dive159, align 8
-  %coerce.dive160 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp155, i32 0, i32 0
-  %117 = load i64, ptr %coerce.dive160, align 8
-  %call161 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %116, i64 %117)
-  %118 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp153, i32 0, i32 0
-  %119 = extractvalue { i64, i64 } %call161, 0
-  store i64 %119, ptr %118, align 8
-  %120 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp153, i32 0, i32 1
-  %121 = extractvalue { i64, i64 } %call161, 1
-  store i64 %121, ptr %120, align 8
-  %window_length_164 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp163, ptr align 8 %window_length_164, i64 16, i1 false)
-  %122 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp163, i32 0, i32 0
-  %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp163, i32 0, i32 1
-  %125 = load i64, ptr %124, align 8
-  %call165 = call { i64, i64 } @_ZN3netrsENS_8QuicTime5DeltaEm(i64 %123, i64 %125, i64 noundef 1)
-  %126 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp162, i32 0, i32 0
-  %127 = extractvalue { i64, i64 } %call165, 0
-  store i64 %127, ptr %126, align 8
-  %128 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp162, i32 0, i32 1
-  %129 = extractvalue { i64, i64 } %call165, 1
-  store i64 %129, ptr %128, align 8
-  %130 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp153, i32 0, i32 0
-  %131 = load i64, ptr %130, align 8
-  %132 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp153, i32 0, i32 1
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp162, i32 0, i32 0
-  %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp162, i32 0, i32 1
-  %137 = load i64, ptr %136, align 8
-  %call166 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %131, i64 %133, i64 %135, i64 %137)
-  br i1 %call166, label %if.then167, label %if.end175
-
-if.then167:                                       ; preds = %land.lhs.true152
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp169, ptr align 8 %new_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp170, ptr align 8 %new_time, i64 8, i1 false)
-  %138 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp169, i32 0, i32 0
-  %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp169, i32 0, i32 1
-  %141 = load i64, ptr %140, align 8
-  %coerce.dive171 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp170, i32 0, i32 0
-  %142 = load i64, ptr %coerce.dive171, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp168, i64 %139, i64 %141, i64 %142)
-  %estimates_172 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx173 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_172, i64 0, i64 2
-  %call174 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx173, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp168)
-  br label %if.end175
-
-if.end175:                                        ; preds = %if.then167, %land.lhs.true152, %if.end142, %if.then131, %if.end106, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E5ResetES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 %new_sample.coerce0, i64 %new_sample.coerce1, i64 %new_time.coerce) #0 comdat align 2 {
-entry:
-  %new_sample = alloca %"class.net::QuicTime::Delta", align 8
-  %new_time = alloca %"class.net::QuicTime", align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp2 = alloca %"class.net::QuicTime", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %new_sample, i32 0, i32 0
-  store i64 %new_sample.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %new_sample, i32 0, i32 1
-  store i64 %new_sample.coerce1, ptr %1, align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %new_time, i32 0, i32 0
-  store i64 %new_time.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %new_sample, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %new_time, i64 8, i1 false)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %coerce.dive3 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp2, i32 0, i32 0
-  %6 = load i64, ptr %coerce.dive3, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 %3, i64 %5, i64 %6)
-  %estimates_ = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_, i64 0, i64 2
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-  %estimates_4 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx5 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_4, i64 0, i64 1
-  %call6 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(24) %call)
-  %estimates_7 = getelementptr inbounds %"class.net::WindowedFilter", ptr %this1, i32 0, i32 2
-  %arrayidx8 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %estimates_7, i64 0, i64 0
-  %call9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx8, ptr noundef nonnull align 8 dereferenceable(24) %call6)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net8RttStats21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(224) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp3 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp6 = alloca %"class.net::QuicTime::Delta", align 8
-  %ref.tmp9 = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp13 = alloca %"class.net::QuicTime", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %1 = extractvalue { i64, i64 } %call, 0
-  store i64 %1, ptr %0, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %3 = extractvalue { i64, i64 } %call, 1
-  store i64 %3, ptr %2, align 8
-  %latest_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 0
-  %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %latest_rtt_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %call4 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %4 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp3, i32 0, i32 0
-  %5 = extractvalue { i64, i64 } %call4, 0
-  store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp3, i32 0, i32 1
-  %7 = extractvalue { i64, i64 } %call4, 1
-  store i64 %7, ptr %6, align 8
-  %min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 1
-  %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %min_rtt_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
-  %call7 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %8 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp6, i32 0, i32 0
-  %9 = extractvalue { i64, i64 } %call7, 0
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp6, i32 0, i32 1
-  %11 = extractvalue { i64, i64 } %call7, 1
-  store i64 %11, ptr %10, align 8
-  %smoothed_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 2
-  %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %smoothed_rtt_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
-  %call10 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %12 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp9, i32 0, i32 0
-  %13 = extractvalue { i64, i64 } %call10, 0
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp9, i32 0, i32 1
-  %15 = extractvalue { i64, i64 } %call10, 1
-  store i64 %15, ptr %14, align 8
-  %mean_deviation_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 4
-  %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %mean_deviation_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
-  %initial_rtt_us_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 5
-  store i64 100000, ptr %initial_rtt_us_, align 8
-  %num_samples_for_forced_min_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 8
-  store i32 0, ptr %num_samples_for_forced_min_, align 8
-  %windowed_min_rtt_ = getelementptr inbounds %"class.net::RttStats", ptr %this1, i32 0, i32 9
-  %call12 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
-  %16 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %17 = extractvalue { i64, i64 } %call12, 0
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3netmlEdNS_8QuicTime5DeltaE(double noundef %0, i64 %1, i64 %2) #1 comdat {
+  %4 = alloca %"class.net::QuicTime::Delta", align 8
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca double, align 8
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %9, align 8
+  store double %0, ptr %6, align 8, !tbaa !36
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  %10 = load double, ptr %6, align 8, !tbaa !36
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %15 = call { i64, i64 } @_ZN3netmlENS_8QuicTime5DeltaEd(i64 %12, i64 %14, double noundef %10)
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  %17 = extractvalue { i64, i64 } %15, 0
   store i64 %17, ptr %16, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %19 = extractvalue { i64, i64 } %call12, 1
+  %18 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  %19 = extractvalue { i64, i64 } %15, 1
   store i64 %19, ptr %18, align 8
-  %call14 = call i64 @_ZN3net8QuicTime4ZeroEv()
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp13, i32 0, i32 0
-  store i64 %call14, ptr %coerce.dive, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  %coerce.dive15 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp13, i32 0, i32 0
-  %24 = load i64, ptr %coerce.dive15, align 8
-  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E5ResetES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %windowed_min_rtt_, i64 %21, i64 %23, i64 %24)
+  %20 = load { i64, i64 }, ptr %4, align 8
+  ret { i64, i64 } %20
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 %1, i64 %2, i64 %3) #0 comdat align 2 {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.net::QuicTime::Delta", align 8
+  %9 = alloca %"class.net::QuicTime::Delta", align 8
+  %10 = alloca %"struct.net::MinFilter", align 1
+  %11 = alloca %"class.net::QuicTime::Delta", align 8
+  %12 = alloca %"class.net::QuicTime", align 8
+  %13 = alloca %"class.net::QuicTime", align 8
+  %14 = alloca %"class.net::QuicTime::Delta", align 8
+  %15 = alloca %"class.net::QuicTime::Delta", align 8
+  %16 = alloca %"class.net::QuicTime", align 8
+  %17 = alloca %"struct.net::MinFilter", align 1
+  %18 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
+  %19 = alloca %"class.net::QuicTime::Delta", align 8
+  %20 = alloca %"class.net::QuicTime", align 8
+  %21 = alloca %"struct.net::MinFilter", align 1
+  %22 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
+  %23 = alloca %"class.net::QuicTime::Delta", align 8
+  %24 = alloca %"class.net::QuicTime", align 8
+  %25 = alloca %"class.net::QuicTime::Delta", align 8
+  %26 = alloca %"class.net::QuicTime", align 8
+  %27 = alloca %"class.net::QuicTime", align 8
+  %28 = alloca %"class.net::QuicTime::Delta", align 8
+  %29 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
+  %30 = alloca %"class.net::QuicTime::Delta", align 8
+  %31 = alloca %"class.net::QuicTime", align 8
+  %32 = alloca %"class.net::QuicTime::Delta", align 8
+  %33 = alloca %"class.net::QuicTime", align 8
+  %34 = alloca %"class.net::QuicTime", align 8
+  %35 = alloca %"class.net::QuicTime::Delta", align 8
+  %36 = alloca %"class.net::QuicTime::Delta", align 8
+  %37 = alloca %"class.net::QuicTime::Delta", align 8
+  %38 = alloca %"class.net::QuicTime::Delta", align 8
+  %39 = alloca %"class.net::QuicTime", align 8
+  %40 = alloca %"class.net::QuicTime", align 8
+  %41 = alloca %"class.net::QuicTime::Delta", align 8
+  %42 = alloca %"class.net::QuicTime::Delta", align 8
+  %43 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
+  %44 = alloca %"class.net::QuicTime::Delta", align 8
+  %45 = alloca %"class.net::QuicTime", align 8
+  %46 = alloca %"class.net::QuicTime::Delta", align 8
+  %47 = alloca %"class.net::QuicTime::Delta", align 8
+  %48 = alloca %"class.net::QuicTime::Delta", align 8
+  %49 = alloca %"class.net::QuicTime", align 8
+  %50 = alloca %"class.net::QuicTime", align 8
+  %51 = alloca %"class.net::QuicTime::Delta", align 8
+  %52 = alloca %"class.net::QuicTime::Delta", align 8
+  %53 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
+  %54 = alloca %"class.net::QuicTime::Delta", align 8
+  %55 = alloca %"class.net::QuicTime", align 8
+  %56 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %1, ptr %56, align 8
+  %57 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %57, align 8
+  %58 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %6, i32 0, i32 0
+  store i64 %3, ptr %58, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !18
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %61 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %60, i64 0, i64 0
+  %62 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %61, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %62, i64 16, i1 false), !tbaa.struct !20
+  %63 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %63, i64 16, i1 false), !tbaa.struct !20
+  %64 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 1
+  %71 = load i64, ptr %70, align 8
+  %72 = call noundef zeroext i1 @_ZN3neteqENS_8QuicTime5DeltaES1_(i64 %65, i64 %67, i64 %69, i64 %71)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #9
+  br i1 %72, label %101, label %73
+
+73:                                               ; preds = %4
+  %74 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %75 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %74, i64 0, i64 0
+  %76 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %75, i32 0, i32 0
+  %77 = call noundef zeroext i1 @_ZNK3net9MinFilterINS_8QuicTime5DeltaEEclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  br i1 %77, label %101, label %78
+
+78:                                               ; preds = %73
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %79 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %80 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %79, i64 0, i64 2
+  %81 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %80, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %81, i64 8, i1 false), !tbaa.struct !21
+  %82 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %12, i32 0, i32 0
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %13, i32 0, i32 0
+  %85 = load i64, ptr %84, align 8
+  %86 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %83, i64 %85)
+  %87 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 0
+  %88 = extractvalue { i64, i64 } %86, 0
+  store i64 %88, ptr %87, align 8
+  %89 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 1
+  %90 = extractvalue { i64, i64 } %86, 1
+  store i64 %90, ptr %89, align 8
+  %91 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %91, i64 16, i1 false), !tbaa.struct !20
+  %92 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 0
+  %93 = load i64, ptr %92, align 8
+  %94 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 1
+  %95 = load i64, ptr %94, align 8
+  %96 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i32 0, i32 0
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %100 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %93, i64 %95, i64 %97, i64 %99)
+  br label %101
+
+101:                                              ; preds = %78, %73, %4
+  %102 = phi i1 [ true, %73 ], [ true, %4 ], [ %100, %78 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #9
+  br i1 %102, label %103, label %110
+
+103:                                              ; preds = %101
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %104 = getelementptr inbounds nuw { i64, i64 }, ptr %15, i32 0, i32 0
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds nuw { i64, i64 }, ptr %15, i32 0, i32 1
+  %107 = load i64, ptr %106, align 8
+  %108 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %16, i32 0, i32 0
+  %109 = load i64, ptr %108, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E5ResetES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %59, i64 %105, i64 %107, i64 %109)
+  br label %346
+
+110:                                              ; preds = %101
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #9
+  %111 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %112 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %111, i64 0, i64 1
+  %113 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %112, i32 0, i32 0
+  %114 = call noundef zeroext i1 @_ZNK3net9MinFilterINS_8QuicTime5DeltaEEclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %113)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #9
+  br i1 %114, label %115, label %130
+
+115:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %116 = getelementptr inbounds nuw { i64, i64 }, ptr %19, i32 0, i32 0
+  %117 = load i64, ptr %116, align 8
+  %118 = getelementptr inbounds nuw { i64, i64 }, ptr %19, i32 0, i32 1
+  %119 = load i64, ptr %118, align 8
+  %120 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %20, i32 0, i32 0
+  %121 = load i64, ptr %120, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 %117, i64 %119, i64 %121)
+  %122 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %123 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %122, i64 0, i64 1
+  %124 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #9
+  %125 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %126 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %125, i64 0, i64 1
+  %127 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %128 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %127, i64 0, i64 2
+  %129 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %126)
+  br label %146
+
+130:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #9
+  %131 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %132 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %131, i64 0, i64 2
+  %133 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %132, i32 0, i32 0
+  %134 = call noundef zeroext i1 @_ZNK3net9MinFilterINS_8QuicTime5DeltaEEclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %133)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #9
+  br i1 %134, label %135, label %145
+
+135:                                              ; preds = %130
+  call void @llvm.lifetime.start.p0(i64 24, ptr %22) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %136 = getelementptr inbounds nuw { i64, i64 }, ptr %23, i32 0, i32 0
+  %137 = load i64, ptr %136, align 8
+  %138 = getelementptr inbounds nuw { i64, i64 }, ptr %23, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8
+  %140 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %24, i32 0, i32 0
+  %141 = load i64, ptr %140, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 %137, i64 %139, i64 %141)
+  %142 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %143 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %142, i64 0, i64 2
+  %144 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(24) %22)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %22) #9
+  br label %145
+
+145:                                              ; preds = %135, %130
+  br label %146
+
+146:                                              ; preds = %145, %115
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %147 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %148 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %147, i64 0, i64 0
+  %149 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %148, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %149, i64 8, i1 false), !tbaa.struct !21
+  %150 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %26, i32 0, i32 0
+  %151 = load i64, ptr %150, align 8
+  %152 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %27, i32 0, i32 0
+  %153 = load i64, ptr %152, align 8
+  %154 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %151, i64 %153)
+  %155 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i32 0, i32 0
+  %156 = extractvalue { i64, i64 } %154, 0
+  store i64 %156, ptr %155, align 8
+  %157 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i32 0, i32 1
+  %158 = extractvalue { i64, i64 } %154, 1
+  store i64 %158, ptr %157, align 8
+  %159 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %159, i64 16, i1 false), !tbaa.struct !20
+  %160 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i32 0, i32 0
+  %161 = load i64, ptr %160, align 8
+  %162 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i32 0, i32 1
+  %163 = load i64, ptr %162, align 8
+  %164 = getelementptr inbounds nuw { i64, i64 }, ptr %28, i32 0, i32 0
+  %165 = load i64, ptr %164, align 8
+  %166 = getelementptr inbounds nuw { i64, i64 }, ptr %28, i32 0, i32 1
+  %167 = load i64, ptr %166, align 8
+  %168 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %161, i64 %163, i64 %165, i64 %167)
+  br i1 %168, label %169, label %223
+
+169:                                              ; preds = %146
+  %170 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %171 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %170, i64 0, i64 1
+  %172 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %173 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %172, i64 0, i64 0
+  %174 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull align 8 dereferenceable(24) %171)
+  %175 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %176 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %175, i64 0, i64 2
+  %177 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %178 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %177, i64 0, i64 1
+  %179 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %178, ptr noundef nonnull align 8 dereferenceable(24) %176)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %29) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %180 = getelementptr inbounds nuw { i64, i64 }, ptr %30, i32 0, i32 0
+  %181 = load i64, ptr %180, align 8
+  %182 = getelementptr inbounds nuw { i64, i64 }, ptr %30, i32 0, i32 1
+  %183 = load i64, ptr %182, align 8
+  %184 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %31, i32 0, i32 0
+  %185 = load i64, ptr %184, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 %181, i64 %183, i64 %185)
+  %186 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %187 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %186, i64 0, i64 2
+  %188 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull align 8 dereferenceable(24) %29)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %29) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %189 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %190 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %189, i64 0, i64 0
+  %191 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %190, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %191, i64 8, i1 false), !tbaa.struct !21
+  %192 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %33, i32 0, i32 0
+  %193 = load i64, ptr %192, align 8
+  %194 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %34, i32 0, i32 0
+  %195 = load i64, ptr %194, align 8
+  %196 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %193, i64 %195)
+  %197 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i32 0, i32 0
+  %198 = extractvalue { i64, i64 } %196, 0
+  store i64 %198, ptr %197, align 8
+  %199 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i32 0, i32 1
+  %200 = extractvalue { i64, i64 } %196, 1
+  store i64 %200, ptr %199, align 8
+  %201 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %201, i64 16, i1 false), !tbaa.struct !20
+  %202 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i32 0, i32 0
+  %203 = load i64, ptr %202, align 8
+  %204 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i32 0, i32 1
+  %205 = load i64, ptr %204, align 8
+  %206 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i32 0, i32 0
+  %207 = load i64, ptr %206, align 8
+  %208 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i32 0, i32 1
+  %209 = load i64, ptr %208, align 8
+  %210 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %203, i64 %205, i64 %207, i64 %209)
+  br i1 %210, label %211, label %222
+
+211:                                              ; preds = %169
+  %212 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %213 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %212, i64 0, i64 1
+  %214 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %215 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %214, i64 0, i64 0
+  %216 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr noundef nonnull align 8 dereferenceable(24) %213)
+  %217 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %218 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %217, i64 0, i64 2
+  %219 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %220 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %219, i64 0, i64 1
+  %221 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %220, ptr noundef nonnull align 8 dereferenceable(24) %218)
+  br label %222
+
+222:                                              ; preds = %211, %169
+  br label %346
+
+223:                                              ; preds = %146
+  %224 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %225 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %224, i64 0, i64 1
+  %226 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %225, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %226, i64 16, i1 false), !tbaa.struct !20
+  %227 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %228 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %227, i64 0, i64 0
+  %229 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %228, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %229, i64 16, i1 false), !tbaa.struct !20
+  %230 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i32 0, i32 0
+  %231 = load i64, ptr %230, align 8
+  %232 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i32 0, i32 1
+  %233 = load i64, ptr %232, align 8
+  %234 = getelementptr inbounds nuw { i64, i64 }, ptr %37, i32 0, i32 0
+  %235 = load i64, ptr %234, align 8
+  %236 = getelementptr inbounds nuw { i64, i64 }, ptr %37, i32 0, i32 1
+  %237 = load i64, ptr %236, align 8
+  %238 = call noundef zeroext i1 @_ZN3neteqENS_8QuicTime5DeltaES1_(i64 %231, i64 %233, i64 %235, i64 %237)
+  br i1 %238, label %239, label %271
+
+239:                                              ; preds = %223
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %240 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %241 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %240, i64 0, i64 1
+  %242 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %241, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %242, i64 8, i1 false), !tbaa.struct !21
+  %243 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %39, i32 0, i32 0
+  %244 = load i64, ptr %243, align 8
+  %245 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %40, i32 0, i32 0
+  %246 = load i64, ptr %245, align 8
+  %247 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %244, i64 %246)
+  %248 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 0
+  %249 = extractvalue { i64, i64 } %247, 0
+  store i64 %249, ptr %248, align 8
+  %250 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 1
+  %251 = extractvalue { i64, i64 } %247, 1
+  store i64 %251, ptr %250, align 8
+  %252 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %252, i64 16, i1 false), !tbaa.struct !20
+  %253 = getelementptr inbounds nuw { i64, i64 }, ptr %42, i32 0, i32 0
+  %254 = load i64, ptr %253, align 8
+  %255 = getelementptr inbounds nuw { i64, i64 }, ptr %42, i32 0, i32 1
+  %256 = load i64, ptr %255, align 8
+  %257 = call { i64, i64 } @_ZN3netrsENS_8QuicTime5DeltaEm(i64 %254, i64 %256, i64 noundef 2)
+  %258 = getelementptr inbounds nuw { i64, i64 }, ptr %41, i32 0, i32 0
+  %259 = extractvalue { i64, i64 } %257, 0
+  store i64 %259, ptr %258, align 8
+  %260 = getelementptr inbounds nuw { i64, i64 }, ptr %41, i32 0, i32 1
+  %261 = extractvalue { i64, i64 } %257, 1
+  store i64 %261, ptr %260, align 8
+  %262 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 0
+  %263 = load i64, ptr %262, align 8
+  %264 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 1
+  %265 = load i64, ptr %264, align 8
+  %266 = getelementptr inbounds nuw { i64, i64 }, ptr %41, i32 0, i32 0
+  %267 = load i64, ptr %266, align 8
+  %268 = getelementptr inbounds nuw { i64, i64 }, ptr %41, i32 0, i32 1
+  %269 = load i64, ptr %268, align 8
+  %270 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %263, i64 %265, i64 %267, i64 %269)
+  br label %271
+
+271:                                              ; preds = %239, %223
+  %272 = phi i1 [ false, %223 ], [ %270, %239 ]
+  br i1 %272, label %273, label %286
+
+273:                                              ; preds = %271
+  call void @llvm.lifetime.start.p0(i64 24, ptr %43) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %274 = getelementptr inbounds nuw { i64, i64 }, ptr %44, i32 0, i32 0
+  %275 = load i64, ptr %274, align 8
+  %276 = getelementptr inbounds nuw { i64, i64 }, ptr %44, i32 0, i32 1
+  %277 = load i64, ptr %276, align 8
+  %278 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %45, i32 0, i32 0
+  %279 = load i64, ptr %278, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 %275, i64 %277, i64 %279)
+  %280 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %281 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %280, i64 0, i64 1
+  %282 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull align 8 dereferenceable(24) %43)
+  %283 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %284 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %283, i64 0, i64 2
+  %285 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %284, ptr noundef nonnull align 8 dereferenceable(24) %282)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %43) #9
+  br label %346
+
+286:                                              ; preds = %271
+  %287 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %288 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %287, i64 0, i64 2
+  %289 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %288, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %289, i64 16, i1 false), !tbaa.struct !20
+  %290 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %291 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %290, i64 0, i64 1
+  %292 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %291, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %292, i64 16, i1 false), !tbaa.struct !20
+  %293 = getelementptr inbounds nuw { i64, i64 }, ptr %46, i32 0, i32 0
+  %294 = load i64, ptr %293, align 8
+  %295 = getelementptr inbounds nuw { i64, i64 }, ptr %46, i32 0, i32 1
+  %296 = load i64, ptr %295, align 8
+  %297 = getelementptr inbounds nuw { i64, i64 }, ptr %47, i32 0, i32 0
+  %298 = load i64, ptr %297, align 8
+  %299 = getelementptr inbounds nuw { i64, i64 }, ptr %47, i32 0, i32 1
+  %300 = load i64, ptr %299, align 8
+  %301 = call noundef zeroext i1 @_ZN3neteqENS_8QuicTime5DeltaES1_(i64 %294, i64 %296, i64 %298, i64 %300)
+  br i1 %301, label %302, label %334
+
+302:                                              ; preds = %286
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %303 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %304 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %303, i64 0, i64 2
+  %305 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %304, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %305, i64 8, i1 false), !tbaa.struct !21
+  %306 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %49, i32 0, i32 0
+  %307 = load i64, ptr %306, align 8
+  %308 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %50, i32 0, i32 0
+  %309 = load i64, ptr %308, align 8
+  %310 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %307, i64 %309)
+  %311 = getelementptr inbounds nuw { i64, i64 }, ptr %48, i32 0, i32 0
+  %312 = extractvalue { i64, i64 } %310, 0
+  store i64 %312, ptr %311, align 8
+  %313 = getelementptr inbounds nuw { i64, i64 }, ptr %48, i32 0, i32 1
+  %314 = extractvalue { i64, i64 } %310, 1
+  store i64 %314, ptr %313, align 8
+  %315 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %315, i64 16, i1 false), !tbaa.struct !20
+  %316 = getelementptr inbounds nuw { i64, i64 }, ptr %52, i32 0, i32 0
+  %317 = load i64, ptr %316, align 8
+  %318 = getelementptr inbounds nuw { i64, i64 }, ptr %52, i32 0, i32 1
+  %319 = load i64, ptr %318, align 8
+  %320 = call { i64, i64 } @_ZN3netrsENS_8QuicTime5DeltaEm(i64 %317, i64 %319, i64 noundef 1)
+  %321 = getelementptr inbounds nuw { i64, i64 }, ptr %51, i32 0, i32 0
+  %322 = extractvalue { i64, i64 } %320, 0
+  store i64 %322, ptr %321, align 8
+  %323 = getelementptr inbounds nuw { i64, i64 }, ptr %51, i32 0, i32 1
+  %324 = extractvalue { i64, i64 } %320, 1
+  store i64 %324, ptr %323, align 8
+  %325 = getelementptr inbounds nuw { i64, i64 }, ptr %48, i32 0, i32 0
+  %326 = load i64, ptr %325, align 8
+  %327 = getelementptr inbounds nuw { i64, i64 }, ptr %48, i32 0, i32 1
+  %328 = load i64, ptr %327, align 8
+  %329 = getelementptr inbounds nuw { i64, i64 }, ptr %51, i32 0, i32 0
+  %330 = load i64, ptr %329, align 8
+  %331 = getelementptr inbounds nuw { i64, i64 }, ptr %51, i32 0, i32 1
+  %332 = load i64, ptr %331, align 8
+  %333 = call noundef zeroext i1 @_ZN3netgtENS_8QuicTime5DeltaES1_(i64 %326, i64 %328, i64 %330, i64 %332)
+  br label %334
+
+334:                                              ; preds = %302, %286
+  %335 = phi i1 [ false, %286 ], [ %333, %302 ]
+  br i1 %335, label %336, label %346
+
+336:                                              ; preds = %334
+  call void @llvm.lifetime.start.p0(i64 24, ptr %53) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %337 = getelementptr inbounds nuw { i64, i64 }, ptr %54, i32 0, i32 0
+  %338 = load i64, ptr %337, align 8
+  %339 = getelementptr inbounds nuw { i64, i64 }, ptr %54, i32 0, i32 1
+  %340 = load i64, ptr %339, align 8
+  %341 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %55, i32 0, i32 0
+  %342 = load i64, ptr %341, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 %338, i64 %340, i64 %342)
+  %343 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %59, i32 0, i32 2
+  %344 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %343, i64 0, i64 2
+  %345 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %344, ptr noundef nonnull align 8 dereferenceable(24) %53)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %53) #9
+  br label %346
+
+346:                                              ; preds = %103, %222, %273, %336, %334
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %time_offset) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %time_offset.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %time_offset, ptr %time_offset.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %delta_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 0
-  call void @_ZN4base9TimeDeltaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delta_)
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %time_offset.addr, align 8
-  store i64 %0, ptr %time_offset_, align 8
+define linkonce_odr void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E5ResetES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 %1, i64 %2, i64 %3) #0 comdat align 2 {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", align 8
+  %9 = alloca %"class.net::QuicTime::Delta", align 8
+  %10 = alloca %"class.net::QuicTime", align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %1, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %6, i32 0, i32 0
+  store i64 %3, ptr %13, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !18
+  %14 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %10, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 %16, i64 %18, i64 %20)
+  %21 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %14, i32 0, i32 2
+  %22 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %21, i64 0, i64 2
+  %23 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %24 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %14, i32 0, i32 2
+  %25 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %24, i64 0, i64 1
+  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %23)
+  %27 = getelementptr inbounds nuw %"class.net::WindowedFilter", ptr %14, i32 0, i32 2
+  %28 = getelementptr inbounds [3 x %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample"], ptr %27, i64 0, i64 0
+  %29 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %26)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #9
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3net8RttStats21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(224) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.net::QuicTime::Delta", align 8
+  %4 = alloca %"class.net::QuicTime::Delta", align 8
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = alloca %"class.net::QuicTime", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %9 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #9
+  %10 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 0
+  %12 = extractvalue { i64, i64 } %10, 0
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 1
+  %14 = extractvalue { i64, i64 } %10, 1
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %"class.net::RttStats", ptr %9, i32 0, i32 0
+  %16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #9
+  %17 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %18 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  %19 = extractvalue { i64, i64 } %17, 0
+  store i64 %19, ptr %18, align 8
+  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  %21 = extractvalue { i64, i64 } %17, 1
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %"class.net::RttStats", ptr %9, i32 0, i32 1
+  %23 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #9
+  %24 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %25 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  %26 = extractvalue { i64, i64 } %24, 0
+  store i64 %26, ptr %25, align 8
+  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  %28 = extractvalue { i64, i64 } %24, 1
+  store i64 %28, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %"class.net::RttStats", ptr %9, i32 0, i32 2
+  %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #9
+  %31 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %32 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  %33 = extractvalue { i64, i64 } %31, 0
+  store i64 %33, ptr %32, align 8
+  %34 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  %35 = extractvalue { i64, i64 } %31, 1
+  store i64 %35, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %"class.net::RttStats", ptr %9, i32 0, i32 4
+  %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #9
+  %38 = getelementptr inbounds nuw %"class.net::RttStats", ptr %9, i32 0, i32 5
+  store i64 100000, ptr %38, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %"class.net::RttStats", ptr %9, i32 0, i32 8
+  store i32 0, ptr %39, align 8, !tbaa !16
+  %40 = getelementptr inbounds nuw %"class.net::RttStats", ptr %9, i32 0, i32 9
+  %41 = call { i64, i64 } @_ZN3net8QuicTime5Delta4ZeroEv()
+  %42 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %43 = extractvalue { i64, i64 } %41, 0
+  store i64 %43, ptr %42, align 8
+  %44 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %45 = extractvalue { i64, i64 } %41, 1
+  store i64 %45, ptr %44, align 8
+  %46 = call i64 @_ZN3net8QuicTime4ZeroEv()
+  %47 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %8, i32 0, i32 0
+  store i64 %46, ptr %47, align 8
+  %48 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %8, i32 0, i32 0
+  %53 = load i64, ptr %52, align 8
+  call void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E5ResetES2_S1_(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 %49, i64 %51, i64 %53)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %5, i32 0, i32 0
+  call void @_ZN4base9TimeDeltaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %7 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8, !tbaa !17
+  store i64 %8, ptr %7, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4base9TimeDeltaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %delta_ = getelementptr inbounds %"class.base::TimeDelta", ptr %this1, i32 0, i32 0
-  store i64 0, ptr %delta_, align 8
+define linkonce_odr void @_ZN4base9TimeDeltaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.base::TimeDelta", ptr %3, i32 0, i32 0
+  store i64 0, ptr %4, align 8, !tbaa !40
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3net8QuicTimeC2El(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !17
+  store i64 %7, ptr %6, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net8QuicTimeC2El(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %time) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %time.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %time, ptr %time.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %time_ = getelementptr inbounds %"class.net::QuicTime", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %time.addr, align 8
-  store i64 %0, ptr %time_, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base9TimeDeltaaSES0_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %other.coerce) #2 comdat align 2 {
-entry:
-  %other = alloca %"class.base::TimeDelta", align 8
-  %this.addr = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %"class.base::TimeDelta", ptr %other, i32 0, i32 0
-  store i64 %other.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %delta_ = getelementptr inbounds %"class.base::TimeDelta", ptr %other, i32 0, i32 0
-  %0 = load i64, ptr %delta_, align 8
-  %delta_2 = getelementptr inbounds %"class.base::TimeDelta", ptr %this1, i32 0, i32 0
-  store i64 %0, ptr %delta_2, align 8
-  ret ptr %this1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3netltENS_8QuicTime5DeltaES1_(i64 %lhs.coerce0, i64 %lhs.coerce1, i64 %rhs.coerce0, i64 %rhs.coerce1) #2 comdat {
-entry:
-  %lhs = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs = alloca %"class.net::QuicTime::Delta", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 1
-  store i64 %rhs.coerce1, ptr %3, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %lhs, i32 0, i32 1
-  %4 = load i64, ptr %time_offset_, align 8
-  %time_offset_1 = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %rhs, i32 0, i32 1
-  %5 = load i64, ptr %time_offset_1, align 8
-  %cmp = icmp slt i64 %4, %5
-  ret i1 %cmp
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN4base9TimeDeltaaSES0_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1) #6 comdat align 2 {
+  %3 = alloca %"class.base::TimeDelta", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %"class.base::TimeDelta", ptr %3, i32 0, i32 0
+  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.base::TimeDelta", ptr %3, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %9 = getelementptr inbounds nuw %"class.base::TimeDelta", ptr %6, i32 0, i32 0
+  store i64 %8, ptr %9, align 8, !tbaa !40
+  ret ptr %6
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #5
+declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3netmlENS_8QuicTime5DeltaEd(i64 %lhs.coerce0, i64 %lhs.coerce1, double noundef %rhs) #0 comdat {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %lhs = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs.addr = alloca double, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  store double %rhs, ptr %rhs.addr, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %lhs, i32 0, i32 1
-  %2 = load i64, ptr %time_offset_, align 8
-  %conv = sitofp i64 %2 to double
-  %3 = load double, ptr %rhs.addr, align 8
-  %mul = fmul double %conv, %3
-  %call = call i64 @llround(double noundef %mul) #6
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef %call)
-  %4 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3netltENS_8QuicTime5DeltaES1_(i64 %0, i64 %1, i64 %2, i64 %3) #4 comdat {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %5, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !25
+  %13 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %6, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8, !tbaa !25
+  %15 = icmp slt i64 %12, %14
+  ret i1 %15
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3netmlENS_8QuicTime5DeltaEd(i64 %0, i64 %1, double noundef %2) #1 comdat {
+  %4 = alloca %"class.net::QuicTime::Delta", align 8
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca double, align 8
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %8, align 8
+  store double %2, ptr %6, align 8, !tbaa !36
+  %9 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %5, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !25
+  %11 = sitofp i64 %10 to double
+  %12 = load double, ptr %6, align 8, !tbaa !36
+  %13 = fmul double %11, %12
+  %14 = call i64 @llround(double noundef %13) #9, !tbaa !22
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %14)
+  %15 = load { i64, i64 }, ptr %4, align 8
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: nounwind
-declare i64 @llround(double noundef) #4
+declare i64 @llround(double noundef) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %init_sample.coerce0, i64 %init_sample.coerce1, i64 %init_time.coerce) unnamed_addr #2 comdat align 2 {
-entry:
-  %init_sample = alloca %"class.net::QuicTime::Delta", align 8
-  %init_time = alloca %"class.net::QuicTime", align 8
-  %this.addr = alloca ptr, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %init_sample, i32 0, i32 0
-  store i64 %init_sample.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %init_sample, i32 0, i32 1
-  store i64 %init_sample.coerce1, ptr %1, align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %init_time, i32 0, i32 0
-  store i64 %init_time.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %sample = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %sample, ptr align 8 %init_sample, i64 16, i1 false)
-  %time = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %time, ptr align 8 %init_time, i64 8, i1 false)
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i32 %1, ptr %4, align 4, !tbaa !46
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !46
+  %8 = call noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %6, i32 noundef %7)
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %5, i32 noundef %8)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3neteqENS_8QuicTime5DeltaES1_(i64 %lhs.coerce0, i64 %lhs.coerce1, i64 %rhs.coerce0, i64 %rhs.coerce1) #2 comdat {
-entry:
-  %lhs = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs = alloca %"class.net::QuicTime::Delta", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce0, ptr %2, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %rhs, i32 0, i32 1
-  store i64 %rhs.coerce1, ptr %3, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %lhs, i32 0, i32 1
-  %4 = load i64, ptr %time_offset_, align 8
-  %time_offset_1 = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %rhs, i32 0, i32 1
-  %5 = load i64, ptr %time_offset_1, align 8
-  %cmp = icmp eq i64 %4, %5
-  ret i1 %cmp
-}
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3net9MinFilterINS_8QuicTime5DeltaEEclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 8 dereferenceable(16) %rhs) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp2 = alloca %"class.net::QuicTime::Delta", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %0, i64 16, i1 false)
-  %1 = load ptr, ptr %rhs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %1, i64 16, i1 false)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %9 = load i64, ptr %8, align 8
-  %call = call noundef zeroext i1 @_ZN3netleENS_8QuicTime5DeltaES1_(i64 %3, i64 %5, i64 %7, i64 %9)
-  ret i1 %call
+define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = call i64 @strlen(ptr noundef %3) #9
+  ret i64 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %lhs.coerce, i64 %rhs.coerce) #0 comdat {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %lhs = alloca %"class.net::QuicTime", align 8
-  %rhs = alloca %"class.net::QuicTime", align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.net::QuicTime", ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce, ptr %coerce.dive1, align 8
-  %time_ = getelementptr inbounds %"class.net::QuicTime", ptr %lhs, i32 0, i32 0
-  %0 = load i64, ptr %time_, align 8
-  %time_2 = getelementptr inbounds %"class.net::QuicTime", ptr %rhs, i32 0, i32 0
-  %1 = load i64, ptr %time_2, align 8
-  %sub = sub nsw i64 %0, %1
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef %sub)
-  %2 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %2
-}
+declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) #5
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %sample = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %sample2 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %sample, ptr noundef nonnull align 8 dereferenceable(16) %sample2)
-  %time = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %time3 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %2, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %time, ptr align 8 %time3, i64 8, i1 false)
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %0, i32 noundef %1) #4 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !46
+  store i32 %1, ptr %4, align 4, !tbaa !46
+  %5 = load i32, ptr %3, align 4, !tbaa !46
+  %6 = load i32, ptr %4, align 4, !tbaa !46
+  %7 = or i32 %5, %6
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %sample = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %sample2 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %sample, ptr noundef nonnull align 8 dereferenceable(16) %sample2)
-  %time = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %time3 = getelementptr inbounds %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %2, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %time, ptr align 8 %time3, i64 8, i1 false)
-  ret ptr %this1
+define available_externally noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::ios_base", ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 8, !tbaa !48
+  ret i32 %5
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleC2ES2_S1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #6 comdat align 2 {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime", align 8
+  %7 = alloca ptr, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %6, i32 0, i32 0
+  store i64 %3, ptr %10, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !56
+  %11 = load ptr, ptr %7, align 8
+  %12 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %11, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !20
+  %13 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %11, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !21
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #5
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3neteqENS_8QuicTime5DeltaES1_(i64 %0, i64 %1, i64 %2, i64 %3) #4 comdat {
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %5, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !25
+  %13 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %6, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8, !tbaa !25
+  %15 = icmp eq i64 %12, %14
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3netrsENS_8QuicTime5DeltaEm(i64 %lhs.coerce0, i64 %lhs.coerce1, i64 noundef %rhs) #0 comdat {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %lhs = alloca %"class.net::QuicTime::Delta", align 8
-  %rhs.addr = alloca i64, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %lhs, i32 0, i32 1
-  store i64 %lhs.coerce1, ptr %1, align 8
-  store i64 %rhs, ptr %rhs.addr, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %lhs, i32 0, i32 1
-  %2 = load i64, ptr %time_offset_, align 8
-  %3 = load i64, ptr %rhs.addr, align 8
-  %shr = ashr i64 %2, %3
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef %shr)
-  %4 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %4
+define linkonce_odr noundef zeroext i1 @_ZNK3net9MinFilterINS_8QuicTime5DeltaEEclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.net::QuicTime::Delta", align 8
+  %8 = alloca %"class.net::QuicTime::Delta", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !58
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %9 = load ptr, ptr %5, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !20
+  %10 = load ptr, ptr %6, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !20
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = call noundef zeroext i1 @_ZN3netleENS_8QuicTime5DeltaES1_(i64 %12, i64 %14, i64 %16, i64 %18)
+  ret i1 %19
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %0, i64 %1) #1 comdat {
+  %3 = alloca %"class.net::QuicTime::Delta", align 8
+  %4 = alloca %"class.net::QuicTime", align 8
+  %5 = alloca %"class.net::QuicTime", align 8
+  %6 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %4, i32 0, i32 0
+  store i64 %0, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  store i64 %1, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %4, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8, !tbaa !43
+  %10 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !43
+  %12 = sub nsw i64 %9, %11
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %12)
+  %13 = load { i64, i64 }, ptr %3, align 8
+  ret { i64, i64 } %13
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %7, i32 0, i32 0
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %10 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !56
+  %12 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %11, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %12, i64 8, i1 false), !tbaa.struct !21
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %7, i32 0, i32 0
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3net8QuicTime5DeltaaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %10 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !56
+  %12 = getelementptr inbounds nuw %"struct.net::WindowedFilter<net::QuicTime::Delta, net::MinFilter<net::QuicTime::Delta>, net::QuicTime, net::QuicTime::Delta>::Sample", ptr %11, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %12, i64 8, i1 false), !tbaa.struct !21
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3netrsENS_8QuicTime5DeltaEm(i64 %0, i64 %1, i64 noundef %2) #1 comdat {
+  %4 = alloca %"class.net::QuicTime::Delta", align 8
+  %5 = alloca %"class.net::QuicTime::Delta", align 8
+  %6 = alloca i64, align 8
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %1, ptr %8, align 8
+  store i64 %2, ptr %6, align 8, !tbaa !17
+  %9 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %5, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !25
+  %11 = load i64, ptr %6, align 8, !tbaa !17
+  %12 = ashr i64 %10, %11
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %12)
+  %13 = load { i64, i64 }, ptr %4, align 8
+  ret { i64, i64 } %13
+}
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3net8RttStatsE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !12, i64 80}
+!9 = !{!"_ZTSN3net8RttStatsE", !10, i64 0, !10, i64 16, !10, i64 32, !10, i64 48, !10, i64 64, !12, i64 80, !10, i64 88, !13, i64 104, !14, i64 112, !15, i64 120}
+!10 = !{!"_ZTSN3net8QuicTime5DeltaE", !11, i64 0, !12, i64 8}
+!11 = !{!"_ZTSN4base9TimeDeltaE", !12, i64 0}
+!12 = !{!"long", !6, i64 0}
+!13 = !{!"_ZTSN3net8QuicTimeE", !12, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!"_ZTSN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EE", !10, i64 0, !10, i64 16, !6, i64 32}
+!16 = !{!9, !14, i64 112}
+!17 = !{!12, !12, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EE", !5, i64 0}
+!20 = !{i64 0, i64 8, !17, i64 8, i64 8, !17}
+!21 = !{i64 0, i64 8, !17}
+!22 = !{!14, !14, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN3net8QuicTime5DeltaE", !5, i64 0}
+!25 = !{!10, !12, i64 8}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSN7logging17LogMessageVoidifyE", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSSo", !5, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 omnipotent char", !5, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"vtable pointer", !7, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN7logging10LogMessageE", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"double", !6, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSN4base9TimeDeltaE", !5, i64 0}
+!40 = !{!11, !12, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSN3net8QuicTimeE", !5, i64 0}
+!43 = !{!13, !12, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSSt9basic_iosIcSt11char_traitsIcEE", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!48 = !{!49, !47, i64 32}
+!49 = !{!"_ZTSSt8ios_base", !12, i64 8, !12, i64 16, !50, i64 24, !47, i64 28, !47, i64 32, !51, i64 40, !52, i64 48, !6, i64 64, !14, i64 192, !53, i64 200, !54, i64 208}
+!50 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!51 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
+!52 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !12, i64 8}
+!53 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
+!54 = !{!"_ZTSSt6locale", !55, i64 0}
+!55 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6SampleE", !5, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN3net9MinFilterINS_8QuicTime5DeltaEEE", !5, i64 0}

@@ -1,14 +1,14 @@
 ; ModuleID = 'bench/libquic/original/rsa_pss.ll'
 source_filename = "bench/libquic/original/rsa_pss.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 
 @RSA_PSS_PARAMS_seq_tt = internal constant [4 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 145, i64 0, i64 0, ptr @.str.14, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 145, i64 1, i64 8, ptr @.str.15, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 145, i64 2, i64 16, ptr @.str.16, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 145, i64 3, i64 24, ptr @.str.17, ptr @ASN1_INTEGER_it }], align 16
 @.str = private unnamed_addr constant [15 x i8] c"RSA_PSS_PARAMS\00", align 1
-@RSA_PSS_PARAMS_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @RSA_PSS_PARAMS_seq_tt, i64 4, ptr null, i64 32, ptr @.str }, align 8
+@RSA_PSS_PARAMS_it = hidden constant { i8, [7 x i8], i64, ptr, i64, ptr, i64, ptr } { i8 1, [7 x i8] zeroinitializer, i64 16, ptr @RSA_PSS_PARAMS_seq_tt, i64 4, ptr null, i64 32, ptr @.str }, align 8
 @.str.1 = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/rsa_pss.c\00", align 1
 @.str.2 = private unnamed_addr constant [27 x i8] c" (INVALID PSS PARAMETERS)\0A\00", align 1
 @.str.3 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
@@ -30,226 +30,232 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [13 x i8] c"trailerField\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_RSA_PSS_PARAMS(ptr noundef %a, ptr noundef %in, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ASN1_item_d2i(ptr noundef %a, ptr noundef %in, i64 noundef %len, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  ret ptr %call
+define hidden ptr @d2i_RSA_PSS_PARAMS(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @ASN1_item_d2i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  ret ptr %4
 }
 
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_RSA_PSS_PARAMS(ptr noundef %a, ptr noundef %out) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef %out, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  ret i32 %call
+define hidden i32 @i2d_RSA_PSS_PARAMS(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @ASN1_item_i2d(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  ret i32 %3
 }
 
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @RSA_PSS_PARAMS_new() local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ASN1_item_new(ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  ret ptr %call
+  %1 = tail call ptr @ASN1_item_new(ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  ret ptr %1
 }
 
 declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @RSA_PSS_PARAMS_free(ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  tail call void @ASN1_item_free(ptr noundef %a, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+define hidden void @RSA_PSS_PARAMS_free(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
   ret void
 }
 
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr noundef readonly captures(none) %ctx, ptr noundef %algor) local_unnamed_addr #0 {
-entry:
-  %stmp.i = alloca ptr, align 8
-  %sigmd = alloca ptr, align 8
-  %mgf1md = alloca ptr, align 8
-  %saltlen = alloca i32, align 4
-  %os = alloca ptr, align 8
-  %pctx = getelementptr inbounds nuw i8, ptr %ctx, i64 16
-  %0 = load ptr, ptr %pctx, align 8
-  %call = call i32 @EVP_PKEY_CTX_get_signature_md(ptr noundef %0, ptr noundef nonnull %sigmd) #3
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false
+define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !6
+  %10 = call i32 @EVP_PKEY_CTX_get_signature_md(ptr noundef %9, ptr noundef nonnull %4) #3
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %86, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %pctx, align 8
-  %call2 = call i32 @EVP_PKEY_CTX_get_rsa_mgf1_md(ptr noundef %1, ptr noundef nonnull %mgf1md) #3
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %return, label %lor.lhs.false4
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %8, align 8, !tbaa !6
+  %13 = call i32 @EVP_PKEY_CTX_get_rsa_mgf1_md(ptr noundef %12, ptr noundef nonnull %5) #3
+  %.not20 = icmp eq i32 %13, 0
+  br i1 %.not20, label %86, label %14
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %pctx, align 8
-  %call6 = call i32 @EVP_PKEY_CTX_get_rsa_pss_saltlen(ptr noundef %2, ptr noundef nonnull %saltlen) #3
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %return, label %if.end
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %8, align 8, !tbaa !6
+  %16 = call i32 @EVP_PKEY_CTX_get_rsa_pss_saltlen(ptr noundef %15, ptr noundef nonnull %6) #3
+  %.not21 = icmp eq i32 %16, 0
+  br i1 %.not21, label %86, label %17
 
-if.end:                                           ; preds = %lor.lhs.false4
-  %3 = load ptr, ptr %pctx, align 8
-  %call9 = call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %3) #3
-  %4 = load i32, ptr %saltlen, align 4
-  switch i32 %4, label %return [
-    i32 -1, label %if.then10
-    i32 -2, label %if.then14
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %8, align 8, !tbaa !6
+  %19 = call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %18) #3
+  %20 = load i32, ptr %6, align 4, !tbaa !14
+  switch i32 %20, label %86 [
+    i32 -1, label %21
+    i32 -2, label %25
   ]
 
-if.then10:                                        ; preds = %if.end
-  %5 = load ptr, ptr %sigmd, align 8
-  %call11 = call i64 @EVP_MD_size(ptr noundef %5) #3
-  %conv = trunc i64 %call11 to i32
-  br label %if.end28.sink.split
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %4, align 8, !tbaa !16
+  %23 = call i64 @EVP_MD_size(ptr noundef %22) #3
+  %24 = trunc i64 %23 to i32
+  br label %.sink.split
 
-if.then14:                                        ; preds = %if.end
-  %call15 = call i32 @EVP_PKEY_size(ptr noundef %call9) #3
-  %6 = load ptr, ptr %sigmd, align 8
-  %call17 = call i64 @EVP_MD_size(ptr noundef %6) #3
-  %7 = trunc i64 %call17 to i32
-  %8 = add i32 %call15, -2
-  %conv19 = sub i32 %8, %7
-  store i32 %conv19, ptr %saltlen, align 4
-  %call20 = call i32 @EVP_PKEY_bits(ptr noundef %call9) #3
-  %9 = and i32 %call20, 7
-  %cmp22 = icmp eq i32 %9, 1
-  br i1 %cmp22, label %if.then24, label %if.end28
+25:                                               ; preds = %17
+  %26 = call i32 @EVP_PKEY_size(ptr noundef %19) #3
+  %27 = load ptr, ptr %4, align 8, !tbaa !16
+  %28 = call i64 @EVP_MD_size(ptr noundef %27) #3
+  %29 = trunc i64 %28 to i32
+  %30 = add i32 %26, -2
+  %31 = sub i32 %30, %29
+  store i32 %31, ptr %6, align 4, !tbaa !14
+  %32 = call i32 @EVP_PKEY_bits(ptr noundef %19) #3
+  %33 = and i32 %32, 7
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %38
 
-if.then24:                                        ; preds = %if.then14
-  %10 = load i32, ptr %saltlen, align 4
-  %dec = add nsw i32 %10, -1
-  br label %if.end28.sink.split
+35:                                               ; preds = %25
+  %36 = load i32, ptr %6, align 4, !tbaa !14
+  %37 = add nsw i32 %36, -1
+  br label %.sink.split
 
-if.end28.sink.split:                              ; preds = %if.then10, %if.then24
-  %dec.sink = phi i32 [ %dec, %if.then24 ], [ %conv, %if.then10 ]
-  store i32 %dec.sink, ptr %saltlen, align 4
-  br label %if.end28
+.sink.split:                                      ; preds = %21, %35
+  %.sink = phi i32 [ %37, %35 ], [ %24, %21 ]
+  store i32 %.sink, ptr %6, align 4, !tbaa !14
+  br label %38
 
-if.end28:                                         ; preds = %if.end28.sink.split, %if.then14
-  store ptr null, ptr %os, align 8
-  %call.i = call ptr @ASN1_item_new(ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  %tobool30.not = icmp eq ptr %call.i, null
-  br i1 %tobool30.not, label %err, label %if.end32
+38:                                               ; preds = %.sink.split, %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  store ptr null, ptr %7, align 8, !tbaa !17
+  %39 = call ptr @ASN1_item_new(ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  %.not22 = icmp eq ptr %39, null
+  br i1 %.not22, label %rsa_md_to_algor.exit, label %40
 
-if.end32:                                         ; preds = %if.end28
-  %11 = load i32, ptr %saltlen, align 4
-  %cmp33.not = icmp eq i32 %11, 20
-  br i1 %cmp33.not, label %if.end46, label %if.then35
+40:                                               ; preds = %38
+  %41 = load i32, ptr %6, align 4, !tbaa !14
+  %.not23 = icmp eq i32 %41, 20
+  br i1 %.not23, label %49, label %42
 
-if.then35:                                        ; preds = %if.end32
-  %call36 = call ptr @ASN1_INTEGER_new() #3
-  %saltLength = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %call36, ptr %saltLength, align 8
-  %tobool38.not = icmp eq ptr %call36, null
-  br i1 %tobool38.not, label %err, label %lor.lhs.false39
+42:                                               ; preds = %40
+  %43 = call ptr @ASN1_INTEGER_new() #3
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store ptr %43, ptr %44, align 8, !tbaa !19
+  %.not24 = icmp eq ptr %43, null
+  br i1 %.not24, label %rsa_md_to_algor.exit, label %45
 
-lor.lhs.false39:                                  ; preds = %if.then35
-  %12 = load i32, ptr %saltlen, align 4
-  %conv41 = sext i32 %12 to i64
-  %call42 = call i32 @ASN1_INTEGER_set(ptr noundef nonnull %call36, i64 noundef %conv41) #3
-  %tobool43.not = icmp eq i32 %call42, 0
-  br i1 %tobool43.not, label %err, label %if.end46
+45:                                               ; preds = %42
+  %46 = load i32, ptr %6, align 4, !tbaa !14
+  %47 = sext i32 %46 to i64
+  %48 = call i32 @ASN1_INTEGER_set(ptr noundef nonnull %43, i64 noundef %47) #3
+  %.not25 = icmp eq i32 %48, 0
+  br i1 %.not25, label %rsa_md_to_algor.exit, label %49
 
-if.end46:                                         ; preds = %lor.lhs.false39, %if.end32
-  %13 = load ptr, ptr %sigmd, align 8
-  %call.i12 = call i32 @EVP_MD_type(ptr noundef %13) #3
-  %cmp.i = icmp eq i32 %call.i12, 64
-  br i1 %cmp.i, label %lor.lhs.false49, label %if.end.i
+49:                                               ; preds = %45, %40
+  %50 = load ptr, ptr %4, align 8, !tbaa !16
+  %51 = call i32 @EVP_MD_type(ptr noundef %50) #3
+  %52 = icmp eq i32 %51, 64
+  br i1 %52, label %57, label %53
 
-if.end.i:                                         ; preds = %if.end46
-  %call1.i = call ptr @X509_ALGOR_new() #3
-  store ptr %call1.i, ptr %call.i, align 8
-  %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %err, label %if.end4.i
+53:                                               ; preds = %49
+  %54 = call ptr @X509_ALGOR_new() #3
+  store ptr %54, ptr %39, align 8, !tbaa !22
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %rsa_md_to_algor.exit, label %56
 
-if.end4.i:                                        ; preds = %if.end.i
-  call void @X509_ALGOR_set_md(ptr noundef nonnull %call1.i, ptr noundef %13) #3
-  br label %lor.lhs.false49
+56:                                               ; preds = %53
+  call void @X509_ALGOR_set_md(ptr noundef nonnull %54, ptr noundef %50) #3
+  br label %57
 
-lor.lhs.false49:                                  ; preds = %if.end4.i, %if.end46
-  %maskGenAlgorithm = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  %14 = load ptr, ptr %mgf1md, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stmp.i)
-  store ptr null, ptr %stmp.i, align 8
-  store ptr null, ptr %maskGenAlgorithm, align 8
-  %call.i13 = call i32 @EVP_MD_type(ptr noundef %14) #3
-  %cmp.i14 = icmp eq i32 %call.i13, 64
-  br i1 %cmp.i14, label %rsa_md_to_mgf1.exit.thread, label %if.end.i15
+57:                                               ; preds = %56, %49
+  %58 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %59 = load ptr, ptr %5, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  store ptr null, ptr %3, align 8, !tbaa !17
+  store ptr null, ptr %58, align 8, !tbaa !22
+  %60 = call i32 @EVP_MD_type(ptr noundef %59) #3
+  %61 = icmp eq i32 %60, 64
+  br i1 %61, label %rsa_md_to_mgf1.exit.thread, label %62
 
-rsa_md_to_mgf1.exit.thread:                       ; preds = %lor.lhs.false49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stmp.i)
-  br label %if.end53
+rsa_md_to_mgf1.exit.thread:                       ; preds = %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  br label %79
 
-if.end.i15:                                       ; preds = %lor.lhs.false49
-  %call.i.i = call i32 @EVP_MD_type(ptr noundef %14) #3
-  %cmp.i.i = icmp eq i32 %call.i.i, 64
-  br i1 %cmp.i.i, label %lor.lhs.false.i, label %if.end.i.i
+62:                                               ; preds = %57
+  %63 = call i32 @EVP_MD_type(ptr noundef %59) #3
+  %64 = icmp eq i32 %63, 64
+  br i1 %64, label %69, label %65
 
-if.end.i.i:                                       ; preds = %if.end.i15
-  %call1.i.i = call ptr @X509_ALGOR_new() #3
-  %cmp2.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %cmp2.i.i, label %rsa_md_to_mgf1.exit, label %if.end4.i.i
+65:                                               ; preds = %62
+  %66 = call ptr @X509_ALGOR_new() #3
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %rsa_md_to_mgf1.exit, label %68
 
-if.end4.i.i:                                      ; preds = %if.end.i.i
-  call void @X509_ALGOR_set_md(ptr noundef nonnull %call1.i.i, ptr noundef %14) #3
-  br label %lor.lhs.false.i
+68:                                               ; preds = %65
+  call void @X509_ALGOR_set_md(ptr noundef nonnull %66, ptr noundef %59) #3
+  br label %69
 
-lor.lhs.false.i:                                  ; preds = %if.end4.i.i, %if.end.i15
-  %algtmp.0.ph.i = phi ptr [ %call1.i.i, %if.end4.i.i ], [ null, %if.end.i15 ]
-  %call2.i = call ptr @ASN1_item_pack(ptr noundef %algtmp.0.ph.i, ptr noundef nonnull @X509_ALGOR_it, ptr noundef nonnull %stmp.i) #3
-  %tobool3.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool3.not.i, label %rsa_md_to_mgf1.exit, label %if.end5.i
+69:                                               ; preds = %68, %62
+  %.012.ph.i = phi ptr [ %66, %68 ], [ null, %62 ]
+  %70 = call ptr @ASN1_item_pack(ptr noundef %.012.ph.i, ptr noundef nonnull @X509_ALGOR_it, ptr noundef nonnull %3) #3
+  %.not8.i = icmp eq ptr %70, null
+  br i1 %.not8.i, label %rsa_md_to_mgf1.exit, label %71
 
-if.end5.i:                                        ; preds = %lor.lhs.false.i
-  %call6.i = call ptr @X509_ALGOR_new() #3
-  store ptr %call6.i, ptr %maskGenAlgorithm, align 8
-  %tobool7.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool7.not.i, label %rsa_md_to_mgf1.exit, label %if.end9.i
+71:                                               ; preds = %69
+  %72 = call ptr @X509_ALGOR_new() #3
+  store ptr %72, ptr %58, align 8, !tbaa !22
+  %.not9.i = icmp eq ptr %72, null
+  br i1 %.not9.i, label %rsa_md_to_mgf1.exit, label %73
 
-if.end9.i:                                        ; preds = %if.end5.i
-  %call10.i = call ptr @OBJ_nid2obj(i32 noundef 911) #3
-  %15 = load ptr, ptr %stmp.i, align 8
-  %call11.i = call i32 @X509_ALGOR_set0(ptr noundef nonnull %call6.i, ptr noundef %call10.i, i32 noundef 16, ptr noundef %15) #3
-  store ptr null, ptr %stmp.i, align 8
+73:                                               ; preds = %71
+  %74 = call ptr @OBJ_nid2obj(i32 noundef 911) #3
+  %75 = load ptr, ptr %3, align 8, !tbaa !17
+  %76 = call i32 @X509_ALGOR_set0(ptr noundef nonnull %72, ptr noundef %74, i32 noundef 16, ptr noundef %75) #3
+  store ptr null, ptr %3, align 8, !tbaa !17
   br label %rsa_md_to_mgf1.exit
 
-rsa_md_to_mgf1.exit:                              ; preds = %if.end.i.i, %lor.lhs.false.i, %if.end5.i, %if.end9.i
-  %algtmp.011.i = phi ptr [ %algtmp.0.ph.i, %if.end5.i ], [ %algtmp.0.ph.i, %lor.lhs.false.i ], [ %algtmp.0.ph.i, %if.end9.i ], [ null, %if.end.i.i ]
-  %16 = load ptr, ptr %stmp.i, align 8
-  call void @ASN1_STRING_free(ptr noundef %16) #3
-  call void @X509_ALGOR_free(ptr noundef %algtmp.011.i) #3
-  %17 = load ptr, ptr %maskGenAlgorithm, align 8
-  %tobool12.not.i.not = icmp eq ptr %17, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stmp.i)
-  br i1 %tobool12.not.i.not, label %err, label %if.end53
+rsa_md_to_mgf1.exit:                              ; preds = %65, %69, %71, %73
+  %.01217.i = phi ptr [ %.012.ph.i, %71 ], [ %.012.ph.i, %69 ], [ %.012.ph.i, %73 ], [ null, %65 ]
+  %77 = load ptr, ptr %3, align 8, !tbaa !17
+  call void @ASN1_STRING_free(ptr noundef %77) #3
+  call void @X509_ALGOR_free(ptr noundef %.01217.i) #3
+  %78 = load ptr, ptr %58, align 8, !tbaa !22
+  %.not10.i.not = icmp eq ptr %78, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  br i1 %.not10.i.not, label %rsa_md_to_algor.exit, label %79
 
-if.end53:                                         ; preds = %rsa_md_to_mgf1.exit.thread, %rsa_md_to_mgf1.exit
-  %call54 = call ptr @ASN1_item_pack(ptr noundef nonnull %call.i, ptr noundef nonnull @RSA_PSS_PARAMS_it, ptr noundef nonnull %os) #3
-  %tobool55.not = icmp eq ptr %call54, null
-  br i1 %tobool55.not, label %err, label %if.end57
+79:                                               ; preds = %rsa_md_to_mgf1.exit.thread, %rsa_md_to_mgf1.exit
+  %80 = call ptr @ASN1_item_pack(ptr noundef nonnull %39, ptr noundef nonnull @RSA_PSS_PARAMS_it, ptr noundef nonnull %7) #3
+  %.not28 = icmp eq ptr %80, null
+  br i1 %.not28, label %rsa_md_to_algor.exit, label %81
 
-if.end57:                                         ; preds = %if.end53
-  %call58 = call ptr @OBJ_nid2obj(i32 noundef 912) #3
-  %18 = load ptr, ptr %os, align 8
-  %call59 = call i32 @X509_ALGOR_set0(ptr noundef %algor, ptr noundef %call58, i32 noundef 16, ptr noundef %18) #3
-  store ptr null, ptr %os, align 8
-  br label %err
+81:                                               ; preds = %79
+  %82 = call ptr @OBJ_nid2obj(i32 noundef 912) #3
+  %83 = load ptr, ptr %7, align 8, !tbaa !17
+  %84 = call i32 @X509_ALGOR_set0(ptr noundef %1, ptr noundef %82, i32 noundef 16, ptr noundef %83) #3
+  store ptr null, ptr %7, align 8, !tbaa !17
+  br label %rsa_md_to_algor.exit
 
-err:                                              ; preds = %if.end.i, %if.end53, %rsa_md_to_mgf1.exit, %if.then35, %lor.lhs.false39, %if.end28, %if.end57
-  %ret.0 = phi i32 [ 1, %if.end57 ], [ 0, %if.end53 ], [ 0, %rsa_md_to_mgf1.exit ], [ 0, %lor.lhs.false39 ], [ 0, %if.then35 ], [ 0, %if.end28 ], [ 0, %if.end.i ]
-  call void @ASN1_item_free(ptr noundef %call.i, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  %19 = load ptr, ptr %os, align 8
-  call void @ASN1_STRING_free(ptr noundef %19) #3
-  br label %return
+rsa_md_to_algor.exit:                             ; preds = %53, %79, %rsa_md_to_mgf1.exit, %42, %45, %38, %81
+  %.016 = phi i32 [ 1, %81 ], [ 0, %79 ], [ 0, %rsa_md_to_mgf1.exit ], [ 0, %45 ], [ 0, %42 ], [ 0, %38 ], [ 0, %53 ]
+  call void @ASN1_item_free(ptr noundef %39, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  %85 = load ptr, ptr %7, align 8, !tbaa !17
+  call void @ASN1_STRING_free(ptr noundef %85) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  br label %86
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %lor.lhs.false4, %err
-  %retval.0 = phi i32 [ %ret.0, %err ], [ 0, %lor.lhs.false4 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ]
-  ret i32 %retval.0
+86:                                               ; preds = %rsa_md_to_algor.exit, %17, %2, %11, %14
+  %.0 = phi i32 [ 0, %14 ], [ 0, %11 ], [ 0, %2 ], [ %.016, %rsa_md_to_algor.exit ], [ 0, %17 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @EVP_PKEY_CTX_get_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -277,207 +283,211 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %ctx, ptr noundef readonly captures(none) %sigalg, ptr noundef %pkey) local_unnamed_addr #0 {
-entry:
-  %p.i.i = alloca ptr, align 8
-  %p.i = alloca ptr, align 8
-  %pkctx = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
-  %parameter.i = getelementptr inbounds nuw i8, ptr %sigalg, i64 8
-  %0 = load ptr, ptr %parameter.i, align 8
-  %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %if.then, label %lor.lhs.false.i
+define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = icmp eq ptr %.val, null
+  br i1 %8, label %rsa_pss_decode.exit.thread, label %9
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %1 = load i32, ptr %0, align 8
-  %cmp2.not.i = icmp eq i32 %1, 16
-  br i1 %cmp2.not.i, label %if.end.i, label %if.then
+9:                                                ; preds = %3
+  %10 = load i32, ptr %.val, align 8, !tbaa !27
+  %.not.i = icmp eq i32 %10, 16
+  br i1 %.not.i, label %11, label %rsa_pss_decode.exit.thread
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %value.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2 = load ptr, ptr %value.i, align 8
-  %data.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load ptr, ptr %data.i, align 8
-  store ptr %3, ptr %p.i, align 8
-  %4 = load i32, ptr %2, align 8
-  %conv.i = sext i32 %4 to i64
-  %call.i.i = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %p.i, i64 noundef %conv.i, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  %cmp6.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp6.i, label %if.then, label %if.end9.i
+11:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  store ptr %15, ptr %5, align 8, !tbaa !34
+  %16 = load i32, ptr %13, align 8, !tbaa !35
+  %17 = sext i32 %16 to i64
+  %18 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %5, i64 noundef %17, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %rsa_pss_decode.exit, label %20
 
-if.end9.i:                                        ; preds = %if.end.i
-  %maskGenAlgorithm.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  %5 = load ptr, ptr %maskGenAlgorithm.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i.i)
-  %cmp.i.i = icmp eq ptr %5, null
-  br i1 %cmp.i.i, label %if.end.thread, label %lor.lhs.false.i.i
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %.thread, label %24
 
-if.end.thread:                                    ; preds = %if.end9.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  br label %if.then.i
+.thread:                                          ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  br label %43
 
-lor.lhs.false.i.i:                                ; preds = %if.end9.i
-  %parameter.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %6 = load ptr, ptr %parameter.i.i, align 8
-  %cmp1.i.i = icmp eq ptr %6, null
-  br i1 %cmp1.i.i, label %if.end, label %lor.lhs.false2.i.i
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !23
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %42, label %28
 
-lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
-  %7 = load ptr, ptr %5, align 8
-  %call.i7.i = call i32 @OBJ_obj2nid(ptr noundef %7) #3
-  %cmp3.not.i.i = icmp eq i32 %call.i7.i, 911
-  br i1 %cmp3.not.i.i, label %lor.lhs.false4.i.i, label %if.end
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %22, align 8, !tbaa !37
+  %30 = call i32 @OBJ_obj2nid(ptr noundef %29) #3
+  %.not.i.i = icmp eq i32 %30, 911
+  br i1 %.not.i.i, label %31, label %42
 
-lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false2.i.i
-  %8 = load ptr, ptr %parameter.i.i, align 8
-  %9 = load i32, ptr %8, align 8
-  %cmp6.not.i.i = icmp eq i32 %9, 16
-  br i1 %cmp6.not.i.i, label %if.end.i.i, label %if.end
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %25, align 8, !tbaa !23
+  %33 = load i32, ptr %32, align 8, !tbaa !27
+  %.not8.i.i = icmp eq i32 %33, 16
+  br i1 %.not8.i.i, label %34, label %42
 
-if.end.i.i:                                       ; preds = %lor.lhs.false4.i.i
-  %value.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %value.i.i, align 8
-  %data.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %11 = load ptr, ptr %data.i.i, align 8
-  store ptr %11, ptr %p.i.i, align 8
-  %12 = load i32, ptr %10, align 8
-  %conv.i.i = sext i32 %12 to i64
-  %call10.i.i = call ptr @d2i_X509_ALGOR(ptr noundef null, ptr noundef nonnull %p.i.i, i64 noundef %conv.i.i) #3
-  br label %if.end
+34:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !30
+  store ptr %38, ptr %4, align 8, !tbaa !34
+  %39 = load i32, ptr %36, align 8, !tbaa !35
+  %40 = sext i32 %39 to i64
+  %41 = call ptr @d2i_X509_ALGOR(ptr noundef null, ptr noundef nonnull %4, i64 noundef %40) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  br label %42
 
-if.then:                                          ; preds = %lor.lhs.false.i, %entry, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
+rsa_pss_decode.exit:                              ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  br label %rsa_pss_decode.exit.thread
+
+rsa_pss_decode.exit.thread:                       ; preds = %3, %9, %rsa_pss_decode.exit
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str.1, i32 noundef 253) #3
-  br label %err
+  br label %90
 
-if.end:                                           ; preds = %if.end.i.i, %lor.lhs.false4.i.i, %lor.lhs.false2.i.i, %lor.lhs.false.i.i
-  %retval.0.i.i.ph = phi ptr [ null, %lor.lhs.false.i.i ], [ null, %lor.lhs.false2.i.i ], [ null, %lor.lhs.false4.i.i ], [ %call10.i.i, %if.end.i.i ]
-  %.pr = load ptr, ptr %maskGenAlgorithm.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %tobool.not.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i12
+42:                                               ; preds = %34, %31, %28, %24
+  %.036.ph.ph = phi ptr [ %41, %34 ], [ null, %31 ], [ null, %28 ], [ null, %24 ]
+  %.pr = load ptr, ptr %21, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  %.not.i31 = icmp eq ptr %.pr, null
+  br i1 %.not.i31, label %43, label %45
 
-if.then.i:                                        ; preds = %if.end.thread, %if.end
-  %retval.0.i.i37 = phi ptr [ null, %if.end.thread ], [ %retval.0.i.i.ph, %if.end ]
-  %call.i = call ptr @EVP_sha1() #3
+43:                                               ; preds = %.thread, %42
+  %.036.ph52 = phi ptr [ null, %.thread ], [ %.036.ph.ph, %42 ]
+  %44 = call ptr @EVP_sha1() #3
   br label %rsa_mgf1_to_md.exit
 
-if.end.i12:                                       ; preds = %if.end
-  %13 = load ptr, ptr %.pr, align 8
-  %call1.i = call i32 @OBJ_obj2nid(ptr noundef %13) #3
-  %cmp.i13 = icmp ne i32 %call1.i, 911
-  %cmp2.i = icmp eq ptr %retval.0.i.i.ph, null
-  %or.cond.i = or i1 %cmp2.i, %cmp.i13
-  br i1 %or.cond.i, label %if.then3.i, label %if.end4.i
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %.pr, align 8, !tbaa !37
+  %47 = call i32 @OBJ_obj2nid(ptr noundef %46) #3
+  %48 = icmp ne i32 %47, 911
+  %49 = icmp eq ptr %.036.ph.ph, null
+  %or.cond.i = or i1 %49, %48
+  br i1 %or.cond.i, label %50, label %51
 
-if.then3.i:                                       ; preds = %if.end.i12
+50:                                               ; preds = %45
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str.1, i32 noundef 178) #3
   br label %rsa_mgf1_to_md.exit
 
-if.end4.i:                                        ; preds = %if.end.i12
-  %14 = load ptr, ptr %retval.0.i.i.ph, align 8
-  %call6.i = call ptr @EVP_get_digestbyobj(ptr noundef %14) #3
-  %cmp7.i = icmp eq ptr %call6.i, null
-  br i1 %cmp7.i, label %if.then8.i, label %rsa_mgf1_to_md.exit
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %.036.ph.ph, align 8, !tbaa !37
+  %53 = call ptr @EVP_get_digestbyobj(ptr noundef %52) #3
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %rsa_mgf1_to_md.exit
 
-if.then8.i:                                       ; preds = %if.end4.i
+55:                                               ; preds = %51
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str.1, i32 noundef 183) #3
   br label %rsa_mgf1_to_md.exit
 
-rsa_mgf1_to_md.exit:                              ; preds = %if.then.i, %if.then3.i, %if.end4.i, %if.then8.i
-  %retval.0.i.i36 = phi ptr [ %retval.0.i.i.ph, %if.then3.i ], [ %retval.0.i.i.ph, %if.then8.i ], [ %retval.0.i.i37, %if.then.i ], [ %retval.0.i.i.ph, %if.end4.i ]
-  %retval.0.i14 = phi ptr [ null, %if.then3.i ], [ null, %if.then8.i ], [ %call.i, %if.then.i ], [ %call6.i, %if.end4.i ]
-  %15 = load ptr, ptr %call.i.i, align 8
-  %tobool.not.i15 = icmp eq ptr %15, null
-  br i1 %tobool.not.i15, label %if.then.i20, label %if.end.i16
+rsa_mgf1_to_md.exit:                              ; preds = %43, %50, %51, %55
+  %.036.ph51 = phi ptr [ %.036.ph.ph, %50 ], [ %.036.ph.ph, %55 ], [ %.036.ph52, %43 ], [ %.036.ph.ph, %51 ]
+  %.0.i32 = phi ptr [ null, %50 ], [ null, %55 ], [ %44, %43 ], [ %53, %51 ]
+  %56 = load ptr, ptr %18, align 8, !tbaa !38
+  %.not.i33 = icmp eq ptr %56, null
+  br i1 %.not.i33, label %57, label %59
 
-if.then.i20:                                      ; preds = %rsa_mgf1_to_md.exit
-  %call.i21 = call ptr @EVP_sha1() #3
+57:                                               ; preds = %rsa_mgf1_to_md.exit
+  %58 = call ptr @EVP_sha1() #3
   br label %rsa_algor_to_md.exit
 
-if.end.i16:                                       ; preds = %rsa_mgf1_to_md.exit
-  %16 = load ptr, ptr %15, align 8
-  %call1.i17 = call ptr @EVP_get_digestbyobj(ptr noundef %16) #3
-  %cmp.i18 = icmp eq ptr %call1.i17, null
-  br i1 %cmp.i18, label %rsa_algor_to_md.exit.thread, label %rsa_algor_to_md.exit
+59:                                               ; preds = %rsa_mgf1_to_md.exit
+  %60 = load ptr, ptr %56, align 8, !tbaa !37
+  %61 = call ptr @EVP_get_digestbyobj(ptr noundef %60) #3
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %rsa_algor_to_md.exit.thread, label %rsa_algor_to_md.exit
 
-rsa_algor_to_md.exit.thread:                      ; preds = %if.end.i16
+rsa_algor_to_md.exit.thread:                      ; preds = %59
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str.1, i32 noundef 164) #3
-  br label %err
+  br label %90
 
-rsa_algor_to_md.exit:                             ; preds = %if.then.i20, %if.end.i16
-  %retval.0.i19 = phi ptr [ %call.i21, %if.then.i20 ], [ %call1.i17, %if.end.i16 ]
-  %cmp3 = icmp eq ptr %retval.0.i14, null
-  %cmp4 = icmp eq ptr %retval.0.i19, null
-  %or.cond = select i1 %cmp3, i1 true, i1 %cmp4
-  br i1 %or.cond, label %err, label %if.end6
+rsa_algor_to_md.exit:                             ; preds = %57, %59
+  %.0.i34 = phi ptr [ %58, %57 ], [ %61, %59 ]
+  %63 = icmp eq ptr %.0.i32, null
+  %64 = icmp eq ptr %.0.i34, null
+  %or.cond = select i1 %63, i1 true, i1 %64
+  br i1 %or.cond, label %90, label %65
 
-if.end6:                                          ; preds = %rsa_algor_to_md.exit
-  %saltLength = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  %17 = load ptr, ptr %saltLength, align 8
-  %cmp7.not = icmp eq ptr %17, null
-  br i1 %cmp7.not, label %if.end15, label %if.then8
+65:                                               ; preds = %rsa_algor_to_md.exit
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !19
+  %.not = icmp eq ptr %67, null
+  br i1 %.not, label %73, label %68
 
-if.then8:                                         ; preds = %if.end6
-  %call10 = call i64 @ASN1_INTEGER_get(ptr noundef nonnull %17) #3
-  %conv = trunc i64 %call10 to i32
-  %cmp11 = icmp slt i32 %conv, 0
-  br i1 %cmp11, label %if.then13, label %if.end15
+68:                                               ; preds = %65
+  %69 = call i64 @ASN1_INTEGER_get(ptr noundef nonnull %67) #3
+  %70 = trunc i64 %69 to i32
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %72, label %73
 
-if.then13:                                        ; preds = %if.then8
+72:                                               ; preds = %68
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str.1, i32 noundef 270) #3
-  br label %err
+  br label %90
 
-if.end15:                                         ; preds = %if.then8, %if.end6
-  %saltlen.0 = phi i32 [ %conv, %if.then8 ], [ 20, %if.end6 ]
-  %trailerField = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  %18 = load ptr, ptr %trailerField, align 8
-  %cmp16.not = icmp eq ptr %18, null
-  br i1 %cmp16.not, label %if.end23, label %land.lhs.true
+73:                                               ; preds = %68, %65
+  %.0 = phi i32 [ %70, %68 ], [ 20, %65 ]
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !39
+  %.not25 = icmp eq ptr %75, null
+  br i1 %.not25, label %79, label %76
 
-land.lhs.true:                                    ; preds = %if.end15
-  %call19 = call i64 @ASN1_INTEGER_get(ptr noundef nonnull %18) #3
-  %cmp20.not = icmp eq i64 %call19, 1
-  br i1 %cmp20.not, label %if.end23, label %if.then22
+76:                                               ; preds = %73
+  %77 = call i64 @ASN1_INTEGER_get(ptr noundef nonnull %75) #3
+  %.not26 = icmp eq i64 %77, 1
+  br i1 %.not26, label %79, label %78
 
-if.then22:                                        ; preds = %land.lhs.true
+78:                                               ; preds = %76
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str.1, i32 noundef 278) #3
-  br label %err
+  br label %90
 
-if.end23:                                         ; preds = %land.lhs.true, %if.end15
-  %call24 = call i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef nonnull %pkctx, ptr noundef nonnull %retval.0.i19, ptr noundef null, ptr noundef %pkey) #3
-  %tobool.not = icmp eq i32 %call24, 0
-  br i1 %tobool.not, label %err, label %lor.lhs.false25
+79:                                               ; preds = %76, %73
+  %80 = call i32 @EVP_DigestVerifyInit(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %.0.i34, ptr noundef null, ptr noundef %2) #3
+  %.not27 = icmp eq i32 %80, 0
+  br i1 %.not27, label %90, label %81
 
-lor.lhs.false25:                                  ; preds = %if.end23
-  %19 = load ptr, ptr %pkctx, align 8
-  %call26 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %19, i32 noundef 6) #3
-  %tobool27.not = icmp eq i32 %call26, 0
-  br i1 %tobool27.not, label %err, label %lor.lhs.false28
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %6, align 8, !tbaa !40
+  %83 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %82, i32 noundef 6) #3
+  %.not28 = icmp eq i32 %83, 0
+  br i1 %.not28, label %90, label %84
 
-lor.lhs.false28:                                  ; preds = %lor.lhs.false25
-  %20 = load ptr, ptr %pkctx, align 8
-  %call29 = call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %20, i32 noundef %saltlen.0) #3
-  %tobool30.not = icmp eq i32 %call29, 0
-  br i1 %tobool30.not, label %err, label %lor.lhs.false31
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %6, align 8, !tbaa !40
+  %86 = call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %85, i32 noundef %.0) #3
+  %.not29 = icmp eq i32 %86, 0
+  br i1 %.not29, label %90, label %87
 
-lor.lhs.false31:                                  ; preds = %lor.lhs.false28
-  %21 = load ptr, ptr %pkctx, align 8
-  %call32 = call i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %21, ptr noundef nonnull %retval.0.i14) #3
-  %tobool33.not = icmp ne i32 %call32, 0
-  %spec.select = zext i1 %tobool33.not to i32
-  br label %err
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %6, align 8, !tbaa !40
+  %89 = call i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %88, ptr noundef nonnull %.0.i32) #3
+  %.not30 = icmp ne i32 %89, 0
+  %spec.select = zext i1 %.not30 to i32
+  br label %90
 
-err:                                              ; preds = %rsa_algor_to_md.exit.thread, %lor.lhs.false31, %if.end23, %lor.lhs.false25, %lor.lhs.false28, %rsa_algor_to_md.exit, %if.then22, %if.then13, %if.then
-  %retval.0.i28 = phi ptr [ null, %if.then ], [ %call.i.i, %rsa_algor_to_md.exit ], [ %call.i.i, %if.then13 ], [ %call.i.i, %if.then22 ], [ %call.i.i, %lor.lhs.false28 ], [ %call.i.i, %lor.lhs.false25 ], [ %call.i.i, %if.end23 ], [ %call.i.i, %lor.lhs.false31 ], [ %call.i.i, %rsa_algor_to_md.exit.thread ]
-  %maskHash.026 = phi ptr [ null, %if.then ], [ %retval.0.i.i36, %rsa_algor_to_md.exit ], [ %retval.0.i.i36, %if.then13 ], [ %retval.0.i.i36, %if.then22 ], [ %retval.0.i.i36, %lor.lhs.false28 ], [ %retval.0.i.i36, %lor.lhs.false25 ], [ %retval.0.i.i36, %if.end23 ], [ %retval.0.i.i36, %lor.lhs.false31 ], [ %retval.0.i.i36, %rsa_algor_to_md.exit.thread ]
-  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %rsa_algor_to_md.exit ], [ 0, %if.then13 ], [ 0, %if.then22 ], [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false25 ], [ 0, %if.end23 ], [ %spec.select, %lor.lhs.false31 ], [ 0, %rsa_algor_to_md.exit.thread ]
-  call void @ASN1_item_free(ptr noundef %retval.0.i28, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  call void @X509_ALGOR_free(ptr noundef %maskHash.026) #3
-  ret i32 %ret.0
+90:                                               ; preds = %rsa_algor_to_md.exit.thread, %87, %79, %81, %84, %rsa_algor_to_md.exit, %78, %72, %rsa_pss_decode.exit.thread
+  %.0.i41 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %18, %rsa_algor_to_md.exit ], [ %18, %72 ], [ %18, %78 ], [ %18, %84 ], [ %18, %81 ], [ %18, %79 ], [ %18, %87 ], [ %18, %rsa_algor_to_md.exit.thread ]
+  %.139 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %.036.ph51, %rsa_algor_to_md.exit ], [ %.036.ph51, %72 ], [ %.036.ph51, %78 ], [ %.036.ph51, %84 ], [ %.036.ph51, %81 ], [ %.036.ph51, %79 ], [ %.036.ph51, %87 ], [ %.036.ph51, %rsa_algor_to_md.exit.thread ]
+  %.018 = phi i32 [ 0, %rsa_pss_decode.exit.thread ], [ 0, %rsa_algor_to_md.exit ], [ 0, %72 ], [ 0, %78 ], [ 0, %84 ], [ 0, %81 ], [ 0, %79 ], [ %spec.select, %87 ], [ 0, %rsa_algor_to_md.exit.thread ]
+  call void @ASN1_item_free(ptr noundef %.0.i41, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  call void @X509_ALGOR_free(ptr noundef %.139) #3
+  ret i32 %.018
 }
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -495,226 +505,228 @@ declare i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef, ptr noundef) local_unname
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @x509_print_rsa_pss_params(ptr noundef %bp, ptr noundef readonly captures(none) %sigalg, i32 noundef %indent, ptr noundef readnone captures(none) %pctx) local_unnamed_addr #0 {
-entry:
-  %p.i.i = alloca ptr, align 8
-  %p.i = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
-  %parameter.i = getelementptr inbounds nuw i8, ptr %sigalg, i64 8
-  %0 = load ptr, ptr %parameter.i, align 8
-  %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %if.then, label %lor.lhs.false.i
+define hidden range(i32 0, 2) i32 @x509_print_rsa_pss_params(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = icmp eq ptr %.val, null
+  br i1 %8, label %rsa_pss_decode.exit.thread, label %9
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %1 = load i32, ptr %0, align 8
-  %cmp2.not.i = icmp eq i32 %1, 16
-  br i1 %cmp2.not.i, label %if.end.i, label %if.then
+9:                                                ; preds = %4
+  %10 = load i32, ptr %.val, align 8, !tbaa !27
+  %.not.i = icmp eq i32 %10, 16
+  br i1 %.not.i, label %11, label %rsa_pss_decode.exit.thread
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %value.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2 = load ptr, ptr %value.i, align 8
-  %data.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load ptr, ptr %data.i, align 8
-  store ptr %3, ptr %p.i, align 8
-  %4 = load i32, ptr %2, align 8
-  %conv.i = sext i32 %4 to i64
-  %call.i.i = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %p.i, i64 noundef %conv.i, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  %cmp6.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp6.i, label %if.then, label %if.end9.i
+11:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  store ptr %15, ptr %6, align 8, !tbaa !34
+  %16 = load i32, ptr %13, align 8, !tbaa !35
+  %17 = sext i32 %16 to i64
+  %18 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %6, i64 noundef %17, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %rsa_pss_decode.exit, label %20
 
-if.end9.i:                                        ; preds = %if.end.i
-  %maskGenAlgorithm.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  %5 = load ptr, ptr %maskGenAlgorithm.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i.i)
-  %cmp.i.i = icmp eq ptr %5, null
-  br i1 %cmp.i.i, label %if.end3, label %lor.lhs.false.i.i
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %44, label %24
 
-lor.lhs.false.i.i:                                ; preds = %if.end9.i
-  %parameter.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %6 = load ptr, ptr %parameter.i.i, align 8
-  %cmp1.i.i = icmp eq ptr %6, null
-  br i1 %cmp1.i.i, label %if.end3, label %lor.lhs.false2.i.i
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !23
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %44, label %28
 
-lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
-  %7 = load ptr, ptr %5, align 8
-  %call.i7.i = call i32 @OBJ_obj2nid(ptr noundef %7) #3
-  %cmp3.not.i.i = icmp eq i32 %call.i7.i, 911
-  br i1 %cmp3.not.i.i, label %lor.lhs.false4.i.i, label %if.end3
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %22, align 8, !tbaa !37
+  %30 = call i32 @OBJ_obj2nid(ptr noundef %29) #3
+  %.not.i.i = icmp eq i32 %30, 911
+  br i1 %.not.i.i, label %31, label %44
 
-lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false2.i.i
-  %8 = load ptr, ptr %parameter.i.i, align 8
-  %9 = load i32, ptr %8, align 8
-  %cmp6.not.i.i = icmp eq i32 %9, 16
-  br i1 %cmp6.not.i.i, label %if.end.i.i, label %if.end3
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %25, align 8, !tbaa !23
+  %33 = load i32, ptr %32, align 8, !tbaa !27
+  %.not8.i.i = icmp eq i32 %33, 16
+  br i1 %.not8.i.i, label %34, label %44
 
-if.end.i.i:                                       ; preds = %lor.lhs.false4.i.i
-  %value.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %value.i.i, align 8
-  %data.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %11 = load ptr, ptr %data.i.i, align 8
-  store ptr %11, ptr %p.i.i, align 8
-  %12 = load i32, ptr %10, align 8
-  %conv.i.i = sext i32 %12 to i64
-  %call10.i.i = call ptr @d2i_X509_ALGOR(ptr noundef null, ptr noundef nonnull %p.i.i, i64 noundef %conv.i.i) #3
-  br label %if.end3
+34:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !30
+  store ptr %38, ptr %5, align 8, !tbaa !34
+  %39 = load i32, ptr %36, align 8, !tbaa !35
+  %40 = sext i32 %39 to i64
+  %41 = call ptr @d2i_X509_ALGOR(ptr noundef null, ptr noundef nonnull %5, i64 noundef %40) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  br label %44
 
-if.then:                                          ; preds = %lor.lhs.false.i, %entry, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %call1 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.2) #3
-  %cmp = icmp sgt i32 %call1, 0
-  %spec.select = zext i1 %cmp to i32
-  br label %err
+rsa_pss_decode.exit:                              ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  br label %rsa_pss_decode.exit.thread
 
-if.end3:                                          ; preds = %if.end.i.i, %lor.lhs.false4.i.i, %lor.lhs.false2.i.i, %lor.lhs.false.i.i, %if.end9.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end.i.i ], [ null, %lor.lhs.false4.i.i ], [ null, %lor.lhs.false2.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %if.end9.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %call4 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.3) #3
-  %cmp5 = icmp slt i32 %call4, 1
-  br i1 %cmp5, label %err, label %lor.lhs.false
+rsa_pss_decode.exit.thread:                       ; preds = %4, %9, %rsa_pss_decode.exit
+  %42 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.2) #3
+  %43 = icmp sgt i32 %42, 0
+  %spec.select = zext i1 %43 to i32
+  br label %121
 
-lor.lhs.false:                                    ; preds = %if.end3
-  %call6 = call i32 @BIO_indent(ptr noundef %bp, i32 noundef %indent, i32 noundef 128) #3
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %err, label %lor.lhs.false8
+44:                                               ; preds = %34, %31, %28, %24, %20
+  %.056.ph = phi ptr [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %31 ], [ %41, %34 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  %45 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.3) #3
+  %46 = icmp slt i32 %45, 1
+  br i1 %46, label %121, label %47
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %call9 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.4) #3
-  %cmp10 = icmp slt i32 %call9, 1
-  br i1 %cmp10, label %err, label %if.end12
+47:                                               ; preds = %44
+  %48 = call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #3
+  %.not46 = icmp eq i32 %48, 0
+  br i1 %.not46, label %121, label %49
 
-if.end12:                                         ; preds = %lor.lhs.false8
-  %13 = load ptr, ptr %call.i.i, align 8
-  %tobool13.not = icmp eq ptr %13, null
-  br i1 %tobool13.not, label %if.else, label %if.then14
+49:                                               ; preds = %47
+  %50 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.4) #3
+  %51 = icmp slt i32 %50, 1
+  br i1 %51, label %121, label %52
 
-if.then14:                                        ; preds = %if.end12
-  %14 = load ptr, ptr %13, align 8
-  %call16 = call i32 @i2a_ASN1_OBJECT(ptr noundef %bp, ptr noundef %14) #3
-  %cmp17 = icmp slt i32 %call16, 1
-  br i1 %cmp17, label %err, label %if.end24
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %18, align 8, !tbaa !38
+  %.not47 = icmp eq ptr %53, null
+  br i1 %.not47, label %58, label %54
 
-if.else:                                          ; preds = %if.end12
-  %call20 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.5) #3
-  %cmp21 = icmp slt i32 %call20, 1
-  br i1 %cmp21, label %err, label %if.end24
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %53, align 8, !tbaa !37
+  %56 = call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %55) #3
+  %57 = icmp slt i32 %56, 1
+  br i1 %57, label %121, label %61
 
-if.end24:                                         ; preds = %if.else, %if.then14
-  %call25 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.3) #3
-  %cmp26 = icmp slt i32 %call25, 1
-  br i1 %cmp26, label %err, label %lor.lhs.false27
+58:                                               ; preds = %52
+  %59 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.5) #3
+  %60 = icmp slt i32 %59, 1
+  br i1 %60, label %121, label %61
 
-lor.lhs.false27:                                  ; preds = %if.end24
-  %call28 = call i32 @BIO_indent(ptr noundef %bp, i32 noundef %indent, i32 noundef 128) #3
-  %tobool29.not = icmp eq i32 %call28, 0
-  br i1 %tobool29.not, label %err, label %lor.lhs.false30
+61:                                               ; preds = %58, %54
+  %62 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.3) #3
+  %63 = icmp slt i32 %62, 1
+  br i1 %63, label %121, label %64
 
-lor.lhs.false30:                                  ; preds = %lor.lhs.false27
-  %call31 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.6) #3
-  %cmp32 = icmp slt i32 %call31, 1
-  br i1 %cmp32, label %err, label %if.end34
+64:                                               ; preds = %61
+  %65 = call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #3
+  %.not48 = icmp eq i32 %65, 0
+  br i1 %.not48, label %121, label %66
 
-if.end34:                                         ; preds = %lor.lhs.false30
-  %15 = load ptr, ptr %maskGenAlgorithm.i, align 8
-  %tobool35.not = icmp eq ptr %15, null
-  br i1 %tobool35.not, label %if.else59, label %if.then36
+66:                                               ; preds = %64
+  %67 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #3
+  %68 = icmp slt i32 %67, 1
+  br i1 %68, label %121, label %69
 
-if.then36:                                        ; preds = %if.end34
-  %16 = load ptr, ptr %15, align 8
-  %call39 = call i32 @i2a_ASN1_OBJECT(ptr noundef %bp, ptr noundef %16) #3
-  %cmp40 = icmp slt i32 %call39, 1
-  br i1 %cmp40, label %err, label %lor.lhs.false41
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %21, align 8, !tbaa !36
+  %.not49 = icmp eq ptr %70, null
+  br i1 %.not49, label %86, label %71
 
-lor.lhs.false41:                                  ; preds = %if.then36
-  %call42 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.7) #3
-  %cmp43 = icmp slt i32 %call42, 1
-  br i1 %cmp43, label %err, label %if.end45
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %70, align 8, !tbaa !37
+  %73 = call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %72) #3
+  %74 = icmp slt i32 %73, 1
+  br i1 %74, label %121, label %75
 
-if.end45:                                         ; preds = %lor.lhs.false41
-  %tobool46.not = icmp eq ptr %retval.0.i.i, null
-  br i1 %tobool46.not, label %if.else53, label %if.then47
+75:                                               ; preds = %71
+  %76 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #3
+  %77 = icmp slt i32 %76, 1
+  br i1 %77, label %121, label %78
 
-if.then47:                                        ; preds = %if.end45
-  %17 = load ptr, ptr %retval.0.i.i, align 8
-  %call49 = call i32 @i2a_ASN1_OBJECT(ptr noundef %bp, ptr noundef %17) #3
-  %cmp50 = icmp slt i32 %call49, 1
-  br i1 %cmp50, label %err, label %if.end64
+78:                                               ; preds = %75
+  %.not50 = icmp eq ptr %.056.ph, null
+  br i1 %.not50, label %83, label %79
 
-if.else53:                                        ; preds = %if.end45
-  %call54 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.8) #3
-  %cmp55 = icmp slt i32 %call54, 1
-  br i1 %cmp55, label %err, label %if.end64
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %.056.ph, align 8, !tbaa !37
+  %81 = call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %80) #3
+  %82 = icmp slt i32 %81, 1
+  br i1 %82, label %121, label %89
 
-if.else59:                                        ; preds = %if.end34
-  %call60 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.9) #3
-  %cmp61 = icmp slt i32 %call60, 1
-  br i1 %cmp61, label %err, label %if.end64
+83:                                               ; preds = %78
+  %84 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.8) #3
+  %85 = icmp slt i32 %84, 1
+  br i1 %85, label %121, label %89
 
-if.end64:                                         ; preds = %if.else59, %if.then47, %if.else53
-  %call65 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.3) #3
-  %call66 = call i32 @BIO_indent(ptr noundef %bp, i32 noundef %indent, i32 noundef 128) #3
-  %tobool67.not = icmp eq i32 %call66, 0
-  br i1 %tobool67.not, label %err, label %lor.lhs.false68
+86:                                               ; preds = %69
+  %87 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #3
+  %88 = icmp slt i32 %87, 1
+  br i1 %88, label %121, label %89
 
-lor.lhs.false68:                                  ; preds = %if.end64
-  %call69 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.10) #3
-  %cmp70 = icmp slt i32 %call69, 1
-  br i1 %cmp70, label %err, label %if.end72
+89:                                               ; preds = %86, %79, %83
+  %90 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.3) #3
+  %91 = call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #3
+  %.not51 = icmp eq i32 %91, 0
+  br i1 %.not51, label %121, label %92
 
-if.end72:                                         ; preds = %lor.lhs.false68
-  %saltLength = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  %18 = load ptr, ptr %saltLength, align 8
-  %tobool73.not = icmp eq ptr %18, null
-  br i1 %tobool73.not, label %if.else80, label %if.then74
+92:                                               ; preds = %89
+  %93 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.10) #3
+  %94 = icmp slt i32 %93, 1
+  br i1 %94, label %121, label %95
 
-if.then74:                                        ; preds = %if.end72
-  %call76 = call i32 @i2a_ASN1_INTEGER(ptr noundef %bp, ptr noundef nonnull %18) #3
-  %cmp77 = icmp slt i32 %call76, 1
-  br i1 %cmp77, label %err, label %if.end85
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !19
+  %.not52 = icmp eq ptr %97, null
+  br i1 %.not52, label %101, label %98
 
-if.else80:                                        ; preds = %if.end72
-  %call81 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.11) #3
-  %cmp82 = icmp slt i32 %call81, 1
-  br i1 %cmp82, label %err, label %if.end85
+98:                                               ; preds = %95
+  %99 = call i32 @i2a_ASN1_INTEGER(ptr noundef %0, ptr noundef nonnull %97) #3
+  %100 = icmp slt i32 %99, 1
+  br i1 %100, label %121, label %104
 
-if.end85:                                         ; preds = %if.else80, %if.then74
-  %call86 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.3) #3
-  %call87 = call i32 @BIO_indent(ptr noundef %bp, i32 noundef %indent, i32 noundef 128) #3
-  %tobool88.not = icmp eq i32 %call87, 0
-  br i1 %tobool88.not, label %err, label %lor.lhs.false89
+101:                                              ; preds = %95
+  %102 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.11) #3
+  %103 = icmp slt i32 %102, 1
+  br i1 %103, label %121, label %104
 
-lor.lhs.false89:                                  ; preds = %if.end85
-  %call90 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.12) #3
-  %cmp91 = icmp slt i32 %call90, 1
-  br i1 %cmp91, label %err, label %if.end93
+104:                                              ; preds = %101, %98
+  %105 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.3) #3
+  %106 = call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #3
+  %.not53 = icmp eq i32 %106, 0
+  br i1 %.not53, label %121, label %107
 
-if.end93:                                         ; preds = %lor.lhs.false89
-  %trailerField = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  %19 = load ptr, ptr %trailerField, align 8
-  %tobool94.not = icmp eq ptr %19, null
-  br i1 %tobool94.not, label %if.else101, label %if.then95
+107:                                              ; preds = %104
+  %108 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #3
+  %109 = icmp slt i32 %108, 1
+  br i1 %109, label %121, label %110
 
-if.then95:                                        ; preds = %if.end93
-  %call97 = call i32 @i2a_ASN1_INTEGER(ptr noundef %bp, ptr noundef nonnull %19) #3
-  %cmp98 = icmp slt i32 %call97, 1
-  br i1 %cmp98, label %err, label %if.end106
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %112 = load ptr, ptr %111, align 8, !tbaa !39
+  %.not54 = icmp eq ptr %112, null
+  br i1 %.not54, label %116, label %113
 
-if.else101:                                       ; preds = %if.end93
-  %call102 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.13) #3
-  %cmp103 = icmp slt i32 %call102, 1
-  br i1 %cmp103, label %err, label %if.end106
+113:                                              ; preds = %110
+  %114 = call i32 @i2a_ASN1_INTEGER(ptr noundef %0, ptr noundef nonnull %112) #3
+  %115 = icmp slt i32 %114, 1
+  br i1 %115, label %121, label %119
 
-if.end106:                                        ; preds = %if.else101, %if.then95
-  %call107 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.3) #3
-  br label %err
+116:                                              ; preds = %110
+  %117 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.13) #3
+  %118 = icmp slt i32 %117, 1
+  br i1 %118, label %121, label %119
 
-err:                                              ; preds = %if.then, %if.else101, %if.then95, %if.end85, %lor.lhs.false89, %if.else80, %if.then74, %if.end64, %lor.lhs.false68, %if.else59, %if.else53, %if.then47, %if.then36, %lor.lhs.false41, %if.end24, %lor.lhs.false27, %lor.lhs.false30, %if.else, %if.then14, %if.end3, %lor.lhs.false, %lor.lhs.false8, %if.end106
-  %retval.0.i47 = phi ptr [ %call.i.i, %if.end3 ], [ %call.i.i, %lor.lhs.false8 ], [ %call.i.i, %if.then14 ], [ %call.i.i, %if.end24 ], [ %call.i.i, %lor.lhs.false30 ], [ %call.i.i, %if.then36 ], [ %call.i.i, %lor.lhs.false41 ], [ %call.i.i, %if.then47 ], [ %call.i.i, %lor.lhs.false68 ], [ %call.i.i, %if.then74 ], [ %call.i.i, %lor.lhs.false89 ], [ %call.i.i, %if.then95 ], [ %call.i.i, %if.end106 ], [ %call.i.i, %if.else101 ], [ %call.i.i, %if.end85 ], [ %call.i.i, %if.else80 ], [ %call.i.i, %if.end64 ], [ %call.i.i, %if.else53 ], [ %call.i.i, %if.else59 ], [ %call.i.i, %lor.lhs.false27 ], [ %call.i.i, %if.else ], [ %call.i.i, %lor.lhs.false ], [ null, %if.then ]
-  %maskHash.045 = phi ptr [ %retval.0.i.i, %if.end3 ], [ %retval.0.i.i, %lor.lhs.false8 ], [ %retval.0.i.i, %if.then14 ], [ %retval.0.i.i, %if.end24 ], [ %retval.0.i.i, %lor.lhs.false30 ], [ %retval.0.i.i, %if.then36 ], [ %retval.0.i.i, %lor.lhs.false41 ], [ %retval.0.i.i, %if.then47 ], [ %retval.0.i.i, %lor.lhs.false68 ], [ %retval.0.i.i, %if.then74 ], [ %retval.0.i.i, %lor.lhs.false89 ], [ %retval.0.i.i, %if.then95 ], [ %retval.0.i.i, %if.end106 ], [ %retval.0.i.i, %if.else101 ], [ %retval.0.i.i, %if.end85 ], [ %retval.0.i.i, %if.else80 ], [ %retval.0.i.i, %if.end64 ], [ null, %if.else53 ], [ %retval.0.i.i, %if.else59 ], [ %retval.0.i.i, %lor.lhs.false27 ], [ %retval.0.i.i, %if.else ], [ %retval.0.i.i, %lor.lhs.false ], [ null, %if.then ]
-  %rv.0 = phi i32 [ 0, %if.end3 ], [ 0, %lor.lhs.false8 ], [ 0, %if.then14 ], [ 0, %if.end24 ], [ 0, %lor.lhs.false30 ], [ 0, %if.then36 ], [ 0, %lor.lhs.false41 ], [ 0, %if.then47 ], [ 0, %lor.lhs.false68 ], [ 0, %if.then74 ], [ 0, %lor.lhs.false89 ], [ 0, %if.then95 ], [ 1, %if.end106 ], [ 0, %if.else101 ], [ 0, %if.end85 ], [ 0, %if.else80 ], [ 0, %if.end64 ], [ 0, %if.else53 ], [ 0, %if.else59 ], [ 0, %lor.lhs.false27 ], [ 0, %if.else ], [ 0, %lor.lhs.false ], [ %spec.select, %if.then ]
-  call void @ASN1_item_free(ptr noundef %retval.0.i47, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  call void @X509_ALGOR_free(ptr noundef %maskHash.045) #3
-  ret i32 %rv.0
+119:                                              ; preds = %116, %113
+  %120 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.3) #3
+  br label %121
+
+121:                                              ; preds = %rsa_pss_decode.exit.thread, %116, %113, %104, %107, %101, %98, %89, %92, %86, %83, %79, %71, %75, %61, %64, %66, %58, %54, %44, %47, %49, %119
+  %.0.i62 = phi ptr [ %18, %44 ], [ %18, %49 ], [ %18, %54 ], [ %18, %61 ], [ %18, %66 ], [ %18, %71 ], [ %18, %75 ], [ %18, %79 ], [ %18, %92 ], [ %18, %98 ], [ %18, %107 ], [ %18, %113 ], [ %18, %119 ], [ %18, %116 ], [ %18, %104 ], [ %18, %101 ], [ %18, %89 ], [ %18, %83 ], [ %18, %86 ], [ %18, %64 ], [ %18, %58 ], [ %18, %47 ], [ null, %rsa_pss_decode.exit.thread ]
+  %.160 = phi ptr [ %.056.ph, %44 ], [ %.056.ph, %49 ], [ %.056.ph, %54 ], [ %.056.ph, %61 ], [ %.056.ph, %66 ], [ %.056.ph, %71 ], [ %.056.ph, %75 ], [ %.056.ph, %79 ], [ %.056.ph, %92 ], [ %.056.ph, %98 ], [ %.056.ph, %107 ], [ %.056.ph, %113 ], [ %.056.ph, %119 ], [ %.056.ph, %116 ], [ %.056.ph, %104 ], [ %.056.ph, %101 ], [ %.056.ph, %89 ], [ null, %83 ], [ %.056.ph, %86 ], [ %.056.ph, %64 ], [ %.056.ph, %58 ], [ %.056.ph, %47 ], [ null, %rsa_pss_decode.exit.thread ]
+  %.0 = phi i32 [ 0, %44 ], [ 0, %49 ], [ 0, %54 ], [ 0, %61 ], [ 0, %66 ], [ 0, %71 ], [ 0, %75 ], [ 0, %79 ], [ 0, %92 ], [ 0, %98 ], [ 0, %107 ], [ 0, %113 ], [ 1, %119 ], [ 0, %116 ], [ 0, %104 ], [ 0, %101 ], [ 0, %89 ], [ 0, %83 ], [ 0, %86 ], [ 0, %64 ], [ 0, %58 ], [ 0, %47 ], [ %spec.select, %rsa_pss_decode.exit.thread ]
+  call void @ASN1_item_free(ptr noundef %.0.i62, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
+  call void @X509_ALGOR_free(ptr noundef %.160) #3
+  ret i32 %.0
 }
 
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -739,23 +751,51 @@ declare ptr @EVP_sha1() local_unnamed_addr #1
 
 declare ptr @EVP_get_digestbyobj(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !12, i64 16}
+!7 = !{!"env_md_ctx_st", !8, i64 0, !9, i64 8, !12, i64 16, !13, i64 24}
+!8 = !{!"p1 _ZTS9env_md_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"p1 _ZTS15evp_pkey_ctx_st", !9, i64 0}
+!13 = !{!"p1 _ZTS15evp_md_pctx_ops", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !10, i64 0}
+!16 = !{!8, !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!19 = !{!20, !18, i64 16}
+!20 = !{!"rsa_pss_params_st", !21, i64 0, !21, i64 8, !18, i64 16, !18, i64 24}
+!21 = !{!"p1 _ZTS13X509_algor_st", !9, i64 0}
+!22 = !{!21, !21, i64 0}
+!23 = !{!24, !26, i64 8}
+!24 = !{!"X509_algor_st", !25, i64 0, !26, i64 8}
+!25 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!26 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
+!27 = !{!28, !15, i64 0}
+!28 = !{!"asn1_type_st", !15, i64 0, !10, i64 8}
+!29 = !{!10, !10, i64 0}
+!30 = !{!31, !32, i64 8}
+!31 = !{!"asn1_string_st", !15, i64 0, !15, i64 4, !32, i64 8, !33, i64 16}
+!32 = !{!"p1 omnipotent char", !9, i64 0}
+!33 = !{!"long", !10, i64 0}
+!34 = !{!32, !32, i64 0}
+!35 = !{!31, !15, i64 0}
+!36 = !{!20, !21, i64 8}
+!37 = !{!24, !25, i64 0}
+!38 = !{!20, !21, i64 0}
+!39 = !{!20, !18, i64 24}
+!40 = !{!12, !12, i64 0}

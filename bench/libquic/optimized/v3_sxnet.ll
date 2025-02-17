@@ -1,352 +1,347 @@
 ; ModuleID = 'bench/libquic/original/v3_sxnet.ll'
 source_filename = "bench/libquic/original/v3_sxnet.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
+%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 
-@SXNET_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @SXNET_seq_tt, i64 2, ptr null, i64 16, ptr @.str.1 }, align 8
 @v3_sxnet = hidden local_unnamed_addr constant %struct.v3_ext_method { i32 143, i32 4, ptr @SXNET_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @sxnet_v2i, ptr @sxnet_i2r, ptr null, ptr null }, align 8
-@SXNETID_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.3, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.4, ptr @ASN1_OCTET_STRING_it }], align 16
+@SXNETID_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.5, ptr @ASN1_OCTET_STRING_it }], align 16
 @.str = private unnamed_addr constant [8 x i8] c"SXNETID\00", align 1
-@SXNETID_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @SXNETID_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
-@SXNET_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.5, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 4, i64 0, i64 8, ptr @.str.6, ptr @SXNETID_it }], align 16
+@SXNETID_it = hidden constant { i8, [7 x i8], i64, ptr, i64, ptr, i64, ptr } { i8 1, [7 x i8] zeroinitializer, i64 16, ptr @SXNETID_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
+@SXNET_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.6, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 4, i64 0, i64 8, ptr @.str.7, ptr @SXNETID_it }], align 16
 @.str.1 = private unnamed_addr constant [6 x i8] c"SXNET\00", align 1
-@.str.2 = private unnamed_addr constant [128 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509v3/v3_sxnet.c\00", align 1
-@.str.3 = private unnamed_addr constant [5 x i8] c"zone\00", align 1
+@SXNET_it = hidden constant { i8, [7 x i8], i64, ptr, i64, ptr, i64, ptr } { i8 1, [7 x i8] zeroinitializer, i64 16, ptr @SXNET_seq_tt, i64 2, ptr null, i64 16, ptr @.str.1 }, align 8
+@.str.3 = private unnamed_addr constant [128 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509v3/v3_sxnet.c\00", align 1
+@.str.4 = private unnamed_addr constant [5 x i8] c"zone\00", align 1
 @ASN1_INTEGER_it = external constant %struct.ASN1_ITEM_st, align 8
-@.str.4 = private unnamed_addr constant [5 x i8] c"user\00", align 1
+@.str.5 = private unnamed_addr constant [5 x i8] c"user\00", align 1
 @ASN1_OCTET_STRING_it = external constant %struct.ASN1_ITEM_st, align 8
-@.str.5 = private unnamed_addr constant [8 x i8] c"version\00", align 1
-@.str.6 = private unnamed_addr constant [4 x i8] c"ids\00", align 1
-@.str.7 = private unnamed_addr constant [24 x i8] c"%*sVersion: %ld (0x%lX)\00", align 1
-@.str.8 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.9 = private unnamed_addr constant [21 x i8] c"\0A%*sZone: %s, User: \00", align 1
+@.str.6 = private unnamed_addr constant [8 x i8] c"version\00", align 1
+@.str.7 = private unnamed_addr constant [4 x i8] c"ids\00", align 1
+@.str.8 = private unnamed_addr constant [24 x i8] c"%*sVersion: %ld (0x%lX)\00", align 1
+@.str.9 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.10 = private unnamed_addr constant [21 x i8] c"\0A%*sZone: %s, User: \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sxnet_v2i(ptr readnone captures(none) %method, ptr readnone captures(none) %ctx, ptr noundef %nval) #0 {
-entry:
-  %sx = alloca ptr, align 8
-  store ptr null, ptr %sx, align 8
-  %call7 = tail call i64 @sk_num(ptr noundef %nval) #4
-  %cmp8.not = icmp eq i64 %call7, 0
-  br i1 %cmp8.not, label %return, label %for.body
+define internal ptr @sxnet_v2i(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  store ptr null, ptr %4, align 8, !tbaa !6
+  %5 = tail call i64 @sk_num(ptr noundef %2) #5
+  %.not11 = icmp eq i64 %5, 0
+  br i1 %.not11, label %.loopexit, label %.lr.ph
 
-for.cond:                                         ; preds = %SXNET_add_id_asc.exit
-  %inc = add nuw i64 %i.09, 1
-  %call = call i64 @sk_num(ptr noundef %nval) #4
-  %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
+6:                                                ; preds = %SXNET_add_id_asc.exit
+  %7 = add nuw i64 %.010, 1
+  %8 = call i64 @sk_num(ptr noundef %2) #5
+  %9 = icmp ult i64 %7, %8
+  br i1 %9, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
 
-for.body:                                         ; preds = %entry, %for.cond
-  %i.09 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
-  %call1 = call ptr @sk_value(ptr noundef %nval, i64 noundef %i.09) #4
-  %name = getelementptr inbounds nuw i8, ptr %call1, i64 8
-  %0 = load ptr, ptr %name, align 8
-  %value = getelementptr inbounds nuw i8, ptr %call1, i64 16
-  %1 = load ptr, ptr %value, align 8
-  %call.i = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %0) #4
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %SXNET_add_id_asc.exit.thread, label %SXNET_add_id_asc.exit
+.lr.ph:                                           ; preds = %3, %6
+  %.010 = phi i64 [ %7, %6 ], [ 0, %3 ]
+  %10 = call ptr @sk_value(ptr noundef %2, i64 noundef %.010) #5
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %15 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %12) #5
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %SXNET_add_id_asc.exit.thread, label %SXNET_add_id_asc.exit
 
-SXNET_add_id_asc.exit.thread:                     ; preds = %for.body
-  call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.2, i32 noundef 161) #4
-  br label %return
+SXNET_add_id_asc.exit.thread:                     ; preds = %.lr.ph
+  call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.3, i32 noundef 161) #5
+  br label %.loopexit
 
-SXNET_add_id_asc.exit:                            ; preds = %for.body
-  %call1.i = call i32 @SXNET_add_id_INTEGER(ptr noundef nonnull %sx, ptr noundef nonnull %call.i, ptr noundef %1, i32 noundef -1)
-  %tobool.not = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not, label %return, label %for.cond
+SXNET_add_id_asc.exit:                            ; preds = %.lr.ph
+  %16 = call i32 @SXNET_add_id_INTEGER(ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef %14, i32 noundef -1)
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %.loopexit, label %6
 
-for.end.loopexit:                                 ; preds = %for.cond
-  %.pre = load ptr, ptr %sx, align 8
-  br label %return
+._crit_edge.loopexit:                             ; preds = %6
+  %.pre = load ptr, ptr %4, align 8, !tbaa !6
+  br label %.loopexit
 
-return:                                           ; preds = %SXNET_add_id_asc.exit, %entry, %for.end.loopexit, %SXNET_add_id_asc.exit.thread
-  %retval.0 = phi ptr [ null, %SXNET_add_id_asc.exit.thread ], [ %.pre, %for.end.loopexit ], [ null, %entry ], [ null, %SXNET_add_id_asc.exit ]
-  ret ptr %retval.0
+.loopexit:                                        ; preds = %SXNET_add_id_asc.exit, %3, %._crit_edge.loopexit, %SXNET_add_id_asc.exit.thread
+  %.07 = phi ptr [ null, %SXNET_add_id_asc.exit.thread ], [ %.pre, %._crit_edge.loopexit ], [ null, %3 ], [ null, %SXNET_add_id_asc.exit ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  ret ptr %.07
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sxnet_i2r(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %sx, ptr noundef %out, i32 noundef %indent) #0 {
-entry:
-  %0 = load ptr, ptr %sx, align 8
-  %call = tail call i64 @ASN1_INTEGER_get(ptr noundef %0) #4
-  %add = add nsw i64 %call, 1
-  %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.7, i32 noundef %indent, ptr noundef nonnull @.str.8, i64 noundef %add, i64 noundef %call) #4
-  %ids = getelementptr inbounds nuw i8, ptr %sx, i64 8
-  %1 = load ptr, ptr %ids, align 8
-  %call211 = tail call i64 @sk_num(ptr noundef %1) #4
-  %cmp12.not = icmp eq i64 %call211, 0
-  br i1 %cmp12.not, label %for.end, label %for.body
+define internal noundef i32 @sxnet_i2r(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = load ptr, ptr %1, align 8, !tbaa !17
+  %6 = tail call i64 @ASN1_INTEGER_get(ptr noundef %5) #5
+  %7 = add nsw i64 %6, 1
+  %8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.8, i32 noundef %3, ptr noundef nonnull @.str.9, i64 noundef %7, i64 noundef %6) #5
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %11 = tail call i64 @sk_num(ptr noundef %10) #5
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %i.013 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %2 = load ptr, ptr %ids, align 8
-  %call4 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %i.013) #4
-  %3 = load ptr, ptr %call4, align 8
-  %call5 = tail call ptr @i2s_ASN1_INTEGER(ptr noundef null, ptr noundef %3) #4
-  %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.9, i32 noundef %indent, ptr noundef nonnull @.str.8, ptr noundef %call5) #4
-  tail call void @free(ptr noundef %call5) #4
-  %user = getelementptr inbounds nuw i8, ptr %call4, i64 8
-  %4 = load ptr, ptr %user, align 8
-  %call7 = tail call i32 @ASN1_STRING_print(ptr noundef %out, ptr noundef %4) #4
-  %inc = add nuw i64 %i.013, 1
-  %5 = load ptr, ptr %ids, align 8
-  %call2 = tail call i64 @sk_num(ptr noundef %5) #4
-  %cmp = icmp ult i64 %inc, %call2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.016 = phi i64 [ %20, %.lr.ph ], [ 0, %4 ]
+  %12 = load ptr, ptr %9, align 8, !tbaa !21
+  %13 = tail call ptr @sk_value(ptr noundef %12, i64 noundef %.016) #5
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %15 = tail call ptr @i2s_ASN1_INTEGER(ptr noundef null, ptr noundef %14) #5
+  %16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull @.str.9, ptr noundef %15) #5
+  tail call void @free(ptr noundef %15) #5
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  %19 = tail call i32 @ASN1_STRING_print(ptr noundef %2, ptr noundef %18) #5
+  %20 = add nuw i64 %.016, 1
+  %21 = load ptr, ptr %9, align 8, !tbaa !21
+  %22 = tail call i64 @sk_num(ptr noundef %21) #5
+  %23 = icmp ult i64 %20, %22
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
-for.end:                                          ; preds = %for.body, %entry
+._crit_edge:                                      ; preds = %.lr.ph, %4
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_SXNETID(ptr noundef %a, ptr noundef %in, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ASN1_item_d2i(ptr noundef %a, ptr noundef %in, i64 noundef %len, ptr noundef nonnull @SXNETID_it) #4
-  ret ptr %call
+define hidden ptr @d2i_SXNETID(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @ASN1_item_d2i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @SXNETID_it) #5
+  ret ptr %4
 }
 
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_SXNETID(ptr noundef %a, ptr noundef %out) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef %out, ptr noundef nonnull @SXNETID_it) #4
-  ret i32 %call
+define hidden i32 @i2d_SXNETID(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @ASN1_item_i2d(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @SXNETID_it) #5
+  ret i32 %3
 }
 
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SXNETID_new() local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ASN1_item_new(ptr noundef nonnull @SXNETID_it) #4
-  ret ptr %call
+  %1 = tail call ptr @ASN1_item_new(ptr noundef nonnull @SXNETID_it) #5
+  ret ptr %1
 }
 
 declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SXNETID_free(ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  tail call void @ASN1_item_free(ptr noundef %a, ptr noundef nonnull @SXNETID_it) #4
+define hidden void @SXNETID_free(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @SXNETID_it) #5
   ret void
 }
 
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_SXNET(ptr noundef %a, ptr noundef %in, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ASN1_item_d2i(ptr noundef %a, ptr noundef %in, i64 noundef %len, ptr noundef nonnull @SXNET_it) #4
-  ret ptr %call
+define hidden ptr @d2i_SXNET(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @ASN1_item_d2i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @SXNET_it) #5
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_SXNET(ptr noundef %a, ptr noundef %out) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef %out, ptr noundef nonnull @SXNET_it) #4
-  ret i32 %call
+define hidden i32 @i2d_SXNET(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @ASN1_item_i2d(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @SXNET_it) #5
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SXNET_new() local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ASN1_item_new(ptr noundef nonnull @SXNET_it) #4
-  ret ptr %call
+  %1 = tail call ptr @ASN1_item_new(ptr noundef nonnull @SXNET_it) #5
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SXNET_free(ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  tail call void @ASN1_item_free(ptr noundef %a, ptr noundef nonnull @SXNET_it) #4
+define hidden void @SXNET_free(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @SXNET_it) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SXNET_add_id_asc(ptr noundef captures(address_is_null) %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %zone) #4
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define hidden range(i32 0, 2) i32 @SXNET_add_id_asc(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %1) #5
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.2, i32 noundef 161) #4
-  br label %return
+6:                                                ; preds = %4
+  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.3, i32 noundef 161) #5
+  br label %9
 
-if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen)
-  br label %return
+7:                                                ; preds = %4
+  %8 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3)
+  br label %9
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ %call1, %if.end ], [ 0, %if.then ]
-  ret i32 %retval.0
+9:                                                ; preds = %7, %6
+  %.0 = phi i32 [ %8, %7 ], [ 0, %6 ]
+  ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @s2i_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef captures(address_is_null) %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
-entry:
-  %tobool = icmp ne ptr %psx, null
-  %tobool1 = icmp ne ptr %zone, null
-  %or.cond = and i1 %tobool, %tobool1
-  %tobool3 = icmp ne ptr %user, null
-  %or.cond1 = and i1 %or.cond, %tobool3
-  br i1 %or.cond1, label %if.end, label %if.then
+define hidden range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp ne ptr %0, null
+  %6 = icmp ne ptr %1, null
+  %or.cond = and i1 %5, %6
+  %7 = icmp ne ptr %2, null
+  %or.cond3 = and i1 %or.cond, %7
+  br i1 %or.cond3, label %9, label %8
 
-if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 124, ptr noundef nonnull @.str.2, i32 noundef 193) #4
-  br label %return
+8:                                                ; preds = %4
+  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 124, ptr noundef nonnull @.str.3, i32 noundef 193) #5
+  br label %56
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq i32 %userlen, -1
-  br i1 %cmp, label %if.then4, label %if.end5
+9:                                                ; preds = %4
+  %10 = icmp eq i32 %3, -1
+  br i1 %10, label %11, label %14
 
-if.then4:                                         ; preds = %if.end
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %user) #5
-  %conv = trunc i64 %call to i32
-  br label %if.end5
+11:                                               ; preds = %9
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #6
+  %13 = trunc i64 %12 to i32
+  br label %14
 
-if.end5:                                          ; preds = %if.then4, %if.end
-  %userlen.addr.0 = phi i32 [ %conv, %if.then4 ], [ %userlen, %if.end ]
-  %cmp6 = icmp sgt i32 %userlen.addr.0, 64
-  br i1 %cmp6, label %if.then8, label %if.end9
+14:                                               ; preds = %11, %9
+  %.029 = phi i32 [ %13, %11 ], [ %3, %9 ]
+  %15 = icmp sgt i32 %.029, 64
+  br i1 %15, label %16, label %17
 
-if.then8:                                         ; preds = %if.end5
-  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 162, ptr noundef nonnull @.str.2, i32 noundef 199) #4
-  br label %return
+16:                                               ; preds = %14
+  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 162, ptr noundef nonnull @.str.3, i32 noundef 199) #5
+  br label %56
 
-if.end9:                                          ; preds = %if.end5
-  %0 = load ptr, ptr %psx, align 8
-  %tobool10.not = icmp eq ptr %0, null
-  br i1 %tobool10.not, label %if.then11, label %if.end20
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %0, align 8, !tbaa !6
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %19, label %25
 
-if.then11:                                        ; preds = %if.end9
-  %call.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @SXNET_it) #4
-  %tobool13.not = icmp eq ptr %call.i, null
-  br i1 %tobool13.not, label %err, label %if.end15
+19:                                               ; preds = %17
+  %20 = tail call ptr @ASN1_item_new(ptr noundef nonnull @SXNET_it) #5
+  %.not41 = icmp eq ptr %20, null
+  br i1 %.not41, label %55, label %21
 
-if.end15:                                         ; preds = %if.then11
-  %1 = load ptr, ptr %call.i, align 8
-  %call16 = tail call i32 @ASN1_INTEGER_set(ptr noundef %1, i64 noundef 0) #4
-  %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %err, label %if.end19
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %20, align 8, !tbaa !17
+  %23 = tail call i32 @ASN1_INTEGER_set(ptr noundef %22, i64 noundef 0) #5
+  %.not42 = icmp eq i32 %23, 0
+  br i1 %.not42, label %55, label %24
 
-if.end19:                                         ; preds = %if.end15
-  store ptr %call.i, ptr %psx, align 8
-  br label %if.end20
+24:                                               ; preds = %21
+  store ptr %20, ptr %0, align 8, !tbaa !6
+  br label %25
 
-if.end20:                                         ; preds = %if.end9, %if.end19
-  %sx.1 = phi ptr [ %call.i, %if.end19 ], [ %0, %if.end9 ]
-  %ids.i = getelementptr inbounds nuw i8, ptr %sx.1, i64 8
-  %2 = load ptr, ptr %ids.i, align 8
-  %call5.i = tail call i64 @sk_num(ptr noundef %2) #4
-  %cmp6.not.i = icmp eq i64 %call5.i, 0
-  br i1 %cmp6.not.i, label %if.end24, label %for.body.i
+25:                                               ; preds = %17, %24
+  %.1 = phi ptr [ %20, %24 ], [ %18, %17 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  %28 = tail call i64 @sk_num(ptr noundef %27) #5
+  %.not10.i = icmp eq i64 %28, 0
+  br i1 %.not10.i, label %SXNET_get_id_INTEGER.exit.thread, label %.lr.ph.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw i64 %i.07.i, 1
-  %3 = load ptr, ptr %ids.i, align 8
-  %call.i21 = tail call i64 @sk_num(ptr noundef %3) #4
-  %cmp.i = icmp ult i64 %inc.i, %call.i21
-  br i1 %cmp.i, label %for.body.i, label %if.end24, !llvm.loop !10
+29:                                               ; preds = %.lr.ph.i
+  %30 = add nuw i64 %.09.i, 1
+  %31 = load ptr, ptr %26, align 8, !tbaa !21
+  %32 = tail call i64 @sk_num(ptr noundef %31) #5
+  %33 = icmp ult i64 %30, %32
+  br i1 %33, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit.thread, !llvm.loop !26
 
-for.body.i:                                       ; preds = %if.end20, %for.cond.i
-  %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end20 ]
-  %4 = load ptr, ptr %ids.i, align 8
-  %call2.i = tail call ptr @sk_value(ptr noundef %4, i64 noundef %i.07.i) #4
-  %5 = load ptr, ptr %call2.i, align 8
-  %call4.i = tail call i32 @ASN1_STRING_cmp(ptr noundef %5, ptr noundef nonnull %zone) #4
-  %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %SXNET_get_id_INTEGER.exit, label %for.cond.i
+.lr.ph.i:                                         ; preds = %25, %29
+  %.09.i = phi i64 [ %30, %29 ], [ 0, %25 ]
+  %34 = load ptr, ptr %26, align 8, !tbaa !21
+  %35 = tail call ptr @sk_value(ptr noundef %34, i64 noundef %.09.i) #5
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  %37 = tail call i32 @ASN1_STRING_cmp(ptr noundef %36, ptr noundef nonnull %1) #5
+  %.not.i = icmp eq i32 %37, 0
+  br i1 %.not.i, label %SXNET_get_id_INTEGER.exit, label %29
 
-SXNET_get_id_INTEGER.exit:                        ; preds = %for.body.i
-  %user.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
-  %6 = load ptr, ptr %user.i, align 8
-  %tobool22.not = icmp eq ptr %6, null
-  br i1 %tobool22.not, label %if.end24, label %if.then23
+SXNET_get_id_INTEGER.exit:                        ; preds = %.lr.ph.i
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %.not43 = icmp eq ptr %39, null
+  br i1 %.not43, label %SXNET_get_id_INTEGER.exit.thread, label %40
 
-if.then23:                                        ; preds = %SXNET_get_id_INTEGER.exit
-  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 107, ptr noundef nonnull @.str.2, i32 noundef 211) #4
-  br label %return
+40:                                               ; preds = %SXNET_get_id_INTEGER.exit
+  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 107, ptr noundef nonnull @.str.3, i32 noundef 211) #5
+  br label %56
 
-if.end24:                                         ; preds = %for.cond.i, %if.end20, %SXNET_get_id_INTEGER.exit
-  %call.i22 = tail call ptr @ASN1_item_new(ptr noundef nonnull @SXNETID_it) #4
-  %tobool26.not = icmp eq ptr %call.i22, null
-  br i1 %tobool26.not, label %err, label %if.end28
+SXNET_get_id_INTEGER.exit.thread:                 ; preds = %29, %25, %SXNET_get_id_INTEGER.exit
+  %41 = tail call ptr @ASN1_item_new(ptr noundef nonnull @SXNETID_it) #5
+  %.not44 = icmp eq ptr %41, null
+  br i1 %.not44, label %55, label %42
 
-if.end28:                                         ; preds = %if.end24
-  %cmp29 = icmp eq i32 %userlen.addr.0, -1
-  br i1 %cmp29, label %if.then31, label %if.end34
+42:                                               ; preds = %SXNET_get_id_INTEGER.exit.thread
+  %43 = icmp eq i32 %.029, -1
+  br i1 %43, label %44, label %47
 
-if.then31:                                        ; preds = %if.end28
-  %call32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %user) #5
-  %conv33 = trunc i64 %call32 to i32
-  br label %if.end34
+44:                                               ; preds = %42
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #6
+  %46 = trunc i64 %45 to i32
+  br label %47
 
-if.end34:                                         ; preds = %if.then31, %if.end28
-  %userlen.addr.1 = phi i32 [ %conv33, %if.then31 ], [ %userlen.addr.0, %if.end28 ]
-  %user35 = getelementptr inbounds nuw i8, ptr %call.i22, i64 8
-  %7 = load ptr, ptr %user35, align 8
-  %call36 = tail call i32 @ASN1_STRING_set(ptr noundef %7, ptr noundef nonnull %user, i32 noundef %userlen.addr.1) #4
-  %tobool37.not = icmp eq i32 %call36, 0
-  br i1 %tobool37.not, label %err, label %if.end39
+47:                                               ; preds = %44, %42
+  %.130 = phi i32 [ %46, %44 ], [ %.029, %42 ]
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !24
+  %50 = tail call i32 @ASN1_STRING_set(ptr noundef %49, ptr noundef nonnull %2, i32 noundef %.130) #5
+  %.not45 = icmp eq i32 %50, 0
+  br i1 %.not45, label %55, label %51
 
-if.end39:                                         ; preds = %if.end34
-  %8 = load ptr, ptr %ids.i, align 8
-  %call40 = tail call i64 @sk_push(ptr noundef %8, ptr noundef nonnull %call.i22) #4
-  %tobool41.not = icmp eq i64 %call40, 0
-  br i1 %tobool41.not, label %err, label %if.end43
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %26, align 8, !tbaa !21
+  %53 = tail call i64 @sk_push(ptr noundef %52, ptr noundef nonnull %41) #5
+  %.not46 = icmp eq i64 %53, 0
+  br i1 %.not46, label %55, label %54
 
-if.end43:                                         ; preds = %if.end39
-  store ptr %zone, ptr %call.i22, align 8
-  br label %return
+54:                                               ; preds = %51
+  store ptr %1, ptr %41, align 8, !tbaa !22
+  br label %56
 
-err:                                              ; preds = %if.end39, %if.end34, %if.end24, %if.end15, %if.then11
-  %sx.0 = phi ptr [ %sx.1, %if.end39 ], [ %sx.1, %if.end34 ], [ %sx.1, %if.end24 ], [ %call.i, %if.end15 ], [ null, %if.then11 ]
-  %id.0 = phi ptr [ %call.i22, %if.end39 ], [ %call.i22, %if.end34 ], [ null, %if.end24 ], [ null, %if.end15 ], [ null, %if.then11 ]
-  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.2, i32 noundef 228) #4
-  tail call void @ASN1_item_free(ptr noundef %id.0, ptr noundef nonnull @SXNETID_it) #4
-  tail call void @ASN1_item_free(ptr noundef %sx.0, ptr noundef nonnull @SXNET_it) #4
-  store ptr null, ptr %psx, align 8
-  br label %return
+55:                                               ; preds = %51, %47, %SXNET_get_id_INTEGER.exit.thread, %21, %19
+  %.028 = phi ptr [ %.1, %51 ], [ %.1, %47 ], [ %.1, %SXNET_get_id_INTEGER.exit.thread ], [ %20, %21 ], [ null, %19 ]
+  %.0 = phi ptr [ %41, %51 ], [ %41, %47 ], [ null, %SXNET_get_id_INTEGER.exit.thread ], [ null, %21 ], [ null, %19 ]
+  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.3, i32 noundef 228) #5
+  tail call void @ASN1_item_free(ptr noundef %.0, ptr noundef nonnull @SXNETID_it) #5
+  tail call void @ASN1_item_free(ptr noundef %.028, ptr noundef nonnull @SXNET_it) #5
+  store ptr null, ptr %0, align 8, !tbaa !6
+  br label %56
 
-return:                                           ; preds = %err, %if.end43, %if.then23, %if.then8, %if.then
-  %retval.0 = phi i32 [ 0, %if.then8 ], [ 0, %if.then23 ], [ 1, %if.end43 ], [ 0, %err ], [ 0, %if.then ]
-  ret i32 %retval.0
+56:                                               ; preds = %55, %54, %40, %16, %8
+  %.031 = phi i32 [ 0, %16 ], [ 0, %40 ], [ 1, %54 ], [ 0, %55 ], [ 0, %8 ]
+  ret i32 %.031
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SXNET_add_id_ulong(ptr noundef captures(address_is_null) %psx, i64 noundef %lzone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ASN1_STRING_type_new(i32 noundef 2) #4
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+define hidden range(i32 0, 2) i32 @SXNET_add_id_ulong(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call ptr @ASN1_STRING_type_new(i32 noundef 2) #5
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %8, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @ASN1_INTEGER_set(ptr noundef nonnull %call, i64 noundef %lzone) #4
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %if.then, label %if.end
+6:                                                ; preds = %4
+  %7 = tail call i32 @ASN1_INTEGER_set(ptr noundef nonnull %5, i64 noundef %1) #5
+  %.not8 = icmp eq i32 %7, 0
+  br i1 %.not8, label %8, label %9
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.2, i32 noundef 174) #4
-  tail call void @ASN1_STRING_free(ptr noundef %call) #4
-  br label %return
+8:                                                ; preds = %6, %4
+  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.3, i32 noundef 174) #5
+  tail call void @ASN1_STRING_free(ptr noundef %5) #5
+  br label %11
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call3 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen)
-  br label %return
+9:                                                ; preds = %6
+  %10 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3)
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ %call3, %if.end ], [ 0, %if.then ]
-  ret i32 %retval.0
+11:                                               ; preds = %9, %8
+  %.0 = phi i32 [ %10, %9 ], [ 0, %8 ]
+  ret i32 %.0
 }
 
 declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #1
@@ -356,41 +351,40 @@ declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SXNET_get_id_INTEGER(ptr noundef readonly captures(none) %sx, ptr noundef %zone) local_unnamed_addr #0 {
-entry:
-  %ids = getelementptr inbounds nuw i8, ptr %sx, i64 8
-  %0 = load ptr, ptr %ids, align 8
-  %call5 = tail call i64 @sk_num(ptr noundef %0) #4
-  %cmp6.not = icmp eq i64 %call5, 0
-  br i1 %cmp6.not, label %return, label %for.body
+define hidden ptr @SXNET_get_id_INTEGER(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !21
+  %5 = tail call i64 @sk_num(ptr noundef %4) #5
+  %.not10 = icmp eq i64 %5, 0
+  br i1 %.not10, label %.loopexit, label %.lr.ph
 
-for.cond:                                         ; preds = %for.body
-  %inc = add nuw i64 %i.07, 1
-  %1 = load ptr, ptr %ids, align 8
-  %call = tail call i64 @sk_num(ptr noundef %1) #4
-  %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !10
+6:                                                ; preds = %.lr.ph
+  %7 = add nuw i64 %.09, 1
+  %8 = load ptr, ptr %3, align 8, !tbaa !21
+  %9 = tail call i64 @sk_num(ptr noundef %8) #5
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
-for.body:                                         ; preds = %entry, %for.cond
-  %i.07 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
-  %2 = load ptr, ptr %ids, align 8
-  %call2 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %i.07) #4
-  %3 = load ptr, ptr %call2, align 8
-  %call4 = tail call i32 @ASN1_STRING_cmp(ptr noundef %3, ptr noundef %zone) #4
-  %tobool.not = icmp eq i32 %call4, 0
-  br i1 %tobool.not, label %if.then, label %for.cond
+.lr.ph:                                           ; preds = %2, %6
+  %.09 = phi i64 [ %7, %6 ], [ 0, %2 ]
+  %11 = load ptr, ptr %3, align 8, !tbaa !21
+  %12 = tail call ptr @sk_value(ptr noundef %11, i64 noundef %.09) #5
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  %14 = tail call i32 @ASN1_STRING_cmp(ptr noundef %13, ptr noundef %1) #5
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %6
 
-if.then:                                          ; preds = %for.body
-  %user = getelementptr inbounds nuw i8, ptr %call2, i64 8
-  %4 = load ptr, ptr %user, align 8
-  br label %return
+15:                                               ; preds = %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  br label %.loopexit
 
-return:                                           ; preds = %for.cond, %entry, %if.then
-  %retval.0 = phi ptr [ %4, %if.then ], [ null, %entry ], [ null, %for.cond ]
-  ret ptr %retval.0
+.loopexit:                                        ; preds = %6, %2, %15
+  %.08 = phi ptr [ %17, %15 ], [ null, %2 ], [ null, %6 ]
+  ret ptr %.08
 }
 
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -398,102 +392,100 @@ declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SXNET_get_id_asc(ptr noundef readonly captures(none) %sx, ptr noundef %zone) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %zone) #4
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define hidden ptr @SXNET_get_id_asc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %1) #5
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %4, label %5
 
-if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.2, i32 noundef 240) #4
-  br label %return
+4:                                                ; preds = %2
+  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.3, i32 noundef 240) #5
+  br label %21
 
-if.end:                                           ; preds = %entry
-  %ids.i = getelementptr inbounds nuw i8, ptr %sx, i64 8
-  %0 = load ptr, ptr %ids.i, align 8
-  %call5.i = tail call i64 @sk_num(ptr noundef %0) #4
-  %cmp6.not.i = icmp eq i64 %call5.i, 0
-  br i1 %cmp6.not.i, label %SXNET_get_id_INTEGER.exit, label %for.body.i
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %8 = tail call i64 @sk_num(ptr noundef %7) #5
+  %.not10.i = icmp eq i64 %8, 0
+  br i1 %.not10.i, label %SXNET_get_id_INTEGER.exit, label %.lr.ph.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw i64 %i.07.i, 1
-  %1 = load ptr, ptr %ids.i, align 8
-  %call.i = tail call i64 @sk_num(ptr noundef %1) #4
-  %cmp.i = icmp ult i64 %inc.i, %call.i
-  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !10
+9:                                                ; preds = %.lr.ph.i
+  %10 = add nuw i64 %.09.i, 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !21
+  %12 = tail call i64 @sk_num(ptr noundef %11) #5
+  %13 = icmp ult i64 %10, %12
+  br i1 %13, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !26
 
-for.body.i:                                       ; preds = %if.end, %for.cond.i
-  %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
-  %2 = load ptr, ptr %ids.i, align 8
-  %call2.i = tail call ptr @sk_value(ptr noundef %2, i64 noundef %i.07.i) #4
-  %3 = load ptr, ptr %call2.i, align 8
-  %call4.i = tail call i32 @ASN1_STRING_cmp(ptr noundef %3, ptr noundef nonnull %call) #4
-  %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %if.then.i, label %for.cond.i
+.lr.ph.i:                                         ; preds = %5, %9
+  %.09.i = phi i64 [ %10, %9 ], [ 0, %5 ]
+  %14 = load ptr, ptr %6, align 8, !tbaa !21
+  %15 = tail call ptr @sk_value(ptr noundef %14, i64 noundef %.09.i) #5
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %17 = tail call i32 @ASN1_STRING_cmp(ptr noundef %16, ptr noundef nonnull %3) #5
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %18, label %9
 
-if.then.i:                                        ; preds = %for.body.i
-  %user.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
-  %4 = load ptr, ptr %user.i, align 8
+18:                                               ; preds = %.lr.ph.i
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
   br label %SXNET_get_id_INTEGER.exit
 
-SXNET_get_id_INTEGER.exit:                        ; preds = %for.cond.i, %if.end, %if.then.i
-  %retval.0.i = phi ptr [ %4, %if.then.i ], [ null, %if.end ], [ null, %for.cond.i ]
-  tail call void @ASN1_STRING_free(ptr noundef nonnull %call) #4
-  br label %return
+SXNET_get_id_INTEGER.exit:                        ; preds = %9, %5, %18
+  %.08.i = phi ptr [ %20, %18 ], [ null, %5 ], [ null, %9 ]
+  tail call void @ASN1_STRING_free(ptr noundef nonnull %3) #5
+  br label %21
 
-return:                                           ; preds = %SXNET_get_id_INTEGER.exit, %if.then
-  %retval.0 = phi ptr [ %retval.0.i, %SXNET_get_id_INTEGER.exit ], [ null, %if.then ]
-  ret ptr %retval.0
+21:                                               ; preds = %SXNET_get_id_INTEGER.exit, %4
+  %.0 = phi ptr [ %.08.i, %SXNET_get_id_INTEGER.exit ], [ null, %4 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SXNET_get_id_ulong(ptr noundef readonly captures(none) %sx, i64 noundef %lzone) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ASN1_STRING_type_new(i32 noundef 2) #4
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+define hidden ptr @SXNET_get_id_ulong(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @ASN1_STRING_type_new(i32 noundef 2) #5
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %6, label %4
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @ASN1_INTEGER_set(ptr noundef nonnull %call, i64 noundef %lzone) #4
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %if.then, label %if.end
+4:                                                ; preds = %2
+  %5 = tail call i32 @ASN1_INTEGER_set(ptr noundef nonnull %3, i64 noundef %1) #5
+  %.not8 = icmp eq i32 %5, 0
+  br i1 %.not8, label %6, label %7
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.2, i32 noundef 253) #4
-  br label %return
+6:                                                ; preds = %4, %2
+  tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.3, i32 noundef 253) #5
+  br label %SXNET_get_id_INTEGER.exit
 
-if.end:                                           ; preds = %lor.lhs.false
-  %ids.i = getelementptr inbounds nuw i8, ptr %sx, i64 8
-  %0 = load ptr, ptr %ids.i, align 8
-  %call5.i = tail call i64 @sk_num(ptr noundef %0) #4
-  %cmp6.not.i = icmp eq i64 %call5.i, 0
-  br i1 %cmp6.not.i, label %return, label %for.body.i
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %10 = tail call i64 @sk_num(ptr noundef %9) #5
+  %.not10.i = icmp eq i64 %10, 0
+  br i1 %.not10.i, label %SXNET_get_id_INTEGER.exit, label %.lr.ph.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw i64 %i.07.i, 1
-  %1 = load ptr, ptr %ids.i, align 8
-  %call.i = tail call i64 @sk_num(ptr noundef %1) #4
-  %cmp.i = icmp ult i64 %inc.i, %call.i
-  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !10
+11:                                               ; preds = %.lr.ph.i
+  %12 = add nuw i64 %.09.i, 1
+  %13 = load ptr, ptr %8, align 8, !tbaa !21
+  %14 = tail call i64 @sk_num(ptr noundef %13) #5
+  %15 = icmp ult i64 %12, %14
+  br i1 %15, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !26
 
-for.body.i:                                       ; preds = %if.end, %for.cond.i
-  %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
-  %2 = load ptr, ptr %ids.i, align 8
-  %call2.i = tail call ptr @sk_value(ptr noundef %2, i64 noundef %i.07.i) #4
-  %3 = load ptr, ptr %call2.i, align 8
-  %call4.i = tail call i32 @ASN1_STRING_cmp(ptr noundef %3, ptr noundef nonnull %call) #4
-  %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %if.then.i, label %for.cond.i
+.lr.ph.i:                                         ; preds = %7, %11
+  %.09.i = phi i64 [ %12, %11 ], [ 0, %7 ]
+  %16 = load ptr, ptr %8, align 8, !tbaa !21
+  %17 = tail call ptr @sk_value(ptr noundef %16, i64 noundef %.09.i) #5
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %19 = tail call i32 @ASN1_STRING_cmp(ptr noundef %18, ptr noundef nonnull %3) #5
+  %.not.i = icmp eq i32 %19, 0
+  br i1 %.not.i, label %20, label %11
 
-if.then.i:                                        ; preds = %for.body.i
-  %user.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
-  %4 = load ptr, ptr %user.i, align 8
-  br label %return
+20:                                               ; preds = %.lr.ph.i
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  br label %SXNET_get_id_INTEGER.exit
 
-return:                                           ; preds = %for.cond.i, %if.then.i, %if.end, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %4, %if.then.i ], [ null, %if.end ], [ null, %for.cond.i ]
-  tail call void @ASN1_STRING_free(ptr noundef %call) #4
-  ret ptr %retval.0
+SXNET_get_id_INTEGER.exit:                        ; preds = %11, %20, %7, %6
+  %.0 = phi ptr [ null, %6 ], [ %22, %20 ], [ null, %7 ], [ null, %11 ]
+  tail call void @ASN1_STRING_free(ptr noundef %3) #5
+  ret ptr %.0
 }
 
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
@@ -509,27 +501,44 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @i2s_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @ASN1_STRING_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8SXNET_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!14, !15, i64 8}
+!14 = !{!"conf_value_st", !15, i64 0, !15, i64 8, !15, i64 16}
+!15 = !{!"p1 omnipotent char", !8, i64 0}
+!16 = !{!14, !15, i64 16}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"SXNET_st", !19, i64 0, !20, i64 8}
+!19 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!20 = !{!"p1 _ZTS16stack_st_SXNETID", !8, i64 0}
+!21 = !{!18, !20, i64 8}
+!22 = !{!23, !19, i64 0}
+!23 = !{!"SXNET_ID_st", !19, i64 0, !19, i64 8}
+!24 = !{!23, !19, i64 8}
+!25 = distinct !{!25, !12}
+!26 = distinct !{!26, !12}

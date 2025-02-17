@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/constant_time_test.ll'
 source_filename = "bench/libquic/original/constant_time_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [37 x i8] c"Testing constant time operations...\0A\00", align 1
@@ -20,230 +20,229 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [60 x i8] c"Test failed for  %s(%du, %du): expected %u (FALSE), got %u\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr @stdout, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str, i64 36, i64 1, ptr %0)
-  br label %for.body
+define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !6
+  %4 = tail call i64 @fwrite(ptr nonnull @.str, i64 36, i64 1, ptr %3)
+  br label %6
 
-for.cond67.preheader:                             ; preds = %for.inc64
-  %tobool.not = icmp eq i32 %add44, 0
-  %2 = load ptr, ptr @stdout, align 8
-  br i1 %tobool.not, label %if.then, label %if.else
+.preheader187:                                    ; preds = %113
+  %.not = icmp eq i32 %112, 0
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !6
+  br i1 %.not, label %114, label %118
 
-for.body:                                         ; preds = %entry, %for.inc64
-  %indvars.iv333 = phi i64 [ 0, %entry ], [ %indvars.iv.next334, %for.inc64 ]
-  %num_failed.0322 = phi i32 [ 0, %entry ], [ %add44, %for.inc64 ]
-  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv333
-  %3 = load i32, ptr %arrayidx, align 4
-  br label %for.body10
+6:                                                ; preds = %2, %113
+  %indvars.iv206 = phi i64 [ 0, %2 ], [ %indvars.iv.next207, %113 ]
+  %.0106192 = phi i32 [ 0, %2 ], [ %112, %113 ]
+  %7 = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv206
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  br label %9
 
-for.body10:                                       ; preds = %for.body, %if.else.i187
-  %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %if.else.i187 ]
-  %num_failed.1319 = phi i32 [ %num_failed.0322, %for.body ], [ %add44, %if.else.i187 ]
-  %arrayidx12 = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv
-  %4 = load i32, ptr %arrayidx12, align 4
-  %cmp13 = icmp ult i32 %3, %4
-  %xor.i = xor i32 %4, %3
-  %sub.i = sub i32 %3, %4
-  %xor1.i = xor i32 %sub.i, %3
-  %or.i = or i32 %xor1.i, %xor.i
-  %xor2.i = xor i32 %or.i, %3
-  %shr.i.i = ashr i32 %xor2.i, 31
-  %cmp.i = icmp ne i32 %shr.i.i, -1
-  %or.cond.i = and i1 %cmp13, %cmp.i
-  br i1 %or.cond.i, label %if.then.i102, label %if.else.i
+9:                                                ; preds = %6, %test_binary_op_8.exit166
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %test_binary_op_8.exit166 ]
+  %.1107189 = phi i32 [ %.0106192, %6 ], [ %112, %test_binary_op_8.exit166 ]
+  %10 = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4, !tbaa !11
+  %12 = icmp ult i32 %8, %11
+  %13 = xor i32 %11, %8
+  %14 = sub i32 %8, %11
+  %15 = xor i32 %14, %8
+  %16 = or i32 %15, %13
+  %17 = xor i32 %16, %8
+  %18 = ashr i32 %17, 31
+  %19 = icmp ne i32 %18, -1
+  %or.cond.i = and i1 %12, %19
+  br i1 %or.cond.i, label %27, label %20
 
-if.else.i:                                        ; preds = %for.body10
-  %cmp4.i = icmp sgt i32 %xor2.i, -1
-  %or.cond1.i.not = or i1 %cmp13, %cmp4.i
-  br i1 %or.cond1.i.not, label %test_binary_op.exit, label %test_binary_op.exit.thread
+20:                                               ; preds = %9
+  %21 = icmp sgt i32 %17, -1
+  %or.cond3.i.not = or i1 %12, %21
+  br i1 %or.cond3.i.not, label %test_binary_op.exit, label %test_binary_op.exit.thread
 
-test_binary_op.exit.thread:                       ; preds = %if.else.i
-  %5 = load ptr, ptr @stderr, align 8
-  %call6.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef %shr.i.i) #3
-  %add16279 = add nsw i32 %num_failed.1319, 1
-  br label %if.else.i99
+test_binary_op.exit.thread:                       ; preds = %20
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef %8, i32 noundef %11, i32 noundef 0, i32 noundef %18) #3
+  %24 = add nsw i32 %.1107189, 1
+  br label %33
 
-test_binary_op.exit:                              ; preds = %if.else.i
-  %conv.i = and i32 %shr.i.i, 255
-  %6 = icmp sgt i32 %xor2.i, -1
-  br label %if.else.i99
+test_binary_op.exit:                              ; preds = %20
+  %25 = and i32 %18, 255
+  %26 = icmp sgt i32 %17, -1
+  br label %33
 
-if.then.i102:                                     ; preds = %for.body10
-  %7 = load ptr, ptr @stderr, align 8
-  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef %shr.i.i) #3
-  %add16340 = add nsw i32 %num_failed.1319, 1
-  %8 = load ptr, ptr @stderr, align 8
-  %call3.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef %3, i32 noundef %4, i32 noundef 255, i32 noundef %shr.i.i) #3
+27:                                               ; preds = %9
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef %8, i32 noundef %11, i32 noundef -1, i32 noundef %18) #3
+  %30 = add nsw i32 %.1107189, 1
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %11, i32 noundef 255, i32 noundef %18) #3
   br label %test_binary_op_8.exit
 
-if.else.i99:                                      ; preds = %test_binary_op.exit, %test_binary_op.exit.thread
-  %conv.i287 = phi i32 [ 255, %test_binary_op.exit.thread ], [ %conv.i, %test_binary_op.exit ]
-  %conv.i240286 = phi i1 [ false, %test_binary_op.exit.thread ], [ %6, %test_binary_op.exit ]
-  %add16285 = phi i32 [ %add16279, %test_binary_op.exit.thread ], [ %num_failed.1319, %test_binary_op.exit ]
-  %or.cond1.i100.not = or i1 %cmp13, %conv.i240286
-  br i1 %or.cond1.i100.not, label %test_binary_op_8.exit, label %if.then9.i
+33:                                               ; preds = %test_binary_op.exit, %test_binary_op.exit.thread
+  %34 = phi i32 [ 255, %test_binary_op.exit.thread ], [ %25, %test_binary_op.exit ]
+  %35 = phi i1 [ false, %test_binary_op.exit.thread ], [ %26, %test_binary_op.exit ]
+  %36 = phi i32 [ %24, %test_binary_op.exit.thread ], [ %.1107189, %test_binary_op.exit ]
+  %or.cond5.i.not = or i1 %12, %35
+  br i1 %or.cond5.i.not, label %test_binary_op_8.exit, label %37
 
-if.then9.i:                                       ; preds = %if.else.i99
-  %9 = load ptr, ptr @stderr, align 8
-  %call11.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef %conv.i287) #3
+37:                                               ; preds = %33
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %11, i32 noundef 0, i32 noundef %34) #3
   br label %test_binary_op_8.exit
 
-test_binary_op_8.exit:                            ; preds = %if.then.i102, %if.else.i99, %if.then9.i
-  %add16284 = phi i32 [ %add16340, %if.then.i102 ], [ %add16285, %if.then9.i ], [ %add16285, %if.else.i99 ]
-  %retval.0.i101 = phi i32 [ 1, %if.then.i102 ], [ 1, %if.then9.i ], [ 0, %if.else.i99 ]
-  %add20 = add nsw i32 %retval.0.i101, %add16284
-  %cmp21 = icmp ult i32 %4, %3
-  %sub.i242 = sub i32 %4, %3
-  %xor1.i243 = xor i32 %sub.i242, %4
-  %or.i244 = or i32 %xor1.i243, %xor.i
-  %xor2.i245 = xor i32 %or.i244, %4
-  %shr.i.i246 = ashr i32 %xor2.i245, 31
-  %cmp.i104 = icmp ne i32 %shr.i.i246, -1
-  %or.cond.i105 = and i1 %cmp21, %cmp.i104
-  br i1 %or.cond.i105, label %if.then.i127, label %if.else.i106
+test_binary_op_8.exit:                            ; preds = %27, %33, %37
+  %40 = phi i32 [ %30, %27 ], [ %36, %37 ], [ %36, %33 ]
+  %.0.i126 = phi i32 [ 1, %27 ], [ 1, %37 ], [ 0, %33 ]
+  %41 = add nsw i32 %.0.i126, %40
+  %42 = icmp ult i32 %11, %8
+  %43 = sub i32 %11, %8
+  %44 = xor i32 %43, %11
+  %45 = or i32 %44, %13
+  %46 = xor i32 %45, %11
+  %47 = ashr i32 %46, 31
+  %48 = icmp ne i32 %47, -1
+  %or.cond.i127 = and i1 %42, %48
+  br i1 %or.cond.i127, label %56, label %49
 
-if.else.i106:                                     ; preds = %test_binary_op_8.exit
-  %cmp4.i108 = icmp sgt i32 %xor2.i245, -1
-  %or.cond1.i109.not = or i1 %cmp21, %cmp4.i108
-  br i1 %or.cond1.i109.not, label %test_binary_op.exit115, label %test_binary_op.exit115.thread
+49:                                               ; preds = %test_binary_op_8.exit
+  %50 = icmp sgt i32 %46, -1
+  %or.cond3.i128.not = or i1 %42, %50
+  br i1 %or.cond3.i128.not, label %test_binary_op.exit130, label %test_binary_op.exit130.thread
 
-test_binary_op.exit115.thread:                    ; preds = %if.else.i106
-  %10 = load ptr, ptr @stderr, align 8
-  %call6.i112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef %3, i32 noundef 0, i32 noundef %shr.i.i246) #3
-  %add24289 = add nsw i32 %add20, 1
-  br label %if.else.i120
+test_binary_op.exit130.thread:                    ; preds = %49
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %8, i32 noundef 0, i32 noundef %47) #3
+  %53 = add nsw i32 %41, 1
+  br label %62
 
-test_binary_op.exit115:                           ; preds = %if.else.i106
-  %conv.i117 = and i32 %shr.i.i246, 255
-  %11 = icmp sgt i32 %xor2.i245, -1
-  br label %if.else.i120
+test_binary_op.exit130:                           ; preds = %49
+  %54 = and i32 %47, 255
+  %55 = icmp sgt i32 %46, -1
+  br label %62
 
-if.then.i127:                                     ; preds = %test_binary_op_8.exit
-  %12 = load ptr, ptr @stderr, align 8
-  %call1.i114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef %3, i32 noundef -1, i32 noundef %shr.i.i246) #3
-  %add24347 = add nsw i32 %add20, 1
-  %13 = load ptr, ptr @stderr, align 8
-  %call3.i128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef %3, i32 noundef 255, i32 noundef %shr.i.i246) #3
-  br label %test_binary_op_8.exit129
+56:                                               ; preds = %test_binary_op_8.exit
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %8, i32 noundef -1, i32 noundef %47) #3
+  %59 = add nsw i32 %41, 1
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %8, i32 noundef 255, i32 noundef %47) #3
+  br label %test_binary_op_8.exit134
 
-if.else.i120:                                     ; preds = %test_binary_op.exit115, %test_binary_op.exit115.thread
-  %conv.i117297 = phi i32 [ 255, %test_binary_op.exit115.thread ], [ %conv.i117, %test_binary_op.exit115 ]
-  %conv.i253296 = phi i1 [ false, %test_binary_op.exit115.thread ], [ %11, %test_binary_op.exit115 ]
-  %add24295 = phi i32 [ %add24289, %test_binary_op.exit115.thread ], [ %add20, %test_binary_op.exit115 ]
-  %or.cond1.i123.not = or i1 %cmp21, %conv.i253296
-  br i1 %or.cond1.i123.not, label %test_binary_op_8.exit129, label %if.then9.i125
+62:                                               ; preds = %test_binary_op.exit130, %test_binary_op.exit130.thread
+  %63 = phi i32 [ 255, %test_binary_op.exit130.thread ], [ %54, %test_binary_op.exit130 ]
+  %64 = phi i1 [ false, %test_binary_op.exit130.thread ], [ %55, %test_binary_op.exit130 ]
+  %65 = phi i32 [ %53, %test_binary_op.exit130.thread ], [ %41, %test_binary_op.exit130 ]
+  %or.cond5.i132.not = or i1 %42, %64
+  br i1 %or.cond5.i132.not, label %test_binary_op_8.exit134, label %66
 
-if.then9.i125:                                    ; preds = %if.else.i120
-  %14 = load ptr, ptr @stderr, align 8
-  %call11.i126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef %3, i32 noundef 0, i32 noundef %conv.i117297) #3
-  br label %test_binary_op_8.exit129
+66:                                               ; preds = %62
+  %67 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %8, i32 noundef 0, i32 noundef %63) #3
+  br label %test_binary_op_8.exit134
 
-test_binary_op_8.exit129:                         ; preds = %if.then.i127, %if.else.i120, %if.then9.i125
-  %add24294 = phi i32 [ %add24347, %if.then.i127 ], [ %add24295, %if.then9.i125 ], [ %add24295, %if.else.i120 ]
-  %retval.0.i124 = phi i32 [ 1, %if.then.i127 ], [ 1, %if.then9.i125 ], [ 0, %if.else.i120 ]
-  %add28 = add nsw i32 %retval.0.i124, %add24294
-  %isnotneg.i = icmp sgt i32 %xor2.i, -1
-  %not.i = sext i1 %isnotneg.i to i32
-  %15 = or i1 %cmp13, %isnotneg.i
-  br i1 %15, label %if.else.i133, label %if.then.i154
+test_binary_op_8.exit134:                         ; preds = %56, %62, %66
+  %69 = phi i32 [ %59, %56 ], [ %65, %66 ], [ %65, %62 ]
+  %.0.i133 = phi i32 [ 1, %56 ], [ 1, %66 ], [ 0, %62 ]
+  %70 = add nsw i32 %.0.i133, %69
+  %isnotneg.i = icmp sgt i32 %17, -1
+  %71 = sext i1 %isnotneg.i to i32
+  %72 = or i1 %12, %isnotneg.i
+  br i1 %72, label %73, label %77
 
-if.else.i133:                                     ; preds = %test_binary_op_8.exit129
-  %or.cond1.i136 = and i1 %cmp13, %isnotneg.i
-  br i1 %or.cond1.i136, label %if.else.i147.thread, label %if.else.i147
+73:                                               ; preds = %test_binary_op_8.exit134
+  %or.cond3.i136 = and i1 %12, %isnotneg.i
+  br i1 %or.cond3.i136, label %.thread, label %83
 
-if.else.i147.thread:                              ; preds = %if.else.i133
-  %16 = load ptr, ptr @stderr, align 8
-  %call6.i139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.3, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef %not.i) #3
-  %add32299 = add nsw i32 %add28, 1
-  br label %if.then9.i152
+.thread:                                          ; preds = %73
+  %74 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.3, i32 noundef %8, i32 noundef %11, i32 noundef 0, i32 noundef %71) #3
+  %76 = add nsw i32 %70, 1
+  br label %85
 
-if.then.i154:                                     ; preds = %test_binary_op_8.exit129
-  %17 = load ptr, ptr @stderr, align 8
-  %call1.i141 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef %not.i) #3
-  %add32 = add nsw i32 %add28, 1
-  %18 = load ptr, ptr @stderr, align 8
-  %call3.i155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, i32 noundef %3, i32 noundef %4, i32 noundef 255, i32 noundef 0) #3
-  br label %test_binary_op_8.exit156
+77:                                               ; preds = %test_binary_op_8.exit134
+  %78 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef %8, i32 noundef %11, i32 noundef -1, i32 noundef %71) #3
+  %80 = add nsw i32 %70, 1
+  %81 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, i32 noundef %8, i32 noundef %11, i32 noundef 255, i32 noundef 0) #3
+  br label %test_binary_op_8.exit142
 
-if.else.i147:                                     ; preds = %if.else.i133
-  %conv.i144355 = select i1 %isnotneg.i, i32 255, i32 0
-  %.pre = and i1 %cmp13, %isnotneg.i
-  br i1 %.pre, label %if.then9.i152, label %test_binary_op_8.exit156
+83:                                               ; preds = %73
+  %84 = select i1 %isnotneg.i, i32 255, i32 0
+  %.pre = and i1 %12, %isnotneg.i
+  br i1 %.pre, label %85, label %test_binary_op_8.exit142
 
-if.then9.i152:                                    ; preds = %if.else.i147.thread, %if.else.i147
-  %add32305362 = phi i32 [ %add32299, %if.else.i147.thread ], [ %add28, %if.else.i147 ]
-  %conv.i144306361 = phi i32 [ 255, %if.else.i147.thread ], [ %conv.i144355, %if.else.i147 ]
-  %19 = load ptr, ptr @stderr, align 8
-  %call11.i153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef %conv.i144306361) #3
-  br label %test_binary_op_8.exit156
+85:                                               ; preds = %.thread, %83
+  %86 = phi i32 [ %76, %.thread ], [ %70, %83 ]
+  %87 = phi i32 [ 255, %.thread ], [ %84, %83 ]
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4, i32 noundef %8, i32 noundef %11, i32 noundef 0, i32 noundef %87) #3
+  br label %test_binary_op_8.exit142
 
-test_binary_op_8.exit156:                         ; preds = %if.then.i154, %if.else.i147, %if.then9.i152
-  %add32304 = phi i32 [ %add32, %if.then.i154 ], [ %add32305362, %if.then9.i152 ], [ %add28, %if.else.i147 ]
-  %retval.0.i151 = phi i32 [ 1, %if.then.i154 ], [ 1, %if.then9.i152 ], [ 0, %if.else.i147 ]
-  %add36 = add nsw i32 %retval.0.i151, %add32304
-  %isnotneg.i265 = icmp sgt i32 %xor2.i245, -1
-  %not.i266 = sext i1 %isnotneg.i265 to i32
-  %20 = or i1 %cmp21, %isnotneg.i265
-  br i1 %20, label %if.else.i160, label %if.then.i181
+test_binary_op_8.exit142:                         ; preds = %77, %83, %85
+  %90 = phi i32 [ %80, %77 ], [ %86, %85 ], [ %70, %83 ]
+  %.0.i141 = phi i32 [ 1, %77 ], [ 1, %85 ], [ 0, %83 ]
+  %91 = add nsw i32 %.0.i141, %90
+  %isnotneg.i167 = icmp sgt i32 %46, -1
+  %92 = sext i1 %isnotneg.i167 to i32
+  %93 = or i1 %42, %isnotneg.i167
+  br i1 %93, label %94, label %98
 
-if.else.i160:                                     ; preds = %test_binary_op_8.exit156
-  %or.cond1.i163 = and i1 %cmp21, %isnotneg.i265
-  br i1 %or.cond1.i163, label %if.else.i174.thread, label %if.else.i174
+94:                                               ; preds = %test_binary_op_8.exit142
+  %or.cond3.i144 = and i1 %42, %isnotneg.i167
+  br i1 %or.cond3.i144, label %.thread220, label %104
 
-if.else.i174.thread:                              ; preds = %if.else.i160
-  %21 = load ptr, ptr @stderr, align 8
-  %call6.i166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.3, i32 noundef %4, i32 noundef %3, i32 noundef 0, i32 noundef %not.i266) #3
-  %add40308 = add nsw i32 %add36, 1
-  br label %if.then9.i179
+.thread220:                                       ; preds = %94
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %8, i32 noundef 0, i32 noundef %92) #3
+  %97 = add nsw i32 %91, 1
+  br label %106
 
-if.then.i181:                                     ; preds = %test_binary_op_8.exit156
-  %22 = load ptr, ptr @stderr, align 8
-  %call1.i168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef %4, i32 noundef %3, i32 noundef -1, i32 noundef %not.i266) #3
-  %add40 = add nsw i32 %add36, 1
-  %23 = load ptr, ptr @stderr, align 8
-  %call3.i182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, i32 noundef %4, i32 noundef %3, i32 noundef 255, i32 noundef 0) #3
-  br label %if.else.i187
+98:                                               ; preds = %test_binary_op_8.exit142
+  %99 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %8, i32 noundef -1, i32 noundef %92) #3
+  %101 = add nsw i32 %91, 1
+  %102 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, i32 noundef %11, i32 noundef %8, i32 noundef 255, i32 noundef 0) #3
+  br label %test_binary_op_8.exit166
 
-if.else.i174:                                     ; preds = %if.else.i160
-  %conv.i171366 = select i1 %isnotneg.i265, i32 255, i32 0
-  %.pre337 = and i1 %cmp21, %isnotneg.i265
-  br i1 %.pre337, label %if.then9.i179, label %if.else.i187
+104:                                              ; preds = %94
+  %105 = select i1 %isnotneg.i167, i32 255, i32 0
+  %.pre210 = and i1 %42, %isnotneg.i167
+  br i1 %.pre210, label %106, label %test_binary_op_8.exit166
 
-if.then9.i179:                                    ; preds = %if.else.i174.thread, %if.else.i174
-  %add40314373 = phi i32 [ %add40308, %if.else.i174.thread ], [ %add36, %if.else.i174 ]
-  %conv.i171315372 = phi i32 [ 255, %if.else.i174.thread ], [ %conv.i171366, %if.else.i174 ]
-  %24 = load ptr, ptr @stderr, align 8
-  %call11.i180 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4, i32 noundef %4, i32 noundef %3, i32 noundef 0, i32 noundef %conv.i171315372) #3
-  br label %if.else.i187
+106:                                              ; preds = %.thread220, %104
+  %107 = phi i32 [ %97, %.thread220 ], [ %91, %104 ]
+  %108 = phi i32 [ 255, %.thread220 ], [ %105, %104 ]
+  %109 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4, i32 noundef %11, i32 noundef %8, i32 noundef 0, i32 noundef %108) #3
+  br label %test_binary_op_8.exit166
 
-if.else.i187:                                     ; preds = %if.then9.i179, %if.else.i174, %if.then.i181
-  %add40313 = phi i32 [ %add40, %if.then.i181 ], [ %add40314373, %if.then9.i179 ], [ %add36, %if.else.i174 ]
-  %retval.0.i178 = phi i32 [ 1, %if.then.i181 ], [ 1, %if.then9.i179 ], [ 0, %if.else.i174 ]
-  %add44 = add nsw i32 %retval.0.i178, %add40313
+test_binary_op_8.exit166:                         ; preds = %106, %104, %98
+  %111 = phi i32 [ %101, %98 ], [ %107, %106 ], [ %91, %104 ]
+  %.0.i149 = phi i32 [ 1, %98 ], [ 1, %106 ], [ 0, %104 ]
+  %112 = add nsw i32 %.0.i149, %111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %for.inc64, label %for.body10, !llvm.loop !7
+  br i1 %exitcond.not, label %113, label %9, !llvm.loop !13
 
-for.inc64:                                        ; preds = %if.else.i187
-  %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
-  %exitcond336.not = icmp eq i64 %indvars.iv.next334, 10
-  br i1 %exitcond336.not, label %for.cond67.preheader, label %for.body, !llvm.loop !9
+113:                                              ; preds = %test_binary_op_8.exit166
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %exitcond209.not = icmp eq i64 %indvars.iv.next207, 10
+  br i1 %exitcond209.not, label %.preheader187, label %6, !llvm.loop !15
 
-if.then:                                          ; preds = %for.cond67.preheader
-  %call117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 1908)
-  %25 = load ptr, ptr @stdout, align 8
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 5, i64 1, ptr %25)
-  br label %return
+114:                                              ; preds = %.preheader187
+  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef 1908) #4
+  %116 = load ptr, ptr @stdout, align 8, !tbaa !6
+  %117 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 5, i64 1, ptr %116)
+  br label %120
 
-if.else:                                          ; preds = %for.cond67.preheader
-  %call119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %add44, i32 noundef 1908)
-  br label %return
+118:                                              ; preds = %.preheader187
+  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.9, i32 noundef %112, i32 noundef 1908) #4
+  br label %120
 
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i32 [ 1, %if.else ], [ 0, %if.then ]
-  ret i32 %retval.0
+120:                                              ; preds = %118, %114
+  %.0112 = phi i32 [ 1, %118 ], [ 0, %114 ]
+  ret i32 %.0112
 }
 
 ; Function Attrs: nofree nounwind
@@ -252,20 +251,27 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
-attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { cold }
+attributes #3 = { cold nounwind }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !9, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}

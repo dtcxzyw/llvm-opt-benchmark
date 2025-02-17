@@ -1,98 +1,95 @@
 ; ModuleID = 'bench/libquic/original/x509_att.ll'
 source_filename = "bench/libquic/original/x509_att.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509_att.c\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"name=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509at_get_attr_count(ptr noundef %x) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @sk_num(ptr noundef %x) #4
-  %conv = trunc i64 %call to i32
-  ret i32 %conv
+define hidden i32 @X509at_get_attr_count(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @sk_num(ptr noundef %0) #4
+  %3 = trunc i64 %2 to i32
+  ret i32 %3
 }
 
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @X509at_get_attr_by_NID(ptr noundef %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #4
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 -2147483647, -2147483648) i32 @X509at_get_attr_by_NID(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #4
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %X509at_get_attr_by_OBJ.exit, label %6
 
-if.end:                                           ; preds = %entry
-  %cmp.i = icmp eq ptr %x, null
-  br i1 %cmp.i, label %return, label %if.end.i
+6:                                                ; preds = %3
+  %7 = icmp eq ptr %0, null
+  br i1 %7, label %X509at_get_attr_by_OBJ.exit, label %8
 
-if.end.i:                                         ; preds = %if.end
-  %call.i = tail call i64 @sk_num(ptr noundef nonnull %x) #4
-  %0 = tail call i32 @llvm.smax.i32(i32 %lastpos, i32 -1)
-  %smax.i = sext i32 %0 to i64
-  %sext.i = shl i64 %call.i, 32
-  %1 = ashr exact i64 %sext.i, 32
-  br label %for.cond.i
+8:                                                ; preds = %6
+  %9 = tail call i64 @sk_num(ptr noundef nonnull %0) #4
+  %10 = tail call i32 @llvm.smax.i32(i32 %2, i32 -1)
+  %smax.i = sext i32 %10 to i64
+  %sext.i = shl i64 %9, 32
+  %11 = ashr exact i64 %sext.i, 32
+  br label %12
 
-for.cond.i:                                       ; preds = %for.body.i, %if.end.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ %smax.i, %if.end.i ]
+12:                                               ; preds = %14, %8
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ %smax.i, %8 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %cmp4.i = icmp slt i64 %indvars.iv.next.i, %1
-  br i1 %cmp4.i, label %for.body.i, label %return
+  %13 = icmp slt i64 %indvars.iv.next.i, %11
+  br i1 %13, label %14, label %X509at_get_attr_by_OBJ.exit
 
-for.body.i:                                       ; preds = %for.cond.i
-  %call7.i = tail call ptr @sk_value(ptr noundef nonnull %x, i64 noundef %indvars.iv.next.i) #4
-  %2 = load ptr, ptr %call7.i, align 8
-  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %2, ptr noundef nonnull %call) #4
-  %cmp9.i = icmp eq i32 %call8.i, 0
-  br i1 %cmp9.i, label %return.loopexit.split.loop.exit.i, label %for.cond.i, !llvm.loop !7
+14:                                               ; preds = %12
+  %15 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %indvars.iv.next.i) #4
+  %16 = load ptr, ptr %15, align 8, !tbaa !6
+  %17 = tail call i32 @OBJ_cmp(ptr noundef %16, ptr noundef nonnull %4) #4
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %.loopexit.loopexit.split.loop.exit.i, label %12, !llvm.loop !13
 
-return.loopexit.split.loop.exit.i:                ; preds = %for.body.i
-  %3 = trunc nsw i64 %indvars.iv.next.i to i32
-  br label %return
+.loopexit.loopexit.split.loop.exit.i:             ; preds = %14
+  %19 = trunc nsw i64 %indvars.iv.next.i to i32
+  br label %X509at_get_attr_by_OBJ.exit
 
-return:                                           ; preds = %for.cond.i, %return.loopexit.split.loop.exit.i, %if.end, %entry
-  %retval.0 = phi i32 [ -2, %entry ], [ -1, %if.end ], [ %3, %return.loopexit.split.loop.exit.i ], [ -1, %for.cond.i ]
-  ret i32 %retval.0
+X509at_get_attr_by_OBJ.exit:                      ; preds = %12, %.loopexit.loopexit.split.loop.exit.i, %6, %3
+  %.0 = phi i32 [ -2, %3 ], [ -1, %6 ], [ %19, %.loopexit.loopexit.split.loop.exit.i ], [ -1, %12 ]
+  ret i32 %.0
 }
 
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, 2147483647) i32 @X509at_get_attr_by_OBJ(ptr noundef %sk, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %sk, null
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 -2147483647, 2147483647) i32 @X509at_get_attr_by_OBJ(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %.loopexit, label %5
 
-if.end:                                           ; preds = %entry
-  %call = tail call i64 @sk_num(ptr noundef nonnull %sk) #4
-  %0 = tail call i32 @llvm.smax.i32(i32 %lastpos, i32 -1)
-  %smax = sext i32 %0 to i64
-  %sext = shl i64 %call, 32
-  %1 = ashr exact i64 %sext, 32
-  br label %for.cond
+5:                                                ; preds = %3
+  %6 = tail call i64 @sk_num(ptr noundef nonnull %0) #4
+  %7 = tail call i32 @llvm.smax.i32(i32 %2, i32 -1)
+  %smax = sext i32 %7 to i64
+  %sext = shl i64 %6, 32
+  %8 = ashr exact i64 %sext, 32
+  br label %9
 
-for.cond:                                         ; preds = %for.body, %if.end
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %smax, %if.end ]
+9:                                                ; preds = %11, %5
+  %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ %smax, %5 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp4 = icmp slt i64 %indvars.iv.next, %1
-  br i1 %cmp4, label %for.body, label %return
+  %10 = icmp slt i64 %indvars.iv.next, %8
+  br i1 %10, label %11, label %.loopexit
 
-for.body:                                         ; preds = %for.cond
-  %call7 = tail call ptr @sk_value(ptr noundef nonnull %sk, i64 noundef %indvars.iv.next) #4
-  %2 = load ptr, ptr %call7, align 8
-  %call8 = tail call i32 @OBJ_cmp(ptr noundef %2, ptr noundef %obj) #4
-  %cmp9 = icmp eq i32 %call8, 0
-  br i1 %cmp9, label %return.loopexit.split.loop.exit, label %for.cond, !llvm.loop !7
+11:                                               ; preds = %9
+  %12 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %indvars.iv.next) #4
+  %13 = load ptr, ptr %12, align 8, !tbaa !6
+  %14 = tail call i32 @OBJ_cmp(ptr noundef %13, ptr noundef %1) #4
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %.loopexit.loopexit.split.loop.exit, label %9, !llvm.loop !13
 
-return.loopexit.split.loop.exit:                  ; preds = %for.body
-  %3 = trunc nsw i64 %indvars.iv.next to i32
-  br label %return
+.loopexit.loopexit.split.loop.exit:               ; preds = %11
+  %16 = trunc nsw i64 %indvars.iv.next to i32
+  br label %.loopexit
 
-return:                                           ; preds = %for.cond, %return.loopexit.split.loop.exit, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ %3, %return.loopexit.split.loop.exit ], [ -1, %for.cond ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %9, %.loopexit.loopexit.split.loop.exit, %3
+  %.0 = phi i32 [ -1, %3 ], [ %16, %.loopexit.loopexit.split.loop.exit ], [ -1, %9 ]
+  ret i32 %.0
 }
 
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -100,109 +97,106 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509at_get_attr(ptr noundef %x, i32 noundef %loc) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %x, null
-  %cmp1 = icmp slt i32 %loc, 0
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %lor.lhs.false2
+define hidden ptr @X509at_get_attr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp slt i32 %1, 0
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %10, label %5
 
-lor.lhs.false2:                                   ; preds = %entry
-  %call = tail call i64 @sk_num(ptr noundef nonnull %x) #4
-  %conv = zext nneg i32 %loc to i64
-  %cmp3.not = icmp ugt i64 %call, %conv
-  br i1 %cmp3.not, label %if.else, label %return
+5:                                                ; preds = %2
+  %6 = tail call i64 @sk_num(ptr noundef nonnull %0) #4
+  %7 = zext nneg i32 %1 to i64
+  %.not = icmp ugt i64 %6, %7
+  br i1 %.not, label %8, label %10
 
-if.else:                                          ; preds = %lor.lhs.false2
-  %call6 = tail call ptr @sk_value(ptr noundef nonnull %x, i64 noundef %conv) #4
-  br label %return
+8:                                                ; preds = %5
+  %9 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %7) #4
+  br label %10
 
-return:                                           ; preds = %entry, %lor.lhs.false2, %if.else
-  %retval.0 = phi ptr [ %call6, %if.else ], [ null, %lor.lhs.false2 ], [ null, %entry ]
-  ret ptr %retval.0
+10:                                               ; preds = %2, %5, %8
+  %.0 = phi ptr [ %9, %8 ], [ null, %5 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509at_delete_attr(ptr noundef %x, i32 noundef %loc) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %x, null
-  %cmp1 = icmp slt i32 %loc, 0
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %lor.lhs.false2
+define hidden ptr @X509at_delete_attr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp slt i32 %1, 0
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %10, label %5
 
-lor.lhs.false2:                                   ; preds = %entry
-  %call = tail call i64 @sk_num(ptr noundef nonnull %x) #4
-  %conv = zext nneg i32 %loc to i64
-  %cmp3.not = icmp ugt i64 %call, %conv
-  br i1 %cmp3.not, label %if.end, label %return
+5:                                                ; preds = %2
+  %6 = tail call i64 @sk_num(ptr noundef nonnull %0) #4
+  %7 = zext nneg i32 %1 to i64
+  %.not = icmp ugt i64 %6, %7
+  br i1 %.not, label %8, label %10
 
-if.end:                                           ; preds = %lor.lhs.false2
-  %call6 = tail call ptr @sk_delete(ptr noundef nonnull %x, i64 noundef %conv) #4
-  br label %return
+8:                                                ; preds = %5
+  %9 = tail call ptr @sk_delete(ptr noundef nonnull %0, i64 noundef %7) #4
+  br label %10
 
-return:                                           ; preds = %entry, %lor.lhs.false2, %if.end
-  %retval.0 = phi ptr [ %call6, %if.end ], [ null, %lor.lhs.false2 ], [ null, %entry ]
-  ret ptr %retval.0
+10:                                               ; preds = %2, %5, %8
+  %.0 = phi ptr [ %9, %8 ], [ null, %5 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 declare ptr @sk_delete(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509at_add1_attr(ptr noundef captures(address_is_null) %x, ptr noundef %attr) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %x, null
-  br i1 %cmp, label %if.end19.thread25, label %if.end
+define hidden ptr @X509at_add1_attr(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %.thread41, label %4
 
-if.end19.thread25:                                ; preds = %entry
+.thread41:                                        ; preds = %2
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 126) #4
-  br label %return
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %x, align 8
-  %cmp1 = icmp eq ptr %0, null
-  br i1 %cmp1, label %if.then2, label %if.end6
+4:                                                ; preds = %2
+  %5 = load ptr, ptr %0, align 8, !tbaa !15
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %10
 
-if.then2:                                         ; preds = %if.end
-  %call = tail call ptr @sk_new_null() #4
-  %cmp3 = icmp eq ptr %call, null
-  br i1 %cmp3, label %if.end19.thread, label %if.end6
+7:                                                ; preds = %4
+  %8 = tail call ptr @sk_new_null() #4
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %.thread34, label %10
 
-if.end19.thread:                                  ; preds = %if.then2
+.thread34:                                        ; preds = %7
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 144) #4
-  br label %return
+  br label %20
 
-if.end6:                                          ; preds = %if.end, %if.then2
-  %sk.2 = phi ptr [ %call, %if.then2 ], [ %0, %if.end ]
-  %call7 = tail call ptr @X509_ATTRIBUTE_dup(ptr noundef %attr) #4
-  %cmp8 = icmp eq ptr %call7, null
-  br i1 %cmp8, label %if.then21, label %if.end10
+10:                                               ; preds = %4, %7
+  %.2 = phi ptr [ %8, %7 ], [ %5, %4 ]
+  %11 = tail call ptr @X509_ATTRIBUTE_dup(ptr noundef %1) #4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %19, label %13
 
-if.end10:                                         ; preds = %if.end6
-  %call11 = tail call i64 @sk_push(ptr noundef nonnull %sk.2, ptr noundef nonnull %call7) #4
-  %tobool.not = icmp eq i64 %call11, 0
-  br i1 %tobool.not, label %if.end19.thread21, label %if.end13
+13:                                               ; preds = %10
+  %14 = tail call i64 @sk_push(ptr noundef nonnull %.2, ptr noundef nonnull %11) #4
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %.thread37, label %15
 
-if.end13:                                         ; preds = %if.end10
-  %1 = load ptr, ptr %x, align 8
-  %cmp14 = icmp eq ptr %1, null
-  br i1 %cmp14, label %if.then15, label %return
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %0, align 8, !tbaa !15
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %20
 
-if.then15:                                        ; preds = %if.end13
-  store ptr %sk.2, ptr %x, align 8
-  br label %return
+18:                                               ; preds = %15
+  store ptr %.2, ptr %0, align 8, !tbaa !15
+  br label %20
 
-if.end19.thread21:                                ; preds = %if.end10
+.thread37:                                        ; preds = %13
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 144) #4
-  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %call7) #4
-  br label %if.then21
+  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %11) #4
+  br label %19
 
-if.then21:                                        ; preds = %if.end6, %if.end19.thread21
-  tail call void @sk_free(ptr noundef nonnull %sk.2) #4
-  br label %return
+19:                                               ; preds = %10, %.thread37
+  tail call void @sk_free(ptr noundef nonnull %.2) #4
+  br label %20
 
-return:                                           ; preds = %if.end19.thread25, %if.end19.thread, %if.then21, %if.end13, %if.then15
-  %retval.0 = phi ptr [ %sk.2, %if.then15 ], [ %sk.2, %if.end13 ], [ null, %if.then21 ], [ null, %if.end19.thread ], [ null, %if.end19.thread25 ]
-  ret ptr %retval.0
+20:                                               ; preds = %.thread41, %.thread34, %19, %15, %18
+  %.017 = phi ptr [ %.2, %18 ], [ %.2, %15 ], [ null, %19 ], [ null, %.thread34 ], [ null, %.thread41 ]
+  ret ptr %.017
 }
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -218,611 +212,600 @@ declare void @X509_ATTRIBUTE_free(ptr noundef) local_unnamed_addr #1
 declare void @sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509at_add1_attr_by_OBJ(ptr noundef captures(address_is_null) %x, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @X509_ATTRIBUTE_new() #4
-  %cmp2.i = icmp eq ptr %call.i, null
-  br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
+define hidden ptr @X509at_add1_attr_by_OBJ(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+  %6 = tail call ptr @X509_ATTRIBUTE_new() #4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-if.then3.i:                                       ; preds = %entry
+8:                                                ; preds = %5
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 239) #4
-  br label %return
+  br label %X509_ATTRIBUTE_create_by_OBJ.exit.thread
 
-if.end4.i:                                        ; preds = %entry
-  %cmp1.i.i = icmp eq ptr %obj, null
-  br i1 %cmp1.i.i, label %err.i, label %X509_ATTRIBUTE_set1_object.exit.i
+9:                                                ; preds = %5
+  %10 = icmp eq ptr %1, null
+  br i1 %10, label %X509_ATTRIBUTE_set1_object.exit.thread.i, label %X509_ATTRIBUTE_set1_object.exit.i
 
-X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %if.end4.i
-  %0 = load ptr, ptr %call.i, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %0) #4
-  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #4
-  store ptr %call.i.i, ptr %call.i, align 8
-  %cmp4.i.not.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp4.i.not.i, label %err.i, label %if.end7.i
+X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %9
+  %11 = load ptr, ptr %6, align 8, !tbaa !6
+  tail call void @ASN1_OBJECT_free(ptr noundef %11) #4
+  %12 = tail call ptr @OBJ_dup(ptr noundef nonnull %1) #4
+  store ptr %12, ptr %6, align 8, !tbaa !6
+  %.not27.i = icmp eq ptr %12, null
+  br i1 %.not27.i, label %X509_ATTRIBUTE_set1_object.exit.thread.i, label %13
 
-if.end7.i:                                        ; preds = %X509_ATTRIBUTE_set1_object.exit.i
-  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i, i32 noundef %type, ptr noundef %bytes, i32 noundef %len)
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %err.i, label %if.end
+13:                                               ; preds = %X509_ATTRIBUTE_set1_object.exit.i
+  %14 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %6, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+  %.not22.i = icmp eq i32 %14, 0
+  br i1 %.not22.i, label %X509_ATTRIBUTE_set1_object.exit.thread.i, label %X509_ATTRIBUTE_create_by_OBJ.exit
 
-err.i:                                            ; preds = %if.end7.i, %X509_ATTRIBUTE_set1_object.exit.i, %if.end4.i
-  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %call.i) #4
-  br label %return
+X509_ATTRIBUTE_set1_object.exit.thread.i:         ; preds = %13, %X509_ATTRIBUTE_set1_object.exit.i, %9
+  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %6) #4
+  br label %X509_ATTRIBUTE_create_by_OBJ.exit.thread
 
-if.end:                                           ; preds = %if.end7.i
-  %call1 = tail call ptr @X509at_add1_attr(ptr noundef %x, ptr noundef nonnull %call.i)
-  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %call.i) #4
-  br label %return
+X509_ATTRIBUTE_create_by_OBJ.exit:                ; preds = %13
+  %15 = tail call ptr @X509at_add1_attr(ptr noundef %0, ptr noundef nonnull %6)
+  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %6) #4
+  br label %X509_ATTRIBUTE_create_by_OBJ.exit.thread
 
-return:                                           ; preds = %err.i, %if.then3.i, %if.end
-  %retval.0 = phi ptr [ %call1, %if.end ], [ null, %if.then3.i ], [ null, %err.i ]
-  ret ptr %retval.0
+X509_ATTRIBUTE_create_by_OBJ.exit.thread:         ; preds = %X509_ATTRIBUTE_set1_object.exit.thread.i, %8, %X509_ATTRIBUTE_create_by_OBJ.exit
+  %.0 = phi ptr [ %15, %X509_ATTRIBUTE_create_by_OBJ.exit ], [ null, %8 ], [ null, %X509_ATTRIBUTE_set1_object.exit.thread.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef captures(address_is_null) %attr, ptr noundef %obj, i32 noundef %atrtype, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %attr, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+  %6 = icmp eq ptr %0, null
+  br i1 %6, label %10, label %7
 
-lor.lhs.false:                                    ; preds = %entry
-  %0 = load ptr, ptr %attr, align 8
-  %cmp1 = icmp eq ptr %0, null
-  br i1 %cmp1, label %if.then, label %if.end4
+7:                                                ; preds = %5
+  %8 = load ptr, ptr %0, align 8, !tbaa !17
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %14
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call = tail call ptr @X509_ATTRIBUTE_new() #4
-  %cmp2 = icmp eq ptr %call, null
-  br i1 %cmp2, label %if.then3, label %if.end4
+10:                                               ; preds = %7, %5
+  %11 = tail call ptr @X509_ATTRIBUTE_new() #4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then3:                                         ; preds = %if.then
+13:                                               ; preds = %10
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 239) #4
-  br label %return
+  br label %28
 
-if.end4:                                          ; preds = %lor.lhs.false, %if.then
-  %ret.0 = phi ptr [ %call, %if.then ], [ %0, %lor.lhs.false ]
-  %cmp1.i = icmp eq ptr %obj, null
-  br i1 %cmp1.i, label %err, label %X509_ATTRIBUTE_set1_object.exit
+14:                                               ; preds = %7, %10
+  %.0 = phi ptr [ %11, %10 ], [ %8, %7 ]
+  %15 = icmp eq ptr %1, null
+  br i1 %15, label %X509_ATTRIBUTE_set1_object.exit.thread, label %X509_ATTRIBUTE_set1_object.exit
 
-X509_ATTRIBUTE_set1_object.exit:                  ; preds = %if.end4
-  %1 = load ptr, ptr %ret.0, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %1) #4
-  %call.i = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #4
-  store ptr %call.i, ptr %ret.0, align 8
-  %cmp4.i.not = icmp eq ptr %call.i, null
-  br i1 %cmp4.i.not, label %err, label %if.end7
+X509_ATTRIBUTE_set1_object.exit:                  ; preds = %14
+  %16 = load ptr, ptr %.0, align 8, !tbaa !6
+  tail call void @ASN1_OBJECT_free(ptr noundef %16) #4
+  %17 = tail call ptr @OBJ_dup(ptr noundef nonnull %1) #4
+  store ptr %17, ptr %.0, align 8, !tbaa !6
+  %.not27 = icmp eq ptr %17, null
+  br i1 %.not27, label %X509_ATTRIBUTE_set1_object.exit.thread, label %18
 
-if.end7:                                          ; preds = %X509_ATTRIBUTE_set1_object.exit
-  %call8 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %ret.0, i32 noundef %atrtype, ptr noundef %data, i32 noundef %len)
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %err, label %if.end11
+18:                                               ; preds = %X509_ATTRIBUTE_set1_object.exit
+  %19 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %.0, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+  %.not22 = icmp eq i32 %19, 0
+  br i1 %.not22, label %X509_ATTRIBUTE_set1_object.exit.thread, label %20
 
-if.end11:                                         ; preds = %if.end7
-  br i1 %cmp, label %return, label %land.lhs.true
+20:                                               ; preds = %18
+  br i1 %6, label %28, label %21
 
-land.lhs.true:                                    ; preds = %if.end11
-  %2 = load ptr, ptr %attr, align 8
-  %cmp13 = icmp eq ptr %2, null
-  br i1 %cmp13, label %if.then14, label %return
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !17
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %28
 
-if.then14:                                        ; preds = %land.lhs.true
-  store ptr %ret.0, ptr %attr, align 8
-  br label %return
+24:                                               ; preds = %21
+  store ptr %.0, ptr %0, align 8, !tbaa !17
+  br label %28
 
-err:                                              ; preds = %if.end4, %if.end7, %X509_ATTRIBUTE_set1_object.exit
-  br i1 %cmp, label %if.then19, label %lor.lhs.false17
+X509_ATTRIBUTE_set1_object.exit.thread:           ; preds = %14, %18, %X509_ATTRIBUTE_set1_object.exit
+  br i1 %6, label %27, label %25
 
-lor.lhs.false17:                                  ; preds = %err
-  %3 = load ptr, ptr %attr, align 8
-  %cmp18.not = icmp eq ptr %ret.0, %3
-  br i1 %cmp18.not, label %return, label %if.then19
+25:                                               ; preds = %X509_ATTRIBUTE_set1_object.exit.thread
+  %26 = load ptr, ptr %0, align 8, !tbaa !17
+  %.not23 = icmp eq ptr %.0, %26
+  br i1 %.not23, label %28, label %27
 
-if.then19:                                        ; preds = %lor.lhs.false17, %err
-  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %ret.0) #4
-  br label %return
+27:                                               ; preds = %25, %X509_ATTRIBUTE_set1_object.exit.thread
+  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %.0) #4
+  br label %28
 
-return:                                           ; preds = %lor.lhs.false17, %if.then19, %if.end11, %land.lhs.true, %if.then14, %if.then3
-  %retval.0 = phi ptr [ null, %if.then3 ], [ %ret.0, %if.then14 ], [ %ret.0, %land.lhs.true ], [ %ret.0, %if.end11 ], [ null, %if.then19 ], [ null, %lor.lhs.false17 ]
-  ret ptr %retval.0
+28:                                               ; preds = %25, %27, %20, %21, %24, %13
+  %.018 = phi ptr [ null, %13 ], [ %.0, %24 ], [ %.0, %21 ], [ %.0, %20 ], [ null, %27 ], [ null, %25 ]
+  ret ptr %.018
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509at_add1_attr_by_NID(ptr noundef captures(address_is_null) %x, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #4
-  %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+define hidden ptr @X509at_add1_attr_by_NID(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+  %6 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-if.then.i:                                        ; preds = %entry
+8:                                                ; preds = %5
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str, i32 noundef 224) #4
-  br label %return
+  br label %X509_ATTRIBUTE_create_by_NID.exit.thread
 
-if.end.i:                                         ; preds = %entry
-  %call.i4 = tail call ptr @X509_ATTRIBUTE_new() #4
-  %cmp2.i = icmp eq ptr %call.i4, null
-  br i1 %cmp2.i, label %if.then3.i, label %X509_ATTRIBUTE_set1_object.exit.i
+9:                                                ; preds = %5
+  %10 = tail call ptr @X509_ATTRIBUTE_new() #4
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %X509_ATTRIBUTE_set1_object.exit.i
 
-if.then3.i:                                       ; preds = %if.end.i
+12:                                               ; preds = %9
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 239) #4
-  br label %return
+  br label %X509_ATTRIBUTE_create_by_NID.exit.thread
 
-X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %if.end.i
-  %0 = load ptr, ptr %call.i4, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %0) #4
-  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %call.i) #4
-  store ptr %call.i.i, ptr %call.i4, align 8
-  %cmp4.i.not.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp4.i.not.i, label %err.i, label %if.end7.i
+X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %9
+  %13 = load ptr, ptr %10, align 8, !tbaa !6
+  tail call void @ASN1_OBJECT_free(ptr noundef %13) #4
+  %14 = tail call ptr @OBJ_dup(ptr noundef nonnull %6) #4
+  store ptr %14, ptr %10, align 8, !tbaa !6
+  %.not27.i = icmp eq ptr %14, null
+  br i1 %.not27.i, label %X509_ATTRIBUTE_set1_object.exit.thread.i, label %15
 
-if.end7.i:                                        ; preds = %X509_ATTRIBUTE_set1_object.exit.i
-  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i4, i32 noundef %type, ptr noundef %bytes, i32 noundef %len)
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %err.i, label %if.end
+15:                                               ; preds = %X509_ATTRIBUTE_set1_object.exit.i
+  %16 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %10, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+  %.not22.i = icmp eq i32 %16, 0
+  br i1 %.not22.i, label %X509_ATTRIBUTE_set1_object.exit.thread.i, label %X509_ATTRIBUTE_create_by_NID.exit
 
-err.i:                                            ; preds = %if.end7.i, %X509_ATTRIBUTE_set1_object.exit.i
-  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %call.i4) #4
-  br label %return
+X509_ATTRIBUTE_set1_object.exit.thread.i:         ; preds = %15, %X509_ATTRIBUTE_set1_object.exit.i
+  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %10) #4
+  br label %X509_ATTRIBUTE_create_by_NID.exit.thread
 
-if.end:                                           ; preds = %if.end7.i
-  %call1 = tail call ptr @X509at_add1_attr(ptr noundef %x, ptr noundef nonnull %call.i4)
-  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %call.i4) #4
-  br label %return
+X509_ATTRIBUTE_create_by_NID.exit:                ; preds = %15
+  %17 = tail call ptr @X509at_add1_attr(ptr noundef %0, ptr noundef nonnull %10)
+  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %10) #4
+  br label %X509_ATTRIBUTE_create_by_NID.exit.thread
 
-return:                                           ; preds = %err.i, %if.then3.i, %if.then.i, %if.end
-  %retval.0 = phi ptr [ %call1, %if.end ], [ null, %if.then.i ], [ null, %if.then3.i ], [ null, %err.i ]
-  ret ptr %retval.0
+X509_ATTRIBUTE_create_by_NID.exit.thread:         ; preds = %X509_ATTRIBUTE_set1_object.exit.thread.i, %12, %8, %X509_ATTRIBUTE_create_by_NID.exit
+  %.0 = phi ptr [ %17, %X509_ATTRIBUTE_create_by_NID.exit ], [ null, %8 ], [ null, %12 ], [ null, %X509_ATTRIBUTE_set1_object.exit.thread.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_ATTRIBUTE_create_by_NID(ptr noundef captures(address_is_null) %attr, i32 noundef %nid, i32 noundef %atrtype, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #4
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @X509_ATTRIBUTE_create_by_NID(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+  %6 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
+8:                                                ; preds = %5
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str, i32 noundef 224) #4
-  br label %return
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef %attr, ptr noundef nonnull %call, i32 noundef %atrtype, ptr noundef %data, i32 noundef %len)
-  br label %return
+9:                                                ; preds = %5
+  %10 = tail call ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %call1, %if.end ]
-  ret ptr %retval.0
+11:                                               ; preds = %9, %8
+  %.0 = phi ptr [ null, %8 ], [ %10, %9 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509at_add1_attr_by_txt(ptr noundef captures(address_is_null) %x, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call ptr @OBJ_txt2obj(ptr noundef %attrname, i32 noundef 0) #4
-  %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %X509_ATTRIBUTE_create_by_txt.exit.thread, label %if.end.i
+define hidden ptr @X509at_add1_attr_by_txt(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+  %6 = tail call ptr @OBJ_txt2obj(ptr noundef %1, i32 noundef 0) #4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %X509_ATTRIBUTE_create_by_txt.exit.thread, label %8
 
-X509_ATTRIBUTE_create_by_txt.exit.thread:         ; preds = %entry
+X509_ATTRIBUTE_create_by_txt.exit.thread:         ; preds = %5
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 111, ptr noundef nonnull @.str, i32 noundef 269) #4
-  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %attrname) #4
-  br label %return
+  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %1) #4
+  br label %18
 
-if.end.i:                                         ; preds = %entry
-  %call.i4 = tail call ptr @X509_ATTRIBUTE_new() #4
-  %cmp2.i = icmp eq ptr %call.i4, null
-  br i1 %cmp2.i, label %if.then3.i, label %X509_ATTRIBUTE_set1_object.exit.i
+8:                                                ; preds = %5
+  %9 = tail call ptr @X509_ATTRIBUTE_new() #4
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %X509_ATTRIBUTE_set1_object.exit.i
 
-if.then3.i:                                       ; preds = %if.end.i
+11:                                               ; preds = %8
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 239) #4
-  br label %X509_ATTRIBUTE_create_by_txt.exit.thread8
+  br label %X509_ATTRIBUTE_create_by_txt.exit.thread13
 
-X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %if.end.i
-  %0 = load ptr, ptr %call.i4, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %0) #4
-  %call.i.i = tail call ptr @OBJ_dup(ptr noundef nonnull %call.i) #4
-  store ptr %call.i.i, ptr %call.i4, align 8
-  %cmp4.i.not.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp4.i.not.i, label %err.i, label %if.end7.i
+X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %8
+  %12 = load ptr, ptr %9, align 8, !tbaa !6
+  tail call void @ASN1_OBJECT_free(ptr noundef %12) #4
+  %13 = tail call ptr @OBJ_dup(ptr noundef nonnull %6) #4
+  store ptr %13, ptr %9, align 8, !tbaa !6
+  %.not27.i = icmp eq ptr %13, null
+  br i1 %.not27.i, label %X509_ATTRIBUTE_set1_object.exit.thread.i, label %14
 
-if.end7.i:                                        ; preds = %X509_ATTRIBUTE_set1_object.exit.i
-  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i4, i32 noundef %type, ptr noundef %bytes, i32 noundef %len)
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %err.i, label %if.end
+14:                                               ; preds = %X509_ATTRIBUTE_set1_object.exit.i
+  %15 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %9, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+  %.not22.i = icmp eq i32 %15, 0
+  br i1 %.not22.i, label %X509_ATTRIBUTE_set1_object.exit.thread.i, label %16
 
-err.i:                                            ; preds = %if.end7.i, %X509_ATTRIBUTE_set1_object.exit.i
-  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %call.i4) #4
-  br label %X509_ATTRIBUTE_create_by_txt.exit.thread8
+X509_ATTRIBUTE_set1_object.exit.thread.i:         ; preds = %14, %X509_ATTRIBUTE_set1_object.exit.i
+  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %9) #4
+  br label %X509_ATTRIBUTE_create_by_txt.exit.thread13
 
-X509_ATTRIBUTE_create_by_txt.exit.thread8:        ; preds = %if.then3.i, %err.i
-  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %call.i) #4
-  br label %return
+X509_ATTRIBUTE_create_by_txt.exit.thread13:       ; preds = %11, %X509_ATTRIBUTE_set1_object.exit.thread.i
+  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %6) #4
+  br label %18
 
-if.end:                                           ; preds = %if.end7.i
-  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %call.i) #4
-  %call1 = tail call ptr @X509at_add1_attr(ptr noundef %x, ptr noundef nonnull %call.i4)
-  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %call.i4) #4
-  br label %return
+16:                                               ; preds = %14
+  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %6) #4
+  %17 = tail call ptr @X509at_add1_attr(ptr noundef %0, ptr noundef nonnull %9)
+  tail call void @X509_ATTRIBUTE_free(ptr noundef nonnull %9) #4
+  br label %18
 
-return:                                           ; preds = %X509_ATTRIBUTE_create_by_txt.exit.thread8, %X509_ATTRIBUTE_create_by_txt.exit.thread, %if.end
-  %retval.0 = phi ptr [ %call1, %if.end ], [ null, %X509_ATTRIBUTE_create_by_txt.exit.thread ], [ null, %X509_ATTRIBUTE_create_by_txt.exit.thread8 ]
-  ret ptr %retval.0
+18:                                               ; preds = %X509_ATTRIBUTE_create_by_txt.exit.thread13, %X509_ATTRIBUTE_create_by_txt.exit.thread, %16
+  %.0 = phi ptr [ %17, %16 ], [ null, %X509_ATTRIBUTE_create_by_txt.exit.thread ], [ null, %X509_ATTRIBUTE_create_by_txt.exit.thread13 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_ATTRIBUTE_create_by_txt(ptr noundef captures(address_is_null) %attr, ptr noundef %atrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @OBJ_txt2obj(ptr noundef %atrname, i32 noundef 0) #4
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @X509_ATTRIBUTE_create_by_txt(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+  %6 = tail call ptr @OBJ_txt2obj(ptr noundef %1, i32 noundef 0) #4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
+8:                                                ; preds = %5
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 111, ptr noundef nonnull @.str, i32 noundef 269) #4
-  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %atrname) #4
-  br label %return
+  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %1) #4
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef %attr, ptr noundef nonnull %call, i32 noundef %type, ptr noundef %bytes, i32 noundef %len)
-  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %call) #4
-  br label %return
+9:                                                ; preds = %5
+  %10 = tail call ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+  tail call void @ASN1_OBJECT_free(ptr noundef nonnull %6) #4
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %call1, %if.end ]
-  ret ptr %retval.0
+11:                                               ; preds = %9, %8
+  %.0 = phi ptr [ null, %8 ], [ %10, %9 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509at_get0_data_by_OBJ(ptr noundef %x, ptr noundef %obj, i32 noundef %lastpos, i32 noundef %type) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp eq ptr %x, null
-  br i1 %cmp.i, label %return, label %if.end.i
+define hidden ptr @X509at_get0_data_by_OBJ(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp eq ptr %0, null
+  br i1 %5, label %X509_ATTRIBUTE_get0_data.exit, label %6
 
-if.end.i:                                         ; preds = %entry
-  %call.i = tail call i64 @sk_num(ptr noundef nonnull %x) #4
-  %0 = tail call i32 @llvm.smax.i32(i32 %lastpos, i32 -1)
-  %smax.i = sext i32 %0 to i64
-  %sext.i = shl i64 %call.i, 32
-  %1 = ashr exact i64 %sext.i, 32
-  br label %for.cond.i
+6:                                                ; preds = %4
+  %7 = tail call i64 @sk_num(ptr noundef nonnull %0) #4
+  %8 = tail call i32 @llvm.smax.i32(i32 %2, i32 -1)
+  %smax.i = sext i32 %8 to i64
+  %sext.i = shl i64 %7, 32
+  %9 = ashr exact i64 %sext.i, 32
+  br label %10
 
-for.cond.i:                                       ; preds = %for.body.i, %if.end.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ %smax.i, %if.end.i ]
+10:                                               ; preds = %12, %6
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ %smax.i, %6 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %cmp4.i = icmp slt i64 %indvars.iv.next.i, %1
-  br i1 %cmp4.i, label %for.body.i, label %return
+  %11 = icmp slt i64 %indvars.iv.next.i, %9
+  br i1 %11, label %12, label %X509_ATTRIBUTE_get0_data.exit
 
-for.body.i:                                       ; preds = %for.cond.i
-  %call7.i = tail call ptr @sk_value(ptr noundef nonnull %x, i64 noundef %indvars.iv.next.i) #4
-  %2 = load ptr, ptr %call7.i, align 8
-  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %2, ptr noundef %obj) #4
-  %cmp9.i = icmp eq i32 %call8.i, 0
-  br i1 %cmp9.i, label %X509at_get_attr_by_OBJ.exit, label %for.cond.i, !llvm.loop !7
+12:                                               ; preds = %10
+  %13 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %indvars.iv.next.i) #4
+  %14 = load ptr, ptr %13, align 8, !tbaa !6
+  %15 = tail call i32 @OBJ_cmp(ptr noundef %14, ptr noundef %1) #4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %X509at_get_attr_by_OBJ.exit, label %10, !llvm.loop !13
 
-X509at_get_attr_by_OBJ.exit:                      ; preds = %for.body.i
-  %3 = trunc nsw i64 %indvars.iv.next.i to i32
-  %cmp = icmp eq i64 %indvars.iv.next.i, -1
-  br i1 %cmp, label %return, label %if.end
+X509at_get_attr_by_OBJ.exit:                      ; preds = %12
+  %17 = trunc nsw i64 %indvars.iv.next.i to i32
+  %18 = icmp eq i64 %indvars.iv.next.i, -1
+  br i1 %18, label %X509_ATTRIBUTE_get0_data.exit, label %19
 
-if.end:                                           ; preds = %X509at_get_attr_by_OBJ.exit
-  %cmp1 = icmp slt i32 %lastpos, -1
-  br i1 %cmp1, label %if.end.i10, label %if.end5
+19:                                               ; preds = %X509at_get_attr_by_OBJ.exit
+  %20 = icmp slt i32 %2, -1
+  br i1 %20, label %21, label %X509at_get_attr_by_OBJ.exit22.thread
 
-if.end.i10:                                       ; preds = %if.end
-  %call.i11 = tail call i64 @sk_num(ptr noundef nonnull %x) #4
-  %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 -1)
-  %smax.i12 = sext i32 %4 to i64
-  %sext.i13 = shl i64 %call.i11, 32
-  %5 = ashr exact i64 %sext.i13, 32
-  br label %for.cond.i14
+21:                                               ; preds = %19
+  %22 = tail call i64 @sk_num(ptr noundef nonnull %0) #4
+  %23 = tail call i32 @llvm.smax.i32(i32 %17, i32 -1)
+  %smax.i16 = sext i32 %23 to i64
+  %sext.i17 = shl i64 %22, 32
+  %24 = ashr exact i64 %sext.i17, 32
+  br label %25
 
-for.cond.i14:                                     ; preds = %for.body.i19, %if.end.i10
-  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i16, %for.body.i19 ], [ %smax.i12, %if.end.i10 ]
-  %indvars.iv.next.i16 = add nsw i64 %indvars.iv.i15, 1
-  %cmp4.i17 = icmp slt i64 %indvars.iv.next.i16, %5
-  br i1 %cmp4.i17, label %for.body.i19, label %if.end5
+25:                                               ; preds = %27, %21
+  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i19, %27 ], [ %smax.i16, %21 ]
+  %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i18, 1
+  %26 = icmp slt i64 %indvars.iv.next.i19, %24
+  br i1 %26, label %27, label %X509at_get_attr_by_OBJ.exit22.thread
 
-for.body.i19:                                     ; preds = %for.cond.i14
-  %call7.i20 = tail call ptr @sk_value(ptr noundef nonnull %x, i64 noundef %indvars.iv.next.i16) #4
-  %6 = load ptr, ptr %call7.i20, align 8
-  %call8.i21 = tail call i32 @OBJ_cmp(ptr noundef %6, ptr noundef %obj) #4
-  %cmp9.i22 = icmp eq i32 %call8.i21, 0
-  br i1 %cmp9.i22, label %X509at_get_attr_by_OBJ.exit24, label %for.cond.i14, !llvm.loop !7
+27:                                               ; preds = %25
+  %28 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %indvars.iv.next.i19) #4
+  %29 = load ptr, ptr %28, align 8, !tbaa !6
+  %30 = tail call i32 @OBJ_cmp(ptr noundef %29, ptr noundef %1) #4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %X509at_get_attr_by_OBJ.exit22, label %25, !llvm.loop !13
 
-X509at_get_attr_by_OBJ.exit24:                    ; preds = %for.body.i19
-  %cmp3.not = icmp eq i64 %indvars.iv.next.i16, -1
-  br i1 %cmp3.not, label %if.end5, label %return
+X509at_get_attr_by_OBJ.exit22:                    ; preds = %27
+  %.not = icmp eq i64 %indvars.iv.next.i19, -1
+  br i1 %.not, label %X509at_get_attr_by_OBJ.exit22.thread, label %X509_ATTRIBUTE_get0_data.exit
 
-if.end5:                                          ; preds = %for.cond.i14, %X509at_get_attr_by_OBJ.exit24, %if.end
-  %cmp1.i = icmp slt i64 %indvars.iv.i, -1
-  br i1 %cmp1.i, label %X509at_get_attr.exit, label %lor.lhs.false2.i
+X509at_get_attr_by_OBJ.exit22.thread:             ; preds = %25, %X509at_get_attr_by_OBJ.exit22, %19
+  %32 = icmp slt i64 %indvars.iv.i, -1
+  br i1 %32, label %X509at_get_attr.exit, label %33
 
-lor.lhs.false2.i:                                 ; preds = %if.end5
-  %call.i26 = tail call i64 @sk_num(ptr noundef nonnull %x) #4
-  %conv.i = and i64 %indvars.iv.next.i, 4294967295
-  %cmp3.not.i = icmp ugt i64 %call.i26, %conv.i
-  br i1 %cmp3.not.i, label %if.else.i, label %X509at_get_attr.exit
+33:                                               ; preds = %X509at_get_attr_by_OBJ.exit22.thread
+  %34 = tail call i64 @sk_num(ptr noundef nonnull %0) #4
+  %35 = and i64 %indvars.iv.next.i, 4294967295
+  %.not.i = icmp ugt i64 %34, %35
+  br i1 %.not.i, label %36, label %X509at_get_attr.exit
 
-if.else.i:                                        ; preds = %lor.lhs.false2.i
-  %call6.i = tail call ptr @sk_value(ptr noundef nonnull %x, i64 noundef %conv.i) #4
+36:                                               ; preds = %33
+  %37 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %35) #4
   br label %X509at_get_attr.exit
 
-X509at_get_attr.exit:                             ; preds = %if.end5, %lor.lhs.false2.i, %if.else.i
-  %retval.0.i27 = phi ptr [ %call6.i, %if.else.i ], [ null, %lor.lhs.false2.i ], [ null, %if.end5 ]
-  %cmp7 = icmp slt i32 %lastpos, -2
-  br i1 %cmp7, label %land.lhs.true8, label %if.end12
+X509at_get_attr.exit:                             ; preds = %X509at_get_attr_by_OBJ.exit22.thread, %33, %36
+  %.0.i23 = phi ptr [ %37, %36 ], [ null, %33 ], [ null, %X509at_get_attr_by_OBJ.exit22.thread ]
+  %38 = icmp slt i32 %2, -2
+  br i1 %38, label %39, label %48
 
-land.lhs.true8:                                   ; preds = %X509at_get_attr.exit
-  %single.i = getelementptr inbounds nuw i8, ptr %retval.0.i27, i64 8
-  %7 = load i32, ptr %single.i, align 8
-  %tobool.not.i = icmp eq i32 %7, 0
-  %value.i = getelementptr inbounds nuw i8, ptr %retval.0.i27, i64 16
-  %8 = load ptr, ptr %value.i, align 8
-  br i1 %tobool.not.i, label %if.then.i, label %X509_ATTRIBUTE_count.exit
+39:                                               ; preds = %X509at_get_attr.exit
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
+  %41 = load i32, ptr %40, align 8, !tbaa !19
+  %.not.i24 = icmp eq i32 %41, 0
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !20
+  br i1 %.not.i24, label %44, label %X509_ATTRIBUTE_count.exit
 
-if.then.i:                                        ; preds = %land.lhs.true8
-  %call.i30 = tail call i64 @sk_num(ptr noundef %8) #4
-  %9 = and i64 %call.i30, 4294967295
-  %10 = icmp eq i64 %9, 1
-  br i1 %10, label %if.end.i.i, label %return
+44:                                               ; preds = %39
+  %45 = tail call i64 @sk_num(ptr noundef %43) #4
+  %46 = and i64 %45, 4294967295
+  %47 = icmp eq i64 %46, 1
+  br i1 %47, label %.thread, label %X509_ATTRIBUTE_get0_data.exit
 
-X509_ATTRIBUTE_count.exit:                        ; preds = %land.lhs.true8
-  %tobool2.not.i.not = icmp eq ptr %8, null
-  br i1 %tobool2.not.i.not, label %return, label %if.end.i.i
+X509_ATTRIBUTE_count.exit:                        ; preds = %39
+  %.not3.i.not = icmp eq ptr %43, null
+  br i1 %.not3.i.not, label %X509_ATTRIBUTE_get0_data.exit, label %.thread
 
-if.end12:                                         ; preds = %X509at_get_attr.exit
-  %cmp.i.i = icmp eq ptr %retval.0.i27, null
-  br i1 %cmp.i.i, label %return, label %if.end.i.i
+48:                                               ; preds = %X509at_get_attr.exit
+  %49 = icmp eq ptr %.0.i23, null
+  br i1 %49, label %X509_ATTRIBUTE_get0_data.exit, label %.thread
 
-if.end.i.i:                                       ; preds = %if.then.i, %X509_ATTRIBUTE_count.exit, %if.end12
-  %single.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i27, i64 8
-  %11 = load i32, ptr %single.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq i32 %11, 0
-  %value.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i27, i64 16
-  %12 = load ptr, ptr %value.i.i.i, align 8
-  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %X509_ATTRIBUTE_count.exit.i.i
+.thread:                                          ; preds = %44, %X509_ATTRIBUTE_count.exit, %48
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !19
+  %.not.i.i.i = icmp eq i32 %51, 0
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !20
+  br i1 %.not.i.i.i, label %54, label %X509_ATTRIBUTE_count.exit.i.i
 
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %call.i.i.i = tail call i64 @sk_num(ptr noundef %12) #4
-  %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %13 = icmp sgt i32 %conv.i.i.i, 0
-  br i1 %13, label %if.end3.i.i, label %return
+54:                                               ; preds = %.thread
+  %55 = tail call i64 @sk_num(ptr noundef %53) #4
+  %56 = trunc i64 %55 to i32
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %58, label %X509_ATTRIBUTE_get0_data.exit
 
-X509_ATTRIBUTE_count.exit.i.i:                    ; preds = %if.end.i.i
-  %tobool2.not.i.i.i.not = icmp eq ptr %12, null
-  br i1 %tobool2.not.i.i.i.not, label %return, label %if.end3.i.i
+X509_ATTRIBUTE_count.exit.i.i:                    ; preds = %.thread
+  %.not3.i.i.i.not = icmp eq ptr %53, null
+  br i1 %.not3.i.i.i.not, label %X509_ATTRIBUTE_get0_data.exit, label %58
 
-if.end3.i.i:                                      ; preds = %if.then.i.i.i, %X509_ATTRIBUTE_count.exit.i.i
-  %14 = load i32, ptr %single.i.i.i, align 8
-  %tobool.not.i.i = icmp eq i32 %14, 0
-  %15 = load ptr, ptr %value.i.i.i, align 8
-  br i1 %tobool.not.i.i, label %if.then4.i.i, label %X509_ATTRIBUTE_get0_type.exit.i
+58:                                               ; preds = %54, %X509_ATTRIBUTE_count.exit.i.i
+  %59 = load i32, ptr %50, align 8, !tbaa !19
+  %.not9.i.i = icmp eq i32 %59, 0
+  %60 = load ptr, ptr %52, align 8, !tbaa !20
+  br i1 %.not9.i.i, label %61, label %X509_ATTRIBUTE_get0_type.exit.i
 
-if.then4.i.i:                                     ; preds = %if.end3.i.i
-  %call5.i.i = tail call ptr @sk_value(ptr noundef %15, i64 noundef 0) #4
+61:                                               ; preds = %58
+  %62 = tail call ptr @sk_value(ptr noundef %60, i64 noundef 0) #4
   br label %X509_ATTRIBUTE_get0_type.exit.i
 
-X509_ATTRIBUTE_get0_type.exit.i:                  ; preds = %if.then4.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call5.i.i, %if.then4.i.i ], [ %15, %if.end3.i.i ]
-  %tobool.not.i33 = icmp eq ptr %retval.0.i.i, null
-  br i1 %tobool.not.i33, label %return, label %if.end.i34
+X509_ATTRIBUTE_get0_type.exit.i:                  ; preds = %61, %58
+  %.0.i.i = phi ptr [ %62, %61 ], [ %60, %58 ]
+  %.not.i27 = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i27, label %X509_ATTRIBUTE_get0_data.exit, label %63
 
-if.end.i34:                                       ; preds = %X509_ATTRIBUTE_get0_type.exit.i
-  %call1.i = tail call i32 @ASN1_TYPE_get(ptr noundef nonnull %retval.0.i.i) #4
-  %cmp.not.i = icmp eq i32 %type, %call1.i
-  br i1 %cmp.not.i, label %if.end3.i, label %if.then2.i
+63:                                               ; preds = %X509_ATTRIBUTE_get0_type.exit.i
+  %64 = tail call i32 @ASN1_TYPE_get(ptr noundef nonnull %.0.i.i) #4
+  %.not7.i = icmp eq i32 %3, %64
+  br i1 %.not7.i, label %66, label %65
 
-if.then2.i:                                       ; preds = %if.end.i34
+65:                                               ; preds = %63
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 134, ptr noundef nonnull @.str, i32 noundef 359) #4
-  br label %return
+  br label %X509_ATTRIBUTE_get0_data.exit
 
-if.end3.i:                                        ; preds = %if.end.i34
-  %value.i35 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
-  %16 = load ptr, ptr %value.i35, align 8
-  br label %return
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !20
+  br label %X509_ATTRIBUTE_get0_data.exit
 
-return:                                           ; preds = %for.cond.i, %if.then.i.i.i, %if.then.i, %entry, %if.end3.i, %if.then2.i, %X509_ATTRIBUTE_get0_type.exit.i, %X509_ATTRIBUTE_count.exit.i.i, %if.end12, %X509_ATTRIBUTE_count.exit, %X509at_get_attr_by_OBJ.exit24, %X509at_get_attr_by_OBJ.exit
-  %retval.0 = phi ptr [ null, %X509at_get_attr_by_OBJ.exit ], [ null, %X509at_get_attr_by_OBJ.exit24 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %if.then2.i ], [ %16, %if.end3.i ], [ null, %X509_ATTRIBUTE_get0_type.exit.i ], [ null, %if.end12 ], [ null, %X509_ATTRIBUTE_count.exit.i.i ], [ null, %entry ], [ null, %if.then.i ], [ null, %if.then.i.i.i ], [ null, %for.cond.i ]
-  ret ptr %retval.0
+X509_ATTRIBUTE_get0_data.exit:                    ; preds = %10, %54, %44, %4, %66, %65, %X509_ATTRIBUTE_get0_type.exit.i, %X509_ATTRIBUTE_count.exit.i.i, %48, %X509_ATTRIBUTE_count.exit, %X509at_get_attr_by_OBJ.exit22, %X509at_get_attr_by_OBJ.exit
+  %.0 = phi ptr [ null, %X509at_get_attr_by_OBJ.exit ], [ null, %X509at_get_attr_by_OBJ.exit22 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %65 ], [ %68, %66 ], [ null, %X509_ATTRIBUTE_get0_type.exit.i ], [ null, %48 ], [ null, %X509_ATTRIBUTE_count.exit.i.i ], [ null, %4 ], [ null, %44 ], [ null, %54 ], [ null, %10 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_ATTRIBUTE_count(ptr noundef readonly captures(none) %attr) local_unnamed_addr #0 {
-entry:
-  %single = getelementptr inbounds nuw i8, ptr %attr, i64 8
-  %0 = load i32, ptr %single, align 8
-  %tobool.not = icmp eq i32 %0, 0
-  %value = getelementptr inbounds nuw i8, ptr %attr, i64 16
-  %1 = load ptr, ptr %value, align 8
-  br i1 %tobool.not, label %if.then, label %if.end
+define hidden i32 @X509_ATTRIBUTE_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8, !tbaa !19
+  %.not = icmp eq i32 %3, 0
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  br i1 %.not, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %call = tail call i64 @sk_num(ptr noundef %1) #4
-  %conv = trunc i64 %call to i32
-  br label %return
+6:                                                ; preds = %1
+  %7 = tail call i64 @sk_num(ptr noundef %5) #4
+  %8 = trunc i64 %7 to i32
+  br label %10
 
-if.end:                                           ; preds = %entry
-  %tobool2.not = icmp ne ptr %1, null
-  %. = zext i1 %tobool2.not to i32
-  br label %return
+9:                                                ; preds = %1
+  %.not3 = icmp ne ptr %5, null
+  %. = zext i1 %.not3 to i32
+  br label %10
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ %conv, %if.then ], [ %., %if.end ]
-  ret i32 %retval.0
+10:                                               ; preds = %9, %6
+  %.0 = phi i32 [ %8, %6 ], [ %., %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly captures(address_is_null) %attr, i32 noundef %idx, i32 noundef %atrtype, ptr noundef readnone captures(none) %data) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp eq ptr %attr, null
-  br i1 %cmp.i, label %return, label %if.end.i
+define hidden ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+  %5 = icmp eq ptr %0, null
+  br i1 %5, label %X509_ATTRIBUTE_get0_type.exit.thread, label %6
 
-if.end.i:                                         ; preds = %entry
-  %single.i.i = getelementptr inbounds nuw i8, ptr %attr, i64 8
-  %0 = load i32, ptr %single.i.i, align 8
-  %tobool.not.i.i = icmp eq i32 %0, 0
-  %value.i.i = getelementptr inbounds nuw i8, ptr %attr, i64 16
-  %1 = load ptr, ptr %value.i.i, align 8
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !19
+  %.not.i.i = icmp eq i32 %8, 0
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  br i1 %.not.i.i, label %11, label %14
 
-if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call i64 @sk_num(ptr noundef %1) #4
-  %conv.i.i = trunc i64 %call.i.i to i32
+11:                                               ; preds = %6
+  %12 = tail call i64 @sk_num(ptr noundef %10) #4
+  %13 = trunc i64 %12 to i32
   br label %X509_ATTRIBUTE_count.exit.i
 
-if.end.i.i:                                       ; preds = %if.end.i
-  %tobool2.not.i.i = icmp ne ptr %1, null
-  %..i.i = zext i1 %tobool2.not.i.i to i32
+14:                                               ; preds = %6
+  %.not3.i.i = icmp ne ptr %10, null
+  %..i.i = zext i1 %.not3.i.i to i32
   br label %X509_ATTRIBUTE_count.exit.i
 
-X509_ATTRIBUTE_count.exit.i:                      ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %..i.i, %if.end.i.i ]
-  %cmp1.not.i = icmp slt i32 %idx, %retval.0.i.i
-  br i1 %cmp1.not.i, label %if.end3.i, label %return
+X509_ATTRIBUTE_count.exit.i:                      ; preds = %14, %11
+  %.0.i.i = phi i32 [ %13, %11 ], [ %..i.i, %14 ]
+  %.not.i = icmp slt i32 %1, %.0.i.i
+  br i1 %.not.i, label %15, label %X509_ATTRIBUTE_get0_type.exit.thread
 
-if.end3.i:                                        ; preds = %X509_ATTRIBUTE_count.exit.i
-  %2 = load i32, ptr %single.i.i, align 8
-  %tobool.not.i = icmp eq i32 %2, 0
-  %3 = load ptr, ptr %value.i.i, align 8
-  br i1 %tobool.not.i, label %if.then4.i, label %X509_ATTRIBUTE_get0_type.exit
+15:                                               ; preds = %X509_ATTRIBUTE_count.exit.i
+  %16 = load i32, ptr %7, align 8, !tbaa !19
+  %.not9.i = icmp eq i32 %16, 0
+  %17 = load ptr, ptr %9, align 8, !tbaa !20
+  br i1 %.not9.i, label %18, label %X509_ATTRIBUTE_get0_type.exit
 
-if.then4.i:                                       ; preds = %if.end3.i
-  %conv.i = sext i32 %idx to i64
-  %call5.i = tail call ptr @sk_value(ptr noundef %3, i64 noundef %conv.i) #4
+18:                                               ; preds = %15
+  %19 = sext i32 %1 to i64
+  %20 = tail call ptr @sk_value(ptr noundef %17, i64 noundef %19) #4
   br label %X509_ATTRIBUTE_get0_type.exit
 
-X509_ATTRIBUTE_get0_type.exit:                    ; preds = %if.end3.i, %if.then4.i
-  %retval.0.i = phi ptr [ %call5.i, %if.then4.i ], [ %3, %if.end3.i ]
-  %tobool.not = icmp eq ptr %retval.0.i, null
-  br i1 %tobool.not, label %return, label %if.end
+X509_ATTRIBUTE_get0_type.exit:                    ; preds = %15, %18
+  %.0.i = phi ptr [ %20, %18 ], [ %17, %15 ]
+  %.not = icmp eq ptr %.0.i, null
+  br i1 %.not, label %X509_ATTRIBUTE_get0_type.exit.thread, label %21
 
-if.end:                                           ; preds = %X509_ATTRIBUTE_get0_type.exit
-  %call1 = tail call i32 @ASN1_TYPE_get(ptr noundef nonnull %retval.0.i) #4
-  %cmp.not = icmp eq i32 %atrtype, %call1
-  br i1 %cmp.not, label %if.end3, label %if.then2
+21:                                               ; preds = %X509_ATTRIBUTE_get0_type.exit
+  %22 = tail call i32 @ASN1_TYPE_get(ptr noundef nonnull %.0.i) #4
+  %.not7 = icmp eq i32 %2, %22
+  br i1 %.not7, label %24, label %23
 
-if.then2:                                         ; preds = %if.end
+23:                                               ; preds = %21
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 134, ptr noundef nonnull @.str, i32 noundef 359) #4
-  br label %return
+  br label %X509_ATTRIBUTE_get0_type.exit.thread
 
-if.end3:                                          ; preds = %if.end
-  %value = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
-  %4 = load ptr, ptr %value, align 8
-  br label %return
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  br label %X509_ATTRIBUTE_get0_type.exit.thread
 
-return:                                           ; preds = %X509_ATTRIBUTE_count.exit.i, %entry, %X509_ATTRIBUTE_get0_type.exit, %if.end3, %if.then2
-  %retval.0 = phi ptr [ null, %if.then2 ], [ %4, %if.end3 ], [ null, %X509_ATTRIBUTE_get0_type.exit ], [ null, %entry ], [ null, %X509_ATTRIBUTE_count.exit.i ]
-  ret ptr %retval.0
+X509_ATTRIBUTE_get0_type.exit.thread:             ; preds = %X509_ATTRIBUTE_count.exit.i, %4, %X509_ATTRIBUTE_get0_type.exit, %24, %23
+  %.0 = phi ptr [ null, %23 ], [ %26, %24 ], [ null, %X509_ATTRIBUTE_get0_type.exit ], [ null, %4 ], [ null, %X509_ATTRIBUTE_count.exit.i ]
+  ret ptr %.0
 }
 
 declare ptr @X509_ATTRIBUTE_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_object(ptr noundef captures(address_is_null) %attr, ptr noundef %obj) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %attr, null
-  %cmp1 = icmp eq ptr %obj, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_object(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %10, label %5
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %attr, align 8
-  tail call void @ASN1_OBJECT_free(ptr noundef %0) #4
-  %call = tail call ptr @OBJ_dup(ptr noundef nonnull %obj) #4
-  store ptr %call, ptr %attr, align 8
-  %cmp4 = icmp ne ptr %call, null
-  %conv = zext i1 %cmp4 to i32
-  br label %return
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %0, align 8, !tbaa !6
+  tail call void @ASN1_OBJECT_free(ptr noundef %6) #4
+  %7 = tail call ptr @OBJ_dup(ptr noundef nonnull %1) #4
+  store ptr %7, ptr %0, align 8, !tbaa !6
+  %8 = icmp ne ptr %7, null
+  %9 = zext i1 %8 to i32
+  br label %10
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ %conv, %if.end ], [ 0, %entry ]
-  ret i32 %retval.0
+10:                                               ; preds = %2, %5
+  %.0 = phi i32 [ %9, %5 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef captures(address_is_null) %attr, i32 noundef %attrtype, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %attr, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %37, label %5
 
-if.end:                                           ; preds = %entry
-  %and = and i32 %attrtype, 4096
-  %tobool1.not = icmp ne i32 %and, 0
-  br i1 %tobool1.not, label %if.then2, label %if.else
+5:                                                ; preds = %4
+  %6 = and i32 %1, 4096
+  %.not35 = icmp ne i32 %6, 0
+  br i1 %.not35, label %7, label %15
 
-if.then2:                                         ; preds = %if.end
-  %0 = load ptr, ptr %attr, align 8
-  %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #4
-  %call3 = tail call ptr @ASN1_STRING_set_by_NID(ptr noundef null, ptr noundef %data, i32 noundef %len, i32 noundef %attrtype, i32 noundef %call) #4
-  %tobool4.not = icmp eq ptr %call3, null
-  br i1 %tobool4.not, label %if.then5, label %if.end6
+7:                                                ; preds = %5
+  %8 = load ptr, ptr %0, align 8, !tbaa !6
+  %9 = tail call i32 @OBJ_obj2nid(ptr noundef %8) #4
+  %10 = tail call ptr @ASN1_STRING_set_by_NID(ptr noundef null, ptr noundef %2, i32 noundef %3, i32 noundef %1, i32 noundef %9) #4
+  %.not39 = icmp eq ptr %10, null
+  br i1 %.not39, label %11, label %12
 
-if.then5:                                         ; preds = %if.then2
+11:                                               ; preds = %7
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 12, ptr noundef nonnull @.str, i32 noundef 299) #4
-  br label %return
+  br label %37
 
-if.end6:                                          ; preds = %if.then2
-  %type = getelementptr inbounds nuw i8, ptr %call3, i64 4
-  %1 = load i32, ptr %type, align 4
-  br label %if.end17
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !21
+  br label %20
 
-if.else:                                          ; preds = %if.end
-  %cmp.not = icmp eq i32 %len, -1
-  br i1 %cmp.not, label %if.end17, label %if.then7
+15:                                               ; preds = %5
+  %.not36 = icmp eq i32 %3, -1
+  br i1 %.not36, label %20, label %16
 
-if.then7:                                         ; preds = %if.else
-  %call8 = tail call ptr @ASN1_STRING_type_new(i32 noundef %attrtype) #4
-  %tobool9.not = icmp eq ptr %call8, null
-  br i1 %tobool9.not, label %err, label %if.end11
+16:                                               ; preds = %15
+  %17 = tail call ptr @ASN1_STRING_type_new(i32 noundef %1) #4
+  %.not37 = icmp eq ptr %17, null
+  br i1 %.not37, label %36, label %18
 
-if.end11:                                         ; preds = %if.then7
-  %call12 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call8, ptr noundef %data, i32 noundef %len) #4
-  %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %err, label %if.end17
+18:                                               ; preds = %16
+  %19 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %17, ptr noundef %2, i32 noundef %3) #4
+  %.not38 = icmp eq i32 %19, 0
+  br i1 %.not38, label %36, label %20
 
-if.end17:                                         ; preds = %if.end11, %if.else, %if.end6
-  %stmp.0 = phi ptr [ %call3, %if.end6 ], [ null, %if.else ], [ %call8, %if.end11 ]
-  %atype.0 = phi i32 [ %1, %if.end6 ], [ 0, %if.else ], [ %attrtype, %if.end11 ]
-  %call18 = tail call ptr @sk_new_null() #4
-  %value = getelementptr inbounds nuw i8, ptr %attr, i64 16
-  store ptr %call18, ptr %value, align 8
-  %tobool19.not = icmp eq ptr %call18, null
-  br i1 %tobool19.not, label %err, label %if.end21
+20:                                               ; preds = %18, %15, %12
+  %.027 = phi ptr [ %10, %12 ], [ null, %15 ], [ %17, %18 ]
+  %.0 = phi i32 [ %14, %12 ], [ 0, %15 ], [ %1, %18 ]
+  %21 = tail call ptr @sk_new_null() #4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %21, ptr %22, align 8, !tbaa !20
+  %.not40 = icmp eq ptr %21, null
+  br i1 %.not40, label %36, label %23
 
-if.end21:                                         ; preds = %if.end17
-  %single = getelementptr inbounds nuw i8, ptr %attr, i64 8
-  store i32 0, ptr %single, align 8
-  %cmp22 = icmp eq i32 %attrtype, 0
-  br i1 %cmp22, label %return, label %if.end24
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %24, align 8, !tbaa !19
+  %25 = icmp eq i32 %1, 0
+  br i1 %25, label %37, label %26
 
-if.end24:                                         ; preds = %if.end21
-  %call25 = tail call ptr @ASN1_TYPE_new() #4
-  %tobool26.not = icmp eq ptr %call25, null
-  br i1 %tobool26.not, label %err, label %if.end28
+26:                                               ; preds = %23
+  %27 = tail call ptr @ASN1_TYPE_new() #4
+  %.not41 = icmp eq ptr %27, null
+  br i1 %.not41, label %36, label %28
 
-if.end28:                                         ; preds = %if.end24
-  %cmp29 = icmp ne i32 %len, -1
-  %brmerge = or i1 %tobool1.not, %cmp29
-  br i1 %brmerge, label %if.else37, label %if.then32
+28:                                               ; preds = %26
+  %29 = icmp ne i32 %3, -1
+  %brmerge = or i1 %.not35, %29
+  br i1 %brmerge, label %32, label %30
 
-if.then32:                                        ; preds = %if.end28
-  %call33 = tail call i32 @ASN1_TYPE_set1(ptr noundef nonnull %call25, i32 noundef %attrtype, ptr noundef %data) #4
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %err, label %if.end38
+30:                                               ; preds = %28
+  %31 = tail call i32 @ASN1_TYPE_set1(ptr noundef nonnull %27, i32 noundef %1, ptr noundef %2) #4
+  %.not42 = icmp eq i32 %31, 0
+  br i1 %.not42, label %36, label %33
 
-if.else37:                                        ; preds = %if.end28
-  tail call void @ASN1_TYPE_set(ptr noundef nonnull %call25, i32 noundef %atype.0, ptr noundef %stmp.0) #4
-  br label %if.end38
+32:                                               ; preds = %28
+  tail call void @ASN1_TYPE_set(ptr noundef nonnull %27, i32 noundef %.0, ptr noundef %.027) #4
+  br label %33
 
-if.end38:                                         ; preds = %if.then32, %if.else37
-  %2 = load ptr, ptr %value, align 8
-  %call40 = tail call i64 @sk_push(ptr noundef %2, ptr noundef nonnull %call25) #4
-  %tobool41.not = icmp eq i64 %call40, 0
-  br i1 %tobool41.not, label %err, label %return
+33:                                               ; preds = %30, %32
+  %34 = load ptr, ptr %22, align 8, !tbaa !20
+  %35 = tail call i64 @sk_push(ptr noundef %34, ptr noundef nonnull %27) #4
+  %.not43 = icmp eq i64 %35, 0
+  br i1 %.not43, label %36, label %37
 
-err:                                              ; preds = %if.end38, %if.then32, %if.end24, %if.end17, %if.end11, %if.then7
+36:                                               ; preds = %33, %30, %26, %20, %18, %16
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 331) #4
-  br label %return
+  br label %37
 
-return:                                           ; preds = %if.end38, %if.end21, %entry, %err, %if.then5
-  %retval.0 = phi i32 [ 0, %err ], [ 0, %if.then5 ], [ 0, %entry ], [ 1, %if.end21 ], [ 1, %if.end38 ]
-  ret i32 %retval.0
+37:                                               ; preds = %33, %23, %4, %36, %11
+  %.028 = phi i32 [ 0, %36 ], [ 0, %11 ], [ 0, %4 ], [ 1, %23 ], [ 1, %33 ]
+  ret i32 %.028
 }
 
 declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -848,63 +831,61 @@ declare i32 @ASN1_TYPE_set1(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @X509_ATTRIBUTE_get0_object(ptr noundef readonly captures(address_is_null) %attr) local_unnamed_addr #2 {
-entry:
-  %cmp = icmp eq ptr %attr, null
-  br i1 %cmp, label %return, label %if.end
+define hidden ptr @X509_ATTRIBUTE_get0_object(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %5, label %3
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %attr, align 8
-  br label %return
+3:                                                ; preds = %1
+  %4 = load ptr, ptr %0, align 8, !tbaa !6
+  br label %5
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi ptr [ %0, %if.end ], [ null, %entry ]
-  ret ptr %retval.0
+5:                                                ; preds = %1, %3
+  %.0 = phi ptr [ %4, %3 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_ATTRIBUTE_get0_type(ptr noundef readonly captures(address_is_null) %attr, i32 noundef %idx) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %attr, null
-  br i1 %cmp, label %return, label %if.end
+define hidden ptr @X509_ATTRIBUTE_get0_type(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %19, label %4
 
-if.end:                                           ; preds = %entry
-  %single.i = getelementptr inbounds nuw i8, ptr %attr, i64 8
-  %0 = load i32, ptr %single.i, align 8
-  %tobool.not.i = icmp eq i32 %0, 0
-  %value.i = getelementptr inbounds nuw i8, ptr %attr, i64 16
-  %1 = load ptr, ptr %value.i, align 8
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8, !tbaa !19
+  %.not.i = icmp eq i32 %6, 0
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  br i1 %.not.i, label %9, label %12
 
-if.then.i:                                        ; preds = %if.end
-  %call.i = tail call i64 @sk_num(ptr noundef %1) #4
-  %conv.i = trunc i64 %call.i to i32
+9:                                                ; preds = %4
+  %10 = tail call i64 @sk_num(ptr noundef %8) #4
+  %11 = trunc i64 %10 to i32
   br label %X509_ATTRIBUTE_count.exit
 
-if.end.i:                                         ; preds = %if.end
-  %tobool2.not.i = icmp ne ptr %1, null
-  %..i = zext i1 %tobool2.not.i to i32
+12:                                               ; preds = %4
+  %.not3.i = icmp ne ptr %8, null
+  %..i = zext i1 %.not3.i to i32
   br label %X509_ATTRIBUTE_count.exit
 
-X509_ATTRIBUTE_count.exit:                        ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi i32 [ %conv.i, %if.then.i ], [ %..i, %if.end.i ]
-  %cmp1.not = icmp slt i32 %idx, %retval.0.i
-  br i1 %cmp1.not, label %if.end3, label %return
+X509_ATTRIBUTE_count.exit:                        ; preds = %9, %12
+  %.0.i = phi i32 [ %11, %9 ], [ %..i, %12 ]
+  %.not = icmp slt i32 %1, %.0.i
+  br i1 %.not, label %13, label %19
 
-if.end3:                                          ; preds = %X509_ATTRIBUTE_count.exit
-  %2 = load i32, ptr %single.i, align 8
-  %tobool.not = icmp eq i32 %2, 0
-  %3 = load ptr, ptr %value.i, align 8
-  br i1 %tobool.not, label %if.then4, label %return
+13:                                               ; preds = %X509_ATTRIBUTE_count.exit
+  %14 = load i32, ptr %5, align 8, !tbaa !19
+  %.not9 = icmp eq i32 %14, 0
+  %15 = load ptr, ptr %7, align 8, !tbaa !20
+  br i1 %.not9, label %16, label %19
 
-if.then4:                                         ; preds = %if.end3
-  %conv = sext i32 %idx to i64
-  %call5 = tail call ptr @sk_value(ptr noundef %3, i64 noundef %conv) #4
-  br label %return
+16:                                               ; preds = %13
+  %17 = sext i32 %1 to i64
+  %18 = tail call ptr @sk_value(ptr noundef %15, i64 noundef %17) #4
+  br label %19
 
-return:                                           ; preds = %if.end3, %X509_ATTRIBUTE_count.exit, %entry, %if.then4
-  %retval.0 = phi ptr [ %call5, %if.then4 ], [ null, %entry ], [ null, %X509_ATTRIBUTE_count.exit ], [ %3, %if.end3 ]
-  ret ptr %retval.0
+19:                                               ; preds = %13, %X509_ATTRIBUTE_count.exit, %2, %16
+  %.0 = phi ptr [ %18, %16 ], [ null, %2 ], [ null, %X509_ATTRIBUTE_count.exit ], [ %15, %13 ]
+  ret ptr %.0
 }
 
 declare i32 @ASN1_TYPE_get(ptr noundef) local_unnamed_addr #1
@@ -912,20 +893,36 @@ declare i32 @ASN1_TYPE_get(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"x509_attributes_st", !8, i64 0, !12, i64 8, !10, i64 16}
+!8 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"int", !10, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !9, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS18x509_attributes_st", !9, i64 0}
+!19 = !{!7, !12, i64 8}
+!20 = !{!10, !10, i64 0}
+!21 = !{!22, !12, i64 4}
+!22 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !23, i64 8, !24, i64 16}
+!23 = !{!"p1 omnipotent char", !9, i64 0}
+!24 = !{!"long", !10, i64 0}

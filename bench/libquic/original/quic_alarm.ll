@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.net::QuicAlarm" = type { ptr, %"class.net::QuicArenaScopedPtr", %"class.net::QuicTime" }
 %"class.net::QuicArenaScopedPtr" = type { ptr }
@@ -58,530 +58,534 @@ $_ZN7logging13CheckOpResult7messageB5cxx11Ev = comdat any
 
 $_ZN7logging10LogMessage6streamEv = comdat any
 
-@_ZTVN3net9QuicAlarmE = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3net9QuicAlarmE, ptr @_ZN3net9QuicAlarmD1Ev, ptr @_ZN3net9QuicAlarmD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3net9QuicAlarm10UpdateImplEv] }, align 8
+@_ZTVN3net9QuicAlarmE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3net9QuicAlarmE, ptr @_ZN3net9QuicAlarmD1Ev, ptr @_ZN3net9QuicAlarmD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3net9QuicAlarm10UpdateImplEv] }, align 8
+@_ZTIN3net9QuicAlarmE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3net9QuicAlarmE }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN3net9QuicAlarmE = dso_local constant [17 x i8] c"N3net9QuicAlarmE\00", align 1
-@_ZTIN3net9QuicAlarmE = dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3net9QuicAlarmE }, align 8
+@_ZTSN3net9QuicAlarmE = constant [17 x i8] c"N3net9QuicAlarmE\00", align 1
 @.str = private unnamed_addr constant [135 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/src/net/quic/core/quic_arena_scoped_ptr.h\00", align 1
 
-@_ZN3net9QuicAlarmD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net9QuicAlarmD2Ev
+@_ZN3net9QuicAlarmD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3net9QuicAlarmD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicAlarmC2ENS_18QuicArenaScopedPtrINS0_8DelegateEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %delegate.indirect_addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %delegate, ptr %delegate.indirect_addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 1
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEC2IS2_EEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %delegate_, ptr noundef nonnull align 8 dereferenceable(8) %delegate)
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  %call = invoke i64 @_ZN3net8QuicTime4ZeroEv()
-          to label %invoke.cont unwind label %lpad
+define void @_ZN3net9QuicAlarmC2ENS_18QuicArenaScopedPtrINS0_8DelegateEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %7 = load ptr, ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %7, i32 0, i32 1
+  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEC2IS2_EEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %9 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %7, i32 0, i32 2
+  %10 = invoke i64 @_ZN3net8QuicTime4ZeroEv()
+          to label %11 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %deadline_, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %9, i32 0, i32 0
+  store i64 %10, ptr %12, align 8
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delegate_) #8
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
+  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEC2IS2_EEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %value_ = getelementptr inbounds %"class.net::QuicArenaScopedPtr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %other.addr, align 8
-  %value_2 = getelementptr inbounds %"class.net::QuicArenaScopedPtr", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %value_2, align 8
-  store ptr %1, ptr %value_, align 8
-  %2 = load ptr, ptr %other.addr, align 8
-  %value_3 = getelementptr inbounds %"class.net::QuicArenaScopedPtr", ptr %2, i32 0, i32 0
-  store ptr null, ptr %value_3, align 8
+define linkonce_odr void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEC2IS2_EEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.net::QuicArenaScopedPtr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %"class.net::QuicArenaScopedPtr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  store ptr %9, ptr %6, align 8, !tbaa !12
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %"class.net::QuicArenaScopedPtr", ptr %10, i32 0, i32 0
+  store ptr null, ptr %11, align 8, !tbaa !12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local i64 @_ZN3net8QuicTime4ZeroEv() #0 comdat align 2 {
-entry:
-  %retval = alloca %"class.net::QuicTime", align 8
-  call void @_ZN3net8QuicTimeC2El(ptr noundef nonnull align 8 dereferenceable(8) %retval, i64 noundef 0)
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %retval, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive, align 8
-  ret i64 %0
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr i64 @_ZN3net8QuicTime4ZeroEv() #2 comdat align 2 {
+  %1 = alloca %"class.net::QuicTime", align 8
+  call void @_ZN3net8QuicTimeC2El(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
+  %2 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %1, i32 0, i32 0
+  %3 = load i64, ptr %2, align 8
+  ret i64 %3
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef null)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net9QuicAlarmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 1
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delegate_) #8
+define void @_ZN3net9QuicAlarmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !10
+  %4 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %3, i32 0, i32 1
+  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net9QuicAlarmD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #9
+define void @_ZN3net9QuicAlarmD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.trap() #12
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #2
+declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %new_deadline.coerce) #0 align 2 {
-entry:
-  %new_deadline = alloca %"class.net::QuicTime", align 8
-  %this.addr = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %new_deadline, i32 0, i32 0
-  store i64 %new_deadline.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %deadline_, ptr align 8 %new_deadline, i64 8, i1 false)
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1) #0 align 2 {
+  %3 = alloca %"class.net::QuicTime", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %3, i32 0, i32 0
+  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %6, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !14
+  %8 = load ptr, ptr %6, align 8, !tbaa !10
+  %9 = getelementptr inbounds ptr, ptr %8, i64 2
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %6)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.net::QuicTime", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br i1 %call, label %if.end, label %if.then
+define void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.net::QuicTime", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  br i1 %5, label %7, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+6:                                                ; preds = %1
+  br label %14
 
-if.end:                                           ; preds = %entry
-  %call2 = call i64 @_ZN3net8QuicTime4ZeroEv()
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call2, ptr %coerce.dive, align 8
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %deadline_, ptr align 8 %ref.tmp, i64 8, i1 false)
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %return
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %8 = call i64 @_ZN3net8QuicTime4ZeroEv()
+  %9 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %3, i32 0, i32 0
+  store i64 %8, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %4, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  %11 = load ptr, ptr %4, align 8, !tbaa !10
+  %12 = getelementptr inbounds ptr, ptr %11, i64 3
+  %13 = load ptr, ptr %12, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  br label %14
 
-return:                                           ; preds = %if.end, %if.then
+14:                                               ; preds = %7, %6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  %call = call noundef zeroext i1 @_ZNK3net8QuicTime13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(8) %deadline_)
-  ret i1 %call
+define noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %3, i32 0, i32 2
+  %5 = call noundef zeroext i1 @_ZNK3net8QuicTime13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret i1 %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, i64 %2, i64 %3) #0 align 2 {
+  %5 = alloca %"class.net::QuicTime", align 8
+  %6 = alloca %"class.net::QuicTime::Delta", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.net::QuicTime::Delta", align 8
+  %9 = alloca %"class.net::QuicTime", align 8
+  %10 = alloca %"class.net::QuicTime", align 8
+  %11 = alloca i8, align 1
+  %12 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  store i64 %1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %13, align 8
+  %14 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %14, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  %15 = load ptr, ptr %7, align 8
+  %16 = call noundef zeroext i1 @_ZNK3net8QuicTime13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %4
+  call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
+  br label %49
+
+18:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !14
+  %19 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %19, i64 8, i1 false), !tbaa.struct !14
+  %20 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %9, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %10, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8
+  %24 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %21, i64 %23)
+  %25 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
+  %26 = extractvalue { i64, i64 } %24, 0
+  store i64 %26, ptr %25, align 8
+  %27 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
+  %28 = extractvalue { i64, i64 } %24, 1
+  store i64 %28, ptr %27, align 8
+  %29 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %30 = call noundef i64 @_ZSt3absl(i64 noundef %29)
+  %31 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %32 = icmp slt i64 %30, %31
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #11
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %18
+  br label %49
+
+34:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #11
+  %35 = call noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %36 = zext i1 %35 to i8
+  store i8 %36, ptr %11, align 1, !tbaa !17
+  %37 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !14
+  %38 = load i8, ptr %11, align 1, !tbaa !17, !range !19, !noundef !20
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %44
+
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %15, align 8, !tbaa !10
+  %42 = getelementptr inbounds ptr, ptr %41, i64 4
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(24) %15)
+  br label %48
+
+44:                                               ; preds = %34
+  %45 = load ptr, ptr %15, align 8, !tbaa !10
+  %46 = getelementptr inbounds ptr, ptr %45, i64 2
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(24) %15)
+  br label %48
+
+48:                                               ; preds = %44, %40
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #11
+  br label %49
+
+49:                                               ; preds = %48, %33, %17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK3net8QuicTime13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !23
+  %6 = icmp ne i64 0, %5
+  ret i1 %6
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt3absl(i64 noundef %0) #6 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !15
+  %3 = load i64, ptr %2, align 8, !tbaa !15
+  %4 = call i64 @llvm.abs.i64(i64 %3, i1 true)
+  ret i64 %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %0, i64 %1) #2 comdat {
+  %3 = alloca %"class.net::QuicTime::Delta", align 8
+  %4 = alloca %"class.net::QuicTime", align 8
+  %5 = alloca %"class.net::QuicTime", align 8
+  %6 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %4, i32 0, i32 0
+  store i64 %0, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  store i64 %1, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %4, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8, !tbaa !23
+  %10 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !23
+  %12 = sub nsw i64 %9, %11
+  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %12)
+  %13 = load { i64, i64 }, ptr %3, align 8
+  ret { i64, i64 } %13
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !27
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %new_deadline.coerce, i64 %granularity.coerce0, i64 %granularity.coerce1) #0 align 2 {
-entry:
-  %new_deadline = alloca %"class.net::QuicTime", align 8
-  %granularity = alloca %"class.net::QuicTime::Delta", align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.net::QuicTime::Delta", align 8
-  %agg.tmp = alloca %"class.net::QuicTime", align 8
-  %agg.tmp2 = alloca %"class.net::QuicTime", align 8
-  %was_set = alloca i8, align 1
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %new_deadline, i32 0, i32 0
-  store i64 %new_deadline.coerce, ptr %coerce.dive, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %granularity, i32 0, i32 0
-  store i64 %granularity.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %granularity, i32 0, i32 1
-  store i64 %granularity.coerce1, ptr %1, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3net8QuicTime13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(8) %new_deadline)
-  br i1 %call, label %if.end, label %if.then
+define void @_ZN3net9QuicAlarm4FireEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.net::QuicTime", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  br i1 %5, label %7, label %6
 
-if.then:                                          ; preds = %entry
-  call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %if.end16
+6:                                                ; preds = %1
+  br label %16
 
-if.end:                                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %new_deadline, i64 8, i1 false)
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %deadline_, i64 8, i1 false)
-  %coerce.dive3 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive3, align 8
-  %coerce.dive4 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp2, i32 0, i32 0
-  %3 = load i64, ptr %coerce.dive4, align 8
-  %call5 = call { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %2, i64 %3)
-  %4 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %5 = extractvalue { i64, i64 } %call5, 0
-  store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %7 = extractvalue { i64, i64 } %call5, 1
-  store i64 %7, ptr %6, align 8
-  %call6 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %call7 = call noundef i64 @_ZSt3absl(i64 noundef %call6)
-  %call8 = call noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %granularity)
-  %cmp = icmp slt i64 %call7, %call8
-  br i1 %cmp, label %if.then9, label %if.end10
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %8 = call i64 @_ZN3net8QuicTime4ZeroEv()
+  %9 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %3, i32 0, i32 0
+  store i64 %8, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %4, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  %11 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %4, i32 0, i32 1
+  %12 = call noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = getelementptr inbounds ptr, ptr %13, i64 2
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  br label %16
 
-if.then9:                                         ; preds = %if.end
-  br label %if.end16
-
-if.end10:                                         ; preds = %if.end
-  %call11 = call noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %frombool = zext i1 %call11 to i8
-  store i8 %frombool, ptr %was_set, align 1
-  %deadline_12 = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %deadline_12, ptr align 8 %new_deadline, i64 8, i1 false)
-  %8 = load i8, ptr %was_set, align 1
-  %tobool = trunc i8 %8 to i1
-  br i1 %tobool, label %if.then13, label %if.else
-
-if.then13:                                        ; preds = %if.end10
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %9 = load ptr, ptr %vfn, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %if.end16
-
-if.else:                                          ; preds = %if.end10
-  %vtable14 = load ptr, ptr %this1, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 2
-  %10 = load ptr, ptr %vfn15, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.else, %if.then13, %if.then9, %if.then
+16:                                               ; preds = %7, %6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3net8QuicTime13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %time_ = getelementptr inbounds %"class.net::QuicTime", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %time_, align 8
-  %cmp = icmp ne i64 0, %0
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt3absl(i64 noundef %__i) #1 comdat {
-entry:
-  %__i.addr = alloca i64, align 8
-  store i64 %__i, ptr %__i.addr, align 8
-  %0 = load i64, ptr %__i.addr, align 8
-  %1 = call i64 @llvm.abs.i64(i64 %0, i1 true)
-  ret i64 %1
+define linkonce_odr noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN3netmiENS_8QuicTimeES0_(i64 %lhs.coerce, i64 %rhs.coerce) #0 comdat {
-entry:
-  %retval = alloca %"class.net::QuicTime::Delta", align 8
-  %lhs = alloca %"class.net::QuicTime", align 8
-  %rhs = alloca %"class.net::QuicTime", align 8
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.net::QuicTime", ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce, ptr %coerce.dive1, align 8
-  %time_ = getelementptr inbounds %"class.net::QuicTime", ptr %lhs, i32 0, i32 0
-  %0 = load i64, ptr %time_, align 8
-  %time_2 = getelementptr inbounds %"class.net::QuicTime", ptr %rhs, i32 0, i32 0
-  %1 = load i64, ptr %time_2, align 8
-  %sub = sub nsw i64 %0, %1
-  call void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %retval, i64 noundef %sub)
-  %2 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK3net8QuicTime5Delta14ToMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %time_offset_, align 8
-  ret i64 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicAlarm4FireEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.net::QuicTime", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call2 = call i64 @_ZN3net8QuicTime4ZeroEv()
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call2, ptr %coerce.dive, align 8
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %deadline_, ptr align 8 %ref.tmp, i64 8, i1 false)
-  %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 1
-  %call3 = call noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %delegate_)
-  %vtable = load ptr, ptr %call3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call3)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicAlarm10UpdateImplEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %new_deadline = alloca %"class.net::QuicTime", align 8
-  %ref.tmp = alloca %"class.net::QuicTime", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %new_deadline, ptr align 8 %deadline_, i64 8, i1 false)
-  %call = call i64 @_ZN3net8QuicTime4ZeroEv()
-  %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %deadline_2 = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %deadline_2, ptr align 8 %ref.tmp, i64 8, i1 false)
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %deadline_3 = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %deadline_3, ptr align 8 %new_deadline, i64 8, i1 false)
-  %vtable4 = load ptr, ptr %this1, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
-  %1 = load ptr, ptr %vfn5, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define void @_ZN3net9QuicAlarm10UpdateImplEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.net::QuicTime", align 8
+  %4 = alloca %"class.net::QuicTime", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %6 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %5, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %7 = call i64 @_ZN3net8QuicTime4ZeroEv()
+  %8 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %4, i32 0, i32 0
+  store i64 %7, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %5, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  %11 = getelementptr inbounds ptr, ptr %10, i64 3
+  %12 = load ptr, ptr %11, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %13 = getelementptr inbounds nuw %"class.net::QuicAlarm", ptr %5, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !14
+  %14 = load ptr, ptr %5, align 8, !tbaa !10
+  %15 = getelementptr inbounds ptr, ptr %14, i64 2
+  %16 = load ptr, ptr %15, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net8QuicTimeC2El(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %time) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %time.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %time, ptr %time.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %time_ = getelementptr inbounds %"class.net::QuicTime", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %time.addr, align 8
-  store i64 %0, ptr %time_, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3net8QuicTimeC2El(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store i64 %1, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.net::QuicTime", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !15
+  store i64 %7, ptr %6, align 8, !tbaa !23
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #4
+declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %time_offset) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %time_offset.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %time_offset, ptr %time_offset.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %delta_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 0
-  call void @_ZN4base9TimeDeltaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delta_)
-  %time_offset_ = getelementptr inbounds %"class.net::QuicTime::Delta", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %time_offset.addr, align 8
-  store i64 %0, ptr %time_offset_, align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3net8QuicTime5DeltaC2El(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store i64 %1, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %5, i32 0, i32 0
+  call void @_ZN4base9TimeDeltaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %7 = getelementptr inbounds nuw %"class.net::QuicTime::Delta", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8, !tbaa !15
+  store i64 %8, ptr %7, align 8, !tbaa !27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4base9TimeDeltaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %delta_ = getelementptr inbounds %"class.base::TimeDelta", ptr %this1, i32 0, i32 0
-  store i64 0, ptr %delta_, align 8
+define linkonce_odr void @_ZN4base9TimeDeltaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.base::TimeDelta", ptr %3, i32 0, i32 0
+  store i64 0, ptr %4, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %value) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %true_if_passed = alloca %"class.logging::CheckOpResult", align 8
-  %ref.tmp = alloca %"class.logging::LogMessage", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %value_ = getelementptr inbounds %"class.net::QuicArenaScopedPtr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %value_, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end7
+define linkonce_odr void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.logging::CheckOpResult", align 8
+  %6 = alloca %"class.logging::LogMessage", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %"class.net::QuicArenaScopedPtr", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %29
 
-if.then:                                          ; preds = %entry
-  %call = call noundef zeroext i1 @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE13is_from_arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  br i1 %call, label %if.then2, label %if.else
+13:                                               ; preds = %2
+  %14 = call noundef zeroext i1 @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE13is_from_arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  br i1 %14, label %15, label %20
 
-if.then2:                                         ; preds = %if.then
-  %call3 = call noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  %vtable = load ptr, ptr %call3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call3) #8
-  br label %if.end
+15:                                               ; preds = %13
+  %16 = call noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %17 = load ptr, ptr %16, align 8, !tbaa !10
+  %18 = getelementptr inbounds ptr, ptr %17, i64 0
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #11
+  br label %28
 
-if.else:                                          ; preds = %if.then
-  %call4 = call noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  %isnull = icmp eq ptr %call4, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+20:                                               ; preds = %13
+  %21 = call noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %27, label %23
 
-delete.notnull:                                   ; preds = %if.else
-  %vtable5 = load ptr, ptr %call4, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 1
-  %2 = load ptr, ptr %vfn6, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call4) #8
-  br label %delete.end
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %21, align 8, !tbaa !10
+  %25 = getelementptr inbounds ptr, ptr %24, i64 1
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %21) #11
+  br label %27
 
-delete.end:                                       ; preds = %delete.notnull, %if.else
-  br label %if.end
+27:                                               ; preds = %23, %20
+  br label %28
 
-if.end:                                           ; preds = %delete.end, %if.then2
-  br label %if.end7
+28:                                               ; preds = %27, %15
+  br label %29
 
-if.end7:                                          ; preds = %if.end, %entry
-  call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed, ptr noundef null)
-  %call8 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
-  br i1 %call8, label %if.then9, label %if.else10
+29:                                               ; preds = %28, %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef null)
+  %30 = call noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %30, label %31, label %32
 
-if.then9:                                         ; preds = %if.end7
-  br label %if.end13
+31:                                               ; preds = %29
+  br label %40
 
-if.else10:                                        ; preds = %if.end7
-  %call11 = call noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %true_if_passed)
-  call void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp, ptr noundef @.str, i32 noundef 190, i32 noundef 0, ptr noundef %call11)
-  %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+32:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 408, ptr %6) #11
+  %33 = call noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %6, ptr noundef @.str, i32 noundef 190, i32 noundef 0, ptr noundef %33)
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %6)
+          to label %35 unwind label %36
 
-invoke.cont:                                      ; preds = %if.else10
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #8
-  br label %if.end13
+35:                                               ; preds = %32
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %6) #11
+  call void @llvm.lifetime.end.p0(i64 408, ptr %6) #11
+  br label %40
 
-lpad:                                             ; preds = %if.else10
-  %3 = landingpad { ptr, i32 }
+36:                                               ; preds = %32
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #8
-  br label %eh.resume
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %7, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %8, align 4
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %6) #11
+  call void @llvm.lifetime.end.p0(i64 408, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  br label %43
 
-if.end13:                                         ; preds = %invoke.cont, %if.then9
-  %6 = load ptr, ptr %value.addr, align 8
-  %value_14 = getelementptr inbounds %"class.net::QuicArenaScopedPtr", ptr %this1, i32 0, i32 0
-  store ptr %6, ptr %value_14, align 8
+40:                                               ; preds = %35, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  %41 = load ptr, ptr %4, align 8, !tbaa !33
+  %42 = getelementptr inbounds nuw %"class.net::QuicArenaScopedPtr", ptr %9, i32 0, i32 0
+  store ptr %41, ptr %42, align 8, !tbaa !12
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val15 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val15
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
-  call void @_ZSt9terminatev() #9
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
+  call void @_ZSt9terminatev() #12
   unreachable
 }
 
@@ -590,101 +594,136 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE13is_from_arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %value_ = getelementptr inbounds %"class.net::QuicArenaScopedPtr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %value_, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %and = and i64 %1, 1
-  %cmp = icmp ne i64 %and, 0
-  ret i1 %cmp
+define linkonce_odr noundef zeroext i1 @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE13is_from_arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::QuicArenaScopedPtr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  %6 = ptrtoint ptr %5 to i64
+  %7 = and i64 %6, 1
+  %8 = icmp ne i64 %7, 0
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %value_ = getelementptr inbounds %"class.net::QuicArenaScopedPtr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %value_, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %and = and i64 %1, -2
-  %2 = inttoptr i64 %and to ptr
-  ret ptr %2
+define linkonce_odr noundef ptr @_ZNK3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.net::QuicArenaScopedPtr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  %6 = ptrtoint ptr %5 to i64
+  %7 = and i64 %6, -2
+  %8 = inttoptr i64 %7 to ptr
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %message) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %message.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %message, ptr %message.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message.addr, align 8
-  store ptr %0, ptr %message_, align 8
+define linkonce_odr void @_ZN7logging13CheckOpResultC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !37
+  store ptr %7, ptr %6, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message_, align 8
-  %tobool = icmp ne ptr %0, null
-  %lnot = xor i1 %tobool, true
-  ret i1 %lnot
+define linkonce_odr noundef zeroext i1 @_ZNK7logging13CheckOpResultcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = icmp ne ptr %5, null
+  %7 = xor i1 %6, true
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %message_ = getelementptr inbounds %"class.logging::CheckOpResult", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %message_, align 8
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZN7logging13CheckOpResult7messageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::CheckOpResult", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  ret ptr %5
 }
 
-declare void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef, ptr noundef) unnamed_addr #6
+declare void @_ZN7logging10LogMessageC1EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef, ptr noundef) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %stream_ = getelementptr inbounds %"class.logging::LogMessage", ptr %this1, i32 0, i32 2
-  ret ptr %stream_
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7logging10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(404) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.logging::LogMessage", ptr %3, i32 0, i32 2
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #7
+declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #10
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3net9QuicAlarmE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"vtable pointer", !7, i64 0}
+!12 = !{!13, !5, i64 0}
+!13 = !{!"_ZTSN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEE", !5, i64 0}
+!14 = !{i64 0, i64 8, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"bool", !6, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN3net8QuicTimeE", !5, i64 0}
+!23 = !{!24, !16, i64 0}
+!24 = !{!"_ZTSN3net8QuicTimeE", !16, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTSN3net8QuicTime5DeltaE", !5, i64 0}
+!27 = !{!28, !16, i64 8}
+!28 = !{!"_ZTSN3net8QuicTime5DeltaE", !29, i64 0, !16, i64 8}
+!29 = !{!"_ZTSN4base9TimeDeltaE", !16, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN4base9TimeDeltaE", !5, i64 0}
+!32 = !{!29, !16, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSN3net9QuicAlarm8DelegateE", !5, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTSN7logging13CheckOpResultE", !5, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!39 = !{!40, !38, i64 0}
+!40 = !{!"_ZTSN7logging13CheckOpResultE", !38, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSN7logging10LogMessageE", !5, i64 0}

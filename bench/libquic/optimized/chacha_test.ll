@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/chacha_test.ll'
 source_filename = "bench/libquic/original/chacha_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @_ZL6kInput = internal constant [1024 x i8] c"X(\D506,`U)\F8\E1\8C\AE\15\15&\F2:s\A0\F3\12\A3\88_+t#=\C9\05#\C6TI\1ED\88\14\D9\DA7\15\DC\B7\E4#\B3\9D~\16h5\FC\02m\CC\8A\E5\DD_\E4\D2Vo\12\9C\9C}j8H\BD\DF\D9\AC\1B\A2M\C5C\04<\D7\99\E1\A7\13\9CQ\C2m\F9\CF\07;\E4\BF\93\A3\A9\B4\C5\F0\1A\E4\8D_\C6\C4|iz\DE\1A\C1\C9\CF\C2Nz%,2\E9\17\BAh\F17]b\84F\F5\80\7F\1Aq\F7\BErK\B8\1C\FE>\BD\AE\0Ds\0D\87J1\C3=Fo\B3\D7k\E3\B8p\17\8Ezj\0E\BF\A8\BC+\DB\FAO\B6& \EEc\F0m&\ACj\187nY\81\D1`\E6@\D5mh\BA\8BeJ\F9\F1\AEV$\8F\E3\8E\E7~o\CF\92\DF\A9u:\D6.\1C\AF\F2\D6\8B9\AD\D2]\FB\D7\DF\05W\0D\F7\F6\8F-\14\B0N\1A<w\04\CD<\\XR\10o\CF\\\03\C8_\85+\05\82`\DA\CC\CD\D6\88\BF\C0\10\B3oTTB\BCKw!M\EE\87E\06L`8\D2~\1D0lU\F08\80\1C\DE=\EAh>\F6>Y\CF\0D\08\AE\8C\02\0B\C1rj\B4m\F3\F7\B3\EF:\B1\06\F2\F4\D6i{>\A2\1611y\B63\A9\CA\8A\A8\BE\F3\E98(\D1\E1;N.G5\A4a\14\1EB,IU\EA\E3\B3\CE9\D3\B3\EFJMxI\BD\F6|\0A,\D3&\CB\D9j\ADc\93\A7)\92\DC\1F\AFa\82\80t\B2\9CJ\86sP\D8\D1\FF\EE\1A\E2\DD\A2a\BD\10\C3_g\9F)\E4\D3p\E5g:\D2 \00\CC%\15\96TE\85\ED\82\88;\9F;\C3\04\D4#\B1\0D\DC\C8&\9D(\B3%MR\E53\F3\ED,\B8\1A\CF\C3R\B4/\C7y\96\14}r'r\85\EAmA\A0\22\13m\06\83\A4\DD\0Fi\D2\01\CD\C6\B8d\\,y\D1\C7\D31\DB,\FF\DA\D0i1\AD\83_\EDj\97\E4\00C\B0.\97\AE\00_\\\B9\E89\80\10\CA\0C\FA\F0\B5\CD\AA'\11`\D9!\86\93\91\9F-\1A\8E\DE\0B\B5\CB\05$0EM\11u\FD\E5\A0\A9N:\8C;RZ7\18\05Jz\09j\E6\D5\A9\A6qGLP\E1>\8A!+O\0E\E3\CBr\C5(>Z3\ECH\92.\A1$W\09\0F\01\85;49~\C7\90b\E2\DC]\0A,Q&\95:\95\92\A59\8F\0C\83\0B\9D8\AB\98*\C4\01\C4\0Dw\13\CB\CA\F1(1Ru',\F0\04\86\C8\F3=\F2\9D\8FUR@?\AA\22\7F\E7i;\EED\09\DE\FF\B0i:\AEt\E9\9D3\AE\8Bm`\04\FFS?\88\E9c\9B\B1m,\22\15Z\15\D9\E5\CB\03x<\CAY\8C\C8\C2\86\FF\D2y\D6\C6\EC[\BB\A0\AE\01 \09.8]\DA]\E0YN\E5\8B\84\8F\B6\E0V\9F!\A1\CF\B2\0F,\93\F8\CF7\C1\9F2\98!eRfn\D3q\98U\B9F\9F\1A5\C4GibpKw\9E\E4!\E62Z&\05\BAWS\D7\9BU<\BBSy`\9C\C8M\F7\F5\1DT\02\91h\0E\AA\CAZx\0C(\9A\C3\ACI\C0\F4\85\EEYv~(N\F1\\c\F7\CE\0E,!\A0X\E9\01\FD\EB\D1\AF\E6\EF\93\B3\95Q`\A2t@\15\E5\F4\0A\CAm\9A7BMZXI\0F\E9\02\FCw\D8Y\DE\DD\ADK\99.ds\ADB/\F3,\0DI\E4.l\A4su\18\14\85\BBd\B4\A1\B0n\01\C0\CF\17\9C\C5(\C3-l\17*=\06\\\F3\B4Iu\AD\17i\D4\CAe\AEDq\A5\F6\0D\0F\8E7\C7C\CEk\08\E9\D14H\8F\C9\FC\F3]-\ECb\D3\F0\B3\FE.@UvT\C7\B4a\16\CC|\1C\19$\E6M\D4\C3wg\1F<ty\A1\F8\85\88\1Do\A4~,!\9FI\F5\AAN\F3J\FA\9D\BE\F6\CE\DA\B5\AB9\BD\16A\A9J\AC\09\01\CA", align 16
 @_ZL4kKey = internal constant [32 x i8] c"\98\BE\F1F\9B\E7&\987\A4[\FB\C9*Zj\C7bP|\F9dC\BF3\B9k\1B\D4\C6\F8\F6", align 16
@@ -14,96 +14,95 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @CRYPTO_library_init()
-  br label %for.body
+  br label %3
 
-for.body:                                         ; preds = %entry, %for.inc
-  %len.015 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef range(i64 0, 1025) %len.015) #8
-  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %call.i, ptr noundef nonnull @_ZL6kInput, i64 noundef range(i64 0, 1025) %len.015, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
-          to label %invoke.cont.i unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.i
+3:                                                ; preds = %2, %24
+  %.0525 = phi i64 [ 0, %2 ], [ %25, %24 ]
+  %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef range(i64 0, 1025) %.0525) #8
+  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %4, ptr noundef nonnull @_ZL6kInput, i64 noundef range(i64 0, 1025) %.0525, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
+          to label %5 unwind label %10
 
-invoke.cont.i:                                    ; preds = %for.body
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %call.i, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %len.015)
-  %cmp.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp.not.i, label %for.body.i, label %if.then.i
+5:                                                ; preds = %3
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %4, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %.0525)
+  %.not.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i, label %.preheader.i, label %6
 
-if.then.i:                                        ; preds = %invoke.cont.i
-  %0 = load ptr, ptr @stderr, align 8
-  %conv.i = trunc nuw nsw i64 %len.015 to i32
-  %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %conv.i) #9
-  br label %_ZL12TestChaCha20m.exit.thread
+6:                                                ; preds = %5
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %8 = trunc nuw nsw i64 %.0525 to i32
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef %8) #9
+  br label %26
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i, %for.body.i
-  %buf.sroa.0.0.ph.i = phi ptr [ %buf.sroa.0.229.i, %for.body.i ], [ %call8.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i ]
-  %lpad.loopexit.i = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i
+  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit33.i
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.i: ; preds = %for.body
-  %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
+12:                                               ; preds = %.critedge.i
+  %.023.add.i = add nuw nsw i64 %.023.idx47.i, 8
+  %.not27.i = icmp eq i64 %.023.add.i, 176
+  br i1 %.not27.i, label %24, label %.preheader.i
+
+.preheader.i:                                     ; preds = %5, %12
+  %.023.idx47.i = phi i64 [ %.023.add.i, %12 ], [ 0, %5 ]
+  %.sroa.0.246.i = phi ptr [ %15, %12 ], [ %4, %5 ]
+  %.023.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZL12TestChaCha20mE8kOffsets, i64 %.023.idx47.i
+  %13 = load i64, ptr %.023.ptr.i, align 8, !tbaa !11
+  %14 = add i64 %13, %.0525
+  %15 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %14) #8
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i unwind label %22
+
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %.preheader.i
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.246.i) #10
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 16 @_ZL6kInput, i64 range(i64 0, 1025) %.0525, i1 false)
+  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef range(i64 0, 1025) %.0525, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
+          to label %.critedge.i unwind label %22
+
+.critedge.i:                                      ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i
+  %bcmp29.i = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %.0525)
+  %.not30.i = icmp eq i32 %bcmp29.i, 0
+  br i1 %.not30.i, label %12, label %17
+
+17:                                               ; preds = %.critedge.i
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %19 = trunc nuw nsw i64 %.0525 to i32
+  %20 = trunc i64 %13 to i32
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef %19, i32 noundef %20) #9
+  br label %26
+
+22:                                               ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i, %.preheader.i
+  %.sroa.0.4.i = phi ptr [ %15, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i ], [ %.sroa.0.246.i, %.preheader.i ]
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i
+  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit33.i
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i
-  %buf.sroa.0.0.i = phi ptr [ %buf.sroa.0.0.ph.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i ], [ %call.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.i ]
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i ], [ %lpad.loopexit.split-lp.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %buf.sroa.0.0.i) #10
-  resume { ptr, i32 } %lpad.phi.i
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit33.i: ; preds = %22, %10
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.4.i, %22 ], [ %4, %10 ]
+  %.pn.i = phi { ptr, i32 } [ %23, %22 ], [ %11, %10 ]
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.1.i) #10
+  resume { ptr, i32 } %.pn.i
 
-for.cond.i:                                       ; preds = %invoke.cont13.i
-  %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx30.i, 8
-  %cmp6.not.i = icmp eq i64 %__begin1.0.add.i, 176
-  br i1 %cmp6.not.i, label %for.inc, label %for.body.i
+24:                                               ; preds = %12
+  tail call void @_ZdaPv(ptr noundef nonnull %15) #10
+  %25 = add nuw nsw i64 %.0525, 1
+  %exitcond.not = icmp eq i64 %25, 1025
+  br i1 %exitcond.not, label %27, label %3, !llvm.loop !13
 
-for.body.i:                                       ; preds = %invoke.cont.i, %for.cond.i
-  %__begin1.0.idx30.i = phi i64 [ %__begin1.0.add.i, %for.cond.i ], [ 0, %invoke.cont.i ]
-  %buf.sroa.0.229.i = phi ptr [ %call8.i, %for.cond.i ], [ %call.i, %invoke.cont.i ]
-  %__begin1.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZL12TestChaCha20mE8kOffsets, i64 %__begin1.0.idx30.i
-  %1 = load i64, ptr %__begin1.0.ptr.i, align 8
-  %add.i = add i64 %1, %len.015
-  %call8.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #8
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i
+26:                                               ; preds = %6, %17
+  %.sroa.0.0.i.ph = phi ptr [ %15, %17 ], [ %4, %6 ]
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0.i.ph) #10
+  br label %28
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %for.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %buf.sroa.0.229.i) #10
-  %add.ptr.i = getelementptr inbounds i8, ptr %call8.i, i64 %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 @_ZL6kInput, i64 range(i64 0, 1025) %len.015, i1 false)
-  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %call8.i, ptr noundef nonnull %add.ptr.i, i64 noundef range(i64 0, 1025) %len.015, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
-          to label %invoke.cont13.i unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i
-
-invoke.cont13.i:                                  ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i
-  %bcmp14.i = tail call i32 @bcmp(ptr nonnull %call8.i, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %len.015)
-  %cmp16.not.i = icmp eq i32 %bcmp14.i, 0
-  br i1 %cmp16.not.i, label %for.cond.i, label %if.then17.i
-
-if.then17.i:                                      ; preds = %invoke.cont13.i
-  %2 = load ptr, ptr @stderr, align 8
-  %conv18.i = trunc nuw nsw i64 %len.015 to i32
-  %conv19.i = trunc i64 %1 to i32
-  %call21.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef %conv18.i, i32 noundef %conv19.i) #9
-  br label %_ZL12TestChaCha20m.exit.thread
-
-_ZL12TestChaCha20m.exit.thread:                   ; preds = %if.then17.i, %if.then.i
-  %buf.sroa.0.1.i.ph = phi ptr [ %call.i, %if.then.i ], [ %call8.i, %if.then17.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %buf.sroa.0.1.i.ph) #10
-  br label %return
-
-for.inc:                                          ; preds = %for.cond.i
-  tail call void @_ZdaPv(ptr noundef nonnull %call8.i) #10
-  %inc = add nuw nsw i64 %len.015, 1
-  %exitcond.not = icmp eq i64 %inc, 1025
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
-
-for.end:                                          ; preds = %for.inc
+27:                                               ; preds = %24
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %return
+  br label %28
 
-return:                                           ; preds = %_ZL12TestChaCha20m.exit.thread, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ 1, %_ZL12TestChaCha20m.exit.thread ]
-  ret i32 %retval.0
+28:                                               ; preds = %26, %27
+  %.1 = phi i32 [ 1, %26 ], [ 0, %27 ]
+  ret i32 %.1
 }
 
 declare void @CRYPTO_library_init() local_unnamed_addr #1
@@ -130,26 +129,32 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { builtin allocsize(0) }
-attributes #9 = { cold }
+attributes #9 = { cold nounwind }
 attributes #10 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !9, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

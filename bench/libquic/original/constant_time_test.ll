@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @stdout = external global ptr, align 8
 @.str = private unnamed_addr constant [37 x i8] c"Testing constant time operations...\0A\00", align 1
@@ -36,1176 +36,1251 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [84 x i8] c"Test failed for constant_time_select(%u, %u,%u): expected %u(second value), got %u\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @main(i32 noundef %argc, ptr noundef %argv) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %argc.addr = alloca i32, align 4
-  %argv.addr = alloca ptr, align 8
-  %a = alloca i32, align 4
-  %b = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %c = alloca i32, align 4
-  %d = alloca i32, align 4
-  %e = alloca i8, align 1
-  %f = alloca i8, align 1
-  %num_failed = alloca i32, align 4
-  %num_all = alloca i32, align 4
-  store i32 0, ptr %retval, align 4
-  store i32 %argc, ptr %argc.addr, align 4
-  store ptr %argv, ptr %argv.addr, align 8
-  store i32 0, ptr %num_failed, align 4
-  store i32 0, ptr %num_all, align 4
-  %0 = load ptr, ptr @stdout, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define hidden i32 @main(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store i32 0, ptr %3, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  store i32 0, ptr %14, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  store i32 0, ptr %15, align 4, !tbaa !6
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str) #4
+  store i32 0, ptr %8, align 4, !tbaa !6
+  br label %19
 
-for.cond:                                         ; preds = %for.inc64, %entry
-  %1 = load i32, ptr %i, align 4
-  %conv = zext i32 %1 to i64
-  %cmp = icmp ult i64 %conv, 10
-  br i1 %cmp, label %for.body, label %for.end66
+19:                                               ; preds = %166, %2
+  %20 = load i32, ptr %8, align 4, !tbaa !6
+  %21 = zext i32 %20 to i64
+  %22 = icmp ult i64 %21, 10
+  br i1 %22, label %23, label %169
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %idxprom
-  %3 = load i32, ptr %arrayidx, align 4
-  store i32 %3, ptr %a, align 4
-  %4 = load i32, ptr %a, align 4
-  %call2 = call i32 @test_is_zero(i32 noundef %4)
-  %5 = load i32, ptr %num_failed, align 4
-  %add = add nsw i32 %5, %call2
-  store i32 %add, ptr %num_failed, align 4
-  %6 = load i32, ptr %a, align 4
-  %call3 = call i32 @test_is_zero_8(i32 noundef %6)
-  %7 = load i32, ptr %num_failed, align 4
-  %add4 = add nsw i32 %7, %call3
-  store i32 %add4, ptr %num_failed, align 4
-  %8 = load i32, ptr %num_all, align 4
-  %add5 = add nsw i32 %8, 2
-  store i32 %add5, ptr %num_all, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond6
+23:                                               ; preds = %19
+  %24 = load i32, ptr %8, align 4, !tbaa !6
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %25
+  %27 = load i32, ptr %26, align 4, !tbaa !6
+  store i32 %27, ptr %6, align 4, !tbaa !6
+  %28 = load i32, ptr %6, align 4, !tbaa !6
+  %29 = call i32 @test_is_zero(i32 noundef %28)
+  %30 = load i32, ptr %14, align 4, !tbaa !6
+  %31 = add nsw i32 %30, %29
+  store i32 %31, ptr %14, align 4, !tbaa !6
+  %32 = load i32, ptr %6, align 4, !tbaa !6
+  %33 = call i32 @test_is_zero_8(i32 noundef %32)
+  %34 = load i32, ptr %14, align 4, !tbaa !6
+  %35 = add nsw i32 %34, %33
+  store i32 %35, ptr %14, align 4, !tbaa !6
+  %36 = load i32, ptr %15, align 4, !tbaa !6
+  %37 = add nsw i32 %36, 2
+  store i32 %37, ptr %15, align 4, !tbaa !6
+  store i32 0, ptr %9, align 4, !tbaa !6
+  br label %38
 
-for.cond6:                                        ; preds = %for.inc, %for.body
-  %9 = load i32, ptr %j, align 4
-  %conv7 = zext i32 %9 to i64
-  %cmp8 = icmp ult i64 %conv7, 10
-  br i1 %cmp8, label %for.body10, label %for.end
+38:                                               ; preds = %162, %23
+  %39 = load i32, ptr %9, align 4, !tbaa !6
+  %40 = zext i32 %39 to i64
+  %41 = icmp ult i64 %40, 10
+  br i1 %41, label %42, label %165
 
-for.body10:                                       ; preds = %for.cond6
-  %10 = load i32, ptr %j, align 4
-  %idxprom11 = zext i32 %10 to i64
-  %arrayidx12 = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %idxprom11
-  %11 = load i32, ptr %arrayidx12, align 4
-  store i32 %11, ptr %b, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = load i32, ptr %b, align 4
-  %14 = load i32, ptr %a, align 4
-  %15 = load i32, ptr %b, align 4
-  %cmp13 = icmp ult i32 %14, %15
-  %conv14 = zext i1 %cmp13 to i32
-  %call15 = call i32 @test_binary_op(ptr noundef @constant_time_lt, ptr noundef @.str.1, i32 noundef %12, i32 noundef %13, i32 noundef %conv14)
-  %16 = load i32, ptr %num_failed, align 4
-  %add16 = add nsw i32 %16, %call15
-  store i32 %add16, ptr %num_failed, align 4
-  %17 = load i32, ptr %a, align 4
-  %18 = load i32, ptr %b, align 4
-  %19 = load i32, ptr %a, align 4
-  %20 = load i32, ptr %b, align 4
-  %cmp17 = icmp ult i32 %19, %20
-  %conv18 = zext i1 %cmp17 to i32
-  %call19 = call i32 @test_binary_op_8(ptr noundef @constant_time_lt_8, ptr noundef @.str.2, i32 noundef %17, i32 noundef %18, i32 noundef %conv18)
-  %21 = load i32, ptr %num_failed, align 4
-  %add20 = add nsw i32 %21, %call19
-  store i32 %add20, ptr %num_failed, align 4
-  %22 = load i32, ptr %b, align 4
-  %23 = load i32, ptr %a, align 4
-  %24 = load i32, ptr %b, align 4
-  %25 = load i32, ptr %a, align 4
-  %cmp21 = icmp ult i32 %24, %25
-  %conv22 = zext i1 %cmp21 to i32
-  %call23 = call i32 @test_binary_op(ptr noundef @constant_time_lt, ptr noundef @.str.2, i32 noundef %22, i32 noundef %23, i32 noundef %conv22)
-  %26 = load i32, ptr %num_failed, align 4
-  %add24 = add nsw i32 %26, %call23
-  store i32 %add24, ptr %num_failed, align 4
-  %27 = load i32, ptr %b, align 4
-  %28 = load i32, ptr %a, align 4
-  %29 = load i32, ptr %b, align 4
-  %30 = load i32, ptr %a, align 4
-  %cmp25 = icmp ult i32 %29, %30
-  %conv26 = zext i1 %cmp25 to i32
-  %call27 = call i32 @test_binary_op_8(ptr noundef @constant_time_lt_8, ptr noundef @.str.2, i32 noundef %27, i32 noundef %28, i32 noundef %conv26)
-  %31 = load i32, ptr %num_failed, align 4
-  %add28 = add nsw i32 %31, %call27
-  store i32 %add28, ptr %num_failed, align 4
-  %32 = load i32, ptr %a, align 4
-  %33 = load i32, ptr %b, align 4
-  %34 = load i32, ptr %a, align 4
-  %35 = load i32, ptr %b, align 4
-  %cmp29 = icmp uge i32 %34, %35
-  %conv30 = zext i1 %cmp29 to i32
-  %call31 = call i32 @test_binary_op(ptr noundef @constant_time_ge, ptr noundef @.str.3, i32 noundef %32, i32 noundef %33, i32 noundef %conv30)
-  %36 = load i32, ptr %num_failed, align 4
-  %add32 = add nsw i32 %36, %call31
-  store i32 %add32, ptr %num_failed, align 4
-  %37 = load i32, ptr %a, align 4
-  %38 = load i32, ptr %b, align 4
-  %39 = load i32, ptr %a, align 4
-  %40 = load i32, ptr %b, align 4
-  %cmp33 = icmp uge i32 %39, %40
-  %conv34 = zext i1 %cmp33 to i32
-  %call35 = call i32 @test_binary_op_8(ptr noundef @constant_time_ge_8, ptr noundef @.str.4, i32 noundef %37, i32 noundef %38, i32 noundef %conv34)
-  %41 = load i32, ptr %num_failed, align 4
-  %add36 = add nsw i32 %41, %call35
-  store i32 %add36, ptr %num_failed, align 4
-  %42 = load i32, ptr %b, align 4
-  %43 = load i32, ptr %a, align 4
-  %44 = load i32, ptr %b, align 4
-  %45 = load i32, ptr %a, align 4
-  %cmp37 = icmp uge i32 %44, %45
-  %conv38 = zext i1 %cmp37 to i32
-  %call39 = call i32 @test_binary_op(ptr noundef @constant_time_ge, ptr noundef @.str.3, i32 noundef %42, i32 noundef %43, i32 noundef %conv38)
-  %46 = load i32, ptr %num_failed, align 4
-  %add40 = add nsw i32 %46, %call39
-  store i32 %add40, ptr %num_failed, align 4
-  %47 = load i32, ptr %b, align 4
-  %48 = load i32, ptr %a, align 4
-  %49 = load i32, ptr %b, align 4
-  %50 = load i32, ptr %a, align 4
-  %cmp41 = icmp uge i32 %49, %50
-  %conv42 = zext i1 %cmp41 to i32
-  %call43 = call i32 @test_binary_op_8(ptr noundef @constant_time_ge_8, ptr noundef @.str.4, i32 noundef %47, i32 noundef %48, i32 noundef %conv42)
-  %51 = load i32, ptr %num_failed, align 4
-  %add44 = add nsw i32 %51, %call43
-  store i32 %add44, ptr %num_failed, align 4
-  %52 = load i32, ptr %a, align 4
-  %53 = load i32, ptr %b, align 4
-  %54 = load i32, ptr %a, align 4
-  %55 = load i32, ptr %b, align 4
-  %cmp45 = icmp eq i32 %54, %55
-  %conv46 = zext i1 %cmp45 to i32
-  %call47 = call i32 @test_binary_op(ptr noundef @constant_time_eq, ptr noundef @.str.5, i32 noundef %52, i32 noundef %53, i32 noundef %conv46)
-  %56 = load i32, ptr %num_failed, align 4
-  %add48 = add nsw i32 %56, %call47
-  store i32 %add48, ptr %num_failed, align 4
-  %57 = load i32, ptr %a, align 4
-  %58 = load i32, ptr %b, align 4
-  %59 = load i32, ptr %a, align 4
-  %60 = load i32, ptr %b, align 4
-  %cmp49 = icmp eq i32 %59, %60
-  %conv50 = zext i1 %cmp49 to i32
-  %call51 = call i32 @test_binary_op_8(ptr noundef @constant_time_eq_8, ptr noundef @.str.6, i32 noundef %57, i32 noundef %58, i32 noundef %conv50)
-  %61 = load i32, ptr %num_failed, align 4
-  %add52 = add nsw i32 %61, %call51
-  store i32 %add52, ptr %num_failed, align 4
-  %62 = load i32, ptr %b, align 4
-  %63 = load i32, ptr %a, align 4
-  %64 = load i32, ptr %b, align 4
-  %65 = load i32, ptr %a, align 4
-  %cmp53 = icmp eq i32 %64, %65
-  %conv54 = zext i1 %cmp53 to i32
-  %call55 = call i32 @test_binary_op(ptr noundef @constant_time_eq, ptr noundef @.str.5, i32 noundef %62, i32 noundef %63, i32 noundef %conv54)
-  %66 = load i32, ptr %num_failed, align 4
-  %add56 = add nsw i32 %66, %call55
-  store i32 %add56, ptr %num_failed, align 4
-  %67 = load i32, ptr %b, align 4
-  %68 = load i32, ptr %a, align 4
-  %69 = load i32, ptr %b, align 4
-  %70 = load i32, ptr %a, align 4
-  %cmp57 = icmp eq i32 %69, %70
-  %conv58 = zext i1 %cmp57 to i32
-  %call59 = call i32 @test_binary_op_8(ptr noundef @constant_time_eq_8, ptr noundef @.str.6, i32 noundef %67, i32 noundef %68, i32 noundef %conv58)
-  %71 = load i32, ptr %num_failed, align 4
-  %add60 = add nsw i32 %71, %call59
-  store i32 %add60, ptr %num_failed, align 4
-  %72 = load i32, ptr %a, align 4
-  %73 = load i32, ptr %b, align 4
-  %call61 = call i32 @test_select(i32 noundef %72, i32 noundef %73)
-  %74 = load i32, ptr %num_failed, align 4
-  %add62 = add nsw i32 %74, %call61
-  store i32 %add62, ptr %num_failed, align 4
-  %75 = load i32, ptr %num_all, align 4
-  %add63 = add nsw i32 %75, 13
-  store i32 %add63, ptr %num_all, align 4
-  br label %for.inc
+42:                                               ; preds = %38
+  %43 = load i32, ptr %9, align 4, !tbaa !6
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !6
+  store i32 %46, ptr %7, align 4, !tbaa !6
+  %47 = load i32, ptr %6, align 4, !tbaa !6
+  %48 = load i32, ptr %7, align 4, !tbaa !6
+  %49 = load i32, ptr %6, align 4, !tbaa !6
+  %50 = load i32, ptr %7, align 4, !tbaa !6
+  %51 = icmp ult i32 %49, %50
+  %52 = zext i1 %51 to i32
+  %53 = call i32 @test_binary_op(ptr noundef @constant_time_lt, ptr noundef @.str.1, i32 noundef %47, i32 noundef %48, i32 noundef %52)
+  %54 = load i32, ptr %14, align 4, !tbaa !6
+  %55 = add nsw i32 %54, %53
+  store i32 %55, ptr %14, align 4, !tbaa !6
+  %56 = load i32, ptr %6, align 4, !tbaa !6
+  %57 = load i32, ptr %7, align 4, !tbaa !6
+  %58 = load i32, ptr %6, align 4, !tbaa !6
+  %59 = load i32, ptr %7, align 4, !tbaa !6
+  %60 = icmp ult i32 %58, %59
+  %61 = zext i1 %60 to i32
+  %62 = call i32 @test_binary_op_8(ptr noundef @constant_time_lt_8, ptr noundef @.str.2, i32 noundef %56, i32 noundef %57, i32 noundef %61)
+  %63 = load i32, ptr %14, align 4, !tbaa !6
+  %64 = add nsw i32 %63, %62
+  store i32 %64, ptr %14, align 4, !tbaa !6
+  %65 = load i32, ptr %7, align 4, !tbaa !6
+  %66 = load i32, ptr %6, align 4, !tbaa !6
+  %67 = load i32, ptr %7, align 4, !tbaa !6
+  %68 = load i32, ptr %6, align 4, !tbaa !6
+  %69 = icmp ult i32 %67, %68
+  %70 = zext i1 %69 to i32
+  %71 = call i32 @test_binary_op(ptr noundef @constant_time_lt, ptr noundef @.str.2, i32 noundef %65, i32 noundef %66, i32 noundef %70)
+  %72 = load i32, ptr %14, align 4, !tbaa !6
+  %73 = add nsw i32 %72, %71
+  store i32 %73, ptr %14, align 4, !tbaa !6
+  %74 = load i32, ptr %7, align 4, !tbaa !6
+  %75 = load i32, ptr %6, align 4, !tbaa !6
+  %76 = load i32, ptr %7, align 4, !tbaa !6
+  %77 = load i32, ptr %6, align 4, !tbaa !6
+  %78 = icmp ult i32 %76, %77
+  %79 = zext i1 %78 to i32
+  %80 = call i32 @test_binary_op_8(ptr noundef @constant_time_lt_8, ptr noundef @.str.2, i32 noundef %74, i32 noundef %75, i32 noundef %79)
+  %81 = load i32, ptr %14, align 4, !tbaa !6
+  %82 = add nsw i32 %81, %80
+  store i32 %82, ptr %14, align 4, !tbaa !6
+  %83 = load i32, ptr %6, align 4, !tbaa !6
+  %84 = load i32, ptr %7, align 4, !tbaa !6
+  %85 = load i32, ptr %6, align 4, !tbaa !6
+  %86 = load i32, ptr %7, align 4, !tbaa !6
+  %87 = icmp uge i32 %85, %86
+  %88 = zext i1 %87 to i32
+  %89 = call i32 @test_binary_op(ptr noundef @constant_time_ge, ptr noundef @.str.3, i32 noundef %83, i32 noundef %84, i32 noundef %88)
+  %90 = load i32, ptr %14, align 4, !tbaa !6
+  %91 = add nsw i32 %90, %89
+  store i32 %91, ptr %14, align 4, !tbaa !6
+  %92 = load i32, ptr %6, align 4, !tbaa !6
+  %93 = load i32, ptr %7, align 4, !tbaa !6
+  %94 = load i32, ptr %6, align 4, !tbaa !6
+  %95 = load i32, ptr %7, align 4, !tbaa !6
+  %96 = icmp uge i32 %94, %95
+  %97 = zext i1 %96 to i32
+  %98 = call i32 @test_binary_op_8(ptr noundef @constant_time_ge_8, ptr noundef @.str.4, i32 noundef %92, i32 noundef %93, i32 noundef %97)
+  %99 = load i32, ptr %14, align 4, !tbaa !6
+  %100 = add nsw i32 %99, %98
+  store i32 %100, ptr %14, align 4, !tbaa !6
+  %101 = load i32, ptr %7, align 4, !tbaa !6
+  %102 = load i32, ptr %6, align 4, !tbaa !6
+  %103 = load i32, ptr %7, align 4, !tbaa !6
+  %104 = load i32, ptr %6, align 4, !tbaa !6
+  %105 = icmp uge i32 %103, %104
+  %106 = zext i1 %105 to i32
+  %107 = call i32 @test_binary_op(ptr noundef @constant_time_ge, ptr noundef @.str.3, i32 noundef %101, i32 noundef %102, i32 noundef %106)
+  %108 = load i32, ptr %14, align 4, !tbaa !6
+  %109 = add nsw i32 %108, %107
+  store i32 %109, ptr %14, align 4, !tbaa !6
+  %110 = load i32, ptr %7, align 4, !tbaa !6
+  %111 = load i32, ptr %6, align 4, !tbaa !6
+  %112 = load i32, ptr %7, align 4, !tbaa !6
+  %113 = load i32, ptr %6, align 4, !tbaa !6
+  %114 = icmp uge i32 %112, %113
+  %115 = zext i1 %114 to i32
+  %116 = call i32 @test_binary_op_8(ptr noundef @constant_time_ge_8, ptr noundef @.str.4, i32 noundef %110, i32 noundef %111, i32 noundef %115)
+  %117 = load i32, ptr %14, align 4, !tbaa !6
+  %118 = add nsw i32 %117, %116
+  store i32 %118, ptr %14, align 4, !tbaa !6
+  %119 = load i32, ptr %6, align 4, !tbaa !6
+  %120 = load i32, ptr %7, align 4, !tbaa !6
+  %121 = load i32, ptr %6, align 4, !tbaa !6
+  %122 = load i32, ptr %7, align 4, !tbaa !6
+  %123 = icmp eq i32 %121, %122
+  %124 = zext i1 %123 to i32
+  %125 = call i32 @test_binary_op(ptr noundef @constant_time_eq, ptr noundef @.str.5, i32 noundef %119, i32 noundef %120, i32 noundef %124)
+  %126 = load i32, ptr %14, align 4, !tbaa !6
+  %127 = add nsw i32 %126, %125
+  store i32 %127, ptr %14, align 4, !tbaa !6
+  %128 = load i32, ptr %6, align 4, !tbaa !6
+  %129 = load i32, ptr %7, align 4, !tbaa !6
+  %130 = load i32, ptr %6, align 4, !tbaa !6
+  %131 = load i32, ptr %7, align 4, !tbaa !6
+  %132 = icmp eq i32 %130, %131
+  %133 = zext i1 %132 to i32
+  %134 = call i32 @test_binary_op_8(ptr noundef @constant_time_eq_8, ptr noundef @.str.6, i32 noundef %128, i32 noundef %129, i32 noundef %133)
+  %135 = load i32, ptr %14, align 4, !tbaa !6
+  %136 = add nsw i32 %135, %134
+  store i32 %136, ptr %14, align 4, !tbaa !6
+  %137 = load i32, ptr %7, align 4, !tbaa !6
+  %138 = load i32, ptr %6, align 4, !tbaa !6
+  %139 = load i32, ptr %7, align 4, !tbaa !6
+  %140 = load i32, ptr %6, align 4, !tbaa !6
+  %141 = icmp eq i32 %139, %140
+  %142 = zext i1 %141 to i32
+  %143 = call i32 @test_binary_op(ptr noundef @constant_time_eq, ptr noundef @.str.5, i32 noundef %137, i32 noundef %138, i32 noundef %142)
+  %144 = load i32, ptr %14, align 4, !tbaa !6
+  %145 = add nsw i32 %144, %143
+  store i32 %145, ptr %14, align 4, !tbaa !6
+  %146 = load i32, ptr %7, align 4, !tbaa !6
+  %147 = load i32, ptr %6, align 4, !tbaa !6
+  %148 = load i32, ptr %7, align 4, !tbaa !6
+  %149 = load i32, ptr %6, align 4, !tbaa !6
+  %150 = icmp eq i32 %148, %149
+  %151 = zext i1 %150 to i32
+  %152 = call i32 @test_binary_op_8(ptr noundef @constant_time_eq_8, ptr noundef @.str.6, i32 noundef %146, i32 noundef %147, i32 noundef %151)
+  %153 = load i32, ptr %14, align 4, !tbaa !6
+  %154 = add nsw i32 %153, %152
+  store i32 %154, ptr %14, align 4, !tbaa !6
+  %155 = load i32, ptr %6, align 4, !tbaa !6
+  %156 = load i32, ptr %7, align 4, !tbaa !6
+  %157 = call i32 @test_select(i32 noundef %155, i32 noundef %156)
+  %158 = load i32, ptr %14, align 4, !tbaa !6
+  %159 = add nsw i32 %158, %157
+  store i32 %159, ptr %14, align 4, !tbaa !6
+  %160 = load i32, ptr %15, align 4, !tbaa !6
+  %161 = add nsw i32 %160, 13
+  store i32 %161, ptr %15, align 4, !tbaa !6
+  br label %162
 
-for.inc:                                          ; preds = %for.body10
-  %76 = load i32, ptr %j, align 4
-  %inc = add i32 %76, 1
-  store i32 %inc, ptr %j, align 4
-  br label %for.cond6, !llvm.loop !7
+162:                                              ; preds = %42
+  %163 = load i32, ptr %9, align 4, !tbaa !6
+  %164 = add i32 %163, 1
+  store i32 %164, ptr %9, align 4, !tbaa !6
+  br label %38, !llvm.loop !15
 
-for.end:                                          ; preds = %for.cond6
-  br label %for.inc64
+165:                                              ; preds = %38
+  br label %166
 
-for.inc64:                                        ; preds = %for.end
-  %77 = load i32, ptr %i, align 4
-  %inc65 = add i32 %77, 1
-  store i32 %inc65, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+166:                                              ; preds = %165
+  %167 = load i32, ptr %8, align 4, !tbaa !6
+  %168 = add i32 %167, 1
+  store i32 %168, ptr %8, align 4, !tbaa !6
+  br label %19, !llvm.loop !17
 
-for.end66:                                        ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond67
+169:                                              ; preds = %19
+  store i32 0, ptr %8, align 4, !tbaa !6
+  br label %170
 
-for.cond67:                                       ; preds = %for.inc91, %for.end66
-  %78 = load i32, ptr %i, align 4
-  %conv68 = zext i32 %78 to i64
-  %cmp69 = icmp ult i64 %conv68, 13
-  br i1 %cmp69, label %for.body71, label %for.end93
+170:                                              ; preds = %209, %169
+  %171 = load i32, ptr %8, align 4, !tbaa !6
+  %172 = zext i32 %171 to i64
+  %173 = icmp ult i64 %172, 13
+  br i1 %173, label %174, label %212
 
-for.body71:                                       ; preds = %for.cond67
-  %79 = load i32, ptr %i, align 4
-  %idxprom72 = zext i32 %79 to i64
-  %arrayidx73 = getelementptr inbounds [13 x i32], ptr @signed_test_values, i64 0, i64 %idxprom72
-  %80 = load i32, ptr %arrayidx73, align 4
-  store i32 %80, ptr %c, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond74
+174:                                              ; preds = %170
+  %175 = load i32, ptr %8, align 4, !tbaa !6
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr inbounds nuw [13 x i32], ptr @signed_test_values, i64 0, i64 %176
+  %178 = load i32, ptr %177, align 4, !tbaa !6
+  store i32 %178, ptr %10, align 4, !tbaa !6
+  store i32 0, ptr %9, align 4, !tbaa !6
+  br label %179
 
-for.cond74:                                       ; preds = %for.inc88, %for.body71
-  %81 = load i32, ptr %j, align 4
-  %conv75 = zext i32 %81 to i64
-  %cmp76 = icmp ult i64 %conv75, 13
-  br i1 %cmp76, label %for.body78, label %for.end90
+179:                                              ; preds = %205, %174
+  %180 = load i32, ptr %9, align 4, !tbaa !6
+  %181 = zext i32 %180 to i64
+  %182 = icmp ult i64 %181, 13
+  br i1 %182, label %183, label %208
 
-for.body78:                                       ; preds = %for.cond74
-  %82 = load i32, ptr %j, align 4
-  %idxprom79 = zext i32 %82 to i64
-  %arrayidx80 = getelementptr inbounds [13 x i32], ptr @signed_test_values, i64 0, i64 %idxprom79
-  %83 = load i32, ptr %arrayidx80, align 4
-  store i32 %83, ptr %d, align 4
-  %84 = load i32, ptr %c, align 4
-  %85 = load i32, ptr %d, align 4
-  %call81 = call i32 @test_select_int(i32 noundef %84, i32 noundef %85)
-  %86 = load i32, ptr %num_failed, align 4
-  %add82 = add nsw i32 %86, %call81
-  store i32 %add82, ptr %num_failed, align 4
-  %87 = load i32, ptr %c, align 4
-  %88 = load i32, ptr %d, align 4
-  %call83 = call i32 @test_eq_int(i32 noundef %87, i32 noundef %88)
-  %89 = load i32, ptr %num_failed, align 4
-  %add84 = add nsw i32 %89, %call83
-  store i32 %add84, ptr %num_failed, align 4
-  %90 = load i32, ptr %c, align 4
-  %91 = load i32, ptr %d, align 4
-  %call85 = call i32 @test_eq_int_8(i32 noundef %90, i32 noundef %91)
-  %92 = load i32, ptr %num_failed, align 4
-  %add86 = add nsw i32 %92, %call85
-  store i32 %add86, ptr %num_failed, align 4
-  %93 = load i32, ptr %num_all, align 4
-  %add87 = add nsw i32 %93, 3
-  store i32 %add87, ptr %num_all, align 4
-  br label %for.inc88
+183:                                              ; preds = %179
+  %184 = load i32, ptr %9, align 4, !tbaa !6
+  %185 = zext i32 %184 to i64
+  %186 = getelementptr inbounds nuw [13 x i32], ptr @signed_test_values, i64 0, i64 %185
+  %187 = load i32, ptr %186, align 4, !tbaa !6
+  store i32 %187, ptr %11, align 4, !tbaa !6
+  %188 = load i32, ptr %10, align 4, !tbaa !6
+  %189 = load i32, ptr %11, align 4, !tbaa !6
+  %190 = call i32 @test_select_int(i32 noundef %188, i32 noundef %189)
+  %191 = load i32, ptr %14, align 4, !tbaa !6
+  %192 = add nsw i32 %191, %190
+  store i32 %192, ptr %14, align 4, !tbaa !6
+  %193 = load i32, ptr %10, align 4, !tbaa !6
+  %194 = load i32, ptr %11, align 4, !tbaa !6
+  %195 = call i32 @test_eq_int(i32 noundef %193, i32 noundef %194)
+  %196 = load i32, ptr %14, align 4, !tbaa !6
+  %197 = add nsw i32 %196, %195
+  store i32 %197, ptr %14, align 4, !tbaa !6
+  %198 = load i32, ptr %10, align 4, !tbaa !6
+  %199 = load i32, ptr %11, align 4, !tbaa !6
+  %200 = call i32 @test_eq_int_8(i32 noundef %198, i32 noundef %199)
+  %201 = load i32, ptr %14, align 4, !tbaa !6
+  %202 = add nsw i32 %201, %200
+  store i32 %202, ptr %14, align 4, !tbaa !6
+  %203 = load i32, ptr %15, align 4, !tbaa !6
+  %204 = add nsw i32 %203, 3
+  store i32 %204, ptr %15, align 4, !tbaa !6
+  br label %205
 
-for.inc88:                                        ; preds = %for.body78
-  %94 = load i32, ptr %j, align 4
-  %inc89 = add i32 %94, 1
-  store i32 %inc89, ptr %j, align 4
-  br label %for.cond74, !llvm.loop !10
+205:                                              ; preds = %183
+  %206 = load i32, ptr %9, align 4, !tbaa !6
+  %207 = add i32 %206, 1
+  store i32 %207, ptr %9, align 4, !tbaa !6
+  br label %179, !llvm.loop !18
 
-for.end90:                                        ; preds = %for.cond74
-  br label %for.inc91
+208:                                              ; preds = %179
+  br label %209
 
-for.inc91:                                        ; preds = %for.end90
-  %95 = load i32, ptr %i, align 4
-  %inc92 = add i32 %95, 1
-  store i32 %inc92, ptr %i, align 4
-  br label %for.cond67, !llvm.loop !11
+209:                                              ; preds = %208
+  %210 = load i32, ptr %8, align 4, !tbaa !6
+  %211 = add i32 %210, 1
+  store i32 %211, ptr %8, align 4, !tbaa !6
+  br label %170, !llvm.loop !19
 
-for.end93:                                        ; preds = %for.cond67
-  store i32 0, ptr %i, align 4
-  br label %for.cond94
+212:                                              ; preds = %170
+  store i32 0, ptr %8, align 4, !tbaa !6
+  br label %213
 
-for.cond94:                                       ; preds = %for.inc114, %for.end93
-  %96 = load i32, ptr %i, align 4
-  %conv95 = zext i32 %96 to i64
-  %cmp96 = icmp ult i64 %conv95, 9
-  br i1 %cmp96, label %for.body98, label %for.end116
+213:                                              ; preds = %242, %212
+  %214 = load i32, ptr %8, align 4, !tbaa !6
+  %215 = zext i32 %214 to i64
+  %216 = icmp ult i64 %215, 9
+  br i1 %216, label %217, label %245
 
-for.body98:                                       ; preds = %for.cond94
-  %97 = load i32, ptr %i, align 4
-  %idxprom99 = zext i32 %97 to i64
-  %arrayidx100 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom99
-  %98 = load i8, ptr %arrayidx100, align 1
-  store i8 %98, ptr %e, align 1
-  store i32 0, ptr %j, align 4
-  br label %for.cond101
+217:                                              ; preds = %213
+  %218 = load i32, ptr %8, align 4, !tbaa !6
+  %219 = zext i32 %218 to i64
+  %220 = getelementptr inbounds nuw [9 x i8], ptr @test_values_8, i64 0, i64 %219
+  %221 = load i8, ptr %220, align 1, !tbaa !20
+  store i8 %221, ptr %12, align 1, !tbaa !20
+  store i32 0, ptr %9, align 4, !tbaa !6
+  br label %222
 
-for.cond101:                                      ; preds = %for.inc111, %for.body98
-  %99 = load i32, ptr %j, align 4
-  %conv102 = zext i32 %99 to i64
-  %cmp103 = icmp ult i64 %conv102, 9
-  br i1 %cmp103, label %for.body105, label %for.end113
+222:                                              ; preds = %238, %217
+  %223 = load i32, ptr %9, align 4, !tbaa !6
+  %224 = zext i32 %223 to i64
+  %225 = icmp ult i64 %224, 9
+  br i1 %225, label %226, label %241
 
-for.body105:                                      ; preds = %for.cond101
-  %100 = load i32, ptr %j, align 4
-  %idxprom106 = zext i32 %100 to i64
-  %arrayidx107 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom106
-  %101 = load i8, ptr %arrayidx107, align 1
-  store i8 %101, ptr %f, align 1
-  %102 = load i8, ptr %e, align 1
-  %103 = load i8, ptr %f, align 1
-  %call108 = call i32 @test_select_8(i8 noundef zeroext %102, i8 noundef zeroext %103)
-  %104 = load i32, ptr %num_failed, align 4
-  %add109 = add nsw i32 %104, %call108
-  store i32 %add109, ptr %num_failed, align 4
-  %105 = load i32, ptr %num_all, align 4
-  %add110 = add nsw i32 %105, 1
-  store i32 %add110, ptr %num_all, align 4
-  br label %for.inc111
+226:                                              ; preds = %222
+  %227 = load i32, ptr %9, align 4, !tbaa !6
+  %228 = zext i32 %227 to i64
+  %229 = getelementptr inbounds nuw [9 x i8], ptr @test_values_8, i64 0, i64 %228
+  %230 = load i8, ptr %229, align 1, !tbaa !20
+  store i8 %230, ptr %13, align 1, !tbaa !20
+  %231 = load i8, ptr %12, align 1, !tbaa !20
+  %232 = load i8, ptr %13, align 1, !tbaa !20
+  %233 = call i32 @test_select_8(i8 noundef zeroext %231, i8 noundef zeroext %232)
+  %234 = load i32, ptr %14, align 4, !tbaa !6
+  %235 = add nsw i32 %234, %233
+  store i32 %235, ptr %14, align 4, !tbaa !6
+  %236 = load i32, ptr %15, align 4, !tbaa !6
+  %237 = add nsw i32 %236, 1
+  store i32 %237, ptr %15, align 4, !tbaa !6
+  br label %238
 
-for.inc111:                                       ; preds = %for.body105
-  %106 = load i32, ptr %j, align 4
-  %inc112 = add i32 %106, 1
-  store i32 %inc112, ptr %j, align 4
-  br label %for.cond101, !llvm.loop !12
+238:                                              ; preds = %226
+  %239 = load i32, ptr %9, align 4, !tbaa !6
+  %240 = add i32 %239, 1
+  store i32 %240, ptr %9, align 4, !tbaa !6
+  br label %222, !llvm.loop !21
 
-for.end113:                                       ; preds = %for.cond101
-  br label %for.inc114
+241:                                              ; preds = %222
+  br label %242
 
-for.inc114:                                       ; preds = %for.end113
-  %107 = load i32, ptr %i, align 4
-  %inc115 = add i32 %107, 1
-  store i32 %inc115, ptr %i, align 4
-  br label %for.cond94, !llvm.loop !13
+242:                                              ; preds = %241
+  %243 = load i32, ptr %8, align 4, !tbaa !6
+  %244 = add i32 %243, 1
+  store i32 %244, ptr %8, align 4, !tbaa !6
+  br label %213, !llvm.loop !22
 
-for.end116:                                       ; preds = %for.cond94
-  %108 = load i32, ptr %num_failed, align 4
-  %tobool = icmp ne i32 %108, 0
-  br i1 %tobool, label %if.else, label %if.then
+245:                                              ; preds = %213
+  %246 = load i32, ptr %14, align 4, !tbaa !6
+  %247 = icmp ne i32 %246, 0
+  br i1 %247, label %254, label %248
 
-if.then:                                          ; preds = %for.end116
-  %109 = load ptr, ptr @stdout, align 8
-  %110 = load i32, ptr %num_all, align 4
-  %call117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef @.str.7, i32 noundef %110)
-  %111 = load ptr, ptr @stdout, align 8
-  %call118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef @.str.8)
-  store i32 0, ptr %retval, align 4
-  br label %return
+248:                                              ; preds = %245
+  %249 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %250 = load i32, ptr %15, align 4, !tbaa !6
+  %251 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef @.str.7, i32 noundef %250) #4
+  %252 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef @.str.8) #4
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %16, align 4
+  br label %259
 
-if.else:                                          ; preds = %for.end116
-  %112 = load ptr, ptr @stdout, align 8
-  %113 = load i32, ptr %num_failed, align 4
-  %114 = load i32, ptr %num_all, align 4
-  %call119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef @.str.9, i32 noundef %113, i32 noundef %114)
-  store i32 1, ptr %retval, align 4
-  br label %return
+254:                                              ; preds = %245
+  %255 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %256 = load i32, ptr %14, align 4, !tbaa !6
+  %257 = load i32, ptr %15, align 4, !tbaa !6
+  %258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %255, ptr noundef @.str.9, i32 noundef %256, i32 noundef %257) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %16, align 4
+  br label %259
 
-return:                                           ; preds = %if.else, %if.then
-  %115 = load i32, ptr %retval, align 4
-  ret i32 %115
+259:                                              ; preds = %254, %248
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %260 = load i32, ptr %3, align 4
+  ret i32 %260
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_is_zero(i32 noundef %a) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %c = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %call = call i32 @constant_time_is_zero(i32 noundef %0)
-  store i32 %call, ptr %c, align 4
-  %1 = load i32, ptr %a.addr, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define internal i32 @test_is_zero(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %6 = load i32, ptr %3, align 4, !tbaa !6
+  %7 = call i32 @constant_time_is_zero(i32 noundef %6)
+  store i32 %7, ptr %4, align 4, !tbaa !6
+  %8 = load i32, ptr %3, align 4, !tbaa !6
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %18
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load i32, ptr %c, align 4
-  %cmp1 = icmp ne i32 %2, -1
-  br i1 %cmp1, label %if.then, label %if.else
+10:                                               ; preds = %1
+  %11 = load i32, ptr %4, align 4, !tbaa !6
+  %12 = icmp ne i32 %11, -1
+  br i1 %12, label %13, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load i32, ptr %a.addr, align 4
-  %5 = load i32, ptr %c, align 4
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.10, i32 noundef %4, i32 noundef -1, i32 noundef %5)
-  store i32 1, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %10
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %15 = load i32, ptr %3, align 4, !tbaa !6
+  %16 = load i32, ptr %4, align 4, !tbaa !6
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.10, i32 noundef %15, i32 noundef -1, i32 noundef %16) #4
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %31
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %6 = load i32, ptr %a.addr, align 4
-  %cmp3 = icmp ne i32 %6, 0
-  br i1 %cmp3, label %land.lhs.true4, label %if.end
+18:                                               ; preds = %10, %1
+  %19 = load i32, ptr %3, align 4, !tbaa !6
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %29
 
-land.lhs.true4:                                   ; preds = %if.else
-  %7 = load i32, ptr %c, align 4
-  %cmp5 = icmp ne i32 %7, 0
-  br i1 %cmp5, label %if.then6, label %if.end
+21:                                               ; preds = %18
+  %22 = load i32, ptr %4, align 4, !tbaa !6
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %29
 
-if.then6:                                         ; preds = %land.lhs.true4
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i32, ptr %c, align 4
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.11, i32 noundef %9, i32 noundef 0, i32 noundef %10)
-  store i32 1, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %21
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %26 = load i32, ptr %3, align 4, !tbaa !6
+  %27 = load i32, ptr %4, align 4, !tbaa !6
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.11, i32 noundef %26, i32 noundef 0, i32 noundef %27) #4
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %31
 
-if.end:                                           ; preds = %land.lhs.true4, %if.else
-  br label %if.end8
+29:                                               ; preds = %21, %18
+  br label %30
 
-if.end8:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %29
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %31
 
-return:                                           ; preds = %if.end8, %if.then6, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @test_is_zero_8(i32 noundef %a) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %c = alloca i8, align 1
-  store i32 %a, ptr %a.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %call = call zeroext i8 @constant_time_is_zero_8(i32 noundef %0)
-  store i8 %call, ptr %c, align 1
-  %1 = load i32, ptr %a.addr, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %entry
-  %2 = load i8, ptr %c, align 1
-  %conv = zext i8 %2 to i32
-  %cmp1 = icmp ne i32 %conv, 255
-  br i1 %cmp1, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load i32, ptr %a.addr, align 4
-  %5 = load i8, ptr %c, align 1
-  %conv3 = zext i8 %5 to i32
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.12, i32 noundef %4, i32 noundef 255, i32 noundef %conv3)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %6 = load i32, ptr %a.addr, align 4
-  %cmp5 = icmp ne i32 %6, 0
-  br i1 %cmp5, label %land.lhs.true7, label %if.end
-
-land.lhs.true7:                                   ; preds = %if.else
-  %7 = load i8, ptr %c, align 1
-  %conv8 = zext i8 %7 to i32
-  %cmp9 = icmp ne i32 %conv8, 0
-  br i1 %cmp9, label %if.then11, label %if.end
-
-if.then11:                                        ; preds = %land.lhs.true7
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i8, ptr %c, align 1
-  %conv12 = zext i8 %10 to i32
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.13, i32 noundef %9, i32 noundef 0, i32 noundef %conv12)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true7, %if.else
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end14, %if.then11, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+31:                                               ; preds = %30, %24, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %32 = load i32, ptr %2, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_binary_op(ptr noundef %op, ptr noundef %op_name, i32 noundef %a, i32 noundef %b, i32 noundef %is_true) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %op.addr = alloca ptr, align 8
-  %op_name.addr = alloca ptr, align 8
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %is_true.addr = alloca i32, align 4
-  %c = alloca i32, align 4
-  store ptr %op, ptr %op.addr, align 8
-  store ptr %op_name, ptr %op_name.addr, align 8
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %is_true, ptr %is_true.addr, align 4
-  %0 = load ptr, ptr %op.addr, align 8
-  %1 = load i32, ptr %a.addr, align 4
-  %2 = load i32, ptr %b.addr, align 4
-  %call = call i32 %0(i32 noundef %1, i32 noundef %2)
-  store i32 %call, ptr %c, align 4
-  %3 = load i32, ptr %is_true.addr, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %land.lhs.true, label %if.else
+define internal i32 @test_is_zero_8(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #4
+  %6 = load i32, ptr %3, align 4, !tbaa !6
+  %7 = call zeroext i8 @constant_time_is_zero_8(i32 noundef %6)
+  store i8 %7, ptr %4, align 1, !tbaa !20
+  %8 = load i32, ptr %3, align 4, !tbaa !6
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %20
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i32, ptr %c, align 4
-  %cmp = icmp ne i32 %4, -1
-  br i1 %cmp, label %if.then, label %if.else
+10:                                               ; preds = %1
+  %11 = load i8, ptr %4, align 1, !tbaa !20
+  %12 = zext i8 %11 to i32
+  %13 = icmp ne i32 %12, 255
+  br i1 %13, label %14, label %20
 
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load ptr, ptr %op_name.addr, align 8
-  %7 = load i32, ptr %a.addr, align 4
-  %8 = load i32, ptr %b.addr, align 4
-  %9 = load i32, ptr %c, align 4
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.14, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef -1, i32 noundef %9)
-  store i32 1, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %10
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %16 = load i32, ptr %3, align 4, !tbaa !6
+  %17 = load i8, ptr %4, align 1, !tbaa !20
+  %18 = zext i8 %17 to i32
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.12, i32 noundef %16, i32 noundef 255, i32 noundef %18) #4
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %35
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %10 = load i32, ptr %is_true.addr, align 4
-  %tobool2 = icmp ne i32 %10, 0
-  br i1 %tobool2, label %if.end, label %land.lhs.true3
+20:                                               ; preds = %10, %1
+  %21 = load i32, ptr %3, align 4, !tbaa !6
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %33
 
-land.lhs.true3:                                   ; preds = %if.else
-  %11 = load i32, ptr %c, align 4
-  %cmp4 = icmp ne i32 %11, 0
-  br i1 %cmp4, label %if.then5, label %if.end
+23:                                               ; preds = %20
+  %24 = load i8, ptr %4, align 1, !tbaa !20
+  %25 = zext i8 %24 to i32
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %33
 
-if.then5:                                         ; preds = %land.lhs.true3
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load ptr, ptr %op_name.addr, align 8
-  %14 = load i32, ptr %a.addr, align 4
-  %15 = load i32, ptr %b.addr, align 4
-  %16 = load i32, ptr %c, align 4
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.15, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef %16)
-  store i32 1, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %23
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %29 = load i32, ptr %3, align 4, !tbaa !6
+  %30 = load i8, ptr %4, align 1, !tbaa !20
+  %31 = zext i8 %30 to i32
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.13, i32 noundef %29, i32 noundef 0, i32 noundef %31) #4
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %35
 
-if.end:                                           ; preds = %land.lhs.true3, %if.else
-  br label %if.end7
+33:                                               ; preds = %23, %20
+  br label %34
 
-if.end7:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %33
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %35
 
-return:                                           ; preds = %if.end7, %if.then5, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+35:                                               ; preds = %34, %27, %14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #4
+  %36 = load i32, ptr %2, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @constant_time_lt(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %a.addr, align 4
-  %2 = load i32, ptr %b.addr, align 4
-  %xor = xor i32 %1, %2
-  %3 = load i32, ptr %a.addr, align 4
-  %4 = load i32, ptr %b.addr, align 4
-  %sub = sub i32 %3, %4
-  %5 = load i32, ptr %a.addr, align 4
-  %xor1 = xor i32 %sub, %5
-  %or = or i32 %xor, %xor1
-  %xor2 = xor i32 %0, %or
-  %call = call i32 @constant_time_msb(i32 noundef %xor2)
-  ret i32 %call
+define internal i32 @test_binary_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !23
+  store ptr %1, ptr %8, align 8, !tbaa !24
+  store i32 %2, ptr %9, align 4, !tbaa !6
+  store i32 %3, ptr %10, align 4, !tbaa !6
+  store i32 %4, ptr %11, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %14 = load ptr, ptr %7, align 8, !tbaa !23
+  %15 = load i32, ptr %9, align 4, !tbaa !6
+  %16 = load i32, ptr %10, align 4, !tbaa !6
+  %17 = call i32 %14(i32 noundef %15, i32 noundef %16)
+  store i32 %17, ptr %12, align 4, !tbaa !6
+  %18 = load i32, ptr %11, align 4, !tbaa !6
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %30
+
+20:                                               ; preds = %5
+  %21 = load i32, ptr %12, align 4, !tbaa !6
+  %22 = icmp ne i32 %21, -1
+  br i1 %22, label %23, label %30
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %25 = load ptr, ptr %8, align 8, !tbaa !24
+  %26 = load i32, ptr %9, align 4, !tbaa !6
+  %27 = load i32, ptr %10, align 4, !tbaa !6
+  %28 = load i32, ptr %12, align 4, !tbaa !6
+  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.14, ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef -1, i32 noundef %28) #4
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %45
+
+30:                                               ; preds = %20, %5
+  %31 = load i32, ptr %11, align 4, !tbaa !6
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %43, label %33
+
+33:                                               ; preds = %30
+  %34 = load i32, ptr %12, align 4, !tbaa !6
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %43
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %38 = load ptr, ptr %8, align 8, !tbaa !24
+  %39 = load i32, ptr %9, align 4, !tbaa !6
+  %40 = load i32, ptr %10, align 4, !tbaa !6
+  %41 = load i32, ptr %12, align 4, !tbaa !6
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.15, ptr noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef 0, i32 noundef %41) #4
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %45
+
+43:                                               ; preds = %33, %30
+  br label %44
+
+44:                                               ; preds = %43
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %45
+
+45:                                               ; preds = %44, %36, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  %46 = load i32, ptr %6, align 4
+  ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @test_binary_op_8(ptr noundef %op, ptr noundef %op_name, i32 noundef %a, i32 noundef %b, i32 noundef %is_true) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %op.addr = alloca ptr, align 8
-  %op_name.addr = alloca ptr, align 8
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %is_true.addr = alloca i32, align 4
-  %c = alloca i8, align 1
-  store ptr %op, ptr %op.addr, align 8
-  store ptr %op_name, ptr %op_name.addr, align 8
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  store i32 %is_true, ptr %is_true.addr, align 4
-  %0 = load ptr, ptr %op.addr, align 8
-  %1 = load i32, ptr %a.addr, align 4
-  %2 = load i32, ptr %b.addr, align 4
-  %call = call zeroext i8 %0(i32 noundef %1, i32 noundef %2)
-  store i8 %call, ptr %c, align 1
-  %3 = load i32, ptr %is_true.addr, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i8, ptr %c, align 1
-  %conv = zext i8 %4 to i32
-  %cmp = icmp ne i32 %conv, 255
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load ptr, ptr %op_name.addr, align 8
-  %7 = load i32, ptr %a.addr, align 4
-  %8 = load i32, ptr %b.addr, align 4
-  %9 = load i8, ptr %c, align 1
-  %conv2 = zext i8 %9 to i32
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.16, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 255, i32 noundef %conv2)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %10 = load i32, ptr %is_true.addr, align 4
-  %tobool4 = icmp ne i32 %10, 0
-  br i1 %tobool4, label %if.end, label %land.lhs.true5
-
-land.lhs.true5:                                   ; preds = %if.else
-  %11 = load i8, ptr %c, align 1
-  %conv6 = zext i8 %11 to i32
-  %cmp7 = icmp ne i32 %conv6, 0
-  br i1 %cmp7, label %if.then9, label %if.end
-
-if.then9:                                         ; preds = %land.lhs.true5
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load ptr, ptr %op_name.addr, align 8
-  %14 = load i32, ptr %a.addr, align 4
-  %15 = load i32, ptr %b.addr, align 4
-  %16 = load i8, ptr %c, align 1
-  %conv10 = zext i8 %16 to i32
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.17, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef %conv10)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true5, %if.else
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end12, %if.then9, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @constant_time_lt_8(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_lt(i32 noundef %0, i32 noundef %1)
-  %conv = trunc i32 %call to i8
-  ret i8 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @constant_time_ge(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_lt(i32 noundef %0, i32 noundef %1)
-  %not = xor i32 %call, -1
-  ret i32 %not
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @constant_time_ge_8(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_ge(i32 noundef %0, i32 noundef %1)
-  %conv = trunc i32 %call to i8
-  ret i8 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @constant_time_eq(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %xor = xor i32 %0, %1
-  %call = call i32 @constant_time_is_zero(i32 noundef %xor)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @constant_time_eq_8(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_eq(i32 noundef %0, i32 noundef %1)
-  %conv = trunc i32 %call to i8
-  ret i8 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @test_select(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %selected = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_select(i32 noundef -1, i32 noundef %0, i32 noundef %1)
-  store i32 %call, ptr %selected, align 4
-  %2 = load i32, ptr %selected, align 4
-  %3 = load i32, ptr %a.addr, align 4
-  %cmp = icmp ne i32 %2, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load i32, ptr %a.addr, align 4
-  %6 = load i32, ptr %b.addr, align 4
-  %7 = load i32, ptr %a.addr, align 4
-  %8 = load i32, ptr %selected, align 4
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.18, i32 noundef -1, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i32, ptr %b.addr, align 4
-  %call2 = call i32 @constant_time_select(i32 noundef 0, i32 noundef %9, i32 noundef %10)
-  store i32 %call2, ptr %selected, align 4
-  %11 = load i32, ptr %selected, align 4
-  %12 = load i32, ptr %b.addr, align 4
-  %cmp3 = icmp ne i32 %11, %12
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %if.end
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = load i32, ptr %a.addr, align 4
-  %15 = load i32, ptr %b.addr, align 4
-  %16 = load i32, ptr %b.addr, align 4
-  %17 = load i32, ptr %selected, align 4
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.19, i32 noundef 0, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end6, %if.then4, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @test_select_int(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %selected = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_select_int(i32 noundef -1, i32 noundef %0, i32 noundef %1)
-  store i32 %call, ptr %selected, align 4
-  %2 = load i32, ptr %selected, align 4
-  %3 = load i32, ptr %a.addr, align 4
-  %cmp = icmp ne i32 %2, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load i32, ptr %a.addr, align 4
-  %6 = load i32, ptr %b.addr, align 4
-  %7 = load i32, ptr %a.addr, align 4
-  %8 = load i32, ptr %selected, align 4
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.20, i32 noundef -1, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i32, ptr %b.addr, align 4
-  %call2 = call i32 @constant_time_select_int(i32 noundef 0, i32 noundef %9, i32 noundef %10)
-  store i32 %call2, ptr %selected, align 4
-  %11 = load i32, ptr %selected, align 4
-  %12 = load i32, ptr %b.addr, align 4
-  %cmp3 = icmp ne i32 %11, %12
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %if.end
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = load i32, ptr %a.addr, align 4
-  %15 = load i32, ptr %b.addr, align 4
-  %16 = load i32, ptr %b.addr, align 4
-  %17 = load i32, ptr %selected, align 4
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.21, i32 noundef 0, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end6, %if.then4, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @test_eq_int(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %equal = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_eq_int(i32 noundef %0, i32 noundef %1)
-  store i32 %call, ptr %equal, align 4
-  %2 = load i32, ptr %a.addr, align 4
-  %3 = load i32, ptr %b.addr, align 4
-  %cmp = icmp eq i32 %2, %3
-  br i1 %cmp, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i32, ptr %equal, align 4
-  %cmp1 = icmp ne i32 %4, -1
-  br i1 %cmp1, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr %a.addr, align 4
-  %7 = load i32, ptr %b.addr, align 4
-  %8 = load i32, ptr %equal, align 4
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.22, i32 noundef %6, i32 noundef %7, i32 noundef -1, i32 noundef %8)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i32, ptr %b.addr, align 4
-  %cmp3 = icmp ne i32 %9, %10
-  br i1 %cmp3, label %land.lhs.true4, label %if.end
-
-land.lhs.true4:                                   ; preds = %if.else
-  %11 = load i32, ptr %equal, align 4
-  %cmp5 = icmp ne i32 %11, 0
-  br i1 %cmp5, label %if.then6, label %if.end
-
-if.then6:                                         ; preds = %land.lhs.true4
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load i32, ptr %a.addr, align 4
-  %14 = load i32, ptr %b.addr, align 4
-  %15 = load i32, ptr %equal, align 4
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.23, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef %15)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true4, %if.else
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end8, %if.then6, %if.then
-  %16 = load i32, ptr %retval, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @constant_time_lt(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = load i32, ptr %3, align 4, !tbaa !6
+  %7 = load i32, ptr %4, align 4, !tbaa !6
+  %8 = xor i32 %6, %7
+  %9 = load i32, ptr %3, align 4, !tbaa !6
+  %10 = load i32, ptr %4, align 4, !tbaa !6
+  %11 = sub i32 %9, %10
+  %12 = load i32, ptr %3, align 4, !tbaa !6
+  %13 = xor i32 %11, %12
+  %14 = or i32 %8, %13
+  %15 = xor i32 %5, %14
+  %16 = call i32 @constant_time_msb(i32 noundef %15)
   ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_eq_int_8(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %equal = alloca i8, align 1
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call zeroext i8 @constant_time_eq_int_8(i32 noundef %0, i32 noundef %1)
-  store i8 %call, ptr %equal, align 1
-  %2 = load i32, ptr %a.addr, align 4
-  %3 = load i32, ptr %b.addr, align 4
-  %cmp = icmp eq i32 %2, %3
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define internal i32 @test_binary_op_8(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !23
+  store ptr %1, ptr %8, align 8, !tbaa !24
+  store i32 %2, ptr %9, align 4, !tbaa !6
+  store i32 %3, ptr %10, align 4, !tbaa !6
+  store i32 %4, ptr %11, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  %14 = load ptr, ptr %7, align 8, !tbaa !23
+  %15 = load i32, ptr %9, align 4, !tbaa !6
+  %16 = load i32, ptr %10, align 4, !tbaa !6
+  %17 = call zeroext i8 %14(i32 noundef %15, i32 noundef %16)
+  store i8 %17, ptr %12, align 1, !tbaa !20
+  %18 = load i32, ptr %11, align 4, !tbaa !6
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %32
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i8, ptr %equal, align 1
-  %conv = zext i8 %4 to i32
-  %cmp1 = icmp ne i32 %conv, 255
-  br i1 %cmp1, label %if.then, label %if.else
+20:                                               ; preds = %5
+  %21 = load i8, ptr %12, align 1, !tbaa !20
+  %22 = zext i8 %21 to i32
+  %23 = icmp ne i32 %22, 255
+  br i1 %23, label %24, label %32
 
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr %a.addr, align 4
-  %7 = load i32, ptr %b.addr, align 4
-  %8 = load i8, ptr %equal, align 1
-  %conv3 = zext i8 %8 to i32
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.24, i32 noundef %6, i32 noundef %7, i32 noundef 255, i32 noundef %conv3)
-  store i32 1, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %20
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %26 = load ptr, ptr %8, align 8, !tbaa !24
+  %27 = load i32, ptr %9, align 4, !tbaa !6
+  %28 = load i32, ptr %10, align 4, !tbaa !6
+  %29 = load i8, ptr %12, align 1, !tbaa !20
+  %30 = zext i8 %29 to i32
+  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.16, ptr noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef 255, i32 noundef %30) #4
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %49
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i32, ptr %b.addr, align 4
-  %cmp5 = icmp ne i32 %9, %10
-  br i1 %cmp5, label %land.lhs.true7, label %if.end
+32:                                               ; preds = %20, %5
+  %33 = load i32, ptr %11, align 4, !tbaa !6
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %47, label %35
 
-land.lhs.true7:                                   ; preds = %if.else
-  %11 = load i8, ptr %equal, align 1
-  %conv8 = zext i8 %11 to i32
-  %cmp9 = icmp ne i32 %conv8, 0
-  br i1 %cmp9, label %if.then11, label %if.end
+35:                                               ; preds = %32
+  %36 = load i8, ptr %12, align 1, !tbaa !20
+  %37 = zext i8 %36 to i32
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %47
 
-if.then11:                                        ; preds = %land.lhs.true7
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load i32, ptr %a.addr, align 4
-  %14 = load i32, ptr %b.addr, align 4
-  %15 = load i8, ptr %equal, align 1
-  %conv12 = zext i8 %15 to i32
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.25, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef %conv12)
-  store i32 1, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %35
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %41 = load ptr, ptr %8, align 8, !tbaa !24
+  %42 = load i32, ptr %9, align 4, !tbaa !6
+  %43 = load i32, ptr %10, align 4, !tbaa !6
+  %44 = load i8, ptr %12, align 1, !tbaa !20
+  %45 = zext i8 %44 to i32
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.17, ptr noundef %41, i32 noundef %42, i32 noundef %43, i32 noundef 0, i32 noundef %45) #4
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %49
 
-if.end:                                           ; preds = %land.lhs.true7, %if.else
-  br label %if.end14
+47:                                               ; preds = %35, %32
+  br label %48
 
-if.end14:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+48:                                               ; preds = %47
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %49
 
-return:                                           ; preds = %if.end14, %if.then11, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+49:                                               ; preds = %48, %39, %24
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  %50 = load i32, ptr %6, align 4
+  ret i32 %50
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @constant_time_lt_8(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = load i32, ptr %4, align 4, !tbaa !6
+  %7 = call i32 @constant_time_lt(i32 noundef %5, i32 noundef %6)
+  %8 = trunc i32 %7 to i8
+  ret i8 %8
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @constant_time_ge(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = load i32, ptr %4, align 4, !tbaa !6
+  %7 = call i32 @constant_time_lt(i32 noundef %5, i32 noundef %6)
+  %8 = xor i32 %7, -1
+  ret i32 %8
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @constant_time_ge_8(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = load i32, ptr %4, align 4, !tbaa !6
+  %7 = call i32 @constant_time_ge(i32 noundef %5, i32 noundef %6)
+  %8 = trunc i32 %7 to i8
+  ret i8 %8
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @constant_time_eq(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = load i32, ptr %4, align 4, !tbaa !6
+  %7 = xor i32 %5, %6
+  %8 = call i32 @constant_time_is_zero(i32 noundef %7)
+  ret i32 %8
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @constant_time_eq_8(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = load i32, ptr %4, align 4, !tbaa !6
+  %7 = call i32 @constant_time_eq(i32 noundef %5, i32 noundef %6)
+  %8 = trunc i32 %7 to i8
+  ret i8 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_select_8(i8 noundef zeroext %a, i8 noundef zeroext %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca i8, align 1
-  %b.addr = alloca i8, align 1
-  %selected = alloca i8, align 1
-  store i8 %a, ptr %a.addr, align 1
-  store i8 %b, ptr %b.addr, align 1
-  %0 = load i8, ptr %a.addr, align 1
-  %1 = load i8, ptr %b.addr, align 1
-  %call = call zeroext i8 @constant_time_select_8(i8 noundef zeroext -1, i8 noundef zeroext %0, i8 noundef zeroext %1)
-  store i8 %call, ptr %selected, align 1
-  %2 = load i8, ptr %selected, align 1
-  %conv = zext i8 %2 to i32
-  %3 = load i8, ptr %a.addr, align 1
-  %conv1 = zext i8 %3 to i32
-  %cmp = icmp ne i32 %conv, %conv1
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @test_select(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !6
+  store i32 %1, ptr %5, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load i32, ptr %4, align 4, !tbaa !6
+  %9 = load i32, ptr %5, align 4, !tbaa !6
+  %10 = call i32 @constant_time_select(i32 noundef -1, i32 noundef %8, i32 noundef %9)
+  store i32 %10, ptr %6, align 4, !tbaa !6
+  %11 = load i32, ptr %6, align 4, !tbaa !6
+  %12 = load i32, ptr %4, align 4, !tbaa !6
+  %13 = icmp ne i32 %11, %12
+  br i1 %13, label %14, label %21
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load i8, ptr %a.addr, align 1
-  %conv3 = zext i8 %5 to i32
-  %6 = load i8, ptr %b.addr, align 1
-  %conv4 = zext i8 %6 to i32
-  %7 = load i8, ptr %a.addr, align 1
-  %conv5 = zext i8 %7 to i32
-  %8 = load i8, ptr %selected, align 1
-  %conv6 = zext i8 %8 to i32
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.26, i32 noundef -1, i32 noundef %conv3, i32 noundef %conv4, i32 noundef %conv5, i32 noundef %conv6)
-  store i32 1, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %16 = load i32, ptr %4, align 4, !tbaa !6
+  %17 = load i32, ptr %5, align 4, !tbaa !6
+  %18 = load i32, ptr %4, align 4, !tbaa !6
+  %19 = load i32, ptr %6, align 4, !tbaa !6
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.18, i32 noundef -1, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-if.end:                                           ; preds = %entry
-  %9 = load i8, ptr %a.addr, align 1
-  %10 = load i8, ptr %b.addr, align 1
-  %call8 = call zeroext i8 @constant_time_select_8(i8 noundef zeroext 0, i8 noundef zeroext %9, i8 noundef zeroext %10)
-  store i8 %call8, ptr %selected, align 1
-  %11 = load i8, ptr %selected, align 1
-  %conv9 = zext i8 %11 to i32
-  %12 = load i8, ptr %b.addr, align 1
-  %conv10 = zext i8 %12 to i32
-  %cmp11 = icmp ne i32 %conv9, %conv10
-  br i1 %cmp11, label %if.then13, label %if.end19
+21:                                               ; preds = %2
+  %22 = load i32, ptr %4, align 4, !tbaa !6
+  %23 = load i32, ptr %5, align 4, !tbaa !6
+  %24 = call i32 @constant_time_select(i32 noundef 0, i32 noundef %22, i32 noundef %23)
+  store i32 %24, ptr %6, align 4, !tbaa !6
+  %25 = load i32, ptr %6, align 4, !tbaa !6
+  %26 = load i32, ptr %5, align 4, !tbaa !6
+  %27 = icmp ne i32 %25, %26
+  br i1 %27, label %28, label %35
 
-if.then13:                                        ; preds = %if.end
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = load i8, ptr %a.addr, align 1
-  %conv14 = zext i8 %14 to i32
-  %15 = load i8, ptr %b.addr, align 1
-  %conv15 = zext i8 %15 to i32
-  %16 = load i8, ptr %b.addr, align 1
-  %conv16 = zext i8 %16 to i32
-  %17 = load i8, ptr %selected, align 1
-  %conv17 = zext i8 %17 to i32
-  %call18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.27, i32 noundef 0, i32 noundef %conv14, i32 noundef %conv15, i32 noundef %conv16, i32 noundef %conv17)
-  store i32 1, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %21
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %30 = load i32, ptr %4, align 4, !tbaa !6
+  %31 = load i32, ptr %5, align 4, !tbaa !6
+  %32 = load i32, ptr %5, align 4, !tbaa !6
+  %33 = load i32, ptr %6, align 4, !tbaa !6
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.19, i32 noundef 0, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-if.end19:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %21
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-return:                                           ; preds = %if.end19, %if.then13, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+36:                                               ; preds = %35, %28, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %37 = load i32, ptr %3, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @constant_time_is_zero(i32 noundef %a) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %not = xor i32 %0, -1
-  %1 = load i32, ptr %a.addr, align 4
-  %sub = sub i32 %1, 1
-  %and = and i32 %not, %sub
-  %call = call i32 @constant_time_msb(i32 noundef %and)
-  ret i32 %call
+define internal i32 @test_select_int(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !6
+  store i32 %1, ptr %5, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load i32, ptr %4, align 4, !tbaa !6
+  %9 = load i32, ptr %5, align 4, !tbaa !6
+  %10 = call i32 @constant_time_select_int(i32 noundef -1, i32 noundef %8, i32 noundef %9)
+  store i32 %10, ptr %6, align 4, !tbaa !6
+  %11 = load i32, ptr %6, align 4, !tbaa !6
+  %12 = load i32, ptr %4, align 4, !tbaa !6
+  %13 = icmp ne i32 %11, %12
+  br i1 %13, label %14, label %21
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %16 = load i32, ptr %4, align 4, !tbaa !6
+  %17 = load i32, ptr %5, align 4, !tbaa !6
+  %18 = load i32, ptr %4, align 4, !tbaa !6
+  %19 = load i32, ptr %6, align 4, !tbaa !6
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.20, i32 noundef -1, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
+
+21:                                               ; preds = %2
+  %22 = load i32, ptr %4, align 4, !tbaa !6
+  %23 = load i32, ptr %5, align 4, !tbaa !6
+  %24 = call i32 @constant_time_select_int(i32 noundef 0, i32 noundef %22, i32 noundef %23)
+  store i32 %24, ptr %6, align 4, !tbaa !6
+  %25 = load i32, ptr %6, align 4, !tbaa !6
+  %26 = load i32, ptr %5, align 4, !tbaa !6
+  %27 = icmp ne i32 %25, %26
+  br i1 %27, label %28, label %35
+
+28:                                               ; preds = %21
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %30 = load i32, ptr %4, align 4, !tbaa !6
+  %31 = load i32, ptr %5, align 4, !tbaa !6
+  %32 = load i32, ptr %5, align 4, !tbaa !6
+  %33 = load i32, ptr %6, align 4, !tbaa !6
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.21, i32 noundef 0, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
+
+35:                                               ; preds = %21
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
+
+36:                                               ; preds = %35, %28, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %37 = load i32, ptr %3, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @constant_time_msb(i32 noundef %a) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %shr = ashr i32 %0, 31
-  ret i32 %shr
+define internal i32 @test_eq_int(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !6
+  store i32 %1, ptr %5, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load i32, ptr %4, align 4, !tbaa !6
+  %9 = load i32, ptr %5, align 4, !tbaa !6
+  %10 = call i32 @constant_time_eq_int(i32 noundef %8, i32 noundef %9)
+  store i32 %10, ptr %6, align 4, !tbaa !6
+  %11 = load i32, ptr %4, align 4, !tbaa !6
+  %12 = load i32, ptr %5, align 4, !tbaa !6
+  %13 = icmp eq i32 %11, %12
+  br i1 %13, label %14, label %23
+
+14:                                               ; preds = %2
+  %15 = load i32, ptr %6, align 4, !tbaa !6
+  %16 = icmp ne i32 %15, -1
+  br i1 %16, label %17, label %23
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %19 = load i32, ptr %4, align 4, !tbaa !6
+  %20 = load i32, ptr %5, align 4, !tbaa !6
+  %21 = load i32, ptr %6, align 4, !tbaa !6
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.22, i32 noundef %19, i32 noundef %20, i32 noundef -1, i32 noundef %21) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %38
+
+23:                                               ; preds = %14, %2
+  %24 = load i32, ptr %4, align 4, !tbaa !6
+  %25 = load i32, ptr %5, align 4, !tbaa !6
+  %26 = icmp ne i32 %24, %25
+  br i1 %26, label %27, label %36
+
+27:                                               ; preds = %23
+  %28 = load i32, ptr %6, align 4, !tbaa !6
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %36
+
+30:                                               ; preds = %27
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %32 = load i32, ptr %4, align 4, !tbaa !6
+  %33 = load i32, ptr %5, align 4, !tbaa !6
+  %34 = load i32, ptr %6, align 4, !tbaa !6
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.23, i32 noundef %32, i32 noundef %33, i32 noundef 0, i32 noundef %34) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %38
+
+36:                                               ; preds = %27, %23
+  br label %37
+
+37:                                               ; preds = %36
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %38
+
+38:                                               ; preds = %37, %30, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %39 = load i32, ptr %3, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @constant_time_is_zero_8(i32 noundef %a) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %call = call i32 @constant_time_is_zero(i32 noundef %0)
-  %conv = trunc i32 %call to i8
-  ret i8 %conv
+define internal i32 @test_eq_int_8(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !6
+  store i32 %1, ptr %5, align 4, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #4
+  %8 = load i32, ptr %4, align 4, !tbaa !6
+  %9 = load i32, ptr %5, align 4, !tbaa !6
+  %10 = call zeroext i8 @constant_time_eq_int_8(i32 noundef %8, i32 noundef %9)
+  store i8 %10, ptr %6, align 1, !tbaa !20
+  %11 = load i32, ptr %4, align 4, !tbaa !6
+  %12 = load i32, ptr %5, align 4, !tbaa !6
+  %13 = icmp eq i32 %11, %12
+  br i1 %13, label %14, label %25
+
+14:                                               ; preds = %2
+  %15 = load i8, ptr %6, align 1, !tbaa !20
+  %16 = zext i8 %15 to i32
+  %17 = icmp ne i32 %16, 255
+  br i1 %17, label %18, label %25
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %20 = load i32, ptr %4, align 4, !tbaa !6
+  %21 = load i32, ptr %5, align 4, !tbaa !6
+  %22 = load i8, ptr %6, align 1, !tbaa !20
+  %23 = zext i8 %22 to i32
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.24, i32 noundef %20, i32 noundef %21, i32 noundef 255, i32 noundef %23) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %42
+
+25:                                               ; preds = %14, %2
+  %26 = load i32, ptr %4, align 4, !tbaa !6
+  %27 = load i32, ptr %5, align 4, !tbaa !6
+  %28 = icmp ne i32 %26, %27
+  br i1 %28, label %29, label %40
+
+29:                                               ; preds = %25
+  %30 = load i8, ptr %6, align 1, !tbaa !20
+  %31 = zext i8 %30 to i32
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %40
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %35 = load i32, ptr %4, align 4, !tbaa !6
+  %36 = load i32, ptr %5, align 4, !tbaa !6
+  %37 = load i8, ptr %6, align 1, !tbaa !20
+  %38 = zext i8 %37 to i32
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.25, i32 noundef %35, i32 noundef %36, i32 noundef 0, i32 noundef %38) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %42
+
+40:                                               ; preds = %29, %25
+  br label %41
+
+41:                                               ; preds = %40
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %42
+
+42:                                               ; preds = %41, %33, %18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #4
+  %43 = load i32, ptr %3, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @constant_time_select(i32 noundef %mask, i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %mask.addr = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %mask, ptr %mask.addr, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %mask.addr, align 4
-  %1 = load i32, ptr %a.addr, align 4
-  %and = and i32 %0, %1
-  %2 = load i32, ptr %mask.addr, align 4
-  %not = xor i32 %2, -1
-  %3 = load i32, ptr %b.addr, align 4
-  %and1 = and i32 %not, %3
-  %or = or i32 %and, %and1
-  ret i32 %or
+define internal i32 @test_select_8(i8 noundef zeroext %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  store i8 %0, ptr %4, align 1, !tbaa !20
+  store i8 %1, ptr %5, align 1, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #4
+  %8 = load i8, ptr %4, align 1, !tbaa !20
+  %9 = load i8, ptr %5, align 1, !tbaa !20
+  %10 = call zeroext i8 @constant_time_select_8(i8 noundef zeroext -1, i8 noundef zeroext %8, i8 noundef zeroext %9)
+  store i8 %10, ptr %6, align 1, !tbaa !20
+  %11 = load i8, ptr %6, align 1, !tbaa !20
+  %12 = zext i8 %11 to i32
+  %13 = load i8, ptr %4, align 1, !tbaa !20
+  %14 = zext i8 %13 to i32
+  %15 = icmp ne i32 %12, %14
+  br i1 %15, label %16, label %27
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %18 = load i8, ptr %4, align 1, !tbaa !20
+  %19 = zext i8 %18 to i32
+  %20 = load i8, ptr %5, align 1, !tbaa !20
+  %21 = zext i8 %20 to i32
+  %22 = load i8, ptr %4, align 1, !tbaa !20
+  %23 = zext i8 %22 to i32
+  %24 = load i8, ptr %6, align 1, !tbaa !20
+  %25 = zext i8 %24 to i32
+  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.26, i32 noundef -1, i32 noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %48
+
+27:                                               ; preds = %2
+  %28 = load i8, ptr %4, align 1, !tbaa !20
+  %29 = load i8, ptr %5, align 1, !tbaa !20
+  %30 = call zeroext i8 @constant_time_select_8(i8 noundef zeroext 0, i8 noundef zeroext %28, i8 noundef zeroext %29)
+  store i8 %30, ptr %6, align 1, !tbaa !20
+  %31 = load i8, ptr %6, align 1, !tbaa !20
+  %32 = zext i8 %31 to i32
+  %33 = load i8, ptr %5, align 1, !tbaa !20
+  %34 = zext i8 %33 to i32
+  %35 = icmp ne i32 %32, %34
+  br i1 %35, label %36, label %47
+
+36:                                               ; preds = %27
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %38 = load i8, ptr %4, align 1, !tbaa !20
+  %39 = zext i8 %38 to i32
+  %40 = load i8, ptr %5, align 1, !tbaa !20
+  %41 = zext i8 %40 to i32
+  %42 = load i8, ptr %5, align 1, !tbaa !20
+  %43 = zext i8 %42 to i32
+  %44 = load i8, ptr %6, align 1, !tbaa !20
+  %45 = zext i8 %44 to i32
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.27, i32 noundef 0, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45) #4
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %48
+
+47:                                               ; preds = %27
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %48
+
+48:                                               ; preds = %47, %36, %16
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #4
+  %49 = load i32, ptr %3, align 4
+  ret i32 %49
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @constant_time_select_int(i32 noundef %mask, i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %mask.addr = alloca i32, align 4
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %mask, ptr %mask.addr, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %mask.addr, align 4
-  %1 = load i32, ptr %a.addr, align 4
-  %2 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_select(i32 noundef %0, i32 noundef %1, i32 noundef %2)
-  ret i32 %call
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @constant_time_is_zero(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !6
+  %3 = load i32, ptr %2, align 4, !tbaa !6
+  %4 = xor i32 %3, -1
+  %5 = load i32, ptr %2, align 4, !tbaa !6
+  %6 = sub i32 %5, 1
+  %7 = and i32 %4, %6
+  %8 = call i32 @constant_time_msb(i32 noundef %7)
+  ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @constant_time_eq_int(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call i32 @constant_time_eq(i32 noundef %0, i32 noundef %1)
-  ret i32 %call
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @constant_time_msb(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !6
+  %3 = load i32, ptr %2, align 4, !tbaa !6
+  %4 = ashr i32 %3, 31
+  ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @constant_time_eq_int_8(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %call = call zeroext i8 @constant_time_eq_8(i32 noundef %0, i32 noundef %1)
-  ret i8 %call
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @constant_time_is_zero_8(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !6
+  %3 = load i32, ptr %2, align 4, !tbaa !6
+  %4 = call i32 @constant_time_is_zero(i32 noundef %3)
+  %5 = trunc i32 %4 to i8
+  ret i8 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @constant_time_select_8(i8 noundef zeroext %mask, i8 noundef zeroext %a, i8 noundef zeroext %b) #0 {
-entry:
-  %mask.addr = alloca i8, align 1
-  %a.addr = alloca i8, align 1
-  %b.addr = alloca i8, align 1
-  store i8 %mask, ptr %mask.addr, align 1
-  store i8 %a, ptr %a.addr, align 1
-  store i8 %b, ptr %b.addr, align 1
-  %0 = load i8, ptr %mask.addr, align 1
-  %conv = zext i8 %0 to i32
-  %1 = load i8, ptr %a.addr, align 1
-  %conv1 = zext i8 %1 to i32
-  %2 = load i8, ptr %b.addr, align 1
-  %conv2 = zext i8 %2 to i32
-  %call = call i32 @constant_time_select(i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv2)
-  %conv3 = trunc i32 %call to i8
-  ret i8 %conv3
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @constant_time_select(i32 noundef %0, i32 noundef %1, i32 noundef %2) #3 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !6
+  store i32 %1, ptr %5, align 4, !tbaa !6
+  store i32 %2, ptr %6, align 4, !tbaa !6
+  %7 = load i32, ptr %4, align 4, !tbaa !6
+  %8 = load i32, ptr %5, align 4, !tbaa !6
+  %9 = and i32 %7, %8
+  %10 = load i32, ptr %4, align 4, !tbaa !6
+  %11 = xor i32 %10, -1
+  %12 = load i32, ptr %6, align 4, !tbaa !6
+  %13 = and i32 %11, %12
+  %14 = or i32 %9, %13
+  ret i32 %14
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @constant_time_select_int(i32 noundef %0, i32 noundef %1, i32 noundef %2) #3 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !6
+  store i32 %1, ptr %5, align 4, !tbaa !6
+  store i32 %2, ptr %6, align 4, !tbaa !6
+  %7 = load i32, ptr %4, align 4, !tbaa !6
+  %8 = load i32, ptr %5, align 4, !tbaa !6
+  %9 = load i32, ptr %6, align 4, !tbaa !6
+  %10 = call i32 @constant_time_select(i32 noundef %7, i32 noundef %8, i32 noundef %9)
+  ret i32 %10
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @constant_time_eq_int(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = load i32, ptr %4, align 4, !tbaa !6
+  %7 = call i32 @constant_time_eq(i32 noundef %5, i32 noundef %6)
+  ret i32 %7
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @constant_time_eq_int_8(i32 noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !6
+  store i32 %1, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %3, align 4, !tbaa !6
+  %6 = load i32, ptr %4, align 4, !tbaa !6
+  %7 = call zeroext i8 @constant_time_eq_8(i32 noundef %5, i32 noundef %6)
+  ret i8 %7
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @constant_time_select_8(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #3 {
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  store i8 %0, ptr %4, align 1, !tbaa !20
+  store i8 %1, ptr %5, align 1, !tbaa !20
+  store i8 %2, ptr %6, align 1, !tbaa !20
+  %7 = load i8, ptr %4, align 1, !tbaa !20
+  %8 = zext i8 %7 to i32
+  %9 = load i8, ptr %5, align 1, !tbaa !20
+  %10 = zext i8 %9 to i32
+  %11 = load i8, ptr %6, align 1, !tbaa !20
+  %12 = zext i8 %11 to i32
+  %13 = call i32 @constant_time_select(i32 noundef %8, i32 noundef %10, i32 noundef %12)
+  %14 = trunc i32 %13 to i8
+  ret i8 %14
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p2 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = !{!8, !8, i64 0}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}
+!23 = !{!12, !12, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 omnipotent char", !12, i64 0}

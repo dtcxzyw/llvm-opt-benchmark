@@ -1,1991 +1,1985 @@
 ; ModuleID = 'bench/libquic/original/x86_64-gcc.ll'
 source_filename = "bench/libquic/original/x86_64-gcc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @bn_mul_add_words(ptr noundef %rp, ptr noundef %ap, i32 noundef %num, i64 noundef %w) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp slt i32 %num, 1
-  br i1 %cmp, label %return, label %while.cond.preheader
+define hidden i64 @bn_mul_add_words(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp slt i32 %2, 1
+  br i1 %5, label %72, label %.preheader
 
-while.cond.preheader:                             ; preds = %entry
-  %tobool.not58 = icmp samesign ult i32 %num, 4
-  br i1 %tobool.not58, label %do.body38, label %do.body
+.preheader:                                       ; preds = %4
+  %.not83 = icmp samesign ult i32 %2, 4
+  br i1 %.not83, label %._crit_edge.thread, label %.lr.ph
 
-do.body:                                          ; preds = %while.cond.preheader, %do.body
-  %rp.addr.062 = phi ptr [ %add.ptr35, %do.body ], [ %rp, %while.cond.preheader ]
-  %ap.addr.061 = phi ptr [ %add.ptr, %do.body ], [ %ap, %while.cond.preheader ]
-  %num.addr.060 = phi i32 [ %sub, %do.body ], [ %num, %while.cond.preheader ]
-  %c1.059 = phi i64 [ %11, %do.body ], [ 0, %while.cond.preheader ]
-  %0 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, ptr elementtype(i64) %ap.addr.061) #3, !srcloc !7
-  %asmresult = extractvalue { i64, i64 } %0, 0
-  %asmresult1 = extractvalue { i64, i64 } %0, 1
-  %1 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult, i32 0, i64 %c1.059, i64 %asmresult1) #3, !srcloc !8
-  %asmresult2 = extractvalue { i64, i64 } %1, 0
-  %asmresult3 = extractvalue { i64, i64 } %1, 1
-  %2 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %rp.addr.062, i64 %asmresult2, i32 0, ptr elementtype(i64) %rp.addr.062, i64 %asmresult3) #4, !srcloc !9
-  %arrayidx8 = getelementptr inbounds nuw i8, ptr %ap.addr.061, i64 8
-  %3 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, ptr nonnull elementtype(i64) %arrayidx8) #3, !srcloc !10
-  %asmresult9 = extractvalue { i64, i64 } %3, 0
-  %asmresult10 = extractvalue { i64, i64 } %3, 1
-  %4 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult9, i32 0, i64 %2, i64 %asmresult10) #3, !srcloc !11
-  %asmresult11 = extractvalue { i64, i64 } %4, 0
-  %asmresult12 = extractvalue { i64, i64 } %4, 1
-  %arrayidx13 = getelementptr inbounds nuw i8, ptr %rp.addr.062, i64 8
-  %5 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %arrayidx13, i64 %asmresult11, i32 0, ptr nonnull elementtype(i64) %arrayidx13, i64 %asmresult12) #4, !srcloc !12
-  %arrayidx18 = getelementptr inbounds nuw i8, ptr %ap.addr.061, i64 16
-  %6 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, ptr nonnull elementtype(i64) %arrayidx18) #3, !srcloc !13
-  %asmresult19 = extractvalue { i64, i64 } %6, 0
-  %asmresult20 = extractvalue { i64, i64 } %6, 1
-  %7 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult19, i32 0, i64 %5, i64 %asmresult20) #3, !srcloc !14
-  %asmresult21 = extractvalue { i64, i64 } %7, 0
-  %asmresult22 = extractvalue { i64, i64 } %7, 1
-  %arrayidx23 = getelementptr inbounds nuw i8, ptr %rp.addr.062, i64 16
-  %8 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %arrayidx23, i64 %asmresult21, i32 0, ptr nonnull elementtype(i64) %arrayidx23, i64 %asmresult22) #4, !srcloc !15
-  %arrayidx28 = getelementptr inbounds nuw i8, ptr %ap.addr.061, i64 24
-  %9 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, ptr nonnull elementtype(i64) %arrayidx28) #3, !srcloc !16
-  %asmresult29 = extractvalue { i64, i64 } %9, 0
-  %asmresult30 = extractvalue { i64, i64 } %9, 1
-  %10 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult29, i32 0, i64 %8, i64 %asmresult30) #3, !srcloc !17
-  %asmresult31 = extractvalue { i64, i64 } %10, 0
-  %asmresult32 = extractvalue { i64, i64 } %10, 1
-  %arrayidx33 = getelementptr inbounds nuw i8, ptr %rp.addr.062, i64 24
-  %11 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %arrayidx33, i64 %asmresult31, i32 0, ptr nonnull elementtype(i64) %arrayidx33, i64 %asmresult32) #4, !srcloc !18
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ap.addr.061, i64 32
-  %add.ptr35 = getelementptr inbounds nuw i8, ptr %rp.addr.062, i64 32
-  %sub = add nsw i32 %num.addr.060, -4
-  %tobool.not = icmp ult i32 %sub, 4
-  br i1 %tobool.not, label %while.end, label %do.body, !llvm.loop !19
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.07687 = phi ptr [ %41, %.lr.ph ], [ %0, %.preheader ]
+  %.07786 = phi ptr [ %40, %.lr.ph ], [ %1, %.preheader ]
+  %.07885 = phi i32 [ %42, %.lr.ph ], [ %2, %.preheader ]
+  %.07984 = phi i64 [ %39, %.lr.ph ], [ 0, %.preheader ]
+  %6 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr elementtype(i64) %.07786) #3, !srcloc !6
+  %7 = extractvalue { i64, i64 } %6, 0
+  %8 = extractvalue { i64, i64 } %6, 1
+  %9 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %7, i32 0, i64 %.07984, i64 %8) #3, !srcloc !7
+  %10 = extractvalue { i64, i64 } %9, 0
+  %11 = extractvalue { i64, i64 } %9, 1
+  %12 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %.07687, i64 %10, i32 0, ptr elementtype(i64) %.07687, i64 %11) #4, !srcloc !8
+  %13 = getelementptr inbounds nuw i8, ptr %.07786, i64 8
+  %14 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %13) #3, !srcloc !9
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  %17 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15, i32 0, i64 %12, i64 %16) #3, !srcloc !10
+  %18 = extractvalue { i64, i64 } %17, 0
+  %19 = extractvalue { i64, i64 } %17, 1
+  %20 = getelementptr inbounds nuw i8, ptr %.07687, i64 8
+  %21 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %18, i32 0, ptr nonnull elementtype(i64) %20, i64 %19) #4, !srcloc !11
+  %22 = getelementptr inbounds nuw i8, ptr %.07786, i64 16
+  %23 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %22) #3, !srcloc !12
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = extractvalue { i64, i64 } %23, 1
+  %26 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %24, i32 0, i64 %21, i64 %25) #3, !srcloc !13
+  %27 = extractvalue { i64, i64 } %26, 0
+  %28 = extractvalue { i64, i64 } %26, 1
+  %29 = getelementptr inbounds nuw i8, ptr %.07687, i64 16
+  %30 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %29, i64 %27, i32 0, ptr nonnull elementtype(i64) %29, i64 %28) #4, !srcloc !14
+  %31 = getelementptr inbounds nuw i8, ptr %.07786, i64 24
+  %32 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %31) #3, !srcloc !15
+  %33 = extractvalue { i64, i64 } %32, 0
+  %34 = extractvalue { i64, i64 } %32, 1
+  %35 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %33, i32 0, i64 %30, i64 %34) #3, !srcloc !16
+  %36 = extractvalue { i64, i64 } %35, 0
+  %37 = extractvalue { i64, i64 } %35, 1
+  %38 = getelementptr inbounds nuw i8, ptr %.07687, i64 24
+  %39 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %38, i64 %36, i32 0, ptr nonnull elementtype(i64) %38, i64 %37) #4, !srcloc !17
+  %40 = getelementptr inbounds nuw i8, ptr %.07786, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.07687, i64 32
+  %42 = add nsw i32 %.07885, -4
+  %.not = icmp ult i32 %42, 4
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-while.end:                                        ; preds = %do.body
-  %tobool36.not = icmp eq i32 %sub, 0
-  br i1 %tobool36.not, label %return, label %do.body38
+._crit_edge:                                      ; preds = %.lr.ph
+  %.not82 = icmp eq i32 %42, 0
+  br i1 %.not82, label %72, label %._crit_edge.thread
 
-do.body38:                                        ; preds = %while.cond.preheader, %while.end
-  %rp.addr.0.lcssa74 = phi ptr [ %add.ptr35, %while.end ], [ %rp, %while.cond.preheader ]
-  %ap.addr.0.lcssa73 = phi ptr [ %add.ptr, %while.end ], [ %ap, %while.cond.preheader ]
-  %num.addr.0.lcssa72 = phi i32 [ %sub, %while.end ], [ %num, %while.cond.preheader ]
-  %c1.0.lcssa71 = phi i64 [ %11, %while.end ], [ 0, %while.cond.preheader ]
-  %12 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, ptr elementtype(i64) %ap.addr.0.lcssa73) #3, !srcloc !21
-  %asmresult42 = extractvalue { i64, i64 } %12, 0
-  %asmresult43 = extractvalue { i64, i64 } %12, 1
-  %13 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult42, i32 0, i64 %c1.0.lcssa71, i64 %asmresult43) #3, !srcloc !22
-  %asmresult44 = extractvalue { i64, i64 } %13, 0
-  %asmresult45 = extractvalue { i64, i64 } %13, 1
-  %14 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %rp.addr.0.lcssa74, i64 %asmresult44, i32 0, ptr elementtype(i64) %rp.addr.0.lcssa74, i64 %asmresult45) #4, !srcloc !23
-  %cmp48 = icmp eq i32 %num.addr.0.lcssa72, 1
-  br i1 %cmp48, label %return, label %do.body51
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
+  %.076.lcssa102 = phi ptr [ %41, %._crit_edge ], [ %0, %.preheader ]
+  %.077.lcssa101 = phi ptr [ %40, %._crit_edge ], [ %1, %.preheader ]
+  %.078.lcssa100 = phi i32 [ %42, %._crit_edge ], [ %2, %.preheader ]
+  %.079.lcssa99 = phi i64 [ %39, %._crit_edge ], [ 0, %.preheader ]
+  %43 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr elementtype(i64) %.077.lcssa101) #3, !srcloc !20
+  %44 = extractvalue { i64, i64 } %43, 0
+  %45 = extractvalue { i64, i64 } %43, 1
+  %46 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %44, i32 0, i64 %.079.lcssa99, i64 %45) #3, !srcloc !21
+  %47 = extractvalue { i64, i64 } %46, 0
+  %48 = extractvalue { i64, i64 } %46, 1
+  %49 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %.076.lcssa102, i64 %47, i32 0, ptr elementtype(i64) %.076.lcssa102, i64 %48) #4, !srcloc !22
+  %50 = icmp eq i32 %.078.lcssa100, 1
+  br i1 %50, label %72, label %51
 
-do.body51:                                        ; preds = %do.body38
-  %arrayidx54 = getelementptr inbounds nuw i8, ptr %ap.addr.0.lcssa73, i64 8
-  %15 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, ptr nonnull elementtype(i64) %arrayidx54) #3, !srcloc !24
-  %asmresult55 = extractvalue { i64, i64 } %15, 0
-  %asmresult56 = extractvalue { i64, i64 } %15, 1
-  %16 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult55, i32 0, i64 %14, i64 %asmresult56) #3, !srcloc !25
-  %asmresult57 = extractvalue { i64, i64 } %16, 0
-  %asmresult58 = extractvalue { i64, i64 } %16, 1
-  %arrayidx59 = getelementptr inbounds nuw i8, ptr %rp.addr.0.lcssa74, i64 8
-  %17 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %arrayidx59, i64 %asmresult57, i32 0, ptr nonnull elementtype(i64) %arrayidx59, i64 %asmresult58) #4, !srcloc !26
-  %cmp62 = icmp eq i32 %num.addr.0.lcssa72, 2
-  br i1 %cmp62, label %return, label %do.body65
+51:                                               ; preds = %._crit_edge.thread
+  %52 = getelementptr inbounds nuw i8, ptr %.077.lcssa101, i64 8
+  %53 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %52) #3, !srcloc !23
+  %54 = extractvalue { i64, i64 } %53, 0
+  %55 = extractvalue { i64, i64 } %53, 1
+  %56 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %54, i32 0, i64 %49, i64 %55) #3, !srcloc !24
+  %57 = extractvalue { i64, i64 } %56, 0
+  %58 = extractvalue { i64, i64 } %56, 1
+  %59 = getelementptr inbounds nuw i8, ptr %.076.lcssa102, i64 8
+  %60 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %59, i64 %57, i32 0, ptr nonnull elementtype(i64) %59, i64 %58) #4, !srcloc !25
+  %61 = icmp eq i32 %.078.lcssa100, 2
+  br i1 %61, label %72, label %62
 
-do.body65:                                        ; preds = %do.body51
-  %arrayidx68 = getelementptr inbounds nuw i8, ptr %ap.addr.0.lcssa73, i64 16
-  %18 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !27
-  %asmresult69 = extractvalue { i64, i64 } %18, 0
-  %asmresult70 = extractvalue { i64, i64 } %18, 1
-  %19 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult69, i32 0, i64 %17, i64 %asmresult70) #3, !srcloc !28
-  %asmresult71 = extractvalue { i64, i64 } %19, 0
-  %asmresult72 = extractvalue { i64, i64 } %19, 1
-  %arrayidx73 = getelementptr inbounds nuw i8, ptr %rp.addr.0.lcssa74, i64 16
-  %20 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %arrayidx73, i64 %asmresult71, i32 0, ptr nonnull elementtype(i64) %arrayidx73, i64 %asmresult72) #4, !srcloc !29
-  br label %return
+62:                                               ; preds = %51
+  %63 = getelementptr inbounds nuw i8, ptr %.077.lcssa101, i64 16
+  %64 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %63) #3, !srcloc !26
+  %65 = extractvalue { i64, i64 } %64, 0
+  %66 = extractvalue { i64, i64 } %64, 1
+  %67 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %65, i32 0, i64 %60, i64 %66) #3, !srcloc !27
+  %68 = extractvalue { i64, i64 } %67, 0
+  %69 = extractvalue { i64, i64 } %67, 1
+  %70 = getelementptr inbounds nuw i8, ptr %.076.lcssa102, i64 16
+  %71 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %70, i64 %68, i32 0, ptr nonnull elementtype(i64) %70, i64 %69) #4, !srcloc !28
+  br label %72
 
-return:                                           ; preds = %while.end, %do.body51, %do.body38, %entry, %do.body65
-  %retval.0 = phi i64 [ %20, %do.body65 ], [ 0, %entry ], [ %14, %do.body38 ], [ %17, %do.body51 ], [ %11, %while.end ]
-  ret i64 %retval.0
+72:                                               ; preds = %._crit_edge, %51, %._crit_edge.thread, %4, %62
+  %.0 = phi i64 [ %71, %62 ], [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %60, %51 ], [ %39, %._crit_edge ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden i64 @bn_mul_words(ptr noundef writeonly captures(none) %rp, ptr noundef readonly captures(none) %ap, i32 noundef %num, i64 noundef %w) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp slt i32 %num, 1
-  br i1 %cmp, label %return, label %while.cond.preheader
+define hidden i64 @bn_mul_words(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+  %5 = icmp slt i32 %2, 1
+  br i1 %5, label %72, label %.preheader
 
-while.cond.preheader:                             ; preds = %entry
-  %tobool.not50 = icmp samesign ult i32 %num, 4
-  br i1 %tobool.not50, label %do.body38, label %do.body
+.preheader:                                       ; preds = %4
+  %.not75 = icmp samesign ult i32 %2, 4
+  br i1 %.not75, label %._crit_edge.thread, label %.lr.ph
 
-do.body:                                          ; preds = %while.cond.preheader, %do.body
-  %rp.addr.054 = phi ptr [ %add.ptr35, %do.body ], [ %rp, %while.cond.preheader ]
-  %ap.addr.053 = phi ptr [ %add.ptr, %do.body ], [ %ap, %while.cond.preheader ]
-  %num.addr.052 = phi i32 [ %sub, %do.body ], [ %num, %while.cond.preheader ]
-  %c1.051 = phi i64 [ %asmresult32, %do.body ], [ 0, %while.cond.preheader ]
-  %0 = load i64, ptr %ap.addr.053, align 8
-  %1 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, i64 %0) #3, !srcloc !30
-  %asmresult = extractvalue { i64, i64 } %1, 0
-  %asmresult1 = extractvalue { i64, i64 } %1, 1
-  %2 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult, i32 0, i64 %c1.051, i64 %asmresult1) #3, !srcloc !31
-  %asmresult2 = extractvalue { i64, i64 } %2, 0
-  %asmresult3 = extractvalue { i64, i64 } %2, 1
-  store i64 %asmresult2, ptr %rp.addr.054, align 8
-  %arrayidx8 = getelementptr inbounds nuw i8, ptr %ap.addr.053, i64 8
-  %3 = load i64, ptr %arrayidx8, align 8
-  %4 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, i64 %3) #3, !srcloc !32
-  %asmresult9 = extractvalue { i64, i64 } %4, 0
-  %asmresult10 = extractvalue { i64, i64 } %4, 1
-  %5 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult9, i32 0, i64 %asmresult3, i64 %asmresult10) #3, !srcloc !33
-  %asmresult11 = extractvalue { i64, i64 } %5, 0
-  %asmresult12 = extractvalue { i64, i64 } %5, 1
-  %arrayidx13 = getelementptr inbounds nuw i8, ptr %rp.addr.054, i64 8
-  store i64 %asmresult11, ptr %arrayidx13, align 8
-  %arrayidx18 = getelementptr inbounds nuw i8, ptr %ap.addr.053, i64 16
-  %6 = load i64, ptr %arrayidx18, align 8
-  %7 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, i64 %6) #3, !srcloc !34
-  %asmresult19 = extractvalue { i64, i64 } %7, 0
-  %asmresult20 = extractvalue { i64, i64 } %7, 1
-  %8 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult19, i32 0, i64 %asmresult12, i64 %asmresult20) #3, !srcloc !35
-  %asmresult21 = extractvalue { i64, i64 } %8, 0
-  %asmresult22 = extractvalue { i64, i64 } %8, 1
-  %arrayidx23 = getelementptr inbounds nuw i8, ptr %rp.addr.054, i64 16
-  store i64 %asmresult21, ptr %arrayidx23, align 8
-  %arrayidx28 = getelementptr inbounds nuw i8, ptr %ap.addr.053, i64 24
-  %9 = load i64, ptr %arrayidx28, align 8
-  %10 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, i64 %9) #3, !srcloc !36
-  %asmresult29 = extractvalue { i64, i64 } %10, 0
-  %asmresult30 = extractvalue { i64, i64 } %10, 1
-  %11 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult29, i32 0, i64 %asmresult22, i64 %asmresult30) #3, !srcloc !37
-  %asmresult31 = extractvalue { i64, i64 } %11, 0
-  %asmresult32 = extractvalue { i64, i64 } %11, 1
-  %arrayidx33 = getelementptr inbounds nuw i8, ptr %rp.addr.054, i64 24
-  store i64 %asmresult31, ptr %arrayidx33, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ap.addr.053, i64 32
-  %add.ptr35 = getelementptr inbounds nuw i8, ptr %rp.addr.054, i64 32
-  %sub = add nsw i32 %num.addr.052, -4
-  %tobool.not = icmp ult i32 %sub, 4
-  br i1 %tobool.not, label %while.end, label %do.body, !llvm.loop !38
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.06879 = phi ptr [ %41, %.lr.ph ], [ %0, %.preheader ]
+  %.06978 = phi ptr [ %40, %.lr.ph ], [ %1, %.preheader ]
+  %.07077 = phi i32 [ %42, %.lr.ph ], [ %2, %.preheader ]
+  %.07176 = phi i64 [ %38, %.lr.ph ], [ 0, %.preheader ]
+  %6 = load i64, ptr %.06978, align 8, !tbaa !29
+  %7 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %6) #3, !srcloc !33
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  %10 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %8, i32 0, i64 %.07176, i64 %9) #3, !srcloc !34
+  %11 = extractvalue { i64, i64 } %10, 0
+  %12 = extractvalue { i64, i64 } %10, 1
+  store i64 %11, ptr %.06879, align 8, !tbaa !29
+  %13 = getelementptr inbounds nuw i8, ptr %.06978, i64 8
+  %14 = load i64, ptr %13, align 8, !tbaa !29
+  %15 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %14) #3, !srcloc !35
+  %16 = extractvalue { i64, i64 } %15, 0
+  %17 = extractvalue { i64, i64 } %15, 1
+  %18 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %16, i32 0, i64 %12, i64 %17) #3, !srcloc !36
+  %19 = extractvalue { i64, i64 } %18, 0
+  %20 = extractvalue { i64, i64 } %18, 1
+  %21 = getelementptr inbounds nuw i8, ptr %.06879, i64 8
+  store i64 %19, ptr %21, align 8, !tbaa !29
+  %22 = getelementptr inbounds nuw i8, ptr %.06978, i64 16
+  %23 = load i64, ptr %22, align 8, !tbaa !29
+  %24 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %23) #3, !srcloc !37
+  %25 = extractvalue { i64, i64 } %24, 0
+  %26 = extractvalue { i64, i64 } %24, 1
+  %27 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 0, i64 %20, i64 %26) #3, !srcloc !38
+  %28 = extractvalue { i64, i64 } %27, 0
+  %29 = extractvalue { i64, i64 } %27, 1
+  %30 = getelementptr inbounds nuw i8, ptr %.06879, i64 16
+  store i64 %28, ptr %30, align 8, !tbaa !29
+  %31 = getelementptr inbounds nuw i8, ptr %.06978, i64 24
+  %32 = load i64, ptr %31, align 8, !tbaa !29
+  %33 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %32) #3, !srcloc !39
+  %34 = extractvalue { i64, i64 } %33, 0
+  %35 = extractvalue { i64, i64 } %33, 1
+  %36 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %34, i32 0, i64 %29, i64 %35) #3, !srcloc !40
+  %37 = extractvalue { i64, i64 } %36, 0
+  %38 = extractvalue { i64, i64 } %36, 1
+  %39 = getelementptr inbounds nuw i8, ptr %.06879, i64 24
+  store i64 %37, ptr %39, align 8, !tbaa !29
+  %40 = getelementptr inbounds nuw i8, ptr %.06978, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.06879, i64 32
+  %42 = add nsw i32 %.07077, -4
+  %.not = icmp ult i32 %42, 4
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-while.end:                                        ; preds = %do.body
-  %tobool36.not = icmp eq i32 %sub, 0
-  br i1 %tobool36.not, label %return, label %do.body38
+._crit_edge:                                      ; preds = %.lr.ph
+  %.not74 = icmp eq i32 %42, 0
+  br i1 %.not74, label %72, label %._crit_edge.thread
 
-do.body38:                                        ; preds = %while.cond.preheader, %while.end
-  %rp.addr.0.lcssa66 = phi ptr [ %add.ptr35, %while.end ], [ %rp, %while.cond.preheader ]
-  %ap.addr.0.lcssa65 = phi ptr [ %add.ptr, %while.end ], [ %ap, %while.cond.preheader ]
-  %num.addr.0.lcssa64 = phi i32 [ %sub, %while.end ], [ %num, %while.cond.preheader ]
-  %c1.0.lcssa63 = phi i64 [ %asmresult32, %while.end ], [ 0, %while.cond.preheader ]
-  %12 = load i64, ptr %ap.addr.0.lcssa65, align 8
-  %13 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, i64 %12) #3, !srcloc !39
-  %asmresult42 = extractvalue { i64, i64 } %13, 0
-  %asmresult43 = extractvalue { i64, i64 } %13, 1
-  %14 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult42, i32 0, i64 %c1.0.lcssa63, i64 %asmresult43) #3, !srcloc !40
-  %asmresult44 = extractvalue { i64, i64 } %14, 0
-  %asmresult45 = extractvalue { i64, i64 } %14, 1
-  store i64 %asmresult44, ptr %rp.addr.0.lcssa66, align 8
-  %cmp48 = icmp eq i32 %num.addr.0.lcssa64, 1
-  br i1 %cmp48, label %return, label %do.body51
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
+  %.068.lcssa94 = phi ptr [ %41, %._crit_edge ], [ %0, %.preheader ]
+  %.069.lcssa93 = phi ptr [ %40, %._crit_edge ], [ %1, %.preheader ]
+  %.070.lcssa92 = phi i32 [ %42, %._crit_edge ], [ %2, %.preheader ]
+  %.071.lcssa91 = phi i64 [ %38, %._crit_edge ], [ 0, %.preheader ]
+  %43 = load i64, ptr %.069.lcssa93, align 8, !tbaa !29
+  %44 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %43) #3, !srcloc !42
+  %45 = extractvalue { i64, i64 } %44, 0
+  %46 = extractvalue { i64, i64 } %44, 1
+  %47 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, i32 0, i64 %.071.lcssa91, i64 %46) #3, !srcloc !43
+  %48 = extractvalue { i64, i64 } %47, 0
+  %49 = extractvalue { i64, i64 } %47, 1
+  store i64 %48, ptr %.068.lcssa94, align 8, !tbaa !29
+  %50 = icmp eq i32 %.070.lcssa92, 1
+  br i1 %50, label %72, label %51
 
-do.body51:                                        ; preds = %do.body38
-  %arrayidx54 = getelementptr inbounds nuw i8, ptr %ap.addr.0.lcssa65, i64 8
-  %15 = load i64, ptr %arrayidx54, align 8
-  %16 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, i64 %15) #3, !srcloc !41
-  %asmresult55 = extractvalue { i64, i64 } %16, 0
-  %asmresult56 = extractvalue { i64, i64 } %16, 1
-  %17 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult55, i32 0, i64 %asmresult45, i64 %asmresult56) #3, !srcloc !42
-  %asmresult57 = extractvalue { i64, i64 } %17, 0
-  %asmresult58 = extractvalue { i64, i64 } %17, 1
-  %arrayidx59 = getelementptr inbounds nuw i8, ptr %rp.addr.0.lcssa66, i64 8
-  store i64 %asmresult57, ptr %arrayidx59, align 8
-  %cmp62 = icmp eq i32 %num.addr.0.lcssa64, 2
-  br i1 %cmp62, label %return, label %do.body65
+51:                                               ; preds = %._crit_edge.thread
+  %52 = getelementptr inbounds nuw i8, ptr %.069.lcssa93, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !29
+  %54 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %53) #3, !srcloc !44
+  %55 = extractvalue { i64, i64 } %54, 0
+  %56 = extractvalue { i64, i64 } %54, 1
+  %57 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %55, i32 0, i64 %49, i64 %56) #3, !srcloc !45
+  %58 = extractvalue { i64, i64 } %57, 0
+  %59 = extractvalue { i64, i64 } %57, 1
+  %60 = getelementptr inbounds nuw i8, ptr %.068.lcssa94, i64 8
+  store i64 %58, ptr %60, align 8, !tbaa !29
+  %61 = icmp eq i32 %.070.lcssa92, 2
+  br i1 %61, label %72, label %62
 
-do.body65:                                        ; preds = %do.body51
-  %arrayidx68 = getelementptr inbounds nuw i8, ptr %ap.addr.0.lcssa65, i64 16
-  %18 = load i64, ptr %arrayidx68, align 8
-  %19 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %w, i64 %18) #3, !srcloc !43
-  %asmresult69 = extractvalue { i64, i64 } %19, 0
-  %asmresult70 = extractvalue { i64, i64 } %19, 1
-  %20 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult69, i32 0, i64 %asmresult58, i64 %asmresult70) #3, !srcloc !44
-  %asmresult71 = extractvalue { i64, i64 } %20, 0
-  %asmresult72 = extractvalue { i64, i64 } %20, 1
-  %arrayidx73 = getelementptr inbounds nuw i8, ptr %rp.addr.0.lcssa66, i64 16
-  store i64 %asmresult71, ptr %arrayidx73, align 8
-  br label %return
+62:                                               ; preds = %51
+  %63 = getelementptr inbounds nuw i8, ptr %.069.lcssa93, i64 16
+  %64 = load i64, ptr %63, align 8, !tbaa !29
+  %65 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %64) #3, !srcloc !46
+  %66 = extractvalue { i64, i64 } %65, 0
+  %67 = extractvalue { i64, i64 } %65, 1
+  %68 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %66, i32 0, i64 %59, i64 %67) #3, !srcloc !47
+  %69 = extractvalue { i64, i64 } %68, 0
+  %70 = extractvalue { i64, i64 } %68, 1
+  %71 = getelementptr inbounds nuw i8, ptr %.068.lcssa94, i64 16
+  store i64 %69, ptr %71, align 8, !tbaa !29
+  br label %72
 
-return:                                           ; preds = %while.end, %do.body65, %do.body51, %do.body38, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ %asmresult45, %do.body38 ], [ %asmresult58, %do.body51 ], [ %asmresult72, %do.body65 ], [ %asmresult32, %while.end ]
-  ret i64 %retval.0
+72:                                               ; preds = %._crit_edge, %62, %51, %._crit_edge.thread, %4
+  %.0 = phi i64 [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %59, %51 ], [ %70, %62 ], [ %38, %._crit_edge ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind memory(argmem: readwrite) uwtable
-define hidden void @bn_sqr_words(ptr noundef writeonly captures(none) %r, ptr noundef readonly captures(none) %a, i32 noundef %n) local_unnamed_addr #2 {
-entry:
-  %cmp = icmp slt i32 %n, 1
-  br i1 %cmp, label %if.end44, label %while.cond.preheader
+define hidden void @bn_sqr_words(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = icmp slt i32 %2, 1
+  br i1 %4, label %57, label %.preheader
 
-while.cond.preheader:                             ; preds = %entry
-  %tobool.not27 = icmp samesign ult i32 %n, 4
-  br i1 %tobool.not27, label %if.then21, label %while.body
+.preheader:                                       ; preds = %3
+  %.not33 = icmp samesign ult i32 %2, 4
+  br i1 %.not33, label %._crit_edge.thread, label %.lr.ph
 
-while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %n.addr.030 = phi i32 [ %sub, %while.body ], [ %n, %while.cond.preheader ]
-  %a.addr.029 = phi ptr [ %add.ptr, %while.body ], [ %a, %while.cond.preheader ]
-  %r.addr.028 = phi ptr [ %add.ptr19, %while.body ], [ %r, %while.cond.preheader ]
-  %arrayidx1 = getelementptr inbounds nuw i8, ptr %r.addr.028, i64 8
-  %0 = load i64, ptr %a.addr.029, align 8
-  %1 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0) #5, !srcloc !45
-  %asmresult = extractvalue { i64, i64 } %1, 0
-  %asmresult3 = extractvalue { i64, i64 } %1, 1
-  store i64 %asmresult, ptr %r.addr.028, align 8
-  store i64 %asmresult3, ptr %arrayidx1, align 8
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %r.addr.028, i64 16
-  %arrayidx5 = getelementptr inbounds nuw i8, ptr %r.addr.028, i64 24
-  %arrayidx6 = getelementptr inbounds nuw i8, ptr %a.addr.029, i64 8
-  %2 = load i64, ptr %arrayidx6, align 8
-  %3 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2) #5, !srcloc !46
-  %asmresult7 = extractvalue { i64, i64 } %3, 0
-  %asmresult8 = extractvalue { i64, i64 } %3, 1
-  store i64 %asmresult7, ptr %arrayidx4, align 8
-  store i64 %asmresult8, ptr %arrayidx5, align 8
-  %arrayidx9 = getelementptr inbounds nuw i8, ptr %r.addr.028, i64 32
-  %arrayidx10 = getelementptr inbounds nuw i8, ptr %r.addr.028, i64 40
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %a.addr.029, i64 16
-  %4 = load i64, ptr %arrayidx11, align 8
-  %5 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %4) #5, !srcloc !47
-  %asmresult12 = extractvalue { i64, i64 } %5, 0
-  %asmresult13 = extractvalue { i64, i64 } %5, 1
-  store i64 %asmresult12, ptr %arrayidx9, align 8
-  store i64 %asmresult13, ptr %arrayidx10, align 8
-  %arrayidx14 = getelementptr inbounds nuw i8, ptr %r.addr.028, i64 48
-  %arrayidx15 = getelementptr inbounds nuw i8, ptr %r.addr.028, i64 56
-  %arrayidx16 = getelementptr inbounds nuw i8, ptr %a.addr.029, i64 24
-  %6 = load i64, ptr %arrayidx16, align 8
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.036 = phi i32 [ %33, %.lr.ph ], [ %2, %.preheader ]
+  %.02835 = phi ptr [ %31, %.lr.ph ], [ %1, %.preheader ]
+  %.02934 = phi ptr [ %32, %.lr.ph ], [ %0, %.preheader ]
+  %5 = getelementptr inbounds nuw i8, ptr %.02934, i64 8
+  %6 = load i64, ptr %.02835, align 8, !tbaa !29
   %7 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6) #5, !srcloc !48
-  %asmresult17 = extractvalue { i64, i64 } %7, 0
-  %asmresult18 = extractvalue { i64, i64 } %7, 1
-  store i64 %asmresult17, ptr %arrayidx14, align 8
-  store i64 %asmresult18, ptr %arrayidx15, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %a.addr.029, i64 32
-  %add.ptr19 = getelementptr inbounds nuw i8, ptr %r.addr.028, i64 64
-  %sub = add nsw i32 %n.addr.030, -4
-  %tobool.not = icmp ult i32 %sub, 4
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !49
+  %8 = extractvalue { i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64 } %7, 1
+  store i64 %8, ptr %.02934, align 8, !tbaa !29
+  store i64 %9, ptr %5, align 8, !tbaa !29
+  %10 = getelementptr inbounds nuw i8, ptr %.02934, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.02934, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !29
+  %14 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %13) #5, !srcloc !49
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  store i64 %15, ptr %10, align 8, !tbaa !29
+  store i64 %16, ptr %11, align 8, !tbaa !29
+  %17 = getelementptr inbounds nuw i8, ptr %.02934, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.02934, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
+  %20 = load i64, ptr %19, align 8, !tbaa !29
+  %21 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %20) #5, !srcloc !50
+  %22 = extractvalue { i64, i64 } %21, 0
+  %23 = extractvalue { i64, i64 } %21, 1
+  store i64 %22, ptr %17, align 8, !tbaa !29
+  store i64 %23, ptr %18, align 8, !tbaa !29
+  %24 = getelementptr inbounds nuw i8, ptr %.02934, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.02934, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %.02835, i64 24
+  %27 = load i64, ptr %26, align 8, !tbaa !29
+  %28 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %27) #5, !srcloc !51
+  %29 = extractvalue { i64, i64 } %28, 0
+  %30 = extractvalue { i64, i64 } %28, 1
+  store i64 %29, ptr %24, align 8, !tbaa !29
+  store i64 %30, ptr %25, align 8, !tbaa !29
+  %31 = getelementptr inbounds nuw i8, ptr %.02835, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.02934, i64 64
+  %33 = add nsw i32 %.036, -4
+  %.not = icmp ult i32 %33, 4
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
-while.end:                                        ; preds = %while.body
-  %tobool20.not = icmp eq i32 %sub, 0
-  br i1 %tobool20.not, label %if.end44, label %if.then21
+._crit_edge:                                      ; preds = %.lr.ph
+  %.not32 = icmp eq i32 %33, 0
+  br i1 %.not32, label %57, label %._crit_edge.thread
 
-if.then21:                                        ; preds = %while.cond.preheader, %while.end
-  %n.addr.0.lcssa39 = phi i32 [ %sub, %while.end ], [ %n, %while.cond.preheader ]
-  %a.addr.0.lcssa38 = phi ptr [ %add.ptr, %while.end ], [ %a, %while.cond.preheader ]
-  %r.addr.0.lcssa37 = phi ptr [ %add.ptr19, %while.end ], [ %r, %while.cond.preheader ]
-  %arrayidx23 = getelementptr inbounds nuw i8, ptr %r.addr.0.lcssa37, i64 8
-  %8 = load i64, ptr %a.addr.0.lcssa38, align 8
-  %9 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %8) #5, !srcloc !50
-  %asmresult25 = extractvalue { i64, i64 } %9, 0
-  %asmresult26 = extractvalue { i64, i64 } %9, 1
-  store i64 %asmresult25, ptr %r.addr.0.lcssa37, align 8
-  store i64 %asmresult26, ptr %arrayidx23, align 8
-  %cmp27 = icmp eq i32 %n.addr.0.lcssa39, 1
-  br i1 %cmp27, label %if.end44, label %if.end29
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
+  %.0.lcssa47 = phi i32 [ %33, %._crit_edge ], [ %2, %.preheader ]
+  %.028.lcssa46 = phi ptr [ %31, %._crit_edge ], [ %1, %.preheader ]
+  %.029.lcssa45 = phi ptr [ %32, %._crit_edge ], [ %0, %.preheader ]
+  %34 = getelementptr inbounds nuw i8, ptr %.029.lcssa45, i64 8
+  %35 = load i64, ptr %.028.lcssa46, align 8, !tbaa !29
+  %36 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35) #5, !srcloc !53
+  %37 = extractvalue { i64, i64 } %36, 0
+  %38 = extractvalue { i64, i64 } %36, 1
+  store i64 %37, ptr %.029.lcssa45, align 8, !tbaa !29
+  store i64 %38, ptr %34, align 8, !tbaa !29
+  %39 = icmp eq i32 %.0.lcssa47, 1
+  br i1 %39, label %57, label %40
 
-if.end29:                                         ; preds = %if.then21
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %r.addr.0.lcssa37, i64 16
-  %arrayidx31 = getelementptr inbounds nuw i8, ptr %r.addr.0.lcssa37, i64 24
-  %arrayidx32 = getelementptr inbounds nuw i8, ptr %a.addr.0.lcssa38, i64 8
-  %10 = load i64, ptr %arrayidx32, align 8
-  %11 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %10) #5, !srcloc !51
-  %asmresult33 = extractvalue { i64, i64 } %11, 0
-  %asmresult34 = extractvalue { i64, i64 } %11, 1
-  store i64 %asmresult33, ptr %arrayidx30, align 8
-  store i64 %asmresult34, ptr %arrayidx31, align 8
-  %cmp36 = icmp eq i32 %n.addr.0.lcssa39, 2
-  br i1 %cmp36, label %if.end44, label %if.end38
+40:                                               ; preds = %._crit_edge.thread
+  %41 = getelementptr inbounds nuw i8, ptr %.029.lcssa45, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.029.lcssa45, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.028.lcssa46, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !29
+  %45 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %44) #5, !srcloc !54
+  %46 = extractvalue { i64, i64 } %45, 0
+  %47 = extractvalue { i64, i64 } %45, 1
+  store i64 %46, ptr %41, align 8, !tbaa !29
+  store i64 %47, ptr %42, align 8, !tbaa !29
+  %48 = icmp eq i32 %.0.lcssa47, 2
+  br i1 %48, label %57, label %49
 
-if.end38:                                         ; preds = %if.end29
-  %arrayidx39 = getelementptr inbounds nuw i8, ptr %r.addr.0.lcssa37, i64 32
-  %arrayidx40 = getelementptr inbounds nuw i8, ptr %r.addr.0.lcssa37, i64 40
-  %arrayidx41 = getelementptr inbounds nuw i8, ptr %a.addr.0.lcssa38, i64 16
-  %12 = load i64, ptr %arrayidx41, align 8
-  %13 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12) #5, !srcloc !52
-  %asmresult42 = extractvalue { i64, i64 } %13, 0
-  %asmresult43 = extractvalue { i64, i64 } %13, 1
-  store i64 %asmresult42, ptr %arrayidx39, align 8
-  store i64 %asmresult43, ptr %arrayidx40, align 8
-  br label %if.end44
+49:                                               ; preds = %40
+  %50 = getelementptr inbounds nuw i8, ptr %.029.lcssa45, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.029.lcssa45, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %.028.lcssa46, i64 16
+  %53 = load i64, ptr %52, align 8, !tbaa !29
+  %54 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %53) #5, !srcloc !55
+  %55 = extractvalue { i64, i64 } %54, 0
+  %56 = extractvalue { i64, i64 } %54, 1
+  store i64 %55, ptr %50, align 8, !tbaa !29
+  store i64 %56, ptr %51, align 8, !tbaa !29
+  br label %57
 
-if.end44:                                         ; preds = %if.end29, %if.then21, %entry, %if.end38, %while.end
+57:                                               ; preds = %40, %._crit_edge.thread, %3, %49, %._crit_edge
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 2) i64 @bn_add_words(ptr noundef %rp, ptr noundef %ap, ptr noundef %bp, i32 noundef %n) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp slt i32 %n, 1
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i64 0, 2) i64 @bn_add_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp slt i32 %3, 1
+  br i1 %5, label %10, label %6
 
-if.end:                                           ; preds = %entry
-  %0 = tail call { i64, i32, i64 } asm sideeffect "\09subq\09$0,$0\09\09\0A\09jmp\091f\09\09\0A.p2align 4\09\09\09\0A1:\09movq\09($4,$2,8),$0\09\0A\09adcq\09($5,$2,8),$0\09\0A\09movq\09$0,($3,$2,8)\09\0A\09lea\091($2),$2\09\0A\09loop\091b\09\09\0A\09sbbq\09$0,$0\09\09\0A", "=&r,={cx},=r,r,r,r,1,2,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %rp, ptr %ap, ptr %bp, i32 %n, i64 0) #4, !srcloc !53
-  %asmresult = extractvalue { i64, i32, i64 } %0, 0
-  %and = and i64 %asmresult, 1
-  br label %return
+6:                                                ; preds = %4
+  %7 = tail call { i64, i32, i64 } asm sideeffect "\09subq\09$0,$0\09\09\0A\09jmp\091f\09\09\0A.p2align 4\09\09\09\0A1:\09movq\09($4,$2,8),$0\09\0A\09adcq\09($5,$2,8),$0\09\0A\09movq\09$0,($3,$2,8)\09\0A\09lea\091($2),$2\09\0A\09loop\091b\09\09\0A\09sbbq\09$0,$0\09\09\0A", "=&r,={cx},=r,r,r,r,1,2,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1, ptr %2, i32 %3, i64 0) #4, !srcloc !56
+  %8 = extractvalue { i64, i32, i64 } %7, 0
+  %9 = and i64 %8, 1
+  br label %10
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i64 [ %and, %if.end ], [ 0, %entry ]
-  ret i64 %retval.0
+10:                                               ; preds = %4, %6
+  %.0 = phi i64 [ %9, %6 ], [ 0, %4 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 2) i64 @bn_sub_words(ptr noundef %rp, ptr noundef %ap, ptr noundef %bp, i32 noundef %n) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp slt i32 %n, 1
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i64 0, 2) i64 @bn_sub_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp slt i32 %3, 1
+  br i1 %5, label %10, label %6
 
-if.end:                                           ; preds = %entry
-  %0 = tail call { i64, i32, i64 } asm sideeffect "\09subq\09$0,$0\09\09\0A\09jmp\091f\09\09\0A.p2align 4\09\09\09\0A1:\09movq\09($4,$2,8),$0\09\0A\09sbbq\09($5,$2,8),$0\09\0A\09movq\09$0,($3,$2,8)\09\0A\09lea\091($2),$2\09\0A\09loop\091b\09\09\0A\09sbbq\09$0,$0\09\09\0A", "=&r,={cx},=r,r,r,r,1,2,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %rp, ptr %ap, ptr %bp, i32 %n, i64 0) #4, !srcloc !54
-  %asmresult = extractvalue { i64, i32, i64 } %0, 0
-  %and = and i64 %asmresult, 1
-  br label %return
+6:                                                ; preds = %4
+  %7 = tail call { i64, i32, i64 } asm sideeffect "\09subq\09$0,$0\09\09\0A\09jmp\091f\09\09\0A.p2align 4\09\09\09\0A1:\09movq\09($4,$2,8),$0\09\0A\09sbbq\09($5,$2,8),$0\09\0A\09movq\09$0,($3,$2,8)\09\0A\09lea\091($2),$2\09\0A\09loop\091b\09\09\0A\09sbbq\09$0,$0\09\09\0A", "=&r,={cx},=r,r,r,r,1,2,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1, ptr %2, i32 %3, i64 0) #4, !srcloc !57
+  %8 = extractvalue { i64, i32, i64 } %7, 0
+  %9 = and i64 %8, 1
+  br label %10
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i64 [ %and, %if.end ], [ 0, %entry ]
-  ret i64 %retval.0
+10:                                               ; preds = %4, %6
+  %.0 = phi i64 [ %9, %6 ], [ 0, %4 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @bn_mul_comba8(ptr noundef writeonly captures(none) initializes((0, 128)) %r, ptr noundef readonly captures(none) %a, ptr noundef %b) local_unnamed_addr #1 {
-entry:
-  %0 = load i64, ptr %a, align 8
-  %1 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0, ptr elementtype(i64) %b) #3, !srcloc !55
-  %asmresult = extractvalue { i64, i64 } %1, 0
-  %asmresult2 = extractvalue { i64, i64 } %1, 1
-  %2 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult, i64 %asmresult2, i32 0, i64 0, i64 0, i64 0) #3, !srcloc !56
-  %asmresult3 = extractvalue { i64, i64, i64 } %2, 0
-  %asmresult4 = extractvalue { i64, i64, i64 } %2, 1
-  %asmresult5 = extractvalue { i64, i64, i64 } %2, 2
-  store i64 %asmresult3, ptr %r, align 8
-  %3 = load i64, ptr %a, align 8
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %b, i64 8
-  %4 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !57
-  %asmresult12 = extractvalue { i64, i64 } %4, 0
-  %asmresult13 = extractvalue { i64, i64 } %4, 1
-  %5 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult12, i64 %asmresult13, i32 0, i64 %asmresult4, i64 %asmresult5, i64 0) #3, !srcloc !58
-  %asmresult14 = extractvalue { i64, i64, i64 } %5, 0
-  %asmresult15 = extractvalue { i64, i64, i64 } %5, 1
-  %asmresult16 = extractvalue { i64, i64, i64 } %5, 2
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %6 = load i64, ptr %arrayidx21, align 8
-  %7 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr elementtype(i64) %b) #3, !srcloc !59
-  %asmresult23 = extractvalue { i64, i64 } %7, 0
-  %asmresult24 = extractvalue { i64, i64 } %7, 1
-  %8 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult23, i64 %asmresult24, i32 0, i64 %asmresult14, i64 %asmresult15, i64 %asmresult16) #3, !srcloc !60
-  %asmresult25 = extractvalue { i64, i64, i64 } %8, 0
-  %asmresult26 = extractvalue { i64, i64, i64 } %8, 1
-  %asmresult27 = extractvalue { i64, i64, i64 } %8, 2
-  %arrayidx29 = getelementptr inbounds nuw i8, ptr %r, i64 8
-  store i64 %asmresult25, ptr %arrayidx29, align 8
-  %arrayidx33 = getelementptr inbounds nuw i8, ptr %a, i64 16
-  %9 = load i64, ptr %arrayidx33, align 8
-  %10 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %9, ptr elementtype(i64) %b) #3, !srcloc !61
-  %asmresult35 = extractvalue { i64, i64 } %10, 0
-  %asmresult36 = extractvalue { i64, i64 } %10, 1
-  %11 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult35, i64 %asmresult36, i32 0, i64 %asmresult26, i64 %asmresult27, i64 0) #3, !srcloc !62
-  %asmresult37 = extractvalue { i64, i64, i64 } %11, 0
-  %asmresult38 = extractvalue { i64, i64, i64 } %11, 1
-  %asmresult39 = extractvalue { i64, i64, i64 } %11, 2
-  %12 = load i64, ptr %arrayidx21, align 8
-  %13 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !63
-  %asmresult46 = extractvalue { i64, i64 } %13, 0
-  %asmresult47 = extractvalue { i64, i64 } %13, 1
-  %14 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult46, i64 %asmresult47, i32 0, i64 %asmresult37, i64 %asmresult38, i64 %asmresult39) #3, !srcloc !64
-  %asmresult48 = extractvalue { i64, i64, i64 } %14, 0
-  %asmresult49 = extractvalue { i64, i64, i64 } %14, 1
-  %asmresult50 = extractvalue { i64, i64, i64 } %14, 2
-  %15 = load i64, ptr %a, align 8
-  %arrayidx56 = getelementptr inbounds nuw i8, ptr %b, i64 16
-  %16 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !65
-  %asmresult57 = extractvalue { i64, i64 } %16, 0
-  %asmresult58 = extractvalue { i64, i64 } %16, 1
-  %17 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult57, i64 %asmresult58, i32 0, i64 %asmresult48, i64 %asmresult49, i64 %asmresult50) #3, !srcloc !66
-  %asmresult59 = extractvalue { i64, i64, i64 } %17, 0
-  %asmresult60 = extractvalue { i64, i64, i64 } %17, 1
-  %asmresult61 = extractvalue { i64, i64, i64 } %17, 2
-  %arrayidx63 = getelementptr inbounds nuw i8, ptr %r, i64 16
-  store i64 %asmresult59, ptr %arrayidx63, align 8
-  %18 = load i64, ptr %a, align 8
-  %arrayidx68 = getelementptr inbounds nuw i8, ptr %b, i64 24
-  %19 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %18, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !67
-  %asmresult69 = extractvalue { i64, i64 } %19, 0
-  %asmresult70 = extractvalue { i64, i64 } %19, 1
-  %20 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult69, i64 %asmresult70, i32 0, i64 %asmresult60, i64 %asmresult61, i64 0) #3, !srcloc !68
-  %asmresult71 = extractvalue { i64, i64, i64 } %20, 0
-  %asmresult72 = extractvalue { i64, i64, i64 } %20, 1
-  %asmresult73 = extractvalue { i64, i64, i64 } %20, 2
-  %21 = load i64, ptr %arrayidx21, align 8
-  %22 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %21, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !69
-  %asmresult80 = extractvalue { i64, i64 } %22, 0
-  %asmresult81 = extractvalue { i64, i64 } %22, 1
-  %23 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult80, i64 %asmresult81, i32 0, i64 %asmresult71, i64 %asmresult72, i64 %asmresult73) #3, !srcloc !70
-  %asmresult82 = extractvalue { i64, i64, i64 } %23, 0
-  %asmresult83 = extractvalue { i64, i64, i64 } %23, 1
-  %asmresult84 = extractvalue { i64, i64, i64 } %23, 2
-  %24 = load i64, ptr %arrayidx33, align 8
-  %25 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %24, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !71
-  %asmresult91 = extractvalue { i64, i64 } %25, 0
-  %asmresult92 = extractvalue { i64, i64 } %25, 1
-  %26 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult91, i64 %asmresult92, i32 0, i64 %asmresult82, i64 %asmresult83, i64 %asmresult84) #3, !srcloc !72
-  %asmresult93 = extractvalue { i64, i64, i64 } %26, 0
-  %asmresult94 = extractvalue { i64, i64, i64 } %26, 1
-  %asmresult95 = extractvalue { i64, i64, i64 } %26, 2
-  %arrayidx100 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %27 = load i64, ptr %arrayidx100, align 8
-  %28 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %27, ptr elementtype(i64) %b) #3, !srcloc !73
-  %asmresult102 = extractvalue { i64, i64 } %28, 0
-  %asmresult103 = extractvalue { i64, i64 } %28, 1
-  %29 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult102, i64 %asmresult103, i32 0, i64 %asmresult93, i64 %asmresult94, i64 %asmresult95) #3, !srcloc !74
-  %asmresult104 = extractvalue { i64, i64, i64 } %29, 0
-  %asmresult105 = extractvalue { i64, i64, i64 } %29, 1
-  %asmresult106 = extractvalue { i64, i64, i64 } %29, 2
-  %arrayidx108 = getelementptr inbounds nuw i8, ptr %r, i64 24
-  store i64 %asmresult104, ptr %arrayidx108, align 8
-  %arrayidx112 = getelementptr inbounds nuw i8, ptr %a, i64 32
-  %30 = load i64, ptr %arrayidx112, align 8
-  %31 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %30, ptr elementtype(i64) %b) #3, !srcloc !75
-  %asmresult114 = extractvalue { i64, i64 } %31, 0
-  %asmresult115 = extractvalue { i64, i64 } %31, 1
-  %32 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult114, i64 %asmresult115, i32 0, i64 %asmresult105, i64 %asmresult106, i64 0) #3, !srcloc !76
-  %asmresult116 = extractvalue { i64, i64, i64 } %32, 0
-  %asmresult117 = extractvalue { i64, i64, i64 } %32, 1
-  %asmresult118 = extractvalue { i64, i64, i64 } %32, 2
-  %33 = load i64, ptr %arrayidx100, align 8
-  %34 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %33, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !77
-  %asmresult125 = extractvalue { i64, i64 } %34, 0
-  %asmresult126 = extractvalue { i64, i64 } %34, 1
-  %35 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult125, i64 %asmresult126, i32 0, i64 %asmresult116, i64 %asmresult117, i64 %asmresult118) #3, !srcloc !78
-  %asmresult127 = extractvalue { i64, i64, i64 } %35, 0
-  %asmresult128 = extractvalue { i64, i64, i64 } %35, 1
-  %asmresult129 = extractvalue { i64, i64, i64 } %35, 2
-  %36 = load i64, ptr %arrayidx33, align 8
-  %37 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !79
-  %asmresult136 = extractvalue { i64, i64 } %37, 0
-  %asmresult137 = extractvalue { i64, i64 } %37, 1
-  %38 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult136, i64 %asmresult137, i32 0, i64 %asmresult127, i64 %asmresult128, i64 %asmresult129) #3, !srcloc !80
-  %asmresult138 = extractvalue { i64, i64, i64 } %38, 0
-  %asmresult139 = extractvalue { i64, i64, i64 } %38, 1
-  %asmresult140 = extractvalue { i64, i64, i64 } %38, 2
-  %39 = load i64, ptr %arrayidx21, align 8
-  %40 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %39, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !81
-  %asmresult147 = extractvalue { i64, i64 } %40, 0
-  %asmresult148 = extractvalue { i64, i64 } %40, 1
-  %41 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult147, i64 %asmresult148, i32 0, i64 %asmresult138, i64 %asmresult139, i64 %asmresult140) #3, !srcloc !82
-  %asmresult149 = extractvalue { i64, i64, i64 } %41, 0
-  %asmresult150 = extractvalue { i64, i64, i64 } %41, 1
-  %asmresult151 = extractvalue { i64, i64, i64 } %41, 2
-  %42 = load i64, ptr %a, align 8
-  %arrayidx157 = getelementptr inbounds nuw i8, ptr %b, i64 32
-  %43 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %42, ptr nonnull elementtype(i64) %arrayidx157) #3, !srcloc !83
-  %asmresult158 = extractvalue { i64, i64 } %43, 0
-  %asmresult159 = extractvalue { i64, i64 } %43, 1
-  %44 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult158, i64 %asmresult159, i32 0, i64 %asmresult149, i64 %asmresult150, i64 %asmresult151) #3, !srcloc !84
-  %asmresult160 = extractvalue { i64, i64, i64 } %44, 0
-  %asmresult161 = extractvalue { i64, i64, i64 } %44, 1
-  %asmresult162 = extractvalue { i64, i64, i64 } %44, 2
-  %arrayidx164 = getelementptr inbounds nuw i8, ptr %r, i64 32
-  store i64 %asmresult160, ptr %arrayidx164, align 8
-  %45 = load i64, ptr %a, align 8
-  %arrayidx169 = getelementptr inbounds nuw i8, ptr %b, i64 40
-  %46 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, ptr nonnull elementtype(i64) %arrayidx169) #3, !srcloc !85
-  %asmresult170 = extractvalue { i64, i64 } %46, 0
-  %asmresult171 = extractvalue { i64, i64 } %46, 1
-  %47 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult170, i64 %asmresult171, i32 0, i64 %asmresult161, i64 %asmresult162, i64 0) #3, !srcloc !86
-  %asmresult172 = extractvalue { i64, i64, i64 } %47, 0
-  %asmresult173 = extractvalue { i64, i64, i64 } %47, 1
-  %asmresult174 = extractvalue { i64, i64, i64 } %47, 2
-  %48 = load i64, ptr %arrayidx21, align 8
-  %49 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull elementtype(i64) %arrayidx157) #3, !srcloc !87
-  %asmresult181 = extractvalue { i64, i64 } %49, 0
-  %asmresult182 = extractvalue { i64, i64 } %49, 1
-  %50 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult181, i64 %asmresult182, i32 0, i64 %asmresult172, i64 %asmresult173, i64 %asmresult174) #3, !srcloc !88
-  %asmresult183 = extractvalue { i64, i64, i64 } %50, 0
-  %asmresult184 = extractvalue { i64, i64, i64 } %50, 1
-  %asmresult185 = extractvalue { i64, i64, i64 } %50, 2
-  %51 = load i64, ptr %arrayidx33, align 8
-  %52 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %51, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !89
-  %asmresult192 = extractvalue { i64, i64 } %52, 0
-  %asmresult193 = extractvalue { i64, i64 } %52, 1
-  %53 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult192, i64 %asmresult193, i32 0, i64 %asmresult183, i64 %asmresult184, i64 %asmresult185) #3, !srcloc !90
-  %asmresult194 = extractvalue { i64, i64, i64 } %53, 0
-  %asmresult195 = extractvalue { i64, i64, i64 } %53, 1
-  %asmresult196 = extractvalue { i64, i64, i64 } %53, 2
-  %54 = load i64, ptr %arrayidx100, align 8
-  %55 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %54, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !91
-  %asmresult203 = extractvalue { i64, i64 } %55, 0
-  %asmresult204 = extractvalue { i64, i64 } %55, 1
-  %56 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult203, i64 %asmresult204, i32 0, i64 %asmresult194, i64 %asmresult195, i64 %asmresult196) #3, !srcloc !92
-  %asmresult205 = extractvalue { i64, i64, i64 } %56, 0
-  %asmresult206 = extractvalue { i64, i64, i64 } %56, 1
-  %asmresult207 = extractvalue { i64, i64, i64 } %56, 2
-  %57 = load i64, ptr %arrayidx112, align 8
-  %58 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %57, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !93
-  %asmresult214 = extractvalue { i64, i64 } %58, 0
-  %asmresult215 = extractvalue { i64, i64 } %58, 1
-  %59 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult214, i64 %asmresult215, i32 0, i64 %asmresult205, i64 %asmresult206, i64 %asmresult207) #3, !srcloc !94
-  %asmresult216 = extractvalue { i64, i64, i64 } %59, 0
-  %asmresult217 = extractvalue { i64, i64, i64 } %59, 1
-  %asmresult218 = extractvalue { i64, i64, i64 } %59, 2
-  %arrayidx223 = getelementptr inbounds nuw i8, ptr %a, i64 40
-  %60 = load i64, ptr %arrayidx223, align 8
-  %61 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %60, ptr elementtype(i64) %b) #3, !srcloc !95
-  %asmresult225 = extractvalue { i64, i64 } %61, 0
-  %asmresult226 = extractvalue { i64, i64 } %61, 1
-  %62 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult225, i64 %asmresult226, i32 0, i64 %asmresult216, i64 %asmresult217, i64 %asmresult218) #3, !srcloc !96
-  %asmresult227 = extractvalue { i64, i64, i64 } %62, 0
-  %asmresult228 = extractvalue { i64, i64, i64 } %62, 1
-  %asmresult229 = extractvalue { i64, i64, i64 } %62, 2
-  %arrayidx231 = getelementptr inbounds nuw i8, ptr %r, i64 40
-  store i64 %asmresult227, ptr %arrayidx231, align 8
-  %arrayidx235 = getelementptr inbounds nuw i8, ptr %a, i64 48
-  %63 = load i64, ptr %arrayidx235, align 8
-  %64 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %63, ptr elementtype(i64) %b) #3, !srcloc !97
-  %asmresult237 = extractvalue { i64, i64 } %64, 0
-  %asmresult238 = extractvalue { i64, i64 } %64, 1
-  %65 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult237, i64 %asmresult238, i32 0, i64 %asmresult228, i64 %asmresult229, i64 0) #3, !srcloc !98
-  %asmresult239 = extractvalue { i64, i64, i64 } %65, 0
-  %asmresult240 = extractvalue { i64, i64, i64 } %65, 1
-  %asmresult241 = extractvalue { i64, i64, i64 } %65, 2
-  %66 = load i64, ptr %arrayidx223, align 8
-  %67 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %66, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !99
-  %asmresult248 = extractvalue { i64, i64 } %67, 0
-  %asmresult249 = extractvalue { i64, i64 } %67, 1
-  %68 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult248, i64 %asmresult249, i32 0, i64 %asmresult239, i64 %asmresult240, i64 %asmresult241) #3, !srcloc !100
-  %asmresult250 = extractvalue { i64, i64, i64 } %68, 0
-  %asmresult251 = extractvalue { i64, i64, i64 } %68, 1
-  %asmresult252 = extractvalue { i64, i64, i64 } %68, 2
-  %69 = load i64, ptr %arrayidx112, align 8
-  %70 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %69, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !101
-  %asmresult259 = extractvalue { i64, i64 } %70, 0
-  %asmresult260 = extractvalue { i64, i64 } %70, 1
-  %71 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult259, i64 %asmresult260, i32 0, i64 %asmresult250, i64 %asmresult251, i64 %asmresult252) #3, !srcloc !102
-  %asmresult261 = extractvalue { i64, i64, i64 } %71, 0
-  %asmresult262 = extractvalue { i64, i64, i64 } %71, 1
-  %asmresult263 = extractvalue { i64, i64, i64 } %71, 2
-  %72 = load i64, ptr %arrayidx100, align 8
-  %73 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %72, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !103
-  %asmresult270 = extractvalue { i64, i64 } %73, 0
-  %asmresult271 = extractvalue { i64, i64 } %73, 1
-  %74 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult270, i64 %asmresult271, i32 0, i64 %asmresult261, i64 %asmresult262, i64 %asmresult263) #3, !srcloc !104
-  %asmresult272 = extractvalue { i64, i64, i64 } %74, 0
-  %asmresult273 = extractvalue { i64, i64, i64 } %74, 1
-  %asmresult274 = extractvalue { i64, i64, i64 } %74, 2
-  %75 = load i64, ptr %arrayidx33, align 8
-  %76 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %75, ptr nonnull elementtype(i64) %arrayidx157) #3, !srcloc !105
-  %asmresult281 = extractvalue { i64, i64 } %76, 0
-  %asmresult282 = extractvalue { i64, i64 } %76, 1
-  %77 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult281, i64 %asmresult282, i32 0, i64 %asmresult272, i64 %asmresult273, i64 %asmresult274) #3, !srcloc !106
-  %asmresult283 = extractvalue { i64, i64, i64 } %77, 0
-  %asmresult284 = extractvalue { i64, i64, i64 } %77, 1
-  %asmresult285 = extractvalue { i64, i64, i64 } %77, 2
-  %78 = load i64, ptr %arrayidx21, align 8
-  %79 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %78, ptr nonnull elementtype(i64) %arrayidx169) #3, !srcloc !107
-  %asmresult292 = extractvalue { i64, i64 } %79, 0
-  %asmresult293 = extractvalue { i64, i64 } %79, 1
-  %80 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult292, i64 %asmresult293, i32 0, i64 %asmresult283, i64 %asmresult284, i64 %asmresult285) #3, !srcloc !108
-  %asmresult294 = extractvalue { i64, i64, i64 } %80, 0
-  %asmresult295 = extractvalue { i64, i64, i64 } %80, 1
-  %asmresult296 = extractvalue { i64, i64, i64 } %80, 2
-  %81 = load i64, ptr %a, align 8
-  %arrayidx302 = getelementptr inbounds nuw i8, ptr %b, i64 48
-  %82 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %81, ptr nonnull elementtype(i64) %arrayidx302) #3, !srcloc !109
-  %asmresult303 = extractvalue { i64, i64 } %82, 0
-  %asmresult304 = extractvalue { i64, i64 } %82, 1
-  %83 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult303, i64 %asmresult304, i32 0, i64 %asmresult294, i64 %asmresult295, i64 %asmresult296) #3, !srcloc !110
-  %asmresult305 = extractvalue { i64, i64, i64 } %83, 0
-  %asmresult306 = extractvalue { i64, i64, i64 } %83, 1
-  %asmresult307 = extractvalue { i64, i64, i64 } %83, 2
-  %arrayidx309 = getelementptr inbounds nuw i8, ptr %r, i64 48
-  store i64 %asmresult305, ptr %arrayidx309, align 8
-  %84 = load i64, ptr %a, align 8
-  %arrayidx314 = getelementptr inbounds nuw i8, ptr %b, i64 56
-  %85 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %84, ptr nonnull elementtype(i64) %arrayidx314) #3, !srcloc !111
-  %asmresult315 = extractvalue { i64, i64 } %85, 0
-  %asmresult316 = extractvalue { i64, i64 } %85, 1
-  %86 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult315, i64 %asmresult316, i32 0, i64 %asmresult306, i64 %asmresult307, i64 0) #3, !srcloc !112
-  %asmresult317 = extractvalue { i64, i64, i64 } %86, 0
-  %asmresult318 = extractvalue { i64, i64, i64 } %86, 1
-  %asmresult319 = extractvalue { i64, i64, i64 } %86, 2
-  %87 = load i64, ptr %arrayidx21, align 8
-  %88 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %87, ptr nonnull elementtype(i64) %arrayidx302) #3, !srcloc !113
-  %asmresult326 = extractvalue { i64, i64 } %88, 0
-  %asmresult327 = extractvalue { i64, i64 } %88, 1
-  %89 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult326, i64 %asmresult327, i32 0, i64 %asmresult317, i64 %asmresult318, i64 %asmresult319) #3, !srcloc !114
-  %asmresult328 = extractvalue { i64, i64, i64 } %89, 0
-  %asmresult329 = extractvalue { i64, i64, i64 } %89, 1
-  %asmresult330 = extractvalue { i64, i64, i64 } %89, 2
-  %90 = load i64, ptr %arrayidx33, align 8
-  %91 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %90, ptr nonnull elementtype(i64) %arrayidx169) #3, !srcloc !115
-  %asmresult337 = extractvalue { i64, i64 } %91, 0
-  %asmresult338 = extractvalue { i64, i64 } %91, 1
-  %92 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult337, i64 %asmresult338, i32 0, i64 %asmresult328, i64 %asmresult329, i64 %asmresult330) #3, !srcloc !116
-  %asmresult339 = extractvalue { i64, i64, i64 } %92, 0
-  %asmresult340 = extractvalue { i64, i64, i64 } %92, 1
-  %asmresult341 = extractvalue { i64, i64, i64 } %92, 2
-  %93 = load i64, ptr %arrayidx100, align 8
-  %94 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %93, ptr nonnull elementtype(i64) %arrayidx157) #3, !srcloc !117
-  %asmresult348 = extractvalue { i64, i64 } %94, 0
-  %asmresult349 = extractvalue { i64, i64 } %94, 1
-  %95 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult348, i64 %asmresult349, i32 0, i64 %asmresult339, i64 %asmresult340, i64 %asmresult341) #3, !srcloc !118
-  %asmresult350 = extractvalue { i64, i64, i64 } %95, 0
-  %asmresult351 = extractvalue { i64, i64, i64 } %95, 1
-  %asmresult352 = extractvalue { i64, i64, i64 } %95, 2
-  %96 = load i64, ptr %arrayidx112, align 8
-  %97 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %96, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !119
-  %asmresult359 = extractvalue { i64, i64 } %97, 0
-  %asmresult360 = extractvalue { i64, i64 } %97, 1
-  %98 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult359, i64 %asmresult360, i32 0, i64 %asmresult350, i64 %asmresult351, i64 %asmresult352) #3, !srcloc !120
-  %asmresult361 = extractvalue { i64, i64, i64 } %98, 0
-  %asmresult362 = extractvalue { i64, i64, i64 } %98, 1
-  %asmresult363 = extractvalue { i64, i64, i64 } %98, 2
-  %99 = load i64, ptr %arrayidx223, align 8
-  %100 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %99, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !121
-  %asmresult370 = extractvalue { i64, i64 } %100, 0
-  %asmresult371 = extractvalue { i64, i64 } %100, 1
-  %101 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult370, i64 %asmresult371, i32 0, i64 %asmresult361, i64 %asmresult362, i64 %asmresult363) #3, !srcloc !122
-  %asmresult372 = extractvalue { i64, i64, i64 } %101, 0
-  %asmresult373 = extractvalue { i64, i64, i64 } %101, 1
-  %asmresult374 = extractvalue { i64, i64, i64 } %101, 2
-  %102 = load i64, ptr %arrayidx235, align 8
-  %103 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %102, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !123
-  %asmresult381 = extractvalue { i64, i64 } %103, 0
-  %asmresult382 = extractvalue { i64, i64 } %103, 1
-  %104 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult381, i64 %asmresult382, i32 0, i64 %asmresult372, i64 %asmresult373, i64 %asmresult374) #3, !srcloc !124
-  %asmresult383 = extractvalue { i64, i64, i64 } %104, 0
-  %asmresult384 = extractvalue { i64, i64, i64 } %104, 1
-  %asmresult385 = extractvalue { i64, i64, i64 } %104, 2
-  %arrayidx390 = getelementptr inbounds nuw i8, ptr %a, i64 56
-  %105 = load i64, ptr %arrayidx390, align 8
-  %106 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %105, ptr elementtype(i64) %b) #3, !srcloc !125
-  %asmresult392 = extractvalue { i64, i64 } %106, 0
-  %asmresult393 = extractvalue { i64, i64 } %106, 1
-  %107 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult392, i64 %asmresult393, i32 0, i64 %asmresult383, i64 %asmresult384, i64 %asmresult385) #3, !srcloc !126
-  %asmresult394 = extractvalue { i64, i64, i64 } %107, 0
-  %asmresult395 = extractvalue { i64, i64, i64 } %107, 1
-  %asmresult396 = extractvalue { i64, i64, i64 } %107, 2
-  %arrayidx398 = getelementptr inbounds nuw i8, ptr %r, i64 56
-  store i64 %asmresult394, ptr %arrayidx398, align 8
-  %108 = load i64, ptr %arrayidx390, align 8
-  %109 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %108, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !127
-  %asmresult404 = extractvalue { i64, i64 } %109, 0
-  %asmresult405 = extractvalue { i64, i64 } %109, 1
-  %110 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult404, i64 %asmresult405, i32 0, i64 %asmresult395, i64 %asmresult396, i64 0) #3, !srcloc !128
-  %asmresult406 = extractvalue { i64, i64, i64 } %110, 0
-  %asmresult407 = extractvalue { i64, i64, i64 } %110, 1
-  %asmresult408 = extractvalue { i64, i64, i64 } %110, 2
-  %111 = load i64, ptr %arrayidx235, align 8
-  %112 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %111, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !129
-  %asmresult415 = extractvalue { i64, i64 } %112, 0
-  %asmresult416 = extractvalue { i64, i64 } %112, 1
-  %113 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult415, i64 %asmresult416, i32 0, i64 %asmresult406, i64 %asmresult407, i64 %asmresult408) #3, !srcloc !130
-  %asmresult417 = extractvalue { i64, i64, i64 } %113, 0
-  %asmresult418 = extractvalue { i64, i64, i64 } %113, 1
-  %asmresult419 = extractvalue { i64, i64, i64 } %113, 2
-  %114 = load i64, ptr %arrayidx223, align 8
-  %115 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %114, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !131
-  %asmresult426 = extractvalue { i64, i64 } %115, 0
-  %asmresult427 = extractvalue { i64, i64 } %115, 1
-  %116 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult426, i64 %asmresult427, i32 0, i64 %asmresult417, i64 %asmresult418, i64 %asmresult419) #3, !srcloc !132
-  %asmresult428 = extractvalue { i64, i64, i64 } %116, 0
-  %asmresult429 = extractvalue { i64, i64, i64 } %116, 1
-  %asmresult430 = extractvalue { i64, i64, i64 } %116, 2
-  %117 = load i64, ptr %arrayidx112, align 8
-  %118 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %117, ptr nonnull elementtype(i64) %arrayidx157) #3, !srcloc !133
-  %asmresult437 = extractvalue { i64, i64 } %118, 0
-  %asmresult438 = extractvalue { i64, i64 } %118, 1
-  %119 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult437, i64 %asmresult438, i32 0, i64 %asmresult428, i64 %asmresult429, i64 %asmresult430) #3, !srcloc !134
-  %asmresult439 = extractvalue { i64, i64, i64 } %119, 0
-  %asmresult440 = extractvalue { i64, i64, i64 } %119, 1
-  %asmresult441 = extractvalue { i64, i64, i64 } %119, 2
-  %120 = load i64, ptr %arrayidx100, align 8
-  %121 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %120, ptr nonnull elementtype(i64) %arrayidx169) #3, !srcloc !135
-  %asmresult448 = extractvalue { i64, i64 } %121, 0
-  %asmresult449 = extractvalue { i64, i64 } %121, 1
-  %122 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult448, i64 %asmresult449, i32 0, i64 %asmresult439, i64 %asmresult440, i64 %asmresult441) #3, !srcloc !136
-  %asmresult450 = extractvalue { i64, i64, i64 } %122, 0
-  %asmresult451 = extractvalue { i64, i64, i64 } %122, 1
-  %asmresult452 = extractvalue { i64, i64, i64 } %122, 2
-  %123 = load i64, ptr %arrayidx33, align 8
-  %124 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %123, ptr nonnull elementtype(i64) %arrayidx302) #3, !srcloc !137
-  %asmresult459 = extractvalue { i64, i64 } %124, 0
-  %asmresult460 = extractvalue { i64, i64 } %124, 1
-  %125 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult459, i64 %asmresult460, i32 0, i64 %asmresult450, i64 %asmresult451, i64 %asmresult452) #3, !srcloc !138
-  %asmresult461 = extractvalue { i64, i64, i64 } %125, 0
-  %asmresult462 = extractvalue { i64, i64, i64 } %125, 1
-  %asmresult463 = extractvalue { i64, i64, i64 } %125, 2
-  %126 = load i64, ptr %arrayidx21, align 8
-  %127 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %126, ptr nonnull elementtype(i64) %arrayidx314) #3, !srcloc !139
-  %asmresult470 = extractvalue { i64, i64 } %127, 0
-  %asmresult471 = extractvalue { i64, i64 } %127, 1
-  %128 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult470, i64 %asmresult471, i32 0, i64 %asmresult461, i64 %asmresult462, i64 %asmresult463) #3, !srcloc !140
-  %asmresult472 = extractvalue { i64, i64, i64 } %128, 0
-  %asmresult473 = extractvalue { i64, i64, i64 } %128, 1
-  %asmresult474 = extractvalue { i64, i64, i64 } %128, 2
-  %arrayidx476 = getelementptr inbounds nuw i8, ptr %r, i64 64
-  store i64 %asmresult472, ptr %arrayidx476, align 8
-  %129 = load i64, ptr %arrayidx33, align 8
-  %130 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %129, ptr nonnull elementtype(i64) %arrayidx314) #3, !srcloc !141
-  %asmresult482 = extractvalue { i64, i64 } %130, 0
-  %asmresult483 = extractvalue { i64, i64 } %130, 1
-  %131 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult482, i64 %asmresult483, i32 0, i64 %asmresult473, i64 %asmresult474, i64 0) #3, !srcloc !142
-  %asmresult484 = extractvalue { i64, i64, i64 } %131, 0
-  %asmresult485 = extractvalue { i64, i64, i64 } %131, 1
-  %asmresult486 = extractvalue { i64, i64, i64 } %131, 2
-  %132 = load i64, ptr %arrayidx100, align 8
-  %133 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %132, ptr nonnull elementtype(i64) %arrayidx302) #3, !srcloc !143
-  %asmresult493 = extractvalue { i64, i64 } %133, 0
-  %asmresult494 = extractvalue { i64, i64 } %133, 1
-  %134 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult493, i64 %asmresult494, i32 0, i64 %asmresult484, i64 %asmresult485, i64 %asmresult486) #3, !srcloc !144
-  %asmresult495 = extractvalue { i64, i64, i64 } %134, 0
-  %asmresult496 = extractvalue { i64, i64, i64 } %134, 1
-  %asmresult497 = extractvalue { i64, i64, i64 } %134, 2
-  %135 = load i64, ptr %arrayidx112, align 8
-  %136 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %135, ptr nonnull elementtype(i64) %arrayidx169) #3, !srcloc !145
-  %asmresult504 = extractvalue { i64, i64 } %136, 0
-  %asmresult505 = extractvalue { i64, i64 } %136, 1
-  %137 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult504, i64 %asmresult505, i32 0, i64 %asmresult495, i64 %asmresult496, i64 %asmresult497) #3, !srcloc !146
-  %asmresult506 = extractvalue { i64, i64, i64 } %137, 0
-  %asmresult507 = extractvalue { i64, i64, i64 } %137, 1
-  %asmresult508 = extractvalue { i64, i64, i64 } %137, 2
-  %138 = load i64, ptr %arrayidx223, align 8
-  %139 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %138, ptr nonnull elementtype(i64) %arrayidx157) #3, !srcloc !147
-  %asmresult515 = extractvalue { i64, i64 } %139, 0
-  %asmresult516 = extractvalue { i64, i64 } %139, 1
-  %140 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult515, i64 %asmresult516, i32 0, i64 %asmresult506, i64 %asmresult507, i64 %asmresult508) #3, !srcloc !148
-  %asmresult517 = extractvalue { i64, i64, i64 } %140, 0
-  %asmresult518 = extractvalue { i64, i64, i64 } %140, 1
-  %asmresult519 = extractvalue { i64, i64, i64 } %140, 2
-  %141 = load i64, ptr %arrayidx235, align 8
-  %142 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %141, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !149
-  %asmresult526 = extractvalue { i64, i64 } %142, 0
-  %asmresult527 = extractvalue { i64, i64 } %142, 1
-  %143 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult526, i64 %asmresult527, i32 0, i64 %asmresult517, i64 %asmresult518, i64 %asmresult519) #3, !srcloc !150
-  %asmresult528 = extractvalue { i64, i64, i64 } %143, 0
-  %asmresult529 = extractvalue { i64, i64, i64 } %143, 1
-  %asmresult530 = extractvalue { i64, i64, i64 } %143, 2
-  %144 = load i64, ptr %arrayidx390, align 8
-  %145 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %144, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !151
-  %asmresult537 = extractvalue { i64, i64 } %145, 0
-  %asmresult538 = extractvalue { i64, i64 } %145, 1
-  %146 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult537, i64 %asmresult538, i32 0, i64 %asmresult528, i64 %asmresult529, i64 %asmresult530) #3, !srcloc !152
-  %asmresult539 = extractvalue { i64, i64, i64 } %146, 0
-  %asmresult540 = extractvalue { i64, i64, i64 } %146, 1
-  %asmresult541 = extractvalue { i64, i64, i64 } %146, 2
-  %arrayidx543 = getelementptr inbounds nuw i8, ptr %r, i64 72
-  store i64 %asmresult539, ptr %arrayidx543, align 8
-  %147 = load i64, ptr %arrayidx390, align 8
-  %148 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %147, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !153
-  %asmresult549 = extractvalue { i64, i64 } %148, 0
-  %asmresult550 = extractvalue { i64, i64 } %148, 1
-  %149 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult549, i64 %asmresult550, i32 0, i64 %asmresult540, i64 %asmresult541, i64 0) #3, !srcloc !154
-  %asmresult551 = extractvalue { i64, i64, i64 } %149, 0
-  %asmresult552 = extractvalue { i64, i64, i64 } %149, 1
-  %asmresult553 = extractvalue { i64, i64, i64 } %149, 2
-  %150 = load i64, ptr %arrayidx235, align 8
-  %151 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %150, ptr nonnull elementtype(i64) %arrayidx157) #3, !srcloc !155
-  %asmresult560 = extractvalue { i64, i64 } %151, 0
-  %asmresult561 = extractvalue { i64, i64 } %151, 1
-  %152 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult560, i64 %asmresult561, i32 0, i64 %asmresult551, i64 %asmresult552, i64 %asmresult553) #3, !srcloc !156
-  %asmresult562 = extractvalue { i64, i64, i64 } %152, 0
-  %asmresult563 = extractvalue { i64, i64, i64 } %152, 1
-  %asmresult564 = extractvalue { i64, i64, i64 } %152, 2
-  %153 = load i64, ptr %arrayidx223, align 8
-  %154 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %153, ptr nonnull elementtype(i64) %arrayidx169) #3, !srcloc !157
-  %asmresult571 = extractvalue { i64, i64 } %154, 0
-  %asmresult572 = extractvalue { i64, i64 } %154, 1
-  %155 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult571, i64 %asmresult572, i32 0, i64 %asmresult562, i64 %asmresult563, i64 %asmresult564) #3, !srcloc !158
-  %asmresult573 = extractvalue { i64, i64, i64 } %155, 0
-  %asmresult574 = extractvalue { i64, i64, i64 } %155, 1
-  %asmresult575 = extractvalue { i64, i64, i64 } %155, 2
-  %156 = load i64, ptr %arrayidx112, align 8
-  %157 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %156, ptr nonnull elementtype(i64) %arrayidx302) #3, !srcloc !159
-  %asmresult582 = extractvalue { i64, i64 } %157, 0
-  %asmresult583 = extractvalue { i64, i64 } %157, 1
-  %158 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult582, i64 %asmresult583, i32 0, i64 %asmresult573, i64 %asmresult574, i64 %asmresult575) #3, !srcloc !160
-  %asmresult584 = extractvalue { i64, i64, i64 } %158, 0
-  %asmresult585 = extractvalue { i64, i64, i64 } %158, 1
-  %asmresult586 = extractvalue { i64, i64, i64 } %158, 2
-  %159 = load i64, ptr %arrayidx100, align 8
-  %160 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %159, ptr nonnull elementtype(i64) %arrayidx314) #3, !srcloc !161
-  %asmresult593 = extractvalue { i64, i64 } %160, 0
-  %asmresult594 = extractvalue { i64, i64 } %160, 1
-  %161 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult593, i64 %asmresult594, i32 0, i64 %asmresult584, i64 %asmresult585, i64 %asmresult586) #3, !srcloc !162
-  %asmresult595 = extractvalue { i64, i64, i64 } %161, 0
-  %asmresult596 = extractvalue { i64, i64, i64 } %161, 1
-  %asmresult597 = extractvalue { i64, i64, i64 } %161, 2
-  %arrayidx599 = getelementptr inbounds nuw i8, ptr %r, i64 80
-  store i64 %asmresult595, ptr %arrayidx599, align 8
-  %162 = load i64, ptr %arrayidx112, align 8
-  %163 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %162, ptr nonnull elementtype(i64) %arrayidx314) #3, !srcloc !163
-  %asmresult605 = extractvalue { i64, i64 } %163, 0
-  %asmresult606 = extractvalue { i64, i64 } %163, 1
-  %164 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult605, i64 %asmresult606, i32 0, i64 %asmresult596, i64 %asmresult597, i64 0) #3, !srcloc !164
-  %asmresult607 = extractvalue { i64, i64, i64 } %164, 0
-  %asmresult608 = extractvalue { i64, i64, i64 } %164, 1
-  %asmresult609 = extractvalue { i64, i64, i64 } %164, 2
-  %165 = load i64, ptr %arrayidx223, align 8
-  %166 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %165, ptr nonnull elementtype(i64) %arrayidx302) #3, !srcloc !165
-  %asmresult616 = extractvalue { i64, i64 } %166, 0
-  %asmresult617 = extractvalue { i64, i64 } %166, 1
-  %167 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult616, i64 %asmresult617, i32 0, i64 %asmresult607, i64 %asmresult608, i64 %asmresult609) #3, !srcloc !166
-  %asmresult618 = extractvalue { i64, i64, i64 } %167, 0
-  %asmresult619 = extractvalue { i64, i64, i64 } %167, 1
-  %asmresult620 = extractvalue { i64, i64, i64 } %167, 2
-  %168 = load i64, ptr %arrayidx235, align 8
-  %169 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %168, ptr nonnull elementtype(i64) %arrayidx169) #3, !srcloc !167
-  %asmresult627 = extractvalue { i64, i64 } %169, 0
-  %asmresult628 = extractvalue { i64, i64 } %169, 1
-  %170 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult627, i64 %asmresult628, i32 0, i64 %asmresult618, i64 %asmresult619, i64 %asmresult620) #3, !srcloc !168
-  %asmresult629 = extractvalue { i64, i64, i64 } %170, 0
-  %asmresult630 = extractvalue { i64, i64, i64 } %170, 1
-  %asmresult631 = extractvalue { i64, i64, i64 } %170, 2
-  %171 = load i64, ptr %arrayidx390, align 8
-  %172 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %171, ptr nonnull elementtype(i64) %arrayidx157) #3, !srcloc !169
-  %asmresult638 = extractvalue { i64, i64 } %172, 0
-  %asmresult639 = extractvalue { i64, i64 } %172, 1
-  %173 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult638, i64 %asmresult639, i32 0, i64 %asmresult629, i64 %asmresult630, i64 %asmresult631) #3, !srcloc !170
-  %asmresult640 = extractvalue { i64, i64, i64 } %173, 0
-  %asmresult641 = extractvalue { i64, i64, i64 } %173, 1
-  %asmresult642 = extractvalue { i64, i64, i64 } %173, 2
-  %arrayidx644 = getelementptr inbounds nuw i8, ptr %r, i64 88
-  store i64 %asmresult640, ptr %arrayidx644, align 8
-  %174 = load i64, ptr %arrayidx390, align 8
-  %175 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %174, ptr nonnull elementtype(i64) %arrayidx169) #3, !srcloc !171
-  %asmresult650 = extractvalue { i64, i64 } %175, 0
-  %asmresult651 = extractvalue { i64, i64 } %175, 1
-  %176 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult650, i64 %asmresult651, i32 0, i64 %asmresult641, i64 %asmresult642, i64 0) #3, !srcloc !172
-  %asmresult652 = extractvalue { i64, i64, i64 } %176, 0
-  %asmresult653 = extractvalue { i64, i64, i64 } %176, 1
-  %asmresult654 = extractvalue { i64, i64, i64 } %176, 2
-  %177 = load i64, ptr %arrayidx235, align 8
-  %178 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %177, ptr nonnull elementtype(i64) %arrayidx302) #3, !srcloc !173
-  %asmresult661 = extractvalue { i64, i64 } %178, 0
-  %asmresult662 = extractvalue { i64, i64 } %178, 1
-  %179 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult661, i64 %asmresult662, i32 0, i64 %asmresult652, i64 %asmresult653, i64 %asmresult654) #3, !srcloc !174
-  %asmresult663 = extractvalue { i64, i64, i64 } %179, 0
-  %asmresult664 = extractvalue { i64, i64, i64 } %179, 1
-  %asmresult665 = extractvalue { i64, i64, i64 } %179, 2
-  %180 = load i64, ptr %arrayidx223, align 8
-  %181 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %180, ptr nonnull elementtype(i64) %arrayidx314) #3, !srcloc !175
-  %asmresult672 = extractvalue { i64, i64 } %181, 0
-  %asmresult673 = extractvalue { i64, i64 } %181, 1
-  %182 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult672, i64 %asmresult673, i32 0, i64 %asmresult663, i64 %asmresult664, i64 %asmresult665) #3, !srcloc !176
-  %asmresult674 = extractvalue { i64, i64, i64 } %182, 0
-  %asmresult675 = extractvalue { i64, i64, i64 } %182, 1
-  %asmresult676 = extractvalue { i64, i64, i64 } %182, 2
-  %arrayidx678 = getelementptr inbounds nuw i8, ptr %r, i64 96
-  store i64 %asmresult674, ptr %arrayidx678, align 8
-  %183 = load i64, ptr %arrayidx235, align 8
-  %184 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %183, ptr nonnull elementtype(i64) %arrayidx314) #3, !srcloc !177
-  %asmresult684 = extractvalue { i64, i64 } %184, 0
-  %asmresult685 = extractvalue { i64, i64 } %184, 1
-  %185 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult684, i64 %asmresult685, i32 0, i64 %asmresult675, i64 %asmresult676, i64 0) #3, !srcloc !178
-  %asmresult686 = extractvalue { i64, i64, i64 } %185, 0
-  %asmresult687 = extractvalue { i64, i64, i64 } %185, 1
-  %asmresult688 = extractvalue { i64, i64, i64 } %185, 2
-  %186 = load i64, ptr %arrayidx390, align 8
-  %187 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %186, ptr nonnull elementtype(i64) %arrayidx302) #3, !srcloc !179
-  %asmresult695 = extractvalue { i64, i64 } %187, 0
-  %asmresult696 = extractvalue { i64, i64 } %187, 1
-  %188 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult695, i64 %asmresult696, i32 0, i64 %asmresult686, i64 %asmresult687, i64 %asmresult688) #3, !srcloc !180
-  %asmresult697 = extractvalue { i64, i64, i64 } %188, 0
-  %asmresult698 = extractvalue { i64, i64, i64 } %188, 1
-  %asmresult699 = extractvalue { i64, i64, i64 } %188, 2
-  %arrayidx701 = getelementptr inbounds nuw i8, ptr %r, i64 104
-  store i64 %asmresult697, ptr %arrayidx701, align 8
-  %189 = load i64, ptr %arrayidx390, align 8
-  %190 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %189, ptr nonnull elementtype(i64) %arrayidx314) #3, !srcloc !181
-  %asmresult707 = extractvalue { i64, i64 } %190, 0
-  %asmresult708 = extractvalue { i64, i64 } %190, 1
-  %191 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult707, i64 %asmresult708, i32 0, i64 %asmresult698, i64 %asmresult699, i64 0) #3, !srcloc !182
-  %asmresult709 = extractvalue { i64, i64, i64 } %191, 0
-  %asmresult710 = extractvalue { i64, i64, i64 } %191, 1
-  %arrayidx713 = getelementptr inbounds nuw i8, ptr %r, i64 112
-  store i64 %asmresult709, ptr %arrayidx713, align 8
-  %arrayidx714 = getelementptr inbounds nuw i8, ptr %r, i64 120
-  store i64 %asmresult710, ptr %arrayidx714, align 8
+define hidden void @bn_mul_comba8(ptr noundef writeonly captures(none) initializes((0, 128)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load i64, ptr %1, align 8, !tbaa !29
+  %5 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %4, ptr elementtype(i64) %2) #3, !srcloc !58
+  %6 = extractvalue { i64, i64 } %5, 0
+  %7 = extractvalue { i64, i64 } %5, 1
+  %8 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %7, i32 0, i64 0, i64 0, i64 0) #3, !srcloc !59
+  %9 = extractvalue { i64, i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64, i64 } %8, 1
+  %11 = extractvalue { i64, i64, i64 } %8, 2
+  store i64 %9, ptr %0, align 8, !tbaa !29
+  %12 = load i64, ptr %1, align 8, !tbaa !29
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull elementtype(i64) %13) #3, !srcloc !60
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  %17 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15, i64 %16, i32 0, i64 %10, i64 %11, i64 0) #3, !srcloc !61
+  %18 = extractvalue { i64, i64, i64 } %17, 0
+  %19 = extractvalue { i64, i64, i64 } %17, 1
+  %20 = extractvalue { i64, i64, i64 } %17, 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !29
+  %23 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %22, ptr elementtype(i64) %2) #3, !srcloc !62
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = extractvalue { i64, i64 } %23, 1
+  %26 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %25, i32 0, i64 %18, i64 %19, i64 %20) #3, !srcloc !63
+  %27 = extractvalue { i64, i64, i64 } %26, 0
+  %28 = extractvalue { i64, i64, i64 } %26, 1
+  %29 = extractvalue { i64, i64, i64 } %26, 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %27, ptr %30, align 8, !tbaa !29
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %32 = load i64, ptr %31, align 8, !tbaa !29
+  %33 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %32, ptr elementtype(i64) %2) #3, !srcloc !64
+  %34 = extractvalue { i64, i64 } %33, 0
+  %35 = extractvalue { i64, i64 } %33, 1
+  %36 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %34, i64 %35, i32 0, i64 %28, i64 %29, i64 0) #3, !srcloc !65
+  %37 = extractvalue { i64, i64, i64 } %36, 0
+  %38 = extractvalue { i64, i64, i64 } %36, 1
+  %39 = extractvalue { i64, i64, i64 } %36, 2
+  %40 = load i64, ptr %21, align 8, !tbaa !29
+  %41 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %40, ptr nonnull elementtype(i64) %13) #3, !srcloc !66
+  %42 = extractvalue { i64, i64 } %41, 0
+  %43 = extractvalue { i64, i64 } %41, 1
+  %44 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %42, i64 %43, i32 0, i64 %37, i64 %38, i64 %39) #3, !srcloc !67
+  %45 = extractvalue { i64, i64, i64 } %44, 0
+  %46 = extractvalue { i64, i64, i64 } %44, 1
+  %47 = extractvalue { i64, i64, i64 } %44, 2
+  %48 = load i64, ptr %1, align 8, !tbaa !29
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %50 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull elementtype(i64) %49) #3, !srcloc !68
+  %51 = extractvalue { i64, i64 } %50, 0
+  %52 = extractvalue { i64, i64 } %50, 1
+  %53 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 %52, i32 0, i64 %45, i64 %46, i64 %47) #3, !srcloc !69
+  %54 = extractvalue { i64, i64, i64 } %53, 0
+  %55 = extractvalue { i64, i64, i64 } %53, 1
+  %56 = extractvalue { i64, i64, i64 } %53, 2
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %54, ptr %57, align 8, !tbaa !29
+  %58 = load i64, ptr %1, align 8, !tbaa !29
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %60 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %58, ptr nonnull elementtype(i64) %59) #3, !srcloc !70
+  %61 = extractvalue { i64, i64 } %60, 0
+  %62 = extractvalue { i64, i64 } %60, 1
+  %63 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %61, i64 %62, i32 0, i64 %55, i64 %56, i64 0) #3, !srcloc !71
+  %64 = extractvalue { i64, i64, i64 } %63, 0
+  %65 = extractvalue { i64, i64, i64 } %63, 1
+  %66 = extractvalue { i64, i64, i64 } %63, 2
+  %67 = load i64, ptr %21, align 8, !tbaa !29
+  %68 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %67, ptr nonnull elementtype(i64) %49) #3, !srcloc !72
+  %69 = extractvalue { i64, i64 } %68, 0
+  %70 = extractvalue { i64, i64 } %68, 1
+  %71 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %70, i32 0, i64 %64, i64 %65, i64 %66) #3, !srcloc !73
+  %72 = extractvalue { i64, i64, i64 } %71, 0
+  %73 = extractvalue { i64, i64, i64 } %71, 1
+  %74 = extractvalue { i64, i64, i64 } %71, 2
+  %75 = load i64, ptr %31, align 8, !tbaa !29
+  %76 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %75, ptr nonnull elementtype(i64) %13) #3, !srcloc !74
+  %77 = extractvalue { i64, i64 } %76, 0
+  %78 = extractvalue { i64, i64 } %76, 1
+  %79 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %78, i32 0, i64 %72, i64 %73, i64 %74) #3, !srcloc !75
+  %80 = extractvalue { i64, i64, i64 } %79, 0
+  %81 = extractvalue { i64, i64, i64 } %79, 1
+  %82 = extractvalue { i64, i64, i64 } %79, 2
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %84 = load i64, ptr %83, align 8, !tbaa !29
+  %85 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %84, ptr elementtype(i64) %2) #3, !srcloc !76
+  %86 = extractvalue { i64, i64 } %85, 0
+  %87 = extractvalue { i64, i64 } %85, 1
+  %88 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %86, i64 %87, i32 0, i64 %80, i64 %81, i64 %82) #3, !srcloc !77
+  %89 = extractvalue { i64, i64, i64 } %88, 0
+  %90 = extractvalue { i64, i64, i64 } %88, 1
+  %91 = extractvalue { i64, i64, i64 } %88, 2
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %89, ptr %92, align 8, !tbaa !29
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %94 = load i64, ptr %93, align 8, !tbaa !29
+  %95 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %94, ptr elementtype(i64) %2) #3, !srcloc !78
+  %96 = extractvalue { i64, i64 } %95, 0
+  %97 = extractvalue { i64, i64 } %95, 1
+  %98 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97, i32 0, i64 %90, i64 %91, i64 0) #3, !srcloc !79
+  %99 = extractvalue { i64, i64, i64 } %98, 0
+  %100 = extractvalue { i64, i64, i64 } %98, 1
+  %101 = extractvalue { i64, i64, i64 } %98, 2
+  %102 = load i64, ptr %83, align 8, !tbaa !29
+  %103 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %102, ptr nonnull elementtype(i64) %13) #3, !srcloc !80
+  %104 = extractvalue { i64, i64 } %103, 0
+  %105 = extractvalue { i64, i64 } %103, 1
+  %106 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %104, i64 %105, i32 0, i64 %99, i64 %100, i64 %101) #3, !srcloc !81
+  %107 = extractvalue { i64, i64, i64 } %106, 0
+  %108 = extractvalue { i64, i64, i64 } %106, 1
+  %109 = extractvalue { i64, i64, i64 } %106, 2
+  %110 = load i64, ptr %31, align 8, !tbaa !29
+  %111 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %110, ptr nonnull elementtype(i64) %49) #3, !srcloc !82
+  %112 = extractvalue { i64, i64 } %111, 0
+  %113 = extractvalue { i64, i64 } %111, 1
+  %114 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %112, i64 %113, i32 0, i64 %107, i64 %108, i64 %109) #3, !srcloc !83
+  %115 = extractvalue { i64, i64, i64 } %114, 0
+  %116 = extractvalue { i64, i64, i64 } %114, 1
+  %117 = extractvalue { i64, i64, i64 } %114, 2
+  %118 = load i64, ptr %21, align 8, !tbaa !29
+  %119 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %118, ptr nonnull elementtype(i64) %59) #3, !srcloc !84
+  %120 = extractvalue { i64, i64 } %119, 0
+  %121 = extractvalue { i64, i64 } %119, 1
+  %122 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %120, i64 %121, i32 0, i64 %115, i64 %116, i64 %117) #3, !srcloc !85
+  %123 = extractvalue { i64, i64, i64 } %122, 0
+  %124 = extractvalue { i64, i64, i64 } %122, 1
+  %125 = extractvalue { i64, i64, i64 } %122, 2
+  %126 = load i64, ptr %1, align 8, !tbaa !29
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %128 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %126, ptr nonnull elementtype(i64) %127) #3, !srcloc !86
+  %129 = extractvalue { i64, i64 } %128, 0
+  %130 = extractvalue { i64, i64 } %128, 1
+  %131 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %129, i64 %130, i32 0, i64 %123, i64 %124, i64 %125) #3, !srcloc !87
+  %132 = extractvalue { i64, i64, i64 } %131, 0
+  %133 = extractvalue { i64, i64, i64 } %131, 1
+  %134 = extractvalue { i64, i64, i64 } %131, 2
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %132, ptr %135, align 8, !tbaa !29
+  %136 = load i64, ptr %1, align 8, !tbaa !29
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %138 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %136, ptr nonnull elementtype(i64) %137) #3, !srcloc !88
+  %139 = extractvalue { i64, i64 } %138, 0
+  %140 = extractvalue { i64, i64 } %138, 1
+  %141 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %139, i64 %140, i32 0, i64 %133, i64 %134, i64 0) #3, !srcloc !89
+  %142 = extractvalue { i64, i64, i64 } %141, 0
+  %143 = extractvalue { i64, i64, i64 } %141, 1
+  %144 = extractvalue { i64, i64, i64 } %141, 2
+  %145 = load i64, ptr %21, align 8, !tbaa !29
+  %146 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %145, ptr nonnull elementtype(i64) %127) #3, !srcloc !90
+  %147 = extractvalue { i64, i64 } %146, 0
+  %148 = extractvalue { i64, i64 } %146, 1
+  %149 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %147, i64 %148, i32 0, i64 %142, i64 %143, i64 %144) #3, !srcloc !91
+  %150 = extractvalue { i64, i64, i64 } %149, 0
+  %151 = extractvalue { i64, i64, i64 } %149, 1
+  %152 = extractvalue { i64, i64, i64 } %149, 2
+  %153 = load i64, ptr %31, align 8, !tbaa !29
+  %154 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %153, ptr nonnull elementtype(i64) %59) #3, !srcloc !92
+  %155 = extractvalue { i64, i64 } %154, 0
+  %156 = extractvalue { i64, i64 } %154, 1
+  %157 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %155, i64 %156, i32 0, i64 %150, i64 %151, i64 %152) #3, !srcloc !93
+  %158 = extractvalue { i64, i64, i64 } %157, 0
+  %159 = extractvalue { i64, i64, i64 } %157, 1
+  %160 = extractvalue { i64, i64, i64 } %157, 2
+  %161 = load i64, ptr %83, align 8, !tbaa !29
+  %162 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %161, ptr nonnull elementtype(i64) %49) #3, !srcloc !94
+  %163 = extractvalue { i64, i64 } %162, 0
+  %164 = extractvalue { i64, i64 } %162, 1
+  %165 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %163, i64 %164, i32 0, i64 %158, i64 %159, i64 %160) #3, !srcloc !95
+  %166 = extractvalue { i64, i64, i64 } %165, 0
+  %167 = extractvalue { i64, i64, i64 } %165, 1
+  %168 = extractvalue { i64, i64, i64 } %165, 2
+  %169 = load i64, ptr %93, align 8, !tbaa !29
+  %170 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %169, ptr nonnull elementtype(i64) %13) #3, !srcloc !96
+  %171 = extractvalue { i64, i64 } %170, 0
+  %172 = extractvalue { i64, i64 } %170, 1
+  %173 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %171, i64 %172, i32 0, i64 %166, i64 %167, i64 %168) #3, !srcloc !97
+  %174 = extractvalue { i64, i64, i64 } %173, 0
+  %175 = extractvalue { i64, i64, i64 } %173, 1
+  %176 = extractvalue { i64, i64, i64 } %173, 2
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %178 = load i64, ptr %177, align 8, !tbaa !29
+  %179 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %178, ptr elementtype(i64) %2) #3, !srcloc !98
+  %180 = extractvalue { i64, i64 } %179, 0
+  %181 = extractvalue { i64, i64 } %179, 1
+  %182 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %180, i64 %181, i32 0, i64 %174, i64 %175, i64 %176) #3, !srcloc !99
+  %183 = extractvalue { i64, i64, i64 } %182, 0
+  %184 = extractvalue { i64, i64, i64 } %182, 1
+  %185 = extractvalue { i64, i64, i64 } %182, 2
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %183, ptr %186, align 8, !tbaa !29
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %188 = load i64, ptr %187, align 8, !tbaa !29
+  %189 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %188, ptr elementtype(i64) %2) #3, !srcloc !100
+  %190 = extractvalue { i64, i64 } %189, 0
+  %191 = extractvalue { i64, i64 } %189, 1
+  %192 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %190, i64 %191, i32 0, i64 %184, i64 %185, i64 0) #3, !srcloc !101
+  %193 = extractvalue { i64, i64, i64 } %192, 0
+  %194 = extractvalue { i64, i64, i64 } %192, 1
+  %195 = extractvalue { i64, i64, i64 } %192, 2
+  %196 = load i64, ptr %177, align 8, !tbaa !29
+  %197 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %196, ptr nonnull elementtype(i64) %13) #3, !srcloc !102
+  %198 = extractvalue { i64, i64 } %197, 0
+  %199 = extractvalue { i64, i64 } %197, 1
+  %200 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %198, i64 %199, i32 0, i64 %193, i64 %194, i64 %195) #3, !srcloc !103
+  %201 = extractvalue { i64, i64, i64 } %200, 0
+  %202 = extractvalue { i64, i64, i64 } %200, 1
+  %203 = extractvalue { i64, i64, i64 } %200, 2
+  %204 = load i64, ptr %93, align 8, !tbaa !29
+  %205 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %204, ptr nonnull elementtype(i64) %49) #3, !srcloc !104
+  %206 = extractvalue { i64, i64 } %205, 0
+  %207 = extractvalue { i64, i64 } %205, 1
+  %208 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %206, i64 %207, i32 0, i64 %201, i64 %202, i64 %203) #3, !srcloc !105
+  %209 = extractvalue { i64, i64, i64 } %208, 0
+  %210 = extractvalue { i64, i64, i64 } %208, 1
+  %211 = extractvalue { i64, i64, i64 } %208, 2
+  %212 = load i64, ptr %83, align 8, !tbaa !29
+  %213 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %212, ptr nonnull elementtype(i64) %59) #3, !srcloc !106
+  %214 = extractvalue { i64, i64 } %213, 0
+  %215 = extractvalue { i64, i64 } %213, 1
+  %216 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %214, i64 %215, i32 0, i64 %209, i64 %210, i64 %211) #3, !srcloc !107
+  %217 = extractvalue { i64, i64, i64 } %216, 0
+  %218 = extractvalue { i64, i64, i64 } %216, 1
+  %219 = extractvalue { i64, i64, i64 } %216, 2
+  %220 = load i64, ptr %31, align 8, !tbaa !29
+  %221 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %220, ptr nonnull elementtype(i64) %127) #3, !srcloc !108
+  %222 = extractvalue { i64, i64 } %221, 0
+  %223 = extractvalue { i64, i64 } %221, 1
+  %224 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %222, i64 %223, i32 0, i64 %217, i64 %218, i64 %219) #3, !srcloc !109
+  %225 = extractvalue { i64, i64, i64 } %224, 0
+  %226 = extractvalue { i64, i64, i64 } %224, 1
+  %227 = extractvalue { i64, i64, i64 } %224, 2
+  %228 = load i64, ptr %21, align 8, !tbaa !29
+  %229 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %228, ptr nonnull elementtype(i64) %137) #3, !srcloc !110
+  %230 = extractvalue { i64, i64 } %229, 0
+  %231 = extractvalue { i64, i64 } %229, 1
+  %232 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %230, i64 %231, i32 0, i64 %225, i64 %226, i64 %227) #3, !srcloc !111
+  %233 = extractvalue { i64, i64, i64 } %232, 0
+  %234 = extractvalue { i64, i64, i64 } %232, 1
+  %235 = extractvalue { i64, i64, i64 } %232, 2
+  %236 = load i64, ptr %1, align 8, !tbaa !29
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %238 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %236, ptr nonnull elementtype(i64) %237) #3, !srcloc !112
+  %239 = extractvalue { i64, i64 } %238, 0
+  %240 = extractvalue { i64, i64 } %238, 1
+  %241 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %239, i64 %240, i32 0, i64 %233, i64 %234, i64 %235) #3, !srcloc !113
+  %242 = extractvalue { i64, i64, i64 } %241, 0
+  %243 = extractvalue { i64, i64, i64 } %241, 1
+  %244 = extractvalue { i64, i64, i64 } %241, 2
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %242, ptr %245, align 8, !tbaa !29
+  %246 = load i64, ptr %1, align 8, !tbaa !29
+  %247 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %248 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %246, ptr nonnull elementtype(i64) %247) #3, !srcloc !114
+  %249 = extractvalue { i64, i64 } %248, 0
+  %250 = extractvalue { i64, i64 } %248, 1
+  %251 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %249, i64 %250, i32 0, i64 %243, i64 %244, i64 0) #3, !srcloc !115
+  %252 = extractvalue { i64, i64, i64 } %251, 0
+  %253 = extractvalue { i64, i64, i64 } %251, 1
+  %254 = extractvalue { i64, i64, i64 } %251, 2
+  %255 = load i64, ptr %21, align 8, !tbaa !29
+  %256 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %255, ptr nonnull elementtype(i64) %237) #3, !srcloc !116
+  %257 = extractvalue { i64, i64 } %256, 0
+  %258 = extractvalue { i64, i64 } %256, 1
+  %259 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %257, i64 %258, i32 0, i64 %252, i64 %253, i64 %254) #3, !srcloc !117
+  %260 = extractvalue { i64, i64, i64 } %259, 0
+  %261 = extractvalue { i64, i64, i64 } %259, 1
+  %262 = extractvalue { i64, i64, i64 } %259, 2
+  %263 = load i64, ptr %31, align 8, !tbaa !29
+  %264 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %263, ptr nonnull elementtype(i64) %137) #3, !srcloc !118
+  %265 = extractvalue { i64, i64 } %264, 0
+  %266 = extractvalue { i64, i64 } %264, 1
+  %267 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %265, i64 %266, i32 0, i64 %260, i64 %261, i64 %262) #3, !srcloc !119
+  %268 = extractvalue { i64, i64, i64 } %267, 0
+  %269 = extractvalue { i64, i64, i64 } %267, 1
+  %270 = extractvalue { i64, i64, i64 } %267, 2
+  %271 = load i64, ptr %83, align 8, !tbaa !29
+  %272 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %271, ptr nonnull elementtype(i64) %127) #3, !srcloc !120
+  %273 = extractvalue { i64, i64 } %272, 0
+  %274 = extractvalue { i64, i64 } %272, 1
+  %275 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %273, i64 %274, i32 0, i64 %268, i64 %269, i64 %270) #3, !srcloc !121
+  %276 = extractvalue { i64, i64, i64 } %275, 0
+  %277 = extractvalue { i64, i64, i64 } %275, 1
+  %278 = extractvalue { i64, i64, i64 } %275, 2
+  %279 = load i64, ptr %93, align 8, !tbaa !29
+  %280 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %279, ptr nonnull elementtype(i64) %59) #3, !srcloc !122
+  %281 = extractvalue { i64, i64 } %280, 0
+  %282 = extractvalue { i64, i64 } %280, 1
+  %283 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %281, i64 %282, i32 0, i64 %276, i64 %277, i64 %278) #3, !srcloc !123
+  %284 = extractvalue { i64, i64, i64 } %283, 0
+  %285 = extractvalue { i64, i64, i64 } %283, 1
+  %286 = extractvalue { i64, i64, i64 } %283, 2
+  %287 = load i64, ptr %177, align 8, !tbaa !29
+  %288 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %287, ptr nonnull elementtype(i64) %49) #3, !srcloc !124
+  %289 = extractvalue { i64, i64 } %288, 0
+  %290 = extractvalue { i64, i64 } %288, 1
+  %291 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %289, i64 %290, i32 0, i64 %284, i64 %285, i64 %286) #3, !srcloc !125
+  %292 = extractvalue { i64, i64, i64 } %291, 0
+  %293 = extractvalue { i64, i64, i64 } %291, 1
+  %294 = extractvalue { i64, i64, i64 } %291, 2
+  %295 = load i64, ptr %187, align 8, !tbaa !29
+  %296 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %295, ptr nonnull elementtype(i64) %13) #3, !srcloc !126
+  %297 = extractvalue { i64, i64 } %296, 0
+  %298 = extractvalue { i64, i64 } %296, 1
+  %299 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %297, i64 %298, i32 0, i64 %292, i64 %293, i64 %294) #3, !srcloc !127
+  %300 = extractvalue { i64, i64, i64 } %299, 0
+  %301 = extractvalue { i64, i64, i64 } %299, 1
+  %302 = extractvalue { i64, i64, i64 } %299, 2
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %304 = load i64, ptr %303, align 8, !tbaa !29
+  %305 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %304, ptr elementtype(i64) %2) #3, !srcloc !128
+  %306 = extractvalue { i64, i64 } %305, 0
+  %307 = extractvalue { i64, i64 } %305, 1
+  %308 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %306, i64 %307, i32 0, i64 %300, i64 %301, i64 %302) #3, !srcloc !129
+  %309 = extractvalue { i64, i64, i64 } %308, 0
+  %310 = extractvalue { i64, i64, i64 } %308, 1
+  %311 = extractvalue { i64, i64, i64 } %308, 2
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %309, ptr %312, align 8, !tbaa !29
+  %313 = load i64, ptr %303, align 8, !tbaa !29
+  %314 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %313, ptr nonnull elementtype(i64) %13) #3, !srcloc !130
+  %315 = extractvalue { i64, i64 } %314, 0
+  %316 = extractvalue { i64, i64 } %314, 1
+  %317 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %315, i64 %316, i32 0, i64 %310, i64 %311, i64 0) #3, !srcloc !131
+  %318 = extractvalue { i64, i64, i64 } %317, 0
+  %319 = extractvalue { i64, i64, i64 } %317, 1
+  %320 = extractvalue { i64, i64, i64 } %317, 2
+  %321 = load i64, ptr %187, align 8, !tbaa !29
+  %322 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %321, ptr nonnull elementtype(i64) %49) #3, !srcloc !132
+  %323 = extractvalue { i64, i64 } %322, 0
+  %324 = extractvalue { i64, i64 } %322, 1
+  %325 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %323, i64 %324, i32 0, i64 %318, i64 %319, i64 %320) #3, !srcloc !133
+  %326 = extractvalue { i64, i64, i64 } %325, 0
+  %327 = extractvalue { i64, i64, i64 } %325, 1
+  %328 = extractvalue { i64, i64, i64 } %325, 2
+  %329 = load i64, ptr %177, align 8, !tbaa !29
+  %330 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %329, ptr nonnull elementtype(i64) %59) #3, !srcloc !134
+  %331 = extractvalue { i64, i64 } %330, 0
+  %332 = extractvalue { i64, i64 } %330, 1
+  %333 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %331, i64 %332, i32 0, i64 %326, i64 %327, i64 %328) #3, !srcloc !135
+  %334 = extractvalue { i64, i64, i64 } %333, 0
+  %335 = extractvalue { i64, i64, i64 } %333, 1
+  %336 = extractvalue { i64, i64, i64 } %333, 2
+  %337 = load i64, ptr %93, align 8, !tbaa !29
+  %338 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %337, ptr nonnull elementtype(i64) %127) #3, !srcloc !136
+  %339 = extractvalue { i64, i64 } %338, 0
+  %340 = extractvalue { i64, i64 } %338, 1
+  %341 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %339, i64 %340, i32 0, i64 %334, i64 %335, i64 %336) #3, !srcloc !137
+  %342 = extractvalue { i64, i64, i64 } %341, 0
+  %343 = extractvalue { i64, i64, i64 } %341, 1
+  %344 = extractvalue { i64, i64, i64 } %341, 2
+  %345 = load i64, ptr %83, align 8, !tbaa !29
+  %346 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %345, ptr nonnull elementtype(i64) %137) #3, !srcloc !138
+  %347 = extractvalue { i64, i64 } %346, 0
+  %348 = extractvalue { i64, i64 } %346, 1
+  %349 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %347, i64 %348, i32 0, i64 %342, i64 %343, i64 %344) #3, !srcloc !139
+  %350 = extractvalue { i64, i64, i64 } %349, 0
+  %351 = extractvalue { i64, i64, i64 } %349, 1
+  %352 = extractvalue { i64, i64, i64 } %349, 2
+  %353 = load i64, ptr %31, align 8, !tbaa !29
+  %354 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %353, ptr nonnull elementtype(i64) %237) #3, !srcloc !140
+  %355 = extractvalue { i64, i64 } %354, 0
+  %356 = extractvalue { i64, i64 } %354, 1
+  %357 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %355, i64 %356, i32 0, i64 %350, i64 %351, i64 %352) #3, !srcloc !141
+  %358 = extractvalue { i64, i64, i64 } %357, 0
+  %359 = extractvalue { i64, i64, i64 } %357, 1
+  %360 = extractvalue { i64, i64, i64 } %357, 2
+  %361 = load i64, ptr %21, align 8, !tbaa !29
+  %362 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %361, ptr nonnull elementtype(i64) %247) #3, !srcloc !142
+  %363 = extractvalue { i64, i64 } %362, 0
+  %364 = extractvalue { i64, i64 } %362, 1
+  %365 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %363, i64 %364, i32 0, i64 %358, i64 %359, i64 %360) #3, !srcloc !143
+  %366 = extractvalue { i64, i64, i64 } %365, 0
+  %367 = extractvalue { i64, i64, i64 } %365, 1
+  %368 = extractvalue { i64, i64, i64 } %365, 2
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %366, ptr %369, align 8, !tbaa !29
+  %370 = load i64, ptr %31, align 8, !tbaa !29
+  %371 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %370, ptr nonnull elementtype(i64) %247) #3, !srcloc !144
+  %372 = extractvalue { i64, i64 } %371, 0
+  %373 = extractvalue { i64, i64 } %371, 1
+  %374 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %372, i64 %373, i32 0, i64 %367, i64 %368, i64 0) #3, !srcloc !145
+  %375 = extractvalue { i64, i64, i64 } %374, 0
+  %376 = extractvalue { i64, i64, i64 } %374, 1
+  %377 = extractvalue { i64, i64, i64 } %374, 2
+  %378 = load i64, ptr %83, align 8, !tbaa !29
+  %379 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %378, ptr nonnull elementtype(i64) %237) #3, !srcloc !146
+  %380 = extractvalue { i64, i64 } %379, 0
+  %381 = extractvalue { i64, i64 } %379, 1
+  %382 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %380, i64 %381, i32 0, i64 %375, i64 %376, i64 %377) #3, !srcloc !147
+  %383 = extractvalue { i64, i64, i64 } %382, 0
+  %384 = extractvalue { i64, i64, i64 } %382, 1
+  %385 = extractvalue { i64, i64, i64 } %382, 2
+  %386 = load i64, ptr %93, align 8, !tbaa !29
+  %387 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %386, ptr nonnull elementtype(i64) %137) #3, !srcloc !148
+  %388 = extractvalue { i64, i64 } %387, 0
+  %389 = extractvalue { i64, i64 } %387, 1
+  %390 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %388, i64 %389, i32 0, i64 %383, i64 %384, i64 %385) #3, !srcloc !149
+  %391 = extractvalue { i64, i64, i64 } %390, 0
+  %392 = extractvalue { i64, i64, i64 } %390, 1
+  %393 = extractvalue { i64, i64, i64 } %390, 2
+  %394 = load i64, ptr %177, align 8, !tbaa !29
+  %395 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %394, ptr nonnull elementtype(i64) %127) #3, !srcloc !150
+  %396 = extractvalue { i64, i64 } %395, 0
+  %397 = extractvalue { i64, i64 } %395, 1
+  %398 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %396, i64 %397, i32 0, i64 %391, i64 %392, i64 %393) #3, !srcloc !151
+  %399 = extractvalue { i64, i64, i64 } %398, 0
+  %400 = extractvalue { i64, i64, i64 } %398, 1
+  %401 = extractvalue { i64, i64, i64 } %398, 2
+  %402 = load i64, ptr %187, align 8, !tbaa !29
+  %403 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %402, ptr nonnull elementtype(i64) %59) #3, !srcloc !152
+  %404 = extractvalue { i64, i64 } %403, 0
+  %405 = extractvalue { i64, i64 } %403, 1
+  %406 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %404, i64 %405, i32 0, i64 %399, i64 %400, i64 %401) #3, !srcloc !153
+  %407 = extractvalue { i64, i64, i64 } %406, 0
+  %408 = extractvalue { i64, i64, i64 } %406, 1
+  %409 = extractvalue { i64, i64, i64 } %406, 2
+  %410 = load i64, ptr %303, align 8, !tbaa !29
+  %411 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %410, ptr nonnull elementtype(i64) %49) #3, !srcloc !154
+  %412 = extractvalue { i64, i64 } %411, 0
+  %413 = extractvalue { i64, i64 } %411, 1
+  %414 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %412, i64 %413, i32 0, i64 %407, i64 %408, i64 %409) #3, !srcloc !155
+  %415 = extractvalue { i64, i64, i64 } %414, 0
+  %416 = extractvalue { i64, i64, i64 } %414, 1
+  %417 = extractvalue { i64, i64, i64 } %414, 2
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %415, ptr %418, align 8, !tbaa !29
+  %419 = load i64, ptr %303, align 8, !tbaa !29
+  %420 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %419, ptr nonnull elementtype(i64) %59) #3, !srcloc !156
+  %421 = extractvalue { i64, i64 } %420, 0
+  %422 = extractvalue { i64, i64 } %420, 1
+  %423 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %421, i64 %422, i32 0, i64 %416, i64 %417, i64 0) #3, !srcloc !157
+  %424 = extractvalue { i64, i64, i64 } %423, 0
+  %425 = extractvalue { i64, i64, i64 } %423, 1
+  %426 = extractvalue { i64, i64, i64 } %423, 2
+  %427 = load i64, ptr %187, align 8, !tbaa !29
+  %428 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %427, ptr nonnull elementtype(i64) %127) #3, !srcloc !158
+  %429 = extractvalue { i64, i64 } %428, 0
+  %430 = extractvalue { i64, i64 } %428, 1
+  %431 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %429, i64 %430, i32 0, i64 %424, i64 %425, i64 %426) #3, !srcloc !159
+  %432 = extractvalue { i64, i64, i64 } %431, 0
+  %433 = extractvalue { i64, i64, i64 } %431, 1
+  %434 = extractvalue { i64, i64, i64 } %431, 2
+  %435 = load i64, ptr %177, align 8, !tbaa !29
+  %436 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %435, ptr nonnull elementtype(i64) %137) #3, !srcloc !160
+  %437 = extractvalue { i64, i64 } %436, 0
+  %438 = extractvalue { i64, i64 } %436, 1
+  %439 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %437, i64 %438, i32 0, i64 %432, i64 %433, i64 %434) #3, !srcloc !161
+  %440 = extractvalue { i64, i64, i64 } %439, 0
+  %441 = extractvalue { i64, i64, i64 } %439, 1
+  %442 = extractvalue { i64, i64, i64 } %439, 2
+  %443 = load i64, ptr %93, align 8, !tbaa !29
+  %444 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %443, ptr nonnull elementtype(i64) %237) #3, !srcloc !162
+  %445 = extractvalue { i64, i64 } %444, 0
+  %446 = extractvalue { i64, i64 } %444, 1
+  %447 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %445, i64 %446, i32 0, i64 %440, i64 %441, i64 %442) #3, !srcloc !163
+  %448 = extractvalue { i64, i64, i64 } %447, 0
+  %449 = extractvalue { i64, i64, i64 } %447, 1
+  %450 = extractvalue { i64, i64, i64 } %447, 2
+  %451 = load i64, ptr %83, align 8, !tbaa !29
+  %452 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %451, ptr nonnull elementtype(i64) %247) #3, !srcloc !164
+  %453 = extractvalue { i64, i64 } %452, 0
+  %454 = extractvalue { i64, i64 } %452, 1
+  %455 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %453, i64 %454, i32 0, i64 %448, i64 %449, i64 %450) #3, !srcloc !165
+  %456 = extractvalue { i64, i64, i64 } %455, 0
+  %457 = extractvalue { i64, i64, i64 } %455, 1
+  %458 = extractvalue { i64, i64, i64 } %455, 2
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %456, ptr %459, align 8, !tbaa !29
+  %460 = load i64, ptr %93, align 8, !tbaa !29
+  %461 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %460, ptr nonnull elementtype(i64) %247) #3, !srcloc !166
+  %462 = extractvalue { i64, i64 } %461, 0
+  %463 = extractvalue { i64, i64 } %461, 1
+  %464 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %462, i64 %463, i32 0, i64 %457, i64 %458, i64 0) #3, !srcloc !167
+  %465 = extractvalue { i64, i64, i64 } %464, 0
+  %466 = extractvalue { i64, i64, i64 } %464, 1
+  %467 = extractvalue { i64, i64, i64 } %464, 2
+  %468 = load i64, ptr %177, align 8, !tbaa !29
+  %469 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %468, ptr nonnull elementtype(i64) %237) #3, !srcloc !168
+  %470 = extractvalue { i64, i64 } %469, 0
+  %471 = extractvalue { i64, i64 } %469, 1
+  %472 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %470, i64 %471, i32 0, i64 %465, i64 %466, i64 %467) #3, !srcloc !169
+  %473 = extractvalue { i64, i64, i64 } %472, 0
+  %474 = extractvalue { i64, i64, i64 } %472, 1
+  %475 = extractvalue { i64, i64, i64 } %472, 2
+  %476 = load i64, ptr %187, align 8, !tbaa !29
+  %477 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %476, ptr nonnull elementtype(i64) %137) #3, !srcloc !170
+  %478 = extractvalue { i64, i64 } %477, 0
+  %479 = extractvalue { i64, i64 } %477, 1
+  %480 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %478, i64 %479, i32 0, i64 %473, i64 %474, i64 %475) #3, !srcloc !171
+  %481 = extractvalue { i64, i64, i64 } %480, 0
+  %482 = extractvalue { i64, i64, i64 } %480, 1
+  %483 = extractvalue { i64, i64, i64 } %480, 2
+  %484 = load i64, ptr %303, align 8, !tbaa !29
+  %485 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %484, ptr nonnull elementtype(i64) %127) #3, !srcloc !172
+  %486 = extractvalue { i64, i64 } %485, 0
+  %487 = extractvalue { i64, i64 } %485, 1
+  %488 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %486, i64 %487, i32 0, i64 %481, i64 %482, i64 %483) #3, !srcloc !173
+  %489 = extractvalue { i64, i64, i64 } %488, 0
+  %490 = extractvalue { i64, i64, i64 } %488, 1
+  %491 = extractvalue { i64, i64, i64 } %488, 2
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %489, ptr %492, align 8, !tbaa !29
+  %493 = load i64, ptr %303, align 8, !tbaa !29
+  %494 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %493, ptr nonnull elementtype(i64) %137) #3, !srcloc !174
+  %495 = extractvalue { i64, i64 } %494, 0
+  %496 = extractvalue { i64, i64 } %494, 1
+  %497 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %495, i64 %496, i32 0, i64 %490, i64 %491, i64 0) #3, !srcloc !175
+  %498 = extractvalue { i64, i64, i64 } %497, 0
+  %499 = extractvalue { i64, i64, i64 } %497, 1
+  %500 = extractvalue { i64, i64, i64 } %497, 2
+  %501 = load i64, ptr %187, align 8, !tbaa !29
+  %502 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %501, ptr nonnull elementtype(i64) %237) #3, !srcloc !176
+  %503 = extractvalue { i64, i64 } %502, 0
+  %504 = extractvalue { i64, i64 } %502, 1
+  %505 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %503, i64 %504, i32 0, i64 %498, i64 %499, i64 %500) #3, !srcloc !177
+  %506 = extractvalue { i64, i64, i64 } %505, 0
+  %507 = extractvalue { i64, i64, i64 } %505, 1
+  %508 = extractvalue { i64, i64, i64 } %505, 2
+  %509 = load i64, ptr %177, align 8, !tbaa !29
+  %510 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %509, ptr nonnull elementtype(i64) %247) #3, !srcloc !178
+  %511 = extractvalue { i64, i64 } %510, 0
+  %512 = extractvalue { i64, i64 } %510, 1
+  %513 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %511, i64 %512, i32 0, i64 %506, i64 %507, i64 %508) #3, !srcloc !179
+  %514 = extractvalue { i64, i64, i64 } %513, 0
+  %515 = extractvalue { i64, i64, i64 } %513, 1
+  %516 = extractvalue { i64, i64, i64 } %513, 2
+  %517 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 %514, ptr %517, align 8, !tbaa !29
+  %518 = load i64, ptr %187, align 8, !tbaa !29
+  %519 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %518, ptr nonnull elementtype(i64) %247) #3, !srcloc !180
+  %520 = extractvalue { i64, i64 } %519, 0
+  %521 = extractvalue { i64, i64 } %519, 1
+  %522 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %520, i64 %521, i32 0, i64 %515, i64 %516, i64 0) #3, !srcloc !181
+  %523 = extractvalue { i64, i64, i64 } %522, 0
+  %524 = extractvalue { i64, i64, i64 } %522, 1
+  %525 = extractvalue { i64, i64, i64 } %522, 2
+  %526 = load i64, ptr %303, align 8, !tbaa !29
+  %527 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %526, ptr nonnull elementtype(i64) %237) #3, !srcloc !182
+  %528 = extractvalue { i64, i64 } %527, 0
+  %529 = extractvalue { i64, i64 } %527, 1
+  %530 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %528, i64 %529, i32 0, i64 %523, i64 %524, i64 %525) #3, !srcloc !183
+  %531 = extractvalue { i64, i64, i64 } %530, 0
+  %532 = extractvalue { i64, i64, i64 } %530, 1
+  %533 = extractvalue { i64, i64, i64 } %530, 2
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 %531, ptr %534, align 8, !tbaa !29
+  %535 = load i64, ptr %303, align 8, !tbaa !29
+  %536 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %535, ptr nonnull elementtype(i64) %247) #3, !srcloc !184
+  %537 = extractvalue { i64, i64 } %536, 0
+  %538 = extractvalue { i64, i64 } %536, 1
+  %539 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %537, i64 %538, i32 0, i64 %532, i64 %533, i64 0) #3, !srcloc !185
+  %540 = extractvalue { i64, i64, i64 } %539, 0
+  %541 = extractvalue { i64, i64, i64 } %539, 1
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %540, ptr %542, align 8, !tbaa !29
+  %543 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 %541, ptr %543, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @bn_mul_comba4(ptr noundef writeonly captures(none) initializes((0, 64)) %r, ptr noundef readonly captures(none) %a, ptr noundef %b) local_unnamed_addr #1 {
-entry:
-  %0 = load i64, ptr %a, align 8
-  %1 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0, ptr elementtype(i64) %b) #3, !srcloc !183
-  %asmresult = extractvalue { i64, i64 } %1, 0
-  %asmresult2 = extractvalue { i64, i64 } %1, 1
-  %2 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult, i64 %asmresult2, i32 0, i64 0, i64 0, i64 0) #3, !srcloc !184
-  %asmresult3 = extractvalue { i64, i64, i64 } %2, 0
-  %asmresult4 = extractvalue { i64, i64, i64 } %2, 1
-  %asmresult5 = extractvalue { i64, i64, i64 } %2, 2
-  store i64 %asmresult3, ptr %r, align 8
-  %3 = load i64, ptr %a, align 8
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %b, i64 8
-  %4 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !185
-  %asmresult12 = extractvalue { i64, i64 } %4, 0
-  %asmresult13 = extractvalue { i64, i64 } %4, 1
-  %5 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult12, i64 %asmresult13, i32 0, i64 %asmresult4, i64 %asmresult5, i64 0) #3, !srcloc !186
-  %asmresult14 = extractvalue { i64, i64, i64 } %5, 0
-  %asmresult15 = extractvalue { i64, i64, i64 } %5, 1
-  %asmresult16 = extractvalue { i64, i64, i64 } %5, 2
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %6 = load i64, ptr %arrayidx21, align 8
-  %7 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr elementtype(i64) %b) #3, !srcloc !187
-  %asmresult23 = extractvalue { i64, i64 } %7, 0
-  %asmresult24 = extractvalue { i64, i64 } %7, 1
-  %8 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult23, i64 %asmresult24, i32 0, i64 %asmresult14, i64 %asmresult15, i64 %asmresult16) #3, !srcloc !188
-  %asmresult25 = extractvalue { i64, i64, i64 } %8, 0
-  %asmresult26 = extractvalue { i64, i64, i64 } %8, 1
-  %asmresult27 = extractvalue { i64, i64, i64 } %8, 2
-  %arrayidx29 = getelementptr inbounds nuw i8, ptr %r, i64 8
-  store i64 %asmresult25, ptr %arrayidx29, align 8
-  %arrayidx33 = getelementptr inbounds nuw i8, ptr %a, i64 16
-  %9 = load i64, ptr %arrayidx33, align 8
-  %10 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %9, ptr elementtype(i64) %b) #3, !srcloc !189
-  %asmresult35 = extractvalue { i64, i64 } %10, 0
-  %asmresult36 = extractvalue { i64, i64 } %10, 1
-  %11 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult35, i64 %asmresult36, i32 0, i64 %asmresult26, i64 %asmresult27, i64 0) #3, !srcloc !190
-  %asmresult37 = extractvalue { i64, i64, i64 } %11, 0
-  %asmresult38 = extractvalue { i64, i64, i64 } %11, 1
-  %asmresult39 = extractvalue { i64, i64, i64 } %11, 2
-  %12 = load i64, ptr %arrayidx21, align 8
-  %13 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !191
-  %asmresult46 = extractvalue { i64, i64 } %13, 0
-  %asmresult47 = extractvalue { i64, i64 } %13, 1
-  %14 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult46, i64 %asmresult47, i32 0, i64 %asmresult37, i64 %asmresult38, i64 %asmresult39) #3, !srcloc !192
-  %asmresult48 = extractvalue { i64, i64, i64 } %14, 0
-  %asmresult49 = extractvalue { i64, i64, i64 } %14, 1
-  %asmresult50 = extractvalue { i64, i64, i64 } %14, 2
-  %15 = load i64, ptr %a, align 8
-  %arrayidx56 = getelementptr inbounds nuw i8, ptr %b, i64 16
-  %16 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !193
-  %asmresult57 = extractvalue { i64, i64 } %16, 0
-  %asmresult58 = extractvalue { i64, i64 } %16, 1
-  %17 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult57, i64 %asmresult58, i32 0, i64 %asmresult48, i64 %asmresult49, i64 %asmresult50) #3, !srcloc !194
-  %asmresult59 = extractvalue { i64, i64, i64 } %17, 0
-  %asmresult60 = extractvalue { i64, i64, i64 } %17, 1
-  %asmresult61 = extractvalue { i64, i64, i64 } %17, 2
-  %arrayidx63 = getelementptr inbounds nuw i8, ptr %r, i64 16
-  store i64 %asmresult59, ptr %arrayidx63, align 8
-  %18 = load i64, ptr %a, align 8
-  %arrayidx68 = getelementptr inbounds nuw i8, ptr %b, i64 24
-  %19 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %18, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !195
-  %asmresult69 = extractvalue { i64, i64 } %19, 0
-  %asmresult70 = extractvalue { i64, i64 } %19, 1
-  %20 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult69, i64 %asmresult70, i32 0, i64 %asmresult60, i64 %asmresult61, i64 0) #3, !srcloc !196
-  %asmresult71 = extractvalue { i64, i64, i64 } %20, 0
-  %asmresult72 = extractvalue { i64, i64, i64 } %20, 1
-  %asmresult73 = extractvalue { i64, i64, i64 } %20, 2
-  %21 = load i64, ptr %arrayidx21, align 8
-  %22 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %21, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !197
-  %asmresult80 = extractvalue { i64, i64 } %22, 0
-  %asmresult81 = extractvalue { i64, i64 } %22, 1
-  %23 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult80, i64 %asmresult81, i32 0, i64 %asmresult71, i64 %asmresult72, i64 %asmresult73) #3, !srcloc !198
-  %asmresult82 = extractvalue { i64, i64, i64 } %23, 0
-  %asmresult83 = extractvalue { i64, i64, i64 } %23, 1
-  %asmresult84 = extractvalue { i64, i64, i64 } %23, 2
-  %24 = load i64, ptr %arrayidx33, align 8
-  %25 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %24, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !199
-  %asmresult91 = extractvalue { i64, i64 } %25, 0
-  %asmresult92 = extractvalue { i64, i64 } %25, 1
-  %26 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult91, i64 %asmresult92, i32 0, i64 %asmresult82, i64 %asmresult83, i64 %asmresult84) #3, !srcloc !200
-  %asmresult93 = extractvalue { i64, i64, i64 } %26, 0
-  %asmresult94 = extractvalue { i64, i64, i64 } %26, 1
-  %asmresult95 = extractvalue { i64, i64, i64 } %26, 2
-  %arrayidx100 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %27 = load i64, ptr %arrayidx100, align 8
-  %28 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %27, ptr elementtype(i64) %b) #3, !srcloc !201
-  %asmresult102 = extractvalue { i64, i64 } %28, 0
-  %asmresult103 = extractvalue { i64, i64 } %28, 1
-  %29 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult102, i64 %asmresult103, i32 0, i64 %asmresult93, i64 %asmresult94, i64 %asmresult95) #3, !srcloc !202
-  %asmresult104 = extractvalue { i64, i64, i64 } %29, 0
-  %asmresult105 = extractvalue { i64, i64, i64 } %29, 1
-  %asmresult106 = extractvalue { i64, i64, i64 } %29, 2
-  %arrayidx108 = getelementptr inbounds nuw i8, ptr %r, i64 24
-  store i64 %asmresult104, ptr %arrayidx108, align 8
-  %30 = load i64, ptr %arrayidx100, align 8
-  %31 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %30, ptr nonnull elementtype(i64) %arrayidx11) #3, !srcloc !203
-  %asmresult114 = extractvalue { i64, i64 } %31, 0
-  %asmresult115 = extractvalue { i64, i64 } %31, 1
-  %32 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult114, i64 %asmresult115, i32 0, i64 %asmresult105, i64 %asmresult106, i64 0) #3, !srcloc !204
-  %asmresult116 = extractvalue { i64, i64, i64 } %32, 0
-  %asmresult117 = extractvalue { i64, i64, i64 } %32, 1
-  %asmresult118 = extractvalue { i64, i64, i64 } %32, 2
-  %33 = load i64, ptr %arrayidx33, align 8
-  %34 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %33, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !205
-  %asmresult125 = extractvalue { i64, i64 } %34, 0
-  %asmresult126 = extractvalue { i64, i64 } %34, 1
-  %35 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult125, i64 %asmresult126, i32 0, i64 %asmresult116, i64 %asmresult117, i64 %asmresult118) #3, !srcloc !206
-  %asmresult127 = extractvalue { i64, i64, i64 } %35, 0
-  %asmresult128 = extractvalue { i64, i64, i64 } %35, 1
-  %asmresult129 = extractvalue { i64, i64, i64 } %35, 2
-  %36 = load i64, ptr %arrayidx21, align 8
-  %37 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !207
-  %asmresult136 = extractvalue { i64, i64 } %37, 0
-  %asmresult137 = extractvalue { i64, i64 } %37, 1
-  %38 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult136, i64 %asmresult137, i32 0, i64 %asmresult127, i64 %asmresult128, i64 %asmresult129) #3, !srcloc !208
-  %asmresult138 = extractvalue { i64, i64, i64 } %38, 0
-  %asmresult139 = extractvalue { i64, i64, i64 } %38, 1
-  %asmresult140 = extractvalue { i64, i64, i64 } %38, 2
-  %arrayidx142 = getelementptr inbounds nuw i8, ptr %r, i64 32
-  store i64 %asmresult138, ptr %arrayidx142, align 8
-  %39 = load i64, ptr %arrayidx33, align 8
-  %40 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %39, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !209
-  %asmresult148 = extractvalue { i64, i64 } %40, 0
-  %asmresult149 = extractvalue { i64, i64 } %40, 1
-  %41 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult148, i64 %asmresult149, i32 0, i64 %asmresult139, i64 %asmresult140, i64 0) #3, !srcloc !210
-  %asmresult150 = extractvalue { i64, i64, i64 } %41, 0
-  %asmresult151 = extractvalue { i64, i64, i64 } %41, 1
-  %asmresult152 = extractvalue { i64, i64, i64 } %41, 2
-  %42 = load i64, ptr %arrayidx100, align 8
-  %43 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %42, ptr nonnull elementtype(i64) %arrayidx56) #3, !srcloc !211
-  %asmresult159 = extractvalue { i64, i64 } %43, 0
-  %asmresult160 = extractvalue { i64, i64 } %43, 1
-  %44 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult159, i64 %asmresult160, i32 0, i64 %asmresult150, i64 %asmresult151, i64 %asmresult152) #3, !srcloc !212
-  %asmresult161 = extractvalue { i64, i64, i64 } %44, 0
-  %asmresult162 = extractvalue { i64, i64, i64 } %44, 1
-  %asmresult163 = extractvalue { i64, i64, i64 } %44, 2
-  %arrayidx165 = getelementptr inbounds nuw i8, ptr %r, i64 40
-  store i64 %asmresult161, ptr %arrayidx165, align 8
-  %45 = load i64, ptr %arrayidx100, align 8
-  %46 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, ptr nonnull elementtype(i64) %arrayidx68) #3, !srcloc !213
-  %asmresult171 = extractvalue { i64, i64 } %46, 0
-  %asmresult172 = extractvalue { i64, i64 } %46, 1
-  %47 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult171, i64 %asmresult172, i32 0, i64 %asmresult162, i64 %asmresult163, i64 0) #3, !srcloc !214
-  %asmresult173 = extractvalue { i64, i64, i64 } %47, 0
-  %asmresult174 = extractvalue { i64, i64, i64 } %47, 1
-  %arrayidx177 = getelementptr inbounds nuw i8, ptr %r, i64 48
-  store i64 %asmresult173, ptr %arrayidx177, align 8
-  %arrayidx178 = getelementptr inbounds nuw i8, ptr %r, i64 56
-  store i64 %asmresult174, ptr %arrayidx178, align 8
+define hidden void @bn_mul_comba4(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load i64, ptr %1, align 8, !tbaa !29
+  %5 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %4, ptr elementtype(i64) %2) #3, !srcloc !186
+  %6 = extractvalue { i64, i64 } %5, 0
+  %7 = extractvalue { i64, i64 } %5, 1
+  %8 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %7, i32 0, i64 0, i64 0, i64 0) #3, !srcloc !187
+  %9 = extractvalue { i64, i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64, i64 } %8, 1
+  %11 = extractvalue { i64, i64, i64 } %8, 2
+  store i64 %9, ptr %0, align 8, !tbaa !29
+  %12 = load i64, ptr %1, align 8, !tbaa !29
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull elementtype(i64) %13) #3, !srcloc !188
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  %17 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15, i64 %16, i32 0, i64 %10, i64 %11, i64 0) #3, !srcloc !189
+  %18 = extractvalue { i64, i64, i64 } %17, 0
+  %19 = extractvalue { i64, i64, i64 } %17, 1
+  %20 = extractvalue { i64, i64, i64 } %17, 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !29
+  %23 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %22, ptr elementtype(i64) %2) #3, !srcloc !190
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = extractvalue { i64, i64 } %23, 1
+  %26 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %25, i32 0, i64 %18, i64 %19, i64 %20) #3, !srcloc !191
+  %27 = extractvalue { i64, i64, i64 } %26, 0
+  %28 = extractvalue { i64, i64, i64 } %26, 1
+  %29 = extractvalue { i64, i64, i64 } %26, 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %27, ptr %30, align 8, !tbaa !29
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %32 = load i64, ptr %31, align 8, !tbaa !29
+  %33 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %32, ptr elementtype(i64) %2) #3, !srcloc !192
+  %34 = extractvalue { i64, i64 } %33, 0
+  %35 = extractvalue { i64, i64 } %33, 1
+  %36 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %34, i64 %35, i32 0, i64 %28, i64 %29, i64 0) #3, !srcloc !193
+  %37 = extractvalue { i64, i64, i64 } %36, 0
+  %38 = extractvalue { i64, i64, i64 } %36, 1
+  %39 = extractvalue { i64, i64, i64 } %36, 2
+  %40 = load i64, ptr %21, align 8, !tbaa !29
+  %41 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %40, ptr nonnull elementtype(i64) %13) #3, !srcloc !194
+  %42 = extractvalue { i64, i64 } %41, 0
+  %43 = extractvalue { i64, i64 } %41, 1
+  %44 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %42, i64 %43, i32 0, i64 %37, i64 %38, i64 %39) #3, !srcloc !195
+  %45 = extractvalue { i64, i64, i64 } %44, 0
+  %46 = extractvalue { i64, i64, i64 } %44, 1
+  %47 = extractvalue { i64, i64, i64 } %44, 2
+  %48 = load i64, ptr %1, align 8, !tbaa !29
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %50 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull elementtype(i64) %49) #3, !srcloc !196
+  %51 = extractvalue { i64, i64 } %50, 0
+  %52 = extractvalue { i64, i64 } %50, 1
+  %53 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 %52, i32 0, i64 %45, i64 %46, i64 %47) #3, !srcloc !197
+  %54 = extractvalue { i64, i64, i64 } %53, 0
+  %55 = extractvalue { i64, i64, i64 } %53, 1
+  %56 = extractvalue { i64, i64, i64 } %53, 2
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %54, ptr %57, align 8, !tbaa !29
+  %58 = load i64, ptr %1, align 8, !tbaa !29
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %60 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %58, ptr nonnull elementtype(i64) %59) #3, !srcloc !198
+  %61 = extractvalue { i64, i64 } %60, 0
+  %62 = extractvalue { i64, i64 } %60, 1
+  %63 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %61, i64 %62, i32 0, i64 %55, i64 %56, i64 0) #3, !srcloc !199
+  %64 = extractvalue { i64, i64, i64 } %63, 0
+  %65 = extractvalue { i64, i64, i64 } %63, 1
+  %66 = extractvalue { i64, i64, i64 } %63, 2
+  %67 = load i64, ptr %21, align 8, !tbaa !29
+  %68 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %67, ptr nonnull elementtype(i64) %49) #3, !srcloc !200
+  %69 = extractvalue { i64, i64 } %68, 0
+  %70 = extractvalue { i64, i64 } %68, 1
+  %71 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %70, i32 0, i64 %64, i64 %65, i64 %66) #3, !srcloc !201
+  %72 = extractvalue { i64, i64, i64 } %71, 0
+  %73 = extractvalue { i64, i64, i64 } %71, 1
+  %74 = extractvalue { i64, i64, i64 } %71, 2
+  %75 = load i64, ptr %31, align 8, !tbaa !29
+  %76 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %75, ptr nonnull elementtype(i64) %13) #3, !srcloc !202
+  %77 = extractvalue { i64, i64 } %76, 0
+  %78 = extractvalue { i64, i64 } %76, 1
+  %79 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %78, i32 0, i64 %72, i64 %73, i64 %74) #3, !srcloc !203
+  %80 = extractvalue { i64, i64, i64 } %79, 0
+  %81 = extractvalue { i64, i64, i64 } %79, 1
+  %82 = extractvalue { i64, i64, i64 } %79, 2
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %84 = load i64, ptr %83, align 8, !tbaa !29
+  %85 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %84, ptr elementtype(i64) %2) #3, !srcloc !204
+  %86 = extractvalue { i64, i64 } %85, 0
+  %87 = extractvalue { i64, i64 } %85, 1
+  %88 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %86, i64 %87, i32 0, i64 %80, i64 %81, i64 %82) #3, !srcloc !205
+  %89 = extractvalue { i64, i64, i64 } %88, 0
+  %90 = extractvalue { i64, i64, i64 } %88, 1
+  %91 = extractvalue { i64, i64, i64 } %88, 2
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %89, ptr %92, align 8, !tbaa !29
+  %93 = load i64, ptr %83, align 8, !tbaa !29
+  %94 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %93, ptr nonnull elementtype(i64) %13) #3, !srcloc !206
+  %95 = extractvalue { i64, i64 } %94, 0
+  %96 = extractvalue { i64, i64 } %94, 1
+  %97 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %95, i64 %96, i32 0, i64 %90, i64 %91, i64 0) #3, !srcloc !207
+  %98 = extractvalue { i64, i64, i64 } %97, 0
+  %99 = extractvalue { i64, i64, i64 } %97, 1
+  %100 = extractvalue { i64, i64, i64 } %97, 2
+  %101 = load i64, ptr %31, align 8, !tbaa !29
+  %102 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %101, ptr nonnull elementtype(i64) %49) #3, !srcloc !208
+  %103 = extractvalue { i64, i64 } %102, 0
+  %104 = extractvalue { i64, i64 } %102, 1
+  %105 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %103, i64 %104, i32 0, i64 %98, i64 %99, i64 %100) #3, !srcloc !209
+  %106 = extractvalue { i64, i64, i64 } %105, 0
+  %107 = extractvalue { i64, i64, i64 } %105, 1
+  %108 = extractvalue { i64, i64, i64 } %105, 2
+  %109 = load i64, ptr %21, align 8, !tbaa !29
+  %110 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %109, ptr nonnull elementtype(i64) %59) #3, !srcloc !210
+  %111 = extractvalue { i64, i64 } %110, 0
+  %112 = extractvalue { i64, i64 } %110, 1
+  %113 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %111, i64 %112, i32 0, i64 %106, i64 %107, i64 %108) #3, !srcloc !211
+  %114 = extractvalue { i64, i64, i64 } %113, 0
+  %115 = extractvalue { i64, i64, i64 } %113, 1
+  %116 = extractvalue { i64, i64, i64 } %113, 2
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %114, ptr %117, align 8, !tbaa !29
+  %118 = load i64, ptr %31, align 8, !tbaa !29
+  %119 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %118, ptr nonnull elementtype(i64) %59) #3, !srcloc !212
+  %120 = extractvalue { i64, i64 } %119, 0
+  %121 = extractvalue { i64, i64 } %119, 1
+  %122 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %120, i64 %121, i32 0, i64 %115, i64 %116, i64 0) #3, !srcloc !213
+  %123 = extractvalue { i64, i64, i64 } %122, 0
+  %124 = extractvalue { i64, i64, i64 } %122, 1
+  %125 = extractvalue { i64, i64, i64 } %122, 2
+  %126 = load i64, ptr %83, align 8, !tbaa !29
+  %127 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %126, ptr nonnull elementtype(i64) %49) #3, !srcloc !214
+  %128 = extractvalue { i64, i64 } %127, 0
+  %129 = extractvalue { i64, i64 } %127, 1
+  %130 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %128, i64 %129, i32 0, i64 %123, i64 %124, i64 %125) #3, !srcloc !215
+  %131 = extractvalue { i64, i64, i64 } %130, 0
+  %132 = extractvalue { i64, i64, i64 } %130, 1
+  %133 = extractvalue { i64, i64, i64 } %130, 2
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %131, ptr %134, align 8, !tbaa !29
+  %135 = load i64, ptr %83, align 8, !tbaa !29
+  %136 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %135, ptr nonnull elementtype(i64) %59) #3, !srcloc !216
+  %137 = extractvalue { i64, i64 } %136, 0
+  %138 = extractvalue { i64, i64 } %136, 1
+  %139 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %137, i64 %138, i32 0, i64 %132, i64 %133, i64 0) #3, !srcloc !217
+  %140 = extractvalue { i64, i64, i64 } %139, 0
+  %141 = extractvalue { i64, i64, i64 } %139, 1
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %140, ptr %142, align 8, !tbaa !29
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %141, ptr %143, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @bn_sqr_comba8(ptr noundef writeonly captures(none) initializes((0, 128)) %r, ptr noundef %a) local_unnamed_addr #1 {
-entry:
-  %0 = load i64, ptr %a, align 8
-  %1 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0) #5, !srcloc !215
-  %asmresult = extractvalue { i64, i64 } %1, 0
-  %asmresult1 = extractvalue { i64, i64 } %1, 1
-  %2 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult, i64 %asmresult1, i32 0, i64 0, i64 0, i64 0) #3, !srcloc !216
-  %asmresult2 = extractvalue { i64, i64, i64 } %2, 0
-  %asmresult3 = extractvalue { i64, i64, i64 } %2, 1
-  %asmresult4 = extractvalue { i64, i64, i64 } %2, 2
-  store i64 %asmresult2, ptr %r, align 8
-  %arrayidx9 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %3 = load i64, ptr %arrayidx9, align 8
-  %4 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %a) #3, !srcloc !217
-  %asmresult11 = extractvalue { i64, i64 } %4, 0
-  %asmresult12 = extractvalue { i64, i64 } %4, 1
-  %5 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult11, i64 %asmresult12, i32 0, i64 %asmresult3, i64 %asmresult4, i64 0) #3, !srcloc !218
-  %asmresult13 = extractvalue { i64, i64, i64 } %5, 0
-  %asmresult14 = extractvalue { i64, i64, i64 } %5, 1
-  %asmresult15 = extractvalue { i64, i64, i64 } %5, 2
-  %6 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult11, i64 %asmresult12, i32 0, i64 %asmresult13, i64 %asmresult14, i64 %asmresult15) #3, !srcloc !219
-  %asmresult16 = extractvalue { i64, i64, i64 } %6, 0
-  %asmresult17 = extractvalue { i64, i64, i64 } %6, 1
-  %asmresult18 = extractvalue { i64, i64, i64 } %6, 2
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %r, i64 8
-  store i64 %asmresult16, ptr %arrayidx20, align 8
-  %7 = load i64, ptr %arrayidx9, align 8
-  %8 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %7) #5, !srcloc !220
-  %asmresult25 = extractvalue { i64, i64 } %8, 0
-  %asmresult26 = extractvalue { i64, i64 } %8, 1
-  %9 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult25, i64 %asmresult26, i32 0, i64 %asmresult17, i64 %asmresult18, i64 0) #3, !srcloc !221
-  %asmresult27 = extractvalue { i64, i64, i64 } %9, 0
-  %asmresult28 = extractvalue { i64, i64, i64 } %9, 1
-  %asmresult29 = extractvalue { i64, i64, i64 } %9, 2
-  %arrayidx34 = getelementptr inbounds nuw i8, ptr %a, i64 16
-  %10 = load i64, ptr %arrayidx34, align 8
-  %11 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr nonnull elementtype(i64) %a) #3, !srcloc !222
-  %asmresult36 = extractvalue { i64, i64 } %11, 0
-  %asmresult37 = extractvalue { i64, i64 } %11, 1
-  %12 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult36, i64 %asmresult37, i32 0, i64 %asmresult27, i64 %asmresult28, i64 %asmresult29) #3, !srcloc !223
-  %asmresult38 = extractvalue { i64, i64, i64 } %12, 0
-  %asmresult39 = extractvalue { i64, i64, i64 } %12, 1
-  %asmresult40 = extractvalue { i64, i64, i64 } %12, 2
-  %13 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult36, i64 %asmresult37, i32 0, i64 %asmresult38, i64 %asmresult39, i64 %asmresult40) #3, !srcloc !224
-  %asmresult41 = extractvalue { i64, i64, i64 } %13, 0
-  %asmresult42 = extractvalue { i64, i64, i64 } %13, 1
-  %asmresult43 = extractvalue { i64, i64, i64 } %13, 2
-  %arrayidx45 = getelementptr inbounds nuw i8, ptr %r, i64 16
-  store i64 %asmresult41, ptr %arrayidx45, align 8
-  %arrayidx49 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %14 = load i64, ptr %arrayidx49, align 8
-  %15 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14, ptr nonnull elementtype(i64) %a) #3, !srcloc !225
-  %asmresult51 = extractvalue { i64, i64 } %15, 0
-  %asmresult52 = extractvalue { i64, i64 } %15, 1
-  %16 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult51, i64 %asmresult52, i32 0, i64 %asmresult42, i64 %asmresult43, i64 0) #3, !srcloc !226
-  %asmresult53 = extractvalue { i64, i64, i64 } %16, 0
-  %asmresult54 = extractvalue { i64, i64, i64 } %16, 1
-  %asmresult55 = extractvalue { i64, i64, i64 } %16, 2
-  %17 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult51, i64 %asmresult52, i32 0, i64 %asmresult53, i64 %asmresult54, i64 %asmresult55) #3, !srcloc !227
-  %asmresult56 = extractvalue { i64, i64, i64 } %17, 0
-  %asmresult57 = extractvalue { i64, i64, i64 } %17, 1
-  %asmresult58 = extractvalue { i64, i64, i64 } %17, 2
-  %18 = load i64, ptr %arrayidx34, align 8
-  %19 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %18, ptr nonnull elementtype(i64) %arrayidx9) #3, !srcloc !228
-  %asmresult65 = extractvalue { i64, i64 } %19, 0
-  %asmresult66 = extractvalue { i64, i64 } %19, 1
-  %20 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult65, i64 %asmresult66, i32 0, i64 %asmresult56, i64 %asmresult57, i64 %asmresult58) #3, !srcloc !229
-  %asmresult67 = extractvalue { i64, i64, i64 } %20, 0
-  %asmresult68 = extractvalue { i64, i64, i64 } %20, 1
-  %asmresult69 = extractvalue { i64, i64, i64 } %20, 2
-  %21 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult65, i64 %asmresult66, i32 0, i64 %asmresult67, i64 %asmresult68, i64 %asmresult69) #3, !srcloc !230
-  %asmresult70 = extractvalue { i64, i64, i64 } %21, 0
-  %asmresult71 = extractvalue { i64, i64, i64 } %21, 1
-  %asmresult72 = extractvalue { i64, i64, i64 } %21, 2
-  %arrayidx74 = getelementptr inbounds nuw i8, ptr %r, i64 24
-  store i64 %asmresult70, ptr %arrayidx74, align 8
-  %22 = load i64, ptr %arrayidx34, align 8
-  %23 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %22) #5, !srcloc !231
-  %asmresult79 = extractvalue { i64, i64 } %23, 0
-  %asmresult80 = extractvalue { i64, i64 } %23, 1
-  %24 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult79, i64 %asmresult80, i32 0, i64 %asmresult71, i64 %asmresult72, i64 0) #3, !srcloc !232
-  %asmresult81 = extractvalue { i64, i64, i64 } %24, 0
-  %asmresult82 = extractvalue { i64, i64, i64 } %24, 1
-  %asmresult83 = extractvalue { i64, i64, i64 } %24, 2
-  %25 = load i64, ptr %arrayidx49, align 8
-  %26 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %25, ptr nonnull elementtype(i64) %arrayidx9) #3, !srcloc !233
-  %asmresult90 = extractvalue { i64, i64 } %26, 0
-  %asmresult91 = extractvalue { i64, i64 } %26, 1
-  %27 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult90, i64 %asmresult91, i32 0, i64 %asmresult81, i64 %asmresult82, i64 %asmresult83) #3, !srcloc !234
-  %asmresult92 = extractvalue { i64, i64, i64 } %27, 0
-  %asmresult93 = extractvalue { i64, i64, i64 } %27, 1
-  %asmresult94 = extractvalue { i64, i64, i64 } %27, 2
-  %28 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult90, i64 %asmresult91, i32 0, i64 %asmresult92, i64 %asmresult93, i64 %asmresult94) #3, !srcloc !235
-  %asmresult95 = extractvalue { i64, i64, i64 } %28, 0
-  %asmresult96 = extractvalue { i64, i64, i64 } %28, 1
-  %asmresult97 = extractvalue { i64, i64, i64 } %28, 2
-  %arrayidx102 = getelementptr inbounds nuw i8, ptr %a, i64 32
-  %29 = load i64, ptr %arrayidx102, align 8
-  %30 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %29, ptr nonnull elementtype(i64) %a) #3, !srcloc !236
-  %asmresult104 = extractvalue { i64, i64 } %30, 0
-  %asmresult105 = extractvalue { i64, i64 } %30, 1
-  %31 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult104, i64 %asmresult105, i32 0, i64 %asmresult95, i64 %asmresult96, i64 %asmresult97) #3, !srcloc !237
-  %asmresult106 = extractvalue { i64, i64, i64 } %31, 0
-  %asmresult107 = extractvalue { i64, i64, i64 } %31, 1
-  %asmresult108 = extractvalue { i64, i64, i64 } %31, 2
-  %32 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult104, i64 %asmresult105, i32 0, i64 %asmresult106, i64 %asmresult107, i64 %asmresult108) #3, !srcloc !238
-  %asmresult109 = extractvalue { i64, i64, i64 } %32, 0
-  %asmresult110 = extractvalue { i64, i64, i64 } %32, 1
-  %asmresult111 = extractvalue { i64, i64, i64 } %32, 2
-  %arrayidx113 = getelementptr inbounds nuw i8, ptr %r, i64 32
-  store i64 %asmresult109, ptr %arrayidx113, align 8
-  %arrayidx117 = getelementptr inbounds nuw i8, ptr %a, i64 40
-  %33 = load i64, ptr %arrayidx117, align 8
-  %34 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %33, ptr nonnull elementtype(i64) %a) #3, !srcloc !239
-  %asmresult119 = extractvalue { i64, i64 } %34, 0
-  %asmresult120 = extractvalue { i64, i64 } %34, 1
-  %35 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult119, i64 %asmresult120, i32 0, i64 %asmresult110, i64 %asmresult111, i64 0) #3, !srcloc !240
-  %asmresult121 = extractvalue { i64, i64, i64 } %35, 0
-  %asmresult122 = extractvalue { i64, i64, i64 } %35, 1
-  %asmresult123 = extractvalue { i64, i64, i64 } %35, 2
-  %36 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult119, i64 %asmresult120, i32 0, i64 %asmresult121, i64 %asmresult122, i64 %asmresult123) #3, !srcloc !241
-  %asmresult124 = extractvalue { i64, i64, i64 } %36, 0
-  %asmresult125 = extractvalue { i64, i64, i64 } %36, 1
-  %asmresult126 = extractvalue { i64, i64, i64 } %36, 2
-  %37 = load i64, ptr %arrayidx102, align 8
-  %38 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %37, ptr nonnull elementtype(i64) %arrayidx9) #3, !srcloc !242
-  %asmresult133 = extractvalue { i64, i64 } %38, 0
-  %asmresult134 = extractvalue { i64, i64 } %38, 1
-  %39 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult133, i64 %asmresult134, i32 0, i64 %asmresult124, i64 %asmresult125, i64 %asmresult126) #3, !srcloc !243
-  %asmresult135 = extractvalue { i64, i64, i64 } %39, 0
-  %asmresult136 = extractvalue { i64, i64, i64 } %39, 1
-  %asmresult137 = extractvalue { i64, i64, i64 } %39, 2
-  %40 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult133, i64 %asmresult134, i32 0, i64 %asmresult135, i64 %asmresult136, i64 %asmresult137) #3, !srcloc !244
-  %asmresult138 = extractvalue { i64, i64, i64 } %40, 0
-  %asmresult139 = extractvalue { i64, i64, i64 } %40, 1
-  %asmresult140 = extractvalue { i64, i64, i64 } %40, 2
-  %41 = load i64, ptr %arrayidx49, align 8
-  %42 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %41, ptr nonnull elementtype(i64) %arrayidx34) #3, !srcloc !245
-  %asmresult147 = extractvalue { i64, i64 } %42, 0
-  %asmresult148 = extractvalue { i64, i64 } %42, 1
-  %43 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult147, i64 %asmresult148, i32 0, i64 %asmresult138, i64 %asmresult139, i64 %asmresult140) #3, !srcloc !246
-  %asmresult149 = extractvalue { i64, i64, i64 } %43, 0
-  %asmresult150 = extractvalue { i64, i64, i64 } %43, 1
-  %asmresult151 = extractvalue { i64, i64, i64 } %43, 2
-  %44 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult147, i64 %asmresult148, i32 0, i64 %asmresult149, i64 %asmresult150, i64 %asmresult151) #3, !srcloc !247
-  %asmresult152 = extractvalue { i64, i64, i64 } %44, 0
-  %asmresult153 = extractvalue { i64, i64, i64 } %44, 1
-  %asmresult154 = extractvalue { i64, i64, i64 } %44, 2
-  %arrayidx156 = getelementptr inbounds nuw i8, ptr %r, i64 40
-  store i64 %asmresult152, ptr %arrayidx156, align 8
-  %45 = load i64, ptr %arrayidx49, align 8
-  %46 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45) #5, !srcloc !248
-  %asmresult161 = extractvalue { i64, i64 } %46, 0
-  %asmresult162 = extractvalue { i64, i64 } %46, 1
-  %47 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult161, i64 %asmresult162, i32 0, i64 %asmresult153, i64 %asmresult154, i64 0) #3, !srcloc !249
-  %asmresult163 = extractvalue { i64, i64, i64 } %47, 0
-  %asmresult164 = extractvalue { i64, i64, i64 } %47, 1
-  %asmresult165 = extractvalue { i64, i64, i64 } %47, 2
-  %48 = load i64, ptr %arrayidx102, align 8
-  %49 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull elementtype(i64) %arrayidx34) #3, !srcloc !250
-  %asmresult172 = extractvalue { i64, i64 } %49, 0
-  %asmresult173 = extractvalue { i64, i64 } %49, 1
-  %50 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult172, i64 %asmresult173, i32 0, i64 %asmresult163, i64 %asmresult164, i64 %asmresult165) #3, !srcloc !251
-  %asmresult174 = extractvalue { i64, i64, i64 } %50, 0
-  %asmresult175 = extractvalue { i64, i64, i64 } %50, 1
-  %asmresult176 = extractvalue { i64, i64, i64 } %50, 2
-  %51 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult172, i64 %asmresult173, i32 0, i64 %asmresult174, i64 %asmresult175, i64 %asmresult176) #3, !srcloc !252
-  %asmresult177 = extractvalue { i64, i64, i64 } %51, 0
-  %asmresult178 = extractvalue { i64, i64, i64 } %51, 1
-  %asmresult179 = extractvalue { i64, i64, i64 } %51, 2
-  %52 = load i64, ptr %arrayidx117, align 8
-  %53 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %52, ptr nonnull elementtype(i64) %arrayidx9) #3, !srcloc !253
-  %asmresult186 = extractvalue { i64, i64 } %53, 0
-  %asmresult187 = extractvalue { i64, i64 } %53, 1
-  %54 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult186, i64 %asmresult187, i32 0, i64 %asmresult177, i64 %asmresult178, i64 %asmresult179) #3, !srcloc !254
-  %asmresult188 = extractvalue { i64, i64, i64 } %54, 0
-  %asmresult189 = extractvalue { i64, i64, i64 } %54, 1
-  %asmresult190 = extractvalue { i64, i64, i64 } %54, 2
-  %55 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult186, i64 %asmresult187, i32 0, i64 %asmresult188, i64 %asmresult189, i64 %asmresult190) #3, !srcloc !255
-  %asmresult191 = extractvalue { i64, i64, i64 } %55, 0
-  %asmresult192 = extractvalue { i64, i64, i64 } %55, 1
-  %asmresult193 = extractvalue { i64, i64, i64 } %55, 2
-  %arrayidx198 = getelementptr inbounds nuw i8, ptr %a, i64 48
-  %56 = load i64, ptr %arrayidx198, align 8
-  %57 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %56, ptr nonnull elementtype(i64) %a) #3, !srcloc !256
-  %asmresult200 = extractvalue { i64, i64 } %57, 0
-  %asmresult201 = extractvalue { i64, i64 } %57, 1
-  %58 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult200, i64 %asmresult201, i32 0, i64 %asmresult191, i64 %asmresult192, i64 %asmresult193) #3, !srcloc !257
-  %asmresult202 = extractvalue { i64, i64, i64 } %58, 0
-  %asmresult203 = extractvalue { i64, i64, i64 } %58, 1
-  %asmresult204 = extractvalue { i64, i64, i64 } %58, 2
-  %59 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult200, i64 %asmresult201, i32 0, i64 %asmresult202, i64 %asmresult203, i64 %asmresult204) #3, !srcloc !258
-  %asmresult205 = extractvalue { i64, i64, i64 } %59, 0
-  %asmresult206 = extractvalue { i64, i64, i64 } %59, 1
-  %asmresult207 = extractvalue { i64, i64, i64 } %59, 2
-  %arrayidx209 = getelementptr inbounds nuw i8, ptr %r, i64 48
-  store i64 %asmresult205, ptr %arrayidx209, align 8
-  %arrayidx213 = getelementptr inbounds nuw i8, ptr %a, i64 56
-  %60 = load i64, ptr %arrayidx213, align 8
-  %61 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %60, ptr nonnull elementtype(i64) %a) #3, !srcloc !259
-  %asmresult215 = extractvalue { i64, i64 } %61, 0
-  %asmresult216 = extractvalue { i64, i64 } %61, 1
-  %62 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult215, i64 %asmresult216, i32 0, i64 %asmresult206, i64 %asmresult207, i64 0) #3, !srcloc !260
-  %asmresult217 = extractvalue { i64, i64, i64 } %62, 0
-  %asmresult218 = extractvalue { i64, i64, i64 } %62, 1
-  %asmresult219 = extractvalue { i64, i64, i64 } %62, 2
-  %63 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult215, i64 %asmresult216, i32 0, i64 %asmresult217, i64 %asmresult218, i64 %asmresult219) #3, !srcloc !261
-  %asmresult220 = extractvalue { i64, i64, i64 } %63, 0
-  %asmresult221 = extractvalue { i64, i64, i64 } %63, 1
-  %asmresult222 = extractvalue { i64, i64, i64 } %63, 2
-  %64 = load i64, ptr %arrayidx198, align 8
-  %65 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %64, ptr nonnull elementtype(i64) %arrayidx9) #3, !srcloc !262
-  %asmresult229 = extractvalue { i64, i64 } %65, 0
-  %asmresult230 = extractvalue { i64, i64 } %65, 1
-  %66 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult229, i64 %asmresult230, i32 0, i64 %asmresult220, i64 %asmresult221, i64 %asmresult222) #3, !srcloc !263
-  %asmresult231 = extractvalue { i64, i64, i64 } %66, 0
-  %asmresult232 = extractvalue { i64, i64, i64 } %66, 1
-  %asmresult233 = extractvalue { i64, i64, i64 } %66, 2
-  %67 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult229, i64 %asmresult230, i32 0, i64 %asmresult231, i64 %asmresult232, i64 %asmresult233) #3, !srcloc !264
-  %asmresult234 = extractvalue { i64, i64, i64 } %67, 0
-  %asmresult235 = extractvalue { i64, i64, i64 } %67, 1
-  %asmresult236 = extractvalue { i64, i64, i64 } %67, 2
-  %68 = load i64, ptr %arrayidx117, align 8
-  %69 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %68, ptr nonnull elementtype(i64) %arrayidx34) #3, !srcloc !265
-  %asmresult243 = extractvalue { i64, i64 } %69, 0
-  %asmresult244 = extractvalue { i64, i64 } %69, 1
-  %70 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult243, i64 %asmresult244, i32 0, i64 %asmresult234, i64 %asmresult235, i64 %asmresult236) #3, !srcloc !266
-  %asmresult245 = extractvalue { i64, i64, i64 } %70, 0
-  %asmresult246 = extractvalue { i64, i64, i64 } %70, 1
-  %asmresult247 = extractvalue { i64, i64, i64 } %70, 2
-  %71 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult243, i64 %asmresult244, i32 0, i64 %asmresult245, i64 %asmresult246, i64 %asmresult247) #3, !srcloc !267
-  %asmresult248 = extractvalue { i64, i64, i64 } %71, 0
-  %asmresult249 = extractvalue { i64, i64, i64 } %71, 1
-  %asmresult250 = extractvalue { i64, i64, i64 } %71, 2
-  %72 = load i64, ptr %arrayidx102, align 8
-  %73 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %72, ptr nonnull elementtype(i64) %arrayidx49) #3, !srcloc !268
-  %asmresult257 = extractvalue { i64, i64 } %73, 0
-  %asmresult258 = extractvalue { i64, i64 } %73, 1
-  %74 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult257, i64 %asmresult258, i32 0, i64 %asmresult248, i64 %asmresult249, i64 %asmresult250) #3, !srcloc !269
-  %asmresult259 = extractvalue { i64, i64, i64 } %74, 0
-  %asmresult260 = extractvalue { i64, i64, i64 } %74, 1
-  %asmresult261 = extractvalue { i64, i64, i64 } %74, 2
-  %75 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult257, i64 %asmresult258, i32 0, i64 %asmresult259, i64 %asmresult260, i64 %asmresult261) #3, !srcloc !270
-  %asmresult262 = extractvalue { i64, i64, i64 } %75, 0
-  %asmresult263 = extractvalue { i64, i64, i64 } %75, 1
-  %asmresult264 = extractvalue { i64, i64, i64 } %75, 2
-  %arrayidx266 = getelementptr inbounds nuw i8, ptr %r, i64 56
-  store i64 %asmresult262, ptr %arrayidx266, align 8
-  %76 = load i64, ptr %arrayidx102, align 8
-  %77 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %76) #5, !srcloc !271
-  %asmresult271 = extractvalue { i64, i64 } %77, 0
-  %asmresult272 = extractvalue { i64, i64 } %77, 1
-  %78 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult271, i64 %asmresult272, i32 0, i64 %asmresult263, i64 %asmresult264, i64 0) #3, !srcloc !272
-  %asmresult273 = extractvalue { i64, i64, i64 } %78, 0
-  %asmresult274 = extractvalue { i64, i64, i64 } %78, 1
-  %asmresult275 = extractvalue { i64, i64, i64 } %78, 2
-  %79 = load i64, ptr %arrayidx117, align 8
-  %80 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %79, ptr nonnull elementtype(i64) %arrayidx49) #3, !srcloc !273
-  %asmresult282 = extractvalue { i64, i64 } %80, 0
-  %asmresult283 = extractvalue { i64, i64 } %80, 1
-  %81 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult282, i64 %asmresult283, i32 0, i64 %asmresult273, i64 %asmresult274, i64 %asmresult275) #3, !srcloc !274
-  %asmresult284 = extractvalue { i64, i64, i64 } %81, 0
-  %asmresult285 = extractvalue { i64, i64, i64 } %81, 1
-  %asmresult286 = extractvalue { i64, i64, i64 } %81, 2
-  %82 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult282, i64 %asmresult283, i32 0, i64 %asmresult284, i64 %asmresult285, i64 %asmresult286) #3, !srcloc !275
-  %asmresult287 = extractvalue { i64, i64, i64 } %82, 0
-  %asmresult288 = extractvalue { i64, i64, i64 } %82, 1
-  %asmresult289 = extractvalue { i64, i64, i64 } %82, 2
-  %83 = load i64, ptr %arrayidx198, align 8
-  %84 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, ptr nonnull elementtype(i64) %arrayidx34) #3, !srcloc !276
-  %asmresult296 = extractvalue { i64, i64 } %84, 0
-  %asmresult297 = extractvalue { i64, i64 } %84, 1
-  %85 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult296, i64 %asmresult297, i32 0, i64 %asmresult287, i64 %asmresult288, i64 %asmresult289) #3, !srcloc !277
-  %asmresult298 = extractvalue { i64, i64, i64 } %85, 0
-  %asmresult299 = extractvalue { i64, i64, i64 } %85, 1
-  %asmresult300 = extractvalue { i64, i64, i64 } %85, 2
-  %86 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult296, i64 %asmresult297, i32 0, i64 %asmresult298, i64 %asmresult299, i64 %asmresult300) #3, !srcloc !278
-  %asmresult301 = extractvalue { i64, i64, i64 } %86, 0
-  %asmresult302 = extractvalue { i64, i64, i64 } %86, 1
-  %asmresult303 = extractvalue { i64, i64, i64 } %86, 2
-  %87 = load i64, ptr %arrayidx213, align 8
-  %88 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %87, ptr nonnull elementtype(i64) %arrayidx9) #3, !srcloc !279
-  %asmresult310 = extractvalue { i64, i64 } %88, 0
-  %asmresult311 = extractvalue { i64, i64 } %88, 1
-  %89 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult310, i64 %asmresult311, i32 0, i64 %asmresult301, i64 %asmresult302, i64 %asmresult303) #3, !srcloc !280
-  %asmresult312 = extractvalue { i64, i64, i64 } %89, 0
-  %asmresult313 = extractvalue { i64, i64, i64 } %89, 1
-  %asmresult314 = extractvalue { i64, i64, i64 } %89, 2
-  %90 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult310, i64 %asmresult311, i32 0, i64 %asmresult312, i64 %asmresult313, i64 %asmresult314) #3, !srcloc !281
-  %asmresult315 = extractvalue { i64, i64, i64 } %90, 0
-  %asmresult316 = extractvalue { i64, i64, i64 } %90, 1
-  %asmresult317 = extractvalue { i64, i64, i64 } %90, 2
-  %arrayidx319 = getelementptr inbounds nuw i8, ptr %r, i64 64
-  store i64 %asmresult315, ptr %arrayidx319, align 8
-  %91 = load i64, ptr %arrayidx213, align 8
-  %92 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %91, ptr nonnull elementtype(i64) %arrayidx34) #3, !srcloc !282
-  %asmresult325 = extractvalue { i64, i64 } %92, 0
-  %asmresult326 = extractvalue { i64, i64 } %92, 1
-  %93 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult325, i64 %asmresult326, i32 0, i64 %asmresult316, i64 %asmresult317, i64 0) #3, !srcloc !283
-  %asmresult327 = extractvalue { i64, i64, i64 } %93, 0
-  %asmresult328 = extractvalue { i64, i64, i64 } %93, 1
-  %asmresult329 = extractvalue { i64, i64, i64 } %93, 2
-  %94 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult325, i64 %asmresult326, i32 0, i64 %asmresult327, i64 %asmresult328, i64 %asmresult329) #3, !srcloc !284
-  %asmresult330 = extractvalue { i64, i64, i64 } %94, 0
-  %asmresult331 = extractvalue { i64, i64, i64 } %94, 1
-  %asmresult332 = extractvalue { i64, i64, i64 } %94, 2
-  %95 = load i64, ptr %arrayidx198, align 8
-  %96 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %95, ptr nonnull elementtype(i64) %arrayidx49) #3, !srcloc !285
-  %asmresult339 = extractvalue { i64, i64 } %96, 0
-  %asmresult340 = extractvalue { i64, i64 } %96, 1
-  %97 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult339, i64 %asmresult340, i32 0, i64 %asmresult330, i64 %asmresult331, i64 %asmresult332) #3, !srcloc !286
-  %asmresult341 = extractvalue { i64, i64, i64 } %97, 0
-  %asmresult342 = extractvalue { i64, i64, i64 } %97, 1
-  %asmresult343 = extractvalue { i64, i64, i64 } %97, 2
-  %98 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult339, i64 %asmresult340, i32 0, i64 %asmresult341, i64 %asmresult342, i64 %asmresult343) #3, !srcloc !287
-  %asmresult344 = extractvalue { i64, i64, i64 } %98, 0
-  %asmresult345 = extractvalue { i64, i64, i64 } %98, 1
-  %asmresult346 = extractvalue { i64, i64, i64 } %98, 2
-  %99 = load i64, ptr %arrayidx117, align 8
-  %100 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %99, ptr nonnull elementtype(i64) %arrayidx102) #3, !srcloc !288
-  %asmresult353 = extractvalue { i64, i64 } %100, 0
-  %asmresult354 = extractvalue { i64, i64 } %100, 1
-  %101 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult353, i64 %asmresult354, i32 0, i64 %asmresult344, i64 %asmresult345, i64 %asmresult346) #3, !srcloc !289
-  %asmresult355 = extractvalue { i64, i64, i64 } %101, 0
-  %asmresult356 = extractvalue { i64, i64, i64 } %101, 1
-  %asmresult357 = extractvalue { i64, i64, i64 } %101, 2
-  %102 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult353, i64 %asmresult354, i32 0, i64 %asmresult355, i64 %asmresult356, i64 %asmresult357) #3, !srcloc !290
-  %asmresult358 = extractvalue { i64, i64, i64 } %102, 0
-  %asmresult359 = extractvalue { i64, i64, i64 } %102, 1
-  %asmresult360 = extractvalue { i64, i64, i64 } %102, 2
-  %arrayidx362 = getelementptr inbounds nuw i8, ptr %r, i64 72
-  store i64 %asmresult358, ptr %arrayidx362, align 8
-  %103 = load i64, ptr %arrayidx117, align 8
-  %104 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %103) #5, !srcloc !291
-  %asmresult367 = extractvalue { i64, i64 } %104, 0
-  %asmresult368 = extractvalue { i64, i64 } %104, 1
-  %105 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult367, i64 %asmresult368, i32 0, i64 %asmresult359, i64 %asmresult360, i64 0) #3, !srcloc !292
-  %asmresult369 = extractvalue { i64, i64, i64 } %105, 0
-  %asmresult370 = extractvalue { i64, i64, i64 } %105, 1
-  %asmresult371 = extractvalue { i64, i64, i64 } %105, 2
-  %106 = load i64, ptr %arrayidx198, align 8
-  %107 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %106, ptr nonnull elementtype(i64) %arrayidx102) #3, !srcloc !293
-  %asmresult378 = extractvalue { i64, i64 } %107, 0
-  %asmresult379 = extractvalue { i64, i64 } %107, 1
-  %108 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult378, i64 %asmresult379, i32 0, i64 %asmresult369, i64 %asmresult370, i64 %asmresult371) #3, !srcloc !294
-  %asmresult380 = extractvalue { i64, i64, i64 } %108, 0
-  %asmresult381 = extractvalue { i64, i64, i64 } %108, 1
-  %asmresult382 = extractvalue { i64, i64, i64 } %108, 2
-  %109 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult378, i64 %asmresult379, i32 0, i64 %asmresult380, i64 %asmresult381, i64 %asmresult382) #3, !srcloc !295
-  %asmresult383 = extractvalue { i64, i64, i64 } %109, 0
-  %asmresult384 = extractvalue { i64, i64, i64 } %109, 1
-  %asmresult385 = extractvalue { i64, i64, i64 } %109, 2
-  %110 = load i64, ptr %arrayidx213, align 8
-  %111 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %110, ptr nonnull elementtype(i64) %arrayidx49) #3, !srcloc !296
-  %asmresult392 = extractvalue { i64, i64 } %111, 0
-  %asmresult393 = extractvalue { i64, i64 } %111, 1
-  %112 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult392, i64 %asmresult393, i32 0, i64 %asmresult383, i64 %asmresult384, i64 %asmresult385) #3, !srcloc !297
-  %asmresult394 = extractvalue { i64, i64, i64 } %112, 0
-  %asmresult395 = extractvalue { i64, i64, i64 } %112, 1
-  %asmresult396 = extractvalue { i64, i64, i64 } %112, 2
-  %113 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult392, i64 %asmresult393, i32 0, i64 %asmresult394, i64 %asmresult395, i64 %asmresult396) #3, !srcloc !298
-  %asmresult397 = extractvalue { i64, i64, i64 } %113, 0
-  %asmresult398 = extractvalue { i64, i64, i64 } %113, 1
-  %asmresult399 = extractvalue { i64, i64, i64 } %113, 2
-  %arrayidx401 = getelementptr inbounds nuw i8, ptr %r, i64 80
-  store i64 %asmresult397, ptr %arrayidx401, align 8
-  %114 = load i64, ptr %arrayidx213, align 8
-  %115 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %114, ptr nonnull elementtype(i64) %arrayidx102) #3, !srcloc !299
-  %asmresult407 = extractvalue { i64, i64 } %115, 0
-  %asmresult408 = extractvalue { i64, i64 } %115, 1
-  %116 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult407, i64 %asmresult408, i32 0, i64 %asmresult398, i64 %asmresult399, i64 0) #3, !srcloc !300
-  %asmresult409 = extractvalue { i64, i64, i64 } %116, 0
-  %asmresult410 = extractvalue { i64, i64, i64 } %116, 1
-  %asmresult411 = extractvalue { i64, i64, i64 } %116, 2
-  %117 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult407, i64 %asmresult408, i32 0, i64 %asmresult409, i64 %asmresult410, i64 %asmresult411) #3, !srcloc !301
-  %asmresult412 = extractvalue { i64, i64, i64 } %117, 0
-  %asmresult413 = extractvalue { i64, i64, i64 } %117, 1
-  %asmresult414 = extractvalue { i64, i64, i64 } %117, 2
-  %118 = load i64, ptr %arrayidx198, align 8
-  %119 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %118, ptr nonnull elementtype(i64) %arrayidx117) #3, !srcloc !302
-  %asmresult421 = extractvalue { i64, i64 } %119, 0
-  %asmresult422 = extractvalue { i64, i64 } %119, 1
-  %120 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult421, i64 %asmresult422, i32 0, i64 %asmresult412, i64 %asmresult413, i64 %asmresult414) #3, !srcloc !303
-  %asmresult423 = extractvalue { i64, i64, i64 } %120, 0
-  %asmresult424 = extractvalue { i64, i64, i64 } %120, 1
-  %asmresult425 = extractvalue { i64, i64, i64 } %120, 2
-  %121 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult421, i64 %asmresult422, i32 0, i64 %asmresult423, i64 %asmresult424, i64 %asmresult425) #3, !srcloc !304
-  %asmresult426 = extractvalue { i64, i64, i64 } %121, 0
-  %asmresult427 = extractvalue { i64, i64, i64 } %121, 1
-  %asmresult428 = extractvalue { i64, i64, i64 } %121, 2
-  %arrayidx430 = getelementptr inbounds nuw i8, ptr %r, i64 88
-  store i64 %asmresult426, ptr %arrayidx430, align 8
-  %122 = load i64, ptr %arrayidx198, align 8
-  %123 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %122) #5, !srcloc !305
-  %asmresult435 = extractvalue { i64, i64 } %123, 0
-  %asmresult436 = extractvalue { i64, i64 } %123, 1
-  %124 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult435, i64 %asmresult436, i32 0, i64 %asmresult427, i64 %asmresult428, i64 0) #3, !srcloc !306
-  %asmresult437 = extractvalue { i64, i64, i64 } %124, 0
-  %asmresult438 = extractvalue { i64, i64, i64 } %124, 1
-  %asmresult439 = extractvalue { i64, i64, i64 } %124, 2
-  %125 = load i64, ptr %arrayidx213, align 8
-  %126 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %125, ptr nonnull elementtype(i64) %arrayidx117) #3, !srcloc !307
-  %asmresult446 = extractvalue { i64, i64 } %126, 0
-  %asmresult447 = extractvalue { i64, i64 } %126, 1
-  %127 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult446, i64 %asmresult447, i32 0, i64 %asmresult437, i64 %asmresult438, i64 %asmresult439) #3, !srcloc !308
-  %asmresult448 = extractvalue { i64, i64, i64 } %127, 0
-  %asmresult449 = extractvalue { i64, i64, i64 } %127, 1
-  %asmresult450 = extractvalue { i64, i64, i64 } %127, 2
-  %128 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult446, i64 %asmresult447, i32 0, i64 %asmresult448, i64 %asmresult449, i64 %asmresult450) #3, !srcloc !309
-  %asmresult451 = extractvalue { i64, i64, i64 } %128, 0
-  %asmresult452 = extractvalue { i64, i64, i64 } %128, 1
-  %asmresult453 = extractvalue { i64, i64, i64 } %128, 2
-  %arrayidx455 = getelementptr inbounds nuw i8, ptr %r, i64 96
-  store i64 %asmresult451, ptr %arrayidx455, align 8
-  %129 = load i64, ptr %arrayidx213, align 8
-  %130 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %129, ptr nonnull elementtype(i64) %arrayidx198) #3, !srcloc !310
-  %asmresult461 = extractvalue { i64, i64 } %130, 0
-  %asmresult462 = extractvalue { i64, i64 } %130, 1
-  %131 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult461, i64 %asmresult462, i32 0, i64 %asmresult452, i64 %asmresult453, i64 0) #3, !srcloc !311
-  %asmresult463 = extractvalue { i64, i64, i64 } %131, 0
-  %asmresult464 = extractvalue { i64, i64, i64 } %131, 1
-  %asmresult465 = extractvalue { i64, i64, i64 } %131, 2
-  %132 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult461, i64 %asmresult462, i32 0, i64 %asmresult463, i64 %asmresult464, i64 %asmresult465) #3, !srcloc !312
-  %asmresult466 = extractvalue { i64, i64, i64 } %132, 0
-  %asmresult467 = extractvalue { i64, i64, i64 } %132, 1
-  %asmresult468 = extractvalue { i64, i64, i64 } %132, 2
-  %arrayidx470 = getelementptr inbounds nuw i8, ptr %r, i64 104
-  store i64 %asmresult466, ptr %arrayidx470, align 8
-  %133 = load i64, ptr %arrayidx213, align 8
-  %134 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %133) #5, !srcloc !313
-  %asmresult475 = extractvalue { i64, i64 } %134, 0
-  %asmresult476 = extractvalue { i64, i64 } %134, 1
-  %135 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult475, i64 %asmresult476, i32 0, i64 %asmresult467, i64 %asmresult468, i64 0) #3, !srcloc !314
-  %asmresult477 = extractvalue { i64, i64, i64 } %135, 0
-  %asmresult478 = extractvalue { i64, i64, i64 } %135, 1
-  %arrayidx481 = getelementptr inbounds nuw i8, ptr %r, i64 112
-  store i64 %asmresult477, ptr %arrayidx481, align 8
-  %arrayidx482 = getelementptr inbounds nuw i8, ptr %r, i64 120
-  store i64 %asmresult478, ptr %arrayidx482, align 8
+define hidden void @bn_sqr_comba8(ptr noundef writeonly captures(none) initializes((0, 128)) %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load i64, ptr %1, align 8, !tbaa !29
+  %4 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3) #5, !srcloc !218
+  %5 = extractvalue { i64, i64 } %4, 0
+  %6 = extractvalue { i64, i64 } %4, 1
+  %7 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %5, i64 %6, i32 0, i64 0, i64 0, i64 0) #3, !srcloc !219
+  %8 = extractvalue { i64, i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64, i64 } %7, 1
+  %10 = extractvalue { i64, i64, i64 } %7, 2
+  store i64 %8, ptr %0, align 8, !tbaa !29
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i64, ptr %11, align 8, !tbaa !29
+  %13 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull elementtype(i64) %1) #3, !srcloc !220
+  %14 = extractvalue { i64, i64 } %13, 0
+  %15 = extractvalue { i64, i64 } %13, 1
+  %16 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14, i64 %15, i32 0, i64 %9, i64 %10, i64 0) #3, !srcloc !221
+  %17 = extractvalue { i64, i64, i64 } %16, 0
+  %18 = extractvalue { i64, i64, i64 } %16, 1
+  %19 = extractvalue { i64, i64, i64 } %16, 2
+  %20 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14, i64 %15, i32 0, i64 %17, i64 %18, i64 %19) #3, !srcloc !222
+  %21 = extractvalue { i64, i64, i64 } %20, 0
+  %22 = extractvalue { i64, i64, i64 } %20, 1
+  %23 = extractvalue { i64, i64, i64 } %20, 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %21, ptr %24, align 8, !tbaa !29
+  %25 = load i64, ptr %11, align 8, !tbaa !29
+  %26 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %25) #5, !srcloc !223
+  %27 = extractvalue { i64, i64 } %26, 0
+  %28 = extractvalue { i64, i64 } %26, 1
+  %29 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %27, i64 %28, i32 0, i64 %22, i64 %23, i64 0) #3, !srcloc !224
+  %30 = extractvalue { i64, i64, i64 } %29, 0
+  %31 = extractvalue { i64, i64, i64 } %29, 1
+  %32 = extractvalue { i64, i64, i64 } %29, 2
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load i64, ptr %33, align 8, !tbaa !29
+  %35 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %34, ptr nonnull elementtype(i64) %1) #3, !srcloc !225
+  %36 = extractvalue { i64, i64 } %35, 0
+  %37 = extractvalue { i64, i64 } %35, 1
+  %38 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36, i64 %37, i32 0, i64 %30, i64 %31, i64 %32) #3, !srcloc !226
+  %39 = extractvalue { i64, i64, i64 } %38, 0
+  %40 = extractvalue { i64, i64, i64 } %38, 1
+  %41 = extractvalue { i64, i64, i64 } %38, 2
+  %42 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36, i64 %37, i32 0, i64 %39, i64 %40, i64 %41) #3, !srcloc !227
+  %43 = extractvalue { i64, i64, i64 } %42, 0
+  %44 = extractvalue { i64, i64, i64 } %42, 1
+  %45 = extractvalue { i64, i64, i64 } %42, 2
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %43, ptr %46, align 8, !tbaa !29
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %48 = load i64, ptr %47, align 8, !tbaa !29
+  %49 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull elementtype(i64) %1) #3, !srcloc !228
+  %50 = extractvalue { i64, i64 } %49, 0
+  %51 = extractvalue { i64, i64 } %49, 1
+  %52 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %50, i64 %51, i32 0, i64 %44, i64 %45, i64 0) #3, !srcloc !229
+  %53 = extractvalue { i64, i64, i64 } %52, 0
+  %54 = extractvalue { i64, i64, i64 } %52, 1
+  %55 = extractvalue { i64, i64, i64 } %52, 2
+  %56 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %50, i64 %51, i32 0, i64 %53, i64 %54, i64 %55) #3, !srcloc !230
+  %57 = extractvalue { i64, i64, i64 } %56, 0
+  %58 = extractvalue { i64, i64, i64 } %56, 1
+  %59 = extractvalue { i64, i64, i64 } %56, 2
+  %60 = load i64, ptr %33, align 8, !tbaa !29
+  %61 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %60, ptr nonnull elementtype(i64) %11) #3, !srcloc !231
+  %62 = extractvalue { i64, i64 } %61, 0
+  %63 = extractvalue { i64, i64 } %61, 1
+  %64 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %63, i32 0, i64 %57, i64 %58, i64 %59) #3, !srcloc !232
+  %65 = extractvalue { i64, i64, i64 } %64, 0
+  %66 = extractvalue { i64, i64, i64 } %64, 1
+  %67 = extractvalue { i64, i64, i64 } %64, 2
+  %68 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %63, i32 0, i64 %65, i64 %66, i64 %67) #3, !srcloc !233
+  %69 = extractvalue { i64, i64, i64 } %68, 0
+  %70 = extractvalue { i64, i64, i64 } %68, 1
+  %71 = extractvalue { i64, i64, i64 } %68, 2
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %69, ptr %72, align 8, !tbaa !29
+  %73 = load i64, ptr %33, align 8, !tbaa !29
+  %74 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %73) #5, !srcloc !234
+  %75 = extractvalue { i64, i64 } %74, 0
+  %76 = extractvalue { i64, i64 } %74, 1
+  %77 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %75, i64 %76, i32 0, i64 %70, i64 %71, i64 0) #3, !srcloc !235
+  %78 = extractvalue { i64, i64, i64 } %77, 0
+  %79 = extractvalue { i64, i64, i64 } %77, 1
+  %80 = extractvalue { i64, i64, i64 } %77, 2
+  %81 = load i64, ptr %47, align 8, !tbaa !29
+  %82 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %81, ptr nonnull elementtype(i64) %11) #3, !srcloc !236
+  %83 = extractvalue { i64, i64 } %82, 0
+  %84 = extractvalue { i64, i64 } %82, 1
+  %85 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, i64 %84, i32 0, i64 %78, i64 %79, i64 %80) #3, !srcloc !237
+  %86 = extractvalue { i64, i64, i64 } %85, 0
+  %87 = extractvalue { i64, i64, i64 } %85, 1
+  %88 = extractvalue { i64, i64, i64 } %85, 2
+  %89 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, i64 %84, i32 0, i64 %86, i64 %87, i64 %88) #3, !srcloc !238
+  %90 = extractvalue { i64, i64, i64 } %89, 0
+  %91 = extractvalue { i64, i64, i64 } %89, 1
+  %92 = extractvalue { i64, i64, i64 } %89, 2
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %94 = load i64, ptr %93, align 8, !tbaa !29
+  %95 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %94, ptr nonnull elementtype(i64) %1) #3, !srcloc !239
+  %96 = extractvalue { i64, i64 } %95, 0
+  %97 = extractvalue { i64, i64 } %95, 1
+  %98 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97, i32 0, i64 %90, i64 %91, i64 %92) #3, !srcloc !240
+  %99 = extractvalue { i64, i64, i64 } %98, 0
+  %100 = extractvalue { i64, i64, i64 } %98, 1
+  %101 = extractvalue { i64, i64, i64 } %98, 2
+  %102 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97, i32 0, i64 %99, i64 %100, i64 %101) #3, !srcloc !241
+  %103 = extractvalue { i64, i64, i64 } %102, 0
+  %104 = extractvalue { i64, i64, i64 } %102, 1
+  %105 = extractvalue { i64, i64, i64 } %102, 2
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %103, ptr %106, align 8, !tbaa !29
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %108 = load i64, ptr %107, align 8, !tbaa !29
+  %109 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %108, ptr nonnull elementtype(i64) %1) #3, !srcloc !242
+  %110 = extractvalue { i64, i64 } %109, 0
+  %111 = extractvalue { i64, i64 } %109, 1
+  %112 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %110, i64 %111, i32 0, i64 %104, i64 %105, i64 0) #3, !srcloc !243
+  %113 = extractvalue { i64, i64, i64 } %112, 0
+  %114 = extractvalue { i64, i64, i64 } %112, 1
+  %115 = extractvalue { i64, i64, i64 } %112, 2
+  %116 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %110, i64 %111, i32 0, i64 %113, i64 %114, i64 %115) #3, !srcloc !244
+  %117 = extractvalue { i64, i64, i64 } %116, 0
+  %118 = extractvalue { i64, i64, i64 } %116, 1
+  %119 = extractvalue { i64, i64, i64 } %116, 2
+  %120 = load i64, ptr %93, align 8, !tbaa !29
+  %121 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %120, ptr nonnull elementtype(i64) %11) #3, !srcloc !245
+  %122 = extractvalue { i64, i64 } %121, 0
+  %123 = extractvalue { i64, i64 } %121, 1
+  %124 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %122, i64 %123, i32 0, i64 %117, i64 %118, i64 %119) #3, !srcloc !246
+  %125 = extractvalue { i64, i64, i64 } %124, 0
+  %126 = extractvalue { i64, i64, i64 } %124, 1
+  %127 = extractvalue { i64, i64, i64 } %124, 2
+  %128 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %122, i64 %123, i32 0, i64 %125, i64 %126, i64 %127) #3, !srcloc !247
+  %129 = extractvalue { i64, i64, i64 } %128, 0
+  %130 = extractvalue { i64, i64, i64 } %128, 1
+  %131 = extractvalue { i64, i64, i64 } %128, 2
+  %132 = load i64, ptr %47, align 8, !tbaa !29
+  %133 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %132, ptr nonnull elementtype(i64) %33) #3, !srcloc !248
+  %134 = extractvalue { i64, i64 } %133, 0
+  %135 = extractvalue { i64, i64 } %133, 1
+  %136 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %134, i64 %135, i32 0, i64 %129, i64 %130, i64 %131) #3, !srcloc !249
+  %137 = extractvalue { i64, i64, i64 } %136, 0
+  %138 = extractvalue { i64, i64, i64 } %136, 1
+  %139 = extractvalue { i64, i64, i64 } %136, 2
+  %140 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %134, i64 %135, i32 0, i64 %137, i64 %138, i64 %139) #3, !srcloc !250
+  %141 = extractvalue { i64, i64, i64 } %140, 0
+  %142 = extractvalue { i64, i64, i64 } %140, 1
+  %143 = extractvalue { i64, i64, i64 } %140, 2
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %141, ptr %144, align 8, !tbaa !29
+  %145 = load i64, ptr %47, align 8, !tbaa !29
+  %146 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %145) #5, !srcloc !251
+  %147 = extractvalue { i64, i64 } %146, 0
+  %148 = extractvalue { i64, i64 } %146, 1
+  %149 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %147, i64 %148, i32 0, i64 %142, i64 %143, i64 0) #3, !srcloc !252
+  %150 = extractvalue { i64, i64, i64 } %149, 0
+  %151 = extractvalue { i64, i64, i64 } %149, 1
+  %152 = extractvalue { i64, i64, i64 } %149, 2
+  %153 = load i64, ptr %93, align 8, !tbaa !29
+  %154 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %153, ptr nonnull elementtype(i64) %33) #3, !srcloc !253
+  %155 = extractvalue { i64, i64 } %154, 0
+  %156 = extractvalue { i64, i64 } %154, 1
+  %157 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %155, i64 %156, i32 0, i64 %150, i64 %151, i64 %152) #3, !srcloc !254
+  %158 = extractvalue { i64, i64, i64 } %157, 0
+  %159 = extractvalue { i64, i64, i64 } %157, 1
+  %160 = extractvalue { i64, i64, i64 } %157, 2
+  %161 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %155, i64 %156, i32 0, i64 %158, i64 %159, i64 %160) #3, !srcloc !255
+  %162 = extractvalue { i64, i64, i64 } %161, 0
+  %163 = extractvalue { i64, i64, i64 } %161, 1
+  %164 = extractvalue { i64, i64, i64 } %161, 2
+  %165 = load i64, ptr %107, align 8, !tbaa !29
+  %166 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %165, ptr nonnull elementtype(i64) %11) #3, !srcloc !256
+  %167 = extractvalue { i64, i64 } %166, 0
+  %168 = extractvalue { i64, i64 } %166, 1
+  %169 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %167, i64 %168, i32 0, i64 %162, i64 %163, i64 %164) #3, !srcloc !257
+  %170 = extractvalue { i64, i64, i64 } %169, 0
+  %171 = extractvalue { i64, i64, i64 } %169, 1
+  %172 = extractvalue { i64, i64, i64 } %169, 2
+  %173 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %167, i64 %168, i32 0, i64 %170, i64 %171, i64 %172) #3, !srcloc !258
+  %174 = extractvalue { i64, i64, i64 } %173, 0
+  %175 = extractvalue { i64, i64, i64 } %173, 1
+  %176 = extractvalue { i64, i64, i64 } %173, 2
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %178 = load i64, ptr %177, align 8, !tbaa !29
+  %179 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %178, ptr nonnull elementtype(i64) %1) #3, !srcloc !259
+  %180 = extractvalue { i64, i64 } %179, 0
+  %181 = extractvalue { i64, i64 } %179, 1
+  %182 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %180, i64 %181, i32 0, i64 %174, i64 %175, i64 %176) #3, !srcloc !260
+  %183 = extractvalue { i64, i64, i64 } %182, 0
+  %184 = extractvalue { i64, i64, i64 } %182, 1
+  %185 = extractvalue { i64, i64, i64 } %182, 2
+  %186 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %180, i64 %181, i32 0, i64 %183, i64 %184, i64 %185) #3, !srcloc !261
+  %187 = extractvalue { i64, i64, i64 } %186, 0
+  %188 = extractvalue { i64, i64, i64 } %186, 1
+  %189 = extractvalue { i64, i64, i64 } %186, 2
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %187, ptr %190, align 8, !tbaa !29
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %192 = load i64, ptr %191, align 8, !tbaa !29
+  %193 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %192, ptr nonnull elementtype(i64) %1) #3, !srcloc !262
+  %194 = extractvalue { i64, i64 } %193, 0
+  %195 = extractvalue { i64, i64 } %193, 1
+  %196 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %194, i64 %195, i32 0, i64 %188, i64 %189, i64 0) #3, !srcloc !263
+  %197 = extractvalue { i64, i64, i64 } %196, 0
+  %198 = extractvalue { i64, i64, i64 } %196, 1
+  %199 = extractvalue { i64, i64, i64 } %196, 2
+  %200 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %194, i64 %195, i32 0, i64 %197, i64 %198, i64 %199) #3, !srcloc !264
+  %201 = extractvalue { i64, i64, i64 } %200, 0
+  %202 = extractvalue { i64, i64, i64 } %200, 1
+  %203 = extractvalue { i64, i64, i64 } %200, 2
+  %204 = load i64, ptr %177, align 8, !tbaa !29
+  %205 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %204, ptr nonnull elementtype(i64) %11) #3, !srcloc !265
+  %206 = extractvalue { i64, i64 } %205, 0
+  %207 = extractvalue { i64, i64 } %205, 1
+  %208 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %206, i64 %207, i32 0, i64 %201, i64 %202, i64 %203) #3, !srcloc !266
+  %209 = extractvalue { i64, i64, i64 } %208, 0
+  %210 = extractvalue { i64, i64, i64 } %208, 1
+  %211 = extractvalue { i64, i64, i64 } %208, 2
+  %212 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %206, i64 %207, i32 0, i64 %209, i64 %210, i64 %211) #3, !srcloc !267
+  %213 = extractvalue { i64, i64, i64 } %212, 0
+  %214 = extractvalue { i64, i64, i64 } %212, 1
+  %215 = extractvalue { i64, i64, i64 } %212, 2
+  %216 = load i64, ptr %107, align 8, !tbaa !29
+  %217 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %216, ptr nonnull elementtype(i64) %33) #3, !srcloc !268
+  %218 = extractvalue { i64, i64 } %217, 0
+  %219 = extractvalue { i64, i64 } %217, 1
+  %220 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %218, i64 %219, i32 0, i64 %213, i64 %214, i64 %215) #3, !srcloc !269
+  %221 = extractvalue { i64, i64, i64 } %220, 0
+  %222 = extractvalue { i64, i64, i64 } %220, 1
+  %223 = extractvalue { i64, i64, i64 } %220, 2
+  %224 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %218, i64 %219, i32 0, i64 %221, i64 %222, i64 %223) #3, !srcloc !270
+  %225 = extractvalue { i64, i64, i64 } %224, 0
+  %226 = extractvalue { i64, i64, i64 } %224, 1
+  %227 = extractvalue { i64, i64, i64 } %224, 2
+  %228 = load i64, ptr %93, align 8, !tbaa !29
+  %229 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %228, ptr nonnull elementtype(i64) %47) #3, !srcloc !271
+  %230 = extractvalue { i64, i64 } %229, 0
+  %231 = extractvalue { i64, i64 } %229, 1
+  %232 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %230, i64 %231, i32 0, i64 %225, i64 %226, i64 %227) #3, !srcloc !272
+  %233 = extractvalue { i64, i64, i64 } %232, 0
+  %234 = extractvalue { i64, i64, i64 } %232, 1
+  %235 = extractvalue { i64, i64, i64 } %232, 2
+  %236 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %230, i64 %231, i32 0, i64 %233, i64 %234, i64 %235) #3, !srcloc !273
+  %237 = extractvalue { i64, i64, i64 } %236, 0
+  %238 = extractvalue { i64, i64, i64 } %236, 1
+  %239 = extractvalue { i64, i64, i64 } %236, 2
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %237, ptr %240, align 8, !tbaa !29
+  %241 = load i64, ptr %93, align 8, !tbaa !29
+  %242 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %241) #5, !srcloc !274
+  %243 = extractvalue { i64, i64 } %242, 0
+  %244 = extractvalue { i64, i64 } %242, 1
+  %245 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %243, i64 %244, i32 0, i64 %238, i64 %239, i64 0) #3, !srcloc !275
+  %246 = extractvalue { i64, i64, i64 } %245, 0
+  %247 = extractvalue { i64, i64, i64 } %245, 1
+  %248 = extractvalue { i64, i64, i64 } %245, 2
+  %249 = load i64, ptr %107, align 8, !tbaa !29
+  %250 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %249, ptr nonnull elementtype(i64) %47) #3, !srcloc !276
+  %251 = extractvalue { i64, i64 } %250, 0
+  %252 = extractvalue { i64, i64 } %250, 1
+  %253 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %251, i64 %252, i32 0, i64 %246, i64 %247, i64 %248) #3, !srcloc !277
+  %254 = extractvalue { i64, i64, i64 } %253, 0
+  %255 = extractvalue { i64, i64, i64 } %253, 1
+  %256 = extractvalue { i64, i64, i64 } %253, 2
+  %257 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %251, i64 %252, i32 0, i64 %254, i64 %255, i64 %256) #3, !srcloc !278
+  %258 = extractvalue { i64, i64, i64 } %257, 0
+  %259 = extractvalue { i64, i64, i64 } %257, 1
+  %260 = extractvalue { i64, i64, i64 } %257, 2
+  %261 = load i64, ptr %177, align 8, !tbaa !29
+  %262 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %261, ptr nonnull elementtype(i64) %33) #3, !srcloc !279
+  %263 = extractvalue { i64, i64 } %262, 0
+  %264 = extractvalue { i64, i64 } %262, 1
+  %265 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %263, i64 %264, i32 0, i64 %258, i64 %259, i64 %260) #3, !srcloc !280
+  %266 = extractvalue { i64, i64, i64 } %265, 0
+  %267 = extractvalue { i64, i64, i64 } %265, 1
+  %268 = extractvalue { i64, i64, i64 } %265, 2
+  %269 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %263, i64 %264, i32 0, i64 %266, i64 %267, i64 %268) #3, !srcloc !281
+  %270 = extractvalue { i64, i64, i64 } %269, 0
+  %271 = extractvalue { i64, i64, i64 } %269, 1
+  %272 = extractvalue { i64, i64, i64 } %269, 2
+  %273 = load i64, ptr %191, align 8, !tbaa !29
+  %274 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %273, ptr nonnull elementtype(i64) %11) #3, !srcloc !282
+  %275 = extractvalue { i64, i64 } %274, 0
+  %276 = extractvalue { i64, i64 } %274, 1
+  %277 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %275, i64 %276, i32 0, i64 %270, i64 %271, i64 %272) #3, !srcloc !283
+  %278 = extractvalue { i64, i64, i64 } %277, 0
+  %279 = extractvalue { i64, i64, i64 } %277, 1
+  %280 = extractvalue { i64, i64, i64 } %277, 2
+  %281 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %275, i64 %276, i32 0, i64 %278, i64 %279, i64 %280) #3, !srcloc !284
+  %282 = extractvalue { i64, i64, i64 } %281, 0
+  %283 = extractvalue { i64, i64, i64 } %281, 1
+  %284 = extractvalue { i64, i64, i64 } %281, 2
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %282, ptr %285, align 8, !tbaa !29
+  %286 = load i64, ptr %191, align 8, !tbaa !29
+  %287 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %286, ptr nonnull elementtype(i64) %33) #3, !srcloc !285
+  %288 = extractvalue { i64, i64 } %287, 0
+  %289 = extractvalue { i64, i64 } %287, 1
+  %290 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %288, i64 %289, i32 0, i64 %283, i64 %284, i64 0) #3, !srcloc !286
+  %291 = extractvalue { i64, i64, i64 } %290, 0
+  %292 = extractvalue { i64, i64, i64 } %290, 1
+  %293 = extractvalue { i64, i64, i64 } %290, 2
+  %294 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %288, i64 %289, i32 0, i64 %291, i64 %292, i64 %293) #3, !srcloc !287
+  %295 = extractvalue { i64, i64, i64 } %294, 0
+  %296 = extractvalue { i64, i64, i64 } %294, 1
+  %297 = extractvalue { i64, i64, i64 } %294, 2
+  %298 = load i64, ptr %177, align 8, !tbaa !29
+  %299 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %298, ptr nonnull elementtype(i64) %47) #3, !srcloc !288
+  %300 = extractvalue { i64, i64 } %299, 0
+  %301 = extractvalue { i64, i64 } %299, 1
+  %302 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %300, i64 %301, i32 0, i64 %295, i64 %296, i64 %297) #3, !srcloc !289
+  %303 = extractvalue { i64, i64, i64 } %302, 0
+  %304 = extractvalue { i64, i64, i64 } %302, 1
+  %305 = extractvalue { i64, i64, i64 } %302, 2
+  %306 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %300, i64 %301, i32 0, i64 %303, i64 %304, i64 %305) #3, !srcloc !290
+  %307 = extractvalue { i64, i64, i64 } %306, 0
+  %308 = extractvalue { i64, i64, i64 } %306, 1
+  %309 = extractvalue { i64, i64, i64 } %306, 2
+  %310 = load i64, ptr %107, align 8, !tbaa !29
+  %311 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %310, ptr nonnull elementtype(i64) %93) #3, !srcloc !291
+  %312 = extractvalue { i64, i64 } %311, 0
+  %313 = extractvalue { i64, i64 } %311, 1
+  %314 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %312, i64 %313, i32 0, i64 %307, i64 %308, i64 %309) #3, !srcloc !292
+  %315 = extractvalue { i64, i64, i64 } %314, 0
+  %316 = extractvalue { i64, i64, i64 } %314, 1
+  %317 = extractvalue { i64, i64, i64 } %314, 2
+  %318 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %312, i64 %313, i32 0, i64 %315, i64 %316, i64 %317) #3, !srcloc !293
+  %319 = extractvalue { i64, i64, i64 } %318, 0
+  %320 = extractvalue { i64, i64, i64 } %318, 1
+  %321 = extractvalue { i64, i64, i64 } %318, 2
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %319, ptr %322, align 8, !tbaa !29
+  %323 = load i64, ptr %107, align 8, !tbaa !29
+  %324 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %323) #5, !srcloc !294
+  %325 = extractvalue { i64, i64 } %324, 0
+  %326 = extractvalue { i64, i64 } %324, 1
+  %327 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %325, i64 %326, i32 0, i64 %320, i64 %321, i64 0) #3, !srcloc !295
+  %328 = extractvalue { i64, i64, i64 } %327, 0
+  %329 = extractvalue { i64, i64, i64 } %327, 1
+  %330 = extractvalue { i64, i64, i64 } %327, 2
+  %331 = load i64, ptr %177, align 8, !tbaa !29
+  %332 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %331, ptr nonnull elementtype(i64) %93) #3, !srcloc !296
+  %333 = extractvalue { i64, i64 } %332, 0
+  %334 = extractvalue { i64, i64 } %332, 1
+  %335 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %333, i64 %334, i32 0, i64 %328, i64 %329, i64 %330) #3, !srcloc !297
+  %336 = extractvalue { i64, i64, i64 } %335, 0
+  %337 = extractvalue { i64, i64, i64 } %335, 1
+  %338 = extractvalue { i64, i64, i64 } %335, 2
+  %339 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %333, i64 %334, i32 0, i64 %336, i64 %337, i64 %338) #3, !srcloc !298
+  %340 = extractvalue { i64, i64, i64 } %339, 0
+  %341 = extractvalue { i64, i64, i64 } %339, 1
+  %342 = extractvalue { i64, i64, i64 } %339, 2
+  %343 = load i64, ptr %191, align 8, !tbaa !29
+  %344 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %343, ptr nonnull elementtype(i64) %47) #3, !srcloc !299
+  %345 = extractvalue { i64, i64 } %344, 0
+  %346 = extractvalue { i64, i64 } %344, 1
+  %347 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %345, i64 %346, i32 0, i64 %340, i64 %341, i64 %342) #3, !srcloc !300
+  %348 = extractvalue { i64, i64, i64 } %347, 0
+  %349 = extractvalue { i64, i64, i64 } %347, 1
+  %350 = extractvalue { i64, i64, i64 } %347, 2
+  %351 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %345, i64 %346, i32 0, i64 %348, i64 %349, i64 %350) #3, !srcloc !301
+  %352 = extractvalue { i64, i64, i64 } %351, 0
+  %353 = extractvalue { i64, i64, i64 } %351, 1
+  %354 = extractvalue { i64, i64, i64 } %351, 2
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %352, ptr %355, align 8, !tbaa !29
+  %356 = load i64, ptr %191, align 8, !tbaa !29
+  %357 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %356, ptr nonnull elementtype(i64) %93) #3, !srcloc !302
+  %358 = extractvalue { i64, i64 } %357, 0
+  %359 = extractvalue { i64, i64 } %357, 1
+  %360 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %358, i64 %359, i32 0, i64 %353, i64 %354, i64 0) #3, !srcloc !303
+  %361 = extractvalue { i64, i64, i64 } %360, 0
+  %362 = extractvalue { i64, i64, i64 } %360, 1
+  %363 = extractvalue { i64, i64, i64 } %360, 2
+  %364 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %358, i64 %359, i32 0, i64 %361, i64 %362, i64 %363) #3, !srcloc !304
+  %365 = extractvalue { i64, i64, i64 } %364, 0
+  %366 = extractvalue { i64, i64, i64 } %364, 1
+  %367 = extractvalue { i64, i64, i64 } %364, 2
+  %368 = load i64, ptr %177, align 8, !tbaa !29
+  %369 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %368, ptr nonnull elementtype(i64) %107) #3, !srcloc !305
+  %370 = extractvalue { i64, i64 } %369, 0
+  %371 = extractvalue { i64, i64 } %369, 1
+  %372 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %370, i64 %371, i32 0, i64 %365, i64 %366, i64 %367) #3, !srcloc !306
+  %373 = extractvalue { i64, i64, i64 } %372, 0
+  %374 = extractvalue { i64, i64, i64 } %372, 1
+  %375 = extractvalue { i64, i64, i64 } %372, 2
+  %376 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %370, i64 %371, i32 0, i64 %373, i64 %374, i64 %375) #3, !srcloc !307
+  %377 = extractvalue { i64, i64, i64 } %376, 0
+  %378 = extractvalue { i64, i64, i64 } %376, 1
+  %379 = extractvalue { i64, i64, i64 } %376, 2
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %377, ptr %380, align 8, !tbaa !29
+  %381 = load i64, ptr %177, align 8, !tbaa !29
+  %382 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %381) #5, !srcloc !308
+  %383 = extractvalue { i64, i64 } %382, 0
+  %384 = extractvalue { i64, i64 } %382, 1
+  %385 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %383, i64 %384, i32 0, i64 %378, i64 %379, i64 0) #3, !srcloc !309
+  %386 = extractvalue { i64, i64, i64 } %385, 0
+  %387 = extractvalue { i64, i64, i64 } %385, 1
+  %388 = extractvalue { i64, i64, i64 } %385, 2
+  %389 = load i64, ptr %191, align 8, !tbaa !29
+  %390 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %389, ptr nonnull elementtype(i64) %107) #3, !srcloc !310
+  %391 = extractvalue { i64, i64 } %390, 0
+  %392 = extractvalue { i64, i64 } %390, 1
+  %393 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %391, i64 %392, i32 0, i64 %386, i64 %387, i64 %388) #3, !srcloc !311
+  %394 = extractvalue { i64, i64, i64 } %393, 0
+  %395 = extractvalue { i64, i64, i64 } %393, 1
+  %396 = extractvalue { i64, i64, i64 } %393, 2
+  %397 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %391, i64 %392, i32 0, i64 %394, i64 %395, i64 %396) #3, !srcloc !312
+  %398 = extractvalue { i64, i64, i64 } %397, 0
+  %399 = extractvalue { i64, i64, i64 } %397, 1
+  %400 = extractvalue { i64, i64, i64 } %397, 2
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 %398, ptr %401, align 8, !tbaa !29
+  %402 = load i64, ptr %191, align 8, !tbaa !29
+  %403 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %402, ptr nonnull elementtype(i64) %177) #3, !srcloc !313
+  %404 = extractvalue { i64, i64 } %403, 0
+  %405 = extractvalue { i64, i64 } %403, 1
+  %406 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %404, i64 %405, i32 0, i64 %399, i64 %400, i64 0) #3, !srcloc !314
+  %407 = extractvalue { i64, i64, i64 } %406, 0
+  %408 = extractvalue { i64, i64, i64 } %406, 1
+  %409 = extractvalue { i64, i64, i64 } %406, 2
+  %410 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %404, i64 %405, i32 0, i64 %407, i64 %408, i64 %409) #3, !srcloc !315
+  %411 = extractvalue { i64, i64, i64 } %410, 0
+  %412 = extractvalue { i64, i64, i64 } %410, 1
+  %413 = extractvalue { i64, i64, i64 } %410, 2
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 %411, ptr %414, align 8, !tbaa !29
+  %415 = load i64, ptr %191, align 8, !tbaa !29
+  %416 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %415) #5, !srcloc !316
+  %417 = extractvalue { i64, i64 } %416, 0
+  %418 = extractvalue { i64, i64 } %416, 1
+  %419 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %417, i64 %418, i32 0, i64 %412, i64 %413, i64 0) #3, !srcloc !317
+  %420 = extractvalue { i64, i64, i64 } %419, 0
+  %421 = extractvalue { i64, i64, i64 } %419, 1
+  %422 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %420, ptr %422, align 8, !tbaa !29
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 %421, ptr %423, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @bn_sqr_comba4(ptr noundef writeonly captures(none) initializes((0, 64)) %r, ptr noundef %a) local_unnamed_addr #1 {
-entry:
-  %0 = load i64, ptr %a, align 8
-  %1 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0) #5, !srcloc !315
-  %asmresult = extractvalue { i64, i64 } %1, 0
-  %asmresult1 = extractvalue { i64, i64 } %1, 1
-  %2 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult, i64 %asmresult1, i32 0, i64 0, i64 0, i64 0) #3, !srcloc !316
-  %asmresult2 = extractvalue { i64, i64, i64 } %2, 0
-  %asmresult3 = extractvalue { i64, i64, i64 } %2, 1
-  %asmresult4 = extractvalue { i64, i64, i64 } %2, 2
-  store i64 %asmresult2, ptr %r, align 8
-  %arrayidx9 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %3 = load i64, ptr %arrayidx9, align 8
-  %4 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %a) #3, !srcloc !317
-  %asmresult11 = extractvalue { i64, i64 } %4, 0
-  %asmresult12 = extractvalue { i64, i64 } %4, 1
-  %5 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult11, i64 %asmresult12, i32 0, i64 %asmresult3, i64 %asmresult4, i64 0) #3, !srcloc !318
-  %asmresult13 = extractvalue { i64, i64, i64 } %5, 0
-  %asmresult14 = extractvalue { i64, i64, i64 } %5, 1
-  %asmresult15 = extractvalue { i64, i64, i64 } %5, 2
-  %6 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult11, i64 %asmresult12, i32 0, i64 %asmresult13, i64 %asmresult14, i64 %asmresult15) #3, !srcloc !319
-  %asmresult16 = extractvalue { i64, i64, i64 } %6, 0
-  %asmresult17 = extractvalue { i64, i64, i64 } %6, 1
-  %asmresult18 = extractvalue { i64, i64, i64 } %6, 2
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %r, i64 8
-  store i64 %asmresult16, ptr %arrayidx20, align 8
-  %7 = load i64, ptr %arrayidx9, align 8
-  %8 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %7) #5, !srcloc !320
-  %asmresult25 = extractvalue { i64, i64 } %8, 0
-  %asmresult26 = extractvalue { i64, i64 } %8, 1
-  %9 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult25, i64 %asmresult26, i32 0, i64 %asmresult17, i64 %asmresult18, i64 0) #3, !srcloc !321
-  %asmresult27 = extractvalue { i64, i64, i64 } %9, 0
-  %asmresult28 = extractvalue { i64, i64, i64 } %9, 1
-  %asmresult29 = extractvalue { i64, i64, i64 } %9, 2
-  %arrayidx34 = getelementptr inbounds nuw i8, ptr %a, i64 16
-  %10 = load i64, ptr %arrayidx34, align 8
-  %11 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr nonnull elementtype(i64) %a) #3, !srcloc !322
-  %asmresult36 = extractvalue { i64, i64 } %11, 0
-  %asmresult37 = extractvalue { i64, i64 } %11, 1
-  %12 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult36, i64 %asmresult37, i32 0, i64 %asmresult27, i64 %asmresult28, i64 %asmresult29) #3, !srcloc !323
-  %asmresult38 = extractvalue { i64, i64, i64 } %12, 0
-  %asmresult39 = extractvalue { i64, i64, i64 } %12, 1
-  %asmresult40 = extractvalue { i64, i64, i64 } %12, 2
-  %13 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult36, i64 %asmresult37, i32 0, i64 %asmresult38, i64 %asmresult39, i64 %asmresult40) #3, !srcloc !324
-  %asmresult41 = extractvalue { i64, i64, i64 } %13, 0
-  %asmresult42 = extractvalue { i64, i64, i64 } %13, 1
-  %asmresult43 = extractvalue { i64, i64, i64 } %13, 2
-  %arrayidx45 = getelementptr inbounds nuw i8, ptr %r, i64 16
-  store i64 %asmresult41, ptr %arrayidx45, align 8
-  %arrayidx49 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %14 = load i64, ptr %arrayidx49, align 8
-  %15 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14, ptr nonnull elementtype(i64) %a) #3, !srcloc !325
-  %asmresult51 = extractvalue { i64, i64 } %15, 0
-  %asmresult52 = extractvalue { i64, i64 } %15, 1
-  %16 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult51, i64 %asmresult52, i32 0, i64 %asmresult42, i64 %asmresult43, i64 0) #3, !srcloc !326
-  %asmresult53 = extractvalue { i64, i64, i64 } %16, 0
-  %asmresult54 = extractvalue { i64, i64, i64 } %16, 1
-  %asmresult55 = extractvalue { i64, i64, i64 } %16, 2
-  %17 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult51, i64 %asmresult52, i32 0, i64 %asmresult53, i64 %asmresult54, i64 %asmresult55) #3, !srcloc !327
-  %asmresult56 = extractvalue { i64, i64, i64 } %17, 0
-  %asmresult57 = extractvalue { i64, i64, i64 } %17, 1
-  %asmresult58 = extractvalue { i64, i64, i64 } %17, 2
-  %18 = load i64, ptr %arrayidx34, align 8
-  %19 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %18, ptr nonnull elementtype(i64) %arrayidx9) #3, !srcloc !328
-  %asmresult65 = extractvalue { i64, i64 } %19, 0
-  %asmresult66 = extractvalue { i64, i64 } %19, 1
-  %20 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult65, i64 %asmresult66, i32 0, i64 %asmresult56, i64 %asmresult57, i64 %asmresult58) #3, !srcloc !329
-  %asmresult67 = extractvalue { i64, i64, i64 } %20, 0
-  %asmresult68 = extractvalue { i64, i64, i64 } %20, 1
-  %asmresult69 = extractvalue { i64, i64, i64 } %20, 2
-  %21 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult65, i64 %asmresult66, i32 0, i64 %asmresult67, i64 %asmresult68, i64 %asmresult69) #3, !srcloc !330
-  %asmresult70 = extractvalue { i64, i64, i64 } %21, 0
-  %asmresult71 = extractvalue { i64, i64, i64 } %21, 1
-  %asmresult72 = extractvalue { i64, i64, i64 } %21, 2
-  %arrayidx74 = getelementptr inbounds nuw i8, ptr %r, i64 24
-  store i64 %asmresult70, ptr %arrayidx74, align 8
-  %22 = load i64, ptr %arrayidx34, align 8
-  %23 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %22) #5, !srcloc !331
-  %asmresult79 = extractvalue { i64, i64 } %23, 0
-  %asmresult80 = extractvalue { i64, i64 } %23, 1
-  %24 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult79, i64 %asmresult80, i32 0, i64 %asmresult71, i64 %asmresult72, i64 0) #3, !srcloc !332
-  %asmresult81 = extractvalue { i64, i64, i64 } %24, 0
-  %asmresult82 = extractvalue { i64, i64, i64 } %24, 1
-  %asmresult83 = extractvalue { i64, i64, i64 } %24, 2
-  %25 = load i64, ptr %arrayidx49, align 8
-  %26 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %25, ptr nonnull elementtype(i64) %arrayidx9) #3, !srcloc !333
-  %asmresult90 = extractvalue { i64, i64 } %26, 0
-  %asmresult91 = extractvalue { i64, i64 } %26, 1
-  %27 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult90, i64 %asmresult91, i32 0, i64 %asmresult81, i64 %asmresult82, i64 %asmresult83) #3, !srcloc !334
-  %asmresult92 = extractvalue { i64, i64, i64 } %27, 0
-  %asmresult93 = extractvalue { i64, i64, i64 } %27, 1
-  %asmresult94 = extractvalue { i64, i64, i64 } %27, 2
-  %28 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult90, i64 %asmresult91, i32 0, i64 %asmresult92, i64 %asmresult93, i64 %asmresult94) #3, !srcloc !335
-  %asmresult95 = extractvalue { i64, i64, i64 } %28, 0
-  %asmresult96 = extractvalue { i64, i64, i64 } %28, 1
-  %asmresult97 = extractvalue { i64, i64, i64 } %28, 2
-  %arrayidx99 = getelementptr inbounds nuw i8, ptr %r, i64 32
-  store i64 %asmresult95, ptr %arrayidx99, align 8
-  %29 = load i64, ptr %arrayidx49, align 8
-  %30 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %29, ptr nonnull elementtype(i64) %arrayidx34) #3, !srcloc !336
-  %asmresult105 = extractvalue { i64, i64 } %30, 0
-  %asmresult106 = extractvalue { i64, i64 } %30, 1
-  %31 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult105, i64 %asmresult106, i32 0, i64 %asmresult96, i64 %asmresult97, i64 0) #3, !srcloc !337
-  %asmresult107 = extractvalue { i64, i64, i64 } %31, 0
-  %asmresult108 = extractvalue { i64, i64, i64 } %31, 1
-  %asmresult109 = extractvalue { i64, i64, i64 } %31, 2
-  %32 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult105, i64 %asmresult106, i32 0, i64 %asmresult107, i64 %asmresult108, i64 %asmresult109) #3, !srcloc !338
-  %asmresult110 = extractvalue { i64, i64, i64 } %32, 0
-  %asmresult111 = extractvalue { i64, i64, i64 } %32, 1
-  %asmresult112 = extractvalue { i64, i64, i64 } %32, 2
-  %arrayidx114 = getelementptr inbounds nuw i8, ptr %r, i64 40
-  store i64 %asmresult110, ptr %arrayidx114, align 8
-  %33 = load i64, ptr %arrayidx49, align 8
-  %34 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %33) #5, !srcloc !339
-  %asmresult119 = extractvalue { i64, i64 } %34, 0
-  %asmresult120 = extractvalue { i64, i64 } %34, 1
-  %35 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %asmresult119, i64 %asmresult120, i32 0, i64 %asmresult111, i64 %asmresult112, i64 0) #3, !srcloc !340
-  %asmresult121 = extractvalue { i64, i64, i64 } %35, 0
-  %asmresult122 = extractvalue { i64, i64, i64 } %35, 1
-  %arrayidx125 = getelementptr inbounds nuw i8, ptr %r, i64 48
-  store i64 %asmresult121, ptr %arrayidx125, align 8
-  %arrayidx126 = getelementptr inbounds nuw i8, ptr %r, i64 56
-  store i64 %asmresult122, ptr %arrayidx126, align 8
+define hidden void @bn_sqr_comba4(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load i64, ptr %1, align 8, !tbaa !29
+  %4 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3) #5, !srcloc !318
+  %5 = extractvalue { i64, i64 } %4, 0
+  %6 = extractvalue { i64, i64 } %4, 1
+  %7 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %5, i64 %6, i32 0, i64 0, i64 0, i64 0) #3, !srcloc !319
+  %8 = extractvalue { i64, i64, i64 } %7, 0
+  %9 = extractvalue { i64, i64, i64 } %7, 1
+  %10 = extractvalue { i64, i64, i64 } %7, 2
+  store i64 %8, ptr %0, align 8, !tbaa !29
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i64, ptr %11, align 8, !tbaa !29
+  %13 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull elementtype(i64) %1) #3, !srcloc !320
+  %14 = extractvalue { i64, i64 } %13, 0
+  %15 = extractvalue { i64, i64 } %13, 1
+  %16 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14, i64 %15, i32 0, i64 %9, i64 %10, i64 0) #3, !srcloc !321
+  %17 = extractvalue { i64, i64, i64 } %16, 0
+  %18 = extractvalue { i64, i64, i64 } %16, 1
+  %19 = extractvalue { i64, i64, i64 } %16, 2
+  %20 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14, i64 %15, i32 0, i64 %17, i64 %18, i64 %19) #3, !srcloc !322
+  %21 = extractvalue { i64, i64, i64 } %20, 0
+  %22 = extractvalue { i64, i64, i64 } %20, 1
+  %23 = extractvalue { i64, i64, i64 } %20, 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %21, ptr %24, align 8, !tbaa !29
+  %25 = load i64, ptr %11, align 8, !tbaa !29
+  %26 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %25) #5, !srcloc !323
+  %27 = extractvalue { i64, i64 } %26, 0
+  %28 = extractvalue { i64, i64 } %26, 1
+  %29 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %27, i64 %28, i32 0, i64 %22, i64 %23, i64 0) #3, !srcloc !324
+  %30 = extractvalue { i64, i64, i64 } %29, 0
+  %31 = extractvalue { i64, i64, i64 } %29, 1
+  %32 = extractvalue { i64, i64, i64 } %29, 2
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load i64, ptr %33, align 8, !tbaa !29
+  %35 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %34, ptr nonnull elementtype(i64) %1) #3, !srcloc !325
+  %36 = extractvalue { i64, i64 } %35, 0
+  %37 = extractvalue { i64, i64 } %35, 1
+  %38 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36, i64 %37, i32 0, i64 %30, i64 %31, i64 %32) #3, !srcloc !326
+  %39 = extractvalue { i64, i64, i64 } %38, 0
+  %40 = extractvalue { i64, i64, i64 } %38, 1
+  %41 = extractvalue { i64, i64, i64 } %38, 2
+  %42 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36, i64 %37, i32 0, i64 %39, i64 %40, i64 %41) #3, !srcloc !327
+  %43 = extractvalue { i64, i64, i64 } %42, 0
+  %44 = extractvalue { i64, i64, i64 } %42, 1
+  %45 = extractvalue { i64, i64, i64 } %42, 2
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %43, ptr %46, align 8, !tbaa !29
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %48 = load i64, ptr %47, align 8, !tbaa !29
+  %49 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull elementtype(i64) %1) #3, !srcloc !328
+  %50 = extractvalue { i64, i64 } %49, 0
+  %51 = extractvalue { i64, i64 } %49, 1
+  %52 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %50, i64 %51, i32 0, i64 %44, i64 %45, i64 0) #3, !srcloc !329
+  %53 = extractvalue { i64, i64, i64 } %52, 0
+  %54 = extractvalue { i64, i64, i64 } %52, 1
+  %55 = extractvalue { i64, i64, i64 } %52, 2
+  %56 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %50, i64 %51, i32 0, i64 %53, i64 %54, i64 %55) #3, !srcloc !330
+  %57 = extractvalue { i64, i64, i64 } %56, 0
+  %58 = extractvalue { i64, i64, i64 } %56, 1
+  %59 = extractvalue { i64, i64, i64 } %56, 2
+  %60 = load i64, ptr %33, align 8, !tbaa !29
+  %61 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %60, ptr nonnull elementtype(i64) %11) #3, !srcloc !331
+  %62 = extractvalue { i64, i64 } %61, 0
+  %63 = extractvalue { i64, i64 } %61, 1
+  %64 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %63, i32 0, i64 %57, i64 %58, i64 %59) #3, !srcloc !332
+  %65 = extractvalue { i64, i64, i64 } %64, 0
+  %66 = extractvalue { i64, i64, i64 } %64, 1
+  %67 = extractvalue { i64, i64, i64 } %64, 2
+  %68 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %63, i32 0, i64 %65, i64 %66, i64 %67) #3, !srcloc !333
+  %69 = extractvalue { i64, i64, i64 } %68, 0
+  %70 = extractvalue { i64, i64, i64 } %68, 1
+  %71 = extractvalue { i64, i64, i64 } %68, 2
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %69, ptr %72, align 8, !tbaa !29
+  %73 = load i64, ptr %33, align 8, !tbaa !29
+  %74 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %73) #5, !srcloc !334
+  %75 = extractvalue { i64, i64 } %74, 0
+  %76 = extractvalue { i64, i64 } %74, 1
+  %77 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %75, i64 %76, i32 0, i64 %70, i64 %71, i64 0) #3, !srcloc !335
+  %78 = extractvalue { i64, i64, i64 } %77, 0
+  %79 = extractvalue { i64, i64, i64 } %77, 1
+  %80 = extractvalue { i64, i64, i64 } %77, 2
+  %81 = load i64, ptr %47, align 8, !tbaa !29
+  %82 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %81, ptr nonnull elementtype(i64) %11) #3, !srcloc !336
+  %83 = extractvalue { i64, i64 } %82, 0
+  %84 = extractvalue { i64, i64 } %82, 1
+  %85 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, i64 %84, i32 0, i64 %78, i64 %79, i64 %80) #3, !srcloc !337
+  %86 = extractvalue { i64, i64, i64 } %85, 0
+  %87 = extractvalue { i64, i64, i64 } %85, 1
+  %88 = extractvalue { i64, i64, i64 } %85, 2
+  %89 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, i64 %84, i32 0, i64 %86, i64 %87, i64 %88) #3, !srcloc !338
+  %90 = extractvalue { i64, i64, i64 } %89, 0
+  %91 = extractvalue { i64, i64, i64 } %89, 1
+  %92 = extractvalue { i64, i64, i64 } %89, 2
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %90, ptr %93, align 8, !tbaa !29
+  %94 = load i64, ptr %47, align 8, !tbaa !29
+  %95 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %94, ptr nonnull elementtype(i64) %33) #3, !srcloc !339
+  %96 = extractvalue { i64, i64 } %95, 0
+  %97 = extractvalue { i64, i64 } %95, 1
+  %98 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97, i32 0, i64 %91, i64 %92, i64 0) #3, !srcloc !340
+  %99 = extractvalue { i64, i64, i64 } %98, 0
+  %100 = extractvalue { i64, i64, i64 } %98, 1
+  %101 = extractvalue { i64, i64, i64 } %98, 2
+  %102 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97, i32 0, i64 %99, i64 %100, i64 %101) #3, !srcloc !341
+  %103 = extractvalue { i64, i64, i64 } %102, 0
+  %104 = extractvalue { i64, i64, i64 } %102, 1
+  %105 = extractvalue { i64, i64, i64 } %102, 2
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %103, ptr %106, align 8, !tbaa !29
+  %107 = load i64, ptr %47, align 8, !tbaa !29
+  %108 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %107) #5, !srcloc !342
+  %109 = extractvalue { i64, i64 } %108, 0
+  %110 = extractvalue { i64, i64 } %108, 1
+  %111 = tail call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %109, i64 %110, i32 0, i64 %104, i64 %105, i64 0) #3, !srcloc !343
+  %112 = extractvalue { i64, i64, i64 } %111, 0
+  %113 = extractvalue { i64, i64, i64 } %111, 1
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %112, ptr %114, align 8, !tbaa !29
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %113, ptr %115, align 8, !tbaa !29
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind memory(read) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i64 2148171095}
-!8 = !{i64 2148171168}
-!9 = !{i64 2148171460}
-!10 = !{i64 2148172039}
-!11 = !{i64 2148172112}
-!12 = !{i64 2148172404}
-!13 = !{i64 2148172983}
-!14 = !{i64 2148173056}
-!15 = !{i64 2148173348}
-!16 = !{i64 2148173927}
-!17 = !{i64 2148174000}
-!18 = !{i64 2148174292}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = !{i64 2148174871}
-!22 = !{i64 2148174944}
-!23 = !{i64 2148175236}
-!24 = !{i64 2148175815}
-!25 = !{i64 2148175888}
-!26 = !{i64 2148176180}
-!27 = !{i64 2148176759}
-!28 = !{i64 2148176832}
-!29 = !{i64 2148177124}
-!30 = !{i64 2148177748}
-!31 = !{i64 2148177821}
-!32 = !{i64 2148178392}
-!33 = !{i64 2148178465}
-!34 = !{i64 2148179036}
-!35 = !{i64 2148179109}
-!36 = !{i64 2148179680}
-!37 = !{i64 2148179753}
-!38 = distinct !{!38, !20}
-!39 = !{i64 2148180324}
-!40 = !{i64 2148180397}
-!41 = !{i64 2148180968}
-!42 = !{i64 2148181041}
-!43 = !{i64 2148181612}
-!44 = !{i64 2148181685}
-!45 = !{i64 2148182126}
-!46 = !{i64 2148182202}
-!47 = !{i64 2148182278}
-!48 = !{i64 2148182354}
-!49 = distinct !{!49, !20}
-!50 = !{i64 2148182430}
-!51 = !{i64 2148182506}
-!52 = !{i64 2148182582}
-!53 = !{i64 6170, i64 6213, i64 6233, i64 6257, i64 6289, i64 6319, i64 6349, i64 6374, i64 6395}
-!54 = !{i64 6728, i64 6772, i64 6792, i64 6816, i64 6848, i64 6878, i64 6908, i64 6933, i64 6954}
-!55 = !{i64 2148182887}
-!56 = !{i64 2148182954}
-!57 = !{i64 2148183283}
-!58 = !{i64 2148183350}
-!59 = !{i64 2148183679}
-!60 = !{i64 2148183746}
-!61 = !{i64 2148184075}
-!62 = !{i64 2148184142}
-!63 = !{i64 2148184471}
-!64 = !{i64 2148184538}
-!65 = !{i64 2148184867}
-!66 = !{i64 2148184934}
-!67 = !{i64 2148185263}
-!68 = !{i64 2148185330}
-!69 = !{i64 2148185659}
-!70 = !{i64 2148185726}
-!71 = !{i64 2148186055}
-!72 = !{i64 2148186122}
-!73 = !{i64 2148186451}
-!74 = !{i64 2148186518}
-!75 = !{i64 2148186847}
-!76 = !{i64 2148186914}
-!77 = !{i64 2148187243}
-!78 = !{i64 2148187310}
-!79 = !{i64 2148187639}
-!80 = !{i64 2148187706}
-!81 = !{i64 2148188035}
-!82 = !{i64 2148188102}
-!83 = !{i64 2148188431}
-!84 = !{i64 2148188498}
-!85 = !{i64 2148188827}
-!86 = !{i64 2148188894}
-!87 = !{i64 2148189223}
-!88 = !{i64 2148189290}
-!89 = !{i64 2148189619}
-!90 = !{i64 2148189686}
-!91 = !{i64 2148190015}
-!92 = !{i64 2148190082}
-!93 = !{i64 2148190411}
-!94 = !{i64 2148190478}
-!95 = !{i64 2148190807}
-!96 = !{i64 2148190874}
-!97 = !{i64 2148191203}
-!98 = !{i64 2148191270}
-!99 = !{i64 2148191599}
-!100 = !{i64 2148191666}
-!101 = !{i64 2148191995}
-!102 = !{i64 2148192062}
-!103 = !{i64 2148192391}
-!104 = !{i64 2148192458}
-!105 = !{i64 2148192787}
-!106 = !{i64 2148192854}
-!107 = !{i64 2148193183}
-!108 = !{i64 2148193250}
-!109 = !{i64 2148193579}
-!110 = !{i64 2148193646}
-!111 = !{i64 2148193975}
-!112 = !{i64 2148194042}
-!113 = !{i64 2148194371}
-!114 = !{i64 2148194438}
-!115 = !{i64 2148194767}
-!116 = !{i64 2148194834}
-!117 = !{i64 2148195163}
-!118 = !{i64 2148195230}
-!119 = !{i64 2148195559}
-!120 = !{i64 2148195626}
-!121 = !{i64 2148195955}
-!122 = !{i64 2148196022}
-!123 = !{i64 2148196351}
-!124 = !{i64 2148196418}
-!125 = !{i64 2148196747}
-!126 = !{i64 2148196814}
-!127 = !{i64 2148197143}
-!128 = !{i64 2148197210}
-!129 = !{i64 2148197539}
-!130 = !{i64 2148197606}
-!131 = !{i64 2148197935}
-!132 = !{i64 2148198002}
-!133 = !{i64 2148198331}
-!134 = !{i64 2148198398}
-!135 = !{i64 2148198727}
-!136 = !{i64 2148198794}
-!137 = !{i64 2148199123}
-!138 = !{i64 2148199190}
-!139 = !{i64 2148199519}
-!140 = !{i64 2148199586}
-!141 = !{i64 2148199915}
-!142 = !{i64 2148199982}
-!143 = !{i64 2148200311}
-!144 = !{i64 2148200378}
-!145 = !{i64 2148200707}
-!146 = !{i64 2148200774}
-!147 = !{i64 2148201103}
-!148 = !{i64 2148201170}
-!149 = !{i64 2148201499}
-!150 = !{i64 2148201566}
-!151 = !{i64 2148201895}
-!152 = !{i64 2148201962}
-!153 = !{i64 2148202291}
-!154 = !{i64 2148202358}
-!155 = !{i64 2148202687}
-!156 = !{i64 2148202754}
-!157 = !{i64 2148203083}
-!158 = !{i64 2148203150}
-!159 = !{i64 2148203479}
-!160 = !{i64 2148203546}
-!161 = !{i64 2148203875}
-!162 = !{i64 2148203942}
-!163 = !{i64 2148204271}
-!164 = !{i64 2148204338}
-!165 = !{i64 2148204667}
-!166 = !{i64 2148204734}
-!167 = !{i64 2148205063}
-!168 = !{i64 2148205130}
-!169 = !{i64 2148205459}
-!170 = !{i64 2148205526}
-!171 = !{i64 2148205855}
-!172 = !{i64 2148205922}
-!173 = !{i64 2148206251}
-!174 = !{i64 2148206318}
-!175 = !{i64 2148206647}
-!176 = !{i64 2148206714}
-!177 = !{i64 2148207043}
-!178 = !{i64 2148207110}
-!179 = !{i64 2148207439}
-!180 = !{i64 2148207506}
-!181 = !{i64 2148207835}
-!182 = !{i64 2148207902}
-!183 = !{i64 2148208267}
-!184 = !{i64 2148208334}
-!185 = !{i64 2148208663}
-!186 = !{i64 2148208730}
-!187 = !{i64 2148209059}
-!188 = !{i64 2148209126}
-!189 = !{i64 2148209455}
-!190 = !{i64 2148209522}
-!191 = !{i64 2148209851}
-!192 = !{i64 2148209918}
-!193 = !{i64 2148210247}
-!194 = !{i64 2148210314}
-!195 = !{i64 2148210643}
-!196 = !{i64 2148210710}
-!197 = !{i64 2148211039}
-!198 = !{i64 2148211106}
-!199 = !{i64 2148211435}
-!200 = !{i64 2148211502}
-!201 = !{i64 2148211831}
-!202 = !{i64 2148211898}
-!203 = !{i64 2148212227}
-!204 = !{i64 2148212294}
-!205 = !{i64 2148212623}
-!206 = !{i64 2148212690}
-!207 = !{i64 2148213019}
-!208 = !{i64 2148213086}
-!209 = !{i64 2148213415}
-!210 = !{i64 2148213482}
-!211 = !{i64 2148213811}
-!212 = !{i64 2148213878}
-!213 = !{i64 2148214207}
-!214 = !{i64 2148214274}
-!215 = !{i64 2148214639}
-!216 = !{i64 2148214701}
-!217 = !{i64 2148215116}
-!218 = !{i64 2148215190}
-!219 = !{i64 2148215378}
-!220 = !{i64 2148215745}
-!221 = !{i64 2148215807}
-!222 = !{i64 2148216222}
-!223 = !{i64 2148216296}
-!224 = !{i64 2148216484}
-!225 = !{i64 2148216934}
-!226 = !{i64 2148217008}
-!227 = !{i64 2148217196}
-!228 = !{i64 2148217646}
-!229 = !{i64 2148217720}
-!230 = !{i64 2148217908}
-!231 = !{i64 2148218275}
-!232 = !{i64 2148218337}
-!233 = !{i64 2148218752}
-!234 = !{i64 2148218826}
-!235 = !{i64 2148219014}
-!236 = !{i64 2148219464}
-!237 = !{i64 2148219538}
-!238 = !{i64 2148219726}
-!239 = !{i64 2148220176}
-!240 = !{i64 2148220250}
-!241 = !{i64 2148220438}
-!242 = !{i64 2148220888}
-!243 = !{i64 2148220962}
-!244 = !{i64 2148221150}
-!245 = !{i64 2148221600}
-!246 = !{i64 2148221674}
-!247 = !{i64 2148221862}
-!248 = !{i64 2148222229}
-!249 = !{i64 2148222291}
-!250 = !{i64 2148222706}
-!251 = !{i64 2148222780}
-!252 = !{i64 2148222968}
-!253 = !{i64 2148223418}
-!254 = !{i64 2148223492}
-!255 = !{i64 2148223680}
-!256 = !{i64 2148224130}
-!257 = !{i64 2148224204}
-!258 = !{i64 2148224392}
-!259 = !{i64 2148224842}
-!260 = !{i64 2148224916}
-!261 = !{i64 2148225104}
-!262 = !{i64 2148225554}
-!263 = !{i64 2148225628}
-!264 = !{i64 2148225816}
-!265 = !{i64 2148226266}
-!266 = !{i64 2148226340}
-!267 = !{i64 2148226528}
-!268 = !{i64 2148226978}
-!269 = !{i64 2148227052}
-!270 = !{i64 2148227240}
-!271 = !{i64 2148227607}
-!272 = !{i64 2148227669}
-!273 = !{i64 2148228084}
-!274 = !{i64 2148228158}
-!275 = !{i64 2148228346}
-!276 = !{i64 2148228796}
-!277 = !{i64 2148228870}
-!278 = !{i64 2148229058}
-!279 = !{i64 2148229508}
-!280 = !{i64 2148229582}
-!281 = !{i64 2148229770}
-!282 = !{i64 2148230220}
-!283 = !{i64 2148230294}
-!284 = !{i64 2148230482}
-!285 = !{i64 2148230932}
-!286 = !{i64 2148231006}
-!287 = !{i64 2148231194}
-!288 = !{i64 2148231644}
-!289 = !{i64 2148231718}
-!290 = !{i64 2148231906}
-!291 = !{i64 2148232273}
-!292 = !{i64 2148232335}
-!293 = !{i64 2148232750}
-!294 = !{i64 2148232824}
-!295 = !{i64 2148233012}
-!296 = !{i64 2148233462}
-!297 = !{i64 2148233536}
-!298 = !{i64 2148233724}
-!299 = !{i64 2148234174}
-!300 = !{i64 2148234248}
-!301 = !{i64 2148234436}
-!302 = !{i64 2148234886}
-!303 = !{i64 2148234960}
-!304 = !{i64 2148235148}
-!305 = !{i64 2148235515}
-!306 = !{i64 2148235577}
-!307 = !{i64 2148235992}
-!308 = !{i64 2148236066}
-!309 = !{i64 2148236254}
-!310 = !{i64 2148236704}
-!311 = !{i64 2148236778}
-!312 = !{i64 2148236966}
-!313 = !{i64 2148237333}
-!314 = !{i64 2148237395}
-!315 = !{i64 2148237754}
-!316 = !{i64 2148237816}
-!317 = !{i64 2148238231}
-!318 = !{i64 2148238305}
-!319 = !{i64 2148238493}
-!320 = !{i64 2148238860}
-!321 = !{i64 2148238922}
-!322 = !{i64 2148239337}
-!323 = !{i64 2148239411}
-!324 = !{i64 2148239599}
-!325 = !{i64 2148240049}
-!326 = !{i64 2148240123}
-!327 = !{i64 2148240311}
-!328 = !{i64 2148240761}
-!329 = !{i64 2148240835}
-!330 = !{i64 2148241023}
-!331 = !{i64 2148241390}
-!332 = !{i64 2148241452}
-!333 = !{i64 2148241867}
-!334 = !{i64 2148241941}
-!335 = !{i64 2148242129}
-!336 = !{i64 2148242579}
-!337 = !{i64 2148242653}
-!338 = !{i64 2148242841}
-!339 = !{i64 2148243208}
-!340 = !{i64 2148243270}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{i64 2148184878}
+!7 = !{i64 2148184951}
+!8 = !{i64 2148185243}
+!9 = !{i64 2148185822}
+!10 = !{i64 2148185895}
+!11 = !{i64 2148186187}
+!12 = !{i64 2148186766}
+!13 = !{i64 2148186839}
+!14 = !{i64 2148187131}
+!15 = !{i64 2148187710}
+!16 = !{i64 2148187783}
+!17 = !{i64 2148188075}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{i64 2148188654}
+!21 = !{i64 2148188727}
+!22 = !{i64 2148189019}
+!23 = !{i64 2148189598}
+!24 = !{i64 2148189671}
+!25 = !{i64 2148189963}
+!26 = !{i64 2148190542}
+!27 = !{i64 2148190615}
+!28 = !{i64 2148190907}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"long", !31, i64 0}
+!31 = !{!"omnipotent char", !32, i64 0}
+!32 = !{!"Simple C/C++ TBAA"}
+!33 = !{i64 2148191531}
+!34 = !{i64 2148191604}
+!35 = !{i64 2148192175}
+!36 = !{i64 2148192248}
+!37 = !{i64 2148192819}
+!38 = !{i64 2148192892}
+!39 = !{i64 2148193463}
+!40 = !{i64 2148193536}
+!41 = distinct !{!41, !19}
+!42 = !{i64 2148194107}
+!43 = !{i64 2148194180}
+!44 = !{i64 2148194751}
+!45 = !{i64 2148194824}
+!46 = !{i64 2148195395}
+!47 = !{i64 2148195468}
+!48 = !{i64 2148195909}
+!49 = !{i64 2148195985}
+!50 = !{i64 2148196061}
+!51 = !{i64 2148196137}
+!52 = distinct !{!52, !19}
+!53 = !{i64 2148196213}
+!54 = !{i64 2148196289}
+!55 = !{i64 2148196365}
+!56 = !{i64 6170, i64 6213, i64 6233, i64 6257, i64 6289, i64 6319, i64 6349, i64 6374, i64 6395}
+!57 = !{i64 6728, i64 6772, i64 6792, i64 6816, i64 6848, i64 6878, i64 6908, i64 6933, i64 6954}
+!58 = !{i64 2148196670}
+!59 = !{i64 2148196737}
+!60 = !{i64 2148197066}
+!61 = !{i64 2148197133}
+!62 = !{i64 2148197462}
+!63 = !{i64 2148197529}
+!64 = !{i64 2148197858}
+!65 = !{i64 2148197925}
+!66 = !{i64 2148198254}
+!67 = !{i64 2148198321}
+!68 = !{i64 2148198650}
+!69 = !{i64 2148198717}
+!70 = !{i64 2148199046}
+!71 = !{i64 2148199113}
+!72 = !{i64 2148199442}
+!73 = !{i64 2148199509}
+!74 = !{i64 2148199838}
+!75 = !{i64 2148199905}
+!76 = !{i64 2148200234}
+!77 = !{i64 2148200301}
+!78 = !{i64 2148200630}
+!79 = !{i64 2148200697}
+!80 = !{i64 2148201026}
+!81 = !{i64 2148201093}
+!82 = !{i64 2148201422}
+!83 = !{i64 2148201489}
+!84 = !{i64 2148201818}
+!85 = !{i64 2148201885}
+!86 = !{i64 2148202214}
+!87 = !{i64 2148202281}
+!88 = !{i64 2148202610}
+!89 = !{i64 2148202677}
+!90 = !{i64 2148203006}
+!91 = !{i64 2148203073}
+!92 = !{i64 2148203402}
+!93 = !{i64 2148203469}
+!94 = !{i64 2148203798}
+!95 = !{i64 2148203865}
+!96 = !{i64 2148204194}
+!97 = !{i64 2148204261}
+!98 = !{i64 2148204590}
+!99 = !{i64 2148204657}
+!100 = !{i64 2148204986}
+!101 = !{i64 2148205053}
+!102 = !{i64 2148205382}
+!103 = !{i64 2148205449}
+!104 = !{i64 2148205778}
+!105 = !{i64 2148205845}
+!106 = !{i64 2148206174}
+!107 = !{i64 2148206241}
+!108 = !{i64 2148206570}
+!109 = !{i64 2148206637}
+!110 = !{i64 2148206966}
+!111 = !{i64 2148207033}
+!112 = !{i64 2148207362}
+!113 = !{i64 2148207429}
+!114 = !{i64 2148207758}
+!115 = !{i64 2148207825}
+!116 = !{i64 2148208154}
+!117 = !{i64 2148208221}
+!118 = !{i64 2148208550}
+!119 = !{i64 2148208617}
+!120 = !{i64 2148208946}
+!121 = !{i64 2148209013}
+!122 = !{i64 2148209342}
+!123 = !{i64 2148209409}
+!124 = !{i64 2148209738}
+!125 = !{i64 2148209805}
+!126 = !{i64 2148210134}
+!127 = !{i64 2148210201}
+!128 = !{i64 2148210530}
+!129 = !{i64 2148210597}
+!130 = !{i64 2148210926}
+!131 = !{i64 2148210993}
+!132 = !{i64 2148211322}
+!133 = !{i64 2148211389}
+!134 = !{i64 2148211718}
+!135 = !{i64 2148211785}
+!136 = !{i64 2148212114}
+!137 = !{i64 2148212181}
+!138 = !{i64 2148212510}
+!139 = !{i64 2148212577}
+!140 = !{i64 2148212906}
+!141 = !{i64 2148212973}
+!142 = !{i64 2148213302}
+!143 = !{i64 2148213369}
+!144 = !{i64 2148213698}
+!145 = !{i64 2148213765}
+!146 = !{i64 2148214094}
+!147 = !{i64 2148214161}
+!148 = !{i64 2148214490}
+!149 = !{i64 2148214557}
+!150 = !{i64 2148214886}
+!151 = !{i64 2148214953}
+!152 = !{i64 2148215282}
+!153 = !{i64 2148215349}
+!154 = !{i64 2148215678}
+!155 = !{i64 2148215745}
+!156 = !{i64 2148216074}
+!157 = !{i64 2148216141}
+!158 = !{i64 2148216470}
+!159 = !{i64 2148216537}
+!160 = !{i64 2148216866}
+!161 = !{i64 2148216933}
+!162 = !{i64 2148217262}
+!163 = !{i64 2148217329}
+!164 = !{i64 2148217658}
+!165 = !{i64 2148217725}
+!166 = !{i64 2148218054}
+!167 = !{i64 2148218121}
+!168 = !{i64 2148218450}
+!169 = !{i64 2148218517}
+!170 = !{i64 2148218846}
+!171 = !{i64 2148218913}
+!172 = !{i64 2148219242}
+!173 = !{i64 2148219309}
+!174 = !{i64 2148219638}
+!175 = !{i64 2148219705}
+!176 = !{i64 2148220034}
+!177 = !{i64 2148220101}
+!178 = !{i64 2148220430}
+!179 = !{i64 2148220497}
+!180 = !{i64 2148220826}
+!181 = !{i64 2148220893}
+!182 = !{i64 2148221222}
+!183 = !{i64 2148221289}
+!184 = !{i64 2148221618}
+!185 = !{i64 2148221685}
+!186 = !{i64 2148222050}
+!187 = !{i64 2148222117}
+!188 = !{i64 2148222446}
+!189 = !{i64 2148222513}
+!190 = !{i64 2148222842}
+!191 = !{i64 2148222909}
+!192 = !{i64 2148223238}
+!193 = !{i64 2148223305}
+!194 = !{i64 2148223634}
+!195 = !{i64 2148223701}
+!196 = !{i64 2148224030}
+!197 = !{i64 2148224097}
+!198 = !{i64 2148224426}
+!199 = !{i64 2148224493}
+!200 = !{i64 2148224822}
+!201 = !{i64 2148224889}
+!202 = !{i64 2148225218}
+!203 = !{i64 2148225285}
+!204 = !{i64 2148225614}
+!205 = !{i64 2148225681}
+!206 = !{i64 2148226010}
+!207 = !{i64 2148226077}
+!208 = !{i64 2148226406}
+!209 = !{i64 2148226473}
+!210 = !{i64 2148226802}
+!211 = !{i64 2148226869}
+!212 = !{i64 2148227198}
+!213 = !{i64 2148227265}
+!214 = !{i64 2148227594}
+!215 = !{i64 2148227661}
+!216 = !{i64 2148227990}
+!217 = !{i64 2148228057}
+!218 = !{i64 2148228422}
+!219 = !{i64 2148228484}
+!220 = !{i64 2148228899}
+!221 = !{i64 2148228973}
+!222 = !{i64 2148229161}
+!223 = !{i64 2148229528}
+!224 = !{i64 2148229590}
+!225 = !{i64 2148230005}
+!226 = !{i64 2148230079}
+!227 = !{i64 2148230267}
+!228 = !{i64 2148230717}
+!229 = !{i64 2148230791}
+!230 = !{i64 2148230979}
+!231 = !{i64 2148231429}
+!232 = !{i64 2148231503}
+!233 = !{i64 2148231691}
+!234 = !{i64 2148232058}
+!235 = !{i64 2148232120}
+!236 = !{i64 2148232535}
+!237 = !{i64 2148232609}
+!238 = !{i64 2148232797}
+!239 = !{i64 2148233247}
+!240 = !{i64 2148233321}
+!241 = !{i64 2148233509}
+!242 = !{i64 2148233959}
+!243 = !{i64 2148234033}
+!244 = !{i64 2148234221}
+!245 = !{i64 2148234671}
+!246 = !{i64 2148234745}
+!247 = !{i64 2148234933}
+!248 = !{i64 2148235383}
+!249 = !{i64 2148235457}
+!250 = !{i64 2148235645}
+!251 = !{i64 2148236012}
+!252 = !{i64 2148236074}
+!253 = !{i64 2148236489}
+!254 = !{i64 2148236563}
+!255 = !{i64 2148236751}
+!256 = !{i64 2148237201}
+!257 = !{i64 2148237275}
+!258 = !{i64 2148237463}
+!259 = !{i64 2148237913}
+!260 = !{i64 2148237987}
+!261 = !{i64 2148238175}
+!262 = !{i64 2148238625}
+!263 = !{i64 2148238699}
+!264 = !{i64 2148238887}
+!265 = !{i64 2148239337}
+!266 = !{i64 2148239411}
+!267 = !{i64 2148239599}
+!268 = !{i64 2148240049}
+!269 = !{i64 2148240123}
+!270 = !{i64 2148240311}
+!271 = !{i64 2148240761}
+!272 = !{i64 2148240835}
+!273 = !{i64 2148241023}
+!274 = !{i64 2148241390}
+!275 = !{i64 2148241452}
+!276 = !{i64 2148241867}
+!277 = !{i64 2148241941}
+!278 = !{i64 2148242129}
+!279 = !{i64 2148242579}
+!280 = !{i64 2148242653}
+!281 = !{i64 2148242841}
+!282 = !{i64 2148243291}
+!283 = !{i64 2148243365}
+!284 = !{i64 2148243553}
+!285 = !{i64 2148244003}
+!286 = !{i64 2148244077}
+!287 = !{i64 2148244265}
+!288 = !{i64 2148244715}
+!289 = !{i64 2148244789}
+!290 = !{i64 2148244977}
+!291 = !{i64 2148245427}
+!292 = !{i64 2148245501}
+!293 = !{i64 2148245689}
+!294 = !{i64 2148246056}
+!295 = !{i64 2148246118}
+!296 = !{i64 2148246533}
+!297 = !{i64 2148246607}
+!298 = !{i64 2148246795}
+!299 = !{i64 2148247245}
+!300 = !{i64 2148247319}
+!301 = !{i64 2148247507}
+!302 = !{i64 2148247957}
+!303 = !{i64 2148248031}
+!304 = !{i64 2148248219}
+!305 = !{i64 2148248669}
+!306 = !{i64 2148248743}
+!307 = !{i64 2148248931}
+!308 = !{i64 2148249298}
+!309 = !{i64 2148249360}
+!310 = !{i64 2148249775}
+!311 = !{i64 2148249849}
+!312 = !{i64 2148250037}
+!313 = !{i64 2148250487}
+!314 = !{i64 2148250561}
+!315 = !{i64 2148250749}
+!316 = !{i64 2148251116}
+!317 = !{i64 2148251178}
+!318 = !{i64 2148251537}
+!319 = !{i64 2148251599}
+!320 = !{i64 2148252014}
+!321 = !{i64 2148252088}
+!322 = !{i64 2148252276}
+!323 = !{i64 2148252643}
+!324 = !{i64 2148252705}
+!325 = !{i64 2148253120}
+!326 = !{i64 2148253194}
+!327 = !{i64 2148253382}
+!328 = !{i64 2148253832}
+!329 = !{i64 2148253906}
+!330 = !{i64 2148254094}
+!331 = !{i64 2148254544}
+!332 = !{i64 2148254618}
+!333 = !{i64 2148254806}
+!334 = !{i64 2148255173}
+!335 = !{i64 2148255235}
+!336 = !{i64 2148255650}
+!337 = !{i64 2148255724}
+!338 = !{i64 2148255912}
+!339 = !{i64 2148256362}
+!340 = !{i64 2148256436}
+!341 = !{i64 2148256624}
+!342 = !{i64 2148256991}
+!343 = !{i64 2148257053}

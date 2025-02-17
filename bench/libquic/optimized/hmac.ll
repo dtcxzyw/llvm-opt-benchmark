@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/hmac.ll'
 source_filename = "bench/libquic/original/hmac.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.hmac_ctx_st = type { ptr, %struct.env_md_ctx_st, %struct.env_md_ctx_st, %struct.env_md_ctx_st }
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
@@ -9,414 +9,433 @@ target triple = "x86_64-unknown-linux-gnu"
 @HMAC.static_out_buffer = internal global [64 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @HMAC(ptr noundef %evp_md, ptr noundef %key, i64 noundef %key_len, ptr noundef %data, i64 noundef %data_len, ptr noundef %out, ptr noundef %out_len) local_unnamed_addr #0 {
-entry:
-  %i.i = alloca i32, align 4
-  %buf.i = alloca [64 x i8], align 16
-  %ctx = alloca %struct.hmac_ctx_st, align 8
-  %cmp = icmp eq ptr %out, null
-  %spec.store.select = select i1 %cmp, ptr @HMAC.static_out_buffer, ptr %out
-  store ptr null, ptr %ctx, align 8
-  %i_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  call void @EVP_MD_CTX_init(ptr noundef nonnull %i_ctx.i) #5
-  %o_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx.i) #5
-  %md_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i) #5
-  %call = call i32 @HMAC_Init_ex(ptr noundef nonnull %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %evp_md, ptr noundef null)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end7, label %lor.lhs.false
+define hidden noundef ptr @HMAC(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+  %8 = alloca i32, align 4
+  %9 = alloca [64 x i8], align 16
+  %10 = alloca %struct.hmac_ctx_st, align 8
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #5
+  %11 = icmp eq ptr %5, null
+  %spec.store.select = select i1 %11, ptr @HMAC.static_out_buffer, ptr %5
+  store ptr null, ptr %10, align 8, !tbaa !6
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  call void @EVP_MD_CTX_init(ptr noundef nonnull %12) #5
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  call void @EVP_MD_CTX_init(ptr noundef nonnull %13) #5
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @EVP_MD_CTX_init(ptr noundef nonnull %14) #5
+  %15 = call i32 @HMAC_Init_ex(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef %0, ptr noundef null)
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %28, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %call.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx.i, ptr noundef %data, i64 noundef %data_len) #5
-  %tobool2.not = icmp eq i32 %call.i, 0
-  br i1 %tobool2.not, label %if.end7, label %lor.lhs.false3
+16:                                               ; preds = %7
+  %17 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %14, ptr noundef %3, i64 noundef %4) #5
+  %.not8 = icmp eq i32 %17, 0
+  br i1 %.not8, label %28, label %18
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %i.i)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
-  %call.i5 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %buf.i, ptr noundef nonnull %i.i) #5
-  %tobool.not.i = icmp eq i32 %call.i5, 0
-  br i1 %tobool.not.i, label %HMAC_Final.exit.thread, label %lor.lhs.false.i
+18:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #5
+  %19 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %14, ptr noundef nonnull %9, ptr noundef nonnull %8) #5
+  %.not.i = icmp eq i32 %19, 0
+  br i1 %.not.i, label %HMAC_Final.exit.thread, label %20
 
-lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
-  %call2.i = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %o_ctx.i) #5
-  %tobool3.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i, label %HMAC_Final.exit.thread, label %lor.lhs.false4.i
+20:                                               ; preds = %18
+  %21 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %14, ptr noundef nonnull %13) #5
+  %.not8.i = icmp eq i32 %21, 0
+  br i1 %.not8.i, label %HMAC_Final.exit.thread, label %22
 
-lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
-  %0 = load i32, ptr %i.i, align 4
-  %conv.i = zext i32 %0 to i64
-  %call7.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %buf.i, i64 noundef %conv.i) #5
-  %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %HMAC_Final.exit.thread, label %lor.lhs.false9.i
+22:                                               ; preds = %20
+  %23 = load i32, ptr %8, align 4, !tbaa !15
+  %24 = zext i32 %23 to i64
+  %25 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %14, ptr noundef nonnull %9, i64 noundef %24) #5
+  %.not9.i = icmp eq i32 %25, 0
+  br i1 %.not9.i, label %HMAC_Final.exit.thread, label %26
 
-lor.lhs.false9.i:                                 ; preds = %lor.lhs.false4.i
-  %call11.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %spec.store.select, ptr noundef %out_len) #5
-  %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %HMAC_Final.exit.thread, label %if.end7.sink.split
+26:                                               ; preds = %22
+  %27 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %14, ptr noundef nonnull %spec.store.select, ptr noundef %6) #5
+  %.not10.i = icmp eq i32 %27, 0
+  br i1 %.not10.i, label %HMAC_Final.exit.thread, label %.sink.split
 
-HMAC_Final.exit.thread:                           ; preds = %lor.lhs.false3, %lor.lhs.false.i, %lor.lhs.false4.i, %lor.lhs.false9.i
-  store i32 0, ptr %out_len, align 4
-  br label %if.end7.sink.split
+HMAC_Final.exit.thread:                           ; preds = %18, %20, %22, %26
+  store i32 0, ptr %6, align 4, !tbaa !15
+  br label %.sink.split
 
-if.end7.sink.split:                               ; preds = %lor.lhs.false9.i, %HMAC_Final.exit.thread
-  %out.addr.0.ph = phi ptr [ null, %HMAC_Final.exit.thread ], [ %spec.store.select, %lor.lhs.false9.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
-  br label %if.end7
+.sink.split:                                      ; preds = %26, %HMAC_Final.exit.thread
+  %.0.ph = phi ptr [ null, %HMAC_Final.exit.thread ], [ %spec.store.select, %26 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  br label %28
 
-if.end7:                                          ; preds = %if.end7.sink.split, %entry, %lor.lhs.false
-  %out.addr.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ %out.addr.0.ph, %if.end7.sink.split ]
-  %call.i8 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %i_ctx.i) #5
-  %call1.i = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %o_ctx.i) #5
-  %call2.i11 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i) #5
-  call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 104) #5
-  ret ptr %out.addr.0
+28:                                               ; preds = %.sink.split, %7, %16
+  %.0 = phi ptr [ null, %16 ], [ null, %7 ], [ %.0.ph, %.sink.split ]
+  %29 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %12) #5
+  %30 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %13) #5
+  %31 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %14) #5
+  call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 104) #5
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #5
+  ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define hidden void @HMAC_CTX_init(ptr noundef initializes((0, 8)) %ctx) local_unnamed_addr #0 {
-entry:
-  store ptr null, ptr %ctx, align 8
-  %i_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %i_ctx) #5
-  %o_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx) #5
-  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx) #5
+define hidden void @HMAC_CTX_init(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+  store ptr null, ptr %0, align 8, !tbaa !6
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %2) #5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %3) #5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %4) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %md, ptr noundef %impl) local_unnamed_addr #0 {
-entry:
-  %pad = alloca [128 x i8], align 16
-  %key_block = alloca [128 x i8], align 16
-  %key_block_len = alloca i32, align 4
-  %cmp = icmp eq ptr %md, null
-  %.pre = load ptr, ptr %ctx, align 8
-  %spec.select = select i1 %cmp, ptr %.pre, ptr %md
-  %cmp3 = icmp ne ptr %spec.select, %.pre
-  %cmp4 = icmp ne ptr %key, null
-  %or.cond = or i1 %cmp4, %cmp3
-  br i1 %or.cond, label %if.then5, label %if.end65
+define hidden range(i32 0, 2) i32 @HMAC_Init_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = alloca [128 x i8], align 16
+  %7 = alloca [128 x i8], align 16
+  %8 = alloca i32, align 4
+  %9 = icmp eq ptr %3, null
+  %.pre = load ptr, ptr %0, align 8, !tbaa !6
+  %spec.select = select i1 %9, ptr %.pre, ptr %3
+  %10 = icmp ne ptr %spec.select, %.pre
+  %11 = icmp ne ptr %1, null
+  %or.cond = or i1 %11, %10
+  br i1 %or.cond, label %12, label %54
 
-if.then5:                                         ; preds = %entry
-  %call = tail call i64 @EVP_MD_block_size(ptr noundef %spec.select) #5
-  %cmp6 = icmp ult i64 %call, %key_len
-  br i1 %cmp6, label %if.then7, label %if.else
+12:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  %13 = tail call i64 @EVP_MD_block_size(ptr noundef %spec.select) #5
+  %14 = icmp ult i64 %13, %2
+  br i1 %14, label %15, label %22
 
-if.then7:                                         ; preds = %if.then5
-  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %call8 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %md_ctx, ptr noundef %spec.select, ptr noundef %impl) #5
-  %tobool.not = icmp eq i32 %call8, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false9
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %16, ptr noundef %spec.select, ptr noundef %4) #5
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %.thread, label %18
 
-lor.lhs.false9:                                   ; preds = %if.then7
-  %call11 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef %key, i64 noundef %key_len) #5
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %return, label %lor.lhs.false13
+18:                                               ; preds = %15
+  %19 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef %1, i64 noundef %2) #5
+  %.not50 = icmp eq i32 %19, 0
+  br i1 %.not50, label %.thread, label %20
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false9
-  %call15 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx, ptr noundef nonnull %key_block, ptr noundef nonnull %key_block_len) #5
-  %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %return, label %if.end20thread-pre-split
+20:                                               ; preds = %18
+  %21 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %16, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  %.not51 = icmp eq i32 %21, 0
+  br i1 %.not51, label %.thread, label %thread-pre-split
 
-if.else:                                          ; preds = %if.then5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %key_block, ptr align 1 %key, i64 %key_len, i1 false)
-  %conv = trunc i64 %key_len to i32
-  store i32 %conv, ptr %key_block_len, align 4
-  br label %if.end20
+22:                                               ; preds = %12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %1, i64 %2, i1 false)
+  %23 = trunc i64 %2 to i32
+  store i32 %23, ptr %8, align 4, !tbaa !15
+  br label %24
 
-if.end20thread-pre-split:                         ; preds = %lor.lhs.false13
-  %.pr = load i32, ptr %key_block_len, align 4
-  br label %if.end20
+thread-pre-split:                                 ; preds = %20
+  %.pr = load i32, ptr %8, align 4, !tbaa !15
+  br label %24
 
-if.end20:                                         ; preds = %if.end20thread-pre-split, %if.else
-  %0 = phi i32 [ %.pr, %if.end20thread-pre-split ], [ %conv, %if.else ]
-  %cmp21.not = icmp eq i32 %0, 128
-  br i1 %cmp21.not, label %for.body.preheader, label %if.then23
+24:                                               ; preds = %thread-pre-split, %22
+  %25 = phi i32 [ %.pr, %thread-pre-split ], [ %23, %22 ]
+  %.not52 = icmp eq i32 %25, 128
+  br i1 %.not52, label %.preheader63, label %26
 
-if.then23:                                        ; preds = %if.end20
-  %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %key_block, i64 0, i64 %idxprom
-  %sub = sub nsw i64 128, %idxprom
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx, i8 0, i64 %sub, i1 false)
-  br label %for.body.preheader
+26:                                               ; preds = %24
+  %27 = zext i32 %25 to i64
+  %28 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %27
+  %29 = sub nsw i64 128, %27
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %29, i1 false)
+  br label %.preheader63
 
-for.body.preheader:                               ; preds = %if.then23, %if.end20
-  br label %for.body
+.preheader63:                                     ; preds = %26, %24
+  br label %30
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.034 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %arrayidx28 = getelementptr inbounds nuw [128 x i8], ptr %key_block, i64 0, i64 %i.034
-  %1 = load i8, ptr %arrayidx28, align 1
-  %2 = xor i8 %1, 54
-  %arrayidx31 = getelementptr inbounds nuw [128 x i8], ptr %pad, i64 0, i64 %i.034
-  store i8 %2, ptr %arrayidx31, align 1
-  %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, 128
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+30:                                               ; preds = %.preheader63, %30
+  %.04360 = phi i64 [ %35, %30 ], [ 0, %.preheader63 ]
+  %31 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %.04360
+  %32 = load i8, ptr %31, align 1, !tbaa !17
+  %33 = xor i8 %32, 54
+  %34 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 0, i64 %.04360
+  store i8 %33, ptr %34, align 1, !tbaa !17
+  %35 = add nuw nsw i64 %.04360, 1
+  %exitcond.not = icmp eq i64 %35, 128
+  br i1 %exitcond.not, label %36, label %30, !llvm.loop !18
 
-for.end:                                          ; preds = %for.body
-  %i_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  %call32 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %i_ctx, ptr noundef %spec.select, ptr noundef %impl) #5
-  %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %return, label %lor.lhs.false34
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %38 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %37, ptr noundef %spec.select, ptr noundef %4) #5
+  %.not53 = icmp eq i32 %38, 0
+  br i1 %.not53, label %.thread, label %39
 
-lor.lhs.false34:                                  ; preds = %for.end
-  %call37 = call i64 @EVP_MD_block_size(ptr noundef %spec.select) #5
-  %call38 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %i_ctx, ptr noundef nonnull %pad, i64 noundef %call37) #5
-  %tobool39.not = icmp eq i32 %call38, 0
-  br i1 %tobool39.not, label %return, label %for.body45
+39:                                               ; preds = %36
+  %40 = call i64 @EVP_MD_block_size(ptr noundef %spec.select) #5
+  %41 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %37, ptr noundef nonnull %6, i64 noundef %40) #5
+  %.not54 = icmp eq i32 %41, 0
+  br i1 %.not54, label %.thread, label %.preheader
 
-for.body45:                                       ; preds = %lor.lhs.false34, %for.body45
-  %i.135 = phi i64 [ %inc52, %for.body45 ], [ 0, %lor.lhs.false34 ]
-  %arrayidx46 = getelementptr inbounds nuw [128 x i8], ptr %key_block, i64 0, i64 %i.135
-  %3 = load i8, ptr %arrayidx46, align 1
-  %4 = xor i8 %3, 92
-  %arrayidx50 = getelementptr inbounds nuw [128 x i8], ptr %pad, i64 0, i64 %i.135
-  store i8 %4, ptr %arrayidx50, align 1
-  %inc52 = add nuw nsw i64 %i.135, 1
-  %exitcond36.not = icmp eq i64 %inc52, 128
-  br i1 %exitcond36.not, label %for.end53, label %for.body45, !llvm.loop !9
+.preheader:                                       ; preds = %39, %.preheader
+  %.14461 = phi i64 [ %46, %.preheader ], [ 0, %39 ]
+  %42 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %.14461
+  %43 = load i8, ptr %42, align 1, !tbaa !17
+  %44 = xor i8 %43, 92
+  %45 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 0, i64 %.14461
+  store i8 %44, ptr %45, align 1, !tbaa !17
+  %46 = add nuw nsw i64 %.14461, 1
+  %exitcond62.not = icmp eq i64 %46, 128
+  br i1 %exitcond62.not, label %47, label %.preheader, !llvm.loop !20
 
-for.end53:                                        ; preds = %for.body45
-  %o_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  %call54 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %o_ctx, ptr noundef %spec.select, ptr noundef %impl) #5
-  %tobool55.not = icmp eq i32 %call54, 0
-  br i1 %tobool55.not, label %return, label %lor.lhs.false56
+47:                                               ; preds = %.preheader
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %49 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %48, ptr noundef %spec.select, ptr noundef %4) #5
+  %.not55 = icmp eq i32 %49, 0
+  br i1 %.not55, label %.thread, label %50
 
-lor.lhs.false56:                                  ; preds = %for.end53
-  %call59 = call i64 @EVP_MD_block_size(ptr noundef %spec.select) #5
-  %call60 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %o_ctx, ptr noundef nonnull %pad, i64 noundef %call59) #5
-  %tobool61.not = icmp eq i32 %call60, 0
-  br i1 %tobool61.not, label %return, label %if.end63
+50:                                               ; preds = %47
+  %51 = call i64 @EVP_MD_block_size(ptr noundef %spec.select) #5
+  %52 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %48, ptr noundef nonnull %6, i64 noundef %51) #5
+  %.not56 = icmp eq i32 %52, 0
+  br i1 %.not56, label %.thread, label %53
 
-if.end63:                                         ; preds = %lor.lhs.false56
-  store ptr %spec.select, ptr %ctx, align 8
-  br label %if.end65
+.thread:                                          ; preds = %20, %18, %15, %39, %36, %50, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #5
+  br label %58
 
-if.end65:                                         ; preds = %entry, %if.end63
-  %md_ctx66 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %i_ctx67 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  %call68 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx66, ptr noundef nonnull %i_ctx67) #5
-  %tobool69.not = icmp ne i32 %call68, 0
-  %. = zext i1 %tobool69.not to i32
-  br label %return
+53:                                               ; preds = %50
+  store ptr %spec.select, ptr %0, align 8, !tbaa !6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #5
+  br label %54
 
-return:                                           ; preds = %if.end65, %for.end53, %lor.lhs.false56, %for.end, %lor.lhs.false34, %if.then7, %lor.lhs.false9, %lor.lhs.false13
-  %retval.0 = phi i32 [ 0, %lor.lhs.false13 ], [ 0, %lor.lhs.false9 ], [ 0, %if.then7 ], [ 0, %lor.lhs.false34 ], [ 0, %for.end ], [ 0, %lor.lhs.false56 ], [ 0, %for.end53 ], [ %., %if.end65 ]
-  ret i32 %retval.0
+54:                                               ; preds = %53, %5
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %57 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %55, ptr noundef nonnull %56) #5
+  %.not57 = icmp ne i32 %57, 0
+  %. = zext i1 %.not57 to i32
+  br label %58
+
+58:                                               ; preds = %.thread, %54
+  %.1 = phi i32 [ %., %54 ], [ 0, %.thread ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @HMAC_Update(ptr noundef %ctx, ptr noundef %data, i64 noundef %data_len) local_unnamed_addr #0 {
-entry:
-  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %call = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef %data, i64 noundef %data_len) #5
-  ret i32 %call
+define hidden i32 @HMAC_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #5
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @HMAC_Final(ptr noundef %ctx, ptr noundef %out, ptr noundef %out_len) local_unnamed_addr #0 {
-entry:
-  %i = alloca i32, align 4
-  %buf = alloca [64 x i8], align 16
-  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %call = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx, ptr noundef nonnull %buf, ptr noundef nonnull %i) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+define hidden range(i32 0, 2) i32 @HMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca [64 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #5
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %17, label %8
 
-lor.lhs.false:                                    ; preds = %entry
-  %o_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  %call2 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx, ptr noundef nonnull %o_ctx) #5
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %if.then, label %lor.lhs.false4
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %6, ptr noundef nonnull %9) #5
+  %.not8 = icmp eq i32 %10, 0
+  br i1 %.not8, label %17, label %11
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %0 = load i32, ptr %i, align 4
-  %conv = zext i32 %0 to i64
-  %call7 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef nonnull %buf, i64 noundef %conv) #5
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.then, label %lor.lhs.false9
+11:                                               ; preds = %8
+  %12 = load i32, ptr %4, align 4, !tbaa !15
+  %13 = zext i32 %12 to i64
+  %14 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %13) #5
+  %.not9 = icmp eq i32 %14, 0
+  br i1 %.not9, label %17, label %15
 
-lor.lhs.false9:                                   ; preds = %lor.lhs.false4
-  %call11 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx, ptr noundef %out, ptr noundef %out_len) #5
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %if.then, label %return
+15:                                               ; preds = %11
+  %16 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2) #5
+  %.not10 = icmp eq i32 %16, 0
+  br i1 %.not10, label %17, label %18
 
-if.then:                                          ; preds = %lor.lhs.false9, %lor.lhs.false4, %lor.lhs.false, %entry
-  store i32 0, ptr %out_len, align 4
-  br label %return
+17:                                               ; preds = %15, %11, %8, %3
+  store i32 0, ptr %2, align 4, !tbaa !15
+  br label %18
 
-return:                                           ; preds = %lor.lhs.false9, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %lor.lhs.false9 ]
-  ret i32 %retval.0
+18:                                               ; preds = %15, %17
+  %.0 = phi i32 [ 0, %17 ], [ 1, %15 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @HMAC_CTX_cleanup(ptr noundef %ctx) local_unnamed_addr #0 {
-entry:
-  %i_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  %call = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %i_ctx) #5
-  %o_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  %call1 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %o_ctx) #5
-  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %call2 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx) #5
-  tail call void @OPENSSL_cleanse(ptr noundef %ctx, i64 noundef 104) #5
+define hidden void @HMAC_CTX_cleanup(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %2) #5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %4) #5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %6) #5
+  tail call void @OPENSSL_cleanse(ptr noundef %0, i64 noundef 104) #5
   ret void
 }
 
-declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
+declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #2
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #2
 
-declare i64 @EVP_MD_block_size(ptr noundef) local_unnamed_addr #1
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i64 @EVP_MD_block_size(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @HMAC_size(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %ctx, align 8
-  %call = tail call i64 @EVP_MD_size(ptr noundef %0) #5
-  ret i64 %call
+define hidden i64 @HMAC_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !6
+  %3 = tail call i64 @EVP_MD_size(ptr noundef %2) #5
+  ret i64 %3
 }
 
-declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #1
+declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @HMAC_CTX_copy_ex(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
-entry:
-  %i_ctx = getelementptr inbounds nuw i8, ptr %dest, i64 40
-  %i_ctx1 = getelementptr inbounds nuw i8, ptr %src, i64 40
-  %call = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %i_ctx, ptr noundef nonnull %i_ctx1) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false
+define hidden range(i32 0, 2) i32 @HMAC_CTX_copy_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %5 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %16, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %o_ctx = getelementptr inbounds nuw i8, ptr %dest, i64 72
-  %o_ctx2 = getelementptr inbounds nuw i8, ptr %src, i64 72
-  %call3 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %o_ctx, ptr noundef nonnull %o_ctx2) #5
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %return, label %lor.lhs.false5
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  %.not8 = icmp eq i32 %9, 0
+  br i1 %.not8, label %16, label %10
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %md_ctx = getelementptr inbounds nuw i8, ptr %dest, i64 8
-  %md_ctx6 = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %call7 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx, ptr noundef nonnull %md_ctx6) #5
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %return, label %if.end
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %11, ptr noundef nonnull %12) #5
+  %.not9 = icmp eq i32 %13, 0
+  br i1 %.not9, label %16, label %14
 
-if.end:                                           ; preds = %lor.lhs.false5
-  %0 = load ptr, ptr %src, align 8
-  store ptr %0, ptr %dest, align 8
-  br label %return
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %1, align 8, !tbaa !6
+  store ptr %15, ptr %0, align 8, !tbaa !6
+  br label %16
 
-return:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false5, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @HMAC_Init(ptr noundef %ctx, ptr noundef %key, i32 noundef %key_len, ptr noundef %md) local_unnamed_addr #0 {
-entry:
-  %tobool = icmp ne ptr %key, null
-  %tobool1 = icmp ne ptr %md, null
-  %or.cond = and i1 %tobool, %tobool1
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %ctx, align 8
-  %i_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %i_ctx.i) #5
-  %o_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 72
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx.i) #5
-  %md_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i) #5
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %conv = sext i32 %key_len to i64
-  %call = tail call i32 @HMAC_Init_ex(ptr noundef %ctx, ptr noundef %key, i64 noundef %conv, ptr noundef %md, ptr noundef null)
-  ret i32 %call
+16:                                               ; preds = %2, %6, %10, %14
+  %.0 = phi i32 [ 1, %14 ], [ 0, %10 ], [ 0, %6 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @HMAC_CTX_copy(ptr noundef initializes((0, 8)) %dest, ptr noundef %src) local_unnamed_addr #0 {
-entry:
-  store ptr null, ptr %dest, align 8
-  %i_ctx.i = getelementptr inbounds nuw i8, ptr %dest, i64 40
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %i_ctx.i) #5
-  %o_ctx.i = getelementptr inbounds nuw i8, ptr %dest, i64 72
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx.i) #5
-  %md_ctx.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
-  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i) #5
-  %i_ctx1.i = getelementptr inbounds nuw i8, ptr %src, i64 40
-  %call.i = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %i_ctx.i, ptr noundef nonnull %i_ctx1.i) #5
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %HMAC_CTX_copy_ex.exit, label %lor.lhs.false.i
+define hidden range(i32 0, 2) i32 @HMAC_Init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = icmp ne ptr %1, null
+  %6 = icmp ne ptr %3, null
+  %or.cond = and i1 %5, %6
+  br i1 %or.cond, label %7, label %11
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %o_ctx2.i = getelementptr inbounds nuw i8, ptr %src, i64 72
-  %call3.i = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %o_ctx.i, ptr noundef nonnull %o_ctx2.i) #5
-  %tobool4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.not.i, label %HMAC_CTX_copy_ex.exit, label %lor.lhs.false5.i
+7:                                                ; preds = %4
+  store ptr null, ptr %0, align 8, !tbaa !6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %8) #5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %9) #5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %10) #5
+  br label %11
 
-lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %md_ctx6.i = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %call7.i = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %md_ctx6.i) #5
-  %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %HMAC_CTX_copy_ex.exit, label %if.end.i
+11:                                               ; preds = %7, %4
+  %12 = sext i32 %2 to i64
+  %13 = tail call i32 @HMAC_Init_ex(ptr noundef %0, ptr noundef %1, i64 noundef %12, ptr noundef %3, ptr noundef null)
+  ret i32 %13
+}
 
-if.end.i:                                         ; preds = %lor.lhs.false5.i
-  %0 = load ptr, ptr %src, align 8
-  store ptr %0, ptr %dest, align 8
+; Function Attrs: nounwind uwtable
+define hidden range(i32 0, 2) i32 @HMAC_CTX_copy(ptr noundef initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
+  store ptr null, ptr %0, align 8, !tbaa !6
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %3) #5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %4) #5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @EVP_MD_CTX_init(ptr noundef nonnull %5) #5
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %7 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %3, ptr noundef nonnull %6) #5
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %HMAC_CTX_copy_ex.exit, label %8
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %10 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #5
+  %.not8.i = icmp eq i32 %10, 0
+  br i1 %.not8.i, label %HMAC_CTX_copy_ex.exit, label %11
+
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %5, ptr noundef nonnull %12) #5
+  %.not9.i = icmp eq i32 %13, 0
+  br i1 %.not9.i, label %HMAC_CTX_copy_ex.exit, label %14
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %1, align 8, !tbaa !6
+  store ptr %15, ptr %0, align 8, !tbaa !6
   br label %HMAC_CTX_copy_ex.exit
 
-HMAC_CTX_copy_ex.exit:                            ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false5.i, %if.end.i
-  %retval.0.i = phi i32 [ 1, %if.end.i ], [ 0, %lor.lhs.false5.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ]
-  ret i32 %retval.0.i
+HMAC_CTX_copy_ex.exit:                            ; preds = %2, %8, %11, %14
+  %.0.i = phi i32 [ 1, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %2 ]
+  ret i32 %.0.i
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"hmac_ctx_st", !8, i64 0, !12, i64 8, !12, i64 40, !12, i64 72}
+!8 = !{!"p1 _ZTS9env_md_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"env_md_ctx_st", !8, i64 0, !9, i64 8, !13, i64 16, !14, i64 24}
+!13 = !{!"p1 _ZTS15evp_pkey_ctx_st", !9, i64 0}
+!14 = !{!"p1 _ZTS15evp_md_pctx_ops", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !10, i64 0}
+!17 = !{!10, !10, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = distinct !{!20, !19}

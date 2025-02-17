@@ -1,312 +1,323 @@
 ; ModuleID = 'bench/libquic/original/error_correction.ll'
 source_filename = "bench/libquic/original/error_correction.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_helprec(ptr noundef writeonly captures(none) %c, ptr noundef readonly captures(none) %v) local_unnamed_addr #0 {
-entry:
-  %rand = alloca [32 x i8], align 16
-  %call = call i32 @RAND_bytes(ptr noundef nonnull %rand, i64 noundef 32) #5
-  br label %for.body
+define hidden void @newhope_helprec(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %3 = alloca [32 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  %4 = call i32 @RAND_bytes(ptr noundef nonnull %3, i64 noundef 32) #6
+  br label %5
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc nuw nsw i64 %indvars.iv to i32
-  %shr = lshr i64 %indvars.iv, 3
-  %idxprom = and i64 %shr, 536870911
-  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %rand, i64 0, i64 %idxprom
-  %1 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %1 to i32
-  %and = and i32 %0, 7
-  %shr1 = lshr i32 %conv, %and
-  %arrayidx8 = getelementptr inbounds nuw [1024 x i16], ptr %v, i64 0, i64 %indvars.iv
-  %2 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %2 to i32
-  %mul = shl nuw nsw i32 %conv9, 3
-  %conv3 = shl nuw nsw i32 %shr1, 2
-  %mul11 = and i32 %conv3, 4
-  %add12 = or disjoint i32 %mul11, %mul
-  %mul.i = mul nuw nsw i32 %add12, 2730
-  %shr.i = lshr i32 %mul.i, 25
-  %mul1.neg.i = mul nsw i32 %shr.i, -12289
-  %sub.i = add nsw i32 %mul1.neg.i, %add12
-  %3 = icmp sgt i32 %sub.i, 12288
-  %shr3.neg.i = zext i1 %3 to i32
-  %sub4.i = add nuw nsw i32 %shr.i, %shr3.neg.i
-  %and.i = and i32 %sub4.i, 1
-  %shr5.i = lshr i32 %sub4.i, 1
-  %add.i = add nuw nsw i32 %shr5.i, %and.i
-  %sub6.i = add nsw i32 %sub4.i, -1
-  %and7.i = and i32 %sub6.i, 1
-  %shr8.i = lshr i32 %sub6.i, 1
-  %add9.i = add nuw i32 %shr8.i, %and7.i
-  %mul11.neg.i = mul nsw i32 %add.i, -24578
-  %sub12.i = add nsw i32 %mul11.neg.i, %add12
-  %sub.i.i = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %sub12.i, i1 true)
-  %4 = or disjoint i64 %indvars.iv, 256
-  %arrayidx21 = getelementptr inbounds nuw [1024 x i16], ptr %v, i64 0, i64 %4
-  %5 = load i16, ptr %arrayidx21, align 2
-  %conv22 = zext i16 %5 to i32
-  %mul23 = shl nuw nsw i32 %conv22, 3
-  %add26 = or disjoint i32 %mul23, %mul11
-  %mul.i36 = mul nuw nsw i32 %add26, 2730
-  %shr.i37 = lshr i32 %mul.i36, 25
-  %mul1.neg.i38 = mul nsw i32 %shr.i37, -12289
-  %sub.i39 = add nsw i32 %mul1.neg.i38, %add26
-  %6 = icmp sgt i32 %sub.i39, 12288
-  %shr3.neg.i40 = zext i1 %6 to i32
-  %sub4.i41 = add nuw nsw i32 %shr.i37, %shr3.neg.i40
-  %and.i42 = and i32 %sub4.i41, 1
-  %shr5.i43 = lshr i32 %sub4.i41, 1
-  %add.i44 = add nuw nsw i32 %shr5.i43, %and.i42
-  %sub6.i45 = add nsw i32 %sub4.i41, -1
-  %and7.i46 = and i32 %sub6.i45, 1
-  %shr8.i47 = lshr i32 %sub6.i45, 1
-  %add9.i48 = add nuw i32 %shr8.i47, %and7.i46
-  %mul11.neg.i49 = mul nsw i32 %add.i44, -24578
-  %sub12.i50 = add nsw i32 %mul11.neg.i49, %add26
-  %sub.i.i51 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %sub12.i50, i1 true)
-  %add28 = add nuw nsw i32 %sub.i.i, %sub.i.i51
-  %7 = or disjoint i64 %indvars.iv, 512
-  %arrayidx36 = getelementptr inbounds nuw [1024 x i16], ptr %v, i64 0, i64 %7
-  %8 = load i16, ptr %arrayidx36, align 2
-  %conv37 = zext i16 %8 to i32
-  %mul38 = shl nuw nsw i32 %conv37, 3
-  %add41 = or disjoint i32 %mul38, %mul11
-  %mul.i52 = mul nuw nsw i32 %add41, 2730
-  %shr.i53 = lshr i32 %mul.i52, 25
-  %mul1.neg.i54 = mul nsw i32 %shr.i53, -12289
-  %sub.i55 = add nsw i32 %mul1.neg.i54, %add41
-  %9 = icmp sgt i32 %sub.i55, 12288
-  %shr3.neg.i56 = zext i1 %9 to i32
-  %sub4.i57 = add nuw nsw i32 %shr.i53, %shr3.neg.i56
-  %and.i58 = and i32 %sub4.i57, 1
-  %shr5.i59 = lshr i32 %sub4.i57, 1
-  %add.i60 = add nuw nsw i32 %shr5.i59, %and.i58
-  %sub6.i61 = add nsw i32 %sub4.i57, -1
-  %and7.i62 = and i32 %sub6.i61, 1
-  %shr8.i63 = lshr i32 %sub6.i61, 1
-  %add9.i64 = add nuw i32 %shr8.i63, %and7.i62
-  %mul11.neg.i65 = mul nsw i32 %add.i60, -24578
-  %sub12.i66 = add nsw i32 %mul11.neg.i65, %add41
-  %sub.i.i67 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %sub12.i66, i1 true)
-  %add43 = add nuw nsw i32 %add28, %sub.i.i67
-  %10 = or disjoint i64 %indvars.iv, 768
-  %arrayidx51 = getelementptr inbounds nuw [1024 x i16], ptr %v, i64 0, i64 %10
-  %11 = load i16, ptr %arrayidx51, align 2
-  %conv52 = zext i16 %11 to i32
-  %mul53 = shl nuw nsw i32 %conv52, 3
-  %add56 = or disjoint i32 %mul53, %mul11
-  %mul.i68 = mul nuw nsw i32 %add56, 2730
-  %shr.i69 = lshr i32 %mul.i68, 25
-  %mul1.neg.i70 = mul nsw i32 %shr.i69, -12289
-  %sub.i71 = add nsw i32 %mul1.neg.i70, %add56
-  %12 = icmp sgt i32 %sub.i71, 12288
-  %shr3.neg.i72 = zext i1 %12 to i32
-  %sub4.i73 = add nuw nsw i32 %shr.i69, %shr3.neg.i72
-  %and.i74 = and i32 %sub4.i73, 1
-  %shr5.i75 = lshr i32 %sub4.i73, 1
-  %add.i76 = add nuw nsw i32 %shr5.i75, %and.i74
-  %sub6.i77 = add nsw i32 %sub4.i73, -1
-  %and7.i78 = and i32 %sub6.i77, 1
-  %shr8.i79 = ashr i32 %sub6.i77, 1
-  %add9.i80 = add nsw i32 %shr8.i79, %and7.i78
-  %mul11.neg.i81 = mul nsw i32 %add.i76, -24578
-  %sub12.i82 = add nsw i32 %mul11.neg.i81, %add56
-  %sub.i.i83 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %sub12.i82, i1 true)
-  %add58 = add nuw nsw i32 %add43, %sub.i.i83
-  %13 = icmp samesign ugt i32 %add58, 24577
-  %shr59.neg = zext i1 %13 to i32
-  %xor = select i1 %13, i32 %add9.i, i32 %add.i
-  %xor70 = select i1 %13, i32 %add9.i48, i32 %add.i44
-  %xor77 = select i1 %13, i32 %add9.i64, i32 %add.i60
-  %xor84 = select i1 %13, i32 %add9.i80, i32 %add.i76
-  %sub88 = sub i32 %xor, %xor84
-  %14 = trunc i32 %sub88 to i16
-  %conv90 = and i16 %14, 3
-  %arrayidx94 = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %indvars.iv
-  store i16 %conv90, ptr %arrayidx94, align 2
-  %sub97 = sub i32 %xor70, %xor84
-  %15 = trunc i32 %sub97 to i16
-  %conv99 = and i16 %15, 3
-  %arrayidx103 = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %4
-  store i16 %conv99, ptr %arrayidx103, align 2
-  %sub106 = sub i32 %xor77, %xor84
-  %16 = trunc i32 %sub106 to i16
-  %conv108 = and i16 %16, 3
-  %arrayidx112 = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %7
-  store i16 %conv108, ptr %arrayidx112, align 2
-  %mul115 = shl nsw i32 %xor84, 1
-  %mul115.masked = and i32 %mul115, 2
-  %and117 = or disjoint i32 %mul115.masked, %shr59.neg
-  %conv118 = trunc nuw nsw i32 %and117 to i16
-  %arrayidx122 = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %10
-  store i16 %conv118, ptr %arrayidx122, align 2
+5:                                                ; preds = %2, %5
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
+  %7 = lshr i64 %indvars.iv, 3
+  %8 = and i64 %7, 536870911
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 0, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !6
+  %11 = zext i8 %10 to i32
+  %12 = and i32 %6, 7
+  %13 = lshr i32 %11, %12
+  %14 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %indvars.iv
+  %15 = load i16, ptr %14, align 2, !tbaa !9
+  %16 = zext i16 %15 to i32
+  %17 = shl nuw nsw i32 %16, 3
+  %18 = shl nuw nsw i32 %13, 2
+  %19 = and i32 %18, 4
+  %20 = or disjoint i32 %19, %17
+  %21 = mul nuw nsw i32 %20, 2730
+  %22 = lshr i32 %21, 25
+  %.neg.i = mul nsw i32 %22, -12289
+  %23 = add nsw i32 %.neg.i, %20
+  %24 = icmp sgt i32 %23, 12288
+  %.neg19.i = zext i1 %24 to i32
+  %25 = add nuw nsw i32 %22, %.neg19.i
+  %26 = and i32 %25, 1
+  %27 = lshr i32 %25, 1
+  %28 = add nuw nsw i32 %27, %26
+  %29 = add nsw i32 %25, -1
+  %30 = and i32 %29, 1
+  %31 = lshr i32 %29, 1
+  %32 = add nuw i32 %31, %30
+  %.neg20.i = mul nsw i32 %28, -24578
+  %33 = add nsw i32 %.neg20.i, %20
+  %34 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %33, i1 true)
+  %35 = or disjoint i64 %indvars.iv, 256
+  %36 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %35
+  %37 = load i16, ptr %36, align 2, !tbaa !9
+  %38 = zext i16 %37 to i32
+  %39 = shl nuw nsw i32 %38, 3
+  %40 = or disjoint i32 %39, %19
+  %41 = mul nuw nsw i32 %40, 2730
+  %42 = lshr i32 %41, 25
+  %.neg.i39 = mul nsw i32 %42, -12289
+  %43 = add nsw i32 %.neg.i39, %40
+  %44 = icmp sgt i32 %43, 12288
+  %.neg19.i40 = zext i1 %44 to i32
+  %45 = add nuw nsw i32 %42, %.neg19.i40
+  %46 = and i32 %45, 1
+  %47 = lshr i32 %45, 1
+  %48 = add nuw nsw i32 %47, %46
+  %49 = add nsw i32 %45, -1
+  %50 = and i32 %49, 1
+  %51 = lshr i32 %49, 1
+  %52 = add nuw i32 %51, %50
+  %.neg20.i41 = mul nsw i32 %48, -24578
+  %53 = add nsw i32 %.neg20.i41, %40
+  %54 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %53, i1 true)
+  %55 = add nuw nsw i32 %34, %54
+  %56 = or disjoint i64 %indvars.iv, 512
+  %57 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %56
+  %58 = load i16, ptr %57, align 2, !tbaa !9
+  %59 = zext i16 %58 to i32
+  %60 = shl nuw nsw i32 %59, 3
+  %61 = or disjoint i32 %60, %19
+  %62 = mul nuw nsw i32 %61, 2730
+  %63 = lshr i32 %62, 25
+  %.neg.i42 = mul nsw i32 %63, -12289
+  %64 = add nsw i32 %.neg.i42, %61
+  %65 = icmp sgt i32 %64, 12288
+  %.neg19.i43 = zext i1 %65 to i32
+  %66 = add nuw nsw i32 %63, %.neg19.i43
+  %67 = and i32 %66, 1
+  %68 = lshr i32 %66, 1
+  %69 = add nuw nsw i32 %68, %67
+  %70 = add nsw i32 %66, -1
+  %71 = and i32 %70, 1
+  %72 = lshr i32 %70, 1
+  %73 = add nuw i32 %72, %71
+  %.neg20.i44 = mul nsw i32 %69, -24578
+  %74 = add nsw i32 %.neg20.i44, %61
+  %75 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %74, i1 true)
+  %76 = add nuw nsw i32 %55, %75
+  %77 = or disjoint i64 %indvars.iv, 768
+  %78 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %77
+  %79 = load i16, ptr %78, align 2, !tbaa !9
+  %80 = zext i16 %79 to i32
+  %81 = shl nuw nsw i32 %80, 3
+  %82 = or disjoint i32 %81, %19
+  %83 = mul nuw nsw i32 %82, 2730
+  %84 = lshr i32 %83, 25
+  %.neg.i45 = mul nsw i32 %84, -12289
+  %85 = add nsw i32 %.neg.i45, %82
+  %86 = icmp sgt i32 %85, 12288
+  %.neg19.i46 = zext i1 %86 to i32
+  %87 = add nuw nsw i32 %84, %.neg19.i46
+  %88 = and i32 %87, 1
+  %89 = lshr i32 %87, 1
+  %90 = add nuw nsw i32 %89, %88
+  %91 = add nsw i32 %87, -1
+  %92 = and i32 %91, 1
+  %93 = ashr i32 %91, 1
+  %94 = add nsw i32 %93, %92
+  %.neg20.i47 = mul nsw i32 %90, -24578
+  %95 = add nsw i32 %.neg20.i47, %82
+  %96 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %95, i1 true)
+  %97 = add nuw nsw i32 %76, %96
+  %98 = icmp samesign ugt i32 %97, 24577
+  %.neg = zext i1 %98 to i32
+  %99 = select i1 %98, i32 %32, i32 %28
+  %100 = select i1 %98, i32 %52, i32 %48
+  %101 = select i1 %98, i32 %73, i32 %69
+  %102 = select i1 %98, i32 %94, i32 %90
+  %103 = sub i32 %99, %102
+  %104 = trunc i32 %103 to i16
+  %105 = and i16 %104, 3
+  %106 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %indvars.iv
+  store i16 %105, ptr %106, align 2, !tbaa !9
+  %107 = sub i32 %100, %102
+  %108 = trunc i32 %107 to i16
+  %109 = and i16 %108, 3
+  %110 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %35
+  store i16 %109, ptr %110, align 2, !tbaa !9
+  %111 = sub i32 %101, %102
+  %112 = trunc i32 %111 to i16
+  %113 = and i16 %112, 3
+  %114 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %56
+  store i16 %113, ptr %114, align 2, !tbaa !9
+  %115 = shl nsw i32 %102, 1
+  %.masked = and i32 %115, 2
+  %116 = or disjoint i32 %.masked, %.neg
+  %117 = trunc nuw nsw i32 %116 to i16
+  %118 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %77
+  store i16 %117, ptr %118, align 2, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %119, label %5, !llvm.loop !11
 
-for.end:                                          ; preds = %for.body
+119:                                              ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
   ret void
 }
 
-declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @newhope_reconcile(ptr noundef captures(none) initializes((0, 32)) %key, ptr noundef readonly captures(none) %v, ptr noundef readonly captures(none) %c) local_unnamed_addr #2 {
-entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %key, i8 0, i64 32, i1 false)
-  br label %for.body
+define hidden void @newhope_reconcile(ptr noundef captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  br label %4
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [1024 x i16], ptr %v, i64 0, i64 %indvars.iv
-  %0 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %0 to i32
-  %mul = shl nuw nsw i32 %conv, 3
-  %add1 = add nuw nsw i32 %mul, 196624
-  %arrayidx5 = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %indvars.iv
-  %1 = load i16, ptr %arrayidx5, align 2
-  %conv6 = zext i16 %1 to i32
-  %mul7 = shl nuw nsw i32 %conv6, 1
-  %2 = or disjoint i64 %indvars.iv, 768
-  %arrayidx11 = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %2
-  %3 = load i16, ptr %arrayidx11, align 2
-  %conv12 = zext i16 %3 to i32
-  %add13 = add nuw nsw i32 %mul7, %conv12
-  %mul14.neg = mul i32 %add13, -12289
-  %sub = add i32 %add1, %mul14.neg
-  %4 = or disjoint i64 %indvars.iv, 256
-  %arrayidx19 = getelementptr inbounds nuw [1024 x i16], ptr %v, i64 0, i64 %4
-  %5 = load i16, ptr %arrayidx19, align 2
-  %conv20 = zext i16 %5 to i32
-  %mul21 = shl nuw nsw i32 %conv20, 3
-  %add22 = add nuw nsw i32 %mul21, 196624
-  %arrayidx26 = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %4
-  %6 = load i16, ptr %arrayidx26, align 2
-  %conv27 = zext i16 %6 to i32
-  %mul28 = shl nuw nsw i32 %conv27, 1
-  %add34 = add nuw nsw i32 %mul28, %conv12
-  %mul35.neg = mul i32 %add34, -12289
-  %sub36 = add i32 %add22, %mul35.neg
-  %7 = or disjoint i64 %indvars.iv, 512
-  %arrayidx41 = getelementptr inbounds nuw [1024 x i16], ptr %v, i64 0, i64 %7
-  %8 = load i16, ptr %arrayidx41, align 2
-  %conv42 = zext i16 %8 to i32
-  %mul43 = shl nuw nsw i32 %conv42, 3
-  %add44 = add nuw nsw i32 %mul43, 196624
-  %arrayidx48 = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %7
-  %9 = load i16, ptr %arrayidx48, align 2
-  %conv49 = zext i16 %9 to i32
-  %mul50 = shl nuw nsw i32 %conv49, 1
-  %add56 = add nuw nsw i32 %mul50, %conv12
-  %mul57.neg = mul i32 %add56, -12289
-  %sub58 = add i32 %add44, %mul57.neg
-  %arrayidx63 = getelementptr inbounds nuw [1024 x i16], ptr %v, i64 0, i64 %2
-  %10 = load i16, ptr %arrayidx63, align 2
-  %conv64 = zext i16 %10 to i32
-  %mul65 = shl nuw nsw i32 %conv64, 3
-  %mul72.neg = mul nsw i32 %conv12, -12289
-  %add66 = add nsw i32 %mul72.neg, 196624
-  %sub73 = add nsw i32 %add66, %mul65
-  %mul.i.i = mul nsw i32 %sub, 2730
-  %shr.i.i = ashr i32 %mul.i.i, 27
-  %mul1.neg.i.i = mul nsw i32 %shr.i.i, -49156
-  %sub.i.i = add i32 %mul1.neg.i.i, %sub
-  %11 = icmp sgt i32 %sub.i.i, 49155
-  %shr3.neg.i.i = zext i1 %11 to i32
-  %sub4.i.i = add nsw i32 %shr.i.i, %shr3.neg.i.i
-  %and.i.i = and i32 %sub4.i.i, 1
-  %shr5.i.i = ashr i32 %sub4.i.i, 1
-  %add.i.i = add nsw i32 %shr5.i.i, %and.i.i
-  %mul6.i.i = mul nsw i32 %add.i.i, 98312
-  %sub7.i.i = sub nsw i32 %mul6.i.i, %sub
-  %sub.i.i.i = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %sub7.i.i, i1 true)
-  %mul.i7.i = mul nsw i32 %sub36, 2730
-  %shr.i8.i = ashr i32 %mul.i7.i, 27
-  %mul1.neg.i9.i = mul nsw i32 %shr.i8.i, -49156
-  %sub.i10.i = add i32 %mul1.neg.i9.i, %sub36
-  %12 = icmp sgt i32 %sub.i10.i, 49155
-  %shr3.neg.i11.i = zext i1 %12 to i32
-  %sub4.i12.i = add nsw i32 %shr.i8.i, %shr3.neg.i11.i
-  %and.i13.i = and i32 %sub4.i12.i, 1
-  %shr5.i14.i = ashr i32 %sub4.i12.i, 1
-  %add.i15.i = add nsw i32 %shr5.i14.i, %and.i13.i
-  %mul6.i16.i = mul nsw i32 %add.i15.i, 98312
-  %sub7.i17.i = sub nsw i32 %mul6.i16.i, %sub36
-  %sub.i.i18.i = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %sub7.i17.i, i1 true)
-  %mul.i19.i = mul nsw i32 %sub58, 2730
-  %shr.i20.i = ashr i32 %mul.i19.i, 27
-  %mul1.neg.i21.i = mul nsw i32 %shr.i20.i, -49156
-  %sub.i22.i = add i32 %mul1.neg.i21.i, %sub58
-  %13 = icmp sgt i32 %sub.i22.i, 49155
-  %shr3.neg.i23.i = zext i1 %13 to i32
-  %sub4.i24.i = add nsw i32 %shr.i20.i, %shr3.neg.i23.i
-  %and.i25.i = and i32 %sub4.i24.i, 1
-  %shr5.i26.i = ashr i32 %sub4.i24.i, 1
-  %add.i27.i = add nsw i32 %shr5.i26.i, %and.i25.i
-  %mul6.i28.i = mul nsw i32 %add.i27.i, 98312
-  %sub7.i29.i = sub nsw i32 %mul6.i28.i, %sub58
-  %sub.i.i30.i = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %sub7.i29.i, i1 true)
-  %mul.i31.i = mul nsw i32 %sub73, 2730
-  %shr.i32.i = ashr i32 %mul.i31.i, 27
-  %mul1.neg.i33.i = mul nsw i32 %shr.i32.i, -49156
-  %sub.i34.i = add nsw i32 %mul1.neg.i33.i, %sub73
-  %14 = icmp sgt i32 %sub.i34.i, 49155
-  %shr3.neg.i35.i = zext i1 %14 to i32
-  %sub4.i36.i = add nsw i32 %shr.i32.i, %shr3.neg.i35.i
-  %and.i37.i = and i32 %sub4.i36.i, 1
-  %shr5.i38.i = ashr i32 %sub4.i36.i, 1
-  %add.i39.i = add nsw i32 %shr5.i38.i, %and.i37.i
-  %mul6.i40.i = mul nsw i32 %add.i39.i, 98312
-  %sub7.i41.i = sub nsw i32 %mul6.i40.i, %sub73
-  %sub.i.i42.i = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %sub7.i41.i, i1 true)
-  %add.i = add nsw i32 %sub.i.i.i, -98312
-  %add3.i = add i32 %add.i, %sub.i.i18.i
-  %add5.i = add i32 %add3.i, %sub.i.i30.i
-  %sub.i = add i32 %add5.i, %sub.i.i42.i
-  %shr6.i = lshr i32 %sub.i, 31
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  %and = and i32 %15, 7
-  %shl = shl nuw nsw i32 %shr6.i, %and
-  %shr = lshr i64 %indvars.iv, 3
-  %idxprom80 = and i64 %shr, 536870911
-  %arrayidx81 = getelementptr inbounds nuw i8, ptr %key, i64 %idxprom80
-  %16 = load i8, ptr %arrayidx81, align 1
-  %17 = trunc nuw i32 %shl to i8
-  %conv83 = or i8 %16, %17
-  store i8 %conv83, ptr %arrayidx81, align 1
+4:                                                ; preds = %3, %4
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
+  %5 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %indvars.iv
+  %6 = load i16, ptr %5, align 2, !tbaa !9
+  %7 = zext i16 %6 to i32
+  %8 = shl nuw nsw i32 %7, 3
+  %9 = add nuw nsw i32 %8, 196624
+  %10 = getelementptr inbounds nuw [1024 x i16], ptr %2, i64 0, i64 %indvars.iv
+  %11 = load i16, ptr %10, align 2, !tbaa !9
+  %12 = zext i16 %11 to i32
+  %13 = shl nuw nsw i32 %12, 1
+  %14 = or disjoint i64 %indvars.iv, 768
+  %15 = getelementptr inbounds nuw [1024 x i16], ptr %2, i64 0, i64 %14
+  %16 = load i16, ptr %15, align 2, !tbaa !9
+  %17 = zext i16 %16 to i32
+  %18 = add nuw nsw i32 %13, %17
+  %.neg = mul i32 %18, -12289
+  %19 = add i32 %9, %.neg
+  %20 = or disjoint i64 %indvars.iv, 256
+  %21 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %20
+  %22 = load i16, ptr %21, align 2, !tbaa !9
+  %23 = zext i16 %22 to i32
+  %24 = shl nuw nsw i32 %23, 3
+  %25 = add nuw nsw i32 %24, 196624
+  %26 = getelementptr inbounds nuw [1024 x i16], ptr %2, i64 0, i64 %20
+  %27 = load i16, ptr %26, align 2, !tbaa !9
+  %28 = zext i16 %27 to i32
+  %29 = shl nuw nsw i32 %28, 1
+  %30 = add nuw nsw i32 %29, %17
+  %.neg27 = mul i32 %30, -12289
+  %31 = add i32 %25, %.neg27
+  %32 = or disjoint i64 %indvars.iv, 512
+  %33 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %32
+  %34 = load i16, ptr %33, align 2, !tbaa !9
+  %35 = zext i16 %34 to i32
+  %36 = shl nuw nsw i32 %35, 3
+  %37 = add nuw nsw i32 %36, 196624
+  %38 = getelementptr inbounds nuw [1024 x i16], ptr %2, i64 0, i64 %32
+  %39 = load i16, ptr %38, align 2, !tbaa !9
+  %40 = zext i16 %39 to i32
+  %41 = shl nuw nsw i32 %40, 1
+  %42 = add nuw nsw i32 %41, %17
+  %.neg28 = mul i32 %42, -12289
+  %43 = add i32 %37, %.neg28
+  %44 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %14
+  %45 = load i16, ptr %44, align 2, !tbaa !9
+  %46 = zext i16 %45 to i32
+  %47 = shl nuw nsw i32 %46, 3
+  %.neg29 = mul nsw i32 %17, -12289
+  %48 = add nsw i32 %.neg29, 196624
+  %49 = add nsw i32 %48, %47
+  %50 = mul nsw i32 %19, 2730
+  %51 = ashr i32 %50, 27
+  %.neg.i.i = mul nsw i32 %51, -49156
+  %52 = add i32 %.neg.i.i, %19
+  %53 = icmp sgt i32 %52, 49155
+  %.neg14.i.i = zext i1 %53 to i32
+  %54 = add nsw i32 %51, %.neg14.i.i
+  %55 = and i32 %54, 1
+  %56 = ashr i32 %54, 1
+  %57 = add nsw i32 %56, %55
+  %58 = mul nsw i32 %57, 98312
+  %59 = sub nsw i32 %58, %19
+  %60 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %59, i1 true)
+  %61 = mul nsw i32 %31, 2730
+  %62 = ashr i32 %61, 27
+  %.neg.i10.i = mul nsw i32 %62, -49156
+  %63 = add i32 %.neg.i10.i, %31
+  %64 = icmp sgt i32 %63, 49155
+  %.neg14.i11.i = zext i1 %64 to i32
+  %65 = add nsw i32 %62, %.neg14.i11.i
+  %66 = and i32 %65, 1
+  %67 = ashr i32 %65, 1
+  %68 = add nsw i32 %67, %66
+  %69 = mul nsw i32 %68, 98312
+  %70 = sub nsw i32 %69, %31
+  %71 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %70, i1 true)
+  %72 = mul nsw i32 %43, 2730
+  %73 = ashr i32 %72, 27
+  %.neg.i12.i = mul nsw i32 %73, -49156
+  %74 = add i32 %.neg.i12.i, %43
+  %75 = icmp sgt i32 %74, 49155
+  %.neg14.i13.i = zext i1 %75 to i32
+  %76 = add nsw i32 %73, %.neg14.i13.i
+  %77 = and i32 %76, 1
+  %78 = ashr i32 %76, 1
+  %79 = add nsw i32 %78, %77
+  %80 = mul nsw i32 %79, 98312
+  %81 = sub nsw i32 %80, %43
+  %82 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %81, i1 true)
+  %83 = mul nsw i32 %49, 2730
+  %84 = ashr i32 %83, 27
+  %.neg.i14.i = mul nsw i32 %84, -49156
+  %85 = add nsw i32 %.neg.i14.i, %49
+  %86 = icmp sgt i32 %85, 49155
+  %.neg14.i15.i = zext i1 %86 to i32
+  %87 = add nsw i32 %84, %.neg14.i15.i
+  %88 = and i32 %87, 1
+  %89 = ashr i32 %87, 1
+  %90 = add nsw i32 %89, %88
+  %91 = mul nsw i32 %90, 98312
+  %92 = sub nsw i32 %91, %49
+  %93 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %92, i1 true)
+  %94 = add nsw i32 %60, -98312
+  %95 = add i32 %94, %71
+  %96 = add i32 %95, %82
+  %97 = add i32 %96, %93
+  %98 = lshr i32 %97, 31
+  %99 = trunc nuw nsw i64 %indvars.iv to i32
+  %100 = and i32 %99, 7
+  %101 = shl nuw nsw i32 %98, %100
+  %102 = lshr i64 %indvars.iv, 3
+  %103 = and i64 %102, 536870911
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 %103
+  %105 = load i8, ptr %104, align 1, !tbaa !6
+  %106 = trunc nuw i32 %101 to i8
+  %107 = or i8 %105, %106
+  store i8 %107, ptr %104, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %108, label %4, !llvm.loop !13
 
-for.end:                                          ; preds = %for.body
+108:                                              ; preds = %4
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !7, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}

@@ -1,5675 +1,6714 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @bn_mul_add_words(ptr noundef %rp, ptr noundef %ap, i32 noundef %num, i64 noundef %w) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %rp.addr = alloca ptr, align 8
-  %ap.addr = alloca ptr, align 8
-  %num.addr = alloca i32, align 4
-  %w.addr = alloca i64, align 8
-  %c1 = alloca i64, align 8
-  %high = alloca i64, align 8
-  %low = alloca i64, align 8
-  %high6 = alloca i64, align 8
-  %low7 = alloca i64, align 8
-  %high16 = alloca i64, align 8
-  %low17 = alloca i64, align 8
-  %high26 = alloca i64, align 8
-  %low27 = alloca i64, align 8
-  %high39 = alloca i64, align 8
-  %low40 = alloca i64, align 8
-  %high52 = alloca i64, align 8
-  %low53 = alloca i64, align 8
-  %high66 = alloca i64, align 8
-  %low67 = alloca i64, align 8
-  store ptr %rp, ptr %rp.addr, align 8
-  store ptr %ap, ptr %ap.addr, align 8
-  store i32 %num, ptr %num.addr, align 4
-  store i64 %w, ptr %w.addr, align 8
-  store i64 0, ptr %c1, align 8
-  %0 = load i32, ptr %num.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i64 @bn_mul_add_words(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !6
+  store i32 %2, ptr %8, align 4, !tbaa !11
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  store i64 0, ptr %10, align 8, !tbaa !13
+  %26 = load i32, ptr %8, align 4, !tbaa !11
+  %27 = icmp sle i32 %26, 0
+  br i1 %27, label %28, label %30
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %c1, align 8
-  store i64 %1, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %4
+  %29 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %29, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %208
 
-if.end:                                           ; preds = %entry
-  br label %while.cond
+30:                                               ; preds = %4
+  br label %31
 
-while.cond:                                       ; preds = %do.end34, %if.end
-  %2 = load i32, ptr %num.addr, align 4
-  %and = and i32 %2, -4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %while.body, label %while.end
+31:                                               ; preds = %119, %30
+  %32 = load i32, ptr %8, align 4, !tbaa !11
+  %33 = and i32 %32, -4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %126
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body
+35:                                               ; preds = %31
+  br label %36
 
-do.body:                                          ; preds = %while.body
-  %3 = load i64, ptr %w.addr, align 8
-  %4 = load ptr, ptr %ap.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %4, i64 0
-  %5 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr elementtype(i64) %arrayidx) #1, !srcloc !7
-  %asmresult = extractvalue { i64, i64 } %5, 0
-  %asmresult1 = extractvalue { i64, i64 } %5, 1
-  store i64 %asmresult, ptr %low, align 8
-  store i64 %asmresult1, ptr %high, align 8
-  %6 = load i64, ptr %c1, align 8
-  %7 = load i64, ptr %high, align 8
-  %8 = load i64, ptr %low, align 8
-  %9 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %8, i32 0, i64 %6, i64 %7) #1, !srcloc !8
-  %asmresult2 = extractvalue { i64, i64 } %9, 0
-  %asmresult3 = extractvalue { i64, i64 } %9, 1
-  store i64 %asmresult2, ptr %c1, align 8
-  store i64 %asmresult3, ptr %high, align 8
-  %10 = load ptr, ptr %rp.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %10, i64 0
-  %11 = load i64, ptr %high, align 8
-  %12 = load i64, ptr %c1, align 8
-  %13 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %arrayidx4, i64 %12, i32 0, ptr elementtype(i64) %arrayidx4, i64 %11) #2, !srcloc !9
-  store i64 %13, ptr %high, align 8
-  %14 = load i64, ptr %high, align 8
-  store i64 %14, ptr %c1, align 8
-  br label %do.end
+36:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #2
+  %37 = load i64, ptr %9, align 8, !tbaa !13
+  %38 = load ptr, ptr %7, align 8, !tbaa !6
+  %39 = getelementptr inbounds i64, ptr %38, i64 0
+  %40 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %37, ptr elementtype(i64) %39) #3, !srcloc !15
+  %41 = extractvalue { i64, i64 } %40, 0
+  %42 = extractvalue { i64, i64 } %40, 1
+  store i64 %41, ptr %13, align 8, !tbaa !13
+  store i64 %42, ptr %12, align 8, !tbaa !13
+  %43 = load i64, ptr %10, align 8, !tbaa !13
+  %44 = load i64, ptr %12, align 8, !tbaa !13
+  %45 = load i64, ptr %13, align 8, !tbaa !13
+  %46 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, i32 0, i64 %43, i64 %44) #3, !srcloc !16
+  %47 = extractvalue { i64, i64 } %46, 0
+  %48 = extractvalue { i64, i64 } %46, 1
+  store i64 %47, ptr %10, align 8, !tbaa !13
+  store i64 %48, ptr %12, align 8, !tbaa !13
+  %49 = load ptr, ptr %6, align 8, !tbaa !6
+  %50 = getelementptr inbounds i64, ptr %49, i64 0
+  %51 = load i64, ptr %12, align 8, !tbaa !13
+  %52 = load i64, ptr %10, align 8, !tbaa !13
+  %53 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 %52, i32 0, ptr elementtype(i64) %50, i64 %51) #2, !srcloc !17
+  store i64 %53, ptr %12, align 8, !tbaa !13
+  %54 = load i64, ptr %12, align 8, !tbaa !13
+  store i64 %54, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #2
+  br label %55
 
-do.end:                                           ; preds = %do.body
-  br label %do.body5
+55:                                               ; preds = %36
+  br label %56
 
-do.body5:                                         ; preds = %do.end
-  %15 = load i64, ptr %w.addr, align 8
-  %16 = load ptr, ptr %ap.addr, align 8
-  %arrayidx8 = getelementptr inbounds i64, ptr %16, i64 1
-  %17 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15, ptr elementtype(i64) %arrayidx8) #1, !srcloc !10
-  %asmresult9 = extractvalue { i64, i64 } %17, 0
-  %asmresult10 = extractvalue { i64, i64 } %17, 1
-  store i64 %asmresult9, ptr %low7, align 8
-  store i64 %asmresult10, ptr %high6, align 8
-  %18 = load i64, ptr %c1, align 8
-  %19 = load i64, ptr %high6, align 8
-  %20 = load i64, ptr %low7, align 8
-  %21 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %20, i32 0, i64 %18, i64 %19) #1, !srcloc !11
-  %asmresult11 = extractvalue { i64, i64 } %21, 0
-  %asmresult12 = extractvalue { i64, i64 } %21, 1
-  store i64 %asmresult11, ptr %c1, align 8
-  store i64 %asmresult12, ptr %high6, align 8
-  %22 = load ptr, ptr %rp.addr, align 8
-  %arrayidx13 = getelementptr inbounds i64, ptr %22, i64 1
-  %23 = load i64, ptr %high6, align 8
-  %24 = load i64, ptr %c1, align 8
-  %25 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %arrayidx13, i64 %24, i32 0, ptr elementtype(i64) %arrayidx13, i64 %23) #2, !srcloc !12
-  store i64 %25, ptr %high6, align 8
-  %26 = load i64, ptr %high6, align 8
-  store i64 %26, ptr %c1, align 8
-  br label %do.end14
+56:                                               ; preds = %55
+  br label %57
 
-do.end14:                                         ; preds = %do.body5
-  br label %do.body15
+57:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #2
+  %58 = load i64, ptr %9, align 8, !tbaa !13
+  %59 = load ptr, ptr %7, align 8, !tbaa !6
+  %60 = getelementptr inbounds i64, ptr %59, i64 1
+  %61 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %58, ptr elementtype(i64) %60) #3, !srcloc !18
+  %62 = extractvalue { i64, i64 } %61, 0
+  %63 = extractvalue { i64, i64 } %61, 1
+  store i64 %62, ptr %15, align 8, !tbaa !13
+  store i64 %63, ptr %14, align 8, !tbaa !13
+  %64 = load i64, ptr %10, align 8, !tbaa !13
+  %65 = load i64, ptr %14, align 8, !tbaa !13
+  %66 = load i64, ptr %15, align 8, !tbaa !13
+  %67 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %66, i32 0, i64 %64, i64 %65) #3, !srcloc !19
+  %68 = extractvalue { i64, i64 } %67, 0
+  %69 = extractvalue { i64, i64 } %67, 1
+  store i64 %68, ptr %10, align 8, !tbaa !13
+  store i64 %69, ptr %14, align 8, !tbaa !13
+  %70 = load ptr, ptr %6, align 8, !tbaa !6
+  %71 = getelementptr inbounds i64, ptr %70, i64 1
+  %72 = load i64, ptr %14, align 8, !tbaa !13
+  %73 = load i64, ptr %10, align 8, !tbaa !13
+  %74 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %71, i64 %73, i32 0, ptr elementtype(i64) %71, i64 %72) #2, !srcloc !20
+  store i64 %74, ptr %14, align 8, !tbaa !13
+  %75 = load i64, ptr %14, align 8, !tbaa !13
+  store i64 %75, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #2
+  br label %76
 
-do.body15:                                        ; preds = %do.end14
-  %27 = load i64, ptr %w.addr, align 8
-  %28 = load ptr, ptr %ap.addr, align 8
-  %arrayidx18 = getelementptr inbounds i64, ptr %28, i64 2
-  %29 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %27, ptr elementtype(i64) %arrayidx18) #1, !srcloc !13
-  %asmresult19 = extractvalue { i64, i64 } %29, 0
-  %asmresult20 = extractvalue { i64, i64 } %29, 1
-  store i64 %asmresult19, ptr %low17, align 8
-  store i64 %asmresult20, ptr %high16, align 8
-  %30 = load i64, ptr %c1, align 8
-  %31 = load i64, ptr %high16, align 8
-  %32 = load i64, ptr %low17, align 8
-  %33 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %32, i32 0, i64 %30, i64 %31) #1, !srcloc !14
-  %asmresult21 = extractvalue { i64, i64 } %33, 0
-  %asmresult22 = extractvalue { i64, i64 } %33, 1
-  store i64 %asmresult21, ptr %c1, align 8
-  store i64 %asmresult22, ptr %high16, align 8
-  %34 = load ptr, ptr %rp.addr, align 8
-  %arrayidx23 = getelementptr inbounds i64, ptr %34, i64 2
-  %35 = load i64, ptr %high16, align 8
-  %36 = load i64, ptr %c1, align 8
-  %37 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %arrayidx23, i64 %36, i32 0, ptr elementtype(i64) %arrayidx23, i64 %35) #2, !srcloc !15
-  store i64 %37, ptr %high16, align 8
-  %38 = load i64, ptr %high16, align 8
-  store i64 %38, ptr %c1, align 8
-  br label %do.end24
+76:                                               ; preds = %57
+  br label %77
 
-do.end24:                                         ; preds = %do.body15
-  br label %do.body25
+77:                                               ; preds = %76
+  br label %78
 
-do.body25:                                        ; preds = %do.end24
-  %39 = load i64, ptr %w.addr, align 8
-  %40 = load ptr, ptr %ap.addr, align 8
-  %arrayidx28 = getelementptr inbounds i64, ptr %40, i64 3
-  %41 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %39, ptr elementtype(i64) %arrayidx28) #1, !srcloc !16
-  %asmresult29 = extractvalue { i64, i64 } %41, 0
-  %asmresult30 = extractvalue { i64, i64 } %41, 1
-  store i64 %asmresult29, ptr %low27, align 8
-  store i64 %asmresult30, ptr %high26, align 8
-  %42 = load i64, ptr %c1, align 8
-  %43 = load i64, ptr %high26, align 8
-  %44 = load i64, ptr %low27, align 8
-  %45 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %44, i32 0, i64 %42, i64 %43) #1, !srcloc !17
-  %asmresult31 = extractvalue { i64, i64 } %45, 0
-  %asmresult32 = extractvalue { i64, i64 } %45, 1
-  store i64 %asmresult31, ptr %c1, align 8
-  store i64 %asmresult32, ptr %high26, align 8
-  %46 = load ptr, ptr %rp.addr, align 8
-  %arrayidx33 = getelementptr inbounds i64, ptr %46, i64 3
-  %47 = load i64, ptr %high26, align 8
-  %48 = load i64, ptr %c1, align 8
-  %49 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %arrayidx33, i64 %48, i32 0, ptr elementtype(i64) %arrayidx33, i64 %47) #2, !srcloc !18
-  store i64 %49, ptr %high26, align 8
-  %50 = load i64, ptr %high26, align 8
-  store i64 %50, ptr %c1, align 8
-  br label %do.end34
+78:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #2
+  %79 = load i64, ptr %9, align 8, !tbaa !13
+  %80 = load ptr, ptr %7, align 8, !tbaa !6
+  %81 = getelementptr inbounds i64, ptr %80, i64 2
+  %82 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %79, ptr elementtype(i64) %81) #3, !srcloc !21
+  %83 = extractvalue { i64, i64 } %82, 0
+  %84 = extractvalue { i64, i64 } %82, 1
+  store i64 %83, ptr %17, align 8, !tbaa !13
+  store i64 %84, ptr %16, align 8, !tbaa !13
+  %85 = load i64, ptr %10, align 8, !tbaa !13
+  %86 = load i64, ptr %16, align 8, !tbaa !13
+  %87 = load i64, ptr %17, align 8, !tbaa !13
+  %88 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %87, i32 0, i64 %85, i64 %86) #3, !srcloc !22
+  %89 = extractvalue { i64, i64 } %88, 0
+  %90 = extractvalue { i64, i64 } %88, 1
+  store i64 %89, ptr %10, align 8, !tbaa !13
+  store i64 %90, ptr %16, align 8, !tbaa !13
+  %91 = load ptr, ptr %6, align 8, !tbaa !6
+  %92 = getelementptr inbounds i64, ptr %91, i64 2
+  %93 = load i64, ptr %16, align 8, !tbaa !13
+  %94 = load i64, ptr %10, align 8, !tbaa !13
+  %95 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %92, i64 %94, i32 0, ptr elementtype(i64) %92, i64 %93) #2, !srcloc !23
+  store i64 %95, ptr %16, align 8, !tbaa !13
+  %96 = load i64, ptr %16, align 8, !tbaa !13
+  store i64 %96, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #2
+  br label %97
 
-do.end34:                                         ; preds = %do.body25
-  %51 = load ptr, ptr %ap.addr, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %51, i64 4
-  store ptr %add.ptr, ptr %ap.addr, align 8
-  %52 = load ptr, ptr %rp.addr, align 8
-  %add.ptr35 = getelementptr inbounds i64, ptr %52, i64 4
-  store ptr %add.ptr35, ptr %rp.addr, align 8
-  %53 = load i32, ptr %num.addr, align 4
-  %sub = sub nsw i32 %53, 4
-  store i32 %sub, ptr %num.addr, align 4
-  br label %while.cond, !llvm.loop !19
+97:                                               ; preds = %78
+  br label %98
 
-while.end:                                        ; preds = %while.cond
-  %54 = load i32, ptr %num.addr, align 4
-  %tobool36 = icmp ne i32 %54, 0
-  br i1 %tobool36, label %if.then37, label %if.end75
+98:                                               ; preds = %97
+  br label %99
 
-if.then37:                                        ; preds = %while.end
-  br label %do.body38
+99:                                               ; preds = %98
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #2
+  %100 = load i64, ptr %9, align 8, !tbaa !13
+  %101 = load ptr, ptr %7, align 8, !tbaa !6
+  %102 = getelementptr inbounds i64, ptr %101, i64 3
+  %103 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %100, ptr elementtype(i64) %102) #3, !srcloc !24
+  %104 = extractvalue { i64, i64 } %103, 0
+  %105 = extractvalue { i64, i64 } %103, 1
+  store i64 %104, ptr %19, align 8, !tbaa !13
+  store i64 %105, ptr %18, align 8, !tbaa !13
+  %106 = load i64, ptr %10, align 8, !tbaa !13
+  %107 = load i64, ptr %18, align 8, !tbaa !13
+  %108 = load i64, ptr %19, align 8, !tbaa !13
+  %109 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %108, i32 0, i64 %106, i64 %107) #3, !srcloc !25
+  %110 = extractvalue { i64, i64 } %109, 0
+  %111 = extractvalue { i64, i64 } %109, 1
+  store i64 %110, ptr %10, align 8, !tbaa !13
+  store i64 %111, ptr %18, align 8, !tbaa !13
+  %112 = load ptr, ptr %6, align 8, !tbaa !6
+  %113 = getelementptr inbounds i64, ptr %112, i64 3
+  %114 = load i64, ptr %18, align 8, !tbaa !13
+  %115 = load i64, ptr %10, align 8, !tbaa !13
+  %116 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %113, i64 %115, i32 0, ptr elementtype(i64) %113, i64 %114) #2, !srcloc !26
+  store i64 %116, ptr %18, align 8, !tbaa !13
+  %117 = load i64, ptr %18, align 8, !tbaa !13
+  store i64 %117, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #2
+  br label %118
 
-do.body38:                                        ; preds = %if.then37
-  %55 = load i64, ptr %w.addr, align 8
-  %56 = load ptr, ptr %ap.addr, align 8
-  %arrayidx41 = getelementptr inbounds i64, ptr %56, i64 0
-  %57 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %55, ptr elementtype(i64) %arrayidx41) #1, !srcloc !21
-  %asmresult42 = extractvalue { i64, i64 } %57, 0
-  %asmresult43 = extractvalue { i64, i64 } %57, 1
-  store i64 %asmresult42, ptr %low40, align 8
-  store i64 %asmresult43, ptr %high39, align 8
-  %58 = load i64, ptr %c1, align 8
-  %59 = load i64, ptr %high39, align 8
-  %60 = load i64, ptr %low40, align 8
-  %61 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %60, i32 0, i64 %58, i64 %59) #1, !srcloc !22
-  %asmresult44 = extractvalue { i64, i64 } %61, 0
-  %asmresult45 = extractvalue { i64, i64 } %61, 1
-  store i64 %asmresult44, ptr %c1, align 8
-  store i64 %asmresult45, ptr %high39, align 8
-  %62 = load ptr, ptr %rp.addr, align 8
-  %arrayidx46 = getelementptr inbounds i64, ptr %62, i64 0
-  %63 = load i64, ptr %high39, align 8
-  %64 = load i64, ptr %c1, align 8
-  %65 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %arrayidx46, i64 %64, i32 0, ptr elementtype(i64) %arrayidx46, i64 %63) #2, !srcloc !23
-  store i64 %65, ptr %high39, align 8
-  %66 = load i64, ptr %high39, align 8
-  store i64 %66, ptr %c1, align 8
-  br label %do.end47
+118:                                              ; preds = %99
+  br label %119
 
-do.end47:                                         ; preds = %do.body38
-  %67 = load i32, ptr %num.addr, align 4
-  %dec = add nsw i32 %67, -1
-  store i32 %dec, ptr %num.addr, align 4
-  %cmp48 = icmp eq i32 %dec, 0
-  br i1 %cmp48, label %if.then49, label %if.end50
+119:                                              ; preds = %118
+  %120 = load ptr, ptr %7, align 8, !tbaa !6
+  %121 = getelementptr inbounds i64, ptr %120, i64 4
+  store ptr %121, ptr %7, align 8, !tbaa !6
+  %122 = load ptr, ptr %6, align 8, !tbaa !6
+  %123 = getelementptr inbounds i64, ptr %122, i64 4
+  store ptr %123, ptr %6, align 8, !tbaa !6
+  %124 = load i32, ptr %8, align 4, !tbaa !11
+  %125 = sub nsw i32 %124, 4
+  store i32 %125, ptr %8, align 4, !tbaa !11
+  br label %31, !llvm.loop !27
 
-if.then49:                                        ; preds = %do.end47
-  %68 = load i64, ptr %c1, align 8
-  store i64 %68, ptr %retval, align 8
-  br label %return
+126:                                              ; preds = %31
+  %127 = load i32, ptr %8, align 4, !tbaa !11
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %206
 
-if.end50:                                         ; preds = %do.end47
-  br label %do.body51
+129:                                              ; preds = %126
+  br label %130
 
-do.body51:                                        ; preds = %if.end50
-  %69 = load i64, ptr %w.addr, align 8
-  %70 = load ptr, ptr %ap.addr, align 8
-  %arrayidx54 = getelementptr inbounds i64, ptr %70, i64 1
-  %71 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %69, ptr elementtype(i64) %arrayidx54) #1, !srcloc !24
-  %asmresult55 = extractvalue { i64, i64 } %71, 0
-  %asmresult56 = extractvalue { i64, i64 } %71, 1
-  store i64 %asmresult55, ptr %low53, align 8
-  store i64 %asmresult56, ptr %high52, align 8
-  %72 = load i64, ptr %c1, align 8
-  %73 = load i64, ptr %high52, align 8
-  %74 = load i64, ptr %low53, align 8
-  %75 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %74, i32 0, i64 %72, i64 %73) #1, !srcloc !25
-  %asmresult57 = extractvalue { i64, i64 } %75, 0
-  %asmresult58 = extractvalue { i64, i64 } %75, 1
-  store i64 %asmresult57, ptr %c1, align 8
-  store i64 %asmresult58, ptr %high52, align 8
-  %76 = load ptr, ptr %rp.addr, align 8
-  %arrayidx59 = getelementptr inbounds i64, ptr %76, i64 1
-  %77 = load i64, ptr %high52, align 8
-  %78 = load i64, ptr %c1, align 8
-  %79 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %arrayidx59, i64 %78, i32 0, ptr elementtype(i64) %arrayidx59, i64 %77) #2, !srcloc !26
-  store i64 %79, ptr %high52, align 8
-  %80 = load i64, ptr %high52, align 8
-  store i64 %80, ptr %c1, align 8
-  br label %do.end60
+130:                                              ; preds = %129
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #2
+  %131 = load i64, ptr %9, align 8, !tbaa !13
+  %132 = load ptr, ptr %7, align 8, !tbaa !6
+  %133 = getelementptr inbounds i64, ptr %132, i64 0
+  %134 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %131, ptr elementtype(i64) %133) #3, !srcloc !29
+  %135 = extractvalue { i64, i64 } %134, 0
+  %136 = extractvalue { i64, i64 } %134, 1
+  store i64 %135, ptr %21, align 8, !tbaa !13
+  store i64 %136, ptr %20, align 8, !tbaa !13
+  %137 = load i64, ptr %10, align 8, !tbaa !13
+  %138 = load i64, ptr %20, align 8, !tbaa !13
+  %139 = load i64, ptr %21, align 8, !tbaa !13
+  %140 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %139, i32 0, i64 %137, i64 %138) #3, !srcloc !30
+  %141 = extractvalue { i64, i64 } %140, 0
+  %142 = extractvalue { i64, i64 } %140, 1
+  store i64 %141, ptr %10, align 8, !tbaa !13
+  store i64 %142, ptr %20, align 8, !tbaa !13
+  %143 = load ptr, ptr %6, align 8, !tbaa !6
+  %144 = getelementptr inbounds i64, ptr %143, i64 0
+  %145 = load i64, ptr %20, align 8, !tbaa !13
+  %146 = load i64, ptr %10, align 8, !tbaa !13
+  %147 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %144, i64 %146, i32 0, ptr elementtype(i64) %144, i64 %145) #2, !srcloc !31
+  store i64 %147, ptr %20, align 8, !tbaa !13
+  %148 = load i64, ptr %20, align 8, !tbaa !13
+  store i64 %148, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #2
+  br label %149
 
-do.end60:                                         ; preds = %do.body51
-  %81 = load i32, ptr %num.addr, align 4
-  %dec61 = add nsw i32 %81, -1
-  store i32 %dec61, ptr %num.addr, align 4
-  %cmp62 = icmp eq i32 %dec61, 0
-  br i1 %cmp62, label %if.then63, label %if.end64
+149:                                              ; preds = %130
+  br label %150
 
-if.then63:                                        ; preds = %do.end60
-  %82 = load i64, ptr %c1, align 8
-  store i64 %82, ptr %retval, align 8
-  br label %return
+150:                                              ; preds = %149
+  %151 = load i32, ptr %8, align 4, !tbaa !11
+  %152 = add nsw i32 %151, -1
+  store i32 %152, ptr %8, align 4, !tbaa !11
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %154, label %156
 
-if.end64:                                         ; preds = %do.end60
-  br label %do.body65
+154:                                              ; preds = %150
+  %155 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %155, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %208
 
-do.body65:                                        ; preds = %if.end64
-  %83 = load i64, ptr %w.addr, align 8
-  %84 = load ptr, ptr %ap.addr, align 8
-  %arrayidx68 = getelementptr inbounds i64, ptr %84, i64 2
-  %85 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, ptr elementtype(i64) %arrayidx68) #1, !srcloc !27
-  %asmresult69 = extractvalue { i64, i64 } %85, 0
-  %asmresult70 = extractvalue { i64, i64 } %85, 1
-  store i64 %asmresult69, ptr %low67, align 8
-  store i64 %asmresult70, ptr %high66, align 8
-  %86 = load i64, ptr %c1, align 8
-  %87 = load i64, ptr %high66, align 8
-  %88 = load i64, ptr %low67, align 8
-  %89 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %88, i32 0, i64 %86, i64 %87) #1, !srcloc !28
-  %asmresult71 = extractvalue { i64, i64 } %89, 0
-  %asmresult72 = extractvalue { i64, i64 } %89, 1
-  store i64 %asmresult71, ptr %c1, align 8
-  store i64 %asmresult72, ptr %high66, align 8
-  %90 = load ptr, ptr %rp.addr, align 8
-  %arrayidx73 = getelementptr inbounds i64, ptr %90, i64 2
-  %91 = load i64, ptr %high66, align 8
-  %92 = load i64, ptr %c1, align 8
-  %93 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %arrayidx73, i64 %92, i32 0, ptr elementtype(i64) %arrayidx73, i64 %91) #2, !srcloc !29
-  store i64 %93, ptr %high66, align 8
-  %94 = load i64, ptr %high66, align 8
-  store i64 %94, ptr %c1, align 8
-  br label %do.end74
+156:                                              ; preds = %150
+  br label %157
 
-do.end74:                                         ; preds = %do.body65
-  %95 = load i64, ptr %c1, align 8
-  store i64 %95, ptr %retval, align 8
-  br label %return
+157:                                              ; preds = %156
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #2
+  %158 = load i64, ptr %9, align 8, !tbaa !13
+  %159 = load ptr, ptr %7, align 8, !tbaa !6
+  %160 = getelementptr inbounds i64, ptr %159, i64 1
+  %161 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %158, ptr elementtype(i64) %160) #3, !srcloc !32
+  %162 = extractvalue { i64, i64 } %161, 0
+  %163 = extractvalue { i64, i64 } %161, 1
+  store i64 %162, ptr %23, align 8, !tbaa !13
+  store i64 %163, ptr %22, align 8, !tbaa !13
+  %164 = load i64, ptr %10, align 8, !tbaa !13
+  %165 = load i64, ptr %22, align 8, !tbaa !13
+  %166 = load i64, ptr %23, align 8, !tbaa !13
+  %167 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %166, i32 0, i64 %164, i64 %165) #3, !srcloc !33
+  %168 = extractvalue { i64, i64 } %167, 0
+  %169 = extractvalue { i64, i64 } %167, 1
+  store i64 %168, ptr %10, align 8, !tbaa !13
+  store i64 %169, ptr %22, align 8, !tbaa !13
+  %170 = load ptr, ptr %6, align 8, !tbaa !6
+  %171 = getelementptr inbounds i64, ptr %170, i64 1
+  %172 = load i64, ptr %22, align 8, !tbaa !13
+  %173 = load i64, ptr %10, align 8, !tbaa !13
+  %174 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %171, i64 %173, i32 0, ptr elementtype(i64) %171, i64 %172) #2, !srcloc !34
+  store i64 %174, ptr %22, align 8, !tbaa !13
+  %175 = load i64, ptr %22, align 8, !tbaa !13
+  store i64 %175, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #2
+  br label %176
 
-if.end75:                                         ; preds = %while.end
-  %96 = load i64, ptr %c1, align 8
-  store i64 %96, ptr %retval, align 8
-  br label %return
+176:                                              ; preds = %157
+  br label %177
 
-return:                                           ; preds = %if.end75, %do.end74, %if.then63, %if.then49, %if.then
-  %97 = load i64, ptr %retval, align 8
-  ret i64 %97
+177:                                              ; preds = %176
+  %178 = load i32, ptr %8, align 4, !tbaa !11
+  %179 = add nsw i32 %178, -1
+  store i32 %179, ptr %8, align 4, !tbaa !11
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %183
+
+181:                                              ; preds = %177
+  %182 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %182, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %208
+
+183:                                              ; preds = %177
+  br label %184
+
+184:                                              ; preds = %183
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #2
+  %185 = load i64, ptr %9, align 8, !tbaa !13
+  %186 = load ptr, ptr %7, align 8, !tbaa !6
+  %187 = getelementptr inbounds i64, ptr %186, i64 2
+  %188 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %185, ptr elementtype(i64) %187) #3, !srcloc !35
+  %189 = extractvalue { i64, i64 } %188, 0
+  %190 = extractvalue { i64, i64 } %188, 1
+  store i64 %189, ptr %25, align 8, !tbaa !13
+  store i64 %190, ptr %24, align 8, !tbaa !13
+  %191 = load i64, ptr %10, align 8, !tbaa !13
+  %192 = load i64, ptr %24, align 8, !tbaa !13
+  %193 = load i64, ptr %25, align 8, !tbaa !13
+  %194 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %193, i32 0, i64 %191, i64 %192) #3, !srcloc !36
+  %195 = extractvalue { i64, i64 } %194, 0
+  %196 = extractvalue { i64, i64 } %194, 1
+  store i64 %195, ptr %10, align 8, !tbaa !13
+  store i64 %196, ptr %24, align 8, !tbaa !13
+  %197 = load ptr, ptr %6, align 8, !tbaa !6
+  %198 = getelementptr inbounds i64, ptr %197, i64 2
+  %199 = load i64, ptr %24, align 8, !tbaa !13
+  %200 = load i64, ptr %10, align 8, !tbaa !13
+  %201 = call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %198, i64 %200, i32 0, ptr elementtype(i64) %198, i64 %199) #2, !srcloc !37
+  store i64 %201, ptr %24, align 8, !tbaa !13
+  %202 = load i64, ptr %24, align 8, !tbaa !13
+  store i64 %202, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #2
+  br label %203
+
+203:                                              ; preds = %184
+  br label %204
+
+204:                                              ; preds = %203
+  %205 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %205, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %208
+
+206:                                              ; preds = %126
+  %207 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %207, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %208
+
+208:                                              ; preds = %206, %204, %181, %154, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  %209 = load i64, ptr %5, align 8
+  ret i64 %209
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden i64 @bn_mul_words(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !6
+  store i32 %2, ptr %8, align 4, !tbaa !11
+  store i64 %3, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  store i64 0, ptr %10, align 8, !tbaa !13
+  %26 = load i32, ptr %8, align 4, !tbaa !11
+  %27 = icmp sle i32 %26, 0
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %4
+  %29 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %29, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %200
+
+30:                                               ; preds = %4
+  br label %31
+
+31:                                               ; preds = %115, %30
+  %32 = load i32, ptr %8, align 4, !tbaa !11
+  %33 = and i32 %32, -4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %122
+
+35:                                               ; preds = %31
+  br label %36
+
+36:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #2
+  %37 = load i64, ptr %9, align 8, !tbaa !13
+  %38 = load ptr, ptr %7, align 8, !tbaa !6
+  %39 = getelementptr inbounds i64, ptr %38, i64 0
+  %40 = load i64, ptr %39, align 8, !tbaa !13
+  %41 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %40) #3, !srcloc !38
+  %42 = extractvalue { i64, i64 } %41, 0
+  %43 = extractvalue { i64, i64 } %41, 1
+  store i64 %42, ptr %13, align 8, !tbaa !13
+  store i64 %43, ptr %12, align 8, !tbaa !13
+  %44 = load i64, ptr %10, align 8, !tbaa !13
+  %45 = load i64, ptr %12, align 8, !tbaa !13
+  %46 = load i64, ptr %13, align 8, !tbaa !13
+  %47 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %46, i32 0, i64 %44, i64 %45) #3, !srcloc !39
+  %48 = extractvalue { i64, i64 } %47, 0
+  %49 = extractvalue { i64, i64 } %47, 1
+  store i64 %48, ptr %10, align 8, !tbaa !13
+  store i64 %49, ptr %12, align 8, !tbaa !13
+  %50 = load i64, ptr %10, align 8, !tbaa !13
+  %51 = load ptr, ptr %6, align 8, !tbaa !6
+  %52 = getelementptr inbounds i64, ptr %51, i64 0
+  store i64 %50, ptr %52, align 8, !tbaa !13
+  %53 = load i64, ptr %12, align 8, !tbaa !13
+  store i64 %53, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #2
+  br label %54
+
+54:                                               ; preds = %36
+  br label %55
+
+55:                                               ; preds = %54
+  br label %56
+
+56:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #2
+  %57 = load i64, ptr %9, align 8, !tbaa !13
+  %58 = load ptr, ptr %7, align 8, !tbaa !6
+  %59 = getelementptr inbounds i64, ptr %58, i64 1
+  %60 = load i64, ptr %59, align 8, !tbaa !13
+  %61 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %60) #3, !srcloc !40
+  %62 = extractvalue { i64, i64 } %61, 0
+  %63 = extractvalue { i64, i64 } %61, 1
+  store i64 %62, ptr %15, align 8, !tbaa !13
+  store i64 %63, ptr %14, align 8, !tbaa !13
+  %64 = load i64, ptr %10, align 8, !tbaa !13
+  %65 = load i64, ptr %14, align 8, !tbaa !13
+  %66 = load i64, ptr %15, align 8, !tbaa !13
+  %67 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %66, i32 0, i64 %64, i64 %65) #3, !srcloc !41
+  %68 = extractvalue { i64, i64 } %67, 0
+  %69 = extractvalue { i64, i64 } %67, 1
+  store i64 %68, ptr %10, align 8, !tbaa !13
+  store i64 %69, ptr %14, align 8, !tbaa !13
+  %70 = load i64, ptr %10, align 8, !tbaa !13
+  %71 = load ptr, ptr %6, align 8, !tbaa !6
+  %72 = getelementptr inbounds i64, ptr %71, i64 1
+  store i64 %70, ptr %72, align 8, !tbaa !13
+  %73 = load i64, ptr %14, align 8, !tbaa !13
+  store i64 %73, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #2
+  br label %74
+
+74:                                               ; preds = %56
+  br label %75
+
+75:                                               ; preds = %74
+  br label %76
+
+76:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #2
+  %77 = load i64, ptr %9, align 8, !tbaa !13
+  %78 = load ptr, ptr %7, align 8, !tbaa !6
+  %79 = getelementptr inbounds i64, ptr %78, i64 2
+  %80 = load i64, ptr %79, align 8, !tbaa !13
+  %81 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %80) #3, !srcloc !42
+  %82 = extractvalue { i64, i64 } %81, 0
+  %83 = extractvalue { i64, i64 } %81, 1
+  store i64 %82, ptr %17, align 8, !tbaa !13
+  store i64 %83, ptr %16, align 8, !tbaa !13
+  %84 = load i64, ptr %10, align 8, !tbaa !13
+  %85 = load i64, ptr %16, align 8, !tbaa !13
+  %86 = load i64, ptr %17, align 8, !tbaa !13
+  %87 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %86, i32 0, i64 %84, i64 %85) #3, !srcloc !43
+  %88 = extractvalue { i64, i64 } %87, 0
+  %89 = extractvalue { i64, i64 } %87, 1
+  store i64 %88, ptr %10, align 8, !tbaa !13
+  store i64 %89, ptr %16, align 8, !tbaa !13
+  %90 = load i64, ptr %10, align 8, !tbaa !13
+  %91 = load ptr, ptr %6, align 8, !tbaa !6
+  %92 = getelementptr inbounds i64, ptr %91, i64 2
+  store i64 %90, ptr %92, align 8, !tbaa !13
+  %93 = load i64, ptr %16, align 8, !tbaa !13
+  store i64 %93, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #2
+  br label %94
+
+94:                                               ; preds = %76
+  br label %95
+
+95:                                               ; preds = %94
+  br label %96
+
+96:                                               ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #2
+  %97 = load i64, ptr %9, align 8, !tbaa !13
+  %98 = load ptr, ptr %7, align 8, !tbaa !6
+  %99 = getelementptr inbounds i64, ptr %98, i64 3
+  %100 = load i64, ptr %99, align 8, !tbaa !13
+  %101 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %97, i64 %100) #3, !srcloc !44
+  %102 = extractvalue { i64, i64 } %101, 0
+  %103 = extractvalue { i64, i64 } %101, 1
+  store i64 %102, ptr %19, align 8, !tbaa !13
+  store i64 %103, ptr %18, align 8, !tbaa !13
+  %104 = load i64, ptr %10, align 8, !tbaa !13
+  %105 = load i64, ptr %18, align 8, !tbaa !13
+  %106 = load i64, ptr %19, align 8, !tbaa !13
+  %107 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %106, i32 0, i64 %104, i64 %105) #3, !srcloc !45
+  %108 = extractvalue { i64, i64 } %107, 0
+  %109 = extractvalue { i64, i64 } %107, 1
+  store i64 %108, ptr %10, align 8, !tbaa !13
+  store i64 %109, ptr %18, align 8, !tbaa !13
+  %110 = load i64, ptr %10, align 8, !tbaa !13
+  %111 = load ptr, ptr %6, align 8, !tbaa !6
+  %112 = getelementptr inbounds i64, ptr %111, i64 3
+  store i64 %110, ptr %112, align 8, !tbaa !13
+  %113 = load i64, ptr %18, align 8, !tbaa !13
+  store i64 %113, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #2
+  br label %114
+
+114:                                              ; preds = %96
+  br label %115
+
+115:                                              ; preds = %114
+  %116 = load ptr, ptr %7, align 8, !tbaa !6
+  %117 = getelementptr inbounds i64, ptr %116, i64 4
+  store ptr %117, ptr %7, align 8, !tbaa !6
+  %118 = load ptr, ptr %6, align 8, !tbaa !6
+  %119 = getelementptr inbounds i64, ptr %118, i64 4
+  store ptr %119, ptr %6, align 8, !tbaa !6
+  %120 = load i32, ptr %8, align 4, !tbaa !11
+  %121 = sub nsw i32 %120, 4
+  store i32 %121, ptr %8, align 4, !tbaa !11
+  br label %31, !llvm.loop !46
+
+122:                                              ; preds = %31
+  %123 = load i32, ptr %8, align 4, !tbaa !11
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %125, label %198
+
+125:                                              ; preds = %122
+  br label %126
+
+126:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #2
+  %127 = load i64, ptr %9, align 8, !tbaa !13
+  %128 = load ptr, ptr %7, align 8, !tbaa !6
+  %129 = getelementptr inbounds i64, ptr %128, i64 0
+  %130 = load i64, ptr %129, align 8, !tbaa !13
+  %131 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %127, i64 %130) #3, !srcloc !47
+  %132 = extractvalue { i64, i64 } %131, 0
+  %133 = extractvalue { i64, i64 } %131, 1
+  store i64 %132, ptr %21, align 8, !tbaa !13
+  store i64 %133, ptr %20, align 8, !tbaa !13
+  %134 = load i64, ptr %10, align 8, !tbaa !13
+  %135 = load i64, ptr %20, align 8, !tbaa !13
+  %136 = load i64, ptr %21, align 8, !tbaa !13
+  %137 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %136, i32 0, i64 %134, i64 %135) #3, !srcloc !48
+  %138 = extractvalue { i64, i64 } %137, 0
+  %139 = extractvalue { i64, i64 } %137, 1
+  store i64 %138, ptr %10, align 8, !tbaa !13
+  store i64 %139, ptr %20, align 8, !tbaa !13
+  %140 = load i64, ptr %10, align 8, !tbaa !13
+  %141 = load ptr, ptr %6, align 8, !tbaa !6
+  %142 = getelementptr inbounds i64, ptr %141, i64 0
+  store i64 %140, ptr %142, align 8, !tbaa !13
+  %143 = load i64, ptr %20, align 8, !tbaa !13
+  store i64 %143, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #2
+  br label %144
+
+144:                                              ; preds = %126
+  br label %145
+
+145:                                              ; preds = %144
+  %146 = load i32, ptr %8, align 4, !tbaa !11
+  %147 = add nsw i32 %146, -1
+  store i32 %147, ptr %8, align 4, !tbaa !11
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %149, label %151
+
+149:                                              ; preds = %145
+  %150 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %150, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %200
+
+151:                                              ; preds = %145
+  br label %152
+
+152:                                              ; preds = %151
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #2
+  %153 = load i64, ptr %9, align 8, !tbaa !13
+  %154 = load ptr, ptr %7, align 8, !tbaa !6
+  %155 = getelementptr inbounds i64, ptr %154, i64 1
+  %156 = load i64, ptr %155, align 8, !tbaa !13
+  %157 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %153, i64 %156) #3, !srcloc !49
+  %158 = extractvalue { i64, i64 } %157, 0
+  %159 = extractvalue { i64, i64 } %157, 1
+  store i64 %158, ptr %23, align 8, !tbaa !13
+  store i64 %159, ptr %22, align 8, !tbaa !13
+  %160 = load i64, ptr %10, align 8, !tbaa !13
+  %161 = load i64, ptr %22, align 8, !tbaa !13
+  %162 = load i64, ptr %23, align 8, !tbaa !13
+  %163 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %162, i32 0, i64 %160, i64 %161) #3, !srcloc !50
+  %164 = extractvalue { i64, i64 } %163, 0
+  %165 = extractvalue { i64, i64 } %163, 1
+  store i64 %164, ptr %10, align 8, !tbaa !13
+  store i64 %165, ptr %22, align 8, !tbaa !13
+  %166 = load i64, ptr %10, align 8, !tbaa !13
+  %167 = load ptr, ptr %6, align 8, !tbaa !6
+  %168 = getelementptr inbounds i64, ptr %167, i64 1
+  store i64 %166, ptr %168, align 8, !tbaa !13
+  %169 = load i64, ptr %22, align 8, !tbaa !13
+  store i64 %169, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #2
+  br label %170
+
+170:                                              ; preds = %152
+  br label %171
+
+171:                                              ; preds = %170
+  %172 = load i32, ptr %8, align 4, !tbaa !11
+  %173 = add nsw i32 %172, -1
+  store i32 %173, ptr %8, align 4, !tbaa !11
+  %174 = icmp eq i32 %173, 0
+  br i1 %174, label %175, label %177
+
+175:                                              ; preds = %171
+  %176 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %176, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %200
+
+177:                                              ; preds = %171
+  br label %178
+
+178:                                              ; preds = %177
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #2
+  %179 = load i64, ptr %9, align 8, !tbaa !13
+  %180 = load ptr, ptr %7, align 8, !tbaa !6
+  %181 = getelementptr inbounds i64, ptr %180, i64 2
+  %182 = load i64, ptr %181, align 8, !tbaa !13
+  %183 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %179, i64 %182) #3, !srcloc !51
+  %184 = extractvalue { i64, i64 } %183, 0
+  %185 = extractvalue { i64, i64 } %183, 1
+  store i64 %184, ptr %25, align 8, !tbaa !13
+  store i64 %185, ptr %24, align 8, !tbaa !13
+  %186 = load i64, ptr %10, align 8, !tbaa !13
+  %187 = load i64, ptr %24, align 8, !tbaa !13
+  %188 = load i64, ptr %25, align 8, !tbaa !13
+  %189 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %188, i32 0, i64 %186, i64 %187) #3, !srcloc !52
+  %190 = extractvalue { i64, i64 } %189, 0
+  %191 = extractvalue { i64, i64 } %189, 1
+  store i64 %190, ptr %10, align 8, !tbaa !13
+  store i64 %191, ptr %24, align 8, !tbaa !13
+  %192 = load i64, ptr %10, align 8, !tbaa !13
+  %193 = load ptr, ptr %6, align 8, !tbaa !6
+  %194 = getelementptr inbounds i64, ptr %193, i64 2
+  store i64 %192, ptr %194, align 8, !tbaa !13
+  %195 = load i64, ptr %24, align 8, !tbaa !13
+  store i64 %195, ptr %10, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #2
+  br label %196
+
+196:                                              ; preds = %178
+  br label %197
+
+197:                                              ; preds = %196
+  br label %198
+
+198:                                              ; preds = %197, %122
+  %199 = load i64, ptr %10, align 8, !tbaa !13
+  store i64 %199, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %200
+
+200:                                              ; preds = %198, %175, %149, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  %201 = load i64, ptr %5, align 8
+  ret i64 %201
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @bn_mul_words(ptr noundef %rp, ptr noundef %ap, i32 noundef %num, i64 noundef %w) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %rp.addr = alloca ptr, align 8
-  %ap.addr = alloca ptr, align 8
-  %num.addr = alloca i32, align 4
-  %w.addr = alloca i64, align 8
-  %c1 = alloca i64, align 8
-  %high = alloca i64, align 8
-  %low = alloca i64, align 8
-  %high6 = alloca i64, align 8
-  %low7 = alloca i64, align 8
-  %high16 = alloca i64, align 8
-  %low17 = alloca i64, align 8
-  %high26 = alloca i64, align 8
-  %low27 = alloca i64, align 8
-  %high39 = alloca i64, align 8
-  %low40 = alloca i64, align 8
-  %high52 = alloca i64, align 8
-  %low53 = alloca i64, align 8
-  %high66 = alloca i64, align 8
-  %low67 = alloca i64, align 8
-  store ptr %rp, ptr %rp.addr, align 8
-  store ptr %ap, ptr %ap.addr, align 8
-  store i32 %num, ptr %num.addr, align 4
-  store i64 %w, ptr %w.addr, align 8
-  store i64 0, ptr %c1, align 8
-  %0 = load i32, ptr %num.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden void @bn_sqr_words(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !6
+  store i32 %2, ptr %6, align 4, !tbaa !11
+  %7 = load i32, ptr %6, align 4, !tbaa !11
+  %8 = icmp sle i32 %7, 0
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %c1, align 8
-  store i64 %1, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %3
+  br label %106
 
-if.end:                                           ; preds = %entry
-  br label %while.cond
+10:                                               ; preds = %3
+  br label %11
 
-while.cond:                                       ; preds = %do.end34, %if.end
-  %2 = load i32, ptr %num.addr, align 4
-  %and = and i32 %2, -4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %while.body, label %while.end
+11:                                               ; preds = %15, %10
+  %12 = load i32, ptr %6, align 4, !tbaa !11
+  %13 = and i32 %12, -4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %62
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !6
+  %17 = getelementptr inbounds i64, ptr %16, i64 0
+  %18 = load ptr, ptr %4, align 8, !tbaa !6
+  %19 = getelementptr inbounds i64, ptr %18, i64 1
+  %20 = load ptr, ptr %5, align 8, !tbaa !6
+  %21 = getelementptr inbounds i64, ptr %20, i64 0
+  %22 = load i64, ptr %21, align 8, !tbaa !13
+  %23 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %22) #4, !srcloc !53
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = extractvalue { i64, i64 } %23, 1
+  store i64 %24, ptr %17, align 8, !tbaa !13
+  store i64 %25, ptr %19, align 8, !tbaa !13
+  %26 = load ptr, ptr %4, align 8, !tbaa !6
+  %27 = getelementptr inbounds i64, ptr %26, i64 2
+  %28 = load ptr, ptr %4, align 8, !tbaa !6
+  %29 = getelementptr inbounds i64, ptr %28, i64 3
+  %30 = load ptr, ptr %5, align 8, !tbaa !6
+  %31 = getelementptr inbounds i64, ptr %30, i64 1
+  %32 = load i64, ptr %31, align 8, !tbaa !13
+  %33 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %32) #4, !srcloc !54
+  %34 = extractvalue { i64, i64 } %33, 0
+  %35 = extractvalue { i64, i64 } %33, 1
+  store i64 %34, ptr %27, align 8, !tbaa !13
+  store i64 %35, ptr %29, align 8, !tbaa !13
+  %36 = load ptr, ptr %4, align 8, !tbaa !6
+  %37 = getelementptr inbounds i64, ptr %36, i64 4
+  %38 = load ptr, ptr %4, align 8, !tbaa !6
+  %39 = getelementptr inbounds i64, ptr %38, i64 5
+  %40 = load ptr, ptr %5, align 8, !tbaa !6
+  %41 = getelementptr inbounds i64, ptr %40, i64 2
+  %42 = load i64, ptr %41, align 8, !tbaa !13
+  %43 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %42) #4, !srcloc !55
+  %44 = extractvalue { i64, i64 } %43, 0
+  %45 = extractvalue { i64, i64 } %43, 1
+  store i64 %44, ptr %37, align 8, !tbaa !13
+  store i64 %45, ptr %39, align 8, !tbaa !13
+  %46 = load ptr, ptr %4, align 8, !tbaa !6
+  %47 = getelementptr inbounds i64, ptr %46, i64 6
+  %48 = load ptr, ptr %4, align 8, !tbaa !6
+  %49 = getelementptr inbounds i64, ptr %48, i64 7
+  %50 = load ptr, ptr %5, align 8, !tbaa !6
+  %51 = getelementptr inbounds i64, ptr %50, i64 3
+  %52 = load i64, ptr %51, align 8, !tbaa !13
+  %53 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %52) #4, !srcloc !56
+  %54 = extractvalue { i64, i64 } %53, 0
+  %55 = extractvalue { i64, i64 } %53, 1
+  store i64 %54, ptr %47, align 8, !tbaa !13
+  store i64 %55, ptr %49, align 8, !tbaa !13
+  %56 = load ptr, ptr %5, align 8, !tbaa !6
+  %57 = getelementptr inbounds i64, ptr %56, i64 4
+  store ptr %57, ptr %5, align 8, !tbaa !6
+  %58 = load ptr, ptr %4, align 8, !tbaa !6
+  %59 = getelementptr inbounds i64, ptr %58, i64 8
+  store ptr %59, ptr %4, align 8, !tbaa !6
+  %60 = load i32, ptr %6, align 4, !tbaa !11
+  %61 = sub nsw i32 %60, 4
+  store i32 %61, ptr %6, align 4, !tbaa !11
+  br label %11, !llvm.loop !57
 
-do.body:                                          ; preds = %while.body
-  %3 = load i64, ptr %w.addr, align 8
-  %4 = load ptr, ptr %ap.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %4, i64 0
-  %5 = load i64, ptr %arrayidx, align 8
-  %6 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %5) #1, !srcloc !30
-  %asmresult = extractvalue { i64, i64 } %6, 0
-  %asmresult1 = extractvalue { i64, i64 } %6, 1
-  store i64 %asmresult, ptr %low, align 8
-  store i64 %asmresult1, ptr %high, align 8
-  %7 = load i64, ptr %c1, align 8
-  %8 = load i64, ptr %high, align 8
-  %9 = load i64, ptr %low, align 8
-  %10 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %9, i32 0, i64 %7, i64 %8) #1, !srcloc !31
-  %asmresult2 = extractvalue { i64, i64 } %10, 0
-  %asmresult3 = extractvalue { i64, i64 } %10, 1
-  store i64 %asmresult2, ptr %c1, align 8
-  store i64 %asmresult3, ptr %high, align 8
-  %11 = load i64, ptr %c1, align 8
-  %12 = load ptr, ptr %rp.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %12, i64 0
-  store i64 %11, ptr %arrayidx4, align 8
-  %13 = load i64, ptr %high, align 8
-  store i64 %13, ptr %c1, align 8
-  br label %do.end
+62:                                               ; preds = %11
+  %63 = load i32, ptr %6, align 4, !tbaa !11
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %106
 
-do.end:                                           ; preds = %do.body
-  br label %do.body5
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %4, align 8, !tbaa !6
+  %67 = getelementptr inbounds i64, ptr %66, i64 0
+  %68 = load ptr, ptr %4, align 8, !tbaa !6
+  %69 = getelementptr inbounds i64, ptr %68, i64 1
+  %70 = load ptr, ptr %5, align 8, !tbaa !6
+  %71 = getelementptr inbounds i64, ptr %70, i64 0
+  %72 = load i64, ptr %71, align 8, !tbaa !13
+  %73 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %72) #4, !srcloc !58
+  %74 = extractvalue { i64, i64 } %73, 0
+  %75 = extractvalue { i64, i64 } %73, 1
+  store i64 %74, ptr %67, align 8, !tbaa !13
+  store i64 %75, ptr %69, align 8, !tbaa !13
+  %76 = load i32, ptr %6, align 4, !tbaa !11
+  %77 = add nsw i32 %76, -1
+  store i32 %77, ptr %6, align 4, !tbaa !11
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %80
 
-do.body5:                                         ; preds = %do.end
-  %14 = load i64, ptr %w.addr, align 8
-  %15 = load ptr, ptr %ap.addr, align 8
-  %arrayidx8 = getelementptr inbounds i64, ptr %15, i64 1
-  %16 = load i64, ptr %arrayidx8, align 8
-  %17 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14, i64 %16) #1, !srcloc !32
-  %asmresult9 = extractvalue { i64, i64 } %17, 0
-  %asmresult10 = extractvalue { i64, i64 } %17, 1
-  store i64 %asmresult9, ptr %low7, align 8
-  store i64 %asmresult10, ptr %high6, align 8
-  %18 = load i64, ptr %c1, align 8
-  %19 = load i64, ptr %high6, align 8
-  %20 = load i64, ptr %low7, align 8
-  %21 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %20, i32 0, i64 %18, i64 %19) #1, !srcloc !33
-  %asmresult11 = extractvalue { i64, i64 } %21, 0
-  %asmresult12 = extractvalue { i64, i64 } %21, 1
-  store i64 %asmresult11, ptr %c1, align 8
-  store i64 %asmresult12, ptr %high6, align 8
-  %22 = load i64, ptr %c1, align 8
-  %23 = load ptr, ptr %rp.addr, align 8
-  %arrayidx13 = getelementptr inbounds i64, ptr %23, i64 1
-  store i64 %22, ptr %arrayidx13, align 8
-  %24 = load i64, ptr %high6, align 8
-  store i64 %24, ptr %c1, align 8
-  br label %do.end14
+79:                                               ; preds = %65
+  br label %106
 
-do.end14:                                         ; preds = %do.body5
-  br label %do.body15
+80:                                               ; preds = %65
+  %81 = load ptr, ptr %4, align 8, !tbaa !6
+  %82 = getelementptr inbounds i64, ptr %81, i64 2
+  %83 = load ptr, ptr %4, align 8, !tbaa !6
+  %84 = getelementptr inbounds i64, ptr %83, i64 3
+  %85 = load ptr, ptr %5, align 8, !tbaa !6
+  %86 = getelementptr inbounds i64, ptr %85, i64 1
+  %87 = load i64, ptr %86, align 8, !tbaa !13
+  %88 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %87) #4, !srcloc !59
+  %89 = extractvalue { i64, i64 } %88, 0
+  %90 = extractvalue { i64, i64 } %88, 1
+  store i64 %89, ptr %82, align 8, !tbaa !13
+  store i64 %90, ptr %84, align 8, !tbaa !13
+  %91 = load i32, ptr %6, align 4, !tbaa !11
+  %92 = add nsw i32 %91, -1
+  store i32 %92, ptr %6, align 4, !tbaa !11
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %95
 
-do.body15:                                        ; preds = %do.end14
-  %25 = load i64, ptr %w.addr, align 8
-  %26 = load ptr, ptr %ap.addr, align 8
-  %arrayidx18 = getelementptr inbounds i64, ptr %26, i64 2
-  %27 = load i64, ptr %arrayidx18, align 8
-  %28 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %25, i64 %27) #1, !srcloc !34
-  %asmresult19 = extractvalue { i64, i64 } %28, 0
-  %asmresult20 = extractvalue { i64, i64 } %28, 1
-  store i64 %asmresult19, ptr %low17, align 8
-  store i64 %asmresult20, ptr %high16, align 8
-  %29 = load i64, ptr %c1, align 8
-  %30 = load i64, ptr %high16, align 8
-  %31 = load i64, ptr %low17, align 8
-  %32 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 0, i64 %29, i64 %30) #1, !srcloc !35
-  %asmresult21 = extractvalue { i64, i64 } %32, 0
-  %asmresult22 = extractvalue { i64, i64 } %32, 1
-  store i64 %asmresult21, ptr %c1, align 8
-  store i64 %asmresult22, ptr %high16, align 8
-  %33 = load i64, ptr %c1, align 8
-  %34 = load ptr, ptr %rp.addr, align 8
-  %arrayidx23 = getelementptr inbounds i64, ptr %34, i64 2
-  store i64 %33, ptr %arrayidx23, align 8
-  %35 = load i64, ptr %high16, align 8
-  store i64 %35, ptr %c1, align 8
-  br label %do.end24
+94:                                               ; preds = %80
+  br label %106
 
-do.end24:                                         ; preds = %do.body15
-  br label %do.body25
+95:                                               ; preds = %80
+  %96 = load ptr, ptr %4, align 8, !tbaa !6
+  %97 = getelementptr inbounds i64, ptr %96, i64 4
+  %98 = load ptr, ptr %4, align 8, !tbaa !6
+  %99 = getelementptr inbounds i64, ptr %98, i64 5
+  %100 = load ptr, ptr %5, align 8, !tbaa !6
+  %101 = getelementptr inbounds i64, ptr %100, i64 2
+  %102 = load i64, ptr %101, align 8, !tbaa !13
+  %103 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %102) #4, !srcloc !60
+  %104 = extractvalue { i64, i64 } %103, 0
+  %105 = extractvalue { i64, i64 } %103, 1
+  store i64 %104, ptr %97, align 8, !tbaa !13
+  store i64 %105, ptr %99, align 8, !tbaa !13
+  br label %106
 
-do.body25:                                        ; preds = %do.end24
-  %36 = load i64, ptr %w.addr, align 8
-  %37 = load ptr, ptr %ap.addr, align 8
-  %arrayidx28 = getelementptr inbounds i64, ptr %37, i64 3
-  %38 = load i64, ptr %arrayidx28, align 8
-  %39 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36, i64 %38) #1, !srcloc !36
-  %asmresult29 = extractvalue { i64, i64 } %39, 0
-  %asmresult30 = extractvalue { i64, i64 } %39, 1
-  store i64 %asmresult29, ptr %low27, align 8
-  store i64 %asmresult30, ptr %high26, align 8
-  %40 = load i64, ptr %c1, align 8
-  %41 = load i64, ptr %high26, align 8
-  %42 = load i64, ptr %low27, align 8
-  %43 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %42, i32 0, i64 %40, i64 %41) #1, !srcloc !37
-  %asmresult31 = extractvalue { i64, i64 } %43, 0
-  %asmresult32 = extractvalue { i64, i64 } %43, 1
-  store i64 %asmresult31, ptr %c1, align 8
-  store i64 %asmresult32, ptr %high26, align 8
-  %44 = load i64, ptr %c1, align 8
-  %45 = load ptr, ptr %rp.addr, align 8
-  %arrayidx33 = getelementptr inbounds i64, ptr %45, i64 3
-  store i64 %44, ptr %arrayidx33, align 8
-  %46 = load i64, ptr %high26, align 8
-  store i64 %46, ptr %c1, align 8
-  br label %do.end34
-
-do.end34:                                         ; preds = %do.body25
-  %47 = load ptr, ptr %ap.addr, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %47, i64 4
-  store ptr %add.ptr, ptr %ap.addr, align 8
-  %48 = load ptr, ptr %rp.addr, align 8
-  %add.ptr35 = getelementptr inbounds i64, ptr %48, i64 4
-  store ptr %add.ptr35, ptr %rp.addr, align 8
-  %49 = load i32, ptr %num.addr, align 4
-  %sub = sub nsw i32 %49, 4
-  store i32 %sub, ptr %num.addr, align 4
-  br label %while.cond, !llvm.loop !38
-
-while.end:                                        ; preds = %while.cond
-  %50 = load i32, ptr %num.addr, align 4
-  %tobool36 = icmp ne i32 %50, 0
-  br i1 %tobool36, label %if.then37, label %if.end75
-
-if.then37:                                        ; preds = %while.end
-  br label %do.body38
-
-do.body38:                                        ; preds = %if.then37
-  %51 = load i64, ptr %w.addr, align 8
-  %52 = load ptr, ptr %ap.addr, align 8
-  %arrayidx41 = getelementptr inbounds i64, ptr %52, i64 0
-  %53 = load i64, ptr %arrayidx41, align 8
-  %54 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 %53) #1, !srcloc !39
-  %asmresult42 = extractvalue { i64, i64 } %54, 0
-  %asmresult43 = extractvalue { i64, i64 } %54, 1
-  store i64 %asmresult42, ptr %low40, align 8
-  store i64 %asmresult43, ptr %high39, align 8
-  %55 = load i64, ptr %c1, align 8
-  %56 = load i64, ptr %high39, align 8
-  %57 = load i64, ptr %low40, align 8
-  %58 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %57, i32 0, i64 %55, i64 %56) #1, !srcloc !40
-  %asmresult44 = extractvalue { i64, i64 } %58, 0
-  %asmresult45 = extractvalue { i64, i64 } %58, 1
-  store i64 %asmresult44, ptr %c1, align 8
-  store i64 %asmresult45, ptr %high39, align 8
-  %59 = load i64, ptr %c1, align 8
-  %60 = load ptr, ptr %rp.addr, align 8
-  %arrayidx46 = getelementptr inbounds i64, ptr %60, i64 0
-  store i64 %59, ptr %arrayidx46, align 8
-  %61 = load i64, ptr %high39, align 8
-  store i64 %61, ptr %c1, align 8
-  br label %do.end47
-
-do.end47:                                         ; preds = %do.body38
-  %62 = load i32, ptr %num.addr, align 4
-  %dec = add nsw i32 %62, -1
-  store i32 %dec, ptr %num.addr, align 4
-  %cmp48 = icmp eq i32 %dec, 0
-  br i1 %cmp48, label %if.then49, label %if.end50
-
-if.then49:                                        ; preds = %do.end47
-  %63 = load i64, ptr %c1, align 8
-  store i64 %63, ptr %retval, align 8
-  br label %return
-
-if.end50:                                         ; preds = %do.end47
-  br label %do.body51
-
-do.body51:                                        ; preds = %if.end50
-  %64 = load i64, ptr %w.addr, align 8
-  %65 = load ptr, ptr %ap.addr, align 8
-  %arrayidx54 = getelementptr inbounds i64, ptr %65, i64 1
-  %66 = load i64, ptr %arrayidx54, align 8
-  %67 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %64, i64 %66) #1, !srcloc !41
-  %asmresult55 = extractvalue { i64, i64 } %67, 0
-  %asmresult56 = extractvalue { i64, i64 } %67, 1
-  store i64 %asmresult55, ptr %low53, align 8
-  store i64 %asmresult56, ptr %high52, align 8
-  %68 = load i64, ptr %c1, align 8
-  %69 = load i64, ptr %high52, align 8
-  %70 = load i64, ptr %low53, align 8
-  %71 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %70, i32 0, i64 %68, i64 %69) #1, !srcloc !42
-  %asmresult57 = extractvalue { i64, i64 } %71, 0
-  %asmresult58 = extractvalue { i64, i64 } %71, 1
-  store i64 %asmresult57, ptr %c1, align 8
-  store i64 %asmresult58, ptr %high52, align 8
-  %72 = load i64, ptr %c1, align 8
-  %73 = load ptr, ptr %rp.addr, align 8
-  %arrayidx59 = getelementptr inbounds i64, ptr %73, i64 1
-  store i64 %72, ptr %arrayidx59, align 8
-  %74 = load i64, ptr %high52, align 8
-  store i64 %74, ptr %c1, align 8
-  br label %do.end60
-
-do.end60:                                         ; preds = %do.body51
-  %75 = load i32, ptr %num.addr, align 4
-  %dec61 = add nsw i32 %75, -1
-  store i32 %dec61, ptr %num.addr, align 4
-  %cmp62 = icmp eq i32 %dec61, 0
-  br i1 %cmp62, label %if.then63, label %if.end64
-
-if.then63:                                        ; preds = %do.end60
-  %76 = load i64, ptr %c1, align 8
-  store i64 %76, ptr %retval, align 8
-  br label %return
-
-if.end64:                                         ; preds = %do.end60
-  br label %do.body65
-
-do.body65:                                        ; preds = %if.end64
-  %77 = load i64, ptr %w.addr, align 8
-  %78 = load ptr, ptr %ap.addr, align 8
-  %arrayidx68 = getelementptr inbounds i64, ptr %78, i64 2
-  %79 = load i64, ptr %arrayidx68, align 8
-  %80 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %79) #1, !srcloc !43
-  %asmresult69 = extractvalue { i64, i64 } %80, 0
-  %asmresult70 = extractvalue { i64, i64 } %80, 1
-  store i64 %asmresult69, ptr %low67, align 8
-  store i64 %asmresult70, ptr %high66, align 8
-  %81 = load i64, ptr %c1, align 8
-  %82 = load i64, ptr %high66, align 8
-  %83 = load i64, ptr %low67, align 8
-  %84 = call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, i32 0, i64 %81, i64 %82) #1, !srcloc !44
-  %asmresult71 = extractvalue { i64, i64 } %84, 0
-  %asmresult72 = extractvalue { i64, i64 } %84, 1
-  store i64 %asmresult71, ptr %c1, align 8
-  store i64 %asmresult72, ptr %high66, align 8
-  %85 = load i64, ptr %c1, align 8
-  %86 = load ptr, ptr %rp.addr, align 8
-  %arrayidx73 = getelementptr inbounds i64, ptr %86, i64 2
-  store i64 %85, ptr %arrayidx73, align 8
-  %87 = load i64, ptr %high66, align 8
-  store i64 %87, ptr %c1, align 8
-  br label %do.end74
-
-do.end74:                                         ; preds = %do.body65
-  br label %if.end75
-
-if.end75:                                         ; preds = %do.end74, %while.end
-  %88 = load i64, ptr %c1, align 8
-  store i64 %88, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end75, %if.then63, %if.then49, %if.then
-  %89 = load i64, ptr %retval, align 8
-  ret i64 %89
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @bn_sqr_words(ptr noundef %r, ptr noundef %a, i32 noundef %n) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %0 = load i32, ptr %n.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %if.end44
-
-if.end:                                           ; preds = %entry
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  %1 = load i32, ptr %n.addr, align 4
-  %and = and i32 %1, -4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %r.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %2, i64 0
-  %3 = load ptr, ptr %r.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %3, i64 1
-  %4 = load ptr, ptr %a.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %4, i64 0
-  %5 = load i64, ptr %arrayidx2, align 8
-  %6 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %5) #3, !srcloc !45
-  %asmresult = extractvalue { i64, i64 } %6, 0
-  %asmresult3 = extractvalue { i64, i64 } %6, 1
-  store i64 %asmresult, ptr %arrayidx, align 8
-  store i64 %asmresult3, ptr %arrayidx1, align 8
-  %7 = load ptr, ptr %r.addr, align 8
-  %arrayidx4 = getelementptr inbounds i64, ptr %7, i64 2
-  %8 = load ptr, ptr %r.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %8, i64 3
-  %9 = load ptr, ptr %a.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %9, i64 1
-  %10 = load i64, ptr %arrayidx6, align 8
-  %11 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %10) #3, !srcloc !46
-  %asmresult7 = extractvalue { i64, i64 } %11, 0
-  %asmresult8 = extractvalue { i64, i64 } %11, 1
-  store i64 %asmresult7, ptr %arrayidx4, align 8
-  store i64 %asmresult8, ptr %arrayidx5, align 8
-  %12 = load ptr, ptr %r.addr, align 8
-  %arrayidx9 = getelementptr inbounds i64, ptr %12, i64 4
-  %13 = load ptr, ptr %r.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %13, i64 5
-  %14 = load ptr, ptr %a.addr, align 8
-  %arrayidx11 = getelementptr inbounds i64, ptr %14, i64 2
-  %15 = load i64, ptr %arrayidx11, align 8
-  %16 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15) #3, !srcloc !47
-  %asmresult12 = extractvalue { i64, i64 } %16, 0
-  %asmresult13 = extractvalue { i64, i64 } %16, 1
-  store i64 %asmresult12, ptr %arrayidx9, align 8
-  store i64 %asmresult13, ptr %arrayidx10, align 8
-  %17 = load ptr, ptr %r.addr, align 8
-  %arrayidx14 = getelementptr inbounds i64, ptr %17, i64 6
-  %18 = load ptr, ptr %r.addr, align 8
-  %arrayidx15 = getelementptr inbounds i64, ptr %18, i64 7
-  %19 = load ptr, ptr %a.addr, align 8
-  %arrayidx16 = getelementptr inbounds i64, ptr %19, i64 3
-  %20 = load i64, ptr %arrayidx16, align 8
-  %21 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %20) #3, !srcloc !48
-  %asmresult17 = extractvalue { i64, i64 } %21, 0
-  %asmresult18 = extractvalue { i64, i64 } %21, 1
-  store i64 %asmresult17, ptr %arrayidx14, align 8
-  store i64 %asmresult18, ptr %arrayidx15, align 8
-  %22 = load ptr, ptr %a.addr, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %22, i64 4
-  store ptr %add.ptr, ptr %a.addr, align 8
-  %23 = load ptr, ptr %r.addr, align 8
-  %add.ptr19 = getelementptr inbounds i64, ptr %23, i64 8
-  store ptr %add.ptr19, ptr %r.addr, align 8
-  %24 = load i32, ptr %n.addr, align 4
-  %sub = sub nsw i32 %24, 4
-  store i32 %sub, ptr %n.addr, align 4
-  br label %while.cond, !llvm.loop !49
-
-while.end:                                        ; preds = %while.cond
-  %25 = load i32, ptr %n.addr, align 4
-  %tobool20 = icmp ne i32 %25, 0
-  br i1 %tobool20, label %if.then21, label %if.end44
-
-if.then21:                                        ; preds = %while.end
-  %26 = load ptr, ptr %r.addr, align 8
-  %arrayidx22 = getelementptr inbounds i64, ptr %26, i64 0
-  %27 = load ptr, ptr %r.addr, align 8
-  %arrayidx23 = getelementptr inbounds i64, ptr %27, i64 1
-  %28 = load ptr, ptr %a.addr, align 8
-  %arrayidx24 = getelementptr inbounds i64, ptr %28, i64 0
-  %29 = load i64, ptr %arrayidx24, align 8
-  %30 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %29) #3, !srcloc !50
-  %asmresult25 = extractvalue { i64, i64 } %30, 0
-  %asmresult26 = extractvalue { i64, i64 } %30, 1
-  store i64 %asmresult25, ptr %arrayidx22, align 8
-  store i64 %asmresult26, ptr %arrayidx23, align 8
-  %31 = load i32, ptr %n.addr, align 4
-  %dec = add nsw i32 %31, -1
-  store i32 %dec, ptr %n.addr, align 4
-  %cmp27 = icmp eq i32 %dec, 0
-  br i1 %cmp27, label %if.then28, label %if.end29
-
-if.then28:                                        ; preds = %if.then21
-  br label %if.end44
-
-if.end29:                                         ; preds = %if.then21
-  %32 = load ptr, ptr %r.addr, align 8
-  %arrayidx30 = getelementptr inbounds i64, ptr %32, i64 2
-  %33 = load ptr, ptr %r.addr, align 8
-  %arrayidx31 = getelementptr inbounds i64, ptr %33, i64 3
-  %34 = load ptr, ptr %a.addr, align 8
-  %arrayidx32 = getelementptr inbounds i64, ptr %34, i64 1
-  %35 = load i64, ptr %arrayidx32, align 8
-  %36 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35) #3, !srcloc !51
-  %asmresult33 = extractvalue { i64, i64 } %36, 0
-  %asmresult34 = extractvalue { i64, i64 } %36, 1
-  store i64 %asmresult33, ptr %arrayidx30, align 8
-  store i64 %asmresult34, ptr %arrayidx31, align 8
-  %37 = load i32, ptr %n.addr, align 4
-  %dec35 = add nsw i32 %37, -1
-  store i32 %dec35, ptr %n.addr, align 4
-  %cmp36 = icmp eq i32 %dec35, 0
-  br i1 %cmp36, label %if.then37, label %if.end38
-
-if.then37:                                        ; preds = %if.end29
-  br label %if.end44
-
-if.end38:                                         ; preds = %if.end29
-  %38 = load ptr, ptr %r.addr, align 8
-  %arrayidx39 = getelementptr inbounds i64, ptr %38, i64 4
-  %39 = load ptr, ptr %r.addr, align 8
-  %arrayidx40 = getelementptr inbounds i64, ptr %39, i64 5
-  %40 = load ptr, ptr %a.addr, align 8
-  %arrayidx41 = getelementptr inbounds i64, ptr %40, i64 2
-  %41 = load i64, ptr %arrayidx41, align 8
-  %42 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %41) #3, !srcloc !52
-  %asmresult42 = extractvalue { i64, i64 } %42, 0
-  %asmresult43 = extractvalue { i64, i64 } %42, 1
-  store i64 %asmresult42, ptr %arrayidx39, align 8
-  store i64 %asmresult43, ptr %arrayidx40, align 8
-  br label %if.end44
-
-if.end44:                                         ; preds = %if.end38, %if.then37, %if.then28, %while.end, %if.then
+106:                                              ; preds = %9, %79, %94, %95, %62
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @bn_add_words(ptr noundef %rp, ptr noundef %ap, ptr noundef %bp, i32 noundef %n) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %rp.addr = alloca ptr, align 8
-  %ap.addr = alloca ptr, align 8
-  %bp.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %ret = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %rp, ptr %rp.addr, align 8
-  store ptr %ap, ptr %ap.addr, align 8
-  store ptr %bp, ptr %bp.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store i64 0, ptr %i, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i64 @bn_add_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !6
+  store ptr %2, ptr %8, align 8, !tbaa !6
+  store i32 %3, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #2
+  store i64 0, ptr %11, align 8, !tbaa !13
+  %13 = load i32, ptr %9, align 4, !tbaa !11
+  %14 = icmp sle i32 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %4
+  store i64 0, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %28
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %n.addr, align 4
-  %2 = load i64, ptr %i, align 8
-  %3 = load ptr, ptr %rp.addr, align 8
-  %4 = load ptr, ptr %ap.addr, align 8
-  %5 = load ptr, ptr %bp.addr, align 8
-  %6 = call { i64, i32, i64 } asm sideeffect "\09subq\09$0,$0\09\09\0A\09jmp\091f\09\09\0A.p2align 4\09\09\09\0A1:\09movq\09($4,$2,8),$0\09\0A\09adcq\09($5,$2,8),$0\09\0A\09movq\09$0,($3,$2,8)\09\0A\09lea\091($2),$2\09\0A\09loop\091b\09\09\0A\09sbbq\09$0,$0\09\09\0A", "=&r,={cx},=r,r,r,r,1,2,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3, ptr %4, ptr %5, i32 %1, i64 %2) #2, !srcloc !53
-  %asmresult = extractvalue { i64, i32, i64 } %6, 0
-  %asmresult1 = extractvalue { i64, i32, i64 } %6, 1
-  %asmresult2 = extractvalue { i64, i32, i64 } %6, 2
-  store i64 %asmresult, ptr %ret, align 8
-  store i32 %asmresult1, ptr %n.addr, align 4
-  store i64 %asmresult2, ptr %i, align 8
-  %7 = load i64, ptr %ret, align 8
-  %and = and i64 %7, 1
-  store i64 %and, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %4
+  %17 = load i32, ptr %9, align 4, !tbaa !11
+  %18 = load i64, ptr %11, align 8, !tbaa !13
+  %19 = load ptr, ptr %6, align 8, !tbaa !6
+  %20 = load ptr, ptr %7, align 8, !tbaa !6
+  %21 = load ptr, ptr %8, align 8, !tbaa !6
+  %22 = call { i64, i32, i64 } asm sideeffect "\09subq\09$0,$0\09\09\0A\09jmp\091f\09\09\0A.p2align 4\09\09\09\0A1:\09movq\09($4,$2,8),$0\09\0A\09adcq\09($5,$2,8),$0\09\0A\09movq\09$0,($3,$2,8)\09\0A\09lea\091($2),$2\09\0A\09loop\091b\09\09\0A\09sbbq\09$0,$0\09\09\0A", "=&r,={cx},=r,r,r,r,1,2,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr %20, ptr %21, i32 %17, i64 %18) #2, !srcloc !61
+  %23 = extractvalue { i64, i32, i64 } %22, 0
+  %24 = extractvalue { i64, i32, i64 } %22, 1
+  %25 = extractvalue { i64, i32, i64 } %22, 2
+  store i64 %23, ptr %10, align 8, !tbaa !13
+  store i32 %24, ptr %9, align 4, !tbaa !11
+  store i64 %25, ptr %11, align 8, !tbaa !13
+  %26 = load i64, ptr %10, align 8, !tbaa !13
+  %27 = and i64 %26, 1
+  store i64 %27, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %28
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i64, ptr %retval, align 8
-  ret i64 %8
+28:                                               ; preds = %16, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  %29 = load i64, ptr %5, align 8
+  ret i64 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @bn_sub_words(ptr noundef %rp, ptr noundef %ap, ptr noundef %bp, i32 noundef %n) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %rp.addr = alloca ptr, align 8
-  %ap.addr = alloca ptr, align 8
-  %bp.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %ret = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %rp, ptr %rp.addr, align 8
-  store ptr %ap, ptr %ap.addr, align 8
-  store ptr %bp, ptr %bp.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store i64 0, ptr %i, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i64 @bn_sub_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !6
+  store ptr %1, ptr %7, align 8, !tbaa !6
+  store ptr %2, ptr %8, align 8, !tbaa !6
+  store i32 %3, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #2
+  store i64 0, ptr %11, align 8, !tbaa !13
+  %13 = load i32, ptr %9, align 4, !tbaa !11
+  %14 = icmp sle i32 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %4
+  store i64 0, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %28
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %n.addr, align 4
-  %2 = load i64, ptr %i, align 8
-  %3 = load ptr, ptr %rp.addr, align 8
-  %4 = load ptr, ptr %ap.addr, align 8
-  %5 = load ptr, ptr %bp.addr, align 8
-  %6 = call { i64, i32, i64 } asm sideeffect "\09subq\09$0,$0\09\09\0A\09jmp\091f\09\09\0A.p2align 4\09\09\09\0A1:\09movq\09($4,$2,8),$0\09\0A\09sbbq\09($5,$2,8),$0\09\0A\09movq\09$0,($3,$2,8)\09\0A\09lea\091($2),$2\09\0A\09loop\091b\09\09\0A\09sbbq\09$0,$0\09\09\0A", "=&r,={cx},=r,r,r,r,1,2,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3, ptr %4, ptr %5, i32 %1, i64 %2) #2, !srcloc !54
-  %asmresult = extractvalue { i64, i32, i64 } %6, 0
-  %asmresult1 = extractvalue { i64, i32, i64 } %6, 1
-  %asmresult2 = extractvalue { i64, i32, i64 } %6, 2
-  store i64 %asmresult, ptr %ret, align 8
-  store i32 %asmresult1, ptr %n.addr, align 4
-  store i64 %asmresult2, ptr %i, align 8
-  %7 = load i64, ptr %ret, align 8
-  %and = and i64 %7, 1
-  store i64 %and, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %4
+  %17 = load i32, ptr %9, align 4, !tbaa !11
+  %18 = load i64, ptr %11, align 8, !tbaa !13
+  %19 = load ptr, ptr %6, align 8, !tbaa !6
+  %20 = load ptr, ptr %7, align 8, !tbaa !6
+  %21 = load ptr, ptr %8, align 8, !tbaa !6
+  %22 = call { i64, i32, i64 } asm sideeffect "\09subq\09$0,$0\09\09\0A\09jmp\091f\09\09\0A.p2align 4\09\09\09\0A1:\09movq\09($4,$2,8),$0\09\0A\09sbbq\09($5,$2,8),$0\09\0A\09movq\09$0,($3,$2,8)\09\0A\09lea\091($2),$2\09\0A\09loop\091b\09\09\0A\09sbbq\09$0,$0\09\09\0A", "=&r,={cx},=r,r,r,r,1,2,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr %20, ptr %21, i32 %17, i64 %18) #2, !srcloc !62
+  %23 = extractvalue { i64, i32, i64 } %22, 0
+  %24 = extractvalue { i64, i32, i64 } %22, 1
+  %25 = extractvalue { i64, i32, i64 } %22, 2
+  store i64 %23, ptr %10, align 8, !tbaa !13
+  store i32 %24, ptr %9, align 4, !tbaa !11
+  store i64 %25, ptr %11, align 8, !tbaa !13
+  %26 = load i64, ptr %10, align 8, !tbaa !13
+  %27 = and i64 %26, 1
+  store i64 %27, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %28
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i64, ptr %retval, align 8
-  ret i64 %8
+28:                                               ; preds = %16, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  %29 = load i64, ptr %5, align 8
+  ret i64 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bn_mul_comba8(ptr noundef %r, ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %c1 = alloca i64, align 8
-  %c2 = alloca i64, align 8
-  %c3 = alloca i64, align 8
-  %t1 = alloca i64, align 8
-  %t2 = alloca i64, align 8
-  %t18 = alloca i64, align 8
-  %t29 = alloca i64, align 8
-  %t119 = alloca i64, align 8
-  %t220 = alloca i64, align 8
-  %t131 = alloca i64, align 8
-  %t232 = alloca i64, align 8
-  %t142 = alloca i64, align 8
-  %t243 = alloca i64, align 8
-  %t153 = alloca i64, align 8
-  %t254 = alloca i64, align 8
-  %t165 = alloca i64, align 8
-  %t266 = alloca i64, align 8
-  %t176 = alloca i64, align 8
-  %t277 = alloca i64, align 8
-  %t187 = alloca i64, align 8
-  %t288 = alloca i64, align 8
-  %t198 = alloca i64, align 8
-  %t299 = alloca i64, align 8
-  %t1110 = alloca i64, align 8
-  %t2111 = alloca i64, align 8
-  %t1121 = alloca i64, align 8
-  %t2122 = alloca i64, align 8
-  %t1132 = alloca i64, align 8
-  %t2133 = alloca i64, align 8
-  %t1143 = alloca i64, align 8
-  %t2144 = alloca i64, align 8
-  %t1154 = alloca i64, align 8
-  %t2155 = alloca i64, align 8
-  %t1166 = alloca i64, align 8
-  %t2167 = alloca i64, align 8
-  %t1177 = alloca i64, align 8
-  %t2178 = alloca i64, align 8
-  %t1188 = alloca i64, align 8
-  %t2189 = alloca i64, align 8
-  %t1199 = alloca i64, align 8
-  %t2200 = alloca i64, align 8
-  %t1210 = alloca i64, align 8
-  %t2211 = alloca i64, align 8
-  %t1221 = alloca i64, align 8
-  %t2222 = alloca i64, align 8
-  %t1233 = alloca i64, align 8
-  %t2234 = alloca i64, align 8
-  %t1244 = alloca i64, align 8
-  %t2245 = alloca i64, align 8
-  %t1255 = alloca i64, align 8
-  %t2256 = alloca i64, align 8
-  %t1266 = alloca i64, align 8
-  %t2267 = alloca i64, align 8
-  %t1277 = alloca i64, align 8
-  %t2278 = alloca i64, align 8
-  %t1288 = alloca i64, align 8
-  %t2289 = alloca i64, align 8
-  %t1299 = alloca i64, align 8
-  %t2300 = alloca i64, align 8
-  %t1311 = alloca i64, align 8
-  %t2312 = alloca i64, align 8
-  %t1322 = alloca i64, align 8
-  %t2323 = alloca i64, align 8
-  %t1333 = alloca i64, align 8
-  %t2334 = alloca i64, align 8
-  %t1344 = alloca i64, align 8
-  %t2345 = alloca i64, align 8
-  %t1355 = alloca i64, align 8
-  %t2356 = alloca i64, align 8
-  %t1366 = alloca i64, align 8
-  %t2367 = alloca i64, align 8
-  %t1377 = alloca i64, align 8
-  %t2378 = alloca i64, align 8
-  %t1388 = alloca i64, align 8
-  %t2389 = alloca i64, align 8
-  %t1400 = alloca i64, align 8
-  %t2401 = alloca i64, align 8
-  %t1411 = alloca i64, align 8
-  %t2412 = alloca i64, align 8
-  %t1422 = alloca i64, align 8
-  %t2423 = alloca i64, align 8
-  %t1433 = alloca i64, align 8
-  %t2434 = alloca i64, align 8
-  %t1444 = alloca i64, align 8
-  %t2445 = alloca i64, align 8
-  %t1455 = alloca i64, align 8
-  %t2456 = alloca i64, align 8
-  %t1466 = alloca i64, align 8
-  %t2467 = alloca i64, align 8
-  %t1478 = alloca i64, align 8
-  %t2479 = alloca i64, align 8
-  %t1489 = alloca i64, align 8
-  %t2490 = alloca i64, align 8
-  %t1500 = alloca i64, align 8
-  %t2501 = alloca i64, align 8
-  %t1511 = alloca i64, align 8
-  %t2512 = alloca i64, align 8
-  %t1522 = alloca i64, align 8
-  %t2523 = alloca i64, align 8
-  %t1533 = alloca i64, align 8
-  %t2534 = alloca i64, align 8
-  %t1545 = alloca i64, align 8
-  %t2546 = alloca i64, align 8
-  %t1556 = alloca i64, align 8
-  %t2557 = alloca i64, align 8
-  %t1567 = alloca i64, align 8
-  %t2568 = alloca i64, align 8
-  %t1578 = alloca i64, align 8
-  %t2579 = alloca i64, align 8
-  %t1589 = alloca i64, align 8
-  %t2590 = alloca i64, align 8
-  %t1601 = alloca i64, align 8
-  %t2602 = alloca i64, align 8
-  %t1612 = alloca i64, align 8
-  %t2613 = alloca i64, align 8
-  %t1623 = alloca i64, align 8
-  %t2624 = alloca i64, align 8
-  %t1634 = alloca i64, align 8
-  %t2635 = alloca i64, align 8
-  %t1646 = alloca i64, align 8
-  %t2647 = alloca i64, align 8
-  %t1657 = alloca i64, align 8
-  %t2658 = alloca i64, align 8
-  %t1668 = alloca i64, align 8
-  %t2669 = alloca i64, align 8
-  %t1680 = alloca i64, align 8
-  %t2681 = alloca i64, align 8
-  %t1691 = alloca i64, align 8
-  %t2692 = alloca i64, align 8
-  %t1703 = alloca i64, align 8
-  %t2704 = alloca i64, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store i64 0, ptr %c1, align 8
-  store i64 0, ptr %c2, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %a.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %b.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 0
-  %3 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr elementtype(i64) %arrayidx1) #1, !srcloc !55
-  %asmresult = extractvalue { i64, i64 } %3, 0
-  %asmresult2 = extractvalue { i64, i64 } %3, 1
-  store i64 %asmresult, ptr %t1, align 8
-  store i64 %asmresult2, ptr %t2, align 8
-  %4 = load i64, ptr %c1, align 8
-  %5 = load i64, ptr %c2, align 8
-  %6 = load i64, ptr %c3, align 8
-  %7 = load i64, ptr %t1, align 8
-  %8 = load i64, ptr %t2, align 8
-  %9 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %8, i32 0, i64 %4, i64 %5, i64 %6) #1, !srcloc !56
-  %asmresult3 = extractvalue { i64, i64, i64 } %9, 0
-  %asmresult4 = extractvalue { i64, i64, i64 } %9, 1
-  %asmresult5 = extractvalue { i64, i64, i64 } %9, 2
-  store i64 %asmresult3, ptr %c1, align 8
-  store i64 %asmresult4, ptr %c2, align 8
-  store i64 %asmresult5, ptr %c3, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %10 = load i64, ptr %c1, align 8
-  %11 = load ptr, ptr %r.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %11, i64 0
-  store i64 %10, ptr %arrayidx6, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body7
-
-do.body7:                                         ; preds = %do.end
-  %12 = load ptr, ptr %a.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %12, i64 0
-  %13 = load i64, ptr %arrayidx10, align 8
-  %14 = load ptr, ptr %b.addr, align 8
-  %arrayidx11 = getelementptr inbounds i64, ptr %14, i64 1
-  %15 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %13, ptr elementtype(i64) %arrayidx11) #1, !srcloc !57
-  %asmresult12 = extractvalue { i64, i64 } %15, 0
-  %asmresult13 = extractvalue { i64, i64 } %15, 1
-  store i64 %asmresult12, ptr %t18, align 8
-  store i64 %asmresult13, ptr %t29, align 8
-  %16 = load i64, ptr %c2, align 8
-  %17 = load i64, ptr %c3, align 8
-  %18 = load i64, ptr %c1, align 8
-  %19 = load i64, ptr %t18, align 8
-  %20 = load i64, ptr %t29, align 8
-  %21 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %19, i64 %20, i32 0, i64 %16, i64 %17, i64 %18) #1, !srcloc !58
-  %asmresult14 = extractvalue { i64, i64, i64 } %21, 0
-  %asmresult15 = extractvalue { i64, i64, i64 } %21, 1
-  %asmresult16 = extractvalue { i64, i64, i64 } %21, 2
-  store i64 %asmresult14, ptr %c2, align 8
-  store i64 %asmresult15, ptr %c3, align 8
-  store i64 %asmresult16, ptr %c1, align 8
-  br label %do.end17
-
-do.end17:                                         ; preds = %do.body7
-  br label %do.body18
-
-do.body18:                                        ; preds = %do.end17
-  %22 = load ptr, ptr %a.addr, align 8
-  %arrayidx21 = getelementptr inbounds i64, ptr %22, i64 1
-  %23 = load i64, ptr %arrayidx21, align 8
-  %24 = load ptr, ptr %b.addr, align 8
-  %arrayidx22 = getelementptr inbounds i64, ptr %24, i64 0
-  %25 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %23, ptr elementtype(i64) %arrayidx22) #1, !srcloc !59
-  %asmresult23 = extractvalue { i64, i64 } %25, 0
-  %asmresult24 = extractvalue { i64, i64 } %25, 1
-  store i64 %asmresult23, ptr %t119, align 8
-  store i64 %asmresult24, ptr %t220, align 8
-  %26 = load i64, ptr %c2, align 8
-  %27 = load i64, ptr %c3, align 8
-  %28 = load i64, ptr %c1, align 8
-  %29 = load i64, ptr %t119, align 8
-  %30 = load i64, ptr %t220, align 8
-  %31 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %29, i64 %30, i32 0, i64 %26, i64 %27, i64 %28) #1, !srcloc !60
-  %asmresult25 = extractvalue { i64, i64, i64 } %31, 0
-  %asmresult26 = extractvalue { i64, i64, i64 } %31, 1
-  %asmresult27 = extractvalue { i64, i64, i64 } %31, 2
-  store i64 %asmresult25, ptr %c2, align 8
-  store i64 %asmresult26, ptr %c3, align 8
-  store i64 %asmresult27, ptr %c1, align 8
-  br label %do.end28
-
-do.end28:                                         ; preds = %do.body18
-  %32 = load i64, ptr %c2, align 8
-  %33 = load ptr, ptr %r.addr, align 8
-  %arrayidx29 = getelementptr inbounds i64, ptr %33, i64 1
-  store i64 %32, ptr %arrayidx29, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body30
-
-do.body30:                                        ; preds = %do.end28
-  %34 = load ptr, ptr %a.addr, align 8
-  %arrayidx33 = getelementptr inbounds i64, ptr %34, i64 2
-  %35 = load i64, ptr %arrayidx33, align 8
-  %36 = load ptr, ptr %b.addr, align 8
-  %arrayidx34 = getelementptr inbounds i64, ptr %36, i64 0
-  %37 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr elementtype(i64) %arrayidx34) #1, !srcloc !61
-  %asmresult35 = extractvalue { i64, i64 } %37, 0
-  %asmresult36 = extractvalue { i64, i64 } %37, 1
-  store i64 %asmresult35, ptr %t131, align 8
-  store i64 %asmresult36, ptr %t232, align 8
-  %38 = load i64, ptr %c3, align 8
-  %39 = load i64, ptr %c1, align 8
-  %40 = load i64, ptr %c2, align 8
-  %41 = load i64, ptr %t131, align 8
-  %42 = load i64, ptr %t232, align 8
-  %43 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %41, i64 %42, i32 0, i64 %38, i64 %39, i64 %40) #1, !srcloc !62
-  %asmresult37 = extractvalue { i64, i64, i64 } %43, 0
-  %asmresult38 = extractvalue { i64, i64, i64 } %43, 1
-  %asmresult39 = extractvalue { i64, i64, i64 } %43, 2
-  store i64 %asmresult37, ptr %c3, align 8
-  store i64 %asmresult38, ptr %c1, align 8
-  store i64 %asmresult39, ptr %c2, align 8
-  br label %do.end40
-
-do.end40:                                         ; preds = %do.body30
-  br label %do.body41
-
-do.body41:                                        ; preds = %do.end40
-  %44 = load ptr, ptr %a.addr, align 8
-  %arrayidx44 = getelementptr inbounds i64, ptr %44, i64 1
-  %45 = load i64, ptr %arrayidx44, align 8
-  %46 = load ptr, ptr %b.addr, align 8
-  %arrayidx45 = getelementptr inbounds i64, ptr %46, i64 1
-  %47 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, ptr elementtype(i64) %arrayidx45) #1, !srcloc !63
-  %asmresult46 = extractvalue { i64, i64 } %47, 0
-  %asmresult47 = extractvalue { i64, i64 } %47, 1
-  store i64 %asmresult46, ptr %t142, align 8
-  store i64 %asmresult47, ptr %t243, align 8
-  %48 = load i64, ptr %c3, align 8
-  %49 = load i64, ptr %c1, align 8
-  %50 = load i64, ptr %c2, align 8
-  %51 = load i64, ptr %t142, align 8
-  %52 = load i64, ptr %t243, align 8
-  %53 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 %52, i32 0, i64 %48, i64 %49, i64 %50) #1, !srcloc !64
-  %asmresult48 = extractvalue { i64, i64, i64 } %53, 0
-  %asmresult49 = extractvalue { i64, i64, i64 } %53, 1
-  %asmresult50 = extractvalue { i64, i64, i64 } %53, 2
-  store i64 %asmresult48, ptr %c3, align 8
-  store i64 %asmresult49, ptr %c1, align 8
-  store i64 %asmresult50, ptr %c2, align 8
-  br label %do.end51
-
-do.end51:                                         ; preds = %do.body41
-  br label %do.body52
-
-do.body52:                                        ; preds = %do.end51
-  %54 = load ptr, ptr %a.addr, align 8
-  %arrayidx55 = getelementptr inbounds i64, ptr %54, i64 0
-  %55 = load i64, ptr %arrayidx55, align 8
-  %56 = load ptr, ptr %b.addr, align 8
-  %arrayidx56 = getelementptr inbounds i64, ptr %56, i64 2
-  %57 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %55, ptr elementtype(i64) %arrayidx56) #1, !srcloc !65
-  %asmresult57 = extractvalue { i64, i64 } %57, 0
-  %asmresult58 = extractvalue { i64, i64 } %57, 1
-  store i64 %asmresult57, ptr %t153, align 8
-  store i64 %asmresult58, ptr %t254, align 8
-  %58 = load i64, ptr %c3, align 8
-  %59 = load i64, ptr %c1, align 8
-  %60 = load i64, ptr %c2, align 8
-  %61 = load i64, ptr %t153, align 8
-  %62 = load i64, ptr %t254, align 8
-  %63 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %61, i64 %62, i32 0, i64 %58, i64 %59, i64 %60) #1, !srcloc !66
-  %asmresult59 = extractvalue { i64, i64, i64 } %63, 0
-  %asmresult60 = extractvalue { i64, i64, i64 } %63, 1
-  %asmresult61 = extractvalue { i64, i64, i64 } %63, 2
-  store i64 %asmresult59, ptr %c3, align 8
-  store i64 %asmresult60, ptr %c1, align 8
-  store i64 %asmresult61, ptr %c2, align 8
-  br label %do.end62
-
-do.end62:                                         ; preds = %do.body52
-  %64 = load i64, ptr %c3, align 8
-  %65 = load ptr, ptr %r.addr, align 8
-  %arrayidx63 = getelementptr inbounds i64, ptr %65, i64 2
-  store i64 %64, ptr %arrayidx63, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body64
-
-do.body64:                                        ; preds = %do.end62
-  %66 = load ptr, ptr %a.addr, align 8
-  %arrayidx67 = getelementptr inbounds i64, ptr %66, i64 0
-  %67 = load i64, ptr %arrayidx67, align 8
-  %68 = load ptr, ptr %b.addr, align 8
-  %arrayidx68 = getelementptr inbounds i64, ptr %68, i64 3
-  %69 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %67, ptr elementtype(i64) %arrayidx68) #1, !srcloc !67
-  %asmresult69 = extractvalue { i64, i64 } %69, 0
-  %asmresult70 = extractvalue { i64, i64 } %69, 1
-  store i64 %asmresult69, ptr %t165, align 8
-  store i64 %asmresult70, ptr %t266, align 8
-  %70 = load i64, ptr %c1, align 8
-  %71 = load i64, ptr %c2, align 8
-  %72 = load i64, ptr %c3, align 8
-  %73 = load i64, ptr %t165, align 8
-  %74 = load i64, ptr %t266, align 8
-  %75 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %73, i64 %74, i32 0, i64 %70, i64 %71, i64 %72) #1, !srcloc !68
-  %asmresult71 = extractvalue { i64, i64, i64 } %75, 0
-  %asmresult72 = extractvalue { i64, i64, i64 } %75, 1
-  %asmresult73 = extractvalue { i64, i64, i64 } %75, 2
-  store i64 %asmresult71, ptr %c1, align 8
-  store i64 %asmresult72, ptr %c2, align 8
-  store i64 %asmresult73, ptr %c3, align 8
-  br label %do.end74
-
-do.end74:                                         ; preds = %do.body64
-  br label %do.body75
-
-do.body75:                                        ; preds = %do.end74
-  %76 = load ptr, ptr %a.addr, align 8
-  %arrayidx78 = getelementptr inbounds i64, ptr %76, i64 1
-  %77 = load i64, ptr %arrayidx78, align 8
-  %78 = load ptr, ptr %b.addr, align 8
-  %arrayidx79 = getelementptr inbounds i64, ptr %78, i64 2
-  %79 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %77, ptr elementtype(i64) %arrayidx79) #1, !srcloc !69
-  %asmresult80 = extractvalue { i64, i64 } %79, 0
-  %asmresult81 = extractvalue { i64, i64 } %79, 1
-  store i64 %asmresult80, ptr %t176, align 8
-  store i64 %asmresult81, ptr %t277, align 8
-  %80 = load i64, ptr %c1, align 8
-  %81 = load i64, ptr %c2, align 8
-  %82 = load i64, ptr %c3, align 8
-  %83 = load i64, ptr %t176, align 8
-  %84 = load i64, ptr %t277, align 8
-  %85 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, i64 %84, i32 0, i64 %80, i64 %81, i64 %82) #1, !srcloc !70
-  %asmresult82 = extractvalue { i64, i64, i64 } %85, 0
-  %asmresult83 = extractvalue { i64, i64, i64 } %85, 1
-  %asmresult84 = extractvalue { i64, i64, i64 } %85, 2
-  store i64 %asmresult82, ptr %c1, align 8
-  store i64 %asmresult83, ptr %c2, align 8
-  store i64 %asmresult84, ptr %c3, align 8
-  br label %do.end85
-
-do.end85:                                         ; preds = %do.body75
-  br label %do.body86
-
-do.body86:                                        ; preds = %do.end85
-  %86 = load ptr, ptr %a.addr, align 8
-  %arrayidx89 = getelementptr inbounds i64, ptr %86, i64 2
-  %87 = load i64, ptr %arrayidx89, align 8
-  %88 = load ptr, ptr %b.addr, align 8
-  %arrayidx90 = getelementptr inbounds i64, ptr %88, i64 1
-  %89 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %87, ptr elementtype(i64) %arrayidx90) #1, !srcloc !71
-  %asmresult91 = extractvalue { i64, i64 } %89, 0
-  %asmresult92 = extractvalue { i64, i64 } %89, 1
-  store i64 %asmresult91, ptr %t187, align 8
-  store i64 %asmresult92, ptr %t288, align 8
-  %90 = load i64, ptr %c1, align 8
-  %91 = load i64, ptr %c2, align 8
-  %92 = load i64, ptr %c3, align 8
-  %93 = load i64, ptr %t187, align 8
-  %94 = load i64, ptr %t288, align 8
-  %95 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %93, i64 %94, i32 0, i64 %90, i64 %91, i64 %92) #1, !srcloc !72
-  %asmresult93 = extractvalue { i64, i64, i64 } %95, 0
-  %asmresult94 = extractvalue { i64, i64, i64 } %95, 1
-  %asmresult95 = extractvalue { i64, i64, i64 } %95, 2
-  store i64 %asmresult93, ptr %c1, align 8
-  store i64 %asmresult94, ptr %c2, align 8
-  store i64 %asmresult95, ptr %c3, align 8
-  br label %do.end96
-
-do.end96:                                         ; preds = %do.body86
-  br label %do.body97
-
-do.body97:                                        ; preds = %do.end96
-  %96 = load ptr, ptr %a.addr, align 8
-  %arrayidx100 = getelementptr inbounds i64, ptr %96, i64 3
-  %97 = load i64, ptr %arrayidx100, align 8
-  %98 = load ptr, ptr %b.addr, align 8
-  %arrayidx101 = getelementptr inbounds i64, ptr %98, i64 0
-  %99 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %97, ptr elementtype(i64) %arrayidx101) #1, !srcloc !73
-  %asmresult102 = extractvalue { i64, i64 } %99, 0
-  %asmresult103 = extractvalue { i64, i64 } %99, 1
-  store i64 %asmresult102, ptr %t198, align 8
-  store i64 %asmresult103, ptr %t299, align 8
-  %100 = load i64, ptr %c1, align 8
-  %101 = load i64, ptr %c2, align 8
-  %102 = load i64, ptr %c3, align 8
-  %103 = load i64, ptr %t198, align 8
-  %104 = load i64, ptr %t299, align 8
-  %105 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %103, i64 %104, i32 0, i64 %100, i64 %101, i64 %102) #1, !srcloc !74
-  %asmresult104 = extractvalue { i64, i64, i64 } %105, 0
-  %asmresult105 = extractvalue { i64, i64, i64 } %105, 1
-  %asmresult106 = extractvalue { i64, i64, i64 } %105, 2
-  store i64 %asmresult104, ptr %c1, align 8
-  store i64 %asmresult105, ptr %c2, align 8
-  store i64 %asmresult106, ptr %c3, align 8
-  br label %do.end107
-
-do.end107:                                        ; preds = %do.body97
-  %106 = load i64, ptr %c1, align 8
-  %107 = load ptr, ptr %r.addr, align 8
-  %arrayidx108 = getelementptr inbounds i64, ptr %107, i64 3
-  store i64 %106, ptr %arrayidx108, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body109
-
-do.body109:                                       ; preds = %do.end107
-  %108 = load ptr, ptr %a.addr, align 8
-  %arrayidx112 = getelementptr inbounds i64, ptr %108, i64 4
-  %109 = load i64, ptr %arrayidx112, align 8
-  %110 = load ptr, ptr %b.addr, align 8
-  %arrayidx113 = getelementptr inbounds i64, ptr %110, i64 0
-  %111 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %109, ptr elementtype(i64) %arrayidx113) #1, !srcloc !75
-  %asmresult114 = extractvalue { i64, i64 } %111, 0
-  %asmresult115 = extractvalue { i64, i64 } %111, 1
-  store i64 %asmresult114, ptr %t1110, align 8
-  store i64 %asmresult115, ptr %t2111, align 8
-  %112 = load i64, ptr %c2, align 8
-  %113 = load i64, ptr %c3, align 8
-  %114 = load i64, ptr %c1, align 8
-  %115 = load i64, ptr %t1110, align 8
-  %116 = load i64, ptr %t2111, align 8
-  %117 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %115, i64 %116, i32 0, i64 %112, i64 %113, i64 %114) #1, !srcloc !76
-  %asmresult116 = extractvalue { i64, i64, i64 } %117, 0
-  %asmresult117 = extractvalue { i64, i64, i64 } %117, 1
-  %asmresult118 = extractvalue { i64, i64, i64 } %117, 2
-  store i64 %asmresult116, ptr %c2, align 8
-  store i64 %asmresult117, ptr %c3, align 8
-  store i64 %asmresult118, ptr %c1, align 8
-  br label %do.end119
-
-do.end119:                                        ; preds = %do.body109
-  br label %do.body120
-
-do.body120:                                       ; preds = %do.end119
-  %118 = load ptr, ptr %a.addr, align 8
-  %arrayidx123 = getelementptr inbounds i64, ptr %118, i64 3
-  %119 = load i64, ptr %arrayidx123, align 8
-  %120 = load ptr, ptr %b.addr, align 8
-  %arrayidx124 = getelementptr inbounds i64, ptr %120, i64 1
-  %121 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %119, ptr elementtype(i64) %arrayidx124) #1, !srcloc !77
-  %asmresult125 = extractvalue { i64, i64 } %121, 0
-  %asmresult126 = extractvalue { i64, i64 } %121, 1
-  store i64 %asmresult125, ptr %t1121, align 8
-  store i64 %asmresult126, ptr %t2122, align 8
-  %122 = load i64, ptr %c2, align 8
-  %123 = load i64, ptr %c3, align 8
-  %124 = load i64, ptr %c1, align 8
-  %125 = load i64, ptr %t1121, align 8
-  %126 = load i64, ptr %t2122, align 8
-  %127 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %125, i64 %126, i32 0, i64 %122, i64 %123, i64 %124) #1, !srcloc !78
-  %asmresult127 = extractvalue { i64, i64, i64 } %127, 0
-  %asmresult128 = extractvalue { i64, i64, i64 } %127, 1
-  %asmresult129 = extractvalue { i64, i64, i64 } %127, 2
-  store i64 %asmresult127, ptr %c2, align 8
-  store i64 %asmresult128, ptr %c3, align 8
-  store i64 %asmresult129, ptr %c1, align 8
-  br label %do.end130
-
-do.end130:                                        ; preds = %do.body120
-  br label %do.body131
-
-do.body131:                                       ; preds = %do.end130
-  %128 = load ptr, ptr %a.addr, align 8
-  %arrayidx134 = getelementptr inbounds i64, ptr %128, i64 2
-  %129 = load i64, ptr %arrayidx134, align 8
-  %130 = load ptr, ptr %b.addr, align 8
-  %arrayidx135 = getelementptr inbounds i64, ptr %130, i64 2
-  %131 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %129, ptr elementtype(i64) %arrayidx135) #1, !srcloc !79
-  %asmresult136 = extractvalue { i64, i64 } %131, 0
-  %asmresult137 = extractvalue { i64, i64 } %131, 1
-  store i64 %asmresult136, ptr %t1132, align 8
-  store i64 %asmresult137, ptr %t2133, align 8
-  %132 = load i64, ptr %c2, align 8
-  %133 = load i64, ptr %c3, align 8
-  %134 = load i64, ptr %c1, align 8
-  %135 = load i64, ptr %t1132, align 8
-  %136 = load i64, ptr %t2133, align 8
-  %137 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %135, i64 %136, i32 0, i64 %132, i64 %133, i64 %134) #1, !srcloc !80
-  %asmresult138 = extractvalue { i64, i64, i64 } %137, 0
-  %asmresult139 = extractvalue { i64, i64, i64 } %137, 1
-  %asmresult140 = extractvalue { i64, i64, i64 } %137, 2
-  store i64 %asmresult138, ptr %c2, align 8
-  store i64 %asmresult139, ptr %c3, align 8
-  store i64 %asmresult140, ptr %c1, align 8
-  br label %do.end141
-
-do.end141:                                        ; preds = %do.body131
-  br label %do.body142
-
-do.body142:                                       ; preds = %do.end141
-  %138 = load ptr, ptr %a.addr, align 8
-  %arrayidx145 = getelementptr inbounds i64, ptr %138, i64 1
-  %139 = load i64, ptr %arrayidx145, align 8
-  %140 = load ptr, ptr %b.addr, align 8
-  %arrayidx146 = getelementptr inbounds i64, ptr %140, i64 3
-  %141 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %139, ptr elementtype(i64) %arrayidx146) #1, !srcloc !81
-  %asmresult147 = extractvalue { i64, i64 } %141, 0
-  %asmresult148 = extractvalue { i64, i64 } %141, 1
-  store i64 %asmresult147, ptr %t1143, align 8
-  store i64 %asmresult148, ptr %t2144, align 8
-  %142 = load i64, ptr %c2, align 8
-  %143 = load i64, ptr %c3, align 8
-  %144 = load i64, ptr %c1, align 8
-  %145 = load i64, ptr %t1143, align 8
-  %146 = load i64, ptr %t2144, align 8
-  %147 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %145, i64 %146, i32 0, i64 %142, i64 %143, i64 %144) #1, !srcloc !82
-  %asmresult149 = extractvalue { i64, i64, i64 } %147, 0
-  %asmresult150 = extractvalue { i64, i64, i64 } %147, 1
-  %asmresult151 = extractvalue { i64, i64, i64 } %147, 2
-  store i64 %asmresult149, ptr %c2, align 8
-  store i64 %asmresult150, ptr %c3, align 8
-  store i64 %asmresult151, ptr %c1, align 8
-  br label %do.end152
-
-do.end152:                                        ; preds = %do.body142
-  br label %do.body153
-
-do.body153:                                       ; preds = %do.end152
-  %148 = load ptr, ptr %a.addr, align 8
-  %arrayidx156 = getelementptr inbounds i64, ptr %148, i64 0
-  %149 = load i64, ptr %arrayidx156, align 8
-  %150 = load ptr, ptr %b.addr, align 8
-  %arrayidx157 = getelementptr inbounds i64, ptr %150, i64 4
-  %151 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %149, ptr elementtype(i64) %arrayidx157) #1, !srcloc !83
-  %asmresult158 = extractvalue { i64, i64 } %151, 0
-  %asmresult159 = extractvalue { i64, i64 } %151, 1
-  store i64 %asmresult158, ptr %t1154, align 8
-  store i64 %asmresult159, ptr %t2155, align 8
-  %152 = load i64, ptr %c2, align 8
-  %153 = load i64, ptr %c3, align 8
-  %154 = load i64, ptr %c1, align 8
-  %155 = load i64, ptr %t1154, align 8
-  %156 = load i64, ptr %t2155, align 8
-  %157 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %155, i64 %156, i32 0, i64 %152, i64 %153, i64 %154) #1, !srcloc !84
-  %asmresult160 = extractvalue { i64, i64, i64 } %157, 0
-  %asmresult161 = extractvalue { i64, i64, i64 } %157, 1
-  %asmresult162 = extractvalue { i64, i64, i64 } %157, 2
-  store i64 %asmresult160, ptr %c2, align 8
-  store i64 %asmresult161, ptr %c3, align 8
-  store i64 %asmresult162, ptr %c1, align 8
-  br label %do.end163
-
-do.end163:                                        ; preds = %do.body153
-  %158 = load i64, ptr %c2, align 8
-  %159 = load ptr, ptr %r.addr, align 8
-  %arrayidx164 = getelementptr inbounds i64, ptr %159, i64 4
-  store i64 %158, ptr %arrayidx164, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body165
-
-do.body165:                                       ; preds = %do.end163
-  %160 = load ptr, ptr %a.addr, align 8
-  %arrayidx168 = getelementptr inbounds i64, ptr %160, i64 0
-  %161 = load i64, ptr %arrayidx168, align 8
-  %162 = load ptr, ptr %b.addr, align 8
-  %arrayidx169 = getelementptr inbounds i64, ptr %162, i64 5
-  %163 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %161, ptr elementtype(i64) %arrayidx169) #1, !srcloc !85
-  %asmresult170 = extractvalue { i64, i64 } %163, 0
-  %asmresult171 = extractvalue { i64, i64 } %163, 1
-  store i64 %asmresult170, ptr %t1166, align 8
-  store i64 %asmresult171, ptr %t2167, align 8
-  %164 = load i64, ptr %c3, align 8
-  %165 = load i64, ptr %c1, align 8
-  %166 = load i64, ptr %c2, align 8
-  %167 = load i64, ptr %t1166, align 8
-  %168 = load i64, ptr %t2167, align 8
-  %169 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %167, i64 %168, i32 0, i64 %164, i64 %165, i64 %166) #1, !srcloc !86
-  %asmresult172 = extractvalue { i64, i64, i64 } %169, 0
-  %asmresult173 = extractvalue { i64, i64, i64 } %169, 1
-  %asmresult174 = extractvalue { i64, i64, i64 } %169, 2
-  store i64 %asmresult172, ptr %c3, align 8
-  store i64 %asmresult173, ptr %c1, align 8
-  store i64 %asmresult174, ptr %c2, align 8
-  br label %do.end175
-
-do.end175:                                        ; preds = %do.body165
-  br label %do.body176
-
-do.body176:                                       ; preds = %do.end175
-  %170 = load ptr, ptr %a.addr, align 8
-  %arrayidx179 = getelementptr inbounds i64, ptr %170, i64 1
-  %171 = load i64, ptr %arrayidx179, align 8
-  %172 = load ptr, ptr %b.addr, align 8
-  %arrayidx180 = getelementptr inbounds i64, ptr %172, i64 4
-  %173 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %171, ptr elementtype(i64) %arrayidx180) #1, !srcloc !87
-  %asmresult181 = extractvalue { i64, i64 } %173, 0
-  %asmresult182 = extractvalue { i64, i64 } %173, 1
-  store i64 %asmresult181, ptr %t1177, align 8
-  store i64 %asmresult182, ptr %t2178, align 8
-  %174 = load i64, ptr %c3, align 8
-  %175 = load i64, ptr %c1, align 8
-  %176 = load i64, ptr %c2, align 8
-  %177 = load i64, ptr %t1177, align 8
-  %178 = load i64, ptr %t2178, align 8
-  %179 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %177, i64 %178, i32 0, i64 %174, i64 %175, i64 %176) #1, !srcloc !88
-  %asmresult183 = extractvalue { i64, i64, i64 } %179, 0
-  %asmresult184 = extractvalue { i64, i64, i64 } %179, 1
-  %asmresult185 = extractvalue { i64, i64, i64 } %179, 2
-  store i64 %asmresult183, ptr %c3, align 8
-  store i64 %asmresult184, ptr %c1, align 8
-  store i64 %asmresult185, ptr %c2, align 8
-  br label %do.end186
-
-do.end186:                                        ; preds = %do.body176
-  br label %do.body187
-
-do.body187:                                       ; preds = %do.end186
-  %180 = load ptr, ptr %a.addr, align 8
-  %arrayidx190 = getelementptr inbounds i64, ptr %180, i64 2
-  %181 = load i64, ptr %arrayidx190, align 8
-  %182 = load ptr, ptr %b.addr, align 8
-  %arrayidx191 = getelementptr inbounds i64, ptr %182, i64 3
-  %183 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %181, ptr elementtype(i64) %arrayidx191) #1, !srcloc !89
-  %asmresult192 = extractvalue { i64, i64 } %183, 0
-  %asmresult193 = extractvalue { i64, i64 } %183, 1
-  store i64 %asmresult192, ptr %t1188, align 8
-  store i64 %asmresult193, ptr %t2189, align 8
-  %184 = load i64, ptr %c3, align 8
-  %185 = load i64, ptr %c1, align 8
-  %186 = load i64, ptr %c2, align 8
-  %187 = load i64, ptr %t1188, align 8
-  %188 = load i64, ptr %t2189, align 8
-  %189 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %187, i64 %188, i32 0, i64 %184, i64 %185, i64 %186) #1, !srcloc !90
-  %asmresult194 = extractvalue { i64, i64, i64 } %189, 0
-  %asmresult195 = extractvalue { i64, i64, i64 } %189, 1
-  %asmresult196 = extractvalue { i64, i64, i64 } %189, 2
-  store i64 %asmresult194, ptr %c3, align 8
-  store i64 %asmresult195, ptr %c1, align 8
-  store i64 %asmresult196, ptr %c2, align 8
-  br label %do.end197
-
-do.end197:                                        ; preds = %do.body187
-  br label %do.body198
-
-do.body198:                                       ; preds = %do.end197
-  %190 = load ptr, ptr %a.addr, align 8
-  %arrayidx201 = getelementptr inbounds i64, ptr %190, i64 3
-  %191 = load i64, ptr %arrayidx201, align 8
-  %192 = load ptr, ptr %b.addr, align 8
-  %arrayidx202 = getelementptr inbounds i64, ptr %192, i64 2
-  %193 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %191, ptr elementtype(i64) %arrayidx202) #1, !srcloc !91
-  %asmresult203 = extractvalue { i64, i64 } %193, 0
-  %asmresult204 = extractvalue { i64, i64 } %193, 1
-  store i64 %asmresult203, ptr %t1199, align 8
-  store i64 %asmresult204, ptr %t2200, align 8
-  %194 = load i64, ptr %c3, align 8
-  %195 = load i64, ptr %c1, align 8
-  %196 = load i64, ptr %c2, align 8
-  %197 = load i64, ptr %t1199, align 8
-  %198 = load i64, ptr %t2200, align 8
-  %199 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %197, i64 %198, i32 0, i64 %194, i64 %195, i64 %196) #1, !srcloc !92
-  %asmresult205 = extractvalue { i64, i64, i64 } %199, 0
-  %asmresult206 = extractvalue { i64, i64, i64 } %199, 1
-  %asmresult207 = extractvalue { i64, i64, i64 } %199, 2
-  store i64 %asmresult205, ptr %c3, align 8
-  store i64 %asmresult206, ptr %c1, align 8
-  store i64 %asmresult207, ptr %c2, align 8
-  br label %do.end208
-
-do.end208:                                        ; preds = %do.body198
-  br label %do.body209
-
-do.body209:                                       ; preds = %do.end208
-  %200 = load ptr, ptr %a.addr, align 8
-  %arrayidx212 = getelementptr inbounds i64, ptr %200, i64 4
-  %201 = load i64, ptr %arrayidx212, align 8
-  %202 = load ptr, ptr %b.addr, align 8
-  %arrayidx213 = getelementptr inbounds i64, ptr %202, i64 1
-  %203 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %201, ptr elementtype(i64) %arrayidx213) #1, !srcloc !93
-  %asmresult214 = extractvalue { i64, i64 } %203, 0
-  %asmresult215 = extractvalue { i64, i64 } %203, 1
-  store i64 %asmresult214, ptr %t1210, align 8
-  store i64 %asmresult215, ptr %t2211, align 8
-  %204 = load i64, ptr %c3, align 8
-  %205 = load i64, ptr %c1, align 8
-  %206 = load i64, ptr %c2, align 8
-  %207 = load i64, ptr %t1210, align 8
-  %208 = load i64, ptr %t2211, align 8
-  %209 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %207, i64 %208, i32 0, i64 %204, i64 %205, i64 %206) #1, !srcloc !94
-  %asmresult216 = extractvalue { i64, i64, i64 } %209, 0
-  %asmresult217 = extractvalue { i64, i64, i64 } %209, 1
-  %asmresult218 = extractvalue { i64, i64, i64 } %209, 2
-  store i64 %asmresult216, ptr %c3, align 8
-  store i64 %asmresult217, ptr %c1, align 8
-  store i64 %asmresult218, ptr %c2, align 8
-  br label %do.end219
-
-do.end219:                                        ; preds = %do.body209
-  br label %do.body220
-
-do.body220:                                       ; preds = %do.end219
-  %210 = load ptr, ptr %a.addr, align 8
-  %arrayidx223 = getelementptr inbounds i64, ptr %210, i64 5
-  %211 = load i64, ptr %arrayidx223, align 8
-  %212 = load ptr, ptr %b.addr, align 8
-  %arrayidx224 = getelementptr inbounds i64, ptr %212, i64 0
-  %213 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %211, ptr elementtype(i64) %arrayidx224) #1, !srcloc !95
-  %asmresult225 = extractvalue { i64, i64 } %213, 0
-  %asmresult226 = extractvalue { i64, i64 } %213, 1
-  store i64 %asmresult225, ptr %t1221, align 8
-  store i64 %asmresult226, ptr %t2222, align 8
-  %214 = load i64, ptr %c3, align 8
-  %215 = load i64, ptr %c1, align 8
-  %216 = load i64, ptr %c2, align 8
-  %217 = load i64, ptr %t1221, align 8
-  %218 = load i64, ptr %t2222, align 8
-  %219 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %217, i64 %218, i32 0, i64 %214, i64 %215, i64 %216) #1, !srcloc !96
-  %asmresult227 = extractvalue { i64, i64, i64 } %219, 0
-  %asmresult228 = extractvalue { i64, i64, i64 } %219, 1
-  %asmresult229 = extractvalue { i64, i64, i64 } %219, 2
-  store i64 %asmresult227, ptr %c3, align 8
-  store i64 %asmresult228, ptr %c1, align 8
-  store i64 %asmresult229, ptr %c2, align 8
-  br label %do.end230
-
-do.end230:                                        ; preds = %do.body220
-  %220 = load i64, ptr %c3, align 8
-  %221 = load ptr, ptr %r.addr, align 8
-  %arrayidx231 = getelementptr inbounds i64, ptr %221, i64 5
-  store i64 %220, ptr %arrayidx231, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body232
-
-do.body232:                                       ; preds = %do.end230
-  %222 = load ptr, ptr %a.addr, align 8
-  %arrayidx235 = getelementptr inbounds i64, ptr %222, i64 6
-  %223 = load i64, ptr %arrayidx235, align 8
-  %224 = load ptr, ptr %b.addr, align 8
-  %arrayidx236 = getelementptr inbounds i64, ptr %224, i64 0
-  %225 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %223, ptr elementtype(i64) %arrayidx236) #1, !srcloc !97
-  %asmresult237 = extractvalue { i64, i64 } %225, 0
-  %asmresult238 = extractvalue { i64, i64 } %225, 1
-  store i64 %asmresult237, ptr %t1233, align 8
-  store i64 %asmresult238, ptr %t2234, align 8
-  %226 = load i64, ptr %c1, align 8
-  %227 = load i64, ptr %c2, align 8
-  %228 = load i64, ptr %c3, align 8
-  %229 = load i64, ptr %t1233, align 8
-  %230 = load i64, ptr %t2234, align 8
-  %231 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %229, i64 %230, i32 0, i64 %226, i64 %227, i64 %228) #1, !srcloc !98
-  %asmresult239 = extractvalue { i64, i64, i64 } %231, 0
-  %asmresult240 = extractvalue { i64, i64, i64 } %231, 1
-  %asmresult241 = extractvalue { i64, i64, i64 } %231, 2
-  store i64 %asmresult239, ptr %c1, align 8
-  store i64 %asmresult240, ptr %c2, align 8
-  store i64 %asmresult241, ptr %c3, align 8
-  br label %do.end242
-
-do.end242:                                        ; preds = %do.body232
-  br label %do.body243
-
-do.body243:                                       ; preds = %do.end242
-  %232 = load ptr, ptr %a.addr, align 8
-  %arrayidx246 = getelementptr inbounds i64, ptr %232, i64 5
-  %233 = load i64, ptr %arrayidx246, align 8
-  %234 = load ptr, ptr %b.addr, align 8
-  %arrayidx247 = getelementptr inbounds i64, ptr %234, i64 1
-  %235 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %233, ptr elementtype(i64) %arrayidx247) #1, !srcloc !99
-  %asmresult248 = extractvalue { i64, i64 } %235, 0
-  %asmresult249 = extractvalue { i64, i64 } %235, 1
-  store i64 %asmresult248, ptr %t1244, align 8
-  store i64 %asmresult249, ptr %t2245, align 8
-  %236 = load i64, ptr %c1, align 8
-  %237 = load i64, ptr %c2, align 8
-  %238 = load i64, ptr %c3, align 8
-  %239 = load i64, ptr %t1244, align 8
-  %240 = load i64, ptr %t2245, align 8
-  %241 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %239, i64 %240, i32 0, i64 %236, i64 %237, i64 %238) #1, !srcloc !100
-  %asmresult250 = extractvalue { i64, i64, i64 } %241, 0
-  %asmresult251 = extractvalue { i64, i64, i64 } %241, 1
-  %asmresult252 = extractvalue { i64, i64, i64 } %241, 2
-  store i64 %asmresult250, ptr %c1, align 8
-  store i64 %asmresult251, ptr %c2, align 8
-  store i64 %asmresult252, ptr %c3, align 8
-  br label %do.end253
-
-do.end253:                                        ; preds = %do.body243
-  br label %do.body254
-
-do.body254:                                       ; preds = %do.end253
-  %242 = load ptr, ptr %a.addr, align 8
-  %arrayidx257 = getelementptr inbounds i64, ptr %242, i64 4
-  %243 = load i64, ptr %arrayidx257, align 8
-  %244 = load ptr, ptr %b.addr, align 8
-  %arrayidx258 = getelementptr inbounds i64, ptr %244, i64 2
-  %245 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %243, ptr elementtype(i64) %arrayidx258) #1, !srcloc !101
-  %asmresult259 = extractvalue { i64, i64 } %245, 0
-  %asmresult260 = extractvalue { i64, i64 } %245, 1
-  store i64 %asmresult259, ptr %t1255, align 8
-  store i64 %asmresult260, ptr %t2256, align 8
-  %246 = load i64, ptr %c1, align 8
-  %247 = load i64, ptr %c2, align 8
-  %248 = load i64, ptr %c3, align 8
-  %249 = load i64, ptr %t1255, align 8
-  %250 = load i64, ptr %t2256, align 8
-  %251 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %249, i64 %250, i32 0, i64 %246, i64 %247, i64 %248) #1, !srcloc !102
-  %asmresult261 = extractvalue { i64, i64, i64 } %251, 0
-  %asmresult262 = extractvalue { i64, i64, i64 } %251, 1
-  %asmresult263 = extractvalue { i64, i64, i64 } %251, 2
-  store i64 %asmresult261, ptr %c1, align 8
-  store i64 %asmresult262, ptr %c2, align 8
-  store i64 %asmresult263, ptr %c3, align 8
-  br label %do.end264
-
-do.end264:                                        ; preds = %do.body254
-  br label %do.body265
-
-do.body265:                                       ; preds = %do.end264
-  %252 = load ptr, ptr %a.addr, align 8
-  %arrayidx268 = getelementptr inbounds i64, ptr %252, i64 3
-  %253 = load i64, ptr %arrayidx268, align 8
-  %254 = load ptr, ptr %b.addr, align 8
-  %arrayidx269 = getelementptr inbounds i64, ptr %254, i64 3
-  %255 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %253, ptr elementtype(i64) %arrayidx269) #1, !srcloc !103
-  %asmresult270 = extractvalue { i64, i64 } %255, 0
-  %asmresult271 = extractvalue { i64, i64 } %255, 1
-  store i64 %asmresult270, ptr %t1266, align 8
-  store i64 %asmresult271, ptr %t2267, align 8
-  %256 = load i64, ptr %c1, align 8
-  %257 = load i64, ptr %c2, align 8
-  %258 = load i64, ptr %c3, align 8
-  %259 = load i64, ptr %t1266, align 8
-  %260 = load i64, ptr %t2267, align 8
-  %261 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %259, i64 %260, i32 0, i64 %256, i64 %257, i64 %258) #1, !srcloc !104
-  %asmresult272 = extractvalue { i64, i64, i64 } %261, 0
-  %asmresult273 = extractvalue { i64, i64, i64 } %261, 1
-  %asmresult274 = extractvalue { i64, i64, i64 } %261, 2
-  store i64 %asmresult272, ptr %c1, align 8
-  store i64 %asmresult273, ptr %c2, align 8
-  store i64 %asmresult274, ptr %c3, align 8
-  br label %do.end275
-
-do.end275:                                        ; preds = %do.body265
-  br label %do.body276
-
-do.body276:                                       ; preds = %do.end275
-  %262 = load ptr, ptr %a.addr, align 8
-  %arrayidx279 = getelementptr inbounds i64, ptr %262, i64 2
-  %263 = load i64, ptr %arrayidx279, align 8
-  %264 = load ptr, ptr %b.addr, align 8
-  %arrayidx280 = getelementptr inbounds i64, ptr %264, i64 4
-  %265 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %263, ptr elementtype(i64) %arrayidx280) #1, !srcloc !105
-  %asmresult281 = extractvalue { i64, i64 } %265, 0
-  %asmresult282 = extractvalue { i64, i64 } %265, 1
-  store i64 %asmresult281, ptr %t1277, align 8
-  store i64 %asmresult282, ptr %t2278, align 8
-  %266 = load i64, ptr %c1, align 8
-  %267 = load i64, ptr %c2, align 8
-  %268 = load i64, ptr %c3, align 8
-  %269 = load i64, ptr %t1277, align 8
-  %270 = load i64, ptr %t2278, align 8
-  %271 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %269, i64 %270, i32 0, i64 %266, i64 %267, i64 %268) #1, !srcloc !106
-  %asmresult283 = extractvalue { i64, i64, i64 } %271, 0
-  %asmresult284 = extractvalue { i64, i64, i64 } %271, 1
-  %asmresult285 = extractvalue { i64, i64, i64 } %271, 2
-  store i64 %asmresult283, ptr %c1, align 8
-  store i64 %asmresult284, ptr %c2, align 8
-  store i64 %asmresult285, ptr %c3, align 8
-  br label %do.end286
-
-do.end286:                                        ; preds = %do.body276
-  br label %do.body287
-
-do.body287:                                       ; preds = %do.end286
-  %272 = load ptr, ptr %a.addr, align 8
-  %arrayidx290 = getelementptr inbounds i64, ptr %272, i64 1
-  %273 = load i64, ptr %arrayidx290, align 8
-  %274 = load ptr, ptr %b.addr, align 8
-  %arrayidx291 = getelementptr inbounds i64, ptr %274, i64 5
-  %275 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %273, ptr elementtype(i64) %arrayidx291) #1, !srcloc !107
-  %asmresult292 = extractvalue { i64, i64 } %275, 0
-  %asmresult293 = extractvalue { i64, i64 } %275, 1
-  store i64 %asmresult292, ptr %t1288, align 8
-  store i64 %asmresult293, ptr %t2289, align 8
-  %276 = load i64, ptr %c1, align 8
-  %277 = load i64, ptr %c2, align 8
-  %278 = load i64, ptr %c3, align 8
-  %279 = load i64, ptr %t1288, align 8
-  %280 = load i64, ptr %t2289, align 8
-  %281 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %279, i64 %280, i32 0, i64 %276, i64 %277, i64 %278) #1, !srcloc !108
-  %asmresult294 = extractvalue { i64, i64, i64 } %281, 0
-  %asmresult295 = extractvalue { i64, i64, i64 } %281, 1
-  %asmresult296 = extractvalue { i64, i64, i64 } %281, 2
-  store i64 %asmresult294, ptr %c1, align 8
-  store i64 %asmresult295, ptr %c2, align 8
-  store i64 %asmresult296, ptr %c3, align 8
-  br label %do.end297
-
-do.end297:                                        ; preds = %do.body287
-  br label %do.body298
-
-do.body298:                                       ; preds = %do.end297
-  %282 = load ptr, ptr %a.addr, align 8
-  %arrayidx301 = getelementptr inbounds i64, ptr %282, i64 0
-  %283 = load i64, ptr %arrayidx301, align 8
-  %284 = load ptr, ptr %b.addr, align 8
-  %arrayidx302 = getelementptr inbounds i64, ptr %284, i64 6
-  %285 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %283, ptr elementtype(i64) %arrayidx302) #1, !srcloc !109
-  %asmresult303 = extractvalue { i64, i64 } %285, 0
-  %asmresult304 = extractvalue { i64, i64 } %285, 1
-  store i64 %asmresult303, ptr %t1299, align 8
-  store i64 %asmresult304, ptr %t2300, align 8
-  %286 = load i64, ptr %c1, align 8
-  %287 = load i64, ptr %c2, align 8
-  %288 = load i64, ptr %c3, align 8
-  %289 = load i64, ptr %t1299, align 8
-  %290 = load i64, ptr %t2300, align 8
-  %291 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %289, i64 %290, i32 0, i64 %286, i64 %287, i64 %288) #1, !srcloc !110
-  %asmresult305 = extractvalue { i64, i64, i64 } %291, 0
-  %asmresult306 = extractvalue { i64, i64, i64 } %291, 1
-  %asmresult307 = extractvalue { i64, i64, i64 } %291, 2
-  store i64 %asmresult305, ptr %c1, align 8
-  store i64 %asmresult306, ptr %c2, align 8
-  store i64 %asmresult307, ptr %c3, align 8
-  br label %do.end308
-
-do.end308:                                        ; preds = %do.body298
-  %292 = load i64, ptr %c1, align 8
-  %293 = load ptr, ptr %r.addr, align 8
-  %arrayidx309 = getelementptr inbounds i64, ptr %293, i64 6
-  store i64 %292, ptr %arrayidx309, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body310
-
-do.body310:                                       ; preds = %do.end308
-  %294 = load ptr, ptr %a.addr, align 8
-  %arrayidx313 = getelementptr inbounds i64, ptr %294, i64 0
-  %295 = load i64, ptr %arrayidx313, align 8
-  %296 = load ptr, ptr %b.addr, align 8
-  %arrayidx314 = getelementptr inbounds i64, ptr %296, i64 7
-  %297 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %295, ptr elementtype(i64) %arrayidx314) #1, !srcloc !111
-  %asmresult315 = extractvalue { i64, i64 } %297, 0
-  %asmresult316 = extractvalue { i64, i64 } %297, 1
-  store i64 %asmresult315, ptr %t1311, align 8
-  store i64 %asmresult316, ptr %t2312, align 8
-  %298 = load i64, ptr %c2, align 8
-  %299 = load i64, ptr %c3, align 8
-  %300 = load i64, ptr %c1, align 8
-  %301 = load i64, ptr %t1311, align 8
-  %302 = load i64, ptr %t2312, align 8
-  %303 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %301, i64 %302, i32 0, i64 %298, i64 %299, i64 %300) #1, !srcloc !112
-  %asmresult317 = extractvalue { i64, i64, i64 } %303, 0
-  %asmresult318 = extractvalue { i64, i64, i64 } %303, 1
-  %asmresult319 = extractvalue { i64, i64, i64 } %303, 2
-  store i64 %asmresult317, ptr %c2, align 8
-  store i64 %asmresult318, ptr %c3, align 8
-  store i64 %asmresult319, ptr %c1, align 8
-  br label %do.end320
-
-do.end320:                                        ; preds = %do.body310
-  br label %do.body321
-
-do.body321:                                       ; preds = %do.end320
-  %304 = load ptr, ptr %a.addr, align 8
-  %arrayidx324 = getelementptr inbounds i64, ptr %304, i64 1
-  %305 = load i64, ptr %arrayidx324, align 8
-  %306 = load ptr, ptr %b.addr, align 8
-  %arrayidx325 = getelementptr inbounds i64, ptr %306, i64 6
-  %307 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %305, ptr elementtype(i64) %arrayidx325) #1, !srcloc !113
-  %asmresult326 = extractvalue { i64, i64 } %307, 0
-  %asmresult327 = extractvalue { i64, i64 } %307, 1
-  store i64 %asmresult326, ptr %t1322, align 8
-  store i64 %asmresult327, ptr %t2323, align 8
-  %308 = load i64, ptr %c2, align 8
-  %309 = load i64, ptr %c3, align 8
-  %310 = load i64, ptr %c1, align 8
-  %311 = load i64, ptr %t1322, align 8
-  %312 = load i64, ptr %t2323, align 8
-  %313 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %311, i64 %312, i32 0, i64 %308, i64 %309, i64 %310) #1, !srcloc !114
-  %asmresult328 = extractvalue { i64, i64, i64 } %313, 0
-  %asmresult329 = extractvalue { i64, i64, i64 } %313, 1
-  %asmresult330 = extractvalue { i64, i64, i64 } %313, 2
-  store i64 %asmresult328, ptr %c2, align 8
-  store i64 %asmresult329, ptr %c3, align 8
-  store i64 %asmresult330, ptr %c1, align 8
-  br label %do.end331
-
-do.end331:                                        ; preds = %do.body321
-  br label %do.body332
-
-do.body332:                                       ; preds = %do.end331
-  %314 = load ptr, ptr %a.addr, align 8
-  %arrayidx335 = getelementptr inbounds i64, ptr %314, i64 2
-  %315 = load i64, ptr %arrayidx335, align 8
-  %316 = load ptr, ptr %b.addr, align 8
-  %arrayidx336 = getelementptr inbounds i64, ptr %316, i64 5
-  %317 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %315, ptr elementtype(i64) %arrayidx336) #1, !srcloc !115
-  %asmresult337 = extractvalue { i64, i64 } %317, 0
-  %asmresult338 = extractvalue { i64, i64 } %317, 1
-  store i64 %asmresult337, ptr %t1333, align 8
-  store i64 %asmresult338, ptr %t2334, align 8
-  %318 = load i64, ptr %c2, align 8
-  %319 = load i64, ptr %c3, align 8
-  %320 = load i64, ptr %c1, align 8
-  %321 = load i64, ptr %t1333, align 8
-  %322 = load i64, ptr %t2334, align 8
-  %323 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %321, i64 %322, i32 0, i64 %318, i64 %319, i64 %320) #1, !srcloc !116
-  %asmresult339 = extractvalue { i64, i64, i64 } %323, 0
-  %asmresult340 = extractvalue { i64, i64, i64 } %323, 1
-  %asmresult341 = extractvalue { i64, i64, i64 } %323, 2
-  store i64 %asmresult339, ptr %c2, align 8
-  store i64 %asmresult340, ptr %c3, align 8
-  store i64 %asmresult341, ptr %c1, align 8
-  br label %do.end342
-
-do.end342:                                        ; preds = %do.body332
-  br label %do.body343
-
-do.body343:                                       ; preds = %do.end342
-  %324 = load ptr, ptr %a.addr, align 8
-  %arrayidx346 = getelementptr inbounds i64, ptr %324, i64 3
-  %325 = load i64, ptr %arrayidx346, align 8
-  %326 = load ptr, ptr %b.addr, align 8
-  %arrayidx347 = getelementptr inbounds i64, ptr %326, i64 4
-  %327 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %325, ptr elementtype(i64) %arrayidx347) #1, !srcloc !117
-  %asmresult348 = extractvalue { i64, i64 } %327, 0
-  %asmresult349 = extractvalue { i64, i64 } %327, 1
-  store i64 %asmresult348, ptr %t1344, align 8
-  store i64 %asmresult349, ptr %t2345, align 8
-  %328 = load i64, ptr %c2, align 8
-  %329 = load i64, ptr %c3, align 8
-  %330 = load i64, ptr %c1, align 8
-  %331 = load i64, ptr %t1344, align 8
-  %332 = load i64, ptr %t2345, align 8
-  %333 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %331, i64 %332, i32 0, i64 %328, i64 %329, i64 %330) #1, !srcloc !118
-  %asmresult350 = extractvalue { i64, i64, i64 } %333, 0
-  %asmresult351 = extractvalue { i64, i64, i64 } %333, 1
-  %asmresult352 = extractvalue { i64, i64, i64 } %333, 2
-  store i64 %asmresult350, ptr %c2, align 8
-  store i64 %asmresult351, ptr %c3, align 8
-  store i64 %asmresult352, ptr %c1, align 8
-  br label %do.end353
-
-do.end353:                                        ; preds = %do.body343
-  br label %do.body354
-
-do.body354:                                       ; preds = %do.end353
-  %334 = load ptr, ptr %a.addr, align 8
-  %arrayidx357 = getelementptr inbounds i64, ptr %334, i64 4
-  %335 = load i64, ptr %arrayidx357, align 8
-  %336 = load ptr, ptr %b.addr, align 8
-  %arrayidx358 = getelementptr inbounds i64, ptr %336, i64 3
-  %337 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %335, ptr elementtype(i64) %arrayidx358) #1, !srcloc !119
-  %asmresult359 = extractvalue { i64, i64 } %337, 0
-  %asmresult360 = extractvalue { i64, i64 } %337, 1
-  store i64 %asmresult359, ptr %t1355, align 8
-  store i64 %asmresult360, ptr %t2356, align 8
-  %338 = load i64, ptr %c2, align 8
-  %339 = load i64, ptr %c3, align 8
-  %340 = load i64, ptr %c1, align 8
-  %341 = load i64, ptr %t1355, align 8
-  %342 = load i64, ptr %t2356, align 8
-  %343 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %341, i64 %342, i32 0, i64 %338, i64 %339, i64 %340) #1, !srcloc !120
-  %asmresult361 = extractvalue { i64, i64, i64 } %343, 0
-  %asmresult362 = extractvalue { i64, i64, i64 } %343, 1
-  %asmresult363 = extractvalue { i64, i64, i64 } %343, 2
-  store i64 %asmresult361, ptr %c2, align 8
-  store i64 %asmresult362, ptr %c3, align 8
-  store i64 %asmresult363, ptr %c1, align 8
-  br label %do.end364
-
-do.end364:                                        ; preds = %do.body354
-  br label %do.body365
-
-do.body365:                                       ; preds = %do.end364
-  %344 = load ptr, ptr %a.addr, align 8
-  %arrayidx368 = getelementptr inbounds i64, ptr %344, i64 5
-  %345 = load i64, ptr %arrayidx368, align 8
-  %346 = load ptr, ptr %b.addr, align 8
-  %arrayidx369 = getelementptr inbounds i64, ptr %346, i64 2
-  %347 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %345, ptr elementtype(i64) %arrayidx369) #1, !srcloc !121
-  %asmresult370 = extractvalue { i64, i64 } %347, 0
-  %asmresult371 = extractvalue { i64, i64 } %347, 1
-  store i64 %asmresult370, ptr %t1366, align 8
-  store i64 %asmresult371, ptr %t2367, align 8
-  %348 = load i64, ptr %c2, align 8
-  %349 = load i64, ptr %c3, align 8
-  %350 = load i64, ptr %c1, align 8
-  %351 = load i64, ptr %t1366, align 8
-  %352 = load i64, ptr %t2367, align 8
-  %353 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %351, i64 %352, i32 0, i64 %348, i64 %349, i64 %350) #1, !srcloc !122
-  %asmresult372 = extractvalue { i64, i64, i64 } %353, 0
-  %asmresult373 = extractvalue { i64, i64, i64 } %353, 1
-  %asmresult374 = extractvalue { i64, i64, i64 } %353, 2
-  store i64 %asmresult372, ptr %c2, align 8
-  store i64 %asmresult373, ptr %c3, align 8
-  store i64 %asmresult374, ptr %c1, align 8
-  br label %do.end375
-
-do.end375:                                        ; preds = %do.body365
-  br label %do.body376
-
-do.body376:                                       ; preds = %do.end375
-  %354 = load ptr, ptr %a.addr, align 8
-  %arrayidx379 = getelementptr inbounds i64, ptr %354, i64 6
-  %355 = load i64, ptr %arrayidx379, align 8
-  %356 = load ptr, ptr %b.addr, align 8
-  %arrayidx380 = getelementptr inbounds i64, ptr %356, i64 1
-  %357 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %355, ptr elementtype(i64) %arrayidx380) #1, !srcloc !123
-  %asmresult381 = extractvalue { i64, i64 } %357, 0
-  %asmresult382 = extractvalue { i64, i64 } %357, 1
-  store i64 %asmresult381, ptr %t1377, align 8
-  store i64 %asmresult382, ptr %t2378, align 8
-  %358 = load i64, ptr %c2, align 8
-  %359 = load i64, ptr %c3, align 8
-  %360 = load i64, ptr %c1, align 8
-  %361 = load i64, ptr %t1377, align 8
-  %362 = load i64, ptr %t2378, align 8
-  %363 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %361, i64 %362, i32 0, i64 %358, i64 %359, i64 %360) #1, !srcloc !124
-  %asmresult383 = extractvalue { i64, i64, i64 } %363, 0
-  %asmresult384 = extractvalue { i64, i64, i64 } %363, 1
-  %asmresult385 = extractvalue { i64, i64, i64 } %363, 2
-  store i64 %asmresult383, ptr %c2, align 8
-  store i64 %asmresult384, ptr %c3, align 8
-  store i64 %asmresult385, ptr %c1, align 8
-  br label %do.end386
-
-do.end386:                                        ; preds = %do.body376
-  br label %do.body387
-
-do.body387:                                       ; preds = %do.end386
-  %364 = load ptr, ptr %a.addr, align 8
-  %arrayidx390 = getelementptr inbounds i64, ptr %364, i64 7
-  %365 = load i64, ptr %arrayidx390, align 8
-  %366 = load ptr, ptr %b.addr, align 8
-  %arrayidx391 = getelementptr inbounds i64, ptr %366, i64 0
-  %367 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %365, ptr elementtype(i64) %arrayidx391) #1, !srcloc !125
-  %asmresult392 = extractvalue { i64, i64 } %367, 0
-  %asmresult393 = extractvalue { i64, i64 } %367, 1
-  store i64 %asmresult392, ptr %t1388, align 8
-  store i64 %asmresult393, ptr %t2389, align 8
-  %368 = load i64, ptr %c2, align 8
-  %369 = load i64, ptr %c3, align 8
-  %370 = load i64, ptr %c1, align 8
-  %371 = load i64, ptr %t1388, align 8
-  %372 = load i64, ptr %t2389, align 8
-  %373 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %371, i64 %372, i32 0, i64 %368, i64 %369, i64 %370) #1, !srcloc !126
-  %asmresult394 = extractvalue { i64, i64, i64 } %373, 0
-  %asmresult395 = extractvalue { i64, i64, i64 } %373, 1
-  %asmresult396 = extractvalue { i64, i64, i64 } %373, 2
-  store i64 %asmresult394, ptr %c2, align 8
-  store i64 %asmresult395, ptr %c3, align 8
-  store i64 %asmresult396, ptr %c1, align 8
-  br label %do.end397
-
-do.end397:                                        ; preds = %do.body387
-  %374 = load i64, ptr %c2, align 8
-  %375 = load ptr, ptr %r.addr, align 8
-  %arrayidx398 = getelementptr inbounds i64, ptr %375, i64 7
-  store i64 %374, ptr %arrayidx398, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body399
-
-do.body399:                                       ; preds = %do.end397
-  %376 = load ptr, ptr %a.addr, align 8
-  %arrayidx402 = getelementptr inbounds i64, ptr %376, i64 7
-  %377 = load i64, ptr %arrayidx402, align 8
-  %378 = load ptr, ptr %b.addr, align 8
-  %arrayidx403 = getelementptr inbounds i64, ptr %378, i64 1
-  %379 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %377, ptr elementtype(i64) %arrayidx403) #1, !srcloc !127
-  %asmresult404 = extractvalue { i64, i64 } %379, 0
-  %asmresult405 = extractvalue { i64, i64 } %379, 1
-  store i64 %asmresult404, ptr %t1400, align 8
-  store i64 %asmresult405, ptr %t2401, align 8
-  %380 = load i64, ptr %c3, align 8
-  %381 = load i64, ptr %c1, align 8
-  %382 = load i64, ptr %c2, align 8
-  %383 = load i64, ptr %t1400, align 8
-  %384 = load i64, ptr %t2401, align 8
-  %385 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %383, i64 %384, i32 0, i64 %380, i64 %381, i64 %382) #1, !srcloc !128
-  %asmresult406 = extractvalue { i64, i64, i64 } %385, 0
-  %asmresult407 = extractvalue { i64, i64, i64 } %385, 1
-  %asmresult408 = extractvalue { i64, i64, i64 } %385, 2
-  store i64 %asmresult406, ptr %c3, align 8
-  store i64 %asmresult407, ptr %c1, align 8
-  store i64 %asmresult408, ptr %c2, align 8
-  br label %do.end409
-
-do.end409:                                        ; preds = %do.body399
-  br label %do.body410
-
-do.body410:                                       ; preds = %do.end409
-  %386 = load ptr, ptr %a.addr, align 8
-  %arrayidx413 = getelementptr inbounds i64, ptr %386, i64 6
-  %387 = load i64, ptr %arrayidx413, align 8
-  %388 = load ptr, ptr %b.addr, align 8
-  %arrayidx414 = getelementptr inbounds i64, ptr %388, i64 2
-  %389 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %387, ptr elementtype(i64) %arrayidx414) #1, !srcloc !129
-  %asmresult415 = extractvalue { i64, i64 } %389, 0
-  %asmresult416 = extractvalue { i64, i64 } %389, 1
-  store i64 %asmresult415, ptr %t1411, align 8
-  store i64 %asmresult416, ptr %t2412, align 8
-  %390 = load i64, ptr %c3, align 8
-  %391 = load i64, ptr %c1, align 8
-  %392 = load i64, ptr %c2, align 8
-  %393 = load i64, ptr %t1411, align 8
-  %394 = load i64, ptr %t2412, align 8
-  %395 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %393, i64 %394, i32 0, i64 %390, i64 %391, i64 %392) #1, !srcloc !130
-  %asmresult417 = extractvalue { i64, i64, i64 } %395, 0
-  %asmresult418 = extractvalue { i64, i64, i64 } %395, 1
-  %asmresult419 = extractvalue { i64, i64, i64 } %395, 2
-  store i64 %asmresult417, ptr %c3, align 8
-  store i64 %asmresult418, ptr %c1, align 8
-  store i64 %asmresult419, ptr %c2, align 8
-  br label %do.end420
-
-do.end420:                                        ; preds = %do.body410
-  br label %do.body421
-
-do.body421:                                       ; preds = %do.end420
-  %396 = load ptr, ptr %a.addr, align 8
-  %arrayidx424 = getelementptr inbounds i64, ptr %396, i64 5
-  %397 = load i64, ptr %arrayidx424, align 8
-  %398 = load ptr, ptr %b.addr, align 8
-  %arrayidx425 = getelementptr inbounds i64, ptr %398, i64 3
-  %399 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %397, ptr elementtype(i64) %arrayidx425) #1, !srcloc !131
-  %asmresult426 = extractvalue { i64, i64 } %399, 0
-  %asmresult427 = extractvalue { i64, i64 } %399, 1
-  store i64 %asmresult426, ptr %t1422, align 8
-  store i64 %asmresult427, ptr %t2423, align 8
-  %400 = load i64, ptr %c3, align 8
-  %401 = load i64, ptr %c1, align 8
-  %402 = load i64, ptr %c2, align 8
-  %403 = load i64, ptr %t1422, align 8
-  %404 = load i64, ptr %t2423, align 8
-  %405 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %403, i64 %404, i32 0, i64 %400, i64 %401, i64 %402) #1, !srcloc !132
-  %asmresult428 = extractvalue { i64, i64, i64 } %405, 0
-  %asmresult429 = extractvalue { i64, i64, i64 } %405, 1
-  %asmresult430 = extractvalue { i64, i64, i64 } %405, 2
-  store i64 %asmresult428, ptr %c3, align 8
-  store i64 %asmresult429, ptr %c1, align 8
-  store i64 %asmresult430, ptr %c2, align 8
-  br label %do.end431
-
-do.end431:                                        ; preds = %do.body421
-  br label %do.body432
-
-do.body432:                                       ; preds = %do.end431
-  %406 = load ptr, ptr %a.addr, align 8
-  %arrayidx435 = getelementptr inbounds i64, ptr %406, i64 4
-  %407 = load i64, ptr %arrayidx435, align 8
-  %408 = load ptr, ptr %b.addr, align 8
-  %arrayidx436 = getelementptr inbounds i64, ptr %408, i64 4
-  %409 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %407, ptr elementtype(i64) %arrayidx436) #1, !srcloc !133
-  %asmresult437 = extractvalue { i64, i64 } %409, 0
-  %asmresult438 = extractvalue { i64, i64 } %409, 1
-  store i64 %asmresult437, ptr %t1433, align 8
-  store i64 %asmresult438, ptr %t2434, align 8
-  %410 = load i64, ptr %c3, align 8
-  %411 = load i64, ptr %c1, align 8
-  %412 = load i64, ptr %c2, align 8
-  %413 = load i64, ptr %t1433, align 8
-  %414 = load i64, ptr %t2434, align 8
-  %415 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %413, i64 %414, i32 0, i64 %410, i64 %411, i64 %412) #1, !srcloc !134
-  %asmresult439 = extractvalue { i64, i64, i64 } %415, 0
-  %asmresult440 = extractvalue { i64, i64, i64 } %415, 1
-  %asmresult441 = extractvalue { i64, i64, i64 } %415, 2
-  store i64 %asmresult439, ptr %c3, align 8
-  store i64 %asmresult440, ptr %c1, align 8
-  store i64 %asmresult441, ptr %c2, align 8
-  br label %do.end442
-
-do.end442:                                        ; preds = %do.body432
-  br label %do.body443
-
-do.body443:                                       ; preds = %do.end442
-  %416 = load ptr, ptr %a.addr, align 8
-  %arrayidx446 = getelementptr inbounds i64, ptr %416, i64 3
-  %417 = load i64, ptr %arrayidx446, align 8
-  %418 = load ptr, ptr %b.addr, align 8
-  %arrayidx447 = getelementptr inbounds i64, ptr %418, i64 5
-  %419 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %417, ptr elementtype(i64) %arrayidx447) #1, !srcloc !135
-  %asmresult448 = extractvalue { i64, i64 } %419, 0
-  %asmresult449 = extractvalue { i64, i64 } %419, 1
-  store i64 %asmresult448, ptr %t1444, align 8
-  store i64 %asmresult449, ptr %t2445, align 8
-  %420 = load i64, ptr %c3, align 8
-  %421 = load i64, ptr %c1, align 8
-  %422 = load i64, ptr %c2, align 8
-  %423 = load i64, ptr %t1444, align 8
-  %424 = load i64, ptr %t2445, align 8
-  %425 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %423, i64 %424, i32 0, i64 %420, i64 %421, i64 %422) #1, !srcloc !136
-  %asmresult450 = extractvalue { i64, i64, i64 } %425, 0
-  %asmresult451 = extractvalue { i64, i64, i64 } %425, 1
-  %asmresult452 = extractvalue { i64, i64, i64 } %425, 2
-  store i64 %asmresult450, ptr %c3, align 8
-  store i64 %asmresult451, ptr %c1, align 8
-  store i64 %asmresult452, ptr %c2, align 8
-  br label %do.end453
-
-do.end453:                                        ; preds = %do.body443
-  br label %do.body454
-
-do.body454:                                       ; preds = %do.end453
-  %426 = load ptr, ptr %a.addr, align 8
-  %arrayidx457 = getelementptr inbounds i64, ptr %426, i64 2
-  %427 = load i64, ptr %arrayidx457, align 8
-  %428 = load ptr, ptr %b.addr, align 8
-  %arrayidx458 = getelementptr inbounds i64, ptr %428, i64 6
-  %429 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %427, ptr elementtype(i64) %arrayidx458) #1, !srcloc !137
-  %asmresult459 = extractvalue { i64, i64 } %429, 0
-  %asmresult460 = extractvalue { i64, i64 } %429, 1
-  store i64 %asmresult459, ptr %t1455, align 8
-  store i64 %asmresult460, ptr %t2456, align 8
-  %430 = load i64, ptr %c3, align 8
-  %431 = load i64, ptr %c1, align 8
-  %432 = load i64, ptr %c2, align 8
-  %433 = load i64, ptr %t1455, align 8
-  %434 = load i64, ptr %t2456, align 8
-  %435 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %433, i64 %434, i32 0, i64 %430, i64 %431, i64 %432) #1, !srcloc !138
-  %asmresult461 = extractvalue { i64, i64, i64 } %435, 0
-  %asmresult462 = extractvalue { i64, i64, i64 } %435, 1
-  %asmresult463 = extractvalue { i64, i64, i64 } %435, 2
-  store i64 %asmresult461, ptr %c3, align 8
-  store i64 %asmresult462, ptr %c1, align 8
-  store i64 %asmresult463, ptr %c2, align 8
-  br label %do.end464
-
-do.end464:                                        ; preds = %do.body454
-  br label %do.body465
-
-do.body465:                                       ; preds = %do.end464
-  %436 = load ptr, ptr %a.addr, align 8
-  %arrayidx468 = getelementptr inbounds i64, ptr %436, i64 1
-  %437 = load i64, ptr %arrayidx468, align 8
-  %438 = load ptr, ptr %b.addr, align 8
-  %arrayidx469 = getelementptr inbounds i64, ptr %438, i64 7
-  %439 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %437, ptr elementtype(i64) %arrayidx469) #1, !srcloc !139
-  %asmresult470 = extractvalue { i64, i64 } %439, 0
-  %asmresult471 = extractvalue { i64, i64 } %439, 1
-  store i64 %asmresult470, ptr %t1466, align 8
-  store i64 %asmresult471, ptr %t2467, align 8
-  %440 = load i64, ptr %c3, align 8
-  %441 = load i64, ptr %c1, align 8
-  %442 = load i64, ptr %c2, align 8
-  %443 = load i64, ptr %t1466, align 8
-  %444 = load i64, ptr %t2467, align 8
-  %445 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %443, i64 %444, i32 0, i64 %440, i64 %441, i64 %442) #1, !srcloc !140
-  %asmresult472 = extractvalue { i64, i64, i64 } %445, 0
-  %asmresult473 = extractvalue { i64, i64, i64 } %445, 1
-  %asmresult474 = extractvalue { i64, i64, i64 } %445, 2
-  store i64 %asmresult472, ptr %c3, align 8
-  store i64 %asmresult473, ptr %c1, align 8
-  store i64 %asmresult474, ptr %c2, align 8
-  br label %do.end475
-
-do.end475:                                        ; preds = %do.body465
-  %446 = load i64, ptr %c3, align 8
-  %447 = load ptr, ptr %r.addr, align 8
-  %arrayidx476 = getelementptr inbounds i64, ptr %447, i64 8
-  store i64 %446, ptr %arrayidx476, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body477
-
-do.body477:                                       ; preds = %do.end475
-  %448 = load ptr, ptr %a.addr, align 8
-  %arrayidx480 = getelementptr inbounds i64, ptr %448, i64 2
-  %449 = load i64, ptr %arrayidx480, align 8
-  %450 = load ptr, ptr %b.addr, align 8
-  %arrayidx481 = getelementptr inbounds i64, ptr %450, i64 7
-  %451 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %449, ptr elementtype(i64) %arrayidx481) #1, !srcloc !141
-  %asmresult482 = extractvalue { i64, i64 } %451, 0
-  %asmresult483 = extractvalue { i64, i64 } %451, 1
-  store i64 %asmresult482, ptr %t1478, align 8
-  store i64 %asmresult483, ptr %t2479, align 8
-  %452 = load i64, ptr %c1, align 8
-  %453 = load i64, ptr %c2, align 8
-  %454 = load i64, ptr %c3, align 8
-  %455 = load i64, ptr %t1478, align 8
-  %456 = load i64, ptr %t2479, align 8
-  %457 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %455, i64 %456, i32 0, i64 %452, i64 %453, i64 %454) #1, !srcloc !142
-  %asmresult484 = extractvalue { i64, i64, i64 } %457, 0
-  %asmresult485 = extractvalue { i64, i64, i64 } %457, 1
-  %asmresult486 = extractvalue { i64, i64, i64 } %457, 2
-  store i64 %asmresult484, ptr %c1, align 8
-  store i64 %asmresult485, ptr %c2, align 8
-  store i64 %asmresult486, ptr %c3, align 8
-  br label %do.end487
-
-do.end487:                                        ; preds = %do.body477
-  br label %do.body488
-
-do.body488:                                       ; preds = %do.end487
-  %458 = load ptr, ptr %a.addr, align 8
-  %arrayidx491 = getelementptr inbounds i64, ptr %458, i64 3
-  %459 = load i64, ptr %arrayidx491, align 8
-  %460 = load ptr, ptr %b.addr, align 8
-  %arrayidx492 = getelementptr inbounds i64, ptr %460, i64 6
-  %461 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %459, ptr elementtype(i64) %arrayidx492) #1, !srcloc !143
-  %asmresult493 = extractvalue { i64, i64 } %461, 0
-  %asmresult494 = extractvalue { i64, i64 } %461, 1
-  store i64 %asmresult493, ptr %t1489, align 8
-  store i64 %asmresult494, ptr %t2490, align 8
-  %462 = load i64, ptr %c1, align 8
-  %463 = load i64, ptr %c2, align 8
-  %464 = load i64, ptr %c3, align 8
-  %465 = load i64, ptr %t1489, align 8
-  %466 = load i64, ptr %t2490, align 8
-  %467 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %465, i64 %466, i32 0, i64 %462, i64 %463, i64 %464) #1, !srcloc !144
-  %asmresult495 = extractvalue { i64, i64, i64 } %467, 0
-  %asmresult496 = extractvalue { i64, i64, i64 } %467, 1
-  %asmresult497 = extractvalue { i64, i64, i64 } %467, 2
-  store i64 %asmresult495, ptr %c1, align 8
-  store i64 %asmresult496, ptr %c2, align 8
-  store i64 %asmresult497, ptr %c3, align 8
-  br label %do.end498
-
-do.end498:                                        ; preds = %do.body488
-  br label %do.body499
-
-do.body499:                                       ; preds = %do.end498
-  %468 = load ptr, ptr %a.addr, align 8
-  %arrayidx502 = getelementptr inbounds i64, ptr %468, i64 4
-  %469 = load i64, ptr %arrayidx502, align 8
-  %470 = load ptr, ptr %b.addr, align 8
-  %arrayidx503 = getelementptr inbounds i64, ptr %470, i64 5
-  %471 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %469, ptr elementtype(i64) %arrayidx503) #1, !srcloc !145
-  %asmresult504 = extractvalue { i64, i64 } %471, 0
-  %asmresult505 = extractvalue { i64, i64 } %471, 1
-  store i64 %asmresult504, ptr %t1500, align 8
-  store i64 %asmresult505, ptr %t2501, align 8
-  %472 = load i64, ptr %c1, align 8
-  %473 = load i64, ptr %c2, align 8
-  %474 = load i64, ptr %c3, align 8
-  %475 = load i64, ptr %t1500, align 8
-  %476 = load i64, ptr %t2501, align 8
-  %477 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %475, i64 %476, i32 0, i64 %472, i64 %473, i64 %474) #1, !srcloc !146
-  %asmresult506 = extractvalue { i64, i64, i64 } %477, 0
-  %asmresult507 = extractvalue { i64, i64, i64 } %477, 1
-  %asmresult508 = extractvalue { i64, i64, i64 } %477, 2
-  store i64 %asmresult506, ptr %c1, align 8
-  store i64 %asmresult507, ptr %c2, align 8
-  store i64 %asmresult508, ptr %c3, align 8
-  br label %do.end509
-
-do.end509:                                        ; preds = %do.body499
-  br label %do.body510
-
-do.body510:                                       ; preds = %do.end509
-  %478 = load ptr, ptr %a.addr, align 8
-  %arrayidx513 = getelementptr inbounds i64, ptr %478, i64 5
-  %479 = load i64, ptr %arrayidx513, align 8
-  %480 = load ptr, ptr %b.addr, align 8
-  %arrayidx514 = getelementptr inbounds i64, ptr %480, i64 4
-  %481 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %479, ptr elementtype(i64) %arrayidx514) #1, !srcloc !147
-  %asmresult515 = extractvalue { i64, i64 } %481, 0
-  %asmresult516 = extractvalue { i64, i64 } %481, 1
-  store i64 %asmresult515, ptr %t1511, align 8
-  store i64 %asmresult516, ptr %t2512, align 8
-  %482 = load i64, ptr %c1, align 8
-  %483 = load i64, ptr %c2, align 8
-  %484 = load i64, ptr %c3, align 8
-  %485 = load i64, ptr %t1511, align 8
-  %486 = load i64, ptr %t2512, align 8
-  %487 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %485, i64 %486, i32 0, i64 %482, i64 %483, i64 %484) #1, !srcloc !148
-  %asmresult517 = extractvalue { i64, i64, i64 } %487, 0
-  %asmresult518 = extractvalue { i64, i64, i64 } %487, 1
-  %asmresult519 = extractvalue { i64, i64, i64 } %487, 2
-  store i64 %asmresult517, ptr %c1, align 8
-  store i64 %asmresult518, ptr %c2, align 8
-  store i64 %asmresult519, ptr %c3, align 8
-  br label %do.end520
-
-do.end520:                                        ; preds = %do.body510
-  br label %do.body521
-
-do.body521:                                       ; preds = %do.end520
-  %488 = load ptr, ptr %a.addr, align 8
-  %arrayidx524 = getelementptr inbounds i64, ptr %488, i64 6
-  %489 = load i64, ptr %arrayidx524, align 8
-  %490 = load ptr, ptr %b.addr, align 8
-  %arrayidx525 = getelementptr inbounds i64, ptr %490, i64 3
-  %491 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %489, ptr elementtype(i64) %arrayidx525) #1, !srcloc !149
-  %asmresult526 = extractvalue { i64, i64 } %491, 0
-  %asmresult527 = extractvalue { i64, i64 } %491, 1
-  store i64 %asmresult526, ptr %t1522, align 8
-  store i64 %asmresult527, ptr %t2523, align 8
-  %492 = load i64, ptr %c1, align 8
-  %493 = load i64, ptr %c2, align 8
-  %494 = load i64, ptr %c3, align 8
-  %495 = load i64, ptr %t1522, align 8
-  %496 = load i64, ptr %t2523, align 8
-  %497 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %495, i64 %496, i32 0, i64 %492, i64 %493, i64 %494) #1, !srcloc !150
-  %asmresult528 = extractvalue { i64, i64, i64 } %497, 0
-  %asmresult529 = extractvalue { i64, i64, i64 } %497, 1
-  %asmresult530 = extractvalue { i64, i64, i64 } %497, 2
-  store i64 %asmresult528, ptr %c1, align 8
-  store i64 %asmresult529, ptr %c2, align 8
-  store i64 %asmresult530, ptr %c3, align 8
-  br label %do.end531
-
-do.end531:                                        ; preds = %do.body521
-  br label %do.body532
-
-do.body532:                                       ; preds = %do.end531
-  %498 = load ptr, ptr %a.addr, align 8
-  %arrayidx535 = getelementptr inbounds i64, ptr %498, i64 7
-  %499 = load i64, ptr %arrayidx535, align 8
-  %500 = load ptr, ptr %b.addr, align 8
-  %arrayidx536 = getelementptr inbounds i64, ptr %500, i64 2
-  %501 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %499, ptr elementtype(i64) %arrayidx536) #1, !srcloc !151
-  %asmresult537 = extractvalue { i64, i64 } %501, 0
-  %asmresult538 = extractvalue { i64, i64 } %501, 1
-  store i64 %asmresult537, ptr %t1533, align 8
-  store i64 %asmresult538, ptr %t2534, align 8
-  %502 = load i64, ptr %c1, align 8
-  %503 = load i64, ptr %c2, align 8
-  %504 = load i64, ptr %c3, align 8
-  %505 = load i64, ptr %t1533, align 8
-  %506 = load i64, ptr %t2534, align 8
-  %507 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %505, i64 %506, i32 0, i64 %502, i64 %503, i64 %504) #1, !srcloc !152
-  %asmresult539 = extractvalue { i64, i64, i64 } %507, 0
-  %asmresult540 = extractvalue { i64, i64, i64 } %507, 1
-  %asmresult541 = extractvalue { i64, i64, i64 } %507, 2
-  store i64 %asmresult539, ptr %c1, align 8
-  store i64 %asmresult540, ptr %c2, align 8
-  store i64 %asmresult541, ptr %c3, align 8
-  br label %do.end542
-
-do.end542:                                        ; preds = %do.body532
-  %508 = load i64, ptr %c1, align 8
-  %509 = load ptr, ptr %r.addr, align 8
-  %arrayidx543 = getelementptr inbounds i64, ptr %509, i64 9
-  store i64 %508, ptr %arrayidx543, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body544
-
-do.body544:                                       ; preds = %do.end542
-  %510 = load ptr, ptr %a.addr, align 8
-  %arrayidx547 = getelementptr inbounds i64, ptr %510, i64 7
-  %511 = load i64, ptr %arrayidx547, align 8
-  %512 = load ptr, ptr %b.addr, align 8
-  %arrayidx548 = getelementptr inbounds i64, ptr %512, i64 3
-  %513 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %511, ptr elementtype(i64) %arrayidx548) #1, !srcloc !153
-  %asmresult549 = extractvalue { i64, i64 } %513, 0
-  %asmresult550 = extractvalue { i64, i64 } %513, 1
-  store i64 %asmresult549, ptr %t1545, align 8
-  store i64 %asmresult550, ptr %t2546, align 8
-  %514 = load i64, ptr %c2, align 8
-  %515 = load i64, ptr %c3, align 8
-  %516 = load i64, ptr %c1, align 8
-  %517 = load i64, ptr %t1545, align 8
-  %518 = load i64, ptr %t2546, align 8
-  %519 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %517, i64 %518, i32 0, i64 %514, i64 %515, i64 %516) #1, !srcloc !154
-  %asmresult551 = extractvalue { i64, i64, i64 } %519, 0
-  %asmresult552 = extractvalue { i64, i64, i64 } %519, 1
-  %asmresult553 = extractvalue { i64, i64, i64 } %519, 2
-  store i64 %asmresult551, ptr %c2, align 8
-  store i64 %asmresult552, ptr %c3, align 8
-  store i64 %asmresult553, ptr %c1, align 8
-  br label %do.end554
-
-do.end554:                                        ; preds = %do.body544
-  br label %do.body555
-
-do.body555:                                       ; preds = %do.end554
-  %520 = load ptr, ptr %a.addr, align 8
-  %arrayidx558 = getelementptr inbounds i64, ptr %520, i64 6
-  %521 = load i64, ptr %arrayidx558, align 8
-  %522 = load ptr, ptr %b.addr, align 8
-  %arrayidx559 = getelementptr inbounds i64, ptr %522, i64 4
-  %523 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %521, ptr elementtype(i64) %arrayidx559) #1, !srcloc !155
-  %asmresult560 = extractvalue { i64, i64 } %523, 0
-  %asmresult561 = extractvalue { i64, i64 } %523, 1
-  store i64 %asmresult560, ptr %t1556, align 8
-  store i64 %asmresult561, ptr %t2557, align 8
-  %524 = load i64, ptr %c2, align 8
-  %525 = load i64, ptr %c3, align 8
-  %526 = load i64, ptr %c1, align 8
-  %527 = load i64, ptr %t1556, align 8
-  %528 = load i64, ptr %t2557, align 8
-  %529 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %527, i64 %528, i32 0, i64 %524, i64 %525, i64 %526) #1, !srcloc !156
-  %asmresult562 = extractvalue { i64, i64, i64 } %529, 0
-  %asmresult563 = extractvalue { i64, i64, i64 } %529, 1
-  %asmresult564 = extractvalue { i64, i64, i64 } %529, 2
-  store i64 %asmresult562, ptr %c2, align 8
-  store i64 %asmresult563, ptr %c3, align 8
-  store i64 %asmresult564, ptr %c1, align 8
-  br label %do.end565
-
-do.end565:                                        ; preds = %do.body555
-  br label %do.body566
-
-do.body566:                                       ; preds = %do.end565
-  %530 = load ptr, ptr %a.addr, align 8
-  %arrayidx569 = getelementptr inbounds i64, ptr %530, i64 5
-  %531 = load i64, ptr %arrayidx569, align 8
-  %532 = load ptr, ptr %b.addr, align 8
-  %arrayidx570 = getelementptr inbounds i64, ptr %532, i64 5
-  %533 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %531, ptr elementtype(i64) %arrayidx570) #1, !srcloc !157
-  %asmresult571 = extractvalue { i64, i64 } %533, 0
-  %asmresult572 = extractvalue { i64, i64 } %533, 1
-  store i64 %asmresult571, ptr %t1567, align 8
-  store i64 %asmresult572, ptr %t2568, align 8
-  %534 = load i64, ptr %c2, align 8
-  %535 = load i64, ptr %c3, align 8
-  %536 = load i64, ptr %c1, align 8
-  %537 = load i64, ptr %t1567, align 8
-  %538 = load i64, ptr %t2568, align 8
-  %539 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %537, i64 %538, i32 0, i64 %534, i64 %535, i64 %536) #1, !srcloc !158
-  %asmresult573 = extractvalue { i64, i64, i64 } %539, 0
-  %asmresult574 = extractvalue { i64, i64, i64 } %539, 1
-  %asmresult575 = extractvalue { i64, i64, i64 } %539, 2
-  store i64 %asmresult573, ptr %c2, align 8
-  store i64 %asmresult574, ptr %c3, align 8
-  store i64 %asmresult575, ptr %c1, align 8
-  br label %do.end576
-
-do.end576:                                        ; preds = %do.body566
-  br label %do.body577
-
-do.body577:                                       ; preds = %do.end576
-  %540 = load ptr, ptr %a.addr, align 8
-  %arrayidx580 = getelementptr inbounds i64, ptr %540, i64 4
-  %541 = load i64, ptr %arrayidx580, align 8
-  %542 = load ptr, ptr %b.addr, align 8
-  %arrayidx581 = getelementptr inbounds i64, ptr %542, i64 6
-  %543 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %541, ptr elementtype(i64) %arrayidx581) #1, !srcloc !159
-  %asmresult582 = extractvalue { i64, i64 } %543, 0
-  %asmresult583 = extractvalue { i64, i64 } %543, 1
-  store i64 %asmresult582, ptr %t1578, align 8
-  store i64 %asmresult583, ptr %t2579, align 8
-  %544 = load i64, ptr %c2, align 8
-  %545 = load i64, ptr %c3, align 8
-  %546 = load i64, ptr %c1, align 8
-  %547 = load i64, ptr %t1578, align 8
-  %548 = load i64, ptr %t2579, align 8
-  %549 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %547, i64 %548, i32 0, i64 %544, i64 %545, i64 %546) #1, !srcloc !160
-  %asmresult584 = extractvalue { i64, i64, i64 } %549, 0
-  %asmresult585 = extractvalue { i64, i64, i64 } %549, 1
-  %asmresult586 = extractvalue { i64, i64, i64 } %549, 2
-  store i64 %asmresult584, ptr %c2, align 8
-  store i64 %asmresult585, ptr %c3, align 8
-  store i64 %asmresult586, ptr %c1, align 8
-  br label %do.end587
-
-do.end587:                                        ; preds = %do.body577
-  br label %do.body588
-
-do.body588:                                       ; preds = %do.end587
-  %550 = load ptr, ptr %a.addr, align 8
-  %arrayidx591 = getelementptr inbounds i64, ptr %550, i64 3
-  %551 = load i64, ptr %arrayidx591, align 8
-  %552 = load ptr, ptr %b.addr, align 8
-  %arrayidx592 = getelementptr inbounds i64, ptr %552, i64 7
-  %553 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %551, ptr elementtype(i64) %arrayidx592) #1, !srcloc !161
-  %asmresult593 = extractvalue { i64, i64 } %553, 0
-  %asmresult594 = extractvalue { i64, i64 } %553, 1
-  store i64 %asmresult593, ptr %t1589, align 8
-  store i64 %asmresult594, ptr %t2590, align 8
-  %554 = load i64, ptr %c2, align 8
-  %555 = load i64, ptr %c3, align 8
-  %556 = load i64, ptr %c1, align 8
-  %557 = load i64, ptr %t1589, align 8
-  %558 = load i64, ptr %t2590, align 8
-  %559 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %557, i64 %558, i32 0, i64 %554, i64 %555, i64 %556) #1, !srcloc !162
-  %asmresult595 = extractvalue { i64, i64, i64 } %559, 0
-  %asmresult596 = extractvalue { i64, i64, i64 } %559, 1
-  %asmresult597 = extractvalue { i64, i64, i64 } %559, 2
-  store i64 %asmresult595, ptr %c2, align 8
-  store i64 %asmresult596, ptr %c3, align 8
-  store i64 %asmresult597, ptr %c1, align 8
-  br label %do.end598
-
-do.end598:                                        ; preds = %do.body588
-  %560 = load i64, ptr %c2, align 8
-  %561 = load ptr, ptr %r.addr, align 8
-  %arrayidx599 = getelementptr inbounds i64, ptr %561, i64 10
-  store i64 %560, ptr %arrayidx599, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body600
-
-do.body600:                                       ; preds = %do.end598
-  %562 = load ptr, ptr %a.addr, align 8
-  %arrayidx603 = getelementptr inbounds i64, ptr %562, i64 4
-  %563 = load i64, ptr %arrayidx603, align 8
-  %564 = load ptr, ptr %b.addr, align 8
-  %arrayidx604 = getelementptr inbounds i64, ptr %564, i64 7
-  %565 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %563, ptr elementtype(i64) %arrayidx604) #1, !srcloc !163
-  %asmresult605 = extractvalue { i64, i64 } %565, 0
-  %asmresult606 = extractvalue { i64, i64 } %565, 1
-  store i64 %asmresult605, ptr %t1601, align 8
-  store i64 %asmresult606, ptr %t2602, align 8
-  %566 = load i64, ptr %c3, align 8
-  %567 = load i64, ptr %c1, align 8
-  %568 = load i64, ptr %c2, align 8
-  %569 = load i64, ptr %t1601, align 8
-  %570 = load i64, ptr %t2602, align 8
-  %571 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %569, i64 %570, i32 0, i64 %566, i64 %567, i64 %568) #1, !srcloc !164
-  %asmresult607 = extractvalue { i64, i64, i64 } %571, 0
-  %asmresult608 = extractvalue { i64, i64, i64 } %571, 1
-  %asmresult609 = extractvalue { i64, i64, i64 } %571, 2
-  store i64 %asmresult607, ptr %c3, align 8
-  store i64 %asmresult608, ptr %c1, align 8
-  store i64 %asmresult609, ptr %c2, align 8
-  br label %do.end610
-
-do.end610:                                        ; preds = %do.body600
-  br label %do.body611
-
-do.body611:                                       ; preds = %do.end610
-  %572 = load ptr, ptr %a.addr, align 8
-  %arrayidx614 = getelementptr inbounds i64, ptr %572, i64 5
-  %573 = load i64, ptr %arrayidx614, align 8
-  %574 = load ptr, ptr %b.addr, align 8
-  %arrayidx615 = getelementptr inbounds i64, ptr %574, i64 6
-  %575 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %573, ptr elementtype(i64) %arrayidx615) #1, !srcloc !165
-  %asmresult616 = extractvalue { i64, i64 } %575, 0
-  %asmresult617 = extractvalue { i64, i64 } %575, 1
-  store i64 %asmresult616, ptr %t1612, align 8
-  store i64 %asmresult617, ptr %t2613, align 8
-  %576 = load i64, ptr %c3, align 8
-  %577 = load i64, ptr %c1, align 8
-  %578 = load i64, ptr %c2, align 8
-  %579 = load i64, ptr %t1612, align 8
-  %580 = load i64, ptr %t2613, align 8
-  %581 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %579, i64 %580, i32 0, i64 %576, i64 %577, i64 %578) #1, !srcloc !166
-  %asmresult618 = extractvalue { i64, i64, i64 } %581, 0
-  %asmresult619 = extractvalue { i64, i64, i64 } %581, 1
-  %asmresult620 = extractvalue { i64, i64, i64 } %581, 2
-  store i64 %asmresult618, ptr %c3, align 8
-  store i64 %asmresult619, ptr %c1, align 8
-  store i64 %asmresult620, ptr %c2, align 8
-  br label %do.end621
-
-do.end621:                                        ; preds = %do.body611
-  br label %do.body622
-
-do.body622:                                       ; preds = %do.end621
-  %582 = load ptr, ptr %a.addr, align 8
-  %arrayidx625 = getelementptr inbounds i64, ptr %582, i64 6
-  %583 = load i64, ptr %arrayidx625, align 8
-  %584 = load ptr, ptr %b.addr, align 8
-  %arrayidx626 = getelementptr inbounds i64, ptr %584, i64 5
-  %585 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %583, ptr elementtype(i64) %arrayidx626) #1, !srcloc !167
-  %asmresult627 = extractvalue { i64, i64 } %585, 0
-  %asmresult628 = extractvalue { i64, i64 } %585, 1
-  store i64 %asmresult627, ptr %t1623, align 8
-  store i64 %asmresult628, ptr %t2624, align 8
-  %586 = load i64, ptr %c3, align 8
-  %587 = load i64, ptr %c1, align 8
-  %588 = load i64, ptr %c2, align 8
-  %589 = load i64, ptr %t1623, align 8
-  %590 = load i64, ptr %t2624, align 8
-  %591 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %589, i64 %590, i32 0, i64 %586, i64 %587, i64 %588) #1, !srcloc !168
-  %asmresult629 = extractvalue { i64, i64, i64 } %591, 0
-  %asmresult630 = extractvalue { i64, i64, i64 } %591, 1
-  %asmresult631 = extractvalue { i64, i64, i64 } %591, 2
-  store i64 %asmresult629, ptr %c3, align 8
-  store i64 %asmresult630, ptr %c1, align 8
-  store i64 %asmresult631, ptr %c2, align 8
-  br label %do.end632
-
-do.end632:                                        ; preds = %do.body622
-  br label %do.body633
-
-do.body633:                                       ; preds = %do.end632
-  %592 = load ptr, ptr %a.addr, align 8
-  %arrayidx636 = getelementptr inbounds i64, ptr %592, i64 7
-  %593 = load i64, ptr %arrayidx636, align 8
-  %594 = load ptr, ptr %b.addr, align 8
-  %arrayidx637 = getelementptr inbounds i64, ptr %594, i64 4
-  %595 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %593, ptr elementtype(i64) %arrayidx637) #1, !srcloc !169
-  %asmresult638 = extractvalue { i64, i64 } %595, 0
-  %asmresult639 = extractvalue { i64, i64 } %595, 1
-  store i64 %asmresult638, ptr %t1634, align 8
-  store i64 %asmresult639, ptr %t2635, align 8
-  %596 = load i64, ptr %c3, align 8
-  %597 = load i64, ptr %c1, align 8
-  %598 = load i64, ptr %c2, align 8
-  %599 = load i64, ptr %t1634, align 8
-  %600 = load i64, ptr %t2635, align 8
-  %601 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %599, i64 %600, i32 0, i64 %596, i64 %597, i64 %598) #1, !srcloc !170
-  %asmresult640 = extractvalue { i64, i64, i64 } %601, 0
-  %asmresult641 = extractvalue { i64, i64, i64 } %601, 1
-  %asmresult642 = extractvalue { i64, i64, i64 } %601, 2
-  store i64 %asmresult640, ptr %c3, align 8
-  store i64 %asmresult641, ptr %c1, align 8
-  store i64 %asmresult642, ptr %c2, align 8
-  br label %do.end643
-
-do.end643:                                        ; preds = %do.body633
-  %602 = load i64, ptr %c3, align 8
-  %603 = load ptr, ptr %r.addr, align 8
-  %arrayidx644 = getelementptr inbounds i64, ptr %603, i64 11
-  store i64 %602, ptr %arrayidx644, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body645
-
-do.body645:                                       ; preds = %do.end643
-  %604 = load ptr, ptr %a.addr, align 8
-  %arrayidx648 = getelementptr inbounds i64, ptr %604, i64 7
-  %605 = load i64, ptr %arrayidx648, align 8
-  %606 = load ptr, ptr %b.addr, align 8
-  %arrayidx649 = getelementptr inbounds i64, ptr %606, i64 5
-  %607 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %605, ptr elementtype(i64) %arrayidx649) #1, !srcloc !171
-  %asmresult650 = extractvalue { i64, i64 } %607, 0
-  %asmresult651 = extractvalue { i64, i64 } %607, 1
-  store i64 %asmresult650, ptr %t1646, align 8
-  store i64 %asmresult651, ptr %t2647, align 8
-  %608 = load i64, ptr %c1, align 8
-  %609 = load i64, ptr %c2, align 8
-  %610 = load i64, ptr %c3, align 8
-  %611 = load i64, ptr %t1646, align 8
-  %612 = load i64, ptr %t2647, align 8
-  %613 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %611, i64 %612, i32 0, i64 %608, i64 %609, i64 %610) #1, !srcloc !172
-  %asmresult652 = extractvalue { i64, i64, i64 } %613, 0
-  %asmresult653 = extractvalue { i64, i64, i64 } %613, 1
-  %asmresult654 = extractvalue { i64, i64, i64 } %613, 2
-  store i64 %asmresult652, ptr %c1, align 8
-  store i64 %asmresult653, ptr %c2, align 8
-  store i64 %asmresult654, ptr %c3, align 8
-  br label %do.end655
-
-do.end655:                                        ; preds = %do.body645
-  br label %do.body656
-
-do.body656:                                       ; preds = %do.end655
-  %614 = load ptr, ptr %a.addr, align 8
-  %arrayidx659 = getelementptr inbounds i64, ptr %614, i64 6
-  %615 = load i64, ptr %arrayidx659, align 8
-  %616 = load ptr, ptr %b.addr, align 8
-  %arrayidx660 = getelementptr inbounds i64, ptr %616, i64 6
-  %617 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %615, ptr elementtype(i64) %arrayidx660) #1, !srcloc !173
-  %asmresult661 = extractvalue { i64, i64 } %617, 0
-  %asmresult662 = extractvalue { i64, i64 } %617, 1
-  store i64 %asmresult661, ptr %t1657, align 8
-  store i64 %asmresult662, ptr %t2658, align 8
-  %618 = load i64, ptr %c1, align 8
-  %619 = load i64, ptr %c2, align 8
-  %620 = load i64, ptr %c3, align 8
-  %621 = load i64, ptr %t1657, align 8
-  %622 = load i64, ptr %t2658, align 8
-  %623 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %621, i64 %622, i32 0, i64 %618, i64 %619, i64 %620) #1, !srcloc !174
-  %asmresult663 = extractvalue { i64, i64, i64 } %623, 0
-  %asmresult664 = extractvalue { i64, i64, i64 } %623, 1
-  %asmresult665 = extractvalue { i64, i64, i64 } %623, 2
-  store i64 %asmresult663, ptr %c1, align 8
-  store i64 %asmresult664, ptr %c2, align 8
-  store i64 %asmresult665, ptr %c3, align 8
-  br label %do.end666
-
-do.end666:                                        ; preds = %do.body656
-  br label %do.body667
-
-do.body667:                                       ; preds = %do.end666
-  %624 = load ptr, ptr %a.addr, align 8
-  %arrayidx670 = getelementptr inbounds i64, ptr %624, i64 5
-  %625 = load i64, ptr %arrayidx670, align 8
-  %626 = load ptr, ptr %b.addr, align 8
-  %arrayidx671 = getelementptr inbounds i64, ptr %626, i64 7
-  %627 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %625, ptr elementtype(i64) %arrayidx671) #1, !srcloc !175
-  %asmresult672 = extractvalue { i64, i64 } %627, 0
-  %asmresult673 = extractvalue { i64, i64 } %627, 1
-  store i64 %asmresult672, ptr %t1668, align 8
-  store i64 %asmresult673, ptr %t2669, align 8
-  %628 = load i64, ptr %c1, align 8
-  %629 = load i64, ptr %c2, align 8
-  %630 = load i64, ptr %c3, align 8
-  %631 = load i64, ptr %t1668, align 8
-  %632 = load i64, ptr %t2669, align 8
-  %633 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %631, i64 %632, i32 0, i64 %628, i64 %629, i64 %630) #1, !srcloc !176
-  %asmresult674 = extractvalue { i64, i64, i64 } %633, 0
-  %asmresult675 = extractvalue { i64, i64, i64 } %633, 1
-  %asmresult676 = extractvalue { i64, i64, i64 } %633, 2
-  store i64 %asmresult674, ptr %c1, align 8
-  store i64 %asmresult675, ptr %c2, align 8
-  store i64 %asmresult676, ptr %c3, align 8
-  br label %do.end677
-
-do.end677:                                        ; preds = %do.body667
-  %634 = load i64, ptr %c1, align 8
-  %635 = load ptr, ptr %r.addr, align 8
-  %arrayidx678 = getelementptr inbounds i64, ptr %635, i64 12
-  store i64 %634, ptr %arrayidx678, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body679
-
-do.body679:                                       ; preds = %do.end677
-  %636 = load ptr, ptr %a.addr, align 8
-  %arrayidx682 = getelementptr inbounds i64, ptr %636, i64 6
-  %637 = load i64, ptr %arrayidx682, align 8
-  %638 = load ptr, ptr %b.addr, align 8
-  %arrayidx683 = getelementptr inbounds i64, ptr %638, i64 7
-  %639 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %637, ptr elementtype(i64) %arrayidx683) #1, !srcloc !177
-  %asmresult684 = extractvalue { i64, i64 } %639, 0
-  %asmresult685 = extractvalue { i64, i64 } %639, 1
-  store i64 %asmresult684, ptr %t1680, align 8
-  store i64 %asmresult685, ptr %t2681, align 8
-  %640 = load i64, ptr %c2, align 8
-  %641 = load i64, ptr %c3, align 8
-  %642 = load i64, ptr %c1, align 8
-  %643 = load i64, ptr %t1680, align 8
-  %644 = load i64, ptr %t2681, align 8
-  %645 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %643, i64 %644, i32 0, i64 %640, i64 %641, i64 %642) #1, !srcloc !178
-  %asmresult686 = extractvalue { i64, i64, i64 } %645, 0
-  %asmresult687 = extractvalue { i64, i64, i64 } %645, 1
-  %asmresult688 = extractvalue { i64, i64, i64 } %645, 2
-  store i64 %asmresult686, ptr %c2, align 8
-  store i64 %asmresult687, ptr %c3, align 8
-  store i64 %asmresult688, ptr %c1, align 8
-  br label %do.end689
-
-do.end689:                                        ; preds = %do.body679
-  br label %do.body690
-
-do.body690:                                       ; preds = %do.end689
-  %646 = load ptr, ptr %a.addr, align 8
-  %arrayidx693 = getelementptr inbounds i64, ptr %646, i64 7
-  %647 = load i64, ptr %arrayidx693, align 8
-  %648 = load ptr, ptr %b.addr, align 8
-  %arrayidx694 = getelementptr inbounds i64, ptr %648, i64 6
-  %649 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %647, ptr elementtype(i64) %arrayidx694) #1, !srcloc !179
-  %asmresult695 = extractvalue { i64, i64 } %649, 0
-  %asmresult696 = extractvalue { i64, i64 } %649, 1
-  store i64 %asmresult695, ptr %t1691, align 8
-  store i64 %asmresult696, ptr %t2692, align 8
-  %650 = load i64, ptr %c2, align 8
-  %651 = load i64, ptr %c3, align 8
-  %652 = load i64, ptr %c1, align 8
-  %653 = load i64, ptr %t1691, align 8
-  %654 = load i64, ptr %t2692, align 8
-  %655 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %653, i64 %654, i32 0, i64 %650, i64 %651, i64 %652) #1, !srcloc !180
-  %asmresult697 = extractvalue { i64, i64, i64 } %655, 0
-  %asmresult698 = extractvalue { i64, i64, i64 } %655, 1
-  %asmresult699 = extractvalue { i64, i64, i64 } %655, 2
-  store i64 %asmresult697, ptr %c2, align 8
-  store i64 %asmresult698, ptr %c3, align 8
-  store i64 %asmresult699, ptr %c1, align 8
-  br label %do.end700
-
-do.end700:                                        ; preds = %do.body690
-  %656 = load i64, ptr %c2, align 8
-  %657 = load ptr, ptr %r.addr, align 8
-  %arrayidx701 = getelementptr inbounds i64, ptr %657, i64 13
-  store i64 %656, ptr %arrayidx701, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body702
-
-do.body702:                                       ; preds = %do.end700
-  %658 = load ptr, ptr %a.addr, align 8
-  %arrayidx705 = getelementptr inbounds i64, ptr %658, i64 7
-  %659 = load i64, ptr %arrayidx705, align 8
-  %660 = load ptr, ptr %b.addr, align 8
-  %arrayidx706 = getelementptr inbounds i64, ptr %660, i64 7
-  %661 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %659, ptr elementtype(i64) %arrayidx706) #1, !srcloc !181
-  %asmresult707 = extractvalue { i64, i64 } %661, 0
-  %asmresult708 = extractvalue { i64, i64 } %661, 1
-  store i64 %asmresult707, ptr %t1703, align 8
-  store i64 %asmresult708, ptr %t2704, align 8
-  %662 = load i64, ptr %c3, align 8
-  %663 = load i64, ptr %c1, align 8
-  %664 = load i64, ptr %c2, align 8
-  %665 = load i64, ptr %t1703, align 8
-  %666 = load i64, ptr %t2704, align 8
-  %667 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %665, i64 %666, i32 0, i64 %662, i64 %663, i64 %664) #1, !srcloc !182
-  %asmresult709 = extractvalue { i64, i64, i64 } %667, 0
-  %asmresult710 = extractvalue { i64, i64, i64 } %667, 1
-  %asmresult711 = extractvalue { i64, i64, i64 } %667, 2
-  store i64 %asmresult709, ptr %c3, align 8
-  store i64 %asmresult710, ptr %c1, align 8
-  store i64 %asmresult711, ptr %c2, align 8
-  br label %do.end712
-
-do.end712:                                        ; preds = %do.body702
-  %668 = load i64, ptr %c3, align 8
-  %669 = load ptr, ptr %r.addr, align 8
-  %arrayidx713 = getelementptr inbounds i64, ptr %669, i64 14
-  store i64 %668, ptr %arrayidx713, align 8
-  %670 = load i64, ptr %c1, align 8
-  %671 = load ptr, ptr %r.addr, align 8
-  %arrayidx714 = getelementptr inbounds i64, ptr %671, i64 15
-  store i64 %670, ptr %arrayidx714, align 8
+define hidden void @bn_mul_comba8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  %26 = alloca i64, align 8
+  %27 = alloca i64, align 8
+  %28 = alloca i64, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca i64, align 8
+  %31 = alloca i64, align 8
+  %32 = alloca i64, align 8
+  %33 = alloca i64, align 8
+  %34 = alloca i64, align 8
+  %35 = alloca i64, align 8
+  %36 = alloca i64, align 8
+  %37 = alloca i64, align 8
+  %38 = alloca i64, align 8
+  %39 = alloca i64, align 8
+  %40 = alloca i64, align 8
+  %41 = alloca i64, align 8
+  %42 = alloca i64, align 8
+  %43 = alloca i64, align 8
+  %44 = alloca i64, align 8
+  %45 = alloca i64, align 8
+  %46 = alloca i64, align 8
+  %47 = alloca i64, align 8
+  %48 = alloca i64, align 8
+  %49 = alloca i64, align 8
+  %50 = alloca i64, align 8
+  %51 = alloca i64, align 8
+  %52 = alloca i64, align 8
+  %53 = alloca i64, align 8
+  %54 = alloca i64, align 8
+  %55 = alloca i64, align 8
+  %56 = alloca i64, align 8
+  %57 = alloca i64, align 8
+  %58 = alloca i64, align 8
+  %59 = alloca i64, align 8
+  %60 = alloca i64, align 8
+  %61 = alloca i64, align 8
+  %62 = alloca i64, align 8
+  %63 = alloca i64, align 8
+  %64 = alloca i64, align 8
+  %65 = alloca i64, align 8
+  %66 = alloca i64, align 8
+  %67 = alloca i64, align 8
+  %68 = alloca i64, align 8
+  %69 = alloca i64, align 8
+  %70 = alloca i64, align 8
+  %71 = alloca i64, align 8
+  %72 = alloca i64, align 8
+  %73 = alloca i64, align 8
+  %74 = alloca i64, align 8
+  %75 = alloca i64, align 8
+  %76 = alloca i64, align 8
+  %77 = alloca i64, align 8
+  %78 = alloca i64, align 8
+  %79 = alloca i64, align 8
+  %80 = alloca i64, align 8
+  %81 = alloca i64, align 8
+  %82 = alloca i64, align 8
+  %83 = alloca i64, align 8
+  %84 = alloca i64, align 8
+  %85 = alloca i64, align 8
+  %86 = alloca i64, align 8
+  %87 = alloca i64, align 8
+  %88 = alloca i64, align 8
+  %89 = alloca i64, align 8
+  %90 = alloca i64, align 8
+  %91 = alloca i64, align 8
+  %92 = alloca i64, align 8
+  %93 = alloca i64, align 8
+  %94 = alloca i64, align 8
+  %95 = alloca i64, align 8
+  %96 = alloca i64, align 8
+  %97 = alloca i64, align 8
+  %98 = alloca i64, align 8
+  %99 = alloca i64, align 8
+  %100 = alloca i64, align 8
+  %101 = alloca i64, align 8
+  %102 = alloca i64, align 8
+  %103 = alloca i64, align 8
+  %104 = alloca i64, align 8
+  %105 = alloca i64, align 8
+  %106 = alloca i64, align 8
+  %107 = alloca i64, align 8
+  %108 = alloca i64, align 8
+  %109 = alloca i64, align 8
+  %110 = alloca i64, align 8
+  %111 = alloca i64, align 8
+  %112 = alloca i64, align 8
+  %113 = alloca i64, align 8
+  %114 = alloca i64, align 8
+  %115 = alloca i64, align 8
+  %116 = alloca i64, align 8
+  %117 = alloca i64, align 8
+  %118 = alloca i64, align 8
+  %119 = alloca i64, align 8
+  %120 = alloca i64, align 8
+  %121 = alloca i64, align 8
+  %122 = alloca i64, align 8
+  %123 = alloca i64, align 8
+  %124 = alloca i64, align 8
+  %125 = alloca i64, align 8
+  %126 = alloca i64, align 8
+  %127 = alloca i64, align 8
+  %128 = alloca i64, align 8
+  %129 = alloca i64, align 8
+  %130 = alloca i64, align 8
+  %131 = alloca i64, align 8
+  %132 = alloca i64, align 8
+  %133 = alloca i64, align 8
+  %134 = alloca i64, align 8
+  %135 = alloca i64, align 8
+  %136 = alloca i64, align 8
+  %137 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !6
+  store ptr %2, ptr %6, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #2
+  store i64 0, ptr %7, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  store i64 0, ptr %9, align 8, !tbaa !13
+  br label %138
+
+138:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #2
+  %139 = load ptr, ptr %5, align 8, !tbaa !6
+  %140 = getelementptr inbounds i64, ptr %139, i64 0
+  %141 = load i64, ptr %140, align 8, !tbaa !13
+  %142 = load ptr, ptr %6, align 8, !tbaa !6
+  %143 = getelementptr inbounds i64, ptr %142, i64 0
+  %144 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %141, ptr elementtype(i64) %143) #3, !srcloc !63
+  %145 = extractvalue { i64, i64 } %144, 0
+  %146 = extractvalue { i64, i64 } %144, 1
+  store i64 %145, ptr %10, align 8, !tbaa !13
+  store i64 %146, ptr %11, align 8, !tbaa !13
+  %147 = load i64, ptr %7, align 8, !tbaa !13
+  %148 = load i64, ptr %8, align 8, !tbaa !13
+  %149 = load i64, ptr %9, align 8, !tbaa !13
+  %150 = load i64, ptr %10, align 8, !tbaa !13
+  %151 = load i64, ptr %11, align 8, !tbaa !13
+  %152 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %150, i64 %151, i32 0, i64 %147, i64 %148, i64 %149) #3, !srcloc !64
+  %153 = extractvalue { i64, i64, i64 } %152, 0
+  %154 = extractvalue { i64, i64, i64 } %152, 1
+  %155 = extractvalue { i64, i64, i64 } %152, 2
+  store i64 %153, ptr %7, align 8, !tbaa !13
+  store i64 %154, ptr %8, align 8, !tbaa !13
+  store i64 %155, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  br label %156
+
+156:                                              ; preds = %138
+  br label %157
+
+157:                                              ; preds = %156
+  %158 = load i64, ptr %7, align 8, !tbaa !13
+  %159 = load ptr, ptr %4, align 8, !tbaa !6
+  %160 = getelementptr inbounds i64, ptr %159, i64 0
+  store i64 %158, ptr %160, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %161
+
+161:                                              ; preds = %157
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #2
+  %162 = load ptr, ptr %5, align 8, !tbaa !6
+  %163 = getelementptr inbounds i64, ptr %162, i64 0
+  %164 = load i64, ptr %163, align 8, !tbaa !13
+  %165 = load ptr, ptr %6, align 8, !tbaa !6
+  %166 = getelementptr inbounds i64, ptr %165, i64 1
+  %167 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %164, ptr elementtype(i64) %166) #3, !srcloc !65
+  %168 = extractvalue { i64, i64 } %167, 0
+  %169 = extractvalue { i64, i64 } %167, 1
+  store i64 %168, ptr %12, align 8, !tbaa !13
+  store i64 %169, ptr %13, align 8, !tbaa !13
+  %170 = load i64, ptr %8, align 8, !tbaa !13
+  %171 = load i64, ptr %9, align 8, !tbaa !13
+  %172 = load i64, ptr %7, align 8, !tbaa !13
+  %173 = load i64, ptr %12, align 8, !tbaa !13
+  %174 = load i64, ptr %13, align 8, !tbaa !13
+  %175 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %173, i64 %174, i32 0, i64 %170, i64 %171, i64 %172) #3, !srcloc !66
+  %176 = extractvalue { i64, i64, i64 } %175, 0
+  %177 = extractvalue { i64, i64, i64 } %175, 1
+  %178 = extractvalue { i64, i64, i64 } %175, 2
+  store i64 %176, ptr %8, align 8, !tbaa !13
+  store i64 %177, ptr %9, align 8, !tbaa !13
+  store i64 %178, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #2
+  br label %179
+
+179:                                              ; preds = %161
+  br label %180
+
+180:                                              ; preds = %179
+  br label %181
+
+181:                                              ; preds = %180
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #2
+  %182 = load ptr, ptr %5, align 8, !tbaa !6
+  %183 = getelementptr inbounds i64, ptr %182, i64 1
+  %184 = load i64, ptr %183, align 8, !tbaa !13
+  %185 = load ptr, ptr %6, align 8, !tbaa !6
+  %186 = getelementptr inbounds i64, ptr %185, i64 0
+  %187 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %184, ptr elementtype(i64) %186) #3, !srcloc !67
+  %188 = extractvalue { i64, i64 } %187, 0
+  %189 = extractvalue { i64, i64 } %187, 1
+  store i64 %188, ptr %14, align 8, !tbaa !13
+  store i64 %189, ptr %15, align 8, !tbaa !13
+  %190 = load i64, ptr %8, align 8, !tbaa !13
+  %191 = load i64, ptr %9, align 8, !tbaa !13
+  %192 = load i64, ptr %7, align 8, !tbaa !13
+  %193 = load i64, ptr %14, align 8, !tbaa !13
+  %194 = load i64, ptr %15, align 8, !tbaa !13
+  %195 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %193, i64 %194, i32 0, i64 %190, i64 %191, i64 %192) #3, !srcloc !68
+  %196 = extractvalue { i64, i64, i64 } %195, 0
+  %197 = extractvalue { i64, i64, i64 } %195, 1
+  %198 = extractvalue { i64, i64, i64 } %195, 2
+  store i64 %196, ptr %8, align 8, !tbaa !13
+  store i64 %197, ptr %9, align 8, !tbaa !13
+  store i64 %198, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #2
+  br label %199
+
+199:                                              ; preds = %181
+  br label %200
+
+200:                                              ; preds = %199
+  %201 = load i64, ptr %8, align 8, !tbaa !13
+  %202 = load ptr, ptr %4, align 8, !tbaa !6
+  %203 = getelementptr inbounds i64, ptr %202, i64 1
+  store i64 %201, ptr %203, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %204
+
+204:                                              ; preds = %200
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #2
+  %205 = load ptr, ptr %5, align 8, !tbaa !6
+  %206 = getelementptr inbounds i64, ptr %205, i64 2
+  %207 = load i64, ptr %206, align 8, !tbaa !13
+  %208 = load ptr, ptr %6, align 8, !tbaa !6
+  %209 = getelementptr inbounds i64, ptr %208, i64 0
+  %210 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %207, ptr elementtype(i64) %209) #3, !srcloc !69
+  %211 = extractvalue { i64, i64 } %210, 0
+  %212 = extractvalue { i64, i64 } %210, 1
+  store i64 %211, ptr %16, align 8, !tbaa !13
+  store i64 %212, ptr %17, align 8, !tbaa !13
+  %213 = load i64, ptr %9, align 8, !tbaa !13
+  %214 = load i64, ptr %7, align 8, !tbaa !13
+  %215 = load i64, ptr %8, align 8, !tbaa !13
+  %216 = load i64, ptr %16, align 8, !tbaa !13
+  %217 = load i64, ptr %17, align 8, !tbaa !13
+  %218 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %216, i64 %217, i32 0, i64 %213, i64 %214, i64 %215) #3, !srcloc !70
+  %219 = extractvalue { i64, i64, i64 } %218, 0
+  %220 = extractvalue { i64, i64, i64 } %218, 1
+  %221 = extractvalue { i64, i64, i64 } %218, 2
+  store i64 %219, ptr %9, align 8, !tbaa !13
+  store i64 %220, ptr %7, align 8, !tbaa !13
+  store i64 %221, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #2
+  br label %222
+
+222:                                              ; preds = %204
+  br label %223
+
+223:                                              ; preds = %222
+  br label %224
+
+224:                                              ; preds = %223
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #2
+  %225 = load ptr, ptr %5, align 8, !tbaa !6
+  %226 = getelementptr inbounds i64, ptr %225, i64 1
+  %227 = load i64, ptr %226, align 8, !tbaa !13
+  %228 = load ptr, ptr %6, align 8, !tbaa !6
+  %229 = getelementptr inbounds i64, ptr %228, i64 1
+  %230 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %227, ptr elementtype(i64) %229) #3, !srcloc !71
+  %231 = extractvalue { i64, i64 } %230, 0
+  %232 = extractvalue { i64, i64 } %230, 1
+  store i64 %231, ptr %18, align 8, !tbaa !13
+  store i64 %232, ptr %19, align 8, !tbaa !13
+  %233 = load i64, ptr %9, align 8, !tbaa !13
+  %234 = load i64, ptr %7, align 8, !tbaa !13
+  %235 = load i64, ptr %8, align 8, !tbaa !13
+  %236 = load i64, ptr %18, align 8, !tbaa !13
+  %237 = load i64, ptr %19, align 8, !tbaa !13
+  %238 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %236, i64 %237, i32 0, i64 %233, i64 %234, i64 %235) #3, !srcloc !72
+  %239 = extractvalue { i64, i64, i64 } %238, 0
+  %240 = extractvalue { i64, i64, i64 } %238, 1
+  %241 = extractvalue { i64, i64, i64 } %238, 2
+  store i64 %239, ptr %9, align 8, !tbaa !13
+  store i64 %240, ptr %7, align 8, !tbaa !13
+  store i64 %241, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #2
+  br label %242
+
+242:                                              ; preds = %224
+  br label %243
+
+243:                                              ; preds = %242
+  br label %244
+
+244:                                              ; preds = %243
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #2
+  %245 = load ptr, ptr %5, align 8, !tbaa !6
+  %246 = getelementptr inbounds i64, ptr %245, i64 0
+  %247 = load i64, ptr %246, align 8, !tbaa !13
+  %248 = load ptr, ptr %6, align 8, !tbaa !6
+  %249 = getelementptr inbounds i64, ptr %248, i64 2
+  %250 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %247, ptr elementtype(i64) %249) #3, !srcloc !73
+  %251 = extractvalue { i64, i64 } %250, 0
+  %252 = extractvalue { i64, i64 } %250, 1
+  store i64 %251, ptr %20, align 8, !tbaa !13
+  store i64 %252, ptr %21, align 8, !tbaa !13
+  %253 = load i64, ptr %9, align 8, !tbaa !13
+  %254 = load i64, ptr %7, align 8, !tbaa !13
+  %255 = load i64, ptr %8, align 8, !tbaa !13
+  %256 = load i64, ptr %20, align 8, !tbaa !13
+  %257 = load i64, ptr %21, align 8, !tbaa !13
+  %258 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %256, i64 %257, i32 0, i64 %253, i64 %254, i64 %255) #3, !srcloc !74
+  %259 = extractvalue { i64, i64, i64 } %258, 0
+  %260 = extractvalue { i64, i64, i64 } %258, 1
+  %261 = extractvalue { i64, i64, i64 } %258, 2
+  store i64 %259, ptr %9, align 8, !tbaa !13
+  store i64 %260, ptr %7, align 8, !tbaa !13
+  store i64 %261, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #2
+  br label %262
+
+262:                                              ; preds = %244
+  br label %263
+
+263:                                              ; preds = %262
+  %264 = load i64, ptr %9, align 8, !tbaa !13
+  %265 = load ptr, ptr %4, align 8, !tbaa !6
+  %266 = getelementptr inbounds i64, ptr %265, i64 2
+  store i64 %264, ptr %266, align 8, !tbaa !13
+  store i64 0, ptr %9, align 8, !tbaa !13
+  br label %267
+
+267:                                              ; preds = %263
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #2
+  %268 = load ptr, ptr %5, align 8, !tbaa !6
+  %269 = getelementptr inbounds i64, ptr %268, i64 0
+  %270 = load i64, ptr %269, align 8, !tbaa !13
+  %271 = load ptr, ptr %6, align 8, !tbaa !6
+  %272 = getelementptr inbounds i64, ptr %271, i64 3
+  %273 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %270, ptr elementtype(i64) %272) #3, !srcloc !75
+  %274 = extractvalue { i64, i64 } %273, 0
+  %275 = extractvalue { i64, i64 } %273, 1
+  store i64 %274, ptr %22, align 8, !tbaa !13
+  store i64 %275, ptr %23, align 8, !tbaa !13
+  %276 = load i64, ptr %7, align 8, !tbaa !13
+  %277 = load i64, ptr %8, align 8, !tbaa !13
+  %278 = load i64, ptr %9, align 8, !tbaa !13
+  %279 = load i64, ptr %22, align 8, !tbaa !13
+  %280 = load i64, ptr %23, align 8, !tbaa !13
+  %281 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %279, i64 %280, i32 0, i64 %276, i64 %277, i64 %278) #3, !srcloc !76
+  %282 = extractvalue { i64, i64, i64 } %281, 0
+  %283 = extractvalue { i64, i64, i64 } %281, 1
+  %284 = extractvalue { i64, i64, i64 } %281, 2
+  store i64 %282, ptr %7, align 8, !tbaa !13
+  store i64 %283, ptr %8, align 8, !tbaa !13
+  store i64 %284, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #2
+  br label %285
+
+285:                                              ; preds = %267
+  br label %286
+
+286:                                              ; preds = %285
+  br label %287
+
+287:                                              ; preds = %286
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #2
+  %288 = load ptr, ptr %5, align 8, !tbaa !6
+  %289 = getelementptr inbounds i64, ptr %288, i64 1
+  %290 = load i64, ptr %289, align 8, !tbaa !13
+  %291 = load ptr, ptr %6, align 8, !tbaa !6
+  %292 = getelementptr inbounds i64, ptr %291, i64 2
+  %293 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %290, ptr elementtype(i64) %292) #3, !srcloc !77
+  %294 = extractvalue { i64, i64 } %293, 0
+  %295 = extractvalue { i64, i64 } %293, 1
+  store i64 %294, ptr %24, align 8, !tbaa !13
+  store i64 %295, ptr %25, align 8, !tbaa !13
+  %296 = load i64, ptr %7, align 8, !tbaa !13
+  %297 = load i64, ptr %8, align 8, !tbaa !13
+  %298 = load i64, ptr %9, align 8, !tbaa !13
+  %299 = load i64, ptr %24, align 8, !tbaa !13
+  %300 = load i64, ptr %25, align 8, !tbaa !13
+  %301 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %299, i64 %300, i32 0, i64 %296, i64 %297, i64 %298) #3, !srcloc !78
+  %302 = extractvalue { i64, i64, i64 } %301, 0
+  %303 = extractvalue { i64, i64, i64 } %301, 1
+  %304 = extractvalue { i64, i64, i64 } %301, 2
+  store i64 %302, ptr %7, align 8, !tbaa !13
+  store i64 %303, ptr %8, align 8, !tbaa !13
+  store i64 %304, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #2
+  br label %305
+
+305:                                              ; preds = %287
+  br label %306
+
+306:                                              ; preds = %305
+  br label %307
+
+307:                                              ; preds = %306
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #2
+  %308 = load ptr, ptr %5, align 8, !tbaa !6
+  %309 = getelementptr inbounds i64, ptr %308, i64 2
+  %310 = load i64, ptr %309, align 8, !tbaa !13
+  %311 = load ptr, ptr %6, align 8, !tbaa !6
+  %312 = getelementptr inbounds i64, ptr %311, i64 1
+  %313 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %310, ptr elementtype(i64) %312) #3, !srcloc !79
+  %314 = extractvalue { i64, i64 } %313, 0
+  %315 = extractvalue { i64, i64 } %313, 1
+  store i64 %314, ptr %26, align 8, !tbaa !13
+  store i64 %315, ptr %27, align 8, !tbaa !13
+  %316 = load i64, ptr %7, align 8, !tbaa !13
+  %317 = load i64, ptr %8, align 8, !tbaa !13
+  %318 = load i64, ptr %9, align 8, !tbaa !13
+  %319 = load i64, ptr %26, align 8, !tbaa !13
+  %320 = load i64, ptr %27, align 8, !tbaa !13
+  %321 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %319, i64 %320, i32 0, i64 %316, i64 %317, i64 %318) #3, !srcloc !80
+  %322 = extractvalue { i64, i64, i64 } %321, 0
+  %323 = extractvalue { i64, i64, i64 } %321, 1
+  %324 = extractvalue { i64, i64, i64 } %321, 2
+  store i64 %322, ptr %7, align 8, !tbaa !13
+  store i64 %323, ptr %8, align 8, !tbaa !13
+  store i64 %324, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #2
+  br label %325
+
+325:                                              ; preds = %307
+  br label %326
+
+326:                                              ; preds = %325
+  br label %327
+
+327:                                              ; preds = %326
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #2
+  %328 = load ptr, ptr %5, align 8, !tbaa !6
+  %329 = getelementptr inbounds i64, ptr %328, i64 3
+  %330 = load i64, ptr %329, align 8, !tbaa !13
+  %331 = load ptr, ptr %6, align 8, !tbaa !6
+  %332 = getelementptr inbounds i64, ptr %331, i64 0
+  %333 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %330, ptr elementtype(i64) %332) #3, !srcloc !81
+  %334 = extractvalue { i64, i64 } %333, 0
+  %335 = extractvalue { i64, i64 } %333, 1
+  store i64 %334, ptr %28, align 8, !tbaa !13
+  store i64 %335, ptr %29, align 8, !tbaa !13
+  %336 = load i64, ptr %7, align 8, !tbaa !13
+  %337 = load i64, ptr %8, align 8, !tbaa !13
+  %338 = load i64, ptr %9, align 8, !tbaa !13
+  %339 = load i64, ptr %28, align 8, !tbaa !13
+  %340 = load i64, ptr %29, align 8, !tbaa !13
+  %341 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %339, i64 %340, i32 0, i64 %336, i64 %337, i64 %338) #3, !srcloc !82
+  %342 = extractvalue { i64, i64, i64 } %341, 0
+  %343 = extractvalue { i64, i64, i64 } %341, 1
+  %344 = extractvalue { i64, i64, i64 } %341, 2
+  store i64 %342, ptr %7, align 8, !tbaa !13
+  store i64 %343, ptr %8, align 8, !tbaa !13
+  store i64 %344, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #2
+  br label %345
+
+345:                                              ; preds = %327
+  br label %346
+
+346:                                              ; preds = %345
+  %347 = load i64, ptr %7, align 8, !tbaa !13
+  %348 = load ptr, ptr %4, align 8, !tbaa !6
+  %349 = getelementptr inbounds i64, ptr %348, i64 3
+  store i64 %347, ptr %349, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %350
+
+350:                                              ; preds = %346
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #2
+  %351 = load ptr, ptr %5, align 8, !tbaa !6
+  %352 = getelementptr inbounds i64, ptr %351, i64 4
+  %353 = load i64, ptr %352, align 8, !tbaa !13
+  %354 = load ptr, ptr %6, align 8, !tbaa !6
+  %355 = getelementptr inbounds i64, ptr %354, i64 0
+  %356 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %353, ptr elementtype(i64) %355) #3, !srcloc !83
+  %357 = extractvalue { i64, i64 } %356, 0
+  %358 = extractvalue { i64, i64 } %356, 1
+  store i64 %357, ptr %30, align 8, !tbaa !13
+  store i64 %358, ptr %31, align 8, !tbaa !13
+  %359 = load i64, ptr %8, align 8, !tbaa !13
+  %360 = load i64, ptr %9, align 8, !tbaa !13
+  %361 = load i64, ptr %7, align 8, !tbaa !13
+  %362 = load i64, ptr %30, align 8, !tbaa !13
+  %363 = load i64, ptr %31, align 8, !tbaa !13
+  %364 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %362, i64 %363, i32 0, i64 %359, i64 %360, i64 %361) #3, !srcloc !84
+  %365 = extractvalue { i64, i64, i64 } %364, 0
+  %366 = extractvalue { i64, i64, i64 } %364, 1
+  %367 = extractvalue { i64, i64, i64 } %364, 2
+  store i64 %365, ptr %8, align 8, !tbaa !13
+  store i64 %366, ptr %9, align 8, !tbaa !13
+  store i64 %367, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #2
+  br label %368
+
+368:                                              ; preds = %350
+  br label %369
+
+369:                                              ; preds = %368
+  br label %370
+
+370:                                              ; preds = %369
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #2
+  %371 = load ptr, ptr %5, align 8, !tbaa !6
+  %372 = getelementptr inbounds i64, ptr %371, i64 3
+  %373 = load i64, ptr %372, align 8, !tbaa !13
+  %374 = load ptr, ptr %6, align 8, !tbaa !6
+  %375 = getelementptr inbounds i64, ptr %374, i64 1
+  %376 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %373, ptr elementtype(i64) %375) #3, !srcloc !85
+  %377 = extractvalue { i64, i64 } %376, 0
+  %378 = extractvalue { i64, i64 } %376, 1
+  store i64 %377, ptr %32, align 8, !tbaa !13
+  store i64 %378, ptr %33, align 8, !tbaa !13
+  %379 = load i64, ptr %8, align 8, !tbaa !13
+  %380 = load i64, ptr %9, align 8, !tbaa !13
+  %381 = load i64, ptr %7, align 8, !tbaa !13
+  %382 = load i64, ptr %32, align 8, !tbaa !13
+  %383 = load i64, ptr %33, align 8, !tbaa !13
+  %384 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %382, i64 %383, i32 0, i64 %379, i64 %380, i64 %381) #3, !srcloc !86
+  %385 = extractvalue { i64, i64, i64 } %384, 0
+  %386 = extractvalue { i64, i64, i64 } %384, 1
+  %387 = extractvalue { i64, i64, i64 } %384, 2
+  store i64 %385, ptr %8, align 8, !tbaa !13
+  store i64 %386, ptr %9, align 8, !tbaa !13
+  store i64 %387, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #2
+  br label %388
+
+388:                                              ; preds = %370
+  br label %389
+
+389:                                              ; preds = %388
+  br label %390
+
+390:                                              ; preds = %389
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #2
+  %391 = load ptr, ptr %5, align 8, !tbaa !6
+  %392 = getelementptr inbounds i64, ptr %391, i64 2
+  %393 = load i64, ptr %392, align 8, !tbaa !13
+  %394 = load ptr, ptr %6, align 8, !tbaa !6
+  %395 = getelementptr inbounds i64, ptr %394, i64 2
+  %396 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %393, ptr elementtype(i64) %395) #3, !srcloc !87
+  %397 = extractvalue { i64, i64 } %396, 0
+  %398 = extractvalue { i64, i64 } %396, 1
+  store i64 %397, ptr %34, align 8, !tbaa !13
+  store i64 %398, ptr %35, align 8, !tbaa !13
+  %399 = load i64, ptr %8, align 8, !tbaa !13
+  %400 = load i64, ptr %9, align 8, !tbaa !13
+  %401 = load i64, ptr %7, align 8, !tbaa !13
+  %402 = load i64, ptr %34, align 8, !tbaa !13
+  %403 = load i64, ptr %35, align 8, !tbaa !13
+  %404 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %402, i64 %403, i32 0, i64 %399, i64 %400, i64 %401) #3, !srcloc !88
+  %405 = extractvalue { i64, i64, i64 } %404, 0
+  %406 = extractvalue { i64, i64, i64 } %404, 1
+  %407 = extractvalue { i64, i64, i64 } %404, 2
+  store i64 %405, ptr %8, align 8, !tbaa !13
+  store i64 %406, ptr %9, align 8, !tbaa !13
+  store i64 %407, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #2
+  br label %408
+
+408:                                              ; preds = %390
+  br label %409
+
+409:                                              ; preds = %408
+  br label %410
+
+410:                                              ; preds = %409
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #2
+  %411 = load ptr, ptr %5, align 8, !tbaa !6
+  %412 = getelementptr inbounds i64, ptr %411, i64 1
+  %413 = load i64, ptr %412, align 8, !tbaa !13
+  %414 = load ptr, ptr %6, align 8, !tbaa !6
+  %415 = getelementptr inbounds i64, ptr %414, i64 3
+  %416 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %413, ptr elementtype(i64) %415) #3, !srcloc !89
+  %417 = extractvalue { i64, i64 } %416, 0
+  %418 = extractvalue { i64, i64 } %416, 1
+  store i64 %417, ptr %36, align 8, !tbaa !13
+  store i64 %418, ptr %37, align 8, !tbaa !13
+  %419 = load i64, ptr %8, align 8, !tbaa !13
+  %420 = load i64, ptr %9, align 8, !tbaa !13
+  %421 = load i64, ptr %7, align 8, !tbaa !13
+  %422 = load i64, ptr %36, align 8, !tbaa !13
+  %423 = load i64, ptr %37, align 8, !tbaa !13
+  %424 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %422, i64 %423, i32 0, i64 %419, i64 %420, i64 %421) #3, !srcloc !90
+  %425 = extractvalue { i64, i64, i64 } %424, 0
+  %426 = extractvalue { i64, i64, i64 } %424, 1
+  %427 = extractvalue { i64, i64, i64 } %424, 2
+  store i64 %425, ptr %8, align 8, !tbaa !13
+  store i64 %426, ptr %9, align 8, !tbaa !13
+  store i64 %427, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #2
+  br label %428
+
+428:                                              ; preds = %410
+  br label %429
+
+429:                                              ; preds = %428
+  br label %430
+
+430:                                              ; preds = %429
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #2
+  %431 = load ptr, ptr %5, align 8, !tbaa !6
+  %432 = getelementptr inbounds i64, ptr %431, i64 0
+  %433 = load i64, ptr %432, align 8, !tbaa !13
+  %434 = load ptr, ptr %6, align 8, !tbaa !6
+  %435 = getelementptr inbounds i64, ptr %434, i64 4
+  %436 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %433, ptr elementtype(i64) %435) #3, !srcloc !91
+  %437 = extractvalue { i64, i64 } %436, 0
+  %438 = extractvalue { i64, i64 } %436, 1
+  store i64 %437, ptr %38, align 8, !tbaa !13
+  store i64 %438, ptr %39, align 8, !tbaa !13
+  %439 = load i64, ptr %8, align 8, !tbaa !13
+  %440 = load i64, ptr %9, align 8, !tbaa !13
+  %441 = load i64, ptr %7, align 8, !tbaa !13
+  %442 = load i64, ptr %38, align 8, !tbaa !13
+  %443 = load i64, ptr %39, align 8, !tbaa !13
+  %444 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %442, i64 %443, i32 0, i64 %439, i64 %440, i64 %441) #3, !srcloc !92
+  %445 = extractvalue { i64, i64, i64 } %444, 0
+  %446 = extractvalue { i64, i64, i64 } %444, 1
+  %447 = extractvalue { i64, i64, i64 } %444, 2
+  store i64 %445, ptr %8, align 8, !tbaa !13
+  store i64 %446, ptr %9, align 8, !tbaa !13
+  store i64 %447, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #2
+  br label %448
+
+448:                                              ; preds = %430
+  br label %449
+
+449:                                              ; preds = %448
+  %450 = load i64, ptr %8, align 8, !tbaa !13
+  %451 = load ptr, ptr %4, align 8, !tbaa !6
+  %452 = getelementptr inbounds i64, ptr %451, i64 4
+  store i64 %450, ptr %452, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %453
+
+453:                                              ; preds = %449
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #2
+  %454 = load ptr, ptr %5, align 8, !tbaa !6
+  %455 = getelementptr inbounds i64, ptr %454, i64 0
+  %456 = load i64, ptr %455, align 8, !tbaa !13
+  %457 = load ptr, ptr %6, align 8, !tbaa !6
+  %458 = getelementptr inbounds i64, ptr %457, i64 5
+  %459 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %456, ptr elementtype(i64) %458) #3, !srcloc !93
+  %460 = extractvalue { i64, i64 } %459, 0
+  %461 = extractvalue { i64, i64 } %459, 1
+  store i64 %460, ptr %40, align 8, !tbaa !13
+  store i64 %461, ptr %41, align 8, !tbaa !13
+  %462 = load i64, ptr %9, align 8, !tbaa !13
+  %463 = load i64, ptr %7, align 8, !tbaa !13
+  %464 = load i64, ptr %8, align 8, !tbaa !13
+  %465 = load i64, ptr %40, align 8, !tbaa !13
+  %466 = load i64, ptr %41, align 8, !tbaa !13
+  %467 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %465, i64 %466, i32 0, i64 %462, i64 %463, i64 %464) #3, !srcloc !94
+  %468 = extractvalue { i64, i64, i64 } %467, 0
+  %469 = extractvalue { i64, i64, i64 } %467, 1
+  %470 = extractvalue { i64, i64, i64 } %467, 2
+  store i64 %468, ptr %9, align 8, !tbaa !13
+  store i64 %469, ptr %7, align 8, !tbaa !13
+  store i64 %470, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #2
+  br label %471
+
+471:                                              ; preds = %453
+  br label %472
+
+472:                                              ; preds = %471
+  br label %473
+
+473:                                              ; preds = %472
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #2
+  %474 = load ptr, ptr %5, align 8, !tbaa !6
+  %475 = getelementptr inbounds i64, ptr %474, i64 1
+  %476 = load i64, ptr %475, align 8, !tbaa !13
+  %477 = load ptr, ptr %6, align 8, !tbaa !6
+  %478 = getelementptr inbounds i64, ptr %477, i64 4
+  %479 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %476, ptr elementtype(i64) %478) #3, !srcloc !95
+  %480 = extractvalue { i64, i64 } %479, 0
+  %481 = extractvalue { i64, i64 } %479, 1
+  store i64 %480, ptr %42, align 8, !tbaa !13
+  store i64 %481, ptr %43, align 8, !tbaa !13
+  %482 = load i64, ptr %9, align 8, !tbaa !13
+  %483 = load i64, ptr %7, align 8, !tbaa !13
+  %484 = load i64, ptr %8, align 8, !tbaa !13
+  %485 = load i64, ptr %42, align 8, !tbaa !13
+  %486 = load i64, ptr %43, align 8, !tbaa !13
+  %487 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %485, i64 %486, i32 0, i64 %482, i64 %483, i64 %484) #3, !srcloc !96
+  %488 = extractvalue { i64, i64, i64 } %487, 0
+  %489 = extractvalue { i64, i64, i64 } %487, 1
+  %490 = extractvalue { i64, i64, i64 } %487, 2
+  store i64 %488, ptr %9, align 8, !tbaa !13
+  store i64 %489, ptr %7, align 8, !tbaa !13
+  store i64 %490, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #2
+  br label %491
+
+491:                                              ; preds = %473
+  br label %492
+
+492:                                              ; preds = %491
+  br label %493
+
+493:                                              ; preds = %492
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #2
+  %494 = load ptr, ptr %5, align 8, !tbaa !6
+  %495 = getelementptr inbounds i64, ptr %494, i64 2
+  %496 = load i64, ptr %495, align 8, !tbaa !13
+  %497 = load ptr, ptr %6, align 8, !tbaa !6
+  %498 = getelementptr inbounds i64, ptr %497, i64 3
+  %499 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %496, ptr elementtype(i64) %498) #3, !srcloc !97
+  %500 = extractvalue { i64, i64 } %499, 0
+  %501 = extractvalue { i64, i64 } %499, 1
+  store i64 %500, ptr %44, align 8, !tbaa !13
+  store i64 %501, ptr %45, align 8, !tbaa !13
+  %502 = load i64, ptr %9, align 8, !tbaa !13
+  %503 = load i64, ptr %7, align 8, !tbaa !13
+  %504 = load i64, ptr %8, align 8, !tbaa !13
+  %505 = load i64, ptr %44, align 8, !tbaa !13
+  %506 = load i64, ptr %45, align 8, !tbaa !13
+  %507 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %505, i64 %506, i32 0, i64 %502, i64 %503, i64 %504) #3, !srcloc !98
+  %508 = extractvalue { i64, i64, i64 } %507, 0
+  %509 = extractvalue { i64, i64, i64 } %507, 1
+  %510 = extractvalue { i64, i64, i64 } %507, 2
+  store i64 %508, ptr %9, align 8, !tbaa !13
+  store i64 %509, ptr %7, align 8, !tbaa !13
+  store i64 %510, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #2
+  br label %511
+
+511:                                              ; preds = %493
+  br label %512
+
+512:                                              ; preds = %511
+  br label %513
+
+513:                                              ; preds = %512
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #2
+  %514 = load ptr, ptr %5, align 8, !tbaa !6
+  %515 = getelementptr inbounds i64, ptr %514, i64 3
+  %516 = load i64, ptr %515, align 8, !tbaa !13
+  %517 = load ptr, ptr %6, align 8, !tbaa !6
+  %518 = getelementptr inbounds i64, ptr %517, i64 2
+  %519 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %516, ptr elementtype(i64) %518) #3, !srcloc !99
+  %520 = extractvalue { i64, i64 } %519, 0
+  %521 = extractvalue { i64, i64 } %519, 1
+  store i64 %520, ptr %46, align 8, !tbaa !13
+  store i64 %521, ptr %47, align 8, !tbaa !13
+  %522 = load i64, ptr %9, align 8, !tbaa !13
+  %523 = load i64, ptr %7, align 8, !tbaa !13
+  %524 = load i64, ptr %8, align 8, !tbaa !13
+  %525 = load i64, ptr %46, align 8, !tbaa !13
+  %526 = load i64, ptr %47, align 8, !tbaa !13
+  %527 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %525, i64 %526, i32 0, i64 %522, i64 %523, i64 %524) #3, !srcloc !100
+  %528 = extractvalue { i64, i64, i64 } %527, 0
+  %529 = extractvalue { i64, i64, i64 } %527, 1
+  %530 = extractvalue { i64, i64, i64 } %527, 2
+  store i64 %528, ptr %9, align 8, !tbaa !13
+  store i64 %529, ptr %7, align 8, !tbaa !13
+  store i64 %530, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #2
+  br label %531
+
+531:                                              ; preds = %513
+  br label %532
+
+532:                                              ; preds = %531
+  br label %533
+
+533:                                              ; preds = %532
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #2
+  %534 = load ptr, ptr %5, align 8, !tbaa !6
+  %535 = getelementptr inbounds i64, ptr %534, i64 4
+  %536 = load i64, ptr %535, align 8, !tbaa !13
+  %537 = load ptr, ptr %6, align 8, !tbaa !6
+  %538 = getelementptr inbounds i64, ptr %537, i64 1
+  %539 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %536, ptr elementtype(i64) %538) #3, !srcloc !101
+  %540 = extractvalue { i64, i64 } %539, 0
+  %541 = extractvalue { i64, i64 } %539, 1
+  store i64 %540, ptr %48, align 8, !tbaa !13
+  store i64 %541, ptr %49, align 8, !tbaa !13
+  %542 = load i64, ptr %9, align 8, !tbaa !13
+  %543 = load i64, ptr %7, align 8, !tbaa !13
+  %544 = load i64, ptr %8, align 8, !tbaa !13
+  %545 = load i64, ptr %48, align 8, !tbaa !13
+  %546 = load i64, ptr %49, align 8, !tbaa !13
+  %547 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %545, i64 %546, i32 0, i64 %542, i64 %543, i64 %544) #3, !srcloc !102
+  %548 = extractvalue { i64, i64, i64 } %547, 0
+  %549 = extractvalue { i64, i64, i64 } %547, 1
+  %550 = extractvalue { i64, i64, i64 } %547, 2
+  store i64 %548, ptr %9, align 8, !tbaa !13
+  store i64 %549, ptr %7, align 8, !tbaa !13
+  store i64 %550, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #2
+  br label %551
+
+551:                                              ; preds = %533
+  br label %552
+
+552:                                              ; preds = %551
+  br label %553
+
+553:                                              ; preds = %552
+  call void @llvm.lifetime.start.p0(i64 8, ptr %50) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %51) #2
+  %554 = load ptr, ptr %5, align 8, !tbaa !6
+  %555 = getelementptr inbounds i64, ptr %554, i64 5
+  %556 = load i64, ptr %555, align 8, !tbaa !13
+  %557 = load ptr, ptr %6, align 8, !tbaa !6
+  %558 = getelementptr inbounds i64, ptr %557, i64 0
+  %559 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %556, ptr elementtype(i64) %558) #3, !srcloc !103
+  %560 = extractvalue { i64, i64 } %559, 0
+  %561 = extractvalue { i64, i64 } %559, 1
+  store i64 %560, ptr %50, align 8, !tbaa !13
+  store i64 %561, ptr %51, align 8, !tbaa !13
+  %562 = load i64, ptr %9, align 8, !tbaa !13
+  %563 = load i64, ptr %7, align 8, !tbaa !13
+  %564 = load i64, ptr %8, align 8, !tbaa !13
+  %565 = load i64, ptr %50, align 8, !tbaa !13
+  %566 = load i64, ptr %51, align 8, !tbaa !13
+  %567 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %565, i64 %566, i32 0, i64 %562, i64 %563, i64 %564) #3, !srcloc !104
+  %568 = extractvalue { i64, i64, i64 } %567, 0
+  %569 = extractvalue { i64, i64, i64 } %567, 1
+  %570 = extractvalue { i64, i64, i64 } %567, 2
+  store i64 %568, ptr %9, align 8, !tbaa !13
+  store i64 %569, ptr %7, align 8, !tbaa !13
+  store i64 %570, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #2
+  br label %571
+
+571:                                              ; preds = %553
+  br label %572
+
+572:                                              ; preds = %571
+  %573 = load i64, ptr %9, align 8, !tbaa !13
+  %574 = load ptr, ptr %4, align 8, !tbaa !6
+  %575 = getelementptr inbounds i64, ptr %574, i64 5
+  store i64 %573, ptr %575, align 8, !tbaa !13
+  store i64 0, ptr %9, align 8, !tbaa !13
+  br label %576
+
+576:                                              ; preds = %572
+  call void @llvm.lifetime.start.p0(i64 8, ptr %52) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %53) #2
+  %577 = load ptr, ptr %5, align 8, !tbaa !6
+  %578 = getelementptr inbounds i64, ptr %577, i64 6
+  %579 = load i64, ptr %578, align 8, !tbaa !13
+  %580 = load ptr, ptr %6, align 8, !tbaa !6
+  %581 = getelementptr inbounds i64, ptr %580, i64 0
+  %582 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %579, ptr elementtype(i64) %581) #3, !srcloc !105
+  %583 = extractvalue { i64, i64 } %582, 0
+  %584 = extractvalue { i64, i64 } %582, 1
+  store i64 %583, ptr %52, align 8, !tbaa !13
+  store i64 %584, ptr %53, align 8, !tbaa !13
+  %585 = load i64, ptr %7, align 8, !tbaa !13
+  %586 = load i64, ptr %8, align 8, !tbaa !13
+  %587 = load i64, ptr %9, align 8, !tbaa !13
+  %588 = load i64, ptr %52, align 8, !tbaa !13
+  %589 = load i64, ptr %53, align 8, !tbaa !13
+  %590 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %588, i64 %589, i32 0, i64 %585, i64 %586, i64 %587) #3, !srcloc !106
+  %591 = extractvalue { i64, i64, i64 } %590, 0
+  %592 = extractvalue { i64, i64, i64 } %590, 1
+  %593 = extractvalue { i64, i64, i64 } %590, 2
+  store i64 %591, ptr %7, align 8, !tbaa !13
+  store i64 %592, ptr %8, align 8, !tbaa !13
+  store i64 %593, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %53) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %52) #2
+  br label %594
+
+594:                                              ; preds = %576
+  br label %595
+
+595:                                              ; preds = %594
+  br label %596
+
+596:                                              ; preds = %595
+  call void @llvm.lifetime.start.p0(i64 8, ptr %54) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %55) #2
+  %597 = load ptr, ptr %5, align 8, !tbaa !6
+  %598 = getelementptr inbounds i64, ptr %597, i64 5
+  %599 = load i64, ptr %598, align 8, !tbaa !13
+  %600 = load ptr, ptr %6, align 8, !tbaa !6
+  %601 = getelementptr inbounds i64, ptr %600, i64 1
+  %602 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %599, ptr elementtype(i64) %601) #3, !srcloc !107
+  %603 = extractvalue { i64, i64 } %602, 0
+  %604 = extractvalue { i64, i64 } %602, 1
+  store i64 %603, ptr %54, align 8, !tbaa !13
+  store i64 %604, ptr %55, align 8, !tbaa !13
+  %605 = load i64, ptr %7, align 8, !tbaa !13
+  %606 = load i64, ptr %8, align 8, !tbaa !13
+  %607 = load i64, ptr %9, align 8, !tbaa !13
+  %608 = load i64, ptr %54, align 8, !tbaa !13
+  %609 = load i64, ptr %55, align 8, !tbaa !13
+  %610 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %608, i64 %609, i32 0, i64 %605, i64 %606, i64 %607) #3, !srcloc !108
+  %611 = extractvalue { i64, i64, i64 } %610, 0
+  %612 = extractvalue { i64, i64, i64 } %610, 1
+  %613 = extractvalue { i64, i64, i64 } %610, 2
+  store i64 %611, ptr %7, align 8, !tbaa !13
+  store i64 %612, ptr %8, align 8, !tbaa !13
+  store i64 %613, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %55) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %54) #2
+  br label %614
+
+614:                                              ; preds = %596
+  br label %615
+
+615:                                              ; preds = %614
+  br label %616
+
+616:                                              ; preds = %615
+  call void @llvm.lifetime.start.p0(i64 8, ptr %56) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %57) #2
+  %617 = load ptr, ptr %5, align 8, !tbaa !6
+  %618 = getelementptr inbounds i64, ptr %617, i64 4
+  %619 = load i64, ptr %618, align 8, !tbaa !13
+  %620 = load ptr, ptr %6, align 8, !tbaa !6
+  %621 = getelementptr inbounds i64, ptr %620, i64 2
+  %622 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %619, ptr elementtype(i64) %621) #3, !srcloc !109
+  %623 = extractvalue { i64, i64 } %622, 0
+  %624 = extractvalue { i64, i64 } %622, 1
+  store i64 %623, ptr %56, align 8, !tbaa !13
+  store i64 %624, ptr %57, align 8, !tbaa !13
+  %625 = load i64, ptr %7, align 8, !tbaa !13
+  %626 = load i64, ptr %8, align 8, !tbaa !13
+  %627 = load i64, ptr %9, align 8, !tbaa !13
+  %628 = load i64, ptr %56, align 8, !tbaa !13
+  %629 = load i64, ptr %57, align 8, !tbaa !13
+  %630 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %628, i64 %629, i32 0, i64 %625, i64 %626, i64 %627) #3, !srcloc !110
+  %631 = extractvalue { i64, i64, i64 } %630, 0
+  %632 = extractvalue { i64, i64, i64 } %630, 1
+  %633 = extractvalue { i64, i64, i64 } %630, 2
+  store i64 %631, ptr %7, align 8, !tbaa !13
+  store i64 %632, ptr %8, align 8, !tbaa !13
+  store i64 %633, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %57) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %56) #2
+  br label %634
+
+634:                                              ; preds = %616
+  br label %635
+
+635:                                              ; preds = %634
+  br label %636
+
+636:                                              ; preds = %635
+  call void @llvm.lifetime.start.p0(i64 8, ptr %58) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %59) #2
+  %637 = load ptr, ptr %5, align 8, !tbaa !6
+  %638 = getelementptr inbounds i64, ptr %637, i64 3
+  %639 = load i64, ptr %638, align 8, !tbaa !13
+  %640 = load ptr, ptr %6, align 8, !tbaa !6
+  %641 = getelementptr inbounds i64, ptr %640, i64 3
+  %642 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %639, ptr elementtype(i64) %641) #3, !srcloc !111
+  %643 = extractvalue { i64, i64 } %642, 0
+  %644 = extractvalue { i64, i64 } %642, 1
+  store i64 %643, ptr %58, align 8, !tbaa !13
+  store i64 %644, ptr %59, align 8, !tbaa !13
+  %645 = load i64, ptr %7, align 8, !tbaa !13
+  %646 = load i64, ptr %8, align 8, !tbaa !13
+  %647 = load i64, ptr %9, align 8, !tbaa !13
+  %648 = load i64, ptr %58, align 8, !tbaa !13
+  %649 = load i64, ptr %59, align 8, !tbaa !13
+  %650 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %648, i64 %649, i32 0, i64 %645, i64 %646, i64 %647) #3, !srcloc !112
+  %651 = extractvalue { i64, i64, i64 } %650, 0
+  %652 = extractvalue { i64, i64, i64 } %650, 1
+  %653 = extractvalue { i64, i64, i64 } %650, 2
+  store i64 %651, ptr %7, align 8, !tbaa !13
+  store i64 %652, ptr %8, align 8, !tbaa !13
+  store i64 %653, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %59) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %58) #2
+  br label %654
+
+654:                                              ; preds = %636
+  br label %655
+
+655:                                              ; preds = %654
+  br label %656
+
+656:                                              ; preds = %655
+  call void @llvm.lifetime.start.p0(i64 8, ptr %60) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %61) #2
+  %657 = load ptr, ptr %5, align 8, !tbaa !6
+  %658 = getelementptr inbounds i64, ptr %657, i64 2
+  %659 = load i64, ptr %658, align 8, !tbaa !13
+  %660 = load ptr, ptr %6, align 8, !tbaa !6
+  %661 = getelementptr inbounds i64, ptr %660, i64 4
+  %662 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %659, ptr elementtype(i64) %661) #3, !srcloc !113
+  %663 = extractvalue { i64, i64 } %662, 0
+  %664 = extractvalue { i64, i64 } %662, 1
+  store i64 %663, ptr %60, align 8, !tbaa !13
+  store i64 %664, ptr %61, align 8, !tbaa !13
+  %665 = load i64, ptr %7, align 8, !tbaa !13
+  %666 = load i64, ptr %8, align 8, !tbaa !13
+  %667 = load i64, ptr %9, align 8, !tbaa !13
+  %668 = load i64, ptr %60, align 8, !tbaa !13
+  %669 = load i64, ptr %61, align 8, !tbaa !13
+  %670 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %668, i64 %669, i32 0, i64 %665, i64 %666, i64 %667) #3, !srcloc !114
+  %671 = extractvalue { i64, i64, i64 } %670, 0
+  %672 = extractvalue { i64, i64, i64 } %670, 1
+  %673 = extractvalue { i64, i64, i64 } %670, 2
+  store i64 %671, ptr %7, align 8, !tbaa !13
+  store i64 %672, ptr %8, align 8, !tbaa !13
+  store i64 %673, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %61) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %60) #2
+  br label %674
+
+674:                                              ; preds = %656
+  br label %675
+
+675:                                              ; preds = %674
+  br label %676
+
+676:                                              ; preds = %675
+  call void @llvm.lifetime.start.p0(i64 8, ptr %62) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %63) #2
+  %677 = load ptr, ptr %5, align 8, !tbaa !6
+  %678 = getelementptr inbounds i64, ptr %677, i64 1
+  %679 = load i64, ptr %678, align 8, !tbaa !13
+  %680 = load ptr, ptr %6, align 8, !tbaa !6
+  %681 = getelementptr inbounds i64, ptr %680, i64 5
+  %682 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %679, ptr elementtype(i64) %681) #3, !srcloc !115
+  %683 = extractvalue { i64, i64 } %682, 0
+  %684 = extractvalue { i64, i64 } %682, 1
+  store i64 %683, ptr %62, align 8, !tbaa !13
+  store i64 %684, ptr %63, align 8, !tbaa !13
+  %685 = load i64, ptr %7, align 8, !tbaa !13
+  %686 = load i64, ptr %8, align 8, !tbaa !13
+  %687 = load i64, ptr %9, align 8, !tbaa !13
+  %688 = load i64, ptr %62, align 8, !tbaa !13
+  %689 = load i64, ptr %63, align 8, !tbaa !13
+  %690 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %688, i64 %689, i32 0, i64 %685, i64 %686, i64 %687) #3, !srcloc !116
+  %691 = extractvalue { i64, i64, i64 } %690, 0
+  %692 = extractvalue { i64, i64, i64 } %690, 1
+  %693 = extractvalue { i64, i64, i64 } %690, 2
+  store i64 %691, ptr %7, align 8, !tbaa !13
+  store i64 %692, ptr %8, align 8, !tbaa !13
+  store i64 %693, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %63) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %62) #2
+  br label %694
+
+694:                                              ; preds = %676
+  br label %695
+
+695:                                              ; preds = %694
+  br label %696
+
+696:                                              ; preds = %695
+  call void @llvm.lifetime.start.p0(i64 8, ptr %64) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %65) #2
+  %697 = load ptr, ptr %5, align 8, !tbaa !6
+  %698 = getelementptr inbounds i64, ptr %697, i64 0
+  %699 = load i64, ptr %698, align 8, !tbaa !13
+  %700 = load ptr, ptr %6, align 8, !tbaa !6
+  %701 = getelementptr inbounds i64, ptr %700, i64 6
+  %702 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %699, ptr elementtype(i64) %701) #3, !srcloc !117
+  %703 = extractvalue { i64, i64 } %702, 0
+  %704 = extractvalue { i64, i64 } %702, 1
+  store i64 %703, ptr %64, align 8, !tbaa !13
+  store i64 %704, ptr %65, align 8, !tbaa !13
+  %705 = load i64, ptr %7, align 8, !tbaa !13
+  %706 = load i64, ptr %8, align 8, !tbaa !13
+  %707 = load i64, ptr %9, align 8, !tbaa !13
+  %708 = load i64, ptr %64, align 8, !tbaa !13
+  %709 = load i64, ptr %65, align 8, !tbaa !13
+  %710 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %708, i64 %709, i32 0, i64 %705, i64 %706, i64 %707) #3, !srcloc !118
+  %711 = extractvalue { i64, i64, i64 } %710, 0
+  %712 = extractvalue { i64, i64, i64 } %710, 1
+  %713 = extractvalue { i64, i64, i64 } %710, 2
+  store i64 %711, ptr %7, align 8, !tbaa !13
+  store i64 %712, ptr %8, align 8, !tbaa !13
+  store i64 %713, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %65) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %64) #2
+  br label %714
+
+714:                                              ; preds = %696
+  br label %715
+
+715:                                              ; preds = %714
+  %716 = load i64, ptr %7, align 8, !tbaa !13
+  %717 = load ptr, ptr %4, align 8, !tbaa !6
+  %718 = getelementptr inbounds i64, ptr %717, i64 6
+  store i64 %716, ptr %718, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %719
+
+719:                                              ; preds = %715
+  call void @llvm.lifetime.start.p0(i64 8, ptr %66) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %67) #2
+  %720 = load ptr, ptr %5, align 8, !tbaa !6
+  %721 = getelementptr inbounds i64, ptr %720, i64 0
+  %722 = load i64, ptr %721, align 8, !tbaa !13
+  %723 = load ptr, ptr %6, align 8, !tbaa !6
+  %724 = getelementptr inbounds i64, ptr %723, i64 7
+  %725 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %722, ptr elementtype(i64) %724) #3, !srcloc !119
+  %726 = extractvalue { i64, i64 } %725, 0
+  %727 = extractvalue { i64, i64 } %725, 1
+  store i64 %726, ptr %66, align 8, !tbaa !13
+  store i64 %727, ptr %67, align 8, !tbaa !13
+  %728 = load i64, ptr %8, align 8, !tbaa !13
+  %729 = load i64, ptr %9, align 8, !tbaa !13
+  %730 = load i64, ptr %7, align 8, !tbaa !13
+  %731 = load i64, ptr %66, align 8, !tbaa !13
+  %732 = load i64, ptr %67, align 8, !tbaa !13
+  %733 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %731, i64 %732, i32 0, i64 %728, i64 %729, i64 %730) #3, !srcloc !120
+  %734 = extractvalue { i64, i64, i64 } %733, 0
+  %735 = extractvalue { i64, i64, i64 } %733, 1
+  %736 = extractvalue { i64, i64, i64 } %733, 2
+  store i64 %734, ptr %8, align 8, !tbaa !13
+  store i64 %735, ptr %9, align 8, !tbaa !13
+  store i64 %736, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %67) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %66) #2
+  br label %737
+
+737:                                              ; preds = %719
+  br label %738
+
+738:                                              ; preds = %737
+  br label %739
+
+739:                                              ; preds = %738
+  call void @llvm.lifetime.start.p0(i64 8, ptr %68) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %69) #2
+  %740 = load ptr, ptr %5, align 8, !tbaa !6
+  %741 = getelementptr inbounds i64, ptr %740, i64 1
+  %742 = load i64, ptr %741, align 8, !tbaa !13
+  %743 = load ptr, ptr %6, align 8, !tbaa !6
+  %744 = getelementptr inbounds i64, ptr %743, i64 6
+  %745 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %742, ptr elementtype(i64) %744) #3, !srcloc !121
+  %746 = extractvalue { i64, i64 } %745, 0
+  %747 = extractvalue { i64, i64 } %745, 1
+  store i64 %746, ptr %68, align 8, !tbaa !13
+  store i64 %747, ptr %69, align 8, !tbaa !13
+  %748 = load i64, ptr %8, align 8, !tbaa !13
+  %749 = load i64, ptr %9, align 8, !tbaa !13
+  %750 = load i64, ptr %7, align 8, !tbaa !13
+  %751 = load i64, ptr %68, align 8, !tbaa !13
+  %752 = load i64, ptr %69, align 8, !tbaa !13
+  %753 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %751, i64 %752, i32 0, i64 %748, i64 %749, i64 %750) #3, !srcloc !122
+  %754 = extractvalue { i64, i64, i64 } %753, 0
+  %755 = extractvalue { i64, i64, i64 } %753, 1
+  %756 = extractvalue { i64, i64, i64 } %753, 2
+  store i64 %754, ptr %8, align 8, !tbaa !13
+  store i64 %755, ptr %9, align 8, !tbaa !13
+  store i64 %756, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %69) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %68) #2
+  br label %757
+
+757:                                              ; preds = %739
+  br label %758
+
+758:                                              ; preds = %757
+  br label %759
+
+759:                                              ; preds = %758
+  call void @llvm.lifetime.start.p0(i64 8, ptr %70) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %71) #2
+  %760 = load ptr, ptr %5, align 8, !tbaa !6
+  %761 = getelementptr inbounds i64, ptr %760, i64 2
+  %762 = load i64, ptr %761, align 8, !tbaa !13
+  %763 = load ptr, ptr %6, align 8, !tbaa !6
+  %764 = getelementptr inbounds i64, ptr %763, i64 5
+  %765 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %762, ptr elementtype(i64) %764) #3, !srcloc !123
+  %766 = extractvalue { i64, i64 } %765, 0
+  %767 = extractvalue { i64, i64 } %765, 1
+  store i64 %766, ptr %70, align 8, !tbaa !13
+  store i64 %767, ptr %71, align 8, !tbaa !13
+  %768 = load i64, ptr %8, align 8, !tbaa !13
+  %769 = load i64, ptr %9, align 8, !tbaa !13
+  %770 = load i64, ptr %7, align 8, !tbaa !13
+  %771 = load i64, ptr %70, align 8, !tbaa !13
+  %772 = load i64, ptr %71, align 8, !tbaa !13
+  %773 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %771, i64 %772, i32 0, i64 %768, i64 %769, i64 %770) #3, !srcloc !124
+  %774 = extractvalue { i64, i64, i64 } %773, 0
+  %775 = extractvalue { i64, i64, i64 } %773, 1
+  %776 = extractvalue { i64, i64, i64 } %773, 2
+  store i64 %774, ptr %8, align 8, !tbaa !13
+  store i64 %775, ptr %9, align 8, !tbaa !13
+  store i64 %776, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %71) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %70) #2
+  br label %777
+
+777:                                              ; preds = %759
+  br label %778
+
+778:                                              ; preds = %777
+  br label %779
+
+779:                                              ; preds = %778
+  call void @llvm.lifetime.start.p0(i64 8, ptr %72) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %73) #2
+  %780 = load ptr, ptr %5, align 8, !tbaa !6
+  %781 = getelementptr inbounds i64, ptr %780, i64 3
+  %782 = load i64, ptr %781, align 8, !tbaa !13
+  %783 = load ptr, ptr %6, align 8, !tbaa !6
+  %784 = getelementptr inbounds i64, ptr %783, i64 4
+  %785 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %782, ptr elementtype(i64) %784) #3, !srcloc !125
+  %786 = extractvalue { i64, i64 } %785, 0
+  %787 = extractvalue { i64, i64 } %785, 1
+  store i64 %786, ptr %72, align 8, !tbaa !13
+  store i64 %787, ptr %73, align 8, !tbaa !13
+  %788 = load i64, ptr %8, align 8, !tbaa !13
+  %789 = load i64, ptr %9, align 8, !tbaa !13
+  %790 = load i64, ptr %7, align 8, !tbaa !13
+  %791 = load i64, ptr %72, align 8, !tbaa !13
+  %792 = load i64, ptr %73, align 8, !tbaa !13
+  %793 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %791, i64 %792, i32 0, i64 %788, i64 %789, i64 %790) #3, !srcloc !126
+  %794 = extractvalue { i64, i64, i64 } %793, 0
+  %795 = extractvalue { i64, i64, i64 } %793, 1
+  %796 = extractvalue { i64, i64, i64 } %793, 2
+  store i64 %794, ptr %8, align 8, !tbaa !13
+  store i64 %795, ptr %9, align 8, !tbaa !13
+  store i64 %796, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %73) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %72) #2
+  br label %797
+
+797:                                              ; preds = %779
+  br label %798
+
+798:                                              ; preds = %797
+  br label %799
+
+799:                                              ; preds = %798
+  call void @llvm.lifetime.start.p0(i64 8, ptr %74) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %75) #2
+  %800 = load ptr, ptr %5, align 8, !tbaa !6
+  %801 = getelementptr inbounds i64, ptr %800, i64 4
+  %802 = load i64, ptr %801, align 8, !tbaa !13
+  %803 = load ptr, ptr %6, align 8, !tbaa !6
+  %804 = getelementptr inbounds i64, ptr %803, i64 3
+  %805 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %802, ptr elementtype(i64) %804) #3, !srcloc !127
+  %806 = extractvalue { i64, i64 } %805, 0
+  %807 = extractvalue { i64, i64 } %805, 1
+  store i64 %806, ptr %74, align 8, !tbaa !13
+  store i64 %807, ptr %75, align 8, !tbaa !13
+  %808 = load i64, ptr %8, align 8, !tbaa !13
+  %809 = load i64, ptr %9, align 8, !tbaa !13
+  %810 = load i64, ptr %7, align 8, !tbaa !13
+  %811 = load i64, ptr %74, align 8, !tbaa !13
+  %812 = load i64, ptr %75, align 8, !tbaa !13
+  %813 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %811, i64 %812, i32 0, i64 %808, i64 %809, i64 %810) #3, !srcloc !128
+  %814 = extractvalue { i64, i64, i64 } %813, 0
+  %815 = extractvalue { i64, i64, i64 } %813, 1
+  %816 = extractvalue { i64, i64, i64 } %813, 2
+  store i64 %814, ptr %8, align 8, !tbaa !13
+  store i64 %815, ptr %9, align 8, !tbaa !13
+  store i64 %816, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %75) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %74) #2
+  br label %817
+
+817:                                              ; preds = %799
+  br label %818
+
+818:                                              ; preds = %817
+  br label %819
+
+819:                                              ; preds = %818
+  call void @llvm.lifetime.start.p0(i64 8, ptr %76) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %77) #2
+  %820 = load ptr, ptr %5, align 8, !tbaa !6
+  %821 = getelementptr inbounds i64, ptr %820, i64 5
+  %822 = load i64, ptr %821, align 8, !tbaa !13
+  %823 = load ptr, ptr %6, align 8, !tbaa !6
+  %824 = getelementptr inbounds i64, ptr %823, i64 2
+  %825 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %822, ptr elementtype(i64) %824) #3, !srcloc !129
+  %826 = extractvalue { i64, i64 } %825, 0
+  %827 = extractvalue { i64, i64 } %825, 1
+  store i64 %826, ptr %76, align 8, !tbaa !13
+  store i64 %827, ptr %77, align 8, !tbaa !13
+  %828 = load i64, ptr %8, align 8, !tbaa !13
+  %829 = load i64, ptr %9, align 8, !tbaa !13
+  %830 = load i64, ptr %7, align 8, !tbaa !13
+  %831 = load i64, ptr %76, align 8, !tbaa !13
+  %832 = load i64, ptr %77, align 8, !tbaa !13
+  %833 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %831, i64 %832, i32 0, i64 %828, i64 %829, i64 %830) #3, !srcloc !130
+  %834 = extractvalue { i64, i64, i64 } %833, 0
+  %835 = extractvalue { i64, i64, i64 } %833, 1
+  %836 = extractvalue { i64, i64, i64 } %833, 2
+  store i64 %834, ptr %8, align 8, !tbaa !13
+  store i64 %835, ptr %9, align 8, !tbaa !13
+  store i64 %836, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %77) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %76) #2
+  br label %837
+
+837:                                              ; preds = %819
+  br label %838
+
+838:                                              ; preds = %837
+  br label %839
+
+839:                                              ; preds = %838
+  call void @llvm.lifetime.start.p0(i64 8, ptr %78) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %79) #2
+  %840 = load ptr, ptr %5, align 8, !tbaa !6
+  %841 = getelementptr inbounds i64, ptr %840, i64 6
+  %842 = load i64, ptr %841, align 8, !tbaa !13
+  %843 = load ptr, ptr %6, align 8, !tbaa !6
+  %844 = getelementptr inbounds i64, ptr %843, i64 1
+  %845 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %842, ptr elementtype(i64) %844) #3, !srcloc !131
+  %846 = extractvalue { i64, i64 } %845, 0
+  %847 = extractvalue { i64, i64 } %845, 1
+  store i64 %846, ptr %78, align 8, !tbaa !13
+  store i64 %847, ptr %79, align 8, !tbaa !13
+  %848 = load i64, ptr %8, align 8, !tbaa !13
+  %849 = load i64, ptr %9, align 8, !tbaa !13
+  %850 = load i64, ptr %7, align 8, !tbaa !13
+  %851 = load i64, ptr %78, align 8, !tbaa !13
+  %852 = load i64, ptr %79, align 8, !tbaa !13
+  %853 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %851, i64 %852, i32 0, i64 %848, i64 %849, i64 %850) #3, !srcloc !132
+  %854 = extractvalue { i64, i64, i64 } %853, 0
+  %855 = extractvalue { i64, i64, i64 } %853, 1
+  %856 = extractvalue { i64, i64, i64 } %853, 2
+  store i64 %854, ptr %8, align 8, !tbaa !13
+  store i64 %855, ptr %9, align 8, !tbaa !13
+  store i64 %856, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %79) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %78) #2
+  br label %857
+
+857:                                              ; preds = %839
+  br label %858
+
+858:                                              ; preds = %857
+  br label %859
+
+859:                                              ; preds = %858
+  call void @llvm.lifetime.start.p0(i64 8, ptr %80) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %81) #2
+  %860 = load ptr, ptr %5, align 8, !tbaa !6
+  %861 = getelementptr inbounds i64, ptr %860, i64 7
+  %862 = load i64, ptr %861, align 8, !tbaa !13
+  %863 = load ptr, ptr %6, align 8, !tbaa !6
+  %864 = getelementptr inbounds i64, ptr %863, i64 0
+  %865 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %862, ptr elementtype(i64) %864) #3, !srcloc !133
+  %866 = extractvalue { i64, i64 } %865, 0
+  %867 = extractvalue { i64, i64 } %865, 1
+  store i64 %866, ptr %80, align 8, !tbaa !13
+  store i64 %867, ptr %81, align 8, !tbaa !13
+  %868 = load i64, ptr %8, align 8, !tbaa !13
+  %869 = load i64, ptr %9, align 8, !tbaa !13
+  %870 = load i64, ptr %7, align 8, !tbaa !13
+  %871 = load i64, ptr %80, align 8, !tbaa !13
+  %872 = load i64, ptr %81, align 8, !tbaa !13
+  %873 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %871, i64 %872, i32 0, i64 %868, i64 %869, i64 %870) #3, !srcloc !134
+  %874 = extractvalue { i64, i64, i64 } %873, 0
+  %875 = extractvalue { i64, i64, i64 } %873, 1
+  %876 = extractvalue { i64, i64, i64 } %873, 2
+  store i64 %874, ptr %8, align 8, !tbaa !13
+  store i64 %875, ptr %9, align 8, !tbaa !13
+  store i64 %876, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %81) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %80) #2
+  br label %877
+
+877:                                              ; preds = %859
+  br label %878
+
+878:                                              ; preds = %877
+  %879 = load i64, ptr %8, align 8, !tbaa !13
+  %880 = load ptr, ptr %4, align 8, !tbaa !6
+  %881 = getelementptr inbounds i64, ptr %880, i64 7
+  store i64 %879, ptr %881, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %882
+
+882:                                              ; preds = %878
+  call void @llvm.lifetime.start.p0(i64 8, ptr %82) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %83) #2
+  %883 = load ptr, ptr %5, align 8, !tbaa !6
+  %884 = getelementptr inbounds i64, ptr %883, i64 7
+  %885 = load i64, ptr %884, align 8, !tbaa !13
+  %886 = load ptr, ptr %6, align 8, !tbaa !6
+  %887 = getelementptr inbounds i64, ptr %886, i64 1
+  %888 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %885, ptr elementtype(i64) %887) #3, !srcloc !135
+  %889 = extractvalue { i64, i64 } %888, 0
+  %890 = extractvalue { i64, i64 } %888, 1
+  store i64 %889, ptr %82, align 8, !tbaa !13
+  store i64 %890, ptr %83, align 8, !tbaa !13
+  %891 = load i64, ptr %9, align 8, !tbaa !13
+  %892 = load i64, ptr %7, align 8, !tbaa !13
+  %893 = load i64, ptr %8, align 8, !tbaa !13
+  %894 = load i64, ptr %82, align 8, !tbaa !13
+  %895 = load i64, ptr %83, align 8, !tbaa !13
+  %896 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %894, i64 %895, i32 0, i64 %891, i64 %892, i64 %893) #3, !srcloc !136
+  %897 = extractvalue { i64, i64, i64 } %896, 0
+  %898 = extractvalue { i64, i64, i64 } %896, 1
+  %899 = extractvalue { i64, i64, i64 } %896, 2
+  store i64 %897, ptr %9, align 8, !tbaa !13
+  store i64 %898, ptr %7, align 8, !tbaa !13
+  store i64 %899, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %83) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %82) #2
+  br label %900
+
+900:                                              ; preds = %882
+  br label %901
+
+901:                                              ; preds = %900
+  br label %902
+
+902:                                              ; preds = %901
+  call void @llvm.lifetime.start.p0(i64 8, ptr %84) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %85) #2
+  %903 = load ptr, ptr %5, align 8, !tbaa !6
+  %904 = getelementptr inbounds i64, ptr %903, i64 6
+  %905 = load i64, ptr %904, align 8, !tbaa !13
+  %906 = load ptr, ptr %6, align 8, !tbaa !6
+  %907 = getelementptr inbounds i64, ptr %906, i64 2
+  %908 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %905, ptr elementtype(i64) %907) #3, !srcloc !137
+  %909 = extractvalue { i64, i64 } %908, 0
+  %910 = extractvalue { i64, i64 } %908, 1
+  store i64 %909, ptr %84, align 8, !tbaa !13
+  store i64 %910, ptr %85, align 8, !tbaa !13
+  %911 = load i64, ptr %9, align 8, !tbaa !13
+  %912 = load i64, ptr %7, align 8, !tbaa !13
+  %913 = load i64, ptr %8, align 8, !tbaa !13
+  %914 = load i64, ptr %84, align 8, !tbaa !13
+  %915 = load i64, ptr %85, align 8, !tbaa !13
+  %916 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %914, i64 %915, i32 0, i64 %911, i64 %912, i64 %913) #3, !srcloc !138
+  %917 = extractvalue { i64, i64, i64 } %916, 0
+  %918 = extractvalue { i64, i64, i64 } %916, 1
+  %919 = extractvalue { i64, i64, i64 } %916, 2
+  store i64 %917, ptr %9, align 8, !tbaa !13
+  store i64 %918, ptr %7, align 8, !tbaa !13
+  store i64 %919, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %85) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %84) #2
+  br label %920
+
+920:                                              ; preds = %902
+  br label %921
+
+921:                                              ; preds = %920
+  br label %922
+
+922:                                              ; preds = %921
+  call void @llvm.lifetime.start.p0(i64 8, ptr %86) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %87) #2
+  %923 = load ptr, ptr %5, align 8, !tbaa !6
+  %924 = getelementptr inbounds i64, ptr %923, i64 5
+  %925 = load i64, ptr %924, align 8, !tbaa !13
+  %926 = load ptr, ptr %6, align 8, !tbaa !6
+  %927 = getelementptr inbounds i64, ptr %926, i64 3
+  %928 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %925, ptr elementtype(i64) %927) #3, !srcloc !139
+  %929 = extractvalue { i64, i64 } %928, 0
+  %930 = extractvalue { i64, i64 } %928, 1
+  store i64 %929, ptr %86, align 8, !tbaa !13
+  store i64 %930, ptr %87, align 8, !tbaa !13
+  %931 = load i64, ptr %9, align 8, !tbaa !13
+  %932 = load i64, ptr %7, align 8, !tbaa !13
+  %933 = load i64, ptr %8, align 8, !tbaa !13
+  %934 = load i64, ptr %86, align 8, !tbaa !13
+  %935 = load i64, ptr %87, align 8, !tbaa !13
+  %936 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %934, i64 %935, i32 0, i64 %931, i64 %932, i64 %933) #3, !srcloc !140
+  %937 = extractvalue { i64, i64, i64 } %936, 0
+  %938 = extractvalue { i64, i64, i64 } %936, 1
+  %939 = extractvalue { i64, i64, i64 } %936, 2
+  store i64 %937, ptr %9, align 8, !tbaa !13
+  store i64 %938, ptr %7, align 8, !tbaa !13
+  store i64 %939, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %87) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %86) #2
+  br label %940
+
+940:                                              ; preds = %922
+  br label %941
+
+941:                                              ; preds = %940
+  br label %942
+
+942:                                              ; preds = %941
+  call void @llvm.lifetime.start.p0(i64 8, ptr %88) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %89) #2
+  %943 = load ptr, ptr %5, align 8, !tbaa !6
+  %944 = getelementptr inbounds i64, ptr %943, i64 4
+  %945 = load i64, ptr %944, align 8, !tbaa !13
+  %946 = load ptr, ptr %6, align 8, !tbaa !6
+  %947 = getelementptr inbounds i64, ptr %946, i64 4
+  %948 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %945, ptr elementtype(i64) %947) #3, !srcloc !141
+  %949 = extractvalue { i64, i64 } %948, 0
+  %950 = extractvalue { i64, i64 } %948, 1
+  store i64 %949, ptr %88, align 8, !tbaa !13
+  store i64 %950, ptr %89, align 8, !tbaa !13
+  %951 = load i64, ptr %9, align 8, !tbaa !13
+  %952 = load i64, ptr %7, align 8, !tbaa !13
+  %953 = load i64, ptr %8, align 8, !tbaa !13
+  %954 = load i64, ptr %88, align 8, !tbaa !13
+  %955 = load i64, ptr %89, align 8, !tbaa !13
+  %956 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %954, i64 %955, i32 0, i64 %951, i64 %952, i64 %953) #3, !srcloc !142
+  %957 = extractvalue { i64, i64, i64 } %956, 0
+  %958 = extractvalue { i64, i64, i64 } %956, 1
+  %959 = extractvalue { i64, i64, i64 } %956, 2
+  store i64 %957, ptr %9, align 8, !tbaa !13
+  store i64 %958, ptr %7, align 8, !tbaa !13
+  store i64 %959, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %89) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %88) #2
+  br label %960
+
+960:                                              ; preds = %942
+  br label %961
+
+961:                                              ; preds = %960
+  br label %962
+
+962:                                              ; preds = %961
+  call void @llvm.lifetime.start.p0(i64 8, ptr %90) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %91) #2
+  %963 = load ptr, ptr %5, align 8, !tbaa !6
+  %964 = getelementptr inbounds i64, ptr %963, i64 3
+  %965 = load i64, ptr %964, align 8, !tbaa !13
+  %966 = load ptr, ptr %6, align 8, !tbaa !6
+  %967 = getelementptr inbounds i64, ptr %966, i64 5
+  %968 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %965, ptr elementtype(i64) %967) #3, !srcloc !143
+  %969 = extractvalue { i64, i64 } %968, 0
+  %970 = extractvalue { i64, i64 } %968, 1
+  store i64 %969, ptr %90, align 8, !tbaa !13
+  store i64 %970, ptr %91, align 8, !tbaa !13
+  %971 = load i64, ptr %9, align 8, !tbaa !13
+  %972 = load i64, ptr %7, align 8, !tbaa !13
+  %973 = load i64, ptr %8, align 8, !tbaa !13
+  %974 = load i64, ptr %90, align 8, !tbaa !13
+  %975 = load i64, ptr %91, align 8, !tbaa !13
+  %976 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %974, i64 %975, i32 0, i64 %971, i64 %972, i64 %973) #3, !srcloc !144
+  %977 = extractvalue { i64, i64, i64 } %976, 0
+  %978 = extractvalue { i64, i64, i64 } %976, 1
+  %979 = extractvalue { i64, i64, i64 } %976, 2
+  store i64 %977, ptr %9, align 8, !tbaa !13
+  store i64 %978, ptr %7, align 8, !tbaa !13
+  store i64 %979, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %91) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %90) #2
+  br label %980
+
+980:                                              ; preds = %962
+  br label %981
+
+981:                                              ; preds = %980
+  br label %982
+
+982:                                              ; preds = %981
+  call void @llvm.lifetime.start.p0(i64 8, ptr %92) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %93) #2
+  %983 = load ptr, ptr %5, align 8, !tbaa !6
+  %984 = getelementptr inbounds i64, ptr %983, i64 2
+  %985 = load i64, ptr %984, align 8, !tbaa !13
+  %986 = load ptr, ptr %6, align 8, !tbaa !6
+  %987 = getelementptr inbounds i64, ptr %986, i64 6
+  %988 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %985, ptr elementtype(i64) %987) #3, !srcloc !145
+  %989 = extractvalue { i64, i64 } %988, 0
+  %990 = extractvalue { i64, i64 } %988, 1
+  store i64 %989, ptr %92, align 8, !tbaa !13
+  store i64 %990, ptr %93, align 8, !tbaa !13
+  %991 = load i64, ptr %9, align 8, !tbaa !13
+  %992 = load i64, ptr %7, align 8, !tbaa !13
+  %993 = load i64, ptr %8, align 8, !tbaa !13
+  %994 = load i64, ptr %92, align 8, !tbaa !13
+  %995 = load i64, ptr %93, align 8, !tbaa !13
+  %996 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %994, i64 %995, i32 0, i64 %991, i64 %992, i64 %993) #3, !srcloc !146
+  %997 = extractvalue { i64, i64, i64 } %996, 0
+  %998 = extractvalue { i64, i64, i64 } %996, 1
+  %999 = extractvalue { i64, i64, i64 } %996, 2
+  store i64 %997, ptr %9, align 8, !tbaa !13
+  store i64 %998, ptr %7, align 8, !tbaa !13
+  store i64 %999, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %93) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %92) #2
+  br label %1000
+
+1000:                                             ; preds = %982
+  br label %1001
+
+1001:                                             ; preds = %1000
+  br label %1002
+
+1002:                                             ; preds = %1001
+  call void @llvm.lifetime.start.p0(i64 8, ptr %94) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %95) #2
+  %1003 = load ptr, ptr %5, align 8, !tbaa !6
+  %1004 = getelementptr inbounds i64, ptr %1003, i64 1
+  %1005 = load i64, ptr %1004, align 8, !tbaa !13
+  %1006 = load ptr, ptr %6, align 8, !tbaa !6
+  %1007 = getelementptr inbounds i64, ptr %1006, i64 7
+  %1008 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1005, ptr elementtype(i64) %1007) #3, !srcloc !147
+  %1009 = extractvalue { i64, i64 } %1008, 0
+  %1010 = extractvalue { i64, i64 } %1008, 1
+  store i64 %1009, ptr %94, align 8, !tbaa !13
+  store i64 %1010, ptr %95, align 8, !tbaa !13
+  %1011 = load i64, ptr %9, align 8, !tbaa !13
+  %1012 = load i64, ptr %7, align 8, !tbaa !13
+  %1013 = load i64, ptr %8, align 8, !tbaa !13
+  %1014 = load i64, ptr %94, align 8, !tbaa !13
+  %1015 = load i64, ptr %95, align 8, !tbaa !13
+  %1016 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1014, i64 %1015, i32 0, i64 %1011, i64 %1012, i64 %1013) #3, !srcloc !148
+  %1017 = extractvalue { i64, i64, i64 } %1016, 0
+  %1018 = extractvalue { i64, i64, i64 } %1016, 1
+  %1019 = extractvalue { i64, i64, i64 } %1016, 2
+  store i64 %1017, ptr %9, align 8, !tbaa !13
+  store i64 %1018, ptr %7, align 8, !tbaa !13
+  store i64 %1019, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %95) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %94) #2
+  br label %1020
+
+1020:                                             ; preds = %1002
+  br label %1021
+
+1021:                                             ; preds = %1020
+  %1022 = load i64, ptr %9, align 8, !tbaa !13
+  %1023 = load ptr, ptr %4, align 8, !tbaa !6
+  %1024 = getelementptr inbounds i64, ptr %1023, i64 8
+  store i64 %1022, ptr %1024, align 8, !tbaa !13
+  store i64 0, ptr %9, align 8, !tbaa !13
+  br label %1025
+
+1025:                                             ; preds = %1021
+  call void @llvm.lifetime.start.p0(i64 8, ptr %96) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %97) #2
+  %1026 = load ptr, ptr %5, align 8, !tbaa !6
+  %1027 = getelementptr inbounds i64, ptr %1026, i64 2
+  %1028 = load i64, ptr %1027, align 8, !tbaa !13
+  %1029 = load ptr, ptr %6, align 8, !tbaa !6
+  %1030 = getelementptr inbounds i64, ptr %1029, i64 7
+  %1031 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1028, ptr elementtype(i64) %1030) #3, !srcloc !149
+  %1032 = extractvalue { i64, i64 } %1031, 0
+  %1033 = extractvalue { i64, i64 } %1031, 1
+  store i64 %1032, ptr %96, align 8, !tbaa !13
+  store i64 %1033, ptr %97, align 8, !tbaa !13
+  %1034 = load i64, ptr %7, align 8, !tbaa !13
+  %1035 = load i64, ptr %8, align 8, !tbaa !13
+  %1036 = load i64, ptr %9, align 8, !tbaa !13
+  %1037 = load i64, ptr %96, align 8, !tbaa !13
+  %1038 = load i64, ptr %97, align 8, !tbaa !13
+  %1039 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1037, i64 %1038, i32 0, i64 %1034, i64 %1035, i64 %1036) #3, !srcloc !150
+  %1040 = extractvalue { i64, i64, i64 } %1039, 0
+  %1041 = extractvalue { i64, i64, i64 } %1039, 1
+  %1042 = extractvalue { i64, i64, i64 } %1039, 2
+  store i64 %1040, ptr %7, align 8, !tbaa !13
+  store i64 %1041, ptr %8, align 8, !tbaa !13
+  store i64 %1042, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %97) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %96) #2
+  br label %1043
+
+1043:                                             ; preds = %1025
+  br label %1044
+
+1044:                                             ; preds = %1043
+  br label %1045
+
+1045:                                             ; preds = %1044
+  call void @llvm.lifetime.start.p0(i64 8, ptr %98) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %99) #2
+  %1046 = load ptr, ptr %5, align 8, !tbaa !6
+  %1047 = getelementptr inbounds i64, ptr %1046, i64 3
+  %1048 = load i64, ptr %1047, align 8, !tbaa !13
+  %1049 = load ptr, ptr %6, align 8, !tbaa !6
+  %1050 = getelementptr inbounds i64, ptr %1049, i64 6
+  %1051 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1048, ptr elementtype(i64) %1050) #3, !srcloc !151
+  %1052 = extractvalue { i64, i64 } %1051, 0
+  %1053 = extractvalue { i64, i64 } %1051, 1
+  store i64 %1052, ptr %98, align 8, !tbaa !13
+  store i64 %1053, ptr %99, align 8, !tbaa !13
+  %1054 = load i64, ptr %7, align 8, !tbaa !13
+  %1055 = load i64, ptr %8, align 8, !tbaa !13
+  %1056 = load i64, ptr %9, align 8, !tbaa !13
+  %1057 = load i64, ptr %98, align 8, !tbaa !13
+  %1058 = load i64, ptr %99, align 8, !tbaa !13
+  %1059 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1057, i64 %1058, i32 0, i64 %1054, i64 %1055, i64 %1056) #3, !srcloc !152
+  %1060 = extractvalue { i64, i64, i64 } %1059, 0
+  %1061 = extractvalue { i64, i64, i64 } %1059, 1
+  %1062 = extractvalue { i64, i64, i64 } %1059, 2
+  store i64 %1060, ptr %7, align 8, !tbaa !13
+  store i64 %1061, ptr %8, align 8, !tbaa !13
+  store i64 %1062, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %99) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %98) #2
+  br label %1063
+
+1063:                                             ; preds = %1045
+  br label %1064
+
+1064:                                             ; preds = %1063
+  br label %1065
+
+1065:                                             ; preds = %1064
+  call void @llvm.lifetime.start.p0(i64 8, ptr %100) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %101) #2
+  %1066 = load ptr, ptr %5, align 8, !tbaa !6
+  %1067 = getelementptr inbounds i64, ptr %1066, i64 4
+  %1068 = load i64, ptr %1067, align 8, !tbaa !13
+  %1069 = load ptr, ptr %6, align 8, !tbaa !6
+  %1070 = getelementptr inbounds i64, ptr %1069, i64 5
+  %1071 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1068, ptr elementtype(i64) %1070) #3, !srcloc !153
+  %1072 = extractvalue { i64, i64 } %1071, 0
+  %1073 = extractvalue { i64, i64 } %1071, 1
+  store i64 %1072, ptr %100, align 8, !tbaa !13
+  store i64 %1073, ptr %101, align 8, !tbaa !13
+  %1074 = load i64, ptr %7, align 8, !tbaa !13
+  %1075 = load i64, ptr %8, align 8, !tbaa !13
+  %1076 = load i64, ptr %9, align 8, !tbaa !13
+  %1077 = load i64, ptr %100, align 8, !tbaa !13
+  %1078 = load i64, ptr %101, align 8, !tbaa !13
+  %1079 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1077, i64 %1078, i32 0, i64 %1074, i64 %1075, i64 %1076) #3, !srcloc !154
+  %1080 = extractvalue { i64, i64, i64 } %1079, 0
+  %1081 = extractvalue { i64, i64, i64 } %1079, 1
+  %1082 = extractvalue { i64, i64, i64 } %1079, 2
+  store i64 %1080, ptr %7, align 8, !tbaa !13
+  store i64 %1081, ptr %8, align 8, !tbaa !13
+  store i64 %1082, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %101) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %100) #2
+  br label %1083
+
+1083:                                             ; preds = %1065
+  br label %1084
+
+1084:                                             ; preds = %1083
+  br label %1085
+
+1085:                                             ; preds = %1084
+  call void @llvm.lifetime.start.p0(i64 8, ptr %102) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %103) #2
+  %1086 = load ptr, ptr %5, align 8, !tbaa !6
+  %1087 = getelementptr inbounds i64, ptr %1086, i64 5
+  %1088 = load i64, ptr %1087, align 8, !tbaa !13
+  %1089 = load ptr, ptr %6, align 8, !tbaa !6
+  %1090 = getelementptr inbounds i64, ptr %1089, i64 4
+  %1091 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1088, ptr elementtype(i64) %1090) #3, !srcloc !155
+  %1092 = extractvalue { i64, i64 } %1091, 0
+  %1093 = extractvalue { i64, i64 } %1091, 1
+  store i64 %1092, ptr %102, align 8, !tbaa !13
+  store i64 %1093, ptr %103, align 8, !tbaa !13
+  %1094 = load i64, ptr %7, align 8, !tbaa !13
+  %1095 = load i64, ptr %8, align 8, !tbaa !13
+  %1096 = load i64, ptr %9, align 8, !tbaa !13
+  %1097 = load i64, ptr %102, align 8, !tbaa !13
+  %1098 = load i64, ptr %103, align 8, !tbaa !13
+  %1099 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1097, i64 %1098, i32 0, i64 %1094, i64 %1095, i64 %1096) #3, !srcloc !156
+  %1100 = extractvalue { i64, i64, i64 } %1099, 0
+  %1101 = extractvalue { i64, i64, i64 } %1099, 1
+  %1102 = extractvalue { i64, i64, i64 } %1099, 2
+  store i64 %1100, ptr %7, align 8, !tbaa !13
+  store i64 %1101, ptr %8, align 8, !tbaa !13
+  store i64 %1102, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %103) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %102) #2
+  br label %1103
+
+1103:                                             ; preds = %1085
+  br label %1104
+
+1104:                                             ; preds = %1103
+  br label %1105
+
+1105:                                             ; preds = %1104
+  call void @llvm.lifetime.start.p0(i64 8, ptr %104) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %105) #2
+  %1106 = load ptr, ptr %5, align 8, !tbaa !6
+  %1107 = getelementptr inbounds i64, ptr %1106, i64 6
+  %1108 = load i64, ptr %1107, align 8, !tbaa !13
+  %1109 = load ptr, ptr %6, align 8, !tbaa !6
+  %1110 = getelementptr inbounds i64, ptr %1109, i64 3
+  %1111 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1108, ptr elementtype(i64) %1110) #3, !srcloc !157
+  %1112 = extractvalue { i64, i64 } %1111, 0
+  %1113 = extractvalue { i64, i64 } %1111, 1
+  store i64 %1112, ptr %104, align 8, !tbaa !13
+  store i64 %1113, ptr %105, align 8, !tbaa !13
+  %1114 = load i64, ptr %7, align 8, !tbaa !13
+  %1115 = load i64, ptr %8, align 8, !tbaa !13
+  %1116 = load i64, ptr %9, align 8, !tbaa !13
+  %1117 = load i64, ptr %104, align 8, !tbaa !13
+  %1118 = load i64, ptr %105, align 8, !tbaa !13
+  %1119 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1117, i64 %1118, i32 0, i64 %1114, i64 %1115, i64 %1116) #3, !srcloc !158
+  %1120 = extractvalue { i64, i64, i64 } %1119, 0
+  %1121 = extractvalue { i64, i64, i64 } %1119, 1
+  %1122 = extractvalue { i64, i64, i64 } %1119, 2
+  store i64 %1120, ptr %7, align 8, !tbaa !13
+  store i64 %1121, ptr %8, align 8, !tbaa !13
+  store i64 %1122, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %105) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %104) #2
+  br label %1123
+
+1123:                                             ; preds = %1105
+  br label %1124
+
+1124:                                             ; preds = %1123
+  br label %1125
+
+1125:                                             ; preds = %1124
+  call void @llvm.lifetime.start.p0(i64 8, ptr %106) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %107) #2
+  %1126 = load ptr, ptr %5, align 8, !tbaa !6
+  %1127 = getelementptr inbounds i64, ptr %1126, i64 7
+  %1128 = load i64, ptr %1127, align 8, !tbaa !13
+  %1129 = load ptr, ptr %6, align 8, !tbaa !6
+  %1130 = getelementptr inbounds i64, ptr %1129, i64 2
+  %1131 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1128, ptr elementtype(i64) %1130) #3, !srcloc !159
+  %1132 = extractvalue { i64, i64 } %1131, 0
+  %1133 = extractvalue { i64, i64 } %1131, 1
+  store i64 %1132, ptr %106, align 8, !tbaa !13
+  store i64 %1133, ptr %107, align 8, !tbaa !13
+  %1134 = load i64, ptr %7, align 8, !tbaa !13
+  %1135 = load i64, ptr %8, align 8, !tbaa !13
+  %1136 = load i64, ptr %9, align 8, !tbaa !13
+  %1137 = load i64, ptr %106, align 8, !tbaa !13
+  %1138 = load i64, ptr %107, align 8, !tbaa !13
+  %1139 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1137, i64 %1138, i32 0, i64 %1134, i64 %1135, i64 %1136) #3, !srcloc !160
+  %1140 = extractvalue { i64, i64, i64 } %1139, 0
+  %1141 = extractvalue { i64, i64, i64 } %1139, 1
+  %1142 = extractvalue { i64, i64, i64 } %1139, 2
+  store i64 %1140, ptr %7, align 8, !tbaa !13
+  store i64 %1141, ptr %8, align 8, !tbaa !13
+  store i64 %1142, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %107) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %106) #2
+  br label %1143
+
+1143:                                             ; preds = %1125
+  br label %1144
+
+1144:                                             ; preds = %1143
+  %1145 = load i64, ptr %7, align 8, !tbaa !13
+  %1146 = load ptr, ptr %4, align 8, !tbaa !6
+  %1147 = getelementptr inbounds i64, ptr %1146, i64 9
+  store i64 %1145, ptr %1147, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %1148
+
+1148:                                             ; preds = %1144
+  call void @llvm.lifetime.start.p0(i64 8, ptr %108) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %109) #2
+  %1149 = load ptr, ptr %5, align 8, !tbaa !6
+  %1150 = getelementptr inbounds i64, ptr %1149, i64 7
+  %1151 = load i64, ptr %1150, align 8, !tbaa !13
+  %1152 = load ptr, ptr %6, align 8, !tbaa !6
+  %1153 = getelementptr inbounds i64, ptr %1152, i64 3
+  %1154 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1151, ptr elementtype(i64) %1153) #3, !srcloc !161
+  %1155 = extractvalue { i64, i64 } %1154, 0
+  %1156 = extractvalue { i64, i64 } %1154, 1
+  store i64 %1155, ptr %108, align 8, !tbaa !13
+  store i64 %1156, ptr %109, align 8, !tbaa !13
+  %1157 = load i64, ptr %8, align 8, !tbaa !13
+  %1158 = load i64, ptr %9, align 8, !tbaa !13
+  %1159 = load i64, ptr %7, align 8, !tbaa !13
+  %1160 = load i64, ptr %108, align 8, !tbaa !13
+  %1161 = load i64, ptr %109, align 8, !tbaa !13
+  %1162 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1160, i64 %1161, i32 0, i64 %1157, i64 %1158, i64 %1159) #3, !srcloc !162
+  %1163 = extractvalue { i64, i64, i64 } %1162, 0
+  %1164 = extractvalue { i64, i64, i64 } %1162, 1
+  %1165 = extractvalue { i64, i64, i64 } %1162, 2
+  store i64 %1163, ptr %8, align 8, !tbaa !13
+  store i64 %1164, ptr %9, align 8, !tbaa !13
+  store i64 %1165, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %109) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %108) #2
+  br label %1166
+
+1166:                                             ; preds = %1148
+  br label %1167
+
+1167:                                             ; preds = %1166
+  br label %1168
+
+1168:                                             ; preds = %1167
+  call void @llvm.lifetime.start.p0(i64 8, ptr %110) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %111) #2
+  %1169 = load ptr, ptr %5, align 8, !tbaa !6
+  %1170 = getelementptr inbounds i64, ptr %1169, i64 6
+  %1171 = load i64, ptr %1170, align 8, !tbaa !13
+  %1172 = load ptr, ptr %6, align 8, !tbaa !6
+  %1173 = getelementptr inbounds i64, ptr %1172, i64 4
+  %1174 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1171, ptr elementtype(i64) %1173) #3, !srcloc !163
+  %1175 = extractvalue { i64, i64 } %1174, 0
+  %1176 = extractvalue { i64, i64 } %1174, 1
+  store i64 %1175, ptr %110, align 8, !tbaa !13
+  store i64 %1176, ptr %111, align 8, !tbaa !13
+  %1177 = load i64, ptr %8, align 8, !tbaa !13
+  %1178 = load i64, ptr %9, align 8, !tbaa !13
+  %1179 = load i64, ptr %7, align 8, !tbaa !13
+  %1180 = load i64, ptr %110, align 8, !tbaa !13
+  %1181 = load i64, ptr %111, align 8, !tbaa !13
+  %1182 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1180, i64 %1181, i32 0, i64 %1177, i64 %1178, i64 %1179) #3, !srcloc !164
+  %1183 = extractvalue { i64, i64, i64 } %1182, 0
+  %1184 = extractvalue { i64, i64, i64 } %1182, 1
+  %1185 = extractvalue { i64, i64, i64 } %1182, 2
+  store i64 %1183, ptr %8, align 8, !tbaa !13
+  store i64 %1184, ptr %9, align 8, !tbaa !13
+  store i64 %1185, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %111) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %110) #2
+  br label %1186
+
+1186:                                             ; preds = %1168
+  br label %1187
+
+1187:                                             ; preds = %1186
+  br label %1188
+
+1188:                                             ; preds = %1187
+  call void @llvm.lifetime.start.p0(i64 8, ptr %112) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %113) #2
+  %1189 = load ptr, ptr %5, align 8, !tbaa !6
+  %1190 = getelementptr inbounds i64, ptr %1189, i64 5
+  %1191 = load i64, ptr %1190, align 8, !tbaa !13
+  %1192 = load ptr, ptr %6, align 8, !tbaa !6
+  %1193 = getelementptr inbounds i64, ptr %1192, i64 5
+  %1194 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1191, ptr elementtype(i64) %1193) #3, !srcloc !165
+  %1195 = extractvalue { i64, i64 } %1194, 0
+  %1196 = extractvalue { i64, i64 } %1194, 1
+  store i64 %1195, ptr %112, align 8, !tbaa !13
+  store i64 %1196, ptr %113, align 8, !tbaa !13
+  %1197 = load i64, ptr %8, align 8, !tbaa !13
+  %1198 = load i64, ptr %9, align 8, !tbaa !13
+  %1199 = load i64, ptr %7, align 8, !tbaa !13
+  %1200 = load i64, ptr %112, align 8, !tbaa !13
+  %1201 = load i64, ptr %113, align 8, !tbaa !13
+  %1202 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1200, i64 %1201, i32 0, i64 %1197, i64 %1198, i64 %1199) #3, !srcloc !166
+  %1203 = extractvalue { i64, i64, i64 } %1202, 0
+  %1204 = extractvalue { i64, i64, i64 } %1202, 1
+  %1205 = extractvalue { i64, i64, i64 } %1202, 2
+  store i64 %1203, ptr %8, align 8, !tbaa !13
+  store i64 %1204, ptr %9, align 8, !tbaa !13
+  store i64 %1205, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %113) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %112) #2
+  br label %1206
+
+1206:                                             ; preds = %1188
+  br label %1207
+
+1207:                                             ; preds = %1206
+  br label %1208
+
+1208:                                             ; preds = %1207
+  call void @llvm.lifetime.start.p0(i64 8, ptr %114) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %115) #2
+  %1209 = load ptr, ptr %5, align 8, !tbaa !6
+  %1210 = getelementptr inbounds i64, ptr %1209, i64 4
+  %1211 = load i64, ptr %1210, align 8, !tbaa !13
+  %1212 = load ptr, ptr %6, align 8, !tbaa !6
+  %1213 = getelementptr inbounds i64, ptr %1212, i64 6
+  %1214 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1211, ptr elementtype(i64) %1213) #3, !srcloc !167
+  %1215 = extractvalue { i64, i64 } %1214, 0
+  %1216 = extractvalue { i64, i64 } %1214, 1
+  store i64 %1215, ptr %114, align 8, !tbaa !13
+  store i64 %1216, ptr %115, align 8, !tbaa !13
+  %1217 = load i64, ptr %8, align 8, !tbaa !13
+  %1218 = load i64, ptr %9, align 8, !tbaa !13
+  %1219 = load i64, ptr %7, align 8, !tbaa !13
+  %1220 = load i64, ptr %114, align 8, !tbaa !13
+  %1221 = load i64, ptr %115, align 8, !tbaa !13
+  %1222 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1220, i64 %1221, i32 0, i64 %1217, i64 %1218, i64 %1219) #3, !srcloc !168
+  %1223 = extractvalue { i64, i64, i64 } %1222, 0
+  %1224 = extractvalue { i64, i64, i64 } %1222, 1
+  %1225 = extractvalue { i64, i64, i64 } %1222, 2
+  store i64 %1223, ptr %8, align 8, !tbaa !13
+  store i64 %1224, ptr %9, align 8, !tbaa !13
+  store i64 %1225, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %115) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %114) #2
+  br label %1226
+
+1226:                                             ; preds = %1208
+  br label %1227
+
+1227:                                             ; preds = %1226
+  br label %1228
+
+1228:                                             ; preds = %1227
+  call void @llvm.lifetime.start.p0(i64 8, ptr %116) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %117) #2
+  %1229 = load ptr, ptr %5, align 8, !tbaa !6
+  %1230 = getelementptr inbounds i64, ptr %1229, i64 3
+  %1231 = load i64, ptr %1230, align 8, !tbaa !13
+  %1232 = load ptr, ptr %6, align 8, !tbaa !6
+  %1233 = getelementptr inbounds i64, ptr %1232, i64 7
+  %1234 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1231, ptr elementtype(i64) %1233) #3, !srcloc !169
+  %1235 = extractvalue { i64, i64 } %1234, 0
+  %1236 = extractvalue { i64, i64 } %1234, 1
+  store i64 %1235, ptr %116, align 8, !tbaa !13
+  store i64 %1236, ptr %117, align 8, !tbaa !13
+  %1237 = load i64, ptr %8, align 8, !tbaa !13
+  %1238 = load i64, ptr %9, align 8, !tbaa !13
+  %1239 = load i64, ptr %7, align 8, !tbaa !13
+  %1240 = load i64, ptr %116, align 8, !tbaa !13
+  %1241 = load i64, ptr %117, align 8, !tbaa !13
+  %1242 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1240, i64 %1241, i32 0, i64 %1237, i64 %1238, i64 %1239) #3, !srcloc !170
+  %1243 = extractvalue { i64, i64, i64 } %1242, 0
+  %1244 = extractvalue { i64, i64, i64 } %1242, 1
+  %1245 = extractvalue { i64, i64, i64 } %1242, 2
+  store i64 %1243, ptr %8, align 8, !tbaa !13
+  store i64 %1244, ptr %9, align 8, !tbaa !13
+  store i64 %1245, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %117) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %116) #2
+  br label %1246
+
+1246:                                             ; preds = %1228
+  br label %1247
+
+1247:                                             ; preds = %1246
+  %1248 = load i64, ptr %8, align 8, !tbaa !13
+  %1249 = load ptr, ptr %4, align 8, !tbaa !6
+  %1250 = getelementptr inbounds i64, ptr %1249, i64 10
+  store i64 %1248, ptr %1250, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %1251
+
+1251:                                             ; preds = %1247
+  call void @llvm.lifetime.start.p0(i64 8, ptr %118) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %119) #2
+  %1252 = load ptr, ptr %5, align 8, !tbaa !6
+  %1253 = getelementptr inbounds i64, ptr %1252, i64 4
+  %1254 = load i64, ptr %1253, align 8, !tbaa !13
+  %1255 = load ptr, ptr %6, align 8, !tbaa !6
+  %1256 = getelementptr inbounds i64, ptr %1255, i64 7
+  %1257 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1254, ptr elementtype(i64) %1256) #3, !srcloc !171
+  %1258 = extractvalue { i64, i64 } %1257, 0
+  %1259 = extractvalue { i64, i64 } %1257, 1
+  store i64 %1258, ptr %118, align 8, !tbaa !13
+  store i64 %1259, ptr %119, align 8, !tbaa !13
+  %1260 = load i64, ptr %9, align 8, !tbaa !13
+  %1261 = load i64, ptr %7, align 8, !tbaa !13
+  %1262 = load i64, ptr %8, align 8, !tbaa !13
+  %1263 = load i64, ptr %118, align 8, !tbaa !13
+  %1264 = load i64, ptr %119, align 8, !tbaa !13
+  %1265 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1263, i64 %1264, i32 0, i64 %1260, i64 %1261, i64 %1262) #3, !srcloc !172
+  %1266 = extractvalue { i64, i64, i64 } %1265, 0
+  %1267 = extractvalue { i64, i64, i64 } %1265, 1
+  %1268 = extractvalue { i64, i64, i64 } %1265, 2
+  store i64 %1266, ptr %9, align 8, !tbaa !13
+  store i64 %1267, ptr %7, align 8, !tbaa !13
+  store i64 %1268, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %119) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %118) #2
+  br label %1269
+
+1269:                                             ; preds = %1251
+  br label %1270
+
+1270:                                             ; preds = %1269
+  br label %1271
+
+1271:                                             ; preds = %1270
+  call void @llvm.lifetime.start.p0(i64 8, ptr %120) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %121) #2
+  %1272 = load ptr, ptr %5, align 8, !tbaa !6
+  %1273 = getelementptr inbounds i64, ptr %1272, i64 5
+  %1274 = load i64, ptr %1273, align 8, !tbaa !13
+  %1275 = load ptr, ptr %6, align 8, !tbaa !6
+  %1276 = getelementptr inbounds i64, ptr %1275, i64 6
+  %1277 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1274, ptr elementtype(i64) %1276) #3, !srcloc !173
+  %1278 = extractvalue { i64, i64 } %1277, 0
+  %1279 = extractvalue { i64, i64 } %1277, 1
+  store i64 %1278, ptr %120, align 8, !tbaa !13
+  store i64 %1279, ptr %121, align 8, !tbaa !13
+  %1280 = load i64, ptr %9, align 8, !tbaa !13
+  %1281 = load i64, ptr %7, align 8, !tbaa !13
+  %1282 = load i64, ptr %8, align 8, !tbaa !13
+  %1283 = load i64, ptr %120, align 8, !tbaa !13
+  %1284 = load i64, ptr %121, align 8, !tbaa !13
+  %1285 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1283, i64 %1284, i32 0, i64 %1280, i64 %1281, i64 %1282) #3, !srcloc !174
+  %1286 = extractvalue { i64, i64, i64 } %1285, 0
+  %1287 = extractvalue { i64, i64, i64 } %1285, 1
+  %1288 = extractvalue { i64, i64, i64 } %1285, 2
+  store i64 %1286, ptr %9, align 8, !tbaa !13
+  store i64 %1287, ptr %7, align 8, !tbaa !13
+  store i64 %1288, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %121) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %120) #2
+  br label %1289
+
+1289:                                             ; preds = %1271
+  br label %1290
+
+1290:                                             ; preds = %1289
+  br label %1291
+
+1291:                                             ; preds = %1290
+  call void @llvm.lifetime.start.p0(i64 8, ptr %122) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %123) #2
+  %1292 = load ptr, ptr %5, align 8, !tbaa !6
+  %1293 = getelementptr inbounds i64, ptr %1292, i64 6
+  %1294 = load i64, ptr %1293, align 8, !tbaa !13
+  %1295 = load ptr, ptr %6, align 8, !tbaa !6
+  %1296 = getelementptr inbounds i64, ptr %1295, i64 5
+  %1297 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1294, ptr elementtype(i64) %1296) #3, !srcloc !175
+  %1298 = extractvalue { i64, i64 } %1297, 0
+  %1299 = extractvalue { i64, i64 } %1297, 1
+  store i64 %1298, ptr %122, align 8, !tbaa !13
+  store i64 %1299, ptr %123, align 8, !tbaa !13
+  %1300 = load i64, ptr %9, align 8, !tbaa !13
+  %1301 = load i64, ptr %7, align 8, !tbaa !13
+  %1302 = load i64, ptr %8, align 8, !tbaa !13
+  %1303 = load i64, ptr %122, align 8, !tbaa !13
+  %1304 = load i64, ptr %123, align 8, !tbaa !13
+  %1305 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1303, i64 %1304, i32 0, i64 %1300, i64 %1301, i64 %1302) #3, !srcloc !176
+  %1306 = extractvalue { i64, i64, i64 } %1305, 0
+  %1307 = extractvalue { i64, i64, i64 } %1305, 1
+  %1308 = extractvalue { i64, i64, i64 } %1305, 2
+  store i64 %1306, ptr %9, align 8, !tbaa !13
+  store i64 %1307, ptr %7, align 8, !tbaa !13
+  store i64 %1308, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %123) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %122) #2
+  br label %1309
+
+1309:                                             ; preds = %1291
+  br label %1310
+
+1310:                                             ; preds = %1309
+  br label %1311
+
+1311:                                             ; preds = %1310
+  call void @llvm.lifetime.start.p0(i64 8, ptr %124) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %125) #2
+  %1312 = load ptr, ptr %5, align 8, !tbaa !6
+  %1313 = getelementptr inbounds i64, ptr %1312, i64 7
+  %1314 = load i64, ptr %1313, align 8, !tbaa !13
+  %1315 = load ptr, ptr %6, align 8, !tbaa !6
+  %1316 = getelementptr inbounds i64, ptr %1315, i64 4
+  %1317 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1314, ptr elementtype(i64) %1316) #3, !srcloc !177
+  %1318 = extractvalue { i64, i64 } %1317, 0
+  %1319 = extractvalue { i64, i64 } %1317, 1
+  store i64 %1318, ptr %124, align 8, !tbaa !13
+  store i64 %1319, ptr %125, align 8, !tbaa !13
+  %1320 = load i64, ptr %9, align 8, !tbaa !13
+  %1321 = load i64, ptr %7, align 8, !tbaa !13
+  %1322 = load i64, ptr %8, align 8, !tbaa !13
+  %1323 = load i64, ptr %124, align 8, !tbaa !13
+  %1324 = load i64, ptr %125, align 8, !tbaa !13
+  %1325 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1323, i64 %1324, i32 0, i64 %1320, i64 %1321, i64 %1322) #3, !srcloc !178
+  %1326 = extractvalue { i64, i64, i64 } %1325, 0
+  %1327 = extractvalue { i64, i64, i64 } %1325, 1
+  %1328 = extractvalue { i64, i64, i64 } %1325, 2
+  store i64 %1326, ptr %9, align 8, !tbaa !13
+  store i64 %1327, ptr %7, align 8, !tbaa !13
+  store i64 %1328, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %125) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %124) #2
+  br label %1329
+
+1329:                                             ; preds = %1311
+  br label %1330
+
+1330:                                             ; preds = %1329
+  %1331 = load i64, ptr %9, align 8, !tbaa !13
+  %1332 = load ptr, ptr %4, align 8, !tbaa !6
+  %1333 = getelementptr inbounds i64, ptr %1332, i64 11
+  store i64 %1331, ptr %1333, align 8, !tbaa !13
+  store i64 0, ptr %9, align 8, !tbaa !13
+  br label %1334
+
+1334:                                             ; preds = %1330
+  call void @llvm.lifetime.start.p0(i64 8, ptr %126) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %127) #2
+  %1335 = load ptr, ptr %5, align 8, !tbaa !6
+  %1336 = getelementptr inbounds i64, ptr %1335, i64 7
+  %1337 = load i64, ptr %1336, align 8, !tbaa !13
+  %1338 = load ptr, ptr %6, align 8, !tbaa !6
+  %1339 = getelementptr inbounds i64, ptr %1338, i64 5
+  %1340 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1337, ptr elementtype(i64) %1339) #3, !srcloc !179
+  %1341 = extractvalue { i64, i64 } %1340, 0
+  %1342 = extractvalue { i64, i64 } %1340, 1
+  store i64 %1341, ptr %126, align 8, !tbaa !13
+  store i64 %1342, ptr %127, align 8, !tbaa !13
+  %1343 = load i64, ptr %7, align 8, !tbaa !13
+  %1344 = load i64, ptr %8, align 8, !tbaa !13
+  %1345 = load i64, ptr %9, align 8, !tbaa !13
+  %1346 = load i64, ptr %126, align 8, !tbaa !13
+  %1347 = load i64, ptr %127, align 8, !tbaa !13
+  %1348 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1346, i64 %1347, i32 0, i64 %1343, i64 %1344, i64 %1345) #3, !srcloc !180
+  %1349 = extractvalue { i64, i64, i64 } %1348, 0
+  %1350 = extractvalue { i64, i64, i64 } %1348, 1
+  %1351 = extractvalue { i64, i64, i64 } %1348, 2
+  store i64 %1349, ptr %7, align 8, !tbaa !13
+  store i64 %1350, ptr %8, align 8, !tbaa !13
+  store i64 %1351, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %127) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %126) #2
+  br label %1352
+
+1352:                                             ; preds = %1334
+  br label %1353
+
+1353:                                             ; preds = %1352
+  br label %1354
+
+1354:                                             ; preds = %1353
+  call void @llvm.lifetime.start.p0(i64 8, ptr %128) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %129) #2
+  %1355 = load ptr, ptr %5, align 8, !tbaa !6
+  %1356 = getelementptr inbounds i64, ptr %1355, i64 6
+  %1357 = load i64, ptr %1356, align 8, !tbaa !13
+  %1358 = load ptr, ptr %6, align 8, !tbaa !6
+  %1359 = getelementptr inbounds i64, ptr %1358, i64 6
+  %1360 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1357, ptr elementtype(i64) %1359) #3, !srcloc !181
+  %1361 = extractvalue { i64, i64 } %1360, 0
+  %1362 = extractvalue { i64, i64 } %1360, 1
+  store i64 %1361, ptr %128, align 8, !tbaa !13
+  store i64 %1362, ptr %129, align 8, !tbaa !13
+  %1363 = load i64, ptr %7, align 8, !tbaa !13
+  %1364 = load i64, ptr %8, align 8, !tbaa !13
+  %1365 = load i64, ptr %9, align 8, !tbaa !13
+  %1366 = load i64, ptr %128, align 8, !tbaa !13
+  %1367 = load i64, ptr %129, align 8, !tbaa !13
+  %1368 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1366, i64 %1367, i32 0, i64 %1363, i64 %1364, i64 %1365) #3, !srcloc !182
+  %1369 = extractvalue { i64, i64, i64 } %1368, 0
+  %1370 = extractvalue { i64, i64, i64 } %1368, 1
+  %1371 = extractvalue { i64, i64, i64 } %1368, 2
+  store i64 %1369, ptr %7, align 8, !tbaa !13
+  store i64 %1370, ptr %8, align 8, !tbaa !13
+  store i64 %1371, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %129) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %128) #2
+  br label %1372
+
+1372:                                             ; preds = %1354
+  br label %1373
+
+1373:                                             ; preds = %1372
+  br label %1374
+
+1374:                                             ; preds = %1373
+  call void @llvm.lifetime.start.p0(i64 8, ptr %130) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %131) #2
+  %1375 = load ptr, ptr %5, align 8, !tbaa !6
+  %1376 = getelementptr inbounds i64, ptr %1375, i64 5
+  %1377 = load i64, ptr %1376, align 8, !tbaa !13
+  %1378 = load ptr, ptr %6, align 8, !tbaa !6
+  %1379 = getelementptr inbounds i64, ptr %1378, i64 7
+  %1380 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1377, ptr elementtype(i64) %1379) #3, !srcloc !183
+  %1381 = extractvalue { i64, i64 } %1380, 0
+  %1382 = extractvalue { i64, i64 } %1380, 1
+  store i64 %1381, ptr %130, align 8, !tbaa !13
+  store i64 %1382, ptr %131, align 8, !tbaa !13
+  %1383 = load i64, ptr %7, align 8, !tbaa !13
+  %1384 = load i64, ptr %8, align 8, !tbaa !13
+  %1385 = load i64, ptr %9, align 8, !tbaa !13
+  %1386 = load i64, ptr %130, align 8, !tbaa !13
+  %1387 = load i64, ptr %131, align 8, !tbaa !13
+  %1388 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1386, i64 %1387, i32 0, i64 %1383, i64 %1384, i64 %1385) #3, !srcloc !184
+  %1389 = extractvalue { i64, i64, i64 } %1388, 0
+  %1390 = extractvalue { i64, i64, i64 } %1388, 1
+  %1391 = extractvalue { i64, i64, i64 } %1388, 2
+  store i64 %1389, ptr %7, align 8, !tbaa !13
+  store i64 %1390, ptr %8, align 8, !tbaa !13
+  store i64 %1391, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %131) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %130) #2
+  br label %1392
+
+1392:                                             ; preds = %1374
+  br label %1393
+
+1393:                                             ; preds = %1392
+  %1394 = load i64, ptr %7, align 8, !tbaa !13
+  %1395 = load ptr, ptr %4, align 8, !tbaa !6
+  %1396 = getelementptr inbounds i64, ptr %1395, i64 12
+  store i64 %1394, ptr %1396, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %1397
+
+1397:                                             ; preds = %1393
+  call void @llvm.lifetime.start.p0(i64 8, ptr %132) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %133) #2
+  %1398 = load ptr, ptr %5, align 8, !tbaa !6
+  %1399 = getelementptr inbounds i64, ptr %1398, i64 6
+  %1400 = load i64, ptr %1399, align 8, !tbaa !13
+  %1401 = load ptr, ptr %6, align 8, !tbaa !6
+  %1402 = getelementptr inbounds i64, ptr %1401, i64 7
+  %1403 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1400, ptr elementtype(i64) %1402) #3, !srcloc !185
+  %1404 = extractvalue { i64, i64 } %1403, 0
+  %1405 = extractvalue { i64, i64 } %1403, 1
+  store i64 %1404, ptr %132, align 8, !tbaa !13
+  store i64 %1405, ptr %133, align 8, !tbaa !13
+  %1406 = load i64, ptr %8, align 8, !tbaa !13
+  %1407 = load i64, ptr %9, align 8, !tbaa !13
+  %1408 = load i64, ptr %7, align 8, !tbaa !13
+  %1409 = load i64, ptr %132, align 8, !tbaa !13
+  %1410 = load i64, ptr %133, align 8, !tbaa !13
+  %1411 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1409, i64 %1410, i32 0, i64 %1406, i64 %1407, i64 %1408) #3, !srcloc !186
+  %1412 = extractvalue { i64, i64, i64 } %1411, 0
+  %1413 = extractvalue { i64, i64, i64 } %1411, 1
+  %1414 = extractvalue { i64, i64, i64 } %1411, 2
+  store i64 %1412, ptr %8, align 8, !tbaa !13
+  store i64 %1413, ptr %9, align 8, !tbaa !13
+  store i64 %1414, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %133) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %132) #2
+  br label %1415
+
+1415:                                             ; preds = %1397
+  br label %1416
+
+1416:                                             ; preds = %1415
+  br label %1417
+
+1417:                                             ; preds = %1416
+  call void @llvm.lifetime.start.p0(i64 8, ptr %134) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %135) #2
+  %1418 = load ptr, ptr %5, align 8, !tbaa !6
+  %1419 = getelementptr inbounds i64, ptr %1418, i64 7
+  %1420 = load i64, ptr %1419, align 8, !tbaa !13
+  %1421 = load ptr, ptr %6, align 8, !tbaa !6
+  %1422 = getelementptr inbounds i64, ptr %1421, i64 6
+  %1423 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1420, ptr elementtype(i64) %1422) #3, !srcloc !187
+  %1424 = extractvalue { i64, i64 } %1423, 0
+  %1425 = extractvalue { i64, i64 } %1423, 1
+  store i64 %1424, ptr %134, align 8, !tbaa !13
+  store i64 %1425, ptr %135, align 8, !tbaa !13
+  %1426 = load i64, ptr %8, align 8, !tbaa !13
+  %1427 = load i64, ptr %9, align 8, !tbaa !13
+  %1428 = load i64, ptr %7, align 8, !tbaa !13
+  %1429 = load i64, ptr %134, align 8, !tbaa !13
+  %1430 = load i64, ptr %135, align 8, !tbaa !13
+  %1431 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1429, i64 %1430, i32 0, i64 %1426, i64 %1427, i64 %1428) #3, !srcloc !188
+  %1432 = extractvalue { i64, i64, i64 } %1431, 0
+  %1433 = extractvalue { i64, i64, i64 } %1431, 1
+  %1434 = extractvalue { i64, i64, i64 } %1431, 2
+  store i64 %1432, ptr %8, align 8, !tbaa !13
+  store i64 %1433, ptr %9, align 8, !tbaa !13
+  store i64 %1434, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %135) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %134) #2
+  br label %1435
+
+1435:                                             ; preds = %1417
+  br label %1436
+
+1436:                                             ; preds = %1435
+  %1437 = load i64, ptr %8, align 8, !tbaa !13
+  %1438 = load ptr, ptr %4, align 8, !tbaa !6
+  %1439 = getelementptr inbounds i64, ptr %1438, i64 13
+  store i64 %1437, ptr %1439, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %1440
+
+1440:                                             ; preds = %1436
+  call void @llvm.lifetime.start.p0(i64 8, ptr %136) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %137) #2
+  %1441 = load ptr, ptr %5, align 8, !tbaa !6
+  %1442 = getelementptr inbounds i64, ptr %1441, i64 7
+  %1443 = load i64, ptr %1442, align 8, !tbaa !13
+  %1444 = load ptr, ptr %6, align 8, !tbaa !6
+  %1445 = getelementptr inbounds i64, ptr %1444, i64 7
+  %1446 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1443, ptr elementtype(i64) %1445) #3, !srcloc !189
+  %1447 = extractvalue { i64, i64 } %1446, 0
+  %1448 = extractvalue { i64, i64 } %1446, 1
+  store i64 %1447, ptr %136, align 8, !tbaa !13
+  store i64 %1448, ptr %137, align 8, !tbaa !13
+  %1449 = load i64, ptr %9, align 8, !tbaa !13
+  %1450 = load i64, ptr %7, align 8, !tbaa !13
+  %1451 = load i64, ptr %8, align 8, !tbaa !13
+  %1452 = load i64, ptr %136, align 8, !tbaa !13
+  %1453 = load i64, ptr %137, align 8, !tbaa !13
+  %1454 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1452, i64 %1453, i32 0, i64 %1449, i64 %1450, i64 %1451) #3, !srcloc !190
+  %1455 = extractvalue { i64, i64, i64 } %1454, 0
+  %1456 = extractvalue { i64, i64, i64 } %1454, 1
+  %1457 = extractvalue { i64, i64, i64 } %1454, 2
+  store i64 %1455, ptr %9, align 8, !tbaa !13
+  store i64 %1456, ptr %7, align 8, !tbaa !13
+  store i64 %1457, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %137) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %136) #2
+  br label %1458
+
+1458:                                             ; preds = %1440
+  br label %1459
+
+1459:                                             ; preds = %1458
+  %1460 = load i64, ptr %9, align 8, !tbaa !13
+  %1461 = load ptr, ptr %4, align 8, !tbaa !6
+  %1462 = getelementptr inbounds i64, ptr %1461, i64 14
+  store i64 %1460, ptr %1462, align 8, !tbaa !13
+  %1463 = load i64, ptr %7, align 8, !tbaa !13
+  %1464 = load ptr, ptr %4, align 8, !tbaa !6
+  %1465 = getelementptr inbounds i64, ptr %1464, i64 15
+  store i64 %1463, ptr %1465, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bn_mul_comba4(ptr noundef %r, ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %c1 = alloca i64, align 8
-  %c2 = alloca i64, align 8
-  %c3 = alloca i64, align 8
-  %t1 = alloca i64, align 8
-  %t2 = alloca i64, align 8
-  %t18 = alloca i64, align 8
-  %t29 = alloca i64, align 8
-  %t119 = alloca i64, align 8
-  %t220 = alloca i64, align 8
-  %t131 = alloca i64, align 8
-  %t232 = alloca i64, align 8
-  %t142 = alloca i64, align 8
-  %t243 = alloca i64, align 8
-  %t153 = alloca i64, align 8
-  %t254 = alloca i64, align 8
-  %t165 = alloca i64, align 8
-  %t266 = alloca i64, align 8
-  %t176 = alloca i64, align 8
-  %t277 = alloca i64, align 8
-  %t187 = alloca i64, align 8
-  %t288 = alloca i64, align 8
-  %t198 = alloca i64, align 8
-  %t299 = alloca i64, align 8
-  %t1110 = alloca i64, align 8
-  %t2111 = alloca i64, align 8
-  %t1121 = alloca i64, align 8
-  %t2122 = alloca i64, align 8
-  %t1132 = alloca i64, align 8
-  %t2133 = alloca i64, align 8
-  %t1144 = alloca i64, align 8
-  %t2145 = alloca i64, align 8
-  %t1155 = alloca i64, align 8
-  %t2156 = alloca i64, align 8
-  %t1167 = alloca i64, align 8
-  %t2168 = alloca i64, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store i64 0, ptr %c1, align 8
-  store i64 0, ptr %c2, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body
+define hidden void @bn_mul_comba4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  %26 = alloca i64, align 8
+  %27 = alloca i64, align 8
+  %28 = alloca i64, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca i64, align 8
+  %31 = alloca i64, align 8
+  %32 = alloca i64, align 8
+  %33 = alloca i64, align 8
+  %34 = alloca i64, align 8
+  %35 = alloca i64, align 8
+  %36 = alloca i64, align 8
+  %37 = alloca i64, align 8
+  %38 = alloca i64, align 8
+  %39 = alloca i64, align 8
+  %40 = alloca i64, align 8
+  %41 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !6
+  store ptr %2, ptr %6, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #2
+  store i64 0, ptr %7, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  store i64 0, ptr %9, align 8, !tbaa !13
+  br label %42
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %a.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %b.addr, align 8
-  %arrayidx1 = getelementptr inbounds i64, ptr %2, i64 0
-  %3 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr elementtype(i64) %arrayidx1) #1, !srcloc !183
-  %asmresult = extractvalue { i64, i64 } %3, 0
-  %asmresult2 = extractvalue { i64, i64 } %3, 1
-  store i64 %asmresult, ptr %t1, align 8
-  store i64 %asmresult2, ptr %t2, align 8
-  %4 = load i64, ptr %c1, align 8
-  %5 = load i64, ptr %c2, align 8
-  %6 = load i64, ptr %c3, align 8
-  %7 = load i64, ptr %t1, align 8
-  %8 = load i64, ptr %t2, align 8
-  %9 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %8, i32 0, i64 %4, i64 %5, i64 %6) #1, !srcloc !184
-  %asmresult3 = extractvalue { i64, i64, i64 } %9, 0
-  %asmresult4 = extractvalue { i64, i64, i64 } %9, 1
-  %asmresult5 = extractvalue { i64, i64, i64 } %9, 2
-  store i64 %asmresult3, ptr %c1, align 8
-  store i64 %asmresult4, ptr %c2, align 8
-  store i64 %asmresult5, ptr %c3, align 8
-  br label %do.end
+42:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #2
+  %43 = load ptr, ptr %5, align 8, !tbaa !6
+  %44 = getelementptr inbounds i64, ptr %43, i64 0
+  %45 = load i64, ptr %44, align 8, !tbaa !13
+  %46 = load ptr, ptr %6, align 8, !tbaa !6
+  %47 = getelementptr inbounds i64, ptr %46, i64 0
+  %48 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, ptr elementtype(i64) %47) #3, !srcloc !191
+  %49 = extractvalue { i64, i64 } %48, 0
+  %50 = extractvalue { i64, i64 } %48, 1
+  store i64 %49, ptr %10, align 8, !tbaa !13
+  store i64 %50, ptr %11, align 8, !tbaa !13
+  %51 = load i64, ptr %7, align 8, !tbaa !13
+  %52 = load i64, ptr %8, align 8, !tbaa !13
+  %53 = load i64, ptr %9, align 8, !tbaa !13
+  %54 = load i64, ptr %10, align 8, !tbaa !13
+  %55 = load i64, ptr %11, align 8, !tbaa !13
+  %56 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %54, i64 %55, i32 0, i64 %51, i64 %52, i64 %53) #3, !srcloc !192
+  %57 = extractvalue { i64, i64, i64 } %56, 0
+  %58 = extractvalue { i64, i64, i64 } %56, 1
+  %59 = extractvalue { i64, i64, i64 } %56, 2
+  store i64 %57, ptr %7, align 8, !tbaa !13
+  store i64 %58, ptr %8, align 8, !tbaa !13
+  store i64 %59, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  br label %60
 
-do.end:                                           ; preds = %do.body
-  %10 = load i64, ptr %c1, align 8
-  %11 = load ptr, ptr %r.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %11, i64 0
-  store i64 %10, ptr %arrayidx6, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body7
+60:                                               ; preds = %42
+  br label %61
 
-do.body7:                                         ; preds = %do.end
-  %12 = load ptr, ptr %a.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %12, i64 0
-  %13 = load i64, ptr %arrayidx10, align 8
-  %14 = load ptr, ptr %b.addr, align 8
-  %arrayidx11 = getelementptr inbounds i64, ptr %14, i64 1
-  %15 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %13, ptr elementtype(i64) %arrayidx11) #1, !srcloc !185
-  %asmresult12 = extractvalue { i64, i64 } %15, 0
-  %asmresult13 = extractvalue { i64, i64 } %15, 1
-  store i64 %asmresult12, ptr %t18, align 8
-  store i64 %asmresult13, ptr %t29, align 8
-  %16 = load i64, ptr %c2, align 8
-  %17 = load i64, ptr %c3, align 8
-  %18 = load i64, ptr %c1, align 8
-  %19 = load i64, ptr %t18, align 8
-  %20 = load i64, ptr %t29, align 8
-  %21 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %19, i64 %20, i32 0, i64 %16, i64 %17, i64 %18) #1, !srcloc !186
-  %asmresult14 = extractvalue { i64, i64, i64 } %21, 0
-  %asmresult15 = extractvalue { i64, i64, i64 } %21, 1
-  %asmresult16 = extractvalue { i64, i64, i64 } %21, 2
-  store i64 %asmresult14, ptr %c2, align 8
-  store i64 %asmresult15, ptr %c3, align 8
-  store i64 %asmresult16, ptr %c1, align 8
-  br label %do.end17
+61:                                               ; preds = %60
+  %62 = load i64, ptr %7, align 8, !tbaa !13
+  %63 = load ptr, ptr %4, align 8, !tbaa !6
+  %64 = getelementptr inbounds i64, ptr %63, i64 0
+  store i64 %62, ptr %64, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %65
 
-do.end17:                                         ; preds = %do.body7
-  br label %do.body18
+65:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #2
+  %66 = load ptr, ptr %5, align 8, !tbaa !6
+  %67 = getelementptr inbounds i64, ptr %66, i64 0
+  %68 = load i64, ptr %67, align 8, !tbaa !13
+  %69 = load ptr, ptr %6, align 8, !tbaa !6
+  %70 = getelementptr inbounds i64, ptr %69, i64 1
+  %71 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %68, ptr elementtype(i64) %70) #3, !srcloc !193
+  %72 = extractvalue { i64, i64 } %71, 0
+  %73 = extractvalue { i64, i64 } %71, 1
+  store i64 %72, ptr %12, align 8, !tbaa !13
+  store i64 %73, ptr %13, align 8, !tbaa !13
+  %74 = load i64, ptr %8, align 8, !tbaa !13
+  %75 = load i64, ptr %9, align 8, !tbaa !13
+  %76 = load i64, ptr %7, align 8, !tbaa !13
+  %77 = load i64, ptr %12, align 8, !tbaa !13
+  %78 = load i64, ptr %13, align 8, !tbaa !13
+  %79 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %78, i32 0, i64 %74, i64 %75, i64 %76) #3, !srcloc !194
+  %80 = extractvalue { i64, i64, i64 } %79, 0
+  %81 = extractvalue { i64, i64, i64 } %79, 1
+  %82 = extractvalue { i64, i64, i64 } %79, 2
+  store i64 %80, ptr %8, align 8, !tbaa !13
+  store i64 %81, ptr %9, align 8, !tbaa !13
+  store i64 %82, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #2
+  br label %83
 
-do.body18:                                        ; preds = %do.end17
-  %22 = load ptr, ptr %a.addr, align 8
-  %arrayidx21 = getelementptr inbounds i64, ptr %22, i64 1
-  %23 = load i64, ptr %arrayidx21, align 8
-  %24 = load ptr, ptr %b.addr, align 8
-  %arrayidx22 = getelementptr inbounds i64, ptr %24, i64 0
-  %25 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %23, ptr elementtype(i64) %arrayidx22) #1, !srcloc !187
-  %asmresult23 = extractvalue { i64, i64 } %25, 0
-  %asmresult24 = extractvalue { i64, i64 } %25, 1
-  store i64 %asmresult23, ptr %t119, align 8
-  store i64 %asmresult24, ptr %t220, align 8
-  %26 = load i64, ptr %c2, align 8
-  %27 = load i64, ptr %c3, align 8
-  %28 = load i64, ptr %c1, align 8
-  %29 = load i64, ptr %t119, align 8
-  %30 = load i64, ptr %t220, align 8
-  %31 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %29, i64 %30, i32 0, i64 %26, i64 %27, i64 %28) #1, !srcloc !188
-  %asmresult25 = extractvalue { i64, i64, i64 } %31, 0
-  %asmresult26 = extractvalue { i64, i64, i64 } %31, 1
-  %asmresult27 = extractvalue { i64, i64, i64 } %31, 2
-  store i64 %asmresult25, ptr %c2, align 8
-  store i64 %asmresult26, ptr %c3, align 8
-  store i64 %asmresult27, ptr %c1, align 8
-  br label %do.end28
+83:                                               ; preds = %65
+  br label %84
 
-do.end28:                                         ; preds = %do.body18
-  %32 = load i64, ptr %c2, align 8
-  %33 = load ptr, ptr %r.addr, align 8
-  %arrayidx29 = getelementptr inbounds i64, ptr %33, i64 1
-  store i64 %32, ptr %arrayidx29, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body30
+84:                                               ; preds = %83
+  br label %85
 
-do.body30:                                        ; preds = %do.end28
-  %34 = load ptr, ptr %a.addr, align 8
-  %arrayidx33 = getelementptr inbounds i64, ptr %34, i64 2
-  %35 = load i64, ptr %arrayidx33, align 8
-  %36 = load ptr, ptr %b.addr, align 8
-  %arrayidx34 = getelementptr inbounds i64, ptr %36, i64 0
-  %37 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr elementtype(i64) %arrayidx34) #1, !srcloc !189
-  %asmresult35 = extractvalue { i64, i64 } %37, 0
-  %asmresult36 = extractvalue { i64, i64 } %37, 1
-  store i64 %asmresult35, ptr %t131, align 8
-  store i64 %asmresult36, ptr %t232, align 8
-  %38 = load i64, ptr %c3, align 8
-  %39 = load i64, ptr %c1, align 8
-  %40 = load i64, ptr %c2, align 8
-  %41 = load i64, ptr %t131, align 8
-  %42 = load i64, ptr %t232, align 8
-  %43 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %41, i64 %42, i32 0, i64 %38, i64 %39, i64 %40) #1, !srcloc !190
-  %asmresult37 = extractvalue { i64, i64, i64 } %43, 0
-  %asmresult38 = extractvalue { i64, i64, i64 } %43, 1
-  %asmresult39 = extractvalue { i64, i64, i64 } %43, 2
-  store i64 %asmresult37, ptr %c3, align 8
-  store i64 %asmresult38, ptr %c1, align 8
-  store i64 %asmresult39, ptr %c2, align 8
-  br label %do.end40
+85:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #2
+  %86 = load ptr, ptr %5, align 8, !tbaa !6
+  %87 = getelementptr inbounds i64, ptr %86, i64 1
+  %88 = load i64, ptr %87, align 8, !tbaa !13
+  %89 = load ptr, ptr %6, align 8, !tbaa !6
+  %90 = getelementptr inbounds i64, ptr %89, i64 0
+  %91 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %88, ptr elementtype(i64) %90) #3, !srcloc !195
+  %92 = extractvalue { i64, i64 } %91, 0
+  %93 = extractvalue { i64, i64 } %91, 1
+  store i64 %92, ptr %14, align 8, !tbaa !13
+  store i64 %93, ptr %15, align 8, !tbaa !13
+  %94 = load i64, ptr %8, align 8, !tbaa !13
+  %95 = load i64, ptr %9, align 8, !tbaa !13
+  %96 = load i64, ptr %7, align 8, !tbaa !13
+  %97 = load i64, ptr %14, align 8, !tbaa !13
+  %98 = load i64, ptr %15, align 8, !tbaa !13
+  %99 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %97, i64 %98, i32 0, i64 %94, i64 %95, i64 %96) #3, !srcloc !196
+  %100 = extractvalue { i64, i64, i64 } %99, 0
+  %101 = extractvalue { i64, i64, i64 } %99, 1
+  %102 = extractvalue { i64, i64, i64 } %99, 2
+  store i64 %100, ptr %8, align 8, !tbaa !13
+  store i64 %101, ptr %9, align 8, !tbaa !13
+  store i64 %102, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #2
+  br label %103
 
-do.end40:                                         ; preds = %do.body30
-  br label %do.body41
+103:                                              ; preds = %85
+  br label %104
 
-do.body41:                                        ; preds = %do.end40
-  %44 = load ptr, ptr %a.addr, align 8
-  %arrayidx44 = getelementptr inbounds i64, ptr %44, i64 1
-  %45 = load i64, ptr %arrayidx44, align 8
-  %46 = load ptr, ptr %b.addr, align 8
-  %arrayidx45 = getelementptr inbounds i64, ptr %46, i64 1
-  %47 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, ptr elementtype(i64) %arrayidx45) #1, !srcloc !191
-  %asmresult46 = extractvalue { i64, i64 } %47, 0
-  %asmresult47 = extractvalue { i64, i64 } %47, 1
-  store i64 %asmresult46, ptr %t142, align 8
-  store i64 %asmresult47, ptr %t243, align 8
-  %48 = load i64, ptr %c3, align 8
-  %49 = load i64, ptr %c1, align 8
-  %50 = load i64, ptr %c2, align 8
-  %51 = load i64, ptr %t142, align 8
-  %52 = load i64, ptr %t243, align 8
-  %53 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 %52, i32 0, i64 %48, i64 %49, i64 %50) #1, !srcloc !192
-  %asmresult48 = extractvalue { i64, i64, i64 } %53, 0
-  %asmresult49 = extractvalue { i64, i64, i64 } %53, 1
-  %asmresult50 = extractvalue { i64, i64, i64 } %53, 2
-  store i64 %asmresult48, ptr %c3, align 8
-  store i64 %asmresult49, ptr %c1, align 8
-  store i64 %asmresult50, ptr %c2, align 8
-  br label %do.end51
+104:                                              ; preds = %103
+  %105 = load i64, ptr %8, align 8, !tbaa !13
+  %106 = load ptr, ptr %4, align 8, !tbaa !6
+  %107 = getelementptr inbounds i64, ptr %106, i64 1
+  store i64 %105, ptr %107, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %108
 
-do.end51:                                         ; preds = %do.body41
-  br label %do.body52
+108:                                              ; preds = %104
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #2
+  %109 = load ptr, ptr %5, align 8, !tbaa !6
+  %110 = getelementptr inbounds i64, ptr %109, i64 2
+  %111 = load i64, ptr %110, align 8, !tbaa !13
+  %112 = load ptr, ptr %6, align 8, !tbaa !6
+  %113 = getelementptr inbounds i64, ptr %112, i64 0
+  %114 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %111, ptr elementtype(i64) %113) #3, !srcloc !197
+  %115 = extractvalue { i64, i64 } %114, 0
+  %116 = extractvalue { i64, i64 } %114, 1
+  store i64 %115, ptr %16, align 8, !tbaa !13
+  store i64 %116, ptr %17, align 8, !tbaa !13
+  %117 = load i64, ptr %9, align 8, !tbaa !13
+  %118 = load i64, ptr %7, align 8, !tbaa !13
+  %119 = load i64, ptr %8, align 8, !tbaa !13
+  %120 = load i64, ptr %16, align 8, !tbaa !13
+  %121 = load i64, ptr %17, align 8, !tbaa !13
+  %122 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %120, i64 %121, i32 0, i64 %117, i64 %118, i64 %119) #3, !srcloc !198
+  %123 = extractvalue { i64, i64, i64 } %122, 0
+  %124 = extractvalue { i64, i64, i64 } %122, 1
+  %125 = extractvalue { i64, i64, i64 } %122, 2
+  store i64 %123, ptr %9, align 8, !tbaa !13
+  store i64 %124, ptr %7, align 8, !tbaa !13
+  store i64 %125, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #2
+  br label %126
 
-do.body52:                                        ; preds = %do.end51
-  %54 = load ptr, ptr %a.addr, align 8
-  %arrayidx55 = getelementptr inbounds i64, ptr %54, i64 0
-  %55 = load i64, ptr %arrayidx55, align 8
-  %56 = load ptr, ptr %b.addr, align 8
-  %arrayidx56 = getelementptr inbounds i64, ptr %56, i64 2
-  %57 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %55, ptr elementtype(i64) %arrayidx56) #1, !srcloc !193
-  %asmresult57 = extractvalue { i64, i64 } %57, 0
-  %asmresult58 = extractvalue { i64, i64 } %57, 1
-  store i64 %asmresult57, ptr %t153, align 8
-  store i64 %asmresult58, ptr %t254, align 8
-  %58 = load i64, ptr %c3, align 8
-  %59 = load i64, ptr %c1, align 8
-  %60 = load i64, ptr %c2, align 8
-  %61 = load i64, ptr %t153, align 8
-  %62 = load i64, ptr %t254, align 8
-  %63 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %61, i64 %62, i32 0, i64 %58, i64 %59, i64 %60) #1, !srcloc !194
-  %asmresult59 = extractvalue { i64, i64, i64 } %63, 0
-  %asmresult60 = extractvalue { i64, i64, i64 } %63, 1
-  %asmresult61 = extractvalue { i64, i64, i64 } %63, 2
-  store i64 %asmresult59, ptr %c3, align 8
-  store i64 %asmresult60, ptr %c1, align 8
-  store i64 %asmresult61, ptr %c2, align 8
-  br label %do.end62
+126:                                              ; preds = %108
+  br label %127
 
-do.end62:                                         ; preds = %do.body52
-  %64 = load i64, ptr %c3, align 8
-  %65 = load ptr, ptr %r.addr, align 8
-  %arrayidx63 = getelementptr inbounds i64, ptr %65, i64 2
-  store i64 %64, ptr %arrayidx63, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body64
+127:                                              ; preds = %126
+  br label %128
 
-do.body64:                                        ; preds = %do.end62
-  %66 = load ptr, ptr %a.addr, align 8
-  %arrayidx67 = getelementptr inbounds i64, ptr %66, i64 0
-  %67 = load i64, ptr %arrayidx67, align 8
-  %68 = load ptr, ptr %b.addr, align 8
-  %arrayidx68 = getelementptr inbounds i64, ptr %68, i64 3
-  %69 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %67, ptr elementtype(i64) %arrayidx68) #1, !srcloc !195
-  %asmresult69 = extractvalue { i64, i64 } %69, 0
-  %asmresult70 = extractvalue { i64, i64 } %69, 1
-  store i64 %asmresult69, ptr %t165, align 8
-  store i64 %asmresult70, ptr %t266, align 8
-  %70 = load i64, ptr %c1, align 8
-  %71 = load i64, ptr %c2, align 8
-  %72 = load i64, ptr %c3, align 8
-  %73 = load i64, ptr %t165, align 8
-  %74 = load i64, ptr %t266, align 8
-  %75 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %73, i64 %74, i32 0, i64 %70, i64 %71, i64 %72) #1, !srcloc !196
-  %asmresult71 = extractvalue { i64, i64, i64 } %75, 0
-  %asmresult72 = extractvalue { i64, i64, i64 } %75, 1
-  %asmresult73 = extractvalue { i64, i64, i64 } %75, 2
-  store i64 %asmresult71, ptr %c1, align 8
-  store i64 %asmresult72, ptr %c2, align 8
-  store i64 %asmresult73, ptr %c3, align 8
-  br label %do.end74
+128:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #2
+  %129 = load ptr, ptr %5, align 8, !tbaa !6
+  %130 = getelementptr inbounds i64, ptr %129, i64 1
+  %131 = load i64, ptr %130, align 8, !tbaa !13
+  %132 = load ptr, ptr %6, align 8, !tbaa !6
+  %133 = getelementptr inbounds i64, ptr %132, i64 1
+  %134 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %131, ptr elementtype(i64) %133) #3, !srcloc !199
+  %135 = extractvalue { i64, i64 } %134, 0
+  %136 = extractvalue { i64, i64 } %134, 1
+  store i64 %135, ptr %18, align 8, !tbaa !13
+  store i64 %136, ptr %19, align 8, !tbaa !13
+  %137 = load i64, ptr %9, align 8, !tbaa !13
+  %138 = load i64, ptr %7, align 8, !tbaa !13
+  %139 = load i64, ptr %8, align 8, !tbaa !13
+  %140 = load i64, ptr %18, align 8, !tbaa !13
+  %141 = load i64, ptr %19, align 8, !tbaa !13
+  %142 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %140, i64 %141, i32 0, i64 %137, i64 %138, i64 %139) #3, !srcloc !200
+  %143 = extractvalue { i64, i64, i64 } %142, 0
+  %144 = extractvalue { i64, i64, i64 } %142, 1
+  %145 = extractvalue { i64, i64, i64 } %142, 2
+  store i64 %143, ptr %9, align 8, !tbaa !13
+  store i64 %144, ptr %7, align 8, !tbaa !13
+  store i64 %145, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #2
+  br label %146
 
-do.end74:                                         ; preds = %do.body64
-  br label %do.body75
+146:                                              ; preds = %128
+  br label %147
 
-do.body75:                                        ; preds = %do.end74
-  %76 = load ptr, ptr %a.addr, align 8
-  %arrayidx78 = getelementptr inbounds i64, ptr %76, i64 1
-  %77 = load i64, ptr %arrayidx78, align 8
-  %78 = load ptr, ptr %b.addr, align 8
-  %arrayidx79 = getelementptr inbounds i64, ptr %78, i64 2
-  %79 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %77, ptr elementtype(i64) %arrayidx79) #1, !srcloc !197
-  %asmresult80 = extractvalue { i64, i64 } %79, 0
-  %asmresult81 = extractvalue { i64, i64 } %79, 1
-  store i64 %asmresult80, ptr %t176, align 8
-  store i64 %asmresult81, ptr %t277, align 8
-  %80 = load i64, ptr %c1, align 8
-  %81 = load i64, ptr %c2, align 8
-  %82 = load i64, ptr %c3, align 8
-  %83 = load i64, ptr %t176, align 8
-  %84 = load i64, ptr %t277, align 8
-  %85 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83, i64 %84, i32 0, i64 %80, i64 %81, i64 %82) #1, !srcloc !198
-  %asmresult82 = extractvalue { i64, i64, i64 } %85, 0
-  %asmresult83 = extractvalue { i64, i64, i64 } %85, 1
-  %asmresult84 = extractvalue { i64, i64, i64 } %85, 2
-  store i64 %asmresult82, ptr %c1, align 8
-  store i64 %asmresult83, ptr %c2, align 8
-  store i64 %asmresult84, ptr %c3, align 8
-  br label %do.end85
+147:                                              ; preds = %146
+  br label %148
 
-do.end85:                                         ; preds = %do.body75
-  br label %do.body86
+148:                                              ; preds = %147
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #2
+  %149 = load ptr, ptr %5, align 8, !tbaa !6
+  %150 = getelementptr inbounds i64, ptr %149, i64 0
+  %151 = load i64, ptr %150, align 8, !tbaa !13
+  %152 = load ptr, ptr %6, align 8, !tbaa !6
+  %153 = getelementptr inbounds i64, ptr %152, i64 2
+  %154 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %151, ptr elementtype(i64) %153) #3, !srcloc !201
+  %155 = extractvalue { i64, i64 } %154, 0
+  %156 = extractvalue { i64, i64 } %154, 1
+  store i64 %155, ptr %20, align 8, !tbaa !13
+  store i64 %156, ptr %21, align 8, !tbaa !13
+  %157 = load i64, ptr %9, align 8, !tbaa !13
+  %158 = load i64, ptr %7, align 8, !tbaa !13
+  %159 = load i64, ptr %8, align 8, !tbaa !13
+  %160 = load i64, ptr %20, align 8, !tbaa !13
+  %161 = load i64, ptr %21, align 8, !tbaa !13
+  %162 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %160, i64 %161, i32 0, i64 %157, i64 %158, i64 %159) #3, !srcloc !202
+  %163 = extractvalue { i64, i64, i64 } %162, 0
+  %164 = extractvalue { i64, i64, i64 } %162, 1
+  %165 = extractvalue { i64, i64, i64 } %162, 2
+  store i64 %163, ptr %9, align 8, !tbaa !13
+  store i64 %164, ptr %7, align 8, !tbaa !13
+  store i64 %165, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #2
+  br label %166
 
-do.body86:                                        ; preds = %do.end85
-  %86 = load ptr, ptr %a.addr, align 8
-  %arrayidx89 = getelementptr inbounds i64, ptr %86, i64 2
-  %87 = load i64, ptr %arrayidx89, align 8
-  %88 = load ptr, ptr %b.addr, align 8
-  %arrayidx90 = getelementptr inbounds i64, ptr %88, i64 1
-  %89 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %87, ptr elementtype(i64) %arrayidx90) #1, !srcloc !199
-  %asmresult91 = extractvalue { i64, i64 } %89, 0
-  %asmresult92 = extractvalue { i64, i64 } %89, 1
-  store i64 %asmresult91, ptr %t187, align 8
-  store i64 %asmresult92, ptr %t288, align 8
-  %90 = load i64, ptr %c1, align 8
-  %91 = load i64, ptr %c2, align 8
-  %92 = load i64, ptr %c3, align 8
-  %93 = load i64, ptr %t187, align 8
-  %94 = load i64, ptr %t288, align 8
-  %95 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %93, i64 %94, i32 0, i64 %90, i64 %91, i64 %92) #1, !srcloc !200
-  %asmresult93 = extractvalue { i64, i64, i64 } %95, 0
-  %asmresult94 = extractvalue { i64, i64, i64 } %95, 1
-  %asmresult95 = extractvalue { i64, i64, i64 } %95, 2
-  store i64 %asmresult93, ptr %c1, align 8
-  store i64 %asmresult94, ptr %c2, align 8
-  store i64 %asmresult95, ptr %c3, align 8
-  br label %do.end96
+166:                                              ; preds = %148
+  br label %167
 
-do.end96:                                         ; preds = %do.body86
-  br label %do.body97
+167:                                              ; preds = %166
+  %168 = load i64, ptr %9, align 8, !tbaa !13
+  %169 = load ptr, ptr %4, align 8, !tbaa !6
+  %170 = getelementptr inbounds i64, ptr %169, i64 2
+  store i64 %168, ptr %170, align 8, !tbaa !13
+  store i64 0, ptr %9, align 8, !tbaa !13
+  br label %171
 
-do.body97:                                        ; preds = %do.end96
-  %96 = load ptr, ptr %a.addr, align 8
-  %arrayidx100 = getelementptr inbounds i64, ptr %96, i64 3
-  %97 = load i64, ptr %arrayidx100, align 8
-  %98 = load ptr, ptr %b.addr, align 8
-  %arrayidx101 = getelementptr inbounds i64, ptr %98, i64 0
-  %99 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %97, ptr elementtype(i64) %arrayidx101) #1, !srcloc !201
-  %asmresult102 = extractvalue { i64, i64 } %99, 0
-  %asmresult103 = extractvalue { i64, i64 } %99, 1
-  store i64 %asmresult102, ptr %t198, align 8
-  store i64 %asmresult103, ptr %t299, align 8
-  %100 = load i64, ptr %c1, align 8
-  %101 = load i64, ptr %c2, align 8
-  %102 = load i64, ptr %c3, align 8
-  %103 = load i64, ptr %t198, align 8
-  %104 = load i64, ptr %t299, align 8
-  %105 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %103, i64 %104, i32 0, i64 %100, i64 %101, i64 %102) #1, !srcloc !202
-  %asmresult104 = extractvalue { i64, i64, i64 } %105, 0
-  %asmresult105 = extractvalue { i64, i64, i64 } %105, 1
-  %asmresult106 = extractvalue { i64, i64, i64 } %105, 2
-  store i64 %asmresult104, ptr %c1, align 8
-  store i64 %asmresult105, ptr %c2, align 8
-  store i64 %asmresult106, ptr %c3, align 8
-  br label %do.end107
+171:                                              ; preds = %167
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #2
+  %172 = load ptr, ptr %5, align 8, !tbaa !6
+  %173 = getelementptr inbounds i64, ptr %172, i64 0
+  %174 = load i64, ptr %173, align 8, !tbaa !13
+  %175 = load ptr, ptr %6, align 8, !tbaa !6
+  %176 = getelementptr inbounds i64, ptr %175, i64 3
+  %177 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %174, ptr elementtype(i64) %176) #3, !srcloc !203
+  %178 = extractvalue { i64, i64 } %177, 0
+  %179 = extractvalue { i64, i64 } %177, 1
+  store i64 %178, ptr %22, align 8, !tbaa !13
+  store i64 %179, ptr %23, align 8, !tbaa !13
+  %180 = load i64, ptr %7, align 8, !tbaa !13
+  %181 = load i64, ptr %8, align 8, !tbaa !13
+  %182 = load i64, ptr %9, align 8, !tbaa !13
+  %183 = load i64, ptr %22, align 8, !tbaa !13
+  %184 = load i64, ptr %23, align 8, !tbaa !13
+  %185 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %183, i64 %184, i32 0, i64 %180, i64 %181, i64 %182) #3, !srcloc !204
+  %186 = extractvalue { i64, i64, i64 } %185, 0
+  %187 = extractvalue { i64, i64, i64 } %185, 1
+  %188 = extractvalue { i64, i64, i64 } %185, 2
+  store i64 %186, ptr %7, align 8, !tbaa !13
+  store i64 %187, ptr %8, align 8, !tbaa !13
+  store i64 %188, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #2
+  br label %189
 
-do.end107:                                        ; preds = %do.body97
-  %106 = load i64, ptr %c1, align 8
-  %107 = load ptr, ptr %r.addr, align 8
-  %arrayidx108 = getelementptr inbounds i64, ptr %107, i64 3
-  store i64 %106, ptr %arrayidx108, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body109
+189:                                              ; preds = %171
+  br label %190
 
-do.body109:                                       ; preds = %do.end107
-  %108 = load ptr, ptr %a.addr, align 8
-  %arrayidx112 = getelementptr inbounds i64, ptr %108, i64 3
-  %109 = load i64, ptr %arrayidx112, align 8
-  %110 = load ptr, ptr %b.addr, align 8
-  %arrayidx113 = getelementptr inbounds i64, ptr %110, i64 1
-  %111 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %109, ptr elementtype(i64) %arrayidx113) #1, !srcloc !203
-  %asmresult114 = extractvalue { i64, i64 } %111, 0
-  %asmresult115 = extractvalue { i64, i64 } %111, 1
-  store i64 %asmresult114, ptr %t1110, align 8
-  store i64 %asmresult115, ptr %t2111, align 8
-  %112 = load i64, ptr %c2, align 8
-  %113 = load i64, ptr %c3, align 8
-  %114 = load i64, ptr %c1, align 8
-  %115 = load i64, ptr %t1110, align 8
-  %116 = load i64, ptr %t2111, align 8
-  %117 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %115, i64 %116, i32 0, i64 %112, i64 %113, i64 %114) #1, !srcloc !204
-  %asmresult116 = extractvalue { i64, i64, i64 } %117, 0
-  %asmresult117 = extractvalue { i64, i64, i64 } %117, 1
-  %asmresult118 = extractvalue { i64, i64, i64 } %117, 2
-  store i64 %asmresult116, ptr %c2, align 8
-  store i64 %asmresult117, ptr %c3, align 8
-  store i64 %asmresult118, ptr %c1, align 8
-  br label %do.end119
+190:                                              ; preds = %189
+  br label %191
 
-do.end119:                                        ; preds = %do.body109
-  br label %do.body120
+191:                                              ; preds = %190
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #2
+  %192 = load ptr, ptr %5, align 8, !tbaa !6
+  %193 = getelementptr inbounds i64, ptr %192, i64 1
+  %194 = load i64, ptr %193, align 8, !tbaa !13
+  %195 = load ptr, ptr %6, align 8, !tbaa !6
+  %196 = getelementptr inbounds i64, ptr %195, i64 2
+  %197 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %194, ptr elementtype(i64) %196) #3, !srcloc !205
+  %198 = extractvalue { i64, i64 } %197, 0
+  %199 = extractvalue { i64, i64 } %197, 1
+  store i64 %198, ptr %24, align 8, !tbaa !13
+  store i64 %199, ptr %25, align 8, !tbaa !13
+  %200 = load i64, ptr %7, align 8, !tbaa !13
+  %201 = load i64, ptr %8, align 8, !tbaa !13
+  %202 = load i64, ptr %9, align 8, !tbaa !13
+  %203 = load i64, ptr %24, align 8, !tbaa !13
+  %204 = load i64, ptr %25, align 8, !tbaa !13
+  %205 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %203, i64 %204, i32 0, i64 %200, i64 %201, i64 %202) #3, !srcloc !206
+  %206 = extractvalue { i64, i64, i64 } %205, 0
+  %207 = extractvalue { i64, i64, i64 } %205, 1
+  %208 = extractvalue { i64, i64, i64 } %205, 2
+  store i64 %206, ptr %7, align 8, !tbaa !13
+  store i64 %207, ptr %8, align 8, !tbaa !13
+  store i64 %208, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #2
+  br label %209
 
-do.body120:                                       ; preds = %do.end119
-  %118 = load ptr, ptr %a.addr, align 8
-  %arrayidx123 = getelementptr inbounds i64, ptr %118, i64 2
-  %119 = load i64, ptr %arrayidx123, align 8
-  %120 = load ptr, ptr %b.addr, align 8
-  %arrayidx124 = getelementptr inbounds i64, ptr %120, i64 2
-  %121 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %119, ptr elementtype(i64) %arrayidx124) #1, !srcloc !205
-  %asmresult125 = extractvalue { i64, i64 } %121, 0
-  %asmresult126 = extractvalue { i64, i64 } %121, 1
-  store i64 %asmresult125, ptr %t1121, align 8
-  store i64 %asmresult126, ptr %t2122, align 8
-  %122 = load i64, ptr %c2, align 8
-  %123 = load i64, ptr %c3, align 8
-  %124 = load i64, ptr %c1, align 8
-  %125 = load i64, ptr %t1121, align 8
-  %126 = load i64, ptr %t2122, align 8
-  %127 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %125, i64 %126, i32 0, i64 %122, i64 %123, i64 %124) #1, !srcloc !206
-  %asmresult127 = extractvalue { i64, i64, i64 } %127, 0
-  %asmresult128 = extractvalue { i64, i64, i64 } %127, 1
-  %asmresult129 = extractvalue { i64, i64, i64 } %127, 2
-  store i64 %asmresult127, ptr %c2, align 8
-  store i64 %asmresult128, ptr %c3, align 8
-  store i64 %asmresult129, ptr %c1, align 8
-  br label %do.end130
+209:                                              ; preds = %191
+  br label %210
 
-do.end130:                                        ; preds = %do.body120
-  br label %do.body131
+210:                                              ; preds = %209
+  br label %211
 
-do.body131:                                       ; preds = %do.end130
-  %128 = load ptr, ptr %a.addr, align 8
-  %arrayidx134 = getelementptr inbounds i64, ptr %128, i64 1
-  %129 = load i64, ptr %arrayidx134, align 8
-  %130 = load ptr, ptr %b.addr, align 8
-  %arrayidx135 = getelementptr inbounds i64, ptr %130, i64 3
-  %131 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %129, ptr elementtype(i64) %arrayidx135) #1, !srcloc !207
-  %asmresult136 = extractvalue { i64, i64 } %131, 0
-  %asmresult137 = extractvalue { i64, i64 } %131, 1
-  store i64 %asmresult136, ptr %t1132, align 8
-  store i64 %asmresult137, ptr %t2133, align 8
-  %132 = load i64, ptr %c2, align 8
-  %133 = load i64, ptr %c3, align 8
-  %134 = load i64, ptr %c1, align 8
-  %135 = load i64, ptr %t1132, align 8
-  %136 = load i64, ptr %t2133, align 8
-  %137 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %135, i64 %136, i32 0, i64 %132, i64 %133, i64 %134) #1, !srcloc !208
-  %asmresult138 = extractvalue { i64, i64, i64 } %137, 0
-  %asmresult139 = extractvalue { i64, i64, i64 } %137, 1
-  %asmresult140 = extractvalue { i64, i64, i64 } %137, 2
-  store i64 %asmresult138, ptr %c2, align 8
-  store i64 %asmresult139, ptr %c3, align 8
-  store i64 %asmresult140, ptr %c1, align 8
-  br label %do.end141
+211:                                              ; preds = %210
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #2
+  %212 = load ptr, ptr %5, align 8, !tbaa !6
+  %213 = getelementptr inbounds i64, ptr %212, i64 2
+  %214 = load i64, ptr %213, align 8, !tbaa !13
+  %215 = load ptr, ptr %6, align 8, !tbaa !6
+  %216 = getelementptr inbounds i64, ptr %215, i64 1
+  %217 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %214, ptr elementtype(i64) %216) #3, !srcloc !207
+  %218 = extractvalue { i64, i64 } %217, 0
+  %219 = extractvalue { i64, i64 } %217, 1
+  store i64 %218, ptr %26, align 8, !tbaa !13
+  store i64 %219, ptr %27, align 8, !tbaa !13
+  %220 = load i64, ptr %7, align 8, !tbaa !13
+  %221 = load i64, ptr %8, align 8, !tbaa !13
+  %222 = load i64, ptr %9, align 8, !tbaa !13
+  %223 = load i64, ptr %26, align 8, !tbaa !13
+  %224 = load i64, ptr %27, align 8, !tbaa !13
+  %225 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %223, i64 %224, i32 0, i64 %220, i64 %221, i64 %222) #3, !srcloc !208
+  %226 = extractvalue { i64, i64, i64 } %225, 0
+  %227 = extractvalue { i64, i64, i64 } %225, 1
+  %228 = extractvalue { i64, i64, i64 } %225, 2
+  store i64 %226, ptr %7, align 8, !tbaa !13
+  store i64 %227, ptr %8, align 8, !tbaa !13
+  store i64 %228, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #2
+  br label %229
 
-do.end141:                                        ; preds = %do.body131
-  %138 = load i64, ptr %c2, align 8
-  %139 = load ptr, ptr %r.addr, align 8
-  %arrayidx142 = getelementptr inbounds i64, ptr %139, i64 4
-  store i64 %138, ptr %arrayidx142, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body143
+229:                                              ; preds = %211
+  br label %230
 
-do.body143:                                       ; preds = %do.end141
-  %140 = load ptr, ptr %a.addr, align 8
-  %arrayidx146 = getelementptr inbounds i64, ptr %140, i64 2
-  %141 = load i64, ptr %arrayidx146, align 8
-  %142 = load ptr, ptr %b.addr, align 8
-  %arrayidx147 = getelementptr inbounds i64, ptr %142, i64 3
-  %143 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %141, ptr elementtype(i64) %arrayidx147) #1, !srcloc !209
-  %asmresult148 = extractvalue { i64, i64 } %143, 0
-  %asmresult149 = extractvalue { i64, i64 } %143, 1
-  store i64 %asmresult148, ptr %t1144, align 8
-  store i64 %asmresult149, ptr %t2145, align 8
-  %144 = load i64, ptr %c3, align 8
-  %145 = load i64, ptr %c1, align 8
-  %146 = load i64, ptr %c2, align 8
-  %147 = load i64, ptr %t1144, align 8
-  %148 = load i64, ptr %t2145, align 8
-  %149 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %147, i64 %148, i32 0, i64 %144, i64 %145, i64 %146) #1, !srcloc !210
-  %asmresult150 = extractvalue { i64, i64, i64 } %149, 0
-  %asmresult151 = extractvalue { i64, i64, i64 } %149, 1
-  %asmresult152 = extractvalue { i64, i64, i64 } %149, 2
-  store i64 %asmresult150, ptr %c3, align 8
-  store i64 %asmresult151, ptr %c1, align 8
-  store i64 %asmresult152, ptr %c2, align 8
-  br label %do.end153
+230:                                              ; preds = %229
+  br label %231
 
-do.end153:                                        ; preds = %do.body143
-  br label %do.body154
+231:                                              ; preds = %230
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #2
+  %232 = load ptr, ptr %5, align 8, !tbaa !6
+  %233 = getelementptr inbounds i64, ptr %232, i64 3
+  %234 = load i64, ptr %233, align 8, !tbaa !13
+  %235 = load ptr, ptr %6, align 8, !tbaa !6
+  %236 = getelementptr inbounds i64, ptr %235, i64 0
+  %237 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %234, ptr elementtype(i64) %236) #3, !srcloc !209
+  %238 = extractvalue { i64, i64 } %237, 0
+  %239 = extractvalue { i64, i64 } %237, 1
+  store i64 %238, ptr %28, align 8, !tbaa !13
+  store i64 %239, ptr %29, align 8, !tbaa !13
+  %240 = load i64, ptr %7, align 8, !tbaa !13
+  %241 = load i64, ptr %8, align 8, !tbaa !13
+  %242 = load i64, ptr %9, align 8, !tbaa !13
+  %243 = load i64, ptr %28, align 8, !tbaa !13
+  %244 = load i64, ptr %29, align 8, !tbaa !13
+  %245 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %243, i64 %244, i32 0, i64 %240, i64 %241, i64 %242) #3, !srcloc !210
+  %246 = extractvalue { i64, i64, i64 } %245, 0
+  %247 = extractvalue { i64, i64, i64 } %245, 1
+  %248 = extractvalue { i64, i64, i64 } %245, 2
+  store i64 %246, ptr %7, align 8, !tbaa !13
+  store i64 %247, ptr %8, align 8, !tbaa !13
+  store i64 %248, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #2
+  br label %249
 
-do.body154:                                       ; preds = %do.end153
-  %150 = load ptr, ptr %a.addr, align 8
-  %arrayidx157 = getelementptr inbounds i64, ptr %150, i64 3
-  %151 = load i64, ptr %arrayidx157, align 8
-  %152 = load ptr, ptr %b.addr, align 8
-  %arrayidx158 = getelementptr inbounds i64, ptr %152, i64 2
-  %153 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %151, ptr elementtype(i64) %arrayidx158) #1, !srcloc !211
-  %asmresult159 = extractvalue { i64, i64 } %153, 0
-  %asmresult160 = extractvalue { i64, i64 } %153, 1
-  store i64 %asmresult159, ptr %t1155, align 8
-  store i64 %asmresult160, ptr %t2156, align 8
-  %154 = load i64, ptr %c3, align 8
-  %155 = load i64, ptr %c1, align 8
-  %156 = load i64, ptr %c2, align 8
-  %157 = load i64, ptr %t1155, align 8
-  %158 = load i64, ptr %t2156, align 8
-  %159 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %157, i64 %158, i32 0, i64 %154, i64 %155, i64 %156) #1, !srcloc !212
-  %asmresult161 = extractvalue { i64, i64, i64 } %159, 0
-  %asmresult162 = extractvalue { i64, i64, i64 } %159, 1
-  %asmresult163 = extractvalue { i64, i64, i64 } %159, 2
-  store i64 %asmresult161, ptr %c3, align 8
-  store i64 %asmresult162, ptr %c1, align 8
-  store i64 %asmresult163, ptr %c2, align 8
-  br label %do.end164
+249:                                              ; preds = %231
+  br label %250
 
-do.end164:                                        ; preds = %do.body154
-  %160 = load i64, ptr %c3, align 8
-  %161 = load ptr, ptr %r.addr, align 8
-  %arrayidx165 = getelementptr inbounds i64, ptr %161, i64 5
-  store i64 %160, ptr %arrayidx165, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body166
+250:                                              ; preds = %249
+  %251 = load i64, ptr %7, align 8, !tbaa !13
+  %252 = load ptr, ptr %4, align 8, !tbaa !6
+  %253 = getelementptr inbounds i64, ptr %252, i64 3
+  store i64 %251, ptr %253, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %254
 
-do.body166:                                       ; preds = %do.end164
-  %162 = load ptr, ptr %a.addr, align 8
-  %arrayidx169 = getelementptr inbounds i64, ptr %162, i64 3
-  %163 = load i64, ptr %arrayidx169, align 8
-  %164 = load ptr, ptr %b.addr, align 8
-  %arrayidx170 = getelementptr inbounds i64, ptr %164, i64 3
-  %165 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %163, ptr elementtype(i64) %arrayidx170) #1, !srcloc !213
-  %asmresult171 = extractvalue { i64, i64 } %165, 0
-  %asmresult172 = extractvalue { i64, i64 } %165, 1
-  store i64 %asmresult171, ptr %t1167, align 8
-  store i64 %asmresult172, ptr %t2168, align 8
-  %166 = load i64, ptr %c1, align 8
-  %167 = load i64, ptr %c2, align 8
-  %168 = load i64, ptr %c3, align 8
-  %169 = load i64, ptr %t1167, align 8
-  %170 = load i64, ptr %t2168, align 8
-  %171 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %169, i64 %170, i32 0, i64 %166, i64 %167, i64 %168) #1, !srcloc !214
-  %asmresult173 = extractvalue { i64, i64, i64 } %171, 0
-  %asmresult174 = extractvalue { i64, i64, i64 } %171, 1
-  %asmresult175 = extractvalue { i64, i64, i64 } %171, 2
-  store i64 %asmresult173, ptr %c1, align 8
-  store i64 %asmresult174, ptr %c2, align 8
-  store i64 %asmresult175, ptr %c3, align 8
-  br label %do.end176
+254:                                              ; preds = %250
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #2
+  %255 = load ptr, ptr %5, align 8, !tbaa !6
+  %256 = getelementptr inbounds i64, ptr %255, i64 3
+  %257 = load i64, ptr %256, align 8, !tbaa !13
+  %258 = load ptr, ptr %6, align 8, !tbaa !6
+  %259 = getelementptr inbounds i64, ptr %258, i64 1
+  %260 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %257, ptr elementtype(i64) %259) #3, !srcloc !211
+  %261 = extractvalue { i64, i64 } %260, 0
+  %262 = extractvalue { i64, i64 } %260, 1
+  store i64 %261, ptr %30, align 8, !tbaa !13
+  store i64 %262, ptr %31, align 8, !tbaa !13
+  %263 = load i64, ptr %8, align 8, !tbaa !13
+  %264 = load i64, ptr %9, align 8, !tbaa !13
+  %265 = load i64, ptr %7, align 8, !tbaa !13
+  %266 = load i64, ptr %30, align 8, !tbaa !13
+  %267 = load i64, ptr %31, align 8, !tbaa !13
+  %268 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %266, i64 %267, i32 0, i64 %263, i64 %264, i64 %265) #3, !srcloc !212
+  %269 = extractvalue { i64, i64, i64 } %268, 0
+  %270 = extractvalue { i64, i64, i64 } %268, 1
+  %271 = extractvalue { i64, i64, i64 } %268, 2
+  store i64 %269, ptr %8, align 8, !tbaa !13
+  store i64 %270, ptr %9, align 8, !tbaa !13
+  store i64 %271, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #2
+  br label %272
 
-do.end176:                                        ; preds = %do.body166
-  %172 = load i64, ptr %c1, align 8
-  %173 = load ptr, ptr %r.addr, align 8
-  %arrayidx177 = getelementptr inbounds i64, ptr %173, i64 6
-  store i64 %172, ptr %arrayidx177, align 8
-  %174 = load i64, ptr %c2, align 8
-  %175 = load ptr, ptr %r.addr, align 8
-  %arrayidx178 = getelementptr inbounds i64, ptr %175, i64 7
-  store i64 %174, ptr %arrayidx178, align 8
+272:                                              ; preds = %254
+  br label %273
+
+273:                                              ; preds = %272
+  br label %274
+
+274:                                              ; preds = %273
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #2
+  %275 = load ptr, ptr %5, align 8, !tbaa !6
+  %276 = getelementptr inbounds i64, ptr %275, i64 2
+  %277 = load i64, ptr %276, align 8, !tbaa !13
+  %278 = load ptr, ptr %6, align 8, !tbaa !6
+  %279 = getelementptr inbounds i64, ptr %278, i64 2
+  %280 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %277, ptr elementtype(i64) %279) #3, !srcloc !213
+  %281 = extractvalue { i64, i64 } %280, 0
+  %282 = extractvalue { i64, i64 } %280, 1
+  store i64 %281, ptr %32, align 8, !tbaa !13
+  store i64 %282, ptr %33, align 8, !tbaa !13
+  %283 = load i64, ptr %8, align 8, !tbaa !13
+  %284 = load i64, ptr %9, align 8, !tbaa !13
+  %285 = load i64, ptr %7, align 8, !tbaa !13
+  %286 = load i64, ptr %32, align 8, !tbaa !13
+  %287 = load i64, ptr %33, align 8, !tbaa !13
+  %288 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %286, i64 %287, i32 0, i64 %283, i64 %284, i64 %285) #3, !srcloc !214
+  %289 = extractvalue { i64, i64, i64 } %288, 0
+  %290 = extractvalue { i64, i64, i64 } %288, 1
+  %291 = extractvalue { i64, i64, i64 } %288, 2
+  store i64 %289, ptr %8, align 8, !tbaa !13
+  store i64 %290, ptr %9, align 8, !tbaa !13
+  store i64 %291, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #2
+  br label %292
+
+292:                                              ; preds = %274
+  br label %293
+
+293:                                              ; preds = %292
+  br label %294
+
+294:                                              ; preds = %293
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #2
+  %295 = load ptr, ptr %5, align 8, !tbaa !6
+  %296 = getelementptr inbounds i64, ptr %295, i64 1
+  %297 = load i64, ptr %296, align 8, !tbaa !13
+  %298 = load ptr, ptr %6, align 8, !tbaa !6
+  %299 = getelementptr inbounds i64, ptr %298, i64 3
+  %300 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %297, ptr elementtype(i64) %299) #3, !srcloc !215
+  %301 = extractvalue { i64, i64 } %300, 0
+  %302 = extractvalue { i64, i64 } %300, 1
+  store i64 %301, ptr %34, align 8, !tbaa !13
+  store i64 %302, ptr %35, align 8, !tbaa !13
+  %303 = load i64, ptr %8, align 8, !tbaa !13
+  %304 = load i64, ptr %9, align 8, !tbaa !13
+  %305 = load i64, ptr %7, align 8, !tbaa !13
+  %306 = load i64, ptr %34, align 8, !tbaa !13
+  %307 = load i64, ptr %35, align 8, !tbaa !13
+  %308 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %306, i64 %307, i32 0, i64 %303, i64 %304, i64 %305) #3, !srcloc !216
+  %309 = extractvalue { i64, i64, i64 } %308, 0
+  %310 = extractvalue { i64, i64, i64 } %308, 1
+  %311 = extractvalue { i64, i64, i64 } %308, 2
+  store i64 %309, ptr %8, align 8, !tbaa !13
+  store i64 %310, ptr %9, align 8, !tbaa !13
+  store i64 %311, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #2
+  br label %312
+
+312:                                              ; preds = %294
+  br label %313
+
+313:                                              ; preds = %312
+  %314 = load i64, ptr %8, align 8, !tbaa !13
+  %315 = load ptr, ptr %4, align 8, !tbaa !6
+  %316 = getelementptr inbounds i64, ptr %315, i64 4
+  store i64 %314, ptr %316, align 8, !tbaa !13
+  store i64 0, ptr %8, align 8, !tbaa !13
+  br label %317
+
+317:                                              ; preds = %313
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #2
+  %318 = load ptr, ptr %5, align 8, !tbaa !6
+  %319 = getelementptr inbounds i64, ptr %318, i64 2
+  %320 = load i64, ptr %319, align 8, !tbaa !13
+  %321 = load ptr, ptr %6, align 8, !tbaa !6
+  %322 = getelementptr inbounds i64, ptr %321, i64 3
+  %323 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %320, ptr elementtype(i64) %322) #3, !srcloc !217
+  %324 = extractvalue { i64, i64 } %323, 0
+  %325 = extractvalue { i64, i64 } %323, 1
+  store i64 %324, ptr %36, align 8, !tbaa !13
+  store i64 %325, ptr %37, align 8, !tbaa !13
+  %326 = load i64, ptr %9, align 8, !tbaa !13
+  %327 = load i64, ptr %7, align 8, !tbaa !13
+  %328 = load i64, ptr %8, align 8, !tbaa !13
+  %329 = load i64, ptr %36, align 8, !tbaa !13
+  %330 = load i64, ptr %37, align 8, !tbaa !13
+  %331 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %329, i64 %330, i32 0, i64 %326, i64 %327, i64 %328) #3, !srcloc !218
+  %332 = extractvalue { i64, i64, i64 } %331, 0
+  %333 = extractvalue { i64, i64, i64 } %331, 1
+  %334 = extractvalue { i64, i64, i64 } %331, 2
+  store i64 %332, ptr %9, align 8, !tbaa !13
+  store i64 %333, ptr %7, align 8, !tbaa !13
+  store i64 %334, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #2
+  br label %335
+
+335:                                              ; preds = %317
+  br label %336
+
+336:                                              ; preds = %335
+  br label %337
+
+337:                                              ; preds = %336
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #2
+  %338 = load ptr, ptr %5, align 8, !tbaa !6
+  %339 = getelementptr inbounds i64, ptr %338, i64 3
+  %340 = load i64, ptr %339, align 8, !tbaa !13
+  %341 = load ptr, ptr %6, align 8, !tbaa !6
+  %342 = getelementptr inbounds i64, ptr %341, i64 2
+  %343 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %340, ptr elementtype(i64) %342) #3, !srcloc !219
+  %344 = extractvalue { i64, i64 } %343, 0
+  %345 = extractvalue { i64, i64 } %343, 1
+  store i64 %344, ptr %38, align 8, !tbaa !13
+  store i64 %345, ptr %39, align 8, !tbaa !13
+  %346 = load i64, ptr %9, align 8, !tbaa !13
+  %347 = load i64, ptr %7, align 8, !tbaa !13
+  %348 = load i64, ptr %8, align 8, !tbaa !13
+  %349 = load i64, ptr %38, align 8, !tbaa !13
+  %350 = load i64, ptr %39, align 8, !tbaa !13
+  %351 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %349, i64 %350, i32 0, i64 %346, i64 %347, i64 %348) #3, !srcloc !220
+  %352 = extractvalue { i64, i64, i64 } %351, 0
+  %353 = extractvalue { i64, i64, i64 } %351, 1
+  %354 = extractvalue { i64, i64, i64 } %351, 2
+  store i64 %352, ptr %9, align 8, !tbaa !13
+  store i64 %353, ptr %7, align 8, !tbaa !13
+  store i64 %354, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #2
+  br label %355
+
+355:                                              ; preds = %337
+  br label %356
+
+356:                                              ; preds = %355
+  %357 = load i64, ptr %9, align 8, !tbaa !13
+  %358 = load ptr, ptr %4, align 8, !tbaa !6
+  %359 = getelementptr inbounds i64, ptr %358, i64 5
+  store i64 %357, ptr %359, align 8, !tbaa !13
+  store i64 0, ptr %9, align 8, !tbaa !13
+  br label %360
+
+360:                                              ; preds = %356
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #2
+  %361 = load ptr, ptr %5, align 8, !tbaa !6
+  %362 = getelementptr inbounds i64, ptr %361, i64 3
+  %363 = load i64, ptr %362, align 8, !tbaa !13
+  %364 = load ptr, ptr %6, align 8, !tbaa !6
+  %365 = getelementptr inbounds i64, ptr %364, i64 3
+  %366 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %363, ptr elementtype(i64) %365) #3, !srcloc !221
+  %367 = extractvalue { i64, i64 } %366, 0
+  %368 = extractvalue { i64, i64 } %366, 1
+  store i64 %367, ptr %40, align 8, !tbaa !13
+  store i64 %368, ptr %41, align 8, !tbaa !13
+  %369 = load i64, ptr %7, align 8, !tbaa !13
+  %370 = load i64, ptr %8, align 8, !tbaa !13
+  %371 = load i64, ptr %9, align 8, !tbaa !13
+  %372 = load i64, ptr %40, align 8, !tbaa !13
+  %373 = load i64, ptr %41, align 8, !tbaa !13
+  %374 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %372, i64 %373, i32 0, i64 %369, i64 %370, i64 %371) #3, !srcloc !222
+  %375 = extractvalue { i64, i64, i64 } %374, 0
+  %376 = extractvalue { i64, i64, i64 } %374, 1
+  %377 = extractvalue { i64, i64, i64 } %374, 2
+  store i64 %375, ptr %7, align 8, !tbaa !13
+  store i64 %376, ptr %8, align 8, !tbaa !13
+  store i64 %377, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #2
+  br label %378
+
+378:                                              ; preds = %360
+  br label %379
+
+379:                                              ; preds = %378
+  %380 = load i64, ptr %7, align 8, !tbaa !13
+  %381 = load ptr, ptr %4, align 8, !tbaa !6
+  %382 = getelementptr inbounds i64, ptr %381, i64 6
+  store i64 %380, ptr %382, align 8, !tbaa !13
+  %383 = load i64, ptr %8, align 8, !tbaa !13
+  %384 = load ptr, ptr %4, align 8, !tbaa !6
+  %385 = getelementptr inbounds i64, ptr %384, i64 7
+  store i64 %383, ptr %385, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bn_sqr_comba8(ptr noundef %r, ptr noundef %a) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %c1 = alloca i64, align 8
-  %c2 = alloca i64, align 8
-  %c3 = alloca i64, align 8
-  %t1 = alloca i64, align 8
-  %t2 = alloca i64, align 8
-  %t17 = alloca i64, align 8
-  %t28 = alloca i64, align 8
-  %t122 = alloca i64, align 8
-  %t223 = alloca i64, align 8
-  %t132 = alloca i64, align 8
-  %t233 = alloca i64, align 8
-  %t147 = alloca i64, align 8
-  %t248 = alloca i64, align 8
-  %t161 = alloca i64, align 8
-  %t262 = alloca i64, align 8
-  %t176 = alloca i64, align 8
-  %t277 = alloca i64, align 8
-  %t186 = alloca i64, align 8
-  %t287 = alloca i64, align 8
-  %t1100 = alloca i64, align 8
-  %t2101 = alloca i64, align 8
-  %t1115 = alloca i64, align 8
-  %t2116 = alloca i64, align 8
-  %t1129 = alloca i64, align 8
-  %t2130 = alloca i64, align 8
-  %t1143 = alloca i64, align 8
-  %t2144 = alloca i64, align 8
-  %t1158 = alloca i64, align 8
-  %t2159 = alloca i64, align 8
-  %t1168 = alloca i64, align 8
-  %t2169 = alloca i64, align 8
-  %t1182 = alloca i64, align 8
-  %t2183 = alloca i64, align 8
-  %t1196 = alloca i64, align 8
-  %t2197 = alloca i64, align 8
-  %t1211 = alloca i64, align 8
-  %t2212 = alloca i64, align 8
-  %t1225 = alloca i64, align 8
-  %t2226 = alloca i64, align 8
-  %t1239 = alloca i64, align 8
-  %t2240 = alloca i64, align 8
-  %t1253 = alloca i64, align 8
-  %t2254 = alloca i64, align 8
-  %t1268 = alloca i64, align 8
-  %t2269 = alloca i64, align 8
-  %t1278 = alloca i64, align 8
-  %t2279 = alloca i64, align 8
-  %t1292 = alloca i64, align 8
-  %t2293 = alloca i64, align 8
-  %t1306 = alloca i64, align 8
-  %t2307 = alloca i64, align 8
-  %t1321 = alloca i64, align 8
-  %t2322 = alloca i64, align 8
-  %t1335 = alloca i64, align 8
-  %t2336 = alloca i64, align 8
-  %t1349 = alloca i64, align 8
-  %t2350 = alloca i64, align 8
-  %t1364 = alloca i64, align 8
-  %t2365 = alloca i64, align 8
-  %t1374 = alloca i64, align 8
-  %t2375 = alloca i64, align 8
-  %t1388 = alloca i64, align 8
-  %t2389 = alloca i64, align 8
-  %t1403 = alloca i64, align 8
-  %t2404 = alloca i64, align 8
-  %t1417 = alloca i64, align 8
-  %t2418 = alloca i64, align 8
-  %t1432 = alloca i64, align 8
-  %t2433 = alloca i64, align 8
-  %t1442 = alloca i64, align 8
-  %t2443 = alloca i64, align 8
-  %t1457 = alloca i64, align 8
-  %t2458 = alloca i64, align 8
-  %t1472 = alloca i64, align 8
-  %t2473 = alloca i64, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store i64 0, ptr %c1, align 8
-  store i64 0, ptr %c2, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %a.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1) #3, !srcloc !215
-  %asmresult = extractvalue { i64, i64 } %2, 0
-  %asmresult1 = extractvalue { i64, i64 } %2, 1
-  store i64 %asmresult, ptr %t1, align 8
-  store i64 %asmresult1, ptr %t2, align 8
-  %3 = load i64, ptr %c1, align 8
-  %4 = load i64, ptr %c2, align 8
-  %5 = load i64, ptr %c3, align 8
-  %6 = load i64, ptr %t1, align 8
-  %7 = load i64, ptr %t2, align 8
-  %8 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %7, i32 0, i64 %3, i64 %4, i64 %5) #1, !srcloc !216
-  %asmresult2 = extractvalue { i64, i64, i64 } %8, 0
-  %asmresult3 = extractvalue { i64, i64, i64 } %8, 1
-  %asmresult4 = extractvalue { i64, i64, i64 } %8, 2
-  store i64 %asmresult2, ptr %c1, align 8
-  store i64 %asmresult3, ptr %c2, align 8
-  store i64 %asmresult4, ptr %c3, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %9 = load i64, ptr %c1, align 8
-  %10 = load ptr, ptr %r.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %10, i64 0
-  store i64 %9, ptr %arrayidx5, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body6
-
-do.body6:                                         ; preds = %do.end
-  %11 = load ptr, ptr %a.addr, align 8
-  %arrayidx9 = getelementptr inbounds i64, ptr %11, i64 1
-  %12 = load i64, ptr %arrayidx9, align 8
-  %13 = load ptr, ptr %a.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %13, i64 0
-  %14 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr elementtype(i64) %arrayidx10) #1, !srcloc !217
-  %asmresult11 = extractvalue { i64, i64 } %14, 0
-  %asmresult12 = extractvalue { i64, i64 } %14, 1
-  store i64 %asmresult11, ptr %t17, align 8
-  store i64 %asmresult12, ptr %t28, align 8
-  %15 = load i64, ptr %c2, align 8
-  %16 = load i64, ptr %c3, align 8
-  %17 = load i64, ptr %c1, align 8
-  %18 = load i64, ptr %t17, align 8
-  %19 = load i64, ptr %t28, align 8
-  %20 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %18, i64 %19, i32 0, i64 %15, i64 %16, i64 %17) #1, !srcloc !218
-  %asmresult13 = extractvalue { i64, i64, i64 } %20, 0
-  %asmresult14 = extractvalue { i64, i64, i64 } %20, 1
-  %asmresult15 = extractvalue { i64, i64, i64 } %20, 2
-  store i64 %asmresult13, ptr %c2, align 8
-  store i64 %asmresult14, ptr %c3, align 8
-  store i64 %asmresult15, ptr %c1, align 8
-  %21 = load i64, ptr %c2, align 8
-  %22 = load i64, ptr %c3, align 8
-  %23 = load i64, ptr %c1, align 8
-  %24 = load i64, ptr %t17, align 8
-  %25 = load i64, ptr %t28, align 8
-  %26 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %25, i32 0, i64 %21, i64 %22, i64 %23) #1, !srcloc !219
-  %asmresult16 = extractvalue { i64, i64, i64 } %26, 0
-  %asmresult17 = extractvalue { i64, i64, i64 } %26, 1
-  %asmresult18 = extractvalue { i64, i64, i64 } %26, 2
-  store i64 %asmresult16, ptr %c2, align 8
-  store i64 %asmresult17, ptr %c3, align 8
-  store i64 %asmresult18, ptr %c1, align 8
-  br label %do.end19
-
-do.end19:                                         ; preds = %do.body6
-  %27 = load i64, ptr %c2, align 8
-  %28 = load ptr, ptr %r.addr, align 8
-  %arrayidx20 = getelementptr inbounds i64, ptr %28, i64 1
-  store i64 %27, ptr %arrayidx20, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body21
-
-do.body21:                                        ; preds = %do.end19
-  %29 = load ptr, ptr %a.addr, align 8
-  %arrayidx24 = getelementptr inbounds i64, ptr %29, i64 1
-  %30 = load i64, ptr %arrayidx24, align 8
-  %31 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %30) #3, !srcloc !220
-  %asmresult25 = extractvalue { i64, i64 } %31, 0
-  %asmresult26 = extractvalue { i64, i64 } %31, 1
-  store i64 %asmresult25, ptr %t122, align 8
-  store i64 %asmresult26, ptr %t223, align 8
-  %32 = load i64, ptr %c3, align 8
-  %33 = load i64, ptr %c1, align 8
-  %34 = load i64, ptr %c2, align 8
-  %35 = load i64, ptr %t122, align 8
-  %36 = load i64, ptr %t223, align 8
-  %37 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35, i64 %36, i32 0, i64 %32, i64 %33, i64 %34) #1, !srcloc !221
-  %asmresult27 = extractvalue { i64, i64, i64 } %37, 0
-  %asmresult28 = extractvalue { i64, i64, i64 } %37, 1
-  %asmresult29 = extractvalue { i64, i64, i64 } %37, 2
-  store i64 %asmresult27, ptr %c3, align 8
-  store i64 %asmresult28, ptr %c1, align 8
-  store i64 %asmresult29, ptr %c2, align 8
-  br label %do.end30
-
-do.end30:                                         ; preds = %do.body21
-  br label %do.body31
-
-do.body31:                                        ; preds = %do.end30
-  %38 = load ptr, ptr %a.addr, align 8
-  %arrayidx34 = getelementptr inbounds i64, ptr %38, i64 2
-  %39 = load i64, ptr %arrayidx34, align 8
-  %40 = load ptr, ptr %a.addr, align 8
-  %arrayidx35 = getelementptr inbounds i64, ptr %40, i64 0
-  %41 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %39, ptr elementtype(i64) %arrayidx35) #1, !srcloc !222
-  %asmresult36 = extractvalue { i64, i64 } %41, 0
-  %asmresult37 = extractvalue { i64, i64 } %41, 1
-  store i64 %asmresult36, ptr %t132, align 8
-  store i64 %asmresult37, ptr %t233, align 8
-  %42 = load i64, ptr %c3, align 8
-  %43 = load i64, ptr %c1, align 8
-  %44 = load i64, ptr %c2, align 8
-  %45 = load i64, ptr %t132, align 8
-  %46 = load i64, ptr %t233, align 8
-  %47 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, i64 %46, i32 0, i64 %42, i64 %43, i64 %44) #1, !srcloc !223
-  %asmresult38 = extractvalue { i64, i64, i64 } %47, 0
-  %asmresult39 = extractvalue { i64, i64, i64 } %47, 1
-  %asmresult40 = extractvalue { i64, i64, i64 } %47, 2
-  store i64 %asmresult38, ptr %c3, align 8
-  store i64 %asmresult39, ptr %c1, align 8
-  store i64 %asmresult40, ptr %c2, align 8
-  %48 = load i64, ptr %c3, align 8
-  %49 = load i64, ptr %c1, align 8
-  %50 = load i64, ptr %c2, align 8
-  %51 = load i64, ptr %t132, align 8
-  %52 = load i64, ptr %t233, align 8
-  %53 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 %52, i32 0, i64 %48, i64 %49, i64 %50) #1, !srcloc !224
-  %asmresult41 = extractvalue { i64, i64, i64 } %53, 0
-  %asmresult42 = extractvalue { i64, i64, i64 } %53, 1
-  %asmresult43 = extractvalue { i64, i64, i64 } %53, 2
-  store i64 %asmresult41, ptr %c3, align 8
-  store i64 %asmresult42, ptr %c1, align 8
-  store i64 %asmresult43, ptr %c2, align 8
-  br label %do.end44
-
-do.end44:                                         ; preds = %do.body31
-  %54 = load i64, ptr %c3, align 8
-  %55 = load ptr, ptr %r.addr, align 8
-  %arrayidx45 = getelementptr inbounds i64, ptr %55, i64 2
-  store i64 %54, ptr %arrayidx45, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body46
-
-do.body46:                                        ; preds = %do.end44
-  %56 = load ptr, ptr %a.addr, align 8
-  %arrayidx49 = getelementptr inbounds i64, ptr %56, i64 3
-  %57 = load i64, ptr %arrayidx49, align 8
-  %58 = load ptr, ptr %a.addr, align 8
-  %arrayidx50 = getelementptr inbounds i64, ptr %58, i64 0
-  %59 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %57, ptr elementtype(i64) %arrayidx50) #1, !srcloc !225
-  %asmresult51 = extractvalue { i64, i64 } %59, 0
-  %asmresult52 = extractvalue { i64, i64 } %59, 1
-  store i64 %asmresult51, ptr %t147, align 8
-  store i64 %asmresult52, ptr %t248, align 8
-  %60 = load i64, ptr %c1, align 8
-  %61 = load i64, ptr %c2, align 8
-  %62 = load i64, ptr %c3, align 8
-  %63 = load i64, ptr %t147, align 8
-  %64 = load i64, ptr %t248, align 8
-  %65 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %63, i64 %64, i32 0, i64 %60, i64 %61, i64 %62) #1, !srcloc !226
-  %asmresult53 = extractvalue { i64, i64, i64 } %65, 0
-  %asmresult54 = extractvalue { i64, i64, i64 } %65, 1
-  %asmresult55 = extractvalue { i64, i64, i64 } %65, 2
-  store i64 %asmresult53, ptr %c1, align 8
-  store i64 %asmresult54, ptr %c2, align 8
-  store i64 %asmresult55, ptr %c3, align 8
-  %66 = load i64, ptr %c1, align 8
-  %67 = load i64, ptr %c2, align 8
-  %68 = load i64, ptr %c3, align 8
-  %69 = load i64, ptr %t147, align 8
-  %70 = load i64, ptr %t248, align 8
-  %71 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %70, i32 0, i64 %66, i64 %67, i64 %68) #1, !srcloc !227
-  %asmresult56 = extractvalue { i64, i64, i64 } %71, 0
-  %asmresult57 = extractvalue { i64, i64, i64 } %71, 1
-  %asmresult58 = extractvalue { i64, i64, i64 } %71, 2
-  store i64 %asmresult56, ptr %c1, align 8
-  store i64 %asmresult57, ptr %c2, align 8
-  store i64 %asmresult58, ptr %c3, align 8
-  br label %do.end59
-
-do.end59:                                         ; preds = %do.body46
-  br label %do.body60
-
-do.body60:                                        ; preds = %do.end59
-  %72 = load ptr, ptr %a.addr, align 8
-  %arrayidx63 = getelementptr inbounds i64, ptr %72, i64 2
-  %73 = load i64, ptr %arrayidx63, align 8
-  %74 = load ptr, ptr %a.addr, align 8
-  %arrayidx64 = getelementptr inbounds i64, ptr %74, i64 1
-  %75 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %73, ptr elementtype(i64) %arrayidx64) #1, !srcloc !228
-  %asmresult65 = extractvalue { i64, i64 } %75, 0
-  %asmresult66 = extractvalue { i64, i64 } %75, 1
-  store i64 %asmresult65, ptr %t161, align 8
-  store i64 %asmresult66, ptr %t262, align 8
-  %76 = load i64, ptr %c1, align 8
-  %77 = load i64, ptr %c2, align 8
-  %78 = load i64, ptr %c3, align 8
-  %79 = load i64, ptr %t161, align 8
-  %80 = load i64, ptr %t262, align 8
-  %81 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %79, i64 %80, i32 0, i64 %76, i64 %77, i64 %78) #1, !srcloc !229
-  %asmresult67 = extractvalue { i64, i64, i64 } %81, 0
-  %asmresult68 = extractvalue { i64, i64, i64 } %81, 1
-  %asmresult69 = extractvalue { i64, i64, i64 } %81, 2
-  store i64 %asmresult67, ptr %c1, align 8
-  store i64 %asmresult68, ptr %c2, align 8
-  store i64 %asmresult69, ptr %c3, align 8
-  %82 = load i64, ptr %c1, align 8
-  %83 = load i64, ptr %c2, align 8
-  %84 = load i64, ptr %c3, align 8
-  %85 = load i64, ptr %t161, align 8
-  %86 = load i64, ptr %t262, align 8
-  %87 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %85, i64 %86, i32 0, i64 %82, i64 %83, i64 %84) #1, !srcloc !230
-  %asmresult70 = extractvalue { i64, i64, i64 } %87, 0
-  %asmresult71 = extractvalue { i64, i64, i64 } %87, 1
-  %asmresult72 = extractvalue { i64, i64, i64 } %87, 2
-  store i64 %asmresult70, ptr %c1, align 8
-  store i64 %asmresult71, ptr %c2, align 8
-  store i64 %asmresult72, ptr %c3, align 8
-  br label %do.end73
-
-do.end73:                                         ; preds = %do.body60
-  %88 = load i64, ptr %c1, align 8
-  %89 = load ptr, ptr %r.addr, align 8
-  %arrayidx74 = getelementptr inbounds i64, ptr %89, i64 3
-  store i64 %88, ptr %arrayidx74, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body75
-
-do.body75:                                        ; preds = %do.end73
-  %90 = load ptr, ptr %a.addr, align 8
-  %arrayidx78 = getelementptr inbounds i64, ptr %90, i64 2
-  %91 = load i64, ptr %arrayidx78, align 8
-  %92 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %91) #3, !srcloc !231
-  %asmresult79 = extractvalue { i64, i64 } %92, 0
-  %asmresult80 = extractvalue { i64, i64 } %92, 1
-  store i64 %asmresult79, ptr %t176, align 8
-  store i64 %asmresult80, ptr %t277, align 8
-  %93 = load i64, ptr %c2, align 8
-  %94 = load i64, ptr %c3, align 8
-  %95 = load i64, ptr %c1, align 8
-  %96 = load i64, ptr %t176, align 8
-  %97 = load i64, ptr %t277, align 8
-  %98 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97, i32 0, i64 %93, i64 %94, i64 %95) #1, !srcloc !232
-  %asmresult81 = extractvalue { i64, i64, i64 } %98, 0
-  %asmresult82 = extractvalue { i64, i64, i64 } %98, 1
-  %asmresult83 = extractvalue { i64, i64, i64 } %98, 2
-  store i64 %asmresult81, ptr %c2, align 8
-  store i64 %asmresult82, ptr %c3, align 8
-  store i64 %asmresult83, ptr %c1, align 8
-  br label %do.end84
-
-do.end84:                                         ; preds = %do.body75
-  br label %do.body85
-
-do.body85:                                        ; preds = %do.end84
-  %99 = load ptr, ptr %a.addr, align 8
-  %arrayidx88 = getelementptr inbounds i64, ptr %99, i64 3
-  %100 = load i64, ptr %arrayidx88, align 8
-  %101 = load ptr, ptr %a.addr, align 8
-  %arrayidx89 = getelementptr inbounds i64, ptr %101, i64 1
-  %102 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %100, ptr elementtype(i64) %arrayidx89) #1, !srcloc !233
-  %asmresult90 = extractvalue { i64, i64 } %102, 0
-  %asmresult91 = extractvalue { i64, i64 } %102, 1
-  store i64 %asmresult90, ptr %t186, align 8
-  store i64 %asmresult91, ptr %t287, align 8
-  %103 = load i64, ptr %c2, align 8
-  %104 = load i64, ptr %c3, align 8
-  %105 = load i64, ptr %c1, align 8
-  %106 = load i64, ptr %t186, align 8
-  %107 = load i64, ptr %t287, align 8
-  %108 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %106, i64 %107, i32 0, i64 %103, i64 %104, i64 %105) #1, !srcloc !234
-  %asmresult92 = extractvalue { i64, i64, i64 } %108, 0
-  %asmresult93 = extractvalue { i64, i64, i64 } %108, 1
-  %asmresult94 = extractvalue { i64, i64, i64 } %108, 2
-  store i64 %asmresult92, ptr %c2, align 8
-  store i64 %asmresult93, ptr %c3, align 8
-  store i64 %asmresult94, ptr %c1, align 8
-  %109 = load i64, ptr %c2, align 8
-  %110 = load i64, ptr %c3, align 8
-  %111 = load i64, ptr %c1, align 8
-  %112 = load i64, ptr %t186, align 8
-  %113 = load i64, ptr %t287, align 8
-  %114 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %112, i64 %113, i32 0, i64 %109, i64 %110, i64 %111) #1, !srcloc !235
-  %asmresult95 = extractvalue { i64, i64, i64 } %114, 0
-  %asmresult96 = extractvalue { i64, i64, i64 } %114, 1
-  %asmresult97 = extractvalue { i64, i64, i64 } %114, 2
-  store i64 %asmresult95, ptr %c2, align 8
-  store i64 %asmresult96, ptr %c3, align 8
-  store i64 %asmresult97, ptr %c1, align 8
-  br label %do.end98
-
-do.end98:                                         ; preds = %do.body85
-  br label %do.body99
-
-do.body99:                                        ; preds = %do.end98
-  %115 = load ptr, ptr %a.addr, align 8
-  %arrayidx102 = getelementptr inbounds i64, ptr %115, i64 4
-  %116 = load i64, ptr %arrayidx102, align 8
-  %117 = load ptr, ptr %a.addr, align 8
-  %arrayidx103 = getelementptr inbounds i64, ptr %117, i64 0
-  %118 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %116, ptr elementtype(i64) %arrayidx103) #1, !srcloc !236
-  %asmresult104 = extractvalue { i64, i64 } %118, 0
-  %asmresult105 = extractvalue { i64, i64 } %118, 1
-  store i64 %asmresult104, ptr %t1100, align 8
-  store i64 %asmresult105, ptr %t2101, align 8
-  %119 = load i64, ptr %c2, align 8
-  %120 = load i64, ptr %c3, align 8
-  %121 = load i64, ptr %c1, align 8
-  %122 = load i64, ptr %t1100, align 8
-  %123 = load i64, ptr %t2101, align 8
-  %124 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %122, i64 %123, i32 0, i64 %119, i64 %120, i64 %121) #1, !srcloc !237
-  %asmresult106 = extractvalue { i64, i64, i64 } %124, 0
-  %asmresult107 = extractvalue { i64, i64, i64 } %124, 1
-  %asmresult108 = extractvalue { i64, i64, i64 } %124, 2
-  store i64 %asmresult106, ptr %c2, align 8
-  store i64 %asmresult107, ptr %c3, align 8
-  store i64 %asmresult108, ptr %c1, align 8
-  %125 = load i64, ptr %c2, align 8
-  %126 = load i64, ptr %c3, align 8
-  %127 = load i64, ptr %c1, align 8
-  %128 = load i64, ptr %t1100, align 8
-  %129 = load i64, ptr %t2101, align 8
-  %130 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %128, i64 %129, i32 0, i64 %125, i64 %126, i64 %127) #1, !srcloc !238
-  %asmresult109 = extractvalue { i64, i64, i64 } %130, 0
-  %asmresult110 = extractvalue { i64, i64, i64 } %130, 1
-  %asmresult111 = extractvalue { i64, i64, i64 } %130, 2
-  store i64 %asmresult109, ptr %c2, align 8
-  store i64 %asmresult110, ptr %c3, align 8
-  store i64 %asmresult111, ptr %c1, align 8
-  br label %do.end112
-
-do.end112:                                        ; preds = %do.body99
-  %131 = load i64, ptr %c2, align 8
-  %132 = load ptr, ptr %r.addr, align 8
-  %arrayidx113 = getelementptr inbounds i64, ptr %132, i64 4
-  store i64 %131, ptr %arrayidx113, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body114
-
-do.body114:                                       ; preds = %do.end112
-  %133 = load ptr, ptr %a.addr, align 8
-  %arrayidx117 = getelementptr inbounds i64, ptr %133, i64 5
-  %134 = load i64, ptr %arrayidx117, align 8
-  %135 = load ptr, ptr %a.addr, align 8
-  %arrayidx118 = getelementptr inbounds i64, ptr %135, i64 0
-  %136 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %134, ptr elementtype(i64) %arrayidx118) #1, !srcloc !239
-  %asmresult119 = extractvalue { i64, i64 } %136, 0
-  %asmresult120 = extractvalue { i64, i64 } %136, 1
-  store i64 %asmresult119, ptr %t1115, align 8
-  store i64 %asmresult120, ptr %t2116, align 8
-  %137 = load i64, ptr %c3, align 8
-  %138 = load i64, ptr %c1, align 8
-  %139 = load i64, ptr %c2, align 8
-  %140 = load i64, ptr %t1115, align 8
-  %141 = load i64, ptr %t2116, align 8
-  %142 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %140, i64 %141, i32 0, i64 %137, i64 %138, i64 %139) #1, !srcloc !240
-  %asmresult121 = extractvalue { i64, i64, i64 } %142, 0
-  %asmresult122 = extractvalue { i64, i64, i64 } %142, 1
-  %asmresult123 = extractvalue { i64, i64, i64 } %142, 2
-  store i64 %asmresult121, ptr %c3, align 8
-  store i64 %asmresult122, ptr %c1, align 8
-  store i64 %asmresult123, ptr %c2, align 8
-  %143 = load i64, ptr %c3, align 8
-  %144 = load i64, ptr %c1, align 8
-  %145 = load i64, ptr %c2, align 8
-  %146 = load i64, ptr %t1115, align 8
-  %147 = load i64, ptr %t2116, align 8
-  %148 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %146, i64 %147, i32 0, i64 %143, i64 %144, i64 %145) #1, !srcloc !241
-  %asmresult124 = extractvalue { i64, i64, i64 } %148, 0
-  %asmresult125 = extractvalue { i64, i64, i64 } %148, 1
-  %asmresult126 = extractvalue { i64, i64, i64 } %148, 2
-  store i64 %asmresult124, ptr %c3, align 8
-  store i64 %asmresult125, ptr %c1, align 8
-  store i64 %asmresult126, ptr %c2, align 8
-  br label %do.end127
-
-do.end127:                                        ; preds = %do.body114
-  br label %do.body128
-
-do.body128:                                       ; preds = %do.end127
-  %149 = load ptr, ptr %a.addr, align 8
-  %arrayidx131 = getelementptr inbounds i64, ptr %149, i64 4
-  %150 = load i64, ptr %arrayidx131, align 8
-  %151 = load ptr, ptr %a.addr, align 8
-  %arrayidx132 = getelementptr inbounds i64, ptr %151, i64 1
-  %152 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %150, ptr elementtype(i64) %arrayidx132) #1, !srcloc !242
-  %asmresult133 = extractvalue { i64, i64 } %152, 0
-  %asmresult134 = extractvalue { i64, i64 } %152, 1
-  store i64 %asmresult133, ptr %t1129, align 8
-  store i64 %asmresult134, ptr %t2130, align 8
-  %153 = load i64, ptr %c3, align 8
-  %154 = load i64, ptr %c1, align 8
-  %155 = load i64, ptr %c2, align 8
-  %156 = load i64, ptr %t1129, align 8
-  %157 = load i64, ptr %t2130, align 8
-  %158 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %156, i64 %157, i32 0, i64 %153, i64 %154, i64 %155) #1, !srcloc !243
-  %asmresult135 = extractvalue { i64, i64, i64 } %158, 0
-  %asmresult136 = extractvalue { i64, i64, i64 } %158, 1
-  %asmresult137 = extractvalue { i64, i64, i64 } %158, 2
-  store i64 %asmresult135, ptr %c3, align 8
-  store i64 %asmresult136, ptr %c1, align 8
-  store i64 %asmresult137, ptr %c2, align 8
-  %159 = load i64, ptr %c3, align 8
-  %160 = load i64, ptr %c1, align 8
-  %161 = load i64, ptr %c2, align 8
-  %162 = load i64, ptr %t1129, align 8
-  %163 = load i64, ptr %t2130, align 8
-  %164 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %162, i64 %163, i32 0, i64 %159, i64 %160, i64 %161) #1, !srcloc !244
-  %asmresult138 = extractvalue { i64, i64, i64 } %164, 0
-  %asmresult139 = extractvalue { i64, i64, i64 } %164, 1
-  %asmresult140 = extractvalue { i64, i64, i64 } %164, 2
-  store i64 %asmresult138, ptr %c3, align 8
-  store i64 %asmresult139, ptr %c1, align 8
-  store i64 %asmresult140, ptr %c2, align 8
-  br label %do.end141
-
-do.end141:                                        ; preds = %do.body128
-  br label %do.body142
-
-do.body142:                                       ; preds = %do.end141
-  %165 = load ptr, ptr %a.addr, align 8
-  %arrayidx145 = getelementptr inbounds i64, ptr %165, i64 3
-  %166 = load i64, ptr %arrayidx145, align 8
-  %167 = load ptr, ptr %a.addr, align 8
-  %arrayidx146 = getelementptr inbounds i64, ptr %167, i64 2
-  %168 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %166, ptr elementtype(i64) %arrayidx146) #1, !srcloc !245
-  %asmresult147 = extractvalue { i64, i64 } %168, 0
-  %asmresult148 = extractvalue { i64, i64 } %168, 1
-  store i64 %asmresult147, ptr %t1143, align 8
-  store i64 %asmresult148, ptr %t2144, align 8
-  %169 = load i64, ptr %c3, align 8
-  %170 = load i64, ptr %c1, align 8
-  %171 = load i64, ptr %c2, align 8
-  %172 = load i64, ptr %t1143, align 8
-  %173 = load i64, ptr %t2144, align 8
-  %174 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %172, i64 %173, i32 0, i64 %169, i64 %170, i64 %171) #1, !srcloc !246
-  %asmresult149 = extractvalue { i64, i64, i64 } %174, 0
-  %asmresult150 = extractvalue { i64, i64, i64 } %174, 1
-  %asmresult151 = extractvalue { i64, i64, i64 } %174, 2
-  store i64 %asmresult149, ptr %c3, align 8
-  store i64 %asmresult150, ptr %c1, align 8
-  store i64 %asmresult151, ptr %c2, align 8
-  %175 = load i64, ptr %c3, align 8
-  %176 = load i64, ptr %c1, align 8
-  %177 = load i64, ptr %c2, align 8
-  %178 = load i64, ptr %t1143, align 8
-  %179 = load i64, ptr %t2144, align 8
-  %180 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %178, i64 %179, i32 0, i64 %175, i64 %176, i64 %177) #1, !srcloc !247
-  %asmresult152 = extractvalue { i64, i64, i64 } %180, 0
-  %asmresult153 = extractvalue { i64, i64, i64 } %180, 1
-  %asmresult154 = extractvalue { i64, i64, i64 } %180, 2
-  store i64 %asmresult152, ptr %c3, align 8
-  store i64 %asmresult153, ptr %c1, align 8
-  store i64 %asmresult154, ptr %c2, align 8
-  br label %do.end155
-
-do.end155:                                        ; preds = %do.body142
-  %181 = load i64, ptr %c3, align 8
-  %182 = load ptr, ptr %r.addr, align 8
-  %arrayidx156 = getelementptr inbounds i64, ptr %182, i64 5
-  store i64 %181, ptr %arrayidx156, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body157
-
-do.body157:                                       ; preds = %do.end155
-  %183 = load ptr, ptr %a.addr, align 8
-  %arrayidx160 = getelementptr inbounds i64, ptr %183, i64 3
-  %184 = load i64, ptr %arrayidx160, align 8
-  %185 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %184) #3, !srcloc !248
-  %asmresult161 = extractvalue { i64, i64 } %185, 0
-  %asmresult162 = extractvalue { i64, i64 } %185, 1
-  store i64 %asmresult161, ptr %t1158, align 8
-  store i64 %asmresult162, ptr %t2159, align 8
-  %186 = load i64, ptr %c1, align 8
-  %187 = load i64, ptr %c2, align 8
-  %188 = load i64, ptr %c3, align 8
-  %189 = load i64, ptr %t1158, align 8
-  %190 = load i64, ptr %t2159, align 8
-  %191 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %189, i64 %190, i32 0, i64 %186, i64 %187, i64 %188) #1, !srcloc !249
-  %asmresult163 = extractvalue { i64, i64, i64 } %191, 0
-  %asmresult164 = extractvalue { i64, i64, i64 } %191, 1
-  %asmresult165 = extractvalue { i64, i64, i64 } %191, 2
-  store i64 %asmresult163, ptr %c1, align 8
-  store i64 %asmresult164, ptr %c2, align 8
-  store i64 %asmresult165, ptr %c3, align 8
-  br label %do.end166
-
-do.end166:                                        ; preds = %do.body157
-  br label %do.body167
-
-do.body167:                                       ; preds = %do.end166
-  %192 = load ptr, ptr %a.addr, align 8
-  %arrayidx170 = getelementptr inbounds i64, ptr %192, i64 4
-  %193 = load i64, ptr %arrayidx170, align 8
-  %194 = load ptr, ptr %a.addr, align 8
-  %arrayidx171 = getelementptr inbounds i64, ptr %194, i64 2
-  %195 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %193, ptr elementtype(i64) %arrayidx171) #1, !srcloc !250
-  %asmresult172 = extractvalue { i64, i64 } %195, 0
-  %asmresult173 = extractvalue { i64, i64 } %195, 1
-  store i64 %asmresult172, ptr %t1168, align 8
-  store i64 %asmresult173, ptr %t2169, align 8
-  %196 = load i64, ptr %c1, align 8
-  %197 = load i64, ptr %c2, align 8
-  %198 = load i64, ptr %c3, align 8
-  %199 = load i64, ptr %t1168, align 8
-  %200 = load i64, ptr %t2169, align 8
-  %201 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %199, i64 %200, i32 0, i64 %196, i64 %197, i64 %198) #1, !srcloc !251
-  %asmresult174 = extractvalue { i64, i64, i64 } %201, 0
-  %asmresult175 = extractvalue { i64, i64, i64 } %201, 1
-  %asmresult176 = extractvalue { i64, i64, i64 } %201, 2
-  store i64 %asmresult174, ptr %c1, align 8
-  store i64 %asmresult175, ptr %c2, align 8
-  store i64 %asmresult176, ptr %c3, align 8
-  %202 = load i64, ptr %c1, align 8
-  %203 = load i64, ptr %c2, align 8
-  %204 = load i64, ptr %c3, align 8
-  %205 = load i64, ptr %t1168, align 8
-  %206 = load i64, ptr %t2169, align 8
-  %207 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %205, i64 %206, i32 0, i64 %202, i64 %203, i64 %204) #1, !srcloc !252
-  %asmresult177 = extractvalue { i64, i64, i64 } %207, 0
-  %asmresult178 = extractvalue { i64, i64, i64 } %207, 1
-  %asmresult179 = extractvalue { i64, i64, i64 } %207, 2
-  store i64 %asmresult177, ptr %c1, align 8
-  store i64 %asmresult178, ptr %c2, align 8
-  store i64 %asmresult179, ptr %c3, align 8
-  br label %do.end180
-
-do.end180:                                        ; preds = %do.body167
-  br label %do.body181
-
-do.body181:                                       ; preds = %do.end180
-  %208 = load ptr, ptr %a.addr, align 8
-  %arrayidx184 = getelementptr inbounds i64, ptr %208, i64 5
-  %209 = load i64, ptr %arrayidx184, align 8
-  %210 = load ptr, ptr %a.addr, align 8
-  %arrayidx185 = getelementptr inbounds i64, ptr %210, i64 1
-  %211 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %209, ptr elementtype(i64) %arrayidx185) #1, !srcloc !253
-  %asmresult186 = extractvalue { i64, i64 } %211, 0
-  %asmresult187 = extractvalue { i64, i64 } %211, 1
-  store i64 %asmresult186, ptr %t1182, align 8
-  store i64 %asmresult187, ptr %t2183, align 8
-  %212 = load i64, ptr %c1, align 8
-  %213 = load i64, ptr %c2, align 8
-  %214 = load i64, ptr %c3, align 8
-  %215 = load i64, ptr %t1182, align 8
-  %216 = load i64, ptr %t2183, align 8
-  %217 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %215, i64 %216, i32 0, i64 %212, i64 %213, i64 %214) #1, !srcloc !254
-  %asmresult188 = extractvalue { i64, i64, i64 } %217, 0
-  %asmresult189 = extractvalue { i64, i64, i64 } %217, 1
-  %asmresult190 = extractvalue { i64, i64, i64 } %217, 2
-  store i64 %asmresult188, ptr %c1, align 8
-  store i64 %asmresult189, ptr %c2, align 8
-  store i64 %asmresult190, ptr %c3, align 8
-  %218 = load i64, ptr %c1, align 8
-  %219 = load i64, ptr %c2, align 8
-  %220 = load i64, ptr %c3, align 8
-  %221 = load i64, ptr %t1182, align 8
-  %222 = load i64, ptr %t2183, align 8
-  %223 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %221, i64 %222, i32 0, i64 %218, i64 %219, i64 %220) #1, !srcloc !255
-  %asmresult191 = extractvalue { i64, i64, i64 } %223, 0
-  %asmresult192 = extractvalue { i64, i64, i64 } %223, 1
-  %asmresult193 = extractvalue { i64, i64, i64 } %223, 2
-  store i64 %asmresult191, ptr %c1, align 8
-  store i64 %asmresult192, ptr %c2, align 8
-  store i64 %asmresult193, ptr %c3, align 8
-  br label %do.end194
-
-do.end194:                                        ; preds = %do.body181
-  br label %do.body195
-
-do.body195:                                       ; preds = %do.end194
-  %224 = load ptr, ptr %a.addr, align 8
-  %arrayidx198 = getelementptr inbounds i64, ptr %224, i64 6
-  %225 = load i64, ptr %arrayidx198, align 8
-  %226 = load ptr, ptr %a.addr, align 8
-  %arrayidx199 = getelementptr inbounds i64, ptr %226, i64 0
-  %227 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %225, ptr elementtype(i64) %arrayidx199) #1, !srcloc !256
-  %asmresult200 = extractvalue { i64, i64 } %227, 0
-  %asmresult201 = extractvalue { i64, i64 } %227, 1
-  store i64 %asmresult200, ptr %t1196, align 8
-  store i64 %asmresult201, ptr %t2197, align 8
-  %228 = load i64, ptr %c1, align 8
-  %229 = load i64, ptr %c2, align 8
-  %230 = load i64, ptr %c3, align 8
-  %231 = load i64, ptr %t1196, align 8
-  %232 = load i64, ptr %t2197, align 8
-  %233 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %231, i64 %232, i32 0, i64 %228, i64 %229, i64 %230) #1, !srcloc !257
-  %asmresult202 = extractvalue { i64, i64, i64 } %233, 0
-  %asmresult203 = extractvalue { i64, i64, i64 } %233, 1
-  %asmresult204 = extractvalue { i64, i64, i64 } %233, 2
-  store i64 %asmresult202, ptr %c1, align 8
-  store i64 %asmresult203, ptr %c2, align 8
-  store i64 %asmresult204, ptr %c3, align 8
-  %234 = load i64, ptr %c1, align 8
-  %235 = load i64, ptr %c2, align 8
-  %236 = load i64, ptr %c3, align 8
-  %237 = load i64, ptr %t1196, align 8
-  %238 = load i64, ptr %t2197, align 8
-  %239 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %237, i64 %238, i32 0, i64 %234, i64 %235, i64 %236) #1, !srcloc !258
-  %asmresult205 = extractvalue { i64, i64, i64 } %239, 0
-  %asmresult206 = extractvalue { i64, i64, i64 } %239, 1
-  %asmresult207 = extractvalue { i64, i64, i64 } %239, 2
-  store i64 %asmresult205, ptr %c1, align 8
-  store i64 %asmresult206, ptr %c2, align 8
-  store i64 %asmresult207, ptr %c3, align 8
-  br label %do.end208
-
-do.end208:                                        ; preds = %do.body195
-  %240 = load i64, ptr %c1, align 8
-  %241 = load ptr, ptr %r.addr, align 8
-  %arrayidx209 = getelementptr inbounds i64, ptr %241, i64 6
-  store i64 %240, ptr %arrayidx209, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body210
-
-do.body210:                                       ; preds = %do.end208
-  %242 = load ptr, ptr %a.addr, align 8
-  %arrayidx213 = getelementptr inbounds i64, ptr %242, i64 7
-  %243 = load i64, ptr %arrayidx213, align 8
-  %244 = load ptr, ptr %a.addr, align 8
-  %arrayidx214 = getelementptr inbounds i64, ptr %244, i64 0
-  %245 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %243, ptr elementtype(i64) %arrayidx214) #1, !srcloc !259
-  %asmresult215 = extractvalue { i64, i64 } %245, 0
-  %asmresult216 = extractvalue { i64, i64 } %245, 1
-  store i64 %asmresult215, ptr %t1211, align 8
-  store i64 %asmresult216, ptr %t2212, align 8
-  %246 = load i64, ptr %c2, align 8
-  %247 = load i64, ptr %c3, align 8
-  %248 = load i64, ptr %c1, align 8
-  %249 = load i64, ptr %t1211, align 8
-  %250 = load i64, ptr %t2212, align 8
-  %251 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %249, i64 %250, i32 0, i64 %246, i64 %247, i64 %248) #1, !srcloc !260
-  %asmresult217 = extractvalue { i64, i64, i64 } %251, 0
-  %asmresult218 = extractvalue { i64, i64, i64 } %251, 1
-  %asmresult219 = extractvalue { i64, i64, i64 } %251, 2
-  store i64 %asmresult217, ptr %c2, align 8
-  store i64 %asmresult218, ptr %c3, align 8
-  store i64 %asmresult219, ptr %c1, align 8
-  %252 = load i64, ptr %c2, align 8
-  %253 = load i64, ptr %c3, align 8
-  %254 = load i64, ptr %c1, align 8
-  %255 = load i64, ptr %t1211, align 8
-  %256 = load i64, ptr %t2212, align 8
-  %257 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %255, i64 %256, i32 0, i64 %252, i64 %253, i64 %254) #1, !srcloc !261
-  %asmresult220 = extractvalue { i64, i64, i64 } %257, 0
-  %asmresult221 = extractvalue { i64, i64, i64 } %257, 1
-  %asmresult222 = extractvalue { i64, i64, i64 } %257, 2
-  store i64 %asmresult220, ptr %c2, align 8
-  store i64 %asmresult221, ptr %c3, align 8
-  store i64 %asmresult222, ptr %c1, align 8
-  br label %do.end223
-
-do.end223:                                        ; preds = %do.body210
-  br label %do.body224
-
-do.body224:                                       ; preds = %do.end223
-  %258 = load ptr, ptr %a.addr, align 8
-  %arrayidx227 = getelementptr inbounds i64, ptr %258, i64 6
-  %259 = load i64, ptr %arrayidx227, align 8
-  %260 = load ptr, ptr %a.addr, align 8
-  %arrayidx228 = getelementptr inbounds i64, ptr %260, i64 1
-  %261 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %259, ptr elementtype(i64) %arrayidx228) #1, !srcloc !262
-  %asmresult229 = extractvalue { i64, i64 } %261, 0
-  %asmresult230 = extractvalue { i64, i64 } %261, 1
-  store i64 %asmresult229, ptr %t1225, align 8
-  store i64 %asmresult230, ptr %t2226, align 8
-  %262 = load i64, ptr %c2, align 8
-  %263 = load i64, ptr %c3, align 8
-  %264 = load i64, ptr %c1, align 8
-  %265 = load i64, ptr %t1225, align 8
-  %266 = load i64, ptr %t2226, align 8
-  %267 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %265, i64 %266, i32 0, i64 %262, i64 %263, i64 %264) #1, !srcloc !263
-  %asmresult231 = extractvalue { i64, i64, i64 } %267, 0
-  %asmresult232 = extractvalue { i64, i64, i64 } %267, 1
-  %asmresult233 = extractvalue { i64, i64, i64 } %267, 2
-  store i64 %asmresult231, ptr %c2, align 8
-  store i64 %asmresult232, ptr %c3, align 8
-  store i64 %asmresult233, ptr %c1, align 8
-  %268 = load i64, ptr %c2, align 8
-  %269 = load i64, ptr %c3, align 8
-  %270 = load i64, ptr %c1, align 8
-  %271 = load i64, ptr %t1225, align 8
-  %272 = load i64, ptr %t2226, align 8
-  %273 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %271, i64 %272, i32 0, i64 %268, i64 %269, i64 %270) #1, !srcloc !264
-  %asmresult234 = extractvalue { i64, i64, i64 } %273, 0
-  %asmresult235 = extractvalue { i64, i64, i64 } %273, 1
-  %asmresult236 = extractvalue { i64, i64, i64 } %273, 2
-  store i64 %asmresult234, ptr %c2, align 8
-  store i64 %asmresult235, ptr %c3, align 8
-  store i64 %asmresult236, ptr %c1, align 8
-  br label %do.end237
-
-do.end237:                                        ; preds = %do.body224
-  br label %do.body238
-
-do.body238:                                       ; preds = %do.end237
-  %274 = load ptr, ptr %a.addr, align 8
-  %arrayidx241 = getelementptr inbounds i64, ptr %274, i64 5
-  %275 = load i64, ptr %arrayidx241, align 8
-  %276 = load ptr, ptr %a.addr, align 8
-  %arrayidx242 = getelementptr inbounds i64, ptr %276, i64 2
-  %277 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %275, ptr elementtype(i64) %arrayidx242) #1, !srcloc !265
-  %asmresult243 = extractvalue { i64, i64 } %277, 0
-  %asmresult244 = extractvalue { i64, i64 } %277, 1
-  store i64 %asmresult243, ptr %t1239, align 8
-  store i64 %asmresult244, ptr %t2240, align 8
-  %278 = load i64, ptr %c2, align 8
-  %279 = load i64, ptr %c3, align 8
-  %280 = load i64, ptr %c1, align 8
-  %281 = load i64, ptr %t1239, align 8
-  %282 = load i64, ptr %t2240, align 8
-  %283 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %281, i64 %282, i32 0, i64 %278, i64 %279, i64 %280) #1, !srcloc !266
-  %asmresult245 = extractvalue { i64, i64, i64 } %283, 0
-  %asmresult246 = extractvalue { i64, i64, i64 } %283, 1
-  %asmresult247 = extractvalue { i64, i64, i64 } %283, 2
-  store i64 %asmresult245, ptr %c2, align 8
-  store i64 %asmresult246, ptr %c3, align 8
-  store i64 %asmresult247, ptr %c1, align 8
-  %284 = load i64, ptr %c2, align 8
-  %285 = load i64, ptr %c3, align 8
-  %286 = load i64, ptr %c1, align 8
-  %287 = load i64, ptr %t1239, align 8
-  %288 = load i64, ptr %t2240, align 8
-  %289 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %287, i64 %288, i32 0, i64 %284, i64 %285, i64 %286) #1, !srcloc !267
-  %asmresult248 = extractvalue { i64, i64, i64 } %289, 0
-  %asmresult249 = extractvalue { i64, i64, i64 } %289, 1
-  %asmresult250 = extractvalue { i64, i64, i64 } %289, 2
-  store i64 %asmresult248, ptr %c2, align 8
-  store i64 %asmresult249, ptr %c3, align 8
-  store i64 %asmresult250, ptr %c1, align 8
-  br label %do.end251
-
-do.end251:                                        ; preds = %do.body238
-  br label %do.body252
-
-do.body252:                                       ; preds = %do.end251
-  %290 = load ptr, ptr %a.addr, align 8
-  %arrayidx255 = getelementptr inbounds i64, ptr %290, i64 4
-  %291 = load i64, ptr %arrayidx255, align 8
-  %292 = load ptr, ptr %a.addr, align 8
-  %arrayidx256 = getelementptr inbounds i64, ptr %292, i64 3
-  %293 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %291, ptr elementtype(i64) %arrayidx256) #1, !srcloc !268
-  %asmresult257 = extractvalue { i64, i64 } %293, 0
-  %asmresult258 = extractvalue { i64, i64 } %293, 1
-  store i64 %asmresult257, ptr %t1253, align 8
-  store i64 %asmresult258, ptr %t2254, align 8
-  %294 = load i64, ptr %c2, align 8
-  %295 = load i64, ptr %c3, align 8
-  %296 = load i64, ptr %c1, align 8
-  %297 = load i64, ptr %t1253, align 8
-  %298 = load i64, ptr %t2254, align 8
-  %299 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %297, i64 %298, i32 0, i64 %294, i64 %295, i64 %296) #1, !srcloc !269
-  %asmresult259 = extractvalue { i64, i64, i64 } %299, 0
-  %asmresult260 = extractvalue { i64, i64, i64 } %299, 1
-  %asmresult261 = extractvalue { i64, i64, i64 } %299, 2
-  store i64 %asmresult259, ptr %c2, align 8
-  store i64 %asmresult260, ptr %c3, align 8
-  store i64 %asmresult261, ptr %c1, align 8
-  %300 = load i64, ptr %c2, align 8
-  %301 = load i64, ptr %c3, align 8
-  %302 = load i64, ptr %c1, align 8
-  %303 = load i64, ptr %t1253, align 8
-  %304 = load i64, ptr %t2254, align 8
-  %305 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %303, i64 %304, i32 0, i64 %300, i64 %301, i64 %302) #1, !srcloc !270
-  %asmresult262 = extractvalue { i64, i64, i64 } %305, 0
-  %asmresult263 = extractvalue { i64, i64, i64 } %305, 1
-  %asmresult264 = extractvalue { i64, i64, i64 } %305, 2
-  store i64 %asmresult262, ptr %c2, align 8
-  store i64 %asmresult263, ptr %c3, align 8
-  store i64 %asmresult264, ptr %c1, align 8
-  br label %do.end265
-
-do.end265:                                        ; preds = %do.body252
-  %306 = load i64, ptr %c2, align 8
-  %307 = load ptr, ptr %r.addr, align 8
-  %arrayidx266 = getelementptr inbounds i64, ptr %307, i64 7
-  store i64 %306, ptr %arrayidx266, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body267
-
-do.body267:                                       ; preds = %do.end265
-  %308 = load ptr, ptr %a.addr, align 8
-  %arrayidx270 = getelementptr inbounds i64, ptr %308, i64 4
-  %309 = load i64, ptr %arrayidx270, align 8
-  %310 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %309) #3, !srcloc !271
-  %asmresult271 = extractvalue { i64, i64 } %310, 0
-  %asmresult272 = extractvalue { i64, i64 } %310, 1
-  store i64 %asmresult271, ptr %t1268, align 8
-  store i64 %asmresult272, ptr %t2269, align 8
-  %311 = load i64, ptr %c3, align 8
-  %312 = load i64, ptr %c1, align 8
-  %313 = load i64, ptr %c2, align 8
-  %314 = load i64, ptr %t1268, align 8
-  %315 = load i64, ptr %t2269, align 8
-  %316 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %314, i64 %315, i32 0, i64 %311, i64 %312, i64 %313) #1, !srcloc !272
-  %asmresult273 = extractvalue { i64, i64, i64 } %316, 0
-  %asmresult274 = extractvalue { i64, i64, i64 } %316, 1
-  %asmresult275 = extractvalue { i64, i64, i64 } %316, 2
-  store i64 %asmresult273, ptr %c3, align 8
-  store i64 %asmresult274, ptr %c1, align 8
-  store i64 %asmresult275, ptr %c2, align 8
-  br label %do.end276
-
-do.end276:                                        ; preds = %do.body267
-  br label %do.body277
-
-do.body277:                                       ; preds = %do.end276
-  %317 = load ptr, ptr %a.addr, align 8
-  %arrayidx280 = getelementptr inbounds i64, ptr %317, i64 5
-  %318 = load i64, ptr %arrayidx280, align 8
-  %319 = load ptr, ptr %a.addr, align 8
-  %arrayidx281 = getelementptr inbounds i64, ptr %319, i64 3
-  %320 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %318, ptr elementtype(i64) %arrayidx281) #1, !srcloc !273
-  %asmresult282 = extractvalue { i64, i64 } %320, 0
-  %asmresult283 = extractvalue { i64, i64 } %320, 1
-  store i64 %asmresult282, ptr %t1278, align 8
-  store i64 %asmresult283, ptr %t2279, align 8
-  %321 = load i64, ptr %c3, align 8
-  %322 = load i64, ptr %c1, align 8
-  %323 = load i64, ptr %c2, align 8
-  %324 = load i64, ptr %t1278, align 8
-  %325 = load i64, ptr %t2279, align 8
-  %326 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %324, i64 %325, i32 0, i64 %321, i64 %322, i64 %323) #1, !srcloc !274
-  %asmresult284 = extractvalue { i64, i64, i64 } %326, 0
-  %asmresult285 = extractvalue { i64, i64, i64 } %326, 1
-  %asmresult286 = extractvalue { i64, i64, i64 } %326, 2
-  store i64 %asmresult284, ptr %c3, align 8
-  store i64 %asmresult285, ptr %c1, align 8
-  store i64 %asmresult286, ptr %c2, align 8
-  %327 = load i64, ptr %c3, align 8
-  %328 = load i64, ptr %c1, align 8
-  %329 = load i64, ptr %c2, align 8
-  %330 = load i64, ptr %t1278, align 8
-  %331 = load i64, ptr %t2279, align 8
-  %332 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %330, i64 %331, i32 0, i64 %327, i64 %328, i64 %329) #1, !srcloc !275
-  %asmresult287 = extractvalue { i64, i64, i64 } %332, 0
-  %asmresult288 = extractvalue { i64, i64, i64 } %332, 1
-  %asmresult289 = extractvalue { i64, i64, i64 } %332, 2
-  store i64 %asmresult287, ptr %c3, align 8
-  store i64 %asmresult288, ptr %c1, align 8
-  store i64 %asmresult289, ptr %c2, align 8
-  br label %do.end290
-
-do.end290:                                        ; preds = %do.body277
-  br label %do.body291
-
-do.body291:                                       ; preds = %do.end290
-  %333 = load ptr, ptr %a.addr, align 8
-  %arrayidx294 = getelementptr inbounds i64, ptr %333, i64 6
-  %334 = load i64, ptr %arrayidx294, align 8
-  %335 = load ptr, ptr %a.addr, align 8
-  %arrayidx295 = getelementptr inbounds i64, ptr %335, i64 2
-  %336 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %334, ptr elementtype(i64) %arrayidx295) #1, !srcloc !276
-  %asmresult296 = extractvalue { i64, i64 } %336, 0
-  %asmresult297 = extractvalue { i64, i64 } %336, 1
-  store i64 %asmresult296, ptr %t1292, align 8
-  store i64 %asmresult297, ptr %t2293, align 8
-  %337 = load i64, ptr %c3, align 8
-  %338 = load i64, ptr %c1, align 8
-  %339 = load i64, ptr %c2, align 8
-  %340 = load i64, ptr %t1292, align 8
-  %341 = load i64, ptr %t2293, align 8
-  %342 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %340, i64 %341, i32 0, i64 %337, i64 %338, i64 %339) #1, !srcloc !277
-  %asmresult298 = extractvalue { i64, i64, i64 } %342, 0
-  %asmresult299 = extractvalue { i64, i64, i64 } %342, 1
-  %asmresult300 = extractvalue { i64, i64, i64 } %342, 2
-  store i64 %asmresult298, ptr %c3, align 8
-  store i64 %asmresult299, ptr %c1, align 8
-  store i64 %asmresult300, ptr %c2, align 8
-  %343 = load i64, ptr %c3, align 8
-  %344 = load i64, ptr %c1, align 8
-  %345 = load i64, ptr %c2, align 8
-  %346 = load i64, ptr %t1292, align 8
-  %347 = load i64, ptr %t2293, align 8
-  %348 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %346, i64 %347, i32 0, i64 %343, i64 %344, i64 %345) #1, !srcloc !278
-  %asmresult301 = extractvalue { i64, i64, i64 } %348, 0
-  %asmresult302 = extractvalue { i64, i64, i64 } %348, 1
-  %asmresult303 = extractvalue { i64, i64, i64 } %348, 2
-  store i64 %asmresult301, ptr %c3, align 8
-  store i64 %asmresult302, ptr %c1, align 8
-  store i64 %asmresult303, ptr %c2, align 8
-  br label %do.end304
-
-do.end304:                                        ; preds = %do.body291
-  br label %do.body305
-
-do.body305:                                       ; preds = %do.end304
-  %349 = load ptr, ptr %a.addr, align 8
-  %arrayidx308 = getelementptr inbounds i64, ptr %349, i64 7
-  %350 = load i64, ptr %arrayidx308, align 8
-  %351 = load ptr, ptr %a.addr, align 8
-  %arrayidx309 = getelementptr inbounds i64, ptr %351, i64 1
-  %352 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %350, ptr elementtype(i64) %arrayidx309) #1, !srcloc !279
-  %asmresult310 = extractvalue { i64, i64 } %352, 0
-  %asmresult311 = extractvalue { i64, i64 } %352, 1
-  store i64 %asmresult310, ptr %t1306, align 8
-  store i64 %asmresult311, ptr %t2307, align 8
-  %353 = load i64, ptr %c3, align 8
-  %354 = load i64, ptr %c1, align 8
-  %355 = load i64, ptr %c2, align 8
-  %356 = load i64, ptr %t1306, align 8
-  %357 = load i64, ptr %t2307, align 8
-  %358 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %356, i64 %357, i32 0, i64 %353, i64 %354, i64 %355) #1, !srcloc !280
-  %asmresult312 = extractvalue { i64, i64, i64 } %358, 0
-  %asmresult313 = extractvalue { i64, i64, i64 } %358, 1
-  %asmresult314 = extractvalue { i64, i64, i64 } %358, 2
-  store i64 %asmresult312, ptr %c3, align 8
-  store i64 %asmresult313, ptr %c1, align 8
-  store i64 %asmresult314, ptr %c2, align 8
-  %359 = load i64, ptr %c3, align 8
-  %360 = load i64, ptr %c1, align 8
-  %361 = load i64, ptr %c2, align 8
-  %362 = load i64, ptr %t1306, align 8
-  %363 = load i64, ptr %t2307, align 8
-  %364 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %362, i64 %363, i32 0, i64 %359, i64 %360, i64 %361) #1, !srcloc !281
-  %asmresult315 = extractvalue { i64, i64, i64 } %364, 0
-  %asmresult316 = extractvalue { i64, i64, i64 } %364, 1
-  %asmresult317 = extractvalue { i64, i64, i64 } %364, 2
-  store i64 %asmresult315, ptr %c3, align 8
-  store i64 %asmresult316, ptr %c1, align 8
-  store i64 %asmresult317, ptr %c2, align 8
-  br label %do.end318
-
-do.end318:                                        ; preds = %do.body305
-  %365 = load i64, ptr %c3, align 8
-  %366 = load ptr, ptr %r.addr, align 8
-  %arrayidx319 = getelementptr inbounds i64, ptr %366, i64 8
-  store i64 %365, ptr %arrayidx319, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body320
-
-do.body320:                                       ; preds = %do.end318
-  %367 = load ptr, ptr %a.addr, align 8
-  %arrayidx323 = getelementptr inbounds i64, ptr %367, i64 7
-  %368 = load i64, ptr %arrayidx323, align 8
-  %369 = load ptr, ptr %a.addr, align 8
-  %arrayidx324 = getelementptr inbounds i64, ptr %369, i64 2
-  %370 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %368, ptr elementtype(i64) %arrayidx324) #1, !srcloc !282
-  %asmresult325 = extractvalue { i64, i64 } %370, 0
-  %asmresult326 = extractvalue { i64, i64 } %370, 1
-  store i64 %asmresult325, ptr %t1321, align 8
-  store i64 %asmresult326, ptr %t2322, align 8
-  %371 = load i64, ptr %c1, align 8
-  %372 = load i64, ptr %c2, align 8
-  %373 = load i64, ptr %c3, align 8
-  %374 = load i64, ptr %t1321, align 8
-  %375 = load i64, ptr %t2322, align 8
-  %376 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %374, i64 %375, i32 0, i64 %371, i64 %372, i64 %373) #1, !srcloc !283
-  %asmresult327 = extractvalue { i64, i64, i64 } %376, 0
-  %asmresult328 = extractvalue { i64, i64, i64 } %376, 1
-  %asmresult329 = extractvalue { i64, i64, i64 } %376, 2
-  store i64 %asmresult327, ptr %c1, align 8
-  store i64 %asmresult328, ptr %c2, align 8
-  store i64 %asmresult329, ptr %c3, align 8
-  %377 = load i64, ptr %c1, align 8
-  %378 = load i64, ptr %c2, align 8
-  %379 = load i64, ptr %c3, align 8
-  %380 = load i64, ptr %t1321, align 8
-  %381 = load i64, ptr %t2322, align 8
-  %382 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %380, i64 %381, i32 0, i64 %377, i64 %378, i64 %379) #1, !srcloc !284
-  %asmresult330 = extractvalue { i64, i64, i64 } %382, 0
-  %asmresult331 = extractvalue { i64, i64, i64 } %382, 1
-  %asmresult332 = extractvalue { i64, i64, i64 } %382, 2
-  store i64 %asmresult330, ptr %c1, align 8
-  store i64 %asmresult331, ptr %c2, align 8
-  store i64 %asmresult332, ptr %c3, align 8
-  br label %do.end333
-
-do.end333:                                        ; preds = %do.body320
-  br label %do.body334
-
-do.body334:                                       ; preds = %do.end333
-  %383 = load ptr, ptr %a.addr, align 8
-  %arrayidx337 = getelementptr inbounds i64, ptr %383, i64 6
-  %384 = load i64, ptr %arrayidx337, align 8
-  %385 = load ptr, ptr %a.addr, align 8
-  %arrayidx338 = getelementptr inbounds i64, ptr %385, i64 3
-  %386 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %384, ptr elementtype(i64) %arrayidx338) #1, !srcloc !285
-  %asmresult339 = extractvalue { i64, i64 } %386, 0
-  %asmresult340 = extractvalue { i64, i64 } %386, 1
-  store i64 %asmresult339, ptr %t1335, align 8
-  store i64 %asmresult340, ptr %t2336, align 8
-  %387 = load i64, ptr %c1, align 8
-  %388 = load i64, ptr %c2, align 8
-  %389 = load i64, ptr %c3, align 8
-  %390 = load i64, ptr %t1335, align 8
-  %391 = load i64, ptr %t2336, align 8
-  %392 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %390, i64 %391, i32 0, i64 %387, i64 %388, i64 %389) #1, !srcloc !286
-  %asmresult341 = extractvalue { i64, i64, i64 } %392, 0
-  %asmresult342 = extractvalue { i64, i64, i64 } %392, 1
-  %asmresult343 = extractvalue { i64, i64, i64 } %392, 2
-  store i64 %asmresult341, ptr %c1, align 8
-  store i64 %asmresult342, ptr %c2, align 8
-  store i64 %asmresult343, ptr %c3, align 8
-  %393 = load i64, ptr %c1, align 8
-  %394 = load i64, ptr %c2, align 8
-  %395 = load i64, ptr %c3, align 8
-  %396 = load i64, ptr %t1335, align 8
-  %397 = load i64, ptr %t2336, align 8
-  %398 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %396, i64 %397, i32 0, i64 %393, i64 %394, i64 %395) #1, !srcloc !287
-  %asmresult344 = extractvalue { i64, i64, i64 } %398, 0
-  %asmresult345 = extractvalue { i64, i64, i64 } %398, 1
-  %asmresult346 = extractvalue { i64, i64, i64 } %398, 2
-  store i64 %asmresult344, ptr %c1, align 8
-  store i64 %asmresult345, ptr %c2, align 8
-  store i64 %asmresult346, ptr %c3, align 8
-  br label %do.end347
-
-do.end347:                                        ; preds = %do.body334
-  br label %do.body348
-
-do.body348:                                       ; preds = %do.end347
-  %399 = load ptr, ptr %a.addr, align 8
-  %arrayidx351 = getelementptr inbounds i64, ptr %399, i64 5
-  %400 = load i64, ptr %arrayidx351, align 8
-  %401 = load ptr, ptr %a.addr, align 8
-  %arrayidx352 = getelementptr inbounds i64, ptr %401, i64 4
-  %402 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %400, ptr elementtype(i64) %arrayidx352) #1, !srcloc !288
-  %asmresult353 = extractvalue { i64, i64 } %402, 0
-  %asmresult354 = extractvalue { i64, i64 } %402, 1
-  store i64 %asmresult353, ptr %t1349, align 8
-  store i64 %asmresult354, ptr %t2350, align 8
-  %403 = load i64, ptr %c1, align 8
-  %404 = load i64, ptr %c2, align 8
-  %405 = load i64, ptr %c3, align 8
-  %406 = load i64, ptr %t1349, align 8
-  %407 = load i64, ptr %t2350, align 8
-  %408 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %406, i64 %407, i32 0, i64 %403, i64 %404, i64 %405) #1, !srcloc !289
-  %asmresult355 = extractvalue { i64, i64, i64 } %408, 0
-  %asmresult356 = extractvalue { i64, i64, i64 } %408, 1
-  %asmresult357 = extractvalue { i64, i64, i64 } %408, 2
-  store i64 %asmresult355, ptr %c1, align 8
-  store i64 %asmresult356, ptr %c2, align 8
-  store i64 %asmresult357, ptr %c3, align 8
-  %409 = load i64, ptr %c1, align 8
-  %410 = load i64, ptr %c2, align 8
-  %411 = load i64, ptr %c3, align 8
-  %412 = load i64, ptr %t1349, align 8
-  %413 = load i64, ptr %t2350, align 8
-  %414 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %412, i64 %413, i32 0, i64 %409, i64 %410, i64 %411) #1, !srcloc !290
-  %asmresult358 = extractvalue { i64, i64, i64 } %414, 0
-  %asmresult359 = extractvalue { i64, i64, i64 } %414, 1
-  %asmresult360 = extractvalue { i64, i64, i64 } %414, 2
-  store i64 %asmresult358, ptr %c1, align 8
-  store i64 %asmresult359, ptr %c2, align 8
-  store i64 %asmresult360, ptr %c3, align 8
-  br label %do.end361
-
-do.end361:                                        ; preds = %do.body348
-  %415 = load i64, ptr %c1, align 8
-  %416 = load ptr, ptr %r.addr, align 8
-  %arrayidx362 = getelementptr inbounds i64, ptr %416, i64 9
-  store i64 %415, ptr %arrayidx362, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body363
-
-do.body363:                                       ; preds = %do.end361
-  %417 = load ptr, ptr %a.addr, align 8
-  %arrayidx366 = getelementptr inbounds i64, ptr %417, i64 5
-  %418 = load i64, ptr %arrayidx366, align 8
-  %419 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %418) #3, !srcloc !291
-  %asmresult367 = extractvalue { i64, i64 } %419, 0
-  %asmresult368 = extractvalue { i64, i64 } %419, 1
-  store i64 %asmresult367, ptr %t1364, align 8
-  store i64 %asmresult368, ptr %t2365, align 8
-  %420 = load i64, ptr %c2, align 8
-  %421 = load i64, ptr %c3, align 8
-  %422 = load i64, ptr %c1, align 8
-  %423 = load i64, ptr %t1364, align 8
-  %424 = load i64, ptr %t2365, align 8
-  %425 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %423, i64 %424, i32 0, i64 %420, i64 %421, i64 %422) #1, !srcloc !292
-  %asmresult369 = extractvalue { i64, i64, i64 } %425, 0
-  %asmresult370 = extractvalue { i64, i64, i64 } %425, 1
-  %asmresult371 = extractvalue { i64, i64, i64 } %425, 2
-  store i64 %asmresult369, ptr %c2, align 8
-  store i64 %asmresult370, ptr %c3, align 8
-  store i64 %asmresult371, ptr %c1, align 8
-  br label %do.end372
-
-do.end372:                                        ; preds = %do.body363
-  br label %do.body373
-
-do.body373:                                       ; preds = %do.end372
-  %426 = load ptr, ptr %a.addr, align 8
-  %arrayidx376 = getelementptr inbounds i64, ptr %426, i64 6
-  %427 = load i64, ptr %arrayidx376, align 8
-  %428 = load ptr, ptr %a.addr, align 8
-  %arrayidx377 = getelementptr inbounds i64, ptr %428, i64 4
-  %429 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %427, ptr elementtype(i64) %arrayidx377) #1, !srcloc !293
-  %asmresult378 = extractvalue { i64, i64 } %429, 0
-  %asmresult379 = extractvalue { i64, i64 } %429, 1
-  store i64 %asmresult378, ptr %t1374, align 8
-  store i64 %asmresult379, ptr %t2375, align 8
-  %430 = load i64, ptr %c2, align 8
-  %431 = load i64, ptr %c3, align 8
-  %432 = load i64, ptr %c1, align 8
-  %433 = load i64, ptr %t1374, align 8
-  %434 = load i64, ptr %t2375, align 8
-  %435 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %433, i64 %434, i32 0, i64 %430, i64 %431, i64 %432) #1, !srcloc !294
-  %asmresult380 = extractvalue { i64, i64, i64 } %435, 0
-  %asmresult381 = extractvalue { i64, i64, i64 } %435, 1
-  %asmresult382 = extractvalue { i64, i64, i64 } %435, 2
-  store i64 %asmresult380, ptr %c2, align 8
-  store i64 %asmresult381, ptr %c3, align 8
-  store i64 %asmresult382, ptr %c1, align 8
-  %436 = load i64, ptr %c2, align 8
-  %437 = load i64, ptr %c3, align 8
-  %438 = load i64, ptr %c1, align 8
-  %439 = load i64, ptr %t1374, align 8
-  %440 = load i64, ptr %t2375, align 8
-  %441 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %439, i64 %440, i32 0, i64 %436, i64 %437, i64 %438) #1, !srcloc !295
-  %asmresult383 = extractvalue { i64, i64, i64 } %441, 0
-  %asmresult384 = extractvalue { i64, i64, i64 } %441, 1
-  %asmresult385 = extractvalue { i64, i64, i64 } %441, 2
-  store i64 %asmresult383, ptr %c2, align 8
-  store i64 %asmresult384, ptr %c3, align 8
-  store i64 %asmresult385, ptr %c1, align 8
-  br label %do.end386
-
-do.end386:                                        ; preds = %do.body373
-  br label %do.body387
-
-do.body387:                                       ; preds = %do.end386
-  %442 = load ptr, ptr %a.addr, align 8
-  %arrayidx390 = getelementptr inbounds i64, ptr %442, i64 7
-  %443 = load i64, ptr %arrayidx390, align 8
-  %444 = load ptr, ptr %a.addr, align 8
-  %arrayidx391 = getelementptr inbounds i64, ptr %444, i64 3
-  %445 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %443, ptr elementtype(i64) %arrayidx391) #1, !srcloc !296
-  %asmresult392 = extractvalue { i64, i64 } %445, 0
-  %asmresult393 = extractvalue { i64, i64 } %445, 1
-  store i64 %asmresult392, ptr %t1388, align 8
-  store i64 %asmresult393, ptr %t2389, align 8
-  %446 = load i64, ptr %c2, align 8
-  %447 = load i64, ptr %c3, align 8
-  %448 = load i64, ptr %c1, align 8
-  %449 = load i64, ptr %t1388, align 8
-  %450 = load i64, ptr %t2389, align 8
-  %451 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %449, i64 %450, i32 0, i64 %446, i64 %447, i64 %448) #1, !srcloc !297
-  %asmresult394 = extractvalue { i64, i64, i64 } %451, 0
-  %asmresult395 = extractvalue { i64, i64, i64 } %451, 1
-  %asmresult396 = extractvalue { i64, i64, i64 } %451, 2
-  store i64 %asmresult394, ptr %c2, align 8
-  store i64 %asmresult395, ptr %c3, align 8
-  store i64 %asmresult396, ptr %c1, align 8
-  %452 = load i64, ptr %c2, align 8
-  %453 = load i64, ptr %c3, align 8
-  %454 = load i64, ptr %c1, align 8
-  %455 = load i64, ptr %t1388, align 8
-  %456 = load i64, ptr %t2389, align 8
-  %457 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %455, i64 %456, i32 0, i64 %452, i64 %453, i64 %454) #1, !srcloc !298
-  %asmresult397 = extractvalue { i64, i64, i64 } %457, 0
-  %asmresult398 = extractvalue { i64, i64, i64 } %457, 1
-  %asmresult399 = extractvalue { i64, i64, i64 } %457, 2
-  store i64 %asmresult397, ptr %c2, align 8
-  store i64 %asmresult398, ptr %c3, align 8
-  store i64 %asmresult399, ptr %c1, align 8
-  br label %do.end400
-
-do.end400:                                        ; preds = %do.body387
-  %458 = load i64, ptr %c2, align 8
-  %459 = load ptr, ptr %r.addr, align 8
-  %arrayidx401 = getelementptr inbounds i64, ptr %459, i64 10
-  store i64 %458, ptr %arrayidx401, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body402
-
-do.body402:                                       ; preds = %do.end400
-  %460 = load ptr, ptr %a.addr, align 8
-  %arrayidx405 = getelementptr inbounds i64, ptr %460, i64 7
-  %461 = load i64, ptr %arrayidx405, align 8
-  %462 = load ptr, ptr %a.addr, align 8
-  %arrayidx406 = getelementptr inbounds i64, ptr %462, i64 4
-  %463 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %461, ptr elementtype(i64) %arrayidx406) #1, !srcloc !299
-  %asmresult407 = extractvalue { i64, i64 } %463, 0
-  %asmresult408 = extractvalue { i64, i64 } %463, 1
-  store i64 %asmresult407, ptr %t1403, align 8
-  store i64 %asmresult408, ptr %t2404, align 8
-  %464 = load i64, ptr %c3, align 8
-  %465 = load i64, ptr %c1, align 8
-  %466 = load i64, ptr %c2, align 8
-  %467 = load i64, ptr %t1403, align 8
-  %468 = load i64, ptr %t2404, align 8
-  %469 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %467, i64 %468, i32 0, i64 %464, i64 %465, i64 %466) #1, !srcloc !300
-  %asmresult409 = extractvalue { i64, i64, i64 } %469, 0
-  %asmresult410 = extractvalue { i64, i64, i64 } %469, 1
-  %asmresult411 = extractvalue { i64, i64, i64 } %469, 2
-  store i64 %asmresult409, ptr %c3, align 8
-  store i64 %asmresult410, ptr %c1, align 8
-  store i64 %asmresult411, ptr %c2, align 8
-  %470 = load i64, ptr %c3, align 8
-  %471 = load i64, ptr %c1, align 8
-  %472 = load i64, ptr %c2, align 8
-  %473 = load i64, ptr %t1403, align 8
-  %474 = load i64, ptr %t2404, align 8
-  %475 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %473, i64 %474, i32 0, i64 %470, i64 %471, i64 %472) #1, !srcloc !301
-  %asmresult412 = extractvalue { i64, i64, i64 } %475, 0
-  %asmresult413 = extractvalue { i64, i64, i64 } %475, 1
-  %asmresult414 = extractvalue { i64, i64, i64 } %475, 2
-  store i64 %asmresult412, ptr %c3, align 8
-  store i64 %asmresult413, ptr %c1, align 8
-  store i64 %asmresult414, ptr %c2, align 8
-  br label %do.end415
-
-do.end415:                                        ; preds = %do.body402
-  br label %do.body416
-
-do.body416:                                       ; preds = %do.end415
-  %476 = load ptr, ptr %a.addr, align 8
-  %arrayidx419 = getelementptr inbounds i64, ptr %476, i64 6
-  %477 = load i64, ptr %arrayidx419, align 8
-  %478 = load ptr, ptr %a.addr, align 8
-  %arrayidx420 = getelementptr inbounds i64, ptr %478, i64 5
-  %479 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %477, ptr elementtype(i64) %arrayidx420) #1, !srcloc !302
-  %asmresult421 = extractvalue { i64, i64 } %479, 0
-  %asmresult422 = extractvalue { i64, i64 } %479, 1
-  store i64 %asmresult421, ptr %t1417, align 8
-  store i64 %asmresult422, ptr %t2418, align 8
-  %480 = load i64, ptr %c3, align 8
-  %481 = load i64, ptr %c1, align 8
-  %482 = load i64, ptr %c2, align 8
-  %483 = load i64, ptr %t1417, align 8
-  %484 = load i64, ptr %t2418, align 8
-  %485 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %483, i64 %484, i32 0, i64 %480, i64 %481, i64 %482) #1, !srcloc !303
-  %asmresult423 = extractvalue { i64, i64, i64 } %485, 0
-  %asmresult424 = extractvalue { i64, i64, i64 } %485, 1
-  %asmresult425 = extractvalue { i64, i64, i64 } %485, 2
-  store i64 %asmresult423, ptr %c3, align 8
-  store i64 %asmresult424, ptr %c1, align 8
-  store i64 %asmresult425, ptr %c2, align 8
-  %486 = load i64, ptr %c3, align 8
-  %487 = load i64, ptr %c1, align 8
-  %488 = load i64, ptr %c2, align 8
-  %489 = load i64, ptr %t1417, align 8
-  %490 = load i64, ptr %t2418, align 8
-  %491 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %489, i64 %490, i32 0, i64 %486, i64 %487, i64 %488) #1, !srcloc !304
-  %asmresult426 = extractvalue { i64, i64, i64 } %491, 0
-  %asmresult427 = extractvalue { i64, i64, i64 } %491, 1
-  %asmresult428 = extractvalue { i64, i64, i64 } %491, 2
-  store i64 %asmresult426, ptr %c3, align 8
-  store i64 %asmresult427, ptr %c1, align 8
-  store i64 %asmresult428, ptr %c2, align 8
-  br label %do.end429
-
-do.end429:                                        ; preds = %do.body416
-  %492 = load i64, ptr %c3, align 8
-  %493 = load ptr, ptr %r.addr, align 8
-  %arrayidx430 = getelementptr inbounds i64, ptr %493, i64 11
-  store i64 %492, ptr %arrayidx430, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body431
-
-do.body431:                                       ; preds = %do.end429
-  %494 = load ptr, ptr %a.addr, align 8
-  %arrayidx434 = getelementptr inbounds i64, ptr %494, i64 6
-  %495 = load i64, ptr %arrayidx434, align 8
-  %496 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %495) #3, !srcloc !305
-  %asmresult435 = extractvalue { i64, i64 } %496, 0
-  %asmresult436 = extractvalue { i64, i64 } %496, 1
-  store i64 %asmresult435, ptr %t1432, align 8
-  store i64 %asmresult436, ptr %t2433, align 8
-  %497 = load i64, ptr %c1, align 8
-  %498 = load i64, ptr %c2, align 8
-  %499 = load i64, ptr %c3, align 8
-  %500 = load i64, ptr %t1432, align 8
-  %501 = load i64, ptr %t2433, align 8
-  %502 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %500, i64 %501, i32 0, i64 %497, i64 %498, i64 %499) #1, !srcloc !306
-  %asmresult437 = extractvalue { i64, i64, i64 } %502, 0
-  %asmresult438 = extractvalue { i64, i64, i64 } %502, 1
-  %asmresult439 = extractvalue { i64, i64, i64 } %502, 2
-  store i64 %asmresult437, ptr %c1, align 8
-  store i64 %asmresult438, ptr %c2, align 8
-  store i64 %asmresult439, ptr %c3, align 8
-  br label %do.end440
-
-do.end440:                                        ; preds = %do.body431
-  br label %do.body441
-
-do.body441:                                       ; preds = %do.end440
-  %503 = load ptr, ptr %a.addr, align 8
-  %arrayidx444 = getelementptr inbounds i64, ptr %503, i64 7
-  %504 = load i64, ptr %arrayidx444, align 8
-  %505 = load ptr, ptr %a.addr, align 8
-  %arrayidx445 = getelementptr inbounds i64, ptr %505, i64 5
-  %506 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %504, ptr elementtype(i64) %arrayidx445) #1, !srcloc !307
-  %asmresult446 = extractvalue { i64, i64 } %506, 0
-  %asmresult447 = extractvalue { i64, i64 } %506, 1
-  store i64 %asmresult446, ptr %t1442, align 8
-  store i64 %asmresult447, ptr %t2443, align 8
-  %507 = load i64, ptr %c1, align 8
-  %508 = load i64, ptr %c2, align 8
-  %509 = load i64, ptr %c3, align 8
-  %510 = load i64, ptr %t1442, align 8
-  %511 = load i64, ptr %t2443, align 8
-  %512 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %510, i64 %511, i32 0, i64 %507, i64 %508, i64 %509) #1, !srcloc !308
-  %asmresult448 = extractvalue { i64, i64, i64 } %512, 0
-  %asmresult449 = extractvalue { i64, i64, i64 } %512, 1
-  %asmresult450 = extractvalue { i64, i64, i64 } %512, 2
-  store i64 %asmresult448, ptr %c1, align 8
-  store i64 %asmresult449, ptr %c2, align 8
-  store i64 %asmresult450, ptr %c3, align 8
-  %513 = load i64, ptr %c1, align 8
-  %514 = load i64, ptr %c2, align 8
-  %515 = load i64, ptr %c3, align 8
-  %516 = load i64, ptr %t1442, align 8
-  %517 = load i64, ptr %t2443, align 8
-  %518 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %516, i64 %517, i32 0, i64 %513, i64 %514, i64 %515) #1, !srcloc !309
-  %asmresult451 = extractvalue { i64, i64, i64 } %518, 0
-  %asmresult452 = extractvalue { i64, i64, i64 } %518, 1
-  %asmresult453 = extractvalue { i64, i64, i64 } %518, 2
-  store i64 %asmresult451, ptr %c1, align 8
-  store i64 %asmresult452, ptr %c2, align 8
-  store i64 %asmresult453, ptr %c3, align 8
-  br label %do.end454
-
-do.end454:                                        ; preds = %do.body441
-  %519 = load i64, ptr %c1, align 8
-  %520 = load ptr, ptr %r.addr, align 8
-  %arrayidx455 = getelementptr inbounds i64, ptr %520, i64 12
-  store i64 %519, ptr %arrayidx455, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body456
-
-do.body456:                                       ; preds = %do.end454
-  %521 = load ptr, ptr %a.addr, align 8
-  %arrayidx459 = getelementptr inbounds i64, ptr %521, i64 7
-  %522 = load i64, ptr %arrayidx459, align 8
-  %523 = load ptr, ptr %a.addr, align 8
-  %arrayidx460 = getelementptr inbounds i64, ptr %523, i64 6
-  %524 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %522, ptr elementtype(i64) %arrayidx460) #1, !srcloc !310
-  %asmresult461 = extractvalue { i64, i64 } %524, 0
-  %asmresult462 = extractvalue { i64, i64 } %524, 1
-  store i64 %asmresult461, ptr %t1457, align 8
-  store i64 %asmresult462, ptr %t2458, align 8
-  %525 = load i64, ptr %c2, align 8
-  %526 = load i64, ptr %c3, align 8
-  %527 = load i64, ptr %c1, align 8
-  %528 = load i64, ptr %t1457, align 8
-  %529 = load i64, ptr %t2458, align 8
-  %530 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %528, i64 %529, i32 0, i64 %525, i64 %526, i64 %527) #1, !srcloc !311
-  %asmresult463 = extractvalue { i64, i64, i64 } %530, 0
-  %asmresult464 = extractvalue { i64, i64, i64 } %530, 1
-  %asmresult465 = extractvalue { i64, i64, i64 } %530, 2
-  store i64 %asmresult463, ptr %c2, align 8
-  store i64 %asmresult464, ptr %c3, align 8
-  store i64 %asmresult465, ptr %c1, align 8
-  %531 = load i64, ptr %c2, align 8
-  %532 = load i64, ptr %c3, align 8
-  %533 = load i64, ptr %c1, align 8
-  %534 = load i64, ptr %t1457, align 8
-  %535 = load i64, ptr %t2458, align 8
-  %536 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %534, i64 %535, i32 0, i64 %531, i64 %532, i64 %533) #1, !srcloc !312
-  %asmresult466 = extractvalue { i64, i64, i64 } %536, 0
-  %asmresult467 = extractvalue { i64, i64, i64 } %536, 1
-  %asmresult468 = extractvalue { i64, i64, i64 } %536, 2
-  store i64 %asmresult466, ptr %c2, align 8
-  store i64 %asmresult467, ptr %c3, align 8
-  store i64 %asmresult468, ptr %c1, align 8
-  br label %do.end469
-
-do.end469:                                        ; preds = %do.body456
-  %537 = load i64, ptr %c2, align 8
-  %538 = load ptr, ptr %r.addr, align 8
-  %arrayidx470 = getelementptr inbounds i64, ptr %538, i64 13
-  store i64 %537, ptr %arrayidx470, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body471
-
-do.body471:                                       ; preds = %do.end469
-  %539 = load ptr, ptr %a.addr, align 8
-  %arrayidx474 = getelementptr inbounds i64, ptr %539, i64 7
-  %540 = load i64, ptr %arrayidx474, align 8
-  %541 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %540) #3, !srcloc !313
-  %asmresult475 = extractvalue { i64, i64 } %541, 0
-  %asmresult476 = extractvalue { i64, i64 } %541, 1
-  store i64 %asmresult475, ptr %t1472, align 8
-  store i64 %asmresult476, ptr %t2473, align 8
-  %542 = load i64, ptr %c3, align 8
-  %543 = load i64, ptr %c1, align 8
-  %544 = load i64, ptr %c2, align 8
-  %545 = load i64, ptr %t1472, align 8
-  %546 = load i64, ptr %t2473, align 8
-  %547 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %545, i64 %546, i32 0, i64 %542, i64 %543, i64 %544) #1, !srcloc !314
-  %asmresult477 = extractvalue { i64, i64, i64 } %547, 0
-  %asmresult478 = extractvalue { i64, i64, i64 } %547, 1
-  %asmresult479 = extractvalue { i64, i64, i64 } %547, 2
-  store i64 %asmresult477, ptr %c3, align 8
-  store i64 %asmresult478, ptr %c1, align 8
-  store i64 %asmresult479, ptr %c2, align 8
-  br label %do.end480
-
-do.end480:                                        ; preds = %do.body471
-  %548 = load i64, ptr %c3, align 8
-  %549 = load ptr, ptr %r.addr, align 8
-  %arrayidx481 = getelementptr inbounds i64, ptr %549, i64 14
-  store i64 %548, ptr %arrayidx481, align 8
-  %550 = load i64, ptr %c1, align 8
-  %551 = load ptr, ptr %r.addr, align 8
-  %arrayidx482 = getelementptr inbounds i64, ptr %551, i64 15
-  store i64 %550, ptr %arrayidx482, align 8
+define hidden void @bn_sqr_comba8(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  %26 = alloca i64, align 8
+  %27 = alloca i64, align 8
+  %28 = alloca i64, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca i64, align 8
+  %31 = alloca i64, align 8
+  %32 = alloca i64, align 8
+  %33 = alloca i64, align 8
+  %34 = alloca i64, align 8
+  %35 = alloca i64, align 8
+  %36 = alloca i64, align 8
+  %37 = alloca i64, align 8
+  %38 = alloca i64, align 8
+  %39 = alloca i64, align 8
+  %40 = alloca i64, align 8
+  %41 = alloca i64, align 8
+  %42 = alloca i64, align 8
+  %43 = alloca i64, align 8
+  %44 = alloca i64, align 8
+  %45 = alloca i64, align 8
+  %46 = alloca i64, align 8
+  %47 = alloca i64, align 8
+  %48 = alloca i64, align 8
+  %49 = alloca i64, align 8
+  %50 = alloca i64, align 8
+  %51 = alloca i64, align 8
+  %52 = alloca i64, align 8
+  %53 = alloca i64, align 8
+  %54 = alloca i64, align 8
+  %55 = alloca i64, align 8
+  %56 = alloca i64, align 8
+  %57 = alloca i64, align 8
+  %58 = alloca i64, align 8
+  %59 = alloca i64, align 8
+  %60 = alloca i64, align 8
+  %61 = alloca i64, align 8
+  %62 = alloca i64, align 8
+  %63 = alloca i64, align 8
+  %64 = alloca i64, align 8
+  %65 = alloca i64, align 8
+  %66 = alloca i64, align 8
+  %67 = alloca i64, align 8
+  %68 = alloca i64, align 8
+  %69 = alloca i64, align 8
+  %70 = alloca i64, align 8
+  %71 = alloca i64, align 8
+  %72 = alloca i64, align 8
+  %73 = alloca i64, align 8
+  %74 = alloca i64, align 8
+  %75 = alloca i64, align 8
+  %76 = alloca i64, align 8
+  %77 = alloca i64, align 8
+  %78 = alloca i64, align 8
+  %79 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #2
+  store i64 0, ptr %5, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %80
+
+80:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #2
+  %81 = load ptr, ptr %4, align 8, !tbaa !6
+  %82 = getelementptr inbounds i64, ptr %81, i64 0
+  %83 = load i64, ptr %82, align 8, !tbaa !13
+  %84 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %83) #4, !srcloc !223
+  %85 = extractvalue { i64, i64 } %84, 0
+  %86 = extractvalue { i64, i64 } %84, 1
+  store i64 %85, ptr %8, align 8, !tbaa !13
+  store i64 %86, ptr %9, align 8, !tbaa !13
+  %87 = load i64, ptr %5, align 8, !tbaa !13
+  %88 = load i64, ptr %6, align 8, !tbaa !13
+  %89 = load i64, ptr %7, align 8, !tbaa !13
+  %90 = load i64, ptr %8, align 8, !tbaa !13
+  %91 = load i64, ptr %9, align 8, !tbaa !13
+  %92 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %90, i64 %91, i32 0, i64 %87, i64 %88, i64 %89) #3, !srcloc !224
+  %93 = extractvalue { i64, i64, i64 } %92, 0
+  %94 = extractvalue { i64, i64, i64 } %92, 1
+  %95 = extractvalue { i64, i64, i64 } %92, 2
+  store i64 %93, ptr %5, align 8, !tbaa !13
+  store i64 %94, ptr %6, align 8, !tbaa !13
+  store i64 %95, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #2
+  br label %96
+
+96:                                               ; preds = %80
+  br label %97
+
+97:                                               ; preds = %96
+  %98 = load i64, ptr %5, align 8, !tbaa !13
+  %99 = load ptr, ptr %3, align 8, !tbaa !6
+  %100 = getelementptr inbounds i64, ptr %99, i64 0
+  store i64 %98, ptr %100, align 8, !tbaa !13
+  store i64 0, ptr %5, align 8, !tbaa !13
+  br label %101
+
+101:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #2
+  %102 = load ptr, ptr %4, align 8, !tbaa !6
+  %103 = getelementptr inbounds i64, ptr %102, i64 1
+  %104 = load i64, ptr %103, align 8, !tbaa !13
+  %105 = load ptr, ptr %4, align 8, !tbaa !6
+  %106 = getelementptr inbounds i64, ptr %105, i64 0
+  %107 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %104, ptr elementtype(i64) %106) #3, !srcloc !225
+  %108 = extractvalue { i64, i64 } %107, 0
+  %109 = extractvalue { i64, i64 } %107, 1
+  store i64 %108, ptr %10, align 8, !tbaa !13
+  store i64 %109, ptr %11, align 8, !tbaa !13
+  %110 = load i64, ptr %6, align 8, !tbaa !13
+  %111 = load i64, ptr %7, align 8, !tbaa !13
+  %112 = load i64, ptr %5, align 8, !tbaa !13
+  %113 = load i64, ptr %10, align 8, !tbaa !13
+  %114 = load i64, ptr %11, align 8, !tbaa !13
+  %115 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %113, i64 %114, i32 0, i64 %110, i64 %111, i64 %112) #3, !srcloc !226
+  %116 = extractvalue { i64, i64, i64 } %115, 0
+  %117 = extractvalue { i64, i64, i64 } %115, 1
+  %118 = extractvalue { i64, i64, i64 } %115, 2
+  store i64 %116, ptr %6, align 8, !tbaa !13
+  store i64 %117, ptr %7, align 8, !tbaa !13
+  store i64 %118, ptr %5, align 8, !tbaa !13
+  %119 = load i64, ptr %6, align 8, !tbaa !13
+  %120 = load i64, ptr %7, align 8, !tbaa !13
+  %121 = load i64, ptr %5, align 8, !tbaa !13
+  %122 = load i64, ptr %10, align 8, !tbaa !13
+  %123 = load i64, ptr %11, align 8, !tbaa !13
+  %124 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %122, i64 %123, i32 0, i64 %119, i64 %120, i64 %121) #3, !srcloc !227
+  %125 = extractvalue { i64, i64, i64 } %124, 0
+  %126 = extractvalue { i64, i64, i64 } %124, 1
+  %127 = extractvalue { i64, i64, i64 } %124, 2
+  store i64 %125, ptr %6, align 8, !tbaa !13
+  store i64 %126, ptr %7, align 8, !tbaa !13
+  store i64 %127, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  br label %128
+
+128:                                              ; preds = %101
+  br label %129
+
+129:                                              ; preds = %128
+  %130 = load i64, ptr %6, align 8, !tbaa !13
+  %131 = load ptr, ptr %3, align 8, !tbaa !6
+  %132 = getelementptr inbounds i64, ptr %131, i64 1
+  store i64 %130, ptr %132, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  br label %133
+
+133:                                              ; preds = %129
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #2
+  %134 = load ptr, ptr %4, align 8, !tbaa !6
+  %135 = getelementptr inbounds i64, ptr %134, i64 1
+  %136 = load i64, ptr %135, align 8, !tbaa !13
+  %137 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %136) #4, !srcloc !228
+  %138 = extractvalue { i64, i64 } %137, 0
+  %139 = extractvalue { i64, i64 } %137, 1
+  store i64 %138, ptr %12, align 8, !tbaa !13
+  store i64 %139, ptr %13, align 8, !tbaa !13
+  %140 = load i64, ptr %7, align 8, !tbaa !13
+  %141 = load i64, ptr %5, align 8, !tbaa !13
+  %142 = load i64, ptr %6, align 8, !tbaa !13
+  %143 = load i64, ptr %12, align 8, !tbaa !13
+  %144 = load i64, ptr %13, align 8, !tbaa !13
+  %145 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %143, i64 %144, i32 0, i64 %140, i64 %141, i64 %142) #3, !srcloc !229
+  %146 = extractvalue { i64, i64, i64 } %145, 0
+  %147 = extractvalue { i64, i64, i64 } %145, 1
+  %148 = extractvalue { i64, i64, i64 } %145, 2
+  store i64 %146, ptr %7, align 8, !tbaa !13
+  store i64 %147, ptr %5, align 8, !tbaa !13
+  store i64 %148, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #2
+  br label %149
+
+149:                                              ; preds = %133
+  br label %150
+
+150:                                              ; preds = %149
+  br label %151
+
+151:                                              ; preds = %150
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #2
+  %152 = load ptr, ptr %4, align 8, !tbaa !6
+  %153 = getelementptr inbounds i64, ptr %152, i64 2
+  %154 = load i64, ptr %153, align 8, !tbaa !13
+  %155 = load ptr, ptr %4, align 8, !tbaa !6
+  %156 = getelementptr inbounds i64, ptr %155, i64 0
+  %157 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %154, ptr elementtype(i64) %156) #3, !srcloc !230
+  %158 = extractvalue { i64, i64 } %157, 0
+  %159 = extractvalue { i64, i64 } %157, 1
+  store i64 %158, ptr %14, align 8, !tbaa !13
+  store i64 %159, ptr %15, align 8, !tbaa !13
+  %160 = load i64, ptr %7, align 8, !tbaa !13
+  %161 = load i64, ptr %5, align 8, !tbaa !13
+  %162 = load i64, ptr %6, align 8, !tbaa !13
+  %163 = load i64, ptr %14, align 8, !tbaa !13
+  %164 = load i64, ptr %15, align 8, !tbaa !13
+  %165 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %163, i64 %164, i32 0, i64 %160, i64 %161, i64 %162) #3, !srcloc !231
+  %166 = extractvalue { i64, i64, i64 } %165, 0
+  %167 = extractvalue { i64, i64, i64 } %165, 1
+  %168 = extractvalue { i64, i64, i64 } %165, 2
+  store i64 %166, ptr %7, align 8, !tbaa !13
+  store i64 %167, ptr %5, align 8, !tbaa !13
+  store i64 %168, ptr %6, align 8, !tbaa !13
+  %169 = load i64, ptr %7, align 8, !tbaa !13
+  %170 = load i64, ptr %5, align 8, !tbaa !13
+  %171 = load i64, ptr %6, align 8, !tbaa !13
+  %172 = load i64, ptr %14, align 8, !tbaa !13
+  %173 = load i64, ptr %15, align 8, !tbaa !13
+  %174 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %172, i64 %173, i32 0, i64 %169, i64 %170, i64 %171) #3, !srcloc !232
+  %175 = extractvalue { i64, i64, i64 } %174, 0
+  %176 = extractvalue { i64, i64, i64 } %174, 1
+  %177 = extractvalue { i64, i64, i64 } %174, 2
+  store i64 %175, ptr %7, align 8, !tbaa !13
+  store i64 %176, ptr %5, align 8, !tbaa !13
+  store i64 %177, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #2
+  br label %178
+
+178:                                              ; preds = %151
+  br label %179
+
+179:                                              ; preds = %178
+  %180 = load i64, ptr %7, align 8, !tbaa !13
+  %181 = load ptr, ptr %3, align 8, !tbaa !6
+  %182 = getelementptr inbounds i64, ptr %181, i64 2
+  store i64 %180, ptr %182, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %183
+
+183:                                              ; preds = %179
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #2
+  %184 = load ptr, ptr %4, align 8, !tbaa !6
+  %185 = getelementptr inbounds i64, ptr %184, i64 3
+  %186 = load i64, ptr %185, align 8, !tbaa !13
+  %187 = load ptr, ptr %4, align 8, !tbaa !6
+  %188 = getelementptr inbounds i64, ptr %187, i64 0
+  %189 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %186, ptr elementtype(i64) %188) #3, !srcloc !233
+  %190 = extractvalue { i64, i64 } %189, 0
+  %191 = extractvalue { i64, i64 } %189, 1
+  store i64 %190, ptr %16, align 8, !tbaa !13
+  store i64 %191, ptr %17, align 8, !tbaa !13
+  %192 = load i64, ptr %5, align 8, !tbaa !13
+  %193 = load i64, ptr %6, align 8, !tbaa !13
+  %194 = load i64, ptr %7, align 8, !tbaa !13
+  %195 = load i64, ptr %16, align 8, !tbaa !13
+  %196 = load i64, ptr %17, align 8, !tbaa !13
+  %197 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %195, i64 %196, i32 0, i64 %192, i64 %193, i64 %194) #3, !srcloc !234
+  %198 = extractvalue { i64, i64, i64 } %197, 0
+  %199 = extractvalue { i64, i64, i64 } %197, 1
+  %200 = extractvalue { i64, i64, i64 } %197, 2
+  store i64 %198, ptr %5, align 8, !tbaa !13
+  store i64 %199, ptr %6, align 8, !tbaa !13
+  store i64 %200, ptr %7, align 8, !tbaa !13
+  %201 = load i64, ptr %5, align 8, !tbaa !13
+  %202 = load i64, ptr %6, align 8, !tbaa !13
+  %203 = load i64, ptr %7, align 8, !tbaa !13
+  %204 = load i64, ptr %16, align 8, !tbaa !13
+  %205 = load i64, ptr %17, align 8, !tbaa !13
+  %206 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %204, i64 %205, i32 0, i64 %201, i64 %202, i64 %203) #3, !srcloc !235
+  %207 = extractvalue { i64, i64, i64 } %206, 0
+  %208 = extractvalue { i64, i64, i64 } %206, 1
+  %209 = extractvalue { i64, i64, i64 } %206, 2
+  store i64 %207, ptr %5, align 8, !tbaa !13
+  store i64 %208, ptr %6, align 8, !tbaa !13
+  store i64 %209, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #2
+  br label %210
+
+210:                                              ; preds = %183
+  br label %211
+
+211:                                              ; preds = %210
+  br label %212
+
+212:                                              ; preds = %211
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #2
+  %213 = load ptr, ptr %4, align 8, !tbaa !6
+  %214 = getelementptr inbounds i64, ptr %213, i64 2
+  %215 = load i64, ptr %214, align 8, !tbaa !13
+  %216 = load ptr, ptr %4, align 8, !tbaa !6
+  %217 = getelementptr inbounds i64, ptr %216, i64 1
+  %218 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %215, ptr elementtype(i64) %217) #3, !srcloc !236
+  %219 = extractvalue { i64, i64 } %218, 0
+  %220 = extractvalue { i64, i64 } %218, 1
+  store i64 %219, ptr %18, align 8, !tbaa !13
+  store i64 %220, ptr %19, align 8, !tbaa !13
+  %221 = load i64, ptr %5, align 8, !tbaa !13
+  %222 = load i64, ptr %6, align 8, !tbaa !13
+  %223 = load i64, ptr %7, align 8, !tbaa !13
+  %224 = load i64, ptr %18, align 8, !tbaa !13
+  %225 = load i64, ptr %19, align 8, !tbaa !13
+  %226 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %224, i64 %225, i32 0, i64 %221, i64 %222, i64 %223) #3, !srcloc !237
+  %227 = extractvalue { i64, i64, i64 } %226, 0
+  %228 = extractvalue { i64, i64, i64 } %226, 1
+  %229 = extractvalue { i64, i64, i64 } %226, 2
+  store i64 %227, ptr %5, align 8, !tbaa !13
+  store i64 %228, ptr %6, align 8, !tbaa !13
+  store i64 %229, ptr %7, align 8, !tbaa !13
+  %230 = load i64, ptr %5, align 8, !tbaa !13
+  %231 = load i64, ptr %6, align 8, !tbaa !13
+  %232 = load i64, ptr %7, align 8, !tbaa !13
+  %233 = load i64, ptr %18, align 8, !tbaa !13
+  %234 = load i64, ptr %19, align 8, !tbaa !13
+  %235 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %233, i64 %234, i32 0, i64 %230, i64 %231, i64 %232) #3, !srcloc !238
+  %236 = extractvalue { i64, i64, i64 } %235, 0
+  %237 = extractvalue { i64, i64, i64 } %235, 1
+  %238 = extractvalue { i64, i64, i64 } %235, 2
+  store i64 %236, ptr %5, align 8, !tbaa !13
+  store i64 %237, ptr %6, align 8, !tbaa !13
+  store i64 %238, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #2
+  br label %239
+
+239:                                              ; preds = %212
+  br label %240
+
+240:                                              ; preds = %239
+  %241 = load i64, ptr %5, align 8, !tbaa !13
+  %242 = load ptr, ptr %3, align 8, !tbaa !6
+  %243 = getelementptr inbounds i64, ptr %242, i64 3
+  store i64 %241, ptr %243, align 8, !tbaa !13
+  store i64 0, ptr %5, align 8, !tbaa !13
+  br label %244
+
+244:                                              ; preds = %240
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #2
+  %245 = load ptr, ptr %4, align 8, !tbaa !6
+  %246 = getelementptr inbounds i64, ptr %245, i64 2
+  %247 = load i64, ptr %246, align 8, !tbaa !13
+  %248 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %247) #4, !srcloc !239
+  %249 = extractvalue { i64, i64 } %248, 0
+  %250 = extractvalue { i64, i64 } %248, 1
+  store i64 %249, ptr %20, align 8, !tbaa !13
+  store i64 %250, ptr %21, align 8, !tbaa !13
+  %251 = load i64, ptr %6, align 8, !tbaa !13
+  %252 = load i64, ptr %7, align 8, !tbaa !13
+  %253 = load i64, ptr %5, align 8, !tbaa !13
+  %254 = load i64, ptr %20, align 8, !tbaa !13
+  %255 = load i64, ptr %21, align 8, !tbaa !13
+  %256 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %254, i64 %255, i32 0, i64 %251, i64 %252, i64 %253) #3, !srcloc !240
+  %257 = extractvalue { i64, i64, i64 } %256, 0
+  %258 = extractvalue { i64, i64, i64 } %256, 1
+  %259 = extractvalue { i64, i64, i64 } %256, 2
+  store i64 %257, ptr %6, align 8, !tbaa !13
+  store i64 %258, ptr %7, align 8, !tbaa !13
+  store i64 %259, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #2
+  br label %260
+
+260:                                              ; preds = %244
+  br label %261
+
+261:                                              ; preds = %260
+  br label %262
+
+262:                                              ; preds = %261
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #2
+  %263 = load ptr, ptr %4, align 8, !tbaa !6
+  %264 = getelementptr inbounds i64, ptr %263, i64 3
+  %265 = load i64, ptr %264, align 8, !tbaa !13
+  %266 = load ptr, ptr %4, align 8, !tbaa !6
+  %267 = getelementptr inbounds i64, ptr %266, i64 1
+  %268 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %265, ptr elementtype(i64) %267) #3, !srcloc !241
+  %269 = extractvalue { i64, i64 } %268, 0
+  %270 = extractvalue { i64, i64 } %268, 1
+  store i64 %269, ptr %22, align 8, !tbaa !13
+  store i64 %270, ptr %23, align 8, !tbaa !13
+  %271 = load i64, ptr %6, align 8, !tbaa !13
+  %272 = load i64, ptr %7, align 8, !tbaa !13
+  %273 = load i64, ptr %5, align 8, !tbaa !13
+  %274 = load i64, ptr %22, align 8, !tbaa !13
+  %275 = load i64, ptr %23, align 8, !tbaa !13
+  %276 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %274, i64 %275, i32 0, i64 %271, i64 %272, i64 %273) #3, !srcloc !242
+  %277 = extractvalue { i64, i64, i64 } %276, 0
+  %278 = extractvalue { i64, i64, i64 } %276, 1
+  %279 = extractvalue { i64, i64, i64 } %276, 2
+  store i64 %277, ptr %6, align 8, !tbaa !13
+  store i64 %278, ptr %7, align 8, !tbaa !13
+  store i64 %279, ptr %5, align 8, !tbaa !13
+  %280 = load i64, ptr %6, align 8, !tbaa !13
+  %281 = load i64, ptr %7, align 8, !tbaa !13
+  %282 = load i64, ptr %5, align 8, !tbaa !13
+  %283 = load i64, ptr %22, align 8, !tbaa !13
+  %284 = load i64, ptr %23, align 8, !tbaa !13
+  %285 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %283, i64 %284, i32 0, i64 %280, i64 %281, i64 %282) #3, !srcloc !243
+  %286 = extractvalue { i64, i64, i64 } %285, 0
+  %287 = extractvalue { i64, i64, i64 } %285, 1
+  %288 = extractvalue { i64, i64, i64 } %285, 2
+  store i64 %286, ptr %6, align 8, !tbaa !13
+  store i64 %287, ptr %7, align 8, !tbaa !13
+  store i64 %288, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #2
+  br label %289
+
+289:                                              ; preds = %262
+  br label %290
+
+290:                                              ; preds = %289
+  br label %291
+
+291:                                              ; preds = %290
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #2
+  %292 = load ptr, ptr %4, align 8, !tbaa !6
+  %293 = getelementptr inbounds i64, ptr %292, i64 4
+  %294 = load i64, ptr %293, align 8, !tbaa !13
+  %295 = load ptr, ptr %4, align 8, !tbaa !6
+  %296 = getelementptr inbounds i64, ptr %295, i64 0
+  %297 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %294, ptr elementtype(i64) %296) #3, !srcloc !244
+  %298 = extractvalue { i64, i64 } %297, 0
+  %299 = extractvalue { i64, i64 } %297, 1
+  store i64 %298, ptr %24, align 8, !tbaa !13
+  store i64 %299, ptr %25, align 8, !tbaa !13
+  %300 = load i64, ptr %6, align 8, !tbaa !13
+  %301 = load i64, ptr %7, align 8, !tbaa !13
+  %302 = load i64, ptr %5, align 8, !tbaa !13
+  %303 = load i64, ptr %24, align 8, !tbaa !13
+  %304 = load i64, ptr %25, align 8, !tbaa !13
+  %305 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %303, i64 %304, i32 0, i64 %300, i64 %301, i64 %302) #3, !srcloc !245
+  %306 = extractvalue { i64, i64, i64 } %305, 0
+  %307 = extractvalue { i64, i64, i64 } %305, 1
+  %308 = extractvalue { i64, i64, i64 } %305, 2
+  store i64 %306, ptr %6, align 8, !tbaa !13
+  store i64 %307, ptr %7, align 8, !tbaa !13
+  store i64 %308, ptr %5, align 8, !tbaa !13
+  %309 = load i64, ptr %6, align 8, !tbaa !13
+  %310 = load i64, ptr %7, align 8, !tbaa !13
+  %311 = load i64, ptr %5, align 8, !tbaa !13
+  %312 = load i64, ptr %24, align 8, !tbaa !13
+  %313 = load i64, ptr %25, align 8, !tbaa !13
+  %314 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %312, i64 %313, i32 0, i64 %309, i64 %310, i64 %311) #3, !srcloc !246
+  %315 = extractvalue { i64, i64, i64 } %314, 0
+  %316 = extractvalue { i64, i64, i64 } %314, 1
+  %317 = extractvalue { i64, i64, i64 } %314, 2
+  store i64 %315, ptr %6, align 8, !tbaa !13
+  store i64 %316, ptr %7, align 8, !tbaa !13
+  store i64 %317, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #2
+  br label %318
+
+318:                                              ; preds = %291
+  br label %319
+
+319:                                              ; preds = %318
+  %320 = load i64, ptr %6, align 8, !tbaa !13
+  %321 = load ptr, ptr %3, align 8, !tbaa !6
+  %322 = getelementptr inbounds i64, ptr %321, i64 4
+  store i64 %320, ptr %322, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  br label %323
+
+323:                                              ; preds = %319
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #2
+  %324 = load ptr, ptr %4, align 8, !tbaa !6
+  %325 = getelementptr inbounds i64, ptr %324, i64 5
+  %326 = load i64, ptr %325, align 8, !tbaa !13
+  %327 = load ptr, ptr %4, align 8, !tbaa !6
+  %328 = getelementptr inbounds i64, ptr %327, i64 0
+  %329 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %326, ptr elementtype(i64) %328) #3, !srcloc !247
+  %330 = extractvalue { i64, i64 } %329, 0
+  %331 = extractvalue { i64, i64 } %329, 1
+  store i64 %330, ptr %26, align 8, !tbaa !13
+  store i64 %331, ptr %27, align 8, !tbaa !13
+  %332 = load i64, ptr %7, align 8, !tbaa !13
+  %333 = load i64, ptr %5, align 8, !tbaa !13
+  %334 = load i64, ptr %6, align 8, !tbaa !13
+  %335 = load i64, ptr %26, align 8, !tbaa !13
+  %336 = load i64, ptr %27, align 8, !tbaa !13
+  %337 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %335, i64 %336, i32 0, i64 %332, i64 %333, i64 %334) #3, !srcloc !248
+  %338 = extractvalue { i64, i64, i64 } %337, 0
+  %339 = extractvalue { i64, i64, i64 } %337, 1
+  %340 = extractvalue { i64, i64, i64 } %337, 2
+  store i64 %338, ptr %7, align 8, !tbaa !13
+  store i64 %339, ptr %5, align 8, !tbaa !13
+  store i64 %340, ptr %6, align 8, !tbaa !13
+  %341 = load i64, ptr %7, align 8, !tbaa !13
+  %342 = load i64, ptr %5, align 8, !tbaa !13
+  %343 = load i64, ptr %6, align 8, !tbaa !13
+  %344 = load i64, ptr %26, align 8, !tbaa !13
+  %345 = load i64, ptr %27, align 8, !tbaa !13
+  %346 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %344, i64 %345, i32 0, i64 %341, i64 %342, i64 %343) #3, !srcloc !249
+  %347 = extractvalue { i64, i64, i64 } %346, 0
+  %348 = extractvalue { i64, i64, i64 } %346, 1
+  %349 = extractvalue { i64, i64, i64 } %346, 2
+  store i64 %347, ptr %7, align 8, !tbaa !13
+  store i64 %348, ptr %5, align 8, !tbaa !13
+  store i64 %349, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #2
+  br label %350
+
+350:                                              ; preds = %323
+  br label %351
+
+351:                                              ; preds = %350
+  br label %352
+
+352:                                              ; preds = %351
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #2
+  %353 = load ptr, ptr %4, align 8, !tbaa !6
+  %354 = getelementptr inbounds i64, ptr %353, i64 4
+  %355 = load i64, ptr %354, align 8, !tbaa !13
+  %356 = load ptr, ptr %4, align 8, !tbaa !6
+  %357 = getelementptr inbounds i64, ptr %356, i64 1
+  %358 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %355, ptr elementtype(i64) %357) #3, !srcloc !250
+  %359 = extractvalue { i64, i64 } %358, 0
+  %360 = extractvalue { i64, i64 } %358, 1
+  store i64 %359, ptr %28, align 8, !tbaa !13
+  store i64 %360, ptr %29, align 8, !tbaa !13
+  %361 = load i64, ptr %7, align 8, !tbaa !13
+  %362 = load i64, ptr %5, align 8, !tbaa !13
+  %363 = load i64, ptr %6, align 8, !tbaa !13
+  %364 = load i64, ptr %28, align 8, !tbaa !13
+  %365 = load i64, ptr %29, align 8, !tbaa !13
+  %366 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %364, i64 %365, i32 0, i64 %361, i64 %362, i64 %363) #3, !srcloc !251
+  %367 = extractvalue { i64, i64, i64 } %366, 0
+  %368 = extractvalue { i64, i64, i64 } %366, 1
+  %369 = extractvalue { i64, i64, i64 } %366, 2
+  store i64 %367, ptr %7, align 8, !tbaa !13
+  store i64 %368, ptr %5, align 8, !tbaa !13
+  store i64 %369, ptr %6, align 8, !tbaa !13
+  %370 = load i64, ptr %7, align 8, !tbaa !13
+  %371 = load i64, ptr %5, align 8, !tbaa !13
+  %372 = load i64, ptr %6, align 8, !tbaa !13
+  %373 = load i64, ptr %28, align 8, !tbaa !13
+  %374 = load i64, ptr %29, align 8, !tbaa !13
+  %375 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %373, i64 %374, i32 0, i64 %370, i64 %371, i64 %372) #3, !srcloc !252
+  %376 = extractvalue { i64, i64, i64 } %375, 0
+  %377 = extractvalue { i64, i64, i64 } %375, 1
+  %378 = extractvalue { i64, i64, i64 } %375, 2
+  store i64 %376, ptr %7, align 8, !tbaa !13
+  store i64 %377, ptr %5, align 8, !tbaa !13
+  store i64 %378, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #2
+  br label %379
+
+379:                                              ; preds = %352
+  br label %380
+
+380:                                              ; preds = %379
+  br label %381
+
+381:                                              ; preds = %380
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #2
+  %382 = load ptr, ptr %4, align 8, !tbaa !6
+  %383 = getelementptr inbounds i64, ptr %382, i64 3
+  %384 = load i64, ptr %383, align 8, !tbaa !13
+  %385 = load ptr, ptr %4, align 8, !tbaa !6
+  %386 = getelementptr inbounds i64, ptr %385, i64 2
+  %387 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %384, ptr elementtype(i64) %386) #3, !srcloc !253
+  %388 = extractvalue { i64, i64 } %387, 0
+  %389 = extractvalue { i64, i64 } %387, 1
+  store i64 %388, ptr %30, align 8, !tbaa !13
+  store i64 %389, ptr %31, align 8, !tbaa !13
+  %390 = load i64, ptr %7, align 8, !tbaa !13
+  %391 = load i64, ptr %5, align 8, !tbaa !13
+  %392 = load i64, ptr %6, align 8, !tbaa !13
+  %393 = load i64, ptr %30, align 8, !tbaa !13
+  %394 = load i64, ptr %31, align 8, !tbaa !13
+  %395 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %393, i64 %394, i32 0, i64 %390, i64 %391, i64 %392) #3, !srcloc !254
+  %396 = extractvalue { i64, i64, i64 } %395, 0
+  %397 = extractvalue { i64, i64, i64 } %395, 1
+  %398 = extractvalue { i64, i64, i64 } %395, 2
+  store i64 %396, ptr %7, align 8, !tbaa !13
+  store i64 %397, ptr %5, align 8, !tbaa !13
+  store i64 %398, ptr %6, align 8, !tbaa !13
+  %399 = load i64, ptr %7, align 8, !tbaa !13
+  %400 = load i64, ptr %5, align 8, !tbaa !13
+  %401 = load i64, ptr %6, align 8, !tbaa !13
+  %402 = load i64, ptr %30, align 8, !tbaa !13
+  %403 = load i64, ptr %31, align 8, !tbaa !13
+  %404 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %402, i64 %403, i32 0, i64 %399, i64 %400, i64 %401) #3, !srcloc !255
+  %405 = extractvalue { i64, i64, i64 } %404, 0
+  %406 = extractvalue { i64, i64, i64 } %404, 1
+  %407 = extractvalue { i64, i64, i64 } %404, 2
+  store i64 %405, ptr %7, align 8, !tbaa !13
+  store i64 %406, ptr %5, align 8, !tbaa !13
+  store i64 %407, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #2
+  br label %408
+
+408:                                              ; preds = %381
+  br label %409
+
+409:                                              ; preds = %408
+  %410 = load i64, ptr %7, align 8, !tbaa !13
+  %411 = load ptr, ptr %3, align 8, !tbaa !6
+  %412 = getelementptr inbounds i64, ptr %411, i64 5
+  store i64 %410, ptr %412, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %413
+
+413:                                              ; preds = %409
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #2
+  %414 = load ptr, ptr %4, align 8, !tbaa !6
+  %415 = getelementptr inbounds i64, ptr %414, i64 3
+  %416 = load i64, ptr %415, align 8, !tbaa !13
+  %417 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %416) #4, !srcloc !256
+  %418 = extractvalue { i64, i64 } %417, 0
+  %419 = extractvalue { i64, i64 } %417, 1
+  store i64 %418, ptr %32, align 8, !tbaa !13
+  store i64 %419, ptr %33, align 8, !tbaa !13
+  %420 = load i64, ptr %5, align 8, !tbaa !13
+  %421 = load i64, ptr %6, align 8, !tbaa !13
+  %422 = load i64, ptr %7, align 8, !tbaa !13
+  %423 = load i64, ptr %32, align 8, !tbaa !13
+  %424 = load i64, ptr %33, align 8, !tbaa !13
+  %425 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %423, i64 %424, i32 0, i64 %420, i64 %421, i64 %422) #3, !srcloc !257
+  %426 = extractvalue { i64, i64, i64 } %425, 0
+  %427 = extractvalue { i64, i64, i64 } %425, 1
+  %428 = extractvalue { i64, i64, i64 } %425, 2
+  store i64 %426, ptr %5, align 8, !tbaa !13
+  store i64 %427, ptr %6, align 8, !tbaa !13
+  store i64 %428, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #2
+  br label %429
+
+429:                                              ; preds = %413
+  br label %430
+
+430:                                              ; preds = %429
+  br label %431
+
+431:                                              ; preds = %430
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #2
+  %432 = load ptr, ptr %4, align 8, !tbaa !6
+  %433 = getelementptr inbounds i64, ptr %432, i64 4
+  %434 = load i64, ptr %433, align 8, !tbaa !13
+  %435 = load ptr, ptr %4, align 8, !tbaa !6
+  %436 = getelementptr inbounds i64, ptr %435, i64 2
+  %437 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %434, ptr elementtype(i64) %436) #3, !srcloc !258
+  %438 = extractvalue { i64, i64 } %437, 0
+  %439 = extractvalue { i64, i64 } %437, 1
+  store i64 %438, ptr %34, align 8, !tbaa !13
+  store i64 %439, ptr %35, align 8, !tbaa !13
+  %440 = load i64, ptr %5, align 8, !tbaa !13
+  %441 = load i64, ptr %6, align 8, !tbaa !13
+  %442 = load i64, ptr %7, align 8, !tbaa !13
+  %443 = load i64, ptr %34, align 8, !tbaa !13
+  %444 = load i64, ptr %35, align 8, !tbaa !13
+  %445 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %443, i64 %444, i32 0, i64 %440, i64 %441, i64 %442) #3, !srcloc !259
+  %446 = extractvalue { i64, i64, i64 } %445, 0
+  %447 = extractvalue { i64, i64, i64 } %445, 1
+  %448 = extractvalue { i64, i64, i64 } %445, 2
+  store i64 %446, ptr %5, align 8, !tbaa !13
+  store i64 %447, ptr %6, align 8, !tbaa !13
+  store i64 %448, ptr %7, align 8, !tbaa !13
+  %449 = load i64, ptr %5, align 8, !tbaa !13
+  %450 = load i64, ptr %6, align 8, !tbaa !13
+  %451 = load i64, ptr %7, align 8, !tbaa !13
+  %452 = load i64, ptr %34, align 8, !tbaa !13
+  %453 = load i64, ptr %35, align 8, !tbaa !13
+  %454 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %452, i64 %453, i32 0, i64 %449, i64 %450, i64 %451) #3, !srcloc !260
+  %455 = extractvalue { i64, i64, i64 } %454, 0
+  %456 = extractvalue { i64, i64, i64 } %454, 1
+  %457 = extractvalue { i64, i64, i64 } %454, 2
+  store i64 %455, ptr %5, align 8, !tbaa !13
+  store i64 %456, ptr %6, align 8, !tbaa !13
+  store i64 %457, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #2
+  br label %458
+
+458:                                              ; preds = %431
+  br label %459
+
+459:                                              ; preds = %458
+  br label %460
+
+460:                                              ; preds = %459
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #2
+  %461 = load ptr, ptr %4, align 8, !tbaa !6
+  %462 = getelementptr inbounds i64, ptr %461, i64 5
+  %463 = load i64, ptr %462, align 8, !tbaa !13
+  %464 = load ptr, ptr %4, align 8, !tbaa !6
+  %465 = getelementptr inbounds i64, ptr %464, i64 1
+  %466 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %463, ptr elementtype(i64) %465) #3, !srcloc !261
+  %467 = extractvalue { i64, i64 } %466, 0
+  %468 = extractvalue { i64, i64 } %466, 1
+  store i64 %467, ptr %36, align 8, !tbaa !13
+  store i64 %468, ptr %37, align 8, !tbaa !13
+  %469 = load i64, ptr %5, align 8, !tbaa !13
+  %470 = load i64, ptr %6, align 8, !tbaa !13
+  %471 = load i64, ptr %7, align 8, !tbaa !13
+  %472 = load i64, ptr %36, align 8, !tbaa !13
+  %473 = load i64, ptr %37, align 8, !tbaa !13
+  %474 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %472, i64 %473, i32 0, i64 %469, i64 %470, i64 %471) #3, !srcloc !262
+  %475 = extractvalue { i64, i64, i64 } %474, 0
+  %476 = extractvalue { i64, i64, i64 } %474, 1
+  %477 = extractvalue { i64, i64, i64 } %474, 2
+  store i64 %475, ptr %5, align 8, !tbaa !13
+  store i64 %476, ptr %6, align 8, !tbaa !13
+  store i64 %477, ptr %7, align 8, !tbaa !13
+  %478 = load i64, ptr %5, align 8, !tbaa !13
+  %479 = load i64, ptr %6, align 8, !tbaa !13
+  %480 = load i64, ptr %7, align 8, !tbaa !13
+  %481 = load i64, ptr %36, align 8, !tbaa !13
+  %482 = load i64, ptr %37, align 8, !tbaa !13
+  %483 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %481, i64 %482, i32 0, i64 %478, i64 %479, i64 %480) #3, !srcloc !263
+  %484 = extractvalue { i64, i64, i64 } %483, 0
+  %485 = extractvalue { i64, i64, i64 } %483, 1
+  %486 = extractvalue { i64, i64, i64 } %483, 2
+  store i64 %484, ptr %5, align 8, !tbaa !13
+  store i64 %485, ptr %6, align 8, !tbaa !13
+  store i64 %486, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #2
+  br label %487
+
+487:                                              ; preds = %460
+  br label %488
+
+488:                                              ; preds = %487
+  br label %489
+
+489:                                              ; preds = %488
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #2
+  %490 = load ptr, ptr %4, align 8, !tbaa !6
+  %491 = getelementptr inbounds i64, ptr %490, i64 6
+  %492 = load i64, ptr %491, align 8, !tbaa !13
+  %493 = load ptr, ptr %4, align 8, !tbaa !6
+  %494 = getelementptr inbounds i64, ptr %493, i64 0
+  %495 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %492, ptr elementtype(i64) %494) #3, !srcloc !264
+  %496 = extractvalue { i64, i64 } %495, 0
+  %497 = extractvalue { i64, i64 } %495, 1
+  store i64 %496, ptr %38, align 8, !tbaa !13
+  store i64 %497, ptr %39, align 8, !tbaa !13
+  %498 = load i64, ptr %5, align 8, !tbaa !13
+  %499 = load i64, ptr %6, align 8, !tbaa !13
+  %500 = load i64, ptr %7, align 8, !tbaa !13
+  %501 = load i64, ptr %38, align 8, !tbaa !13
+  %502 = load i64, ptr %39, align 8, !tbaa !13
+  %503 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %501, i64 %502, i32 0, i64 %498, i64 %499, i64 %500) #3, !srcloc !265
+  %504 = extractvalue { i64, i64, i64 } %503, 0
+  %505 = extractvalue { i64, i64, i64 } %503, 1
+  %506 = extractvalue { i64, i64, i64 } %503, 2
+  store i64 %504, ptr %5, align 8, !tbaa !13
+  store i64 %505, ptr %6, align 8, !tbaa !13
+  store i64 %506, ptr %7, align 8, !tbaa !13
+  %507 = load i64, ptr %5, align 8, !tbaa !13
+  %508 = load i64, ptr %6, align 8, !tbaa !13
+  %509 = load i64, ptr %7, align 8, !tbaa !13
+  %510 = load i64, ptr %38, align 8, !tbaa !13
+  %511 = load i64, ptr %39, align 8, !tbaa !13
+  %512 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %510, i64 %511, i32 0, i64 %507, i64 %508, i64 %509) #3, !srcloc !266
+  %513 = extractvalue { i64, i64, i64 } %512, 0
+  %514 = extractvalue { i64, i64, i64 } %512, 1
+  %515 = extractvalue { i64, i64, i64 } %512, 2
+  store i64 %513, ptr %5, align 8, !tbaa !13
+  store i64 %514, ptr %6, align 8, !tbaa !13
+  store i64 %515, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #2
+  br label %516
+
+516:                                              ; preds = %489
+  br label %517
+
+517:                                              ; preds = %516
+  %518 = load i64, ptr %5, align 8, !tbaa !13
+  %519 = load ptr, ptr %3, align 8, !tbaa !6
+  %520 = getelementptr inbounds i64, ptr %519, i64 6
+  store i64 %518, ptr %520, align 8, !tbaa !13
+  store i64 0, ptr %5, align 8, !tbaa !13
+  br label %521
+
+521:                                              ; preds = %517
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #2
+  %522 = load ptr, ptr %4, align 8, !tbaa !6
+  %523 = getelementptr inbounds i64, ptr %522, i64 7
+  %524 = load i64, ptr %523, align 8, !tbaa !13
+  %525 = load ptr, ptr %4, align 8, !tbaa !6
+  %526 = getelementptr inbounds i64, ptr %525, i64 0
+  %527 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %524, ptr elementtype(i64) %526) #3, !srcloc !267
+  %528 = extractvalue { i64, i64 } %527, 0
+  %529 = extractvalue { i64, i64 } %527, 1
+  store i64 %528, ptr %40, align 8, !tbaa !13
+  store i64 %529, ptr %41, align 8, !tbaa !13
+  %530 = load i64, ptr %6, align 8, !tbaa !13
+  %531 = load i64, ptr %7, align 8, !tbaa !13
+  %532 = load i64, ptr %5, align 8, !tbaa !13
+  %533 = load i64, ptr %40, align 8, !tbaa !13
+  %534 = load i64, ptr %41, align 8, !tbaa !13
+  %535 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %533, i64 %534, i32 0, i64 %530, i64 %531, i64 %532) #3, !srcloc !268
+  %536 = extractvalue { i64, i64, i64 } %535, 0
+  %537 = extractvalue { i64, i64, i64 } %535, 1
+  %538 = extractvalue { i64, i64, i64 } %535, 2
+  store i64 %536, ptr %6, align 8, !tbaa !13
+  store i64 %537, ptr %7, align 8, !tbaa !13
+  store i64 %538, ptr %5, align 8, !tbaa !13
+  %539 = load i64, ptr %6, align 8, !tbaa !13
+  %540 = load i64, ptr %7, align 8, !tbaa !13
+  %541 = load i64, ptr %5, align 8, !tbaa !13
+  %542 = load i64, ptr %40, align 8, !tbaa !13
+  %543 = load i64, ptr %41, align 8, !tbaa !13
+  %544 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %542, i64 %543, i32 0, i64 %539, i64 %540, i64 %541) #3, !srcloc !269
+  %545 = extractvalue { i64, i64, i64 } %544, 0
+  %546 = extractvalue { i64, i64, i64 } %544, 1
+  %547 = extractvalue { i64, i64, i64 } %544, 2
+  store i64 %545, ptr %6, align 8, !tbaa !13
+  store i64 %546, ptr %7, align 8, !tbaa !13
+  store i64 %547, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #2
+  br label %548
+
+548:                                              ; preds = %521
+  br label %549
+
+549:                                              ; preds = %548
+  br label %550
+
+550:                                              ; preds = %549
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #2
+  %551 = load ptr, ptr %4, align 8, !tbaa !6
+  %552 = getelementptr inbounds i64, ptr %551, i64 6
+  %553 = load i64, ptr %552, align 8, !tbaa !13
+  %554 = load ptr, ptr %4, align 8, !tbaa !6
+  %555 = getelementptr inbounds i64, ptr %554, i64 1
+  %556 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %553, ptr elementtype(i64) %555) #3, !srcloc !270
+  %557 = extractvalue { i64, i64 } %556, 0
+  %558 = extractvalue { i64, i64 } %556, 1
+  store i64 %557, ptr %42, align 8, !tbaa !13
+  store i64 %558, ptr %43, align 8, !tbaa !13
+  %559 = load i64, ptr %6, align 8, !tbaa !13
+  %560 = load i64, ptr %7, align 8, !tbaa !13
+  %561 = load i64, ptr %5, align 8, !tbaa !13
+  %562 = load i64, ptr %42, align 8, !tbaa !13
+  %563 = load i64, ptr %43, align 8, !tbaa !13
+  %564 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %562, i64 %563, i32 0, i64 %559, i64 %560, i64 %561) #3, !srcloc !271
+  %565 = extractvalue { i64, i64, i64 } %564, 0
+  %566 = extractvalue { i64, i64, i64 } %564, 1
+  %567 = extractvalue { i64, i64, i64 } %564, 2
+  store i64 %565, ptr %6, align 8, !tbaa !13
+  store i64 %566, ptr %7, align 8, !tbaa !13
+  store i64 %567, ptr %5, align 8, !tbaa !13
+  %568 = load i64, ptr %6, align 8, !tbaa !13
+  %569 = load i64, ptr %7, align 8, !tbaa !13
+  %570 = load i64, ptr %5, align 8, !tbaa !13
+  %571 = load i64, ptr %42, align 8, !tbaa !13
+  %572 = load i64, ptr %43, align 8, !tbaa !13
+  %573 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %571, i64 %572, i32 0, i64 %568, i64 %569, i64 %570) #3, !srcloc !272
+  %574 = extractvalue { i64, i64, i64 } %573, 0
+  %575 = extractvalue { i64, i64, i64 } %573, 1
+  %576 = extractvalue { i64, i64, i64 } %573, 2
+  store i64 %574, ptr %6, align 8, !tbaa !13
+  store i64 %575, ptr %7, align 8, !tbaa !13
+  store i64 %576, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #2
+  br label %577
+
+577:                                              ; preds = %550
+  br label %578
+
+578:                                              ; preds = %577
+  br label %579
+
+579:                                              ; preds = %578
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #2
+  %580 = load ptr, ptr %4, align 8, !tbaa !6
+  %581 = getelementptr inbounds i64, ptr %580, i64 5
+  %582 = load i64, ptr %581, align 8, !tbaa !13
+  %583 = load ptr, ptr %4, align 8, !tbaa !6
+  %584 = getelementptr inbounds i64, ptr %583, i64 2
+  %585 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %582, ptr elementtype(i64) %584) #3, !srcloc !273
+  %586 = extractvalue { i64, i64 } %585, 0
+  %587 = extractvalue { i64, i64 } %585, 1
+  store i64 %586, ptr %44, align 8, !tbaa !13
+  store i64 %587, ptr %45, align 8, !tbaa !13
+  %588 = load i64, ptr %6, align 8, !tbaa !13
+  %589 = load i64, ptr %7, align 8, !tbaa !13
+  %590 = load i64, ptr %5, align 8, !tbaa !13
+  %591 = load i64, ptr %44, align 8, !tbaa !13
+  %592 = load i64, ptr %45, align 8, !tbaa !13
+  %593 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %591, i64 %592, i32 0, i64 %588, i64 %589, i64 %590) #3, !srcloc !274
+  %594 = extractvalue { i64, i64, i64 } %593, 0
+  %595 = extractvalue { i64, i64, i64 } %593, 1
+  %596 = extractvalue { i64, i64, i64 } %593, 2
+  store i64 %594, ptr %6, align 8, !tbaa !13
+  store i64 %595, ptr %7, align 8, !tbaa !13
+  store i64 %596, ptr %5, align 8, !tbaa !13
+  %597 = load i64, ptr %6, align 8, !tbaa !13
+  %598 = load i64, ptr %7, align 8, !tbaa !13
+  %599 = load i64, ptr %5, align 8, !tbaa !13
+  %600 = load i64, ptr %44, align 8, !tbaa !13
+  %601 = load i64, ptr %45, align 8, !tbaa !13
+  %602 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %600, i64 %601, i32 0, i64 %597, i64 %598, i64 %599) #3, !srcloc !275
+  %603 = extractvalue { i64, i64, i64 } %602, 0
+  %604 = extractvalue { i64, i64, i64 } %602, 1
+  %605 = extractvalue { i64, i64, i64 } %602, 2
+  store i64 %603, ptr %6, align 8, !tbaa !13
+  store i64 %604, ptr %7, align 8, !tbaa !13
+  store i64 %605, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #2
+  br label %606
+
+606:                                              ; preds = %579
+  br label %607
+
+607:                                              ; preds = %606
+  br label %608
+
+608:                                              ; preds = %607
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #2
+  %609 = load ptr, ptr %4, align 8, !tbaa !6
+  %610 = getelementptr inbounds i64, ptr %609, i64 4
+  %611 = load i64, ptr %610, align 8, !tbaa !13
+  %612 = load ptr, ptr %4, align 8, !tbaa !6
+  %613 = getelementptr inbounds i64, ptr %612, i64 3
+  %614 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %611, ptr elementtype(i64) %613) #3, !srcloc !276
+  %615 = extractvalue { i64, i64 } %614, 0
+  %616 = extractvalue { i64, i64 } %614, 1
+  store i64 %615, ptr %46, align 8, !tbaa !13
+  store i64 %616, ptr %47, align 8, !tbaa !13
+  %617 = load i64, ptr %6, align 8, !tbaa !13
+  %618 = load i64, ptr %7, align 8, !tbaa !13
+  %619 = load i64, ptr %5, align 8, !tbaa !13
+  %620 = load i64, ptr %46, align 8, !tbaa !13
+  %621 = load i64, ptr %47, align 8, !tbaa !13
+  %622 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %620, i64 %621, i32 0, i64 %617, i64 %618, i64 %619) #3, !srcloc !277
+  %623 = extractvalue { i64, i64, i64 } %622, 0
+  %624 = extractvalue { i64, i64, i64 } %622, 1
+  %625 = extractvalue { i64, i64, i64 } %622, 2
+  store i64 %623, ptr %6, align 8, !tbaa !13
+  store i64 %624, ptr %7, align 8, !tbaa !13
+  store i64 %625, ptr %5, align 8, !tbaa !13
+  %626 = load i64, ptr %6, align 8, !tbaa !13
+  %627 = load i64, ptr %7, align 8, !tbaa !13
+  %628 = load i64, ptr %5, align 8, !tbaa !13
+  %629 = load i64, ptr %46, align 8, !tbaa !13
+  %630 = load i64, ptr %47, align 8, !tbaa !13
+  %631 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %629, i64 %630, i32 0, i64 %626, i64 %627, i64 %628) #3, !srcloc !278
+  %632 = extractvalue { i64, i64, i64 } %631, 0
+  %633 = extractvalue { i64, i64, i64 } %631, 1
+  %634 = extractvalue { i64, i64, i64 } %631, 2
+  store i64 %632, ptr %6, align 8, !tbaa !13
+  store i64 %633, ptr %7, align 8, !tbaa !13
+  store i64 %634, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #2
+  br label %635
+
+635:                                              ; preds = %608
+  br label %636
+
+636:                                              ; preds = %635
+  %637 = load i64, ptr %6, align 8, !tbaa !13
+  %638 = load ptr, ptr %3, align 8, !tbaa !6
+  %639 = getelementptr inbounds i64, ptr %638, i64 7
+  store i64 %637, ptr %639, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  br label %640
+
+640:                                              ; preds = %636
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #2
+  %641 = load ptr, ptr %4, align 8, !tbaa !6
+  %642 = getelementptr inbounds i64, ptr %641, i64 4
+  %643 = load i64, ptr %642, align 8, !tbaa !13
+  %644 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %643) #4, !srcloc !279
+  %645 = extractvalue { i64, i64 } %644, 0
+  %646 = extractvalue { i64, i64 } %644, 1
+  store i64 %645, ptr %48, align 8, !tbaa !13
+  store i64 %646, ptr %49, align 8, !tbaa !13
+  %647 = load i64, ptr %7, align 8, !tbaa !13
+  %648 = load i64, ptr %5, align 8, !tbaa !13
+  %649 = load i64, ptr %6, align 8, !tbaa !13
+  %650 = load i64, ptr %48, align 8, !tbaa !13
+  %651 = load i64, ptr %49, align 8, !tbaa !13
+  %652 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %650, i64 %651, i32 0, i64 %647, i64 %648, i64 %649) #3, !srcloc !280
+  %653 = extractvalue { i64, i64, i64 } %652, 0
+  %654 = extractvalue { i64, i64, i64 } %652, 1
+  %655 = extractvalue { i64, i64, i64 } %652, 2
+  store i64 %653, ptr %7, align 8, !tbaa !13
+  store i64 %654, ptr %5, align 8, !tbaa !13
+  store i64 %655, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #2
+  br label %656
+
+656:                                              ; preds = %640
+  br label %657
+
+657:                                              ; preds = %656
+  br label %658
+
+658:                                              ; preds = %657
+  call void @llvm.lifetime.start.p0(i64 8, ptr %50) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %51) #2
+  %659 = load ptr, ptr %4, align 8, !tbaa !6
+  %660 = getelementptr inbounds i64, ptr %659, i64 5
+  %661 = load i64, ptr %660, align 8, !tbaa !13
+  %662 = load ptr, ptr %4, align 8, !tbaa !6
+  %663 = getelementptr inbounds i64, ptr %662, i64 3
+  %664 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %661, ptr elementtype(i64) %663) #3, !srcloc !281
+  %665 = extractvalue { i64, i64 } %664, 0
+  %666 = extractvalue { i64, i64 } %664, 1
+  store i64 %665, ptr %50, align 8, !tbaa !13
+  store i64 %666, ptr %51, align 8, !tbaa !13
+  %667 = load i64, ptr %7, align 8, !tbaa !13
+  %668 = load i64, ptr %5, align 8, !tbaa !13
+  %669 = load i64, ptr %6, align 8, !tbaa !13
+  %670 = load i64, ptr %50, align 8, !tbaa !13
+  %671 = load i64, ptr %51, align 8, !tbaa !13
+  %672 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %670, i64 %671, i32 0, i64 %667, i64 %668, i64 %669) #3, !srcloc !282
+  %673 = extractvalue { i64, i64, i64 } %672, 0
+  %674 = extractvalue { i64, i64, i64 } %672, 1
+  %675 = extractvalue { i64, i64, i64 } %672, 2
+  store i64 %673, ptr %7, align 8, !tbaa !13
+  store i64 %674, ptr %5, align 8, !tbaa !13
+  store i64 %675, ptr %6, align 8, !tbaa !13
+  %676 = load i64, ptr %7, align 8, !tbaa !13
+  %677 = load i64, ptr %5, align 8, !tbaa !13
+  %678 = load i64, ptr %6, align 8, !tbaa !13
+  %679 = load i64, ptr %50, align 8, !tbaa !13
+  %680 = load i64, ptr %51, align 8, !tbaa !13
+  %681 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %679, i64 %680, i32 0, i64 %676, i64 %677, i64 %678) #3, !srcloc !283
+  %682 = extractvalue { i64, i64, i64 } %681, 0
+  %683 = extractvalue { i64, i64, i64 } %681, 1
+  %684 = extractvalue { i64, i64, i64 } %681, 2
+  store i64 %682, ptr %7, align 8, !tbaa !13
+  store i64 %683, ptr %5, align 8, !tbaa !13
+  store i64 %684, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #2
+  br label %685
+
+685:                                              ; preds = %658
+  br label %686
+
+686:                                              ; preds = %685
+  br label %687
+
+687:                                              ; preds = %686
+  call void @llvm.lifetime.start.p0(i64 8, ptr %52) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %53) #2
+  %688 = load ptr, ptr %4, align 8, !tbaa !6
+  %689 = getelementptr inbounds i64, ptr %688, i64 6
+  %690 = load i64, ptr %689, align 8, !tbaa !13
+  %691 = load ptr, ptr %4, align 8, !tbaa !6
+  %692 = getelementptr inbounds i64, ptr %691, i64 2
+  %693 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %690, ptr elementtype(i64) %692) #3, !srcloc !284
+  %694 = extractvalue { i64, i64 } %693, 0
+  %695 = extractvalue { i64, i64 } %693, 1
+  store i64 %694, ptr %52, align 8, !tbaa !13
+  store i64 %695, ptr %53, align 8, !tbaa !13
+  %696 = load i64, ptr %7, align 8, !tbaa !13
+  %697 = load i64, ptr %5, align 8, !tbaa !13
+  %698 = load i64, ptr %6, align 8, !tbaa !13
+  %699 = load i64, ptr %52, align 8, !tbaa !13
+  %700 = load i64, ptr %53, align 8, !tbaa !13
+  %701 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %699, i64 %700, i32 0, i64 %696, i64 %697, i64 %698) #3, !srcloc !285
+  %702 = extractvalue { i64, i64, i64 } %701, 0
+  %703 = extractvalue { i64, i64, i64 } %701, 1
+  %704 = extractvalue { i64, i64, i64 } %701, 2
+  store i64 %702, ptr %7, align 8, !tbaa !13
+  store i64 %703, ptr %5, align 8, !tbaa !13
+  store i64 %704, ptr %6, align 8, !tbaa !13
+  %705 = load i64, ptr %7, align 8, !tbaa !13
+  %706 = load i64, ptr %5, align 8, !tbaa !13
+  %707 = load i64, ptr %6, align 8, !tbaa !13
+  %708 = load i64, ptr %52, align 8, !tbaa !13
+  %709 = load i64, ptr %53, align 8, !tbaa !13
+  %710 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %708, i64 %709, i32 0, i64 %705, i64 %706, i64 %707) #3, !srcloc !286
+  %711 = extractvalue { i64, i64, i64 } %710, 0
+  %712 = extractvalue { i64, i64, i64 } %710, 1
+  %713 = extractvalue { i64, i64, i64 } %710, 2
+  store i64 %711, ptr %7, align 8, !tbaa !13
+  store i64 %712, ptr %5, align 8, !tbaa !13
+  store i64 %713, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %53) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %52) #2
+  br label %714
+
+714:                                              ; preds = %687
+  br label %715
+
+715:                                              ; preds = %714
+  br label %716
+
+716:                                              ; preds = %715
+  call void @llvm.lifetime.start.p0(i64 8, ptr %54) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %55) #2
+  %717 = load ptr, ptr %4, align 8, !tbaa !6
+  %718 = getelementptr inbounds i64, ptr %717, i64 7
+  %719 = load i64, ptr %718, align 8, !tbaa !13
+  %720 = load ptr, ptr %4, align 8, !tbaa !6
+  %721 = getelementptr inbounds i64, ptr %720, i64 1
+  %722 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %719, ptr elementtype(i64) %721) #3, !srcloc !287
+  %723 = extractvalue { i64, i64 } %722, 0
+  %724 = extractvalue { i64, i64 } %722, 1
+  store i64 %723, ptr %54, align 8, !tbaa !13
+  store i64 %724, ptr %55, align 8, !tbaa !13
+  %725 = load i64, ptr %7, align 8, !tbaa !13
+  %726 = load i64, ptr %5, align 8, !tbaa !13
+  %727 = load i64, ptr %6, align 8, !tbaa !13
+  %728 = load i64, ptr %54, align 8, !tbaa !13
+  %729 = load i64, ptr %55, align 8, !tbaa !13
+  %730 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %728, i64 %729, i32 0, i64 %725, i64 %726, i64 %727) #3, !srcloc !288
+  %731 = extractvalue { i64, i64, i64 } %730, 0
+  %732 = extractvalue { i64, i64, i64 } %730, 1
+  %733 = extractvalue { i64, i64, i64 } %730, 2
+  store i64 %731, ptr %7, align 8, !tbaa !13
+  store i64 %732, ptr %5, align 8, !tbaa !13
+  store i64 %733, ptr %6, align 8, !tbaa !13
+  %734 = load i64, ptr %7, align 8, !tbaa !13
+  %735 = load i64, ptr %5, align 8, !tbaa !13
+  %736 = load i64, ptr %6, align 8, !tbaa !13
+  %737 = load i64, ptr %54, align 8, !tbaa !13
+  %738 = load i64, ptr %55, align 8, !tbaa !13
+  %739 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %737, i64 %738, i32 0, i64 %734, i64 %735, i64 %736) #3, !srcloc !289
+  %740 = extractvalue { i64, i64, i64 } %739, 0
+  %741 = extractvalue { i64, i64, i64 } %739, 1
+  %742 = extractvalue { i64, i64, i64 } %739, 2
+  store i64 %740, ptr %7, align 8, !tbaa !13
+  store i64 %741, ptr %5, align 8, !tbaa !13
+  store i64 %742, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %55) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %54) #2
+  br label %743
+
+743:                                              ; preds = %716
+  br label %744
+
+744:                                              ; preds = %743
+  %745 = load i64, ptr %7, align 8, !tbaa !13
+  %746 = load ptr, ptr %3, align 8, !tbaa !6
+  %747 = getelementptr inbounds i64, ptr %746, i64 8
+  store i64 %745, ptr %747, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %748
+
+748:                                              ; preds = %744
+  call void @llvm.lifetime.start.p0(i64 8, ptr %56) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %57) #2
+  %749 = load ptr, ptr %4, align 8, !tbaa !6
+  %750 = getelementptr inbounds i64, ptr %749, i64 7
+  %751 = load i64, ptr %750, align 8, !tbaa !13
+  %752 = load ptr, ptr %4, align 8, !tbaa !6
+  %753 = getelementptr inbounds i64, ptr %752, i64 2
+  %754 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %751, ptr elementtype(i64) %753) #3, !srcloc !290
+  %755 = extractvalue { i64, i64 } %754, 0
+  %756 = extractvalue { i64, i64 } %754, 1
+  store i64 %755, ptr %56, align 8, !tbaa !13
+  store i64 %756, ptr %57, align 8, !tbaa !13
+  %757 = load i64, ptr %5, align 8, !tbaa !13
+  %758 = load i64, ptr %6, align 8, !tbaa !13
+  %759 = load i64, ptr %7, align 8, !tbaa !13
+  %760 = load i64, ptr %56, align 8, !tbaa !13
+  %761 = load i64, ptr %57, align 8, !tbaa !13
+  %762 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %760, i64 %761, i32 0, i64 %757, i64 %758, i64 %759) #3, !srcloc !291
+  %763 = extractvalue { i64, i64, i64 } %762, 0
+  %764 = extractvalue { i64, i64, i64 } %762, 1
+  %765 = extractvalue { i64, i64, i64 } %762, 2
+  store i64 %763, ptr %5, align 8, !tbaa !13
+  store i64 %764, ptr %6, align 8, !tbaa !13
+  store i64 %765, ptr %7, align 8, !tbaa !13
+  %766 = load i64, ptr %5, align 8, !tbaa !13
+  %767 = load i64, ptr %6, align 8, !tbaa !13
+  %768 = load i64, ptr %7, align 8, !tbaa !13
+  %769 = load i64, ptr %56, align 8, !tbaa !13
+  %770 = load i64, ptr %57, align 8, !tbaa !13
+  %771 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %769, i64 %770, i32 0, i64 %766, i64 %767, i64 %768) #3, !srcloc !292
+  %772 = extractvalue { i64, i64, i64 } %771, 0
+  %773 = extractvalue { i64, i64, i64 } %771, 1
+  %774 = extractvalue { i64, i64, i64 } %771, 2
+  store i64 %772, ptr %5, align 8, !tbaa !13
+  store i64 %773, ptr %6, align 8, !tbaa !13
+  store i64 %774, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %57) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %56) #2
+  br label %775
+
+775:                                              ; preds = %748
+  br label %776
+
+776:                                              ; preds = %775
+  br label %777
+
+777:                                              ; preds = %776
+  call void @llvm.lifetime.start.p0(i64 8, ptr %58) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %59) #2
+  %778 = load ptr, ptr %4, align 8, !tbaa !6
+  %779 = getelementptr inbounds i64, ptr %778, i64 6
+  %780 = load i64, ptr %779, align 8, !tbaa !13
+  %781 = load ptr, ptr %4, align 8, !tbaa !6
+  %782 = getelementptr inbounds i64, ptr %781, i64 3
+  %783 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %780, ptr elementtype(i64) %782) #3, !srcloc !293
+  %784 = extractvalue { i64, i64 } %783, 0
+  %785 = extractvalue { i64, i64 } %783, 1
+  store i64 %784, ptr %58, align 8, !tbaa !13
+  store i64 %785, ptr %59, align 8, !tbaa !13
+  %786 = load i64, ptr %5, align 8, !tbaa !13
+  %787 = load i64, ptr %6, align 8, !tbaa !13
+  %788 = load i64, ptr %7, align 8, !tbaa !13
+  %789 = load i64, ptr %58, align 8, !tbaa !13
+  %790 = load i64, ptr %59, align 8, !tbaa !13
+  %791 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %789, i64 %790, i32 0, i64 %786, i64 %787, i64 %788) #3, !srcloc !294
+  %792 = extractvalue { i64, i64, i64 } %791, 0
+  %793 = extractvalue { i64, i64, i64 } %791, 1
+  %794 = extractvalue { i64, i64, i64 } %791, 2
+  store i64 %792, ptr %5, align 8, !tbaa !13
+  store i64 %793, ptr %6, align 8, !tbaa !13
+  store i64 %794, ptr %7, align 8, !tbaa !13
+  %795 = load i64, ptr %5, align 8, !tbaa !13
+  %796 = load i64, ptr %6, align 8, !tbaa !13
+  %797 = load i64, ptr %7, align 8, !tbaa !13
+  %798 = load i64, ptr %58, align 8, !tbaa !13
+  %799 = load i64, ptr %59, align 8, !tbaa !13
+  %800 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %798, i64 %799, i32 0, i64 %795, i64 %796, i64 %797) #3, !srcloc !295
+  %801 = extractvalue { i64, i64, i64 } %800, 0
+  %802 = extractvalue { i64, i64, i64 } %800, 1
+  %803 = extractvalue { i64, i64, i64 } %800, 2
+  store i64 %801, ptr %5, align 8, !tbaa !13
+  store i64 %802, ptr %6, align 8, !tbaa !13
+  store i64 %803, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %59) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %58) #2
+  br label %804
+
+804:                                              ; preds = %777
+  br label %805
+
+805:                                              ; preds = %804
+  br label %806
+
+806:                                              ; preds = %805
+  call void @llvm.lifetime.start.p0(i64 8, ptr %60) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %61) #2
+  %807 = load ptr, ptr %4, align 8, !tbaa !6
+  %808 = getelementptr inbounds i64, ptr %807, i64 5
+  %809 = load i64, ptr %808, align 8, !tbaa !13
+  %810 = load ptr, ptr %4, align 8, !tbaa !6
+  %811 = getelementptr inbounds i64, ptr %810, i64 4
+  %812 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %809, ptr elementtype(i64) %811) #3, !srcloc !296
+  %813 = extractvalue { i64, i64 } %812, 0
+  %814 = extractvalue { i64, i64 } %812, 1
+  store i64 %813, ptr %60, align 8, !tbaa !13
+  store i64 %814, ptr %61, align 8, !tbaa !13
+  %815 = load i64, ptr %5, align 8, !tbaa !13
+  %816 = load i64, ptr %6, align 8, !tbaa !13
+  %817 = load i64, ptr %7, align 8, !tbaa !13
+  %818 = load i64, ptr %60, align 8, !tbaa !13
+  %819 = load i64, ptr %61, align 8, !tbaa !13
+  %820 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %818, i64 %819, i32 0, i64 %815, i64 %816, i64 %817) #3, !srcloc !297
+  %821 = extractvalue { i64, i64, i64 } %820, 0
+  %822 = extractvalue { i64, i64, i64 } %820, 1
+  %823 = extractvalue { i64, i64, i64 } %820, 2
+  store i64 %821, ptr %5, align 8, !tbaa !13
+  store i64 %822, ptr %6, align 8, !tbaa !13
+  store i64 %823, ptr %7, align 8, !tbaa !13
+  %824 = load i64, ptr %5, align 8, !tbaa !13
+  %825 = load i64, ptr %6, align 8, !tbaa !13
+  %826 = load i64, ptr %7, align 8, !tbaa !13
+  %827 = load i64, ptr %60, align 8, !tbaa !13
+  %828 = load i64, ptr %61, align 8, !tbaa !13
+  %829 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %827, i64 %828, i32 0, i64 %824, i64 %825, i64 %826) #3, !srcloc !298
+  %830 = extractvalue { i64, i64, i64 } %829, 0
+  %831 = extractvalue { i64, i64, i64 } %829, 1
+  %832 = extractvalue { i64, i64, i64 } %829, 2
+  store i64 %830, ptr %5, align 8, !tbaa !13
+  store i64 %831, ptr %6, align 8, !tbaa !13
+  store i64 %832, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %61) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %60) #2
+  br label %833
+
+833:                                              ; preds = %806
+  br label %834
+
+834:                                              ; preds = %833
+  %835 = load i64, ptr %5, align 8, !tbaa !13
+  %836 = load ptr, ptr %3, align 8, !tbaa !6
+  %837 = getelementptr inbounds i64, ptr %836, i64 9
+  store i64 %835, ptr %837, align 8, !tbaa !13
+  store i64 0, ptr %5, align 8, !tbaa !13
+  br label %838
+
+838:                                              ; preds = %834
+  call void @llvm.lifetime.start.p0(i64 8, ptr %62) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %63) #2
+  %839 = load ptr, ptr %4, align 8, !tbaa !6
+  %840 = getelementptr inbounds i64, ptr %839, i64 5
+  %841 = load i64, ptr %840, align 8, !tbaa !13
+  %842 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %841) #4, !srcloc !299
+  %843 = extractvalue { i64, i64 } %842, 0
+  %844 = extractvalue { i64, i64 } %842, 1
+  store i64 %843, ptr %62, align 8, !tbaa !13
+  store i64 %844, ptr %63, align 8, !tbaa !13
+  %845 = load i64, ptr %6, align 8, !tbaa !13
+  %846 = load i64, ptr %7, align 8, !tbaa !13
+  %847 = load i64, ptr %5, align 8, !tbaa !13
+  %848 = load i64, ptr %62, align 8, !tbaa !13
+  %849 = load i64, ptr %63, align 8, !tbaa !13
+  %850 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %848, i64 %849, i32 0, i64 %845, i64 %846, i64 %847) #3, !srcloc !300
+  %851 = extractvalue { i64, i64, i64 } %850, 0
+  %852 = extractvalue { i64, i64, i64 } %850, 1
+  %853 = extractvalue { i64, i64, i64 } %850, 2
+  store i64 %851, ptr %6, align 8, !tbaa !13
+  store i64 %852, ptr %7, align 8, !tbaa !13
+  store i64 %853, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %63) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %62) #2
+  br label %854
+
+854:                                              ; preds = %838
+  br label %855
+
+855:                                              ; preds = %854
+  br label %856
+
+856:                                              ; preds = %855
+  call void @llvm.lifetime.start.p0(i64 8, ptr %64) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %65) #2
+  %857 = load ptr, ptr %4, align 8, !tbaa !6
+  %858 = getelementptr inbounds i64, ptr %857, i64 6
+  %859 = load i64, ptr %858, align 8, !tbaa !13
+  %860 = load ptr, ptr %4, align 8, !tbaa !6
+  %861 = getelementptr inbounds i64, ptr %860, i64 4
+  %862 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %859, ptr elementtype(i64) %861) #3, !srcloc !301
+  %863 = extractvalue { i64, i64 } %862, 0
+  %864 = extractvalue { i64, i64 } %862, 1
+  store i64 %863, ptr %64, align 8, !tbaa !13
+  store i64 %864, ptr %65, align 8, !tbaa !13
+  %865 = load i64, ptr %6, align 8, !tbaa !13
+  %866 = load i64, ptr %7, align 8, !tbaa !13
+  %867 = load i64, ptr %5, align 8, !tbaa !13
+  %868 = load i64, ptr %64, align 8, !tbaa !13
+  %869 = load i64, ptr %65, align 8, !tbaa !13
+  %870 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %868, i64 %869, i32 0, i64 %865, i64 %866, i64 %867) #3, !srcloc !302
+  %871 = extractvalue { i64, i64, i64 } %870, 0
+  %872 = extractvalue { i64, i64, i64 } %870, 1
+  %873 = extractvalue { i64, i64, i64 } %870, 2
+  store i64 %871, ptr %6, align 8, !tbaa !13
+  store i64 %872, ptr %7, align 8, !tbaa !13
+  store i64 %873, ptr %5, align 8, !tbaa !13
+  %874 = load i64, ptr %6, align 8, !tbaa !13
+  %875 = load i64, ptr %7, align 8, !tbaa !13
+  %876 = load i64, ptr %5, align 8, !tbaa !13
+  %877 = load i64, ptr %64, align 8, !tbaa !13
+  %878 = load i64, ptr %65, align 8, !tbaa !13
+  %879 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %877, i64 %878, i32 0, i64 %874, i64 %875, i64 %876) #3, !srcloc !303
+  %880 = extractvalue { i64, i64, i64 } %879, 0
+  %881 = extractvalue { i64, i64, i64 } %879, 1
+  %882 = extractvalue { i64, i64, i64 } %879, 2
+  store i64 %880, ptr %6, align 8, !tbaa !13
+  store i64 %881, ptr %7, align 8, !tbaa !13
+  store i64 %882, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %65) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %64) #2
+  br label %883
+
+883:                                              ; preds = %856
+  br label %884
+
+884:                                              ; preds = %883
+  br label %885
+
+885:                                              ; preds = %884
+  call void @llvm.lifetime.start.p0(i64 8, ptr %66) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %67) #2
+  %886 = load ptr, ptr %4, align 8, !tbaa !6
+  %887 = getelementptr inbounds i64, ptr %886, i64 7
+  %888 = load i64, ptr %887, align 8, !tbaa !13
+  %889 = load ptr, ptr %4, align 8, !tbaa !6
+  %890 = getelementptr inbounds i64, ptr %889, i64 3
+  %891 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %888, ptr elementtype(i64) %890) #3, !srcloc !304
+  %892 = extractvalue { i64, i64 } %891, 0
+  %893 = extractvalue { i64, i64 } %891, 1
+  store i64 %892, ptr %66, align 8, !tbaa !13
+  store i64 %893, ptr %67, align 8, !tbaa !13
+  %894 = load i64, ptr %6, align 8, !tbaa !13
+  %895 = load i64, ptr %7, align 8, !tbaa !13
+  %896 = load i64, ptr %5, align 8, !tbaa !13
+  %897 = load i64, ptr %66, align 8, !tbaa !13
+  %898 = load i64, ptr %67, align 8, !tbaa !13
+  %899 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %897, i64 %898, i32 0, i64 %894, i64 %895, i64 %896) #3, !srcloc !305
+  %900 = extractvalue { i64, i64, i64 } %899, 0
+  %901 = extractvalue { i64, i64, i64 } %899, 1
+  %902 = extractvalue { i64, i64, i64 } %899, 2
+  store i64 %900, ptr %6, align 8, !tbaa !13
+  store i64 %901, ptr %7, align 8, !tbaa !13
+  store i64 %902, ptr %5, align 8, !tbaa !13
+  %903 = load i64, ptr %6, align 8, !tbaa !13
+  %904 = load i64, ptr %7, align 8, !tbaa !13
+  %905 = load i64, ptr %5, align 8, !tbaa !13
+  %906 = load i64, ptr %66, align 8, !tbaa !13
+  %907 = load i64, ptr %67, align 8, !tbaa !13
+  %908 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %906, i64 %907, i32 0, i64 %903, i64 %904, i64 %905) #3, !srcloc !306
+  %909 = extractvalue { i64, i64, i64 } %908, 0
+  %910 = extractvalue { i64, i64, i64 } %908, 1
+  %911 = extractvalue { i64, i64, i64 } %908, 2
+  store i64 %909, ptr %6, align 8, !tbaa !13
+  store i64 %910, ptr %7, align 8, !tbaa !13
+  store i64 %911, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %67) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %66) #2
+  br label %912
+
+912:                                              ; preds = %885
+  br label %913
+
+913:                                              ; preds = %912
+  %914 = load i64, ptr %6, align 8, !tbaa !13
+  %915 = load ptr, ptr %3, align 8, !tbaa !6
+  %916 = getelementptr inbounds i64, ptr %915, i64 10
+  store i64 %914, ptr %916, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  br label %917
+
+917:                                              ; preds = %913
+  call void @llvm.lifetime.start.p0(i64 8, ptr %68) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %69) #2
+  %918 = load ptr, ptr %4, align 8, !tbaa !6
+  %919 = getelementptr inbounds i64, ptr %918, i64 7
+  %920 = load i64, ptr %919, align 8, !tbaa !13
+  %921 = load ptr, ptr %4, align 8, !tbaa !6
+  %922 = getelementptr inbounds i64, ptr %921, i64 4
+  %923 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %920, ptr elementtype(i64) %922) #3, !srcloc !307
+  %924 = extractvalue { i64, i64 } %923, 0
+  %925 = extractvalue { i64, i64 } %923, 1
+  store i64 %924, ptr %68, align 8, !tbaa !13
+  store i64 %925, ptr %69, align 8, !tbaa !13
+  %926 = load i64, ptr %7, align 8, !tbaa !13
+  %927 = load i64, ptr %5, align 8, !tbaa !13
+  %928 = load i64, ptr %6, align 8, !tbaa !13
+  %929 = load i64, ptr %68, align 8, !tbaa !13
+  %930 = load i64, ptr %69, align 8, !tbaa !13
+  %931 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %929, i64 %930, i32 0, i64 %926, i64 %927, i64 %928) #3, !srcloc !308
+  %932 = extractvalue { i64, i64, i64 } %931, 0
+  %933 = extractvalue { i64, i64, i64 } %931, 1
+  %934 = extractvalue { i64, i64, i64 } %931, 2
+  store i64 %932, ptr %7, align 8, !tbaa !13
+  store i64 %933, ptr %5, align 8, !tbaa !13
+  store i64 %934, ptr %6, align 8, !tbaa !13
+  %935 = load i64, ptr %7, align 8, !tbaa !13
+  %936 = load i64, ptr %5, align 8, !tbaa !13
+  %937 = load i64, ptr %6, align 8, !tbaa !13
+  %938 = load i64, ptr %68, align 8, !tbaa !13
+  %939 = load i64, ptr %69, align 8, !tbaa !13
+  %940 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %938, i64 %939, i32 0, i64 %935, i64 %936, i64 %937) #3, !srcloc !309
+  %941 = extractvalue { i64, i64, i64 } %940, 0
+  %942 = extractvalue { i64, i64, i64 } %940, 1
+  %943 = extractvalue { i64, i64, i64 } %940, 2
+  store i64 %941, ptr %7, align 8, !tbaa !13
+  store i64 %942, ptr %5, align 8, !tbaa !13
+  store i64 %943, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %69) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %68) #2
+  br label %944
+
+944:                                              ; preds = %917
+  br label %945
+
+945:                                              ; preds = %944
+  br label %946
+
+946:                                              ; preds = %945
+  call void @llvm.lifetime.start.p0(i64 8, ptr %70) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %71) #2
+  %947 = load ptr, ptr %4, align 8, !tbaa !6
+  %948 = getelementptr inbounds i64, ptr %947, i64 6
+  %949 = load i64, ptr %948, align 8, !tbaa !13
+  %950 = load ptr, ptr %4, align 8, !tbaa !6
+  %951 = getelementptr inbounds i64, ptr %950, i64 5
+  %952 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %949, ptr elementtype(i64) %951) #3, !srcloc !310
+  %953 = extractvalue { i64, i64 } %952, 0
+  %954 = extractvalue { i64, i64 } %952, 1
+  store i64 %953, ptr %70, align 8, !tbaa !13
+  store i64 %954, ptr %71, align 8, !tbaa !13
+  %955 = load i64, ptr %7, align 8, !tbaa !13
+  %956 = load i64, ptr %5, align 8, !tbaa !13
+  %957 = load i64, ptr %6, align 8, !tbaa !13
+  %958 = load i64, ptr %70, align 8, !tbaa !13
+  %959 = load i64, ptr %71, align 8, !tbaa !13
+  %960 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %958, i64 %959, i32 0, i64 %955, i64 %956, i64 %957) #3, !srcloc !311
+  %961 = extractvalue { i64, i64, i64 } %960, 0
+  %962 = extractvalue { i64, i64, i64 } %960, 1
+  %963 = extractvalue { i64, i64, i64 } %960, 2
+  store i64 %961, ptr %7, align 8, !tbaa !13
+  store i64 %962, ptr %5, align 8, !tbaa !13
+  store i64 %963, ptr %6, align 8, !tbaa !13
+  %964 = load i64, ptr %7, align 8, !tbaa !13
+  %965 = load i64, ptr %5, align 8, !tbaa !13
+  %966 = load i64, ptr %6, align 8, !tbaa !13
+  %967 = load i64, ptr %70, align 8, !tbaa !13
+  %968 = load i64, ptr %71, align 8, !tbaa !13
+  %969 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %967, i64 %968, i32 0, i64 %964, i64 %965, i64 %966) #3, !srcloc !312
+  %970 = extractvalue { i64, i64, i64 } %969, 0
+  %971 = extractvalue { i64, i64, i64 } %969, 1
+  %972 = extractvalue { i64, i64, i64 } %969, 2
+  store i64 %970, ptr %7, align 8, !tbaa !13
+  store i64 %971, ptr %5, align 8, !tbaa !13
+  store i64 %972, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %71) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %70) #2
+  br label %973
+
+973:                                              ; preds = %946
+  br label %974
+
+974:                                              ; preds = %973
+  %975 = load i64, ptr %7, align 8, !tbaa !13
+  %976 = load ptr, ptr %3, align 8, !tbaa !6
+  %977 = getelementptr inbounds i64, ptr %976, i64 11
+  store i64 %975, ptr %977, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %978
+
+978:                                              ; preds = %974
+  call void @llvm.lifetime.start.p0(i64 8, ptr %72) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %73) #2
+  %979 = load ptr, ptr %4, align 8, !tbaa !6
+  %980 = getelementptr inbounds i64, ptr %979, i64 6
+  %981 = load i64, ptr %980, align 8, !tbaa !13
+  %982 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %981) #4, !srcloc !313
+  %983 = extractvalue { i64, i64 } %982, 0
+  %984 = extractvalue { i64, i64 } %982, 1
+  store i64 %983, ptr %72, align 8, !tbaa !13
+  store i64 %984, ptr %73, align 8, !tbaa !13
+  %985 = load i64, ptr %5, align 8, !tbaa !13
+  %986 = load i64, ptr %6, align 8, !tbaa !13
+  %987 = load i64, ptr %7, align 8, !tbaa !13
+  %988 = load i64, ptr %72, align 8, !tbaa !13
+  %989 = load i64, ptr %73, align 8, !tbaa !13
+  %990 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %988, i64 %989, i32 0, i64 %985, i64 %986, i64 %987) #3, !srcloc !314
+  %991 = extractvalue { i64, i64, i64 } %990, 0
+  %992 = extractvalue { i64, i64, i64 } %990, 1
+  %993 = extractvalue { i64, i64, i64 } %990, 2
+  store i64 %991, ptr %5, align 8, !tbaa !13
+  store i64 %992, ptr %6, align 8, !tbaa !13
+  store i64 %993, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %73) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %72) #2
+  br label %994
+
+994:                                              ; preds = %978
+  br label %995
+
+995:                                              ; preds = %994
+  br label %996
+
+996:                                              ; preds = %995
+  call void @llvm.lifetime.start.p0(i64 8, ptr %74) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %75) #2
+  %997 = load ptr, ptr %4, align 8, !tbaa !6
+  %998 = getelementptr inbounds i64, ptr %997, i64 7
+  %999 = load i64, ptr %998, align 8, !tbaa !13
+  %1000 = load ptr, ptr %4, align 8, !tbaa !6
+  %1001 = getelementptr inbounds i64, ptr %1000, i64 5
+  %1002 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %999, ptr elementtype(i64) %1001) #3, !srcloc !315
+  %1003 = extractvalue { i64, i64 } %1002, 0
+  %1004 = extractvalue { i64, i64 } %1002, 1
+  store i64 %1003, ptr %74, align 8, !tbaa !13
+  store i64 %1004, ptr %75, align 8, !tbaa !13
+  %1005 = load i64, ptr %5, align 8, !tbaa !13
+  %1006 = load i64, ptr %6, align 8, !tbaa !13
+  %1007 = load i64, ptr %7, align 8, !tbaa !13
+  %1008 = load i64, ptr %74, align 8, !tbaa !13
+  %1009 = load i64, ptr %75, align 8, !tbaa !13
+  %1010 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1008, i64 %1009, i32 0, i64 %1005, i64 %1006, i64 %1007) #3, !srcloc !316
+  %1011 = extractvalue { i64, i64, i64 } %1010, 0
+  %1012 = extractvalue { i64, i64, i64 } %1010, 1
+  %1013 = extractvalue { i64, i64, i64 } %1010, 2
+  store i64 %1011, ptr %5, align 8, !tbaa !13
+  store i64 %1012, ptr %6, align 8, !tbaa !13
+  store i64 %1013, ptr %7, align 8, !tbaa !13
+  %1014 = load i64, ptr %5, align 8, !tbaa !13
+  %1015 = load i64, ptr %6, align 8, !tbaa !13
+  %1016 = load i64, ptr %7, align 8, !tbaa !13
+  %1017 = load i64, ptr %74, align 8, !tbaa !13
+  %1018 = load i64, ptr %75, align 8, !tbaa !13
+  %1019 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1017, i64 %1018, i32 0, i64 %1014, i64 %1015, i64 %1016) #3, !srcloc !317
+  %1020 = extractvalue { i64, i64, i64 } %1019, 0
+  %1021 = extractvalue { i64, i64, i64 } %1019, 1
+  %1022 = extractvalue { i64, i64, i64 } %1019, 2
+  store i64 %1020, ptr %5, align 8, !tbaa !13
+  store i64 %1021, ptr %6, align 8, !tbaa !13
+  store i64 %1022, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %75) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %74) #2
+  br label %1023
+
+1023:                                             ; preds = %996
+  br label %1024
+
+1024:                                             ; preds = %1023
+  %1025 = load i64, ptr %5, align 8, !tbaa !13
+  %1026 = load ptr, ptr %3, align 8, !tbaa !6
+  %1027 = getelementptr inbounds i64, ptr %1026, i64 12
+  store i64 %1025, ptr %1027, align 8, !tbaa !13
+  store i64 0, ptr %5, align 8, !tbaa !13
+  br label %1028
+
+1028:                                             ; preds = %1024
+  call void @llvm.lifetime.start.p0(i64 8, ptr %76) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %77) #2
+  %1029 = load ptr, ptr %4, align 8, !tbaa !6
+  %1030 = getelementptr inbounds i64, ptr %1029, i64 7
+  %1031 = load i64, ptr %1030, align 8, !tbaa !13
+  %1032 = load ptr, ptr %4, align 8, !tbaa !6
+  %1033 = getelementptr inbounds i64, ptr %1032, i64 6
+  %1034 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1031, ptr elementtype(i64) %1033) #3, !srcloc !318
+  %1035 = extractvalue { i64, i64 } %1034, 0
+  %1036 = extractvalue { i64, i64 } %1034, 1
+  store i64 %1035, ptr %76, align 8, !tbaa !13
+  store i64 %1036, ptr %77, align 8, !tbaa !13
+  %1037 = load i64, ptr %6, align 8, !tbaa !13
+  %1038 = load i64, ptr %7, align 8, !tbaa !13
+  %1039 = load i64, ptr %5, align 8, !tbaa !13
+  %1040 = load i64, ptr %76, align 8, !tbaa !13
+  %1041 = load i64, ptr %77, align 8, !tbaa !13
+  %1042 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1040, i64 %1041, i32 0, i64 %1037, i64 %1038, i64 %1039) #3, !srcloc !319
+  %1043 = extractvalue { i64, i64, i64 } %1042, 0
+  %1044 = extractvalue { i64, i64, i64 } %1042, 1
+  %1045 = extractvalue { i64, i64, i64 } %1042, 2
+  store i64 %1043, ptr %6, align 8, !tbaa !13
+  store i64 %1044, ptr %7, align 8, !tbaa !13
+  store i64 %1045, ptr %5, align 8, !tbaa !13
+  %1046 = load i64, ptr %6, align 8, !tbaa !13
+  %1047 = load i64, ptr %7, align 8, !tbaa !13
+  %1048 = load i64, ptr %5, align 8, !tbaa !13
+  %1049 = load i64, ptr %76, align 8, !tbaa !13
+  %1050 = load i64, ptr %77, align 8, !tbaa !13
+  %1051 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1049, i64 %1050, i32 0, i64 %1046, i64 %1047, i64 %1048) #3, !srcloc !320
+  %1052 = extractvalue { i64, i64, i64 } %1051, 0
+  %1053 = extractvalue { i64, i64, i64 } %1051, 1
+  %1054 = extractvalue { i64, i64, i64 } %1051, 2
+  store i64 %1052, ptr %6, align 8, !tbaa !13
+  store i64 %1053, ptr %7, align 8, !tbaa !13
+  store i64 %1054, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %77) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %76) #2
+  br label %1055
+
+1055:                                             ; preds = %1028
+  br label %1056
+
+1056:                                             ; preds = %1055
+  %1057 = load i64, ptr %6, align 8, !tbaa !13
+  %1058 = load ptr, ptr %3, align 8, !tbaa !6
+  %1059 = getelementptr inbounds i64, ptr %1058, i64 13
+  store i64 %1057, ptr %1059, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  br label %1060
+
+1060:                                             ; preds = %1056
+  call void @llvm.lifetime.start.p0(i64 8, ptr %78) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %79) #2
+  %1061 = load ptr, ptr %4, align 8, !tbaa !6
+  %1062 = getelementptr inbounds i64, ptr %1061, i64 7
+  %1063 = load i64, ptr %1062, align 8, !tbaa !13
+  %1064 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1063) #4, !srcloc !321
+  %1065 = extractvalue { i64, i64 } %1064, 0
+  %1066 = extractvalue { i64, i64 } %1064, 1
+  store i64 %1065, ptr %78, align 8, !tbaa !13
+  store i64 %1066, ptr %79, align 8, !tbaa !13
+  %1067 = load i64, ptr %7, align 8, !tbaa !13
+  %1068 = load i64, ptr %5, align 8, !tbaa !13
+  %1069 = load i64, ptr %6, align 8, !tbaa !13
+  %1070 = load i64, ptr %78, align 8, !tbaa !13
+  %1071 = load i64, ptr %79, align 8, !tbaa !13
+  %1072 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1070, i64 %1071, i32 0, i64 %1067, i64 %1068, i64 %1069) #3, !srcloc !322
+  %1073 = extractvalue { i64, i64, i64 } %1072, 0
+  %1074 = extractvalue { i64, i64, i64 } %1072, 1
+  %1075 = extractvalue { i64, i64, i64 } %1072, 2
+  store i64 %1073, ptr %7, align 8, !tbaa !13
+  store i64 %1074, ptr %5, align 8, !tbaa !13
+  store i64 %1075, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %79) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %78) #2
+  br label %1076
+
+1076:                                             ; preds = %1060
+  br label %1077
+
+1077:                                             ; preds = %1076
+  %1078 = load i64, ptr %7, align 8, !tbaa !13
+  %1079 = load ptr, ptr %3, align 8, !tbaa !6
+  %1080 = getelementptr inbounds i64, ptr %1079, i64 14
+  store i64 %1078, ptr %1080, align 8, !tbaa !13
+  %1081 = load i64, ptr %5, align 8, !tbaa !13
+  %1082 = load ptr, ptr %3, align 8, !tbaa !6
+  %1083 = getelementptr inbounds i64, ptr %1082, i64 15
+  store i64 %1081, ptr %1083, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bn_sqr_comba4(ptr noundef %r, ptr noundef %a) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %c1 = alloca i64, align 8
-  %c2 = alloca i64, align 8
-  %c3 = alloca i64, align 8
-  %t1 = alloca i64, align 8
-  %t2 = alloca i64, align 8
-  %t17 = alloca i64, align 8
-  %t28 = alloca i64, align 8
-  %t122 = alloca i64, align 8
-  %t223 = alloca i64, align 8
-  %t132 = alloca i64, align 8
-  %t233 = alloca i64, align 8
-  %t147 = alloca i64, align 8
-  %t248 = alloca i64, align 8
-  %t161 = alloca i64, align 8
-  %t262 = alloca i64, align 8
-  %t176 = alloca i64, align 8
-  %t277 = alloca i64, align 8
-  %t186 = alloca i64, align 8
-  %t287 = alloca i64, align 8
-  %t1101 = alloca i64, align 8
-  %t2102 = alloca i64, align 8
-  %t1116 = alloca i64, align 8
-  %t2117 = alloca i64, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store i64 0, ptr %c1, align 8
-  store i64 0, ptr %c2, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body
+define hidden void @bn_sqr_comba4(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  %26 = alloca i64, align 8
+  %27 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  store ptr %1, ptr %4, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #2
+  store i64 0, ptr %5, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %28
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %a.addr, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1) #3, !srcloc !315
-  %asmresult = extractvalue { i64, i64 } %2, 0
-  %asmresult1 = extractvalue { i64, i64 } %2, 1
-  store i64 %asmresult, ptr %t1, align 8
-  store i64 %asmresult1, ptr %t2, align 8
-  %3 = load i64, ptr %c1, align 8
-  %4 = load i64, ptr %c2, align 8
-  %5 = load i64, ptr %c3, align 8
-  %6 = load i64, ptr %t1, align 8
-  %7 = load i64, ptr %t2, align 8
-  %8 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %7, i32 0, i64 %3, i64 %4, i64 %5) #1, !srcloc !316
-  %asmresult2 = extractvalue { i64, i64, i64 } %8, 0
-  %asmresult3 = extractvalue { i64, i64, i64 } %8, 1
-  %asmresult4 = extractvalue { i64, i64, i64 } %8, 2
-  store i64 %asmresult2, ptr %c1, align 8
-  store i64 %asmresult3, ptr %c2, align 8
-  store i64 %asmresult4, ptr %c3, align 8
-  br label %do.end
+28:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #2
+  %29 = load ptr, ptr %4, align 8, !tbaa !6
+  %30 = getelementptr inbounds i64, ptr %29, i64 0
+  %31 = load i64, ptr %30, align 8, !tbaa !13
+  %32 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %31) #4, !srcloc !323
+  %33 = extractvalue { i64, i64 } %32, 0
+  %34 = extractvalue { i64, i64 } %32, 1
+  store i64 %33, ptr %8, align 8, !tbaa !13
+  store i64 %34, ptr %9, align 8, !tbaa !13
+  %35 = load i64, ptr %5, align 8, !tbaa !13
+  %36 = load i64, ptr %6, align 8, !tbaa !13
+  %37 = load i64, ptr %7, align 8, !tbaa !13
+  %38 = load i64, ptr %8, align 8, !tbaa !13
+  %39 = load i64, ptr %9, align 8, !tbaa !13
+  %40 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %38, i64 %39, i32 0, i64 %35, i64 %36, i64 %37) #3, !srcloc !324
+  %41 = extractvalue { i64, i64, i64 } %40, 0
+  %42 = extractvalue { i64, i64, i64 } %40, 1
+  %43 = extractvalue { i64, i64, i64 } %40, 2
+  store i64 %41, ptr %5, align 8, !tbaa !13
+  store i64 %42, ptr %6, align 8, !tbaa !13
+  store i64 %43, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #2
+  br label %44
 
-do.end:                                           ; preds = %do.body
-  %9 = load i64, ptr %c1, align 8
-  %10 = load ptr, ptr %r.addr, align 8
-  %arrayidx5 = getelementptr inbounds i64, ptr %10, i64 0
-  store i64 %9, ptr %arrayidx5, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body6
+44:                                               ; preds = %28
+  br label %45
 
-do.body6:                                         ; preds = %do.end
-  %11 = load ptr, ptr %a.addr, align 8
-  %arrayidx9 = getelementptr inbounds i64, ptr %11, i64 1
-  %12 = load i64, ptr %arrayidx9, align 8
-  %13 = load ptr, ptr %a.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %13, i64 0
-  %14 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr elementtype(i64) %arrayidx10) #1, !srcloc !317
-  %asmresult11 = extractvalue { i64, i64 } %14, 0
-  %asmresult12 = extractvalue { i64, i64 } %14, 1
-  store i64 %asmresult11, ptr %t17, align 8
-  store i64 %asmresult12, ptr %t28, align 8
-  %15 = load i64, ptr %c2, align 8
-  %16 = load i64, ptr %c3, align 8
-  %17 = load i64, ptr %c1, align 8
-  %18 = load i64, ptr %t17, align 8
-  %19 = load i64, ptr %t28, align 8
-  %20 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %18, i64 %19, i32 0, i64 %15, i64 %16, i64 %17) #1, !srcloc !318
-  %asmresult13 = extractvalue { i64, i64, i64 } %20, 0
-  %asmresult14 = extractvalue { i64, i64, i64 } %20, 1
-  %asmresult15 = extractvalue { i64, i64, i64 } %20, 2
-  store i64 %asmresult13, ptr %c2, align 8
-  store i64 %asmresult14, ptr %c3, align 8
-  store i64 %asmresult15, ptr %c1, align 8
-  %21 = load i64, ptr %c2, align 8
-  %22 = load i64, ptr %c3, align 8
-  %23 = load i64, ptr %c1, align 8
-  %24 = load i64, ptr %t17, align 8
-  %25 = load i64, ptr %t28, align 8
-  %26 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %25, i32 0, i64 %21, i64 %22, i64 %23) #1, !srcloc !319
-  %asmresult16 = extractvalue { i64, i64, i64 } %26, 0
-  %asmresult17 = extractvalue { i64, i64, i64 } %26, 1
-  %asmresult18 = extractvalue { i64, i64, i64 } %26, 2
-  store i64 %asmresult16, ptr %c2, align 8
-  store i64 %asmresult17, ptr %c3, align 8
-  store i64 %asmresult18, ptr %c1, align 8
-  br label %do.end19
+45:                                               ; preds = %44
+  %46 = load i64, ptr %5, align 8, !tbaa !13
+  %47 = load ptr, ptr %3, align 8, !tbaa !6
+  %48 = getelementptr inbounds i64, ptr %47, i64 0
+  store i64 %46, ptr %48, align 8, !tbaa !13
+  store i64 0, ptr %5, align 8, !tbaa !13
+  br label %49
 
-do.end19:                                         ; preds = %do.body6
-  %27 = load i64, ptr %c2, align 8
-  %28 = load ptr, ptr %r.addr, align 8
-  %arrayidx20 = getelementptr inbounds i64, ptr %28, i64 1
-  store i64 %27, ptr %arrayidx20, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body21
+49:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #2
+  %50 = load ptr, ptr %4, align 8, !tbaa !6
+  %51 = getelementptr inbounds i64, ptr %50, i64 1
+  %52 = load i64, ptr %51, align 8, !tbaa !13
+  %53 = load ptr, ptr %4, align 8, !tbaa !6
+  %54 = getelementptr inbounds i64, ptr %53, i64 0
+  %55 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %52, ptr elementtype(i64) %54) #3, !srcloc !325
+  %56 = extractvalue { i64, i64 } %55, 0
+  %57 = extractvalue { i64, i64 } %55, 1
+  store i64 %56, ptr %10, align 8, !tbaa !13
+  store i64 %57, ptr %11, align 8, !tbaa !13
+  %58 = load i64, ptr %6, align 8, !tbaa !13
+  %59 = load i64, ptr %7, align 8, !tbaa !13
+  %60 = load i64, ptr %5, align 8, !tbaa !13
+  %61 = load i64, ptr %10, align 8, !tbaa !13
+  %62 = load i64, ptr %11, align 8, !tbaa !13
+  %63 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %61, i64 %62, i32 0, i64 %58, i64 %59, i64 %60) #3, !srcloc !326
+  %64 = extractvalue { i64, i64, i64 } %63, 0
+  %65 = extractvalue { i64, i64, i64 } %63, 1
+  %66 = extractvalue { i64, i64, i64 } %63, 2
+  store i64 %64, ptr %6, align 8, !tbaa !13
+  store i64 %65, ptr %7, align 8, !tbaa !13
+  store i64 %66, ptr %5, align 8, !tbaa !13
+  %67 = load i64, ptr %6, align 8, !tbaa !13
+  %68 = load i64, ptr %7, align 8, !tbaa !13
+  %69 = load i64, ptr %5, align 8, !tbaa !13
+  %70 = load i64, ptr %10, align 8, !tbaa !13
+  %71 = load i64, ptr %11, align 8, !tbaa !13
+  %72 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %70, i64 %71, i32 0, i64 %67, i64 %68, i64 %69) #3, !srcloc !327
+  %73 = extractvalue { i64, i64, i64 } %72, 0
+  %74 = extractvalue { i64, i64, i64 } %72, 1
+  %75 = extractvalue { i64, i64, i64 } %72, 2
+  store i64 %73, ptr %6, align 8, !tbaa !13
+  store i64 %74, ptr %7, align 8, !tbaa !13
+  store i64 %75, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #2
+  br label %76
 
-do.body21:                                        ; preds = %do.end19
-  %29 = load ptr, ptr %a.addr, align 8
-  %arrayidx24 = getelementptr inbounds i64, ptr %29, i64 1
-  %30 = load i64, ptr %arrayidx24, align 8
-  %31 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %30) #3, !srcloc !320
-  %asmresult25 = extractvalue { i64, i64 } %31, 0
-  %asmresult26 = extractvalue { i64, i64 } %31, 1
-  store i64 %asmresult25, ptr %t122, align 8
-  store i64 %asmresult26, ptr %t223, align 8
-  %32 = load i64, ptr %c3, align 8
-  %33 = load i64, ptr %c1, align 8
-  %34 = load i64, ptr %c2, align 8
-  %35 = load i64, ptr %t122, align 8
-  %36 = load i64, ptr %t223, align 8
-  %37 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35, i64 %36, i32 0, i64 %32, i64 %33, i64 %34) #1, !srcloc !321
-  %asmresult27 = extractvalue { i64, i64, i64 } %37, 0
-  %asmresult28 = extractvalue { i64, i64, i64 } %37, 1
-  %asmresult29 = extractvalue { i64, i64, i64 } %37, 2
-  store i64 %asmresult27, ptr %c3, align 8
-  store i64 %asmresult28, ptr %c1, align 8
-  store i64 %asmresult29, ptr %c2, align 8
-  br label %do.end30
+76:                                               ; preds = %49
+  br label %77
 
-do.end30:                                         ; preds = %do.body21
-  br label %do.body31
+77:                                               ; preds = %76
+  %78 = load i64, ptr %6, align 8, !tbaa !13
+  %79 = load ptr, ptr %3, align 8, !tbaa !6
+  %80 = getelementptr inbounds i64, ptr %79, i64 1
+  store i64 %78, ptr %80, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  br label %81
 
-do.body31:                                        ; preds = %do.end30
-  %38 = load ptr, ptr %a.addr, align 8
-  %arrayidx34 = getelementptr inbounds i64, ptr %38, i64 2
-  %39 = load i64, ptr %arrayidx34, align 8
-  %40 = load ptr, ptr %a.addr, align 8
-  %arrayidx35 = getelementptr inbounds i64, ptr %40, i64 0
-  %41 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %39, ptr elementtype(i64) %arrayidx35) #1, !srcloc !322
-  %asmresult36 = extractvalue { i64, i64 } %41, 0
-  %asmresult37 = extractvalue { i64, i64 } %41, 1
-  store i64 %asmresult36, ptr %t132, align 8
-  store i64 %asmresult37, ptr %t233, align 8
-  %42 = load i64, ptr %c3, align 8
-  %43 = load i64, ptr %c1, align 8
-  %44 = load i64, ptr %c2, align 8
-  %45 = load i64, ptr %t132, align 8
-  %46 = load i64, ptr %t233, align 8
-  %47 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, i64 %46, i32 0, i64 %42, i64 %43, i64 %44) #1, !srcloc !323
-  %asmresult38 = extractvalue { i64, i64, i64 } %47, 0
-  %asmresult39 = extractvalue { i64, i64, i64 } %47, 1
-  %asmresult40 = extractvalue { i64, i64, i64 } %47, 2
-  store i64 %asmresult38, ptr %c3, align 8
-  store i64 %asmresult39, ptr %c1, align 8
-  store i64 %asmresult40, ptr %c2, align 8
-  %48 = load i64, ptr %c3, align 8
-  %49 = load i64, ptr %c1, align 8
-  %50 = load i64, ptr %c2, align 8
-  %51 = load i64, ptr %t132, align 8
-  %52 = load i64, ptr %t233, align 8
-  %53 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 %52, i32 0, i64 %48, i64 %49, i64 %50) #1, !srcloc !324
-  %asmresult41 = extractvalue { i64, i64, i64 } %53, 0
-  %asmresult42 = extractvalue { i64, i64, i64 } %53, 1
-  %asmresult43 = extractvalue { i64, i64, i64 } %53, 2
-  store i64 %asmresult41, ptr %c3, align 8
-  store i64 %asmresult42, ptr %c1, align 8
-  store i64 %asmresult43, ptr %c2, align 8
-  br label %do.end44
+81:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #2
+  %82 = load ptr, ptr %4, align 8, !tbaa !6
+  %83 = getelementptr inbounds i64, ptr %82, i64 1
+  %84 = load i64, ptr %83, align 8, !tbaa !13
+  %85 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %84) #4, !srcloc !328
+  %86 = extractvalue { i64, i64 } %85, 0
+  %87 = extractvalue { i64, i64 } %85, 1
+  store i64 %86, ptr %12, align 8, !tbaa !13
+  store i64 %87, ptr %13, align 8, !tbaa !13
+  %88 = load i64, ptr %7, align 8, !tbaa !13
+  %89 = load i64, ptr %5, align 8, !tbaa !13
+  %90 = load i64, ptr %6, align 8, !tbaa !13
+  %91 = load i64, ptr %12, align 8, !tbaa !13
+  %92 = load i64, ptr %13, align 8, !tbaa !13
+  %93 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %91, i64 %92, i32 0, i64 %88, i64 %89, i64 %90) #3, !srcloc !329
+  %94 = extractvalue { i64, i64, i64 } %93, 0
+  %95 = extractvalue { i64, i64, i64 } %93, 1
+  %96 = extractvalue { i64, i64, i64 } %93, 2
+  store i64 %94, ptr %7, align 8, !tbaa !13
+  store i64 %95, ptr %5, align 8, !tbaa !13
+  store i64 %96, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #2
+  br label %97
 
-do.end44:                                         ; preds = %do.body31
-  %54 = load i64, ptr %c3, align 8
-  %55 = load ptr, ptr %r.addr, align 8
-  %arrayidx45 = getelementptr inbounds i64, ptr %55, i64 2
-  store i64 %54, ptr %arrayidx45, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body46
+97:                                               ; preds = %81
+  br label %98
 
-do.body46:                                        ; preds = %do.end44
-  %56 = load ptr, ptr %a.addr, align 8
-  %arrayidx49 = getelementptr inbounds i64, ptr %56, i64 3
-  %57 = load i64, ptr %arrayidx49, align 8
-  %58 = load ptr, ptr %a.addr, align 8
-  %arrayidx50 = getelementptr inbounds i64, ptr %58, i64 0
-  %59 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %57, ptr elementtype(i64) %arrayidx50) #1, !srcloc !325
-  %asmresult51 = extractvalue { i64, i64 } %59, 0
-  %asmresult52 = extractvalue { i64, i64 } %59, 1
-  store i64 %asmresult51, ptr %t147, align 8
-  store i64 %asmresult52, ptr %t248, align 8
-  %60 = load i64, ptr %c1, align 8
-  %61 = load i64, ptr %c2, align 8
-  %62 = load i64, ptr %c3, align 8
-  %63 = load i64, ptr %t147, align 8
-  %64 = load i64, ptr %t248, align 8
-  %65 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %63, i64 %64, i32 0, i64 %60, i64 %61, i64 %62) #1, !srcloc !326
-  %asmresult53 = extractvalue { i64, i64, i64 } %65, 0
-  %asmresult54 = extractvalue { i64, i64, i64 } %65, 1
-  %asmresult55 = extractvalue { i64, i64, i64 } %65, 2
-  store i64 %asmresult53, ptr %c1, align 8
-  store i64 %asmresult54, ptr %c2, align 8
-  store i64 %asmresult55, ptr %c3, align 8
-  %66 = load i64, ptr %c1, align 8
-  %67 = load i64, ptr %c2, align 8
-  %68 = load i64, ptr %c3, align 8
-  %69 = load i64, ptr %t147, align 8
-  %70 = load i64, ptr %t248, align 8
-  %71 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %70, i32 0, i64 %66, i64 %67, i64 %68) #1, !srcloc !327
-  %asmresult56 = extractvalue { i64, i64, i64 } %71, 0
-  %asmresult57 = extractvalue { i64, i64, i64 } %71, 1
-  %asmresult58 = extractvalue { i64, i64, i64 } %71, 2
-  store i64 %asmresult56, ptr %c1, align 8
-  store i64 %asmresult57, ptr %c2, align 8
-  store i64 %asmresult58, ptr %c3, align 8
-  br label %do.end59
+98:                                               ; preds = %97
+  br label %99
 
-do.end59:                                         ; preds = %do.body46
-  br label %do.body60
+99:                                               ; preds = %98
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #2
+  %100 = load ptr, ptr %4, align 8, !tbaa !6
+  %101 = getelementptr inbounds i64, ptr %100, i64 2
+  %102 = load i64, ptr %101, align 8, !tbaa !13
+  %103 = load ptr, ptr %4, align 8, !tbaa !6
+  %104 = getelementptr inbounds i64, ptr %103, i64 0
+  %105 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %102, ptr elementtype(i64) %104) #3, !srcloc !330
+  %106 = extractvalue { i64, i64 } %105, 0
+  %107 = extractvalue { i64, i64 } %105, 1
+  store i64 %106, ptr %14, align 8, !tbaa !13
+  store i64 %107, ptr %15, align 8, !tbaa !13
+  %108 = load i64, ptr %7, align 8, !tbaa !13
+  %109 = load i64, ptr %5, align 8, !tbaa !13
+  %110 = load i64, ptr %6, align 8, !tbaa !13
+  %111 = load i64, ptr %14, align 8, !tbaa !13
+  %112 = load i64, ptr %15, align 8, !tbaa !13
+  %113 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %111, i64 %112, i32 0, i64 %108, i64 %109, i64 %110) #3, !srcloc !331
+  %114 = extractvalue { i64, i64, i64 } %113, 0
+  %115 = extractvalue { i64, i64, i64 } %113, 1
+  %116 = extractvalue { i64, i64, i64 } %113, 2
+  store i64 %114, ptr %7, align 8, !tbaa !13
+  store i64 %115, ptr %5, align 8, !tbaa !13
+  store i64 %116, ptr %6, align 8, !tbaa !13
+  %117 = load i64, ptr %7, align 8, !tbaa !13
+  %118 = load i64, ptr %5, align 8, !tbaa !13
+  %119 = load i64, ptr %6, align 8, !tbaa !13
+  %120 = load i64, ptr %14, align 8, !tbaa !13
+  %121 = load i64, ptr %15, align 8, !tbaa !13
+  %122 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %120, i64 %121, i32 0, i64 %117, i64 %118, i64 %119) #3, !srcloc !332
+  %123 = extractvalue { i64, i64, i64 } %122, 0
+  %124 = extractvalue { i64, i64, i64 } %122, 1
+  %125 = extractvalue { i64, i64, i64 } %122, 2
+  store i64 %123, ptr %7, align 8, !tbaa !13
+  store i64 %124, ptr %5, align 8, !tbaa !13
+  store i64 %125, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #2
+  br label %126
 
-do.body60:                                        ; preds = %do.end59
-  %72 = load ptr, ptr %a.addr, align 8
-  %arrayidx63 = getelementptr inbounds i64, ptr %72, i64 2
-  %73 = load i64, ptr %arrayidx63, align 8
-  %74 = load ptr, ptr %a.addr, align 8
-  %arrayidx64 = getelementptr inbounds i64, ptr %74, i64 1
-  %75 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %73, ptr elementtype(i64) %arrayidx64) #1, !srcloc !328
-  %asmresult65 = extractvalue { i64, i64 } %75, 0
-  %asmresult66 = extractvalue { i64, i64 } %75, 1
-  store i64 %asmresult65, ptr %t161, align 8
-  store i64 %asmresult66, ptr %t262, align 8
-  %76 = load i64, ptr %c1, align 8
-  %77 = load i64, ptr %c2, align 8
-  %78 = load i64, ptr %c3, align 8
-  %79 = load i64, ptr %t161, align 8
-  %80 = load i64, ptr %t262, align 8
-  %81 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %79, i64 %80, i32 0, i64 %76, i64 %77, i64 %78) #1, !srcloc !329
-  %asmresult67 = extractvalue { i64, i64, i64 } %81, 0
-  %asmresult68 = extractvalue { i64, i64, i64 } %81, 1
-  %asmresult69 = extractvalue { i64, i64, i64 } %81, 2
-  store i64 %asmresult67, ptr %c1, align 8
-  store i64 %asmresult68, ptr %c2, align 8
-  store i64 %asmresult69, ptr %c3, align 8
-  %82 = load i64, ptr %c1, align 8
-  %83 = load i64, ptr %c2, align 8
-  %84 = load i64, ptr %c3, align 8
-  %85 = load i64, ptr %t161, align 8
-  %86 = load i64, ptr %t262, align 8
-  %87 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %85, i64 %86, i32 0, i64 %82, i64 %83, i64 %84) #1, !srcloc !330
-  %asmresult70 = extractvalue { i64, i64, i64 } %87, 0
-  %asmresult71 = extractvalue { i64, i64, i64 } %87, 1
-  %asmresult72 = extractvalue { i64, i64, i64 } %87, 2
-  store i64 %asmresult70, ptr %c1, align 8
-  store i64 %asmresult71, ptr %c2, align 8
-  store i64 %asmresult72, ptr %c3, align 8
-  br label %do.end73
+126:                                              ; preds = %99
+  br label %127
 
-do.end73:                                         ; preds = %do.body60
-  %88 = load i64, ptr %c1, align 8
-  %89 = load ptr, ptr %r.addr, align 8
-  %arrayidx74 = getelementptr inbounds i64, ptr %89, i64 3
-  store i64 %88, ptr %arrayidx74, align 8
-  store i64 0, ptr %c1, align 8
-  br label %do.body75
+127:                                              ; preds = %126
+  %128 = load i64, ptr %7, align 8, !tbaa !13
+  %129 = load ptr, ptr %3, align 8, !tbaa !6
+  %130 = getelementptr inbounds i64, ptr %129, i64 2
+  store i64 %128, ptr %130, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %131
 
-do.body75:                                        ; preds = %do.end73
-  %90 = load ptr, ptr %a.addr, align 8
-  %arrayidx78 = getelementptr inbounds i64, ptr %90, i64 2
-  %91 = load i64, ptr %arrayidx78, align 8
-  %92 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %91) #3, !srcloc !331
-  %asmresult79 = extractvalue { i64, i64 } %92, 0
-  %asmresult80 = extractvalue { i64, i64 } %92, 1
-  store i64 %asmresult79, ptr %t176, align 8
-  store i64 %asmresult80, ptr %t277, align 8
-  %93 = load i64, ptr %c2, align 8
-  %94 = load i64, ptr %c3, align 8
-  %95 = load i64, ptr %c1, align 8
-  %96 = load i64, ptr %t176, align 8
-  %97 = load i64, ptr %t277, align 8
-  %98 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %97, i32 0, i64 %93, i64 %94, i64 %95) #1, !srcloc !332
-  %asmresult81 = extractvalue { i64, i64, i64 } %98, 0
-  %asmresult82 = extractvalue { i64, i64, i64 } %98, 1
-  %asmresult83 = extractvalue { i64, i64, i64 } %98, 2
-  store i64 %asmresult81, ptr %c2, align 8
-  store i64 %asmresult82, ptr %c3, align 8
-  store i64 %asmresult83, ptr %c1, align 8
-  br label %do.end84
+131:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #2
+  %132 = load ptr, ptr %4, align 8, !tbaa !6
+  %133 = getelementptr inbounds i64, ptr %132, i64 3
+  %134 = load i64, ptr %133, align 8, !tbaa !13
+  %135 = load ptr, ptr %4, align 8, !tbaa !6
+  %136 = getelementptr inbounds i64, ptr %135, i64 0
+  %137 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %134, ptr elementtype(i64) %136) #3, !srcloc !333
+  %138 = extractvalue { i64, i64 } %137, 0
+  %139 = extractvalue { i64, i64 } %137, 1
+  store i64 %138, ptr %16, align 8, !tbaa !13
+  store i64 %139, ptr %17, align 8, !tbaa !13
+  %140 = load i64, ptr %5, align 8, !tbaa !13
+  %141 = load i64, ptr %6, align 8, !tbaa !13
+  %142 = load i64, ptr %7, align 8, !tbaa !13
+  %143 = load i64, ptr %16, align 8, !tbaa !13
+  %144 = load i64, ptr %17, align 8, !tbaa !13
+  %145 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %143, i64 %144, i32 0, i64 %140, i64 %141, i64 %142) #3, !srcloc !334
+  %146 = extractvalue { i64, i64, i64 } %145, 0
+  %147 = extractvalue { i64, i64, i64 } %145, 1
+  %148 = extractvalue { i64, i64, i64 } %145, 2
+  store i64 %146, ptr %5, align 8, !tbaa !13
+  store i64 %147, ptr %6, align 8, !tbaa !13
+  store i64 %148, ptr %7, align 8, !tbaa !13
+  %149 = load i64, ptr %5, align 8, !tbaa !13
+  %150 = load i64, ptr %6, align 8, !tbaa !13
+  %151 = load i64, ptr %7, align 8, !tbaa !13
+  %152 = load i64, ptr %16, align 8, !tbaa !13
+  %153 = load i64, ptr %17, align 8, !tbaa !13
+  %154 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %152, i64 %153, i32 0, i64 %149, i64 %150, i64 %151) #3, !srcloc !335
+  %155 = extractvalue { i64, i64, i64 } %154, 0
+  %156 = extractvalue { i64, i64, i64 } %154, 1
+  %157 = extractvalue { i64, i64, i64 } %154, 2
+  store i64 %155, ptr %5, align 8, !tbaa !13
+  store i64 %156, ptr %6, align 8, !tbaa !13
+  store i64 %157, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #2
+  br label %158
 
-do.end84:                                         ; preds = %do.body75
-  br label %do.body85
+158:                                              ; preds = %131
+  br label %159
 
-do.body85:                                        ; preds = %do.end84
-  %99 = load ptr, ptr %a.addr, align 8
-  %arrayidx88 = getelementptr inbounds i64, ptr %99, i64 3
-  %100 = load i64, ptr %arrayidx88, align 8
-  %101 = load ptr, ptr %a.addr, align 8
-  %arrayidx89 = getelementptr inbounds i64, ptr %101, i64 1
-  %102 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %100, ptr elementtype(i64) %arrayidx89) #1, !srcloc !333
-  %asmresult90 = extractvalue { i64, i64 } %102, 0
-  %asmresult91 = extractvalue { i64, i64 } %102, 1
-  store i64 %asmresult90, ptr %t186, align 8
-  store i64 %asmresult91, ptr %t287, align 8
-  %103 = load i64, ptr %c2, align 8
-  %104 = load i64, ptr %c3, align 8
-  %105 = load i64, ptr %c1, align 8
-  %106 = load i64, ptr %t186, align 8
-  %107 = load i64, ptr %t287, align 8
-  %108 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %106, i64 %107, i32 0, i64 %103, i64 %104, i64 %105) #1, !srcloc !334
-  %asmresult92 = extractvalue { i64, i64, i64 } %108, 0
-  %asmresult93 = extractvalue { i64, i64, i64 } %108, 1
-  %asmresult94 = extractvalue { i64, i64, i64 } %108, 2
-  store i64 %asmresult92, ptr %c2, align 8
-  store i64 %asmresult93, ptr %c3, align 8
-  store i64 %asmresult94, ptr %c1, align 8
-  %109 = load i64, ptr %c2, align 8
-  %110 = load i64, ptr %c3, align 8
-  %111 = load i64, ptr %c1, align 8
-  %112 = load i64, ptr %t186, align 8
-  %113 = load i64, ptr %t287, align 8
-  %114 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %112, i64 %113, i32 0, i64 %109, i64 %110, i64 %111) #1, !srcloc !335
-  %asmresult95 = extractvalue { i64, i64, i64 } %114, 0
-  %asmresult96 = extractvalue { i64, i64, i64 } %114, 1
-  %asmresult97 = extractvalue { i64, i64, i64 } %114, 2
-  store i64 %asmresult95, ptr %c2, align 8
-  store i64 %asmresult96, ptr %c3, align 8
-  store i64 %asmresult97, ptr %c1, align 8
-  br label %do.end98
+159:                                              ; preds = %158
+  br label %160
 
-do.end98:                                         ; preds = %do.body85
-  %115 = load i64, ptr %c2, align 8
-  %116 = load ptr, ptr %r.addr, align 8
-  %arrayidx99 = getelementptr inbounds i64, ptr %116, i64 4
-  store i64 %115, ptr %arrayidx99, align 8
-  store i64 0, ptr %c2, align 8
-  br label %do.body100
+160:                                              ; preds = %159
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #2
+  %161 = load ptr, ptr %4, align 8, !tbaa !6
+  %162 = getelementptr inbounds i64, ptr %161, i64 2
+  %163 = load i64, ptr %162, align 8, !tbaa !13
+  %164 = load ptr, ptr %4, align 8, !tbaa !6
+  %165 = getelementptr inbounds i64, ptr %164, i64 1
+  %166 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %163, ptr elementtype(i64) %165) #3, !srcloc !336
+  %167 = extractvalue { i64, i64 } %166, 0
+  %168 = extractvalue { i64, i64 } %166, 1
+  store i64 %167, ptr %18, align 8, !tbaa !13
+  store i64 %168, ptr %19, align 8, !tbaa !13
+  %169 = load i64, ptr %5, align 8, !tbaa !13
+  %170 = load i64, ptr %6, align 8, !tbaa !13
+  %171 = load i64, ptr %7, align 8, !tbaa !13
+  %172 = load i64, ptr %18, align 8, !tbaa !13
+  %173 = load i64, ptr %19, align 8, !tbaa !13
+  %174 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %172, i64 %173, i32 0, i64 %169, i64 %170, i64 %171) #3, !srcloc !337
+  %175 = extractvalue { i64, i64, i64 } %174, 0
+  %176 = extractvalue { i64, i64, i64 } %174, 1
+  %177 = extractvalue { i64, i64, i64 } %174, 2
+  store i64 %175, ptr %5, align 8, !tbaa !13
+  store i64 %176, ptr %6, align 8, !tbaa !13
+  store i64 %177, ptr %7, align 8, !tbaa !13
+  %178 = load i64, ptr %5, align 8, !tbaa !13
+  %179 = load i64, ptr %6, align 8, !tbaa !13
+  %180 = load i64, ptr %7, align 8, !tbaa !13
+  %181 = load i64, ptr %18, align 8, !tbaa !13
+  %182 = load i64, ptr %19, align 8, !tbaa !13
+  %183 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %181, i64 %182, i32 0, i64 %178, i64 %179, i64 %180) #3, !srcloc !338
+  %184 = extractvalue { i64, i64, i64 } %183, 0
+  %185 = extractvalue { i64, i64, i64 } %183, 1
+  %186 = extractvalue { i64, i64, i64 } %183, 2
+  store i64 %184, ptr %5, align 8, !tbaa !13
+  store i64 %185, ptr %6, align 8, !tbaa !13
+  store i64 %186, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #2
+  br label %187
 
-do.body100:                                       ; preds = %do.end98
-  %117 = load ptr, ptr %a.addr, align 8
-  %arrayidx103 = getelementptr inbounds i64, ptr %117, i64 3
-  %118 = load i64, ptr %arrayidx103, align 8
-  %119 = load ptr, ptr %a.addr, align 8
-  %arrayidx104 = getelementptr inbounds i64, ptr %119, i64 2
-  %120 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %118, ptr elementtype(i64) %arrayidx104) #1, !srcloc !336
-  %asmresult105 = extractvalue { i64, i64 } %120, 0
-  %asmresult106 = extractvalue { i64, i64 } %120, 1
-  store i64 %asmresult105, ptr %t1101, align 8
-  store i64 %asmresult106, ptr %t2102, align 8
-  %121 = load i64, ptr %c3, align 8
-  %122 = load i64, ptr %c1, align 8
-  %123 = load i64, ptr %c2, align 8
-  %124 = load i64, ptr %t1101, align 8
-  %125 = load i64, ptr %t2102, align 8
-  %126 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %124, i64 %125, i32 0, i64 %121, i64 %122, i64 %123) #1, !srcloc !337
-  %asmresult107 = extractvalue { i64, i64, i64 } %126, 0
-  %asmresult108 = extractvalue { i64, i64, i64 } %126, 1
-  %asmresult109 = extractvalue { i64, i64, i64 } %126, 2
-  store i64 %asmresult107, ptr %c3, align 8
-  store i64 %asmresult108, ptr %c1, align 8
-  store i64 %asmresult109, ptr %c2, align 8
-  %127 = load i64, ptr %c3, align 8
-  %128 = load i64, ptr %c1, align 8
-  %129 = load i64, ptr %c2, align 8
-  %130 = load i64, ptr %t1101, align 8
-  %131 = load i64, ptr %t2102, align 8
-  %132 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %130, i64 %131, i32 0, i64 %127, i64 %128, i64 %129) #1, !srcloc !338
-  %asmresult110 = extractvalue { i64, i64, i64 } %132, 0
-  %asmresult111 = extractvalue { i64, i64, i64 } %132, 1
-  %asmresult112 = extractvalue { i64, i64, i64 } %132, 2
-  store i64 %asmresult110, ptr %c3, align 8
-  store i64 %asmresult111, ptr %c1, align 8
-  store i64 %asmresult112, ptr %c2, align 8
-  br label %do.end113
+187:                                              ; preds = %160
+  br label %188
 
-do.end113:                                        ; preds = %do.body100
-  %133 = load i64, ptr %c3, align 8
-  %134 = load ptr, ptr %r.addr, align 8
-  %arrayidx114 = getelementptr inbounds i64, ptr %134, i64 5
-  store i64 %133, ptr %arrayidx114, align 8
-  store i64 0, ptr %c3, align 8
-  br label %do.body115
+188:                                              ; preds = %187
+  %189 = load i64, ptr %5, align 8, !tbaa !13
+  %190 = load ptr, ptr %3, align 8, !tbaa !6
+  %191 = getelementptr inbounds i64, ptr %190, i64 3
+  store i64 %189, ptr %191, align 8, !tbaa !13
+  store i64 0, ptr %5, align 8, !tbaa !13
+  br label %192
 
-do.body115:                                       ; preds = %do.end113
-  %135 = load ptr, ptr %a.addr, align 8
-  %arrayidx118 = getelementptr inbounds i64, ptr %135, i64 3
-  %136 = load i64, ptr %arrayidx118, align 8
-  %137 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %136) #3, !srcloc !339
-  %asmresult119 = extractvalue { i64, i64 } %137, 0
-  %asmresult120 = extractvalue { i64, i64 } %137, 1
-  store i64 %asmresult119, ptr %t1116, align 8
-  store i64 %asmresult120, ptr %t2117, align 8
-  %138 = load i64, ptr %c1, align 8
-  %139 = load i64, ptr %c2, align 8
-  %140 = load i64, ptr %c3, align 8
-  %141 = load i64, ptr %t1116, align 8
-  %142 = load i64, ptr %t2117, align 8
-  %143 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %141, i64 %142, i32 0, i64 %138, i64 %139, i64 %140) #1, !srcloc !340
-  %asmresult121 = extractvalue { i64, i64, i64 } %143, 0
-  %asmresult122 = extractvalue { i64, i64, i64 } %143, 1
-  %asmresult123 = extractvalue { i64, i64, i64 } %143, 2
-  store i64 %asmresult121, ptr %c1, align 8
-  store i64 %asmresult122, ptr %c2, align 8
-  store i64 %asmresult123, ptr %c3, align 8
-  br label %do.end124
+192:                                              ; preds = %188
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #2
+  %193 = load ptr, ptr %4, align 8, !tbaa !6
+  %194 = getelementptr inbounds i64, ptr %193, i64 2
+  %195 = load i64, ptr %194, align 8, !tbaa !13
+  %196 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %195) #4, !srcloc !339
+  %197 = extractvalue { i64, i64 } %196, 0
+  %198 = extractvalue { i64, i64 } %196, 1
+  store i64 %197, ptr %20, align 8, !tbaa !13
+  store i64 %198, ptr %21, align 8, !tbaa !13
+  %199 = load i64, ptr %6, align 8, !tbaa !13
+  %200 = load i64, ptr %7, align 8, !tbaa !13
+  %201 = load i64, ptr %5, align 8, !tbaa !13
+  %202 = load i64, ptr %20, align 8, !tbaa !13
+  %203 = load i64, ptr %21, align 8, !tbaa !13
+  %204 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %202, i64 %203, i32 0, i64 %199, i64 %200, i64 %201) #3, !srcloc !340
+  %205 = extractvalue { i64, i64, i64 } %204, 0
+  %206 = extractvalue { i64, i64, i64 } %204, 1
+  %207 = extractvalue { i64, i64, i64 } %204, 2
+  store i64 %205, ptr %6, align 8, !tbaa !13
+  store i64 %206, ptr %7, align 8, !tbaa !13
+  store i64 %207, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #2
+  br label %208
 
-do.end124:                                        ; preds = %do.body115
-  %144 = load i64, ptr %c1, align 8
-  %145 = load ptr, ptr %r.addr, align 8
-  %arrayidx125 = getelementptr inbounds i64, ptr %145, i64 6
-  store i64 %144, ptr %arrayidx125, align 8
-  %146 = load i64, ptr %c2, align 8
-  %147 = load ptr, ptr %r.addr, align 8
-  %arrayidx126 = getelementptr inbounds i64, ptr %147, i64 7
-  store i64 %146, ptr %arrayidx126, align 8
+208:                                              ; preds = %192
+  br label %209
+
+209:                                              ; preds = %208
+  br label %210
+
+210:                                              ; preds = %209
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #2
+  %211 = load ptr, ptr %4, align 8, !tbaa !6
+  %212 = getelementptr inbounds i64, ptr %211, i64 3
+  %213 = load i64, ptr %212, align 8, !tbaa !13
+  %214 = load ptr, ptr %4, align 8, !tbaa !6
+  %215 = getelementptr inbounds i64, ptr %214, i64 1
+  %216 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %213, ptr elementtype(i64) %215) #3, !srcloc !341
+  %217 = extractvalue { i64, i64 } %216, 0
+  %218 = extractvalue { i64, i64 } %216, 1
+  store i64 %217, ptr %22, align 8, !tbaa !13
+  store i64 %218, ptr %23, align 8, !tbaa !13
+  %219 = load i64, ptr %6, align 8, !tbaa !13
+  %220 = load i64, ptr %7, align 8, !tbaa !13
+  %221 = load i64, ptr %5, align 8, !tbaa !13
+  %222 = load i64, ptr %22, align 8, !tbaa !13
+  %223 = load i64, ptr %23, align 8, !tbaa !13
+  %224 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %222, i64 %223, i32 0, i64 %219, i64 %220, i64 %221) #3, !srcloc !342
+  %225 = extractvalue { i64, i64, i64 } %224, 0
+  %226 = extractvalue { i64, i64, i64 } %224, 1
+  %227 = extractvalue { i64, i64, i64 } %224, 2
+  store i64 %225, ptr %6, align 8, !tbaa !13
+  store i64 %226, ptr %7, align 8, !tbaa !13
+  store i64 %227, ptr %5, align 8, !tbaa !13
+  %228 = load i64, ptr %6, align 8, !tbaa !13
+  %229 = load i64, ptr %7, align 8, !tbaa !13
+  %230 = load i64, ptr %5, align 8, !tbaa !13
+  %231 = load i64, ptr %22, align 8, !tbaa !13
+  %232 = load i64, ptr %23, align 8, !tbaa !13
+  %233 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %231, i64 %232, i32 0, i64 %228, i64 %229, i64 %230) #3, !srcloc !343
+  %234 = extractvalue { i64, i64, i64 } %233, 0
+  %235 = extractvalue { i64, i64, i64 } %233, 1
+  %236 = extractvalue { i64, i64, i64 } %233, 2
+  store i64 %234, ptr %6, align 8, !tbaa !13
+  store i64 %235, ptr %7, align 8, !tbaa !13
+  store i64 %236, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #2
+  br label %237
+
+237:                                              ; preds = %210
+  br label %238
+
+238:                                              ; preds = %237
+  %239 = load i64, ptr %6, align 8, !tbaa !13
+  %240 = load ptr, ptr %3, align 8, !tbaa !6
+  %241 = getelementptr inbounds i64, ptr %240, i64 4
+  store i64 %239, ptr %241, align 8, !tbaa !13
+  store i64 0, ptr %6, align 8, !tbaa !13
+  br label %242
+
+242:                                              ; preds = %238
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #2
+  %243 = load ptr, ptr %4, align 8, !tbaa !6
+  %244 = getelementptr inbounds i64, ptr %243, i64 3
+  %245 = load i64, ptr %244, align 8, !tbaa !13
+  %246 = load ptr, ptr %4, align 8, !tbaa !6
+  %247 = getelementptr inbounds i64, ptr %246, i64 2
+  %248 = call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %245, ptr elementtype(i64) %247) #3, !srcloc !344
+  %249 = extractvalue { i64, i64 } %248, 0
+  %250 = extractvalue { i64, i64 } %248, 1
+  store i64 %249, ptr %24, align 8, !tbaa !13
+  store i64 %250, ptr %25, align 8, !tbaa !13
+  %251 = load i64, ptr %7, align 8, !tbaa !13
+  %252 = load i64, ptr %5, align 8, !tbaa !13
+  %253 = load i64, ptr %6, align 8, !tbaa !13
+  %254 = load i64, ptr %24, align 8, !tbaa !13
+  %255 = load i64, ptr %25, align 8, !tbaa !13
+  %256 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %254, i64 %255, i32 0, i64 %251, i64 %252, i64 %253) #3, !srcloc !345
+  %257 = extractvalue { i64, i64, i64 } %256, 0
+  %258 = extractvalue { i64, i64, i64 } %256, 1
+  %259 = extractvalue { i64, i64, i64 } %256, 2
+  store i64 %257, ptr %7, align 8, !tbaa !13
+  store i64 %258, ptr %5, align 8, !tbaa !13
+  store i64 %259, ptr %6, align 8, !tbaa !13
+  %260 = load i64, ptr %7, align 8, !tbaa !13
+  %261 = load i64, ptr %5, align 8, !tbaa !13
+  %262 = load i64, ptr %6, align 8, !tbaa !13
+  %263 = load i64, ptr %24, align 8, !tbaa !13
+  %264 = load i64, ptr %25, align 8, !tbaa !13
+  %265 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %263, i64 %264, i32 0, i64 %260, i64 %261, i64 %262) #3, !srcloc !346
+  %266 = extractvalue { i64, i64, i64 } %265, 0
+  %267 = extractvalue { i64, i64, i64 } %265, 1
+  %268 = extractvalue { i64, i64, i64 } %265, 2
+  store i64 %266, ptr %7, align 8, !tbaa !13
+  store i64 %267, ptr %5, align 8, !tbaa !13
+  store i64 %268, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #2
+  br label %269
+
+269:                                              ; preds = %242
+  br label %270
+
+270:                                              ; preds = %269
+  %271 = load i64, ptr %7, align 8, !tbaa !13
+  %272 = load ptr, ptr %3, align 8, !tbaa !6
+  %273 = getelementptr inbounds i64, ptr %272, i64 5
+  store i64 %271, ptr %273, align 8, !tbaa !13
+  store i64 0, ptr %7, align 8, !tbaa !13
+  br label %274
+
+274:                                              ; preds = %270
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #2
+  %275 = load ptr, ptr %4, align 8, !tbaa !6
+  %276 = getelementptr inbounds i64, ptr %275, i64 3
+  %277 = load i64, ptr %276, align 8, !tbaa !13
+  %278 = call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %277) #4, !srcloc !347
+  %279 = extractvalue { i64, i64 } %278, 0
+  %280 = extractvalue { i64, i64 } %278, 1
+  store i64 %279, ptr %26, align 8, !tbaa !13
+  store i64 %280, ptr %27, align 8, !tbaa !13
+  %281 = load i64, ptr %5, align 8, !tbaa !13
+  %282 = load i64, ptr %6, align 8, !tbaa !13
+  %283 = load i64, ptr %7, align 8, !tbaa !13
+  %284 = load i64, ptr %26, align 8, !tbaa !13
+  %285 = load i64, ptr %27, align 8, !tbaa !13
+  %286 = call { i64, i64, i64 } asm "addq $3,$0; adcq $4,$1; adcq $5,$2", "=r,=r,=r,r,r,imr,0,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %284, i64 %285, i32 0, i64 %281, i64 %282, i64 %283) #3, !srcloc !348
+  %287 = extractvalue { i64, i64, i64 } %286, 0
+  %288 = extractvalue { i64, i64, i64 } %286, 1
+  %289 = extractvalue { i64, i64, i64 } %286, 2
+  store i64 %287, ptr %5, align 8, !tbaa !13
+  store i64 %288, ptr %6, align 8, !tbaa !13
+  store i64 %289, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #2
+  br label %290
+
+290:                                              ; preds = %274
+  br label %291
+
+291:                                              ; preds = %290
+  %292 = load i64, ptr %5, align 8, !tbaa !13
+  %293 = load ptr, ptr %3, align 8, !tbaa !6
+  %294 = getelementptr inbounds i64, ptr %293, i64 6
+  store i64 %292, ptr %294, align 8, !tbaa !13
+  %295 = load i64, ptr %6, align 8, !tbaa !13
+  %296 = load ptr, ptr %3, align 8, !tbaa !6
+  %297 = getelementptr inbounds i64, ptr %296, i64 7
+  store i64 %295, ptr %297, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #2
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind }
-attributes #3 = { nounwind memory(none) }
+attributes #3 = { nounwind memory(read) }
+attributes #4 = { nounwind memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i64 2148171095}
-!8 = !{i64 2148171168}
-!9 = !{i64 2148171460}
-!10 = !{i64 2148172039}
-!11 = !{i64 2148172112}
-!12 = !{i64 2148172404}
-!13 = !{i64 2148172983}
-!14 = !{i64 2148173056}
-!15 = !{i64 2148173348}
-!16 = !{i64 2148173927}
-!17 = !{i64 2148174000}
-!18 = !{i64 2148174292}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = !{i64 2148174871}
-!22 = !{i64 2148174944}
-!23 = !{i64 2148175236}
-!24 = !{i64 2148175815}
-!25 = !{i64 2148175888}
-!26 = !{i64 2148176180}
-!27 = !{i64 2148176759}
-!28 = !{i64 2148176832}
-!29 = !{i64 2148177124}
-!30 = !{i64 2148177748}
-!31 = !{i64 2148177821}
-!32 = !{i64 2148178392}
-!33 = !{i64 2148178465}
-!34 = !{i64 2148179036}
-!35 = !{i64 2148179109}
-!36 = !{i64 2148179680}
-!37 = !{i64 2148179753}
-!38 = distinct !{!38, !20}
-!39 = !{i64 2148180324}
-!40 = !{i64 2148180397}
-!41 = !{i64 2148180968}
-!42 = !{i64 2148181041}
-!43 = !{i64 2148181612}
-!44 = !{i64 2148181685}
-!45 = !{i64 2148182126}
-!46 = !{i64 2148182202}
-!47 = !{i64 2148182278}
-!48 = !{i64 2148182354}
-!49 = distinct !{!49, !20}
-!50 = !{i64 2148182430}
-!51 = !{i64 2148182506}
-!52 = !{i64 2148182582}
-!53 = !{i64 6170, i64 6213, i64 6233, i64 6257, i64 6289, i64 6319, i64 6349, i64 6374, i64 6395}
-!54 = !{i64 6728, i64 6772, i64 6792, i64 6816, i64 6848, i64 6878, i64 6908, i64 6933, i64 6954}
-!55 = !{i64 2148182887}
-!56 = !{i64 2148182954}
-!57 = !{i64 2148183283}
-!58 = !{i64 2148183350}
-!59 = !{i64 2148183679}
-!60 = !{i64 2148183746}
-!61 = !{i64 2148184075}
-!62 = !{i64 2148184142}
-!63 = !{i64 2148184471}
-!64 = !{i64 2148184538}
-!65 = !{i64 2148184867}
-!66 = !{i64 2148184934}
-!67 = !{i64 2148185263}
-!68 = !{i64 2148185330}
-!69 = !{i64 2148185659}
-!70 = !{i64 2148185726}
-!71 = !{i64 2148186055}
-!72 = !{i64 2148186122}
-!73 = !{i64 2148186451}
-!74 = !{i64 2148186518}
-!75 = !{i64 2148186847}
-!76 = !{i64 2148186914}
-!77 = !{i64 2148187243}
-!78 = !{i64 2148187310}
-!79 = !{i64 2148187639}
-!80 = !{i64 2148187706}
-!81 = !{i64 2148188035}
-!82 = !{i64 2148188102}
-!83 = !{i64 2148188431}
-!84 = !{i64 2148188498}
-!85 = !{i64 2148188827}
-!86 = !{i64 2148188894}
-!87 = !{i64 2148189223}
-!88 = !{i64 2148189290}
-!89 = !{i64 2148189619}
-!90 = !{i64 2148189686}
-!91 = !{i64 2148190015}
-!92 = !{i64 2148190082}
-!93 = !{i64 2148190411}
-!94 = !{i64 2148190478}
-!95 = !{i64 2148190807}
-!96 = !{i64 2148190874}
-!97 = !{i64 2148191203}
-!98 = !{i64 2148191270}
-!99 = !{i64 2148191599}
-!100 = !{i64 2148191666}
-!101 = !{i64 2148191995}
-!102 = !{i64 2148192062}
-!103 = !{i64 2148192391}
-!104 = !{i64 2148192458}
-!105 = !{i64 2148192787}
-!106 = !{i64 2148192854}
-!107 = !{i64 2148193183}
-!108 = !{i64 2148193250}
-!109 = !{i64 2148193579}
-!110 = !{i64 2148193646}
-!111 = !{i64 2148193975}
-!112 = !{i64 2148194042}
-!113 = !{i64 2148194371}
-!114 = !{i64 2148194438}
-!115 = !{i64 2148194767}
-!116 = !{i64 2148194834}
-!117 = !{i64 2148195163}
-!118 = !{i64 2148195230}
-!119 = !{i64 2148195559}
-!120 = !{i64 2148195626}
-!121 = !{i64 2148195955}
-!122 = !{i64 2148196022}
-!123 = !{i64 2148196351}
-!124 = !{i64 2148196418}
-!125 = !{i64 2148196747}
-!126 = !{i64 2148196814}
-!127 = !{i64 2148197143}
-!128 = !{i64 2148197210}
-!129 = !{i64 2148197539}
-!130 = !{i64 2148197606}
-!131 = !{i64 2148197935}
-!132 = !{i64 2148198002}
-!133 = !{i64 2148198331}
-!134 = !{i64 2148198398}
-!135 = !{i64 2148198727}
-!136 = !{i64 2148198794}
-!137 = !{i64 2148199123}
-!138 = !{i64 2148199190}
-!139 = !{i64 2148199519}
-!140 = !{i64 2148199586}
-!141 = !{i64 2148199915}
-!142 = !{i64 2148199982}
-!143 = !{i64 2148200311}
-!144 = !{i64 2148200378}
-!145 = !{i64 2148200707}
-!146 = !{i64 2148200774}
-!147 = !{i64 2148201103}
-!148 = !{i64 2148201170}
-!149 = !{i64 2148201499}
-!150 = !{i64 2148201566}
-!151 = !{i64 2148201895}
-!152 = !{i64 2148201962}
-!153 = !{i64 2148202291}
-!154 = !{i64 2148202358}
-!155 = !{i64 2148202687}
-!156 = !{i64 2148202754}
-!157 = !{i64 2148203083}
-!158 = !{i64 2148203150}
-!159 = !{i64 2148203479}
-!160 = !{i64 2148203546}
-!161 = !{i64 2148203875}
-!162 = !{i64 2148203942}
-!163 = !{i64 2148204271}
-!164 = !{i64 2148204338}
-!165 = !{i64 2148204667}
-!166 = !{i64 2148204734}
-!167 = !{i64 2148205063}
-!168 = !{i64 2148205130}
-!169 = !{i64 2148205459}
-!170 = !{i64 2148205526}
-!171 = !{i64 2148205855}
-!172 = !{i64 2148205922}
-!173 = !{i64 2148206251}
-!174 = !{i64 2148206318}
-!175 = !{i64 2148206647}
-!176 = !{i64 2148206714}
-!177 = !{i64 2148207043}
-!178 = !{i64 2148207110}
-!179 = !{i64 2148207439}
-!180 = !{i64 2148207506}
-!181 = !{i64 2148207835}
-!182 = !{i64 2148207902}
-!183 = !{i64 2148208267}
-!184 = !{i64 2148208334}
-!185 = !{i64 2148208663}
-!186 = !{i64 2148208730}
-!187 = !{i64 2148209059}
-!188 = !{i64 2148209126}
-!189 = !{i64 2148209455}
-!190 = !{i64 2148209522}
-!191 = !{i64 2148209851}
-!192 = !{i64 2148209918}
-!193 = !{i64 2148210247}
-!194 = !{i64 2148210314}
-!195 = !{i64 2148210643}
-!196 = !{i64 2148210710}
-!197 = !{i64 2148211039}
-!198 = !{i64 2148211106}
-!199 = !{i64 2148211435}
-!200 = !{i64 2148211502}
-!201 = !{i64 2148211831}
-!202 = !{i64 2148211898}
-!203 = !{i64 2148212227}
-!204 = !{i64 2148212294}
-!205 = !{i64 2148212623}
-!206 = !{i64 2148212690}
-!207 = !{i64 2148213019}
-!208 = !{i64 2148213086}
-!209 = !{i64 2148213415}
-!210 = !{i64 2148213482}
-!211 = !{i64 2148213811}
-!212 = !{i64 2148213878}
-!213 = !{i64 2148214207}
-!214 = !{i64 2148214274}
-!215 = !{i64 2148214639}
-!216 = !{i64 2148214701}
-!217 = !{i64 2148215116}
-!218 = !{i64 2148215190}
-!219 = !{i64 2148215378}
-!220 = !{i64 2148215745}
-!221 = !{i64 2148215807}
-!222 = !{i64 2148216222}
-!223 = !{i64 2148216296}
-!224 = !{i64 2148216484}
-!225 = !{i64 2148216934}
-!226 = !{i64 2148217008}
-!227 = !{i64 2148217196}
-!228 = !{i64 2148217646}
-!229 = !{i64 2148217720}
-!230 = !{i64 2148217908}
-!231 = !{i64 2148218275}
-!232 = !{i64 2148218337}
-!233 = !{i64 2148218752}
-!234 = !{i64 2148218826}
-!235 = !{i64 2148219014}
-!236 = !{i64 2148219464}
-!237 = !{i64 2148219538}
-!238 = !{i64 2148219726}
-!239 = !{i64 2148220176}
-!240 = !{i64 2148220250}
-!241 = !{i64 2148220438}
-!242 = !{i64 2148220888}
-!243 = !{i64 2148220962}
-!244 = !{i64 2148221150}
-!245 = !{i64 2148221600}
-!246 = !{i64 2148221674}
-!247 = !{i64 2148221862}
-!248 = !{i64 2148222229}
-!249 = !{i64 2148222291}
-!250 = !{i64 2148222706}
-!251 = !{i64 2148222780}
-!252 = !{i64 2148222968}
-!253 = !{i64 2148223418}
-!254 = !{i64 2148223492}
-!255 = !{i64 2148223680}
-!256 = !{i64 2148224130}
-!257 = !{i64 2148224204}
-!258 = !{i64 2148224392}
-!259 = !{i64 2148224842}
-!260 = !{i64 2148224916}
-!261 = !{i64 2148225104}
-!262 = !{i64 2148225554}
-!263 = !{i64 2148225628}
-!264 = !{i64 2148225816}
-!265 = !{i64 2148226266}
-!266 = !{i64 2148226340}
-!267 = !{i64 2148226528}
-!268 = !{i64 2148226978}
-!269 = !{i64 2148227052}
-!270 = !{i64 2148227240}
-!271 = !{i64 2148227607}
-!272 = !{i64 2148227669}
-!273 = !{i64 2148228084}
-!274 = !{i64 2148228158}
-!275 = !{i64 2148228346}
-!276 = !{i64 2148228796}
-!277 = !{i64 2148228870}
-!278 = !{i64 2148229058}
-!279 = !{i64 2148229508}
-!280 = !{i64 2148229582}
-!281 = !{i64 2148229770}
-!282 = !{i64 2148230220}
-!283 = !{i64 2148230294}
-!284 = !{i64 2148230482}
-!285 = !{i64 2148230932}
-!286 = !{i64 2148231006}
-!287 = !{i64 2148231194}
-!288 = !{i64 2148231644}
-!289 = !{i64 2148231718}
-!290 = !{i64 2148231906}
-!291 = !{i64 2148232273}
-!292 = !{i64 2148232335}
-!293 = !{i64 2148232750}
-!294 = !{i64 2148232824}
-!295 = !{i64 2148233012}
-!296 = !{i64 2148233462}
-!297 = !{i64 2148233536}
-!298 = !{i64 2148233724}
-!299 = !{i64 2148234174}
-!300 = !{i64 2148234248}
-!301 = !{i64 2148234436}
-!302 = !{i64 2148234886}
-!303 = !{i64 2148234960}
-!304 = !{i64 2148235148}
-!305 = !{i64 2148235515}
-!306 = !{i64 2148235577}
-!307 = !{i64 2148235992}
-!308 = !{i64 2148236066}
-!309 = !{i64 2148236254}
-!310 = !{i64 2148236704}
-!311 = !{i64 2148236778}
-!312 = !{i64 2148236966}
-!313 = !{i64 2148237333}
-!314 = !{i64 2148237395}
-!315 = !{i64 2148237754}
-!316 = !{i64 2148237816}
-!317 = !{i64 2148238231}
-!318 = !{i64 2148238305}
-!319 = !{i64 2148238493}
-!320 = !{i64 2148238860}
-!321 = !{i64 2148238922}
-!322 = !{i64 2148239337}
-!323 = !{i64 2148239411}
-!324 = !{i64 2148239599}
-!325 = !{i64 2148240049}
-!326 = !{i64 2148240123}
-!327 = !{i64 2148240311}
-!328 = !{i64 2148240761}
-!329 = !{i64 2148240835}
-!330 = !{i64 2148241023}
-!331 = !{i64 2148241390}
-!332 = !{i64 2148241452}
-!333 = !{i64 2148241867}
-!334 = !{i64 2148241941}
-!335 = !{i64 2148242129}
-!336 = !{i64 2148242579}
-!337 = !{i64 2148242653}
-!338 = !{i64 2148242841}
-!339 = !{i64 2148243208}
-!340 = !{i64 2148243270}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 long", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !9, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = !{i64 2148184878}
+!16 = !{i64 2148184951}
+!17 = !{i64 2148185243}
+!18 = !{i64 2148185822}
+!19 = !{i64 2148185895}
+!20 = !{i64 2148186187}
+!21 = !{i64 2148186766}
+!22 = !{i64 2148186839}
+!23 = !{i64 2148187131}
+!24 = !{i64 2148187710}
+!25 = !{i64 2148187783}
+!26 = !{i64 2148188075}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{i64 2148188654}
+!30 = !{i64 2148188727}
+!31 = !{i64 2148189019}
+!32 = !{i64 2148189598}
+!33 = !{i64 2148189671}
+!34 = !{i64 2148189963}
+!35 = !{i64 2148190542}
+!36 = !{i64 2148190615}
+!37 = !{i64 2148190907}
+!38 = !{i64 2148191531}
+!39 = !{i64 2148191604}
+!40 = !{i64 2148192175}
+!41 = !{i64 2148192248}
+!42 = !{i64 2148192819}
+!43 = !{i64 2148192892}
+!44 = !{i64 2148193463}
+!45 = !{i64 2148193536}
+!46 = distinct !{!46, !28}
+!47 = !{i64 2148194107}
+!48 = !{i64 2148194180}
+!49 = !{i64 2148194751}
+!50 = !{i64 2148194824}
+!51 = !{i64 2148195395}
+!52 = !{i64 2148195468}
+!53 = !{i64 2148195909}
+!54 = !{i64 2148195985}
+!55 = !{i64 2148196061}
+!56 = !{i64 2148196137}
+!57 = distinct !{!57, !28}
+!58 = !{i64 2148196213}
+!59 = !{i64 2148196289}
+!60 = !{i64 2148196365}
+!61 = !{i64 6170, i64 6213, i64 6233, i64 6257, i64 6289, i64 6319, i64 6349, i64 6374, i64 6395}
+!62 = !{i64 6728, i64 6772, i64 6792, i64 6816, i64 6848, i64 6878, i64 6908, i64 6933, i64 6954}
+!63 = !{i64 2148196670}
+!64 = !{i64 2148196737}
+!65 = !{i64 2148197066}
+!66 = !{i64 2148197133}
+!67 = !{i64 2148197462}
+!68 = !{i64 2148197529}
+!69 = !{i64 2148197858}
+!70 = !{i64 2148197925}
+!71 = !{i64 2148198254}
+!72 = !{i64 2148198321}
+!73 = !{i64 2148198650}
+!74 = !{i64 2148198717}
+!75 = !{i64 2148199046}
+!76 = !{i64 2148199113}
+!77 = !{i64 2148199442}
+!78 = !{i64 2148199509}
+!79 = !{i64 2148199838}
+!80 = !{i64 2148199905}
+!81 = !{i64 2148200234}
+!82 = !{i64 2148200301}
+!83 = !{i64 2148200630}
+!84 = !{i64 2148200697}
+!85 = !{i64 2148201026}
+!86 = !{i64 2148201093}
+!87 = !{i64 2148201422}
+!88 = !{i64 2148201489}
+!89 = !{i64 2148201818}
+!90 = !{i64 2148201885}
+!91 = !{i64 2148202214}
+!92 = !{i64 2148202281}
+!93 = !{i64 2148202610}
+!94 = !{i64 2148202677}
+!95 = !{i64 2148203006}
+!96 = !{i64 2148203073}
+!97 = !{i64 2148203402}
+!98 = !{i64 2148203469}
+!99 = !{i64 2148203798}
+!100 = !{i64 2148203865}
+!101 = !{i64 2148204194}
+!102 = !{i64 2148204261}
+!103 = !{i64 2148204590}
+!104 = !{i64 2148204657}
+!105 = !{i64 2148204986}
+!106 = !{i64 2148205053}
+!107 = !{i64 2148205382}
+!108 = !{i64 2148205449}
+!109 = !{i64 2148205778}
+!110 = !{i64 2148205845}
+!111 = !{i64 2148206174}
+!112 = !{i64 2148206241}
+!113 = !{i64 2148206570}
+!114 = !{i64 2148206637}
+!115 = !{i64 2148206966}
+!116 = !{i64 2148207033}
+!117 = !{i64 2148207362}
+!118 = !{i64 2148207429}
+!119 = !{i64 2148207758}
+!120 = !{i64 2148207825}
+!121 = !{i64 2148208154}
+!122 = !{i64 2148208221}
+!123 = !{i64 2148208550}
+!124 = !{i64 2148208617}
+!125 = !{i64 2148208946}
+!126 = !{i64 2148209013}
+!127 = !{i64 2148209342}
+!128 = !{i64 2148209409}
+!129 = !{i64 2148209738}
+!130 = !{i64 2148209805}
+!131 = !{i64 2148210134}
+!132 = !{i64 2148210201}
+!133 = !{i64 2148210530}
+!134 = !{i64 2148210597}
+!135 = !{i64 2148210926}
+!136 = !{i64 2148210993}
+!137 = !{i64 2148211322}
+!138 = !{i64 2148211389}
+!139 = !{i64 2148211718}
+!140 = !{i64 2148211785}
+!141 = !{i64 2148212114}
+!142 = !{i64 2148212181}
+!143 = !{i64 2148212510}
+!144 = !{i64 2148212577}
+!145 = !{i64 2148212906}
+!146 = !{i64 2148212973}
+!147 = !{i64 2148213302}
+!148 = !{i64 2148213369}
+!149 = !{i64 2148213698}
+!150 = !{i64 2148213765}
+!151 = !{i64 2148214094}
+!152 = !{i64 2148214161}
+!153 = !{i64 2148214490}
+!154 = !{i64 2148214557}
+!155 = !{i64 2148214886}
+!156 = !{i64 2148214953}
+!157 = !{i64 2148215282}
+!158 = !{i64 2148215349}
+!159 = !{i64 2148215678}
+!160 = !{i64 2148215745}
+!161 = !{i64 2148216074}
+!162 = !{i64 2148216141}
+!163 = !{i64 2148216470}
+!164 = !{i64 2148216537}
+!165 = !{i64 2148216866}
+!166 = !{i64 2148216933}
+!167 = !{i64 2148217262}
+!168 = !{i64 2148217329}
+!169 = !{i64 2148217658}
+!170 = !{i64 2148217725}
+!171 = !{i64 2148218054}
+!172 = !{i64 2148218121}
+!173 = !{i64 2148218450}
+!174 = !{i64 2148218517}
+!175 = !{i64 2148218846}
+!176 = !{i64 2148218913}
+!177 = !{i64 2148219242}
+!178 = !{i64 2148219309}
+!179 = !{i64 2148219638}
+!180 = !{i64 2148219705}
+!181 = !{i64 2148220034}
+!182 = !{i64 2148220101}
+!183 = !{i64 2148220430}
+!184 = !{i64 2148220497}
+!185 = !{i64 2148220826}
+!186 = !{i64 2148220893}
+!187 = !{i64 2148221222}
+!188 = !{i64 2148221289}
+!189 = !{i64 2148221618}
+!190 = !{i64 2148221685}
+!191 = !{i64 2148222050}
+!192 = !{i64 2148222117}
+!193 = !{i64 2148222446}
+!194 = !{i64 2148222513}
+!195 = !{i64 2148222842}
+!196 = !{i64 2148222909}
+!197 = !{i64 2148223238}
+!198 = !{i64 2148223305}
+!199 = !{i64 2148223634}
+!200 = !{i64 2148223701}
+!201 = !{i64 2148224030}
+!202 = !{i64 2148224097}
+!203 = !{i64 2148224426}
+!204 = !{i64 2148224493}
+!205 = !{i64 2148224822}
+!206 = !{i64 2148224889}
+!207 = !{i64 2148225218}
+!208 = !{i64 2148225285}
+!209 = !{i64 2148225614}
+!210 = !{i64 2148225681}
+!211 = !{i64 2148226010}
+!212 = !{i64 2148226077}
+!213 = !{i64 2148226406}
+!214 = !{i64 2148226473}
+!215 = !{i64 2148226802}
+!216 = !{i64 2148226869}
+!217 = !{i64 2148227198}
+!218 = !{i64 2148227265}
+!219 = !{i64 2148227594}
+!220 = !{i64 2148227661}
+!221 = !{i64 2148227990}
+!222 = !{i64 2148228057}
+!223 = !{i64 2148228422}
+!224 = !{i64 2148228484}
+!225 = !{i64 2148228899}
+!226 = !{i64 2148228973}
+!227 = !{i64 2148229161}
+!228 = !{i64 2148229528}
+!229 = !{i64 2148229590}
+!230 = !{i64 2148230005}
+!231 = !{i64 2148230079}
+!232 = !{i64 2148230267}
+!233 = !{i64 2148230717}
+!234 = !{i64 2148230791}
+!235 = !{i64 2148230979}
+!236 = !{i64 2148231429}
+!237 = !{i64 2148231503}
+!238 = !{i64 2148231691}
+!239 = !{i64 2148232058}
+!240 = !{i64 2148232120}
+!241 = !{i64 2148232535}
+!242 = !{i64 2148232609}
+!243 = !{i64 2148232797}
+!244 = !{i64 2148233247}
+!245 = !{i64 2148233321}
+!246 = !{i64 2148233509}
+!247 = !{i64 2148233959}
+!248 = !{i64 2148234033}
+!249 = !{i64 2148234221}
+!250 = !{i64 2148234671}
+!251 = !{i64 2148234745}
+!252 = !{i64 2148234933}
+!253 = !{i64 2148235383}
+!254 = !{i64 2148235457}
+!255 = !{i64 2148235645}
+!256 = !{i64 2148236012}
+!257 = !{i64 2148236074}
+!258 = !{i64 2148236489}
+!259 = !{i64 2148236563}
+!260 = !{i64 2148236751}
+!261 = !{i64 2148237201}
+!262 = !{i64 2148237275}
+!263 = !{i64 2148237463}
+!264 = !{i64 2148237913}
+!265 = !{i64 2148237987}
+!266 = !{i64 2148238175}
+!267 = !{i64 2148238625}
+!268 = !{i64 2148238699}
+!269 = !{i64 2148238887}
+!270 = !{i64 2148239337}
+!271 = !{i64 2148239411}
+!272 = !{i64 2148239599}
+!273 = !{i64 2148240049}
+!274 = !{i64 2148240123}
+!275 = !{i64 2148240311}
+!276 = !{i64 2148240761}
+!277 = !{i64 2148240835}
+!278 = !{i64 2148241023}
+!279 = !{i64 2148241390}
+!280 = !{i64 2148241452}
+!281 = !{i64 2148241867}
+!282 = !{i64 2148241941}
+!283 = !{i64 2148242129}
+!284 = !{i64 2148242579}
+!285 = !{i64 2148242653}
+!286 = !{i64 2148242841}
+!287 = !{i64 2148243291}
+!288 = !{i64 2148243365}
+!289 = !{i64 2148243553}
+!290 = !{i64 2148244003}
+!291 = !{i64 2148244077}
+!292 = !{i64 2148244265}
+!293 = !{i64 2148244715}
+!294 = !{i64 2148244789}
+!295 = !{i64 2148244977}
+!296 = !{i64 2148245427}
+!297 = !{i64 2148245501}
+!298 = !{i64 2148245689}
+!299 = !{i64 2148246056}
+!300 = !{i64 2148246118}
+!301 = !{i64 2148246533}
+!302 = !{i64 2148246607}
+!303 = !{i64 2148246795}
+!304 = !{i64 2148247245}
+!305 = !{i64 2148247319}
+!306 = !{i64 2148247507}
+!307 = !{i64 2148247957}
+!308 = !{i64 2148248031}
+!309 = !{i64 2148248219}
+!310 = !{i64 2148248669}
+!311 = !{i64 2148248743}
+!312 = !{i64 2148248931}
+!313 = !{i64 2148249298}
+!314 = !{i64 2148249360}
+!315 = !{i64 2148249775}
+!316 = !{i64 2148249849}
+!317 = !{i64 2148250037}
+!318 = !{i64 2148250487}
+!319 = !{i64 2148250561}
+!320 = !{i64 2148250749}
+!321 = !{i64 2148251116}
+!322 = !{i64 2148251178}
+!323 = !{i64 2148251537}
+!324 = !{i64 2148251599}
+!325 = !{i64 2148252014}
+!326 = !{i64 2148252088}
+!327 = !{i64 2148252276}
+!328 = !{i64 2148252643}
+!329 = !{i64 2148252705}
+!330 = !{i64 2148253120}
+!331 = !{i64 2148253194}
+!332 = !{i64 2148253382}
+!333 = !{i64 2148253832}
+!334 = !{i64 2148253906}
+!335 = !{i64 2148254094}
+!336 = !{i64 2148254544}
+!337 = !{i64 2148254618}
+!338 = !{i64 2148254806}
+!339 = !{i64 2148255173}
+!340 = !{i64 2148255235}
+!341 = !{i64 2148255650}
+!342 = !{i64 2148255724}
+!343 = !{i64 2148255912}
+!344 = !{i64 2148256362}
+!345 = !{i64 2148256436}
+!346 = !{i64 2148256624}
+!347 = !{i64 2148256991}
+!348 = !{i64 2148257053}

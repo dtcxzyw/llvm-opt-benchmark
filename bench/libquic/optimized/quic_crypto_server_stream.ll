@@ -1,66 +1,58 @@
 ; ModuleID = 'bench/libquic/original/quic_crypto_server_stream.ll'
 source_filename = "bench/libquic/original/quic_crypto_server_stream.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::allocator.10" = type { i8 }
-%"class.std::unique_ptr.267" = type { %"struct.std::__uniq_ptr_data.268" }
-%"struct.std::__uniq_ptr_data.268" = type { %"class.std::__uniq_ptr_impl.269" }
-%"class.std::__uniq_ptr_impl.269" = type { %"class.std::tuple.270" }
-%"class.std::tuple.270" = type { %"struct.std::_Tuple_impl.271" }
-%"struct.std::_Tuple_impl.271" = type { %"struct.std::_Head_base.274" }
-%"struct.std::_Head_base.274" = type { ptr }
-%"class.net::CryptoHandshakeMessage" = type { i32, %"class.std::map.40", i64, %"class.std::unique_ptr.48" }
+%"class.std::unique_ptr.263" = type { %"struct.std::__uniq_ptr_data.264" }
+%"struct.std::__uniq_ptr_data.264" = type { %"class.std::__uniq_ptr_impl.265" }
+%"class.std::__uniq_ptr_impl.265" = type { %"class.std::tuple.266" }
+%"class.std::tuple.266" = type { %"struct.std::_Tuple_impl.267" }
+%"struct.std::_Tuple_impl.267" = type { %"struct.std::_Head_base.270" }
+%"struct.std::_Head_base.270" = type { ptr }
+%"class.net::CryptoHandshakeMessage" = type { i32, %"class.std::map.40", i64, %"class.std::unique_ptr.46" }
 %"class.std::map.40" = type { %"class.std::_Rb_tree.41" }
 %"class.std::_Rb_tree.41" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.45", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.45" = type { %"struct.std::less.46" }
-%"struct.std::less.46" = type { i8 }
+%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
-%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
-%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
-%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
-%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
-%"struct.std::_Head_base.55" = type { ptr }
+%"class.std::unique_ptr.46" = type { %"struct.std::__uniq_ptr_data.47" }
+%"struct.std::__uniq_ptr_data.47" = type { %"class.std::__uniq_ptr_impl.48" }
+%"class.std::__uniq_ptr_impl.48" = type { %"class.std::tuple.49" }
+%"class.std::tuple.49" = type { %"struct.std::_Tuple_impl.50" }
+%"struct.std::_Tuple_impl.50" = type { %"struct.std::_Head_base.53" }
+%"struct.std::_Head_base.53" = type { ptr }
 %"struct.std::array" = type { [32 x i8] }
-%"class.std::unique_ptr.275" = type { %"struct.std::__uniq_ptr_data.276" }
-%"struct.std::__uniq_ptr_data.276" = type { %"class.std::__uniq_ptr_impl.277" }
-%"class.std::__uniq_ptr_impl.277" = type { %"class.std::tuple.278" }
-%"class.std::tuple.278" = type { %"struct.std::_Tuple_impl.279" }
-%"struct.std::_Tuple_impl.279" = type { %"struct.std::_Head_base.282" }
-%"struct.std::_Head_base.282" = type { ptr }
-%"class.std::unique_ptr.291" = type { %"struct.std::__uniq_ptr_data.292" }
-%"struct.std::__uniq_ptr_data.292" = type { %"class.std::__uniq_ptr_impl.293" }
-%"class.std::__uniq_ptr_impl.293" = type { %"class.std::tuple.294" }
-%"class.std::tuple.294" = type { %"struct.std::_Tuple_impl.295" }
-%"struct.std::_Tuple_impl.295" = type { %"struct.std::_Head_base.298" }
-%"struct.std::_Head_base.298" = type { ptr }
-%"class.std::unique_ptr.299" = type { %"struct.std::__uniq_ptr_data.300" }
-%"struct.std::__uniq_ptr_data.300" = type { %"class.std::__uniq_ptr_impl.301" }
-%"class.std::__uniq_ptr_impl.301" = type { %"class.std::tuple.302" }
-%"class.std::tuple.302" = type { %"struct.std::_Tuple_impl.303" }
-%"struct.std::_Tuple_impl.303" = type { %"struct.std::_Head_base.306" }
-%"struct.std::_Head_base.306" = type { ptr }
+%"class.std::unique_ptr.271" = type { %"struct.std::__uniq_ptr_data.272" }
+%"struct.std::__uniq_ptr_data.272" = type { %"class.std::__uniq_ptr_impl.273" }
+%"class.std::__uniq_ptr_impl.273" = type { %"class.std::tuple.274" }
+%"class.std::tuple.274" = type { %"struct.std::_Tuple_impl.275" }
+%"struct.std::_Tuple_impl.275" = type { %"struct.std::_Head_base.278" }
+%"struct.std::_Head_base.278" = type { ptr }
+%"class.std::unique_ptr.287" = type { %"struct.std::__uniq_ptr_data.288" }
+%"struct.std::__uniq_ptr_data.288" = type { %"class.std::__uniq_ptr_impl.289" }
+%"class.std::__uniq_ptr_impl.289" = type { %"class.std::tuple.290" }
+%"class.std::tuple.290" = type { %"struct.std::_Tuple_impl.291" }
+%"struct.std::_Tuple_impl.291" = type { %"struct.std::_Head_base.294" }
+%"struct.std::_Head_base.294" = type { ptr }
+%"class.std::unique_ptr.295" = type { %"struct.std::__uniq_ptr_data.296" }
+%"struct.std::__uniq_ptr_data.296" = type { %"class.std::__uniq_ptr_impl.297" }
+%"class.std::__uniq_ptr_impl.297" = type { %"class.std::tuple.298" }
+%"class.std::tuple.298" = type { %"struct.std::_Tuple_impl.299" }
+%"struct.std::_Tuple_impl.299" = type { %"struct.std::_Head_base.302" }
+%"struct.std::_Head_base.302" = type { ptr }
+%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"struct.net::QuicIOVector" = type { ptr, i32, i64 }
-%struct._Guard = type { ptr }
 
-$__clang_call_terminate = comdat any
-
-$_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackD2Ev = comdat any
+$_ZN3net44BuildServerConfigUpdateMessageResultCallbackD2Ev = comdat any
 
 $_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackD0Ev = comdat any
 
-$_ZN3net22QuicCryptoServerStream16ValidateCallbackD2Ev = comdat any
-
 $_ZN3net22QuicCryptoServerStream16ValidateCallbackD0Ev = comdat any
 
-$_ZN3net26QuicCryptoServerStreamBaseD2Ev = comdat any
+$_ZN3net16QuicCryptoStreamD2Ev = comdat any
 
 $_ZN3net26QuicCryptoServerStreamBaseD0Ev = comdat any
 
@@ -68,171 +60,192 @@ $_ZThn384_N3net26QuicCryptoServerStreamBaseD1Ev = comdat any
 
 $_ZThn384_N3net26QuicCryptoServerStreamBaseD0Ev = comdat any
 
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
-
-$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
-
 $_ZTVN3net26QuicCryptoServerStreamBaseE = comdat any
-
-$_ZTSN3net26QuicCryptoServerStreamBaseE = comdat any
 
 $_ZTIN3net26QuicCryptoServerStreamBaseE = comdat any
 
-$_ZTSN3net44BuildServerConfigUpdateMessageResultCallbackE = comdat any
+$_ZTSN3net26QuicCryptoServerStreamBaseE = comdat any
 
 $_ZTIN3net44BuildServerConfigUpdateMessageResultCallbackE = comdat any
 
-@_ZTVN3net26QuicCryptoServerStreamBaseE = linkonce_odr dso_local unnamed_addr constant { [31 x ptr], [6 x ptr] } { [31 x ptr] [ptr null, ptr @_ZTIN3net26QuicCryptoServerStreamBaseE, ptr @_ZN3net26QuicCryptoServerStreamBaseD2Ev, ptr @_ZN3net26QuicCryptoServerStreamBaseD0Ev, ptr @_ZN3net18ReliableQuicStream13OnStreamFrameERKNS_15QuicStreamFrameE, ptr @_ZN3net18ReliableQuicStream10OnCanWriteEv, ptr @_ZN3net18ReliableQuicStream7OnCloseEv, ptr @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFrameE, ptr @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13QuicErrorCodeENS_21ConnectionCloseSourceE, ptr @_ZN3net16QuicCryptoStream15OnDataAvailableEv, ptr @_ZN3net18ReliableQuicStream5ResetENS_22QuicRstStreamErrorCodeE, ptr @_ZN3net18ReliableQuicStream26CloseConnectionWithDetailsENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN3net18ReliableQuicStream19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE, ptr @_ZN3net18ReliableQuicStream11StopReadingEv, ptr @_ZNK3net18ReliableQuicStream25PeerAddressOfLatestPacketEv, ptr @_ZN3net18ReliableQuicStream15WritevDataInnerENS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE, ptr @_ZN3net18ReliableQuicStream14CloseWriteSideEv, ptr @_ZN3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE, ptr @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual], [6 x ptr] [ptr inttoptr (i64 -384 to ptr), ptr @_ZTIN3net26QuicCryptoServerStreamBaseE, ptr @_ZThn384_N3net26QuicCryptoServerStreamBaseD1Ev, ptr @_ZThn384_N3net26QuicCryptoServerStreamBaseD0Ev, ptr @_ZThn384_N3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE, ptr @_ZThn384_N3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE] }, comdat, align 8
-@_ZTVN3net22QuicCryptoServerStreamE = dso_local unnamed_addr constant { [33 x ptr], [6 x ptr] } { [33 x ptr] [ptr null, ptr @_ZTIN3net22QuicCryptoServerStreamE, ptr @_ZN3net22QuicCryptoServerStreamD2Ev, ptr @_ZN3net22QuicCryptoServerStreamD0Ev, ptr @_ZN3net18ReliableQuicStream13OnStreamFrameERKNS_15QuicStreamFrameE, ptr @_ZN3net18ReliableQuicStream10OnCanWriteEv, ptr @_ZN3net18ReliableQuicStream7OnCloseEv, ptr @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFrameE, ptr @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13QuicErrorCodeENS_21ConnectionCloseSourceE, ptr @_ZN3net16QuicCryptoStream15OnDataAvailableEv, ptr @_ZN3net18ReliableQuicStream5ResetENS_22QuicRstStreamErrorCodeE, ptr @_ZN3net18ReliableQuicStream26CloseConnectionWithDetailsENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN3net18ReliableQuicStream19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE, ptr @_ZN3net18ReliableQuicStream11StopReadingEv, ptr @_ZNK3net18ReliableQuicStream25PeerAddressOfLatestPacketEv, ptr @_ZN3net18ReliableQuicStream15WritevDataInnerENS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE, ptr @_ZN3net18ReliableQuicStream14CloseWriteSideEv, ptr @_ZN3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE, ptr @_ZN3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE, ptr @_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv, ptr @_ZNK3net22QuicCryptoServerStream30GetBase64SHA256ClientChannelIDEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK3net22QuicCryptoServerStream33NumServerConfigUpdateMessagesSentEv, ptr @_ZN3net22QuicCryptoServerStream22SendServerConfigUpdateEPKNS_23CachedNetworkParametersE, ptr @_ZN3net22QuicCryptoServerStream18OnServerHelloAckedEv, ptr @_ZNK3net22QuicCryptoServerStream20NumHandshakeMessagesEv, ptr @_ZNK3net22QuicCryptoServerStream36NumHandshakeMessagesWithServerNoncesEv, ptr @_ZNK3net22QuicCryptoServerStream34UseStatelessRejectsIfPeerSupportedEv, ptr @_ZNK3net22QuicCryptoServerStream28PeerSupportsStatelessRejectsEv, ptr @_ZN3net22QuicCryptoServerStream31SetPeerSupportsStatelessRejectsEb, ptr @_ZNK3net22QuicCryptoServerStream27PreviousCachedNetworkParamsEv, ptr @_ZN3net22QuicCryptoServerStream30SetPreviousCachedNetworkParamsENS_23CachedNetworkParametersE, ptr @_ZN3net22QuicCryptoServerStream18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EEPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN3net22QuicCryptoServerStream26OverrideQuicConfigDefaultsEPNS_10QuicConfigE], [6 x ptr] [ptr inttoptr (i64 -384 to ptr), ptr @_ZTIN3net22QuicCryptoServerStreamE, ptr @_ZThn384_N3net22QuicCryptoServerStreamD1Ev, ptr @_ZThn384_N3net22QuicCryptoServerStreamD0Ev, ptr @_ZThn384_N3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE, ptr @_ZThn384_N3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE] }, align 8
+$_ZTSN3net44BuildServerConfigUpdateMessageResultCallbackE = comdat any
+
+@_ZTVN3net26QuicCryptoServerStreamBaseE = linkonce_odr unnamed_addr constant { [31 x ptr], [6 x ptr] } { [31 x ptr] [ptr null, ptr @_ZTIN3net26QuicCryptoServerStreamBaseE, ptr @_ZN3net16QuicCryptoStreamD2Ev, ptr @_ZN3net26QuicCryptoServerStreamBaseD0Ev, ptr @_ZN3net18ReliableQuicStream13OnStreamFrameERKNS_15QuicStreamFrameE, ptr @_ZN3net18ReliableQuicStream10OnCanWriteEv, ptr @_ZN3net18ReliableQuicStream7OnCloseEv, ptr @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFrameE, ptr @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13QuicErrorCodeENS_21ConnectionCloseSourceE, ptr @_ZN3net16QuicCryptoStream15OnDataAvailableEv, ptr @_ZN3net18ReliableQuicStream5ResetENS_22QuicRstStreamErrorCodeE, ptr @_ZN3net18ReliableQuicStream26CloseConnectionWithDetailsENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN3net18ReliableQuicStream19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE, ptr @_ZN3net18ReliableQuicStream11StopReadingEv, ptr @_ZNK3net18ReliableQuicStream25PeerAddressOfLatestPacketEv, ptr @_ZN3net18ReliableQuicStream15WritevDataInnerENS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE, ptr @_ZN3net18ReliableQuicStream14CloseWriteSideEv, ptr @_ZN3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE, ptr @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual], [6 x ptr] [ptr inttoptr (i64 -384 to ptr), ptr @_ZTIN3net26QuicCryptoServerStreamBaseE, ptr @_ZThn384_N3net26QuicCryptoServerStreamBaseD1Ev, ptr @_ZThn384_N3net26QuicCryptoServerStreamBaseD0Ev, ptr @_ZThn384_N3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE, ptr @_ZThn384_N3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE] }, comdat, align 8
+@_ZTVN3net22QuicCryptoServerStreamE = unnamed_addr constant { [33 x ptr], [6 x ptr] } { [33 x ptr] [ptr null, ptr @_ZTIN3net22QuicCryptoServerStreamE, ptr @_ZN3net22QuicCryptoServerStreamD1Ev, ptr @_ZN3net22QuicCryptoServerStreamD0Ev, ptr @_ZN3net18ReliableQuicStream13OnStreamFrameERKNS_15QuicStreamFrameE, ptr @_ZN3net18ReliableQuicStream10OnCanWriteEv, ptr @_ZN3net18ReliableQuicStream7OnCloseEv, ptr @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFrameE, ptr @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13QuicErrorCodeENS_21ConnectionCloseSourceE, ptr @_ZN3net16QuicCryptoStream15OnDataAvailableEv, ptr @_ZN3net18ReliableQuicStream5ResetENS_22QuicRstStreamErrorCodeE, ptr @_ZN3net18ReliableQuicStream26CloseConnectionWithDetailsENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN3net18ReliableQuicStream19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE, ptr @_ZN3net18ReliableQuicStream11StopReadingEv, ptr @_ZNK3net18ReliableQuicStream25PeerAddressOfLatestPacketEv, ptr @_ZN3net18ReliableQuicStream15WritevDataInnerENS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE, ptr @_ZN3net18ReliableQuicStream14CloseWriteSideEv, ptr @_ZN3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE, ptr @_ZN3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE, ptr @_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv, ptr @_ZNK3net22QuicCryptoServerStream30GetBase64SHA256ClientChannelIDEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK3net22QuicCryptoServerStream33NumServerConfigUpdateMessagesSentEv, ptr @_ZN3net22QuicCryptoServerStream22SendServerConfigUpdateEPKNS_23CachedNetworkParametersE, ptr @_ZN3net22QuicCryptoServerStream18OnServerHelloAckedEv, ptr @_ZNK3net22QuicCryptoServerStream20NumHandshakeMessagesEv, ptr @_ZNK3net22QuicCryptoServerStream36NumHandshakeMessagesWithServerNoncesEv, ptr @_ZNK3net22QuicCryptoServerStream34UseStatelessRejectsIfPeerSupportedEv, ptr @_ZNK3net22QuicCryptoServerStream28PeerSupportsStatelessRejectsEv, ptr @_ZN3net22QuicCryptoServerStream31SetPeerSupportsStatelessRejectsEb, ptr @_ZNK3net22QuicCryptoServerStream27PreviousCachedNetworkParamsEv, ptr @_ZN3net22QuicCryptoServerStream30SetPreviousCachedNetworkParamsENS_23CachedNetworkParametersE, ptr @_ZN3net22QuicCryptoServerStream18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EEPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN3net22QuicCryptoServerStream26OverrideQuicConfigDefaultsEPNS_10QuicConfigE], [6 x ptr] [ptr inttoptr (i64 -384 to ptr), ptr @_ZTIN3net22QuicCryptoServerStreamE, ptr @_ZThn384_N3net22QuicCryptoServerStreamD1Ev, ptr @_ZThn384_N3net22QuicCryptoServerStreamD0Ev, ptr @_ZThn384_N3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE, ptr @_ZThn384_N3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE] }, align 8
 @.str.1 = private unnamed_addr constant [41 x i8] c"Unexpected handshake message from client\00", align 1
 @.str.2 = private unnamed_addr constant [26 x i8] c"Handshake packet not CHLO\00", align 1
 @.str.3 = private unnamed_addr constant [51 x i8] c"Unexpected handshake message while processing CHLO\00", align 1
 @.str.4 = private unnamed_addr constant [17 x i8] c"stateless reject\00", align 1
 @FLAGS_enable_async_get_proof = external local_unnamed_addr global i8, align 1
-@_ZTVN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE = dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, ptr @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackD2Ev, ptr @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackD0Ev, ptr @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallback3RunEbRKNS_22CryptoHandshakeMessageE] }, align 8
-@_ZTVN3net22QuicCryptoServerStream16ValidateCallbackE = dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3net22QuicCryptoServerStream16ValidateCallbackE, ptr @_ZN3net22QuicCryptoServerStream16ValidateCallbackD2Ev, ptr @_ZN3net22QuicCryptoServerStream16ValidateCallbackD0Ev, ptr @_ZN3net22QuicCryptoServerStream16ValidateCallback3RunESt10unique_ptrINS_33ValidateClientHelloResultCallback6ResultESt14default_deleteIS4_EES2_INS_11ProofSource7DetailsES5_IS9_EE] }, align 8
+@_ZTVN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, ptr @_ZN3net44BuildServerConfigUpdateMessageResultCallbackD2Ev, ptr @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackD0Ev, ptr @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallback3RunEbRKNS_22CryptoHandshakeMessageE] }, align 8
+@_ZTVN3net22QuicCryptoServerStream16ValidateCallbackE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3net22QuicCryptoServerStream16ValidateCallbackE, ptr @_ZN3net33ValidateClientHelloResultCallbackD2Ev, ptr @_ZN3net22QuicCryptoServerStream16ValidateCallbackD0Ev, ptr @_ZN3net22QuicCryptoServerStream16ValidateCallback3RunESt10unique_ptrINS_33ValidateClientHelloResultCallback6ResultESt14default_deleteIS4_EES2_INS_11ProofSource7DetailsES5_IS9_EE] }, align 8
+@_ZTIN3net22QuicCryptoServerStreamE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net22QuicCryptoServerStreamE, ptr @_ZTIN3net26QuicCryptoServerStreamBaseE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN3net22QuicCryptoServerStreamE = dso_local constant [31 x i8] c"N3net22QuicCryptoServerStreamE\00", align 1
-@_ZTSN3net26QuicCryptoServerStreamBaseE = linkonce_odr dso_local constant [35 x i8] c"N3net26QuicCryptoServerStreamBaseE\00", comdat, align 1
+@_ZTSN3net22QuicCryptoServerStreamE = constant [31 x i8] c"N3net22QuicCryptoServerStreamE\00", align 1
+@_ZTIN3net26QuicCryptoServerStreamBaseE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net26QuicCryptoServerStreamBaseE, ptr @_ZTIN3net16QuicCryptoStreamE }, comdat, align 8
+@_ZTSN3net26QuicCryptoServerStreamBaseE = linkonce_odr constant [35 x i8] c"N3net26QuicCryptoServerStreamBaseE\00", comdat, align 1
 @_ZTIN3net16QuicCryptoStreamE = external constant ptr
-@_ZTIN3net26QuicCryptoServerStreamBaseE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net26QuicCryptoServerStreamBaseE, ptr @_ZTIN3net16QuicCryptoStreamE }, comdat, align 8
-@_ZTIN3net22QuicCryptoServerStreamE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net22QuicCryptoServerStreamE, ptr @_ZTIN3net26QuicCryptoServerStreamBaseE }, align 8
-@_ZTSN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE = dso_local constant [63 x i8] c"N3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE\00", align 1
+@_ZTIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, ptr @_ZTIN3net44BuildServerConfigUpdateMessageResultCallbackE }, align 8
+@_ZTSN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE = constant [63 x i8] c"N3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE\00", align 1
+@_ZTIN3net44BuildServerConfigUpdateMessageResultCallbackE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3net44BuildServerConfigUpdateMessageResultCallbackE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN3net44BuildServerConfigUpdateMessageResultCallbackE = linkonce_odr dso_local constant [53 x i8] c"N3net44BuildServerConfigUpdateMessageResultCallbackE\00", comdat, align 1
-@_ZTIN3net44BuildServerConfigUpdateMessageResultCallbackE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3net44BuildServerConfigUpdateMessageResultCallbackE }, comdat, align 8
-@_ZTIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, ptr @_ZTIN3net44BuildServerConfigUpdateMessageResultCallbackE }, align 8
-@_ZTSN3net22QuicCryptoServerStream16ValidateCallbackE = dso_local constant [49 x i8] c"N3net22QuicCryptoServerStream16ValidateCallbackE\00", align 1
+@_ZTSN3net44BuildServerConfigUpdateMessageResultCallbackE = linkonce_odr constant [53 x i8] c"N3net44BuildServerConfigUpdateMessageResultCallbackE\00", comdat, align 1
+@_ZTIN3net22QuicCryptoServerStream16ValidateCallbackE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net22QuicCryptoServerStream16ValidateCallbackE, ptr @_ZTIN3net33ValidateClientHelloResultCallbackE }, align 8
+@_ZTSN3net22QuicCryptoServerStream16ValidateCallbackE = constant [49 x i8] c"N3net22QuicCryptoServerStream16ValidateCallbackE\00", align 1
 @_ZTIN3net33ValidateClientHelloResultCallbackE = external constant ptr
-@_ZTIN3net22QuicCryptoServerStream16ValidateCallbackE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net22QuicCryptoServerStream16ValidateCallbackE, ptr @_ZTIN3net33ValidateClientHelloResultCallbackE }, align 8
 @_ZTVN3net16QuicCryptoStreamE = external unnamed_addr constant { [19 x ptr], [6 x ptr] }, align 8
 
-@_ZN3net22QuicCryptoServerStreamC1EPKNS_22QuicCryptoServerConfigEPNS_24QuicCompressedCertsCacheEbPNS_11QuicSessionEPNS0_6HelperE = dso_local unnamed_addr alias void (ptr, ptr, ptr, i1, ptr, ptr), ptr @_ZN3net22QuicCryptoServerStreamC2EPKNS_22QuicCryptoServerConfigEPNS_24QuicCompressedCertsCacheEbPNS_11QuicSessionEPNS0_6HelperE
-@_ZN3net22QuicCryptoServerStreamD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net22QuicCryptoServerStreamD2Ev
-@_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackC1EPS0_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackC2EPS0_
-@_ZN3net22QuicCryptoServerStream16ValidateCallbackC1EPS0_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3net22QuicCryptoServerStream16ValidateCallbackC2EPS0_
+@_ZN3net22QuicCryptoServerStreamC1EPKNS_22QuicCryptoServerConfigEPNS_24QuicCompressedCertsCacheEbPNS_11QuicSessionEPNS0_6HelperE = unnamed_addr alias void (ptr, ptr, ptr, i1, ptr, ptr), ptr @_ZN3net22QuicCryptoServerStreamC2EPKNS_22QuicCryptoServerConfigEPNS_24QuicCompressedCertsCacheEbPNS_11QuicSessionEPNS0_6HelperE
+@_ZN3net22QuicCryptoServerStreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3net22QuicCryptoServerStreamD2Ev
+@_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackC1EPS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackC2EPS0_
+@_ZN3net22QuicCryptoServerStream16ValidateCallbackC1EPS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3net22QuicCryptoServerStream16ValidateCallbackC2EPS0_
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net26QuicCryptoServerStreamBaseC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %session) unnamed_addr #0 align 2 {
-entry:
-  tail call void @_ZN3net16QuicCryptoStreamC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %session)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26QuicCryptoServerStreamBaseE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 384
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26QuicCryptoServerStreamBaseE, i64 264), ptr %add.ptr, align 8
+define void @_ZN3net26QuicCryptoServerStreamBaseC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  tail call void @_ZN3net16QuicCryptoStreamC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1)
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3net26QuicCryptoServerStreamBaseE, i64 16), ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3net26QuicCryptoServerStreamBaseE, i64 264), ptr %3, align 8, !tbaa !3
   ret void
 }
 
 declare void @_ZN3net16QuicCryptoStreamC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(72) %message) local_unnamed_addr #0 align 2 {
-entry:
-  %received_tags = alloca ptr, align 8
-  %received_tags_length = alloca i64, align 8
-  %call = call noundef i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr noundef nonnull align 8 dereferenceable(72) %message, i32 noundef 1414549315, ptr noundef nonnull %received_tags, ptr noundef nonnull %received_tags_length)
-  %cmp.not = icmp eq i32 %call, 0
-  br i1 %cmp.not, label %for.cond.preheader, label %return
+define noundef zeroext i1 @_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  %4 = call noundef i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 1414549315, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.cond.preheader:                               ; preds = %entry
-  %0 = load i64, ptr %received_tags_length, align 8
-  %cmp13.not = icmp eq i64 %0, 0
-  br i1 %cmp13.not, label %return, label %for.body.lr.ph
+.preheader:                                       ; preds = %1
+  %5 = load i64, ptr %3, align 8, !tbaa !6
+  %.not89.not = icmp eq i64 %5, 0
+  br i1 %.not89.not, label %.loopexit, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %1 = load ptr, ptr %received_tags, align 8
-  br label %for.body
+.lr.ph:                                           ; preds = %.preheader
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  br label %7
 
-for.body:                                         ; preds = %for.body, %for.body.lr.ph
-  %i.04 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 %i.04
-  %2 = load i32, ptr %arrayidx, align 4
-  %cmp2 = icmp eq i32 %2, 1246057043
-  %inc = add nuw i64 %i.04, 1
-  %exitcond.not = icmp eq i64 %inc, %0
-  %or.cond = select i1 %cmp2, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %return, label %for.body, !llvm.loop !5
+7:                                                ; preds = %7, %.lr.ph
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %.010
+  %9 = load i32, ptr %8, align 4, !tbaa !12
+  %10 = icmp eq i32 %9, 1246057043
+  %11 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %11, %5
+  %or.cond = select i1 %10, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %.loopexit, label %7, !llvm.loop !14
 
-return:                                           ; preds = %for.body, %for.cond.preheader, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %for.cond.preheader ], [ %cmp2, %for.body ]
-  ret i1 %retval.0
+.loopexit:                                        ; preds = %7, %.preheader, %1
+  %.07 = phi i1 [ false, %1 ], [ false, %.preheader ], [ %10, %7 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  ret i1 %.07
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStreamC2EPKNS_22QuicCryptoServerConfigEPNS_24QuicCompressedCertsCacheEbPNS_11QuicSessionEPNS0_6HelperE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %crypto_config, ptr noundef %compressed_certs_cache, i1 noundef zeroext %use_stateless_rejects_if_peer_supported, ptr noundef %session, ptr noundef %helper) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN3net16QuicCryptoStreamC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %session)
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 384
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 280), ptr %add.ptr.i, align 8
-  %crypto_config_ = getelementptr inbounds nuw i8, ptr %this, i64 1048
-  store ptr %crypto_config, ptr %crypto_config_, align 8
-  %compressed_certs_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 1056
-  store ptr %compressed_certs_cache, ptr %compressed_certs_cache_, align 8
-  %crypto_proof_ = getelementptr inbounds nuw i8, ptr %this, i64 1064
-  invoke void @_ZN3net15QuicCryptoProofC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %crypto_proof_)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN3net22QuicCryptoServerStreamC2EPKNS_22QuicCryptoServerConfigEPNS_24QuicCompressedCertsCacheEbPNS_11QuicSessionEPNS0_6HelperE(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN3net16QuicCryptoStreamC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %4)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 280), ptr %7, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  store ptr %1, ptr %8, align 8, !tbaa !16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  store ptr %2, ptr %9, align 8, !tbaa !137
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  invoke void @_ZN3net15QuicCryptoProofC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10)
+          to label %11 unwind label %23
 
-invoke.cont:                                      ; preds = %entry
-  %chlo_hash_ = getelementptr inbounds nuw i8, ptr %this, i64 1176
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_) #16
-  %validate_client_hello_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 1208
-  store ptr null, ptr %validate_client_hello_cb_, align 8
-  %helper_ = getelementptr inbounds nuw i8, ptr %this, i64 1216
-  store ptr %helper, ptr %helper_, align 8
-  %num_handshake_messages_ = getelementptr inbounds nuw i8, ptr %this, i64 1224
-  store i8 0, ptr %num_handshake_messages_, align 8
-  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds nuw i8, ptr %this, i64 1225
-  store i8 0, ptr %num_handshake_messages_with_server_nonces_, align 1
-  %send_server_config_update_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 1232
-  store ptr null, ptr %send_server_config_update_cb_, align 8
-  %num_server_config_update_messages_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 1240
-  store i32 0, ptr %num_server_config_update_messages_sent_, align 8
-  %previous_cached_network_params_ = getelementptr inbounds nuw i8, ptr %this, i64 1248
-  store ptr null, ptr %previous_cached_network_params_, align 8
-  %previous_source_address_tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 1256
-  invoke void @_ZN3net19SourceAddressTokensC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_)
-          to label %if.end unwind label %ehcleanup14
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  store ptr %13, ptr %12, align 8, !tbaa !138
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1184
+  store i64 0, ptr %14, align 8, !tbaa !139
+  store i8 0, ptr %13, align 8, !tbaa !140
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  store ptr null, ptr %15, align 8, !tbaa !141
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  store ptr %5, ptr %16, align 8, !tbaa !142
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  store i8 0, ptr %17, align 8, !tbaa !143
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1225
+  store i8 0, ptr %18, align 1, !tbaa !144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1232
+  store ptr null, ptr %19, align 8, !tbaa !145
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  store i32 0, ptr %20, align 8, !tbaa !146
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  store ptr null, ptr %21, align 8, !tbaa !147
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  invoke void @_ZN3net19SourceAddressTokensC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22)
+          to label %25 unwind label %30
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup17
+  br label %40
 
-if.end:                                           ; preds = %invoke.cont
-  %frombool = zext i1 %use_stateless_rejects_if_peer_supported to i8
-  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds nuw i8, ptr %this, i64 1312
-  store i8 %frombool, ptr %use_stateless_rejects_if_peer_supported_, align 8
-  %peer_supports_stateless_rejects_ = getelementptr inbounds nuw i8, ptr %this, i64 1313
-  store i8 0, ptr %peer_supports_stateless_rejects_, align 1
-  %chlo_packet_size_ = getelementptr inbounds nuw i8, ptr %this, i64 1320
-  store i64 0, ptr %chlo_packet_size_, align 8
+25:                                               ; preds = %11
+  %26 = zext i1 %3 to i8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  store i8 %26, ptr %27, align 8, !tbaa !148
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1313
+  store i8 0, ptr %28, align 1, !tbaa !149
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  store i64 0, ptr %29, align 8, !tbaa !150
   ret void
 
-ehcleanup14:                                      ; preds = %invoke.cont
-  %1 = landingpad { ptr, i32 }
+30:                                               ; preds = %11
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %2 = load ptr, ptr %previous_cached_network_params_, align 8
-  %cmp.not.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
+  %32 = load ptr, ptr %21, align 8, !tbaa !151
+  %.not.i11 = icmp eq ptr %32, null
+  br i1 %.not.i11, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i: ; preds = %ehcleanup14
-  %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %3 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2) #16
+_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i: ; preds = %30
+  %33 = load ptr, ptr %32, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(72) %32) #17
   br label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit: ; preds = %ehcleanup14, %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
-  store ptr null, ptr %previous_cached_network_params_, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_) #16
-  tail call void @_ZN3net15QuicCryptoProofD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %crypto_proof_) #16
-  br label %ehcleanup17
+_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit: ; preds = %30, %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
+  store ptr null, ptr %21, align 8, !tbaa !151
+  %36 = load ptr, ptr %12, align 8, !tbaa !152
+  %37 = icmp eq ptr %36, %13
+  br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-ehcleanup17:                                      ; preds = %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %1, %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit ], [ %0, %lpad ]
-  tail call void @_ZN3net26QuicCryptoServerStreamBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) #16
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit
+  %38 = load i64, ptr %14, align 8, !tbaa !139
+  %39 = icmp ult i64 %38, 16
+  tail call void @llvm.assume(i1 %39)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef %36) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  tail call void @_ZN3net15QuicCryptoProofD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10) #17
+  br label %40
+
+40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %23
+  %.pn.pn = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %24, %23 ]
+  tail call void @_ZN3net16QuicCryptoStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) #17
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -240,780 +253,901 @@ declare void @_ZN3net15QuicCryptoProofC1Ev(ptr noundef nonnull align 8 dereferen
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
-
 declare void @_ZN3net19SourceAddressTokensC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN3net19SourceAddressTokensD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
+declare void @_ZN3net19SourceAddressTokensD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
-
-; Function Attrs: nounwind
-declare void @_ZN3net15QuicCryptoProofD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
+declare void @_ZN3net15QuicCryptoProofD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1328) initializes((0, 8), (384, 392)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 384
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 280), ptr %add.ptr, align 8
-  %validate_client_hello_cb_.i = getelementptr inbounds nuw i8, ptr %this, i64 1208
-  %0 = load ptr, ptr %validate_client_hello_cb_.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+define void @_ZN3net22QuicCryptoServerStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1328) initializes((0, 8), (384, 392)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 16), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3net22QuicCryptoServerStreamE, i64 280), ptr %2, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %4 = load ptr, ptr %3, align 8, !tbaa !141
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %7, label %5
 
-if.then.i:                                        ; preds = %entry
-  %parent_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %parent_.i.i, align 8
-  store ptr null, ptr %validate_client_hello_cb_.i, align 8
-  br label %if.end.i
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %6, align 8, !tbaa !153
+  store ptr null, ptr %3, align 8, !tbaa !141
+  br label %7
 
-if.end.i:                                         ; preds = %if.then.i, %entry
-  %send_server_config_update_cb_.i = getelementptr inbounds nuw i8, ptr %this, i64 1232
-  %1 = load ptr, ptr %send_server_config_update_cb_.i, align 8
-  %cmp4.not.i = icmp eq ptr %1, null
-  br i1 %cmp4.not.i, label %invoke.cont, label %if.then5.i
+7:                                                ; preds = %5, %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1232
+  %9 = load ptr, ptr %8, align 8, !tbaa !145
+  %.not2.i = icmp eq ptr %9, null
+  br i1 %.not2.i, label %_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv.exit, label %10
 
-if.then5.i:                                       ; preds = %if.end.i
-  %parent_.i2.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr null, ptr %parent_.i2.i, align 8
-  store ptr null, ptr %send_server_config_update_cb_.i, align 8
-  br label %invoke.cont
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr null, ptr %11, align 8, !tbaa !157
+  store ptr null, ptr %8, align 8, !tbaa !145
+  br label %_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv.exit
 
-invoke.cont:                                      ; preds = %if.then5.i, %if.end.i
-  %previous_source_address_tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 1256
-  tail call void @_ZN3net19SourceAddressTokensD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_) #16
-  %previous_cached_network_params_ = getelementptr inbounds nuw i8, ptr %this, i64 1248
-  %2 = load ptr, ptr %previous_cached_network_params_, align 8
-  %cmp.not.i1 = icmp eq ptr %2, null
-  br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
+_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv.exit: ; preds = %10, %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  tail call void @_ZN3net19SourceAddressTokensD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %14 = load ptr, ptr %13, align 8, !tbaa !151
+  %.not.i1 = icmp eq ptr %14, null
+  br i1 %.not.i1, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i: ; preds = %invoke.cont
-  %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %3 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2) #16
+_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i: ; preds = %_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv.exit
+  %15 = load ptr, ptr %14, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(72) %14) #17
   br label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
-  store ptr null, ptr %previous_cached_network_params_, align 8
-  %chlo_hash_ = getelementptr inbounds nuw i8, ptr %this, i64 1176
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_) #16
-  %crypto_proof_ = getelementptr inbounds nuw i8, ptr %this, i64 1064
-  tail call void @_ZN3net15QuicCryptoProofD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %crypto_proof_) #16
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %add.ptr, align 8
-  %crypto_framer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 840
-  tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i.i) #16
-  %crypto_negotiated_params_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 400
-  tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i.i) #16
-  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) #16
+_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv.exit, %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i
+  store ptr null, ptr %13, align 8, !tbaa !151
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  %19 = load ptr, ptr %18, align 8, !tbaa !152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1184
+  %23 = load i64, ptr %22, align 8, !tbaa !139
+  %24 = icmp ult i64 %23, 16
+  tail call void @llvm.assume(i1 %24)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef %19) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  tail call void @_ZN3net15QuicCryptoProofD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %25) #17
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %2, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %26) #17
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %27) #17
+  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) #17
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #17
-  unreachable
-}
-
-declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
-
-; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #5
-
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn384_N3net22QuicCryptoServerStreamD1Ev(ptr noundef initializes((-384, -376), (0, 8)) %this) unnamed_addr #6 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -384
-  tail call void @_ZN3net22QuicCryptoServerStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1328) %0) #16
+define void @_ZThn384_N3net22QuicCryptoServerStreamD1Ev(ptr noundef %0) unnamed_addr #5 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -384
+  tail call void @_ZN3net22QuicCryptoServerStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(1328) %2) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(1328) initializes((0, 8), (384, 392)) %this) unnamed_addr #3 align 2 {
-entry:
-  tail call void @_ZN3net22QuicCryptoServerStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1328) %this) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+define void @_ZN3net22QuicCryptoServerStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(1328) %0) unnamed_addr #4 align 2 {
+  tail call void @_ZN3net22QuicCryptoServerStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(1328) %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn384_N3net22QuicCryptoServerStreamD0Ev(ptr noundef initializes((-384, -376), (0, 8)) %this) unnamed_addr #6 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -384
-  tail call void @_ZN3net22QuicCryptoServerStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1328) %0) #16
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1328) %0) #18
+define void @_ZThn384_N3net22QuicCryptoServerStreamD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -384
+  tail call void @_ZN3net22QuicCryptoServerStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(1328) %2) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1328) %2) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1328) %this) unnamed_addr #8 align 2 {
-entry:
-  %validate_client_hello_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 1208
-  %0 = load ptr, ptr %validate_client_hello_cb_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN3net22QuicCryptoServerStream26CancelOutstandingCallbacksEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1328) %0) unnamed_addr #7 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %3 = load ptr, ptr %2, align 8, !tbaa !141
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %6, label %4
 
-if.then:                                          ; preds = %entry
-  %parent_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %parent_.i, align 8
-  store ptr null, ptr %validate_client_hello_cb_, align 8
-  br label %if.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %5, align 8, !tbaa !153
+  store ptr null, ptr %2, align 8, !tbaa !141
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
-  %send_server_config_update_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 1232
-  %1 = load ptr, ptr %send_server_config_update_cb_, align 8
-  %cmp4.not = icmp eq ptr %1, null
-  br i1 %cmp4.not, label %if.end8, label %if.then5
+6:                                                ; preds = %4, %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1232
+  %8 = load ptr, ptr %7, align 8, !tbaa !145
+  %.not2 = icmp eq ptr %8, null
+  br i1 %.not2, label %11, label %9
 
-if.then5:                                         ; preds = %if.end
-  %parent_.i2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr null, ptr %parent_.i2, align 8
-  store ptr null, ptr %send_server_config_update_cb_, align 8
-  br label %if.end8
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr null, ptr %10, align 8, !tbaa !157
+  store ptr null, ptr %7, align 8, !tbaa !145
+  br label %11
 
-if.end8:                                          ; preds = %if.then5, %if.end
+11:                                               ; preds = %9, %6
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream16ValidateCallback6CancelEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 16)) %this) local_unnamed_addr #9 align 2 {
-entry:
-  %parent_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr null, ptr %parent_, align 8
+define void @_ZN3net22QuicCryptoServerStream16ValidateCallback6CancelEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 16)) %0) local_unnamed_addr #8 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %2, align 8, !tbaa !153
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallback6CancelEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 16)) %this) local_unnamed_addr #9 align 2 {
-entry:
-  %parent_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr null, ptr %parent_, align 8
+define void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallback6CancelEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 16)) %0) local_unnamed_addr #8 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %2, align 8, !tbaa !157
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp6 = alloca %"class.std::allocator.10", align 1
-  %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp12 = alloca %"class.std::allocator.10", align 1
-  %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp25 = alloca %"class.std::allocator.10", align 1
-  %agg.tmp = alloca %"class.std::unique_ptr.267", align 8
-  tail call void @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(72) %message)
-  %num_handshake_messages_ = getelementptr inbounds nuw i8, ptr %this, i64 1224
-  %0 = load i8, ptr %num_handshake_messages_, align 8
-  %inc = add i8 %0, 1
-  store i8 %inc, ptr %num_handshake_messages_, align 8
-  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %1 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %2 = load ptr, ptr %connection_.i, align 8
-  %call3 = tail call { ptr, i64 } @_ZN3net14QuicConnection16GetCurrentPacketB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(3372) %2)
-  %3 = extractvalue { ptr, i64 } %call3, 0
-  store ptr %3, ptr %ref.tmp, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %5 = extractvalue { ptr, i64 } %call3, 1
-  store i64 %5, ptr %4, align 8
-  %call4 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %chlo_packet_size_ = getelementptr inbounds nuw i8, ptr %this, i64 1320
-  store i64 %call4, ptr %chlo_packet_size_, align 8
-  %handshake_confirmed_ = getelementptr inbounds nuw i8, ptr %this, i64 393
-  %6 = load i8, ptr %handshake_confirmed_, align 1
-  %tobool = trunc i8 %6 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZN3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = alloca %"class.std::__cxx11::basic_string", align 8
+  %8 = alloca %"class.std::__cxx11::basic_string", align 8
+  %9 = alloca %"class.std::unique_ptr.263", align 8
+  tail call void @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %11 = load i8, ptr %10, align 8, !tbaa !143
+  %12 = add i8 %11, 1
+  store i8 %12, ptr %10, align 8, !tbaa !143
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %14 = load ptr, ptr %13, align 8, !tbaa !160
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %16 = load ptr, ptr %15, align 8, !tbaa !161
+  %17 = tail call { ptr, i64 } @_ZN3net14QuicConnection16GetCurrentPacketB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(3372) %16)
+  %18 = extractvalue { ptr, i64 } %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  store i64 %18, ptr %19, align 8, !tbaa !150
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 393
+  %21 = load i8, ptr %20, align 1, !tbaa !207, !range !208, !noundef !209
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %.noexc.i, label %44
 
-if.then:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #16
-  %call.i12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
-          to label %call.i.noexc unwind label %lpad
+.noexc.i:                                         ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %23, ptr %6, align 8, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  store i64 40, ptr %5, align 8, !tbaa !6
+  %24 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
+          to label %.noexc unwind label %36
 
-call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef %call.i12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
-          to label %.noexc unwind label %lpad
+.noexc:                                           ; preds = %.noexc.i
+  store ptr %24, ptr %6, align 8, !tbaa !152
+  %25 = load i64, ptr %5, align 8, !tbaa !6
+  store i64 %25, ptr %23, align 8, !tbaa !140
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %24, ptr noundef nonnull align 1 dereferenceable(40) @.str.1, i64 40, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %25, ptr %26, align 8, !tbaa !139
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %25
+  store i8 0, ptr %27, align 1, !tbaa !140
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  %28 = load ptr, ptr %0, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %30 = load ptr, ptr %29, align 8
+  invoke void %30(ptr noundef nonnull align 8 dereferenceable(377) %0, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %31 unwind label %38
 
-.noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 40))
-          to label %invoke.cont unwind label %lpad.i
+31:                                               ; preds = %.noexc
+  %32 = load ptr, ptr %6, align 8, !tbaa !152
+  %33 = icmp eq ptr %32, %23
+  br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-lpad.i:                                           ; preds = %.noexc
-  %7 = landingpad { ptr, i32 }
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %31
+  %34 = load i64, ptr %26, align 8, !tbaa !139
+  %35 = icmp ult i64 %34, 16
+  call void @llvm.assume(i1 %35)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %31
+  call void @_ZdlPv(ptr noundef %32) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit
+
+36:                                               ; preds = %.noexc.i
+  %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #16
-  br label %ehcleanup
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
-invoke.cont:                                      ; preds = %.noexc
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
-  %8 = load ptr, ptr %vfn, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
-          to label %invoke.cont8 unwind label %lpad7
-
-invoke.cont8:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #16
-  br label %return
-
-lpad:                                             ; preds = %call.i.noexc, %if.then
-  %9 = landingpad { ptr, i32 }
+38:                                               ; preds = %.noexc
+  %39 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  %40 = load ptr, ptr %6, align 8, !tbaa !152
+  %41 = icmp eq ptr %40, %23
+  br i1 %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
 
-lpad7:                                            ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23: ; preds = %38
+  %42 = load i64, ptr %26, align 8, !tbaa !139
+  %43 = icmp ult i64 %42, 16
+  call void @llvm.assume(i1 %43)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22: ; preds = %38
+  call void @_ZdlPv(ptr noundef %40) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, %36
+  %.pn19 = phi { ptr, i32 } [ %37, %36 ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23 ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit51
+
+44:                                               ; preds = %2
+  %45 = load i32, ptr %1, align 8, !tbaa !210
+  %.not = icmp eq i32 %45, 1330399299
+  br i1 %.not, label %68, label %.noexc.i26
+
+.noexc.i26:                                       ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %46, ptr %7, align 8, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  store i64 25, ptr %4, align 8, !tbaa !6
+  %47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
+          to label %.noexc27 unwind label %60
+
+.noexc27:                                         ; preds = %.noexc.i26
+  store ptr %47, ptr %7, align 8, !tbaa !152
+  %48 = load i64, ptr %4, align 8, !tbaa !6
+  store i64 %48, ptr %46, align 8, !tbaa !140
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %47, ptr noundef nonnull align 1 dereferenceable(25) @.str.2, i64 25, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %48, ptr %49, align 8, !tbaa !139
+  %50 = load ptr, ptr %7, align 8, !tbaa !152
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %48
+  store i8 0, ptr %51, align 1, !tbaa !140
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  %52 = load ptr, ptr %0, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 72
+  %54 = load ptr, ptr %53, align 8
+  invoke void %54(ptr noundef nonnull align 8 dereferenceable(377) %0, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %55 unwind label %62
+
+55:                                               ; preds = %.noexc27
+  %56 = load ptr, ptr %7, align 8, !tbaa !152
+  %57 = icmp eq ptr %56, %46
+  br i1 %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30: ; preds = %55
+  %58 = load i64, ptr %49, align 8, !tbaa !139
+  %59 = icmp ult i64 %58, 16
+  call void @llvm.assume(i1 %59)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29: ; preds = %55
+  call void @_ZdlPv(ptr noundef %56) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit
+
+60:                                               ; preds = %.noexc.i26
+  %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #16
-  br label %ehcleanup
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
-ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad7
-  %.pn9 = phi { ptr, i32 } [ %10, %lpad7 ], [ %9, %lpad ], [ %7, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #16
-  br label %eh.resume
-
-if.end:                                           ; preds = %entry
-  %11 = load i32, ptr %message, align 8
-  %cmp.not = icmp eq i32 %11, 1330399299
-  br i1 %cmp.not, label %if.end21, label %if.then10
-
-if.then10:                                        ; preds = %if.end
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #16
-  %call.i17 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
-          to label %call.i.noexc16 unwind label %lpad13
-
-call.i.noexc16:                                   ; preds = %if.then10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
-          to label %.noexc18 unwind label %lpad13
-
-.noexc18:                                         ; preds = %call.i.noexc16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 25))
-          to label %invoke.cont14 unwind label %lpad.i15
-
-lpad.i15:                                         ; preds = %.noexc18
-  %12 = landingpad { ptr, i32 }
+62:                                               ; preds = %.noexc27
+  %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #16
-  br label %ehcleanup20
+  %64 = load ptr, ptr %7, align 8, !tbaa !152
+  %65 = icmp eq ptr %64, %46
+  br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
 
-invoke.cont14:                                    ; preds = %.noexc18
-  %vtable15 = load ptr, ptr %this, align 8
-  %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 72
-  %13 = load ptr, ptr %vfn16, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
-          to label %invoke.cont18 unwind label %lpad17
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33: ; preds = %62
+  %66 = load i64, ptr %49, align 8, !tbaa !139
+  %67 = icmp ult i64 %66, 16
+  call void @llvm.assume(i1 %67)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
-invoke.cont18:                                    ; preds = %invoke.cont14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #16
-  br label %return
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32: ; preds = %62
+  call void @_ZdlPv(ptr noundef %64) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
-lpad13:                                           ; preds = %call.i.noexc16, %if.then10
-  %14 = landingpad { ptr, i32 }
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, %60
+  %.pn17 = phi { ptr, i32 } [ %61, %60 ], [ %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33 ], [ %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit51
+
+68:                                               ; preds = %44
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %70 = load ptr, ptr %69, align 8, !tbaa !141
+  %.not12 = icmp eq ptr %70, null
+  br i1 %.not12, label %92, label %.noexc.i36
+
+.noexc.i36:                                       ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %71, ptr %8, align 8, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  store i64 50, ptr %3, align 8, !tbaa !6
+  %72 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+          to label %.noexc37 unwind label %84
+
+.noexc37:                                         ; preds = %.noexc.i36
+  store ptr %72, ptr %8, align 8, !tbaa !152
+  %73 = load i64, ptr %3, align 8, !tbaa !6
+  store i64 %73, ptr %71, align 8, !tbaa !140
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(50) %72, ptr noundef nonnull align 1 dereferenceable(50) @.str.3, i64 50, i1 false)
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %73, ptr %74, align 8, !tbaa !139
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %73
+  store i8 0, ptr %75, align 1, !tbaa !140
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  %76 = load ptr, ptr %0, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 72
+  %78 = load ptr, ptr %77, align 8
+  invoke void %78(ptr noundef nonnull align 8 dereferenceable(377) %0, i32 noundef 54, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %79 unwind label %86
+
+79:                                               ; preds = %.noexc37
+  %80 = load ptr, ptr %8, align 8, !tbaa !152
+  %81 = icmp eq ptr %80, %71
+  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40: ; preds = %79
+  %82 = load i64, ptr %74, align 8, !tbaa !139
+  %83 = icmp ult i64 %82, 16
+  call void @llvm.assume(i1 %83)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39: ; preds = %79
+  call void @_ZdlPv(ptr noundef %80) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit
+
+84:                                               ; preds = %.noexc.i36
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup20
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
 
-lpad17:                                           ; preds = %invoke.cont14
-  %15 = landingpad { ptr, i32 }
+86:                                               ; preds = %.noexc37
+  %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #16
-  br label %ehcleanup20
+  %88 = load ptr, ptr %8, align 8, !tbaa !152
+  %89 = icmp eq ptr %88, %71
+  br i1 %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
 
-ehcleanup20:                                      ; preds = %lpad13, %lpad.i15, %lpad17
-  %.pn7 = phi { ptr, i32 } [ %15, %lpad17 ], [ %14, %lpad13 ], [ %12, %lpad.i15 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #16
-  br label %eh.resume
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43: ; preds = %86
+  %90 = load i64, ptr %74, align 8, !tbaa !139
+  %91 = icmp ult i64 %90, 16
+  call void @llvm.assume(i1 %91)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
 
-if.end21:                                         ; preds = %if.end
-  %validate_client_hello_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 1208
-  %16 = load ptr, ptr %validate_client_hello_cb_, align 8
-  %cmp22.not = icmp eq ptr %16, null
-  br i1 %cmp22.not, label %if.end34, label %if.then23
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42: ; preds = %86
+  call void @_ZdlPv(ptr noundef %88) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
 
-if.then23:                                        ; preds = %if.end21
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #16
-  %call.i25 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24)
-          to label %call.i.noexc24 unwind label %lpad26
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43, %84
+  %.pn15 = phi { ptr, i32 } [ %85, %84 ], [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43 ], [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit51
 
-call.i.noexc24:                                   ; preds = %if.then23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef %call.i25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
-          to label %.noexc26 unwind label %lpad26
+92:                                               ; preds = %68
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  tail call void @_ZN3net11CryptoUtils20HashHandshakeMessageERKNS_22CryptoHandshakeMessageEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %93)
+  %94 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
+  invoke void @_ZN3net22QuicCryptoServerStream16ValidateCallbackC1EPS0_(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull %0)
+          to label %95 unwind label %116
 
-.noexc26:                                         ; preds = %call.i.noexc24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 50))
-          to label %invoke.cont27 unwind label %lpad.i23
+95:                                               ; preds = %92
+  store ptr %94, ptr %69, align 8, !tbaa !141
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %97 = load ptr, ptr %96, align 8, !tbaa !16
+  %98 = load ptr, ptr %13, align 8, !tbaa !160
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
+  %100 = load ptr, ptr %99, align 8, !tbaa !161
+  %101 = invoke noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %0)
+          to label %102 unwind label %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i50
 
-lpad.i23:                                         ; preds = %.noexc26
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #16
-  br label %ehcleanup33
+102:                                              ; preds = %95
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 504
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 536
+  %105 = load ptr, ptr %13, align 8, !tbaa !160
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
+  %107 = load ptr, ptr %106, align 8, !tbaa !161
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 480
+  %109 = load ptr, ptr %108, align 8, !tbaa !211
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  store ptr %94, ptr %9, align 8, !tbaa !329
+  invoke void @_ZNK3net22QuicCryptoServerConfig19ValidateClientHelloERKNS_22CryptoHandshakeMessageERKNS_9IPAddressES6_NS_11QuicVersionEPKNS_9QuicClockEPNS_15QuicCryptoProofESt10unique_ptrINS_33ValidateClientHelloResultCallbackESt14default_deleteISE_EE(ptr noundef nonnull align 8 dereferenceable(405) %97, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %103, i32 noundef %101, ptr noundef %109, ptr noundef nonnull %110, ptr noundef nonnull %9)
+          to label %111 unwind label %118
 
-invoke.cont27:                                    ; preds = %.noexc26
-  %vtable28 = load ptr, ptr %this, align 8
-  %vfn29 = getelementptr inbounds nuw i8, ptr %vtable28, i64 72
-  %18 = load ptr, ptr %vfn29, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 54, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24)
-          to label %invoke.cont31 unwind label %lpad30
+111:                                              ; preds = %102
+  %112 = load ptr, ptr %9, align 8, !tbaa !332
+  %.not.i = icmp eq ptr %112, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i
 
-invoke.cont31:                                    ; preds = %invoke.cont27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #16
-  br label %return
+_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i: ; preds = %111
+  %113 = load ptr, ptr %112, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = load ptr, ptr %114, align 8
+  call void %115(ptr noundef nonnull align 8 dereferenceable(8) %112) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit
 
-lpad26:                                           ; preds = %call.i.noexc24, %if.then23
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup33
-
-lpad30:                                           ; preds = %invoke.cont27
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #16
-  br label %ehcleanup33
-
-ehcleanup33:                                      ; preds = %lpad26, %lpad.i23, %lpad30
-  %.pn5 = phi { ptr, i32 } [ %20, %lpad30 ], [ %19, %lpad26 ], [ %17, %lpad.i23 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #16
-  br label %eh.resume
-
-if.end34:                                         ; preds = %if.end21
-  %chlo_hash_ = getelementptr inbounds nuw i8, ptr %this, i64 1176
-  call void @_ZN3net11CryptoUtils20HashHandshakeMessageERKNS_22CryptoHandshakeMessageEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %message, ptr noundef nonnull %chlo_hash_)
-  %call35 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
-  invoke void @_ZN3net33ValidateClientHelloResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call35)
-          to label %invoke.cont37 unwind label %lpad36
-
-invoke.cont37:                                    ; preds = %if.end34
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicCryptoServerStream16ValidateCallbackE, i64 16), ptr %call35, align 8
-  %parent_.i = getelementptr inbounds nuw i8, ptr %call35, i64 8
-  store ptr %this, ptr %parent_.i, align 8
-  store ptr %call35, ptr %validate_client_hello_cb_, align 8
-  %crypto_config_ = getelementptr inbounds nuw i8, ptr %this, i64 1048
-  %21 = load ptr, ptr %crypto_config_, align 8
-  %22 = load ptr, ptr %session_.i, align 8
-  %connection_.i31 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %23 = load ptr, ptr %connection_.i31, align 8
-  %call59 = invoke noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
-          to label %invoke.cont58 unwind label %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i45
-
-invoke.cont58:                                    ; preds = %invoke.cont37
-  %self_address_.i = getelementptr inbounds nuw i8, ptr %23, i64 504
-  %peer_address_.i = getelementptr inbounds nuw i8, ptr %23, i64 536
-  %24 = load ptr, ptr %session_.i, align 8
-  %connection_.i35 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %25 = load ptr, ptr %connection_.i35, align 8
-  %clock_.i = getelementptr inbounds nuw i8, ptr %25, i64 480
-  %26 = load ptr, ptr %clock_.i, align 8
-  %crypto_proof_ = getelementptr inbounds nuw i8, ptr %this, i64 1064
-  store ptr %call35, ptr %agg.tmp, align 8
-  invoke void @_ZNK3net22QuicCryptoServerConfig19ValidateClientHelloERKNS_22CryptoHandshakeMessageERKNS_9IPAddressES6_NS_11QuicVersionEPKNS_9QuicClockEPNS_15QuicCryptoProofESt10unique_ptrINS_33ValidateClientHelloResultCallbackESt14default_deleteISE_EE(ptr noundef nonnull align 8 dereferenceable(405) %21, ptr noundef nonnull align 8 dereferenceable(72) %message, ptr noundef nonnull align 8 dereferenceable(24) %peer_address_.i, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i, i32 noundef %call59, ptr noundef %26, ptr noundef nonnull %crypto_proof_, ptr noundef nonnull %agg.tmp)
-          to label %invoke.cont67 unwind label %lpad66
-
-invoke.cont67:                                    ; preds = %invoke.cont58
-  %27 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %27, null
-  br i1 %cmp.not.i, label %return, label %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i: ; preds = %invoke.cont67
-  %vtable.i.i = load ptr, ptr %27, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %28 = load ptr, ptr %vfn.i.i, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %27) #16
-  br label %return
-
-return:                                           ; preds = %invoke.cont67, %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i, %invoke.cont31, %invoke.cont18, %invoke.cont8
+_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit: ; preds = %111, %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 
-lpad36:                                           ; preds = %if.end34
-  %29 = landingpad { ptr, i32 }
+116:                                              ; preds = %92
+  %117 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call35) #18
-  br label %eh.resume
+  tail call void @_ZdlPv(ptr noundef nonnull %94) #18
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit51
 
-lpad66:                                           ; preds = %invoke.cont58
-  %30 = landingpad { ptr, i32 }
+118:                                              ; preds = %102
+  %119 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i39 = icmp eq ptr %31, null
-  br i1 %cmp.not.i39, label %eh.resume, label %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i40
+  %120 = load ptr, ptr %9, align 8, !tbaa !332
+  %.not.i46 = icmp eq ptr %120, null
+  br i1 %.not.i46, label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit51, label %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i47
 
-_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i40: ; preds = %lpad66
-  %vtable.i.i41 = load ptr, ptr %31, align 8
-  %vfn.i.i42 = getelementptr inbounds nuw i8, ptr %vtable.i.i41, i64 8
-  %32 = load ptr, ptr %vfn.i.i42, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %31) #16
-  br label %eh.resume
+_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i47: ; preds = %118
+  %121 = load ptr, ptr %120, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %123 = load ptr, ptr %122, align 8
+  call void %123(ptr noundef nonnull align 8 dereferenceable(8) %120) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit51
 
-_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i45: ; preds = %invoke.cont37
-  %33 = landingpad { ptr, i32 }
+_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i50: ; preds = %95
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %vtable.i.i46 = load ptr, ptr %call35, align 8
-  %vfn.i.i47 = getelementptr inbounds nuw i8, ptr %vtable.i.i46, i64 8
-  %34 = load ptr, ptr %vfn.i.i47, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %call35) #16
-  br label %eh.resume
+  %125 = load ptr, ptr %94, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %127 = load ptr, ptr %126, align 8
+  tail call void %127(ptr noundef nonnull align 8 dereferenceable(16) %94) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit51
 
-eh.resume:                                        ; preds = %lpad66, %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i40, %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i45, %lpad36, %ehcleanup33, %ehcleanup20, %ehcleanup
-  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %ehcleanup ], [ %.pn7, %ehcleanup20 ], [ %.pn5, %ehcleanup33 ], [ %29, %lpad36 ], [ %33, %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i45 ], [ %30, %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i40 ], [ %30, %lpad66 ]
-  resume { ptr, i32 } %.pn9.pn
+_ZNSt10unique_ptrIN3net22QuicCryptoServerStream16ValidateCallbackESt14default_deleteIS2_EED2Ev.exit51: ; preds = %118, %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i47, %116, %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
+  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24 ], [ %.pn17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %.pn15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %117, %116 ], [ %124, %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream16ValidateCallbackEEclEPS2_.exit.i50 ], [ %119, %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallbackEEclEPS1_.exit.i47 ], [ %119, %118 ]
+  resume { ptr, i32 } %.pn19.pn
 }
 
 declare void @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 declare { ptr, i64 } @_ZN3net14QuicConnection16GetCurrentPacketB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(3372)) local_unnamed_addr #1
 
-declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
-
 declare void @_ZN3net11CryptoUtils20HashHandshakeMessageERKNS_22CryptoHandshakeMessageEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 declare void @_ZNK3net22QuicCryptoServerConfig19ValidateClientHelloERKNS_22CryptoHandshakeMessageERKNS_9IPAddressES6_NS_11QuicVersionEPKNS_9QuicClockEPNS_15QuicCryptoProofESt10unique_ptrINS_33ValidateClientHelloResultCallbackESt14default_deleteISE_EE(ptr noundef nonnull align 8 dereferenceable(405), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377)) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn384_N3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #11 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -384
-  tail call void @_ZN3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull align 8 dereferenceable(72) %message)
+define void @_ZThn384_N3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 -384
+  tail call void @_ZN3net22QuicCryptoServerStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1328) %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream32FinishProcessingHandshakeMessageERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(1328) initializes((1208, 1216)) %this, ptr noundef nonnull align 8 dereferenceable(368) %result, ptr noundef captures(none) %details) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %received_tags.i = alloca ptr, align 8
-  %received_tags_length.i = alloca i64, align 8
-  %reply = alloca %"class.net::CryptoHandshakeMessage", align 8
-  %diversification_nonce = alloca %"struct.std::array", align 1
-  %error_details = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp = alloca %"class.std::unique_ptr.275", align 8
-  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp32 = alloca %"class.std::allocator.10", align 1
-  %validate_client_hello_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 1208
-  store ptr null, ptr %validate_client_hello_cb_, align 8
-  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds nuw i8, ptr %this, i64 1312
-  %0 = load i8, ptr %use_stateless_rejects_if_peer_supported_, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZN3net22QuicCryptoServerStream32FinishProcessingHandshakeMessageERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(1328) initializes((1208, 1216)) %0, ptr noundef nonnull align 8 dereferenceable(368) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.net::CryptoHandshakeMessage", align 8
+  %8 = alloca %"struct.std::array", align 1
+  %9 = alloca %"class.std::__cxx11::basic_string", align 8
+  %10 = alloca %"class.std::unique_ptr.271", align 8
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  store ptr null, ptr %12, align 8, !tbaa !141
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %14 = load i8, ptr %13, align 8, !tbaa !148, !range !208, !noundef !209
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %27
 
-if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %received_tags.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %received_tags_length.i)
-  %call.i = call noundef i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr noundef nonnull align 8 dereferenceable(72) %result, i32 noundef 1414549315, ptr noundef nonnull %received_tags.i, ptr noundef nonnull %received_tags_length.i)
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %for.cond.preheader.i, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  %17 = call noundef i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1414549315, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %.preheader.i, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit
 
-for.cond.preheader.i:                             ; preds = %if.then
-  %1 = load i64, ptr %received_tags_length.i, align 8
-  %cmp13.not.i = icmp eq i64 %1, 0
-  br i1 %cmp13.not.i, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, label %for.body.lr.ph.i
+.preheader.i:                                     ; preds = %16
+  %18 = load i64, ptr %6, align 8, !tbaa !6
+  %.not89.not.i = icmp eq i64 %18, 0
+  br i1 %.not89.not.i, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, label %.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %2 = load ptr, ptr %received_tags.i, align 8
-  br label %for.body.i
+.lr.ph.i:                                         ; preds = %.preheader.i
+  %19 = load ptr, ptr %5, align 8, !tbaa !9
+  br label %22
 
-for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw i64 %i.04.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %1
-  br i1 %exitcond.not.i, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, label %for.body.i, !llvm.loop !5
+20:                                               ; preds = %22
+  %21 = add nuw i64 %.010.i, 1
+  %exitcond.not.i = icmp eq i64 %21, %18
+  br i1 %exitcond.not.i, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, label %22, !llvm.loop !14
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %i.04.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %i.04.i
-  %3 = load i32, ptr %arrayidx.i, align 4
-  %cmp2.i = icmp eq i32 %3, 1246057043
-  br i1 %cmp2.i, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, label %for.cond.i
+22:                                               ; preds = %20, %.lr.ph.i
+  %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %20 ]
+  %23 = getelementptr inbounds nuw i32, ptr %19, i64 %.010.i
+  %24 = load i32, ptr %23, align 4, !tbaa !12
+  %25 = icmp eq i32 %24, 1246057043
+  br i1 %25, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, label %20
 
-_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit: ; preds = %for.cond.i, %for.body.i, %if.then, %for.cond.preheader.i
-  %retval.0.i = phi i8 [ 0, %if.then ], [ 0, %for.cond.preheader.i ], [ 0, %for.cond.i ], [ 1, %for.body.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %received_tags.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %received_tags_length.i)
-  %peer_supports_stateless_rejects_ = getelementptr inbounds nuw i8, ptr %this, i64 1313
-  store i8 %retval.0.i, ptr %peer_supports_stateless_rejects_, align 1
-  br label %if.end
+_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit: ; preds = %20, %22, %16, %.preheader.i
+  %.07.i = phi i8 [ 0, %16 ], [ 0, %.preheader.i ], [ 0, %20 ], [ 1, %22 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1313
+  store i8 %.07.i, ptr %26, align 1, !tbaa !149
+  br label %27
 
-if.end:                                           ; preds = %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, %entry
-  call void @_ZN3net22CryptoHandshakeMessageC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %reply)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_details) #16
-  %4 = load i64, ptr %details, align 8
-  store i64 %4, ptr %agg.tmp, align 8
-  store ptr null, ptr %details, align 8
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 232
-  %5 = load ptr, ptr %vfn, align 8
-  %call2 = invoke noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(368) %result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %reply, ptr noundef nonnull %diversification_nonce, ptr noundef nonnull %error_details)
-          to label %invoke.cont unwind label %lpad
+27:                                               ; preds = %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, %3
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #17
+  call void @_ZN3net22CryptoHandshakeMessageC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %28, ptr %9, align 8, !tbaa !138
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 0, ptr %29, align 8, !tbaa !139
+  store i8 0, ptr %28, align 8, !tbaa !140
+  %30 = load i64, ptr %2, align 8, !tbaa !333
+  store i64 %30, ptr %10, align 8, !tbaa !333
+  store ptr null, ptr %2, align 8, !tbaa !333
+  %31 = load ptr, ptr %0, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 232
+  %33 = load ptr, ptr %32, align 8
+  %34 = invoke noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull align 8 dereferenceable(368) %1, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+          to label %35 unwind label %44
 
-invoke.cont:                                      ; preds = %if.end
-  %6 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i11 = icmp eq ptr %6, null
-  br i1 %cmp.not.i11, label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %10, align 8, !tbaa !333
+  %.not.i22 = icmp eq ptr %36, null
+  br i1 %.not.i22, label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i: ; preds = %invoke.cont
-  %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %7 = load ptr, ptr %vfn.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
+_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i: ; preds = %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %36) #17
   br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
-  %cmp.not = icmp eq i32 %call2, 0
-  br i1 %cmp.not, label %if.end8, label %if.then51.invoke
+_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit: ; preds = %35, %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i
+  store ptr null, ptr %10, align 8, !tbaa !333
+  %.not = icmp eq i32 %34, 0
+  br i1 %.not, label %52, label %40
 
-lpad:                                             ; preds = %if.end
-  %8 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit
+  %41 = load ptr, ptr %0, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
+  %43 = load ptr, ptr %42, align 8
+  invoke void %43(ptr noundef nonnull align 8 dereferenceable(377) %0, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %160 unwind label %50
+
+44:                                               ; preds = %27
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i12 = icmp eq ptr %9, null
-  br i1 %cmp.not.i12, label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit16, label %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i13
+  %46 = load ptr, ptr %10, align 8, !tbaa !333
+  %.not.i23 = icmp eq ptr %46, null
+  br i1 %.not.i23, label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit25, label %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i24
 
-_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i13: ; preds = %lpad
-  %vtable.i.i14 = load ptr, ptr %9, align 8
-  %vfn.i.i15 = getelementptr inbounds nuw i8, ptr %vtable.i.i14, i64 8
-  %10 = load ptr, ptr %vfn.i.i15, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
-  br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit16
+_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i24: ; preds = %44
+  %47 = load ptr, ptr %46, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8
+  call void %49(ptr noundef nonnull align 8 dereferenceable(8) %46) #17
+  br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit25
 
-_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit16: ; preds = %lpad, %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i13
-  store ptr null, ptr %agg.tmp, align 8
-  br label %ehcleanup119
+_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit25: ; preds = %44, %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i24
+  store ptr null, ptr %10, align 8, !tbaa !333
+  br label %165
 
-lpad6:                                            ; preds = %if.then51.invoke, %invoke.cont113, %invoke.cont104, %invoke.cont99, %invoke.cont91, %if.end90, %if.then84, %invoke.cont80, %invoke.cont72, %invoke.cont67, %invoke.cont61, %invoke.cont60, %if.end55, %invoke.cont47, %invoke.cont43, %if.end40, %if.end22, %if.then16
-  %11 = landingpad { ptr, i32 }
+50:                                               ; preds = %59, %54, %40
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup119
+  br label %165
 
-if.end8:                                          ; preds = %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit
-  %12 = load i32, ptr %reply, align 8
-  switch i32 %12, label %if.end22 [
-    i32 1330399315, label %if.end40
-    i32 1246057043, label %if.then16
+52:                                               ; preds = %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit
+  %53 = load i32, ptr %7, align 8, !tbaa !210
+  switch i32 %53, label %59 [
+    i32 1330399315, label %89
+    i32 1246057043, label %54
   ]
 
-if.then16:                                        ; preds = %if.end8
-  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %13 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %14 = load ptr, ptr %connection_.i, align 8
-  invoke void @_ZN3net14QuicConnection25EnableSavingCryptoPacketsEv(ptr noundef nonnull align 8 dereferenceable(3372) %14)
-          to label %if.end22 unwind label %lpad6
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %56 = load ptr, ptr %55, align 8, !tbaa !160
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 56
+  %58 = load ptr, ptr %57, align 8, !tbaa !161
+  invoke void @_ZN3net14QuicConnection25EnableSavingCryptoPacketsEv(ptr noundef nonnull align 8 dereferenceable(3372) %58)
+          to label %59 unwind label %50
 
-if.end22:                                         ; preds = %if.end8, %if.then16
-  invoke void @_ZN3net16QuicCryptoStream20SendHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(72) %reply)
-          to label %invoke.cont23 unwind label %lpad6
+59:                                               ; preds = %52, %54
+  invoke void @_ZN3net16QuicCryptoStream20SendHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull align 8 dereferenceable(72) %7)
+          to label %60 unwind label %50
 
-invoke.cont23:                                    ; preds = %if.end22
-  %15 = load i32, ptr %reply, align 8
-  %cmp26 = icmp eq i32 %15, 1246057043
-  br i1 %cmp26, label %if.then27, label %cleanup
+60:                                               ; preds = %59
+  %61 = load i32, ptr %7, align 8, !tbaa !210
+  %62 = icmp eq i32 %61, 1246057043
+  br i1 %62, label %.noexc.i, label %160
 
-if.then27:                                        ; preds = %invoke.cont23
-  %session_.i17 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %16 = load ptr, ptr %session_.i17, align 8
-  %connection_.i18 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %17 = load ptr, ptr %connection_.i18, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #16
-  %call.i1920 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-          to label %call.i19.noexc unwind label %lpad33
+.noexc.i:                                         ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %64 = load ptr, ptr %63, align 8, !tbaa !160
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
+  %66 = load ptr, ptr %65, align 8, !tbaa !161
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #17
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %67, ptr %11, align 8, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  store i64 16, ptr %4, align 8, !tbaa !6
+  %68 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
+          to label %.noexc unwind label %81
 
-call.i19.noexc:                                   ; preds = %if.then27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i1920, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32)
-          to label %.noexc unwind label %lpad33
+.noexc:                                           ; preds = %.noexc.i
+  store ptr %68, ptr %11, align 8, !tbaa !152
+  %69 = load i64, ptr %4, align 8, !tbaa !6
+  store i64 %69, ptr %67, align 8, !tbaa !140
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %68, ptr noundef nonnull align 1 dereferenceable(16) @.str.4, i64 16, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %69, ptr %70, align 8, !tbaa !139
+  %71 = load ptr, ptr %11, align 8, !tbaa !152
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %69
+  store i8 0, ptr %72, align 1, !tbaa !140
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  %73 = load ptr, ptr %66, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 256
+  %75 = load ptr, ptr %74, align 8
+  invoke void %75(ptr noundef nonnull align 8 dereferenceable(3372) %66, i32 noundef 72, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 0)
+          to label %76 unwind label %83
 
-.noexc:                                           ; preds = %call.i19.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 16))
-          to label %invoke.cont34 unwind label %lpad.i
+76:                                               ; preds = %.noexc
+  %77 = load ptr, ptr %11, align 8, !tbaa !152
+  %78 = icmp eq ptr %77, %67
+  br i1 %78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-lpad.i:                                           ; preds = %.noexc
-  %18 = landingpad { ptr, i32 }
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %76
+  %79 = load i64, ptr %70, align 8, !tbaa !139
+  %80 = icmp ult i64 %79, 16
+  call void @llvm.assume(i1 %80)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %76
+  call void @_ZdlPv(ptr noundef %77) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #17
+  br label %160
+
+81:                                               ; preds = %.noexc.i
+  %82 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
-  br label %ehcleanup
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
 
-invoke.cont34:                                    ; preds = %.noexc
-  %vtable35 = load ptr, ptr %17, align 8
-  %vfn36 = getelementptr inbounds nuw i8, ptr %vtable35, i64 256
-  %19 = load ptr, ptr %vfn36, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(3372) %17, i32 noundef 72, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0)
-          to label %invoke.cont38 unwind label %lpad37
-
-invoke.cont38:                                    ; preds = %invoke.cont34
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #16
-  br label %cleanup
-
-lpad33:                                           ; preds = %call.i19.noexc, %if.then27
-  %20 = landingpad { ptr, i32 }
+83:                                               ; preds = %.noexc
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  %85 = load ptr, ptr %11, align 8, !tbaa !152
+  %86 = icmp eq ptr %85, %67
+  br i1 %86, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
 
-lpad37:                                           ; preds = %invoke.cont34
-  %21 = landingpad { ptr, i32 }
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27: ; preds = %83
+  %87 = load i64, ptr %70, align 8, !tbaa !139
+  %88 = icmp ult i64 %87, 16
+  call void @llvm.assume(i1 %88)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26: ; preds = %83
+  call void @_ZdlPv(ptr noundef %85) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27, %81
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27 ], [ %84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #17
+  br label %165
+
+89:                                               ; preds = %52
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %91 = load ptr, ptr %90, align 8, !tbaa !160
+  %92 = invoke noundef ptr @_ZN3net11QuicSession6configEv(ptr noundef nonnull align 8 dereferenceable(2044) %91)
+          to label %93 unwind label %104
+
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %0, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 240
+  %96 = load ptr, ptr %95, align 8
+  invoke void %96(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef %92)
+          to label %97 unwind label %104
+
+97:                                               ; preds = %93
+  %98 = invoke noundef i32 @_ZN3net10QuicConfig16ProcessPeerHelloERKNS_22CryptoHandshakeMessageENS_9HelloTypeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(600) %92, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 0, ptr noundef nonnull %9)
+          to label %99 unwind label %104
+
+99:                                               ; preds = %97
+  %.not18 = icmp eq i32 %98, 0
+  br i1 %.not18, label %106, label %100
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %0, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 72
+  %103 = load ptr, ptr %102, align 8
+  invoke void %103(ptr noundef nonnull align 8 dereferenceable(377) %0, i32 noundef %98, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %160 unwind label %104
+
+104:                                              ; preds = %153, %147, %143, %137, %136, %132, %128, %122, %118, %112, %111, %106, %100, %97, %93, %89
+  %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
-  br label %ehcleanup
+  br label %165
 
-ehcleanup:                                        ; preds = %lpad33, %lpad.i, %lpad37
-  %.pn = phi { ptr, i32 } [ %21, %lpad37 ], [ %20, %lpad33 ], [ %18, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #16
-  br label %ehcleanup119
+106:                                              ; preds = %99
+  %107 = load ptr, ptr %90, align 8, !tbaa !160
+  %108 = load ptr, ptr %107, align 8, !tbaa !3
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 200
+  %110 = load ptr, ptr %109, align 8
+  invoke void %110(ptr noundef nonnull align 8 dereferenceable(2044) %107)
+          to label %111 unwind label %104
 
-if.end40:                                         ; preds = %if.end8
-  %session_.i21 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %22 = load ptr, ptr %session_.i21, align 8
-  %call44 = invoke noundef ptr @_ZN3net11QuicSession6configEv(ptr noundef nonnull align 8 dereferenceable(2044) %22)
-          to label %invoke.cont43 unwind label %lpad6
+111:                                              ; preds = %106
+  invoke void @_ZNK3net10QuicConfig18ToHandshakeMessageEPNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(600) %92, ptr noundef nonnull %7)
+          to label %112 unwind label %104
 
-invoke.cont43:                                    ; preds = %if.end40
-  %vtable45 = load ptr, ptr %this, align 8
-  %vfn46 = getelementptr inbounds nuw i8, ptr %vtable45, i64 240
-  %23 = load ptr, ptr %vfn46, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call44)
-          to label %invoke.cont47 unwind label %lpad6
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %90, align 8, !tbaa !160
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
+  %115 = load ptr, ptr %114, align 8, !tbaa !161
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %117 = load ptr, ptr %116, align 8, !tbaa !335
+  store ptr null, ptr %116, align 8, !tbaa !335
+  invoke void @_ZN3net14QuicConnection12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %115, i8 noundef signext 1, ptr noundef %117)
+          to label %118 unwind label %104
 
-invoke.cont47:                                    ; preds = %invoke.cont43
-  %call49 = invoke noundef i32 @_ZN3net10QuicConfig16ProcessPeerHelloERKNS_22CryptoHandshakeMessageENS_9HelloTypeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(600) %call44, ptr noundef nonnull align 8 dereferenceable(72) %result, i32 noundef 0, ptr noundef nonnull %error_details)
-          to label %invoke.cont48 unwind label %lpad6
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %90, align 8, !tbaa !160
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
+  %121 = load ptr, ptr %120, align 8, !tbaa !161
+  invoke void @_ZN3net14QuicConnection25SetDefaultEncryptionLevelENS_15EncryptionLevelE(ptr noundef nonnull align 8 dereferenceable(3372) %121, i8 noundef signext 1)
+          to label %122 unwind label %104
 
-invoke.cont48:                                    ; preds = %invoke.cont47
-  %cmp50.not = icmp eq i32 %call49, 0
-  br i1 %cmp50.not, label %if.end55, label %if.then51.invoke
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %90, align 8, !tbaa !160
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  %125 = load ptr, ptr %124, align 8, !tbaa !161
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %127 = load ptr, ptr %126, align 8, !tbaa !336
+  store ptr null, ptr %126, align 8, !tbaa !336
+  invoke void @_ZN3net14QuicConnection12SetDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %125, i8 noundef signext 1, ptr noundef %127)
+          to label %128 unwind label %104
 
-if.then51.invoke:                                 ; preds = %invoke.cont48, %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit
-  %24 = phi i32 [ %call2, %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit ], [ %call49, %invoke.cont48 ]
-  %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 72
-  %25 = load ptr, ptr %vfn5, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %24, ptr noundef nonnull align 8 dereferenceable(32) %error_details)
-          to label %cleanup unwind label %lpad6
+128:                                              ; preds = %122
+  %129 = invoke noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %0)
+          to label %130 unwind label %104
 
-if.end55:                                         ; preds = %invoke.cont48
-  %26 = load ptr, ptr %session_.i21, align 8
-  %vtable58 = load ptr, ptr %26, align 8
-  %vfn59 = getelementptr inbounds nuw i8, ptr %vtable58, i64 200
-  %27 = load ptr, ptr %vfn59, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(2044) %26)
-          to label %invoke.cont60 unwind label %lpad6
+130:                                              ; preds = %128
+  %131 = icmp sgt i32 %129, 32
+  br i1 %131, label %132, label %136
 
-invoke.cont60:                                    ; preds = %if.end55
-  invoke void @_ZNK3net10QuicConfig18ToHandshakeMessageEPNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(600) %call44, ptr noundef nonnull %reply)
-          to label %invoke.cont61 unwind label %lpad6
+132:                                              ; preds = %130
+  %133 = load ptr, ptr %90, align 8, !tbaa !160
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 56
+  %135 = load ptr, ptr %134, align 8, !tbaa !161
+  invoke void @_ZN3net14QuicConnection23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr noundef nonnull align 8 dereferenceable(3372) %135, ptr noundef nonnull align 1 dereferenceable(32) %8)
+          to label %136 unwind label %104
 
-invoke.cont61:                                    ; preds = %invoke.cont60
-  %28 = load ptr, ptr %session_.i21, align 8
-  %connection_.i24 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %29 = load ptr, ptr %connection_.i24, align 8
-  %initial_crypters = getelementptr inbounds nuw i8, ptr %this, i64 536
-  %30 = load ptr, ptr %initial_crypters, align 8
-  store ptr null, ptr %initial_crypters, align 8
-  invoke void @_ZN3net14QuicConnection12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %29, i8 noundef signext 1, ptr noundef %30)
-          to label %invoke.cont67 unwind label %lpad6
+136:                                              ; preds = %132, %130
+  invoke void @_ZN3net16QuicCryptoStream20SendHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull align 8 dereferenceable(72) %7)
+          to label %137 unwind label %104
 
-invoke.cont67:                                    ; preds = %invoke.cont61
-  %31 = load ptr, ptr %session_.i21, align 8
-  %connection_.i26 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %32 = load ptr, ptr %connection_.i26, align 8
-  invoke void @_ZN3net14QuicConnection25SetDefaultEncryptionLevelENS_15EncryptionLevelE(ptr noundef nonnull align 8 dereferenceable(3372) %32, i8 noundef signext 1)
-          to label %invoke.cont72 unwind label %lpad6
+137:                                              ; preds = %136
+  %138 = load ptr, ptr %90, align 8, !tbaa !160
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
+  %140 = load ptr, ptr %139, align 8, !tbaa !161
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %142 = load ptr, ptr %141, align 8, !tbaa !335
+  store ptr null, ptr %141, align 8, !tbaa !335
+  invoke void @_ZN3net14QuicConnection12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %140, i8 noundef signext 2, ptr noundef %142)
+          to label %143 unwind label %104
 
-invoke.cont72:                                    ; preds = %invoke.cont67
-  %33 = load ptr, ptr %session_.i21, align 8
-  %connection_.i28 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  %34 = load ptr, ptr %connection_.i28, align 8
-  %decrypter = getelementptr inbounds nuw i8, ptr %this, i64 544
-  %35 = load ptr, ptr %decrypter, align 8
-  store ptr null, ptr %decrypter, align 8
-  invoke void @_ZN3net14QuicConnection12SetDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %34, i8 noundef signext 1, ptr noundef %35)
-          to label %invoke.cont80 unwind label %lpad6
+143:                                              ; preds = %137
+  %144 = load ptr, ptr %90, align 8, !tbaa !160
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 56
+  %146 = load ptr, ptr %145, align 8, !tbaa !161
+  invoke void @_ZN3net14QuicConnection25SetDefaultEncryptionLevelENS_15EncryptionLevelE(ptr noundef nonnull align 8 dereferenceable(3372) %146, i8 noundef signext 2)
+          to label %147 unwind label %104
 
-invoke.cont80:                                    ; preds = %invoke.cont72
-  %call82 = invoke noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
-          to label %invoke.cont81 unwind label %lpad6
+147:                                              ; preds = %143
+  %148 = load ptr, ptr %90, align 8, !tbaa !160
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 56
+  %150 = load ptr, ptr %149, align 8, !tbaa !161
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %152 = load ptr, ptr %151, align 8, !tbaa !336
+  store ptr null, ptr %151, align 8, !tbaa !336
+  invoke void @_ZN3net14QuicConnection23SetAlternativeDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterEb(ptr noundef nonnull align 8 dereferenceable(3372) %150, i8 noundef signext 2, ptr noundef %152, i1 noundef zeroext false)
+          to label %153 unwind label %104
 
-invoke.cont81:                                    ; preds = %invoke.cont80
-  %cmp83 = icmp sgt i32 %call82, 32
-  br i1 %cmp83, label %if.then84, label %if.end90
+153:                                              ; preds = %147
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  store i8 1, ptr %154, align 8, !tbaa !337
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 393
+  store i8 1, ptr %155, align 1, !tbaa !207
+  %156 = load ptr, ptr %90, align 8, !tbaa !160
+  %157 = load ptr, ptr %156, align 8, !tbaa !3
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 208
+  %159 = load ptr, ptr %158, align 8
+  invoke void %159(ptr noundef nonnull align 8 dereferenceable(2044) %156, i32 noundef 2)
+          to label %160 unwind label %104
 
-if.then84:                                        ; preds = %invoke.cont81
-  %36 = load ptr, ptr %session_.i21, align 8
-  %connection_.i30 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %37 = load ptr, ptr %connection_.i30, align 8
-  invoke void @_ZN3net14QuicConnection23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr noundef nonnull align 8 dereferenceable(3372) %37, ptr noundef nonnull align 1 dereferenceable(32) %diversification_nonce)
-          to label %if.end90 unwind label %lpad6
+160:                                              ; preds = %100, %153, %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %40
+  %161 = load ptr, ptr %9, align 8, !tbaa !152
+  %162 = icmp eq ptr %161, %28
+  br i1 %162, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
 
-if.end90:                                         ; preds = %if.then84, %invoke.cont81
-  invoke void @_ZN3net16QuicCryptoStream20SendHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(72) %reply)
-          to label %invoke.cont91 unwind label %lpad6
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30: ; preds = %160
+  %163 = load i64, ptr %29, align 8, !tbaa !139
+  %164 = icmp ult i64 %163, 16
+  call void @llvm.assume(i1 %164)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
 
-invoke.cont91:                                    ; preds = %if.end90
-  %38 = load ptr, ptr %session_.i21, align 8
-  %connection_.i32 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %39 = load ptr, ptr %connection_.i32, align 8
-  %forward_secure_crypters = getelementptr inbounds nuw i8, ptr %this, i64 552
-  %40 = load ptr, ptr %forward_secure_crypters, align 8
-  store ptr null, ptr %forward_secure_crypters, align 8
-  invoke void @_ZN3net14QuicConnection12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(3372) %39, i8 noundef signext 2, ptr noundef %40)
-          to label %invoke.cont99 unwind label %lpad6
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29: ; preds = %160
+  call void @_ZdlPv(ptr noundef %161) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
 
-invoke.cont99:                                    ; preds = %invoke.cont91
-  %41 = load ptr, ptr %session_.i21, align 8
-  %connection_.i34 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  %42 = load ptr, ptr %connection_.i34, align 8
-  invoke void @_ZN3net14QuicConnection25SetDefaultEncryptionLevelENS_15EncryptionLevelE(ptr noundef nonnull align 8 dereferenceable(3372) %42, i8 noundef signext 2)
-          to label %invoke.cont104 unwind label %lpad6
-
-invoke.cont104:                                   ; preds = %invoke.cont99
-  %43 = load ptr, ptr %session_.i21, align 8
-  %connection_.i36 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %44 = load ptr, ptr %connection_.i36, align 8
-  %decrypter111 = getelementptr inbounds nuw i8, ptr %this, i64 560
-  %45 = load ptr, ptr %decrypter111, align 8
-  store ptr null, ptr %decrypter111, align 8
-  invoke void @_ZN3net14QuicConnection23SetAlternativeDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterEb(ptr noundef nonnull align 8 dereferenceable(3372) %44, i8 noundef signext 2, ptr noundef %45, i1 noundef zeroext false)
-          to label %invoke.cont113 unwind label %lpad6
-
-invoke.cont113:                                   ; preds = %invoke.cont104
-  %encryption_established_ = getelementptr inbounds nuw i8, ptr %this, i64 392
-  store i8 1, ptr %encryption_established_, align 8
-  %handshake_confirmed_ = getelementptr inbounds nuw i8, ptr %this, i64 393
-  store i8 1, ptr %handshake_confirmed_, align 1
-  %46 = load ptr, ptr %session_.i21, align 8
-  %vtable116 = load ptr, ptr %46, align 8
-  %vfn117 = getelementptr inbounds nuw i8, ptr %vtable116, i64 208
-  %47 = load ptr, ptr %vfn117, align 8
-  invoke void %47(ptr noundef nonnull align 8 dereferenceable(2044) %46, i32 noundef 2)
-          to label %cleanup unwind label %lpad6
-
-cleanup:                                          ; preds = %if.then51.invoke, %invoke.cont113, %invoke.cont23, %invoke.cont38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_details) #16
-  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %reply) #16
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
   ret void
 
-ehcleanup119:                                     ; preds = %ehcleanup, %lpad6, %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit16
-  %.pn9 = phi { ptr, i32 } [ %11, %lpad6 ], [ %.pn, %ehcleanup ], [ %8, %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_details) #16
-  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %reply) #16
-  resume { ptr, i32 } %.pn9
+165:                                              ; preds = %104, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %50, %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit25
+  %.pn20 = phi { ptr, i32 } [ %51, %50 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %105, %104 ], [ %45, %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit25 ]
+  %166 = load ptr, ptr %9, align 8, !tbaa !152
+  %167 = icmp eq ptr %166, %28
+  br i1 %167, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33: ; preds = %165
+  %168 = load i64, ptr %29, align 8, !tbaa !139
+  %169 = icmp ult i64 %168, 16
+  call void @llvm.assume(i1 %169)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32: ; preds = %165
+  call void @_ZdlPv(ptr noundef %166) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
+  resume { ptr, i32 } %.pn20
 }
 
 declare void @_ZN3net22CryptoHandshakeMessageC1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
@@ -1039,190 +1173,173 @@ declare void @_ZN3net14QuicConnection23SetDiversificationNonceERKSt5arrayIcLm32E
 declare void @_ZN3net14QuicConnection23SetAlternativeDecrypterENS_15EncryptionLevelEPNS_13QuicDecrypterEb(ptr noundef nonnull align 8 dereferenceable(3372), i8 noundef signext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
+declare void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream22SendServerConfigUpdateEPKNS_23CachedNetworkParametersE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %cached_network_params) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %agg.tmp44 = alloca %"class.std::unique_ptr.291", align 8
-  %server_config_update_message = alloca %"class.net::CryptoHandshakeMessage", align 8
-  %agg.tmp56 = alloca %"class.base::BasicStringPiece", align 8
-  %agg.tmp96 = alloca %"class.base::BasicStringPiece", align 8
-  %handshake_confirmed_ = getelementptr inbounds nuw i8, ptr %this, i64 393
-  %0 = load i8, ptr %handshake_confirmed_, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end, label %cleanup.cont
+define void @_ZN3net22QuicCryptoServerStream22SendServerConfigUpdateEPKNS_23CachedNetworkParametersE(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::unique_ptr.287", align 8
+  %4 = alloca %"class.net::CryptoHandshakeMessage", align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 393
+  %6 = load i8, ptr %5, align 1, !tbaa !207, !range !208, !noundef !209
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %8, label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit
 
-if.end:                                           ; preds = %entry
-  %1 = load i8, ptr @FLAGS_enable_async_get_proof, align 1
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %invoke.cont54
+8:                                                ; preds = %2
+  %9 = load i8, ptr @FLAGS_enable_async_get_proof, align 1, !tbaa !338, !range !208, !noundef !209
+  %10 = trunc nuw i8 %9 to i1
+  br i1 %10, label %11, label %52
 
-if.then3:                                         ; preds = %if.end
-  %send_server_config_update_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 1232
-  %2 = load ptr, ptr %send_server_config_update_cb_, align 8
-  %cmp.not = icmp eq ptr %2, null
-  br i1 %cmp.not, label %invoke.cont13, label %cleanup.cont
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1232
+  %13 = load ptr, ptr %12, align 8, !tbaa !145
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %14, label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit
 
-invoke.cont13:                                    ; preds = %if.then3
-  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, i64 16), ptr %call, align 8
-  %parent_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %this, ptr %parent_.i, align 8
-  store ptr %call, ptr %send_server_config_update_cb_, align 8
-  %crypto_config_ = getelementptr inbounds nuw i8, ptr %this, i64 1048
-  %3 = load ptr, ptr %crypto_config_, align 8
-  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %4 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %5 = load ptr, ptr %connection_.i, align 8
-  %quic_version_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 300
-  %6 = load i32, ptr %quic_version_.i.i, align 4
-  %chlo_hash_ = getelementptr inbounds nuw i8, ptr %this, i64 1176
-  invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_)
-          to label %invoke.cont15 unwind label %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackEEclEPS2_.exit.i22
+14:                                               ; preds = %11
+  %15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
+  invoke void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackC1EPS0_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %0)
+          to label %16 unwind label %44
 
-invoke.cont15:                                    ; preds = %invoke.cont13
-  %previous_source_address_tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 1256
-  %7 = load ptr, ptr %session_.i, align 8
-  %connection_.i6 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %8 = load ptr, ptr %connection_.i6, align 8
-  %self_address_.i = getelementptr inbounds nuw i8, ptr %8, i64 504
-  %peer_address_.i = getelementptr inbounds nuw i8, ptr %8, i64 536
-  %clock_.i = getelementptr inbounds nuw i8, ptr %8, i64 480
-  %9 = load ptr, ptr %clock_.i, align 8
-  %random_generator_.i = getelementptr inbounds nuw i8, ptr %8, i64 488
-  %10 = load ptr, ptr %random_generator_.i, align 8
-  %compressed_certs_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 1056
-  %11 = load ptr, ptr %compressed_certs_cache_, align 8
-  %crypto_negotiated_params_ = getelementptr inbounds nuw i8, ptr %this, i64 400
-  store ptr %call, ptr %agg.tmp44, align 8
-  %12 = load ptr, ptr %agg.tmp, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %14 = load i64, ptr %13, align 8
-  invoke void @_ZNK3net22QuicCryptoServerConfig30BuildServerConfigUpdateMessageENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_19SourceAddressTokensERKNS_9IPAddressESG_PKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheERKNS_30QuicCryptoNegotiatedParametersEPKNS_23CachedNetworkParametersESt10unique_ptrINS_44BuildServerConfigUpdateMessageResultCallbackESt14default_deleteISV_EE(ptr noundef nonnull align 8 dereferenceable(405) %3, i32 noundef %6, ptr %12, i64 %14, ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i, ptr noundef nonnull align 8 dereferenceable(24) %peer_address_.i, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_, ptr noundef %cached_network_params, ptr noundef nonnull %agg.tmp44)
-          to label %invoke.cont46 unwind label %lpad45
+16:                                               ; preds = %14
+  store ptr %15, ptr %12, align 8, !tbaa !145
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %20 = load ptr, ptr %19, align 8, !tbaa !160
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %22 = load ptr, ptr %21, align 8, !tbaa !161
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 300
+  %24 = load i32, ptr %23, align 4, !tbaa !339
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  %26 = load ptr, ptr %25, align 8, !tbaa !152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1184
+  %28 = load i64, ptr %27, align 8, !tbaa !139
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 504
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 536
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 480
+  %33 = load ptr, ptr %32, align 8, !tbaa !211
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 488
+  %35 = load ptr, ptr %34, align 8, !tbaa !340
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %37 = load ptr, ptr %36, align 8, !tbaa !137
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store ptr %15, ptr %3, align 8, !tbaa !341
+  invoke void @_ZNK3net22QuicCryptoServerConfig30BuildServerConfigUpdateMessageENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_19SourceAddressTokensERKNS_9IPAddressESG_PKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheERKNS_30QuicCryptoNegotiatedParametersEPKNS_23CachedNetworkParametersESt10unique_ptrINS_44BuildServerConfigUpdateMessageResultCallbackESt14default_deleteISV_EE(ptr noundef nonnull align 8 dereferenceable(405) %18, i32 noundef %24, ptr %26, i64 %28, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef %33, ptr noundef %35, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(433) %38, ptr noundef %1, ptr noundef nonnull %3)
+          to label %39 unwind label %46
 
-invoke.cont46:                                    ; preds = %invoke.cont15
-  %15 = load ptr, ptr %agg.tmp44, align 8
-  %cmp.not.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i, label %cleanup.cont, label %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i
+39:                                               ; preds = %16
+  %40 = load ptr, ptr %3, align 8, !tbaa !344
+  %.not.i = icmp eq ptr %40, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i: ; preds = %invoke.cont46
-  %vtable.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %16 = load ptr, ptr %vfn.i.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #16
-  br label %cleanup.cont
+_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i: ; preds = %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit
 
-lpad45:                                           ; preds = %invoke.cont15
-  %17 = landingpad { ptr, i32 }
+44:                                               ; preds = %14
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %agg.tmp44, align 8
-  %cmp.not.i16 = icmp eq ptr %18, null
-  br i1 %cmp.not.i16, label %eh.resume, label %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #18
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit21
 
-_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17: ; preds = %lpad45
-  %vtable.i.i18 = load ptr, ptr %18, align 8
-  %vfn.i.i19 = getelementptr inbounds nuw i8, ptr %vtable.i.i18, i64 8
-  %19 = load ptr, ptr %vfn.i.i19, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18) #16
-  br label %eh.resume
-
-_ZNKSt14default_deleteIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackEEclEPS2_.exit.i22: ; preds = %invoke.cont13
-  %20 = landingpad { ptr, i32 }
+46:                                               ; preds = %16
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %vtable.i.i23 = load ptr, ptr %call, align 8
-  %vfn.i.i24 = getelementptr inbounds nuw i8, ptr %vtable.i.i23, i64 8
-  %21 = load ptr, ptr %vfn.i.i24, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %call) #16
-  br label %eh.resume
+  %48 = load ptr, ptr %3, align 8, !tbaa !344
+  %.not.i16 = icmp eq ptr %48, null
+  br i1 %.not.i16, label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit21, label %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17
 
-invoke.cont54:                                    ; preds = %if.end
-  call void @_ZN3net22CryptoHandshakeMessageC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %server_config_update_message)
-  %crypto_config_48 = getelementptr inbounds nuw i8, ptr %this, i64 1048
-  %22 = load ptr, ptr %crypto_config_48, align 8
-  %session_.i26 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %23 = load ptr, ptr %session_.i26, align 8
-  %connection_.i27 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %24 = load ptr, ptr %connection_.i27, align 8
-  %quic_version_.i.i28 = getelementptr inbounds nuw i8, ptr %24, i64 300
-  %25 = load i32, ptr %quic_version_.i.i28, align 4
-  %chlo_hash_57 = getelementptr inbounds nuw i8, ptr %this, i64 1176
-  invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp56, ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash_57)
-          to label %invoke.cont58 unwind label %lpad49
+_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17: ; preds = %46
+  %49 = load ptr, ptr %48, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(8) %48) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit21
 
-invoke.cont58:                                    ; preds = %invoke.cont54
-  %previous_source_address_tokens_59 = getelementptr inbounds nuw i8, ptr %this, i64 1256
-  %26 = load ptr, ptr %session_.i26, align 8
-  %connection_.i30 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %27 = load ptr, ptr %connection_.i30, align 8
-  %self_address_.i31 = getelementptr inbounds nuw i8, ptr %27, i64 504
-  %peer_address_.i34 = getelementptr inbounds nuw i8, ptr %27, i64 536
-  %clock_.i37 = getelementptr inbounds nuw i8, ptr %27, i64 480
-  %28 = load ptr, ptr %clock_.i37, align 8
-  %random_generator_.i40 = getelementptr inbounds nuw i8, ptr %27, i64 488
-  %29 = load ptr, ptr %random_generator_.i40, align 8
-  %compressed_certs_cache_88 = getelementptr inbounds nuw i8, ptr %this, i64 1056
-  %30 = load ptr, ptr %compressed_certs_cache_88, align 8
-  %crypto_negotiated_params_89 = getelementptr inbounds nuw i8, ptr %this, i64 400
-  %31 = load ptr, ptr %agg.tmp56, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %agg.tmp56, i64 8
-  %33 = load i64, ptr %32, align 8
-  %call91 = invoke noundef zeroext i1 @_ZNK3net22QuicCryptoServerConfig30BuildServerConfigUpdateMessageENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_19SourceAddressTokensERKNS_9IPAddressESG_PKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheERKNS_30QuicCryptoNegotiatedParametersEPKNS_23CachedNetworkParametersEPNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(405) %22, i32 noundef %25, ptr %31, i64 %33, ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_59, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i31, ptr noundef nonnull align 8 dereferenceable(24) %peer_address_.i34, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_89, ptr noundef %cached_network_params, ptr noundef nonnull %server_config_update_message)
-          to label %invoke.cont90 unwind label %lpad49
+52:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @_ZN3net22CryptoHandshakeMessageC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %54 = load ptr, ptr %53, align 8, !tbaa !16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %56 = load ptr, ptr %55, align 8, !tbaa !160
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 56
+  %58 = load ptr, ptr %57, align 8, !tbaa !161
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 300
+  %60 = load i32, ptr %59, align 4, !tbaa !339
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  %62 = load ptr, ptr %61, align 8, !tbaa !152
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1184
+  %64 = load i64, ptr %63, align 8, !tbaa !139
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 504
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 536
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 480
+  %69 = load ptr, ptr %68, align 8, !tbaa !211
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 488
+  %71 = load ptr, ptr %70, align 8, !tbaa !340
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %73 = load ptr, ptr %72, align 8, !tbaa !137
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %75 = invoke noundef zeroext i1 @_ZNK3net22QuicCryptoServerConfig30BuildServerConfigUpdateMessageENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_19SourceAddressTokensERKNS_9IPAddressESG_PKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheERKNS_30QuicCryptoNegotiatedParametersEPKNS_23CachedNetworkParametersEPNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(405) %54, i32 noundef %60, ptr %62, i64 %64, ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef %69, ptr noundef %71, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(433) %74, ptr noundef %1, ptr noundef nonnull %4)
+          to label %76 unwind label %77
 
-invoke.cont90:                                    ; preds = %invoke.cont58
-  br i1 %call91, label %if.end93, label %cleanup
+76:                                               ; preds = %52
+  br i1 %75, label %79, label %90
 
-lpad49:                                           ; preds = %invoke.cont101, %invoke.cont94, %if.end93, %invoke.cont58, %invoke.cont54
-  %34 = landingpad { ptr, i32 }
+77:                                               ; preds = %52
+  %78 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %server_config_update_message) #16
-  br label %eh.resume
+  br label %93
 
-if.end93:                                         ; preds = %invoke.cont90
-  %call95 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %server_config_update_message)
-          to label %invoke.cont94 unwind label %lpad49
+79:                                               ; preds = %76
+  %80 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
+          to label %81 unwind label %91
 
-invoke.cont94:                                    ; preds = %if.end93
-  %buffer_.i = getelementptr inbounds nuw i8, ptr %call95, i64 8
-  %35 = load ptr, ptr %buffer_.i, align 8
-  %length_.i = getelementptr inbounds nuw i8, ptr %call95, i64 16
-  %36 = load i64, ptr %length_.i, align 8
-  invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp96, ptr noundef %35, i64 noundef %36)
-          to label %invoke.cont101 unwind label %lpad49
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %83 = load ptr, ptr %82, align 8, !tbaa !345
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %85 = load i64, ptr %84, align 8, !tbaa !347
+  invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %0, ptr %83, i64 %85, i1 noundef zeroext false, ptr noundef null)
+          to label %86 unwind label %91
 
-invoke.cont101:                                   ; preds = %invoke.cont94
-  %37 = load ptr, ptr %agg.tmp96, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %agg.tmp96, i64 8
-  %39 = load i64, ptr %38, align 8
-  invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %37, i64 %39, i1 noundef zeroext false, ptr noundef null)
-          to label %invoke.cont102 unwind label %lpad49
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %88 = load i32, ptr %87, align 8, !tbaa !146
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %87, align 8, !tbaa !146
+  br label %90
 
-invoke.cont102:                                   ; preds = %invoke.cont101
-  %num_server_config_update_messages_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 1240
-  %40 = load i32, ptr %num_server_config_update_messages_sent_, align 8
-  %inc = add nsw i32 %40, 1
-  store i32 %inc, ptr %num_server_config_update_messages_sent_, align 8
-  br label %cleanup
+90:                                               ; preds = %76, %86
+  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit
 
-cleanup:                                          ; preds = %invoke.cont90, %invoke.cont102
-  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %server_config_update_message) #16
-  br label %cleanup.cont
-
-cleanup.cont:                                     ; preds = %invoke.cont46, %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i, %if.then3, %entry, %cleanup
+_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit: ; preds = %39, %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i, %11, %2, %90
   ret void
 
-eh.resume:                                        ; preds = %lpad45, %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17, %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackEEclEPS2_.exit.i22, %lpad49
-  %.pn.pn = phi { ptr, i32 } [ %34, %lpad49 ], [ %20, %_ZNKSt14default_deleteIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackEEclEPS2_.exit.i22 ], [ %17, %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17 ], [ %17, %lpad45 ]
-  resume { ptr, i32 } %.pn.pn
+91:                                               ; preds = %81, %79
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  br label %93
+
+93:                                               ; preds = %91, %77
+  %.pn = phi { ptr, i32 } [ %92, %91 ], [ %78, %77 ]
+  call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #17
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
+  br label %_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit21
+
+_ZNSt10unique_ptrIN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackESt14default_deleteIS2_EED2Ev.exit21: ; preds = %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17, %46, %44, %93
+  %.pn11.pn.pn = phi { ptr, i32 } [ %.pn, %93 ], [ %45, %44 ], [ %47, %46 ], [ %47, %_ZNKSt14default_deleteIN3net44BuildServerConfigUpdateMessageResultCallbackEEclEPS1_.exit.i17 ]
+  resume { ptr, i32 } %.pn11.pn.pn
 }
 
 declare void @_ZNK3net22QuicCryptoServerConfig30BuildServerConfigUpdateMessageENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_19SourceAddressTokensERKNS_9IPAddressESG_PKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheERKNS_30QuicCryptoNegotiatedParametersEPKNS_23CachedNetworkParametersESt10unique_ptrINS_44BuildServerConfigUpdateMessageResultCallbackESt14default_deleteISV_EE(ptr noundef nonnull align 8 dereferenceable(405), i32 noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(433), ptr noundef, ptr noundef) local_unnamed_addr #1
-
-declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 declare noundef zeroext i1 @_ZNK3net22QuicCryptoServerConfig30BuildServerConfigUpdateMessageENS_11QuicVersionEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_19SourceAddressTokensERKNS_9IPAddressESG_PKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheERKNS_30QuicCryptoNegotiatedParametersEPKNS_23CachedNetworkParametersEPNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(405), i32 noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(433), ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1230,484 +1347,500 @@ declare noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandsha
 
 declare void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377), ptr, i64, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackC2EPS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %parent) unnamed_addr #9 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, i64 16), ptr %this, align 8
-  %parent_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %parent, ptr %parent_, align 8
+define void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackC2EPS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE, i64 16), ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %3, align 8, !tbaa !157
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallback3RunEbRKNS_22CryptoHandshakeMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %ok, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #0 align 2 {
-entry:
-  %agg.tmp.i = alloca %"class.base::BasicStringPiece", align 8
-  %parent_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %parent_, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %if.end
+define void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallback3RunEbRKNS_22CryptoHandshakeMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !157
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE.exit, label %7
 
-if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %send_server_config_update_cb_.i = getelementptr inbounds nuw i8, ptr %0, i64 1232
-  store ptr null, ptr %send_server_config_update_cb_.i, align 8
-  br i1 %ok, label %if.end.i, label %_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE.exit
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1232
+  store ptr null, ptr %8, align 8, !tbaa !145
+  br i1 %1, label %9, label %_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE.exit
 
-if.end.i:                                         ; preds = %if.end
-  %call.i = tail call noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %message)
-  %buffer_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  %1 = load ptr, ptr %buffer_.i.i, align 8
-  %length_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  %2 = load i64, ptr %length_.i.i, align 8
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef %1, i64 noundef %2)
-  %3 = load ptr, ptr %agg.tmp.i, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
-  %5 = load i64, ptr %4, align 8
-  call void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr %3, i64 %5, i1 noundef zeroext false, ptr noundef null)
-  %num_server_config_update_messages_sent_.i = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %6 = load i32, ptr %num_server_config_update_messages_sent_.i, align 8
-  %inc.i = add nsw i32 %6, 1
-  store i32 %inc.i, ptr %num_server_config_update_messages_sent_.i, align 8
+9:                                                ; preds = %7
+  %10 = tail call noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !345
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !347
+  tail call void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(1328) %5, ptr %12, i64 %14, i1 noundef zeroext false, ptr noundef null)
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1240
+  %16 = load i32, ptr %15, align 8, !tbaa !146
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %15, align 8, !tbaa !146
   br label %_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE.exit
 
-_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE.exit: ; preds = %if.end, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  br label %return
-
-return:                                           ; preds = %entry, %_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE.exit
+_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE.exit: ; preds = %9, %7, %3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1328) initializes((1232, 1240)) %this, i1 noundef zeroext %ok, ptr noundef nonnull align 8 dereferenceable(72) %message) local_unnamed_addr #0 align 2 {
-entry:
-  %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %send_server_config_update_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 1232
-  store ptr null, ptr %send_server_config_update_cb_, align 8
-  br i1 %ok, label %if.end, label %return
+define void @_ZN3net22QuicCryptoServerStream28FinishSendServerConfigUpdateEbRKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1328) initializes((1232, 1240)) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1232
+  store ptr null, ptr %4, align 8, !tbaa !145
+  br i1 %1, label %5, label %14
 
-if.end:                                           ; preds = %entry
-  %call = tail call noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %message)
-  %buffer_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %0 = load ptr, ptr %buffer_.i, align 8
-  %length_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  %1 = load i64, ptr %length_.i, align 8
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %0, i64 noundef %1)
-  %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %4 = load i64, ptr %3, align 8
-  call void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %2, i64 %4, i1 noundef zeroext false, ptr noundef null)
-  %num_server_config_update_messages_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 1240
-  %5 = load i32, ptr %num_server_config_update_messages_sent_, align 8
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %num_server_config_update_messages_sent_, align 8
-  br label %return
+5:                                                ; preds = %3
+  %6 = tail call noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !345
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %10 = load i64, ptr %9, align 8, !tbaa !347
+  tail call void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %0, ptr %8, i64 %10, i1 noundef zeroext false, ptr noundef null)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %12 = load i32, ptr %11, align 8, !tbaa !146
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %11, align 8, !tbaa !146
+  br label %14
 
-return:                                           ; preds = %entry, %if.end
+14:                                               ; preds = %3, %5
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream18OnServerHelloAckedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) unnamed_addr #0 align 2 {
-entry:
-  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %1 = load ptr, ptr %connection_.i, align 8
-  tail call void @_ZN3net14QuicConnection19OnHandshakeCompleteEv(ptr noundef nonnull align 8 dereferenceable(3372) %1)
+define void @_ZN3net22QuicCryptoServerStream18OnServerHelloAckedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0) unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %3 = load ptr, ptr %2, align 8, !tbaa !160
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !161
+  tail call void @_ZN3net14QuicConnection19OnHandshakeCompleteEv(ptr noundef nonnull align 8 dereferenceable(3372) %5)
   ret void
 }
 
 declare void @_ZN3net14QuicConnection19OnHandshakeCompleteEv(ptr noundef nonnull align 8 dereferenceable(3372)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i8 @_ZNK3net22QuicCryptoServerStream20NumHandshakeMessagesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) unnamed_addr #12 align 2 {
-entry:
-  %num_handshake_messages_ = getelementptr inbounds nuw i8, ptr %this, i64 1224
-  %0 = load i8, ptr %num_handshake_messages_, align 8
-  ret i8 %0
+define noundef zeroext i8 @_ZNK3net22QuicCryptoServerStream20NumHandshakeMessagesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0) unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %3 = load i8, ptr %2, align 8, !tbaa !143
+  ret i8 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i8 @_ZNK3net22QuicCryptoServerStream36NumHandshakeMessagesWithServerNoncesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) unnamed_addr #12 align 2 {
-entry:
-  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds nuw i8, ptr %this, i64 1225
-  %0 = load i8, ptr %num_handshake_messages_with_server_nonces_, align 1
-  ret i8 %0
+define noundef zeroext i8 @_ZNK3net22QuicCryptoServerStream36NumHandshakeMessagesWithServerNoncesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0) unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1225
+  %3 = load i8, ptr %2, align 1, !tbaa !144
+  ret i8 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK3net22QuicCryptoServerStream33NumServerConfigUpdateMessagesSentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) unnamed_addr #12 align 2 {
-entry:
-  %num_server_config_update_messages_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 1240
-  %0 = load i32, ptr %num_server_config_update_messages_sent_, align 8
-  ret i32 %0
+define noundef i32 @_ZNK3net22QuicCryptoServerStream33NumServerConfigUpdateMessagesSentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0) unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %3 = load i32, ptr %2, align 8, !tbaa !146
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK3net22QuicCryptoServerStream27PreviousCachedNetworkParamsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) unnamed_addr #12 align 2 {
-entry:
-  %previous_cached_network_params_ = getelementptr inbounds nuw i8, ptr %this, i64 1248
-  %0 = load ptr, ptr %previous_cached_network_params_, align 8
-  ret ptr %0
+define noundef ptr @_ZNK3net22QuicCryptoServerStream27PreviousCachedNetworkParamsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0) unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %3 = load ptr, ptr %2, align 8, !tbaa !151
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoServerStream34UseStatelessRejectsIfPeerSupportedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) unnamed_addr #12 align 2 {
-entry:
-  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds nuw i8, ptr %this, i64 1312
-  %0 = load i8, ptr %use_stateless_rejects_if_peer_supported_, align 8
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
+define noundef zeroext i1 @_ZNK3net22QuicCryptoServerStream34UseStatelessRejectsIfPeerSupportedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0) unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %3 = load i8, ptr %2, align 8, !tbaa !148, !range !208, !noundef !209
+  %4 = trunc nuw i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoServerStream28PeerSupportsStatelessRejectsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) unnamed_addr #12 align 2 {
-entry:
-  %peer_supports_stateless_rejects_ = getelementptr inbounds nuw i8, ptr %this, i64 1313
-  %0 = load i8, ptr %peer_supports_stateless_rejects_, align 1
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
+define noundef zeroext i1 @_ZNK3net22QuicCryptoServerStream28PeerSupportsStatelessRejectsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0) unnamed_addr #11 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1313
+  %3 = load i8, ptr %2, align 1, !tbaa !149, !range !208, !noundef !209
+  %4 = trunc nuw i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream31SetPeerSupportsStatelessRejectsEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1328) initializes((1313, 1314)) %this, i1 noundef zeroext %peer_supports_stateless_rejects) unnamed_addr #9 align 2 {
-entry:
-  %frombool = zext i1 %peer_supports_stateless_rejects to i8
-  %peer_supports_stateless_rejects_ = getelementptr inbounds nuw i8, ptr %this, i64 1313
-  store i8 %frombool, ptr %peer_supports_stateless_rejects_, align 1
+define void @_ZN3net22QuicCryptoServerStream31SetPeerSupportsStatelessRejectsEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1328) initializes((1313, 1314)) %0, i1 noundef zeroext %1) unnamed_addr #8 align 2 {
+  %3 = zext i1 %1 to i8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1313
+  store i8 %3, ptr %4, align 1, !tbaa !149
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream30SetPreviousCachedNetworkParamsENS_23CachedNetworkParametersE(ptr noundef nonnull align 8 captures(none) dereferenceable(1328) %this, ptr noundef %cached_network_params) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  invoke void @_ZN3net23CachedNetworkParametersC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN3net22QuicCryptoServerStream30SetPreviousCachedNetworkParamsENS_23CachedNetworkParametersE(ptr noundef nonnull align 8 captures(none) dereferenceable(1328) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
+  invoke void @_ZN3net23CachedNetworkParametersC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
+          to label %4 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  %previous_cached_network_params_ = getelementptr inbounds nuw i8, ptr %this, i64 1248
-  %0 = load ptr, ptr %previous_cached_network_params_, align 8
-  store ptr %call, ptr %previous_cached_network_params_, align 8
-  %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %6 = load ptr, ptr %5, align 8, !tbaa !151
+  store ptr %3, ptr %5, align 8, !tbaa !151
+  %.not.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i: ; preds = %invoke.cont
-  %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %1 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
+_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i: ; preds = %4
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(72) %6) #17
   br label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit
 
-_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i
+_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %4, %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #18
-  resume { ptr, i32 } %2
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #18
+  resume { ptr, i32 } %11
 }
 
 declare void @_ZN3net23CachedNetworkParametersC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net22QuicCryptoServerStream30GetBase64SHA256ClientChannelIDEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %output) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %hash = alloca %"class.std::unique_ptr.299", align 8
-  %digest = alloca [32 x i8], align 16
-  %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp14 = alloca %"class.std::allocator.10", align 1
-  %encryption_established_ = getelementptr inbounds nuw i8, ptr %this, i64 392
-  %0 = load i8, ptr %encryption_established_, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %lor.lhs.false, label %return
+define noundef zeroext i1 @_ZNK3net22QuicCryptoServerStream30GetBase64SHA256ClientChannelIDEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i64, align 8
+  %4 = alloca %"class.std::unique_ptr.295", align 8
+  %5 = alloca [32 x i8], align 16
+  %6 = alloca %"class.base::BasicStringPiece", align 8
+  %7 = alloca %"class.std::__cxx11::basic_string", align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %9 = load i8, ptr %8, align 8, !tbaa !337, !range !208, !noundef !209
+  %10 = trunc nuw i8 %9 to i1
+  br i1 %10, label %11, label %82
 
-lor.lhs.false:                                    ; preds = %entry
-  %channel_id = getelementptr inbounds nuw i8, ptr %this, i64 728
-  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %channel_id) #16
-  br i1 %call, label %return, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %13 = load i64, ptr %12, align 8, !tbaa !139
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %82, label %15
 
-if.end:                                           ; preds = %lor.lhs.false
-  call void @_ZN6crypto10SecureHash6CreateENS0_9AlgorithmE(ptr nonnull sret(%"class.std::unique_ptr.299") align 8 %hash, i32 noundef 0)
-  %1 = load ptr, ptr %hash, align 8
-  %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %channel_id) #16
-  %call7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %channel_id) #16
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %2 = load ptr, ptr %vfn, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %call6, i64 noundef %call7)
-          to label %invoke.cont unwind label %lpad
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @_ZN6crypto10SecureHash6CreateENS0_9AlgorithmE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.295") align 8 %4, i32 noundef 0)
+  %17 = load ptr, ptr %4, align 8, !tbaa !348
+  %18 = load ptr, ptr %16, align 8, !tbaa !152
+  %19 = load i64, ptr %12, align 8, !tbaa !139
+  %20 = load ptr, ptr %17, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %18, i64 noundef %19)
+          to label %23 unwind label %58
 
-invoke.cont:                                      ; preds = %if.end
-  %3 = load ptr, ptr %hash, align 8
-  %vtable9 = load ptr, ptr %3, align 8
-  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 24
-  %4 = load ptr, ptr %vfn10, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %digest, i64 noundef 32)
-          to label %invoke.cont11 unwind label %lpad
+23:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  %24 = load ptr, ptr %4, align 8, !tbaa !348
+  %25 = load ptr, ptr %24, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load ptr, ptr %26, align 8
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %5, i64 noundef 32)
+          to label %28 unwind label %60
 
-invoke.cont11:                                    ; preds = %invoke.cont
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull %digest, i64 noundef 32, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
-          to label %invoke.cont16 unwind label %lpad15
+28:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %29, ptr %7, align 8, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  store i64 32, ptr %3, align 8, !tbaa !6
+  %30 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+          to label %31 unwind label %62
 
-invoke.cont16:                                    ; preds = %invoke.cont11
-  invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
-          to label %invoke.cont18 unwind label %lpad17
+31:                                               ; preds = %28
+  store ptr %30, ptr %7, align 8, !tbaa !152
+  %32 = load i64, ptr %3, align 8, !tbaa !6
+  store i64 %32, ptr %29, align 8, !tbaa !140
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %30, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %32, ptr %33, align 8, !tbaa !139
+  %34 = load ptr, ptr %7, align 8, !tbaa !152
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
+  store i8 0, ptr %35, align 1, !tbaa !140
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  %36 = load ptr, ptr %7, align 8, !tbaa !152
+  store ptr %36, ptr %6, align 8, !tbaa !350
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %38 = load i64, ptr %33, align 8, !tbaa !139
+  store i64 %38, ptr %37, align 8, !tbaa !352
+  invoke void @_ZN4base12Base64EncodeERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %1)
+          to label %39 unwind label %64
 
-invoke.cont18:                                    ; preds = %invoke.cont16
-  invoke void @_ZN4base12Base64EncodeERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %output)
-          to label %invoke.cont19 unwind label %lpad17
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %7, align 8, !tbaa !152
+  %41 = icmp eq ptr %40, %29
+  br i1 %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-invoke.cont19:                                    ; preds = %invoke.cont18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #16
-  %call20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #16
-  %cmp = icmp ugt i64 %call20, 1
-  br i1 %cmp, label %if.then21, label %if.end36
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %39
+  %42 = load i64, ptr %33, align 8, !tbaa !139
+  %43 = icmp ult i64 %42, 16
+  call void @llvm.assume(i1 %43)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-if.then21:                                        ; preds = %invoke.cont19
-  %sub = add i64 %call20, -1
-  %call23 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %sub)
-          to label %invoke.cont22 unwind label %lpad
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %39
+  call void @_ZdlPv(ptr noundef %40) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-invoke.cont22:                                    ; preds = %if.then21
-  %5 = load i8, ptr %call23, align 1
-  %cmp24 = icmp eq i8 %5, 61
-  br i1 %cmp24, label %if.then25, label %if.end36
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !139
+  %46 = icmp ugt i64 %45, 1
+  br i1 %46, label %47, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
-if.then25:                                        ; preds = %invoke.cont22
-  %sub26 = add i64 %call20, -2
-  %call28 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %sub26)
-          to label %invoke.cont27 unwind label %lpad
+47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %48 = add i64 %45, -1
+  %49 = load ptr, ptr %1, align 8, !tbaa !152
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
+  %51 = load i8, ptr %50, align 1, !tbaa !140
+  %52 = icmp eq i8 %51, 61
+  br i1 %52, label %53, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
-invoke.cont27:                                    ; preds = %if.then25
-  %6 = load i8, ptr %call28, align 1
-  %cmp30 = icmp eq i8 %6, 61
-  %spec.select = select i1 %cmp30, i64 %sub26, i64 %sub
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %spec.select)
-          to label %if.end36 unwind label %lpad
+53:                                               ; preds = %47
+  %54 = add i64 %45, -2
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !140
+  %57 = icmp eq i8 %56, 61
+  %spec.select = select i1 %57, i64 %54, i64 %48
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %spec.select, i8 noundef signext 0)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %70
 
-lpad:                                             ; preds = %invoke.cont27, %if.then25, %if.then21, %invoke.cont, %if.end
-  %7 = landingpad { ptr, i32 }
+58:                                               ; preds = %15
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup37
+  br label %77
 
-lpad15:                                           ; preds = %invoke.cont11
-  %8 = landingpad { ptr, i32 }
+60:                                               ; preds = %23
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %76
 
-lpad17:                                           ; preds = %invoke.cont18, %invoke.cont16
-  %9 = landingpad { ptr, i32 }
+62:                                               ; preds = %28
+  %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #16
-  br label %ehcleanup
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
 
-ehcleanup:                                        ; preds = %lpad17, %lpad15
-  %.pn = phi { ptr, i32 } [ %9, %lpad17 ], [ %8, %lpad15 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #16
-  br label %ehcleanup37
+64:                                               ; preds = %31
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = load ptr, ptr %7, align 8, !tbaa !152
+  %67 = icmp eq ptr %66, %29
+  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
 
-if.end36:                                         ; preds = %invoke.cont22, %invoke.cont27, %invoke.cont19
-  %10 = load ptr, ptr %hash, align 8
-  %cmp.not.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i, label %return, label %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27: ; preds = %64
+  %68 = load i64, ptr %33, align 8, !tbaa !139
+  %69 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %69)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
 
-_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i: ; preds = %if.end36
-  %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
-  br label %return
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26: ; preds = %64
+  call void @_ZdlPv(ptr noundef %66) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
 
-ehcleanup37:                                      ; preds = %ehcleanup, %lpad
-  %.pn12 = phi { ptr, i32 } [ %7, %lpad ], [ %.pn, %ehcleanup ]
-  %12 = load ptr, ptr %hash, align 8
-  %cmp.not.i14 = icmp eq ptr %12, null
-  br i1 %cmp.not.i14, label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit18, label %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i15
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27, %62
+  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27 ], [ %65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  br label %76
 
-_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i15: ; preds = %ehcleanup37
-  %vtable.i.i16 = load ptr, ptr %12, align 8
-  %vfn.i.i17 = getelementptr inbounds nuw i8, ptr %vtable.i.i16, i64 8
-  %13 = load ptr, ptr %vfn.i.i17, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
-  br label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit18
+70:                                               ; preds = %53
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  br label %76
 
-_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit18: ; preds = %ehcleanup37, %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i15
-  resume { ptr, i32 } %.pn12
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %53, %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  %72 = load ptr, ptr %4, align 8, !tbaa !348
+  %.not.i = icmp eq ptr %72, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i
 
-return:                                           ; preds = %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i, %if.end36, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.end36 ], [ true, %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i ]
-  ret i1 %retval.0
+_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
+  %73 = load ptr, ptr %72, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %72) #17
+  br label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit
+
+_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  br label %82
+
+76:                                               ; preds = %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %60
+  %.pn23 = phi { ptr, i32 } [ %71, %70 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %61, %60 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  br label %77
+
+77:                                               ; preds = %76, %58
+  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %76 ], [ %59, %58 ]
+  %78 = load ptr, ptr %4, align 8, !tbaa !348
+  %.not.i29 = icmp eq ptr %78, null
+  br i1 %.not.i29, label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit31, label %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i30
+
+_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i30: ; preds = %77
+  %79 = load ptr, ptr %78, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8
+  call void %81(ptr noundef nonnull align 8 dereferenceable(8) %78) #17
+  br label %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit31
+
+_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit31: ; preds = %77, %_ZNKSt14default_deleteIN6crypto10SecureHashEEclEPS1_.exit.i30
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  resume { ptr, i32 } %.pn23.pn
+
+82:                                               ; preds = %2, %11, %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit
+  %.020 = phi i1 [ true, %_ZNSt10unique_ptrIN6crypto10SecureHashESt14default_deleteIS1_EED2Ev.exit ], [ false, %11 ], [ false, %2 ]
+  ret i1 %.020
 }
 
-; Function Attrs: nounwind
-declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
-
-declare void @_ZN6crypto10SecureHash6CreateENS0_9AlgorithmE(ptr sret(%"class.std::unique_ptr.299") align 8, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
+declare void @_ZN6crypto10SecureHash6CreateENS0_9AlgorithmE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.295") align 8, i32 noundef) local_unnamed_addr #1
 
 declare void @_ZN4base12Base64EncodeERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS6_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
-
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net22QuicCryptoServerStream18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EEPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(368) %result, ptr readnone captures(none) %proof_source_details, ptr noundef %reply, ptr noundef %out_diversification_nonce, ptr noundef %error_details) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %helper_ = getelementptr inbounds nuw i8, ptr %this, i64 1216
-  %0 = load ptr, ptr %helper_, align 8
-  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %1 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %2 = load ptr, ptr %connection_.i, align 8
-  %self_address_.i = getelementptr inbounds nuw i8, ptr %2, i64 504
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(72) %result, ptr noundef nonnull align 8 dereferenceable(26) %self_address_.i, ptr noundef %error_details)
-  br i1 %call4, label %if.end, label %return
+define noundef i32 @_ZN3net22QuicCryptoServerStream18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EEPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull align 8 dereferenceable(368) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %8 = load ptr, ptr %7, align 8, !tbaa !142
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %10 = load ptr, ptr %9, align 8, !tbaa !160
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %12 = load ptr, ptr %11, align 8, !tbaa !161
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 504
+  %14 = load ptr, ptr %8, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(26) %13, ptr noundef %5)
+  br i1 %17, label %18, label %82
 
-if.end:                                           ; preds = %entry
-  %server_nonce = getelementptr inbounds nuw i8, ptr %result, i64 144
-  %call5 = tail call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %server_nonce)
-  br i1 %call5, label %if.end7, label %if.then6
+18:                                               ; preds = %6
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %20 = load i64, ptr %19, align 8, !tbaa !352
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %26, label %22
 
-if.then6:                                         ; preds = %if.end
-  %num_handshake_messages_with_server_nonces_ = getelementptr inbounds nuw i8, ptr %this, i64 1225
-  %4 = load i8, ptr %num_handshake_messages_with_server_nonces_, align 1
-  %inc = add i8 %4, 1
-  store i8 %inc, ptr %num_handshake_messages_with_server_nonces_, align 1
-  br label %if.end7
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1225
+  %24 = load i8, ptr %23, align 1, !tbaa !144
+  %25 = add i8 %24, 1
+  store i8 %25, ptr %23, align 1, !tbaa !144
+  br label %26
 
-if.end7:                                          ; preds = %if.then6, %if.end
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %result, i64 336
-  %5 = load i32, ptr %bandwidth_estimate_bytes_per_second_.i, align 8
-  %cmp = icmp sgt i32 %5, 0
-  br i1 %cmp, label %if.then9, label %if.end12
+26:                                               ; preds = %22, %18
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %28 = load i32, ptr %27, align 8, !tbaa !353
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %30, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit
 
-if.then9:                                         ; preds = %if.end7
-  %cached_network_params = getelementptr inbounds nuw i8, ptr %result, i64 296
-  %call10 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
-  invoke void @_ZN3net23CachedNetworkParametersC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %call10, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params)
-          to label %invoke.cont unwind label %lpad
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %32 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
+  invoke void @_ZN3net23CachedNetworkParametersC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef nonnull align 8 dereferenceable(72) %31)
+          to label %33 unwind label %39
 
-invoke.cont:                                      ; preds = %if.then9
-  %previous_cached_network_params_ = getelementptr inbounds nuw i8, ptr %this, i64 1248
-  %6 = load ptr, ptr %previous_cached_network_params_, align 8
-  store ptr %call10, ptr %previous_cached_network_params_, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i, label %if.end12, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %35 = load ptr, ptr %34, align 8, !tbaa !151
+  store ptr %32, ptr %34, align 8, !tbaa !151
+  %.not.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i: ; preds = %invoke.cont
-  %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %6) #16
-  br label %if.end12
+_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i: ; preds = %33
+  %36 = load ptr, ptr %35, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(72) %35) #17
+  br label %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit
 
-lpad:                                             ; preds = %if.then9
-  %8 = landingpad { ptr, i32 }
+39:                                               ; preds = %30
+  %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call10) #18
-  resume { ptr, i32 } %8
+  tail call void @_ZdlPv(ptr noundef nonnull %32) #18
+  resume { ptr, i32 } %40
 
-if.end12:                                         ; preds = %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i, %invoke.cont, %if.end7
-  %source_address_tokens = getelementptr inbounds nuw i8, ptr %result, i64 176
-  %previous_source_address_tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 1256
-  tail call void @_ZN3net19SourceAddressTokens8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %previous_source_address_tokens_, ptr noundef nonnull align 8 dereferenceable(56) %source_address_tokens)
-  %use_stateless_rejects_if_peer_supported_ = getelementptr inbounds nuw i8, ptr %this, i64 1312
-  %9 = load i8, ptr %use_stateless_rejects_if_peer_supported_, align 8
-  %tobool = trunc i8 %9 to i1
-  %peer_supports_stateless_rejects_ = getelementptr inbounds nuw i8, ptr %this, i64 1313
-  %10 = load i8, ptr %peer_supports_stateless_rejects_, align 1
-  %tobool15 = trunc i8 %10 to i1
-  %11 = select i1 %tobool, i1 %tobool15, i1 false
-  %12 = load ptr, ptr %session_.i, align 8
-  %connection_.i14 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %13 = load ptr, ptr %connection_.i14, align 8
-  br i1 %11, label %if.end.i, label %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit
+_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZNKSt14default_deleteIN3net23CachedNetworkParametersEEclEPS1_.exit.i.i, %33, %26
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  tail call void @_ZN3net19SourceAddressTokens8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %41)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %44 = load i8, ptr %43, align 8, !tbaa !148, !range !208, !noundef !209
+  %45 = trunc nuw i8 %44 to i1
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1313
+  %47 = load i8, ptr %46, align 1, !range !208
+  %48 = trunc nuw i8 %47 to i1
+  %49 = select i1 %45, i1 %48, i1 false
+  %50 = load ptr, ptr %9, align 8, !tbaa !160
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %52 = load ptr, ptr %51, align 8, !tbaa !161
+  br i1 %49, label %53, label %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit
 
-if.end.i:                                         ; preds = %if.end12
-  %14 = load ptr, ptr %helper_, align 8
-  %connection_id_.i.i = getelementptr inbounds nuw i8, ptr %13, i64 496
-  %15 = load i64, ptr %connection_id_.i.i, align 8
-  %vtable.i = load ptr, ptr %14, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
-  %16 = load ptr, ptr %vfn.i, align 8
-  %call4.i = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %15)
+53:                                               ; preds = %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit
+  %54 = load ptr, ptr %7, align 8, !tbaa !142
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 496
+  %56 = load i64, ptr %55, align 8, !tbaa !355
+  %57 = load ptr, ptr %54, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef i64 %59(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %56)
   br label %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit
 
-_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit: ; preds = %if.end12, %if.end.i
-  %retval.0.i = phi i64 [ %call4.i, %if.end.i ], [ 0, %if.end12 ]
-  %crypto_config_ = getelementptr inbounds nuw i8, ptr %this, i64 1048
-  %17 = load ptr, ptr %crypto_config_, align 8
-  %connection_id_.i = getelementptr inbounds nuw i8, ptr %13, i64 496
-  %18 = load i64, ptr %connection_id_.i, align 8
-  %self_address_.i15 = getelementptr inbounds nuw i8, ptr %13, i64 504
-  %peer_address_.i = getelementptr inbounds nuw i8, ptr %13, i64 536
-  %call24 = tail call noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
-  %supported_versions_.i.i = getelementptr inbounds nuw i8, ptr %13, i64 304
-  %clock_.i = getelementptr inbounds nuw i8, ptr %13, i64 480
-  %19 = load ptr, ptr %clock_.i, align 8
-  %random_generator_.i = getelementptr inbounds nuw i8, ptr %13, i64 488
-  %20 = load ptr, ptr %random_generator_.i, align 8
-  %compressed_certs_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 1056
-  %21 = load ptr, ptr %compressed_certs_cache_, align 8
-  %crypto_negotiated_params_ = getelementptr inbounds nuw i8, ptr %this, i64 400
-  %crypto_proof_ = getelementptr inbounds nuw i8, ptr %this, i64 1064
-  %call29 = tail call noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
-  %call30 = tail call noundef i64 @_ZN3net16QuicCryptoStream28CryptoMessageFramingOverheadENS_11QuicVersionE(i32 noundef %call29)
-  %chlo_packet_size_ = getelementptr inbounds nuw i8, ptr %this, i64 1320
-  %22 = load i64, ptr %chlo_packet_size_, align 8
-  %call31 = tail call noundef i32 @_ZNK3net22QuicCryptoServerConfig18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultEbmRKNS_9IPAddressERKNS_10IPEndPointENS_11QuicVersionERKSt6vectorISB_SaISB_EEbmPKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheEPNS_30QuicCryptoNegotiatedParametersEPNS_15QuicCryptoProofEmmPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(405) %17, ptr noundef nonnull align 8 dereferenceable(368) %result, i1 noundef zeroext false, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i15, ptr noundef nonnull align 8 dereferenceable(26) %peer_address_.i, i32 noundef %call24, ptr noundef nonnull align 8 dereferenceable(24) %supported_versions_.i.i, i1 noundef zeroext %11, i64 noundef %retval.0.i, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef nonnull %crypto_negotiated_params_, ptr noundef nonnull %crypto_proof_, i64 noundef %call30, i64 noundef %22, ptr noundef %reply, ptr noundef %out_diversification_nonce, ptr noundef %error_details)
-  br label %return
+_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit: ; preds = %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit, %53
+  %.0.i = phi i64 [ %60, %53 ], [ 0, %_ZNSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE5resetEPS1_.exit ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %62 = load ptr, ptr %61, align 8, !tbaa !16
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 496
+  %64 = load i64, ptr %63, align 8, !tbaa !355
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 504
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 536
+  %67 = tail call noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %0)
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 304
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 480
+  %70 = load ptr, ptr %69, align 8, !tbaa !211
+  %71 = getelementptr inbounds nuw i8, ptr %52, i64 488
+  %72 = load ptr, ptr %71, align 8, !tbaa !340
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %74 = load ptr, ptr %73, align 8, !tbaa !137
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %77 = tail call noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull align 8 dereferenceable(377) %0)
+  %78 = tail call noundef i64 @_ZN3net16QuicCryptoStream28CryptoMessageFramingOverheadENS_11QuicVersionE(i32 noundef %77)
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  %80 = load i64, ptr %79, align 8, !tbaa !150
+  %81 = tail call noundef i32 @_ZNK3net22QuicCryptoServerConfig18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultEbmRKNS_9IPAddressERKNS_10IPEndPointENS_11QuicVersionERKSt6vectorISB_SaISB_EEbmPKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheEPNS_30QuicCryptoNegotiatedParametersEPNS_15QuicCryptoProofEmmPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(405) %62, ptr noundef nonnull align 8 dereferenceable(368) %1, i1 noundef zeroext false, i64 noundef %64, ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(26) %66, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(24) %68, i1 noundef zeroext %49, i64 noundef %.0.i, ptr noundef %70, ptr noundef %72, ptr noundef %74, ptr noundef nonnull %75, ptr noundef nonnull %76, i64 noundef %78, i64 noundef %80, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %82
 
-return:                                           ; preds = %entry, %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit
-  %retval.0 = phi i32 [ %call31, %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit ], [ 28, %entry ]
-  ret i32 %retval.0
+82:                                               ; preds = %6, %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit
+  %.0 = phi i32 [ %81, %_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb.exit ], [ 28, %6 ]
+  ret i32 %.0
 }
 
-declare noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
-
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, i1 noundef zeroext %use_stateless_rejects) local_unnamed_addr #0 align 2 {
-entry:
-  br i1 %use_stateless_rejects, label %if.end, label %return
+define noundef i64 @_ZN3net22QuicCryptoServerStream29GenerateConnectionIdForRejectEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+  br i1 %1, label %3, label %16
 
-if.end:                                           ; preds = %entry
-  %helper_ = getelementptr inbounds nuw i8, ptr %this, i64 1216
-  %0 = load ptr, ptr %helper_, align 8
-  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %1 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %2 = load ptr, ptr %connection_.i, align 8
-  %connection_id_.i = getelementptr inbounds nuw i8, ptr %2, i64 496
-  %3 = load i64, ptr %connection_id_.i, align 8
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %4 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %3)
-  br label %return
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %5 = load ptr, ptr %4, align 8, !tbaa !142
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %7 = load ptr, ptr %6, align 8, !tbaa !160
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %9 = load ptr, ptr %8, align 8, !tbaa !161
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 496
+  %11 = load i64, ptr %10, align 8, !tbaa !355
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %11)
+  br label %16
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i64 [ %call4, %if.end ], [ 0, %entry ]
-  ret i64 %retval.0
+16:                                               ; preds = %2, %3
+  %.0 = phi i64 [ %15, %3 ], [ 0, %2 ]
+  ret i64 %.0
 }
 
 declare noundef i32 @_ZNK3net22QuicCryptoServerConfig18ProcessClientHelloERKNS_33ValidateClientHelloResultCallback6ResultEbmRKNS_9IPAddressERKNS_10IPEndPointENS_11QuicVersionERKSt6vectorISB_SaISB_EEbmPKNS_9QuicClockEPNS_10QuicRandomEPNS_24QuicCompressedCertsCacheEPNS_30QuicCryptoNegotiatedParametersEPNS_15QuicCryptoProofEmmPNS_22CryptoHandshakeMessageEPSt5arrayIcLm32EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(405), ptr noundef nonnull align 8 dereferenceable(368), i1 noundef zeroext, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(26), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1715,70 +1848,67 @@ declare noundef i32 @_ZNK3net22QuicCryptoServerConfig18ProcessClientHelloERKNS_3
 declare noundef i64 @_ZN3net16QuicCryptoStream28CryptoMessageFramingOverheadENS_11QuicVersionE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream26OverrideQuicConfigDefaultsEPNS_10QuicConfigE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %config) unnamed_addr #13 align 2 {
-entry:
+define void @_ZN3net22QuicCryptoServerStream26OverrideQuicConfigDefaultsEPNS_10QuicConfigE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #12 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream16ValidateCallbackC2EPS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %parent) unnamed_addr #0 align 2 {
-entry:
-  tail call void @_ZN3net33ValidateClientHelloResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicCryptoServerStream16ValidateCallbackE, i64 16), ptr %this, align 8
-  %parent_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %parent, ptr %parent_, align 8
+define void @_ZN3net22QuicCryptoServerStream16ValidateCallbackC2EPS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  tail call void @_ZN3net33ValidateClientHelloResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net22QuicCryptoServerStream16ValidateCallbackE, i64 16), ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %3, align 8, !tbaa !153
   ret void
 }
 
 declare void @_ZN3net33ValidateClientHelloResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicCryptoServerStream16ValidateCallback3RunESt10unique_ptrINS_33ValidateClientHelloResultCallback6ResultESt14default_deleteIS4_EES2_INS_11ProofSource7DetailsES5_IS9_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %result, ptr noundef captures(none) %details) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %agg.tmp = alloca %"class.std::unique_ptr.275", align 8
-  %parent_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %parent_, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_ZN3net22QuicCryptoServerStream16ValidateCallback3RunESt10unique_ptrINS_33ValidateClientHelloResultCallback6ResultESt14default_deleteIS4_EES2_INS_11ProofSource7DetailsES5_IS9_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.std::unique_ptr.271", align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !153
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit, label %7
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %result, align 8
-  %2 = load i64, ptr %details, align 8
-  store i64 %2, ptr %agg.tmp, align 8
-  store ptr null, ptr %details, align 8
-  invoke void @_ZN3net22QuicCryptoServerStream32FinishProcessingHandshakeMessageERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull align 8 dereferenceable(368) %1, ptr noundef nonnull %agg.tmp)
-          to label %invoke.cont unwind label %lpad
+7:                                                ; preds = %3
+  %8 = load ptr, ptr %1, align 8, !tbaa !356
+  %9 = load i64, ptr %2, align 8, !tbaa !333
+  store i64 %9, ptr %4, align 8, !tbaa !333
+  store ptr null, ptr %2, align 8, !tbaa !333
+  invoke void @_ZN3net22QuicCryptoServerStream32FinishProcessingHandshakeMessageERKNS_33ValidateClientHelloResultCallback6ResultESt10unique_ptrINS_11ProofSource7DetailsESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(1328) %6, ptr noundef nonnull align 8 dereferenceable(368) %8, ptr noundef nonnull %4)
+          to label %10 unwind label %15
 
-invoke.cont:                                      ; preds = %if.then
-  %3 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %if.end, label %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8, !tbaa !333
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i: ; preds = %invoke.cont
-  %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  br label %if.end
+_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i: ; preds = %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+  br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit
 
-lpad:                                             ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+15:                                               ; preds = %7
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i1 = icmp eq ptr %6, null
-  br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit5, label %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i2
+  %17 = load ptr, ptr %4, align 8, !tbaa !333
+  %.not.i2 = icmp eq ptr %17, null
+  br i1 %.not.i2, label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit4, label %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i3
 
-_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i2: ; preds = %lpad
-  %vtable.i.i3 = load ptr, ptr %6, align 8
-  %vfn.i.i4 = getelementptr inbounds nuw i8, ptr %vtable.i.i3, i64 8
-  %7 = load ptr, ptr %vfn.i.i4, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
-  br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit5
+_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i3: ; preds = %15
+  %18 = load ptr, ptr %17, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
+  br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit4
 
-_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit5: ; preds = %lpad, %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i2
-  resume { ptr, i32 } %5
+_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit4: ; preds = %15, %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i3
+  resume { ptr, i32 } %16
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i, %invoke.cont, %entry
+_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i, %10, %3
   ret void
 }
 
@@ -1810,228 +1940,476 @@ declare void @_ZN3net18ReliableQuicStream14CloseWriteSideEv(ptr noundef nonnull 
 
 declare void @_ZN3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE(ptr noundef nonnull align 8 dereferenceable(1048), ptr noundef) unnamed_addr #1
 
-declare void @_ZThn384_N3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE(ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn384_N3net16QuicCryptoStream7OnErrorEPNS_12CryptoFramerE(ptr noundef, ptr noundef) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
-entry:
+define linkonce_odr void @_ZN3net44BuildServerConfigUpdateMessageResultCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN3net33ValidateClientHelloResultCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3net22QuicCryptoServerStream16ValidateCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @_ZN3net33ValidateClientHelloResultCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3net16QuicCryptoStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #13 comdat align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %2, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %3) #17
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %4) #17
+  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net22QuicCryptoServerStream16ValidateCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN3net33ValidateClientHelloResultCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net22QuicCryptoServerStream16ValidateCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN3net33ValidateClientHelloResultCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net26QuicCryptoServerStreamBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 384
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %add.ptr.i, align 8
-  %crypto_framer_.i = getelementptr inbounds nuw i8, ptr %this, i64 840
-  tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i) #16
-  %crypto_negotiated_params_.i = getelementptr inbounds nuw i8, ptr %this, i64 400
-  tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i) #16
-  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) #16
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3net26QuicCryptoServerStreamBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @llvm.trap() #17
+define linkonce_odr void @_ZN3net26QuicCryptoServerStreamBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #4 comdat align 2 {
+  tail call void @llvm.trap() #20
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZThn384_N3net26QuicCryptoServerStreamBaseD1Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -384
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %this, align 8
-  %crypto_framer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 456
-  tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i.i) #16
-  %crypto_negotiated_params_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i.i) #16
-  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) #16
+define linkonce_odr void @_ZThn384_N3net26QuicCryptoServerStreamBaseD1Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -384
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %3) #17
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %4) #17
+  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %2) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZThn384_N3net26QuicCryptoServerStreamBaseD0Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 {
-entry:
-  tail call void @llvm.trap() #17
+define linkonce_odr void @_ZThn384_N3net26QuicCryptoServerStreamBaseD0Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
+  tail call void @llvm.trap() #20
   unreachable
 }
 
-declare void @_ZThn384_N3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn384_N3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #10 align 2
 
 ; Function Attrs: nounwind
-declare void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
+declare void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433)) unnamed_addr #2
+declare void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377)) unnamed_addr #2
+declare void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377)) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #15
 
 declare void @_ZN3net19SourceAddressTokens8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
-; Function Attrs: nounwind
-declare void @_ZN3net33ValidateClientHelloResultCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
-
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__dnew = alloca i64, align 8
-  %__guard = alloca %struct._Guard, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__end to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__beg to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  store i64 %sub.ptr.sub.i.i, ptr %__dnew, align 8
-  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, 15
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2)
-  %0 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0)
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %call.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-          to label %if.end unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.else
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
-  unreachable
-
-if.end:                                           ; preds = %if.else, %if.then
-  store ptr %this, ptr %__guard, align 8
-  %call4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #16
-  store ptr null, ptr %__guard, align 8
-  %3 = load i64, ptr %__dnew, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
-          to label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit unwind label %lpad
-
-_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %invoke.cont, %if.end
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #16
-  resume { ptr, i32 } %4
-}
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
-
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #16
 
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %if.end unwind label %terminate.lpad
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
-  unreachable
-}
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn }
-attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nounwind }
 attributes #18 = { builtin nounwind }
 attributes #19 = { builtin allocsize(0) }
+attributes #20 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 int", !11, i64 0}
+!11 = !{!"any pointer", !8, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !8, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17, !113, i64 1048}
+!17 = !{!"_ZTSN3net22QuicCryptoServerStreamE", !18, i64 0, !113, i64 1048, !114, i64 1056, !115, i64 1064, !61, i64 1176, !120, i64 1208, !121, i64 1216, !8, i64 1224, !8, i64 1225, !122, i64 1232, !13, i64 1240, !123, i64 1248, !130, i64 1256, !33, i64 1312, !33, i64 1313, !7, i64 1320}
+!18 = !{!"_ZTSN3net26QuicCryptoServerStreamBaseE", !19, i64 0}
+!19 = !{!"_ZTSN3net16QuicCryptoStreamE", !20, i64 0, !59, i64 384, !33, i64 392, !33, i64 393, !60, i64 400, !91, i64 840}
+!20 = !{!"_ZTSN3net18ReliableQuicStreamE", !21, i64 8, !7, i64 32, !27, i64 40, !13, i64 216, !51, i64 224, !7, i64 232, !7, i64 240, !52, i64 248, !53, i64 252, !33, i64 256, !33, i64 257, !33, i64 258, !33, i64 259, !33, i64 260, !33, i64 261, !33, i64 262, !54, i64 264, !55, i64 272, !58, i64 368, !33, i64 376}
+!21 = !{!"_ZTSNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EEE", !22, i64 0}
+!22 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18ReliableQuicStream11PendingDataESaIS3_EEE", !23, i64 0}
+!23 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18ReliableQuicStream11PendingDataESaIS3_EE10_List_implE", !24, i64 0}
+!24 = !{!"_ZTSNSt8__detail17_List_node_headerE", !25, i64 0, !7, i64 16}
+!25 = !{!"_ZTSNSt8__detail15_List_node_baseE", !26, i64 0, !26, i64 8}
+!26 = !{!"p1 _ZTSNSt8__detail15_List_node_baseE", !11, i64 0}
+!27 = !{!"_ZTSN3net19QuicStreamSequencerE", !28, i64 8, !29, i64 16, !7, i64 136, !33, i64 144, !13, i64 148, !13, i64 152, !50, i64 160, !33, i64 168}
+!28 = !{!"p1 _ZTSN3net18ReliableQuicStreamE", !11, i64 0}
+!29 = !{!"_ZTSN3net25QuicStreamSequencerBufferE", !7, i64 0, !7, i64 8, !7, i64 16, !30, i64 24, !33, i64 48, !34, i64 56, !7, i64 64, !41, i64 72}
+!30 = !{!"_ZTSNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEE", !31, i64 0}
+!31 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEE", !32, i64 0}
+!32 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE10_List_implE", !24, i64 0}
+!33 = !{!"bool", !8, i64 0}
+!34 = !{!"_ZTSSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EE", !35, i64 0}
+!35 = !{!"_ZTSSt15__uniq_ptr_dataIPN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIA_S3_ELb1ELb1EE", !36, i64 0}
+!36 = !{!"_ZTSSt15__uniq_ptr_implIPN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIA_S3_EE", !37, i64 0}
+!37 = !{!"_ZTSSt5tupleIJPPN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIA_S3_EEE", !38, i64 0}
+!38 = !{!"_ZTSSt11_Tuple_implILm0EJPPN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIA_S3_EEE", !39, i64 0}
+!39 = !{!"_ZTSSt10_Head_baseILm0EPPN3net25QuicStreamSequencerBuffer11BufferBlockELb0EE", !40, i64 0}
+!40 = !{!"p2 _ZTSN3net25QuicStreamSequencerBuffer11BufferBlockE", !11, i64 0}
+!41 = !{!"_ZTSSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE", !42, i64 0}
+!42 = !{!"_ZTSSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE", !43, i64 0}
+!43 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE13_Rb_tree_implIS9_Lb1EEE", !44, i64 0, !46, i64 8}
+!44 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessImEE", !45, i64 0}
+!45 = !{!"_ZTSSt4lessImE"}
+!46 = !{!"_ZTSSt15_Rb_tree_header", !47, i64 0, !7, i64 32}
+!47 = !{!"_ZTSSt18_Rb_tree_node_base", !48, i64 0, !49, i64 8, !49, i64 16, !49, i64 24}
+!48 = !{!"_ZTSSt14_Rb_tree_color", !8, i64 0}
+!49 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !11, i64 0}
+!50 = !{!"p1 _ZTSN3net9QuicClockE", !11, i64 0}
+!51 = !{!"p1 _ZTSN3net11QuicSessionE", !11, i64 0}
+!52 = !{!"_ZTSN3net22QuicRstStreamErrorCodeE", !8, i64 0}
+!53 = !{!"_ZTSN3net13QuicErrorCodeE", !8, i64 0}
+!54 = !{!"_ZTSN3net11PerspectiveE", !8, i64 0}
+!55 = !{!"_ZTSN3net18QuicFlowControllerE", !56, i64 0, !13, i64 8, !54, i64 12, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !33, i64 72, !7, i64 80, !57, i64 88}
+!56 = !{!"p1 _ZTSN3net14QuicConnectionE", !11, i64 0}
+!57 = !{!"_ZTSN3net8QuicTimeE", !7, i64 0}
+!58 = !{!"p1 _ZTSN3net18QuicFlowControllerE", !11, i64 0}
+!59 = !{!"_ZTSN3net28CryptoFramerVisitorInterfaceE"}
+!60 = !{!"_ZTSN3net30QuicCryptoNegotiatedParametersE", !13, i64 0, !13, i64 4, !61, i64 8, !61, i64 40, !61, i64 72, !61, i64 104, !64, i64 136, !64, i64 152, !61, i64 168, !61, i64 200, !61, i64 232, !61, i64 264, !79, i64 296, !84, i64 320, !61, i64 328, !13, i64 360, !33, i64 364, !33, i64 365, !61, i64 368, !61, i64 400, !33, i64 432}
+!61 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !62, i64 0, !7, i64 8, !8, i64 16}
+!62 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !63, i64 0}
+!63 = !{!"p1 omnipotent char", !11, i64 0}
+!64 = !{!"_ZTSN3net11CrypterPairE", !65, i64 0, !72, i64 8}
+!65 = !{!"_ZTSSt10unique_ptrIN3net13QuicEncrypterESt14default_deleteIS1_EE", !66, i64 0}
+!66 = !{!"_ZTSSt15__uniq_ptr_dataIN3net13QuicEncrypterESt14default_deleteIS1_ELb1ELb1EE", !67, i64 0}
+!67 = !{!"_ZTSSt15__uniq_ptr_implIN3net13QuicEncrypterESt14default_deleteIS1_EE", !68, i64 0}
+!68 = !{!"_ZTSSt5tupleIJPN3net13QuicEncrypterESt14default_deleteIS1_EEE", !69, i64 0}
+!69 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net13QuicEncrypterESt14default_deleteIS1_EEE", !70, i64 0}
+!70 = !{!"_ZTSSt10_Head_baseILm0EPN3net13QuicEncrypterELb0EE", !71, i64 0}
+!71 = !{!"p1 _ZTSN3net13QuicEncrypterE", !11, i64 0}
+!72 = !{!"_ZTSSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE", !73, i64 0}
+!73 = !{!"_ZTSSt15__uniq_ptr_dataIN3net13QuicDecrypterESt14default_deleteIS1_ELb1ELb1EE", !74, i64 0}
+!74 = !{!"_ZTSSt15__uniq_ptr_implIN3net13QuicDecrypterESt14default_deleteIS1_EE", !75, i64 0}
+!75 = !{!"_ZTSSt5tupleIJPN3net13QuicDecrypterESt14default_deleteIS1_EEE", !76, i64 0}
+!76 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net13QuicDecrypterESt14default_deleteIS1_EEE", !77, i64 0}
+!77 = !{!"_ZTSSt10_Head_baseILm0EPN3net13QuicDecrypterELb0EE", !78, i64 0}
+!78 = !{!"p1 _ZTSN3net13QuicDecrypterE", !11, i64 0}
+!79 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !80, i64 0}
+!80 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !81, i64 0}
+!81 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !82, i64 0}
+!82 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !83, i64 0, !83, i64 8, !83, i64 16}
+!83 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !11, i64 0}
+!84 = !{!"_ZTSSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE", !85, i64 0}
+!85 = !{!"_ZTSSt15__uniq_ptr_dataIN3net11KeyExchangeESt14default_deleteIS1_ELb1ELb1EE", !86, i64 0}
+!86 = !{!"_ZTSSt15__uniq_ptr_implIN3net11KeyExchangeESt14default_deleteIS1_EE", !87, i64 0}
+!87 = !{!"_ZTSSt5tupleIJPN3net11KeyExchangeESt14default_deleteIS1_EEE", !88, i64 0}
+!88 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net11KeyExchangeESt14default_deleteIS1_EEE", !89, i64 0}
+!89 = !{!"_ZTSSt10_Head_baseILm0EPN3net11KeyExchangeELb0EE", !90, i64 0}
+!90 = !{!"p1 _ZTSN3net11KeyExchangeE", !11, i64 0}
+!91 = !{!"_ZTSN3net12CryptoFramerE", !92, i64 8, !53, i64 16, !61, i64 24, !93, i64 56, !94, i64 64, !61, i64 136, !107, i64 168, !108, i64 176, !7, i64 200}
+!92 = !{!"p1 _ZTSN3net28CryptoFramerVisitorInterfaceE", !11, i64 0}
+!93 = !{!"_ZTSN3net12CryptoFramer17CryptoFramerStateE", !8, i64 0}
+!94 = !{!"_ZTSN3net22CryptoHandshakeMessageE", !13, i64 0, !95, i64 8, !7, i64 56, !100, i64 64}
+!95 = !{!"_ZTSSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE", !96, i64 0}
+!96 = !{!"_ZTSSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE", !97, i64 0}
+!97 = !{!"_ZTSNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !98, i64 0, !46, i64 8}
+!98 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIjEE", !99, i64 0}
+!99 = !{!"_ZTSSt4lessIjE"}
+!100 = !{!"_ZTSSt10unique_ptrIN3net8QuicDataESt14default_deleteIS1_EE", !101, i64 0}
+!101 = !{!"_ZTSSt15__uniq_ptr_dataIN3net8QuicDataESt14default_deleteIS1_ELb1ELb1EE", !102, i64 0}
+!102 = !{!"_ZTSSt15__uniq_ptr_implIN3net8QuicDataESt14default_deleteIS1_EE", !103, i64 0}
+!103 = !{!"_ZTSSt5tupleIJPN3net8QuicDataESt14default_deleteIS1_EEE", !104, i64 0}
+!104 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net8QuicDataESt14default_deleteIS1_EEE", !105, i64 0}
+!105 = !{!"_ZTSSt10_Head_baseILm0EPN3net8QuicDataELb0EE", !106, i64 0}
+!106 = !{!"p1 _ZTSN3net8QuicDataE", !11, i64 0}
+!107 = !{!"short", !8, i64 0}
+!108 = !{!"_ZTSSt6vectorISt4pairIjmESaIS1_EE", !109, i64 0}
+!109 = !{!"_ZTSSt12_Vector_baseISt4pairIjmESaIS1_EE", !110, i64 0}
+!110 = !{!"_ZTSNSt12_Vector_baseISt4pairIjmESaIS1_EE12_Vector_implE", !111, i64 0}
+!111 = !{!"_ZTSNSt12_Vector_baseISt4pairIjmESaIS1_EE17_Vector_impl_dataE", !112, i64 0, !112, i64 8, !112, i64 16}
+!112 = !{!"p1 _ZTSSt4pairIjmE", !11, i64 0}
+!113 = !{!"p1 _ZTSN3net22QuicCryptoServerConfigE", !11, i64 0}
+!114 = !{!"p1 _ZTSN3net24QuicCompressedCertsCacheE", !11, i64 0}
+!115 = !{!"_ZTSN3net15QuicCryptoProofE", !61, i64 0, !116, i64 32, !61, i64 40, !118, i64 72, !61, i64 80}
+!116 = !{!"_ZTS13scoped_refptrIN3net11ProofSource5ChainEE", !117, i64 0}
+!117 = !{!"p1 _ZTSN3net11ProofSource5ChainE", !11, i64 0}
+!118 = !{!"_ZTS13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEE", !119, i64 0}
+!119 = !{!"p1 _ZTSN3net22QuicCryptoServerConfig6ConfigE", !11, i64 0}
+!120 = !{!"p1 _ZTSN3net22QuicCryptoServerStream16ValidateCallbackE", !11, i64 0}
+!121 = !{!"p1 _ZTSN3net22QuicCryptoServerStream6HelperE", !11, i64 0}
+!122 = !{!"p1 _ZTSN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE", !11, i64 0}
+!123 = !{!"_ZTSSt10unique_ptrIN3net23CachedNetworkParametersESt14default_deleteIS1_EE", !124, i64 0}
+!124 = !{!"_ZTSSt15__uniq_ptr_dataIN3net23CachedNetworkParametersESt14default_deleteIS1_ELb1ELb1EE", !125, i64 0}
+!125 = !{!"_ZTSSt15__uniq_ptr_implIN3net23CachedNetworkParametersESt14default_deleteIS1_EE", !126, i64 0}
+!126 = !{!"_ZTSSt5tupleIJPN3net23CachedNetworkParametersESt14default_deleteIS1_EEE", !127, i64 0}
+!127 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net23CachedNetworkParametersESt14default_deleteIS1_EEE", !128, i64 0}
+!128 = !{!"_ZTSSt10_Head_baseILm0EPN3net23CachedNetworkParametersELb0EE", !129, i64 0}
+!129 = !{!"p1 _ZTSN3net23CachedNetworkParametersE", !11, i64 0}
+!130 = !{!"_ZTSN3net19SourceAddressTokensE", !131, i64 0, !132, i64 8, !133, i64 16, !8, i64 24, !13, i64 28, !134, i64 32}
+!131 = !{!"_ZTSN6google8protobuf11MessageLiteE"}
+!132 = !{!"_ZTSN6google8protobuf8internal14ArenaStringPtrE", !83, i64 0}
+!133 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !11, i64 0}
+!134 = !{!"_ZTSN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEEE", !135, i64 0}
+!135 = !{!"_ZTSN6google8protobuf8internal20RepeatedPtrFieldBaseE", !133, i64 0, !13, i64 8, !13, i64 12, !136, i64 16}
+!136 = !{!"p1 _ZTSN6google8protobuf8internal20RepeatedPtrFieldBase3RepE", !11, i64 0}
+!137 = !{!17, !114, i64 1056}
+!138 = !{!62, !63, i64 0}
+!139 = !{!61, !7, i64 8}
+!140 = !{!8, !8, i64 0}
+!141 = !{!17, !120, i64 1208}
+!142 = !{!17, !121, i64 1216}
+!143 = !{!17, !8, i64 1224}
+!144 = !{!17, !8, i64 1225}
+!145 = !{!17, !122, i64 1232}
+!146 = !{!17, !13, i64 1240}
+!147 = !{!128, !129, i64 0}
+!148 = !{!17, !33, i64 1312}
+!149 = !{!17, !33, i64 1313}
+!150 = !{!17, !7, i64 1320}
+!151 = !{!129, !129, i64 0}
+!152 = !{!61, !63, i64 0}
+!153 = !{!154, !156, i64 8}
+!154 = !{!"_ZTSN3net22QuicCryptoServerStream16ValidateCallbackE", !155, i64 0, !156, i64 8}
+!155 = !{!"_ZTSN3net33ValidateClientHelloResultCallbackE"}
+!156 = !{!"p1 _ZTSN3net22QuicCryptoServerStreamE", !11, i64 0}
+!157 = !{!158, !156, i64 8}
+!158 = !{!"_ZTSN3net22QuicCryptoServerStream30SendServerConfigUpdateCallbackE", !159, i64 0, !156, i64 8}
+!159 = !{!"_ZTSN3net44BuildServerConfigUpdateMessageResultCallbackE"}
+!160 = !{!20, !51, i64 224}
+!161 = !{!162, !56, i64 56}
+!162 = !{!"_ZTSN3net11QuicSessionE", !163, i64 0, !164, i64 8, !56, i64 56, !167, i64 64, !172, i64 88, !7, i64 688, !7, i64 696, !192, i64 704, !194, i64 768, !13, i64 936, !195, i64 944, !195, i64 1000, !202, i64 1056, !13, i64 1904, !7, i64 1912, !7, i64 1920, !7, i64 1928, !53, i64 1936, !55, i64 1944, !13, i64 2040}
+!163 = !{!"_ZTSN3net30QuicConnectionVisitorInterfaceE"}
+!164 = !{!"_ZTSSt3mapIjmSt4lessIjESaISt4pairIKjmEEE", !165, i64 0}
+!165 = !{!"_ZTSSt8_Rb_treeIjSt4pairIKjmESt10_Select1stIS2_ESt4lessIjESaIS2_EE", !166, i64 0}
+!166 = !{!"_ZTSNSt8_Rb_treeIjSt4pairIKjmESt10_Select1stIS2_ESt4lessIjESaIS2_EE13_Rb_tree_implIS6_Lb1EEE", !98, i64 0, !46, i64 8}
+!167 = !{!"_ZTSSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE", !168, i64 0}
+!168 = !{!"_ZTSSt12_Vector_baseIPN3net18ReliableQuicStreamESaIS2_EE", !169, i64 0}
+!169 = !{!"_ZTSNSt12_Vector_baseIPN3net18ReliableQuicStreamESaIS2_EE12_Vector_implE", !170, i64 0}
+!170 = !{!"_ZTSNSt12_Vector_baseIPN3net18ReliableQuicStreamESaIS2_EE17_Vector_impl_dataE", !171, i64 0, !171, i64 8, !171, i64 16}
+!171 = !{!"p2 _ZTSN3net18ReliableQuicStreamE", !11, i64 0}
+!172 = !{!"_ZTSN3net10QuicConfigE", !173, i64 0, !173, i64 16, !7, i64 32, !175, i64 40, !182, i64 120, !182, i64 152, !182, i64 184, !184, i64 216, !184, i64 248, !184, i64 280, !184, i64 312, !184, i64 344, !184, i64 376, !182, i64 408, !184, i64 440, !185, i64 472, !184, i64 568}
+!173 = !{!"_ZTSN3net8QuicTime5DeltaE", !174, i64 0, !7, i64 8}
+!174 = !{!"_ZTSN4base9TimeDeltaE", !7, i64 0}
+!175 = !{!"_ZTSN3net18QuicFixedTagVectorE", !176, i64 0, !178, i64 16, !33, i64 40, !178, i64 48, !33, i64 72}
+!176 = !{!"_ZTSN3net15QuicConfigValueE", !13, i64 8, !177, i64 12}
+!177 = !{!"_ZTSN3net18QuicConfigPresenceE", !8, i64 0}
+!178 = !{!"_ZTSSt6vectorIjSaIjEE", !179, i64 0}
+!179 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !180, i64 0}
+!180 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !181, i64 0}
+!181 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!182 = !{!"_ZTSN3net20QuicNegotiableUint32E", !183, i64 0, !13, i64 20, !13, i64 24, !13, i64 28}
+!183 = !{!"_ZTSN3net19QuicNegotiableValueE", !176, i64 0, !33, i64 16}
+!184 = !{!"_ZTSN3net15QuicFixedUint32E", !176, i64 0, !13, i64 16, !33, i64 20, !13, i64 24, !33, i64 28}
+!185 = !{!"_ZTSN3net19QuicFixedIPEndPointE", !176, i64 0, !186, i64 16, !33, i64 48, !186, i64 56, !33, i64 88}
+!186 = !{!"_ZTSN3net10IPEndPointE", !187, i64 0, !107, i64 24}
+!187 = !{!"_ZTSN3net9IPAddressE", !188, i64 0}
+!188 = !{!"_ZTSSt6vectorIhSaIhEE", !189, i64 0}
+!189 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !190, i64 0}
+!190 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !191, i64 0}
+!191 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !63, i64 0, !63, i64 8, !63, i64 16}
+!192 = !{!"_ZTSN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEEE", !13, i64 0, !193, i64 4, !8, i64 8}
+!193 = !{!"_ZTSN4base8internal19SmallMapDefaultInitISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEEEE"}
+!194 = !{!"_ZTSN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEEE", !13, i64 0, !193, i64 4, !8, i64 8}
+!195 = !{!"_ZTSSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE", !196, i64 0}
+!196 = !{!"_ZTSSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !197, i64 0, !7, i64 8, !198, i64 16, !7, i64 24, !200, i64 32, !199, i64 48}
+!197 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !11, i64 0}
+!198 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !199, i64 0}
+!199 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !11, i64 0}
+!200 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !201, i64 0, !7, i64 8}
+!201 = !{!"float", !8, i64 0}
+!202 = !{!"_ZTSN3net20QuicWriteBlockedListE", !203, i64 0, !8, i64 776, !8, i64 808, !8, i64 840, !33, i64 841, !33, i64 842}
+!203 = !{!"_ZTSN3net22PriorityWriteSchedulerIjEE", !204, i64 0, !7, i64 8, !8, i64 16, !205, i64 720}
+!204 = !{!"_ZTSN3net14WriteSchedulerIjEE"}
+!205 = !{!"_ZTSSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE", !206, i64 0}
+!206 = !{!"_ZTSSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE", !197, i64 0, !7, i64 8, !198, i64 16, !7, i64 24, !200, i64 32, !199, i64 48}
+!207 = !{!19, !33, i64 393}
+!208 = !{i8 0, i8 2}
+!209 = !{}
+!210 = !{!94, !13, i64 0}
+!211 = !{!212, !50, i64 480}
+!212 = !{!"_ZTSN3net14QuicConnectionE", !213, i64 0, !214, i64 8, !215, i64 16, !218, i64 24, !219, i64 32, !233, i64 440, !234, i64 448, !235, i64 456, !236, i64 464, !33, i64 472, !231, i64 473, !50, i64 480, !237, i64 488, !7, i64 496, !186, i64 504, !186, i64 536, !238, i64 568, !7, i64 576, !33, i64 584, !7, i64 592, !63, i64 600, !231, i64 608, !239, i64 616, !244, i64 680, !33, i64 696, !7, i64 704, !7, i64 712, !245, i64 720, !7, i64 800, !33, i64 808, !252, i64 816, !33, i64 840, !255, i64 848, !262, i64 856, !33, i64 860, !263, i64 864, !287, i64 1112, !33, i64 1240, !7, i64 1248, !33, i64 1256, !7, i64 1264, !13, i64 1272, !295, i64 1276, !201, i64 1280, !33, i64 1284, !33, i64 1285, !33, i64 1286, !173, i64 1288, !296, i64 1304, !297, i64 2336, !297, i64 2344, !297, i64 2352, !297, i64 2360, !297, i64 2368, !297, i64 2376, !297, i64 2384, !298, i64 2392, !299, i64 2400, !300, i64 2408, !173, i64 2880, !173, i64 2896, !319, i64 2912, !57, i64 3160, !57, i64 3168, !57, i64 3176, !7, i64 3184, !321, i64 3192, !328, i64 3200, !54, i64 3204, !33, i64 3208, !186, i64 3216, !186, i64 3248, !33, i64 3280, !227, i64 3288, !7, i64 3312, !7, i64 3320, !7, i64 3328, !7, i64 3336, !7, i64 3344, !7, i64 3352, !7, i64 3360, !33, i64 3368, !33, i64 3369, !33, i64 3370, !33, i64 3371}
+!213 = !{!"_ZTSN3net26QuicFramerVisitorInterfaceE"}
+!214 = !{!"_ZTSN3net26QuicBlockedWriterInterfaceE"}
+!215 = !{!"_ZTSN3net19QuicPacketGenerator17DelegateInterfaceE", !216, i64 0}
+!216 = !{!"_ZTSN3net17QuicPacketCreator17DelegateInterfaceE", !217, i64 0}
+!217 = !{!"_ZTSN3net36QuicConnectionCloseDelegateInterfaceE"}
+!218 = !{!"_ZTSN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorE"}
+!219 = !{!"_ZTSN3net10QuicFramerE", !61, i64 8, !220, i64 40, !221, i64 48, !53, i64 56, !222, i64 64, !224, i64 120, !7, i64 176, !224, i64 184, !7, i64 240, !8, i64 248, !7, i64 256, !13, i64 264, !226, i64 268, !227, i64 272, !72, i64 296, !72, i64 304, !231, i64 312, !231, i64 313, !33, i64 314, !8, i64 320, !54, i64 344, !33, i64 348, !57, i64 352, !173, i64 360, !232, i64 376}
+!220 = !{!"p1 _ZTSN3net26QuicFramerVisitorInterfaceE", !11, i64 0}
+!221 = !{!"p1 _ZTSN3net42QuicReceivedEntropyHashCalculatorInterfaceE", !11, i64 0}
+!222 = !{!"_ZTSSt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEE", !223, i64 0}
+!223 = !{!"_ZTSSt10_HashtableIhhSaIhENSt8__detail9_IdentityESt8equal_toIhESt4hashIhENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !197, i64 0, !7, i64 8, !198, i64 16, !7, i64 24, !200, i64 32, !199, i64 48}
+!224 = !{!"_ZTSSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE", !225, i64 0}
+!225 = !{!"_ZTSSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE", !197, i64 0, !7, i64 8, !198, i64 16, !7, i64 24, !200, i64 32, !199, i64 48}
+!226 = !{!"_ZTSN3net11QuicVersionE", !8, i64 0}
+!227 = !{!"_ZTSSt6vectorIN3net11QuicVersionESaIS1_EE", !228, i64 0}
+!228 = !{!"_ZTSSt12_Vector_baseIN3net11QuicVersionESaIS1_EE", !229, i64 0}
+!229 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE12_Vector_implE", !230, i64 0}
+!230 = !{!"_ZTSNSt12_Vector_baseIN3net11QuicVersionESaIS1_EE17_Vector_impl_dataE", !11, i64 0, !11, i64 8, !11, i64 16}
+!231 = !{!"_ZTSN3net15EncryptionLevelE", !8, i64 0}
+!232 = !{!"_ZTSSt5arrayIcLm32EE", !8, i64 0}
+!233 = !{!"p1 _ZTSN3net29QuicConnectionHelperInterfaceE", !11, i64 0}
+!234 = !{!"p1 _ZTSN3net16QuicAlarmFactoryE", !11, i64 0}
+!235 = !{!"p1 _ZTSN3net16PerPacketOptionsE", !11, i64 0}
+!236 = !{!"p1 _ZTSN3net16QuicPacketWriterE", !11, i64 0}
+!237 = !{!"p1 _ZTSN3net10QuicRandomE", !11, i64 0}
+!238 = !{!"_ZTSN3net21PeerAddressChangeTypeE", !8, i64 0}
+!239 = !{!"_ZTSN3net16QuicPacketHeaderE", !240, i64 0, !7, i64 48, !8, i64 56, !33, i64 57, !8, i64 58, !33, i64 59}
+!240 = !{!"_ZTSN3net22QuicPacketPublicHeaderE", !7, i64 0, !241, i64 8, !33, i64 12, !33, i64 13, !33, i64 14, !242, i64 15, !227, i64 16, !243, i64 40}
+!241 = !{!"_ZTSN3net22QuicConnectionIdLengthE", !8, i64 0}
+!242 = !{!"_ZTSN3net22QuicPacketNumberLengthE", !8, i64 0}
+!243 = !{!"p1 _ZTSSt5arrayIcLm32EE", !11, i64 0}
+!244 = !{!"_ZTSN3net20QuicStopWaitingFrameE", !8, i64 0, !8, i64 1, !7, i64 8}
+!245 = !{!"_ZTSSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EE", !246, i64 0}
+!246 = !{!"_ZTSSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE", !247, i64 0}
+!247 = !{!"_ZTSNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE11_Deque_implE", !248, i64 0}
+!248 = !{!"_ZTSNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_Deque_impl_dataE", !249, i64 0, !7, i64 8, !250, i64 16, !250, i64 48}
+!249 = !{!"p3 _ZTSN3net19QuicEncryptedPacketE", !11, i64 0}
+!250 = !{!"_ZTSSt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS2_PS2_E", !251, i64 0, !251, i64 8, !251, i64 16, !249, i64 24}
+!251 = !{!"p2 _ZTSN3net19QuicEncryptedPacketE", !11, i64 0}
+!252 = !{!"_ZTSNSt7__cxx114listIN3net16SerializedPacketESaIS2_EEE", !253, i64 0}
+!253 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EEE", !254, i64 0}
+!254 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EE10_List_implE", !24, i64 0}
+!255 = !{!"_ZTSSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EE", !256, i64 0}
+!256 = !{!"_ZTSSt15__uniq_ptr_dataISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_ELb1ELb1EE", !257, i64 0}
+!257 = !{!"_ZTSSt15__uniq_ptr_implISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EE", !258, i64 0}
+!258 = !{!"_ZTSSt5tupleIJPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EEE", !259, i64 0}
+!259 = !{!"_ZTSSt11_Tuple_implILm0EJPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EES4_IS8_EEE", !260, i64 0}
+!260 = !{!"_ZTSSt10_Head_baseILm0EPSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS3_EESaIS6_EELb0EE", !261, i64 0}
+!261 = !{!"p1 _ZTSSt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EE", !11, i64 0}
+!262 = !{!"_ZTSN3net23ConnectionCloseBehaviorE", !8, i64 0}
+!263 = !{!"_ZTSN3net25QuicReceivedPacketManagerE", !264, i64 0, !265, i64 8, !7, i64 112, !273, i64 120, !33, i64 224, !57, i64 232, !286, i64 240}
+!264 = !{!"_ZTSN3net42QuicReceivedEntropyHashCalculatorInterfaceE"}
+!265 = !{!"_ZTSN3net25QuicReceivedPacketManager14EntropyTrackerE", !266, i64 0, !8, i64 80, !7, i64 88, !7, i64 96}
+!266 = !{!"_ZTSSt5dequeISt4pairIhbESaIS1_EE", !267, i64 0}
+!267 = !{!"_ZTSSt11_Deque_baseISt4pairIhbESaIS1_EE", !268, i64 0}
+!268 = !{!"_ZTSNSt11_Deque_baseISt4pairIhbESaIS1_EE11_Deque_implE", !269, i64 0}
+!269 = !{!"_ZTSNSt11_Deque_baseISt4pairIhbESaIS1_EE16_Deque_impl_dataE", !270, i64 0, !7, i64 8, !271, i64 16, !271, i64 48}
+!270 = !{!"p2 _ZTSSt4pairIhbE", !11, i64 0}
+!271 = !{!"_ZTSSt15_Deque_iteratorISt4pairIhbERS1_PS1_E", !272, i64 0, !272, i64 8, !272, i64 16, !270, i64 24}
+!272 = !{!"p1 _ZTSSt4pairIhbE", !11, i64 0}
+!273 = !{!"_ZTSN3net12QuicAckFrameE", !7, i64 0, !173, i64 8, !274, i64 24, !279, i64 48, !8, i64 96, !8, i64 97, !33, i64 98, !33, i64 99}
+!274 = !{!"_ZTSSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE", !275, i64 0}
+!275 = !{!"_ZTSSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE", !276, i64 0}
+!276 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE12_Vector_implE", !277, i64 0}
+!277 = !{!"_ZTSNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE17_Vector_impl_dataE", !278, i64 0, !278, i64 8, !278, i64 16}
+!278 = !{!"p1 _ZTSSt4pairImN3net8QuicTimeEE", !11, i64 0}
+!279 = !{!"_ZTSN3net17PacketNumberQueueE", !280, i64 0}
+!280 = !{!"_ZTSN3net11IntervalSetImEE", !281, i64 0}
+!281 = !{!"_ZTSSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !282, i64 0}
+!282 = !{!"_ZTSSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE", !283, i64 0}
+!283 = !{!"_ZTSNSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE13_Rb_tree_implIS7_Lb1EEE", !284, i64 0, !46, i64 8}
+!284 = !{!"_ZTSSt20_Rb_tree_key_compareIN3net11IntervalSetImE18IntervalComparatorEE", !285, i64 0}
+!285 = !{!"_ZTSN3net11IntervalSetImE18IntervalComparatorE"}
+!286 = !{!"p1 _ZTSN3net19QuicConnectionStatsE", !11, i64 0}
+!287 = !{!"_ZTSN3net22QuicSentEntropyManagerE", !288, i64 8, !7, i64 88, !294, i64 96, !294, i64 112}
+!288 = !{!"_ZTSSt5dequeIhSaIhEE", !289, i64 0}
+!289 = !{!"_ZTSSt11_Deque_baseIhSaIhEE", !290, i64 0}
+!290 = !{!"_ZTSNSt11_Deque_baseIhSaIhEE11_Deque_implE", !291, i64 0}
+!291 = !{!"_ZTSNSt11_Deque_baseIhSaIhEE16_Deque_impl_dataE", !292, i64 0, !7, i64 8, !293, i64 16, !293, i64 48}
+!292 = !{!"p2 omnipotent char", !11, i64 0}
+!293 = !{!"_ZTSSt15_Deque_iteratorIhRhPhE", !63, i64 0, !63, i64 8, !63, i64 16, !292, i64 24}
+!294 = !{!"_ZTSN3net22QuicSentEntropyManager17CumulativeEntropyE", !7, i64 0, !8, i64 8}
+!295 = !{!"_ZTSN3net14QuicConnection7AckModeE", !8, i64 0}
+!296 = !{!"_ZTSN3net17QuicOneBlockArenaILj1024EEE", !8, i64 0, !13, i64 1024}
+!297 = !{!"_ZTSN3net18QuicArenaScopedPtrINS_9QuicAlarmEEE", !11, i64 0}
+!298 = !{!"p1 _ZTSN3net30QuicConnectionVisitorInterfaceE", !11, i64 0}
+!299 = !{!"p1 _ZTSN3net26QuicConnectionDebugVisitorE", !11, i64 0}
+!300 = !{!"_ZTSN3net19QuicPacketGeneratorE", !301, i64 0, !302, i64 8, !308, i64 320, !33, i64 344, !33, i64 345, !33, i64 346, !273, i64 352, !244, i64 456}
+!301 = !{!"p1 _ZTSN3net19QuicPacketGenerator17DelegateInterfaceE", !11, i64 0}
+!302 = !{!"_ZTSN3net17QuicPacketCreatorE", !303, i64 0, !304, i64 8, !305, i64 16, !306, i64 24, !307, i64 48, !33, i64 56, !33, i64 57, !242, i64 58, !33, i64 59, !232, i64 60, !7, i64 96, !7, i64 104, !241, i64 112, !308, i64 120, !7, i64 144, !7, i64 152, !313, i64 160, !224, i64 256}
+!303 = !{!"p1 _ZTSN3net17QuicPacketCreator17DelegateInterfaceE", !11, i64 0}
+!304 = !{!"p1 _ZTSN3net17QuicPacketCreator13DebugDelegateE", !11, i64 0}
+!305 = !{!"p1 _ZTSN3net10QuicFramerE", !11, i64 0}
+!306 = !{!"_ZTSN3net17QuicPacketCreator20QuicRandomBoolSourceE", !237, i64 0, !7, i64 8, !7, i64 16}
+!307 = !{!"p1 _ZTSN3net19QuicBufferAllocatorE", !11, i64 0}
+!308 = !{!"_ZTSSt6vectorIN3net9QuicFrameESaIS1_EE", !309, i64 0}
+!309 = !{!"_ZTSSt12_Vector_baseIN3net9QuicFrameESaIS1_EE", !310, i64 0}
+!310 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE12_Vector_implE", !311, i64 0}
+!311 = !{!"_ZTSNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE17_Vector_impl_dataE", !312, i64 0, !312, i64 8, !312, i64 16}
+!312 = !{!"p1 _ZTSN3net9QuicFrameE", !11, i64 0}
+!313 = !{!"_ZTSN3net16SerializedPacketE", !63, i64 0, !107, i64 8, !308, i64 16, !314, i64 40, !107, i64 42, !8, i64 44, !7, i64 48, !242, i64 56, !231, i64 57, !8, i64 58, !33, i64 59, !33, i64 60, !315, i64 61, !8, i64 62, !7, i64 64, !316, i64 72}
+!314 = !{!"_ZTSN3net11IsHandshakeE", !8, i64 0}
+!315 = !{!"_ZTSN3net16TransmissionTypeE", !8, i64 0}
+!316 = !{!"_ZTSNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EEE", !317, i64 0}
+!317 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EEE", !318, i64 0}
+!318 = !{!"_ZTSNSt7__cxx1110_List_baseIN3net18AckListenerWrapperESaIS2_EE10_List_implE", !24, i64 0}
+!319 = !{!"_ZTSN3net19QuicConnectionStatsE", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !320, i64 200, !7, i64 208, !7, i64 216, !7, i64 224, !13, i64 232, !57, i64 240}
+!320 = !{!"_ZTSN3net13QuicBandwidthE", !7, i64 0}
+!321 = !{!"_ZTSSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE", !322, i64 0}
+!322 = !{!"_ZTSSt15__uniq_ptr_dataIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_ELb1ELb1EE", !323, i64 0}
+!323 = !{!"_ZTSSt15__uniq_ptr_implIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE", !324, i64 0}
+!324 = !{!"_ZTSSt5tupleIJPN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EEE", !325, i64 0}
+!325 = !{!"_ZTSSt11_Tuple_implILm0EJPN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EEE", !326, i64 0}
+!326 = !{!"_ZTSSt10_Head_baseILm0EPN3net30QuicSentPacketManagerInterfaceELb0EE", !327, i64 0}
+!327 = !{!"p1 _ZTSN3net30QuicSentPacketManagerInterfaceE", !11, i64 0}
+!328 = !{!"_ZTSN3net27QuicVersionNegotiationStateE", !8, i64 0}
+!329 = !{!330, !331, i64 0}
+!330 = !{!"_ZTSSt10_Head_baseILm0EPN3net33ValidateClientHelloResultCallbackELb0EE", !331, i64 0}
+!331 = !{!"p1 _ZTSN3net33ValidateClientHelloResultCallbackE", !11, i64 0}
+!332 = !{!331, !331, i64 0}
+!333 = !{!334, !334, i64 0}
+!334 = !{!"p1 _ZTSN3net11ProofSource7DetailsE", !11, i64 0}
+!335 = !{!71, !71, i64 0}
+!336 = !{!78, !78, i64 0}
+!337 = !{!19, !33, i64 392}
+!338 = !{!33, !33, i64 0}
+!339 = !{!219, !226, i64 268}
+!340 = !{!212, !237, i64 488}
+!341 = !{!342, !343, i64 0}
+!342 = !{!"_ZTSSt10_Head_baseILm0EPN3net44BuildServerConfigUpdateMessageResultCallbackELb0EE", !343, i64 0}
+!343 = !{!"p1 _ZTSN3net44BuildServerConfigUpdateMessageResultCallbackE", !11, i64 0}
+!344 = !{!343, !343, i64 0}
+!345 = !{!346, !63, i64 8}
+!346 = !{!"_ZTSN3net8QuicDataE", !63, i64 8, !7, i64 16, !33, i64 24}
+!347 = !{!346, !7, i64 16}
+!348 = !{!349, !349, i64 0}
+!349 = !{!"p1 _ZTSN6crypto10SecureHashE", !11, i64 0}
+!350 = !{!351, !63, i64 0}
+!351 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !63, i64 0, !7, i64 8}
+!352 = !{!351, !7, i64 8}
+!353 = !{!354, !13, i64 40}
+!354 = !{!"_ZTSN3net23CachedNetworkParametersE", !131, i64 0, !132, i64 8, !133, i64 16, !8, i64 24, !13, i64 28, !132, i64 32, !13, i64 40, !13, i64 44, !7, i64 48, !13, i64 56, !13, i64 60, !7, i64 64}
+!355 = !{!212, !7, i64 496}
+!356 = !{!357, !357, i64 0}
+!357 = !{!"p1 _ZTSN3net33ValidateClientHelloResultCallback6ResultE", !11, i64 0}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.crypto_ex_data_func_st = type { i64, ptr, ptr, ptr }
 %struct.CRYPTO_EX_DATA_CLASS = type { %struct.CRYPTO_STATIC_MUTEX, ptr, i8 }
@@ -11,611 +11,694 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ex_data.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_get_ex_new_index(ptr noundef %ex_data_class, ptr noundef %out_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ex_data_class.addr = alloca ptr, align 8
-  %out_index.addr = alloca ptr, align 8
-  %argl.addr = alloca i64, align 8
-  %argp.addr = alloca ptr, align 8
-  %dup_func.addr = alloca ptr, align 8
-  %free_func.addr = alloca ptr, align 8
-  %funcs = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %ex_data_class, ptr %ex_data_class.addr, align 8
-  store ptr %out_index, ptr %out_index.addr, align 8
-  store i64 %argl, ptr %argl.addr, align 8
-  store ptr %argp, ptr %argp.addr, align 8
-  store ptr %dup_func, ptr %dup_func.addr, align 8
-  store ptr %free_func, ptr %free_func.addr, align 8
-  store i32 0, ptr %ret, align 4
-  %call = call noalias ptr @malloc(i64 noundef 32) #4
-  store ptr %call, ptr %funcs, align 8
-  %0 = load ptr, ptr %funcs, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @CRYPTO_get_ex_new_index(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !6
+  store ptr %1, ptr %9, align 8, !tbaa !10
+  store i64 %2, ptr %10, align 8, !tbaa !12
+  store ptr %3, ptr %11, align 8, !tbaa !6
+  store ptr %4, ptr %12, align 8, !tbaa !6
+  store ptr %5, ptr %13, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  store i32 0, ptr %15, align 4, !tbaa !14
+  %17 = call noalias ptr @malloc(i64 noundef 32) #6
+  store ptr %17, ptr %14, align 8, !tbaa !16
+  %18 = load ptr, ptr %14, align 8, !tbaa !16
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %entry
+20:                                               ; preds = %6
   call void @ERR_put_error(i32 noundef 14, i32 noundef 0, i32 noundef 65, ptr noundef @.str, i32 noundef 139)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %75
 
-if.end:                                           ; preds = %entry
-  %1 = load i64, ptr %argl.addr, align 8
-  %2 = load ptr, ptr %funcs, align 8
-  %argl1 = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %2, i32 0, i32 0
-  store i64 %1, ptr %argl1, align 8
-  %3 = load ptr, ptr %argp.addr, align 8
-  %4 = load ptr, ptr %funcs, align 8
-  %argp2 = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %4, i32 0, i32 1
-  store ptr %3, ptr %argp2, align 8
-  %5 = load ptr, ptr %dup_func.addr, align 8
-  %6 = load ptr, ptr %funcs, align 8
-  %dup_func3 = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %6, i32 0, i32 3
-  store ptr %5, ptr %dup_func3, align 8
-  %7 = load ptr, ptr %free_func.addr, align 8
-  %8 = load ptr, ptr %funcs, align 8
-  %free_func4 = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %8, i32 0, i32 2
-  store ptr %7, ptr %free_func4, align 8
-  %9 = load ptr, ptr %ex_data_class.addr, align 8
-  %lock = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %9, i32 0, i32 0
-  call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef %lock)
-  %10 = load ptr, ptr %ex_data_class.addr, align 8
-  %meth = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %meth, align 8
-  %cmp5 = icmp eq ptr %11, null
-  br i1 %cmp5, label %if.then6, label %if.end9
+21:                                               ; preds = %6
+  %22 = load i64, ptr %10, align 8, !tbaa !12
+  %23 = load ptr, ptr %14, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %23, i32 0, i32 0
+  store i64 %22, ptr %24, align 8, !tbaa !18
+  %25 = load ptr, ptr %11, align 8, !tbaa !6
+  %26 = load ptr, ptr %14, align 8, !tbaa !16
+  %27 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %26, i32 0, i32 1
+  store ptr %25, ptr %27, align 8, !tbaa !20
+  %28 = load ptr, ptr %12, align 8, !tbaa !6
+  %29 = load ptr, ptr %14, align 8, !tbaa !16
+  %30 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %29, i32 0, i32 3
+  store ptr %28, ptr %30, align 8, !tbaa !21
+  %31 = load ptr, ptr %13, align 8, !tbaa !6
+  %32 = load ptr, ptr %14, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %32, i32 0, i32 2
+  store ptr %31, ptr %33, align 8, !tbaa !22
+  %34 = load ptr, ptr %8, align 8, !tbaa !6
+  %35 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %34, i32 0, i32 0
+  call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef %35)
+  %36 = load ptr, ptr %8, align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !23
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %44
 
-if.then6:                                         ; preds = %if.end
-  %call7 = call ptr @sk_new_null()
-  %12 = load ptr, ptr %ex_data_class.addr, align 8
-  %meth8 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %12, i32 0, i32 1
-  store ptr %call7, ptr %meth8, align 8
-  br label %if.end9
+40:                                               ; preds = %21
+  %41 = call ptr @sk_new_null()
+  %42 = load ptr, ptr %8, align 8, !tbaa !6
+  %43 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %42, i32 0, i32 1
+  store ptr %41, ptr %43, align 8, !tbaa !23
+  br label %44
 
-if.end9:                                          ; preds = %if.then6, %if.end
-  %13 = load ptr, ptr %ex_data_class.addr, align 8
-  %meth10 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %meth10, align 8
-  %cmp11 = icmp eq ptr %14, null
-  br i1 %cmp11, label %if.then14, label %lor.lhs.false
+44:                                               ; preds = %40, %21
+  %45 = load ptr, ptr %8, align 8, !tbaa !6
+  %46 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !23
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %56, label %49
 
-lor.lhs.false:                                    ; preds = %if.end9
-  %15 = load ptr, ptr %ex_data_class.addr, align 8
-  %meth12 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %meth12, align 8
-  %17 = load ptr, ptr %funcs, align 8
-  %call13 = call i64 @sk_push(ptr noundef %16, ptr noundef %17)
-  %tobool = icmp ne i64 %call13, 0
-  br i1 %tobool, label %if.end15, label %if.then14
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %8, align 8, !tbaa !6
+  %51 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !23
+  %53 = load ptr, ptr %14, align 8, !tbaa !16
+  %54 = call i64 @sk_push(ptr noundef %52, ptr noundef %53)
+  %55 = icmp ne i64 %54, 0
+  br i1 %55, label %58, label %56
 
-if.then14:                                        ; preds = %lor.lhs.false, %if.end9
+56:                                               ; preds = %49, %44
   call void @ERR_put_error(i32 noundef 14, i32 noundef 0, i32 noundef 65, ptr noundef @.str, i32 noundef 156)
-  %18 = load ptr, ptr %funcs, align 8
-  call void @free(ptr noundef %18) #5
-  br label %err
+  %57 = load ptr, ptr %14, align 8, !tbaa !16
+  call void @free(ptr noundef %57) #5
+  br label %71
 
-if.end15:                                         ; preds = %lor.lhs.false
-  %19 = load ptr, ptr %ex_data_class.addr, align 8
-  %meth16 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %meth16, align 8
-  %call17 = call i64 @sk_num(ptr noundef %20)
-  %sub = sub i64 %call17, 1
-  %21 = load ptr, ptr %ex_data_class.addr, align 8
-  %num_reserved = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %21, i32 0, i32 2
-  %22 = load i8, ptr %num_reserved, align 8
-  %conv = zext i8 %22 to i64
-  %add = add i64 %sub, %conv
-  %conv18 = trunc i64 %add to i32
-  %23 = load ptr, ptr %out_index.addr, align 8
-  store i32 %conv18, ptr %23, align 4
-  store i32 1, ptr %ret, align 4
-  br label %err
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %8, align 8, !tbaa !6
+  %60 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8, !tbaa !23
+  %62 = call i64 @sk_num(ptr noundef %61)
+  %63 = sub i64 %62, 1
+  %64 = load ptr, ptr %8, align 8, !tbaa !6
+  %65 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %64, i32 0, i32 2
+  %66 = load i8, ptr %65, align 8, !tbaa !27
+  %67 = zext i8 %66 to i64
+  %68 = add i64 %63, %67
+  %69 = trunc i64 %68 to i32
+  %70 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %69, ptr %70, align 4, !tbaa !14
+  store i32 1, ptr %15, align 4, !tbaa !14
+  br label %71
 
-err:                                              ; preds = %if.end15, %if.then14
-  %24 = load ptr, ptr %ex_data_class.addr, align 8
-  %lock19 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %24, i32 0, i32 0
-  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef %lock19)
-  %25 = load i32, ptr %ret, align 4
-  store i32 %25, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %58, %56
+  %72 = load ptr, ptr %8, align 8, !tbaa !6
+  %73 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %72, i32 0, i32 0
+  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef %73)
+  %74 = load i32, ptr %15, align 4, !tbaa !14
+  store i32 %74, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %75
 
-return:                                           ; preds = %err, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+75:                                               ; preds = %71, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  %76 = load i32, ptr %7, align 4
+  ret i32 %76
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #1
+declare noalias ptr @malloc(i64 noundef) #2
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-declare void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef) #2
+declare void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef) #3
 
-declare ptr @sk_new_null() #2
+declare ptr @sk_new_null() #3
 
-declare i64 @sk_push(ptr noundef, ptr noundef) #2
+declare i64 @sk_push(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
-declare i64 @sk_num(ptr noundef) #2
+declare i64 @sk_num(ptr noundef) #3
 
-declare void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef) #2
+declare void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_set_ex_data(ptr noundef %ad, i32 noundef %index, ptr noundef %val) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ad.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %val.addr = alloca ptr, align 8
-  %n = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %ad, ptr %ad.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  store ptr %val, ptr %val.addr, align 8
-  %0 = load ptr, ptr %ad.addr, align 8
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %sk, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end5
+define hidden i32 @CRYPTO_set_ex_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store i32 %1, ptr %6, align 4, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %11 = load ptr, ptr %5, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %25
 
-if.then:                                          ; preds = %entry
-  %call = call ptr @sk_new_null()
-  %2 = load ptr, ptr %ad.addr, align 8
-  %sk1 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %2, i32 0, i32 0
-  store ptr %call, ptr %sk1, align 8
-  %3 = load ptr, ptr %ad.addr, align 8
-  %sk2 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %sk2, align 8
-  %cmp3 = icmp eq ptr %4, null
-  br i1 %cmp3, label %if.then4, label %if.end
+15:                                               ; preds = %3
+  %16 = call ptr @sk_new_null()
+  %17 = load ptr, ptr %5, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %17, i32 0, i32 0
+  store ptr %16, ptr %18, align 8, !tbaa !30
+  %19 = load ptr, ptr %5, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
 
-if.then4:                                         ; preds = %if.then
+23:                                               ; preds = %15
   call void @ERR_put_error(i32 noundef 14, i32 noundef 0, i32 noundef 65, ptr noundef @.str, i32 noundef 176)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %55
 
-if.end:                                           ; preds = %if.then
-  br label %if.end5
+24:                                               ; preds = %15
+  br label %25
 
-if.end5:                                          ; preds = %if.end, %entry
-  %5 = load ptr, ptr %ad.addr, align 8
-  %sk6 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %sk6, align 8
-  %call7 = call i64 @sk_num(ptr noundef %6)
-  %conv = trunc i64 %call7 to i32
-  store i32 %conv, ptr %n, align 4
-  %7 = load i32, ptr %n, align 4
-  store i32 %7, ptr %i, align 4
-  br label %for.cond
+25:                                               ; preds = %24, %3
+  %26 = load ptr, ptr %5, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
+  %29 = call i64 @sk_num(ptr noundef %28)
+  %30 = trunc i64 %29 to i32
+  store i32 %30, ptr %8, align 4, !tbaa !14
+  %31 = load i32, ptr %8, align 4, !tbaa !14
+  store i32 %31, ptr %9, align 4, !tbaa !14
+  br label %32
 
-for.cond:                                         ; preds = %for.inc, %if.end5
-  %8 = load i32, ptr %i, align 4
-  %9 = load i32, ptr %index.addr, align 4
-  %cmp8 = icmp sle i32 %8, %9
-  br i1 %cmp8, label %for.body, label %for.end
+32:                                               ; preds = %44, %25
+  %33 = load i32, ptr %9, align 4, !tbaa !14
+  %34 = load i32, ptr %6, align 4, !tbaa !14
+  %35 = icmp sle i32 %33, %34
+  br i1 %35, label %36, label %47
 
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %ad.addr, align 8
-  %sk10 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %sk10, align 8
-  %call11 = call i64 @sk_push(ptr noundef %11, ptr noundef null)
-  %tobool = icmp ne i64 %call11, 0
-  br i1 %tobool, label %if.end13, label %if.then12
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %5, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !30
+  %40 = call i64 @sk_push(ptr noundef %39, ptr noundef null)
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %43, label %42
 
-if.then12:                                        ; preds = %for.body
+42:                                               ; preds = %36
   call void @ERR_put_error(i32 noundef 14, i32 noundef 0, i32 noundef 65, ptr noundef @.str, i32 noundef 186)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %55
 
-if.end13:                                         ; preds = %for.body
-  br label %for.inc
+43:                                               ; preds = %36
+  br label %44
 
-for.inc:                                          ; preds = %if.end13
-  %12 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+44:                                               ; preds = %43
+  %45 = load i32, ptr %9, align 4, !tbaa !14
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %9, align 4, !tbaa !14
+  br label %32, !llvm.loop !33
 
-for.end:                                          ; preds = %for.cond
-  %13 = load ptr, ptr %ad.addr, align 8
-  %sk14 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %sk14, align 8
-  %15 = load i32, ptr %index.addr, align 4
-  %conv15 = sext i32 %15 to i64
-  %16 = load ptr, ptr %val.addr, align 8
-  %call16 = call ptr @sk_set(ptr noundef %14, i64 noundef %conv15, ptr noundef %16)
-  store i32 1, ptr %retval, align 4
-  br label %return
+47:                                               ; preds = %32
+  %48 = load ptr, ptr %5, align 8, !tbaa !28
+  %49 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !30
+  %51 = load i32, ptr %6, align 4, !tbaa !14
+  %52 = sext i32 %51 to i64
+  %53 = load ptr, ptr %7, align 8, !tbaa !6
+  %54 = call ptr @sk_set(ptr noundef %50, i64 noundef %52, ptr noundef %53)
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %55
 
-return:                                           ; preds = %for.end, %if.then12, %if.then4
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+55:                                               ; preds = %47, %42, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %56 = load i32, ptr %4, align 4
+  ret i32 %56
 }
 
-declare ptr @sk_set(ptr noundef, i64 noundef, ptr noundef) #2
+declare ptr @sk_set(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @CRYPTO_get_ex_data(ptr noundef %ad, i32 noundef %idx) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %ad.addr = alloca ptr, align 8
-  %idx.addr = alloca i32, align 4
-  store ptr %ad, ptr %ad.addr, align 8
-  store i32 %idx, ptr %idx.addr, align 4
-  %0 = load ptr, ptr %ad.addr, align 8
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %sk, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden ptr @CRYPTO_get_ex_data(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %21, label %10
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %idx.addr, align 4
-  %cmp1 = icmp slt i32 %2, 0
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4, !tbaa !14
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %21, label %13
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %3 = load i32, ptr %idx.addr, align 4
-  %conv = sext i32 %3 to i64
-  %4 = load ptr, ptr %ad.addr, align 8
-  %sk3 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %sk3, align 8
-  %call = call i64 @sk_num(ptr noundef %5)
-  %cmp4 = icmp uge i64 %conv, %call
-  br i1 %cmp4, label %if.then, label %if.end
+13:                                               ; preds = %10
+  %14 = load i32, ptr %5, align 4, !tbaa !14
+  %15 = sext i32 %14 to i64
+  %16 = load ptr, ptr %4, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
+  %19 = call i64 @sk_num(ptr noundef %18)
+  %20 = icmp uge i64 %15, %19
+  br i1 %20, label %21, label %22
 
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+21:                                               ; preds = %13, %10, %2
+  store ptr null, ptr %3, align 8
+  br label %29
 
-if.end:                                           ; preds = %lor.lhs.false2
-  %6 = load ptr, ptr %ad.addr, align 8
-  %sk6 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %sk6, align 8
-  %8 = load i32, ptr %idx.addr, align 4
-  %conv7 = sext i32 %8 to i64
-  %call8 = call ptr @sk_value(ptr noundef %7, i64 noundef %conv7)
-  store ptr %call8, ptr %retval, align 8
-  br label %return
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %4, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
+  %26 = load i32, ptr %5, align 4, !tbaa !14
+  %27 = sext i32 %26 to i64
+  %28 = call ptr @sk_value(ptr noundef %25, i64 noundef %27)
+  store ptr %28, ptr %3, align 8
+  br label %29
 
-return:                                           ; preds = %if.end, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
+29:                                               ; preds = %22, %21
+  %30 = load ptr, ptr %3, align 8
+  ret ptr %30
 }
 
-declare ptr @sk_value(ptr noundef, i64 noundef) #2
+declare ptr @sk_value(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_new_ex_data(ptr noundef %ad) #0 {
-entry:
-  %ad.addr = alloca ptr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  %0 = load ptr, ptr %ad.addr, align 8
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %0, i32 0, i32 0
-  store ptr null, ptr %sk, align 8
+define hidden void @CRYPTO_new_ex_data(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CRYPTO_dup_ex_data(ptr noundef %ex_data_class, ptr noundef %to, ptr noundef %from) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ex_data_class.addr = alloca ptr, align 8
-  %to.addr = alloca ptr, align 8
-  %from.addr = alloca ptr, align 8
-  %func_pointers = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %func_pointer = alloca ptr, align 8
-  %ptr = alloca ptr, align 8
-  store ptr %ex_data_class, ptr %ex_data_class.addr, align 8
-  store ptr %to, ptr %to.addr, align 8
-  store ptr %from, ptr %from.addr, align 8
-  %0 = load ptr, ptr %from.addr, align 8
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %sk, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @CRYPTO_dup_ex_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !28
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %13 = load ptr, ptr %7, align 8, !tbaa !28
+  %14 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %3
+  store i32 1, ptr %4, align 4
+  br label %83
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ex_data_class.addr, align 8
-  %call = call i32 @get_func_pointers(ptr noundef %func_pointers, ptr noundef %2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end2, label %if.then1
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %19 = load ptr, ptr %5, align 8, !tbaa !6
+  %20 = call i32 @get_func_pointers(ptr noundef %8, ptr noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %23, label %22
 
-if.then1:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %18
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %82
 
-if.end2:                                          ; preds = %if.end
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+23:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  store i64 0, ptr %10, align 8, !tbaa !12
+  br label %24
 
-for.cond:                                         ; preds = %for.inc, %if.end2
-  %3 = load i64, ptr %i, align 8
-  %4 = load ptr, ptr %func_pointers, align 8
-  %call3 = call i64 @sk_num(ptr noundef %4)
-  %cmp4 = icmp ult i64 %3, %call3
-  br i1 %cmp4, label %for.body, label %for.end
+24:                                               ; preds = %77, %23
+  %25 = load i64, ptr %10, align 8, !tbaa !12
+  %26 = load ptr, ptr %8, align 8, !tbaa !35
+  %27 = call i64 @sk_num(ptr noundef %26)
+  %28 = icmp ult i64 %25, %27
+  br i1 %28, label %29, label %80
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %func_pointers, align 8
-  %6 = load i64, ptr %i, align 8
-  %call5 = call ptr @sk_value(ptr noundef %5, i64 noundef %6)
-  store ptr %call5, ptr %func_pointer, align 8
-  %7 = load ptr, ptr %from.addr, align 8
-  %8 = load i64, ptr %i, align 8
-  %9 = load ptr, ptr %ex_data_class.addr, align 8
-  %num_reserved = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %9, i32 0, i32 2
-  %10 = load i8, ptr %num_reserved, align 8
-  %conv = zext i8 %10 to i64
-  %add = add i64 %8, %conv
-  %conv6 = trunc i64 %add to i32
-  %call7 = call ptr @CRYPTO_get_ex_data(ptr noundef %7, i32 noundef %conv6)
-  store ptr %call7, ptr %ptr, align 8
-  %11 = load ptr, ptr %func_pointer, align 8
-  %dup_func = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %11, i32 0, i32 3
-  %12 = load ptr, ptr %dup_func, align 8
-  %tobool8 = icmp ne ptr %12, null
-  br i1 %tobool8, label %if.then9, label %if.end16
+29:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %30 = load ptr, ptr %8, align 8, !tbaa !35
+  %31 = load i64, ptr %10, align 8, !tbaa !12
+  %32 = call ptr @sk_value(ptr noundef %30, i64 noundef %31)
+  store ptr %32, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %33 = load ptr, ptr %7, align 8, !tbaa !28
+  %34 = load i64, ptr %10, align 8, !tbaa !12
+  %35 = load ptr, ptr %5, align 8, !tbaa !6
+  %36 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %35, i32 0, i32 2
+  %37 = load i8, ptr %36, align 8, !tbaa !27
+  %38 = zext i8 %37 to i64
+  %39 = add i64 %34, %38
+  %40 = trunc i64 %39 to i32
+  %41 = call ptr @CRYPTO_get_ex_data(ptr noundef %33, i32 noundef %40)
+  store ptr %41, ptr %12, align 8, !tbaa !6
+  %42 = load ptr, ptr %11, align 8, !tbaa !16
+  %43 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8, !tbaa !21
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %66
 
-if.then9:                                         ; preds = %for.body
-  %13 = load ptr, ptr %func_pointer, align 8
-  %dup_func10 = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %13, i32 0, i32 3
-  %14 = load ptr, ptr %dup_func10, align 8
-  %15 = load ptr, ptr %to.addr, align 8
-  %16 = load ptr, ptr %from.addr, align 8
-  %17 = load i64, ptr %i, align 8
-  %18 = load ptr, ptr %ex_data_class.addr, align 8
-  %num_reserved11 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %18, i32 0, i32 2
-  %19 = load i8, ptr %num_reserved11, align 8
-  %conv12 = zext i8 %19 to i64
-  %add13 = add i64 %17, %conv12
-  %conv14 = trunc i64 %add13 to i32
-  %20 = load ptr, ptr %func_pointer, align 8
-  %argl = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %20, i32 0, i32 0
-  %21 = load i64, ptr %argl, align 8
-  %22 = load ptr, ptr %func_pointer, align 8
-  %argp = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %argp, align 8
-  %call15 = call i32 %14(ptr noundef %15, ptr noundef %16, ptr noundef %ptr, i32 noundef %conv14, i64 noundef %21, ptr noundef %23)
-  br label %if.end16
+46:                                               ; preds = %29
+  %47 = load ptr, ptr %11, align 8, !tbaa !16
+  %48 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8, !tbaa !21
+  %50 = load ptr, ptr %6, align 8, !tbaa !28
+  %51 = load ptr, ptr %7, align 8, !tbaa !28
+  %52 = load i64, ptr %10, align 8, !tbaa !12
+  %53 = load ptr, ptr %5, align 8, !tbaa !6
+  %54 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %53, i32 0, i32 2
+  %55 = load i8, ptr %54, align 8, !tbaa !27
+  %56 = zext i8 %55 to i64
+  %57 = add i64 %52, %56
+  %58 = trunc i64 %57 to i32
+  %59 = load ptr, ptr %11, align 8, !tbaa !16
+  %60 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %59, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8, !tbaa !18
+  %62 = load ptr, ptr %11, align 8, !tbaa !16
+  %63 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8, !tbaa !20
+  %65 = call i32 %49(ptr noundef %50, ptr noundef %51, ptr noundef %12, i32 noundef %58, i64 noundef %61, ptr noundef %64)
+  br label %66
 
-if.end16:                                         ; preds = %if.then9, %for.body
-  %24 = load ptr, ptr %to.addr, align 8
-  %25 = load i64, ptr %i, align 8
-  %26 = load ptr, ptr %ex_data_class.addr, align 8
-  %num_reserved17 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %26, i32 0, i32 2
-  %27 = load i8, ptr %num_reserved17, align 8
-  %conv18 = zext i8 %27 to i64
-  %add19 = add i64 %25, %conv18
-  %conv20 = trunc i64 %add19 to i32
-  %28 = load ptr, ptr %ptr, align 8
-  %call21 = call i32 @CRYPTO_set_ex_data(ptr noundef %24, i32 noundef %conv20, ptr noundef %28)
-  br label %for.inc
+66:                                               ; preds = %46, %29
+  %67 = load ptr, ptr %6, align 8, !tbaa !28
+  %68 = load i64, ptr %10, align 8, !tbaa !12
+  %69 = load ptr, ptr %5, align 8, !tbaa !6
+  %70 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %69, i32 0, i32 2
+  %71 = load i8, ptr %70, align 8, !tbaa !27
+  %72 = zext i8 %71 to i64
+  %73 = add i64 %68, %72
+  %74 = trunc i64 %73 to i32
+  %75 = load ptr, ptr %12, align 8, !tbaa !6
+  %76 = call i32 @CRYPTO_set_ex_data(ptr noundef %67, i32 noundef %74, ptr noundef %75)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  br label %77
 
-for.inc:                                          ; preds = %if.end16
-  %29 = load i64, ptr %i, align 8
-  %inc = add i64 %29, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+77:                                               ; preds = %66
+  %78 = load i64, ptr %10, align 8, !tbaa !12
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %10, align 8, !tbaa !12
+  br label %24, !llvm.loop !36
 
-for.end:                                          ; preds = %for.cond
-  %30 = load ptr, ptr %func_pointers, align 8
-  call void @sk_free(ptr noundef %30)
-  store i32 1, ptr %retval, align 4
-  br label %return
+80:                                               ; preds = %24
+  %81 = load ptr, ptr %8, align 8, !tbaa !35
+  call void @sk_free(ptr noundef %81)
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  br label %82
 
-return:                                           ; preds = %for.end, %if.then1, %if.then
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+82:                                               ; preds = %80, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %83
+
+83:                                               ; preds = %82, %17
+  %84 = load i32, ptr %4, align 4
+  ret i32 %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_func_pointers(ptr noundef %out, ptr noundef %ex_data_class) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %out.addr = alloca ptr, align 8
-  %ex_data_class.addr = alloca ptr, align 8
-  %n = alloca i64, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %ex_data_class, ptr %ex_data_class.addr, align 8
-  %0 = load ptr, ptr %out.addr, align 8
-  store ptr null, ptr %0, align 8
-  %1 = load ptr, ptr %ex_data_class.addr, align 8
-  %lock = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %1, i32 0, i32 0
-  call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef %lock)
-  %2 = load ptr, ptr %ex_data_class.addr, align 8
-  %meth = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %meth, align 8
-  %call = call i64 @sk_num(ptr noundef %3)
-  store i64 %call, ptr %n, align 8
-  %4 = load i64, ptr %n, align 8
-  %cmp = icmp ugt i64 %4, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @get_func_pointers(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store ptr %1, ptr %5, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !37
+  store ptr null, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %5, align 8, !tbaa !6
+  %10 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %9, i32 0, i32 0
+  call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef %10)
+  %11 = load ptr, ptr %5, align 8, !tbaa !6
+  %12 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %14 = call i64 @sk_num(ptr noundef %13)
+  store i64 %14, ptr %6, align 8, !tbaa !12
+  %15 = load i64, ptr %6, align 8, !tbaa !12
+  %16 = icmp ugt i64 %15, 0
+  br i1 %16, label %17, label %23
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %ex_data_class.addr, align 8
-  %meth1 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %meth1, align 8
-  %call2 = call ptr @sk_dup(ptr noundef %6)
-  %7 = load ptr, ptr %out.addr, align 8
-  store ptr %call2, ptr %7, align 8
-  br label %if.end
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %5, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %21 = call ptr @sk_dup(ptr noundef %20)
+  %22 = load ptr, ptr %4, align 8, !tbaa !37
+  store ptr %21, ptr %22, align 8, !tbaa !35
+  br label %23
 
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load ptr, ptr %ex_data_class.addr, align 8
-  %lock3 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %8, i32 0, i32 0
-  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef %lock3)
-  %9 = load i64, ptr %n, align 8
-  %cmp4 = icmp ugt i64 %9, 0
-  br i1 %cmp4, label %land.lhs.true, label %if.end7
+23:                                               ; preds = %17, %2
+  %24 = load ptr, ptr %5, align 8, !tbaa !6
+  %25 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %24, i32 0, i32 0
+  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef %25)
+  %26 = load i64, ptr %6, align 8, !tbaa !12
+  %27 = icmp ugt i64 %26, 0
+  br i1 %27, label %28, label %33
 
-land.lhs.true:                                    ; preds = %if.end
-  %10 = load ptr, ptr %out.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  %cmp5 = icmp eq ptr %11, null
-  br i1 %cmp5, label %if.then6, label %if.end7
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %4, align 8, !tbaa !37
+  %30 = load ptr, ptr %29, align 8, !tbaa !35
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %33
 
-if.then6:                                         ; preds = %land.lhs.true
+32:                                               ; preds = %28
   call void @ERR_put_error(i32 noundef 14, i32 noundef 0, i32 noundef 65, ptr noundef @.str, i32 noundef 223)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %34
 
-if.end7:                                          ; preds = %land.lhs.true, %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %28, %23
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %34
 
-return:                                           ; preds = %if.end7, %if.then6
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+34:                                               ; preds = %33, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %35 = load i32, ptr %3, align 4
+  ret i32 %35
 }
 
-declare void @sk_free(ptr noundef) #2
+declare void @sk_free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_free_ex_data(ptr noundef %ex_data_class, ptr noundef %obj, ptr noundef %ad) #0 {
-entry:
-  %ex_data_class.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  %ad.addr = alloca ptr, align 8
-  %func_pointers = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %func_pointer = alloca ptr, align 8
-  %ptr = alloca ptr, align 8
-  store ptr %ex_data_class, ptr %ex_data_class.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  store ptr %ad, ptr %ad.addr, align 8
-  %0 = load ptr, ptr %ad.addr, align 8
-  %sk = getelementptr inbounds %struct.crypto_ex_data_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %sk, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden void @CRYPTO_free_ex_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !6
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %12 = load ptr, ptr %6, align 8, !tbaa !28
+  %13 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  br label %return
+16:                                               ; preds = %3
+  br label %78
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ex_data_class.addr, align 8
-  %call = call i32 @get_func_pointers(ptr noundef %func_pointers, ptr noundef %2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end2, label %if.then1
+17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %18 = load ptr, ptr %4, align 8, !tbaa !6
+  %19 = call i32 @get_func_pointers(ptr noundef %7, ptr noundef %18)
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %22, label %21
 
-if.then1:                                         ; preds = %if.end
-  br label %return
+21:                                               ; preds = %17
+  store i32 1, ptr %8, align 4
+  br label %76
 
-if.end2:                                          ; preds = %if.end
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+22:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store i64 0, ptr %9, align 8, !tbaa !12
+  br label %23
 
-for.cond:                                         ; preds = %for.inc, %if.end2
-  %3 = load i64, ptr %i, align 8
-  %4 = load ptr, ptr %func_pointers, align 8
-  %call3 = call i64 @sk_num(ptr noundef %4)
-  %cmp4 = icmp ult i64 %3, %call3
-  br i1 %cmp4, label %for.body, label %for.end
+23:                                               ; preds = %66, %22
+  %24 = load i64, ptr %9, align 8, !tbaa !12
+  %25 = load ptr, ptr %7, align 8, !tbaa !35
+  %26 = call i64 @sk_num(ptr noundef %25)
+  %27 = icmp ult i64 %24, %26
+  br i1 %27, label %28, label %69
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %func_pointers, align 8
-  %6 = load i64, ptr %i, align 8
-  %call5 = call ptr @sk_value(ptr noundef %5, i64 noundef %6)
-  store ptr %call5, ptr %func_pointer, align 8
-  %7 = load ptr, ptr %func_pointer, align 8
-  %free_func = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %free_func, align 8
-  %tobool6 = icmp ne ptr %8, null
-  br i1 %tobool6, label %if.then7, label %if.end15
+28:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %29 = load ptr, ptr %7, align 8, !tbaa !35
+  %30 = load i64, ptr %9, align 8, !tbaa !12
+  %31 = call ptr @sk_value(ptr noundef %29, i64 noundef %30)
+  store ptr %31, ptr %10, align 8, !tbaa !16
+  %32 = load ptr, ptr %10, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %65
 
-if.then7:                                         ; preds = %for.body
-  %9 = load ptr, ptr %ad.addr, align 8
-  %10 = load i64, ptr %i, align 8
-  %11 = load ptr, ptr %ex_data_class.addr, align 8
-  %num_reserved = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %11, i32 0, i32 2
-  %12 = load i8, ptr %num_reserved, align 8
-  %conv = zext i8 %12 to i64
-  %add = add i64 %10, %conv
-  %conv8 = trunc i64 %add to i32
-  %call9 = call ptr @CRYPTO_get_ex_data(ptr noundef %9, i32 noundef %conv8)
-  store ptr %call9, ptr %ptr, align 8
-  %13 = load ptr, ptr %func_pointer, align 8
-  %free_func10 = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %free_func10, align 8
-  %15 = load ptr, ptr %obj.addr, align 8
-  %16 = load ptr, ptr %ptr, align 8
-  %17 = load ptr, ptr %ad.addr, align 8
-  %18 = load i64, ptr %i, align 8
-  %19 = load ptr, ptr %ex_data_class.addr, align 8
-  %num_reserved11 = getelementptr inbounds %struct.CRYPTO_EX_DATA_CLASS, ptr %19, i32 0, i32 2
-  %20 = load i8, ptr %num_reserved11, align 8
-  %conv12 = zext i8 %20 to i64
-  %add13 = add i64 %18, %conv12
-  %conv14 = trunc i64 %add13 to i32
-  %21 = load ptr, ptr %func_pointer, align 8
-  %argl = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %21, i32 0, i32 0
-  %22 = load i64, ptr %argl, align 8
-  %23 = load ptr, ptr %func_pointer, align 8
-  %argp = getelementptr inbounds %struct.crypto_ex_data_func_st, ptr %23, i32 0, i32 1
-  %24 = load ptr, ptr %argp, align 8
-  call void %14(ptr noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %conv14, i64 noundef %22, ptr noundef %24)
-  br label %if.end15
+36:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %37 = load ptr, ptr %6, align 8, !tbaa !28
+  %38 = load i64, ptr %9, align 8, !tbaa !12
+  %39 = load ptr, ptr %4, align 8, !tbaa !6
+  %40 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %39, i32 0, i32 2
+  %41 = load i8, ptr %40, align 8, !tbaa !27
+  %42 = zext i8 %41 to i64
+  %43 = add i64 %38, %42
+  %44 = trunc i64 %43 to i32
+  %45 = call ptr @CRYPTO_get_ex_data(ptr noundef %37, i32 noundef %44)
+  store ptr %45, ptr %11, align 8, !tbaa !6
+  %46 = load ptr, ptr %10, align 8, !tbaa !16
+  %47 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !22
+  %49 = load ptr, ptr %5, align 8, !tbaa !6
+  %50 = load ptr, ptr %11, align 8, !tbaa !6
+  %51 = load ptr, ptr %6, align 8, !tbaa !28
+  %52 = load i64, ptr %9, align 8, !tbaa !12
+  %53 = load ptr, ptr %4, align 8, !tbaa !6
+  %54 = getelementptr inbounds nuw %struct.CRYPTO_EX_DATA_CLASS, ptr %53, i32 0, i32 2
+  %55 = load i8, ptr %54, align 8, !tbaa !27
+  %56 = zext i8 %55 to i64
+  %57 = add i64 %52, %56
+  %58 = trunc i64 %57 to i32
+  %59 = load ptr, ptr %10, align 8, !tbaa !16
+  %60 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %59, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8, !tbaa !18
+  %62 = load ptr, ptr %10, align 8, !tbaa !16
+  %63 = getelementptr inbounds nuw %struct.crypto_ex_data_func_st, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8, !tbaa !20
+  call void %48(ptr noundef %49, ptr noundef %50, ptr noundef %51, i32 noundef %58, i64 noundef %61, ptr noundef %64)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  br label %65
 
-if.end15:                                         ; preds = %if.then7, %for.body
-  br label %for.inc
+65:                                               ; preds = %36, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  br label %66
 
-for.inc:                                          ; preds = %if.end15
-  %25 = load i64, ptr %i, align 8
-  %inc = add i64 %25, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !10
+66:                                               ; preds = %65
+  %67 = load i64, ptr %9, align 8, !tbaa !12
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %9, align 8, !tbaa !12
+  br label %23, !llvm.loop !39
 
-for.end:                                          ; preds = %for.cond
-  %26 = load ptr, ptr %func_pointers, align 8
-  call void @sk_free(ptr noundef %26)
-  %27 = load ptr, ptr %ad.addr, align 8
-  %sk16 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %sk16, align 8
-  call void @sk_free(ptr noundef %28)
-  %29 = load ptr, ptr %ad.addr, align 8
-  %sk17 = getelementptr inbounds %struct.crypto_ex_data_st, ptr %29, i32 0, i32 0
-  store ptr null, ptr %sk17, align 8
-  br label %return
+69:                                               ; preds = %23
+  %70 = load ptr, ptr %7, align 8, !tbaa !35
+  call void @sk_free(ptr noundef %70)
+  %71 = load ptr, ptr %6, align 8, !tbaa !28
+  %72 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !30
+  call void @sk_free(ptr noundef %73)
+  %74 = load ptr, ptr %6, align 8, !tbaa !28
+  %75 = getelementptr inbounds nuw %struct.crypto_ex_data_st, ptr %74, i32 0, i32 0
+  store ptr null, ptr %75, align 8, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  store i32 0, ptr %8, align 4
+  br label %76
 
-return:                                           ; preds = %for.end, %if.then1, %if.then
+76:                                               ; preds = %69, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  %77 = load i32, ptr %8, align 4
+  switch i32 %77, label %79 [
+    i32 0, label %78
+    i32 1, label %78
+  ]
+
+78:                                               ; preds = %16, %76, %76
   ret void
+
+79:                                               ; preds = %76
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @CRYPTO_cleanup_all_ex_data() #0 {
-entry:
   ret void
 }
 
-declare void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef) #2
+declare void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef) #3
 
-declare ptr @sk_dup(ptr noundef) #2
+declare ptr @sk_dup(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 int", !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !8, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !8, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS22crypto_ex_data_func_st", !7, i64 0}
+!18 = !{!19, !13, i64 0}
+!19 = !{!"crypto_ex_data_func_st", !13, i64 0, !7, i64 8, !7, i64 16, !7, i64 24}
+!20 = !{!19, !7, i64 8}
+!21 = !{!19, !7, i64 24}
+!22 = !{!19, !7, i64 16}
+!23 = !{!24, !26, i64 56}
+!24 = !{!"", !25, i64 0, !26, i64 56, !8, i64 64}
+!25 = !{!"CRYPTO_STATIC_MUTEX", !8, i64 0}
+!26 = !{!"p1 _ZTS29stack_st_CRYPTO_EX_DATA_FUNCS", !7, i64 0}
+!27 = !{!24, !8, i64 64}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS17crypto_ex_data_st", !7, i64 0}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"crypto_ex_data_st", !32, i64 0}
+!32 = !{!"p1 _ZTS13stack_st_void", !7, i64 0}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!26, !26, i64 0}
+!36 = distinct !{!36, !34}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p2 _ZTS29stack_st_CRYPTO_EX_DATA_FUNCS", !7, i64 0}
+!39 = distinct !{!39, !34}

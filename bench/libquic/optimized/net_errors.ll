@@ -1,23 +1,14 @@
 ; ModuleID = 'bench/libquic/original/net_errors.ll'
 source_filename = "bench/libquic/original/net_errors.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::allocator" = type { i8 }
-%struct._Guard = type { ptr }
 
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
-
-$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
-
-$__clang_call_terminate = comdat any
-
-@_ZN3net12kErrorDomainE = dso_local local_unnamed_addr constant [4 x i8] c"net\00", align 1
+@_ZN3net12kErrorDomainE = local_unnamed_addr constant [4 x i8] c"net\00", align 1
 @.str = private unnamed_addr constant [6 x i8] c"net::\00", align 1
-@.str.1 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"IO_PENDING\00", align 1
 @.str.3 = private unnamed_addr constant [7 x i8] c"FAILED\00", align 1
 @.str.4 = private unnamed_addr constant [8 x i8] c"ABORTED\00", align 1
@@ -223,1122 +214,1140 @@ $__clang_call_terminate = comdat any
 @.str.204 = private unnamed_addr constant [17 x i8] c"DNS_SEARCH_EMPTY\00", align 1
 @.str.205 = private unnamed_addr constant [15 x i8] c"DNS_SORT_ERROR\00", align 1
 @.str.206 = private unnamed_addr constant [10 x i8] c"<unknown>\00", align 1
-@.str.207 = private unnamed_addr constant [5 x i8] c"ERR_\00", align 1
+@.str.211 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net13ErrorToStringB5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @_ZN3net18ErrorToShortStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %error)
-  %call.i1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 0, ptr noundef nonnull @.str)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN3net13ErrorToStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @_ZN3net18ErrorToShortStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %1)
+  %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str, i64 noundef 5)
+          to label %.noexc unwind label %25
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i1) #7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
+.noexc:                                           ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %5, ptr %0, align 8, !tbaa !3, !alias.scope !9
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = icmp eq ptr %6, %7
+  br i1 %8, label %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+9:                                                ; preds = %.noexc
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !15
+  %12 = icmp ult i64 %11, 16
+  call void @llvm.assume(i1 %12)
+  %13 = add nuw nsw i64 %11, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %13, i1 false)
+  br label %15
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.noexc
+  store ptr %6, ptr %0, align 8, !tbaa !12, !alias.scope !9
+  %14 = load i64, ptr %7, align 8, !tbaa !16
+  store i64 %14, ptr %5, align 8, !tbaa !16, !alias.scope !9
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !15
+  br label %15
+
+15:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %9
+  %16 = phi i64 [ %11, %9 ], [ %.pre.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %16, ptr %18, align 8, !tbaa !15, !alias.scope !9
+  store ptr %7, ptr %4, align 8, !tbaa !12
+  store i64 0, ptr %17, align 8, !tbaa !15
+  store i8 0, ptr %7, align 8, !tbaa !16
+  %19 = load ptr, ptr %3, align 8, !tbaa !12
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !15
+  %24 = icmp ult i64 %23, 16
+  call void @llvm.assume(i1 %24)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2: ; preds = %15
+  call void @_ZdlPv(ptr noundef %19) #11
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+25:                                               ; preds = %2
+  %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
-  resume { ptr, i32 } %0
+  %27 = load ptr, ptr %3, align 8, !tbaa !12
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4: ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load i64, ptr %30, align 8, !tbaa !15
+  %32 = icmp ult i64 %31, 16
+  call void @llvm.assume(i1 %32)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %25
+  call void @_ZdlPv(ptr noundef %27) #11
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  resume { ptr, i32 } %26
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18ErrorToShortStringB5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.std::allocator", align 1
-  %ref.tmp204 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp205 = alloca %"class.std::allocator", align 1
-  %cmp = icmp eq i32 %error, 0
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN3net18ErrorToShortStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = icmp eq i32 %1, 0
+  br i1 %4, label %._crit_edge.i.i, label %8
 
-if.then:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #7
-  %call.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
-          to label %call.i.noexc unwind label %lpad
+._crit_edge.i.i:                                  ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %5, ptr %0, align 8, !tbaa !3
+  store i16 19279, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 2, ptr %6, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i8 0, ptr %7, align 2, !tbaa !16
+  br label %244
 
-call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 2))
-          to label %return unwind label %lpad.i
-
-lpad.i:                                           ; preds = %.noexc
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #7
-  br label %eh.resume
-
-lpad:                                             ; preds = %call.i.noexc, %if.then
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  br label %eh.resume
-
-if.end:                                           ; preds = %entry
-  switch i32 %error, label %sw.default [
-    i32 -1, label %sw.epilog
-    i32 -2, label %sw.bb1
-    i32 -3, label %sw.bb2
-    i32 -4, label %sw.bb3
-    i32 -5, label %sw.bb4
-    i32 -6, label %sw.bb5
-    i32 -7, label %sw.bb6
-    i32 -8, label %sw.bb7
-    i32 -9, label %sw.bb8
-    i32 -10, label %sw.bb9
-    i32 -11, label %sw.bb10
-    i32 -12, label %sw.bb11
-    i32 -13, label %sw.bb12
-    i32 -14, label %sw.bb13
-    i32 -15, label %sw.bb14
-    i32 -16, label %sw.bb15
-    i32 -17, label %sw.bb16
-    i32 -18, label %sw.bb17
-    i32 -19, label %sw.bb18
-    i32 -20, label %sw.bb19
-    i32 -21, label %sw.bb20
-    i32 -22, label %sw.bb21
-    i32 -23, label %sw.bb22
-    i32 -24, label %sw.bb23
-    i32 -25, label %sw.bb24
-    i32 -26, label %sw.bb25
-    i32 -27, label %sw.bb26
-    i32 -100, label %sw.bb27
-    i32 -101, label %sw.bb28
-    i32 -102, label %sw.bb29
-    i32 -103, label %sw.bb30
-    i32 -104, label %sw.bb31
-    i32 -105, label %sw.bb32
-    i32 -106, label %sw.bb33
-    i32 -107, label %sw.bb34
-    i32 -108, label %sw.bb35
-    i32 -109, label %sw.bb36
-    i32 -110, label %sw.bb37
-    i32 -111, label %sw.bb38
-    i32 -112, label %sw.bb39
-    i32 -113, label %sw.bb40
-    i32 -114, label %sw.bb41
-    i32 -115, label %sw.bb42
-    i32 -116, label %sw.bb43
-    i32 -117, label %sw.bb44
-    i32 -118, label %sw.bb45
-    i32 -119, label %sw.bb46
-    i32 -120, label %sw.bb47
-    i32 -121, label %sw.bb48
-    i32 -122, label %sw.bb49
-    i32 -123, label %sw.bb50
-    i32 -124, label %sw.bb51
-    i32 -125, label %sw.bb52
-    i32 -126, label %sw.bb53
-    i32 -127, label %sw.bb54
-    i32 -129, label %sw.bb55
-    i32 -130, label %sw.bb56
-    i32 -131, label %sw.bb57
-    i32 -133, label %sw.bb58
-    i32 -134, label %sw.bb59
-    i32 -135, label %sw.bb60
-    i32 -136, label %sw.bb61
-    i32 -137, label %sw.bb62
-    i32 -138, label %sw.bb63
-    i32 -139, label %sw.bb64
-    i32 -140, label %sw.bb65
-    i32 -141, label %sw.bb66
-    i32 -142, label %sw.bb67
-    i32 -143, label %sw.bb68
-    i32 -145, label %sw.bb69
-    i32 -147, label %sw.bb70
-    i32 -148, label %sw.bb71
-    i32 -149, label %sw.bb72
-    i32 -150, label %sw.bb73
-    i32 -151, label %sw.bb74
-    i32 -152, label %sw.bb75
-    i32 -153, label %sw.bb76
-    i32 -154, label %sw.bb77
-    i32 -156, label %sw.bb78
-    i32 -157, label %sw.bb79
-    i32 -158, label %sw.bb80
-    i32 -159, label %sw.bb81
-    i32 -160, label %sw.bb82
-    i32 -161, label %sw.bb83
-    i32 -162, label %sw.bb84
-    i32 -163, label %sw.bb85
-    i32 -164, label %sw.bb86
-    i32 -165, label %sw.bb87
-    i32 -166, label %sw.bb88
-    i32 -167, label %sw.bb89
-    i32 -168, label %sw.bb90
-    i32 -169, label %sw.bb91
-    i32 -170, label %sw.bb92
-    i32 -171, label %sw.bb93
-    i32 -172, label %sw.bb94
-    i32 -200, label %sw.bb95
-    i32 -201, label %sw.bb96
-    i32 -202, label %sw.bb97
-    i32 -203, label %sw.bb98
-    i32 -204, label %sw.bb99
-    i32 -205, label %sw.bb100
-    i32 -206, label %sw.bb101
-    i32 -207, label %sw.bb102
-    i32 -208, label %sw.bb103
-    i32 -210, label %sw.bb104
-    i32 -211, label %sw.bb105
-    i32 -212, label %sw.bb106
-    i32 -213, label %sw.bb107
-    i32 -214, label %sw.bb108
-    i32 -215, label %sw.bb109
-    i32 -300, label %sw.bb110
-    i32 -301, label %sw.bb111
-    i32 -302, label %sw.bb112
-    i32 -310, label %sw.bb113
-    i32 -311, label %sw.bb114
-    i32 -312, label %sw.bb115
-    i32 -320, label %sw.bb116
-    i32 -321, label %sw.bb117
-    i32 -322, label %sw.bb118
-    i32 -323, label %sw.bb119
-    i32 -324, label %sw.bb120
-    i32 -325, label %sw.bb121
-    i32 -326, label %sw.bb122
-    i32 -327, label %sw.bb123
-    i32 -328, label %sw.bb124
-    i32 -329, label %sw.bb125
-    i32 -330, label %sw.bb126
-    i32 -331, label %sw.bb127
-    i32 -332, label %sw.bb128
-    i32 -333, label %sw.bb129
-    i32 -334, label %sw.bb130
-    i32 -335, label %sw.bb131
-    i32 -336, label %sw.bb132
-    i32 -337, label %sw.bb133
-    i32 -338, label %sw.bb134
-    i32 -339, label %sw.bb135
-    i32 -340, label %sw.bb136
-    i32 -341, label %sw.bb137
-    i32 -342, label %sw.bb138
-    i32 -343, label %sw.bb139
-    i32 -344, label %sw.bb140
-    i32 -345, label %sw.bb141
-    i32 -346, label %sw.bb142
-    i32 -347, label %sw.bb143
-    i32 -348, label %sw.bb144
-    i32 -349, label %sw.bb145
-    i32 -350, label %sw.bb146
-    i32 -351, label %sw.bb147
-    i32 -352, label %sw.bb148
-    i32 -354, label %sw.bb149
-    i32 -355, label %sw.bb150
-    i32 -356, label %sw.bb151
-    i32 -357, label %sw.bb152
-    i32 -358, label %sw.bb153
-    i32 -360, label %sw.bb154
-    i32 -361, label %sw.bb155
-    i32 -362, label %sw.bb156
-    i32 -363, label %sw.bb157
-    i32 -364, label %sw.bb158
-    i32 -365, label %sw.bb159
-    i32 -366, label %sw.bb160
-    i32 -367, label %sw.bb161
-    i32 -370, label %sw.bb162
-    i32 -400, label %sw.bb163
-    i32 -401, label %sw.bb164
-    i32 -402, label %sw.bb165
-    i32 -403, label %sw.bb166
-    i32 -404, label %sw.bb167
-    i32 -405, label %sw.bb168
-    i32 -406, label %sw.bb169
-    i32 -407, label %sw.bb170
-    i32 -408, label %sw.bb171
-    i32 -409, label %sw.bb172
-    i32 -410, label %sw.bb173
-    i32 -501, label %sw.bb174
-    i32 -502, label %sw.bb175
-    i32 -503, label %sw.bb176
-    i32 -601, label %sw.bb177
-    i32 -602, label %sw.bb178
-    i32 -603, label %sw.bb179
-    i32 -604, label %sw.bb180
-    i32 -605, label %sw.bb181
-    i32 -606, label %sw.bb182
-    i32 -607, label %sw.bb183
-    i32 -701, label %sw.bb184
-    i32 -702, label %sw.bb185
-    i32 -703, label %sw.bb186
-    i32 -704, label %sw.bb187
-    i32 -705, label %sw.bb188
-    i32 -706, label %sw.bb189
-    i32 -707, label %sw.bb190
-    i32 -708, label %sw.bb191
-    i32 -709, label %sw.bb192
-    i32 -710, label %sw.bb193
-    i32 -712, label %sw.bb194
-    i32 -713, label %sw.bb195
-    i32 -714, label %sw.bb196
-    i32 -800, label %sw.bb197
-    i32 -801, label %sw.bb198
-    i32 -802, label %sw.bb199
-    i32 -803, label %sw.bb200
-    i32 -804, label %sw.bb201
-    i32 -805, label %sw.bb202
-    i32 -806, label %sw.bb203
+8:                                                ; preds = %2
+  switch i32 %1, label %212 [
+    i32 -1, label %._crit_edge.i.i11
+    i32 -2, label %9
+    i32 -3, label %10
+    i32 -4, label %11
+    i32 -5, label %12
+    i32 -6, label %13
+    i32 -7, label %14
+    i32 -8, label %15
+    i32 -9, label %16
+    i32 -10, label %17
+    i32 -11, label %18
+    i32 -12, label %19
+    i32 -13, label %20
+    i32 -14, label %21
+    i32 -15, label %22
+    i32 -16, label %23
+    i32 -17, label %24
+    i32 -18, label %25
+    i32 -19, label %26
+    i32 -20, label %27
+    i32 -21, label %28
+    i32 -22, label %29
+    i32 -23, label %30
+    i32 -24, label %31
+    i32 -25, label %32
+    i32 -26, label %33
+    i32 -27, label %34
+    i32 -100, label %35
+    i32 -101, label %36
+    i32 -102, label %37
+    i32 -103, label %38
+    i32 -104, label %39
+    i32 -105, label %40
+    i32 -106, label %41
+    i32 -107, label %42
+    i32 -108, label %43
+    i32 -109, label %44
+    i32 -110, label %45
+    i32 -111, label %46
+    i32 -112, label %47
+    i32 -113, label %48
+    i32 -114, label %49
+    i32 -115, label %50
+    i32 -116, label %51
+    i32 -117, label %52
+    i32 -118, label %53
+    i32 -119, label %54
+    i32 -120, label %55
+    i32 -121, label %56
+    i32 -122, label %57
+    i32 -123, label %58
+    i32 -124, label %59
+    i32 -125, label %60
+    i32 -126, label %61
+    i32 -127, label %62
+    i32 -129, label %63
+    i32 -130, label %64
+    i32 -131, label %65
+    i32 -133, label %66
+    i32 -134, label %67
+    i32 -135, label %68
+    i32 -136, label %69
+    i32 -137, label %70
+    i32 -138, label %71
+    i32 -139, label %72
+    i32 -140, label %73
+    i32 -141, label %74
+    i32 -142, label %75
+    i32 -143, label %76
+    i32 -145, label %77
+    i32 -147, label %78
+    i32 -148, label %79
+    i32 -149, label %80
+    i32 -150, label %81
+    i32 -151, label %82
+    i32 -152, label %83
+    i32 -153, label %84
+    i32 -154, label %85
+    i32 -156, label %86
+    i32 -157, label %87
+    i32 -158, label %88
+    i32 -159, label %89
+    i32 -160, label %90
+    i32 -161, label %91
+    i32 -162, label %92
+    i32 -163, label %93
+    i32 -164, label %94
+    i32 -165, label %95
+    i32 -166, label %96
+    i32 -167, label %97
+    i32 -168, label %98
+    i32 -169, label %99
+    i32 -170, label %100
+    i32 -171, label %101
+    i32 -172, label %102
+    i32 -200, label %103
+    i32 -201, label %104
+    i32 -202, label %105
+    i32 -203, label %106
+    i32 -204, label %107
+    i32 -205, label %108
+    i32 -206, label %109
+    i32 -207, label %110
+    i32 -208, label %111
+    i32 -210, label %112
+    i32 -211, label %113
+    i32 -212, label %114
+    i32 -213, label %115
+    i32 -214, label %116
+    i32 -215, label %117
+    i32 -300, label %118
+    i32 -301, label %119
+    i32 -302, label %120
+    i32 -310, label %121
+    i32 -311, label %122
+    i32 -312, label %123
+    i32 -320, label %124
+    i32 -321, label %125
+    i32 -322, label %126
+    i32 -323, label %127
+    i32 -324, label %128
+    i32 -325, label %129
+    i32 -326, label %130
+    i32 -327, label %131
+    i32 -328, label %132
+    i32 -329, label %133
+    i32 -330, label %134
+    i32 -331, label %135
+    i32 -332, label %136
+    i32 -333, label %137
+    i32 -334, label %138
+    i32 -335, label %139
+    i32 -336, label %140
+    i32 -337, label %141
+    i32 -338, label %142
+    i32 -339, label %143
+    i32 -340, label %144
+    i32 -341, label %145
+    i32 -342, label %146
+    i32 -343, label %147
+    i32 -344, label %148
+    i32 -345, label %149
+    i32 -346, label %150
+    i32 -347, label %151
+    i32 -348, label %152
+    i32 -349, label %153
+    i32 -350, label %154
+    i32 -351, label %155
+    i32 -352, label %156
+    i32 -354, label %157
+    i32 -355, label %158
+    i32 -356, label %159
+    i32 -357, label %160
+    i32 -358, label %161
+    i32 -360, label %162
+    i32 -361, label %163
+    i32 -362, label %164
+    i32 -363, label %165
+    i32 -364, label %166
+    i32 -365, label %167
+    i32 -366, label %168
+    i32 -367, label %169
+    i32 -370, label %170
+    i32 -400, label %171
+    i32 -401, label %172
+    i32 -402, label %173
+    i32 -403, label %174
+    i32 -404, label %175
+    i32 -405, label %176
+    i32 -406, label %177
+    i32 -407, label %178
+    i32 -408, label %179
+    i32 -409, label %180
+    i32 -410, label %181
+    i32 -501, label %182
+    i32 -502, label %183
+    i32 -503, label %184
+    i32 -601, label %185
+    i32 -602, label %186
+    i32 -603, label %187
+    i32 -604, label %188
+    i32 -605, label %189
+    i32 -606, label %190
+    i32 -607, label %191
+    i32 -701, label %192
+    i32 -702, label %193
+    i32 -703, label %194
+    i32 -704, label %195
+    i32 -705, label %196
+    i32 -706, label %197
+    i32 -707, label %198
+    i32 -708, label %199
+    i32 -709, label %200
+    i32 -710, label %201
+    i32 -712, label %202
+    i32 -713, label %203
+    i32 -714, label %204
+    i32 -800, label %205
+    i32 -801, label %206
+    i32 -802, label %207
+    i32 -803, label %208
+    i32 -804, label %209
+    i32 -805, label %210
+    i32 -806, label %211
   ]
 
-sw.bb1:                                           ; preds = %if.end
-  br label %sw.epilog
+9:                                                ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb2:                                           ; preds = %if.end
-  br label %sw.epilog
+10:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb3:                                           ; preds = %if.end
-  br label %sw.epilog
+11:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb4:                                           ; preds = %if.end
-  br label %sw.epilog
+12:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb5:                                           ; preds = %if.end
-  br label %sw.epilog
+13:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb6:                                           ; preds = %if.end
-  br label %sw.epilog
+14:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb7:                                           ; preds = %if.end
-  br label %sw.epilog
+15:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb8:                                           ; preds = %if.end
-  br label %sw.epilog
+16:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb9:                                           ; preds = %if.end
-  br label %sw.epilog
+17:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb10:                                          ; preds = %if.end
-  br label %sw.epilog
+18:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb11:                                          ; preds = %if.end
-  br label %sw.epilog
+19:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb12:                                          ; preds = %if.end
-  br label %sw.epilog
+20:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb13:                                          ; preds = %if.end
-  br label %sw.epilog
+21:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb14:                                          ; preds = %if.end
-  br label %sw.epilog
+22:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb15:                                          ; preds = %if.end
-  br label %sw.epilog
+23:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb16:                                          ; preds = %if.end
-  br label %sw.epilog
+24:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb17:                                          ; preds = %if.end
-  br label %sw.epilog
+25:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb18:                                          ; preds = %if.end
-  br label %sw.epilog
+26:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb19:                                          ; preds = %if.end
-  br label %sw.epilog
+27:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb20:                                          ; preds = %if.end
-  br label %sw.epilog
+28:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb21:                                          ; preds = %if.end
-  br label %sw.epilog
+29:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb22:                                          ; preds = %if.end
-  br label %sw.epilog
+30:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb23:                                          ; preds = %if.end
-  br label %sw.epilog
+31:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb24:                                          ; preds = %if.end
-  br label %sw.epilog
+32:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb25:                                          ; preds = %if.end
-  br label %sw.epilog
+33:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb26:                                          ; preds = %if.end
-  br label %sw.epilog
+34:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb27:                                          ; preds = %if.end
-  br label %sw.epilog
+35:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb28:                                          ; preds = %if.end
-  br label %sw.epilog
+36:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb29:                                          ; preds = %if.end
-  br label %sw.epilog
+37:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb30:                                          ; preds = %if.end
-  br label %sw.epilog
+38:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb31:                                          ; preds = %if.end
-  br label %sw.epilog
+39:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb32:                                          ; preds = %if.end
-  br label %sw.epilog
+40:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb33:                                          ; preds = %if.end
-  br label %sw.epilog
+41:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb34:                                          ; preds = %if.end
-  br label %sw.epilog
+42:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb35:                                          ; preds = %if.end
-  br label %sw.epilog
+43:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb36:                                          ; preds = %if.end
-  br label %sw.epilog
+44:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb37:                                          ; preds = %if.end
-  br label %sw.epilog
+45:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb38:                                          ; preds = %if.end
-  br label %sw.epilog
+46:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb39:                                          ; preds = %if.end
-  br label %sw.epilog
+47:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb40:                                          ; preds = %if.end
-  br label %sw.epilog
+48:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb41:                                          ; preds = %if.end
-  br label %sw.epilog
+49:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb42:                                          ; preds = %if.end
-  br label %sw.epilog
+50:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb43:                                          ; preds = %if.end
-  br label %sw.epilog
+51:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb44:                                          ; preds = %if.end
-  br label %sw.epilog
+52:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb45:                                          ; preds = %if.end
-  br label %sw.epilog
+53:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb46:                                          ; preds = %if.end
-  br label %sw.epilog
+54:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb47:                                          ; preds = %if.end
-  br label %sw.epilog
+55:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb48:                                          ; preds = %if.end
-  br label %sw.epilog
+56:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb49:                                          ; preds = %if.end
-  br label %sw.epilog
+57:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb50:                                          ; preds = %if.end
-  br label %sw.epilog
+58:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb51:                                          ; preds = %if.end
-  br label %sw.epilog
+59:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb52:                                          ; preds = %if.end
-  br label %sw.epilog
+60:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb53:                                          ; preds = %if.end
-  br label %sw.epilog
+61:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb54:                                          ; preds = %if.end
-  br label %sw.epilog
+62:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb55:                                          ; preds = %if.end
-  br label %sw.epilog
+63:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb56:                                          ; preds = %if.end
-  br label %sw.epilog
+64:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb57:                                          ; preds = %if.end
-  br label %sw.epilog
+65:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb58:                                          ; preds = %if.end
-  br label %sw.epilog
+66:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb59:                                          ; preds = %if.end
-  br label %sw.epilog
+67:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb60:                                          ; preds = %if.end
-  br label %sw.epilog
+68:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb61:                                          ; preds = %if.end
-  br label %sw.epilog
+69:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb62:                                          ; preds = %if.end
-  br label %sw.epilog
+70:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb63:                                          ; preds = %if.end
-  br label %sw.epilog
+71:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb64:                                          ; preds = %if.end
-  br label %sw.epilog
+72:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb65:                                          ; preds = %if.end
-  br label %sw.epilog
+73:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb66:                                          ; preds = %if.end
-  br label %sw.epilog
+74:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb67:                                          ; preds = %if.end
-  br label %sw.epilog
+75:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb68:                                          ; preds = %if.end
-  br label %sw.epilog
+76:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb69:                                          ; preds = %if.end
-  br label %sw.epilog
+77:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb70:                                          ; preds = %if.end
-  br label %sw.epilog
+78:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb71:                                          ; preds = %if.end
-  br label %sw.epilog
+79:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb72:                                          ; preds = %if.end
-  br label %sw.epilog
+80:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb73:                                          ; preds = %if.end
-  br label %sw.epilog
+81:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb74:                                          ; preds = %if.end
-  br label %sw.epilog
+82:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb75:                                          ; preds = %if.end
-  br label %sw.epilog
+83:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb76:                                          ; preds = %if.end
-  br label %sw.epilog
+84:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb77:                                          ; preds = %if.end
-  br label %sw.epilog
+85:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb78:                                          ; preds = %if.end
-  br label %sw.epilog
+86:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb79:                                          ; preds = %if.end
-  br label %sw.epilog
+87:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb80:                                          ; preds = %if.end
-  br label %sw.epilog
+88:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb81:                                          ; preds = %if.end
-  br label %sw.epilog
+89:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb82:                                          ; preds = %if.end
-  br label %sw.epilog
+90:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb83:                                          ; preds = %if.end
-  br label %sw.epilog
+91:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb84:                                          ; preds = %if.end
-  br label %sw.epilog
+92:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb85:                                          ; preds = %if.end
-  br label %sw.epilog
+93:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb86:                                          ; preds = %if.end
-  br label %sw.epilog
+94:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb87:                                          ; preds = %if.end
-  br label %sw.epilog
+95:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb88:                                          ; preds = %if.end
-  br label %sw.epilog
+96:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb89:                                          ; preds = %if.end
-  br label %sw.epilog
+97:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb90:                                          ; preds = %if.end
-  br label %sw.epilog
+98:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb91:                                          ; preds = %if.end
-  br label %sw.epilog
+99:                                               ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb92:                                          ; preds = %if.end
-  br label %sw.epilog
+100:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb93:                                          ; preds = %if.end
-  br label %sw.epilog
+101:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb94:                                          ; preds = %if.end
-  br label %sw.epilog
+102:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb95:                                          ; preds = %if.end
-  br label %sw.epilog
+103:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb96:                                          ; preds = %if.end
-  br label %sw.epilog
+104:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb97:                                          ; preds = %if.end
-  br label %sw.epilog
+105:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb98:                                          ; preds = %if.end
-  br label %sw.epilog
+106:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb99:                                          ; preds = %if.end
-  br label %sw.epilog
+107:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb100:                                         ; preds = %if.end
-  br label %sw.epilog
+108:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb101:                                         ; preds = %if.end
-  br label %sw.epilog
+109:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb102:                                         ; preds = %if.end
-  br label %sw.epilog
+110:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb103:                                         ; preds = %if.end
-  br label %sw.epilog
+111:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb104:                                         ; preds = %if.end
-  br label %sw.epilog
+112:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb105:                                         ; preds = %if.end
-  br label %sw.epilog
+113:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb106:                                         ; preds = %if.end
-  br label %sw.epilog
+114:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb107:                                         ; preds = %if.end
-  br label %sw.epilog
+115:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb108:                                         ; preds = %if.end
-  br label %sw.epilog
+116:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb109:                                         ; preds = %if.end
-  br label %sw.epilog
+117:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb110:                                         ; preds = %if.end
-  br label %sw.epilog
+118:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb111:                                         ; preds = %if.end
-  br label %sw.epilog
+119:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb112:                                         ; preds = %if.end
-  br label %sw.epilog
+120:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb113:                                         ; preds = %if.end
-  br label %sw.epilog
+121:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb114:                                         ; preds = %if.end
-  br label %sw.epilog
+122:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb115:                                         ; preds = %if.end
-  br label %sw.epilog
+123:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb116:                                         ; preds = %if.end
-  br label %sw.epilog
+124:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb117:                                         ; preds = %if.end
-  br label %sw.epilog
+125:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb118:                                         ; preds = %if.end
-  br label %sw.epilog
+126:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb119:                                         ; preds = %if.end
-  br label %sw.epilog
+127:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb120:                                         ; preds = %if.end
-  br label %sw.epilog
+128:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb121:                                         ; preds = %if.end
-  br label %sw.epilog
+129:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb122:                                         ; preds = %if.end
-  br label %sw.epilog
+130:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb123:                                         ; preds = %if.end
-  br label %sw.epilog
+131:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb124:                                         ; preds = %if.end
-  br label %sw.epilog
+132:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb125:                                         ; preds = %if.end
-  br label %sw.epilog
+133:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb126:                                         ; preds = %if.end
-  br label %sw.epilog
+134:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb127:                                         ; preds = %if.end
-  br label %sw.epilog
+135:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb128:                                         ; preds = %if.end
-  br label %sw.epilog
+136:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb129:                                         ; preds = %if.end
-  br label %sw.epilog
+137:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb130:                                         ; preds = %if.end
-  br label %sw.epilog
+138:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb131:                                         ; preds = %if.end
-  br label %sw.epilog
+139:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb132:                                         ; preds = %if.end
-  br label %sw.epilog
+140:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb133:                                         ; preds = %if.end
-  br label %sw.epilog
+141:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb134:                                         ; preds = %if.end
-  br label %sw.epilog
+142:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb135:                                         ; preds = %if.end
-  br label %sw.epilog
+143:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb136:                                         ; preds = %if.end
-  br label %sw.epilog
+144:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb137:                                         ; preds = %if.end
-  br label %sw.epilog
+145:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb138:                                         ; preds = %if.end
-  br label %sw.epilog
+146:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb139:                                         ; preds = %if.end
-  br label %sw.epilog
+147:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb140:                                         ; preds = %if.end
-  br label %sw.epilog
+148:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb141:                                         ; preds = %if.end
-  br label %sw.epilog
+149:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb142:                                         ; preds = %if.end
-  br label %sw.epilog
+150:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb143:                                         ; preds = %if.end
-  br label %sw.epilog
+151:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb144:                                         ; preds = %if.end
-  br label %sw.epilog
+152:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb145:                                         ; preds = %if.end
-  br label %sw.epilog
+153:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb146:                                         ; preds = %if.end
-  br label %sw.epilog
+154:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb147:                                         ; preds = %if.end
-  br label %sw.epilog
+155:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb148:                                         ; preds = %if.end
-  br label %sw.epilog
+156:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb149:                                         ; preds = %if.end
-  br label %sw.epilog
+157:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb150:                                         ; preds = %if.end
-  br label %sw.epilog
+158:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb151:                                         ; preds = %if.end
-  br label %sw.epilog
+159:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb152:                                         ; preds = %if.end
-  br label %sw.epilog
+160:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb153:                                         ; preds = %if.end
-  br label %sw.epilog
+161:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb154:                                         ; preds = %if.end
-  br label %sw.epilog
+162:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb155:                                         ; preds = %if.end
-  br label %sw.epilog
+163:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb156:                                         ; preds = %if.end
-  br label %sw.epilog
+164:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb157:                                         ; preds = %if.end
-  br label %sw.epilog
+165:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb158:                                         ; preds = %if.end
-  br label %sw.epilog
+166:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb159:                                         ; preds = %if.end
-  br label %sw.epilog
+167:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb160:                                         ; preds = %if.end
-  br label %sw.epilog
+168:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb161:                                         ; preds = %if.end
-  br label %sw.epilog
+169:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb162:                                         ; preds = %if.end
-  br label %sw.epilog
+170:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb163:                                         ; preds = %if.end
-  br label %sw.epilog
+171:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb164:                                         ; preds = %if.end
-  br label %sw.epilog
+172:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb165:                                         ; preds = %if.end
-  br label %sw.epilog
+173:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb166:                                         ; preds = %if.end
-  br label %sw.epilog
+174:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb167:                                         ; preds = %if.end
-  br label %sw.epilog
+175:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb168:                                         ; preds = %if.end
-  br label %sw.epilog
+176:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb169:                                         ; preds = %if.end
-  br label %sw.epilog
+177:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb170:                                         ; preds = %if.end
-  br label %sw.epilog
+178:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb171:                                         ; preds = %if.end
-  br label %sw.epilog
+179:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb172:                                         ; preds = %if.end
-  br label %sw.epilog
+180:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb173:                                         ; preds = %if.end
-  br label %sw.epilog
+181:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb174:                                         ; preds = %if.end
-  br label %sw.epilog
+182:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb175:                                         ; preds = %if.end
-  br label %sw.epilog
+183:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb176:                                         ; preds = %if.end
-  br label %sw.epilog
+184:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb177:                                         ; preds = %if.end
-  br label %sw.epilog
+185:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb178:                                         ; preds = %if.end
-  br label %sw.epilog
+186:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb179:                                         ; preds = %if.end
-  br label %sw.epilog
+187:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb180:                                         ; preds = %if.end
-  br label %sw.epilog
+188:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb181:                                         ; preds = %if.end
-  br label %sw.epilog
+189:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb182:                                         ; preds = %if.end
-  br label %sw.epilog
+190:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb183:                                         ; preds = %if.end
-  br label %sw.epilog
+191:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb184:                                         ; preds = %if.end
-  br label %sw.epilog
+192:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb185:                                         ; preds = %if.end
-  br label %sw.epilog
+193:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb186:                                         ; preds = %if.end
-  br label %sw.epilog
+194:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb187:                                         ; preds = %if.end
-  br label %sw.epilog
+195:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb188:                                         ; preds = %if.end
-  br label %sw.epilog
+196:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb189:                                         ; preds = %if.end
-  br label %sw.epilog
+197:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb190:                                         ; preds = %if.end
-  br label %sw.epilog
+198:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb191:                                         ; preds = %if.end
-  br label %sw.epilog
+199:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb192:                                         ; preds = %if.end
-  br label %sw.epilog
+200:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb193:                                         ; preds = %if.end
-  br label %sw.epilog
+201:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb194:                                         ; preds = %if.end
-  br label %sw.epilog
+202:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb195:                                         ; preds = %if.end
-  br label %sw.epilog
+203:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb196:                                         ; preds = %if.end
-  br label %sw.epilog
+204:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb197:                                         ; preds = %if.end
-  br label %sw.epilog
+205:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb198:                                         ; preds = %if.end
-  br label %sw.epilog
+206:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb199:                                         ; preds = %if.end
-  br label %sw.epilog
+207:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb200:                                         ; preds = %if.end
-  br label %sw.epilog
+208:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb201:                                         ; preds = %if.end
-  br label %sw.epilog
+209:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb202:                                         ; preds = %if.end
-  br label %sw.epilog
+210:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.bb203:                                         ; preds = %if.end
-  br label %sw.epilog
+211:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.default:                                       ; preds = %if.end
-  br label %sw.epilog
+212:                                              ; preds = %8
+  br label %._crit_edge.i.i11
 
-sw.epilog:                                        ; preds = %if.end, %sw.default, %sw.bb203, %sw.bb202, %sw.bb201, %sw.bb200, %sw.bb199, %sw.bb198, %sw.bb197, %sw.bb196, %sw.bb195, %sw.bb194, %sw.bb193, %sw.bb192, %sw.bb191, %sw.bb190, %sw.bb189, %sw.bb188, %sw.bb187, %sw.bb186, %sw.bb185, %sw.bb184, %sw.bb183, %sw.bb182, %sw.bb181, %sw.bb180, %sw.bb179, %sw.bb178, %sw.bb177, %sw.bb176, %sw.bb175, %sw.bb174, %sw.bb173, %sw.bb172, %sw.bb171, %sw.bb170, %sw.bb169, %sw.bb168, %sw.bb167, %sw.bb166, %sw.bb165, %sw.bb164, %sw.bb163, %sw.bb162, %sw.bb161, %sw.bb160, %sw.bb159, %sw.bb158, %sw.bb157, %sw.bb156, %sw.bb155, %sw.bb154, %sw.bb153, %sw.bb152, %sw.bb151, %sw.bb150, %sw.bb149, %sw.bb148, %sw.bb147, %sw.bb146, %sw.bb145, %sw.bb144, %sw.bb143, %sw.bb142, %sw.bb141, %sw.bb140, %sw.bb139, %sw.bb138, %sw.bb137, %sw.bb136, %sw.bb135, %sw.bb134, %sw.bb133, %sw.bb132, %sw.bb131, %sw.bb130, %sw.bb129, %sw.bb128, %sw.bb127, %sw.bb126, %sw.bb125, %sw.bb124, %sw.bb123, %sw.bb122, %sw.bb121, %sw.bb120, %sw.bb119, %sw.bb118, %sw.bb117, %sw.bb116, %sw.bb115, %sw.bb114, %sw.bb113, %sw.bb112, %sw.bb111, %sw.bb110, %sw.bb109, %sw.bb108, %sw.bb107, %sw.bb106, %sw.bb105, %sw.bb104, %sw.bb103, %sw.bb102, %sw.bb101, %sw.bb100, %sw.bb99, %sw.bb98, %sw.bb97, %sw.bb96, %sw.bb95, %sw.bb94, %sw.bb93, %sw.bb92, %sw.bb91, %sw.bb90, %sw.bb89, %sw.bb88, %sw.bb87, %sw.bb86, %sw.bb85, %sw.bb84, %sw.bb83, %sw.bb82, %sw.bb81, %sw.bb80, %sw.bb79, %sw.bb78, %sw.bb77, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67, %sw.bb66, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb54, %sw.bb53, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %error_string.0 = phi ptr [ @.str.206, %sw.default ], [ @.str.205, %sw.bb203 ], [ @.str.204, %sw.bb202 ], [ @.str.203, %sw.bb201 ], [ @.str.202, %sw.bb200 ], [ @.str.201, %sw.bb199 ], [ @.str.200, %sw.bb198 ], [ @.str.199, %sw.bb197 ], [ @.str.198, %sw.bb196 ], [ @.str.197, %sw.bb195 ], [ @.str.196, %sw.bb194 ], [ @.str.195, %sw.bb193 ], [ @.str.194, %sw.bb192 ], [ @.str.193, %sw.bb191 ], [ @.str.192, %sw.bb190 ], [ @.str.191, %sw.bb189 ], [ @.str.190, %sw.bb188 ], [ @.str.189, %sw.bb187 ], [ @.str.188, %sw.bb186 ], [ @.str.187, %sw.bb185 ], [ @.str.186, %sw.bb184 ], [ @.str.185, %sw.bb183 ], [ @.str.184, %sw.bb182 ], [ @.str.183, %sw.bb181 ], [ @.str.182, %sw.bb180 ], [ @.str.181, %sw.bb179 ], [ @.str.180, %sw.bb178 ], [ @.str.179, %sw.bb177 ], [ @.str.178, %sw.bb176 ], [ @.str.177, %sw.bb175 ], [ @.str.176, %sw.bb174 ], [ @.str.175, %sw.bb173 ], [ @.str.174, %sw.bb172 ], [ @.str.173, %sw.bb171 ], [ @.str.172, %sw.bb170 ], [ @.str.171, %sw.bb169 ], [ @.str.170, %sw.bb168 ], [ @.str.169, %sw.bb167 ], [ @.str.168, %sw.bb166 ], [ @.str.167, %sw.bb165 ], [ @.str.166, %sw.bb164 ], [ @.str.165, %sw.bb163 ], [ @.str.164, %sw.bb162 ], [ @.str.163, %sw.bb161 ], [ @.str.162, %sw.bb160 ], [ @.str.161, %sw.bb159 ], [ @.str.160, %sw.bb158 ], [ @.str.159, %sw.bb157 ], [ @.str.158, %sw.bb156 ], [ @.str.157, %sw.bb155 ], [ @.str.156, %sw.bb154 ], [ @.str.155, %sw.bb153 ], [ @.str.154, %sw.bb152 ], [ @.str.153, %sw.bb151 ], [ @.str.152, %sw.bb150 ], [ @.str.151, %sw.bb149 ], [ @.str.150, %sw.bb148 ], [ @.str.149, %sw.bb147 ], [ @.str.148, %sw.bb146 ], [ @.str.147, %sw.bb145 ], [ @.str.146, %sw.bb144 ], [ @.str.145, %sw.bb143 ], [ @.str.144, %sw.bb142 ], [ @.str.143, %sw.bb141 ], [ @.str.142, %sw.bb140 ], [ @.str.141, %sw.bb139 ], [ @.str.140, %sw.bb138 ], [ @.str.139, %sw.bb137 ], [ @.str.138, %sw.bb136 ], [ @.str.137, %sw.bb135 ], [ @.str.136, %sw.bb134 ], [ @.str.135, %sw.bb133 ], [ @.str.134, %sw.bb132 ], [ @.str.133, %sw.bb131 ], [ @.str.132, %sw.bb130 ], [ @.str.131, %sw.bb129 ], [ @.str.130, %sw.bb128 ], [ @.str.129, %sw.bb127 ], [ @.str.128, %sw.bb126 ], [ @.str.127, %sw.bb125 ], [ @.str.126, %sw.bb124 ], [ @.str.125, %sw.bb123 ], [ @.str.124, %sw.bb122 ], [ @.str.123, %sw.bb121 ], [ @.str.122, %sw.bb120 ], [ @.str.121, %sw.bb119 ], [ @.str.120, %sw.bb118 ], [ @.str.119, %sw.bb117 ], [ @.str.118, %sw.bb116 ], [ @.str.117, %sw.bb115 ], [ @.str.116, %sw.bb114 ], [ @.str.115, %sw.bb113 ], [ @.str.114, %sw.bb112 ], [ @.str.113, %sw.bb111 ], [ @.str.112, %sw.bb110 ], [ @.str.111, %sw.bb109 ], [ @.str.110, %sw.bb108 ], [ @.str.109, %sw.bb107 ], [ @.str.108, %sw.bb106 ], [ @.str.107, %sw.bb105 ], [ @.str.106, %sw.bb104 ], [ @.str.105, %sw.bb103 ], [ @.str.104, %sw.bb102 ], [ @.str.103, %sw.bb101 ], [ @.str.102, %sw.bb100 ], [ @.str.101, %sw.bb99 ], [ @.str.100, %sw.bb98 ], [ @.str.99, %sw.bb97 ], [ @.str.98, %sw.bb96 ], [ @.str.97, %sw.bb95 ], [ @.str.96, %sw.bb94 ], [ @.str.95, %sw.bb93 ], [ @.str.94, %sw.bb92 ], [ @.str.93, %sw.bb91 ], [ @.str.92, %sw.bb90 ], [ @.str.91, %sw.bb89 ], [ @.str.90, %sw.bb88 ], [ @.str.89, %sw.bb87 ], [ @.str.88, %sw.bb86 ], [ @.str.87, %sw.bb85 ], [ @.str.86, %sw.bb84 ], [ @.str.85, %sw.bb83 ], [ @.str.84, %sw.bb82 ], [ @.str.83, %sw.bb81 ], [ @.str.82, %sw.bb80 ], [ @.str.81, %sw.bb79 ], [ @.str.80, %sw.bb78 ], [ @.str.79, %sw.bb77 ], [ @.str.78, %sw.bb76 ], [ @.str.77, %sw.bb75 ], [ @.str.76, %sw.bb74 ], [ @.str.75, %sw.bb73 ], [ @.str.74, %sw.bb72 ], [ @.str.73, %sw.bb71 ], [ @.str.72, %sw.bb70 ], [ @.str.71, %sw.bb69 ], [ @.str.70, %sw.bb68 ], [ @.str.69, %sw.bb67 ], [ @.str.68, %sw.bb66 ], [ @.str.67, %sw.bb65 ], [ @.str.66, %sw.bb64 ], [ @.str.65, %sw.bb63 ], [ @.str.64, %sw.bb62 ], [ @.str.63, %sw.bb61 ], [ @.str.62, %sw.bb60 ], [ @.str.61, %sw.bb59 ], [ @.str.60, %sw.bb58 ], [ @.str.59, %sw.bb57 ], [ @.str.58, %sw.bb56 ], [ @.str.57, %sw.bb55 ], [ @.str.56, %sw.bb54 ], [ @.str.55, %sw.bb53 ], [ @.str.54, %sw.bb52 ], [ @.str.53, %sw.bb51 ], [ @.str.52, %sw.bb50 ], [ @.str.51, %sw.bb49 ], [ @.str.50, %sw.bb48 ], [ @.str.49, %sw.bb47 ], [ @.str.48, %sw.bb46 ], [ @.str.47, %sw.bb45 ], [ @.str.46, %sw.bb44 ], [ @.str.45, %sw.bb43 ], [ @.str.44, %sw.bb42 ], [ @.str.43, %sw.bb41 ], [ @.str.42, %sw.bb40 ], [ @.str.41, %sw.bb39 ], [ @.str.40, %sw.bb38 ], [ @.str.39, %sw.bb37 ], [ @.str.38, %sw.bb36 ], [ @.str.37, %sw.bb35 ], [ @.str.36, %sw.bb34 ], [ @.str.35, %sw.bb33 ], [ @.str.34, %sw.bb32 ], [ @.str.33, %sw.bb31 ], [ @.str.32, %sw.bb30 ], [ @.str.31, %sw.bb29 ], [ @.str.30, %sw.bb28 ], [ @.str.29, %sw.bb27 ], [ @.str.28, %sw.bb26 ], [ @.str.27, %sw.bb25 ], [ @.str.26, %sw.bb24 ], [ @.str.25, %sw.bb23 ], [ @.str.24, %sw.bb22 ], [ @.str.23, %sw.bb21 ], [ @.str.22, %sw.bb20 ], [ @.str.21, %sw.bb19 ], [ @.str.20, %sw.bb18 ], [ @.str.19, %sw.bb17 ], [ @.str.18, %sw.bb16 ], [ @.str.17, %sw.bb15 ], [ @.str.16, %sw.bb14 ], [ @.str.15, %sw.bb13 ], [ @.str.14, %sw.bb12 ], [ @.str.13, %sw.bb11 ], [ @.str.12, %sw.bb10 ], [ @.str.11, %sw.bb9 ], [ @.str.10, %sw.bb8 ], [ @.str.9, %sw.bb7 ], [ @.str.8, %sw.bb6 ], [ @.str.7, %sw.bb5 ], [ @.str.6, %sw.bb4 ], [ @.str.5, %sw.bb3 ], [ @.str.4, %sw.bb2 ], [ @.str.3, %sw.bb1 ], [ @.str.2, %if.end ]
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205) #7
-  %call.i10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204)
-          to label %call.i.noexc9 unwind label %lpad206
+._crit_edge.i.i11:                                ; preds = %8, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
+  %.0 = phi ptr [ @.str.206, %212 ], [ @.str.205, %211 ], [ @.str.204, %210 ], [ @.str.203, %209 ], [ @.str.202, %208 ], [ @.str.201, %207 ], [ @.str.200, %206 ], [ @.str.199, %205 ], [ @.str.198, %204 ], [ @.str.197, %203 ], [ @.str.196, %202 ], [ @.str.195, %201 ], [ @.str.194, %200 ], [ @.str.193, %199 ], [ @.str.192, %198 ], [ @.str.191, %197 ], [ @.str.190, %196 ], [ @.str.189, %195 ], [ @.str.188, %194 ], [ @.str.187, %193 ], [ @.str.186, %192 ], [ @.str.185, %191 ], [ @.str.184, %190 ], [ @.str.183, %189 ], [ @.str.182, %188 ], [ @.str.181, %187 ], [ @.str.180, %186 ], [ @.str.179, %185 ], [ @.str.178, %184 ], [ @.str.177, %183 ], [ @.str.176, %182 ], [ @.str.175, %181 ], [ @.str.174, %180 ], [ @.str.173, %179 ], [ @.str.172, %178 ], [ @.str.171, %177 ], [ @.str.170, %176 ], [ @.str.169, %175 ], [ @.str.168, %174 ], [ @.str.167, %173 ], [ @.str.166, %172 ], [ @.str.165, %171 ], [ @.str.164, %170 ], [ @.str.163, %169 ], [ @.str.162, %168 ], [ @.str.161, %167 ], [ @.str.160, %166 ], [ @.str.159, %165 ], [ @.str.158, %164 ], [ @.str.157, %163 ], [ @.str.156, %162 ], [ @.str.155, %161 ], [ @.str.154, %160 ], [ @.str.153, %159 ], [ @.str.152, %158 ], [ @.str.151, %157 ], [ @.str.150, %156 ], [ @.str.149, %155 ], [ @.str.148, %154 ], [ @.str.147, %153 ], [ @.str.146, %152 ], [ @.str.145, %151 ], [ @.str.144, %150 ], [ @.str.143, %149 ], [ @.str.142, %148 ], [ @.str.141, %147 ], [ @.str.140, %146 ], [ @.str.139, %145 ], [ @.str.138, %144 ], [ @.str.137, %143 ], [ @.str.136, %142 ], [ @.str.135, %141 ], [ @.str.134, %140 ], [ @.str.133, %139 ], [ @.str.132, %138 ], [ @.str.131, %137 ], [ @.str.130, %136 ], [ @.str.129, %135 ], [ @.str.128, %134 ], [ @.str.127, %133 ], [ @.str.126, %132 ], [ @.str.125, %131 ], [ @.str.124, %130 ], [ @.str.123, %129 ], [ @.str.122, %128 ], [ @.str.121, %127 ], [ @.str.120, %126 ], [ @.str.119, %125 ], [ @.str.118, %124 ], [ @.str.117, %123 ], [ @.str.116, %122 ], [ @.str.115, %121 ], [ @.str.114, %120 ], [ @.str.113, %119 ], [ @.str.112, %118 ], [ @.str.111, %117 ], [ @.str.110, %116 ], [ @.str.109, %115 ], [ @.str.108, %114 ], [ @.str.107, %113 ], [ @.str.106, %112 ], [ @.str.105, %111 ], [ @.str.104, %110 ], [ @.str.103, %109 ], [ @.str.102, %108 ], [ @.str.101, %107 ], [ @.str.100, %106 ], [ @.str.99, %105 ], [ @.str.98, %104 ], [ @.str.97, %103 ], [ @.str.96, %102 ], [ @.str.95, %101 ], [ @.str.94, %100 ], [ @.str.93, %99 ], [ @.str.92, %98 ], [ @.str.91, %97 ], [ @.str.90, %96 ], [ @.str.89, %95 ], [ @.str.88, %94 ], [ @.str.87, %93 ], [ @.str.86, %92 ], [ @.str.85, %91 ], [ @.str.84, %90 ], [ @.str.83, %89 ], [ @.str.82, %88 ], [ @.str.81, %87 ], [ @.str.80, %86 ], [ @.str.79, %85 ], [ @.str.78, %84 ], [ @.str.77, %83 ], [ @.str.76, %82 ], [ @.str.75, %81 ], [ @.str.74, %80 ], [ @.str.73, %79 ], [ @.str.72, %78 ], [ @.str.71, %77 ], [ @.str.70, %76 ], [ @.str.69, %75 ], [ @.str.68, %74 ], [ @.str.67, %73 ], [ @.str.66, %72 ], [ @.str.65, %71 ], [ @.str.64, %70 ], [ @.str.63, %69 ], [ @.str.62, %68 ], [ @.str.61, %67 ], [ @.str.60, %66 ], [ @.str.59, %65 ], [ @.str.58, %64 ], [ @.str.57, %63 ], [ @.str.56, %62 ], [ @.str.55, %61 ], [ @.str.54, %60 ], [ @.str.53, %59 ], [ @.str.52, %58 ], [ @.str.51, %57 ], [ @.str.50, %56 ], [ @.str.49, %55 ], [ @.str.48, %54 ], [ @.str.47, %53 ], [ @.str.46, %52 ], [ @.str.45, %51 ], [ @.str.44, %50 ], [ @.str.43, %49 ], [ @.str.42, %48 ], [ @.str.41, %47 ], [ @.str.40, %46 ], [ @.str.39, %45 ], [ @.str.38, %44 ], [ @.str.37, %43 ], [ @.str.36, %42 ], [ @.str.35, %41 ], [ @.str.34, %40 ], [ @.str.33, %39 ], [ @.str.32, %38 ], [ @.str.31, %37 ], [ @.str.30, %36 ], [ @.str.29, %35 ], [ @.str.28, %34 ], [ @.str.27, %33 ], [ @.str.26, %32 ], [ @.str.25, %31 ], [ @.str.24, %30 ], [ @.str.23, %29 ], [ @.str.22, %28 ], [ @.str.21, %27 ], [ @.str.20, %26 ], [ @.str.19, %25 ], [ @.str.18, %24 ], [ @.str.17, %23 ], [ @.str.16, %22 ], [ @.str.15, %21 ], [ @.str.14, %20 ], [ @.str.13, %19 ], [ @.str.12, %18 ], [ @.str.11, %17 ], [ @.str.10, %16 ], [ @.str.9, %15 ], [ @.str.8, %14 ], [ @.str.7, %13 ], [ @.str.6, %12 ], [ @.str.5, %11 ], [ @.str.4, %10 ], [ @.str.3, %9 ], [ @.str.2, %8 ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  %213 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %213, ptr %3, align 8, !tbaa !3
+  store i32 1599230533, ptr %213, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 4, ptr %214, align 8, !tbaa !15
+  %215 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i8 0, ptr %215, align 4, !tbaa !16
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %216 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #10, !noalias !17
+  %217 = icmp ugt i64 %216, 4611686018427387899
+  br i1 %217, label %218, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
-call.i.noexc9:                                    ; preds = %sw.epilog
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205)
-          to label %.noexc11 unwind label %lpad206
+218:                                              ; preds = %._crit_edge.i.i11
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.211) #12
+          to label %.noexc15 unwind label %238
 
-.noexc11:                                         ; preds = %call.i.noexc9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204, ptr noundef nonnull @.str.207, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.207, i64 4))
-          to label %invoke.cont207 unwind label %lpad.i8
+.noexc15:                                         ; preds = %218
+  unreachable
 
-lpad.i8:                                          ; preds = %.noexc11
-  %2 = landingpad { ptr, i32 }
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %._crit_edge.i.i11
+  %219 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %.0, i64 noundef %216)
+          to label %.noexc16 unwind label %238
+
+.noexc16:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %220, ptr %0, align 8, !tbaa !3, !alias.scope !17
+  %221 = load ptr, ptr %219, align 8, !tbaa !12
+  %222 = getelementptr inbounds nuw i8, ptr %219, i64 16
+  %223 = icmp eq ptr %221, %222
+  br i1 %223, label %224, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+224:                                              ; preds = %.noexc16
+  %225 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %226 = load i64, ptr %225, align 8, !tbaa !15
+  %227 = icmp ult i64 %226, 16
+  call void @llvm.assume(i1 %227)
+  %228 = add nuw nsw i64 %226, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %220, ptr noundef nonnull align 8 dereferenceable(1) %222, i64 %228, i1 false)
+  br label %230
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.noexc16
+  store ptr %221, ptr %0, align 8, !tbaa !12, !alias.scope !17
+  %229 = load i64, ptr %222, align 8, !tbaa !16
+  store i64 %229, ptr %220, align 8, !tbaa !16, !alias.scope !17
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !15
+  br label %230
+
+230:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %224
+  %231 = phi i64 [ %226, %224 ], [ %.pre.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+  %232 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %231, ptr %233, align 8, !tbaa !15, !alias.scope !17
+  store ptr %222, ptr %219, align 8, !tbaa !12
+  store i64 0, ptr %232, align 8, !tbaa !15
+  store i8 0, ptr %222, align 8, !tbaa !16
+  %234 = load ptr, ptr %3, align 8, !tbaa !12
+  %235 = icmp eq ptr %234, %213
+  br i1 %235, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %230
+  %236 = load i64, ptr %214, align 8, !tbaa !15
+  %237 = icmp ult i64 %236, 16
+  call void @llvm.assume(i1 %237)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17: ; preds = %230
+  call void @_ZdlPv(ptr noundef %234) #11
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  br label %244
+
+238:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %218
+  %239 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #7
-  br label %eh.resume
+  %240 = load ptr, ptr %3, align 8, !tbaa !12
+  %241 = icmp eq ptr %240, %213
+  br i1 %241, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
 
-invoke.cont207:                                   ; preds = %.noexc11
-  %call.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204, ptr noundef nonnull %error_string.0)
-          to label %invoke.cont209 unwind label %lpad208
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19: ; preds = %238
+  %242 = load i64, ptr %214, align 8, !tbaa !15
+  %243 = icmp ult i64 %242, 16
+  call void @llvm.assume(i1 %243)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
-invoke.cont209:                                   ; preds = %invoke.cont207
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i15) #7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #7
-  br label %return
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18: ; preds = %238
+  call void @_ZdlPv(ptr noundef %240) #11
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
-lpad206:                                          ; preds = %call.i.noexc9, %sw.epilog
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  br label %eh.resume
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  resume { ptr, i32 } %239
 
-lpad208:                                          ; preds = %invoke.cont207
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #7
-  br label %eh.resume
-
-return:                                           ; preds = %.noexc, %invoke.cont209
-  %ref.tmp205.sink = phi ptr [ %ref.tmp205, %invoke.cont209 ], [ %ref.tmp, %.noexc ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205.sink) #7
+244:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %._crit_edge.i.i
   ret void
-
-eh.resume:                                        ; preds = %lpad208, %lpad.i8, %lpad206, %lpad, %lpad.i
-  %ref.tmp205.sink16 = phi ptr [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ], [ %ref.tmp205, %lpad206 ], [ %ref.tmp205, %lpad.i8 ], [ %ref.tmp205, %lpad208 ]
-  %.pn3 = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ], [ %3, %lpad206 ], [ %2, %lpad.i8 ], [ %4, %lpad208 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205.sink16) #7
-  resume { ptr, i32 } %.pn3
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net18IsCertificateErrorEi(i32 noundef %error) local_unnamed_addr #2 {
-entry:
-  %0 = add i32 %error, 214
-  %or.cond = icmp ult i32 %0, 15
-  %cmp2 = icmp eq i32 %error, -150
-  %spec.select = or i1 %cmp2, %or.cond
+define noundef zeroext i1 @_ZN3net18IsCertificateErrorEi(i32 noundef %0) local_unnamed_addr #2 {
+  %2 = add i32 %0, 214
+  %or.cond = icmp ult i32 %2, 15
+  %3 = icmp eq i32 %0, -150
+  %spec.select = or i1 %3, %or.cond
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net24IsClientCertificateErrorEi(i32 noundef %error) local_unnamed_addr #2 {
-entry:
-  %switch.tableidx = add i32 %error, 141
-  %0 = icmp ult i32 %switch.tableidx, 25
+define noundef zeroext i1 @_ZN3net24IsClientCertificateErrorEi(i32 noundef %0) local_unnamed_addr #2 {
+  %switch.tableidx = add i32 %0, 141
+  %2 = icmp ult i32 %switch.tableidx, 25
   %switch.cast = trunc i32 %switch.tableidx to i25
   %switch.downshift = lshr i25 -16777023, %switch.cast
   %switch.masked = trunc i25 %switch.downshift to i1
-  %retval.0 = select i1 %0, i1 %switch.masked, i1 false
-  ret i1 %retval.0
+  %.0 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 -300, 1) i32 @_ZN3net19FileErrorToNetErrorEN4base4File5ErrorE(i32 noundef %file_error) local_unnamed_addr #2 {
-entry:
-  switch i32 %file_error, label %sw.default [
-    i32 0, label %return
-    i32 -5, label %sw.bb1
-    i32 -15, label %sw.bb2
-    i32 -4, label %sw.bb3
+define noundef range(i32 -300, 1) i32 @_ZN3net19FileErrorToNetErrorEN4base4File5ErrorE(i32 noundef %0) local_unnamed_addr #2 {
+  switch i32 %0, label %5 [
+    i32 0, label %6
+    i32 -5, label %2
+    i32 -15, label %3
+    i32 -4, label %4
   ]
 
-sw.bb1:                                           ; preds = %entry
-  br label %return
+2:                                                ; preds = %1
+  br label %6
 
-sw.bb2:                                           ; preds = %entry
-  br label %return
+3:                                                ; preds = %1
+  br label %6
 
-sw.bb3:                                           ; preds = %entry
-  br label %return
+4:                                                ; preds = %1
+  br label %6
 
-sw.default:                                       ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %6
 
-return:                                           ; preds = %entry, %sw.default, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ -2, %sw.default ], [ -6, %sw.bb3 ], [ -300, %sw.bb2 ], [ -10, %sw.bb1 ], [ %file_error, %entry ]
-  ret i32 %retval.0
+6:                                                ; preds = %1, %5, %4, %3, %2
+  %.0 = phi i32 [ -2, %5 ], [ -6, %4 ], [ -300, %3 ], [ -10, %2 ], [ %0, %1 ]
+  ret i32 %.0
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__dnew = alloca i64, align 8
-  %__guard = alloca %struct._Guard, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__end to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__beg to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  store i64 %sub.ptr.sub.i.i, ptr %__dnew, align 8
-  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, 15
-  br i1 %cmp, label %if.then, label %if.else
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #4
 
-if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2)
-  %0 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0)
-  br label %if.end
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
-if.else:                                          ; preds = %entry
-  %call.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-          to label %if.end unwind label %terminate.lpad.i
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #8
 
-terminate.lpad.i:                                 ; preds = %if.else
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #8
-  unreachable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
-if.end:                                           ; preds = %if.else, %if.then
-  store ptr %this, ptr %__guard, align 8
-  %call4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-          to label %invoke.cont unwind label %lpad
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
+attributes #12 = { noreturn }
 
-invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #7
-  store ptr null, ptr %__guard, align 8
-  %3 = load i64, ptr %__dnew, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
-          to label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit unwind label %lpad
-
-_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %invoke.cont, %if.end
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #7
-  resume { ptr, i32 } %4
-}
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
-
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %if.end unwind label %terminate.lpad
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #8
-  unreachable
-}
-
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
-  tail call void @_ZSt9terminatev() #8
-  unreachable
-}
-
-declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
-
-; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
+!11 = distinct !{!11, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
+!12 = !{!13, !5, i64 0}
+!13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !4, i64 0, !14, i64 8, !7, i64 16}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!13, !14, i64 8}
+!16 = !{!7, !7, i64 0}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
+!19 = distinct !{!19, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}

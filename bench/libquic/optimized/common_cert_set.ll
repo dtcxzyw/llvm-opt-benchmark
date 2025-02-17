@@ -1,20 +1,19 @@
 ; ModuleID = 'bench/libquic/original/common_cert_set.ll'
 source_filename = "bench/libquic/original/common_cert_set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.net::(anonymous namespace)::CertSet" = type { i64, ptr, ptr, i64 }
-%"class.base::BasicStringPiece" = type { ptr, i64 }
 
-@_ZTVN3net14CommonCertSetsE = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3net14CommonCertSetsE, ptr @_ZN3net14CommonCertSetsD2Ev, ptr @_ZN3net14CommonCertSetsD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTVN3net14CommonCertSetsE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3net14CommonCertSetsE, ptr @_ZN3net14CommonCertSetsD1Ev, ptr @_ZN3net14CommonCertSetsD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTIN3net14CommonCertSetsE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3net14CommonCertSetsE }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN3net14CommonCertSetsE = dso_local constant [23 x i8] c"N3net14CommonCertSetsE\00", align 1
-@_ZTIN3net14CommonCertSetsE = dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3net14CommonCertSetsE }, align 8
+@_ZTSN3net14CommonCertSetsE = constant [23 x i8] c"N3net14CommonCertSetsE\00", align 1
 @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E = internal global i64 0, align 8
-@_ZTVN3net12_GLOBAL__N_118CommonCertSetsQUICE = internal unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3net12_GLOBAL__N_118CommonCertSetsQUICE, ptr @_ZN3net12_GLOBAL__N_118CommonCertSetsQUICD2Ev, ptr @_ZN3net12_GLOBAL__N_118CommonCertSetsQUICD0Ev, ptr @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC15GetCommonHashesB5cxx11Ev, ptr @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCertB5cxx11Emj, ptr @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9MatchCertEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PmPj] }, align 8
+@_ZTVN3net12_GLOBAL__N_118CommonCertSetsQUICE = internal unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3net12_GLOBAL__N_118CommonCertSetsQUICE, ptr @_ZN3net14CommonCertSetsD2Ev, ptr @_ZN3net12_GLOBAL__N_118CommonCertSetsQUICD0Ev, ptr @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC15GetCommonHashesB5cxx11Ev, ptr @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCertB5cxx11Emj, ptr @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9MatchCertEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PmPj] }, align 8
+@_ZTIN3net12_GLOBAL__N_118CommonCertSetsQUICE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net12_GLOBAL__N_118CommonCertSetsQUICE, ptr @_ZTIN3net14CommonCertSetsE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3net12_GLOBAL__N_118CommonCertSetsQUICE = internal constant [41 x i8] c"N3net12_GLOBAL__N_118CommonCertSetsQUICE\00", align 1
-@_ZTIN3net12_GLOBAL__N_118CommonCertSetsQUICE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3net12_GLOBAL__N_118CommonCertSetsQUICE, ptr @_ZTIN3net14CommonCertSetsE }, align 8
 @_ZN3net12_GLOBAL__N_110kSetHashesE = internal constant [2 x i64] [i64 -1721902750133786623, i64 -7961777403452134018], align 16
 @_ZN3net12_GLOBAL__N_15kSetsE = internal unnamed_addr constant [2 x %"struct.net::(anonymous namespace)::CertSet"] [%"struct.net::(anonymous namespace)::CertSet" { i64 54, ptr @_ZN3net17common_cert_set_2L6kCertsE, ptr @_ZN3net17common_cert_set_2L5kLensE, i64 -1721902750133786623 }, %"struct.net::(anonymous namespace)::CertSet" { i64 52, ptr @_ZN3net17common_cert_set_3L6kCertsE, ptr @_ZN3net17common_cert_set_3L5kLensE, i64 -7961777403452134018 }], align 16
 @_ZN3net17common_cert_set_2L6kCertsE = internal constant [54 x ptr] [ptr @_ZN3net17common_cert_set_2L9kDERCert0E, ptr @_ZN3net17common_cert_set_2L9kDERCert1E, ptr @_ZN3net17common_cert_set_2L9kDERCert2E, ptr @_ZN3net17common_cert_set_2L9kDERCert3E, ptr @_ZN3net17common_cert_set_2L9kDERCert4E, ptr @_ZN3net17common_cert_set_2L9kDERCert5E, ptr @_ZN3net17common_cert_set_2L9kDERCert6E, ptr @_ZN3net17common_cert_set_2L9kDERCert7E, ptr @_ZN3net17common_cert_set_2L9kDERCert8E, ptr @_ZN3net17common_cert_set_2L9kDERCert9E, ptr @_ZN3net17common_cert_set_2L10kDERCert10E, ptr @_ZN3net17common_cert_set_2L10kDERCert11E, ptr @_ZN3net17common_cert_set_2L10kDERCert12E, ptr @_ZN3net17common_cert_set_2L10kDERCert13E, ptr @_ZN3net17common_cert_set_2L10kDERCert14E, ptr @_ZN3net17common_cert_set_2L10kDERCert15E, ptr @_ZN3net17common_cert_set_2L10kDERCert16E, ptr @_ZN3net17common_cert_set_2L10kDERCert17E, ptr @_ZN3net17common_cert_set_2L10kDERCert18E, ptr @_ZN3net17common_cert_set_2L10kDERCert19E, ptr @_ZN3net17common_cert_set_2L10kDERCert20E, ptr @_ZN3net17common_cert_set_2L10kDERCert21E, ptr @_ZN3net17common_cert_set_2L10kDERCert22E, ptr @_ZN3net17common_cert_set_2L10kDERCert23E, ptr @_ZN3net17common_cert_set_2L10kDERCert24E, ptr @_ZN3net17common_cert_set_2L10kDERCert25E, ptr @_ZN3net17common_cert_set_2L10kDERCert26E, ptr @_ZN3net17common_cert_set_2L10kDERCert27E, ptr @_ZN3net17common_cert_set_2L10kDERCert28E, ptr @_ZN3net17common_cert_set_2L10kDERCert29E, ptr @_ZN3net17common_cert_set_2L10kDERCert30E, ptr @_ZN3net17common_cert_set_2L10kDERCert31E, ptr @_ZN3net17common_cert_set_2L10kDERCert32E, ptr @_ZN3net17common_cert_set_2L10kDERCert33E, ptr @_ZN3net17common_cert_set_2L10kDERCert34E, ptr @_ZN3net17common_cert_set_2L10kDERCert35E, ptr @_ZN3net17common_cert_set_2L10kDERCert36E, ptr @_ZN3net17common_cert_set_2L10kDERCert37E, ptr @_ZN3net17common_cert_set_2L10kDERCert38E, ptr @_ZN3net17common_cert_set_2L10kDERCert39E, ptr @_ZN3net17common_cert_set_2L10kDERCert40E, ptr @_ZN3net17common_cert_set_2L10kDERCert41E, ptr @_ZN3net17common_cert_set_2L10kDERCert42E, ptr @_ZN3net17common_cert_set_2L10kDERCert43E, ptr @_ZN3net17common_cert_set_2L10kDERCert44E, ptr @_ZN3net17common_cert_set_2L10kDERCert45E, ptr @_ZN3net17common_cert_set_2L10kDERCert46E, ptr @_ZN3net17common_cert_set_2L10kDERCert47E, ptr @_ZN3net17common_cert_set_2L10kDERCert48E, ptr @_ZN3net17common_cert_set_2L10kDERCert49E, ptr @_ZN3net17common_cert_set_2L10kDERCert50E, ptr @_ZN3net17common_cert_set_2L10kDERCert51E, ptr @_ZN3net17common_cert_set_2L10kDERCert52E, ptr @_ZN3net17common_cert_set_2L10kDERCert53E], align 16
@@ -128,344 +127,287 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net17common_cert_set_3L10kDERCert50E = internal constant [1513 x i8] c"0\82\05\E50\82\03\CD\A0\03\02\01\02\02\10\13\8B\FE\F32\94\F9\D8\16\F9E\C2q\95)\980\0D\06\09*\86H\86\F7\0D\01\01\0B\05\000}1\0B0\09\06\03U\04\06\13\02IL1\160\14\06\03U\04\0A\13\0DStartCom Ltd.1+0)\06\03U\04\0B\13\22Secure Digital Certificate Signing1)0'\06\03U\04\03\13 StartCom Certification Authority0\1E\17\0D151216010005Z\17\0D301216010005Z0x1\0B0\09\06\03U\04\06\13\02IL1\160\14\06\03U\04\0A\13\0DStartCom Ltd.1)0'\06\03U\04\0B\13 StartCom Certification Authority1&0$\06\03U\04\03\13\1DStartCom Class 3 OV Server CA0\82\01\220\0D\06\09*\86H\86\F7\0D\01\01\01\05\00\03\82\01\0F\000\82\01\0A\02\82\01\01\00\AFg\1Co\E5E\E0\D7FKu,\B6\80\F2\9A\17M-\FF\DE\AE\D2\D4\00\8A:\B81\FE\8E7\9E\FA\AA\D5\A3[\16\12\C1\19>4\85\96\C3\BE\D3\B3C\F4\8Do\16\BD0\BA\07\FC\D8\9A\C1y\89\80m\A0\8C\BE\DD7\F7\EB\05\D3S\7FWXvU\B6\A8\A8\86D\B8\BB\D0\13\DA\FD\8F\E1\F2\CD\A0\158UV\CE&\CF|\93u)z\0A\AB\FB\BA\098 \11W\07]\7FI\9F*Jg\1E\9EX\E9\C7\7F\F9\C3\ED\FE_M\AF\B8O\9D\DFi-i\1B:X\81ic0\EA\87\8D\0FR\9DZ\DA9D\BA\9F\89\9F6\B6\C2\19\\\D9&x\D9\AE^\FC\95\90\BF\E8\11\C0G\0Fw\89\DDj(O\0A\BC2dWC=\08e\93\E5E\AE\DD(\0C',\8E\A6+\09\03]\A1x\D2\8C\AB\B6k\B9F\C9\19\009\B9\BF\C6\13+sr\1F\F2>7\B8\E8\B9\14e\88M\E2\F1\1B\D8\A5\1D;\02\03\01\00\01\A3\82\01d0\82\01`0\0E\06\03U\1D\0F\01\01\FF\04\04\03\02\01\060\1D\06\03U\1D%\04\160\14\06\08+\06\01\05\05\07\03\02\06\08+\06\01\05\05\07\03\010\12\06\03U\1D\13\01\01\FF\04\080\06\01\01\FF\02\01\0002\06\03U\1D\1F\04+0)0'\A0%\A0#\86!http://crl.startssl.com/sfsca.crl0f\06\08+\06\01\05\05\07\01\01\04Z0X0$\06\08+\06\01\05\05\070\01\86\18http://ocsp.startssl.com00\06\08+\06\01\05\05\070\02\86$http://aia.startssl.com/certs/ca.crt0\1D\06\03U\1D\0E\04\16\04\14\B1?\1C\92{\92\B0Z%\B38\FB\9C\07\A4&P2\E3Q0\1F\06\03U\1D#\04\180\16\80\14N\0B\EF\1A\A4@[\A5\17i\870\CA4hC\D0A\AE\F20?\06\03U\1D \0480604\06\04U\1D \000,0*\06\08+\06\01\05\05\07\02\01\16\1Ehttp://www.startssl.com/policy0\0D\06\09*\86H\86\F7\0D\01\01\0B\05\00\03\82\02\01\00\85\F2\E8\14\D3\1B\C1\A1\16\1D\A4\F4M\BAQ\8B\\R\B1TT\12\16\17\9C\96xo\D3\BF\DFC6\F5\12\89arD\DF\1C\9B\09O`&h\C1\E6fPp\B3j\F1\A8j\0C\1E.\93\F1\EE\07>\09\DD0E\B2V\8E\DC,\\\ABI\FA\B9\04\03@\15z\B50\E0\1D\91\8F\A6\D6o\1F\99\A0\84\959\BD\ACw\7FrK\DD-\AE\FF\A8X\1DF'\D4\83\C7id\9F\19\BB\10\F8\04B\87Y]\02\B1\D6\E5\C8\DAC0\A3\E87\A5\D2H\0B\A2\83N\9DO\83X\9D\D7G\22\B1\89\F0\89;=(C,\9B\17|\03\EE\9D&%\E0\04\B8\1D\04WBG\DAXi\F0\D3)\AB\12\02\99+*\D8\9D\A0\1FT^#\9A\0C\D2\99X\C4\A1\E5I\C2%\A7d R.\E7\89\F5\19\C0\8B\D0c\B1x\1E\BE\01G\BEv\81F\F1\99\1F\94\9A\BE\FA\82\15\B5\84\84yu\93\BA\9F\B5\E4\9B\C2\CBi\\\BD\1FU\0A\A7&0\05Q\BEe\EEW\A9j\DF\BD\F96/\AD\1EFA+\B1\88\D0\88%\85@\17y\BF=\8D\E2\F4-\EA01\DF\A1@\CB5\FF\82\9F\F5\99<J\FD\9D\A1\D1U\CC \A8\1C\D8 \05\AB\B3\14e\95S\D8\E8\8EW\C5wk-M\88\E9]b\D5\A2\F8p\E1p\EBE#\0E\F0\00F\C2H1\E8\E76\806-\22\F2\01'S\EB\CE\A7iI\82\BF\E7\0F\9C\F3 .\F5\FA]\CE\EAX:\8F\D8\AA}0\B7t\96|=n\B4\ECJ;Y\B6\A9P\0D\0F\05\06p&\B9\95\91\D1^$\8C\8F\CAtW\97\90\8BZ\B7\FE\8D\AD\D8\E8\C2\06\BC\08V!\02\12S\C6\9F\86\04X\CA-\F8\03\0DW\0B\1C7\BD\F0Z5\F2\FE;\D6\A47\15\E9\F8\08\92\96=t\C8\B5\\ne\08\E7\DFis\9C\EC\E30Z\A6\DF\\\BE\DA\7F\00\EE\A5\DA+\\\1E*j\C0\A3\AE\1E\F1", align 16
 @_ZN3net17common_cert_set_3L10kDERCert51E = internal constant [1632 x i8] c"0\82\06\\0\82\04D\A0\03\02\01\02\02\07\19\C2\850\E9;60\0D\06\09*\86H\86\F7\0D\01\01\0B\05\000}1\0B0\09\06\03U\04\06\13\02IL1\160\14\06\03U\04\0A\13\0DStartCom Ltd.1+0)\06\03U\04\0B\13\22Secure Digital Certificate Signing1)0'\06\03U\04\03\13 StartCom Certification Authority0\1E\17\0D060917224636Z\17\0D191231235959Z0U1\0B0\09\06\03U\04\06\13\02CN1\1A0\18\06\03U\04\0A\13\11WoSign CA Limited1*0(\06\03U\04\03\13!Certification Authority of WoSign0\82\02\220\0D\06\09*\86H\86\F7\0D\01\01\01\05\00\03\82\02\0F\000\82\02\0A\02\82\02\01\00\BD\CA\8D\AC\B8\91\15V\97{k\\z\C2\DEk\D9\A1\B0\C3\10#\FA\A7\A1\B2\CC1\FA>\D9\A6)o\16=\E0k\F8\B8@_\DB9\A8\00z\8B\A0MT}\C2\22x\FC\8E\09\B8\A8\85\D7\CC\95\97Kt\D8\9E~\F0\00\E4\0E\89\AEI(D\1A\10\992\0F%\88S\A4\0D\B3\0F\12\08\16\0B\03q'\1C\7F\E1\DB\D2\FDgh\C4\05]\0A\0E]p\D7\D8\97\A0\BCSA\9A\91\8D\F4\9E6fz~V\C1\90_\E6\B1h 6\A4\8C$,,G\0BYvf0\B5\BE\DE\ED\8F\F8\9D\D3\BB\010\E6\F2\F3\0E\E0,\92\80\F3\85\F9(\8A\B4T.\9A\ED\F7v\FC\15h\16\EBJl\EB.\12\8F\D4\CF\FE\0C\C7\\\1D\0B~\052\BE^\B0\09*B\D5\C9N\90\B3Y\0D\BBz~\CD\D5\08Z\B4\7F\D8\1Ci\11\F9'\0F{\06\AFT\83\18{\E1\DDTzQhnw\FC\C6\BFRJfF\A1\B2g\1A\BB\A3Ow\A0\BE]\FF\FCV\0BCrw\90\CA\9E\F9\F29\F5\0D\A9\F4\EA\D7\E7\B3\10/0B7!\CC0p\C9\86\98\0F\CCXM\83\BB}\E5\1A\A57\8D\B6\AC2\97\00:cq$\1E\9E7\C4\FFt\D47\C0\E2\FE\88F`\11\DD\08?P6\AB\B8z\A4\95bjn\B0\CAj!Zi\F3\F3\FB\1Dp9\95\F3\A7n\A6\81\89\A1\88\C5;q\CA\A3R\EE\83\BB\FD\A0w\F4\E4o\E7B\DBmJ\99\8A4H\BC\17\DC\E4\80\08\22\B6\F21\C0?\04>\EB\9F y\D6\B8\06dd\021\D7\A9\CDR\FB\84Ei\09\00*\DCU\8B\C4\06FK\C0J\1D\09[9(\FD\A9\AB\CE\00\F9.HK&\E60L\A5X\CA\B4D\82O\E7\91\1E3\C3\B0\93\FF\11\FC\81\D2\CA\1Fq)\DDvO\92%\AF\1D\81\B7\0F/\8C\C3\06\CC/'\A3J\E4\0E\99\BA|\1EE\1F\7F\AA\19E\96\FD\FC=\02\03\01\00\01\A3\82\01\070\82\01\030\12\06\03U\1D\13\01\01\FF\04\080\06\01\01\FF\02\01\020\0E\06\03U\1D\0F\01\01\FF\04\04\03\02\01\060\1D\06\03U\1D\0E\04\16\04\14\E1f\CF\0E\D1\F1\B3K\B7\06 \14\FE\87\12\D5\F6\FE\FB>0\1F\06\03U\1D#\04\180\16\80\14N\0B\EF\1A\A4@[\A5\17i\870\CA4hC\D0A\AE\F20i\06\08+\06\01\05\05\07\01\01\04]0[0'\06\08+\06\01\05\05\070\01\86\1Bhttp://ocsp.startssl.com/ca00\06\08+\06\01\05\05\070\02\86$http://aia.startssl.com/certs/ca.crt02\06\03U\1D\1F\04+0)0'\A0%\A0#\86!http://crl.startssl.com/sfsca.crl0\0D\06\09*\86H\86\F7\0D\01\01\0B\05\00\03\82\02\01\00\B6m\F8p\FB\E2\0DL\98\B3\07I\15\F5\04\C4l\CA\CA\F5h\A0\08\FE\12m\9C\04\06\C9\AD\9A\91R>x\C4\\\EE\9FT\1D\EE\E3\F1^0\C9I\E19\E0\A6\9D6lW\FA\E64OU\E8\87\A8,\DD\05\F1X\12\91\E8\CA\CE(x\8F\DF\07\85\01\A5\DCE\96\05\D4\80\B2+\05\9A\CB\9A\A5\8B\E0:g\E6sG\BEJ\FD'\B1\88\EF\E6\CA\CF\8D\0E&\9F\FA_Wx\ADm\FE\AE\9B5\08\B1\C3\BA\C1\00JK}\14\BD\F7\F1\D3U\18\AC\D03p\88m\C4\09q\14\A6+O\88\81\E7\0B\007\A9\15}~\D7\01\96?/\AF{b\AE\0AJ\BFK9.5\10\8B\FE\049\E4<:\0C\09V@:\B5\F4\C2h\0C\B5\F9R\CD\EE\9D\F8\98\FCx\E7XG\8F\1CsXi3\AB\FF\DD\DF\8E$\01w\98\19:\B0fy\BC\E1\08\A3\0EO\C1\04\B3\F3\01\C8\EB\D3Y\1C5\D2\93\1Epe\82\7F\DB\CF\FB\C8\99\12`\C3Do:\80K\D7\BE!\AA\14zd\CB\DD7CE[2.E\F0\D9Y\1Fk\18\F0|\E9U6\19a_\B5}\F1\8D\BD\88\E4uK\98\DD'\B0\E4\84D*a\84W\05\82\11\1F\AA5X\F3 \0E\AFY\EF\FAUrr\0D&\D0\9BSI\AC\CE7.ea\FF\F6\EC\1B\EA\F6\F1\A6\D3\D1\B5{\BE5\F4\22\C1\BC\8D\01\BDh^\83\0D/\EC\D6\DAc\0C'\D1T>\E4\A8\D3\CEK2\B8\91\94\FF\FB[I-u\18\A8\BAq\9A;\AE\D9\C0\A9O\87\91\ED\8B{k \98\899\83O\80\C4i\CC\17\C9\C8N\BE\E4\A9\A5\81vp\06\042\CD\83e\F4\BC}>\13\BC\D2\E8oc\AA\B5;\DA\8D\862\82x\9D\D9\CC\FF\BFWdt\ED(=Db\15aK\F7\94\B0\0D*g\1C\F0\CB\9B\A5\92\BF\F8AZ\C1=`\ED\9F\BB\B8m\9B\CE\A9j\16?~\EA\06\F1", align 16
 
-@_ZN3net14CommonCertSetsD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net14CommonCertSetsD2Ev
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net14CommonCertSetsD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
-entry:
-  ret void
-}
+@_ZN3net14CommonCertSetsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3net14CommonCertSetsD2Ev
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN3net14CommonCertSetsD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
-entry:
-  tail call void @llvm.trap() #11
+define void @_ZN3net14CommonCertSetsD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+  tail call void @llvm.trap() #12
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #2
+declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN3net14CommonCertSets15GetInstanceQUICEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic volatile i64, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E acquire, align 8
-  %or.cond.i.i = icmp ugt i64 %0, 1
-  br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i.i
+define noundef ptr @_ZN3net14CommonCertSets15GetInstanceQUICEv() local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %1 = load atomic volatile i64, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E acquire, align 8
+  %or.cond.i.i = icmp ugt i64 %1, 1
+  br i1 %or.cond.i.i, label %2, label %4
 
-if.then.i.i:                                      ; preds = %entry
-  %1 = inttoptr i64 %0 to ptr
+2:                                                ; preds = %0
+  %3 = inttoptr i64 %1 to ptr
   br label %_ZN3net12_GLOBAL__N_118CommonCertSetsQUIC11GetInstanceEv.exit
 
-if.end.i.i:                                       ; preds = %entry
-  %2 = cmpxchg volatile ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E, i64 0, i64 1 acquire acquire, align 8
-  %cmp3.i.i = extractvalue { i64, i1 } %2, 1
-  br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end9.i.i
+4:                                                ; preds = %0
+  %5 = cmpxchg volatile ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E, i64 0, i64 1 acquire acquire, align 8
+  %6 = extractvalue { i64, i1 } %5, 1
+  br i1 %6, label %7, label %10
 
-if.then4.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #12
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12_GLOBAL__N_118CommonCertSetsQUICE, i64 16), ptr %call.i.i.i, align 8
-  %3 = ptrtoint ptr %call.i.i.i to i64
-  store atomic volatile i64 %3, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E release, align 8
+7:                                                ; preds = %4
+  %8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3net12_GLOBAL__N_118CommonCertSetsQUICE, i64 16), ptr %8, align 8, !tbaa !3
+  %9 = ptrtoint ptr %8 to i64
+  store atomic volatile i64 %9, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E release, align 8
   tail call void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr noundef nonnull @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E6OnExitEPv, ptr noundef null)
   br label %_ZN3net12_GLOBAL__N_118CommonCertSetsQUIC11GetInstanceEv.exit
 
-if.end9.i.i:                                      ; preds = %if.end.i.i
-  %call10.i.i = tail call noundef i64 @_ZN4base8internal15WaitForInstanceEPl(ptr noundef nonnull @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E)
-  %4 = inttoptr i64 %call10.i.i to ptr
+10:                                               ; preds = %4
+  %11 = tail call noundef i64 @_ZN4base8internal15WaitForInstanceEPl(ptr noundef nonnull @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E)
+  %12 = inttoptr i64 %11 to ptr
   br label %_ZN3net12_GLOBAL__N_118CommonCertSetsQUIC11GetInstanceEv.exit
 
-_ZN3net12_GLOBAL__N_118CommonCertSetsQUIC11GetInstanceEv.exit: ; preds = %if.then.i.i, %if.then4.i.i, %if.end9.i.i
-  %retval.0.i.i = phi ptr [ %1, %if.then.i.i ], [ %call.i.i.i, %if.then4.i.i ], [ %4, %if.end9.i.i ]
-  ret ptr %retval.0.i.i
+_ZN3net12_GLOBAL__N_118CommonCertSetsQUIC11GetInstanceEv.exit: ; preds = %2, %7, %10
+  %.0.i.i = phi ptr [ %3, %2 ], [ %8, %7 ], [ %12, %10 ]
+  ret ptr %.0.i.i
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-declare void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E6OnExitEPv(ptr readnone captures(none) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %1 = load atomic volatile i64, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E monotonic, align 8
-  %isnull.i = icmp eq i64 %1, 0
-  br i1 %isnull.i, label %_ZN4base22DefaultSingletonTraitsIN3net12_GLOBAL__N_118CommonCertSetsQUICEE6DeleteEPS3_.exit, label %delete.notnull.i
+define internal void @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E6OnExitEPv(ptr readnone captures(none) %0) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load atomic volatile i64, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E monotonic, align 8
+  %3 = icmp eq i64 %2, 0
+  br i1 %3, label %_ZN4base22DefaultSingletonTraitsIN3net12_GLOBAL__N_118CommonCertSetsQUICEE6DeleteEPS3_.exit, label %4
 
-delete.notnull.i:                                 ; preds = %entry
-  %2 = inttoptr i64 %1 to ptr
-  %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
-  %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+4:                                                ; preds = %1
+  %5 = inttoptr i64 %2 to ptr
+  %6 = load ptr, ptr %5, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   br label %_ZN4base22DefaultSingletonTraitsIN3net12_GLOBAL__N_118CommonCertSetsQUICEE6DeleteEPS3_.exit
 
-_ZN4base22DefaultSingletonTraitsIN3net12_GLOBAL__N_118CommonCertSetsQUICEE6DeleteEPS3_.exit: ; preds = %entry, %delete.notnull.i
-  store i64 0, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E, align 8
+_ZN4base22DefaultSingletonTraitsIN3net12_GLOBAL__N_118CommonCertSetsQUICEE6DeleteEPS3_.exit: ; preds = %1, %4
+  store i64 0, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E, align 8, !tbaa !6
   ret void
 }
 
-declare noundef i64 @_ZN4base8internal15WaitForInstanceEPl(ptr noundef) local_unnamed_addr #4
+declare noundef i64 @_ZN4base8internal15WaitForInstanceEPl(ptr noundef) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_118CommonCertSetsQUICD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
-entry:
+define void @_ZN3net14CommonCertSetsD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3net12_GLOBAL__N_118CommonCertSetsQUICD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 align 2 {
-entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+define internal void @_ZN3net12_GLOBAL__N_118CommonCertSetsQUICD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 align 2 {
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC15GetCommonHashesB5cxx11Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
-entry:
-  %retval = alloca %"class.base::BasicStringPiece", align 8
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull @_ZN3net12_GLOBAL__N_110kSetHashesE, i64 noundef 16)
-  %.fca.0.load = load ptr, ptr %retval, align 8
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
-  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC15GetCommonHashesB5cxx11Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
+  ret { ptr, i64 } { ptr @_ZN3net12_GLOBAL__N_110kSetHashesE, i64 16 }
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCertB5cxx11Emj(ptr nonnull readnone align 8 captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #8 align 2 {
+  br label %5
+
+4:                                                ; preds = %5
+  br i1 %6, label %5, label %.loopexit, !llvm.loop !9
+
+5:                                                ; preds = %3, %4
+  %6 = phi i1 [ true, %3 ], [ false, %4 ]
+  %.01118 = phi i64 [ 0, %3 ], [ 1, %4 ]
+  %7 = getelementptr inbounds nuw [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %.01118
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = load i64, ptr %8, align 8, !tbaa !11
+  %10 = icmp eq i64 %9, %1
+  br i1 %10, label %11, label %4
+
+11:                                               ; preds = %5
+  %12 = zext i32 %2 to i64
+  %13 = load i64, ptr %7, align 16, !tbaa !16
+  %14 = icmp ugt i64 %13, %12
+  br i1 %14, label %15, label %.loopexit
+
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %12
+  %19 = load ptr, ptr %18, align 8, !tbaa !18
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %21 = load ptr, ptr %20, align 16, !tbaa !20
+  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %12
+  %23 = load i64, ptr %22, align 8, !tbaa !6
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %4, %11, %15
+  %.sroa.0.1 = phi ptr [ %19, %15 ], [ null, %11 ], [ null, %4 ]
+  %.sroa.3.1 = phi i64 [ %23, %15 ], [ 0, %11 ], [ 0, %4 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.1, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress uwtable
-define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCertB5cxx11Emj(ptr nonnull readnone align 8 captures(none) %this, i64 noundef %hash, i32 noundef %index) unnamed_addr #3 align 2 {
-entry:
-  %retval = alloca %"class.base::BasicStringPiece", align 8
-  br label %for.body
+; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9MatchCertEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PmPj(ptr nonnull readnone align 8 captures(none) %0, ptr readonly captures(none) %1, i64 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) unnamed_addr #9 align 2 {
+  %8 = and i64 %4, 7
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.cond:                                         ; preds = %for.body
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
+.preheader:                                       ; preds = %7
+  %9 = lshr exact i64 %4, 3
+  %.not7176.not = icmp eq i64 %4, 0
+  br i1 %.not7176.not, label %.loopexit, label %.lr.ph
 
-for.body:                                         ; preds = %entry, %for.cond
-  %cmp = phi i1 [ true, %entry ], [ false, %for.cond ]
-  %i.08 = phi i64 [ 0, %entry ], [ 1, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %i.08
-  %hash2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
-  %0 = load i64, ptr %hash2, align 8
-  %cmp3 = icmp eq i64 %0, %hash
-  br i1 %cmp3, label %if.then, label %for.cond
+.lr.ph:                                           ; preds = %.preheader, %45
+  %.03677 = phi i64 [ %46, %45 ], [ 0, %.preheader ]
+  %10 = shl nuw i64 %.03677, 3
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
+  %.0.copyload = load i64, ptr %11, align 1
+  br label %12
 
-if.then:                                          ; preds = %for.body
-  %conv = zext i32 %index to i64
-  %1 = load i64, ptr %arrayidx, align 16
-  %cmp5 = icmp ugt i64 %1, %conv
-  br i1 %cmp5, label %if.then6, label %for.end
+12:                                               ; preds = %.lr.ph, %.thread64
+  %13 = phi i1 [ true, %.lr.ph ], [ false, %.thread64 ]
+  %.04175 = phi i64 [ 0, %.lr.ph ], [ 1, %.thread64 ]
+  %14 = getelementptr inbounds nuw [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %.04175
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load i64, ptr %15, align 8, !tbaa !11
+  %.not51 = icmp eq i64 %16, %.0.copyload
+  br i1 %.not51, label %17, label %.thread64
 
-if.then6:                                         ; preds = %if.then
-  %certs = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %2 = load ptr, ptr %certs, align 8
-  %arrayidx8 = getelementptr inbounds nuw ptr, ptr %2, i64 %conv
-  %3 = load ptr, ptr %arrayidx8, align 8
-  %lens = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %4 = load ptr, ptr %lens, align 16
-  %arrayidx11 = getelementptr inbounds nuw i64, ptr %4, i64 %conv
-  %5 = load i64, ptr %arrayidx11, align 8
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %3, i64 noundef %5)
-  br label %return
+17:                                               ; preds = %12
+  %18 = load i64, ptr %14, align 16, !tbaa !16
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %.thread64, label %20
 
-for.end:                                          ; preds = %for.cond, %if.then
-  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %retval)
-  br label %return
+20:                                               ; preds = %17
+  %21 = add i64 %18, -1
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %25 = load ptr, ptr %24, align 16, !tbaa !20
+  br label %26
 
-return:                                           ; preds = %for.end, %if.then6
-  %.fca.0.load = load ptr, ptr %retval, align 8
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
-  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
-  ret { ptr, i64 } %.fca.1.insert
+26:                                               ; preds = %20, %42
+  %.04274 = phi i64 [ %21, %20 ], [ %.143, %42 ]
+  %.04573 = phi i64 [ 0, %20 ], [ %.146, %42 ]
+  %27 = sub nuw i64 %.04274, %.04573
+  %28 = lshr i64 %27, 1
+  %29 = add i64 %28, %.04573
+  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw i64, ptr %25, i64 %29
+  %33 = load i64, ptr %32, align 8, !tbaa !6
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %33)
+  %34 = tail call i32 @memcmp(ptr noundef readonly %1, ptr noundef readonly %31, i64 noundef %spec.select.i) #16
+  %.not.i = icmp eq i32 %34, 0
+  %spec.select15.i = tail call i32 @llvm.ucmp.i32.i64(i64 %2, i64 %33)
+  %.0.i = select i1 %.not.i, i32 %spec.select15.i, i32 %34
+  %35 = icmp slt i32 %.0.i, 0
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %26
+  %37 = icmp eq i64 %29, 0
+  %38 = add i64 %29, -1
+  br i1 %37, label %.thread64, label %42
+
+39:                                               ; preds = %26
+  %.not53 = icmp eq i32 %.0.i, 0
+  br i1 %.not53, label %43, label %40
+
+40:                                               ; preds = %39
+  %41 = add i64 %29, 1
+  br label %42
+
+42:                                               ; preds = %36, %40
+  %.146 = phi i64 [ %41, %40 ], [ %.04573, %36 ]
+  %.143 = phi i64 [ %.04274, %40 ], [ %38, %36 ]
+  %.not52 = icmp ult i64 %.143, %.146
+  br i1 %.not52, label %.thread64, label %26
+
+.thread64:                                        ; preds = %36, %42, %17, %12
+  br i1 %13, label %12, label %45, !llvm.loop !21
+
+43:                                               ; preds = %39
+  store i64 %.0.copyload, ptr %5, align 8, !tbaa !6
+  %44 = trunc i64 %29 to i32
+  store i32 %44, ptr %6, align 4, !tbaa !22
+  br label %.loopexit
+
+45:                                               ; preds = %.thread64
+  %46 = add nuw nsw i64 %.03677, 1
+  %exitcond.not = icmp eq i64 %46, %9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+
+.loopexit:                                        ; preds = %45, %.preheader, %43, %7
+  %.0 = phi i1 [ false, %7 ], [ true, %43 ], [ false, %.preheader ], [ false, %45 ]
+  ret i1 %.0
 }
-
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9MatchCertEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PmPj(ptr nonnull readnone align 8 captures(none) %this, ptr %cert.coerce0, i64 %cert.coerce1, ptr %common_set_hashes.coerce0, i64 %common_set_hashes.coerce1, ptr noundef writeonly captures(none) %out_hash, ptr noundef writeonly captures(none) %out_index) unnamed_addr #3 align 2 {
-entry:
-  %a.i = alloca %"class.base::BasicStringPiece", align 8
-  %common_set_hashes = alloca %"class.base::BasicStringPiece", align 8
-  store ptr %common_set_hashes.coerce0, ptr %common_set_hashes, align 8
-  %0 = getelementptr inbounds nuw i8, ptr %common_set_hashes, i64 8
-  store i64 %common_set_hashes.coerce1, ptr %0, align 8
-  %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %common_set_hashes)
-  %rem = and i64 %call, 7
-  %cmp.not = icmp eq i64 %rem, 0
-  br i1 %cmp.not, label %for.cond.preheader, label %return
-
-for.cond.preheader:                               ; preds = %entry
-  %call232 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %common_set_hashes)
-  %cmp334.not = icmp ult i64 %call232, 8
-  br i1 %cmp334.not, label %return, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %1 = getelementptr inbounds nuw i8, ptr %a.i, i64 8
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc38
-  %i.035 = phi i64 [ 0, %for.body.lr.ph ], [ %inc39, %for.inc38 ]
-  %call4 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %common_set_hashes)
-  %mul = shl nuw i64 %i.035, 3
-  %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %mul
-  %hash.0.copyload = load i64, ptr %add.ptr, align 1
-  br label %for.body7
-
-for.body7:                                        ; preds = %for.body, %for.inc
-  %cmp6 = phi i1 [ true, %for.body ], [ false, %for.inc ]
-  %j.031 = phi i64 [ 0, %for.body ], [ 1, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %j.031
-  %hash8 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
-  %2 = load i64, ptr %hash8, align 8
-  %cmp9.not = icmp eq i64 %2, %hash.0.copyload
-  br i1 %cmp9.not, label %if.end11, label %for.inc
-
-if.end11:                                         ; preds = %for.body7
-  %3 = load i64, ptr %arrayidx, align 16
-  %cmp13 = icmp eq i64 %3, 0
-  br i1 %cmp13, label %for.inc, label %if.end15
-
-if.end15:                                         ; preds = %if.end11
-  %sub = add i64 %3, -1
-  %certs = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %4 = load ptr, ptr %certs, align 8
-  %lens = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %5 = load ptr, ptr %lens, align 16
-  br label %while.body
-
-while.body:                                       ; preds = %if.end15, %if.end37
-  %min.030 = phi i64 [ 0, %if.end15 ], [ %min.1, %if.end37 ]
-  %max.029 = phi i64 [ %sub, %if.end15 ], [ %max.1, %if.end37 ]
-  %sub19 = sub nuw i64 %max.029, %min.030
-  %div2020 = lshr i64 %sub19, 1
-  %add = add i64 %div2020, %min.030
-  %arrayidx22 = getelementptr inbounds ptr, ptr %4, i64 %add
-  %6 = load ptr, ptr %arrayidx22, align 8
-  %arrayidx24 = getelementptr inbounds i64, ptr %5, i64 %add
-  %7 = load i64, ptr %arrayidx24, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a.i)
-  store ptr %cert.coerce0, ptr %a.i, align 8
-  store i64 %cert.coerce1, ptr %1, align 8
-  %call.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %a.i)
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %call.i, i64 %7)
-  %call1.i = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %a.i)
-  %call2.i = call i32 @memcmp(ptr noundef %call1.i, ptr noundef readonly %6, i64 noundef %spec.select.i) #15
-  %cmp3.not.i = icmp eq i32 %call2.i, 0
-  br i1 %cmp3.not.i, label %if.end5.i, label %_ZN3net12_GLOBAL__N_17CompareEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKhm.exit
-
-if.end5.i:                                        ; preds = %while.body
-  %call6.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %a.i)
-  %cmp7.i = icmp ult i64 %call6.i, %7
-  br i1 %cmp7.i, label %_ZN3net12_GLOBAL__N_17CompareEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKhm.exit.thread, label %if.else
-
-_ZN3net12_GLOBAL__N_17CompareEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKhm.exit.thread: ; preds = %if.end5.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a.i)
-  br label %if.then27
-
-_ZN3net12_GLOBAL__N_17CompareEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKhm.exit: ; preds = %while.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a.i)
-  %cmp26 = icmp slt i32 %call2.i, 0
-  br i1 %cmp26, label %if.then27, label %if.then33
-
-if.then27:                                        ; preds = %_ZN3net12_GLOBAL__N_17CompareEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKhm.exit.thread, %_ZN3net12_GLOBAL__N_17CompareEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKhm.exit
-  %cmp28 = icmp eq i64 %add, 0
-  br i1 %cmp28, label %for.inc, label %if.end30
-
-if.end30:                                         ; preds = %if.then27
-  %sub31 = add i64 %add, -1
-  br label %if.end37
-
-if.else:                                          ; preds = %if.end5.i
-  %call9.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %a.i)
-  %cmp10.i.not = icmp ugt i64 %call9.i, %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a.i)
-  br i1 %cmp10.i.not, label %if.then33, label %if.else35
-
-if.then33:                                        ; preds = %_ZN3net12_GLOBAL__N_17CompareEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKhm.exit, %if.else
-  %add34 = add i64 %add, 1
-  br label %if.end37
-
-if.else35:                                        ; preds = %if.else
-  store i64 %hash.0.copyload, ptr %out_hash, align 8
-  %conv = trunc i64 %add to i32
-  store i32 %conv, ptr %out_index, align 4
-  br label %return
-
-if.end37:                                         ; preds = %if.then33, %if.end30
-  %max.1 = phi i64 [ %sub31, %if.end30 ], [ %max.029, %if.then33 ]
-  %min.1 = phi i64 [ %min.030, %if.end30 ], [ %add34, %if.then33 ]
-  %cmp18.not = icmp ult i64 %max.1, %min.1
-  br i1 %cmp18.not, label %for.inc, label %while.body, !llvm.loop !7
-
-for.inc:                                          ; preds = %if.end37, %if.then27, %if.end11, %for.body7
-  br i1 %cmp6, label %for.body7, label %for.inc38, !llvm.loop !8
-
-for.inc38:                                        ; preds = %for.inc
-  %inc39 = add nuw nsw i64 %i.035, 1
-  %call2 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %common_set_hashes)
-  %div19 = lshr i64 %call2, 3
-  %cmp3 = icmp samesign ult i64 %inc39, %div19
-  br i1 %cmp3, label %for.body, label %return, !llvm.loop !9
-
-return:                                           ; preds = %for.inc38, %for.cond.preheader, %entry, %if.else35
-  %retval.0 = phi i1 [ true, %if.else35 ], [ false, %entry ], [ false, %for.cond.preheader ], [ false, %for.inc38 ]
-  ret i1 %retval.0
-}
-
-declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #4
-
-declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
-
-declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
-
-declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umin.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+attributes #0 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !5, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!12, !7, i64 24}
+!12 = !{!"_ZTSN3net12_GLOBAL__N_17CertSetE", !7, i64 0, !13, i64 8, !15, i64 16, !7, i64 24}
+!13 = !{!"p2 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !8, i64 0}
+!15 = !{!"p1 long", !14, i64 0}
+!16 = !{!12, !7, i64 0}
+!17 = !{!12, !13, i64 8}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !14, i64 0}
+!20 = !{!12, !15, i64 16}
+!21 = distinct !{!21, !10}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !8, i64 0}
+!24 = distinct !{!24, !10}

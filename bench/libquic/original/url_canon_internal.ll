@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.url::URLComponentSource" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.url::Parsed" = type { %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", %"struct.url::Component", ptr }
@@ -56,2065 +56,2208 @@ $_ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE = comdat any
 
 $_ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE = comdat any
 
-$_ZZN3url12CanonOutputTIcE4GrowEiE13kMinBufferLen = comdat any
-
-$_ZZN3url12CanonOutputTItE4GrowEiE13kMinBufferLen = comdat any
-
-@_ZN3url20kSharedCharTypeTableE = dso_local constant <{ [127 x i8], [129 x i8] }> <{ [127 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00C\00\00\03\03\03\00CCC\03\03CG\01\7F\7F\7F\7F\7F\7F\7F\7F__\01\01\00\01\00\01\01OOOOOOCCCCCCCCCCCCCCCCCGCC\01\01\01\01C\01OOOOOOCCCCCCCCCCCCCCCCCGCC\01\01\01C", [129 x i8] zeroinitializer }>, align 16
-@_ZN3url14kHexCharLookupE = dso_local constant [16 x i8] c"0123456789ABCDEF", align 16
-@_ZN3url16kCharToHexLookupE = dso_local constant [8 x i8] c"\0007W\00\00\00\00", align 1
-@_ZN3url28kUnicodeReplacementCharacterE = dso_local constant i16 -3, align 2
+@_ZN3url20kSharedCharTypeTableE = constant <{ [127 x i8], [129 x i8] }> <{ [127 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00C\00\00\03\03\03\00CCC\03\03CG\01\7F\7F\7F\7F\7F\7F\7F\7F__\01\01\00\01\00\01\01OOOOOOCCCCCCCCCCCCCCCCCGCC\01\01\01\01C\01OOOOOOCCCCCCCCCCCCCCCCCGCC\01\01\01C", [129 x i8] zeroinitializer }>, align 16
+@_ZN3url14kHexCharLookupE = constant [16 x i8] c"0123456789ABCDEF", align 16
+@_ZN3url16kCharToHexLookupE = constant [8 x i8] c"\0007W\00\00\00\00", align 1
+@_ZN3url28kUnicodeReplacementCharacterE = constant i16 -3, align 2
 @.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"%x\00", align 1
-@_ZZN3url12CanonOutputTIcE4GrowEiE13kMinBufferLen = linkonce_odr dso_local constant i32 16, comdat, align 4
-@_ZZN3url12CanonOutputTItE4GrowEiE13kMinBufferLen = linkonce_odr dso_local constant i32 16, comdat, align 4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %source, i32 noundef %length, i32 noundef %type, ptr noundef %output) #0 {
-entry:
-  %source.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %type.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store i32 %type, ptr %type.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %source.addr, align 8
-  %1 = load i32, ptr %length.addr, align 4
-  %2 = load i32, ptr %type.addr, align 4
-  %3 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIchEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
+define void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %7, align 4, !tbaa !10
+  %12 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIchEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIchEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %source, i32 noundef %length, i32 noundef %type, ptr noundef %output) #0 {
-entry:
-  %source.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %type.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %code_point = alloca i32, align 4
-  %uch = alloca i8, align 1
-  store ptr %source, ptr %source.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store i32 %type, ptr %type.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIchEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  store i32 0, ptr %9, align 4, !tbaa !8
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %length.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %48, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !8
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %17, label %16
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %source.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %4 to i32
-  %cmp1 = icmp sge i32 %conv, 128
-  br i1 %cmp1, label %if.then, label %if.else
+16:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %51
 
-if.then:                                          ; preds = %for.body
-  %5 = load ptr, ptr %source.addr, align 8
-  %6 = load i32, ptr %length.addr, align 4
-  %call = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef %5, ptr noundef %i, i32 noundef %6, ptr noundef %code_point)
-  %7 = load i32, ptr %code_point, align 4
-  %8 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %7, ptr noundef %8)
-  br label %if.end7
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load i32, ptr %9, align 4, !tbaa !8
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %18, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !14
+  %23 = zext i8 %22 to i32
+  %24 = icmp sge i32 %23, 128
+  br i1 %24, label %25, label %31
 
-if.else:                                          ; preds = %for.body
-  %9 = load ptr, ptr %source.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %10 to i64
-  %arrayidx3 = getelementptr inbounds i8, ptr %9, i64 %idxprom2
-  %11 = load i8, ptr %arrayidx3, align 1
-  store i8 %11, ptr %uch, align 1
-  %12 = load i8, ptr %uch, align 1
-  %13 = load i32, ptr %type.addr, align 4
-  %call4 = call noundef zeroext i1 @_ZN3url12IsCharOfTypeEhNS_15SharedCharTypesE(i8 noundef zeroext %12, i32 noundef %13)
-  br i1 %call4, label %if.else6, label %if.then5
+25:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = load i32, ptr %6, align 4, !tbaa !8
+  %28 = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef %26, ptr noundef %9, i32 noundef %27, ptr noundef %10)
+  %29 = load i32, ptr %10, align 4, !tbaa !8
+  %30 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %29, ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  br label %47
 
-if.then5:                                         ; preds = %if.else
-  %14 = load i8, ptr %uch, align 1
-  %15 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %14, ptr noundef %15)
-  br label %if.end
+31:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #8
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = load i32, ptr %9, align 4, !tbaa !8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !14
+  store i8 %36, ptr %11, align 1, !tbaa !14
+  %37 = load i8, ptr %11, align 1, !tbaa !14
+  %38 = load i32, ptr %7, align 4, !tbaa !10
+  %39 = call noundef zeroext i1 @_ZN3url12IsCharOfTypeEhNS_15SharedCharTypesE(i8 noundef zeroext %37, i32 noundef %38)
+  br i1 %39, label %43, label %40
 
-if.else6:                                         ; preds = %if.else
-  %16 = load ptr, ptr %output.addr, align 8
-  %17 = load i8, ptr %uch, align 1
-  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 noundef signext %17)
-  br label %if.end
+40:                                               ; preds = %31
+  %41 = load i8, ptr %11, align 1, !tbaa !14
+  %42 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %41, ptr noundef %42)
+  br label %46
 
-if.end:                                           ; preds = %if.else6, %if.then5
-  br label %if.end7
+43:                                               ; preds = %31
+  %44 = load ptr, ptr %8, align 8, !tbaa !12
+  %45 = load i8, ptr %11, align 1, !tbaa !14
+  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 noundef signext %45)
+  br label %46
 
-if.end7:                                          ; preds = %if.end, %if.then
-  br label %for.inc
+46:                                               ; preds = %43, %40
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #8
+  br label %47
 
-for.inc:                                          ; preds = %if.end7
-  %18 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %18, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+47:                                               ; preds = %46, %25
+  br label %48
 
-for.end:                                          ; preds = %for.cond
+48:                                               ; preds = %47
+  %49 = load i32, ptr %9, align 4, !tbaa !8
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %9, align 4, !tbaa !8
+  br label %12, !llvm.loop !15
+
+51:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %source, i32 noundef %length, i32 noundef %type, ptr noundef %output) #0 {
-entry:
-  %source.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %type.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store i32 %type, ptr %type.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %source.addr, align 8
-  %1 = load i32, ptr %length.addr, align 4
-  %2 = load i32, ptr %type.addr, align 4
-  %3 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIttEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
+define void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !17
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %7, align 4, !tbaa !10
+  %12 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIttEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIttEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %source, i32 noundef %length, i32 noundef %type, ptr noundef %output) #0 {
-entry:
-  %source.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %type.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %code_point = alloca i32, align 4
-  %uch = alloca i8, align 1
-  store ptr %source, ptr %source.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store i32 %type, ptr %type.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIttEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  store i32 0, ptr %9, align 4, !tbaa !8
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %length.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %49, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !8
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %17, label %16
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %source.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
-  %cmp1 = icmp sge i32 %conv, 128
-  br i1 %cmp1, label %if.then, label %if.else
+16:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %52
 
-if.then:                                          ; preds = %for.body
-  %5 = load ptr, ptr %source.addr, align 8
-  %6 = load i32, ptr %length.addr, align 4
-  %call = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef %5, ptr noundef %i, i32 noundef %6, ptr noundef %code_point)
-  %7 = load i32, ptr %code_point, align 4
-  %8 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %7, ptr noundef %8)
-  br label %if.end8
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %5, align 8, !tbaa !17
+  %19 = load i32, ptr %9, align 4, !tbaa !8
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i16, ptr %18, i64 %20
+  %22 = load i16, ptr %21, align 2, !tbaa !19
+  %23 = zext i16 %22 to i32
+  %24 = icmp sge i32 %23, 128
+  br i1 %24, label %25, label %31
 
-if.else:                                          ; preds = %for.body
-  %9 = load ptr, ptr %source.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %10 to i64
-  %arrayidx3 = getelementptr inbounds i16, ptr %9, i64 %idxprom2
-  %11 = load i16, ptr %arrayidx3, align 2
-  %conv4 = trunc i16 %11 to i8
-  store i8 %conv4, ptr %uch, align 1
-  %12 = load i8, ptr %uch, align 1
-  %13 = load i32, ptr %type.addr, align 4
-  %call5 = call noundef zeroext i1 @_ZN3url12IsCharOfTypeEhNS_15SharedCharTypesE(i8 noundef zeroext %12, i32 noundef %13)
-  br i1 %call5, label %if.else7, label %if.then6
+25:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %26 = load ptr, ptr %5, align 8, !tbaa !17
+  %27 = load i32, ptr %6, align 4, !tbaa !8
+  %28 = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef %26, ptr noundef %9, i32 noundef %27, ptr noundef %10)
+  %29 = load i32, ptr %10, align 4, !tbaa !8
+  %30 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %29, ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  br label %48
 
-if.then6:                                         ; preds = %if.else
-  %14 = load i8, ptr %uch, align 1
-  %15 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %14, ptr noundef %15)
-  br label %if.end
+31:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #8
+  %32 = load ptr, ptr %5, align 8, !tbaa !17
+  %33 = load i32, ptr %9, align 4, !tbaa !8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i16, ptr %32, i64 %34
+  %36 = load i16, ptr %35, align 2, !tbaa !19
+  %37 = trunc i16 %36 to i8
+  store i8 %37, ptr %11, align 1, !tbaa !14
+  %38 = load i8, ptr %11, align 1, !tbaa !14
+  %39 = load i32, ptr %7, align 4, !tbaa !10
+  %40 = call noundef zeroext i1 @_ZN3url12IsCharOfTypeEhNS_15SharedCharTypesE(i8 noundef zeroext %38, i32 noundef %39)
+  br i1 %40, label %44, label %41
 
-if.else7:                                         ; preds = %if.else
-  %16 = load ptr, ptr %output.addr, align 8
-  %17 = load i8, ptr %uch, align 1
-  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 noundef signext %17)
-  br label %if.end
+41:                                               ; preds = %31
+  %42 = load i8, ptr %11, align 1, !tbaa !14
+  %43 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %42, ptr noundef %43)
+  br label %47
 
-if.end:                                           ; preds = %if.else7, %if.then6
-  br label %if.end8
+44:                                               ; preds = %31
+  %45 = load ptr, ptr %8, align 8, !tbaa !12
+  %46 = load i8, ptr %11, align 1, !tbaa !14
+  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 noundef signext %46)
+  br label %47
 
-if.end8:                                          ; preds = %if.end, %if.then
-  br label %for.inc
+47:                                               ; preds = %44, %41
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #8
+  br label %48
 
-for.inc:                                          ; preds = %if.end8
-  %18 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %18, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+48:                                               ; preds = %47, %25
+  br label %49
 
-for.end:                                          ; preds = %for.cond
+49:                                               ; preds = %48
+  %50 = load i32, ptr %9, align 4, !tbaa !8
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %9, align 4, !tbaa !8
+  br label %12, !llvm.loop !21
+
+52:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef %str, ptr noundef %begin, i32 noundef %length, ptr noundef %code_point_out) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %str.addr = alloca ptr, align 8
-  %begin.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %code_point_out.addr = alloca ptr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store ptr %begin, ptr %begin.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %code_point_out, ptr %code_point_out.addr, align 8
-  %0 = load ptr, ptr %str.addr, align 8
-  %1 = load i32, ptr %length.addr, align 4
-  %2 = load ptr, ptr %begin.addr, align 8
-  %3 = load ptr, ptr %code_point_out.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  br i1 %call, label %lor.lhs.false, label %if.then
+define noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !22
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = load i32, ptr %8, align 4, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !22
+  %13 = load ptr, ptr %9, align 8, !tbaa !22
+  %14 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13)
+  br i1 %14, label %15, label %19
 
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %code_point_out.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %call1 = call noundef zeroext i1 @_ZN4base16IsValidCharacterEj(i32 noundef %5)
-  br i1 %call1, label %if.end, label %if.then
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %9, align 8, !tbaa !22
+  %17 = load i32, ptr %16, align 4, !tbaa !8
+  %18 = call noundef zeroext i1 @_ZN4base16IsValidCharacterEj(i32 noundef %17)
+  br i1 %18, label %21, label %19
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %6 = load ptr, ptr %code_point_out.addr, align 8
-  store i32 65533, ptr %6, align 4
-  store i1 false, ptr %retval, align 1
-  br label %return
+19:                                               ; preds = %15, %4
+  %20 = load ptr, ptr %9, align 8, !tbaa !22
+  store i32 65533, ptr %20, align 4, !tbaa !8
+  store i1 false, ptr %5, align 1
+  br label %22
 
-if.end:                                           ; preds = %lor.lhs.false
-  store i1 true, ptr %retval, align 1
-  br label %return
+21:                                               ; preds = %15
+  store i1 true, ptr %5, align 1
+  br label %22
 
-return:                                           ; preds = %if.end, %if.then
-  %7 = load i1, ptr %retval, align 1
-  ret i1 %7
+22:                                               ; preds = %21, %19
+  %23 = load i1, ptr %5, align 1
+  ret i1 %23
 }
 
 declare noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4base16IsValidCharacterEj(i32 noundef %code_point) #2 comdat {
-entry:
-  %code_point.addr = alloca i32, align 4
-  store i32 %code_point, ptr %code_point.addr, align 4
-  %0 = load i32, ptr %code_point.addr, align 4
-  %cmp = icmp ult i32 %0, 55296
-  br i1 %cmp, label %lor.end, label %lor.lhs.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN4base16IsValidCharacterEj(i32 noundef %0) #2 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
+  %4 = icmp ult i32 %3, 55296
+  br i1 %4, label %23, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %code_point.addr, align 4
-  %cmp1 = icmp uge i32 %1, 57344
-  br i1 %cmp1, label %land.lhs.true, label %lor.rhs
+5:                                                ; preds = %1
+  %6 = load i32, ptr %2, align 4, !tbaa !8
+  %7 = icmp uge i32 %6, 57344
+  br i1 %7, label %8, label %11
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %2 = load i32, ptr %code_point.addr, align 4
-  %cmp2 = icmp ult i32 %2, 64976
-  br i1 %cmp2, label %lor.end, label %lor.rhs
+8:                                                ; preds = %5
+  %9 = load i32, ptr %2, align 4, !tbaa !8
+  %10 = icmp ult i32 %9, 64976
+  br i1 %10, label %23, label %11
 
-lor.rhs:                                          ; preds = %land.lhs.true, %lor.lhs.false
-  %3 = load i32, ptr %code_point.addr, align 4
-  %cmp3 = icmp ugt i32 %3, 65007
-  br i1 %cmp3, label %land.lhs.true4, label %land.end
+11:                                               ; preds = %8, %5
+  %12 = load i32, ptr %2, align 4, !tbaa !8
+  %13 = icmp ugt i32 %12, 65007
+  br i1 %13, label %14, label %21
 
-land.lhs.true4:                                   ; preds = %lor.rhs
-  %4 = load i32, ptr %code_point.addr, align 4
-  %cmp5 = icmp ule i32 %4, 1114111
-  br i1 %cmp5, label %land.rhs, label %land.end
+14:                                               ; preds = %11
+  %15 = load i32, ptr %2, align 4, !tbaa !8
+  %16 = icmp ule i32 %15, 1114111
+  br i1 %16, label %17, label %21
 
-land.rhs:                                         ; preds = %land.lhs.true4
-  %5 = load i32, ptr %code_point.addr, align 4
-  %and = and i32 %5, 65534
-  %cmp6 = icmp ne i32 %and, 65534
-  br label %land.end
+17:                                               ; preds = %14
+  %18 = load i32, ptr %2, align 4, !tbaa !8
+  %19 = and i32 %18, 65534
+  %20 = icmp ne i32 %19, 65534
+  br label %21
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true4, %lor.rhs
-  %6 = phi i1 [ false, %land.lhs.true4 ], [ false, %lor.rhs ], [ %cmp6, %land.rhs ]
-  br label %lor.end
+21:                                               ; preds = %17, %14, %11
+  %22 = phi i1 [ false, %14 ], [ false, %11 ], [ %20, %17 ]
+  br label %23
 
-lor.end:                                          ; preds = %land.end, %land.lhs.true, %entry
-  %7 = phi i1 [ true, %land.lhs.true ], [ true, %entry ], [ %6, %land.end ]
-  ret i1 %7
+23:                                               ; preds = %21, %8, %1
+  %24 = phi i1 [ true, %8 ], [ true, %1 ], [ %22, %21 ]
+  ret i1 %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef %str, ptr noundef %begin, i32 noundef %length, ptr noundef %code_point_out) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %str.addr = alloca ptr, align 8
-  %begin.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %code_point_out.addr = alloca ptr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store ptr %begin, ptr %begin.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %code_point_out, ptr %code_point_out.addr, align 8
-  %0 = load ptr, ptr %str.addr, align 8
-  %1 = load i32, ptr %length.addr, align 4
-  %2 = load ptr, ptr %begin.addr, align 8
-  %3 = load ptr, ptr %code_point_out.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  br i1 %call, label %lor.lhs.false, label %if.then
+define noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !17
+  store ptr %1, ptr %7, align 8, !tbaa !22
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %6, align 8, !tbaa !17
+  %11 = load i32, ptr %8, align 4, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !22
+  %13 = load ptr, ptr %9, align 8, !tbaa !22
+  %14 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13)
+  br i1 %14, label %15, label %19
 
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %code_point_out.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %call1 = call noundef zeroext i1 @_ZN4base16IsValidCharacterEj(i32 noundef %5)
-  br i1 %call1, label %if.end, label %if.then
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %9, align 8, !tbaa !22
+  %17 = load i32, ptr %16, align 4, !tbaa !8
+  %18 = call noundef zeroext i1 @_ZN4base16IsValidCharacterEj(i32 noundef %17)
+  br i1 %18, label %21, label %19
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %6 = load ptr, ptr %code_point_out.addr, align 8
-  store i32 65533, ptr %6, align 4
-  store i1 false, ptr %retval, align 1
-  br label %return
+19:                                               ; preds = %15, %4
+  %20 = load ptr, ptr %9, align 8, !tbaa !22
+  store i32 65533, ptr %20, align 4, !tbaa !8
+  store i1 false, ptr %5, align 1
+  br label %22
 
-if.end:                                           ; preds = %lor.lhs.false
-  store i1 true, ptr %retval, align 1
-  br label %return
+21:                                               ; preds = %15
+  store i1 true, ptr %5, align 1
+  br label %22
 
-return:                                           ; preds = %if.end, %if.then
-  %7 = load i1, ptr %retval, align 1
-  ret i1 %7
+22:                                               ; preds = %21, %19
+  %23 = load i1, ptr %5, align 1
+  ret i1 %23
 }
 
 declare noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url25AppendInvalidNarrowStringEPKciiPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 noundef %begin, i32 noundef %end, ptr noundef %output) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %begin.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %begin, ptr %begin.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load i32, ptr %begin.addr, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %3 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIchEEvPKT_iiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
+define void @_ZN3url25AppendInvalidNarrowStringEPKciiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %7, align 4, !tbaa !8
+  %12 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIchEEvPKT_iiPNS_12CanonOutputTIcEE(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIchEEvPKT_iiPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 noundef %begin, i32 noundef %end, ptr noundef %output) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %begin.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %uch = alloca i8, align 1
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %begin, ptr %begin.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load i32, ptr %begin.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+define internal void @_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIchEEvPKT_iiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %11 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %11, ptr %9, align 4, !tbaa !8
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %47, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !8
+  %14 = load i32, ptr %7, align 4, !tbaa !8
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %17, label %16
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %spec.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %idxprom
-  %5 = load i8, ptr %arrayidx, align 1
-  store i8 %5, ptr %uch, align 1
-  %6 = load i8, ptr %uch, align 1
-  %conv = zext i8 %6 to i32
-  %cmp1 = icmp sge i32 %conv, 128
-  br i1 %cmp1, label %if.then, label %if.else
+16:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %50
 
-if.then:                                          ; preds = %for.body
-  %7 = load ptr, ptr %spec.addr, align 8
-  %8 = load i32, ptr %end.addr, align 4
-  %9 = load ptr, ptr %output.addr, align 8
-  %call = call noundef zeroext i1 @_ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE(ptr noundef %7, ptr noundef %i, i32 noundef %8, ptr noundef %9)
-  br label %if.end8
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load i32, ptr %9, align 4, !tbaa !8
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %18, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !14
+  store i8 %22, ptr %10, align 1, !tbaa !14
+  %23 = load i8, ptr %10, align 1, !tbaa !14
+  %24 = zext i8 %23 to i32
+  %25 = icmp sge i32 %24, 128
+  br i1 %25, label %26, label %31
 
-if.else:                                          ; preds = %for.body
-  %10 = load i8, ptr %uch, align 1
-  %conv2 = zext i8 %10 to i32
-  %cmp3 = icmp sle i32 %conv2, 32
-  br i1 %cmp3, label %if.then6, label %lor.lhs.false
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8, !tbaa !3
+  %28 = load i32, ptr %7, align 4, !tbaa !8
+  %29 = load ptr, ptr %8, align 8, !tbaa !12
+  %30 = call noundef zeroext i1 @_ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE(ptr noundef %27, ptr noundef %9, i32 noundef %28, ptr noundef %29)
+  br label %46
 
-lor.lhs.false:                                    ; preds = %if.else
-  %11 = load i8, ptr %uch, align 1
-  %conv4 = zext i8 %11 to i32
-  %cmp5 = icmp eq i32 %conv4, 127
-  br i1 %cmp5, label %if.then6, label %if.else7
+31:                                               ; preds = %17
+  %32 = load i8, ptr %10, align 1, !tbaa !14
+  %33 = zext i8 %32 to i32
+  %34 = icmp sle i32 %33, 32
+  br i1 %34, label %39, label %35
 
-if.then6:                                         ; preds = %lor.lhs.false, %if.else
-  %12 = load i8, ptr %uch, align 1
-  %13 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %12, ptr noundef %13)
-  br label %if.end
+35:                                               ; preds = %31
+  %36 = load i8, ptr %10, align 1, !tbaa !14
+  %37 = zext i8 %36 to i32
+  %38 = icmp eq i32 %37, 127
+  br i1 %38, label %39, label %42
 
-if.else7:                                         ; preds = %lor.lhs.false
-  %14 = load ptr, ptr %output.addr, align 8
-  %15 = load i8, ptr %uch, align 1
-  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 noundef signext %15)
-  br label %if.end
+39:                                               ; preds = %35, %31
+  %40 = load i8, ptr %10, align 1, !tbaa !14
+  %41 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %40, ptr noundef %41)
+  br label %45
 
-if.end:                                           ; preds = %if.else7, %if.then6
-  br label %if.end8
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %8, align 8, !tbaa !12
+  %44 = load i8, ptr %10, align 1, !tbaa !14
+  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 noundef signext %44)
+  br label %45
 
-if.end8:                                          ; preds = %if.end, %if.then
-  br label %for.inc
+45:                                               ; preds = %42, %39
+  br label %46
 
-for.inc:                                          ; preds = %if.end8
-  %16 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+46:                                               ; preds = %45, %26
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  br label %47
 
-for.end:                                          ; preds = %for.cond
+47:                                               ; preds = %46
+  %48 = load i32, ptr %9, align 4, !tbaa !8
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %9, align 4, !tbaa !8
+  br label %12, !llvm.loop !24
+
+50:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 noundef %begin, i32 noundef %end, ptr noundef %output) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %begin.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %begin, ptr %begin.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %spec.addr, align 8
-  %1 = load i32, ptr %begin.addr, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %3 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIttEEvPKT_iiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
+define void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !17
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = load i32, ptr %7, align 4, !tbaa !8
+  %12 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIttEEvPKT_iiPNS_12CanonOutputTIcEE(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIttEEvPKT_iiPNS_12CanonOutputTIcEE(ptr noundef %spec, i32 noundef %begin, i32 noundef %end, ptr noundef %output) #0 {
-entry:
-  %spec.addr = alloca ptr, align 8
-  %begin.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %uch = alloca i16, align 2
-  store ptr %spec, ptr %spec.addr, align 8
-  store i32 %begin, ptr %begin.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load i32, ptr %begin.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+define internal void @_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIttEEvPKT_iiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i16, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %11 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %11, ptr %9, align 4, !tbaa !8
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %49, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !8
+  %14 = load i32, ptr %7, align 4, !tbaa !8
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %17, label %16
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %spec.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
-  %5 = load i16, ptr %arrayidx, align 2
-  store i16 %5, ptr %uch, align 2
-  %6 = load i16, ptr %uch, align 2
-  %conv = zext i16 %6 to i32
-  %cmp1 = icmp sge i32 %conv, 128
-  br i1 %cmp1, label %if.then, label %if.else
+16:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %52
 
-if.then:                                          ; preds = %for.body
-  %7 = load ptr, ptr %spec.addr, align 8
-  %8 = load i32, ptr %end.addr, align 4
-  %9 = load ptr, ptr %output.addr, align 8
-  %call = call noundef zeroext i1 @_ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE(ptr noundef %7, ptr noundef %i, i32 noundef %8, ptr noundef %9)
-  br label %if.end10
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #8
+  %18 = load ptr, ptr %5, align 8, !tbaa !17
+  %19 = load i32, ptr %9, align 4, !tbaa !8
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i16, ptr %18, i64 %20
+  %22 = load i16, ptr %21, align 2, !tbaa !19
+  store i16 %22, ptr %10, align 2, !tbaa !19
+  %23 = load i16, ptr %10, align 2, !tbaa !19
+  %24 = zext i16 %23 to i32
+  %25 = icmp sge i32 %24, 128
+  br i1 %25, label %26, label %31
 
-if.else:                                          ; preds = %for.body
-  %10 = load i16, ptr %uch, align 2
-  %conv2 = zext i16 %10 to i32
-  %cmp3 = icmp sle i32 %conv2, 32
-  br i1 %cmp3, label %if.then6, label %lor.lhs.false
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8, !tbaa !17
+  %28 = load i32, ptr %7, align 4, !tbaa !8
+  %29 = load ptr, ptr %8, align 8, !tbaa !12
+  %30 = call noundef zeroext i1 @_ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE(ptr noundef %27, ptr noundef %9, i32 noundef %28, ptr noundef %29)
+  br label %48
 
-lor.lhs.false:                                    ; preds = %if.else
-  %11 = load i16, ptr %uch, align 2
-  %conv4 = zext i16 %11 to i32
-  %cmp5 = icmp eq i32 %conv4, 127
-  br i1 %cmp5, label %if.then6, label %if.else8
+31:                                               ; preds = %17
+  %32 = load i16, ptr %10, align 2, !tbaa !19
+  %33 = zext i16 %32 to i32
+  %34 = icmp sle i32 %33, 32
+  br i1 %34, label %39, label %35
 
-if.then6:                                         ; preds = %lor.lhs.false, %if.else
-  %12 = load i16, ptr %uch, align 2
-  %conv7 = trunc i16 %12 to i8
-  %13 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv7, ptr noundef %13)
-  br label %if.end
+35:                                               ; preds = %31
+  %36 = load i16, ptr %10, align 2, !tbaa !19
+  %37 = zext i16 %36 to i32
+  %38 = icmp eq i32 %37, 127
+  br i1 %38, label %39, label %43
 
-if.else8:                                         ; preds = %lor.lhs.false
-  %14 = load ptr, ptr %output.addr, align 8
-  %15 = load i16, ptr %uch, align 2
-  %conv9 = trunc i16 %15 to i8
-  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 noundef signext %conv9)
-  br label %if.end
+39:                                               ; preds = %35, %31
+  %40 = load i16, ptr %10, align 2, !tbaa !19
+  %41 = trunc i16 %40 to i8
+  %42 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %41, ptr noundef %42)
+  br label %47
 
-if.end:                                           ; preds = %if.else8, %if.then6
-  br label %if.end10
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %8, align 8, !tbaa !12
+  %45 = load i16, ptr %10, align 2, !tbaa !19
+  %46 = trunc i16 %45 to i8
+  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 noundef signext %46)
+  br label %47
 
-if.end10:                                         ; preds = %if.end, %if.then
-  br label %for.inc
+47:                                               ; preds = %43, %39
+  br label %48
 
-for.inc:                                          ; preds = %if.end10
-  %16 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+48:                                               ; preds = %47, %26
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #8
+  br label %49
 
-for.end:                                          ; preds = %for.cond
+49:                                               ; preds = %48
+  %50 = load i32, ptr %9, align 4, !tbaa !8
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %9, align 4, !tbaa !8
+  br label %12, !llvm.loop !25
+
+52:                                               ; preds = %16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE(ptr noundef %input, i32 noundef %input_len, ptr noundef %output) #0 {
-entry:
-  %input.addr = alloca ptr, align 8
-  %input_len.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  %success = alloca i8, align 1
-  %i = alloca i32, align 4
-  %code_point = alloca i32, align 4
-  store ptr %input, ptr %input.addr, align 8
-  store i32 %input_len, ptr %input_len.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  store i8 1, ptr %success, align 1
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #8
+  store i8 1, ptr %7, align 1, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %10
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %input_len.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %28, %3
+  %11 = load i32, ptr %8, align 4, !tbaa !8
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  %13 = icmp slt i32 %11, %12
+  br i1 %13, label %15, label %14
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %input.addr, align 8
-  %3 = load i32, ptr %input_len.addr, align 4
-  %call = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef %2, ptr noundef %i, i32 noundef %3, ptr noundef %code_point)
-  %conv = zext i1 %call to i32
-  %4 = load i8, ptr %success, align 1
-  %tobool = trunc i8 %4 to i1
-  %conv1 = zext i1 %tobool to i32
-  %and = and i32 %conv1, %conv
-  %tobool2 = icmp ne i32 %and, 0
-  %frombool = zext i1 %tobool2 to i8
-  store i8 %frombool, ptr %success, align 1
-  %5 = load i32, ptr %code_point, align 4
-  %6 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url15AppendUTF8ValueEjPNS_12CanonOutputTIcEE(i32 noundef %5, ptr noundef %6)
-  br label %for.inc
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  br label %31
 
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
+15:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %16 = load ptr, ptr %4, align 8, !tbaa !17
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef %16, ptr noundef %8, i32 noundef %17, ptr noundef %9)
+  %19 = zext i1 %18 to i32
+  %20 = load i8, ptr %7, align 1, !tbaa !26, !range !28, !noundef !29
+  %21 = trunc i8 %20 to i1
+  %22 = zext i1 %21 to i32
+  %23 = and i32 %22, %19
+  %24 = icmp ne i32 %23, 0
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %7, align 1, !tbaa !26
+  %26 = load i32, ptr %9, align 4, !tbaa !8
+  %27 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @_ZN3url15AppendUTF8ValueEjPNS_12CanonOutputTIcEE(i32 noundef %26, ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %28
 
-for.end:                                          ; preds = %for.cond
-  %8 = load i8, ptr %success, align 1
-  %tobool3 = trunc i8 %8 to i1
-  ret i1 %tobool3
+28:                                               ; preds = %15
+  %29 = load i32, ptr %8, align 4, !tbaa !8
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %8, align 4, !tbaa !8
+  br label %10, !llvm.loop !30
+
+31:                                               ; preds = %14
+  %32 = load i8, ptr %7, align 1, !tbaa !26, !range !28, !noundef !29
+  %33 = trunc i8 %32 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #8
+  ret i1 %33
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3url15AppendUTF8ValueEjPNS_12CanonOutputTIcEE(i32 noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url15AppendUTF8ValueEjPNS_12CanonOutputTIcEE(i32 noundef %char_value, ptr noundef %output) #0 comdat {
-entry:
-  %char_value.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store i32 %char_value, ptr %char_value.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load i32, ptr %char_value.addr, align 4
-  %1 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %0, ptr noundef %1)
+define noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTItEE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #8
+  store i8 1, ptr %7, align 1, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %28, %3
+  %11 = load i32, ptr %8, align 4, !tbaa !8
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  %13 = icmp slt i32 %11, %12
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  br label %31
+
+15:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = load i32, ptr %5, align 4, !tbaa !8
+  %18 = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef %16, ptr noundef %8, i32 noundef %17, ptr noundef %9)
+  %19 = zext i1 %18 to i32
+  %20 = load i8, ptr %7, align 1, !tbaa !26, !range !28, !noundef !29
+  %21 = trunc i8 %20 to i1
+  %22 = zext i1 %21 to i32
+  %23 = and i32 %22, %19
+  %24 = icmp ne i32 %23, 0
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %7, align 1, !tbaa !26
+  %26 = load i32, ptr %9, align 4, !tbaa !8
+  %27 = load ptr, ptr %6, align 8, !tbaa !31
+  call void @_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE(i32 noundef %26, ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %28
+
+28:                                               ; preds = %15
+  %29 = load i32, ptr %8, align 4, !tbaa !8
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %8, align 4, !tbaa !8
+  br label %10, !llvm.loop !33
+
+31:                                               ; preds = %14
+  %32 = load i8, ptr %7, align 1, !tbaa !26, !range !28, !noundef !29
+  %33 = trunc i8 %32 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #8
+  ret i1 %33
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE(i32 noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !31
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = icmp ugt i32 %5, 65535
+  br i1 %6, label %7, label %18
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !31
+  %9 = load i32, ptr %3, align 4, !tbaa !8
+  %10 = lshr i32 %9, 10
+  %11 = add i32 %10, 55232
+  %12 = trunc i32 %11 to i16
+  call void @_ZN3url12CanonOutputTItE9push_backEt(ptr noundef nonnull align 8 dereferenceable(24) %8, i16 noundef zeroext %12)
+  %13 = load ptr, ptr %4, align 8, !tbaa !31
+  %14 = load i32, ptr %3, align 4, !tbaa !8
+  %15 = and i32 %14, 1023
+  %16 = or i32 %15, 56320
+  %17 = trunc i32 %16 to i16
+  call void @_ZN3url12CanonOutputTItE9push_backEt(ptr noundef nonnull align 8 dereferenceable(24) %13, i16 noundef zeroext %17)
+  br label %22
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8, !tbaa !31
+  %20 = load i32, ptr %3, align 4, !tbaa !8
+  %21 = trunc i32 %20 to i16
+  call void @_ZN3url12CanonOutputTItE9push_backEt(ptr noundef nonnull align 8 dereferenceable(24) %19, i16 noundef zeroext %21)
+  br label %22
+
+22:                                               ; preds = %18, %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTItEE(ptr noundef %input, i32 noundef %input_len, ptr noundef %output) #0 {
-entry:
-  %input.addr = alloca ptr, align 8
-  %input_len.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  %success = alloca i8, align 1
-  %i = alloca i32, align 4
-  %code_point = alloca i32, align 4
-  store ptr %input, ptr %input.addr, align 8
-  store i32 %input_len, ptr %input_len.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  store i8 1, ptr %success, align 1
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !34
+  store ptr %2, ptr %7, align 8, !tbaa !36
+  store ptr %3, ptr %8, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %11 = load ptr, ptr %6, align 8, !tbaa !34
+  %12 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3url12ReplacementsIcE7sourcesEv(ptr noundef nonnull align 8 dereferenceable(136) %11)
+  store ptr %12, ptr %9, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %13 = load ptr, ptr %6, align 8, !tbaa !34
+  %14 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3url12ReplacementsIcE10componentsEv(ptr noundef nonnull align 8 dereferenceable(136) %13)
+  store ptr %14, ptr %10, align 8, !tbaa !38
+  %15 = load ptr, ptr %9, align 8, !tbaa !36
+  %16 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !40
+  %18 = load ptr, ptr %10, align 8, !tbaa !38
+  %19 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %7, align 8, !tbaa !36
+  %21 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %8, align 8, !tbaa !38
+  %23 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %22, i32 0, i32 0
+  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %17, ptr noundef nonnull align 4 dereferenceable(8) %19, ptr noundef %21, ptr noundef %23)
+  %24 = load ptr, ptr %9, align 8, !tbaa !36
+  %25 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !42
+  %27 = load ptr, ptr %10, align 8, !tbaa !38
+  %28 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %7, align 8, !tbaa !36
+  %30 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %8, align 8, !tbaa !38
+  %32 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %31, i32 0, i32 1
+  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(8) %28, ptr noundef %30, ptr noundef %32)
+  %33 = load ptr, ptr %9, align 8, !tbaa !36
+  %34 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !43
+  %36 = load ptr, ptr %10, align 8, !tbaa !38
+  %37 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %7, align 8, !tbaa !36
+  %39 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %8, align 8, !tbaa !38
+  %41 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %40, i32 0, i32 2
+  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %35, ptr noundef nonnull align 4 dereferenceable(8) %37, ptr noundef %39, ptr noundef %41)
+  %42 = load ptr, ptr %9, align 8, !tbaa !36
+  %43 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8, !tbaa !44
+  %45 = load ptr, ptr %10, align 8, !tbaa !38
+  %46 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %7, align 8, !tbaa !36
+  %48 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %8, align 8, !tbaa !38
+  %50 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %49, i32 0, i32 3
+  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %44, ptr noundef nonnull align 4 dereferenceable(8) %46, ptr noundef %48, ptr noundef %50)
+  %51 = load ptr, ptr %8, align 8, !tbaa !38
+  %52 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %51, i32 0, i32 3
+  %53 = getelementptr inbounds nuw %"struct.url::Component", ptr %52, i32 0, i32 1
+  %54 = load i32, ptr %53, align 4, !tbaa !45
+  %55 = icmp eq i32 %54, -1
+  br i1 %55, label %56, label %60
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %input_len.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+56:                                               ; preds = %4
+  %57 = load ptr, ptr %8, align 8, !tbaa !38
+  %58 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %57, i32 0, i32 3
+  %59 = getelementptr inbounds nuw %"struct.url::Component", ptr %58, i32 0, i32 1
+  store i32 0, ptr %59, align 4, !tbaa !45
+  br label %60
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %input.addr, align 8
-  %3 = load i32, ptr %input_len.addr, align 4
-  %call = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef %2, ptr noundef %i, i32 noundef %3, ptr noundef %code_point)
-  %conv = zext i1 %call to i32
-  %4 = load i8, ptr %success, align 1
-  %tobool = trunc i8 %4 to i1
-  %conv1 = zext i1 %tobool to i32
-  %and = and i32 %conv1, %conv
-  %tobool2 = icmp ne i32 %and, 0
-  %frombool = zext i1 %tobool2 to i8
-  store i8 %frombool, ptr %success, align 1
-  %5 = load i32, ptr %code_point, align 4
-  %6 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE(i32 noundef %5, ptr noundef %6)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %for.cond
-  %8 = load i8, ptr %success, align 1
-  %tobool3 = trunc i8 %8 to i1
-  ret i1 %tobool3
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE(i32 noundef %code_point, ptr noundef %output) #0 comdat {
-entry:
-  %code_point.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store i32 %code_point, ptr %code_point.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load i32, ptr %code_point.addr, align 4
-  %cmp = icmp ugt i32 %0, 65535
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %output.addr, align 8
-  %2 = load i32, ptr %code_point.addr, align 4
-  %shr = lshr i32 %2, 10
-  %add = add i32 %shr, 55232
-  %conv = trunc i32 %add to i16
-  call void @_ZN3url12CanonOutputTItE9push_backEt(ptr noundef nonnull align 8 dereferenceable(24) %1, i16 noundef zeroext %conv)
-  %3 = load ptr, ptr %output.addr, align 8
-  %4 = load i32, ptr %code_point.addr, align 4
-  %and = and i32 %4, 1023
-  %or = or i32 %and, 56320
-  %conv1 = trunc i32 %or to i16
-  call void @_ZN3url12CanonOutputTItE9push_backEt(ptr noundef nonnull align 8 dereferenceable(24) %3, i16 noundef zeroext %conv1)
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %output.addr, align 8
-  %6 = load i32, ptr %code_point.addr, align 4
-  %conv2 = trunc i32 %6 to i16
-  call void @_ZN3url12CanonOutputTItE9push_backEt(ptr noundef nonnull align 8 dereferenceable(24) %5, i16 noundef zeroext %conv2)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef %base, ptr noundef nonnull align 8 dereferenceable(136) %repl, ptr noundef %source, ptr noundef %parsed) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %repl.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  %parsed.addr = alloca ptr, align 8
-  %repl_source = alloca ptr, align 8
-  %repl_parsed = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %repl, ptr %repl.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  store ptr %parsed, ptr %parsed.addr, align 8
-  %0 = load ptr, ptr %repl.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3url12ReplacementsIcE7sourcesEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  store ptr %call, ptr %repl_source, align 8
-  %1 = load ptr, ptr %repl.addr, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3url12ReplacementsIcE10componentsEv(ptr noundef nonnull align 8 dereferenceable(136) %1)
-  store ptr %call1, ptr %repl_parsed, align 8
-  %2 = load ptr, ptr %repl_source, align 8
-  %scheme = getelementptr inbounds %"struct.url::URLComponentSource", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %scheme, align 8
-  %4 = load ptr, ptr %repl_parsed, align 8
-  %scheme2 = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %source.addr, align 8
-  %scheme3 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %parsed.addr, align 8
-  %scheme4 = getelementptr inbounds %"struct.url::Parsed", ptr %6, i32 0, i32 0
-  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %scheme2, ptr noundef %scheme3, ptr noundef %scheme4)
-  %7 = load ptr, ptr %repl_source, align 8
-  %username = getelementptr inbounds %"struct.url::URLComponentSource", ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %username, align 8
-  %9 = load ptr, ptr %repl_parsed, align 8
-  %username5 = getelementptr inbounds %"struct.url::Parsed", ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %source.addr, align 8
-  %username6 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %parsed.addr, align 8
-  %username7 = getelementptr inbounds %"struct.url::Parsed", ptr %11, i32 0, i32 1
-  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(8) %username5, ptr noundef %username6, ptr noundef %username7)
-  %12 = load ptr, ptr %repl_source, align 8
-  %password = getelementptr inbounds %"struct.url::URLComponentSource", ptr %12, i32 0, i32 2
-  %13 = load ptr, ptr %password, align 8
-  %14 = load ptr, ptr %repl_parsed, align 8
-  %password8 = getelementptr inbounds %"struct.url::Parsed", ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %source.addr, align 8
-  %password9 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %parsed.addr, align 8
-  %password10 = getelementptr inbounds %"struct.url::Parsed", ptr %16, i32 0, i32 2
-  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(8) %password8, ptr noundef %password9, ptr noundef %password10)
-  %17 = load ptr, ptr %repl_source, align 8
-  %host = getelementptr inbounds %"struct.url::URLComponentSource", ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %host, align 8
-  %19 = load ptr, ptr %repl_parsed, align 8
-  %host11 = getelementptr inbounds %"struct.url::Parsed", ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %source.addr, align 8
-  %host12 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %20, i32 0, i32 3
-  %21 = load ptr, ptr %parsed.addr, align 8
-  %host13 = getelementptr inbounds %"struct.url::Parsed", ptr %21, i32 0, i32 3
-  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(8) %host11, ptr noundef %host12, ptr noundef %host13)
-  %22 = load ptr, ptr %parsed.addr, align 8
-  %host14 = getelementptr inbounds %"struct.url::Parsed", ptr %22, i32 0, i32 3
-  %len = getelementptr inbounds %"struct.url::Component", ptr %host14, i32 0, i32 1
-  %23 = load i32, ptr %len, align 4
-  %cmp = icmp eq i32 %23, -1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %24 = load ptr, ptr %parsed.addr, align 8
-  %host15 = getelementptr inbounds %"struct.url::Parsed", ptr %24, i32 0, i32 3
-  %len16 = getelementptr inbounds %"struct.url::Component", ptr %host15, i32 0, i32 1
-  store i32 0, ptr %len16, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %25 = load ptr, ptr %repl_source, align 8
-  %port = getelementptr inbounds %"struct.url::URLComponentSource", ptr %25, i32 0, i32 4
-  %26 = load ptr, ptr %port, align 8
-  %27 = load ptr, ptr %repl_parsed, align 8
-  %port17 = getelementptr inbounds %"struct.url::Parsed", ptr %27, i32 0, i32 4
-  %28 = load ptr, ptr %source.addr, align 8
-  %port18 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %28, i32 0, i32 4
-  %29 = load ptr, ptr %parsed.addr, align 8
-  %port19 = getelementptr inbounds %"struct.url::Parsed", ptr %29, i32 0, i32 4
-  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(8) %port17, ptr noundef %port18, ptr noundef %port19)
-  %30 = load ptr, ptr %repl_source, align 8
-  %path = getelementptr inbounds %"struct.url::URLComponentSource", ptr %30, i32 0, i32 5
-  %31 = load ptr, ptr %path, align 8
-  %32 = load ptr, ptr %repl_parsed, align 8
-  %path20 = getelementptr inbounds %"struct.url::Parsed", ptr %32, i32 0, i32 5
-  %33 = load ptr, ptr %source.addr, align 8
-  %path21 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %33, i32 0, i32 5
-  %34 = load ptr, ptr %parsed.addr, align 8
-  %path22 = getelementptr inbounds %"struct.url::Parsed", ptr %34, i32 0, i32 5
-  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %31, ptr noundef nonnull align 4 dereferenceable(8) %path20, ptr noundef %path21, ptr noundef %path22)
-  %35 = load ptr, ptr %repl_source, align 8
-  %query = getelementptr inbounds %"struct.url::URLComponentSource", ptr %35, i32 0, i32 6
-  %36 = load ptr, ptr %query, align 8
-  %37 = load ptr, ptr %repl_parsed, align 8
-  %query23 = getelementptr inbounds %"struct.url::Parsed", ptr %37, i32 0, i32 6
-  %38 = load ptr, ptr %source.addr, align 8
-  %query24 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %38, i32 0, i32 6
-  %39 = load ptr, ptr %parsed.addr, align 8
-  %query25 = getelementptr inbounds %"struct.url::Parsed", ptr %39, i32 0, i32 6
-  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %36, ptr noundef nonnull align 4 dereferenceable(8) %query23, ptr noundef %query24, ptr noundef %query25)
-  %40 = load ptr, ptr %repl_source, align 8
-  %ref = getelementptr inbounds %"struct.url::URLComponentSource", ptr %40, i32 0, i32 7
-  %41 = load ptr, ptr %ref, align 8
-  %42 = load ptr, ptr %repl_parsed, align 8
-  %ref26 = getelementptr inbounds %"struct.url::Parsed", ptr %42, i32 0, i32 7
-  %43 = load ptr, ptr %source.addr, align 8
-  %ref27 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %43, i32 0, i32 7
-  %44 = load ptr, ptr %parsed.addr, align 8
-  %ref28 = getelementptr inbounds %"struct.url::Parsed", ptr %44, i32 0, i32 7
-  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %41, ptr noundef nonnull align 4 dereferenceable(8) %ref26, ptr noundef %ref27, ptr noundef %ref28)
+60:                                               ; preds = %56, %4
+  %61 = load ptr, ptr %9, align 8, !tbaa !36
+  %62 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %61, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8, !tbaa !48
+  %64 = load ptr, ptr %10, align 8, !tbaa !38
+  %65 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %64, i32 0, i32 4
+  %66 = load ptr, ptr %7, align 8, !tbaa !36
+  %67 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %66, i32 0, i32 4
+  %68 = load ptr, ptr %8, align 8, !tbaa !38
+  %69 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %68, i32 0, i32 4
+  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %63, ptr noundef nonnull align 4 dereferenceable(8) %65, ptr noundef %67, ptr noundef %69)
+  %70 = load ptr, ptr %9, align 8, !tbaa !36
+  %71 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %70, i32 0, i32 5
+  %72 = load ptr, ptr %71, align 8, !tbaa !49
+  %73 = load ptr, ptr %10, align 8, !tbaa !38
+  %74 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %73, i32 0, i32 5
+  %75 = load ptr, ptr %7, align 8, !tbaa !36
+  %76 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %75, i32 0, i32 5
+  %77 = load ptr, ptr %8, align 8, !tbaa !38
+  %78 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %77, i32 0, i32 5
+  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %72, ptr noundef nonnull align 4 dereferenceable(8) %74, ptr noundef %76, ptr noundef %78)
+  %79 = load ptr, ptr %9, align 8, !tbaa !36
+  %80 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %79, i32 0, i32 6
+  %81 = load ptr, ptr %80, align 8, !tbaa !50
+  %82 = load ptr, ptr %10, align 8, !tbaa !38
+  %83 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %82, i32 0, i32 6
+  %84 = load ptr, ptr %7, align 8, !tbaa !36
+  %85 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %84, i32 0, i32 6
+  %86 = load ptr, ptr %8, align 8, !tbaa !38
+  %87 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %86, i32 0, i32 6
+  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %81, ptr noundef nonnull align 4 dereferenceable(8) %83, ptr noundef %85, ptr noundef %87)
+  %88 = load ptr, ptr %9, align 8, !tbaa !36
+  %89 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %88, i32 0, i32 7
+  %90 = load ptr, ptr %89, align 8, !tbaa !51
+  %91 = load ptr, ptr %10, align 8, !tbaa !38
+  %92 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %91, i32 0, i32 7
+  %93 = load ptr, ptr %7, align 8, !tbaa !36
+  %94 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %93, i32 0, i32 7
+  %95 = load ptr, ptr %8, align 8, !tbaa !38
+  %96 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %95, i32 0, i32 7
+  call void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %90, ptr noundef nonnull align 4 dereferenceable(8) %92, ptr noundef %94, ptr noundef %96)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3url12ReplacementsIcE7sourcesEv(ptr noundef nonnull align 8 dereferenceable(136) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %sources_ = getelementptr inbounds %"class.url::Replacements", ptr %this1, i32 0, i32 0
-  ret ptr %sources_
+define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3url12ReplacementsIcE7sourcesEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.url::Replacements", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3url12ReplacementsIcE10componentsEv(ptr noundef nonnull align 8 dereferenceable(136) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %components_ = getelementptr inbounds %"class.url::Replacements", ptr %this1, i32 0, i32 1
-  ret ptr %components_
+define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3url12ReplacementsIcE10componentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.url::Replacements", ptr %3, i32 0, i32 1
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %override_source, ptr noundef nonnull align 4 dereferenceable(8) %override_component, ptr noundef %dest, ptr noundef %dest_component) #2 {
-entry:
-  %override_source.addr = alloca ptr, align 8
-  %override_component.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %dest_component.addr = alloca ptr, align 8
-  store ptr %override_source, ptr %override_source.addr, align 8
-  store ptr %override_component, ptr %override_component.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %dest_component, ptr %dest_component.addr, align 8
-  %0 = load ptr, ptr %override_source.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define internal void @_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) #5 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !52
+  store ptr %2, ptr %7, align 8, !tbaa !54
+  store ptr %3, ptr %8, align 8, !tbaa !52
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %override_source.addr, align 8
-  %2 = load ptr, ptr %dest.addr, align 8
-  store ptr %1, ptr %2, align 8
-  %3 = load ptr, ptr %override_component.addr, align 8
-  %4 = load ptr, ptr %dest_component.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %3, i64 8, i1 false)
-  br label %if.end
+11:                                               ; preds = %4
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = load ptr, ptr %7, align 8, !tbaa !54
+  store ptr %12, ptr %13, align 8, !tbaa !3
+  %14 = load ptr, ptr %6, align 8, !tbaa !52
+  %15 = load ptr, ptr %8, align 8, !tbaa !52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %14, i64 8, i1 false), !tbaa.struct !56
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
+16:                                               ; preds = %11, %4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12ReplacementsItEEPNS_12CanonOutputTIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef %base, ptr noundef nonnull align 8 dereferenceable(136) %repl, ptr noundef %utf8_buffer, ptr noundef %source, ptr noundef %parsed) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %repl.addr = alloca ptr, align 8
-  %utf8_buffer.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  %parsed.addr = alloca ptr, align 8
-  %success = alloca i8, align 1
-  %repl_source = alloca ptr, align 8
-  %repl_parsed = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %repl, ptr %repl.addr, align 8
-  store ptr %utf8_buffer, ptr %utf8_buffer.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  store ptr %parsed, ptr %parsed.addr, align 8
-  store i8 1, ptr %success, align 1
-  %0 = load ptr, ptr %repl.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3url12ReplacementsItE7sourcesEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  store ptr %call, ptr %repl_source, align 8
-  %1 = load ptr, ptr %repl.addr, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3url12ReplacementsItE10componentsEv(ptr noundef nonnull align 8 dereferenceable(136) %1)
-  store ptr %call1, ptr %repl_parsed, align 8
-  %2 = load ptr, ptr %repl_source, align 8
-  %scheme = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %scheme, align 8
-  %4 = load ptr, ptr %repl_parsed, align 8
-  %scheme2 = getelementptr inbounds %"struct.url::Parsed", ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %utf8_buffer.addr, align 8
-  %6 = load ptr, ptr %parsed.addr, align 8
-  %scheme3 = getelementptr inbounds %"struct.url::Parsed", ptr %6, i32 0, i32 0
-  %call4 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %scheme2, ptr noundef %5, ptr noundef %scheme3)
-  %conv = zext i1 %call4 to i32
-  %7 = load i8, ptr %success, align 1
-  %tobool = trunc i8 %7 to i1
-  %conv5 = zext i1 %tobool to i32
-  %and = and i32 %conv5, %conv
-  %tobool6 = icmp ne i32 %and, 0
-  %frombool = zext i1 %tobool6 to i8
-  store i8 %frombool, ptr %success, align 1
-  %8 = load ptr, ptr %repl_source, align 8
-  %username = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %username, align 8
-  %10 = load ptr, ptr %repl_parsed, align 8
-  %username7 = getelementptr inbounds %"struct.url::Parsed", ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %utf8_buffer.addr, align 8
-  %12 = load ptr, ptr %parsed.addr, align 8
-  %username8 = getelementptr inbounds %"struct.url::Parsed", ptr %12, i32 0, i32 1
-  %call9 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(8) %username7, ptr noundef %11, ptr noundef %username8)
-  %conv10 = zext i1 %call9 to i32
-  %13 = load i8, ptr %success, align 1
-  %tobool11 = trunc i8 %13 to i1
-  %conv12 = zext i1 %tobool11 to i32
-  %and13 = and i32 %conv12, %conv10
-  %tobool14 = icmp ne i32 %and13, 0
-  %frombool15 = zext i1 %tobool14 to i8
-  store i8 %frombool15, ptr %success, align 1
-  %14 = load ptr, ptr %repl_source, align 8
-  %password = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %password, align 8
-  %16 = load ptr, ptr %repl_parsed, align 8
-  %password16 = getelementptr inbounds %"struct.url::Parsed", ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %utf8_buffer.addr, align 8
-  %18 = load ptr, ptr %parsed.addr, align 8
-  %password17 = getelementptr inbounds %"struct.url::Parsed", ptr %18, i32 0, i32 2
-  %call18 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(8) %password16, ptr noundef %17, ptr noundef %password17)
-  %conv19 = zext i1 %call18 to i32
-  %19 = load i8, ptr %success, align 1
-  %tobool20 = trunc i8 %19 to i1
-  %conv21 = zext i1 %tobool20 to i32
-  %and22 = and i32 %conv21, %conv19
-  %tobool23 = icmp ne i32 %and22, 0
-  %frombool24 = zext i1 %tobool23 to i8
-  store i8 %frombool24, ptr %success, align 1
-  %20 = load ptr, ptr %repl_source, align 8
-  %host = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %20, i32 0, i32 3
-  %21 = load ptr, ptr %host, align 8
-  %22 = load ptr, ptr %repl_parsed, align 8
-  %host25 = getelementptr inbounds %"struct.url::Parsed", ptr %22, i32 0, i32 3
-  %23 = load ptr, ptr %utf8_buffer.addr, align 8
-  %24 = load ptr, ptr %parsed.addr, align 8
-  %host26 = getelementptr inbounds %"struct.url::Parsed", ptr %24, i32 0, i32 3
-  %call27 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %21, ptr noundef nonnull align 4 dereferenceable(8) %host25, ptr noundef %23, ptr noundef %host26)
-  %conv28 = zext i1 %call27 to i32
-  %25 = load i8, ptr %success, align 1
-  %tobool29 = trunc i8 %25 to i1
-  %conv30 = zext i1 %tobool29 to i32
-  %and31 = and i32 %conv30, %conv28
-  %tobool32 = icmp ne i32 %and31, 0
-  %frombool33 = zext i1 %tobool32 to i8
-  store i8 %frombool33, ptr %success, align 1
-  %26 = load ptr, ptr %repl_source, align 8
-  %port = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %26, i32 0, i32 4
-  %27 = load ptr, ptr %port, align 8
-  %28 = load ptr, ptr %repl_parsed, align 8
-  %port34 = getelementptr inbounds %"struct.url::Parsed", ptr %28, i32 0, i32 4
-  %29 = load ptr, ptr %utf8_buffer.addr, align 8
-  %30 = load ptr, ptr %parsed.addr, align 8
-  %port35 = getelementptr inbounds %"struct.url::Parsed", ptr %30, i32 0, i32 4
-  %call36 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %27, ptr noundef nonnull align 4 dereferenceable(8) %port34, ptr noundef %29, ptr noundef %port35)
-  %conv37 = zext i1 %call36 to i32
-  %31 = load i8, ptr %success, align 1
-  %tobool38 = trunc i8 %31 to i1
-  %conv39 = zext i1 %tobool38 to i32
-  %and40 = and i32 %conv39, %conv37
-  %tobool41 = icmp ne i32 %and40, 0
-  %frombool42 = zext i1 %tobool41 to i8
-  store i8 %frombool42, ptr %success, align 1
-  %32 = load ptr, ptr %repl_source, align 8
-  %path = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %32, i32 0, i32 5
-  %33 = load ptr, ptr %path, align 8
-  %34 = load ptr, ptr %repl_parsed, align 8
-  %path43 = getelementptr inbounds %"struct.url::Parsed", ptr %34, i32 0, i32 5
-  %35 = load ptr, ptr %utf8_buffer.addr, align 8
-  %36 = load ptr, ptr %parsed.addr, align 8
-  %path44 = getelementptr inbounds %"struct.url::Parsed", ptr %36, i32 0, i32 5
-  %call45 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %33, ptr noundef nonnull align 4 dereferenceable(8) %path43, ptr noundef %35, ptr noundef %path44)
-  %conv46 = zext i1 %call45 to i32
-  %37 = load i8, ptr %success, align 1
-  %tobool47 = trunc i8 %37 to i1
-  %conv48 = zext i1 %tobool47 to i32
-  %and49 = and i32 %conv48, %conv46
-  %tobool50 = icmp ne i32 %and49, 0
-  %frombool51 = zext i1 %tobool50 to i8
-  store i8 %frombool51, ptr %success, align 1
-  %38 = load ptr, ptr %repl_source, align 8
-  %query = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %38, i32 0, i32 6
-  %39 = load ptr, ptr %query, align 8
-  %40 = load ptr, ptr %repl_parsed, align 8
-  %query52 = getelementptr inbounds %"struct.url::Parsed", ptr %40, i32 0, i32 6
-  %41 = load ptr, ptr %utf8_buffer.addr, align 8
-  %42 = load ptr, ptr %parsed.addr, align 8
-  %query53 = getelementptr inbounds %"struct.url::Parsed", ptr %42, i32 0, i32 6
-  %call54 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(8) %query52, ptr noundef %41, ptr noundef %query53)
-  %conv55 = zext i1 %call54 to i32
-  %43 = load i8, ptr %success, align 1
-  %tobool56 = trunc i8 %43 to i1
-  %conv57 = zext i1 %tobool56 to i32
-  %and58 = and i32 %conv57, %conv55
-  %tobool59 = icmp ne i32 %and58, 0
-  %frombool60 = zext i1 %tobool59 to i8
-  store i8 %frombool60, ptr %success, align 1
-  %44 = load ptr, ptr %repl_source, align 8
-  %ref = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %44, i32 0, i32 7
-  %45 = load ptr, ptr %ref, align 8
-  %46 = load ptr, ptr %repl_parsed, align 8
-  %ref61 = getelementptr inbounds %"struct.url::Parsed", ptr %46, i32 0, i32 7
-  %47 = load ptr, ptr %utf8_buffer.addr, align 8
-  %48 = load ptr, ptr %parsed.addr, align 8
-  %ref62 = getelementptr inbounds %"struct.url::Parsed", ptr %48, i32 0, i32 7
-  %call63 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %45, ptr noundef nonnull align 4 dereferenceable(8) %ref61, ptr noundef %47, ptr noundef %ref62)
-  %conv64 = zext i1 %call63 to i32
-  %49 = load i8, ptr %success, align 1
-  %tobool65 = trunc i8 %49 to i1
-  %conv66 = zext i1 %tobool65 to i32
-  %and67 = and i32 %conv66, %conv64
-  %tobool68 = icmp ne i32 %and67, 0
-  %frombool69 = zext i1 %tobool68 to i8
-  store i8 %frombool69, ptr %success, align 1
-  %50 = load ptr, ptr %repl_source, align 8
-  %scheme70 = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %50, i32 0, i32 0
-  %51 = load ptr, ptr %scheme70, align 8
-  %tobool71 = icmp ne ptr %51, null
-  br i1 %tobool71, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12ReplacementsItEEPNS_12CanonOutputTIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !57
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !36
+  store ptr %4, ptr %10, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #8
+  store i8 1, ptr %11, align 1, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %14 = load ptr, ptr %7, align 8, !tbaa !57
+  %15 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3url12ReplacementsItE7sourcesEv(ptr noundef nonnull align 8 dereferenceable(136) %14)
+  store ptr %15, ptr %12, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %16 = load ptr, ptr %7, align 8, !tbaa !57
+  %17 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3url12ReplacementsItE10componentsEv(ptr noundef nonnull align 8 dereferenceable(136) %16)
+  store ptr %17, ptr %13, align 8, !tbaa !38
+  %18 = load ptr, ptr %12, align 8, !tbaa !59
+  %19 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !61
+  %21 = load ptr, ptr %13, align 8, !tbaa !38
+  %22 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %8, align 8, !tbaa !12
+  %24 = load ptr, ptr %10, align 8, !tbaa !38
+  %25 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %24, i32 0, i32 0
+  %26 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %20, ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef %23, ptr noundef %25)
+  %27 = zext i1 %26 to i32
+  %28 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %29 = trunc i8 %28 to i1
+  %30 = zext i1 %29 to i32
+  %31 = and i32 %30, %27
+  %32 = icmp ne i32 %31, 0
+  %33 = zext i1 %32 to i8
+  store i8 %33, ptr %11, align 1, !tbaa !26
+  %34 = load ptr, ptr %12, align 8, !tbaa !59
+  %35 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8, !tbaa !63
+  %37 = load ptr, ptr %13, align 8, !tbaa !38
+  %38 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %8, align 8, !tbaa !12
+  %40 = load ptr, ptr %10, align 8, !tbaa !38
+  %41 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %40, i32 0, i32 1
+  %42 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %36, ptr noundef nonnull align 4 dereferenceable(8) %38, ptr noundef %39, ptr noundef %41)
+  %43 = zext i1 %42 to i32
+  %44 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %45 = trunc i8 %44 to i1
+  %46 = zext i1 %45 to i32
+  %47 = and i32 %46, %43
+  %48 = icmp ne i32 %47, 0
+  %49 = zext i1 %48 to i8
+  store i8 %49, ptr %11, align 1, !tbaa !26
+  %50 = load ptr, ptr %12, align 8, !tbaa !59
+  %51 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8, !tbaa !64
+  %53 = load ptr, ptr %13, align 8, !tbaa !38
+  %54 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %8, align 8, !tbaa !12
+  %56 = load ptr, ptr %10, align 8, !tbaa !38
+  %57 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %56, i32 0, i32 2
+  %58 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %52, ptr noundef nonnull align 4 dereferenceable(8) %54, ptr noundef %55, ptr noundef %57)
+  %59 = zext i1 %58 to i32
+  %60 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %61 = trunc i8 %60 to i1
+  %62 = zext i1 %61 to i32
+  %63 = and i32 %62, %59
+  %64 = icmp ne i32 %63, 0
+  %65 = zext i1 %64 to i8
+  store i8 %65, ptr %11, align 1, !tbaa !26
+  %66 = load ptr, ptr %12, align 8, !tbaa !59
+  %67 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8, !tbaa !65
+  %69 = load ptr, ptr %13, align 8, !tbaa !38
+  %70 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %69, i32 0, i32 3
+  %71 = load ptr, ptr %8, align 8, !tbaa !12
+  %72 = load ptr, ptr %10, align 8, !tbaa !38
+  %73 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %72, i32 0, i32 3
+  %74 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %68, ptr noundef nonnull align 4 dereferenceable(8) %70, ptr noundef %71, ptr noundef %73)
+  %75 = zext i1 %74 to i32
+  %76 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %77 = trunc i8 %76 to i1
+  %78 = zext i1 %77 to i32
+  %79 = and i32 %78, %75
+  %80 = icmp ne i32 %79, 0
+  %81 = zext i1 %80 to i8
+  store i8 %81, ptr %11, align 1, !tbaa !26
+  %82 = load ptr, ptr %12, align 8, !tbaa !59
+  %83 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %82, i32 0, i32 4
+  %84 = load ptr, ptr %83, align 8, !tbaa !66
+  %85 = load ptr, ptr %13, align 8, !tbaa !38
+  %86 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %85, i32 0, i32 4
+  %87 = load ptr, ptr %8, align 8, !tbaa !12
+  %88 = load ptr, ptr %10, align 8, !tbaa !38
+  %89 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %88, i32 0, i32 4
+  %90 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %84, ptr noundef nonnull align 4 dereferenceable(8) %86, ptr noundef %87, ptr noundef %89)
+  %91 = zext i1 %90 to i32
+  %92 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %93 = trunc i8 %92 to i1
+  %94 = zext i1 %93 to i32
+  %95 = and i32 %94, %91
+  %96 = icmp ne i32 %95, 0
+  %97 = zext i1 %96 to i8
+  store i8 %97, ptr %11, align 1, !tbaa !26
+  %98 = load ptr, ptr %12, align 8, !tbaa !59
+  %99 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %98, i32 0, i32 5
+  %100 = load ptr, ptr %99, align 8, !tbaa !67
+  %101 = load ptr, ptr %13, align 8, !tbaa !38
+  %102 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %101, i32 0, i32 5
+  %103 = load ptr, ptr %8, align 8, !tbaa !12
+  %104 = load ptr, ptr %10, align 8, !tbaa !38
+  %105 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %104, i32 0, i32 5
+  %106 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %100, ptr noundef nonnull align 4 dereferenceable(8) %102, ptr noundef %103, ptr noundef %105)
+  %107 = zext i1 %106 to i32
+  %108 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %109 = trunc i8 %108 to i1
+  %110 = zext i1 %109 to i32
+  %111 = and i32 %110, %107
+  %112 = icmp ne i32 %111, 0
+  %113 = zext i1 %112 to i8
+  store i8 %113, ptr %11, align 1, !tbaa !26
+  %114 = load ptr, ptr %12, align 8, !tbaa !59
+  %115 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %114, i32 0, i32 6
+  %116 = load ptr, ptr %115, align 8, !tbaa !68
+  %117 = load ptr, ptr %13, align 8, !tbaa !38
+  %118 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %117, i32 0, i32 6
+  %119 = load ptr, ptr %8, align 8, !tbaa !12
+  %120 = load ptr, ptr %10, align 8, !tbaa !38
+  %121 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %120, i32 0, i32 6
+  %122 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %116, ptr noundef nonnull align 4 dereferenceable(8) %118, ptr noundef %119, ptr noundef %121)
+  %123 = zext i1 %122 to i32
+  %124 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %125 = trunc i8 %124 to i1
+  %126 = zext i1 %125 to i32
+  %127 = and i32 %126, %123
+  %128 = icmp ne i32 %127, 0
+  %129 = zext i1 %128 to i8
+  store i8 %129, ptr %11, align 1, !tbaa !26
+  %130 = load ptr, ptr %12, align 8, !tbaa !59
+  %131 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %130, i32 0, i32 7
+  %132 = load ptr, ptr %131, align 8, !tbaa !69
+  %133 = load ptr, ptr %13, align 8, !tbaa !38
+  %134 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %133, i32 0, i32 7
+  %135 = load ptr, ptr %8, align 8, !tbaa !12
+  %136 = load ptr, ptr %10, align 8, !tbaa !38
+  %137 = getelementptr inbounds nuw %"struct.url::Parsed", ptr %136, i32 0, i32 7
+  %138 = call noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %132, ptr noundef nonnull align 4 dereferenceable(8) %134, ptr noundef %135, ptr noundef %137)
+  %139 = zext i1 %138 to i32
+  %140 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %141 = trunc i8 %140 to i1
+  %142 = zext i1 %141 to i32
+  %143 = and i32 %142, %139
+  %144 = icmp ne i32 %143, 0
+  %145 = zext i1 %144 to i8
+  store i8 %145, ptr %11, align 1, !tbaa !26
+  %146 = load ptr, ptr %12, align 8, !tbaa !59
+  %147 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8, !tbaa !61
+  %149 = icmp ne ptr %148, null
+  br i1 %149, label %150, label %155
 
-if.then:                                          ; preds = %entry
-  %52 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call72 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %52)
-  %53 = load ptr, ptr %source.addr, align 8
-  %scheme73 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %53, i32 0, i32 0
-  store ptr %call72, ptr %scheme73, align 8
-  br label %if.end
+150:                                              ; preds = %5
+  %151 = load ptr, ptr %8, align 8, !tbaa !12
+  %152 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %151)
+  %153 = load ptr, ptr %9, align 8, !tbaa !36
+  %154 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %153, i32 0, i32 0
+  store ptr %152, ptr %154, align 8, !tbaa !40
+  br label %155
 
-if.end:                                           ; preds = %if.then, %entry
-  %54 = load ptr, ptr %repl_source, align 8
-  %username74 = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %54, i32 0, i32 1
-  %55 = load ptr, ptr %username74, align 8
-  %tobool75 = icmp ne ptr %55, null
-  br i1 %tobool75, label %if.then76, label %if.end79
+155:                                              ; preds = %150, %5
+  %156 = load ptr, ptr %12, align 8, !tbaa !59
+  %157 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8, !tbaa !63
+  %159 = icmp ne ptr %158, null
+  br i1 %159, label %160, label %165
 
-if.then76:                                        ; preds = %if.end
-  %56 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call77 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %56)
-  %57 = load ptr, ptr %source.addr, align 8
-  %username78 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %57, i32 0, i32 1
-  store ptr %call77, ptr %username78, align 8
-  br label %if.end79
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %8, align 8, !tbaa !12
+  %162 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %161)
+  %163 = load ptr, ptr %9, align 8, !tbaa !36
+  %164 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %163, i32 0, i32 1
+  store ptr %162, ptr %164, align 8, !tbaa !42
+  br label %165
 
-if.end79:                                         ; preds = %if.then76, %if.end
-  %58 = load ptr, ptr %repl_source, align 8
-  %password80 = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %58, i32 0, i32 2
-  %59 = load ptr, ptr %password80, align 8
-  %tobool81 = icmp ne ptr %59, null
-  br i1 %tobool81, label %if.then82, label %if.end85
+165:                                              ; preds = %160, %155
+  %166 = load ptr, ptr %12, align 8, !tbaa !59
+  %167 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %166, i32 0, i32 2
+  %168 = load ptr, ptr %167, align 8, !tbaa !64
+  %169 = icmp ne ptr %168, null
+  br i1 %169, label %170, label %175
 
-if.then82:                                        ; preds = %if.end79
-  %60 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call83 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %60)
-  %61 = load ptr, ptr %source.addr, align 8
-  %password84 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %61, i32 0, i32 2
-  store ptr %call83, ptr %password84, align 8
-  br label %if.end85
+170:                                              ; preds = %165
+  %171 = load ptr, ptr %8, align 8, !tbaa !12
+  %172 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %171)
+  %173 = load ptr, ptr %9, align 8, !tbaa !36
+  %174 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %173, i32 0, i32 2
+  store ptr %172, ptr %174, align 8, !tbaa !43
+  br label %175
 
-if.end85:                                         ; preds = %if.then82, %if.end79
-  %62 = load ptr, ptr %repl_source, align 8
-  %host86 = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %62, i32 0, i32 3
-  %63 = load ptr, ptr %host86, align 8
-  %tobool87 = icmp ne ptr %63, null
-  br i1 %tobool87, label %if.then88, label %if.end91
+175:                                              ; preds = %170, %165
+  %176 = load ptr, ptr %12, align 8, !tbaa !59
+  %177 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %176, i32 0, i32 3
+  %178 = load ptr, ptr %177, align 8, !tbaa !65
+  %179 = icmp ne ptr %178, null
+  br i1 %179, label %180, label %185
 
-if.then88:                                        ; preds = %if.end85
-  %64 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call89 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %64)
-  %65 = load ptr, ptr %source.addr, align 8
-  %host90 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %65, i32 0, i32 3
-  store ptr %call89, ptr %host90, align 8
-  br label %if.end91
+180:                                              ; preds = %175
+  %181 = load ptr, ptr %8, align 8, !tbaa !12
+  %182 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %181)
+  %183 = load ptr, ptr %9, align 8, !tbaa !36
+  %184 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %183, i32 0, i32 3
+  store ptr %182, ptr %184, align 8, !tbaa !44
+  br label %185
 
-if.end91:                                         ; preds = %if.then88, %if.end85
-  %66 = load ptr, ptr %repl_source, align 8
-  %port92 = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %66, i32 0, i32 4
-  %67 = load ptr, ptr %port92, align 8
-  %tobool93 = icmp ne ptr %67, null
-  br i1 %tobool93, label %if.then94, label %if.end97
+185:                                              ; preds = %180, %175
+  %186 = load ptr, ptr %12, align 8, !tbaa !59
+  %187 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %186, i32 0, i32 4
+  %188 = load ptr, ptr %187, align 8, !tbaa !66
+  %189 = icmp ne ptr %188, null
+  br i1 %189, label %190, label %195
 
-if.then94:                                        ; preds = %if.end91
-  %68 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call95 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %68)
-  %69 = load ptr, ptr %source.addr, align 8
-  %port96 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %69, i32 0, i32 4
-  store ptr %call95, ptr %port96, align 8
-  br label %if.end97
+190:                                              ; preds = %185
+  %191 = load ptr, ptr %8, align 8, !tbaa !12
+  %192 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %191)
+  %193 = load ptr, ptr %9, align 8, !tbaa !36
+  %194 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %193, i32 0, i32 4
+  store ptr %192, ptr %194, align 8, !tbaa !48
+  br label %195
 
-if.end97:                                         ; preds = %if.then94, %if.end91
-  %70 = load ptr, ptr %repl_source, align 8
-  %path98 = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %70, i32 0, i32 5
-  %71 = load ptr, ptr %path98, align 8
-  %tobool99 = icmp ne ptr %71, null
-  br i1 %tobool99, label %if.then100, label %if.end103
+195:                                              ; preds = %190, %185
+  %196 = load ptr, ptr %12, align 8, !tbaa !59
+  %197 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %196, i32 0, i32 5
+  %198 = load ptr, ptr %197, align 8, !tbaa !67
+  %199 = icmp ne ptr %198, null
+  br i1 %199, label %200, label %205
 
-if.then100:                                       ; preds = %if.end97
-  %72 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call101 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %72)
-  %73 = load ptr, ptr %source.addr, align 8
-  %path102 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %73, i32 0, i32 5
-  store ptr %call101, ptr %path102, align 8
-  br label %if.end103
+200:                                              ; preds = %195
+  %201 = load ptr, ptr %8, align 8, !tbaa !12
+  %202 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %201)
+  %203 = load ptr, ptr %9, align 8, !tbaa !36
+  %204 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %203, i32 0, i32 5
+  store ptr %202, ptr %204, align 8, !tbaa !49
+  br label %205
 
-if.end103:                                        ; preds = %if.then100, %if.end97
-  %74 = load ptr, ptr %repl_source, align 8
-  %query104 = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %74, i32 0, i32 6
-  %75 = load ptr, ptr %query104, align 8
-  %tobool105 = icmp ne ptr %75, null
-  br i1 %tobool105, label %if.then106, label %if.end109
+205:                                              ; preds = %200, %195
+  %206 = load ptr, ptr %12, align 8, !tbaa !59
+  %207 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %206, i32 0, i32 6
+  %208 = load ptr, ptr %207, align 8, !tbaa !68
+  %209 = icmp ne ptr %208, null
+  br i1 %209, label %210, label %215
 
-if.then106:                                       ; preds = %if.end103
-  %76 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call107 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %76)
-  %77 = load ptr, ptr %source.addr, align 8
-  %query108 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %77, i32 0, i32 6
-  store ptr %call107, ptr %query108, align 8
-  br label %if.end109
+210:                                              ; preds = %205
+  %211 = load ptr, ptr %8, align 8, !tbaa !12
+  %212 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %211)
+  %213 = load ptr, ptr %9, align 8, !tbaa !36
+  %214 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %213, i32 0, i32 6
+  store ptr %212, ptr %214, align 8, !tbaa !50
+  br label %215
 
-if.end109:                                        ; preds = %if.then106, %if.end103
-  %78 = load ptr, ptr %repl_source, align 8
-  %ref110 = getelementptr inbounds %"struct.url::URLComponentSource.1", ptr %78, i32 0, i32 7
-  %79 = load ptr, ptr %ref110, align 8
-  %tobool111 = icmp ne ptr %79, null
-  br i1 %tobool111, label %if.then112, label %if.end115
+215:                                              ; preds = %210, %205
+  %216 = load ptr, ptr %12, align 8, !tbaa !59
+  %217 = getelementptr inbounds nuw %"struct.url::URLComponentSource.1", ptr %216, i32 0, i32 7
+  %218 = load ptr, ptr %217, align 8, !tbaa !69
+  %219 = icmp ne ptr %218, null
+  br i1 %219, label %220, label %225
 
-if.then112:                                       ; preds = %if.end109
-  %80 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call113 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %80)
-  %81 = load ptr, ptr %source.addr, align 8
-  %ref114 = getelementptr inbounds %"struct.url::URLComponentSource", ptr %81, i32 0, i32 7
-  store ptr %call113, ptr %ref114, align 8
-  br label %if.end115
+220:                                              ; preds = %215
+  %221 = load ptr, ptr %8, align 8, !tbaa !12
+  %222 = call noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %221)
+  %223 = load ptr, ptr %9, align 8, !tbaa !36
+  %224 = getelementptr inbounds nuw %"struct.url::URLComponentSource", ptr %223, i32 0, i32 7
+  store ptr %222, ptr %224, align 8, !tbaa !51
+  br label %225
 
-if.end115:                                        ; preds = %if.then112, %if.end109
-  %82 = load i8, ptr %success, align 1
-  %tobool116 = trunc i8 %82 to i1
-  ret i1 %tobool116
+225:                                              ; preds = %220, %215
+  %226 = load i8, ptr %11, align 1, !tbaa !26, !range !28, !noundef !29
+  %227 = trunc i8 %226 to i1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #8
+  ret i1 %227
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3url12ReplacementsItE7sourcesEv(ptr noundef nonnull align 8 dereferenceable(136) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %sources_ = getelementptr inbounds %"class.url::Replacements.0", ptr %this1, i32 0, i32 0
-  ret ptr %sources_
+define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3url12ReplacementsItE7sourcesEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.url::Replacements.0", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3url12ReplacementsItE10componentsEv(ptr noundef nonnull align 8 dereferenceable(136) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %components_ = getelementptr inbounds %"class.url::Replacements.0", ptr %this1, i32 0, i32 1
-  ret ptr %components_
+define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3url12ReplacementsItE10componentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.url::Replacements.0", ptr %3, i32 0, i32 1
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %override_source, ptr noundef nonnull align 4 dereferenceable(8) %override_component, ptr noundef %utf8_buffer, ptr noundef %dest_component) #0 {
-entry:
-  %override_source.addr = alloca ptr, align 8
-  %override_component.addr = alloca ptr, align 8
-  %utf8_buffer.addr = alloca ptr, align 8
-  %dest_component.addr = alloca ptr, align 8
-  %success = alloca i8, align 1
-  %ref.tmp = alloca %"struct.url::Component", align 4
-  store ptr %override_source, ptr %override_source.addr, align 8
-  store ptr %override_component, ptr %override_component.addr, align 8
-  store ptr %utf8_buffer, ptr %utf8_buffer.addr, align 8
-  store ptr %dest_component, ptr %dest_component.addr, align 8
-  store i8 1, ptr %success, align 1
-  %0 = load ptr, ptr %override_source.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end8
+define internal noundef zeroext i1 @_ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca %"struct.url::Component", align 4
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store ptr %1, ptr %6, align 8, !tbaa !52
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #8
+  store i8 1, ptr %9, align 1, !tbaa !26
+  %11 = load ptr, ptr %5, align 8, !tbaa !17
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %44
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %override_component.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %1)
-  br i1 %call, label %if.else, label %if.then1
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %6, align 8, !tbaa !52
+  %15 = call noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %14)
+  br i1 %15, label %18, label %16
 
-if.then1:                                         ; preds = %if.then
-  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp)
-  %2 = load ptr, ptr %dest_component.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %ref.tmp, i64 8, i1 false)
-  br label %if.end
+16:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %17 = load ptr, ptr %8, align 8, !tbaa !52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %10, i64 8, i1 false), !tbaa.struct !56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %43
 
-if.else:                                          ; preds = %if.then
-  %3 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call2 = call noundef i32 @_ZNK3url12CanonOutputTIcE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %4 = load ptr, ptr %dest_component.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %4, i32 0, i32 0
-  store i32 %call2, ptr %begin, align 4
-  %5 = load ptr, ptr %override_source.addr, align 8
-  %6 = load ptr, ptr %override_component.addr, align 8
-  %begin3 = getelementptr inbounds %"struct.url::Component", ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %begin3, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %5, i64 %idxprom
-  %8 = load ptr, ptr %override_component.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %len, align 4
-  %10 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call4 = call noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE(ptr noundef %arrayidx, i32 noundef %9, ptr noundef %10)
-  %frombool = zext i1 %call4 to i8
-  store i8 %frombool, ptr %success, align 1
-  %11 = load ptr, ptr %utf8_buffer.addr, align 8
-  %call5 = call noundef i32 @_ZNK3url12CanonOutputTIcE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  %12 = load ptr, ptr %dest_component.addr, align 8
-  %begin6 = getelementptr inbounds %"struct.url::Component", ptr %12, i32 0, i32 0
-  %13 = load i32, ptr %begin6, align 4
-  %sub = sub nsw i32 %call5, %13
-  %14 = load ptr, ptr %dest_component.addr, align 8
-  %len7 = getelementptr inbounds %"struct.url::Component", ptr %14, i32 0, i32 1
-  store i32 %sub, ptr %len7, align 4
-  br label %if.end
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %7, align 8, !tbaa !12
+  %20 = call noundef i32 @_ZNK3url12CanonOutputTIcE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+  %21 = load ptr, ptr %8, align 8, !tbaa !52
+  %22 = getelementptr inbounds nuw %"struct.url::Component", ptr %21, i32 0, i32 0
+  store i32 %20, ptr %22, align 4, !tbaa !70
+  %23 = load ptr, ptr %5, align 8, !tbaa !17
+  %24 = load ptr, ptr %6, align 8, !tbaa !52
+  %25 = getelementptr inbounds nuw %"struct.url::Component", ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 4, !tbaa !70
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i16, ptr %23, i64 %27
+  %29 = load ptr, ptr %6, align 8, !tbaa !52
+  %30 = getelementptr inbounds nuw %"struct.url::Component", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4, !tbaa !71
+  %32 = load ptr, ptr %7, align 8, !tbaa !12
+  %33 = call noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE(ptr noundef %28, i32 noundef %31, ptr noundef %32)
+  %34 = zext i1 %33 to i8
+  store i8 %34, ptr %9, align 1, !tbaa !26
+  %35 = load ptr, ptr %7, align 8, !tbaa !12
+  %36 = call noundef i32 @_ZNK3url12CanonOutputTIcE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %35)
+  %37 = load ptr, ptr %8, align 8, !tbaa !52
+  %38 = getelementptr inbounds nuw %"struct.url::Component", ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %38, align 4, !tbaa !70
+  %40 = sub nsw i32 %36, %39
+  %41 = load ptr, ptr %8, align 8, !tbaa !52
+  %42 = getelementptr inbounds nuw %"struct.url::Component", ptr %41, i32 0, i32 1
+  store i32 %40, ptr %42, align 4, !tbaa !71
+  br label %43
 
-if.end:                                           ; preds = %if.else, %if.then1
-  br label %if.end8
+43:                                               ; preds = %18, %16
+  br label %44
 
-if.end8:                                          ; preds = %if.end, %entry
-  %15 = load i8, ptr %success, align 1
-  %tobool9 = trunc i8 %15 to i1
-  ret i1 %tobool9
+44:                                               ; preds = %43, %4
+  %45 = load i8, ptr %9, align 1, !tbaa !26, !range !28, !noundef !29
+  %46 = trunc i8 %45 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #8
+  ret i1 %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buffer_, align 8
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZN3url12CanonOutputTIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !72
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %value, ptr noundef %buffer, i64 noundef %size_in_chars, i32 noundef %radix) #2 {
-entry:
-  %retval = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %buffer.addr = alloca ptr, align 8
-  %size_in_chars.addr = alloca i64, align 8
-  %radix.addr = alloca i32, align 4
-  %format_str = alloca ptr, align 8
-  %written = alloca i32, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %buffer, ptr %buffer.addr, align 8
-  store i64 %size_in_chars, ptr %size_in_chars.addr, align 8
-  store i32 %radix, ptr %radix.addr, align 4
-  %0 = load i32, ptr %radix.addr, align 4
-  %cmp = icmp eq i32 %0, 10
-  br i1 %cmp, label %if.then, label %if.else
+define noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #5 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %13 = load i32, ptr %9, align 4, !tbaa !8
+  %14 = icmp eq i32 %13, 10
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store ptr @.str, ptr %format_str, align 8
-  br label %if.end4
+15:                                               ; preds = %4
+  store ptr @.str, ptr %10, align 8, !tbaa !3
+  br label %22
 
-if.else:                                          ; preds = %entry
-  %1 = load i32, ptr %radix.addr, align 4
-  %cmp1 = icmp eq i32 %1, 16
-  br i1 %cmp1, label %if.then2, label %if.else3
+16:                                               ; preds = %4
+  %17 = load i32, ptr %9, align 4, !tbaa !8
+  %18 = icmp eq i32 %17, 16
+  br i1 %18, label %19, label %20
 
-if.then2:                                         ; preds = %if.else
-  store ptr @.str.1, ptr %format_str, align 8
-  br label %if.end
+19:                                               ; preds = %16
+  store ptr @.str.1, ptr %10, align 8, !tbaa !3
+  br label %21
 
-if.else3:                                         ; preds = %if.else
-  store i32 22, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %16
+  store i32 22, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %35
 
-if.end:                                           ; preds = %if.then2
-  br label %if.end4
+21:                                               ; preds = %19
+  br label %22
 
-if.end4:                                          ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %buffer.addr, align 8
-  %3 = load i64, ptr %size_in_chars.addr, align 8
-  %4 = load ptr, ptr %format_str, align 8
-  %5 = load i32, ptr %value.addr, align 4
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #5
-  store i32 %call, ptr %written, align 4
-  %6 = load i32, ptr %written, align 4
-  %conv = sext i32 %6 to i64
-  %7 = load i64, ptr %size_in_chars.addr, align 8
-  %cmp5 = icmp uge i64 %conv, %7
-  br i1 %cmp5, label %if.then6, label %if.end7
+22:                                               ; preds = %21, %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %23 = load ptr, ptr %7, align 8, !tbaa !3
+  %24 = load i64, ptr %8, align 8, !tbaa !74
+  %25 = load ptr, ptr %10, align 8, !tbaa !3
+  %26 = load i32, ptr %6, align 4, !tbaa !8
+  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef %24, ptr noundef %25, i32 noundef %26) #8
+  store i32 %27, ptr %12, align 4, !tbaa !8
+  %28 = load i32, ptr %12, align 4, !tbaa !8
+  %29 = sext i32 %28 to i64
+  %30 = load i64, ptr %8, align 8, !tbaa !74
+  %31 = icmp uge i64 %29, %30
+  br i1 %31, label %32, label %33
 
-if.then6:                                         ; preds = %if.end4
-  store i32 22, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %22
+  store i32 22, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
 
-if.end7:                                          ; preds = %if.end4
-  store i32 0, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %22
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
 
-return:                                           ; preds = %if.end7, %if.then6, %if.else3
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+34:                                               ; preds = %33, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  br label %35
+
+35:                                               ; preds = %34, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %36 = load i32, ptr %5, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %value, ptr noundef %buffer, i64 noundef %size_in_chars, i32 noundef %radix) #2 {
-entry:
-  %retval = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %buffer.addr = alloca ptr, align 8
-  %size_in_chars.addr = alloca i64, align 8
-  %radix.addr = alloca i32, align 4
-  %temp = alloca [13 x i8], align 1
-  %written = alloca i32, align 4
-  %i = alloca i32, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %buffer, ptr %buffer.addr, align 8
-  store i64 %size_in_chars, ptr %size_in_chars.addr, align 8
-  store i32 %radix, ptr %radix.addr, align 4
-  %0 = load i32, ptr %radix.addr, align 4
-  %cmp = icmp ne i32 %0, 10
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #5 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca [13 x i8], align 1
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !17
+  store i64 %2, ptr %8, align 8, !tbaa !74
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  %14 = load i32, ptr %9, align 4, !tbaa !8
+  %15 = icmp ne i32 %14, 10
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  store i32 22, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %4
+  store i32 22, ptr %5, align 4
+  br label %51
 
-if.end:                                           ; preds = %entry
-  %arraydecay = getelementptr inbounds [13 x i8], ptr %temp, i64 0, i64 0
-  %1 = load i32, ptr %value.addr, align 4
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 13, ptr noundef @.str, i32 noundef %1) #5
-  store i32 %call, ptr %written, align 4
-  %2 = load i32, ptr %written, align 4
-  %conv = sext i32 %2 to i64
-  %3 = load i64, ptr %size_in_chars.addr, align 8
-  %cmp1 = icmp uge i64 %conv, %3
-  br i1 %cmp1, label %if.then2, label %if.end3
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 13, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %18 = getelementptr inbounds [13 x i8], ptr %10, i64 0, i64 0
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef 13, ptr noundef @.str, i32 noundef %19) #8
+  store i32 %20, ptr %11, align 4, !tbaa !8
+  %21 = load i32, ptr %11, align 4, !tbaa !8
+  %22 = sext i32 %21 to i64
+  %23 = load i64, ptr %8, align 8, !tbaa !74
+  %24 = icmp uge i64 %22, %23
+  br i1 %24, label %25, label %26
 
-if.then2:                                         ; preds = %if.end
-  store i32 22, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %17
+  store i32 22, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %50
 
-if.end3:                                          ; preds = %if.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+26:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %27
 
-for.cond:                                         ; preds = %for.inc, %if.end3
-  %4 = load i32, ptr %i, align 4
-  %5 = load i32, ptr %written, align 4
-  %cmp4 = icmp slt i32 %4, %5
-  br i1 %cmp4, label %for.body, label %for.end
+27:                                               ; preds = %42, %26
+  %28 = load i32, ptr %13, align 4, !tbaa !8
+  %29 = load i32, ptr %11, align 4, !tbaa !8
+  %30 = icmp slt i32 %28, %29
+  br i1 %30, label %32, label %31
 
-for.body:                                         ; preds = %for.cond
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds [13 x i8], ptr %temp, i64 0, i64 %idxprom
-  %7 = load i8, ptr %arrayidx, align 1
-  %conv5 = sext i8 %7 to i16
-  %8 = load ptr, ptr %buffer.addr, align 8
-  %9 = load i32, ptr %i, align 4
-  %idxprom6 = sext i32 %9 to i64
-  %arrayidx7 = getelementptr inbounds i16, ptr %8, i64 %idxprom6
-  store i16 %conv5, ptr %arrayidx7, align 2
-  br label %for.inc
+31:                                               ; preds = %27
+  store i32 2, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  br label %45
 
-for.inc:                                          ; preds = %for.body
-  %10 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %10, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !12
+32:                                               ; preds = %27
+  %33 = load i32, ptr %13, align 4, !tbaa !8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [13 x i8], ptr %10, i64 0, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !14
+  %37 = sext i8 %36 to i16
+  %38 = load ptr, ptr %7, align 8, !tbaa !17
+  %39 = load i32, ptr %13, align 4, !tbaa !8
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i16, ptr %38, i64 %40
+  store i16 %37, ptr %41, align 2, !tbaa !19
+  br label %42
 
-for.end:                                          ; preds = %for.cond
-  %11 = load ptr, ptr %buffer.addr, align 8
-  %12 = load i32, ptr %written, align 4
-  %idxprom8 = sext i32 %12 to i64
-  %arrayidx9 = getelementptr inbounds i16, ptr %11, i64 %idxprom8
-  store i16 0, ptr %arrayidx9, align 2
-  store i32 0, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %32
+  %43 = load i32, ptr %13, align 4, !tbaa !8
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %13, align 4, !tbaa !8
+  br label %27, !llvm.loop !76
 
-return:                                           ; preds = %for.end, %if.then2, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+45:                                               ; preds = %31
+  %46 = load ptr, ptr %7, align 8, !tbaa !17
+  %47 = load i32, ptr %11, align 4, !tbaa !8
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i16, ptr %46, i64 %48
+  store i16 0, ptr %49, align 2, !tbaa !19
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %50
+
+50:                                               ; preds = %45, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 13, ptr %10) #8
+  br label %51
+
+51:                                               ; preds = %50, %16
+  %52 = load i32, ptr %5, align 4
+  ret i32 %52
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %char_value, ptr noundef %output) #0 comdat {
-entry:
-  %char_value.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store i32 %char_value, ptr %char_value.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load i32, ptr %char_value.addr, align 4
-  %cmp = icmp ule i32 %0, 127
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = icmp ule i32 %5, 127
+  br i1 %6, label %7, label %11
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %char_value.addr, align 4
-  %conv = trunc i32 %1 to i8
-  %2 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv, ptr noundef %2)
-  br label %if.end39
+7:                                                ; preds = %2
+  %8 = load i32, ptr %3, align 4, !tbaa !8
+  %9 = trunc i32 %8 to i8
+  %10 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %9, ptr noundef %10)
+  br label %75
 
-if.else:                                          ; preds = %entry
-  %3 = load i32, ptr %char_value.addr, align 4
-  %cmp1 = icmp ule i32 %3, 2047
-  br i1 %cmp1, label %if.then2, label %if.else6
+11:                                               ; preds = %2
+  %12 = load i32, ptr %3, align 4, !tbaa !8
+  %13 = icmp ule i32 %12, 2047
+  br i1 %13, label %14, label %25
 
-if.then2:                                         ; preds = %if.else
-  %4 = load i32, ptr %char_value.addr, align 4
-  %shr = lshr i32 %4, 6
-  %or = or i32 192, %shr
-  %conv3 = trunc i32 %or to i8
-  %5 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv3, ptr noundef %5)
-  %6 = load i32, ptr %char_value.addr, align 4
-  %and = and i32 %6, 63
-  %or4 = or i32 128, %and
-  %conv5 = trunc i32 %or4 to i8
-  %7 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv5, ptr noundef %7)
-  br label %if.end38
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4, !tbaa !8
+  %16 = lshr i32 %15, 6
+  %17 = or i32 192, %16
+  %18 = trunc i32 %17 to i8
+  %19 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %18, ptr noundef %19)
+  %20 = load i32, ptr %3, align 4, !tbaa !8
+  %21 = and i32 %20, 63
+  %22 = or i32 128, %21
+  %23 = trunc i32 %22 to i8
+  %24 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %23, ptr noundef %24)
+  br label %74
 
-if.else6:                                         ; preds = %if.else
-  %8 = load i32, ptr %char_value.addr, align 4
-  %cmp7 = icmp ule i32 %8, 65535
-  br i1 %cmp7, label %if.then8, label %if.else19
+25:                                               ; preds = %11
+  %26 = load i32, ptr %3, align 4, !tbaa !8
+  %27 = icmp ule i32 %26, 65535
+  br i1 %27, label %28, label %45
 
-if.then8:                                         ; preds = %if.else6
-  %9 = load i32, ptr %char_value.addr, align 4
-  %shr9 = lshr i32 %9, 12
-  %or10 = or i32 224, %shr9
-  %conv11 = trunc i32 %or10 to i8
-  %10 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv11, ptr noundef %10)
-  %11 = load i32, ptr %char_value.addr, align 4
-  %shr12 = lshr i32 %11, 6
-  %and13 = and i32 %shr12, 63
-  %or14 = or i32 128, %and13
-  %conv15 = trunc i32 %or14 to i8
-  %12 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv15, ptr noundef %12)
-  %13 = load i32, ptr %char_value.addr, align 4
-  %and16 = and i32 %13, 63
-  %or17 = or i32 128, %and16
-  %conv18 = trunc i32 %or17 to i8
-  %14 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv18, ptr noundef %14)
-  br label %if.end37
+28:                                               ; preds = %25
+  %29 = load i32, ptr %3, align 4, !tbaa !8
+  %30 = lshr i32 %29, 12
+  %31 = or i32 224, %30
+  %32 = trunc i32 %31 to i8
+  %33 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %32, ptr noundef %33)
+  %34 = load i32, ptr %3, align 4, !tbaa !8
+  %35 = lshr i32 %34, 6
+  %36 = and i32 %35, 63
+  %37 = or i32 128, %36
+  %38 = trunc i32 %37 to i8
+  %39 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %38, ptr noundef %39)
+  %40 = load i32, ptr %3, align 4, !tbaa !8
+  %41 = and i32 %40, 63
+  %42 = or i32 128, %41
+  %43 = trunc i32 %42 to i8
+  %44 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %43, ptr noundef %44)
+  br label %73
 
-if.else19:                                        ; preds = %if.else6
-  %15 = load i32, ptr %char_value.addr, align 4
-  %cmp20 = icmp ule i32 %15, 1114111
-  br i1 %cmp20, label %if.then21, label %if.else36
+45:                                               ; preds = %25
+  %46 = load i32, ptr %3, align 4, !tbaa !8
+  %47 = icmp ule i32 %46, 1114111
+  br i1 %47, label %48, label %71
 
-if.then21:                                        ; preds = %if.else19
-  %16 = load i32, ptr %char_value.addr, align 4
-  %shr22 = lshr i32 %16, 18
-  %or23 = or i32 240, %shr22
-  %conv24 = trunc i32 %or23 to i8
-  %17 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv24, ptr noundef %17)
-  %18 = load i32, ptr %char_value.addr, align 4
-  %shr25 = lshr i32 %18, 12
-  %and26 = and i32 %shr25, 63
-  %or27 = or i32 128, %and26
-  %conv28 = trunc i32 %or27 to i8
-  %19 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv28, ptr noundef %19)
-  %20 = load i32, ptr %char_value.addr, align 4
-  %shr29 = lshr i32 %20, 6
-  %and30 = and i32 %shr29, 63
-  %or31 = or i32 128, %and30
-  %conv32 = trunc i32 %or31 to i8
-  %21 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv32, ptr noundef %21)
-  %22 = load i32, ptr %char_value.addr, align 4
-  %and33 = and i32 %22, 63
-  %or34 = or i32 128, %and33
-  %conv35 = trunc i32 %or34 to i8
-  %23 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %conv35, ptr noundef %23)
-  br label %if.end
+48:                                               ; preds = %45
+  %49 = load i32, ptr %3, align 4, !tbaa !8
+  %50 = lshr i32 %49, 18
+  %51 = or i32 240, %50
+  %52 = trunc i32 %51 to i8
+  %53 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %52, ptr noundef %53)
+  %54 = load i32, ptr %3, align 4, !tbaa !8
+  %55 = lshr i32 %54, 12
+  %56 = and i32 %55, 63
+  %57 = or i32 128, %56
+  %58 = trunc i32 %57 to i8
+  %59 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %58, ptr noundef %59)
+  %60 = load i32, ptr %3, align 4, !tbaa !8
+  %61 = lshr i32 %60, 6
+  %62 = and i32 %61, 63
+  %63 = or i32 128, %62
+  %64 = trunc i32 %63 to i8
+  %65 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %64, ptr noundef %65)
+  %66 = load i32, ptr %3, align 4, !tbaa !8
+  %67 = and i32 %66, 63
+  %68 = or i32 128, %67
+  %69 = trunc i32 %68 to i8
+  %70 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %69, ptr noundef %70)
+  br label %72
 
-if.else36:                                        ; preds = %if.else19
-  br label %if.end
+71:                                               ; preds = %45
+  br label %72
 
-if.end:                                           ; preds = %if.else36, %if.then21
-  br label %if.end37
+72:                                               ; preds = %71, %48
+  br label %73
 
-if.end37:                                         ; preds = %if.end, %if.then8
-  br label %if.end38
+73:                                               ; preds = %72, %28
+  br label %74
 
-if.end38:                                         ; preds = %if.end37, %if.then2
-  br label %if.end39
+74:                                               ; preds = %73, %14
+  br label %75
 
-if.end39:                                         ; preds = %if.end38, %if.then
+75:                                               ; preds = %74, %7
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %0, ptr noundef %1) #4 comdat {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  store i8 %0, ptr %3, align 1, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  %6 = load i8, ptr %3, align 1, !tbaa !14
+  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 noundef signext %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE(i8 noundef zeroext %ch, ptr noundef %output) #0 comdat {
-entry:
-  %ch.addr = alloca i8, align 1
-  %output.addr = alloca ptr, align 8
-  store i8 %ch, ptr %ch.addr, align 1
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %output.addr, align 8
-  %1 = load i8, ptr %ch.addr, align 1
-  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef signext %1)
+define linkonce_odr void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef signext %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i8 %1, ptr %4, align 1, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %5, i32 0, i32 3
+  %7 = load i32, ptr %6, align 4, !tbaa !77
+  %8 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %5, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8, !tbaa !78
+  %10 = icmp slt i32 %7, %9
+  br i1 %10, label %11, label %22
+
+11:                                               ; preds = %2
+  %12 = load i8, ptr %4, align 1, !tbaa !14
+  %13 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %5, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !72
+  %15 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %5, i32 0, i32 3
+  %16 = load i32, ptr %15, align 4, !tbaa !77
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i8, ptr %14, i64 %17
+  store i8 %12, ptr %18, align 1, !tbaa !14
+  %19 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %5, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4, !tbaa !77
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %19, align 4, !tbaa !77
+  br label %36
+
+22:                                               ; preds = %2
+  %23 = call noundef zeroext i1 @_ZN3url12CanonOutputTIcE4GrowEi(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1)
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %22
+  br label %36
+
+25:                                               ; preds = %22
+  %26 = load i8, ptr %4, align 1, !tbaa !14
+  %27 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %5, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !72
+  %29 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %5, i32 0, i32 3
+  %30 = load i32, ptr %29, align 4, !tbaa !77
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %28, i64 %31
+  store i8 %26, ptr %32, align 1, !tbaa !14
+  %33 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %5, i32 0, i32 3
+  %34 = load i32, ptr %33, align 4, !tbaa !77
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %33, align 4, !tbaa !77
+  br label %36
+
+36:                                               ; preds = %25, %24, %11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 noundef signext %ch) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ch.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i8 %ch, ptr %ch.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %cur_len_, align 4
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %buffer_len_, align 8
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr noundef zeroext i1 @_ZN3url12CanonOutputTIcE4GrowEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %9 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %8, i32 0, i32 2
+  %10 = load i32, ptr %9, align 8, !tbaa !78
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load i8, ptr %ch.addr, align 1
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %buffer_, align 8
-  %cur_len_2 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 3
-  %4 = load i32, ptr %cur_len_2, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %idxprom
-  store i8 %2, ptr %arrayidx, align 1
-  %cur_len_3 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 3
-  %5 = load i32, ptr %cur_len_3, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %cur_len_3, align 4
-  br label %return
+12:                                               ; preds = %2
+  br label %16
 
-if.end:                                           ; preds = %entry
-  %call = call noundef zeroext i1 @_ZN3url12CanonOutputTIcE4GrowEi(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 1)
-  br i1 %call, label %if.end5, label %if.then4
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %8, i32 0, i32 2
+  %15 = load i32, ptr %14, align 8, !tbaa !78
+  br label %16
 
-if.then4:                                         ; preds = %if.end
-  br label %return
+16:                                               ; preds = %13, %12
+  %17 = phi i32 [ 16, %12 ], [ %15, %13 ]
+  store i32 %17, ptr %6, align 4, !tbaa !8
+  br label %18
 
-if.end5:                                          ; preds = %if.end
-  %6 = load i8, ptr %ch.addr, align 1
-  %buffer_6 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %buffer_6, align 8
-  %cur_len_7 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 3
-  %8 = load i32, ptr %cur_len_7, align 4
-  %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds i8, ptr %7, i64 %idxprom8
-  store i8 %6, ptr %arrayidx9, align 1
-  %cur_len_10 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 3
-  %9 = load i32, ptr %cur_len_10, align 4
-  %inc11 = add nsw i32 %9, 1
-  store i32 %inc11, ptr %cur_len_10, align 4
-  br label %return
+18:                                               ; preds = %25, %16
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = icmp sge i32 %19, 1073741824
+  br i1 %20, label %21, label %22
 
-return:                                           ; preds = %if.end5, %if.then4, %if.then
+21:                                               ; preds = %18
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %37
+
+22:                                               ; preds = %18
+  %23 = load i32, ptr %6, align 4, !tbaa !8
+  %24 = mul nsw i32 %23, 2
+  store i32 %24, ptr %6, align 4, !tbaa !8
+  br label %25
+
+25:                                               ; preds = %22
+  %26 = load i32, ptr %6, align 4, !tbaa !8
+  %27 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %8, i32 0, i32 2
+  %28 = load i32, ptr %27, align 8, !tbaa !78
+  %29 = load i32, ptr %5, align 4, !tbaa !8
+  %30 = add nsw i32 %28, %29
+  %31 = icmp slt i32 %26, %30
+  br i1 %31, label %18, label %32, !llvm.loop !79
+
+32:                                               ; preds = %25
+  %33 = load i32, ptr %6, align 4, !tbaa !8
+  %34 = load ptr, ptr %8, align 8, !tbaa !80
+  %35 = getelementptr inbounds ptr, ptr %34, i64 2
+  %36 = load ptr, ptr %35, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %33)
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %37
+
+37:                                               ; preds = %32, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %38 = load i1, ptr %3, align 1
+  ret i1 %38
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN3url12CanonOutputTItE9push_backEt(ptr noundef nonnull align 8 dereferenceable(24) %0, i16 noundef zeroext %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i16, align 2
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store i16 %1, ptr %4, align 2, !tbaa !19
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %5, i32 0, i32 3
+  %7 = load i32, ptr %6, align 4, !tbaa !82
+  %8 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %5, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8, !tbaa !84
+  %10 = icmp slt i32 %7, %9
+  br i1 %10, label %11, label %22
+
+11:                                               ; preds = %2
+  %12 = load i16, ptr %4, align 2, !tbaa !19
+  %13 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %5, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
+  %15 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %5, i32 0, i32 3
+  %16 = load i32, ptr %15, align 4, !tbaa !82
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i16, ptr %14, i64 %17
+  store i16 %12, ptr %18, align 2, !tbaa !19
+  %19 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %5, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4, !tbaa !82
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %19, align 4, !tbaa !82
+  br label %36
+
+22:                                               ; preds = %2
+  %23 = call noundef zeroext i1 @_ZN3url12CanonOutputTItE4GrowEi(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1)
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %22
+  br label %36
+
+25:                                               ; preds = %22
+  %26 = load i16, ptr %4, align 2, !tbaa !19
+  %27 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %5, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !85
+  %29 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %5, i32 0, i32 3
+  %30 = load i32, ptr %29, align 4, !tbaa !82
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i16, ptr %28, i64 %31
+  store i16 %26, ptr %32, align 2, !tbaa !19
+  %33 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %5, i32 0, i32 3
+  %34 = load i32, ptr %33, align 4, !tbaa !82
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %33, align 4, !tbaa !82
+  br label %36
+
+36:                                               ; preds = %25, %24, %11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3url12CanonOutputTIcE4GrowEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %min_additional) #0 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %min_additional.addr = alloca i32, align 4
-  %new_len = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %min_additional, ptr %min_additional.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %buffer_len_, align 8
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr noundef zeroext i1 @_ZN3url12CanonOutputTItE4GrowEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %9 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %8, i32 0, i32 2
+  %10 = load i32, ptr %9, align 8, !tbaa !84
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+12:                                               ; preds = %2
+  br label %16
 
-cond.false:                                       ; preds = %entry
-  %buffer_len_2 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %buffer_len_2, align 8
-  br label %cond.end
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %8, i32 0, i32 2
+  %15 = load i32, ptr %14, align 8, !tbaa !84
+  br label %16
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 16, %cond.true ], [ %1, %cond.false ]
-  store i32 %cond, ptr %new_len, align 4
-  br label %do.body
+16:                                               ; preds = %13, %12
+  %17 = phi i32 [ 16, %12 ], [ %15, %13 ]
+  store i32 %17, ptr %6, align 4, !tbaa !8
+  br label %18
 
-do.body:                                          ; preds = %do.cond, %cond.end
-  %2 = load i32, ptr %new_len, align 4
-  %cmp3 = icmp sge i32 %2, 1073741824
-  br i1 %cmp3, label %if.then, label %if.end
+18:                                               ; preds = %25, %16
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = icmp sge i32 %19, 1073741824
+  br i1 %20, label %21, label %22
 
-if.then:                                          ; preds = %do.body
-  store i1 false, ptr %retval, align 1
-  br label %return
+21:                                               ; preds = %18
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %37
 
-if.end:                                           ; preds = %do.body
-  %3 = load i32, ptr %new_len, align 4
-  %mul = mul nsw i32 %3, 2
-  store i32 %mul, ptr %new_len, align 4
-  br label %do.cond
+22:                                               ; preds = %18
+  %23 = load i32, ptr %6, align 4, !tbaa !8
+  %24 = mul nsw i32 %23, 2
+  store i32 %24, ptr %6, align 4, !tbaa !8
+  br label %25
 
-do.cond:                                          ; preds = %if.end
-  %4 = load i32, ptr %new_len, align 4
-  %buffer_len_4 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %buffer_len_4, align 8
-  %6 = load i32, ptr %min_additional.addr, align 4
-  %add = add nsw i32 %5, %6
-  %cmp5 = icmp slt i32 %4, %add
-  br i1 %cmp5, label %do.body, label %do.end, !llvm.loop !13
+25:                                               ; preds = %22
+  %26 = load i32, ptr %6, align 4, !tbaa !8
+  %27 = getelementptr inbounds nuw %"class.url::CanonOutputT.2", ptr %8, i32 0, i32 2
+  %28 = load i32, ptr %27, align 8, !tbaa !84
+  %29 = load i32, ptr %5, align 4, !tbaa !8
+  %30 = add nsw i32 %28, %29
+  %31 = icmp slt i32 %26, %30
+  br i1 %31, label %18, label %32, !llvm.loop !86
 
-do.end:                                           ; preds = %do.cond
-  %7 = load i32, ptr %new_len, align 4
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %8 = load ptr, ptr %vfn, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %7)
-  store i1 true, ptr %retval, align 1
-  br label %return
+32:                                               ; preds = %25
+  %33 = load i32, ptr %6, align 4, !tbaa !8
+  %34 = load ptr, ptr %8, align 8, !tbaa !80
+  %35 = getelementptr inbounds ptr, ptr %34, i64 2
+  %36 = load ptr, ptr %35, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %33)
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %37
 
-return:                                           ; preds = %do.end, %if.then
-  %9 = load i1, ptr %retval, align 1
-  ret i1 %9
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url12CanonOutputTItE9push_backEt(ptr noundef nonnull align 8 dereferenceable(24) %this, i16 noundef zeroext %ch) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ch.addr = alloca i16, align 2
-  store ptr %this, ptr %this.addr, align 8
-  store i16 %ch, ptr %ch.addr, align 2
-  %this1 = load ptr, ptr %this.addr, align 8
-  %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %cur_len_, align 4
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %buffer_len_, align 8
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load i16, ptr %ch.addr, align 2
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %buffer_, align 8
-  %cur_len_2 = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 3
-  %4 = load i32, ptr %cur_len_2, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
-  store i16 %2, ptr %arrayidx, align 2
-  %cur_len_3 = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 3
-  %5 = load i32, ptr %cur_len_3, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %cur_len_3, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call = call noundef zeroext i1 @_ZN3url12CanonOutputTItE4GrowEi(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 1)
-  br i1 %call, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %if.end
-  br label %return
-
-if.end5:                                          ; preds = %if.end
-  %6 = load i16, ptr %ch.addr, align 2
-  %buffer_6 = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %buffer_6, align 8
-  %cur_len_7 = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 3
-  %8 = load i32, ptr %cur_len_7, align 4
-  %idxprom8 = sext i32 %8 to i64
-  %arrayidx9 = getelementptr inbounds i16, ptr %7, i64 %idxprom8
-  store i16 %6, ptr %arrayidx9, align 2
-  %cur_len_10 = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 3
-  %9 = load i32, ptr %cur_len_10, align 4
-  %inc11 = add nsw i32 %9, 1
-  store i32 %inc11, ptr %cur_len_10, align 4
-  br label %return
-
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3url12CanonOutputTItE4GrowEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %min_additional) #0 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %min_additional.addr = alloca i32, align 4
-  %new_len = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %min_additional, ptr %min_additional.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %buffer_len_, align 8
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %buffer_len_2 = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %buffer_len_2, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 16, %cond.true ], [ %1, %cond.false ]
-  store i32 %cond, ptr %new_len, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %cond.end
-  %2 = load i32, ptr %new_len, align 4
-  %cmp3 = icmp sge i32 %2, 1073741824
-  br i1 %cmp3, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %do.body
-  %3 = load i32, ptr %new_len, align 4
-  %mul = mul nsw i32 %3, 2
-  store i32 %mul, ptr %new_len, align 4
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end
-  %4 = load i32, ptr %new_len, align 4
-  %buffer_len_4 = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %buffer_len_4, align 8
-  %6 = load i32, ptr %min_additional.addr, align 4
-  %add = add nsw i32 %5, %6
-  %cmp5 = icmp slt i32 %4, %add
-  br i1 %cmp5, label %do.body, label %do.end, !llvm.loop !14
-
-do.end:                                           ; preds = %do.cond
-  %7 = load i32, ptr %new_len, align 4
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %8 = load ptr, ptr %vfn, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %7)
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %do.end, %if.then
-  %9 = load i1, ptr %retval, align 1
-  ret i1 %9
+37:                                               ; preds = %32, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %38 = load i1, ptr %3, align 1
+  ret i1 %38
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %len = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %len, align 4
-  %cmp = icmp ne i32 %0, -1
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %begin = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 0
-  store i32 0, ptr %begin, align 4
-  %len = getelementptr inbounds %"struct.url::Component", ptr %this1, i32 0, i32 1
-  store i32 -1, ptr %len, align 4
-  ret void
+define linkonce_odr noundef zeroext i1 @_ZNK3url9Component8is_validEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !71
+  %6 = icmp ne i32 %5, -1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK3url12CanonOutputTIcE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %cur_len_, align 4
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %char_value, ptr noundef %output) #0 comdat {
-entry:
-  %char_value.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store i32 %char_value, ptr %char_value.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load i32, ptr %char_value.addr, align 4
-  %1 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %0, ptr noundef %1)
+define linkonce_odr void @_ZN3url9ComponentC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4, !tbaa !70
+  %5 = getelementptr inbounds nuw %"struct.url::Component", ptr %3, i32 0, i32 1
+  store i32 -1, ptr %5, align 4, !tbaa !71
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3url12IsCharOfTypeEhNS_15SharedCharTypesE(i8 noundef zeroext %c, i32 noundef %type) #2 comdat {
-entry:
-  %c.addr = alloca i8, align 1
-  %type.addr = alloca i32, align 4
-  store i8 %c, ptr %c.addr, align 1
-  store i32 %type, ptr %type.addr, align 4
-  %0 = load i8, ptr %c.addr, align 1
-  %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom
-  %1 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %1 to i32
-  %2 = load i32, ptr %type.addr, align 4
-  %and = and i32 %conv, %2
-  %tobool = icmp ne i32 %and, 0
-  %lnot = xor i1 %tobool, true
-  %lnot1 = xor i1 %lnot, true
-  ret i1 %lnot1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK3url12CanonOutputTIcE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.url::CanonOutputT", ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 4, !tbaa !77
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %ch, ptr noundef %output) #0 comdat {
-entry:
-  %ch.addr = alloca i8, align 1
-  %output.addr = alloca ptr, align 8
-  store i8 %ch, ptr %ch.addr, align 1
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef signext 37)
-  %1 = load ptr, ptr %output.addr, align 8
-  %2 = load i8, ptr %ch.addr, align 1
-  %conv = zext i8 %2 to i32
-  %shr = ashr i32 %conv, 4
-  %and = and i32 %shr, 15
-  %idxprom = sext i32 %and to i64
-  %arrayidx = getelementptr inbounds [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
-  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 noundef signext %3)
-  %4 = load ptr, ptr %output.addr, align 8
-  %5 = load i8, ptr %ch.addr, align 1
-  %conv1 = zext i8 %5 to i32
-  %and2 = and i32 %conv1, 15
-  %idxprom3 = sext i32 %and2 to i64
-  %arrayidx4 = getelementptr inbounds [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %idxprom3
-  %6 = load i8, ptr %arrayidx4, align 1
-  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef signext %6)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %5, ptr noundef %6)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %char_value, ptr noundef %output) #0 comdat {
-entry:
-  %char_value.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  store i32 %char_value, ptr %char_value.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load i32, ptr %char_value.addr, align 4
-  %cmp = icmp ule i32 %0, 127
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3url12IsCharOfTypeEhNS_15SharedCharTypesE(i8 noundef zeroext %0, i32 noundef %1) #2 comdat {
+  %3 = alloca i8, align 1
+  %4 = alloca i32, align 4
+  store i8 %0, ptr %3, align 1, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i8, ptr %3, align 1, !tbaa !14
+  %6 = zext i8 %5 to i64
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %6
+  %8 = load i8, ptr %7, align 1, !tbaa !14
+  %9 = zext i8 %8 to i32
+  %10 = load i32, ptr %4, align 4, !tbaa !10
+  %11 = and i32 %9, %10
+  %12 = icmp ne i32 %11, 0
+  %13 = xor i1 %12, true
+  %14 = xor i1 %13, true
+  ret i1 %14
+}
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %char_value.addr, align 4
-  %conv = trunc i32 %1 to i8
-  %2 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv, ptr noundef %2)
-  br label %if.end39
-
-if.else:                                          ; preds = %entry
-  %3 = load i32, ptr %char_value.addr, align 4
-  %cmp1 = icmp ule i32 %3, 2047
-  br i1 %cmp1, label %if.then2, label %if.else6
-
-if.then2:                                         ; preds = %if.else
-  %4 = load i32, ptr %char_value.addr, align 4
-  %shr = lshr i32 %4, 6
-  %or = or i32 192, %shr
-  %conv3 = trunc i32 %or to i8
-  %5 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv3, ptr noundef %5)
-  %6 = load i32, ptr %char_value.addr, align 4
-  %and = and i32 %6, 63
-  %or4 = or i32 128, %and
-  %conv5 = trunc i32 %or4 to i8
-  %7 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv5, ptr noundef %7)
-  br label %if.end38
-
-if.else6:                                         ; preds = %if.else
-  %8 = load i32, ptr %char_value.addr, align 4
-  %cmp7 = icmp ule i32 %8, 65535
-  br i1 %cmp7, label %if.then8, label %if.else19
-
-if.then8:                                         ; preds = %if.else6
-  %9 = load i32, ptr %char_value.addr, align 4
-  %shr9 = lshr i32 %9, 12
-  %or10 = or i32 224, %shr9
-  %conv11 = trunc i32 %or10 to i8
-  %10 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv11, ptr noundef %10)
-  %11 = load i32, ptr %char_value.addr, align 4
-  %shr12 = lshr i32 %11, 6
-  %and13 = and i32 %shr12, 63
-  %or14 = or i32 128, %and13
-  %conv15 = trunc i32 %or14 to i8
-  %12 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv15, ptr noundef %12)
-  %13 = load i32, ptr %char_value.addr, align 4
-  %and16 = and i32 %13, 63
-  %or17 = or i32 128, %and16
-  %conv18 = trunc i32 %or17 to i8
-  %14 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv18, ptr noundef %14)
-  br label %if.end37
-
-if.else19:                                        ; preds = %if.else6
-  %15 = load i32, ptr %char_value.addr, align 4
-  %cmp20 = icmp ule i32 %15, 1114111
-  br i1 %cmp20, label %if.then21, label %if.else36
-
-if.then21:                                        ; preds = %if.else19
-  %16 = load i32, ptr %char_value.addr, align 4
-  %shr22 = lshr i32 %16, 18
-  %or23 = or i32 240, %shr22
-  %conv24 = trunc i32 %or23 to i8
-  %17 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv24, ptr noundef %17)
-  %18 = load i32, ptr %char_value.addr, align 4
-  %shr25 = lshr i32 %18, 12
-  %and26 = and i32 %shr25, 63
-  %or27 = or i32 128, %and26
-  %conv28 = trunc i32 %or27 to i8
-  %19 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv28, ptr noundef %19)
-  %20 = load i32, ptr %char_value.addr, align 4
-  %shr29 = lshr i32 %20, 6
-  %and30 = and i32 %shr29, 63
-  %or31 = or i32 128, %and30
-  %conv32 = trunc i32 %or31 to i8
-  %21 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv32, ptr noundef %21)
-  %22 = load i32, ptr %char_value.addr, align 4
-  %and33 = and i32 %22, 63
-  %or34 = or i32 128, %and33
-  %conv35 = trunc i32 %or34 to i8
-  %23 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv35, ptr noundef %23)
-  br label %if.end
-
-if.else36:                                        ; preds = %if.else19
-  br label %if.end
-
-if.end:                                           ; preds = %if.else36, %if.then21
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.end, %if.then8
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.end37, %if.then2
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.end38, %if.then
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %0, ptr noundef %1) #4 comdat {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  store i8 %0, ptr %3, align 1, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 noundef signext 37)
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = load i8, ptr %3, align 1, !tbaa !14
+  %8 = zext i8 %7 to i32
+  %9 = ashr i32 %8, 4
+  %10 = and i32 %9, 15
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !14
+  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef signext %13)
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
+  %15 = load i8, ptr %3, align 1, !tbaa !14
+  %16 = zext i8 %15 to i32
+  %17 = and i32 %16, 15
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !14
+  call void @_ZN3url12CanonOutputTIcE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 noundef signext %20)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE(ptr noundef %str, ptr noundef %begin, i32 noundef %length, ptr noundef %output) #0 comdat {
-entry:
-  %str.addr = alloca ptr, align 8
-  %begin.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  %ch = alloca i32, align 4
-  %success = alloca i8, align 1
-  store ptr %str, ptr %str.addr, align 8
-  store ptr %begin, ptr %begin.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %str.addr, align 8
-  %1 = load ptr, ptr %begin.addr, align 8
-  %2 = load i32, ptr %length.addr, align 4
-  %call = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %ch)
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %success, align 1
-  %3 = load i32, ptr %ch, align 4
-  %4 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %3, ptr noundef %4)
-  %5 = load i8, ptr %success, align 1
-  %tobool = trunc i8 %5 to i1
-  ret i1 %tobool
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = icmp ule i32 %5, 127
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %2
+  %8 = load i32, ptr %3, align 4, !tbaa !8
+  %9 = trunc i32 %8 to i8
+  %10 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %9, ptr noundef %10)
+  br label %75
+
+11:                                               ; preds = %2
+  %12 = load i32, ptr %3, align 4, !tbaa !8
+  %13 = icmp ule i32 %12, 2047
+  br i1 %13, label %14, label %25
+
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4, !tbaa !8
+  %16 = lshr i32 %15, 6
+  %17 = or i32 192, %16
+  %18 = trunc i32 %17 to i8
+  %19 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %18, ptr noundef %19)
+  %20 = load i32, ptr %3, align 4, !tbaa !8
+  %21 = and i32 %20, 63
+  %22 = or i32 128, %21
+  %23 = trunc i32 %22 to i8
+  %24 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %23, ptr noundef %24)
+  br label %74
+
+25:                                               ; preds = %11
+  %26 = load i32, ptr %3, align 4, !tbaa !8
+  %27 = icmp ule i32 %26, 65535
+  br i1 %27, label %28, label %45
+
+28:                                               ; preds = %25
+  %29 = load i32, ptr %3, align 4, !tbaa !8
+  %30 = lshr i32 %29, 12
+  %31 = or i32 224, %30
+  %32 = trunc i32 %31 to i8
+  %33 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %32, ptr noundef %33)
+  %34 = load i32, ptr %3, align 4, !tbaa !8
+  %35 = lshr i32 %34, 6
+  %36 = and i32 %35, 63
+  %37 = or i32 128, %36
+  %38 = trunc i32 %37 to i8
+  %39 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %38, ptr noundef %39)
+  %40 = load i32, ptr %3, align 4, !tbaa !8
+  %41 = and i32 %40, 63
+  %42 = or i32 128, %41
+  %43 = trunc i32 %42 to i8
+  %44 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %43, ptr noundef %44)
+  br label %73
+
+45:                                               ; preds = %25
+  %46 = load i32, ptr %3, align 4, !tbaa !8
+  %47 = icmp ule i32 %46, 1114111
+  br i1 %47, label %48, label %71
+
+48:                                               ; preds = %45
+  %49 = load i32, ptr %3, align 4, !tbaa !8
+  %50 = lshr i32 %49, 18
+  %51 = or i32 240, %50
+  %52 = trunc i32 %51 to i8
+  %53 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %52, ptr noundef %53)
+  %54 = load i32, ptr %3, align 4, !tbaa !8
+  %55 = lshr i32 %54, 12
+  %56 = and i32 %55, 63
+  %57 = or i32 128, %56
+  %58 = trunc i32 %57 to i8
+  %59 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %58, ptr noundef %59)
+  %60 = load i32, ptr %3, align 4, !tbaa !8
+  %61 = lshr i32 %60, 6
+  %62 = and i32 %61, 63
+  %63 = or i32 128, %62
+  %64 = trunc i32 %63 to i8
+  %65 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %64, ptr noundef %65)
+  %66 = load i32, ptr %3, align 4, !tbaa !8
+  %67 = and i32 %66, 63
+  %68 = or i32 128, %67
+  %69 = trunc i32 %68 to i8
+  %70 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %69, ptr noundef %70)
+  br label %72
+
+71:                                               ; preds = %45
+  br label %72
+
+72:                                               ; preds = %71, %48
+  br label %73
+
+73:                                               ; preds = %72, %28
+  br label %74
+
+74:                                               ; preds = %73, %14
+  br label %75
+
+75:                                               ; preds = %74, %7
+  ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE(ptr noundef %str, ptr noundef %begin, i32 noundef %length, ptr noundef %output) #0 comdat {
-entry:
-  %str.addr = alloca ptr, align 8
-  %begin.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %output.addr = alloca ptr, align 8
-  %char_value = alloca i32, align 4
-  %success = alloca i8, align 1
-  store ptr %str, ptr %str.addr, align 8
-  store ptr %begin, ptr %begin.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %str.addr, align 8
-  %1 = load ptr, ptr %begin.addr, align 8
-  %2 = load i32, ptr %length.addr, align 4
-  %call = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %char_value)
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %success, align 1
-  %3 = load i32, ptr %char_value, align 4
-  %4 = load ptr, ptr %output.addr, align 8
-  call void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %3, ptr noundef %4)
-  %5 = load i8, ptr %success, align 1
-  %tobool = trunc i8 %5 to i1
-  ret i1 %tobool
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #4 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !22
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %6, align 8, !tbaa !22
+  %13 = load i32, ptr %7, align 4, !tbaa !8
+  %14 = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %9)
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %10, align 1, !tbaa !26
+  %16 = load i32, ptr %9, align 4, !tbaa !8
+  %17 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %16, ptr noundef %17)
+  %18 = load i8, ptr %10, align 1, !tbaa !26, !range !28, !noundef !29
+  %19 = trunc i8 %18 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  ret i1 %19
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #4 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store ptr %1, ptr %6, align 8, !tbaa !22
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !17
+  %12 = load ptr, ptr %6, align 8, !tbaa !22
+  %13 = load i32, ptr %7, align 4, !tbaa !8
+  %14 = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %9)
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %10, align 1, !tbaa !26
+  %16 = load i32, ptr %9, align 4, !tbaa !8
+  %17 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN3url22AppendUTF8EscapedValueEjPNS_12CanonOutputTIcEE(i32 noundef %16, ptr noundef %17)
+  %18 = load i8, ptr %10, align 1, !tbaa !26, !range !28, !noundef !29
+  %19 = trunc i8 %18 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  ret i1 %19
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!1 = !{i32 8, !"PIC Level", i32 1}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"_ZTSN3url15SharedCharTypesE", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN3url12CanonOutputTIcEE", !5, i64 0}
+!14 = !{!6, !6, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 short", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !6, i64 0}
+!21 = distinct !{!21, !16}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !5, i64 0}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"bool", !6, i64 0}
+!28 = !{i8 0, i8 2}
+!29 = !{}
+!30 = distinct !{!30, !16}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSN3url12CanonOutputTItEE", !5, i64 0}
+!33 = distinct !{!33, !16}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN3url12ReplacementsIcEE", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN3url18URLComponentSourceIcEE", !5, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSN3url6ParsedE", !5, i64 0}
+!40 = !{!41, !4, i64 0}
+!41 = !{!"_ZTSN3url18URLComponentSourceIcEE", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56}
+!42 = !{!41, !4, i64 8}
+!43 = !{!41, !4, i64 16}
+!44 = !{!41, !4, i64 24}
+!45 = !{!46, !9, i64 28}
+!46 = !{!"_ZTSN3url6ParsedE", !47, i64 0, !47, i64 8, !47, i64 16, !47, i64 24, !47, i64 32, !47, i64 40, !47, i64 48, !47, i64 56, !39, i64 64}
+!47 = !{!"_ZTSN3url9ComponentE", !9, i64 0, !9, i64 4}
+!48 = !{!41, !4, i64 32}
+!49 = !{!41, !4, i64 40}
+!50 = !{!41, !4, i64 48}
+!51 = !{!41, !4, i64 56}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN3url9ComponentE", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p2 omnipotent char", !5, i64 0}
+!56 = !{i64 0, i64 4, !8, i64 4, i64 4, !8}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTSN3url12ReplacementsItEE", !5, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSN3url18URLComponentSourceItEE", !5, i64 0}
+!61 = !{!62, !18, i64 0}
+!62 = !{!"_ZTSN3url18URLComponentSourceItEE", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !18, i64 56}
+!63 = !{!62, !18, i64 8}
+!64 = !{!62, !18, i64 16}
+!65 = !{!62, !18, i64 24}
+!66 = !{!62, !18, i64 32}
+!67 = !{!62, !18, i64 40}
+!68 = !{!62, !18, i64 48}
+!69 = !{!62, !18, i64 56}
+!70 = !{!47, !9, i64 0}
+!71 = !{!47, !9, i64 4}
+!72 = !{!73, !4, i64 8}
+!73 = !{!"_ZTSN3url12CanonOutputTIcEE", !4, i64 8, !9, i64 16, !9, i64 20}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"long", !6, i64 0}
+!76 = distinct !{!76, !16}
+!77 = !{!73, !9, i64 20}
+!78 = !{!73, !9, i64 16}
+!79 = distinct !{!79, !16}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"vtable pointer", !7, i64 0}
+!82 = !{!83, !9, i64 20}
+!83 = !{!"_ZTSN3url12CanonOutputTItEE", !18, i64 8, !9, i64 16, !9, i64 20}
+!84 = !{!83, !9, i64 16}
+!85 = !{!83, !18, i64 8}
+!86 = distinct !{!86, !16}

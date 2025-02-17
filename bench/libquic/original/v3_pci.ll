@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ASN1_ITEM_st = type opaque
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -29,398 +29,451 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [6 x i8] c"text:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @i2r_pci(ptr noundef %method, ptr noundef %pci, ptr noundef %out, i32 noundef %indent) #0 {
-entry:
-  %method.addr = alloca ptr, align 8
-  %pci.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %indent.addr = alloca i32, align 4
-  store ptr %method, ptr %method.addr, align 8
-  store ptr %pci, ptr %pci.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i32 %indent, ptr %indent.addr, align 4
-  %0 = load ptr, ptr %out.addr, align 8
-  %1 = load i32, ptr %indent.addr, align 4
-  %call = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef @.str, i32 noundef %1, ptr noundef @.str.1)
-  %2 = load ptr, ptr %pci.addr, align 8
-  %pcPathLengthConstraint = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %pcPathLengthConstraint, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.then, label %if.else
+define internal i32 @i2r_pci(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  store i32 %3, ptr %8, align 4, !tbaa !15
+  %9 = load ptr, ptr %7, align 8, !tbaa !13
+  %10 = load i32, ptr %8, align 4, !tbaa !15
+  %11 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef @.str, i32 noundef %10, ptr noundef @.str.1)
+  %12 = load ptr, ptr %6, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %22
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %out.addr, align 8
-  %5 = load ptr, ptr %pci.addr, align 8
-  %pcPathLengthConstraint1 = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %pcPathLengthConstraint1, align 8
-  %call2 = call i32 @i2a_ASN1_INTEGER(ptr noundef %4, ptr noundef %6)
-  br label %if.end
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %7, align 8, !tbaa !13
+  %18 = load ptr, ptr %6, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = call i32 @i2a_ASN1_INTEGER(ptr noundef %17, ptr noundef %20)
+  br label %25
 
-if.else:                                          ; preds = %entry
-  %7 = load ptr, ptr %out.addr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef @.str.2)
-  br label %if.end
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %7, align 8, !tbaa !13
+  %24 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef @.str.2)
+  br label %25
 
-if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %out.addr, align 8
-  %call4 = call i32 @BIO_puts(ptr noundef %8, ptr noundef @.str.3)
-  %9 = load ptr, ptr %out.addr, align 8
-  %10 = load i32, ptr %indent.addr, align 4
-  %call5 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef @.str.4, i32 noundef %10, ptr noundef @.str.1)
-  %11 = load ptr, ptr %out.addr, align 8
-  %12 = load ptr, ptr %pci.addr, align 8
-  %proxyPolicy = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %proxyPolicy, align 8
-  %policyLanguage = getelementptr inbounds %struct.PROXY_POLICY_st, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %policyLanguage, align 8
-  %call6 = call i32 @i2a_ASN1_OBJECT(ptr noundef %11, ptr noundef %14)
-  %15 = load ptr, ptr %out.addr, align 8
-  %call7 = call i32 @BIO_puts(ptr noundef %15, ptr noundef @.str.3)
-  %16 = load ptr, ptr %pci.addr, align 8
-  %proxyPolicy8 = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %proxyPolicy8, align 8
-  %policy = getelementptr inbounds %struct.PROXY_POLICY_st, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %policy, align 8
-  %tobool9 = icmp ne ptr %18, null
-  br i1 %tobool9, label %land.lhs.true, label %if.end18
+25:                                               ; preds = %22, %16
+  %26 = load ptr, ptr %7, align 8, !tbaa !13
+  %27 = call i32 @BIO_puts(ptr noundef %26, ptr noundef @.str.3)
+  %28 = load ptr, ptr %7, align 8, !tbaa !13
+  %29 = load i32, ptr %8, align 4, !tbaa !15
+  %30 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef @.str.4, i32 noundef %29, ptr noundef @.str.1)
+  %31 = load ptr, ptr %7, align 8, !tbaa !13
+  %32 = load ptr, ptr %6, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !21
+  %35 = getelementptr inbounds nuw %struct.PROXY_POLICY_st, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  %37 = call i32 @i2a_ASN1_OBJECT(ptr noundef %31, ptr noundef %36)
+  %38 = load ptr, ptr %7, align 8, !tbaa !13
+  %39 = call i32 @BIO_puts(ptr noundef %38, ptr noundef @.str.3)
+  %40 = load ptr, ptr %6, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !21
+  %43 = getelementptr inbounds nuw %struct.PROXY_POLICY_st, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !25
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %66
 
-land.lhs.true:                                    ; preds = %if.end
-  %19 = load ptr, ptr %pci.addr, align 8
-  %proxyPolicy10 = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %proxyPolicy10, align 8
-  %policy11 = getelementptr inbounds %struct.PROXY_POLICY_st, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %policy11, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %data, align 8
-  %tobool12 = icmp ne ptr %22, null
-  br i1 %tobool12, label %if.then13, label %if.end18
+46:                                               ; preds = %25
+  %47 = load ptr, ptr %6, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !21
+  %50 = getelementptr inbounds nuw %struct.PROXY_POLICY_st, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !25
+  %52 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8, !tbaa !26
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %66
 
-if.then13:                                        ; preds = %land.lhs.true
-  %23 = load ptr, ptr %out.addr, align 8
-  %24 = load i32, ptr %indent.addr, align 4
-  %25 = load ptr, ptr %pci.addr, align 8
-  %proxyPolicy14 = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %proxyPolicy14, align 8
-  %policy15 = getelementptr inbounds %struct.PROXY_POLICY_st, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %policy15, align 8
-  %data16 = getelementptr inbounds %struct.asn1_string_st, ptr %27, i32 0, i32 2
-  %28 = load ptr, ptr %data16, align 8
-  %call17 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef @.str.5, i32 noundef %24, ptr noundef @.str.1, ptr noundef %28)
-  br label %if.end18
+55:                                               ; preds = %46
+  %56 = load ptr, ptr %7, align 8, !tbaa !13
+  %57 = load i32, ptr %8, align 4, !tbaa !15
+  %58 = load ptr, ptr %6, align 8, !tbaa !11
+  %59 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !21
+  %61 = getelementptr inbounds nuw %struct.PROXY_POLICY_st, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !25
+  %63 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %62, i32 0, i32 2
+  %64 = load ptr, ptr %63, align 8, !tbaa !26
+  %65 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %56, ptr noundef @.str.5, i32 noundef %57, ptr noundef @.str.1, ptr noundef %64)
+  br label %66
 
-if.end18:                                         ; preds = %if.then13, %land.lhs.true, %if.end
+66:                                               ; preds = %55, %46, %25
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @r2i_pci(ptr noundef %method, ptr noundef %ctx, ptr noundef %value) #0 {
-entry:
-  %method.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %pci = alloca ptr, align 8
-  %vals = alloca ptr, align 8
-  %language = alloca ptr, align 8
-  %pathlen = alloca ptr, align 8
-  %policy = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %j = alloca i64, align 8
-  %nid = alloca i32, align 4
-  %cnf = alloca ptr, align 8
-  %sect = alloca ptr, align 8
-  %success_p = alloca i32, align 4
-  store ptr %method, ptr %method.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store ptr null, ptr %pci, align 8
-  store ptr null, ptr %language, align 8
-  store ptr null, ptr %pathlen, align 8
-  store ptr null, ptr %policy, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  %call = call ptr @X509V3_parse_list(ptr noundef %0)
-  store ptr %call, ptr %vals, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal ptr @r2i_pci(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !6
+  store ptr %1, ptr %6, align 8, !tbaa !30
+  store ptr %2, ptr %7, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr null, ptr %8, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store ptr null, ptr %10, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  store ptr null, ptr %11, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  %20 = load ptr, ptr %7, align 8, !tbaa !32
+  %21 = call ptr @X509V3_parse_list(ptr noundef %20)
+  store ptr %21, ptr %9, align 8, !tbaa !35
+  store i64 0, ptr %13, align 8, !tbaa !37
+  br label %22
 
-for.cond:                                         ; preds = %for.inc42, %entry
-  %1 = load i64, ptr %i, align 8
-  %2 = load ptr, ptr %vals, align 8
-  %call1 = call i64 @sk_num(ptr noundef %2)
-  %cmp = icmp ult i64 %1, %call1
-  br i1 %cmp, label %for.body, label %for.end44
+22:                                               ; preds = %131, %3
+  %23 = load i64, ptr %13, align 8, !tbaa !37
+  %24 = load ptr, ptr %9, align 8, !tbaa !35
+  %25 = call i64 @sk_num(ptr noundef %24)
+  %26 = icmp ult i64 %23, %25
+  br i1 %26, label %27, label %134
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %vals, align 8
-  %4 = load i64, ptr %i, align 8
-  %call2 = call ptr @sk_value(ptr noundef %3, i64 noundef %4)
-  store ptr %call2, ptr %cnf, align 8
-  %5 = load ptr, ptr %cnf, align 8
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %name, align 8
-  %tobool = icmp ne ptr %6, null
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %28 = load ptr, ptr %9, align 8, !tbaa !35
+  %29 = load i64, ptr %13, align 8, !tbaa !37
+  %30 = call ptr @sk_value(ptr noundef %28, i64 noundef %29)
+  store ptr %30, ptr %16, align 8, !tbaa !38
+  %31 = load ptr, ptr %16, align 8, !tbaa !38
+  %32 = getelementptr inbounds nuw %struct.conf_value_st, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !40
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %47
 
-lor.lhs.false:                                    ; preds = %for.body
-  %7 = load ptr, ptr %cnf, align 8
-  %name3 = getelementptr inbounds %struct.conf_value_st, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %name3, align 8
-  %9 = load i8, ptr %8, align 1
-  %conv = sext i8 %9 to i32
-  %cmp4 = icmp ne i32 %conv, 64
-  br i1 %cmp4, label %land.lhs.true, label %if.end
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %16, align 8, !tbaa !38
+  %37 = getelementptr inbounds nuw %struct.conf_value_st, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !40
+  %39 = load i8, ptr %38, align 1, !tbaa !42
+  %40 = sext i8 %39 to i32
+  %41 = icmp ne i32 %40, 64
+  br i1 %41, label %42, label %57
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %cnf, align 8
-  %value6 = getelementptr inbounds %struct.conf_value_st, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %value6, align 8
-  %tobool7 = icmp ne ptr %11, null
-  br i1 %tobool7, label %if.end, label %if.then
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %16, align 8, !tbaa !38
+  %44 = getelementptr inbounds nuw %struct.conf_value_st, ptr %43, i32 0, i32 2
+  %45 = load ptr, ptr %44, align 8, !tbaa !43
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %57, label %47
 
-if.then:                                          ; preds = %land.lhs.true, %for.body
+47:                                               ; preds = %42, %27
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 132, ptr noundef @.str.6, i32 noundef 241)
-  %12 = load ptr, ptr %cnf, align 8
-  %section = getelementptr inbounds %struct.conf_value_st, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %section, align 8
-  %14 = load ptr, ptr %cnf, align 8
-  %name8 = getelementptr inbounds %struct.conf_value_st, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %name8, align 8
-  %16 = load ptr, ptr %cnf, align 8
-  %value9 = getelementptr inbounds %struct.conf_value_st, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %value9, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %13, ptr noundef @.str.8, ptr noundef %15, ptr noundef @.str.9, ptr noundef %17)
-  br label %err
+  %48 = load ptr, ptr %16, align 8, !tbaa !38
+  %49 = getelementptr inbounds nuw %struct.conf_value_st, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !44
+  %51 = load ptr, ptr %16, align 8, !tbaa !38
+  %52 = getelementptr inbounds nuw %struct.conf_value_st, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !40
+  %54 = load ptr, ptr %16, align 8, !tbaa !38
+  %55 = getelementptr inbounds nuw %struct.conf_value_st, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %50, ptr noundef @.str.8, ptr noundef %53, ptr noundef @.str.9, ptr noundef %56)
+  store i32 5, ptr %19, align 4
+  br label %128
 
-if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  %18 = load ptr, ptr %cnf, align 8
-  %name10 = getelementptr inbounds %struct.conf_value_st, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %name10, align 8
-  %20 = load i8, ptr %19, align 1
-  %conv11 = sext i8 %20 to i32
-  %cmp12 = icmp eq i32 %conv11, 64
-  br i1 %cmp12, label %if.then14, label %if.else
+57:                                               ; preds = %42, %35
+  %58 = load ptr, ptr %16, align 8, !tbaa !38
+  %59 = getelementptr inbounds nuw %struct.conf_value_st, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !40
+  %61 = load i8, ptr %60, align 1, !tbaa !42
+  %62 = sext i8 %61 to i32
+  %63 = icmp eq i32 %62, 64
+  br i1 %63, label %64, label %112
 
-if.then14:                                        ; preds = %if.end
-  store i32 1, ptr %success_p, align 4
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %22 = load ptr, ptr %cnf, align 8
-  %name15 = getelementptr inbounds %struct.conf_value_st, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %name15, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %23, i64 1
-  %call16 = call ptr @X509V3_get_section(ptr noundef %21, ptr noundef %add.ptr)
-  store ptr %call16, ptr %sect, align 8
-  %24 = load ptr, ptr %sect, align 8
-  %tobool17 = icmp ne ptr %24, null
-  br i1 %tobool17, label %if.end22, label %if.then18
+64:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  store i32 1, ptr %18, align 4, !tbaa !15
+  %65 = load ptr, ptr %6, align 8, !tbaa !30
+  %66 = load ptr, ptr %16, align 8, !tbaa !38
+  %67 = getelementptr inbounds nuw %struct.conf_value_st, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8, !tbaa !40
+  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %70 = call ptr @X509V3_get_section(ptr noundef %65, ptr noundef %69)
+  store ptr %70, ptr %17, align 8, !tbaa !35
+  %71 = load ptr, ptr %17, align 8, !tbaa !35
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %83, label %73
 
-if.then18:                                        ; preds = %if.then14
+73:                                               ; preds = %64
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 134, ptr noundef @.str.6, i32 noundef 251)
-  %25 = load ptr, ptr %cnf, align 8
-  %section19 = getelementptr inbounds %struct.conf_value_st, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %section19, align 8
-  %27 = load ptr, ptr %cnf, align 8
-  %name20 = getelementptr inbounds %struct.conf_value_st, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %name20, align 8
-  %29 = load ptr, ptr %cnf, align 8
-  %value21 = getelementptr inbounds %struct.conf_value_st, ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %value21, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %26, ptr noundef @.str.8, ptr noundef %28, ptr noundef @.str.9, ptr noundef %30)
-  br label %err
+  %74 = load ptr, ptr %16, align 8, !tbaa !38
+  %75 = getelementptr inbounds nuw %struct.conf_value_st, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !44
+  %77 = load ptr, ptr %16, align 8, !tbaa !38
+  %78 = getelementptr inbounds nuw %struct.conf_value_st, ptr %77, i32 0, i32 1
+  %79 = load ptr, ptr %78, align 8, !tbaa !40
+  %80 = load ptr, ptr %16, align 8, !tbaa !38
+  %81 = getelementptr inbounds nuw %struct.conf_value_st, ptr %80, i32 0, i32 2
+  %82 = load ptr, ptr %81, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %76, ptr noundef @.str.8, ptr noundef %79, ptr noundef @.str.9, ptr noundef %82)
+  store i32 5, ptr %19, align 4
+  br label %109
 
-if.end22:                                         ; preds = %if.then14
-  store i64 0, ptr %j, align 8
-  br label %for.cond23
+83:                                               ; preds = %64
+  store i64 0, ptr %14, align 8, !tbaa !37
+  br label %84
 
-for.cond23:                                       ; preds = %for.inc, %if.end22
-  %31 = load i32, ptr %success_p, align 4
-  %tobool24 = icmp ne i32 %31, 0
-  br i1 %tobool24, label %land.rhs, label %land.end
+84:                                               ; preds = %99, %83
+  %85 = load i32, ptr %18, align 4, !tbaa !15
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %92
 
-land.rhs:                                         ; preds = %for.cond23
-  %32 = load i64, ptr %j, align 8
-  %33 = load ptr, ptr %sect, align 8
-  %call25 = call i64 @sk_num(ptr noundef %33)
-  %cmp26 = icmp ult i64 %32, %call25
-  br label %land.end
+87:                                               ; preds = %84
+  %88 = load i64, ptr %14, align 8, !tbaa !37
+  %89 = load ptr, ptr %17, align 8, !tbaa !35
+  %90 = call i64 @sk_num(ptr noundef %89)
+  %91 = icmp ult i64 %88, %90
+  br label %92
 
-land.end:                                         ; preds = %land.rhs, %for.cond23
-  %34 = phi i1 [ false, %for.cond23 ], [ %cmp26, %land.rhs ]
-  br i1 %34, label %for.body28, label %for.end
+92:                                               ; preds = %87, %84
+  %93 = phi i1 [ false, %84 ], [ %91, %87 ]
+  br i1 %93, label %94, label %102
 
-for.body28:                                       ; preds = %land.end
-  %35 = load ptr, ptr %sect, align 8
-  %36 = load i64, ptr %j, align 8
-  %call29 = call ptr @sk_value(ptr noundef %35, i64 noundef %36)
-  %call30 = call i32 @process_pci_value(ptr noundef %call29, ptr noundef %language, ptr noundef %pathlen, ptr noundef %policy)
-  store i32 %call30, ptr %success_p, align 4
-  br label %for.inc
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %17, align 8, !tbaa !35
+  %96 = load i64, ptr %14, align 8, !tbaa !37
+  %97 = call ptr @sk_value(ptr noundef %95, i64 noundef %96)
+  %98 = call i32 @process_pci_value(ptr noundef %97, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  store i32 %98, ptr %18, align 4, !tbaa !15
+  br label %99
 
-for.inc:                                          ; preds = %for.body28
-  %37 = load i64, ptr %j, align 8
-  %inc = add i64 %37, 1
-  store i64 %inc, ptr %j, align 8
-  br label %for.cond23, !llvm.loop !7
+99:                                               ; preds = %94
+  %100 = load i64, ptr %14, align 8, !tbaa !37
+  %101 = add i64 %100, 1
+  store i64 %101, ptr %14, align 8, !tbaa !37
+  br label %84, !llvm.loop !45
 
-for.end:                                          ; preds = %land.end
-  %38 = load ptr, ptr %ctx.addr, align 8
-  %39 = load ptr, ptr %sect, align 8
-  call void @X509V3_section_free(ptr noundef %38, ptr noundef %39)
-  %40 = load i32, ptr %success_p, align 4
-  %tobool31 = icmp ne i32 %40, 0
-  br i1 %tobool31, label %if.end33, label %if.then32
+102:                                              ; preds = %92
+  %103 = load ptr, ptr %6, align 8, !tbaa !30
+  %104 = load ptr, ptr %17, align 8, !tbaa !35
+  call void @X509V3_section_free(ptr noundef %103, ptr noundef %104)
+  %105 = load i32, ptr %18, align 4, !tbaa !15
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %108, label %107
 
-if.then32:                                        ; preds = %for.end
-  br label %err
+107:                                              ; preds = %102
+  store i32 5, ptr %19, align 4
+  br label %109
 
-if.end33:                                         ; preds = %for.end
-  br label %if.end41
+108:                                              ; preds = %102
+  store i32 0, ptr %19, align 4
+  br label %109
 
-if.else:                                          ; preds = %if.end
-  %41 = load ptr, ptr %cnf, align 8
-  %call34 = call i32 @process_pci_value(ptr noundef %41, ptr noundef %language, ptr noundef %pathlen, ptr noundef %policy)
-  %tobool35 = icmp ne i32 %call34, 0
-  br i1 %tobool35, label %if.end40, label %if.then36
+109:                                              ; preds = %107, %73, %108
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  %110 = load i32, ptr %19, align 4
+  switch i32 %110, label %128 [
+    i32 0, label %111
+  ]
 
-if.then36:                                        ; preds = %if.else
-  %42 = load ptr, ptr %cnf, align 8
-  %section37 = getelementptr inbounds %struct.conf_value_st, ptr %42, i32 0, i32 0
-  %43 = load ptr, ptr %section37, align 8
-  %44 = load ptr, ptr %cnf, align 8
-  %name38 = getelementptr inbounds %struct.conf_value_st, ptr %44, i32 0, i32 1
-  %45 = load ptr, ptr %name38, align 8
-  %46 = load ptr, ptr %cnf, align 8
-  %value39 = getelementptr inbounds %struct.conf_value_st, ptr %46, i32 0, i32 2
-  %47 = load ptr, ptr %value39, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %43, ptr noundef @.str.8, ptr noundef %45, ptr noundef @.str.9, ptr noundef %47)
-  br label %err
+111:                                              ; preds = %109
+  br label %127
 
-if.end40:                                         ; preds = %if.else
-  br label %if.end41
+112:                                              ; preds = %57
+  %113 = load ptr, ptr %16, align 8, !tbaa !38
+  %114 = call i32 @process_pci_value(ptr noundef %113, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %126, label %116
 
-if.end41:                                         ; preds = %if.end40, %if.end33
-  br label %for.inc42
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %16, align 8, !tbaa !38
+  %118 = getelementptr inbounds nuw %struct.conf_value_st, ptr %117, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8, !tbaa !44
+  %120 = load ptr, ptr %16, align 8, !tbaa !38
+  %121 = getelementptr inbounds nuw %struct.conf_value_st, ptr %120, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8, !tbaa !40
+  %123 = load ptr, ptr %16, align 8, !tbaa !38
+  %124 = getelementptr inbounds nuw %struct.conf_value_st, ptr %123, i32 0, i32 2
+  %125 = load ptr, ptr %124, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %119, ptr noundef @.str.8, ptr noundef %122, ptr noundef @.str.9, ptr noundef %125)
+  store i32 5, ptr %19, align 4
+  br label %128
 
-for.inc42:                                        ; preds = %if.end41
-  %48 = load i64, ptr %i, align 8
-  %inc43 = add i64 %48, 1
-  store i64 %inc43, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+126:                                              ; preds = %112
+  br label %127
 
-for.end44:                                        ; preds = %for.cond
-  %49 = load ptr, ptr %language, align 8
-  %tobool45 = icmp ne ptr %49, null
-  br i1 %tobool45, label %if.end47, label %if.then46
+127:                                              ; preds = %126, %111
+  store i32 0, ptr %19, align 4
+  br label %128
 
-if.then46:                                        ; preds = %for.end44
+128:                                              ; preds = %116, %47, %127, %109
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  %129 = load i32, ptr %19, align 4
+  switch i32 %129, label %193 [
+    i32 0, label %130
+    i32 5, label %169
+  ]
+
+130:                                              ; preds = %128
+  br label %131
+
+131:                                              ; preds = %130
+  %132 = load i64, ptr %13, align 8, !tbaa !37
+  %133 = add i64 %132, 1
+  store i64 %133, ptr %13, align 8, !tbaa !37
+  br label %22, !llvm.loop !47
+
+134:                                              ; preds = %22
+  %135 = load ptr, ptr %10, align 8, !tbaa !33
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %138, label %137
+
+137:                                              ; preds = %134
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 143, ptr noundef @.str.6, i32 noundef 274)
-  br label %err
+  br label %169
 
-if.end47:                                         ; preds = %for.end44
-  %50 = load ptr, ptr %language, align 8
-  %call48 = call i32 @OBJ_obj2nid(ptr noundef %50)
-  store i32 %call48, ptr %nid, align 4
-  %51 = load i32, ptr %nid, align 4
-  %cmp49 = icmp eq i32 %51, 667
-  br i1 %cmp49, label %land.lhs.true54, label %lor.lhs.false51
+138:                                              ; preds = %134
+  %139 = load ptr, ptr %10, align 8, !tbaa !33
+  %140 = call i32 @OBJ_obj2nid(ptr noundef %139)
+  store i32 %140, ptr %15, align 4, !tbaa !15
+  %141 = load i32, ptr %15, align 4, !tbaa !15
+  %142 = icmp eq i32 %141, 667
+  br i1 %142, label %146, label %143
 
-lor.lhs.false51:                                  ; preds = %if.end47
-  %52 = load i32, ptr %nid, align 4
-  %cmp52 = icmp eq i32 %52, 665
-  br i1 %cmp52, label %land.lhs.true54, label %if.end57
+143:                                              ; preds = %138
+  %144 = load i32, ptr %15, align 4, !tbaa !15
+  %145 = icmp eq i32 %144, 665
+  br i1 %145, label %146, label %150
 
-land.lhs.true54:                                  ; preds = %lor.lhs.false51, %if.end47
-  %53 = load ptr, ptr %policy, align 8
-  %tobool55 = icmp ne ptr %53, null
-  br i1 %tobool55, label %if.then56, label %if.end57
+146:                                              ; preds = %143, %138
+  %147 = load ptr, ptr %12, align 8, !tbaa !34
+  %148 = icmp ne ptr %147, null
+  br i1 %148, label %149, label %150
 
-if.then56:                                        ; preds = %land.lhs.true54
+149:                                              ; preds = %146
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 152, ptr noundef @.str.6, i32 noundef 280)
-  br label %err
+  br label %169
 
-if.end57:                                         ; preds = %land.lhs.true54, %lor.lhs.false51
-  %call58 = call ptr @PROXY_CERT_INFO_EXTENSION_new()
-  store ptr %call58, ptr %pci, align 8
-  %54 = load ptr, ptr %pci, align 8
-  %tobool59 = icmp ne ptr %54, null
-  br i1 %tobool59, label %if.end61, label %if.then60
+150:                                              ; preds = %146, %143
+  %151 = call ptr @PROXY_CERT_INFO_EXTENSION_new()
+  store ptr %151, ptr %8, align 8, !tbaa !11
+  %152 = load ptr, ptr %8, align 8, !tbaa !11
+  %153 = icmp ne ptr %152, null
+  br i1 %153, label %155, label %154
 
-if.then60:                                        ; preds = %if.end57
+154:                                              ; preds = %150
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef @.str.6, i32 noundef 286)
-  br label %err
+  br label %169
 
-if.end61:                                         ; preds = %if.end57
-  %55 = load ptr, ptr %language, align 8
-  %56 = load ptr, ptr %pci, align 8
-  %proxyPolicy = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %56, i32 0, i32 1
-  %57 = load ptr, ptr %proxyPolicy, align 8
-  %policyLanguage = getelementptr inbounds %struct.PROXY_POLICY_st, ptr %57, i32 0, i32 0
-  store ptr %55, ptr %policyLanguage, align 8
-  store ptr null, ptr %language, align 8
-  %58 = load ptr, ptr %policy, align 8
-  %59 = load ptr, ptr %pci, align 8
-  %proxyPolicy62 = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %59, i32 0, i32 1
-  %60 = load ptr, ptr %proxyPolicy62, align 8
-  %policy63 = getelementptr inbounds %struct.PROXY_POLICY_st, ptr %60, i32 0, i32 1
-  store ptr %58, ptr %policy63, align 8
-  store ptr null, ptr %policy, align 8
-  %61 = load ptr, ptr %pathlen, align 8
-  %62 = load ptr, ptr %pci, align 8
-  %pcPathLengthConstraint = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %62, i32 0, i32 0
-  store ptr %61, ptr %pcPathLengthConstraint, align 8
-  store ptr null, ptr %pathlen, align 8
-  br label %end
+155:                                              ; preds = %150
+  %156 = load ptr, ptr %10, align 8, !tbaa !33
+  %157 = load ptr, ptr %8, align 8, !tbaa !11
+  %158 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %157, i32 0, i32 1
+  %159 = load ptr, ptr %158, align 8, !tbaa !21
+  %160 = getelementptr inbounds nuw %struct.PROXY_POLICY_st, ptr %159, i32 0, i32 0
+  store ptr %156, ptr %160, align 8, !tbaa !22
+  store ptr null, ptr %10, align 8, !tbaa !33
+  %161 = load ptr, ptr %12, align 8, !tbaa !34
+  %162 = load ptr, ptr %8, align 8, !tbaa !11
+  %163 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %162, i32 0, i32 1
+  %164 = load ptr, ptr %163, align 8, !tbaa !21
+  %165 = getelementptr inbounds nuw %struct.PROXY_POLICY_st, ptr %164, i32 0, i32 1
+  store ptr %161, ptr %165, align 8, !tbaa !25
+  store ptr null, ptr %12, align 8, !tbaa !34
+  %166 = load ptr, ptr %11, align 8, !tbaa !34
+  %167 = load ptr, ptr %8, align 8, !tbaa !11
+  %168 = getelementptr inbounds nuw %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %167, i32 0, i32 0
+  store ptr %166, ptr %168, align 8, !tbaa !17
+  store ptr null, ptr %11, align 8, !tbaa !34
+  br label %190
 
-err:                                              ; preds = %if.then60, %if.then56, %if.then46, %if.then36, %if.then32, %if.then18, %if.then
-  %63 = load ptr, ptr %language, align 8
-  %tobool64 = icmp ne ptr %63, null
-  br i1 %tobool64, label %if.then65, label %if.end66
+169:                                              ; preds = %128, %154, %149, %137
+  %170 = load ptr, ptr %10, align 8, !tbaa !33
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %172, label %174
 
-if.then65:                                        ; preds = %err
-  %64 = load ptr, ptr %language, align 8
-  call void @ASN1_OBJECT_free(ptr noundef %64)
-  store ptr null, ptr %language, align 8
-  br label %if.end66
+172:                                              ; preds = %169
+  %173 = load ptr, ptr %10, align 8, !tbaa !33
+  call void @ASN1_OBJECT_free(ptr noundef %173)
+  store ptr null, ptr %10, align 8, !tbaa !33
+  br label %174
 
-if.end66:                                         ; preds = %if.then65, %err
-  %65 = load ptr, ptr %pathlen, align 8
-  %tobool67 = icmp ne ptr %65, null
-  br i1 %tobool67, label %if.then68, label %if.end69
+174:                                              ; preds = %172, %169
+  %175 = load ptr, ptr %11, align 8, !tbaa !34
+  %176 = icmp ne ptr %175, null
+  br i1 %176, label %177, label %179
 
-if.then68:                                        ; preds = %if.end66
-  %66 = load ptr, ptr %pathlen, align 8
-  call void @ASN1_INTEGER_free(ptr noundef %66)
-  store ptr null, ptr %pathlen, align 8
-  br label %if.end69
+177:                                              ; preds = %174
+  %178 = load ptr, ptr %11, align 8, !tbaa !34
+  call void @ASN1_INTEGER_free(ptr noundef %178)
+  store ptr null, ptr %11, align 8, !tbaa !34
+  br label %179
 
-if.end69:                                         ; preds = %if.then68, %if.end66
-  %67 = load ptr, ptr %policy, align 8
-  %tobool70 = icmp ne ptr %67, null
-  br i1 %tobool70, label %if.then71, label %if.end72
+179:                                              ; preds = %177, %174
+  %180 = load ptr, ptr %12, align 8, !tbaa !34
+  %181 = icmp ne ptr %180, null
+  br i1 %181, label %182, label %184
 
-if.then71:                                        ; preds = %if.end69
-  %68 = load ptr, ptr %policy, align 8
-  call void @ASN1_OCTET_STRING_free(ptr noundef %68)
-  store ptr null, ptr %policy, align 8
-  br label %if.end72
+182:                                              ; preds = %179
+  %183 = load ptr, ptr %12, align 8, !tbaa !34
+  call void @ASN1_OCTET_STRING_free(ptr noundef %183)
+  store ptr null, ptr %12, align 8, !tbaa !34
+  br label %184
 
-if.end72:                                         ; preds = %if.then71, %if.end69
-  %69 = load ptr, ptr %pci, align 8
-  %tobool73 = icmp ne ptr %69, null
-  br i1 %tobool73, label %if.then74, label %if.end75
+184:                                              ; preds = %182, %179
+  %185 = load ptr, ptr %8, align 8, !tbaa !11
+  %186 = icmp ne ptr %185, null
+  br i1 %186, label %187, label %189
 
-if.then74:                                        ; preds = %if.end72
-  %70 = load ptr, ptr %pci, align 8
-  call void @PROXY_CERT_INFO_EXTENSION_free(ptr noundef %70)
-  store ptr null, ptr %pci, align 8
-  br label %if.end75
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @PROXY_CERT_INFO_EXTENSION_free(ptr noundef %188)
+  store ptr null, ptr %8, align 8, !tbaa !11
+  br label %189
 
-if.end75:                                         ; preds = %if.then74, %if.end72
-  br label %end
+189:                                              ; preds = %187, %184
+  br label %190
 
-end:                                              ; preds = %if.end75, %if.end61
-  %71 = load ptr, ptr %vals, align 8
-  call void @sk_pop_free(ptr noundef %71, ptr noundef @X509V3_conf_free)
-  %72 = load ptr, ptr %pci, align 8
-  ret ptr %72
+190:                                              ; preds = %189, %155
+  %191 = load ptr, ptr %9, align 8, !tbaa !35
+  call void @sk_pop_free(ptr noundef %191, ptr noundef @X509V3_conf_free)
+  %192 = load ptr, ptr %8, align 8, !tbaa !11
+  store ptr %192, ptr %4, align 8
+  store i32 1, ptr %19, align 4
+  br label %193
+
+193:                                              ; preds = %190, %128
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %194 = load ptr, ptr %4, align 8
+  ret ptr %194
 }
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) #1
@@ -430,6 +483,9 @@ declare i32 @i2a_ASN1_INTEGER(ptr noundef, ptr noundef) #1
 declare i32 @BIO_puts(ptr noundef, ptr noundef) #1
 
 declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @X509V3_parse_list(ptr noundef) #1
 
@@ -444,634 +500,696 @@ declare void @ERR_add_error_data(i32 noundef, ...) #1
 declare ptr @X509V3_get_section(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @process_pci_value(ptr noundef %val, ptr noundef %language, ptr noundef %pathlen, ptr noundef %policy) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %val.addr = alloca ptr, align 8
-  %language.addr = alloca ptr, align 8
-  %pathlen.addr = alloca ptr, align 8
-  %policy.addr = alloca ptr, align 8
-  %free_policy = alloca i32, align 4
-  %tmp_data = alloca ptr, align 8
-  %val_len = alloca i64, align 8
-  %tmp_data2 = alloca ptr, align 8
-  %buf = alloca [2048 x i8], align 16
-  %n = alloca i32, align 4
-  %b = alloca ptr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %language, ptr %language.addr, align 8
-  store ptr %pathlen, ptr %pathlen.addr, align 8
-  store ptr %policy, ptr %policy.addr, align 8
-  store i32 0, ptr %free_policy, align 4
-  %0 = load ptr, ptr %val.addr, align 8
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %name, align 8
-  %call = call i32 @strcmp(ptr noundef %1, ptr noundef @.str.10) #6
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @process_pci_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca [2048 x i8], align 16
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !38
+  store ptr %1, ptr %7, align 8, !tbaa !48
+  store ptr %2, ptr %8, align 8, !tbaa !50
+  store ptr %3, ptr %9, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !tbaa !15
+  %18 = load ptr, ptr %6, align 8, !tbaa !38
+  %19 = getelementptr inbounds nuw %struct.conf_value_st, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %21 = call i32 @strcmp(ptr noundef %20, ptr noundef @.str.10) #8
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %55
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %language.addr, align 8
-  %3 = load ptr, ptr %2, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.then1, label %if.end
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %7, align 8, !tbaa !48
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %37
 
-if.then1:                                         ; preds = %if.then
+27:                                               ; preds = %23
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 149, ptr noundef @.str.6, i32 noundef 89)
-  %4 = load ptr, ptr %val.addr, align 8
-  %section = getelementptr inbounds %struct.conf_value_st, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %section, align 8
-  %6 = load ptr, ptr %val.addr, align 8
-  %name2 = getelementptr inbounds %struct.conf_value_st, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %name2, align 8
-  %8 = load ptr, ptr %val.addr, align 8
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %value, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %5, ptr noundef @.str.8, ptr noundef %7, ptr noundef @.str.9, ptr noundef %9)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  %28 = load ptr, ptr %6, align 8, !tbaa !38
+  %29 = getelementptr inbounds nuw %struct.conf_value_st, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !44
+  %31 = load ptr, ptr %6, align 8, !tbaa !38
+  %32 = getelementptr inbounds nuw %struct.conf_value_st, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !40
+  %34 = load ptr, ptr %6, align 8, !tbaa !38
+  %35 = getelementptr inbounds nuw %struct.conf_value_st, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %30, ptr noundef @.str.8, ptr noundef %33, ptr noundef @.str.9, ptr noundef %36)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %451
 
-if.end:                                           ; preds = %if.then
-  %10 = load ptr, ptr %val.addr, align 8
-  %value3 = getelementptr inbounds %struct.conf_value_st, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %value3, align 8
-  %call4 = call ptr @OBJ_txt2obj(ptr noundef %11, i32 noundef 0)
-  %12 = load ptr, ptr %language.addr, align 8
-  store ptr %call4, ptr %12, align 8
-  %tobool5 = icmp ne ptr %call4, null
-  br i1 %tobool5, label %if.end10, label %if.then6
+37:                                               ; preds = %23
+  %38 = load ptr, ptr %6, align 8, !tbaa !38
+  %39 = getelementptr inbounds nuw %struct.conf_value_st, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !43
+  %41 = call ptr @OBJ_txt2obj(ptr noundef %40, i32 noundef 0)
+  %42 = load ptr, ptr %7, align 8, !tbaa !48
+  store ptr %41, ptr %42, align 8, !tbaa !33
+  %43 = icmp ne ptr %41, null
+  br i1 %43, label %54, label %44
 
-if.then6:                                         ; preds = %if.end
+44:                                               ; preds = %37
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 129, ptr noundef @.str.6, i32 noundef 94)
-  %13 = load ptr, ptr %val.addr, align 8
-  %section7 = getelementptr inbounds %struct.conf_value_st, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %section7, align 8
-  %15 = load ptr, ptr %val.addr, align 8
-  %name8 = getelementptr inbounds %struct.conf_value_st, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %name8, align 8
-  %17 = load ptr, ptr %val.addr, align 8
-  %value9 = getelementptr inbounds %struct.conf_value_st, ptr %17, i32 0, i32 2
-  %18 = load ptr, ptr %value9, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %14, ptr noundef @.str.8, ptr noundef %16, ptr noundef @.str.9, ptr noundef %18)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  %45 = load ptr, ptr %6, align 8, !tbaa !38
+  %46 = getelementptr inbounds nuw %struct.conf_value_st, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !44
+  %48 = load ptr, ptr %6, align 8, !tbaa !38
+  %49 = getelementptr inbounds nuw %struct.conf_value_st, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8, !tbaa !40
+  %51 = load ptr, ptr %6, align 8, !tbaa !38
+  %52 = getelementptr inbounds nuw %struct.conf_value_st, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %47, ptr noundef @.str.8, ptr noundef %50, ptr noundef @.str.9, ptr noundef %53)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %451
 
-if.end10:                                         ; preds = %if.end
-  br label %if.end185
+54:                                               ; preds = %37
+  br label %442
 
-if.else:                                          ; preds = %entry
-  %19 = load ptr, ptr %val.addr, align 8
-  %name11 = getelementptr inbounds %struct.conf_value_st, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %name11, align 8
-  %call12 = call i32 @strcmp(ptr noundef %20, ptr noundef @.str.11) #6
-  %cmp13 = icmp eq i32 %call12, 0
-  br i1 %cmp13, label %if.then14, label %if.else28
+55:                                               ; preds = %4
+  %56 = load ptr, ptr %6, align 8, !tbaa !38
+  %57 = getelementptr inbounds nuw %struct.conf_value_st, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
+  %59 = call i32 @strcmp(ptr noundef %58, ptr noundef @.str.11) #8
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %91
 
-if.then14:                                        ; preds = %if.else
-  %21 = load ptr, ptr %pathlen.addr, align 8
-  %22 = load ptr, ptr %21, align 8
-  %tobool15 = icmp ne ptr %22, null
-  br i1 %tobool15, label %if.then16, label %if.end20
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %8, align 8, !tbaa !50
+  %63 = load ptr, ptr %62, align 8, !tbaa !34
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %75
 
-if.then16:                                        ; preds = %if.then14
+65:                                               ; preds = %61
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 151, ptr noundef @.str.6, i32 noundef 101)
-  %23 = load ptr, ptr %val.addr, align 8
-  %section17 = getelementptr inbounds %struct.conf_value_st, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %section17, align 8
-  %25 = load ptr, ptr %val.addr, align 8
-  %name18 = getelementptr inbounds %struct.conf_value_st, ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %name18, align 8
-  %27 = load ptr, ptr %val.addr, align 8
-  %value19 = getelementptr inbounds %struct.conf_value_st, ptr %27, i32 0, i32 2
-  %28 = load ptr, ptr %value19, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %24, ptr noundef @.str.8, ptr noundef %26, ptr noundef @.str.9, ptr noundef %28)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  %66 = load ptr, ptr %6, align 8, !tbaa !38
+  %67 = getelementptr inbounds nuw %struct.conf_value_st, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8, !tbaa !44
+  %69 = load ptr, ptr %6, align 8, !tbaa !38
+  %70 = getelementptr inbounds nuw %struct.conf_value_st, ptr %69, i32 0, i32 1
+  %71 = load ptr, ptr %70, align 8, !tbaa !40
+  %72 = load ptr, ptr %6, align 8, !tbaa !38
+  %73 = getelementptr inbounds nuw %struct.conf_value_st, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %68, ptr noundef @.str.8, ptr noundef %71, ptr noundef @.str.9, ptr noundef %74)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %451
 
-if.end20:                                         ; preds = %if.then14
-  %29 = load ptr, ptr %val.addr, align 8
-  %30 = load ptr, ptr %pathlen.addr, align 8
-  %call21 = call i32 @X509V3_get_value_int(ptr noundef %29, ptr noundef %30)
-  %tobool22 = icmp ne i32 %call21, 0
-  br i1 %tobool22, label %if.end27, label %if.then23
+75:                                               ; preds = %61
+  %76 = load ptr, ptr %6, align 8, !tbaa !38
+  %77 = load ptr, ptr %8, align 8, !tbaa !50
+  %78 = call i32 @X509V3_get_value_int(ptr noundef %76, ptr noundef %77)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %90, label %80
 
-if.then23:                                        ; preds = %if.end20
+80:                                               ; preds = %75
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 150, ptr noundef @.str.6, i32 noundef 106)
-  %31 = load ptr, ptr %val.addr, align 8
-  %section24 = getelementptr inbounds %struct.conf_value_st, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %section24, align 8
-  %33 = load ptr, ptr %val.addr, align 8
-  %name25 = getelementptr inbounds %struct.conf_value_st, ptr %33, i32 0, i32 1
-  %34 = load ptr, ptr %name25, align 8
-  %35 = load ptr, ptr %val.addr, align 8
-  %value26 = getelementptr inbounds %struct.conf_value_st, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %value26, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %32, ptr noundef @.str.8, ptr noundef %34, ptr noundef @.str.9, ptr noundef %36)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  %81 = load ptr, ptr %6, align 8, !tbaa !38
+  %82 = getelementptr inbounds nuw %struct.conf_value_st, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8, !tbaa !44
+  %84 = load ptr, ptr %6, align 8, !tbaa !38
+  %85 = getelementptr inbounds nuw %struct.conf_value_st, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8, !tbaa !40
+  %87 = load ptr, ptr %6, align 8, !tbaa !38
+  %88 = getelementptr inbounds nuw %struct.conf_value_st, ptr %87, i32 0, i32 2
+  %89 = load ptr, ptr %88, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %83, ptr noundef @.str.8, ptr noundef %86, ptr noundef @.str.9, ptr noundef %89)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %451
 
-if.end27:                                         ; preds = %if.end20
-  br label %if.end184
+90:                                               ; preds = %75
+  br label %441
 
-if.else28:                                        ; preds = %if.else
-  %37 = load ptr, ptr %val.addr, align 8
-  %name29 = getelementptr inbounds %struct.conf_value_st, ptr %37, i32 0, i32 1
-  %38 = load ptr, ptr %name29, align 8
-  %call30 = call i32 @strcmp(ptr noundef %38, ptr noundef @.str.12) #6
-  %cmp31 = icmp eq i32 %call30, 0
-  br i1 %cmp31, label %if.then32, label %if.end183
+91:                                               ; preds = %55
+  %92 = load ptr, ptr %6, align 8, !tbaa !38
+  %93 = getelementptr inbounds nuw %struct.conf_value_st, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8, !tbaa !40
+  %95 = call i32 @strcmp(ptr noundef %94, ptr noundef @.str.12) #8
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %440
 
-if.then32:                                        ; preds = %if.else28
-  store ptr null, ptr %tmp_data, align 8
-  %39 = load ptr, ptr %policy.addr, align 8
-  %40 = load ptr, ptr %39, align 8
-  %tobool33 = icmp ne ptr %40, null
-  br i1 %tobool33, label %if.end42, label %if.then34
+97:                                               ; preds = %91
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %98 = load ptr, ptr %9, align 8, !tbaa !50
+  %99 = load ptr, ptr %98, align 8, !tbaa !34
+  %100 = icmp ne ptr %99, null
+  br i1 %100, label %118, label %101
 
-if.then34:                                        ; preds = %if.then32
-  %call35 = call ptr @ASN1_OCTET_STRING_new()
-  %41 = load ptr, ptr %policy.addr, align 8
-  store ptr %call35, ptr %41, align 8
-  %42 = load ptr, ptr %policy.addr, align 8
-  %43 = load ptr, ptr %42, align 8
-  %tobool36 = icmp ne ptr %43, null
-  br i1 %tobool36, label %if.end41, label %if.then37
+101:                                              ; preds = %97
+  %102 = call ptr @ASN1_OCTET_STRING_new()
+  %103 = load ptr, ptr %9, align 8, !tbaa !50
+  store ptr %102, ptr %103, align 8, !tbaa !34
+  %104 = load ptr, ptr %9, align 8, !tbaa !50
+  %105 = load ptr, ptr %104, align 8, !tbaa !34
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %117, label %107
 
-if.then37:                                        ; preds = %if.then34
+107:                                              ; preds = %101
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef @.str.6, i32 noundef 116)
-  %44 = load ptr, ptr %val.addr, align 8
-  %section38 = getelementptr inbounds %struct.conf_value_st, ptr %44, i32 0, i32 0
-  %45 = load ptr, ptr %section38, align 8
-  %46 = load ptr, ptr %val.addr, align 8
-  %name39 = getelementptr inbounds %struct.conf_value_st, ptr %46, i32 0, i32 1
-  %47 = load ptr, ptr %name39, align 8
-  %48 = load ptr, ptr %val.addr, align 8
-  %value40 = getelementptr inbounds %struct.conf_value_st, ptr %48, i32 0, i32 2
-  %49 = load ptr, ptr %value40, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %45, ptr noundef @.str.8, ptr noundef %47, ptr noundef @.str.9, ptr noundef %49)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  %108 = load ptr, ptr %6, align 8, !tbaa !38
+  %109 = getelementptr inbounds nuw %struct.conf_value_st, ptr %108, i32 0, i32 0
+  %110 = load ptr, ptr %109, align 8, !tbaa !44
+  %111 = load ptr, ptr %6, align 8, !tbaa !38
+  %112 = getelementptr inbounds nuw %struct.conf_value_st, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8, !tbaa !40
+  %114 = load ptr, ptr %6, align 8, !tbaa !38
+  %115 = getelementptr inbounds nuw %struct.conf_value_st, ptr %114, i32 0, i32 2
+  %116 = load ptr, ptr %115, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %110, ptr noundef @.str.8, ptr noundef %113, ptr noundef @.str.9, ptr noundef %116)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %437
 
-if.end41:                                         ; preds = %if.then34
-  store i32 1, ptr %free_policy, align 4
-  br label %if.end42
+117:                                              ; preds = %101
+  store i32 1, ptr %10, align 4, !tbaa !15
+  br label %118
 
-if.end42:                                         ; preds = %if.end41, %if.then32
-  %50 = load ptr, ptr %val.addr, align 8
-  %value43 = getelementptr inbounds %struct.conf_value_st, ptr %50, i32 0, i32 2
-  %51 = load ptr, ptr %value43, align 8
-  %call44 = call i32 @strncmp(ptr noundef %51, ptr noundef @.str.13, i64 noundef 4) #6
-  %cmp45 = icmp eq i32 %call44, 0
-  br i1 %cmp45, label %if.then46, label %if.else77
+118:                                              ; preds = %117, %97
+  %119 = load ptr, ptr %6, align 8, !tbaa !38
+  %120 = getelementptr inbounds nuw %struct.conf_value_st, ptr %119, i32 0, i32 2
+  %121 = load ptr, ptr %120, align 8, !tbaa !43
+  %122 = call i32 @strncmp(ptr noundef %121, ptr noundef @.str.13, i64 noundef 4) #8
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %124, label %215
 
-if.then46:                                        ; preds = %if.end42
-  %52 = load ptr, ptr %val.addr, align 8
-  %value47 = getelementptr inbounds %struct.conf_value_st, ptr %52, i32 0, i32 2
-  %53 = load ptr, ptr %value47, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %53, i64 4
-  %call48 = call ptr @string_to_hex(ptr noundef %add.ptr, ptr noundef %val_len)
-  store ptr %call48, ptr %tmp_data2, align 8
-  %54 = load ptr, ptr %tmp_data2, align 8
-  %tobool49 = icmp ne ptr %54, null
-  br i1 %tobool49, label %if.end54, label %if.then50
+124:                                              ; preds = %118
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %125 = load ptr, ptr %6, align 8, !tbaa !38
+  %126 = getelementptr inbounds nuw %struct.conf_value_st, ptr %125, i32 0, i32 2
+  %127 = load ptr, ptr %126, align 8, !tbaa !43
+  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %129 = call ptr @string_to_hex(ptr noundef %128, ptr noundef %13)
+  store ptr %129, ptr %14, align 8, !tbaa !32
+  %130 = load ptr, ptr %14, align 8, !tbaa !32
+  %131 = icmp ne ptr %130, null
+  br i1 %131, label %142, label %132
 
-if.then50:                                        ; preds = %if.then46
+132:                                              ; preds = %124
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 118, ptr noundef @.str.6, i32 noundef 127)
-  %55 = load ptr, ptr %val.addr, align 8
-  %section51 = getelementptr inbounds %struct.conf_value_st, ptr %55, i32 0, i32 0
-  %56 = load ptr, ptr %section51, align 8
-  %57 = load ptr, ptr %val.addr, align 8
-  %name52 = getelementptr inbounds %struct.conf_value_st, ptr %57, i32 0, i32 1
-  %58 = load ptr, ptr %name52, align 8
-  %59 = load ptr, ptr %val.addr, align 8
-  %value53 = getelementptr inbounds %struct.conf_value_st, ptr %59, i32 0, i32 2
-  %60 = load ptr, ptr %value53, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %56, ptr noundef @.str.8, ptr noundef %58, ptr noundef @.str.9, ptr noundef %60)
-  br label %err
+  %133 = load ptr, ptr %6, align 8, !tbaa !38
+  %134 = getelementptr inbounds nuw %struct.conf_value_st, ptr %133, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8, !tbaa !44
+  %136 = load ptr, ptr %6, align 8, !tbaa !38
+  %137 = getelementptr inbounds nuw %struct.conf_value_st, ptr %136, i32 0, i32 1
+  %138 = load ptr, ptr %137, align 8, !tbaa !40
+  %139 = load ptr, ptr %6, align 8, !tbaa !38
+  %140 = getelementptr inbounds nuw %struct.conf_value_st, ptr %139, i32 0, i32 2
+  %141 = load ptr, ptr %140, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %135, ptr noundef @.str.8, ptr noundef %138, ptr noundef @.str.9, ptr noundef %141)
+  store i32 2, ptr %11, align 4
+  br label %212
 
-if.end54:                                         ; preds = %if.then46
-  %61 = load ptr, ptr %policy.addr, align 8
-  %62 = load ptr, ptr %61, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %62, i32 0, i32 2
-  %63 = load ptr, ptr %data, align 8
-  %64 = load ptr, ptr %policy.addr, align 8
-  %65 = load ptr, ptr %64, align 8
-  %length = getelementptr inbounds %struct.asn1_string_st, ptr %65, i32 0, i32 0
-  %66 = load i32, ptr %length, align 8
-  %conv = sext i32 %66 to i64
-  %67 = load i64, ptr %val_len, align 8
-  %add = add nsw i64 %conv, %67
-  %add55 = add nsw i64 %add, 1
-  %call56 = call ptr @realloc(ptr noundef %63, i64 noundef %add55) #7
-  store ptr %call56, ptr %tmp_data, align 8
-  %68 = load ptr, ptr %tmp_data, align 8
-  %tobool57 = icmp ne ptr %68, null
-  br i1 %tobool57, label %if.then58, label %if.else70
+142:                                              ; preds = %124
+  %143 = load ptr, ptr %9, align 8, !tbaa !50
+  %144 = load ptr, ptr %143, align 8, !tbaa !34
+  %145 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %144, i32 0, i32 2
+  %146 = load ptr, ptr %145, align 8, !tbaa !26
+  %147 = load ptr, ptr %9, align 8, !tbaa !50
+  %148 = load ptr, ptr %147, align 8, !tbaa !34
+  %149 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %148, i32 0, i32 0
+  %150 = load i32, ptr %149, align 8, !tbaa !52
+  %151 = sext i32 %150 to i64
+  %152 = load i64, ptr %13, align 8, !tbaa !37
+  %153 = add nsw i64 %151, %152
+  %154 = add nsw i64 %153, 1
+  %155 = call ptr @realloc(ptr noundef %146, i64 noundef %154) #9
+  store ptr %155, ptr %12, align 8, !tbaa !32
+  %156 = load ptr, ptr %12, align 8, !tbaa !32
+  %157 = icmp ne ptr %156, null
+  br i1 %157, label %158, label %193
 
-if.then58:                                        ; preds = %if.end54
-  %69 = load ptr, ptr %tmp_data, align 8
-  %70 = load ptr, ptr %policy.addr, align 8
-  %71 = load ptr, ptr %70, align 8
-  %data59 = getelementptr inbounds %struct.asn1_string_st, ptr %71, i32 0, i32 2
-  store ptr %69, ptr %data59, align 8
-  %72 = load ptr, ptr %policy.addr, align 8
-  %73 = load ptr, ptr %72, align 8
-  %data60 = getelementptr inbounds %struct.asn1_string_st, ptr %73, i32 0, i32 2
-  %74 = load ptr, ptr %data60, align 8
-  %75 = load ptr, ptr %policy.addr, align 8
-  %76 = load ptr, ptr %75, align 8
-  %length61 = getelementptr inbounds %struct.asn1_string_st, ptr %76, i32 0, i32 0
-  %77 = load i32, ptr %length61, align 8
-  %idxprom = sext i32 %77 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %74, i64 %idxprom
-  %78 = load ptr, ptr %tmp_data2, align 8
-  %79 = load i64, ptr %val_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx, ptr align 1 %78, i64 %79, i1 false)
-  %80 = load i64, ptr %val_len, align 8
-  %81 = load ptr, ptr %policy.addr, align 8
-  %82 = load ptr, ptr %81, align 8
-  %length62 = getelementptr inbounds %struct.asn1_string_st, ptr %82, i32 0, i32 0
-  %83 = load i32, ptr %length62, align 8
-  %conv63 = sext i32 %83 to i64
-  %add64 = add nsw i64 %conv63, %80
-  %conv65 = trunc i64 %add64 to i32
-  store i32 %conv65, ptr %length62, align 8
-  %84 = load ptr, ptr %policy.addr, align 8
-  %85 = load ptr, ptr %84, align 8
-  %data66 = getelementptr inbounds %struct.asn1_string_st, ptr %85, i32 0, i32 2
-  %86 = load ptr, ptr %data66, align 8
-  %87 = load ptr, ptr %policy.addr, align 8
-  %88 = load ptr, ptr %87, align 8
-  %length67 = getelementptr inbounds %struct.asn1_string_st, ptr %88, i32 0, i32 0
-  %89 = load i32, ptr %length67, align 8
-  %idxprom68 = sext i32 %89 to i64
-  %arrayidx69 = getelementptr inbounds i8, ptr %86, i64 %idxprom68
-  store i8 0, ptr %arrayidx69, align 1
-  br label %if.end76
+158:                                              ; preds = %142
+  %159 = load ptr, ptr %12, align 8, !tbaa !32
+  %160 = load ptr, ptr %9, align 8, !tbaa !50
+  %161 = load ptr, ptr %160, align 8, !tbaa !34
+  %162 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %161, i32 0, i32 2
+  store ptr %159, ptr %162, align 8, !tbaa !26
+  %163 = load ptr, ptr %9, align 8, !tbaa !50
+  %164 = load ptr, ptr %163, align 8, !tbaa !34
+  %165 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %164, i32 0, i32 2
+  %166 = load ptr, ptr %165, align 8, !tbaa !26
+  %167 = load ptr, ptr %9, align 8, !tbaa !50
+  %168 = load ptr, ptr %167, align 8, !tbaa !34
+  %169 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %168, i32 0, i32 0
+  %170 = load i32, ptr %169, align 8, !tbaa !52
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds i8, ptr %166, i64 %171
+  %173 = load ptr, ptr %14, align 8, !tbaa !32
+  %174 = load i64, ptr %13, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %172, ptr align 1 %173, i64 %174, i1 false)
+  %175 = load i64, ptr %13, align 8, !tbaa !37
+  %176 = load ptr, ptr %9, align 8, !tbaa !50
+  %177 = load ptr, ptr %176, align 8, !tbaa !34
+  %178 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %177, i32 0, i32 0
+  %179 = load i32, ptr %178, align 8, !tbaa !52
+  %180 = sext i32 %179 to i64
+  %181 = add nsw i64 %180, %175
+  %182 = trunc i64 %181 to i32
+  store i32 %182, ptr %178, align 8, !tbaa !52
+  %183 = load ptr, ptr %9, align 8, !tbaa !50
+  %184 = load ptr, ptr %183, align 8, !tbaa !34
+  %185 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %184, i32 0, i32 2
+  %186 = load ptr, ptr %185, align 8, !tbaa !26
+  %187 = load ptr, ptr %9, align 8, !tbaa !50
+  %188 = load ptr, ptr %187, align 8, !tbaa !34
+  %189 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %188, i32 0, i32 0
+  %190 = load i32, ptr %189, align 8, !tbaa !52
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds i8, ptr %186, i64 %191
+  store i8 0, ptr %192, align 1, !tbaa !42
+  br label %210
 
-if.else70:                                        ; preds = %if.end54
-  %90 = load ptr, ptr %tmp_data2, align 8
-  call void @free(ptr noundef %90) #8
-  %91 = load ptr, ptr %policy.addr, align 8
-  %92 = load ptr, ptr %91, align 8
-  %data71 = getelementptr inbounds %struct.asn1_string_st, ptr %92, i32 0, i32 2
-  store ptr null, ptr %data71, align 8
-  %93 = load ptr, ptr %policy.addr, align 8
-  %94 = load ptr, ptr %93, align 8
-  %length72 = getelementptr inbounds %struct.asn1_string_st, ptr %94, i32 0, i32 0
-  store i32 0, ptr %length72, align 8
+193:                                              ; preds = %142
+  %194 = load ptr, ptr %14, align 8, !tbaa !32
+  call void @free(ptr noundef %194) #7
+  %195 = load ptr, ptr %9, align 8, !tbaa !50
+  %196 = load ptr, ptr %195, align 8, !tbaa !34
+  %197 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %196, i32 0, i32 2
+  store ptr null, ptr %197, align 8, !tbaa !26
+  %198 = load ptr, ptr %9, align 8, !tbaa !50
+  %199 = load ptr, ptr %198, align 8, !tbaa !34
+  %200 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %199, i32 0, i32 0
+  store i32 0, ptr %200, align 8, !tbaa !52
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef @.str.6, i32 noundef 148)
-  %95 = load ptr, ptr %val.addr, align 8
-  %section73 = getelementptr inbounds %struct.conf_value_st, ptr %95, i32 0, i32 0
-  %96 = load ptr, ptr %section73, align 8
-  %97 = load ptr, ptr %val.addr, align 8
-  %name74 = getelementptr inbounds %struct.conf_value_st, ptr %97, i32 0, i32 1
-  %98 = load ptr, ptr %name74, align 8
-  %99 = load ptr, ptr %val.addr, align 8
-  %value75 = getelementptr inbounds %struct.conf_value_st, ptr %99, i32 0, i32 2
-  %100 = load ptr, ptr %value75, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %96, ptr noundef @.str.8, ptr noundef %98, ptr noundef @.str.9, ptr noundef %100)
-  br label %err
+  %201 = load ptr, ptr %6, align 8, !tbaa !38
+  %202 = getelementptr inbounds nuw %struct.conf_value_st, ptr %201, i32 0, i32 0
+  %203 = load ptr, ptr %202, align 8, !tbaa !44
+  %204 = load ptr, ptr %6, align 8, !tbaa !38
+  %205 = getelementptr inbounds nuw %struct.conf_value_st, ptr %204, i32 0, i32 1
+  %206 = load ptr, ptr %205, align 8, !tbaa !40
+  %207 = load ptr, ptr %6, align 8, !tbaa !38
+  %208 = getelementptr inbounds nuw %struct.conf_value_st, ptr %207, i32 0, i32 2
+  %209 = load ptr, ptr %208, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %203, ptr noundef @.str.8, ptr noundef %206, ptr noundef @.str.9, ptr noundef %209)
+  store i32 2, ptr %11, align 4
+  br label %212
 
-if.end76:                                         ; preds = %if.then58
-  %101 = load ptr, ptr %tmp_data2, align 8
-  call void @free(ptr noundef %101) #8
-  br label %if.end176
+210:                                              ; preds = %158
+  %211 = load ptr, ptr %14, align 8, !tbaa !32
+  call void @free(ptr noundef %211) #7
+  store i32 0, ptr %11, align 4
+  br label %212
 
-if.else77:                                        ; preds = %if.end42
-  %102 = load ptr, ptr %val.addr, align 8
-  %value78 = getelementptr inbounds %struct.conf_value_st, ptr %102, i32 0, i32 2
-  %103 = load ptr, ptr %value78, align 8
-  %call79 = call i32 @strncmp(ptr noundef %103, ptr noundef @.str.14, i64 noundef 5) #6
-  %cmp80 = icmp eq i32 %call79, 0
-  br i1 %cmp80, label %if.then82, label %if.else131
+212:                                              ; preds = %193, %132, %210
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %213 = load i32, ptr %11, align 4
+  switch i32 %213, label %437 [
+    i32 0, label %214
+  ]
 
-if.then82:                                        ; preds = %if.else77
-  %104 = load ptr, ptr %val.addr, align 8
-  %value83 = getelementptr inbounds %struct.conf_value_st, ptr %104, i32 0, i32 2
-  %105 = load ptr, ptr %value83, align 8
-  %add.ptr84 = getelementptr inbounds i8, ptr %105, i64 5
-  %call85 = call ptr @BIO_new_file(ptr noundef %add.ptr84, ptr noundef @.str.15)
-  store ptr %call85, ptr %b, align 8
-  %106 = load ptr, ptr %b, align 8
-  %tobool86 = icmp ne ptr %106, null
-  br i1 %tobool86, label %if.end91, label %if.then87
+214:                                              ; preds = %212
+  br label %423
 
-if.then87:                                        ; preds = %if.then82
+215:                                              ; preds = %118
+  %216 = load ptr, ptr %6, align 8, !tbaa !38
+  %217 = getelementptr inbounds nuw %struct.conf_value_st, ptr %216, i32 0, i32 2
+  %218 = load ptr, ptr %217, align 8, !tbaa !43
+  %219 = call i32 @strncmp(ptr noundef %218, ptr noundef @.str.14, i64 noundef 5) #8
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %221, label %329
+
+221:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 2048, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %222 = load ptr, ptr %6, align 8, !tbaa !38
+  %223 = getelementptr inbounds nuw %struct.conf_value_st, ptr %222, i32 0, i32 2
+  %224 = load ptr, ptr %223, align 8, !tbaa !43
+  %225 = getelementptr inbounds i8, ptr %224, i64 5
+  %226 = call ptr @BIO_new_file(ptr noundef %225, ptr noundef @.str.15)
+  store ptr %226, ptr %17, align 8, !tbaa !13
+  %227 = load ptr, ptr %17, align 8, !tbaa !13
+  %228 = icmp ne ptr %227, null
+  br i1 %228, label %239, label %229
+
+229:                                              ; preds = %221
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 17, ptr noundef @.str.6, i32 noundef 158)
-  %107 = load ptr, ptr %val.addr, align 8
-  %section88 = getelementptr inbounds %struct.conf_value_st, ptr %107, i32 0, i32 0
-  %108 = load ptr, ptr %section88, align 8
-  %109 = load ptr, ptr %val.addr, align 8
-  %name89 = getelementptr inbounds %struct.conf_value_st, ptr %109, i32 0, i32 1
-  %110 = load ptr, ptr %name89, align 8
-  %111 = load ptr, ptr %val.addr, align 8
-  %value90 = getelementptr inbounds %struct.conf_value_st, ptr %111, i32 0, i32 2
-  %112 = load ptr, ptr %value90, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %108, ptr noundef @.str.8, ptr noundef %110, ptr noundef @.str.9, ptr noundef %112)
-  br label %err
+  %230 = load ptr, ptr %6, align 8, !tbaa !38
+  %231 = getelementptr inbounds nuw %struct.conf_value_st, ptr %230, i32 0, i32 0
+  %232 = load ptr, ptr %231, align 8, !tbaa !44
+  %233 = load ptr, ptr %6, align 8, !tbaa !38
+  %234 = getelementptr inbounds nuw %struct.conf_value_st, ptr %233, i32 0, i32 1
+  %235 = load ptr, ptr %234, align 8, !tbaa !40
+  %236 = load ptr, ptr %6, align 8, !tbaa !38
+  %237 = getelementptr inbounds nuw %struct.conf_value_st, ptr %236, i32 0, i32 2
+  %238 = load ptr, ptr %237, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %232, ptr noundef @.str.8, ptr noundef %235, ptr noundef @.str.9, ptr noundef %238)
+  store i32 2, ptr %11, align 4
+  br label %326
 
-if.end91:                                         ; preds = %if.then82
-  br label %while.cond
+239:                                              ; preds = %221
+  br label %240
 
-while.cond:                                       ; preds = %if.end110, %if.then100, %if.end91
-  %113 = load ptr, ptr %b, align 8
-  %arraydecay = getelementptr inbounds [2048 x i8], ptr %buf, i64 0, i64 0
-  %call92 = call i32 @BIO_read(ptr noundef %113, ptr noundef %arraydecay, i32 noundef 2048)
-  store i32 %call92, ptr %n, align 4
-  %cmp93 = icmp sgt i32 %call92, 0
-  br i1 %cmp93, label %lor.end, label %lor.rhs
+240:                                              ; preds = %277, %259, %239
+  %241 = load ptr, ptr %17, align 8, !tbaa !13
+  %242 = getelementptr inbounds [2048 x i8], ptr %15, i64 0, i64 0
+  %243 = call i32 @BIO_read(ptr noundef %241, ptr noundef %242, i32 noundef 2048)
+  store i32 %243, ptr %16, align 4, !tbaa !15
+  %244 = icmp sgt i32 %243, 0
+  br i1 %244, label %254, label %245
 
-lor.rhs:                                          ; preds = %while.cond
-  %114 = load i32, ptr %n, align 4
-  %cmp95 = icmp eq i32 %114, 0
-  br i1 %cmp95, label %land.rhs, label %land.end
+245:                                              ; preds = %240
+  %246 = load i32, ptr %16, align 4, !tbaa !15
+  %247 = icmp eq i32 %246, 0
+  br i1 %247, label %248, label %252
 
-land.rhs:                                         ; preds = %lor.rhs
-  %115 = load ptr, ptr %b, align 8
-  %call97 = call i32 @BIO_should_retry(ptr noundef %115)
-  %tobool98 = icmp ne i32 %call97, 0
-  br label %land.end
+248:                                              ; preds = %245
+  %249 = load ptr, ptr %17, align 8, !tbaa !13
+  %250 = call i32 @BIO_should_retry(ptr noundef %249)
+  %251 = icmp ne i32 %250, 0
+  br label %252
 
-land.end:                                         ; preds = %land.rhs, %lor.rhs
-  %116 = phi i1 [ false, %lor.rhs ], [ %tobool98, %land.rhs ]
-  br label %lor.end
+252:                                              ; preds = %248, %245
+  %253 = phi i1 [ false, %245 ], [ %251, %248 ]
+  br label %254
 
-lor.end:                                          ; preds = %land.end, %while.cond
-  %117 = phi i1 [ true, %while.cond ], [ %116, %land.end ]
-  br i1 %117, label %while.body, label %while.end
+254:                                              ; preds = %252, %240
+  %255 = phi i1 [ true, %240 ], [ %253, %252 ]
+  br i1 %255, label %256, label %311
 
-while.body:                                       ; preds = %lor.end
-  %118 = load i32, ptr %n, align 4
-  %tobool99 = icmp ne i32 %118, 0
-  br i1 %tobool99, label %if.end101, label %if.then100
+256:                                              ; preds = %254
+  %257 = load i32, ptr %16, align 4, !tbaa !15
+  %258 = icmp ne i32 %257, 0
+  br i1 %258, label %260, label %259
 
-if.then100:                                       ; preds = %while.body
-  br label %while.cond, !llvm.loop !10
+259:                                              ; preds = %256
+  br label %240, !llvm.loop !53
 
-if.end101:                                        ; preds = %while.body
-  %119 = load ptr, ptr %policy.addr, align 8
-  %120 = load ptr, ptr %119, align 8
-  %data102 = getelementptr inbounds %struct.asn1_string_st, ptr %120, i32 0, i32 2
-  %121 = load ptr, ptr %data102, align 8
-  %122 = load ptr, ptr %policy.addr, align 8
-  %123 = load ptr, ptr %122, align 8
-  %length103 = getelementptr inbounds %struct.asn1_string_st, ptr %123, i32 0, i32 0
-  %124 = load i32, ptr %length103, align 8
-  %125 = load i32, ptr %n, align 4
-  %add104 = add nsw i32 %124, %125
-  %add105 = add nsw i32 %add104, 1
-  %conv106 = sext i32 %add105 to i64
-  %call107 = call ptr @realloc(ptr noundef %121, i64 noundef %conv106) #7
-  store ptr %call107, ptr %tmp_data, align 8
-  %126 = load ptr, ptr %tmp_data, align 8
-  %tobool108 = icmp ne ptr %126, null
-  br i1 %tobool108, label %if.end110, label %if.then109
+260:                                              ; preds = %256
+  %261 = load ptr, ptr %9, align 8, !tbaa !50
+  %262 = load ptr, ptr %261, align 8, !tbaa !34
+  %263 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %262, i32 0, i32 2
+  %264 = load ptr, ptr %263, align 8, !tbaa !26
+  %265 = load ptr, ptr %9, align 8, !tbaa !50
+  %266 = load ptr, ptr %265, align 8, !tbaa !34
+  %267 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %266, i32 0, i32 0
+  %268 = load i32, ptr %267, align 8, !tbaa !52
+  %269 = load i32, ptr %16, align 4, !tbaa !15
+  %270 = add nsw i32 %268, %269
+  %271 = add nsw i32 %270, 1
+  %272 = sext i32 %271 to i64
+  %273 = call ptr @realloc(ptr noundef %264, i64 noundef %272) #9
+  store ptr %273, ptr %12, align 8, !tbaa !32
+  %274 = load ptr, ptr %12, align 8, !tbaa !32
+  %275 = icmp ne ptr %274, null
+  br i1 %275, label %277, label %276
 
-if.then109:                                       ; preds = %if.end101
-  br label %while.end
+276:                                              ; preds = %260
+  br label %311
 
-if.end110:                                        ; preds = %if.end101
-  %127 = load ptr, ptr %tmp_data, align 8
-  %128 = load ptr, ptr %policy.addr, align 8
-  %129 = load ptr, ptr %128, align 8
-  %data111 = getelementptr inbounds %struct.asn1_string_st, ptr %129, i32 0, i32 2
-  store ptr %127, ptr %data111, align 8
-  %130 = load ptr, ptr %policy.addr, align 8
-  %131 = load ptr, ptr %130, align 8
-  %data112 = getelementptr inbounds %struct.asn1_string_st, ptr %131, i32 0, i32 2
-  %132 = load ptr, ptr %data112, align 8
-  %133 = load ptr, ptr %policy.addr, align 8
-  %134 = load ptr, ptr %133, align 8
-  %length113 = getelementptr inbounds %struct.asn1_string_st, ptr %134, i32 0, i32 0
-  %135 = load i32, ptr %length113, align 8
-  %idxprom114 = sext i32 %135 to i64
-  %arrayidx115 = getelementptr inbounds i8, ptr %132, i64 %idxprom114
-  %arraydecay116 = getelementptr inbounds [2048 x i8], ptr %buf, i64 0, i64 0
-  %136 = load i32, ptr %n, align 4
-  %conv117 = sext i32 %136 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx115, ptr align 16 %arraydecay116, i64 %conv117, i1 false)
-  %137 = load i32, ptr %n, align 4
-  %138 = load ptr, ptr %policy.addr, align 8
-  %139 = load ptr, ptr %138, align 8
-  %length118 = getelementptr inbounds %struct.asn1_string_st, ptr %139, i32 0, i32 0
-  %140 = load i32, ptr %length118, align 8
-  %add119 = add nsw i32 %140, %137
-  store i32 %add119, ptr %length118, align 8
-  %141 = load ptr, ptr %policy.addr, align 8
-  %142 = load ptr, ptr %141, align 8
-  %data120 = getelementptr inbounds %struct.asn1_string_st, ptr %142, i32 0, i32 2
-  %143 = load ptr, ptr %data120, align 8
-  %144 = load ptr, ptr %policy.addr, align 8
-  %145 = load ptr, ptr %144, align 8
-  %length121 = getelementptr inbounds %struct.asn1_string_st, ptr %145, i32 0, i32 0
-  %146 = load i32, ptr %length121, align 8
-  %idxprom122 = sext i32 %146 to i64
-  %arrayidx123 = getelementptr inbounds i8, ptr %143, i64 %idxprom122
-  store i8 0, ptr %arrayidx123, align 1
-  br label %while.cond, !llvm.loop !10
+277:                                              ; preds = %260
+  %278 = load ptr, ptr %12, align 8, !tbaa !32
+  %279 = load ptr, ptr %9, align 8, !tbaa !50
+  %280 = load ptr, ptr %279, align 8, !tbaa !34
+  %281 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %280, i32 0, i32 2
+  store ptr %278, ptr %281, align 8, !tbaa !26
+  %282 = load ptr, ptr %9, align 8, !tbaa !50
+  %283 = load ptr, ptr %282, align 8, !tbaa !34
+  %284 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %283, i32 0, i32 2
+  %285 = load ptr, ptr %284, align 8, !tbaa !26
+  %286 = load ptr, ptr %9, align 8, !tbaa !50
+  %287 = load ptr, ptr %286, align 8, !tbaa !34
+  %288 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %287, i32 0, i32 0
+  %289 = load i32, ptr %288, align 8, !tbaa !52
+  %290 = sext i32 %289 to i64
+  %291 = getelementptr inbounds i8, ptr %285, i64 %290
+  %292 = getelementptr inbounds [2048 x i8], ptr %15, i64 0, i64 0
+  %293 = load i32, ptr %16, align 4, !tbaa !15
+  %294 = sext i32 %293 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %291, ptr align 16 %292, i64 %294, i1 false)
+  %295 = load i32, ptr %16, align 4, !tbaa !15
+  %296 = load ptr, ptr %9, align 8, !tbaa !50
+  %297 = load ptr, ptr %296, align 8, !tbaa !34
+  %298 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %297, i32 0, i32 0
+  %299 = load i32, ptr %298, align 8, !tbaa !52
+  %300 = add nsw i32 %299, %295
+  store i32 %300, ptr %298, align 8, !tbaa !52
+  %301 = load ptr, ptr %9, align 8, !tbaa !50
+  %302 = load ptr, ptr %301, align 8, !tbaa !34
+  %303 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %302, i32 0, i32 2
+  %304 = load ptr, ptr %303, align 8, !tbaa !26
+  %305 = load ptr, ptr %9, align 8, !tbaa !50
+  %306 = load ptr, ptr %305, align 8, !tbaa !34
+  %307 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %306, i32 0, i32 0
+  %308 = load i32, ptr %307, align 8, !tbaa !52
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr inbounds i8, ptr %304, i64 %309
+  store i8 0, ptr %310, align 1, !tbaa !42
+  br label %240, !llvm.loop !53
 
-while.end:                                        ; preds = %if.then109, %lor.end
-  %147 = load ptr, ptr %b, align 8
-  call void @BIO_free_all(ptr noundef %147)
-  %148 = load i32, ptr %n, align 4
-  %cmp124 = icmp slt i32 %148, 0
-  br i1 %cmp124, label %if.then126, label %if.end130
+311:                                              ; preds = %276, %254
+  %312 = load ptr, ptr %17, align 8, !tbaa !13
+  call void @BIO_free_all(ptr noundef %312)
+  %313 = load i32, ptr %16, align 4, !tbaa !15
+  %314 = icmp slt i32 %313, 0
+  br i1 %314, label %315, label %325
 
-if.then126:                                       ; preds = %while.end
+315:                                              ; preds = %311
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 17, ptr noundef @.str.6, i32 noundef 181)
-  %149 = load ptr, ptr %val.addr, align 8
-  %section127 = getelementptr inbounds %struct.conf_value_st, ptr %149, i32 0, i32 0
-  %150 = load ptr, ptr %section127, align 8
-  %151 = load ptr, ptr %val.addr, align 8
-  %name128 = getelementptr inbounds %struct.conf_value_st, ptr %151, i32 0, i32 1
-  %152 = load ptr, ptr %name128, align 8
-  %153 = load ptr, ptr %val.addr, align 8
-  %value129 = getelementptr inbounds %struct.conf_value_st, ptr %153, i32 0, i32 2
-  %154 = load ptr, ptr %value129, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %150, ptr noundef @.str.8, ptr noundef %152, ptr noundef @.str.9, ptr noundef %154)
-  br label %err
+  %316 = load ptr, ptr %6, align 8, !tbaa !38
+  %317 = getelementptr inbounds nuw %struct.conf_value_st, ptr %316, i32 0, i32 0
+  %318 = load ptr, ptr %317, align 8, !tbaa !44
+  %319 = load ptr, ptr %6, align 8, !tbaa !38
+  %320 = getelementptr inbounds nuw %struct.conf_value_st, ptr %319, i32 0, i32 1
+  %321 = load ptr, ptr %320, align 8, !tbaa !40
+  %322 = load ptr, ptr %6, align 8, !tbaa !38
+  %323 = getelementptr inbounds nuw %struct.conf_value_st, ptr %322, i32 0, i32 2
+  %324 = load ptr, ptr %323, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %318, ptr noundef @.str.8, ptr noundef %321, ptr noundef @.str.9, ptr noundef %324)
+  store i32 2, ptr %11, align 4
+  br label %326
 
-if.end130:                                        ; preds = %while.end
-  br label %if.end175
+325:                                              ; preds = %311
+  store i32 0, ptr %11, align 4
+  br label %326
 
-if.else131:                                       ; preds = %if.else77
-  %155 = load ptr, ptr %val.addr, align 8
-  %value132 = getelementptr inbounds %struct.conf_value_st, ptr %155, i32 0, i32 2
-  %156 = load ptr, ptr %value132, align 8
-  %call133 = call i32 @strncmp(ptr noundef %156, ptr noundef @.str.16, i64 noundef 5) #6
-  %cmp134 = icmp eq i32 %call133, 0
-  br i1 %cmp134, label %if.then136, label %if.else170
+326:                                              ; preds = %315, %229, %325
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 2048, ptr %15) #7
+  %327 = load i32, ptr %11, align 4
+  switch i32 %327, label %437 [
+    i32 0, label %328
+  ]
 
-if.then136:                                       ; preds = %if.else131
-  %157 = load ptr, ptr %val.addr, align 8
-  %value137 = getelementptr inbounds %struct.conf_value_st, ptr %157, i32 0, i32 2
-  %158 = load ptr, ptr %value137, align 8
-  %add.ptr138 = getelementptr inbounds i8, ptr %158, i64 5
-  %call139 = call i64 @strlen(ptr noundef %add.ptr138) #6
-  store i64 %call139, ptr %val_len, align 8
-  %159 = load ptr, ptr %policy.addr, align 8
-  %160 = load ptr, ptr %159, align 8
-  %data140 = getelementptr inbounds %struct.asn1_string_st, ptr %160, i32 0, i32 2
-  %161 = load ptr, ptr %data140, align 8
-  %162 = load ptr, ptr %policy.addr, align 8
-  %163 = load ptr, ptr %162, align 8
-  %length141 = getelementptr inbounds %struct.asn1_string_st, ptr %163, i32 0, i32 0
-  %164 = load i32, ptr %length141, align 8
-  %conv142 = sext i32 %164 to i64
-  %165 = load i64, ptr %val_len, align 8
-  %add143 = add nsw i64 %conv142, %165
-  %add144 = add nsw i64 %add143, 1
-  %call145 = call ptr @realloc(ptr noundef %161, i64 noundef %add144) #7
-  store ptr %call145, ptr %tmp_data, align 8
-  %166 = load ptr, ptr %tmp_data, align 8
-  %tobool146 = icmp ne ptr %166, null
-  br i1 %tobool146, label %if.then147, label %if.else163
+328:                                              ; preds = %326
+  br label %422
 
-if.then147:                                       ; preds = %if.then136
-  %167 = load ptr, ptr %tmp_data, align 8
-  %168 = load ptr, ptr %policy.addr, align 8
-  %169 = load ptr, ptr %168, align 8
-  %data148 = getelementptr inbounds %struct.asn1_string_st, ptr %169, i32 0, i32 2
-  store ptr %167, ptr %data148, align 8
-  %170 = load ptr, ptr %policy.addr, align 8
-  %171 = load ptr, ptr %170, align 8
-  %data149 = getelementptr inbounds %struct.asn1_string_st, ptr %171, i32 0, i32 2
-  %172 = load ptr, ptr %data149, align 8
-  %173 = load ptr, ptr %policy.addr, align 8
-  %174 = load ptr, ptr %173, align 8
-  %length150 = getelementptr inbounds %struct.asn1_string_st, ptr %174, i32 0, i32 0
-  %175 = load i32, ptr %length150, align 8
-  %idxprom151 = sext i32 %175 to i64
-  %arrayidx152 = getelementptr inbounds i8, ptr %172, i64 %idxprom151
-  %176 = load ptr, ptr %val.addr, align 8
-  %value153 = getelementptr inbounds %struct.conf_value_st, ptr %176, i32 0, i32 2
-  %177 = load ptr, ptr %value153, align 8
-  %add.ptr154 = getelementptr inbounds i8, ptr %177, i64 5
-  %178 = load i64, ptr %val_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx152, ptr align 1 %add.ptr154, i64 %178, i1 false)
-  %179 = load i64, ptr %val_len, align 8
-  %180 = load ptr, ptr %policy.addr, align 8
-  %181 = load ptr, ptr %180, align 8
-  %length155 = getelementptr inbounds %struct.asn1_string_st, ptr %181, i32 0, i32 0
-  %182 = load i32, ptr %length155, align 8
-  %conv156 = sext i32 %182 to i64
-  %add157 = add nsw i64 %conv156, %179
-  %conv158 = trunc i64 %add157 to i32
-  store i32 %conv158, ptr %length155, align 8
-  %183 = load ptr, ptr %policy.addr, align 8
-  %184 = load ptr, ptr %183, align 8
-  %data159 = getelementptr inbounds %struct.asn1_string_st, ptr %184, i32 0, i32 2
-  %185 = load ptr, ptr %data159, align 8
-  %186 = load ptr, ptr %policy.addr, align 8
-  %187 = load ptr, ptr %186, align 8
-  %length160 = getelementptr inbounds %struct.asn1_string_st, ptr %187, i32 0, i32 0
-  %188 = load i32, ptr %length160, align 8
-  %idxprom161 = sext i32 %188 to i64
-  %arrayidx162 = getelementptr inbounds i8, ptr %185, i64 %idxprom161
-  store i8 0, ptr %arrayidx162, align 1
-  br label %if.end169
+329:                                              ; preds = %215
+  %330 = load ptr, ptr %6, align 8, !tbaa !38
+  %331 = getelementptr inbounds nuw %struct.conf_value_st, ptr %330, i32 0, i32 2
+  %332 = load ptr, ptr %331, align 8, !tbaa !43
+  %333 = call i32 @strncmp(ptr noundef %332, ptr noundef @.str.16, i64 noundef 5) #8
+  %334 = icmp eq i32 %333, 0
+  br i1 %334, label %335, label %411
 
-if.else163:                                       ; preds = %if.then136
-  %189 = load ptr, ptr %policy.addr, align 8
-  %190 = load ptr, ptr %189, align 8
-  %data164 = getelementptr inbounds %struct.asn1_string_st, ptr %190, i32 0, i32 2
-  store ptr null, ptr %data164, align 8
-  %191 = load ptr, ptr %policy.addr, align 8
-  %192 = load ptr, ptr %191, align 8
-  %length165 = getelementptr inbounds %struct.asn1_string_st, ptr %192, i32 0, i32 0
-  store i32 0, ptr %length165, align 8
+335:                                              ; preds = %329
+  %336 = load ptr, ptr %6, align 8, !tbaa !38
+  %337 = getelementptr inbounds nuw %struct.conf_value_st, ptr %336, i32 0, i32 2
+  %338 = load ptr, ptr %337, align 8, !tbaa !43
+  %339 = getelementptr inbounds i8, ptr %338, i64 5
+  %340 = call i64 @strlen(ptr noundef %339) #8
+  store i64 %340, ptr %13, align 8, !tbaa !37
+  %341 = load ptr, ptr %9, align 8, !tbaa !50
+  %342 = load ptr, ptr %341, align 8, !tbaa !34
+  %343 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %342, i32 0, i32 2
+  %344 = load ptr, ptr %343, align 8, !tbaa !26
+  %345 = load ptr, ptr %9, align 8, !tbaa !50
+  %346 = load ptr, ptr %345, align 8, !tbaa !34
+  %347 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %346, i32 0, i32 0
+  %348 = load i32, ptr %347, align 8, !tbaa !52
+  %349 = sext i32 %348 to i64
+  %350 = load i64, ptr %13, align 8, !tbaa !37
+  %351 = add nsw i64 %349, %350
+  %352 = add nsw i64 %351, 1
+  %353 = call ptr @realloc(ptr noundef %344, i64 noundef %352) #9
+  store ptr %353, ptr %12, align 8, !tbaa !32
+  %354 = load ptr, ptr %12, align 8, !tbaa !32
+  %355 = icmp ne ptr %354, null
+  br i1 %355, label %356, label %394
+
+356:                                              ; preds = %335
+  %357 = load ptr, ptr %12, align 8, !tbaa !32
+  %358 = load ptr, ptr %9, align 8, !tbaa !50
+  %359 = load ptr, ptr %358, align 8, !tbaa !34
+  %360 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %359, i32 0, i32 2
+  store ptr %357, ptr %360, align 8, !tbaa !26
+  %361 = load ptr, ptr %9, align 8, !tbaa !50
+  %362 = load ptr, ptr %361, align 8, !tbaa !34
+  %363 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %362, i32 0, i32 2
+  %364 = load ptr, ptr %363, align 8, !tbaa !26
+  %365 = load ptr, ptr %9, align 8, !tbaa !50
+  %366 = load ptr, ptr %365, align 8, !tbaa !34
+  %367 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %366, i32 0, i32 0
+  %368 = load i32, ptr %367, align 8, !tbaa !52
+  %369 = sext i32 %368 to i64
+  %370 = getelementptr inbounds i8, ptr %364, i64 %369
+  %371 = load ptr, ptr %6, align 8, !tbaa !38
+  %372 = getelementptr inbounds nuw %struct.conf_value_st, ptr %371, i32 0, i32 2
+  %373 = load ptr, ptr %372, align 8, !tbaa !43
+  %374 = getelementptr inbounds i8, ptr %373, i64 5
+  %375 = load i64, ptr %13, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %370, ptr align 1 %374, i64 %375, i1 false)
+  %376 = load i64, ptr %13, align 8, !tbaa !37
+  %377 = load ptr, ptr %9, align 8, !tbaa !50
+  %378 = load ptr, ptr %377, align 8, !tbaa !34
+  %379 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %378, i32 0, i32 0
+  %380 = load i32, ptr %379, align 8, !tbaa !52
+  %381 = sext i32 %380 to i64
+  %382 = add nsw i64 %381, %376
+  %383 = trunc i64 %382 to i32
+  store i32 %383, ptr %379, align 8, !tbaa !52
+  %384 = load ptr, ptr %9, align 8, !tbaa !50
+  %385 = load ptr, ptr %384, align 8, !tbaa !34
+  %386 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %385, i32 0, i32 2
+  %387 = load ptr, ptr %386, align 8, !tbaa !26
+  %388 = load ptr, ptr %9, align 8, !tbaa !50
+  %389 = load ptr, ptr %388, align 8, !tbaa !34
+  %390 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %389, i32 0, i32 0
+  %391 = load i32, ptr %390, align 8, !tbaa !52
+  %392 = sext i32 %391 to i64
+  %393 = getelementptr inbounds i8, ptr %387, i64 %392
+  store i8 0, ptr %393, align 1, !tbaa !42
+  br label %410
+
+394:                                              ; preds = %335
+  %395 = load ptr, ptr %9, align 8, !tbaa !50
+  %396 = load ptr, ptr %395, align 8, !tbaa !34
+  %397 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %396, i32 0, i32 2
+  store ptr null, ptr %397, align 8, !tbaa !26
+  %398 = load ptr, ptr %9, align 8, !tbaa !50
+  %399 = load ptr, ptr %398, align 8, !tbaa !34
+  %400 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %399, i32 0, i32 0
+  store i32 0, ptr %400, align 8, !tbaa !52
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef @.str.6, i32 noundef 202)
-  %193 = load ptr, ptr %val.addr, align 8
-  %section166 = getelementptr inbounds %struct.conf_value_st, ptr %193, i32 0, i32 0
-  %194 = load ptr, ptr %section166, align 8
-  %195 = load ptr, ptr %val.addr, align 8
-  %name167 = getelementptr inbounds %struct.conf_value_st, ptr %195, i32 0, i32 1
-  %196 = load ptr, ptr %name167, align 8
-  %197 = load ptr, ptr %val.addr, align 8
-  %value168 = getelementptr inbounds %struct.conf_value_st, ptr %197, i32 0, i32 2
-  %198 = load ptr, ptr %value168, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %194, ptr noundef @.str.8, ptr noundef %196, ptr noundef @.str.9, ptr noundef %198)
-  br label %err
+  %401 = load ptr, ptr %6, align 8, !tbaa !38
+  %402 = getelementptr inbounds nuw %struct.conf_value_st, ptr %401, i32 0, i32 0
+  %403 = load ptr, ptr %402, align 8, !tbaa !44
+  %404 = load ptr, ptr %6, align 8, !tbaa !38
+  %405 = getelementptr inbounds nuw %struct.conf_value_st, ptr %404, i32 0, i32 1
+  %406 = load ptr, ptr %405, align 8, !tbaa !40
+  %407 = load ptr, ptr %6, align 8, !tbaa !38
+  %408 = getelementptr inbounds nuw %struct.conf_value_st, ptr %407, i32 0, i32 2
+  %409 = load ptr, ptr %408, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %403, ptr noundef @.str.8, ptr noundef %406, ptr noundef @.str.9, ptr noundef %409)
+  store i32 2, ptr %11, align 4
+  br label %437
 
-if.end169:                                        ; preds = %if.then147
-  br label %if.end174
+410:                                              ; preds = %356
+  br label %421
 
-if.else170:                                       ; preds = %if.else131
+411:                                              ; preds = %329
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 119, ptr noundef @.str.6, i32 noundef 207)
-  %199 = load ptr, ptr %val.addr, align 8
-  %section171 = getelementptr inbounds %struct.conf_value_st, ptr %199, i32 0, i32 0
-  %200 = load ptr, ptr %section171, align 8
-  %201 = load ptr, ptr %val.addr, align 8
-  %name172 = getelementptr inbounds %struct.conf_value_st, ptr %201, i32 0, i32 1
-  %202 = load ptr, ptr %name172, align 8
-  %203 = load ptr, ptr %val.addr, align 8
-  %value173 = getelementptr inbounds %struct.conf_value_st, ptr %203, i32 0, i32 2
-  %204 = load ptr, ptr %value173, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %200, ptr noundef @.str.8, ptr noundef %202, ptr noundef @.str.9, ptr noundef %204)
-  br label %err
+  %412 = load ptr, ptr %6, align 8, !tbaa !38
+  %413 = getelementptr inbounds nuw %struct.conf_value_st, ptr %412, i32 0, i32 0
+  %414 = load ptr, ptr %413, align 8, !tbaa !44
+  %415 = load ptr, ptr %6, align 8, !tbaa !38
+  %416 = getelementptr inbounds nuw %struct.conf_value_st, ptr %415, i32 0, i32 1
+  %417 = load ptr, ptr %416, align 8, !tbaa !40
+  %418 = load ptr, ptr %6, align 8, !tbaa !38
+  %419 = getelementptr inbounds nuw %struct.conf_value_st, ptr %418, i32 0, i32 2
+  %420 = load ptr, ptr %419, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %414, ptr noundef @.str.8, ptr noundef %417, ptr noundef @.str.9, ptr noundef %420)
+  store i32 2, ptr %11, align 4
+  br label %437
 
-if.end174:                                        ; preds = %if.end169
-  br label %if.end175
+421:                                              ; preds = %410
+  br label %422
 
-if.end175:                                        ; preds = %if.end174, %if.end130
-  br label %if.end176
+422:                                              ; preds = %421, %328
+  br label %423
 
-if.end176:                                        ; preds = %if.end175, %if.end76
-  %205 = load ptr, ptr %tmp_data, align 8
-  %tobool177 = icmp ne ptr %205, null
-  br i1 %tobool177, label %if.end182, label %if.then178
+423:                                              ; preds = %422, %214
+  %424 = load ptr, ptr %12, align 8, !tbaa !32
+  %425 = icmp ne ptr %424, null
+  br i1 %425, label %436, label %426
 
-if.then178:                                       ; preds = %if.end176
+426:                                              ; preds = %423
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef @.str.6, i32 noundef 212)
-  %206 = load ptr, ptr %val.addr, align 8
-  %section179 = getelementptr inbounds %struct.conf_value_st, ptr %206, i32 0, i32 0
-  %207 = load ptr, ptr %section179, align 8
-  %208 = load ptr, ptr %val.addr, align 8
-  %name180 = getelementptr inbounds %struct.conf_value_st, ptr %208, i32 0, i32 1
-  %209 = load ptr, ptr %name180, align 8
-  %210 = load ptr, ptr %val.addr, align 8
-  %value181 = getelementptr inbounds %struct.conf_value_st, ptr %210, i32 0, i32 2
-  %211 = load ptr, ptr %value181, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %207, ptr noundef @.str.8, ptr noundef %209, ptr noundef @.str.9, ptr noundef %211)
-  br label %err
+  %427 = load ptr, ptr %6, align 8, !tbaa !38
+  %428 = getelementptr inbounds nuw %struct.conf_value_st, ptr %427, i32 0, i32 0
+  %429 = load ptr, ptr %428, align 8, !tbaa !44
+  %430 = load ptr, ptr %6, align 8, !tbaa !38
+  %431 = getelementptr inbounds nuw %struct.conf_value_st, ptr %430, i32 0, i32 1
+  %432 = load ptr, ptr %431, align 8, !tbaa !40
+  %433 = load ptr, ptr %6, align 8, !tbaa !38
+  %434 = getelementptr inbounds nuw %struct.conf_value_st, ptr %433, i32 0, i32 2
+  %435 = load ptr, ptr %434, align 8, !tbaa !43
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef @.str.7, ptr noundef %429, ptr noundef @.str.8, ptr noundef %432, ptr noundef @.str.9, ptr noundef %435)
+  store i32 2, ptr %11, align 4
+  br label %437
 
-if.end182:                                        ; preds = %if.end176
-  br label %if.end183
+436:                                              ; preds = %423
+  store i32 0, ptr %11, align 4
+  br label %437
 
-if.end183:                                        ; preds = %if.end182, %if.else28
-  br label %if.end184
+437:                                              ; preds = %426, %411, %394, %436, %326, %212, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %438 = load i32, ptr %11, align 4
+  switch i32 %438, label %451 [
+    i32 0, label %439
+    i32 2, label %443
+  ]
 
-if.end184:                                        ; preds = %if.end183, %if.end27
-  br label %if.end185
+439:                                              ; preds = %437
+  br label %440
 
-if.end185:                                        ; preds = %if.end184, %if.end10
-  store i32 1, ptr %retval, align 4
-  br label %return
+440:                                              ; preds = %439, %91
+  br label %441
 
-err:                                              ; preds = %if.then178, %if.else170, %if.else163, %if.then126, %if.then87, %if.else70, %if.then50
-  %212 = load i32, ptr %free_policy, align 4
-  %tobool186 = icmp ne i32 %212, 0
-  br i1 %tobool186, label %if.then187, label %if.end188
+441:                                              ; preds = %440, %90
+  br label %442
 
-if.then187:                                       ; preds = %err
-  %213 = load ptr, ptr %policy.addr, align 8
-  %214 = load ptr, ptr %213, align 8
-  call void @ASN1_OCTET_STRING_free(ptr noundef %214)
-  %215 = load ptr, ptr %policy.addr, align 8
-  store ptr null, ptr %215, align 8
-  br label %if.end188
+442:                                              ; preds = %441, %54
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %451
 
-if.end188:                                        ; preds = %if.then187, %err
-  store i32 0, ptr %retval, align 4
-  br label %return
+443:                                              ; preds = %437
+  %444 = load i32, ptr %10, align 4, !tbaa !15
+  %445 = icmp ne i32 %444, 0
+  br i1 %445, label %446, label %450
 
-return:                                           ; preds = %if.end188, %if.end185, %if.then37, %if.then23, %if.then16, %if.then6, %if.then1
-  %216 = load i32, ptr %retval, align 4
-  ret i32 %216
+446:                                              ; preds = %443
+  %447 = load ptr, ptr %9, align 8, !tbaa !50
+  %448 = load ptr, ptr %447, align 8, !tbaa !34
+  call void @ASN1_OCTET_STRING_free(ptr noundef %448)
+  %449 = load ptr, ptr %9, align 8, !tbaa !50
+  store ptr null, ptr %449, align 8, !tbaa !34
+  br label %450
+
+450:                                              ; preds = %446, %443
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %451
+
+451:                                              ; preds = %450, %442, %437, %80, %65, %44, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  %452 = load i32, ptr %5, align 4
+  ret i32 %452
 }
 
 declare void @X509V3_section_free(ptr noundef, ptr noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @OBJ_obj2nid(ptr noundef) #1
 
@@ -1090,7 +1208,7 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) #1
 declare void @X509V3_conf_free(ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
 declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) #1
 
@@ -1099,18 +1217,18 @@ declare i32 @X509V3_get_value_int(ptr noundef, ptr noundef) #1
 declare ptr @ASN1_OCTET_STRING_new() #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
 
 declare ptr @string_to_hex(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #3
+declare ptr @realloc(ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #6
 
 declare ptr @BIO_new_file(ptr noundef, ptr noundef) #1
 
@@ -1121,28 +1239,72 @@ declare i32 @BIO_should_retry(ptr noundef) #1
 declare void @BIO_free_all(ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind allocsize(1) }
-attributes #8 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS13v3_ext_method", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS28PROXY_CERT_INFO_EXTENSION_st", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS6bio_st", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !9, i64 0}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"PROXY_CERT_INFO_EXTENSION_st", !19, i64 0, !20, i64 8}
+!19 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!20 = !{!"p1 _ZTS15PROXY_POLICY_st", !8, i64 0}
+!21 = !{!18, !20, i64 8}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"PROXY_POLICY_st", !24, i64 0, !19, i64 8}
+!24 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
+!25 = !{!23, !19, i64 8}
+!26 = !{!27, !28, i64 8}
+!27 = !{!"asn1_string_st", !16, i64 0, !16, i64 4, !28, i64 8, !29, i64 16}
+!28 = !{!"p1 omnipotent char", !8, i64 0}
+!29 = !{!"long", !9, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS10v3_ext_ctx", !8, i64 0}
+!32 = !{!28, !28, i64 0}
+!33 = !{!24, !24, i64 0}
+!34 = !{!19, !19, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS19stack_st_CONF_VALUE", !8, i64 0}
+!37 = !{!29, !29, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS13conf_value_st", !8, i64 0}
+!40 = !{!41, !28, i64 8}
+!41 = !{!"conf_value_st", !28, i64 0, !28, i64 8, !28, i64 16}
+!42 = !{!9, !9, i64 0}
+!43 = !{!41, !28, i64 16}
+!44 = !{!41, !28, i64 0}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.mustprogress"}
+!47 = distinct !{!47, !46}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p2 _ZTS14asn1_object_st", !8, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p2 _ZTS14asn1_string_st", !8, i64 0}
+!52 = !{!27, !16, i64 0}
+!53 = distinct !{!53, !46}

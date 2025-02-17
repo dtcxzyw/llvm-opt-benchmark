@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libquic/original/pkcs8_test.ll'
 source_filename = "bench/libquic/original/pkcs8_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -30,170 +30,174 @@ $__clang_call_terminate = comdat any
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %data.i = alloca ptr, align 8
-  %sig.i = alloca %"class.std::unique_ptr", align 8
-  %keypair.i = alloca %"class.std::unique_ptr.2", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sig.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keypair.i)
-  store ptr @_ZL4kDER, ptr %data.i, align 8
-  %call.i = call ptr @d2i_X509_SIG(ptr noundef null, ptr noundef nonnull %data.i, i64 noundef 418)
-  store ptr %call.i, ptr %sig.i, align 8
-  %cmp.i = icmp ne ptr %call.i, null
-  %0 = load ptr, ptr %data.i, align 8
-  %cmp2.not.i = icmp eq ptr %0, getelementptr inbounds nuw (i8, ptr @_ZL4kDER, i64 418)
-  %or.cond.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
-  br i1 %or.cond.i, label %if.end.i, label %cleanup14.i
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.std::unique_ptr", align 8
+  %5 = alloca %"class.std::unique_ptr.2", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  store ptr @_ZL4kDER, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  %6 = call ptr @d2i_X509_SIG(ptr noundef null, ptr noundef nonnull %3, i64 noundef 418)
+  store ptr %6, ptr %4, align 8, !tbaa !11
+  %7 = icmp ne ptr %6, null
+  %8 = load ptr, ptr %3, align 8
+  %.not.i = icmp eq ptr %8, getelementptr inbounds nuw (i8, ptr @_ZL4kDER, i64 418)
+  %or.cond.i = select i1 %7, i1 %.not.i, i1 false
+  br i1 %or.cond.i, label %9, label %25
 
-lpad.i:                                           ; preds = %if.end.i
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  %10 = invoke ptr @PKCS8_decrypt(ptr noundef nonnull %6, ptr noundef nonnull @_ZZL4testPKhmE9kPassword, i32 noundef -1)
+          to label %11 unwind label %17
+
+11:                                               ; preds = %9
+  store ptr %10, ptr %5, align 8, !tbaa !13
+  %12 = icmp ne ptr %10, null
+  br i1 %12, label %.thread.i, label %13
+
+13:                                               ; preds = %11
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %15 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %14) #8
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !15
+  invoke void @ERR_print_errors_fp(ptr noundef %16)
+          to label %.thread2.i unwind label %19
+
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup.i
+  br label %24
 
-if.end.i:                                         ; preds = %entry
-  %call6.i = invoke ptr @PKCS8_decrypt(ptr noundef nonnull %call.i, ptr noundef nonnull @_ZZL4testPKhmE9kPassword, i32 noundef -1)
-          to label %invoke.cont5.i unwind label %lpad.i
-
-invoke.cont5.i:                                   ; preds = %if.end.i
-  store ptr %call6.i, ptr %keypair.i, align 8
-  %cmp.i.i = icmp ne ptr %call6.i, null
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.then8.i
-
-if.then8.i:                                       ; preds = %invoke.cont5.i
-  %2 = load ptr, ptr @stderr, align 8
-  %3 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %2) #7
-  %4 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %4)
-          to label %cleanup14.thread.i unwind label %lpad9.i
-
-lpad9.i:                                          ; preds = %if.then8.i
-  %5 = landingpad { ptr, i32 }
+19:                                               ; preds = %13
+  %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrI22pkcs8_priv_key_info_st14OpenSSLDeleterIS0_XadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %keypair.i) #8
-  br label %ehcleanup.i
+  call void @_ZNSt10unique_ptrI22pkcs8_priv_key_info_st14OpenSSLDeleterIS0_XadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
+  br label %24
 
-if.then.i.i:                                      ; preds = %invoke.cont5.i
-  invoke void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %call6.i)
-          to label %cleanup14.thread.i unwind label %terminate.lpad.i.i
+.thread.i:                                        ; preds = %11
+  invoke void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %10)
+          to label %.thread2.i unwind label %21
 
-terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %6 = landingpad { ptr, i32 }
+21:                                               ; preds = %.thread.i
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #9
   unreachable
 
-cleanup14.thread.i:                               ; preds = %if.then.i.i, %if.then8.i
-  store ptr null, ptr %keypair.i, align 8
-  br label %if.then.i5.i
+.thread2.i:                                       ; preds = %.thread.i, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  br label %28
 
-cleanup14.i:                                      ; preds = %entry
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = call i64 @fwrite(ptr nonnull @.str.1, i64 50, i64 1, ptr %8) #7
-  %cmp.not.i4.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i4.i, label %_ZL4testPKhm.exit.thread, label %if.then.i5.i
-
-_ZL4testPKhm.exit.thread:                         ; preds = %cleanup14.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keypair.i)
-  br label %return
-
-if.then.i5.i:                                     ; preds = %cleanup14.i, %cleanup14.thread.i
-  %retval.04.i = phi i1 [ %cmp.i.i, %cleanup14.thread.i ], [ false, %cleanup14.i ]
-  invoke void @X509_SIG_free(ptr noundef nonnull %call.i)
-          to label %_ZL4testPKhm.exit unwind label %terminate.lpad.i6.i
-
-terminate.lpad.i6.i:                              ; preds = %if.then.i5.i
-  %10 = landingpad { ptr, i32 }
-          catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #9
-  unreachable
-
-ehcleanup.i:                                      ; preds = %lpad9.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %5, %lpad9.i ], [ %1, %lpad.i ]
-  call void @_ZNSt10unique_ptrI11X509_sig_st14OpenSSLDeleterIS0_XadL_Z13X509_SIG_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sig.i) #8
+24:                                               ; preds = %19, %17
+  %.pn.i = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @_ZNSt10unique_ptrI11X509_sig_st14OpenSSLDeleterIS0_XadL_Z13X509_SIG_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   resume { ptr, i32 } %.pn.i
 
-_ZL4testPKhm.exit:                                ; preds = %if.then.i5.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keypair.i)
-  br i1 %retval.04.i, label %if.end, label %return
+25:                                               ; preds = %2
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %27 = call i64 @fwrite(ptr nonnull @.str.1, i64 50, i64 1, ptr %26) #8
+  %.not.i9.i = icmp eq ptr %6, null
+  br i1 %.not.i9.i, label %_ZL4testPKhm.exit.thread, label %28
 
-if.end:                                           ; preds = %_ZL4testPKhm.exit
+_ZL4testPKhm.exit.thread:                         ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  br label %33
+
+28:                                               ; preds = %25, %.thread2.i
+  %.075.i = phi i1 [ %12, %.thread2.i ], [ false, %25 ]
+  invoke void @X509_SIG_free(ptr noundef nonnull %6)
+          to label %_ZL4testPKhm.exit unwind label %29
+
+29:                                               ; preds = %28
+  %30 = landingpad { ptr, i32 }
+          catch ptr null
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #9
+  unreachable
+
+_ZL4testPKhm.exit:                                ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  br i1 %.075.i, label %32, label %33
+
+32:                                               ; preds = %_ZL4testPKhm.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %return
+  br label %33
 
-return:                                           ; preds = %_ZL4testPKhm.exit.thread, %_ZL4testPKhm.exit, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL4testPKhm.exit ], [ 1, %_ZL4testPKhm.exit.thread ]
-  ret i32 %retval.0
+33:                                               ; preds = %_ZL4testPKhm.exit.thread, %_ZL4testPKhm.exit, %32
+  %.0 = phi i32 [ 0, %32 ], [ 1, %_ZL4testPKhm.exit ], [ 1, %_ZL4testPKhm.exit.thread ]
+  ret i32 %.0
 }
 
-declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @d2i_X509_SIG(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #2
+
+declare ptr @d2i_X509_SIG(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #2
+
+declare ptr @PKCS8_decrypt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #1
-
-declare ptr @PKCS8_decrypt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #1
+declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI22pkcs8_priv_key_info_st14OpenSSLDeleterIS0_XadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define linkonce_odr hidden void @_ZNSt10unique_ptrI22pkcs8_priv_key_info_st14OpenSSLDeleterIS0_XadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !13
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %_ZN14OpenSSLDeleterI22pkcs8_priv_key_info_stXadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEclEPS0_.exit, label %3
 
-if.then:                                          ; preds = %entry
-  invoke void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %0)
-          to label %if.end unwind label %terminate.lpad
+3:                                                ; preds = %1
+  invoke void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %2)
+          to label %_ZN14OpenSSLDeleterI22pkcs8_priv_key_info_stXadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEclEPS0_.exit unwind label %4
 
-if.end:                                           ; preds = %if.then, %entry
-  store ptr null, ptr %this, align 8
+_ZN14OpenSSLDeleterI22pkcs8_priv_key_info_stXadL_Z24PKCS8_PRIV_KEY_INFO_freeEEEclEPS0_.exit: ; preds = %3, %1
+  store ptr null, ptr %0, align 8, !tbaa !13
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+4:                                                ; preds = %3
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #9
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #9
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI11X509_sig_st14OpenSSLDeleterIS0_XadL_Z13X509_SIG_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define linkonce_odr hidden void @_ZNSt10unique_ptrI11X509_sig_st14OpenSSLDeleterIS0_XadL_Z13X509_SIG_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !11
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %_ZN14OpenSSLDeleterI11X509_sig_stXadL_Z13X509_SIG_freeEEEclEPS0_.exit, label %3
 
-if.then:                                          ; preds = %entry
-  invoke void @X509_SIG_free(ptr noundef nonnull %0)
-          to label %if.end unwind label %terminate.lpad
+3:                                                ; preds = %1
+  invoke void @X509_SIG_free(ptr noundef nonnull %2)
+          to label %_ZN14OpenSSLDeleterI11X509_sig_stXadL_Z13X509_SIG_freeEEEclEPS0_.exit unwind label %4
 
-if.end:                                           ; preds = %if.then, %entry
-  store ptr null, ptr %this, align 8
+_ZN14OpenSSLDeleterI11X509_sig_stXadL_Z13X509_SIG_freeEEEclEPS0_.exit: ; preds = %3, %1
+  store ptr null, ptr %0, align 8, !tbaa !11
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+4:                                                ; preds = %3
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #9
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #9
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
   tail call void @_ZSt9terminatev() #9
   unreachable
 }
@@ -201,37 +205,41 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #4
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn }
-attributes #5 = { nofree nounwind }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { cold }
-attributes #8 = { nounwind }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
 attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS11X509_sig_st", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS22pkcs8_priv_key_info_st", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}

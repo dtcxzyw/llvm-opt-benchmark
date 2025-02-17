@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ssl_st = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.crypto_ex_data_st, ptr, i32, i32, i32, i32, i16, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i8, i8, i32 }
 %struct.crypto_ex_data_st = type { ptr }
@@ -23,1195 +23,1314 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/d1_clnt.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_connect(ptr noundef %ssl) #0 {
-entry:
-  %ssl.addr = alloca ptr, align 8
-  %buf = alloca ptr, align 8
-  %cb = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %new_state = alloca i32, align 4
-  %state = alloca i32, align 4
-  %skip = alloca i32, align 4
-  store ptr %ssl, ptr %ssl.addr, align 8
-  store ptr null, ptr %buf, align 8
-  store ptr null, ptr %cb, align 8
-  store i32 -1, ptr %ret, align 4
-  store i32 0, ptr %skip, align 4
+define hidden i32 @dtls1_connect(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  store ptr null, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  store ptr null, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  store i32 -1, ptr %5, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 0, ptr %8, align 4, !tbaa !14
   call void @ERR_clear_system_error()
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %info_callback = getelementptr inbounds %struct.ssl_st, ptr %0, i32 0, i32 27
-  %1 = load ptr, ptr %info_callback, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.else
+  %9 = load ptr, ptr %2, align 8, !tbaa !6
+  %10 = getelementptr inbounds nuw %struct.ssl_st, ptr %9, i32 0, i32 27
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %ssl.addr, align 8
-  %info_callback1 = getelementptr inbounds %struct.ssl_st, ptr %2, i32 0, i32 27
-  %3 = load ptr, ptr %info_callback1, align 8
-  store ptr %3, ptr %cb, align 8
-  br label %if.end7
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8, !tbaa !6
+  %15 = getelementptr inbounds nuw %struct.ssl_st, ptr %14, i32 0, i32 27
+  %16 = load ptr, ptr %15, align 8, !tbaa !16
+  store ptr %16, ptr %4, align 8, !tbaa !13
+  br label %31
 
-if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %ssl.addr, align 8
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %4, i32 0, i32 31
-  %5 = load ptr, ptr %ctx, align 8
-  %info_callback2 = getelementptr inbounds %struct.ssl_ctx_st, ptr %5, i32 0, i32 29
-  %6 = load ptr, ptr %info_callback2, align 8
-  %cmp3 = icmp ne ptr %6, null
-  br i1 %cmp3, label %if.then4, label %if.end
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %2, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw %struct.ssl_st, ptr %18, i32 0, i32 31
+  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %21 = getelementptr inbounds nuw %struct.ssl_ctx_st, ptr %20, i32 0, i32 29
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %30
 
-if.then4:                                         ; preds = %if.else
-  %7 = load ptr, ptr %ssl.addr, align 8
-  %ctx5 = getelementptr inbounds %struct.ssl_st, ptr %7, i32 0, i32 31
-  %8 = load ptr, ptr %ctx5, align 8
-  %info_callback6 = getelementptr inbounds %struct.ssl_ctx_st, ptr %8, i32 0, i32 29
-  %9 = load ptr, ptr %info_callback6, align 8
-  store ptr %9, ptr %cb, align 8
-  br label %if.end
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %2, align 8, !tbaa !6
+  %26 = getelementptr inbounds nuw %struct.ssl_st, ptr %25, i32 0, i32 31
+  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  %28 = getelementptr inbounds nuw %struct.ssl_ctx_st, ptr %27, i32 0, i32 29
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  store ptr %29, ptr %4, align 8, !tbaa !13
+  br label %30
 
-if.end:                                           ; preds = %if.then4, %if.else
-  br label %if.end7
+30:                                               ; preds = %24, %17
+  br label %31
 
-if.end7:                                          ; preds = %if.end, %if.then
-  br label %for.cond
+31:                                               ; preds = %30, %13
+  br label %32
 
-for.cond:                                         ; preds = %if.end303, %if.end7
-  %10 = load ptr, ptr %ssl.addr, align 8
-  %state8 = getelementptr inbounds %struct.ssl_st, ptr %10, i32 0, i32 9
-  %11 = load i32, ptr %state8, align 4
-  store i32 %11, ptr %state, align 4
-  %12 = load ptr, ptr %ssl.addr, align 8
-  %state9 = getelementptr inbounds %struct.ssl_st, ptr %12, i32 0, i32 9
-  %13 = load i32, ptr %state9, align 4
-  switch i32 %13, label %sw.default [
-    i32 4096, label %sw.bb
-    i32 4368, label %sw.bb26
-    i32 4369, label %sw.bb26
-    i32 4390, label %sw.bb47
-    i32 4391, label %sw.bb47
-    i32 4384, label %sw.bb61
-    i32 4385, label %sw.bb61
-    i32 4400, label %sw.bb80
-    i32 4401, label %sw.bb80
-    i32 4354, label %sw.bb105
-    i32 4416, label %sw.bb112
-    i32 4417, label %sw.bb112
-    i32 4432, label %sw.bb119
-    i32 4433, label %sw.bb119
-    i32 4448, label %sw.bb126
-    i32 4449, label %sw.bb126
-    i32 4464, label %sw.bb148
-    i32 4465, label %sw.bb148
-    i32 4466, label %sw.bb148
-    i32 4467, label %sw.bb148
-    i32 4480, label %sw.bb155
-    i32 4481, label %sw.bb155
-    i32 4496, label %sw.bb170
-    i32 4497, label %sw.bb170
-    i32 4498, label %sw.bb170
-    i32 4512, label %sw.bb177
-    i32 4513, label %sw.bb177
-    i32 4528, label %sw.bb195
-    i32 4529, label %sw.bb195
-    i32 4576, label %sw.bb231
-    i32 4577, label %sw.bb231
-    i32 4592, label %sw.bb238
-    i32 4593, label %sw.bb238
-    i32 4544, label %sw.bb245
-    i32 4560, label %sw.bb255
-    i32 4561, label %sw.bb255
-    i32 4352, label %sw.bb271
-    i32 3, label %sw.bb281
+32:                                               ; preds = %556, %31
+  %33 = load ptr, ptr %2, align 8, !tbaa !6
+  %34 = getelementptr inbounds nuw %struct.ssl_st, ptr %33, i32 0, i32 9
+  %35 = load i32, ptr %34, align 4, !tbaa !47
+  store i32 %35, ptr %7, align 4, !tbaa !14
+  %36 = load ptr, ptr %2, align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw %struct.ssl_st, ptr %36, i32 0, i32 9
+  %38 = load i32, ptr %37, align 4, !tbaa !47
+  switch i32 %38, label %522 [
+    i32 4096, label %39
+    i32 4368, label %82
+    i32 4369, label %82
+    i32 4390, label %130
+    i32 4391, label %130
+    i32 4384, label %153
+    i32 4385, label %153
+    i32 4400, label %183
+    i32 4401, label %183
+    i32 4354, label %221
+    i32 4416, label %232
+    i32 4417, label %232
+    i32 4432, label %243
+    i32 4433, label %243
+    i32 4448, label %254
+    i32 4449, label %254
+    i32 4464, label %292
+    i32 4465, label %292
+    i32 4466, label %292
+    i32 4467, label %292
+    i32 4480, label %304
+    i32 4481, label %304
+    i32 4496, label %328
+    i32 4497, label %328
+    i32 4498, label %328
+    i32 4512, label %340
+    i32 4513, label %340
+    i32 4528, label %365
+    i32 4529, label %365
+    i32 4576, label %416
+    i32 4577, label %416
+    i32 4592, label %427
+    i32 4593, label %427
+    i32 4544, label %438
+    i32 4560, label %457
+    i32 4561, label %457
+    i32 4352, label %480
+    i32 3, label %498
   ]
 
-sw.bb:                                            ; preds = %for.cond
-  %14 = load ptr, ptr %cb, align 8
-  %cmp10 = icmp ne ptr %14, null
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %sw.bb
-  %15 = load ptr, ptr %cb, align 8
-  %16 = load ptr, ptr %ssl.addr, align 8
-  call void %15(ptr noundef %16, i32 noundef 16, i32 noundef 1)
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then11, %sw.bb
-  %17 = load ptr, ptr %ssl.addr, align 8
-  %init_buf = getelementptr inbounds %struct.ssl_st, ptr %17, i32 0, i32 10
-  %18 = load ptr, ptr %init_buf, align 8
-  %cmp13 = icmp eq ptr %18, null
-  br i1 %cmp13, label %if.then14, label %if.end20
-
-if.then14:                                        ; preds = %if.end12
-  %call = call ptr @BUF_MEM_new()
-  store ptr %call, ptr %buf, align 8
-  %19 = load ptr, ptr %buf, align 8
-  %cmp15 = icmp eq ptr %19, null
-  br i1 %cmp15, label %if.then17, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then14
-  %20 = load ptr, ptr %buf, align 8
-  %call16 = call i64 @BUF_MEM_grow(ptr noundef %20, i64 noundef 16384)
-  %tobool = icmp ne i64 %call16, 0
-  br i1 %tobool, label %if.end18, label %if.then17
-
-if.then17:                                        ; preds = %lor.lhs.false, %if.then14
-  store i32 -1, ptr %ret, align 4
-  br label %end
-
-if.end18:                                         ; preds = %lor.lhs.false
-  %21 = load ptr, ptr %buf, align 8
-  %22 = load ptr, ptr %ssl.addr, align 8
-  %init_buf19 = getelementptr inbounds %struct.ssl_st, ptr %22, i32 0, i32 10
-  store ptr %21, ptr %init_buf19, align 8
-  store ptr null, ptr %buf, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.end18, %if.end12
-  %23 = load ptr, ptr %ssl.addr, align 8
-  %call21 = call i32 @ssl_init_wbio_buffer(ptr noundef %23, i32 noundef 0)
-  %tobool22 = icmp ne i32 %call21, 0
-  br i1 %tobool22, label %if.end24, label %if.then23
-
-if.then23:                                        ; preds = %if.end20
-  store i32 -1, ptr %ret, align 4
-  br label %end
-
-if.end24:                                         ; preds = %if.end20
-  %24 = load ptr, ptr %ssl.addr, align 8
-  %state25 = getelementptr inbounds %struct.ssl_st, ptr %24, i32 0, i32 9
-  store i32 4368, ptr %state25, align 4
-  %25 = load ptr, ptr %ssl.addr, align 8
-  %init_num = getelementptr inbounds %struct.ssl_st, ptr %25, i32 0, i32 12
-  store i32 0, ptr %init_num, align 8
-  %26 = load ptr, ptr %ssl.addr, align 8
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %26, i32 0, i32 15
-  %27 = load ptr, ptr %d1, align 8
-  %send_cookie = getelementptr inbounds %struct.dtls1_state_st, ptr %27, i32 0, i32 0
-  store i32 0, ptr %send_cookie, align 8
-  %28 = load ptr, ptr %ssl.addr, align 8
-  %hit = getelementptr inbounds %struct.ssl_st, ptr %28, i32 0, i32 54
-  %bf.load = load i8, ptr %hit, align 1
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 0
-  store i8 %bf.set, ptr %hit, align 1
-  br label %sw.epilog
-
-sw.bb26:                                          ; preds = %for.cond, %for.cond
-  %29 = load ptr, ptr %ssl.addr, align 8
-  %shutdown = getelementptr inbounds %struct.ssl_st, ptr %29, i32 0, i32 8
-  store i32 0, ptr %shutdown, align 8
-  %30 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_start_timer(ptr noundef %30)
-  %31 = load ptr, ptr %ssl.addr, align 8
-  %call27 = call i32 @ssl3_send_client_hello(ptr noundef %31)
-  store i32 %call27, ptr %ret, align 4
-  %32 = load i32, ptr %ret, align 4
-  %cmp28 = icmp sle i32 %32, 0
-  br i1 %cmp28, label %if.then29, label %if.end30
-
-if.then29:                                        ; preds = %sw.bb26
-  br label %end
-
-if.end30:                                         ; preds = %sw.bb26
-  %33 = load ptr, ptr %ssl.addr, align 8
-  %d131 = getelementptr inbounds %struct.ssl_st, ptr %33, i32 0, i32 15
-  %34 = load ptr, ptr %d131, align 8
-  %send_cookie32 = getelementptr inbounds %struct.dtls1_state_st, ptr %34, i32 0, i32 0
-  %35 = load i32, ptr %send_cookie32, align 8
-  %tobool33 = icmp ne i32 %35, 0
-  br i1 %tobool33, label %if.then34, label %if.else36
-
-if.then34:                                        ; preds = %if.end30
-  %36 = load ptr, ptr %ssl.addr, align 8
-  %state35 = getelementptr inbounds %struct.ssl_st, ptr %36, i32 0, i32 9
-  store i32 4352, ptr %state35, align 4
-  %37 = load ptr, ptr %ssl.addr, align 8
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %37, i32 0, i32 14
-  %38 = load ptr, ptr %s3, align 8
-  %tmp = getelementptr inbounds %struct.ssl3_state_st, ptr %38, i32 0, i32 27
-  %next_state = getelementptr inbounds %struct.anon, ptr %tmp, i32 0, i32 7
-  store i32 4384, ptr %next_state, align 8
-  br label %if.end38
-
-if.else36:                                        ; preds = %if.end30
-  %39 = load ptr, ptr %ssl.addr, align 8
-  %state37 = getelementptr inbounds %struct.ssl_st, ptr %39, i32 0, i32 9
-  store i32 4390, ptr %state37, align 4
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.else36, %if.then34
-  %40 = load ptr, ptr %ssl.addr, align 8
-  %init_num39 = getelementptr inbounds %struct.ssl_st, ptr %40, i32 0, i32 12
-  store i32 0, ptr %init_num39, align 8
-  %41 = load ptr, ptr %ssl.addr, align 8
-  %bbio = getelementptr inbounds %struct.ssl_st, ptr %41, i32 0, i32 6
-  %42 = load ptr, ptr %bbio, align 8
-  %43 = load ptr, ptr %ssl.addr, align 8
-  %wbio = getelementptr inbounds %struct.ssl_st, ptr %43, i32 0, i32 5
-  %44 = load ptr, ptr %wbio, align 8
-  %cmp40 = icmp ne ptr %42, %44
-  br i1 %cmp40, label %if.then41, label %if.end46
-
-if.then41:                                        ; preds = %if.end38
-  %45 = load ptr, ptr %ssl.addr, align 8
-  %bbio42 = getelementptr inbounds %struct.ssl_st, ptr %45, i32 0, i32 6
-  %46 = load ptr, ptr %bbio42, align 8
-  %47 = load ptr, ptr %ssl.addr, align 8
-  %wbio43 = getelementptr inbounds %struct.ssl_st, ptr %47, i32 0, i32 5
-  %48 = load ptr, ptr %wbio43, align 8
-  %call44 = call ptr @BIO_push(ptr noundef %46, ptr noundef %48)
-  %49 = load ptr, ptr %ssl.addr, align 8
-  %wbio45 = getelementptr inbounds %struct.ssl_st, ptr %49, i32 0, i32 5
-  store ptr %call44, ptr %wbio45, align 8
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.then41, %if.end38
-  br label %sw.epilog
-
-sw.bb47:                                          ; preds = %for.cond, %for.cond
-  %50 = load ptr, ptr %ssl.addr, align 8
-  %call48 = call i32 @dtls1_get_hello_verify(ptr noundef %50)
-  store i32 %call48, ptr %ret, align 4
-  %51 = load i32, ptr %ret, align 4
-  %cmp49 = icmp sle i32 %51, 0
-  br i1 %cmp49, label %if.then50, label %if.end51
-
-if.then50:                                        ; preds = %sw.bb47
-  br label %end
-
-if.end51:                                         ; preds = %sw.bb47
-  %52 = load ptr, ptr %ssl.addr, align 8
-  %d152 = getelementptr inbounds %struct.ssl_st, ptr %52, i32 0, i32 15
-  %53 = load ptr, ptr %d152, align 8
-  %send_cookie53 = getelementptr inbounds %struct.dtls1_state_st, ptr %53, i32 0, i32 0
-  %54 = load i32, ptr %send_cookie53, align 8
-  %tobool54 = icmp ne i32 %54, 0
-  br i1 %tobool54, label %if.then55, label %if.else57
-
-if.then55:                                        ; preds = %if.end51
-  %55 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_stop_timer(ptr noundef %55)
-  %56 = load ptr, ptr %ssl.addr, align 8
-  %state56 = getelementptr inbounds %struct.ssl_st, ptr %56, i32 0, i32 9
-  store i32 4368, ptr %state56, align 4
-  br label %if.end59
-
-if.else57:                                        ; preds = %if.end51
-  %57 = load ptr, ptr %ssl.addr, align 8
-  %state58 = getelementptr inbounds %struct.ssl_st, ptr %57, i32 0, i32 9
-  store i32 4384, ptr %state58, align 4
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.else57, %if.then55
-  %58 = load ptr, ptr %ssl.addr, align 8
-  %init_num60 = getelementptr inbounds %struct.ssl_st, ptr %58, i32 0, i32 12
-  store i32 0, ptr %init_num60, align 8
-  br label %sw.epilog
-
-sw.bb61:                                          ; preds = %for.cond, %for.cond
-  %59 = load ptr, ptr %ssl.addr, align 8
-  %call62 = call i32 @ssl3_get_server_hello(ptr noundef %59)
-  store i32 %call62, ptr %ret, align 4
-  %60 = load i32, ptr %ret, align 4
-  %cmp63 = icmp sle i32 %60, 0
-  br i1 %cmp63, label %if.then64, label %if.end65
-
-if.then64:                                        ; preds = %sw.bb61
-  br label %end
-
-if.end65:                                         ; preds = %sw.bb61
-  %61 = load ptr, ptr %ssl.addr, align 8
-  %hit66 = getelementptr inbounds %struct.ssl_st, ptr %61, i32 0, i32 54
-  %bf.load67 = load i8, ptr %hit66, align 1
-  %bf.clear68 = and i8 %bf.load67, 1
-  %bf.cast = zext i8 %bf.clear68 to i32
-  %tobool69 = icmp ne i32 %bf.cast, 0
-  br i1 %tobool69, label %if.then70, label %if.else76
-
-if.then70:                                        ; preds = %if.end65
-  %62 = load ptr, ptr %ssl.addr, align 8
-  %state71 = getelementptr inbounds %struct.ssl_st, ptr %62, i32 0, i32 9
-  store i32 4544, ptr %state71, align 4
-  %63 = load ptr, ptr %ssl.addr, align 8
-  %tlsext_ticket_expected = getelementptr inbounds %struct.ssl_st, ptr %63, i32 0, i32 41
-  %64 = load i32, ptr %tlsext_ticket_expected, align 8
-  %tobool72 = icmp ne i32 %64, 0
-  br i1 %tobool72, label %if.then73, label %if.end75
-
-if.then73:                                        ; preds = %if.then70
-  %65 = load ptr, ptr %ssl.addr, align 8
-  %state74 = getelementptr inbounds %struct.ssl_st, ptr %65, i32 0, i32 9
-  store i32 4576, ptr %state74, align 4
-  br label %if.end75
-
-if.end75:                                         ; preds = %if.then73, %if.then70
-  br label %if.end78
-
-if.else76:                                        ; preds = %if.end65
-  %66 = load ptr, ptr %ssl.addr, align 8
-  %state77 = getelementptr inbounds %struct.ssl_st, ptr %66, i32 0, i32 9
-  store i32 4400, ptr %state77, align 4
-  br label %if.end78
-
-if.end78:                                         ; preds = %if.else76, %if.end75
-  %67 = load ptr, ptr %ssl.addr, align 8
-  %init_num79 = getelementptr inbounds %struct.ssl_st, ptr %67, i32 0, i32 12
-  store i32 0, ptr %init_num79, align 8
-  br label %sw.epilog
-
-sw.bb80:                                          ; preds = %for.cond, %for.cond
-  %68 = load ptr, ptr %ssl.addr, align 8
-  %s381 = getelementptr inbounds %struct.ssl_st, ptr %68, i32 0, i32 14
-  %69 = load ptr, ptr %s381, align 8
-  %tmp82 = getelementptr inbounds %struct.ssl3_state_st, ptr %69, i32 0, i32 27
-  %new_cipher = getelementptr inbounds %struct.anon, ptr %tmp82, i32 0, i32 6
-  %70 = load ptr, ptr %new_cipher, align 8
-  %call83 = call i32 @ssl_cipher_has_server_public_key(ptr noundef %70)
-  %tobool84 = icmp ne i32 %call83, 0
-  br i1 %tobool84, label %if.then85, label %if.else101
-
-if.then85:                                        ; preds = %sw.bb80
-  %71 = load ptr, ptr %ssl.addr, align 8
-  %call86 = call i32 @ssl3_get_server_certificate(ptr noundef %71)
-  store i32 %call86, ptr %ret, align 4
-  %72 = load i32, ptr %ret, align 4
-  %cmp87 = icmp sle i32 %72, 0
-  br i1 %cmp87, label %if.then88, label %if.end89
-
-if.then88:                                        ; preds = %if.then85
-  br label %end
-
-if.end89:                                         ; preds = %if.then85
-  %73 = load ptr, ptr %ssl.addr, align 8
-  %s390 = getelementptr inbounds %struct.ssl_st, ptr %73, i32 0, i32 14
-  %74 = load ptr, ptr %s390, align 8
-  %tmp91 = getelementptr inbounds %struct.ssl3_state_st, ptr %74, i32 0, i32 27
-  %certificate_status_expected = getelementptr inbounds %struct.anon, ptr %tmp91, i32 0, i32 22
-  %bf.load92 = load i8, ptr %certificate_status_expected, align 8
-  %bf.clear93 = and i8 %bf.load92, 1
-  %bf.cast94 = zext i8 %bf.clear93 to i32
-  %tobool95 = icmp ne i32 %bf.cast94, 0
-  br i1 %tobool95, label %if.then96, label %if.else98
-
-if.then96:                                        ; preds = %if.end89
-  %75 = load ptr, ptr %ssl.addr, align 8
-  %state97 = getelementptr inbounds %struct.ssl_st, ptr %75, i32 0, i32 9
-  store i32 4592, ptr %state97, align 4
-  br label %if.end100
-
-if.else98:                                        ; preds = %if.end89
-  %76 = load ptr, ptr %ssl.addr, align 8
-  %state99 = getelementptr inbounds %struct.ssl_st, ptr %76, i32 0, i32 9
-  store i32 4354, ptr %state99, align 4
-  br label %if.end100
-
-if.end100:                                        ; preds = %if.else98, %if.then96
-  br label %if.end103
-
-if.else101:                                       ; preds = %sw.bb80
-  store i32 1, ptr %skip, align 4
-  %77 = load ptr, ptr %ssl.addr, align 8
-  %state102 = getelementptr inbounds %struct.ssl_st, ptr %77, i32 0, i32 9
-  store i32 4416, ptr %state102, align 4
-  br label %if.end103
-
-if.end103:                                        ; preds = %if.else101, %if.end100
-  %78 = load ptr, ptr %ssl.addr, align 8
-  %init_num104 = getelementptr inbounds %struct.ssl_st, ptr %78, i32 0, i32 12
-  store i32 0, ptr %init_num104, align 8
-  br label %sw.epilog
-
-sw.bb105:                                         ; preds = %for.cond
-  %79 = load ptr, ptr %ssl.addr, align 8
-  %call106 = call i32 @ssl3_verify_server_cert(ptr noundef %79)
-  store i32 %call106, ptr %ret, align 4
-  %80 = load i32, ptr %ret, align 4
-  %cmp107 = icmp sle i32 %80, 0
-  br i1 %cmp107, label %if.then108, label %if.end109
-
-if.then108:                                       ; preds = %sw.bb105
-  br label %end
-
-if.end109:                                        ; preds = %sw.bb105
-  %81 = load ptr, ptr %ssl.addr, align 8
-  %state110 = getelementptr inbounds %struct.ssl_st, ptr %81, i32 0, i32 9
-  store i32 4416, ptr %state110, align 4
-  %82 = load ptr, ptr %ssl.addr, align 8
-  %init_num111 = getelementptr inbounds %struct.ssl_st, ptr %82, i32 0, i32 12
-  store i32 0, ptr %init_num111, align 8
-  br label %sw.epilog
-
-sw.bb112:                                         ; preds = %for.cond, %for.cond
-  %83 = load ptr, ptr %ssl.addr, align 8
-  %call113 = call i32 @ssl3_get_server_key_exchange(ptr noundef %83)
-  store i32 %call113, ptr %ret, align 4
-  %84 = load i32, ptr %ret, align 4
-  %cmp114 = icmp sle i32 %84, 0
-  br i1 %cmp114, label %if.then115, label %if.end116
-
-if.then115:                                       ; preds = %sw.bb112
-  br label %end
-
-if.end116:                                        ; preds = %sw.bb112
-  %85 = load ptr, ptr %ssl.addr, align 8
-  %state117 = getelementptr inbounds %struct.ssl_st, ptr %85, i32 0, i32 9
-  store i32 4432, ptr %state117, align 4
-  %86 = load ptr, ptr %ssl.addr, align 8
-  %init_num118 = getelementptr inbounds %struct.ssl_st, ptr %86, i32 0, i32 12
-  store i32 0, ptr %init_num118, align 8
-  br label %sw.epilog
-
-sw.bb119:                                         ; preds = %for.cond, %for.cond
-  %87 = load ptr, ptr %ssl.addr, align 8
-  %call120 = call i32 @ssl3_get_certificate_request(ptr noundef %87)
-  store i32 %call120, ptr %ret, align 4
-  %88 = load i32, ptr %ret, align 4
-  %cmp121 = icmp sle i32 %88, 0
-  br i1 %cmp121, label %if.then122, label %if.end123
-
-if.then122:                                       ; preds = %sw.bb119
-  br label %end
-
-if.end123:                                        ; preds = %sw.bb119
-  %89 = load ptr, ptr %ssl.addr, align 8
-  %state124 = getelementptr inbounds %struct.ssl_st, ptr %89, i32 0, i32 9
-  store i32 4448, ptr %state124, align 4
-  %90 = load ptr, ptr %ssl.addr, align 8
-  %init_num125 = getelementptr inbounds %struct.ssl_st, ptr %90, i32 0, i32 12
-  store i32 0, ptr %init_num125, align 8
-  br label %sw.epilog
-
-sw.bb126:                                         ; preds = %for.cond, %for.cond
-  %91 = load ptr, ptr %ssl.addr, align 8
-  %call127 = call i32 @ssl3_get_server_done(ptr noundef %91)
-  store i32 %call127, ptr %ret, align 4
-  %92 = load i32, ptr %ret, align 4
-  %cmp128 = icmp sle i32 %92, 0
-  br i1 %cmp128, label %if.then129, label %if.end130
-
-if.then129:                                       ; preds = %sw.bb126
-  br label %end
-
-if.end130:                                        ; preds = %sw.bb126
-  %93 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_stop_timer(ptr noundef %93)
-  %94 = load ptr, ptr %ssl.addr, align 8
-  %s3131 = getelementptr inbounds %struct.ssl_st, ptr %94, i32 0, i32 14
-  %95 = load ptr, ptr %s3131, align 8
-  %tmp132 = getelementptr inbounds %struct.ssl3_state_st, ptr %95, i32 0, i32 27
-  %cert_req = getelementptr inbounds %struct.anon, ptr %tmp132, i32 0, i32 12
-  %96 = load i32, ptr %cert_req, align 8
-  %tobool133 = icmp ne i32 %96, 0
-  br i1 %tobool133, label %if.then134, label %if.else138
-
-if.then134:                                       ; preds = %if.end130
-  %97 = load ptr, ptr %ssl.addr, align 8
-  %s3135 = getelementptr inbounds %struct.ssl_st, ptr %97, i32 0, i32 14
-  %98 = load ptr, ptr %s3135, align 8
-  %tmp136 = getelementptr inbounds %struct.ssl3_state_st, ptr %98, i32 0, i32 27
-  %next_state137 = getelementptr inbounds %struct.anon, ptr %tmp136, i32 0, i32 7
-  store i32 4464, ptr %next_state137, align 8
-  br label %if.end142
-
-if.else138:                                       ; preds = %if.end130
-  %99 = load ptr, ptr %ssl.addr, align 8
-  %s3139 = getelementptr inbounds %struct.ssl_st, ptr %99, i32 0, i32 14
-  %100 = load ptr, ptr %s3139, align 8
-  %tmp140 = getelementptr inbounds %struct.ssl3_state_st, ptr %100, i32 0, i32 27
-  %next_state141 = getelementptr inbounds %struct.anon, ptr %tmp140, i32 0, i32 7
-  store i32 4480, ptr %next_state141, align 8
-  br label %if.end142
-
-if.end142:                                        ; preds = %if.else138, %if.then134
-  %101 = load ptr, ptr %ssl.addr, align 8
-  %init_num143 = getelementptr inbounds %struct.ssl_st, ptr %101, i32 0, i32 12
-  store i32 0, ptr %init_num143, align 8
-  %102 = load ptr, ptr %ssl.addr, align 8
-  %s3144 = getelementptr inbounds %struct.ssl_st, ptr %102, i32 0, i32 14
-  %103 = load ptr, ptr %s3144, align 8
-  %tmp145 = getelementptr inbounds %struct.ssl3_state_st, ptr %103, i32 0, i32 27
-  %next_state146 = getelementptr inbounds %struct.anon, ptr %tmp145, i32 0, i32 7
-  %104 = load i32, ptr %next_state146, align 8
-  %105 = load ptr, ptr %ssl.addr, align 8
-  %state147 = getelementptr inbounds %struct.ssl_st, ptr %105, i32 0, i32 9
-  store i32 %104, ptr %state147, align 4
-  br label %sw.epilog
-
-sw.bb148:                                         ; preds = %for.cond, %for.cond, %for.cond, %for.cond
-  %106 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_start_timer(ptr noundef %106)
-  %107 = load ptr, ptr %ssl.addr, align 8
-  %call149 = call i32 @ssl3_send_client_certificate(ptr noundef %107)
-  store i32 %call149, ptr %ret, align 4
-  %108 = load i32, ptr %ret, align 4
-  %cmp150 = icmp sle i32 %108, 0
-  br i1 %cmp150, label %if.then151, label %if.end152
-
-if.then151:                                       ; preds = %sw.bb148
-  br label %end
-
-if.end152:                                        ; preds = %sw.bb148
-  %109 = load ptr, ptr %ssl.addr, align 8
-  %state153 = getelementptr inbounds %struct.ssl_st, ptr %109, i32 0, i32 9
-  store i32 4480, ptr %state153, align 4
-  %110 = load ptr, ptr %ssl.addr, align 8
-  %init_num154 = getelementptr inbounds %struct.ssl_st, ptr %110, i32 0, i32 12
-  store i32 0, ptr %init_num154, align 8
-  br label %sw.epilog
-
-sw.bb155:                                         ; preds = %for.cond, %for.cond
-  %111 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_start_timer(ptr noundef %111)
-  %112 = load ptr, ptr %ssl.addr, align 8
-  %call156 = call i32 @ssl3_send_client_key_exchange(ptr noundef %112)
-  store i32 %call156, ptr %ret, align 4
-  %113 = load i32, ptr %ret, align 4
-  %cmp157 = icmp sle i32 %113, 0
-  br i1 %cmp157, label %if.then158, label %if.end159
-
-if.then158:                                       ; preds = %sw.bb155
-  br label %end
-
-if.end159:                                        ; preds = %sw.bb155
-  %114 = load ptr, ptr %ssl.addr, align 8
-  %s3160 = getelementptr inbounds %struct.ssl_st, ptr %114, i32 0, i32 14
-  %115 = load ptr, ptr %s3160, align 8
-  %tmp161 = getelementptr inbounds %struct.ssl3_state_st, ptr %115, i32 0, i32 27
-  %cert_req162 = getelementptr inbounds %struct.anon, ptr %tmp161, i32 0, i32 12
-  %116 = load i32, ptr %cert_req162, align 8
-  %cmp163 = icmp eq i32 %116, 1
-  br i1 %cmp163, label %if.then164, label %if.else166
-
-if.then164:                                       ; preds = %if.end159
-  %117 = load ptr, ptr %ssl.addr, align 8
-  %state165 = getelementptr inbounds %struct.ssl_st, ptr %117, i32 0, i32 9
-  store i32 4496, ptr %state165, align 4
-  br label %if.end168
-
-if.else166:                                       ; preds = %if.end159
-  %118 = load ptr, ptr %ssl.addr, align 8
-  %state167 = getelementptr inbounds %struct.ssl_st, ptr %118, i32 0, i32 9
-  store i32 4512, ptr %state167, align 4
-  br label %if.end168
-
-if.end168:                                        ; preds = %if.else166, %if.then164
-  %119 = load ptr, ptr %ssl.addr, align 8
-  %init_num169 = getelementptr inbounds %struct.ssl_st, ptr %119, i32 0, i32 12
-  store i32 0, ptr %init_num169, align 8
-  br label %sw.epilog
-
-sw.bb170:                                         ; preds = %for.cond, %for.cond, %for.cond
-  %120 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_start_timer(ptr noundef %120)
-  %121 = load ptr, ptr %ssl.addr, align 8
-  %call171 = call i32 @ssl3_send_cert_verify(ptr noundef %121)
-  store i32 %call171, ptr %ret, align 4
-  %122 = load i32, ptr %ret, align 4
-  %cmp172 = icmp sle i32 %122, 0
-  br i1 %cmp172, label %if.then173, label %if.end174
-
-if.then173:                                       ; preds = %sw.bb170
-  br label %end
-
-if.end174:                                        ; preds = %sw.bb170
-  %123 = load ptr, ptr %ssl.addr, align 8
-  %state175 = getelementptr inbounds %struct.ssl_st, ptr %123, i32 0, i32 9
-  store i32 4512, ptr %state175, align 4
-  %124 = load ptr, ptr %ssl.addr, align 8
-  %init_num176 = getelementptr inbounds %struct.ssl_st, ptr %124, i32 0, i32 12
-  store i32 0, ptr %init_num176, align 8
-  br label %sw.epilog
-
-sw.bb177:                                         ; preds = %for.cond, %for.cond
-  %125 = load ptr, ptr %ssl.addr, align 8
-  %hit178 = getelementptr inbounds %struct.ssl_st, ptr %125, i32 0, i32 54
-  %bf.load179 = load i8, ptr %hit178, align 1
-  %bf.clear180 = and i8 %bf.load179, 1
-  %bf.cast181 = zext i8 %bf.clear180 to i32
-  %tobool182 = icmp ne i32 %bf.cast181, 0
-  br i1 %tobool182, label %if.end184, label %if.then183
-
-if.then183:                                       ; preds = %sw.bb177
-  %126 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_start_timer(ptr noundef %126)
-  br label %if.end184
-
-if.end184:                                        ; preds = %if.then183, %sw.bb177
-  %127 = load ptr, ptr %ssl.addr, align 8
-  %call185 = call i32 @dtls1_send_change_cipher_spec(ptr noundef %127, i32 noundef 4512, i32 noundef 4513)
-  store i32 %call185, ptr %ret, align 4
-  %128 = load i32, ptr %ret, align 4
-  %cmp186 = icmp sle i32 %128, 0
-  br i1 %cmp186, label %if.then187, label %if.end188
-
-if.then187:                                       ; preds = %if.end184
-  br label %end
-
-if.end188:                                        ; preds = %if.end184
-  %129 = load ptr, ptr %ssl.addr, align 8
-  %state189 = getelementptr inbounds %struct.ssl_st, ptr %129, i32 0, i32 9
-  store i32 4528, ptr %state189, align 4
-  %130 = load ptr, ptr %ssl.addr, align 8
-  %init_num190 = getelementptr inbounds %struct.ssl_st, ptr %130, i32 0, i32 12
-  store i32 0, ptr %init_num190, align 8
-  %131 = load ptr, ptr %ssl.addr, align 8
-  %call191 = call i32 @tls1_change_cipher_state(ptr noundef %131, i32 noundef 18)
-  %tobool192 = icmp ne i32 %call191, 0
-  br i1 %tobool192, label %if.end194, label %if.then193
-
-if.then193:                                       ; preds = %if.end188
-  store i32 -1, ptr %ret, align 4
-  br label %end
-
-if.end194:                                        ; preds = %if.end188
-  br label %sw.epilog
-
-sw.bb195:                                         ; preds = %for.cond, %for.cond
-  %132 = load ptr, ptr %ssl.addr, align 8
-  %hit196 = getelementptr inbounds %struct.ssl_st, ptr %132, i32 0, i32 54
-  %bf.load197 = load i8, ptr %hit196, align 1
-  %bf.clear198 = and i8 %bf.load197, 1
-  %bf.cast199 = zext i8 %bf.clear198 to i32
-  %tobool200 = icmp ne i32 %bf.cast199, 0
-  br i1 %tobool200, label %if.end202, label %if.then201
-
-if.then201:                                       ; preds = %sw.bb195
-  %133 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_start_timer(ptr noundef %133)
-  br label %if.end202
-
-if.end202:                                        ; preds = %if.then201, %sw.bb195
-  %134 = load ptr, ptr %ssl.addr, align 8
-  %call203 = call i32 @ssl3_send_finished(ptr noundef %134, i32 noundef 4528, i32 noundef 4529)
-  store i32 %call203, ptr %ret, align 4
-  %135 = load i32, ptr %ret, align 4
-  %cmp204 = icmp sle i32 %135, 0
-  br i1 %cmp204, label %if.then205, label %if.end206
-
-if.then205:                                       ; preds = %if.end202
-  br label %end
-
-if.end206:                                        ; preds = %if.end202
-  %136 = load ptr, ptr %ssl.addr, align 8
-  %state207 = getelementptr inbounds %struct.ssl_st, ptr %136, i32 0, i32 9
-  store i32 4352, ptr %state207, align 4
-  %137 = load ptr, ptr %ssl.addr, align 8
-  %hit208 = getelementptr inbounds %struct.ssl_st, ptr %137, i32 0, i32 54
-  %bf.load209 = load i8, ptr %hit208, align 1
-  %bf.clear210 = and i8 %bf.load209, 1
-  %bf.cast211 = zext i8 %bf.clear210 to i32
-  %tobool212 = icmp ne i32 %bf.cast211, 0
-  br i1 %tobool212, label %if.then213, label %if.else217
-
-if.then213:                                       ; preds = %if.end206
-  %138 = load ptr, ptr %ssl.addr, align 8
-  %s3214 = getelementptr inbounds %struct.ssl_st, ptr %138, i32 0, i32 14
-  %139 = load ptr, ptr %s3214, align 8
-  %tmp215 = getelementptr inbounds %struct.ssl3_state_st, ptr %139, i32 0, i32 27
-  %next_state216 = getelementptr inbounds %struct.anon, ptr %tmp215, i32 0, i32 7
-  store i32 3, ptr %next_state216, align 8
-  br label %if.end229
-
-if.else217:                                       ; preds = %if.end206
-  %140 = load ptr, ptr %ssl.addr, align 8
-  %tlsext_ticket_expected218 = getelementptr inbounds %struct.ssl_st, ptr %140, i32 0, i32 41
-  %141 = load i32, ptr %tlsext_ticket_expected218, align 8
-  %tobool219 = icmp ne i32 %141, 0
-  br i1 %tobool219, label %if.then220, label %if.else224
-
-if.then220:                                       ; preds = %if.else217
-  %142 = load ptr, ptr %ssl.addr, align 8
-  %s3221 = getelementptr inbounds %struct.ssl_st, ptr %142, i32 0, i32 14
-  %143 = load ptr, ptr %s3221, align 8
-  %tmp222 = getelementptr inbounds %struct.ssl3_state_st, ptr %143, i32 0, i32 27
-  %next_state223 = getelementptr inbounds %struct.anon, ptr %tmp222, i32 0, i32 7
-  store i32 4576, ptr %next_state223, align 8
-  br label %if.end228
-
-if.else224:                                       ; preds = %if.else217
-  %144 = load ptr, ptr %ssl.addr, align 8
-  %s3225 = getelementptr inbounds %struct.ssl_st, ptr %144, i32 0, i32 14
-  %145 = load ptr, ptr %s3225, align 8
-  %tmp226 = getelementptr inbounds %struct.ssl3_state_st, ptr %145, i32 0, i32 27
-  %next_state227 = getelementptr inbounds %struct.anon, ptr %tmp226, i32 0, i32 7
-  store i32 4544, ptr %next_state227, align 8
-  br label %if.end228
-
-if.end228:                                        ; preds = %if.else224, %if.then220
-  br label %if.end229
-
-if.end229:                                        ; preds = %if.end228, %if.then213
-  %146 = load ptr, ptr %ssl.addr, align 8
-  %init_num230 = getelementptr inbounds %struct.ssl_st, ptr %146, i32 0, i32 12
-  store i32 0, ptr %init_num230, align 8
-  br label %sw.epilog
-
-sw.bb231:                                         ; preds = %for.cond, %for.cond
-  %147 = load ptr, ptr %ssl.addr, align 8
-  %call232 = call i32 @ssl3_get_new_session_ticket(ptr noundef %147)
-  store i32 %call232, ptr %ret, align 4
-  %148 = load i32, ptr %ret, align 4
-  %cmp233 = icmp sle i32 %148, 0
-  br i1 %cmp233, label %if.then234, label %if.end235
-
-if.then234:                                       ; preds = %sw.bb231
-  br label %end
-
-if.end235:                                        ; preds = %sw.bb231
-  %149 = load ptr, ptr %ssl.addr, align 8
-  %state236 = getelementptr inbounds %struct.ssl_st, ptr %149, i32 0, i32 9
-  store i32 4544, ptr %state236, align 4
-  %150 = load ptr, ptr %ssl.addr, align 8
-  %init_num237 = getelementptr inbounds %struct.ssl_st, ptr %150, i32 0, i32 12
-  store i32 0, ptr %init_num237, align 8
-  br label %sw.epilog
-
-sw.bb238:                                         ; preds = %for.cond, %for.cond
-  %151 = load ptr, ptr %ssl.addr, align 8
-  %call239 = call i32 @ssl3_get_cert_status(ptr noundef %151)
-  store i32 %call239, ptr %ret, align 4
-  %152 = load i32, ptr %ret, align 4
-  %cmp240 = icmp sle i32 %152, 0
-  br i1 %cmp240, label %if.then241, label %if.end242
-
-if.then241:                                       ; preds = %sw.bb238
-  br label %end
-
-if.end242:                                        ; preds = %sw.bb238
-  %153 = load ptr, ptr %ssl.addr, align 8
-  %state243 = getelementptr inbounds %struct.ssl_st, ptr %153, i32 0, i32 9
-  store i32 4354, ptr %state243, align 4
-  %154 = load ptr, ptr %ssl.addr, align 8
-  %init_num244 = getelementptr inbounds %struct.ssl_st, ptr %154, i32 0, i32 12
-  store i32 0, ptr %init_num244, align 8
-  br label %sw.epilog
-
-sw.bb245:                                         ; preds = %for.cond
-  %155 = load ptr, ptr %ssl.addr, align 8
-  %method = getelementptr inbounds %struct.ssl_st, ptr %155, i32 0, i32 3
-  %156 = load ptr, ptr %method, align 8
-  %ssl_read_change_cipher_spec = getelementptr inbounds %struct.ssl_protocol_method_st, ptr %156, i32 0, i32 7
-  %157 = load ptr, ptr %ssl_read_change_cipher_spec, align 8
-  %158 = load ptr, ptr %ssl.addr, align 8
-  %call246 = call i32 %157(ptr noundef %158)
-  store i32 %call246, ptr %ret, align 4
-  %159 = load i32, ptr %ret, align 4
-  %cmp247 = icmp sle i32 %159, 0
-  br i1 %cmp247, label %if.then248, label %if.end249
-
-if.then248:                                       ; preds = %sw.bb245
-  br label %end
-
-if.end249:                                        ; preds = %sw.bb245
-  %160 = load ptr, ptr %ssl.addr, align 8
-  %call250 = call i32 @tls1_change_cipher_state(ptr noundef %160, i32 noundef 17)
-  %tobool251 = icmp ne i32 %call250, 0
-  br i1 %tobool251, label %if.end253, label %if.then252
-
-if.then252:                                       ; preds = %if.end249
-  store i32 -1, ptr %ret, align 4
-  br label %end
-
-if.end253:                                        ; preds = %if.end249
-  %161 = load ptr, ptr %ssl.addr, align 8
-  %state254 = getelementptr inbounds %struct.ssl_st, ptr %161, i32 0, i32 9
-  store i32 4560, ptr %state254, align 4
-  br label %sw.epilog
-
-sw.bb255:                                         ; preds = %for.cond, %for.cond
-  %162 = load ptr, ptr %ssl.addr, align 8
-  %call256 = call i32 @ssl3_get_finished(ptr noundef %162, i32 noundef 4560, i32 noundef 4561)
-  store i32 %call256, ptr %ret, align 4
-  %163 = load i32, ptr %ret, align 4
-  %cmp257 = icmp sle i32 %163, 0
-  br i1 %cmp257, label %if.then258, label %if.end259
-
-if.then258:                                       ; preds = %sw.bb255
-  br label %end
-
-if.end259:                                        ; preds = %sw.bb255
-  %164 = load ptr, ptr %ssl.addr, align 8
-  call void @dtls1_stop_timer(ptr noundef %164)
-  %165 = load ptr, ptr %ssl.addr, align 8
-  %hit260 = getelementptr inbounds %struct.ssl_st, ptr %165, i32 0, i32 54
-  %bf.load261 = load i8, ptr %hit260, align 1
-  %bf.clear262 = and i8 %bf.load261, 1
-  %bf.cast263 = zext i8 %bf.clear262 to i32
-  %tobool264 = icmp ne i32 %bf.cast263, 0
-  br i1 %tobool264, label %if.then265, label %if.else267
-
-if.then265:                                       ; preds = %if.end259
-  %166 = load ptr, ptr %ssl.addr, align 8
-  %state266 = getelementptr inbounds %struct.ssl_st, ptr %166, i32 0, i32 9
-  store i32 4512, ptr %state266, align 4
-  br label %if.end269
-
-if.else267:                                       ; preds = %if.end259
-  %167 = load ptr, ptr %ssl.addr, align 8
-  %state268 = getelementptr inbounds %struct.ssl_st, ptr %167, i32 0, i32 9
-  store i32 3, ptr %state268, align 4
-  br label %if.end269
-
-if.end269:                                        ; preds = %if.else267, %if.then265
-  %168 = load ptr, ptr %ssl.addr, align 8
-  %init_num270 = getelementptr inbounds %struct.ssl_st, ptr %168, i32 0, i32 12
-  store i32 0, ptr %init_num270, align 8
-  br label %sw.epilog
-
-sw.bb271:                                         ; preds = %for.cond
-  %169 = load ptr, ptr %ssl.addr, align 8
-  %wbio272 = getelementptr inbounds %struct.ssl_st, ptr %169, i32 0, i32 5
-  %170 = load ptr, ptr %wbio272, align 8
-  %call273 = call i32 @BIO_flush(ptr noundef %170)
-  %cmp274 = icmp sle i32 %call273, 0
-  br i1 %cmp274, label %if.then275, label %if.end276
-
-if.then275:                                       ; preds = %sw.bb271
-  %171 = load ptr, ptr %ssl.addr, align 8
-  %rwstate = getelementptr inbounds %struct.ssl_st, ptr %171, i32 0, i32 22
-  store i32 2, ptr %rwstate, align 8
-  store i32 -1, ptr %ret, align 4
-  br label %end
-
-if.end276:                                        ; preds = %sw.bb271
-  %172 = load ptr, ptr %ssl.addr, align 8
-  %s3277 = getelementptr inbounds %struct.ssl_st, ptr %172, i32 0, i32 14
-  %173 = load ptr, ptr %s3277, align 8
-  %tmp278 = getelementptr inbounds %struct.ssl3_state_st, ptr %173, i32 0, i32 27
-  %next_state279 = getelementptr inbounds %struct.anon, ptr %tmp278, i32 0, i32 7
-  %174 = load i32, ptr %next_state279, align 8
-  %175 = load ptr, ptr %ssl.addr, align 8
-  %state280 = getelementptr inbounds %struct.ssl_st, ptr %175, i32 0, i32 9
-  store i32 %174, ptr %state280, align 4
-  br label %sw.epilog
-
-sw.bb281:                                         ; preds = %for.cond
-  %176 = load ptr, ptr %ssl.addr, align 8
-  call void @ssl3_cleanup_key_block(ptr noundef %176)
-  %177 = load ptr, ptr %ssl.addr, align 8
-  call void @ssl_free_wbio_buffer(ptr noundef %177)
-  %178 = load ptr, ptr %ssl.addr, align 8
-  %init_num282 = getelementptr inbounds %struct.ssl_st, ptr %178, i32 0, i32 12
-  store i32 0, ptr %init_num282, align 8
-  %179 = load ptr, ptr %ssl.addr, align 8
-  %s3283 = getelementptr inbounds %struct.ssl_st, ptr %179, i32 0, i32 14
-  %180 = load ptr, ptr %s3283, align 8
-  %initial_handshake_complete = getelementptr inbounds %struct.ssl3_state_st, ptr %180, i32 0, i32 5
-  store i8 1, ptr %initial_handshake_complete, align 1
-  %181 = load ptr, ptr %ssl.addr, align 8
-  call void @ssl_update_cache(ptr noundef %181, i32 noundef 1)
-  store i32 1, ptr %ret, align 4
-  %182 = load ptr, ptr %cb, align 8
-  %cmp284 = icmp ne ptr %182, null
-  br i1 %cmp284, label %if.then285, label %if.end286
-
-if.then285:                                       ; preds = %sw.bb281
-  %183 = load ptr, ptr %cb, align 8
-  %184 = load ptr, ptr %ssl.addr, align 8
-  call void %183(ptr noundef %184, i32 noundef 32, i32 noundef 1)
-  br label %if.end286
-
-if.end286:                                        ; preds = %if.then285, %sw.bb281
-  %185 = load ptr, ptr %ssl.addr, align 8
-  %d1287 = getelementptr inbounds %struct.ssl_st, ptr %185, i32 0, i32 15
-  %186 = load ptr, ptr %d1287, align 8
-  %handshake_read_seq = getelementptr inbounds %struct.dtls1_state_st, ptr %186, i32 0, i32 8
-  store i16 0, ptr %handshake_read_seq, align 4
-  %187 = load ptr, ptr %ssl.addr, align 8
-  %d1288 = getelementptr inbounds %struct.ssl_st, ptr %187, i32 0, i32 15
-  %188 = load ptr, ptr %d1288, align 8
-  %next_handshake_write_seq = getelementptr inbounds %struct.dtls1_state_st, ptr %188, i32 0, i32 7
-  store i16 0, ptr %next_handshake_write_seq, align 2
-  br label %end
-
-sw.default:                                       ; preds = %for.cond
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %4, align 8, !tbaa !13
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %45
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %4, align 8, !tbaa !13
+  %44 = load ptr, ptr %2, align 8, !tbaa !6
+  call void %43(ptr noundef %44, i32 noundef 16, i32 noundef 1)
+  br label %45
+
+45:                                               ; preds = %42, %39
+  %46 = load ptr, ptr %2, align 8, !tbaa !6
+  %47 = getelementptr inbounds nuw %struct.ssl_st, ptr %46, i32 0, i32 10
+  %48 = load ptr, ptr %47, align 8, !tbaa !48
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %63
+
+50:                                               ; preds = %45
+  %51 = call ptr @BUF_MEM_new()
+  store ptr %51, ptr %3, align 8, !tbaa !11
+  %52 = load ptr, ptr %3, align 8, !tbaa !11
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %58, label %54
+
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %3, align 8, !tbaa !11
+  %56 = call i64 @BUF_MEM_grow(ptr noundef %55, i64 noundef 16384)
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %59, label %58
+
+58:                                               ; preds = %54, %50
+  store i32 -1, ptr %5, align 4, !tbaa !14
+  br label %557
+
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %3, align 8, !tbaa !11
+  %61 = load ptr, ptr %2, align 8, !tbaa !6
+  %62 = getelementptr inbounds nuw %struct.ssl_st, ptr %61, i32 0, i32 10
+  store ptr %60, ptr %62, align 8, !tbaa !48
+  store ptr null, ptr %3, align 8, !tbaa !11
+  br label %63
+
+63:                                               ; preds = %59, %45
+  %64 = load ptr, ptr %2, align 8, !tbaa !6
+  %65 = call i32 @ssl_init_wbio_buffer(ptr noundef %64, i32 noundef 0)
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %68, label %67
+
+67:                                               ; preds = %63
+  store i32 -1, ptr %5, align 4, !tbaa !14
+  br label %557
+
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %2, align 8, !tbaa !6
+  %70 = getelementptr inbounds nuw %struct.ssl_st, ptr %69, i32 0, i32 9
+  store i32 4368, ptr %70, align 4, !tbaa !47
+  %71 = load ptr, ptr %2, align 8, !tbaa !6
+  %72 = getelementptr inbounds nuw %struct.ssl_st, ptr %71, i32 0, i32 12
+  store i32 0, ptr %72, align 8, !tbaa !49
+  %73 = load ptr, ptr %2, align 8, !tbaa !6
+  %74 = getelementptr inbounds nuw %struct.ssl_st, ptr %73, i32 0, i32 15
+  %75 = load ptr, ptr %74, align 8, !tbaa !50
+  %76 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %75, i32 0, i32 0
+  store i32 0, ptr %76, align 8, !tbaa !51
+  %77 = load ptr, ptr %2, align 8, !tbaa !6
+  %78 = getelementptr inbounds nuw %struct.ssl_st, ptr %77, i32 0, i32 54
+  %79 = load i8, ptr %78, align 1
+  %80 = and i8 %79, -2
+  %81 = or i8 %80, 0
+  store i8 %81, ptr %78, align 1
+  br label %523
+
+82:                                               ; preds = %32, %32
+  %83 = load ptr, ptr %2, align 8, !tbaa !6
+  %84 = getelementptr inbounds nuw %struct.ssl_st, ptr %83, i32 0, i32 8
+  store i32 0, ptr %84, align 8, !tbaa !57
+  %85 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_start_timer(ptr noundef %85)
+  %86 = load ptr, ptr %2, align 8, !tbaa !6
+  %87 = call i32 @ssl3_send_client_hello(ptr noundef %86)
+  store i32 %87, ptr %5, align 4, !tbaa !14
+  %88 = load i32, ptr %5, align 4, !tbaa !14
+  %89 = icmp sle i32 %88, 0
+  br i1 %89, label %90, label %91
+
+90:                                               ; preds = %82
+  br label %557
+
+91:                                               ; preds = %82
+  %92 = load ptr, ptr %2, align 8, !tbaa !6
+  %93 = getelementptr inbounds nuw %struct.ssl_st, ptr %92, i32 0, i32 15
+  %94 = load ptr, ptr %93, align 8, !tbaa !50
+  %95 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %94, i32 0, i32 0
+  %96 = load i32, ptr %95, align 8, !tbaa !51
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %106
+
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %2, align 8, !tbaa !6
+  %100 = getelementptr inbounds nuw %struct.ssl_st, ptr %99, i32 0, i32 9
+  store i32 4352, ptr %100, align 4, !tbaa !47
+  %101 = load ptr, ptr %2, align 8, !tbaa !6
+  %102 = getelementptr inbounds nuw %struct.ssl_st, ptr %101, i32 0, i32 14
+  %103 = load ptr, ptr %102, align 8, !tbaa !58
+  %104 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %103, i32 0, i32 27
+  %105 = getelementptr inbounds nuw %struct.anon, ptr %104, i32 0, i32 7
+  store i32 4384, ptr %105, align 8, !tbaa !59
+  br label %109
+
+106:                                              ; preds = %91
+  %107 = load ptr, ptr %2, align 8, !tbaa !6
+  %108 = getelementptr inbounds nuw %struct.ssl_st, ptr %107, i32 0, i32 9
+  store i32 4390, ptr %108, align 4, !tbaa !47
+  br label %109
+
+109:                                              ; preds = %106, %98
+  %110 = load ptr, ptr %2, align 8, !tbaa !6
+  %111 = getelementptr inbounds nuw %struct.ssl_st, ptr %110, i32 0, i32 12
+  store i32 0, ptr %111, align 8, !tbaa !49
+  %112 = load ptr, ptr %2, align 8, !tbaa !6
+  %113 = getelementptr inbounds nuw %struct.ssl_st, ptr %112, i32 0, i32 6
+  %114 = load ptr, ptr %113, align 8, !tbaa !73
+  %115 = load ptr, ptr %2, align 8, !tbaa !6
+  %116 = getelementptr inbounds nuw %struct.ssl_st, ptr %115, i32 0, i32 5
+  %117 = load ptr, ptr %116, align 8, !tbaa !74
+  %118 = icmp ne ptr %114, %117
+  br i1 %118, label %119, label %129
+
+119:                                              ; preds = %109
+  %120 = load ptr, ptr %2, align 8, !tbaa !6
+  %121 = getelementptr inbounds nuw %struct.ssl_st, ptr %120, i32 0, i32 6
+  %122 = load ptr, ptr %121, align 8, !tbaa !73
+  %123 = load ptr, ptr %2, align 8, !tbaa !6
+  %124 = getelementptr inbounds nuw %struct.ssl_st, ptr %123, i32 0, i32 5
+  %125 = load ptr, ptr %124, align 8, !tbaa !74
+  %126 = call ptr @BIO_push(ptr noundef %122, ptr noundef %125)
+  %127 = load ptr, ptr %2, align 8, !tbaa !6
+  %128 = getelementptr inbounds nuw %struct.ssl_st, ptr %127, i32 0, i32 5
+  store ptr %126, ptr %128, align 8, !tbaa !74
+  br label %129
+
+129:                                              ; preds = %119, %109
+  br label %523
+
+130:                                              ; preds = %32, %32
+  %131 = load ptr, ptr %2, align 8, !tbaa !6
+  %132 = call i32 @dtls1_get_hello_verify(ptr noundef %131)
+  store i32 %132, ptr %5, align 4, !tbaa !14
+  %133 = load i32, ptr %5, align 4, !tbaa !14
+  %134 = icmp sle i32 %133, 0
+  br i1 %134, label %135, label %136
+
+135:                                              ; preds = %130
+  br label %557
+
+136:                                              ; preds = %130
+  %137 = load ptr, ptr %2, align 8, !tbaa !6
+  %138 = getelementptr inbounds nuw %struct.ssl_st, ptr %137, i32 0, i32 15
+  %139 = load ptr, ptr %138, align 8, !tbaa !50
+  %140 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %139, i32 0, i32 0
+  %141 = load i32, ptr %140, align 8, !tbaa !51
+  %142 = icmp ne i32 %141, 0
+  br i1 %142, label %143, label %147
+
+143:                                              ; preds = %136
+  %144 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_stop_timer(ptr noundef %144)
+  %145 = load ptr, ptr %2, align 8, !tbaa !6
+  %146 = getelementptr inbounds nuw %struct.ssl_st, ptr %145, i32 0, i32 9
+  store i32 4368, ptr %146, align 4, !tbaa !47
+  br label %150
+
+147:                                              ; preds = %136
+  %148 = load ptr, ptr %2, align 8, !tbaa !6
+  %149 = getelementptr inbounds nuw %struct.ssl_st, ptr %148, i32 0, i32 9
+  store i32 4384, ptr %149, align 4, !tbaa !47
+  br label %150
+
+150:                                              ; preds = %147, %143
+  %151 = load ptr, ptr %2, align 8, !tbaa !6
+  %152 = getelementptr inbounds nuw %struct.ssl_st, ptr %151, i32 0, i32 12
+  store i32 0, ptr %152, align 8, !tbaa !49
+  br label %523
+
+153:                                              ; preds = %32, %32
+  %154 = load ptr, ptr %2, align 8, !tbaa !6
+  %155 = call i32 @ssl3_get_server_hello(ptr noundef %154)
+  store i32 %155, ptr %5, align 4, !tbaa !14
+  %156 = load i32, ptr %5, align 4, !tbaa !14
+  %157 = icmp sle i32 %156, 0
+  br i1 %157, label %158, label %159
+
+158:                                              ; preds = %153
+  br label %557
+
+159:                                              ; preds = %153
+  %160 = load ptr, ptr %2, align 8, !tbaa !6
+  %161 = getelementptr inbounds nuw %struct.ssl_st, ptr %160, i32 0, i32 54
+  %162 = load i8, ptr %161, align 1
+  %163 = and i8 %162, 1
+  %164 = zext i8 %163 to i32
+  %165 = icmp ne i32 %164, 0
+  br i1 %165, label %166, label %177
+
+166:                                              ; preds = %159
+  %167 = load ptr, ptr %2, align 8, !tbaa !6
+  %168 = getelementptr inbounds nuw %struct.ssl_st, ptr %167, i32 0, i32 9
+  store i32 4544, ptr %168, align 4, !tbaa !47
+  %169 = load ptr, ptr %2, align 8, !tbaa !6
+  %170 = getelementptr inbounds nuw %struct.ssl_st, ptr %169, i32 0, i32 41
+  %171 = load i32, ptr %170, align 8, !tbaa !75
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %176
+
+173:                                              ; preds = %166
+  %174 = load ptr, ptr %2, align 8, !tbaa !6
+  %175 = getelementptr inbounds nuw %struct.ssl_st, ptr %174, i32 0, i32 9
+  store i32 4576, ptr %175, align 4, !tbaa !47
+  br label %176
+
+176:                                              ; preds = %173, %166
+  br label %180
+
+177:                                              ; preds = %159
+  %178 = load ptr, ptr %2, align 8, !tbaa !6
+  %179 = getelementptr inbounds nuw %struct.ssl_st, ptr %178, i32 0, i32 9
+  store i32 4400, ptr %179, align 4, !tbaa !47
+  br label %180
+
+180:                                              ; preds = %177, %176
+  %181 = load ptr, ptr %2, align 8, !tbaa !6
+  %182 = getelementptr inbounds nuw %struct.ssl_st, ptr %181, i32 0, i32 12
+  store i32 0, ptr %182, align 8, !tbaa !49
+  br label %523
+
+183:                                              ; preds = %32, %32
+  %184 = load ptr, ptr %2, align 8, !tbaa !6
+  %185 = getelementptr inbounds nuw %struct.ssl_st, ptr %184, i32 0, i32 14
+  %186 = load ptr, ptr %185, align 8, !tbaa !58
+  %187 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %186, i32 0, i32 27
+  %188 = getelementptr inbounds nuw %struct.anon, ptr %187, i32 0, i32 6
+  %189 = load ptr, ptr %188, align 8, !tbaa !76
+  %190 = call i32 @ssl_cipher_has_server_public_key(ptr noundef %189)
+  %191 = icmp ne i32 %190, 0
+  br i1 %191, label %192, label %215
+
+192:                                              ; preds = %183
+  %193 = load ptr, ptr %2, align 8, !tbaa !6
+  %194 = call i32 @ssl3_get_server_certificate(ptr noundef %193)
+  store i32 %194, ptr %5, align 4, !tbaa !14
+  %195 = load i32, ptr %5, align 4, !tbaa !14
+  %196 = icmp sle i32 %195, 0
+  br i1 %196, label %197, label %198
+
+197:                                              ; preds = %192
+  br label %557
+
+198:                                              ; preds = %192
+  %199 = load ptr, ptr %2, align 8, !tbaa !6
+  %200 = getelementptr inbounds nuw %struct.ssl_st, ptr %199, i32 0, i32 14
+  %201 = load ptr, ptr %200, align 8, !tbaa !58
+  %202 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %201, i32 0, i32 27
+  %203 = getelementptr inbounds nuw %struct.anon, ptr %202, i32 0, i32 22
+  %204 = load i8, ptr %203, align 8
+  %205 = and i8 %204, 1
+  %206 = zext i8 %205 to i32
+  %207 = icmp ne i32 %206, 0
+  br i1 %207, label %208, label %211
+
+208:                                              ; preds = %198
+  %209 = load ptr, ptr %2, align 8, !tbaa !6
+  %210 = getelementptr inbounds nuw %struct.ssl_st, ptr %209, i32 0, i32 9
+  store i32 4592, ptr %210, align 4, !tbaa !47
+  br label %214
+
+211:                                              ; preds = %198
+  %212 = load ptr, ptr %2, align 8, !tbaa !6
+  %213 = getelementptr inbounds nuw %struct.ssl_st, ptr %212, i32 0, i32 9
+  store i32 4354, ptr %213, align 4, !tbaa !47
+  br label %214
+
+214:                                              ; preds = %211, %208
+  br label %218
+
+215:                                              ; preds = %183
+  store i32 1, ptr %8, align 4, !tbaa !14
+  %216 = load ptr, ptr %2, align 8, !tbaa !6
+  %217 = getelementptr inbounds nuw %struct.ssl_st, ptr %216, i32 0, i32 9
+  store i32 4416, ptr %217, align 4, !tbaa !47
+  br label %218
+
+218:                                              ; preds = %215, %214
+  %219 = load ptr, ptr %2, align 8, !tbaa !6
+  %220 = getelementptr inbounds nuw %struct.ssl_st, ptr %219, i32 0, i32 12
+  store i32 0, ptr %220, align 8, !tbaa !49
+  br label %523
+
+221:                                              ; preds = %32
+  %222 = load ptr, ptr %2, align 8, !tbaa !6
+  %223 = call i32 @ssl3_verify_server_cert(ptr noundef %222)
+  store i32 %223, ptr %5, align 4, !tbaa !14
+  %224 = load i32, ptr %5, align 4, !tbaa !14
+  %225 = icmp sle i32 %224, 0
+  br i1 %225, label %226, label %227
+
+226:                                              ; preds = %221
+  br label %557
+
+227:                                              ; preds = %221
+  %228 = load ptr, ptr %2, align 8, !tbaa !6
+  %229 = getelementptr inbounds nuw %struct.ssl_st, ptr %228, i32 0, i32 9
+  store i32 4416, ptr %229, align 4, !tbaa !47
+  %230 = load ptr, ptr %2, align 8, !tbaa !6
+  %231 = getelementptr inbounds nuw %struct.ssl_st, ptr %230, i32 0, i32 12
+  store i32 0, ptr %231, align 8, !tbaa !49
+  br label %523
+
+232:                                              ; preds = %32, %32
+  %233 = load ptr, ptr %2, align 8, !tbaa !6
+  %234 = call i32 @ssl3_get_server_key_exchange(ptr noundef %233)
+  store i32 %234, ptr %5, align 4, !tbaa !14
+  %235 = load i32, ptr %5, align 4, !tbaa !14
+  %236 = icmp sle i32 %235, 0
+  br i1 %236, label %237, label %238
+
+237:                                              ; preds = %232
+  br label %557
+
+238:                                              ; preds = %232
+  %239 = load ptr, ptr %2, align 8, !tbaa !6
+  %240 = getelementptr inbounds nuw %struct.ssl_st, ptr %239, i32 0, i32 9
+  store i32 4432, ptr %240, align 4, !tbaa !47
+  %241 = load ptr, ptr %2, align 8, !tbaa !6
+  %242 = getelementptr inbounds nuw %struct.ssl_st, ptr %241, i32 0, i32 12
+  store i32 0, ptr %242, align 8, !tbaa !49
+  br label %523
+
+243:                                              ; preds = %32, %32
+  %244 = load ptr, ptr %2, align 8, !tbaa !6
+  %245 = call i32 @ssl3_get_certificate_request(ptr noundef %244)
+  store i32 %245, ptr %5, align 4, !tbaa !14
+  %246 = load i32, ptr %5, align 4, !tbaa !14
+  %247 = icmp sle i32 %246, 0
+  br i1 %247, label %248, label %249
+
+248:                                              ; preds = %243
+  br label %557
+
+249:                                              ; preds = %243
+  %250 = load ptr, ptr %2, align 8, !tbaa !6
+  %251 = getelementptr inbounds nuw %struct.ssl_st, ptr %250, i32 0, i32 9
+  store i32 4448, ptr %251, align 4, !tbaa !47
+  %252 = load ptr, ptr %2, align 8, !tbaa !6
+  %253 = getelementptr inbounds nuw %struct.ssl_st, ptr %252, i32 0, i32 12
+  store i32 0, ptr %253, align 8, !tbaa !49
+  br label %523
+
+254:                                              ; preds = %32, %32
+  %255 = load ptr, ptr %2, align 8, !tbaa !6
+  %256 = call i32 @ssl3_get_server_done(ptr noundef %255)
+  store i32 %256, ptr %5, align 4, !tbaa !14
+  %257 = load i32, ptr %5, align 4, !tbaa !14
+  %258 = icmp sle i32 %257, 0
+  br i1 %258, label %259, label %260
+
+259:                                              ; preds = %254
+  br label %557
+
+260:                                              ; preds = %254
+  %261 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_stop_timer(ptr noundef %261)
+  %262 = load ptr, ptr %2, align 8, !tbaa !6
+  %263 = getelementptr inbounds nuw %struct.ssl_st, ptr %262, i32 0, i32 14
+  %264 = load ptr, ptr %263, align 8, !tbaa !58
+  %265 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %264, i32 0, i32 27
+  %266 = getelementptr inbounds nuw %struct.anon, ptr %265, i32 0, i32 12
+  %267 = load i32, ptr %266, align 8, !tbaa !77
+  %268 = icmp ne i32 %267, 0
+  br i1 %268, label %269, label %275
+
+269:                                              ; preds = %260
+  %270 = load ptr, ptr %2, align 8, !tbaa !6
+  %271 = getelementptr inbounds nuw %struct.ssl_st, ptr %270, i32 0, i32 14
+  %272 = load ptr, ptr %271, align 8, !tbaa !58
+  %273 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %272, i32 0, i32 27
+  %274 = getelementptr inbounds nuw %struct.anon, ptr %273, i32 0, i32 7
+  store i32 4464, ptr %274, align 8, !tbaa !59
+  br label %281
+
+275:                                              ; preds = %260
+  %276 = load ptr, ptr %2, align 8, !tbaa !6
+  %277 = getelementptr inbounds nuw %struct.ssl_st, ptr %276, i32 0, i32 14
+  %278 = load ptr, ptr %277, align 8, !tbaa !58
+  %279 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %278, i32 0, i32 27
+  %280 = getelementptr inbounds nuw %struct.anon, ptr %279, i32 0, i32 7
+  store i32 4480, ptr %280, align 8, !tbaa !59
+  br label %281
+
+281:                                              ; preds = %275, %269
+  %282 = load ptr, ptr %2, align 8, !tbaa !6
+  %283 = getelementptr inbounds nuw %struct.ssl_st, ptr %282, i32 0, i32 12
+  store i32 0, ptr %283, align 8, !tbaa !49
+  %284 = load ptr, ptr %2, align 8, !tbaa !6
+  %285 = getelementptr inbounds nuw %struct.ssl_st, ptr %284, i32 0, i32 14
+  %286 = load ptr, ptr %285, align 8, !tbaa !58
+  %287 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %286, i32 0, i32 27
+  %288 = getelementptr inbounds nuw %struct.anon, ptr %287, i32 0, i32 7
+  %289 = load i32, ptr %288, align 8, !tbaa !59
+  %290 = load ptr, ptr %2, align 8, !tbaa !6
+  %291 = getelementptr inbounds nuw %struct.ssl_st, ptr %290, i32 0, i32 9
+  store i32 %289, ptr %291, align 4, !tbaa !47
+  br label %523
+
+292:                                              ; preds = %32, %32, %32, %32
+  %293 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_start_timer(ptr noundef %293)
+  %294 = load ptr, ptr %2, align 8, !tbaa !6
+  %295 = call i32 @ssl3_send_client_certificate(ptr noundef %294)
+  store i32 %295, ptr %5, align 4, !tbaa !14
+  %296 = load i32, ptr %5, align 4, !tbaa !14
+  %297 = icmp sle i32 %296, 0
+  br i1 %297, label %298, label %299
+
+298:                                              ; preds = %292
+  br label %557
+
+299:                                              ; preds = %292
+  %300 = load ptr, ptr %2, align 8, !tbaa !6
+  %301 = getelementptr inbounds nuw %struct.ssl_st, ptr %300, i32 0, i32 9
+  store i32 4480, ptr %301, align 4, !tbaa !47
+  %302 = load ptr, ptr %2, align 8, !tbaa !6
+  %303 = getelementptr inbounds nuw %struct.ssl_st, ptr %302, i32 0, i32 12
+  store i32 0, ptr %303, align 8, !tbaa !49
+  br label %523
+
+304:                                              ; preds = %32, %32
+  %305 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_start_timer(ptr noundef %305)
+  %306 = load ptr, ptr %2, align 8, !tbaa !6
+  %307 = call i32 @ssl3_send_client_key_exchange(ptr noundef %306)
+  store i32 %307, ptr %5, align 4, !tbaa !14
+  %308 = load i32, ptr %5, align 4, !tbaa !14
+  %309 = icmp sle i32 %308, 0
+  br i1 %309, label %310, label %311
+
+310:                                              ; preds = %304
+  br label %557
+
+311:                                              ; preds = %304
+  %312 = load ptr, ptr %2, align 8, !tbaa !6
+  %313 = getelementptr inbounds nuw %struct.ssl_st, ptr %312, i32 0, i32 14
+  %314 = load ptr, ptr %313, align 8, !tbaa !58
+  %315 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %314, i32 0, i32 27
+  %316 = getelementptr inbounds nuw %struct.anon, ptr %315, i32 0, i32 12
+  %317 = load i32, ptr %316, align 8, !tbaa !77
+  %318 = icmp eq i32 %317, 1
+  br i1 %318, label %319, label %322
+
+319:                                              ; preds = %311
+  %320 = load ptr, ptr %2, align 8, !tbaa !6
+  %321 = getelementptr inbounds nuw %struct.ssl_st, ptr %320, i32 0, i32 9
+  store i32 4496, ptr %321, align 4, !tbaa !47
+  br label %325
+
+322:                                              ; preds = %311
+  %323 = load ptr, ptr %2, align 8, !tbaa !6
+  %324 = getelementptr inbounds nuw %struct.ssl_st, ptr %323, i32 0, i32 9
+  store i32 4512, ptr %324, align 4, !tbaa !47
+  br label %325
+
+325:                                              ; preds = %322, %319
+  %326 = load ptr, ptr %2, align 8, !tbaa !6
+  %327 = getelementptr inbounds nuw %struct.ssl_st, ptr %326, i32 0, i32 12
+  store i32 0, ptr %327, align 8, !tbaa !49
+  br label %523
+
+328:                                              ; preds = %32, %32, %32
+  %329 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_start_timer(ptr noundef %329)
+  %330 = load ptr, ptr %2, align 8, !tbaa !6
+  %331 = call i32 @ssl3_send_cert_verify(ptr noundef %330)
+  store i32 %331, ptr %5, align 4, !tbaa !14
+  %332 = load i32, ptr %5, align 4, !tbaa !14
+  %333 = icmp sle i32 %332, 0
+  br i1 %333, label %334, label %335
+
+334:                                              ; preds = %328
+  br label %557
+
+335:                                              ; preds = %328
+  %336 = load ptr, ptr %2, align 8, !tbaa !6
+  %337 = getelementptr inbounds nuw %struct.ssl_st, ptr %336, i32 0, i32 9
+  store i32 4512, ptr %337, align 4, !tbaa !47
+  %338 = load ptr, ptr %2, align 8, !tbaa !6
+  %339 = getelementptr inbounds nuw %struct.ssl_st, ptr %338, i32 0, i32 12
+  store i32 0, ptr %339, align 8, !tbaa !49
+  br label %523
+
+340:                                              ; preds = %32, %32
+  %341 = load ptr, ptr %2, align 8, !tbaa !6
+  %342 = getelementptr inbounds nuw %struct.ssl_st, ptr %341, i32 0, i32 54
+  %343 = load i8, ptr %342, align 1
+  %344 = and i8 %343, 1
+  %345 = zext i8 %344 to i32
+  %346 = icmp ne i32 %345, 0
+  br i1 %346, label %349, label %347
+
+347:                                              ; preds = %340
+  %348 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_start_timer(ptr noundef %348)
+  br label %349
+
+349:                                              ; preds = %347, %340
+  %350 = load ptr, ptr %2, align 8, !tbaa !6
+  %351 = call i32 @dtls1_send_change_cipher_spec(ptr noundef %350, i32 noundef 4512, i32 noundef 4513)
+  store i32 %351, ptr %5, align 4, !tbaa !14
+  %352 = load i32, ptr %5, align 4, !tbaa !14
+  %353 = icmp sle i32 %352, 0
+  br i1 %353, label %354, label %355
+
+354:                                              ; preds = %349
+  br label %557
+
+355:                                              ; preds = %349
+  %356 = load ptr, ptr %2, align 8, !tbaa !6
+  %357 = getelementptr inbounds nuw %struct.ssl_st, ptr %356, i32 0, i32 9
+  store i32 4528, ptr %357, align 4, !tbaa !47
+  %358 = load ptr, ptr %2, align 8, !tbaa !6
+  %359 = getelementptr inbounds nuw %struct.ssl_st, ptr %358, i32 0, i32 12
+  store i32 0, ptr %359, align 8, !tbaa !49
+  %360 = load ptr, ptr %2, align 8, !tbaa !6
+  %361 = call i32 @tls1_change_cipher_state(ptr noundef %360, i32 noundef 18)
+  %362 = icmp ne i32 %361, 0
+  br i1 %362, label %364, label %363
+
+363:                                              ; preds = %355
+  store i32 -1, ptr %5, align 4, !tbaa !14
+  br label %557
+
+364:                                              ; preds = %355
+  br label %523
+
+365:                                              ; preds = %32, %32
+  %366 = load ptr, ptr %2, align 8, !tbaa !6
+  %367 = getelementptr inbounds nuw %struct.ssl_st, ptr %366, i32 0, i32 54
+  %368 = load i8, ptr %367, align 1
+  %369 = and i8 %368, 1
+  %370 = zext i8 %369 to i32
+  %371 = icmp ne i32 %370, 0
+  br i1 %371, label %374, label %372
+
+372:                                              ; preds = %365
+  %373 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_start_timer(ptr noundef %373)
+  br label %374
+
+374:                                              ; preds = %372, %365
+  %375 = load ptr, ptr %2, align 8, !tbaa !6
+  %376 = call i32 @ssl3_send_finished(ptr noundef %375, i32 noundef 4528, i32 noundef 4529)
+  store i32 %376, ptr %5, align 4, !tbaa !14
+  %377 = load i32, ptr %5, align 4, !tbaa !14
+  %378 = icmp sle i32 %377, 0
+  br i1 %378, label %379, label %380
+
+379:                                              ; preds = %374
+  br label %557
+
+380:                                              ; preds = %374
+  %381 = load ptr, ptr %2, align 8, !tbaa !6
+  %382 = getelementptr inbounds nuw %struct.ssl_st, ptr %381, i32 0, i32 9
+  store i32 4352, ptr %382, align 4, !tbaa !47
+  %383 = load ptr, ptr %2, align 8, !tbaa !6
+  %384 = getelementptr inbounds nuw %struct.ssl_st, ptr %383, i32 0, i32 54
+  %385 = load i8, ptr %384, align 1
+  %386 = and i8 %385, 1
+  %387 = zext i8 %386 to i32
+  %388 = icmp ne i32 %387, 0
+  br i1 %388, label %389, label %395
+
+389:                                              ; preds = %380
+  %390 = load ptr, ptr %2, align 8, !tbaa !6
+  %391 = getelementptr inbounds nuw %struct.ssl_st, ptr %390, i32 0, i32 14
+  %392 = load ptr, ptr %391, align 8, !tbaa !58
+  %393 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %392, i32 0, i32 27
+  %394 = getelementptr inbounds nuw %struct.anon, ptr %393, i32 0, i32 7
+  store i32 3, ptr %394, align 8, !tbaa !59
+  br label %413
+
+395:                                              ; preds = %380
+  %396 = load ptr, ptr %2, align 8, !tbaa !6
+  %397 = getelementptr inbounds nuw %struct.ssl_st, ptr %396, i32 0, i32 41
+  %398 = load i32, ptr %397, align 8, !tbaa !75
+  %399 = icmp ne i32 %398, 0
+  br i1 %399, label %400, label %406
+
+400:                                              ; preds = %395
+  %401 = load ptr, ptr %2, align 8, !tbaa !6
+  %402 = getelementptr inbounds nuw %struct.ssl_st, ptr %401, i32 0, i32 14
+  %403 = load ptr, ptr %402, align 8, !tbaa !58
+  %404 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %403, i32 0, i32 27
+  %405 = getelementptr inbounds nuw %struct.anon, ptr %404, i32 0, i32 7
+  store i32 4576, ptr %405, align 8, !tbaa !59
+  br label %412
+
+406:                                              ; preds = %395
+  %407 = load ptr, ptr %2, align 8, !tbaa !6
+  %408 = getelementptr inbounds nuw %struct.ssl_st, ptr %407, i32 0, i32 14
+  %409 = load ptr, ptr %408, align 8, !tbaa !58
+  %410 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %409, i32 0, i32 27
+  %411 = getelementptr inbounds nuw %struct.anon, ptr %410, i32 0, i32 7
+  store i32 4544, ptr %411, align 8, !tbaa !59
+  br label %412
+
+412:                                              ; preds = %406, %400
+  br label %413
+
+413:                                              ; preds = %412, %389
+  %414 = load ptr, ptr %2, align 8, !tbaa !6
+  %415 = getelementptr inbounds nuw %struct.ssl_st, ptr %414, i32 0, i32 12
+  store i32 0, ptr %415, align 8, !tbaa !49
+  br label %523
+
+416:                                              ; preds = %32, %32
+  %417 = load ptr, ptr %2, align 8, !tbaa !6
+  %418 = call i32 @ssl3_get_new_session_ticket(ptr noundef %417)
+  store i32 %418, ptr %5, align 4, !tbaa !14
+  %419 = load i32, ptr %5, align 4, !tbaa !14
+  %420 = icmp sle i32 %419, 0
+  br i1 %420, label %421, label %422
+
+421:                                              ; preds = %416
+  br label %557
+
+422:                                              ; preds = %416
+  %423 = load ptr, ptr %2, align 8, !tbaa !6
+  %424 = getelementptr inbounds nuw %struct.ssl_st, ptr %423, i32 0, i32 9
+  store i32 4544, ptr %424, align 4, !tbaa !47
+  %425 = load ptr, ptr %2, align 8, !tbaa !6
+  %426 = getelementptr inbounds nuw %struct.ssl_st, ptr %425, i32 0, i32 12
+  store i32 0, ptr %426, align 8, !tbaa !49
+  br label %523
+
+427:                                              ; preds = %32, %32
+  %428 = load ptr, ptr %2, align 8, !tbaa !6
+  %429 = call i32 @ssl3_get_cert_status(ptr noundef %428)
+  store i32 %429, ptr %5, align 4, !tbaa !14
+  %430 = load i32, ptr %5, align 4, !tbaa !14
+  %431 = icmp sle i32 %430, 0
+  br i1 %431, label %432, label %433
+
+432:                                              ; preds = %427
+  br label %557
+
+433:                                              ; preds = %427
+  %434 = load ptr, ptr %2, align 8, !tbaa !6
+  %435 = getelementptr inbounds nuw %struct.ssl_st, ptr %434, i32 0, i32 9
+  store i32 4354, ptr %435, align 4, !tbaa !47
+  %436 = load ptr, ptr %2, align 8, !tbaa !6
+  %437 = getelementptr inbounds nuw %struct.ssl_st, ptr %436, i32 0, i32 12
+  store i32 0, ptr %437, align 8, !tbaa !49
+  br label %523
+
+438:                                              ; preds = %32
+  %439 = load ptr, ptr %2, align 8, !tbaa !6
+  %440 = getelementptr inbounds nuw %struct.ssl_st, ptr %439, i32 0, i32 3
+  %441 = load ptr, ptr %440, align 8, !tbaa !78
+  %442 = getelementptr inbounds nuw %struct.ssl_protocol_method_st, ptr %441, i32 0, i32 7
+  %443 = load ptr, ptr %442, align 8, !tbaa !79
+  %444 = load ptr, ptr %2, align 8, !tbaa !6
+  %445 = call i32 %443(ptr noundef %444)
+  store i32 %445, ptr %5, align 4, !tbaa !14
+  %446 = load i32, ptr %5, align 4, !tbaa !14
+  %447 = icmp sle i32 %446, 0
+  br i1 %447, label %448, label %449
+
+448:                                              ; preds = %438
+  br label %557
+
+449:                                              ; preds = %438
+  %450 = load ptr, ptr %2, align 8, !tbaa !6
+  %451 = call i32 @tls1_change_cipher_state(ptr noundef %450, i32 noundef 17)
+  %452 = icmp ne i32 %451, 0
+  br i1 %452, label %454, label %453
+
+453:                                              ; preds = %449
+  store i32 -1, ptr %5, align 4, !tbaa !14
+  br label %557
+
+454:                                              ; preds = %449
+  %455 = load ptr, ptr %2, align 8, !tbaa !6
+  %456 = getelementptr inbounds nuw %struct.ssl_st, ptr %455, i32 0, i32 9
+  store i32 4560, ptr %456, align 4, !tbaa !47
+  br label %523
+
+457:                                              ; preds = %32, %32
+  %458 = load ptr, ptr %2, align 8, !tbaa !6
+  %459 = call i32 @ssl3_get_finished(ptr noundef %458, i32 noundef 4560, i32 noundef 4561)
+  store i32 %459, ptr %5, align 4, !tbaa !14
+  %460 = load i32, ptr %5, align 4, !tbaa !14
+  %461 = icmp sle i32 %460, 0
+  br i1 %461, label %462, label %463
+
+462:                                              ; preds = %457
+  br label %557
+
+463:                                              ; preds = %457
+  %464 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @dtls1_stop_timer(ptr noundef %464)
+  %465 = load ptr, ptr %2, align 8, !tbaa !6
+  %466 = getelementptr inbounds nuw %struct.ssl_st, ptr %465, i32 0, i32 54
+  %467 = load i8, ptr %466, align 1
+  %468 = and i8 %467, 1
+  %469 = zext i8 %468 to i32
+  %470 = icmp ne i32 %469, 0
+  br i1 %470, label %471, label %474
+
+471:                                              ; preds = %463
+  %472 = load ptr, ptr %2, align 8, !tbaa !6
+  %473 = getelementptr inbounds nuw %struct.ssl_st, ptr %472, i32 0, i32 9
+  store i32 4512, ptr %473, align 4, !tbaa !47
+  br label %477
+
+474:                                              ; preds = %463
+  %475 = load ptr, ptr %2, align 8, !tbaa !6
+  %476 = getelementptr inbounds nuw %struct.ssl_st, ptr %475, i32 0, i32 9
+  store i32 3, ptr %476, align 4, !tbaa !47
+  br label %477
+
+477:                                              ; preds = %474, %471
+  %478 = load ptr, ptr %2, align 8, !tbaa !6
+  %479 = getelementptr inbounds nuw %struct.ssl_st, ptr %478, i32 0, i32 12
+  store i32 0, ptr %479, align 8, !tbaa !49
+  br label %523
+
+480:                                              ; preds = %32
+  %481 = load ptr, ptr %2, align 8, !tbaa !6
+  %482 = getelementptr inbounds nuw %struct.ssl_st, ptr %481, i32 0, i32 5
+  %483 = load ptr, ptr %482, align 8, !tbaa !74
+  %484 = call i32 @BIO_flush(ptr noundef %483)
+  %485 = icmp sle i32 %484, 0
+  br i1 %485, label %486, label %489
+
+486:                                              ; preds = %480
+  %487 = load ptr, ptr %2, align 8, !tbaa !6
+  %488 = getelementptr inbounds nuw %struct.ssl_st, ptr %487, i32 0, i32 22
+  store i32 2, ptr %488, align 8, !tbaa !81
+  store i32 -1, ptr %5, align 4, !tbaa !14
+  br label %557
+
+489:                                              ; preds = %480
+  %490 = load ptr, ptr %2, align 8, !tbaa !6
+  %491 = getelementptr inbounds nuw %struct.ssl_st, ptr %490, i32 0, i32 14
+  %492 = load ptr, ptr %491, align 8, !tbaa !58
+  %493 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %492, i32 0, i32 27
+  %494 = getelementptr inbounds nuw %struct.anon, ptr %493, i32 0, i32 7
+  %495 = load i32, ptr %494, align 8, !tbaa !59
+  %496 = load ptr, ptr %2, align 8, !tbaa !6
+  %497 = getelementptr inbounds nuw %struct.ssl_st, ptr %496, i32 0, i32 9
+  store i32 %495, ptr %497, align 4, !tbaa !47
+  br label %523
+
+498:                                              ; preds = %32
+  %499 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @ssl3_cleanup_key_block(ptr noundef %499)
+  %500 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @ssl_free_wbio_buffer(ptr noundef %500)
+  %501 = load ptr, ptr %2, align 8, !tbaa !6
+  %502 = getelementptr inbounds nuw %struct.ssl_st, ptr %501, i32 0, i32 12
+  store i32 0, ptr %502, align 8, !tbaa !49
+  %503 = load ptr, ptr %2, align 8, !tbaa !6
+  %504 = getelementptr inbounds nuw %struct.ssl_st, ptr %503, i32 0, i32 14
+  %505 = load ptr, ptr %504, align 8, !tbaa !58
+  %506 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %505, i32 0, i32 5
+  store i8 1, ptr %506, align 1, !tbaa !82
+  %507 = load ptr, ptr %2, align 8, !tbaa !6
+  call void @ssl_update_cache(ptr noundef %507, i32 noundef 1)
+  store i32 1, ptr %5, align 4, !tbaa !14
+  %508 = load ptr, ptr %4, align 8, !tbaa !13
+  %509 = icmp ne ptr %508, null
+  br i1 %509, label %510, label %513
+
+510:                                              ; preds = %498
+  %511 = load ptr, ptr %4, align 8, !tbaa !13
+  %512 = load ptr, ptr %2, align 8, !tbaa !6
+  call void %511(ptr noundef %512, i32 noundef 32, i32 noundef 1)
+  br label %513
+
+513:                                              ; preds = %510, %498
+  %514 = load ptr, ptr %2, align 8, !tbaa !6
+  %515 = getelementptr inbounds nuw %struct.ssl_st, ptr %514, i32 0, i32 15
+  %516 = load ptr, ptr %515, align 8, !tbaa !50
+  %517 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %516, i32 0, i32 8
+  store i16 0, ptr %517, align 4, !tbaa !83
+  %518 = load ptr, ptr %2, align 8, !tbaa !6
+  %519 = getelementptr inbounds nuw %struct.ssl_st, ptr %518, i32 0, i32 15
+  %520 = load ptr, ptr %519, align 8, !tbaa !50
+  %521 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %520, i32 0, i32 7
+  store i16 0, ptr %521, align 2, !tbaa !84
+  br label %557
+
+522:                                              ; preds = %32
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 235, ptr noundef @.str, i32 noundef 482)
-  store i32 -1, ptr %ret, align 4
-  br label %end
+  store i32 -1, ptr %5, align 4, !tbaa !14
+  br label %557
 
-sw.epilog:                                        ; preds = %if.end276, %if.end269, %if.end253, %if.end242, %if.end235, %if.end229, %if.end194, %if.end174, %if.end168, %if.end152, %if.end142, %if.end123, %if.end116, %if.end109, %if.end103, %if.end78, %if.end59, %if.end46, %if.end24
-  %189 = load ptr, ptr %ssl.addr, align 8
-  %s3289 = getelementptr inbounds %struct.ssl_st, ptr %189, i32 0, i32 14
-  %190 = load ptr, ptr %s3289, align 8
-  %tmp290 = getelementptr inbounds %struct.ssl3_state_st, ptr %190, i32 0, i32 27
-  %reuse_message = getelementptr inbounds %struct.anon, ptr %tmp290, i32 0, i32 8
-  %191 = load i32, ptr %reuse_message, align 4
-  %tobool291 = icmp ne i32 %191, 0
-  br i1 %tobool291, label %if.end303, label %land.lhs.true
+523:                                              ; preds = %489, %477, %454, %433, %422, %413, %364, %335, %325, %299, %281, %249, %238, %227, %218, %180, %150, %129, %68
+  %524 = load ptr, ptr %2, align 8, !tbaa !6
+  %525 = getelementptr inbounds nuw %struct.ssl_st, ptr %524, i32 0, i32 14
+  %526 = load ptr, ptr %525, align 8, !tbaa !58
+  %527 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %526, i32 0, i32 27
+  %528 = getelementptr inbounds nuw %struct.anon, ptr %527, i32 0, i32 8
+  %529 = load i32, ptr %528, align 4, !tbaa !85
+  %530 = icmp ne i32 %529, 0
+  br i1 %530, label %556, label %531
 
-land.lhs.true:                                    ; preds = %sw.epilog
-  %192 = load i32, ptr %skip, align 4
-  %tobool292 = icmp ne i32 %192, 0
-  br i1 %tobool292, label %if.end303, label %if.then293
+531:                                              ; preds = %523
+  %532 = load i32, ptr %8, align 4, !tbaa !14
+  %533 = icmp ne i32 %532, 0
+  br i1 %533, label %556, label %534
 
-if.then293:                                       ; preds = %land.lhs.true
-  %193 = load ptr, ptr %cb, align 8
-  %cmp294 = icmp ne ptr %193, null
-  br i1 %cmp294, label %land.lhs.true295, label %if.end302
+534:                                              ; preds = %531
+  %535 = load ptr, ptr %4, align 8, !tbaa !13
+  %536 = icmp ne ptr %535, null
+  br i1 %536, label %537, label %555
 
-land.lhs.true295:                                 ; preds = %if.then293
-  %194 = load ptr, ptr %ssl.addr, align 8
-  %state296 = getelementptr inbounds %struct.ssl_st, ptr %194, i32 0, i32 9
-  %195 = load i32, ptr %state296, align 4
-  %196 = load i32, ptr %state, align 4
-  %cmp297 = icmp ne i32 %195, %196
-  br i1 %cmp297, label %if.then298, label %if.end302
+537:                                              ; preds = %534
+  %538 = load ptr, ptr %2, align 8, !tbaa !6
+  %539 = getelementptr inbounds nuw %struct.ssl_st, ptr %538, i32 0, i32 9
+  %540 = load i32, ptr %539, align 4, !tbaa !47
+  %541 = load i32, ptr %7, align 4, !tbaa !14
+  %542 = icmp ne i32 %540, %541
+  br i1 %542, label %543, label %555
 
-if.then298:                                       ; preds = %land.lhs.true295
-  %197 = load ptr, ptr %ssl.addr, align 8
-  %state299 = getelementptr inbounds %struct.ssl_st, ptr %197, i32 0, i32 9
-  %198 = load i32, ptr %state299, align 4
-  store i32 %198, ptr %new_state, align 4
-  %199 = load i32, ptr %state, align 4
-  %200 = load ptr, ptr %ssl.addr, align 8
-  %state300 = getelementptr inbounds %struct.ssl_st, ptr %200, i32 0, i32 9
-  store i32 %199, ptr %state300, align 4
-  %201 = load ptr, ptr %cb, align 8
-  %202 = load ptr, ptr %ssl.addr, align 8
-  call void %201(ptr noundef %202, i32 noundef 4097, i32 noundef 1)
-  %203 = load i32, ptr %new_state, align 4
-  %204 = load ptr, ptr %ssl.addr, align 8
-  %state301 = getelementptr inbounds %struct.ssl_st, ptr %204, i32 0, i32 9
-  store i32 %203, ptr %state301, align 4
-  br label %if.end302
+543:                                              ; preds = %537
+  %544 = load ptr, ptr %2, align 8, !tbaa !6
+  %545 = getelementptr inbounds nuw %struct.ssl_st, ptr %544, i32 0, i32 9
+  %546 = load i32, ptr %545, align 4, !tbaa !47
+  store i32 %546, ptr %6, align 4, !tbaa !14
+  %547 = load i32, ptr %7, align 4, !tbaa !14
+  %548 = load ptr, ptr %2, align 8, !tbaa !6
+  %549 = getelementptr inbounds nuw %struct.ssl_st, ptr %548, i32 0, i32 9
+  store i32 %547, ptr %549, align 4, !tbaa !47
+  %550 = load ptr, ptr %4, align 8, !tbaa !13
+  %551 = load ptr, ptr %2, align 8, !tbaa !6
+  call void %550(ptr noundef %551, i32 noundef 4097, i32 noundef 1)
+  %552 = load i32, ptr %6, align 4, !tbaa !14
+  %553 = load ptr, ptr %2, align 8, !tbaa !6
+  %554 = getelementptr inbounds nuw %struct.ssl_st, ptr %553, i32 0, i32 9
+  store i32 %552, ptr %554, align 4, !tbaa !47
+  br label %555
 
-if.end302:                                        ; preds = %if.then298, %land.lhs.true295, %if.then293
-  br label %if.end303
+555:                                              ; preds = %543, %537, %534
+  br label %556
 
-if.end303:                                        ; preds = %if.end302, %land.lhs.true, %sw.epilog
-  store i32 0, ptr %skip, align 4
-  br label %for.cond
+556:                                              ; preds = %555, %531, %523
+  store i32 0, ptr %8, align 4, !tbaa !14
+  br label %32
 
-end:                                              ; preds = %sw.default, %if.end286, %if.then275, %if.then258, %if.then252, %if.then248, %if.then241, %if.then234, %if.then205, %if.then193, %if.then187, %if.then173, %if.then158, %if.then151, %if.then129, %if.then122, %if.then115, %if.then108, %if.then88, %if.then64, %if.then50, %if.then29, %if.then23, %if.then17
-  %205 = load ptr, ptr %buf, align 8
-  call void @BUF_MEM_free(ptr noundef %205)
-  %206 = load ptr, ptr %cb, align 8
-  %cmp304 = icmp ne ptr %206, null
-  br i1 %cmp304, label %if.then305, label %if.end306
+557:                                              ; preds = %522, %513, %486, %462, %453, %448, %432, %421, %379, %363, %354, %334, %310, %298, %259, %248, %237, %226, %197, %158, %135, %90, %67, %58
+  %558 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @BUF_MEM_free(ptr noundef %558)
+  %559 = load ptr, ptr %4, align 8, !tbaa !13
+  %560 = icmp ne ptr %559, null
+  br i1 %560, label %561, label %565
 
-if.then305:                                       ; preds = %end
-  %207 = load ptr, ptr %cb, align 8
-  %208 = load ptr, ptr %ssl.addr, align 8
-  %209 = load i32, ptr %ret, align 4
-  call void %207(ptr noundef %208, i32 noundef 4098, i32 noundef %209)
-  br label %if.end306
+561:                                              ; preds = %557
+  %562 = load ptr, ptr %4, align 8, !tbaa !13
+  %563 = load ptr, ptr %2, align 8, !tbaa !6
+  %564 = load i32, ptr %5, align 4, !tbaa !14
+  call void %562(ptr noundef %563, i32 noundef 4098, i32 noundef %564)
+  br label %565
 
-if.end306:                                        ; preds = %if.then305, %end
-  %210 = load i32, ptr %ret, align 4
-  ret i32 %210
+565:                                              ; preds = %561, %557
+  %566 = load i32, ptr %5, align 4, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  ret i32 %566
 }
 
-declare void @ERR_clear_system_error() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @BUF_MEM_new() #1
+declare void @ERR_clear_system_error() #2
 
-declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) #1
+declare ptr @BUF_MEM_new() #2
 
-declare i32 @ssl_init_wbio_buffer(ptr noundef, i32 noundef) #1
+declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) #2
 
-declare void @dtls1_start_timer(ptr noundef) #1
+declare i32 @ssl_init_wbio_buffer(ptr noundef, i32 noundef) #2
 
-declare i32 @ssl3_send_client_hello(ptr noundef) #1
+declare void @dtls1_start_timer(ptr noundef) #2
 
-declare ptr @BIO_push(ptr noundef, ptr noundef) #1
+declare i32 @ssl3_send_client_hello(ptr noundef) #2
+
+declare ptr @BIO_push(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dtls1_get_hello_verify(ptr noundef %ssl) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ssl.addr = alloca ptr, align 8
-  %n = alloca i64, align 8
-  %al = alloca i32, align 4
-  %ok = alloca i32, align 4
-  %hello_verify_request = alloca %struct.cbs_st, align 8
-  %cookie = alloca %struct.cbs_st, align 8
-  %server_version = alloca i16, align 2
-  store ptr %ssl, ptr %ssl.addr, align 8
-  store i32 0, ptr %ok, align 4
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %method = getelementptr inbounds %struct.ssl_st, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %method, align 8
-  %ssl_get_message = getelementptr inbounds %struct.ssl_protocol_method_st, ptr %1, i32 0, i32 5
-  %2 = load ptr, ptr %ssl_get_message, align 8
-  %3 = load ptr, ptr %ssl.addr, align 8
-  %call = call i64 %2(ptr noundef %3, i32 noundef 4390, i32 noundef 4391, i32 noundef -1, i64 noundef 20000, i32 noundef 1, ptr noundef %ok)
-  store i64 %call, ptr %n, align 8
-  %4 = load i32, ptr %ok, align 4
-  %tobool = icmp ne i32 %4, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @dtls1_get_hello_verify(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.cbs_st, align 8
+  %8 = alloca %struct.cbs_st, align 8
+  %9 = alloca i16, align 2
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  %11 = load ptr, ptr %3, align 8, !tbaa !6
+  %12 = getelementptr inbounds nuw %struct.ssl_st, ptr %11, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8, !tbaa !78
+  %14 = getelementptr inbounds nuw %struct.ssl_protocol_method_st, ptr %13, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8, !tbaa !86
+  %16 = load ptr, ptr %3, align 8, !tbaa !6
+  %17 = call i64 %15(ptr noundef %16, i32 noundef 4390, i32 noundef 4391, i32 noundef -1, i64 noundef 20000, i32 noundef 1, ptr noundef %6)
+  store i64 %17, ptr %4, align 8, !tbaa !87
+  %18 = load i32, ptr %6, align 4, !tbaa !14
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %23, label %20
 
-if.then:                                          ; preds = %entry
-  %5 = load i64, ptr %n, align 8
-  %conv = trunc i64 %5 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %1
+  %21 = load i64, ptr %4, align 8, !tbaa !87
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %80
 
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %ssl.addr, align 8
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %6, i32 0, i32 14
-  %7 = load ptr, ptr %s3, align 8
-  %tmp = getelementptr inbounds %struct.ssl3_state_st, ptr %7, i32 0, i32 27
-  %message_type = getelementptr inbounds %struct.anon, ptr %tmp, i32 0, i32 5
-  %8 = load i32, ptr %message_type, align 8
-  %cmp = icmp ne i32 %8, 3
-  br i1 %cmp, label %if.then2, label %if.end5
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %3, align 8, !tbaa !6
+  %25 = getelementptr inbounds nuw %struct.ssl_st, ptr %24, i32 0, i32 14
+  %26 = load ptr, ptr %25, align 8, !tbaa !58
+  %27 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %26, i32 0, i32 27
+  %28 = getelementptr inbounds nuw %struct.anon, ptr %27, i32 0, i32 5
+  %29 = load i32, ptr %28, align 8, !tbaa !88
+  %30 = icmp ne i32 %29, 3
+  br i1 %30, label %31, label %41
 
-if.then2:                                         ; preds = %if.end
-  %9 = load ptr, ptr %ssl.addr, align 8
-  %d1 = getelementptr inbounds %struct.ssl_st, ptr %9, i32 0, i32 15
-  %10 = load ptr, ptr %d1, align 8
-  %send_cookie = getelementptr inbounds %struct.dtls1_state_st, ptr %10, i32 0, i32 0
-  store i32 0, ptr %send_cookie, align 8
-  %11 = load ptr, ptr %ssl.addr, align 8
-  %s33 = getelementptr inbounds %struct.ssl_st, ptr %11, i32 0, i32 14
-  %12 = load ptr, ptr %s33, align 8
-  %tmp4 = getelementptr inbounds %struct.ssl3_state_st, ptr %12, i32 0, i32 27
-  %reuse_message = getelementptr inbounds %struct.anon, ptr %tmp4, i32 0, i32 8
-  store i32 1, ptr %reuse_message, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %3, align 8, !tbaa !6
+  %33 = getelementptr inbounds nuw %struct.ssl_st, ptr %32, i32 0, i32 15
+  %34 = load ptr, ptr %33, align 8, !tbaa !50
+  %35 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %34, i32 0, i32 0
+  store i32 0, ptr %35, align 8, !tbaa !51
+  %36 = load ptr, ptr %3, align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw %struct.ssl_st, ptr %36, i32 0, i32 14
+  %38 = load ptr, ptr %37, align 8, !tbaa !58
+  %39 = getelementptr inbounds nuw %struct.ssl3_state_st, ptr %38, i32 0, i32 27
+  %40 = getelementptr inbounds nuw %struct.anon, ptr %39, i32 0, i32 8
+  store i32 1, ptr %40, align 4, !tbaa !85
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %80
 
-if.end5:                                          ; preds = %if.end
-  %13 = load ptr, ptr %ssl.addr, align 8
-  %init_msg = getelementptr inbounds %struct.ssl_st, ptr %13, i32 0, i32 11
-  %14 = load ptr, ptr %init_msg, align 8
-  %15 = load i64, ptr %n, align 8
-  call void @CBS_init(ptr noundef %hello_verify_request, ptr noundef %14, i64 noundef %15)
-  %call6 = call i32 @CBS_get_u16(ptr noundef %hello_verify_request, ptr noundef %server_version)
-  %tobool7 = icmp ne i32 %call6, 0
-  br i1 %tobool7, label %lor.lhs.false, label %if.then14
+41:                                               ; preds = %23
+  %42 = load ptr, ptr %3, align 8, !tbaa !6
+  %43 = getelementptr inbounds nuw %struct.ssl_st, ptr %42, i32 0, i32 11
+  %44 = load ptr, ptr %43, align 8, !tbaa !89
+  %45 = load i64, ptr %4, align 8, !tbaa !87
+  call void @CBS_init(ptr noundef %7, ptr noundef %44, i64 noundef %45)
+  %46 = call i32 @CBS_get_u16(ptr noundef %7, ptr noundef %9)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %54
 
-lor.lhs.false:                                    ; preds = %if.end5
-  %call8 = call i32 @CBS_get_u8_length_prefixed(ptr noundef %hello_verify_request, ptr noundef %cookie)
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %lor.lhs.false10, label %if.then14
+48:                                               ; preds = %41
+  %49 = call i32 @CBS_get_u8_length_prefixed(ptr noundef %7, ptr noundef %8)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %54
 
-lor.lhs.false10:                                  ; preds = %lor.lhs.false
-  %call11 = call i64 @CBS_len(ptr noundef %hello_verify_request)
-  %cmp12 = icmp ne i64 %call11, 0
-  br i1 %cmp12, label %if.then14, label %if.end15
+51:                                               ; preds = %48
+  %52 = call i64 @CBS_len(ptr noundef %7)
+  %53 = icmp ne i64 %52, 0
+  br i1 %53, label %54, label %55
 
-if.then14:                                        ; preds = %lor.lhs.false10, %lor.lhs.false, %if.end5
-  store i32 50, ptr %al, align 4
+54:                                               ; preds = %51, %48, %41
+  store i32 50, ptr %5, align 4, !tbaa !14
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef @.str, i32 noundef 535)
-  br label %f_err
+  br label %76
 
-if.end15:                                         ; preds = %lor.lhs.false10
-  %call16 = call i64 @CBS_len(ptr noundef %cookie)
-  %cmp17 = icmp ugt i64 %call16, 256
-  br i1 %cmp17, label %if.then19, label %if.end20
+55:                                               ; preds = %51
+  %56 = call i64 @CBS_len(ptr noundef %8)
+  %57 = icmp ugt i64 %56, 256
+  br i1 %57, label %58, label %59
 
-if.then19:                                        ; preds = %if.end15
-  store i32 47, ptr %al, align 4
-  br label %f_err
+58:                                               ; preds = %55
+  store i32 47, ptr %5, align 4, !tbaa !14
+  br label %76
 
-if.end20:                                         ; preds = %if.end15
-  %16 = load ptr, ptr %ssl.addr, align 8
-  %d121 = getelementptr inbounds %struct.ssl_st, ptr %16, i32 0, i32 15
-  %17 = load ptr, ptr %d121, align 8
-  %cookie22 = getelementptr inbounds %struct.dtls1_state_st, ptr %17, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %cookie22, i64 0, i64 0
-  %call23 = call ptr @CBS_data(ptr noundef %cookie)
-  %call24 = call i64 @CBS_len(ptr noundef %cookie)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay, ptr align 1 %call23, i64 %call24, i1 false)
-  %call25 = call i64 @CBS_len(ptr noundef %cookie)
-  %18 = load ptr, ptr %ssl.addr, align 8
-  %d126 = getelementptr inbounds %struct.ssl_st, ptr %18, i32 0, i32 15
-  %19 = load ptr, ptr %d126, align 8
-  %cookie_len = getelementptr inbounds %struct.dtls1_state_st, ptr %19, i32 0, i32 2
-  store i64 %call25, ptr %cookie_len, align 8
-  %20 = load ptr, ptr %ssl.addr, align 8
-  %d127 = getelementptr inbounds %struct.ssl_st, ptr %20, i32 0, i32 15
-  %21 = load ptr, ptr %d127, align 8
-  %send_cookie28 = getelementptr inbounds %struct.dtls1_state_st, ptr %21, i32 0, i32 0
-  store i32 1, ptr %send_cookie28, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %3, align 8, !tbaa !6
+  %61 = getelementptr inbounds nuw %struct.ssl_st, ptr %60, i32 0, i32 15
+  %62 = load ptr, ptr %61, align 8, !tbaa !50
+  %63 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %62, i32 0, i32 1
+  %64 = getelementptr inbounds [256 x i8], ptr %63, i64 0, i64 0
+  %65 = call ptr @CBS_data(ptr noundef %8)
+  %66 = call i64 @CBS_len(ptr noundef %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %64, ptr align 1 %65, i64 %66, i1 false)
+  %67 = call i64 @CBS_len(ptr noundef %8)
+  %68 = load ptr, ptr %3, align 8, !tbaa !6
+  %69 = getelementptr inbounds nuw %struct.ssl_st, ptr %68, i32 0, i32 15
+  %70 = load ptr, ptr %69, align 8, !tbaa !50
+  %71 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %70, i32 0, i32 2
+  store i64 %67, ptr %71, align 8, !tbaa !90
+  %72 = load ptr, ptr %3, align 8, !tbaa !6
+  %73 = getelementptr inbounds nuw %struct.ssl_st, ptr %72, i32 0, i32 15
+  %74 = load ptr, ptr %73, align 8, !tbaa !50
+  %75 = getelementptr inbounds nuw %struct.dtls1_state_st, ptr %74, i32 0, i32 0
+  store i32 1, ptr %75, align 8, !tbaa !51
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %80
 
-f_err:                                            ; preds = %if.then19, %if.then14
-  %22 = load ptr, ptr %ssl.addr, align 8
-  %23 = load i32, ptr %al, align 4
-  %call29 = call i32 @ssl3_send_alert(ptr noundef %22, i32 noundef 2, i32 noundef %23)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %58, %54
+  %77 = load ptr, ptr %3, align 8, !tbaa !6
+  %78 = load i32, ptr %5, align 4, !tbaa !14
+  %79 = call i32 @ssl3_send_alert(ptr noundef %77, i32 noundef 2, i32 noundef %78)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %80
 
-return:                                           ; preds = %f_err, %if.end20, %if.then2, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+80:                                               ; preds = %76, %59, %31, %20
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %81 = load i32, ptr %2, align 4
+  ret i32 %81
 }
 
-declare void @dtls1_stop_timer(ptr noundef) #1
+declare void @dtls1_stop_timer(ptr noundef) #2
 
-declare i32 @ssl3_get_server_hello(ptr noundef) #1
+declare i32 @ssl3_get_server_hello(ptr noundef) #2
 
-declare i32 @ssl_cipher_has_server_public_key(ptr noundef) #1
+declare i32 @ssl_cipher_has_server_public_key(ptr noundef) #2
 
-declare i32 @ssl3_get_server_certificate(ptr noundef) #1
+declare i32 @ssl3_get_server_certificate(ptr noundef) #2
 
-declare i32 @ssl3_verify_server_cert(ptr noundef) #1
+declare i32 @ssl3_verify_server_cert(ptr noundef) #2
 
-declare i32 @ssl3_get_server_key_exchange(ptr noundef) #1
+declare i32 @ssl3_get_server_key_exchange(ptr noundef) #2
 
-declare i32 @ssl3_get_certificate_request(ptr noundef) #1
+declare i32 @ssl3_get_certificate_request(ptr noundef) #2
 
-declare i32 @ssl3_get_server_done(ptr noundef) #1
+declare i32 @ssl3_get_server_done(ptr noundef) #2
 
-declare i32 @ssl3_send_client_certificate(ptr noundef) #1
+declare i32 @ssl3_send_client_certificate(ptr noundef) #2
 
-declare i32 @ssl3_send_client_key_exchange(ptr noundef) #1
+declare i32 @ssl3_send_client_key_exchange(ptr noundef) #2
 
-declare i32 @ssl3_send_cert_verify(ptr noundef) #1
+declare i32 @ssl3_send_cert_verify(ptr noundef) #2
 
-declare i32 @dtls1_send_change_cipher_spec(ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @dtls1_send_change_cipher_spec(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tls1_change_cipher_state(ptr noundef, i32 noundef) #1
+declare i32 @tls1_change_cipher_state(ptr noundef, i32 noundef) #2
 
-declare i32 @ssl3_send_finished(ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @ssl3_send_finished(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @ssl3_get_new_session_ticket(ptr noundef) #1
+declare i32 @ssl3_get_new_session_ticket(ptr noundef) #2
 
-declare i32 @ssl3_get_cert_status(ptr noundef) #1
+declare i32 @ssl3_get_cert_status(ptr noundef) #2
 
-declare i32 @ssl3_get_finished(ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @ssl3_get_finished(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @BIO_flush(ptr noundef) #1
+declare i32 @BIO_flush(ptr noundef) #2
 
-declare void @ssl3_cleanup_key_block(ptr noundef) #1
+declare void @ssl3_cleanup_key_block(ptr noundef) #2
 
-declare void @ssl_free_wbio_buffer(ptr noundef) #1
+declare void @ssl_free_wbio_buffer(ptr noundef) #2
 
-declare void @ssl_update_cache(ptr noundef, i32 noundef) #1
+declare void @ssl_update_cache(ptr noundef, i32 noundef) #2
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @BUF_MEM_free(ptr noundef) #1
+declare void @BUF_MEM_free(ptr noundef) #2
 
-declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @CBS_get_u16(ptr noundef, ptr noundef) #1
+declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @CBS_get_u8_length_prefixed(ptr noundef, ptr noundef) #1
+declare i32 @CBS_get_u16(ptr noundef, ptr noundef) #2
 
-declare i64 @CBS_len(ptr noundef) #1
+declare i32 @CBS_get_u8_length_prefixed(ptr noundef, ptr noundef) #2
 
-declare ptr @CBS_data(ptr noundef) #1
+declare i64 @CBS_len(ptr noundef) #2
+
+declare ptr @CBS_data(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS6ssl_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS10buf_mem_st", !8, i64 0}
+!13 = !{!8, !8, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !9, i64 0}
+!16 = !{!17, !8, i64 200}
+!17 = !{!"ssl_st", !15, i64 0, !18, i64 4, !18, i64 6, !19, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !8, i64 40, !15, i64 48, !15, i64 52, !12, i64 56, !21, i64 64, !15, i64 72, !15, i64 76, !22, i64 80, !23, i64 88, !8, i64 96, !8, i64 104, !24, i64 112, !25, i64 120, !26, i64 128, !27, i64 136, !15, i64 144, !15, i64 148, !9, i64 152, !28, i64 184, !8, i64 192, !8, i64 200, !21, i64 208, !8, i64 216, !8, i64 224, !29, i64 232, !30, i64 240, !31, i64 248, !33, i64 256, !15, i64 264, !15, i64 268, !15, i64 272, !15, i64 276, !18, i64 280, !21, i64 288, !15, i64 296, !30, i64 304, !34, i64 312, !29, i64 320, !35, i64 328, !36, i64 336, !37, i64 344, !21, i64 352, !15, i64 360, !15, i64 364, !38, i64 368, !39, i64 376, !9, i64 384, !15, i64 385, !15, i64 385, !15, i64 385, !15, i64 385, !15, i64 385, !15, i64 385, !15, i64 388}
+!18 = !{!"short", !9, i64 0}
+!19 = !{!"p1 _ZTS22ssl_protocol_method_st", !8, i64 0}
+!20 = !{!"p1 _ZTS6bio_st", !8, i64 0}
+!21 = !{!"p1 omnipotent char", !8, i64 0}
+!22 = !{!"p1 _ZTS13ssl3_state_st", !8, i64 0}
+!23 = !{!"p1 _ZTS14dtls1_state_st", !8, i64 0}
+!24 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !8, i64 0}
+!25 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !8, i64 0}
+!26 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !8, i64 0}
+!27 = !{!"p1 _ZTS7cert_st", !8, i64 0}
+!28 = !{!"p1 _ZTS14ssl_session_st", !8, i64 0}
+!29 = !{!"p1 _ZTS10ssl_ctx_st", !8, i64 0}
+!30 = !{!"long", !9, i64 0}
+!31 = !{!"crypto_ex_data_st", !32, i64 0}
+!32 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
+!33 = !{!"p1 _ZTS18stack_st_X509_NAME", !8, i64 0}
+!34 = !{!"p1 short", !8, i64 0}
+!35 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !8, i64 0}
+!36 = !{!"p1 _ZTS26srtp_protection_profile_st", !8, i64 0}
+!37 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!38 = !{!"p1 _ZTS17evp_cipher_ctx_st", !8, i64 0}
+!39 = !{!"p1 _ZTS13env_md_ctx_st", !8, i64 0}
+!40 = !{!17, !29, i64 232}
+!41 = !{!42, !8, i64 264}
+!42 = !{!"ssl_ctx_st", !19, i64 0, !9, i64 8, !18, i64 64, !18, i64 66, !25, i64 72, !26, i64 80, !25, i64 88, !25, i64 96, !43, i64 104, !44, i64 112, !30, i64 120, !28, i64 128, !28, i64 136, !15, i64 144, !15, i64 148, !30, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !15, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !31, i64 240, !45, i64 248, !45, i64 256, !8, i64 264, !33, i64 272, !15, i64 280, !15, i64 284, !15, i64 288, !27, i64 296, !8, i64 304, !8, i64 312, !15, i64 320, !15, i64 324, !9, i64 328, !8, i64 360, !24, i64 368, !8, i64 376, !8, i64 384, !18, i64 392, !8, i64 400, !8, i64 408, !9, i64 416, !9, i64 432, !9, i64 448, !8, i64 464, !21, i64 472, !8, i64 480, !8, i64 488, !9, i64 496, !8, i64 504, !8, i64 512, !8, i64 520, !8, i64 528, !8, i64 536, !8, i64 544, !21, i64 552, !15, i64 560, !35, i64 568, !30, i64 576, !34, i64 584, !37, i64 592, !21, i64 600, !30, i64 608, !21, i64 616, !30, i64 624, !8, i64 632, !8, i64 640, !15, i64 648, !15, i64 648, !15, i64 648, !15, i64 648, !46, i64 656, !15, i64 664}
+!43 = !{!"p1 _ZTS13x509_store_st", !8, i64 0}
+!44 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !8, i64 0}
+!45 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !8, i64 0}
+!46 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
+!47 = !{!17, !15, i64 52}
+!48 = !{!17, !12, i64 56}
+!49 = !{!17, !15, i64 72}
+!50 = !{!17, !23, i64 88}
+!51 = !{!52, !15, i64 0}
+!52 = !{!"dtls1_state_st", !15, i64 0, !9, i64 4, !30, i64 264, !18, i64 272, !18, i64 274, !53, i64 280, !18, i64 296, !18, i64 298, !18, i64 300, !9, i64 302, !54, i64 312, !54, i64 320, !15, i64 328, !55, i64 332, !15, i64 360, !56, i64 368, !18, i64 384}
+!53 = !{!"dtls1_bitmap_st", !30, i64 0, !30, i64 8}
+!54 = !{!"p1 _ZTS7_pqueue", !8, i64 0}
+!55 = !{!"hm_header_st", !9, i64 0, !15, i64 4, !18, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !18, i64 24}
+!56 = !{!"timeval", !30, i64 0, !30, i64 8}
+!57 = !{!17, !15, i64 48}
+!58 = !{!17, !22, i64 80}
+!59 = !{!60, !15, i64 448}
+!60 = !{!"ssl3_state_st", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 48, !9, i64 80, !9, i64 81, !61, i64 88, !61, i64 104, !62, i64 120, !9, i64 136, !15, i64 140, !15, i64 144, !15, i64 148, !15, i64 152, !21, i64 160, !12, i64 168, !63, i64 176, !63, i64 208, !9, i64 240, !15, i64 244, !9, i64 248, !15, i64 252, !9, i64 256, !9, i64 257, !67, i64 264, !67, i64 272, !68, i64 280, !69, i64 288, !9, i64 592, !9, i64 656, !9, i64 657, !9, i64 721, !15, i64 724, !15, i64 728, !21, i64 736, !30, i64 744, !21, i64 752, !30, i64 760, !9, i64 768, !9, i64 769}
+!61 = !{!"ssl3_buffer_st", !21, i64 0, !18, i64 8, !18, i64 10, !18, i64 12}
+!62 = !{!"ssl3_record_st", !9, i64 0, !18, i64 2, !21, i64 8}
+!63 = !{!"env_md_ctx_st", !64, i64 0, !8, i64 8, !65, i64 16, !66, i64 24}
+!64 = !{!"p1 _ZTS9env_md_st", !8, i64 0}
+!65 = !{!"p1 _ZTS15evp_pkey_ctx_st", !8, i64 0}
+!66 = !{!"p1 _ZTS15evp_md_pctx_ops", !8, i64 0}
+!67 = !{!"p1 _ZTS15ssl_aead_ctx_st", !8, i64 0}
+!68 = !{!"p1 _ZTS15ssl3_enc_method", !8, i64 0}
+!69 = !{!"", !9, i64 0, !15, i64 64, !9, i64 68, !15, i64 132, !30, i64 136, !15, i64 144, !70, i64 152, !15, i64 160, !15, i64 164, !9, i64 168, !9, i64 172, !15, i64 174, !15, i64 176, !33, i64 184, !21, i64 192, !30, i64 200, !21, i64 208, !9, i64 216, !9, i64 217, !9, i64 218, !9, i64 219, !15, i64 220, !15, i64 224, !15, i64 224, !34, i64 232, !30, i64 240, !9, i64 248, !21, i64 256, !9, i64 264, !9, i64 265, !9, i64 266, !71, i64 272, !21, i64 288, !18, i64 296}
+!70 = !{!"p1 _ZTS13ssl_cipher_st", !8, i64 0}
+!71 = !{!"ssl_ecdh_ctx_st", !72, i64 0, !8, i64 8}
+!72 = !{!"p1 _ZTS18ssl_ecdh_method_st", !8, i64 0}
+!73 = !{!17, !20, i64 32}
+!74 = !{!17, !20, i64 24}
+!75 = !{!17, !15, i64 296}
+!76 = !{!60, !70, i64 440}
+!77 = !{!60, !15, i64 464}
+!78 = !{!17, !19, i64 8}
+!79 = !{!80, !8, i64 56}
+!80 = !{!"ssl_protocol_method_st", !9, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !15, i64 96, !8, i64 104, !8, i64 112}
+!81 = !{!17, !15, i64 144}
+!82 = !{!60, !9, i64 81}
+!83 = !{!52, !18, i64 300}
+!84 = !{!52, !18, i64 298}
+!85 = !{!60, !15, i64 452}
+!86 = !{!80, !8, i64 40}
+!87 = !{!30, !30, i64 0}
+!88 = !{!60, !15, i64 432}
+!89 = !{!17, !21, i64 64}
+!90 = !{!52, !30, i64 264}

@@ -1,12 +1,8 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.ASN1_AUX_st = type { ptr, i32, i32, ptr, i32 }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 %struct.cbs_st = type { ptr, i64 }
 %struct.X509_pubkey_st = type { ptr, ptr, ptr }
@@ -14,165 +10,178 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.X509_algor_st = type { ptr, ptr }
 
 @X509_PUBKEY_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.2, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.3, ptr @ASN1_BIT_STRING_it }], align 16
-@X509_PUBKEY_aux = internal constant %struct.ASN1_AUX_st { ptr null, i32 0, i32 0, ptr @pubkey_cb, i32 0 }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"X509_PUBKEY\00", align 1
-@X509_PUBKEY_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_PUBKEY_seq_tt, i64 2, ptr @X509_PUBKEY_aux, i64 24, ptr @.str }, align 8
+@X509_PUBKEY_it = hidden constant { i8, [7 x i8], i64, ptr, i64, ptr, i64, ptr } { i8 1, [7 x i8] zeroinitializer, i64 16, ptr @X509_PUBKEY_seq_tt, i64 2, ptr @X509_PUBKEY_aux, i64 24, ptr @.str }, align 8
 @.str.1 = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x_pubkey.c\00", align 1
-@g_pubkey_lock = internal global %struct.CRYPTO_STATIC_MUTEX zeroinitializer, align 8
 @.str.2 = private unnamed_addr constant [6 x i8] c"algor\00", align 1
 @X509_ALGOR_it = external constant %struct.ASN1_ITEM_st, align 8
 @.str.3 = private unnamed_addr constant [11 x i8] c"public_key\00", align 1
 @ASN1_BIT_STRING_it = external constant %struct.ASN1_ITEM_st, align 8
+@X509_PUBKEY_aux = internal constant { ptr, i32, i32, ptr, i32, [4 x i8] } { ptr null, i32 0, i32 0, ptr @pubkey_cb, i32 0, [4 x i8] zeroinitializer }, align 8
+@g_pubkey_lock = internal global { { { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32, [4 x i8] } } } zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_X509_PUBKEY(ptr noundef %a, ptr noundef %in, i64 noundef %len) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %in.addr, align 8
-  %2 = load i64, ptr %len.addr, align 8
-  %call = call ptr @ASN1_item_d2i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef @X509_PUBKEY_it)
-  ret ptr %call
+define hidden ptr @d2i_X509_PUBKEY(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store i64 %2, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %4, align 8, !tbaa !6
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = load i64, ptr %6, align 8, !tbaa !13
+  %10 = call ptr @ASN1_item_d2i(ptr noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef @X509_PUBKEY_it)
+  ret ptr %10
 }
 
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_X509_PUBKEY(ptr noundef %a, ptr noundef %out) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  %call = call i32 @ASN1_item_i2d(ptr noundef %0, ptr noundef %1, ptr noundef @X509_PUBKEY_it)
-  ret i32 %call
+define hidden i32 @i2d_X509_PUBKEY(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !15
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = call i32 @ASN1_item_i2d(ptr noundef %5, ptr noundef %6, ptr noundef @X509_PUBKEY_it)
+  ret i32 %7
 }
 
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_PUBKEY_new() #0 {
-entry:
-  %call = call ptr @ASN1_item_new(ptr noundef @X509_PUBKEY_it)
-  ret ptr %call
+  %1 = call ptr @ASN1_item_new(ptr noundef @X509_PUBKEY_it)
+  ret ptr %1
 }
 
 declare ptr @ASN1_item_new(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_PUBKEY_free(ptr noundef %a) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  call void @ASN1_item_free(ptr noundef %0, ptr noundef @X509_PUBKEY_it)
+define hidden void @X509_PUBKEY_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  call void @ASN1_item_free(ptr noundef %3, ptr noundef @X509_PUBKEY_it)
   ret void
 }
 
 declare void @ASN1_item_free(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_PUBKEY_set(ptr noundef %x, ptr noundef %pkey) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %x.addr = alloca ptr, align 8
-  %pkey.addr = alloca ptr, align 8
-  %pk = alloca ptr, align 8
-  %spki = alloca ptr, align 8
-  %spki_len = alloca i64, align 8
-  %cbb = alloca %struct.cbb_st, align 8
-  %p = alloca ptr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  store ptr %pkey, ptr %pkey.addr, align 8
-  store ptr null, ptr %pk, align 8
-  store ptr null, ptr %spki, align 8
-  %0 = load ptr, ptr %x.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @X509_PUBKEY_set(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %struct.cbb_st, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  store ptr null, ptr %6, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  store ptr null, ptr %7, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %12 = load ptr, ptr %4, align 8, !tbaa !6
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %52
 
-if.end:                                           ; preds = %entry
-  %call = call i32 @CBB_init(ptr noundef %cbb, i64 noundef 0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then8
+15:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #4
+  %16 = call i32 @CBB_init(ptr noundef %10, i64 noundef 0)
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %28
 
-lor.lhs.false:                                    ; preds = %if.end
-  %1 = load ptr, ptr %pkey.addr, align 8
-  %call1 = call i32 @EVP_marshal_public_key(ptr noundef %cbb, ptr noundef %1)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %lor.lhs.false3, label %if.then8
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %5, align 8, !tbaa !17
+  %20 = call i32 @EVP_marshal_public_key(ptr noundef %10, ptr noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %28
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBB_finish(ptr noundef %cbb, ptr noundef %spki, ptr noundef %spki_len)
-  %tobool5 = icmp ne i32 %call4, 0
-  br i1 %tobool5, label %lor.lhs.false6, label %if.then8
+22:                                               ; preds = %18
+  %23 = call i32 @CBB_finish(ptr noundef %10, ptr noundef %7, ptr noundef %8)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %28
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %2 = load i64, ptr %spki_len, align 8
-  %cmp7 = icmp ugt i64 %2, 9223372036854775807
-  br i1 %cmp7, label %if.then8, label %if.end9
+25:                                               ; preds = %22
+  %26 = load i64, ptr %8, align 8, !tbaa !13
+  %27 = icmp ugt i64 %26, 9223372036854775807
+  br i1 %27, label %28, label %29
 
-if.then8:                                         ; preds = %lor.lhs.false6, %lor.lhs.false3, %lor.lhs.false, %if.end
-  call void @CBB_cleanup(ptr noundef %cbb)
+28:                                               ; preds = %25, %22, %18, %15
+  call void @CBB_cleanup(ptr noundef %10)
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 126, ptr noundef @.str.1, i32 noundef 105)
-  br label %error
+  br label %48
 
-if.end9:                                          ; preds = %lor.lhs.false6
-  %3 = load ptr, ptr %spki, align 8
-  store ptr %3, ptr %p, align 8
-  %4 = load i64, ptr %spki_len, align 8
-  %call10 = call ptr @d2i_X509_PUBKEY(ptr noundef null, ptr noundef %p, i64 noundef %4)
-  store ptr %call10, ptr %pk, align 8
-  %5 = load ptr, ptr %pk, align 8
-  %cmp11 = icmp eq ptr %5, null
-  br i1 %cmp11, label %if.then14, label %lor.lhs.false12
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %7, align 8, !tbaa !19
+  store ptr %30, ptr %11, align 8, !tbaa !19
+  %31 = load i64, ptr %8, align 8, !tbaa !13
+  %32 = call ptr @d2i_X509_PUBKEY(ptr noundef null, ptr noundef %11, i64 noundef %31)
+  store ptr %32, ptr %6, align 8, !tbaa !15
+  %33 = load ptr, ptr %6, align 8, !tbaa !15
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %41, label %35
 
-lor.lhs.false12:                                  ; preds = %if.end9
-  %6 = load ptr, ptr %p, align 8
-  %7 = load ptr, ptr %spki, align 8
-  %8 = load i64, ptr %spki_len, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %8
-  %cmp13 = icmp ne ptr %6, %add.ptr
-  br i1 %cmp13, label %if.then14, label %if.end15
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %11, align 8, !tbaa !19
+  %37 = load ptr, ptr %7, align 8, !tbaa !19
+  %38 = load i64, ptr %8, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
+  %40 = icmp ne ptr %36, %39
+  br i1 %40, label %41, label %42
 
-if.then14:                                        ; preds = %lor.lhs.false12, %if.end9
+41:                                               ; preds = %35, %29
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 125, ptr noundef @.str.1, i32 noundef 112)
-  br label %error
+  br label %48
 
-if.end15:                                         ; preds = %lor.lhs.false12
-  %9 = load ptr, ptr %spki, align 8
-  call void @free(ptr noundef %9) #3
-  %10 = load ptr, ptr %x.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  call void @X509_PUBKEY_free(ptr noundef %11)
-  %12 = load ptr, ptr %pk, align 8
-  %13 = load ptr, ptr %x.addr, align 8
-  store ptr %12, ptr %13, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %7, align 8, !tbaa !19
+  call void @free(ptr noundef %43) #4
+  %44 = load ptr, ptr %4, align 8, !tbaa !6
+  %45 = load ptr, ptr %44, align 8, !tbaa !15
+  call void @X509_PUBKEY_free(ptr noundef %45)
+  %46 = load ptr, ptr %6, align 8, !tbaa !15
+  %47 = load ptr, ptr %4, align 8, !tbaa !6
+  store ptr %46, ptr %47, align 8, !tbaa !15
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %51
 
-error:                                            ; preds = %if.then14, %if.then8
-  %14 = load ptr, ptr %pk, align 8
-  call void @X509_PUBKEY_free(ptr noundef %14)
-  %15 = load ptr, ptr %spki, align 8
-  call void @free(ptr noundef %15) #3
-  store i32 0, ptr %retval, align 4
-  br label %return
+48:                                               ; preds = %41, %28
+  %49 = load ptr, ptr %6, align 8, !tbaa !15
+  call void @X509_PUBKEY_free(ptr noundef %49)
+  %50 = load ptr, ptr %7, align 8, !tbaa !19
+  call void @free(ptr noundef %50) #4
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %51
 
-return:                                           ; preds = %error, %if.end15, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+51:                                               ; preds = %48, %42
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  br label %52
+
+52:                                               ; preds = %51, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %53 = load i32, ptr %3, align 4
+  ret i32 %53
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @CBB_init(ptr noundef, i64 noundef) #1
 
@@ -185,121 +194,131 @@ declare void @CBB_cleanup(ptr noundef) #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_PUBKEY_get(ptr noundef %key) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %ret = alloca ptr, align 8
-  %spki = alloca ptr, align 8
-  %spki_len = alloca i32, align 4
-  %cbs = alloca %struct.cbs_st, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr null, ptr %ret, align 8
-  store ptr null, ptr %spki, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @X509_PUBKEY_get(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.cbs_st, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  store ptr null, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  store ptr null, ptr %5, align 8, !tbaa !19
+  %9 = load ptr, ptr %3, align 8, !tbaa !15
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  br label %error
+11:                                               ; preds = %1
+  br label %57
 
-if.end:                                           ; preds = %entry
+12:                                               ; preds = %1
   call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef @g_pubkey_lock)
-  %1 = load ptr, ptr %key.addr, align 8
-  %pkey = getelementptr inbounds %struct.X509_pubkey_st, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %pkey, align 8
-  %cmp1 = icmp ne ptr %2, null
-  br i1 %cmp1, label %if.then2, label %if.end4
+  %13 = load ptr, ptr %3, align 8, !tbaa !15
+  %14 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %22
 
-if.then2:                                         ; preds = %if.end
+17:                                               ; preds = %12
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef @g_pubkey_lock)
-  %3 = load ptr, ptr %key.addr, align 8
-  %pkey3 = getelementptr inbounds %struct.X509_pubkey_st, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %pkey3, align 8
-  %call = call ptr @EVP_PKEY_up_ref(ptr noundef %4)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+  %18 = load ptr, ptr %3, align 8, !tbaa !15
+  %19 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  %21 = call ptr @EVP_PKEY_up_ref(ptr noundef %20)
+  store ptr %21, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %60
 
-if.end4:                                          ; preds = %if.end
+22:                                               ; preds = %12
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef @g_pubkey_lock)
-  %5 = load ptr, ptr %key.addr, align 8
-  %call5 = call i32 @i2d_X509_PUBKEY(ptr noundef %5, ptr noundef %spki)
-  store i32 %call5, ptr %spki_len, align 4
-  %6 = load i32, ptr %spki_len, align 4
-  %cmp6 = icmp slt i32 %6, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+  %23 = load ptr, ptr %3, align 8, !tbaa !15
+  %24 = call i32 @i2d_X509_PUBKEY(ptr noundef %23, ptr noundef %5)
+  store i32 %24, ptr %7, align 4, !tbaa !25
+  %25 = load i32, ptr %7, align 4, !tbaa !25
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %28
 
-if.then7:                                         ; preds = %if.end4
-  br label %error
+27:                                               ; preds = %22
+  br label %57
 
-if.end8:                                          ; preds = %if.end4
-  %7 = load ptr, ptr %spki, align 8
-  %8 = load i32, ptr %spki_len, align 4
-  %conv = sext i32 %8 to i64
-  call void @CBS_init(ptr noundef %cbs, ptr noundef %7, i64 noundef %conv)
-  %call9 = call ptr @EVP_parse_public_key(ptr noundef %cbs)
-  store ptr %call9, ptr %ret, align 8
-  %9 = load ptr, ptr %ret, align 8
-  %cmp10 = icmp eq ptr %9, null
-  br i1 %cmp10, label %if.then15, label %lor.lhs.false
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %5, align 8, !tbaa !19
+  %30 = load i32, ptr %7, align 4, !tbaa !25
+  %31 = sext i32 %30 to i64
+  call void @CBS_init(ptr noundef %8, ptr noundef %29, i64 noundef %31)
+  %32 = call ptr @EVP_parse_public_key(ptr noundef %8)
+  store ptr %32, ptr %4, align 8, !tbaa !17
+  %33 = load ptr, ptr %4, align 8, !tbaa !17
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %38, label %35
 
-lor.lhs.false:                                    ; preds = %if.end8
-  %call12 = call i64 @CBS_len(ptr noundef %cbs)
-  %cmp13 = icmp ne i64 %call12, 0
-  br i1 %cmp13, label %if.then15, label %if.end16
+35:                                               ; preds = %28
+  %36 = call i64 @CBS_len(ptr noundef %8)
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %39
 
-if.then15:                                        ; preds = %lor.lhs.false, %if.end8
+38:                                               ; preds = %35, %28
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 125, ptr noundef @.str.1, i32 noundef 157)
-  br label %error
+  br label %57
 
-if.end16:                                         ; preds = %lor.lhs.false
+39:                                               ; preds = %35
   call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef @g_pubkey_lock)
-  %10 = load ptr, ptr %key.addr, align 8
-  %pkey17 = getelementptr inbounds %struct.X509_pubkey_st, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %pkey17, align 8
-  %tobool = icmp ne ptr %11, null
-  br i1 %tobool, label %if.then18, label %if.else
+  %40 = load ptr, ptr %3, align 8, !tbaa !15
+  %41 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8, !tbaa !21
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %49
 
-if.then18:                                        ; preds = %if.end16
+44:                                               ; preds = %39
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef @g_pubkey_lock)
-  %12 = load ptr, ptr %ret, align 8
-  call void @EVP_PKEY_free(ptr noundef %12)
-  %13 = load ptr, ptr %key.addr, align 8
-  %pkey19 = getelementptr inbounds %struct.X509_pubkey_st, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %pkey19, align 8
-  store ptr %14, ptr %ret, align 8
-  br label %if.end21
+  %45 = load ptr, ptr %4, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %45)
+  %46 = load ptr, ptr %3, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !21
+  store ptr %48, ptr %4, align 8, !tbaa !17
+  br label %53
 
-if.else:                                          ; preds = %if.end16
-  %15 = load ptr, ptr %ret, align 8
-  %16 = load ptr, ptr %key.addr, align 8
-  %pkey20 = getelementptr inbounds %struct.X509_pubkey_st, ptr %16, i32 0, i32 2
-  store ptr %15, ptr %pkey20, align 8
+49:                                               ; preds = %39
+  %50 = load ptr, ptr %4, align 8, !tbaa !17
+  %51 = load ptr, ptr %3, align 8, !tbaa !15
+  %52 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %51, i32 0, i32 2
+  store ptr %50, ptr %52, align 8, !tbaa !21
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef @g_pubkey_lock)
-  br label %if.end21
+  br label %53
 
-if.end21:                                         ; preds = %if.else, %if.then18
-  %17 = load ptr, ptr %spki, align 8
-  call void @free(ptr noundef %17) #3
-  %18 = load ptr, ptr %ret, align 8
-  %call22 = call ptr @EVP_PKEY_up_ref(ptr noundef %18)
-  store ptr %call22, ptr %retval, align 8
-  br label %return
+53:                                               ; preds = %49, %44
+  %54 = load ptr, ptr %5, align 8, !tbaa !19
+  call void @free(ptr noundef %54) #4
+  %55 = load ptr, ptr %4, align 8, !tbaa !17
+  %56 = call ptr @EVP_PKEY_up_ref(ptr noundef %55)
+  store ptr %56, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %60
 
-error:                                            ; preds = %if.then15, %if.then7, %if.then
-  %19 = load ptr, ptr %spki, align 8
-  call void @free(ptr noundef %19) #3
-  %20 = load ptr, ptr %ret, align 8
-  call void @EVP_PKEY_free(ptr noundef %20)
-  store ptr null, ptr %retval, align 8
-  br label %return
+57:                                               ; preds = %38, %27, %11
+  %58 = load ptr, ptr %5, align 8, !tbaa !19
+  call void @free(ptr noundef %58) #4
+  %59 = load ptr, ptr %4, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %59)
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %60
 
-return:                                           ; preds = %error, %if.end21, %if.then2
-  %21 = load ptr, ptr %retval, align 8
-  ret ptr %21
+60:                                               ; preds = %57, %53, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %61 = load ptr, ptr %2, align 8
+  ret ptr %61
 }
 
 declare void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef) #1
@@ -319,178 +338,201 @@ declare void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef) #1
 declare void @EVP_PKEY_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_PUBKEY(ptr noundef %a, ptr noundef %pp, i64 noundef %length) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %xpk = alloca ptr, align 8
-  %pktmp = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %pp.addr, align 8
-  %1 = load i64, ptr %length.addr, align 8
-  %call = call ptr @d2i_X509_PUBKEY(ptr noundef null, ptr noundef %0, i64 noundef %1)
-  store ptr %call, ptr %xpk, align 8
-  %2 = load ptr, ptr %xpk, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden ptr @d2i_PUBKEY(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !27
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store i64 %2, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %11 = load ptr, ptr %6, align 8, !tbaa !11
+  %12 = load i64, ptr %7, align 8, !tbaa !13
+  %13 = call ptr @d2i_X509_PUBKEY(ptr noundef null, ptr noundef %11, i64 noundef %12)
+  store ptr %13, ptr %8, align 8, !tbaa !15
+  %14 = load ptr, ptr %8, align 8, !tbaa !15
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %17, label %16
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %34
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %xpk, align 8
-  %call1 = call ptr @X509_PUBKEY_get(ptr noundef %3)
-  store ptr %call1, ptr %pktmp, align 8
-  %4 = load ptr, ptr %xpk, align 8
-  call void @X509_PUBKEY_free(ptr noundef %4)
-  %5 = load ptr, ptr %pktmp, align 8
-  %tobool2 = icmp ne ptr %5, null
-  br i1 %tobool2, label %if.end4, label %if.then3
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %8, align 8, !tbaa !15
+  %19 = call ptr @X509_PUBKEY_get(ptr noundef %18)
+  store ptr %19, ptr %9, align 8, !tbaa !17
+  %20 = load ptr, ptr %8, align 8, !tbaa !15
+  call void @X509_PUBKEY_free(ptr noundef %20)
+  %21 = load ptr, ptr %9, align 8, !tbaa !17
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %24, label %23
 
-if.then3:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+23:                                               ; preds = %17
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %34
 
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %a.addr, align 8
-  %tobool5 = icmp ne ptr %6, null
-  br i1 %tobool5, label %if.then6, label %if.end7
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %5, align 8, !tbaa !27
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %32
 
-if.then6:                                         ; preds = %if.end4
-  %7 = load ptr, ptr %a.addr, align 8
-  %8 = load ptr, ptr %7, align 8
-  call void @EVP_PKEY_free(ptr noundef %8)
-  %9 = load ptr, ptr %pktmp, align 8
-  %10 = load ptr, ptr %a.addr, align 8
-  store ptr %9, ptr %10, align 8
-  br label %if.end7
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %5, align 8, !tbaa !27
+  %29 = load ptr, ptr %28, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %29)
+  %30 = load ptr, ptr %9, align 8, !tbaa !17
+  %31 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %30, ptr %31, align 8, !tbaa !17
+  br label %32
 
-if.end7:                                          ; preds = %if.then6, %if.end4
-  %11 = load ptr, ptr %pktmp, align 8
-  store ptr %11, ptr %retval, align 8
-  br label %return
+32:                                               ; preds = %27, %24
+  %33 = load ptr, ptr %9, align 8, !tbaa !17
+  store ptr %33, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %34
 
-return:                                           ; preds = %if.end7, %if.then3, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+34:                                               ; preds = %32, %23, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %35 = load ptr, ptr %4, align 8
+  ret ptr %35
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_PUBKEY(ptr noundef %a, ptr noundef %pp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %xpk = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  store ptr null, ptr %xpk, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  store ptr null, ptr %6, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !17
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %12, label %11
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %a.addr, align 8
-  %call = call i32 @X509_PUBKEY_set(ptr noundef %xpk, ptr noundef %1)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.end3, label %if.then2
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !17
+  %14 = call i32 @X509_PUBKEY_set(ptr noundef %6, ptr noundef %13)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
 
-if.then2:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %12
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %23
 
-if.end3:                                          ; preds = %if.end
-  %2 = load ptr, ptr %xpk, align 8
-  %3 = load ptr, ptr %pp.addr, align 8
-  %call4 = call i32 @i2d_X509_PUBKEY(ptr noundef %2, ptr noundef %3)
-  store i32 %call4, ptr %ret, align 4
-  %4 = load ptr, ptr %xpk, align 8
-  call void @X509_PUBKEY_free(ptr noundef %4)
-  %5 = load i32, ptr %ret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %6, align 8, !tbaa !15
+  %19 = load ptr, ptr %5, align 8, !tbaa !11
+  %20 = call i32 @i2d_X509_PUBKEY(ptr noundef %18, ptr noundef %19)
+  store i32 %20, ptr %7, align 4, !tbaa !25
+  %21 = load ptr, ptr %6, align 8, !tbaa !15
+  call void @X509_PUBKEY_free(ptr noundef %21)
+  %22 = load i32, ptr %7, align 4, !tbaa !25
+  store i32 %22, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %23
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+23:                                               ; preds = %17, %16, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_RSA_PUBKEY(ptr noundef %a, ptr noundef %pp, i64 noundef %length) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %pkey = alloca ptr, align 8
-  %key = alloca ptr, align 8
-  %q = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %pp.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %q, align 8
-  %2 = load i64, ptr %length.addr, align 8
-  %call = call ptr @d2i_PUBKEY(ptr noundef null, ptr noundef %q, i64 noundef %2)
-  store ptr %call, ptr %pkey, align 8
-  %3 = load ptr, ptr %pkey, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden ptr @d2i_RSA_PUBKEY(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !29
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store i64 %2, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %12 = load ptr, ptr %6, align 8, !tbaa !11
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  store ptr %13, ptr %10, align 8, !tbaa !19
+  %14 = load i64, ptr %7, align 8, !tbaa !13
+  %15 = call ptr @d2i_PUBKEY(ptr noundef null, ptr noundef %10, i64 noundef %14)
+  store ptr %15, ptr %8, align 8, !tbaa !17
+  %16 = load ptr, ptr %8, align 8, !tbaa !17
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+18:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %pkey, align 8
-  %call1 = call ptr @EVP_PKEY_get1_RSA(ptr noundef %4)
-  store ptr %call1, ptr %key, align 8
-  %5 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %5)
-  %6 = load ptr, ptr %key, align 8
-  %tobool2 = icmp ne ptr %6, null
-  br i1 %tobool2, label %if.end4, label %if.then3
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %8, align 8, !tbaa !17
+  %21 = call ptr @EVP_PKEY_get1_RSA(ptr noundef %20)
+  store ptr %21, ptr %9, align 8, !tbaa !31
+  %22 = load ptr, ptr %8, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %22)
+  %23 = load ptr, ptr %9, align 8, !tbaa !31
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %26, label %25
 
-if.then3:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %19
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-if.end4:                                          ; preds = %if.end
-  %7 = load ptr, ptr %q, align 8
-  %8 = load ptr, ptr %pp.addr, align 8
-  store ptr %7, ptr %8, align 8
-  %9 = load ptr, ptr %a.addr, align 8
-  %tobool5 = icmp ne ptr %9, null
-  br i1 %tobool5, label %if.then6, label %if.end7
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %10, align 8, !tbaa !19
+  %28 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %27, ptr %28, align 8, !tbaa !19
+  %29 = load ptr, ptr %5, align 8, !tbaa !29
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %36
 
-if.then6:                                         ; preds = %if.end4
-  %10 = load ptr, ptr %a.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  call void @RSA_free(ptr noundef %11)
-  %12 = load ptr, ptr %key, align 8
-  %13 = load ptr, ptr %a.addr, align 8
-  store ptr %12, ptr %13, align 8
-  br label %if.end7
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %5, align 8, !tbaa !29
+  %33 = load ptr, ptr %32, align 8, !tbaa !31
+  call void @RSA_free(ptr noundef %33)
+  %34 = load ptr, ptr %9, align 8, !tbaa !31
+  %35 = load ptr, ptr %5, align 8, !tbaa !29
+  store ptr %34, ptr %35, align 8, !tbaa !31
+  br label %36
 
-if.end7:                                          ; preds = %if.then6, %if.end4
-  %14 = load ptr, ptr %key, align 8
-  store ptr %14, ptr %retval, align 8
-  br label %return
+36:                                               ; preds = %31, %26
+  %37 = load ptr, ptr %9, align 8, !tbaa !31
+  store ptr %37, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-return:                                           ; preds = %if.end7, %if.then3, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+38:                                               ; preds = %36, %25, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %39 = load ptr, ptr %4, align 8
+  ret ptr %39
 }
 
 declare ptr @EVP_PKEY_get1_RSA(ptr noundef) #1
@@ -498,52 +540,59 @@ declare ptr @EVP_PKEY_get1_RSA(ptr noundef) #1
 declare void @RSA_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_RSA_PUBKEY(ptr noundef %a, ptr noundef %pp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %pktmp = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @i2d_RSA_PUBKEY(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !31
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %12, label %11
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %26
 
-if.end:                                           ; preds = %entry
-  %call = call ptr @EVP_PKEY_new()
-  store ptr %call, ptr %pktmp, align 8
-  %1 = load ptr, ptr %pktmp, align 8
-  %tobool1 = icmp ne ptr %1, null
-  br i1 %tobool1, label %if.end3, label %if.then2
+12:                                               ; preds = %2
+  %13 = call ptr @EVP_PKEY_new()
+  store ptr %13, ptr %6, align 8, !tbaa !17
+  %14 = load ptr, ptr %6, align 8, !tbaa !17
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %17, label %16
 
-if.then2:                                         ; preds = %if.end
+16:                                               ; preds = %12
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef @.str.1, i32 noundef 249)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %26
 
-if.end3:                                          ; preds = %if.end
-  %2 = load ptr, ptr %pktmp, align 8
-  %3 = load ptr, ptr %a.addr, align 8
-  %call4 = call i32 @EVP_PKEY_set1_RSA(ptr noundef %2, ptr noundef %3)
-  %4 = load ptr, ptr %pktmp, align 8
-  %5 = load ptr, ptr %pp.addr, align 8
-  %call5 = call i32 @i2d_PUBKEY(ptr noundef %4, ptr noundef %5)
-  store i32 %call5, ptr %ret, align 4
-  %6 = load ptr, ptr %pktmp, align 8
-  call void @EVP_PKEY_free(ptr noundef %6)
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %6, align 8, !tbaa !17
+  %19 = load ptr, ptr %4, align 8, !tbaa !31
+  %20 = call i32 @EVP_PKEY_set1_RSA(ptr noundef %18, ptr noundef %19)
+  %21 = load ptr, ptr %6, align 8, !tbaa !17
+  %22 = load ptr, ptr %5, align 8, !tbaa !11
+  %23 = call i32 @i2d_PUBKEY(ptr noundef %21, ptr noundef %22)
+  store i32 %23, ptr %7, align 4, !tbaa !25
+  %24 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %24)
+  %25 = load i32, ptr %7, align 4, !tbaa !25
+  store i32 %25, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %26
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+26:                                               ; preds = %17, %16, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
 declare ptr @EVP_PKEY_new() #1
@@ -551,71 +600,80 @@ declare ptr @EVP_PKEY_new() #1
 declare i32 @EVP_PKEY_set1_RSA(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSA_PUBKEY(ptr noundef %a, ptr noundef %pp, i64 noundef %length) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %pkey = alloca ptr, align 8
-  %key = alloca ptr, align 8
-  %q = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %pp.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %q, align 8
-  %2 = load i64, ptr %length.addr, align 8
-  %call = call ptr @d2i_PUBKEY(ptr noundef null, ptr noundef %q, i64 noundef %2)
-  store ptr %call, ptr %pkey, align 8
-  %3 = load ptr, ptr %pkey, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden ptr @d2i_DSA_PUBKEY(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !33
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store i64 %2, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %12 = load ptr, ptr %6, align 8, !tbaa !11
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  store ptr %13, ptr %10, align 8, !tbaa !19
+  %14 = load i64, ptr %7, align 8, !tbaa !13
+  %15 = call ptr @d2i_PUBKEY(ptr noundef null, ptr noundef %10, i64 noundef %14)
+  store ptr %15, ptr %8, align 8, !tbaa !17
+  %16 = load ptr, ptr %8, align 8, !tbaa !17
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+18:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %pkey, align 8
-  %call1 = call ptr @EVP_PKEY_get1_DSA(ptr noundef %4)
-  store ptr %call1, ptr %key, align 8
-  %5 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %5)
-  %6 = load ptr, ptr %key, align 8
-  %tobool2 = icmp ne ptr %6, null
-  br i1 %tobool2, label %if.end4, label %if.then3
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %8, align 8, !tbaa !17
+  %21 = call ptr @EVP_PKEY_get1_DSA(ptr noundef %20)
+  store ptr %21, ptr %9, align 8, !tbaa !35
+  %22 = load ptr, ptr %8, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %22)
+  %23 = load ptr, ptr %9, align 8, !tbaa !35
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %26, label %25
 
-if.then3:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %19
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-if.end4:                                          ; preds = %if.end
-  %7 = load ptr, ptr %q, align 8
-  %8 = load ptr, ptr %pp.addr, align 8
-  store ptr %7, ptr %8, align 8
-  %9 = load ptr, ptr %a.addr, align 8
-  %tobool5 = icmp ne ptr %9, null
-  br i1 %tobool5, label %if.then6, label %if.end7
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %10, align 8, !tbaa !19
+  %28 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %27, ptr %28, align 8, !tbaa !19
+  %29 = load ptr, ptr %5, align 8, !tbaa !33
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %36
 
-if.then6:                                         ; preds = %if.end4
-  %10 = load ptr, ptr %a.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  call void @DSA_free(ptr noundef %11)
-  %12 = load ptr, ptr %key, align 8
-  %13 = load ptr, ptr %a.addr, align 8
-  store ptr %12, ptr %13, align 8
-  br label %if.end7
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %5, align 8, !tbaa !33
+  %33 = load ptr, ptr %32, align 8, !tbaa !35
+  call void @DSA_free(ptr noundef %33)
+  %34 = load ptr, ptr %9, align 8, !tbaa !35
+  %35 = load ptr, ptr %5, align 8, !tbaa !33
+  store ptr %34, ptr %35, align 8, !tbaa !35
+  br label %36
 
-if.end7:                                          ; preds = %if.then6, %if.end4
-  %14 = load ptr, ptr %key, align 8
-  store ptr %14, ptr %retval, align 8
-  br label %return
+36:                                               ; preds = %31, %26
+  %37 = load ptr, ptr %9, align 8, !tbaa !35
+  store ptr %37, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-return:                                           ; preds = %if.end7, %if.then3, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+38:                                               ; preds = %36, %25, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %39 = load ptr, ptr %4, align 8
+  ret ptr %39
 }
 
 declare ptr @EVP_PKEY_get1_DSA(ptr noundef) #1
@@ -623,122 +681,138 @@ declare ptr @EVP_PKEY_get1_DSA(ptr noundef) #1
 declare void @DSA_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_DSA_PUBKEY(ptr noundef %a, ptr noundef %pp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %pktmp = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @i2d_DSA_PUBKEY(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !35
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !35
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %12, label %11
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %26
 
-if.end:                                           ; preds = %entry
-  %call = call ptr @EVP_PKEY_new()
-  store ptr %call, ptr %pktmp, align 8
-  %1 = load ptr, ptr %pktmp, align 8
-  %tobool1 = icmp ne ptr %1, null
-  br i1 %tobool1, label %if.end3, label %if.then2
+12:                                               ; preds = %2
+  %13 = call ptr @EVP_PKEY_new()
+  store ptr %13, ptr %6, align 8, !tbaa !17
+  %14 = load ptr, ptr %6, align 8, !tbaa !17
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %17, label %16
 
-if.then2:                                         ; preds = %if.end
+16:                                               ; preds = %12
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef @.str.1, i32 noundef 288)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %26
 
-if.end3:                                          ; preds = %if.end
-  %2 = load ptr, ptr %pktmp, align 8
-  %3 = load ptr, ptr %a.addr, align 8
-  %call4 = call i32 @EVP_PKEY_set1_DSA(ptr noundef %2, ptr noundef %3)
-  %4 = load ptr, ptr %pktmp, align 8
-  %5 = load ptr, ptr %pp.addr, align 8
-  %call5 = call i32 @i2d_PUBKEY(ptr noundef %4, ptr noundef %5)
-  store i32 %call5, ptr %ret, align 4
-  %6 = load ptr, ptr %pktmp, align 8
-  call void @EVP_PKEY_free(ptr noundef %6)
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %6, align 8, !tbaa !17
+  %19 = load ptr, ptr %4, align 8, !tbaa !35
+  %20 = call i32 @EVP_PKEY_set1_DSA(ptr noundef %18, ptr noundef %19)
+  %21 = load ptr, ptr %6, align 8, !tbaa !17
+  %22 = load ptr, ptr %5, align 8, !tbaa !11
+  %23 = call i32 @i2d_PUBKEY(ptr noundef %21, ptr noundef %22)
+  store i32 %23, ptr %7, align 4, !tbaa !25
+  %24 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %24)
+  %25 = load i32, ptr %7, align 4, !tbaa !25
+  store i32 %25, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %26
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+26:                                               ; preds = %17, %16, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
 declare i32 @EVP_PKEY_set1_DSA(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_EC_PUBKEY(ptr noundef %a, ptr noundef %pp, i64 noundef %length) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %pkey = alloca ptr, align 8
-  %key = alloca ptr, align 8
-  %q = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %pp.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %q, align 8
-  %2 = load i64, ptr %length.addr, align 8
-  %call = call ptr @d2i_PUBKEY(ptr noundef null, ptr noundef %q, i64 noundef %2)
-  store ptr %call, ptr %pkey, align 8
-  %3 = load ptr, ptr %pkey, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden ptr @d2i_EC_PUBKEY(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !37
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store i64 %2, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %12 = load ptr, ptr %6, align 8, !tbaa !11
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  store ptr %13, ptr %10, align 8, !tbaa !19
+  %14 = load i64, ptr %7, align 8, !tbaa !13
+  %15 = call ptr @d2i_PUBKEY(ptr noundef null, ptr noundef %10, i64 noundef %14)
+  store ptr %15, ptr %8, align 8, !tbaa !17
+  %16 = load ptr, ptr %8, align 8, !tbaa !17
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+18:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %pkey, align 8
-  %call1 = call ptr @EVP_PKEY_get1_EC_KEY(ptr noundef %4)
-  store ptr %call1, ptr %key, align 8
-  %5 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %5)
-  %6 = load ptr, ptr %key, align 8
-  %tobool2 = icmp ne ptr %6, null
-  br i1 %tobool2, label %if.end4, label %if.then3
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %8, align 8, !tbaa !17
+  %21 = call ptr @EVP_PKEY_get1_EC_KEY(ptr noundef %20)
+  store ptr %21, ptr %9, align 8, !tbaa !39
+  %22 = load ptr, ptr %8, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %22)
+  %23 = load ptr, ptr %9, align 8, !tbaa !39
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %26, label %25
 
-if.then3:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %19
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-if.end4:                                          ; preds = %if.end
-  %7 = load ptr, ptr %q, align 8
-  %8 = load ptr, ptr %pp.addr, align 8
-  store ptr %7, ptr %8, align 8
-  %9 = load ptr, ptr %a.addr, align 8
-  %tobool5 = icmp ne ptr %9, null
-  br i1 %tobool5, label %if.then6, label %if.end7
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %10, align 8, !tbaa !19
+  %28 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %27, ptr %28, align 8, !tbaa !19
+  %29 = load ptr, ptr %5, align 8, !tbaa !37
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %36
 
-if.then6:                                         ; preds = %if.end4
-  %10 = load ptr, ptr %a.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  call void @EC_KEY_free(ptr noundef %11)
-  %12 = load ptr, ptr %key, align 8
-  %13 = load ptr, ptr %a.addr, align 8
-  store ptr %12, ptr %13, align 8
-  br label %if.end7
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %5, align 8, !tbaa !37
+  %33 = load ptr, ptr %32, align 8, !tbaa !39
+  call void @EC_KEY_free(ptr noundef %33)
+  %34 = load ptr, ptr %9, align 8, !tbaa !39
+  %35 = load ptr, ptr %5, align 8, !tbaa !37
+  store ptr %34, ptr %35, align 8, !tbaa !39
+  br label %36
 
-if.end7:                                          ; preds = %if.then6, %if.end4
-  %14 = load ptr, ptr %key, align 8
-  store ptr %14, ptr %retval, align 8
-  br label %return
+36:                                               ; preds = %31, %26
+  %37 = load ptr, ptr %9, align 8, !tbaa !39
+  store ptr %37, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %38
 
-return:                                           ; preds = %if.end7, %if.then3, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+38:                                               ; preds = %36, %25, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %39 = load ptr, ptr %4, align 8
+  ret ptr %39
 }
 
 declare ptr @EVP_PKEY_get1_EC_KEY(ptr noundef) #1
@@ -746,255 +820,321 @@ declare ptr @EVP_PKEY_get1_EC_KEY(ptr noundef) #1
 declare void @EC_KEY_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_EC_PUBKEY(ptr noundef %a, ptr noundef %pp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca ptr, align 8
-  %pp.addr = alloca ptr, align 8
-  %pktmp = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %pp, ptr %pp.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @i2d_EC_PUBKEY(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !39
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %12, label %11
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
 
-if.end:                                           ; preds = %entry
-  %call = call ptr @EVP_PKEY_new()
-  store ptr %call, ptr %pktmp, align 8
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then1, label %if.end2
+12:                                               ; preds = %2
+  %13 = call ptr @EVP_PKEY_new()
+  store ptr %13, ptr %6, align 8, !tbaa !17
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then1:                                         ; preds = %if.end
+15:                                               ; preds = %12
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef @.str.1, i32 noundef 326)
-  store i32 0, ptr %retval, align 4
-  br label %return
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
 
-if.end2:                                          ; preds = %if.end
-  %1 = load ptr, ptr %pktmp, align 8
-  %2 = load ptr, ptr %a.addr, align 8
-  %call3 = call i32 @EVP_PKEY_set1_EC_KEY(ptr noundef %1, ptr noundef %2)
-  %3 = load ptr, ptr %pktmp, align 8
-  %4 = load ptr, ptr %pp.addr, align 8
-  %call4 = call i32 @i2d_PUBKEY(ptr noundef %3, ptr noundef %4)
-  store i32 %call4, ptr %ret, align 4
-  %5 = load ptr, ptr %pktmp, align 8
-  call void @EVP_PKEY_free(ptr noundef %5)
-  %6 = load i32, ptr %ret, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !17
+  %18 = load ptr, ptr %4, align 8, !tbaa !39
+  %19 = call i32 @EVP_PKEY_set1_EC_KEY(ptr noundef %17, ptr noundef %18)
+  %20 = load ptr, ptr %6, align 8, !tbaa !17
+  %21 = load ptr, ptr %5, align 8, !tbaa !11
+  %22 = call i32 @i2d_PUBKEY(ptr noundef %20, ptr noundef %21)
+  store i32 %22, ptr %7, align 4, !tbaa !25
+  %23 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %23)
+  %24 = load i32, ptr %7, align 4, !tbaa !25
+  store i32 %24, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
 
-return:                                           ; preds = %if.end2, %if.then1, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+25:                                               ; preds = %16, %15, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
 }
 
 declare i32 @EVP_PKEY_set1_EC_KEY(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_PUBKEY_set0_param(ptr noundef %pub, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %pub.addr = alloca ptr, align 8
-  %aobj.addr = alloca ptr, align 8
-  %ptype.addr = alloca i32, align 4
-  %pval.addr = alloca ptr, align 8
-  %penc.addr = alloca ptr, align 8
-  %penclen.addr = alloca i32, align 4
-  store ptr %pub, ptr %pub.addr, align 8
-  store ptr %aobj, ptr %aobj.addr, align 8
-  store i32 %ptype, ptr %ptype.addr, align 4
-  store ptr %pval, ptr %pval.addr, align 8
-  store ptr %penc, ptr %penc.addr, align 8
-  store i32 %penclen, ptr %penclen.addr, align 4
-  %0 = load ptr, ptr %pub.addr, align 8
-  %algor = getelementptr inbounds %struct.X509_pubkey_st, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %algor, align 8
-  %2 = load ptr, ptr %aobj.addr, align 8
-  %3 = load i32, ptr %ptype.addr, align 4
-  %4 = load ptr, ptr %pval.addr, align 8
-  %call = call i32 @X509_ALGOR_set0(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden i32 @X509_PUBKEY_set0_param(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !15
+  store ptr %1, ptr %9, align 8, !tbaa !41
+  store i32 %2, ptr %10, align 4, !tbaa !25
+  store ptr %3, ptr %11, align 8, !tbaa !43
+  store ptr %4, ptr %12, align 8, !tbaa !19
+  store i32 %5, ptr %13, align 4, !tbaa !25
+  %14 = load ptr, ptr %8, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !44
+  %17 = load ptr, ptr %9, align 8, !tbaa !41
+  %18 = load i32, ptr %10, align 4, !tbaa !25
+  %19 = load ptr, ptr %11, align 8, !tbaa !43
+  %20 = call i32 @X509_ALGOR_set0(ptr noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %23, label %22
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %6
+  store i32 0, ptr %7, align 4
+  br label %63
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %penc.addr, align 8
-  %tobool1 = icmp ne ptr %5, null
-  br i1 %tobool1, label %if.then2, label %if.end14
+23:                                               ; preds = %6
+  %24 = load ptr, ptr %12, align 8, !tbaa !19
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %62
 
-if.then2:                                         ; preds = %if.end
-  %6 = load ptr, ptr %pub.addr, align 8
-  %public_key = getelementptr inbounds %struct.X509_pubkey_st, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %public_key, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %data, align 8
-  %tobool3 = icmp ne ptr %8, null
-  br i1 %tobool3, label %if.then4, label %if.end7
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %8, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !45
+  %30 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8, !tbaa !46
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %39
 
-if.then4:                                         ; preds = %if.then2
-  %9 = load ptr, ptr %pub.addr, align 8
-  %public_key5 = getelementptr inbounds %struct.X509_pubkey_st, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %public_key5, align 8
-  %data6 = getelementptr inbounds %struct.asn1_string_st, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %data6, align 8
-  call void @free(ptr noundef %11) #3
-  br label %if.end7
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %8, align 8, !tbaa !15
+  %35 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !46
+  call void @free(ptr noundef %38) #4
+  br label %39
 
-if.end7:                                          ; preds = %if.then4, %if.then2
-  %12 = load ptr, ptr %penc.addr, align 8
-  %13 = load ptr, ptr %pub.addr, align 8
-  %public_key8 = getelementptr inbounds %struct.X509_pubkey_st, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %public_key8, align 8
-  %data9 = getelementptr inbounds %struct.asn1_string_st, ptr %14, i32 0, i32 2
-  store ptr %12, ptr %data9, align 8
-  %15 = load i32, ptr %penclen.addr, align 4
-  %16 = load ptr, ptr %pub.addr, align 8
-  %public_key10 = getelementptr inbounds %struct.X509_pubkey_st, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %public_key10, align 8
-  %length = getelementptr inbounds %struct.asn1_string_st, ptr %17, i32 0, i32 0
-  store i32 %15, ptr %length, align 8
-  %18 = load ptr, ptr %pub.addr, align 8
-  %public_key11 = getelementptr inbounds %struct.X509_pubkey_st, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %public_key11, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %19, i32 0, i32 3
-  %20 = load i64, ptr %flags, align 8
-  %and = and i64 %20, -16
-  store i64 %and, ptr %flags, align 8
-  %21 = load ptr, ptr %pub.addr, align 8
-  %public_key12 = getelementptr inbounds %struct.X509_pubkey_st, ptr %21, i32 0, i32 1
-  %22 = load ptr, ptr %public_key12, align 8
-  %flags13 = getelementptr inbounds %struct.asn1_string_st, ptr %22, i32 0, i32 3
-  %23 = load i64, ptr %flags13, align 8
-  %or = or i64 %23, 8
-  store i64 %or, ptr %flags13, align 8
-  br label %if.end14
+39:                                               ; preds = %33, %26
+  %40 = load ptr, ptr %12, align 8, !tbaa !19
+  %41 = load ptr, ptr %8, align 8, !tbaa !15
+  %42 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !45
+  %44 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %43, i32 0, i32 2
+  store ptr %40, ptr %44, align 8, !tbaa !46
+  %45 = load i32, ptr %13, align 4, !tbaa !25
+  %46 = load ptr, ptr %8, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !45
+  %49 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %48, i32 0, i32 0
+  store i32 %45, ptr %49, align 8, !tbaa !48
+  %50 = load ptr, ptr %8, align 8, !tbaa !15
+  %51 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %52, i32 0, i32 3
+  %54 = load i64, ptr %53, align 8, !tbaa !49
+  %55 = and i64 %54, -16
+  store i64 %55, ptr %53, align 8, !tbaa !49
+  %56 = load ptr, ptr %8, align 8, !tbaa !15
+  %57 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !45
+  %59 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %58, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !49
+  %61 = or i64 %60, 8
+  store i64 %61, ptr %59, align 8, !tbaa !49
+  br label %62
 
-if.end14:                                         ; preds = %if.end7, %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+62:                                               ; preds = %39, %23
+  store i32 1, ptr %7, align 4
+  br label %63
 
-return:                                           ; preds = %if.end14, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+63:                                               ; preds = %62, %22
+  %64 = load i32, ptr %7, align 4
+  ret i32 %64
 }
 
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_PUBKEY_get0_param(ptr noundef %ppkalg, ptr noundef %pk, ptr noundef %ppklen, ptr noundef %pa, ptr noundef %pub) #0 {
-entry:
-  %ppkalg.addr = alloca ptr, align 8
-  %pk.addr = alloca ptr, align 8
-  %ppklen.addr = alloca ptr, align 8
-  %pa.addr = alloca ptr, align 8
-  %pub.addr = alloca ptr, align 8
-  store ptr %ppkalg, ptr %ppkalg.addr, align 8
-  store ptr %pk, ptr %pk.addr, align 8
-  store ptr %ppklen, ptr %ppklen.addr, align 8
-  store ptr %pa, ptr %pa.addr, align 8
-  store ptr %pub, ptr %pub.addr, align 8
-  %0 = load ptr, ptr %ppkalg.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define hidden i32 @X509_PUBKEY_get0_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !50
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !52
+  store ptr %3, ptr %9, align 8, !tbaa !54
+  store ptr %4, ptr %10, align 8, !tbaa !15
+  %11 = load ptr, ptr %6, align 8, !tbaa !50
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %20
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %pub.addr, align 8
-  %algor = getelementptr inbounds %struct.X509_pubkey_st, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %algor, align 8
-  %algorithm = getelementptr inbounds %struct.X509_algor_st, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %algorithm, align 8
-  %4 = load ptr, ptr %ppkalg.addr, align 8
-  store ptr %3, ptr %4, align 8
-  br label %if.end
+13:                                               ; preds = %5
+  %14 = load ptr, ptr %10, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !44
+  %17 = getelementptr inbounds nuw %struct.X509_algor_st, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !56
+  %19 = load ptr, ptr %6, align 8, !tbaa !50
+  store ptr %18, ptr %19, align 8, !tbaa !41
+  br label %20
 
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %pk.addr, align 8
-  %tobool1 = icmp ne ptr %5, null
-  br i1 %tobool1, label %if.then2, label %if.end4
+20:                                               ; preds = %13, %5
+  %21 = load ptr, ptr %7, align 8, !tbaa !11
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %36
 
-if.then2:                                         ; preds = %if.end
-  %6 = load ptr, ptr %pub.addr, align 8
-  %public_key = getelementptr inbounds %struct.X509_pubkey_st, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %public_key, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %data, align 8
-  %9 = load ptr, ptr %pk.addr, align 8
-  store ptr %8, ptr %9, align 8
-  %10 = load ptr, ptr %pub.addr, align 8
-  %public_key3 = getelementptr inbounds %struct.X509_pubkey_st, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %public_key3, align 8
-  %length = getelementptr inbounds %struct.asn1_string_st, ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %length, align 8
-  %13 = load ptr, ptr %ppklen.addr, align 8
-  store i32 %12, ptr %13, align 4
-  br label %if.end4
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %10, align 8, !tbaa !15
+  %25 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !45
+  %27 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !46
+  %29 = load ptr, ptr %7, align 8, !tbaa !11
+  store ptr %28, ptr %29, align 8, !tbaa !19
+  %30 = load ptr, ptr %10, align 8, !tbaa !15
+  %31 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !45
+  %33 = getelementptr inbounds nuw %struct.asn1_string_st, ptr %32, i32 0, i32 0
+  %34 = load i32, ptr %33, align 8, !tbaa !48
+  %35 = load ptr, ptr %8, align 8, !tbaa !52
+  store i32 %34, ptr %35, align 4, !tbaa !25
+  br label %36
 
-if.end4:                                          ; preds = %if.then2, %if.end
-  %14 = load ptr, ptr %pa.addr, align 8
-  %tobool5 = icmp ne ptr %14, null
-  br i1 %tobool5, label %if.then6, label %if.end8
+36:                                               ; preds = %23, %20
+  %37 = load ptr, ptr %9, align 8, !tbaa !54
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %44
 
-if.then6:                                         ; preds = %if.end4
-  %15 = load ptr, ptr %pub.addr, align 8
-  %algor7 = getelementptr inbounds %struct.X509_pubkey_st, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %algor7, align 8
-  %17 = load ptr, ptr %pa.addr, align 8
-  store ptr %16, ptr %17, align 8
-  br label %if.end8
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %10, align 8, !tbaa !15
+  %41 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !44
+  %43 = load ptr, ptr %9, align 8, !tbaa !54
+  store ptr %42, ptr %43, align 8, !tbaa !59
+  br label %44
 
-if.end8:                                          ; preds = %if.then6, %if.end4
+44:                                               ; preds = %39, %36
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pubkey_cb(i32 noundef %operation, ptr noundef %pval, ptr noundef %it, ptr noundef %exarg) #0 {
-entry:
-  %operation.addr = alloca i32, align 4
-  %pval.addr = alloca ptr, align 8
-  %it.addr = alloca ptr, align 8
-  %exarg.addr = alloca ptr, align 8
-  %pubkey = alloca ptr, align 8
-  store i32 %operation, ptr %operation.addr, align 4
-  store ptr %pval, ptr %pval.addr, align 8
-  store ptr %it, ptr %it.addr, align 8
-  store ptr %exarg, ptr %exarg.addr, align 8
-  %0 = load i32, ptr %operation.addr, align 4
-  %cmp = icmp eq i32 %0, 3
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @pubkey_cb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store i32 %0, ptr %5, align 4, !tbaa !25
+  store ptr %1, ptr %6, align 8, !tbaa !60
+  store ptr %2, ptr %7, align 8, !tbaa !62
+  store ptr %3, ptr %8, align 8, !tbaa !43
+  %10 = load i32, ptr %5, align 4, !tbaa !25
+  %11 = icmp eq i32 %10, 3
+  br i1 %11, label %12, label %18
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %pval.addr, align 8
-  %2 = load ptr, ptr %1, align 8
-  store ptr %2, ptr %pubkey, align 8
-  %3 = load ptr, ptr %pubkey, align 8
-  %pkey = getelementptr inbounds %struct.X509_pubkey_st, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %4)
-  br label %if.end
+12:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %13 = load ptr, ptr %6, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !64
+  store ptr %14, ptr %9, align 8, !tbaa !15
+  %15 = load ptr, ptr %9, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw %struct.X509_pubkey_st, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  call void @EVP_PKEY_free(ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  br label %18
 
-if.end:                                           ; preds = %if.then, %entry
+18:                                               ; preds = %12, %4
   ret i32 1
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p2 _ZTS14X509_pubkey_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p2 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS14X509_pubkey_st", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 omnipotent char", !8, i64 0}
+!21 = !{!22, !18, i64 16}
+!22 = !{!"X509_pubkey_st", !23, i64 0, !24, i64 8, !18, i64 16}
+!23 = !{!"p1 _ZTS13X509_algor_st", !8, i64 0}
+!24 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"int", !9, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p2 _ZTS11evp_pkey_st", !8, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p2 _ZTS6rsa_st", !8, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS6rsa_st", !8, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p2 _ZTS6dsa_st", !8, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS6dsa_st", !8, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p2 _ZTS9ec_key_st", !8, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS9ec_key_st", !8, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
+!43 = !{!8, !8, i64 0}
+!44 = !{!22, !23, i64 0}
+!45 = !{!22, !24, i64 8}
+!46 = !{!47, !20, i64 8}
+!47 = !{!"asn1_string_st", !26, i64 0, !26, i64 4, !20, i64 8, !14, i64 16}
+!48 = !{!47, !26, i64 0}
+!49 = !{!47, !14, i64 16}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p2 _ZTS14asn1_object_st", !8, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 int", !8, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p2 _ZTS13X509_algor_st", !8, i64 0}
+!56 = !{!57, !42, i64 0}
+!57 = !{!"X509_algor_st", !42, i64 0, !58, i64 8}
+!58 = !{!"p1 _ZTS12asn1_type_st", !8, i64 0}
+!59 = !{!23, !23, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p2 _ZTS13ASN1_VALUE_st", !8, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS12ASN1_ITEM_st", !8, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS13ASN1_VALUE_st", !8, i64 0}

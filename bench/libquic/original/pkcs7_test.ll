@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.cbs_st = type { ptr, i64 }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
@@ -31,527 +31,623 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @main() #0 {
-entry:
-  %retval = alloca i32, align 4
-  store i32 0, ptr %retval, align 4
+  %1 = alloca i32, align 4
+  store i32 0, ptr %1, align 4
   call void @CRYPTO_library_init()
-  %call = call i32 @test_cert_reparse(ptr noundef @kPKCS7NSS, i64 noundef 2895)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+  %2 = call i32 @test_cert_reparse(ptr noundef @kPKCS7NSS, i64 noundef 2895)
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @test_cert_reparse(ptr noundef @kPKCS7Windows, i64 noundef 693)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %lor.lhs.false3, label %if.then
+4:                                                ; preds = %0
+  %5 = call i32 @test_cert_reparse(ptr noundef @kPKCS7Windows, i64 noundef 693)
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %16
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @test_crl_reparse(ptr noundef @kOpenSSLCRL, i64 noundef 905)
-  %tobool5 = icmp ne i32 %call4, 0
-  br i1 %tobool5, label %lor.lhs.false6, label %if.then
+7:                                                ; preds = %4
+  %8 = call i32 @test_crl_reparse(ptr noundef @kOpenSSLCRL, i64 noundef 905)
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %16
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i32 @test_pem_certs(ptr noundef @kPEMCert)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %lor.lhs.false9, label %if.then
+10:                                               ; preds = %7
+  %11 = call i32 @test_pem_certs(ptr noundef @kPEMCert)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %16
 
-lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %call10 = call i32 @test_pem_crls(ptr noundef @kPEMCRL)
-  %tobool11 = icmp ne i32 %call10, 0
-  br i1 %tobool11, label %if.end, label %if.then
+13:                                               ; preds = %10
+  %14 = call i32 @test_pem_crls(ptr noundef @kPEMCRL)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
 
-if.then:                                          ; preds = %lor.lhs.false9, %lor.lhs.false6, %lor.lhs.false3, %lor.lhs.false, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %13, %10, %7, %4, %0
+  store i32 1, ptr %1, align 4
+  br label %19
 
-if.end:                                           ; preds = %lor.lhs.false9
-  %call12 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %13
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+  store i32 0, ptr %1, align 4
+  br label %19
 
-return:                                           ; preds = %if.end, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+19:                                               ; preds = %17, %16
+  %20 = load i32, ptr %1, align 4
+  ret i32 %20
 }
 
 declare void @CRYPTO_library_init() #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cert_reparse(ptr noundef %der_bytes, i64 noundef %der_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %der_bytes.addr = alloca ptr, align 8
-  %der_len.addr = alloca i64, align 8
-  %pkcs7 = alloca %struct.cbs_st, align 8
-  %cbb = alloca %struct.cbb_st, align 8
-  %certs = alloca ptr, align 8
-  %certs2 = alloca ptr, align 8
-  %result_data = alloca ptr, align 8
-  %result2_data = alloca ptr, align 8
-  %result_len = alloca i64, align 8
-  %result2_len = alloca i64, align 8
-  %i = alloca i64, align 8
-  %a = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  store ptr %der_bytes, ptr %der_bytes.addr, align 8
-  store i64 %der_len, ptr %der_len.addr, align 8
-  %call = call ptr @sk_new_null()
-  store ptr %call, ptr %certs, align 8
-  %call1 = call ptr @sk_new_null()
-  store ptr %call1, ptr %certs2, align 8
-  %0 = load ptr, ptr %der_bytes.addr, align 8
-  %1 = load i64, ptr %der_len.addr, align 8
-  call void @CBS_init(ptr noundef %pkcs7, ptr noundef %0, i64 noundef %1)
-  %2 = load ptr, ptr %certs, align 8
-  %call2 = call i32 @PKCS7_get_certificates(ptr noundef %2, ptr noundef %pkcs7)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @test_cert_reparse(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %struct.cbs_st, align 8
+  %7 = alloca %struct.cbb_st, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %18 = call ptr @sk_new_null()
+  store ptr %18, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %19 = call ptr @sk_new_null()
+  store ptr %19, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %20 = load ptr, ptr %4, align 8, !tbaa !6
+  %21 = load i64, ptr %5, align 8, !tbaa !11
+  call void @CBS_init(ptr noundef %6, ptr noundef %20, i64 noundef %21)
+  %22 = load ptr, ptr %8, align 8, !tbaa !13
+  %23 = call i32 @PKCS7_get_certificates(ptr noundef %22, ptr noundef %6)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %28, label %25
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.1)
-  store i32 0, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %2
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.1) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.end:                                           ; preds = %entry
-  %4 = load i64, ptr %der_len.addr, align 8
-  %call4 = call i32 @CBB_init(ptr noundef %cbb, i64 noundef %4)
-  %5 = load ptr, ptr %certs, align 8
-  %call5 = call i32 @PKCS7_bundle_certificates(ptr noundef %cbb, ptr noundef %5)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %lor.lhs.false, label %if.then9
+28:                                               ; preds = %2
+  %29 = load i64, ptr %5, align 8, !tbaa !11
+  %30 = call i32 @CBB_init(ptr noundef %7, i64 noundef %29)
+  %31 = load ptr, ptr %8, align 8, !tbaa !13
+  %32 = call i32 @PKCS7_bundle_certificates(ptr noundef %7, ptr noundef %31)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %37
 
-lor.lhs.false:                                    ; preds = %if.end
-  %call7 = call i32 @CBB_finish(ptr noundef %cbb, ptr noundef %result_data, ptr noundef %result_len)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.end11, label %if.then9
+34:                                               ; preds = %28
+  %35 = call i32 @CBB_finish(ptr noundef %7, ptr noundef %10, ptr noundef %12)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %40, label %37
 
-if.then9:                                         ; preds = %lor.lhs.false, %if.end
-  %6 = load ptr, ptr @stderr, align 8
-  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.2)
-  store i32 0, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %34, %28
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.2) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.end11:                                         ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %result_data, align 8
-  %8 = load i64, ptr %result_len, align 8
-  call void @CBS_init(ptr noundef %pkcs7, ptr noundef %7, i64 noundef %8)
-  %9 = load ptr, ptr %certs2, align 8
-  %call12 = call i32 @PKCS7_get_certificates(ptr noundef %9, ptr noundef %pkcs7)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.end16, label %if.then14
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %10, align 8, !tbaa !6
+  %42 = load i64, ptr %12, align 8, !tbaa !11
+  call void @CBS_init(ptr noundef %6, ptr noundef %41, i64 noundef %42)
+  %43 = load ptr, ptr %9, align 8, !tbaa !13
+  %44 = call i32 @PKCS7_get_certificates(ptr noundef %43, ptr noundef %6)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %49, label %46
 
-if.then14:                                        ; preds = %if.end11
-  %10 = load ptr, ptr @stderr, align 8
-  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.3)
-  store i32 0, ptr %retval, align 4
-  br label %return
+46:                                               ; preds = %40
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.3) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.end16:                                         ; preds = %if.end11
-  %11 = load ptr, ptr %certs, align 8
-  %call17 = call i64 @sk_num(ptr noundef %11)
-  %12 = load ptr, ptr %certs2, align 8
-  %call18 = call i64 @sk_num(ptr noundef %12)
-  %cmp = icmp ne i64 %call17, %call18
-  br i1 %cmp, label %if.then19, label %if.end21
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %8, align 8, !tbaa !13
+  %51 = call i64 @sk_num(ptr noundef %50)
+  %52 = load ptr, ptr %9, align 8, !tbaa !13
+  %53 = call i64 @sk_num(ptr noundef %52)
+  %54 = icmp ne i64 %51, %53
+  br i1 %54, label %55, label %58
 
-if.then19:                                        ; preds = %if.end16
-  %13 = load ptr, ptr @stderr, align 8
-  %call20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.4)
-  store i32 0, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %49
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.4) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.end21:                                         ; preds = %if.end16
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+58:                                               ; preds = %49
+  store i64 0, ptr %14, align 8, !tbaa !11
+  br label %59
 
-for.cond:                                         ; preds = %for.inc, %if.end21
-  %14 = load i64, ptr %i, align 8
-  %15 = load ptr, ptr %certs, align 8
-  %call22 = call i64 @sk_num(ptr noundef %15)
-  %cmp23 = icmp ult i64 %14, %call22
-  br i1 %cmp23, label %for.body, label %for.end
+59:                                               ; preds = %83, %58
+  %60 = load i64, ptr %14, align 8, !tbaa !11
+  %61 = load ptr, ptr %8, align 8, !tbaa !13
+  %62 = call i64 @sk_num(ptr noundef %61)
+  %63 = icmp ult i64 %60, %62
+  br i1 %63, label %64, label %86
 
-for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %certs, align 8
-  %17 = load i64, ptr %i, align 8
-  %call24 = call ptr @sk_value(ptr noundef %16, i64 noundef %17)
-  store ptr %call24, ptr %a, align 8
-  %18 = load ptr, ptr %certs2, align 8
-  %19 = load i64, ptr %i, align 8
-  %call25 = call ptr @sk_value(ptr noundef %18, i64 noundef %19)
-  store ptr %call25, ptr %b, align 8
-  %20 = load ptr, ptr %a, align 8
-  %21 = load ptr, ptr %b, align 8
-  %call26 = call i32 @X509_cmp(ptr noundef %20, ptr noundef %21)
-  %cmp27 = icmp ne i32 %call26, 0
-  br i1 %cmp27, label %if.then28, label %if.end30
+64:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %65 = load ptr, ptr %8, align 8, !tbaa !13
+  %66 = load i64, ptr %14, align 8, !tbaa !11
+  %67 = call ptr @sk_value(ptr noundef %65, i64 noundef %66)
+  store ptr %67, ptr %16, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %68 = load ptr, ptr %9, align 8, !tbaa !13
+  %69 = load i64, ptr %14, align 8, !tbaa !11
+  %70 = call ptr @sk_value(ptr noundef %68, i64 noundef %69)
+  store ptr %70, ptr %17, align 8, !tbaa !17
+  %71 = load ptr, ptr %16, align 8, !tbaa !17
+  %72 = load ptr, ptr %17, align 8, !tbaa !17
+  %73 = call i32 @X509_cmp(ptr noundef %71, ptr noundef %72)
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %79
 
-if.then28:                                        ; preds = %for.body
-  %22 = load ptr, ptr @stderr, align 8
-  %23 = load i64, ptr %i, align 8
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.5, i64 noundef %23)
-  store i32 0, ptr %retval, align 4
-  br label %return
+75:                                               ; preds = %64
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %77 = load i64, ptr %14, align 8, !tbaa !11
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.5, i64 noundef %77) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %80
 
-if.end30:                                         ; preds = %for.body
-  br label %for.inc
+79:                                               ; preds = %64
+  store i32 0, ptr %15, align 4
+  br label %80
 
-for.inc:                                          ; preds = %if.end30
-  %24 = load i64, ptr %i, align 8
-  %inc = add i64 %24, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
+80:                                               ; preds = %79, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  %81 = load i32, ptr %15, align 4
+  switch i32 %81, label %116 [
+    i32 0, label %82
+  ]
 
-for.end:                                          ; preds = %for.cond
-  %25 = load i64, ptr %der_len.addr, align 8
-  %call31 = call i32 @CBB_init(ptr noundef %cbb, i64 noundef %25)
-  %26 = load ptr, ptr %certs2, align 8
-  %call32 = call i32 @PKCS7_bundle_certificates(ptr noundef %cbb, ptr noundef %26)
-  %tobool33 = icmp ne i32 %call32, 0
-  br i1 %tobool33, label %lor.lhs.false34, label %if.then37
+82:                                               ; preds = %80
+  br label %83
 
-lor.lhs.false34:                                  ; preds = %for.end
-  %call35 = call i32 @CBB_finish(ptr noundef %cbb, ptr noundef %result2_data, ptr noundef %result2_len)
-  %tobool36 = icmp ne i32 %call35, 0
-  br i1 %tobool36, label %if.end39, label %if.then37
+83:                                               ; preds = %82
+  %84 = load i64, ptr %14, align 8, !tbaa !11
+  %85 = add i64 %84, 1
+  store i64 %85, ptr %14, align 8, !tbaa !11
+  br label %59, !llvm.loop !19
 
-if.then37:                                        ; preds = %lor.lhs.false34, %for.end
-  %27 = load ptr, ptr @stderr, align 8
-  %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.6)
-  store i32 0, ptr %retval, align 4
-  br label %return
+86:                                               ; preds = %59
+  %87 = load i64, ptr %5, align 8, !tbaa !11
+  %88 = call i32 @CBB_init(ptr noundef %7, i64 noundef %87)
+  %89 = load ptr, ptr %9, align 8, !tbaa !13
+  %90 = call i32 @PKCS7_bundle_certificates(ptr noundef %7, ptr noundef %89)
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %95
 
-if.end39:                                         ; preds = %lor.lhs.false34
-  %28 = load i64, ptr %result_len, align 8
-  %29 = load i64, ptr %result2_len, align 8
-  %cmp40 = icmp ne i64 %28, %29
-  br i1 %cmp40, label %if.then44, label %lor.lhs.false41
+92:                                               ; preds = %86
+  %93 = call i32 @CBB_finish(ptr noundef %7, ptr noundef %11, ptr noundef %13)
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %98, label %95
 
-lor.lhs.false41:                                  ; preds = %if.end39
-  %30 = load ptr, ptr %result_data, align 8
-  %31 = load ptr, ptr %result2_data, align 8
-  %32 = load i64, ptr %result_len, align 8
-  %call42 = call i32 @memcmp(ptr noundef %30, ptr noundef %31, i64 noundef %32) #4
-  %cmp43 = icmp ne i32 %call42, 0
-  br i1 %cmp43, label %if.then44, label %if.end46
+95:                                               ; preds = %92, %86
+  %96 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef @.str.6) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.then44:                                        ; preds = %lor.lhs.false41, %if.end39
-  %33 = load ptr, ptr @stderr, align 8
-  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.7)
-  store i32 0, ptr %retval, align 4
-  br label %return
+98:                                               ; preds = %92
+  %99 = load i64, ptr %12, align 8, !tbaa !11
+  %100 = load i64, ptr %13, align 8, !tbaa !11
+  %101 = icmp ne i64 %99, %100
+  br i1 %101, label %108, label %102
 
-if.end46:                                         ; preds = %lor.lhs.false41
-  %34 = load ptr, ptr %result_data, align 8
-  call void @free(ptr noundef %34) #5
-  %35 = load ptr, ptr %result2_data, align 8
-  call void @free(ptr noundef %35) #5
-  %36 = load ptr, ptr %certs, align 8
-  call void @sk_pop_free(ptr noundef %36, ptr noundef @X509_free)
-  %37 = load ptr, ptr %certs2, align 8
-  call void @sk_pop_free(ptr noundef %37, ptr noundef @X509_free)
-  store i32 1, ptr %retval, align 4
-  br label %return
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %10, align 8, !tbaa !6
+  %104 = load ptr, ptr %11, align 8, !tbaa !6
+  %105 = load i64, ptr %12, align 8, !tbaa !11
+  %106 = call i32 @memcmp(ptr noundef %103, ptr noundef %104, i64 noundef %105) #6
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %108, label %111
 
-return:                                           ; preds = %if.end46, %if.then44, %if.then37, %if.then28, %if.then19, %if.then14, %if.then9, %if.then
-  %38 = load i32, ptr %retval, align 4
-  ret i32 %38
+108:                                              ; preds = %102, %98
+  %109 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef @.str.7) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
+
+111:                                              ; preds = %102
+  %112 = load ptr, ptr %10, align 8, !tbaa !6
+  call void @free(ptr noundef %112) #5
+  %113 = load ptr, ptr %11, align 8, !tbaa !6
+  call void @free(ptr noundef %113) #5
+  %114 = load ptr, ptr %8, align 8, !tbaa !13
+  call void @sk_pop_free(ptr noundef %114, ptr noundef @X509_free)
+  %115 = load ptr, ptr %9, align 8, !tbaa !13
+  call void @sk_pop_free(ptr noundef %115, ptr noundef @X509_free)
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
+
+116:                                              ; preds = %111, %108, %95, %80, %55, %46, %37, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #5
+  %117 = load i32, ptr %3, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_crl_reparse(ptr noundef %der_bytes, i64 noundef %der_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %der_bytes.addr = alloca ptr, align 8
-  %der_len.addr = alloca i64, align 8
-  %pkcs7 = alloca %struct.cbs_st, align 8
-  %cbb = alloca %struct.cbb_st, align 8
-  %crls = alloca ptr, align 8
-  %crls2 = alloca ptr, align 8
-  %result_data = alloca ptr, align 8
-  %result2_data = alloca ptr, align 8
-  %result_len = alloca i64, align 8
-  %result2_len = alloca i64, align 8
-  %i = alloca i64, align 8
-  %a = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  store ptr %der_bytes, ptr %der_bytes.addr, align 8
-  store i64 %der_len, ptr %der_len.addr, align 8
-  %call = call ptr @sk_new_null()
-  store ptr %call, ptr %crls, align 8
-  %call1 = call ptr @sk_new_null()
-  store ptr %call1, ptr %crls2, align 8
-  %0 = load ptr, ptr %der_bytes.addr, align 8
-  %1 = load i64, ptr %der_len.addr, align 8
-  call void @CBS_init(ptr noundef %pkcs7, ptr noundef %0, i64 noundef %1)
-  %2 = load ptr, ptr %crls, align 8
-  %call2 = call i32 @PKCS7_get_CRLs(ptr noundef %2, ptr noundef %pkcs7)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @test_crl_reparse(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %struct.cbs_st, align 8
+  %7 = alloca %struct.cbb_st, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !6
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %18 = call ptr @sk_new_null()
+  store ptr %18, ptr %8, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %19 = call ptr @sk_new_null()
+  store ptr %19, ptr %9, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %20 = load ptr, ptr %4, align 8, !tbaa !6
+  %21 = load i64, ptr %5, align 8, !tbaa !11
+  call void @CBS_init(ptr noundef %6, ptr noundef %20, i64 noundef %21)
+  %22 = load ptr, ptr %8, align 8, !tbaa !21
+  %23 = call i32 @PKCS7_get_CRLs(ptr noundef %22, ptr noundef %6)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %28, label %25
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.8)
-  store i32 0, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %2
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.8) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.end:                                           ; preds = %entry
-  %4 = load i64, ptr %der_len.addr, align 8
-  %call4 = call i32 @CBB_init(ptr noundef %cbb, i64 noundef %4)
-  %5 = load ptr, ptr %crls, align 8
-  %call5 = call i32 @PKCS7_bundle_CRLs(ptr noundef %cbb, ptr noundef %5)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %lor.lhs.false, label %if.then9
+28:                                               ; preds = %2
+  %29 = load i64, ptr %5, align 8, !tbaa !11
+  %30 = call i32 @CBB_init(ptr noundef %7, i64 noundef %29)
+  %31 = load ptr, ptr %8, align 8, !tbaa !21
+  %32 = call i32 @PKCS7_bundle_CRLs(ptr noundef %7, ptr noundef %31)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %37
 
-lor.lhs.false:                                    ; preds = %if.end
-  %call7 = call i32 @CBB_finish(ptr noundef %cbb, ptr noundef %result_data, ptr noundef %result_len)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.end11, label %if.then9
+34:                                               ; preds = %28
+  %35 = call i32 @CBB_finish(ptr noundef %7, ptr noundef %10, ptr noundef %12)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %40, label %37
 
-if.then9:                                         ; preds = %lor.lhs.false, %if.end
-  %6 = load ptr, ptr @stderr, align 8
-  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.9)
-  store i32 0, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %34, %28
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.9) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.end11:                                         ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %result_data, align 8
-  %8 = load i64, ptr %result_len, align 8
-  call void @CBS_init(ptr noundef %pkcs7, ptr noundef %7, i64 noundef %8)
-  %9 = load ptr, ptr %crls2, align 8
-  %call12 = call i32 @PKCS7_get_CRLs(ptr noundef %9, ptr noundef %pkcs7)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.end16, label %if.then14
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %10, align 8, !tbaa !6
+  %42 = load i64, ptr %12, align 8, !tbaa !11
+  call void @CBS_init(ptr noundef %6, ptr noundef %41, i64 noundef %42)
+  %43 = load ptr, ptr %9, align 8, !tbaa !21
+  %44 = call i32 @PKCS7_get_CRLs(ptr noundef %43, ptr noundef %6)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %49, label %46
 
-if.then14:                                        ; preds = %if.end11
-  %10 = load ptr, ptr @stderr, align 8
-  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.10)
-  store i32 0, ptr %retval, align 4
-  br label %return
+46:                                               ; preds = %40
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.10) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.end16:                                         ; preds = %if.end11
-  %11 = load ptr, ptr %crls, align 8
-  %call17 = call i64 @sk_num(ptr noundef %11)
-  %12 = load ptr, ptr %crls, align 8
-  %call18 = call i64 @sk_num(ptr noundef %12)
-  %cmp = icmp ne i64 %call17, %call18
-  br i1 %cmp, label %if.then19, label %if.end21
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %8, align 8, !tbaa !21
+  %51 = call i64 @sk_num(ptr noundef %50)
+  %52 = load ptr, ptr %8, align 8, !tbaa !21
+  %53 = call i64 @sk_num(ptr noundef %52)
+  %54 = icmp ne i64 %51, %53
+  br i1 %54, label %55, label %58
 
-if.then19:                                        ; preds = %if.end16
-  %13 = load ptr, ptr @stderr, align 8
-  %call20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.11)
-  store i32 0, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %49
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.11) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.end21:                                         ; preds = %if.end16
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+58:                                               ; preds = %49
+  store i64 0, ptr %14, align 8, !tbaa !11
+  br label %59
 
-for.cond:                                         ; preds = %for.inc, %if.end21
-  %14 = load i64, ptr %i, align 8
-  %15 = load ptr, ptr %crls, align 8
-  %call22 = call i64 @sk_num(ptr noundef %15)
-  %cmp23 = icmp ult i64 %14, %call22
-  br i1 %cmp23, label %for.body, label %for.end
+59:                                               ; preds = %83, %58
+  %60 = load i64, ptr %14, align 8, !tbaa !11
+  %61 = load ptr, ptr %8, align 8, !tbaa !21
+  %62 = call i64 @sk_num(ptr noundef %61)
+  %63 = icmp ult i64 %60, %62
+  br i1 %63, label %64, label %86
 
-for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %crls, align 8
-  %17 = load i64, ptr %i, align 8
-  %call24 = call ptr @sk_value(ptr noundef %16, i64 noundef %17)
-  store ptr %call24, ptr %a, align 8
-  %18 = load ptr, ptr %crls2, align 8
-  %19 = load i64, ptr %i, align 8
-  %call25 = call ptr @sk_value(ptr noundef %18, i64 noundef %19)
-  store ptr %call25, ptr %b, align 8
-  %20 = load ptr, ptr %a, align 8
-  %21 = load ptr, ptr %b, align 8
-  %call26 = call i32 @X509_CRL_cmp(ptr noundef %20, ptr noundef %21)
-  %cmp27 = icmp ne i32 %call26, 0
-  br i1 %cmp27, label %if.then28, label %if.end30
+64:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %65 = load ptr, ptr %8, align 8, !tbaa !21
+  %66 = load i64, ptr %14, align 8, !tbaa !11
+  %67 = call ptr @sk_value(ptr noundef %65, i64 noundef %66)
+  store ptr %67, ptr %16, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %68 = load ptr, ptr %9, align 8, !tbaa !21
+  %69 = load i64, ptr %14, align 8, !tbaa !11
+  %70 = call ptr @sk_value(ptr noundef %68, i64 noundef %69)
+  store ptr %70, ptr %17, align 8, !tbaa !23
+  %71 = load ptr, ptr %16, align 8, !tbaa !23
+  %72 = load ptr, ptr %17, align 8, !tbaa !23
+  %73 = call i32 @X509_CRL_cmp(ptr noundef %71, ptr noundef %72)
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %79
 
-if.then28:                                        ; preds = %for.body
-  %22 = load ptr, ptr @stderr, align 8
-  %23 = load i64, ptr %i, align 8
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.12, i64 noundef %23)
-  store i32 0, ptr %retval, align 4
-  br label %return
+75:                                               ; preds = %64
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %77 = load i64, ptr %14, align 8, !tbaa !11
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.12, i64 noundef %77) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %80
 
-if.end30:                                         ; preds = %for.body
-  br label %for.inc
+79:                                               ; preds = %64
+  store i32 0, ptr %15, align 4
+  br label %80
 
-for.inc:                                          ; preds = %if.end30
-  %24 = load i64, ptr %i, align 8
-  %inc = add i64 %24, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+80:                                               ; preds = %79, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  %81 = load i32, ptr %15, align 4
+  switch i32 %81, label %116 [
+    i32 0, label %82
+  ]
 
-for.end:                                          ; preds = %for.cond
-  %25 = load i64, ptr %der_len.addr, align 8
-  %call31 = call i32 @CBB_init(ptr noundef %cbb, i64 noundef %25)
-  %26 = load ptr, ptr %crls2, align 8
-  %call32 = call i32 @PKCS7_bundle_CRLs(ptr noundef %cbb, ptr noundef %26)
-  %tobool33 = icmp ne i32 %call32, 0
-  br i1 %tobool33, label %lor.lhs.false34, label %if.then37
+82:                                               ; preds = %80
+  br label %83
 
-lor.lhs.false34:                                  ; preds = %for.end
-  %call35 = call i32 @CBB_finish(ptr noundef %cbb, ptr noundef %result2_data, ptr noundef %result2_len)
-  %tobool36 = icmp ne i32 %call35, 0
-  br i1 %tobool36, label %if.end39, label %if.then37
+83:                                               ; preds = %82
+  %84 = load i64, ptr %14, align 8, !tbaa !11
+  %85 = add i64 %84, 1
+  store i64 %85, ptr %14, align 8, !tbaa !11
+  br label %59, !llvm.loop !25
 
-if.then37:                                        ; preds = %lor.lhs.false34, %for.end
-  %27 = load ptr, ptr @stderr, align 8
-  %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.13)
-  store i32 0, ptr %retval, align 4
-  br label %return
+86:                                               ; preds = %59
+  %87 = load i64, ptr %5, align 8, !tbaa !11
+  %88 = call i32 @CBB_init(ptr noundef %7, i64 noundef %87)
+  %89 = load ptr, ptr %9, align 8, !tbaa !21
+  %90 = call i32 @PKCS7_bundle_CRLs(ptr noundef %7, ptr noundef %89)
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %95
 
-if.end39:                                         ; preds = %lor.lhs.false34
-  %28 = load i64, ptr %result_len, align 8
-  %29 = load i64, ptr %result2_len, align 8
-  %cmp40 = icmp ne i64 %28, %29
-  br i1 %cmp40, label %if.then44, label %lor.lhs.false41
+92:                                               ; preds = %86
+  %93 = call i32 @CBB_finish(ptr noundef %7, ptr noundef %11, ptr noundef %13)
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %98, label %95
 
-lor.lhs.false41:                                  ; preds = %if.end39
-  %30 = load ptr, ptr %result_data, align 8
-  %31 = load ptr, ptr %result2_data, align 8
-  %32 = load i64, ptr %result_len, align 8
-  %call42 = call i32 @memcmp(ptr noundef %30, ptr noundef %31, i64 noundef %32) #4
-  %cmp43 = icmp ne i32 %call42, 0
-  br i1 %cmp43, label %if.then44, label %if.end46
+95:                                               ; preds = %92, %86
+  %96 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef @.str.13) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
 
-if.then44:                                        ; preds = %lor.lhs.false41, %if.end39
-  %33 = load ptr, ptr @stderr, align 8
-  %call45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.7)
-  store i32 0, ptr %retval, align 4
-  br label %return
+98:                                               ; preds = %92
+  %99 = load i64, ptr %12, align 8, !tbaa !11
+  %100 = load i64, ptr %13, align 8, !tbaa !11
+  %101 = icmp ne i64 %99, %100
+  br i1 %101, label %108, label %102
 
-if.end46:                                         ; preds = %lor.lhs.false41
-  %34 = load ptr, ptr %result_data, align 8
-  call void @free(ptr noundef %34) #5
-  %35 = load ptr, ptr %result2_data, align 8
-  call void @free(ptr noundef %35) #5
-  %36 = load ptr, ptr %crls, align 8
-  call void @sk_pop_free(ptr noundef %36, ptr noundef @X509_CRL_free)
-  %37 = load ptr, ptr %crls2, align 8
-  call void @sk_pop_free(ptr noundef %37, ptr noundef @X509_CRL_free)
-  store i32 1, ptr %retval, align 4
-  br label %return
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %10, align 8, !tbaa !6
+  %104 = load ptr, ptr %11, align 8, !tbaa !6
+  %105 = load i64, ptr %12, align 8, !tbaa !11
+  %106 = call i32 @memcmp(ptr noundef %103, ptr noundef %104, i64 noundef %105) #6
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %108, label %111
 
-return:                                           ; preds = %if.end46, %if.then44, %if.then37, %if.then28, %if.then19, %if.then14, %if.then9, %if.then
-  %38 = load i32, ptr %retval, align 4
-  ret i32 %38
+108:                                              ; preds = %102, %98
+  %109 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef @.str.7) #5
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
+
+111:                                              ; preds = %102
+  %112 = load ptr, ptr %10, align 8, !tbaa !6
+  call void @free(ptr noundef %112) #5
+  %113 = load ptr, ptr %11, align 8, !tbaa !6
+  call void @free(ptr noundef %113) #5
+  %114 = load ptr, ptr %8, align 8, !tbaa !21
+  call void @sk_pop_free(ptr noundef %114, ptr noundef @X509_CRL_free)
+  %115 = load ptr, ptr %9, align 8, !tbaa !21
+  call void @sk_pop_free(ptr noundef %115, ptr noundef @X509_CRL_free)
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %116
+
+116:                                              ; preds = %111, %108, %95, %80, %55, %46, %37, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #5
+  %117 = load i32, ptr %3, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pem_certs(ptr noundef %pem) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %pem.addr = alloca ptr, align 8
-  %bio = alloca ptr, align 8
-  %certs = alloca ptr, align 8
-  store ptr %pem, ptr %pem.addr, align 8
-  %0 = load ptr, ptr %pem.addr, align 8
-  %1 = load ptr, ptr %pem.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #4
-  %conv = trunc i64 %call to i32
-  %call1 = call ptr @BIO_new_mem_buf(ptr noundef %0, i32 noundef %conv)
-  store ptr %call1, ptr %bio, align 8
-  %call2 = call ptr @sk_new_null()
-  store ptr %call2, ptr %certs, align 8
-  %2 = load ptr, ptr %certs, align 8
-  %3 = load ptr, ptr %bio, align 8
-  %call3 = call i32 @PKCS7_get_PEM_certificates(ptr noundef %2, ptr noundef %3)
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @test_pem_certs(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %7 = load ptr, ptr %3, align 8, !tbaa !6
+  %8 = load ptr, ptr %3, align 8, !tbaa !6
+  %9 = call i64 @strlen(ptr noundef %8) #6
+  %10 = trunc i64 %9 to i32
+  %11 = call ptr @BIO_new_mem_buf(ptr noundef %7, i32 noundef %10)
+  store ptr %11, ptr %4, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %12 = call ptr @sk_new_null()
+  store ptr %12, ptr %5, align 8, !tbaa !13
+  %13 = load ptr, ptr %5, align 8, !tbaa !13
+  %14 = load ptr, ptr %4, align 8, !tbaa !26
+  %15 = call i32 @PKCS7_get_PEM_certificates(ptr noundef %13, ptr noundef %14)
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %20, label %17
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.14)
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %1
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.14) #5
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %certs, align 8
-  %call5 = call i64 @sk_num(ptr noundef %5)
-  %cmp = icmp ne i64 %call5, 1
-  br i1 %cmp, label %if.then7, label %if.end10
+20:                                               ; preds = %1
+  %21 = load ptr, ptr %5, align 8, !tbaa !13
+  %22 = call i64 @sk_num(ptr noundef %21)
+  %23 = icmp ne i64 %22, 1
+  br i1 %23, label %24, label %29
 
-if.then7:                                         ; preds = %if.end
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = load ptr, ptr %certs, align 8
-  %call8 = call i64 @sk_num(ptr noundef %7)
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.15, i64 noundef %call8)
-  store i32 0, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %20
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %26 = load ptr, ptr %5, align 8, !tbaa !13
+  %27 = call i64 @sk_num(ptr noundef %26)
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.15, i64 noundef %27) #5
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
 
-if.end10:                                         ; preds = %if.end
-  %8 = load ptr, ptr %bio, align 8
-  %call11 = call i32 @BIO_free(ptr noundef %8)
-  %9 = load ptr, ptr %certs, align 8
-  call void @sk_pop_free(ptr noundef %9, ptr noundef @X509_free)
-  store i32 1, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %4, align 8, !tbaa !26
+  %31 = call i32 @BIO_free(ptr noundef %30)
+  %32 = load ptr, ptr %5, align 8, !tbaa !13
+  call void @sk_pop_free(ptr noundef %32, ptr noundef @X509_free)
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
 
-return:                                           ; preds = %if.end10, %if.then7, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+33:                                               ; preds = %29, %24, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %34 = load i32, ptr %2, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pem_crls(ptr noundef %pem) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %pem.addr = alloca ptr, align 8
-  %bio = alloca ptr, align 8
-  %crls = alloca ptr, align 8
-  store ptr %pem, ptr %pem.addr, align 8
-  %0 = load ptr, ptr %pem.addr, align 8
-  %1 = load ptr, ptr %pem.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #4
-  %conv = trunc i64 %call to i32
-  %call1 = call ptr @BIO_new_mem_buf(ptr noundef %0, i32 noundef %conv)
-  store ptr %call1, ptr %bio, align 8
-  %call2 = call ptr @sk_new_null()
-  store ptr %call2, ptr %crls, align 8
-  %2 = load ptr, ptr %crls, align 8
-  %3 = load ptr, ptr %bio, align 8
-  %call3 = call i32 @PKCS7_get_PEM_CRLs(ptr noundef %2, ptr noundef %3)
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @test_pem_crls(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %7 = load ptr, ptr %3, align 8, !tbaa !6
+  %8 = load ptr, ptr %3, align 8, !tbaa !6
+  %9 = call i64 @strlen(ptr noundef %8) #6
+  %10 = trunc i64 %9 to i32
+  %11 = call ptr @BIO_new_mem_buf(ptr noundef %7, i32 noundef %10)
+  store ptr %11, ptr %4, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %12 = call ptr @sk_new_null()
+  store ptr %12, ptr %5, align 8, !tbaa !21
+  %13 = load ptr, ptr %5, align 8, !tbaa !21
+  %14 = load ptr, ptr %4, align 8, !tbaa !26
+  %15 = call i32 @PKCS7_get_PEM_CRLs(ptr noundef %13, ptr noundef %14)
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %20, label %17
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.16)
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %1
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.16) #5
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %crls, align 8
-  %call5 = call i64 @sk_num(ptr noundef %5)
-  %cmp = icmp ne i64 %call5, 1
-  br i1 %cmp, label %if.then7, label %if.end10
+20:                                               ; preds = %1
+  %21 = load ptr, ptr %5, align 8, !tbaa !21
+  %22 = call i64 @sk_num(ptr noundef %21)
+  %23 = icmp ne i64 %22, 1
+  br i1 %23, label %24, label %29
 
-if.then7:                                         ; preds = %if.end
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = load ptr, ptr %crls, align 8
-  %call8 = call i64 @sk_num(ptr noundef %7)
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.17, i64 noundef %call8)
-  store i32 0, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %20
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %26 = load ptr, ptr %5, align 8, !tbaa !21
+  %27 = call i64 @sk_num(ptr noundef %26)
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.17, i64 noundef %27) #5
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
 
-if.end10:                                         ; preds = %if.end
-  %8 = load ptr, ptr %bio, align 8
-  %call11 = call i32 @BIO_free(ptr noundef %8)
-  %9 = load ptr, ptr %crls, align 8
-  call void @sk_pop_free(ptr noundef %9, ptr noundef @X509_CRL_free)
-  store i32 1, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %4, align 8, !tbaa !26
+  %31 = call i32 @BIO_free(ptr noundef %30)
+  %32 = load ptr, ptr %5, align 8, !tbaa !21
+  call void @sk_pop_free(ptr noundef %32, ptr noundef @X509_CRL_free)
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
 
-return:                                           ; preds = %if.end10, %if.then7, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+33:                                               ; preds = %29, %24, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %34 = load i32, ptr %2, align 4
+  ret i32 %34
 }
 
 declare i32 @printf(ptr noundef, ...) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @sk_new_null() #1
 
@@ -559,7 +655,8 @@ declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) #1
 
 declare i32 @PKCS7_get_certificates(ptr noundef, ptr noundef) #1
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 declare i32 @CBB_init(ptr noundef, i64 noundef) #1
 
@@ -573,8 +670,11 @@ declare ptr @sk_value(ptr noundef, i64 noundef) #1
 
 declare i32 @X509_cmp(ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind
 declare void @free(ptr noundef) #3
@@ -594,7 +694,7 @@ declare void @X509_CRL_free(ptr noundef) #1
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #4
 
 declare i32 @PKCS7_get_PEM_certificates(ptr noundef, ptr noundef) #1
 
@@ -602,22 +702,41 @@ declare i32 @BIO_free(ptr noundef) #1
 
 declare i32 @PKCS7_get_PEM_CRLs(ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
-!3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"PIE Level", i32 2}
-!5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!3 = !{i32 8, !"PIC Level", i32 1}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !9, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS7x509_st", !8, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS17stack_st_X509_CRL", !8, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS11X509_crl_st", !8, i64 0}
+!25 = distinct !{!25, !20}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS6bio_st", !8, i64 0}
