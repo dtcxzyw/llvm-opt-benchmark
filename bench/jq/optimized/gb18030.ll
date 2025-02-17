@@ -3,22 +3,20 @@ source_filename = "bench/jq/original/gb18030.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.OnigEncodingTypeST = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [8 x i8] c"GB18030\00", align 1
-@OnigEncodingGB18030 = dso_local global %struct.OnigEncodingTypeST { ptr @gb18030_mbc_enc_len, ptr @.str, i32 4, i32 1, ptr @onigenc_is_mbc_newline_0x0a, ptr @gb18030_mbc_to_code, ptr @gb18030_code_to_mbclen, ptr @gb18030_code_to_mbc, ptr @gb18030_mbc_case_fold, ptr @onigenc_ascii_apply_all_case_fold, ptr @onigenc_ascii_get_case_fold_codes_by_str, ptr @onigenc_minimum_property_name_to_ctype, ptr @gb18030_is_code_ctype, ptr @onigenc_not_support_get_ctype_code_range, ptr @gb18030_left_adjust_char_head, ptr @gb18030_is_allowed_reverse_match, ptr null, ptr null, ptr @is_valid_mbc_string, i32 5, i32 0, i32 0 }, align 8
+@OnigEncodingGB18030 = dso_local global { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, [4 x i8] } { ptr @gb18030_mbc_enc_len, ptr @.str, i32 4, i32 1, ptr @onigenc_is_mbc_newline_0x0a, ptr @gb18030_mbc_to_code, ptr @gb18030_code_to_mbclen, ptr @gb18030_code_to_mbc, ptr @gb18030_mbc_case_fold, ptr @onigenc_ascii_apply_all_case_fold, ptr @onigenc_ascii_get_case_fold_codes_by_str, ptr @onigenc_minimum_property_name_to_ctype, ptr @gb18030_is_code_ctype, ptr @onigenc_not_support_get_ctype_code_range, ptr @gb18030_left_adjust_char_head, ptr @gb18030_is_allowed_reverse_match, ptr null, ptr null, ptr @is_valid_mbc_string, i32 5, i32 0, i32 0, [4 x i8] zeroinitializer }, align 8
 @GB18030_MAP = internal unnamed_addr constant [256 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\01\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 1, 5) i32 @gb18030_mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load i8, ptr %0, align 1
+  %2 = load i8, ptr %0, align 1, !tbaa !4
   %3 = add i8 %2, 127
   %.not = icmp ult i8 %3, 126
   br i1 %.not, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %6 = load i8, ptr %5, align 1
+  %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
   %. = select i1 %8, i32 4, i32 2
@@ -56,12 +54,12 @@ define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #
   br i1 %10, label %28, label %27
 
 11:                                               ; preds = %1
-  %.not13 = icmp samesign ult i32 %0, 65536
-  br i1 %.not13, label %12, label %28
+  %.not15 = icmp samesign ult i32 %0, 65536
+  br i1 %.not15, label %12, label %28
 
 12:                                               ; preds = %11
-  %.not14 = icmp samesign ult i32 %0, 256
-  br i1 %.not14, label %25, label %13
+  %.not16 = icmp samesign ult i32 %0, 256
+  br i1 %.not16, label %25, label %13
 
 13:                                               ; preds = %12
   %14 = lshr i32 %0, 8
@@ -73,24 +71,24 @@ define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #
   %18 = and i32 %0, 255
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1
-  %22 = add nsw i32 %18, -129
-  %23 = icmp ult i32 %22, 126
-  %24 = icmp eq i8 %21, 1
-  %or.cond = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond, label %28, label %27
+  %21 = load i8, ptr %20, align 1, !tbaa !4
+  %22 = add nsw i32 %18, -255
+  %23 = icmp ult i32 %22, -126
+  %24 = icmp ne i8 %21, 1
+  %or.cond.not = select i1 %23, i1 %24, i1 false
+  br i1 %or.cond.not, label %27, label %28
 
 25:                                               ; preds = %12
   %26 = add nsw i32 %0, -129
-  %.not15 = icmp ult i32 %26, 126
-  br i1 %.not15, label %27, label %28
+  %.not17 = icmp ult i32 %26, 126
+  br i1 %.not17, label %27, label %28
 
-27:                                               ; preds = %25, %13, %17, %2, %6
+27:                                               ; preds = %17, %25, %13, %2, %6
   br label %28
 
-28:                                               ; preds = %25, %17, %11, %6, %27
-  %.0 = phi i32 [ -400, %27 ], [ 4, %6 ], [ -400, %11 ], [ 2, %17 ], [ 1, %25 ]
-  ret i32 %.0
+28:                                               ; preds = %17, %25, %11, %6, %27
+  %.014 = phi i32 [ -400, %27 ], [ 2, %17 ], [ 4, %6 ], [ -400, %11 ], [ 1, %25 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -154,10 +152,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   ]
 
 3:                                                ; preds = %.lr.ph
-  %4 = load i8, ptr %.07694, align 1
+  %4 = load i8, ptr %.07694, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %5
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 1, !tbaa !4
   switch i8 %7, label %177 [
     i8 0, label %.loopexit
     i8 1, label %8
@@ -175,10 +173,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 11:                                               ; preds = %.lr.ph
-  %12 = load i8, ptr %.07694, align 1
+  %12 = load i8, ptr %.07694, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !4
   switch i8 %15, label %177 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
@@ -190,10 +188,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 17:                                               ; preds = %.lr.ph
-  %18 = load i8, ptr %.07694, align 1
+  %18 = load i8, ptr %.07694, align 1, !tbaa !4
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1
+  %21 = load i8, ptr %20, align 1, !tbaa !4
   switch i8 %21, label %177 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
@@ -205,10 +203,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 23:                                               ; preds = %.lr.ph
-  %24 = load i8, ptr %.07694, align 1
+  %24 = load i8, ptr %.07694, align 1, !tbaa !4
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1
+  %27 = load i8, ptr %26, align 1, !tbaa !4
   switch i8 %27, label %177 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
@@ -223,10 +221,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 30:                                               ; preds = %.lr.ph
-  %31 = load i8, ptr %.07694, align 1
+  %31 = load i8, ptr %.07694, align 1, !tbaa !4
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1
+  %34 = load i8, ptr %33, align 1, !tbaa !4
   switch i8 %34, label %177 [
     i8 0, label %35
     i8 1, label %35
@@ -242,10 +240,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 38:                                               ; preds = %.lr.ph
-  %39 = load i8, ptr %.07694, align 1
+  %39 = load i8, ptr %.07694, align 1, !tbaa !4
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1
+  %42 = load i8, ptr %41, align 1, !tbaa !4
   switch i8 %42, label %177 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
@@ -257,10 +255,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 44:                                               ; preds = %.lr.ph
-  %45 = load i8, ptr %.07694, align 1
+  %45 = load i8, ptr %.07694, align 1, !tbaa !4
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1
+  %48 = load i8, ptr %47, align 1, !tbaa !4
   switch i8 %48, label %177 [
     i8 0, label %49
     i8 1, label %49
@@ -279,10 +277,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 53:                                               ; preds = %.lr.ph
-  %54 = load i8, ptr %.07694, align 1
+  %54 = load i8, ptr %.07694, align 1, !tbaa !4
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %55
-  %57 = load i8, ptr %56, align 1
+  %57 = load i8, ptr %56, align 1, !tbaa !4
   switch i8 %57, label %177 [
     i8 0, label %58
     i8 1, label %58
@@ -301,10 +299,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 62:                                               ; preds = %.lr.ph
-  %63 = load i8, ptr %.07694, align 1
+  %63 = load i8, ptr %.07694, align 1, !tbaa !4
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1
+  %66 = load i8, ptr %65, align 1, !tbaa !4
   switch i8 %66, label %177 [
     i8 0, label %67
     i8 1, label %67
@@ -320,10 +318,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 70:                                               ; preds = %.lr.ph
-  %71 = load i8, ptr %.07694, align 1
+  %71 = load i8, ptr %.07694, align 1, !tbaa !4
   %72 = zext i8 %71 to i64
   %73 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %72
-  %74 = load i8, ptr %73, align 1
+  %74 = load i8, ptr %73, align 1, !tbaa !4
   switch i8 %74, label %177 [
     i8 0, label %75
     i8 1, label %75
@@ -342,10 +340,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 79:                                               ; preds = %.lr.ph
-  %80 = load i8, ptr %.07694, align 1
+  %80 = load i8, ptr %.07694, align 1, !tbaa !4
   %81 = zext i8 %80 to i64
   %82 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1
+  %83 = load i8, ptr %82, align 1, !tbaa !4
   switch i8 %83, label %177 [
     i8 0, label %84
     i8 1, label %84
@@ -361,10 +359,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 87:                                               ; preds = %.lr.ph
-  %88 = load i8, ptr %.07694, align 1
+  %88 = load i8, ptr %.07694, align 1, !tbaa !4
   %89 = zext i8 %88 to i64
   %90 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %89
-  %91 = load i8, ptr %90, align 1
+  %91 = load i8, ptr %90, align 1, !tbaa !4
   switch i8 %91, label %177 [
     i8 0, label %92
     i8 1, label %92
@@ -380,10 +378,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 95:                                               ; preds = %.lr.ph
-  %96 = load i8, ptr %.07694, align 1
+  %96 = load i8, ptr %.07694, align 1, !tbaa !4
   %97 = zext i8 %96 to i64
   %98 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %97
-  %99 = load i8, ptr %98, align 1
+  %99 = load i8, ptr %98, align 1, !tbaa !4
   switch i8 %99, label %177 [
     i8 0, label %100
     i8 1, label %100
@@ -399,10 +397,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 103:                                              ; preds = %.lr.ph
-  %104 = load i8, ptr %.07694, align 1
+  %104 = load i8, ptr %.07694, align 1, !tbaa !4
   %105 = zext i8 %104 to i64
   %106 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %105
-  %107 = load i8, ptr %106, align 1
+  %107 = load i8, ptr %106, align 1, !tbaa !4
   switch i8 %107, label %177 [
     i8 0, label %108
     i8 1, label %108
@@ -418,10 +416,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 111:                                              ; preds = %.lr.ph
-  %112 = load i8, ptr %.07694, align 1
+  %112 = load i8, ptr %.07694, align 1, !tbaa !4
   %113 = zext i8 %112 to i64
   %114 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %113
-  %115 = load i8, ptr %114, align 1
+  %115 = load i8, ptr %114, align 1, !tbaa !4
   switch i8 %115, label %177 [
     i8 0, label %116
     i8 1, label %116
@@ -437,10 +435,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 119:                                              ; preds = %.lr.ph
-  %120 = load i8, ptr %.07694, align 1
+  %120 = load i8, ptr %.07694, align 1, !tbaa !4
   %121 = zext i8 %120 to i64
   %122 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %121
-  %123 = load i8, ptr %122, align 1
+  %123 = load i8, ptr %122, align 1, !tbaa !4
   switch i8 %123, label %177 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
@@ -452,10 +450,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 125:                                              ; preds = %.lr.ph
-  %126 = load i8, ptr %.07694, align 1
+  %126 = load i8, ptr %.07694, align 1, !tbaa !4
   %127 = zext i8 %126 to i64
   %128 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %127
-  %129 = load i8, ptr %128, align 1
+  %129 = load i8, ptr %128, align 1, !tbaa !4
   switch i8 %129, label %177 [
     i8 0, label %130
     i8 1, label %130
@@ -474,10 +472,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 134:                                              ; preds = %.lr.ph
-  %135 = load i8, ptr %.07694, align 1
+  %135 = load i8, ptr %.07694, align 1, !tbaa !4
   %136 = zext i8 %135 to i64
   %137 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %136
-  %138 = load i8, ptr %137, align 1
+  %138 = load i8, ptr %137, align 1, !tbaa !4
   switch i8 %138, label %177 [
     i8 0, label %139
     i8 1, label %139
@@ -493,10 +491,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 142:                                              ; preds = %.lr.ph
-  %143 = load i8, ptr %.07694, align 1
+  %143 = load i8, ptr %.07694, align 1, !tbaa !4
   %144 = zext i8 %143 to i64
   %145 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %144
-  %146 = load i8, ptr %145, align 1
+  %146 = load i8, ptr %145, align 1, !tbaa !4
   switch i8 %146, label %177 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
@@ -511,10 +509,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 149:                                              ; preds = %.lr.ph
-  %150 = load i8, ptr %.07694, align 1
+  %150 = load i8, ptr %.07694, align 1, !tbaa !4
   %151 = zext i8 %150 to i64
   %152 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %151
-  %153 = load i8, ptr %152, align 1
+  %153 = load i8, ptr %152, align 1, !tbaa !4
   switch i8 %153, label %177 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
@@ -526,10 +524,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 155:                                              ; preds = %.lr.ph
-  %156 = load i8, ptr %.07694, align 1
+  %156 = load i8, ptr %.07694, align 1, !tbaa !4
   %157 = zext i8 %156 to i64
   %158 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %157
-  %159 = load i8, ptr %158, align 1
+  %159 = load i8, ptr %158, align 1, !tbaa !4
   switch i8 %159, label %177 [
     i8 0, label %160
     i8 1, label %160
@@ -545,10 +543,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 163:                                              ; preds = %.lr.ph
-  %164 = load i8, ptr %.07694, align 1
+  %164 = load i8, ptr %.07694, align 1, !tbaa !4
   %165 = zext i8 %164 to i64
   %166 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %165
-  %167 = load i8, ptr %166, align 1
+  %167 = load i8, ptr %166, align 1, !tbaa !4
   switch i8 %167, label %177 [
     i8 0, label %168
     i8 1, label %168
@@ -564,10 +562,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %177
 
 171:                                              ; preds = %.lr.ph
-  %172 = load i8, ptr %.07694, align 1
+  %172 = load i8, ptr %.07694, align 1, !tbaa !4
   %173 = zext i8 %172 to i64
   %174 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %173
-  %175 = load i8, ptr %174, align 1
+  %175 = load i8, ptr %174, align 1, !tbaa !4
   switch i8 %175, label %177 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
@@ -582,7 +580,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   %.1 = phi i32 [ %.095, %.lr.ph ], [ 22, %171 ], [ 21, %176 ], [ 21, %163 ], [ 22, %170 ], [ 20, %155 ], [ 19, %162 ], [ 19, %149 ], [ 20, %154 ], [ 18, %142 ], [ 21, %148 ], [ 15, %147 ], [ 17, %134 ], [ 18, %141 ], [ 16, %125 ], [ 19, %133 ], [ 17, %132 ], [ 15, %119 ], [ 16, %124 ], [ 14, %111 ], [ 13, %118 ], [ 13, %103 ], [ 14, %110 ], [ 12, %95 ], [ 11, %102 ], [ 11, %87 ], [ 12, %94 ], [ 10, %79 ], [ 7, %86 ], [ 9, %70 ], [ 13, %78 ], [ 10, %77 ], [ 8, %62 ], [ 9, %69 ], [ 7, %53 ], [ 11, %61 ], [ 8, %60 ], [ 6, %44 ], [ 5, %52 ], [ 8, %51 ], [ 5, %38 ], [ 4, %43 ], [ 4, %30 ], [ 5, %37 ], [ 3, %23 ], [ 4, %29 ], [ 15, %28 ], [ 2, %17 ], [ 6, %22 ], [ 1, %11 ], [ 4, %16 ], [ 0, %3 ], [ 3, %10 ], [ 2, %9 ], [ 1, %8 ]
   %178 = getelementptr inbounds i8, ptr %.07694, i64 -1
   %.not = icmp ult ptr %178, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %177
   switch i32 %.1, label %.loopexit [
@@ -665,10 +663,10 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @gb18030_is_allowed_reverse_match(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = load i8, ptr %0, align 1
+  %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %4
-  %6 = load i8, ptr %5, align 1
+  %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = icmp eq i8 %6, 0
   %8 = zext i1 %7 to i32
   ret i32 %8
@@ -681,7 +679,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %2, %25
   %.02639 = phi ptr [ %26, %25 ], [ %0, %2 ]
-  %4 = load i8, ptr %.02639, align 1
+  %4 = load i8, ptr %.02639, align 1, !tbaa !4
   %5 = icmp sgt i8 %4, -1
   br i1 %5, label %25, label %6
 
@@ -697,7 +695,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %.not, label %9, label %._crit_edge
 
 9:                                                ; preds = %7
-  %10 = load i8, ptr %8, align 1
+  %10 = load i8, ptr %8, align 1, !tbaa !4
   %11 = icmp ult i8 %10, 64
   br i1 %11, label %12, label %24
 
@@ -712,7 +710,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %.not35, label %16, label %._crit_edge
 
 16:                                               ; preds = %14
-  %17 = load i8, ptr %15, align 1
+  %17 = load i8, ptr %15, align 1, !tbaa !4
   %18 = add i8 %17, 1
   %or.cond37 = icmp ult i8 %18, -126
   br i1 %or.cond37, label %._crit_edge, label %19
@@ -723,7 +721,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %.not36, label %21, label %._crit_edge
 
 21:                                               ; preds = %19
-  %22 = load i8, ptr %20, align 1
+  %22 = load i8, ptr %20, align 1, !tbaa !4
   %23 = add i8 %22, -58
   %or.cond38 = icmp ult i8 %23, -10
   br i1 %or.cond38, label %._crit_edge, label %25
@@ -738,7 +736,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %.sink = phi i64 [ 1, %.lr.ph ], [ 4, %21 ], [ 2, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %.02639, i64 %.sink
   %27 = icmp ult ptr %26, %1
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %6, %6, %7, %12, %14, %16, %19, %21, %24, %24, %25, %2
   %.0 = phi i32 [ 1, %2 ], [ 1, %25 ], [ 0, %24 ], [ 0, %24 ], [ 0, %21 ], [ 0, %19 ], [ 0, %16 ], [ 0, %14 ], [ 0, %12 ], [ 0, %7 ], [ 0, %6 ], [ 0, %6 ]
@@ -753,20 +751,22 @@ declare i32 @onigenc_mbn_mbc_case_fold(ptr noundef, i32 noundef, ptr noundef, pt
 
 declare i32 @onigenc_mb4_is_code_ctype(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

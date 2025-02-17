@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define dso_local ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -22,212 +22,234 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nou
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !9
+  store i32 %3, ptr %8, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   %14 = call ptr @jv_mem_alloc(i64 noundef 72)
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds %struct.locfile, ptr %16, i32 0, i32 6
-  store ptr %15, ptr %17, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds %struct.locfile, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %9, align 8, !tbaa !13
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = load ptr, ptr %9, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw %struct.locfile, ptr %16, i32 0, i32 6
+  store ptr %15, ptr %17, align 8, !tbaa !15
+  %18 = load ptr, ptr %9, align 8, !tbaa !13
+  %19 = getelementptr inbounds nuw %struct.locfile, ptr %18, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #5
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
   %21 = call { i64, ptr } @jv_string(ptr noundef %20)
-  %22 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
+  %22 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
   %23 = extractvalue { i64, ptr } %21, 0
   store i64 %23, ptr %22, align 8
-  %24 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
+  %24 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
   %25 = extractvalue { i64, ptr } %21, 1
   store ptr %25, ptr %24, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %10, i64 16, i1 false)
-  %26 = load i32, ptr %8, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #5
+  %26 = load i32, ptr %8, align 4, !tbaa !11
   %27 = sext i32 %26 to i64
   %28 = call ptr @jv_mem_alloc(i64 noundef %27)
-  %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.locfile, ptr %29, i32 0, i32 1
-  store ptr %28, ptr %30, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %struct.locfile, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = load i32, ptr %8, align 4
+  %29 = load ptr, ptr %9, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.locfile, ptr %29, i32 0, i32 1
+  store ptr %28, ptr %30, align 8, !tbaa !23
+  %31 = load ptr, ptr %9, align 8, !tbaa !13
+  %32 = getelementptr inbounds nuw %struct.locfile, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !23
+  %34 = load ptr, ptr %7, align 8, !tbaa !9
+  %35 = load i32, ptr %8, align 4, !tbaa !11
   %36 = sext i32 %35 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %36, i1 false)
-  %37 = load i32, ptr %8, align 4
-  %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds %struct.locfile, ptr %38, i32 0, i32 2
-  store i32 %37, ptr %39, align 8
-  %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct.locfile, ptr %40, i32 0, i32 4
-  store i32 1, ptr %41, align 8
-  %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds %struct.locfile, ptr %42, i32 0, i32 7
-  store i32 1, ptr %43, align 8
-  store i32 0, ptr %11, align 4
+  %37 = load i32, ptr %8, align 4, !tbaa !11
+  %38 = load ptr, ptr %9, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.locfile, ptr %38, i32 0, i32 2
+  store i32 %37, ptr %39, align 8, !tbaa !24
+  %40 = load ptr, ptr %9, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw %struct.locfile, ptr %40, i32 0, i32 4
+  store i32 1, ptr %41, align 8, !tbaa !25
+  %42 = load ptr, ptr %9, align 8, !tbaa !13
+  %43 = getelementptr inbounds nuw %struct.locfile, ptr %42, i32 0, i32 7
+  store i32 1, ptr %43, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 0, ptr %11, align 4, !tbaa !11
   br label %44
 
-44:                                               ; preds = %62, %4
-  %45 = load i32, ptr %11, align 4
-  %46 = load i32, ptr %8, align 4
+44:                                               ; preds = %63, %4
+  %45 = load i32, ptr %11, align 4, !tbaa !11
+  %46 = load i32, ptr %8, align 4, !tbaa !11
   %47 = icmp slt i32 %45, %46
-  br i1 %47, label %48, label %65
+  br i1 %47, label %49, label %48
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr %7, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %49, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = sext i8 %53 to i32
-  %55 = icmp eq i32 %54, 10
-  br i1 %55, label %56, label %61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  br label %66
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds %struct.locfile, ptr %57, i32 0, i32 4
-  %59 = load i32, ptr %58, align 8
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %58, align 8
-  br label %61
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %7, align 8, !tbaa !9
+  %51 = load i32, ptr %11, align 4, !tbaa !11
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %50, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !21
+  %55 = sext i8 %54 to i32
+  %56 = icmp eq i32 %55, 10
+  br i1 %56, label %57, label %62
 
-61:                                               ; preds = %56, %48
+57:                                               ; preds = %49
+  %58 = load ptr, ptr %9, align 8, !tbaa !13
+  %59 = getelementptr inbounds nuw %struct.locfile, ptr %58, i32 0, i32 4
+  %60 = load i32, ptr %59, align 8, !tbaa !25
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 8, !tbaa !25
   br label %62
 
-62:                                               ; preds = %61
-  %63 = load i32, ptr %11, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %11, align 4
-  br label %44, !llvm.loop !4
+62:                                               ; preds = %57, %49
+  br label %63
 
-65:                                               ; preds = %44
-  %66 = load ptr, ptr %9, align 8
-  %67 = getelementptr inbounds %struct.locfile, ptr %66, i32 0, i32 4
-  %68 = load i32, ptr %67, align 8
-  %69 = add nsw i32 %68, 1
-  %70 = sext i32 %69 to i64
-  %71 = call ptr @jv_mem_calloc(i64 noundef %70, i64 noundef 4)
-  %72 = load ptr, ptr %9, align 8
-  %73 = getelementptr inbounds %struct.locfile, ptr %72, i32 0, i32 3
-  store ptr %71, ptr %73, align 8
-  %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds %struct.locfile, ptr %74, i32 0, i32 3
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i32, ptr %76, i64 0
-  store i32 0, ptr %77, align 4
-  store i32 1, ptr %12, align 4
-  store i32 0, ptr %13, align 4
-  br label %78
+63:                                               ; preds = %62
+  %64 = load i32, ptr %11, align 4, !tbaa !11
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %11, align 4, !tbaa !11
+  br label %44, !llvm.loop !27
 
-78:                                               ; preds = %102, %65
-  %79 = load i32, ptr %13, align 4
-  %80 = load i32, ptr %8, align 4
-  %81 = icmp slt i32 %79, %80
-  br i1 %81, label %82, label %105
+66:                                               ; preds = %48
+  %67 = load ptr, ptr %9, align 8, !tbaa !13
+  %68 = getelementptr inbounds nuw %struct.locfile, ptr %67, i32 0, i32 4
+  %69 = load i32, ptr %68, align 8, !tbaa !25
+  %70 = add nsw i32 %69, 1
+  %71 = sext i32 %70 to i64
+  %72 = call ptr @jv_mem_calloc(i64 noundef %71, i64 noundef 4)
+  %73 = load ptr, ptr %9, align 8, !tbaa !13
+  %74 = getelementptr inbounds nuw %struct.locfile, ptr %73, i32 0, i32 3
+  store ptr %72, ptr %74, align 8, !tbaa !29
+  %75 = load ptr, ptr %9, align 8, !tbaa !13
+  %76 = getelementptr inbounds nuw %struct.locfile, ptr %75, i32 0, i32 3
+  %77 = load ptr, ptr %76, align 8, !tbaa !29
+  %78 = getelementptr inbounds i32, ptr %77, i64 0
+  store i32 0, ptr %78, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  store i32 1, ptr %12, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  store i32 0, ptr %13, align 4, !tbaa !11
+  br label %79
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr %13, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %83, i64 %85
-  %87 = load i8, ptr %86, align 1
-  %88 = sext i8 %87 to i32
-  %89 = icmp eq i32 %88, 10
-  br i1 %89, label %90, label %101
+79:                                               ; preds = %104, %66
+  %80 = load i32, ptr %13, align 4, !tbaa !11
+  %81 = load i32, ptr %8, align 4, !tbaa !11
+  %82 = icmp slt i32 %80, %81
+  br i1 %82, label %84, label %83
 
-90:                                               ; preds = %82
-  %91 = load i32, ptr %13, align 4
-  %92 = add nsw i32 %91, 1
-  %93 = load ptr, ptr %9, align 8
-  %94 = getelementptr inbounds %struct.locfile, ptr %93, i32 0, i32 3
-  %95 = load ptr, ptr %94, align 8
-  %96 = load i32, ptr %12, align 4
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %95, i64 %97
-  store i32 %92, ptr %98, align 4
-  %99 = load i32, ptr %12, align 4
-  %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %12, align 4
-  br label %101
+83:                                               ; preds = %79
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  br label %107
 
-101:                                              ; preds = %90, %82
-  br label %102
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %7, align 8, !tbaa !9
+  %86 = load i32, ptr %13, align 4, !tbaa !11
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i8, ptr %85, i64 %87
+  %89 = load i8, ptr %88, align 1, !tbaa !21
+  %90 = sext i8 %89 to i32
+  %91 = icmp eq i32 %90, 10
+  br i1 %91, label %92, label %103
 
-102:                                              ; preds = %101
-  %103 = load i32, ptr %13, align 4
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %13, align 4
-  br label %78, !llvm.loop !6
+92:                                               ; preds = %84
+  %93 = load i32, ptr %13, align 4, !tbaa !11
+  %94 = add nsw i32 %93, 1
+  %95 = load ptr, ptr %9, align 8, !tbaa !13
+  %96 = getelementptr inbounds nuw %struct.locfile, ptr %95, i32 0, i32 3
+  %97 = load ptr, ptr %96, align 8, !tbaa !29
+  %98 = load i32, ptr %12, align 4, !tbaa !11
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i32, ptr %97, i64 %99
+  store i32 %94, ptr %100, align 4, !tbaa !11
+  %101 = load i32, ptr %12, align 4, !tbaa !11
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %12, align 4, !tbaa !11
+  br label %103
 
-105:                                              ; preds = %78
-  %106 = load i32, ptr %8, align 4
-  %107 = add nsw i32 %106, 1
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct.locfile, ptr %108, i32 0, i32 3
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %9, align 8
-  %112 = getelementptr inbounds %struct.locfile, ptr %111, i32 0, i32 4
-  %113 = load i32, ptr %112, align 8
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i32, ptr %110, i64 %114
-  store i32 %107, ptr %115, align 4
-  %116 = load ptr, ptr %9, align 8
-  ret ptr %116
+103:                                              ; preds = %92, %84
+  br label %104
+
+104:                                              ; preds = %103
+  %105 = load i32, ptr %13, align 4, !tbaa !11
+  %106 = add nsw i32 %105, 1
+  store i32 %106, ptr %13, align 4, !tbaa !11
+  br label %79, !llvm.loop !30
+
+107:                                              ; preds = %83
+  %108 = load i32, ptr %8, align 4, !tbaa !11
+  %109 = add nsw i32 %108, 1
+  %110 = load ptr, ptr %9, align 8, !tbaa !13
+  %111 = getelementptr inbounds nuw %struct.locfile, ptr %110, i32 0, i32 3
+  %112 = load ptr, ptr %111, align 8, !tbaa !29
+  %113 = load ptr, ptr %9, align 8, !tbaa !13
+  %114 = getelementptr inbounds nuw %struct.locfile, ptr %113, i32 0, i32 4
+  %115 = load i32, ptr %114, align 8, !tbaa !25
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i32, ptr %112, i64 %116
+  store i32 %109, ptr %117, align 4, !tbaa !11
+  %118 = load ptr, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  ret ptr %118
 }
 
-declare ptr @jv_mem_alloc(i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare { i64, ptr } @jv_string(ptr noundef) #1
+declare ptr @jv_mem_alloc(i64 noundef) #2
+
+declare { i64, ptr } @jv_string(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @locfile_retain(ptr noundef %0) #0 {
+define dso_local ptr @locfile_retain(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.locfile, ptr %3, i32 0, i32 7
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = getelementptr inbounds nuw %struct.locfile, ptr %3, i32 0, i32 7
+  %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 8
-  %7 = load ptr, ptr %2, align 8
+  store i32 %6, ptr %4, align 8, !tbaa !26
+  %7 = load ptr, ptr %2, align 8, !tbaa !13
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @locfile_free(ptr noundef %0) #0 {
+define dso_local void @locfile_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.locfile, ptr %3, i32 0, i32 7
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = getelementptr inbounds nuw %struct.locfile, ptr %3, i32 0, i32 7
+  %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = add nsw i32 %5, -1
-  store i32 %6, ptr %4, align 8
+  store i32 %6, ptr %4, align 8, !tbaa !26
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.locfile, ptr %9, i32 0, i32 0
-  %11 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
+  %9 = load ptr, ptr %2, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %struct.locfile, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
+  %13 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   call void @jv_free(i64 %12, ptr %14)
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.locfile, ptr %15, i32 0, i32 3
-  %17 = load ptr, ptr %16, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw %struct.locfile, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
   call void @jv_mem_free(ptr noundef %17)
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.locfile, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
+  %18 = load ptr, ptr %2, align 8, !tbaa !13
+  %19 = getelementptr inbounds nuw %struct.locfile, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !23
   call void @jv_mem_free(ptr noundef %20)
-  %21 = load ptr, ptr %2, align 8
+  %21 = load ptr, ptr %2, align 8, !tbaa !13
   call void @jv_mem_free(ptr noundef %21)
   br label %22
 
@@ -235,46 +257,48 @@ define void @locfile_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @jv_free(i64, ptr) #1
+declare void @jv_free(i64, ptr) #2
 
-declare void @jv_mem_free(ptr noundef) #1
+declare void @jv_mem_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @locfile_get_line(ptr noundef %0, i32 noundef %1) #0 {
+define dso_local i32 @locfile_get_line(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  store i32 1, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  store i32 1, ptr %5, align 4, !tbaa !11
   br label %6
 
 6:                                                ; preds = %16, %2
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.locfile, ptr %7, i32 0, i32 3
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i32, ptr %5, align 4
+  %7 = load ptr, ptr %3, align 8, !tbaa !13
+  %8 = getelementptr inbounds nuw %struct.locfile, ptr %7, i32 0, i32 3
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %10 = load i32, ptr %5, align 4, !tbaa !11
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %9, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = load i32, ptr %4, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !11
+  %14 = load i32, ptr %4, align 4, !tbaa !11
   %15 = icmp sle i32 %13, %14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %6
-  %17 = load i32, ptr %5, align 4
+  %17 = load i32, ptr %5, align 4, !tbaa !11
   %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %5, align 4
-  br label %6, !llvm.loop !7
+  store i32 %18, ptr %5, align 4, !tbaa !11
+  br label %6, !llvm.loop !31
 
 19:                                               ; preds = %6
-  %20 = load i32, ptr %5, align 4
+  %20 = load i32, ptr %5, align 4, !tbaa !11
   %21 = sub nsw i32 %20, 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define void @locfile_locate(ptr noundef %0, i64 %1, ptr noundef %2, ...) #0 {
+define dso_local void @locfile_locate(ptr noundef %0, i64 %1, ptr noundef %2, ...) #0 {
   %4 = alloca %struct.location, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -282,171 +306,185 @@ define void @locfile_locate(ptr noundef %0, i64 %1, ptr noundef %2, ...) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %struct.jv, align 8
-  %11 = alloca %struct.jv, align 8
+  %11 = alloca i32, align 4
   %12 = alloca %struct.jv, align 8
+  %13 = alloca %struct.jv, align 8
   store i64 %1, ptr %4, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %13)
-  %14 = getelementptr inbounds %struct.location, ptr %4, i32 0, i32 0
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp ne i32 %15, -1
-  br i1 %16, label %17, label %29
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #5
+  %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %14)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %15 = getelementptr inbounds nuw %struct.location, ptr %4, i32 0, i32 0
+  %16 = load i32, ptr %15, align 4, !tbaa !32
+  %17 = icmp ne i32 %16, -1
+  br i1 %17, label %18, label %30
 
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.location, ptr %4, i32 0, i32 0
-  %20 = load i32, ptr %19, align 4
-  %21 = call i32 @locfile_get_line(ptr noundef %18, i32 noundef %20)
-  store i32 %21, ptr %8, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.locfile, ptr %22, i32 0, i32 3
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %8, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %9, align 4
-  br label %29
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %5, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw %struct.location, ptr %4, i32 0, i32 0
+  %21 = load i32, ptr %20, align 4, !tbaa !32
+  %22 = call i32 @locfile_get_line(ptr noundef %19, i32 noundef %21)
+  store i32 %22, ptr %8, align 4, !tbaa !11
+  %23 = load ptr, ptr %5, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw %struct.locfile, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %26 = load i32, ptr %8, align 4, !tbaa !11
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %25, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !11
+  store i32 %29, ptr %9, align 4, !tbaa !11
+  br label %30
 
-29:                                               ; preds = %17, %3
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  %32 = call { i64, ptr } @jv_string_vfmt(ptr noundef %30, ptr noundef %31)
-  %33 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %34 = extractvalue { i64, ptr } %32, 0
-  store i64 %34, ptr %33, align 8
-  %35 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %36 = extractvalue { i64, ptr } %32, 1
-  store ptr %36, ptr %35, align 8
-  %37 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %37)
-  %38 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = call i32 @jv_is_valid(i64 %39, ptr %41)
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %52, label %44
+30:                                               ; preds = %18, %3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #5
+  %31 = load ptr, ptr %6, align 8, !tbaa !9
+  %32 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  %33 = call { i64, ptr } @jv_string_vfmt(ptr noundef %31, ptr noundef %32)
+  %34 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %35 = extractvalue { i64, ptr } %33, 0
+  store i64 %35, ptr %34, align 8
+  %36 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %37 = extractvalue { i64, ptr } %33, 1
+  store ptr %37, ptr %36, align 8
+  %38 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %38)
+  %39 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 @jv_is_valid(i64 %40, ptr %42)
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %53, label %45
 
-44:                                               ; preds = %29
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.locfile, ptr %45, i32 0, i32 6
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  call void @jq_report_error(ptr noundef %47, i64 %49, ptr %51)
-  br label %122
+45:                                               ; preds = %30
+  %46 = load ptr, ptr %5, align 8, !tbaa !13
+  %47 = getelementptr inbounds nuw %struct.locfile, ptr %46, i32 0, i32 6
+  %48 = load ptr, ptr %47, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  call void @jq_report_error(ptr noundef %48, i64 %50, ptr %52)
+  store i32 1, ptr %11, align 4
+  br label %123
 
-52:                                               ; preds = %29
-  %53 = getelementptr inbounds %struct.location, ptr %4, i32 0, i32 0
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %56, label %78
+53:                                               ; preds = %30
+  %54 = getelementptr inbounds nuw %struct.location, ptr %4, i32 0, i32 0
+  %55 = load i32, ptr %54, align 4, !tbaa !32
+  %56 = icmp eq i32 %55, -1
+  br i1 %56, label %57, label %79
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.locfile, ptr %57, i32 0, i32 6
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = call ptr @jv_string_value(i64 %61, ptr %63)
-  %65 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str, ptr noundef %64)
-  %66 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %67 = extractvalue { i64, ptr } %65, 0
-  store i64 %67, ptr %66, align 8
-  %68 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %69 = extractvalue { i64, ptr } %65, 1
-  store ptr %69, ptr %68, align 8
-  %70 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %73 = load ptr, ptr %72, align 8
-  call void @jq_report_error(ptr noundef %59, i64 %71, ptr %73)
-  %74 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  call void @jv_free(i64 %75, ptr %77)
-  br label %122
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %5, align 8, !tbaa !13
+  %59 = getelementptr inbounds nuw %struct.locfile, ptr %58, i32 0, i32 6
+  %60 = load ptr, ptr %59, align 8, !tbaa !15
+  %61 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = call ptr @jv_string_value(i64 %62, ptr %64)
+  %66 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str, ptr noundef %65)
+  %67 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 0
+  %68 = extractvalue { i64, ptr } %66, 0
+  store i64 %68, ptr %67, align 8
+  %69 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 1
+  %70 = extractvalue { i64, ptr } %66, 1
+  store ptr %70, ptr %69, align 8
+  %71 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 0
+  %72 = load i64, ptr %71, align 8
+  %73 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  call void @jq_report_error(ptr noundef %60, i64 %72, ptr %74)
+  %75 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8
+  call void @jv_free(i64 %76, ptr %78)
+  store i32 1, ptr %11, align 4
+  br label %123
 
-78:                                               ; preds = %52
-  %79 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  %83 = call ptr @jv_string_value(i64 %80, ptr %82)
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct.locfile, ptr %84, i32 0, i32 0
-  %86 = getelementptr inbounds { i64, ptr }, ptr %85, i32 0, i32 0
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds { i64, ptr }, ptr %85, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = call ptr @jv_string_value(i64 %87, ptr %89)
-  %91 = load i32, ptr %8, align 4
-  %92 = add nsw i32 %91, 1
-  %93 = load ptr, ptr %5, align 8
-  %94 = load i32, ptr %8, align 4
-  %95 = call i32 @locfile_line_length(ptr noundef %93, i32 noundef %94)
-  %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds %struct.locfile, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = load i32, ptr %9, align 4
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %98, i64 %100
-  %102 = getelementptr inbounds %struct.location, ptr %4, i32 0, i32 0
-  %103 = load i32, ptr %102, align 4
-  %104 = load i32, ptr %9, align 4
-  %105 = sub nsw i32 %103, %104
-  %106 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str.1, ptr noundef %83, ptr noundef %90, i32 noundef %92, i32 noundef %95, ptr noundef %101, i32 noundef %105, ptr noundef @.str.2)
-  %107 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 0
-  %108 = extractvalue { i64, ptr } %106, 0
-  store i64 %108, ptr %107, align 8
-  %109 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 1
-  %110 = extractvalue { i64, ptr } %106, 1
-  store ptr %110, ptr %109, align 8
-  %111 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %112 = load i64, ptr %111, align 8
-  %113 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %114 = load ptr, ptr %113, align 8
-  call void @jv_free(i64 %112, ptr %114)
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct.locfile, ptr %115, i32 0, i32 6
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 0
-  %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 1
-  %121 = load ptr, ptr %120, align 8
-  call void @jq_report_error(ptr noundef %117, i64 %119, ptr %121)
-  br label %122
+79:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #5
+  %80 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %81 = load i64, ptr %80, align 8
+  %82 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  %84 = call ptr @jv_string_value(i64 %81, ptr %83)
+  %85 = load ptr, ptr %5, align 8, !tbaa !13
+  %86 = getelementptr inbounds nuw %struct.locfile, ptr %85, i32 0, i32 0
+  %87 = getelementptr inbounds nuw { i64, ptr }, ptr %86, i32 0, i32 0
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds nuw { i64, ptr }, ptr %86, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  %91 = call ptr @jv_string_value(i64 %88, ptr %90)
+  %92 = load i32, ptr %8, align 4, !tbaa !11
+  %93 = add nsw i32 %92, 1
+  %94 = load ptr, ptr %5, align 8, !tbaa !13
+  %95 = load i32, ptr %8, align 4, !tbaa !11
+  %96 = call i32 @locfile_line_length(ptr noundef %94, i32 noundef %95)
+  %97 = load ptr, ptr %5, align 8, !tbaa !13
+  %98 = getelementptr inbounds nuw %struct.locfile, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8, !tbaa !23
+  %100 = load i32, ptr %9, align 4, !tbaa !11
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr %99, i64 %101
+  %103 = getelementptr inbounds nuw %struct.location, ptr %4, i32 0, i32 0
+  %104 = load i32, ptr %103, align 4, !tbaa !32
+  %105 = load i32, ptr %9, align 4, !tbaa !11
+  %106 = sub nsw i32 %104, %105
+  %107 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str.1, ptr noundef %84, ptr noundef %91, i32 noundef %93, i32 noundef %96, ptr noundef %102, i32 noundef %106, ptr noundef @.str.2)
+  %108 = getelementptr inbounds nuw { i64, ptr }, ptr %13, i32 0, i32 0
+  %109 = extractvalue { i64, ptr } %107, 0
+  store i64 %109, ptr %108, align 8
+  %110 = getelementptr inbounds nuw { i64, ptr }, ptr %13, i32 0, i32 1
+  %111 = extractvalue { i64, ptr } %107, 1
+  store ptr %111, ptr %110, align 8
+  %112 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %113 = load i64, ptr %112, align 8
+  %114 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8
+  call void @jv_free(i64 %113, ptr %115)
+  %116 = load ptr, ptr %5, align 8, !tbaa !13
+  %117 = getelementptr inbounds nuw %struct.locfile, ptr %116, i32 0, i32 6
+  %118 = load ptr, ptr %117, align 8, !tbaa !15
+  %119 = getelementptr inbounds nuw { i64, ptr }, ptr %13, i32 0, i32 0
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds nuw { i64, ptr }, ptr %13, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8
+  call void @jq_report_error(ptr noundef %118, i64 %120, ptr %122)
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #5
+  br label %123
 
-122:                                              ; preds = %78, %56, %44
+123:                                              ; preds = %79, %57, %45
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #5
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
+declare void @llvm.va_start.p0(ptr) #4
 
-declare { i64, ptr } @jv_string_vfmt(ptr noundef, ptr noundef) #1
+declare { i64, ptr } @jv_string_vfmt(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @jv_is_valid(i64 %0, ptr %1) #0 {
   %3 = alloca %struct.jv, align 8
-  %4 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 0
   store i64 %0, ptr %4, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 1
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 0
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 1
+  %8 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @jv_get_kind(i64 %7, ptr %9)
   %11 = icmp ne i32 %10, 0
@@ -454,52 +492,80 @@ define internal i32 @jv_is_valid(i64 %0, ptr %1) #0 {
   ret i32 %12
 }
 
-declare void @jq_report_error(ptr noundef, i64, ptr) #1
+declare void @jq_report_error(ptr noundef, i64, ptr) #2
 
-declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) #1
+declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) #2
 
-declare ptr @jv_string_value(i64, ptr) #1
+declare ptr @jv_string_value(i64, ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @locfile_line_length(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.locfile, ptr %5, i32 0, i32 3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !13
+  %6 = getelementptr inbounds nuw %struct.locfile, ptr %5, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %8 = load i32, ptr %4, align 4, !tbaa !11
   %9 = add nsw i32 %8, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %7, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.locfile, ptr %13, i32 0, i32 3
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %4, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !11
+  %13 = load ptr, ptr %3, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw %struct.locfile, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
+  %16 = load i32, ptr %4, align 4, !tbaa !11
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %15, i64 %17
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 4, !tbaa !11
   %20 = sub nsw i32 %12, %19
   %21 = sub nsw i32 %20, 1
   ret i32 %21
 }
 
-declare i32 @jv_get_kind(i64, ptr) #1
+declare i32 @jv_get_kind(i64, ptr) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8jq_state", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS7locfile", !6, i64 0}
+!15 = !{!16, !5, i64 56}
+!16 = !{!"locfile", !17, i64 0, !10, i64 16, !12, i64 24, !19, i64 32, !12, i64 40, !10, i64 48, !5, i64 56, !12, i64 64}
+!17 = !{!"", !7, i64 0, !7, i64 1, !18, i64 2, !12, i64 4, !7, i64 8}
+!18 = !{!"short", !7, i64 0}
+!19 = !{!"p1 int", !6, i64 0}
+!20 = !{i64 0, i64 1, !21, i64 1, i64 1, !21, i64 2, i64 2, !22, i64 4, i64 4, !11, i64 8, i64 8, !21}
+!21 = !{!7, !7, i64 0}
+!22 = !{!18, !18, i64 0}
+!23 = !{!16, !10, i64 16}
+!24 = !{!16, !12, i64 24}
+!25 = !{!16, !12, i64 40}
+!26 = !{!16, !12, i64 64}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!16, !19, i64 32}
+!30 = distinct !{!30, !28}
+!31 = distinct !{!31, !28}
+!32 = !{!33, !12, i64 0}
+!33 = !{!"", !12, i64 0, !12, i64 4}

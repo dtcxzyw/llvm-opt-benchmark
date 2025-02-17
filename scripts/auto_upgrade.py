@@ -23,6 +23,7 @@ supported_project = [
     "hdf5",
     "hwloc",
     "jemalloc",
+    "jq",
 ]
 
 modify_only = [

@@ -197,40 +197,40 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.169 = private unnamed_addr constant [9 x i8] c"Deleting\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @yyerror(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define dso_local void @yyerror(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
-  %13 = load ptr, ptr %9, align 8
-  %14 = load i32, ptr %13, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !4
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !10
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !14
+  store ptr %5, ptr %12, align 8, !tbaa !16
+  %13 = load ptr, ptr %9, align 8, !tbaa !10
+  %14 = load i32, ptr %13, align 4, !tbaa !18
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %13, align 4
-  %16 = load ptr, ptr %12, align 8
-  %17 = call ptr @strstr(ptr noundef %16, ptr noundef @.str) #5
+  store i32 %15, ptr %13, align 4, !tbaa !18
+  %16 = load ptr, ptr %12, align 8, !tbaa !16
+  %17 = call ptr @strstr(ptr noundef %16, ptr noundef @.str) #7
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %6
-  %20 = load ptr, ptr %10, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = load ptr, ptr %12, align 8
+  %20 = load ptr, ptr %10, align 8, !tbaa !12
+  %21 = load ptr, ptr %7, align 8, !tbaa !4
+  %22 = load ptr, ptr %12, align 8, !tbaa !16
   %23 = load i64, ptr %21, align 4
   call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %20, i64 %23, ptr noundef @.str.1, ptr noundef %22)
   br label %29
 
 24:                                               ; preds = %6
-  %25 = load ptr, ptr %10, align 8
-  %26 = load ptr, ptr %7, align 8
-  %27 = load ptr, ptr %12, align 8
+  %25 = load ptr, ptr %10, align 8, !tbaa !12
+  %26 = load ptr, ptr %7, align 8, !tbaa !4
+  %27 = load ptr, ptr %12, align 8, !tbaa !16
   %28 = load i64, ptr %26, align 4
   call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %25, i64 %28, ptr noundef @.str.2, ptr noundef %27)
   br label %29
@@ -245,7 +245,7 @@ declare ptr @strstr(ptr noundef, ptr noundef) #1
 declare void @locfile_locate(ptr noundef, i64, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define dso_local i32 @yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -259,149 +259,170 @@ define i32 @yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3
   %17 = alloca %struct.location, align 4
   %18 = alloca %struct.location, align 4
   %19 = alloca %struct.jv, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
-  %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds %struct.lexer_param, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %13, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load ptr, ptr %13, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !20
+  store ptr %1, ptr %8, align 8, !tbaa !4
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !10
+  store ptr %4, ptr %11, align 8, !tbaa !12
+  store ptr %5, ptr %12, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %20 = load ptr, ptr %12, align 8, !tbaa !14
+  %21 = getelementptr inbounds nuw %struct.lexer_param, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  store ptr %22, ptr %13, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %23 = load ptr, ptr %7, align 8, !tbaa !20
+  %24 = load ptr, ptr %8, align 8, !tbaa !4
+  %25 = load ptr, ptr %13, align 8, !tbaa !4
   %26 = call i32 @jq_yylex(ptr noundef %23, ptr noundef %24, ptr noundef %25)
-  store i32 %26, ptr %14, align 4
-  %27 = load i32, ptr %14, align 4
+  store i32 %26, ptr %14, align 4, !tbaa !18
+  %27 = load i32, ptr %14, align 4, !tbaa !18
   %28 = icmp eq i32 %27, 262
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %6
-  %30 = load i32, ptr %14, align 4
+  %30 = load i32, ptr %14, align 4, !tbaa !18
   %31 = icmp eq i32 %30, 298
-  br i1 %31, label %32, label %103
+  br i1 %31, label %32, label %105
 
 32:                                               ; preds = %29, %6
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds { i64, ptr }, ptr %33, i32 0, i32 0
+  %33 = load ptr, ptr %7, align 8, !tbaa !20
+  %34 = getelementptr inbounds nuw { i64, ptr }, ptr %33, i32 0, i32 0
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds { i64, ptr }, ptr %33, i32 0, i32 1
+  %36 = getelementptr inbounds nuw { i64, ptr }, ptr %33, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @jv_is_valid(i64 %35, ptr %37)
   %39 = icmp ne i32 %38, 0
-  br i1 %39, label %103, label %40
+  br i1 %39, label %105, label %40
 
 40:                                               ; preds = %32
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds { i64, ptr }, ptr %41, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #8
+  %41 = load ptr, ptr %7, align 8, !tbaa !20
+  %42 = getelementptr inbounds nuw { i64, ptr }, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds { i64, ptr }, ptr %41, i32 0, i32 1
+  %44 = getelementptr inbounds nuw { i64, ptr }, ptr %41, i32 0, i32 1
   %45 = load ptr, ptr %44, align 8
   %46 = call { i64, ptr } @jv_copy(i64 %43, ptr %45)
-  %47 = getelementptr inbounds { i64, ptr }, ptr %16, i32 0, i32 0
+  %47 = getelementptr inbounds nuw { i64, ptr }, ptr %16, i32 0, i32 0
   %48 = extractvalue { i64, ptr } %46, 0
   store i64 %48, ptr %47, align 8
-  %49 = getelementptr inbounds { i64, ptr }, ptr %16, i32 0, i32 1
+  %49 = getelementptr inbounds nuw { i64, ptr }, ptr %16, i32 0, i32 1
   %50 = extractvalue { i64, ptr } %46, 1
   store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds { i64, ptr }, ptr %16, i32 0, i32 0
+  %51 = getelementptr inbounds nuw { i64, ptr }, ptr %16, i32 0, i32 0
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds { i64, ptr }, ptr %16, i32 0, i32 1
+  %53 = getelementptr inbounds nuw { i64, ptr }, ptr %16, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
   %55 = call { i64, ptr } @jv_invalid_get_msg(i64 %52, ptr %54)
-  %56 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 0
+  %56 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 0
   %57 = extractvalue { i64, ptr } %55, 0
   store i64 %57, ptr %56, align 8
-  %58 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 1
+  %58 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 1
   %59 = extractvalue { i64, ptr } %55, 1
   store ptr %59, ptr %58, align 8
-  %60 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 0
+  %60 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 0
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 1
+  %62 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 1
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 @jv_get_kind(i64 %61, ptr %63)
   %65 = icmp eq i32 %64, 5
-  br i1 %65, label %66, label %79
+  br i1 %65, label %66, label %80
 
 66:                                               ; preds = %40
   br label %67
 
 67:                                               ; preds = %66
-  %68 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %68, i64 8, i1 false)
-  %69 = load ptr, ptr %9, align 8
-  %70 = load ptr, ptr %10, align 8
-  %71 = load ptr, ptr %11, align 8
-  %72 = load ptr, ptr %12, align 8
-  %73 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %68 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %68, i64 8, i1 false), !tbaa.struct !24
+  %69 = load ptr, ptr %9, align 8, !tbaa !8
+  %70 = load ptr, ptr %10, align 8, !tbaa !10
+  %71 = load ptr, ptr %11, align 8, !tbaa !12
+  %72 = load ptr, ptr %12, align 8, !tbaa !14
+  %73 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 0
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 1
+  %75 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 1
   %76 = load ptr, ptr %75, align 8
   %77 = call ptr @jv_string_value(i64 %74, ptr %76)
   call void @yyerror(ptr noundef %17, ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %77)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
   br label %78
 
 78:                                               ; preds = %67
+  br label %79
+
+79:                                               ; preds = %78
+  br label %89
+
+80:                                               ; preds = %40
+  br label %81
+
+81:                                               ; preds = %80
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %82 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %82, i64 8, i1 false), !tbaa.struct !24
+  %83 = load ptr, ptr %9, align 8, !tbaa !8
+  %84 = load ptr, ptr %10, align 8, !tbaa !10
+  %85 = load ptr, ptr %11, align 8, !tbaa !12
+  %86 = load ptr, ptr %12, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %18, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef @.str.3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
   br label %87
 
-79:                                               ; preds = %40
-  br label %80
+87:                                               ; preds = %81
+  br label %88
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %81, i64 8, i1 false)
-  %82 = load ptr, ptr %9, align 8
-  %83 = load ptr, ptr %10, align 8
-  %84 = load ptr, ptr %11, align 8
-  %85 = load ptr, ptr %12, align 8
-  call void @yyerror(ptr noundef %18, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef @.str.3)
-  br label %86
+88:                                               ; preds = %87
+  br label %89
 
-86:                                               ; preds = %80
-  br label %87
+89:                                               ; preds = %88, %79
+  %90 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 0
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8
+  call void @jv_free(i64 %91, ptr %93)
+  %94 = load ptr, ptr %7, align 8, !tbaa !20
+  %95 = getelementptr inbounds nuw { i64, ptr }, ptr %94, i32 0, i32 0
+  %96 = load i64, ptr %95, align 8
+  %97 = getelementptr inbounds nuw { i64, ptr }, ptr %94, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8
+  call void @jv_free(i64 %96, ptr %98)
+  %99 = load ptr, ptr %7, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #8
+  %100 = call { i64, ptr } @jv_null()
+  %101 = getelementptr inbounds nuw { i64, ptr }, ptr %19, i32 0, i32 0
+  %102 = extractvalue { i64, ptr } %100, 0
+  store i64 %102, ptr %101, align 8
+  %103 = getelementptr inbounds nuw { i64, ptr }, ptr %19, i32 0, i32 1
+  %104 = extractvalue { i64, ptr } %100, 1
+  store ptr %104, ptr %103, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 8 %19, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #8
+  br label %105
 
-87:                                               ; preds = %86, %78
-  %88 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 0
-  %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 1
-  %91 = load ptr, ptr %90, align 8
-  call void @jv_free(i64 %89, ptr %91)
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds { i64, ptr }, ptr %92, i32 0, i32 0
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds { i64, ptr }, ptr %92, i32 0, i32 1
-  %96 = load ptr, ptr %95, align 8
-  call void @jv_free(i64 %94, ptr %96)
-  %97 = load ptr, ptr %7, align 8
-  %98 = call { i64, ptr } @jv_null()
-  %99 = getelementptr inbounds { i64, ptr }, ptr %19, i32 0, i32 0
-  %100 = extractvalue { i64, ptr } %98, 0
-  store i64 %100, ptr %99, align 8
-  %101 = getelementptr inbounds { i64, ptr }, ptr %19, i32 0, i32 1
-  %102 = extractvalue { i64, ptr } %98, 1
-  store ptr %102, ptr %101, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %97, ptr align 8 %19, i64 16, i1 false)
-  br label %103
-
-103:                                              ; preds = %87, %32, %29
-  %104 = load i32, ptr %14, align 4
-  ret i32 %104
+105:                                              ; preds = %89, %32, %29
+  %106 = load i32, ptr %14, align 4, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  ret i32 %106
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @jq_yylex(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @jv_is_valid(i64 %0, ptr %1) #0 {
   %3 = alloca %struct.jv, align 8
-  %4 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 0
   store i64 %0, ptr %4, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 1
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 0
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 1
+  %8 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @jv_get_kind(i64 %7, ptr %9)
   %11 = icmp ne i32 %10, 0
@@ -416,64 +437,67 @@ declare { i64, ptr } @jv_copy(i64, ptr) #2
 declare i32 @jv_get_kind(i64, ptr) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @jv_string_value(i64, ptr) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @jv_free(i64, ptr) #2
 
 declare { i64, ptr } @jv_null() #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca ptr, align 8
+define dso_local i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  %10 = alloca %union.YYSTYPE, align 8
-  %11 = alloca %struct.location, align 4
-  %12 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %union.YYSTYPE, align 8
+  %12 = alloca %struct.location, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  %15 = alloca i64, align 8
-  %16 = alloca [200 x i16], align 16
-  %17 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i64, align 8
+  %17 = alloca [200 x i16], align 16
   %18 = alloca ptr, align 8
-  %19 = alloca [200 x %union.YYSTYPE], align 16
-  %20 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca [200 x %union.YYSTYPE], align 16
   %21 = alloca ptr, align 8
-  %22 = alloca [200 x %struct.location], align 16
-  %23 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca [200 x %struct.location], align 16
   %24 = alloca ptr, align 8
-  %25 = alloca i32, align 4
+  %25 = alloca ptr, align 8
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
-  %28 = alloca %union.YYSTYPE, align 8
-  %29 = alloca %struct.location, align 4
-  %30 = alloca [3 x %struct.location], align 16
-  %31 = alloca [128 x i8], align 16
-  %32 = alloca ptr, align 8
-  %33 = alloca i64, align 8
-  %34 = alloca i32, align 4
-  %35 = alloca i64, align 8
-  %36 = alloca ptr, align 8
+  %28 = alloca i32, align 4
+  %29 = alloca %union.YYSTYPE, align 8
+  %30 = alloca %struct.location, align 4
+  %31 = alloca [3 x %struct.location], align 16
+  %32 = alloca [128 x i8], align 16
+  %33 = alloca ptr, align 8
+  %34 = alloca i64, align 8
+  %35 = alloca i32, align 4
+  %36 = alloca i64, align 8
   %37 = alloca ptr, align 8
-  %38 = alloca i64, align 8
+  %38 = alloca ptr, align 8
   %39 = alloca i64, align 8
   %40 = alloca i64, align 8
-  %41 = alloca %struct.block, align 8
-  %42 = alloca %struct.block, align 8
+  %41 = alloca i64, align 8
+  %42 = alloca i32, align 4
   %43 = alloca %struct.block, align 8
   %44 = alloca %struct.block, align 8
   %45 = alloca %struct.block, align 8
   %46 = alloca %struct.block, align 8
   %47 = alloca %struct.block, align 8
-  %48 = alloca %struct.location, align 4
+  %48 = alloca %struct.block, align 8
   %49 = alloca %struct.block, align 8
   %50 = alloca %struct.location, align 4
   %51 = alloca %struct.block, align 8
-  %52 = alloca %struct.block, align 8
+  %52 = alloca %struct.location, align 4
   %53 = alloca %struct.block, align 8
   %54 = alloca %struct.block, align 8
   %55 = alloca %struct.block, align 8
@@ -485,14 +509,14 @@ define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %61 = alloca %struct.block, align 8
   %62 = alloca %struct.block, align 8
   %63 = alloca %struct.block, align 8
-  %64 = alloca %struct.location, align 4
+  %64 = alloca %struct.block, align 8
   %65 = alloca %struct.block, align 8
-  %66 = alloca %struct.block, align 8
+  %66 = alloca %struct.location, align 4
   %67 = alloca %struct.block, align 8
-  %68 = alloca %struct.location, align 4
-  %69 = alloca %struct.jv, align 8
-  %70 = alloca %struct.block, align 8
-  %71 = alloca %struct.block, align 8
+  %68 = alloca %struct.block, align 8
+  %69 = alloca %struct.block, align 8
+  %70 = alloca %struct.location, align 4
+  %71 = alloca %struct.jv, align 8
   %72 = alloca %struct.block, align 8
   %73 = alloca %struct.block, align 8
   %74 = alloca %struct.block, align 8
@@ -528,36 +552,36 @@ define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %104 = alloca %struct.block, align 8
   %105 = alloca %struct.block, align 8
   %106 = alloca %struct.block, align 8
-  %107 = alloca %struct.location, align 4
+  %107 = alloca %struct.block, align 8
   %108 = alloca %struct.block, align 8
   %109 = alloca %struct.location, align 4
   %110 = alloca %struct.block, align 8
-  %111 = alloca %struct.block, align 8
-  %112 = alloca %struct.jv, align 8
+  %111 = alloca %struct.location, align 4
+  %112 = alloca %struct.block, align 8
   %113 = alloca %struct.block, align 8
   %114 = alloca %struct.jv, align 8
   %115 = alloca %struct.block, align 8
   %116 = alloca %struct.jv, align 8
   %117 = alloca %struct.block, align 8
-  %118 = alloca %struct.location, align 4
+  %118 = alloca %struct.jv, align 8
   %119 = alloca %struct.block, align 8
-  %120 = alloca %struct.jv, align 8
+  %120 = alloca %struct.location, align 4
   %121 = alloca %struct.block, align 8
-  %122 = alloca %struct.block, align 8
+  %122 = alloca %struct.jv, align 8
   %123 = alloca %struct.block, align 8
   %124 = alloca %struct.block, align 8
   %125 = alloca %struct.block, align 8
   %126 = alloca %struct.block, align 8
-  %127 = alloca %struct.jv, align 8
+  %127 = alloca %struct.block, align 8
   %128 = alloca %struct.block, align 8
   %129 = alloca %struct.jv, align 8
   %130 = alloca %struct.block, align 8
-  %131 = alloca %struct.block, align 8
+  %131 = alloca %struct.jv, align 8
   %132 = alloca %struct.block, align 8
   %133 = alloca %struct.block, align 8
-  %134 = alloca %struct.jv, align 8
+  %134 = alloca %struct.block, align 8
   %135 = alloca %struct.block, align 8
-  %136 = alloca %struct.block, align 8
+  %136 = alloca %struct.jv, align 8
   %137 = alloca %struct.block, align 8
   %138 = alloca %struct.block, align 8
   %139 = alloca %struct.block, align 8
@@ -565,15 +589,15 @@ define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %141 = alloca %struct.block, align 8
   %142 = alloca %struct.block, align 8
   %143 = alloca %struct.block, align 8
-  %144 = alloca %struct.jv, align 8
+  %144 = alloca %struct.block, align 8
   %145 = alloca %struct.block, align 8
-  %146 = alloca %struct.block, align 8
+  %146 = alloca %struct.jv, align 8
   %147 = alloca %struct.block, align 8
   %148 = alloca %struct.block, align 8
   %149 = alloca %struct.block, align 8
-  %150 = alloca %struct.location, align 4
+  %150 = alloca %struct.block, align 8
   %151 = alloca %struct.block, align 8
-  %152 = alloca %struct.block, align 8
+  %152 = alloca %struct.location, align 4
   %153 = alloca %struct.block, align 8
   %154 = alloca %struct.block, align 8
   %155 = alloca %struct.block, align 8
@@ -589,11 +613,11 @@ define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %165 = alloca %struct.block, align 8
   %166 = alloca %struct.block, align 8
   %167 = alloca %struct.block, align 8
-  %168 = alloca %struct.location, align 4
+  %168 = alloca %struct.block, align 8
   %169 = alloca %struct.block, align 8
   %170 = alloca %struct.location, align 4
   %171 = alloca %struct.block, align 8
-  %172 = alloca %struct.block, align 8
+  %172 = alloca %struct.location, align 4
   %173 = alloca %struct.block, align 8
   %174 = alloca %struct.block, align 8
   %175 = alloca %struct.block, align 8
@@ -608,44 +632,44 @@ define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %184 = alloca %struct.block, align 8
   %185 = alloca %struct.block, align 8
   %186 = alloca %struct.block, align 8
-  %187 = alloca %struct.jv, align 8
+  %187 = alloca %struct.block, align 8
   %188 = alloca %struct.block, align 8
-  %189 = alloca %struct.block, align 8
-  %190 = alloca %struct.jv, align 8
+  %189 = alloca %struct.jv, align 8
+  %190 = alloca %struct.block, align 8
   %191 = alloca %struct.block, align 8
-  %192 = alloca %struct.block, align 8
+  %192 = alloca %struct.jv, align 8
   %193 = alloca %struct.block, align 8
-  %194 = alloca %struct.jv, align 8
+  %194 = alloca %struct.block, align 8
   %195 = alloca %struct.block, align 8
-  %196 = alloca %struct.block, align 8
-  %197 = alloca %struct.jv, align 8
+  %196 = alloca %struct.jv, align 8
+  %197 = alloca %struct.block, align 8
   %198 = alloca %struct.block, align 8
-  %199 = alloca %struct.block, align 8
+  %199 = alloca %struct.jv, align 8
   %200 = alloca %struct.block, align 8
   %201 = alloca %struct.block, align 8
   %202 = alloca %struct.block, align 8
-  %203 = alloca %struct.jv, align 8
+  %203 = alloca %struct.block, align 8
   %204 = alloca %struct.block, align 8
-  %205 = alloca %struct.block, align 8
+  %205 = alloca %struct.jv, align 8
   %206 = alloca %struct.block, align 8
   %207 = alloca %struct.block, align 8
   %208 = alloca %struct.block, align 8
-  %209 = alloca %struct.jv, align 8
+  %209 = alloca %struct.block, align 8
   %210 = alloca %struct.block, align 8
-  %211 = alloca %struct.block, align 8
+  %211 = alloca %struct.jv, align 8
   %212 = alloca %struct.block, align 8
   %213 = alloca %struct.block, align 8
   %214 = alloca %struct.block, align 8
   %215 = alloca %struct.block, align 8
-  %216 = alloca ptr, align 8
+  %216 = alloca %struct.block, align 8
   %217 = alloca %struct.block, align 8
-  %218 = alloca %struct.jv, align 8
+  %218 = alloca ptr, align 8
   %219 = alloca %struct.block, align 8
   %220 = alloca %struct.jv, align 8
   %221 = alloca %struct.block, align 8
   %222 = alloca %struct.jv, align 8
   %223 = alloca %struct.block, align 8
-  %224 = alloca %struct.block, align 8
+  %224 = alloca %struct.jv, align 8
   %225 = alloca %struct.block, align 8
   %226 = alloca %struct.block, align 8
   %227 = alloca %struct.block, align 8
@@ -681,12 +705,12 @@ define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %257 = alloca %struct.block, align 8
   %258 = alloca %struct.block, align 8
   %259 = alloca %struct.block, align 8
-  %260 = alloca %struct.jv, align 8
-  %261 = alloca %struct.location, align 4
-  %262 = alloca %struct.block, align 8
+  %260 = alloca %struct.block, align 8
+  %261 = alloca %struct.block, align 8
+  %262 = alloca %struct.jv, align 8
   %263 = alloca %struct.location, align 4
-  %264 = alloca %struct.jv, align 8
-  %265 = alloca %struct.jv, align 8
+  %264 = alloca %struct.block, align 8
+  %265 = alloca %struct.location, align 4
   %266 = alloca %struct.jv, align 8
   %267 = alloca %struct.jv, align 8
   %268 = alloca %struct.jv, align 8
@@ -703,8 +727,8 @@ define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %279 = alloca %struct.jv, align 8
   %280 = alloca %struct.jv, align 8
   %281 = alloca %struct.jv, align 8
-  %282 = alloca %struct.block, align 8
-  %283 = alloca %struct.block, align 8
+  %282 = alloca %struct.jv, align 8
+  %283 = alloca %struct.jv, align 8
   %284 = alloca %struct.block, align 8
   %285 = alloca %struct.block, align 8
   %286 = alloca %struct.block, align 8
@@ -727,6095 +751,6633 @@ define i32 @yyparse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %303 = alloca %struct.block, align 8
   %304 = alloca %struct.block, align 8
   %305 = alloca %struct.block, align 8
-  %306 = alloca %struct.jv, align 8
+  %306 = alloca %struct.block, align 8
   %307 = alloca %struct.block, align 8
-  %308 = alloca %struct.block, align 8
+  %308 = alloca %struct.jv, align 8
   %309 = alloca %struct.block, align 8
   %310 = alloca %struct.block, align 8
   %311 = alloca %struct.block, align 8
-  %312 = alloca %struct.jv, align 8
+  %312 = alloca %struct.block, align 8
   %313 = alloca %struct.block, align 8
-  %314 = alloca %struct.block, align 8
+  %314 = alloca %struct.jv, align 8
   %315 = alloca %struct.block, align 8
-  %316 = alloca %struct.jv, align 8
+  %316 = alloca %struct.block, align 8
   %317 = alloca %struct.block, align 8
-  %318 = alloca %struct.block, align 8
+  %318 = alloca %struct.jv, align 8
   %319 = alloca %struct.block, align 8
-  %320 = alloca %struct.jv, align 8
-  %321 = alloca %struct.location, align 4
-  %322 = alloca %struct.block, align 8
+  %320 = alloca %struct.block, align 8
+  %321 = alloca %struct.block, align 8
+  %322 = alloca %struct.jv, align 8
   %323 = alloca %struct.location, align 4
-  %324 = alloca i32, align 4
-  %325 = alloca i32, align 4
-  %326 = alloca %struct.yypcontext_t, align 8
-  %327 = alloca ptr, align 8
-  %328 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 @yyparse.yyval_default, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 @yyparse.yyloc_default, i64 8, i1 false)
-  store i32 0, ptr %12, align 4
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %14, align 4
-  store i64 200, ptr %15, align 8
-  %329 = getelementptr inbounds [200 x i16], ptr %16, i64 0, i64 0
-  store ptr %329, ptr %17, align 8
-  %330 = load ptr, ptr %17, align 8
-  store ptr %330, ptr %18, align 8
-  %331 = getelementptr inbounds [200 x %union.YYSTYPE], ptr %19, i64 0, i64 0
-  store ptr %331, ptr %20, align 8
-  %332 = load ptr, ptr %20, align 8
-  store ptr %332, ptr %21, align 8
-  %333 = getelementptr inbounds [200 x %struct.location], ptr %22, i64 0, i64 0
-  store ptr %333, ptr %23, align 8
-  %334 = load ptr, ptr %23, align 8
-  store ptr %334, ptr %24, align 8
-  store i32 -2, ptr %27, align 4
-  %335 = getelementptr inbounds [128 x i8], ptr %31, i64 0, i64 0
-  store ptr %335, ptr %32, align 8
-  store i64 128, ptr %33, align 8
-  store i32 0, ptr %34, align 4
-  store i32 -2, ptr %9, align 4
-  %336 = load ptr, ptr %24, align 8
-  %337 = getelementptr inbounds %struct.location, ptr %336, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %337, ptr align 4 %11, i64 8, i1 false)
-  br label %341
+  %324 = alloca %struct.block, align 8
+  %325 = alloca %struct.location, align 4
+  %326 = alloca i32, align 4
+  %327 = alloca i32, align 4
+  %328 = alloca %struct.yypcontext_t, align 8
+  %329 = alloca ptr, align 8
+  %330 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !10
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 @yyparse.yyval_default, i64 16, i1 false), !tbaa.struct !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 @yyparse.yyloc_default, i64 8, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  store i32 0, ptr %13, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  store i32 0, ptr %14, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  store i32 0, ptr %15, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  store i64 200, ptr %16, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 400, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %331 = getelementptr inbounds [200 x i16], ptr %17, i64 0, i64 0
+  store ptr %331, ptr %18, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %332 = load ptr, ptr %18, align 8, !tbaa !32
+  store ptr %332, ptr %19, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 3200, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %333 = getelementptr inbounds [200 x %union.YYSTYPE], ptr %20, i64 0, i64 0
+  store ptr %333, ptr %21, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #8
+  %334 = load ptr, ptr %21, align 8, !tbaa !20
+  store ptr %334, ptr %22, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 1600, ptr %23) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #8
+  %335 = getelementptr inbounds [200 x %struct.location], ptr %23, i64 0, i64 0
+  store ptr %335, ptr %24, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #8
+  %336 = load ptr, ptr %24, align 8, !tbaa !4
+  store ptr %336, ptr %25, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #8
+  store i32 -2, ptr %28, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %31) #8
+  call void @llvm.lifetime.start.p0(i64 128, ptr %32) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #8
+  %337 = getelementptr inbounds [128 x i8], ptr %32, i64 0, i64 0
+  store ptr %337, ptr %33, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #8
+  store i64 128, ptr %34, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #8
+  store i32 0, ptr %35, align 4, !tbaa !18
+  store i32 -2, ptr %10, align 4, !tbaa !18
+  %338 = load ptr, ptr %25, align 8, !tbaa !4
+  %339 = getelementptr inbounds %struct.location, ptr %338, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %339, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !24
+  br label %343
 
-338:                                              ; preds = %4520, %4330, %533
-  %339 = load ptr, ptr %18, align 8
-  %340 = getelementptr inbounds i16, ptr %339, i32 1
-  store ptr %340, ptr %18, align 8
-  br label %341
+340:                                              ; preds = %4551, %4356, %544
+  %341 = load ptr, ptr %19, align 8, !tbaa !32
+  %342 = getelementptr inbounds nuw i16, ptr %341, i32 1
+  store ptr %342, ptr %19, align 8, !tbaa !32
+  br label %343
 
-341:                                              ; preds = %338, %4
-  %342 = load i32, ptr %13, align 4
-  %343 = trunc i32 %342 to i16
-  %344 = load ptr, ptr %18, align 8
-  store i16 %343, ptr %344, align 2
-  %345 = load ptr, ptr %17, align 8
-  %346 = load i64, ptr %15, align 8
-  %347 = getelementptr inbounds i16, ptr %345, i64 %346
-  %348 = getelementptr inbounds i16, ptr %347, i64 -1
-  %349 = load ptr, ptr %18, align 8
-  %350 = icmp ule ptr %348, %349
-  br i1 %350, label %351, label %446
+343:                                              ; preds = %340, %4
+  %344 = load i32, ptr %14, align 4, !tbaa !18
+  %345 = trunc i32 %344 to i16
+  %346 = load ptr, ptr %19, align 8, !tbaa !32
+  store i16 %345, ptr %346, align 2, !tbaa !27
+  %347 = load ptr, ptr %18, align 8, !tbaa !32
+  %348 = load i64, ptr %16, align 8, !tbaa !30
+  %349 = getelementptr inbounds i16, ptr %347, i64 %348
+  %350 = getelementptr inbounds i16, ptr %349, i64 -1
+  %351 = load ptr, ptr %19, align 8, !tbaa !32
+  %352 = icmp ule ptr %350, %351
+  br i1 %352, label %353, label %457
 
-351:                                              ; preds = %341
-  %352 = load ptr, ptr %18, align 8
-  %353 = load ptr, ptr %17, align 8
-  %354 = ptrtoint ptr %352 to i64
-  %355 = ptrtoint ptr %353 to i64
-  %356 = sub i64 %354, %355
-  %357 = sdiv exact i64 %356, 2
-  %358 = add nsw i64 %357, 1
-  store i64 %358, ptr %35, align 8
-  %359 = load i64, ptr %15, align 8
-  %360 = icmp sle i64 10000, %359
-  br i1 %360, label %361, label %362
+353:                                              ; preds = %343
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #8
+  %354 = load ptr, ptr %19, align 8, !tbaa !32
+  %355 = load ptr, ptr %18, align 8, !tbaa !32
+  %356 = ptrtoint ptr %354 to i64
+  %357 = ptrtoint ptr %355 to i64
+  %358 = sub i64 %356, %357
+  %359 = sdiv exact i64 %358, 2
+  %360 = add nsw i64 %359, 1
+  store i64 %360, ptr %36, align 8, !tbaa !30
+  %361 = load i64, ptr %16, align 8, !tbaa !30
+  %362 = icmp sle i64 10000, %361
+  br i1 %362, label %363, label %364
 
-361:                                              ; preds = %351
-  br label %4524
+363:                                              ; preds = %353
+  store i32 4, ptr %42, align 4
+  br label %454
 
-362:                                              ; preds = %351
-  %363 = load i64, ptr %15, align 8
-  %364 = mul nsw i64 %363, 2
-  store i64 %364, ptr %15, align 8
-  %365 = load i64, ptr %15, align 8
-  %366 = icmp slt i64 10000, %365
-  br i1 %366, label %367, label %368
+364:                                              ; preds = %353
+  %365 = load i64, ptr %16, align 8, !tbaa !30
+  %366 = mul nsw i64 %365, 2
+  store i64 %366, ptr %16, align 8, !tbaa !30
+  %367 = load i64, ptr %16, align 8, !tbaa !30
+  %368 = icmp slt i64 10000, %367
+  br i1 %368, label %369, label %370
 
-367:                                              ; preds = %362
-  store i64 10000, ptr %15, align 8
-  br label %368
+369:                                              ; preds = %364
+  store i64 10000, ptr %16, align 8, !tbaa !30
+  br label %370
 
-368:                                              ; preds = %367, %362
-  %369 = load ptr, ptr %17, align 8
-  store ptr %369, ptr %36, align 8
-  %370 = load i64, ptr %15, align 8
-  %371 = mul nsw i64 %370, 26
-  %372 = add nsw i64 %371, 30
-  %373 = call ptr @jv_mem_alloc(i64 noundef %372)
-  store ptr %373, ptr %37, align 8
-  %374 = load ptr, ptr %37, align 8
-  %375 = icmp ne ptr %374, null
-  br i1 %375, label %377, label %376
+370:                                              ; preds = %369, %364
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #8
+  %371 = load ptr, ptr %18, align 8, !tbaa !32
+  store ptr %371, ptr %37, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #8
+  %372 = load i64, ptr %16, align 8, !tbaa !30
+  %373 = mul nsw i64 %372, 26
+  %374 = add nsw i64 %373, 30
+  %375 = call ptr @jv_mem_alloc(i64 noundef %374)
+  store ptr %375, ptr %38, align 8, !tbaa !34
+  %376 = load ptr, ptr %38, align 8, !tbaa !34
+  %377 = icmp ne ptr %376, null
+  br i1 %377, label %379, label %378
 
-376:                                              ; preds = %368
-  br label %4524
+378:                                              ; preds = %370
+  store i32 4, ptr %42, align 4
+  br label %431
 
-377:                                              ; preds = %368
-  br label %378
+379:                                              ; preds = %370
+  br label %380
 
-378:                                              ; preds = %377
-  %379 = load ptr, ptr %37, align 8
-  %380 = load ptr, ptr %17, align 8
-  %381 = load i64, ptr %35, align 8
-  %382 = mul i64 %381, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %379, ptr align 2 %380, i64 %382, i1 false)
-  %383 = load ptr, ptr %37, align 8
-  store ptr %383, ptr %17, align 8
-  %384 = load i64, ptr %15, align 8
-  %385 = mul nsw i64 %384, 2
-  %386 = add nsw i64 %385, 15
-  store i64 %386, ptr %38, align 8
-  %387 = load i64, ptr %38, align 8
-  %388 = sdiv i64 %387, 16
-  %389 = load ptr, ptr %37, align 8
-  %390 = getelementptr inbounds %union.yyalloc, ptr %389, i64 %388
-  store ptr %390, ptr %37, align 8
-  br label %391
+380:                                              ; preds = %379
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #8
+  %381 = load ptr, ptr %38, align 8, !tbaa !34
+  %382 = load ptr, ptr %18, align 8, !tbaa !32
+  %383 = load i64, ptr %36, align 8, !tbaa !30
+  %384 = mul i64 %383, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %381, ptr align 2 %382, i64 %384, i1 false)
+  %385 = load ptr, ptr %38, align 8, !tbaa !34
+  store ptr %385, ptr %18, align 8, !tbaa !32
+  %386 = load i64, ptr %16, align 8, !tbaa !30
+  %387 = mul nsw i64 %386, 2
+  %388 = add nsw i64 %387, 15
+  store i64 %388, ptr %39, align 8, !tbaa !30
+  %389 = load i64, ptr %39, align 8, !tbaa !30
+  %390 = sdiv i64 %389, 16
+  %391 = load ptr, ptr %38, align 8, !tbaa !34
+  %392 = getelementptr inbounds %union.yyalloc, ptr %391, i64 %390
+  store ptr %392, ptr %38, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #8
+  br label %393
 
-391:                                              ; preds = %378
-  br label %392
+393:                                              ; preds = %380
+  br label %394
 
-392:                                              ; preds = %391
-  %393 = load ptr, ptr %37, align 8
-  %394 = load ptr, ptr %20, align 8
-  %395 = load i64, ptr %35, align 8
-  %396 = mul i64 %395, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %393, ptr align 8 %394, i64 %396, i1 false)
-  %397 = load ptr, ptr %37, align 8
-  store ptr %397, ptr %20, align 8
-  %398 = load i64, ptr %15, align 8
-  %399 = mul nsw i64 %398, 16
-  %400 = add nsw i64 %399, 15
-  store i64 %400, ptr %39, align 8
-  %401 = load i64, ptr %39, align 8
-  %402 = sdiv i64 %401, 16
-  %403 = load ptr, ptr %37, align 8
-  %404 = getelementptr inbounds %union.yyalloc, ptr %403, i64 %402
-  store ptr %404, ptr %37, align 8
-  br label %405
+394:                                              ; preds = %393
+  br label %395
 
-405:                                              ; preds = %392
-  br label %406
+395:                                              ; preds = %394
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #8
+  %396 = load ptr, ptr %38, align 8, !tbaa !34
+  %397 = load ptr, ptr %21, align 8, !tbaa !20
+  %398 = load i64, ptr %36, align 8, !tbaa !30
+  %399 = mul i64 %398, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %396, ptr align 8 %397, i64 %399, i1 false)
+  %400 = load ptr, ptr %38, align 8, !tbaa !34
+  store ptr %400, ptr %21, align 8, !tbaa !20
+  %401 = load i64, ptr %16, align 8, !tbaa !30
+  %402 = mul nsw i64 %401, 16
+  %403 = add nsw i64 %402, 15
+  store i64 %403, ptr %40, align 8, !tbaa !30
+  %404 = load i64, ptr %40, align 8, !tbaa !30
+  %405 = sdiv i64 %404, 16
+  %406 = load ptr, ptr %38, align 8, !tbaa !34
+  %407 = getelementptr inbounds %union.yyalloc, ptr %406, i64 %405
+  store ptr %407, ptr %38, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #8
+  br label %408
 
-406:                                              ; preds = %405
-  %407 = load ptr, ptr %37, align 8
-  %408 = load ptr, ptr %23, align 8
-  %409 = load i64, ptr %35, align 8
-  %410 = mul i64 %409, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %407, ptr align 4 %408, i64 %410, i1 false)
-  %411 = load ptr, ptr %37, align 8
-  store ptr %411, ptr %23, align 8
-  %412 = load i64, ptr %15, align 8
-  %413 = mul nsw i64 %412, 8
-  %414 = add nsw i64 %413, 15
-  store i64 %414, ptr %40, align 8
-  %415 = load i64, ptr %40, align 8
-  %416 = sdiv i64 %415, 16
-  %417 = load ptr, ptr %37, align 8
-  %418 = getelementptr inbounds %union.yyalloc, ptr %417, i64 %416
-  store ptr %418, ptr %37, align 8
-  br label %419
+408:                                              ; preds = %395
+  br label %409
 
-419:                                              ; preds = %406
-  %420 = load ptr, ptr %36, align 8
-  %421 = getelementptr inbounds [200 x i16], ptr %16, i64 0, i64 0
-  %422 = icmp ne ptr %420, %421
-  br i1 %422, label %423, label %425
+409:                                              ; preds = %408
+  br label %410
 
-423:                                              ; preds = %419
-  %424 = load ptr, ptr %36, align 8
-  call void @jv_mem_free(ptr noundef %424)
-  br label %425
+410:                                              ; preds = %409
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #8
+  %411 = load ptr, ptr %38, align 8, !tbaa !34
+  %412 = load ptr, ptr %24, align 8, !tbaa !4
+  %413 = load i64, ptr %36, align 8, !tbaa !30
+  %414 = mul i64 %413, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %411, ptr align 4 %412, i64 %414, i1 false)
+  %415 = load ptr, ptr %38, align 8, !tbaa !34
+  store ptr %415, ptr %24, align 8, !tbaa !4
+  %416 = load i64, ptr %16, align 8, !tbaa !30
+  %417 = mul nsw i64 %416, 8
+  %418 = add nsw i64 %417, 15
+  store i64 %418, ptr %41, align 8, !tbaa !30
+  %419 = load i64, ptr %41, align 8, !tbaa !30
+  %420 = sdiv i64 %419, 16
+  %421 = load ptr, ptr %38, align 8, !tbaa !34
+  %422 = getelementptr inbounds %union.yyalloc, ptr %421, i64 %420
+  store ptr %422, ptr %38, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #8
+  br label %423
 
-425:                                              ; preds = %423, %419
-  %426 = load ptr, ptr %17, align 8
-  %427 = load i64, ptr %35, align 8
-  %428 = getelementptr inbounds i16, ptr %426, i64 %427
-  %429 = getelementptr inbounds i16, ptr %428, i64 -1
-  store ptr %429, ptr %18, align 8
-  %430 = load ptr, ptr %20, align 8
-  %431 = load i64, ptr %35, align 8
-  %432 = getelementptr inbounds %union.YYSTYPE, ptr %430, i64 %431
-  %433 = getelementptr inbounds %union.YYSTYPE, ptr %432, i64 -1
-  store ptr %433, ptr %21, align 8
-  %434 = load ptr, ptr %23, align 8
-  %435 = load i64, ptr %35, align 8
-  %436 = getelementptr inbounds %struct.location, ptr %434, i64 %435
-  %437 = getelementptr inbounds %struct.location, ptr %436, i64 -1
-  store ptr %437, ptr %24, align 8
-  %438 = load ptr, ptr %17, align 8
-  %439 = load i64, ptr %15, align 8
-  %440 = getelementptr inbounds i16, ptr %438, i64 %439
-  %441 = getelementptr inbounds i16, ptr %440, i64 -1
-  %442 = load ptr, ptr %18, align 8
-  %443 = icmp ule ptr %441, %442
-  br i1 %443, label %444, label %445
+423:                                              ; preds = %410
+  br label %424
 
-444:                                              ; preds = %425
-  br label %4523
+424:                                              ; preds = %423
+  %425 = load ptr, ptr %37, align 8, !tbaa !32
+  %426 = getelementptr inbounds [200 x i16], ptr %17, i64 0, i64 0
+  %427 = icmp ne ptr %425, %426
+  br i1 %427, label %428, label %430
 
-445:                                              ; preds = %425
-  br label %446
+428:                                              ; preds = %424
+  %429 = load ptr, ptr %37, align 8, !tbaa !32
+  call void @jv_mem_free(ptr noundef %429)
+  br label %430
 
-446:                                              ; preds = %445, %341
-  %447 = load i32, ptr %13, align 4
-  %448 = icmp eq i32 %447, 30
-  br i1 %448, label %449, label %450
+430:                                              ; preds = %428, %424
+  store i32 0, ptr %42, align 4
+  br label %431
 
-449:                                              ; preds = %446
-  br label %4522
-
-450:                                              ; preds = %446
-  br label %451
-
-451:                                              ; preds = %450
-  %452 = load i32, ptr %13, align 4
-  %453 = sext i32 %452 to i64
-  %454 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %453
-  %455 = load i16, ptr %454, align 2
-  %456 = sext i16 %455 to i32
-  store i32 %456, ptr %25, align 4
-  %457 = load i32, ptr %25, align 4
-  %458 = icmp eq i32 %457, -157
-  br i1 %458, label %459, label %460
-
-459:                                              ; preds = %451
-  br label %539
-
-460:                                              ; preds = %451
-  %461 = load i32, ptr %9, align 4
-  %462 = icmp eq i32 %461, -2
-  br i1 %462, label %463, label %469
-
-463:                                              ; preds = %460
-  %464 = load ptr, ptr %5, align 8
-  %465 = load ptr, ptr %6, align 8
-  %466 = load ptr, ptr %7, align 8
-  %467 = load ptr, ptr %8, align 8
-  %468 = call i32 @yylex(ptr noundef %10, ptr noundef %11, ptr noundef %464, ptr noundef %465, ptr noundef %466, ptr noundef %467)
-  store i32 %468, ptr %9, align 4
-  br label %469
-
-469:                                              ; preds = %463, %460
-  %470 = load i32, ptr %9, align 4
-  %471 = icmp sle i32 %470, 0
-  br i1 %471, label %472, label %473
-
-472:                                              ; preds = %469
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %27, align 4
-  br label %494
-
-473:                                              ; preds = %469
-  %474 = load i32, ptr %9, align 4
-  %475 = icmp eq i32 %474, 256
-  br i1 %475, label %476, label %478
-
-476:                                              ; preds = %473
-  store i32 257, ptr %9, align 4
-  store i32 1, ptr %27, align 4
-  %477 = getelementptr inbounds [3 x %struct.location], ptr %30, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %477, ptr align 4 %11, i64 8, i1 false)
-  br label %4440
-
-478:                                              ; preds = %473
-  %479 = load i32, ptr %9, align 4
-  %480 = icmp sle i32 0, %479
-  br i1 %480, label %481, label %490
-
-481:                                              ; preds = %478
-  %482 = load i32, ptr %9, align 4
-  %483 = icmp sle i32 %482, 303
-  br i1 %483, label %484, label %490
-
-484:                                              ; preds = %481
-  %485 = load i32, ptr %9, align 4
-  %486 = sext i32 %485 to i64
-  %487 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %486
-  %488 = load i8, ptr %487, align 1
-  %489 = sext i8 %488 to i32
-  br label %491
-
-490:                                              ; preds = %481, %478
-  br label %491
-
-491:                                              ; preds = %490, %484
-  %492 = phi i32 [ %489, %484 ], [ 2, %490 ]
-  store i32 %492, ptr %27, align 4
-  br label %493
-
-493:                                              ; preds = %491
-  br label %494
-
-494:                                              ; preds = %493, %472
-  %495 = load i32, ptr %27, align 4
-  %496 = load i32, ptr %25, align 4
-  %497 = add nsw i32 %496, %495
-  store i32 %497, ptr %25, align 4
-  %498 = load i32, ptr %25, align 4
-  %499 = icmp slt i32 %498, 0
-  br i1 %499, label %511, label %500
-
-500:                                              ; preds = %494
-  %501 = load i32, ptr %25, align 4
-  %502 = icmp slt i32 2051, %501
-  br i1 %502, label %511, label %503
-
-503:                                              ; preds = %500
-  %504 = load i32, ptr %25, align 4
-  %505 = sext i32 %504 to i64
-  %506 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %505
-  %507 = load i16, ptr %506, align 2
-  %508 = sext i16 %507 to i32
-  %509 = load i32, ptr %27, align 4
-  %510 = icmp ne i32 %508, %509
-  br i1 %510, label %511, label %512
-
-511:                                              ; preds = %503, %500, %494
-  br label %539
-
-512:                                              ; preds = %503
-  %513 = load i32, ptr %25, align 4
-  %514 = sext i32 %513 to i64
-  %515 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %514
-  %516 = load i16, ptr %515, align 2
-  %517 = sext i16 %516 to i32
-  store i32 %517, ptr %25, align 4
-  %518 = load i32, ptr %25, align 4
-  %519 = icmp sle i32 %518, 0
-  br i1 %519, label %520, label %527
-
-520:                                              ; preds = %512
-  %521 = load i32, ptr %25, align 4
-  %522 = icmp eq i32 %521, -156
-  br i1 %522, label %523, label %524
-
-523:                                              ; preds = %520
-  br label %4332
-
-524:                                              ; preds = %520
-  %525 = load i32, ptr %25, align 4
-  %526 = sub nsw i32 0, %525
-  store i32 %526, ptr %25, align 4
-  br label %549
-
-527:                                              ; preds = %512
-  %528 = load i32, ptr %14, align 4
-  %529 = icmp ne i32 %528, 0
-  br i1 %529, label %530, label %533
-
-530:                                              ; preds = %527
-  %531 = load i32, ptr %14, align 4
-  %532 = add nsw i32 %531, -1
-  store i32 %532, ptr %14, align 4
-  br label %533
-
-533:                                              ; preds = %530, %527
-  %534 = load i32, ptr %25, align 4
-  store i32 %534, ptr %13, align 4
-  %535 = load ptr, ptr %21, align 8
-  %536 = getelementptr inbounds %union.YYSTYPE, ptr %535, i32 1
-  store ptr %536, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %536, ptr align 8 %10, i64 16, i1 false)
-  %537 = load ptr, ptr %24, align 8
-  %538 = getelementptr inbounds %struct.location, ptr %537, i32 1
-  store ptr %538, ptr %24, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %538, ptr align 4 %11, i64 8, i1 false)
-  store i32 -2, ptr %9, align 4
-  br label %338
-
-539:                                              ; preds = %511, %459
-  %540 = load i32, ptr %13, align 4
-  %541 = sext i32 %540 to i64
-  %542 = getelementptr inbounds [315 x i8], ptr @yydefact, i64 0, i64 %541
-  %543 = load i8, ptr %542, align 1
-  %544 = zext i8 %543 to i32
-  store i32 %544, ptr %25, align 4
-  %545 = load i32, ptr %25, align 4
-  %546 = icmp eq i32 %545, 0
-  br i1 %546, label %547, label %548
-
-547:                                              ; preds = %539
-  br label %4332
-
-548:                                              ; preds = %539
-  br label %549
-
-549:                                              ; preds = %548, %524
-  %550 = load i32, ptr %25, align 4
-  %551 = sext i32 %550 to i64
-  %552 = getelementptr inbounds [170 x i8], ptr @yyr2, i64 0, i64 %551
-  %553 = load i8, ptr %552, align 1
-  %554 = sext i8 %553 to i32
-  store i32 %554, ptr %34, align 4
-  %555 = load ptr, ptr %21, align 8
-  %556 = load i32, ptr %34, align 4
-  %557 = sub nsw i32 1, %556
-  %558 = sext i32 %557 to i64
-  %559 = getelementptr inbounds %union.YYSTYPE, ptr %555, i64 %558
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %559, i64 16, i1 false)
-  br label %560
-
-560:                                              ; preds = %549
-  %561 = load i32, ptr %34, align 4
-  %562 = icmp ne i32 %561, 0
-  br i1 %562, label %563, label %584
-
-563:                                              ; preds = %560
-  %564 = load ptr, ptr %24, align 8
-  %565 = load i32, ptr %34, align 4
-  %566 = sext i32 %565 to i64
-  %567 = sub i64 0, %566
-  %568 = getelementptr inbounds %struct.location, ptr %564, i64 %567
-  %569 = getelementptr inbounds %struct.location, ptr %568, i64 1
-  %570 = getelementptr inbounds %struct.location, ptr %569, i32 0, i32 0
-  %571 = load i32, ptr %570, align 4
-  %572 = getelementptr inbounds %struct.location, ptr %29, i32 0, i32 0
-  store i32 %571, ptr %572, align 4
-  %573 = load ptr, ptr %24, align 8
-  %574 = load i32, ptr %34, align 4
-  %575 = sext i32 %574 to i64
-  %576 = sub i64 0, %575
-  %577 = getelementptr inbounds %struct.location, ptr %573, i64 %576
-  %578 = load i32, ptr %34, align 4
-  %579 = sext i32 %578 to i64
-  %580 = getelementptr inbounds %struct.location, ptr %577, i64 %579
-  %581 = getelementptr inbounds %struct.location, ptr %580, i32 0, i32 1
-  %582 = load i32, ptr %581, align 4
-  %583 = getelementptr inbounds %struct.location, ptr %29, i32 0, i32 1
-  store i32 %582, ptr %583, align 4
-  br label %603
-
-584:                                              ; preds = %560
-  %585 = load ptr, ptr %24, align 8
-  %586 = load i32, ptr %34, align 4
-  %587 = sext i32 %586 to i64
-  %588 = sub i64 0, %587
-  %589 = getelementptr inbounds %struct.location, ptr %585, i64 %588
-  %590 = getelementptr inbounds %struct.location, ptr %589, i64 0
-  %591 = getelementptr inbounds %struct.location, ptr %590, i32 0, i32 1
-  %592 = load i32, ptr %591, align 4
-  %593 = getelementptr inbounds %struct.location, ptr %29, i32 0, i32 0
-  store i32 %592, ptr %593, align 4
-  %594 = load ptr, ptr %24, align 8
-  %595 = load i32, ptr %34, align 4
-  %596 = sext i32 %595 to i64
-  %597 = sub i64 0, %596
-  %598 = getelementptr inbounds %struct.location, ptr %594, i64 %597
-  %599 = getelementptr inbounds %struct.location, ptr %598, i64 0
-  %600 = getelementptr inbounds %struct.location, ptr %599, i32 0, i32 1
-  %601 = load i32, ptr %600, align 4
-  %602 = getelementptr inbounds %struct.location, ptr %29, i32 0, i32 1
-  store i32 %601, ptr %602, align 4
-  br label %603
-
-603:                                              ; preds = %584, %563
-  br label %604
-
-604:                                              ; preds = %603
-  %605 = getelementptr inbounds [3 x %struct.location], ptr %30, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %605, ptr align 4 %29, i64 8, i1 false)
-  %606 = load i32, ptr %25, align 4
-  switch i32 %606, label %4267 [
-    i32 2, label %607
-    i32 3, label %659
-    i32 4, label %693
-    i32 5, label %699
-    i32 6, label %767
-    i32 7, label %773
-    i32 8, label %791
-    i32 9, label %797
-    i32 10, label %815
-    i32 11, label %833
-    i32 12, label %857
-    i32 13, label %883
-    i32 14, label %911
-    i32 15, label %942
-    i32 16, label %966
-    i32 17, label %975
-    i32 18, label %993
-    i32 19, label %1014
-    i32 20, label %1023
-    i32 21, label %1073
-    i32 22, label %1094
-    i32 23, label %1139
-    i32 24, label %1157
-    i32 25, label %1175
-    i32 26, label %1193
-    i32 27, label %1211
-    i32 28, label %1256
-    i32 29, label %1274
-    i32 30, label %1292
-    i32 31, label %1310
-    i32 32, label %1328
-    i32 33, label %1358
-    i32 34, label %1376
-    i32 35, label %1394
-    i32 36, label %1412
-    i32 37, label %1430
-    i32 38, label %1448
-    i32 39, label %1466
-    i32 40, label %1484
-    i32 41, label %1502
-    i32 42, label %1520
-    i32 43, label %1538
-    i32 44, label %1556
-    i32 45, label %1574
-    i32 46, label %1592
-    i32 47, label %1610
-    i32 48, label %1613
-    i32 49, label %1616
-    i32 50, label %1702
-    i32 51, label %1747
-    i32 52, label %1792
-    i32 53, label %1824
-    i32 54, label %1864
-    i32 55, label %1898
-    i32 56, label %1929
-    i32 57, label %1932
-    i32 58, label %1950
-    i32 59, label %1969
-    i32 60, label %1988
-    i32 61, label %1991
-    i32 62, label %1997
-    i32 63, label %2006
-    i32 64, label %2021
-    i32 65, label %2048
-    i32 66, label %2090
-    i32 67, label %2114
-    i32 68, label %2117
-    i32 69, label %2123
-    i32 70, label %2141
-    i32 71, label %2171
-    i32 72, label %2174
-    i32 73, label %2180
-    i32 74, label %2195
-    i32 75, label %2266
-    i32 76, label %2278
-    i32 77, label %2305
-    i32 78, label %2335
-    i32 79, label %2353
-    i32 80, label %2374
-    i32 81, label %2401
-    i32 82, label %2431
-    i32 83, label %2449
-    i32 84, label %2470
-    i32 85, label %2482
-    i32 86, label %2500
-    i32 87, label %2518
-    i32 88, label %2536
-    i32 89, label %2554
-    i32 90, label %2572
-    i32 91, label %2593
-    i32 92, label %2614
-    i32 93, label %2635
-    i32 94, label %2656
-    i32 95, label %2680
-    i32 96, label %2716
-    i32 97, label %2752
-    i32 98, label %2776
-    i32 99, label %2812
-    i32 100, label %2848
-    i32 101, label %2860
-    i32 102, label %2863
-    i32 103, label %2884
-    i32 104, label %2887
-    i32 105, label %2899
-    i32 106, label %2914
-    i32 107, label %2988
-    i32 108, label %3018
-    i32 109, label %3048
-    i32 110, label %3055
-    i32 111, label %3155
-    i32 112, label %3193
-    i32 113, label %3199
-    i32 114, label %3205
-    i32 115, label %3208
-    i32 116, label %3214
-    i32 117, label %3217
-    i32 118, label %3235
-    i32 119, label %3247
-    i32 120, label %3274
-    i32 121, label %3286
-    i32 122, label %3304
-    i32 123, label %3307
-    i32 124, label %3326
-    i32 125, label %3347
-    i32 126, label %3368
-    i32 127, label %3389
-    i32 128, label %3407
-    i32 129, label %3410
-    i32 130, label %3428
-    i32 131, label %3465
-    i32 132, label %3535
-    i32 133, label %3562
-    i32 134, label %3589
-    i32 135, label %3607
-    i32 136, label %3659
-    i32 137, label %3668
-    i32 138, label %3674
-    i32 139, label %3680
-    i32 140, label %3686
-    i32 141, label %3692
-    i32 142, label %3698
-    i32 143, label %3704
-    i32 144, label %3710
-    i32 145, label %3716
-    i32 146, label %3722
-    i32 147, label %3728
-    i32 148, label %3734
-    i32 149, label %3740
-    i32 150, label %3746
-    i32 151, label %3752
-    i32 152, label %3758
-    i32 153, label %3764
-    i32 154, label %3770
-    i32 155, label %3776
-    i32 156, label %3782
-    i32 157, label %3785
-    i32 158, label %3803
-    i32 159, label %3806
-    i32 160, label %3833
-    i32 161, label %3860
-    i32 162, label %3878
-    i32 163, label %3953
-    i32 164, label %3998
-    i32 165, label %4046
-    i32 166, label %4109
-    i32 167, label %4143
-    i32 168, label %4206
-    i32 169, label %4258
+431:                                              ; preds = %378, %430
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #8
+  %432 = load i32, ptr %42, align 4
+  switch i32 %432, label %454 [
+    i32 0, label %433
   ]
 
-607:                                              ; preds = %604
-  %608 = load ptr, ptr %5, align 8
-  %609 = load ptr, ptr %21, align 8
-  %610 = getelementptr inbounds %union.YYSTYPE, ptr %609, i64 -2
-  %611 = load ptr, ptr %21, align 8
-  %612 = getelementptr inbounds %union.YYSTYPE, ptr %611, i64 -1
-  %613 = getelementptr inbounds { ptr, ptr }, ptr %610, i32 0, i32 0
-  %614 = load ptr, ptr %613, align 8
-  %615 = getelementptr inbounds { ptr, ptr }, ptr %610, i32 0, i32 1
-  %616 = load ptr, ptr %615, align 8
-  %617 = getelementptr inbounds { ptr, ptr }, ptr %612, i32 0, i32 0
-  %618 = load ptr, ptr %617, align 8
-  %619 = getelementptr inbounds { ptr, ptr }, ptr %612, i32 0, i32 1
-  %620 = load ptr, ptr %619, align 8
-  %621 = call { ptr, ptr } @block_join(ptr %614, ptr %616, ptr %618, ptr %620)
-  %622 = getelementptr inbounds { ptr, ptr }, ptr %43, i32 0, i32 0
-  %623 = extractvalue { ptr, ptr } %621, 0
-  store ptr %623, ptr %622, align 8
-  %624 = getelementptr inbounds { ptr, ptr }, ptr %43, i32 0, i32 1
-  %625 = extractvalue { ptr, ptr } %621, 1
-  store ptr %625, ptr %624, align 8
-  %626 = call { ptr, ptr } @gen_op_simple(i32 noundef 35)
-  %627 = getelementptr inbounds { ptr, ptr }, ptr %44, i32 0, i32 0
-  %628 = extractvalue { ptr, ptr } %626, 0
-  store ptr %628, ptr %627, align 8
-  %629 = getelementptr inbounds { ptr, ptr }, ptr %44, i32 0, i32 1
-  %630 = extractvalue { ptr, ptr } %626, 1
-  store ptr %630, ptr %629, align 8
-  %631 = getelementptr inbounds { ptr, ptr }, ptr %43, i32 0, i32 0
+433:                                              ; preds = %431
+  %434 = load ptr, ptr %18, align 8, !tbaa !32
+  %435 = load i64, ptr %36, align 8, !tbaa !30
+  %436 = getelementptr inbounds i16, ptr %434, i64 %435
+  %437 = getelementptr inbounds i16, ptr %436, i64 -1
+  store ptr %437, ptr %19, align 8, !tbaa !32
+  %438 = load ptr, ptr %21, align 8, !tbaa !20
+  %439 = load i64, ptr %36, align 8, !tbaa !30
+  %440 = getelementptr inbounds %union.YYSTYPE, ptr %438, i64 %439
+  %441 = getelementptr inbounds %union.YYSTYPE, ptr %440, i64 -1
+  store ptr %441, ptr %22, align 8, !tbaa !20
+  %442 = load ptr, ptr %24, align 8, !tbaa !4
+  %443 = load i64, ptr %36, align 8, !tbaa !30
+  %444 = getelementptr inbounds %struct.location, ptr %442, i64 %443
+  %445 = getelementptr inbounds %struct.location, ptr %444, i64 -1
+  store ptr %445, ptr %25, align 8, !tbaa !4
+  %446 = load ptr, ptr %18, align 8, !tbaa !32
+  %447 = load i64, ptr %16, align 8, !tbaa !30
+  %448 = getelementptr inbounds i16, ptr %446, i64 %447
+  %449 = getelementptr inbounds i16, ptr %448, i64 -1
+  %450 = load ptr, ptr %19, align 8, !tbaa !32
+  %451 = icmp ule ptr %449, %450
+  br i1 %451, label %452, label %453
+
+452:                                              ; preds = %433
+  store i32 11, ptr %42, align 4
+  br label %454
+
+453:                                              ; preds = %433
+  store i32 0, ptr %42, align 4
+  br label %454
+
+454:                                              ; preds = %452, %363, %453, %431
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #8
+  %455 = load i32, ptr %42, align 4
+  switch i32 %455, label %4637 [
+    i32 0, label %456
+    i32 11, label %4554
+    i32 4, label %4555
+  ]
+
+456:                                              ; preds = %454
+  br label %457
+
+457:                                              ; preds = %456, %343
+  %458 = load i32, ptr %14, align 4, !tbaa !18
+  %459 = icmp eq i32 %458, 30
+  br i1 %459, label %460, label %461
+
+460:                                              ; preds = %457
+  br label %4553
+
+461:                                              ; preds = %457
+  br label %462
+
+462:                                              ; preds = %461
+  %463 = load i32, ptr %14, align 4, !tbaa !18
+  %464 = sext i32 %463 to i64
+  %465 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %464
+  %466 = load i16, ptr %465, align 2, !tbaa !27
+  %467 = sext i16 %466 to i32
+  store i32 %467, ptr %26, align 4, !tbaa !18
+  %468 = load i32, ptr %26, align 4, !tbaa !18
+  %469 = icmp eq i32 %468, -157
+  br i1 %469, label %470, label %471
+
+470:                                              ; preds = %462
+  br label %550
+
+471:                                              ; preds = %462
+  %472 = load i32, ptr %10, align 4, !tbaa !18
+  %473 = icmp eq i32 %472, -2
+  br i1 %473, label %474, label %480
+
+474:                                              ; preds = %471
+  %475 = load ptr, ptr %6, align 8, !tbaa !8
+  %476 = load ptr, ptr %7, align 8, !tbaa !10
+  %477 = load ptr, ptr %8, align 8, !tbaa !12
+  %478 = load ptr, ptr %9, align 8, !tbaa !14
+  %479 = call i32 @yylex(ptr noundef %11, ptr noundef %12, ptr noundef %475, ptr noundef %476, ptr noundef %477, ptr noundef %478)
+  store i32 %479, ptr %10, align 4, !tbaa !18
+  br label %480
+
+480:                                              ; preds = %474, %471
+  %481 = load i32, ptr %10, align 4, !tbaa !18
+  %482 = icmp sle i32 %481, 0
+  br i1 %482, label %483, label %484
+
+483:                                              ; preds = %480
+  store i32 0, ptr %10, align 4, !tbaa !18
+  store i32 0, ptr %28, align 4, !tbaa !18
+  br label %505
+
+484:                                              ; preds = %480
+  %485 = load i32, ptr %10, align 4, !tbaa !18
+  %486 = icmp eq i32 %485, 256
+  br i1 %486, label %487, label %489
+
+487:                                              ; preds = %484
+  store i32 257, ptr %10, align 4, !tbaa !18
+  store i32 1, ptr %28, align 4, !tbaa !18
+  %488 = getelementptr inbounds [3 x %struct.location], ptr %31, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %488, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !24
+  br label %4470
+
+489:                                              ; preds = %484
+  %490 = load i32, ptr %10, align 4, !tbaa !18
+  %491 = icmp sle i32 0, %490
+  br i1 %491, label %492, label %501
+
+492:                                              ; preds = %489
+  %493 = load i32, ptr %10, align 4, !tbaa !18
+  %494 = icmp sle i32 %493, 303
+  br i1 %494, label %495, label %501
+
+495:                                              ; preds = %492
+  %496 = load i32, ptr %10, align 4, !tbaa !18
+  %497 = sext i32 %496 to i64
+  %498 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %497
+  %499 = load i8, ptr %498, align 1, !tbaa !26
+  %500 = sext i8 %499 to i32
+  br label %502
+
+501:                                              ; preds = %492, %489
+  br label %502
+
+502:                                              ; preds = %501, %495
+  %503 = phi i32 [ %500, %495 ], [ 2, %501 ]
+  store i32 %503, ptr %28, align 4, !tbaa !18
+  br label %504
+
+504:                                              ; preds = %502
+  br label %505
+
+505:                                              ; preds = %504, %483
+  %506 = load i32, ptr %28, align 4, !tbaa !18
+  %507 = load i32, ptr %26, align 4, !tbaa !18
+  %508 = add nsw i32 %507, %506
+  store i32 %508, ptr %26, align 4, !tbaa !18
+  %509 = load i32, ptr %26, align 4, !tbaa !18
+  %510 = icmp slt i32 %509, 0
+  br i1 %510, label %522, label %511
+
+511:                                              ; preds = %505
+  %512 = load i32, ptr %26, align 4, !tbaa !18
+  %513 = icmp slt i32 2051, %512
+  br i1 %513, label %522, label %514
+
+514:                                              ; preds = %511
+  %515 = load i32, ptr %26, align 4, !tbaa !18
+  %516 = sext i32 %515 to i64
+  %517 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %516
+  %518 = load i16, ptr %517, align 2, !tbaa !27
+  %519 = sext i16 %518 to i32
+  %520 = load i32, ptr %28, align 4, !tbaa !18
+  %521 = icmp ne i32 %519, %520
+  br i1 %521, label %522, label %523
+
+522:                                              ; preds = %514, %511, %505
+  br label %550
+
+523:                                              ; preds = %514
+  %524 = load i32, ptr %26, align 4, !tbaa !18
+  %525 = sext i32 %524 to i64
+  %526 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %525
+  %527 = load i16, ptr %526, align 2, !tbaa !27
+  %528 = sext i16 %527 to i32
+  store i32 %528, ptr %26, align 4, !tbaa !18
+  %529 = load i32, ptr %26, align 4, !tbaa !18
+  %530 = icmp sle i32 %529, 0
+  br i1 %530, label %531, label %538
+
+531:                                              ; preds = %523
+  %532 = load i32, ptr %26, align 4, !tbaa !18
+  %533 = icmp eq i32 %532, -156
+  br i1 %533, label %534, label %535
+
+534:                                              ; preds = %531
+  br label %4358
+
+535:                                              ; preds = %531
+  %536 = load i32, ptr %26, align 4, !tbaa !18
+  %537 = sub nsw i32 0, %536
+  store i32 %537, ptr %26, align 4, !tbaa !18
+  br label %560
+
+538:                                              ; preds = %523
+  %539 = load i32, ptr %15, align 4, !tbaa !18
+  %540 = icmp ne i32 %539, 0
+  br i1 %540, label %541, label %544
+
+541:                                              ; preds = %538
+  %542 = load i32, ptr %15, align 4, !tbaa !18
+  %543 = add nsw i32 %542, -1
+  store i32 %543, ptr %15, align 4, !tbaa !18
+  br label %544
+
+544:                                              ; preds = %541, %538
+  %545 = load i32, ptr %26, align 4, !tbaa !18
+  store i32 %545, ptr %14, align 4, !tbaa !18
+  %546 = load ptr, ptr %22, align 8, !tbaa !20
+  %547 = getelementptr inbounds nuw %union.YYSTYPE, ptr %546, i32 1
+  store ptr %547, ptr %22, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %547, ptr align 8 %11, i64 16, i1 false), !tbaa.struct !29
+  %548 = load ptr, ptr %25, align 8, !tbaa !4
+  %549 = getelementptr inbounds nuw %struct.location, ptr %548, i32 1
+  store ptr %549, ptr %25, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %549, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !24
+  store i32 -2, ptr %10, align 4, !tbaa !18
+  br label %340
+
+550:                                              ; preds = %522, %470
+  %551 = load i32, ptr %14, align 4, !tbaa !18
+  %552 = sext i32 %551 to i64
+  %553 = getelementptr inbounds [315 x i8], ptr @yydefact, i64 0, i64 %552
+  %554 = load i8, ptr %553, align 1, !tbaa !26
+  %555 = zext i8 %554 to i32
+  store i32 %555, ptr %26, align 4, !tbaa !18
+  %556 = load i32, ptr %26, align 4, !tbaa !18
+  %557 = icmp eq i32 %556, 0
+  br i1 %557, label %558, label %559
+
+558:                                              ; preds = %550
+  br label %4358
+
+559:                                              ; preds = %550
+  br label %560
+
+560:                                              ; preds = %559, %535
+  %561 = load i32, ptr %26, align 4, !tbaa !18
+  %562 = sext i32 %561 to i64
+  %563 = getelementptr inbounds [170 x i8], ptr @yyr2, i64 0, i64 %562
+  %564 = load i8, ptr %563, align 1, !tbaa !26
+  %565 = sext i8 %564 to i32
+  store i32 %565, ptr %35, align 4, !tbaa !18
+  %566 = load ptr, ptr %22, align 8, !tbaa !20
+  %567 = load i32, ptr %35, align 4, !tbaa !18
+  %568 = sub nsw i32 1, %567
+  %569 = sext i32 %568 to i64
+  %570 = getelementptr inbounds %union.YYSTYPE, ptr %566, i64 %569
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %570, i64 16, i1 false), !tbaa.struct !29
+  br label %571
+
+571:                                              ; preds = %560
+  %572 = load i32, ptr %35, align 4, !tbaa !18
+  %573 = icmp ne i32 %572, 0
+  br i1 %573, label %574, label %595
+
+574:                                              ; preds = %571
+  %575 = load ptr, ptr %25, align 8, !tbaa !4
+  %576 = load i32, ptr %35, align 4, !tbaa !18
+  %577 = sext i32 %576 to i64
+  %578 = sub i64 0, %577
+  %579 = getelementptr inbounds %struct.location, ptr %575, i64 %578
+  %580 = getelementptr inbounds %struct.location, ptr %579, i64 1
+  %581 = getelementptr inbounds nuw %struct.location, ptr %580, i32 0, i32 0
+  %582 = load i32, ptr %581, align 4, !tbaa !36
+  %583 = getelementptr inbounds nuw %struct.location, ptr %30, i32 0, i32 0
+  store i32 %582, ptr %583, align 4, !tbaa !36
+  %584 = load ptr, ptr %25, align 8, !tbaa !4
+  %585 = load i32, ptr %35, align 4, !tbaa !18
+  %586 = sext i32 %585 to i64
+  %587 = sub i64 0, %586
+  %588 = getelementptr inbounds %struct.location, ptr %584, i64 %587
+  %589 = load i32, ptr %35, align 4, !tbaa !18
+  %590 = sext i32 %589 to i64
+  %591 = getelementptr inbounds %struct.location, ptr %588, i64 %590
+  %592 = getelementptr inbounds nuw %struct.location, ptr %591, i32 0, i32 1
+  %593 = load i32, ptr %592, align 4, !tbaa !38
+  %594 = getelementptr inbounds nuw %struct.location, ptr %30, i32 0, i32 1
+  store i32 %593, ptr %594, align 4, !tbaa !38
+  br label %614
+
+595:                                              ; preds = %571
+  %596 = load ptr, ptr %25, align 8, !tbaa !4
+  %597 = load i32, ptr %35, align 4, !tbaa !18
+  %598 = sext i32 %597 to i64
+  %599 = sub i64 0, %598
+  %600 = getelementptr inbounds %struct.location, ptr %596, i64 %599
+  %601 = getelementptr inbounds %struct.location, ptr %600, i64 0
+  %602 = getelementptr inbounds nuw %struct.location, ptr %601, i32 0, i32 1
+  %603 = load i32, ptr %602, align 4, !tbaa !38
+  %604 = getelementptr inbounds nuw %struct.location, ptr %30, i32 0, i32 0
+  store i32 %603, ptr %604, align 4, !tbaa !36
+  %605 = load ptr, ptr %25, align 8, !tbaa !4
+  %606 = load i32, ptr %35, align 4, !tbaa !18
+  %607 = sext i32 %606 to i64
+  %608 = sub i64 0, %607
+  %609 = getelementptr inbounds %struct.location, ptr %605, i64 %608
+  %610 = getelementptr inbounds %struct.location, ptr %609, i64 0
+  %611 = getelementptr inbounds nuw %struct.location, ptr %610, i32 0, i32 1
+  %612 = load i32, ptr %611, align 4, !tbaa !38
+  %613 = getelementptr inbounds nuw %struct.location, ptr %30, i32 0, i32 1
+  store i32 %612, ptr %613, align 4, !tbaa !38
+  br label %614
+
+614:                                              ; preds = %595, %574
+  br label %615
+
+615:                                              ; preds = %614
+  br label %616
+
+616:                                              ; preds = %615
+  %617 = getelementptr inbounds [3 x %struct.location], ptr %31, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %617, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %618 = load i32, ptr %26, align 4, !tbaa !18
+  switch i32 %618, label %4293 [
+    i32 2, label %619
+    i32 3, label %671
+    i32 4, label %705
+    i32 5, label %711
+    i32 6, label %781
+    i32 7, label %787
+    i32 8, label %805
+    i32 9, label %811
+    i32 10, label %829
+    i32 11, label %847
+    i32 12, label %871
+    i32 13, label %897
+    i32 14, label %925
+    i32 15, label %956
+    i32 16, label %980
+    i32 17, label %990
+    i32 18, label %1008
+    i32 19, label %1029
+    i32 20, label %1039
+    i32 21, label %1089
+    i32 22, label %1110
+    i32 23, label %1155
+    i32 24, label %1173
+    i32 25, label %1191
+    i32 26, label %1209
+    i32 27, label %1227
+    i32 28, label %1272
+    i32 29, label %1290
+    i32 30, label %1308
+    i32 31, label %1326
+    i32 32, label %1344
+    i32 33, label %1374
+    i32 34, label %1392
+    i32 35, label %1410
+    i32 36, label %1428
+    i32 37, label %1446
+    i32 38, label %1464
+    i32 39, label %1482
+    i32 40, label %1500
+    i32 41, label %1518
+    i32 42, label %1536
+    i32 43, label %1554
+    i32 44, label %1572
+    i32 45, label %1590
+    i32 46, label %1608
+    i32 47, label %1626
+    i32 48, label %1629
+    i32 49, label %1632
+    i32 50, label %1720
+    i32 51, label %1765
+    i32 52, label %1810
+    i32 53, label %1842
+    i32 54, label %1883
+    i32 55, label %1917
+    i32 56, label %1948
+    i32 57, label %1951
+    i32 58, label %1969
+    i32 59, label %1988
+    i32 60, label %2007
+    i32 61, label %2010
+    i32 62, label %2016
+    i32 63, label %2025
+    i32 64, label %2040
+    i32 65, label %2067
+    i32 66, label %2109
+    i32 67, label %2133
+    i32 68, label %2136
+    i32 69, label %2142
+    i32 70, label %2160
+    i32 71, label %2190
+    i32 72, label %2193
+    i32 73, label %2199
+    i32 74, label %2214
+    i32 75, label %2285
+    i32 76, label %2298
+    i32 77, label %2325
+    i32 78, label %2355
+    i32 79, label %2373
+    i32 80, label %2394
+    i32 81, label %2421
+    i32 82, label %2451
+    i32 83, label %2469
+    i32 84, label %2490
+    i32 85, label %2503
+    i32 86, label %2522
+    i32 87, label %2540
+    i32 88, label %2558
+    i32 89, label %2576
+    i32 90, label %2594
+    i32 91, label %2615
+    i32 92, label %2636
+    i32 93, label %2657
+    i32 94, label %2678
+    i32 95, label %2702
+    i32 96, label %2738
+    i32 97, label %2774
+    i32 98, label %2798
+    i32 99, label %2834
+    i32 100, label %2870
+    i32 101, label %2882
+    i32 102, label %2885
+    i32 103, label %2906
+    i32 104, label %2909
+    i32 105, label %2921
+    i32 106, label %2936
+    i32 107, label %3010
+    i32 108, label %3040
+    i32 109, label %3070
+    i32 110, label %3077
+    i32 111, label %3177
+    i32 112, label %3215
+    i32 113, label %3221
+    i32 114, label %3227
+    i32 115, label %3230
+    i32 116, label %3236
+    i32 117, label %3239
+    i32 118, label %3257
+    i32 119, label %3269
+    i32 120, label %3296
+    i32 121, label %3308
+    i32 122, label %3326
+    i32 123, label %3329
+    i32 124, label %3348
+    i32 125, label %3369
+    i32 126, label %3390
+    i32 127, label %3411
+    i32 128, label %3429
+    i32 129, label %3432
+    i32 130, label %3450
+    i32 131, label %3487
+    i32 132, label %3557
+    i32 133, label %3584
+    i32 134, label %3611
+    i32 135, label %3629
+    i32 136, label %3682
+    i32 137, label %3692
+    i32 138, label %3698
+    i32 139, label %3704
+    i32 140, label %3710
+    i32 141, label %3716
+    i32 142, label %3722
+    i32 143, label %3728
+    i32 144, label %3734
+    i32 145, label %3740
+    i32 146, label %3746
+    i32 147, label %3752
+    i32 148, label %3758
+    i32 149, label %3764
+    i32 150, label %3770
+    i32 151, label %3776
+    i32 152, label %3782
+    i32 153, label %3788
+    i32 154, label %3794
+    i32 155, label %3800
+    i32 156, label %3806
+    i32 157, label %3809
+    i32 158, label %3827
+    i32 159, label %3830
+    i32 160, label %3857
+    i32 161, label %3884
+    i32 162, label %3902
+    i32 163, label %3977
+    i32 164, label %4022
+    i32 165, label %4070
+    i32 166, label %4133
+    i32 167, label %4167
+    i32 168, label %4230
+    i32 169, label %4283
+  ]
+
+619:                                              ; preds = %616
+  %620 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %43) #8
+  %621 = load ptr, ptr %22, align 8, !tbaa !20
+  %622 = getelementptr inbounds %union.YYSTYPE, ptr %621, i64 -2
+  %623 = load ptr, ptr %22, align 8, !tbaa !20
+  %624 = getelementptr inbounds %union.YYSTYPE, ptr %623, i64 -1
+  %625 = getelementptr inbounds nuw { ptr, ptr }, ptr %622, i32 0, i32 0
+  %626 = load ptr, ptr %625, align 8
+  %627 = getelementptr inbounds nuw { ptr, ptr }, ptr %622, i32 0, i32 1
+  %628 = load ptr, ptr %627, align 8
+  %629 = getelementptr inbounds nuw { ptr, ptr }, ptr %624, i32 0, i32 0
+  %630 = load ptr, ptr %629, align 8
+  %631 = getelementptr inbounds nuw { ptr, ptr }, ptr %624, i32 0, i32 1
   %632 = load ptr, ptr %631, align 8
-  %633 = getelementptr inbounds { ptr, ptr }, ptr %43, i32 0, i32 1
-  %634 = load ptr, ptr %633, align 8
-  %635 = getelementptr inbounds { ptr, ptr }, ptr %44, i32 0, i32 0
-  %636 = load ptr, ptr %635, align 8
-  %637 = getelementptr inbounds { ptr, ptr }, ptr %44, i32 0, i32 1
-  %638 = load ptr, ptr %637, align 8
-  %639 = call { ptr, ptr } @block_join(ptr %632, ptr %634, ptr %636, ptr %638)
-  %640 = getelementptr inbounds { ptr, ptr }, ptr %42, i32 0, i32 0
-  %641 = extractvalue { ptr, ptr } %639, 0
-  store ptr %641, ptr %640, align 8
-  %642 = getelementptr inbounds { ptr, ptr }, ptr %42, i32 0, i32 1
-  %643 = extractvalue { ptr, ptr } %639, 1
-  store ptr %643, ptr %642, align 8
-  %644 = load ptr, ptr %21, align 8
-  %645 = getelementptr inbounds %union.YYSTYPE, ptr %644, i64 0
-  %646 = getelementptr inbounds { ptr, ptr }, ptr %42, i32 0, i32 0
-  %647 = load ptr, ptr %646, align 8
-  %648 = getelementptr inbounds { ptr, ptr }, ptr %42, i32 0, i32 1
-  %649 = load ptr, ptr %648, align 8
-  %650 = getelementptr inbounds { ptr, ptr }, ptr %645, i32 0, i32 0
-  %651 = load ptr, ptr %650, align 8
-  %652 = getelementptr inbounds { ptr, ptr }, ptr %645, i32 0, i32 1
-  %653 = load ptr, ptr %652, align 8
-  %654 = call { ptr, ptr } @block_join(ptr %647, ptr %649, ptr %651, ptr %653)
-  %655 = getelementptr inbounds { ptr, ptr }, ptr %41, i32 0, i32 0
-  %656 = extractvalue { ptr, ptr } %654, 0
-  store ptr %656, ptr %655, align 8
-  %657 = getelementptr inbounds { ptr, ptr }, ptr %41, i32 0, i32 1
-  %658 = extractvalue { ptr, ptr } %654, 1
-  store ptr %658, ptr %657, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %608, ptr align 8 %41, i64 16, i1 false)
-  br label %4268
+  %633 = call { ptr, ptr } @block_join(ptr %626, ptr %628, ptr %630, ptr %632)
+  %634 = getelementptr inbounds nuw { ptr, ptr }, ptr %45, i32 0, i32 0
+  %635 = extractvalue { ptr, ptr } %633, 0
+  store ptr %635, ptr %634, align 8
+  %636 = getelementptr inbounds nuw { ptr, ptr }, ptr %45, i32 0, i32 1
+  %637 = extractvalue { ptr, ptr } %633, 1
+  store ptr %637, ptr %636, align 8
+  %638 = call { ptr, ptr } @gen_op_simple(i32 noundef 35)
+  %639 = getelementptr inbounds nuw { ptr, ptr }, ptr %46, i32 0, i32 0
+  %640 = extractvalue { ptr, ptr } %638, 0
+  store ptr %640, ptr %639, align 8
+  %641 = getelementptr inbounds nuw { ptr, ptr }, ptr %46, i32 0, i32 1
+  %642 = extractvalue { ptr, ptr } %638, 1
+  store ptr %642, ptr %641, align 8
+  %643 = getelementptr inbounds nuw { ptr, ptr }, ptr %45, i32 0, i32 0
+  %644 = load ptr, ptr %643, align 8
+  %645 = getelementptr inbounds nuw { ptr, ptr }, ptr %45, i32 0, i32 1
+  %646 = load ptr, ptr %645, align 8
+  %647 = getelementptr inbounds nuw { ptr, ptr }, ptr %46, i32 0, i32 0
+  %648 = load ptr, ptr %647, align 8
+  %649 = getelementptr inbounds nuw { ptr, ptr }, ptr %46, i32 0, i32 1
+  %650 = load ptr, ptr %649, align 8
+  %651 = call { ptr, ptr } @block_join(ptr %644, ptr %646, ptr %648, ptr %650)
+  %652 = getelementptr inbounds nuw { ptr, ptr }, ptr %44, i32 0, i32 0
+  %653 = extractvalue { ptr, ptr } %651, 0
+  store ptr %653, ptr %652, align 8
+  %654 = getelementptr inbounds nuw { ptr, ptr }, ptr %44, i32 0, i32 1
+  %655 = extractvalue { ptr, ptr } %651, 1
+  store ptr %655, ptr %654, align 8
+  %656 = load ptr, ptr %22, align 8, !tbaa !20
+  %657 = getelementptr inbounds %union.YYSTYPE, ptr %656, i64 0
+  %658 = getelementptr inbounds nuw { ptr, ptr }, ptr %44, i32 0, i32 0
+  %659 = load ptr, ptr %658, align 8
+  %660 = getelementptr inbounds nuw { ptr, ptr }, ptr %44, i32 0, i32 1
+  %661 = load ptr, ptr %660, align 8
+  %662 = getelementptr inbounds nuw { ptr, ptr }, ptr %657, i32 0, i32 0
+  %663 = load ptr, ptr %662, align 8
+  %664 = getelementptr inbounds nuw { ptr, ptr }, ptr %657, i32 0, i32 1
+  %665 = load ptr, ptr %664, align 8
+  %666 = call { ptr, ptr } @block_join(ptr %659, ptr %661, ptr %663, ptr %665)
+  %667 = getelementptr inbounds nuw { ptr, ptr }, ptr %43, i32 0, i32 0
+  %668 = extractvalue { ptr, ptr } %666, 0
+  store ptr %668, ptr %667, align 8
+  %669 = getelementptr inbounds nuw { ptr, ptr }, ptr %43, i32 0, i32 1
+  %670 = extractvalue { ptr, ptr } %666, 1
+  store ptr %670, ptr %669, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %620, ptr align 8 %43, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %43) #8
+  br label %4294
 
-659:                                              ; preds = %604
-  %660 = load ptr, ptr %5, align 8
-  %661 = load ptr, ptr %21, align 8
-  %662 = getelementptr inbounds %union.YYSTYPE, ptr %661, i64 -2
-  %663 = load ptr, ptr %21, align 8
-  %664 = getelementptr inbounds %union.YYSTYPE, ptr %663, i64 -1
-  %665 = getelementptr inbounds { ptr, ptr }, ptr %662, i32 0, i32 0
-  %666 = load ptr, ptr %665, align 8
-  %667 = getelementptr inbounds { ptr, ptr }, ptr %662, i32 0, i32 1
-  %668 = load ptr, ptr %667, align 8
-  %669 = getelementptr inbounds { ptr, ptr }, ptr %664, i32 0, i32 0
-  %670 = load ptr, ptr %669, align 8
-  %671 = getelementptr inbounds { ptr, ptr }, ptr %664, i32 0, i32 1
-  %672 = load ptr, ptr %671, align 8
-  %673 = call { ptr, ptr } @block_join(ptr %666, ptr %668, ptr %670, ptr %672)
-  %674 = getelementptr inbounds { ptr, ptr }, ptr %46, i32 0, i32 0
-  %675 = extractvalue { ptr, ptr } %673, 0
-  store ptr %675, ptr %674, align 8
-  %676 = getelementptr inbounds { ptr, ptr }, ptr %46, i32 0, i32 1
-  %677 = extractvalue { ptr, ptr } %673, 1
-  store ptr %677, ptr %676, align 8
-  %678 = load ptr, ptr %21, align 8
-  %679 = getelementptr inbounds %union.YYSTYPE, ptr %678, i64 0
-  %680 = getelementptr inbounds { ptr, ptr }, ptr %46, i32 0, i32 0
-  %681 = load ptr, ptr %680, align 8
-  %682 = getelementptr inbounds { ptr, ptr }, ptr %46, i32 0, i32 1
-  %683 = load ptr, ptr %682, align 8
-  %684 = getelementptr inbounds { ptr, ptr }, ptr %679, i32 0, i32 0
-  %685 = load ptr, ptr %684, align 8
-  %686 = getelementptr inbounds { ptr, ptr }, ptr %679, i32 0, i32 1
-  %687 = load ptr, ptr %686, align 8
-  %688 = call { ptr, ptr } @block_join(ptr %681, ptr %683, ptr %685, ptr %687)
-  %689 = getelementptr inbounds { ptr, ptr }, ptr %45, i32 0, i32 0
-  %690 = extractvalue { ptr, ptr } %688, 0
-  store ptr %690, ptr %689, align 8
-  %691 = getelementptr inbounds { ptr, ptr }, ptr %45, i32 0, i32 1
-  %692 = extractvalue { ptr, ptr } %688, 1
-  store ptr %692, ptr %691, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %660, ptr align 8 %45, i64 16, i1 false)
-  br label %4268
+671:                                              ; preds = %616
+  %672 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %47) #8
+  %673 = load ptr, ptr %22, align 8, !tbaa !20
+  %674 = getelementptr inbounds %union.YYSTYPE, ptr %673, i64 -2
+  %675 = load ptr, ptr %22, align 8, !tbaa !20
+  %676 = getelementptr inbounds %union.YYSTYPE, ptr %675, i64 -1
+  %677 = getelementptr inbounds nuw { ptr, ptr }, ptr %674, i32 0, i32 0
+  %678 = load ptr, ptr %677, align 8
+  %679 = getelementptr inbounds nuw { ptr, ptr }, ptr %674, i32 0, i32 1
+  %680 = load ptr, ptr %679, align 8
+  %681 = getelementptr inbounds nuw { ptr, ptr }, ptr %676, i32 0, i32 0
+  %682 = load ptr, ptr %681, align 8
+  %683 = getelementptr inbounds nuw { ptr, ptr }, ptr %676, i32 0, i32 1
+  %684 = load ptr, ptr %683, align 8
+  %685 = call { ptr, ptr } @block_join(ptr %678, ptr %680, ptr %682, ptr %684)
+  %686 = getelementptr inbounds nuw { ptr, ptr }, ptr %48, i32 0, i32 0
+  %687 = extractvalue { ptr, ptr } %685, 0
+  store ptr %687, ptr %686, align 8
+  %688 = getelementptr inbounds nuw { ptr, ptr }, ptr %48, i32 0, i32 1
+  %689 = extractvalue { ptr, ptr } %685, 1
+  store ptr %689, ptr %688, align 8
+  %690 = load ptr, ptr %22, align 8, !tbaa !20
+  %691 = getelementptr inbounds %union.YYSTYPE, ptr %690, i64 0
+  %692 = getelementptr inbounds nuw { ptr, ptr }, ptr %48, i32 0, i32 0
+  %693 = load ptr, ptr %692, align 8
+  %694 = getelementptr inbounds nuw { ptr, ptr }, ptr %48, i32 0, i32 1
+  %695 = load ptr, ptr %694, align 8
+  %696 = getelementptr inbounds nuw { ptr, ptr }, ptr %691, i32 0, i32 0
+  %697 = load ptr, ptr %696, align 8
+  %698 = getelementptr inbounds nuw { ptr, ptr }, ptr %691, i32 0, i32 1
+  %699 = load ptr, ptr %698, align 8
+  %700 = call { ptr, ptr } @block_join(ptr %693, ptr %695, ptr %697, ptr %699)
+  %701 = getelementptr inbounds nuw { ptr, ptr }, ptr %47, i32 0, i32 0
+  %702 = extractvalue { ptr, ptr } %700, 0
+  store ptr %702, ptr %701, align 8
+  %703 = getelementptr inbounds nuw { ptr, ptr }, ptr %47, i32 0, i32 1
+  %704 = extractvalue { ptr, ptr } %700, 1
+  store ptr %704, ptr %703, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %672, ptr align 8 %47, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %47) #8
+  br label %4294
 
-693:                                              ; preds = %604
-  %694 = call { ptr, ptr } (...) @gen_noop()
-  %695 = getelementptr inbounds { ptr, ptr }, ptr %47, i32 0, i32 0
-  %696 = extractvalue { ptr, ptr } %694, 0
-  store ptr %696, ptr %695, align 8
-  %697 = getelementptr inbounds { ptr, ptr }, ptr %47, i32 0, i32 1
-  %698 = extractvalue { ptr, ptr } %694, 1
-  store ptr %698, ptr %697, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %47, i64 16, i1 false)
-  br label %4268
+705:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %49) #8
+  %706 = call { ptr, ptr } (...) @gen_noop()
+  %707 = getelementptr inbounds nuw { ptr, ptr }, ptr %49, i32 0, i32 0
+  %708 = extractvalue { ptr, ptr } %706, 0
+  store ptr %708, ptr %707, align 8
+  %709 = getelementptr inbounds nuw { ptr, ptr }, ptr %49, i32 0, i32 1
+  %710 = extractvalue { ptr, ptr } %706, 1
+  store ptr %710, ptr %709, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %49, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %49) #8
+  br label %4294
 
-699:                                              ; preds = %604
-  %700 = load ptr, ptr %21, align 8
-  %701 = getelementptr inbounds %union.YYSTYPE, ptr %700, i64 -1
-  %702 = getelementptr inbounds { ptr, ptr }, ptr %701, i32 0, i32 0
-  %703 = load ptr, ptr %702, align 8
-  %704 = getelementptr inbounds { ptr, ptr }, ptr %701, i32 0, i32 1
-  %705 = load ptr, ptr %704, align 8
-  %706 = call i32 @block_is_const(ptr %703, ptr %705)
-  %707 = icmp ne i32 %706, 0
-  br i1 %707, label %726, label %708
+711:                                              ; preds = %616
+  %712 = load ptr, ptr %22, align 8, !tbaa !20
+  %713 = getelementptr inbounds %union.YYSTYPE, ptr %712, i64 -1
+  %714 = getelementptr inbounds nuw { ptr, ptr }, ptr %713, i32 0, i32 0
+  %715 = load ptr, ptr %714, align 8
+  %716 = getelementptr inbounds nuw { ptr, ptr }, ptr %713, i32 0, i32 1
+  %717 = load ptr, ptr %716, align 8
+  %718 = call i32 @block_is_const(ptr %715, ptr %717)
+  %719 = icmp ne i32 %718, 0
+  br i1 %719, label %739, label %720
 
-708:                                              ; preds = %699
-  br label %709
+720:                                              ; preds = %711
+  br label %721
 
-709:                                              ; preds = %708
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %48, ptr align 4 %29, i64 8, i1 false)
-  %710 = load ptr, ptr %5, align 8
-  %711 = load ptr, ptr %6, align 8
-  %712 = load ptr, ptr %7, align 8
-  %713 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %48, ptr noundef %710, ptr noundef %711, ptr noundef %712, ptr noundef %713, ptr noundef @.str.4)
-  br label %714
+721:                                              ; preds = %720
+  call void @llvm.lifetime.start.p0(i64 8, ptr %50) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %50, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %722 = load ptr, ptr %6, align 8, !tbaa !8
+  %723 = load ptr, ptr %7, align 8, !tbaa !10
+  %724 = load ptr, ptr %8, align 8, !tbaa !12
+  %725 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %50, ptr noundef %722, ptr noundef %723, ptr noundef %724, ptr noundef %725, ptr noundef @.str.4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #8
+  br label %726
 
-714:                                              ; preds = %709
-  %715 = call { ptr, ptr } (...) @gen_noop()
-  %716 = getelementptr inbounds { ptr, ptr }, ptr %49, i32 0, i32 0
-  %717 = extractvalue { ptr, ptr } %715, 0
-  store ptr %717, ptr %716, align 8
-  %718 = getelementptr inbounds { ptr, ptr }, ptr %49, i32 0, i32 1
-  %719 = extractvalue { ptr, ptr } %715, 1
-  store ptr %719, ptr %718, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %49, i64 16, i1 false)
-  %720 = load ptr, ptr %21, align 8
-  %721 = getelementptr inbounds %union.YYSTYPE, ptr %720, i64 -1
-  %722 = getelementptr inbounds { ptr, ptr }, ptr %721, i32 0, i32 0
-  %723 = load ptr, ptr %722, align 8
-  %724 = getelementptr inbounds { ptr, ptr }, ptr %721, i32 0, i32 1
-  %725 = load ptr, ptr %724, align 8
-  call void @block_free(ptr %723, ptr %725)
-  br label %766
+726:                                              ; preds = %721
+  br label %727
 
-726:                                              ; preds = %699
-  %727 = load ptr, ptr %21, align 8
-  %728 = getelementptr inbounds %union.YYSTYPE, ptr %727, i64 -1
-  %729 = getelementptr inbounds { ptr, ptr }, ptr %728, i32 0, i32 0
-  %730 = load ptr, ptr %729, align 8
-  %731 = getelementptr inbounds { ptr, ptr }, ptr %728, i32 0, i32 1
-  %732 = load ptr, ptr %731, align 8
-  %733 = call i32 @block_const_kind(ptr %730, ptr %732)
-  %734 = icmp ne i32 %733, 7
-  br i1 %734, label %735, label %753
+727:                                              ; preds = %726
+  call void @llvm.lifetime.start.p0(i64 16, ptr %51) #8
+  %728 = call { ptr, ptr } (...) @gen_noop()
+  %729 = getelementptr inbounds nuw { ptr, ptr }, ptr %51, i32 0, i32 0
+  %730 = extractvalue { ptr, ptr } %728, 0
+  store ptr %730, ptr %729, align 8
+  %731 = getelementptr inbounds nuw { ptr, ptr }, ptr %51, i32 0, i32 1
+  %732 = extractvalue { ptr, ptr } %728, 1
+  store ptr %732, ptr %731, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %51, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %51) #8
+  %733 = load ptr, ptr %22, align 8, !tbaa !20
+  %734 = getelementptr inbounds %union.YYSTYPE, ptr %733, i64 -1
+  %735 = getelementptr inbounds nuw { ptr, ptr }, ptr %734, i32 0, i32 0
+  %736 = load ptr, ptr %735, align 8
+  %737 = getelementptr inbounds nuw { ptr, ptr }, ptr %734, i32 0, i32 1
+  %738 = load ptr, ptr %737, align 8
+  call void @block_free(ptr %736, ptr %738)
+  br label %780
 
-735:                                              ; preds = %726
-  br label %736
+739:                                              ; preds = %711
+  %740 = load ptr, ptr %22, align 8, !tbaa !20
+  %741 = getelementptr inbounds %union.YYSTYPE, ptr %740, i64 -1
+  %742 = getelementptr inbounds nuw { ptr, ptr }, ptr %741, i32 0, i32 0
+  %743 = load ptr, ptr %742, align 8
+  %744 = getelementptr inbounds nuw { ptr, ptr }, ptr %741, i32 0, i32 1
+  %745 = load ptr, ptr %744, align 8
+  %746 = call i32 @block_const_kind(ptr %743, ptr %745)
+  %747 = icmp ne i32 %746, 7
+  br i1 %747, label %748, label %767
 
-736:                                              ; preds = %735
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %50, ptr align 4 %29, i64 8, i1 false)
-  %737 = load ptr, ptr %5, align 8
-  %738 = load ptr, ptr %6, align 8
-  %739 = load ptr, ptr %7, align 8
-  %740 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %50, ptr noundef %737, ptr noundef %738, ptr noundef %739, ptr noundef %740, ptr noundef @.str.5)
-  br label %741
+748:                                              ; preds = %739
+  br label %749
 
-741:                                              ; preds = %736
-  %742 = call { ptr, ptr } (...) @gen_noop()
-  %743 = getelementptr inbounds { ptr, ptr }, ptr %51, i32 0, i32 0
-  %744 = extractvalue { ptr, ptr } %742, 0
-  store ptr %744, ptr %743, align 8
-  %745 = getelementptr inbounds { ptr, ptr }, ptr %51, i32 0, i32 1
-  %746 = extractvalue { ptr, ptr } %742, 1
-  store ptr %746, ptr %745, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %51, i64 16, i1 false)
-  %747 = load ptr, ptr %21, align 8
-  %748 = getelementptr inbounds %union.YYSTYPE, ptr %747, i64 -1
-  %749 = getelementptr inbounds { ptr, ptr }, ptr %748, i32 0, i32 0
-  %750 = load ptr, ptr %749, align 8
-  %751 = getelementptr inbounds { ptr, ptr }, ptr %748, i32 0, i32 1
-  %752 = load ptr, ptr %751, align 8
-  call void @block_free(ptr %750, ptr %752)
-  br label %765
+749:                                              ; preds = %748
+  call void @llvm.lifetime.start.p0(i64 8, ptr %52) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %52, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %750 = load ptr, ptr %6, align 8, !tbaa !8
+  %751 = load ptr, ptr %7, align 8, !tbaa !10
+  %752 = load ptr, ptr %8, align 8, !tbaa !12
+  %753 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %52, ptr noundef %750, ptr noundef %751, ptr noundef %752, ptr noundef %753, ptr noundef @.str.5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %52) #8
+  br label %754
 
-753:                                              ; preds = %726
-  %754 = load ptr, ptr %21, align 8
-  %755 = getelementptr inbounds %union.YYSTYPE, ptr %754, i64 -1
-  %756 = getelementptr inbounds { ptr, ptr }, ptr %755, i32 0, i32 0
-  %757 = load ptr, ptr %756, align 8
-  %758 = getelementptr inbounds { ptr, ptr }, ptr %755, i32 0, i32 1
-  %759 = load ptr, ptr %758, align 8
-  %760 = call { ptr, ptr } @gen_module(ptr %757, ptr %759)
-  %761 = getelementptr inbounds { ptr, ptr }, ptr %52, i32 0, i32 0
-  %762 = extractvalue { ptr, ptr } %760, 0
-  store ptr %762, ptr %761, align 8
-  %763 = getelementptr inbounds { ptr, ptr }, ptr %52, i32 0, i32 1
-  %764 = extractvalue { ptr, ptr } %760, 1
-  store ptr %764, ptr %763, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %52, i64 16, i1 false)
-  br label %765
+754:                                              ; preds = %749
+  br label %755
 
-765:                                              ; preds = %753, %741
-  br label %766
+755:                                              ; preds = %754
+  call void @llvm.lifetime.start.p0(i64 16, ptr %53) #8
+  %756 = call { ptr, ptr } (...) @gen_noop()
+  %757 = getelementptr inbounds nuw { ptr, ptr }, ptr %53, i32 0, i32 0
+  %758 = extractvalue { ptr, ptr } %756, 0
+  store ptr %758, ptr %757, align 8
+  %759 = getelementptr inbounds nuw { ptr, ptr }, ptr %53, i32 0, i32 1
+  %760 = extractvalue { ptr, ptr } %756, 1
+  store ptr %760, ptr %759, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %53, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %53) #8
+  %761 = load ptr, ptr %22, align 8, !tbaa !20
+  %762 = getelementptr inbounds %union.YYSTYPE, ptr %761, i64 -1
+  %763 = getelementptr inbounds nuw { ptr, ptr }, ptr %762, i32 0, i32 0
+  %764 = load ptr, ptr %763, align 8
+  %765 = getelementptr inbounds nuw { ptr, ptr }, ptr %762, i32 0, i32 1
+  %766 = load ptr, ptr %765, align 8
+  call void @block_free(ptr %764, ptr %766)
+  br label %779
 
-766:                                              ; preds = %765, %714
-  br label %4268
+767:                                              ; preds = %739
+  call void @llvm.lifetime.start.p0(i64 16, ptr %54) #8
+  %768 = load ptr, ptr %22, align 8, !tbaa !20
+  %769 = getelementptr inbounds %union.YYSTYPE, ptr %768, i64 -1
+  %770 = getelementptr inbounds nuw { ptr, ptr }, ptr %769, i32 0, i32 0
+  %771 = load ptr, ptr %770, align 8
+  %772 = getelementptr inbounds nuw { ptr, ptr }, ptr %769, i32 0, i32 1
+  %773 = load ptr, ptr %772, align 8
+  %774 = call { ptr, ptr } @gen_module(ptr %771, ptr %773)
+  %775 = getelementptr inbounds nuw { ptr, ptr }, ptr %54, i32 0, i32 0
+  %776 = extractvalue { ptr, ptr } %774, 0
+  store ptr %776, ptr %775, align 8
+  %777 = getelementptr inbounds nuw { ptr, ptr }, ptr %54, i32 0, i32 1
+  %778 = extractvalue { ptr, ptr } %774, 1
+  store ptr %778, ptr %777, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %54, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %54) #8
+  br label %779
 
-767:                                              ; preds = %604
-  %768 = call { ptr, ptr } (...) @gen_noop()
-  %769 = getelementptr inbounds { ptr, ptr }, ptr %53, i32 0, i32 0
-  %770 = extractvalue { ptr, ptr } %768, 0
-  store ptr %770, ptr %769, align 8
-  %771 = getelementptr inbounds { ptr, ptr }, ptr %53, i32 0, i32 1
-  %772 = extractvalue { ptr, ptr } %768, 1
-  store ptr %772, ptr %771, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %53, i64 16, i1 false)
-  br label %4268
+779:                                              ; preds = %767, %755
+  br label %780
 
-773:                                              ; preds = %604
-  %774 = load ptr, ptr %21, align 8
-  %775 = getelementptr inbounds %union.YYSTYPE, ptr %774, i64 -1
-  %776 = load ptr, ptr %21, align 8
-  %777 = getelementptr inbounds %union.YYSTYPE, ptr %776, i64 0
-  %778 = getelementptr inbounds { ptr, ptr }, ptr %775, i32 0, i32 0
-  %779 = load ptr, ptr %778, align 8
-  %780 = getelementptr inbounds { ptr, ptr }, ptr %775, i32 0, i32 1
-  %781 = load ptr, ptr %780, align 8
-  %782 = getelementptr inbounds { ptr, ptr }, ptr %777, i32 0, i32 0
-  %783 = load ptr, ptr %782, align 8
-  %784 = getelementptr inbounds { ptr, ptr }, ptr %777, i32 0, i32 1
-  %785 = load ptr, ptr %784, align 8
-  %786 = call { ptr, ptr } @block_join(ptr %779, ptr %781, ptr %783, ptr %785)
-  %787 = getelementptr inbounds { ptr, ptr }, ptr %54, i32 0, i32 0
-  %788 = extractvalue { ptr, ptr } %786, 0
-  store ptr %788, ptr %787, align 8
-  %789 = getelementptr inbounds { ptr, ptr }, ptr %54, i32 0, i32 1
-  %790 = extractvalue { ptr, ptr } %786, 1
-  store ptr %790, ptr %789, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %54, i64 16, i1 false)
-  br label %4268
+780:                                              ; preds = %779, %727
+  br label %4294
 
-791:                                              ; preds = %604
-  %792 = call { ptr, ptr } (...) @gen_noop()
-  %793 = getelementptr inbounds { ptr, ptr }, ptr %55, i32 0, i32 0
-  %794 = extractvalue { ptr, ptr } %792, 0
-  store ptr %794, ptr %793, align 8
-  %795 = getelementptr inbounds { ptr, ptr }, ptr %55, i32 0, i32 1
-  %796 = extractvalue { ptr, ptr } %792, 1
-  store ptr %796, ptr %795, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %55, i64 16, i1 false)
-  br label %4268
+781:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %55) #8
+  %782 = call { ptr, ptr } (...) @gen_noop()
+  %783 = getelementptr inbounds nuw { ptr, ptr }, ptr %55, i32 0, i32 0
+  %784 = extractvalue { ptr, ptr } %782, 0
+  store ptr %784, ptr %783, align 8
+  %785 = getelementptr inbounds nuw { ptr, ptr }, ptr %55, i32 0, i32 1
+  %786 = extractvalue { ptr, ptr } %782, 1
+  store ptr %786, ptr %785, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %55, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %55) #8
+  br label %4294
 
-797:                                              ; preds = %604
-  %798 = load ptr, ptr %21, align 8
-  %799 = getelementptr inbounds %union.YYSTYPE, ptr %798, i64 -1
-  %800 = load ptr, ptr %21, align 8
-  %801 = getelementptr inbounds %union.YYSTYPE, ptr %800, i64 0
-  %802 = getelementptr inbounds { ptr, ptr }, ptr %799, i32 0, i32 0
-  %803 = load ptr, ptr %802, align 8
-  %804 = getelementptr inbounds { ptr, ptr }, ptr %799, i32 0, i32 1
-  %805 = load ptr, ptr %804, align 8
-  %806 = getelementptr inbounds { ptr, ptr }, ptr %801, i32 0, i32 0
-  %807 = load ptr, ptr %806, align 8
-  %808 = getelementptr inbounds { ptr, ptr }, ptr %801, i32 0, i32 1
-  %809 = load ptr, ptr %808, align 8
-  %810 = call { ptr, ptr } @block_join(ptr %803, ptr %805, ptr %807, ptr %809)
-  %811 = getelementptr inbounds { ptr, ptr }, ptr %56, i32 0, i32 0
-  %812 = extractvalue { ptr, ptr } %810, 0
-  store ptr %812, ptr %811, align 8
-  %813 = getelementptr inbounds { ptr, ptr }, ptr %56, i32 0, i32 1
-  %814 = extractvalue { ptr, ptr } %810, 1
-  store ptr %814, ptr %813, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %56, i64 16, i1 false)
-  br label %4268
+787:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %56) #8
+  %788 = load ptr, ptr %22, align 8, !tbaa !20
+  %789 = getelementptr inbounds %union.YYSTYPE, ptr %788, i64 -1
+  %790 = load ptr, ptr %22, align 8, !tbaa !20
+  %791 = getelementptr inbounds %union.YYSTYPE, ptr %790, i64 0
+  %792 = getelementptr inbounds nuw { ptr, ptr }, ptr %789, i32 0, i32 0
+  %793 = load ptr, ptr %792, align 8
+  %794 = getelementptr inbounds nuw { ptr, ptr }, ptr %789, i32 0, i32 1
+  %795 = load ptr, ptr %794, align 8
+  %796 = getelementptr inbounds nuw { ptr, ptr }, ptr %791, i32 0, i32 0
+  %797 = load ptr, ptr %796, align 8
+  %798 = getelementptr inbounds nuw { ptr, ptr }, ptr %791, i32 0, i32 1
+  %799 = load ptr, ptr %798, align 8
+  %800 = call { ptr, ptr } @block_join(ptr %793, ptr %795, ptr %797, ptr %799)
+  %801 = getelementptr inbounds nuw { ptr, ptr }, ptr %56, i32 0, i32 0
+  %802 = extractvalue { ptr, ptr } %800, 0
+  store ptr %802, ptr %801, align 8
+  %803 = getelementptr inbounds nuw { ptr, ptr }, ptr %56, i32 0, i32 1
+  %804 = extractvalue { ptr, ptr } %800, 1
+  store ptr %804, ptr %803, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %56, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %56) #8
+  br label %4294
 
-815:                                              ; preds = %604
-  %816 = load ptr, ptr %21, align 8
-  %817 = getelementptr inbounds %union.YYSTYPE, ptr %816, i64 -1
-  %818 = load ptr, ptr %21, align 8
-  %819 = getelementptr inbounds %union.YYSTYPE, ptr %818, i64 0
-  %820 = getelementptr inbounds { ptr, ptr }, ptr %817, i32 0, i32 0
+805:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %57) #8
+  %806 = call { ptr, ptr } (...) @gen_noop()
+  %807 = getelementptr inbounds nuw { ptr, ptr }, ptr %57, i32 0, i32 0
+  %808 = extractvalue { ptr, ptr } %806, 0
+  store ptr %808, ptr %807, align 8
+  %809 = getelementptr inbounds nuw { ptr, ptr }, ptr %57, i32 0, i32 1
+  %810 = extractvalue { ptr, ptr } %806, 1
+  store ptr %810, ptr %809, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %57, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %57) #8
+  br label %4294
+
+811:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %58) #8
+  %812 = load ptr, ptr %22, align 8, !tbaa !20
+  %813 = getelementptr inbounds %union.YYSTYPE, ptr %812, i64 -1
+  %814 = load ptr, ptr %22, align 8, !tbaa !20
+  %815 = getelementptr inbounds %union.YYSTYPE, ptr %814, i64 0
+  %816 = getelementptr inbounds nuw { ptr, ptr }, ptr %813, i32 0, i32 0
+  %817 = load ptr, ptr %816, align 8
+  %818 = getelementptr inbounds nuw { ptr, ptr }, ptr %813, i32 0, i32 1
+  %819 = load ptr, ptr %818, align 8
+  %820 = getelementptr inbounds nuw { ptr, ptr }, ptr %815, i32 0, i32 0
   %821 = load ptr, ptr %820, align 8
-  %822 = getelementptr inbounds { ptr, ptr }, ptr %817, i32 0, i32 1
+  %822 = getelementptr inbounds nuw { ptr, ptr }, ptr %815, i32 0, i32 1
   %823 = load ptr, ptr %822, align 8
-  %824 = getelementptr inbounds { ptr, ptr }, ptr %819, i32 0, i32 0
-  %825 = load ptr, ptr %824, align 8
-  %826 = getelementptr inbounds { ptr, ptr }, ptr %819, i32 0, i32 1
-  %827 = load ptr, ptr %826, align 8
-  %828 = call { ptr, ptr } @block_bind_referenced(ptr %821, ptr %823, ptr %825, ptr %827, i32 noundef 128)
-  %829 = getelementptr inbounds { ptr, ptr }, ptr %57, i32 0, i32 0
-  %830 = extractvalue { ptr, ptr } %828, 0
-  store ptr %830, ptr %829, align 8
-  %831 = getelementptr inbounds { ptr, ptr }, ptr %57, i32 0, i32 1
-  %832 = extractvalue { ptr, ptr } %828, 1
-  store ptr %832, ptr %831, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %57, i64 16, i1 false)
-  br label %4268
+  %824 = call { ptr, ptr } @block_join(ptr %817, ptr %819, ptr %821, ptr %823)
+  %825 = getelementptr inbounds nuw { ptr, ptr }, ptr %58, i32 0, i32 0
+  %826 = extractvalue { ptr, ptr } %824, 0
+  store ptr %826, ptr %825, align 8
+  %827 = getelementptr inbounds nuw { ptr, ptr }, ptr %58, i32 0, i32 1
+  %828 = extractvalue { ptr, ptr } %824, 1
+  store ptr %828, ptr %827, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %58, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %58) #8
+  br label %4294
 
-833:                                              ; preds = %604
-  %834 = load ptr, ptr %21, align 8
-  %835 = getelementptr inbounds %union.YYSTYPE, ptr %834, i64 -4
-  %836 = load ptr, ptr %21, align 8
-  %837 = getelementptr inbounds %union.YYSTYPE, ptr %836, i64 -2
-  %838 = load ptr, ptr %21, align 8
-  %839 = getelementptr inbounds %union.YYSTYPE, ptr %838, i64 0
-  %840 = getelementptr inbounds { ptr, ptr }, ptr %835, i32 0, i32 0
+829:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %59) #8
+  %830 = load ptr, ptr %22, align 8, !tbaa !20
+  %831 = getelementptr inbounds %union.YYSTYPE, ptr %830, i64 -1
+  %832 = load ptr, ptr %22, align 8, !tbaa !20
+  %833 = getelementptr inbounds %union.YYSTYPE, ptr %832, i64 0
+  %834 = getelementptr inbounds nuw { ptr, ptr }, ptr %831, i32 0, i32 0
+  %835 = load ptr, ptr %834, align 8
+  %836 = getelementptr inbounds nuw { ptr, ptr }, ptr %831, i32 0, i32 1
+  %837 = load ptr, ptr %836, align 8
+  %838 = getelementptr inbounds nuw { ptr, ptr }, ptr %833, i32 0, i32 0
+  %839 = load ptr, ptr %838, align 8
+  %840 = getelementptr inbounds nuw { ptr, ptr }, ptr %833, i32 0, i32 1
   %841 = load ptr, ptr %840, align 8
-  %842 = getelementptr inbounds { ptr, ptr }, ptr %835, i32 0, i32 1
-  %843 = load ptr, ptr %842, align 8
-  %844 = getelementptr inbounds { ptr, ptr }, ptr %837, i32 0, i32 0
-  %845 = load ptr, ptr %844, align 8
-  %846 = getelementptr inbounds { ptr, ptr }, ptr %837, i32 0, i32 1
-  %847 = load ptr, ptr %846, align 8
-  %848 = getelementptr inbounds { ptr, ptr }, ptr %839, i32 0, i32 0
-  %849 = load ptr, ptr %848, align 8
-  %850 = getelementptr inbounds { ptr, ptr }, ptr %839, i32 0, i32 1
-  %851 = load ptr, ptr %850, align 8
-  %852 = call { ptr, ptr } @gen_destructure(ptr %841, ptr %843, ptr %845, ptr %847, ptr %849, ptr %851)
-  %853 = getelementptr inbounds { ptr, ptr }, ptr %58, i32 0, i32 0
-  %854 = extractvalue { ptr, ptr } %852, 0
-  store ptr %854, ptr %853, align 8
-  %855 = getelementptr inbounds { ptr, ptr }, ptr %58, i32 0, i32 1
-  %856 = extractvalue { ptr, ptr } %852, 1
-  store ptr %856, ptr %855, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %58, i64 16, i1 false)
-  br label %4268
+  %842 = call { ptr, ptr } @block_bind_referenced(ptr %835, ptr %837, ptr %839, ptr %841, i32 noundef 128)
+  %843 = getelementptr inbounds nuw { ptr, ptr }, ptr %59, i32 0, i32 0
+  %844 = extractvalue { ptr, ptr } %842, 0
+  store ptr %844, ptr %843, align 8
+  %845 = getelementptr inbounds nuw { ptr, ptr }, ptr %59, i32 0, i32 1
+  %846 = extractvalue { ptr, ptr } %842, 1
+  store ptr %846, ptr %845, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %59, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %59) #8
+  br label %4294
 
-857:                                              ; preds = %604
-  %858 = load ptr, ptr %21, align 8
-  %859 = getelementptr inbounds %union.YYSTYPE, ptr %858, i64 -7
-  %860 = load ptr, ptr %21, align 8
-  %861 = getelementptr inbounds %union.YYSTYPE, ptr %860, i64 -5
-  %862 = load ptr, ptr %21, align 8
-  %863 = getelementptr inbounds %union.YYSTYPE, ptr %862, i64 -3
-  %864 = load ptr, ptr %21, align 8
-  %865 = getelementptr inbounds %union.YYSTYPE, ptr %864, i64 -1
-  %866 = getelementptr inbounds { ptr, ptr }, ptr %859, i32 0, i32 0
-  %867 = load ptr, ptr %866, align 8
-  %868 = getelementptr inbounds { ptr, ptr }, ptr %859, i32 0, i32 1
-  %869 = load ptr, ptr %868, align 8
-  %870 = getelementptr inbounds { ptr, ptr }, ptr %861, i32 0, i32 0
-  %871 = load ptr, ptr %870, align 8
-  %872 = getelementptr inbounds { ptr, ptr }, ptr %861, i32 0, i32 1
-  %873 = load ptr, ptr %872, align 8
-  %874 = getelementptr inbounds { ptr, ptr }, ptr %863, i32 0, i32 0
-  %875 = load ptr, ptr %874, align 8
-  %876 = getelementptr inbounds { ptr, ptr }, ptr %863, i32 0, i32 1
-  %877 = load ptr, ptr %876, align 8
-  %878 = call { ptr, ptr } @gen_reduce(ptr %867, ptr %869, ptr %871, ptr %873, ptr %875, ptr %877, ptr noundef byval(%struct.block) align 8 %865)
-  %879 = getelementptr inbounds { ptr, ptr }, ptr %59, i32 0, i32 0
-  %880 = extractvalue { ptr, ptr } %878, 0
-  store ptr %880, ptr %879, align 8
-  %881 = getelementptr inbounds { ptr, ptr }, ptr %59, i32 0, i32 1
-  %882 = extractvalue { ptr, ptr } %878, 1
-  store ptr %882, ptr %881, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %59, i64 16, i1 false)
-  br label %4268
+847:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %60) #8
+  %848 = load ptr, ptr %22, align 8, !tbaa !20
+  %849 = getelementptr inbounds %union.YYSTYPE, ptr %848, i64 -4
+  %850 = load ptr, ptr %22, align 8, !tbaa !20
+  %851 = getelementptr inbounds %union.YYSTYPE, ptr %850, i64 -2
+  %852 = load ptr, ptr %22, align 8, !tbaa !20
+  %853 = getelementptr inbounds %union.YYSTYPE, ptr %852, i64 0
+  %854 = getelementptr inbounds nuw { ptr, ptr }, ptr %849, i32 0, i32 0
+  %855 = load ptr, ptr %854, align 8
+  %856 = getelementptr inbounds nuw { ptr, ptr }, ptr %849, i32 0, i32 1
+  %857 = load ptr, ptr %856, align 8
+  %858 = getelementptr inbounds nuw { ptr, ptr }, ptr %851, i32 0, i32 0
+  %859 = load ptr, ptr %858, align 8
+  %860 = getelementptr inbounds nuw { ptr, ptr }, ptr %851, i32 0, i32 1
+  %861 = load ptr, ptr %860, align 8
+  %862 = getelementptr inbounds nuw { ptr, ptr }, ptr %853, i32 0, i32 0
+  %863 = load ptr, ptr %862, align 8
+  %864 = getelementptr inbounds nuw { ptr, ptr }, ptr %853, i32 0, i32 1
+  %865 = load ptr, ptr %864, align 8
+  %866 = call { ptr, ptr } @gen_destructure(ptr %855, ptr %857, ptr %859, ptr %861, ptr %863, ptr %865)
+  %867 = getelementptr inbounds nuw { ptr, ptr }, ptr %60, i32 0, i32 0
+  %868 = extractvalue { ptr, ptr } %866, 0
+  store ptr %868, ptr %867, align 8
+  %869 = getelementptr inbounds nuw { ptr, ptr }, ptr %60, i32 0, i32 1
+  %870 = extractvalue { ptr, ptr } %866, 1
+  store ptr %870, ptr %869, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %60, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %60) #8
+  br label %4294
 
-883:                                              ; preds = %604
-  %884 = load ptr, ptr %21, align 8
-  %885 = getelementptr inbounds %union.YYSTYPE, ptr %884, i64 -9
-  %886 = load ptr, ptr %21, align 8
-  %887 = getelementptr inbounds %union.YYSTYPE, ptr %886, i64 -7
-  %888 = load ptr, ptr %21, align 8
-  %889 = getelementptr inbounds %union.YYSTYPE, ptr %888, i64 -5
-  %890 = load ptr, ptr %21, align 8
-  %891 = getelementptr inbounds %union.YYSTYPE, ptr %890, i64 -3
-  %892 = load ptr, ptr %21, align 8
-  %893 = getelementptr inbounds %union.YYSTYPE, ptr %892, i64 -1
-  %894 = getelementptr inbounds { ptr, ptr }, ptr %885, i32 0, i32 0
-  %895 = load ptr, ptr %894, align 8
-  %896 = getelementptr inbounds { ptr, ptr }, ptr %885, i32 0, i32 1
-  %897 = load ptr, ptr %896, align 8
-  %898 = getelementptr inbounds { ptr, ptr }, ptr %887, i32 0, i32 0
-  %899 = load ptr, ptr %898, align 8
-  %900 = getelementptr inbounds { ptr, ptr }, ptr %887, i32 0, i32 1
-  %901 = load ptr, ptr %900, align 8
-  %902 = getelementptr inbounds { ptr, ptr }, ptr %889, i32 0, i32 0
-  %903 = load ptr, ptr %902, align 8
-  %904 = getelementptr inbounds { ptr, ptr }, ptr %889, i32 0, i32 1
-  %905 = load ptr, ptr %904, align 8
-  %906 = call { ptr, ptr } @gen_foreach(ptr %895, ptr %897, ptr %899, ptr %901, ptr %903, ptr %905, ptr noundef byval(%struct.block) align 8 %891, ptr noundef byval(%struct.block) align 8 %893)
-  %907 = getelementptr inbounds { ptr, ptr }, ptr %60, i32 0, i32 0
-  %908 = extractvalue { ptr, ptr } %906, 0
-  store ptr %908, ptr %907, align 8
-  %909 = getelementptr inbounds { ptr, ptr }, ptr %60, i32 0, i32 1
-  %910 = extractvalue { ptr, ptr } %906, 1
-  store ptr %910, ptr %909, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %60, i64 16, i1 false)
-  br label %4268
+871:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %61) #8
+  %872 = load ptr, ptr %22, align 8, !tbaa !20
+  %873 = getelementptr inbounds %union.YYSTYPE, ptr %872, i64 -7
+  %874 = load ptr, ptr %22, align 8, !tbaa !20
+  %875 = getelementptr inbounds %union.YYSTYPE, ptr %874, i64 -5
+  %876 = load ptr, ptr %22, align 8, !tbaa !20
+  %877 = getelementptr inbounds %union.YYSTYPE, ptr %876, i64 -3
+  %878 = load ptr, ptr %22, align 8, !tbaa !20
+  %879 = getelementptr inbounds %union.YYSTYPE, ptr %878, i64 -1
+  %880 = getelementptr inbounds nuw { ptr, ptr }, ptr %873, i32 0, i32 0
+  %881 = load ptr, ptr %880, align 8
+  %882 = getelementptr inbounds nuw { ptr, ptr }, ptr %873, i32 0, i32 1
+  %883 = load ptr, ptr %882, align 8
+  %884 = getelementptr inbounds nuw { ptr, ptr }, ptr %875, i32 0, i32 0
+  %885 = load ptr, ptr %884, align 8
+  %886 = getelementptr inbounds nuw { ptr, ptr }, ptr %875, i32 0, i32 1
+  %887 = load ptr, ptr %886, align 8
+  %888 = getelementptr inbounds nuw { ptr, ptr }, ptr %877, i32 0, i32 0
+  %889 = load ptr, ptr %888, align 8
+  %890 = getelementptr inbounds nuw { ptr, ptr }, ptr %877, i32 0, i32 1
+  %891 = load ptr, ptr %890, align 8
+  %892 = call { ptr, ptr } @gen_reduce(ptr %881, ptr %883, ptr %885, ptr %887, ptr %889, ptr %891, ptr noundef byval(%struct.block) align 8 %879)
+  %893 = getelementptr inbounds nuw { ptr, ptr }, ptr %61, i32 0, i32 0
+  %894 = extractvalue { ptr, ptr } %892, 0
+  store ptr %894, ptr %893, align 8
+  %895 = getelementptr inbounds nuw { ptr, ptr }, ptr %61, i32 0, i32 1
+  %896 = extractvalue { ptr, ptr } %892, 1
+  store ptr %896, ptr %895, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %61, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %61) #8
+  br label %4294
 
-911:                                              ; preds = %604
-  %912 = load ptr, ptr %21, align 8
-  %913 = getelementptr inbounds %union.YYSTYPE, ptr %912, i64 -7
-  %914 = load ptr, ptr %21, align 8
-  %915 = getelementptr inbounds %union.YYSTYPE, ptr %914, i64 -5
-  %916 = load ptr, ptr %21, align 8
-  %917 = getelementptr inbounds %union.YYSTYPE, ptr %916, i64 -3
-  %918 = load ptr, ptr %21, align 8
-  %919 = getelementptr inbounds %union.YYSTYPE, ptr %918, i64 -1
-  %920 = call { ptr, ptr } (...) @gen_noop()
-  %921 = getelementptr inbounds { ptr, ptr }, ptr %62, i32 0, i32 0
+897:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %62) #8
+  %898 = load ptr, ptr %22, align 8, !tbaa !20
+  %899 = getelementptr inbounds %union.YYSTYPE, ptr %898, i64 -9
+  %900 = load ptr, ptr %22, align 8, !tbaa !20
+  %901 = getelementptr inbounds %union.YYSTYPE, ptr %900, i64 -7
+  %902 = load ptr, ptr %22, align 8, !tbaa !20
+  %903 = getelementptr inbounds %union.YYSTYPE, ptr %902, i64 -5
+  %904 = load ptr, ptr %22, align 8, !tbaa !20
+  %905 = getelementptr inbounds %union.YYSTYPE, ptr %904, i64 -3
+  %906 = load ptr, ptr %22, align 8, !tbaa !20
+  %907 = getelementptr inbounds %union.YYSTYPE, ptr %906, i64 -1
+  %908 = getelementptr inbounds nuw { ptr, ptr }, ptr %899, i32 0, i32 0
+  %909 = load ptr, ptr %908, align 8
+  %910 = getelementptr inbounds nuw { ptr, ptr }, ptr %899, i32 0, i32 1
+  %911 = load ptr, ptr %910, align 8
+  %912 = getelementptr inbounds nuw { ptr, ptr }, ptr %901, i32 0, i32 0
+  %913 = load ptr, ptr %912, align 8
+  %914 = getelementptr inbounds nuw { ptr, ptr }, ptr %901, i32 0, i32 1
+  %915 = load ptr, ptr %914, align 8
+  %916 = getelementptr inbounds nuw { ptr, ptr }, ptr %903, i32 0, i32 0
+  %917 = load ptr, ptr %916, align 8
+  %918 = getelementptr inbounds nuw { ptr, ptr }, ptr %903, i32 0, i32 1
+  %919 = load ptr, ptr %918, align 8
+  %920 = call { ptr, ptr } @gen_foreach(ptr %909, ptr %911, ptr %913, ptr %915, ptr %917, ptr %919, ptr noundef byval(%struct.block) align 8 %905, ptr noundef byval(%struct.block) align 8 %907)
+  %921 = getelementptr inbounds nuw { ptr, ptr }, ptr %62, i32 0, i32 0
   %922 = extractvalue { ptr, ptr } %920, 0
   store ptr %922, ptr %921, align 8
-  %923 = getelementptr inbounds { ptr, ptr }, ptr %62, i32 0, i32 1
+  %923 = getelementptr inbounds nuw { ptr, ptr }, ptr %62, i32 0, i32 1
   %924 = extractvalue { ptr, ptr } %920, 1
   store ptr %924, ptr %923, align 8
-  %925 = getelementptr inbounds { ptr, ptr }, ptr %913, i32 0, i32 0
-  %926 = load ptr, ptr %925, align 8
-  %927 = getelementptr inbounds { ptr, ptr }, ptr %913, i32 0, i32 1
-  %928 = load ptr, ptr %927, align 8
-  %929 = getelementptr inbounds { ptr, ptr }, ptr %915, i32 0, i32 0
-  %930 = load ptr, ptr %929, align 8
-  %931 = getelementptr inbounds { ptr, ptr }, ptr %915, i32 0, i32 1
-  %932 = load ptr, ptr %931, align 8
-  %933 = getelementptr inbounds { ptr, ptr }, ptr %917, i32 0, i32 0
-  %934 = load ptr, ptr %933, align 8
-  %935 = getelementptr inbounds { ptr, ptr }, ptr %917, i32 0, i32 1
-  %936 = load ptr, ptr %935, align 8
-  %937 = call { ptr, ptr } @gen_foreach(ptr %926, ptr %928, ptr %930, ptr %932, ptr %934, ptr %936, ptr noundef byval(%struct.block) align 8 %919, ptr noundef byval(%struct.block) align 8 %62)
-  %938 = getelementptr inbounds { ptr, ptr }, ptr %61, i32 0, i32 0
-  %939 = extractvalue { ptr, ptr } %937, 0
-  store ptr %939, ptr %938, align 8
-  %940 = getelementptr inbounds { ptr, ptr }, ptr %61, i32 0, i32 1
-  %941 = extractvalue { ptr, ptr } %937, 1
-  store ptr %941, ptr %940, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %61, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %62, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %62) #8
+  br label %4294
 
-942:                                              ; preds = %604
-  %943 = load ptr, ptr %21, align 8
-  %944 = getelementptr inbounds %union.YYSTYPE, ptr %943, i64 -3
-  %945 = load ptr, ptr %21, align 8
-  %946 = getelementptr inbounds %union.YYSTYPE, ptr %945, i64 -1
-  %947 = load ptr, ptr %21, align 8
-  %948 = getelementptr inbounds %union.YYSTYPE, ptr %947, i64 0
-  %949 = getelementptr inbounds { ptr, ptr }, ptr %944, i32 0, i32 0
+925:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %63) #8
+  %926 = load ptr, ptr %22, align 8, !tbaa !20
+  %927 = getelementptr inbounds %union.YYSTYPE, ptr %926, i64 -7
+  %928 = load ptr, ptr %22, align 8, !tbaa !20
+  %929 = getelementptr inbounds %union.YYSTYPE, ptr %928, i64 -5
+  %930 = load ptr, ptr %22, align 8, !tbaa !20
+  %931 = getelementptr inbounds %union.YYSTYPE, ptr %930, i64 -3
+  %932 = load ptr, ptr %22, align 8, !tbaa !20
+  %933 = getelementptr inbounds %union.YYSTYPE, ptr %932, i64 -1
+  %934 = call { ptr, ptr } (...) @gen_noop()
+  %935 = getelementptr inbounds nuw { ptr, ptr }, ptr %64, i32 0, i32 0
+  %936 = extractvalue { ptr, ptr } %934, 0
+  store ptr %936, ptr %935, align 8
+  %937 = getelementptr inbounds nuw { ptr, ptr }, ptr %64, i32 0, i32 1
+  %938 = extractvalue { ptr, ptr } %934, 1
+  store ptr %938, ptr %937, align 8
+  %939 = getelementptr inbounds nuw { ptr, ptr }, ptr %927, i32 0, i32 0
+  %940 = load ptr, ptr %939, align 8
+  %941 = getelementptr inbounds nuw { ptr, ptr }, ptr %927, i32 0, i32 1
+  %942 = load ptr, ptr %941, align 8
+  %943 = getelementptr inbounds nuw { ptr, ptr }, ptr %929, i32 0, i32 0
+  %944 = load ptr, ptr %943, align 8
+  %945 = getelementptr inbounds nuw { ptr, ptr }, ptr %929, i32 0, i32 1
+  %946 = load ptr, ptr %945, align 8
+  %947 = getelementptr inbounds nuw { ptr, ptr }, ptr %931, i32 0, i32 0
+  %948 = load ptr, ptr %947, align 8
+  %949 = getelementptr inbounds nuw { ptr, ptr }, ptr %931, i32 0, i32 1
   %950 = load ptr, ptr %949, align 8
-  %951 = getelementptr inbounds { ptr, ptr }, ptr %944, i32 0, i32 1
-  %952 = load ptr, ptr %951, align 8
-  %953 = getelementptr inbounds { ptr, ptr }, ptr %946, i32 0, i32 0
-  %954 = load ptr, ptr %953, align 8
-  %955 = getelementptr inbounds { ptr, ptr }, ptr %946, i32 0, i32 1
-  %956 = load ptr, ptr %955, align 8
-  %957 = getelementptr inbounds { ptr, ptr }, ptr %948, i32 0, i32 0
-  %958 = load ptr, ptr %957, align 8
-  %959 = getelementptr inbounds { ptr, ptr }, ptr %948, i32 0, i32 1
-  %960 = load ptr, ptr %959, align 8
-  %961 = call { ptr, ptr } @gen_cond(ptr %950, ptr %952, ptr %954, ptr %956, ptr %958, ptr %960)
-  %962 = getelementptr inbounds { ptr, ptr }, ptr %63, i32 0, i32 0
-  %963 = extractvalue { ptr, ptr } %961, 0
-  store ptr %963, ptr %962, align 8
-  %964 = getelementptr inbounds { ptr, ptr }, ptr %63, i32 0, i32 1
-  %965 = extractvalue { ptr, ptr } %961, 1
-  store ptr %965, ptr %964, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %63, i64 16, i1 false)
-  br label %4268
+  %951 = call { ptr, ptr } @gen_foreach(ptr %940, ptr %942, ptr %944, ptr %946, ptr %948, ptr %950, ptr noundef byval(%struct.block) align 8 %933, ptr noundef byval(%struct.block) align 8 %64)
+  %952 = getelementptr inbounds nuw { ptr, ptr }, ptr %63, i32 0, i32 0
+  %953 = extractvalue { ptr, ptr } %951, 0
+  store ptr %953, ptr %952, align 8
+  %954 = getelementptr inbounds nuw { ptr, ptr }, ptr %63, i32 0, i32 1
+  %955 = extractvalue { ptr, ptr } %951, 1
+  store ptr %955, ptr %954, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %63, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %63) #8
+  br label %4294
 
-966:                                              ; preds = %604
-  br label %967
+956:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %65) #8
+  %957 = load ptr, ptr %22, align 8, !tbaa !20
+  %958 = getelementptr inbounds %union.YYSTYPE, ptr %957, i64 -3
+  %959 = load ptr, ptr %22, align 8, !tbaa !20
+  %960 = getelementptr inbounds %union.YYSTYPE, ptr %959, i64 -1
+  %961 = load ptr, ptr %22, align 8, !tbaa !20
+  %962 = getelementptr inbounds %union.YYSTYPE, ptr %961, i64 0
+  %963 = getelementptr inbounds nuw { ptr, ptr }, ptr %958, i32 0, i32 0
+  %964 = load ptr, ptr %963, align 8
+  %965 = getelementptr inbounds nuw { ptr, ptr }, ptr %958, i32 0, i32 1
+  %966 = load ptr, ptr %965, align 8
+  %967 = getelementptr inbounds nuw { ptr, ptr }, ptr %960, i32 0, i32 0
+  %968 = load ptr, ptr %967, align 8
+  %969 = getelementptr inbounds nuw { ptr, ptr }, ptr %960, i32 0, i32 1
+  %970 = load ptr, ptr %969, align 8
+  %971 = getelementptr inbounds nuw { ptr, ptr }, ptr %962, i32 0, i32 0
+  %972 = load ptr, ptr %971, align 8
+  %973 = getelementptr inbounds nuw { ptr, ptr }, ptr %962, i32 0, i32 1
+  %974 = load ptr, ptr %973, align 8
+  %975 = call { ptr, ptr } @gen_cond(ptr %964, ptr %966, ptr %968, ptr %970, ptr %972, ptr %974)
+  %976 = getelementptr inbounds nuw { ptr, ptr }, ptr %65, i32 0, i32 0
+  %977 = extractvalue { ptr, ptr } %975, 0
+  store ptr %977, ptr %976, align 8
+  %978 = getelementptr inbounds nuw { ptr, ptr }, ptr %65, i32 0, i32 1
+  %979 = extractvalue { ptr, ptr } %975, 1
+  store ptr %979, ptr %978, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %65, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %65) #8
+  br label %4294
 
-967:                                              ; preds = %966
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %64, ptr align 4 %29, i64 8, i1 false)
-  %968 = load ptr, ptr %5, align 8
-  %969 = load ptr, ptr %6, align 8
-  %970 = load ptr, ptr %7, align 8
-  %971 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %64, ptr noundef %968, ptr noundef %969, ptr noundef %970, ptr noundef %971, ptr noundef @.str.6)
-  br label %972
+980:                                              ; preds = %616
+  br label %981
 
-972:                                              ; preds = %967
-  %973 = load ptr, ptr %21, align 8
-  %974 = getelementptr inbounds %union.YYSTYPE, ptr %973, i64 -2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %974, i64 16, i1 false)
-  br label %4268
+981:                                              ; preds = %980
+  call void @llvm.lifetime.start.p0(i64 8, ptr %66) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %66, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %982 = load ptr, ptr %6, align 8, !tbaa !8
+  %983 = load ptr, ptr %7, align 8, !tbaa !10
+  %984 = load ptr, ptr %8, align 8, !tbaa !12
+  %985 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %66, ptr noundef %982, ptr noundef %983, ptr noundef %984, ptr noundef %985, ptr noundef @.str.6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %66) #8
+  br label %986
 
-975:                                              ; preds = %604
-  %976 = load ptr, ptr %21, align 8
-  %977 = getelementptr inbounds %union.YYSTYPE, ptr %976, i64 -2
-  %978 = load ptr, ptr %21, align 8
-  %979 = getelementptr inbounds %union.YYSTYPE, ptr %978, i64 0
-  %980 = getelementptr inbounds { ptr, ptr }, ptr %977, i32 0, i32 0
-  %981 = load ptr, ptr %980, align 8
-  %982 = getelementptr inbounds { ptr, ptr }, ptr %977, i32 0, i32 1
-  %983 = load ptr, ptr %982, align 8
-  %984 = getelementptr inbounds { ptr, ptr }, ptr %979, i32 0, i32 0
-  %985 = load ptr, ptr %984, align 8
-  %986 = getelementptr inbounds { ptr, ptr }, ptr %979, i32 0, i32 1
-  %987 = load ptr, ptr %986, align 8
-  %988 = call { ptr, ptr } @gen_try(ptr %981, ptr %983, ptr %985, ptr %987)
-  %989 = getelementptr inbounds { ptr, ptr }, ptr %65, i32 0, i32 0
-  %990 = extractvalue { ptr, ptr } %988, 0
-  store ptr %990, ptr %989, align 8
-  %991 = getelementptr inbounds { ptr, ptr }, ptr %65, i32 0, i32 1
-  %992 = extractvalue { ptr, ptr } %988, 1
-  store ptr %992, ptr %991, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %65, i64 16, i1 false)
-  br label %4268
+986:                                              ; preds = %981
+  br label %987
 
-993:                                              ; preds = %604
-  %994 = load ptr, ptr %21, align 8
-  %995 = getelementptr inbounds %union.YYSTYPE, ptr %994, i64 0
-  %996 = call { ptr, ptr } @gen_op_simple(i32 noundef 19)
-  %997 = getelementptr inbounds { ptr, ptr }, ptr %67, i32 0, i32 0
-  %998 = extractvalue { ptr, ptr } %996, 0
-  store ptr %998, ptr %997, align 8
-  %999 = getelementptr inbounds { ptr, ptr }, ptr %67, i32 0, i32 1
-  %1000 = extractvalue { ptr, ptr } %996, 1
-  store ptr %1000, ptr %999, align 8
-  %1001 = getelementptr inbounds { ptr, ptr }, ptr %995, i32 0, i32 0
+987:                                              ; preds = %986
+  %988 = load ptr, ptr %22, align 8, !tbaa !20
+  %989 = getelementptr inbounds %union.YYSTYPE, ptr %988, i64 -2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %989, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
+
+990:                                              ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %67) #8
+  %991 = load ptr, ptr %22, align 8, !tbaa !20
+  %992 = getelementptr inbounds %union.YYSTYPE, ptr %991, i64 -2
+  %993 = load ptr, ptr %22, align 8, !tbaa !20
+  %994 = getelementptr inbounds %union.YYSTYPE, ptr %993, i64 0
+  %995 = getelementptr inbounds nuw { ptr, ptr }, ptr %992, i32 0, i32 0
+  %996 = load ptr, ptr %995, align 8
+  %997 = getelementptr inbounds nuw { ptr, ptr }, ptr %992, i32 0, i32 1
+  %998 = load ptr, ptr %997, align 8
+  %999 = getelementptr inbounds nuw { ptr, ptr }, ptr %994, i32 0, i32 0
+  %1000 = load ptr, ptr %999, align 8
+  %1001 = getelementptr inbounds nuw { ptr, ptr }, ptr %994, i32 0, i32 1
   %1002 = load ptr, ptr %1001, align 8
-  %1003 = getelementptr inbounds { ptr, ptr }, ptr %995, i32 0, i32 1
-  %1004 = load ptr, ptr %1003, align 8
-  %1005 = getelementptr inbounds { ptr, ptr }, ptr %67, i32 0, i32 0
-  %1006 = load ptr, ptr %1005, align 8
-  %1007 = getelementptr inbounds { ptr, ptr }, ptr %67, i32 0, i32 1
-  %1008 = load ptr, ptr %1007, align 8
-  %1009 = call { ptr, ptr } @gen_try(ptr %1002, ptr %1004, ptr %1006, ptr %1008)
-  %1010 = getelementptr inbounds { ptr, ptr }, ptr %66, i32 0, i32 0
-  %1011 = extractvalue { ptr, ptr } %1009, 0
-  store ptr %1011, ptr %1010, align 8
-  %1012 = getelementptr inbounds { ptr, ptr }, ptr %66, i32 0, i32 1
-  %1013 = extractvalue { ptr, ptr } %1009, 1
+  %1003 = call { ptr, ptr } @gen_try(ptr %996, ptr %998, ptr %1000, ptr %1002)
+  %1004 = getelementptr inbounds nuw { ptr, ptr }, ptr %67, i32 0, i32 0
+  %1005 = extractvalue { ptr, ptr } %1003, 0
+  store ptr %1005, ptr %1004, align 8
+  %1006 = getelementptr inbounds nuw { ptr, ptr }, ptr %67, i32 0, i32 1
+  %1007 = extractvalue { ptr, ptr } %1003, 1
+  store ptr %1007, ptr %1006, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %67, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %67) #8
+  br label %4294
+
+1008:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %68) #8
+  %1009 = load ptr, ptr %22, align 8, !tbaa !20
+  %1010 = getelementptr inbounds %union.YYSTYPE, ptr %1009, i64 0
+  %1011 = call { ptr, ptr } @gen_op_simple(i32 noundef 19)
+  %1012 = getelementptr inbounds nuw { ptr, ptr }, ptr %69, i32 0, i32 0
+  %1013 = extractvalue { ptr, ptr } %1011, 0
   store ptr %1013, ptr %1012, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %66, i64 16, i1 false)
-  br label %4268
+  %1014 = getelementptr inbounds nuw { ptr, ptr }, ptr %69, i32 0, i32 1
+  %1015 = extractvalue { ptr, ptr } %1011, 1
+  store ptr %1015, ptr %1014, align 8
+  %1016 = getelementptr inbounds nuw { ptr, ptr }, ptr %1010, i32 0, i32 0
+  %1017 = load ptr, ptr %1016, align 8
+  %1018 = getelementptr inbounds nuw { ptr, ptr }, ptr %1010, i32 0, i32 1
+  %1019 = load ptr, ptr %1018, align 8
+  %1020 = getelementptr inbounds nuw { ptr, ptr }, ptr %69, i32 0, i32 0
+  %1021 = load ptr, ptr %1020, align 8
+  %1022 = getelementptr inbounds nuw { ptr, ptr }, ptr %69, i32 0, i32 1
+  %1023 = load ptr, ptr %1022, align 8
+  %1024 = call { ptr, ptr } @gen_try(ptr %1017, ptr %1019, ptr %1021, ptr %1023)
+  %1025 = getelementptr inbounds nuw { ptr, ptr }, ptr %68, i32 0, i32 0
+  %1026 = extractvalue { ptr, ptr } %1024, 0
+  store ptr %1026, ptr %1025, align 8
+  %1027 = getelementptr inbounds nuw { ptr, ptr }, ptr %68, i32 0, i32 1
+  %1028 = extractvalue { ptr, ptr } %1024, 1
+  store ptr %1028, ptr %1027, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %68, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %68) #8
+  br label %4294
 
-1014:                                             ; preds = %604
-  br label %1015
+1029:                                             ; preds = %616
+  br label %1030
 
-1015:                                             ; preds = %1014
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %68, ptr align 4 %29, i64 8, i1 false)
-  %1016 = load ptr, ptr %5, align 8
-  %1017 = load ptr, ptr %6, align 8
-  %1018 = load ptr, ptr %7, align 8
-  %1019 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %68, ptr noundef %1016, ptr noundef %1017, ptr noundef %1018, ptr noundef %1019, ptr noundef @.str.7)
-  br label %1020
+1030:                                             ; preds = %1029
+  call void @llvm.lifetime.start.p0(i64 8, ptr %70) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %70, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %1031 = load ptr, ptr %6, align 8, !tbaa !8
+  %1032 = load ptr, ptr %7, align 8, !tbaa !10
+  %1033 = load ptr, ptr %8, align 8, !tbaa !12
+  %1034 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %70, ptr noundef %1031, ptr noundef %1032, ptr noundef %1033, ptr noundef %1034, ptr noundef @.str.7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %70) #8
+  br label %1035
 
-1020:                                             ; preds = %1015
-  %1021 = load ptr, ptr %21, align 8
-  %1022 = getelementptr inbounds %union.YYSTYPE, ptr %1021, i64 -2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %1022, i64 16, i1 false)
-  br label %4268
+1035:                                             ; preds = %1030
+  br label %1036
 
-1023:                                             ; preds = %604
-  %1024 = load ptr, ptr %21, align 8
-  %1025 = getelementptr inbounds %union.YYSTYPE, ptr %1024, i64 -2
-  %1026 = getelementptr inbounds { i64, ptr }, ptr %1025, i32 0, i32 0
-  %1027 = load i64, ptr %1026, align 8
-  %1028 = getelementptr inbounds { i64, ptr }, ptr %1025, i32 0, i32 1
-  %1029 = load ptr, ptr %1028, align 8
-  %1030 = call ptr @jv_string_value(i64 %1027, ptr %1029)
-  %1031 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str.8, ptr noundef %1030)
-  %1032 = getelementptr inbounds { i64, ptr }, ptr %69, i32 0, i32 0
-  %1033 = extractvalue { i64, ptr } %1031, 0
-  store i64 %1033, ptr %1032, align 8
-  %1034 = getelementptr inbounds { i64, ptr }, ptr %69, i32 0, i32 1
-  %1035 = extractvalue { i64, ptr } %1031, 1
-  store ptr %1035, ptr %1034, align 8
-  %1036 = load ptr, ptr %7, align 8
-  %1037 = getelementptr inbounds { i64, ptr }, ptr %69, i32 0, i32 0
-  %1038 = load i64, ptr %1037, align 8
-  %1039 = getelementptr inbounds { i64, ptr }, ptr %69, i32 0, i32 1
-  %1040 = load ptr, ptr %1039, align 8
-  %1041 = call ptr @jv_string_value(i64 %1038, ptr %1040)
-  %1042 = load ptr, ptr %21, align 8
-  %1043 = getelementptr inbounds %union.YYSTYPE, ptr %1042, i64 0
-  %1044 = getelementptr inbounds { ptr, ptr }, ptr %1043, i32 0, i32 0
+1036:                                             ; preds = %1035
+  %1037 = load ptr, ptr %22, align 8, !tbaa !20
+  %1038 = getelementptr inbounds %union.YYSTYPE, ptr %1037, i64 -2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %1038, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
+
+1039:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %71) #8
+  %1040 = load ptr, ptr %22, align 8, !tbaa !20
+  %1041 = getelementptr inbounds %union.YYSTYPE, ptr %1040, i64 -2
+  %1042 = getelementptr inbounds nuw { i64, ptr }, ptr %1041, i32 0, i32 0
+  %1043 = load i64, ptr %1042, align 8
+  %1044 = getelementptr inbounds nuw { i64, ptr }, ptr %1041, i32 0, i32 1
   %1045 = load ptr, ptr %1044, align 8
-  %1046 = getelementptr inbounds { ptr, ptr }, ptr %1043, i32 0, i32 1
-  %1047 = load ptr, ptr %1046, align 8
-  %1048 = call { ptr, ptr } @gen_label(ptr noundef %1041, ptr %1045, ptr %1047)
-  %1049 = getelementptr inbounds { ptr, ptr }, ptr %71, i32 0, i32 0
-  %1050 = extractvalue { ptr, ptr } %1048, 0
-  store ptr %1050, ptr %1049, align 8
-  %1051 = getelementptr inbounds { ptr, ptr }, ptr %71, i32 0, i32 1
-  %1052 = extractvalue { ptr, ptr } %1048, 1
-  store ptr %1052, ptr %1051, align 8
-  %1053 = load i64, ptr %29, align 4
-  %1054 = getelementptr inbounds { ptr, ptr }, ptr %71, i32 0, i32 0
-  %1055 = load ptr, ptr %1054, align 8
-  %1056 = getelementptr inbounds { ptr, ptr }, ptr %71, i32 0, i32 1
-  %1057 = load ptr, ptr %1056, align 8
-  %1058 = call { ptr, ptr } @gen_location(i64 %1053, ptr noundef %1036, ptr %1055, ptr %1057)
-  %1059 = getelementptr inbounds { ptr, ptr }, ptr %70, i32 0, i32 0
-  %1060 = extractvalue { ptr, ptr } %1058, 0
-  store ptr %1060, ptr %1059, align 8
-  %1061 = getelementptr inbounds { ptr, ptr }, ptr %70, i32 0, i32 1
-  %1062 = extractvalue { ptr, ptr } %1058, 1
-  store ptr %1062, ptr %1061, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %70, i64 16, i1 false)
-  %1063 = load ptr, ptr %21, align 8
-  %1064 = getelementptr inbounds %union.YYSTYPE, ptr %1063, i64 -2
-  %1065 = getelementptr inbounds { i64, ptr }, ptr %1064, i32 0, i32 0
-  %1066 = load i64, ptr %1065, align 8
-  %1067 = getelementptr inbounds { i64, ptr }, ptr %1064, i32 0, i32 1
-  %1068 = load ptr, ptr %1067, align 8
-  call void @jv_free(i64 %1066, ptr %1068)
-  %1069 = getelementptr inbounds { i64, ptr }, ptr %69, i32 0, i32 0
-  %1070 = load i64, ptr %1069, align 8
-  %1071 = getelementptr inbounds { i64, ptr }, ptr %69, i32 0, i32 1
-  %1072 = load ptr, ptr %1071, align 8
-  call void @jv_free(i64 %1070, ptr %1072)
-  br label %4268
-
-1073:                                             ; preds = %604
-  %1074 = load ptr, ptr %21, align 8
-  %1075 = getelementptr inbounds %union.YYSTYPE, ptr %1074, i64 -1
-  %1076 = call { ptr, ptr } @gen_op_simple(i32 noundef 19)
-  %1077 = getelementptr inbounds { ptr, ptr }, ptr %73, i32 0, i32 0
-  %1078 = extractvalue { ptr, ptr } %1076, 0
+  %1046 = call ptr @jv_string_value(i64 %1043, ptr %1045)
+  %1047 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str.8, ptr noundef %1046)
+  %1048 = getelementptr inbounds nuw { i64, ptr }, ptr %71, i32 0, i32 0
+  %1049 = extractvalue { i64, ptr } %1047, 0
+  store i64 %1049, ptr %1048, align 8
+  %1050 = getelementptr inbounds nuw { i64, ptr }, ptr %71, i32 0, i32 1
+  %1051 = extractvalue { i64, ptr } %1047, 1
+  store ptr %1051, ptr %1050, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %72) #8
+  %1052 = load ptr, ptr %8, align 8, !tbaa !12
+  %1053 = getelementptr inbounds nuw { i64, ptr }, ptr %71, i32 0, i32 0
+  %1054 = load i64, ptr %1053, align 8
+  %1055 = getelementptr inbounds nuw { i64, ptr }, ptr %71, i32 0, i32 1
+  %1056 = load ptr, ptr %1055, align 8
+  %1057 = call ptr @jv_string_value(i64 %1054, ptr %1056)
+  %1058 = load ptr, ptr %22, align 8, !tbaa !20
+  %1059 = getelementptr inbounds %union.YYSTYPE, ptr %1058, i64 0
+  %1060 = getelementptr inbounds nuw { ptr, ptr }, ptr %1059, i32 0, i32 0
+  %1061 = load ptr, ptr %1060, align 8
+  %1062 = getelementptr inbounds nuw { ptr, ptr }, ptr %1059, i32 0, i32 1
+  %1063 = load ptr, ptr %1062, align 8
+  %1064 = call { ptr, ptr } @gen_label(ptr noundef %1057, ptr %1061, ptr %1063)
+  %1065 = getelementptr inbounds nuw { ptr, ptr }, ptr %73, i32 0, i32 0
+  %1066 = extractvalue { ptr, ptr } %1064, 0
+  store ptr %1066, ptr %1065, align 8
+  %1067 = getelementptr inbounds nuw { ptr, ptr }, ptr %73, i32 0, i32 1
+  %1068 = extractvalue { ptr, ptr } %1064, 1
+  store ptr %1068, ptr %1067, align 8
+  %1069 = load i64, ptr %30, align 4
+  %1070 = getelementptr inbounds nuw { ptr, ptr }, ptr %73, i32 0, i32 0
+  %1071 = load ptr, ptr %1070, align 8
+  %1072 = getelementptr inbounds nuw { ptr, ptr }, ptr %73, i32 0, i32 1
+  %1073 = load ptr, ptr %1072, align 8
+  %1074 = call { ptr, ptr } @gen_location(i64 %1069, ptr noundef %1052, ptr %1071, ptr %1073)
+  %1075 = getelementptr inbounds nuw { ptr, ptr }, ptr %72, i32 0, i32 0
+  %1076 = extractvalue { ptr, ptr } %1074, 0
+  store ptr %1076, ptr %1075, align 8
+  %1077 = getelementptr inbounds nuw { ptr, ptr }, ptr %72, i32 0, i32 1
+  %1078 = extractvalue { ptr, ptr } %1074, 1
   store ptr %1078, ptr %1077, align 8
-  %1079 = getelementptr inbounds { ptr, ptr }, ptr %73, i32 0, i32 1
-  %1080 = extractvalue { ptr, ptr } %1076, 1
-  store ptr %1080, ptr %1079, align 8
-  %1081 = getelementptr inbounds { ptr, ptr }, ptr %1075, i32 0, i32 0
-  %1082 = load ptr, ptr %1081, align 8
-  %1083 = getelementptr inbounds { ptr, ptr }, ptr %1075, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %72, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %72) #8
+  %1079 = load ptr, ptr %22, align 8, !tbaa !20
+  %1080 = getelementptr inbounds %union.YYSTYPE, ptr %1079, i64 -2
+  %1081 = getelementptr inbounds nuw { i64, ptr }, ptr %1080, i32 0, i32 0
+  %1082 = load i64, ptr %1081, align 8
+  %1083 = getelementptr inbounds nuw { i64, ptr }, ptr %1080, i32 0, i32 1
   %1084 = load ptr, ptr %1083, align 8
-  %1085 = getelementptr inbounds { ptr, ptr }, ptr %73, i32 0, i32 0
-  %1086 = load ptr, ptr %1085, align 8
-  %1087 = getelementptr inbounds { ptr, ptr }, ptr %73, i32 0, i32 1
+  call void @jv_free(i64 %1082, ptr %1084)
+  %1085 = getelementptr inbounds nuw { i64, ptr }, ptr %71, i32 0, i32 0
+  %1086 = load i64, ptr %1085, align 8
+  %1087 = getelementptr inbounds nuw { i64, ptr }, ptr %71, i32 0, i32 1
   %1088 = load ptr, ptr %1087, align 8
-  %1089 = call { ptr, ptr } @gen_try(ptr %1082, ptr %1084, ptr %1086, ptr %1088)
-  %1090 = getelementptr inbounds { ptr, ptr }, ptr %72, i32 0, i32 0
-  %1091 = extractvalue { ptr, ptr } %1089, 0
-  store ptr %1091, ptr %1090, align 8
-  %1092 = getelementptr inbounds { ptr, ptr }, ptr %72, i32 0, i32 1
-  %1093 = extractvalue { ptr, ptr } %1089, 1
-  store ptr %1093, ptr %1092, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %72, i64 16, i1 false)
-  br label %4268
+  call void @jv_free(i64 %1086, ptr %1088)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %71) #8
+  br label %4294
 
-1094:                                             ; preds = %604
-  %1095 = load ptr, ptr %21, align 8
-  %1096 = getelementptr inbounds %union.YYSTYPE, ptr %1095, i64 -2
-  %1097 = getelementptr inbounds { ptr, ptr }, ptr %1096, i32 0, i32 0
+1089:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %74) #8
+  %1090 = load ptr, ptr %22, align 8, !tbaa !20
+  %1091 = getelementptr inbounds %union.YYSTYPE, ptr %1090, i64 -1
+  %1092 = call { ptr, ptr } @gen_op_simple(i32 noundef 19)
+  %1093 = getelementptr inbounds nuw { ptr, ptr }, ptr %75, i32 0, i32 0
+  %1094 = extractvalue { ptr, ptr } %1092, 0
+  store ptr %1094, ptr %1093, align 8
+  %1095 = getelementptr inbounds nuw { ptr, ptr }, ptr %75, i32 0, i32 1
+  %1096 = extractvalue { ptr, ptr } %1092, 1
+  store ptr %1096, ptr %1095, align 8
+  %1097 = getelementptr inbounds nuw { ptr, ptr }, ptr %1091, i32 0, i32 0
   %1098 = load ptr, ptr %1097, align 8
-  %1099 = getelementptr inbounds { ptr, ptr }, ptr %1096, i32 0, i32 1
+  %1099 = getelementptr inbounds nuw { ptr, ptr }, ptr %1091, i32 0, i32 1
   %1100 = load ptr, ptr %1099, align 8
-  %1101 = call { ptr, ptr } @gen_lambda(ptr %1098, ptr %1100)
-  %1102 = getelementptr inbounds { ptr, ptr }, ptr %76, i32 0, i32 0
-  %1103 = extractvalue { ptr, ptr } %1101, 0
-  store ptr %1103, ptr %1102, align 8
-  %1104 = getelementptr inbounds { ptr, ptr }, ptr %76, i32 0, i32 1
-  %1105 = extractvalue { ptr, ptr } %1101, 1
-  store ptr %1105, ptr %1104, align 8
-  %1106 = load ptr, ptr %21, align 8
-  %1107 = getelementptr inbounds %union.YYSTYPE, ptr %1106, i64 0
-  %1108 = getelementptr inbounds { ptr, ptr }, ptr %1107, i32 0, i32 0
-  %1109 = load ptr, ptr %1108, align 8
-  %1110 = getelementptr inbounds { ptr, ptr }, ptr %1107, i32 0, i32 1
-  %1111 = load ptr, ptr %1110, align 8
-  %1112 = call { ptr, ptr } @gen_lambda(ptr %1109, ptr %1111)
-  %1113 = getelementptr inbounds { ptr, ptr }, ptr %77, i32 0, i32 0
-  %1114 = extractvalue { ptr, ptr } %1112, 0
-  store ptr %1114, ptr %1113, align 8
-  %1115 = getelementptr inbounds { ptr, ptr }, ptr %77, i32 0, i32 1
-  %1116 = extractvalue { ptr, ptr } %1112, 1
-  store ptr %1116, ptr %1115, align 8
-  %1117 = getelementptr inbounds { ptr, ptr }, ptr %76, i32 0, i32 0
-  %1118 = load ptr, ptr %1117, align 8
-  %1119 = getelementptr inbounds { ptr, ptr }, ptr %76, i32 0, i32 1
-  %1120 = load ptr, ptr %1119, align 8
-  %1121 = getelementptr inbounds { ptr, ptr }, ptr %77, i32 0, i32 0
-  %1122 = load ptr, ptr %1121, align 8
-  %1123 = getelementptr inbounds { ptr, ptr }, ptr %77, i32 0, i32 1
-  %1124 = load ptr, ptr %1123, align 8
-  %1125 = call { ptr, ptr } @block_join(ptr %1118, ptr %1120, ptr %1122, ptr %1124)
-  %1126 = getelementptr inbounds { ptr, ptr }, ptr %75, i32 0, i32 0
-  %1127 = extractvalue { ptr, ptr } %1125, 0
-  store ptr %1127, ptr %1126, align 8
-  %1128 = getelementptr inbounds { ptr, ptr }, ptr %75, i32 0, i32 1
-  %1129 = extractvalue { ptr, ptr } %1125, 1
-  store ptr %1129, ptr %1128, align 8
-  %1130 = getelementptr inbounds { ptr, ptr }, ptr %75, i32 0, i32 0
-  %1131 = load ptr, ptr %1130, align 8
-  %1132 = getelementptr inbounds { ptr, ptr }, ptr %75, i32 0, i32 1
-  %1133 = load ptr, ptr %1132, align 8
-  %1134 = call { ptr, ptr } @gen_call(ptr noundef @.str.9, ptr %1131, ptr %1133)
-  %1135 = getelementptr inbounds { ptr, ptr }, ptr %74, i32 0, i32 0
-  %1136 = extractvalue { ptr, ptr } %1134, 0
-  store ptr %1136, ptr %1135, align 8
-  %1137 = getelementptr inbounds { ptr, ptr }, ptr %74, i32 0, i32 1
-  %1138 = extractvalue { ptr, ptr } %1134, 1
-  store ptr %1138, ptr %1137, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %74, i64 16, i1 false)
-  br label %4268
+  %1101 = getelementptr inbounds nuw { ptr, ptr }, ptr %75, i32 0, i32 0
+  %1102 = load ptr, ptr %1101, align 8
+  %1103 = getelementptr inbounds nuw { ptr, ptr }, ptr %75, i32 0, i32 1
+  %1104 = load ptr, ptr %1103, align 8
+  %1105 = call { ptr, ptr } @gen_try(ptr %1098, ptr %1100, ptr %1102, ptr %1104)
+  %1106 = getelementptr inbounds nuw { ptr, ptr }, ptr %74, i32 0, i32 0
+  %1107 = extractvalue { ptr, ptr } %1105, 0
+  store ptr %1107, ptr %1106, align 8
+  %1108 = getelementptr inbounds nuw { ptr, ptr }, ptr %74, i32 0, i32 1
+  %1109 = extractvalue { ptr, ptr } %1105, 1
+  store ptr %1109, ptr %1108, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %74, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %74) #8
+  br label %4294
 
-1139:                                             ; preds = %604
-  %1140 = load ptr, ptr %21, align 8
-  %1141 = getelementptr inbounds %union.YYSTYPE, ptr %1140, i64 -2
-  %1142 = load ptr, ptr %21, align 8
-  %1143 = getelementptr inbounds %union.YYSTYPE, ptr %1142, i64 0
-  %1144 = getelementptr inbounds { ptr, ptr }, ptr %1141, i32 0, i32 0
-  %1145 = load ptr, ptr %1144, align 8
-  %1146 = getelementptr inbounds { ptr, ptr }, ptr %1141, i32 0, i32 1
+1110:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %76) #8
+  %1111 = load ptr, ptr %22, align 8, !tbaa !20
+  %1112 = getelementptr inbounds %union.YYSTYPE, ptr %1111, i64 -2
+  %1113 = getelementptr inbounds nuw { ptr, ptr }, ptr %1112, i32 0, i32 0
+  %1114 = load ptr, ptr %1113, align 8
+  %1115 = getelementptr inbounds nuw { ptr, ptr }, ptr %1112, i32 0, i32 1
+  %1116 = load ptr, ptr %1115, align 8
+  %1117 = call { ptr, ptr } @gen_lambda(ptr %1114, ptr %1116)
+  %1118 = getelementptr inbounds nuw { ptr, ptr }, ptr %78, i32 0, i32 0
+  %1119 = extractvalue { ptr, ptr } %1117, 0
+  store ptr %1119, ptr %1118, align 8
+  %1120 = getelementptr inbounds nuw { ptr, ptr }, ptr %78, i32 0, i32 1
+  %1121 = extractvalue { ptr, ptr } %1117, 1
+  store ptr %1121, ptr %1120, align 8
+  %1122 = load ptr, ptr %22, align 8, !tbaa !20
+  %1123 = getelementptr inbounds %union.YYSTYPE, ptr %1122, i64 0
+  %1124 = getelementptr inbounds nuw { ptr, ptr }, ptr %1123, i32 0, i32 0
+  %1125 = load ptr, ptr %1124, align 8
+  %1126 = getelementptr inbounds nuw { ptr, ptr }, ptr %1123, i32 0, i32 1
+  %1127 = load ptr, ptr %1126, align 8
+  %1128 = call { ptr, ptr } @gen_lambda(ptr %1125, ptr %1127)
+  %1129 = getelementptr inbounds nuw { ptr, ptr }, ptr %79, i32 0, i32 0
+  %1130 = extractvalue { ptr, ptr } %1128, 0
+  store ptr %1130, ptr %1129, align 8
+  %1131 = getelementptr inbounds nuw { ptr, ptr }, ptr %79, i32 0, i32 1
+  %1132 = extractvalue { ptr, ptr } %1128, 1
+  store ptr %1132, ptr %1131, align 8
+  %1133 = getelementptr inbounds nuw { ptr, ptr }, ptr %78, i32 0, i32 0
+  %1134 = load ptr, ptr %1133, align 8
+  %1135 = getelementptr inbounds nuw { ptr, ptr }, ptr %78, i32 0, i32 1
+  %1136 = load ptr, ptr %1135, align 8
+  %1137 = getelementptr inbounds nuw { ptr, ptr }, ptr %79, i32 0, i32 0
+  %1138 = load ptr, ptr %1137, align 8
+  %1139 = getelementptr inbounds nuw { ptr, ptr }, ptr %79, i32 0, i32 1
+  %1140 = load ptr, ptr %1139, align 8
+  %1141 = call { ptr, ptr } @block_join(ptr %1134, ptr %1136, ptr %1138, ptr %1140)
+  %1142 = getelementptr inbounds nuw { ptr, ptr }, ptr %77, i32 0, i32 0
+  %1143 = extractvalue { ptr, ptr } %1141, 0
+  store ptr %1143, ptr %1142, align 8
+  %1144 = getelementptr inbounds nuw { ptr, ptr }, ptr %77, i32 0, i32 1
+  %1145 = extractvalue { ptr, ptr } %1141, 1
+  store ptr %1145, ptr %1144, align 8
+  %1146 = getelementptr inbounds nuw { ptr, ptr }, ptr %77, i32 0, i32 0
   %1147 = load ptr, ptr %1146, align 8
-  %1148 = getelementptr inbounds { ptr, ptr }, ptr %1143, i32 0, i32 0
+  %1148 = getelementptr inbounds nuw { ptr, ptr }, ptr %77, i32 0, i32 1
   %1149 = load ptr, ptr %1148, align 8
-  %1150 = getelementptr inbounds { ptr, ptr }, ptr %1143, i32 0, i32 1
-  %1151 = load ptr, ptr %1150, align 8
-  %1152 = call { ptr, ptr } @gen_or(ptr %1145, ptr %1147, ptr %1149, ptr %1151)
-  %1153 = getelementptr inbounds { ptr, ptr }, ptr %78, i32 0, i32 0
-  %1154 = extractvalue { ptr, ptr } %1152, 0
+  %1150 = call { ptr, ptr } @gen_call(ptr noundef @.str.9, ptr %1147, ptr %1149)
+  %1151 = getelementptr inbounds nuw { ptr, ptr }, ptr %76, i32 0, i32 0
+  %1152 = extractvalue { ptr, ptr } %1150, 0
+  store ptr %1152, ptr %1151, align 8
+  %1153 = getelementptr inbounds nuw { ptr, ptr }, ptr %76, i32 0, i32 1
+  %1154 = extractvalue { ptr, ptr } %1150, 1
   store ptr %1154, ptr %1153, align 8
-  %1155 = getelementptr inbounds { ptr, ptr }, ptr %78, i32 0, i32 1
-  %1156 = extractvalue { ptr, ptr } %1152, 1
-  store ptr %1156, ptr %1155, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %78, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %76, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %76) #8
+  br label %4294
 
-1157:                                             ; preds = %604
-  %1158 = load ptr, ptr %21, align 8
-  %1159 = getelementptr inbounds %union.YYSTYPE, ptr %1158, i64 -2
-  %1160 = load ptr, ptr %21, align 8
-  %1161 = getelementptr inbounds %union.YYSTYPE, ptr %1160, i64 0
-  %1162 = getelementptr inbounds { ptr, ptr }, ptr %1159, i32 0, i32 0
+1155:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %80) #8
+  %1156 = load ptr, ptr %22, align 8, !tbaa !20
+  %1157 = getelementptr inbounds %union.YYSTYPE, ptr %1156, i64 -2
+  %1158 = load ptr, ptr %22, align 8, !tbaa !20
+  %1159 = getelementptr inbounds %union.YYSTYPE, ptr %1158, i64 0
+  %1160 = getelementptr inbounds nuw { ptr, ptr }, ptr %1157, i32 0, i32 0
+  %1161 = load ptr, ptr %1160, align 8
+  %1162 = getelementptr inbounds nuw { ptr, ptr }, ptr %1157, i32 0, i32 1
   %1163 = load ptr, ptr %1162, align 8
-  %1164 = getelementptr inbounds { ptr, ptr }, ptr %1159, i32 0, i32 1
+  %1164 = getelementptr inbounds nuw { ptr, ptr }, ptr %1159, i32 0, i32 0
   %1165 = load ptr, ptr %1164, align 8
-  %1166 = getelementptr inbounds { ptr, ptr }, ptr %1161, i32 0, i32 0
+  %1166 = getelementptr inbounds nuw { ptr, ptr }, ptr %1159, i32 0, i32 1
   %1167 = load ptr, ptr %1166, align 8
-  %1168 = getelementptr inbounds { ptr, ptr }, ptr %1161, i32 0, i32 1
-  %1169 = load ptr, ptr %1168, align 8
-  %1170 = call { ptr, ptr } @gen_and(ptr %1163, ptr %1165, ptr %1167, ptr %1169)
-  %1171 = getelementptr inbounds { ptr, ptr }, ptr %79, i32 0, i32 0
-  %1172 = extractvalue { ptr, ptr } %1170, 0
+  %1168 = call { ptr, ptr } @gen_or(ptr %1161, ptr %1163, ptr %1165, ptr %1167)
+  %1169 = getelementptr inbounds nuw { ptr, ptr }, ptr %80, i32 0, i32 0
+  %1170 = extractvalue { ptr, ptr } %1168, 0
+  store ptr %1170, ptr %1169, align 8
+  %1171 = getelementptr inbounds nuw { ptr, ptr }, ptr %80, i32 0, i32 1
+  %1172 = extractvalue { ptr, ptr } %1168, 1
   store ptr %1172, ptr %1171, align 8
-  %1173 = getelementptr inbounds { ptr, ptr }, ptr %79, i32 0, i32 1
-  %1174 = extractvalue { ptr, ptr } %1170, 1
-  store ptr %1174, ptr %1173, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %79, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %80, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %80) #8
+  br label %4294
 
-1175:                                             ; preds = %604
-  %1176 = load ptr, ptr %21, align 8
-  %1177 = getelementptr inbounds %union.YYSTYPE, ptr %1176, i64 -2
-  %1178 = load ptr, ptr %21, align 8
-  %1179 = getelementptr inbounds %union.YYSTYPE, ptr %1178, i64 0
-  %1180 = getelementptr inbounds { ptr, ptr }, ptr %1177, i32 0, i32 0
+1173:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %81) #8
+  %1174 = load ptr, ptr %22, align 8, !tbaa !20
+  %1175 = getelementptr inbounds %union.YYSTYPE, ptr %1174, i64 -2
+  %1176 = load ptr, ptr %22, align 8, !tbaa !20
+  %1177 = getelementptr inbounds %union.YYSTYPE, ptr %1176, i64 0
+  %1178 = getelementptr inbounds nuw { ptr, ptr }, ptr %1175, i32 0, i32 0
+  %1179 = load ptr, ptr %1178, align 8
+  %1180 = getelementptr inbounds nuw { ptr, ptr }, ptr %1175, i32 0, i32 1
   %1181 = load ptr, ptr %1180, align 8
-  %1182 = getelementptr inbounds { ptr, ptr }, ptr %1177, i32 0, i32 1
+  %1182 = getelementptr inbounds nuw { ptr, ptr }, ptr %1177, i32 0, i32 0
   %1183 = load ptr, ptr %1182, align 8
-  %1184 = getelementptr inbounds { ptr, ptr }, ptr %1179, i32 0, i32 0
+  %1184 = getelementptr inbounds nuw { ptr, ptr }, ptr %1177, i32 0, i32 1
   %1185 = load ptr, ptr %1184, align 8
-  %1186 = getelementptr inbounds { ptr, ptr }, ptr %1179, i32 0, i32 1
-  %1187 = load ptr, ptr %1186, align 8
-  %1188 = call { ptr, ptr } @gen_definedor(ptr %1181, ptr %1183, ptr %1185, ptr %1187)
-  %1189 = getelementptr inbounds { ptr, ptr }, ptr %80, i32 0, i32 0
-  %1190 = extractvalue { ptr, ptr } %1188, 0
+  %1186 = call { ptr, ptr } @gen_and(ptr %1179, ptr %1181, ptr %1183, ptr %1185)
+  %1187 = getelementptr inbounds nuw { ptr, ptr }, ptr %81, i32 0, i32 0
+  %1188 = extractvalue { ptr, ptr } %1186, 0
+  store ptr %1188, ptr %1187, align 8
+  %1189 = getelementptr inbounds nuw { ptr, ptr }, ptr %81, i32 0, i32 1
+  %1190 = extractvalue { ptr, ptr } %1186, 1
   store ptr %1190, ptr %1189, align 8
-  %1191 = getelementptr inbounds { ptr, ptr }, ptr %80, i32 0, i32 1
-  %1192 = extractvalue { ptr, ptr } %1188, 1
-  store ptr %1192, ptr %1191, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %80, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %81, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %81) #8
+  br label %4294
 
-1193:                                             ; preds = %604
-  %1194 = load ptr, ptr %21, align 8
-  %1195 = getelementptr inbounds %union.YYSTYPE, ptr %1194, i64 -2
-  %1196 = load ptr, ptr %21, align 8
-  %1197 = getelementptr inbounds %union.YYSTYPE, ptr %1196, i64 0
-  %1198 = getelementptr inbounds { ptr, ptr }, ptr %1195, i32 0, i32 0
+1191:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %82) #8
+  %1192 = load ptr, ptr %22, align 8, !tbaa !20
+  %1193 = getelementptr inbounds %union.YYSTYPE, ptr %1192, i64 -2
+  %1194 = load ptr, ptr %22, align 8, !tbaa !20
+  %1195 = getelementptr inbounds %union.YYSTYPE, ptr %1194, i64 0
+  %1196 = getelementptr inbounds nuw { ptr, ptr }, ptr %1193, i32 0, i32 0
+  %1197 = load ptr, ptr %1196, align 8
+  %1198 = getelementptr inbounds nuw { ptr, ptr }, ptr %1193, i32 0, i32 1
   %1199 = load ptr, ptr %1198, align 8
-  %1200 = getelementptr inbounds { ptr, ptr }, ptr %1195, i32 0, i32 1
+  %1200 = getelementptr inbounds nuw { ptr, ptr }, ptr %1195, i32 0, i32 0
   %1201 = load ptr, ptr %1200, align 8
-  %1202 = getelementptr inbounds { ptr, ptr }, ptr %1197, i32 0, i32 0
+  %1202 = getelementptr inbounds nuw { ptr, ptr }, ptr %1195, i32 0, i32 1
   %1203 = load ptr, ptr %1202, align 8
-  %1204 = getelementptr inbounds { ptr, ptr }, ptr %1197, i32 0, i32 1
-  %1205 = load ptr, ptr %1204, align 8
-  %1206 = call { ptr, ptr } @gen_definedor_assign(ptr %1199, ptr %1201, ptr %1203, ptr %1205)
-  %1207 = getelementptr inbounds { ptr, ptr }, ptr %81, i32 0, i32 0
-  %1208 = extractvalue { ptr, ptr } %1206, 0
+  %1204 = call { ptr, ptr } @gen_definedor(ptr %1197, ptr %1199, ptr %1201, ptr %1203)
+  %1205 = getelementptr inbounds nuw { ptr, ptr }, ptr %82, i32 0, i32 0
+  %1206 = extractvalue { ptr, ptr } %1204, 0
+  store ptr %1206, ptr %1205, align 8
+  %1207 = getelementptr inbounds nuw { ptr, ptr }, ptr %82, i32 0, i32 1
+  %1208 = extractvalue { ptr, ptr } %1204, 1
   store ptr %1208, ptr %1207, align 8
-  %1209 = getelementptr inbounds { ptr, ptr }, ptr %81, i32 0, i32 1
-  %1210 = extractvalue { ptr, ptr } %1206, 1
-  store ptr %1210, ptr %1209, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %81, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %82, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %82) #8
+  br label %4294
 
-1211:                                             ; preds = %604
-  %1212 = load ptr, ptr %21, align 8
-  %1213 = getelementptr inbounds %union.YYSTYPE, ptr %1212, i64 -2
-  %1214 = getelementptr inbounds { ptr, ptr }, ptr %1213, i32 0, i32 0
+1209:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %83) #8
+  %1210 = load ptr, ptr %22, align 8, !tbaa !20
+  %1211 = getelementptr inbounds %union.YYSTYPE, ptr %1210, i64 -2
+  %1212 = load ptr, ptr %22, align 8, !tbaa !20
+  %1213 = getelementptr inbounds %union.YYSTYPE, ptr %1212, i64 0
+  %1214 = getelementptr inbounds nuw { ptr, ptr }, ptr %1211, i32 0, i32 0
   %1215 = load ptr, ptr %1214, align 8
-  %1216 = getelementptr inbounds { ptr, ptr }, ptr %1213, i32 0, i32 1
+  %1216 = getelementptr inbounds nuw { ptr, ptr }, ptr %1211, i32 0, i32 1
   %1217 = load ptr, ptr %1216, align 8
-  %1218 = call { ptr, ptr } @gen_lambda(ptr %1215, ptr %1217)
-  %1219 = getelementptr inbounds { ptr, ptr }, ptr %84, i32 0, i32 0
-  %1220 = extractvalue { ptr, ptr } %1218, 0
-  store ptr %1220, ptr %1219, align 8
-  %1221 = getelementptr inbounds { ptr, ptr }, ptr %84, i32 0, i32 1
-  %1222 = extractvalue { ptr, ptr } %1218, 1
-  store ptr %1222, ptr %1221, align 8
-  %1223 = load ptr, ptr %21, align 8
-  %1224 = getelementptr inbounds %union.YYSTYPE, ptr %1223, i64 0
-  %1225 = getelementptr inbounds { ptr, ptr }, ptr %1224, i32 0, i32 0
-  %1226 = load ptr, ptr %1225, align 8
-  %1227 = getelementptr inbounds { ptr, ptr }, ptr %1224, i32 0, i32 1
-  %1228 = load ptr, ptr %1227, align 8
-  %1229 = call { ptr, ptr } @gen_lambda(ptr %1226, ptr %1228)
-  %1230 = getelementptr inbounds { ptr, ptr }, ptr %85, i32 0, i32 0
-  %1231 = extractvalue { ptr, ptr } %1229, 0
-  store ptr %1231, ptr %1230, align 8
-  %1232 = getelementptr inbounds { ptr, ptr }, ptr %85, i32 0, i32 1
-  %1233 = extractvalue { ptr, ptr } %1229, 1
-  store ptr %1233, ptr %1232, align 8
-  %1234 = getelementptr inbounds { ptr, ptr }, ptr %84, i32 0, i32 0
-  %1235 = load ptr, ptr %1234, align 8
-  %1236 = getelementptr inbounds { ptr, ptr }, ptr %84, i32 0, i32 1
-  %1237 = load ptr, ptr %1236, align 8
-  %1238 = getelementptr inbounds { ptr, ptr }, ptr %85, i32 0, i32 0
-  %1239 = load ptr, ptr %1238, align 8
-  %1240 = getelementptr inbounds { ptr, ptr }, ptr %85, i32 0, i32 1
-  %1241 = load ptr, ptr %1240, align 8
-  %1242 = call { ptr, ptr } @block_join(ptr %1235, ptr %1237, ptr %1239, ptr %1241)
-  %1243 = getelementptr inbounds { ptr, ptr }, ptr %83, i32 0, i32 0
-  %1244 = extractvalue { ptr, ptr } %1242, 0
-  store ptr %1244, ptr %1243, align 8
-  %1245 = getelementptr inbounds { ptr, ptr }, ptr %83, i32 0, i32 1
-  %1246 = extractvalue { ptr, ptr } %1242, 1
-  store ptr %1246, ptr %1245, align 8
-  %1247 = getelementptr inbounds { ptr, ptr }, ptr %83, i32 0, i32 0
-  %1248 = load ptr, ptr %1247, align 8
-  %1249 = getelementptr inbounds { ptr, ptr }, ptr %83, i32 0, i32 1
-  %1250 = load ptr, ptr %1249, align 8
-  %1251 = call { ptr, ptr } @gen_call(ptr noundef @.str.10, ptr %1248, ptr %1250)
-  %1252 = getelementptr inbounds { ptr, ptr }, ptr %82, i32 0, i32 0
-  %1253 = extractvalue { ptr, ptr } %1251, 0
-  store ptr %1253, ptr %1252, align 8
-  %1254 = getelementptr inbounds { ptr, ptr }, ptr %82, i32 0, i32 1
-  %1255 = extractvalue { ptr, ptr } %1251, 1
-  store ptr %1255, ptr %1254, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %82, i64 16, i1 false)
-  br label %4268
+  %1218 = getelementptr inbounds nuw { ptr, ptr }, ptr %1213, i32 0, i32 0
+  %1219 = load ptr, ptr %1218, align 8
+  %1220 = getelementptr inbounds nuw { ptr, ptr }, ptr %1213, i32 0, i32 1
+  %1221 = load ptr, ptr %1220, align 8
+  %1222 = call { ptr, ptr } @gen_definedor_assign(ptr %1215, ptr %1217, ptr %1219, ptr %1221)
+  %1223 = getelementptr inbounds nuw { ptr, ptr }, ptr %83, i32 0, i32 0
+  %1224 = extractvalue { ptr, ptr } %1222, 0
+  store ptr %1224, ptr %1223, align 8
+  %1225 = getelementptr inbounds nuw { ptr, ptr }, ptr %83, i32 0, i32 1
+  %1226 = extractvalue { ptr, ptr } %1222, 1
+  store ptr %1226, ptr %1225, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %83, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %83) #8
+  br label %4294
 
-1256:                                             ; preds = %604
-  %1257 = load ptr, ptr %21, align 8
-  %1258 = getelementptr inbounds %union.YYSTYPE, ptr %1257, i64 -2
-  %1259 = load ptr, ptr %21, align 8
-  %1260 = getelementptr inbounds %union.YYSTYPE, ptr %1259, i64 0
-  %1261 = getelementptr inbounds { ptr, ptr }, ptr %1258, i32 0, i32 0
-  %1262 = load ptr, ptr %1261, align 8
-  %1263 = getelementptr inbounds { ptr, ptr }, ptr %1258, i32 0, i32 1
+1227:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %84) #8
+  %1228 = load ptr, ptr %22, align 8, !tbaa !20
+  %1229 = getelementptr inbounds %union.YYSTYPE, ptr %1228, i64 -2
+  %1230 = getelementptr inbounds nuw { ptr, ptr }, ptr %1229, i32 0, i32 0
+  %1231 = load ptr, ptr %1230, align 8
+  %1232 = getelementptr inbounds nuw { ptr, ptr }, ptr %1229, i32 0, i32 1
+  %1233 = load ptr, ptr %1232, align 8
+  %1234 = call { ptr, ptr } @gen_lambda(ptr %1231, ptr %1233)
+  %1235 = getelementptr inbounds nuw { ptr, ptr }, ptr %86, i32 0, i32 0
+  %1236 = extractvalue { ptr, ptr } %1234, 0
+  store ptr %1236, ptr %1235, align 8
+  %1237 = getelementptr inbounds nuw { ptr, ptr }, ptr %86, i32 0, i32 1
+  %1238 = extractvalue { ptr, ptr } %1234, 1
+  store ptr %1238, ptr %1237, align 8
+  %1239 = load ptr, ptr %22, align 8, !tbaa !20
+  %1240 = getelementptr inbounds %union.YYSTYPE, ptr %1239, i64 0
+  %1241 = getelementptr inbounds nuw { ptr, ptr }, ptr %1240, i32 0, i32 0
+  %1242 = load ptr, ptr %1241, align 8
+  %1243 = getelementptr inbounds nuw { ptr, ptr }, ptr %1240, i32 0, i32 1
+  %1244 = load ptr, ptr %1243, align 8
+  %1245 = call { ptr, ptr } @gen_lambda(ptr %1242, ptr %1244)
+  %1246 = getelementptr inbounds nuw { ptr, ptr }, ptr %87, i32 0, i32 0
+  %1247 = extractvalue { ptr, ptr } %1245, 0
+  store ptr %1247, ptr %1246, align 8
+  %1248 = getelementptr inbounds nuw { ptr, ptr }, ptr %87, i32 0, i32 1
+  %1249 = extractvalue { ptr, ptr } %1245, 1
+  store ptr %1249, ptr %1248, align 8
+  %1250 = getelementptr inbounds nuw { ptr, ptr }, ptr %86, i32 0, i32 0
+  %1251 = load ptr, ptr %1250, align 8
+  %1252 = getelementptr inbounds nuw { ptr, ptr }, ptr %86, i32 0, i32 1
+  %1253 = load ptr, ptr %1252, align 8
+  %1254 = getelementptr inbounds nuw { ptr, ptr }, ptr %87, i32 0, i32 0
+  %1255 = load ptr, ptr %1254, align 8
+  %1256 = getelementptr inbounds nuw { ptr, ptr }, ptr %87, i32 0, i32 1
+  %1257 = load ptr, ptr %1256, align 8
+  %1258 = call { ptr, ptr } @block_join(ptr %1251, ptr %1253, ptr %1255, ptr %1257)
+  %1259 = getelementptr inbounds nuw { ptr, ptr }, ptr %85, i32 0, i32 0
+  %1260 = extractvalue { ptr, ptr } %1258, 0
+  store ptr %1260, ptr %1259, align 8
+  %1261 = getelementptr inbounds nuw { ptr, ptr }, ptr %85, i32 0, i32 1
+  %1262 = extractvalue { ptr, ptr } %1258, 1
+  store ptr %1262, ptr %1261, align 8
+  %1263 = getelementptr inbounds nuw { ptr, ptr }, ptr %85, i32 0, i32 0
   %1264 = load ptr, ptr %1263, align 8
-  %1265 = getelementptr inbounds { ptr, ptr }, ptr %1260, i32 0, i32 0
+  %1265 = getelementptr inbounds nuw { ptr, ptr }, ptr %85, i32 0, i32 1
   %1266 = load ptr, ptr %1265, align 8
-  %1267 = getelementptr inbounds { ptr, ptr }, ptr %1260, i32 0, i32 1
-  %1268 = load ptr, ptr %1267, align 8
-  %1269 = call { ptr, ptr } @block_join(ptr %1262, ptr %1264, ptr %1266, ptr %1268)
-  %1270 = getelementptr inbounds { ptr, ptr }, ptr %86, i32 0, i32 0
-  %1271 = extractvalue { ptr, ptr } %1269, 0
+  %1267 = call { ptr, ptr } @gen_call(ptr noundef @.str.10, ptr %1264, ptr %1266)
+  %1268 = getelementptr inbounds nuw { ptr, ptr }, ptr %84, i32 0, i32 0
+  %1269 = extractvalue { ptr, ptr } %1267, 0
+  store ptr %1269, ptr %1268, align 8
+  %1270 = getelementptr inbounds nuw { ptr, ptr }, ptr %84, i32 0, i32 1
+  %1271 = extractvalue { ptr, ptr } %1267, 1
   store ptr %1271, ptr %1270, align 8
-  %1272 = getelementptr inbounds { ptr, ptr }, ptr %86, i32 0, i32 1
-  %1273 = extractvalue { ptr, ptr } %1269, 1
-  store ptr %1273, ptr %1272, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %86, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %84, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %84) #8
+  br label %4294
 
-1274:                                             ; preds = %604
-  %1275 = load ptr, ptr %21, align 8
-  %1276 = getelementptr inbounds %union.YYSTYPE, ptr %1275, i64 -2
-  %1277 = load ptr, ptr %21, align 8
-  %1278 = getelementptr inbounds %union.YYSTYPE, ptr %1277, i64 0
-  %1279 = getelementptr inbounds { ptr, ptr }, ptr %1276, i32 0, i32 0
+1272:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %88) #8
+  %1273 = load ptr, ptr %22, align 8, !tbaa !20
+  %1274 = getelementptr inbounds %union.YYSTYPE, ptr %1273, i64 -2
+  %1275 = load ptr, ptr %22, align 8, !tbaa !20
+  %1276 = getelementptr inbounds %union.YYSTYPE, ptr %1275, i64 0
+  %1277 = getelementptr inbounds nuw { ptr, ptr }, ptr %1274, i32 0, i32 0
+  %1278 = load ptr, ptr %1277, align 8
+  %1279 = getelementptr inbounds nuw { ptr, ptr }, ptr %1274, i32 0, i32 1
   %1280 = load ptr, ptr %1279, align 8
-  %1281 = getelementptr inbounds { ptr, ptr }, ptr %1276, i32 0, i32 1
+  %1281 = getelementptr inbounds nuw { ptr, ptr }, ptr %1276, i32 0, i32 0
   %1282 = load ptr, ptr %1281, align 8
-  %1283 = getelementptr inbounds { ptr, ptr }, ptr %1278, i32 0, i32 0
+  %1283 = getelementptr inbounds nuw { ptr, ptr }, ptr %1276, i32 0, i32 1
   %1284 = load ptr, ptr %1283, align 8
-  %1285 = getelementptr inbounds { ptr, ptr }, ptr %1278, i32 0, i32 1
-  %1286 = load ptr, ptr %1285, align 8
-  %1287 = call { ptr, ptr } @gen_both(ptr %1280, ptr %1282, ptr %1284, ptr %1286)
-  %1288 = getelementptr inbounds { ptr, ptr }, ptr %87, i32 0, i32 0
-  %1289 = extractvalue { ptr, ptr } %1287, 0
+  %1285 = call { ptr, ptr } @block_join(ptr %1278, ptr %1280, ptr %1282, ptr %1284)
+  %1286 = getelementptr inbounds nuw { ptr, ptr }, ptr %88, i32 0, i32 0
+  %1287 = extractvalue { ptr, ptr } %1285, 0
+  store ptr %1287, ptr %1286, align 8
+  %1288 = getelementptr inbounds nuw { ptr, ptr }, ptr %88, i32 0, i32 1
+  %1289 = extractvalue { ptr, ptr } %1285, 1
   store ptr %1289, ptr %1288, align 8
-  %1290 = getelementptr inbounds { ptr, ptr }, ptr %87, i32 0, i32 1
-  %1291 = extractvalue { ptr, ptr } %1287, 1
-  store ptr %1291, ptr %1290, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %87, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %88, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %88) #8
+  br label %4294
 
-1292:                                             ; preds = %604
-  %1293 = load ptr, ptr %21, align 8
-  %1294 = getelementptr inbounds %union.YYSTYPE, ptr %1293, i64 -2
-  %1295 = load ptr, ptr %21, align 8
-  %1296 = getelementptr inbounds %union.YYSTYPE, ptr %1295, i64 0
-  %1297 = getelementptr inbounds { ptr, ptr }, ptr %1294, i32 0, i32 0
+1290:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %89) #8
+  %1291 = load ptr, ptr %22, align 8, !tbaa !20
+  %1292 = getelementptr inbounds %union.YYSTYPE, ptr %1291, i64 -2
+  %1293 = load ptr, ptr %22, align 8, !tbaa !20
+  %1294 = getelementptr inbounds %union.YYSTYPE, ptr %1293, i64 0
+  %1295 = getelementptr inbounds nuw { ptr, ptr }, ptr %1292, i32 0, i32 0
+  %1296 = load ptr, ptr %1295, align 8
+  %1297 = getelementptr inbounds nuw { ptr, ptr }, ptr %1292, i32 0, i32 1
   %1298 = load ptr, ptr %1297, align 8
-  %1299 = getelementptr inbounds { ptr, ptr }, ptr %1294, i32 0, i32 1
+  %1299 = getelementptr inbounds nuw { ptr, ptr }, ptr %1294, i32 0, i32 0
   %1300 = load ptr, ptr %1299, align 8
-  %1301 = getelementptr inbounds { ptr, ptr }, ptr %1296, i32 0, i32 0
+  %1301 = getelementptr inbounds nuw { ptr, ptr }, ptr %1294, i32 0, i32 1
   %1302 = load ptr, ptr %1301, align 8
-  %1303 = getelementptr inbounds { ptr, ptr }, ptr %1296, i32 0, i32 1
-  %1304 = load ptr, ptr %1303, align 8
-  %1305 = call { ptr, ptr } @gen_binop(ptr %1298, ptr %1300, ptr %1302, ptr %1304, i32 noundef 43)
-  %1306 = getelementptr inbounds { ptr, ptr }, ptr %88, i32 0, i32 0
-  %1307 = extractvalue { ptr, ptr } %1305, 0
+  %1303 = call { ptr, ptr } @gen_both(ptr %1296, ptr %1298, ptr %1300, ptr %1302)
+  %1304 = getelementptr inbounds nuw { ptr, ptr }, ptr %89, i32 0, i32 0
+  %1305 = extractvalue { ptr, ptr } %1303, 0
+  store ptr %1305, ptr %1304, align 8
+  %1306 = getelementptr inbounds nuw { ptr, ptr }, ptr %89, i32 0, i32 1
+  %1307 = extractvalue { ptr, ptr } %1303, 1
   store ptr %1307, ptr %1306, align 8
-  %1308 = getelementptr inbounds { ptr, ptr }, ptr %88, i32 0, i32 1
-  %1309 = extractvalue { ptr, ptr } %1305, 1
-  store ptr %1309, ptr %1308, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %88, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %89, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %89) #8
+  br label %4294
 
-1310:                                             ; preds = %604
-  %1311 = load ptr, ptr %21, align 8
-  %1312 = getelementptr inbounds %union.YYSTYPE, ptr %1311, i64 -2
-  %1313 = load ptr, ptr %21, align 8
-  %1314 = getelementptr inbounds %union.YYSTYPE, ptr %1313, i64 0
-  %1315 = getelementptr inbounds { ptr, ptr }, ptr %1312, i32 0, i32 0
+1308:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %90) #8
+  %1309 = load ptr, ptr %22, align 8, !tbaa !20
+  %1310 = getelementptr inbounds %union.YYSTYPE, ptr %1309, i64 -2
+  %1311 = load ptr, ptr %22, align 8, !tbaa !20
+  %1312 = getelementptr inbounds %union.YYSTYPE, ptr %1311, i64 0
+  %1313 = getelementptr inbounds nuw { ptr, ptr }, ptr %1310, i32 0, i32 0
+  %1314 = load ptr, ptr %1313, align 8
+  %1315 = getelementptr inbounds nuw { ptr, ptr }, ptr %1310, i32 0, i32 1
   %1316 = load ptr, ptr %1315, align 8
-  %1317 = getelementptr inbounds { ptr, ptr }, ptr %1312, i32 0, i32 1
+  %1317 = getelementptr inbounds nuw { ptr, ptr }, ptr %1312, i32 0, i32 0
   %1318 = load ptr, ptr %1317, align 8
-  %1319 = getelementptr inbounds { ptr, ptr }, ptr %1314, i32 0, i32 0
+  %1319 = getelementptr inbounds nuw { ptr, ptr }, ptr %1312, i32 0, i32 1
   %1320 = load ptr, ptr %1319, align 8
-  %1321 = getelementptr inbounds { ptr, ptr }, ptr %1314, i32 0, i32 1
-  %1322 = load ptr, ptr %1321, align 8
-  %1323 = call { ptr, ptr } @gen_update(ptr %1316, ptr %1318, ptr %1320, ptr %1322, i32 noundef 43)
-  %1324 = getelementptr inbounds { ptr, ptr }, ptr %89, i32 0, i32 0
-  %1325 = extractvalue { ptr, ptr } %1323, 0
+  %1321 = call { ptr, ptr } @gen_binop(ptr %1314, ptr %1316, ptr %1318, ptr %1320, i32 noundef 43)
+  %1322 = getelementptr inbounds nuw { ptr, ptr }, ptr %90, i32 0, i32 0
+  %1323 = extractvalue { ptr, ptr } %1321, 0
+  store ptr %1323, ptr %1322, align 8
+  %1324 = getelementptr inbounds nuw { ptr, ptr }, ptr %90, i32 0, i32 1
+  %1325 = extractvalue { ptr, ptr } %1321, 1
   store ptr %1325, ptr %1324, align 8
-  %1326 = getelementptr inbounds { ptr, ptr }, ptr %89, i32 0, i32 1
-  %1327 = extractvalue { ptr, ptr } %1323, 1
-  store ptr %1327, ptr %1326, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %89, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %90, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %90) #8
+  br label %4294
 
-1328:                                             ; preds = %604
-  %1329 = load ptr, ptr %21, align 8
+1326:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %91) #8
+  %1327 = load ptr, ptr %22, align 8, !tbaa !20
+  %1328 = getelementptr inbounds %union.YYSTYPE, ptr %1327, i64 -2
+  %1329 = load ptr, ptr %22, align 8, !tbaa !20
   %1330 = getelementptr inbounds %union.YYSTYPE, ptr %1329, i64 0
-  %1331 = call { ptr, ptr } (...) @gen_noop()
-  %1332 = getelementptr inbounds { ptr, ptr }, ptr %92, i32 0, i32 0
-  %1333 = extractvalue { ptr, ptr } %1331, 0
-  store ptr %1333, ptr %1332, align 8
-  %1334 = getelementptr inbounds { ptr, ptr }, ptr %92, i32 0, i32 1
-  %1335 = extractvalue { ptr, ptr } %1331, 1
-  store ptr %1335, ptr %1334, align 8
-  %1336 = getelementptr inbounds { ptr, ptr }, ptr %92, i32 0, i32 0
-  %1337 = load ptr, ptr %1336, align 8
-  %1338 = getelementptr inbounds { ptr, ptr }, ptr %92, i32 0, i32 1
-  %1339 = load ptr, ptr %1338, align 8
-  %1340 = call { ptr, ptr } @gen_call(ptr noundef @.str.11, ptr %1337, ptr %1339)
-  %1341 = getelementptr inbounds { ptr, ptr }, ptr %91, i32 0, i32 0
-  %1342 = extractvalue { ptr, ptr } %1340, 0
-  store ptr %1342, ptr %1341, align 8
-  %1343 = getelementptr inbounds { ptr, ptr }, ptr %91, i32 0, i32 1
-  %1344 = extractvalue { ptr, ptr } %1340, 1
-  store ptr %1344, ptr %1343, align 8
-  %1345 = getelementptr inbounds { ptr, ptr }, ptr %1330, i32 0, i32 0
-  %1346 = load ptr, ptr %1345, align 8
-  %1347 = getelementptr inbounds { ptr, ptr }, ptr %1330, i32 0, i32 1
-  %1348 = load ptr, ptr %1347, align 8
-  %1349 = getelementptr inbounds { ptr, ptr }, ptr %91, i32 0, i32 0
-  %1350 = load ptr, ptr %1349, align 8
-  %1351 = getelementptr inbounds { ptr, ptr }, ptr %91, i32 0, i32 1
-  %1352 = load ptr, ptr %1351, align 8
-  %1353 = call { ptr, ptr } @block_join(ptr %1346, ptr %1348, ptr %1350, ptr %1352)
-  %1354 = getelementptr inbounds { ptr, ptr }, ptr %90, i32 0, i32 0
-  %1355 = extractvalue { ptr, ptr } %1353, 0
-  store ptr %1355, ptr %1354, align 8
-  %1356 = getelementptr inbounds { ptr, ptr }, ptr %90, i32 0, i32 1
-  %1357 = extractvalue { ptr, ptr } %1353, 1
-  store ptr %1357, ptr %1356, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %90, i64 16, i1 false)
-  br label %4268
+  %1331 = getelementptr inbounds nuw { ptr, ptr }, ptr %1328, i32 0, i32 0
+  %1332 = load ptr, ptr %1331, align 8
+  %1333 = getelementptr inbounds nuw { ptr, ptr }, ptr %1328, i32 0, i32 1
+  %1334 = load ptr, ptr %1333, align 8
+  %1335 = getelementptr inbounds nuw { ptr, ptr }, ptr %1330, i32 0, i32 0
+  %1336 = load ptr, ptr %1335, align 8
+  %1337 = getelementptr inbounds nuw { ptr, ptr }, ptr %1330, i32 0, i32 1
+  %1338 = load ptr, ptr %1337, align 8
+  %1339 = call { ptr, ptr } @gen_update(ptr %1332, ptr %1334, ptr %1336, ptr %1338, i32 noundef 43)
+  %1340 = getelementptr inbounds nuw { ptr, ptr }, ptr %91, i32 0, i32 0
+  %1341 = extractvalue { ptr, ptr } %1339, 0
+  store ptr %1341, ptr %1340, align 8
+  %1342 = getelementptr inbounds nuw { ptr, ptr }, ptr %91, i32 0, i32 1
+  %1343 = extractvalue { ptr, ptr } %1339, 1
+  store ptr %1343, ptr %1342, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %91, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %91) #8
+  br label %4294
 
-1358:                                             ; preds = %604
-  %1359 = load ptr, ptr %21, align 8
-  %1360 = getelementptr inbounds %union.YYSTYPE, ptr %1359, i64 -2
-  %1361 = load ptr, ptr %21, align 8
-  %1362 = getelementptr inbounds %union.YYSTYPE, ptr %1361, i64 0
-  %1363 = getelementptr inbounds { ptr, ptr }, ptr %1360, i32 0, i32 0
+1344:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %92) #8
+  %1345 = load ptr, ptr %22, align 8, !tbaa !20
+  %1346 = getelementptr inbounds %union.YYSTYPE, ptr %1345, i64 0
+  %1347 = call { ptr, ptr } (...) @gen_noop()
+  %1348 = getelementptr inbounds nuw { ptr, ptr }, ptr %94, i32 0, i32 0
+  %1349 = extractvalue { ptr, ptr } %1347, 0
+  store ptr %1349, ptr %1348, align 8
+  %1350 = getelementptr inbounds nuw { ptr, ptr }, ptr %94, i32 0, i32 1
+  %1351 = extractvalue { ptr, ptr } %1347, 1
+  store ptr %1351, ptr %1350, align 8
+  %1352 = getelementptr inbounds nuw { ptr, ptr }, ptr %94, i32 0, i32 0
+  %1353 = load ptr, ptr %1352, align 8
+  %1354 = getelementptr inbounds nuw { ptr, ptr }, ptr %94, i32 0, i32 1
+  %1355 = load ptr, ptr %1354, align 8
+  %1356 = call { ptr, ptr } @gen_call(ptr noundef @.str.11, ptr %1353, ptr %1355)
+  %1357 = getelementptr inbounds nuw { ptr, ptr }, ptr %93, i32 0, i32 0
+  %1358 = extractvalue { ptr, ptr } %1356, 0
+  store ptr %1358, ptr %1357, align 8
+  %1359 = getelementptr inbounds nuw { ptr, ptr }, ptr %93, i32 0, i32 1
+  %1360 = extractvalue { ptr, ptr } %1356, 1
+  store ptr %1360, ptr %1359, align 8
+  %1361 = getelementptr inbounds nuw { ptr, ptr }, ptr %1346, i32 0, i32 0
+  %1362 = load ptr, ptr %1361, align 8
+  %1363 = getelementptr inbounds nuw { ptr, ptr }, ptr %1346, i32 0, i32 1
   %1364 = load ptr, ptr %1363, align 8
-  %1365 = getelementptr inbounds { ptr, ptr }, ptr %1360, i32 0, i32 1
+  %1365 = getelementptr inbounds nuw { ptr, ptr }, ptr %93, i32 0, i32 0
   %1366 = load ptr, ptr %1365, align 8
-  %1367 = getelementptr inbounds { ptr, ptr }, ptr %1362, i32 0, i32 0
+  %1367 = getelementptr inbounds nuw { ptr, ptr }, ptr %93, i32 0, i32 1
   %1368 = load ptr, ptr %1367, align 8
-  %1369 = getelementptr inbounds { ptr, ptr }, ptr %1362, i32 0, i32 1
-  %1370 = load ptr, ptr %1369, align 8
-  %1371 = call { ptr, ptr } @gen_binop(ptr %1364, ptr %1366, ptr %1368, ptr %1370, i32 noundef 45)
-  %1372 = getelementptr inbounds { ptr, ptr }, ptr %93, i32 0, i32 0
-  %1373 = extractvalue { ptr, ptr } %1371, 0
+  %1369 = call { ptr, ptr } @block_join(ptr %1362, ptr %1364, ptr %1366, ptr %1368)
+  %1370 = getelementptr inbounds nuw { ptr, ptr }, ptr %92, i32 0, i32 0
+  %1371 = extractvalue { ptr, ptr } %1369, 0
+  store ptr %1371, ptr %1370, align 8
+  %1372 = getelementptr inbounds nuw { ptr, ptr }, ptr %92, i32 0, i32 1
+  %1373 = extractvalue { ptr, ptr } %1369, 1
   store ptr %1373, ptr %1372, align 8
-  %1374 = getelementptr inbounds { ptr, ptr }, ptr %93, i32 0, i32 1
-  %1375 = extractvalue { ptr, ptr } %1371, 1
-  store ptr %1375, ptr %1374, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %93, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %92, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %92) #8
+  br label %4294
 
-1376:                                             ; preds = %604
-  %1377 = load ptr, ptr %21, align 8
-  %1378 = getelementptr inbounds %union.YYSTYPE, ptr %1377, i64 -2
-  %1379 = load ptr, ptr %21, align 8
-  %1380 = getelementptr inbounds %union.YYSTYPE, ptr %1379, i64 0
-  %1381 = getelementptr inbounds { ptr, ptr }, ptr %1378, i32 0, i32 0
+1374:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %95) #8
+  %1375 = load ptr, ptr %22, align 8, !tbaa !20
+  %1376 = getelementptr inbounds %union.YYSTYPE, ptr %1375, i64 -2
+  %1377 = load ptr, ptr %22, align 8, !tbaa !20
+  %1378 = getelementptr inbounds %union.YYSTYPE, ptr %1377, i64 0
+  %1379 = getelementptr inbounds nuw { ptr, ptr }, ptr %1376, i32 0, i32 0
+  %1380 = load ptr, ptr %1379, align 8
+  %1381 = getelementptr inbounds nuw { ptr, ptr }, ptr %1376, i32 0, i32 1
   %1382 = load ptr, ptr %1381, align 8
-  %1383 = getelementptr inbounds { ptr, ptr }, ptr %1378, i32 0, i32 1
+  %1383 = getelementptr inbounds nuw { ptr, ptr }, ptr %1378, i32 0, i32 0
   %1384 = load ptr, ptr %1383, align 8
-  %1385 = getelementptr inbounds { ptr, ptr }, ptr %1380, i32 0, i32 0
+  %1385 = getelementptr inbounds nuw { ptr, ptr }, ptr %1378, i32 0, i32 1
   %1386 = load ptr, ptr %1385, align 8
-  %1387 = getelementptr inbounds { ptr, ptr }, ptr %1380, i32 0, i32 1
-  %1388 = load ptr, ptr %1387, align 8
-  %1389 = call { ptr, ptr } @gen_update(ptr %1382, ptr %1384, ptr %1386, ptr %1388, i32 noundef 45)
-  %1390 = getelementptr inbounds { ptr, ptr }, ptr %94, i32 0, i32 0
-  %1391 = extractvalue { ptr, ptr } %1389, 0
+  %1387 = call { ptr, ptr } @gen_binop(ptr %1380, ptr %1382, ptr %1384, ptr %1386, i32 noundef 45)
+  %1388 = getelementptr inbounds nuw { ptr, ptr }, ptr %95, i32 0, i32 0
+  %1389 = extractvalue { ptr, ptr } %1387, 0
+  store ptr %1389, ptr %1388, align 8
+  %1390 = getelementptr inbounds nuw { ptr, ptr }, ptr %95, i32 0, i32 1
+  %1391 = extractvalue { ptr, ptr } %1387, 1
   store ptr %1391, ptr %1390, align 8
-  %1392 = getelementptr inbounds { ptr, ptr }, ptr %94, i32 0, i32 1
-  %1393 = extractvalue { ptr, ptr } %1389, 1
-  store ptr %1393, ptr %1392, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %94, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %95, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %95) #8
+  br label %4294
 
-1394:                                             ; preds = %604
-  %1395 = load ptr, ptr %21, align 8
-  %1396 = getelementptr inbounds %union.YYSTYPE, ptr %1395, i64 -2
-  %1397 = load ptr, ptr %21, align 8
-  %1398 = getelementptr inbounds %union.YYSTYPE, ptr %1397, i64 0
-  %1399 = getelementptr inbounds { ptr, ptr }, ptr %1396, i32 0, i32 0
+1392:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %96) #8
+  %1393 = load ptr, ptr %22, align 8, !tbaa !20
+  %1394 = getelementptr inbounds %union.YYSTYPE, ptr %1393, i64 -2
+  %1395 = load ptr, ptr %22, align 8, !tbaa !20
+  %1396 = getelementptr inbounds %union.YYSTYPE, ptr %1395, i64 0
+  %1397 = getelementptr inbounds nuw { ptr, ptr }, ptr %1394, i32 0, i32 0
+  %1398 = load ptr, ptr %1397, align 8
+  %1399 = getelementptr inbounds nuw { ptr, ptr }, ptr %1394, i32 0, i32 1
   %1400 = load ptr, ptr %1399, align 8
-  %1401 = getelementptr inbounds { ptr, ptr }, ptr %1396, i32 0, i32 1
+  %1401 = getelementptr inbounds nuw { ptr, ptr }, ptr %1396, i32 0, i32 0
   %1402 = load ptr, ptr %1401, align 8
-  %1403 = getelementptr inbounds { ptr, ptr }, ptr %1398, i32 0, i32 0
+  %1403 = getelementptr inbounds nuw { ptr, ptr }, ptr %1396, i32 0, i32 1
   %1404 = load ptr, ptr %1403, align 8
-  %1405 = getelementptr inbounds { ptr, ptr }, ptr %1398, i32 0, i32 1
-  %1406 = load ptr, ptr %1405, align 8
-  %1407 = call { ptr, ptr } @gen_binop(ptr %1400, ptr %1402, ptr %1404, ptr %1406, i32 noundef 42)
-  %1408 = getelementptr inbounds { ptr, ptr }, ptr %95, i32 0, i32 0
-  %1409 = extractvalue { ptr, ptr } %1407, 0
+  %1405 = call { ptr, ptr } @gen_update(ptr %1398, ptr %1400, ptr %1402, ptr %1404, i32 noundef 45)
+  %1406 = getelementptr inbounds nuw { ptr, ptr }, ptr %96, i32 0, i32 0
+  %1407 = extractvalue { ptr, ptr } %1405, 0
+  store ptr %1407, ptr %1406, align 8
+  %1408 = getelementptr inbounds nuw { ptr, ptr }, ptr %96, i32 0, i32 1
+  %1409 = extractvalue { ptr, ptr } %1405, 1
   store ptr %1409, ptr %1408, align 8
-  %1410 = getelementptr inbounds { ptr, ptr }, ptr %95, i32 0, i32 1
-  %1411 = extractvalue { ptr, ptr } %1407, 1
-  store ptr %1411, ptr %1410, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %95, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %96, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %96) #8
+  br label %4294
 
-1412:                                             ; preds = %604
-  %1413 = load ptr, ptr %21, align 8
-  %1414 = getelementptr inbounds %union.YYSTYPE, ptr %1413, i64 -2
-  %1415 = load ptr, ptr %21, align 8
-  %1416 = getelementptr inbounds %union.YYSTYPE, ptr %1415, i64 0
-  %1417 = getelementptr inbounds { ptr, ptr }, ptr %1414, i32 0, i32 0
+1410:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %97) #8
+  %1411 = load ptr, ptr %22, align 8, !tbaa !20
+  %1412 = getelementptr inbounds %union.YYSTYPE, ptr %1411, i64 -2
+  %1413 = load ptr, ptr %22, align 8, !tbaa !20
+  %1414 = getelementptr inbounds %union.YYSTYPE, ptr %1413, i64 0
+  %1415 = getelementptr inbounds nuw { ptr, ptr }, ptr %1412, i32 0, i32 0
+  %1416 = load ptr, ptr %1415, align 8
+  %1417 = getelementptr inbounds nuw { ptr, ptr }, ptr %1412, i32 0, i32 1
   %1418 = load ptr, ptr %1417, align 8
-  %1419 = getelementptr inbounds { ptr, ptr }, ptr %1414, i32 0, i32 1
+  %1419 = getelementptr inbounds nuw { ptr, ptr }, ptr %1414, i32 0, i32 0
   %1420 = load ptr, ptr %1419, align 8
-  %1421 = getelementptr inbounds { ptr, ptr }, ptr %1416, i32 0, i32 0
+  %1421 = getelementptr inbounds nuw { ptr, ptr }, ptr %1414, i32 0, i32 1
   %1422 = load ptr, ptr %1421, align 8
-  %1423 = getelementptr inbounds { ptr, ptr }, ptr %1416, i32 0, i32 1
-  %1424 = load ptr, ptr %1423, align 8
-  %1425 = call { ptr, ptr } @gen_update(ptr %1418, ptr %1420, ptr %1422, ptr %1424, i32 noundef 42)
-  %1426 = getelementptr inbounds { ptr, ptr }, ptr %96, i32 0, i32 0
-  %1427 = extractvalue { ptr, ptr } %1425, 0
+  %1423 = call { ptr, ptr } @gen_binop(ptr %1416, ptr %1418, ptr %1420, ptr %1422, i32 noundef 42)
+  %1424 = getelementptr inbounds nuw { ptr, ptr }, ptr %97, i32 0, i32 0
+  %1425 = extractvalue { ptr, ptr } %1423, 0
+  store ptr %1425, ptr %1424, align 8
+  %1426 = getelementptr inbounds nuw { ptr, ptr }, ptr %97, i32 0, i32 1
+  %1427 = extractvalue { ptr, ptr } %1423, 1
   store ptr %1427, ptr %1426, align 8
-  %1428 = getelementptr inbounds { ptr, ptr }, ptr %96, i32 0, i32 1
-  %1429 = extractvalue { ptr, ptr } %1425, 1
-  store ptr %1429, ptr %1428, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %96, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %97, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %97) #8
+  br label %4294
 
-1430:                                             ; preds = %604
-  %1431 = load ptr, ptr %21, align 8
-  %1432 = getelementptr inbounds %union.YYSTYPE, ptr %1431, i64 -2
-  %1433 = load ptr, ptr %21, align 8
-  %1434 = getelementptr inbounds %union.YYSTYPE, ptr %1433, i64 0
-  %1435 = getelementptr inbounds { ptr, ptr }, ptr %1432, i32 0, i32 0
+1428:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %98) #8
+  %1429 = load ptr, ptr %22, align 8, !tbaa !20
+  %1430 = getelementptr inbounds %union.YYSTYPE, ptr %1429, i64 -2
+  %1431 = load ptr, ptr %22, align 8, !tbaa !20
+  %1432 = getelementptr inbounds %union.YYSTYPE, ptr %1431, i64 0
+  %1433 = getelementptr inbounds nuw { ptr, ptr }, ptr %1430, i32 0, i32 0
+  %1434 = load ptr, ptr %1433, align 8
+  %1435 = getelementptr inbounds nuw { ptr, ptr }, ptr %1430, i32 0, i32 1
   %1436 = load ptr, ptr %1435, align 8
-  %1437 = getelementptr inbounds { ptr, ptr }, ptr %1432, i32 0, i32 1
+  %1437 = getelementptr inbounds nuw { ptr, ptr }, ptr %1432, i32 0, i32 0
   %1438 = load ptr, ptr %1437, align 8
-  %1439 = getelementptr inbounds { ptr, ptr }, ptr %1434, i32 0, i32 0
+  %1439 = getelementptr inbounds nuw { ptr, ptr }, ptr %1432, i32 0, i32 1
   %1440 = load ptr, ptr %1439, align 8
-  %1441 = getelementptr inbounds { ptr, ptr }, ptr %1434, i32 0, i32 1
-  %1442 = load ptr, ptr %1441, align 8
-  %1443 = call { ptr, ptr } @gen_binop(ptr %1436, ptr %1438, ptr %1440, ptr %1442, i32 noundef 47)
-  %1444 = getelementptr inbounds { ptr, ptr }, ptr %97, i32 0, i32 0
-  %1445 = extractvalue { ptr, ptr } %1443, 0
+  %1441 = call { ptr, ptr } @gen_update(ptr %1434, ptr %1436, ptr %1438, ptr %1440, i32 noundef 42)
+  %1442 = getelementptr inbounds nuw { ptr, ptr }, ptr %98, i32 0, i32 0
+  %1443 = extractvalue { ptr, ptr } %1441, 0
+  store ptr %1443, ptr %1442, align 8
+  %1444 = getelementptr inbounds nuw { ptr, ptr }, ptr %98, i32 0, i32 1
+  %1445 = extractvalue { ptr, ptr } %1441, 1
   store ptr %1445, ptr %1444, align 8
-  %1446 = getelementptr inbounds { ptr, ptr }, ptr %97, i32 0, i32 1
-  %1447 = extractvalue { ptr, ptr } %1443, 1
-  store ptr %1447, ptr %1446, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %97, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %98, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %98) #8
+  br label %4294
 
-1448:                                             ; preds = %604
-  %1449 = load ptr, ptr %21, align 8
-  %1450 = getelementptr inbounds %union.YYSTYPE, ptr %1449, i64 -2
-  %1451 = load ptr, ptr %21, align 8
-  %1452 = getelementptr inbounds %union.YYSTYPE, ptr %1451, i64 0
-  %1453 = getelementptr inbounds { ptr, ptr }, ptr %1450, i32 0, i32 0
+1446:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %99) #8
+  %1447 = load ptr, ptr %22, align 8, !tbaa !20
+  %1448 = getelementptr inbounds %union.YYSTYPE, ptr %1447, i64 -2
+  %1449 = load ptr, ptr %22, align 8, !tbaa !20
+  %1450 = getelementptr inbounds %union.YYSTYPE, ptr %1449, i64 0
+  %1451 = getelementptr inbounds nuw { ptr, ptr }, ptr %1448, i32 0, i32 0
+  %1452 = load ptr, ptr %1451, align 8
+  %1453 = getelementptr inbounds nuw { ptr, ptr }, ptr %1448, i32 0, i32 1
   %1454 = load ptr, ptr %1453, align 8
-  %1455 = getelementptr inbounds { ptr, ptr }, ptr %1450, i32 0, i32 1
+  %1455 = getelementptr inbounds nuw { ptr, ptr }, ptr %1450, i32 0, i32 0
   %1456 = load ptr, ptr %1455, align 8
-  %1457 = getelementptr inbounds { ptr, ptr }, ptr %1452, i32 0, i32 0
+  %1457 = getelementptr inbounds nuw { ptr, ptr }, ptr %1450, i32 0, i32 1
   %1458 = load ptr, ptr %1457, align 8
-  %1459 = getelementptr inbounds { ptr, ptr }, ptr %1452, i32 0, i32 1
-  %1460 = load ptr, ptr %1459, align 8
-  %1461 = call { ptr, ptr } @gen_binop(ptr %1454, ptr %1456, ptr %1458, ptr %1460, i32 noundef 37)
-  %1462 = getelementptr inbounds { ptr, ptr }, ptr %98, i32 0, i32 0
-  %1463 = extractvalue { ptr, ptr } %1461, 0
+  %1459 = call { ptr, ptr } @gen_binop(ptr %1452, ptr %1454, ptr %1456, ptr %1458, i32 noundef 47)
+  %1460 = getelementptr inbounds nuw { ptr, ptr }, ptr %99, i32 0, i32 0
+  %1461 = extractvalue { ptr, ptr } %1459, 0
+  store ptr %1461, ptr %1460, align 8
+  %1462 = getelementptr inbounds nuw { ptr, ptr }, ptr %99, i32 0, i32 1
+  %1463 = extractvalue { ptr, ptr } %1459, 1
   store ptr %1463, ptr %1462, align 8
-  %1464 = getelementptr inbounds { ptr, ptr }, ptr %98, i32 0, i32 1
-  %1465 = extractvalue { ptr, ptr } %1461, 1
-  store ptr %1465, ptr %1464, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %98, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %99, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %99) #8
+  br label %4294
 
-1466:                                             ; preds = %604
-  %1467 = load ptr, ptr %21, align 8
-  %1468 = getelementptr inbounds %union.YYSTYPE, ptr %1467, i64 -2
-  %1469 = load ptr, ptr %21, align 8
-  %1470 = getelementptr inbounds %union.YYSTYPE, ptr %1469, i64 0
-  %1471 = getelementptr inbounds { ptr, ptr }, ptr %1468, i32 0, i32 0
+1464:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %100) #8
+  %1465 = load ptr, ptr %22, align 8, !tbaa !20
+  %1466 = getelementptr inbounds %union.YYSTYPE, ptr %1465, i64 -2
+  %1467 = load ptr, ptr %22, align 8, !tbaa !20
+  %1468 = getelementptr inbounds %union.YYSTYPE, ptr %1467, i64 0
+  %1469 = getelementptr inbounds nuw { ptr, ptr }, ptr %1466, i32 0, i32 0
+  %1470 = load ptr, ptr %1469, align 8
+  %1471 = getelementptr inbounds nuw { ptr, ptr }, ptr %1466, i32 0, i32 1
   %1472 = load ptr, ptr %1471, align 8
-  %1473 = getelementptr inbounds { ptr, ptr }, ptr %1468, i32 0, i32 1
+  %1473 = getelementptr inbounds nuw { ptr, ptr }, ptr %1468, i32 0, i32 0
   %1474 = load ptr, ptr %1473, align 8
-  %1475 = getelementptr inbounds { ptr, ptr }, ptr %1470, i32 0, i32 0
+  %1475 = getelementptr inbounds nuw { ptr, ptr }, ptr %1468, i32 0, i32 1
   %1476 = load ptr, ptr %1475, align 8
-  %1477 = getelementptr inbounds { ptr, ptr }, ptr %1470, i32 0, i32 1
-  %1478 = load ptr, ptr %1477, align 8
-  %1479 = call { ptr, ptr } @gen_update(ptr %1472, ptr %1474, ptr %1476, ptr %1478, i32 noundef 47)
-  %1480 = getelementptr inbounds { ptr, ptr }, ptr %99, i32 0, i32 0
-  %1481 = extractvalue { ptr, ptr } %1479, 0
+  %1477 = call { ptr, ptr } @gen_binop(ptr %1470, ptr %1472, ptr %1474, ptr %1476, i32 noundef 37)
+  %1478 = getelementptr inbounds nuw { ptr, ptr }, ptr %100, i32 0, i32 0
+  %1479 = extractvalue { ptr, ptr } %1477, 0
+  store ptr %1479, ptr %1478, align 8
+  %1480 = getelementptr inbounds nuw { ptr, ptr }, ptr %100, i32 0, i32 1
+  %1481 = extractvalue { ptr, ptr } %1477, 1
   store ptr %1481, ptr %1480, align 8
-  %1482 = getelementptr inbounds { ptr, ptr }, ptr %99, i32 0, i32 1
-  %1483 = extractvalue { ptr, ptr } %1479, 1
-  store ptr %1483, ptr %1482, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %99, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %100, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %100) #8
+  br label %4294
 
-1484:                                             ; preds = %604
-  %1485 = load ptr, ptr %21, align 8
-  %1486 = getelementptr inbounds %union.YYSTYPE, ptr %1485, i64 -2
-  %1487 = load ptr, ptr %21, align 8
-  %1488 = getelementptr inbounds %union.YYSTYPE, ptr %1487, i64 0
-  %1489 = getelementptr inbounds { ptr, ptr }, ptr %1486, i32 0, i32 0
+1482:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %101) #8
+  %1483 = load ptr, ptr %22, align 8, !tbaa !20
+  %1484 = getelementptr inbounds %union.YYSTYPE, ptr %1483, i64 -2
+  %1485 = load ptr, ptr %22, align 8, !tbaa !20
+  %1486 = getelementptr inbounds %union.YYSTYPE, ptr %1485, i64 0
+  %1487 = getelementptr inbounds nuw { ptr, ptr }, ptr %1484, i32 0, i32 0
+  %1488 = load ptr, ptr %1487, align 8
+  %1489 = getelementptr inbounds nuw { ptr, ptr }, ptr %1484, i32 0, i32 1
   %1490 = load ptr, ptr %1489, align 8
-  %1491 = getelementptr inbounds { ptr, ptr }, ptr %1486, i32 0, i32 1
+  %1491 = getelementptr inbounds nuw { ptr, ptr }, ptr %1486, i32 0, i32 0
   %1492 = load ptr, ptr %1491, align 8
-  %1493 = getelementptr inbounds { ptr, ptr }, ptr %1488, i32 0, i32 0
+  %1493 = getelementptr inbounds nuw { ptr, ptr }, ptr %1486, i32 0, i32 1
   %1494 = load ptr, ptr %1493, align 8
-  %1495 = getelementptr inbounds { ptr, ptr }, ptr %1488, i32 0, i32 1
-  %1496 = load ptr, ptr %1495, align 8
-  %1497 = call { ptr, ptr } @gen_update(ptr %1490, ptr %1492, ptr %1494, ptr %1496, i32 noundef 37)
-  %1498 = getelementptr inbounds { ptr, ptr }, ptr %100, i32 0, i32 0
-  %1499 = extractvalue { ptr, ptr } %1497, 0
+  %1495 = call { ptr, ptr } @gen_update(ptr %1488, ptr %1490, ptr %1492, ptr %1494, i32 noundef 47)
+  %1496 = getelementptr inbounds nuw { ptr, ptr }, ptr %101, i32 0, i32 0
+  %1497 = extractvalue { ptr, ptr } %1495, 0
+  store ptr %1497, ptr %1496, align 8
+  %1498 = getelementptr inbounds nuw { ptr, ptr }, ptr %101, i32 0, i32 1
+  %1499 = extractvalue { ptr, ptr } %1495, 1
   store ptr %1499, ptr %1498, align 8
-  %1500 = getelementptr inbounds { ptr, ptr }, ptr %100, i32 0, i32 1
-  %1501 = extractvalue { ptr, ptr } %1497, 1
-  store ptr %1501, ptr %1500, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %100, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %101, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %101) #8
+  br label %4294
 
-1502:                                             ; preds = %604
-  %1503 = load ptr, ptr %21, align 8
-  %1504 = getelementptr inbounds %union.YYSTYPE, ptr %1503, i64 -2
-  %1505 = load ptr, ptr %21, align 8
-  %1506 = getelementptr inbounds %union.YYSTYPE, ptr %1505, i64 0
-  %1507 = getelementptr inbounds { ptr, ptr }, ptr %1504, i32 0, i32 0
+1500:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %102) #8
+  %1501 = load ptr, ptr %22, align 8, !tbaa !20
+  %1502 = getelementptr inbounds %union.YYSTYPE, ptr %1501, i64 -2
+  %1503 = load ptr, ptr %22, align 8, !tbaa !20
+  %1504 = getelementptr inbounds %union.YYSTYPE, ptr %1503, i64 0
+  %1505 = getelementptr inbounds nuw { ptr, ptr }, ptr %1502, i32 0, i32 0
+  %1506 = load ptr, ptr %1505, align 8
+  %1507 = getelementptr inbounds nuw { ptr, ptr }, ptr %1502, i32 0, i32 1
   %1508 = load ptr, ptr %1507, align 8
-  %1509 = getelementptr inbounds { ptr, ptr }, ptr %1504, i32 0, i32 1
+  %1509 = getelementptr inbounds nuw { ptr, ptr }, ptr %1504, i32 0, i32 0
   %1510 = load ptr, ptr %1509, align 8
-  %1511 = getelementptr inbounds { ptr, ptr }, ptr %1506, i32 0, i32 0
+  %1511 = getelementptr inbounds nuw { ptr, ptr }, ptr %1504, i32 0, i32 1
   %1512 = load ptr, ptr %1511, align 8
-  %1513 = getelementptr inbounds { ptr, ptr }, ptr %1506, i32 0, i32 1
-  %1514 = load ptr, ptr %1513, align 8
-  %1515 = call { ptr, ptr } @gen_binop(ptr %1508, ptr %1510, ptr %1512, ptr %1514, i32 noundef 266)
-  %1516 = getelementptr inbounds { ptr, ptr }, ptr %101, i32 0, i32 0
-  %1517 = extractvalue { ptr, ptr } %1515, 0
+  %1513 = call { ptr, ptr } @gen_update(ptr %1506, ptr %1508, ptr %1510, ptr %1512, i32 noundef 37)
+  %1514 = getelementptr inbounds nuw { ptr, ptr }, ptr %102, i32 0, i32 0
+  %1515 = extractvalue { ptr, ptr } %1513, 0
+  store ptr %1515, ptr %1514, align 8
+  %1516 = getelementptr inbounds nuw { ptr, ptr }, ptr %102, i32 0, i32 1
+  %1517 = extractvalue { ptr, ptr } %1513, 1
   store ptr %1517, ptr %1516, align 8
-  %1518 = getelementptr inbounds { ptr, ptr }, ptr %101, i32 0, i32 1
-  %1519 = extractvalue { ptr, ptr } %1515, 1
-  store ptr %1519, ptr %1518, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %101, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %102, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %102) #8
+  br label %4294
 
-1520:                                             ; preds = %604
-  %1521 = load ptr, ptr %21, align 8
-  %1522 = getelementptr inbounds %union.YYSTYPE, ptr %1521, i64 -2
-  %1523 = load ptr, ptr %21, align 8
-  %1524 = getelementptr inbounds %union.YYSTYPE, ptr %1523, i64 0
-  %1525 = getelementptr inbounds { ptr, ptr }, ptr %1522, i32 0, i32 0
+1518:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %103) #8
+  %1519 = load ptr, ptr %22, align 8, !tbaa !20
+  %1520 = getelementptr inbounds %union.YYSTYPE, ptr %1519, i64 -2
+  %1521 = load ptr, ptr %22, align 8, !tbaa !20
+  %1522 = getelementptr inbounds %union.YYSTYPE, ptr %1521, i64 0
+  %1523 = getelementptr inbounds nuw { ptr, ptr }, ptr %1520, i32 0, i32 0
+  %1524 = load ptr, ptr %1523, align 8
+  %1525 = getelementptr inbounds nuw { ptr, ptr }, ptr %1520, i32 0, i32 1
   %1526 = load ptr, ptr %1525, align 8
-  %1527 = getelementptr inbounds { ptr, ptr }, ptr %1522, i32 0, i32 1
+  %1527 = getelementptr inbounds nuw { ptr, ptr }, ptr %1522, i32 0, i32 0
   %1528 = load ptr, ptr %1527, align 8
-  %1529 = getelementptr inbounds { ptr, ptr }, ptr %1524, i32 0, i32 0
+  %1529 = getelementptr inbounds nuw { ptr, ptr }, ptr %1522, i32 0, i32 1
   %1530 = load ptr, ptr %1529, align 8
-  %1531 = getelementptr inbounds { ptr, ptr }, ptr %1524, i32 0, i32 1
-  %1532 = load ptr, ptr %1531, align 8
-  %1533 = call { ptr, ptr } @gen_binop(ptr %1526, ptr %1528, ptr %1530, ptr %1532, i32 noundef 267)
-  %1534 = getelementptr inbounds { ptr, ptr }, ptr %102, i32 0, i32 0
-  %1535 = extractvalue { ptr, ptr } %1533, 0
+  %1531 = call { ptr, ptr } @gen_binop(ptr %1524, ptr %1526, ptr %1528, ptr %1530, i32 noundef 266)
+  %1532 = getelementptr inbounds nuw { ptr, ptr }, ptr %103, i32 0, i32 0
+  %1533 = extractvalue { ptr, ptr } %1531, 0
+  store ptr %1533, ptr %1532, align 8
+  %1534 = getelementptr inbounds nuw { ptr, ptr }, ptr %103, i32 0, i32 1
+  %1535 = extractvalue { ptr, ptr } %1531, 1
   store ptr %1535, ptr %1534, align 8
-  %1536 = getelementptr inbounds { ptr, ptr }, ptr %102, i32 0, i32 1
-  %1537 = extractvalue { ptr, ptr } %1533, 1
-  store ptr %1537, ptr %1536, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %102, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %103, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %103) #8
+  br label %4294
 
-1538:                                             ; preds = %604
-  %1539 = load ptr, ptr %21, align 8
-  %1540 = getelementptr inbounds %union.YYSTYPE, ptr %1539, i64 -2
-  %1541 = load ptr, ptr %21, align 8
-  %1542 = getelementptr inbounds %union.YYSTYPE, ptr %1541, i64 0
-  %1543 = getelementptr inbounds { ptr, ptr }, ptr %1540, i32 0, i32 0
+1536:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %104) #8
+  %1537 = load ptr, ptr %22, align 8, !tbaa !20
+  %1538 = getelementptr inbounds %union.YYSTYPE, ptr %1537, i64 -2
+  %1539 = load ptr, ptr %22, align 8, !tbaa !20
+  %1540 = getelementptr inbounds %union.YYSTYPE, ptr %1539, i64 0
+  %1541 = getelementptr inbounds nuw { ptr, ptr }, ptr %1538, i32 0, i32 0
+  %1542 = load ptr, ptr %1541, align 8
+  %1543 = getelementptr inbounds nuw { ptr, ptr }, ptr %1538, i32 0, i32 1
   %1544 = load ptr, ptr %1543, align 8
-  %1545 = getelementptr inbounds { ptr, ptr }, ptr %1540, i32 0, i32 1
+  %1545 = getelementptr inbounds nuw { ptr, ptr }, ptr %1540, i32 0, i32 0
   %1546 = load ptr, ptr %1545, align 8
-  %1547 = getelementptr inbounds { ptr, ptr }, ptr %1542, i32 0, i32 0
+  %1547 = getelementptr inbounds nuw { ptr, ptr }, ptr %1540, i32 0, i32 1
   %1548 = load ptr, ptr %1547, align 8
-  %1549 = getelementptr inbounds { ptr, ptr }, ptr %1542, i32 0, i32 1
-  %1550 = load ptr, ptr %1549, align 8
-  %1551 = call { ptr, ptr } @gen_binop(ptr %1544, ptr %1546, ptr %1548, ptr %1550, i32 noundef 60)
-  %1552 = getelementptr inbounds { ptr, ptr }, ptr %103, i32 0, i32 0
-  %1553 = extractvalue { ptr, ptr } %1551, 0
+  %1549 = call { ptr, ptr } @gen_binop(ptr %1542, ptr %1544, ptr %1546, ptr %1548, i32 noundef 267)
+  %1550 = getelementptr inbounds nuw { ptr, ptr }, ptr %104, i32 0, i32 0
+  %1551 = extractvalue { ptr, ptr } %1549, 0
+  store ptr %1551, ptr %1550, align 8
+  %1552 = getelementptr inbounds nuw { ptr, ptr }, ptr %104, i32 0, i32 1
+  %1553 = extractvalue { ptr, ptr } %1549, 1
   store ptr %1553, ptr %1552, align 8
-  %1554 = getelementptr inbounds { ptr, ptr }, ptr %103, i32 0, i32 1
-  %1555 = extractvalue { ptr, ptr } %1551, 1
-  store ptr %1555, ptr %1554, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %103, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %104, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %104) #8
+  br label %4294
 
-1556:                                             ; preds = %604
-  %1557 = load ptr, ptr %21, align 8
-  %1558 = getelementptr inbounds %union.YYSTYPE, ptr %1557, i64 -2
-  %1559 = load ptr, ptr %21, align 8
-  %1560 = getelementptr inbounds %union.YYSTYPE, ptr %1559, i64 0
-  %1561 = getelementptr inbounds { ptr, ptr }, ptr %1558, i32 0, i32 0
+1554:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %105) #8
+  %1555 = load ptr, ptr %22, align 8, !tbaa !20
+  %1556 = getelementptr inbounds %union.YYSTYPE, ptr %1555, i64 -2
+  %1557 = load ptr, ptr %22, align 8, !tbaa !20
+  %1558 = getelementptr inbounds %union.YYSTYPE, ptr %1557, i64 0
+  %1559 = getelementptr inbounds nuw { ptr, ptr }, ptr %1556, i32 0, i32 0
+  %1560 = load ptr, ptr %1559, align 8
+  %1561 = getelementptr inbounds nuw { ptr, ptr }, ptr %1556, i32 0, i32 1
   %1562 = load ptr, ptr %1561, align 8
-  %1563 = getelementptr inbounds { ptr, ptr }, ptr %1558, i32 0, i32 1
+  %1563 = getelementptr inbounds nuw { ptr, ptr }, ptr %1558, i32 0, i32 0
   %1564 = load ptr, ptr %1563, align 8
-  %1565 = getelementptr inbounds { ptr, ptr }, ptr %1560, i32 0, i32 0
+  %1565 = getelementptr inbounds nuw { ptr, ptr }, ptr %1558, i32 0, i32 1
   %1566 = load ptr, ptr %1565, align 8
-  %1567 = getelementptr inbounds { ptr, ptr }, ptr %1560, i32 0, i32 1
-  %1568 = load ptr, ptr %1567, align 8
-  %1569 = call { ptr, ptr } @gen_binop(ptr %1562, ptr %1564, ptr %1566, ptr %1568, i32 noundef 62)
-  %1570 = getelementptr inbounds { ptr, ptr }, ptr %104, i32 0, i32 0
-  %1571 = extractvalue { ptr, ptr } %1569, 0
+  %1567 = call { ptr, ptr } @gen_binop(ptr %1560, ptr %1562, ptr %1564, ptr %1566, i32 noundef 60)
+  %1568 = getelementptr inbounds nuw { ptr, ptr }, ptr %105, i32 0, i32 0
+  %1569 = extractvalue { ptr, ptr } %1567, 0
+  store ptr %1569, ptr %1568, align 8
+  %1570 = getelementptr inbounds nuw { ptr, ptr }, ptr %105, i32 0, i32 1
+  %1571 = extractvalue { ptr, ptr } %1567, 1
   store ptr %1571, ptr %1570, align 8
-  %1572 = getelementptr inbounds { ptr, ptr }, ptr %104, i32 0, i32 1
-  %1573 = extractvalue { ptr, ptr } %1569, 1
-  store ptr %1573, ptr %1572, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %104, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %105, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %105) #8
+  br label %4294
 
-1574:                                             ; preds = %604
-  %1575 = load ptr, ptr %21, align 8
-  %1576 = getelementptr inbounds %union.YYSTYPE, ptr %1575, i64 -2
-  %1577 = load ptr, ptr %21, align 8
-  %1578 = getelementptr inbounds %union.YYSTYPE, ptr %1577, i64 0
-  %1579 = getelementptr inbounds { ptr, ptr }, ptr %1576, i32 0, i32 0
+1572:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %106) #8
+  %1573 = load ptr, ptr %22, align 8, !tbaa !20
+  %1574 = getelementptr inbounds %union.YYSTYPE, ptr %1573, i64 -2
+  %1575 = load ptr, ptr %22, align 8, !tbaa !20
+  %1576 = getelementptr inbounds %union.YYSTYPE, ptr %1575, i64 0
+  %1577 = getelementptr inbounds nuw { ptr, ptr }, ptr %1574, i32 0, i32 0
+  %1578 = load ptr, ptr %1577, align 8
+  %1579 = getelementptr inbounds nuw { ptr, ptr }, ptr %1574, i32 0, i32 1
   %1580 = load ptr, ptr %1579, align 8
-  %1581 = getelementptr inbounds { ptr, ptr }, ptr %1576, i32 0, i32 1
+  %1581 = getelementptr inbounds nuw { ptr, ptr }, ptr %1576, i32 0, i32 0
   %1582 = load ptr, ptr %1581, align 8
-  %1583 = getelementptr inbounds { ptr, ptr }, ptr %1578, i32 0, i32 0
+  %1583 = getelementptr inbounds nuw { ptr, ptr }, ptr %1576, i32 0, i32 1
   %1584 = load ptr, ptr %1583, align 8
-  %1585 = getelementptr inbounds { ptr, ptr }, ptr %1578, i32 0, i32 1
-  %1586 = load ptr, ptr %1585, align 8
-  %1587 = call { ptr, ptr } @gen_binop(ptr %1580, ptr %1582, ptr %1584, ptr %1586, i32 noundef 294)
-  %1588 = getelementptr inbounds { ptr, ptr }, ptr %105, i32 0, i32 0
-  %1589 = extractvalue { ptr, ptr } %1587, 0
+  %1585 = call { ptr, ptr } @gen_binop(ptr %1578, ptr %1580, ptr %1582, ptr %1584, i32 noundef 62)
+  %1586 = getelementptr inbounds nuw { ptr, ptr }, ptr %106, i32 0, i32 0
+  %1587 = extractvalue { ptr, ptr } %1585, 0
+  store ptr %1587, ptr %1586, align 8
+  %1588 = getelementptr inbounds nuw { ptr, ptr }, ptr %106, i32 0, i32 1
+  %1589 = extractvalue { ptr, ptr } %1585, 1
   store ptr %1589, ptr %1588, align 8
-  %1590 = getelementptr inbounds { ptr, ptr }, ptr %105, i32 0, i32 1
-  %1591 = extractvalue { ptr, ptr } %1587, 1
-  store ptr %1591, ptr %1590, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %105, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %106, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %106) #8
+  br label %4294
 
-1592:                                             ; preds = %604
-  %1593 = load ptr, ptr %21, align 8
-  %1594 = getelementptr inbounds %union.YYSTYPE, ptr %1593, i64 -2
-  %1595 = load ptr, ptr %21, align 8
-  %1596 = getelementptr inbounds %union.YYSTYPE, ptr %1595, i64 0
-  %1597 = getelementptr inbounds { ptr, ptr }, ptr %1594, i32 0, i32 0
+1590:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %107) #8
+  %1591 = load ptr, ptr %22, align 8, !tbaa !20
+  %1592 = getelementptr inbounds %union.YYSTYPE, ptr %1591, i64 -2
+  %1593 = load ptr, ptr %22, align 8, !tbaa !20
+  %1594 = getelementptr inbounds %union.YYSTYPE, ptr %1593, i64 0
+  %1595 = getelementptr inbounds nuw { ptr, ptr }, ptr %1592, i32 0, i32 0
+  %1596 = load ptr, ptr %1595, align 8
+  %1597 = getelementptr inbounds nuw { ptr, ptr }, ptr %1592, i32 0, i32 1
   %1598 = load ptr, ptr %1597, align 8
-  %1599 = getelementptr inbounds { ptr, ptr }, ptr %1594, i32 0, i32 1
+  %1599 = getelementptr inbounds nuw { ptr, ptr }, ptr %1594, i32 0, i32 0
   %1600 = load ptr, ptr %1599, align 8
-  %1601 = getelementptr inbounds { ptr, ptr }, ptr %1596, i32 0, i32 0
+  %1601 = getelementptr inbounds nuw { ptr, ptr }, ptr %1594, i32 0, i32 1
   %1602 = load ptr, ptr %1601, align 8
-  %1603 = getelementptr inbounds { ptr, ptr }, ptr %1596, i32 0, i32 1
-  %1604 = load ptr, ptr %1603, align 8
-  %1605 = call { ptr, ptr } @gen_binop(ptr %1598, ptr %1600, ptr %1602, ptr %1604, i32 noundef 295)
-  %1606 = getelementptr inbounds { ptr, ptr }, ptr %106, i32 0, i32 0
-  %1607 = extractvalue { ptr, ptr } %1605, 0
+  %1603 = call { ptr, ptr } @gen_binop(ptr %1596, ptr %1598, ptr %1600, ptr %1602, i32 noundef 294)
+  %1604 = getelementptr inbounds nuw { ptr, ptr }, ptr %107, i32 0, i32 0
+  %1605 = extractvalue { ptr, ptr } %1603, 0
+  store ptr %1605, ptr %1604, align 8
+  %1606 = getelementptr inbounds nuw { ptr, ptr }, ptr %107, i32 0, i32 1
+  %1607 = extractvalue { ptr, ptr } %1603, 1
   store ptr %1607, ptr %1606, align 8
-  %1608 = getelementptr inbounds { ptr, ptr }, ptr %106, i32 0, i32 1
-  %1609 = extractvalue { ptr, ptr } %1605, 1
-  store ptr %1609, ptr %1608, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %106, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %107, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %107) #8
+  br label %4294
 
-1610:                                             ; preds = %604
-  %1611 = load ptr, ptr %21, align 8
+1608:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %108) #8
+  %1609 = load ptr, ptr %22, align 8, !tbaa !20
+  %1610 = getelementptr inbounds %union.YYSTYPE, ptr %1609, i64 -2
+  %1611 = load ptr, ptr %22, align 8, !tbaa !20
   %1612 = getelementptr inbounds %union.YYSTYPE, ptr %1611, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %1612, i64 16, i1 false)
-  br label %4268
-
-1613:                                             ; preds = %604
-  %1614 = load ptr, ptr %21, align 8
-  %1615 = getelementptr inbounds %union.YYSTYPE, ptr %1614, i64 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %1615, i64 16, i1 false)
-  br label %4268
-
-1616:                                             ; preds = %604
-  %1617 = load ptr, ptr %21, align 8
-  %1618 = getelementptr inbounds %union.YYSTYPE, ptr %1617, i64 -1
-  %1619 = getelementptr inbounds { ptr, ptr }, ptr %1618, i32 0, i32 0
+  %1613 = getelementptr inbounds nuw { ptr, ptr }, ptr %1610, i32 0, i32 0
+  %1614 = load ptr, ptr %1613, align 8
+  %1615 = getelementptr inbounds nuw { ptr, ptr }, ptr %1610, i32 0, i32 1
+  %1616 = load ptr, ptr %1615, align 8
+  %1617 = getelementptr inbounds nuw { ptr, ptr }, ptr %1612, i32 0, i32 0
+  %1618 = load ptr, ptr %1617, align 8
+  %1619 = getelementptr inbounds nuw { ptr, ptr }, ptr %1612, i32 0, i32 1
   %1620 = load ptr, ptr %1619, align 8
-  %1621 = getelementptr inbounds { ptr, ptr }, ptr %1618, i32 0, i32 1
-  %1622 = load ptr, ptr %1621, align 8
-  %1623 = call i32 @block_is_const(ptr %1620, ptr %1622)
-  %1624 = icmp ne i32 %1623, 0
-  br i1 %1624, label %1649, label %1625
+  %1621 = call { ptr, ptr } @gen_binop(ptr %1614, ptr %1616, ptr %1618, ptr %1620, i32 noundef 295)
+  %1622 = getelementptr inbounds nuw { ptr, ptr }, ptr %108, i32 0, i32 0
+  %1623 = extractvalue { ptr, ptr } %1621, 0
+  store ptr %1623, ptr %1622, align 8
+  %1624 = getelementptr inbounds nuw { ptr, ptr }, ptr %108, i32 0, i32 1
+  %1625 = extractvalue { ptr, ptr } %1621, 1
+  store ptr %1625, ptr %1624, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %108, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %108) #8
+  br label %4294
 
-1625:                                             ; preds = %1616
-  br label %1626
+1626:                                             ; preds = %616
+  %1627 = load ptr, ptr %22, align 8, !tbaa !20
+  %1628 = getelementptr inbounds %union.YYSTYPE, ptr %1627, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %1628, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-1626:                                             ; preds = %1625
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %107, ptr align 4 %29, i64 8, i1 false)
-  %1627 = load ptr, ptr %5, align 8
-  %1628 = load ptr, ptr %6, align 8
-  %1629 = load ptr, ptr %7, align 8
-  %1630 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %107, ptr noundef %1627, ptr noundef %1628, ptr noundef %1629, ptr noundef %1630, ptr noundef @.str.4)
-  br label %1631
+1629:                                             ; preds = %616
+  %1630 = load ptr, ptr %22, align 8, !tbaa !20
+  %1631 = getelementptr inbounds %union.YYSTYPE, ptr %1630, i64 -1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %1631, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-1631:                                             ; preds = %1626
-  %1632 = call { ptr, ptr } (...) @gen_noop()
-  %1633 = getelementptr inbounds { ptr, ptr }, ptr %108, i32 0, i32 0
-  %1634 = extractvalue { ptr, ptr } %1632, 0
-  store ptr %1634, ptr %1633, align 8
-  %1635 = getelementptr inbounds { ptr, ptr }, ptr %108, i32 0, i32 1
-  %1636 = extractvalue { ptr, ptr } %1632, 1
-  store ptr %1636, ptr %1635, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %108, i64 16, i1 false)
-  %1637 = load ptr, ptr %21, align 8
-  %1638 = getelementptr inbounds %union.YYSTYPE, ptr %1637, i64 -2
-  %1639 = getelementptr inbounds { ptr, ptr }, ptr %1638, i32 0, i32 0
-  %1640 = load ptr, ptr %1639, align 8
-  %1641 = getelementptr inbounds { ptr, ptr }, ptr %1638, i32 0, i32 1
-  %1642 = load ptr, ptr %1641, align 8
-  call void @block_free(ptr %1640, ptr %1642)
-  %1643 = load ptr, ptr %21, align 8
-  %1644 = getelementptr inbounds %union.YYSTYPE, ptr %1643, i64 -1
-  %1645 = getelementptr inbounds { ptr, ptr }, ptr %1644, i32 0, i32 0
-  %1646 = load ptr, ptr %1645, align 8
-  %1647 = getelementptr inbounds { ptr, ptr }, ptr %1644, i32 0, i32 1
-  %1648 = load ptr, ptr %1647, align 8
-  call void @block_free(ptr %1646, ptr %1648)
-  br label %1701
+1632:                                             ; preds = %616
+  %1633 = load ptr, ptr %22, align 8, !tbaa !20
+  %1634 = getelementptr inbounds %union.YYSTYPE, ptr %1633, i64 -1
+  %1635 = getelementptr inbounds nuw { ptr, ptr }, ptr %1634, i32 0, i32 0
+  %1636 = load ptr, ptr %1635, align 8
+  %1637 = getelementptr inbounds nuw { ptr, ptr }, ptr %1634, i32 0, i32 1
+  %1638 = load ptr, ptr %1637, align 8
+  %1639 = call i32 @block_is_const(ptr %1636, ptr %1638)
+  %1640 = icmp ne i32 %1639, 0
+  br i1 %1640, label %1666, label %1641
 
-1649:                                             ; preds = %1616
-  %1650 = load ptr, ptr %21, align 8
-  %1651 = getelementptr inbounds %union.YYSTYPE, ptr %1650, i64 -1
-  %1652 = getelementptr inbounds { ptr, ptr }, ptr %1651, i32 0, i32 0
-  %1653 = load ptr, ptr %1652, align 8
-  %1654 = getelementptr inbounds { ptr, ptr }, ptr %1651, i32 0, i32 1
-  %1655 = load ptr, ptr %1654, align 8
-  %1656 = call i32 @block_const_kind(ptr %1653, ptr %1655)
-  %1657 = icmp ne i32 %1656, 7
-  br i1 %1657, label %1658, label %1682
+1641:                                             ; preds = %1632
+  br label %1642
 
-1658:                                             ; preds = %1649
-  br label %1659
+1642:                                             ; preds = %1641
+  call void @llvm.lifetime.start.p0(i64 8, ptr %109) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %109, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %1643 = load ptr, ptr %6, align 8, !tbaa !8
+  %1644 = load ptr, ptr %7, align 8, !tbaa !10
+  %1645 = load ptr, ptr %8, align 8, !tbaa !12
+  %1646 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %109, ptr noundef %1643, ptr noundef %1644, ptr noundef %1645, ptr noundef %1646, ptr noundef @.str.4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %109) #8
+  br label %1647
 
-1659:                                             ; preds = %1658
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %109, ptr align 4 %29, i64 8, i1 false)
-  %1660 = load ptr, ptr %5, align 8
-  %1661 = load ptr, ptr %6, align 8
-  %1662 = load ptr, ptr %7, align 8
-  %1663 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %109, ptr noundef %1660, ptr noundef %1661, ptr noundef %1662, ptr noundef %1663, ptr noundef @.str.5)
-  br label %1664
+1647:                                             ; preds = %1642
+  br label %1648
 
-1664:                                             ; preds = %1659
-  %1665 = call { ptr, ptr } (...) @gen_noop()
-  %1666 = getelementptr inbounds { ptr, ptr }, ptr %110, i32 0, i32 0
-  %1667 = extractvalue { ptr, ptr } %1665, 0
-  store ptr %1667, ptr %1666, align 8
-  %1668 = getelementptr inbounds { ptr, ptr }, ptr %110, i32 0, i32 1
-  %1669 = extractvalue { ptr, ptr } %1665, 1
-  store ptr %1669, ptr %1668, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %110, i64 16, i1 false)
-  %1670 = load ptr, ptr %21, align 8
-  %1671 = getelementptr inbounds %union.YYSTYPE, ptr %1670, i64 -2
-  %1672 = getelementptr inbounds { ptr, ptr }, ptr %1671, i32 0, i32 0
-  %1673 = load ptr, ptr %1672, align 8
-  %1674 = getelementptr inbounds { ptr, ptr }, ptr %1671, i32 0, i32 1
-  %1675 = load ptr, ptr %1674, align 8
-  call void @block_free(ptr %1673, ptr %1675)
-  %1676 = load ptr, ptr %21, align 8
-  %1677 = getelementptr inbounds %union.YYSTYPE, ptr %1676, i64 -1
-  %1678 = getelementptr inbounds { ptr, ptr }, ptr %1677, i32 0, i32 0
-  %1679 = load ptr, ptr %1678, align 8
-  %1680 = getelementptr inbounds { ptr, ptr }, ptr %1677, i32 0, i32 1
-  %1681 = load ptr, ptr %1680, align 8
-  call void @block_free(ptr %1679, ptr %1681)
-  br label %1700
+1648:                                             ; preds = %1647
+  call void @llvm.lifetime.start.p0(i64 16, ptr %110) #8
+  %1649 = call { ptr, ptr } (...) @gen_noop()
+  %1650 = getelementptr inbounds nuw { ptr, ptr }, ptr %110, i32 0, i32 0
+  %1651 = extractvalue { ptr, ptr } %1649, 0
+  store ptr %1651, ptr %1650, align 8
+  %1652 = getelementptr inbounds nuw { ptr, ptr }, ptr %110, i32 0, i32 1
+  %1653 = extractvalue { ptr, ptr } %1649, 1
+  store ptr %1653, ptr %1652, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %110, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %110) #8
+  %1654 = load ptr, ptr %22, align 8, !tbaa !20
+  %1655 = getelementptr inbounds %union.YYSTYPE, ptr %1654, i64 -2
+  %1656 = getelementptr inbounds nuw { ptr, ptr }, ptr %1655, i32 0, i32 0
+  %1657 = load ptr, ptr %1656, align 8
+  %1658 = getelementptr inbounds nuw { ptr, ptr }, ptr %1655, i32 0, i32 1
+  %1659 = load ptr, ptr %1658, align 8
+  call void @block_free(ptr %1657, ptr %1659)
+  %1660 = load ptr, ptr %22, align 8, !tbaa !20
+  %1661 = getelementptr inbounds %union.YYSTYPE, ptr %1660, i64 -1
+  %1662 = getelementptr inbounds nuw { ptr, ptr }, ptr %1661, i32 0, i32 0
+  %1663 = load ptr, ptr %1662, align 8
+  %1664 = getelementptr inbounds nuw { ptr, ptr }, ptr %1661, i32 0, i32 1
+  %1665 = load ptr, ptr %1664, align 8
+  call void @block_free(ptr %1663, ptr %1665)
+  br label %1719
 
-1682:                                             ; preds = %1649
-  %1683 = load ptr, ptr %21, align 8
-  %1684 = getelementptr inbounds %union.YYSTYPE, ptr %1683, i64 -2
-  %1685 = load ptr, ptr %21, align 8
-  %1686 = getelementptr inbounds %union.YYSTYPE, ptr %1685, i64 -1
-  %1687 = getelementptr inbounds { ptr, ptr }, ptr %1684, i32 0, i32 0
-  %1688 = load ptr, ptr %1687, align 8
-  %1689 = getelementptr inbounds { ptr, ptr }, ptr %1684, i32 0, i32 1
-  %1690 = load ptr, ptr %1689, align 8
-  %1691 = getelementptr inbounds { ptr, ptr }, ptr %1686, i32 0, i32 0
-  %1692 = load ptr, ptr %1691, align 8
-  %1693 = getelementptr inbounds { ptr, ptr }, ptr %1686, i32 0, i32 1
-  %1694 = load ptr, ptr %1693, align 8
-  %1695 = call { ptr, ptr } @gen_import_meta(ptr %1688, ptr %1690, ptr %1692, ptr %1694)
-  %1696 = getelementptr inbounds { ptr, ptr }, ptr %111, i32 0, i32 0
-  %1697 = extractvalue { ptr, ptr } %1695, 0
-  store ptr %1697, ptr %1696, align 8
-  %1698 = getelementptr inbounds { ptr, ptr }, ptr %111, i32 0, i32 1
-  %1699 = extractvalue { ptr, ptr } %1695, 1
-  store ptr %1699, ptr %1698, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %111, i64 16, i1 false)
-  br label %1700
+1666:                                             ; preds = %1632
+  %1667 = load ptr, ptr %22, align 8, !tbaa !20
+  %1668 = getelementptr inbounds %union.YYSTYPE, ptr %1667, i64 -1
+  %1669 = getelementptr inbounds nuw { ptr, ptr }, ptr %1668, i32 0, i32 0
+  %1670 = load ptr, ptr %1669, align 8
+  %1671 = getelementptr inbounds nuw { ptr, ptr }, ptr %1668, i32 0, i32 1
+  %1672 = load ptr, ptr %1671, align 8
+  %1673 = call i32 @block_const_kind(ptr %1670, ptr %1672)
+  %1674 = icmp ne i32 %1673, 7
+  br i1 %1674, label %1675, label %1700
 
-1700:                                             ; preds = %1682, %1664
-  br label %1701
+1675:                                             ; preds = %1666
+  br label %1676
 
-1701:                                             ; preds = %1700, %1631
-  br label %4268
+1676:                                             ; preds = %1675
+  call void @llvm.lifetime.start.p0(i64 8, ptr %111) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %111, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %1677 = load ptr, ptr %6, align 8, !tbaa !8
+  %1678 = load ptr, ptr %7, align 8, !tbaa !10
+  %1679 = load ptr, ptr %8, align 8, !tbaa !12
+  %1680 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %111, ptr noundef %1677, ptr noundef %1678, ptr noundef %1679, ptr noundef %1680, ptr noundef @.str.5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %111) #8
+  br label %1681
 
-1702:                                             ; preds = %604
-  %1703 = load ptr, ptr %21, align 8
-  %1704 = getelementptr inbounds %union.YYSTYPE, ptr %1703, i64 -2
-  %1705 = getelementptr inbounds { ptr, ptr }, ptr %1704, i32 0, i32 0
+1681:                                             ; preds = %1676
+  br label %1682
+
+1682:                                             ; preds = %1681
+  call void @llvm.lifetime.start.p0(i64 16, ptr %112) #8
+  %1683 = call { ptr, ptr } (...) @gen_noop()
+  %1684 = getelementptr inbounds nuw { ptr, ptr }, ptr %112, i32 0, i32 0
+  %1685 = extractvalue { ptr, ptr } %1683, 0
+  store ptr %1685, ptr %1684, align 8
+  %1686 = getelementptr inbounds nuw { ptr, ptr }, ptr %112, i32 0, i32 1
+  %1687 = extractvalue { ptr, ptr } %1683, 1
+  store ptr %1687, ptr %1686, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %112, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %112) #8
+  %1688 = load ptr, ptr %22, align 8, !tbaa !20
+  %1689 = getelementptr inbounds %union.YYSTYPE, ptr %1688, i64 -2
+  %1690 = getelementptr inbounds nuw { ptr, ptr }, ptr %1689, i32 0, i32 0
+  %1691 = load ptr, ptr %1690, align 8
+  %1692 = getelementptr inbounds nuw { ptr, ptr }, ptr %1689, i32 0, i32 1
+  %1693 = load ptr, ptr %1692, align 8
+  call void @block_free(ptr %1691, ptr %1693)
+  %1694 = load ptr, ptr %22, align 8, !tbaa !20
+  %1695 = getelementptr inbounds %union.YYSTYPE, ptr %1694, i64 -1
+  %1696 = getelementptr inbounds nuw { ptr, ptr }, ptr %1695, i32 0, i32 0
+  %1697 = load ptr, ptr %1696, align 8
+  %1698 = getelementptr inbounds nuw { ptr, ptr }, ptr %1695, i32 0, i32 1
+  %1699 = load ptr, ptr %1698, align 8
+  call void @block_free(ptr %1697, ptr %1699)
+  br label %1718
+
+1700:                                             ; preds = %1666
+  call void @llvm.lifetime.start.p0(i64 16, ptr %113) #8
+  %1701 = load ptr, ptr %22, align 8, !tbaa !20
+  %1702 = getelementptr inbounds %union.YYSTYPE, ptr %1701, i64 -2
+  %1703 = load ptr, ptr %22, align 8, !tbaa !20
+  %1704 = getelementptr inbounds %union.YYSTYPE, ptr %1703, i64 -1
+  %1705 = getelementptr inbounds nuw { ptr, ptr }, ptr %1702, i32 0, i32 0
   %1706 = load ptr, ptr %1705, align 8
-  %1707 = getelementptr inbounds { ptr, ptr }, ptr %1704, i32 0, i32 1
+  %1707 = getelementptr inbounds nuw { ptr, ptr }, ptr %1702, i32 0, i32 1
   %1708 = load ptr, ptr %1707, align 8
-  %1709 = call { i64, ptr } @block_const(ptr %1706, ptr %1708)
-  %1710 = getelementptr inbounds { i64, ptr }, ptr %112, i32 0, i32 0
-  %1711 = extractvalue { i64, ptr } %1709, 0
-  store i64 %1711, ptr %1710, align 8
-  %1712 = getelementptr inbounds { i64, ptr }, ptr %112, i32 0, i32 1
-  %1713 = extractvalue { i64, ptr } %1709, 1
-  store ptr %1713, ptr %1712, align 8
-  %1714 = getelementptr inbounds { i64, ptr }, ptr %112, i32 0, i32 0
-  %1715 = load i64, ptr %1714, align 8
-  %1716 = getelementptr inbounds { i64, ptr }, ptr %112, i32 0, i32 1
-  %1717 = load ptr, ptr %1716, align 8
-  %1718 = call ptr @jv_string_value(i64 %1715, ptr %1717)
-  %1719 = load ptr, ptr %21, align 8
-  %1720 = getelementptr inbounds %union.YYSTYPE, ptr %1719, i64 0
-  %1721 = getelementptr inbounds { i64, ptr }, ptr %1720, i32 0, i32 0
-  %1722 = load i64, ptr %1721, align 8
-  %1723 = getelementptr inbounds { i64, ptr }, ptr %1720, i32 0, i32 1
+  %1709 = getelementptr inbounds nuw { ptr, ptr }, ptr %1704, i32 0, i32 0
+  %1710 = load ptr, ptr %1709, align 8
+  %1711 = getelementptr inbounds nuw { ptr, ptr }, ptr %1704, i32 0, i32 1
+  %1712 = load ptr, ptr %1711, align 8
+  %1713 = call { ptr, ptr } @gen_import_meta(ptr %1706, ptr %1708, ptr %1710, ptr %1712)
+  %1714 = getelementptr inbounds nuw { ptr, ptr }, ptr %113, i32 0, i32 0
+  %1715 = extractvalue { ptr, ptr } %1713, 0
+  store ptr %1715, ptr %1714, align 8
+  %1716 = getelementptr inbounds nuw { ptr, ptr }, ptr %113, i32 0, i32 1
+  %1717 = extractvalue { ptr, ptr } %1713, 1
+  store ptr %1717, ptr %1716, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %113, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %113) #8
+  br label %1718
+
+1718:                                             ; preds = %1700, %1682
+  br label %1719
+
+1719:                                             ; preds = %1718, %1648
+  br label %4294
+
+1720:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %114) #8
+  %1721 = load ptr, ptr %22, align 8, !tbaa !20
+  %1722 = getelementptr inbounds %union.YYSTYPE, ptr %1721, i64 -2
+  %1723 = getelementptr inbounds nuw { ptr, ptr }, ptr %1722, i32 0, i32 0
   %1724 = load ptr, ptr %1723, align 8
-  %1725 = call ptr @jv_string_value(i64 %1722, ptr %1724)
-  %1726 = call { ptr, ptr } @gen_import(ptr noundef %1718, ptr noundef %1725, i32 noundef 1)
-  %1727 = getelementptr inbounds { ptr, ptr }, ptr %113, i32 0, i32 0
-  %1728 = extractvalue { ptr, ptr } %1726, 0
-  store ptr %1728, ptr %1727, align 8
-  %1729 = getelementptr inbounds { ptr, ptr }, ptr %113, i32 0, i32 1
-  %1730 = extractvalue { ptr, ptr } %1726, 1
-  store ptr %1730, ptr %1729, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %113, i64 16, i1 false)
-  %1731 = load ptr, ptr %21, align 8
-  %1732 = getelementptr inbounds %union.YYSTYPE, ptr %1731, i64 -2
-  %1733 = getelementptr inbounds { ptr, ptr }, ptr %1732, i32 0, i32 0
-  %1734 = load ptr, ptr %1733, align 8
-  %1735 = getelementptr inbounds { ptr, ptr }, ptr %1732, i32 0, i32 1
-  %1736 = load ptr, ptr %1735, align 8
-  call void @block_free(ptr %1734, ptr %1736)
-  %1737 = load ptr, ptr %21, align 8
+  %1725 = getelementptr inbounds nuw { ptr, ptr }, ptr %1722, i32 0, i32 1
+  %1726 = load ptr, ptr %1725, align 8
+  %1727 = call { i64, ptr } @block_const(ptr %1724, ptr %1726)
+  %1728 = getelementptr inbounds nuw { i64, ptr }, ptr %114, i32 0, i32 0
+  %1729 = extractvalue { i64, ptr } %1727, 0
+  store i64 %1729, ptr %1728, align 8
+  %1730 = getelementptr inbounds nuw { i64, ptr }, ptr %114, i32 0, i32 1
+  %1731 = extractvalue { i64, ptr } %1727, 1
+  store ptr %1731, ptr %1730, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %115) #8
+  %1732 = getelementptr inbounds nuw { i64, ptr }, ptr %114, i32 0, i32 0
+  %1733 = load i64, ptr %1732, align 8
+  %1734 = getelementptr inbounds nuw { i64, ptr }, ptr %114, i32 0, i32 1
+  %1735 = load ptr, ptr %1734, align 8
+  %1736 = call ptr @jv_string_value(i64 %1733, ptr %1735)
+  %1737 = load ptr, ptr %22, align 8, !tbaa !20
   %1738 = getelementptr inbounds %union.YYSTYPE, ptr %1737, i64 0
-  %1739 = getelementptr inbounds { i64, ptr }, ptr %1738, i32 0, i32 0
+  %1739 = getelementptr inbounds nuw { i64, ptr }, ptr %1738, i32 0, i32 0
   %1740 = load i64, ptr %1739, align 8
-  %1741 = getelementptr inbounds { i64, ptr }, ptr %1738, i32 0, i32 1
+  %1741 = getelementptr inbounds nuw { i64, ptr }, ptr %1738, i32 0, i32 1
   %1742 = load ptr, ptr %1741, align 8
-  call void @jv_free(i64 %1740, ptr %1742)
-  %1743 = getelementptr inbounds { i64, ptr }, ptr %112, i32 0, i32 0
-  %1744 = load i64, ptr %1743, align 8
-  %1745 = getelementptr inbounds { i64, ptr }, ptr %112, i32 0, i32 1
-  %1746 = load ptr, ptr %1745, align 8
-  call void @jv_free(i64 %1744, ptr %1746)
-  br label %4268
+  %1743 = call ptr @jv_string_value(i64 %1740, ptr %1742)
+  %1744 = call { ptr, ptr } @gen_import(ptr noundef %1736, ptr noundef %1743, i32 noundef 1)
+  %1745 = getelementptr inbounds nuw { ptr, ptr }, ptr %115, i32 0, i32 0
+  %1746 = extractvalue { ptr, ptr } %1744, 0
+  store ptr %1746, ptr %1745, align 8
+  %1747 = getelementptr inbounds nuw { ptr, ptr }, ptr %115, i32 0, i32 1
+  %1748 = extractvalue { ptr, ptr } %1744, 1
+  store ptr %1748, ptr %1747, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %115, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %115) #8
+  %1749 = load ptr, ptr %22, align 8, !tbaa !20
+  %1750 = getelementptr inbounds %union.YYSTYPE, ptr %1749, i64 -2
+  %1751 = getelementptr inbounds nuw { ptr, ptr }, ptr %1750, i32 0, i32 0
+  %1752 = load ptr, ptr %1751, align 8
+  %1753 = getelementptr inbounds nuw { ptr, ptr }, ptr %1750, i32 0, i32 1
+  %1754 = load ptr, ptr %1753, align 8
+  call void @block_free(ptr %1752, ptr %1754)
+  %1755 = load ptr, ptr %22, align 8, !tbaa !20
+  %1756 = getelementptr inbounds %union.YYSTYPE, ptr %1755, i64 0
+  %1757 = getelementptr inbounds nuw { i64, ptr }, ptr %1756, i32 0, i32 0
+  %1758 = load i64, ptr %1757, align 8
+  %1759 = getelementptr inbounds nuw { i64, ptr }, ptr %1756, i32 0, i32 1
+  %1760 = load ptr, ptr %1759, align 8
+  call void @jv_free(i64 %1758, ptr %1760)
+  %1761 = getelementptr inbounds nuw { i64, ptr }, ptr %114, i32 0, i32 0
+  %1762 = load i64, ptr %1761, align 8
+  %1763 = getelementptr inbounds nuw { i64, ptr }, ptr %114, i32 0, i32 1
+  %1764 = load ptr, ptr %1763, align 8
+  call void @jv_free(i64 %1762, ptr %1764)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %114) #8
+  br label %4294
 
-1747:                                             ; preds = %604
-  %1748 = load ptr, ptr %21, align 8
-  %1749 = getelementptr inbounds %union.YYSTYPE, ptr %1748, i64 -2
-  %1750 = getelementptr inbounds { ptr, ptr }, ptr %1749, i32 0, i32 0
-  %1751 = load ptr, ptr %1750, align 8
-  %1752 = getelementptr inbounds { ptr, ptr }, ptr %1749, i32 0, i32 1
-  %1753 = load ptr, ptr %1752, align 8
-  %1754 = call { i64, ptr } @block_const(ptr %1751, ptr %1753)
-  %1755 = getelementptr inbounds { i64, ptr }, ptr %114, i32 0, i32 0
-  %1756 = extractvalue { i64, ptr } %1754, 0
-  store i64 %1756, ptr %1755, align 8
-  %1757 = getelementptr inbounds { i64, ptr }, ptr %114, i32 0, i32 1
-  %1758 = extractvalue { i64, ptr } %1754, 1
-  store ptr %1758, ptr %1757, align 8
-  %1759 = getelementptr inbounds { i64, ptr }, ptr %114, i32 0, i32 0
-  %1760 = load i64, ptr %1759, align 8
-  %1761 = getelementptr inbounds { i64, ptr }, ptr %114, i32 0, i32 1
-  %1762 = load ptr, ptr %1761, align 8
-  %1763 = call ptr @jv_string_value(i64 %1760, ptr %1762)
-  %1764 = load ptr, ptr %21, align 8
-  %1765 = getelementptr inbounds %union.YYSTYPE, ptr %1764, i64 0
-  %1766 = getelementptr inbounds { i64, ptr }, ptr %1765, i32 0, i32 0
-  %1767 = load i64, ptr %1766, align 8
-  %1768 = getelementptr inbounds { i64, ptr }, ptr %1765, i32 0, i32 1
+1765:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %116) #8
+  %1766 = load ptr, ptr %22, align 8, !tbaa !20
+  %1767 = getelementptr inbounds %union.YYSTYPE, ptr %1766, i64 -2
+  %1768 = getelementptr inbounds nuw { ptr, ptr }, ptr %1767, i32 0, i32 0
   %1769 = load ptr, ptr %1768, align 8
-  %1770 = call ptr @jv_string_value(i64 %1767, ptr %1769)
-  %1771 = call { ptr, ptr } @gen_import(ptr noundef %1763, ptr noundef %1770, i32 noundef 0)
-  %1772 = getelementptr inbounds { ptr, ptr }, ptr %115, i32 0, i32 0
-  %1773 = extractvalue { ptr, ptr } %1771, 0
-  store ptr %1773, ptr %1772, align 8
-  %1774 = getelementptr inbounds { ptr, ptr }, ptr %115, i32 0, i32 1
-  %1775 = extractvalue { ptr, ptr } %1771, 1
-  store ptr %1775, ptr %1774, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %115, i64 16, i1 false)
-  %1776 = load ptr, ptr %21, align 8
-  %1777 = getelementptr inbounds %union.YYSTYPE, ptr %1776, i64 -2
-  %1778 = getelementptr inbounds { ptr, ptr }, ptr %1777, i32 0, i32 0
-  %1779 = load ptr, ptr %1778, align 8
-  %1780 = getelementptr inbounds { ptr, ptr }, ptr %1777, i32 0, i32 1
-  %1781 = load ptr, ptr %1780, align 8
-  call void @block_free(ptr %1779, ptr %1781)
-  %1782 = load ptr, ptr %21, align 8
+  %1770 = getelementptr inbounds nuw { ptr, ptr }, ptr %1767, i32 0, i32 1
+  %1771 = load ptr, ptr %1770, align 8
+  %1772 = call { i64, ptr } @block_const(ptr %1769, ptr %1771)
+  %1773 = getelementptr inbounds nuw { i64, ptr }, ptr %116, i32 0, i32 0
+  %1774 = extractvalue { i64, ptr } %1772, 0
+  store i64 %1774, ptr %1773, align 8
+  %1775 = getelementptr inbounds nuw { i64, ptr }, ptr %116, i32 0, i32 1
+  %1776 = extractvalue { i64, ptr } %1772, 1
+  store ptr %1776, ptr %1775, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %117) #8
+  %1777 = getelementptr inbounds nuw { i64, ptr }, ptr %116, i32 0, i32 0
+  %1778 = load i64, ptr %1777, align 8
+  %1779 = getelementptr inbounds nuw { i64, ptr }, ptr %116, i32 0, i32 1
+  %1780 = load ptr, ptr %1779, align 8
+  %1781 = call ptr @jv_string_value(i64 %1778, ptr %1780)
+  %1782 = load ptr, ptr %22, align 8, !tbaa !20
   %1783 = getelementptr inbounds %union.YYSTYPE, ptr %1782, i64 0
-  %1784 = getelementptr inbounds { i64, ptr }, ptr %1783, i32 0, i32 0
+  %1784 = getelementptr inbounds nuw { i64, ptr }, ptr %1783, i32 0, i32 0
   %1785 = load i64, ptr %1784, align 8
-  %1786 = getelementptr inbounds { i64, ptr }, ptr %1783, i32 0, i32 1
+  %1786 = getelementptr inbounds nuw { i64, ptr }, ptr %1783, i32 0, i32 1
   %1787 = load ptr, ptr %1786, align 8
-  call void @jv_free(i64 %1785, ptr %1787)
-  %1788 = getelementptr inbounds { i64, ptr }, ptr %114, i32 0, i32 0
-  %1789 = load i64, ptr %1788, align 8
-  %1790 = getelementptr inbounds { i64, ptr }, ptr %114, i32 0, i32 1
-  %1791 = load ptr, ptr %1790, align 8
-  call void @jv_free(i64 %1789, ptr %1791)
-  br label %4268
+  %1788 = call ptr @jv_string_value(i64 %1785, ptr %1787)
+  %1789 = call { ptr, ptr } @gen_import(ptr noundef %1781, ptr noundef %1788, i32 noundef 0)
+  %1790 = getelementptr inbounds nuw { ptr, ptr }, ptr %117, i32 0, i32 0
+  %1791 = extractvalue { ptr, ptr } %1789, 0
+  store ptr %1791, ptr %1790, align 8
+  %1792 = getelementptr inbounds nuw { ptr, ptr }, ptr %117, i32 0, i32 1
+  %1793 = extractvalue { ptr, ptr } %1789, 1
+  store ptr %1793, ptr %1792, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %117, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %117) #8
+  %1794 = load ptr, ptr %22, align 8, !tbaa !20
+  %1795 = getelementptr inbounds %union.YYSTYPE, ptr %1794, i64 -2
+  %1796 = getelementptr inbounds nuw { ptr, ptr }, ptr %1795, i32 0, i32 0
+  %1797 = load ptr, ptr %1796, align 8
+  %1798 = getelementptr inbounds nuw { ptr, ptr }, ptr %1795, i32 0, i32 1
+  %1799 = load ptr, ptr %1798, align 8
+  call void @block_free(ptr %1797, ptr %1799)
+  %1800 = load ptr, ptr %22, align 8, !tbaa !20
+  %1801 = getelementptr inbounds %union.YYSTYPE, ptr %1800, i64 0
+  %1802 = getelementptr inbounds nuw { i64, ptr }, ptr %1801, i32 0, i32 0
+  %1803 = load i64, ptr %1802, align 8
+  %1804 = getelementptr inbounds nuw { i64, ptr }, ptr %1801, i32 0, i32 1
+  %1805 = load ptr, ptr %1804, align 8
+  call void @jv_free(i64 %1803, ptr %1805)
+  %1806 = getelementptr inbounds nuw { i64, ptr }, ptr %116, i32 0, i32 0
+  %1807 = load i64, ptr %1806, align 8
+  %1808 = getelementptr inbounds nuw { i64, ptr }, ptr %116, i32 0, i32 1
+  %1809 = load ptr, ptr %1808, align 8
+  call void @jv_free(i64 %1807, ptr %1809)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %116) #8
+  br label %4294
 
-1792:                                             ; preds = %604
-  %1793 = load ptr, ptr %21, align 8
-  %1794 = getelementptr inbounds %union.YYSTYPE, ptr %1793, i64 0
-  %1795 = getelementptr inbounds { ptr, ptr }, ptr %1794, i32 0, i32 0
-  %1796 = load ptr, ptr %1795, align 8
-  %1797 = getelementptr inbounds { ptr, ptr }, ptr %1794, i32 0, i32 1
-  %1798 = load ptr, ptr %1797, align 8
-  %1799 = call { i64, ptr } @block_const(ptr %1796, ptr %1798)
-  %1800 = getelementptr inbounds { i64, ptr }, ptr %116, i32 0, i32 0
-  %1801 = extractvalue { i64, ptr } %1799, 0
-  store i64 %1801, ptr %1800, align 8
-  %1802 = getelementptr inbounds { i64, ptr }, ptr %116, i32 0, i32 1
-  %1803 = extractvalue { i64, ptr } %1799, 1
-  store ptr %1803, ptr %1802, align 8
-  %1804 = getelementptr inbounds { i64, ptr }, ptr %116, i32 0, i32 0
-  %1805 = load i64, ptr %1804, align 8
-  %1806 = getelementptr inbounds { i64, ptr }, ptr %116, i32 0, i32 1
-  %1807 = load ptr, ptr %1806, align 8
-  %1808 = call ptr @jv_string_value(i64 %1805, ptr %1807)
-  %1809 = call { ptr, ptr } @gen_import(ptr noundef %1808, ptr noundef null, i32 noundef 0)
-  %1810 = getelementptr inbounds { ptr, ptr }, ptr %117, i32 0, i32 0
-  %1811 = extractvalue { ptr, ptr } %1809, 0
-  store ptr %1811, ptr %1810, align 8
-  %1812 = getelementptr inbounds { ptr, ptr }, ptr %117, i32 0, i32 1
-  %1813 = extractvalue { ptr, ptr } %1809, 1
-  store ptr %1813, ptr %1812, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %117, i64 16, i1 false)
-  %1814 = load ptr, ptr %21, align 8
-  %1815 = getelementptr inbounds %union.YYSTYPE, ptr %1814, i64 0
-  %1816 = getelementptr inbounds { ptr, ptr }, ptr %1815, i32 0, i32 0
-  %1817 = load ptr, ptr %1816, align 8
-  %1818 = getelementptr inbounds { ptr, ptr }, ptr %1815, i32 0, i32 1
-  %1819 = load ptr, ptr %1818, align 8
-  call void @block_free(ptr %1817, ptr %1819)
-  %1820 = getelementptr inbounds { i64, ptr }, ptr %116, i32 0, i32 0
-  %1821 = load i64, ptr %1820, align 8
-  %1822 = getelementptr inbounds { i64, ptr }, ptr %116, i32 0, i32 1
-  %1823 = load ptr, ptr %1822, align 8
-  call void @jv_free(i64 %1821, ptr %1823)
-  br label %4268
+1810:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %118) #8
+  %1811 = load ptr, ptr %22, align 8, !tbaa !20
+  %1812 = getelementptr inbounds %union.YYSTYPE, ptr %1811, i64 0
+  %1813 = getelementptr inbounds nuw { ptr, ptr }, ptr %1812, i32 0, i32 0
+  %1814 = load ptr, ptr %1813, align 8
+  %1815 = getelementptr inbounds nuw { ptr, ptr }, ptr %1812, i32 0, i32 1
+  %1816 = load ptr, ptr %1815, align 8
+  %1817 = call { i64, ptr } @block_const(ptr %1814, ptr %1816)
+  %1818 = getelementptr inbounds nuw { i64, ptr }, ptr %118, i32 0, i32 0
+  %1819 = extractvalue { i64, ptr } %1817, 0
+  store i64 %1819, ptr %1818, align 8
+  %1820 = getelementptr inbounds nuw { i64, ptr }, ptr %118, i32 0, i32 1
+  %1821 = extractvalue { i64, ptr } %1817, 1
+  store ptr %1821, ptr %1820, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %119) #8
+  %1822 = getelementptr inbounds nuw { i64, ptr }, ptr %118, i32 0, i32 0
+  %1823 = load i64, ptr %1822, align 8
+  %1824 = getelementptr inbounds nuw { i64, ptr }, ptr %118, i32 0, i32 1
+  %1825 = load ptr, ptr %1824, align 8
+  %1826 = call ptr @jv_string_value(i64 %1823, ptr %1825)
+  %1827 = call { ptr, ptr } @gen_import(ptr noundef %1826, ptr noundef null, i32 noundef 0)
+  %1828 = getelementptr inbounds nuw { ptr, ptr }, ptr %119, i32 0, i32 0
+  %1829 = extractvalue { ptr, ptr } %1827, 0
+  store ptr %1829, ptr %1828, align 8
+  %1830 = getelementptr inbounds nuw { ptr, ptr }, ptr %119, i32 0, i32 1
+  %1831 = extractvalue { ptr, ptr } %1827, 1
+  store ptr %1831, ptr %1830, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %119, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %119) #8
+  %1832 = load ptr, ptr %22, align 8, !tbaa !20
+  %1833 = getelementptr inbounds %union.YYSTYPE, ptr %1832, i64 0
+  %1834 = getelementptr inbounds nuw { ptr, ptr }, ptr %1833, i32 0, i32 0
+  %1835 = load ptr, ptr %1834, align 8
+  %1836 = getelementptr inbounds nuw { ptr, ptr }, ptr %1833, i32 0, i32 1
+  %1837 = load ptr, ptr %1836, align 8
+  call void @block_free(ptr %1835, ptr %1837)
+  %1838 = getelementptr inbounds nuw { i64, ptr }, ptr %118, i32 0, i32 0
+  %1839 = load i64, ptr %1838, align 8
+  %1840 = getelementptr inbounds nuw { i64, ptr }, ptr %118, i32 0, i32 1
+  %1841 = load ptr, ptr %1840, align 8
+  call void @jv_free(i64 %1839, ptr %1841)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %118) #8
+  br label %4294
 
-1824:                                             ; preds = %604
-  %1825 = load ptr, ptr %21, align 8
-  %1826 = getelementptr inbounds %union.YYSTYPE, ptr %1825, i64 0
-  %1827 = getelementptr inbounds { ptr, ptr }, ptr %1826, i32 0, i32 0
-  %1828 = load ptr, ptr %1827, align 8
-  %1829 = getelementptr inbounds { ptr, ptr }, ptr %1826, i32 0, i32 1
-  %1830 = load ptr, ptr %1829, align 8
-  %1831 = call i32 @block_is_const(ptr %1828, ptr %1830)
-  %1832 = icmp ne i32 %1831, 0
-  br i1 %1832, label %1860, label %1833
-
-1833:                                             ; preds = %1824
-  br label %1834
-
-1834:                                             ; preds = %1833
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %118, ptr align 4 %29, i64 8, i1 false)
-  %1835 = load ptr, ptr %5, align 8
-  %1836 = load ptr, ptr %6, align 8
-  %1837 = load ptr, ptr %7, align 8
-  %1838 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %118, ptr noundef %1835, ptr noundef %1836, ptr noundef %1837, ptr noundef %1838, ptr noundef @.str.12)
-  br label %1839
-
-1839:                                             ; preds = %1834
-  %1840 = call { i64, ptr } @jv_string(ptr noundef @.str.13)
-  %1841 = getelementptr inbounds { i64, ptr }, ptr %120, i32 0, i32 0
-  %1842 = extractvalue { i64, ptr } %1840, 0
-  store i64 %1842, ptr %1841, align 8
-  %1843 = getelementptr inbounds { i64, ptr }, ptr %120, i32 0, i32 1
-  %1844 = extractvalue { i64, ptr } %1840, 1
-  store ptr %1844, ptr %1843, align 8
-  %1845 = getelementptr inbounds { i64, ptr }, ptr %120, i32 0, i32 0
-  %1846 = load i64, ptr %1845, align 8
-  %1847 = getelementptr inbounds { i64, ptr }, ptr %120, i32 0, i32 1
+1842:                                             ; preds = %616
+  %1843 = load ptr, ptr %22, align 8, !tbaa !20
+  %1844 = getelementptr inbounds %union.YYSTYPE, ptr %1843, i64 0
+  %1845 = getelementptr inbounds nuw { ptr, ptr }, ptr %1844, i32 0, i32 0
+  %1846 = load ptr, ptr %1845, align 8
+  %1847 = getelementptr inbounds nuw { ptr, ptr }, ptr %1844, i32 0, i32 1
   %1848 = load ptr, ptr %1847, align 8
-  %1849 = call { ptr, ptr } @gen_const(i64 %1846, ptr %1848)
-  %1850 = getelementptr inbounds { ptr, ptr }, ptr %119, i32 0, i32 0
-  %1851 = extractvalue { ptr, ptr } %1849, 0
-  store ptr %1851, ptr %1850, align 8
-  %1852 = getelementptr inbounds { ptr, ptr }, ptr %119, i32 0, i32 1
-  %1853 = extractvalue { ptr, ptr } %1849, 1
-  store ptr %1853, ptr %1852, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %119, i64 16, i1 false)
-  %1854 = load ptr, ptr %21, align 8
-  %1855 = getelementptr inbounds %union.YYSTYPE, ptr %1854, i64 0
-  %1856 = getelementptr inbounds { ptr, ptr }, ptr %1855, i32 0, i32 0
-  %1857 = load ptr, ptr %1856, align 8
-  %1858 = getelementptr inbounds { ptr, ptr }, ptr %1855, i32 0, i32 1
-  %1859 = load ptr, ptr %1858, align 8
-  call void @block_free(ptr %1857, ptr %1859)
-  br label %1863
+  %1849 = call i32 @block_is_const(ptr %1846, ptr %1848)
+  %1850 = icmp ne i32 %1849, 0
+  br i1 %1850, label %1879, label %1851
 
-1860:                                             ; preds = %1824
-  %1861 = load ptr, ptr %21, align 8
-  %1862 = getelementptr inbounds %union.YYSTYPE, ptr %1861, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %1862, i64 16, i1 false)
-  br label %1863
+1851:                                             ; preds = %1842
+  br label %1852
 
-1863:                                             ; preds = %1860, %1839
-  br label %4268
+1852:                                             ; preds = %1851
+  call void @llvm.lifetime.start.p0(i64 8, ptr %120) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %120, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %1853 = load ptr, ptr %6, align 8, !tbaa !8
+  %1854 = load ptr, ptr %7, align 8, !tbaa !10
+  %1855 = load ptr, ptr %8, align 8, !tbaa !12
+  %1856 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %120, ptr noundef %1853, ptr noundef %1854, ptr noundef %1855, ptr noundef %1856, ptr noundef @.str.12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %120) #8
+  br label %1857
 
-1864:                                             ; preds = %604
-  %1865 = load ptr, ptr %21, align 8
-  %1866 = getelementptr inbounds %union.YYSTYPE, ptr %1865, i64 -3
-  %1867 = getelementptr inbounds { i64, ptr }, ptr %1866, i32 0, i32 0
-  %1868 = load i64, ptr %1867, align 8
-  %1869 = getelementptr inbounds { i64, ptr }, ptr %1866, i32 0, i32 1
-  %1870 = load ptr, ptr %1869, align 8
-  %1871 = call ptr @jv_string_value(i64 %1868, ptr %1870)
-  %1872 = call { ptr, ptr } (...) @gen_noop()
-  %1873 = getelementptr inbounds { ptr, ptr }, ptr %122, i32 0, i32 0
-  %1874 = extractvalue { ptr, ptr } %1872, 0
-  store ptr %1874, ptr %1873, align 8
-  %1875 = getelementptr inbounds { ptr, ptr }, ptr %122, i32 0, i32 1
-  %1876 = extractvalue { ptr, ptr } %1872, 1
-  store ptr %1876, ptr %1875, align 8
-  %1877 = load ptr, ptr %21, align 8
-  %1878 = getelementptr inbounds %union.YYSTYPE, ptr %1877, i64 -1
-  %1879 = getelementptr inbounds { ptr, ptr }, ptr %122, i32 0, i32 0
-  %1880 = load ptr, ptr %1879, align 8
-  %1881 = getelementptr inbounds { ptr, ptr }, ptr %122, i32 0, i32 1
-  %1882 = load ptr, ptr %1881, align 8
-  %1883 = getelementptr inbounds { ptr, ptr }, ptr %1878, i32 0, i32 0
-  %1884 = load ptr, ptr %1883, align 8
-  %1885 = getelementptr inbounds { ptr, ptr }, ptr %1878, i32 0, i32 1
-  %1886 = load ptr, ptr %1885, align 8
-  %1887 = call { ptr, ptr } @gen_function(ptr noundef %1871, ptr %1880, ptr %1882, ptr %1884, ptr %1886)
-  %1888 = getelementptr inbounds { ptr, ptr }, ptr %121, i32 0, i32 0
-  %1889 = extractvalue { ptr, ptr } %1887, 0
-  store ptr %1889, ptr %1888, align 8
-  %1890 = getelementptr inbounds { ptr, ptr }, ptr %121, i32 0, i32 1
-  %1891 = extractvalue { ptr, ptr } %1887, 1
-  store ptr %1891, ptr %1890, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %121, i64 16, i1 false)
-  %1892 = load ptr, ptr %21, align 8
-  %1893 = getelementptr inbounds %union.YYSTYPE, ptr %1892, i64 -3
-  %1894 = getelementptr inbounds { i64, ptr }, ptr %1893, i32 0, i32 0
-  %1895 = load i64, ptr %1894, align 8
-  %1896 = getelementptr inbounds { i64, ptr }, ptr %1893, i32 0, i32 1
-  %1897 = load ptr, ptr %1896, align 8
-  call void @jv_free(i64 %1895, ptr %1897)
-  br label %4268
+1857:                                             ; preds = %1852
+  br label %1858
 
-1898:                                             ; preds = %604
-  %1899 = load ptr, ptr %21, align 8
-  %1900 = getelementptr inbounds %union.YYSTYPE, ptr %1899, i64 -6
-  %1901 = getelementptr inbounds { i64, ptr }, ptr %1900, i32 0, i32 0
-  %1902 = load i64, ptr %1901, align 8
-  %1903 = getelementptr inbounds { i64, ptr }, ptr %1900, i32 0, i32 1
-  %1904 = load ptr, ptr %1903, align 8
-  %1905 = call ptr @jv_string_value(i64 %1902, ptr %1904)
-  %1906 = load ptr, ptr %21, align 8
-  %1907 = getelementptr inbounds %union.YYSTYPE, ptr %1906, i64 -4
-  %1908 = load ptr, ptr %21, align 8
-  %1909 = getelementptr inbounds %union.YYSTYPE, ptr %1908, i64 -1
-  %1910 = getelementptr inbounds { ptr, ptr }, ptr %1907, i32 0, i32 0
-  %1911 = load ptr, ptr %1910, align 8
-  %1912 = getelementptr inbounds { ptr, ptr }, ptr %1907, i32 0, i32 1
-  %1913 = load ptr, ptr %1912, align 8
-  %1914 = getelementptr inbounds { ptr, ptr }, ptr %1909, i32 0, i32 0
-  %1915 = load ptr, ptr %1914, align 8
-  %1916 = getelementptr inbounds { ptr, ptr }, ptr %1909, i32 0, i32 1
-  %1917 = load ptr, ptr %1916, align 8
-  %1918 = call { ptr, ptr } @gen_function(ptr noundef %1905, ptr %1911, ptr %1913, ptr %1915, ptr %1917)
-  %1919 = getelementptr inbounds { ptr, ptr }, ptr %123, i32 0, i32 0
-  %1920 = extractvalue { ptr, ptr } %1918, 0
-  store ptr %1920, ptr %1919, align 8
-  %1921 = getelementptr inbounds { ptr, ptr }, ptr %123, i32 0, i32 1
-  %1922 = extractvalue { ptr, ptr } %1918, 1
-  store ptr %1922, ptr %1921, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %123, i64 16, i1 false)
-  %1923 = load ptr, ptr %21, align 8
-  %1924 = getelementptr inbounds %union.YYSTYPE, ptr %1923, i64 -6
-  %1925 = getelementptr inbounds { i64, ptr }, ptr %1924, i32 0, i32 0
-  %1926 = load i64, ptr %1925, align 8
-  %1927 = getelementptr inbounds { i64, ptr }, ptr %1924, i32 0, i32 1
-  %1928 = load ptr, ptr %1927, align 8
-  call void @jv_free(i64 %1926, ptr %1928)
-  br label %4268
+1858:                                             ; preds = %1857
+  call void @llvm.lifetime.start.p0(i64 16, ptr %121) #8
+  %1859 = call { i64, ptr } @jv_string(ptr noundef @.str.13)
+  %1860 = getelementptr inbounds nuw { i64, ptr }, ptr %122, i32 0, i32 0
+  %1861 = extractvalue { i64, ptr } %1859, 0
+  store i64 %1861, ptr %1860, align 8
+  %1862 = getelementptr inbounds nuw { i64, ptr }, ptr %122, i32 0, i32 1
+  %1863 = extractvalue { i64, ptr } %1859, 1
+  store ptr %1863, ptr %1862, align 8
+  %1864 = getelementptr inbounds nuw { i64, ptr }, ptr %122, i32 0, i32 0
+  %1865 = load i64, ptr %1864, align 8
+  %1866 = getelementptr inbounds nuw { i64, ptr }, ptr %122, i32 0, i32 1
+  %1867 = load ptr, ptr %1866, align 8
+  %1868 = call { ptr, ptr } @gen_const(i64 %1865, ptr %1867)
+  %1869 = getelementptr inbounds nuw { ptr, ptr }, ptr %121, i32 0, i32 0
+  %1870 = extractvalue { ptr, ptr } %1868, 0
+  store ptr %1870, ptr %1869, align 8
+  %1871 = getelementptr inbounds nuw { ptr, ptr }, ptr %121, i32 0, i32 1
+  %1872 = extractvalue { ptr, ptr } %1868, 1
+  store ptr %1872, ptr %1871, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %121, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %121) #8
+  %1873 = load ptr, ptr %22, align 8, !tbaa !20
+  %1874 = getelementptr inbounds %union.YYSTYPE, ptr %1873, i64 0
+  %1875 = getelementptr inbounds nuw { ptr, ptr }, ptr %1874, i32 0, i32 0
+  %1876 = load ptr, ptr %1875, align 8
+  %1877 = getelementptr inbounds nuw { ptr, ptr }, ptr %1874, i32 0, i32 1
+  %1878 = load ptr, ptr %1877, align 8
+  call void @block_free(ptr %1876, ptr %1878)
+  br label %1882
 
-1929:                                             ; preds = %604
-  %1930 = load ptr, ptr %21, align 8
-  %1931 = getelementptr inbounds %union.YYSTYPE, ptr %1930, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %1931, i64 16, i1 false)
-  br label %4268
+1879:                                             ; preds = %1842
+  %1880 = load ptr, ptr %22, align 8, !tbaa !20
+  %1881 = getelementptr inbounds %union.YYSTYPE, ptr %1880, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %1881, i64 16, i1 false), !tbaa.struct !39
+  br label %1882
 
-1932:                                             ; preds = %604
-  %1933 = load ptr, ptr %21, align 8
-  %1934 = getelementptr inbounds %union.YYSTYPE, ptr %1933, i64 -2
-  %1935 = load ptr, ptr %21, align 8
-  %1936 = getelementptr inbounds %union.YYSTYPE, ptr %1935, i64 0
-  %1937 = getelementptr inbounds { ptr, ptr }, ptr %1934, i32 0, i32 0
-  %1938 = load ptr, ptr %1937, align 8
-  %1939 = getelementptr inbounds { ptr, ptr }, ptr %1934, i32 0, i32 1
-  %1940 = load ptr, ptr %1939, align 8
-  %1941 = getelementptr inbounds { ptr, ptr }, ptr %1936, i32 0, i32 0
-  %1942 = load ptr, ptr %1941, align 8
-  %1943 = getelementptr inbounds { ptr, ptr }, ptr %1936, i32 0, i32 1
-  %1944 = load ptr, ptr %1943, align 8
-  %1945 = call { ptr, ptr } @block_join(ptr %1938, ptr %1940, ptr %1942, ptr %1944)
-  %1946 = getelementptr inbounds { ptr, ptr }, ptr %124, i32 0, i32 0
-  %1947 = extractvalue { ptr, ptr } %1945, 0
-  store ptr %1947, ptr %1946, align 8
-  %1948 = getelementptr inbounds { ptr, ptr }, ptr %124, i32 0, i32 1
-  %1949 = extractvalue { ptr, ptr } %1945, 1
-  store ptr %1949, ptr %1948, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %124, i64 16, i1 false)
-  br label %4268
+1882:                                             ; preds = %1879, %1858
+  br label %4294
 
-1950:                                             ; preds = %604
-  %1951 = load ptr, ptr %21, align 8
-  %1952 = getelementptr inbounds %union.YYSTYPE, ptr %1951, i64 0
-  %1953 = getelementptr inbounds { i64, ptr }, ptr %1952, i32 0, i32 0
-  %1954 = load i64, ptr %1953, align 8
-  %1955 = getelementptr inbounds { i64, ptr }, ptr %1952, i32 0, i32 1
-  %1956 = load ptr, ptr %1955, align 8
-  %1957 = call ptr @jv_string_value(i64 %1954, ptr %1956)
-  %1958 = call { ptr, ptr } @gen_param_regular(ptr noundef %1957)
-  %1959 = getelementptr inbounds { ptr, ptr }, ptr %125, i32 0, i32 0
-  %1960 = extractvalue { ptr, ptr } %1958, 0
-  store ptr %1960, ptr %1959, align 8
-  %1961 = getelementptr inbounds { ptr, ptr }, ptr %125, i32 0, i32 1
-  %1962 = extractvalue { ptr, ptr } %1958, 1
-  store ptr %1962, ptr %1961, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %125, i64 16, i1 false)
-  %1963 = load ptr, ptr %21, align 8
-  %1964 = getelementptr inbounds %union.YYSTYPE, ptr %1963, i64 0
-  %1965 = getelementptr inbounds { i64, ptr }, ptr %1964, i32 0, i32 0
-  %1966 = load i64, ptr %1965, align 8
-  %1967 = getelementptr inbounds { i64, ptr }, ptr %1964, i32 0, i32 1
-  %1968 = load ptr, ptr %1967, align 8
-  call void @jv_free(i64 %1966, ptr %1968)
-  br label %4268
+1883:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %123) #8
+  %1884 = load ptr, ptr %22, align 8, !tbaa !20
+  %1885 = getelementptr inbounds %union.YYSTYPE, ptr %1884, i64 -3
+  %1886 = getelementptr inbounds nuw { i64, ptr }, ptr %1885, i32 0, i32 0
+  %1887 = load i64, ptr %1886, align 8
+  %1888 = getelementptr inbounds nuw { i64, ptr }, ptr %1885, i32 0, i32 1
+  %1889 = load ptr, ptr %1888, align 8
+  %1890 = call ptr @jv_string_value(i64 %1887, ptr %1889)
+  %1891 = call { ptr, ptr } (...) @gen_noop()
+  %1892 = getelementptr inbounds nuw { ptr, ptr }, ptr %124, i32 0, i32 0
+  %1893 = extractvalue { ptr, ptr } %1891, 0
+  store ptr %1893, ptr %1892, align 8
+  %1894 = getelementptr inbounds nuw { ptr, ptr }, ptr %124, i32 0, i32 1
+  %1895 = extractvalue { ptr, ptr } %1891, 1
+  store ptr %1895, ptr %1894, align 8
+  %1896 = load ptr, ptr %22, align 8, !tbaa !20
+  %1897 = getelementptr inbounds %union.YYSTYPE, ptr %1896, i64 -1
+  %1898 = getelementptr inbounds nuw { ptr, ptr }, ptr %124, i32 0, i32 0
+  %1899 = load ptr, ptr %1898, align 8
+  %1900 = getelementptr inbounds nuw { ptr, ptr }, ptr %124, i32 0, i32 1
+  %1901 = load ptr, ptr %1900, align 8
+  %1902 = getelementptr inbounds nuw { ptr, ptr }, ptr %1897, i32 0, i32 0
+  %1903 = load ptr, ptr %1902, align 8
+  %1904 = getelementptr inbounds nuw { ptr, ptr }, ptr %1897, i32 0, i32 1
+  %1905 = load ptr, ptr %1904, align 8
+  %1906 = call { ptr, ptr } @gen_function(ptr noundef %1890, ptr %1899, ptr %1901, ptr %1903, ptr %1905)
+  %1907 = getelementptr inbounds nuw { ptr, ptr }, ptr %123, i32 0, i32 0
+  %1908 = extractvalue { ptr, ptr } %1906, 0
+  store ptr %1908, ptr %1907, align 8
+  %1909 = getelementptr inbounds nuw { ptr, ptr }, ptr %123, i32 0, i32 1
+  %1910 = extractvalue { ptr, ptr } %1906, 1
+  store ptr %1910, ptr %1909, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %123, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %123) #8
+  %1911 = load ptr, ptr %22, align 8, !tbaa !20
+  %1912 = getelementptr inbounds %union.YYSTYPE, ptr %1911, i64 -3
+  %1913 = getelementptr inbounds nuw { i64, ptr }, ptr %1912, i32 0, i32 0
+  %1914 = load i64, ptr %1913, align 8
+  %1915 = getelementptr inbounds nuw { i64, ptr }, ptr %1912, i32 0, i32 1
+  %1916 = load ptr, ptr %1915, align 8
+  call void @jv_free(i64 %1914, ptr %1916)
+  br label %4294
 
-1969:                                             ; preds = %604
-  %1970 = load ptr, ptr %21, align 8
+1917:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %125) #8
+  %1918 = load ptr, ptr %22, align 8, !tbaa !20
+  %1919 = getelementptr inbounds %union.YYSTYPE, ptr %1918, i64 -6
+  %1920 = getelementptr inbounds nuw { i64, ptr }, ptr %1919, i32 0, i32 0
+  %1921 = load i64, ptr %1920, align 8
+  %1922 = getelementptr inbounds nuw { i64, ptr }, ptr %1919, i32 0, i32 1
+  %1923 = load ptr, ptr %1922, align 8
+  %1924 = call ptr @jv_string_value(i64 %1921, ptr %1923)
+  %1925 = load ptr, ptr %22, align 8, !tbaa !20
+  %1926 = getelementptr inbounds %union.YYSTYPE, ptr %1925, i64 -4
+  %1927 = load ptr, ptr %22, align 8, !tbaa !20
+  %1928 = getelementptr inbounds %union.YYSTYPE, ptr %1927, i64 -1
+  %1929 = getelementptr inbounds nuw { ptr, ptr }, ptr %1926, i32 0, i32 0
+  %1930 = load ptr, ptr %1929, align 8
+  %1931 = getelementptr inbounds nuw { ptr, ptr }, ptr %1926, i32 0, i32 1
+  %1932 = load ptr, ptr %1931, align 8
+  %1933 = getelementptr inbounds nuw { ptr, ptr }, ptr %1928, i32 0, i32 0
+  %1934 = load ptr, ptr %1933, align 8
+  %1935 = getelementptr inbounds nuw { ptr, ptr }, ptr %1928, i32 0, i32 1
+  %1936 = load ptr, ptr %1935, align 8
+  %1937 = call { ptr, ptr } @gen_function(ptr noundef %1924, ptr %1930, ptr %1932, ptr %1934, ptr %1936)
+  %1938 = getelementptr inbounds nuw { ptr, ptr }, ptr %125, i32 0, i32 0
+  %1939 = extractvalue { ptr, ptr } %1937, 0
+  store ptr %1939, ptr %1938, align 8
+  %1940 = getelementptr inbounds nuw { ptr, ptr }, ptr %125, i32 0, i32 1
+  %1941 = extractvalue { ptr, ptr } %1937, 1
+  store ptr %1941, ptr %1940, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %125, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %125) #8
+  %1942 = load ptr, ptr %22, align 8, !tbaa !20
+  %1943 = getelementptr inbounds %union.YYSTYPE, ptr %1942, i64 -6
+  %1944 = getelementptr inbounds nuw { i64, ptr }, ptr %1943, i32 0, i32 0
+  %1945 = load i64, ptr %1944, align 8
+  %1946 = getelementptr inbounds nuw { i64, ptr }, ptr %1943, i32 0, i32 1
+  %1947 = load ptr, ptr %1946, align 8
+  call void @jv_free(i64 %1945, ptr %1947)
+  br label %4294
+
+1948:                                             ; preds = %616
+  %1949 = load ptr, ptr %22, align 8, !tbaa !20
+  %1950 = getelementptr inbounds %union.YYSTYPE, ptr %1949, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %1950, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
+
+1951:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %126) #8
+  %1952 = load ptr, ptr %22, align 8, !tbaa !20
+  %1953 = getelementptr inbounds %union.YYSTYPE, ptr %1952, i64 -2
+  %1954 = load ptr, ptr %22, align 8, !tbaa !20
+  %1955 = getelementptr inbounds %union.YYSTYPE, ptr %1954, i64 0
+  %1956 = getelementptr inbounds nuw { ptr, ptr }, ptr %1953, i32 0, i32 0
+  %1957 = load ptr, ptr %1956, align 8
+  %1958 = getelementptr inbounds nuw { ptr, ptr }, ptr %1953, i32 0, i32 1
+  %1959 = load ptr, ptr %1958, align 8
+  %1960 = getelementptr inbounds nuw { ptr, ptr }, ptr %1955, i32 0, i32 0
+  %1961 = load ptr, ptr %1960, align 8
+  %1962 = getelementptr inbounds nuw { ptr, ptr }, ptr %1955, i32 0, i32 1
+  %1963 = load ptr, ptr %1962, align 8
+  %1964 = call { ptr, ptr } @block_join(ptr %1957, ptr %1959, ptr %1961, ptr %1963)
+  %1965 = getelementptr inbounds nuw { ptr, ptr }, ptr %126, i32 0, i32 0
+  %1966 = extractvalue { ptr, ptr } %1964, 0
+  store ptr %1966, ptr %1965, align 8
+  %1967 = getelementptr inbounds nuw { ptr, ptr }, ptr %126, i32 0, i32 1
+  %1968 = extractvalue { ptr, ptr } %1964, 1
+  store ptr %1968, ptr %1967, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %126, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %126) #8
+  br label %4294
+
+1969:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %127) #8
+  %1970 = load ptr, ptr %22, align 8, !tbaa !20
   %1971 = getelementptr inbounds %union.YYSTYPE, ptr %1970, i64 0
-  %1972 = getelementptr inbounds { i64, ptr }, ptr %1971, i32 0, i32 0
+  %1972 = getelementptr inbounds nuw { i64, ptr }, ptr %1971, i32 0, i32 0
   %1973 = load i64, ptr %1972, align 8
-  %1974 = getelementptr inbounds { i64, ptr }, ptr %1971, i32 0, i32 1
+  %1974 = getelementptr inbounds nuw { i64, ptr }, ptr %1971, i32 0, i32 1
   %1975 = load ptr, ptr %1974, align 8
   %1976 = call ptr @jv_string_value(i64 %1973, ptr %1975)
-  %1977 = call { ptr, ptr } @gen_param(ptr noundef %1976)
-  %1978 = getelementptr inbounds { ptr, ptr }, ptr %126, i32 0, i32 0
+  %1977 = call { ptr, ptr } @gen_param_regular(ptr noundef %1976)
+  %1978 = getelementptr inbounds nuw { ptr, ptr }, ptr %127, i32 0, i32 0
   %1979 = extractvalue { ptr, ptr } %1977, 0
   store ptr %1979, ptr %1978, align 8
-  %1980 = getelementptr inbounds { ptr, ptr }, ptr %126, i32 0, i32 1
+  %1980 = getelementptr inbounds nuw { ptr, ptr }, ptr %127, i32 0, i32 1
   %1981 = extractvalue { ptr, ptr } %1977, 1
   store ptr %1981, ptr %1980, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %126, i64 16, i1 false)
-  %1982 = load ptr, ptr %21, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %127, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %127) #8
+  %1982 = load ptr, ptr %22, align 8, !tbaa !20
   %1983 = getelementptr inbounds %union.YYSTYPE, ptr %1982, i64 0
-  %1984 = getelementptr inbounds { i64, ptr }, ptr %1983, i32 0, i32 0
+  %1984 = getelementptr inbounds nuw { i64, ptr }, ptr %1983, i32 0, i32 0
   %1985 = load i64, ptr %1984, align 8
-  %1986 = getelementptr inbounds { i64, ptr }, ptr %1983, i32 0, i32 1
+  %1986 = getelementptr inbounds nuw { i64, ptr }, ptr %1983, i32 0, i32 1
   %1987 = load ptr, ptr %1986, align 8
   call void @jv_free(i64 %1985, ptr %1987)
-  br label %4268
+  br label %4294
 
-1988:                                             ; preds = %604
-  %1989 = load ptr, ptr %21, align 8
-  %1990 = getelementptr inbounds %union.YYSTYPE, ptr %1989, i64 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %1990, i64 16, i1 false)
-  br label %4268
+1988:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %128) #8
+  %1989 = load ptr, ptr %22, align 8, !tbaa !20
+  %1990 = getelementptr inbounds %union.YYSTYPE, ptr %1989, i64 0
+  %1991 = getelementptr inbounds nuw { i64, ptr }, ptr %1990, i32 0, i32 0
+  %1992 = load i64, ptr %1991, align 8
+  %1993 = getelementptr inbounds nuw { i64, ptr }, ptr %1990, i32 0, i32 1
+  %1994 = load ptr, ptr %1993, align 8
+  %1995 = call ptr @jv_string_value(i64 %1992, ptr %1994)
+  %1996 = call { ptr, ptr } @gen_param(ptr noundef %1995)
+  %1997 = getelementptr inbounds nuw { ptr, ptr }, ptr %128, i32 0, i32 0
+  %1998 = extractvalue { ptr, ptr } %1996, 0
+  store ptr %1998, ptr %1997, align 8
+  %1999 = getelementptr inbounds nuw { ptr, ptr }, ptr %128, i32 0, i32 1
+  %2000 = extractvalue { ptr, ptr } %1996, 1
+  store ptr %2000, ptr %1999, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %128, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %128) #8
+  %2001 = load ptr, ptr %22, align 8, !tbaa !20
+  %2002 = getelementptr inbounds %union.YYSTYPE, ptr %2001, i64 0
+  %2003 = getelementptr inbounds nuw { i64, ptr }, ptr %2002, i32 0, i32 0
+  %2004 = load i64, ptr %2003, align 8
+  %2005 = getelementptr inbounds nuw { i64, ptr }, ptr %2002, i32 0, i32 1
+  %2006 = load ptr, ptr %2005, align 8
+  call void @jv_free(i64 %2004, ptr %2006)
+  br label %4294
 
-1991:                                             ; preds = %604
-  %1992 = call { i64, ptr } @jv_string(ptr noundef @.str.14)
-  %1993 = getelementptr inbounds { i64, ptr }, ptr %127, i32 0, i32 0
-  %1994 = extractvalue { i64, ptr } %1992, 0
-  store i64 %1994, ptr %1993, align 8
-  %1995 = getelementptr inbounds { i64, ptr }, ptr %127, i32 0, i32 1
-  %1996 = extractvalue { i64, ptr } %1992, 1
-  store ptr %1996, ptr %1995, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %127, i64 16, i1 false)
-  br label %4268
+2007:                                             ; preds = %616
+  %2008 = load ptr, ptr %22, align 8, !tbaa !20
+  %2009 = getelementptr inbounds %union.YYSTYPE, ptr %2008, i64 -1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %2009, i64 16, i1 false), !tbaa.struct !25
+  br label %4294
 
-1997:                                             ; preds = %604
-  %1998 = load ptr, ptr %21, align 8
-  %1999 = getelementptr inbounds %union.YYSTYPE, ptr %1998, i64 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %1999, i64 16, i1 false)
-  %2000 = load ptr, ptr %21, align 8
-  %2001 = getelementptr inbounds %union.YYSTYPE, ptr %2000, i64 -2
-  %2002 = getelementptr inbounds { i64, ptr }, ptr %2001, i32 0, i32 0
-  %2003 = load i64, ptr %2002, align 8
-  %2004 = getelementptr inbounds { i64, ptr }, ptr %2001, i32 0, i32 1
-  %2005 = load ptr, ptr %2004, align 8
-  call void @jv_free(i64 %2003, ptr %2005)
-  br label %4268
+2010:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %129) #8
+  %2011 = call { i64, ptr } @jv_string(ptr noundef @.str.14)
+  %2012 = getelementptr inbounds nuw { i64, ptr }, ptr %129, i32 0, i32 0
+  %2013 = extractvalue { i64, ptr } %2011, 0
+  store i64 %2013, ptr %2012, align 8
+  %2014 = getelementptr inbounds nuw { i64, ptr }, ptr %129, i32 0, i32 1
+  %2015 = extractvalue { i64, ptr } %2011, 1
+  store ptr %2015, ptr %2014, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %129, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %129) #8
+  br label %4294
 
-2006:                                             ; preds = %604
-  %2007 = call { i64, ptr } @jv_string(ptr noundef @.str.13)
-  %2008 = getelementptr inbounds { i64, ptr }, ptr %129, i32 0, i32 0
-  %2009 = extractvalue { i64, ptr } %2007, 0
-  store i64 %2009, ptr %2008, align 8
-  %2010 = getelementptr inbounds { i64, ptr }, ptr %129, i32 0, i32 1
-  %2011 = extractvalue { i64, ptr } %2007, 1
-  store ptr %2011, ptr %2010, align 8
-  %2012 = getelementptr inbounds { i64, ptr }, ptr %129, i32 0, i32 0
-  %2013 = load i64, ptr %2012, align 8
-  %2014 = getelementptr inbounds { i64, ptr }, ptr %129, i32 0, i32 1
-  %2015 = load ptr, ptr %2014, align 8
-  %2016 = call { ptr, ptr } @gen_const(i64 %2013, ptr %2015)
-  %2017 = getelementptr inbounds { ptr, ptr }, ptr %128, i32 0, i32 0
-  %2018 = extractvalue { ptr, ptr } %2016, 0
-  store ptr %2018, ptr %2017, align 8
-  %2019 = getelementptr inbounds { ptr, ptr }, ptr %128, i32 0, i32 1
-  %2020 = extractvalue { ptr, ptr } %2016, 1
-  store ptr %2020, ptr %2019, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %128, i64 16, i1 false)
-  br label %4268
+2016:                                             ; preds = %616
+  %2017 = load ptr, ptr %22, align 8, !tbaa !20
+  %2018 = getelementptr inbounds %union.YYSTYPE, ptr %2017, i64 -1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %2018, i64 16, i1 false), !tbaa.struct !39
+  %2019 = load ptr, ptr %22, align 8, !tbaa !20
+  %2020 = getelementptr inbounds %union.YYSTYPE, ptr %2019, i64 -2
+  %2021 = getelementptr inbounds nuw { i64, ptr }, ptr %2020, i32 0, i32 0
+  %2022 = load i64, ptr %2021, align 8
+  %2023 = getelementptr inbounds nuw { i64, ptr }, ptr %2020, i32 0, i32 1
+  %2024 = load ptr, ptr %2023, align 8
+  call void @jv_free(i64 %2022, ptr %2024)
+  br label %4294
 
-2021:                                             ; preds = %604
-  %2022 = load ptr, ptr %21, align 8
-  %2023 = getelementptr inbounds %union.YYSTYPE, ptr %2022, i64 -1
-  %2024 = load ptr, ptr %21, align 8
-  %2025 = getelementptr inbounds %union.YYSTYPE, ptr %2024, i64 0
-  %2026 = getelementptr inbounds { i64, ptr }, ptr %2025, i32 0, i32 0
-  %2027 = load i64, ptr %2026, align 8
-  %2028 = getelementptr inbounds { i64, ptr }, ptr %2025, i32 0, i32 1
-  %2029 = load ptr, ptr %2028, align 8
-  %2030 = call { ptr, ptr } @gen_const(i64 %2027, ptr %2029)
-  %2031 = getelementptr inbounds { ptr, ptr }, ptr %131, i32 0, i32 0
-  %2032 = extractvalue { ptr, ptr } %2030, 0
-  store ptr %2032, ptr %2031, align 8
-  %2033 = getelementptr inbounds { ptr, ptr }, ptr %131, i32 0, i32 1
-  %2034 = extractvalue { ptr, ptr } %2030, 1
-  store ptr %2034, ptr %2033, align 8
-  %2035 = getelementptr inbounds { ptr, ptr }, ptr %2023, i32 0, i32 0
-  %2036 = load ptr, ptr %2035, align 8
-  %2037 = getelementptr inbounds { ptr, ptr }, ptr %2023, i32 0, i32 1
-  %2038 = load ptr, ptr %2037, align 8
-  %2039 = getelementptr inbounds { ptr, ptr }, ptr %131, i32 0, i32 0
-  %2040 = load ptr, ptr %2039, align 8
-  %2041 = getelementptr inbounds { ptr, ptr }, ptr %131, i32 0, i32 1
-  %2042 = load ptr, ptr %2041, align 8
-  %2043 = call { ptr, ptr } @gen_binop(ptr %2036, ptr %2038, ptr %2040, ptr %2042, i32 noundef 43)
-  %2044 = getelementptr inbounds { ptr, ptr }, ptr %130, i32 0, i32 0
-  %2045 = extractvalue { ptr, ptr } %2043, 0
-  store ptr %2045, ptr %2044, align 8
-  %2046 = getelementptr inbounds { ptr, ptr }, ptr %130, i32 0, i32 1
-  %2047 = extractvalue { ptr, ptr } %2043, 1
-  store ptr %2047, ptr %2046, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %130, i64 16, i1 false)
-  br label %4268
+2025:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %130) #8
+  %2026 = call { i64, ptr } @jv_string(ptr noundef @.str.13)
+  %2027 = getelementptr inbounds nuw { i64, ptr }, ptr %131, i32 0, i32 0
+  %2028 = extractvalue { i64, ptr } %2026, 0
+  store i64 %2028, ptr %2027, align 8
+  %2029 = getelementptr inbounds nuw { i64, ptr }, ptr %131, i32 0, i32 1
+  %2030 = extractvalue { i64, ptr } %2026, 1
+  store ptr %2030, ptr %2029, align 8
+  %2031 = getelementptr inbounds nuw { i64, ptr }, ptr %131, i32 0, i32 0
+  %2032 = load i64, ptr %2031, align 8
+  %2033 = getelementptr inbounds nuw { i64, ptr }, ptr %131, i32 0, i32 1
+  %2034 = load ptr, ptr %2033, align 8
+  %2035 = call { ptr, ptr } @gen_const(i64 %2032, ptr %2034)
+  %2036 = getelementptr inbounds nuw { ptr, ptr }, ptr %130, i32 0, i32 0
+  %2037 = extractvalue { ptr, ptr } %2035, 0
+  store ptr %2037, ptr %2036, align 8
+  %2038 = getelementptr inbounds nuw { ptr, ptr }, ptr %130, i32 0, i32 1
+  %2039 = extractvalue { ptr, ptr } %2035, 1
+  store ptr %2039, ptr %2038, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %130, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %130) #8
+  br label %4294
 
-2048:                                             ; preds = %604
-  %2049 = load ptr, ptr %21, align 8
-  %2050 = getelementptr inbounds %union.YYSTYPE, ptr %2049, i64 -3
-  %2051 = load ptr, ptr %21, align 8
-  %2052 = getelementptr inbounds %union.YYSTYPE, ptr %2051, i64 -1
-  %2053 = load ptr, ptr %21, align 8
-  %2054 = getelementptr inbounds %union.YYSTYPE, ptr %2053, i64 -4
-  %2055 = getelementptr inbounds { i64, ptr }, ptr %2054, i32 0, i32 0
-  %2056 = load i64, ptr %2055, align 8
-  %2057 = getelementptr inbounds { i64, ptr }, ptr %2054, i32 0, i32 1
-  %2058 = load ptr, ptr %2057, align 8
-  %2059 = call { i64, ptr } @jv_copy(i64 %2056, ptr %2058)
-  %2060 = getelementptr inbounds { i64, ptr }, ptr %134, i32 0, i32 0
-  %2061 = extractvalue { i64, ptr } %2059, 0
-  store i64 %2061, ptr %2060, align 8
-  %2062 = getelementptr inbounds { i64, ptr }, ptr %134, i32 0, i32 1
-  %2063 = extractvalue { i64, ptr } %2059, 1
-  store ptr %2063, ptr %2062, align 8
-  %2064 = getelementptr inbounds { ptr, ptr }, ptr %2052, i32 0, i32 0
-  %2065 = load ptr, ptr %2064, align 8
-  %2066 = getelementptr inbounds { ptr, ptr }, ptr %2052, i32 0, i32 1
-  %2067 = load ptr, ptr %2066, align 8
-  %2068 = getelementptr inbounds { i64, ptr }, ptr %134, i32 0, i32 0
-  %2069 = load i64, ptr %2068, align 8
-  %2070 = getelementptr inbounds { i64, ptr }, ptr %134, i32 0, i32 1
-  %2071 = load ptr, ptr %2070, align 8
-  %2072 = call { ptr, ptr } @gen_format(ptr %2065, ptr %2067, i64 %2069, ptr %2071)
-  %2073 = getelementptr inbounds { ptr, ptr }, ptr %133, i32 0, i32 0
-  %2074 = extractvalue { ptr, ptr } %2072, 0
-  store ptr %2074, ptr %2073, align 8
-  %2075 = getelementptr inbounds { ptr, ptr }, ptr %133, i32 0, i32 1
-  %2076 = extractvalue { ptr, ptr } %2072, 1
-  store ptr %2076, ptr %2075, align 8
-  %2077 = getelementptr inbounds { ptr, ptr }, ptr %2050, i32 0, i32 0
-  %2078 = load ptr, ptr %2077, align 8
-  %2079 = getelementptr inbounds { ptr, ptr }, ptr %2050, i32 0, i32 1
-  %2080 = load ptr, ptr %2079, align 8
-  %2081 = getelementptr inbounds { ptr, ptr }, ptr %133, i32 0, i32 0
-  %2082 = load ptr, ptr %2081, align 8
-  %2083 = getelementptr inbounds { ptr, ptr }, ptr %133, i32 0, i32 1
+2040:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %132) #8
+  %2041 = load ptr, ptr %22, align 8, !tbaa !20
+  %2042 = getelementptr inbounds %union.YYSTYPE, ptr %2041, i64 -1
+  %2043 = load ptr, ptr %22, align 8, !tbaa !20
+  %2044 = getelementptr inbounds %union.YYSTYPE, ptr %2043, i64 0
+  %2045 = getelementptr inbounds nuw { i64, ptr }, ptr %2044, i32 0, i32 0
+  %2046 = load i64, ptr %2045, align 8
+  %2047 = getelementptr inbounds nuw { i64, ptr }, ptr %2044, i32 0, i32 1
+  %2048 = load ptr, ptr %2047, align 8
+  %2049 = call { ptr, ptr } @gen_const(i64 %2046, ptr %2048)
+  %2050 = getelementptr inbounds nuw { ptr, ptr }, ptr %133, i32 0, i32 0
+  %2051 = extractvalue { ptr, ptr } %2049, 0
+  store ptr %2051, ptr %2050, align 8
+  %2052 = getelementptr inbounds nuw { ptr, ptr }, ptr %133, i32 0, i32 1
+  %2053 = extractvalue { ptr, ptr } %2049, 1
+  store ptr %2053, ptr %2052, align 8
+  %2054 = getelementptr inbounds nuw { ptr, ptr }, ptr %2042, i32 0, i32 0
+  %2055 = load ptr, ptr %2054, align 8
+  %2056 = getelementptr inbounds nuw { ptr, ptr }, ptr %2042, i32 0, i32 1
+  %2057 = load ptr, ptr %2056, align 8
+  %2058 = getelementptr inbounds nuw { ptr, ptr }, ptr %133, i32 0, i32 0
+  %2059 = load ptr, ptr %2058, align 8
+  %2060 = getelementptr inbounds nuw { ptr, ptr }, ptr %133, i32 0, i32 1
+  %2061 = load ptr, ptr %2060, align 8
+  %2062 = call { ptr, ptr } @gen_binop(ptr %2055, ptr %2057, ptr %2059, ptr %2061, i32 noundef 43)
+  %2063 = getelementptr inbounds nuw { ptr, ptr }, ptr %132, i32 0, i32 0
+  %2064 = extractvalue { ptr, ptr } %2062, 0
+  store ptr %2064, ptr %2063, align 8
+  %2065 = getelementptr inbounds nuw { ptr, ptr }, ptr %132, i32 0, i32 1
+  %2066 = extractvalue { ptr, ptr } %2062, 1
+  store ptr %2066, ptr %2065, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %132, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %132) #8
+  br label %4294
+
+2067:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %134) #8
+  %2068 = load ptr, ptr %22, align 8, !tbaa !20
+  %2069 = getelementptr inbounds %union.YYSTYPE, ptr %2068, i64 -3
+  %2070 = load ptr, ptr %22, align 8, !tbaa !20
+  %2071 = getelementptr inbounds %union.YYSTYPE, ptr %2070, i64 -1
+  %2072 = load ptr, ptr %22, align 8, !tbaa !20
+  %2073 = getelementptr inbounds %union.YYSTYPE, ptr %2072, i64 -4
+  %2074 = getelementptr inbounds nuw { i64, ptr }, ptr %2073, i32 0, i32 0
+  %2075 = load i64, ptr %2074, align 8
+  %2076 = getelementptr inbounds nuw { i64, ptr }, ptr %2073, i32 0, i32 1
+  %2077 = load ptr, ptr %2076, align 8
+  %2078 = call { i64, ptr } @jv_copy(i64 %2075, ptr %2077)
+  %2079 = getelementptr inbounds nuw { i64, ptr }, ptr %136, i32 0, i32 0
+  %2080 = extractvalue { i64, ptr } %2078, 0
+  store i64 %2080, ptr %2079, align 8
+  %2081 = getelementptr inbounds nuw { i64, ptr }, ptr %136, i32 0, i32 1
+  %2082 = extractvalue { i64, ptr } %2078, 1
+  store ptr %2082, ptr %2081, align 8
+  %2083 = getelementptr inbounds nuw { ptr, ptr }, ptr %2071, i32 0, i32 0
   %2084 = load ptr, ptr %2083, align 8
-  %2085 = call { ptr, ptr } @gen_binop(ptr %2078, ptr %2080, ptr %2082, ptr %2084, i32 noundef 43)
-  %2086 = getelementptr inbounds { ptr, ptr }, ptr %132, i32 0, i32 0
-  %2087 = extractvalue { ptr, ptr } %2085, 0
-  store ptr %2087, ptr %2086, align 8
-  %2088 = getelementptr inbounds { ptr, ptr }, ptr %132, i32 0, i32 1
-  %2089 = extractvalue { ptr, ptr } %2085, 1
-  store ptr %2089, ptr %2088, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %132, i64 16, i1 false)
-  br label %4268
+  %2085 = getelementptr inbounds nuw { ptr, ptr }, ptr %2071, i32 0, i32 1
+  %2086 = load ptr, ptr %2085, align 8
+  %2087 = getelementptr inbounds nuw { i64, ptr }, ptr %136, i32 0, i32 0
+  %2088 = load i64, ptr %2087, align 8
+  %2089 = getelementptr inbounds nuw { i64, ptr }, ptr %136, i32 0, i32 1
+  %2090 = load ptr, ptr %2089, align 8
+  %2091 = call { ptr, ptr } @gen_format(ptr %2084, ptr %2086, i64 %2088, ptr %2090)
+  %2092 = getelementptr inbounds nuw { ptr, ptr }, ptr %135, i32 0, i32 0
+  %2093 = extractvalue { ptr, ptr } %2091, 0
+  store ptr %2093, ptr %2092, align 8
+  %2094 = getelementptr inbounds nuw { ptr, ptr }, ptr %135, i32 0, i32 1
+  %2095 = extractvalue { ptr, ptr } %2091, 1
+  store ptr %2095, ptr %2094, align 8
+  %2096 = getelementptr inbounds nuw { ptr, ptr }, ptr %2069, i32 0, i32 0
+  %2097 = load ptr, ptr %2096, align 8
+  %2098 = getelementptr inbounds nuw { ptr, ptr }, ptr %2069, i32 0, i32 1
+  %2099 = load ptr, ptr %2098, align 8
+  %2100 = getelementptr inbounds nuw { ptr, ptr }, ptr %135, i32 0, i32 0
+  %2101 = load ptr, ptr %2100, align 8
+  %2102 = getelementptr inbounds nuw { ptr, ptr }, ptr %135, i32 0, i32 1
+  %2103 = load ptr, ptr %2102, align 8
+  %2104 = call { ptr, ptr } @gen_binop(ptr %2097, ptr %2099, ptr %2101, ptr %2103, i32 noundef 43)
+  %2105 = getelementptr inbounds nuw { ptr, ptr }, ptr %134, i32 0, i32 0
+  %2106 = extractvalue { ptr, ptr } %2104, 0
+  store ptr %2106, ptr %2105, align 8
+  %2107 = getelementptr inbounds nuw { ptr, ptr }, ptr %134, i32 0, i32 1
+  %2108 = extractvalue { ptr, ptr } %2104, 1
+  store ptr %2108, ptr %2107, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %134, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %134) #8
+  br label %4294
 
-2090:                                             ; preds = %604
-  %2091 = load ptr, ptr %21, align 8
-  %2092 = getelementptr inbounds %union.YYSTYPE, ptr %2091, i64 -3
-  %2093 = load ptr, ptr %21, align 8
-  %2094 = getelementptr inbounds %union.YYSTYPE, ptr %2093, i64 -1
-  %2095 = load ptr, ptr %21, align 8
-  %2096 = getelementptr inbounds %union.YYSTYPE, ptr %2095, i64 0
-  %2097 = getelementptr inbounds { ptr, ptr }, ptr %2092, i32 0, i32 0
-  %2098 = load ptr, ptr %2097, align 8
-  %2099 = getelementptr inbounds { ptr, ptr }, ptr %2092, i32 0, i32 1
-  %2100 = load ptr, ptr %2099, align 8
-  %2101 = getelementptr inbounds { ptr, ptr }, ptr %2094, i32 0, i32 0
-  %2102 = load ptr, ptr %2101, align 8
-  %2103 = getelementptr inbounds { ptr, ptr }, ptr %2094, i32 0, i32 1
-  %2104 = load ptr, ptr %2103, align 8
-  %2105 = getelementptr inbounds { ptr, ptr }, ptr %2096, i32 0, i32 0
-  %2106 = load ptr, ptr %2105, align 8
-  %2107 = getelementptr inbounds { ptr, ptr }, ptr %2096, i32 0, i32 1
-  %2108 = load ptr, ptr %2107, align 8
-  %2109 = call { ptr, ptr } @gen_cond(ptr %2098, ptr %2100, ptr %2102, ptr %2104, ptr %2106, ptr %2108)
-  %2110 = getelementptr inbounds { ptr, ptr }, ptr %135, i32 0, i32 0
-  %2111 = extractvalue { ptr, ptr } %2109, 0
-  store ptr %2111, ptr %2110, align 8
-  %2112 = getelementptr inbounds { ptr, ptr }, ptr %135, i32 0, i32 1
-  %2113 = extractvalue { ptr, ptr } %2109, 1
-  store ptr %2113, ptr %2112, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %135, i64 16, i1 false)
-  br label %4268
+2109:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %137) #8
+  %2110 = load ptr, ptr %22, align 8, !tbaa !20
+  %2111 = getelementptr inbounds %union.YYSTYPE, ptr %2110, i64 -3
+  %2112 = load ptr, ptr %22, align 8, !tbaa !20
+  %2113 = getelementptr inbounds %union.YYSTYPE, ptr %2112, i64 -1
+  %2114 = load ptr, ptr %22, align 8, !tbaa !20
+  %2115 = getelementptr inbounds %union.YYSTYPE, ptr %2114, i64 0
+  %2116 = getelementptr inbounds nuw { ptr, ptr }, ptr %2111, i32 0, i32 0
+  %2117 = load ptr, ptr %2116, align 8
+  %2118 = getelementptr inbounds nuw { ptr, ptr }, ptr %2111, i32 0, i32 1
+  %2119 = load ptr, ptr %2118, align 8
+  %2120 = getelementptr inbounds nuw { ptr, ptr }, ptr %2113, i32 0, i32 0
+  %2121 = load ptr, ptr %2120, align 8
+  %2122 = getelementptr inbounds nuw { ptr, ptr }, ptr %2113, i32 0, i32 1
+  %2123 = load ptr, ptr %2122, align 8
+  %2124 = getelementptr inbounds nuw { ptr, ptr }, ptr %2115, i32 0, i32 0
+  %2125 = load ptr, ptr %2124, align 8
+  %2126 = getelementptr inbounds nuw { ptr, ptr }, ptr %2115, i32 0, i32 1
+  %2127 = load ptr, ptr %2126, align 8
+  %2128 = call { ptr, ptr } @gen_cond(ptr %2117, ptr %2119, ptr %2121, ptr %2123, ptr %2125, ptr %2127)
+  %2129 = getelementptr inbounds nuw { ptr, ptr }, ptr %137, i32 0, i32 0
+  %2130 = extractvalue { ptr, ptr } %2128, 0
+  store ptr %2130, ptr %2129, align 8
+  %2131 = getelementptr inbounds nuw { ptr, ptr }, ptr %137, i32 0, i32 1
+  %2132 = extractvalue { ptr, ptr } %2128, 1
+  store ptr %2132, ptr %2131, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %137, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %137) #8
+  br label %4294
 
-2114:                                             ; preds = %604
-  %2115 = load ptr, ptr %21, align 8
-  %2116 = getelementptr inbounds %union.YYSTYPE, ptr %2115, i64 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %2116, i64 16, i1 false)
-  br label %4268
+2133:                                             ; preds = %616
+  %2134 = load ptr, ptr %22, align 8, !tbaa !20
+  %2135 = getelementptr inbounds %union.YYSTYPE, ptr %2134, i64 -1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %2135, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-2117:                                             ; preds = %604
-  %2118 = call { ptr, ptr } (...) @gen_noop()
-  %2119 = getelementptr inbounds { ptr, ptr }, ptr %136, i32 0, i32 0
-  %2120 = extractvalue { ptr, ptr } %2118, 0
-  store ptr %2120, ptr %2119, align 8
-  %2121 = getelementptr inbounds { ptr, ptr }, ptr %136, i32 0, i32 1
-  %2122 = extractvalue { ptr, ptr } %2118, 1
-  store ptr %2122, ptr %2121, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %136, i64 16, i1 false)
-  br label %4268
+2136:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %138) #8
+  %2137 = call { ptr, ptr } (...) @gen_noop()
+  %2138 = getelementptr inbounds nuw { ptr, ptr }, ptr %138, i32 0, i32 0
+  %2139 = extractvalue { ptr, ptr } %2137, 0
+  store ptr %2139, ptr %2138, align 8
+  %2140 = getelementptr inbounds nuw { ptr, ptr }, ptr %138, i32 0, i32 1
+  %2141 = extractvalue { ptr, ptr } %2137, 1
+  store ptr %2141, ptr %2140, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %138, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %138) #8
+  br label %4294
 
-2123:                                             ; preds = %604
-  %2124 = load ptr, ptr %21, align 8
-  %2125 = getelementptr inbounds %union.YYSTYPE, ptr %2124, i64 -2
-  %2126 = load ptr, ptr %21, align 8
-  %2127 = getelementptr inbounds %union.YYSTYPE, ptr %2126, i64 0
-  %2128 = getelementptr inbounds { ptr, ptr }, ptr %2125, i32 0, i32 0
-  %2129 = load ptr, ptr %2128, align 8
-  %2130 = getelementptr inbounds { ptr, ptr }, ptr %2125, i32 0, i32 1
-  %2131 = load ptr, ptr %2130, align 8
-  %2132 = getelementptr inbounds { ptr, ptr }, ptr %2127, i32 0, i32 0
-  %2133 = load ptr, ptr %2132, align 8
-  %2134 = getelementptr inbounds { ptr, ptr }, ptr %2127, i32 0, i32 1
-  %2135 = load ptr, ptr %2134, align 8
-  %2136 = call { ptr, ptr } @block_join(ptr %2129, ptr %2131, ptr %2133, ptr %2135)
-  %2137 = getelementptr inbounds { ptr, ptr }, ptr %137, i32 0, i32 0
-  %2138 = extractvalue { ptr, ptr } %2136, 0
-  store ptr %2138, ptr %2137, align 8
-  %2139 = getelementptr inbounds { ptr, ptr }, ptr %137, i32 0, i32 1
-  %2140 = extractvalue { ptr, ptr } %2136, 1
-  store ptr %2140, ptr %2139, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %137, i64 16, i1 false)
-  br label %4268
-
-2141:                                             ; preds = %604
-  %2142 = load ptr, ptr %21, align 8
-  %2143 = getelementptr inbounds %union.YYSTYPE, ptr %2142, i64 0
-  %2144 = call { ptr, ptr } (...) @gen_noop()
-  %2145 = getelementptr inbounds { ptr, ptr }, ptr %140, i32 0, i32 0
-  %2146 = extractvalue { ptr, ptr } %2144, 0
-  store ptr %2146, ptr %2145, align 8
-  %2147 = getelementptr inbounds { ptr, ptr }, ptr %140, i32 0, i32 1
-  %2148 = extractvalue { ptr, ptr } %2144, 1
-  store ptr %2148, ptr %2147, align 8
-  %2149 = getelementptr inbounds { ptr, ptr }, ptr %140, i32 0, i32 0
+2142:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %139) #8
+  %2143 = load ptr, ptr %22, align 8, !tbaa !20
+  %2144 = getelementptr inbounds %union.YYSTYPE, ptr %2143, i64 -2
+  %2145 = load ptr, ptr %22, align 8, !tbaa !20
+  %2146 = getelementptr inbounds %union.YYSTYPE, ptr %2145, i64 0
+  %2147 = getelementptr inbounds nuw { ptr, ptr }, ptr %2144, i32 0, i32 0
+  %2148 = load ptr, ptr %2147, align 8
+  %2149 = getelementptr inbounds nuw { ptr, ptr }, ptr %2144, i32 0, i32 1
   %2150 = load ptr, ptr %2149, align 8
-  %2151 = getelementptr inbounds { ptr, ptr }, ptr %140, i32 0, i32 1
+  %2151 = getelementptr inbounds nuw { ptr, ptr }, ptr %2146, i32 0, i32 0
   %2152 = load ptr, ptr %2151, align 8
-  %2153 = call { ptr, ptr } @gen_call(ptr noundef @.str.11, ptr %2150, ptr %2152)
-  %2154 = getelementptr inbounds { ptr, ptr }, ptr %139, i32 0, i32 0
-  %2155 = extractvalue { ptr, ptr } %2153, 0
-  store ptr %2155, ptr %2154, align 8
-  %2156 = getelementptr inbounds { ptr, ptr }, ptr %139, i32 0, i32 1
-  %2157 = extractvalue { ptr, ptr } %2153, 1
+  %2153 = getelementptr inbounds nuw { ptr, ptr }, ptr %2146, i32 0, i32 1
+  %2154 = load ptr, ptr %2153, align 8
+  %2155 = call { ptr, ptr } @block_join(ptr %2148, ptr %2150, ptr %2152, ptr %2154)
+  %2156 = getelementptr inbounds nuw { ptr, ptr }, ptr %139, i32 0, i32 0
+  %2157 = extractvalue { ptr, ptr } %2155, 0
   store ptr %2157, ptr %2156, align 8
-  %2158 = getelementptr inbounds { ptr, ptr }, ptr %2143, i32 0, i32 0
-  %2159 = load ptr, ptr %2158, align 8
-  %2160 = getelementptr inbounds { ptr, ptr }, ptr %2143, i32 0, i32 1
-  %2161 = load ptr, ptr %2160, align 8
-  %2162 = getelementptr inbounds { ptr, ptr }, ptr %139, i32 0, i32 0
-  %2163 = load ptr, ptr %2162, align 8
-  %2164 = getelementptr inbounds { ptr, ptr }, ptr %139, i32 0, i32 1
-  %2165 = load ptr, ptr %2164, align 8
-  %2166 = call { ptr, ptr } @block_join(ptr %2159, ptr %2161, ptr %2163, ptr %2165)
-  %2167 = getelementptr inbounds { ptr, ptr }, ptr %138, i32 0, i32 0
-  %2168 = extractvalue { ptr, ptr } %2166, 0
-  store ptr %2168, ptr %2167, align 8
-  %2169 = getelementptr inbounds { ptr, ptr }, ptr %138, i32 0, i32 1
-  %2170 = extractvalue { ptr, ptr } %2166, 1
-  store ptr %2170, ptr %2169, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %138, i64 16, i1 false)
-  br label %4268
+  %2158 = getelementptr inbounds nuw { ptr, ptr }, ptr %139, i32 0, i32 1
+  %2159 = extractvalue { ptr, ptr } %2155, 1
+  store ptr %2159, ptr %2158, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %139, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %139) #8
+  br label %4294
 
-2171:                                             ; preds = %604
-  %2172 = load ptr, ptr %21, align 8
-  %2173 = getelementptr inbounds %union.YYSTYPE, ptr %2172, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %2173, i64 16, i1 false)
-  br label %4268
+2160:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %140) #8
+  %2161 = load ptr, ptr %22, align 8, !tbaa !20
+  %2162 = getelementptr inbounds %union.YYSTYPE, ptr %2161, i64 0
+  %2163 = call { ptr, ptr } (...) @gen_noop()
+  %2164 = getelementptr inbounds nuw { ptr, ptr }, ptr %142, i32 0, i32 0
+  %2165 = extractvalue { ptr, ptr } %2163, 0
+  store ptr %2165, ptr %2164, align 8
+  %2166 = getelementptr inbounds nuw { ptr, ptr }, ptr %142, i32 0, i32 1
+  %2167 = extractvalue { ptr, ptr } %2163, 1
+  store ptr %2167, ptr %2166, align 8
+  %2168 = getelementptr inbounds nuw { ptr, ptr }, ptr %142, i32 0, i32 0
+  %2169 = load ptr, ptr %2168, align 8
+  %2170 = getelementptr inbounds nuw { ptr, ptr }, ptr %142, i32 0, i32 1
+  %2171 = load ptr, ptr %2170, align 8
+  %2172 = call { ptr, ptr } @gen_call(ptr noundef @.str.11, ptr %2169, ptr %2171)
+  %2173 = getelementptr inbounds nuw { ptr, ptr }, ptr %141, i32 0, i32 0
+  %2174 = extractvalue { ptr, ptr } %2172, 0
+  store ptr %2174, ptr %2173, align 8
+  %2175 = getelementptr inbounds nuw { ptr, ptr }, ptr %141, i32 0, i32 1
+  %2176 = extractvalue { ptr, ptr } %2172, 1
+  store ptr %2176, ptr %2175, align 8
+  %2177 = getelementptr inbounds nuw { ptr, ptr }, ptr %2162, i32 0, i32 0
+  %2178 = load ptr, ptr %2177, align 8
+  %2179 = getelementptr inbounds nuw { ptr, ptr }, ptr %2162, i32 0, i32 1
+  %2180 = load ptr, ptr %2179, align 8
+  %2181 = getelementptr inbounds nuw { ptr, ptr }, ptr %141, i32 0, i32 0
+  %2182 = load ptr, ptr %2181, align 8
+  %2183 = getelementptr inbounds nuw { ptr, ptr }, ptr %141, i32 0, i32 1
+  %2184 = load ptr, ptr %2183, align 8
+  %2185 = call { ptr, ptr } @block_join(ptr %2178, ptr %2180, ptr %2182, ptr %2184)
+  %2186 = getelementptr inbounds nuw { ptr, ptr }, ptr %140, i32 0, i32 0
+  %2187 = extractvalue { ptr, ptr } %2185, 0
+  store ptr %2187, ptr %2186, align 8
+  %2188 = getelementptr inbounds nuw { ptr, ptr }, ptr %140, i32 0, i32 1
+  %2189 = extractvalue { ptr, ptr } %2185, 1
+  store ptr %2189, ptr %2188, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %140, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %140) #8
+  br label %4294
 
-2174:                                             ; preds = %604
-  %2175 = call { ptr, ptr } (...) @gen_noop()
-  %2176 = getelementptr inbounds { ptr, ptr }, ptr %141, i32 0, i32 0
-  %2177 = extractvalue { ptr, ptr } %2175, 0
-  store ptr %2177, ptr %2176, align 8
-  %2178 = getelementptr inbounds { ptr, ptr }, ptr %141, i32 0, i32 1
-  %2179 = extractvalue { ptr, ptr } %2175, 1
-  store ptr %2179, ptr %2178, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %141, i64 16, i1 false)
-  br label %4268
+2190:                                             ; preds = %616
+  %2191 = load ptr, ptr %22, align 8, !tbaa !20
+  %2192 = getelementptr inbounds %union.YYSTYPE, ptr %2191, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %2192, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-2180:                                             ; preds = %604
-  %2181 = call { ptr, ptr } (...) @gen_noop()
-  %2182 = getelementptr inbounds { ptr, ptr }, ptr %143, i32 0, i32 0
-  %2183 = extractvalue { ptr, ptr } %2181, 0
-  store ptr %2183, ptr %2182, align 8
-  %2184 = getelementptr inbounds { ptr, ptr }, ptr %143, i32 0, i32 1
-  %2185 = extractvalue { ptr, ptr } %2181, 1
-  store ptr %2185, ptr %2184, align 8
-  %2186 = getelementptr inbounds { ptr, ptr }, ptr %143, i32 0, i32 0
-  %2187 = load ptr, ptr %2186, align 8
-  %2188 = getelementptr inbounds { ptr, ptr }, ptr %143, i32 0, i32 1
-  %2189 = load ptr, ptr %2188, align 8
-  %2190 = call { ptr, ptr } @gen_call(ptr noundef @.str.15, ptr %2187, ptr %2189)
-  %2191 = getelementptr inbounds { ptr, ptr }, ptr %142, i32 0, i32 0
-  %2192 = extractvalue { ptr, ptr } %2190, 0
-  store ptr %2192, ptr %2191, align 8
-  %2193 = getelementptr inbounds { ptr, ptr }, ptr %142, i32 0, i32 1
-  %2194 = extractvalue { ptr, ptr } %2190, 1
-  store ptr %2194, ptr %2193, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %142, i64 16, i1 false)
-  br label %4268
+2193:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %143) #8
+  %2194 = call { ptr, ptr } (...) @gen_noop()
+  %2195 = getelementptr inbounds nuw { ptr, ptr }, ptr %143, i32 0, i32 0
+  %2196 = extractvalue { ptr, ptr } %2194, 0
+  store ptr %2196, ptr %2195, align 8
+  %2197 = getelementptr inbounds nuw { ptr, ptr }, ptr %143, i32 0, i32 1
+  %2198 = extractvalue { ptr, ptr } %2194, 1
+  store ptr %2198, ptr %2197, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %143, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %143) #8
+  br label %4294
 
-2195:                                             ; preds = %604
-  %2196 = load ptr, ptr %21, align 8
-  %2197 = getelementptr inbounds %union.YYSTYPE, ptr %2196, i64 0
-  %2198 = getelementptr inbounds { i64, ptr }, ptr %2197, i32 0, i32 0
-  %2199 = load i64, ptr %2198, align 8
-  %2200 = getelementptr inbounds { i64, ptr }, ptr %2197, i32 0, i32 1
-  %2201 = load ptr, ptr %2200, align 8
-  %2202 = call ptr @jv_string_value(i64 %2199, ptr %2201)
-  %2203 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str.8, ptr noundef %2202)
-  %2204 = getelementptr inbounds { i64, ptr }, ptr %144, i32 0, i32 0
-  %2205 = extractvalue { i64, ptr } %2203, 0
-  store i64 %2205, ptr %2204, align 8
-  %2206 = getelementptr inbounds { i64, ptr }, ptr %144, i32 0, i32 1
-  %2207 = extractvalue { i64, ptr } %2203, 1
-  store ptr %2207, ptr %2206, align 8
-  %2208 = load ptr, ptr %7, align 8
-  %2209 = getelementptr inbounds { i64, ptr }, ptr %144, i32 0, i32 0
-  %2210 = load i64, ptr %2209, align 8
-  %2211 = getelementptr inbounds { i64, ptr }, ptr %144, i32 0, i32 1
-  %2212 = load ptr, ptr %2211, align 8
-  %2213 = call ptr @jv_string_value(i64 %2210, ptr %2212)
-  %2214 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %2213)
-  %2215 = getelementptr inbounds { ptr, ptr }, ptr %147, i32 0, i32 0
-  %2216 = extractvalue { ptr, ptr } %2214, 0
-  store ptr %2216, ptr %2215, align 8
-  %2217 = getelementptr inbounds { ptr, ptr }, ptr %147, i32 0, i32 1
-  %2218 = extractvalue { ptr, ptr } %2214, 1
-  store ptr %2218, ptr %2217, align 8
-  %2219 = call { ptr, ptr } (...) @gen_noop()
-  %2220 = getelementptr inbounds { ptr, ptr }, ptr %149, i32 0, i32 0
-  %2221 = extractvalue { ptr, ptr } %2219, 0
-  store ptr %2221, ptr %2220, align 8
-  %2222 = getelementptr inbounds { ptr, ptr }, ptr %149, i32 0, i32 1
-  %2223 = extractvalue { ptr, ptr } %2219, 1
-  store ptr %2223, ptr %2222, align 8
-  %2224 = getelementptr inbounds { ptr, ptr }, ptr %149, i32 0, i32 0
-  %2225 = load ptr, ptr %2224, align 8
-  %2226 = getelementptr inbounds { ptr, ptr }, ptr %149, i32 0, i32 1
-  %2227 = load ptr, ptr %2226, align 8
-  %2228 = call { ptr, ptr } @gen_call(ptr noundef @.str.16, ptr %2225, ptr %2227)
-  %2229 = getelementptr inbounds { ptr, ptr }, ptr %148, i32 0, i32 0
-  %2230 = extractvalue { ptr, ptr } %2228, 0
-  store ptr %2230, ptr %2229, align 8
-  %2231 = getelementptr inbounds { ptr, ptr }, ptr %148, i32 0, i32 1
-  %2232 = extractvalue { ptr, ptr } %2228, 1
-  store ptr %2232, ptr %2231, align 8
-  %2233 = getelementptr inbounds { ptr, ptr }, ptr %147, i32 0, i32 0
-  %2234 = load ptr, ptr %2233, align 8
-  %2235 = getelementptr inbounds { ptr, ptr }, ptr %147, i32 0, i32 1
-  %2236 = load ptr, ptr %2235, align 8
-  %2237 = getelementptr inbounds { ptr, ptr }, ptr %148, i32 0, i32 0
-  %2238 = load ptr, ptr %2237, align 8
-  %2239 = getelementptr inbounds { ptr, ptr }, ptr %148, i32 0, i32 1
-  %2240 = load ptr, ptr %2239, align 8
-  %2241 = call { ptr, ptr } @block_join(ptr %2234, ptr %2236, ptr %2238, ptr %2240)
-  %2242 = getelementptr inbounds { ptr, ptr }, ptr %146, i32 0, i32 0
-  %2243 = extractvalue { ptr, ptr } %2241, 0
-  store ptr %2243, ptr %2242, align 8
-  %2244 = getelementptr inbounds { ptr, ptr }, ptr %146, i32 0, i32 1
-  %2245 = extractvalue { ptr, ptr } %2241, 1
-  store ptr %2245, ptr %2244, align 8
-  %2246 = load i64, ptr %29, align 4
-  %2247 = getelementptr inbounds { ptr, ptr }, ptr %146, i32 0, i32 0
-  %2248 = load ptr, ptr %2247, align 8
-  %2249 = getelementptr inbounds { ptr, ptr }, ptr %146, i32 0, i32 1
-  %2250 = load ptr, ptr %2249, align 8
-  %2251 = call { ptr, ptr } @gen_location(i64 %2246, ptr noundef %2208, ptr %2248, ptr %2250)
-  %2252 = getelementptr inbounds { ptr, ptr }, ptr %145, i32 0, i32 0
-  %2253 = extractvalue { ptr, ptr } %2251, 0
-  store ptr %2253, ptr %2252, align 8
-  %2254 = getelementptr inbounds { ptr, ptr }, ptr %145, i32 0, i32 1
-  %2255 = extractvalue { ptr, ptr } %2251, 1
-  store ptr %2255, ptr %2254, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %145, i64 16, i1 false)
-  %2256 = getelementptr inbounds { i64, ptr }, ptr %144, i32 0, i32 0
-  %2257 = load i64, ptr %2256, align 8
-  %2258 = getelementptr inbounds { i64, ptr }, ptr %144, i32 0, i32 1
+2199:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %144) #8
+  %2200 = call { ptr, ptr } (...) @gen_noop()
+  %2201 = getelementptr inbounds nuw { ptr, ptr }, ptr %145, i32 0, i32 0
+  %2202 = extractvalue { ptr, ptr } %2200, 0
+  store ptr %2202, ptr %2201, align 8
+  %2203 = getelementptr inbounds nuw { ptr, ptr }, ptr %145, i32 0, i32 1
+  %2204 = extractvalue { ptr, ptr } %2200, 1
+  store ptr %2204, ptr %2203, align 8
+  %2205 = getelementptr inbounds nuw { ptr, ptr }, ptr %145, i32 0, i32 0
+  %2206 = load ptr, ptr %2205, align 8
+  %2207 = getelementptr inbounds nuw { ptr, ptr }, ptr %145, i32 0, i32 1
+  %2208 = load ptr, ptr %2207, align 8
+  %2209 = call { ptr, ptr } @gen_call(ptr noundef @.str.15, ptr %2206, ptr %2208)
+  %2210 = getelementptr inbounds nuw { ptr, ptr }, ptr %144, i32 0, i32 0
+  %2211 = extractvalue { ptr, ptr } %2209, 0
+  store ptr %2211, ptr %2210, align 8
+  %2212 = getelementptr inbounds nuw { ptr, ptr }, ptr %144, i32 0, i32 1
+  %2213 = extractvalue { ptr, ptr } %2209, 1
+  store ptr %2213, ptr %2212, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %144, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %144) #8
+  br label %4294
+
+2214:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %146) #8
+  %2215 = load ptr, ptr %22, align 8, !tbaa !20
+  %2216 = getelementptr inbounds %union.YYSTYPE, ptr %2215, i64 0
+  %2217 = getelementptr inbounds nuw { i64, ptr }, ptr %2216, i32 0, i32 0
+  %2218 = load i64, ptr %2217, align 8
+  %2219 = getelementptr inbounds nuw { i64, ptr }, ptr %2216, i32 0, i32 1
+  %2220 = load ptr, ptr %2219, align 8
+  %2221 = call ptr @jv_string_value(i64 %2218, ptr %2220)
+  %2222 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str.8, ptr noundef %2221)
+  %2223 = getelementptr inbounds nuw { i64, ptr }, ptr %146, i32 0, i32 0
+  %2224 = extractvalue { i64, ptr } %2222, 0
+  store i64 %2224, ptr %2223, align 8
+  %2225 = getelementptr inbounds nuw { i64, ptr }, ptr %146, i32 0, i32 1
+  %2226 = extractvalue { i64, ptr } %2222, 1
+  store ptr %2226, ptr %2225, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %147) #8
+  %2227 = load ptr, ptr %8, align 8, !tbaa !12
+  %2228 = getelementptr inbounds nuw { i64, ptr }, ptr %146, i32 0, i32 0
+  %2229 = load i64, ptr %2228, align 8
+  %2230 = getelementptr inbounds nuw { i64, ptr }, ptr %146, i32 0, i32 1
+  %2231 = load ptr, ptr %2230, align 8
+  %2232 = call ptr @jv_string_value(i64 %2229, ptr %2231)
+  %2233 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %2232)
+  %2234 = getelementptr inbounds nuw { ptr, ptr }, ptr %149, i32 0, i32 0
+  %2235 = extractvalue { ptr, ptr } %2233, 0
+  store ptr %2235, ptr %2234, align 8
+  %2236 = getelementptr inbounds nuw { ptr, ptr }, ptr %149, i32 0, i32 1
+  %2237 = extractvalue { ptr, ptr } %2233, 1
+  store ptr %2237, ptr %2236, align 8
+  %2238 = call { ptr, ptr } (...) @gen_noop()
+  %2239 = getelementptr inbounds nuw { ptr, ptr }, ptr %151, i32 0, i32 0
+  %2240 = extractvalue { ptr, ptr } %2238, 0
+  store ptr %2240, ptr %2239, align 8
+  %2241 = getelementptr inbounds nuw { ptr, ptr }, ptr %151, i32 0, i32 1
+  %2242 = extractvalue { ptr, ptr } %2238, 1
+  store ptr %2242, ptr %2241, align 8
+  %2243 = getelementptr inbounds nuw { ptr, ptr }, ptr %151, i32 0, i32 0
+  %2244 = load ptr, ptr %2243, align 8
+  %2245 = getelementptr inbounds nuw { ptr, ptr }, ptr %151, i32 0, i32 1
+  %2246 = load ptr, ptr %2245, align 8
+  %2247 = call { ptr, ptr } @gen_call(ptr noundef @.str.16, ptr %2244, ptr %2246)
+  %2248 = getelementptr inbounds nuw { ptr, ptr }, ptr %150, i32 0, i32 0
+  %2249 = extractvalue { ptr, ptr } %2247, 0
+  store ptr %2249, ptr %2248, align 8
+  %2250 = getelementptr inbounds nuw { ptr, ptr }, ptr %150, i32 0, i32 1
+  %2251 = extractvalue { ptr, ptr } %2247, 1
+  store ptr %2251, ptr %2250, align 8
+  %2252 = getelementptr inbounds nuw { ptr, ptr }, ptr %149, i32 0, i32 0
+  %2253 = load ptr, ptr %2252, align 8
+  %2254 = getelementptr inbounds nuw { ptr, ptr }, ptr %149, i32 0, i32 1
+  %2255 = load ptr, ptr %2254, align 8
+  %2256 = getelementptr inbounds nuw { ptr, ptr }, ptr %150, i32 0, i32 0
+  %2257 = load ptr, ptr %2256, align 8
+  %2258 = getelementptr inbounds nuw { ptr, ptr }, ptr %150, i32 0, i32 1
   %2259 = load ptr, ptr %2258, align 8
-  call void @jv_free(i64 %2257, ptr %2259)
-  %2260 = load ptr, ptr %21, align 8
-  %2261 = getelementptr inbounds %union.YYSTYPE, ptr %2260, i64 0
-  %2262 = getelementptr inbounds { i64, ptr }, ptr %2261, i32 0, i32 0
-  %2263 = load i64, ptr %2262, align 8
-  %2264 = getelementptr inbounds { i64, ptr }, ptr %2261, i32 0, i32 1
-  %2265 = load ptr, ptr %2264, align 8
-  call void @jv_free(i64 %2263, ptr %2265)
-  br label %4268
+  %2260 = call { ptr, ptr } @block_join(ptr %2253, ptr %2255, ptr %2257, ptr %2259)
+  %2261 = getelementptr inbounds nuw { ptr, ptr }, ptr %148, i32 0, i32 0
+  %2262 = extractvalue { ptr, ptr } %2260, 0
+  store ptr %2262, ptr %2261, align 8
+  %2263 = getelementptr inbounds nuw { ptr, ptr }, ptr %148, i32 0, i32 1
+  %2264 = extractvalue { ptr, ptr } %2260, 1
+  store ptr %2264, ptr %2263, align 8
+  %2265 = load i64, ptr %30, align 4
+  %2266 = getelementptr inbounds nuw { ptr, ptr }, ptr %148, i32 0, i32 0
+  %2267 = load ptr, ptr %2266, align 8
+  %2268 = getelementptr inbounds nuw { ptr, ptr }, ptr %148, i32 0, i32 1
+  %2269 = load ptr, ptr %2268, align 8
+  %2270 = call { ptr, ptr } @gen_location(i64 %2265, ptr noundef %2227, ptr %2267, ptr %2269)
+  %2271 = getelementptr inbounds nuw { ptr, ptr }, ptr %147, i32 0, i32 0
+  %2272 = extractvalue { ptr, ptr } %2270, 0
+  store ptr %2272, ptr %2271, align 8
+  %2273 = getelementptr inbounds nuw { ptr, ptr }, ptr %147, i32 0, i32 1
+  %2274 = extractvalue { ptr, ptr } %2270, 1
+  store ptr %2274, ptr %2273, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %147, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %147) #8
+  %2275 = getelementptr inbounds nuw { i64, ptr }, ptr %146, i32 0, i32 0
+  %2276 = load i64, ptr %2275, align 8
+  %2277 = getelementptr inbounds nuw { i64, ptr }, ptr %146, i32 0, i32 1
+  %2278 = load ptr, ptr %2277, align 8
+  call void @jv_free(i64 %2276, ptr %2278)
+  %2279 = load ptr, ptr %22, align 8, !tbaa !20
+  %2280 = getelementptr inbounds %union.YYSTYPE, ptr %2279, i64 0
+  %2281 = getelementptr inbounds nuw { i64, ptr }, ptr %2280, i32 0, i32 0
+  %2282 = load i64, ptr %2281, align 8
+  %2283 = getelementptr inbounds nuw { i64, ptr }, ptr %2280, i32 0, i32 1
+  %2284 = load ptr, ptr %2283, align 8
+  call void @jv_free(i64 %2282, ptr %2284)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %146) #8
+  br label %4294
 
-2266:                                             ; preds = %604
-  br label %2267
+2285:                                             ; preds = %616
+  br label %2286
 
-2267:                                             ; preds = %2266
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %150, ptr align 4 %29, i64 8, i1 false)
-  %2268 = load ptr, ptr %5, align 8
-  %2269 = load ptr, ptr %6, align 8
-  %2270 = load ptr, ptr %7, align 8
-  %2271 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %150, ptr noundef %2268, ptr noundef %2269, ptr noundef %2270, ptr noundef %2271, ptr noundef @.str.17)
-  br label %2272
+2286:                                             ; preds = %2285
+  call void @llvm.lifetime.start.p0(i64 8, ptr %152) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %152, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %2287 = load ptr, ptr %6, align 8, !tbaa !8
+  %2288 = load ptr, ptr %7, align 8, !tbaa !10
+  %2289 = load ptr, ptr %8, align 8, !tbaa !12
+  %2290 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %152, ptr noundef %2287, ptr noundef %2288, ptr noundef %2289, ptr noundef %2290, ptr noundef @.str.17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %152) #8
+  br label %2291
 
-2272:                                             ; preds = %2267
-  %2273 = call { ptr, ptr } (...) @gen_noop()
-  %2274 = getelementptr inbounds { ptr, ptr }, ptr %151, i32 0, i32 0
-  %2275 = extractvalue { ptr, ptr } %2273, 0
-  store ptr %2275, ptr %2274, align 8
-  %2276 = getelementptr inbounds { ptr, ptr }, ptr %151, i32 0, i32 1
-  %2277 = extractvalue { ptr, ptr } %2273, 1
-  store ptr %2277, ptr %2276, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %151, i64 16, i1 false)
-  br label %4268
+2291:                                             ; preds = %2286
+  br label %2292
 
-2278:                                             ; preds = %604
-  %2279 = load ptr, ptr %21, align 8
-  %2280 = getelementptr inbounds %union.YYSTYPE, ptr %2279, i64 -2
-  %2281 = load ptr, ptr %21, align 8
-  %2282 = getelementptr inbounds %union.YYSTYPE, ptr %2281, i64 -1
-  %2283 = getelementptr inbounds { i64, ptr }, ptr %2282, i32 0, i32 0
-  %2284 = load i64, ptr %2283, align 8
-  %2285 = getelementptr inbounds { i64, ptr }, ptr %2282, i32 0, i32 1
-  %2286 = load ptr, ptr %2285, align 8
-  %2287 = call { ptr, ptr } @gen_const(i64 %2284, ptr %2286)
-  %2288 = getelementptr inbounds { ptr, ptr }, ptr %153, i32 0, i32 0
-  %2289 = extractvalue { ptr, ptr } %2287, 0
-  store ptr %2289, ptr %2288, align 8
-  %2290 = getelementptr inbounds { ptr, ptr }, ptr %153, i32 0, i32 1
-  %2291 = extractvalue { ptr, ptr } %2287, 1
-  store ptr %2291, ptr %2290, align 8
-  %2292 = getelementptr inbounds { ptr, ptr }, ptr %2280, i32 0, i32 0
-  %2293 = load ptr, ptr %2292, align 8
-  %2294 = getelementptr inbounds { ptr, ptr }, ptr %2280, i32 0, i32 1
-  %2295 = load ptr, ptr %2294, align 8
-  %2296 = getelementptr inbounds { ptr, ptr }, ptr %153, i32 0, i32 0
-  %2297 = load ptr, ptr %2296, align 8
-  %2298 = getelementptr inbounds { ptr, ptr }, ptr %153, i32 0, i32 1
-  %2299 = load ptr, ptr %2298, align 8
-  %2300 = call { ptr, ptr } @gen_index_opt(ptr %2293, ptr %2295, ptr %2297, ptr %2299)
-  %2301 = getelementptr inbounds { ptr, ptr }, ptr %152, i32 0, i32 0
-  %2302 = extractvalue { ptr, ptr } %2300, 0
-  store ptr %2302, ptr %2301, align 8
-  %2303 = getelementptr inbounds { ptr, ptr }, ptr %152, i32 0, i32 1
-  %2304 = extractvalue { ptr, ptr } %2300, 1
-  store ptr %2304, ptr %2303, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %152, i64 16, i1 false)
-  br label %4268
+2292:                                             ; preds = %2291
+  call void @llvm.lifetime.start.p0(i64 16, ptr %153) #8
+  %2293 = call { ptr, ptr } (...) @gen_noop()
+  %2294 = getelementptr inbounds nuw { ptr, ptr }, ptr %153, i32 0, i32 0
+  %2295 = extractvalue { ptr, ptr } %2293, 0
+  store ptr %2295, ptr %2294, align 8
+  %2296 = getelementptr inbounds nuw { ptr, ptr }, ptr %153, i32 0, i32 1
+  %2297 = extractvalue { ptr, ptr } %2293, 1
+  store ptr %2297, ptr %2296, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %153, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %153) #8
+  br label %4294
 
-2305:                                             ; preds = %604
-  %2306 = call { ptr, ptr } (...) @gen_noop()
-  %2307 = getelementptr inbounds { ptr, ptr }, ptr %155, i32 0, i32 0
-  %2308 = extractvalue { ptr, ptr } %2306, 0
-  store ptr %2308, ptr %2307, align 8
-  %2309 = getelementptr inbounds { ptr, ptr }, ptr %155, i32 0, i32 1
-  %2310 = extractvalue { ptr, ptr } %2306, 1
-  store ptr %2310, ptr %2309, align 8
-  %2311 = load ptr, ptr %21, align 8
-  %2312 = getelementptr inbounds %union.YYSTYPE, ptr %2311, i64 -1
-  %2313 = getelementptr inbounds { i64, ptr }, ptr %2312, i32 0, i32 0
-  %2314 = load i64, ptr %2313, align 8
-  %2315 = getelementptr inbounds { i64, ptr }, ptr %2312, i32 0, i32 1
-  %2316 = load ptr, ptr %2315, align 8
-  %2317 = call { ptr, ptr } @gen_const(i64 %2314, ptr %2316)
-  %2318 = getelementptr inbounds { ptr, ptr }, ptr %156, i32 0, i32 0
-  %2319 = extractvalue { ptr, ptr } %2317, 0
-  store ptr %2319, ptr %2318, align 8
-  %2320 = getelementptr inbounds { ptr, ptr }, ptr %156, i32 0, i32 1
-  %2321 = extractvalue { ptr, ptr } %2317, 1
-  store ptr %2321, ptr %2320, align 8
-  %2322 = getelementptr inbounds { ptr, ptr }, ptr %155, i32 0, i32 0
-  %2323 = load ptr, ptr %2322, align 8
-  %2324 = getelementptr inbounds { ptr, ptr }, ptr %155, i32 0, i32 1
-  %2325 = load ptr, ptr %2324, align 8
-  %2326 = getelementptr inbounds { ptr, ptr }, ptr %156, i32 0, i32 0
-  %2327 = load ptr, ptr %2326, align 8
-  %2328 = getelementptr inbounds { ptr, ptr }, ptr %156, i32 0, i32 1
-  %2329 = load ptr, ptr %2328, align 8
-  %2330 = call { ptr, ptr } @gen_index_opt(ptr %2323, ptr %2325, ptr %2327, ptr %2329)
-  %2331 = getelementptr inbounds { ptr, ptr }, ptr %154, i32 0, i32 0
-  %2332 = extractvalue { ptr, ptr } %2330, 0
-  store ptr %2332, ptr %2331, align 8
-  %2333 = getelementptr inbounds { ptr, ptr }, ptr %154, i32 0, i32 1
-  %2334 = extractvalue { ptr, ptr } %2330, 1
-  store ptr %2334, ptr %2333, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %154, i64 16, i1 false)
-  br label %4268
+2298:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %154) #8
+  %2299 = load ptr, ptr %22, align 8, !tbaa !20
+  %2300 = getelementptr inbounds %union.YYSTYPE, ptr %2299, i64 -2
+  %2301 = load ptr, ptr %22, align 8, !tbaa !20
+  %2302 = getelementptr inbounds %union.YYSTYPE, ptr %2301, i64 -1
+  %2303 = getelementptr inbounds nuw { i64, ptr }, ptr %2302, i32 0, i32 0
+  %2304 = load i64, ptr %2303, align 8
+  %2305 = getelementptr inbounds nuw { i64, ptr }, ptr %2302, i32 0, i32 1
+  %2306 = load ptr, ptr %2305, align 8
+  %2307 = call { ptr, ptr } @gen_const(i64 %2304, ptr %2306)
+  %2308 = getelementptr inbounds nuw { ptr, ptr }, ptr %155, i32 0, i32 0
+  %2309 = extractvalue { ptr, ptr } %2307, 0
+  store ptr %2309, ptr %2308, align 8
+  %2310 = getelementptr inbounds nuw { ptr, ptr }, ptr %155, i32 0, i32 1
+  %2311 = extractvalue { ptr, ptr } %2307, 1
+  store ptr %2311, ptr %2310, align 8
+  %2312 = getelementptr inbounds nuw { ptr, ptr }, ptr %2300, i32 0, i32 0
+  %2313 = load ptr, ptr %2312, align 8
+  %2314 = getelementptr inbounds nuw { ptr, ptr }, ptr %2300, i32 0, i32 1
+  %2315 = load ptr, ptr %2314, align 8
+  %2316 = getelementptr inbounds nuw { ptr, ptr }, ptr %155, i32 0, i32 0
+  %2317 = load ptr, ptr %2316, align 8
+  %2318 = getelementptr inbounds nuw { ptr, ptr }, ptr %155, i32 0, i32 1
+  %2319 = load ptr, ptr %2318, align 8
+  %2320 = call { ptr, ptr } @gen_index_opt(ptr %2313, ptr %2315, ptr %2317, ptr %2319)
+  %2321 = getelementptr inbounds nuw { ptr, ptr }, ptr %154, i32 0, i32 0
+  %2322 = extractvalue { ptr, ptr } %2320, 0
+  store ptr %2322, ptr %2321, align 8
+  %2323 = getelementptr inbounds nuw { ptr, ptr }, ptr %154, i32 0, i32 1
+  %2324 = extractvalue { ptr, ptr } %2320, 1
+  store ptr %2324, ptr %2323, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %154, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %154) #8
+  br label %4294
 
-2335:                                             ; preds = %604
-  %2336 = load ptr, ptr %21, align 8
-  %2337 = getelementptr inbounds %union.YYSTYPE, ptr %2336, i64 -3
-  %2338 = load ptr, ptr %21, align 8
-  %2339 = getelementptr inbounds %union.YYSTYPE, ptr %2338, i64 -1
-  %2340 = getelementptr inbounds { ptr, ptr }, ptr %2337, i32 0, i32 0
-  %2341 = load ptr, ptr %2340, align 8
-  %2342 = getelementptr inbounds { ptr, ptr }, ptr %2337, i32 0, i32 1
+2325:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %156) #8
+  %2326 = call { ptr, ptr } (...) @gen_noop()
+  %2327 = getelementptr inbounds nuw { ptr, ptr }, ptr %157, i32 0, i32 0
+  %2328 = extractvalue { ptr, ptr } %2326, 0
+  store ptr %2328, ptr %2327, align 8
+  %2329 = getelementptr inbounds nuw { ptr, ptr }, ptr %157, i32 0, i32 1
+  %2330 = extractvalue { ptr, ptr } %2326, 1
+  store ptr %2330, ptr %2329, align 8
+  %2331 = load ptr, ptr %22, align 8, !tbaa !20
+  %2332 = getelementptr inbounds %union.YYSTYPE, ptr %2331, i64 -1
+  %2333 = getelementptr inbounds nuw { i64, ptr }, ptr %2332, i32 0, i32 0
+  %2334 = load i64, ptr %2333, align 8
+  %2335 = getelementptr inbounds nuw { i64, ptr }, ptr %2332, i32 0, i32 1
+  %2336 = load ptr, ptr %2335, align 8
+  %2337 = call { ptr, ptr } @gen_const(i64 %2334, ptr %2336)
+  %2338 = getelementptr inbounds nuw { ptr, ptr }, ptr %158, i32 0, i32 0
+  %2339 = extractvalue { ptr, ptr } %2337, 0
+  store ptr %2339, ptr %2338, align 8
+  %2340 = getelementptr inbounds nuw { ptr, ptr }, ptr %158, i32 0, i32 1
+  %2341 = extractvalue { ptr, ptr } %2337, 1
+  store ptr %2341, ptr %2340, align 8
+  %2342 = getelementptr inbounds nuw { ptr, ptr }, ptr %157, i32 0, i32 0
   %2343 = load ptr, ptr %2342, align 8
-  %2344 = getelementptr inbounds { ptr, ptr }, ptr %2339, i32 0, i32 0
+  %2344 = getelementptr inbounds nuw { ptr, ptr }, ptr %157, i32 0, i32 1
   %2345 = load ptr, ptr %2344, align 8
-  %2346 = getelementptr inbounds { ptr, ptr }, ptr %2339, i32 0, i32 1
+  %2346 = getelementptr inbounds nuw { ptr, ptr }, ptr %158, i32 0, i32 0
   %2347 = load ptr, ptr %2346, align 8
-  %2348 = call { ptr, ptr } @gen_index_opt(ptr %2341, ptr %2343, ptr %2345, ptr %2347)
-  %2349 = getelementptr inbounds { ptr, ptr }, ptr %157, i32 0, i32 0
-  %2350 = extractvalue { ptr, ptr } %2348, 0
-  store ptr %2350, ptr %2349, align 8
-  %2351 = getelementptr inbounds { ptr, ptr }, ptr %157, i32 0, i32 1
-  %2352 = extractvalue { ptr, ptr } %2348, 1
+  %2348 = getelementptr inbounds nuw { ptr, ptr }, ptr %158, i32 0, i32 1
+  %2349 = load ptr, ptr %2348, align 8
+  %2350 = call { ptr, ptr } @gen_index_opt(ptr %2343, ptr %2345, ptr %2347, ptr %2349)
+  %2351 = getelementptr inbounds nuw { ptr, ptr }, ptr %156, i32 0, i32 0
+  %2352 = extractvalue { ptr, ptr } %2350, 0
   store ptr %2352, ptr %2351, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %157, i64 16, i1 false)
-  br label %4268
+  %2353 = getelementptr inbounds nuw { ptr, ptr }, ptr %156, i32 0, i32 1
+  %2354 = extractvalue { ptr, ptr } %2350, 1
+  store ptr %2354, ptr %2353, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %156, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %156) #8
+  br label %4294
 
-2353:                                             ; preds = %604
-  %2354 = call { ptr, ptr } (...) @gen_noop()
-  %2355 = getelementptr inbounds { ptr, ptr }, ptr %159, i32 0, i32 0
-  %2356 = extractvalue { ptr, ptr } %2354, 0
-  store ptr %2356, ptr %2355, align 8
-  %2357 = getelementptr inbounds { ptr, ptr }, ptr %159, i32 0, i32 1
-  %2358 = extractvalue { ptr, ptr } %2354, 1
-  store ptr %2358, ptr %2357, align 8
-  %2359 = load ptr, ptr %21, align 8
-  %2360 = getelementptr inbounds %union.YYSTYPE, ptr %2359, i64 -1
-  %2361 = getelementptr inbounds { ptr, ptr }, ptr %159, i32 0, i32 0
-  %2362 = load ptr, ptr %2361, align 8
-  %2363 = getelementptr inbounds { ptr, ptr }, ptr %159, i32 0, i32 1
-  %2364 = load ptr, ptr %2363, align 8
-  %2365 = getelementptr inbounds { ptr, ptr }, ptr %2360, i32 0, i32 0
-  %2366 = load ptr, ptr %2365, align 8
-  %2367 = getelementptr inbounds { ptr, ptr }, ptr %2360, i32 0, i32 1
-  %2368 = load ptr, ptr %2367, align 8
-  %2369 = call { ptr, ptr } @gen_index_opt(ptr %2362, ptr %2364, ptr %2366, ptr %2368)
-  %2370 = getelementptr inbounds { ptr, ptr }, ptr %158, i32 0, i32 0
-  %2371 = extractvalue { ptr, ptr } %2369, 0
-  store ptr %2371, ptr %2370, align 8
-  %2372 = getelementptr inbounds { ptr, ptr }, ptr %158, i32 0, i32 1
-  %2373 = extractvalue { ptr, ptr } %2369, 1
-  store ptr %2373, ptr %2372, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %158, i64 16, i1 false)
-  br label %4268
+2355:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %159) #8
+  %2356 = load ptr, ptr %22, align 8, !tbaa !20
+  %2357 = getelementptr inbounds %union.YYSTYPE, ptr %2356, i64 -3
+  %2358 = load ptr, ptr %22, align 8, !tbaa !20
+  %2359 = getelementptr inbounds %union.YYSTYPE, ptr %2358, i64 -1
+  %2360 = getelementptr inbounds nuw { ptr, ptr }, ptr %2357, i32 0, i32 0
+  %2361 = load ptr, ptr %2360, align 8
+  %2362 = getelementptr inbounds nuw { ptr, ptr }, ptr %2357, i32 0, i32 1
+  %2363 = load ptr, ptr %2362, align 8
+  %2364 = getelementptr inbounds nuw { ptr, ptr }, ptr %2359, i32 0, i32 0
+  %2365 = load ptr, ptr %2364, align 8
+  %2366 = getelementptr inbounds nuw { ptr, ptr }, ptr %2359, i32 0, i32 1
+  %2367 = load ptr, ptr %2366, align 8
+  %2368 = call { ptr, ptr } @gen_index_opt(ptr %2361, ptr %2363, ptr %2365, ptr %2367)
+  %2369 = getelementptr inbounds nuw { ptr, ptr }, ptr %159, i32 0, i32 0
+  %2370 = extractvalue { ptr, ptr } %2368, 0
+  store ptr %2370, ptr %2369, align 8
+  %2371 = getelementptr inbounds nuw { ptr, ptr }, ptr %159, i32 0, i32 1
+  %2372 = extractvalue { ptr, ptr } %2368, 1
+  store ptr %2372, ptr %2371, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %159, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %159) #8
+  br label %4294
 
-2374:                                             ; preds = %604
-  %2375 = load ptr, ptr %21, align 8
-  %2376 = getelementptr inbounds %union.YYSTYPE, ptr %2375, i64 -1
-  %2377 = load ptr, ptr %21, align 8
-  %2378 = getelementptr inbounds %union.YYSTYPE, ptr %2377, i64 0
-  %2379 = getelementptr inbounds { i64, ptr }, ptr %2378, i32 0, i32 0
-  %2380 = load i64, ptr %2379, align 8
-  %2381 = getelementptr inbounds { i64, ptr }, ptr %2378, i32 0, i32 1
+2373:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %160) #8
+  %2374 = call { ptr, ptr } (...) @gen_noop()
+  %2375 = getelementptr inbounds nuw { ptr, ptr }, ptr %161, i32 0, i32 0
+  %2376 = extractvalue { ptr, ptr } %2374, 0
+  store ptr %2376, ptr %2375, align 8
+  %2377 = getelementptr inbounds nuw { ptr, ptr }, ptr %161, i32 0, i32 1
+  %2378 = extractvalue { ptr, ptr } %2374, 1
+  store ptr %2378, ptr %2377, align 8
+  %2379 = load ptr, ptr %22, align 8, !tbaa !20
+  %2380 = getelementptr inbounds %union.YYSTYPE, ptr %2379, i64 -1
+  %2381 = getelementptr inbounds nuw { ptr, ptr }, ptr %161, i32 0, i32 0
   %2382 = load ptr, ptr %2381, align 8
-  %2383 = call { ptr, ptr } @gen_const(i64 %2380, ptr %2382)
-  %2384 = getelementptr inbounds { ptr, ptr }, ptr %161, i32 0, i32 0
-  %2385 = extractvalue { ptr, ptr } %2383, 0
-  store ptr %2385, ptr %2384, align 8
-  %2386 = getelementptr inbounds { ptr, ptr }, ptr %161, i32 0, i32 1
-  %2387 = extractvalue { ptr, ptr } %2383, 1
-  store ptr %2387, ptr %2386, align 8
-  %2388 = getelementptr inbounds { ptr, ptr }, ptr %2376, i32 0, i32 0
-  %2389 = load ptr, ptr %2388, align 8
-  %2390 = getelementptr inbounds { ptr, ptr }, ptr %2376, i32 0, i32 1
-  %2391 = load ptr, ptr %2390, align 8
-  %2392 = getelementptr inbounds { ptr, ptr }, ptr %161, i32 0, i32 0
-  %2393 = load ptr, ptr %2392, align 8
-  %2394 = getelementptr inbounds { ptr, ptr }, ptr %161, i32 0, i32 1
-  %2395 = load ptr, ptr %2394, align 8
-  %2396 = call { ptr, ptr } @gen_index(ptr %2389, ptr %2391, ptr %2393, ptr %2395)
-  %2397 = getelementptr inbounds { ptr, ptr }, ptr %160, i32 0, i32 0
-  %2398 = extractvalue { ptr, ptr } %2396, 0
-  store ptr %2398, ptr %2397, align 8
-  %2399 = getelementptr inbounds { ptr, ptr }, ptr %160, i32 0, i32 1
-  %2400 = extractvalue { ptr, ptr } %2396, 1
-  store ptr %2400, ptr %2399, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %160, i64 16, i1 false)
-  br label %4268
+  %2383 = getelementptr inbounds nuw { ptr, ptr }, ptr %161, i32 0, i32 1
+  %2384 = load ptr, ptr %2383, align 8
+  %2385 = getelementptr inbounds nuw { ptr, ptr }, ptr %2380, i32 0, i32 0
+  %2386 = load ptr, ptr %2385, align 8
+  %2387 = getelementptr inbounds nuw { ptr, ptr }, ptr %2380, i32 0, i32 1
+  %2388 = load ptr, ptr %2387, align 8
+  %2389 = call { ptr, ptr } @gen_index_opt(ptr %2382, ptr %2384, ptr %2386, ptr %2388)
+  %2390 = getelementptr inbounds nuw { ptr, ptr }, ptr %160, i32 0, i32 0
+  %2391 = extractvalue { ptr, ptr } %2389, 0
+  store ptr %2391, ptr %2390, align 8
+  %2392 = getelementptr inbounds nuw { ptr, ptr }, ptr %160, i32 0, i32 1
+  %2393 = extractvalue { ptr, ptr } %2389, 1
+  store ptr %2393, ptr %2392, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %160, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %160) #8
+  br label %4294
 
-2401:                                             ; preds = %604
-  %2402 = call { ptr, ptr } (...) @gen_noop()
-  %2403 = getelementptr inbounds { ptr, ptr }, ptr %163, i32 0, i32 0
-  %2404 = extractvalue { ptr, ptr } %2402, 0
-  store ptr %2404, ptr %2403, align 8
-  %2405 = getelementptr inbounds { ptr, ptr }, ptr %163, i32 0, i32 1
-  %2406 = extractvalue { ptr, ptr } %2402, 1
-  store ptr %2406, ptr %2405, align 8
-  %2407 = load ptr, ptr %21, align 8
-  %2408 = getelementptr inbounds %union.YYSTYPE, ptr %2407, i64 0
-  %2409 = getelementptr inbounds { i64, ptr }, ptr %2408, i32 0, i32 0
-  %2410 = load i64, ptr %2409, align 8
-  %2411 = getelementptr inbounds { i64, ptr }, ptr %2408, i32 0, i32 1
-  %2412 = load ptr, ptr %2411, align 8
-  %2413 = call { ptr, ptr } @gen_const(i64 %2410, ptr %2412)
-  %2414 = getelementptr inbounds { ptr, ptr }, ptr %164, i32 0, i32 0
-  %2415 = extractvalue { ptr, ptr } %2413, 0
-  store ptr %2415, ptr %2414, align 8
-  %2416 = getelementptr inbounds { ptr, ptr }, ptr %164, i32 0, i32 1
-  %2417 = extractvalue { ptr, ptr } %2413, 1
-  store ptr %2417, ptr %2416, align 8
-  %2418 = getelementptr inbounds { ptr, ptr }, ptr %163, i32 0, i32 0
-  %2419 = load ptr, ptr %2418, align 8
-  %2420 = getelementptr inbounds { ptr, ptr }, ptr %163, i32 0, i32 1
-  %2421 = load ptr, ptr %2420, align 8
-  %2422 = getelementptr inbounds { ptr, ptr }, ptr %164, i32 0, i32 0
-  %2423 = load ptr, ptr %2422, align 8
-  %2424 = getelementptr inbounds { ptr, ptr }, ptr %164, i32 0, i32 1
-  %2425 = load ptr, ptr %2424, align 8
-  %2426 = call { ptr, ptr } @gen_index(ptr %2419, ptr %2421, ptr %2423, ptr %2425)
-  %2427 = getelementptr inbounds { ptr, ptr }, ptr %162, i32 0, i32 0
-  %2428 = extractvalue { ptr, ptr } %2426, 0
-  store ptr %2428, ptr %2427, align 8
-  %2429 = getelementptr inbounds { ptr, ptr }, ptr %162, i32 0, i32 1
-  %2430 = extractvalue { ptr, ptr } %2426, 1
-  store ptr %2430, ptr %2429, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %162, i64 16, i1 false)
-  br label %4268
+2394:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %162) #8
+  %2395 = load ptr, ptr %22, align 8, !tbaa !20
+  %2396 = getelementptr inbounds %union.YYSTYPE, ptr %2395, i64 -1
+  %2397 = load ptr, ptr %22, align 8, !tbaa !20
+  %2398 = getelementptr inbounds %union.YYSTYPE, ptr %2397, i64 0
+  %2399 = getelementptr inbounds nuw { i64, ptr }, ptr %2398, i32 0, i32 0
+  %2400 = load i64, ptr %2399, align 8
+  %2401 = getelementptr inbounds nuw { i64, ptr }, ptr %2398, i32 0, i32 1
+  %2402 = load ptr, ptr %2401, align 8
+  %2403 = call { ptr, ptr } @gen_const(i64 %2400, ptr %2402)
+  %2404 = getelementptr inbounds nuw { ptr, ptr }, ptr %163, i32 0, i32 0
+  %2405 = extractvalue { ptr, ptr } %2403, 0
+  store ptr %2405, ptr %2404, align 8
+  %2406 = getelementptr inbounds nuw { ptr, ptr }, ptr %163, i32 0, i32 1
+  %2407 = extractvalue { ptr, ptr } %2403, 1
+  store ptr %2407, ptr %2406, align 8
+  %2408 = getelementptr inbounds nuw { ptr, ptr }, ptr %2396, i32 0, i32 0
+  %2409 = load ptr, ptr %2408, align 8
+  %2410 = getelementptr inbounds nuw { ptr, ptr }, ptr %2396, i32 0, i32 1
+  %2411 = load ptr, ptr %2410, align 8
+  %2412 = getelementptr inbounds nuw { ptr, ptr }, ptr %163, i32 0, i32 0
+  %2413 = load ptr, ptr %2412, align 8
+  %2414 = getelementptr inbounds nuw { ptr, ptr }, ptr %163, i32 0, i32 1
+  %2415 = load ptr, ptr %2414, align 8
+  %2416 = call { ptr, ptr } @gen_index(ptr %2409, ptr %2411, ptr %2413, ptr %2415)
+  %2417 = getelementptr inbounds nuw { ptr, ptr }, ptr %162, i32 0, i32 0
+  %2418 = extractvalue { ptr, ptr } %2416, 0
+  store ptr %2418, ptr %2417, align 8
+  %2419 = getelementptr inbounds nuw { ptr, ptr }, ptr %162, i32 0, i32 1
+  %2420 = extractvalue { ptr, ptr } %2416, 1
+  store ptr %2420, ptr %2419, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %162, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %162) #8
+  br label %4294
 
-2431:                                             ; preds = %604
-  %2432 = load ptr, ptr %21, align 8
-  %2433 = getelementptr inbounds %union.YYSTYPE, ptr %2432, i64 -2
-  %2434 = load ptr, ptr %21, align 8
-  %2435 = getelementptr inbounds %union.YYSTYPE, ptr %2434, i64 0
-  %2436 = getelementptr inbounds { ptr, ptr }, ptr %2433, i32 0, i32 0
-  %2437 = load ptr, ptr %2436, align 8
-  %2438 = getelementptr inbounds { ptr, ptr }, ptr %2433, i32 0, i32 1
+2421:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %164) #8
+  %2422 = call { ptr, ptr } (...) @gen_noop()
+  %2423 = getelementptr inbounds nuw { ptr, ptr }, ptr %165, i32 0, i32 0
+  %2424 = extractvalue { ptr, ptr } %2422, 0
+  store ptr %2424, ptr %2423, align 8
+  %2425 = getelementptr inbounds nuw { ptr, ptr }, ptr %165, i32 0, i32 1
+  %2426 = extractvalue { ptr, ptr } %2422, 1
+  store ptr %2426, ptr %2425, align 8
+  %2427 = load ptr, ptr %22, align 8, !tbaa !20
+  %2428 = getelementptr inbounds %union.YYSTYPE, ptr %2427, i64 0
+  %2429 = getelementptr inbounds nuw { i64, ptr }, ptr %2428, i32 0, i32 0
+  %2430 = load i64, ptr %2429, align 8
+  %2431 = getelementptr inbounds nuw { i64, ptr }, ptr %2428, i32 0, i32 1
+  %2432 = load ptr, ptr %2431, align 8
+  %2433 = call { ptr, ptr } @gen_const(i64 %2430, ptr %2432)
+  %2434 = getelementptr inbounds nuw { ptr, ptr }, ptr %166, i32 0, i32 0
+  %2435 = extractvalue { ptr, ptr } %2433, 0
+  store ptr %2435, ptr %2434, align 8
+  %2436 = getelementptr inbounds nuw { ptr, ptr }, ptr %166, i32 0, i32 1
+  %2437 = extractvalue { ptr, ptr } %2433, 1
+  store ptr %2437, ptr %2436, align 8
+  %2438 = getelementptr inbounds nuw { ptr, ptr }, ptr %165, i32 0, i32 0
   %2439 = load ptr, ptr %2438, align 8
-  %2440 = getelementptr inbounds { ptr, ptr }, ptr %2435, i32 0, i32 0
+  %2440 = getelementptr inbounds nuw { ptr, ptr }, ptr %165, i32 0, i32 1
   %2441 = load ptr, ptr %2440, align 8
-  %2442 = getelementptr inbounds { ptr, ptr }, ptr %2435, i32 0, i32 1
+  %2442 = getelementptr inbounds nuw { ptr, ptr }, ptr %166, i32 0, i32 0
   %2443 = load ptr, ptr %2442, align 8
-  %2444 = call { ptr, ptr } @gen_index(ptr %2437, ptr %2439, ptr %2441, ptr %2443)
-  %2445 = getelementptr inbounds { ptr, ptr }, ptr %165, i32 0, i32 0
-  %2446 = extractvalue { ptr, ptr } %2444, 0
-  store ptr %2446, ptr %2445, align 8
-  %2447 = getelementptr inbounds { ptr, ptr }, ptr %165, i32 0, i32 1
-  %2448 = extractvalue { ptr, ptr } %2444, 1
+  %2444 = getelementptr inbounds nuw { ptr, ptr }, ptr %166, i32 0, i32 1
+  %2445 = load ptr, ptr %2444, align 8
+  %2446 = call { ptr, ptr } @gen_index(ptr %2439, ptr %2441, ptr %2443, ptr %2445)
+  %2447 = getelementptr inbounds nuw { ptr, ptr }, ptr %164, i32 0, i32 0
+  %2448 = extractvalue { ptr, ptr } %2446, 0
   store ptr %2448, ptr %2447, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %165, i64 16, i1 false)
-  br label %4268
+  %2449 = getelementptr inbounds nuw { ptr, ptr }, ptr %164, i32 0, i32 1
+  %2450 = extractvalue { ptr, ptr } %2446, 1
+  store ptr %2450, ptr %2449, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %164, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %164) #8
+  br label %4294
 
-2449:                                             ; preds = %604
-  %2450 = call { ptr, ptr } (...) @gen_noop()
-  %2451 = getelementptr inbounds { ptr, ptr }, ptr %167, i32 0, i32 0
-  %2452 = extractvalue { ptr, ptr } %2450, 0
-  store ptr %2452, ptr %2451, align 8
-  %2453 = getelementptr inbounds { ptr, ptr }, ptr %167, i32 0, i32 1
-  %2454 = extractvalue { ptr, ptr } %2450, 1
-  store ptr %2454, ptr %2453, align 8
-  %2455 = load ptr, ptr %21, align 8
-  %2456 = getelementptr inbounds %union.YYSTYPE, ptr %2455, i64 0
-  %2457 = getelementptr inbounds { ptr, ptr }, ptr %167, i32 0, i32 0
-  %2458 = load ptr, ptr %2457, align 8
-  %2459 = getelementptr inbounds { ptr, ptr }, ptr %167, i32 0, i32 1
-  %2460 = load ptr, ptr %2459, align 8
-  %2461 = getelementptr inbounds { ptr, ptr }, ptr %2456, i32 0, i32 0
-  %2462 = load ptr, ptr %2461, align 8
-  %2463 = getelementptr inbounds { ptr, ptr }, ptr %2456, i32 0, i32 1
-  %2464 = load ptr, ptr %2463, align 8
-  %2465 = call { ptr, ptr } @gen_index(ptr %2458, ptr %2460, ptr %2462, ptr %2464)
-  %2466 = getelementptr inbounds { ptr, ptr }, ptr %166, i32 0, i32 0
-  %2467 = extractvalue { ptr, ptr } %2465, 0
-  store ptr %2467, ptr %2466, align 8
-  %2468 = getelementptr inbounds { ptr, ptr }, ptr %166, i32 0, i32 1
-  %2469 = extractvalue { ptr, ptr } %2465, 1
-  store ptr %2469, ptr %2468, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %166, i64 16, i1 false)
-  br label %4268
+2451:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %167) #8
+  %2452 = load ptr, ptr %22, align 8, !tbaa !20
+  %2453 = getelementptr inbounds %union.YYSTYPE, ptr %2452, i64 -2
+  %2454 = load ptr, ptr %22, align 8, !tbaa !20
+  %2455 = getelementptr inbounds %union.YYSTYPE, ptr %2454, i64 0
+  %2456 = getelementptr inbounds nuw { ptr, ptr }, ptr %2453, i32 0, i32 0
+  %2457 = load ptr, ptr %2456, align 8
+  %2458 = getelementptr inbounds nuw { ptr, ptr }, ptr %2453, i32 0, i32 1
+  %2459 = load ptr, ptr %2458, align 8
+  %2460 = getelementptr inbounds nuw { ptr, ptr }, ptr %2455, i32 0, i32 0
+  %2461 = load ptr, ptr %2460, align 8
+  %2462 = getelementptr inbounds nuw { ptr, ptr }, ptr %2455, i32 0, i32 1
+  %2463 = load ptr, ptr %2462, align 8
+  %2464 = call { ptr, ptr } @gen_index(ptr %2457, ptr %2459, ptr %2461, ptr %2463)
+  %2465 = getelementptr inbounds nuw { ptr, ptr }, ptr %167, i32 0, i32 0
+  %2466 = extractvalue { ptr, ptr } %2464, 0
+  store ptr %2466, ptr %2465, align 8
+  %2467 = getelementptr inbounds nuw { ptr, ptr }, ptr %167, i32 0, i32 1
+  %2468 = extractvalue { ptr, ptr } %2464, 1
+  store ptr %2468, ptr %2467, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %167, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %167) #8
+  br label %4294
 
-2470:                                             ; preds = %604
-  br label %2471
+2469:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %168) #8
+  %2470 = call { ptr, ptr } (...) @gen_noop()
+  %2471 = getelementptr inbounds nuw { ptr, ptr }, ptr %169, i32 0, i32 0
+  %2472 = extractvalue { ptr, ptr } %2470, 0
+  store ptr %2472, ptr %2471, align 8
+  %2473 = getelementptr inbounds nuw { ptr, ptr }, ptr %169, i32 0, i32 1
+  %2474 = extractvalue { ptr, ptr } %2470, 1
+  store ptr %2474, ptr %2473, align 8
+  %2475 = load ptr, ptr %22, align 8, !tbaa !20
+  %2476 = getelementptr inbounds %union.YYSTYPE, ptr %2475, i64 0
+  %2477 = getelementptr inbounds nuw { ptr, ptr }, ptr %169, i32 0, i32 0
+  %2478 = load ptr, ptr %2477, align 8
+  %2479 = getelementptr inbounds nuw { ptr, ptr }, ptr %169, i32 0, i32 1
+  %2480 = load ptr, ptr %2479, align 8
+  %2481 = getelementptr inbounds nuw { ptr, ptr }, ptr %2476, i32 0, i32 0
+  %2482 = load ptr, ptr %2481, align 8
+  %2483 = getelementptr inbounds nuw { ptr, ptr }, ptr %2476, i32 0, i32 1
+  %2484 = load ptr, ptr %2483, align 8
+  %2485 = call { ptr, ptr } @gen_index(ptr %2478, ptr %2480, ptr %2482, ptr %2484)
+  %2486 = getelementptr inbounds nuw { ptr, ptr }, ptr %168, i32 0, i32 0
+  %2487 = extractvalue { ptr, ptr } %2485, 0
+  store ptr %2487, ptr %2486, align 8
+  %2488 = getelementptr inbounds nuw { ptr, ptr }, ptr %168, i32 0, i32 1
+  %2489 = extractvalue { ptr, ptr } %2485, 1
+  store ptr %2489, ptr %2488, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %168, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %168) #8
+  br label %4294
 
-2471:                                             ; preds = %2470
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %168, ptr align 4 %29, i64 8, i1 false)
-  %2472 = load ptr, ptr %5, align 8
-  %2473 = load ptr, ptr %6, align 8
-  %2474 = load ptr, ptr %7, align 8
-  %2475 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %168, ptr noundef %2472, ptr noundef %2473, ptr noundef %2474, ptr noundef %2475, ptr noundef @.str.18)
-  br label %2476
+2490:                                             ; preds = %616
+  br label %2491
 
-2476:                                             ; preds = %2471
-  %2477 = call { ptr, ptr } (...) @gen_noop()
-  %2478 = getelementptr inbounds { ptr, ptr }, ptr %169, i32 0, i32 0
-  %2479 = extractvalue { ptr, ptr } %2477, 0
-  store ptr %2479, ptr %2478, align 8
-  %2480 = getelementptr inbounds { ptr, ptr }, ptr %169, i32 0, i32 1
-  %2481 = extractvalue { ptr, ptr } %2477, 1
-  store ptr %2481, ptr %2480, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %169, i64 16, i1 false)
-  br label %4268
+2491:                                             ; preds = %2490
+  call void @llvm.lifetime.start.p0(i64 8, ptr %170) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %170, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %2492 = load ptr, ptr %6, align 8, !tbaa !8
+  %2493 = load ptr, ptr %7, align 8, !tbaa !10
+  %2494 = load ptr, ptr %8, align 8, !tbaa !12
+  %2495 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %170, ptr noundef %2492, ptr noundef %2493, ptr noundef %2494, ptr noundef %2495, ptr noundef @.str.18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %170) #8
+  br label %2496
 
-2482:                                             ; preds = %604
-  %2483 = load ptr, ptr %21, align 8
-  %2484 = getelementptr inbounds %union.YYSTYPE, ptr %2483, i64 -1
-  %2485 = getelementptr inbounds { i64, ptr }, ptr %2484, i32 0, i32 0
-  %2486 = load i64, ptr %2485, align 8
-  %2487 = getelementptr inbounds { i64, ptr }, ptr %2484, i32 0, i32 1
-  %2488 = load ptr, ptr %2487, align 8
-  call void @jv_free(i64 %2486, ptr %2488)
-  br label %2489
+2496:                                             ; preds = %2491
+  br label %2497
 
-2489:                                             ; preds = %2482
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %170, ptr align 4 %29, i64 8, i1 false)
-  %2490 = load ptr, ptr %5, align 8
-  %2491 = load ptr, ptr %6, align 8
-  %2492 = load ptr, ptr %7, align 8
-  %2493 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %170, ptr noundef %2490, ptr noundef %2491, ptr noundef %2492, ptr noundef %2493, ptr noundef @.str.18)
-  br label %2494
+2497:                                             ; preds = %2496
+  call void @llvm.lifetime.start.p0(i64 16, ptr %171) #8
+  %2498 = call { ptr, ptr } (...) @gen_noop()
+  %2499 = getelementptr inbounds nuw { ptr, ptr }, ptr %171, i32 0, i32 0
+  %2500 = extractvalue { ptr, ptr } %2498, 0
+  store ptr %2500, ptr %2499, align 8
+  %2501 = getelementptr inbounds nuw { ptr, ptr }, ptr %171, i32 0, i32 1
+  %2502 = extractvalue { ptr, ptr } %2498, 1
+  store ptr %2502, ptr %2501, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %171, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %171) #8
+  br label %4294
 
-2494:                                             ; preds = %2489
-  %2495 = call { ptr, ptr } (...) @gen_noop()
-  %2496 = getelementptr inbounds { ptr, ptr }, ptr %171, i32 0, i32 0
-  %2497 = extractvalue { ptr, ptr } %2495, 0
-  store ptr %2497, ptr %2496, align 8
-  %2498 = getelementptr inbounds { ptr, ptr }, ptr %171, i32 0, i32 1
-  %2499 = extractvalue { ptr, ptr } %2495, 1
-  store ptr %2499, ptr %2498, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %171, i64 16, i1 false)
-  br label %4268
+2503:                                             ; preds = %616
+  %2504 = load ptr, ptr %22, align 8, !tbaa !20
+  %2505 = getelementptr inbounds %union.YYSTYPE, ptr %2504, i64 -1
+  %2506 = getelementptr inbounds nuw { i64, ptr }, ptr %2505, i32 0, i32 0
+  %2507 = load i64, ptr %2506, align 8
+  %2508 = getelementptr inbounds nuw { i64, ptr }, ptr %2505, i32 0, i32 1
+  %2509 = load ptr, ptr %2508, align 8
+  call void @jv_free(i64 %2507, ptr %2509)
+  br label %2510
 
-2500:                                             ; preds = %604
-  %2501 = load ptr, ptr %21, align 8
-  %2502 = getelementptr inbounds %union.YYSTYPE, ptr %2501, i64 -4
-  %2503 = load ptr, ptr %21, align 8
-  %2504 = getelementptr inbounds %union.YYSTYPE, ptr %2503, i64 -2
-  %2505 = getelementptr inbounds { ptr, ptr }, ptr %2502, i32 0, i32 0
-  %2506 = load ptr, ptr %2505, align 8
-  %2507 = getelementptr inbounds { ptr, ptr }, ptr %2502, i32 0, i32 1
-  %2508 = load ptr, ptr %2507, align 8
-  %2509 = getelementptr inbounds { ptr, ptr }, ptr %2504, i32 0, i32 0
-  %2510 = load ptr, ptr %2509, align 8
-  %2511 = getelementptr inbounds { ptr, ptr }, ptr %2504, i32 0, i32 1
-  %2512 = load ptr, ptr %2511, align 8
-  %2513 = call { ptr, ptr } @gen_index_opt(ptr %2506, ptr %2508, ptr %2510, ptr %2512)
-  %2514 = getelementptr inbounds { ptr, ptr }, ptr %172, i32 0, i32 0
-  %2515 = extractvalue { ptr, ptr } %2513, 0
-  store ptr %2515, ptr %2514, align 8
-  %2516 = getelementptr inbounds { ptr, ptr }, ptr %172, i32 0, i32 1
-  %2517 = extractvalue { ptr, ptr } %2513, 1
-  store ptr %2517, ptr %2516, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %172, i64 16, i1 false)
-  br label %4268
+2510:                                             ; preds = %2503
+  call void @llvm.lifetime.start.p0(i64 8, ptr %172) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %172, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %2511 = load ptr, ptr %6, align 8, !tbaa !8
+  %2512 = load ptr, ptr %7, align 8, !tbaa !10
+  %2513 = load ptr, ptr %8, align 8, !tbaa !12
+  %2514 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %172, ptr noundef %2511, ptr noundef %2512, ptr noundef %2513, ptr noundef %2514, ptr noundef @.str.18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %172) #8
+  br label %2515
 
-2518:                                             ; preds = %604
-  %2519 = load ptr, ptr %21, align 8
-  %2520 = getelementptr inbounds %union.YYSTYPE, ptr %2519, i64 -3
-  %2521 = load ptr, ptr %21, align 8
-  %2522 = getelementptr inbounds %union.YYSTYPE, ptr %2521, i64 -1
-  %2523 = getelementptr inbounds { ptr, ptr }, ptr %2520, i32 0, i32 0
-  %2524 = load ptr, ptr %2523, align 8
-  %2525 = getelementptr inbounds { ptr, ptr }, ptr %2520, i32 0, i32 1
-  %2526 = load ptr, ptr %2525, align 8
-  %2527 = getelementptr inbounds { ptr, ptr }, ptr %2522, i32 0, i32 0
+2515:                                             ; preds = %2510
+  br label %2516
+
+2516:                                             ; preds = %2515
+  call void @llvm.lifetime.start.p0(i64 16, ptr %173) #8
+  %2517 = call { ptr, ptr } (...) @gen_noop()
+  %2518 = getelementptr inbounds nuw { ptr, ptr }, ptr %173, i32 0, i32 0
+  %2519 = extractvalue { ptr, ptr } %2517, 0
+  store ptr %2519, ptr %2518, align 8
+  %2520 = getelementptr inbounds nuw { ptr, ptr }, ptr %173, i32 0, i32 1
+  %2521 = extractvalue { ptr, ptr } %2517, 1
+  store ptr %2521, ptr %2520, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %173, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %173) #8
+  br label %4294
+
+2522:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %174) #8
+  %2523 = load ptr, ptr %22, align 8, !tbaa !20
+  %2524 = getelementptr inbounds %union.YYSTYPE, ptr %2523, i64 -4
+  %2525 = load ptr, ptr %22, align 8, !tbaa !20
+  %2526 = getelementptr inbounds %union.YYSTYPE, ptr %2525, i64 -2
+  %2527 = getelementptr inbounds nuw { ptr, ptr }, ptr %2524, i32 0, i32 0
   %2528 = load ptr, ptr %2527, align 8
-  %2529 = getelementptr inbounds { ptr, ptr }, ptr %2522, i32 0, i32 1
+  %2529 = getelementptr inbounds nuw { ptr, ptr }, ptr %2524, i32 0, i32 1
   %2530 = load ptr, ptr %2529, align 8
-  %2531 = call { ptr, ptr } @gen_index(ptr %2524, ptr %2526, ptr %2528, ptr %2530)
-  %2532 = getelementptr inbounds { ptr, ptr }, ptr %173, i32 0, i32 0
-  %2533 = extractvalue { ptr, ptr } %2531, 0
-  store ptr %2533, ptr %2532, align 8
-  %2534 = getelementptr inbounds { ptr, ptr }, ptr %173, i32 0, i32 1
-  %2535 = extractvalue { ptr, ptr } %2531, 1
-  store ptr %2535, ptr %2534, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %173, i64 16, i1 false)
-  br label %4268
+  %2531 = getelementptr inbounds nuw { ptr, ptr }, ptr %2526, i32 0, i32 0
+  %2532 = load ptr, ptr %2531, align 8
+  %2533 = getelementptr inbounds nuw { ptr, ptr }, ptr %2526, i32 0, i32 1
+  %2534 = load ptr, ptr %2533, align 8
+  %2535 = call { ptr, ptr } @gen_index_opt(ptr %2528, ptr %2530, ptr %2532, ptr %2534)
+  %2536 = getelementptr inbounds nuw { ptr, ptr }, ptr %174, i32 0, i32 0
+  %2537 = extractvalue { ptr, ptr } %2535, 0
+  store ptr %2537, ptr %2536, align 8
+  %2538 = getelementptr inbounds nuw { ptr, ptr }, ptr %174, i32 0, i32 1
+  %2539 = extractvalue { ptr, ptr } %2535, 1
+  store ptr %2539, ptr %2538, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %174, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %174) #8
+  br label %4294
 
-2536:                                             ; preds = %604
-  %2537 = load ptr, ptr %21, align 8
-  %2538 = getelementptr inbounds %union.YYSTYPE, ptr %2537, i64 -5
-  %2539 = load ptr, ptr %21, align 8
-  %2540 = getelementptr inbounds %union.YYSTYPE, ptr %2539, i64 -2
-  %2541 = getelementptr inbounds { ptr, ptr }, ptr %2538, i32 0, i32 0
-  %2542 = load ptr, ptr %2541, align 8
-  %2543 = getelementptr inbounds { ptr, ptr }, ptr %2538, i32 0, i32 1
-  %2544 = load ptr, ptr %2543, align 8
-  %2545 = getelementptr inbounds { ptr, ptr }, ptr %2540, i32 0, i32 0
+2540:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %175) #8
+  %2541 = load ptr, ptr %22, align 8, !tbaa !20
+  %2542 = getelementptr inbounds %union.YYSTYPE, ptr %2541, i64 -3
+  %2543 = load ptr, ptr %22, align 8, !tbaa !20
+  %2544 = getelementptr inbounds %union.YYSTYPE, ptr %2543, i64 -1
+  %2545 = getelementptr inbounds nuw { ptr, ptr }, ptr %2542, i32 0, i32 0
   %2546 = load ptr, ptr %2545, align 8
-  %2547 = getelementptr inbounds { ptr, ptr }, ptr %2540, i32 0, i32 1
+  %2547 = getelementptr inbounds nuw { ptr, ptr }, ptr %2542, i32 0, i32 1
   %2548 = load ptr, ptr %2547, align 8
-  %2549 = call { ptr, ptr } @gen_index_opt(ptr %2542, ptr %2544, ptr %2546, ptr %2548)
-  %2550 = getelementptr inbounds { ptr, ptr }, ptr %174, i32 0, i32 0
-  %2551 = extractvalue { ptr, ptr } %2549, 0
-  store ptr %2551, ptr %2550, align 8
-  %2552 = getelementptr inbounds { ptr, ptr }, ptr %174, i32 0, i32 1
-  %2553 = extractvalue { ptr, ptr } %2549, 1
-  store ptr %2553, ptr %2552, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %174, i64 16, i1 false)
-  br label %4268
+  %2549 = getelementptr inbounds nuw { ptr, ptr }, ptr %2544, i32 0, i32 0
+  %2550 = load ptr, ptr %2549, align 8
+  %2551 = getelementptr inbounds nuw { ptr, ptr }, ptr %2544, i32 0, i32 1
+  %2552 = load ptr, ptr %2551, align 8
+  %2553 = call { ptr, ptr } @gen_index(ptr %2546, ptr %2548, ptr %2550, ptr %2552)
+  %2554 = getelementptr inbounds nuw { ptr, ptr }, ptr %175, i32 0, i32 0
+  %2555 = extractvalue { ptr, ptr } %2553, 0
+  store ptr %2555, ptr %2554, align 8
+  %2556 = getelementptr inbounds nuw { ptr, ptr }, ptr %175, i32 0, i32 1
+  %2557 = extractvalue { ptr, ptr } %2553, 1
+  store ptr %2557, ptr %2556, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %175, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %175) #8
+  br label %4294
 
-2554:                                             ; preds = %604
-  %2555 = load ptr, ptr %21, align 8
-  %2556 = getelementptr inbounds %union.YYSTYPE, ptr %2555, i64 -4
-  %2557 = load ptr, ptr %21, align 8
-  %2558 = getelementptr inbounds %union.YYSTYPE, ptr %2557, i64 -1
-  %2559 = getelementptr inbounds { ptr, ptr }, ptr %2556, i32 0, i32 0
-  %2560 = load ptr, ptr %2559, align 8
-  %2561 = getelementptr inbounds { ptr, ptr }, ptr %2556, i32 0, i32 1
-  %2562 = load ptr, ptr %2561, align 8
-  %2563 = getelementptr inbounds { ptr, ptr }, ptr %2558, i32 0, i32 0
+2558:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %176) #8
+  %2559 = load ptr, ptr %22, align 8, !tbaa !20
+  %2560 = getelementptr inbounds %union.YYSTYPE, ptr %2559, i64 -5
+  %2561 = load ptr, ptr %22, align 8, !tbaa !20
+  %2562 = getelementptr inbounds %union.YYSTYPE, ptr %2561, i64 -2
+  %2563 = getelementptr inbounds nuw { ptr, ptr }, ptr %2560, i32 0, i32 0
   %2564 = load ptr, ptr %2563, align 8
-  %2565 = getelementptr inbounds { ptr, ptr }, ptr %2558, i32 0, i32 1
+  %2565 = getelementptr inbounds nuw { ptr, ptr }, ptr %2560, i32 0, i32 1
   %2566 = load ptr, ptr %2565, align 8
-  %2567 = call { ptr, ptr } @gen_index(ptr %2560, ptr %2562, ptr %2564, ptr %2566)
-  %2568 = getelementptr inbounds { ptr, ptr }, ptr %175, i32 0, i32 0
-  %2569 = extractvalue { ptr, ptr } %2567, 0
-  store ptr %2569, ptr %2568, align 8
-  %2570 = getelementptr inbounds { ptr, ptr }, ptr %175, i32 0, i32 1
-  %2571 = extractvalue { ptr, ptr } %2567, 1
-  store ptr %2571, ptr %2570, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %175, i64 16, i1 false)
-  br label %4268
+  %2567 = getelementptr inbounds nuw { ptr, ptr }, ptr %2562, i32 0, i32 0
+  %2568 = load ptr, ptr %2567, align 8
+  %2569 = getelementptr inbounds nuw { ptr, ptr }, ptr %2562, i32 0, i32 1
+  %2570 = load ptr, ptr %2569, align 8
+  %2571 = call { ptr, ptr } @gen_index_opt(ptr %2564, ptr %2566, ptr %2568, ptr %2570)
+  %2572 = getelementptr inbounds nuw { ptr, ptr }, ptr %176, i32 0, i32 0
+  %2573 = extractvalue { ptr, ptr } %2571, 0
+  store ptr %2573, ptr %2572, align 8
+  %2574 = getelementptr inbounds nuw { ptr, ptr }, ptr %176, i32 0, i32 1
+  %2575 = extractvalue { ptr, ptr } %2571, 1
+  store ptr %2575, ptr %2574, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %176, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %176) #8
+  br label %4294
 
-2572:                                             ; preds = %604
-  %2573 = load ptr, ptr %21, align 8
-  %2574 = getelementptr inbounds %union.YYSTYPE, ptr %2573, i64 -3
-  %2575 = call { ptr, ptr } @gen_op_simple(i32 noundef 13)
-  %2576 = getelementptr inbounds { ptr, ptr }, ptr %177, i32 0, i32 0
-  %2577 = extractvalue { ptr, ptr } %2575, 0
-  store ptr %2577, ptr %2576, align 8
-  %2578 = getelementptr inbounds { ptr, ptr }, ptr %177, i32 0, i32 1
-  %2579 = extractvalue { ptr, ptr } %2575, 1
-  store ptr %2579, ptr %2578, align 8
-  %2580 = getelementptr inbounds { ptr, ptr }, ptr %2574, i32 0, i32 0
-  %2581 = load ptr, ptr %2580, align 8
-  %2582 = getelementptr inbounds { ptr, ptr }, ptr %2574, i32 0, i32 1
-  %2583 = load ptr, ptr %2582, align 8
-  %2584 = getelementptr inbounds { ptr, ptr }, ptr %177, i32 0, i32 0
-  %2585 = load ptr, ptr %2584, align 8
-  %2586 = getelementptr inbounds { ptr, ptr }, ptr %177, i32 0, i32 1
-  %2587 = load ptr, ptr %2586, align 8
-  %2588 = call { ptr, ptr } @block_join(ptr %2581, ptr %2583, ptr %2585, ptr %2587)
-  %2589 = getelementptr inbounds { ptr, ptr }, ptr %176, i32 0, i32 0
-  %2590 = extractvalue { ptr, ptr } %2588, 0
-  store ptr %2590, ptr %2589, align 8
-  %2591 = getelementptr inbounds { ptr, ptr }, ptr %176, i32 0, i32 1
-  %2592 = extractvalue { ptr, ptr } %2588, 1
-  store ptr %2592, ptr %2591, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %176, i64 16, i1 false)
-  br label %4268
+2576:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %177) #8
+  %2577 = load ptr, ptr %22, align 8, !tbaa !20
+  %2578 = getelementptr inbounds %union.YYSTYPE, ptr %2577, i64 -4
+  %2579 = load ptr, ptr %22, align 8, !tbaa !20
+  %2580 = getelementptr inbounds %union.YYSTYPE, ptr %2579, i64 -1
+  %2581 = getelementptr inbounds nuw { ptr, ptr }, ptr %2578, i32 0, i32 0
+  %2582 = load ptr, ptr %2581, align 8
+  %2583 = getelementptr inbounds nuw { ptr, ptr }, ptr %2578, i32 0, i32 1
+  %2584 = load ptr, ptr %2583, align 8
+  %2585 = getelementptr inbounds nuw { ptr, ptr }, ptr %2580, i32 0, i32 0
+  %2586 = load ptr, ptr %2585, align 8
+  %2587 = getelementptr inbounds nuw { ptr, ptr }, ptr %2580, i32 0, i32 1
+  %2588 = load ptr, ptr %2587, align 8
+  %2589 = call { ptr, ptr } @gen_index(ptr %2582, ptr %2584, ptr %2586, ptr %2588)
+  %2590 = getelementptr inbounds nuw { ptr, ptr }, ptr %177, i32 0, i32 0
+  %2591 = extractvalue { ptr, ptr } %2589, 0
+  store ptr %2591, ptr %2590, align 8
+  %2592 = getelementptr inbounds nuw { ptr, ptr }, ptr %177, i32 0, i32 1
+  %2593 = extractvalue { ptr, ptr } %2589, 1
+  store ptr %2593, ptr %2592, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %177, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %177) #8
+  br label %4294
 
-2593:                                             ; preds = %604
-  %2594 = load ptr, ptr %21, align 8
-  %2595 = getelementptr inbounds %union.YYSTYPE, ptr %2594, i64 -2
-  %2596 = call { ptr, ptr } @gen_op_simple(i32 noundef 12)
-  %2597 = getelementptr inbounds { ptr, ptr }, ptr %179, i32 0, i32 0
-  %2598 = extractvalue { ptr, ptr } %2596, 0
-  store ptr %2598, ptr %2597, align 8
-  %2599 = getelementptr inbounds { ptr, ptr }, ptr %179, i32 0, i32 1
-  %2600 = extractvalue { ptr, ptr } %2596, 1
-  store ptr %2600, ptr %2599, align 8
-  %2601 = getelementptr inbounds { ptr, ptr }, ptr %2595, i32 0, i32 0
-  %2602 = load ptr, ptr %2601, align 8
-  %2603 = getelementptr inbounds { ptr, ptr }, ptr %2595, i32 0, i32 1
-  %2604 = load ptr, ptr %2603, align 8
-  %2605 = getelementptr inbounds { ptr, ptr }, ptr %179, i32 0, i32 0
-  %2606 = load ptr, ptr %2605, align 8
-  %2607 = getelementptr inbounds { ptr, ptr }, ptr %179, i32 0, i32 1
-  %2608 = load ptr, ptr %2607, align 8
-  %2609 = call { ptr, ptr } @block_join(ptr %2602, ptr %2604, ptr %2606, ptr %2608)
-  %2610 = getelementptr inbounds { ptr, ptr }, ptr %178, i32 0, i32 0
-  %2611 = extractvalue { ptr, ptr } %2609, 0
-  store ptr %2611, ptr %2610, align 8
-  %2612 = getelementptr inbounds { ptr, ptr }, ptr %178, i32 0, i32 1
-  %2613 = extractvalue { ptr, ptr } %2609, 1
-  store ptr %2613, ptr %2612, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %178, i64 16, i1 false)
-  br label %4268
+2594:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %178) #8
+  %2595 = load ptr, ptr %22, align 8, !tbaa !20
+  %2596 = getelementptr inbounds %union.YYSTYPE, ptr %2595, i64 -3
+  %2597 = call { ptr, ptr } @gen_op_simple(i32 noundef 13)
+  %2598 = getelementptr inbounds nuw { ptr, ptr }, ptr %179, i32 0, i32 0
+  %2599 = extractvalue { ptr, ptr } %2597, 0
+  store ptr %2599, ptr %2598, align 8
+  %2600 = getelementptr inbounds nuw { ptr, ptr }, ptr %179, i32 0, i32 1
+  %2601 = extractvalue { ptr, ptr } %2597, 1
+  store ptr %2601, ptr %2600, align 8
+  %2602 = getelementptr inbounds nuw { ptr, ptr }, ptr %2596, i32 0, i32 0
+  %2603 = load ptr, ptr %2602, align 8
+  %2604 = getelementptr inbounds nuw { ptr, ptr }, ptr %2596, i32 0, i32 1
+  %2605 = load ptr, ptr %2604, align 8
+  %2606 = getelementptr inbounds nuw { ptr, ptr }, ptr %179, i32 0, i32 0
+  %2607 = load ptr, ptr %2606, align 8
+  %2608 = getelementptr inbounds nuw { ptr, ptr }, ptr %179, i32 0, i32 1
+  %2609 = load ptr, ptr %2608, align 8
+  %2610 = call { ptr, ptr } @block_join(ptr %2603, ptr %2605, ptr %2607, ptr %2609)
+  %2611 = getelementptr inbounds nuw { ptr, ptr }, ptr %178, i32 0, i32 0
+  %2612 = extractvalue { ptr, ptr } %2610, 0
+  store ptr %2612, ptr %2611, align 8
+  %2613 = getelementptr inbounds nuw { ptr, ptr }, ptr %178, i32 0, i32 1
+  %2614 = extractvalue { ptr, ptr } %2610, 1
+  store ptr %2614, ptr %2613, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %178, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %178) #8
+  br label %4294
 
-2614:                                             ; preds = %604
-  %2615 = load ptr, ptr %21, align 8
-  %2616 = getelementptr inbounds %union.YYSTYPE, ptr %2615, i64 -4
-  %2617 = call { ptr, ptr } @gen_op_simple(i32 noundef 13)
-  %2618 = getelementptr inbounds { ptr, ptr }, ptr %181, i32 0, i32 0
-  %2619 = extractvalue { ptr, ptr } %2617, 0
-  store ptr %2619, ptr %2618, align 8
-  %2620 = getelementptr inbounds { ptr, ptr }, ptr %181, i32 0, i32 1
-  %2621 = extractvalue { ptr, ptr } %2617, 1
-  store ptr %2621, ptr %2620, align 8
-  %2622 = getelementptr inbounds { ptr, ptr }, ptr %2616, i32 0, i32 0
-  %2623 = load ptr, ptr %2622, align 8
-  %2624 = getelementptr inbounds { ptr, ptr }, ptr %2616, i32 0, i32 1
-  %2625 = load ptr, ptr %2624, align 8
-  %2626 = getelementptr inbounds { ptr, ptr }, ptr %181, i32 0, i32 0
-  %2627 = load ptr, ptr %2626, align 8
-  %2628 = getelementptr inbounds { ptr, ptr }, ptr %181, i32 0, i32 1
-  %2629 = load ptr, ptr %2628, align 8
-  %2630 = call { ptr, ptr } @block_join(ptr %2623, ptr %2625, ptr %2627, ptr %2629)
-  %2631 = getelementptr inbounds { ptr, ptr }, ptr %180, i32 0, i32 0
-  %2632 = extractvalue { ptr, ptr } %2630, 0
-  store ptr %2632, ptr %2631, align 8
-  %2633 = getelementptr inbounds { ptr, ptr }, ptr %180, i32 0, i32 1
-  %2634 = extractvalue { ptr, ptr } %2630, 1
-  store ptr %2634, ptr %2633, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %180, i64 16, i1 false)
-  br label %4268
+2615:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %180) #8
+  %2616 = load ptr, ptr %22, align 8, !tbaa !20
+  %2617 = getelementptr inbounds %union.YYSTYPE, ptr %2616, i64 -2
+  %2618 = call { ptr, ptr } @gen_op_simple(i32 noundef 12)
+  %2619 = getelementptr inbounds nuw { ptr, ptr }, ptr %181, i32 0, i32 0
+  %2620 = extractvalue { ptr, ptr } %2618, 0
+  store ptr %2620, ptr %2619, align 8
+  %2621 = getelementptr inbounds nuw { ptr, ptr }, ptr %181, i32 0, i32 1
+  %2622 = extractvalue { ptr, ptr } %2618, 1
+  store ptr %2622, ptr %2621, align 8
+  %2623 = getelementptr inbounds nuw { ptr, ptr }, ptr %2617, i32 0, i32 0
+  %2624 = load ptr, ptr %2623, align 8
+  %2625 = getelementptr inbounds nuw { ptr, ptr }, ptr %2617, i32 0, i32 1
+  %2626 = load ptr, ptr %2625, align 8
+  %2627 = getelementptr inbounds nuw { ptr, ptr }, ptr %181, i32 0, i32 0
+  %2628 = load ptr, ptr %2627, align 8
+  %2629 = getelementptr inbounds nuw { ptr, ptr }, ptr %181, i32 0, i32 1
+  %2630 = load ptr, ptr %2629, align 8
+  %2631 = call { ptr, ptr } @block_join(ptr %2624, ptr %2626, ptr %2628, ptr %2630)
+  %2632 = getelementptr inbounds nuw { ptr, ptr }, ptr %180, i32 0, i32 0
+  %2633 = extractvalue { ptr, ptr } %2631, 0
+  store ptr %2633, ptr %2632, align 8
+  %2634 = getelementptr inbounds nuw { ptr, ptr }, ptr %180, i32 0, i32 1
+  %2635 = extractvalue { ptr, ptr } %2631, 1
+  store ptr %2635, ptr %2634, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %180, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %180) #8
+  br label %4294
 
-2635:                                             ; preds = %604
-  %2636 = load ptr, ptr %21, align 8
-  %2637 = getelementptr inbounds %union.YYSTYPE, ptr %2636, i64 -3
-  %2638 = call { ptr, ptr } @gen_op_simple(i32 noundef 12)
-  %2639 = getelementptr inbounds { ptr, ptr }, ptr %183, i32 0, i32 0
-  %2640 = extractvalue { ptr, ptr } %2638, 0
-  store ptr %2640, ptr %2639, align 8
-  %2641 = getelementptr inbounds { ptr, ptr }, ptr %183, i32 0, i32 1
-  %2642 = extractvalue { ptr, ptr } %2638, 1
-  store ptr %2642, ptr %2641, align 8
-  %2643 = getelementptr inbounds { ptr, ptr }, ptr %2637, i32 0, i32 0
-  %2644 = load ptr, ptr %2643, align 8
-  %2645 = getelementptr inbounds { ptr, ptr }, ptr %2637, i32 0, i32 1
-  %2646 = load ptr, ptr %2645, align 8
-  %2647 = getelementptr inbounds { ptr, ptr }, ptr %183, i32 0, i32 0
-  %2648 = load ptr, ptr %2647, align 8
-  %2649 = getelementptr inbounds { ptr, ptr }, ptr %183, i32 0, i32 1
-  %2650 = load ptr, ptr %2649, align 8
-  %2651 = call { ptr, ptr } @block_join(ptr %2644, ptr %2646, ptr %2648, ptr %2650)
-  %2652 = getelementptr inbounds { ptr, ptr }, ptr %182, i32 0, i32 0
-  %2653 = extractvalue { ptr, ptr } %2651, 0
-  store ptr %2653, ptr %2652, align 8
-  %2654 = getelementptr inbounds { ptr, ptr }, ptr %182, i32 0, i32 1
-  %2655 = extractvalue { ptr, ptr } %2651, 1
-  store ptr %2655, ptr %2654, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %182, i64 16, i1 false)
-  br label %4268
+2636:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %182) #8
+  %2637 = load ptr, ptr %22, align 8, !tbaa !20
+  %2638 = getelementptr inbounds %union.YYSTYPE, ptr %2637, i64 -4
+  %2639 = call { ptr, ptr } @gen_op_simple(i32 noundef 13)
+  %2640 = getelementptr inbounds nuw { ptr, ptr }, ptr %183, i32 0, i32 0
+  %2641 = extractvalue { ptr, ptr } %2639, 0
+  store ptr %2641, ptr %2640, align 8
+  %2642 = getelementptr inbounds nuw { ptr, ptr }, ptr %183, i32 0, i32 1
+  %2643 = extractvalue { ptr, ptr } %2639, 1
+  store ptr %2643, ptr %2642, align 8
+  %2644 = getelementptr inbounds nuw { ptr, ptr }, ptr %2638, i32 0, i32 0
+  %2645 = load ptr, ptr %2644, align 8
+  %2646 = getelementptr inbounds nuw { ptr, ptr }, ptr %2638, i32 0, i32 1
+  %2647 = load ptr, ptr %2646, align 8
+  %2648 = getelementptr inbounds nuw { ptr, ptr }, ptr %183, i32 0, i32 0
+  %2649 = load ptr, ptr %2648, align 8
+  %2650 = getelementptr inbounds nuw { ptr, ptr }, ptr %183, i32 0, i32 1
+  %2651 = load ptr, ptr %2650, align 8
+  %2652 = call { ptr, ptr } @block_join(ptr %2645, ptr %2647, ptr %2649, ptr %2651)
+  %2653 = getelementptr inbounds nuw { ptr, ptr }, ptr %182, i32 0, i32 0
+  %2654 = extractvalue { ptr, ptr } %2652, 0
+  store ptr %2654, ptr %2653, align 8
+  %2655 = getelementptr inbounds nuw { ptr, ptr }, ptr %182, i32 0, i32 1
+  %2656 = extractvalue { ptr, ptr } %2652, 1
+  store ptr %2656, ptr %2655, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %182, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %182) #8
+  br label %4294
 
-2656:                                             ; preds = %604
-  %2657 = load ptr, ptr %21, align 8
-  %2658 = getelementptr inbounds %union.YYSTYPE, ptr %2657, i64 -6
-  %2659 = load ptr, ptr %21, align 8
-  %2660 = getelementptr inbounds %union.YYSTYPE, ptr %2659, i64 -4
-  %2661 = load ptr, ptr %21, align 8
-  %2662 = getelementptr inbounds %union.YYSTYPE, ptr %2661, i64 -2
-  %2663 = getelementptr inbounds { ptr, ptr }, ptr %2658, i32 0, i32 0
-  %2664 = load ptr, ptr %2663, align 8
-  %2665 = getelementptr inbounds { ptr, ptr }, ptr %2658, i32 0, i32 1
+2657:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %184) #8
+  %2658 = load ptr, ptr %22, align 8, !tbaa !20
+  %2659 = getelementptr inbounds %union.YYSTYPE, ptr %2658, i64 -3
+  %2660 = call { ptr, ptr } @gen_op_simple(i32 noundef 12)
+  %2661 = getelementptr inbounds nuw { ptr, ptr }, ptr %185, i32 0, i32 0
+  %2662 = extractvalue { ptr, ptr } %2660, 0
+  store ptr %2662, ptr %2661, align 8
+  %2663 = getelementptr inbounds nuw { ptr, ptr }, ptr %185, i32 0, i32 1
+  %2664 = extractvalue { ptr, ptr } %2660, 1
+  store ptr %2664, ptr %2663, align 8
+  %2665 = getelementptr inbounds nuw { ptr, ptr }, ptr %2659, i32 0, i32 0
   %2666 = load ptr, ptr %2665, align 8
-  %2667 = getelementptr inbounds { ptr, ptr }, ptr %2660, i32 0, i32 0
+  %2667 = getelementptr inbounds nuw { ptr, ptr }, ptr %2659, i32 0, i32 1
   %2668 = load ptr, ptr %2667, align 8
-  %2669 = getelementptr inbounds { ptr, ptr }, ptr %2660, i32 0, i32 1
+  %2669 = getelementptr inbounds nuw { ptr, ptr }, ptr %185, i32 0, i32 0
   %2670 = load ptr, ptr %2669, align 8
-  %2671 = getelementptr inbounds { ptr, ptr }, ptr %2662, i32 0, i32 0
+  %2671 = getelementptr inbounds nuw { ptr, ptr }, ptr %185, i32 0, i32 1
   %2672 = load ptr, ptr %2671, align 8
-  %2673 = getelementptr inbounds { ptr, ptr }, ptr %2662, i32 0, i32 1
-  %2674 = load ptr, ptr %2673, align 8
-  %2675 = call { ptr, ptr } @gen_slice_index(ptr %2664, ptr %2666, ptr %2668, ptr %2670, ptr %2672, ptr %2674, i32 noundef 11)
-  %2676 = getelementptr inbounds { ptr, ptr }, ptr %184, i32 0, i32 0
-  %2677 = extractvalue { ptr, ptr } %2675, 0
+  %2673 = call { ptr, ptr } @block_join(ptr %2666, ptr %2668, ptr %2670, ptr %2672)
+  %2674 = getelementptr inbounds nuw { ptr, ptr }, ptr %184, i32 0, i32 0
+  %2675 = extractvalue { ptr, ptr } %2673, 0
+  store ptr %2675, ptr %2674, align 8
+  %2676 = getelementptr inbounds nuw { ptr, ptr }, ptr %184, i32 0, i32 1
+  %2677 = extractvalue { ptr, ptr } %2673, 1
   store ptr %2677, ptr %2676, align 8
-  %2678 = getelementptr inbounds { ptr, ptr }, ptr %184, i32 0, i32 1
-  %2679 = extractvalue { ptr, ptr } %2675, 1
-  store ptr %2679, ptr %2678, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %184, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %184, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %184) #8
+  br label %4294
 
-2680:                                             ; preds = %604
-  %2681 = load ptr, ptr %21, align 8
-  %2682 = getelementptr inbounds %union.YYSTYPE, ptr %2681, i64 -5
-  %2683 = load ptr, ptr %21, align 8
-  %2684 = getelementptr inbounds %union.YYSTYPE, ptr %2683, i64 -3
-  %2685 = call { i64, ptr } @jv_null()
-  %2686 = getelementptr inbounds { i64, ptr }, ptr %187, i32 0, i32 0
-  %2687 = extractvalue { i64, ptr } %2685, 0
-  store i64 %2687, ptr %2686, align 8
-  %2688 = getelementptr inbounds { i64, ptr }, ptr %187, i32 0, i32 1
-  %2689 = extractvalue { i64, ptr } %2685, 1
-  store ptr %2689, ptr %2688, align 8
-  %2690 = getelementptr inbounds { i64, ptr }, ptr %187, i32 0, i32 0
-  %2691 = load i64, ptr %2690, align 8
-  %2692 = getelementptr inbounds { i64, ptr }, ptr %187, i32 0, i32 1
-  %2693 = load ptr, ptr %2692, align 8
-  %2694 = call { ptr, ptr } @gen_const(i64 %2691, ptr %2693)
-  %2695 = getelementptr inbounds { ptr, ptr }, ptr %186, i32 0, i32 0
-  %2696 = extractvalue { ptr, ptr } %2694, 0
-  store ptr %2696, ptr %2695, align 8
-  %2697 = getelementptr inbounds { ptr, ptr }, ptr %186, i32 0, i32 1
-  %2698 = extractvalue { ptr, ptr } %2694, 1
-  store ptr %2698, ptr %2697, align 8
-  %2699 = getelementptr inbounds { ptr, ptr }, ptr %2682, i32 0, i32 0
-  %2700 = load ptr, ptr %2699, align 8
-  %2701 = getelementptr inbounds { ptr, ptr }, ptr %2682, i32 0, i32 1
-  %2702 = load ptr, ptr %2701, align 8
-  %2703 = getelementptr inbounds { ptr, ptr }, ptr %2684, i32 0, i32 0
-  %2704 = load ptr, ptr %2703, align 8
-  %2705 = getelementptr inbounds { ptr, ptr }, ptr %2684, i32 0, i32 1
-  %2706 = load ptr, ptr %2705, align 8
-  %2707 = getelementptr inbounds { ptr, ptr }, ptr %186, i32 0, i32 0
-  %2708 = load ptr, ptr %2707, align 8
-  %2709 = getelementptr inbounds { ptr, ptr }, ptr %186, i32 0, i32 1
-  %2710 = load ptr, ptr %2709, align 8
-  %2711 = call { ptr, ptr } @gen_slice_index(ptr %2700, ptr %2702, ptr %2704, ptr %2706, ptr %2708, ptr %2710, i32 noundef 11)
-  %2712 = getelementptr inbounds { ptr, ptr }, ptr %185, i32 0, i32 0
-  %2713 = extractvalue { ptr, ptr } %2711, 0
-  store ptr %2713, ptr %2712, align 8
-  %2714 = getelementptr inbounds { ptr, ptr }, ptr %185, i32 0, i32 1
-  %2715 = extractvalue { ptr, ptr } %2711, 1
-  store ptr %2715, ptr %2714, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %185, i64 16, i1 false)
-  br label %4268
+2678:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %186) #8
+  %2679 = load ptr, ptr %22, align 8, !tbaa !20
+  %2680 = getelementptr inbounds %union.YYSTYPE, ptr %2679, i64 -6
+  %2681 = load ptr, ptr %22, align 8, !tbaa !20
+  %2682 = getelementptr inbounds %union.YYSTYPE, ptr %2681, i64 -4
+  %2683 = load ptr, ptr %22, align 8, !tbaa !20
+  %2684 = getelementptr inbounds %union.YYSTYPE, ptr %2683, i64 -2
+  %2685 = getelementptr inbounds nuw { ptr, ptr }, ptr %2680, i32 0, i32 0
+  %2686 = load ptr, ptr %2685, align 8
+  %2687 = getelementptr inbounds nuw { ptr, ptr }, ptr %2680, i32 0, i32 1
+  %2688 = load ptr, ptr %2687, align 8
+  %2689 = getelementptr inbounds nuw { ptr, ptr }, ptr %2682, i32 0, i32 0
+  %2690 = load ptr, ptr %2689, align 8
+  %2691 = getelementptr inbounds nuw { ptr, ptr }, ptr %2682, i32 0, i32 1
+  %2692 = load ptr, ptr %2691, align 8
+  %2693 = getelementptr inbounds nuw { ptr, ptr }, ptr %2684, i32 0, i32 0
+  %2694 = load ptr, ptr %2693, align 8
+  %2695 = getelementptr inbounds nuw { ptr, ptr }, ptr %2684, i32 0, i32 1
+  %2696 = load ptr, ptr %2695, align 8
+  %2697 = call { ptr, ptr } @gen_slice_index(ptr %2686, ptr %2688, ptr %2690, ptr %2692, ptr %2694, ptr %2696, i32 noundef 11)
+  %2698 = getelementptr inbounds nuw { ptr, ptr }, ptr %186, i32 0, i32 0
+  %2699 = extractvalue { ptr, ptr } %2697, 0
+  store ptr %2699, ptr %2698, align 8
+  %2700 = getelementptr inbounds nuw { ptr, ptr }, ptr %186, i32 0, i32 1
+  %2701 = extractvalue { ptr, ptr } %2697, 1
+  store ptr %2701, ptr %2700, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %186, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %186) #8
+  br label %4294
 
-2716:                                             ; preds = %604
-  %2717 = load ptr, ptr %21, align 8
-  %2718 = getelementptr inbounds %union.YYSTYPE, ptr %2717, i64 -5
-  %2719 = call { i64, ptr } @jv_null()
-  %2720 = getelementptr inbounds { i64, ptr }, ptr %190, i32 0, i32 0
-  %2721 = extractvalue { i64, ptr } %2719, 0
-  store i64 %2721, ptr %2720, align 8
-  %2722 = getelementptr inbounds { i64, ptr }, ptr %190, i32 0, i32 1
-  %2723 = extractvalue { i64, ptr } %2719, 1
-  store ptr %2723, ptr %2722, align 8
-  %2724 = getelementptr inbounds { i64, ptr }, ptr %190, i32 0, i32 0
-  %2725 = load i64, ptr %2724, align 8
-  %2726 = getelementptr inbounds { i64, ptr }, ptr %190, i32 0, i32 1
-  %2727 = load ptr, ptr %2726, align 8
-  %2728 = call { ptr, ptr } @gen_const(i64 %2725, ptr %2727)
-  %2729 = getelementptr inbounds { ptr, ptr }, ptr %189, i32 0, i32 0
-  %2730 = extractvalue { ptr, ptr } %2728, 0
-  store ptr %2730, ptr %2729, align 8
-  %2731 = getelementptr inbounds { ptr, ptr }, ptr %189, i32 0, i32 1
-  %2732 = extractvalue { ptr, ptr } %2728, 1
-  store ptr %2732, ptr %2731, align 8
-  %2733 = load ptr, ptr %21, align 8
-  %2734 = getelementptr inbounds %union.YYSTYPE, ptr %2733, i64 -2
-  %2735 = getelementptr inbounds { ptr, ptr }, ptr %2718, i32 0, i32 0
-  %2736 = load ptr, ptr %2735, align 8
-  %2737 = getelementptr inbounds { ptr, ptr }, ptr %2718, i32 0, i32 1
-  %2738 = load ptr, ptr %2737, align 8
-  %2739 = getelementptr inbounds { ptr, ptr }, ptr %189, i32 0, i32 0
-  %2740 = load ptr, ptr %2739, align 8
-  %2741 = getelementptr inbounds { ptr, ptr }, ptr %189, i32 0, i32 1
-  %2742 = load ptr, ptr %2741, align 8
-  %2743 = getelementptr inbounds { ptr, ptr }, ptr %2734, i32 0, i32 0
-  %2744 = load ptr, ptr %2743, align 8
-  %2745 = getelementptr inbounds { ptr, ptr }, ptr %2734, i32 0, i32 1
-  %2746 = load ptr, ptr %2745, align 8
-  %2747 = call { ptr, ptr } @gen_slice_index(ptr %2736, ptr %2738, ptr %2740, ptr %2742, ptr %2744, ptr %2746, i32 noundef 11)
-  %2748 = getelementptr inbounds { ptr, ptr }, ptr %188, i32 0, i32 0
-  %2749 = extractvalue { ptr, ptr } %2747, 0
-  store ptr %2749, ptr %2748, align 8
-  %2750 = getelementptr inbounds { ptr, ptr }, ptr %188, i32 0, i32 1
-  %2751 = extractvalue { ptr, ptr } %2747, 1
-  store ptr %2751, ptr %2750, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %188, i64 16, i1 false)
-  br label %4268
+2702:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %187) #8
+  %2703 = load ptr, ptr %22, align 8, !tbaa !20
+  %2704 = getelementptr inbounds %union.YYSTYPE, ptr %2703, i64 -5
+  %2705 = load ptr, ptr %22, align 8, !tbaa !20
+  %2706 = getelementptr inbounds %union.YYSTYPE, ptr %2705, i64 -3
+  %2707 = call { i64, ptr } @jv_null()
+  %2708 = getelementptr inbounds nuw { i64, ptr }, ptr %189, i32 0, i32 0
+  %2709 = extractvalue { i64, ptr } %2707, 0
+  store i64 %2709, ptr %2708, align 8
+  %2710 = getelementptr inbounds nuw { i64, ptr }, ptr %189, i32 0, i32 1
+  %2711 = extractvalue { i64, ptr } %2707, 1
+  store ptr %2711, ptr %2710, align 8
+  %2712 = getelementptr inbounds nuw { i64, ptr }, ptr %189, i32 0, i32 0
+  %2713 = load i64, ptr %2712, align 8
+  %2714 = getelementptr inbounds nuw { i64, ptr }, ptr %189, i32 0, i32 1
+  %2715 = load ptr, ptr %2714, align 8
+  %2716 = call { ptr, ptr } @gen_const(i64 %2713, ptr %2715)
+  %2717 = getelementptr inbounds nuw { ptr, ptr }, ptr %188, i32 0, i32 0
+  %2718 = extractvalue { ptr, ptr } %2716, 0
+  store ptr %2718, ptr %2717, align 8
+  %2719 = getelementptr inbounds nuw { ptr, ptr }, ptr %188, i32 0, i32 1
+  %2720 = extractvalue { ptr, ptr } %2716, 1
+  store ptr %2720, ptr %2719, align 8
+  %2721 = getelementptr inbounds nuw { ptr, ptr }, ptr %2704, i32 0, i32 0
+  %2722 = load ptr, ptr %2721, align 8
+  %2723 = getelementptr inbounds nuw { ptr, ptr }, ptr %2704, i32 0, i32 1
+  %2724 = load ptr, ptr %2723, align 8
+  %2725 = getelementptr inbounds nuw { ptr, ptr }, ptr %2706, i32 0, i32 0
+  %2726 = load ptr, ptr %2725, align 8
+  %2727 = getelementptr inbounds nuw { ptr, ptr }, ptr %2706, i32 0, i32 1
+  %2728 = load ptr, ptr %2727, align 8
+  %2729 = getelementptr inbounds nuw { ptr, ptr }, ptr %188, i32 0, i32 0
+  %2730 = load ptr, ptr %2729, align 8
+  %2731 = getelementptr inbounds nuw { ptr, ptr }, ptr %188, i32 0, i32 1
+  %2732 = load ptr, ptr %2731, align 8
+  %2733 = call { ptr, ptr } @gen_slice_index(ptr %2722, ptr %2724, ptr %2726, ptr %2728, ptr %2730, ptr %2732, i32 noundef 11)
+  %2734 = getelementptr inbounds nuw { ptr, ptr }, ptr %187, i32 0, i32 0
+  %2735 = extractvalue { ptr, ptr } %2733, 0
+  store ptr %2735, ptr %2734, align 8
+  %2736 = getelementptr inbounds nuw { ptr, ptr }, ptr %187, i32 0, i32 1
+  %2737 = extractvalue { ptr, ptr } %2733, 1
+  store ptr %2737, ptr %2736, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %187, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %187) #8
+  br label %4294
 
-2752:                                             ; preds = %604
-  %2753 = load ptr, ptr %21, align 8
-  %2754 = getelementptr inbounds %union.YYSTYPE, ptr %2753, i64 -5
-  %2755 = load ptr, ptr %21, align 8
-  %2756 = getelementptr inbounds %union.YYSTYPE, ptr %2755, i64 -3
-  %2757 = load ptr, ptr %21, align 8
-  %2758 = getelementptr inbounds %union.YYSTYPE, ptr %2757, i64 -1
-  %2759 = getelementptr inbounds { ptr, ptr }, ptr %2754, i32 0, i32 0
+2738:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %190) #8
+  %2739 = load ptr, ptr %22, align 8, !tbaa !20
+  %2740 = getelementptr inbounds %union.YYSTYPE, ptr %2739, i64 -5
+  %2741 = call { i64, ptr } @jv_null()
+  %2742 = getelementptr inbounds nuw { i64, ptr }, ptr %192, i32 0, i32 0
+  %2743 = extractvalue { i64, ptr } %2741, 0
+  store i64 %2743, ptr %2742, align 8
+  %2744 = getelementptr inbounds nuw { i64, ptr }, ptr %192, i32 0, i32 1
+  %2745 = extractvalue { i64, ptr } %2741, 1
+  store ptr %2745, ptr %2744, align 8
+  %2746 = getelementptr inbounds nuw { i64, ptr }, ptr %192, i32 0, i32 0
+  %2747 = load i64, ptr %2746, align 8
+  %2748 = getelementptr inbounds nuw { i64, ptr }, ptr %192, i32 0, i32 1
+  %2749 = load ptr, ptr %2748, align 8
+  %2750 = call { ptr, ptr } @gen_const(i64 %2747, ptr %2749)
+  %2751 = getelementptr inbounds nuw { ptr, ptr }, ptr %191, i32 0, i32 0
+  %2752 = extractvalue { ptr, ptr } %2750, 0
+  store ptr %2752, ptr %2751, align 8
+  %2753 = getelementptr inbounds nuw { ptr, ptr }, ptr %191, i32 0, i32 1
+  %2754 = extractvalue { ptr, ptr } %2750, 1
+  store ptr %2754, ptr %2753, align 8
+  %2755 = load ptr, ptr %22, align 8, !tbaa !20
+  %2756 = getelementptr inbounds %union.YYSTYPE, ptr %2755, i64 -2
+  %2757 = getelementptr inbounds nuw { ptr, ptr }, ptr %2740, i32 0, i32 0
+  %2758 = load ptr, ptr %2757, align 8
+  %2759 = getelementptr inbounds nuw { ptr, ptr }, ptr %2740, i32 0, i32 1
   %2760 = load ptr, ptr %2759, align 8
-  %2761 = getelementptr inbounds { ptr, ptr }, ptr %2754, i32 0, i32 1
+  %2761 = getelementptr inbounds nuw { ptr, ptr }, ptr %191, i32 0, i32 0
   %2762 = load ptr, ptr %2761, align 8
-  %2763 = getelementptr inbounds { ptr, ptr }, ptr %2756, i32 0, i32 0
+  %2763 = getelementptr inbounds nuw { ptr, ptr }, ptr %191, i32 0, i32 1
   %2764 = load ptr, ptr %2763, align 8
-  %2765 = getelementptr inbounds { ptr, ptr }, ptr %2756, i32 0, i32 1
+  %2765 = getelementptr inbounds nuw { ptr, ptr }, ptr %2756, i32 0, i32 0
   %2766 = load ptr, ptr %2765, align 8
-  %2767 = getelementptr inbounds { ptr, ptr }, ptr %2758, i32 0, i32 0
+  %2767 = getelementptr inbounds nuw { ptr, ptr }, ptr %2756, i32 0, i32 1
   %2768 = load ptr, ptr %2767, align 8
-  %2769 = getelementptr inbounds { ptr, ptr }, ptr %2758, i32 0, i32 1
-  %2770 = load ptr, ptr %2769, align 8
-  %2771 = call { ptr, ptr } @gen_slice_index(ptr %2760, ptr %2762, ptr %2764, ptr %2766, ptr %2768, ptr %2770, i32 noundef 10)
-  %2772 = getelementptr inbounds { ptr, ptr }, ptr %191, i32 0, i32 0
-  %2773 = extractvalue { ptr, ptr } %2771, 0
+  %2769 = call { ptr, ptr } @gen_slice_index(ptr %2758, ptr %2760, ptr %2762, ptr %2764, ptr %2766, ptr %2768, i32 noundef 11)
+  %2770 = getelementptr inbounds nuw { ptr, ptr }, ptr %190, i32 0, i32 0
+  %2771 = extractvalue { ptr, ptr } %2769, 0
+  store ptr %2771, ptr %2770, align 8
+  %2772 = getelementptr inbounds nuw { ptr, ptr }, ptr %190, i32 0, i32 1
+  %2773 = extractvalue { ptr, ptr } %2769, 1
   store ptr %2773, ptr %2772, align 8
-  %2774 = getelementptr inbounds { ptr, ptr }, ptr %191, i32 0, i32 1
-  %2775 = extractvalue { ptr, ptr } %2771, 1
-  store ptr %2775, ptr %2774, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %191, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %190, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %190) #8
+  br label %4294
 
-2776:                                             ; preds = %604
-  %2777 = load ptr, ptr %21, align 8
-  %2778 = getelementptr inbounds %union.YYSTYPE, ptr %2777, i64 -4
-  %2779 = load ptr, ptr %21, align 8
-  %2780 = getelementptr inbounds %union.YYSTYPE, ptr %2779, i64 -2
-  %2781 = call { i64, ptr } @jv_null()
-  %2782 = getelementptr inbounds { i64, ptr }, ptr %194, i32 0, i32 0
-  %2783 = extractvalue { i64, ptr } %2781, 0
-  store i64 %2783, ptr %2782, align 8
-  %2784 = getelementptr inbounds { i64, ptr }, ptr %194, i32 0, i32 1
-  %2785 = extractvalue { i64, ptr } %2781, 1
-  store ptr %2785, ptr %2784, align 8
-  %2786 = getelementptr inbounds { i64, ptr }, ptr %194, i32 0, i32 0
-  %2787 = load i64, ptr %2786, align 8
-  %2788 = getelementptr inbounds { i64, ptr }, ptr %194, i32 0, i32 1
-  %2789 = load ptr, ptr %2788, align 8
-  %2790 = call { ptr, ptr } @gen_const(i64 %2787, ptr %2789)
-  %2791 = getelementptr inbounds { ptr, ptr }, ptr %193, i32 0, i32 0
-  %2792 = extractvalue { ptr, ptr } %2790, 0
-  store ptr %2792, ptr %2791, align 8
-  %2793 = getelementptr inbounds { ptr, ptr }, ptr %193, i32 0, i32 1
-  %2794 = extractvalue { ptr, ptr } %2790, 1
-  store ptr %2794, ptr %2793, align 8
-  %2795 = getelementptr inbounds { ptr, ptr }, ptr %2778, i32 0, i32 0
-  %2796 = load ptr, ptr %2795, align 8
-  %2797 = getelementptr inbounds { ptr, ptr }, ptr %2778, i32 0, i32 1
-  %2798 = load ptr, ptr %2797, align 8
-  %2799 = getelementptr inbounds { ptr, ptr }, ptr %2780, i32 0, i32 0
-  %2800 = load ptr, ptr %2799, align 8
-  %2801 = getelementptr inbounds { ptr, ptr }, ptr %2780, i32 0, i32 1
-  %2802 = load ptr, ptr %2801, align 8
-  %2803 = getelementptr inbounds { ptr, ptr }, ptr %193, i32 0, i32 0
-  %2804 = load ptr, ptr %2803, align 8
-  %2805 = getelementptr inbounds { ptr, ptr }, ptr %193, i32 0, i32 1
-  %2806 = load ptr, ptr %2805, align 8
-  %2807 = call { ptr, ptr } @gen_slice_index(ptr %2796, ptr %2798, ptr %2800, ptr %2802, ptr %2804, ptr %2806, i32 noundef 10)
-  %2808 = getelementptr inbounds { ptr, ptr }, ptr %192, i32 0, i32 0
-  %2809 = extractvalue { ptr, ptr } %2807, 0
-  store ptr %2809, ptr %2808, align 8
-  %2810 = getelementptr inbounds { ptr, ptr }, ptr %192, i32 0, i32 1
-  %2811 = extractvalue { ptr, ptr } %2807, 1
-  store ptr %2811, ptr %2810, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %192, i64 16, i1 false)
-  br label %4268
+2774:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %193) #8
+  %2775 = load ptr, ptr %22, align 8, !tbaa !20
+  %2776 = getelementptr inbounds %union.YYSTYPE, ptr %2775, i64 -5
+  %2777 = load ptr, ptr %22, align 8, !tbaa !20
+  %2778 = getelementptr inbounds %union.YYSTYPE, ptr %2777, i64 -3
+  %2779 = load ptr, ptr %22, align 8, !tbaa !20
+  %2780 = getelementptr inbounds %union.YYSTYPE, ptr %2779, i64 -1
+  %2781 = getelementptr inbounds nuw { ptr, ptr }, ptr %2776, i32 0, i32 0
+  %2782 = load ptr, ptr %2781, align 8
+  %2783 = getelementptr inbounds nuw { ptr, ptr }, ptr %2776, i32 0, i32 1
+  %2784 = load ptr, ptr %2783, align 8
+  %2785 = getelementptr inbounds nuw { ptr, ptr }, ptr %2778, i32 0, i32 0
+  %2786 = load ptr, ptr %2785, align 8
+  %2787 = getelementptr inbounds nuw { ptr, ptr }, ptr %2778, i32 0, i32 1
+  %2788 = load ptr, ptr %2787, align 8
+  %2789 = getelementptr inbounds nuw { ptr, ptr }, ptr %2780, i32 0, i32 0
+  %2790 = load ptr, ptr %2789, align 8
+  %2791 = getelementptr inbounds nuw { ptr, ptr }, ptr %2780, i32 0, i32 1
+  %2792 = load ptr, ptr %2791, align 8
+  %2793 = call { ptr, ptr } @gen_slice_index(ptr %2782, ptr %2784, ptr %2786, ptr %2788, ptr %2790, ptr %2792, i32 noundef 10)
+  %2794 = getelementptr inbounds nuw { ptr, ptr }, ptr %193, i32 0, i32 0
+  %2795 = extractvalue { ptr, ptr } %2793, 0
+  store ptr %2795, ptr %2794, align 8
+  %2796 = getelementptr inbounds nuw { ptr, ptr }, ptr %193, i32 0, i32 1
+  %2797 = extractvalue { ptr, ptr } %2793, 1
+  store ptr %2797, ptr %2796, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %193, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %193) #8
+  br label %4294
 
-2812:                                             ; preds = %604
-  %2813 = load ptr, ptr %21, align 8
-  %2814 = getelementptr inbounds %union.YYSTYPE, ptr %2813, i64 -4
-  %2815 = call { i64, ptr } @jv_null()
-  %2816 = getelementptr inbounds { i64, ptr }, ptr %197, i32 0, i32 0
-  %2817 = extractvalue { i64, ptr } %2815, 0
-  store i64 %2817, ptr %2816, align 8
-  %2818 = getelementptr inbounds { i64, ptr }, ptr %197, i32 0, i32 1
-  %2819 = extractvalue { i64, ptr } %2815, 1
-  store ptr %2819, ptr %2818, align 8
-  %2820 = getelementptr inbounds { i64, ptr }, ptr %197, i32 0, i32 0
-  %2821 = load i64, ptr %2820, align 8
-  %2822 = getelementptr inbounds { i64, ptr }, ptr %197, i32 0, i32 1
-  %2823 = load ptr, ptr %2822, align 8
-  %2824 = call { ptr, ptr } @gen_const(i64 %2821, ptr %2823)
-  %2825 = getelementptr inbounds { ptr, ptr }, ptr %196, i32 0, i32 0
-  %2826 = extractvalue { ptr, ptr } %2824, 0
-  store ptr %2826, ptr %2825, align 8
-  %2827 = getelementptr inbounds { ptr, ptr }, ptr %196, i32 0, i32 1
-  %2828 = extractvalue { ptr, ptr } %2824, 1
-  store ptr %2828, ptr %2827, align 8
-  %2829 = load ptr, ptr %21, align 8
-  %2830 = getelementptr inbounds %union.YYSTYPE, ptr %2829, i64 -1
-  %2831 = getelementptr inbounds { ptr, ptr }, ptr %2814, i32 0, i32 0
-  %2832 = load ptr, ptr %2831, align 8
-  %2833 = getelementptr inbounds { ptr, ptr }, ptr %2814, i32 0, i32 1
-  %2834 = load ptr, ptr %2833, align 8
-  %2835 = getelementptr inbounds { ptr, ptr }, ptr %196, i32 0, i32 0
-  %2836 = load ptr, ptr %2835, align 8
-  %2837 = getelementptr inbounds { ptr, ptr }, ptr %196, i32 0, i32 1
-  %2838 = load ptr, ptr %2837, align 8
-  %2839 = getelementptr inbounds { ptr, ptr }, ptr %2830, i32 0, i32 0
-  %2840 = load ptr, ptr %2839, align 8
-  %2841 = getelementptr inbounds { ptr, ptr }, ptr %2830, i32 0, i32 1
-  %2842 = load ptr, ptr %2841, align 8
-  %2843 = call { ptr, ptr } @gen_slice_index(ptr %2832, ptr %2834, ptr %2836, ptr %2838, ptr %2840, ptr %2842, i32 noundef 10)
-  %2844 = getelementptr inbounds { ptr, ptr }, ptr %195, i32 0, i32 0
-  %2845 = extractvalue { ptr, ptr } %2843, 0
-  store ptr %2845, ptr %2844, align 8
-  %2846 = getelementptr inbounds { ptr, ptr }, ptr %195, i32 0, i32 1
-  %2847 = extractvalue { ptr, ptr } %2843, 1
-  store ptr %2847, ptr %2846, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %195, i64 16, i1 false)
-  br label %4268
+2798:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %194) #8
+  %2799 = load ptr, ptr %22, align 8, !tbaa !20
+  %2800 = getelementptr inbounds %union.YYSTYPE, ptr %2799, i64 -4
+  %2801 = load ptr, ptr %22, align 8, !tbaa !20
+  %2802 = getelementptr inbounds %union.YYSTYPE, ptr %2801, i64 -2
+  %2803 = call { i64, ptr } @jv_null()
+  %2804 = getelementptr inbounds nuw { i64, ptr }, ptr %196, i32 0, i32 0
+  %2805 = extractvalue { i64, ptr } %2803, 0
+  store i64 %2805, ptr %2804, align 8
+  %2806 = getelementptr inbounds nuw { i64, ptr }, ptr %196, i32 0, i32 1
+  %2807 = extractvalue { i64, ptr } %2803, 1
+  store ptr %2807, ptr %2806, align 8
+  %2808 = getelementptr inbounds nuw { i64, ptr }, ptr %196, i32 0, i32 0
+  %2809 = load i64, ptr %2808, align 8
+  %2810 = getelementptr inbounds nuw { i64, ptr }, ptr %196, i32 0, i32 1
+  %2811 = load ptr, ptr %2810, align 8
+  %2812 = call { ptr, ptr } @gen_const(i64 %2809, ptr %2811)
+  %2813 = getelementptr inbounds nuw { ptr, ptr }, ptr %195, i32 0, i32 0
+  %2814 = extractvalue { ptr, ptr } %2812, 0
+  store ptr %2814, ptr %2813, align 8
+  %2815 = getelementptr inbounds nuw { ptr, ptr }, ptr %195, i32 0, i32 1
+  %2816 = extractvalue { ptr, ptr } %2812, 1
+  store ptr %2816, ptr %2815, align 8
+  %2817 = getelementptr inbounds nuw { ptr, ptr }, ptr %2800, i32 0, i32 0
+  %2818 = load ptr, ptr %2817, align 8
+  %2819 = getelementptr inbounds nuw { ptr, ptr }, ptr %2800, i32 0, i32 1
+  %2820 = load ptr, ptr %2819, align 8
+  %2821 = getelementptr inbounds nuw { ptr, ptr }, ptr %2802, i32 0, i32 0
+  %2822 = load ptr, ptr %2821, align 8
+  %2823 = getelementptr inbounds nuw { ptr, ptr }, ptr %2802, i32 0, i32 1
+  %2824 = load ptr, ptr %2823, align 8
+  %2825 = getelementptr inbounds nuw { ptr, ptr }, ptr %195, i32 0, i32 0
+  %2826 = load ptr, ptr %2825, align 8
+  %2827 = getelementptr inbounds nuw { ptr, ptr }, ptr %195, i32 0, i32 1
+  %2828 = load ptr, ptr %2827, align 8
+  %2829 = call { ptr, ptr } @gen_slice_index(ptr %2818, ptr %2820, ptr %2822, ptr %2824, ptr %2826, ptr %2828, i32 noundef 10)
+  %2830 = getelementptr inbounds nuw { ptr, ptr }, ptr %194, i32 0, i32 0
+  %2831 = extractvalue { ptr, ptr } %2829, 0
+  store ptr %2831, ptr %2830, align 8
+  %2832 = getelementptr inbounds nuw { ptr, ptr }, ptr %194, i32 0, i32 1
+  %2833 = extractvalue { ptr, ptr } %2829, 1
+  store ptr %2833, ptr %2832, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %194, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %194) #8
+  br label %4294
 
-2848:                                             ; preds = %604
-  %2849 = load ptr, ptr %21, align 8
-  %2850 = getelementptr inbounds %union.YYSTYPE, ptr %2849, i64 0
-  %2851 = getelementptr inbounds { i64, ptr }, ptr %2850, i32 0, i32 0
-  %2852 = load i64, ptr %2851, align 8
-  %2853 = getelementptr inbounds { i64, ptr }, ptr %2850, i32 0, i32 1
+2834:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %197) #8
+  %2835 = load ptr, ptr %22, align 8, !tbaa !20
+  %2836 = getelementptr inbounds %union.YYSTYPE, ptr %2835, i64 -4
+  %2837 = call { i64, ptr } @jv_null()
+  %2838 = getelementptr inbounds nuw { i64, ptr }, ptr %199, i32 0, i32 0
+  %2839 = extractvalue { i64, ptr } %2837, 0
+  store i64 %2839, ptr %2838, align 8
+  %2840 = getelementptr inbounds nuw { i64, ptr }, ptr %199, i32 0, i32 1
+  %2841 = extractvalue { i64, ptr } %2837, 1
+  store ptr %2841, ptr %2840, align 8
+  %2842 = getelementptr inbounds nuw { i64, ptr }, ptr %199, i32 0, i32 0
+  %2843 = load i64, ptr %2842, align 8
+  %2844 = getelementptr inbounds nuw { i64, ptr }, ptr %199, i32 0, i32 1
+  %2845 = load ptr, ptr %2844, align 8
+  %2846 = call { ptr, ptr } @gen_const(i64 %2843, ptr %2845)
+  %2847 = getelementptr inbounds nuw { ptr, ptr }, ptr %198, i32 0, i32 0
+  %2848 = extractvalue { ptr, ptr } %2846, 0
+  store ptr %2848, ptr %2847, align 8
+  %2849 = getelementptr inbounds nuw { ptr, ptr }, ptr %198, i32 0, i32 1
+  %2850 = extractvalue { ptr, ptr } %2846, 1
+  store ptr %2850, ptr %2849, align 8
+  %2851 = load ptr, ptr %22, align 8, !tbaa !20
+  %2852 = getelementptr inbounds %union.YYSTYPE, ptr %2851, i64 -1
+  %2853 = getelementptr inbounds nuw { ptr, ptr }, ptr %2836, i32 0, i32 0
   %2854 = load ptr, ptr %2853, align 8
-  %2855 = call { ptr, ptr } @gen_const(i64 %2852, ptr %2854)
-  %2856 = getelementptr inbounds { ptr, ptr }, ptr %198, i32 0, i32 0
-  %2857 = extractvalue { ptr, ptr } %2855, 0
-  store ptr %2857, ptr %2856, align 8
-  %2858 = getelementptr inbounds { ptr, ptr }, ptr %198, i32 0, i32 1
-  %2859 = extractvalue { ptr, ptr } %2855, 1
-  store ptr %2859, ptr %2858, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %198, i64 16, i1 false)
-  br label %4268
+  %2855 = getelementptr inbounds nuw { ptr, ptr }, ptr %2836, i32 0, i32 1
+  %2856 = load ptr, ptr %2855, align 8
+  %2857 = getelementptr inbounds nuw { ptr, ptr }, ptr %198, i32 0, i32 0
+  %2858 = load ptr, ptr %2857, align 8
+  %2859 = getelementptr inbounds nuw { ptr, ptr }, ptr %198, i32 0, i32 1
+  %2860 = load ptr, ptr %2859, align 8
+  %2861 = getelementptr inbounds nuw { ptr, ptr }, ptr %2852, i32 0, i32 0
+  %2862 = load ptr, ptr %2861, align 8
+  %2863 = getelementptr inbounds nuw { ptr, ptr }, ptr %2852, i32 0, i32 1
+  %2864 = load ptr, ptr %2863, align 8
+  %2865 = call { ptr, ptr } @gen_slice_index(ptr %2854, ptr %2856, ptr %2858, ptr %2860, ptr %2862, ptr %2864, i32 noundef 10)
+  %2866 = getelementptr inbounds nuw { ptr, ptr }, ptr %197, i32 0, i32 0
+  %2867 = extractvalue { ptr, ptr } %2865, 0
+  store ptr %2867, ptr %2866, align 8
+  %2868 = getelementptr inbounds nuw { ptr, ptr }, ptr %197, i32 0, i32 1
+  %2869 = extractvalue { ptr, ptr } %2865, 1
+  store ptr %2869, ptr %2868, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %197, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %197) #8
+  br label %4294
 
-2860:                                             ; preds = %604
-  %2861 = load ptr, ptr %21, align 8
-  %2862 = getelementptr inbounds %union.YYSTYPE, ptr %2861, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %2862, i64 16, i1 false)
-  br label %4268
-
-2863:                                             ; preds = %604
-  %2864 = call { ptr, ptr } (...) @gen_noop()
-  %2865 = getelementptr inbounds { ptr, ptr }, ptr %200, i32 0, i32 0
-  %2866 = extractvalue { ptr, ptr } %2864, 0
-  store ptr %2866, ptr %2865, align 8
-  %2867 = getelementptr inbounds { ptr, ptr }, ptr %200, i32 0, i32 1
-  %2868 = extractvalue { ptr, ptr } %2864, 1
-  store ptr %2868, ptr %2867, align 8
-  %2869 = load ptr, ptr %21, align 8
-  %2870 = getelementptr inbounds %union.YYSTYPE, ptr %2869, i64 0
-  %2871 = getelementptr inbounds { ptr, ptr }, ptr %200, i32 0, i32 0
-  %2872 = load ptr, ptr %2871, align 8
-  %2873 = getelementptr inbounds { ptr, ptr }, ptr %200, i32 0, i32 1
-  %2874 = load ptr, ptr %2873, align 8
-  %2875 = getelementptr inbounds { i64, ptr }, ptr %2870, i32 0, i32 0
-  %2876 = load i64, ptr %2875, align 8
-  %2877 = getelementptr inbounds { i64, ptr }, ptr %2870, i32 0, i32 1
-  %2878 = load ptr, ptr %2877, align 8
-  %2879 = call { ptr, ptr } @gen_format(ptr %2872, ptr %2874, i64 %2876, ptr %2878)
-  %2880 = getelementptr inbounds { ptr, ptr }, ptr %199, i32 0, i32 0
-  %2881 = extractvalue { ptr, ptr } %2879, 0
+2870:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %200) #8
+  %2871 = load ptr, ptr %22, align 8, !tbaa !20
+  %2872 = getelementptr inbounds %union.YYSTYPE, ptr %2871, i64 0
+  %2873 = getelementptr inbounds nuw { i64, ptr }, ptr %2872, i32 0, i32 0
+  %2874 = load i64, ptr %2873, align 8
+  %2875 = getelementptr inbounds nuw { i64, ptr }, ptr %2872, i32 0, i32 1
+  %2876 = load ptr, ptr %2875, align 8
+  %2877 = call { ptr, ptr } @gen_const(i64 %2874, ptr %2876)
+  %2878 = getelementptr inbounds nuw { ptr, ptr }, ptr %200, i32 0, i32 0
+  %2879 = extractvalue { ptr, ptr } %2877, 0
+  store ptr %2879, ptr %2878, align 8
+  %2880 = getelementptr inbounds nuw { ptr, ptr }, ptr %200, i32 0, i32 1
+  %2881 = extractvalue { ptr, ptr } %2877, 1
   store ptr %2881, ptr %2880, align 8
-  %2882 = getelementptr inbounds { ptr, ptr }, ptr %199, i32 0, i32 1
-  %2883 = extractvalue { ptr, ptr } %2879, 1
-  store ptr %2883, ptr %2882, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %199, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %200, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %200) #8
+  br label %4294
 
-2884:                                             ; preds = %604
-  %2885 = load ptr, ptr %21, align 8
-  %2886 = getelementptr inbounds %union.YYSTYPE, ptr %2885, i64 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %2886, i64 16, i1 false)
-  br label %4268
+2882:                                             ; preds = %616
+  %2883 = load ptr, ptr %22, align 8, !tbaa !20
+  %2884 = getelementptr inbounds %union.YYSTYPE, ptr %2883, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %2884, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-2887:                                             ; preds = %604
-  %2888 = load ptr, ptr %21, align 8
-  %2889 = getelementptr inbounds %union.YYSTYPE, ptr %2888, i64 -1
-  %2890 = getelementptr inbounds { ptr, ptr }, ptr %2889, i32 0, i32 0
-  %2891 = load ptr, ptr %2890, align 8
-  %2892 = getelementptr inbounds { ptr, ptr }, ptr %2889, i32 0, i32 1
-  %2893 = load ptr, ptr %2892, align 8
-  %2894 = call { ptr, ptr } @gen_collect(ptr %2891, ptr %2893)
-  %2895 = getelementptr inbounds { ptr, ptr }, ptr %201, i32 0, i32 0
-  %2896 = extractvalue { ptr, ptr } %2894, 0
-  store ptr %2896, ptr %2895, align 8
-  %2897 = getelementptr inbounds { ptr, ptr }, ptr %201, i32 0, i32 1
-  %2898 = extractvalue { ptr, ptr } %2894, 1
-  store ptr %2898, ptr %2897, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %201, i64 16, i1 false)
-  br label %4268
+2885:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %201) #8
+  %2886 = call { ptr, ptr } (...) @gen_noop()
+  %2887 = getelementptr inbounds nuw { ptr, ptr }, ptr %202, i32 0, i32 0
+  %2888 = extractvalue { ptr, ptr } %2886, 0
+  store ptr %2888, ptr %2887, align 8
+  %2889 = getelementptr inbounds nuw { ptr, ptr }, ptr %202, i32 0, i32 1
+  %2890 = extractvalue { ptr, ptr } %2886, 1
+  store ptr %2890, ptr %2889, align 8
+  %2891 = load ptr, ptr %22, align 8, !tbaa !20
+  %2892 = getelementptr inbounds %union.YYSTYPE, ptr %2891, i64 0
+  %2893 = getelementptr inbounds nuw { ptr, ptr }, ptr %202, i32 0, i32 0
+  %2894 = load ptr, ptr %2893, align 8
+  %2895 = getelementptr inbounds nuw { ptr, ptr }, ptr %202, i32 0, i32 1
+  %2896 = load ptr, ptr %2895, align 8
+  %2897 = getelementptr inbounds nuw { i64, ptr }, ptr %2892, i32 0, i32 0
+  %2898 = load i64, ptr %2897, align 8
+  %2899 = getelementptr inbounds nuw { i64, ptr }, ptr %2892, i32 0, i32 1
+  %2900 = load ptr, ptr %2899, align 8
+  %2901 = call { ptr, ptr } @gen_format(ptr %2894, ptr %2896, i64 %2898, ptr %2900)
+  %2902 = getelementptr inbounds nuw { ptr, ptr }, ptr %201, i32 0, i32 0
+  %2903 = extractvalue { ptr, ptr } %2901, 0
+  store ptr %2903, ptr %2902, align 8
+  %2904 = getelementptr inbounds nuw { ptr, ptr }, ptr %201, i32 0, i32 1
+  %2905 = extractvalue { ptr, ptr } %2901, 1
+  store ptr %2905, ptr %2904, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %201, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %201) #8
+  br label %4294
 
-2899:                                             ; preds = %604
-  %2900 = call { i64, ptr } @jv_array()
-  %2901 = getelementptr inbounds { i64, ptr }, ptr %203, i32 0, i32 0
-  %2902 = extractvalue { i64, ptr } %2900, 0
-  store i64 %2902, ptr %2901, align 8
-  %2903 = getelementptr inbounds { i64, ptr }, ptr %203, i32 0, i32 1
-  %2904 = extractvalue { i64, ptr } %2900, 1
-  store ptr %2904, ptr %2903, align 8
-  %2905 = getelementptr inbounds { i64, ptr }, ptr %203, i32 0, i32 0
-  %2906 = load i64, ptr %2905, align 8
-  %2907 = getelementptr inbounds { i64, ptr }, ptr %203, i32 0, i32 1
-  %2908 = load ptr, ptr %2907, align 8
-  %2909 = call { ptr, ptr } @gen_const(i64 %2906, ptr %2908)
-  %2910 = getelementptr inbounds { ptr, ptr }, ptr %202, i32 0, i32 0
-  %2911 = extractvalue { ptr, ptr } %2909, 0
-  store ptr %2911, ptr %2910, align 8
-  %2912 = getelementptr inbounds { ptr, ptr }, ptr %202, i32 0, i32 1
-  %2913 = extractvalue { ptr, ptr } %2909, 1
-  store ptr %2913, ptr %2912, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %202, i64 16, i1 false)
-  br label %4268
+2906:                                             ; preds = %616
+  %2907 = load ptr, ptr %22, align 8, !tbaa !20
+  %2908 = getelementptr inbounds %union.YYSTYPE, ptr %2907, i64 -1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %2908, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-2914:                                             ; preds = %604
-  %2915 = load ptr, ptr %21, align 8
-  %2916 = getelementptr inbounds %union.YYSTYPE, ptr %2915, i64 -1
-  %2917 = getelementptr inbounds { ptr, ptr }, ptr %2916, i32 0, i32 0
-  %2918 = load ptr, ptr %2917, align 8
-  %2919 = getelementptr inbounds { ptr, ptr }, ptr %2916, i32 0, i32 1
-  %2920 = load ptr, ptr %2919, align 8
-  %2921 = call { ptr, ptr } @gen_const_object(ptr %2918, ptr %2920)
-  %2922 = getelementptr inbounds { ptr, ptr }, ptr %204, i32 0, i32 0
-  %2923 = extractvalue { ptr, ptr } %2921, 0
-  store ptr %2923, ptr %2922, align 8
-  %2924 = getelementptr inbounds { ptr, ptr }, ptr %204, i32 0, i32 1
-  %2925 = extractvalue { ptr, ptr } %2921, 1
-  store ptr %2925, ptr %2924, align 8
-  %2926 = getelementptr inbounds %struct.block, ptr %204, i32 0, i32 0
-  %2927 = load ptr, ptr %2926, align 8
-  %2928 = icmp ne ptr %2927, null
-  br i1 %2928, label %2929, label %2930
+2909:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %203) #8
+  %2910 = load ptr, ptr %22, align 8, !tbaa !20
+  %2911 = getelementptr inbounds %union.YYSTYPE, ptr %2910, i64 -1
+  %2912 = getelementptr inbounds nuw { ptr, ptr }, ptr %2911, i32 0, i32 0
+  %2913 = load ptr, ptr %2912, align 8
+  %2914 = getelementptr inbounds nuw { ptr, ptr }, ptr %2911, i32 0, i32 1
+  %2915 = load ptr, ptr %2914, align 8
+  %2916 = call { ptr, ptr } @gen_collect(ptr %2913, ptr %2915)
+  %2917 = getelementptr inbounds nuw { ptr, ptr }, ptr %203, i32 0, i32 0
+  %2918 = extractvalue { ptr, ptr } %2916, 0
+  store ptr %2918, ptr %2917, align 8
+  %2919 = getelementptr inbounds nuw { ptr, ptr }, ptr %203, i32 0, i32 1
+  %2920 = extractvalue { ptr, ptr } %2916, 1
+  store ptr %2920, ptr %2919, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %203, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %203) #8
+  br label %4294
 
-2929:                                             ; preds = %2914
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %204, i64 16, i1 false)
-  br label %2987
-
-2930:                                             ; preds = %2914
-  %2931 = call { i64, ptr } @jv_object()
-  %2932 = getelementptr inbounds { i64, ptr }, ptr %209, i32 0, i32 0
-  %2933 = extractvalue { i64, ptr } %2931, 0
-  store i64 %2933, ptr %2932, align 8
-  %2934 = getelementptr inbounds { i64, ptr }, ptr %209, i32 0, i32 1
-  %2935 = extractvalue { i64, ptr } %2931, 1
+2921:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %204) #8
+  %2922 = call { i64, ptr } @jv_array()
+  %2923 = getelementptr inbounds nuw { i64, ptr }, ptr %205, i32 0, i32 0
+  %2924 = extractvalue { i64, ptr } %2922, 0
+  store i64 %2924, ptr %2923, align 8
+  %2925 = getelementptr inbounds nuw { i64, ptr }, ptr %205, i32 0, i32 1
+  %2926 = extractvalue { i64, ptr } %2922, 1
+  store ptr %2926, ptr %2925, align 8
+  %2927 = getelementptr inbounds nuw { i64, ptr }, ptr %205, i32 0, i32 0
+  %2928 = load i64, ptr %2927, align 8
+  %2929 = getelementptr inbounds nuw { i64, ptr }, ptr %205, i32 0, i32 1
+  %2930 = load ptr, ptr %2929, align 8
+  %2931 = call { ptr, ptr } @gen_const(i64 %2928, ptr %2930)
+  %2932 = getelementptr inbounds nuw { ptr, ptr }, ptr %204, i32 0, i32 0
+  %2933 = extractvalue { ptr, ptr } %2931, 0
+  store ptr %2933, ptr %2932, align 8
+  %2934 = getelementptr inbounds nuw { ptr, ptr }, ptr %204, i32 0, i32 1
+  %2935 = extractvalue { ptr, ptr } %2931, 1
   store ptr %2935, ptr %2934, align 8
-  %2936 = getelementptr inbounds { i64, ptr }, ptr %209, i32 0, i32 0
-  %2937 = load i64, ptr %2936, align 8
-  %2938 = getelementptr inbounds { i64, ptr }, ptr %209, i32 0, i32 1
-  %2939 = load ptr, ptr %2938, align 8
-  %2940 = call { ptr, ptr } @gen_const(i64 %2937, ptr %2939)
-  %2941 = getelementptr inbounds { ptr, ptr }, ptr %208, i32 0, i32 0
-  %2942 = extractvalue { ptr, ptr } %2940, 0
-  store ptr %2942, ptr %2941, align 8
-  %2943 = getelementptr inbounds { ptr, ptr }, ptr %208, i32 0, i32 1
-  %2944 = extractvalue { ptr, ptr } %2940, 1
-  store ptr %2944, ptr %2943, align 8
-  %2945 = getelementptr inbounds { ptr, ptr }, ptr %208, i32 0, i32 0
-  %2946 = load ptr, ptr %2945, align 8
-  %2947 = getelementptr inbounds { ptr, ptr }, ptr %208, i32 0, i32 1
-  %2948 = load ptr, ptr %2947, align 8
-  %2949 = call { ptr, ptr } @gen_subexp(ptr %2946, ptr %2948)
-  %2950 = getelementptr inbounds { ptr, ptr }, ptr %207, i32 0, i32 0
-  %2951 = extractvalue { ptr, ptr } %2949, 0
-  store ptr %2951, ptr %2950, align 8
-  %2952 = getelementptr inbounds { ptr, ptr }, ptr %207, i32 0, i32 1
-  %2953 = extractvalue { ptr, ptr } %2949, 1
-  store ptr %2953, ptr %2952, align 8
-  %2954 = load ptr, ptr %21, align 8
-  %2955 = getelementptr inbounds %union.YYSTYPE, ptr %2954, i64 -1
-  %2956 = getelementptr inbounds { ptr, ptr }, ptr %207, i32 0, i32 0
-  %2957 = load ptr, ptr %2956, align 8
-  %2958 = getelementptr inbounds { ptr, ptr }, ptr %207, i32 0, i32 1
-  %2959 = load ptr, ptr %2958, align 8
-  %2960 = getelementptr inbounds { ptr, ptr }, ptr %2955, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %204, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %204) #8
+  br label %4294
+
+2936:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %206) #8
+  %2937 = load ptr, ptr %22, align 8, !tbaa !20
+  %2938 = getelementptr inbounds %union.YYSTYPE, ptr %2937, i64 -1
+  %2939 = getelementptr inbounds nuw { ptr, ptr }, ptr %2938, i32 0, i32 0
+  %2940 = load ptr, ptr %2939, align 8
+  %2941 = getelementptr inbounds nuw { ptr, ptr }, ptr %2938, i32 0, i32 1
+  %2942 = load ptr, ptr %2941, align 8
+  %2943 = call { ptr, ptr } @gen_const_object(ptr %2940, ptr %2942)
+  %2944 = getelementptr inbounds nuw { ptr, ptr }, ptr %206, i32 0, i32 0
+  %2945 = extractvalue { ptr, ptr } %2943, 0
+  store ptr %2945, ptr %2944, align 8
+  %2946 = getelementptr inbounds nuw { ptr, ptr }, ptr %206, i32 0, i32 1
+  %2947 = extractvalue { ptr, ptr } %2943, 1
+  store ptr %2947, ptr %2946, align 8
+  %2948 = getelementptr inbounds nuw %struct.block, ptr %206, i32 0, i32 0
+  %2949 = load ptr, ptr %2948, align 8, !tbaa !42
+  %2950 = icmp ne ptr %2949, null
+  br i1 %2950, label %2951, label %2952
+
+2951:                                             ; preds = %2936
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %206, i64 16, i1 false), !tbaa.struct !39
+  br label %3009
+
+2952:                                             ; preds = %2936
+  call void @llvm.lifetime.start.p0(i64 16, ptr %207) #8
+  %2953 = call { i64, ptr } @jv_object()
+  %2954 = getelementptr inbounds nuw { i64, ptr }, ptr %211, i32 0, i32 0
+  %2955 = extractvalue { i64, ptr } %2953, 0
+  store i64 %2955, ptr %2954, align 8
+  %2956 = getelementptr inbounds nuw { i64, ptr }, ptr %211, i32 0, i32 1
+  %2957 = extractvalue { i64, ptr } %2953, 1
+  store ptr %2957, ptr %2956, align 8
+  %2958 = getelementptr inbounds nuw { i64, ptr }, ptr %211, i32 0, i32 0
+  %2959 = load i64, ptr %2958, align 8
+  %2960 = getelementptr inbounds nuw { i64, ptr }, ptr %211, i32 0, i32 1
   %2961 = load ptr, ptr %2960, align 8
-  %2962 = getelementptr inbounds { ptr, ptr }, ptr %2955, i32 0, i32 1
-  %2963 = load ptr, ptr %2962, align 8
-  %2964 = call { ptr, ptr } @block_join(ptr %2957, ptr %2959, ptr %2961, ptr %2963)
-  %2965 = getelementptr inbounds { ptr, ptr }, ptr %206, i32 0, i32 0
-  %2966 = extractvalue { ptr, ptr } %2964, 0
+  %2962 = call { ptr, ptr } @gen_const(i64 %2959, ptr %2961)
+  %2963 = getelementptr inbounds nuw { ptr, ptr }, ptr %210, i32 0, i32 0
+  %2964 = extractvalue { ptr, ptr } %2962, 0
+  store ptr %2964, ptr %2963, align 8
+  %2965 = getelementptr inbounds nuw { ptr, ptr }, ptr %210, i32 0, i32 1
+  %2966 = extractvalue { ptr, ptr } %2962, 1
   store ptr %2966, ptr %2965, align 8
-  %2967 = getelementptr inbounds { ptr, ptr }, ptr %206, i32 0, i32 1
-  %2968 = extractvalue { ptr, ptr } %2964, 1
-  store ptr %2968, ptr %2967, align 8
-  %2969 = call { ptr, ptr } @gen_op_simple(i32 noundef 5)
-  %2970 = getelementptr inbounds { ptr, ptr }, ptr %210, i32 0, i32 0
-  %2971 = extractvalue { ptr, ptr } %2969, 0
-  store ptr %2971, ptr %2970, align 8
-  %2972 = getelementptr inbounds { ptr, ptr }, ptr %210, i32 0, i32 1
-  %2973 = extractvalue { ptr, ptr } %2969, 1
+  %2967 = getelementptr inbounds nuw { ptr, ptr }, ptr %210, i32 0, i32 0
+  %2968 = load ptr, ptr %2967, align 8
+  %2969 = getelementptr inbounds nuw { ptr, ptr }, ptr %210, i32 0, i32 1
+  %2970 = load ptr, ptr %2969, align 8
+  %2971 = call { ptr, ptr } @gen_subexp(ptr %2968, ptr %2970)
+  %2972 = getelementptr inbounds nuw { ptr, ptr }, ptr %209, i32 0, i32 0
+  %2973 = extractvalue { ptr, ptr } %2971, 0
   store ptr %2973, ptr %2972, align 8
-  %2974 = getelementptr inbounds { ptr, ptr }, ptr %206, i32 0, i32 0
-  %2975 = load ptr, ptr %2974, align 8
-  %2976 = getelementptr inbounds { ptr, ptr }, ptr %206, i32 0, i32 1
-  %2977 = load ptr, ptr %2976, align 8
-  %2978 = getelementptr inbounds { ptr, ptr }, ptr %210, i32 0, i32 0
+  %2974 = getelementptr inbounds nuw { ptr, ptr }, ptr %209, i32 0, i32 1
+  %2975 = extractvalue { ptr, ptr } %2971, 1
+  store ptr %2975, ptr %2974, align 8
+  %2976 = load ptr, ptr %22, align 8, !tbaa !20
+  %2977 = getelementptr inbounds %union.YYSTYPE, ptr %2976, i64 -1
+  %2978 = getelementptr inbounds nuw { ptr, ptr }, ptr %209, i32 0, i32 0
   %2979 = load ptr, ptr %2978, align 8
-  %2980 = getelementptr inbounds { ptr, ptr }, ptr %210, i32 0, i32 1
+  %2980 = getelementptr inbounds nuw { ptr, ptr }, ptr %209, i32 0, i32 1
   %2981 = load ptr, ptr %2980, align 8
-  %2982 = call { ptr, ptr } @block_join(ptr %2975, ptr %2977, ptr %2979, ptr %2981)
-  %2983 = getelementptr inbounds { ptr, ptr }, ptr %205, i32 0, i32 0
-  %2984 = extractvalue { ptr, ptr } %2982, 0
-  store ptr %2984, ptr %2983, align 8
-  %2985 = getelementptr inbounds { ptr, ptr }, ptr %205, i32 0, i32 1
-  %2986 = extractvalue { ptr, ptr } %2982, 1
-  store ptr %2986, ptr %2985, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %205, i64 16, i1 false)
-  br label %2987
+  %2982 = getelementptr inbounds nuw { ptr, ptr }, ptr %2977, i32 0, i32 0
+  %2983 = load ptr, ptr %2982, align 8
+  %2984 = getelementptr inbounds nuw { ptr, ptr }, ptr %2977, i32 0, i32 1
+  %2985 = load ptr, ptr %2984, align 8
+  %2986 = call { ptr, ptr } @block_join(ptr %2979, ptr %2981, ptr %2983, ptr %2985)
+  %2987 = getelementptr inbounds nuw { ptr, ptr }, ptr %208, i32 0, i32 0
+  %2988 = extractvalue { ptr, ptr } %2986, 0
+  store ptr %2988, ptr %2987, align 8
+  %2989 = getelementptr inbounds nuw { ptr, ptr }, ptr %208, i32 0, i32 1
+  %2990 = extractvalue { ptr, ptr } %2986, 1
+  store ptr %2990, ptr %2989, align 8
+  %2991 = call { ptr, ptr } @gen_op_simple(i32 noundef 5)
+  %2992 = getelementptr inbounds nuw { ptr, ptr }, ptr %212, i32 0, i32 0
+  %2993 = extractvalue { ptr, ptr } %2991, 0
+  store ptr %2993, ptr %2992, align 8
+  %2994 = getelementptr inbounds nuw { ptr, ptr }, ptr %212, i32 0, i32 1
+  %2995 = extractvalue { ptr, ptr } %2991, 1
+  store ptr %2995, ptr %2994, align 8
+  %2996 = getelementptr inbounds nuw { ptr, ptr }, ptr %208, i32 0, i32 0
+  %2997 = load ptr, ptr %2996, align 8
+  %2998 = getelementptr inbounds nuw { ptr, ptr }, ptr %208, i32 0, i32 1
+  %2999 = load ptr, ptr %2998, align 8
+  %3000 = getelementptr inbounds nuw { ptr, ptr }, ptr %212, i32 0, i32 0
+  %3001 = load ptr, ptr %3000, align 8
+  %3002 = getelementptr inbounds nuw { ptr, ptr }, ptr %212, i32 0, i32 1
+  %3003 = load ptr, ptr %3002, align 8
+  %3004 = call { ptr, ptr } @block_join(ptr %2997, ptr %2999, ptr %3001, ptr %3003)
+  %3005 = getelementptr inbounds nuw { ptr, ptr }, ptr %207, i32 0, i32 0
+  %3006 = extractvalue { ptr, ptr } %3004, 0
+  store ptr %3006, ptr %3005, align 8
+  %3007 = getelementptr inbounds nuw { ptr, ptr }, ptr %207, i32 0, i32 1
+  %3008 = extractvalue { ptr, ptr } %3004, 1
+  store ptr %3008, ptr %3007, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %207, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %207) #8
+  br label %3009
 
-2987:                                             ; preds = %2930, %2929
-  br label %4268
+3009:                                             ; preds = %2952, %2951
+  call void @llvm.lifetime.end.p0(i64 16, ptr %206) #8
+  br label %4294
 
-2988:                                             ; preds = %604
-  %2989 = load ptr, ptr %7, align 8
-  %2990 = load ptr, ptr %21, align 8
-  %2991 = getelementptr inbounds %union.YYSTYPE, ptr %2990, i64 0
-  %2992 = getelementptr inbounds { i64, ptr }, ptr %2991, i32 0, i32 0
-  %2993 = load i64, ptr %2992, align 8
-  %2994 = getelementptr inbounds { i64, ptr }, ptr %2991, i32 0, i32 1
-  %2995 = load ptr, ptr %2994, align 8
-  %2996 = call ptr @jv_string_value(i64 %2993, ptr %2995)
-  %2997 = call { ptr, ptr } @gen_op_unbound(i32 noundef 7, ptr noundef %2996)
-  %2998 = getelementptr inbounds { ptr, ptr }, ptr %212, i32 0, i32 0
-  %2999 = extractvalue { ptr, ptr } %2997, 0
-  store ptr %2999, ptr %2998, align 8
-  %3000 = getelementptr inbounds { ptr, ptr }, ptr %212, i32 0, i32 1
-  %3001 = extractvalue { ptr, ptr } %2997, 1
-  store ptr %3001, ptr %3000, align 8
-  %3002 = load i64, ptr %29, align 4
-  %3003 = getelementptr inbounds { ptr, ptr }, ptr %212, i32 0, i32 0
-  %3004 = load ptr, ptr %3003, align 8
-  %3005 = getelementptr inbounds { ptr, ptr }, ptr %212, i32 0, i32 1
-  %3006 = load ptr, ptr %3005, align 8
-  %3007 = call { ptr, ptr } @gen_location(i64 %3002, ptr noundef %2989, ptr %3004, ptr %3006)
-  %3008 = getelementptr inbounds { ptr, ptr }, ptr %211, i32 0, i32 0
-  %3009 = extractvalue { ptr, ptr } %3007, 0
-  store ptr %3009, ptr %3008, align 8
-  %3010 = getelementptr inbounds { ptr, ptr }, ptr %211, i32 0, i32 1
-  %3011 = extractvalue { ptr, ptr } %3007, 1
-  store ptr %3011, ptr %3010, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %211, i64 16, i1 false)
-  %3012 = load ptr, ptr %21, align 8
+3010:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %213) #8
+  %3011 = load ptr, ptr %8, align 8, !tbaa !12
+  %3012 = load ptr, ptr %22, align 8, !tbaa !20
   %3013 = getelementptr inbounds %union.YYSTYPE, ptr %3012, i64 0
-  %3014 = getelementptr inbounds { i64, ptr }, ptr %3013, i32 0, i32 0
+  %3014 = getelementptr inbounds nuw { i64, ptr }, ptr %3013, i32 0, i32 0
   %3015 = load i64, ptr %3014, align 8
-  %3016 = getelementptr inbounds { i64, ptr }, ptr %3013, i32 0, i32 1
+  %3016 = getelementptr inbounds nuw { i64, ptr }, ptr %3013, i32 0, i32 1
   %3017 = load ptr, ptr %3016, align 8
-  call void @jv_free(i64 %3015, ptr %3017)
-  br label %4268
-
-3018:                                             ; preds = %604
-  %3019 = load ptr, ptr %7, align 8
-  %3020 = load ptr, ptr %21, align 8
-  %3021 = getelementptr inbounds %union.YYSTYPE, ptr %3020, i64 0
-  %3022 = getelementptr inbounds { i64, ptr }, ptr %3021, i32 0, i32 0
-  %3023 = load i64, ptr %3022, align 8
-  %3024 = getelementptr inbounds { i64, ptr }, ptr %3021, i32 0, i32 1
-  %3025 = load ptr, ptr %3024, align 8
-  %3026 = call ptr @jv_string_value(i64 %3023, ptr %3025)
-  %3027 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %3026)
-  %3028 = getelementptr inbounds { ptr, ptr }, ptr %214, i32 0, i32 0
-  %3029 = extractvalue { ptr, ptr } %3027, 0
-  store ptr %3029, ptr %3028, align 8
-  %3030 = getelementptr inbounds { ptr, ptr }, ptr %214, i32 0, i32 1
-  %3031 = extractvalue { ptr, ptr } %3027, 1
+  %3018 = call ptr @jv_string_value(i64 %3015, ptr %3017)
+  %3019 = call { ptr, ptr } @gen_op_unbound(i32 noundef 7, ptr noundef %3018)
+  %3020 = getelementptr inbounds nuw { ptr, ptr }, ptr %214, i32 0, i32 0
+  %3021 = extractvalue { ptr, ptr } %3019, 0
+  store ptr %3021, ptr %3020, align 8
+  %3022 = getelementptr inbounds nuw { ptr, ptr }, ptr %214, i32 0, i32 1
+  %3023 = extractvalue { ptr, ptr } %3019, 1
+  store ptr %3023, ptr %3022, align 8
+  %3024 = load i64, ptr %30, align 4
+  %3025 = getelementptr inbounds nuw { ptr, ptr }, ptr %214, i32 0, i32 0
+  %3026 = load ptr, ptr %3025, align 8
+  %3027 = getelementptr inbounds nuw { ptr, ptr }, ptr %214, i32 0, i32 1
+  %3028 = load ptr, ptr %3027, align 8
+  %3029 = call { ptr, ptr } @gen_location(i64 %3024, ptr noundef %3011, ptr %3026, ptr %3028)
+  %3030 = getelementptr inbounds nuw { ptr, ptr }, ptr %213, i32 0, i32 0
+  %3031 = extractvalue { ptr, ptr } %3029, 0
   store ptr %3031, ptr %3030, align 8
-  %3032 = load i64, ptr %29, align 4
-  %3033 = getelementptr inbounds { ptr, ptr }, ptr %214, i32 0, i32 0
-  %3034 = load ptr, ptr %3033, align 8
-  %3035 = getelementptr inbounds { ptr, ptr }, ptr %214, i32 0, i32 1
-  %3036 = load ptr, ptr %3035, align 8
-  %3037 = call { ptr, ptr } @gen_location(i64 %3032, ptr noundef %3019, ptr %3034, ptr %3036)
-  %3038 = getelementptr inbounds { ptr, ptr }, ptr %213, i32 0, i32 0
-  %3039 = extractvalue { ptr, ptr } %3037, 0
-  store ptr %3039, ptr %3038, align 8
-  %3040 = getelementptr inbounds { ptr, ptr }, ptr %213, i32 0, i32 1
-  %3041 = extractvalue { ptr, ptr } %3037, 1
-  store ptr %3041, ptr %3040, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %213, i64 16, i1 false)
-  %3042 = load ptr, ptr %21, align 8
+  %3032 = getelementptr inbounds nuw { ptr, ptr }, ptr %213, i32 0, i32 1
+  %3033 = extractvalue { ptr, ptr } %3029, 1
+  store ptr %3033, ptr %3032, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %213, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %213) #8
+  %3034 = load ptr, ptr %22, align 8, !tbaa !20
+  %3035 = getelementptr inbounds %union.YYSTYPE, ptr %3034, i64 0
+  %3036 = getelementptr inbounds nuw { i64, ptr }, ptr %3035, i32 0, i32 0
+  %3037 = load i64, ptr %3036, align 8
+  %3038 = getelementptr inbounds nuw { i64, ptr }, ptr %3035, i32 0, i32 1
+  %3039 = load ptr, ptr %3038, align 8
+  call void @jv_free(i64 %3037, ptr %3039)
+  br label %4294
+
+3040:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %215) #8
+  %3041 = load ptr, ptr %8, align 8, !tbaa !12
+  %3042 = load ptr, ptr %22, align 8, !tbaa !20
   %3043 = getelementptr inbounds %union.YYSTYPE, ptr %3042, i64 0
-  %3044 = getelementptr inbounds { i64, ptr }, ptr %3043, i32 0, i32 0
+  %3044 = getelementptr inbounds nuw { i64, ptr }, ptr %3043, i32 0, i32 0
   %3045 = load i64, ptr %3044, align 8
-  %3046 = getelementptr inbounds { i64, ptr }, ptr %3043, i32 0, i32 1
+  %3046 = getelementptr inbounds nuw { i64, ptr }, ptr %3043, i32 0, i32 1
   %3047 = load ptr, ptr %3046, align 8
-  call void @jv_free(i64 %3045, ptr %3047)
-  br label %4268
+  %3048 = call ptr @jv_string_value(i64 %3045, ptr %3047)
+  %3049 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %3048)
+  %3050 = getelementptr inbounds nuw { ptr, ptr }, ptr %216, i32 0, i32 0
+  %3051 = extractvalue { ptr, ptr } %3049, 0
+  store ptr %3051, ptr %3050, align 8
+  %3052 = getelementptr inbounds nuw { ptr, ptr }, ptr %216, i32 0, i32 1
+  %3053 = extractvalue { ptr, ptr } %3049, 1
+  store ptr %3053, ptr %3052, align 8
+  %3054 = load i64, ptr %30, align 4
+  %3055 = getelementptr inbounds nuw { ptr, ptr }, ptr %216, i32 0, i32 0
+  %3056 = load ptr, ptr %3055, align 8
+  %3057 = getelementptr inbounds nuw { ptr, ptr }, ptr %216, i32 0, i32 1
+  %3058 = load ptr, ptr %3057, align 8
+  %3059 = call { ptr, ptr } @gen_location(i64 %3054, ptr noundef %3041, ptr %3056, ptr %3058)
+  %3060 = getelementptr inbounds nuw { ptr, ptr }, ptr %215, i32 0, i32 0
+  %3061 = extractvalue { ptr, ptr } %3059, 0
+  store ptr %3061, ptr %3060, align 8
+  %3062 = getelementptr inbounds nuw { ptr, ptr }, ptr %215, i32 0, i32 1
+  %3063 = extractvalue { ptr, ptr } %3059, 1
+  store ptr %3063, ptr %3062, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %215, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %215) #8
+  %3064 = load ptr, ptr %22, align 8, !tbaa !20
+  %3065 = getelementptr inbounds %union.YYSTYPE, ptr %3064, i64 0
+  %3066 = getelementptr inbounds nuw { i64, ptr }, ptr %3065, i32 0, i32 0
+  %3067 = load i64, ptr %3066, align 8
+  %3068 = getelementptr inbounds nuw { i64, ptr }, ptr %3065, i32 0, i32 1
+  %3069 = load ptr, ptr %3068, align 8
+  call void @jv_free(i64 %3067, ptr %3069)
+  br label %4294
 
-3048:                                             ; preds = %604
-  %3049 = load ptr, ptr %7, align 8
-  %3050 = call { ptr, ptr } @gen_loc_object(ptr noundef %29, ptr noundef %3049)
-  %3051 = getelementptr inbounds { ptr, ptr }, ptr %215, i32 0, i32 0
-  %3052 = extractvalue { ptr, ptr } %3050, 0
-  store ptr %3052, ptr %3051, align 8
-  %3053 = getelementptr inbounds { ptr, ptr }, ptr %215, i32 0, i32 1
-  %3054 = extractvalue { ptr, ptr } %3050, 1
-  store ptr %3054, ptr %3053, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %215, i64 16, i1 false)
-  br label %4268
+3070:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %217) #8
+  %3071 = load ptr, ptr %8, align 8, !tbaa !12
+  %3072 = call { ptr, ptr } @gen_loc_object(ptr noundef %30, ptr noundef %3071)
+  %3073 = getelementptr inbounds nuw { ptr, ptr }, ptr %217, i32 0, i32 0
+  %3074 = extractvalue { ptr, ptr } %3072, 0
+  store ptr %3074, ptr %3073, align 8
+  %3075 = getelementptr inbounds nuw { ptr, ptr }, ptr %217, i32 0, i32 1
+  %3076 = extractvalue { ptr, ptr } %3072, 1
+  store ptr %3076, ptr %3075, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %217, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %217) #8
+  br label %4294
 
-3055:                                             ; preds = %604
-  %3056 = load ptr, ptr %21, align 8
-  %3057 = getelementptr inbounds %union.YYSTYPE, ptr %3056, i64 0
-  %3058 = getelementptr inbounds { i64, ptr }, ptr %3057, i32 0, i32 0
-  %3059 = load i64, ptr %3058, align 8
-  %3060 = getelementptr inbounds { i64, ptr }, ptr %3057, i32 0, i32 1
-  %3061 = load ptr, ptr %3060, align 8
-  %3062 = call ptr @jv_string_value(i64 %3059, ptr %3061)
-  store ptr %3062, ptr %216, align 8
-  %3063 = load ptr, ptr %216, align 8
-  %3064 = call i32 @strcmp(ptr noundef %3063, ptr noundef @.str.19) #5
-  %3065 = icmp eq i32 %3064, 0
-  br i1 %3065, label %3066, label %3081
+3077:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 8, ptr %218) #8
+  %3078 = load ptr, ptr %22, align 8, !tbaa !20
+  %3079 = getelementptr inbounds %union.YYSTYPE, ptr %3078, i64 0
+  %3080 = getelementptr inbounds nuw { i64, ptr }, ptr %3079, i32 0, i32 0
+  %3081 = load i64, ptr %3080, align 8
+  %3082 = getelementptr inbounds nuw { i64, ptr }, ptr %3079, i32 0, i32 1
+  %3083 = load ptr, ptr %3082, align 8
+  %3084 = call ptr @jv_string_value(i64 %3081, ptr %3083)
+  store ptr %3084, ptr %218, align 8, !tbaa !16
+  %3085 = load ptr, ptr %218, align 8, !tbaa !16
+  %3086 = call i32 @strcmp(ptr noundef %3085, ptr noundef @.str.19) #7
+  %3087 = icmp eq i32 %3086, 0
+  br i1 %3087, label %3088, label %3103
 
-3066:                                             ; preds = %3055
-  %3067 = call { i64, ptr } @jv_false()
-  %3068 = getelementptr inbounds { i64, ptr }, ptr %218, i32 0, i32 0
-  %3069 = extractvalue { i64, ptr } %3067, 0
-  store i64 %3069, ptr %3068, align 8
-  %3070 = getelementptr inbounds { i64, ptr }, ptr %218, i32 0, i32 1
-  %3071 = extractvalue { i64, ptr } %3067, 1
-  store ptr %3071, ptr %3070, align 8
-  %3072 = getelementptr inbounds { i64, ptr }, ptr %218, i32 0, i32 0
-  %3073 = load i64, ptr %3072, align 8
-  %3074 = getelementptr inbounds { i64, ptr }, ptr %218, i32 0, i32 1
-  %3075 = load ptr, ptr %3074, align 8
-  %3076 = call { ptr, ptr } @gen_const(i64 %3073, ptr %3075)
-  %3077 = getelementptr inbounds { ptr, ptr }, ptr %217, i32 0, i32 0
-  %3078 = extractvalue { ptr, ptr } %3076, 0
-  store ptr %3078, ptr %3077, align 8
-  %3079 = getelementptr inbounds { ptr, ptr }, ptr %217, i32 0, i32 1
-  %3080 = extractvalue { ptr, ptr } %3076, 1
-  store ptr %3080, ptr %3079, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %217, i64 16, i1 false)
-  br label %3148
+3088:                                             ; preds = %3077
+  call void @llvm.lifetime.start.p0(i64 16, ptr %219) #8
+  %3089 = call { i64, ptr } @jv_false()
+  %3090 = getelementptr inbounds nuw { i64, ptr }, ptr %220, i32 0, i32 0
+  %3091 = extractvalue { i64, ptr } %3089, 0
+  store i64 %3091, ptr %3090, align 8
+  %3092 = getelementptr inbounds nuw { i64, ptr }, ptr %220, i32 0, i32 1
+  %3093 = extractvalue { i64, ptr } %3089, 1
+  store ptr %3093, ptr %3092, align 8
+  %3094 = getelementptr inbounds nuw { i64, ptr }, ptr %220, i32 0, i32 0
+  %3095 = load i64, ptr %3094, align 8
+  %3096 = getelementptr inbounds nuw { i64, ptr }, ptr %220, i32 0, i32 1
+  %3097 = load ptr, ptr %3096, align 8
+  %3098 = call { ptr, ptr } @gen_const(i64 %3095, ptr %3097)
+  %3099 = getelementptr inbounds nuw { ptr, ptr }, ptr %219, i32 0, i32 0
+  %3100 = extractvalue { ptr, ptr } %3098, 0
+  store ptr %3100, ptr %3099, align 8
+  %3101 = getelementptr inbounds nuw { ptr, ptr }, ptr %219, i32 0, i32 1
+  %3102 = extractvalue { ptr, ptr } %3098, 1
+  store ptr %3102, ptr %3101, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %219, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %219) #8
+  br label %3170
 
-3081:                                             ; preds = %3055
-  %3082 = load ptr, ptr %216, align 8
-  %3083 = call i32 @strcmp(ptr noundef %3082, ptr noundef @.str.20) #5
-  %3084 = icmp eq i32 %3083, 0
-  br i1 %3084, label %3085, label %3100
+3103:                                             ; preds = %3077
+  %3104 = load ptr, ptr %218, align 8, !tbaa !16
+  %3105 = call i32 @strcmp(ptr noundef %3104, ptr noundef @.str.20) #7
+  %3106 = icmp eq i32 %3105, 0
+  br i1 %3106, label %3107, label %3122
 
-3085:                                             ; preds = %3081
-  %3086 = call { i64, ptr } @jv_true()
-  %3087 = getelementptr inbounds { i64, ptr }, ptr %220, i32 0, i32 0
-  %3088 = extractvalue { i64, ptr } %3086, 0
-  store i64 %3088, ptr %3087, align 8
-  %3089 = getelementptr inbounds { i64, ptr }, ptr %220, i32 0, i32 1
-  %3090 = extractvalue { i64, ptr } %3086, 1
-  store ptr %3090, ptr %3089, align 8
-  %3091 = getelementptr inbounds { i64, ptr }, ptr %220, i32 0, i32 0
-  %3092 = load i64, ptr %3091, align 8
-  %3093 = getelementptr inbounds { i64, ptr }, ptr %220, i32 0, i32 1
-  %3094 = load ptr, ptr %3093, align 8
-  %3095 = call { ptr, ptr } @gen_const(i64 %3092, ptr %3094)
-  %3096 = getelementptr inbounds { ptr, ptr }, ptr %219, i32 0, i32 0
-  %3097 = extractvalue { ptr, ptr } %3095, 0
-  store ptr %3097, ptr %3096, align 8
-  %3098 = getelementptr inbounds { ptr, ptr }, ptr %219, i32 0, i32 1
-  %3099 = extractvalue { ptr, ptr } %3095, 1
-  store ptr %3099, ptr %3098, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %219, i64 16, i1 false)
-  br label %3147
+3107:                                             ; preds = %3103
+  call void @llvm.lifetime.start.p0(i64 16, ptr %221) #8
+  %3108 = call { i64, ptr } @jv_true()
+  %3109 = getelementptr inbounds nuw { i64, ptr }, ptr %222, i32 0, i32 0
+  %3110 = extractvalue { i64, ptr } %3108, 0
+  store i64 %3110, ptr %3109, align 8
+  %3111 = getelementptr inbounds nuw { i64, ptr }, ptr %222, i32 0, i32 1
+  %3112 = extractvalue { i64, ptr } %3108, 1
+  store ptr %3112, ptr %3111, align 8
+  %3113 = getelementptr inbounds nuw { i64, ptr }, ptr %222, i32 0, i32 0
+  %3114 = load i64, ptr %3113, align 8
+  %3115 = getelementptr inbounds nuw { i64, ptr }, ptr %222, i32 0, i32 1
+  %3116 = load ptr, ptr %3115, align 8
+  %3117 = call { ptr, ptr } @gen_const(i64 %3114, ptr %3116)
+  %3118 = getelementptr inbounds nuw { ptr, ptr }, ptr %221, i32 0, i32 0
+  %3119 = extractvalue { ptr, ptr } %3117, 0
+  store ptr %3119, ptr %3118, align 8
+  %3120 = getelementptr inbounds nuw { ptr, ptr }, ptr %221, i32 0, i32 1
+  %3121 = extractvalue { ptr, ptr } %3117, 1
+  store ptr %3121, ptr %3120, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %221, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %221) #8
+  br label %3169
 
-3100:                                             ; preds = %3081
-  %3101 = load ptr, ptr %216, align 8
-  %3102 = call i32 @strcmp(ptr noundef %3101, ptr noundef @.str.21) #5
-  %3103 = icmp eq i32 %3102, 0
-  br i1 %3103, label %3104, label %3119
+3122:                                             ; preds = %3103
+  %3123 = load ptr, ptr %218, align 8, !tbaa !16
+  %3124 = call i32 @strcmp(ptr noundef %3123, ptr noundef @.str.21) #7
+  %3125 = icmp eq i32 %3124, 0
+  br i1 %3125, label %3126, label %3141
 
-3104:                                             ; preds = %3100
-  %3105 = call { i64, ptr } @jv_null()
-  %3106 = getelementptr inbounds { i64, ptr }, ptr %222, i32 0, i32 0
-  %3107 = extractvalue { i64, ptr } %3105, 0
-  store i64 %3107, ptr %3106, align 8
-  %3108 = getelementptr inbounds { i64, ptr }, ptr %222, i32 0, i32 1
-  %3109 = extractvalue { i64, ptr } %3105, 1
-  store ptr %3109, ptr %3108, align 8
-  %3110 = getelementptr inbounds { i64, ptr }, ptr %222, i32 0, i32 0
-  %3111 = load i64, ptr %3110, align 8
-  %3112 = getelementptr inbounds { i64, ptr }, ptr %222, i32 0, i32 1
-  %3113 = load ptr, ptr %3112, align 8
-  %3114 = call { ptr, ptr } @gen_const(i64 %3111, ptr %3113)
-  %3115 = getelementptr inbounds { ptr, ptr }, ptr %221, i32 0, i32 0
-  %3116 = extractvalue { ptr, ptr } %3114, 0
-  store ptr %3116, ptr %3115, align 8
-  %3117 = getelementptr inbounds { ptr, ptr }, ptr %221, i32 0, i32 1
-  %3118 = extractvalue { ptr, ptr } %3114, 1
-  store ptr %3118, ptr %3117, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %221, i64 16, i1 false)
-  br label %3146
+3126:                                             ; preds = %3122
+  call void @llvm.lifetime.start.p0(i64 16, ptr %223) #8
+  %3127 = call { i64, ptr } @jv_null()
+  %3128 = getelementptr inbounds nuw { i64, ptr }, ptr %224, i32 0, i32 0
+  %3129 = extractvalue { i64, ptr } %3127, 0
+  store i64 %3129, ptr %3128, align 8
+  %3130 = getelementptr inbounds nuw { i64, ptr }, ptr %224, i32 0, i32 1
+  %3131 = extractvalue { i64, ptr } %3127, 1
+  store ptr %3131, ptr %3130, align 8
+  %3132 = getelementptr inbounds nuw { i64, ptr }, ptr %224, i32 0, i32 0
+  %3133 = load i64, ptr %3132, align 8
+  %3134 = getelementptr inbounds nuw { i64, ptr }, ptr %224, i32 0, i32 1
+  %3135 = load ptr, ptr %3134, align 8
+  %3136 = call { ptr, ptr } @gen_const(i64 %3133, ptr %3135)
+  %3137 = getelementptr inbounds nuw { ptr, ptr }, ptr %223, i32 0, i32 0
+  %3138 = extractvalue { ptr, ptr } %3136, 0
+  store ptr %3138, ptr %3137, align 8
+  %3139 = getelementptr inbounds nuw { ptr, ptr }, ptr %223, i32 0, i32 1
+  %3140 = extractvalue { ptr, ptr } %3136, 1
+  store ptr %3140, ptr %3139, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %223, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %223) #8
+  br label %3168
 
-3119:                                             ; preds = %3100
-  %3120 = load ptr, ptr %7, align 8
-  %3121 = load ptr, ptr %216, align 8
-  %3122 = call { ptr, ptr } (...) @gen_noop()
-  %3123 = getelementptr inbounds { ptr, ptr }, ptr %225, i32 0, i32 0
-  %3124 = extractvalue { ptr, ptr } %3122, 0
-  store ptr %3124, ptr %3123, align 8
-  %3125 = getelementptr inbounds { ptr, ptr }, ptr %225, i32 0, i32 1
-  %3126 = extractvalue { ptr, ptr } %3122, 1
-  store ptr %3126, ptr %3125, align 8
-  %3127 = getelementptr inbounds { ptr, ptr }, ptr %225, i32 0, i32 0
-  %3128 = load ptr, ptr %3127, align 8
-  %3129 = getelementptr inbounds { ptr, ptr }, ptr %225, i32 0, i32 1
-  %3130 = load ptr, ptr %3129, align 8
-  %3131 = call { ptr, ptr } @gen_call(ptr noundef %3121, ptr %3128, ptr %3130)
-  %3132 = getelementptr inbounds { ptr, ptr }, ptr %224, i32 0, i32 0
-  %3133 = extractvalue { ptr, ptr } %3131, 0
-  store ptr %3133, ptr %3132, align 8
-  %3134 = getelementptr inbounds { ptr, ptr }, ptr %224, i32 0, i32 1
-  %3135 = extractvalue { ptr, ptr } %3131, 1
-  store ptr %3135, ptr %3134, align 8
-  %3136 = load i64, ptr %29, align 4
-  %3137 = getelementptr inbounds { ptr, ptr }, ptr %224, i32 0, i32 0
-  %3138 = load ptr, ptr %3137, align 8
-  %3139 = getelementptr inbounds { ptr, ptr }, ptr %224, i32 0, i32 1
-  %3140 = load ptr, ptr %3139, align 8
-  %3141 = call { ptr, ptr } @gen_location(i64 %3136, ptr noundef %3120, ptr %3138, ptr %3140)
-  %3142 = getelementptr inbounds { ptr, ptr }, ptr %223, i32 0, i32 0
-  %3143 = extractvalue { ptr, ptr } %3141, 0
-  store ptr %3143, ptr %3142, align 8
-  %3144 = getelementptr inbounds { ptr, ptr }, ptr %223, i32 0, i32 1
-  %3145 = extractvalue { ptr, ptr } %3141, 1
-  store ptr %3145, ptr %3144, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %223, i64 16, i1 false)
-  br label %3146
+3141:                                             ; preds = %3122
+  call void @llvm.lifetime.start.p0(i64 16, ptr %225) #8
+  %3142 = load ptr, ptr %8, align 8, !tbaa !12
+  %3143 = load ptr, ptr %218, align 8, !tbaa !16
+  %3144 = call { ptr, ptr } (...) @gen_noop()
+  %3145 = getelementptr inbounds nuw { ptr, ptr }, ptr %227, i32 0, i32 0
+  %3146 = extractvalue { ptr, ptr } %3144, 0
+  store ptr %3146, ptr %3145, align 8
+  %3147 = getelementptr inbounds nuw { ptr, ptr }, ptr %227, i32 0, i32 1
+  %3148 = extractvalue { ptr, ptr } %3144, 1
+  store ptr %3148, ptr %3147, align 8
+  %3149 = getelementptr inbounds nuw { ptr, ptr }, ptr %227, i32 0, i32 0
+  %3150 = load ptr, ptr %3149, align 8
+  %3151 = getelementptr inbounds nuw { ptr, ptr }, ptr %227, i32 0, i32 1
+  %3152 = load ptr, ptr %3151, align 8
+  %3153 = call { ptr, ptr } @gen_call(ptr noundef %3143, ptr %3150, ptr %3152)
+  %3154 = getelementptr inbounds nuw { ptr, ptr }, ptr %226, i32 0, i32 0
+  %3155 = extractvalue { ptr, ptr } %3153, 0
+  store ptr %3155, ptr %3154, align 8
+  %3156 = getelementptr inbounds nuw { ptr, ptr }, ptr %226, i32 0, i32 1
+  %3157 = extractvalue { ptr, ptr } %3153, 1
+  store ptr %3157, ptr %3156, align 8
+  %3158 = load i64, ptr %30, align 4
+  %3159 = getelementptr inbounds nuw { ptr, ptr }, ptr %226, i32 0, i32 0
+  %3160 = load ptr, ptr %3159, align 8
+  %3161 = getelementptr inbounds nuw { ptr, ptr }, ptr %226, i32 0, i32 1
+  %3162 = load ptr, ptr %3161, align 8
+  %3163 = call { ptr, ptr } @gen_location(i64 %3158, ptr noundef %3142, ptr %3160, ptr %3162)
+  %3164 = getelementptr inbounds nuw { ptr, ptr }, ptr %225, i32 0, i32 0
+  %3165 = extractvalue { ptr, ptr } %3163, 0
+  store ptr %3165, ptr %3164, align 8
+  %3166 = getelementptr inbounds nuw { ptr, ptr }, ptr %225, i32 0, i32 1
+  %3167 = extractvalue { ptr, ptr } %3163, 1
+  store ptr %3167, ptr %3166, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %225, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %225) #8
+  br label %3168
 
-3146:                                             ; preds = %3119, %3104
-  br label %3147
+3168:                                             ; preds = %3141, %3126
+  br label %3169
 
-3147:                                             ; preds = %3146, %3085
-  br label %3148
+3169:                                             ; preds = %3168, %3107
+  br label %3170
 
-3148:                                             ; preds = %3147, %3066
-  %3149 = load ptr, ptr %21, align 8
-  %3150 = getelementptr inbounds %union.YYSTYPE, ptr %3149, i64 0
-  %3151 = getelementptr inbounds { i64, ptr }, ptr %3150, i32 0, i32 0
-  %3152 = load i64, ptr %3151, align 8
-  %3153 = getelementptr inbounds { i64, ptr }, ptr %3150, i32 0, i32 1
-  %3154 = load ptr, ptr %3153, align 8
-  call void @jv_free(i64 %3152, ptr %3154)
-  br label %4268
+3170:                                             ; preds = %3169, %3088
+  %3171 = load ptr, ptr %22, align 8, !tbaa !20
+  %3172 = getelementptr inbounds %union.YYSTYPE, ptr %3171, i64 0
+  %3173 = getelementptr inbounds nuw { i64, ptr }, ptr %3172, i32 0, i32 0
+  %3174 = load i64, ptr %3173, align 8
+  %3175 = getelementptr inbounds nuw { i64, ptr }, ptr %3172, i32 0, i32 1
+  %3176 = load ptr, ptr %3175, align 8
+  call void @jv_free(i64 %3174, ptr %3176)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %218) #8
+  br label %4294
 
-3155:                                             ; preds = %604
-  %3156 = load ptr, ptr %21, align 8
-  %3157 = getelementptr inbounds %union.YYSTYPE, ptr %3156, i64 -3
-  %3158 = getelementptr inbounds { i64, ptr }, ptr %3157, i32 0, i32 0
-  %3159 = load i64, ptr %3158, align 8
-  %3160 = getelementptr inbounds { i64, ptr }, ptr %3157, i32 0, i32 1
-  %3161 = load ptr, ptr %3160, align 8
-  %3162 = call ptr @jv_string_value(i64 %3159, ptr %3161)
-  %3163 = load ptr, ptr %21, align 8
-  %3164 = getelementptr inbounds %union.YYSTYPE, ptr %3163, i64 -1
-  %3165 = getelementptr inbounds { ptr, ptr }, ptr %3164, i32 0, i32 0
-  %3166 = load ptr, ptr %3165, align 8
-  %3167 = getelementptr inbounds { ptr, ptr }, ptr %3164, i32 0, i32 1
-  %3168 = load ptr, ptr %3167, align 8
-  %3169 = call { ptr, ptr } @gen_call(ptr noundef %3162, ptr %3166, ptr %3168)
-  %3170 = getelementptr inbounds { ptr, ptr }, ptr %226, i32 0, i32 0
-  %3171 = extractvalue { ptr, ptr } %3169, 0
-  store ptr %3171, ptr %3170, align 8
-  %3172 = getelementptr inbounds { ptr, ptr }, ptr %226, i32 0, i32 1
-  %3173 = extractvalue { ptr, ptr } %3169, 1
-  store ptr %3173, ptr %3172, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %226, i64 16, i1 false)
-  %3174 = load ptr, ptr %24, align 8
-  %3175 = getelementptr inbounds %struct.location, ptr %3174, i64 -3
-  %3176 = load ptr, ptr %7, align 8
-  %3177 = load i64, ptr %3175, align 4
-  %3178 = getelementptr inbounds { ptr, ptr }, ptr %28, i32 0, i32 0
-  %3179 = load ptr, ptr %3178, align 8
-  %3180 = getelementptr inbounds { ptr, ptr }, ptr %28, i32 0, i32 1
-  %3181 = load ptr, ptr %3180, align 8
-  %3182 = call { ptr, ptr } @gen_location(i64 %3177, ptr noundef %3176, ptr %3179, ptr %3181)
-  %3183 = getelementptr inbounds { ptr, ptr }, ptr %227, i32 0, i32 0
-  %3184 = extractvalue { ptr, ptr } %3182, 0
-  store ptr %3184, ptr %3183, align 8
-  %3185 = getelementptr inbounds { ptr, ptr }, ptr %227, i32 0, i32 1
-  %3186 = extractvalue { ptr, ptr } %3182, 1
-  store ptr %3186, ptr %3185, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %227, i64 16, i1 false)
-  %3187 = load ptr, ptr %21, align 8
-  %3188 = getelementptr inbounds %union.YYSTYPE, ptr %3187, i64 -3
-  %3189 = getelementptr inbounds { i64, ptr }, ptr %3188, i32 0, i32 0
-  %3190 = load i64, ptr %3189, align 8
-  %3191 = getelementptr inbounds { i64, ptr }, ptr %3188, i32 0, i32 1
-  %3192 = load ptr, ptr %3191, align 8
-  call void @jv_free(i64 %3190, ptr %3192)
-  br label %4268
+3177:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %228) #8
+  %3178 = load ptr, ptr %22, align 8, !tbaa !20
+  %3179 = getelementptr inbounds %union.YYSTYPE, ptr %3178, i64 -3
+  %3180 = getelementptr inbounds nuw { i64, ptr }, ptr %3179, i32 0, i32 0
+  %3181 = load i64, ptr %3180, align 8
+  %3182 = getelementptr inbounds nuw { i64, ptr }, ptr %3179, i32 0, i32 1
+  %3183 = load ptr, ptr %3182, align 8
+  %3184 = call ptr @jv_string_value(i64 %3181, ptr %3183)
+  %3185 = load ptr, ptr %22, align 8, !tbaa !20
+  %3186 = getelementptr inbounds %union.YYSTYPE, ptr %3185, i64 -1
+  %3187 = getelementptr inbounds nuw { ptr, ptr }, ptr %3186, i32 0, i32 0
+  %3188 = load ptr, ptr %3187, align 8
+  %3189 = getelementptr inbounds nuw { ptr, ptr }, ptr %3186, i32 0, i32 1
+  %3190 = load ptr, ptr %3189, align 8
+  %3191 = call { ptr, ptr } @gen_call(ptr noundef %3184, ptr %3188, ptr %3190)
+  %3192 = getelementptr inbounds nuw { ptr, ptr }, ptr %228, i32 0, i32 0
+  %3193 = extractvalue { ptr, ptr } %3191, 0
+  store ptr %3193, ptr %3192, align 8
+  %3194 = getelementptr inbounds nuw { ptr, ptr }, ptr %228, i32 0, i32 1
+  %3195 = extractvalue { ptr, ptr } %3191, 1
+  store ptr %3195, ptr %3194, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %228, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %228) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %229) #8
+  %3196 = load ptr, ptr %25, align 8, !tbaa !4
+  %3197 = getelementptr inbounds %struct.location, ptr %3196, i64 -3
+  %3198 = load ptr, ptr %8, align 8, !tbaa !12
+  %3199 = load i64, ptr %3197, align 4
+  %3200 = getelementptr inbounds nuw { ptr, ptr }, ptr %29, i32 0, i32 0
+  %3201 = load ptr, ptr %3200, align 8
+  %3202 = getelementptr inbounds nuw { ptr, ptr }, ptr %29, i32 0, i32 1
+  %3203 = load ptr, ptr %3202, align 8
+  %3204 = call { ptr, ptr } @gen_location(i64 %3199, ptr noundef %3198, ptr %3201, ptr %3203)
+  %3205 = getelementptr inbounds nuw { ptr, ptr }, ptr %229, i32 0, i32 0
+  %3206 = extractvalue { ptr, ptr } %3204, 0
+  store ptr %3206, ptr %3205, align 8
+  %3207 = getelementptr inbounds nuw { ptr, ptr }, ptr %229, i32 0, i32 1
+  %3208 = extractvalue { ptr, ptr } %3204, 1
+  store ptr %3208, ptr %3207, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %229, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %229) #8
+  %3209 = load ptr, ptr %22, align 8, !tbaa !20
+  %3210 = getelementptr inbounds %union.YYSTYPE, ptr %3209, i64 -3
+  %3211 = getelementptr inbounds nuw { i64, ptr }, ptr %3210, i32 0, i32 0
+  %3212 = load i64, ptr %3211, align 8
+  %3213 = getelementptr inbounds nuw { i64, ptr }, ptr %3210, i32 0, i32 1
+  %3214 = load ptr, ptr %3213, align 8
+  call void @jv_free(i64 %3212, ptr %3214)
+  br label %4294
 
-3193:                                             ; preds = %604
-  %3194 = call { ptr, ptr } (...) @gen_noop()
-  %3195 = getelementptr inbounds { ptr, ptr }, ptr %228, i32 0, i32 0
-  %3196 = extractvalue { ptr, ptr } %3194, 0
-  store ptr %3196, ptr %3195, align 8
-  %3197 = getelementptr inbounds { ptr, ptr }, ptr %228, i32 0, i32 1
-  %3198 = extractvalue { ptr, ptr } %3194, 1
-  store ptr %3198, ptr %3197, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %228, i64 16, i1 false)
-  br label %4268
+3215:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %230) #8
+  %3216 = call { ptr, ptr } (...) @gen_noop()
+  %3217 = getelementptr inbounds nuw { ptr, ptr }, ptr %230, i32 0, i32 0
+  %3218 = extractvalue { ptr, ptr } %3216, 0
+  store ptr %3218, ptr %3217, align 8
+  %3219 = getelementptr inbounds nuw { ptr, ptr }, ptr %230, i32 0, i32 1
+  %3220 = extractvalue { ptr, ptr } %3216, 1
+  store ptr %3220, ptr %3219, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %230, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %230) #8
+  br label %4294
 
-3199:                                             ; preds = %604
-  %3200 = call { ptr, ptr } (...) @gen_noop()
-  %3201 = getelementptr inbounds { ptr, ptr }, ptr %229, i32 0, i32 0
-  %3202 = extractvalue { ptr, ptr } %3200, 0
-  store ptr %3202, ptr %3201, align 8
-  %3203 = getelementptr inbounds { ptr, ptr }, ptr %229, i32 0, i32 1
-  %3204 = extractvalue { ptr, ptr } %3200, 1
-  store ptr %3204, ptr %3203, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %229, i64 16, i1 false)
-  br label %4268
+3221:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %231) #8
+  %3222 = call { ptr, ptr } (...) @gen_noop()
+  %3223 = getelementptr inbounds nuw { ptr, ptr }, ptr %231, i32 0, i32 0
+  %3224 = extractvalue { ptr, ptr } %3222, 0
+  store ptr %3224, ptr %3223, align 8
+  %3225 = getelementptr inbounds nuw { ptr, ptr }, ptr %231, i32 0, i32 1
+  %3226 = extractvalue { ptr, ptr } %3222, 1
+  store ptr %3226, ptr %3225, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %231, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %231) #8
+  br label %4294
 
-3205:                                             ; preds = %604
-  %3206 = load ptr, ptr %21, align 8
-  %3207 = getelementptr inbounds %union.YYSTYPE, ptr %3206, i64 -3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %3207, i64 16, i1 false)
-  br label %4268
+3227:                                             ; preds = %616
+  %3228 = load ptr, ptr %22, align 8, !tbaa !20
+  %3229 = getelementptr inbounds %union.YYSTYPE, ptr %3228, i64 -3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %3229, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-3208:                                             ; preds = %604
-  %3209 = call { ptr, ptr } (...) @gen_noop()
-  %3210 = getelementptr inbounds { ptr, ptr }, ptr %230, i32 0, i32 0
-  %3211 = extractvalue { ptr, ptr } %3209, 0
-  store ptr %3211, ptr %3210, align 8
-  %3212 = getelementptr inbounds { ptr, ptr }, ptr %230, i32 0, i32 1
-  %3213 = extractvalue { ptr, ptr } %3209, 1
-  store ptr %3213, ptr %3212, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %230, i64 16, i1 false)
-  br label %4268
+3230:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %232) #8
+  %3231 = call { ptr, ptr } (...) @gen_noop()
+  %3232 = getelementptr inbounds nuw { ptr, ptr }, ptr %232, i32 0, i32 0
+  %3233 = extractvalue { ptr, ptr } %3231, 0
+  store ptr %3233, ptr %3232, align 8
+  %3234 = getelementptr inbounds nuw { ptr, ptr }, ptr %232, i32 0, i32 1
+  %3235 = extractvalue { ptr, ptr } %3231, 1
+  store ptr %3235, ptr %3234, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %232, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %232) #8
+  br label %4294
 
-3214:                                             ; preds = %604
-  %3215 = load ptr, ptr %21, align 8
-  %3216 = getelementptr inbounds %union.YYSTYPE, ptr %3215, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %3216, i64 16, i1 false)
-  br label %4268
+3236:                                             ; preds = %616
+  %3237 = load ptr, ptr %22, align 8, !tbaa !20
+  %3238 = getelementptr inbounds %union.YYSTYPE, ptr %3237, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %3238, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-3217:                                             ; preds = %604
-  %3218 = load ptr, ptr %21, align 8
-  %3219 = getelementptr inbounds %union.YYSTYPE, ptr %3218, i64 -2
-  %3220 = load ptr, ptr %21, align 8
-  %3221 = getelementptr inbounds %union.YYSTYPE, ptr %3220, i64 0
-  %3222 = getelementptr inbounds { ptr, ptr }, ptr %3219, i32 0, i32 0
-  %3223 = load ptr, ptr %3222, align 8
-  %3224 = getelementptr inbounds { ptr, ptr }, ptr %3219, i32 0, i32 1
-  %3225 = load ptr, ptr %3224, align 8
-  %3226 = getelementptr inbounds { ptr, ptr }, ptr %3221, i32 0, i32 0
-  %3227 = load ptr, ptr %3226, align 8
-  %3228 = getelementptr inbounds { ptr, ptr }, ptr %3221, i32 0, i32 1
-  %3229 = load ptr, ptr %3228, align 8
-  %3230 = call { ptr, ptr } @block_join(ptr %3223, ptr %3225, ptr %3227, ptr %3229)
-  %3231 = getelementptr inbounds { ptr, ptr }, ptr %231, i32 0, i32 0
-  %3232 = extractvalue { ptr, ptr } %3230, 0
-  store ptr %3232, ptr %3231, align 8
-  %3233 = getelementptr inbounds { ptr, ptr }, ptr %231, i32 0, i32 1
-  %3234 = extractvalue { ptr, ptr } %3230, 1
-  store ptr %3234, ptr %3233, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %231, i64 16, i1 false)
-  br label %4268
+3239:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %233) #8
+  %3240 = load ptr, ptr %22, align 8, !tbaa !20
+  %3241 = getelementptr inbounds %union.YYSTYPE, ptr %3240, i64 -2
+  %3242 = load ptr, ptr %22, align 8, !tbaa !20
+  %3243 = getelementptr inbounds %union.YYSTYPE, ptr %3242, i64 0
+  %3244 = getelementptr inbounds nuw { ptr, ptr }, ptr %3241, i32 0, i32 0
+  %3245 = load ptr, ptr %3244, align 8
+  %3246 = getelementptr inbounds nuw { ptr, ptr }, ptr %3241, i32 0, i32 1
+  %3247 = load ptr, ptr %3246, align 8
+  %3248 = getelementptr inbounds nuw { ptr, ptr }, ptr %3243, i32 0, i32 0
+  %3249 = load ptr, ptr %3248, align 8
+  %3250 = getelementptr inbounds nuw { ptr, ptr }, ptr %3243, i32 0, i32 1
+  %3251 = load ptr, ptr %3250, align 8
+  %3252 = call { ptr, ptr } @block_join(ptr %3245, ptr %3247, ptr %3249, ptr %3251)
+  %3253 = getelementptr inbounds nuw { ptr, ptr }, ptr %233, i32 0, i32 0
+  %3254 = extractvalue { ptr, ptr } %3252, 0
+  store ptr %3254, ptr %3253, align 8
+  %3255 = getelementptr inbounds nuw { ptr, ptr }, ptr %233, i32 0, i32 1
+  %3256 = extractvalue { ptr, ptr } %3252, 1
+  store ptr %3256, ptr %3255, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %233, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %233) #8
+  br label %4294
 
-3235:                                             ; preds = %604
-  %3236 = load ptr, ptr %21, align 8
-  %3237 = getelementptr inbounds %union.YYSTYPE, ptr %3236, i64 0
-  %3238 = getelementptr inbounds { ptr, ptr }, ptr %3237, i32 0, i32 0
-  %3239 = load ptr, ptr %3238, align 8
-  %3240 = getelementptr inbounds { ptr, ptr }, ptr %3237, i32 0, i32 1
-  %3241 = load ptr, ptr %3240, align 8
-  %3242 = call { ptr, ptr } @gen_lambda(ptr %3239, ptr %3241)
-  %3243 = getelementptr inbounds { ptr, ptr }, ptr %232, i32 0, i32 0
-  %3244 = extractvalue { ptr, ptr } %3242, 0
-  store ptr %3244, ptr %3243, align 8
-  %3245 = getelementptr inbounds { ptr, ptr }, ptr %232, i32 0, i32 1
-  %3246 = extractvalue { ptr, ptr } %3242, 1
-  store ptr %3246, ptr %3245, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %232, i64 16, i1 false)
-  br label %4268
+3257:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %234) #8
+  %3258 = load ptr, ptr %22, align 8, !tbaa !20
+  %3259 = getelementptr inbounds %union.YYSTYPE, ptr %3258, i64 0
+  %3260 = getelementptr inbounds nuw { ptr, ptr }, ptr %3259, i32 0, i32 0
+  %3261 = load ptr, ptr %3260, align 8
+  %3262 = getelementptr inbounds nuw { ptr, ptr }, ptr %3259, i32 0, i32 1
+  %3263 = load ptr, ptr %3262, align 8
+  %3264 = call { ptr, ptr } @gen_lambda(ptr %3261, ptr %3263)
+  %3265 = getelementptr inbounds nuw { ptr, ptr }, ptr %234, i32 0, i32 0
+  %3266 = extractvalue { ptr, ptr } %3264, 0
+  store ptr %3266, ptr %3265, align 8
+  %3267 = getelementptr inbounds nuw { ptr, ptr }, ptr %234, i32 0, i32 1
+  %3268 = extractvalue { ptr, ptr } %3264, 1
+  store ptr %3268, ptr %3267, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %234, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %234) #8
+  br label %4294
 
-3247:                                             ; preds = %604
-  %3248 = load ptr, ptr %21, align 8
-  %3249 = getelementptr inbounds %union.YYSTYPE, ptr %3248, i64 -2
-  %3250 = load ptr, ptr %21, align 8
-  %3251 = getelementptr inbounds %union.YYSTYPE, ptr %3250, i64 0
-  %3252 = getelementptr inbounds { ptr, ptr }, ptr %3251, i32 0, i32 0
-  %3253 = load ptr, ptr %3252, align 8
-  %3254 = getelementptr inbounds { ptr, ptr }, ptr %3251, i32 0, i32 1
-  %3255 = load ptr, ptr %3254, align 8
-  %3256 = call { ptr, ptr } @gen_destructure_alt(ptr %3253, ptr %3255)
-  %3257 = getelementptr inbounds { ptr, ptr }, ptr %234, i32 0, i32 0
-  %3258 = extractvalue { ptr, ptr } %3256, 0
-  store ptr %3258, ptr %3257, align 8
-  %3259 = getelementptr inbounds { ptr, ptr }, ptr %234, i32 0, i32 1
-  %3260 = extractvalue { ptr, ptr } %3256, 1
-  store ptr %3260, ptr %3259, align 8
-  %3261 = getelementptr inbounds { ptr, ptr }, ptr %3249, i32 0, i32 0
-  %3262 = load ptr, ptr %3261, align 8
-  %3263 = getelementptr inbounds { ptr, ptr }, ptr %3249, i32 0, i32 1
-  %3264 = load ptr, ptr %3263, align 8
-  %3265 = getelementptr inbounds { ptr, ptr }, ptr %234, i32 0, i32 0
-  %3266 = load ptr, ptr %3265, align 8
-  %3267 = getelementptr inbounds { ptr, ptr }, ptr %234, i32 0, i32 1
-  %3268 = load ptr, ptr %3267, align 8
-  %3269 = call { ptr, ptr } @block_join(ptr %3262, ptr %3264, ptr %3266, ptr %3268)
-  %3270 = getelementptr inbounds { ptr, ptr }, ptr %233, i32 0, i32 0
-  %3271 = extractvalue { ptr, ptr } %3269, 0
-  store ptr %3271, ptr %3270, align 8
-  %3272 = getelementptr inbounds { ptr, ptr }, ptr %233, i32 0, i32 1
-  %3273 = extractvalue { ptr, ptr } %3269, 1
-  store ptr %3273, ptr %3272, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %233, i64 16, i1 false)
-  br label %4268
+3269:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %235) #8
+  %3270 = load ptr, ptr %22, align 8, !tbaa !20
+  %3271 = getelementptr inbounds %union.YYSTYPE, ptr %3270, i64 -2
+  %3272 = load ptr, ptr %22, align 8, !tbaa !20
+  %3273 = getelementptr inbounds %union.YYSTYPE, ptr %3272, i64 0
+  %3274 = getelementptr inbounds nuw { ptr, ptr }, ptr %3273, i32 0, i32 0
+  %3275 = load ptr, ptr %3274, align 8
+  %3276 = getelementptr inbounds nuw { ptr, ptr }, ptr %3273, i32 0, i32 1
+  %3277 = load ptr, ptr %3276, align 8
+  %3278 = call { ptr, ptr } @gen_destructure_alt(ptr %3275, ptr %3277)
+  %3279 = getelementptr inbounds nuw { ptr, ptr }, ptr %236, i32 0, i32 0
+  %3280 = extractvalue { ptr, ptr } %3278, 0
+  store ptr %3280, ptr %3279, align 8
+  %3281 = getelementptr inbounds nuw { ptr, ptr }, ptr %236, i32 0, i32 1
+  %3282 = extractvalue { ptr, ptr } %3278, 1
+  store ptr %3282, ptr %3281, align 8
+  %3283 = getelementptr inbounds nuw { ptr, ptr }, ptr %3271, i32 0, i32 0
+  %3284 = load ptr, ptr %3283, align 8
+  %3285 = getelementptr inbounds nuw { ptr, ptr }, ptr %3271, i32 0, i32 1
+  %3286 = load ptr, ptr %3285, align 8
+  %3287 = getelementptr inbounds nuw { ptr, ptr }, ptr %236, i32 0, i32 0
+  %3288 = load ptr, ptr %3287, align 8
+  %3289 = getelementptr inbounds nuw { ptr, ptr }, ptr %236, i32 0, i32 1
+  %3290 = load ptr, ptr %3289, align 8
+  %3291 = call { ptr, ptr } @block_join(ptr %3284, ptr %3286, ptr %3288, ptr %3290)
+  %3292 = getelementptr inbounds nuw { ptr, ptr }, ptr %235, i32 0, i32 0
+  %3293 = extractvalue { ptr, ptr } %3291, 0
+  store ptr %3293, ptr %3292, align 8
+  %3294 = getelementptr inbounds nuw { ptr, ptr }, ptr %235, i32 0, i32 1
+  %3295 = extractvalue { ptr, ptr } %3291, 1
+  store ptr %3295, ptr %3294, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %235, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %235) #8
+  br label %4294
 
-3274:                                             ; preds = %604
-  %3275 = load ptr, ptr %21, align 8
-  %3276 = getelementptr inbounds %union.YYSTYPE, ptr %3275, i64 0
-  %3277 = getelementptr inbounds { ptr, ptr }, ptr %3276, i32 0, i32 0
-  %3278 = load ptr, ptr %3277, align 8
-  %3279 = getelementptr inbounds { ptr, ptr }, ptr %3276, i32 0, i32 1
-  %3280 = load ptr, ptr %3279, align 8
-  %3281 = call { ptr, ptr } @gen_destructure_alt(ptr %3278, ptr %3280)
-  %3282 = getelementptr inbounds { ptr, ptr }, ptr %235, i32 0, i32 0
-  %3283 = extractvalue { ptr, ptr } %3281, 0
-  store ptr %3283, ptr %3282, align 8
-  %3284 = getelementptr inbounds { ptr, ptr }, ptr %235, i32 0, i32 1
-  %3285 = extractvalue { ptr, ptr } %3281, 1
-  store ptr %3285, ptr %3284, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %235, i64 16, i1 false)
-  br label %4268
+3296:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %237) #8
+  %3297 = load ptr, ptr %22, align 8, !tbaa !20
+  %3298 = getelementptr inbounds %union.YYSTYPE, ptr %3297, i64 0
+  %3299 = getelementptr inbounds nuw { ptr, ptr }, ptr %3298, i32 0, i32 0
+  %3300 = load ptr, ptr %3299, align 8
+  %3301 = getelementptr inbounds nuw { ptr, ptr }, ptr %3298, i32 0, i32 1
+  %3302 = load ptr, ptr %3301, align 8
+  %3303 = call { ptr, ptr } @gen_destructure_alt(ptr %3300, ptr %3302)
+  %3304 = getelementptr inbounds nuw { ptr, ptr }, ptr %237, i32 0, i32 0
+  %3305 = extractvalue { ptr, ptr } %3303, 0
+  store ptr %3305, ptr %3304, align 8
+  %3306 = getelementptr inbounds nuw { ptr, ptr }, ptr %237, i32 0, i32 1
+  %3307 = extractvalue { ptr, ptr } %3303, 1
+  store ptr %3307, ptr %3306, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %237, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %237) #8
+  br label %4294
 
-3286:                                             ; preds = %604
-  %3287 = load ptr, ptr %21, align 8
-  %3288 = getelementptr inbounds %union.YYSTYPE, ptr %3287, i64 -2
-  %3289 = load ptr, ptr %21, align 8
-  %3290 = getelementptr inbounds %union.YYSTYPE, ptr %3289, i64 0
-  %3291 = getelementptr inbounds { ptr, ptr }, ptr %3288, i32 0, i32 0
-  %3292 = load ptr, ptr %3291, align 8
-  %3293 = getelementptr inbounds { ptr, ptr }, ptr %3288, i32 0, i32 1
-  %3294 = load ptr, ptr %3293, align 8
-  %3295 = getelementptr inbounds { ptr, ptr }, ptr %3290, i32 0, i32 0
-  %3296 = load ptr, ptr %3295, align 8
-  %3297 = getelementptr inbounds { ptr, ptr }, ptr %3290, i32 0, i32 1
-  %3298 = load ptr, ptr %3297, align 8
-  %3299 = call { ptr, ptr } @block_join(ptr %3292, ptr %3294, ptr %3296, ptr %3298)
-  %3300 = getelementptr inbounds { ptr, ptr }, ptr %236, i32 0, i32 0
-  %3301 = extractvalue { ptr, ptr } %3299, 0
-  store ptr %3301, ptr %3300, align 8
-  %3302 = getelementptr inbounds { ptr, ptr }, ptr %236, i32 0, i32 1
-  %3303 = extractvalue { ptr, ptr } %3299, 1
-  store ptr %3303, ptr %3302, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %236, i64 16, i1 false)
-  br label %4268
+3308:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %238) #8
+  %3309 = load ptr, ptr %22, align 8, !tbaa !20
+  %3310 = getelementptr inbounds %union.YYSTYPE, ptr %3309, i64 -2
+  %3311 = load ptr, ptr %22, align 8, !tbaa !20
+  %3312 = getelementptr inbounds %union.YYSTYPE, ptr %3311, i64 0
+  %3313 = getelementptr inbounds nuw { ptr, ptr }, ptr %3310, i32 0, i32 0
+  %3314 = load ptr, ptr %3313, align 8
+  %3315 = getelementptr inbounds nuw { ptr, ptr }, ptr %3310, i32 0, i32 1
+  %3316 = load ptr, ptr %3315, align 8
+  %3317 = getelementptr inbounds nuw { ptr, ptr }, ptr %3312, i32 0, i32 0
+  %3318 = load ptr, ptr %3317, align 8
+  %3319 = getelementptr inbounds nuw { ptr, ptr }, ptr %3312, i32 0, i32 1
+  %3320 = load ptr, ptr %3319, align 8
+  %3321 = call { ptr, ptr } @block_join(ptr %3314, ptr %3316, ptr %3318, ptr %3320)
+  %3322 = getelementptr inbounds nuw { ptr, ptr }, ptr %238, i32 0, i32 0
+  %3323 = extractvalue { ptr, ptr } %3321, 0
+  store ptr %3323, ptr %3322, align 8
+  %3324 = getelementptr inbounds nuw { ptr, ptr }, ptr %238, i32 0, i32 1
+  %3325 = extractvalue { ptr, ptr } %3321, 1
+  store ptr %3325, ptr %3324, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %238, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %238) #8
+  br label %4294
 
-3304:                                             ; preds = %604
-  %3305 = load ptr, ptr %21, align 8
-  %3306 = getelementptr inbounds %union.YYSTYPE, ptr %3305, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %3306, i64 16, i1 false)
-  br label %4268
+3326:                                             ; preds = %616
+  %3327 = load ptr, ptr %22, align 8, !tbaa !20
+  %3328 = getelementptr inbounds %union.YYSTYPE, ptr %3327, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %3328, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-3307:                                             ; preds = %604
-  %3308 = load ptr, ptr %21, align 8
-  %3309 = getelementptr inbounds %union.YYSTYPE, ptr %3308, i64 0
-  %3310 = getelementptr inbounds { i64, ptr }, ptr %3309, i32 0, i32 0
-  %3311 = load i64, ptr %3310, align 8
-  %3312 = getelementptr inbounds { i64, ptr }, ptr %3309, i32 0, i32 1
-  %3313 = load ptr, ptr %3312, align 8
-  %3314 = call ptr @jv_string_value(i64 %3311, ptr %3313)
-  %3315 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %3314)
-  %3316 = getelementptr inbounds { ptr, ptr }, ptr %237, i32 0, i32 0
-  %3317 = extractvalue { ptr, ptr } %3315, 0
-  store ptr %3317, ptr %3316, align 8
-  %3318 = getelementptr inbounds { ptr, ptr }, ptr %237, i32 0, i32 1
-  %3319 = extractvalue { ptr, ptr } %3315, 1
-  store ptr %3319, ptr %3318, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %237, i64 16, i1 false)
-  %3320 = load ptr, ptr %21, align 8
-  %3321 = getelementptr inbounds %union.YYSTYPE, ptr %3320, i64 0
-  %3322 = getelementptr inbounds { i64, ptr }, ptr %3321, i32 0, i32 0
-  %3323 = load i64, ptr %3322, align 8
-  %3324 = getelementptr inbounds { i64, ptr }, ptr %3321, i32 0, i32 1
-  %3325 = load ptr, ptr %3324, align 8
-  call void @jv_free(i64 %3323, ptr %3325)
-  br label %4268
-
-3326:                                             ; preds = %604
-  %3327 = load ptr, ptr %21, align 8
-  %3328 = getelementptr inbounds %union.YYSTYPE, ptr %3327, i64 -1
-  %3329 = call { ptr, ptr } @gen_op_simple(i32 noundef 5)
-  %3330 = getelementptr inbounds { ptr, ptr }, ptr %239, i32 0, i32 0
-  %3331 = extractvalue { ptr, ptr } %3329, 0
-  store ptr %3331, ptr %3330, align 8
-  %3332 = getelementptr inbounds { ptr, ptr }, ptr %239, i32 0, i32 1
-  %3333 = extractvalue { ptr, ptr } %3329, 1
-  store ptr %3333, ptr %3332, align 8
-  %3334 = getelementptr inbounds { ptr, ptr }, ptr %3328, i32 0, i32 0
+3329:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %239) #8
+  %3330 = load ptr, ptr %22, align 8, !tbaa !20
+  %3331 = getelementptr inbounds %union.YYSTYPE, ptr %3330, i64 0
+  %3332 = getelementptr inbounds nuw { i64, ptr }, ptr %3331, i32 0, i32 0
+  %3333 = load i64, ptr %3332, align 8
+  %3334 = getelementptr inbounds nuw { i64, ptr }, ptr %3331, i32 0, i32 1
   %3335 = load ptr, ptr %3334, align 8
-  %3336 = getelementptr inbounds { ptr, ptr }, ptr %3328, i32 0, i32 1
-  %3337 = load ptr, ptr %3336, align 8
-  %3338 = getelementptr inbounds { ptr, ptr }, ptr %239, i32 0, i32 0
-  %3339 = load ptr, ptr %3338, align 8
-  %3340 = getelementptr inbounds { ptr, ptr }, ptr %239, i32 0, i32 1
-  %3341 = load ptr, ptr %3340, align 8
-  %3342 = call { ptr, ptr } @block_join(ptr %3335, ptr %3337, ptr %3339, ptr %3341)
-  %3343 = getelementptr inbounds { ptr, ptr }, ptr %238, i32 0, i32 0
-  %3344 = extractvalue { ptr, ptr } %3342, 0
-  store ptr %3344, ptr %3343, align 8
-  %3345 = getelementptr inbounds { ptr, ptr }, ptr %238, i32 0, i32 1
-  %3346 = extractvalue { ptr, ptr } %3342, 1
-  store ptr %3346, ptr %3345, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %238, i64 16, i1 false)
-  br label %4268
+  %3336 = call ptr @jv_string_value(i64 %3333, ptr %3335)
+  %3337 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %3336)
+  %3338 = getelementptr inbounds nuw { ptr, ptr }, ptr %239, i32 0, i32 0
+  %3339 = extractvalue { ptr, ptr } %3337, 0
+  store ptr %3339, ptr %3338, align 8
+  %3340 = getelementptr inbounds nuw { ptr, ptr }, ptr %239, i32 0, i32 1
+  %3341 = extractvalue { ptr, ptr } %3337, 1
+  store ptr %3341, ptr %3340, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %239, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %239) #8
+  %3342 = load ptr, ptr %22, align 8, !tbaa !20
+  %3343 = getelementptr inbounds %union.YYSTYPE, ptr %3342, i64 0
+  %3344 = getelementptr inbounds nuw { i64, ptr }, ptr %3343, i32 0, i32 0
+  %3345 = load i64, ptr %3344, align 8
+  %3346 = getelementptr inbounds nuw { i64, ptr }, ptr %3343, i32 0, i32 1
+  %3347 = load ptr, ptr %3346, align 8
+  call void @jv_free(i64 %3345, ptr %3347)
+  br label %4294
 
-3347:                                             ; preds = %604
-  %3348 = load ptr, ptr %21, align 8
-  %3349 = getelementptr inbounds %union.YYSTYPE, ptr %3348, i64 -1
-  %3350 = call { ptr, ptr } @gen_op_simple(i32 noundef 5)
-  %3351 = getelementptr inbounds { ptr, ptr }, ptr %241, i32 0, i32 0
-  %3352 = extractvalue { ptr, ptr } %3350, 0
-  store ptr %3352, ptr %3351, align 8
-  %3353 = getelementptr inbounds { ptr, ptr }, ptr %241, i32 0, i32 1
-  %3354 = extractvalue { ptr, ptr } %3350, 1
-  store ptr %3354, ptr %3353, align 8
-  %3355 = getelementptr inbounds { ptr, ptr }, ptr %3349, i32 0, i32 0
-  %3356 = load ptr, ptr %3355, align 8
-  %3357 = getelementptr inbounds { ptr, ptr }, ptr %3349, i32 0, i32 1
-  %3358 = load ptr, ptr %3357, align 8
-  %3359 = getelementptr inbounds { ptr, ptr }, ptr %241, i32 0, i32 0
-  %3360 = load ptr, ptr %3359, align 8
-  %3361 = getelementptr inbounds { ptr, ptr }, ptr %241, i32 0, i32 1
-  %3362 = load ptr, ptr %3361, align 8
-  %3363 = call { ptr, ptr } @block_join(ptr %3356, ptr %3358, ptr %3360, ptr %3362)
-  %3364 = getelementptr inbounds { ptr, ptr }, ptr %240, i32 0, i32 0
-  %3365 = extractvalue { ptr, ptr } %3363, 0
-  store ptr %3365, ptr %3364, align 8
-  %3366 = getelementptr inbounds { ptr, ptr }, ptr %240, i32 0, i32 1
-  %3367 = extractvalue { ptr, ptr } %3363, 1
-  store ptr %3367, ptr %3366, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %240, i64 16, i1 false)
-  br label %4268
+3348:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %240) #8
+  %3349 = load ptr, ptr %22, align 8, !tbaa !20
+  %3350 = getelementptr inbounds %union.YYSTYPE, ptr %3349, i64 -1
+  %3351 = call { ptr, ptr } @gen_op_simple(i32 noundef 5)
+  %3352 = getelementptr inbounds nuw { ptr, ptr }, ptr %241, i32 0, i32 0
+  %3353 = extractvalue { ptr, ptr } %3351, 0
+  store ptr %3353, ptr %3352, align 8
+  %3354 = getelementptr inbounds nuw { ptr, ptr }, ptr %241, i32 0, i32 1
+  %3355 = extractvalue { ptr, ptr } %3351, 1
+  store ptr %3355, ptr %3354, align 8
+  %3356 = getelementptr inbounds nuw { ptr, ptr }, ptr %3350, i32 0, i32 0
+  %3357 = load ptr, ptr %3356, align 8
+  %3358 = getelementptr inbounds nuw { ptr, ptr }, ptr %3350, i32 0, i32 1
+  %3359 = load ptr, ptr %3358, align 8
+  %3360 = getelementptr inbounds nuw { ptr, ptr }, ptr %241, i32 0, i32 0
+  %3361 = load ptr, ptr %3360, align 8
+  %3362 = getelementptr inbounds nuw { ptr, ptr }, ptr %241, i32 0, i32 1
+  %3363 = load ptr, ptr %3362, align 8
+  %3364 = call { ptr, ptr } @block_join(ptr %3357, ptr %3359, ptr %3361, ptr %3363)
+  %3365 = getelementptr inbounds nuw { ptr, ptr }, ptr %240, i32 0, i32 0
+  %3366 = extractvalue { ptr, ptr } %3364, 0
+  store ptr %3366, ptr %3365, align 8
+  %3367 = getelementptr inbounds nuw { ptr, ptr }, ptr %240, i32 0, i32 1
+  %3368 = extractvalue { ptr, ptr } %3364, 1
+  store ptr %3368, ptr %3367, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %240, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %240) #8
+  br label %4294
 
-3368:                                             ; preds = %604
-  %3369 = call { ptr, ptr } (...) @gen_noop()
-  %3370 = getelementptr inbounds { ptr, ptr }, ptr %243, i32 0, i32 0
-  %3371 = extractvalue { ptr, ptr } %3369, 0
-  store ptr %3371, ptr %3370, align 8
-  %3372 = getelementptr inbounds { ptr, ptr }, ptr %243, i32 0, i32 1
-  %3373 = extractvalue { ptr, ptr } %3369, 1
-  store ptr %3373, ptr %3372, align 8
-  %3374 = load ptr, ptr %21, align 8
-  %3375 = getelementptr inbounds %union.YYSTYPE, ptr %3374, i64 0
-  %3376 = getelementptr inbounds { ptr, ptr }, ptr %243, i32 0, i32 0
-  %3377 = load ptr, ptr %3376, align 8
-  %3378 = getelementptr inbounds { ptr, ptr }, ptr %243, i32 0, i32 1
-  %3379 = load ptr, ptr %3378, align 8
-  %3380 = getelementptr inbounds { ptr, ptr }, ptr %3375, i32 0, i32 0
-  %3381 = load ptr, ptr %3380, align 8
-  %3382 = getelementptr inbounds { ptr, ptr }, ptr %3375, i32 0, i32 1
-  %3383 = load ptr, ptr %3382, align 8
-  %3384 = call { ptr, ptr } @gen_array_matcher(ptr %3377, ptr %3379, ptr %3381, ptr %3383)
-  %3385 = getelementptr inbounds { ptr, ptr }, ptr %242, i32 0, i32 0
-  %3386 = extractvalue { ptr, ptr } %3384, 0
-  store ptr %3386, ptr %3385, align 8
-  %3387 = getelementptr inbounds { ptr, ptr }, ptr %242, i32 0, i32 1
-  %3388 = extractvalue { ptr, ptr } %3384, 1
-  store ptr %3388, ptr %3387, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %242, i64 16, i1 false)
-  br label %4268
+3369:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %242) #8
+  %3370 = load ptr, ptr %22, align 8, !tbaa !20
+  %3371 = getelementptr inbounds %union.YYSTYPE, ptr %3370, i64 -1
+  %3372 = call { ptr, ptr } @gen_op_simple(i32 noundef 5)
+  %3373 = getelementptr inbounds nuw { ptr, ptr }, ptr %243, i32 0, i32 0
+  %3374 = extractvalue { ptr, ptr } %3372, 0
+  store ptr %3374, ptr %3373, align 8
+  %3375 = getelementptr inbounds nuw { ptr, ptr }, ptr %243, i32 0, i32 1
+  %3376 = extractvalue { ptr, ptr } %3372, 1
+  store ptr %3376, ptr %3375, align 8
+  %3377 = getelementptr inbounds nuw { ptr, ptr }, ptr %3371, i32 0, i32 0
+  %3378 = load ptr, ptr %3377, align 8
+  %3379 = getelementptr inbounds nuw { ptr, ptr }, ptr %3371, i32 0, i32 1
+  %3380 = load ptr, ptr %3379, align 8
+  %3381 = getelementptr inbounds nuw { ptr, ptr }, ptr %243, i32 0, i32 0
+  %3382 = load ptr, ptr %3381, align 8
+  %3383 = getelementptr inbounds nuw { ptr, ptr }, ptr %243, i32 0, i32 1
+  %3384 = load ptr, ptr %3383, align 8
+  %3385 = call { ptr, ptr } @block_join(ptr %3378, ptr %3380, ptr %3382, ptr %3384)
+  %3386 = getelementptr inbounds nuw { ptr, ptr }, ptr %242, i32 0, i32 0
+  %3387 = extractvalue { ptr, ptr } %3385, 0
+  store ptr %3387, ptr %3386, align 8
+  %3388 = getelementptr inbounds nuw { ptr, ptr }, ptr %242, i32 0, i32 1
+  %3389 = extractvalue { ptr, ptr } %3385, 1
+  store ptr %3389, ptr %3388, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %242, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %242) #8
+  br label %4294
 
-3389:                                             ; preds = %604
-  %3390 = load ptr, ptr %21, align 8
-  %3391 = getelementptr inbounds %union.YYSTYPE, ptr %3390, i64 -2
-  %3392 = load ptr, ptr %21, align 8
-  %3393 = getelementptr inbounds %union.YYSTYPE, ptr %3392, i64 0
-  %3394 = getelementptr inbounds { ptr, ptr }, ptr %3391, i32 0, i32 0
-  %3395 = load ptr, ptr %3394, align 8
-  %3396 = getelementptr inbounds { ptr, ptr }, ptr %3391, i32 0, i32 1
-  %3397 = load ptr, ptr %3396, align 8
-  %3398 = getelementptr inbounds { ptr, ptr }, ptr %3393, i32 0, i32 0
+3390:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %244) #8
+  %3391 = call { ptr, ptr } (...) @gen_noop()
+  %3392 = getelementptr inbounds nuw { ptr, ptr }, ptr %245, i32 0, i32 0
+  %3393 = extractvalue { ptr, ptr } %3391, 0
+  store ptr %3393, ptr %3392, align 8
+  %3394 = getelementptr inbounds nuw { ptr, ptr }, ptr %245, i32 0, i32 1
+  %3395 = extractvalue { ptr, ptr } %3391, 1
+  store ptr %3395, ptr %3394, align 8
+  %3396 = load ptr, ptr %22, align 8, !tbaa !20
+  %3397 = getelementptr inbounds %union.YYSTYPE, ptr %3396, i64 0
+  %3398 = getelementptr inbounds nuw { ptr, ptr }, ptr %245, i32 0, i32 0
   %3399 = load ptr, ptr %3398, align 8
-  %3400 = getelementptr inbounds { ptr, ptr }, ptr %3393, i32 0, i32 1
+  %3400 = getelementptr inbounds nuw { ptr, ptr }, ptr %245, i32 0, i32 1
   %3401 = load ptr, ptr %3400, align 8
-  %3402 = call { ptr, ptr } @gen_array_matcher(ptr %3395, ptr %3397, ptr %3399, ptr %3401)
-  %3403 = getelementptr inbounds { ptr, ptr }, ptr %244, i32 0, i32 0
-  %3404 = extractvalue { ptr, ptr } %3402, 0
-  store ptr %3404, ptr %3403, align 8
-  %3405 = getelementptr inbounds { ptr, ptr }, ptr %244, i32 0, i32 1
-  %3406 = extractvalue { ptr, ptr } %3402, 1
-  store ptr %3406, ptr %3405, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %244, i64 16, i1 false)
-  br label %4268
+  %3402 = getelementptr inbounds nuw { ptr, ptr }, ptr %3397, i32 0, i32 0
+  %3403 = load ptr, ptr %3402, align 8
+  %3404 = getelementptr inbounds nuw { ptr, ptr }, ptr %3397, i32 0, i32 1
+  %3405 = load ptr, ptr %3404, align 8
+  %3406 = call { ptr, ptr } @gen_array_matcher(ptr %3399, ptr %3401, ptr %3403, ptr %3405)
+  %3407 = getelementptr inbounds nuw { ptr, ptr }, ptr %244, i32 0, i32 0
+  %3408 = extractvalue { ptr, ptr } %3406, 0
+  store ptr %3408, ptr %3407, align 8
+  %3409 = getelementptr inbounds nuw { ptr, ptr }, ptr %244, i32 0, i32 1
+  %3410 = extractvalue { ptr, ptr } %3406, 1
+  store ptr %3410, ptr %3409, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %244, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %244) #8
+  br label %4294
 
-3407:                                             ; preds = %604
-  %3408 = load ptr, ptr %21, align 8
-  %3409 = getelementptr inbounds %union.YYSTYPE, ptr %3408, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %3409, i64 16, i1 false)
-  br label %4268
+3411:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %246) #8
+  %3412 = load ptr, ptr %22, align 8, !tbaa !20
+  %3413 = getelementptr inbounds %union.YYSTYPE, ptr %3412, i64 -2
+  %3414 = load ptr, ptr %22, align 8, !tbaa !20
+  %3415 = getelementptr inbounds %union.YYSTYPE, ptr %3414, i64 0
+  %3416 = getelementptr inbounds nuw { ptr, ptr }, ptr %3413, i32 0, i32 0
+  %3417 = load ptr, ptr %3416, align 8
+  %3418 = getelementptr inbounds nuw { ptr, ptr }, ptr %3413, i32 0, i32 1
+  %3419 = load ptr, ptr %3418, align 8
+  %3420 = getelementptr inbounds nuw { ptr, ptr }, ptr %3415, i32 0, i32 0
+  %3421 = load ptr, ptr %3420, align 8
+  %3422 = getelementptr inbounds nuw { ptr, ptr }, ptr %3415, i32 0, i32 1
+  %3423 = load ptr, ptr %3422, align 8
+  %3424 = call { ptr, ptr } @gen_array_matcher(ptr %3417, ptr %3419, ptr %3421, ptr %3423)
+  %3425 = getelementptr inbounds nuw { ptr, ptr }, ptr %246, i32 0, i32 0
+  %3426 = extractvalue { ptr, ptr } %3424, 0
+  store ptr %3426, ptr %3425, align 8
+  %3427 = getelementptr inbounds nuw { ptr, ptr }, ptr %246, i32 0, i32 1
+  %3428 = extractvalue { ptr, ptr } %3424, 1
+  store ptr %3428, ptr %3427, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %246, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %246) #8
+  br label %4294
 
-3410:                                             ; preds = %604
-  %3411 = load ptr, ptr %21, align 8
-  %3412 = getelementptr inbounds %union.YYSTYPE, ptr %3411, i64 -2
-  %3413 = load ptr, ptr %21, align 8
-  %3414 = getelementptr inbounds %union.YYSTYPE, ptr %3413, i64 0
-  %3415 = getelementptr inbounds { ptr, ptr }, ptr %3412, i32 0, i32 0
-  %3416 = load ptr, ptr %3415, align 8
-  %3417 = getelementptr inbounds { ptr, ptr }, ptr %3412, i32 0, i32 1
-  %3418 = load ptr, ptr %3417, align 8
-  %3419 = getelementptr inbounds { ptr, ptr }, ptr %3414, i32 0, i32 0
-  %3420 = load ptr, ptr %3419, align 8
-  %3421 = getelementptr inbounds { ptr, ptr }, ptr %3414, i32 0, i32 1
-  %3422 = load ptr, ptr %3421, align 8
-  %3423 = call { ptr, ptr } @block_join(ptr %3416, ptr %3418, ptr %3420, ptr %3422)
-  %3424 = getelementptr inbounds { ptr, ptr }, ptr %245, i32 0, i32 0
-  %3425 = extractvalue { ptr, ptr } %3423, 0
-  store ptr %3425, ptr %3424, align 8
-  %3426 = getelementptr inbounds { ptr, ptr }, ptr %245, i32 0, i32 1
-  %3427 = extractvalue { ptr, ptr } %3423, 1
-  store ptr %3427, ptr %3426, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %245, i64 16, i1 false)
-  br label %4268
+3429:                                             ; preds = %616
+  %3430 = load ptr, ptr %22, align 8, !tbaa !20
+  %3431 = getelementptr inbounds %union.YYSTYPE, ptr %3430, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %3431, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-3428:                                             ; preds = %604
-  %3429 = load ptr, ptr %21, align 8
-  %3430 = getelementptr inbounds %union.YYSTYPE, ptr %3429, i64 0
-  %3431 = getelementptr inbounds { i64, ptr }, ptr %3430, i32 0, i32 0
-  %3432 = load i64, ptr %3431, align 8
-  %3433 = getelementptr inbounds { i64, ptr }, ptr %3430, i32 0, i32 1
-  %3434 = load ptr, ptr %3433, align 8
-  %3435 = call { ptr, ptr } @gen_const(i64 %3432, ptr %3434)
-  %3436 = getelementptr inbounds { ptr, ptr }, ptr %247, i32 0, i32 0
-  %3437 = extractvalue { ptr, ptr } %3435, 0
-  store ptr %3437, ptr %3436, align 8
-  %3438 = getelementptr inbounds { ptr, ptr }, ptr %247, i32 0, i32 1
-  %3439 = extractvalue { ptr, ptr } %3435, 1
-  store ptr %3439, ptr %3438, align 8
-  %3440 = load ptr, ptr %21, align 8
-  %3441 = getelementptr inbounds %union.YYSTYPE, ptr %3440, i64 0
-  %3442 = getelementptr inbounds { i64, ptr }, ptr %3441, i32 0, i32 0
-  %3443 = load i64, ptr %3442, align 8
-  %3444 = getelementptr inbounds { i64, ptr }, ptr %3441, i32 0, i32 1
-  %3445 = load ptr, ptr %3444, align 8
-  %3446 = call ptr @jv_string_value(i64 %3443, ptr %3445)
-  %3447 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %3446)
-  %3448 = getelementptr inbounds { ptr, ptr }, ptr %248, i32 0, i32 0
-  %3449 = extractvalue { ptr, ptr } %3447, 0
+3432:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %247) #8
+  %3433 = load ptr, ptr %22, align 8, !tbaa !20
+  %3434 = getelementptr inbounds %union.YYSTYPE, ptr %3433, i64 -2
+  %3435 = load ptr, ptr %22, align 8, !tbaa !20
+  %3436 = getelementptr inbounds %union.YYSTYPE, ptr %3435, i64 0
+  %3437 = getelementptr inbounds nuw { ptr, ptr }, ptr %3434, i32 0, i32 0
+  %3438 = load ptr, ptr %3437, align 8
+  %3439 = getelementptr inbounds nuw { ptr, ptr }, ptr %3434, i32 0, i32 1
+  %3440 = load ptr, ptr %3439, align 8
+  %3441 = getelementptr inbounds nuw { ptr, ptr }, ptr %3436, i32 0, i32 0
+  %3442 = load ptr, ptr %3441, align 8
+  %3443 = getelementptr inbounds nuw { ptr, ptr }, ptr %3436, i32 0, i32 1
+  %3444 = load ptr, ptr %3443, align 8
+  %3445 = call { ptr, ptr } @block_join(ptr %3438, ptr %3440, ptr %3442, ptr %3444)
+  %3446 = getelementptr inbounds nuw { ptr, ptr }, ptr %247, i32 0, i32 0
+  %3447 = extractvalue { ptr, ptr } %3445, 0
+  store ptr %3447, ptr %3446, align 8
+  %3448 = getelementptr inbounds nuw { ptr, ptr }, ptr %247, i32 0, i32 1
+  %3449 = extractvalue { ptr, ptr } %3445, 1
   store ptr %3449, ptr %3448, align 8
-  %3450 = getelementptr inbounds { ptr, ptr }, ptr %248, i32 0, i32 1
-  %3451 = extractvalue { ptr, ptr } %3447, 1
-  store ptr %3451, ptr %3450, align 8
-  %3452 = getelementptr inbounds { ptr, ptr }, ptr %247, i32 0, i32 0
-  %3453 = load ptr, ptr %3452, align 8
-  %3454 = getelementptr inbounds { ptr, ptr }, ptr %247, i32 0, i32 1
-  %3455 = load ptr, ptr %3454, align 8
-  %3456 = getelementptr inbounds { ptr, ptr }, ptr %248, i32 0, i32 0
-  %3457 = load ptr, ptr %3456, align 8
-  %3458 = getelementptr inbounds { ptr, ptr }, ptr %248, i32 0, i32 1
-  %3459 = load ptr, ptr %3458, align 8
-  %3460 = call { ptr, ptr } @gen_object_matcher(ptr %3453, ptr %3455, ptr %3457, ptr %3459)
-  %3461 = getelementptr inbounds { ptr, ptr }, ptr %246, i32 0, i32 0
-  %3462 = extractvalue { ptr, ptr } %3460, 0
-  store ptr %3462, ptr %3461, align 8
-  %3463 = getelementptr inbounds { ptr, ptr }, ptr %246, i32 0, i32 1
-  %3464 = extractvalue { ptr, ptr } %3460, 1
-  store ptr %3464, ptr %3463, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %246, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %247, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %247) #8
+  br label %4294
 
-3465:                                             ; preds = %604
-  %3466 = load ptr, ptr %21, align 8
-  %3467 = getelementptr inbounds %union.YYSTYPE, ptr %3466, i64 -2
-  %3468 = getelementptr inbounds { i64, ptr }, ptr %3467, i32 0, i32 0
-  %3469 = load i64, ptr %3468, align 8
-  %3470 = getelementptr inbounds { i64, ptr }, ptr %3467, i32 0, i32 1
-  %3471 = load ptr, ptr %3470, align 8
-  %3472 = call { ptr, ptr } @gen_const(i64 %3469, ptr %3471)
-  %3473 = getelementptr inbounds { ptr, ptr }, ptr %250, i32 0, i32 0
-  %3474 = extractvalue { ptr, ptr } %3472, 0
-  store ptr %3474, ptr %3473, align 8
-  %3475 = getelementptr inbounds { ptr, ptr }, ptr %250, i32 0, i32 1
-  %3476 = extractvalue { ptr, ptr } %3472, 1
-  store ptr %3476, ptr %3475, align 8
-  %3477 = call { ptr, ptr } @gen_op_simple(i32 noundef 1)
-  %3478 = getelementptr inbounds { ptr, ptr }, ptr %253, i32 0, i32 0
-  %3479 = extractvalue { ptr, ptr } %3477, 0
-  store ptr %3479, ptr %3478, align 8
-  %3480 = getelementptr inbounds { ptr, ptr }, ptr %253, i32 0, i32 1
-  %3481 = extractvalue { ptr, ptr } %3477, 1
-  store ptr %3481, ptr %3480, align 8
-  %3482 = load ptr, ptr %21, align 8
-  %3483 = getelementptr inbounds %union.YYSTYPE, ptr %3482, i64 -2
-  %3484 = getelementptr inbounds { i64, ptr }, ptr %3483, i32 0, i32 0
-  %3485 = load i64, ptr %3484, align 8
-  %3486 = getelementptr inbounds { i64, ptr }, ptr %3483, i32 0, i32 1
-  %3487 = load ptr, ptr %3486, align 8
-  %3488 = call ptr @jv_string_value(i64 %3485, ptr %3487)
-  %3489 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %3488)
-  %3490 = getelementptr inbounds { ptr, ptr }, ptr %254, i32 0, i32 0
-  %3491 = extractvalue { ptr, ptr } %3489, 0
-  store ptr %3491, ptr %3490, align 8
-  %3492 = getelementptr inbounds { ptr, ptr }, ptr %254, i32 0, i32 1
-  %3493 = extractvalue { ptr, ptr } %3489, 1
-  store ptr %3493, ptr %3492, align 8
-  %3494 = getelementptr inbounds { ptr, ptr }, ptr %253, i32 0, i32 0
-  %3495 = load ptr, ptr %3494, align 8
-  %3496 = getelementptr inbounds { ptr, ptr }, ptr %253, i32 0, i32 1
-  %3497 = load ptr, ptr %3496, align 8
-  %3498 = getelementptr inbounds { ptr, ptr }, ptr %254, i32 0, i32 0
-  %3499 = load ptr, ptr %3498, align 8
-  %3500 = getelementptr inbounds { ptr, ptr }, ptr %254, i32 0, i32 1
-  %3501 = load ptr, ptr %3500, align 8
-  %3502 = call { ptr, ptr } @block_join(ptr %3495, ptr %3497, ptr %3499, ptr %3501)
-  %3503 = getelementptr inbounds { ptr, ptr }, ptr %252, i32 0, i32 0
-  %3504 = extractvalue { ptr, ptr } %3502, 0
-  store ptr %3504, ptr %3503, align 8
-  %3505 = getelementptr inbounds { ptr, ptr }, ptr %252, i32 0, i32 1
-  %3506 = extractvalue { ptr, ptr } %3502, 1
-  store ptr %3506, ptr %3505, align 8
-  %3507 = load ptr, ptr %21, align 8
-  %3508 = getelementptr inbounds %union.YYSTYPE, ptr %3507, i64 0
-  %3509 = getelementptr inbounds { ptr, ptr }, ptr %252, i32 0, i32 0
-  %3510 = load ptr, ptr %3509, align 8
-  %3511 = getelementptr inbounds { ptr, ptr }, ptr %252, i32 0, i32 1
-  %3512 = load ptr, ptr %3511, align 8
-  %3513 = getelementptr inbounds { ptr, ptr }, ptr %3508, i32 0, i32 0
-  %3514 = load ptr, ptr %3513, align 8
-  %3515 = getelementptr inbounds { ptr, ptr }, ptr %3508, i32 0, i32 1
-  %3516 = load ptr, ptr %3515, align 8
-  %3517 = call { ptr, ptr } @block_join(ptr %3510, ptr %3512, ptr %3514, ptr %3516)
-  %3518 = getelementptr inbounds { ptr, ptr }, ptr %251, i32 0, i32 0
-  %3519 = extractvalue { ptr, ptr } %3517, 0
-  store ptr %3519, ptr %3518, align 8
-  %3520 = getelementptr inbounds { ptr, ptr }, ptr %251, i32 0, i32 1
-  %3521 = extractvalue { ptr, ptr } %3517, 1
-  store ptr %3521, ptr %3520, align 8
-  %3522 = getelementptr inbounds { ptr, ptr }, ptr %250, i32 0, i32 0
+3450:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %248) #8
+  %3451 = load ptr, ptr %22, align 8, !tbaa !20
+  %3452 = getelementptr inbounds %union.YYSTYPE, ptr %3451, i64 0
+  %3453 = getelementptr inbounds nuw { i64, ptr }, ptr %3452, i32 0, i32 0
+  %3454 = load i64, ptr %3453, align 8
+  %3455 = getelementptr inbounds nuw { i64, ptr }, ptr %3452, i32 0, i32 1
+  %3456 = load ptr, ptr %3455, align 8
+  %3457 = call { ptr, ptr } @gen_const(i64 %3454, ptr %3456)
+  %3458 = getelementptr inbounds nuw { ptr, ptr }, ptr %249, i32 0, i32 0
+  %3459 = extractvalue { ptr, ptr } %3457, 0
+  store ptr %3459, ptr %3458, align 8
+  %3460 = getelementptr inbounds nuw { ptr, ptr }, ptr %249, i32 0, i32 1
+  %3461 = extractvalue { ptr, ptr } %3457, 1
+  store ptr %3461, ptr %3460, align 8
+  %3462 = load ptr, ptr %22, align 8, !tbaa !20
+  %3463 = getelementptr inbounds %union.YYSTYPE, ptr %3462, i64 0
+  %3464 = getelementptr inbounds nuw { i64, ptr }, ptr %3463, i32 0, i32 0
+  %3465 = load i64, ptr %3464, align 8
+  %3466 = getelementptr inbounds nuw { i64, ptr }, ptr %3463, i32 0, i32 1
+  %3467 = load ptr, ptr %3466, align 8
+  %3468 = call ptr @jv_string_value(i64 %3465, ptr %3467)
+  %3469 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %3468)
+  %3470 = getelementptr inbounds nuw { ptr, ptr }, ptr %250, i32 0, i32 0
+  %3471 = extractvalue { ptr, ptr } %3469, 0
+  store ptr %3471, ptr %3470, align 8
+  %3472 = getelementptr inbounds nuw { ptr, ptr }, ptr %250, i32 0, i32 1
+  %3473 = extractvalue { ptr, ptr } %3469, 1
+  store ptr %3473, ptr %3472, align 8
+  %3474 = getelementptr inbounds nuw { ptr, ptr }, ptr %249, i32 0, i32 0
+  %3475 = load ptr, ptr %3474, align 8
+  %3476 = getelementptr inbounds nuw { ptr, ptr }, ptr %249, i32 0, i32 1
+  %3477 = load ptr, ptr %3476, align 8
+  %3478 = getelementptr inbounds nuw { ptr, ptr }, ptr %250, i32 0, i32 0
+  %3479 = load ptr, ptr %3478, align 8
+  %3480 = getelementptr inbounds nuw { ptr, ptr }, ptr %250, i32 0, i32 1
+  %3481 = load ptr, ptr %3480, align 8
+  %3482 = call { ptr, ptr } @gen_object_matcher(ptr %3475, ptr %3477, ptr %3479, ptr %3481)
+  %3483 = getelementptr inbounds nuw { ptr, ptr }, ptr %248, i32 0, i32 0
+  %3484 = extractvalue { ptr, ptr } %3482, 0
+  store ptr %3484, ptr %3483, align 8
+  %3485 = getelementptr inbounds nuw { ptr, ptr }, ptr %248, i32 0, i32 1
+  %3486 = extractvalue { ptr, ptr } %3482, 1
+  store ptr %3486, ptr %3485, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %248, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %248) #8
+  br label %4294
+
+3487:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %251) #8
+  %3488 = load ptr, ptr %22, align 8, !tbaa !20
+  %3489 = getelementptr inbounds %union.YYSTYPE, ptr %3488, i64 -2
+  %3490 = getelementptr inbounds nuw { i64, ptr }, ptr %3489, i32 0, i32 0
+  %3491 = load i64, ptr %3490, align 8
+  %3492 = getelementptr inbounds nuw { i64, ptr }, ptr %3489, i32 0, i32 1
+  %3493 = load ptr, ptr %3492, align 8
+  %3494 = call { ptr, ptr } @gen_const(i64 %3491, ptr %3493)
+  %3495 = getelementptr inbounds nuw { ptr, ptr }, ptr %252, i32 0, i32 0
+  %3496 = extractvalue { ptr, ptr } %3494, 0
+  store ptr %3496, ptr %3495, align 8
+  %3497 = getelementptr inbounds nuw { ptr, ptr }, ptr %252, i32 0, i32 1
+  %3498 = extractvalue { ptr, ptr } %3494, 1
+  store ptr %3498, ptr %3497, align 8
+  %3499 = call { ptr, ptr } @gen_op_simple(i32 noundef 1)
+  %3500 = getelementptr inbounds nuw { ptr, ptr }, ptr %255, i32 0, i32 0
+  %3501 = extractvalue { ptr, ptr } %3499, 0
+  store ptr %3501, ptr %3500, align 8
+  %3502 = getelementptr inbounds nuw { ptr, ptr }, ptr %255, i32 0, i32 1
+  %3503 = extractvalue { ptr, ptr } %3499, 1
+  store ptr %3503, ptr %3502, align 8
+  %3504 = load ptr, ptr %22, align 8, !tbaa !20
+  %3505 = getelementptr inbounds %union.YYSTYPE, ptr %3504, i64 -2
+  %3506 = getelementptr inbounds nuw { i64, ptr }, ptr %3505, i32 0, i32 0
+  %3507 = load i64, ptr %3506, align 8
+  %3508 = getelementptr inbounds nuw { i64, ptr }, ptr %3505, i32 0, i32 1
+  %3509 = load ptr, ptr %3508, align 8
+  %3510 = call ptr @jv_string_value(i64 %3507, ptr %3509)
+  %3511 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %3510)
+  %3512 = getelementptr inbounds nuw { ptr, ptr }, ptr %256, i32 0, i32 0
+  %3513 = extractvalue { ptr, ptr } %3511, 0
+  store ptr %3513, ptr %3512, align 8
+  %3514 = getelementptr inbounds nuw { ptr, ptr }, ptr %256, i32 0, i32 1
+  %3515 = extractvalue { ptr, ptr } %3511, 1
+  store ptr %3515, ptr %3514, align 8
+  %3516 = getelementptr inbounds nuw { ptr, ptr }, ptr %255, i32 0, i32 0
+  %3517 = load ptr, ptr %3516, align 8
+  %3518 = getelementptr inbounds nuw { ptr, ptr }, ptr %255, i32 0, i32 1
+  %3519 = load ptr, ptr %3518, align 8
+  %3520 = getelementptr inbounds nuw { ptr, ptr }, ptr %256, i32 0, i32 0
+  %3521 = load ptr, ptr %3520, align 8
+  %3522 = getelementptr inbounds nuw { ptr, ptr }, ptr %256, i32 0, i32 1
   %3523 = load ptr, ptr %3522, align 8
-  %3524 = getelementptr inbounds { ptr, ptr }, ptr %250, i32 0, i32 1
-  %3525 = load ptr, ptr %3524, align 8
-  %3526 = getelementptr inbounds { ptr, ptr }, ptr %251, i32 0, i32 0
-  %3527 = load ptr, ptr %3526, align 8
-  %3528 = getelementptr inbounds { ptr, ptr }, ptr %251, i32 0, i32 1
-  %3529 = load ptr, ptr %3528, align 8
-  %3530 = call { ptr, ptr } @gen_object_matcher(ptr %3523, ptr %3525, ptr %3527, ptr %3529)
-  %3531 = getelementptr inbounds { ptr, ptr }, ptr %249, i32 0, i32 0
-  %3532 = extractvalue { ptr, ptr } %3530, 0
-  store ptr %3532, ptr %3531, align 8
-  %3533 = getelementptr inbounds { ptr, ptr }, ptr %249, i32 0, i32 1
-  %3534 = extractvalue { ptr, ptr } %3530, 1
-  store ptr %3534, ptr %3533, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %249, i64 16, i1 false)
-  br label %4268
+  %3524 = call { ptr, ptr } @block_join(ptr %3517, ptr %3519, ptr %3521, ptr %3523)
+  %3525 = getelementptr inbounds nuw { ptr, ptr }, ptr %254, i32 0, i32 0
+  %3526 = extractvalue { ptr, ptr } %3524, 0
+  store ptr %3526, ptr %3525, align 8
+  %3527 = getelementptr inbounds nuw { ptr, ptr }, ptr %254, i32 0, i32 1
+  %3528 = extractvalue { ptr, ptr } %3524, 1
+  store ptr %3528, ptr %3527, align 8
+  %3529 = load ptr, ptr %22, align 8, !tbaa !20
+  %3530 = getelementptr inbounds %union.YYSTYPE, ptr %3529, i64 0
+  %3531 = getelementptr inbounds nuw { ptr, ptr }, ptr %254, i32 0, i32 0
+  %3532 = load ptr, ptr %3531, align 8
+  %3533 = getelementptr inbounds nuw { ptr, ptr }, ptr %254, i32 0, i32 1
+  %3534 = load ptr, ptr %3533, align 8
+  %3535 = getelementptr inbounds nuw { ptr, ptr }, ptr %3530, i32 0, i32 0
+  %3536 = load ptr, ptr %3535, align 8
+  %3537 = getelementptr inbounds nuw { ptr, ptr }, ptr %3530, i32 0, i32 1
+  %3538 = load ptr, ptr %3537, align 8
+  %3539 = call { ptr, ptr } @block_join(ptr %3532, ptr %3534, ptr %3536, ptr %3538)
+  %3540 = getelementptr inbounds nuw { ptr, ptr }, ptr %253, i32 0, i32 0
+  %3541 = extractvalue { ptr, ptr } %3539, 0
+  store ptr %3541, ptr %3540, align 8
+  %3542 = getelementptr inbounds nuw { ptr, ptr }, ptr %253, i32 0, i32 1
+  %3543 = extractvalue { ptr, ptr } %3539, 1
+  store ptr %3543, ptr %3542, align 8
+  %3544 = getelementptr inbounds nuw { ptr, ptr }, ptr %252, i32 0, i32 0
+  %3545 = load ptr, ptr %3544, align 8
+  %3546 = getelementptr inbounds nuw { ptr, ptr }, ptr %252, i32 0, i32 1
+  %3547 = load ptr, ptr %3546, align 8
+  %3548 = getelementptr inbounds nuw { ptr, ptr }, ptr %253, i32 0, i32 0
+  %3549 = load ptr, ptr %3548, align 8
+  %3550 = getelementptr inbounds nuw { ptr, ptr }, ptr %253, i32 0, i32 1
+  %3551 = load ptr, ptr %3550, align 8
+  %3552 = call { ptr, ptr } @gen_object_matcher(ptr %3545, ptr %3547, ptr %3549, ptr %3551)
+  %3553 = getelementptr inbounds nuw { ptr, ptr }, ptr %251, i32 0, i32 0
+  %3554 = extractvalue { ptr, ptr } %3552, 0
+  store ptr %3554, ptr %3553, align 8
+  %3555 = getelementptr inbounds nuw { ptr, ptr }, ptr %251, i32 0, i32 1
+  %3556 = extractvalue { ptr, ptr } %3552, 1
+  store ptr %3556, ptr %3555, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %251, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %251) #8
+  br label %4294
 
-3535:                                             ; preds = %604
-  %3536 = load ptr, ptr %21, align 8
-  %3537 = getelementptr inbounds %union.YYSTYPE, ptr %3536, i64 -2
-  %3538 = getelementptr inbounds { i64, ptr }, ptr %3537, i32 0, i32 0
-  %3539 = load i64, ptr %3538, align 8
-  %3540 = getelementptr inbounds { i64, ptr }, ptr %3537, i32 0, i32 1
-  %3541 = load ptr, ptr %3540, align 8
-  %3542 = call { ptr, ptr } @gen_const(i64 %3539, ptr %3541)
-  %3543 = getelementptr inbounds { ptr, ptr }, ptr %256, i32 0, i32 0
-  %3544 = extractvalue { ptr, ptr } %3542, 0
-  store ptr %3544, ptr %3543, align 8
-  %3545 = getelementptr inbounds { ptr, ptr }, ptr %256, i32 0, i32 1
-  %3546 = extractvalue { ptr, ptr } %3542, 1
-  store ptr %3546, ptr %3545, align 8
-  %3547 = load ptr, ptr %21, align 8
-  %3548 = getelementptr inbounds %union.YYSTYPE, ptr %3547, i64 0
-  %3549 = getelementptr inbounds { ptr, ptr }, ptr %256, i32 0, i32 0
-  %3550 = load ptr, ptr %3549, align 8
-  %3551 = getelementptr inbounds { ptr, ptr }, ptr %256, i32 0, i32 1
-  %3552 = load ptr, ptr %3551, align 8
-  %3553 = getelementptr inbounds { ptr, ptr }, ptr %3548, i32 0, i32 0
-  %3554 = load ptr, ptr %3553, align 8
-  %3555 = getelementptr inbounds { ptr, ptr }, ptr %3548, i32 0, i32 1
-  %3556 = load ptr, ptr %3555, align 8
-  %3557 = call { ptr, ptr } @gen_object_matcher(ptr %3550, ptr %3552, ptr %3554, ptr %3556)
-  %3558 = getelementptr inbounds { ptr, ptr }, ptr %255, i32 0, i32 0
-  %3559 = extractvalue { ptr, ptr } %3557, 0
-  store ptr %3559, ptr %3558, align 8
-  %3560 = getelementptr inbounds { ptr, ptr }, ptr %255, i32 0, i32 1
-  %3561 = extractvalue { ptr, ptr } %3557, 1
-  store ptr %3561, ptr %3560, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %255, i64 16, i1 false)
-  br label %4268
+3557:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %257) #8
+  %3558 = load ptr, ptr %22, align 8, !tbaa !20
+  %3559 = getelementptr inbounds %union.YYSTYPE, ptr %3558, i64 -2
+  %3560 = getelementptr inbounds nuw { i64, ptr }, ptr %3559, i32 0, i32 0
+  %3561 = load i64, ptr %3560, align 8
+  %3562 = getelementptr inbounds nuw { i64, ptr }, ptr %3559, i32 0, i32 1
+  %3563 = load ptr, ptr %3562, align 8
+  %3564 = call { ptr, ptr } @gen_const(i64 %3561, ptr %3563)
+  %3565 = getelementptr inbounds nuw { ptr, ptr }, ptr %258, i32 0, i32 0
+  %3566 = extractvalue { ptr, ptr } %3564, 0
+  store ptr %3566, ptr %3565, align 8
+  %3567 = getelementptr inbounds nuw { ptr, ptr }, ptr %258, i32 0, i32 1
+  %3568 = extractvalue { ptr, ptr } %3564, 1
+  store ptr %3568, ptr %3567, align 8
+  %3569 = load ptr, ptr %22, align 8, !tbaa !20
+  %3570 = getelementptr inbounds %union.YYSTYPE, ptr %3569, i64 0
+  %3571 = getelementptr inbounds nuw { ptr, ptr }, ptr %258, i32 0, i32 0
+  %3572 = load ptr, ptr %3571, align 8
+  %3573 = getelementptr inbounds nuw { ptr, ptr }, ptr %258, i32 0, i32 1
+  %3574 = load ptr, ptr %3573, align 8
+  %3575 = getelementptr inbounds nuw { ptr, ptr }, ptr %3570, i32 0, i32 0
+  %3576 = load ptr, ptr %3575, align 8
+  %3577 = getelementptr inbounds nuw { ptr, ptr }, ptr %3570, i32 0, i32 1
+  %3578 = load ptr, ptr %3577, align 8
+  %3579 = call { ptr, ptr } @gen_object_matcher(ptr %3572, ptr %3574, ptr %3576, ptr %3578)
+  %3580 = getelementptr inbounds nuw { ptr, ptr }, ptr %257, i32 0, i32 0
+  %3581 = extractvalue { ptr, ptr } %3579, 0
+  store ptr %3581, ptr %3580, align 8
+  %3582 = getelementptr inbounds nuw { ptr, ptr }, ptr %257, i32 0, i32 1
+  %3583 = extractvalue { ptr, ptr } %3579, 1
+  store ptr %3583, ptr %3582, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %257, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %257) #8
+  br label %4294
 
-3562:                                             ; preds = %604
-  %3563 = load ptr, ptr %21, align 8
-  %3564 = getelementptr inbounds %union.YYSTYPE, ptr %3563, i64 -2
-  %3565 = getelementptr inbounds { i64, ptr }, ptr %3564, i32 0, i32 0
-  %3566 = load i64, ptr %3565, align 8
-  %3567 = getelementptr inbounds { i64, ptr }, ptr %3564, i32 0, i32 1
-  %3568 = load ptr, ptr %3567, align 8
-  %3569 = call { ptr, ptr } @gen_const(i64 %3566, ptr %3568)
-  %3570 = getelementptr inbounds { ptr, ptr }, ptr %258, i32 0, i32 0
-  %3571 = extractvalue { ptr, ptr } %3569, 0
-  store ptr %3571, ptr %3570, align 8
-  %3572 = getelementptr inbounds { ptr, ptr }, ptr %258, i32 0, i32 1
-  %3573 = extractvalue { ptr, ptr } %3569, 1
-  store ptr %3573, ptr %3572, align 8
-  %3574 = load ptr, ptr %21, align 8
-  %3575 = getelementptr inbounds %union.YYSTYPE, ptr %3574, i64 0
-  %3576 = getelementptr inbounds { ptr, ptr }, ptr %258, i32 0, i32 0
-  %3577 = load ptr, ptr %3576, align 8
-  %3578 = getelementptr inbounds { ptr, ptr }, ptr %258, i32 0, i32 1
-  %3579 = load ptr, ptr %3578, align 8
-  %3580 = getelementptr inbounds { ptr, ptr }, ptr %3575, i32 0, i32 0
-  %3581 = load ptr, ptr %3580, align 8
-  %3582 = getelementptr inbounds { ptr, ptr }, ptr %3575, i32 0, i32 1
-  %3583 = load ptr, ptr %3582, align 8
-  %3584 = call { ptr, ptr } @gen_object_matcher(ptr %3577, ptr %3579, ptr %3581, ptr %3583)
-  %3585 = getelementptr inbounds { ptr, ptr }, ptr %257, i32 0, i32 0
-  %3586 = extractvalue { ptr, ptr } %3584, 0
-  store ptr %3586, ptr %3585, align 8
-  %3587 = getelementptr inbounds { ptr, ptr }, ptr %257, i32 0, i32 1
-  %3588 = extractvalue { ptr, ptr } %3584, 1
-  store ptr %3588, ptr %3587, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %257, i64 16, i1 false)
-  br label %4268
-
-3589:                                             ; preds = %604
-  %3590 = load ptr, ptr %21, align 8
-  %3591 = getelementptr inbounds %union.YYSTYPE, ptr %3590, i64 -2
-  %3592 = load ptr, ptr %21, align 8
-  %3593 = getelementptr inbounds %union.YYSTYPE, ptr %3592, i64 0
-  %3594 = getelementptr inbounds { ptr, ptr }, ptr %3591, i32 0, i32 0
-  %3595 = load ptr, ptr %3594, align 8
-  %3596 = getelementptr inbounds { ptr, ptr }, ptr %3591, i32 0, i32 1
-  %3597 = load ptr, ptr %3596, align 8
-  %3598 = getelementptr inbounds { ptr, ptr }, ptr %3593, i32 0, i32 0
+3584:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %259) #8
+  %3585 = load ptr, ptr %22, align 8, !tbaa !20
+  %3586 = getelementptr inbounds %union.YYSTYPE, ptr %3585, i64 -2
+  %3587 = getelementptr inbounds nuw { i64, ptr }, ptr %3586, i32 0, i32 0
+  %3588 = load i64, ptr %3587, align 8
+  %3589 = getelementptr inbounds nuw { i64, ptr }, ptr %3586, i32 0, i32 1
+  %3590 = load ptr, ptr %3589, align 8
+  %3591 = call { ptr, ptr } @gen_const(i64 %3588, ptr %3590)
+  %3592 = getelementptr inbounds nuw { ptr, ptr }, ptr %260, i32 0, i32 0
+  %3593 = extractvalue { ptr, ptr } %3591, 0
+  store ptr %3593, ptr %3592, align 8
+  %3594 = getelementptr inbounds nuw { ptr, ptr }, ptr %260, i32 0, i32 1
+  %3595 = extractvalue { ptr, ptr } %3591, 1
+  store ptr %3595, ptr %3594, align 8
+  %3596 = load ptr, ptr %22, align 8, !tbaa !20
+  %3597 = getelementptr inbounds %union.YYSTYPE, ptr %3596, i64 0
+  %3598 = getelementptr inbounds nuw { ptr, ptr }, ptr %260, i32 0, i32 0
   %3599 = load ptr, ptr %3598, align 8
-  %3600 = getelementptr inbounds { ptr, ptr }, ptr %3593, i32 0, i32 1
+  %3600 = getelementptr inbounds nuw { ptr, ptr }, ptr %260, i32 0, i32 1
   %3601 = load ptr, ptr %3600, align 8
-  %3602 = call { ptr, ptr } @gen_object_matcher(ptr %3595, ptr %3597, ptr %3599, ptr %3601)
-  %3603 = getelementptr inbounds { ptr, ptr }, ptr %259, i32 0, i32 0
-  %3604 = extractvalue { ptr, ptr } %3602, 0
-  store ptr %3604, ptr %3603, align 8
-  %3605 = getelementptr inbounds { ptr, ptr }, ptr %259, i32 0, i32 1
-  %3606 = extractvalue { ptr, ptr } %3602, 1
-  store ptr %3606, ptr %3605, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %259, i64 16, i1 false)
-  br label %4268
+  %3602 = getelementptr inbounds nuw { ptr, ptr }, ptr %3597, i32 0, i32 0
+  %3603 = load ptr, ptr %3602, align 8
+  %3604 = getelementptr inbounds nuw { ptr, ptr }, ptr %3597, i32 0, i32 1
+  %3605 = load ptr, ptr %3604, align 8
+  %3606 = call { ptr, ptr } @gen_object_matcher(ptr %3599, ptr %3601, ptr %3603, ptr %3605)
+  %3607 = getelementptr inbounds nuw { ptr, ptr }, ptr %259, i32 0, i32 0
+  %3608 = extractvalue { ptr, ptr } %3606, 0
+  store ptr %3608, ptr %3607, align 8
+  %3609 = getelementptr inbounds nuw { ptr, ptr }, ptr %259, i32 0, i32 1
+  %3610 = extractvalue { ptr, ptr } %3606, 1
+  store ptr %3610, ptr %3609, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %259, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %259) #8
+  br label %4294
 
-3607:                                             ; preds = %604
-  %3608 = load ptr, ptr %21, align 8
-  %3609 = getelementptr inbounds %union.YYSTYPE, ptr %3608, i64 -3
-  %3610 = getelementptr inbounds { ptr, ptr }, ptr %3609, i32 0, i32 0
-  %3611 = load ptr, ptr %3610, align 8
-  %3612 = getelementptr inbounds { ptr, ptr }, ptr %3609, i32 0, i32 1
-  %3613 = load ptr, ptr %3612, align 8
-  %3614 = call { i64, ptr } @check_object_key(ptr %3611, ptr %3613)
-  %3615 = getelementptr inbounds { i64, ptr }, ptr %260, i32 0, i32 0
-  %3616 = extractvalue { i64, ptr } %3614, 0
-  store i64 %3616, ptr %3615, align 8
-  %3617 = getelementptr inbounds { i64, ptr }, ptr %260, i32 0, i32 1
-  %3618 = extractvalue { i64, ptr } %3614, 1
-  store ptr %3618, ptr %3617, align 8
-  %3619 = getelementptr inbounds { i64, ptr }, ptr %260, i32 0, i32 0
-  %3620 = load i64, ptr %3619, align 8
-  %3621 = getelementptr inbounds { i64, ptr }, ptr %260, i32 0, i32 1
-  %3622 = load ptr, ptr %3621, align 8
-  %3623 = call i32 @jv_is_valid(i64 %3620, ptr %3622)
-  %3624 = icmp ne i32 %3623, 0
-  br i1 %3624, label %3625, label %3637
+3611:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %261) #8
+  %3612 = load ptr, ptr %22, align 8, !tbaa !20
+  %3613 = getelementptr inbounds %union.YYSTYPE, ptr %3612, i64 -2
+  %3614 = load ptr, ptr %22, align 8, !tbaa !20
+  %3615 = getelementptr inbounds %union.YYSTYPE, ptr %3614, i64 0
+  %3616 = getelementptr inbounds nuw { ptr, ptr }, ptr %3613, i32 0, i32 0
+  %3617 = load ptr, ptr %3616, align 8
+  %3618 = getelementptr inbounds nuw { ptr, ptr }, ptr %3613, i32 0, i32 1
+  %3619 = load ptr, ptr %3618, align 8
+  %3620 = getelementptr inbounds nuw { ptr, ptr }, ptr %3615, i32 0, i32 0
+  %3621 = load ptr, ptr %3620, align 8
+  %3622 = getelementptr inbounds nuw { ptr, ptr }, ptr %3615, i32 0, i32 1
+  %3623 = load ptr, ptr %3622, align 8
+  %3624 = call { ptr, ptr } @gen_object_matcher(ptr %3617, ptr %3619, ptr %3621, ptr %3623)
+  %3625 = getelementptr inbounds nuw { ptr, ptr }, ptr %261, i32 0, i32 0
+  %3626 = extractvalue { ptr, ptr } %3624, 0
+  store ptr %3626, ptr %3625, align 8
+  %3627 = getelementptr inbounds nuw { ptr, ptr }, ptr %261, i32 0, i32 1
+  %3628 = extractvalue { ptr, ptr } %3624, 1
+  store ptr %3628, ptr %3627, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %261, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %261) #8
+  br label %4294
 
-3625:                                             ; preds = %3607
-  br label %3626
+3629:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %262) #8
+  %3630 = load ptr, ptr %22, align 8, !tbaa !20
+  %3631 = getelementptr inbounds %union.YYSTYPE, ptr %3630, i64 -3
+  %3632 = getelementptr inbounds nuw { ptr, ptr }, ptr %3631, i32 0, i32 0
+  %3633 = load ptr, ptr %3632, align 8
+  %3634 = getelementptr inbounds nuw { ptr, ptr }, ptr %3631, i32 0, i32 1
+  %3635 = load ptr, ptr %3634, align 8
+  %3636 = call { i64, ptr } @check_object_key(ptr %3633, ptr %3635)
+  %3637 = getelementptr inbounds nuw { i64, ptr }, ptr %262, i32 0, i32 0
+  %3638 = extractvalue { i64, ptr } %3636, 0
+  store i64 %3638, ptr %3637, align 8
+  %3639 = getelementptr inbounds nuw { i64, ptr }, ptr %262, i32 0, i32 1
+  %3640 = extractvalue { i64, ptr } %3636, 1
+  store ptr %3640, ptr %3639, align 8
+  %3641 = getelementptr inbounds nuw { i64, ptr }, ptr %262, i32 0, i32 0
+  %3642 = load i64, ptr %3641, align 8
+  %3643 = getelementptr inbounds nuw { i64, ptr }, ptr %262, i32 0, i32 1
+  %3644 = load ptr, ptr %3643, align 8
+  %3645 = call i32 @jv_is_valid(i64 %3642, ptr %3644)
+  %3646 = icmp ne i32 %3645, 0
+  br i1 %3646, label %3647, label %3660
 
-3626:                                             ; preds = %3625
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %261, ptr align 4 %29, i64 8, i1 false)
-  %3627 = load ptr, ptr %5, align 8
-  %3628 = load ptr, ptr %6, align 8
-  %3629 = load ptr, ptr %7, align 8
-  %3630 = load ptr, ptr %8, align 8
-  %3631 = getelementptr inbounds { i64, ptr }, ptr %260, i32 0, i32 0
-  %3632 = load i64, ptr %3631, align 8
-  %3633 = getelementptr inbounds { i64, ptr }, ptr %260, i32 0, i32 1
-  %3634 = load ptr, ptr %3633, align 8
-  %3635 = call ptr @jv_string_value(i64 %3632, ptr %3634)
-  call void @yyerror(ptr noundef %261, ptr noundef %3627, ptr noundef %3628, ptr noundef %3629, ptr noundef %3630, ptr noundef %3635)
-  br label %3636
+3647:                                             ; preds = %3629
+  br label %3648
 
-3636:                                             ; preds = %3626
-  br label %3637
+3648:                                             ; preds = %3647
+  call void @llvm.lifetime.start.p0(i64 8, ptr %263) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %263, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %3649 = load ptr, ptr %6, align 8, !tbaa !8
+  %3650 = load ptr, ptr %7, align 8, !tbaa !10
+  %3651 = load ptr, ptr %8, align 8, !tbaa !12
+  %3652 = load ptr, ptr %9, align 8, !tbaa !14
+  %3653 = getelementptr inbounds nuw { i64, ptr }, ptr %262, i32 0, i32 0
+  %3654 = load i64, ptr %3653, align 8
+  %3655 = getelementptr inbounds nuw { i64, ptr }, ptr %262, i32 0, i32 1
+  %3656 = load ptr, ptr %3655, align 8
+  %3657 = call ptr @jv_string_value(i64 %3654, ptr %3656)
+  call void @yyerror(ptr noundef %263, ptr noundef %3649, ptr noundef %3650, ptr noundef %3651, ptr noundef %3652, ptr noundef %3657)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %263) #8
+  br label %3658
 
-3637:                                             ; preds = %3636, %3607
-  %3638 = getelementptr inbounds { i64, ptr }, ptr %260, i32 0, i32 0
-  %3639 = load i64, ptr %3638, align 8
-  %3640 = getelementptr inbounds { i64, ptr }, ptr %260, i32 0, i32 1
-  %3641 = load ptr, ptr %3640, align 8
-  call void @jv_free(i64 %3639, ptr %3641)
-  %3642 = load ptr, ptr %21, align 8
-  %3643 = getelementptr inbounds %union.YYSTYPE, ptr %3642, i64 -3
-  %3644 = load ptr, ptr %21, align 8
-  %3645 = getelementptr inbounds %union.YYSTYPE, ptr %3644, i64 0
-  %3646 = getelementptr inbounds { ptr, ptr }, ptr %3643, i32 0, i32 0
-  %3647 = load ptr, ptr %3646, align 8
-  %3648 = getelementptr inbounds { ptr, ptr }, ptr %3643, i32 0, i32 1
-  %3649 = load ptr, ptr %3648, align 8
-  %3650 = getelementptr inbounds { ptr, ptr }, ptr %3645, i32 0, i32 0
-  %3651 = load ptr, ptr %3650, align 8
-  %3652 = getelementptr inbounds { ptr, ptr }, ptr %3645, i32 0, i32 1
-  %3653 = load ptr, ptr %3652, align 8
-  %3654 = call { ptr, ptr } @gen_object_matcher(ptr %3647, ptr %3649, ptr %3651, ptr %3653)
-  %3655 = getelementptr inbounds { ptr, ptr }, ptr %262, i32 0, i32 0
-  %3656 = extractvalue { ptr, ptr } %3654, 0
-  store ptr %3656, ptr %3655, align 8
-  %3657 = getelementptr inbounds { ptr, ptr }, ptr %262, i32 0, i32 1
-  %3658 = extractvalue { ptr, ptr } %3654, 1
-  store ptr %3658, ptr %3657, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %262, i64 16, i1 false)
-  br label %4268
+3658:                                             ; preds = %3648
+  br label %3659
 
-3659:                                             ; preds = %604
+3659:                                             ; preds = %3658
   br label %3660
 
-3660:                                             ; preds = %3659
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %263, ptr align 4 %29, i64 8, i1 false)
-  %3661 = load ptr, ptr %5, align 8
-  %3662 = load ptr, ptr %6, align 8
-  %3663 = load ptr, ptr %7, align 8
-  %3664 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %263, ptr noundef %3661, ptr noundef %3662, ptr noundef %3663, ptr noundef %3664, ptr noundef @.str.22)
-  br label %3665
-
-3665:                                             ; preds = %3660
-  %3666 = load ptr, ptr %21, align 8
-  %3667 = getelementptr inbounds %union.YYSTYPE, ptr %3666, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %3667, i64 16, i1 false)
-  br label %4268
-
-3668:                                             ; preds = %604
-  %3669 = call { i64, ptr } @jv_string(ptr noundef @.str.23)
-  %3670 = getelementptr inbounds { i64, ptr }, ptr %264, i32 0, i32 0
-  %3671 = extractvalue { i64, ptr } %3669, 0
-  store i64 %3671, ptr %3670, align 8
-  %3672 = getelementptr inbounds { i64, ptr }, ptr %264, i32 0, i32 1
-  %3673 = extractvalue { i64, ptr } %3669, 1
-  store ptr %3673, ptr %3672, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %264, i64 16, i1 false)
-  br label %4268
-
-3674:                                             ; preds = %604
-  %3675 = call { i64, ptr } @jv_string(ptr noundef @.str.24)
-  %3676 = getelementptr inbounds { i64, ptr }, ptr %265, i32 0, i32 0
-  %3677 = extractvalue { i64, ptr } %3675, 0
-  store i64 %3677, ptr %3676, align 8
-  %3678 = getelementptr inbounds { i64, ptr }, ptr %265, i32 0, i32 1
-  %3679 = extractvalue { i64, ptr } %3675, 1
+3660:                                             ; preds = %3659, %3629
+  %3661 = getelementptr inbounds nuw { i64, ptr }, ptr %262, i32 0, i32 0
+  %3662 = load i64, ptr %3661, align 8
+  %3663 = getelementptr inbounds nuw { i64, ptr }, ptr %262, i32 0, i32 1
+  %3664 = load ptr, ptr %3663, align 8
+  call void @jv_free(i64 %3662, ptr %3664)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %264) #8
+  %3665 = load ptr, ptr %22, align 8, !tbaa !20
+  %3666 = getelementptr inbounds %union.YYSTYPE, ptr %3665, i64 -3
+  %3667 = load ptr, ptr %22, align 8, !tbaa !20
+  %3668 = getelementptr inbounds %union.YYSTYPE, ptr %3667, i64 0
+  %3669 = getelementptr inbounds nuw { ptr, ptr }, ptr %3666, i32 0, i32 0
+  %3670 = load ptr, ptr %3669, align 8
+  %3671 = getelementptr inbounds nuw { ptr, ptr }, ptr %3666, i32 0, i32 1
+  %3672 = load ptr, ptr %3671, align 8
+  %3673 = getelementptr inbounds nuw { ptr, ptr }, ptr %3668, i32 0, i32 0
+  %3674 = load ptr, ptr %3673, align 8
+  %3675 = getelementptr inbounds nuw { ptr, ptr }, ptr %3668, i32 0, i32 1
+  %3676 = load ptr, ptr %3675, align 8
+  %3677 = call { ptr, ptr } @gen_object_matcher(ptr %3670, ptr %3672, ptr %3674, ptr %3676)
+  %3678 = getelementptr inbounds nuw { ptr, ptr }, ptr %264, i32 0, i32 0
+  %3679 = extractvalue { ptr, ptr } %3677, 0
   store ptr %3679, ptr %3678, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %265, i64 16, i1 false)
-  br label %4268
+  %3680 = getelementptr inbounds nuw { ptr, ptr }, ptr %264, i32 0, i32 1
+  %3681 = extractvalue { ptr, ptr } %3677, 1
+  store ptr %3681, ptr %3680, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %264, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %264) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %262) #8
+  br label %4294
 
-3680:                                             ; preds = %604
-  %3681 = call { i64, ptr } @jv_string(ptr noundef @.str.25)
-  %3682 = getelementptr inbounds { i64, ptr }, ptr %266, i32 0, i32 0
-  %3683 = extractvalue { i64, ptr } %3681, 0
-  store i64 %3683, ptr %3682, align 8
-  %3684 = getelementptr inbounds { i64, ptr }, ptr %266, i32 0, i32 1
-  %3685 = extractvalue { i64, ptr } %3681, 1
-  store ptr %3685, ptr %3684, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %266, i64 16, i1 false)
-  br label %4268
+3682:                                             ; preds = %616
+  br label %3683
 
-3686:                                             ; preds = %604
-  %3687 = call { i64, ptr } @jv_string(ptr noundef @.str.26)
-  %3688 = getelementptr inbounds { i64, ptr }, ptr %267, i32 0, i32 0
-  %3689 = extractvalue { i64, ptr } %3687, 0
-  store i64 %3689, ptr %3688, align 8
-  %3690 = getelementptr inbounds { i64, ptr }, ptr %267, i32 0, i32 1
-  %3691 = extractvalue { i64, ptr } %3687, 1
-  store ptr %3691, ptr %3690, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %267, i64 16, i1 false)
-  br label %4268
+3683:                                             ; preds = %3682
+  call void @llvm.lifetime.start.p0(i64 8, ptr %265) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %265, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %3684 = load ptr, ptr %6, align 8, !tbaa !8
+  %3685 = load ptr, ptr %7, align 8, !tbaa !10
+  %3686 = load ptr, ptr %8, align 8, !tbaa !12
+  %3687 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %265, ptr noundef %3684, ptr noundef %3685, ptr noundef %3686, ptr noundef %3687, ptr noundef @.str.22)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %265) #8
+  br label %3688
 
-3692:                                             ; preds = %604
-  %3693 = call { i64, ptr } @jv_string(ptr noundef @.str.27)
-  %3694 = getelementptr inbounds { i64, ptr }, ptr %268, i32 0, i32 0
+3688:                                             ; preds = %3683
+  br label %3689
+
+3689:                                             ; preds = %3688
+  %3690 = load ptr, ptr %22, align 8, !tbaa !20
+  %3691 = getelementptr inbounds %union.YYSTYPE, ptr %3690, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %3691, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
+
+3692:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %266) #8
+  %3693 = call { i64, ptr } @jv_string(ptr noundef @.str.23)
+  %3694 = getelementptr inbounds nuw { i64, ptr }, ptr %266, i32 0, i32 0
   %3695 = extractvalue { i64, ptr } %3693, 0
   store i64 %3695, ptr %3694, align 8
-  %3696 = getelementptr inbounds { i64, ptr }, ptr %268, i32 0, i32 1
+  %3696 = getelementptr inbounds nuw { i64, ptr }, ptr %266, i32 0, i32 1
   %3697 = extractvalue { i64, ptr } %3693, 1
   store ptr %3697, ptr %3696, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %268, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %266, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %266) #8
+  br label %4294
 
-3698:                                             ; preds = %604
-  %3699 = call { i64, ptr } @jv_string(ptr noundef @.str.28)
-  %3700 = getelementptr inbounds { i64, ptr }, ptr %269, i32 0, i32 0
+3698:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %267) #8
+  %3699 = call { i64, ptr } @jv_string(ptr noundef @.str.24)
+  %3700 = getelementptr inbounds nuw { i64, ptr }, ptr %267, i32 0, i32 0
   %3701 = extractvalue { i64, ptr } %3699, 0
   store i64 %3701, ptr %3700, align 8
-  %3702 = getelementptr inbounds { i64, ptr }, ptr %269, i32 0, i32 1
+  %3702 = getelementptr inbounds nuw { i64, ptr }, ptr %267, i32 0, i32 1
   %3703 = extractvalue { i64, ptr } %3699, 1
   store ptr %3703, ptr %3702, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %269, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %267, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %267) #8
+  br label %4294
 
-3704:                                             ; preds = %604
-  %3705 = call { i64, ptr } @jv_string(ptr noundef @.str.29)
-  %3706 = getelementptr inbounds { i64, ptr }, ptr %270, i32 0, i32 0
+3704:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %268) #8
+  %3705 = call { i64, ptr } @jv_string(ptr noundef @.str.25)
+  %3706 = getelementptr inbounds nuw { i64, ptr }, ptr %268, i32 0, i32 0
   %3707 = extractvalue { i64, ptr } %3705, 0
   store i64 %3707, ptr %3706, align 8
-  %3708 = getelementptr inbounds { i64, ptr }, ptr %270, i32 0, i32 1
+  %3708 = getelementptr inbounds nuw { i64, ptr }, ptr %268, i32 0, i32 1
   %3709 = extractvalue { i64, ptr } %3705, 1
   store ptr %3709, ptr %3708, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %270, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %268, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %268) #8
+  br label %4294
 
-3710:                                             ; preds = %604
-  %3711 = call { i64, ptr } @jv_string(ptr noundef @.str.30)
-  %3712 = getelementptr inbounds { i64, ptr }, ptr %271, i32 0, i32 0
+3710:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %269) #8
+  %3711 = call { i64, ptr } @jv_string(ptr noundef @.str.26)
+  %3712 = getelementptr inbounds nuw { i64, ptr }, ptr %269, i32 0, i32 0
   %3713 = extractvalue { i64, ptr } %3711, 0
   store i64 %3713, ptr %3712, align 8
-  %3714 = getelementptr inbounds { i64, ptr }, ptr %271, i32 0, i32 1
+  %3714 = getelementptr inbounds nuw { i64, ptr }, ptr %269, i32 0, i32 1
   %3715 = extractvalue { i64, ptr } %3711, 1
   store ptr %3715, ptr %3714, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %271, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %269, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %269) #8
+  br label %4294
 
-3716:                                             ; preds = %604
-  %3717 = call { i64, ptr } @jv_string(ptr noundef @.str.31)
-  %3718 = getelementptr inbounds { i64, ptr }, ptr %272, i32 0, i32 0
+3716:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %270) #8
+  %3717 = call { i64, ptr } @jv_string(ptr noundef @.str.27)
+  %3718 = getelementptr inbounds nuw { i64, ptr }, ptr %270, i32 0, i32 0
   %3719 = extractvalue { i64, ptr } %3717, 0
   store i64 %3719, ptr %3718, align 8
-  %3720 = getelementptr inbounds { i64, ptr }, ptr %272, i32 0, i32 1
+  %3720 = getelementptr inbounds nuw { i64, ptr }, ptr %270, i32 0, i32 1
   %3721 = extractvalue { i64, ptr } %3717, 1
   store ptr %3721, ptr %3720, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %272, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %270, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %270) #8
+  br label %4294
 
-3722:                                             ; preds = %604
-  %3723 = call { i64, ptr } @jv_string(ptr noundef @.str.32)
-  %3724 = getelementptr inbounds { i64, ptr }, ptr %273, i32 0, i32 0
+3722:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %271) #8
+  %3723 = call { i64, ptr } @jv_string(ptr noundef @.str.28)
+  %3724 = getelementptr inbounds nuw { i64, ptr }, ptr %271, i32 0, i32 0
   %3725 = extractvalue { i64, ptr } %3723, 0
   store i64 %3725, ptr %3724, align 8
-  %3726 = getelementptr inbounds { i64, ptr }, ptr %273, i32 0, i32 1
+  %3726 = getelementptr inbounds nuw { i64, ptr }, ptr %271, i32 0, i32 1
   %3727 = extractvalue { i64, ptr } %3723, 1
   store ptr %3727, ptr %3726, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %273, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %271, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %271) #8
+  br label %4294
 
-3728:                                             ; preds = %604
-  %3729 = call { i64, ptr } @jv_string(ptr noundef @.str.33)
-  %3730 = getelementptr inbounds { i64, ptr }, ptr %274, i32 0, i32 0
+3728:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %272) #8
+  %3729 = call { i64, ptr } @jv_string(ptr noundef @.str.29)
+  %3730 = getelementptr inbounds nuw { i64, ptr }, ptr %272, i32 0, i32 0
   %3731 = extractvalue { i64, ptr } %3729, 0
   store i64 %3731, ptr %3730, align 8
-  %3732 = getelementptr inbounds { i64, ptr }, ptr %274, i32 0, i32 1
+  %3732 = getelementptr inbounds nuw { i64, ptr }, ptr %272, i32 0, i32 1
   %3733 = extractvalue { i64, ptr } %3729, 1
   store ptr %3733, ptr %3732, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %274, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %272, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %272) #8
+  br label %4294
 
-3734:                                             ; preds = %604
-  %3735 = call { i64, ptr } @jv_string(ptr noundef @.str.34)
-  %3736 = getelementptr inbounds { i64, ptr }, ptr %275, i32 0, i32 0
+3734:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %273) #8
+  %3735 = call { i64, ptr } @jv_string(ptr noundef @.str.30)
+  %3736 = getelementptr inbounds nuw { i64, ptr }, ptr %273, i32 0, i32 0
   %3737 = extractvalue { i64, ptr } %3735, 0
   store i64 %3737, ptr %3736, align 8
-  %3738 = getelementptr inbounds { i64, ptr }, ptr %275, i32 0, i32 1
+  %3738 = getelementptr inbounds nuw { i64, ptr }, ptr %273, i32 0, i32 1
   %3739 = extractvalue { i64, ptr } %3735, 1
   store ptr %3739, ptr %3738, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %275, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %273, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %273) #8
+  br label %4294
 
-3740:                                             ; preds = %604
-  %3741 = call { i64, ptr } @jv_string(ptr noundef @.str.35)
-  %3742 = getelementptr inbounds { i64, ptr }, ptr %276, i32 0, i32 0
+3740:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %274) #8
+  %3741 = call { i64, ptr } @jv_string(ptr noundef @.str.31)
+  %3742 = getelementptr inbounds nuw { i64, ptr }, ptr %274, i32 0, i32 0
   %3743 = extractvalue { i64, ptr } %3741, 0
   store i64 %3743, ptr %3742, align 8
-  %3744 = getelementptr inbounds { i64, ptr }, ptr %276, i32 0, i32 1
+  %3744 = getelementptr inbounds nuw { i64, ptr }, ptr %274, i32 0, i32 1
   %3745 = extractvalue { i64, ptr } %3741, 1
   store ptr %3745, ptr %3744, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %276, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %274, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %274) #8
+  br label %4294
 
-3746:                                             ; preds = %604
-  %3747 = call { i64, ptr } @jv_string(ptr noundef @.str.36)
-  %3748 = getelementptr inbounds { i64, ptr }, ptr %277, i32 0, i32 0
+3746:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %275) #8
+  %3747 = call { i64, ptr } @jv_string(ptr noundef @.str.32)
+  %3748 = getelementptr inbounds nuw { i64, ptr }, ptr %275, i32 0, i32 0
   %3749 = extractvalue { i64, ptr } %3747, 0
   store i64 %3749, ptr %3748, align 8
-  %3750 = getelementptr inbounds { i64, ptr }, ptr %277, i32 0, i32 1
+  %3750 = getelementptr inbounds nuw { i64, ptr }, ptr %275, i32 0, i32 1
   %3751 = extractvalue { i64, ptr } %3747, 1
   store ptr %3751, ptr %3750, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %277, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %275, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %275) #8
+  br label %4294
 
-3752:                                             ; preds = %604
-  %3753 = call { i64, ptr } @jv_string(ptr noundef @.str.37)
-  %3754 = getelementptr inbounds { i64, ptr }, ptr %278, i32 0, i32 0
+3752:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %276) #8
+  %3753 = call { i64, ptr } @jv_string(ptr noundef @.str.33)
+  %3754 = getelementptr inbounds nuw { i64, ptr }, ptr %276, i32 0, i32 0
   %3755 = extractvalue { i64, ptr } %3753, 0
   store i64 %3755, ptr %3754, align 8
-  %3756 = getelementptr inbounds { i64, ptr }, ptr %278, i32 0, i32 1
+  %3756 = getelementptr inbounds nuw { i64, ptr }, ptr %276, i32 0, i32 1
   %3757 = extractvalue { i64, ptr } %3753, 1
   store ptr %3757, ptr %3756, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %278, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %276, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %276) #8
+  br label %4294
 
-3758:                                             ; preds = %604
-  %3759 = call { i64, ptr } @jv_string(ptr noundef @.str.38)
-  %3760 = getelementptr inbounds { i64, ptr }, ptr %279, i32 0, i32 0
+3758:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %277) #8
+  %3759 = call { i64, ptr } @jv_string(ptr noundef @.str.34)
+  %3760 = getelementptr inbounds nuw { i64, ptr }, ptr %277, i32 0, i32 0
   %3761 = extractvalue { i64, ptr } %3759, 0
   store i64 %3761, ptr %3760, align 8
-  %3762 = getelementptr inbounds { i64, ptr }, ptr %279, i32 0, i32 1
+  %3762 = getelementptr inbounds nuw { i64, ptr }, ptr %277, i32 0, i32 1
   %3763 = extractvalue { i64, ptr } %3759, 1
   store ptr %3763, ptr %3762, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %279, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %277, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %277) #8
+  br label %4294
 
-3764:                                             ; preds = %604
-  %3765 = call { i64, ptr } @jv_string(ptr noundef @.str.39)
-  %3766 = getelementptr inbounds { i64, ptr }, ptr %280, i32 0, i32 0
+3764:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %278) #8
+  %3765 = call { i64, ptr } @jv_string(ptr noundef @.str.35)
+  %3766 = getelementptr inbounds nuw { i64, ptr }, ptr %278, i32 0, i32 0
   %3767 = extractvalue { i64, ptr } %3765, 0
   store i64 %3767, ptr %3766, align 8
-  %3768 = getelementptr inbounds { i64, ptr }, ptr %280, i32 0, i32 1
+  %3768 = getelementptr inbounds nuw { i64, ptr }, ptr %278, i32 0, i32 1
   %3769 = extractvalue { i64, ptr } %3765, 1
   store ptr %3769, ptr %3768, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %280, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %278, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %278) #8
+  br label %4294
 
-3770:                                             ; preds = %604
-  %3771 = call { i64, ptr } @jv_string(ptr noundef @.str.40)
-  %3772 = getelementptr inbounds { i64, ptr }, ptr %281, i32 0, i32 0
+3770:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %279) #8
+  %3771 = call { i64, ptr } @jv_string(ptr noundef @.str.36)
+  %3772 = getelementptr inbounds nuw { i64, ptr }, ptr %279, i32 0, i32 0
   %3773 = extractvalue { i64, ptr } %3771, 0
   store i64 %3773, ptr %3772, align 8
-  %3774 = getelementptr inbounds { i64, ptr }, ptr %281, i32 0, i32 1
+  %3774 = getelementptr inbounds nuw { i64, ptr }, ptr %279, i32 0, i32 1
   %3775 = extractvalue { i64, ptr } %3771, 1
   store ptr %3775, ptr %3774, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %281, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %279, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %279) #8
+  br label %4294
 
-3776:                                             ; preds = %604
-  %3777 = call { ptr, ptr } (...) @gen_noop()
-  %3778 = getelementptr inbounds { ptr, ptr }, ptr %282, i32 0, i32 0
-  %3779 = extractvalue { ptr, ptr } %3777, 0
-  store ptr %3779, ptr %3778, align 8
-  %3780 = getelementptr inbounds { ptr, ptr }, ptr %282, i32 0, i32 1
-  %3781 = extractvalue { ptr, ptr } %3777, 1
+3776:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %280) #8
+  %3777 = call { i64, ptr } @jv_string(ptr noundef @.str.37)
+  %3778 = getelementptr inbounds nuw { i64, ptr }, ptr %280, i32 0, i32 0
+  %3779 = extractvalue { i64, ptr } %3777, 0
+  store i64 %3779, ptr %3778, align 8
+  %3780 = getelementptr inbounds nuw { i64, ptr }, ptr %280, i32 0, i32 1
+  %3781 = extractvalue { i64, ptr } %3777, 1
   store ptr %3781, ptr %3780, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %282, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %280, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %280) #8
+  br label %4294
 
-3782:                                             ; preds = %604
-  %3783 = load ptr, ptr %21, align 8
-  %3784 = getelementptr inbounds %union.YYSTYPE, ptr %3783, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %3784, i64 16, i1 false)
-  br label %4268
+3782:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %281) #8
+  %3783 = call { i64, ptr } @jv_string(ptr noundef @.str.38)
+  %3784 = getelementptr inbounds nuw { i64, ptr }, ptr %281, i32 0, i32 0
+  %3785 = extractvalue { i64, ptr } %3783, 0
+  store i64 %3785, ptr %3784, align 8
+  %3786 = getelementptr inbounds nuw { i64, ptr }, ptr %281, i32 0, i32 1
+  %3787 = extractvalue { i64, ptr } %3783, 1
+  store ptr %3787, ptr %3786, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %281, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %281) #8
+  br label %4294
 
-3785:                                             ; preds = %604
-  %3786 = load ptr, ptr %21, align 8
-  %3787 = getelementptr inbounds %union.YYSTYPE, ptr %3786, i64 -2
-  %3788 = load ptr, ptr %21, align 8
-  %3789 = getelementptr inbounds %union.YYSTYPE, ptr %3788, i64 0
-  %3790 = getelementptr inbounds { ptr, ptr }, ptr %3787, i32 0, i32 0
-  %3791 = load ptr, ptr %3790, align 8
-  %3792 = getelementptr inbounds { ptr, ptr }, ptr %3787, i32 0, i32 1
-  %3793 = load ptr, ptr %3792, align 8
-  %3794 = getelementptr inbounds { ptr, ptr }, ptr %3789, i32 0, i32 0
-  %3795 = load ptr, ptr %3794, align 8
-  %3796 = getelementptr inbounds { ptr, ptr }, ptr %3789, i32 0, i32 1
-  %3797 = load ptr, ptr %3796, align 8
-  %3798 = call { ptr, ptr } @block_join(ptr %3791, ptr %3793, ptr %3795, ptr %3797)
-  %3799 = getelementptr inbounds { ptr, ptr }, ptr %283, i32 0, i32 0
-  %3800 = extractvalue { ptr, ptr } %3798, 0
-  store ptr %3800, ptr %3799, align 8
-  %3801 = getelementptr inbounds { ptr, ptr }, ptr %283, i32 0, i32 1
-  %3802 = extractvalue { ptr, ptr } %3798, 1
-  store ptr %3802, ptr %3801, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %283, i64 16, i1 false)
-  br label %4268
+3788:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %282) #8
+  %3789 = call { i64, ptr } @jv_string(ptr noundef @.str.39)
+  %3790 = getelementptr inbounds nuw { i64, ptr }, ptr %282, i32 0, i32 0
+  %3791 = extractvalue { i64, ptr } %3789, 0
+  store i64 %3791, ptr %3790, align 8
+  %3792 = getelementptr inbounds nuw { i64, ptr }, ptr %282, i32 0, i32 1
+  %3793 = extractvalue { i64, ptr } %3789, 1
+  store ptr %3793, ptr %3792, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %282, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %282) #8
+  br label %4294
 
-3803:                                             ; preds = %604
-  %3804 = load ptr, ptr %21, align 8
-  %3805 = getelementptr inbounds %union.YYSTYPE, ptr %3804, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %3805, i64 16, i1 false)
-  br label %4268
+3794:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %283) #8
+  %3795 = call { i64, ptr } @jv_string(ptr noundef @.str.40)
+  %3796 = getelementptr inbounds nuw { i64, ptr }, ptr %283, i32 0, i32 0
+  %3797 = extractvalue { i64, ptr } %3795, 0
+  store i64 %3797, ptr %3796, align 8
+  %3798 = getelementptr inbounds nuw { i64, ptr }, ptr %283, i32 0, i32 1
+  %3799 = extractvalue { i64, ptr } %3795, 1
+  store ptr %3799, ptr %3798, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %283, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %283) #8
+  br label %4294
 
-3806:                                             ; preds = %604
-  %3807 = load ptr, ptr %21, align 8
-  %3808 = getelementptr inbounds %union.YYSTYPE, ptr %3807, i64 -2
-  %3809 = getelementptr inbounds { i64, ptr }, ptr %3808, i32 0, i32 0
-  %3810 = load i64, ptr %3809, align 8
-  %3811 = getelementptr inbounds { i64, ptr }, ptr %3808, i32 0, i32 1
-  %3812 = load ptr, ptr %3811, align 8
-  %3813 = call { ptr, ptr } @gen_const(i64 %3810, ptr %3812)
-  %3814 = getelementptr inbounds { ptr, ptr }, ptr %285, i32 0, i32 0
-  %3815 = extractvalue { ptr, ptr } %3813, 0
-  store ptr %3815, ptr %3814, align 8
-  %3816 = getelementptr inbounds { ptr, ptr }, ptr %285, i32 0, i32 1
-  %3817 = extractvalue { ptr, ptr } %3813, 1
-  store ptr %3817, ptr %3816, align 8
-  %3818 = load ptr, ptr %21, align 8
-  %3819 = getelementptr inbounds %union.YYSTYPE, ptr %3818, i64 0
-  %3820 = getelementptr inbounds { ptr, ptr }, ptr %285, i32 0, i32 0
+3800:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %284) #8
+  %3801 = call { ptr, ptr } (...) @gen_noop()
+  %3802 = getelementptr inbounds nuw { ptr, ptr }, ptr %284, i32 0, i32 0
+  %3803 = extractvalue { ptr, ptr } %3801, 0
+  store ptr %3803, ptr %3802, align 8
+  %3804 = getelementptr inbounds nuw { ptr, ptr }, ptr %284, i32 0, i32 1
+  %3805 = extractvalue { ptr, ptr } %3801, 1
+  store ptr %3805, ptr %3804, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %284, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %284) #8
+  br label %4294
+
+3806:                                             ; preds = %616
+  %3807 = load ptr, ptr %22, align 8, !tbaa !20
+  %3808 = getelementptr inbounds %union.YYSTYPE, ptr %3807, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %3808, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
+
+3809:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %285) #8
+  %3810 = load ptr, ptr %22, align 8, !tbaa !20
+  %3811 = getelementptr inbounds %union.YYSTYPE, ptr %3810, i64 -2
+  %3812 = load ptr, ptr %22, align 8, !tbaa !20
+  %3813 = getelementptr inbounds %union.YYSTYPE, ptr %3812, i64 0
+  %3814 = getelementptr inbounds nuw { ptr, ptr }, ptr %3811, i32 0, i32 0
+  %3815 = load ptr, ptr %3814, align 8
+  %3816 = getelementptr inbounds nuw { ptr, ptr }, ptr %3811, i32 0, i32 1
+  %3817 = load ptr, ptr %3816, align 8
+  %3818 = getelementptr inbounds nuw { ptr, ptr }, ptr %3813, i32 0, i32 0
+  %3819 = load ptr, ptr %3818, align 8
+  %3820 = getelementptr inbounds nuw { ptr, ptr }, ptr %3813, i32 0, i32 1
   %3821 = load ptr, ptr %3820, align 8
-  %3822 = getelementptr inbounds { ptr, ptr }, ptr %285, i32 0, i32 1
-  %3823 = load ptr, ptr %3822, align 8
-  %3824 = getelementptr inbounds { ptr, ptr }, ptr %3819, i32 0, i32 0
-  %3825 = load ptr, ptr %3824, align 8
-  %3826 = getelementptr inbounds { ptr, ptr }, ptr %3819, i32 0, i32 1
-  %3827 = load ptr, ptr %3826, align 8
-  %3828 = call { ptr, ptr } @gen_dictpair(ptr %3821, ptr %3823, ptr %3825, ptr %3827)
-  %3829 = getelementptr inbounds { ptr, ptr }, ptr %284, i32 0, i32 0
-  %3830 = extractvalue { ptr, ptr } %3828, 0
-  store ptr %3830, ptr %3829, align 8
-  %3831 = getelementptr inbounds { ptr, ptr }, ptr %284, i32 0, i32 1
-  %3832 = extractvalue { ptr, ptr } %3828, 1
-  store ptr %3832, ptr %3831, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %284, i64 16, i1 false)
-  br label %4268
+  %3822 = call { ptr, ptr } @block_join(ptr %3815, ptr %3817, ptr %3819, ptr %3821)
+  %3823 = getelementptr inbounds nuw { ptr, ptr }, ptr %285, i32 0, i32 0
+  %3824 = extractvalue { ptr, ptr } %3822, 0
+  store ptr %3824, ptr %3823, align 8
+  %3825 = getelementptr inbounds nuw { ptr, ptr }, ptr %285, i32 0, i32 1
+  %3826 = extractvalue { ptr, ptr } %3822, 1
+  store ptr %3826, ptr %3825, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %285, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %285) #8
+  br label %4294
 
-3833:                                             ; preds = %604
-  %3834 = load ptr, ptr %21, align 8
-  %3835 = getelementptr inbounds %union.YYSTYPE, ptr %3834, i64 -2
-  %3836 = getelementptr inbounds { i64, ptr }, ptr %3835, i32 0, i32 0
-  %3837 = load i64, ptr %3836, align 8
-  %3838 = getelementptr inbounds { i64, ptr }, ptr %3835, i32 0, i32 1
-  %3839 = load ptr, ptr %3838, align 8
-  %3840 = call { ptr, ptr } @gen_const(i64 %3837, ptr %3839)
-  %3841 = getelementptr inbounds { ptr, ptr }, ptr %287, i32 0, i32 0
-  %3842 = extractvalue { ptr, ptr } %3840, 0
-  store ptr %3842, ptr %3841, align 8
-  %3843 = getelementptr inbounds { ptr, ptr }, ptr %287, i32 0, i32 1
-  %3844 = extractvalue { ptr, ptr } %3840, 1
-  store ptr %3844, ptr %3843, align 8
-  %3845 = load ptr, ptr %21, align 8
-  %3846 = getelementptr inbounds %union.YYSTYPE, ptr %3845, i64 0
-  %3847 = getelementptr inbounds { ptr, ptr }, ptr %287, i32 0, i32 0
-  %3848 = load ptr, ptr %3847, align 8
-  %3849 = getelementptr inbounds { ptr, ptr }, ptr %287, i32 0, i32 1
-  %3850 = load ptr, ptr %3849, align 8
-  %3851 = getelementptr inbounds { ptr, ptr }, ptr %3846, i32 0, i32 0
-  %3852 = load ptr, ptr %3851, align 8
-  %3853 = getelementptr inbounds { ptr, ptr }, ptr %3846, i32 0, i32 1
-  %3854 = load ptr, ptr %3853, align 8
-  %3855 = call { ptr, ptr } @gen_dictpair(ptr %3848, ptr %3850, ptr %3852, ptr %3854)
-  %3856 = getelementptr inbounds { ptr, ptr }, ptr %286, i32 0, i32 0
-  %3857 = extractvalue { ptr, ptr } %3855, 0
-  store ptr %3857, ptr %3856, align 8
-  %3858 = getelementptr inbounds { ptr, ptr }, ptr %286, i32 0, i32 1
-  %3859 = extractvalue { ptr, ptr } %3855, 1
-  store ptr %3859, ptr %3858, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %286, i64 16, i1 false)
-  br label %4268
+3827:                                             ; preds = %616
+  %3828 = load ptr, ptr %22, align 8, !tbaa !20
+  %3829 = getelementptr inbounds %union.YYSTYPE, ptr %3828, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %3829, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-3860:                                             ; preds = %604
-  %3861 = load ptr, ptr %21, align 8
-  %3862 = getelementptr inbounds %union.YYSTYPE, ptr %3861, i64 -2
-  %3863 = load ptr, ptr %21, align 8
-  %3864 = getelementptr inbounds %union.YYSTYPE, ptr %3863, i64 0
-  %3865 = getelementptr inbounds { ptr, ptr }, ptr %3862, i32 0, i32 0
-  %3866 = load ptr, ptr %3865, align 8
-  %3867 = getelementptr inbounds { ptr, ptr }, ptr %3862, i32 0, i32 1
-  %3868 = load ptr, ptr %3867, align 8
-  %3869 = getelementptr inbounds { ptr, ptr }, ptr %3864, i32 0, i32 0
-  %3870 = load ptr, ptr %3869, align 8
-  %3871 = getelementptr inbounds { ptr, ptr }, ptr %3864, i32 0, i32 1
+3830:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %286) #8
+  %3831 = load ptr, ptr %22, align 8, !tbaa !20
+  %3832 = getelementptr inbounds %union.YYSTYPE, ptr %3831, i64 -2
+  %3833 = getelementptr inbounds nuw { i64, ptr }, ptr %3832, i32 0, i32 0
+  %3834 = load i64, ptr %3833, align 8
+  %3835 = getelementptr inbounds nuw { i64, ptr }, ptr %3832, i32 0, i32 1
+  %3836 = load ptr, ptr %3835, align 8
+  %3837 = call { ptr, ptr } @gen_const(i64 %3834, ptr %3836)
+  %3838 = getelementptr inbounds nuw { ptr, ptr }, ptr %287, i32 0, i32 0
+  %3839 = extractvalue { ptr, ptr } %3837, 0
+  store ptr %3839, ptr %3838, align 8
+  %3840 = getelementptr inbounds nuw { ptr, ptr }, ptr %287, i32 0, i32 1
+  %3841 = extractvalue { ptr, ptr } %3837, 1
+  store ptr %3841, ptr %3840, align 8
+  %3842 = load ptr, ptr %22, align 8, !tbaa !20
+  %3843 = getelementptr inbounds %union.YYSTYPE, ptr %3842, i64 0
+  %3844 = getelementptr inbounds nuw { ptr, ptr }, ptr %287, i32 0, i32 0
+  %3845 = load ptr, ptr %3844, align 8
+  %3846 = getelementptr inbounds nuw { ptr, ptr }, ptr %287, i32 0, i32 1
+  %3847 = load ptr, ptr %3846, align 8
+  %3848 = getelementptr inbounds nuw { ptr, ptr }, ptr %3843, i32 0, i32 0
+  %3849 = load ptr, ptr %3848, align 8
+  %3850 = getelementptr inbounds nuw { ptr, ptr }, ptr %3843, i32 0, i32 1
+  %3851 = load ptr, ptr %3850, align 8
+  %3852 = call { ptr, ptr } @gen_dictpair(ptr %3845, ptr %3847, ptr %3849, ptr %3851)
+  %3853 = getelementptr inbounds nuw { ptr, ptr }, ptr %286, i32 0, i32 0
+  %3854 = extractvalue { ptr, ptr } %3852, 0
+  store ptr %3854, ptr %3853, align 8
+  %3855 = getelementptr inbounds nuw { ptr, ptr }, ptr %286, i32 0, i32 1
+  %3856 = extractvalue { ptr, ptr } %3852, 1
+  store ptr %3856, ptr %3855, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %286, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %286) #8
+  br label %4294
+
+3857:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %288) #8
+  %3858 = load ptr, ptr %22, align 8, !tbaa !20
+  %3859 = getelementptr inbounds %union.YYSTYPE, ptr %3858, i64 -2
+  %3860 = getelementptr inbounds nuw { i64, ptr }, ptr %3859, i32 0, i32 0
+  %3861 = load i64, ptr %3860, align 8
+  %3862 = getelementptr inbounds nuw { i64, ptr }, ptr %3859, i32 0, i32 1
+  %3863 = load ptr, ptr %3862, align 8
+  %3864 = call { ptr, ptr } @gen_const(i64 %3861, ptr %3863)
+  %3865 = getelementptr inbounds nuw { ptr, ptr }, ptr %289, i32 0, i32 0
+  %3866 = extractvalue { ptr, ptr } %3864, 0
+  store ptr %3866, ptr %3865, align 8
+  %3867 = getelementptr inbounds nuw { ptr, ptr }, ptr %289, i32 0, i32 1
+  %3868 = extractvalue { ptr, ptr } %3864, 1
+  store ptr %3868, ptr %3867, align 8
+  %3869 = load ptr, ptr %22, align 8, !tbaa !20
+  %3870 = getelementptr inbounds %union.YYSTYPE, ptr %3869, i64 0
+  %3871 = getelementptr inbounds nuw { ptr, ptr }, ptr %289, i32 0, i32 0
   %3872 = load ptr, ptr %3871, align 8
-  %3873 = call { ptr, ptr } @gen_dictpair(ptr %3866, ptr %3868, ptr %3870, ptr %3872)
-  %3874 = getelementptr inbounds { ptr, ptr }, ptr %288, i32 0, i32 0
-  %3875 = extractvalue { ptr, ptr } %3873, 0
-  store ptr %3875, ptr %3874, align 8
-  %3876 = getelementptr inbounds { ptr, ptr }, ptr %288, i32 0, i32 1
-  %3877 = extractvalue { ptr, ptr } %3873, 1
-  store ptr %3877, ptr %3876, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %288, i64 16, i1 false)
-  br label %4268
-
-3878:                                             ; preds = %604
-  %3879 = load ptr, ptr %21, align 8
-  %3880 = getelementptr inbounds %union.YYSTYPE, ptr %3879, i64 0
-  %3881 = call { ptr, ptr } @gen_op_simple(i32 noundef 5)
-  %3882 = getelementptr inbounds { ptr, ptr }, ptr %293, i32 0, i32 0
-  %3883 = extractvalue { ptr, ptr } %3881, 0
+  %3873 = getelementptr inbounds nuw { ptr, ptr }, ptr %289, i32 0, i32 1
+  %3874 = load ptr, ptr %3873, align 8
+  %3875 = getelementptr inbounds nuw { ptr, ptr }, ptr %3870, i32 0, i32 0
+  %3876 = load ptr, ptr %3875, align 8
+  %3877 = getelementptr inbounds nuw { ptr, ptr }, ptr %3870, i32 0, i32 1
+  %3878 = load ptr, ptr %3877, align 8
+  %3879 = call { ptr, ptr } @gen_dictpair(ptr %3872, ptr %3874, ptr %3876, ptr %3878)
+  %3880 = getelementptr inbounds nuw { ptr, ptr }, ptr %288, i32 0, i32 0
+  %3881 = extractvalue { ptr, ptr } %3879, 0
+  store ptr %3881, ptr %3880, align 8
+  %3882 = getelementptr inbounds nuw { ptr, ptr }, ptr %288, i32 0, i32 1
+  %3883 = extractvalue { ptr, ptr } %3879, 1
   store ptr %3883, ptr %3882, align 8
-  %3884 = getelementptr inbounds { ptr, ptr }, ptr %293, i32 0, i32 1
-  %3885 = extractvalue { ptr, ptr } %3881, 1
-  store ptr %3885, ptr %3884, align 8
-  %3886 = call { ptr, ptr } @gen_op_simple(i32 noundef 3)
-  %3887 = getelementptr inbounds { ptr, ptr }, ptr %294, i32 0, i32 0
-  %3888 = extractvalue { ptr, ptr } %3886, 0
-  store ptr %3888, ptr %3887, align 8
-  %3889 = getelementptr inbounds { ptr, ptr }, ptr %294, i32 0, i32 1
-  %3890 = extractvalue { ptr, ptr } %3886, 1
-  store ptr %3890, ptr %3889, align 8
-  %3891 = getelementptr inbounds { ptr, ptr }, ptr %293, i32 0, i32 0
-  %3892 = load ptr, ptr %3891, align 8
-  %3893 = getelementptr inbounds { ptr, ptr }, ptr %293, i32 0, i32 1
-  %3894 = load ptr, ptr %3893, align 8
-  %3895 = getelementptr inbounds { ptr, ptr }, ptr %294, i32 0, i32 0
-  %3896 = load ptr, ptr %3895, align 8
-  %3897 = getelementptr inbounds { ptr, ptr }, ptr %294, i32 0, i32 1
-  %3898 = load ptr, ptr %3897, align 8
-  %3899 = call { ptr, ptr } @block_join(ptr %3892, ptr %3894, ptr %3896, ptr %3898)
-  %3900 = getelementptr inbounds { ptr, ptr }, ptr %292, i32 0, i32 0
-  %3901 = extractvalue { ptr, ptr } %3899, 0
-  store ptr %3901, ptr %3900, align 8
-  %3902 = getelementptr inbounds { ptr, ptr }, ptr %292, i32 0, i32 1
-  %3903 = extractvalue { ptr, ptr } %3899, 1
-  store ptr %3903, ptr %3902, align 8
-  %3904 = call { ptr, ptr } @gen_op_simple(i32 noundef 3)
-  %3905 = getelementptr inbounds { ptr, ptr }, ptr %295, i32 0, i32 0
-  %3906 = extractvalue { ptr, ptr } %3904, 0
-  store ptr %3906, ptr %3905, align 8
-  %3907 = getelementptr inbounds { ptr, ptr }, ptr %295, i32 0, i32 1
-  %3908 = extractvalue { ptr, ptr } %3904, 1
-  store ptr %3908, ptr %3907, align 8
-  %3909 = getelementptr inbounds { ptr, ptr }, ptr %292, i32 0, i32 0
-  %3910 = load ptr, ptr %3909, align 8
-  %3911 = getelementptr inbounds { ptr, ptr }, ptr %292, i32 0, i32 1
-  %3912 = load ptr, ptr %3911, align 8
-  %3913 = getelementptr inbounds { ptr, ptr }, ptr %295, i32 0, i32 0
-  %3914 = load ptr, ptr %3913, align 8
-  %3915 = getelementptr inbounds { ptr, ptr }, ptr %295, i32 0, i32 1
-  %3916 = load ptr, ptr %3915, align 8
-  %3917 = call { ptr, ptr } @block_join(ptr %3910, ptr %3912, ptr %3914, ptr %3916)
-  %3918 = getelementptr inbounds { ptr, ptr }, ptr %291, i32 0, i32 0
-  %3919 = extractvalue { ptr, ptr } %3917, 0
-  store ptr %3919, ptr %3918, align 8
-  %3920 = getelementptr inbounds { ptr, ptr }, ptr %291, i32 0, i32 1
-  %3921 = extractvalue { ptr, ptr } %3917, 1
-  store ptr %3921, ptr %3920, align 8
-  %3922 = call { ptr, ptr } @gen_op_simple(i32 noundef 10)
-  %3923 = getelementptr inbounds { ptr, ptr }, ptr %296, i32 0, i32 0
-  %3924 = extractvalue { ptr, ptr } %3922, 0
-  store ptr %3924, ptr %3923, align 8
-  %3925 = getelementptr inbounds { ptr, ptr }, ptr %296, i32 0, i32 1
-  %3926 = extractvalue { ptr, ptr } %3922, 1
-  store ptr %3926, ptr %3925, align 8
-  %3927 = getelementptr inbounds { ptr, ptr }, ptr %291, i32 0, i32 0
-  %3928 = load ptr, ptr %3927, align 8
-  %3929 = getelementptr inbounds { ptr, ptr }, ptr %291, i32 0, i32 1
-  %3930 = load ptr, ptr %3929, align 8
-  %3931 = getelementptr inbounds { ptr, ptr }, ptr %296, i32 0, i32 0
-  %3932 = load ptr, ptr %3931, align 8
-  %3933 = getelementptr inbounds { ptr, ptr }, ptr %296, i32 0, i32 1
-  %3934 = load ptr, ptr %3933, align 8
-  %3935 = call { ptr, ptr } @block_join(ptr %3928, ptr %3930, ptr %3932, ptr %3934)
-  %3936 = getelementptr inbounds { ptr, ptr }, ptr %290, i32 0, i32 0
-  %3937 = extractvalue { ptr, ptr } %3935, 0
-  store ptr %3937, ptr %3936, align 8
-  %3938 = getelementptr inbounds { ptr, ptr }, ptr %290, i32 0, i32 1
-  %3939 = extractvalue { ptr, ptr } %3935, 1
-  store ptr %3939, ptr %3938, align 8
-  %3940 = getelementptr inbounds { ptr, ptr }, ptr %3880, i32 0, i32 0
-  %3941 = load ptr, ptr %3940, align 8
-  %3942 = getelementptr inbounds { ptr, ptr }, ptr %3880, i32 0, i32 1
-  %3943 = load ptr, ptr %3942, align 8
-  %3944 = getelementptr inbounds { ptr, ptr }, ptr %290, i32 0, i32 0
-  %3945 = load ptr, ptr %3944, align 8
-  %3946 = getelementptr inbounds { ptr, ptr }, ptr %290, i32 0, i32 1
-  %3947 = load ptr, ptr %3946, align 8
-  %3948 = call { ptr, ptr } @gen_dictpair(ptr %3941, ptr %3943, ptr %3945, ptr %3947)
-  %3949 = getelementptr inbounds { ptr, ptr }, ptr %289, i32 0, i32 0
-  %3950 = extractvalue { ptr, ptr } %3948, 0
-  store ptr %3950, ptr %3949, align 8
-  %3951 = getelementptr inbounds { ptr, ptr }, ptr %289, i32 0, i32 1
-  %3952 = extractvalue { ptr, ptr } %3948, 1
-  store ptr %3952, ptr %3951, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %289, i64 16, i1 false)
-  br label %4268
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %288, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %288) #8
+  br label %4294
 
-3953:                                             ; preds = %604
-  %3954 = load ptr, ptr %7, align 8
-  %3955 = load ptr, ptr %21, align 8
-  %3956 = getelementptr inbounds %union.YYSTYPE, ptr %3955, i64 -2
-  %3957 = getelementptr inbounds { i64, ptr }, ptr %3956, i32 0, i32 0
-  %3958 = load i64, ptr %3957, align 8
-  %3959 = getelementptr inbounds { i64, ptr }, ptr %3956, i32 0, i32 1
-  %3960 = load ptr, ptr %3959, align 8
-  %3961 = call ptr @jv_string_value(i64 %3958, ptr %3960)
-  %3962 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %3961)
-  %3963 = getelementptr inbounds { ptr, ptr }, ptr %299, i32 0, i32 0
-  %3964 = extractvalue { ptr, ptr } %3962, 0
-  store ptr %3964, ptr %3963, align 8
-  %3965 = getelementptr inbounds { ptr, ptr }, ptr %299, i32 0, i32 1
-  %3966 = extractvalue { ptr, ptr } %3962, 1
-  store ptr %3966, ptr %3965, align 8
-  %3967 = load i64, ptr %29, align 4
-  %3968 = getelementptr inbounds { ptr, ptr }, ptr %299, i32 0, i32 0
+3884:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %290) #8
+  %3885 = load ptr, ptr %22, align 8, !tbaa !20
+  %3886 = getelementptr inbounds %union.YYSTYPE, ptr %3885, i64 -2
+  %3887 = load ptr, ptr %22, align 8, !tbaa !20
+  %3888 = getelementptr inbounds %union.YYSTYPE, ptr %3887, i64 0
+  %3889 = getelementptr inbounds nuw { ptr, ptr }, ptr %3886, i32 0, i32 0
+  %3890 = load ptr, ptr %3889, align 8
+  %3891 = getelementptr inbounds nuw { ptr, ptr }, ptr %3886, i32 0, i32 1
+  %3892 = load ptr, ptr %3891, align 8
+  %3893 = getelementptr inbounds nuw { ptr, ptr }, ptr %3888, i32 0, i32 0
+  %3894 = load ptr, ptr %3893, align 8
+  %3895 = getelementptr inbounds nuw { ptr, ptr }, ptr %3888, i32 0, i32 1
+  %3896 = load ptr, ptr %3895, align 8
+  %3897 = call { ptr, ptr } @gen_dictpair(ptr %3890, ptr %3892, ptr %3894, ptr %3896)
+  %3898 = getelementptr inbounds nuw { ptr, ptr }, ptr %290, i32 0, i32 0
+  %3899 = extractvalue { ptr, ptr } %3897, 0
+  store ptr %3899, ptr %3898, align 8
+  %3900 = getelementptr inbounds nuw { ptr, ptr }, ptr %290, i32 0, i32 1
+  %3901 = extractvalue { ptr, ptr } %3897, 1
+  store ptr %3901, ptr %3900, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %290, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %290) #8
+  br label %4294
+
+3902:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %291) #8
+  %3903 = load ptr, ptr %22, align 8, !tbaa !20
+  %3904 = getelementptr inbounds %union.YYSTYPE, ptr %3903, i64 0
+  %3905 = call { ptr, ptr } @gen_op_simple(i32 noundef 5)
+  %3906 = getelementptr inbounds nuw { ptr, ptr }, ptr %295, i32 0, i32 0
+  %3907 = extractvalue { ptr, ptr } %3905, 0
+  store ptr %3907, ptr %3906, align 8
+  %3908 = getelementptr inbounds nuw { ptr, ptr }, ptr %295, i32 0, i32 1
+  %3909 = extractvalue { ptr, ptr } %3905, 1
+  store ptr %3909, ptr %3908, align 8
+  %3910 = call { ptr, ptr } @gen_op_simple(i32 noundef 3)
+  %3911 = getelementptr inbounds nuw { ptr, ptr }, ptr %296, i32 0, i32 0
+  %3912 = extractvalue { ptr, ptr } %3910, 0
+  store ptr %3912, ptr %3911, align 8
+  %3913 = getelementptr inbounds nuw { ptr, ptr }, ptr %296, i32 0, i32 1
+  %3914 = extractvalue { ptr, ptr } %3910, 1
+  store ptr %3914, ptr %3913, align 8
+  %3915 = getelementptr inbounds nuw { ptr, ptr }, ptr %295, i32 0, i32 0
+  %3916 = load ptr, ptr %3915, align 8
+  %3917 = getelementptr inbounds nuw { ptr, ptr }, ptr %295, i32 0, i32 1
+  %3918 = load ptr, ptr %3917, align 8
+  %3919 = getelementptr inbounds nuw { ptr, ptr }, ptr %296, i32 0, i32 0
+  %3920 = load ptr, ptr %3919, align 8
+  %3921 = getelementptr inbounds nuw { ptr, ptr }, ptr %296, i32 0, i32 1
+  %3922 = load ptr, ptr %3921, align 8
+  %3923 = call { ptr, ptr } @block_join(ptr %3916, ptr %3918, ptr %3920, ptr %3922)
+  %3924 = getelementptr inbounds nuw { ptr, ptr }, ptr %294, i32 0, i32 0
+  %3925 = extractvalue { ptr, ptr } %3923, 0
+  store ptr %3925, ptr %3924, align 8
+  %3926 = getelementptr inbounds nuw { ptr, ptr }, ptr %294, i32 0, i32 1
+  %3927 = extractvalue { ptr, ptr } %3923, 1
+  store ptr %3927, ptr %3926, align 8
+  %3928 = call { ptr, ptr } @gen_op_simple(i32 noundef 3)
+  %3929 = getelementptr inbounds nuw { ptr, ptr }, ptr %297, i32 0, i32 0
+  %3930 = extractvalue { ptr, ptr } %3928, 0
+  store ptr %3930, ptr %3929, align 8
+  %3931 = getelementptr inbounds nuw { ptr, ptr }, ptr %297, i32 0, i32 1
+  %3932 = extractvalue { ptr, ptr } %3928, 1
+  store ptr %3932, ptr %3931, align 8
+  %3933 = getelementptr inbounds nuw { ptr, ptr }, ptr %294, i32 0, i32 0
+  %3934 = load ptr, ptr %3933, align 8
+  %3935 = getelementptr inbounds nuw { ptr, ptr }, ptr %294, i32 0, i32 1
+  %3936 = load ptr, ptr %3935, align 8
+  %3937 = getelementptr inbounds nuw { ptr, ptr }, ptr %297, i32 0, i32 0
+  %3938 = load ptr, ptr %3937, align 8
+  %3939 = getelementptr inbounds nuw { ptr, ptr }, ptr %297, i32 0, i32 1
+  %3940 = load ptr, ptr %3939, align 8
+  %3941 = call { ptr, ptr } @block_join(ptr %3934, ptr %3936, ptr %3938, ptr %3940)
+  %3942 = getelementptr inbounds nuw { ptr, ptr }, ptr %293, i32 0, i32 0
+  %3943 = extractvalue { ptr, ptr } %3941, 0
+  store ptr %3943, ptr %3942, align 8
+  %3944 = getelementptr inbounds nuw { ptr, ptr }, ptr %293, i32 0, i32 1
+  %3945 = extractvalue { ptr, ptr } %3941, 1
+  store ptr %3945, ptr %3944, align 8
+  %3946 = call { ptr, ptr } @gen_op_simple(i32 noundef 10)
+  %3947 = getelementptr inbounds nuw { ptr, ptr }, ptr %298, i32 0, i32 0
+  %3948 = extractvalue { ptr, ptr } %3946, 0
+  store ptr %3948, ptr %3947, align 8
+  %3949 = getelementptr inbounds nuw { ptr, ptr }, ptr %298, i32 0, i32 1
+  %3950 = extractvalue { ptr, ptr } %3946, 1
+  store ptr %3950, ptr %3949, align 8
+  %3951 = getelementptr inbounds nuw { ptr, ptr }, ptr %293, i32 0, i32 0
+  %3952 = load ptr, ptr %3951, align 8
+  %3953 = getelementptr inbounds nuw { ptr, ptr }, ptr %293, i32 0, i32 1
+  %3954 = load ptr, ptr %3953, align 8
+  %3955 = getelementptr inbounds nuw { ptr, ptr }, ptr %298, i32 0, i32 0
+  %3956 = load ptr, ptr %3955, align 8
+  %3957 = getelementptr inbounds nuw { ptr, ptr }, ptr %298, i32 0, i32 1
+  %3958 = load ptr, ptr %3957, align 8
+  %3959 = call { ptr, ptr } @block_join(ptr %3952, ptr %3954, ptr %3956, ptr %3958)
+  %3960 = getelementptr inbounds nuw { ptr, ptr }, ptr %292, i32 0, i32 0
+  %3961 = extractvalue { ptr, ptr } %3959, 0
+  store ptr %3961, ptr %3960, align 8
+  %3962 = getelementptr inbounds nuw { ptr, ptr }, ptr %292, i32 0, i32 1
+  %3963 = extractvalue { ptr, ptr } %3959, 1
+  store ptr %3963, ptr %3962, align 8
+  %3964 = getelementptr inbounds nuw { ptr, ptr }, ptr %3904, i32 0, i32 0
+  %3965 = load ptr, ptr %3964, align 8
+  %3966 = getelementptr inbounds nuw { ptr, ptr }, ptr %3904, i32 0, i32 1
+  %3967 = load ptr, ptr %3966, align 8
+  %3968 = getelementptr inbounds nuw { ptr, ptr }, ptr %292, i32 0, i32 0
   %3969 = load ptr, ptr %3968, align 8
-  %3970 = getelementptr inbounds { ptr, ptr }, ptr %299, i32 0, i32 1
+  %3970 = getelementptr inbounds nuw { ptr, ptr }, ptr %292, i32 0, i32 1
   %3971 = load ptr, ptr %3970, align 8
-  %3972 = call { ptr, ptr } @gen_location(i64 %3967, ptr noundef %3954, ptr %3969, ptr %3971)
-  %3973 = getelementptr inbounds { ptr, ptr }, ptr %298, i32 0, i32 0
+  %3972 = call { ptr, ptr } @gen_dictpair(ptr %3965, ptr %3967, ptr %3969, ptr %3971)
+  %3973 = getelementptr inbounds nuw { ptr, ptr }, ptr %291, i32 0, i32 0
   %3974 = extractvalue { ptr, ptr } %3972, 0
   store ptr %3974, ptr %3973, align 8
-  %3975 = getelementptr inbounds { ptr, ptr }, ptr %298, i32 0, i32 1
+  %3975 = getelementptr inbounds nuw { ptr, ptr }, ptr %291, i32 0, i32 1
   %3976 = extractvalue { ptr, ptr } %3972, 1
   store ptr %3976, ptr %3975, align 8
-  %3977 = load ptr, ptr %21, align 8
-  %3978 = getelementptr inbounds %union.YYSTYPE, ptr %3977, i64 0
-  %3979 = getelementptr inbounds { ptr, ptr }, ptr %298, i32 0, i32 0
-  %3980 = load ptr, ptr %3979, align 8
-  %3981 = getelementptr inbounds { ptr, ptr }, ptr %298, i32 0, i32 1
-  %3982 = load ptr, ptr %3981, align 8
-  %3983 = getelementptr inbounds { ptr, ptr }, ptr %3978, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %291, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %291) #8
+  br label %4294
+
+3977:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %299) #8
+  %3978 = load ptr, ptr %8, align 8, !tbaa !12
+  %3979 = load ptr, ptr %22, align 8, !tbaa !20
+  %3980 = getelementptr inbounds %union.YYSTYPE, ptr %3979, i64 -2
+  %3981 = getelementptr inbounds nuw { i64, ptr }, ptr %3980, i32 0, i32 0
+  %3982 = load i64, ptr %3981, align 8
+  %3983 = getelementptr inbounds nuw { i64, ptr }, ptr %3980, i32 0, i32 1
   %3984 = load ptr, ptr %3983, align 8
-  %3985 = getelementptr inbounds { ptr, ptr }, ptr %3978, i32 0, i32 1
-  %3986 = load ptr, ptr %3985, align 8
-  %3987 = call { ptr, ptr } @gen_dictpair(ptr %3980, ptr %3982, ptr %3984, ptr %3986)
-  %3988 = getelementptr inbounds { ptr, ptr }, ptr %297, i32 0, i32 0
-  %3989 = extractvalue { ptr, ptr } %3987, 0
-  store ptr %3989, ptr %3988, align 8
-  %3990 = getelementptr inbounds { ptr, ptr }, ptr %297, i32 0, i32 1
-  %3991 = extractvalue { ptr, ptr } %3987, 1
-  store ptr %3991, ptr %3990, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %297, i64 16, i1 false)
-  %3992 = load ptr, ptr %21, align 8
-  %3993 = getelementptr inbounds %union.YYSTYPE, ptr %3992, i64 -2
-  %3994 = getelementptr inbounds { i64, ptr }, ptr %3993, i32 0, i32 0
-  %3995 = load i64, ptr %3994, align 8
-  %3996 = getelementptr inbounds { i64, ptr }, ptr %3993, i32 0, i32 1
-  %3997 = load ptr, ptr %3996, align 8
-  call void @jv_free(i64 %3995, ptr %3997)
-  br label %4268
-
-3998:                                             ; preds = %604
-  %3999 = load ptr, ptr %21, align 8
-  %4000 = getelementptr inbounds %union.YYSTYPE, ptr %3999, i64 0
-  %4001 = getelementptr inbounds { i64, ptr }, ptr %4000, i32 0, i32 0
-  %4002 = load i64, ptr %4001, align 8
-  %4003 = getelementptr inbounds { i64, ptr }, ptr %4000, i32 0, i32 1
+  %3985 = call ptr @jv_string_value(i64 %3982, ptr %3984)
+  %3986 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %3985)
+  %3987 = getelementptr inbounds nuw { ptr, ptr }, ptr %301, i32 0, i32 0
+  %3988 = extractvalue { ptr, ptr } %3986, 0
+  store ptr %3988, ptr %3987, align 8
+  %3989 = getelementptr inbounds nuw { ptr, ptr }, ptr %301, i32 0, i32 1
+  %3990 = extractvalue { ptr, ptr } %3986, 1
+  store ptr %3990, ptr %3989, align 8
+  %3991 = load i64, ptr %30, align 4
+  %3992 = getelementptr inbounds nuw { ptr, ptr }, ptr %301, i32 0, i32 0
+  %3993 = load ptr, ptr %3992, align 8
+  %3994 = getelementptr inbounds nuw { ptr, ptr }, ptr %301, i32 0, i32 1
+  %3995 = load ptr, ptr %3994, align 8
+  %3996 = call { ptr, ptr } @gen_location(i64 %3991, ptr noundef %3978, ptr %3993, ptr %3995)
+  %3997 = getelementptr inbounds nuw { ptr, ptr }, ptr %300, i32 0, i32 0
+  %3998 = extractvalue { ptr, ptr } %3996, 0
+  store ptr %3998, ptr %3997, align 8
+  %3999 = getelementptr inbounds nuw { ptr, ptr }, ptr %300, i32 0, i32 1
+  %4000 = extractvalue { ptr, ptr } %3996, 1
+  store ptr %4000, ptr %3999, align 8
+  %4001 = load ptr, ptr %22, align 8, !tbaa !20
+  %4002 = getelementptr inbounds %union.YYSTYPE, ptr %4001, i64 0
+  %4003 = getelementptr inbounds nuw { ptr, ptr }, ptr %300, i32 0, i32 0
   %4004 = load ptr, ptr %4003, align 8
-  %4005 = call { ptr, ptr } @gen_const(i64 %4002, ptr %4004)
-  %4006 = getelementptr inbounds { ptr, ptr }, ptr %301, i32 0, i32 0
-  %4007 = extractvalue { ptr, ptr } %4005, 0
-  store ptr %4007, ptr %4006, align 8
-  %4008 = getelementptr inbounds { ptr, ptr }, ptr %301, i32 0, i32 1
-  %4009 = extractvalue { ptr, ptr } %4005, 1
-  store ptr %4009, ptr %4008, align 8
-  %4010 = load ptr, ptr %7, align 8
-  %4011 = load ptr, ptr %21, align 8
-  %4012 = getelementptr inbounds %union.YYSTYPE, ptr %4011, i64 0
-  %4013 = getelementptr inbounds { i64, ptr }, ptr %4012, i32 0, i32 0
-  %4014 = load i64, ptr %4013, align 8
-  %4015 = getelementptr inbounds { i64, ptr }, ptr %4012, i32 0, i32 1
-  %4016 = load ptr, ptr %4015, align 8
-  %4017 = call ptr @jv_string_value(i64 %4014, ptr %4016)
-  %4018 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %4017)
-  %4019 = getelementptr inbounds { ptr, ptr }, ptr %303, i32 0, i32 0
-  %4020 = extractvalue { ptr, ptr } %4018, 0
-  store ptr %4020, ptr %4019, align 8
-  %4021 = getelementptr inbounds { ptr, ptr }, ptr %303, i32 0, i32 1
-  %4022 = extractvalue { ptr, ptr } %4018, 1
-  store ptr %4022, ptr %4021, align 8
-  %4023 = load i64, ptr %29, align 4
-  %4024 = getelementptr inbounds { ptr, ptr }, ptr %303, i32 0, i32 0
-  %4025 = load ptr, ptr %4024, align 8
-  %4026 = getelementptr inbounds { ptr, ptr }, ptr %303, i32 0, i32 1
-  %4027 = load ptr, ptr %4026, align 8
-  %4028 = call { ptr, ptr } @gen_location(i64 %4023, ptr noundef %4010, ptr %4025, ptr %4027)
-  %4029 = getelementptr inbounds { ptr, ptr }, ptr %302, i32 0, i32 0
-  %4030 = extractvalue { ptr, ptr } %4028, 0
-  store ptr %4030, ptr %4029, align 8
-  %4031 = getelementptr inbounds { ptr, ptr }, ptr %302, i32 0, i32 1
-  %4032 = extractvalue { ptr, ptr } %4028, 1
-  store ptr %4032, ptr %4031, align 8
-  %4033 = getelementptr inbounds { ptr, ptr }, ptr %301, i32 0, i32 0
-  %4034 = load ptr, ptr %4033, align 8
-  %4035 = getelementptr inbounds { ptr, ptr }, ptr %301, i32 0, i32 1
-  %4036 = load ptr, ptr %4035, align 8
-  %4037 = getelementptr inbounds { ptr, ptr }, ptr %302, i32 0, i32 0
-  %4038 = load ptr, ptr %4037, align 8
-  %4039 = getelementptr inbounds { ptr, ptr }, ptr %302, i32 0, i32 1
-  %4040 = load ptr, ptr %4039, align 8
-  %4041 = call { ptr, ptr } @gen_dictpair(ptr %4034, ptr %4036, ptr %4038, ptr %4040)
-  %4042 = getelementptr inbounds { ptr, ptr }, ptr %300, i32 0, i32 0
-  %4043 = extractvalue { ptr, ptr } %4041, 0
-  store ptr %4043, ptr %4042, align 8
-  %4044 = getelementptr inbounds { ptr, ptr }, ptr %300, i32 0, i32 1
-  %4045 = extractvalue { ptr, ptr } %4041, 1
-  store ptr %4045, ptr %4044, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %300, i64 16, i1 false)
-  br label %4268
+  %4005 = getelementptr inbounds nuw { ptr, ptr }, ptr %300, i32 0, i32 1
+  %4006 = load ptr, ptr %4005, align 8
+  %4007 = getelementptr inbounds nuw { ptr, ptr }, ptr %4002, i32 0, i32 0
+  %4008 = load ptr, ptr %4007, align 8
+  %4009 = getelementptr inbounds nuw { ptr, ptr }, ptr %4002, i32 0, i32 1
+  %4010 = load ptr, ptr %4009, align 8
+  %4011 = call { ptr, ptr } @gen_dictpair(ptr %4004, ptr %4006, ptr %4008, ptr %4010)
+  %4012 = getelementptr inbounds nuw { ptr, ptr }, ptr %299, i32 0, i32 0
+  %4013 = extractvalue { ptr, ptr } %4011, 0
+  store ptr %4013, ptr %4012, align 8
+  %4014 = getelementptr inbounds nuw { ptr, ptr }, ptr %299, i32 0, i32 1
+  %4015 = extractvalue { ptr, ptr } %4011, 1
+  store ptr %4015, ptr %4014, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %299, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %299) #8
+  %4016 = load ptr, ptr %22, align 8, !tbaa !20
+  %4017 = getelementptr inbounds %union.YYSTYPE, ptr %4016, i64 -2
+  %4018 = getelementptr inbounds nuw { i64, ptr }, ptr %4017, i32 0, i32 0
+  %4019 = load i64, ptr %4018, align 8
+  %4020 = getelementptr inbounds nuw { i64, ptr }, ptr %4017, i32 0, i32 1
+  %4021 = load ptr, ptr %4020, align 8
+  call void @jv_free(i64 %4019, ptr %4021)
+  br label %4294
 
-4046:                                             ; preds = %604
-  %4047 = load ptr, ptr %21, align 8
-  %4048 = getelementptr inbounds %union.YYSTYPE, ptr %4047, i64 0
-  %4049 = getelementptr inbounds { i64, ptr }, ptr %4048, i32 0, i32 0
-  %4050 = load i64, ptr %4049, align 8
-  %4051 = getelementptr inbounds { i64, ptr }, ptr %4048, i32 0, i32 1
-  %4052 = load ptr, ptr %4051, align 8
-  %4053 = call { i64, ptr } @jv_copy(i64 %4050, ptr %4052)
-  %4054 = getelementptr inbounds { i64, ptr }, ptr %306, i32 0, i32 0
-  %4055 = extractvalue { i64, ptr } %4053, 0
-  store i64 %4055, ptr %4054, align 8
-  %4056 = getelementptr inbounds { i64, ptr }, ptr %306, i32 0, i32 1
-  %4057 = extractvalue { i64, ptr } %4053, 1
-  store ptr %4057, ptr %4056, align 8
-  %4058 = getelementptr inbounds { i64, ptr }, ptr %306, i32 0, i32 0
-  %4059 = load i64, ptr %4058, align 8
-  %4060 = getelementptr inbounds { i64, ptr }, ptr %306, i32 0, i32 1
-  %4061 = load ptr, ptr %4060, align 8
-  %4062 = call { ptr, ptr } @gen_const(i64 %4059, ptr %4061)
-  %4063 = getelementptr inbounds { ptr, ptr }, ptr %305, i32 0, i32 0
-  %4064 = extractvalue { ptr, ptr } %4062, 0
-  store ptr %4064, ptr %4063, align 8
-  %4065 = getelementptr inbounds { ptr, ptr }, ptr %305, i32 0, i32 1
-  %4066 = extractvalue { ptr, ptr } %4062, 1
-  store ptr %4066, ptr %4065, align 8
-  %4067 = call { ptr, ptr } (...) @gen_noop()
-  %4068 = getelementptr inbounds { ptr, ptr }, ptr %308, i32 0, i32 0
-  %4069 = extractvalue { ptr, ptr } %4067, 0
+4022:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %302) #8
+  %4023 = load ptr, ptr %22, align 8, !tbaa !20
+  %4024 = getelementptr inbounds %union.YYSTYPE, ptr %4023, i64 0
+  %4025 = getelementptr inbounds nuw { i64, ptr }, ptr %4024, i32 0, i32 0
+  %4026 = load i64, ptr %4025, align 8
+  %4027 = getelementptr inbounds nuw { i64, ptr }, ptr %4024, i32 0, i32 1
+  %4028 = load ptr, ptr %4027, align 8
+  %4029 = call { ptr, ptr } @gen_const(i64 %4026, ptr %4028)
+  %4030 = getelementptr inbounds nuw { ptr, ptr }, ptr %303, i32 0, i32 0
+  %4031 = extractvalue { ptr, ptr } %4029, 0
+  store ptr %4031, ptr %4030, align 8
+  %4032 = getelementptr inbounds nuw { ptr, ptr }, ptr %303, i32 0, i32 1
+  %4033 = extractvalue { ptr, ptr } %4029, 1
+  store ptr %4033, ptr %4032, align 8
+  %4034 = load ptr, ptr %8, align 8, !tbaa !12
+  %4035 = load ptr, ptr %22, align 8, !tbaa !20
+  %4036 = getelementptr inbounds %union.YYSTYPE, ptr %4035, i64 0
+  %4037 = getelementptr inbounds nuw { i64, ptr }, ptr %4036, i32 0, i32 0
+  %4038 = load i64, ptr %4037, align 8
+  %4039 = getelementptr inbounds nuw { i64, ptr }, ptr %4036, i32 0, i32 1
+  %4040 = load ptr, ptr %4039, align 8
+  %4041 = call ptr @jv_string_value(i64 %4038, ptr %4040)
+  %4042 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %4041)
+  %4043 = getelementptr inbounds nuw { ptr, ptr }, ptr %305, i32 0, i32 0
+  %4044 = extractvalue { ptr, ptr } %4042, 0
+  store ptr %4044, ptr %4043, align 8
+  %4045 = getelementptr inbounds nuw { ptr, ptr }, ptr %305, i32 0, i32 1
+  %4046 = extractvalue { ptr, ptr } %4042, 1
+  store ptr %4046, ptr %4045, align 8
+  %4047 = load i64, ptr %30, align 4
+  %4048 = getelementptr inbounds nuw { ptr, ptr }, ptr %305, i32 0, i32 0
+  %4049 = load ptr, ptr %4048, align 8
+  %4050 = getelementptr inbounds nuw { ptr, ptr }, ptr %305, i32 0, i32 1
+  %4051 = load ptr, ptr %4050, align 8
+  %4052 = call { ptr, ptr } @gen_location(i64 %4047, ptr noundef %4034, ptr %4049, ptr %4051)
+  %4053 = getelementptr inbounds nuw { ptr, ptr }, ptr %304, i32 0, i32 0
+  %4054 = extractvalue { ptr, ptr } %4052, 0
+  store ptr %4054, ptr %4053, align 8
+  %4055 = getelementptr inbounds nuw { ptr, ptr }, ptr %304, i32 0, i32 1
+  %4056 = extractvalue { ptr, ptr } %4052, 1
+  store ptr %4056, ptr %4055, align 8
+  %4057 = getelementptr inbounds nuw { ptr, ptr }, ptr %303, i32 0, i32 0
+  %4058 = load ptr, ptr %4057, align 8
+  %4059 = getelementptr inbounds nuw { ptr, ptr }, ptr %303, i32 0, i32 1
+  %4060 = load ptr, ptr %4059, align 8
+  %4061 = getelementptr inbounds nuw { ptr, ptr }, ptr %304, i32 0, i32 0
+  %4062 = load ptr, ptr %4061, align 8
+  %4063 = getelementptr inbounds nuw { ptr, ptr }, ptr %304, i32 0, i32 1
+  %4064 = load ptr, ptr %4063, align 8
+  %4065 = call { ptr, ptr } @gen_dictpair(ptr %4058, ptr %4060, ptr %4062, ptr %4064)
+  %4066 = getelementptr inbounds nuw { ptr, ptr }, ptr %302, i32 0, i32 0
+  %4067 = extractvalue { ptr, ptr } %4065, 0
+  store ptr %4067, ptr %4066, align 8
+  %4068 = getelementptr inbounds nuw { ptr, ptr }, ptr %302, i32 0, i32 1
+  %4069 = extractvalue { ptr, ptr } %4065, 1
   store ptr %4069, ptr %4068, align 8
-  %4070 = getelementptr inbounds { ptr, ptr }, ptr %308, i32 0, i32 1
-  %4071 = extractvalue { ptr, ptr } %4067, 1
-  store ptr %4071, ptr %4070, align 8
-  %4072 = load ptr, ptr %21, align 8
-  %4073 = getelementptr inbounds %union.YYSTYPE, ptr %4072, i64 0
-  %4074 = getelementptr inbounds { i64, ptr }, ptr %4073, i32 0, i32 0
-  %4075 = load i64, ptr %4074, align 8
-  %4076 = getelementptr inbounds { i64, ptr }, ptr %4073, i32 0, i32 1
-  %4077 = load ptr, ptr %4076, align 8
-  %4078 = call { ptr, ptr } @gen_const(i64 %4075, ptr %4077)
-  %4079 = getelementptr inbounds { ptr, ptr }, ptr %309, i32 0, i32 0
-  %4080 = extractvalue { ptr, ptr } %4078, 0
-  store ptr %4080, ptr %4079, align 8
-  %4081 = getelementptr inbounds { ptr, ptr }, ptr %309, i32 0, i32 1
-  %4082 = extractvalue { ptr, ptr } %4078, 1
-  store ptr %4082, ptr %4081, align 8
-  %4083 = getelementptr inbounds { ptr, ptr }, ptr %308, i32 0, i32 0
-  %4084 = load ptr, ptr %4083, align 8
-  %4085 = getelementptr inbounds { ptr, ptr }, ptr %308, i32 0, i32 1
-  %4086 = load ptr, ptr %4085, align 8
-  %4087 = getelementptr inbounds { ptr, ptr }, ptr %309, i32 0, i32 0
-  %4088 = load ptr, ptr %4087, align 8
-  %4089 = getelementptr inbounds { ptr, ptr }, ptr %309, i32 0, i32 1
-  %4090 = load ptr, ptr %4089, align 8
-  %4091 = call { ptr, ptr } @gen_index(ptr %4084, ptr %4086, ptr %4088, ptr %4090)
-  %4092 = getelementptr inbounds { ptr, ptr }, ptr %307, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %302, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %302) #8
+  br label %4294
+
+4070:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %306) #8
+  %4071 = load ptr, ptr %22, align 8, !tbaa !20
+  %4072 = getelementptr inbounds %union.YYSTYPE, ptr %4071, i64 0
+  %4073 = getelementptr inbounds nuw { i64, ptr }, ptr %4072, i32 0, i32 0
+  %4074 = load i64, ptr %4073, align 8
+  %4075 = getelementptr inbounds nuw { i64, ptr }, ptr %4072, i32 0, i32 1
+  %4076 = load ptr, ptr %4075, align 8
+  %4077 = call { i64, ptr } @jv_copy(i64 %4074, ptr %4076)
+  %4078 = getelementptr inbounds nuw { i64, ptr }, ptr %308, i32 0, i32 0
+  %4079 = extractvalue { i64, ptr } %4077, 0
+  store i64 %4079, ptr %4078, align 8
+  %4080 = getelementptr inbounds nuw { i64, ptr }, ptr %308, i32 0, i32 1
+  %4081 = extractvalue { i64, ptr } %4077, 1
+  store ptr %4081, ptr %4080, align 8
+  %4082 = getelementptr inbounds nuw { i64, ptr }, ptr %308, i32 0, i32 0
+  %4083 = load i64, ptr %4082, align 8
+  %4084 = getelementptr inbounds nuw { i64, ptr }, ptr %308, i32 0, i32 1
+  %4085 = load ptr, ptr %4084, align 8
+  %4086 = call { ptr, ptr } @gen_const(i64 %4083, ptr %4085)
+  %4087 = getelementptr inbounds nuw { ptr, ptr }, ptr %307, i32 0, i32 0
+  %4088 = extractvalue { ptr, ptr } %4086, 0
+  store ptr %4088, ptr %4087, align 8
+  %4089 = getelementptr inbounds nuw { ptr, ptr }, ptr %307, i32 0, i32 1
+  %4090 = extractvalue { ptr, ptr } %4086, 1
+  store ptr %4090, ptr %4089, align 8
+  %4091 = call { ptr, ptr } (...) @gen_noop()
+  %4092 = getelementptr inbounds nuw { ptr, ptr }, ptr %310, i32 0, i32 0
   %4093 = extractvalue { ptr, ptr } %4091, 0
   store ptr %4093, ptr %4092, align 8
-  %4094 = getelementptr inbounds { ptr, ptr }, ptr %307, i32 0, i32 1
+  %4094 = getelementptr inbounds nuw { ptr, ptr }, ptr %310, i32 0, i32 1
   %4095 = extractvalue { ptr, ptr } %4091, 1
   store ptr %4095, ptr %4094, align 8
-  %4096 = getelementptr inbounds { ptr, ptr }, ptr %305, i32 0, i32 0
-  %4097 = load ptr, ptr %4096, align 8
-  %4098 = getelementptr inbounds { ptr, ptr }, ptr %305, i32 0, i32 1
-  %4099 = load ptr, ptr %4098, align 8
-  %4100 = getelementptr inbounds { ptr, ptr }, ptr %307, i32 0, i32 0
+  %4096 = load ptr, ptr %22, align 8, !tbaa !20
+  %4097 = getelementptr inbounds %union.YYSTYPE, ptr %4096, i64 0
+  %4098 = getelementptr inbounds nuw { i64, ptr }, ptr %4097, i32 0, i32 0
+  %4099 = load i64, ptr %4098, align 8
+  %4100 = getelementptr inbounds nuw { i64, ptr }, ptr %4097, i32 0, i32 1
   %4101 = load ptr, ptr %4100, align 8
-  %4102 = getelementptr inbounds { ptr, ptr }, ptr %307, i32 0, i32 1
-  %4103 = load ptr, ptr %4102, align 8
-  %4104 = call { ptr, ptr } @gen_dictpair(ptr %4097, ptr %4099, ptr %4101, ptr %4103)
-  %4105 = getelementptr inbounds { ptr, ptr }, ptr %304, i32 0, i32 0
-  %4106 = extractvalue { ptr, ptr } %4104, 0
+  %4102 = call { ptr, ptr } @gen_const(i64 %4099, ptr %4101)
+  %4103 = getelementptr inbounds nuw { ptr, ptr }, ptr %311, i32 0, i32 0
+  %4104 = extractvalue { ptr, ptr } %4102, 0
+  store ptr %4104, ptr %4103, align 8
+  %4105 = getelementptr inbounds nuw { ptr, ptr }, ptr %311, i32 0, i32 1
+  %4106 = extractvalue { ptr, ptr } %4102, 1
   store ptr %4106, ptr %4105, align 8
-  %4107 = getelementptr inbounds { ptr, ptr }, ptr %304, i32 0, i32 1
-  %4108 = extractvalue { ptr, ptr } %4104, 1
-  store ptr %4108, ptr %4107, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %304, i64 16, i1 false)
-  br label %4268
+  %4107 = getelementptr inbounds nuw { ptr, ptr }, ptr %310, i32 0, i32 0
+  %4108 = load ptr, ptr %4107, align 8
+  %4109 = getelementptr inbounds nuw { ptr, ptr }, ptr %310, i32 0, i32 1
+  %4110 = load ptr, ptr %4109, align 8
+  %4111 = getelementptr inbounds nuw { ptr, ptr }, ptr %311, i32 0, i32 0
+  %4112 = load ptr, ptr %4111, align 8
+  %4113 = getelementptr inbounds nuw { ptr, ptr }, ptr %311, i32 0, i32 1
+  %4114 = load ptr, ptr %4113, align 8
+  %4115 = call { ptr, ptr } @gen_index(ptr %4108, ptr %4110, ptr %4112, ptr %4114)
+  %4116 = getelementptr inbounds nuw { ptr, ptr }, ptr %309, i32 0, i32 0
+  %4117 = extractvalue { ptr, ptr } %4115, 0
+  store ptr %4117, ptr %4116, align 8
+  %4118 = getelementptr inbounds nuw { ptr, ptr }, ptr %309, i32 0, i32 1
+  %4119 = extractvalue { ptr, ptr } %4115, 1
+  store ptr %4119, ptr %4118, align 8
+  %4120 = getelementptr inbounds nuw { ptr, ptr }, ptr %307, i32 0, i32 0
+  %4121 = load ptr, ptr %4120, align 8
+  %4122 = getelementptr inbounds nuw { ptr, ptr }, ptr %307, i32 0, i32 1
+  %4123 = load ptr, ptr %4122, align 8
+  %4124 = getelementptr inbounds nuw { ptr, ptr }, ptr %309, i32 0, i32 0
+  %4125 = load ptr, ptr %4124, align 8
+  %4126 = getelementptr inbounds nuw { ptr, ptr }, ptr %309, i32 0, i32 1
+  %4127 = load ptr, ptr %4126, align 8
+  %4128 = call { ptr, ptr } @gen_dictpair(ptr %4121, ptr %4123, ptr %4125, ptr %4127)
+  %4129 = getelementptr inbounds nuw { ptr, ptr }, ptr %306, i32 0, i32 0
+  %4130 = extractvalue { ptr, ptr } %4128, 0
+  store ptr %4130, ptr %4129, align 8
+  %4131 = getelementptr inbounds nuw { ptr, ptr }, ptr %306, i32 0, i32 1
+  %4132 = extractvalue { ptr, ptr } %4128, 1
+  store ptr %4132, ptr %4131, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %306, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %306) #8
+  br label %4294
 
-4109:                                             ; preds = %604
-  %4110 = call { i64, ptr } @jv_string(ptr noundef @.str.41)
-  %4111 = getelementptr inbounds { i64, ptr }, ptr %312, i32 0, i32 0
-  %4112 = extractvalue { i64, ptr } %4110, 0
-  store i64 %4112, ptr %4111, align 8
-  %4113 = getelementptr inbounds { i64, ptr }, ptr %312, i32 0, i32 1
-  %4114 = extractvalue { i64, ptr } %4110, 1
-  store ptr %4114, ptr %4113, align 8
-  %4115 = getelementptr inbounds { i64, ptr }, ptr %312, i32 0, i32 0
-  %4116 = load i64, ptr %4115, align 8
-  %4117 = getelementptr inbounds { i64, ptr }, ptr %312, i32 0, i32 1
-  %4118 = load ptr, ptr %4117, align 8
-  %4119 = call { ptr, ptr } @gen_const(i64 %4116, ptr %4118)
-  %4120 = getelementptr inbounds { ptr, ptr }, ptr %311, i32 0, i32 0
-  %4121 = extractvalue { ptr, ptr } %4119, 0
-  store ptr %4121, ptr %4120, align 8
-  %4122 = getelementptr inbounds { ptr, ptr }, ptr %311, i32 0, i32 1
-  %4123 = extractvalue { ptr, ptr } %4119, 1
-  store ptr %4123, ptr %4122, align 8
-  %4124 = load ptr, ptr %7, align 8
-  %4125 = call { ptr, ptr } @gen_loc_object(ptr noundef %29, ptr noundef %4124)
-  %4126 = getelementptr inbounds { ptr, ptr }, ptr %313, i32 0, i32 0
-  %4127 = extractvalue { ptr, ptr } %4125, 0
-  store ptr %4127, ptr %4126, align 8
-  %4128 = getelementptr inbounds { ptr, ptr }, ptr %313, i32 0, i32 1
-  %4129 = extractvalue { ptr, ptr } %4125, 1
-  store ptr %4129, ptr %4128, align 8
-  %4130 = getelementptr inbounds { ptr, ptr }, ptr %311, i32 0, i32 0
-  %4131 = load ptr, ptr %4130, align 8
-  %4132 = getelementptr inbounds { ptr, ptr }, ptr %311, i32 0, i32 1
-  %4133 = load ptr, ptr %4132, align 8
-  %4134 = getelementptr inbounds { ptr, ptr }, ptr %313, i32 0, i32 0
-  %4135 = load ptr, ptr %4134, align 8
-  %4136 = getelementptr inbounds { ptr, ptr }, ptr %313, i32 0, i32 1
-  %4137 = load ptr, ptr %4136, align 8
-  %4138 = call { ptr, ptr } @gen_dictpair(ptr %4131, ptr %4133, ptr %4135, ptr %4137)
-  %4139 = getelementptr inbounds { ptr, ptr }, ptr %310, i32 0, i32 0
-  %4140 = extractvalue { ptr, ptr } %4138, 0
-  store ptr %4140, ptr %4139, align 8
-  %4141 = getelementptr inbounds { ptr, ptr }, ptr %310, i32 0, i32 1
-  %4142 = extractvalue { ptr, ptr } %4138, 1
-  store ptr %4142, ptr %4141, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %310, i64 16, i1 false)
-  br label %4268
-
-4143:                                             ; preds = %604
-  %4144 = load ptr, ptr %21, align 8
-  %4145 = getelementptr inbounds %union.YYSTYPE, ptr %4144, i64 0
-  %4146 = getelementptr inbounds { i64, ptr }, ptr %4145, i32 0, i32 0
-  %4147 = load i64, ptr %4146, align 8
-  %4148 = getelementptr inbounds { i64, ptr }, ptr %4145, i32 0, i32 1
-  %4149 = load ptr, ptr %4148, align 8
-  %4150 = call { i64, ptr } @jv_copy(i64 %4147, ptr %4149)
-  %4151 = getelementptr inbounds { i64, ptr }, ptr %316, i32 0, i32 0
-  %4152 = extractvalue { i64, ptr } %4150, 0
-  store i64 %4152, ptr %4151, align 8
-  %4153 = getelementptr inbounds { i64, ptr }, ptr %316, i32 0, i32 1
-  %4154 = extractvalue { i64, ptr } %4150, 1
-  store ptr %4154, ptr %4153, align 8
-  %4155 = getelementptr inbounds { i64, ptr }, ptr %316, i32 0, i32 0
-  %4156 = load i64, ptr %4155, align 8
-  %4157 = getelementptr inbounds { i64, ptr }, ptr %316, i32 0, i32 1
-  %4158 = load ptr, ptr %4157, align 8
-  %4159 = call { ptr, ptr } @gen_const(i64 %4156, ptr %4158)
-  %4160 = getelementptr inbounds { ptr, ptr }, ptr %315, i32 0, i32 0
-  %4161 = extractvalue { ptr, ptr } %4159, 0
-  store ptr %4161, ptr %4160, align 8
-  %4162 = getelementptr inbounds { ptr, ptr }, ptr %315, i32 0, i32 1
-  %4163 = extractvalue { ptr, ptr } %4159, 1
-  store ptr %4163, ptr %4162, align 8
-  %4164 = call { ptr, ptr } (...) @gen_noop()
-  %4165 = getelementptr inbounds { ptr, ptr }, ptr %318, i32 0, i32 0
-  %4166 = extractvalue { ptr, ptr } %4164, 0
+4133:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %312) #8
+  %4134 = call { i64, ptr } @jv_string(ptr noundef @.str.41)
+  %4135 = getelementptr inbounds nuw { i64, ptr }, ptr %314, i32 0, i32 0
+  %4136 = extractvalue { i64, ptr } %4134, 0
+  store i64 %4136, ptr %4135, align 8
+  %4137 = getelementptr inbounds nuw { i64, ptr }, ptr %314, i32 0, i32 1
+  %4138 = extractvalue { i64, ptr } %4134, 1
+  store ptr %4138, ptr %4137, align 8
+  %4139 = getelementptr inbounds nuw { i64, ptr }, ptr %314, i32 0, i32 0
+  %4140 = load i64, ptr %4139, align 8
+  %4141 = getelementptr inbounds nuw { i64, ptr }, ptr %314, i32 0, i32 1
+  %4142 = load ptr, ptr %4141, align 8
+  %4143 = call { ptr, ptr } @gen_const(i64 %4140, ptr %4142)
+  %4144 = getelementptr inbounds nuw { ptr, ptr }, ptr %313, i32 0, i32 0
+  %4145 = extractvalue { ptr, ptr } %4143, 0
+  store ptr %4145, ptr %4144, align 8
+  %4146 = getelementptr inbounds nuw { ptr, ptr }, ptr %313, i32 0, i32 1
+  %4147 = extractvalue { ptr, ptr } %4143, 1
+  store ptr %4147, ptr %4146, align 8
+  %4148 = load ptr, ptr %8, align 8, !tbaa !12
+  %4149 = call { ptr, ptr } @gen_loc_object(ptr noundef %30, ptr noundef %4148)
+  %4150 = getelementptr inbounds nuw { ptr, ptr }, ptr %315, i32 0, i32 0
+  %4151 = extractvalue { ptr, ptr } %4149, 0
+  store ptr %4151, ptr %4150, align 8
+  %4152 = getelementptr inbounds nuw { ptr, ptr }, ptr %315, i32 0, i32 1
+  %4153 = extractvalue { ptr, ptr } %4149, 1
+  store ptr %4153, ptr %4152, align 8
+  %4154 = getelementptr inbounds nuw { ptr, ptr }, ptr %313, i32 0, i32 0
+  %4155 = load ptr, ptr %4154, align 8
+  %4156 = getelementptr inbounds nuw { ptr, ptr }, ptr %313, i32 0, i32 1
+  %4157 = load ptr, ptr %4156, align 8
+  %4158 = getelementptr inbounds nuw { ptr, ptr }, ptr %315, i32 0, i32 0
+  %4159 = load ptr, ptr %4158, align 8
+  %4160 = getelementptr inbounds nuw { ptr, ptr }, ptr %315, i32 0, i32 1
+  %4161 = load ptr, ptr %4160, align 8
+  %4162 = call { ptr, ptr } @gen_dictpair(ptr %4155, ptr %4157, ptr %4159, ptr %4161)
+  %4163 = getelementptr inbounds nuw { ptr, ptr }, ptr %312, i32 0, i32 0
+  %4164 = extractvalue { ptr, ptr } %4162, 0
+  store ptr %4164, ptr %4163, align 8
+  %4165 = getelementptr inbounds nuw { ptr, ptr }, ptr %312, i32 0, i32 1
+  %4166 = extractvalue { ptr, ptr } %4162, 1
   store ptr %4166, ptr %4165, align 8
-  %4167 = getelementptr inbounds { ptr, ptr }, ptr %318, i32 0, i32 1
-  %4168 = extractvalue { ptr, ptr } %4164, 1
-  store ptr %4168, ptr %4167, align 8
-  %4169 = load ptr, ptr %21, align 8
-  %4170 = getelementptr inbounds %union.YYSTYPE, ptr %4169, i64 0
-  %4171 = getelementptr inbounds { i64, ptr }, ptr %4170, i32 0, i32 0
-  %4172 = load i64, ptr %4171, align 8
-  %4173 = getelementptr inbounds { i64, ptr }, ptr %4170, i32 0, i32 1
-  %4174 = load ptr, ptr %4173, align 8
-  %4175 = call { ptr, ptr } @gen_const(i64 %4172, ptr %4174)
-  %4176 = getelementptr inbounds { ptr, ptr }, ptr %319, i32 0, i32 0
-  %4177 = extractvalue { ptr, ptr } %4175, 0
-  store ptr %4177, ptr %4176, align 8
-  %4178 = getelementptr inbounds { ptr, ptr }, ptr %319, i32 0, i32 1
-  %4179 = extractvalue { ptr, ptr } %4175, 1
-  store ptr %4179, ptr %4178, align 8
-  %4180 = getelementptr inbounds { ptr, ptr }, ptr %318, i32 0, i32 0
-  %4181 = load ptr, ptr %4180, align 8
-  %4182 = getelementptr inbounds { ptr, ptr }, ptr %318, i32 0, i32 1
-  %4183 = load ptr, ptr %4182, align 8
-  %4184 = getelementptr inbounds { ptr, ptr }, ptr %319, i32 0, i32 0
-  %4185 = load ptr, ptr %4184, align 8
-  %4186 = getelementptr inbounds { ptr, ptr }, ptr %319, i32 0, i32 1
-  %4187 = load ptr, ptr %4186, align 8
-  %4188 = call { ptr, ptr } @gen_index(ptr %4181, ptr %4183, ptr %4185, ptr %4187)
-  %4189 = getelementptr inbounds { ptr, ptr }, ptr %317, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %312, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %312) #8
+  br label %4294
+
+4167:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %316) #8
+  %4168 = load ptr, ptr %22, align 8, !tbaa !20
+  %4169 = getelementptr inbounds %union.YYSTYPE, ptr %4168, i64 0
+  %4170 = getelementptr inbounds nuw { i64, ptr }, ptr %4169, i32 0, i32 0
+  %4171 = load i64, ptr %4170, align 8
+  %4172 = getelementptr inbounds nuw { i64, ptr }, ptr %4169, i32 0, i32 1
+  %4173 = load ptr, ptr %4172, align 8
+  %4174 = call { i64, ptr } @jv_copy(i64 %4171, ptr %4173)
+  %4175 = getelementptr inbounds nuw { i64, ptr }, ptr %318, i32 0, i32 0
+  %4176 = extractvalue { i64, ptr } %4174, 0
+  store i64 %4176, ptr %4175, align 8
+  %4177 = getelementptr inbounds nuw { i64, ptr }, ptr %318, i32 0, i32 1
+  %4178 = extractvalue { i64, ptr } %4174, 1
+  store ptr %4178, ptr %4177, align 8
+  %4179 = getelementptr inbounds nuw { i64, ptr }, ptr %318, i32 0, i32 0
+  %4180 = load i64, ptr %4179, align 8
+  %4181 = getelementptr inbounds nuw { i64, ptr }, ptr %318, i32 0, i32 1
+  %4182 = load ptr, ptr %4181, align 8
+  %4183 = call { ptr, ptr } @gen_const(i64 %4180, ptr %4182)
+  %4184 = getelementptr inbounds nuw { ptr, ptr }, ptr %317, i32 0, i32 0
+  %4185 = extractvalue { ptr, ptr } %4183, 0
+  store ptr %4185, ptr %4184, align 8
+  %4186 = getelementptr inbounds nuw { ptr, ptr }, ptr %317, i32 0, i32 1
+  %4187 = extractvalue { ptr, ptr } %4183, 1
+  store ptr %4187, ptr %4186, align 8
+  %4188 = call { ptr, ptr } (...) @gen_noop()
+  %4189 = getelementptr inbounds nuw { ptr, ptr }, ptr %320, i32 0, i32 0
   %4190 = extractvalue { ptr, ptr } %4188, 0
   store ptr %4190, ptr %4189, align 8
-  %4191 = getelementptr inbounds { ptr, ptr }, ptr %317, i32 0, i32 1
+  %4191 = getelementptr inbounds nuw { ptr, ptr }, ptr %320, i32 0, i32 1
   %4192 = extractvalue { ptr, ptr } %4188, 1
   store ptr %4192, ptr %4191, align 8
-  %4193 = getelementptr inbounds { ptr, ptr }, ptr %315, i32 0, i32 0
-  %4194 = load ptr, ptr %4193, align 8
-  %4195 = getelementptr inbounds { ptr, ptr }, ptr %315, i32 0, i32 1
-  %4196 = load ptr, ptr %4195, align 8
-  %4197 = getelementptr inbounds { ptr, ptr }, ptr %317, i32 0, i32 0
+  %4193 = load ptr, ptr %22, align 8, !tbaa !20
+  %4194 = getelementptr inbounds %union.YYSTYPE, ptr %4193, i64 0
+  %4195 = getelementptr inbounds nuw { i64, ptr }, ptr %4194, i32 0, i32 0
+  %4196 = load i64, ptr %4195, align 8
+  %4197 = getelementptr inbounds nuw { i64, ptr }, ptr %4194, i32 0, i32 1
   %4198 = load ptr, ptr %4197, align 8
-  %4199 = getelementptr inbounds { ptr, ptr }, ptr %317, i32 0, i32 1
-  %4200 = load ptr, ptr %4199, align 8
-  %4201 = call { ptr, ptr } @gen_dictpair(ptr %4194, ptr %4196, ptr %4198, ptr %4200)
-  %4202 = getelementptr inbounds { ptr, ptr }, ptr %314, i32 0, i32 0
-  %4203 = extractvalue { ptr, ptr } %4201, 0
+  %4199 = call { ptr, ptr } @gen_const(i64 %4196, ptr %4198)
+  %4200 = getelementptr inbounds nuw { ptr, ptr }, ptr %321, i32 0, i32 0
+  %4201 = extractvalue { ptr, ptr } %4199, 0
+  store ptr %4201, ptr %4200, align 8
+  %4202 = getelementptr inbounds nuw { ptr, ptr }, ptr %321, i32 0, i32 1
+  %4203 = extractvalue { ptr, ptr } %4199, 1
   store ptr %4203, ptr %4202, align 8
-  %4204 = getelementptr inbounds { ptr, ptr }, ptr %314, i32 0, i32 1
-  %4205 = extractvalue { ptr, ptr } %4201, 1
-  store ptr %4205, ptr %4204, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %314, i64 16, i1 false)
-  br label %4268
+  %4204 = getelementptr inbounds nuw { ptr, ptr }, ptr %320, i32 0, i32 0
+  %4205 = load ptr, ptr %4204, align 8
+  %4206 = getelementptr inbounds nuw { ptr, ptr }, ptr %320, i32 0, i32 1
+  %4207 = load ptr, ptr %4206, align 8
+  %4208 = getelementptr inbounds nuw { ptr, ptr }, ptr %321, i32 0, i32 0
+  %4209 = load ptr, ptr %4208, align 8
+  %4210 = getelementptr inbounds nuw { ptr, ptr }, ptr %321, i32 0, i32 1
+  %4211 = load ptr, ptr %4210, align 8
+  %4212 = call { ptr, ptr } @gen_index(ptr %4205, ptr %4207, ptr %4209, ptr %4211)
+  %4213 = getelementptr inbounds nuw { ptr, ptr }, ptr %319, i32 0, i32 0
+  %4214 = extractvalue { ptr, ptr } %4212, 0
+  store ptr %4214, ptr %4213, align 8
+  %4215 = getelementptr inbounds nuw { ptr, ptr }, ptr %319, i32 0, i32 1
+  %4216 = extractvalue { ptr, ptr } %4212, 1
+  store ptr %4216, ptr %4215, align 8
+  %4217 = getelementptr inbounds nuw { ptr, ptr }, ptr %317, i32 0, i32 0
+  %4218 = load ptr, ptr %4217, align 8
+  %4219 = getelementptr inbounds nuw { ptr, ptr }, ptr %317, i32 0, i32 1
+  %4220 = load ptr, ptr %4219, align 8
+  %4221 = getelementptr inbounds nuw { ptr, ptr }, ptr %319, i32 0, i32 0
+  %4222 = load ptr, ptr %4221, align 8
+  %4223 = getelementptr inbounds nuw { ptr, ptr }, ptr %319, i32 0, i32 1
+  %4224 = load ptr, ptr %4223, align 8
+  %4225 = call { ptr, ptr } @gen_dictpair(ptr %4218, ptr %4220, ptr %4222, ptr %4224)
+  %4226 = getelementptr inbounds nuw { ptr, ptr }, ptr %316, i32 0, i32 0
+  %4227 = extractvalue { ptr, ptr } %4225, 0
+  store ptr %4227, ptr %4226, align 8
+  %4228 = getelementptr inbounds nuw { ptr, ptr }, ptr %316, i32 0, i32 1
+  %4229 = extractvalue { ptr, ptr } %4225, 1
+  store ptr %4229, ptr %4228, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %316, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %316) #8
+  br label %4294
 
-4206:                                             ; preds = %604
-  %4207 = load ptr, ptr %21, align 8
-  %4208 = getelementptr inbounds %union.YYSTYPE, ptr %4207, i64 -3
-  %4209 = getelementptr inbounds { ptr, ptr }, ptr %4208, i32 0, i32 0
-  %4210 = load ptr, ptr %4209, align 8
-  %4211 = getelementptr inbounds { ptr, ptr }, ptr %4208, i32 0, i32 1
-  %4212 = load ptr, ptr %4211, align 8
-  %4213 = call { i64, ptr } @check_object_key(ptr %4210, ptr %4212)
-  %4214 = getelementptr inbounds { i64, ptr }, ptr %320, i32 0, i32 0
-  %4215 = extractvalue { i64, ptr } %4213, 0
-  store i64 %4215, ptr %4214, align 8
-  %4216 = getelementptr inbounds { i64, ptr }, ptr %320, i32 0, i32 1
-  %4217 = extractvalue { i64, ptr } %4213, 1
-  store ptr %4217, ptr %4216, align 8
-  %4218 = getelementptr inbounds { i64, ptr }, ptr %320, i32 0, i32 0
-  %4219 = load i64, ptr %4218, align 8
-  %4220 = getelementptr inbounds { i64, ptr }, ptr %320, i32 0, i32 1
-  %4221 = load ptr, ptr %4220, align 8
-  %4222 = call i32 @jv_is_valid(i64 %4219, ptr %4221)
-  %4223 = icmp ne i32 %4222, 0
-  br i1 %4223, label %4224, label %4236
+4230:                                             ; preds = %616
+  call void @llvm.lifetime.start.p0(i64 16, ptr %322) #8
+  %4231 = load ptr, ptr %22, align 8, !tbaa !20
+  %4232 = getelementptr inbounds %union.YYSTYPE, ptr %4231, i64 -3
+  %4233 = getelementptr inbounds nuw { ptr, ptr }, ptr %4232, i32 0, i32 0
+  %4234 = load ptr, ptr %4233, align 8
+  %4235 = getelementptr inbounds nuw { ptr, ptr }, ptr %4232, i32 0, i32 1
+  %4236 = load ptr, ptr %4235, align 8
+  %4237 = call { i64, ptr } @check_object_key(ptr %4234, ptr %4236)
+  %4238 = getelementptr inbounds nuw { i64, ptr }, ptr %322, i32 0, i32 0
+  %4239 = extractvalue { i64, ptr } %4237, 0
+  store i64 %4239, ptr %4238, align 8
+  %4240 = getelementptr inbounds nuw { i64, ptr }, ptr %322, i32 0, i32 1
+  %4241 = extractvalue { i64, ptr } %4237, 1
+  store ptr %4241, ptr %4240, align 8
+  %4242 = getelementptr inbounds nuw { i64, ptr }, ptr %322, i32 0, i32 0
+  %4243 = load i64, ptr %4242, align 8
+  %4244 = getelementptr inbounds nuw { i64, ptr }, ptr %322, i32 0, i32 1
+  %4245 = load ptr, ptr %4244, align 8
+  %4246 = call i32 @jv_is_valid(i64 %4243, ptr %4245)
+  %4247 = icmp ne i32 %4246, 0
+  br i1 %4247, label %4248, label %4261
 
-4224:                                             ; preds = %4206
-  br label %4225
+4248:                                             ; preds = %4230
+  br label %4249
 
-4225:                                             ; preds = %4224
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %321, ptr align 4 %29, i64 8, i1 false)
-  %4226 = load ptr, ptr %5, align 8
-  %4227 = load ptr, ptr %6, align 8
-  %4228 = load ptr, ptr %7, align 8
-  %4229 = load ptr, ptr %8, align 8
-  %4230 = getelementptr inbounds { i64, ptr }, ptr %320, i32 0, i32 0
-  %4231 = load i64, ptr %4230, align 8
-  %4232 = getelementptr inbounds { i64, ptr }, ptr %320, i32 0, i32 1
-  %4233 = load ptr, ptr %4232, align 8
-  %4234 = call ptr @jv_string_value(i64 %4231, ptr %4233)
-  call void @yyerror(ptr noundef %321, ptr noundef %4226, ptr noundef %4227, ptr noundef %4228, ptr noundef %4229, ptr noundef %4234)
-  br label %4235
-
-4235:                                             ; preds = %4225
-  br label %4236
-
-4236:                                             ; preds = %4235, %4206
-  %4237 = getelementptr inbounds { i64, ptr }, ptr %320, i32 0, i32 0
-  %4238 = load i64, ptr %4237, align 8
-  %4239 = getelementptr inbounds { i64, ptr }, ptr %320, i32 0, i32 1
-  %4240 = load ptr, ptr %4239, align 8
-  call void @jv_free(i64 %4238, ptr %4240)
-  %4241 = load ptr, ptr %21, align 8
-  %4242 = getelementptr inbounds %union.YYSTYPE, ptr %4241, i64 -3
-  %4243 = load ptr, ptr %21, align 8
-  %4244 = getelementptr inbounds %union.YYSTYPE, ptr %4243, i64 0
-  %4245 = getelementptr inbounds { ptr, ptr }, ptr %4242, i32 0, i32 0
-  %4246 = load ptr, ptr %4245, align 8
-  %4247 = getelementptr inbounds { ptr, ptr }, ptr %4242, i32 0, i32 1
-  %4248 = load ptr, ptr %4247, align 8
-  %4249 = getelementptr inbounds { ptr, ptr }, ptr %4244, i32 0, i32 0
-  %4250 = load ptr, ptr %4249, align 8
-  %4251 = getelementptr inbounds { ptr, ptr }, ptr %4244, i32 0, i32 1
-  %4252 = load ptr, ptr %4251, align 8
-  %4253 = call { ptr, ptr } @gen_dictpair(ptr %4246, ptr %4248, ptr %4250, ptr %4252)
-  %4254 = getelementptr inbounds { ptr, ptr }, ptr %322, i32 0, i32 0
-  %4255 = extractvalue { ptr, ptr } %4253, 0
-  store ptr %4255, ptr %4254, align 8
-  %4256 = getelementptr inbounds { ptr, ptr }, ptr %322, i32 0, i32 1
-  %4257 = extractvalue { ptr, ptr } %4253, 1
-  store ptr %4257, ptr %4256, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %322, i64 16, i1 false)
-  br label %4268
-
-4258:                                             ; preds = %604
+4249:                                             ; preds = %4248
+  call void @llvm.lifetime.start.p0(i64 8, ptr %323) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %323, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %4250 = load ptr, ptr %6, align 8, !tbaa !8
+  %4251 = load ptr, ptr %7, align 8, !tbaa !10
+  %4252 = load ptr, ptr %8, align 8, !tbaa !12
+  %4253 = load ptr, ptr %9, align 8, !tbaa !14
+  %4254 = getelementptr inbounds nuw { i64, ptr }, ptr %322, i32 0, i32 0
+  %4255 = load i64, ptr %4254, align 8
+  %4256 = getelementptr inbounds nuw { i64, ptr }, ptr %322, i32 0, i32 1
+  %4257 = load ptr, ptr %4256, align 8
+  %4258 = call ptr @jv_string_value(i64 %4255, ptr %4257)
+  call void @yyerror(ptr noundef %323, ptr noundef %4250, ptr noundef %4251, ptr noundef %4252, ptr noundef %4253, ptr noundef %4258)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %323) #8
   br label %4259
 
-4259:                                             ; preds = %4258
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %323, ptr align 4 %29, i64 8, i1 false)
-  %4260 = load ptr, ptr %5, align 8
-  %4261 = load ptr, ptr %6, align 8
-  %4262 = load ptr, ptr %7, align 8
-  %4263 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %323, ptr noundef %4260, ptr noundef %4261, ptr noundef %4262, ptr noundef %4263, ptr noundef @.str.22)
-  br label %4264
+4259:                                             ; preds = %4249
+  br label %4260
 
-4264:                                             ; preds = %4259
-  %4265 = load ptr, ptr %21, align 8
-  %4266 = getelementptr inbounds %union.YYSTYPE, ptr %4265, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %4266, i64 16, i1 false)
-  br label %4268
+4260:                                             ; preds = %4259
+  br label %4261
 
-4267:                                             ; preds = %604
-  br label %4268
+4261:                                             ; preds = %4260, %4230
+  %4262 = getelementptr inbounds nuw { i64, ptr }, ptr %322, i32 0, i32 0
+  %4263 = load i64, ptr %4262, align 8
+  %4264 = getelementptr inbounds nuw { i64, ptr }, ptr %322, i32 0, i32 1
+  %4265 = load ptr, ptr %4264, align 8
+  call void @jv_free(i64 %4263, ptr %4265)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %324) #8
+  %4266 = load ptr, ptr %22, align 8, !tbaa !20
+  %4267 = getelementptr inbounds %union.YYSTYPE, ptr %4266, i64 -3
+  %4268 = load ptr, ptr %22, align 8, !tbaa !20
+  %4269 = getelementptr inbounds %union.YYSTYPE, ptr %4268, i64 0
+  %4270 = getelementptr inbounds nuw { ptr, ptr }, ptr %4267, i32 0, i32 0
+  %4271 = load ptr, ptr %4270, align 8
+  %4272 = getelementptr inbounds nuw { ptr, ptr }, ptr %4267, i32 0, i32 1
+  %4273 = load ptr, ptr %4272, align 8
+  %4274 = getelementptr inbounds nuw { ptr, ptr }, ptr %4269, i32 0, i32 0
+  %4275 = load ptr, ptr %4274, align 8
+  %4276 = getelementptr inbounds nuw { ptr, ptr }, ptr %4269, i32 0, i32 1
+  %4277 = load ptr, ptr %4276, align 8
+  %4278 = call { ptr, ptr } @gen_dictpair(ptr %4271, ptr %4273, ptr %4275, ptr %4277)
+  %4279 = getelementptr inbounds nuw { ptr, ptr }, ptr %324, i32 0, i32 0
+  %4280 = extractvalue { ptr, ptr } %4278, 0
+  store ptr %4280, ptr %4279, align 8
+  %4281 = getelementptr inbounds nuw { ptr, ptr }, ptr %324, i32 0, i32 1
+  %4282 = extractvalue { ptr, ptr } %4278, 1
+  store ptr %4282, ptr %4281, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %324, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %324) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %322) #8
+  br label %4294
 
-4268:                                             ; preds = %4267, %4264, %4236, %4143, %4109, %4046, %3998, %3953, %3878, %3860, %3833, %3806, %3803, %3785, %3782, %3776, %3770, %3764, %3758, %3752, %3746, %3740, %3734, %3728, %3722, %3716, %3710, %3704, %3698, %3692, %3686, %3680, %3674, %3668, %3665, %3637, %3589, %3562, %3535, %3465, %3428, %3410, %3407, %3389, %3368, %3347, %3326, %3307, %3304, %3286, %3274, %3247, %3235, %3217, %3214, %3208, %3205, %3199, %3193, %3155, %3148, %3048, %3018, %2988, %2987, %2899, %2887, %2884, %2863, %2860, %2848, %2812, %2776, %2752, %2716, %2680, %2656, %2635, %2614, %2593, %2572, %2554, %2536, %2518, %2500, %2494, %2476, %2449, %2431, %2401, %2374, %2353, %2335, %2305, %2278, %2272, %2195, %2180, %2174, %2171, %2141, %2123, %2117, %2114, %2090, %2048, %2021, %2006, %1997, %1991, %1988, %1969, %1950, %1932, %1929, %1898, %1864, %1863, %1792, %1747, %1702, %1701, %1613, %1610, %1592, %1574, %1556, %1538, %1520, %1502, %1484, %1466, %1448, %1430, %1412, %1394, %1376, %1358, %1328, %1310, %1292, %1274, %1256, %1211, %1193, %1175, %1157, %1139, %1094, %1073, %1023, %1020, %993, %975, %972, %942, %911, %883, %857, %833, %815, %797, %791, %773, %767, %766, %693, %659, %607
-  %4269 = load i32, ptr %34, align 4
-  %4270 = load ptr, ptr %21, align 8
-  %4271 = sext i32 %4269 to i64
-  %4272 = sub i64 0, %4271
-  %4273 = getelementptr inbounds %union.YYSTYPE, ptr %4270, i64 %4272
-  store ptr %4273, ptr %21, align 8
-  %4274 = load i32, ptr %34, align 4
-  %4275 = load ptr, ptr %18, align 8
-  %4276 = sext i32 %4274 to i64
-  %4277 = sub i64 0, %4276
-  %4278 = getelementptr inbounds i16, ptr %4275, i64 %4277
-  store ptr %4278, ptr %18, align 8
-  %4279 = load i32, ptr %34, align 4
-  %4280 = load ptr, ptr %24, align 8
-  %4281 = sext i32 %4279 to i64
-  %4282 = sub i64 0, %4281
-  %4283 = getelementptr inbounds %struct.location, ptr %4280, i64 %4282
-  store ptr %4283, ptr %24, align 8
-  store i32 0, ptr %34, align 4
-  %4284 = load ptr, ptr %21, align 8
-  %4285 = getelementptr inbounds %union.YYSTYPE, ptr %4284, i32 1
-  store ptr %4285, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4285, ptr align 8 %28, i64 16, i1 false)
-  %4286 = load ptr, ptr %24, align 8
-  %4287 = getelementptr inbounds %struct.location, ptr %4286, i32 1
-  store ptr %4287, ptr %24, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4287, ptr align 4 %29, i64 8, i1 false)
-  %4288 = load i32, ptr %25, align 4
-  %4289 = sext i32 %4288 to i64
-  %4290 = getelementptr inbounds [170 x i8], ptr @yyr1, i64 0, i64 %4289
-  %4291 = load i8, ptr %4290, align 1
-  %4292 = sext i8 %4291 to i32
-  %4293 = sub nsw i32 %4292, 70
-  store i32 %4293, ptr %324, align 4
-  %4294 = load i32, ptr %324, align 4
-  %4295 = sext i32 %4294 to i64
-  %4296 = getelementptr inbounds [29 x i16], ptr @yypgoto, i64 0, i64 %4295
-  %4297 = load i16, ptr %4296, align 2
-  %4298 = sext i16 %4297 to i32
-  %4299 = load ptr, ptr %18, align 8
-  %4300 = load i16, ptr %4299, align 2
-  %4301 = sext i16 %4300 to i32
-  %4302 = add nsw i32 %4298, %4301
-  store i32 %4302, ptr %325, align 4
-  %4303 = load i32, ptr %325, align 4
-  %4304 = icmp sle i32 0, %4303
-  br i1 %4304, label %4305, label %4324
+4283:                                             ; preds = %616
+  br label %4284
 
-4305:                                             ; preds = %4268
-  %4306 = load i32, ptr %325, align 4
-  %4307 = icmp sle i32 %4306, 2051
-  br i1 %4307, label %4308, label %4324
+4284:                                             ; preds = %4283
+  call void @llvm.lifetime.start.p0(i64 8, ptr %325) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %325, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  %4285 = load ptr, ptr %6, align 8, !tbaa !8
+  %4286 = load ptr, ptr %7, align 8, !tbaa !10
+  %4287 = load ptr, ptr %8, align 8, !tbaa !12
+  %4288 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %325, ptr noundef %4285, ptr noundef %4286, ptr noundef %4287, ptr noundef %4288, ptr noundef @.str.22)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %325) #8
+  br label %4289
 
-4308:                                             ; preds = %4305
-  %4309 = load i32, ptr %325, align 4
-  %4310 = sext i32 %4309 to i64
-  %4311 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %4310
-  %4312 = load i16, ptr %4311, align 2
-  %4313 = sext i16 %4312 to i32
-  %4314 = load ptr, ptr %18, align 8
-  %4315 = load i16, ptr %4314, align 2
-  %4316 = sext i16 %4315 to i32
-  %4317 = icmp eq i32 %4313, %4316
-  br i1 %4317, label %4318, label %4324
+4289:                                             ; preds = %4284
+  br label %4290
 
-4318:                                             ; preds = %4308
-  %4319 = load i32, ptr %325, align 4
-  %4320 = sext i32 %4319 to i64
-  %4321 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %4320
-  %4322 = load i16, ptr %4321, align 2
-  %4323 = sext i16 %4322 to i32
-  br label %4330
+4290:                                             ; preds = %4289
+  %4291 = load ptr, ptr %22, align 8, !tbaa !20
+  %4292 = getelementptr inbounds %union.YYSTYPE, ptr %4291, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %4292, i64 16, i1 false), !tbaa.struct !39
+  br label %4294
 
-4324:                                             ; preds = %4308, %4305, %4268
-  %4325 = load i32, ptr %324, align 4
-  %4326 = sext i32 %4325 to i64
-  %4327 = getelementptr inbounds [29 x i8], ptr @yydefgoto, i64 0, i64 %4326
-  %4328 = load i8, ptr %4327, align 1
-  %4329 = zext i8 %4328 to i32
-  br label %4330
+4293:                                             ; preds = %616
+  br label %4294
 
-4330:                                             ; preds = %4324, %4318
-  %4331 = phi i32 [ %4323, %4318 ], [ %4329, %4324 ]
-  store i32 %4331, ptr %13, align 4
-  br label %338
+4294:                                             ; preds = %4293, %4290, %4261, %4167, %4133, %4070, %4022, %3977, %3902, %3884, %3857, %3830, %3827, %3809, %3806, %3800, %3794, %3788, %3782, %3776, %3770, %3764, %3758, %3752, %3746, %3740, %3734, %3728, %3722, %3716, %3710, %3704, %3698, %3692, %3689, %3660, %3611, %3584, %3557, %3487, %3450, %3432, %3429, %3411, %3390, %3369, %3348, %3329, %3326, %3308, %3296, %3269, %3257, %3239, %3236, %3230, %3227, %3221, %3215, %3177, %3170, %3070, %3040, %3010, %3009, %2921, %2909, %2906, %2885, %2882, %2870, %2834, %2798, %2774, %2738, %2702, %2678, %2657, %2636, %2615, %2594, %2576, %2558, %2540, %2522, %2516, %2497, %2469, %2451, %2421, %2394, %2373, %2355, %2325, %2298, %2292, %2214, %2199, %2193, %2190, %2160, %2142, %2136, %2133, %2109, %2067, %2040, %2025, %2016, %2010, %2007, %1988, %1969, %1951, %1948, %1917, %1883, %1882, %1810, %1765, %1720, %1719, %1629, %1626, %1608, %1590, %1572, %1554, %1536, %1518, %1500, %1482, %1464, %1446, %1428, %1410, %1392, %1374, %1344, %1326, %1308, %1290, %1272, %1227, %1209, %1191, %1173, %1155, %1110, %1089, %1039, %1036, %1008, %990, %987, %956, %925, %897, %871, %847, %829, %811, %805, %787, %781, %780, %705, %671, %619
+  %4295 = load i32, ptr %35, align 4, !tbaa !18
+  %4296 = load ptr, ptr %22, align 8, !tbaa !20
+  %4297 = sext i32 %4295 to i64
+  %4298 = sub i64 0, %4297
+  %4299 = getelementptr inbounds %union.YYSTYPE, ptr %4296, i64 %4298
+  store ptr %4299, ptr %22, align 8, !tbaa !20
+  %4300 = load i32, ptr %35, align 4, !tbaa !18
+  %4301 = load ptr, ptr %19, align 8, !tbaa !32
+  %4302 = sext i32 %4300 to i64
+  %4303 = sub i64 0, %4302
+  %4304 = getelementptr inbounds i16, ptr %4301, i64 %4303
+  store ptr %4304, ptr %19, align 8, !tbaa !32
+  %4305 = load i32, ptr %35, align 4, !tbaa !18
+  %4306 = load ptr, ptr %25, align 8, !tbaa !4
+  %4307 = sext i32 %4305 to i64
+  %4308 = sub i64 0, %4307
+  %4309 = getelementptr inbounds %struct.location, ptr %4306, i64 %4308
+  store ptr %4309, ptr %25, align 8, !tbaa !4
+  store i32 0, ptr %35, align 4, !tbaa !18
+  %4310 = load ptr, ptr %22, align 8, !tbaa !20
+  %4311 = getelementptr inbounds nuw %union.YYSTYPE, ptr %4310, i32 1
+  store ptr %4311, ptr %22, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4311, ptr align 8 %29, i64 16, i1 false), !tbaa.struct !29
+  %4312 = load ptr, ptr %25, align 8, !tbaa !4
+  %4313 = getelementptr inbounds nuw %struct.location, ptr %4312, i32 1
+  store ptr %4313, ptr %25, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4313, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %326) #8
+  %4314 = load i32, ptr %26, align 4, !tbaa !18
+  %4315 = sext i32 %4314 to i64
+  %4316 = getelementptr inbounds [170 x i8], ptr @yyr1, i64 0, i64 %4315
+  %4317 = load i8, ptr %4316, align 1, !tbaa !26
+  %4318 = sext i8 %4317 to i32
+  %4319 = sub nsw i32 %4318, 70
+  store i32 %4319, ptr %326, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %327) #8
+  %4320 = load i32, ptr %326, align 4, !tbaa !18
+  %4321 = sext i32 %4320 to i64
+  %4322 = getelementptr inbounds [29 x i16], ptr @yypgoto, i64 0, i64 %4321
+  %4323 = load i16, ptr %4322, align 2, !tbaa !27
+  %4324 = sext i16 %4323 to i32
+  %4325 = load ptr, ptr %19, align 8, !tbaa !32
+  %4326 = load i16, ptr %4325, align 2, !tbaa !27
+  %4327 = sext i16 %4326 to i32
+  %4328 = add nsw i32 %4324, %4327
+  store i32 %4328, ptr %327, align 4, !tbaa !18
+  %4329 = load i32, ptr %327, align 4, !tbaa !18
+  %4330 = icmp sle i32 0, %4329
+  br i1 %4330, label %4331, label %4350
 
-4332:                                             ; preds = %547, %523
-  %4333 = load i32, ptr %9, align 4
-  %4334 = icmp eq i32 %4333, -2
-  br i1 %4334, label %4335, label %4336
+4331:                                             ; preds = %4294
+  %4332 = load i32, ptr %327, align 4, !tbaa !18
+  %4333 = icmp sle i32 %4332, 2051
+  br i1 %4333, label %4334, label %4350
 
-4335:                                             ; preds = %4332
-  br label %4351
+4334:                                             ; preds = %4331
+  %4335 = load i32, ptr %327, align 4, !tbaa !18
+  %4336 = sext i32 %4335 to i64
+  %4337 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %4336
+  %4338 = load i16, ptr %4337, align 2, !tbaa !27
+  %4339 = sext i16 %4338 to i32
+  %4340 = load ptr, ptr %19, align 8, !tbaa !32
+  %4341 = load i16, ptr %4340, align 2, !tbaa !27
+  %4342 = sext i16 %4341 to i32
+  %4343 = icmp eq i32 %4339, %4342
+  br i1 %4343, label %4344, label %4350
 
-4336:                                             ; preds = %4332
-  %4337 = load i32, ptr %9, align 4
-  %4338 = icmp sle i32 0, %4337
-  br i1 %4338, label %4339, label %4348
+4344:                                             ; preds = %4334
+  %4345 = load i32, ptr %327, align 4, !tbaa !18
+  %4346 = sext i32 %4345 to i64
+  %4347 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %4346
+  %4348 = load i16, ptr %4347, align 2, !tbaa !27
+  %4349 = sext i16 %4348 to i32
+  br label %4356
 
-4339:                                             ; preds = %4336
-  %4340 = load i32, ptr %9, align 4
-  %4341 = icmp sle i32 %4340, 303
-  br i1 %4341, label %4342, label %4348
+4350:                                             ; preds = %4334, %4331, %4294
+  %4351 = load i32, ptr %326, align 4, !tbaa !18
+  %4352 = sext i32 %4351 to i64
+  %4353 = getelementptr inbounds [29 x i8], ptr @yydefgoto, i64 0, i64 %4352
+  %4354 = load i8, ptr %4353, align 1, !tbaa !26
+  %4355 = zext i8 %4354 to i32
+  br label %4356
 
-4342:                                             ; preds = %4339
-  %4343 = load i32, ptr %9, align 4
-  %4344 = sext i32 %4343 to i64
-  %4345 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %4344
-  %4346 = load i8, ptr %4345, align 1
-  %4347 = sext i8 %4346 to i32
-  br label %4349
+4356:                                             ; preds = %4350, %4344
+  %4357 = phi i32 [ %4349, %4344 ], [ %4355, %4350 ]
+  store i32 %4357, ptr %14, align 4, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %327) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %326) #8
+  br label %340
 
-4348:                                             ; preds = %4339, %4336
-  br label %4349
+4358:                                             ; preds = %558, %534
+  %4359 = load i32, ptr %10, align 4, !tbaa !18
+  %4360 = icmp eq i32 %4359, -2
+  br i1 %4360, label %4361, label %4362
 
-4349:                                             ; preds = %4348, %4342
-  %4350 = phi i32 [ %4347, %4342 ], [ 2, %4348 ]
-  br label %4351
-
-4351:                                             ; preds = %4349, %4335
-  %4352 = phi i32 [ -2, %4335 ], [ %4350, %4349 ]
-  store i32 %4352, ptr %27, align 4
-  %4353 = load i32, ptr %14, align 4
-  %4354 = icmp ne i32 %4353, 0
-  br i1 %4354, label %4399, label %4355
-
-4355:                                             ; preds = %4351
-  %4356 = load i32, ptr %12, align 4
-  %4357 = add nsw i32 %4356, 1
-  store i32 %4357, ptr %12, align 4
-  %4358 = getelementptr inbounds %struct.yypcontext_t, ptr %326, i32 0, i32 0
-  %4359 = load ptr, ptr %18, align 8
-  store ptr %4359, ptr %4358, align 8
-  %4360 = getelementptr inbounds %struct.yypcontext_t, ptr %326, i32 0, i32 1
-  %4361 = load i32, ptr %27, align 4
-  store i32 %4361, ptr %4360, align 8
-  %4362 = getelementptr inbounds %struct.yypcontext_t, ptr %326, i32 0, i32 2
-  store ptr %11, ptr %4362, align 8
-  store ptr @.str.42, ptr %327, align 8
-  %4363 = call i32 @yysyntax_error(ptr noundef %33, ptr noundef %32, ptr noundef %326)
-  store i32 %4363, ptr %328, align 4
-  %4364 = load i32, ptr %328, align 4
-  %4365 = icmp eq i32 %4364, 0
-  br i1 %4365, label %4366, label %4368
-
-4366:                                             ; preds = %4355
-  %4367 = load ptr, ptr %32, align 8
-  store ptr %4367, ptr %327, align 8
-  br label %4389
-
-4368:                                             ; preds = %4355
-  %4369 = load i32, ptr %328, align 4
-  %4370 = icmp eq i32 %4369, -1
-  br i1 %4370, label %4371, label %4388
-
-4371:                                             ; preds = %4368
-  %4372 = load ptr, ptr %32, align 8
-  %4373 = getelementptr inbounds [128 x i8], ptr %31, i64 0, i64 0
-  %4374 = icmp ne ptr %4372, %4373
-  br i1 %4374, label %4375, label %4377
-
-4375:                                             ; preds = %4371
-  %4376 = load ptr, ptr %32, align 8
-  call void @jv_mem_free(ptr noundef %4376)
+4361:                                             ; preds = %4358
   br label %4377
 
-4377:                                             ; preds = %4375, %4371
-  %4378 = load i64, ptr %33, align 8
-  %4379 = call ptr @jv_mem_alloc(i64 noundef %4378)
-  store ptr %4379, ptr %32, align 8
-  %4380 = load ptr, ptr %32, align 8
-  %4381 = icmp ne ptr %4380, null
-  br i1 %4381, label %4382, label %4385
+4362:                                             ; preds = %4358
+  %4363 = load i32, ptr %10, align 4, !tbaa !18
+  %4364 = icmp sle i32 0, %4363
+  br i1 %4364, label %4365, label %4374
 
-4382:                                             ; preds = %4377
-  %4383 = call i32 @yysyntax_error(ptr noundef %33, ptr noundef %32, ptr noundef %326)
-  store i32 %4383, ptr %328, align 4
-  %4384 = load ptr, ptr %32, align 8
-  store ptr %4384, ptr %327, align 8
-  br label %4387
+4365:                                             ; preds = %4362
+  %4366 = load i32, ptr %10, align 4, !tbaa !18
+  %4367 = icmp sle i32 %4366, 303
+  br i1 %4367, label %4368, label %4374
 
-4385:                                             ; preds = %4377
-  %4386 = getelementptr inbounds [128 x i8], ptr %31, i64 0, i64 0
-  store ptr %4386, ptr %32, align 8
-  store i64 128, ptr %33, align 8
-  store i32 -2, ptr %328, align 4
-  br label %4387
+4368:                                             ; preds = %4365
+  %4369 = load i32, ptr %10, align 4, !tbaa !18
+  %4370 = sext i32 %4369 to i64
+  %4371 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %4370
+  %4372 = load i8, ptr %4371, align 1, !tbaa !26
+  %4373 = sext i8 %4372 to i32
+  br label %4375
 
-4387:                                             ; preds = %4385, %4382
-  br label %4388
+4374:                                             ; preds = %4365, %4362
+  br label %4375
 
-4388:                                             ; preds = %4387, %4368
-  br label %4389
+4375:                                             ; preds = %4374, %4368
+  %4376 = phi i32 [ %4373, %4368 ], [ 2, %4374 ]
+  br label %4377
 
-4389:                                             ; preds = %4388, %4366
-  %4390 = load ptr, ptr %5, align 8
-  %4391 = load ptr, ptr %6, align 8
-  %4392 = load ptr, ptr %7, align 8
-  %4393 = load ptr, ptr %8, align 8
-  %4394 = load ptr, ptr %327, align 8
-  call void @yyerror(ptr noundef %11, ptr noundef %4390, ptr noundef %4391, ptr noundef %4392, ptr noundef %4393, ptr noundef %4394)
-  %4395 = load i32, ptr %328, align 4
-  %4396 = icmp eq i32 %4395, -2
-  br i1 %4396, label %4397, label %4398
+4377:                                             ; preds = %4375, %4361
+  %4378 = phi i32 [ -2, %4361 ], [ %4376, %4375 ]
+  store i32 %4378, ptr %28, align 4, !tbaa !18
+  %4379 = load i32, ptr %15, align 4, !tbaa !18
+  %4380 = icmp ne i32 %4379, 0
+  br i1 %4380, label %4429, label %4381
 
-4397:                                             ; preds = %4389
-  br label %4524
+4381:                                             ; preds = %4377
+  %4382 = load i32, ptr %13, align 4, !tbaa !18
+  %4383 = add nsw i32 %4382, 1
+  store i32 %4383, ptr %13, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %328) #8
+  %4384 = getelementptr inbounds nuw %struct.yypcontext_t, ptr %328, i32 0, i32 0
+  %4385 = load ptr, ptr %19, align 8, !tbaa !32
+  store ptr %4385, ptr %4384, align 8, !tbaa !44
+  %4386 = getelementptr inbounds nuw %struct.yypcontext_t, ptr %328, i32 0, i32 1
+  %4387 = load i32, ptr %28, align 4, !tbaa !18
+  store i32 %4387, ptr %4386, align 8, !tbaa !46
+  %4388 = getelementptr i8, ptr %328, i64 12
+  call void @llvm.memset.p0.i64(ptr align 4 %4388, i8 0, i64 4, i1 false)
+  %4389 = getelementptr inbounds nuw %struct.yypcontext_t, ptr %328, i32 0, i32 2
+  store ptr %12, ptr %4389, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %329) #8
+  store ptr @.str.42, ptr %329, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %330) #8
+  %4390 = call i32 @yysyntax_error(ptr noundef %34, ptr noundef %33, ptr noundef %328)
+  store i32 %4390, ptr %330, align 4, !tbaa !18
+  %4391 = load i32, ptr %330, align 4, !tbaa !18
+  %4392 = icmp eq i32 %4391, 0
+  br i1 %4392, label %4393, label %4395
 
-4398:                                             ; preds = %4389
-  br label %4399
+4393:                                             ; preds = %4381
+  %4394 = load ptr, ptr %33, align 8, !tbaa !16
+  store ptr %4394, ptr %329, align 8, !tbaa !16
+  br label %4416
 
-4399:                                             ; preds = %4398, %4351
-  %4400 = getelementptr inbounds [3 x %struct.location], ptr %30, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4400, ptr align 4 %11, i64 8, i1 false)
-  %4401 = load i32, ptr %14, align 4
-  %4402 = icmp eq i32 %4401, 3
-  br i1 %4402, label %4403, label %4418
+4395:                                             ; preds = %4381
+  %4396 = load i32, ptr %330, align 4, !tbaa !18
+  %4397 = icmp eq i32 %4396, -1
+  br i1 %4397, label %4398, label %4415
 
-4403:                                             ; preds = %4399
-  %4404 = load i32, ptr %9, align 4
-  %4405 = icmp sle i32 %4404, 0
-  br i1 %4405, label %4406, label %4411
+4398:                                             ; preds = %4395
+  %4399 = load ptr, ptr %33, align 8, !tbaa !16
+  %4400 = getelementptr inbounds [128 x i8], ptr %32, i64 0, i64 0
+  %4401 = icmp ne ptr %4399, %4400
+  br i1 %4401, label %4402, label %4404
 
-4406:                                             ; preds = %4403
-  %4407 = load i32, ptr %9, align 4
-  %4408 = icmp eq i32 %4407, 0
-  br i1 %4408, label %4409, label %4410
+4402:                                             ; preds = %4398
+  %4403 = load ptr, ptr %33, align 8, !tbaa !16
+  call void @jv_mem_free(ptr noundef %4403)
+  br label %4404
 
-4409:                                             ; preds = %4406
-  br label %4523
+4404:                                             ; preds = %4402, %4398
+  %4405 = load i64, ptr %34, align 8, !tbaa !30
+  %4406 = call ptr @jv_mem_alloc(i64 noundef %4405)
+  store ptr %4406, ptr %33, align 8, !tbaa !16
+  %4407 = load ptr, ptr %33, align 8, !tbaa !16
+  %4408 = icmp ne ptr %4407, null
+  br i1 %4408, label %4409, label %4412
 
-4410:                                             ; preds = %4406
-  br label %4417
+4409:                                             ; preds = %4404
+  %4410 = call i32 @yysyntax_error(ptr noundef %34, ptr noundef %33, ptr noundef %328)
+  store i32 %4410, ptr %330, align 4, !tbaa !18
+  %4411 = load ptr, ptr %33, align 8, !tbaa !16
+  store ptr %4411, ptr %329, align 8, !tbaa !16
+  br label %4414
 
-4411:                                             ; preds = %4403
-  %4412 = load i32, ptr %27, align 4
-  %4413 = load ptr, ptr %5, align 8
-  %4414 = load ptr, ptr %6, align 8
-  %4415 = load ptr, ptr %7, align 8
-  %4416 = load ptr, ptr %8, align 8
-  call void @yydestruct(ptr noundef @.str.43, i32 noundef %4412, ptr noundef %10, ptr noundef %11, ptr noundef %4413, ptr noundef %4414, ptr noundef %4415, ptr noundef %4416)
-  store i32 -2, ptr %9, align 4
-  br label %4417
+4412:                                             ; preds = %4404
+  %4413 = getelementptr inbounds [128 x i8], ptr %32, i64 0, i64 0
+  store ptr %4413, ptr %33, align 8, !tbaa !16
+  store i64 128, ptr %34, align 8, !tbaa !30
+  store i32 -2, ptr %330, align 4, !tbaa !18
+  br label %4414
 
-4417:                                             ; preds = %4411, %4410
-  br label %4418
+4414:                                             ; preds = %4412, %4409
+  br label %4415
 
-4418:                                             ; preds = %4417, %4399
-  br label %4440
+4415:                                             ; preds = %4414, %4395
+  br label %4416
 
-4419:                                             ; No predecessors!
-  %4420 = load i32, ptr %12, align 4
-  %4421 = add nsw i32 %4420, 1
-  store i32 %4421, ptr %12, align 4
-  %4422 = load i32, ptr %34, align 4
-  %4423 = load ptr, ptr %21, align 8
-  %4424 = sext i32 %4422 to i64
-  %4425 = sub i64 0, %4424
-  %4426 = getelementptr inbounds %union.YYSTYPE, ptr %4423, i64 %4425
-  store ptr %4426, ptr %21, align 8
-  %4427 = load i32, ptr %34, align 4
-  %4428 = load ptr, ptr %18, align 8
-  %4429 = sext i32 %4427 to i64
-  %4430 = sub i64 0, %4429
-  %4431 = getelementptr inbounds i16, ptr %4428, i64 %4430
-  store ptr %4431, ptr %18, align 8
-  %4432 = load i32, ptr %34, align 4
-  %4433 = load ptr, ptr %24, align 8
-  %4434 = sext i32 %4432 to i64
-  %4435 = sub i64 0, %4434
-  %4436 = getelementptr inbounds %struct.location, ptr %4433, i64 %4435
-  store ptr %4436, ptr %24, align 8
-  store i32 0, ptr %34, align 4
-  %4437 = load ptr, ptr %18, align 8
-  %4438 = load i16, ptr %4437, align 2
-  %4439 = sext i16 %4438 to i32
-  store i32 %4439, ptr %13, align 4
-  br label %4440
+4416:                                             ; preds = %4415, %4393
+  %4417 = load ptr, ptr %6, align 8, !tbaa !8
+  %4418 = load ptr, ptr %7, align 8, !tbaa !10
+  %4419 = load ptr, ptr %8, align 8, !tbaa !12
+  %4420 = load ptr, ptr %9, align 8, !tbaa !14
+  %4421 = load ptr, ptr %329, align 8, !tbaa !16
+  call void @yyerror(ptr noundef %12, ptr noundef %4417, ptr noundef %4418, ptr noundef %4419, ptr noundef %4420, ptr noundef %4421)
+  %4422 = load i32, ptr %330, align 4, !tbaa !18
+  %4423 = icmp eq i32 %4422, -2
+  br i1 %4423, label %4424, label %4425
 
-4440:                                             ; preds = %4419, %4418, %476
-  store i32 3, ptr %14, align 4
-  br label %4441
+4424:                                             ; preds = %4416
+  store i32 4, ptr %42, align 4
+  br label %4426
 
-4441:                                             ; preds = %4480, %4440
-  %4442 = load i32, ptr %13, align 4
-  %4443 = sext i32 %4442 to i64
-  %4444 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %4443
-  %4445 = load i16, ptr %4444, align 2
-  %4446 = sext i16 %4445 to i32
-  store i32 %4446, ptr %25, align 4
-  %4447 = load i32, ptr %25, align 4
-  %4448 = icmp eq i32 %4447, -157
-  br i1 %4448, label %4475, label %4449
+4425:                                             ; preds = %4416
+  store i32 0, ptr %42, align 4
+  br label %4426
 
-4449:                                             ; preds = %4441
-  %4450 = load i32, ptr %25, align 4
+4426:                                             ; preds = %4424, %4425
+  call void @llvm.lifetime.end.p0(i64 4, ptr %330) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %329) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %328) #8
+  %4427 = load i32, ptr %42, align 4
+  switch i32 %4427, label %4637 [
+    i32 0, label %4428
+    i32 4, label %4555
+  ]
+
+4428:                                             ; preds = %4426
+  br label %4429
+
+4429:                                             ; preds = %4428, %4377
+  %4430 = getelementptr inbounds [3 x %struct.location], ptr %31, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4430, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !24
+  %4431 = load i32, ptr %15, align 4, !tbaa !18
+  %4432 = icmp eq i32 %4431, 3
+  br i1 %4432, label %4433, label %4448
+
+4433:                                             ; preds = %4429
+  %4434 = load i32, ptr %10, align 4, !tbaa !18
+  %4435 = icmp sle i32 %4434, 0
+  br i1 %4435, label %4436, label %4441
+
+4436:                                             ; preds = %4433
+  %4437 = load i32, ptr %10, align 4, !tbaa !18
+  %4438 = icmp eq i32 %4437, 0
+  br i1 %4438, label %4439, label %4440
+
+4439:                                             ; preds = %4436
+  br label %4554
+
+4440:                                             ; preds = %4436
+  br label %4447
+
+4441:                                             ; preds = %4433
+  %4442 = load i32, ptr %28, align 4, !tbaa !18
+  %4443 = load ptr, ptr %6, align 8, !tbaa !8
+  %4444 = load ptr, ptr %7, align 8, !tbaa !10
+  %4445 = load ptr, ptr %8, align 8, !tbaa !12
+  %4446 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yydestruct(ptr noundef @.str.43, i32 noundef %4442, ptr noundef %11, ptr noundef %12, ptr noundef %4443, ptr noundef %4444, ptr noundef %4445, ptr noundef %4446)
+  store i32 -2, ptr %10, align 4, !tbaa !18
+  br label %4447
+
+4447:                                             ; preds = %4441, %4440
+  br label %4448
+
+4448:                                             ; preds = %4447, %4429
+  br label %4470
+
+4449:                                             ; No predecessors!
+  %4450 = load i32, ptr %13, align 4, !tbaa !18
   %4451 = add nsw i32 %4450, 1
-  store i32 %4451, ptr %25, align 4
-  %4452 = load i32, ptr %25, align 4
-  %4453 = icmp sle i32 0, %4452
-  br i1 %4453, label %4454, label %4474
-
-4454:                                             ; preds = %4449
-  %4455 = load i32, ptr %25, align 4
-  %4456 = icmp sle i32 %4455, 2051
-  br i1 %4456, label %4457, label %4474
-
-4457:                                             ; preds = %4454
-  %4458 = load i32, ptr %25, align 4
-  %4459 = sext i32 %4458 to i64
-  %4460 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %4459
-  %4461 = load i16, ptr %4460, align 2
-  %4462 = sext i16 %4461 to i32
-  %4463 = icmp eq i32 %4462, 1
-  br i1 %4463, label %4464, label %4474
-
-4464:                                             ; preds = %4457
-  %4465 = load i32, ptr %25, align 4
-  %4466 = sext i32 %4465 to i64
-  %4467 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %4466
-  %4468 = load i16, ptr %4467, align 2
+  store i32 %4451, ptr %13, align 4, !tbaa !18
+  %4452 = load i32, ptr %35, align 4, !tbaa !18
+  %4453 = load ptr, ptr %22, align 8, !tbaa !20
+  %4454 = sext i32 %4452 to i64
+  %4455 = sub i64 0, %4454
+  %4456 = getelementptr inbounds %union.YYSTYPE, ptr %4453, i64 %4455
+  store ptr %4456, ptr %22, align 8, !tbaa !20
+  %4457 = load i32, ptr %35, align 4, !tbaa !18
+  %4458 = load ptr, ptr %19, align 8, !tbaa !32
+  %4459 = sext i32 %4457 to i64
+  %4460 = sub i64 0, %4459
+  %4461 = getelementptr inbounds i16, ptr %4458, i64 %4460
+  store ptr %4461, ptr %19, align 8, !tbaa !32
+  %4462 = load i32, ptr %35, align 4, !tbaa !18
+  %4463 = load ptr, ptr %25, align 8, !tbaa !4
+  %4464 = sext i32 %4462 to i64
+  %4465 = sub i64 0, %4464
+  %4466 = getelementptr inbounds %struct.location, ptr %4463, i64 %4465
+  store ptr %4466, ptr %25, align 8, !tbaa !4
+  store i32 0, ptr %35, align 4, !tbaa !18
+  %4467 = load ptr, ptr %19, align 8, !tbaa !32
+  %4468 = load i16, ptr %4467, align 2, !tbaa !27
   %4469 = sext i16 %4468 to i32
-  store i32 %4469, ptr %25, align 4
-  %4470 = load i32, ptr %25, align 4
-  %4471 = icmp slt i32 0, %4470
-  br i1 %4471, label %4472, label %4473
+  store i32 %4469, ptr %14, align 4, !tbaa !18
+  br label %4470
 
-4472:                                             ; preds = %4464
-  br label %4503
+4470:                                             ; preds = %4449, %4448, %487
+  store i32 3, ptr %15, align 4, !tbaa !18
+  br label %4471
 
-4473:                                             ; preds = %4464
-  br label %4474
+4471:                                             ; preds = %4510, %4470
+  %4472 = load i32, ptr %14, align 4, !tbaa !18
+  %4473 = sext i32 %4472 to i64
+  %4474 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %4473
+  %4475 = load i16, ptr %4474, align 2, !tbaa !27
+  %4476 = sext i16 %4475 to i32
+  store i32 %4476, ptr %26, align 4, !tbaa !18
+  %4477 = load i32, ptr %26, align 4, !tbaa !18
+  %4478 = icmp eq i32 %4477, -157
+  br i1 %4478, label %4505, label %4479
 
-4474:                                             ; preds = %4473, %4457, %4454, %4449
-  br label %4475
+4479:                                             ; preds = %4471
+  %4480 = load i32, ptr %26, align 4, !tbaa !18
+  %4481 = add nsw i32 %4480, 1
+  store i32 %4481, ptr %26, align 4, !tbaa !18
+  %4482 = load i32, ptr %26, align 4, !tbaa !18
+  %4483 = icmp sle i32 0, %4482
+  br i1 %4483, label %4484, label %4504
 
-4475:                                             ; preds = %4474, %4441
-  %4476 = load ptr, ptr %18, align 8
-  %4477 = load ptr, ptr %17, align 8
-  %4478 = icmp eq ptr %4476, %4477
-  br i1 %4478, label %4479, label %4480
+4484:                                             ; preds = %4479
+  %4485 = load i32, ptr %26, align 4, !tbaa !18
+  %4486 = icmp sle i32 %4485, 2051
+  br i1 %4486, label %4487, label %4504
 
-4479:                                             ; preds = %4475
-  br label %4523
+4487:                                             ; preds = %4484
+  %4488 = load i32, ptr %26, align 4, !tbaa !18
+  %4489 = sext i32 %4488 to i64
+  %4490 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %4489
+  %4491 = load i16, ptr %4490, align 2, !tbaa !27
+  %4492 = sext i16 %4491 to i32
+  %4493 = icmp eq i32 %4492, 1
+  br i1 %4493, label %4494, label %4504
 
-4480:                                             ; preds = %4475
-  %4481 = getelementptr inbounds [3 x %struct.location], ptr %30, i64 0, i64 1
-  %4482 = load ptr, ptr %24, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4481, ptr align 4 %4482, i64 8, i1 false)
-  %4483 = load i32, ptr %13, align 4
-  %4484 = sext i32 %4483 to i64
-  %4485 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %4484
-  %4486 = load i8, ptr %4485, align 1
-  %4487 = sext i8 %4486 to i32
-  %4488 = load ptr, ptr %21, align 8
-  %4489 = load ptr, ptr %24, align 8
-  %4490 = load ptr, ptr %5, align 8
-  %4491 = load ptr, ptr %6, align 8
-  %4492 = load ptr, ptr %7, align 8
-  %4493 = load ptr, ptr %8, align 8
-  call void @yydestruct(ptr noundef @.str.44, i32 noundef %4487, ptr noundef %4488, ptr noundef %4489, ptr noundef %4490, ptr noundef %4491, ptr noundef %4492, ptr noundef %4493)
-  %4494 = load ptr, ptr %21, align 8
-  %4495 = getelementptr inbounds %union.YYSTYPE, ptr %4494, i64 -1
-  store ptr %4495, ptr %21, align 8
-  %4496 = load ptr, ptr %18, align 8
-  %4497 = getelementptr inbounds i16, ptr %4496, i64 -1
-  store ptr %4497, ptr %18, align 8
-  %4498 = load ptr, ptr %24, align 8
-  %4499 = getelementptr inbounds %struct.location, ptr %4498, i64 -1
-  store ptr %4499, ptr %24, align 8
-  %4500 = load ptr, ptr %18, align 8
-  %4501 = load i16, ptr %4500, align 2
-  %4502 = sext i16 %4501 to i32
-  store i32 %4502, ptr %13, align 4
-  br label %4441
+4494:                                             ; preds = %4487
+  %4495 = load i32, ptr %26, align 4, !tbaa !18
+  %4496 = sext i32 %4495 to i64
+  %4497 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %4496
+  %4498 = load i16, ptr %4497, align 2, !tbaa !27
+  %4499 = sext i16 %4498 to i32
+  store i32 %4499, ptr %26, align 4, !tbaa !18
+  %4500 = load i32, ptr %26, align 4, !tbaa !18
+  %4501 = icmp slt i32 0, %4500
+  br i1 %4501, label %4502, label %4503
 
-4503:                                             ; preds = %4472
-  %4504 = load ptr, ptr %21, align 8
-  %4505 = getelementptr inbounds %union.YYSTYPE, ptr %4504, i32 1
-  store ptr %4505, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4505, ptr align 8 %10, i64 16, i1 false)
-  %4506 = getelementptr inbounds [3 x %struct.location], ptr %30, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4506, ptr align 4 %11, i64 8, i1 false)
-  %4507 = load ptr, ptr %24, align 8
-  %4508 = getelementptr inbounds %struct.location, ptr %4507, i32 1
-  store ptr %4508, ptr %24, align 8
-  br label %4509
+4502:                                             ; preds = %4494
+  br label %4533
 
-4509:                                             ; preds = %4503
-  %4510 = getelementptr inbounds [3 x %struct.location], ptr %30, i64 0, i64 1
-  %4511 = getelementptr inbounds %struct.location, ptr %4510, i32 0, i32 0
-  %4512 = load i32, ptr %4511, align 8
-  %4513 = load ptr, ptr %24, align 8
-  %4514 = getelementptr inbounds %struct.location, ptr %4513, i32 0, i32 0
-  store i32 %4512, ptr %4514, align 4
-  %4515 = getelementptr inbounds [3 x %struct.location], ptr %30, i64 0, i64 2
-  %4516 = getelementptr inbounds %struct.location, ptr %4515, i32 0, i32 1
-  %4517 = load i32, ptr %4516, align 4
-  %4518 = load ptr, ptr %24, align 8
-  %4519 = getelementptr inbounds %struct.location, ptr %4518, i32 0, i32 1
-  store i32 %4517, ptr %4519, align 4
-  br label %4520
+4503:                                             ; preds = %4494
+  br label %4504
 
-4520:                                             ; preds = %4509
-  %4521 = load i32, ptr %25, align 4
-  store i32 %4521, ptr %13, align 4
-  br label %338
+4504:                                             ; preds = %4503, %4487, %4484, %4479
+  br label %4505
 
-4522:                                             ; preds = %449
-  store i32 0, ptr %26, align 4
-  br label %4529
+4505:                                             ; preds = %4504, %4471
+  %4506 = load ptr, ptr %19, align 8, !tbaa !32
+  %4507 = load ptr, ptr %18, align 8, !tbaa !32
+  %4508 = icmp eq ptr %4506, %4507
+  br i1 %4508, label %4509, label %4510
 
-4523:                                             ; preds = %4479, %4409, %444
-  store i32 1, ptr %26, align 4
-  br label %4529
+4509:                                             ; preds = %4505
+  br label %4554
 
-4524:                                             ; preds = %4397, %376, %361
-  %4525 = load ptr, ptr %5, align 8
-  %4526 = load ptr, ptr %6, align 8
-  %4527 = load ptr, ptr %7, align 8
-  %4528 = load ptr, ptr %8, align 8
-  call void @yyerror(ptr noundef %11, ptr noundef %4525, ptr noundef %4526, ptr noundef %4527, ptr noundef %4528, ptr noundef @.str.45)
-  store i32 2, ptr %26, align 4
-  br label %4529
+4510:                                             ; preds = %4505
+  %4511 = getelementptr inbounds [3 x %struct.location], ptr %31, i64 0, i64 1
+  %4512 = load ptr, ptr %25, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4511, ptr align 4 %4512, i64 8, i1 false), !tbaa.struct !24
+  %4513 = load i32, ptr %14, align 4, !tbaa !18
+  %4514 = sext i32 %4513 to i64
+  %4515 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %4514
+  %4516 = load i8, ptr %4515, align 1, !tbaa !26
+  %4517 = sext i8 %4516 to i32
+  %4518 = load ptr, ptr %22, align 8, !tbaa !20
+  %4519 = load ptr, ptr %25, align 8, !tbaa !4
+  %4520 = load ptr, ptr %6, align 8, !tbaa !8
+  %4521 = load ptr, ptr %7, align 8, !tbaa !10
+  %4522 = load ptr, ptr %8, align 8, !tbaa !12
+  %4523 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yydestruct(ptr noundef @.str.44, i32 noundef %4517, ptr noundef %4518, ptr noundef %4519, ptr noundef %4520, ptr noundef %4521, ptr noundef %4522, ptr noundef %4523)
+  %4524 = load ptr, ptr %22, align 8, !tbaa !20
+  %4525 = getelementptr inbounds %union.YYSTYPE, ptr %4524, i64 -1
+  store ptr %4525, ptr %22, align 8, !tbaa !20
+  %4526 = load ptr, ptr %19, align 8, !tbaa !32
+  %4527 = getelementptr inbounds i16, ptr %4526, i64 -1
+  store ptr %4527, ptr %19, align 8, !tbaa !32
+  %4528 = load ptr, ptr %25, align 8, !tbaa !4
+  %4529 = getelementptr inbounds %struct.location, ptr %4528, i64 -1
+  store ptr %4529, ptr %25, align 8, !tbaa !4
+  %4530 = load ptr, ptr %19, align 8, !tbaa !32
+  %4531 = load i16, ptr %4530, align 2, !tbaa !27
+  %4532 = sext i16 %4531 to i32
+  store i32 %4532, ptr %14, align 4, !tbaa !18
+  br label %4471
 
-4529:                                             ; preds = %4524, %4523, %4522
-  %4530 = load i32, ptr %9, align 4
-  %4531 = icmp ne i32 %4530, -2
-  br i1 %4531, label %4532, label %4552
+4533:                                             ; preds = %4502
+  %4534 = load ptr, ptr %22, align 8, !tbaa !20
+  %4535 = getelementptr inbounds nuw %union.YYSTYPE, ptr %4534, i32 1
+  store ptr %4535, ptr %22, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4535, ptr align 8 %11, i64 16, i1 false), !tbaa.struct !29
+  %4536 = getelementptr inbounds [3 x %struct.location], ptr %31, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4536, ptr align 4 %12, i64 8, i1 false), !tbaa.struct !24
+  %4537 = load ptr, ptr %25, align 8, !tbaa !4
+  %4538 = getelementptr inbounds nuw %struct.location, ptr %4537, i32 1
+  store ptr %4538, ptr %25, align 8, !tbaa !4
+  br label %4539
 
-4532:                                             ; preds = %4529
-  %4533 = load i32, ptr %9, align 4
-  %4534 = icmp sle i32 0, %4533
-  br i1 %4534, label %4535, label %4544
+4539:                                             ; preds = %4533
+  %4540 = getelementptr inbounds [3 x %struct.location], ptr %31, i64 0, i64 1
+  %4541 = getelementptr inbounds nuw %struct.location, ptr %4540, i32 0, i32 0
+  %4542 = load i32, ptr %4541, align 8, !tbaa !36
+  %4543 = load ptr, ptr %25, align 8, !tbaa !4
+  %4544 = getelementptr inbounds nuw %struct.location, ptr %4543, i32 0, i32 0
+  store i32 %4542, ptr %4544, align 4, !tbaa !36
+  %4545 = getelementptr inbounds [3 x %struct.location], ptr %31, i64 0, i64 2
+  %4546 = getelementptr inbounds nuw %struct.location, ptr %4545, i32 0, i32 1
+  %4547 = load i32, ptr %4546, align 4, !tbaa !38
+  %4548 = load ptr, ptr %25, align 8, !tbaa !4
+  %4549 = getelementptr inbounds nuw %struct.location, ptr %4548, i32 0, i32 1
+  store i32 %4547, ptr %4549, align 4, !tbaa !38
+  br label %4550
 
-4535:                                             ; preds = %4532
-  %4536 = load i32, ptr %9, align 4
-  %4537 = icmp sle i32 %4536, 303
-  br i1 %4537, label %4538, label %4544
+4550:                                             ; preds = %4539
+  br label %4551
 
-4538:                                             ; preds = %4535
-  %4539 = load i32, ptr %9, align 4
-  %4540 = sext i32 %4539 to i64
-  %4541 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %4540
-  %4542 = load i8, ptr %4541, align 1
-  %4543 = sext i8 %4542 to i32
-  br label %4545
+4551:                                             ; preds = %4550
+  %4552 = load i32, ptr %26, align 4, !tbaa !18
+  store i32 %4552, ptr %14, align 4, !tbaa !18
+  br label %340
 
-4544:                                             ; preds = %4535, %4532
-  br label %4545
+4553:                                             ; preds = %460
+  store i32 0, ptr %27, align 4, !tbaa !18
+  br label %4560
 
-4545:                                             ; preds = %4544, %4538
-  %4546 = phi i32 [ %4543, %4538 ], [ 2, %4544 ]
-  store i32 %4546, ptr %27, align 4
-  %4547 = load i32, ptr %27, align 4
-  %4548 = load ptr, ptr %5, align 8
-  %4549 = load ptr, ptr %6, align 8
-  %4550 = load ptr, ptr %7, align 8
-  %4551 = load ptr, ptr %8, align 8
-  call void @yydestruct(ptr noundef @.str.46, i32 noundef %4547, ptr noundef %10, ptr noundef %11, ptr noundef %4548, ptr noundef %4549, ptr noundef %4550, ptr noundef %4551)
-  br label %4552
+4554:                                             ; preds = %454, %4509, %4439
+  store i32 1, ptr %27, align 4, !tbaa !18
+  br label %4560
 
-4552:                                             ; preds = %4545, %4529
-  %4553 = load i32, ptr %34, align 4
-  %4554 = load ptr, ptr %21, align 8
-  %4555 = sext i32 %4553 to i64
-  %4556 = sub i64 0, %4555
-  %4557 = getelementptr inbounds %union.YYSTYPE, ptr %4554, i64 %4556
-  store ptr %4557, ptr %21, align 8
-  %4558 = load i32, ptr %34, align 4
-  %4559 = load ptr, ptr %18, align 8
-  %4560 = sext i32 %4558 to i64
-  %4561 = sub i64 0, %4560
-  %4562 = getelementptr inbounds i16, ptr %4559, i64 %4561
-  store ptr %4562, ptr %18, align 8
-  %4563 = load i32, ptr %34, align 4
-  %4564 = load ptr, ptr %24, align 8
-  %4565 = sext i32 %4563 to i64
-  %4566 = sub i64 0, %4565
-  %4567 = getelementptr inbounds %struct.location, ptr %4564, i64 %4566
-  store ptr %4567, ptr %24, align 8
-  br label %4568
+4555:                                             ; preds = %4426, %454
+  %4556 = load ptr, ptr %6, align 8, !tbaa !8
+  %4557 = load ptr, ptr %7, align 8, !tbaa !10
+  %4558 = load ptr, ptr %8, align 8, !tbaa !12
+  %4559 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yyerror(ptr noundef %12, ptr noundef %4556, ptr noundef %4557, ptr noundef %4558, ptr noundef %4559, ptr noundef @.str.45)
+  store i32 2, ptr %27, align 4, !tbaa !18
+  br label %4560
 
-4568:                                             ; preds = %4572, %4552
-  %4569 = load ptr, ptr %18, align 8
-  %4570 = load ptr, ptr %17, align 8
-  %4571 = icmp ne ptr %4569, %4570
-  br i1 %4571, label %4572, label %4592
+4560:                                             ; preds = %4555, %4554, %4553
+  %4561 = load i32, ptr %10, align 4, !tbaa !18
+  %4562 = icmp ne i32 %4561, -2
+  br i1 %4562, label %4563, label %4583
 
-4572:                                             ; preds = %4568
-  %4573 = load ptr, ptr %18, align 8
-  %4574 = load i16, ptr %4573, align 2
-  %4575 = sext i16 %4574 to i32
-  %4576 = sext i32 %4575 to i64
-  %4577 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %4576
-  %4578 = load i8, ptr %4577, align 1
-  %4579 = sext i8 %4578 to i32
-  %4580 = load ptr, ptr %21, align 8
-  %4581 = load ptr, ptr %24, align 8
-  %4582 = load ptr, ptr %5, align 8
-  %4583 = load ptr, ptr %6, align 8
-  %4584 = load ptr, ptr %7, align 8
-  %4585 = load ptr, ptr %8, align 8
-  call void @yydestruct(ptr noundef @.str.47, i32 noundef %4579, ptr noundef %4580, ptr noundef %4581, ptr noundef %4582, ptr noundef %4583, ptr noundef %4584, ptr noundef %4585)
-  %4586 = load ptr, ptr %21, align 8
-  %4587 = getelementptr inbounds %union.YYSTYPE, ptr %4586, i64 -1
-  store ptr %4587, ptr %21, align 8
-  %4588 = load ptr, ptr %18, align 8
-  %4589 = getelementptr inbounds i16, ptr %4588, i64 -1
-  store ptr %4589, ptr %18, align 8
-  %4590 = load ptr, ptr %24, align 8
-  %4591 = getelementptr inbounds %struct.location, ptr %4590, i64 -1
-  store ptr %4591, ptr %24, align 8
-  br label %4568, !llvm.loop !4
+4563:                                             ; preds = %4560
+  %4564 = load i32, ptr %10, align 4, !tbaa !18
+  %4565 = icmp sle i32 0, %4564
+  br i1 %4565, label %4566, label %4575
 
-4592:                                             ; preds = %4568
-  %4593 = load ptr, ptr %17, align 8
-  %4594 = getelementptr inbounds [200 x i16], ptr %16, i64 0, i64 0
-  %4595 = icmp ne ptr %4593, %4594
-  br i1 %4595, label %4596, label %4598
+4566:                                             ; preds = %4563
+  %4567 = load i32, ptr %10, align 4, !tbaa !18
+  %4568 = icmp sle i32 %4567, 303
+  br i1 %4568, label %4569, label %4575
 
-4596:                                             ; preds = %4592
-  %4597 = load ptr, ptr %17, align 8
-  call void @jv_mem_free(ptr noundef %4597)
-  br label %4598
+4569:                                             ; preds = %4566
+  %4570 = load i32, ptr %10, align 4, !tbaa !18
+  %4571 = sext i32 %4570 to i64
+  %4572 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %4571
+  %4573 = load i8, ptr %4572, align 1, !tbaa !26
+  %4574 = sext i8 %4573 to i32
+  br label %4576
 
-4598:                                             ; preds = %4596, %4592
-  %4599 = load ptr, ptr %32, align 8
-  %4600 = getelementptr inbounds [128 x i8], ptr %31, i64 0, i64 0
-  %4601 = icmp ne ptr %4599, %4600
-  br i1 %4601, label %4602, label %4604
+4575:                                             ; preds = %4566, %4563
+  br label %4576
 
-4602:                                             ; preds = %4598
-  %4603 = load ptr, ptr %32, align 8
-  call void @jv_mem_free(ptr noundef %4603)
-  br label %4604
+4576:                                             ; preds = %4575, %4569
+  %4577 = phi i32 [ %4574, %4569 ], [ 2, %4575 ]
+  store i32 %4577, ptr %28, align 4, !tbaa !18
+  %4578 = load i32, ptr %28, align 4, !tbaa !18
+  %4579 = load ptr, ptr %6, align 8, !tbaa !8
+  %4580 = load ptr, ptr %7, align 8, !tbaa !10
+  %4581 = load ptr, ptr %8, align 8, !tbaa !12
+  %4582 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yydestruct(ptr noundef @.str.46, i32 noundef %4578, ptr noundef %11, ptr noundef %12, ptr noundef %4579, ptr noundef %4580, ptr noundef %4581, ptr noundef %4582)
+  br label %4583
 
-4604:                                             ; preds = %4602, %4598
-  %4605 = load i32, ptr %26, align 4
-  ret i32 %4605
+4583:                                             ; preds = %4576, %4560
+  %4584 = load i32, ptr %35, align 4, !tbaa !18
+  %4585 = load ptr, ptr %22, align 8, !tbaa !20
+  %4586 = sext i32 %4584 to i64
+  %4587 = sub i64 0, %4586
+  %4588 = getelementptr inbounds %union.YYSTYPE, ptr %4585, i64 %4587
+  store ptr %4588, ptr %22, align 8, !tbaa !20
+  %4589 = load i32, ptr %35, align 4, !tbaa !18
+  %4590 = load ptr, ptr %19, align 8, !tbaa !32
+  %4591 = sext i32 %4589 to i64
+  %4592 = sub i64 0, %4591
+  %4593 = getelementptr inbounds i16, ptr %4590, i64 %4592
+  store ptr %4593, ptr %19, align 8, !tbaa !32
+  %4594 = load i32, ptr %35, align 4, !tbaa !18
+  %4595 = load ptr, ptr %25, align 8, !tbaa !4
+  %4596 = sext i32 %4594 to i64
+  %4597 = sub i64 0, %4596
+  %4598 = getelementptr inbounds %struct.location, ptr %4595, i64 %4597
+  store ptr %4598, ptr %25, align 8, !tbaa !4
+  br label %4599
+
+4599:                                             ; preds = %4603, %4583
+  %4600 = load ptr, ptr %19, align 8, !tbaa !32
+  %4601 = load ptr, ptr %18, align 8, !tbaa !32
+  %4602 = icmp ne ptr %4600, %4601
+  br i1 %4602, label %4603, label %4623
+
+4603:                                             ; preds = %4599
+  %4604 = load ptr, ptr %19, align 8, !tbaa !32
+  %4605 = load i16, ptr %4604, align 2, !tbaa !27
+  %4606 = sext i16 %4605 to i32
+  %4607 = sext i32 %4606 to i64
+  %4608 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %4607
+  %4609 = load i8, ptr %4608, align 1, !tbaa !26
+  %4610 = sext i8 %4609 to i32
+  %4611 = load ptr, ptr %22, align 8, !tbaa !20
+  %4612 = load ptr, ptr %25, align 8, !tbaa !4
+  %4613 = load ptr, ptr %6, align 8, !tbaa !8
+  %4614 = load ptr, ptr %7, align 8, !tbaa !10
+  %4615 = load ptr, ptr %8, align 8, !tbaa !12
+  %4616 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @yydestruct(ptr noundef @.str.47, i32 noundef %4610, ptr noundef %4611, ptr noundef %4612, ptr noundef %4613, ptr noundef %4614, ptr noundef %4615, ptr noundef %4616)
+  %4617 = load ptr, ptr %22, align 8, !tbaa !20
+  %4618 = getelementptr inbounds %union.YYSTYPE, ptr %4617, i64 -1
+  store ptr %4618, ptr %22, align 8, !tbaa !20
+  %4619 = load ptr, ptr %19, align 8, !tbaa !32
+  %4620 = getelementptr inbounds i16, ptr %4619, i64 -1
+  store ptr %4620, ptr %19, align 8, !tbaa !32
+  %4621 = load ptr, ptr %25, align 8, !tbaa !4
+  %4622 = getelementptr inbounds %struct.location, ptr %4621, i64 -1
+  store ptr %4622, ptr %25, align 8, !tbaa !4
+  br label %4599, !llvm.loop !48
+
+4623:                                             ; preds = %4599
+  %4624 = load ptr, ptr %18, align 8, !tbaa !32
+  %4625 = getelementptr inbounds [200 x i16], ptr %17, i64 0, i64 0
+  %4626 = icmp ne ptr %4624, %4625
+  br i1 %4626, label %4627, label %4629
+
+4627:                                             ; preds = %4623
+  %4628 = load ptr, ptr %18, align 8, !tbaa !32
+  call void @jv_mem_free(ptr noundef %4628)
+  br label %4629
+
+4629:                                             ; preds = %4627, %4623
+  %4630 = load ptr, ptr %33, align 8, !tbaa !16
+  %4631 = getelementptr inbounds [128 x i8], ptr %32, i64 0, i64 0
+  %4632 = icmp ne ptr %4630, %4631
+  br i1 %4632, label %4633, label %4635
+
+4633:                                             ; preds = %4629
+  %4634 = load ptr, ptr %33, align 8, !tbaa !16
+  call void @jv_mem_free(ptr noundef %4634)
+  br label %4635
+
+4635:                                             ; preds = %4633, %4629
+  %4636 = load i32, ptr %27, align 4, !tbaa !18
+  store i32 %4636, ptr %5, align 4
+  store i32 1, ptr %42, align 4
+  br label %4637
+
+4637:                                             ; preds = %4635, %4426, %454
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #8
+  call void @llvm.lifetime.end.p0(i64 128, ptr %32) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %31) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 1600, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 3200, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 400, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %4638 = load i32, ptr %5, align 4
+  ret i32 %4638
 }
 
 declare ptr @jv_mem_alloc(i64 noundef) #2
@@ -6880,154 +7442,156 @@ define internal { ptr, ptr } @gen_definedor_assign(ptr %0, ptr %1, ptr %2, ptr %
   %16 = alloca %struct.block, align 8
   %17 = alloca %struct.block, align 8
   %18 = alloca %struct.block, align 8
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %19 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %20 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   store ptr %1, ptr %20, align 8
-  %21 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %21 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   store ptr %2, ptr %21, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %22 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   store ptr %3, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #8
   %23 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef @.str.49)
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %24 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %25 = extractvalue { ptr, ptr } %23, 0
   store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %26 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %27 = extractvalue { ptr, ptr } %23, 1
   store ptr %27, ptr %26, align 8
   %28 = call { ptr, ptr } @gen_op_simple(i32 noundef 1)
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 0
+  %29 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 0
   %30 = extractvalue { ptr, ptr } %28, 0
   store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 1
+  %31 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 1
   %32 = extractvalue { ptr, ptr } %28, 1
   store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 0
+  %33 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 0
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 1
+  %35 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 1
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %37 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %39 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   %40 = load ptr, ptr %39, align 8
   %41 = call { ptr, ptr } @block_join(ptr %34, ptr %36, ptr %38, ptr %40)
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %43 = extractvalue { ptr, ptr } %41, 0
   store ptr %43, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %44 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %45 = extractvalue { ptr, ptr } %41, 1
   store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %46 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %48 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %50 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %52 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %53 = load ptr, ptr %52, align 8
   %54 = call { ptr, ptr } @block_join(ptr %47, ptr %49, ptr %51, ptr %53)
-  %55 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %55 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %56 = extractvalue { ptr, ptr } %54, 0
   store ptr %56, ptr %55, align 8
-  %57 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %57 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %58 = extractvalue { ptr, ptr } %54, 1
   store ptr %58, ptr %57, align 8
-  %59 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %59 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %61 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   %62 = load ptr, ptr %61, align 8
   %63 = call { ptr, ptr } @gen_lambda(ptr %60, ptr %62)
-  %64 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 0
+  %64 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 0
   %65 = extractvalue { ptr, ptr } %63, 0
   store ptr %65, ptr %64, align 8
-  %66 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 1
+  %66 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 1
   %67 = extractvalue { ptr, ptr } %63, 1
   store ptr %67, ptr %66, align 8
   %68 = call { ptr, ptr } (...) @gen_noop()
-  %69 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 0
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 0
   %70 = extractvalue { ptr, ptr } %68, 0
   store ptr %70, ptr %69, align 8
-  %71 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 1
+  %71 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 1
   %72 = extractvalue { ptr, ptr } %68, 1
   store ptr %72, ptr %71, align 8
-  %73 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %73 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %75 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %76 = load ptr, ptr %75, align 8
   %77 = call { ptr, ptr } @gen_op_bound(i32 noundef 6, ptr %74, ptr %76)
-  %78 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 0
+  %78 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 0
   %79 = extractvalue { ptr, ptr } %77, 0
   store ptr %79, ptr %78, align 8
-  %80 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 1
+  %80 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 1
   %81 = extractvalue { ptr, ptr } %77, 1
   store ptr %81, ptr %80, align 8
-  %82 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 0
+  %82 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 0
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 1
+  %84 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 1
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 0
+  %86 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 0
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 1
+  %88 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 1
   %89 = load ptr, ptr %88, align 8
   %90 = call { ptr, ptr } @gen_definedor(ptr %83, ptr %85, ptr %87, ptr %89)
-  %91 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 0
+  %91 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 0
   %92 = extractvalue { ptr, ptr } %90, 0
   store ptr %92, ptr %91, align 8
-  %93 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 1
+  %93 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 1
   %94 = extractvalue { ptr, ptr } %90, 1
   store ptr %94, ptr %93, align 8
-  %95 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 0
+  %95 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 0
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 1
+  %97 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 1
   %98 = load ptr, ptr %97, align 8
   %99 = call { ptr, ptr } @gen_lambda(ptr %96, ptr %98)
-  %100 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 0
+  %100 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
   %101 = extractvalue { ptr, ptr } %99, 0
   store ptr %101, ptr %100, align 8
-  %102 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 1
+  %102 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
   %103 = extractvalue { ptr, ptr } %99, 1
   store ptr %103, ptr %102, align 8
-  %104 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 0
+  %104 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 0
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 1
+  %106 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 1
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 0
+  %108 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 1
+  %110 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
   %111 = load ptr, ptr %110, align 8
   %112 = call { ptr, ptr } @block_join(ptr %105, ptr %107, ptr %109, ptr %111)
-  %113 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
+  %113 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
   %114 = extractvalue { ptr, ptr } %112, 0
   store ptr %114, ptr %113, align 8
-  %115 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
+  %115 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
   %116 = extractvalue { ptr, ptr } %112, 1
   store ptr %116, ptr %115, align 8
-  %117 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
+  %117 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
+  %119 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
   %120 = load ptr, ptr %119, align 8
   %121 = call { ptr, ptr } @gen_call(ptr noundef @.str.10, ptr %118, ptr %120)
-  %122 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
+  %122 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 0
   %123 = extractvalue { ptr, ptr } %121, 0
   store ptr %123, ptr %122, align 8
-  %124 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %124 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 1
   %125 = extractvalue { ptr, ptr } %121, 1
   store ptr %125, ptr %124, align 8
-  %126 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %126 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %128 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
+  %130 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 0
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %132 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 1
   %133 = load ptr, ptr %132, align 8
   %134 = call { ptr, ptr } @block_join(ptr %127, ptr %129, ptr %131, ptr %133)
-  %135 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 0
+  %135 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
   %136 = extractvalue { ptr, ptr } %134, 0
   store ptr %136, ptr %135, align 8
-  %137 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 1
+  %137 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
   %138 = extractvalue { ptr, ptr } %134, 1
   store ptr %138, ptr %137, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #8
   %139 = load { ptr, ptr }, ptr %5, align 8
   ret { ptr, ptr } %139
 }
@@ -7041,163 +7605,170 @@ define internal { ptr, ptr } @gen_binop(ptr %0, ptr %1, ptr %2, ptr %3, i32 noun
   %8 = alloca %struct.block, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.block, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca %struct.block, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
   %13 = alloca %struct.block, align 8
   %14 = alloca %struct.block, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
-  store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
-  store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  store ptr %3, ptr %18, align 8
-  store i32 %4, ptr %9, align 4
-  %19 = load i32, ptr %9, align 4
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = call { ptr, ptr } @constant_fold(ptr %21, ptr %23, ptr %25, ptr %27, i32 noundef %19)
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
-  %30 = extractvalue { ptr, ptr } %28, 0
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
-  %32 = extractvalue { ptr, ptr } %28, 1
-  store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = call i32 @block_is_noop(ptr %34, ptr %36)
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %40, label %39
-
-39:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %10, i64 16, i1 false)
-  br label %95
+  %15 = alloca %struct.block, align 8
+  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  store ptr %0, ptr %16, align 8
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  store ptr %1, ptr %17, align 8
+  %18 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  store ptr %2, ptr %18, align 8
+  %19 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  store ptr %3, ptr %19, align 8
+  store i32 %4, ptr %9, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #8
+  %20 = load i32, ptr %9, align 4, !tbaa !18
+  %21 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = call { ptr, ptr } @constant_fold(ptr %22, ptr %24, ptr %26, ptr %28, i32 noundef %20)
+  %30 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
+  %31 = extractvalue { ptr, ptr } %29, 0
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
+  %33 = extractvalue { ptr, ptr } %29, 1
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = call i32 @block_is_noop(ptr %35, ptr %37)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %41, label %40
 
 40:                                               ; preds = %5
-  store ptr null, ptr %11, align 8
-  %41 = load i32, ptr %9, align 4
-  switch i32 %41, label %53 [
-    i32 43, label %42
-    i32 45, label %43
-    i32 42, label %44
-    i32 47, label %45
-    i32 37, label %46
-    i32 266, label %47
-    i32 267, label %48
-    i32 60, label %49
-    i32 62, label %50
-    i32 294, label %51
-    i32 295, label %52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !39
+  store i32 1, ptr %11, align 4
+  br label %96
+
+41:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  store ptr null, ptr %12, align 8, !tbaa !16
+  %42 = load i32, ptr %9, align 4, !tbaa !18
+  switch i32 %42, label %54 [
+    i32 43, label %43
+    i32 45, label %44
+    i32 42, label %45
+    i32 47, label %46
+    i32 37, label %47
+    i32 266, label %48
+    i32 267, label %49
+    i32 60, label %50
+    i32 62, label %51
+    i32 294, label %52
+    i32 295, label %53
   ]
 
-42:                                               ; preds = %40
-  store ptr @.str.50, ptr %11, align 8
-  br label %53
+43:                                               ; preds = %41
+  store ptr @.str.50, ptr %12, align 8, !tbaa !16
+  br label %54
 
-43:                                               ; preds = %40
-  store ptr @.str.51, ptr %11, align 8
-  br label %53
+44:                                               ; preds = %41
+  store ptr @.str.51, ptr %12, align 8, !tbaa !16
+  br label %54
 
-44:                                               ; preds = %40
-  store ptr @.str.52, ptr %11, align 8
-  br label %53
+45:                                               ; preds = %41
+  store ptr @.str.52, ptr %12, align 8, !tbaa !16
+  br label %54
 
-45:                                               ; preds = %40
-  store ptr @.str.53, ptr %11, align 8
-  br label %53
+46:                                               ; preds = %41
+  store ptr @.str.53, ptr %12, align 8, !tbaa !16
+  br label %54
 
-46:                                               ; preds = %40
-  store ptr @.str.54, ptr %11, align 8
-  br label %53
+47:                                               ; preds = %41
+  store ptr @.str.54, ptr %12, align 8, !tbaa !16
+  br label %54
 
-47:                                               ; preds = %40
-  store ptr @.str.55, ptr %11, align 8
-  br label %53
+48:                                               ; preds = %41
+  store ptr @.str.55, ptr %12, align 8, !tbaa !16
+  br label %54
 
-48:                                               ; preds = %40
-  store ptr @.str.56, ptr %11, align 8
-  br label %53
+49:                                               ; preds = %41
+  store ptr @.str.56, ptr %12, align 8, !tbaa !16
+  br label %54
 
-49:                                               ; preds = %40
-  store ptr @.str.57, ptr %11, align 8
-  br label %53
+50:                                               ; preds = %41
+  store ptr @.str.57, ptr %12, align 8, !tbaa !16
+  br label %54
 
-50:                                               ; preds = %40
-  store ptr @.str.58, ptr %11, align 8
-  br label %53
+51:                                               ; preds = %41
+  store ptr @.str.58, ptr %12, align 8, !tbaa !16
+  br label %54
 
-51:                                               ; preds = %40
-  store ptr @.str.59, ptr %11, align 8
-  br label %53
+52:                                               ; preds = %41
+  store ptr @.str.59, ptr %12, align 8, !tbaa !16
+  br label %54
 
-52:                                               ; preds = %40
-  store ptr @.str.60, ptr %11, align 8
-  br label %53
+53:                                               ; preds = %41
+  store ptr @.str.60, ptr %12, align 8, !tbaa !16
+  br label %54
 
-53:                                               ; preds = %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %40
-  %54 = load ptr, ptr %11, align 8
-  %55 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = call { ptr, ptr } @gen_lambda(ptr %56, ptr %58)
-  %60 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
-  %61 = extractvalue { ptr, ptr } %59, 0
-  store ptr %61, ptr %60, align 8
-  %62 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
-  %63 = extractvalue { ptr, ptr } %59, 1
-  store ptr %63, ptr %62, align 8
-  %64 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  %67 = load ptr, ptr %66, align 8
-  %68 = call { ptr, ptr } @gen_lambda(ptr %65, ptr %67)
-  %69 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 0
-  %70 = extractvalue { ptr, ptr } %68, 0
-  store ptr %70, ptr %69, align 8
-  %71 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 1
-  %72 = extractvalue { ptr, ptr } %68, 1
-  store ptr %72, ptr %71, align 8
-  %73 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
-  %81 = call { ptr, ptr } @block_join(ptr %74, ptr %76, ptr %78, ptr %80)
-  %82 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
-  %83 = extractvalue { ptr, ptr } %81, 0
-  store ptr %83, ptr %82, align 8
-  %84 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
-  %85 = extractvalue { ptr, ptr } %81, 1
-  store ptr %85, ptr %84, align 8
-  %86 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = call { ptr, ptr } @gen_call(ptr noundef %54, ptr %87, ptr %89)
-  %91 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
-  %92 = extractvalue { ptr, ptr } %90, 0
-  store ptr %92, ptr %91, align 8
-  %93 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
-  %94 = extractvalue { ptr, ptr } %90, 1
-  store ptr %94, ptr %93, align 8
-  br label %95
+54:                                               ; preds = %41, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43
+  %55 = load ptr, ptr %12, align 8, !tbaa !16
+  %56 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = call { ptr, ptr } @gen_lambda(ptr %57, ptr %59)
+  %61 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 0
+  %62 = extractvalue { ptr, ptr } %60, 0
+  store ptr %62, ptr %61, align 8
+  %63 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 1
+  %64 = extractvalue { ptr, ptr } %60, 1
+  store ptr %64, ptr %63, align 8
+  %65 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  %69 = call { ptr, ptr } @gen_lambda(ptr %66, ptr %68)
+  %70 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
+  %71 = extractvalue { ptr, ptr } %69, 0
+  store ptr %71, ptr %70, align 8
+  %72 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
+  %73 = extractvalue { ptr, ptr } %69, 1
+  store ptr %73, ptr %72, align 8
+  %74 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8
+  %82 = call { ptr, ptr } @block_join(ptr %75, ptr %77, ptr %79, ptr %81)
+  %83 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
+  %84 = extractvalue { ptr, ptr } %82, 0
+  store ptr %84, ptr %83, align 8
+  %85 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
+  %86 = extractvalue { ptr, ptr } %82, 1
+  store ptr %86, ptr %85, align 8
+  %87 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  %91 = call { ptr, ptr } @gen_call(ptr noundef %55, ptr %88, ptr %90)
+  %92 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
+  %93 = extractvalue { ptr, ptr } %91, 0
+  store ptr %93, ptr %92, align 8
+  %94 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
+  %95 = extractvalue { ptr, ptr } %91, 1
+  store ptr %95, ptr %94, align 8
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  br label %96
 
-95:                                               ; preds = %53, %39
-  %96 = load { ptr, ptr }, ptr %6, align 8
-  ret { ptr, ptr } %96
+96:                                               ; preds = %54, %40
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #8
+  %97 = load { ptr, ptr }, ptr %6, align 8
+  ret { ptr, ptr } %97
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7217,156 +7788,158 @@ define internal { ptr, ptr } @gen_update(ptr %0, ptr %1, ptr %2, ptr %3, i32 nou
   %18 = alloca %struct.block, align 8
   %19 = alloca %struct.block, align 8
   %20 = alloca %struct.block, align 8
-  %21 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %21 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   store ptr %0, ptr %21, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %22 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   store ptr %1, ptr %22, align 8
-  %23 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %23 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %24 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   store ptr %3, ptr %24, align 8
-  store i32 %4, ptr %9, align 4
+  store i32 %4, ptr %9, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #8
   %25 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef @.str.49)
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %26 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %27 = extractvalue { ptr, ptr } %25, 0
   store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %28 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %29 = extractvalue { ptr, ptr } %25, 1
   store ptr %29, ptr %28, align 8
   %30 = call { ptr, ptr } @gen_op_simple(i32 noundef 1)
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
+  %31 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
   %32 = extractvalue { ptr, ptr } %30, 0
   store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
+  %33 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
   %34 = extractvalue { ptr, ptr } %30, 1
   store ptr %34, ptr %33, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
+  %35 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
+  %37 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %39 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %41 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = call { ptr, ptr } @block_join(ptr %36, ptr %38, ptr %40, ptr %42)
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
+  %44 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 0
   %45 = extractvalue { ptr, ptr } %43, 0
   store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %46 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 1
   %47 = extractvalue { ptr, ptr } %43, 1
   store ptr %47, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
+  %48 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 0
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %50 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 1
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %52 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %54 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
   %56 = call { ptr, ptr } @block_join(ptr %49, ptr %51, ptr %53, ptr %55)
-  %57 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 0
   %58 = extractvalue { ptr, ptr } %56, 0
   store ptr %58, ptr %57, align 8
-  %59 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 1
+  %59 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 1
   %60 = extractvalue { ptr, ptr } %56, 1
   store ptr %60, ptr %59, align 8
-  %61 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %61 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %63 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   %64 = load ptr, ptr %63, align 8
   %65 = call { ptr, ptr } @gen_lambda(ptr %62, ptr %64)
-  %66 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 0
+  %66 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 0
   %67 = extractvalue { ptr, ptr } %65, 0
   store ptr %67, ptr %66, align 8
-  %68 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 1
+  %68 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 1
   %69 = extractvalue { ptr, ptr } %65, 1
   store ptr %69, ptr %68, align 8
   %70 = call { ptr, ptr } (...) @gen_noop()
-  %71 = getelementptr inbounds { ptr, ptr }, ptr %19, i32 0, i32 0
+  %71 = getelementptr inbounds nuw { ptr, ptr }, ptr %19, i32 0, i32 0
   %72 = extractvalue { ptr, ptr } %70, 0
   store ptr %72, ptr %71, align 8
-  %73 = getelementptr inbounds { ptr, ptr }, ptr %19, i32 0, i32 1
+  %73 = getelementptr inbounds nuw { ptr, ptr }, ptr %19, i32 0, i32 1
   %74 = extractvalue { ptr, ptr } %70, 1
   store ptr %74, ptr %73, align 8
-  %75 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %75 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %77 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %78 = load ptr, ptr %77, align 8
   %79 = call { ptr, ptr } @gen_op_bound(i32 noundef 6, ptr %76, ptr %78)
-  %80 = getelementptr inbounds { ptr, ptr }, ptr %20, i32 0, i32 0
+  %80 = getelementptr inbounds nuw { ptr, ptr }, ptr %20, i32 0, i32 0
   %81 = extractvalue { ptr, ptr } %79, 0
   store ptr %81, ptr %80, align 8
-  %82 = getelementptr inbounds { ptr, ptr }, ptr %20, i32 0, i32 1
+  %82 = getelementptr inbounds nuw { ptr, ptr }, ptr %20, i32 0, i32 1
   %83 = extractvalue { ptr, ptr } %79, 1
   store ptr %83, ptr %82, align 8
-  %84 = load i32, ptr %9, align 4
-  %85 = getelementptr inbounds { ptr, ptr }, ptr %19, i32 0, i32 0
+  %84 = load i32, ptr %9, align 4, !tbaa !18
+  %85 = getelementptr inbounds nuw { ptr, ptr }, ptr %19, i32 0, i32 0
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds { ptr, ptr }, ptr %19, i32 0, i32 1
+  %87 = getelementptr inbounds nuw { ptr, ptr }, ptr %19, i32 0, i32 1
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds { ptr, ptr }, ptr %20, i32 0, i32 0
+  %89 = getelementptr inbounds nuw { ptr, ptr }, ptr %20, i32 0, i32 0
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds { ptr, ptr }, ptr %20, i32 0, i32 1
+  %91 = getelementptr inbounds nuw { ptr, ptr }, ptr %20, i32 0, i32 1
   %92 = load ptr, ptr %91, align 8
   %93 = call { ptr, ptr } @gen_binop(ptr %86, ptr %88, ptr %90, ptr %92, i32 noundef %84)
-  %94 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 0
+  %94 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 0
   %95 = extractvalue { ptr, ptr } %93, 0
   store ptr %95, ptr %94, align 8
-  %96 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 1
+  %96 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 1
   %97 = extractvalue { ptr, ptr } %93, 1
   store ptr %97, ptr %96, align 8
-  %98 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 0
+  %98 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 0
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 1
+  %100 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 1
   %101 = load ptr, ptr %100, align 8
   %102 = call { ptr, ptr } @gen_lambda(ptr %99, ptr %101)
-  %103 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 0
+  %103 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 0
   %104 = extractvalue { ptr, ptr } %102, 0
   store ptr %104, ptr %103, align 8
-  %105 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 1
+  %105 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 1
   %106 = extractvalue { ptr, ptr } %102, 1
   store ptr %106, ptr %105, align 8
-  %107 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 0
+  %107 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 0
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 1
+  %109 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 1
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 0
+  %111 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 0
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 1
+  %113 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 1
   %114 = load ptr, ptr %113, align 8
   %115 = call { ptr, ptr } @block_join(ptr %108, ptr %110, ptr %112, ptr %114)
-  %116 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 0
+  %116 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
   %117 = extractvalue { ptr, ptr } %115, 0
   store ptr %117, ptr %116, align 8
-  %118 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 1
+  %118 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
   %119 = extractvalue { ptr, ptr } %115, 1
   store ptr %119, ptr %118, align 8
-  %120 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 0
+  %120 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 1
+  %122 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
   %123 = load ptr, ptr %122, align 8
   %124 = call { ptr, ptr } @gen_call(ptr noundef @.str.10, ptr %121, ptr %123)
-  %125 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 0
+  %125 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 0
   %126 = extractvalue { ptr, ptr } %124, 0
   store ptr %126, ptr %125, align 8
-  %127 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 1
+  %127 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 1
   %128 = extractvalue { ptr, ptr } %124, 1
   store ptr %128, ptr %127, align 8
-  %129 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 0
+  %129 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 0
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 1
+  %131 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 1
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 0
+  %133 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 0
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 1
+  %135 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 1
   %136 = load ptr, ptr %135, align 8
   %137 = call { ptr, ptr } @block_join(ptr %130, ptr %132, ptr %134, ptr %136)
-  %138 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %138 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   %139 = extractvalue { ptr, ptr } %137, 0
   store ptr %139, ptr %138, align 8
-  %140 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %140 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   %141 = extractvalue { ptr, ptr } %137, 1
   store ptr %141, ptr %140, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #8
   %142 = load { ptr, ptr }, ptr %6, align 8
   ret { ptr, ptr } %142
 }
@@ -7395,60 +7968,60 @@ define internal { ptr, ptr } @gen_format(ptr %0, ptr %1, i64 %2, ptr %3) #0 {
   %8 = alloca %struct.block, align 8
   %9 = alloca %struct.block, align 8
   %10 = alloca %struct.block, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %12 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds { i64, ptr }, ptr %7, i32 0, i32 0
+  %13 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 0
   store i64 %2, ptr %13, align 8
-  %14 = getelementptr inbounds { i64, ptr }, ptr %7, i32 0, i32 1
+  %14 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 1
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds { i64, ptr }, ptr %7, i32 0, i32 0
+  %15 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 0
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds { i64, ptr }, ptr %7, i32 0, i32 1
+  %17 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
   %19 = call { ptr, ptr } @gen_const(i64 %16, ptr %18)
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %20 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %21 = extractvalue { ptr, ptr } %19, 0
   store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %22 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %23 = extractvalue { ptr, ptr } %19, 1
   store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %24 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %26 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
   %28 = call { ptr, ptr } @gen_lambda(ptr %25, ptr %27)
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %29 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %30 = extractvalue { ptr, ptr } %28, 0
   store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %31 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %32 = extractvalue { ptr, ptr } %28, 1
   store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %33 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %35 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %36 = load ptr, ptr %35, align 8
   %37 = call { ptr, ptr } @gen_call(ptr noundef @.str.61, ptr %34, ptr %36)
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %38 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %39 = extractvalue { ptr, ptr } %37, 0
   store ptr %39, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %40 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %41 = extractvalue { ptr, ptr } %37, 1
   store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %44 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %46 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %48 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %49 = load ptr, ptr %48, align 8
   %50 = call { ptr, ptr } @block_join(ptr %43, ptr %45, ptr %47, ptr %49)
-  %51 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 0
+  %51 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
   %52 = extractvalue { ptr, ptr } %50, 0
   store ptr %52, ptr %51, align 8
-  %53 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 1
+  %53 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
   %54 = extractvalue { ptr, ptr } %50, 1
   store ptr %54, ptr %53, align 8
   %55 = load { ptr, ptr }, ptr %5, align 8
@@ -7465,60 +8038,60 @@ define internal { ptr, ptr } @gen_index_opt(ptr %0, ptr %1, ptr %2, ptr %3) #0 {
   %8 = alloca %struct.block, align 8
   %9 = alloca %struct.block, align 8
   %10 = alloca %struct.block, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %12 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %13 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %15 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
   %19 = call { ptr, ptr } @gen_subexp(ptr %16, ptr %18)
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %20 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %21 = extractvalue { ptr, ptr } %19, 0
   store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %22 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %23 = extractvalue { ptr, ptr } %19, 1
   store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %24 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %26 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %28 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %30 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   %31 = load ptr, ptr %30, align 8
   %32 = call { ptr, ptr } @block_join(ptr %25, ptr %27, ptr %29, ptr %31)
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %33 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %34 = extractvalue { ptr, ptr } %32, 0
   store ptr %34, ptr %33, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %35 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %36 = extractvalue { ptr, ptr } %32, 1
   store ptr %36, ptr %35, align 8
   %37 = call { ptr, ptr } @gen_op_simple(i32 noundef 11)
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %38 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %39 = extractvalue { ptr, ptr } %37, 0
   store ptr %39, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %40 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %41 = extractvalue { ptr, ptr } %37, 1
   store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %44 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %46 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %48 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %49 = load ptr, ptr %48, align 8
   %50 = call { ptr, ptr } @block_join(ptr %43, ptr %45, ptr %47, ptr %49)
-  %51 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 0
+  %51 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
   %52 = extractvalue { ptr, ptr } %50, 0
   store ptr %52, ptr %51, align 8
-  %53 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 1
+  %53 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
   %54 = extractvalue { ptr, ptr } %50, 1
   store ptr %54, ptr %53, align 8
   %55 = load { ptr, ptr }, ptr %5, align 8
@@ -7533,60 +8106,60 @@ define internal { ptr, ptr } @gen_index(ptr %0, ptr %1, ptr %2, ptr %3) #0 {
   %8 = alloca %struct.block, align 8
   %9 = alloca %struct.block, align 8
   %10 = alloca %struct.block, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %12 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %13 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %15 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
   %19 = call { ptr, ptr } @gen_subexp(ptr %16, ptr %18)
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %20 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %21 = extractvalue { ptr, ptr } %19, 0
   store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %22 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %23 = extractvalue { ptr, ptr } %19, 1
   store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %24 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %26 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
+  %28 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
+  %30 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
   %31 = load ptr, ptr %30, align 8
   %32 = call { ptr, ptr } @block_join(ptr %25, ptr %27, ptr %29, ptr %31)
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %33 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %34 = extractvalue { ptr, ptr } %32, 0
   store ptr %34, ptr %33, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %35 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %36 = extractvalue { ptr, ptr } %32, 1
   store ptr %36, ptr %35, align 8
   %37 = call { ptr, ptr } @gen_op_simple(i32 noundef 10)
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %38 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %39 = extractvalue { ptr, ptr } %37, 0
   store ptr %39, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %40 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %41 = extractvalue { ptr, ptr } %37, 1
   store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %44 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %46 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %48 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %49 = load ptr, ptr %48, align 8
   %50 = call { ptr, ptr } @block_join(ptr %43, ptr %45, ptr %47, ptr %49)
-  %51 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 0
+  %51 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
   %52 = extractvalue { ptr, ptr } %50, 0
   store ptr %52, ptr %51, align 8
-  %53 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 1
+  %53 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
   %54 = extractvalue { ptr, ptr } %50, 1
   store ptr %54, ptr %53, align 8
   %55 = load { ptr, ptr }, ptr %5, align 8
@@ -7621,270 +8194,272 @@ define internal { ptr, ptr } @gen_slice_index(ptr %0, ptr %1, ptr %2, ptr %3, pt
   %31 = alloca %struct.block, align 8
   %32 = alloca %struct.block, align 8
   %33 = alloca %struct.block, align 8
-  %34 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %34 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   store ptr %0, ptr %34, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %35 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   store ptr %1, ptr %35, align 8
-  %36 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %36 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   store ptr %2, ptr %36, align 8
-  %37 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %37 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   store ptr %3, ptr %37, align 8
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 0
+  %38 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 0
   store ptr %4, ptr %38, align 8
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 1
+  %39 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 1
   store ptr %5, ptr %39, align 8
-  store i32 %6, ptr %12, align 4
+  store i32 %6, ptr %12, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #8
   %40 = call { i64, ptr } @jv_object()
-  %41 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 0
+  %41 = getelementptr inbounds nuw { i64, ptr }, ptr %21, i32 0, i32 0
   %42 = extractvalue { i64, ptr } %40, 0
   store i64 %42, ptr %41, align 8
-  %43 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  %43 = getelementptr inbounds nuw { i64, ptr }, ptr %21, i32 0, i32 1
   %44 = extractvalue { i64, ptr } %40, 1
   store ptr %44, ptr %43, align 8
-  %45 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 0
+  %45 = getelementptr inbounds nuw { i64, ptr }, ptr %21, i32 0, i32 0
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  %47 = getelementptr inbounds nuw { i64, ptr }, ptr %21, i32 0, i32 1
   %48 = load ptr, ptr %47, align 8
   %49 = call { ptr, ptr } @gen_const(i64 %46, ptr %48)
-  %50 = getelementptr inbounds { ptr, ptr }, ptr %20, i32 0, i32 0
+  %50 = getelementptr inbounds nuw { ptr, ptr }, ptr %20, i32 0, i32 0
   %51 = extractvalue { ptr, ptr } %49, 0
   store ptr %51, ptr %50, align 8
-  %52 = getelementptr inbounds { ptr, ptr }, ptr %20, i32 0, i32 1
+  %52 = getelementptr inbounds nuw { ptr, ptr }, ptr %20, i32 0, i32 1
   %53 = extractvalue { ptr, ptr } %49, 1
   store ptr %53, ptr %52, align 8
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %20, i32 0, i32 0
+  %54 = getelementptr inbounds nuw { ptr, ptr }, ptr %20, i32 0, i32 0
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds { ptr, ptr }, ptr %20, i32 0, i32 1
+  %56 = getelementptr inbounds nuw { ptr, ptr }, ptr %20, i32 0, i32 1
   %57 = load ptr, ptr %56, align 8
   %58 = call { ptr, ptr } @gen_subexp(ptr %55, ptr %57)
-  %59 = getelementptr inbounds { ptr, ptr }, ptr %19, i32 0, i32 0
+  %59 = getelementptr inbounds nuw { ptr, ptr }, ptr %19, i32 0, i32 0
   %60 = extractvalue { ptr, ptr } %58, 0
   store ptr %60, ptr %59, align 8
-  %61 = getelementptr inbounds { ptr, ptr }, ptr %19, i32 0, i32 1
+  %61 = getelementptr inbounds nuw { ptr, ptr }, ptr %19, i32 0, i32 1
   %62 = extractvalue { ptr, ptr } %58, 1
   store ptr %62, ptr %61, align 8
   %63 = call { i64, ptr } @jv_string(ptr noundef @.str.62)
-  %64 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 0
+  %64 = getelementptr inbounds nuw { i64, ptr }, ptr %24, i32 0, i32 0
   %65 = extractvalue { i64, ptr } %63, 0
   store i64 %65, ptr %64, align 8
-  %66 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 1
+  %66 = getelementptr inbounds nuw { i64, ptr }, ptr %24, i32 0, i32 1
   %67 = extractvalue { i64, ptr } %63, 1
   store ptr %67, ptr %66, align 8
-  %68 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 0
+  %68 = getelementptr inbounds nuw { i64, ptr }, ptr %24, i32 0, i32 0
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 1
+  %70 = getelementptr inbounds nuw { i64, ptr }, ptr %24, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
   %72 = call { ptr, ptr } @gen_const(i64 %69, ptr %71)
-  %73 = getelementptr inbounds { ptr, ptr }, ptr %23, i32 0, i32 0
+  %73 = getelementptr inbounds nuw { ptr, ptr }, ptr %23, i32 0, i32 0
   %74 = extractvalue { ptr, ptr } %72, 0
   store ptr %74, ptr %73, align 8
-  %75 = getelementptr inbounds { ptr, ptr }, ptr %23, i32 0, i32 1
+  %75 = getelementptr inbounds nuw { ptr, ptr }, ptr %23, i32 0, i32 1
   %76 = extractvalue { ptr, ptr } %72, 1
   store ptr %76, ptr %75, align 8
-  %77 = getelementptr inbounds { ptr, ptr }, ptr %23, i32 0, i32 0
+  %77 = getelementptr inbounds nuw { ptr, ptr }, ptr %23, i32 0, i32 0
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds { ptr, ptr }, ptr %23, i32 0, i32 1
+  %79 = getelementptr inbounds nuw { ptr, ptr }, ptr %23, i32 0, i32 1
   %80 = load ptr, ptr %79, align 8
   %81 = call { ptr, ptr } @gen_subexp(ptr %78, ptr %80)
-  %82 = getelementptr inbounds { ptr, ptr }, ptr %22, i32 0, i32 0
+  %82 = getelementptr inbounds nuw { ptr, ptr }, ptr %22, i32 0, i32 0
   %83 = extractvalue { ptr, ptr } %81, 0
   store ptr %83, ptr %82, align 8
-  %84 = getelementptr inbounds { ptr, ptr }, ptr %22, i32 0, i32 1
+  %84 = getelementptr inbounds nuw { ptr, ptr }, ptr %22, i32 0, i32 1
   %85 = extractvalue { ptr, ptr } %81, 1
   store ptr %85, ptr %84, align 8
-  %86 = getelementptr inbounds { ptr, ptr }, ptr %19, i32 0, i32 0
+  %86 = getelementptr inbounds nuw { ptr, ptr }, ptr %19, i32 0, i32 0
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds { ptr, ptr }, ptr %19, i32 0, i32 1
+  %88 = getelementptr inbounds nuw { ptr, ptr }, ptr %19, i32 0, i32 1
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds { ptr, ptr }, ptr %22, i32 0, i32 0
+  %90 = getelementptr inbounds nuw { ptr, ptr }, ptr %22, i32 0, i32 0
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds { ptr, ptr }, ptr %22, i32 0, i32 1
+  %92 = getelementptr inbounds nuw { ptr, ptr }, ptr %22, i32 0, i32 1
   %93 = load ptr, ptr %92, align 8
   %94 = call { ptr, ptr } @block_join(ptr %87, ptr %89, ptr %91, ptr %93)
-  %95 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 0
+  %95 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 0
   %96 = extractvalue { ptr, ptr } %94, 0
   store ptr %96, ptr %95, align 8
-  %97 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 1
+  %97 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 1
   %98 = extractvalue { ptr, ptr } %94, 1
   store ptr %98, ptr %97, align 8
-  %99 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %99 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %101 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %102 = load ptr, ptr %101, align 8
   %103 = call { ptr, ptr } @gen_subexp(ptr %100, ptr %102)
-  %104 = getelementptr inbounds { ptr, ptr }, ptr %25, i32 0, i32 0
+  %104 = getelementptr inbounds nuw { ptr, ptr }, ptr %25, i32 0, i32 0
   %105 = extractvalue { ptr, ptr } %103, 0
   store ptr %105, ptr %104, align 8
-  %106 = getelementptr inbounds { ptr, ptr }, ptr %25, i32 0, i32 1
+  %106 = getelementptr inbounds nuw { ptr, ptr }, ptr %25, i32 0, i32 1
   %107 = extractvalue { ptr, ptr } %103, 1
   store ptr %107, ptr %106, align 8
-  %108 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 0
+  %108 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 0
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds { ptr, ptr }, ptr %18, i32 0, i32 1
+  %110 = getelementptr inbounds nuw { ptr, ptr }, ptr %18, i32 0, i32 1
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds { ptr, ptr }, ptr %25, i32 0, i32 0
+  %112 = getelementptr inbounds nuw { ptr, ptr }, ptr %25, i32 0, i32 0
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds { ptr, ptr }, ptr %25, i32 0, i32 1
+  %114 = getelementptr inbounds nuw { ptr, ptr }, ptr %25, i32 0, i32 1
   %115 = load ptr, ptr %114, align 8
   %116 = call { ptr, ptr } @block_join(ptr %109, ptr %111, ptr %113, ptr %115)
-  %117 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 0
+  %117 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 0
   %118 = extractvalue { ptr, ptr } %116, 0
   store ptr %118, ptr %117, align 8
-  %119 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 1
+  %119 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 1
   %120 = extractvalue { ptr, ptr } %116, 1
   store ptr %120, ptr %119, align 8
   %121 = call { ptr, ptr } @gen_op_simple(i32 noundef 21)
-  %122 = getelementptr inbounds { ptr, ptr }, ptr %26, i32 0, i32 0
+  %122 = getelementptr inbounds nuw { ptr, ptr }, ptr %26, i32 0, i32 0
   %123 = extractvalue { ptr, ptr } %121, 0
   store ptr %123, ptr %122, align 8
-  %124 = getelementptr inbounds { ptr, ptr }, ptr %26, i32 0, i32 1
+  %124 = getelementptr inbounds nuw { ptr, ptr }, ptr %26, i32 0, i32 1
   %125 = extractvalue { ptr, ptr } %121, 1
   store ptr %125, ptr %124, align 8
-  %126 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 0
+  %126 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 0
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds { ptr, ptr }, ptr %17, i32 0, i32 1
+  %128 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 1
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds { ptr, ptr }, ptr %26, i32 0, i32 0
+  %130 = getelementptr inbounds nuw { ptr, ptr }, ptr %26, i32 0, i32 0
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds { ptr, ptr }, ptr %26, i32 0, i32 1
+  %132 = getelementptr inbounds nuw { ptr, ptr }, ptr %26, i32 0, i32 1
   %133 = load ptr, ptr %132, align 8
   %134 = call { ptr, ptr } @block_join(ptr %127, ptr %129, ptr %131, ptr %133)
-  %135 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 0
+  %135 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 0
   %136 = extractvalue { ptr, ptr } %134, 0
   store ptr %136, ptr %135, align 8
-  %137 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 1
+  %137 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 1
   %138 = extractvalue { ptr, ptr } %134, 1
   store ptr %138, ptr %137, align 8
   %139 = call { i64, ptr } @jv_string(ptr noundef @.str.34)
-  %140 = getelementptr inbounds { i64, ptr }, ptr %29, i32 0, i32 0
+  %140 = getelementptr inbounds nuw { i64, ptr }, ptr %29, i32 0, i32 0
   %141 = extractvalue { i64, ptr } %139, 0
   store i64 %141, ptr %140, align 8
-  %142 = getelementptr inbounds { i64, ptr }, ptr %29, i32 0, i32 1
+  %142 = getelementptr inbounds nuw { i64, ptr }, ptr %29, i32 0, i32 1
   %143 = extractvalue { i64, ptr } %139, 1
   store ptr %143, ptr %142, align 8
-  %144 = getelementptr inbounds { i64, ptr }, ptr %29, i32 0, i32 0
+  %144 = getelementptr inbounds nuw { i64, ptr }, ptr %29, i32 0, i32 0
   %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds { i64, ptr }, ptr %29, i32 0, i32 1
+  %146 = getelementptr inbounds nuw { i64, ptr }, ptr %29, i32 0, i32 1
   %147 = load ptr, ptr %146, align 8
   %148 = call { ptr, ptr } @gen_const(i64 %145, ptr %147)
-  %149 = getelementptr inbounds { ptr, ptr }, ptr %28, i32 0, i32 0
+  %149 = getelementptr inbounds nuw { ptr, ptr }, ptr %28, i32 0, i32 0
   %150 = extractvalue { ptr, ptr } %148, 0
   store ptr %150, ptr %149, align 8
-  %151 = getelementptr inbounds { ptr, ptr }, ptr %28, i32 0, i32 1
+  %151 = getelementptr inbounds nuw { ptr, ptr }, ptr %28, i32 0, i32 1
   %152 = extractvalue { ptr, ptr } %148, 1
   store ptr %152, ptr %151, align 8
-  %153 = getelementptr inbounds { ptr, ptr }, ptr %28, i32 0, i32 0
+  %153 = getelementptr inbounds nuw { ptr, ptr }, ptr %28, i32 0, i32 0
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds { ptr, ptr }, ptr %28, i32 0, i32 1
+  %155 = getelementptr inbounds nuw { ptr, ptr }, ptr %28, i32 0, i32 1
   %156 = load ptr, ptr %155, align 8
   %157 = call { ptr, ptr } @gen_subexp(ptr %154, ptr %156)
-  %158 = getelementptr inbounds { ptr, ptr }, ptr %27, i32 0, i32 0
+  %158 = getelementptr inbounds nuw { ptr, ptr }, ptr %27, i32 0, i32 0
   %159 = extractvalue { ptr, ptr } %157, 0
   store ptr %159, ptr %158, align 8
-  %160 = getelementptr inbounds { ptr, ptr }, ptr %27, i32 0, i32 1
+  %160 = getelementptr inbounds nuw { ptr, ptr }, ptr %27, i32 0, i32 1
   %161 = extractvalue { ptr, ptr } %157, 1
   store ptr %161, ptr %160, align 8
-  %162 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 0
+  %162 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 0
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds { ptr, ptr }, ptr %16, i32 0, i32 1
+  %164 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 1
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds { ptr, ptr }, ptr %27, i32 0, i32 0
+  %166 = getelementptr inbounds nuw { ptr, ptr }, ptr %27, i32 0, i32 0
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds { ptr, ptr }, ptr %27, i32 0, i32 1
+  %168 = getelementptr inbounds nuw { ptr, ptr }, ptr %27, i32 0, i32 1
   %169 = load ptr, ptr %168, align 8
   %170 = call { ptr, ptr } @block_join(ptr %163, ptr %165, ptr %167, ptr %169)
-  %171 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 0
+  %171 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
   %172 = extractvalue { ptr, ptr } %170, 0
   store ptr %172, ptr %171, align 8
-  %173 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 1
+  %173 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
   %174 = extractvalue { ptr, ptr } %170, 1
   store ptr %174, ptr %173, align 8
-  %175 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 0
+  %175 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 0
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 1
+  %177 = getelementptr inbounds nuw { ptr, ptr }, ptr %11, i32 0, i32 1
   %178 = load ptr, ptr %177, align 8
   %179 = call { ptr, ptr } @gen_subexp(ptr %176, ptr %178)
-  %180 = getelementptr inbounds { ptr, ptr }, ptr %30, i32 0, i32 0
+  %180 = getelementptr inbounds nuw { ptr, ptr }, ptr %30, i32 0, i32 0
   %181 = extractvalue { ptr, ptr } %179, 0
   store ptr %181, ptr %180, align 8
-  %182 = getelementptr inbounds { ptr, ptr }, ptr %30, i32 0, i32 1
+  %182 = getelementptr inbounds nuw { ptr, ptr }, ptr %30, i32 0, i32 1
   %183 = extractvalue { ptr, ptr } %179, 1
   store ptr %183, ptr %182, align 8
-  %184 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 0
+  %184 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 1
+  %186 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds { ptr, ptr }, ptr %30, i32 0, i32 0
+  %188 = getelementptr inbounds nuw { ptr, ptr }, ptr %30, i32 0, i32 0
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds { ptr, ptr }, ptr %30, i32 0, i32 1
+  %190 = getelementptr inbounds nuw { ptr, ptr }, ptr %30, i32 0, i32 1
   %191 = load ptr, ptr %190, align 8
   %192 = call { ptr, ptr } @block_join(ptr %185, ptr %187, ptr %189, ptr %191)
-  %193 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 0
+  %193 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 0
   %194 = extractvalue { ptr, ptr } %192, 0
   store ptr %194, ptr %193, align 8
-  %195 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 1
+  %195 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 1
   %196 = extractvalue { ptr, ptr } %192, 1
   store ptr %196, ptr %195, align 8
   %197 = call { ptr, ptr } @gen_op_simple(i32 noundef 21)
-  %198 = getelementptr inbounds { ptr, ptr }, ptr %31, i32 0, i32 0
+  %198 = getelementptr inbounds nuw { ptr, ptr }, ptr %31, i32 0, i32 0
   %199 = extractvalue { ptr, ptr } %197, 0
   store ptr %199, ptr %198, align 8
-  %200 = getelementptr inbounds { ptr, ptr }, ptr %31, i32 0, i32 1
+  %200 = getelementptr inbounds nuw { ptr, ptr }, ptr %31, i32 0, i32 1
   %201 = extractvalue { ptr, ptr } %197, 1
   store ptr %201, ptr %200, align 8
-  %202 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 0
+  %202 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 0
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds { ptr, ptr }, ptr %14, i32 0, i32 1
+  %204 = getelementptr inbounds nuw { ptr, ptr }, ptr %14, i32 0, i32 1
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds { ptr, ptr }, ptr %31, i32 0, i32 0
+  %206 = getelementptr inbounds nuw { ptr, ptr }, ptr %31, i32 0, i32 0
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds { ptr, ptr }, ptr %31, i32 0, i32 1
+  %208 = getelementptr inbounds nuw { ptr, ptr }, ptr %31, i32 0, i32 1
   %209 = load ptr, ptr %208, align 8
   %210 = call { ptr, ptr } @block_join(ptr %203, ptr %205, ptr %207, ptr %209)
-  %211 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
+  %211 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
   %212 = extractvalue { ptr, ptr } %210, 0
   store ptr %212, ptr %211, align 8
-  %213 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
+  %213 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
   %214 = extractvalue { ptr, ptr } %210, 1
   store ptr %214, ptr %213, align 8
-  %215 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
+  %215 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
+  %217 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %219 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %221 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %222 = load ptr, ptr %221, align 8
   %223 = call { ptr, ptr } @block_join(ptr %216, ptr %218, ptr %220, ptr %222)
-  %224 = getelementptr inbounds { ptr, ptr }, ptr %32, i32 0, i32 0
+  %224 = getelementptr inbounds nuw { ptr, ptr }, ptr %32, i32 0, i32 0
   %225 = extractvalue { ptr, ptr } %223, 0
   store ptr %225, ptr %224, align 8
-  %226 = getelementptr inbounds { ptr, ptr }, ptr %32, i32 0, i32 1
+  %226 = getelementptr inbounds nuw { ptr, ptr }, ptr %32, i32 0, i32 1
   %227 = extractvalue { ptr, ptr } %223, 1
   store ptr %227, ptr %226, align 8
-  %228 = load i32, ptr %12, align 4
+  %228 = load i32, ptr %12, align 4, !tbaa !18
   %229 = call { ptr, ptr } @gen_op_simple(i32 noundef %228)
-  %230 = getelementptr inbounds { ptr, ptr }, ptr %33, i32 0, i32 0
+  %230 = getelementptr inbounds nuw { ptr, ptr }, ptr %33, i32 0, i32 0
   %231 = extractvalue { ptr, ptr } %229, 0
   store ptr %231, ptr %230, align 8
-  %232 = getelementptr inbounds { ptr, ptr }, ptr %33, i32 0, i32 1
+  %232 = getelementptr inbounds nuw { ptr, ptr }, ptr %33, i32 0, i32 1
   %233 = extractvalue { ptr, ptr } %229, 1
   store ptr %233, ptr %232, align 8
-  %234 = getelementptr inbounds { ptr, ptr }, ptr %32, i32 0, i32 0
+  %234 = getelementptr inbounds nuw { ptr, ptr }, ptr %32, i32 0, i32 0
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds { ptr, ptr }, ptr %32, i32 0, i32 1
+  %236 = getelementptr inbounds nuw { ptr, ptr }, ptr %32, i32 0, i32 1
   %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds { ptr, ptr }, ptr %33, i32 0, i32 0
+  %238 = getelementptr inbounds nuw { ptr, ptr }, ptr %33, i32 0, i32 0
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds { ptr, ptr }, ptr %33, i32 0, i32 1
+  %240 = getelementptr inbounds nuw { ptr, ptr }, ptr %33, i32 0, i32 1
   %241 = load ptr, ptr %240, align 8
   %242 = call { ptr, ptr } @block_join(ptr %235, ptr %237, ptr %239, ptr %241)
-  %243 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %243 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %244 = extractvalue { ptr, ptr } %242, 0
   store ptr %244, ptr %243, align 8
-  %245 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %245 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %246 = extractvalue { ptr, ptr } %242, 1
   store ptr %246, ptr %245, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #8
   %247 = load { ptr, ptr }, ptr %8, align 8
   ret { ptr, ptr } %247
 }
@@ -7911,103 +8486,103 @@ define internal { ptr, ptr } @gen_loc_object(ptr noundef %0, ptr noundef %1) #0 
   %10 = alloca %struct.jv, align 8
   %11 = alloca %struct.jv, align 8
   %12 = alloca %struct.jv, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !12
   %13 = call { i64, ptr } @jv_object()
-  %14 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
+  %14 = getelementptr inbounds nuw { i64, ptr }, ptr %8, i32 0, i32 0
   %15 = extractvalue { i64, ptr } %13, 0
   store i64 %15, ptr %14, align 8
-  %16 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
+  %16 = getelementptr inbounds nuw { i64, ptr }, ptr %8, i32 0, i32 1
   %17 = extractvalue { i64, ptr } %13, 1
   store ptr %17, ptr %16, align 8
   %18 = call { i64, ptr } @jv_string(ptr noundef @.str.63)
-  %19 = getelementptr inbounds { i64, ptr }, ptr %9, i32 0, i32 0
+  %19 = getelementptr inbounds nuw { i64, ptr }, ptr %9, i32 0, i32 0
   %20 = extractvalue { i64, ptr } %18, 0
   store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %9, i32 0, i32 1
+  %21 = getelementptr inbounds nuw { i64, ptr }, ptr %9, i32 0, i32 1
   %22 = extractvalue { i64, ptr } %18, 1
   store ptr %22, ptr %21, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.locfile, ptr %23, i32 0, i32 0
-  %25 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 0
+  %23 = load ptr, ptr %5, align 8, !tbaa !12
+  %24 = getelementptr inbounds nuw %struct.locfile, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw { i64, ptr }, ptr %24, i32 0, i32 0
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 1
+  %27 = getelementptr inbounds nuw { i64, ptr }, ptr %24, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8
   %29 = call { i64, ptr } @jv_copy(i64 %26, ptr %28)
-  %30 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
+  %30 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
   %31 = extractvalue { i64, ptr } %29, 0
   store i64 %31, ptr %30, align 8
-  %32 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
+  %32 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
   %33 = extractvalue { i64, ptr } %29, 1
   store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
+  %34 = getelementptr inbounds nuw { i64, ptr }, ptr %8, i32 0, i32 0
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
+  %36 = getelementptr inbounds nuw { i64, ptr }, ptr %8, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds { i64, ptr }, ptr %9, i32 0, i32 0
+  %38 = getelementptr inbounds nuw { i64, ptr }, ptr %9, i32 0, i32 0
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds { i64, ptr }, ptr %9, i32 0, i32 1
+  %40 = getelementptr inbounds nuw { i64, ptr }, ptr %9, i32 0, i32 1
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
+  %42 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
+  %44 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
   %45 = load ptr, ptr %44, align 8
   %46 = call { i64, ptr } @jv_object_set(i64 %35, ptr %37, i64 %39, ptr %41, i64 %43, ptr %45)
-  %47 = getelementptr inbounds { i64, ptr }, ptr %7, i32 0, i32 0
+  %47 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 0
   %48 = extractvalue { i64, ptr } %46, 0
   store i64 %48, ptr %47, align 8
-  %49 = getelementptr inbounds { i64, ptr }, ptr %7, i32 0, i32 1
+  %49 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 1
   %50 = extractvalue { i64, ptr } %46, 1
   store ptr %50, ptr %49, align 8
   %51 = call { i64, ptr } @jv_string(ptr noundef @.str.64)
-  %52 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
+  %52 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
   %53 = extractvalue { i64, ptr } %51, 0
   store i64 %53, ptr %52, align 8
-  %54 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
+  %54 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
   %55 = extractvalue { i64, ptr } %51, 1
   store ptr %55, ptr %54, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.location, ptr %57, i32 0, i32 0
-  %59 = load i32, ptr %58, align 4
+  %56 = load ptr, ptr %5, align 8, !tbaa !12
+  %57 = load ptr, ptr %4, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.location, ptr %57, i32 0, i32 0
+  %59 = load i32, ptr %58, align 4, !tbaa !36
   %60 = call i32 @locfile_get_line(ptr noundef %56, i32 noundef %59)
   %61 = add nsw i32 %60, 1
   %62 = sitofp i32 %61 to double
   %63 = call { i64, ptr } @jv_number(double noundef %62)
-  %64 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 0
+  %64 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 0
   %65 = extractvalue { i64, ptr } %63, 0
   store i64 %65, ptr %64, align 8
-  %66 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 1
+  %66 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 1
   %67 = extractvalue { i64, ptr } %63, 1
   store ptr %67, ptr %66, align 8
-  %68 = getelementptr inbounds { i64, ptr }, ptr %7, i32 0, i32 0
+  %68 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 0
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds { i64, ptr }, ptr %7, i32 0, i32 1
+  %70 = getelementptr inbounds nuw { i64, ptr }, ptr %7, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
+  %72 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
+  %74 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 0
+  %76 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 0
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 1
+  %78 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 1
   %79 = load ptr, ptr %78, align 8
   %80 = call { i64, ptr } @jv_object_set(i64 %69, ptr %71, i64 %73, ptr %75, i64 %77, ptr %79)
-  %81 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
+  %81 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 0
   %82 = extractvalue { i64, ptr } %80, 0
   store i64 %82, ptr %81, align 8
-  %83 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 1
+  %83 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 1
   %84 = extractvalue { i64, ptr } %80, 1
   store ptr %84, ptr %83, align 8
-  %85 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
+  %85 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 0
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 1
+  %87 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 1
   %88 = load ptr, ptr %87, align 8
   %89 = call { ptr, ptr } @gen_const(i64 %86, ptr %88)
-  %90 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 0
+  %90 = getelementptr inbounds nuw { ptr, ptr }, ptr %3, i32 0, i32 0
   %91 = extractvalue { ptr, ptr } %89, 0
   store ptr %91, ptr %90, align 8
-  %92 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 1
+  %92 = getelementptr inbounds nuw { ptr, ptr }, ptr %3, i32 0, i32 1
   %93 = extractvalue { ptr, ptr } %89, 1
   store ptr %93, ptr %92, align 8
   %94 = load { ptr, ptr }, ptr %3, align 8
@@ -8033,66 +8608,68 @@ define internal { i64, ptr } @check_object_key(ptr %0, ptr %1) #0 {
   %4 = alloca %struct.block, align 8
   %5 = alloca [15 x i8], align 1
   %6 = alloca %struct.jv, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @block_is_const(ptr %10, ptr %12)
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %15, label %49
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %18 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @block_const_kind(ptr %17, ptr %19)
   %21 = icmp ne i32 %20, 5
   br i1 %21, label %22, label %49
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 15, ptr %5) #8
+  %23 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %25 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @block_const_kind(ptr %24, ptr %26)
   %28 = call ptr @jv_kind_name(i32 noundef %27)
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %29 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %31 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
   %33 = call { i64, ptr } @block_const(ptr %30, ptr %32)
-  %34 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
+  %34 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 0
   %35 = extractvalue { i64, ptr } %33, 0
   store i64 %35, ptr %34, align 8
-  %36 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 1
+  %36 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 1
   %37 = extractvalue { i64, ptr } %33, 1
   store ptr %37, ptr %36, align 8
   %38 = getelementptr inbounds [15 x i8], ptr %5, i64 0, i64 0
-  %39 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
+  %39 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 0
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 1
+  %41 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @jv_dump_string_trunc(i64 %40, ptr %42, ptr noundef %38, i64 noundef 15)
   %44 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef @.str.65, ptr noundef %28, ptr noundef %43)
-  %45 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
+  %45 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 0
   %46 = extractvalue { i64, ptr } %44, 0
   store i64 %46, ptr %45, align 8
-  %47 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 1
+  %47 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 1
   %48 = extractvalue { i64, ptr } %44, 1
   store ptr %48, ptr %47, align 8
+  call void @llvm.lifetime.end.p0(i64 15, ptr %5) #8
   br label %55
 
 49:                                               ; preds = %15, %2
   %50 = call { i64, ptr } @jv_invalid()
-  %51 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
+  %51 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 0
   %52 = extractvalue { i64, ptr } %50, 0
   store i64 %52, ptr %51, align 8
-  %53 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 1
+  %53 = getelementptr inbounds nuw { i64, ptr }, ptr %3, i32 0, i32 1
   %54 = extractvalue { i64, ptr } %50, 1
   store ptr %54, ptr %53, align 8
   br label %55
@@ -8103,6 +8680,9 @@ define internal { i64, ptr } @check_object_key(ptr %0, ptr %1) #0 {
 }
 
 declare { ptr, ptr } @gen_dictpair(ptr, ptr, ptr, ptr) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @yysyntax_error(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -8115,231 +8695,272 @@ define internal i32 @yysyntax_error(ptr noundef %0, ptr noundef %1, ptr noundef 
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = alloca i64, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  store i64 0, ptr %10, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 0
-  %18 = call i32 @yy_syntax_error_arguments(ptr noundef %16, ptr noundef %17, i32 noundef 5)
-  store i32 %18, ptr %11, align 4
-  %19 = load i32, ptr %11, align 4
-  %20 = icmp eq i32 %19, -2
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %3
-  store i32 -2, ptr %4, align 4
-  br label %133
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !50
+  store ptr %1, ptr %6, align 8, !tbaa !52
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  store ptr null, ptr %8, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 20, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  store i64 0, ptr %10, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %17 = load ptr, ptr %7, align 8, !tbaa !4
+  %18 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 0
+  %19 = call i32 @yy_syntax_error_arguments(ptr noundef %17, ptr noundef %18, i32 noundef 5)
+  store i32 %19, ptr %11, align 4, !tbaa !18
+  %20 = load i32, ptr %11, align 4, !tbaa !18
+  %21 = icmp eq i32 %20, -2
+  br i1 %21, label %22, label %23
 
 22:                                               ; preds = %3
-  %23 = load i32, ptr %11, align 4
-  switch i32 %23, label %24 [
-    i32 0, label %25
-    i32 1, label %26
-    i32 2, label %27
-    i32 3, label %28
-    i32 4, label %29
-    i32 5, label %30
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %140
+
+23:                                               ; preds = %3
+  %24 = load i32, ptr %11, align 4, !tbaa !18
+  switch i32 %24, label %25 [
+    i32 0, label %26
+    i32 1, label %27
+    i32 2, label %28
+    i32 3, label %29
+    i32 4, label %30
+    i32 5, label %31
   ]
 
-24:                                               ; preds = %22
-  br label %25
+25:                                               ; preds = %23
+  br label %26
 
-25:                                               ; preds = %24, %22
-  store ptr @.str.42, ptr %8, align 8
-  br label %31
+26:                                               ; preds = %23, %25
+  store ptr @.str.42, ptr %8, align 8, !tbaa !16
+  br label %32
 
-26:                                               ; preds = %22
-  store ptr @.str.66, ptr %8, align 8
-  br label %31
+27:                                               ; preds = %23
+  store ptr @.str.66, ptr %8, align 8, !tbaa !16
+  br label %32
 
-27:                                               ; preds = %22
-  store ptr @.str.67, ptr %8, align 8
-  br label %31
+28:                                               ; preds = %23
+  store ptr @.str.67, ptr %8, align 8, !tbaa !16
+  br label %32
 
-28:                                               ; preds = %22
-  store ptr @.str.68, ptr %8, align 8
-  br label %31
+29:                                               ; preds = %23
+  store ptr @.str.68, ptr %8, align 8, !tbaa !16
+  br label %32
 
-29:                                               ; preds = %22
-  store ptr @.str.69, ptr %8, align 8
-  br label %31
+30:                                               ; preds = %23
+  store ptr @.str.69, ptr %8, align 8, !tbaa !16
+  br label %32
 
-30:                                               ; preds = %22
-  store ptr @.str.70, ptr %8, align 8
-  br label %31
+31:                                               ; preds = %23
+  store ptr @.str.70, ptr %8, align 8, !tbaa !16
+  br label %32
 
-31:                                               ; preds = %30, %29, %28, %27, %26, %25
-  %32 = load ptr, ptr %8, align 8
-  %33 = call i64 @strlen(ptr noundef %32) #5
-  %34 = load i32, ptr %11, align 4
-  %35 = mul nsw i32 2, %34
-  %36 = sext i32 %35 to i64
-  %37 = sub nsw i64 %33, %36
-  %38 = add nsw i64 %37, 1
-  store i64 %38, ptr %10, align 8
-  store i32 0, ptr %12, align 4
-  br label %39
+32:                                               ; preds = %31, %30, %29, %28, %27, %26
+  %33 = load ptr, ptr %8, align 8, !tbaa !16
+  %34 = call i64 @strlen(ptr noundef %33) #7
+  %35 = load i32, ptr %11, align 4, !tbaa !18
+  %36 = mul nsw i32 2, %35
+  %37 = sext i32 %36 to i64
+  %38 = sub nsw i64 %34, %37
+  %39 = add nsw i64 %38, 1
+  store i64 %39, ptr %10, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  store i32 0, ptr %13, align 4, !tbaa !18
+  br label %40
 
-39:                                               ; preds = %64, %31
-  %40 = load i32, ptr %12, align 4
-  %41 = load i32, ptr %11, align 4
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %43, label %67
+40:                                               ; preds = %68, %32
+  %41 = load i32, ptr %13, align 4, !tbaa !18
+  %42 = load i32, ptr %11, align 4, !tbaa !18
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %44, label %71
 
-43:                                               ; preds = %39
-  %44 = load i64, ptr %10, align 8
-  %45 = load i32, ptr %12, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %49
-  %51 = load ptr, ptr %50, align 8
-  %52 = call i64 @yytnamerr(ptr noundef null, ptr noundef %51)
-  %53 = add nsw i64 %44, %52
-  store i64 %53, ptr %13, align 8
-  %54 = load i64, ptr %10, align 8
-  %55 = load i64, ptr %13, align 8
-  %56 = icmp sle i64 %54, %55
-  br i1 %56, label %57, label %62
+44:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %45 = load i64, ptr %10, align 8, !tbaa !30
+  %46 = load i32, ptr %13, align 4, !tbaa !18
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !18
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !16
+  %53 = call i64 @yytnamerr(ptr noundef null, ptr noundef %52)
+  %54 = add nsw i64 %45, %53
+  store i64 %54, ptr %14, align 8, !tbaa !30
+  %55 = load i64, ptr %10, align 8, !tbaa !30
+  %56 = load i64, ptr %14, align 8, !tbaa !30
+  %57 = icmp sle i64 %55, %56
+  br i1 %57, label %58, label %63
 
-57:                                               ; preds = %43
-  %58 = load i64, ptr %13, align 8
-  %59 = icmp sle i64 %58, 9223372036854775807
-  br i1 %59, label %60, label %62
+58:                                               ; preds = %44
+  %59 = load i64, ptr %14, align 8, !tbaa !30
+  %60 = icmp sle i64 %59, 9223372036854775807
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %57
-  %61 = load i64, ptr %13, align 8
-  store i64 %61, ptr %10, align 8
-  br label %63
-
-62:                                               ; preds = %57, %43
-  store i32 -2, ptr %4, align 4
-  br label %133
-
-63:                                               ; preds = %60
+61:                                               ; preds = %58
+  %62 = load i64, ptr %14, align 8, !tbaa !30
+  store i64 %62, ptr %10, align 8, !tbaa !30
   br label %64
 
-64:                                               ; preds = %63
-  %65 = load i32, ptr %12, align 4
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %12, align 4
-  br label %39, !llvm.loop !6
+63:                                               ; preds = %58, %44
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %65
 
-67:                                               ; preds = %39
-  %68 = load ptr, ptr %5, align 8
-  %69 = load i64, ptr %68, align 8
-  %70 = load i64, ptr %10, align 8
-  %71 = icmp slt i64 %69, %70
-  br i1 %71, label %72, label %87
+64:                                               ; preds = %61
+  store i32 0, ptr %12, align 4
+  br label %65
 
-72:                                               ; preds = %67
-  %73 = load i64, ptr %10, align 8
-  %74 = mul nsw i64 2, %73
-  %75 = load ptr, ptr %5, align 8
-  store i64 %74, ptr %75, align 8
-  %76 = load i64, ptr %10, align 8
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i64, ptr %77, align 8
-  %79 = icmp sle i64 %76, %78
-  br i1 %79, label %80, label %84
+65:                                               ; preds = %64, %63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %66 = load i32, ptr %12, align 4
+  switch i32 %66, label %72 [
+    i32 0, label %67
+  ]
 
-80:                                               ; preds = %72
-  %81 = load ptr, ptr %5, align 8
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp sle i64 %82, 9223372036854775807
-  br i1 %83, label %86, label %84
+67:                                               ; preds = %65
+  br label %68
 
-84:                                               ; preds = %80, %72
-  %85 = load ptr, ptr %5, align 8
-  store i64 9223372036854775807, ptr %85, align 8
-  br label %86
+68:                                               ; preds = %67
+  %69 = load i32, ptr %13, align 4, !tbaa !18
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %13, align 4, !tbaa !18
+  br label %40, !llvm.loop !54
 
-86:                                               ; preds = %84, %80
+71:                                               ; preds = %40
+  store i32 0, ptr %12, align 4
+  br label %72
+
+72:                                               ; preds = %71, %65
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  %73 = load i32, ptr %12, align 4
+  switch i32 %73, label %140 [
+    i32 0, label %74
+  ]
+
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %5, align 8, !tbaa !50
+  %76 = load i64, ptr %75, align 8, !tbaa !30
+  %77 = load i64, ptr %10, align 8, !tbaa !30
+  %78 = icmp slt i64 %76, %77
+  br i1 %78, label %79, label %94
+
+79:                                               ; preds = %74
+  %80 = load i64, ptr %10, align 8, !tbaa !30
+  %81 = mul nsw i64 2, %80
+  %82 = load ptr, ptr %5, align 8, !tbaa !50
+  store i64 %81, ptr %82, align 8, !tbaa !30
+  %83 = load i64, ptr %10, align 8, !tbaa !30
+  %84 = load ptr, ptr %5, align 8, !tbaa !50
+  %85 = load i64, ptr %84, align 8, !tbaa !30
+  %86 = icmp sle i64 %83, %85
+  br i1 %86, label %87, label %91
+
+87:                                               ; preds = %79
+  %88 = load ptr, ptr %5, align 8, !tbaa !50
+  %89 = load i64, ptr %88, align 8, !tbaa !30
+  %90 = icmp sle i64 %89, 9223372036854775807
+  br i1 %90, label %93, label %91
+
+91:                                               ; preds = %87, %79
+  %92 = load ptr, ptr %5, align 8, !tbaa !50
+  store i64 9223372036854775807, ptr %92, align 8, !tbaa !30
+  br label %93
+
+93:                                               ; preds = %91, %87
   store i32 -1, ptr %4, align 4
-  br label %133
+  store i32 1, ptr %12, align 4
+  br label %140
 
-87:                                               ; preds = %67
-  %88 = load ptr, ptr %6, align 8
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %14, align 8
-  store i32 0, ptr %15, align 4
-  br label %90
+94:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %95 = load ptr, ptr %6, align 8, !tbaa !52
+  %96 = load ptr, ptr %95, align 8, !tbaa !16
+  store ptr %96, ptr %15, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  store i32 0, ptr %16, align 4, !tbaa !18
+  br label %97
 
-90:                                               ; preds = %131, %87
-  %91 = load ptr, ptr %8, align 8
-  %92 = load i8, ptr %91, align 1
-  %93 = load ptr, ptr %14, align 8
-  store i8 %92, ptr %93, align 1
-  %94 = sext i8 %92 to i32
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %132
+97:                                               ; preds = %138, %94
+  %98 = load ptr, ptr %8, align 8, !tbaa !16
+  %99 = load i8, ptr %98, align 1, !tbaa !26
+  %100 = load ptr, ptr %15, align 8, !tbaa !16
+  store i8 %99, ptr %100, align 1, !tbaa !26
+  %101 = sext i8 %99 to i32
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %139
 
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %14, align 8
-  %98 = load i8, ptr %97, align 1
-  %99 = sext i8 %98 to i32
-  %100 = icmp eq i32 %99, 37
-  br i1 %100, label %101, label %126
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %15, align 8, !tbaa !16
+  %105 = load i8, ptr %104, align 1, !tbaa !26
+  %106 = sext i8 %105 to i32
+  %107 = icmp eq i32 %106, 37
+  br i1 %107, label %108, label %133
 
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1
-  %104 = load i8, ptr %103, align 1
-  %105 = sext i8 %104 to i32
-  %106 = icmp eq i32 %105, 115
-  br i1 %106, label %107, label %126
+108:                                              ; preds = %103
+  %109 = load ptr, ptr %8, align 8, !tbaa !16
+  %110 = getelementptr inbounds i8, ptr %109, i64 1
+  %111 = load i8, ptr %110, align 1, !tbaa !26
+  %112 = sext i8 %111 to i32
+  %113 = icmp eq i32 %112, 115
+  br i1 %113, label %114, label %133
 
-107:                                              ; preds = %101
-  %108 = load i32, ptr %15, align 4
-  %109 = load i32, ptr %11, align 4
-  %110 = icmp slt i32 %108, %109
-  br i1 %110, label %111, label %126
+114:                                              ; preds = %108
+  %115 = load i32, ptr %16, align 4, !tbaa !18
+  %116 = load i32, ptr %11, align 4, !tbaa !18
+  %117 = icmp slt i32 %115, %116
+  br i1 %117, label %118, label %133
 
-111:                                              ; preds = %107
-  %112 = load ptr, ptr %14, align 8
-  %113 = load i32, ptr %15, align 4
-  %114 = add nsw i32 %113, 1
-  store i32 %114, ptr %15, align 4
-  %115 = sext i32 %113 to i64
-  %116 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %115
-  %117 = load i32, ptr %116, align 4
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %118
-  %120 = load ptr, ptr %119, align 8
-  %121 = call i64 @yytnamerr(ptr noundef %112, ptr noundef %120)
-  %122 = load ptr, ptr %14, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 %121
-  store ptr %123, ptr %14, align 8
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 2
-  store ptr %125, ptr %8, align 8
-  br label %131
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %15, align 8, !tbaa !16
+  %120 = load i32, ptr %16, align 4, !tbaa !18
+  %121 = add nsw i32 %120, 1
+  store i32 %121, ptr %16, align 4, !tbaa !18
+  %122 = sext i32 %120 to i64
+  %123 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %122
+  %124 = load i32, ptr %123, align 4, !tbaa !18
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %125
+  %127 = load ptr, ptr %126, align 8, !tbaa !16
+  %128 = call i64 @yytnamerr(ptr noundef %119, ptr noundef %127)
+  %129 = load ptr, ptr %15, align 8, !tbaa !16
+  %130 = getelementptr inbounds i8, ptr %129, i64 %128
+  store ptr %130, ptr %15, align 8, !tbaa !16
+  %131 = load ptr, ptr %8, align 8, !tbaa !16
+  %132 = getelementptr inbounds i8, ptr %131, i64 2
+  store ptr %132, ptr %8, align 8, !tbaa !16
+  br label %138
 
-126:                                              ; preds = %107, %101, %96
-  %127 = load ptr, ptr %14, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i32 1
-  store ptr %128, ptr %14, align 8
-  %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i32 1
-  store ptr %130, ptr %8, align 8
-  br label %131
+133:                                              ; preds = %114, %108, %103
+  %134 = load ptr, ptr %15, align 8, !tbaa !16
+  %135 = getelementptr inbounds nuw i8, ptr %134, i32 1
+  store ptr %135, ptr %15, align 8, !tbaa !16
+  %136 = load ptr, ptr %8, align 8, !tbaa !16
+  %137 = getelementptr inbounds nuw i8, ptr %136, i32 1
+  store ptr %137, ptr %8, align 8, !tbaa !16
+  br label %138
 
-131:                                              ; preds = %126, %111
-  br label %90, !llvm.loop !7
+138:                                              ; preds = %133, %118
+  br label %97, !llvm.loop !55
 
-132:                                              ; preds = %90
+139:                                              ; preds = %97
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
   store i32 0, ptr %4, align 4
-  br label %133
+  store i32 1, ptr %12, align 4
+  br label %140
 
-133:                                              ; preds = %132, %86, %62, %21
-  %134 = load i32, ptr %4, align 4
-  ret i32 %134
+140:                                              ; preds = %139, %93, %72, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %141 = load i32, ptr %4, align 4
+  ret i32 %141
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8352,24 +8973,24 @@ define internal void @yydestruct(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store ptr %4, ptr %13, align 8
-  store ptr %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  store ptr %7, ptr %16, align 8
-  %17 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !16
+  store i32 %1, ptr %10, align 4, !tbaa !18
+  store ptr %2, ptr %11, align 8, !tbaa !20
+  store ptr %3, ptr %12, align 8, !tbaa !4
+  store ptr %4, ptr %13, align 8, !tbaa !8
+  store ptr %5, ptr %14, align 8, !tbaa !10
+  store ptr %6, ptr %15, align 8, !tbaa !12
+  store ptr %7, ptr %16, align 8, !tbaa !14
+  %17 = load ptr, ptr %9, align 8, !tbaa !16
   %18 = icmp ne ptr %17, null
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %8
-  store ptr @.str.169, ptr %9, align 8
+  store ptr @.str.169, ptr %9, align 8, !tbaa !16
   br label %20
 
 20:                                               ; preds = %19, %8
-  %21 = load i32, ptr %10, align 4
+  %21 = load i32, ptr %10, align 4, !tbaa !18
   switch i32 %21, label %220 [
     i32 4, label %22
     i32 5, label %28
@@ -8407,298 +9028,298 @@ define internal void @yydestruct(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   ]
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds { i64, ptr }, ptr %23, i32 0, i32 0
+  %23 = load ptr, ptr %11, align 8, !tbaa !20
+  %24 = getelementptr inbounds nuw { i64, ptr }, ptr %23, i32 0, i32 0
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds { i64, ptr }, ptr %23, i32 0, i32 1
+  %26 = getelementptr inbounds nuw { i64, ptr }, ptr %23, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
   call void @jv_free(i64 %25, ptr %27)
   br label %221
 
 28:                                               ; preds = %20
-  %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds { i64, ptr }, ptr %29, i32 0, i32 0
+  %29 = load ptr, ptr %11, align 8, !tbaa !20
+  %30 = getelementptr inbounds nuw { i64, ptr }, ptr %29, i32 0, i32 0
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds { i64, ptr }, ptr %29, i32 0, i32 1
+  %32 = getelementptr inbounds nuw { i64, ptr }, ptr %29, i32 0, i32 1
   %33 = load ptr, ptr %32, align 8
   call void @jv_free(i64 %31, ptr %33)
   br label %221
 
 34:                                               ; preds = %20
-  %35 = load ptr, ptr %11, align 8
-  %36 = getelementptr inbounds { i64, ptr }, ptr %35, i32 0, i32 0
+  %35 = load ptr, ptr %11, align 8, !tbaa !20
+  %36 = getelementptr inbounds nuw { i64, ptr }, ptr %35, i32 0, i32 0
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds { i64, ptr }, ptr %35, i32 0, i32 1
+  %38 = getelementptr inbounds nuw { i64, ptr }, ptr %35, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
   call void @jv_free(i64 %37, ptr %39)
   br label %221
 
 40:                                               ; preds = %20
-  %41 = load ptr, ptr %11, align 8
-  %42 = getelementptr inbounds { i64, ptr }, ptr %41, i32 0, i32 0
+  %41 = load ptr, ptr %11, align 8, !tbaa !20
+  %42 = getelementptr inbounds nuw { i64, ptr }, ptr %41, i32 0, i32 0
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds { i64, ptr }, ptr %41, i32 0, i32 1
+  %44 = getelementptr inbounds nuw { i64, ptr }, ptr %41, i32 0, i32 1
   %45 = load ptr, ptr %44, align 8
   call void @jv_free(i64 %43, ptr %45)
   br label %221
 
 46:                                               ; preds = %20
-  %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds { i64, ptr }, ptr %47, i32 0, i32 0
+  %47 = load ptr, ptr %11, align 8, !tbaa !20
+  %48 = getelementptr inbounds nuw { i64, ptr }, ptr %47, i32 0, i32 0
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds { i64, ptr }, ptr %47, i32 0, i32 1
+  %50 = getelementptr inbounds nuw { i64, ptr }, ptr %47, i32 0, i32 1
   %51 = load ptr, ptr %50, align 8
   call void @jv_free(i64 %49, ptr %51)
   br label %221
 
 52:                                               ; preds = %20
-  %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr inbounds { i64, ptr }, ptr %53, i32 0, i32 0
+  %53 = load ptr, ptr %11, align 8, !tbaa !20
+  %54 = getelementptr inbounds nuw { i64, ptr }, ptr %53, i32 0, i32 0
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds { i64, ptr }, ptr %53, i32 0, i32 1
+  %56 = getelementptr inbounds nuw { i64, ptr }, ptr %53, i32 0, i32 1
   %57 = load ptr, ptr %56, align 8
   call void @jv_free(i64 %55, ptr %57)
   br label %221
 
 58:                                               ; preds = %20
-  %59 = load ptr, ptr %11, align 8
-  %60 = getelementptr inbounds { ptr, ptr }, ptr %59, i32 0, i32 0
+  %59 = load ptr, ptr %11, align 8, !tbaa !20
+  %60 = getelementptr inbounds nuw { ptr, ptr }, ptr %59, i32 0, i32 0
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds { ptr, ptr }, ptr %59, i32 0, i32 1
+  %62 = getelementptr inbounds nuw { ptr, ptr }, ptr %59, i32 0, i32 1
   %63 = load ptr, ptr %62, align 8
   call void @block_free(ptr %61, ptr %63)
   br label %221
 
 64:                                               ; preds = %20
-  %65 = load ptr, ptr %11, align 8
-  %66 = getelementptr inbounds { ptr, ptr }, ptr %65, i32 0, i32 0
+  %65 = load ptr, ptr %11, align 8, !tbaa !20
+  %66 = getelementptr inbounds nuw { ptr, ptr }, ptr %65, i32 0, i32 0
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds { ptr, ptr }, ptr %65, i32 0, i32 1
+  %68 = getelementptr inbounds nuw { ptr, ptr }, ptr %65, i32 0, i32 1
   %69 = load ptr, ptr %68, align 8
   call void @block_free(ptr %67, ptr %69)
   br label %221
 
 70:                                               ; preds = %20
-  %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr inbounds { ptr, ptr }, ptr %71, i32 0, i32 0
+  %71 = load ptr, ptr %11, align 8, !tbaa !20
+  %72 = getelementptr inbounds nuw { ptr, ptr }, ptr %71, i32 0, i32 0
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds { ptr, ptr }, ptr %71, i32 0, i32 1
+  %74 = getelementptr inbounds nuw { ptr, ptr }, ptr %71, i32 0, i32 1
   %75 = load ptr, ptr %74, align 8
   call void @block_free(ptr %73, ptr %75)
   br label %221
 
 76:                                               ; preds = %20
-  %77 = load ptr, ptr %11, align 8
-  %78 = getelementptr inbounds { ptr, ptr }, ptr %77, i32 0, i32 0
+  %77 = load ptr, ptr %11, align 8, !tbaa !20
+  %78 = getelementptr inbounds nuw { ptr, ptr }, ptr %77, i32 0, i32 0
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds { ptr, ptr }, ptr %77, i32 0, i32 1
+  %80 = getelementptr inbounds nuw { ptr, ptr }, ptr %77, i32 0, i32 1
   %81 = load ptr, ptr %80, align 8
   call void @block_free(ptr %79, ptr %81)
   br label %221
 
 82:                                               ; preds = %20
-  %83 = load ptr, ptr %11, align 8
-  %84 = getelementptr inbounds { ptr, ptr }, ptr %83, i32 0, i32 0
+  %83 = load ptr, ptr %11, align 8, !tbaa !20
+  %84 = getelementptr inbounds nuw { ptr, ptr }, ptr %83, i32 0, i32 0
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds { ptr, ptr }, ptr %83, i32 0, i32 1
+  %86 = getelementptr inbounds nuw { ptr, ptr }, ptr %83, i32 0, i32 1
   %87 = load ptr, ptr %86, align 8
   call void @block_free(ptr %85, ptr %87)
   br label %221
 
 88:                                               ; preds = %20
-  %89 = load ptr, ptr %11, align 8
-  %90 = getelementptr inbounds { ptr, ptr }, ptr %89, i32 0, i32 0
+  %89 = load ptr, ptr %11, align 8, !tbaa !20
+  %90 = getelementptr inbounds nuw { ptr, ptr }, ptr %89, i32 0, i32 0
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds { ptr, ptr }, ptr %89, i32 0, i32 1
+  %92 = getelementptr inbounds nuw { ptr, ptr }, ptr %89, i32 0, i32 1
   %93 = load ptr, ptr %92, align 8
   call void @block_free(ptr %91, ptr %93)
   br label %221
 
 94:                                               ; preds = %20
-  %95 = load ptr, ptr %11, align 8
-  %96 = getelementptr inbounds { ptr, ptr }, ptr %95, i32 0, i32 0
+  %95 = load ptr, ptr %11, align 8, !tbaa !20
+  %96 = getelementptr inbounds nuw { ptr, ptr }, ptr %95, i32 0, i32 0
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds { ptr, ptr }, ptr %95, i32 0, i32 1
+  %98 = getelementptr inbounds nuw { ptr, ptr }, ptr %95, i32 0, i32 1
   %99 = load ptr, ptr %98, align 8
   call void @block_free(ptr %97, ptr %99)
   br label %221
 
 100:                                              ; preds = %20
-  %101 = load ptr, ptr %11, align 8
-  %102 = getelementptr inbounds { ptr, ptr }, ptr %101, i32 0, i32 0
+  %101 = load ptr, ptr %11, align 8, !tbaa !20
+  %102 = getelementptr inbounds nuw { ptr, ptr }, ptr %101, i32 0, i32 0
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds { ptr, ptr }, ptr %101, i32 0, i32 1
+  %104 = getelementptr inbounds nuw { ptr, ptr }, ptr %101, i32 0, i32 1
   %105 = load ptr, ptr %104, align 8
   call void @block_free(ptr %103, ptr %105)
   br label %221
 
 106:                                              ; preds = %20
-  %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds { ptr, ptr }, ptr %107, i32 0, i32 0
+  %107 = load ptr, ptr %11, align 8, !tbaa !20
+  %108 = getelementptr inbounds nuw { ptr, ptr }, ptr %107, i32 0, i32 0
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds { ptr, ptr }, ptr %107, i32 0, i32 1
+  %110 = getelementptr inbounds nuw { ptr, ptr }, ptr %107, i32 0, i32 1
   %111 = load ptr, ptr %110, align 8
   call void @block_free(ptr %109, ptr %111)
   br label %221
 
 112:                                              ; preds = %20
-  %113 = load ptr, ptr %11, align 8
-  %114 = getelementptr inbounds { ptr, ptr }, ptr %113, i32 0, i32 0
+  %113 = load ptr, ptr %11, align 8, !tbaa !20
+  %114 = getelementptr inbounds nuw { ptr, ptr }, ptr %113, i32 0, i32 0
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds { ptr, ptr }, ptr %113, i32 0, i32 1
+  %116 = getelementptr inbounds nuw { ptr, ptr }, ptr %113, i32 0, i32 1
   %117 = load ptr, ptr %116, align 8
   call void @block_free(ptr %115, ptr %117)
   br label %221
 
 118:                                              ; preds = %20
-  %119 = load ptr, ptr %11, align 8
-  %120 = getelementptr inbounds { i64, ptr }, ptr %119, i32 0, i32 0
+  %119 = load ptr, ptr %11, align 8, !tbaa !20
+  %120 = getelementptr inbounds nuw { i64, ptr }, ptr %119, i32 0, i32 0
   %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds { i64, ptr }, ptr %119, i32 0, i32 1
+  %122 = getelementptr inbounds nuw { i64, ptr }, ptr %119, i32 0, i32 1
   %123 = load ptr, ptr %122, align 8
   call void @jv_free(i64 %121, ptr %123)
   br label %221
 
 124:                                              ; preds = %20
-  %125 = load ptr, ptr %11, align 8
-  %126 = getelementptr inbounds { ptr, ptr }, ptr %125, i32 0, i32 0
+  %125 = load ptr, ptr %11, align 8, !tbaa !20
+  %126 = getelementptr inbounds nuw { ptr, ptr }, ptr %125, i32 0, i32 0
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds { ptr, ptr }, ptr %125, i32 0, i32 1
+  %128 = getelementptr inbounds nuw { ptr, ptr }, ptr %125, i32 0, i32 1
   %129 = load ptr, ptr %128, align 8
   call void @block_free(ptr %127, ptr %129)
   br label %221
 
 130:                                              ; preds = %20
-  %131 = load ptr, ptr %11, align 8
-  %132 = getelementptr inbounds { ptr, ptr }, ptr %131, i32 0, i32 0
+  %131 = load ptr, ptr %11, align 8, !tbaa !20
+  %132 = getelementptr inbounds nuw { ptr, ptr }, ptr %131, i32 0, i32 0
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds { ptr, ptr }, ptr %131, i32 0, i32 1
+  %134 = getelementptr inbounds nuw { ptr, ptr }, ptr %131, i32 0, i32 1
   %135 = load ptr, ptr %134, align 8
   call void @block_free(ptr %133, ptr %135)
   br label %221
 
 136:                                              ; preds = %20
-  %137 = load ptr, ptr %11, align 8
-  %138 = getelementptr inbounds { ptr, ptr }, ptr %137, i32 0, i32 0
+  %137 = load ptr, ptr %11, align 8, !tbaa !20
+  %138 = getelementptr inbounds nuw { ptr, ptr }, ptr %137, i32 0, i32 0
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds { ptr, ptr }, ptr %137, i32 0, i32 1
+  %140 = getelementptr inbounds nuw { ptr, ptr }, ptr %137, i32 0, i32 1
   %141 = load ptr, ptr %140, align 8
   call void @block_free(ptr %139, ptr %141)
   br label %221
 
 142:                                              ; preds = %20
-  %143 = load ptr, ptr %11, align 8
-  %144 = getelementptr inbounds { ptr, ptr }, ptr %143, i32 0, i32 0
+  %143 = load ptr, ptr %11, align 8, !tbaa !20
+  %144 = getelementptr inbounds nuw { ptr, ptr }, ptr %143, i32 0, i32 0
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds { ptr, ptr }, ptr %143, i32 0, i32 1
+  %146 = getelementptr inbounds nuw { ptr, ptr }, ptr %143, i32 0, i32 1
   %147 = load ptr, ptr %146, align 8
   call void @block_free(ptr %145, ptr %147)
   br label %221
 
 148:                                              ; preds = %20
-  %149 = load ptr, ptr %11, align 8
-  %150 = getelementptr inbounds { ptr, ptr }, ptr %149, i32 0, i32 0
+  %149 = load ptr, ptr %11, align 8, !tbaa !20
+  %150 = getelementptr inbounds nuw { ptr, ptr }, ptr %149, i32 0, i32 0
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds { ptr, ptr }, ptr %149, i32 0, i32 1
+  %152 = getelementptr inbounds nuw { ptr, ptr }, ptr %149, i32 0, i32 1
   %153 = load ptr, ptr %152, align 8
   call void @block_free(ptr %151, ptr %153)
   br label %221
 
 154:                                              ; preds = %20
-  %155 = load ptr, ptr %11, align 8
-  %156 = getelementptr inbounds { ptr, ptr }, ptr %155, i32 0, i32 0
+  %155 = load ptr, ptr %11, align 8, !tbaa !20
+  %156 = getelementptr inbounds nuw { ptr, ptr }, ptr %155, i32 0, i32 0
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds { ptr, ptr }, ptr %155, i32 0, i32 1
+  %158 = getelementptr inbounds nuw { ptr, ptr }, ptr %155, i32 0, i32 1
   %159 = load ptr, ptr %158, align 8
   call void @block_free(ptr %157, ptr %159)
   br label %221
 
 160:                                              ; preds = %20
-  %161 = load ptr, ptr %11, align 8
-  %162 = getelementptr inbounds { ptr, ptr }, ptr %161, i32 0, i32 0
+  %161 = load ptr, ptr %11, align 8, !tbaa !20
+  %162 = getelementptr inbounds nuw { ptr, ptr }, ptr %161, i32 0, i32 0
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds { ptr, ptr }, ptr %161, i32 0, i32 1
+  %164 = getelementptr inbounds nuw { ptr, ptr }, ptr %161, i32 0, i32 1
   %165 = load ptr, ptr %164, align 8
   call void @block_free(ptr %163, ptr %165)
   br label %221
 
 166:                                              ; preds = %20
-  %167 = load ptr, ptr %11, align 8
-  %168 = getelementptr inbounds { ptr, ptr }, ptr %167, i32 0, i32 0
+  %167 = load ptr, ptr %11, align 8, !tbaa !20
+  %168 = getelementptr inbounds nuw { ptr, ptr }, ptr %167, i32 0, i32 0
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds { ptr, ptr }, ptr %167, i32 0, i32 1
+  %170 = getelementptr inbounds nuw { ptr, ptr }, ptr %167, i32 0, i32 1
   %171 = load ptr, ptr %170, align 8
   call void @block_free(ptr %169, ptr %171)
   br label %221
 
 172:                                              ; preds = %20
-  %173 = load ptr, ptr %11, align 8
-  %174 = getelementptr inbounds { ptr, ptr }, ptr %173, i32 0, i32 0
+  %173 = load ptr, ptr %11, align 8, !tbaa !20
+  %174 = getelementptr inbounds nuw { ptr, ptr }, ptr %173, i32 0, i32 0
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds { ptr, ptr }, ptr %173, i32 0, i32 1
+  %176 = getelementptr inbounds nuw { ptr, ptr }, ptr %173, i32 0, i32 1
   %177 = load ptr, ptr %176, align 8
   call void @block_free(ptr %175, ptr %177)
   br label %221
 
 178:                                              ; preds = %20
-  %179 = load ptr, ptr %11, align 8
-  %180 = getelementptr inbounds { ptr, ptr }, ptr %179, i32 0, i32 0
+  %179 = load ptr, ptr %11, align 8, !tbaa !20
+  %180 = getelementptr inbounds nuw { ptr, ptr }, ptr %179, i32 0, i32 0
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds { ptr, ptr }, ptr %179, i32 0, i32 1
+  %182 = getelementptr inbounds nuw { ptr, ptr }, ptr %179, i32 0, i32 1
   %183 = load ptr, ptr %182, align 8
   call void @block_free(ptr %181, ptr %183)
   br label %221
 
 184:                                              ; preds = %20
-  %185 = load ptr, ptr %11, align 8
-  %186 = getelementptr inbounds { ptr, ptr }, ptr %185, i32 0, i32 0
+  %185 = load ptr, ptr %11, align 8, !tbaa !20
+  %186 = getelementptr inbounds nuw { ptr, ptr }, ptr %185, i32 0, i32 0
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds { ptr, ptr }, ptr %185, i32 0, i32 1
+  %188 = getelementptr inbounds nuw { ptr, ptr }, ptr %185, i32 0, i32 1
   %189 = load ptr, ptr %188, align 8
   call void @block_free(ptr %187, ptr %189)
   br label %221
 
 190:                                              ; preds = %20
-  %191 = load ptr, ptr %11, align 8
-  %192 = getelementptr inbounds { ptr, ptr }, ptr %191, i32 0, i32 0
+  %191 = load ptr, ptr %11, align 8, !tbaa !20
+  %192 = getelementptr inbounds nuw { ptr, ptr }, ptr %191, i32 0, i32 0
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds { ptr, ptr }, ptr %191, i32 0, i32 1
+  %194 = getelementptr inbounds nuw { ptr, ptr }, ptr %191, i32 0, i32 1
   %195 = load ptr, ptr %194, align 8
   call void @block_free(ptr %193, ptr %195)
   br label %221
 
 196:                                              ; preds = %20
-  %197 = load ptr, ptr %11, align 8
-  %198 = getelementptr inbounds { ptr, ptr }, ptr %197, i32 0, i32 0
+  %197 = load ptr, ptr %11, align 8, !tbaa !20
+  %198 = getelementptr inbounds nuw { ptr, ptr }, ptr %197, i32 0, i32 0
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds { ptr, ptr }, ptr %197, i32 0, i32 1
+  %200 = getelementptr inbounds nuw { ptr, ptr }, ptr %197, i32 0, i32 1
   %201 = load ptr, ptr %200, align 8
   call void @block_free(ptr %199, ptr %201)
   br label %221
 
 202:                                              ; preds = %20
-  %203 = load ptr, ptr %11, align 8
-  %204 = getelementptr inbounds { i64, ptr }, ptr %203, i32 0, i32 0
+  %203 = load ptr, ptr %11, align 8, !tbaa !20
+  %204 = getelementptr inbounds nuw { i64, ptr }, ptr %203, i32 0, i32 0
   %205 = load i64, ptr %204, align 8
-  %206 = getelementptr inbounds { i64, ptr }, ptr %203, i32 0, i32 1
+  %206 = getelementptr inbounds nuw { i64, ptr }, ptr %203, i32 0, i32 1
   %207 = load ptr, ptr %206, align 8
   call void @jv_free(i64 %205, ptr %207)
   br label %221
 
 208:                                              ; preds = %20
-  %209 = load ptr, ptr %11, align 8
-  %210 = getelementptr inbounds { ptr, ptr }, ptr %209, i32 0, i32 0
+  %209 = load ptr, ptr %11, align 8, !tbaa !20
+  %210 = getelementptr inbounds nuw { ptr, ptr }, ptr %209, i32 0, i32 0
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds { ptr, ptr }, ptr %209, i32 0, i32 1
+  %212 = getelementptr inbounds nuw { ptr, ptr }, ptr %209, i32 0, i32 1
   %213 = load ptr, ptr %212, align 8
   call void @block_free(ptr %211, ptr %213)
   br label %221
 
 214:                                              ; preds = %20
-  %215 = load ptr, ptr %11, align 8
-  %216 = getelementptr inbounds { ptr, ptr }, ptr %215, i32 0, i32 0
+  %215 = load ptr, ptr %11, align 8, !tbaa !20
+  %216 = getelementptr inbounds nuw { ptr, ptr }, ptr %215, i32 0, i32 0
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds { ptr, ptr }, ptr %215, i32 0, i32 1
+  %218 = getelementptr inbounds nuw { ptr, ptr }, ptr %215, i32 0, i32 1
   %219 = load ptr, ptr %218, align 8
   call void @block_free(ptr %217, ptr %219)
   br label %221
@@ -8711,7 +9332,7 @@ define internal void @yydestruct(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @jq_parse(ptr noundef %0, ptr noundef %1) #0 {
+define dso_local i32 @jq_parse(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.lexer_param, align 8
@@ -8719,64 +9340,74 @@ define i32 @jq_parse(ptr noundef %0, ptr noundef %1) #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.block, align 8
   %9 = alloca %struct.block, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.lexer_param, ptr %5, i32 0, i32 0
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %10 = getelementptr inbounds nuw %struct.lexer_param, ptr %5, i32 0, i32 0
   %11 = call i32 @jq_yylex_init_extra(i32 noundef 0, ptr noundef %10)
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.locfile, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.locfile, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.lexer_param, ptr %5, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !12
+  %13 = getelementptr inbounds nuw %struct.locfile, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
+  %15 = load ptr, ptr %3, align 8, !tbaa !12
+  %16 = getelementptr inbounds nuw %struct.locfile, ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 8, !tbaa !60
+  %18 = getelementptr inbounds nuw %struct.lexer_param, ptr %5, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = call ptr @jq_yy_scan_bytes(ptr noundef %14, i32 noundef %17, ptr noundef %19)
-  store ptr %20, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  %21 = load ptr, ptr %4, align 8
+  store ptr %20, ptr %6, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 0, ptr %7, align 4, !tbaa !18
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #8
   %22 = call { ptr, ptr } (...) @gen_noop()
-  %23 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
+  %23 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
   %24 = extractvalue { ptr, ptr } %22, 0
   store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
+  %25 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
   %26 = extractvalue { ptr, ptr } %22, 1
   store ptr %26, ptr %25, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %8, i64 16, i1 false)
-  %27 = load ptr, ptr %4, align 8
-  %28 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #8
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = load ptr, ptr %3, align 8, !tbaa !12
   %29 = call i32 @yyparse(ptr noundef %27, ptr noundef %7, ptr noundef %28, ptr noundef %5)
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.lexer_param, ptr %5, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
+  %30 = load ptr, ptr %6, align 8, !tbaa !61
+  %31 = getelementptr inbounds nuw %struct.lexer_param, ptr %5, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !22
   call void @jq_yy_delete_buffer(ptr noundef %30, ptr noundef %32)
-  %33 = getelementptr inbounds %struct.lexer_param, ptr %5, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
+  %33 = getelementptr inbounds nuw %struct.lexer_param, ptr %5, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
   %35 = call i32 @jq_yylex_destroy(ptr noundef %34)
-  %36 = load i32, ptr %7, align 4
+  %36 = load i32, ptr %7, align 4, !tbaa !18
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %50
 
 38:                                               ; preds = %2
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds { ptr, ptr }, ptr %39, i32 0, i32 0
+  %39 = load ptr, ptr %4, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw { ptr, ptr }, ptr %39, i32 0, i32 0
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %39, i32 0, i32 1
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %39, i32 0, i32 1
   %43 = load ptr, ptr %42, align 8
   call void @block_free(ptr %41, ptr %43)
-  %44 = load ptr, ptr %4, align 8
+  %44 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #8
   %45 = call { ptr, ptr } (...) @gen_noop()
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 0
+  %46 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
   %47 = extractvalue { ptr, ptr } %45, 0
   store ptr %47, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %9, i32 0, i32 1
+  %48 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
   %49 = extractvalue { ptr, ptr } %45, 1
   store ptr %49, ptr %48, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #8
   br label %50
 
 50:                                               ; preds = %38, %2
-  %51 = load i32, ptr %7, align 4
+  %51 = load i32, ptr %7, align 4, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret i32 %51
 }
 
@@ -8789,50 +9420,56 @@ declare void @jq_yy_delete_buffer(ptr noundef, ptr noundef) #2
 declare i32 @jq_yylex_destroy(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @jq_parse_library(ptr noundef %0, ptr noundef %1) #0 {
+define dso_local i32 @jq_parse_library(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = call i32 @jq_parse(ptr noundef %7, ptr noundef %8)
-  store i32 %9, ptr %6, align 4
-  %10 = load i32, ptr %6, align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %14
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !12
+  %9 = load ptr, ptr %5, align 8, !tbaa !8
+  %10 = call i32 @jq_parse(ptr noundef %8, ptr noundef %9)
+  store i32 %10, ptr %6, align 4, !tbaa !18
+  %11 = load i32, ptr %6, align 4, !tbaa !18
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %6, align 4
-  store i32 %13, ptr %3, align 4
-  br label %26
+13:                                               ; preds = %2
+  %14 = load i32, ptr %6, align 4, !tbaa !18
+  store i32 %14, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %27
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %15, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = call i32 @block_has_main(ptr %17, ptr %19)
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %25
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { ptr, ptr }, ptr %16, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 @block_has_main(ptr %18, ptr %20)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %4, align 8
-  %24 = load i64, ptr @UNKNOWN_LOCATION, align 4
-  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %23, i64 %24, ptr noundef @.str.48)
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %4, align 8, !tbaa !12
+  %25 = load i64, ptr @UNKNOWN_LOCATION, align 4
+  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %24, i64 %25, ptr noundef @.str.48)
   store i32 1, ptr %3, align 4
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %27
 
-25:                                               ; preds = %14
+26:                                               ; preds = %15
   store i32 0, ptr %3, align 4
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %27
 
-26:                                               ; preds = %25, %22, %12
-  %27 = load i32, ptr %3, align 4
-  ret i32 %27
+27:                                               ; preds = %26, %23, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %28 = load i32, ptr %3, align 4
+  ret i32 %28
 }
 
 declare i32 @block_has_main(ptr, ptr) #2
@@ -8861,376 +9498,410 @@ define internal { ptr, ptr } @constant_fold(ptr %0, ptr %1, ptr %2, ptr %3, i32 
   %21 = alloca %struct.jv, align 8
   %22 = alloca %struct.jv, align 8
   %23 = alloca %struct.jv, align 8
-  %24 = alloca %struct.jv, align 8
-  %25 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
-  store ptr %0, ptr %25, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
-  store ptr %1, ptr %26, align 8
-  %27 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  store ptr %2, ptr %27, align 8
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  store ptr %3, ptr %28, align 8
-  store i32 %4, ptr %9, align 4
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @block_is_single(ptr %30, ptr %32)
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %56
+  %24 = alloca i32, align 4
+  %25 = alloca %struct.jv, align 8
+  %26 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  store ptr %0, ptr %26, align 8
+  %27 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  store ptr %1, ptr %27, align 8
+  %28 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  store ptr %2, ptr %28, align 8
+  %29 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  store ptr %3, ptr %29, align 8
+  store i32 %4, ptr %9, align 4, !tbaa !18
+  %30 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = call i32 @block_is_single(ptr %31, ptr %33)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %57
 
-35:                                               ; preds = %5
-  %36 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 @block_is_const(ptr %37, ptr %39)
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %56
+36:                                               ; preds = %5
+  %37 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i32 @block_is_const(ptr %38, ptr %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %57
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = call i32 @block_is_single(ptr %44, ptr %46)
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %56
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i32 @block_is_single(ptr %45, ptr %47)
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 @block_is_const(ptr %51, ptr %53)
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %62, label %56
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = call i32 @block_is_const(ptr %52, ptr %54)
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %63, label %57
 
-56:                                               ; preds = %49, %42, %35, %5
-  %57 = call { ptr, ptr } (...) @gen_noop()
-  %58 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
-  %59 = extractvalue { ptr, ptr } %57, 0
-  store ptr %59, ptr %58, align 8
-  %60 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
-  %61 = extractvalue { ptr, ptr } %57, 1
-  store ptr %61, ptr %60, align 8
-  br label %285
+57:                                               ; preds = %50, %43, %36, %5
+  %58 = call { ptr, ptr } (...) @gen_noop()
+  %59 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
+  %60 = extractvalue { ptr, ptr } %58, 0
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
+  %62 = extractvalue { ptr, ptr } %58, 1
+  store ptr %62, ptr %61, align 8
+  br label %287
 
-62:                                               ; preds = %49
-  %63 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = call { i64, ptr } @block_const(ptr %64, ptr %66)
-  %68 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %69 = extractvalue { i64, ptr } %67, 0
-  store i64 %69, ptr %68, align 8
-  %70 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %71 = extractvalue { i64, ptr } %67, 1
-  store ptr %71, ptr %70, align 8
-  %72 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  call void @block_free(ptr %73, ptr %75)
-  %76 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = call { i64, ptr } @block_const(ptr %77, ptr %79)
-  %81 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %82 = extractvalue { i64, ptr } %80, 0
-  store i64 %82, ptr %81, align 8
-  %83 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %84 = extractvalue { i64, ptr } %80, 1
-  store ptr %84, ptr %83, align 8
-  %85 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds { ptr, ptr }, ptr %8, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  call void @block_free(ptr %86, ptr %88)
-  %89 = call { i64, ptr } @jv_invalid()
-  %90 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 0
-  %91 = extractvalue { i64, ptr } %89, 0
-  store i64 %91, ptr %90, align 8
-  %92 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 1
-  %93 = extractvalue { i64, ptr } %89, 1
-  store ptr %93, ptr %92, align 8
-  %94 = load i32, ptr %9, align 4
-  switch i32 %94, label %249 [
-    i32 43, label %95
-    i32 45, label %109
-    i32 42, label %123
-    i32 47, label %137
-    i32 37, label %151
-    i32 266, label %165
-    i32 267, label %179
-    i32 60, label %193
-    i32 62, label %207
-    i32 294, label %221
-    i32 295, label %235
+63:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #8
+  %64 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8
+  %68 = call { i64, ptr } @block_const(ptr %65, ptr %67)
+  %69 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %70 = extractvalue { i64, ptr } %68, 0
+  store i64 %70, ptr %69, align 8
+  %71 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %72 = extractvalue { i64, ptr } %68, 1
+  store ptr %72, ptr %71, align 8
+  %73 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  call void @block_free(ptr %74, ptr %76)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #8
+  %77 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = call { i64, ptr } @block_const(ptr %78, ptr %80)
+  %82 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %83 = extractvalue { i64, ptr } %81, 0
+  store i64 %83, ptr %82, align 8
+  %84 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %85 = extractvalue { i64, ptr } %81, 1
+  store ptr %85, ptr %84, align 8
+  %86 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  call void @block_free(ptr %87, ptr %89)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #8
+  %90 = call { i64, ptr } @jv_invalid()
+  %91 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 0
+  %92 = extractvalue { i64, ptr } %90, 0
+  store i64 %92, ptr %91, align 8
+  %93 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 1
+  %94 = extractvalue { i64, ptr } %90, 1
+  store ptr %94, ptr %93, align 8
+  %95 = load i32, ptr %9, align 4, !tbaa !18
+  switch i32 %95, label %250 [
+    i32 43, label %96
+    i32 45, label %110
+    i32 42, label %124
+    i32 47, label %138
+    i32 37, label %152
+    i32 266, label %166
+    i32 267, label %180
+    i32 60, label %194
+    i32 62, label %208
+    i32 294, label %222
+    i32 295, label %236
   ]
 
-95:                                               ; preds = %62
-  %96 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  %104 = call { i64, ptr } @binop_plus(i64 %97, ptr %99, i64 %101, ptr %103)
-  %105 = getelementptr inbounds { i64, ptr }, ptr %13, i32 0, i32 0
-  %106 = extractvalue { i64, ptr } %104, 0
-  store i64 %106, ptr %105, align 8
-  %107 = getelementptr inbounds { i64, ptr }, ptr %13, i32 0, i32 1
-  %108 = extractvalue { i64, ptr } %104, 1
-  store ptr %108, ptr %107, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 16, i1 false)
-  br label %249
+96:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #8
+  %97 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %102 = load i64, ptr %101, align 8
+  %103 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8
+  %105 = call { i64, ptr } @binop_plus(i64 %98, ptr %100, i64 %102, ptr %104)
+  %106 = getelementptr inbounds nuw { i64, ptr }, ptr %13, i32 0, i32 0
+  %107 = extractvalue { i64, ptr } %105, 0
+  store i64 %107, ptr %106, align 8
+  %108 = getelementptr inbounds nuw { i64, ptr }, ptr %13, i32 0, i32 1
+  %109 = extractvalue { i64, ptr } %105, 1
+  store ptr %109, ptr %108, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #8
+  br label %250
 
-109:                                              ; preds = %62
-  %110 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %117 = load ptr, ptr %116, align 8
-  %118 = call { i64, ptr } @binop_minus(i64 %111, ptr %113, i64 %115, ptr %117)
-  %119 = getelementptr inbounds { i64, ptr }, ptr %14, i32 0, i32 0
-  %120 = extractvalue { i64, ptr } %118, 0
-  store i64 %120, ptr %119, align 8
-  %121 = getelementptr inbounds { i64, ptr }, ptr %14, i32 0, i32 1
-  %122 = extractvalue { i64, ptr } %118, 1
-  store ptr %122, ptr %121, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %14, i64 16, i1 false)
-  br label %249
+110:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #8
+  %111 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %116 = load i64, ptr %115, align 8
+  %117 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = call { i64, ptr } @binop_minus(i64 %112, ptr %114, i64 %116, ptr %118)
+  %120 = getelementptr inbounds nuw { i64, ptr }, ptr %14, i32 0, i32 0
+  %121 = extractvalue { i64, ptr } %119, 0
+  store i64 %121, ptr %120, align 8
+  %122 = getelementptr inbounds nuw { i64, ptr }, ptr %14, i32 0, i32 1
+  %123 = extractvalue { i64, ptr } %119, 1
+  store ptr %123, ptr %122, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %14, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #8
+  br label %250
 
-123:                                              ; preds = %62
-  %124 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %131 = load ptr, ptr %130, align 8
-  %132 = call { i64, ptr } @binop_multiply(i64 %125, ptr %127, i64 %129, ptr %131)
-  %133 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 0
-  %134 = extractvalue { i64, ptr } %132, 0
-  store i64 %134, ptr %133, align 8
-  %135 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 1
-  %136 = extractvalue { i64, ptr } %132, 1
-  store ptr %136, ptr %135, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %15, i64 16, i1 false)
-  br label %249
+124:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #8
+  %125 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %126 = load i64, ptr %125, align 8
+  %127 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %130 = load i64, ptr %129, align 8
+  %131 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %132 = load ptr, ptr %131, align 8
+  %133 = call { i64, ptr } @binop_multiply(i64 %126, ptr %128, i64 %130, ptr %132)
+  %134 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 0
+  %135 = extractvalue { i64, ptr } %133, 0
+  store i64 %135, ptr %134, align 8
+  %136 = getelementptr inbounds nuw { i64, ptr }, ptr %15, i32 0, i32 1
+  %137 = extractvalue { i64, ptr } %133, 1
+  store ptr %137, ptr %136, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %15, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #8
+  br label %250
 
-137:                                              ; preds = %62
-  %138 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %145 = load ptr, ptr %144, align 8
-  %146 = call { i64, ptr } @binop_divide(i64 %139, ptr %141, i64 %143, ptr %145)
-  %147 = getelementptr inbounds { i64, ptr }, ptr %16, i32 0, i32 0
-  %148 = extractvalue { i64, ptr } %146, 0
-  store i64 %148, ptr %147, align 8
-  %149 = getelementptr inbounds { i64, ptr }, ptr %16, i32 0, i32 1
-  %150 = extractvalue { i64, ptr } %146, 1
-  store ptr %150, ptr %149, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %16, i64 16, i1 false)
-  br label %249
+138:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #8
+  %139 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %140 = load i64, ptr %139, align 8
+  %141 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %144 = load i64, ptr %143, align 8
+  %145 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %146 = load ptr, ptr %145, align 8
+  %147 = call { i64, ptr } @binop_divide(i64 %140, ptr %142, i64 %144, ptr %146)
+  %148 = getelementptr inbounds nuw { i64, ptr }, ptr %16, i32 0, i32 0
+  %149 = extractvalue { i64, ptr } %147, 0
+  store i64 %149, ptr %148, align 8
+  %150 = getelementptr inbounds nuw { i64, ptr }, ptr %16, i32 0, i32 1
+  %151 = extractvalue { i64, ptr } %147, 1
+  store ptr %151, ptr %150, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %16, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #8
+  br label %250
 
-151:                                              ; preds = %62
-  %152 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %153 = load i64, ptr %152, align 8
-  %154 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %159 = load ptr, ptr %158, align 8
-  %160 = call { i64, ptr } @binop_mod(i64 %153, ptr %155, i64 %157, ptr %159)
-  %161 = getelementptr inbounds { i64, ptr }, ptr %17, i32 0, i32 0
-  %162 = extractvalue { i64, ptr } %160, 0
-  store i64 %162, ptr %161, align 8
-  %163 = getelementptr inbounds { i64, ptr }, ptr %17, i32 0, i32 1
-  %164 = extractvalue { i64, ptr } %160, 1
-  store ptr %164, ptr %163, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %17, i64 16, i1 false)
-  br label %249
+152:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #8
+  %153 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %154 = load i64, ptr %153, align 8
+  %155 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %158 = load i64, ptr %157, align 8
+  %159 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %160 = load ptr, ptr %159, align 8
+  %161 = call { i64, ptr } @binop_mod(i64 %154, ptr %156, i64 %158, ptr %160)
+  %162 = getelementptr inbounds nuw { i64, ptr }, ptr %17, i32 0, i32 0
+  %163 = extractvalue { i64, ptr } %161, 0
+  store i64 %163, ptr %162, align 8
+  %164 = getelementptr inbounds nuw { i64, ptr }, ptr %17, i32 0, i32 1
+  %165 = extractvalue { i64, ptr } %161, 1
+  store ptr %165, ptr %164, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %17, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #8
+  br label %250
 
-165:                                              ; preds = %62
-  %166 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %171 = load i64, ptr %170, align 8
-  %172 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %173 = load ptr, ptr %172, align 8
-  %174 = call { i64, ptr } @binop_equal(i64 %167, ptr %169, i64 %171, ptr %173)
-  %175 = getelementptr inbounds { i64, ptr }, ptr %18, i32 0, i32 0
-  %176 = extractvalue { i64, ptr } %174, 0
-  store i64 %176, ptr %175, align 8
-  %177 = getelementptr inbounds { i64, ptr }, ptr %18, i32 0, i32 1
-  %178 = extractvalue { i64, ptr } %174, 1
-  store ptr %178, ptr %177, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %18, i64 16, i1 false)
-  br label %249
+166:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #8
+  %167 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %168 = load i64, ptr %167, align 8
+  %169 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %172 = load i64, ptr %171, align 8
+  %173 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %174 = load ptr, ptr %173, align 8
+  %175 = call { i64, ptr } @binop_equal(i64 %168, ptr %170, i64 %172, ptr %174)
+  %176 = getelementptr inbounds nuw { i64, ptr }, ptr %18, i32 0, i32 0
+  %177 = extractvalue { i64, ptr } %175, 0
+  store i64 %177, ptr %176, align 8
+  %178 = getelementptr inbounds nuw { i64, ptr }, ptr %18, i32 0, i32 1
+  %179 = extractvalue { i64, ptr } %175, 1
+  store ptr %179, ptr %178, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %18, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #8
+  br label %250
 
-179:                                              ; preds = %62
-  %180 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %181 = load i64, ptr %180, align 8
-  %182 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %185 = load i64, ptr %184, align 8
-  %186 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %187 = load ptr, ptr %186, align 8
-  %188 = call { i64, ptr } @binop_notequal(i64 %181, ptr %183, i64 %185, ptr %187)
-  %189 = getelementptr inbounds { i64, ptr }, ptr %19, i32 0, i32 0
-  %190 = extractvalue { i64, ptr } %188, 0
-  store i64 %190, ptr %189, align 8
-  %191 = getelementptr inbounds { i64, ptr }, ptr %19, i32 0, i32 1
-  %192 = extractvalue { i64, ptr } %188, 1
-  store ptr %192, ptr %191, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %19, i64 16, i1 false)
-  br label %249
+180:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #8
+  %181 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %182 = load i64, ptr %181, align 8
+  %183 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %186 = load i64, ptr %185, align 8
+  %187 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %188 = load ptr, ptr %187, align 8
+  %189 = call { i64, ptr } @binop_notequal(i64 %182, ptr %184, i64 %186, ptr %188)
+  %190 = getelementptr inbounds nuw { i64, ptr }, ptr %19, i32 0, i32 0
+  %191 = extractvalue { i64, ptr } %189, 0
+  store i64 %191, ptr %190, align 8
+  %192 = getelementptr inbounds nuw { i64, ptr }, ptr %19, i32 0, i32 1
+  %193 = extractvalue { i64, ptr } %189, 1
+  store ptr %193, ptr %192, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %19, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #8
+  br label %250
 
-193:                                              ; preds = %62
-  %194 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %195 = load i64, ptr %194, align 8
-  %196 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %199 = load i64, ptr %198, align 8
-  %200 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %201 = load ptr, ptr %200, align 8
-  %202 = call { i64, ptr } @binop_less(i64 %195, ptr %197, i64 %199, ptr %201)
-  %203 = getelementptr inbounds { i64, ptr }, ptr %20, i32 0, i32 0
-  %204 = extractvalue { i64, ptr } %202, 0
-  store i64 %204, ptr %203, align 8
-  %205 = getelementptr inbounds { i64, ptr }, ptr %20, i32 0, i32 1
-  %206 = extractvalue { i64, ptr } %202, 1
-  store ptr %206, ptr %205, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %20, i64 16, i1 false)
-  br label %249
+194:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #8
+  %195 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %196 = load i64, ptr %195, align 8
+  %197 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %200 = load i64, ptr %199, align 8
+  %201 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %202 = load ptr, ptr %201, align 8
+  %203 = call { i64, ptr } @binop_less(i64 %196, ptr %198, i64 %200, ptr %202)
+  %204 = getelementptr inbounds nuw { i64, ptr }, ptr %20, i32 0, i32 0
+  %205 = extractvalue { i64, ptr } %203, 0
+  store i64 %205, ptr %204, align 8
+  %206 = getelementptr inbounds nuw { i64, ptr }, ptr %20, i32 0, i32 1
+  %207 = extractvalue { i64, ptr } %203, 1
+  store ptr %207, ptr %206, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %20, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #8
+  br label %250
 
-207:                                              ; preds = %62
-  %208 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %209 = load i64, ptr %208, align 8
-  %210 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %213 = load i64, ptr %212, align 8
-  %214 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %215 = load ptr, ptr %214, align 8
-  %216 = call { i64, ptr } @binop_greater(i64 %209, ptr %211, i64 %213, ptr %215)
-  %217 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 0
-  %218 = extractvalue { i64, ptr } %216, 0
-  store i64 %218, ptr %217, align 8
-  %219 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
-  %220 = extractvalue { i64, ptr } %216, 1
-  store ptr %220, ptr %219, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %21, i64 16, i1 false)
-  br label %249
+208:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #8
+  %209 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %210 = load i64, ptr %209, align 8
+  %211 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %214 = load i64, ptr %213, align 8
+  %215 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %216 = load ptr, ptr %215, align 8
+  %217 = call { i64, ptr } @binop_greater(i64 %210, ptr %212, i64 %214, ptr %216)
+  %218 = getelementptr inbounds nuw { i64, ptr }, ptr %21, i32 0, i32 0
+  %219 = extractvalue { i64, ptr } %217, 0
+  store i64 %219, ptr %218, align 8
+  %220 = getelementptr inbounds nuw { i64, ptr }, ptr %21, i32 0, i32 1
+  %221 = extractvalue { i64, ptr } %217, 1
+  store ptr %221, ptr %220, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %21, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #8
+  br label %250
 
-221:                                              ; preds = %62
-  %222 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %223 = load i64, ptr %222, align 8
-  %224 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %227 = load i64, ptr %226, align 8
-  %228 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %229 = load ptr, ptr %228, align 8
-  %230 = call { i64, ptr } @binop_lesseq(i64 %223, ptr %225, i64 %227, ptr %229)
-  %231 = getelementptr inbounds { i64, ptr }, ptr %22, i32 0, i32 0
-  %232 = extractvalue { i64, ptr } %230, 0
-  store i64 %232, ptr %231, align 8
-  %233 = getelementptr inbounds { i64, ptr }, ptr %22, i32 0, i32 1
-  %234 = extractvalue { i64, ptr } %230, 1
-  store ptr %234, ptr %233, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %22, i64 16, i1 false)
-  br label %249
+222:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #8
+  %223 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %224 = load i64, ptr %223, align 8
+  %225 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %228 = load i64, ptr %227, align 8
+  %229 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %230 = load ptr, ptr %229, align 8
+  %231 = call { i64, ptr } @binop_lesseq(i64 %224, ptr %226, i64 %228, ptr %230)
+  %232 = getelementptr inbounds nuw { i64, ptr }, ptr %22, i32 0, i32 0
+  %233 = extractvalue { i64, ptr } %231, 0
+  store i64 %233, ptr %232, align 8
+  %234 = getelementptr inbounds nuw { i64, ptr }, ptr %22, i32 0, i32 1
+  %235 = extractvalue { i64, ptr } %231, 1
+  store ptr %235, ptr %234, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %22, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #8
+  br label %250
 
-235:                                              ; preds = %62
-  %236 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %237 = load i64, ptr %236, align 8
-  %238 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %241 = load i64, ptr %240, align 8
-  %242 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %243 = load ptr, ptr %242, align 8
-  %244 = call { i64, ptr } @binop_greatereq(i64 %237, ptr %239, i64 %241, ptr %243)
-  %245 = getelementptr inbounds { i64, ptr }, ptr %23, i32 0, i32 0
-  %246 = extractvalue { i64, ptr } %244, 0
-  store i64 %246, ptr %245, align 8
-  %247 = getelementptr inbounds { i64, ptr }, ptr %23, i32 0, i32 1
-  %248 = extractvalue { i64, ptr } %244, 1
-  store ptr %248, ptr %247, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %23, i64 16, i1 false)
-  br label %249
+236:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #8
+  %237 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 0
+  %238 = load i64, ptr %237, align 8
+  %239 = getelementptr inbounds nuw { i64, ptr }, ptr %10, i32 0, i32 1
+  %240 = load ptr, ptr %239, align 8
+  %241 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 0
+  %242 = load i64, ptr %241, align 8
+  %243 = getelementptr inbounds nuw { i64, ptr }, ptr %11, i32 0, i32 1
+  %244 = load ptr, ptr %243, align 8
+  %245 = call { i64, ptr } @binop_greatereq(i64 %238, ptr %240, i64 %242, ptr %244)
+  %246 = getelementptr inbounds nuw { i64, ptr }, ptr %23, i32 0, i32 0
+  %247 = extractvalue { i64, ptr } %245, 0
+  store i64 %247, ptr %246, align 8
+  %248 = getelementptr inbounds nuw { i64, ptr }, ptr %23, i32 0, i32 1
+  %249 = extractvalue { i64, ptr } %245, 1
+  store ptr %249, ptr %248, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %23, i64 16, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #8
+  br label %250
 
-249:                                              ; preds = %235, %221, %207, %193, %179, %165, %151, %137, %123, %109, %95, %62
-  %250 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 0
-  %251 = load i64, ptr %250, align 8
-  %252 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 1
-  %253 = load ptr, ptr %252, align 8
-  %254 = call i32 @jv_is_valid(i64 %251, ptr %253)
-  %255 = icmp ne i32 %254, 0
-  br i1 %255, label %256, label %266
+250:                                              ; preds = %63, %236, %222, %208, %194, %180, %166, %152, %138, %124, %110, %96
+  %251 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 0
+  %252 = load i64, ptr %251, align 8
+  %253 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 1
+  %254 = load ptr, ptr %253, align 8
+  %255 = call i32 @jv_is_valid(i64 %252, ptr %254)
+  %256 = icmp ne i32 %255, 0
+  br i1 %256, label %257, label %267
 
-256:                                              ; preds = %249
-  %257 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 0
-  %258 = load i64, ptr %257, align 8
-  %259 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 1
-  %260 = load ptr, ptr %259, align 8
-  %261 = call { ptr, ptr } @gen_const(i64 %258, ptr %260)
-  %262 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
-  %263 = extractvalue { ptr, ptr } %261, 0
-  store ptr %263, ptr %262, align 8
-  %264 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
-  %265 = extractvalue { ptr, ptr } %261, 1
-  store ptr %265, ptr %264, align 8
-  br label %285
+257:                                              ; preds = %250
+  %258 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 0
+  %259 = load i64, ptr %258, align 8
+  %260 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 1
+  %261 = load ptr, ptr %260, align 8
+  %262 = call { ptr, ptr } @gen_const(i64 %259, ptr %261)
+  %263 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
+  %264 = extractvalue { ptr, ptr } %262, 0
+  store ptr %264, ptr %263, align 8
+  %265 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
+  %266 = extractvalue { ptr, ptr } %262, 1
+  store ptr %266, ptr %265, align 8
+  store i32 1, ptr %24, align 4
+  br label %286
 
-266:                                              ; preds = %249
-  %267 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 0
-  %268 = load i64, ptr %267, align 8
-  %269 = getelementptr inbounds { i64, ptr }, ptr %12, i32 0, i32 1
-  %270 = load ptr, ptr %269, align 8
-  %271 = call { i64, ptr } @jv_invalid_get_msg(i64 %268, ptr %270)
-  %272 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 0
-  %273 = extractvalue { i64, ptr } %271, 0
-  store i64 %273, ptr %272, align 8
-  %274 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 1
-  %275 = extractvalue { i64, ptr } %271, 1
-  store ptr %275, ptr %274, align 8
-  %276 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 0
-  %277 = load i64, ptr %276, align 8
-  %278 = getelementptr inbounds { i64, ptr }, ptr %24, i32 0, i32 1
-  %279 = load ptr, ptr %278, align 8
-  %280 = call { ptr, ptr } @gen_error(i64 %277, ptr %279)
-  %281 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 0
-  %282 = extractvalue { ptr, ptr } %280, 0
-  store ptr %282, ptr %281, align 8
-  %283 = getelementptr inbounds { ptr, ptr }, ptr %6, i32 0, i32 1
-  %284 = extractvalue { ptr, ptr } %280, 1
-  store ptr %284, ptr %283, align 8
-  br label %285
+267:                                              ; preds = %250
+  %268 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 0
+  %269 = load i64, ptr %268, align 8
+  %270 = getelementptr inbounds nuw { i64, ptr }, ptr %12, i32 0, i32 1
+  %271 = load ptr, ptr %270, align 8
+  %272 = call { i64, ptr } @jv_invalid_get_msg(i64 %269, ptr %271)
+  %273 = getelementptr inbounds nuw { i64, ptr }, ptr %25, i32 0, i32 0
+  %274 = extractvalue { i64, ptr } %272, 0
+  store i64 %274, ptr %273, align 8
+  %275 = getelementptr inbounds nuw { i64, ptr }, ptr %25, i32 0, i32 1
+  %276 = extractvalue { i64, ptr } %272, 1
+  store ptr %276, ptr %275, align 8
+  %277 = getelementptr inbounds nuw { i64, ptr }, ptr %25, i32 0, i32 0
+  %278 = load i64, ptr %277, align 8
+  %279 = getelementptr inbounds nuw { i64, ptr }, ptr %25, i32 0, i32 1
+  %280 = load ptr, ptr %279, align 8
+  %281 = call { ptr, ptr } @gen_error(i64 %278, ptr %280)
+  %282 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
+  %283 = extractvalue { ptr, ptr } %281, 0
+  store ptr %283, ptr %282, align 8
+  %284 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
+  %285 = extractvalue { ptr, ptr } %281, 1
+  store ptr %285, ptr %284, align 8
+  store i32 1, ptr %24, align 4
+  br label %286
 
-285:                                              ; preds = %266, %256, %56
-  %286 = load { ptr, ptr }, ptr %6, align 8
-  ret { ptr, ptr } %286
+286:                                              ; preds = %267, %257
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #8
+  br label %287
+
+287:                                              ; preds = %286, %57
+  %288 = load { ptr, ptr }, ptr %6, align 8
+  ret { ptr, ptr } %288
 }
 
 declare i32 @block_is_noop(ptr, ptr) #2
@@ -9281,82 +9952,99 @@ define internal i32 @yy_syntax_error_arguments(ptr noundef %0, ptr noundef %1, i
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.yypcontext_t, ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp ne i32 %12, -2
-  br i1 %13, label %14, label %49
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i32 %2, ptr %7, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !18
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.yypcontext_t, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8, !tbaa !46
+  %14 = icmp ne i32 %13, -2
+  br i1 %14, label %15, label %53
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %6, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %25
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %16 = load ptr, ptr %6, align 8, !tbaa !4
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %26
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.yypcontext_t, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %19, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %21, i64 %23
-  store i32 %20, ptr %24, align 4
-  br label %25
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %5, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.yypcontext_t, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 8, !tbaa !46
+  %22 = load ptr, ptr %6, align 8, !tbaa !4
+  %23 = load i32, ptr %8, align 4, !tbaa !18
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i32, ptr %22, i64 %24
+  store i32 %21, ptr %25, align 4, !tbaa !18
+  br label %26
 
-25:                                               ; preds = %17, %14
-  %26 = load i32, ptr %8, align 4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %8, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %34
+26:                                               ; preds = %18, %15
+  %27 = load i32, ptr %8, align 4, !tbaa !18
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %8, align 4, !tbaa !18
+  %29 = load ptr, ptr %5, align 8, !tbaa !4
+  %30 = load ptr, ptr %6, align 8, !tbaa !4
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %35
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 1
-  br label %36
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %6, align 8, !tbaa !4
+  %34 = getelementptr inbounds i32, ptr %33, i64 1
+  br label %37
 
-34:                                               ; preds = %25
-  %35 = load ptr, ptr %6, align 8
-  br label %36
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %6, align 8, !tbaa !4
+  br label %37
 
-36:                                               ; preds = %34, %31
-  %37 = phi ptr [ %33, %31 ], [ %35, %34 ]
-  %38 = load i32, ptr %7, align 4
-  %39 = sub nsw i32 %38, 1
-  %40 = call i32 @yypcontext_expected_tokens(ptr noundef %28, ptr noundef %37, i32 noundef %39)
-  store i32 %40, ptr %9, align 4
-  %41 = load i32, ptr %9, align 4
-  %42 = icmp eq i32 %41, -2
-  br i1 %42, label %43, label %44
+37:                                               ; preds = %35, %32
+  %38 = phi ptr [ %34, %32 ], [ %36, %35 ]
+  %39 = load i32, ptr %7, align 4, !tbaa !18
+  %40 = sub nsw i32 %39, 1
+  %41 = call i32 @yypcontext_expected_tokens(ptr noundef %29, ptr noundef %38, i32 noundef %40)
+  store i32 %41, ptr %9, align 4, !tbaa !18
+  %42 = load i32, ptr %9, align 4, !tbaa !18
+  %43 = icmp eq i32 %42, -2
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %36
+44:                                               ; preds = %37
   store i32 -2, ptr %4, align 4
-  br label %51
+  store i32 1, ptr %10, align 4
+  br label %50
 
-44:                                               ; preds = %36
-  %45 = load i32, ptr %9, align 4
-  %46 = load i32, ptr %8, align 4
-  %47 = add nsw i32 %46, %45
-  store i32 %47, ptr %8, align 4
-  br label %48
-
-48:                                               ; preds = %44
+45:                                               ; preds = %37
+  %46 = load i32, ptr %9, align 4, !tbaa !18
+  %47 = load i32, ptr %8, align 4, !tbaa !18
+  %48 = add nsw i32 %47, %46
+  store i32 %48, ptr %8, align 4, !tbaa !18
   br label %49
 
-49:                                               ; preds = %48, %3
-  %50 = load i32, ptr %8, align 4
-  store i32 %50, ptr %4, align 4
-  br label %51
+49:                                               ; preds = %45
+  store i32 0, ptr %10, align 4
+  br label %50
 
-51:                                               ; preds = %49, %43
-  %52 = load i32, ptr %4, align 4
-  ret i32 %52
+50:                                               ; preds = %49, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  %51 = load i32, ptr %10, align 4
+  switch i32 %51, label %55 [
+    i32 0, label %52
+  ]
+
+52:                                               ; preds = %50
+  br label %53
+
+53:                                               ; preds = %52, %3
+  %54 = load i32, ptr %8, align 4, !tbaa !18
+  store i32 %54, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %55
+
+55:                                               ; preds = %53, %50
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %56 = load i32, ptr %4, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -9369,122 +10057,142 @@ define internal i64 @yytnamerr(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i8, ptr %8, align 1
-  %10 = sext i8 %9 to i32
-  %11 = icmp eq i32 %10, 34
-  br i1 %11, label %12, label %52
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  %10 = load i8, ptr %9, align 1, !tbaa !26
+  %11 = sext i8 %10 to i32
+  %12 = icmp eq i32 %11, 34
+  br i1 %12, label %13, label %56
 
-12:                                               ; preds = %2
-  store i64 0, ptr %6, align 8
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %7, align 8
-  br label %14
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store i64 0, ptr %6, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %14 = load ptr, ptr %5, align 8, !tbaa !16
+  store ptr %14, ptr %7, align 8, !tbaa !16
+  br label %15
 
-14:                                               ; preds = %50, %12
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i32 1
-  store ptr %16, ptr %7, align 8
-  %17 = load i8, ptr %16, align 1
-  %18 = sext i8 %17 to i32
-  switch i32 %18, label %29 [
-    i32 39, label %19
-    i32 44, label %19
-    i32 92, label %20
-    i32 34, label %41
+15:                                               ; preds = %51, %13
+  %16 = load ptr, ptr %7, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i32 1
+  store ptr %17, ptr %7, align 8, !tbaa !16
+  %18 = load i8, ptr %17, align 1, !tbaa !26
+  %19 = sext i8 %18 to i32
+  switch i32 %19, label %30 [
+    i32 39, label %20
+    i32 44, label %20
+    i32 92, label %21
+    i32 34, label %42
   ]
 
-19:                                               ; preds = %14, %14
-  br label %51
-
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i32 1
-  store ptr %22, ptr %7, align 8
-  %23 = load i8, ptr %22, align 1
-  %24 = sext i8 %23 to i32
-  %25 = icmp ne i32 %24, 92
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %20
-  br label %51
-
-27:                                               ; preds = %20
-  br label %28
-
-28:                                               ; preds = %27
-  br label %29
-
-29:                                               ; preds = %28, %14
-  %30 = load ptr, ptr %4, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %38
-
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %7, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = load ptr, ptr %4, align 8
-  %36 = load i64, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 %36
-  store i8 %34, ptr %37, align 1
-  br label %38
-
-38:                                               ; preds = %32, %29
-  %39 = load i64, ptr %6, align 8
-  %40 = add nsw i64 %39, 1
-  store i64 %40, ptr %6, align 8
-  br label %50
-
-41:                                               ; preds = %14
-  %42 = load ptr, ptr %4, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %48
-
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %4, align 8
-  %46 = load i64, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 %46
-  store i8 0, ptr %47, align 1
-  br label %48
-
-48:                                               ; preds = %44, %41
-  %49 = load i64, ptr %6, align 8
-  store i64 %49, ptr %3, align 8
-  br label %66
-
-50:                                               ; preds = %38
-  br label %14
-
-51:                                               ; preds = %26, %19
+20:                                               ; preds = %15, %15
   br label %52
 
-52:                                               ; preds = %51, %2
-  %53 = load ptr, ptr %4, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %63
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %7, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i32 1
+  store ptr %23, ptr %7, align 8, !tbaa !16
+  %24 = load i8, ptr %23, align 1, !tbaa !26
+  %25 = sext i8 %24 to i32
+  %26 = icmp ne i32 %25, 92
+  br i1 %26, label %27, label %28
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %4, align 8
-  %57 = load ptr, ptr %5, align 8
-  %58 = call ptr @stpcpy(ptr noundef %56, ptr noundef %57) #6
-  %59 = load ptr, ptr %4, align 8
-  %60 = ptrtoint ptr %58 to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  store i64 %62, ptr %3, align 8
-  br label %66
+27:                                               ; preds = %21
+  br label %52
 
-63:                                               ; preds = %52
-  %64 = load ptr, ptr %5, align 8
-  %65 = call i64 @strlen(ptr noundef %64) #5
-  store i64 %65, ptr %3, align 8
-  br label %66
+28:                                               ; preds = %21
+  br label %29
 
-66:                                               ; preds = %63, %55, %48
-  %67 = load i64, ptr %3, align 8
-  ret i64 %67
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %15, %29
+  %31 = load ptr, ptr %4, align 8, !tbaa !16
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %39
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %7, align 8, !tbaa !16
+  %35 = load i8, ptr %34, align 1, !tbaa !26
+  %36 = load ptr, ptr %4, align 8, !tbaa !16
+  %37 = load i64, ptr %6, align 8, !tbaa !30
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  store i8 %35, ptr %38, align 1, !tbaa !26
+  br label %39
+
+39:                                               ; preds = %33, %30
+  %40 = load i64, ptr %6, align 8, !tbaa !30
+  %41 = add nsw i64 %40, 1
+  store i64 %41, ptr %6, align 8, !tbaa !30
+  br label %51
+
+42:                                               ; preds = %15
+  %43 = load ptr, ptr %4, align 8, !tbaa !16
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %4, align 8, !tbaa !16
+  %47 = load i64, ptr %6, align 8, !tbaa !30
+  %48 = getelementptr inbounds i8, ptr %46, i64 %47
+  store i8 0, ptr %48, align 1, !tbaa !26
+  br label %49
+
+49:                                               ; preds = %45, %42
+  %50 = load i64, ptr %6, align 8, !tbaa !30
+  store i64 %50, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %53
+
+51:                                               ; preds = %39
+  br label %15
+
+52:                                               ; preds = %27, %20
+  store i32 0, ptr %8, align 4
+  br label %53
+
+53:                                               ; preds = %52, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %54 = load i32, ptr %8, align 4
+  switch i32 %54, label %72 [
+    i32 0, label %55
+    i32 1, label %70
+  ]
+
+55:                                               ; preds = %53
+  br label %56
+
+56:                                               ; preds = %55, %2
+  %57 = load ptr, ptr %4, align 8, !tbaa !16
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %67
+
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %4, align 8, !tbaa !16
+  %61 = load ptr, ptr %5, align 8, !tbaa !16
+  %62 = call ptr @stpcpy(ptr noundef %60, ptr noundef %61) #8
+  %63 = load ptr, ptr %4, align 8, !tbaa !16
+  %64 = ptrtoint ptr %62 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  store i64 %66, ptr %3, align 8
+  br label %70
+
+67:                                               ; preds = %56
+  %68 = load ptr, ptr %5, align 8, !tbaa !16
+  %69 = call i64 @strlen(ptr noundef %68) #7
+  store i64 %69, ptr %3, align 8
+  br label %70
+
+70:                                               ; preds = %67, %59, %53
+  %71 = load i64, ptr %3, align 8
+  ret i64 %71
+
+72:                                               ; preds = %53
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9499,196 +10207,278 @@ define internal i32 @yypcontext_expected_tokens(ptr noundef %0, ptr noundef %1, 
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.yypcontext_t, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i32
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %19
-  %21 = load i16, ptr %20, align 2
-  %22 = sext i16 %21 to i32
-  store i32 %22, ptr %9, align 4
-  %23 = load i32, ptr %9, align 4
-  %24 = icmp eq i32 %23, -157
-  br i1 %24, label %96, label %25
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i32 %2, ptr %7, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.yypcontext_t, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
+  %18 = load i16, ptr %17, align 2, !tbaa !27
+  %19 = sext i16 %18 to i32
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %20
+  %22 = load i16, ptr %21, align 2, !tbaa !27
+  %23 = sext i16 %22 to i32
+  store i32 %23, ptr %9, align 4, !tbaa !18
+  %24 = load i32, ptr %9, align 4, !tbaa !18
+  %25 = icmp eq i32 %24, -157
+  br i1 %25, label %100, label %26
 
-25:                                               ; preds = %3
-  %26 = load i32, ptr %9, align 4
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %31
+26:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %27 = load i32, ptr %9, align 4, !tbaa !18
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %9, align 4
-  %30 = sub nsw i32 0, %29
-  br label %32
+29:                                               ; preds = %26
+  %30 = load i32, ptr %9, align 4, !tbaa !18
+  %31 = sub nsw i32 0, %30
+  br label %33
 
-31:                                               ; preds = %25
-  br label %32
+32:                                               ; preds = %26
+  br label %33
 
-32:                                               ; preds = %31, %28
-  %33 = phi i32 [ %30, %28 ], [ 0, %31 ]
-  store i32 %33, ptr %10, align 4
-  %34 = load i32, ptr %9, align 4
-  %35 = sub nsw i32 2051, %34
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %11, align 4
-  %37 = load i32, ptr %11, align 4
-  %38 = icmp slt i32 %37, 70
-  br i1 %38, label %39, label %41
+33:                                               ; preds = %32, %29
+  %34 = phi i32 [ %31, %29 ], [ 0, %32 ]
+  store i32 %34, ptr %10, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %35 = load i32, ptr %9, align 4, !tbaa !18
+  %36 = sub nsw i32 2051, %35
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %11, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %38 = load i32, ptr %11, align 4, !tbaa !18
+  %39 = icmp slt i32 %38, 70
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %32
-  %40 = load i32, ptr %11, align 4
-  br label %42
+40:                                               ; preds = %33
+  %41 = load i32, ptr %11, align 4, !tbaa !18
+  br label %43
 
-41:                                               ; preds = %32
-  br label %42
+42:                                               ; preds = %33
+  br label %43
 
-42:                                               ; preds = %41, %39
-  %43 = phi i32 [ %40, %39 ], [ 70, %41 ]
-  store i32 %43, ptr %12, align 4
-  %44 = load i32, ptr %10, align 4
-  store i32 %44, ptr %13, align 4
-  br label %45
+43:                                               ; preds = %42, %40
+  %44 = phi i32 [ %41, %40 ], [ 70, %42 ]
+  store i32 %44, ptr %12, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %45 = load i32, ptr %10, align 4, !tbaa !18
+  store i32 %45, ptr %13, align 4, !tbaa !18
+  br label %46
 
-45:                                               ; preds = %92, %42
-  %46 = load i32, ptr %13, align 4
-  %47 = load i32, ptr %12, align 4
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %49, label %95
+46:                                               ; preds = %93, %43
+  %47 = load i32, ptr %13, align 4, !tbaa !18
+  %48 = load i32, ptr %12, align 4, !tbaa !18
+  %49 = icmp slt i32 %47, %48
+  br i1 %49, label %50, label %96
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %13, align 4
-  %51 = load i32, ptr %9, align 4
-  %52 = add nsw i32 %50, %51
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %53
-  %55 = load i16, ptr %54, align 2
-  %56 = sext i16 %55 to i32
-  %57 = load i32, ptr %13, align 4
-  %58 = icmp eq i32 %56, %57
-  br i1 %58, label %59, label %91
+50:                                               ; preds = %46
+  %51 = load i32, ptr %13, align 4, !tbaa !18
+  %52 = load i32, ptr %9, align 4, !tbaa !18
+  %53 = add nsw i32 %51, %52
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %54
+  %56 = load i16, ptr %55, align 2, !tbaa !27
+  %57 = sext i16 %56 to i32
+  %58 = load i32, ptr %13, align 4, !tbaa !18
+  %59 = icmp eq i32 %57, %58
+  br i1 %59, label %60, label %92
 
-59:                                               ; preds = %49
-  %60 = load i32, ptr %13, align 4
-  %61 = icmp ne i32 %60, 1
-  br i1 %61, label %62, label %91
+60:                                               ; preds = %50
+  %61 = load i32, ptr %13, align 4, !tbaa !18
+  %62 = icmp ne i32 %61, 1
+  br i1 %62, label %63, label %92
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr %13, align 4
-  %64 = load i32, ptr %9, align 4
-  %65 = add nsw i32 %63, %64
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %66
-  %68 = load i16, ptr %67, align 2
-  %69 = sext i16 %68 to i32
-  %70 = icmp eq i32 %69, -156
-  br i1 %70, label %91, label %71
+63:                                               ; preds = %60
+  %64 = load i32, ptr %13, align 4, !tbaa !18
+  %65 = load i32, ptr %9, align 4, !tbaa !18
+  %66 = add nsw i32 %64, %65
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %67
+  %69 = load i16, ptr %68, align 2, !tbaa !27
+  %70 = sext i16 %69 to i32
+  %71 = icmp eq i32 %70, -156
+  br i1 %71, label %92, label %72
 
-71:                                               ; preds = %62
-  %72 = load ptr, ptr %6, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %77, label %74
+72:                                               ; preds = %63
+  %73 = load ptr, ptr %6, align 8, !tbaa !4
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %78, label %75
 
-74:                                               ; preds = %71
-  %75 = load i32, ptr %8, align 4
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %8, align 4
-  br label %90
-
-77:                                               ; preds = %71
-  %78 = load i32, ptr %8, align 4
-  %79 = load i32, ptr %7, align 4
-  %80 = icmp eq i32 %78, %79
-  br i1 %80, label %81, label %82
-
-81:                                               ; preds = %77
-  store i32 0, ptr %4, align 4
-  br label %110
-
-82:                                               ; preds = %77
-  %83 = load i32, ptr %13, align 4
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i32, ptr %8, align 4
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %8, align 4
-  %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds i32, ptr %84, i64 %87
-  store i32 %83, ptr %88, align 4
-  br label %89
-
-89:                                               ; preds = %82
-  br label %90
-
-90:                                               ; preds = %89, %74
+75:                                               ; preds = %72
+  %76 = load i32, ptr %8, align 4, !tbaa !18
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %8, align 4, !tbaa !18
   br label %91
 
-91:                                               ; preds = %90, %62, %59, %49
+78:                                               ; preds = %72
+  %79 = load i32, ptr %8, align 4, !tbaa !18
+  %80 = load i32, ptr %7, align 4, !tbaa !18
+  %81 = icmp eq i32 %79, %80
+  br i1 %81, label %82, label %83
+
+82:                                               ; preds = %78
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  br label %97
+
+83:                                               ; preds = %78
+  %84 = load i32, ptr %13, align 4, !tbaa !18
+  %85 = load ptr, ptr %6, align 8, !tbaa !4
+  %86 = load i32, ptr %8, align 4, !tbaa !18
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %8, align 4, !tbaa !18
+  %88 = sext i32 %86 to i64
+  %89 = getelementptr inbounds i32, ptr %85, i64 %88
+  store i32 %84, ptr %89, align 4, !tbaa !18
+  br label %90
+
+90:                                               ; preds = %83
+  br label %91
+
+91:                                               ; preds = %90, %75
   br label %92
 
-92:                                               ; preds = %91
-  %93 = load i32, ptr %13, align 4
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %13, align 4
-  br label %45, !llvm.loop !8
+92:                                               ; preds = %91, %63, %60, %50
+  br label %93
 
-95:                                               ; preds = %45
-  br label %96
+93:                                               ; preds = %92
+  %94 = load i32, ptr %13, align 4, !tbaa !18
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %13, align 4, !tbaa !18
+  br label %46, !llvm.loop !63
 
-96:                                               ; preds = %95, %3
-  %97 = load ptr, ptr %6, align 8
-  %98 = icmp ne ptr %97, null
-  br i1 %98, label %99, label %108
+96:                                               ; preds = %46
+  store i32 0, ptr %14, align 4
+  br label %97
 
-99:                                               ; preds = %96
-  %100 = load i32, ptr %8, align 4
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %108
+97:                                               ; preds = %96, %82
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %98 = load i32, ptr %14, align 4
+  switch i32 %98, label %114 [
+    i32 0, label %99
+  ]
 
-102:                                              ; preds = %99
-  %103 = load i32, ptr %7, align 4
-  %104 = icmp slt i32 0, %103
-  br i1 %104, label %105, label %108
+99:                                               ; preds = %97
+  br label %100
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds i32, ptr %106, i64 0
-  store i32 -2, ptr %107, align 4
-  br label %108
+100:                                              ; preds = %99, %3
+  %101 = load ptr, ptr %6, align 8, !tbaa !4
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %112
 
-108:                                              ; preds = %105, %102, %99, %96
-  %109 = load i32, ptr %8, align 4
-  store i32 %109, ptr %4, align 4
-  br label %110
+103:                                              ; preds = %100
+  %104 = load i32, ptr %8, align 4, !tbaa !18
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %112
 
-110:                                              ; preds = %108, %81
-  %111 = load i32, ptr %4, align 4
-  ret i32 %111
+106:                                              ; preds = %103
+  %107 = load i32, ptr %7, align 4, !tbaa !18
+  %108 = icmp slt i32 0, %107
+  br i1 %108, label %109, label %112
+
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %6, align 8, !tbaa !4
+  %111 = getelementptr inbounds i32, ptr %110, i64 0
+  store i32 -2, ptr %111, align 4, !tbaa !18
+  br label %112
+
+112:                                              ; preds = %109, %106, %103, %100
+  %113 = load i32, ptr %8, align 4, !tbaa !18
+  store i32 %113, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  br label %114
+
+114:                                              ; preds = %112, %97
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %115 = load i32, ptr %4, align 4
+  ret i32 %115
 }
 
 ; Function Attrs: nounwind
-declare ptr @stpcpy(ptr noundef, ptr noundef) #4
+declare ptr @stpcpy(ptr noundef, ptr noundef) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS5block", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 int", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS7locfile", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS11lexer_param", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS7YYSTYPE", !5, i64 0}
+!22 = !{!23, !5, i64 0}
+!23 = !{!"lexer_param", !5, i64 0}
+!24 = !{i64 0, i64 4, !18, i64 4, i64 4, !18}
+!25 = !{i64 0, i64 1, !26, i64 1, i64 1, !26, i64 2, i64 2, !27, i64 4, i64 4, !18, i64 8, i64 8, !26}
+!26 = !{!6, !6, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"short", !6, i64 0}
+!29 = !{i64 0, i64 16, !26}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"long", !6, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 short", !5, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS7yyalloc", !5, i64 0}
+!36 = !{!37, !19, i64 0}
+!37 = !{!"", !19, i64 0, !19, i64 4}
+!38 = !{!37, !19, i64 4}
+!39 = !{i64 0, i64 8, !40, i64 8, i64 8, !40}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS4inst", !5, i64 0}
+!42 = !{!43, !41, i64 0}
+!43 = !{!"block", !41, i64 0, !41, i64 8}
+!44 = !{!45, !33, i64 0}
+!45 = !{!"", !33, i64 0, !19, i64 8, !5, i64 16}
+!46 = !{!45, !19, i64 8}
+!47 = !{!45, !5, i64 16}
+!48 = distinct !{!48, !49}
+!49 = !{!"llvm.loop.mustprogress"}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 long", !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p2 omnipotent char", !5, i64 0}
+!54 = distinct !{!54, !49}
+!55 = distinct !{!55, !49}
+!56 = !{!57, !17, i64 16}
+!57 = !{!"locfile", !58, i64 0, !17, i64 16, !19, i64 24, !11, i64 32, !19, i64 40, !17, i64 48, !59, i64 56, !19, i64 64}
+!58 = !{!"", !6, i64 0, !6, i64 1, !28, i64 2, !19, i64 4, !6, i64 8}
+!59 = !{!"p1 _ZTS8jq_state", !5, i64 0}
+!60 = !{!57, !19, i64 24}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS15yy_buffer_state", !5, i64 0}
+!63 = distinct !{!63, !49}

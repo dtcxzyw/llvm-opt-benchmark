@@ -93,7 +93,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.onig_is_error_code_needs_param = private unnamed_addr constant [9 x i32] [i32 1, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @onig_error_code_to_format(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @onig_error_code_to_format(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %80 [
     i32 -1, label %81
     i32 -2, label %2
@@ -418,8 +418,14 @@ define noundef nonnull ptr @onig_error_code_to_format(i32 noundef %0) local_unna
   ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @onig_is_error_code_needs_param(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @onig_is_error_code_needs_param(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, 223
   %2 = icmp ult i32 %switch.tableidx, 9
   br i1 %2, label %switch.lookup, label %4
@@ -436,9 +442,11 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onig_error_code_to_str(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #1 {
+define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #2 {
   %3 = alloca [30 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   call void @llvm.va_start.p0(ptr nonnull %4)
   switch i32 %1, label %127 [
     i32 -217, label %5
@@ -473,12 +481,12 @@ define i32 @onig_error_code_to_str(ptr noundef %0, i32 noundef %1, ...) local_un
 
 18:                                               ; preds = %14, %8
   %19 = phi ptr [ %12, %8 ], [ %16, %14 ]
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %20, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !4
+  %21 = load ptr, ptr %20, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !13
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %to_ascii.exit.thread, label %27
 
@@ -488,7 +496,7 @@ to_ascii.exit.thread:                             ; preds = %18
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  %29 = load i32, ptr %28, align 4
+  %29 = load i32, ptr %28, align 4, !tbaa !14
   %30 = icmp sgt i32 %29, 1
   br i1 %30, label %.preheader.i, label %to_ascii.exit
 
@@ -503,8 +511,8 @@ to_ascii.exit.thread:                             ; preds = %18
   br i1 %33, label %34, label %81
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %31, align 8
-  %36 = call i32 %35(ptr noundef %.059.i, ptr noundef nonnull %25) #8
+  %35 = load ptr, ptr %31, align 8, !tbaa !17
+  %36 = call i32 %35(ptr noundef %.059.i, ptr noundef nonnull %25) #9
   %37 = icmp ugt i32 %36, 127
   br i1 %37, label %38, label %70
 
@@ -519,18 +527,18 @@ to_ascii.exit.thread:                             ; preds = %18
   %43 = sext i32 %.1.i to i64
   %44 = getelementptr inbounds i8, ptr %3, i64 %43
   %45 = lshr i32 %36, 24
-  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %45) #8
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %45) #9
   %47 = getelementptr i8, ptr %44, i64 4
   %48 = lshr i32 %36, 16
   %49 = and i32 %48, 255
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %47, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %49) #8
+  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %47, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %49) #9
   %51 = getelementptr i8, ptr %44, i64 6
   %52 = lshr i32 %36, 8
   %53 = and i32 %52, 255
-  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %51, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %53) #8
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %51, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %53) #9
   %55 = getelementptr i8, ptr %44, i64 8
   %56 = and i32 %36, 255
-  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %55, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %56) #8
+  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %55, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %56) #9
   br label %75
 
 58:                                               ; preds = %38
@@ -543,10 +551,10 @@ to_ascii.exit.thread:                             ; preds = %18
   %63 = getelementptr inbounds i8, ptr %3, i64 %62
   %64 = lshr i32 %36, 8
   %65 = and i32 %64, 255
-  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %63, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %65) #8
+  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %63, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %65) #9
   %67 = getelementptr i8, ptr %63, i64 4
   %68 = and i32 %36, 255
-  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %67, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %68) #8
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %67, i64 noundef 3, ptr noundef nonnull @.str.82, i32 noundef %68) #9
   br label %75
 
 70:                                               ; preds = %34
@@ -554,17 +562,17 @@ to_ascii.exit.thread:                             ; preds = %18
   %72 = add nsw i32 %.1.i, 1
   %73 = sext i32 %.1.i to i64
   %74 = getelementptr inbounds i8, ptr %3, i64 %73
-  store i8 %71, ptr %74, align 1
+  store i8 %71, ptr %74, align 1, !tbaa !18
   br label %75
 
 75:                                               ; preds = %70, %60, %41
   %.3.i = phi i32 [ %42, %41 ], [ %61, %60 ], [ %72, %70 ]
-  %76 = load ptr, ptr %21, align 8
-  %77 = call i32 %76(ptr noundef %.059.i) #8
+  %76 = load ptr, ptr %21, align 8, !tbaa !19
+  %77 = call i32 %76(ptr noundef %.059.i) #9
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %.059.i, i64 %78
   %80 = icmp sgt i32 %.3.i, 26
-  br i1 %80, label %81, label %32, !llvm.loop !4
+  br i1 %80, label %81, label %32, !llvm.loop !20
 
 81:                                               ; preds = %75, %58, %32
   %.160.i = phi ptr [ %79, %75 ], [ %.059.i, %58 ], [ %.059.i, %32 ]
@@ -602,7 +610,7 @@ to_ascii.exit.split.us.preheader:                 ; preds = %81, %to_ascii.exit
 to_ascii.exit.split.us:                           ; preds = %to_ascii.exit.split.us.backedge, %to_ascii.exit.split.us.preheader
   %.030.us = phi ptr [ %97, %to_ascii.exit.split.us.preheader ], [ %.030.us.be, %to_ascii.exit.split.us.backedge ]
   %.029.us = phi ptr [ %0, %to_ascii.exit.split.us.preheader ], [ %.029.us.be, %to_ascii.exit.split.us.backedge ]
-  %98 = load i8, ptr %.030.us, align 1
+  %98 = load i8, ptr %.030.us, align 1, !tbaa !18
   switch i8 %98, label %107 [
     i8 0, label %.split.us
     i8 37, label %99
@@ -610,7 +618,7 @@ to_ascii.exit.split.us:                           ; preds = %to_ascii.exit.split
 
 99:                                               ; preds = %to_ascii.exit.split.us
   %100 = getelementptr inbounds nuw i8, ptr %.030.us, i64 1
-  %101 = load i8, ptr %100, align 1
+  %101 = load i8, ptr %100, align 1, !tbaa !18
   %102 = icmp eq i8 %101, 110
   br i1 %102, label %103, label %107
 
@@ -627,18 +635,18 @@ to_ascii.exit.split.us:                           ; preds = %to_ascii.exit.split
   %.131.us = phi ptr [ %100, %99 ], [ %.030.us, %to_ascii.exit.split.us ]
   %109 = getelementptr inbounds nuw i8, ptr %.131.us, i64 1
   %110 = getelementptr inbounds nuw i8, ptr %.029.us, i64 1
-  store i8 %108, ptr %.029.us, align 1
+  store i8 %108, ptr %.029.us, align 1, !tbaa !18
   br label %to_ascii.exit.split.us.backedge
 
 to_ascii.exit.split.us.backedge:                  ; preds = %107, %103
   %.030.us.be = phi ptr [ %106, %103 ], [ %109, %107 ]
   %.029.us.be = phi ptr [ %105, %103 ], [ %110, %107 ]
-  br label %to_ascii.exit.split.us, !llvm.loop !6
+  br label %to_ascii.exit.split.us, !llvm.loop !22
 
 to_ascii.exit.split:                              ; preds = %to_ascii.exit.split.backedge, %to_ascii.exit.split.preheader
   %.030 = phi ptr [ %95, %to_ascii.exit.split.preheader ], [ %.030.be, %to_ascii.exit.split.backedge ]
   %.029 = phi ptr [ %0, %to_ascii.exit.split.preheader ], [ %.029.be, %to_ascii.exit.split.backedge ]
-  %111 = load i8, ptr %.030, align 1
+  %111 = load i8, ptr %.030, align 1, !tbaa !18
   switch i8 %111, label %119 [
     i8 0, label %.split.us
     i8 37, label %112
@@ -646,7 +654,7 @@ to_ascii.exit.split:                              ; preds = %to_ascii.exit.split
 
 112:                                              ; preds = %to_ascii.exit.split
   %113 = getelementptr inbounds nuw i8, ptr %.030, i64 1
-  %114 = load i8, ptr %113, align 1
+  %114 = load i8, ptr %113, align 1, !tbaa !18
   %115 = icmp eq i8 %114, 110
   br i1 %115, label %116, label %119
 
@@ -661,17 +669,17 @@ to_ascii.exit.split:                              ; preds = %to_ascii.exit.split
   %.131 = phi ptr [ %113, %112 ], [ %.030, %to_ascii.exit.split ]
   %121 = getelementptr inbounds nuw i8, ptr %.131, i64 1
   %122 = getelementptr inbounds nuw i8, ptr %.029, i64 1
-  store i8 %120, ptr %.029, align 1
+  store i8 %120, ptr %.029, align 1, !tbaa !18
   br label %to_ascii.exit.split.backedge
 
 to_ascii.exit.split.backedge:                     ; preds = %119, %116
   %.030.be = phi ptr [ %118, %116 ], [ %121, %119 ]
   %.029.be = phi ptr [ %117, %116 ], [ %122, %119 ]
-  br label %to_ascii.exit.split, !llvm.loop !6
+  br label %to_ascii.exit.split, !llvm.loop !22
 
 .split.us:                                        ; preds = %to_ascii.exit.split.us, %to_ascii.exit.split
   %.us-phi = phi ptr [ %.029, %to_ascii.exit.split ], [ %.029.us, %to_ascii.exit.split.us ]
-  store i8 0, ptr %.us-phi, align 1
+  store i8 0, ptr %.us-phi, align 1, !tbaa !18
   %123 = ptrtoint ptr %.us-phi to i64
   %124 = ptrtoint ptr %0 to i64
   %125 = sub i64 %123, %124
@@ -680,31 +688,41 @@ to_ascii.exit.split.backedge:                     ; preds = %119, %116
 
 127:                                              ; preds = %2
   %128 = call ptr @onig_error_code_to_format(i32 noundef %1)
-  %129 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %128) #8
+  %129 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %128) #9
   %130 = sext i32 %129 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %128, i64 %130, i1 false)
   %131 = getelementptr inbounds i8, ptr %0, i64 %130
-  store i8 0, ptr %131, align 1
+  store i8 0, ptr %131, align 1, !tbaa !18
   br label %132
 
 132:                                              ; preds = %127, %.split.us
   %.0 = phi i32 [ %129, %127 ], [ %126, %.split.us ]
   call void @llvm.va_end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %3) #9
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
 
-declare i32 @onigenc_str_bytelen_null(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
+declare i32 @onigenc_str_bytelen_null(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: nounwind uwtable
-define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ...) local_unnamed_addr #1 {
+define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ...) local_unnamed_addr #2 {
   %7 = alloca [6 x i8], align 1
   %8 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
   call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = sext i32 %1 to i64
-  %10 = call i32 @vsnprintf(ptr noundef %0, i64 noundef %9, ptr noundef %5, ptr noundef nonnull %8) #8
+  %10 = call i32 @vsnprintf(ptr noundef %0, i64 noundef %9, ptr noundef %5, ptr noundef nonnull %8) #9
   call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = ptrtoint ptr %4 to i64
   %12 = ptrtoint ptr %3 to i64
@@ -720,7 +738,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noun
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0)
   %endptr = getelementptr inbounds i8, ptr %0, i64 %strlen
   store i32 3088442, ptr %endptr, align 1
-  %20 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %0) #8
+  %20 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %0) #9
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %0, i64 %21
   %23 = icmp ult ptr %3, %4
@@ -736,15 +754,15 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noun
 26:                                               ; preds = %.lr.ph98, %.loopexit65
   %.05197 = phi ptr [ %22, %.lr.ph98 ], [ %.4, %.loopexit65 ]
   %.05396 = phi ptr [ %3, %.lr.ph98 ], [ %.356, %.loopexit65 ]
-  %27 = load ptr, ptr %2, align 8
-  %28 = call i32 %27(ptr noundef %.05396) #8
+  %27 = load ptr, ptr %2, align 8, !tbaa !19
+  %28 = call i32 %27(ptr noundef %.05396) #9
   %.not = icmp eq i32 %28, 1
   br i1 %.not, label %52, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %2, align 8
-  %31 = call i32 %30(ptr noundef %.05396) #8
-  %32 = load i32, ptr %24, align 4
+  %30 = load ptr, ptr %2, align 8, !tbaa !19
+  %31 = call i32 %30(ptr noundef %.05396) #9
+  %32 = load i32, ptr %24, align 4, !tbaa !14
   %33 = icmp eq i32 %32, 1
   %34 = icmp sgt i32 %31, 0
   br i1 %33, label %.preheader, label %.preheader68
@@ -761,16 +779,16 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noun
   %.05878 = phi i32 [ %35, %.lr.ph81 ], [ %31, %.preheader ]
   %35 = add nsw i32 %.05878, -1
   %36 = getelementptr inbounds nuw i8, ptr %.15479, i64 1
-  %37 = load i8, ptr %.15479, align 1
+  %37 = load i8, ptr %.15479, align 1, !tbaa !18
   %38 = getelementptr inbounds nuw i8, ptr %.15280, i64 1
-  store i8 %37, ptr %.15280, align 1
+  store i8 %37, ptr %.15280, align 1, !tbaa !18
   %39 = icmp samesign ugt i32 %.05878, 1
-  br i1 %39, label %.lr.ph81, label %.loopexit65, !llvm.loop !7
+  br i1 %39, label %.lr.ph81, label %.loopexit65, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph75
   %.3.lcssa = phi ptr [ %.274, %.lr.ph75 ], [ %51, %.lr.ph ]
   %40 = icmp sgt i32 %.in, 1
-  br i1 %40, label %.lr.ph75, label %.loopexit65, !llvm.loop !8
+  br i1 %40, label %.lr.ph75, label %.loopexit65, !llvm.loop !24
 
 .lr.ph75:                                         ; preds = %.preheader68, %.loopexit
   %.in = phi i32 [ %41, %.loopexit ], [ %31, %.preheader68 ]
@@ -778,10 +796,10 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noun
   %.25573 = phi ptr [ %42, %.loopexit ], [ %.05396, %.preheader68 ]
   %41 = add nsw i32 %.in, -1
   %42 = getelementptr inbounds nuw i8, ptr %.25573, i64 1
-  %43 = load i8, ptr %.25573, align 1
+  %43 = load i8, ptr %.25573, align 1, !tbaa !18
   %44 = zext i8 %43 to i32
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %44) #8
-  %46 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %7) #8
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %44) #9
+  %46 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %7) #9
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.preheader, label %.loopexit
 
@@ -794,14 +812,14 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noun
   %.05071 = phi ptr [ %49, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %.370 = phi ptr [ %51, %.lr.ph ], [ %.274, %.lr.ph.preheader ]
   %49 = getelementptr inbounds nuw i8, ptr %.05071, i64 1
-  %50 = load i8, ptr %.05071, align 1
+  %50 = load i8, ptr %.05071, align 1, !tbaa !18
   %51 = getelementptr inbounds nuw i8, ptr %.370, i64 1
-  store i8 %50, ptr %.370, align 1
+  store i8 %50, ptr %.370, align 1, !tbaa !18
   %exitcond.not = icmp eq ptr %.05071, %gep
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 52:                                               ; preds = %26
-  %53 = load i8, ptr %.05396, align 1
+  %53 = load i8, ptr %.05396, align 1, !tbaa !18
   switch i8 %53, label %68 [
     i8 92, label %54
     i8 47, label %63
@@ -809,9 +827,9 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noun
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
-  store i8 92, ptr %.05197, align 1
-  %56 = load ptr, ptr %2, align 8
-  %57 = call i32 %56(ptr noundef nonnull %55) #8
+  store i8 92, ptr %.05197, align 1, !tbaa !18
+  %56 = load ptr, ptr %2, align 8, !tbaa !19
+  %57 = call i32 %56(ptr noundef nonnull %55) #9
   %.584 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph88, label %.loopexit65
@@ -822,42 +840,42 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noun
   %.26085 = phi i32 [ %59, %.lr.ph88 ], [ %57, %54 ]
   %59 = add nsw i32 %.26085, -1
   %60 = getelementptr inbounds nuw i8, ptr %.45786, i64 1
-  %61 = load i8, ptr %.45786, align 1
-  store i8 %61, ptr %.587, align 1
+  %61 = load i8, ptr %.45786, align 1, !tbaa !18
+  store i8 %61, ptr %.587, align 1, !tbaa !18
   %.5 = getelementptr inbounds nuw i8, ptr %.587, i64 1
   %62 = icmp samesign ugt i32 %.26085, 1
-  br i1 %62, label %.lr.ph88, label %.loopexit65, !llvm.loop !10
+  br i1 %62, label %.lr.ph88, label %.loopexit65, !llvm.loop !26
 
 63:                                               ; preds = %52
   %64 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
-  store i8 92, ptr %.05197, align 1
+  store i8 92, ptr %.05197, align 1, !tbaa !18
   %65 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
-  %66 = load i8, ptr %.05396, align 1
+  %66 = load i8, ptr %.05396, align 1, !tbaa !18
   %67 = getelementptr inbounds nuw i8, ptr %.05197, i64 2
-  store i8 %66, ptr %64, align 1
+  store i8 %66, ptr %64, align 1, !tbaa !18
   br label %.loopexit65
 
 68:                                               ; preds = %52
   %69 = zext i8 %53 to i32
-  %70 = load ptr, ptr %25, align 8
-  %71 = call i32 %70(i32 noundef %69, i32 noundef 7) #8
+  %70 = load ptr, ptr %25, align 8, !tbaa !27
+  %71 = call i32 %70(i32 noundef %69, i32 noundef 7) #9
   %.not63 = icmp eq i32 %71, 0
   br i1 %.not63, label %72, label %88
 
 72:                                               ; preds = %68
-  %73 = load ptr, ptr %25, align 8
-  %74 = load i8, ptr %.05396, align 1
+  %73 = load ptr, ptr %25, align 8, !tbaa !27
+  %74 = load i8, ptr %.05396, align 1, !tbaa !18
   %75 = zext i8 %74 to i32
-  %76 = call i32 %73(i32 noundef %75, i32 noundef 9) #8
+  %76 = call i32 %73(i32 noundef %75, i32 noundef 9) #9
   %.not64 = icmp eq i32 %76, 0
   br i1 %.not64, label %77, label %88
 
 77:                                               ; preds = %72
   %78 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
-  %79 = load i8, ptr %.05396, align 1
+  %79 = load i8, ptr %.05396, align 1, !tbaa !18
   %80 = zext i8 %79 to i32
-  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %80) #8
-  %82 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %7) #8
+  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %80) #9
+  %82 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %7) #9
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %.lr.ph94.preheader, label %.loopexit65
 
@@ -870,76 +888,90 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noun
   %.193 = phi ptr [ %85, %.lr.ph94 ], [ %7, %.lr.ph94.preheader ]
   %.692 = phi ptr [ %87, %.lr.ph94 ], [ %.05197, %.lr.ph94.preheader ]
   %85 = getelementptr inbounds nuw i8, ptr %.193, i64 1
-  %86 = load i8, ptr %.193, align 1
+  %86 = load i8, ptr %.193, align 1, !tbaa !18
   %87 = getelementptr inbounds nuw i8, ptr %.692, i64 1
-  store i8 %86, ptr %.692, align 1
+  store i8 %86, ptr %.692, align 1, !tbaa !18
   %exitcond109.not = icmp eq ptr %.193, %gep140
-  br i1 %exitcond109.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !11
+  br i1 %exitcond109.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !28
 
 88:                                               ; preds = %72, %68
   %89 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
-  %90 = load i8, ptr %.05396, align 1
+  %90 = load i8, ptr %.05396, align 1, !tbaa !18
   %91 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
-  store i8 %90, ptr %.05197, align 1
+  store i8 %90, ptr %.05197, align 1, !tbaa !18
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.lr.ph81, %.lr.ph88, %.lr.ph94, %.preheader68, %.preheader, %54, %77, %88, %63
   %.356 = phi ptr [ %65, %63 ], [ %89, %88 ], [ %78, %77 ], [ %55, %54 ], [ %.05396, %.preheader ], [ %.05396, %.preheader68 ], [ %78, %.lr.ph94 ], [ %60, %.lr.ph88 ], [ %36, %.lr.ph81 ], [ %42, %.loopexit ]
   %.4 = phi ptr [ %67, %63 ], [ %91, %88 ], [ %.05197, %77 ], [ %.584, %54 ], [ %.05197, %.preheader ], [ %.05197, %.preheader68 ], [ %87, %.lr.ph94 ], [ %.5, %.lr.ph88 ], [ %38, %.lr.ph81 ], [ %.3.lcssa, %.loopexit ]
   %92 = icmp ult ptr %.356, %4
-  br i1 %92, label %26, label %._crit_edge, !llvm.loop !12
+  br i1 %92, label %26, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.loopexit65, %19
   %.051.lcssa = phi ptr [ %22, %19 ], [ %.4, %.loopexit65 ]
   %93 = getelementptr inbounds nuw i8, ptr %.051.lcssa, i64 1
-  store i8 47, ptr %.051.lcssa, align 1
-  store i8 0, ptr %93, align 1
+  store i8 47, ptr %.051.lcssa, align 1, !tbaa !18
+  store i8 0, ptr %93, align 1, !tbaa !18
   br label %94
 
 94:                                               ; preds = %._crit_edge, %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #9
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #8
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"", !10, i64 0, !11, i64 8, !11, i64 16}
+!10 = !{!"p1 _ZTS18OnigEncodingTypeST", !5, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!9, !11, i64 8}
+!13 = !{!9, !11, i64 16}
+!14 = !{!15, !16, i64 20}
+!15 = !{!"OnigEncodingTypeST", !5, i64 0, !11, i64 8, !16, i64 16, !16, i64 20, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !16, i64 144, !16, i64 148, !16, i64 152}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!15, !5, i64 32}
+!18 = !{!6, !6, i64 0}
+!19 = !{!15, !5, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}
+!26 = distinct !{!26, !21}
+!27 = !{!15, !5, i64 88}
+!28 = distinct !{!28, !21}
+!29 = distinct !{!29, !21}

@@ -30,13 +30,17 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [19 x i8] c"%%FAIL IGNORE MSG\0A\00", align 1
 @.str.25 = private unnamed_addr constant [10 x i8] c"jq: error\00", align 1
 @.str.26 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.27 = private unnamed_addr constant [6 x i8] c".data\00", align 1
-@.str.28 = private unnamed_addr constant [14 x i8] c"{ \22data\22: 1 }\00", align 1
-@.str.29 = private unnamed_addr constant [11 x i8] c"{\22a':\2212\22}\00", align 1
+@.str.27 = private unnamed_addr constant [4 x i8] c".[]\00", align 1
+@.str.28 = private unnamed_addr constant [8 x i8] c"[1,2,3]\00", align 1
+@.str.29 = private unnamed_addr constant [45 x i8] c".[] | if .%2 == 0 then halt_error else . end\00", align 1
+@.str.30 = private unnamed_addr constant [19 x i8] c"Test jq_state: %s\0A\00", align 1
+@.str.31 = private unnamed_addr constant [6 x i8] c".data\00", align 1
+@.str.32 = private unnamed_addr constant [14 x i8] c"{ \22data\22: 1 }\00", align 1
+@.str.33 = private unnamed_addr constant [11 x i8] c"{\22a':\2212\22}\00", align 1
 @__const.jv_test.nasty = private unnamed_addr constant [5 x i8] c"foo\00\00", align 1
 @__const.jv_test.a2s = private unnamed_addr constant [6 x i8] c"hello\00", align 1
-@.str.30 = private unnamed_addr constant [4 x i8] c"foo\00", align 1
-@.str.31 = private unnamed_addr constant [4 x i8] c"bar\00", align 1
+@.str.34 = private unnamed_addr constant [4 x i8] c"foo\00", align 1
+@.str.35 = private unnamed_addr constant [4 x i8] c"bar\00", align 1
 @str = private unnamed_addr constant [13 x i8] c"Disassembly:\00", align 1
 @str.1 = private unnamed_addr constant [58 x i8] c"WARN: skipped past the end of file, exiting with status 2\00", align 1
 
@@ -53,13 +57,8 @@ define dso_local noundef i32 @jq_testsuite(i64 %0, ptr %1, i32 noundef %2, i32 n
   %14 = alloca [6 x i8], align 1
   %15 = alloca [8 x i8], align 8
   %16 = alloca [20000 x i8], align 16
-  %17 = load ptr, ptr @stdin, align 8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 20000, ptr nonnull %16)
-  %18 = tail call { i64, ptr } @jv_parse(ptr noundef nonnull @.str.29) #13
+  %17 = load ptr, ptr @stdin, align 8, !tbaa !4
+  %18 = tail call { i64, ptr } @jv_parse(ptr noundef nonnull @.str.33) #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %19, ptr %20) #13
@@ -104,7 +103,7 @@ define dso_local noundef i32 @jq_testsuite(i64 %0, ptr %1, i32 noundef %2, i32 n
   br label %57
 
 57:                                               ; preds = %57, %5
-  %.0154.i = phi i32 [ 0, %5 ], [ %64, %57 ]
+  %.0153.i = phi i32 [ 0, %5 ], [ %64, %57 ]
   %58 = tail call { i64, ptr } @jv_copy(i64 %55, ptr %56) #13
   %59 = extractvalue { i64, ptr } %58, 0
   %60 = extractvalue { i64, ptr } %58, 1
@@ -112,9 +111,9 @@ define dso_local noundef i32 @jq_testsuite(i64 %0, ptr %1, i32 noundef %2, i32 n
   %62 = extractvalue { i64, ptr } %61, 0
   %63 = extractvalue { i64, ptr } %61, 1
   tail call void @jv_free(i64 %62, ptr %63) #13
-  %64 = add nuw nsw i32 %.0154.i, 1
+  %64 = add nuw nsw i32 %.0153.i, 1
   %exitcond.not.i = icmp eq i32 %64, 10
-  br i1 %exitcond.not.i, label %jv_test.exit, label %57, !llvm.loop !5
+  br i1 %exitcond.not.i, label %jv_test.exit, label %57, !llvm.loop !9
 
 jv_test.exit:                                     ; preds = %57
   %65 = tail call { i64, ptr } @jv_copy(i64 %55, ptr %56) #13
@@ -186,6 +185,7 @@ jv_test.exit:                                     ; preds = %57
   tail call void @jv_free(i64 %126, ptr %127) #13
   tail call void @jv_free(i64 %111, ptr %112) #13
   tail call void @jv_free(i64 %55, ptr %56) #13
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %12) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %12, ptr noundef nonnull align 1 dereferenceable(5) @__const.jv_test.nasty, i64 5, i1 false)
   %128 = call { i64, ptr } @jv_string(ptr noundef nonnull %12) #13
   %129 = extractvalue { i64, ptr } %128, 0
@@ -195,8 +195,11 @@ jv_test.exit:                                     ; preds = %57
   %133 = extractvalue { i64, ptr } %131, 1
   call void @jv_free(i64 %129, ptr %130) #13
   call void @jv_free(i64 %132, ptr %133) #13
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %13) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %13, ptr noundef nonnull align 1 dereferenceable(6) @__const.jv_test.a2s, i64 6, i1 false)
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %14) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %14, ptr noundef nonnull align 1 dereferenceable(6) @__const.jv_test.a2s, i64 6, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #13
   store i64 28562436146556775, ptr %15, align 8
   %134 = call { i64, ptr } @jv_string(ptr noundef nonnull %13) #13
   %135 = extractvalue { i64, ptr } %134, 0
@@ -210,17 +213,23 @@ jv_test.exit:                                     ; preds = %57
   call void @jv_free(i64 %135, ptr %136) #13
   call void @jv_free(i64 %138, ptr %139) #13
   call void @jv_free(i64 %141, ptr %142) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20000) %16, i8 97, i64 20000, i1 false)
+  call void @llvm.lifetime.start.p0(i64 20000, ptr nonnull %16) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20000) %16, i8 97, i64 20000, i1 false), !tbaa !11
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 19999
-  store i8 0, ptr %143, align 1
+  store i8 0, ptr %143, align 1, !tbaa !11
   %144 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.26, ptr noundef nonnull %16) #13
   %145 = extractvalue { i64, ptr } %144, 0
   %146 = extractvalue { i64, ptr } %144, 1
   call void @jv_free(i64 %145, ptr %146) #13
+  call void @llvm.lifetime.end.p0(i64 20000, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %12) #13
   %147 = call { i64, ptr } @jv_object() #13
   %148 = extractvalue { i64, ptr } %147, 0
   %149 = extractvalue { i64, ptr } %147, 1
-  %150 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.30) #13
+  %150 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.34) #13
   %151 = extractvalue { i64, ptr } %150, 0
   %152 = extractvalue { i64, ptr } %150, 1
   %153 = call { i64, ptr } @jv_number(double noundef 4.200000e+01) #13
@@ -229,7 +238,7 @@ jv_test.exit:                                     ; preds = %57
   %156 = call { i64, ptr } @jv_object_set(i64 %148, ptr %149, i64 %151, ptr %152, i64 %154, ptr %155) #13
   %157 = extractvalue { i64, ptr } %156, 0
   %158 = extractvalue { i64, ptr } %156, 1
-  %159 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.31) #13
+  %159 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.35) #13
   %160 = extractvalue { i64, ptr } %159, 0
   %161 = extractvalue { i64, ptr } %159, 1
   %162 = call { i64, ptr } @jv_number(double noundef 2.400000e+01) #13
@@ -241,7 +250,7 @@ jv_test.exit:                                     ; preds = %57
   %168 = call { i64, ptr } @jv_copy(i64 %166, ptr %167) #13
   %169 = extractvalue { i64, ptr } %168, 0
   %170 = extractvalue { i64, ptr } %168, 1
-  %171 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.30) #13
+  %171 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.34) #13
   %172 = extractvalue { i64, ptr } %171, 0
   %173 = extractvalue { i64, ptr } %171, 1
   %174 = call { i64, ptr } @jv_number(double noundef 4.200000e+02) #13
@@ -250,7 +259,7 @@ jv_test.exit:                                     ; preds = %57
   %177 = call { i64, ptr } @jv_object_set(i64 %169, ptr %170, i64 %172, ptr %173, i64 %175, ptr %176) #13
   %178 = extractvalue { i64, ptr } %177, 0
   %179 = extractvalue { i64, ptr } %177, 1
-  %180 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.31) #13
+  %180 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.35) #13
   %181 = extractvalue { i64, ptr } %180, 0
   %182 = extractvalue { i64, ptr } %180, 1
   %183 = call { i64, ptr } @jv_number(double noundef 2.400000e+02) #13
@@ -261,567 +270,588 @@ jv_test.exit:                                     ; preds = %57
   %188 = extractvalue { i64, ptr } %186, 1
   call void @jv_free(i64 %166, ptr %167) #13
   call void @jv_free(i64 %187, ptr %188) #13
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 20000, ptr nonnull %16)
   %189 = icmp sgt i32 %3, 0
   br i1 %189, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %jv_test.exit, %211
-  %.078 = phi i32 [ %212, %211 ], [ 0, %jv_test.exit ]
-  %.12177 = phi i32 [ %.2, %211 ], [ -1, %jv_test.exit ]
-  %.12376 = phi i32 [ %.224, %211 ], [ -1, %jv_test.exit ]
-  %.12675 = phi ptr [ %.227, %211 ], [ %17, %jv_test.exit ]
-  %190 = sext i32 %.078 to i64
+.preheader:                                       ; preds = %jv_test.exit, %213
+  %.097 = phi i32 [ %214, %213 ], [ 0, %jv_test.exit ]
+  %.12196 = phi i32 [ %.2, %213 ], [ -1, %jv_test.exit ]
+  %.12395 = phi i32 [ %.224, %213 ], [ -1, %jv_test.exit ]
+  %.12694 = phi ptr [ %.227, %213 ], [ %17, %jv_test.exit ]
+  %190 = sext i32 %.097 to i64
   %191 = getelementptr inbounds ptr, ptr %4, i64 %190
-  %192 = load ptr, ptr %191, align 8
+  %192 = load ptr, ptr %191, align 8, !tbaa !12
   %193 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(7) @.str) #14
   %.not = icmp eq i32 %193, 0
-  br i1 %.not, label %194, label %200
+  br i1 %.not, label %194, label %201
 
 194:                                              ; preds = %.preheader
-  %195 = add nsw i32 %.078, 1
+  %195 = add nsw i32 %.097, 1
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds ptr, ptr %4, i64 %196
-  %198 = load ptr, ptr %197, align 8
-  %199 = call i32 @atoi(ptr noundef %198) #14
-  br label %211
+  %198 = load ptr, ptr %197, align 8, !tbaa !12
+  %199 = call i64 @strtol(ptr noundef nonnull captures(none) %198, ptr noundef null, i32 noundef 10) #13
+  %200 = trunc i64 %199 to i32
+  br label %213
 
-200:                                              ; preds = %.preheader
-  %201 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(7) @.str.1) #14
-  %.not30 = icmp eq i32 %201, 0
-  br i1 %.not30, label %202, label %208
+201:                                              ; preds = %.preheader
+  %202 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(7) @.str.1) #14
+  %.not30 = icmp eq i32 %202, 0
+  br i1 %.not30, label %203, label %210
 
-202:                                              ; preds = %200
-  %203 = add nsw i32 %.078, 1
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds ptr, ptr %4, i64 %204
-  %206 = load ptr, ptr %205, align 8
-  %207 = call i32 @atoi(ptr noundef %206) #14
-  br label %211
+203:                                              ; preds = %201
+  %204 = add nsw i32 %.097, 1
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds ptr, ptr %4, i64 %205
+  %207 = load ptr, ptr %206, align 8, !tbaa !12
+  %208 = call i64 @strtol(ptr noundef nonnull captures(none) %207, ptr noundef null, i32 noundef 10) #13
+  %209 = trunc i64 %208 to i32
+  br label %213
 
-208:                                              ; preds = %200
-  %209 = call noalias ptr @fopen(ptr noundef nonnull %192, ptr noundef nonnull @.str.2)
-  %.not31 = icmp eq ptr %209, null
-  br i1 %.not31, label %210, label %211
+210:                                              ; preds = %201
+  %211 = call noalias ptr @fopen(ptr noundef nonnull %192, ptr noundef nonnull @.str.2)
+  %.not31 = icmp eq ptr %211, null
+  br i1 %.not31, label %212, label %213
 
-210:                                              ; preds = %208
+212:                                              ; preds = %210
   call void @perror(ptr noundef nonnull @.str.3) #15
   call void @exit(i32 noundef 1) #16
   unreachable
 
-211:                                              ; preds = %194, %208, %202
-  %.227 = phi ptr [ %209, %208 ], [ %.12675, %202 ], [ %.12675, %194 ]
-  %.224 = phi i32 [ %.12376, %208 ], [ %.12376, %202 ], [ %199, %194 ]
-  %.2 = phi i32 [ %.12177, %208 ], [ %207, %202 ], [ %.12177, %194 ]
-  %.1 = phi i32 [ %.078, %208 ], [ %203, %202 ], [ %195, %194 ]
-  %212 = add nsw i32 %.1, 1
-  %213 = icmp slt i32 %212, %3
-  br i1 %213, label %.preheader, label %.loopexit, !llvm.loop !7
+213:                                              ; preds = %194, %210, %203
+  %.227 = phi ptr [ %211, %210 ], [ %.12694, %203 ], [ %.12694, %194 ]
+  %.224 = phi i32 [ %.12395, %210 ], [ %.12395, %203 ], [ %200, %194 ]
+  %.2 = phi i32 [ %.12196, %210 ], [ %209, %203 ], [ %.12196, %194 ]
+  %.1 = phi i32 [ %.097, %210 ], [ %204, %203 ], [ %195, %194 ]
+  %214 = add nsw i32 %.1, 1
+  %215 = icmp slt i32 %214, %3
+  br i1 %215, label %.preheader, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %211, %jv_test.exit
-  %.025 = phi ptr [ %17, %jv_test.exit ], [ %.227, %211 ]
-  %.022 = phi i32 [ -1, %jv_test.exit ], [ %.224, %211 ]
-  %.020 = phi i32 [ -1, %jv_test.exit ], [ %.2, %211 ]
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %214 = call i32 @llvm.smax.i32(i32 %.022, i32 0)
-  %215 = call ptr @jq_init() #13
-  store ptr %215, ptr %11, align 8
-  %216 = call i32 @jv_get_kind(i64 %0, ptr %1) #13
-  %217 = icmp eq i32 %216, 1
-  br i1 %217, label %218, label %222
+.loopexit:                                        ; preds = %213, %jv_test.exit
+  %.025 = phi ptr [ %17, %jv_test.exit ], [ %.227, %213 ]
+  %.022 = phi i32 [ -1, %jv_test.exit ], [ %.224, %213 ]
+  %.020 = phi i32 [ -1, %jv_test.exit ], [ %.2, %213 ]
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %8, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  %216 = call i32 @llvm.smax.i32(i32 %.022, i32 0)
+  %217 = call ptr @jq_init() #13
+  store ptr %217, ptr %11, align 8, !tbaa !15
+  %218 = call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %219 = icmp eq i32 %218, 1
+  br i1 %219, label %220, label %224
 
-218:                                              ; preds = %.loopexit
-  %219 = call { i64, ptr } @jv_array() #13
-  %220 = extractvalue { i64, ptr } %219, 0
-  %221 = extractvalue { i64, ptr } %219, 1
-  br label %222
+220:                                              ; preds = %.loopexit
+  %221 = call { i64, ptr } @jv_array() #13
+  %222 = extractvalue { i64, ptr } %221, 0
+  %223 = extractvalue { i64, ptr } %221, 1
+  br label %224
 
-222:                                              ; preds = %218, %.loopexit
-  %.sroa.0119.0.i = phi i64 [ %220, %218 ], [ %0, %.loopexit ]
-  %.sroa.4121.0.i = phi ptr [ %221, %218 ], [ %1, %.loopexit ]
-  %223 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.4) #13
-  %224 = extractvalue { i64, ptr } %223, 0
-  %225 = extractvalue { i64, ptr } %223, 1
-  call void @jq_set_attr(ptr noundef %215, i64 %224, ptr %225, i64 %.sroa.0119.0.i, ptr %.sroa.4121.0.i) #13
-  %226 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
-  %.not237.i = icmp eq ptr %226, null
-  br i1 %.not237.i, label %.loopexit.i, label %.lr.ph246.i
+224:                                              ; preds = %220, %.loopexit
+  %.sroa.0120.0.i = phi i64 [ %222, %220 ], [ %0, %.loopexit ]
+  %.sroa.4122.0.i = phi ptr [ %223, %220 ], [ %1, %.loopexit ]
+  %225 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.4) #13
+  %226 = extractvalue { i64, ptr } %225, 0
+  %227 = extractvalue { i64, ptr } %225, 1
+  call void @jq_set_attr(ptr noundef %217, i64 %226, ptr %227, i64 %.sroa.0120.0.i, ptr %.sroa.4122.0.i) #13
+  %228 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
+  %.not263272284304.i = icmp eq ptr %228, null
+  br i1 %.not263272284304.i, label %.thread209.i, label %.lr.ph.lr.ph.lr.ph.lr.ph.i
 
-.lr.ph246.i:                                      ; preds = %222
-  %.not150.i = icmp ne i32 %2, 0
-  %227 = zext i1 %.not150.i to i32
-  %228 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  br label %229
+.lr.ph.lr.ph.lr.ph.lr.ph.i:                       ; preds = %224
+  %229 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %.not167.i = icmp ne i32 %2, 0
+  %230 = zext i1 %.not167.i to i32
+  br label %.lr.ph.lr.ph.lr.ph.i
 
-229:                                              ; preds = %.backedge.i, %.lr.ph246.i
-  %.0123245.i = phi i32 [ %.022, %.lr.ph246.i ], [ %.0123.be.i, %.backedge.i ]
-  %.0124244.i = phi i32 [ %.020, %.lr.ph246.i ], [ %.0124.be.i, %.backedge.i ]
-  %.0126243.i = phi i32 [ 0, %.lr.ph246.i ], [ %.0126.be.i, %.backedge.i ]
-  %.0128242.i = phi i32 [ 0, %.lr.ph246.i ], [ %.0128.be.i, %.backedge.i ]
-  %.0130241.i = phi i32 [ 0, %.lr.ph246.i ], [ %.0130.be.i, %.backedge.i ]
-  %.0133240.i = phi i32 [ 0, %.lr.ph246.i ], [ %.0133.be.i, %.backedge.i ]
-  %.0137239.i = phi i32 [ 0, %.lr.ph246.i ], [ %.0137.be.i, %.backedge.i ]
-  %.0138238.i = phi i32 [ 0, %.lr.ph246.i ], [ %.0138.be.i, %.backedge.i ]
-  %230 = add i32 %.0133240.i, 1
+.lr.ph.lr.ph.lr.ph.i:                             ; preds = %.outer.outer.i, %.lr.ph.lr.ph.lr.ph.lr.ph.i
+  %.0124.ph.ph311.i = phi i32 [ %.022, %.lr.ph.lr.ph.lr.ph.lr.ph.i ], [ %.2.i, %.outer.outer.i ]
+  %.0125.ph.ph310.i = phi i32 [ %.020, %.lr.ph.lr.ph.lr.ph.lr.ph.i ], [ %.1126.i, %.outer.outer.i ]
+  %.0127.ph.ph309.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.lr.ph.i ], [ %276, %.outer.outer.i ]
+  %.0129.ph.ph308.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.lr.ph.i ], [ %.2131.i, %.outer.outer.i ]
+  %.0132.ph.ph307.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.lr.ph.i ], [ %.2134.i, %.outer.outer.i ]
+  %.0137.ph.ph306.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.lr.ph.i ], [ %.3140.i, %.outer.outer.i ]
+  %.0147.ph.ph305.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.lr.ph.i ], [ %.1148.i, %.outer.outer.i ]
+  br label %.lr.ph.lr.ph.i
+
+.lr.ph.lr.ph.i:                                   ; preds = %.outer.outer226.i, %.lr.ph.lr.ph.lr.ph.i
+  %.0124.ph.ph229287.i = phi i32 [ %.0124.ph.ph311.i, %.lr.ph.lr.ph.lr.ph.i ], [ %251, %.outer.outer226.i ]
+  %.0137.ph.ph228286.i = phi i32 [ %.0137.ph.ph306.i, %.lr.ph.lr.ph.lr.ph.i ], [ %.2139.i, %.outer.outer226.i ]
+  %.0147.ph.ph227285.i = phi i32 [ %.0147.ph.ph305.i, %.lr.ph.lr.ph.lr.ph.i ], [ 0, %.outer.outer226.i ]
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %checkfail.exit.thread.i, %.lr.ph.lr.ph.i
+  %.0137.ph275.i = phi i32 [ %.0137.ph.ph228286.i, %.lr.ph.lr.ph.i ], [ %232, %checkfail.exit.thread.i ]
+  %.not164.i = phi i1 [ true, %.lr.ph.lr.ph.i ], [ false, %checkfail.exit.thread.i ]
+  %.0147.ph273.i = phi i32 [ %.0147.ph.ph227285.i, %.lr.ph.lr.ph.i ], [ %238, %checkfail.exit.thread.i ]
   br label %231
 
-231:                                              ; preds = %.critedge.i.i, %229
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ 0, %229 ]
-  %232 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
-  %233 = load i8, ptr %232, align 1
-  switch i8 %233, label %234 [
+231:                                              ; preds = %skipline.exit.i, %.lr.ph.i
+  %.0137264.i = phi i32 [ %.0137.ph275.i, %.lr.ph.i ], [ %232, %skipline.exit.i ]
+  %232 = add i32 %.0137264.i, 1
+  br label %233
+
+233:                                              ; preds = %.critedge.i.i, %231
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ 0, %231 ]
+  %234 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
+  %235 = load i8, ptr %234, align 1, !tbaa !11
+  switch i8 %235, label %237 [
     i8 32, label %.critedge.i.i
     i8 9, label %.critedge.i.i
-    i8 35, label %.backedge.i
-    i8 10, label %.backedge.i
-    i8 0, label %.backedge.i
+    i8 35, label %skipline.exit.i
+    i8 10, label %skipline.exit.i
+    i8 0, label %skipline.exit.i
   ]
 
-.critedge.i.i:                                    ; preds = %231, %231
+.critedge.i.i:                                    ; preds = %233, %233
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br label %231, !llvm.loop !8
+  br label %233, !llvm.loop !17
 
-234:                                              ; preds = %231
+skipline.exit.i:                                  ; preds = %233, %233, %233
+  %236 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
+  %.not.i = icmp eq ptr %236, null
+  br i1 %.not.i, label %.thread209.i, label %231
+
+237:                                              ; preds = %233
   %lhsv.i = load i64, ptr %8, align 16
-  %.not184.i = icmp eq i64 %lhsv.i, 2898627278546213
-  br i1 %.not184.i, label %checkfail.exit.thread.i, label %checkfail.exit.i
+  %.not219.i = icmp eq i64 %lhsv.i, 2898627278546213
+  br i1 %.not219.i, label %checkfail.exit.thread.i, label %checkfail.exit.i
 
-checkfail.exit.i:                                 ; preds = %234
+checkfail.exit.i:                                 ; preds = %237
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %8, ptr noundef nonnull dereferenceable(19) @.str.24, i64 19)
-  %.not185.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not185.i, label %checkfail.exit.thread.i, label %238
+  %.not220.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not220.i, label %checkfail.exit.thread.i, label %241
 
-checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %234
-  %235 = zext i1 %.not184.i to i32
-  %236 = load ptr, ptr %11, align 8
-  call void @jq_set_error_cb(ptr noundef %236, ptr noundef nonnull @test_err_cb, ptr noundef nonnull %10) #13
-  br label %.backedge.i
+checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %237
+  %238 = zext i1 %.not219.i to i32
+  %239 = load ptr, ptr %11, align 8, !tbaa !15
+  call void @jq_set_error_cb(ptr noundef %239, ptr noundef nonnull @test_err_cb, ptr noundef nonnull %10) #13
+  %240 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
+  %.not263.i = icmp eq ptr %240, null
+  br i1 %.not263.i, label %.thread209.i, label %.lr.ph.i
 
-.backedge.i:                                      ; preds = %231, %231, %231, %311, %307, %305, %255, %251, %249, %398, %327, %299, %296, %290, %checkfail.exit.thread.i
-  %.0138.be.i = phi i32 [ %235, %checkfail.exit.thread.i ], [ 0, %290 ], [ %.0138238.i, %398 ], [ %.0138238.i, %327 ], [ 0, %299 ], [ 0, %296 ], [ 0, %249 ], [ 0, %251 ], [ 0, %255 ], [ %.0138238.i, %305 ], [ %.0138238.i, %307 ], [ %.0138238.i, %311 ], [ %.0138238.i, %231 ], [ %.0138238.i, %231 ], [ %.0138238.i, %231 ]
-  %.0137.be.i = phi i32 [ 1, %checkfail.exit.thread.i ], [ 0, %290 ], [ 0, %398 ], [ 0, %327 ], [ 0, %299 ], [ 0, %296 ], [ 0, %249 ], [ 0, %251 ], [ 0, %255 ], [ 0, %305 ], [ 0, %307 ], [ 0, %311 ], [ %.0137239.i, %231 ], [ %.0137239.i, %231 ], [ %.0137239.i, %231 ]
-  %.0133.be.i = phi i32 [ %230, %checkfail.exit.thread.i ], [ %282, %290 ], [ %.6182.i, %398 ], [ %322, %327 ], [ %282, %299 ], [ %282, %296 ], [ %252, %255 ], [ %252, %251 ], [ %.1134.i, %249 ], [ %308, %311 ], [ %308, %307 ], [ %.3136.i, %305 ], [ %230, %231 ], [ %230, %231 ], [ %230, %231 ]
-  %.0130.be.i = phi i32 [ %.0130241.i, %checkfail.exit.thread.i ], [ %292, %290 ], [ %.3193.i, %398 ], [ %329, %327 ], [ %.0130241.i, %299 ], [ %298, %296 ], [ %.0130241.i, %249 ], [ %.0130241.i, %251 ], [ %.0130241.i, %255 ], [ %304, %305 ], [ %304, %307 ], [ %304, %311 ], [ %.0130241.i, %231 ], [ %.0130241.i, %231 ], [ %.0130241.i, %231 ]
-  %.0128.be.i = phi i32 [ %.0128242.i, %checkfail.exit.thread.i ], [ %.0128242.i, %290 ], [ %399, %398 ], [ %.0128242.i, %327 ], [ %300, %299 ], [ %.0128242.i, %296 ], [ %.0128242.i, %249 ], [ %.0128242.i, %251 ], [ %.0128242.i, %255 ], [ %.0128242.i, %305 ], [ %.0128242.i, %307 ], [ %.0128242.i, %311 ], [ %.0128242.i, %231 ], [ %.0128242.i, %231 ], [ %.0128242.i, %231 ]
-  %.0126.be.i = phi i32 [ %.0126243.i, %checkfail.exit.thread.i ], [ %272, %290 ], [ %272, %398 ], [ %272, %327 ], [ %272, %299 ], [ %272, %296 ], [ %.0126243.i, %249 ], [ %.0126243.i, %251 ], [ %.0126243.i, %255 ], [ %272, %305 ], [ %272, %307 ], [ %272, %311 ], [ %.0126243.i, %231 ], [ %.0126243.i, %231 ], [ %.0126243.i, %231 ]
-  %.0124.be.i = phi i32 [ %.0124244.i, %checkfail.exit.thread.i ], [ %.1125.i, %290 ], [ %.1125.i, %398 ], [ %.1125.i, %327 ], [ %.1125.i, %299 ], [ %.1125.i, %296 ], [ %.0124244.i, %249 ], [ %.0124244.i, %251 ], [ %.0124244.i, %255 ], [ %.1125.i, %305 ], [ %.1125.i, %307 ], [ %.1125.i, %311 ], [ %.0124244.i, %231 ], [ %.0124244.i, %231 ], [ %.0124244.i, %231 ]
-  %.0123.be.i = phi i32 [ %.0123245.i, %checkfail.exit.thread.i ], [ %.2.i, %290 ], [ %.2.i, %398 ], [ %.2.i, %327 ], [ %.2.i, %299 ], [ %.2.i, %296 ], [ %248, %249 ], [ %248, %251 ], [ %248, %255 ], [ %.2.i, %305 ], [ %.2.i, %307 ], [ %.2.i, %311 ], [ %.0123245.i, %231 ], [ %.0123245.i, %231 ], [ %.0123245.i, %231 ]
-  %237 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
-  %.not.i = icmp eq ptr %237, null
-  br i1 %.not.i, label %.loopexit.i, label %229
+241:                                              ; preds = %checkfail.exit.i
+  %242 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
+  %243 = add i64 %242, -1
+  %244 = getelementptr inbounds nuw [4096 x i8], ptr %8, i64 0, i64 %243
+  %245 = load i8, ptr %244, align 1, !tbaa !11
+  %246 = icmp eq i8 %245, 10
+  br i1 %246, label %247, label %248
 
-238:                                              ; preds = %checkfail.exit.i
-  %239 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
-  %240 = add i64 %239, -1
-  %241 = getelementptr inbounds [4096 x i8], ptr %8, i64 0, i64 %240
-  %242 = load i8, ptr %241, align 1
-  %243 = icmp eq i8 %242, 10
-  br i1 %243, label %244, label %245
+247:                                              ; preds = %241
+  store i8 0, ptr %244, align 1, !tbaa !11
+  br label %248
 
-244:                                              ; preds = %238
-  store i8 0, ptr %241, align 1
-  br label %245
+248:                                              ; preds = %247, %241
+  %249 = icmp sgt i32 %.0124.ph.ph229287.i, 0
+  br i1 %249, label %250, label %263
 
-245:                                              ; preds = %244, %238
-  %246 = icmp sgt i32 %.0123245.i, 0
-  br i1 %246, label %247, label %259
+250:                                              ; preds = %248
+  %251 = add nsw i32 %.0124.ph.ph229287.i, -1
+  br label %252
 
-247:                                              ; preds = %245
-  %248 = add nsw i32 %.0123245.i, -1
-  br label %249
+252:                                              ; preds = %258, %250
+  %.1138.i = phi i32 [ %232, %250 ], [ %255, %258 ]
+  %253 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
+  %.not183.i = icmp eq ptr %253, null
+  br i1 %.not183.i, label %.outer.outer226.i, label %254
 
-249:                                              ; preds = %255, %247
-  %.1134.i = phi i32 [ %230, %247 ], [ %252, %255 ]
-  %250 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
-  %.not166.i = icmp eq ptr %250, null
-  br i1 %.not166.i, label %.backedge.i, label %251
+254:                                              ; preds = %252
+  %255 = add i32 %.1138.i, 1
+  %256 = load i8, ptr %9, align 16, !tbaa !11
+  %257 = icmp eq i8 %256, 10
+  br i1 %257, label %.outer.outer226.i, label %258
 
-251:                                              ; preds = %249
-  %252 = add i32 %.1134.i, 1
-  %253 = load i8, ptr %9, align 16
-  %254 = icmp eq i8 %253, 10
-  br i1 %254, label %.backedge.i, label %255
+258:                                              ; preds = %254
+  %259 = icmp eq i8 %256, 13
+  %260 = load i8, ptr %229, align 1
+  %261 = icmp eq i8 %260, 10
+  %or.cond.i = select i1 %259, i1 %261, i1 false
+  br i1 %or.cond.i, label %.outer.outer226.i, label %252, !llvm.loop !18
 
-255:                                              ; preds = %251
-  %256 = icmp eq i8 %253, 13
-  %257 = load i8, ptr %228, align 1
-  %258 = icmp eq i8 %257, 10
-  %or.cond.i = select i1 %256, i1 %258, i1 false
-  br i1 %or.cond.i, label %.backedge.i, label %249, !llvm.loop !9
+.outer.outer226.i:                                ; preds = %258, %254, %252
+  %.2139.i = phi i32 [ %255, %254 ], [ %255, %258 ], [ %.1138.i, %252 ]
+  %262 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
+  %.not263272.i = icmp eq ptr %262, null
+  br i1 %.not263272.i, label %.thread209.i, label %.lr.ph.lr.ph.i
 
-259:                                              ; preds = %245
-  %260 = icmp eq i32 %.0123245.i, 0
-  br i1 %260, label %261, label %263
-
-261:                                              ; preds = %259
-  %262 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %214)
-  br label %263
-
-263:                                              ; preds = %261, %259
-  %.2.i = phi i32 [ -1, %261 ], [ %.0123245.i, %259 ]
-  %264 = icmp sgt i32 %.0124244.i, 0
+263:                                              ; preds = %248
+  %264 = icmp sgt i32 %.0124.ph.ph311.i, -1
   br i1 %264, label %265, label %267
 
 265:                                              ; preds = %263
-  %266 = add nsw i32 %.0124244.i, -1
-  br label %271
+  %266 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %216)
+  br label %267
 
-267:                                              ; preds = %263
-  %268 = icmp eq i32 %.0124244.i, 0
+267:                                              ; preds = %265, %263
+  %.2.i = phi i32 [ -1, %265 ], [ %.0124.ph.ph311.i, %263 ]
+  %268 = icmp sgt i32 %.0125.ph.ph310.i, 0
   br i1 %268, label %269, label %271
 
 269:                                              ; preds = %267
-  %270 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.020)
-  br label %.loopexit.i
+  %270 = add nsw i32 %.0125.ph.ph310.i, -1
+  br label %275
 
-271:                                              ; preds = %267, %265
-  %.1125.i = phi i32 [ %266, %265 ], [ %.0124244.i, %267 ]
-  %272 = add nsw i32 %.0126243.i, 1
-  %273 = add nsw i32 %272, %214
-  %274 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %273, ptr noundef nonnull %8, i32 noundef %230)
-  %275 = load ptr, ptr %11, align 8
-  %276 = call i32 @jq_compile(ptr noundef %275, ptr noundef nonnull %8) #13
-  %.not147.i = icmp eq i32 %.0137239.i, 0
-  br i1 %.not147.i, label %301, label %277
+271:                                              ; preds = %267
+  %272 = icmp eq i32 %.0125.ph.ph310.i, 0
+  br i1 %272, label %273, label %275
 
-277:                                              ; preds = %271
-  call void @jq_set_error_cb(ptr noundef %275, ptr noundef null, ptr noundef null) #13
-  %278 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
-  %.not160.i = icmp eq ptr %278, null
-  br i1 %.not160.i, label %279, label %281
+273:                                              ; preds = %271
+  %274 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.020)
+  br label %.thread209.i
 
-279:                                              ; preds = %277
-  %280 = add nsw i32 %.0130241.i, 1
-  br label %.loopexit.i
+275:                                              ; preds = %271, %269
+  %.1126.i = phi i32 [ %270, %269 ], [ %.0125.ph.ph310.i, %271 ]
+  %276 = add nuw nsw i32 %.0127.ph.ph309.i, 1
+  %277 = add nuw nsw i32 %276, %216
+  %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %277, ptr noundef nonnull %8, i32 noundef %232)
+  %279 = load ptr, ptr %11, align 8, !tbaa !15
+  %280 = call i32 @jq_compile(ptr noundef %279, ptr noundef nonnull %8) #13
+  br i1 %.not164.i, label %305, label %281
 
-281:                                              ; preds = %277
-  %282 = add i32 %.0133240.i, 2
-  %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
-  %284 = add i64 %283, -1
-  %285 = getelementptr inbounds [4096 x i8], ptr %9, i64 0, i64 %284
-  %286 = load i8, ptr %285, align 1
-  %287 = icmp eq i8 %286, 10
-  br i1 %287, label %288, label %289
+281:                                              ; preds = %275
+  call void @jq_set_error_cb(ptr noundef %279, ptr noundef null, ptr noundef null) #13
+  %282 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
+  %.not177.i = icmp eq ptr %282, null
+  br i1 %.not177.i, label %283, label %285
 
-288:                                              ; preds = %281
-  store i8 0, ptr %285, align 1
-  br label %289
+283:                                              ; preds = %281
+  %284 = add nsw i32 %.0132.ph.ph307.i, 1
+  br label %.thread209.i
 
-289:                                              ; preds = %288, %281
-  %.not163.i = icmp eq i32 %276, 0
-  br i1 %.not163.i, label %293, label %290
+285:                                              ; preds = %281
+  %286 = add i32 %.0137264.i, 2
+  %287 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
+  %288 = add i64 %287, -1
+  %289 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %288
+  %290 = load i8, ptr %289, align 1, !tbaa !11
+  %291 = icmp eq i8 %290, 10
+  br i1 %291, label %292, label %293
 
-290:                                              ; preds = %289
-  %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %282, ptr noundef nonnull %8)
-  %292 = add nsw i32 %.0130241.i, 1
-  br label %.backedge.i
+292:                                              ; preds = %285
+  store i8 0, ptr %289, align 1, !tbaa !11
+  br label %293
 
-293:                                              ; preds = %289
-  %.not164.i = icmp eq i32 %.0138238.i, 0
-  br i1 %.not164.i, label %299, label %294
+293:                                              ; preds = %292, %285
+  %.not178.i = icmp eq i32 %280, 0
+  br i1 %.not178.i, label %297, label %294
 
 294:                                              ; preds = %293
-  %295 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %10) #14
-  %.not165.i = icmp eq i32 %295, 0
-  br i1 %.not165.i, label %299, label %296
+  %295 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %286, ptr noundef nonnull %8)
+  %296 = add nsw i32 %.0132.ph.ph307.i, 1
+  br label %.outer.outer.i
 
-296:                                              ; preds = %294
-  %297 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %10, i32 noundef %282, ptr noundef nonnull %8)
-  %298 = add nsw i32 %.0130241.i, 1
-  br label %.backedge.i
+297:                                              ; preds = %293
+  %.not179.i = icmp eq i32 %.0147.ph273.i, 0
+  br i1 %.not179.i, label %303, label %298
 
-299:                                              ; preds = %294, %293
-  %300 = add nsw i32 %.0128242.i, 1
-  br label %.backedge.i
+298:                                              ; preds = %297
+  %299 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %10) #14
+  %.not180.i = icmp eq i32 %299, 0
+  br i1 %.not180.i, label %303, label %300
 
-301:                                              ; preds = %271
-  %.not148.i = icmp eq i32 %276, 0
-  br i1 %.not148.i, label %302, label %315
+300:                                              ; preds = %298
+  %301 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %10, i32 noundef %286, ptr noundef nonnull %8)
+  %302 = add nsw i32 %.0132.ph.ph307.i, 1
+  br label %.outer.outer.i
 
-302:                                              ; preds = %301
-  %303 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %230, ptr noundef nonnull %8)
-  %304 = add nsw i32 %.0130241.i, 1
-  br label %305
+303:                                              ; preds = %298, %297
+  %304 = add nsw i32 %.0129.ph.ph308.i, 1
+  br label %.outer.outer.i
 
-305:                                              ; preds = %311, %302
-  %.3136.i = phi i32 [ %230, %302 ], [ %308, %311 ]
-  %306 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
-  %.not149.i = icmp eq ptr %306, null
-  br i1 %.not149.i, label %.backedge.i, label %307
+305:                                              ; preds = %275
+  %.not165.i = icmp eq i32 %280, 0
+  br i1 %.not165.i, label %306, label %319
 
-307:                                              ; preds = %305
-  %308 = add i32 %.3136.i, 1
-  %309 = load i8, ptr %9, align 16
-  %310 = icmp eq i8 %309, 10
-  br i1 %310, label %.backedge.i, label %311
+306:                                              ; preds = %305
+  %307 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %232, ptr noundef nonnull %8)
+  %308 = add nsw i32 %.0132.ph.ph307.i, 1
+  br label %309
 
-311:                                              ; preds = %307
-  %312 = icmp eq i8 %309, 13
-  %313 = load i8, ptr %228, align 1
+309:                                              ; preds = %315, %306
+  %.4141.i = phi i32 [ %232, %306 ], [ %312, %315 ]
+  %310 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
+  %.not166.i = icmp eq ptr %310, null
+  br i1 %.not166.i, label %.outer.outer.i, label %311
+
+311:                                              ; preds = %309
+  %312 = add i32 %.4141.i, 1
+  %313 = load i8, ptr %9, align 16, !tbaa !11
   %314 = icmp eq i8 %313, 10
-  %or.cond7.i = select i1 %312, i1 %314, i1 false
-  br i1 %or.cond7.i, label %.backedge.i, label %305, !llvm.loop !10
+  br i1 %314, label %.outer.outer.i, label %315
 
-315:                                              ; preds = %301
-  br i1 %.not150.i, label %316, label %317
+315:                                              ; preds = %311
+  %316 = icmp eq i8 %313, 13
+  %317 = load i8, ptr %229, align 1
+  %318 = icmp eq i8 %317, 10
+  %or.cond7.i = select i1 %316, i1 %318, i1 false
+  br i1 %or.cond7.i, label %.outer.outer.i, label %309, !llvm.loop !19
 
-316:                                              ; preds = %315
+319:                                              ; preds = %305
+  br i1 %.not167.i, label %320, label %321
+
+320:                                              ; preds = %319
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  call void @jq_dump_disassembly(ptr noundef %275, i32 noundef 2) #13
+  call void @jq_dump_disassembly(ptr noundef %279, i32 noundef 2) #13
   %putchar.i = call i32 @putchar(i32 10)
-  br label %317
+  br label %321
 
-317:                                              ; preds = %316, %315
-  %318 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
-  %.not151.i = icmp eq ptr %318, null
-  br i1 %.not151.i, label %319, label %321
+321:                                              ; preds = %320, %319
+  %322 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
+  %.not168.i = icmp eq ptr %322, null
+  br i1 %.not168.i, label %323, label %325
 
-319:                                              ; preds = %317
-  %320 = add nsw i32 %.0130241.i, 1
-  br label %.loopexit.i
+323:                                              ; preds = %321
+  %324 = add nsw i32 %.0132.ph.ph307.i, 1
+  br label %.thread209.i
 
-321:                                              ; preds = %317
-  %322 = add i32 %.0133240.i, 2
-  %323 = call { i64, ptr } @jv_parse(ptr noundef nonnull %9) #13
-  %324 = extractvalue { i64, ptr } %323, 0
-  %325 = extractvalue { i64, ptr } %323, 1
-  %326 = call i32 @jv_get_kind(i64 %324, ptr %325) #13
-  %.not186.i = icmp eq i32 %326, 0
-  br i1 %.not186.i, label %327, label %330
+325:                                              ; preds = %321
+  %326 = add i32 %.0137264.i, 2
+  %327 = call { i64, ptr } @jv_parse(ptr noundef nonnull %9) #13
+  %328 = extractvalue { i64, ptr } %327, 0
+  %329 = extractvalue { i64, ptr } %327, 1
+  %330 = call i32 @jv_get_kind(i64 %328, ptr %329) #13
+  %.not221.i = icmp eq i32 %330, 0
+  br i1 %.not221.i, label %331, label %334
 
-327:                                              ; preds = %321
-  %328 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %322, ptr noundef nonnull %9)
-  %329 = add nsw i32 %.0130241.i, 1
-  br label %.backedge.i
+331:                                              ; preds = %325
+  %332 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %326, ptr noundef nonnull %9)
+  %333 = add nsw i32 %.0132.ph.ph307.i, 1
+  br label %.outer.outer.i
 
-330:                                              ; preds = %321
-  %331 = load ptr, ptr %11, align 8
-  call void @jq_start(ptr noundef %331, i64 %324, ptr %325, i32 noundef %227) #13
-  %332 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
-  %.not153222230.i = icmp eq ptr %332, null
-  br i1 %.not153222230.i, label %skipline.exit172.thread.i, label %.lr.ph.i
+334:                                              ; preds = %325
+  %335 = load ptr, ptr %11, align 8, !tbaa !15
+  call void @jq_start(ptr noundef %335, i64 %328, ptr %329, i32 noundef %230) #13
+  %336 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
+  %.not170296.i = icmp eq ptr %336, null
+  br i1 %.not170296.i, label %skipline.exit191.thread.i, label %.lr.ph300.i
 
-.lr.ph.i:                                         ; preds = %330, %.outer.i
-  %.3.ph233.i = phi i32 [ %.3224.i, %.outer.i ], [ %.0130241.i, %330 ]
-  %.5.ph232.i = phi i32 [ %334, %.outer.i ], [ %322, %330 ]
-  %.0139.ph231.i = phi i32 [ %.2141.i, %.outer.i ], [ 1, %330 ]
-  br label %333
+.lr.ph300.i:                                      ; preds = %334, %391
+  %.5299.i = phi i32 [ %.7.i, %391 ], [ %.0132.ph.ph307.i, %334 ]
+  %.7144298.i = phi i32 [ %337, %391 ], [ %326, %334 ]
+  %.0149297.i = phi i32 [ %.2151.i, %391 ], [ 1, %334 ]
+  %337 = add i32 %.7144298.i, 1
+  br label %338
 
-333:                                              ; preds = %343, %.lr.ph.i
-  %.3224.i = phi i32 [ %.3.ph233.i, %.lr.ph.i ], [ %345, %343 ]
-  %.5223.i = phi i32 [ %.5.ph232.i, %.lr.ph.i ], [ %334, %343 ]
-  %334 = add i32 %.5223.i, 1
-  br label %335
-
-335:                                              ; preds = %.critedge.i170.i, %333
-  %indvars.iv.i167.i = phi i64 [ %indvars.iv.next.i171.i, %.critedge.i170.i ], [ 0, %333 ]
-  %336 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i167.i
-  %337 = load i8, ptr %336, align 1
-  switch i8 %337, label %338 [
-    i8 32, label %.critedge.i170.i
-    i8 9, label %.critedge.i170.i
-    i8 35, label %skipline.exit172.i
-    i8 10, label %skipline.exit172.i
-    i8 0, label %skipline.exit172.i
+338:                                              ; preds = %.critedge.i189.i, %.lr.ph300.i
+  %indvars.iv.i186.i = phi i64 [ %indvars.iv.next.i190.i, %.critedge.i189.i ], [ 0, %.lr.ph300.i ]
+  %339 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i186.i
+  %340 = load i8, ptr %339, align 1, !tbaa !11
+  switch i8 %340, label %341 [
+    i8 32, label %.critedge.i189.i
+    i8 9, label %.critedge.i189.i
+    i8 35, label %skipline.exit191.i
+    i8 10, label %skipline.exit191.i
+    i8 0, label %skipline.exit191.i
   ]
 
-.critedge.i170.i:                                 ; preds = %335, %335
-  %indvars.iv.next.i171.i = add nuw nsw i64 %indvars.iv.i167.i, 1
-  br label %335, !llvm.loop !8
+.critedge.i189.i:                                 ; preds = %338, %338
+  %indvars.iv.next.i190.i = add nuw nsw i64 %indvars.iv.i186.i, 1
+  br label %338, !llvm.loop !17
 
-338:                                              ; preds = %335
-  %339 = call { i64, ptr } @jv_parse(ptr noundef nonnull %9) #13
-  %340 = extractvalue { i64, ptr } %339, 0
-  %341 = extractvalue { i64, ptr } %339, 1
-  %342 = call i32 @jv_get_kind(i64 %340, ptr %341) #13
-  %.not187.i = icmp eq i32 %342, 0
-  br i1 %.not187.i, label %343, label %347
+341:                                              ; preds = %338
+  %342 = call { i64, ptr } @jv_parse(ptr noundef nonnull %9) #13
+  %343 = extractvalue { i64, ptr } %342, 0
+  %344 = extractvalue { i64, ptr } %342, 1
+  %345 = call i32 @jv_get_kind(i64 %343, ptr %344) #13
+  %.not222.i = icmp eq i32 %345, 0
+  br i1 %.not222.i, label %346, label %349
 
-343:                                              ; preds = %338
-  %344 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %334, ptr noundef nonnull %9)
-  %345 = add nsw i32 %.3224.i, 1
-  %346 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
-  %.not153.i = icmp eq ptr %346, null
-  br i1 %.not153.i, label %skipline.exit172.i, label %333, !llvm.loop !11
+346:                                              ; preds = %341
+  %347 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %337, ptr noundef nonnull %9)
+  %348 = add nsw i32 %.5299.i, 1
+  br label %391, !llvm.loop !20
 
-347:                                              ; preds = %338
-  %348 = load ptr, ptr %11, align 8
-  %349 = call { i64, ptr } @jq_next(ptr noundef %348) #13
-  %350 = extractvalue { i64, ptr } %349, 0
-  %351 = extractvalue { i64, ptr } %349, 1
-  %352 = call i32 @jv_get_kind(i64 %350, ptr %351) #13
-  %.not188.i = icmp eq i32 %352, 0
-  br i1 %.not188.i, label %skipline.exit172.thread178.i, label %354
+349:                                              ; preds = %341
+  %350 = load ptr, ptr %11, align 8, !tbaa !15
+  %351 = call { i64, ptr } @jq_next(ptr noundef %350) #13
+  %352 = extractvalue { i64, ptr } %351, 0
+  %353 = extractvalue { i64, ptr } %351, 1
+  %354 = call i32 @jv_get_kind(i64 %352, ptr %353) #13
+  %.not223.i = icmp eq i32 %354, 0
+  br i1 %.not223.i, label %skipline.exit191.thread202.i, label %356
 
-skipline.exit172.thread178.i:                     ; preds = %347
-  call void @jv_free(i64 %340, ptr %341) #13
-  call void @jv_free(i64 %350, ptr %351) #13
-  %353 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %334, ptr noundef nonnull %8)
-  br label %398
+skipline.exit191.thread202.i:                     ; preds = %349
+  call void @jv_free(i64 %343, ptr %344) #13
+  call void @jv_free(i64 %352, ptr %353) #13
+  %355 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %337, ptr noundef nonnull %8)
+  br label %402
 
-354:                                              ; preds = %347
-  %355 = call { i64, ptr } @jv_copy(i64 %340, ptr %341) #13
-  %356 = extractvalue { i64, ptr } %355, 0
-  %357 = extractvalue { i64, ptr } %355, 1
-  %358 = call { i64, ptr } @jv_copy(i64 %350, ptr %351) #13
-  %359 = extractvalue { i64, ptr } %358, 0
-  %360 = extractvalue { i64, ptr } %358, 1
-  %361 = call i32 @jv_equal(i64 %356, ptr %357, i64 %359, ptr %360) #13
-  %.not157.i = icmp eq i32 %361, 0
-  br i1 %.not157.i, label %362, label %.outer.i
+356:                                              ; preds = %349
+  %357 = call { i64, ptr } @jv_copy(i64 %343, ptr %344) #13
+  %358 = extractvalue { i64, ptr } %357, 0
+  %359 = extractvalue { i64, ptr } %357, 1
+  %360 = call { i64, ptr } @jv_copy(i64 %352, ptr %353) #13
+  %361 = extractvalue { i64, ptr } %360, 0
+  %362 = extractvalue { i64, ptr } %360, 1
+  %363 = call i32 @jv_equal(i64 %358, ptr %359, i64 %361, ptr %362) #13
+  %.not174.i = icmp eq i32 %363, 0
+  br i1 %.not174.i, label %364, label %374
 
-362:                                              ; preds = %354
-  %363 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
-  %364 = call { i64, ptr } @jv_copy(i64 %340, ptr %341) #13
-  %365 = extractvalue { i64, ptr } %364, 0
-  %366 = extractvalue { i64, ptr } %364, 1
-  call void @jv_dump(i64 %365, ptr %366, i32 noundef 0) #13
-  %367 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
-  %368 = call { i64, ptr } @jv_copy(i64 %350, ptr %351) #13
-  %369 = extractvalue { i64, ptr } %368, 0
-  %370 = extractvalue { i64, ptr } %368, 1
-  call void @jv_dump(i64 %369, ptr %370, i32 noundef 0) #13
-  %371 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %334, ptr noundef nonnull %8)
-  br label %.outer.i
+364:                                              ; preds = %356
+  %365 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
+  %366 = call { i64, ptr } @jv_copy(i64 %343, ptr %344) #13
+  %367 = extractvalue { i64, ptr } %366, 0
+  %368 = extractvalue { i64, ptr } %366, 1
+  call void @jv_dump(i64 %367, ptr %368, i32 noundef 0) #13
+  %369 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
+  %370 = call { i64, ptr } @jv_copy(i64 %352, ptr %353) #13
+  %371 = extractvalue { i64, ptr } %370, 0
+  %372 = extractvalue { i64, ptr } %370, 1
+  call void @jv_dump(i64 %371, ptr %372, i32 noundef 0) #13
+  %373 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %337, ptr noundef nonnull %8)
+  br label %374
 
-.outer.i:                                         ; preds = %362, %354
-  %.2141.i = phi i32 [ %.0139.ph231.i, %354 ], [ 0, %362 ]
-  %372 = call { i64, ptr } @jv_copy(i64 %340, ptr %341) #13
-  %373 = extractvalue { i64, ptr } %372, 0
-  %374 = extractvalue { i64, ptr } %372, 1
-  %375 = call i32 @rand() #13
-  %376 = and i32 %375, -37
-  %377 = call { i64, ptr } @jv_dump_string(i64 %373, ptr %374, i32 noundef %376) #13
-  %378 = extractvalue { i64, ptr } %377, 0
-  %379 = extractvalue { i64, ptr } %377, 1
-  %380 = call ptr @jv_string_value(i64 %378, ptr %379) #13
-  %381 = call { i64, ptr } @jv_copy(i64 %378, ptr %379) #13
-  %382 = extractvalue { i64, ptr } %381, 0
-  %383 = extractvalue { i64, ptr } %381, 1
-  %384 = call i32 @jv_string_length_bytes(i64 %382, ptr %383) #13
-  %385 = call { i64, ptr } @jv_parse_sized(ptr noundef %380, i32 noundef %384) #13
-  %386 = extractvalue { i64, ptr } %385, 0
-  %387 = extractvalue { i64, ptr } %385, 1
-  call void @jv_free(i64 %378, ptr %379) #13
-  call void @jv_free(i64 %386, ptr %387) #13
-  call void @jv_free(i64 %340, ptr %341) #13
-  call void @jv_free(i64 %350, ptr %351) #13
-  %388 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
-  %.not153222.i = icmp eq ptr %388, null
-  br i1 %.not153222.i, label %skipline.exit172.i, label %.lr.ph.i, !llvm.loop !11
+374:                                              ; preds = %364, %356
+  %.4153.i = phi i32 [ %.0149297.i, %356 ], [ 0, %364 ]
+  %375 = call { i64, ptr } @jv_copy(i64 %343, ptr %344) #13
+  %376 = extractvalue { i64, ptr } %375, 0
+  %377 = extractvalue { i64, ptr } %375, 1
+  %378 = call i32 @rand() #13
+  %379 = and i32 %378, -37
+  %380 = call { i64, ptr } @jv_dump_string(i64 %376, ptr %377, i32 noundef %379) #13
+  %381 = extractvalue { i64, ptr } %380, 0
+  %382 = extractvalue { i64, ptr } %380, 1
+  %383 = call ptr @jv_string_value(i64 %381, ptr %382) #13
+  %384 = call { i64, ptr } @jv_copy(i64 %381, ptr %382) #13
+  %385 = extractvalue { i64, ptr } %384, 0
+  %386 = extractvalue { i64, ptr } %384, 1
+  %387 = call i32 @jv_string_length_bytes(i64 %385, ptr %386) #13
+  %388 = call { i64, ptr } @jv_parse_sized(ptr noundef %383, i32 noundef %387) #13
+  %389 = extractvalue { i64, ptr } %388, 0
+  %390 = extractvalue { i64, ptr } %388, 1
+  call void @jv_free(i64 %381, ptr %382) #13
+  call void @jv_free(i64 %389, ptr %390) #13
+  call void @jv_free(i64 %343, ptr %344) #13
+  call void @jv_free(i64 %352, ptr %353) #13
+  br label %391
 
-skipline.exit172.i:                               ; preds = %.outer.i, %343, %335, %335, %335
-  %.0139.ph204.i = phi i32 [ %.0139.ph231.i, %335 ], [ %.0139.ph231.i, %335 ], [ %.0139.ph231.i, %335 ], [ %.0139.ph231.i, %343 ], [ %.2141.i, %.outer.i ]
-  %.3194.i = phi i32 [ %.3224.i, %335 ], [ %.3224.i, %335 ], [ %.3224.i, %335 ], [ %345, %343 ], [ %.3224.i, %.outer.i ]
-  %.not158.i = icmp eq i32 %.0139.ph204.i, 0
-  br i1 %.not158.i, label %398, label %skipline.exit172.thread.i
+391:                                              ; preds = %374, %346
+  %.2151.i = phi i32 [ %.0149297.i, %346 ], [ %.4153.i, %374 ]
+  %.7.i = phi i32 [ %348, %346 ], [ %.5299.i, %374 ]
+  %392 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 4096, ptr noundef %.025)
+  %.not170.i = icmp eq ptr %392, null
+  br i1 %.not170.i, label %skipline.exit191.i, label %.lr.ph300.i
 
-skipline.exit172.thread.i:                        ; preds = %skipline.exit172.i, %330
-  %.6294.i = phi i32 [ %334, %skipline.exit172.i ], [ %322, %330 ]
-  %.3194293.i = phi i32 [ %.3194.i, %skipline.exit172.i ], [ %.0130241.i, %330 ]
-  %389 = load ptr, ptr %11, align 8
-  %390 = call { i64, ptr } @jq_next(ptr noundef %389) #13
-  %391 = extractvalue { i64, ptr } %390, 0
-  %392 = extractvalue { i64, ptr } %390, 1
-  %393 = call i32 @jv_get_kind(i64 %391, ptr %392) #13
-  %.not189.i = icmp eq i32 %393, 0
-  br i1 %.not189.i, label %397, label %394
+skipline.exit191.i:                               ; preds = %391, %338, %338, %338
+  %.0149242.i = phi i32 [ %.0149297.i, %338 ], [ %.0149297.i, %338 ], [ %.0149297.i, %338 ], [ %.2151.i, %391 ]
+  %.5237.i = phi i32 [ %.5299.i, %338 ], [ %.5299.i, %338 ], [ %.5299.i, %338 ], [ %.7.i, %391 ]
+  %.not175.i = icmp eq i32 %.0149242.i, 0
+  br i1 %.not175.i, label %402, label %skipline.exit191.thread.i
 
-394:                                              ; preds = %skipline.exit172.thread.i
-  %395 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
-  call void @jv_dump(i64 %391, ptr %392, i32 noundef 0) #13
-  %396 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.6294.i, ptr noundef nonnull %8)
-  br label %398
+skipline.exit191.thread.i:                        ; preds = %skipline.exit191.i, %334
+  %.8378.i = phi i32 [ %337, %skipline.exit191.i ], [ %326, %334 ]
+  %.5237377.i = phi i32 [ %.5237.i, %skipline.exit191.i ], [ %.0132.ph.ph307.i, %334 ]
+  %393 = load ptr, ptr %11, align 8, !tbaa !15
+  %394 = call { i64, ptr } @jq_next(ptr noundef %393) #13
+  %395 = extractvalue { i64, ptr } %394, 0
+  %396 = extractvalue { i64, ptr } %394, 1
+  %397 = call i32 @jv_get_kind(i64 %395, ptr %396) #13
+  %.not224.i = icmp eq i32 %397, 0
+  br i1 %.not224.i, label %401, label %398
 
-397:                                              ; preds = %skipline.exit172.thread.i
-  call void @jv_free(i64 %391, ptr %392) #13
-  br label %398
+398:                                              ; preds = %skipline.exit191.thread.i
+  %399 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
+  call void @jv_dump(i64 %395, ptr %396, i32 noundef 0) #13
+  %400 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.8378.i, ptr noundef nonnull %8)
+  br label %402
 
-398:                                              ; preds = %397, %394, %skipline.exit172.i, %skipline.exit172.thread178.i
-  %.3193.i = phi i32 [ %.3194293.i, %394 ], [ %.3194293.i, %397 ], [ %.3194.i, %skipline.exit172.i ], [ %.3224.i, %skipline.exit172.thread178.i ]
-  %.6182.i = phi i32 [ %.6294.i, %394 ], [ %.6294.i, %397 ], [ %334, %skipline.exit172.i ], [ %334, %skipline.exit172.thread178.i ]
-  %.3142.i = phi i32 [ 0, %394 ], [ 1, %397 ], [ 0, %skipline.exit172.i ], [ 0, %skipline.exit172.thread178.i ]
-  %399 = add nsw i32 %.3142.i, %.0128242.i
-  br label %.backedge.i
+401:                                              ; preds = %skipline.exit191.thread.i
+  call void @jv_free(i64 %395, ptr %396) #13
+  br label %402
 
-.loopexit.i:                                      ; preds = %.backedge.i, %319, %279, %269, %222
-  %.0128214.i = phi i32 [ %.0128242.i, %279 ], [ %.0128242.i, %319 ], [ %.0128242.i, %269 ], [ 0, %222 ], [ %.0128.be.i, %.backedge.i ]
-  %.1131.i = phi i32 [ %280, %279 ], [ %320, %319 ], [ %.0130241.i, %269 ], [ 0, %222 ], [ %.0130.be.i, %.backedge.i ]
-  %.1127.i = phi i32 [ %272, %279 ], [ %272, %319 ], [ %.0126243.i, %269 ], [ 0, %222 ], [ %.0126.be.i, %.backedge.i ]
-  %.1.i = phi i32 [ %.2.i, %279 ], [ %.2.i, %319 ], [ %.2.i, %269 ], [ %.022, %222 ], [ %.0123.be.i, %.backedge.i ]
+402:                                              ; preds = %401, %398, %skipline.exit191.i, %skipline.exit191.thread202.i
+  %.5236.i = phi i32 [ %.5237.i, %skipline.exit191.i ], [ %.5237377.i, %398 ], [ %.5237377.i, %401 ], [ %.5299.i, %skipline.exit191.thread202.i ]
+  %.8207.i = phi i32 [ %337, %skipline.exit191.i ], [ %.8378.i, %398 ], [ %.8378.i, %401 ], [ %337, %skipline.exit191.thread202.i ]
+  %.5154.i = phi i32 [ 0, %skipline.exit191.i ], [ 0, %398 ], [ 1, %401 ], [ 0, %skipline.exit191.thread202.i ]
+  %403 = add nsw i32 %.5154.i, %.0129.ph.ph308.i
+  br label %.outer.outer.i
+
+.outer.outer.i:                                   ; preds = %315, %311, %309, %402, %331, %303, %300, %294
+  %.1148.i = phi i32 [ 0, %294 ], [ 0, %303 ], [ 0, %300 ], [ %.0147.ph273.i, %402 ], [ %.0147.ph273.i, %331 ], [ %.0147.ph273.i, %309 ], [ %.0147.ph273.i, %311 ], [ %.0147.ph273.i, %315 ]
+  %.3140.i = phi i32 [ %286, %294 ], [ %286, %303 ], [ %286, %300 ], [ %.8207.i, %402 ], [ %326, %331 ], [ %312, %315 ], [ %312, %311 ], [ %.4141.i, %309 ]
+  %.2134.i = phi i32 [ %296, %294 ], [ %.0132.ph.ph307.i, %303 ], [ %302, %300 ], [ %.5236.i, %402 ], [ %333, %331 ], [ %308, %309 ], [ %308, %311 ], [ %308, %315 ]
+  %.2131.i = phi i32 [ %.0129.ph.ph308.i, %294 ], [ %304, %303 ], [ %.0129.ph.ph308.i, %300 ], [ %403, %402 ], [ %.0129.ph.ph308.i, %331 ], [ %.0129.ph.ph308.i, %309 ], [ %.0129.ph.ph308.i, %311 ], [ %.0129.ph.ph308.i, %315 ]
+  %404 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
+  %.not263272284.i = icmp eq ptr %404, null
+  br i1 %.not263272284.i, label %.thread209.i, label %.lr.ph.lr.ph.lr.ph.i
+
+.thread209.i:                                     ; preds = %.outer.outer.i, %.outer.outer226.i, %checkfail.exit.thread.i, %skipline.exit.i, %323, %283, %273, %224
+  %.0129.ph.ph259.i = phi i32 [ %.0129.ph.ph308.i, %273 ], [ %.0129.ph.ph308.i, %323 ], [ %.0129.ph.ph308.i, %283 ], [ 0, %224 ], [ %.0129.ph.ph308.i, %skipline.exit.i ], [ %.0129.ph.ph308.i, %checkfail.exit.thread.i ], [ %.0129.ph.ph308.i, %.outer.outer226.i ], [ %.2131.i, %.outer.outer.i ]
+  %.1133.i = phi i32 [ %.0132.ph.ph307.i, %273 ], [ %324, %323 ], [ %284, %283 ], [ 0, %224 ], [ %.0132.ph.ph307.i, %skipline.exit.i ], [ %.0132.ph.ph307.i, %checkfail.exit.thread.i ], [ %.0132.ph.ph307.i, %.outer.outer226.i ], [ %.2134.i, %.outer.outer.i ]
+  %.1128.i = phi i32 [ %.0127.ph.ph309.i, %273 ], [ %276, %323 ], [ %276, %283 ], [ 0, %224 ], [ %.0127.ph.ph309.i, %skipline.exit.i ], [ %.0127.ph.ph309.i, %checkfail.exit.thread.i ], [ %.0127.ph.ph309.i, %.outer.outer226.i ], [ %276, %.outer.outer.i ]
+  %.1.i = phi i32 [ %.2.i, %273 ], [ %.2.i, %323 ], [ %.2.i, %283 ], [ %.022, %224 ], [ %.0124.ph.ph229287.i, %skipline.exit.i ], [ %.0124.ph.ph229287.i, %checkfail.exit.thread.i ], [ %251, %.outer.outer226.i ], [ %.2.i, %.outer.outer.i ]
   call void @jq_teardown(ptr noundef nonnull %11) #13
-  %400 = icmp sgt i32 %.1.i, 0
-  %401 = call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
-  %spec.select.i = sub nsw i32 %214, %401
-  %402 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0128214.i, i32 noundef %.1127.i, i32 noundef %.1131.i, i32 noundef %spec.select.i)
-  br i1 %400, label %403, label %404
+  %405 = icmp sgt i32 %.1.i, 0
+  %406 = call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
+  %spec.select.i = sub nsw i32 %216, %406
+  %407 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0129.ph.ph259.i, i32 noundef %.1128.i, i32 noundef %.1133.i, i32 noundef %spec.select.i)
+  br i1 %405, label %408, label %409
 
-403:                                              ; preds = %.loopexit.i
-  %puts162.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+408:                                              ; preds = %.thread209.i
+  %puts182.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   call void @exit(i32 noundef 2) #16
   unreachable
 
-404:                                              ; preds = %.loopexit.i
-  %.not161.i = icmp eq i32 %.0128214.i, %.1127.i
-  br i1 %.not161.i, label %run_jq_tests.exit, label %405
+409:                                              ; preds = %.thread209.i
+  %.not181.i = icmp eq i32 %.0129.ph.ph259.i, %.1128.i
+  br i1 %.not181.i, label %run_jq_tests.exit, label %410
 
-405:                                              ; preds = %404
+410:                                              ; preds = %409
   call void @exit(i32 noundef 1) #16
   unreachable
 
-run_jq_tests.exit:                                ; preds = %404
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+run_jq_tests.exit:                                ; preds = %409
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %8) #13
+  call fastcc void @test_jq_start_resets_state(ptr noundef nonnull @.str.27)
+  call fastcc void @test_jq_start_resets_state(ptr noundef nonnull @.str.29)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
-  br label %406
+  br label %411
 
-406:                                              ; preds = %406, %run_jq_tests.exit
-  %indvars.iv.i = phi i64 [ 0, %run_jq_tests.exit ], [ %indvars.iv.next.i, %406 ]
-  %407 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i
-  %408 = getelementptr inbounds nuw [3 x %struct.test_pthread_data], ptr %7, i64 0, i64 %indvars.iv.i
-  %409 = call i32 @pthread_create(ptr noundef nonnull %407, ptr noundef null, ptr noundef nonnull @test_pthread_run, ptr noundef nonnull %408) #13
+411:                                              ; preds = %411, %run_jq_tests.exit
+  %indvars.iv.i = phi i64 [ 0, %run_jq_tests.exit ], [ %indvars.iv.next.i, %411 ]
+  %412 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i
+  %413 = getelementptr inbounds nuw [3 x %struct.test_pthread_data], ptr %7, i64 0, i64 %indvars.iv.i
+  %414 = call i32 @pthread_create(ptr noundef nonnull %412, ptr noundef null, ptr noundef nonnull @test_pthread_run, ptr noundef nonnull %413) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i32, label %.preheader11.i, label %406, !llvm.loop !12
+  br i1 %exitcond.not.i32, label %.preheader11.i, label %411, !llvm.loop !21
 
-.preheader11.i:                                   ; preds = %406, %414
-  %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %414 ], [ 0, %406 ]
-  %410 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv15.i
-  %411 = load i64, ptr %410, align 8
-  %.not.i33 = icmp eq i64 %411, 0
-  br i1 %.not.i33, label %414, label %412
+.preheader11.i:                                   ; preds = %411, %419
+  %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %419 ], [ 0, %411 ]
+  %415 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv15.i
+  %416 = load i64, ptr %415, align 8, !tbaa !22
+  %.not.i33 = icmp eq i64 %416, 0
+  br i1 %.not.i33, label %419, label %417
 
-412:                                              ; preds = %.preheader11.i
-  %413 = call i32 @pthread_join(i64 noundef %411, ptr noundef null) #13
-  br label %414
+417:                                              ; preds = %.preheader11.i
+  %418 = call i32 @pthread_join(i64 noundef %416, ptr noundef null) #13
+  br label %419
 
-414:                                              ; preds = %412, %.preheader11.i
+419:                                              ; preds = %417, %.preheader11.i
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond18.not.i, label %run_jq_pthread_tests.exit, label %.preheader11.i, !llvm.loop !13
+  br i1 %exitcond18.not.i, label %run_jq_pthread_tests.exit, label %.preheader11.i, !llvm.loop !24
 
-run_jq_pthread_tests.exit:                        ; preds = %414
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+run_jq_pthread_tests.exit:                        ; preds = %419
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
@@ -832,23 +862,32 @@ declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #3
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
-declare ptr @jq_init() local_unnamed_addr #5
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-declare { i64, ptr } @jv_array() local_unnamed_addr #5
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+declare ptr @jq_init() local_unnamed_addr #7
+
+declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #7
+
+declare { i64, ptr } @jv_array() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare void @jq_set_attr(ptr noundef, i64, ptr, i64, ptr) local_unnamed_addr #5
+declare void @jq_set_attr(ptr noundef, i64, ptr, i64, ptr) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @jq_set_error_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @jq_set_error_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @test_err_cb(ptr noundef %0, i64 %1, ptr %2) #0 {
@@ -881,7 +920,7 @@ define internal void @test_err_cb(ptr noundef %0, i64 %1, ptr %2) #0 {
   br i1 %.not14, label %18, label %17
 
 17:                                               ; preds = %15
-  store i8 0, ptr %16, align 1
+  store i8 0, ptr %16, align 1, !tbaa !11
   br label %18
 
 18:                                               ; preds = %17, %15
@@ -890,201 +929,241 @@ define internal void @test_err_cb(ptr noundef %0, i64 %1, ptr %2) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare i32 @jq_compile(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @jq_compile(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @jq_dump_disassembly(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @jq_dump_disassembly(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_parse(ptr noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_parse(ptr noundef) local_unnamed_addr #7
 
-declare void @jq_start(ptr noundef, i64, ptr, i32 noundef) local_unnamed_addr #5
+declare void @jq_start(ptr noundef, i64, ptr, i32 noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jq_next(ptr noundef) local_unnamed_addr #5
+declare { i64, ptr } @jq_next(ptr noundef) local_unnamed_addr #7
 
-declare void @jv_free(i64, ptr) local_unnamed_addr #5
+declare void @jv_free(i64, ptr) local_unnamed_addr #7
 
-declare i32 @jv_equal(i64, ptr, i64, ptr) local_unnamed_addr #5
+declare i32 @jv_equal(i64, ptr, i64, ptr) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #5
+declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #7
 
-declare void @jv_dump(i64, ptr, i32 noundef) local_unnamed_addr #5
+declare void @jv_dump(i64, ptr, i32 noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_dump_string(i64, ptr, i32 noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_dump_string(i64, ptr, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #7
+declare i32 @rand() local_unnamed_addr #9
 
-declare { i64, ptr } @jv_parse_sized(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_parse_sized(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #5
+declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #7
 
-declare i32 @jv_string_length_bytes(i64, ptr) local_unnamed_addr #5
+declare i32 @jv_string_length_bytes(i64, ptr) local_unnamed_addr #7
 
-declare void @jq_teardown(ptr noundef) local_unnamed_addr #5
+declare void @jq_teardown(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+; Function Attrs: nounwind uwtable
+define internal fastcc void @test_jq_start_resets_state(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca ptr, align 8
+  %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
+  %4 = tail call ptr @jq_init() #13
+  store ptr %4, ptr %2, align 8, !tbaa !15
+  %5 = tail call i32 @jq_compile(ptr noundef %4, ptr noundef %0) #13
+  %6 = tail call { i64, ptr } @jv_parse(ptr noundef nonnull @.str.28) #13
+  %7 = extractvalue { i64, ptr } %6, 0
+  %8 = extractvalue { i64, ptr } %6, 1
+  tail call void @jq_start(ptr noundef %4, i64 %7, ptr %8, i32 noundef 0) #13
+  br label %9
+
+9:                                                ; preds = %9, %1
+  %10 = tail call { i64, ptr } @jq_next(ptr noundef %4) #13
+  %11 = extractvalue { i64, ptr } %10, 0
+  %12 = extractvalue { i64, ptr } %10, 1
+  %13 = tail call i32 @jv_get_kind(i64 %11, ptr %12) #13
+  %.not1 = icmp eq i32 %13, 0
+  tail call void @jv_free(i64 %11, ptr %12) #13
+  br i1 %.not1, label %14, label %9
+
+14:                                               ; preds = %9
+  %15 = tail call { i64, ptr } @jv_parse(ptr noundef nonnull @.str.28) #13
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  tail call void @jq_start(ptr noundef %4, i64 %16, ptr %17, i32 noundef 0) #13
+  call void @jq_teardown(ptr noundef nonnull %2) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
+  ret void
+}
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @test_pthread_run(ptr noundef writeonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %3 = tail call ptr @jq_init() #13
-  store ptr %3, ptr %2, align 8
-  %4 = tail call i32 @jq_compile(ptr noundef %3, ptr noundef nonnull @.str.27) #13
+  store ptr %3, ptr %2, align 8, !tbaa !15
+  %4 = tail call i32 @jq_compile(ptr noundef %3, ptr noundef nonnull @.str.31) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %1
   %7 = tail call ptr @jv_parser_new(i32 noundef 0) #13
-  tail call void @jv_parser_set_buf(ptr noundef %7, ptr noundef nonnull @.str.28, i32 noundef 13, i32 noundef 0) #13
+  tail call void @jv_parser_set_buf(ptr noundef %7, ptr noundef nonnull @.str.32, i32 noundef 13, i32 noundef 0) #13
   %8 = tail call { i64, ptr } @jv_parser_next(ptr noundef %7) #13
-  %.sroa.513.031.i = extractvalue { i64, ptr } %8, 1
+  %.sroa.713.031.i = extractvalue { i64, ptr } %8, 1
   %.sroa.010.032.i = extractvalue { i64, ptr } %8, 0
-  %9 = tail call i32 @jv_get_kind(i64 %.sroa.010.032.i, ptr %.sroa.513.031.i) #13
+  %9 = tail call i32 @jv_get_kind(i64 %.sroa.010.032.i, ptr %.sroa.713.031.i) #13
   %.not2433.i = icmp eq i32 %9, 0
   br i1 %.not2433.i, label %test_pthread_jq_parse.exit, label %.lr.ph37.i
 
 .lr.ph37.i:                                       ; preds = %6, %._crit_edge.i
   %.sroa.010.035.i = phi i64 [ %.sroa.010.0.i, %._crit_edge.i ], [ %.sroa.010.032.i, %6 ]
-  %.sroa.513.034.i = phi ptr [ %.sroa.513.0.i, %._crit_edge.i ], [ %.sroa.513.031.i, %6 ]
-  tail call void @jq_start(ptr noundef %3, i64 %.sroa.010.035.i, ptr %.sroa.513.034.i, i32 noundef 0) #13
+  %.sroa.713.034.i = phi ptr [ %.sroa.713.0.i, %._crit_edge.i ], [ %.sroa.713.031.i, %6 ]
+  tail call void @jq_start(ptr noundef %3, i64 %.sroa.010.035.i, ptr %.sroa.713.034.i, i32 noundef 0) #13
   %10 = tail call { i64, ptr } @jq_next(ptr noundef %3) #13
-  %.sroa.5.025.i = extractvalue { i64, ptr } %10, 1
+  %.sroa.7.025.i = extractvalue { i64, ptr } %10, 1
   %.sroa.03.026.i = extractvalue { i64, ptr } %10, 0
-  %11 = tail call i32 @jv_get_kind(i64 %.sroa.03.026.i, ptr %.sroa.5.025.i) #13
+  %11 = tail call i32 @jv_get_kind(i64 %.sroa.03.026.i, ptr %.sroa.7.025.i) #13
   %.not27.i = icmp eq i32 %11, 0
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph37.i, %.lr.ph.i
   %.sroa.03.029.i = phi i64 [ %.sroa.03.0.i, %.lr.ph.i ], [ %.sroa.03.026.i, %.lr.ph37.i ]
-  %.sroa.5.028.i = phi ptr [ %.sroa.5.0.i, %.lr.ph.i ], [ %.sroa.5.025.i, %.lr.ph37.i ]
-  tail call void @jv_free(i64 %.sroa.03.029.i, ptr %.sroa.5.028.i) #13
+  %.sroa.7.028.i = phi ptr [ %.sroa.7.0.i, %.lr.ph.i ], [ %.sroa.7.025.i, %.lr.ph37.i ]
+  tail call void @jv_free(i64 %.sroa.03.029.i, ptr %.sroa.7.028.i) #13
   %12 = tail call { i64, ptr } @jq_next(ptr noundef %3) #13
-  %.sroa.5.0.i = extractvalue { i64, ptr } %12, 1
+  %.sroa.7.0.i = extractvalue { i64, ptr } %12, 1
   %.sroa.03.0.i = extractvalue { i64, ptr } %12, 0
-  %13 = tail call i32 @jv_get_kind(i64 %.sroa.03.0.i, ptr %.sroa.5.0.i) #13
+  %13 = tail call i32 @jv_get_kind(i64 %.sroa.03.0.i, ptr %.sroa.7.0.i) #13
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph37.i
-  %.sroa.5.0.lcssa.i = phi ptr [ %.sroa.5.025.i, %.lr.ph37.i ], [ %.sroa.5.0.i, %.lr.ph.i ]
+  %.sroa.7.0.lcssa.i = phi ptr [ %.sroa.7.025.i, %.lr.ph37.i ], [ %.sroa.7.0.i, %.lr.ph.i ]
   %.sroa.03.0.lcssa.i = phi i64 [ %.sroa.03.026.i, %.lr.ph37.i ], [ %.sroa.03.0.i, %.lr.ph.i ]
-  tail call void @jv_free(i64 %.sroa.03.0.lcssa.i, ptr %.sroa.5.0.lcssa.i) #13
+  tail call void @jv_free(i64 %.sroa.03.0.lcssa.i, ptr %.sroa.7.0.lcssa.i) #13
   %14 = tail call { i64, ptr } @jv_parser_next(ptr noundef %7) #13
-  %.sroa.513.0.i = extractvalue { i64, ptr } %14, 1
+  %.sroa.713.0.i = extractvalue { i64, ptr } %14, 1
   %.sroa.010.0.i = extractvalue { i64, ptr } %14, 0
-  %15 = tail call i32 @jv_get_kind(i64 %.sroa.010.0.i, ptr %.sroa.513.0.i) #13
+  %15 = tail call i32 @jv_get_kind(i64 %.sroa.010.0.i, ptr %.sroa.713.0.i) #13
   %.not24.i = icmp eq i32 %15, 0
-  br i1 %.not24.i, label %test_pthread_jq_parse.exit, label %.lr.ph37.i, !llvm.loop !15
+  br i1 %.not24.i, label %test_pthread_jq_parse.exit, label %.lr.ph37.i, !llvm.loop !26
 
 test_pthread_jq_parse.exit:                       ; preds = %._crit_edge.i, %6
-  %.sroa.513.0.lcssa.i = phi ptr [ %.sroa.513.031.i, %6 ], [ %.sroa.513.0.i, %._crit_edge.i ]
+  %.sroa.713.0.lcssa.i = phi ptr [ %.sroa.713.031.i, %6 ], [ %.sroa.713.0.i, %._crit_edge.i ]
   %.sroa.010.0.lcssa.i = phi i64 [ %.sroa.010.032.i, %6 ], [ %.sroa.010.0.i, %._crit_edge.i ]
-  tail call void @jv_free(i64 %.sroa.010.0.lcssa.i, ptr %.sroa.513.0.lcssa.i) #13
-  store i32 0, ptr %0, align 4
+  tail call void @jv_free(i64 %.sroa.010.0.lcssa.i, ptr %.sroa.713.0.lcssa.i) #13
+  store i32 0, ptr %0, align 4, !tbaa !27
   tail call void @jv_parser_free(ptr noundef %7) #13
   br label %16
 
 16:                                               ; preds = %1, %test_pthread_jq_parse.exit
   call void @jq_teardown(ptr noundef nonnull %2) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
   ret ptr null
 }
 
-declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @jv_parser_new(i32 noundef) local_unnamed_addr #5
+declare ptr @jv_parser_new(i32 noundef) local_unnamed_addr #7
 
-declare void @jv_parser_set_buf(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @jv_parser_set_buf(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @jv_parser_free(ptr noundef) local_unnamed_addr #5
+declare void @jv_parser_free(ptr noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_parser_next(ptr noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_parser_next(ptr noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_invalid_get_msg(i64, ptr) local_unnamed_addr #5
+declare { i64, ptr } @jv_invalid_get_msg(i64, ptr) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_array_append(i64, ptr, i64, ptr) local_unnamed_addr #5
+declare { i64, ptr } @jv_array_append(i64, ptr, i64, ptr) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_number(double noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_number(double noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_array_get(i64, ptr, i32 noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_array_get(i64, ptr, i32 noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_array_slice(i64, ptr, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_array_slice(i64, ptr, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_string_sized(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare { i64, ptr } @jv_string_sized(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) local_unnamed_addr #5
+declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) local_unnamed_addr #7
 
-declare { i64, ptr } @jv_object() local_unnamed_addr #5
+declare { i64, ptr } @jv_object() local_unnamed_addr #7
 
-declare { i64, ptr } @jv_object_set(i64, ptr, i64, ptr, i64, ptr) local_unnamed_addr #5
+declare { i64, ptr } @jv_object_set(i64, ptr, i64, ptr, i64, ptr) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree nounwind }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { cold }
 attributes #16 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !6, i64 0}
+!14 = distinct !{!14, !10}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8jq_state", !6, i64 0}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !7, i64 0}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"test_pthread_data", !29, i64 0}
+!29 = !{!"int", !7, i64 0}
