@@ -3,33 +3,31 @@ source_filename = "bench/libpng/original/png.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.png_XYZ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.png_xy = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.anon = type { i32, i32, i32, [4 x i32], i8, i8, i16 }
-%struct.png_struct_def = type { [1 x %struct.__jmp_buf_tag], ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i32, i32, i32, i32, %struct.z_stream_s, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, ptr, ptr, ptr, ptr, i64, i32, i32, ptr, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i8, i32, %struct.png_color_16_struct, %struct.png_color_16_struct, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.png_color_8_struct, %struct.png_color_8_struct, ptr, %struct.png_color_16_struct, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, i64, i64, i64, i32, i32, ptr, ptr, i32, [29 x i8], i32, ptr, ptr, i32, i32, ptr, i8, i8, i16, i16, ptr, i32, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, i32, i64, %struct.png_unknown_chunk_t, i64, ptr, i64, i32, i32, ptr, [4 x ptr], %struct.png_colorspace }
+%struct.png_struct_def = type { [1 x %struct.__jmp_buf_tag], ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i32, i32, i32, i32, %struct.z_stream_s, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, ptr, ptr, ptr, ptr, i64, i32, i32, ptr, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i8, i32, %struct.png_color_16_struct, %struct.png_color_16_struct, ptr, i32, i32, %struct.png_xy, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.png_color_8_struct, %struct.png_color_8_struct, ptr, %struct.png_color_16_struct, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, i64, i64, i64, i32, i32, ptr, ptr, i32, [29 x i8], i32, ptr, ptr, i32, i32, ptr, i8, i8, i16, i16, ptr, i32, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, i32, i64, %struct.png_unknown_chunk_t, i64, ptr, i64, i32, i32, ptr, [4 x ptr] }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
+%struct.png_xy = type { i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.png_color_8_struct = type { i8, i8, i8, i8, i8 }
 %struct.png_color_16_struct = type { i8, i16, i16, i16, i16 }
 %struct.png_unknown_chunk_t = type { [5 x i8], ptr, i64, i8 }
-%struct.png_colorspace = type { i32, %struct.png_xy, %struct.png_XYZ, i16, i16 }
 %struct.png_text_struct = type { i32, ptr, ptr, i64, i64, ptr, ptr }
 %struct.png_sPLT_struct = type { ptr, i8, ptr, i32 }
 %struct.png_color_struct = type { i8, i8, i8 }
+%struct.png_XYZ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.png_control = type { ptr, ptr, ptr, ptr, i64, i8 }
 
 @.str = private unnamed_addr constant [33 x i8] c"Too many bytes for PNG signature\00", align 1
 @png_sig_cmp.png_signature = internal constant [8 x i8] c"\89PNG\0D\0A\1A\0A", align 1
-@.str.2 = private unnamed_addr constant [11 x i8] c"1.6.44.git\00", align 1
+@.str.2 = private unnamed_addr constant [11 x i8] c"1.6.47.git\00", align 1
 @.str.3 = private unnamed_addr constant [31 x i8] c"Application built with libpng-\00", align 1
 @.str.4 = private unnamed_addr constant [19 x i8] c" but running with \00", align 1
 @.str.5 = private unnamed_addr constant [42 x i8] c"Unknown freer parameter in png_data_freer\00", align 1
 @png_convert_to_rfc1123_buffer.short_months = internal constant [12 x [4 x i8]] [[4 x i8] c"Jan\00", [4 x i8] c"Feb\00", [4 x i8] c"Mar\00", [4 x i8] c"Apr\00", [4 x i8] c"May\00", [4 x i8] c"Jun\00", [4 x i8] c"Jul\00", [4 x i8] c"Aug\00", [4 x i8] c"Sep\00", [4 x i8] c"Oct\00", [4 x i8] c"Nov\00", [4 x i8] c"Dec\00"], align 16
 @.str.6 = private unnamed_addr constant [7 x i8] c" +0000\00", align 1
 @.str.7 = private unnamed_addr constant [28 x i8] c"Ignoring invalid time value\00", align 1
-@.str.8 = private unnamed_addr constant [223 x i8] c"\0Alibpng version 1.6.44.git\0ACopyright (c) 2018-2024 Cosmin Truta\0ACopyright (c) 1998-2002,2004,2006-2018 Glenn Randers-Pehrson\0ACopyright (c) 1996-1997 Andreas Dilger\0ACopyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.\0A\00", align 1
-@.str.9 = private unnamed_addr constant [29 x i8] c" libpng version 1.6.44.git\0A\0A\00", align 1
+@.str.8 = private unnamed_addr constant [223 x i8] c"\0Alibpng version 1.6.47.git\0ACopyright (c) 2018-2025 Cosmin Truta\0ACopyright (c) 1998-2002,2004,2006-2018 Glenn Randers-Pehrson\0ACopyright (c) 1996-1997 Andreas Dilger\0ACopyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.\0A\00", align 1
+@.str.9 = private unnamed_addr constant [29 x i8] c" libpng version 1.6.47.git\0A\0A\00", align 1
 @.str.10 = private unnamed_addr constant [28 x i8] c"unexpected zlib return code\00", align 1
 @.str.11 = private unnamed_addr constant [28 x i8] c"unexpected end of LZ stream\00", align 1
 @.str.12 = private unnamed_addr constant [22 x i8] c"missing LZ dictionary\00", align 1
@@ -40,71 +38,50 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [10 x i8] c"truncated\00", align 1
 @.str.18 = private unnamed_addr constant [25 x i8] c"unsupported zlib version\00", align 1
 @.str.19 = private unnamed_addr constant [23 x i8] c"unexpected zlib return\00", align 1
-@.str.20 = private unnamed_addr constant [25 x i8] c"gamma value out of range\00", align 1
-@.str.21 = private unnamed_addr constant [10 x i8] c"duplicate\00", align 1
-@.str.22 = private unnamed_addr constant [23 x i8] c"invalid chromaticities\00", align 1
-@.str.23 = private unnamed_addr constant [39 x i8] c"internal error checking chromaticities\00", align 1
-@.str.24 = private unnamed_addr constant [19 x i8] c"invalid end points\00", align 1
-@png_colorspace_set_sRGB.sRGB_XYZ = internal unnamed_addr constant %struct.png_XYZ { i32 41239, i32 21264, i32 1933, i32 35758, i32 71517, i32 11919, i32 18048, i32 7219, i32 95053 }, align 4
-@.str.25 = private unnamed_addr constant [5 x i8] c"sRGB\00", align 1
-@.str.26 = private unnamed_addr constant [30 x i8] c"invalid sRGB rendering intent\00", align 1
-@.str.27 = private unnamed_addr constant [31 x i8] c"inconsistent rendering intents\00", align 1
-@.str.28 = private unnamed_addr constant [35 x i8] c"duplicate sRGB information ignored\00", align 1
-@sRGB_xy = internal constant %struct.png_xy { i32 64000, i32 33000, i32 30000, i32 60000, i32 15000, i32 6000, i32 31270, i32 32900 }, align 4
-@.str.29 = private unnamed_addr constant [31 x i8] c"cHRM chunk does not match sRGB\00", align 1
-@.str.30 = private unnamed_addr constant [27 x i8] c"exceeds application limits\00", align 1
-@.str.31 = private unnamed_addr constant [30 x i8] c"length does not match profile\00", align 1
-@.str.32 = private unnamed_addr constant [15 x i8] c"invalid length\00", align 1
-@.str.33 = private unnamed_addr constant [20 x i8] c"tag count too large\00", align 1
-@.str.34 = private unnamed_addr constant [25 x i8] c"invalid rendering intent\00", align 1
-@.str.35 = private unnamed_addr constant [29 x i8] c"intent outside defined range\00", align 1
-@.str.36 = private unnamed_addr constant [18 x i8] c"invalid signature\00", align 1
+@.str.20 = private unnamed_addr constant [17 x i8] c"profile too long\00", align 1
+@.str.21 = private unnamed_addr constant [30 x i8] c"length does not match profile\00", align 1
+@.str.22 = private unnamed_addr constant [15 x i8] c"invalid length\00", align 1
+@.str.23 = private unnamed_addr constant [20 x i8] c"tag count too large\00", align 1
+@.str.24 = private unnamed_addr constant [25 x i8] c"invalid rendering intent\00", align 1
+@.str.25 = private unnamed_addr constant [29 x i8] c"intent outside defined range\00", align 1
+@.str.26 = private unnamed_addr constant [18 x i8] c"invalid signature\00", align 1
 @D50_nCIEXYZ = internal constant [12 x i8] c"\00\00\F6\D6\00\01\00\00\00\00\D3-", align 1
-@.str.37 = private unnamed_addr constant [26 x i8] c"PCS illuminant is not D50\00", align 1
-@.str.38 = private unnamed_addr constant [47 x i8] c"RGB color space not permitted on grayscale PNG\00", align 1
-@.str.39 = private unnamed_addr constant [42 x i8] c"Gray color space not permitted on RGB PNG\00", align 1
-@.str.40 = private unnamed_addr constant [32 x i8] c"invalid ICC profile color space\00", align 1
-@.str.41 = private unnamed_addr constant [38 x i8] c"invalid embedded Abstract ICC profile\00", align 1
-@.str.42 = private unnamed_addr constant [40 x i8] c"unexpected DeviceLink ICC profile class\00", align 1
-@.str.43 = private unnamed_addr constant [40 x i8] c"unexpected NamedColor ICC profile class\00", align 1
-@.str.44 = private unnamed_addr constant [31 x i8] c"unrecognized ICC profile class\00", align 1
-@.str.45 = private unnamed_addr constant [28 x i8] c"unexpected ICC PCS encoding\00", align 1
-@.str.46 = private unnamed_addr constant [32 x i8] c"ICC profile tag outside profile\00", align 1
-@.str.47 = private unnamed_addr constant [42 x i8] c"ICC profile tag start not a multiple of 4\00", align 1
-@.str.48 = private unnamed_addr constant [42 x i8] c"internal error handling cHRM coefficients\00", align 1
-@.str.49 = private unnamed_addr constant [34 x i8] c"internal error handling cHRM->XYZ\00", align 1
-@.str.50 = private unnamed_addr constant [28 x i8] c"Image width is zero in IHDR\00", align 1
-@.str.51 = private unnamed_addr constant [28 x i8] c"Invalid image width in IHDR\00", align 1
-@.str.53 = private unnamed_addr constant [39 x i8] c"Image width exceeds user limit in IHDR\00", align 1
-@.str.54 = private unnamed_addr constant [29 x i8] c"Image height is zero in IHDR\00", align 1
-@.str.55 = private unnamed_addr constant [29 x i8] c"Invalid image height in IHDR\00", align 1
-@.str.56 = private unnamed_addr constant [40 x i8] c"Image height exceeds user limit in IHDR\00", align 1
-@.str.57 = private unnamed_addr constant [26 x i8] c"Invalid bit depth in IHDR\00", align 1
-@.str.58 = private unnamed_addr constant [27 x i8] c"Invalid color type in IHDR\00", align 1
-@.str.59 = private unnamed_addr constant [49 x i8] c"Invalid color type/bit depth combination in IHDR\00", align 1
-@.str.60 = private unnamed_addr constant [33 x i8] c"Unknown interlace method in IHDR\00", align 1
-@.str.61 = private unnamed_addr constant [35 x i8] c"Unknown compression method in IHDR\00", align 1
-@.str.62 = private unnamed_addr constant [49 x i8] c"MNG features are not allowed in a PNG datastream\00", align 1
-@.str.63 = private unnamed_addr constant [30 x i8] c"Unknown filter method in IHDR\00", align 1
-@.str.64 = private unnamed_addr constant [30 x i8] c"Invalid filter method in IHDR\00", align 1
-@.str.65 = private unnamed_addr constant [18 x i8] c"Invalid IHDR data\00", align 1
-@.str.66 = private unnamed_addr constant [34 x i8] c"ASCII conversion buffer too small\00", align 1
-@.str.67 = private unnamed_addr constant [29 x i8] c"fixed point overflow ignored\00", align 1
-@.str.68 = private unnamed_addr constant [26 x i8] c"gamma table being rebuilt\00", align 1
+@.str.27 = private unnamed_addr constant [26 x i8] c"PCS illuminant is not D50\00", align 1
+@.str.28 = private unnamed_addr constant [47 x i8] c"RGB color space not permitted on grayscale PNG\00", align 1
+@.str.29 = private unnamed_addr constant [42 x i8] c"Gray color space not permitted on RGB PNG\00", align 1
+@.str.30 = private unnamed_addr constant [32 x i8] c"invalid ICC profile color space\00", align 1
+@.str.31 = private unnamed_addr constant [38 x i8] c"invalid embedded Abstract ICC profile\00", align 1
+@.str.32 = private unnamed_addr constant [40 x i8] c"unexpected DeviceLink ICC profile class\00", align 1
+@.str.33 = private unnamed_addr constant [40 x i8] c"unexpected NamedColor ICC profile class\00", align 1
+@.str.34 = private unnamed_addr constant [31 x i8] c"unrecognized ICC profile class\00", align 1
+@.str.35 = private unnamed_addr constant [28 x i8] c"unexpected ICC PCS encoding\00", align 1
+@.str.36 = private unnamed_addr constant [32 x i8] c"ICC profile tag outside profile\00", align 1
+@.str.37 = private unnamed_addr constant [42 x i8] c"ICC profile tag start not a multiple of 4\00", align 1
+@.str.38 = private unnamed_addr constant [42 x i8] c"internal error handling cHRM coefficients\00", align 1
+@.str.39 = private unnamed_addr constant [28 x i8] c"Image width is zero in IHDR\00", align 1
+@.str.40 = private unnamed_addr constant [28 x i8] c"Invalid image width in IHDR\00", align 1
+@.str.42 = private unnamed_addr constant [39 x i8] c"Image width exceeds user limit in IHDR\00", align 1
+@.str.43 = private unnamed_addr constant [29 x i8] c"Image height is zero in IHDR\00", align 1
+@.str.44 = private unnamed_addr constant [29 x i8] c"Invalid image height in IHDR\00", align 1
+@.str.45 = private unnamed_addr constant [40 x i8] c"Image height exceeds user limit in IHDR\00", align 1
+@.str.46 = private unnamed_addr constant [26 x i8] c"Invalid bit depth in IHDR\00", align 1
+@.str.47 = private unnamed_addr constant [27 x i8] c"Invalid color type in IHDR\00", align 1
+@.str.48 = private unnamed_addr constant [49 x i8] c"Invalid color type/bit depth combination in IHDR\00", align 1
+@.str.49 = private unnamed_addr constant [33 x i8] c"Unknown interlace method in IHDR\00", align 1
+@.str.50 = private unnamed_addr constant [35 x i8] c"Unknown compression method in IHDR\00", align 1
+@.str.51 = private unnamed_addr constant [49 x i8] c"MNG features are not allowed in a PNG datastream\00", align 1
+@.str.52 = private unnamed_addr constant [30 x i8] c"Unknown filter method in IHDR\00", align 1
+@.str.53 = private unnamed_addr constant [30 x i8] c"Invalid filter method in IHDR\00", align 1
+@.str.54 = private unnamed_addr constant [18 x i8] c"Invalid IHDR data\00", align 1
+@.str.55 = private unnamed_addr constant [34 x i8] c"ASCII conversion buffer too small\00", align 1
+@.str.56 = private unnamed_addr constant [26 x i8] c"gamma table being rebuilt\00", align 1
 @png_sRGB_table = local_unnamed_addr constant [256 x i16] [i16 0, i16 20, i16 40, i16 60, i16 80, i16 99, i16 119, i16 139, i16 159, i16 179, i16 199, i16 219, i16 241, i16 264, i16 288, i16 313, i16 340, i16 367, i16 396, i16 427, i16 458, i16 491, i16 526, i16 562, i16 599, i16 637, i16 677, i16 718, i16 761, i16 805, i16 851, i16 898, i16 947, i16 997, i16 1048, i16 1101, i16 1156, i16 1212, i16 1270, i16 1330, i16 1391, i16 1453, i16 1517, i16 1583, i16 1651, i16 1720, i16 1790, i16 1863, i16 1937, i16 2013, i16 2090, i16 2170, i16 2250, i16 2333, i16 2418, i16 2504, i16 2592, i16 2681, i16 2773, i16 2866, i16 2961, i16 3058, i16 3157, i16 3258, i16 3360, i16 3464, i16 3570, i16 3678, i16 3788, i16 3900, i16 4014, i16 4129, i16 4247, i16 4366, i16 4488, i16 4611, i16 4736, i16 4864, i16 4993, i16 5124, i16 5257, i16 5392, i16 5530, i16 5669, i16 5810, i16 5953, i16 6099, i16 6246, i16 6395, i16 6547, i16 6700, i16 6856, i16 7014, i16 7174, i16 7335, i16 7500, i16 7666, i16 7834, i16 8004, i16 8177, i16 8352, i16 8528, i16 8708, i16 8889, i16 9072, i16 9258, i16 9445, i16 9635, i16 9828, i16 10022, i16 10219, i16 10417, i16 10619, i16 10822, i16 11028, i16 11235, i16 11446, i16 11658, i16 11873, i16 12090, i16 12309, i16 12530, i16 12754, i16 12980, i16 13209, i16 13440, i16 13673, i16 13909, i16 14146, i16 14387, i16 14629, i16 14874, i16 15122, i16 15371, i16 15623, i16 15878, i16 16135, i16 16394, i16 16656, i16 16920, i16 17187, i16 17456, i16 17727, i16 18001, i16 18277, i16 18556, i16 18837, i16 19121, i16 19407, i16 19696, i16 19987, i16 20281, i16 20577, i16 20876, i16 21177, i16 21481, i16 21787, i16 22096, i16 22407, i16 22721, i16 23038, i16 23357, i16 23678, i16 24002, i16 24329, i16 24658, i16 24990, i16 25325, i16 25662, i16 26001, i16 26344, i16 26688, i16 27036, i16 27386, i16 27739, i16 28094, i16 28452, i16 28813, i16 29176, i16 29542, i16 29911, i16 30282, i16 30656, i16 31033, i16 31412, i16 31794, i16 32179, i16 32567, i16 -32579, i16 -32186, i16 -31791, i16 -31393, i16 -30992, i16 -30588, i16 -30181, i16 -29772, i16 -29360, i16 -28945, i16 -28528, i16 -28107, i16 -27684, i16 -27258, i16 -26830, i16 -26398, i16 -25964, i16 -25527, i16 -25087, i16 -24645, i16 -24199, i16 -23751, i16 -23300, i16 -22846, i16 -22389, i16 -21930, i16 -21467, i16 -21002, i16 -20534, i16 -20063, i16 -19589, i16 -19113, i16 -18633, i16 -18151, i16 -17665, i16 -17177, i16 -16686, i16 -16192, i16 -15695, i16 -15195, i16 -14692, i16 -14187, i16 -13678, i16 -13167, i16 -12652, i16 -12135, i16 -11615, i16 -11091, i16 -10565, i16 -10036, i16 -9504, i16 -8969, i16 -8431, i16 -7890, i16 -7346, i16 -6799, i16 -6249, i16 -5696, i16 -5140, i16 -4581, i16 -4019, i16 -3454, i16 -2886, i16 -2315, i16 -1741, i16 -1164, i16 -584, i16 -1], align 16
 @png_sRGB_base = local_unnamed_addr constant [512 x i16] [i16 128, i16 1782, i16 3383, i16 4644, i16 5675, i16 6564, i16 7357, i16 8074, i16 8732, i16 9346, i16 9921, i16 10463, i16 10977, i16 11466, i16 11935, i16 12384, i16 12816, i16 13233, i16 13634, i16 14024, i16 14402, i16 14769, i16 15125, i16 15473, i16 15812, i16 16142, i16 16466, i16 16781, i16 17090, i16 17393, i16 17690, i16 17981, i16 18266, i16 18546, i16 18822, i16 19093, i16 19359, i16 19621, i16 19879, i16 20133, i16 20383, i16 20630, i16 20873, i16 21113, i16 21349, i16 21583, i16 21813, i16 22041, i16 22265, i16 22487, i16 22707, i16 22923, i16 23138, i16 23350, i16 23559, i16 23767, i16 23972, i16 24175, i16 24376, i16 24575, i16 24772, i16 24967, i16 25160, i16 25352, i16 25542, i16 25730, i16 25916, i16 26101, i16 26284, i16 26465, i16 26645, i16 26823, i16 27000, i16 27176, i16 27350, i16 27523, i16 27695, i16 27865, i16 28034, i16 28201, i16 28368, i16 28533, i16 28697, i16 28860, i16 29021, i16 29182, i16 29341, i16 29500, i16 29657, i16 29813, i16 29969, i16 30123, i16 30276, i16 30429, i16 30580, i16 30730, i16 30880, i16 31028, i16 31176, i16 31323, i16 31469, i16 31614, i16 31758, i16 31902, i16 32045, i16 32186, i16 32327, i16 32468, i16 32607, i16 32746, i16 -32652, i16 -32515, i16 -32378, i16 -32242, i16 -32107, i16 -31972, i16 -31839, i16 -31705, i16 -31573, i16 -31441, i16 -31310, i16 -31179, i16 -31050, i16 -30920, i16 -30792, i16 -30663, i16 -30536, i16 -30409, i16 -30283, i16 -30157, i16 -30032, i16 -29907, i16 -29783, i16 -29660, i16 -29537, i16 -29414, i16 -29292, i16 -29171, i16 -29050, i16 -28930, i16 -28810, i16 -28691, i16 -28572, i16 -28453, i16 -28335, i16 -28218, i16 -28101, i16 -27985, i16 -27868, i16 -27753, i16 -27638, i16 -27523, i16 -27409, i16 -27295, i16 -27182, i16 -27069, i16 -26956, i16 -26844, i16 -26733, i16 -26621, i16 -26510, i16 -26400, i16 -26290, i16 -26180, i16 -26071, i16 -25962, i16 -25854, i16 -25746, i16 -25638, i16 -25531, i16 -25424, i16 -25317, i16 -25211, i16 -25105, i16 -24999, i16 -24894, i16 -24789, i16 -24685, i16 -24581, i16 -24477, i16 -24373, i16 -24270, i16 -24167, i16 -24065, i16 -23963, i16 -23861, i16 -23759, i16 -23658, i16 -23557, i16 -23457, i16 -23357, i16 -23257, i16 -23157, i16 -23058, i16 -22959, i16 -22860, i16 -22761, i16 -22663, i16 -22565, i16 -22468, i16 -22371, i16 -22274, i16 -22177, i16 -22080, i16 -21984, i16 -21888, i16 -21793, i16 -21697, i16 -21602, i16 -21508, i16 -21413, i16 -21319, i16 -21225, i16 -21131, i16 -21037, i16 -20944, i16 -20851, i16 -20758, i16 -20666, i16 -20574, i16 -20482, i16 -20390, i16 -20298, i16 -20207, i16 -20116, i16 -20025, i16 -19935, i16 -19844, i16 -19754, i16 -19664, i16 -19575, i16 -19485, i16 -19396, i16 -19307, i16 -19218, i16 -19130, i16 -19042, i16 -18953, i16 -18866, i16 -18778, i16 -18690, i16 -18603, i16 -18516, i16 -18429, i16 -18343, i16 -18256, i16 -18170, i16 -18084, i16 -17998, i16 -17913, i16 -17827, i16 -17742, i16 -17657, i16 -17572, i16 -17488, i16 -17403, i16 -17319, i16 -17235, i16 -17151, i16 -17068, i16 -16984, i16 -16901, i16 -16818, i16 -16735, i16 -16652, i16 -16570, i16 -16488, i16 -16405, i16 -16323, i16 -16242, i16 -16160, i16 -16078, i16 -15997, i16 -15916, i16 -15835, i16 -15754, i16 -15674, i16 -15593, i16 -15513, i16 -15433, i16 -15353, i16 -15273, i16 -15194, i16 -15114, i16 -15035, i16 -14956, i16 -14877, i16 -14798, i16 -14720, i16 -14641, i16 -14563, i16 -14485, i16 -14407, i16 -14329, i16 -14251, i16 -14174, i16 -14097, i16 -14019, i16 -13942, i16 -13865, i16 -13789, i16 -13712, i16 -13636, i16 -13559, i16 -13483, i16 -13407, i16 -13331, i16 -13256, i16 -13180, i16 -13104, i16 -13029, i16 -12954, i16 -12879, i16 -12804, i16 -12729, i16 -12655, i16 -12580, i16 -12506, i16 -12432, i16 -12358, i16 -12284, i16 -12210, i16 -12136, i16 -12063, i16 -11990, i16 -11916, i16 -11843, i16 -11770, i16 -11697, i16 -11625, i16 -11552, i16 -11480, i16 -11407, i16 -11335, i16 -11263, i16 -11191, i16 -11119, i16 -11047, i16 -10976, i16 -10904, i16 -10833, i16 -10762, i16 -10691, i16 -10620, i16 -10549, i16 -10478, i16 -10407, i16 -10337, i16 -10267, i16 -10196, i16 -10126, i16 -10056, i16 -9986, i16 -9916, i16 -9847, i16 -9777, i16 -9708, i16 -9638, i16 -9569, i16 -9500, i16 -9431, i16 -9362, i16 -9293, i16 -9225, i16 -9156, i16 -9088, i16 -9019, i16 -8951, i16 -8883, i16 -8815, i16 -8747, i16 -8679, i16 -8612, i16 -8544, i16 -8477, i16 -8409, i16 -8342, i16 -8275, i16 -8208, i16 -8141, i16 -8074, i16 -8007, i16 -7941, i16 -7874, i16 -7808, i16 -7741, i16 -7675, i16 -7609, i16 -7543, i16 -7477, i16 -7411, i16 -7345, i16 -7280, i16 -7214, i16 -7149, i16 -7083, i16 -7018, i16 -6953, i16 -6888, i16 -6823, i16 -6758, i16 -6693, i16 -6628, i16 -6564, i16 -6499, i16 -6435, i16 -6371, i16 -6306, i16 -6242, i16 -6178, i16 -6114, i16 -6050, i16 -5987, i16 -5923, i16 -5859, i16 -5796, i16 -5732, i16 -5669, i16 -5606, i16 -5543, i16 -5480, i16 -5417, i16 -5354, i16 -5291, i16 -5228, i16 -5166, i16 -5103, i16 -5041, i16 -4978, i16 -4916, i16 -4854, i16 -4792, i16 -4730, i16 -4668, i16 -4606, i16 -4544, i16 -4482, i16 -4421, i16 -4359, i16 -4298, i16 -4236, i16 -4175, i16 -4114, i16 -4053, i16 -3992, i16 -3931, i16 -3870, i16 -3809, i16 -3748, i16 -3688, i16 -3627, i16 -3567, i16 -3506, i16 -3446, i16 -3386, i16 -3325, i16 -3265, i16 -3205, i16 -3145, i16 -3086, i16 -3026, i16 -2966, i16 -2906, i16 -2847, i16 -2787, i16 -2728, i16 -2669, i16 -2609, i16 -2550, i16 -2491, i16 -2432, i16 -2373, i16 -2314, i16 -2255, i16 -2196, i16 -2138, i16 -2079, i16 -2021, i16 -1962, i16 -1904, i16 -1845, i16 -1787, i16 -1729, i16 -1671, i16 -1613, i16 -1555, i16 -1497, i16 -1439, i16 -1381, i16 -1324, i16 -1266, i16 -1208, i16 -1151, i16 -1093, i16 -1036, i16 -979, i16 -922, i16 -864, i16 -807, i16 -750, i16 -693, i16 -636, i16 -580, i16 -523, i16 -466, i16 -410, i16 -353, i16 -297, i16 -240, i16 -184, i16 -127, i16 -71], align 16
 @png_sRGB_delta = local_unnamed_addr constant [512 x i8] c"\CF\C9\9E\81qdZRMHD@=;86421/.-+*)(''&%$$#\22\22!!  \1F\1F\1E\1E\1E\1D\1D\1C\1C\1C\1B\1B\1B\1B\1A\1A\1A\19\19\19\19\18\18\18\18\17\17\17\17\17\16\16\16\16\16\16\15\15\15\15\15\15\14\14\14\14\14\14\14\14\13\13\13\13\13\13\13\13\12\12\12\12\12\12\12\12\12\12\11\11\11\11\11\11\11\11\11\11\11\10\10\10\10\10\10\10\10\10\10\10\10\10\10\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\08\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07", align 16
-@.str.69 = private unnamed_addr constant [32 x i8] c"gamma value does not match sRGB\00", align 1
-@.str.70 = private unnamed_addr constant [43 x i8] c"gamma value does not match libpng estimate\00", align 1
-@.str.71 = private unnamed_addr constant [28 x i8] c"inconsistent chromaticities\00", align 1
-@.str.72 = private unnamed_addr constant [10 x i8] c"profile '\00", align 1
-@.str.73 = private unnamed_addr constant [4 x i8] c"': \00", align 1
-@.str.74 = private unnamed_addr constant [4 x i8] c"h: \00", align 1
-@.str.75 = private unnamed_addr constant [10 x i8] c"too short\00", align 1
-@png_sRGB_checks = internal unnamed_addr constant [7 x %struct.anon] [%struct.anon { i32 171956726, i32 998732473, i32 3048, [4 x i32] [i32 704134622, i32 -1343072850, i32 2017655524, i32 -897369843], i8 1, i8 0, i16 0 }, %struct.anon { i32 1225385441, i32 1115601697, i32 3052, [4 x i32] [i32 -916728265, i32 -379745733, i32 234065817, i32 -1053686903], i8 1, i8 0, i16 1 }, %struct.anon { i32 -48151391, i32 812636334, i32 60988, [4 x i32] [i32 -60411016, i32 937592939, i32 -42800765, i32 -2111245896], i8 1, i8 0, i16 0 }, %struct.anon { i32 547108306, i32 -1141934062, i32 60960, [4 x i32] [i32 878062271, i32 -1723020026, i32 1831622433, i32 -791245731], i8 1, i8 0, i16 0 }, %struct.anon { i32 -1605052574, i32 1565600206, i32 3024, [4 x i32] zeroinitializer, i8 0, i8 0, i16 1 }, %struct.anon { i32 -142281733, i32 405710162, i32 3144, [4 x i32] zeroinitializer, i8 0, i8 1, i16 0 }, %struct.anon { i32 60355580, i32 -224505235, i32 3144, [4 x i32] zeroinitializer, i8 0, i8 1, i16 1 }], align 16
-@.str.76 = private unnamed_addr constant [29 x i8] c"known incorrect sRGB profile\00", align 1
-@.str.77 = private unnamed_addr constant [43 x i8] c"out-of-date sRGB profile with no signature\00", align 1
-@.str.78 = private unnamed_addr constant [56 x i8] c"Not recognizing known sRGB profile that has been edited\00", align 1
+@.str.57 = private unnamed_addr constant [10 x i8] c"too short\00", align 1
+@.str.58 = private unnamed_addr constant [10 x i8] c"profile '\00", align 1
+@.str.59 = private unnamed_addr constant [4 x i8] c"': \00", align 1
+@.str.60 = private unnamed_addr constant [4 x i8] c"h: \00", align 1
 @switch.table.png_build_grayscale_palette = private unnamed_addr constant [8 x i64] [i64 2, i64 4, i64 poison, i64 16, i64 poison, i64 poison, i64 poison, i64 256], align 8
 @switch.table.png_zstream_error = private unnamed_addr constant [10 x ptr] [ptr @.str.19, ptr @.str.18, ptr @.str.17, ptr @.str.16, ptr @.str.15, ptr @.str.14, ptr @.str.13, ptr @.str.10, ptr @.str.11, ptr @.str.12], align 8
 
@@ -118,25 +95,31 @@ define void @png_set_sig_bytes(ptr noalias noundef %0, i32 noundef %1) local_unn
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #27
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #26
   unreachable
 
 7:                                                ; preds = %4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %8 = trunc nuw nsw i32 %spec.select to i8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 621
-  store i8 %8, ptr %9, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 629
+  store i8 %8, ptr %9, align 1, !tbaa !3
   br label %10
 
 10:                                               ; preds = %2, %7
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: noreturn
-declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp ugt i64 %2, 8
   br i1 %4, label %7, label %5
 
@@ -156,7 +139,7 @@ define i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, 
   %spec.select = select i1 %11, i64 %12, i64 %.0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %14 = getelementptr inbounds nuw [8 x i8], ptr @png_sig_cmp.png_signature, i64 0, i64 %1
-  %15 = tail call i32 @memcmp(ptr noundef %13, ptr noundef nonnull %14, i64 noundef %spec.select) #28
+  %15 = tail call i32 @memcmp(ptr noundef %13, ptr noundef nonnull %14, i64 noundef %spec.select) #27
   br label %16
 
 16:                                               ; preds = %7, %5, %9
@@ -165,7 +148,7 @@ define i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @png_zalloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -176,7 +159,7 @@ define noalias ptr @png_zalloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #
   %6 = zext i32 %2 to i64
   %7 = zext i32 %1 to i64
   %8 = mul nuw i64 %6, %7
-  %9 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %8) #29
+  %9 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %8) #28
   br label %10
 
 10:                                               ; preds = %3, %5
@@ -184,37 +167,37 @@ define noalias ptr @png_zalloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #
   ret ptr %.0
 }
 
-declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @png_zfree(ptr noundef %0, ptr noundef %1) #0 {
-  tail call void @png_free(ptr noundef %0, ptr noundef %1) #29
+  tail call void @png_free(ptr noundef %0, ptr noundef %1) #28
   ret void
 }
 
-declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @png_reset_crc(ptr noalias noundef writeonly captures(none) initializes((588, 592)) %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #29
+define void @png_reset_crc(ptr noalias noundef writeonly captures(none) initializes((596, 600)) %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #28
   %3 = trunc i64 %2 to i32
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  store i32 %3, ptr %4, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  store i32 %3, ptr %4, align 4, !tbaa !22
   ret void
 }
 
-declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @png_calculate_crc(ptr noalias noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %5 = load i32, ptr %4, align 8, !tbaa !23
   %6 = and i32 %5, 536870912
   %.not = icmp eq i32 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !24
   %9 = and i32 %8, 768
   %10 = icmp ne i32 %9, 768
   %11 = and i32 %8, 2048
@@ -225,8 +208,8 @@ define void @png_calculate_crc(ptr noalias noundef captures(none) %0, ptr nounde
   br i1 %or.cond, label %14, label %27
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %16 = load i32, ptr %15, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = zext i32 %16 to i64
   br label %18
 
@@ -237,16 +220,16 @@ define void @png_calculate_crc(ptr noalias noundef captures(none) %0, ptr nounde
   %19 = trunc i64 %.020 to i32
   %20 = icmp eq i32 %19, 0
   %spec.store.select = select i1 %20, i32 -1, i32 %19
-  %21 = tail call i64 @crc32(i64 noundef %.018, ptr noundef %.0, i32 noundef %spec.store.select) #29
+  %21 = tail call i64 @crc32(i64 noundef %.018, ptr noundef %.0, i32 noundef %spec.store.select) #28
   %22 = zext i32 %spec.store.select to i64
   %23 = getelementptr inbounds nuw i8, ptr %.0, i64 %22
   %24 = sub i64 %.020, %22
   %.not23 = icmp eq i64 %24, 0
-  br i1 %.not23, label %25, label %18, !llvm.loop !4
+  br i1 %.not23, label %25, label %18, !llvm.loop !25
 
 25:                                               ; preds = %18
   %26 = trunc i64 %21 to i32
-  store i32 %26, ptr %15, align 4
+  store i32 %26, ptr %15, align 4, !tbaa !22
   br label %27
 
 27:                                               ; preds = %25, %3
@@ -265,16 +248,16 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   %.021 = phi i32 [ %spec.select, %16 ], [ 0, %2 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %5 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
-  %6 = load i8, ptr %5, align 1
+  %6 = load i8, ptr %5, align 1, !tbaa !27
   %7 = getelementptr inbounds [11 x i8], ptr @.str.2, i64 0, i64 %indvars.iv.next
-  %8 = load i8, ptr %7, align 1
+  %8 = load i8, ptr %7, align 1, !tbaa !27
   %.not24 = icmp eq i8 %6, %8
   br i1 %.not24, label %12, label %9
 
 9:                                                ; preds = %.preheader
-  %10 = load i32, ptr %4, align 8
+  %10 = load i32, ptr %4, align 8, !tbaa !24
   %11 = or i32 %10, 131072
-  store i32 %11, ptr %4, align 8
+  store i32 %11, ptr %4, align 8, !tbaa !24
   br label %12
 
 12:                                               ; preds = %9, %.preheader
@@ -288,26 +271,28 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   %.not25 = icmp eq i8 %6, 0
   %.not26 = icmp eq i64 %indvars.iv.next, 10
   %or.cond = or i1 %.not26, %.not25
-  br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !6
+  br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !28
 
 .critedge.thread:                                 ; preds = %2
-  %17 = load i32, ptr %4, align 8
+  %17 = load i32, ptr %4, align 8, !tbaa !24
   %18 = or i32 %17, 131072
-  store i32 %18, ptr %4, align 8
+  store i32 %18, ptr %4, align 8, !tbaa !24
   br label %21
 
-.critedge:                                        ; preds = %16, %12
-  %.pre = load i32, ptr %4, align 8
+.critedge:                                        ; preds = %12, %16
+  %.pre = load i32, ptr %4, align 8, !tbaa !24
   %19 = and i32 %.pre, 131072
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %.critedge.thread, %.critedge
-  %22 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef 0, ptr noundef nonnull @.str.3) #29
-  %23 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef %22, ptr noundef %1) #29
-  %24 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef %23, ptr noundef nonnull @.str.4) #29
-  %25 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef %24, ptr noundef nonnull @.str.2) #29
-  call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull %3) #29
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #28
+  %22 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef 0, ptr noundef nonnull @.str.3) #28
+  %23 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef %22, ptr noundef %1) #28
+  %24 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef %23, ptr noundef nonnull @.str.4) #28
+  %25 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef %24, ptr noundef nonnull @.str.2) #28
+  call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull %3) #28
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #28
   br label %26
 
 26:                                               ; preds = %.critedge, %21
@@ -315,74 +300,78 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   ret i32 %.0
 }
 
-declare i64 @png_safecat(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @png_safecat(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @png_create_png_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.png_struct_def, align 8
   %9 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1264) %8, i8 0, i64 1264, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1060
-  store i32 1000000, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1064
-  store i32 1000000, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1068
-  store i32 1000, ptr %12, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 1072
-  store i64 8000000, ptr %13, align 8
-  call void @png_set_mem_fn(ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6) #29
-  call void @png_set_error_fn(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3) #29
-  %14 = call i32 @_setjmp(ptr noundef nonnull %9) #30
+  call void @llvm.lifetime.start.p0(i64 1240, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1240) %8, i8 0, i64 1240, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1116
+  store i32 1000000, ptr %10, align 4, !tbaa !29
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1120
+  store i32 1000000, ptr %11, align 8, !tbaa !30
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1124
+  store i32 1000, ptr %12, align 4, !tbaa !31
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 1128
+  store i64 8000000, ptr %13, align 8, !tbaa !32
+  call void @png_set_mem_fn(ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6) #28
+  call void @png_set_error_fn(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3) #28
+  %14 = call i32 @_setjmp(ptr noundef nonnull %9) #29
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %26
+  br i1 %.not, label %15, label %.critedge
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 208
-  store ptr %9, ptr %16, align 8
+  store ptr %9, ptr %16, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  store i64 0, ptr %17, align 8
+  store i64 0, ptr %17, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 200
-  store ptr @longjmp, ptr %18, align 8
+  store ptr @longjmp, ptr %18, align 8, !tbaa !35
   %19 = call i32 @png_user_version_check(ptr noundef nonnull %8, ptr noundef %0)
-  %.not13 = icmp eq i32 %19, 0
-  br i1 %.not13, label %26, label %20
+  %.not14 = icmp eq i32 %19, 0
+  br i1 %.not14, label %.critedge, label %20
 
 20:                                               ; preds = %15
-  %21 = call noalias ptr @png_malloc_warn(ptr noundef nonnull %8, i64 noundef 1264) #29
-  %.not14 = icmp eq ptr %21, null
-  br i1 %.not14, label %26, label %22
+  %21 = call noalias ptr @png_malloc_warn(ptr noundef nonnull %8, i64 noundef 1240) #28
+  %.not15 = icmp eq ptr %21, null
+  br i1 %.not15, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  store ptr @png_zalloc, ptr %23, align 8
+  store ptr @png_zalloc, ptr %23, align 8, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 392
-  store ptr @png_zfree, ptr %24, align 8
+  store ptr @png_zfree, ptr %24, align 8, !tbaa !37
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 400
-  store ptr %21, ptr %25, align 8
+  store ptr %21, ptr %25, align 8, !tbaa !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1264) %21, ptr noundef nonnull align 8 dereferenceable(1264) %8, i64 1264, i1 false)
-  br label %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1240) %21, ptr noundef nonnull align 8 dereferenceable(1240) %8, i64 1240, i1 false), !tbaa.struct !39
+  br label %.critedge
 
-26:                                               ; preds = %7, %20, %15, %22
-  %.0 = phi ptr [ %21, %22 ], [ null, %15 ], [ null, %20 ], [ null, %7 ]
-  ret ptr %.0
+.critedge:                                        ; preds = %7, %15, %20, %22
+  %.1 = phi ptr [ %21, %22 ], [ null, %20 ], [ null, %15 ], [ null, %7 ]
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %8) #28
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare void @png_set_mem_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_set_mem_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @png_set_error_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_set_error_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #6
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) #7
+declare void @longjmp(ptr noundef, i32 noundef) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @png_create_info_struct(ptr noalias noundef %0) local_unnamed_addr #0 {
@@ -390,12 +379,12 @@ define noalias ptr @png_create_info_struct(ptr noalias noundef %0) local_unnamed
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef 360) #29
+  %4 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef 352) #28
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %4, i8 0, i64 360, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %4, i8 0, i64 352, i1 false)
   br label %6
 
 6:                                                ; preds = %3, %5, %1
@@ -403,7 +392,7 @@ define noalias ptr @png_create_info_struct(ptr noalias noundef %0) local_unnamed
   ret ptr %.0
 }
 
-declare noalias ptr @png_malloc_base(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_malloc_base(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @png_destroy_info_struct(ptr noalias noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -413,18 +402,18 @@ define void @png_destroy_info_struct(ptr noalias noundef %0, ptr noundef capture
   br i1 %or.cond, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8, !tbaa !50
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %.thread, label %6
 
 6:                                                ; preds = %4
-  store ptr null, ptr %1, align 8
+  store ptr null, ptr %1, align 8, !tbaa !50
   tail call void @png_free_data(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 65535, i32 noundef -1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %5, i8 0, i64 360, i1 false)
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %5, i8 0, i64 352, i1 false)
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #28
   br label %.thread
 
-.thread:                                          ; preds = %2, %6, %4
+.thread:                                          ; preds = %4, %6, %2
   ret void
 }
 
@@ -433,481 +422,470 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %214, label %7
+  br i1 %or.cond, label %209, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %9 = load ptr, ptr %8, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %33, label %10
 
 10:                                               ; preds = %7
   %11 = and i32 %2, 16384
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %13 = load i32, ptr %12, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 252
+  %13 = load i32, ptr %12, align 4, !tbaa !60
   %14 = and i32 %11, %13
-  %.not167 = icmp eq i32 %14, 0
-  br i1 %.not167, label %33, label %15
+  %.not162 = icmp eq i32 %14, 0
+  br i1 %.not162, label %33, label %15
 
 15:                                               ; preds = %10
-  %.not168 = icmp eq i32 %3, -1
-  br i1 %.not168, label %.preheader191, label %19
+  %.not163 = icmp eq i32 %3, -1
+  br i1 %.not163, label %.preheader185, label %19
 
-.preheader191:                                    ; preds = %15
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %17 = load i32, ptr %16, align 4
+.preheader185:                                    ; preds = %15
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %17 = load i32, ptr %16, align 4, !tbaa !61
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 19:                                               ; preds = %15
   %20 = sext i32 %3 to i64
   %21 = getelementptr inbounds %struct.png_text_struct, ptr %9, i64 %20, i32 1
-  %22 = load ptr, ptr %21, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %22) #29
-  %23 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !62
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %22) #28
+  %23 = load ptr, ptr %8, align 8, !tbaa !52
   %24 = getelementptr inbounds %struct.png_text_struct, ptr %23, i64 %20, i32 1
-  store ptr null, ptr %24, align 8
+  store ptr null, ptr %24, align 8, !tbaa !62
   br label %33
 
-.lr.ph:                                           ; preds = %.preheader191, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader191 ]
-  %25 = load ptr, ptr %8, align 8
+.lr.ph:                                           ; preds = %.preheader185, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader185 ]
+  %25 = load ptr, ptr %8, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw %struct.png_text_struct, ptr %25, i64 %indvars.iv, i32 1
-  %27 = load ptr, ptr %26, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %27) #29
+  %27 = load ptr, ptr %26, align 8, !tbaa !62
+  tail call void @png_free(ptr noundef %0, ptr noundef %27) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %16, align 4
+  %28 = load i32, ptr %16, align 4, !tbaa !61
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %8, align 8
+  %.pre = load ptr, ptr %8, align 8, !tbaa !52
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader191
-  %31 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %.preheader191 ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %31) #29
-  store ptr null, ptr %8, align 8
-  store i32 0, ptr %16, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i32 0, ptr %32, align 8
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader185
+  %31 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %.preheader185 ]
+  tail call void @png_free(ptr noundef %0, ptr noundef %31) #28
+  store ptr null, ptr %8, align 8, !tbaa !52
+  store i32 0, ptr %16, align 4, !tbaa !61
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i32 0, ptr %32, align 8, !tbaa !65
   br label %33
 
 33:                                               ; preds = %19, %._crit_edge, %10, %7
   %34 = and i32 %2, 8192
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %36 = load i32, ptr %35, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 252
+  %36 = load i32, ptr %35, align 4, !tbaa !60
   %37 = and i32 %34, %36
-  %.not169 = icmp eq i32 %37, 0
-  br i1 %.not169, label %45, label %38
+  %.not164 = icmp eq i32 %37, 0
+  br i1 %.not164, label %45, label %38
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load i32, ptr %39, align 8
+  %40 = load i32, ptr %39, align 8, !tbaa !66
   %41 = and i32 %40, -17
-  store i32 %41, ptr %39, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %43 = load ptr, ptr %42, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %43) #29
-  store ptr null, ptr %42, align 8
+  store i32 %41, ptr %39, align 8, !tbaa !66
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %43 = load ptr, ptr %42, align 8, !tbaa !67
+  tail call void @png_free(ptr noundef %0, ptr noundef %43) #28
+  store ptr null, ptr %42, align 8, !tbaa !67
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  store i16 0, ptr %44, align 2
-  %.pre222 = load i32, ptr %35, align 4
+  store i16 0, ptr %44, align 2, !tbaa !68
+  %.pre216 = load i32, ptr %35, align 4, !tbaa !60
   br label %45
 
 45:                                               ; preds = %38, %33
-  %46 = phi i32 [ %.pre222, %38 ], [ %36, %33 ]
+  %46 = phi i32 [ %.pre216, %38 ], [ %36, %33 ]
   %47 = and i32 %2, 256
   %48 = and i32 %47, %46
-  %.not170 = icmp eq i32 %48, 0
-  br i1 %.not170, label %57, label %49
+  %.not165 = icmp eq i32 %48, 0
+  br i1 %.not165, label %57, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %51 = load ptr, ptr %50, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %51) #29
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %53 = load ptr, ptr %52, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %53) #29
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %51 = load ptr, ptr %50, align 8, !tbaa !69
+  tail call void @png_free(ptr noundef %0, ptr noundef %51) #28
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %53 = load ptr, ptr %52, align 8, !tbaa !70
+  tail call void @png_free(ptr noundef %0, ptr noundef %53) #28
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
-  %55 = load i32, ptr %54, align 8
+  %55 = load i32, ptr %54, align 8, !tbaa !66
   %56 = and i32 %55, -16385
-  store i32 %56, ptr %54, align 8
-  %.pre223 = load i32, ptr %35, align 4
+  store i32 %56, ptr %54, align 8, !tbaa !66
+  %.pre217 = load i32, ptr %35, align 4, !tbaa !60
   br label %57
 
 57:                                               ; preds = %49, %45
-  %58 = phi i32 [ %.pre223, %49 ], [ %46, %45 ]
+  %58 = phi i32 [ %.pre217, %49 ], [ %46, %45 ]
   %59 = and i32 %2, 128
   %60 = and i32 %59, %58
-  %.not171 = icmp eq i32 %60, 0
-  br i1 %.not171, label %81, label %61
+  %.not166 = icmp eq i32 %60, 0
+  br i1 %.not166, label %81, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %63 = load ptr, ptr %62, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %63) #29
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %65 = load ptr, ptr %64, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %65) #29
-  store ptr null, ptr %62, align 8
-  store ptr null, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %67 = load ptr, ptr %66, align 8
-  %.not172 = icmp eq ptr %67, null
-  br i1 %.not172, label %77, label %.preheader190
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %63 = load ptr, ptr %62, align 8, !tbaa !71
+  tail call void @png_free(ptr noundef %0, ptr noundef %63) #28
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %65 = load ptr, ptr %64, align 8, !tbaa !72
+  tail call void @png_free(ptr noundef %0, ptr noundef %65) #28
+  store ptr null, ptr %62, align 8, !tbaa !71
+  store ptr null, ptr %64, align 8, !tbaa !72
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %67 = load ptr, ptr %66, align 8, !tbaa !73
+  %.not167 = icmp eq ptr %67, null
+  br i1 %.not167, label %77, label %.preheader184
 
-.preheader190:                                    ; preds = %61
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 297
-  %69 = load i8, ptr %68, align 1
-  %.not207 = icmp eq i8 %69, 0
-  br i1 %.not207, label %._crit_edge197, label %.lr.ph196
+.preheader184:                                    ; preds = %61
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 249
+  %69 = load i8, ptr %68, align 1, !tbaa !74
+  %.not201 = icmp eq i8 %69, 0
+  br i1 %.not201, label %._crit_edge191, label %.lr.ph190
 
-.lr.ph196:                                        ; preds = %.preheader190, %.lr.ph196
-  %indvars.iv210 = phi i64 [ %indvars.iv.next211, %.lr.ph196 ], [ 0, %.preheader190 ]
-  %70 = load ptr, ptr %66, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv210
-  %72 = load ptr, ptr %71, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %72) #29
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %73 = load i8, ptr %68, align 1
+.lr.ph190:                                        ; preds = %.preheader184, %.lr.ph190
+  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.lr.ph190 ], [ 0, %.preheader184 ]
+  %70 = load ptr, ptr %66, align 8, !tbaa !73
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv204
+  %72 = load ptr, ptr %71, align 8, !tbaa !44
+  tail call void @png_free(ptr noundef %0, ptr noundef %72) #28
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %73 = load i8, ptr %68, align 1, !tbaa !74
   %74 = zext i8 %73 to i64
-  %75 = icmp samesign ult i64 %indvars.iv.next211, %74
-  br i1 %75, label %.lr.ph196, label %._crit_edge197.loopexit, !llvm.loop !8
+  %75 = icmp samesign ult i64 %indvars.iv.next205, %74
+  br i1 %75, label %.lr.ph190, label %._crit_edge191.loopexit, !llvm.loop !75
 
-._crit_edge197.loopexit:                          ; preds = %.lr.ph196
-  %.pre224 = load ptr, ptr %66, align 8
-  br label %._crit_edge197
+._crit_edge191.loopexit:                          ; preds = %.lr.ph190
+  %.pre218 = load ptr, ptr %66, align 8, !tbaa !73
+  br label %._crit_edge191
 
-._crit_edge197:                                   ; preds = %._crit_edge197.loopexit, %.preheader190
-  %76 = phi ptr [ %.pre224, %._crit_edge197.loopexit ], [ %67, %.preheader190 ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %76) #29
-  store ptr null, ptr %66, align 8
+._crit_edge191:                                   ; preds = %._crit_edge191.loopexit, %.preheader184
+  %76 = phi ptr [ %.pre218, %._crit_edge191.loopexit ], [ %67, %.preheader184 ]
+  tail call void @png_free(ptr noundef %0, ptr noundef %76) #28
+  store ptr null, ptr %66, align 8, !tbaa !73
   br label %77
 
-77:                                               ; preds = %._crit_edge197, %61
+77:                                               ; preds = %._crit_edge191, %61
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %79 = load i32, ptr %78, align 8
+  %79 = load i32, ptr %78, align 8, !tbaa !66
   %80 = and i32 %79, -1025
-  store i32 %80, ptr %78, align 8
-  %.pre225 = load i32, ptr %35, align 4
+  store i32 %80, ptr %78, align 8, !tbaa !66
+  %.pre219 = load i32, ptr %35, align 4, !tbaa !60
   br label %81
 
 81:                                               ; preds = %77, %57
-  %82 = phi i32 [ %.pre225, %77 ], [ %58, %57 ]
+  %82 = phi i32 [ %.pre219, %77 ], [ %58, %57 ]
   %83 = and i32 %2, 16
   %84 = and i32 %83, %82
-  %.not173 = icmp eq i32 %84, 0
-  br i1 %.not173, label %93, label %85
+  %.not168 = icmp eq i32 %84, 0
+  br i1 %.not168, label %93, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %87 = load ptr, ptr %86, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %87) #29
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %89 = load ptr, ptr %88, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %89) #29
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %87 = load ptr, ptr %86, align 8, !tbaa !76
+  tail call void @png_free(ptr noundef %0, ptr noundef %87) #28
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %89 = load ptr, ptr %88, align 8, !tbaa !77
+  tail call void @png_free(ptr noundef %0, ptr noundef %89) #28
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
-  %91 = load i32, ptr %90, align 8
+  %91 = load i32, ptr %90, align 8, !tbaa !66
   %92 = and i32 %91, -4097
-  store i32 %92, ptr %90, align 8
+  store i32 %92, ptr %90, align 8, !tbaa !66
   br label %93
 
 93:                                               ; preds = %85, %81
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %95 = load ptr, ptr %94, align 8
-  %.not174 = icmp eq ptr %95, null
-  br i1 %.not174, label %128, label %96
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %95 = load ptr, ptr %94, align 8, !tbaa !78
+  %.not169 = icmp eq ptr %95, null
+  br i1 %.not169, label %127, label %96
 
 96:                                               ; preds = %93
   %97 = and i32 %2, 32
-  %98 = load i32, ptr %35, align 4
+  %98 = load i32, ptr %35, align 4, !tbaa !60
   %99 = and i32 %97, %98
-  %.not175 = icmp eq i32 %99, 0
-  br i1 %.not175, label %128, label %100
+  %.not170 = icmp eq i32 %99, 0
+  br i1 %.not170, label %127, label %100
 
 100:                                              ; preds = %96
-  %.not176 = icmp eq i32 %3, -1
-  br i1 %.not176, label %.preheader189, label %104
+  %.not171 = icmp eq i32 %3, -1
+  br i1 %.not171, label %.preheader183, label %104
 
-.preheader189:                                    ; preds = %100
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %102 = load i32, ptr %101, align 8
+.preheader183:                                    ; preds = %100
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %102 = load i32, ptr %101, align 8, !tbaa !79
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph199, label %._crit_edge200
+  br i1 %103, label %.lr.ph193, label %._crit_edge194
 
 104:                                              ; preds = %100
   %105 = sext i32 %3 to i64
   %106 = getelementptr inbounds %struct.png_sPLT_struct, ptr %95, i64 %105
-  %107 = load ptr, ptr %106, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %107) #29
-  %108 = load ptr, ptr %94, align 8
+  %107 = load ptr, ptr %106, align 8, !tbaa !80
+  tail call void @png_free(ptr noundef %0, ptr noundef %107) #28
+  %108 = load ptr, ptr %94, align 8, !tbaa !78
   %109 = getelementptr inbounds %struct.png_sPLT_struct, ptr %108, i64 %105, i32 2
-  %110 = load ptr, ptr %109, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %110) #29
-  %111 = load ptr, ptr %94, align 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !83
+  tail call void @png_free(ptr noundef %0, ptr noundef %110) #28
+  %111 = load ptr, ptr %94, align 8, !tbaa !78
   %112 = getelementptr inbounds %struct.png_sPLT_struct, ptr %111, i64 %105
-  store ptr null, ptr %112, align 8
-  %113 = load ptr, ptr %94, align 8
-  %114 = getelementptr inbounds %struct.png_sPLT_struct, ptr %113, i64 %105, i32 2
-  store ptr null, ptr %114, align 8
-  br label %128
+  store ptr null, ptr %112, align 8, !tbaa !80
+  %113 = getelementptr inbounds %struct.png_sPLT_struct, ptr %111, i64 %105, i32 2
+  store ptr null, ptr %113, align 8, !tbaa !83
+  br label %127
 
-.lr.ph199:                                        ; preds = %.preheader189, %.lr.ph199
-  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %.lr.ph199 ], [ 0, %.preheader189 ]
-  %115 = load ptr, ptr %94, align 8
-  %116 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %115, i64 %indvars.iv213
-  %117 = load ptr, ptr %116, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %117) #29
-  %118 = load ptr, ptr %94, align 8
-  %119 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %118, i64 %indvars.iv213, i32 2
-  %120 = load ptr, ptr %119, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %120) #29
+.lr.ph193:                                        ; preds = %.preheader183, %.lr.ph193
+  %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.lr.ph193 ], [ 0, %.preheader183 ]
+  %114 = load ptr, ptr %94, align 8, !tbaa !78
+  %115 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %114, i64 %indvars.iv207
+  %116 = load ptr, ptr %115, align 8, !tbaa !80
+  tail call void @png_free(ptr noundef %0, ptr noundef %116) #28
+  %117 = load ptr, ptr %94, align 8, !tbaa !78
+  %118 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %117, i64 %indvars.iv207, i32 2
+  %119 = load ptr, ptr %118, align 8, !tbaa !83
+  tail call void @png_free(ptr noundef %0, ptr noundef %119) #28
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
+  %120 = load i32, ptr %101, align 8, !tbaa !79
+  %121 = sext i32 %120 to i64
+  %122 = icmp slt i64 %indvars.iv.next208, %121
+  br i1 %122, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !84
+
+._crit_edge194.loopexit:                          ; preds = %.lr.ph193
+  %.pre220 = load ptr, ptr %94, align 8, !tbaa !78
+  br label %._crit_edge194
+
+._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %.preheader183
+  %123 = phi ptr [ %.pre220, %._crit_edge194.loopexit ], [ %95, %.preheader183 ]
+  tail call void @png_free(ptr noundef %0, ptr noundef %123) #28
+  store ptr null, ptr %94, align 8, !tbaa !78
+  store i32 0, ptr %101, align 8, !tbaa !79
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %125 = load i32, ptr %124, align 8, !tbaa !66
+  %126 = and i32 %125, -8193
+  store i32 %126, ptr %124, align 8, !tbaa !66
+  br label %127
+
+127:                                              ; preds = %104, %._crit_edge194, %96, %93
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %129 = load ptr, ptr %128, align 8, !tbaa !85
+  %.not172 = icmp eq ptr %129, null
+  br i1 %.not172, label %151, label %130
+
+130:                                              ; preds = %127
+  %131 = and i32 %2, 512
+  %132 = load i32, ptr %35, align 4, !tbaa !60
+  %133 = and i32 %131, %132
+  %.not173 = icmp eq i32 %133, 0
+  br i1 %.not173, label %151, label %134
+
+134:                                              ; preds = %130
+  %.not174 = icmp eq i32 %3, -1
+  br i1 %.not174, label %.preheader182, label %138
+
+.preheader182:                                    ; preds = %134
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %136 = load i32, ptr %135, align 8, !tbaa !86
+  %137 = icmp sgt i32 %136, 0
+  br i1 %137, label %.lr.ph196, label %._crit_edge197
+
+138:                                              ; preds = %134
+  %139 = sext i32 %3 to i64
+  %140 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %129, i64 %139, i32 1
+  %141 = load ptr, ptr %140, align 8, !tbaa !87
+  tail call void @png_free(ptr noundef %0, ptr noundef %141) #28
+  %142 = load ptr, ptr %128, align 8, !tbaa !85
+  %143 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %142, i64 %139, i32 1
+  store ptr null, ptr %143, align 8, !tbaa !87
+  br label %151
+
+.lr.ph196:                                        ; preds = %.preheader182, %.lr.ph196
+  %indvars.iv210 = phi i64 [ %indvars.iv.next211, %.lr.ph196 ], [ 0, %.preheader182 ]
+  %144 = load ptr, ptr %128, align 8, !tbaa !85
+  %145 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %144, i64 %indvars.iv210, i32 1
+  %146 = load ptr, ptr %145, align 8, !tbaa !87
+  tail call void @png_free(ptr noundef %0, ptr noundef %146) #28
+  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
+  %147 = load i32, ptr %135, align 8, !tbaa !86
+  %148 = sext i32 %147 to i64
+  %149 = icmp slt i64 %indvars.iv.next211, %148
+  br i1 %149, label %.lr.ph196, label %._crit_edge197.loopexit, !llvm.loop !88
+
+._crit_edge197.loopexit:                          ; preds = %.lr.ph196
+  %.pre221 = load ptr, ptr %128, align 8, !tbaa !85
+  br label %._crit_edge197
+
+._crit_edge197:                                   ; preds = %._crit_edge197.loopexit, %.preheader182
+  %150 = phi ptr [ %.pre221, %._crit_edge197.loopexit ], [ %129, %.preheader182 ]
+  tail call void @png_free(ptr noundef %0, ptr noundef %150) #28
+  store ptr null, ptr %128, align 8, !tbaa !85
+  store i32 0, ptr %135, align 8, !tbaa !86
+  br label %151
+
+151:                                              ; preds = %138, %._crit_edge197, %130, %127
+  %152 = and i32 %2, 32768
+  %153 = load i32, ptr %35, align 4, !tbaa !60
+  %154 = and i32 %152, %153
+  %.not175 = icmp eq i32 %154, 0
+  br i1 %.not175, label %163, label %155
+
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %157 = load ptr, ptr %156, align 8, !tbaa !89
+  %.not176 = icmp eq ptr %157, null
+  br i1 %.not176, label %159, label %158
+
+158:                                              ; preds = %155
+  tail call void @png_free(ptr noundef %0, ptr noundef nonnull %157) #28
+  store ptr null, ptr %156, align 8, !tbaa !89
+  %.pre222.pre = load i32, ptr %35, align 4, !tbaa !60
+  br label %159
+
+159:                                              ; preds = %158, %155
+  %.pre222 = phi i32 [ %.pre222.pre, %158 ], [ %153, %155 ]
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %161 = load i32, ptr %160, align 8, !tbaa !66
+  %162 = and i32 %161, -65537
+  store i32 %162, ptr %160, align 8, !tbaa !66
+  br label %163
+
+163:                                              ; preds = %159, %151
+  %164 = phi i32 [ %.pre222, %159 ], [ %153, %151 ]
+  %165 = and i32 %2, 8
+  %166 = and i32 %165, %164
+  %.not177 = icmp eq i32 %166, 0
+  br i1 %.not177, label %173, label %167
+
+167:                                              ; preds = %163
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %169 = load ptr, ptr %168, align 8, !tbaa !90
+  tail call void @png_free(ptr noundef %0, ptr noundef %169) #28
+  store ptr null, ptr %168, align 8, !tbaa !90
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %171 = load i32, ptr %170, align 8, !tbaa !66
+  %172 = and i32 %171, -65
+  store i32 %172, ptr %170, align 8, !tbaa !66
+  %.pre223 = load i32, ptr %35, align 4, !tbaa !60
+  br label %173
+
+173:                                              ; preds = %167, %163
+  %174 = phi i32 [ %.pre223, %167 ], [ %164, %163 ]
+  %175 = and i32 %2, 4096
+  %176 = and i32 %175, %174
+  %.not178 = icmp eq i32 %176, 0
+  br i1 %.not178, label %184, label %177
+
+177:                                              ; preds = %173
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %179 = load ptr, ptr %178, align 8, !tbaa !91
+  tail call void @png_free(ptr noundef %0, ptr noundef %179) #28
+  store ptr null, ptr %178, align 8, !tbaa !91
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %181 = load i32, ptr %180, align 8, !tbaa !66
+  %182 = and i32 %181, -9
+  store i32 %182, ptr %180, align 8, !tbaa !66
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i16 0, ptr %183, align 8, !tbaa !92
+  %.pre224 = load i32, ptr %35, align 4, !tbaa !60
+  br label %184
+
+184:                                              ; preds = %177, %173
+  %185 = phi i32 [ %.pre224, %177 ], [ %174, %173 ]
+  %186 = and i32 %2, 64
+  %187 = and i32 %186, %185
+  %.not179 = icmp eq i32 %187, 0
+  br i1 %.not179, label %204, label %188
+
+188:                                              ; preds = %184
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %190 = load ptr, ptr %189, align 8, !tbaa !93
+  %.not180 = icmp eq ptr %190, null
+  br i1 %.not180, label %200, label %.preheader
+
+.preheader:                                       ; preds = %188
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %192 = load i32, ptr %191, align 4, !tbaa !94
+  %.not202 = icmp eq i32 %192, 0
+  br i1 %.not202, label %._crit_edge200, label %.lr.ph199
+
+.lr.ph199:                                        ; preds = %.preheader, %.lr.ph199
+  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %.lr.ph199 ], [ 0, %.preheader ]
+  %193 = load ptr, ptr %189, align 8, !tbaa !93
+  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv213
+  %195 = load ptr, ptr %194, align 8, !tbaa !44
+  tail call void @png_free(ptr noundef %0, ptr noundef %195) #28
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
-  %121 = load i32, ptr %101, align 8
-  %122 = sext i32 %121 to i64
-  %123 = icmp slt i64 %indvars.iv.next214, %122
-  br i1 %123, label %.lr.ph199, label %._crit_edge200.loopexit, !llvm.loop !9
+  %196 = load i32, ptr %191, align 4, !tbaa !94
+  %197 = zext i32 %196 to i64
+  %198 = icmp samesign ult i64 %indvars.iv.next214, %197
+  br i1 %198, label %.lr.ph199, label %._crit_edge200.loopexit, !llvm.loop !95
 
 ._crit_edge200.loopexit:                          ; preds = %.lr.ph199
-  %.pre226 = load ptr, ptr %94, align 8
+  %.pre225 = load ptr, ptr %189, align 8, !tbaa !93
   br label %._crit_edge200
 
-._crit_edge200:                                   ; preds = %._crit_edge200.loopexit, %.preheader189
-  %124 = phi ptr [ %.pre226, %._crit_edge200.loopexit ], [ %95, %.preheader189 ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %124) #29
-  store ptr null, ptr %94, align 8
-  store i32 0, ptr %101, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %126 = load i32, ptr %125, align 8
-  %127 = and i32 %126, -8193
-  store i32 %127, ptr %125, align 8
-  br label %128
+._crit_edge200:                                   ; preds = %._crit_edge200.loopexit, %.preheader
+  %199 = phi ptr [ %.pre225, %._crit_edge200.loopexit ], [ %190, %.preheader ]
+  tail call void @png_free(ptr noundef %0, ptr noundef %199) #28
+  store ptr null, ptr %189, align 8, !tbaa !93
+  %.pre226.pre = load i32, ptr %35, align 4, !tbaa !60
+  br label %200
 
-128:                                              ; preds = %104, %._crit_edge200, %96, %93
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %130 = load ptr, ptr %129, align 8
-  %.not177 = icmp eq ptr %130, null
-  br i1 %.not177, label %152, label %131
+200:                                              ; preds = %._crit_edge200, %188
+  %.pre226 = phi i32 [ %.pre226.pre, %._crit_edge200 ], [ %185, %188 ]
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %202 = load i32, ptr %201, align 8, !tbaa !66
+  %203 = and i32 %202, -32769
+  store i32 %203, ptr %201, align 8, !tbaa !66
+  br label %204
 
-131:                                              ; preds = %128
-  %132 = and i32 %2, 512
-  %133 = load i32, ptr %35, align 4
-  %134 = and i32 %132, %133
-  %.not178 = icmp eq i32 %134, 0
-  br i1 %.not178, label %152, label %135
-
-135:                                              ; preds = %131
-  %.not179 = icmp eq i32 %3, -1
-  br i1 %.not179, label %.preheader188, label %139
-
-.preheader188:                                    ; preds = %135
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %137 = load i32, ptr %136, align 8
-  %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph202, label %._crit_edge203
-
-139:                                              ; preds = %135
-  %140 = sext i32 %3 to i64
-  %141 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %130, i64 %140, i32 1
-  %142 = load ptr, ptr %141, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %142) #29
-  %143 = load ptr, ptr %129, align 8
-  %144 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %143, i64 %140, i32 1
-  store ptr null, ptr %144, align 8
-  br label %152
-
-.lr.ph202:                                        ; preds = %.preheader188, %.lr.ph202
-  %indvars.iv216 = phi i64 [ %indvars.iv.next217, %.lr.ph202 ], [ 0, %.preheader188 ]
-  %145 = load ptr, ptr %129, align 8
-  %146 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %145, i64 %indvars.iv216, i32 1
-  %147 = load ptr, ptr %146, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %147) #29
-  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %148 = load i32, ptr %136, align 8
-  %149 = sext i32 %148 to i64
-  %150 = icmp slt i64 %indvars.iv.next217, %149
-  br i1 %150, label %.lr.ph202, label %._crit_edge203.loopexit, !llvm.loop !10
-
-._crit_edge203.loopexit:                          ; preds = %.lr.ph202
-  %.pre227 = load ptr, ptr %129, align 8
-  br label %._crit_edge203
-
-._crit_edge203:                                   ; preds = %._crit_edge203.loopexit, %.preheader188
-  %151 = phi ptr [ %.pre227, %._crit_edge203.loopexit ], [ %130, %.preheader188 ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %151) #29
-  store ptr null, ptr %129, align 8
-  store i32 0, ptr %136, align 8
-  br label %152
-
-152:                                              ; preds = %139, %._crit_edge203, %131, %128
-  %153 = and i32 %2, 32768
-  %154 = load i32, ptr %35, align 4
-  %155 = and i32 %153, %154
-  %.not180 = icmp eq i32 %155, 0
-  br i1 %.not180, label %168, label %156
-
-156:                                              ; preds = %152
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %158 = load ptr, ptr %157, align 8
-  %.not181 = icmp eq ptr %158, null
-  br i1 %.not181, label %160, label %159
-
-159:                                              ; preds = %156
-  tail call void @png_free(ptr noundef %0, ptr noundef nonnull %158) #29
-  store ptr null, ptr %157, align 8
-  br label %160
-
-160:                                              ; preds = %159, %156
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %162 = load ptr, ptr %161, align 8
-  %.not182 = icmp eq ptr %162, null
-  br i1 %.not182, label %164, label %163
-
-163:                                              ; preds = %160
-  tail call void @png_free(ptr noundef %0, ptr noundef nonnull %162) #29
-  store ptr null, ptr %161, align 8
-  br label %164
-
-164:                                              ; preds = %163, %160
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %166 = load i32, ptr %165, align 8
-  %167 = and i32 %166, -65537
-  store i32 %167, ptr %165, align 8
-  %.pre228 = load i32, ptr %35, align 4
-  br label %168
-
-168:                                              ; preds = %164, %152
-  %169 = phi i32 [ %.pre228, %164 ], [ %154, %152 ]
-  %170 = and i32 %2, 8
-  %171 = and i32 %170, %169
-  %.not183 = icmp eq i32 %171, 0
-  br i1 %.not183, label %178, label %172
-
-172:                                              ; preds = %168
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %174 = load ptr, ptr %173, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %174) #29
-  store ptr null, ptr %173, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %176 = load i32, ptr %175, align 8
-  %177 = and i32 %176, -65
-  store i32 %177, ptr %175, align 8
-  %.pre229 = load i32, ptr %35, align 4
-  br label %178
-
-178:                                              ; preds = %172, %168
-  %179 = phi i32 [ %.pre229, %172 ], [ %169, %168 ]
-  %180 = and i32 %2, 4096
-  %181 = and i32 %180, %179
-  %.not184 = icmp eq i32 %181, 0
-  br i1 %.not184, label %189, label %182
-
-182:                                              ; preds = %178
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %184 = load ptr, ptr %183, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %184) #29
-  store ptr null, ptr %183, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %186 = load i32, ptr %185, align 8
-  %187 = and i32 %186, -9
-  store i32 %187, ptr %185, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i16 0, ptr %188, align 8
-  %.pre230 = load i32, ptr %35, align 4
-  br label %189
-
-189:                                              ; preds = %182, %178
-  %190 = phi i32 [ %.pre230, %182 ], [ %179, %178 ]
-  %191 = and i32 %2, 64
-  %192 = and i32 %191, %190
-  %.not185 = icmp eq i32 %192, 0
-  br i1 %.not185, label %209, label %193
-
-193:                                              ; preds = %189
-  %194 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %195 = load ptr, ptr %194, align 8
-  %.not186 = icmp eq ptr %195, null
-  br i1 %.not186, label %205, label %.preheader
-
-.preheader:                                       ; preds = %193
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %197 = load i32, ptr %196, align 4
-  %.not208 = icmp eq i32 %197, 0
-  br i1 %.not208, label %._crit_edge206, label %.lr.ph205
-
-.lr.ph205:                                        ; preds = %.preheader, %.lr.ph205
-  %indvars.iv219 = phi i64 [ %indvars.iv.next220, %.lr.ph205 ], [ 0, %.preheader ]
-  %198 = load ptr, ptr %194, align 8
-  %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv219
-  %200 = load ptr, ptr %199, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %200) #29
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
-  %201 = load i32, ptr %196, align 4
-  %202 = zext i32 %201 to i64
-  %203 = icmp samesign ult i64 %indvars.iv.next220, %202
-  br i1 %203, label %.lr.ph205, label %._crit_edge206.loopexit, !llvm.loop !11
-
-._crit_edge206.loopexit:                          ; preds = %.lr.ph205
-  %.pre231 = load ptr, ptr %194, align 8
-  br label %._crit_edge206
-
-._crit_edge206:                                   ; preds = %._crit_edge206.loopexit, %.preheader
-  %204 = phi ptr [ %.pre231, %._crit_edge206.loopexit ], [ %195, %.preheader ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %204) #29
-  store ptr null, ptr %194, align 8
-  %.pre232.pre = load i32, ptr %35, align 4
-  br label %205
-
-205:                                              ; preds = %._crit_edge206, %193
-  %.pre232 = phi i32 [ %.pre232.pre, %._crit_edge206 ], [ %190, %193 ]
-  %206 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %207 = load i32, ptr %206, align 8
-  %208 = and i32 %207, -32769
-  store i32 %208, ptr %206, align 8
+204:                                              ; preds = %200, %184
+  %205 = phi i32 [ %.pre226, %200 ], [ %185, %184 ]
+  %.not181 = icmp eq i32 %3, -1
+  %206 = and i32 %2, -16929
+  %spec.select = select i1 %.not181, i32 %2, i32 %206
+  %207 = xor i32 %spec.select, -1
+  %208 = and i32 %205, %207
+  store i32 %208, ptr %35, align 4, !tbaa !60
   br label %209
 
-209:                                              ; preds = %205, %189
-  %210 = phi i32 [ %.pre232, %205 ], [ %190, %189 ]
-  %.not187 = icmp eq i32 %3, -1
-  %211 = and i32 %2, -16929
-  %spec.select = select i1 %.not187, i32 %2, i32 %211
-  %212 = xor i32 %spec.select, -1
-  %213 = and i32 %210, %212
-  store i32 %213, ptr %35, align 4
-  br label %214
-
-214:                                              ; preds = %4, %209
+209:                                              ; preds = %4, %204
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @png_info_init_3(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !50
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp ult i64 %1, 360
+  %6 = icmp ult i64 %1, 352
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5
-  store ptr null, ptr %0, align 8
-  tail call void @free(ptr noundef nonnull %3) #29
-  %8 = tail call noalias ptr @png_malloc_base(ptr noundef null, i64 noundef 360) #29
+  store ptr null, ptr %0, align 8, !tbaa !50
+  tail call void @free(ptr noundef nonnull %3) #28
+  %8 = tail call noalias ptr @png_malloc_base(ptr noundef null, i64 noundef 352) #28
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
-  store ptr %8, ptr %0, align 8
+  store ptr %8, ptr %0, align 8, !tbaa !50
   br label %11
 
 11:                                               ; preds = %10, %5
   %.0 = phi ptr [ %8, %10 ], [ %3, %5 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %.0, i8 0, i64 360, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %.0, i8 0, i64 352, i1 false)
   br label %12
 
 12:                                               ; preds = %7, %2, %11
@@ -915,7 +893,7 @@ define void @png_info_init_3(ptr noundef captures(none) %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define void @png_data_freer(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -931,22 +909,22 @@ define void @png_data_freer(ptr noalias noundef %0, ptr noalias noundef captures
   ]
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %10 = load i32, ptr %9, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 252
+  %10 = load i32, ptr %9, align 4, !tbaa !60
   %11 = or i32 %10, %3
-  store i32 %11, ptr %9, align 4
+  store i32 %11, ptr %9, align 4, !tbaa !60
   br label %18
 
 12:                                               ; preds = %7
   %13 = xor i32 %3, -1
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %15 = load i32, ptr %14, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 252
+  %15 = load i32, ptr %14, align 4, !tbaa !60
   %16 = and i32 %15, %13
-  store i32 %16, ptr %14, align 4
+  store i32 %16, ptr %14, align 4, !tbaa !60
   br label %18
 
 17:                                               ; preds = %7
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #27
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #26
   unreachable
 
 18:                                               ; preds = %4, %12, %8
@@ -954,13 +932,13 @@ define void @png_data_freer(ptr noalias noundef %0, ptr noalias noundef captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @png_get_io_ptr(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define ptr @png_get_io_ptr(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !96
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -969,13 +947,13 @@ define ptr @png_get_io_ptr(ptr noalias noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_init_io(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @png_init_io(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr %1, ptr %5, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !96
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -984,11 +962,11 @@ define void @png_init_io(ptr noalias noundef writeonly captures(address_is_null)
 
 ; Function Attrs: nounwind uwtable
 define void @png_save_int_32(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @png_save_uint_32(ptr noundef %0, i32 noundef %1) #29
+  tail call void @png_save_uint_32(ptr noundef %0, i32 noundef %1) #28
   ret void
 }
 
-declare void @png_save_uint_32(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_save_uint_32(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -997,125 +975,127 @@ define range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0, ptr no
   br i1 %4, label %80, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr %1, align 2
+  %6 = load i16, ptr %1, align 2, !tbaa !97
   %7 = icmp ugt i16 %6, 9999
   br i1 %7, label %80, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %10 = load i8, ptr %9, align 2
+  %10 = load i8, ptr %9, align 2, !tbaa !98
   %11 = add i8 %10, -13
   %or.cond = icmp ult i8 %11, -12
   br i1 %or.cond, label %80, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !99
   %15 = add i8 %14, -32
   %or.cond58 = icmp ult i8 %15, -31
   br i1 %or.cond58, label %80, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %18 = load i8, ptr %17, align 2
+  %18 = load i8, ptr %17, align 2, !tbaa !100
   %19 = icmp ugt i8 %18, 23
   br i1 %19, label %80, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %22 = load i8, ptr %21, align 1
+  %22 = load i8, ptr %21, align 1, !tbaa !101
   %23 = icmp ugt i8 %22, 59
   br i1 %23, label %80, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %26 = load i8, ptr %25, align 2
+  %26 = load i8, ptr %25, align 2, !tbaa !102
   %27 = icmp ugt i8 %26, 60
   br i1 %27, label %80, label %28
 
 28:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %3, i8 0, i64 5, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %30 = zext nneg i8 %14 to i64
-  %31 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 1, i64 noundef %30) #29
-  %32 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef 0, ptr noundef %31) #29
+  %31 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 1, i64 noundef %30) #28
+  %32 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef 0, ptr noundef %31) #28
   %33 = icmp ult i64 %32, 28
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %28
   %35 = add nuw nsw i64 %32, 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  store i8 32, ptr %36, align 1
+  store i8 32, ptr %36, align 1, !tbaa !27
   br label %37
 
 37:                                               ; preds = %34, %28
   %.0 = phi i64 [ %35, %34 ], [ %32, %28 ]
-  %38 = load i8, ptr %9, align 2
+  %38 = load i8, ptr %9, align 2, !tbaa !98
   %39 = zext i8 %38 to i64
   %40 = add nsw i64 %39, -1
   %41 = getelementptr inbounds [12 x [4 x i8]], ptr @png_convert_to_rfc1123_buffer.short_months, i64 0, i64 %40
-  %42 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.0, ptr noundef nonnull %41) #29
+  %42 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.0, ptr noundef nonnull %41) #28
   %43 = icmp ult i64 %42, 28
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %37
   %45 = add nuw nsw i64 %42, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 %42
-  store i8 32, ptr %46, align 1
+  store i8 32, ptr %46, align 1, !tbaa !27
   br label %47
 
 47:                                               ; preds = %44, %37
   %.1 = phi i64 [ %45, %44 ], [ %42, %37 ]
-  %48 = load i16, ptr %1, align 2
+  %48 = load i16, ptr %1, align 2, !tbaa !97
   %49 = zext i16 %48 to i64
-  %50 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 1, i64 noundef %49) #29
-  %51 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.1, ptr noundef %50) #29
+  %50 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 1, i64 noundef %49) #28
+  %51 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.1, ptr noundef %50) #28
   %52 = icmp ult i64 %51, 28
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %47
   %54 = add nuw nsw i64 %51, 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 %51
-  store i8 32, ptr %55, align 1
+  store i8 32, ptr %55, align 1, !tbaa !27
   br label %56
 
 56:                                               ; preds = %53, %47
   %.2 = phi i64 [ %54, %53 ], [ %51, %47 ]
-  %57 = load i8, ptr %17, align 2
+  %57 = load i8, ptr %17, align 2, !tbaa !100
   %58 = zext i8 %57 to i64
-  %59 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 2, i64 noundef %58) #29
-  %60 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.2, ptr noundef %59) #29
+  %59 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 2, i64 noundef %58) #28
+  %60 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.2, ptr noundef %59) #28
   %61 = icmp ult i64 %60, 28
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %56
   %63 = add nuw nsw i64 %60, 1
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %60
-  store i8 58, ptr %64, align 1
+  store i8 58, ptr %64, align 1, !tbaa !27
   br label %65
 
 65:                                               ; preds = %62, %56
   %.3 = phi i64 [ %63, %62 ], [ %60, %56 ]
-  %66 = load i8, ptr %21, align 1
+  %66 = load i8, ptr %21, align 1, !tbaa !101
   %67 = zext i8 %66 to i64
-  %68 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 2, i64 noundef %67) #29
-  %69 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.3, ptr noundef %68) #29
+  %68 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 2, i64 noundef %67) #28
+  %69 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.3, ptr noundef %68) #28
   %70 = icmp ult i64 %69, 28
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %65
   %72 = add nuw nsw i64 %69, 1
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 %69
-  store i8 58, ptr %73, align 1
+  store i8 58, ptr %73, align 1, !tbaa !27
   br label %74
 
 74:                                               ; preds = %71, %65
   %.4 = phi i64 [ %72, %71 ], [ %69, %65 ]
-  %75 = load i8, ptr %25, align 2
+  %75 = load i8, ptr %25, align 2, !tbaa !102
   %76 = zext i8 %75 to i64
-  %77 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 2, i64 noundef %76) #29
-  %78 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.4, ptr noundef %77) #29
-  %79 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %78, ptr noundef nonnull @.str.6) #29
+  %77 = call ptr @png_format_number(ptr noundef nonnull %3, ptr noundef nonnull %29, i32 noundef 2, i64 noundef %76) #28
+  %78 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.4, ptr noundef %77) #28
+  %79 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %78, ptr noundef nonnull @.str.6) #28
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #28
   br label %80
 
 80:                                               ; preds = %5, %8, %12, %16, %20, %24, %2, %74
@@ -1123,7 +1103,7 @@ define range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0, ptr no
   ret i32 %.044
 }
 
-declare ptr @png_format_number(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @png_format_number(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @png_convert_to_rfc1123(ptr noalias noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1131,13 +1111,13 @@ define noundef ptr @png_convert_to_rfc1123(ptr noalias noundef %0, ptr noundef r
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 908
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 964
   %5 = tail call i32 @png_convert_to_rfc1123_buffer(ptr noundef nonnull %4, ptr noundef %1)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #28
   br label %8
 
 8:                                                ; preds = %2, %7, %3
@@ -1146,27 +1126,27 @@ define noundef ptr @png_convert_to_rfc1123(ptr noalias noundef %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @png_get_copyright(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @png_get_copyright(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #13 {
   ret ptr @.str.8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @png_get_libpng_ver(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @png_get_libpng_ver(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #13 {
   ret ptr @.str.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @png_get_header_ver(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @png_get_header_ver(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #13 {
   ret ptr @.str.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @png_get_header_version(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @png_get_header_version(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #13 {
   ret ptr @.str.9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @png_build_grayscale_palette(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define void @png_build_grayscale_palette(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #14 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 
@@ -1195,36 +1175,36 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %indvars.iv = phi i64 [ 0, %switch.lookup ], [ %indvars.iv.next, %.lr.ph ]
   %.020 = phi i8 [ 0, %switch.lookup ], [ %11, %.lr.ph ]
   %8 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv
-  store i8 %.020, ptr %8, align 1
+  store i8 %.020, ptr %8, align 1, !tbaa !103
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %.020, ptr %9, align 1
+  store i8 %.020, ptr %9, align 1, !tbaa !105
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.020, ptr %10, align 1
+  store i8 %.020, ptr %10, align 1, !tbaa !106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = add i8 %.020, %switch.masked
   %exitcond.not = icmp eq i64 %indvars.iv.next, %switch.load
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !107
 
 .loopexit:                                        ; preds = %.lr.ph, %switch.hole_check, %4, %2
   ret void
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 256) i32 @png_handle_as_unknown(ptr noalias noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #14 {
+define range(i32 0, 256) i32 @png_handle_as_unknown(ptr noalias noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 964
-  %7 = load i32, ptr %6, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1020
+  %7 = load i32, ptr %6, align 4, !tbaa !108
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %11 = load ptr, ptr %10, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %11 = load ptr, ptr %10, align 8, !tbaa !109
   %12 = mul i32 %7, 5
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
@@ -1239,13 +1219,13 @@ define range(i32 0, 256) i32 @png_handle_as_unknown(ptr noalias noundef readonly
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.013, i64 -1
-  %20 = load i8, ptr %19, align 1
+  %20 = load i8, ptr %19, align 1, !tbaa !27
   %21 = zext i8 %20 to i32
   br label %.loopexit
 
 22:                                               ; preds = %15
   %23 = icmp ugt ptr %16, %11
-  br i1 %23, label %15, label %.loopexit, !llvm.loop !13
+  br i1 %23, label %15, label %.loopexit, !llvm.loop !110
 
 .loopexit:                                        ; preds = %22, %2, %5, %18
   %.0 = phi i32 [ %21, %18 ], [ 0, %5 ], [ 0, %2 ], [ 0, %22 ]
@@ -1253,34 +1233,35 @@ define range(i32 0, 256) i32 @png_handle_as_unknown(ptr noalias noundef readonly
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 256) i32 @png_chunk_unknown_handling(ptr noalias noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
+define range(i32 0, 256) i32 @png_chunk_unknown_handling(ptr noalias noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = alloca [5 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #28
   %4 = lshr i32 %1, 24
   %5 = trunc nuw i32 %4 to i8
-  store i8 %5, ptr %3, align 1
+  store i8 %5, ptr %3, align 1, !tbaa !27
   %6 = lshr i32 %1, 16
   %7 = trunc i32 %6 to i8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %7, ptr %8, align 1
+  store i8 %7, ptr %8, align 1, !tbaa !27
   %9 = lshr i32 %1, 8
   %10 = trunc i32 %9 to i8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %10, ptr %11, align 1
+  store i8 %10, ptr %11, align 1, !tbaa !27
   %12 = trunc i32 %1 to i8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %12, ptr %13, align 1
+  store i8 %12, ptr %13, align 1, !tbaa !27
   %14 = icmp eq ptr %0, null
   br i1 %14, label %png_handle_as_unknown.exit, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 964
-  %17 = load i32, ptr %16, align 4, !alias.scope !14
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1020
+  %17 = load i32, ptr %16, align 4, !tbaa !108, !alias.scope !111
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %png_handle_as_unknown.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %21 = load ptr, ptr %20, align 8, !alias.scope !14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %21 = load ptr, ptr %20, align 8, !tbaa !109, !alias.scope !111
   %22 = mul i32 %17, 5
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
@@ -1295,16 +1276,17 @@ define range(i32 0, 256) i32 @png_chunk_unknown_handling(ptr noalias noundef rea
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %.013.i, i64 -1
-  %30 = load i8, ptr %29, align 1
+  %30 = load i8, ptr %29, align 1, !tbaa !27
   %31 = zext i8 %30 to i32
   br label %png_handle_as_unknown.exit
 
 32:                                               ; preds = %25
   %33 = icmp ugt ptr %26, %21
-  br i1 %33, label %25, label %png_handle_as_unknown.exit, !llvm.loop !13
+  br i1 %33, label %25, label %png_handle_as_unknown.exit, !llvm.loop !110
 
 png_handle_as_unknown.exit:                       ; preds = %32, %2, %15, %28
   %.0.i = phi i32 [ %31, %28 ], [ 0, %15 ], [ 0, %2 ], [ 0, %32 ]
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #28
   ret i32 %.0.i
 }
 
@@ -1315,7 +1297,7 @@ define i32 @png_reset_zstream(ptr noalias noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %5 = tail call i32 @inflateReset(ptr noundef nonnull %4) #29
+  %5 = tail call i32 @inflateReset(ptr noundef nonnull %4) #28
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -1323,17 +1305,17 @@ define i32 @png_reset_zstream(ptr noalias noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-declare i32 @inflateReset(ptr noundef) local_unnamed_addr #4
+declare i32 @inflateReset(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @png_access_version_number() local_unnamed_addr #12 {
-  ret i32 10644
+define noundef i32 @png_access_version_number() local_unnamed_addr #13 {
+  ret i32 10647
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_zstream_error(ptr noalias noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @png_zstream_error(ptr noalias noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !114
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
@@ -1350,2673 +1332,506 @@ switch.lookup:                                    ; preds = %6
 
 .sink.split:                                      ; preds = %switch.lookup, %6
   %.str.10.sink = phi ptr [ @.str.10, %6 ], [ %switch.load, %switch.lookup ]
-  store ptr %.str.10.sink, ptr %3, align 8
+  store ptr %.str.10.sink, ptr %3, align 8, !tbaa !114
   br label %9
 
 9:                                                ; preds = %.sink.split, %2
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @png_colorspace_set_gamma(ptr noalias noundef %0, ptr noalias noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = add i32 %2, -625000001
-  %or.cond = icmp ult i32 %4, -624999985
-  br i1 %or.cond, label %._crit_edge21, label %5
-
-._crit_edge21:                                    ; preds = %3
-  %.phi.trans.insert22 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %.pre23 = load i16, ptr %.phi.trans.insert22, align 2
-  br label %33
-
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 32768
-  %.not = icmp eq i32 %8, 0
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %.pre = load i16, ptr %.phi.trans.insert, align 2
-  %9 = and i16 %.pre, 8
-  %.not15 = icmp eq i16 %9, 0
-  %or.cond24 = select i1 %.not, i1 true, i1 %.not15
-  br i1 %or.cond24, label %._crit_edge, label %33
-
-._crit_edge:                                      ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %.not16 = icmp sgt i16 %.pre, -1
-  br i1 %.not16, label %11, label %37
-
-11:                                               ; preds = %._crit_edge
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %12 = and i16 %.pre, 1
-  %.not.i = icmp eq i16 %12, 0
-  br i1 %.not.i, label %31, label %13
-
-13:                                               ; preds = %11
-  %14 = load i32, ptr %1, align 4, !alias.scope !17, !noalias !20
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %png_muldiv.exit.i, label %16
-
-16:                                               ; preds = %13
-  %17 = sitofp i32 %14 to double
-  %18 = fmul double %17, 1.000000e+05
-  %19 = uitofp nneg i32 %2 to double
-  %20 = fdiv double %18, %19
-  %21 = fadd double %20, 5.000000e-01
-  %22 = tail call double @llvm.floor.f64(double %21)
-  %23 = fcmp ole double %22, 0x41DFFFFFFFC00000
-  %24 = fcmp oge double %22, 0xC1E0000000000000
-  %or.cond3.i.i = and i1 %23, %24
-  br i1 %or.cond3.i.i, label %25, label %png_muldiv.exit.i
-
-25:                                               ; preds = %16
-  %26 = fptosi double %22 to i32
-  %27 = add i32 %26, -95000
-  %28 = icmp ult i32 %27, 10001
-  br i1 %28, label %31, label %png_muldiv.exit.i
-
-png_muldiv.exit.i:                                ; preds = %25, %16, %13
-  %29 = and i16 %.pre, 32
-  %.not20 = icmp eq i16 %29, 0
-  br i1 %.not20, label %30, label %png_colorspace_check_gamma.exit
-
-30:                                               ; preds = %png_muldiv.exit.i
-  tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, i32 noundef 0) #29, !noalias !17
-  br label %31
-
-png_colorspace_check_gamma.exit:                  ; preds = %png_muldiv.exit.i
-  tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, i32 noundef 2) #29, !noalias !17
-  br label %37
-
-31:                                               ; preds = %30, %25, %11
-  store i32 %2, ptr %1, align 4
-  %32 = or i16 %.pre, 9
-  store i16 %32, ptr %10, align 2
-  br label %37
-
-33:                                               ; preds = %5, %._crit_edge21
-  %34 = phi i16 [ %.pre23, %._crit_edge21 ], [ %.pre, %5 ]
-  %.0 = phi ptr [ @.str.20, %._crit_edge21 ], [ @.str.21, %5 ]
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %36 = or i16 %34, -32768
-  store i16 %36, ptr %35, align 2
-  tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef 1) #29
-  br label %37
-
-37:                                               ; preds = %png_colorspace_check_gamma.exit, %31, %._crit_edge, %33
-  ret void
-}
-
-declare void @png_chunk_report(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind uwtable
-define void @png_colorspace_sync_info(ptr noalias noundef %0, ptr noalias noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 126
-  %4 = load i16, ptr %3, align 2
-  %.not = icmp sgt i16 %4, -1
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8
-  br i1 %.not, label %21, label %7
-
-7:                                                ; preds = %2
-  %8 = and i32 %6, -6150
-  store i32 %8, ptr %5, align 8
-  %9 = icmp eq ptr %0, null
-  br i1 %9, label %png_free_data.exit, label %10
-
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %12 = load i32, ptr %11, align 4, !alias.scope !22, !noalias !25
-  %13 = and i32 %12, 16
-  %.not173.i = icmp eq i32 %13, 0
-  br i1 %.not173.i, label %19, label %14
-
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %16 = load ptr, ptr %15, align 8, !alias.scope !22, !noalias !25
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %16) #29
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %18 = load ptr, ptr %17, align 8, !alias.scope !22, !noalias !25
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %18) #29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !22, !noalias !25
-  store i32 %8, ptr %5, align 8, !alias.scope !22, !noalias !25
-  br label %19
-
-19:                                               ; preds = %14, %10
-  %20 = and i32 %12, -17
-  store i32 %20, ptr %11, align 4, !alias.scope !22, !noalias !25
-  br label %png_free_data.exit
-
-21:                                               ; preds = %2
-  %22 = and i32 %6, -2053
-  %23 = shl i16 %4, 4
-  %24 = and i16 %23, 2048
-  %masksel = zext nneg i16 %24 to i32
-  %25 = or disjoint i32 %22, %masksel
-  %26 = shl nuw i16 %4, 1
-  %27 = and i16 %26, 4
-  %masksel16 = zext nneg i16 %27 to i32
-  %28 = or disjoint i32 %25, %masksel16
-  %29 = and i16 %4, 1
-  %.not15 = icmp eq i16 %29, 0
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not15, label %33, label %31
-
-31:                                               ; preds = %21
-  %32 = or i32 %28, 1
-  store i32 %32, ptr %30, align 8
-  br label %png_free_data.exit
-
-33:                                               ; preds = %21
-  %34 = and i32 %28, -2
-  store i32 %34, ptr %30, align 8
-  br label %png_free_data.exit
-
-png_free_data.exit:                               ; preds = %19, %7, %31, %33
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @png_colorspace_sync(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = icmp eq ptr %1, null
-  br i1 %3, label %png_colorspace_sync_info.exit, label %4
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %5, ptr noundef nonnull align 8 dereferenceable(76) %6, i64 76, i1 false)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 126
-  %8 = load i16, ptr %7, align 2, !alias.scope !27, !noalias !30
-  %.not.i = icmp sgt i16 %8, -1
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 8, !alias.scope !27, !noalias !30
-  br i1 %.not.i, label %23, label %11
-
-11:                                               ; preds = %4
-  %12 = and i32 %10, -6150
-  store i32 %12, ptr %9, align 8, !alias.scope !27, !noalias !30
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %14 = load i32, ptr %13, align 4, !alias.scope !32, !noalias !35
-  %15 = and i32 %14, 16
-  %.not173.i.i = icmp eq i32 %15, 0
-  br i1 %.not173.i.i, label %21, label %16
-
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %18 = load ptr, ptr %17, align 8, !alias.scope !32, !noalias !35
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %18) #29, !noalias !27
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %20 = load ptr, ptr %19, align 8, !alias.scope !32, !noalias !35
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %20) #29, !noalias !27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !alias.scope !32, !noalias !35
-  store i32 %12, ptr %9, align 8, !alias.scope !32, !noalias !35
-  br label %21
-
-21:                                               ; preds = %16, %11
-  %22 = and i32 %14, -17
-  store i32 %22, ptr %13, align 4, !alias.scope !32, !noalias !35
-  br label %png_colorspace_sync_info.exit
-
-23:                                               ; preds = %4
-  %24 = and i32 %10, -2053
-  %25 = shl i16 %8, 4
-  %26 = and i16 %25, 2048
-  %27 = shl nuw i16 %8, 1
-  %28 = and i16 %27, 4
-  %29 = or disjoint i16 %28, %26
-  %30 = zext nneg i16 %29 to i32
-  %31 = or disjoint i32 %24, %30
-  %32 = and i16 %8, 1
-  %.not15.i = icmp eq i16 %32, 0
-  br i1 %.not15.i, label %35, label %33
-
-33:                                               ; preds = %23
-  %34 = or i32 %31, 1
-  store i32 %34, ptr %9, align 8, !alias.scope !27, !noalias !30
-  br label %png_colorspace_sync_info.exit
-
-35:                                               ; preds = %23
-  %36 = and i32 %31, -2
-  store i32 %36, ptr %9, align 8, !alias.scope !27, !noalias !30
-  br label %png_colorspace_sync_info.exit
-
-png_colorspace_sync_info.exit:                    ; preds = %35, %33, %21, %2
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @png_colorspace_set_chromaticities(ptr noalias noundef %0, ptr noalias noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = alloca %struct.png_XYZ, align 4
-  %6 = call fastcc i32 @png_colorspace_check_xy(ptr noundef %5, ptr noundef %2)
-  switch i32 %6, label %32 [
-    i32 0, label %7
-    i32 1, label %28
-  ]
-
-7:                                                ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %9 = load i16, ptr %8, align 2, !alias.scope !37, !noalias !40
-  %.not.i = icmp sgt i16 %9, -1
-  br i1 %.not.i, label %10, label %png_colorspace_set_xy_and_XYZ.exit
-
-10:                                               ; preds = %7
-  %11 = icmp sgt i32 %3, 1
-  %12 = and i16 %9, 2
-  %.not17.i = icmp eq i16 %12, 0
-  %or.cond.i = or i1 %11, %.not17.i
-  br i1 %or.cond.i, label %21, label %13
-
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = tail call fastcc i32 @png_colorspace_endpoints_match(ptr noundef readonly %2, ptr noundef nonnull %14, i32 noundef 100), !noalias !40
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %19
-
-17:                                               ; preds = %13
-  %18 = or disjoint i16 %9, -32768
-  store i16 %18, ptr %8, align 2, !alias.scope !37, !noalias !40
-  tail call void @png_benign_error(ptr noundef %0, ptr noundef nonnull @.str.71) #29, !noalias !37
-  br label %png_colorspace_set_xy_and_XYZ.exit
-
-19:                                               ; preds = %13
-  %20 = icmp eq i32 %3, 0
-  br i1 %20, label %png_colorspace_set_xy_and_XYZ.exit, label %21
-
-21:                                               ; preds = %19, %10
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %22, ptr noundef nonnull readonly align 4 dereferenceable(32) %2, i64 32, i1 false), !noalias !40
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %23, ptr noundef nonnull readonly align 4 dereferenceable(36) %5, i64 36, i1 false), !noalias !40
-  %24 = tail call fastcc i32 @png_colorspace_endpoints_match(ptr noundef nonnull readonly %2, ptr noundef nonnull @sRGB_xy, i32 noundef 1000), !noalias !42
-  %.not18.i = icmp eq i32 %24, 0
-  %25 = and i16 %9, 32701
-  %26 = or disjoint i16 %25, 2
-  %27 = or i16 %9, 66
-  %storemerge.i = select i1 %.not18.i, i16 %26, i16 %27
-  store i16 %storemerge.i, ptr %8, align 2, !alias.scope !37, !noalias !40
-  br label %png_colorspace_set_xy_and_XYZ.exit
-
-28:                                               ; preds = %4
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %30 = load i16, ptr %29, align 2
-  %31 = or i16 %30, -32768
-  store i16 %31, ptr %29, align 2
-  tail call void @png_benign_error(ptr noundef %0, ptr noundef nonnull @.str.22) #29
-  br label %png_colorspace_set_xy_and_XYZ.exit
-
-32:                                               ; preds = %4
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %34 = load i16, ptr %33, align 2
-  %35 = or i16 %34, -32768
-  store i16 %35, ptr %33, align 2
-  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.23) #27
-  unreachable
-
-png_colorspace_set_xy_and_XYZ.exit:               ; preds = %21, %19, %17, %7, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %17 ], [ 2, %21 ], [ 0, %7 ], [ 1, %19 ]
-  ret i32 %.0
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @png_colorspace_check_xy(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #15 {
-  %3 = alloca %struct.png_xy, align 4
-  %4 = load i32, ptr %1, align 4
-  %or.cond.i = icmp ugt i32 %4, 100000
-  br i1 %or.cond.i, label %png_XYZ_from_xy.exit.thread, label %5
+define range(i32 0, 2) i32 @png_xy_from_XYZ(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  %4 = load i32, ptr %1, align 4, !tbaa !115
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !117
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i32, ptr %7, align 4, !tbaa !118
+  %9 = icmp sgt i32 %6, 0
+  br i1 %9, label %10, label %13
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i32, ptr %6, align 4
-  %8 = icmp slt i32 %7, 0
-  %9 = sub nuw nsw i32 100000, %4
-  %10 = icmp sgt i32 %7, %9
-  %or.cond88.i = select i1 %8, i1 true, i1 %10
-  br i1 %or.cond88.i, label %png_XYZ_from_xy.exit.thread, label %11
+10:                                               ; preds = %2
+  %11 = sub nuw nsw i32 2147483647, %6
+  %.not15.i.i = icmp slt i32 %11, %8
+  %12 = add nsw i32 %8, %6
+  %spec.select13.i = select i1 %.not15.i.i, i32 50000, i32 %12
+  br label %png_fp_add.exit.i
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 4
-  %or.cond89.i = icmp ugt i32 %13, 100000
-  br i1 %or.cond89.i, label %png_XYZ_from_xy.exit.thread, label %14
+13:                                               ; preds = %2
+  %14 = icmp slt i32 %6, 0
+  br i1 %14, label %15, label %png_fp_add.exit.i
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, 0
-  %18 = sub nuw nsw i32 100000, %13
-  %19 = icmp sgt i32 %16, %18
-  %or.cond91.i = select i1 %17, i1 true, i1 %19
-  br i1 %or.cond91.i, label %png_XYZ_from_xy.exit.thread, label %20
+15:                                               ; preds = %13
+  %16 = sub nsw i32 -2147483647, %6
+  %.not.i.i = icmp sgt i32 %16, %8
+  %17 = add nsw i32 %8, %6
+  %spec.select15.i = select i1 %.not.i.i, i32 50000, i32 %17
+  br label %png_fp_add.exit.i
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load i32, ptr %21, align 4
-  %or.cond92.i = icmp ugt i32 %22, 100000
-  br i1 %or.cond92.i, label %png_XYZ_from_xy.exit.thread, label %23
+png_fp_add.exit.i:                                ; preds = %15, %13, %10
+  %.0.shrunk.i = phi i1 [ false, %13 ], [ %.not15.i.i, %10 ], [ %.not.i.i, %15 ]
+  %.0.i.i = phi i32 [ %8, %13 ], [ %spec.select13.i, %10 ], [ %spec.select15.i, %15 ]
+  %18 = icmp sgt i32 %4, 0
+  br i1 %18, label %19, label %23
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp slt i32 %25, 0
-  %27 = sub nuw nsw i32 100000, %22
-  %28 = icmp sgt i32 %25, %27
-  %or.cond94.i = select i1 %26, i1 true, i1 %28
-  br i1 %or.cond94.i, label %png_XYZ_from_xy.exit.thread, label %29
+19:                                               ; preds = %png_fp_add.exit.i
+  %20 = sub nuw nsw i32 2147483647, %4
+  %.not15.i6.i = icmp slt i32 %20, %.0.i.i
+  br i1 %.not15.i6.i, label %png_safe_add.exit.thread, label %21
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load i32, ptr %30, align 4
-  %or.cond95.i = icmp ugt i32 %31, 100000
-  br i1 %or.cond95.i, label %png_XYZ_from_xy.exit.thread, label %32
+21:                                               ; preds = %19
+  %22 = add nsw i32 %.0.i.i, %4
+  br label %png_fp_add.exit7.i
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp slt i32 %34, 5
-  %36 = sub nuw nsw i32 100000, %31
-  %37 = icmp sgt i32 %34, %36
-  %or.cond97.i = select i1 %35, i1 true, i1 %37
-  br i1 %or.cond97.i, label %png_XYZ_from_xy.exit.thread, label %38
+23:                                               ; preds = %png_fp_add.exit.i
+  %24 = icmp slt i32 %4, 0
+  br i1 %24, label %25, label %png_fp_add.exit7.i
 
-38:                                               ; preds = %32
-  %39 = sub nsw i32 %13, %22
-  %40 = sub nsw i32 %7, %25
-  %41 = icmp eq i32 %13, %22
-  %42 = icmp eq i32 %7, %25
-  %or.cond.i.i = or i1 %41, %42
-  br i1 %or.cond.i.i, label %54, label %43
+25:                                               ; preds = %23
+  %26 = sub nsw i32 -2147483647, %4
+  %.not.i5.i = icmp sgt i32 %26, %.0.i.i
+  br i1 %.not.i5.i, label %png_safe_add.exit.thread, label %27
 
-43:                                               ; preds = %38
-  %44 = sitofp i32 %39 to double
-  %45 = sitofp i32 %40 to double
-  %46 = fmul double %44, %45
-  %47 = fdiv double %46, 7.000000e+00
-  %48 = fadd double %47, 5.000000e-01
-  %49 = tail call double @llvm.floor.f64(double %48)
-  %50 = fcmp ole double %49, 0x41DFFFFFFFC00000
-  %51 = fcmp oge double %49, 0xC1E0000000000000
-  %or.cond3.i.i = and i1 %50, %51
-  br i1 %or.cond3.i.i, label %52, label %png_XYZ_from_xy.exit.thread
+27:                                               ; preds = %25
+  %28 = add nsw i32 %.0.i.i, %4
+  br label %png_fp_add.exit7.i
 
-52:                                               ; preds = %43
-  %53 = fptosi double %49 to i32
-  br label %54
+png_fp_add.exit7.i:                               ; preds = %27, %23, %21
+  %.0.i4.i = phi i32 [ %22, %21 ], [ %28, %27 ], [ %.0.i.i, %23 ]
+  %.not.i = icmp eq i32 %.0.i4.i, 0
+  %or.cond = select i1 %.0.shrunk.i, i1 true, i1 %.not.i
+  br i1 %or.cond, label %png_safe_add.exit.thread, label %29
 
-54:                                               ; preds = %52, %38
-  %.0223.ph.i = phi i32 [ 0, %38 ], [ %53, %52 ]
-  %55 = sub nsw i32 %16, %25
-  %56 = sub nsw i32 %4, %22
-  %57 = icmp eq i32 %16, %25
-  %58 = icmp eq i32 %4, %22
-  %or.cond.i98.i = or i1 %58, %57
-  br i1 %or.cond.i98.i, label %70, label %59
+29:                                               ; preds = %png_fp_add.exit7.i
+  %30 = icmp eq i32 %4, 0
+  br i1 %30, label %42, label %31
 
-59:                                               ; preds = %54
-  %60 = sitofp i32 %55 to double
-  %61 = sitofp i32 %56 to double
-  %62 = fmul double %61, %60
-  %63 = fdiv double %62, 7.000000e+00
-  %64 = fadd double %63, 5.000000e-01
-  %65 = tail call double @llvm.floor.f64(double %64)
-  %66 = fcmp ole double %65, 0x41DFFFFFFFC00000
-  %67 = fcmp oge double %65, 0xC1E0000000000000
-  %or.cond3.i99.i = and i1 %66, %67
-  br i1 %or.cond3.i99.i, label %68, label %png_XYZ_from_xy.exit.thread
+31:                                               ; preds = %29
+  %32 = sitofp i32 %4 to double
+  %33 = fmul double %32, 1.000000e+05
+  %34 = sitofp i32 %.0.i4.i to double
+  %35 = fdiv double %33, %34
+  %36 = fadd double %35, 5.000000e-01
+  %37 = tail call double @llvm.floor.f64(double %36)
+  %38 = fcmp ole double %37, 0x41DFFFFFFFC00000
+  %39 = fcmp oge double %37, 0xC1E0000000000000
+  %or.cond3.i = and i1 %38, %39
+  br i1 %or.cond3.i, label %40, label %png_safe_add.exit.thread
 
-68:                                               ; preds = %59
-  %69 = fptosi double %65 to i32
-  br label %70
+40:                                               ; preds = %31
+  %41 = fptosi double %37 to i32
+  br label %42
 
-70:                                               ; preds = %68, %54
-  %.0222.ph.i = phi i32 [ 0, %54 ], [ %69, %68 ]
-  %71 = sub nsw i32 %.0223.ph.i, %.0222.ph.i
-  %72 = sub nsw i32 %34, %25
-  %73 = icmp eq i32 %34, %25
-  %or.cond.i104.i = or i1 %41, %73
-  br i1 %or.cond.i104.i, label %85, label %74
+42:                                               ; preds = %29, %40
+  %.sink.i = phi i32 [ %41, %40 ], [ 0, %29 ]
+  store i32 %.sink.i, ptr %0, align 4, !tbaa !43
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %44 = load i32, ptr %5, align 4, !tbaa !117
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %57, label %46
 
-74:                                               ; preds = %70
-  %75 = sitofp i32 %39 to double
-  %76 = sitofp i32 %72 to double
-  %77 = fmul double %75, %76
-  %78 = fdiv double %77, 7.000000e+00
-  %79 = fadd double %78, 5.000000e-01
-  %80 = tail call double @llvm.floor.f64(double %79)
-  %81 = fcmp ole double %80, 0x41DFFFFFFFC00000
-  %82 = fcmp oge double %80, 0xC1E0000000000000
-  %or.cond3.i105.i = and i1 %81, %82
-  br i1 %or.cond3.i105.i, label %83, label %png_XYZ_from_xy.exit.thread
+46:                                               ; preds = %42
+  %47 = sitofp i32 %44 to double
+  %48 = fmul double %47, 1.000000e+05
+  %49 = sitofp i32 %.0.i4.i to double
+  %50 = fdiv double %48, %49
+  %51 = fadd double %50, 5.000000e-01
+  %52 = tail call double @llvm.floor.f64(double %51)
+  %53 = fcmp ole double %52, 0x41DFFFFFFFC00000
+  %54 = fcmp oge double %52, 0xC1E0000000000000
+  %or.cond3.i48 = and i1 %53, %54
+  br i1 %or.cond3.i48, label %55, label %png_safe_add.exit.thread
 
-83:                                               ; preds = %74
-  %84 = fptosi double %80 to i32
-  br label %85
+55:                                               ; preds = %46
+  %56 = fptosi double %52 to i32
+  br label %57
 
-85:                                               ; preds = %83, %70
-  %.1224.ph.i = phi i32 [ 0, %70 ], [ %84, %83 ]
-  %86 = sub nsw i32 %31, %22
-  %87 = icmp eq i32 %31, %22
-  %or.cond.i110.i = or i1 %57, %87
-  br i1 %or.cond.i110.i, label %99, label %88
+57:                                               ; preds = %55, %42
+  %.sink.i51 = phi i32 [ %56, %55 ], [ 0, %42 ]
+  store i32 %.sink.i51, ptr %43, align 4, !tbaa !43
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %59 = load i32, ptr %58, align 4, !tbaa !119
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %61 = load i32, ptr %60, align 4, !tbaa !120
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %63 = load i32, ptr %62, align 4, !tbaa !121
+  %64 = icmp sgt i32 %61, 0
+  br i1 %64, label %65, label %68
 
-88:                                               ; preds = %85
-  %89 = sitofp i32 %55 to double
-  %90 = sitofp i32 %86 to double
-  %91 = fmul double %89, %90
-  %92 = fdiv double %91, 7.000000e+00
+65:                                               ; preds = %57
+  %66 = sub nuw nsw i32 2147483647, %61
+  %.not15.i.i63 = icmp slt i32 %66, %63
+  %67 = add nsw i32 %63, %61
+  %spec.select13.i64 = select i1 %.not15.i.i63, i32 50000, i32 %67
+  br label %png_fp_add.exit.i53
+
+68:                                               ; preds = %57
+  %69 = icmp slt i32 %61, 0
+  br i1 %69, label %70, label %png_fp_add.exit.i53
+
+70:                                               ; preds = %68
+  %71 = sub nsw i32 -2147483647, %61
+  %.not.i.i61 = icmp sgt i32 %71, %63
+  %72 = add nsw i32 %63, %61
+  %spec.select15.i62 = select i1 %.not.i.i61, i32 50000, i32 %72
+  br label %png_fp_add.exit.i53
+
+png_fp_add.exit.i53:                              ; preds = %70, %68, %65
+  %.0.shrunk.i54 = phi i1 [ false, %68 ], [ %.not15.i.i63, %65 ], [ %.not.i.i61, %70 ]
+  %.0.i.i55 = phi i32 [ %63, %68 ], [ %spec.select13.i64, %65 ], [ %spec.select15.i62, %70 ]
+  %73 = icmp sgt i32 %59, 0
+  br i1 %73, label %74, label %78
+
+74:                                               ; preds = %png_fp_add.exit.i53
+  %75 = sub nuw nsw i32 2147483647, %59
+  %.not15.i6.i60 = icmp slt i32 %75, %.0.i.i55
+  br i1 %.not15.i6.i60, label %png_safe_add.exit.thread, label %76
+
+76:                                               ; preds = %74
+  %77 = add nsw i32 %.0.i.i55, %59
+  br label %png_fp_add.exit7.i56
+
+78:                                               ; preds = %png_fp_add.exit.i53
+  %79 = icmp slt i32 %59, 0
+  br i1 %79, label %80, label %png_fp_add.exit7.i56
+
+80:                                               ; preds = %78
+  %81 = sub nsw i32 -2147483647, %59
+  %.not.i5.i59 = icmp sgt i32 %81, %.0.i.i55
+  br i1 %.not.i5.i59, label %png_safe_add.exit.thread, label %82
+
+82:                                               ; preds = %80
+  %83 = add nsw i32 %.0.i.i55, %59
+  br label %png_fp_add.exit7.i56
+
+png_fp_add.exit7.i56:                             ; preds = %82, %78, %76
+  %.0.i4.i57 = phi i32 [ %77, %76 ], [ %83, %82 ], [ %.0.i.i55, %78 ]
+  br i1 %.0.shrunk.i54, label %png_safe_add.exit.thread, label %84
+
+84:                                               ; preds = %png_fp_add.exit7.i56
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.not.i66 = icmp eq i32 %.0.i4.i57, 0
+  br i1 %.not.i66, label %png_safe_add.exit.thread, label %86
+
+86:                                               ; preds = %84
+  %87 = icmp eq i32 %59, 0
+  br i1 %87, label %99, label %88
+
+88:                                               ; preds = %86
+  %89 = sitofp i32 %59 to double
+  %90 = fmul double %89, 1.000000e+05
+  %91 = sitofp i32 %.0.i4.i57 to double
+  %92 = fdiv double %90, %91
   %93 = fadd double %92, 5.000000e-01
   %94 = tail call double @llvm.floor.f64(double %93)
   %95 = fcmp ole double %94, 0x41DFFFFFFFC00000
   %96 = fcmp oge double %94, 0xC1E0000000000000
-  %or.cond3.i111.i = and i1 %95, %96
-  br i1 %or.cond3.i111.i, label %97, label %png_XYZ_from_xy.exit.thread
+  %or.cond3.i67 = and i1 %95, %96
+  br i1 %or.cond3.i67, label %97, label %png_safe_add.exit.thread
 
 97:                                               ; preds = %88
   %98 = fptosi double %94 to i32
   br label %99
 
-99:                                               ; preds = %97, %85
-  %.1.ph.i = phi i32 [ 0, %85 ], [ %98, %97 ]
-  %100 = sub nsw i32 %.1224.ph.i, %.1.ph.i
-  %.not.i.i = icmp eq i32 %.1224.ph.i, %.1.ph.i
-  br i1 %.not.i.i, label %png_XYZ_from_xy.exit.thread, label %101
-
-101:                                              ; preds = %99
-  %102 = icmp eq i32 %.0223.ph.i, %.0222.ph.i
-  br i1 %102, label %png_muldiv.exit121.i, label %103
-
-103:                                              ; preds = %101
-  %104 = uitofp nneg i32 %34 to double
-  %105 = sitofp i32 %71 to double
-  %106 = fmul double %104, %105
-  %107 = sitofp i32 %100 to double
-  %108 = fdiv double %106, %107
-  %109 = fadd double %108, 5.000000e-01
-  %110 = tail call double @llvm.floor.f64(double %109)
-  %111 = fcmp ole double %110, 0x41DFFFFFFFC00000
-  %112 = fcmp oge double %110, 0xC1E0000000000000
-  %or.cond3.i117.i = and i1 %111, %112
-  br i1 %or.cond3.i117.i, label %113, label %png_XYZ_from_xy.exit.thread
-
-113:                                              ; preds = %103
-  %114 = fptosi double %110 to i32
-  br label %png_muldiv.exit121.i
-
-png_muldiv.exit121.i:                             ; preds = %113, %101
-  %.0227.i = phi i32 [ %114, %113 ], [ 0, %101 ]
-  %.not.i = icmp sgt i32 %.0227.i, %34
-  br i1 %.not.i, label %115, label %png_XYZ_from_xy.exit.thread
-
-115:                                              ; preds = %png_muldiv.exit121.i
-  %or.cond.i122.i = or i1 %42, %87
-  br i1 %or.cond.i122.i, label %127, label %116
-
-116:                                              ; preds = %115
-  %117 = sitofp i32 %40 to double
-  %118 = sitofp i32 %86 to double
-  %119 = fmul double %117, %118
-  %120 = fdiv double %119, 7.000000e+00
-  %121 = fadd double %120, 5.000000e-01
-  %122 = tail call double @llvm.floor.f64(double %121)
-  %123 = fcmp ole double %122, 0x41DFFFFFFFC00000
-  %124 = fcmp oge double %122, 0xC1E0000000000000
-  %or.cond3.i123.i = and i1 %123, %124
-  br i1 %or.cond3.i123.i, label %125, label %png_XYZ_from_xy.exit.thread
-
-125:                                              ; preds = %116
-  %126 = fptosi double %122 to i32
-  br label %127
-
-127:                                              ; preds = %125, %115
-  %.2225.ph.i = phi i32 [ 0, %115 ], [ %126, %125 ]
-  %or.cond.i128.i = or i1 %58, %73
-  br i1 %or.cond.i128.i, label %139, label %128
-
-128:                                              ; preds = %127
-  %129 = sitofp i32 %56 to double
-  %130 = sitofp i32 %72 to double
-  %131 = fmul double %129, %130
-  %132 = fdiv double %131, 7.000000e+00
-  %133 = fadd double %132, 5.000000e-01
-  %134 = tail call double @llvm.floor.f64(double %133)
-  %135 = fcmp ole double %134, 0x41DFFFFFFFC00000
-  %136 = fcmp oge double %134, 0xC1E0000000000000
-  %or.cond3.i129.i = and i1 %135, %136
-  br i1 %or.cond3.i129.i, label %137, label %png_XYZ_from_xy.exit.thread
-
-137:                                              ; preds = %128
-  %138 = fptosi double %134 to i32
-  br label %139
-
-139:                                              ; preds = %137, %127
-  %.2.ph.i = phi i32 [ 0, %127 ], [ %138, %137 ]
-  %140 = sub nsw i32 %.2225.ph.i, %.2.ph.i
-  %.not.i134.i = icmp eq i32 %.2225.ph.i, %.2.ph.i
-  br i1 %.not.i134.i, label %png_XYZ_from_xy.exit.thread, label %141
-
-141:                                              ; preds = %139
-  br i1 %102, label %png_muldiv.exit140.i, label %142
-
-142:                                              ; preds = %141
-  %143 = uitofp nneg i32 %34 to double
-  %144 = sitofp i32 %71 to double
-  %145 = fmul double %143, %144
-  %146 = sitofp i32 %140 to double
-  %147 = fdiv double %145, %146
-  %148 = fadd double %147, 5.000000e-01
-  %149 = tail call double @llvm.floor.f64(double %148)
-  %150 = fcmp ole double %149, 0x41DFFFFFFFC00000
-  %151 = fcmp oge double %149, 0xC1E0000000000000
-  %or.cond3.i136.i = and i1 %150, %151
-  br i1 %or.cond3.i136.i, label %152, label %png_XYZ_from_xy.exit.thread
-
-152:                                              ; preds = %142
-  %153 = fptosi double %149 to i32
-  br label %png_muldiv.exit140.i
-
-png_muldiv.exit140.i:                             ; preds = %152, %141
-  %.0226.i = phi i32 [ %153, %152 ], [ 0, %141 ]
-  %.not86.i = icmp sgt i32 %.0226.i, %34
-  br i1 %.not86.i, label %154, label %png_XYZ_from_xy.exit.thread
-
-154:                                              ; preds = %png_muldiv.exit140.i
-  %155 = uitofp nneg i32 %34 to double
-  %156 = fdiv double 1.000000e+10, %155
-  %157 = fadd double %156, 5.000000e-01
-  %158 = tail call double @llvm.floor.f64(double %157)
-  %159 = fcmp ole double %158, 0x41DFFFFFFFC00000
-  %160 = fcmp oge double %158, 0xC1E0000000000000
-  %or.cond.i141.i = and i1 %159, %160
-  %161 = fptosi double %158 to i32
-  %.0.i142.i = select i1 %or.cond.i141.i, i32 %161, i32 0
-  %162 = uitofp nneg i32 %.0227.i to double
-  %163 = fdiv double 1.000000e+10, %162
-  %164 = fadd double %163, 5.000000e-01
-  %165 = tail call double @llvm.floor.f64(double %164)
-  %166 = fcmp ole double %165, 0x41DFFFFFFFC00000
-  %167 = fcmp oge double %165, 0xC1E0000000000000
-  %or.cond.i143.i = and i1 %166, %167
-  %168 = fptosi double %165 to i32
-  %.0.i144.i = select i1 %or.cond.i143.i, i32 %168, i32 0
-  %169 = uitofp nneg i32 %.0226.i to double
-  %170 = fdiv double 1.000000e+10, %169
-  %171 = fadd double %170, 5.000000e-01
-  %172 = tail call double @llvm.floor.f64(double %171)
-  %173 = fcmp ole double %172, 0x41DFFFFFFFC00000
-  %174 = fcmp oge double %172, 0xC1E0000000000000
-  %or.cond.i145.i = and i1 %173, %174
-  %175 = fptosi double %172 to i32
-  %.0.i146.i = select i1 %or.cond.i145.i, i32 %175, i32 0
-  %176 = add i32 %.0.i144.i, %.0.i146.i
-  %177 = sub i32 %.0.i142.i, %176
-  %178 = icmp slt i32 %177, 1
-  br i1 %178, label %png_XYZ_from_xy.exit.thread, label %179
-
-179:                                              ; preds = %154
-  %180 = icmp eq i32 %4, 0
-  br i1 %180, label %191, label %181
-
-181:                                              ; preds = %179
-  %182 = uitofp nneg i32 %4 to double
-  %183 = fmul double %182, 1.000000e+05
-  %184 = fdiv double %183, %162
-  %185 = fadd double %184, 5.000000e-01
-  %186 = tail call double @llvm.floor.f64(double %185)
-  %187 = fcmp ole double %186, 0x41DFFFFFFFC00000
-  %188 = fcmp oge double %186, 0xC1E0000000000000
-  %or.cond3.i149.i = and i1 %187, %188
-  br i1 %or.cond3.i149.i, label %189, label %png_XYZ_from_xy.exit.thread
-
-189:                                              ; preds = %181
-  %190 = fptosi double %186 to i32
-  br label %191
-
-191:                                              ; preds = %189, %179
-  %.sink.i152.i = phi i32 [ %190, %189 ], [ 0, %179 ]
-  store i32 %.sink.i152.i, ptr %0, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %193 = load i32, ptr %6, align 4
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %205, label %195
-
-195:                                              ; preds = %191
-  %196 = sitofp i32 %193 to double
-  %197 = fmul double %196, 1.000000e+05
-  %198 = fdiv double %197, %162
-  %199 = fadd double %198, 5.000000e-01
-  %200 = tail call double @llvm.floor.f64(double %199)
-  %201 = fcmp ole double %200, 0x41DFFFFFFFC00000
-  %202 = fcmp oge double %200, 0xC1E0000000000000
-  %or.cond3.i156.i = and i1 %201, %202
-  br i1 %or.cond3.i156.i, label %203, label %png_XYZ_from_xy.exit.thread
-
-203:                                              ; preds = %195
-  %204 = fptosi double %200 to i32
-  br label %205
-
-205:                                              ; preds = %203, %191
-  %.sink.i159.i = phi i32 [ %204, %203 ], [ 0, %191 ]
-  store i32 %.sink.i159.i, ptr %192, align 4
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %207 = load i32, ptr %1, align 4
-  %208 = load i32, ptr %6, align 4
-  %209 = add i32 %208, %207
-  %210 = icmp eq i32 %209, 100000
-  br i1 %210, label %222, label %211
-
-211:                                              ; preds = %205
-  %212 = sub i32 100000, %209
-  %213 = sitofp i32 %212 to double
-  %214 = fmul double %213, 1.000000e+05
-  %215 = fdiv double %214, %162
-  %216 = fadd double %215, 5.000000e-01
-  %217 = tail call double @llvm.floor.f64(double %216)
-  %218 = fcmp ole double %217, 0x41DFFFFFFFC00000
-  %219 = fcmp oge double %217, 0xC1E0000000000000
-  %or.cond3.i163.i = and i1 %218, %219
-  br i1 %or.cond3.i163.i, label %220, label %png_XYZ_from_xy.exit.thread
-
-220:                                              ; preds = %211
-  %221 = fptosi double %217 to i32
-  br label %222
-
-222:                                              ; preds = %220, %205
-  %.sink.i166.i = phi i32 [ %221, %220 ], [ 0, %205 ]
-  store i32 %.sink.i166.i, ptr %206, align 4
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %224 = load i32, ptr %12, align 4
-  %225 = icmp eq i32 %224, 0
-  br i1 %225, label %236, label %226
-
-226:                                              ; preds = %222
-  %227 = sitofp i32 %224 to double
-  %228 = fmul double %227, 1.000000e+05
-  %229 = fdiv double %228, %169
-  %230 = fadd double %229, 5.000000e-01
-  %231 = tail call double @llvm.floor.f64(double %230)
-  %232 = fcmp ole double %231, 0x41DFFFFFFFC00000
-  %233 = fcmp oge double %231, 0xC1E0000000000000
-  %or.cond3.i170.i = and i1 %232, %233
-  br i1 %or.cond3.i170.i, label %234, label %png_XYZ_from_xy.exit.thread
-
-234:                                              ; preds = %226
-  %235 = fptosi double %231 to i32
-  br label %236
-
-236:                                              ; preds = %234, %222
-  %.sink.i173.i = phi i32 [ %235, %234 ], [ 0, %222 ]
-  store i32 %.sink.i173.i, ptr %223, align 4
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %238 = load i32, ptr %15, align 4
-  %239 = icmp eq i32 %238, 0
-  br i1 %239, label %250, label %240
-
-240:                                              ; preds = %236
-  %241 = sitofp i32 %238 to double
-  %242 = fmul double %241, 1.000000e+05
-  %243 = fdiv double %242, %169
-  %244 = fadd double %243, 5.000000e-01
-  %245 = tail call double @llvm.floor.f64(double %244)
-  %246 = fcmp ole double %245, 0x41DFFFFFFFC00000
-  %247 = fcmp oge double %245, 0xC1E0000000000000
-  %or.cond3.i177.i = and i1 %246, %247
-  br i1 %or.cond3.i177.i, label %248, label %png_XYZ_from_xy.exit.thread
-
-248:                                              ; preds = %240
-  %249 = fptosi double %245 to i32
-  br label %250
-
-250:                                              ; preds = %248, %236
-  %.sink.i180.i = phi i32 [ %249, %248 ], [ 0, %236 ]
-  store i32 %.sink.i180.i, ptr %237, align 4
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %252 = load i32, ptr %12, align 4
-  %253 = load i32, ptr %15, align 4
-  %254 = add i32 %253, %252
-  %255 = icmp eq i32 %254, 100000
-  br i1 %255, label %267, label %256
-
-256:                                              ; preds = %250
-  %257 = sub i32 100000, %254
-  %258 = sitofp i32 %257 to double
-  %259 = fmul double %258, 1.000000e+05
-  %260 = fdiv double %259, %169
-  %261 = fadd double %260, 5.000000e-01
-  %262 = tail call double @llvm.floor.f64(double %261)
-  %263 = fcmp ole double %262, 0x41DFFFFFFFC00000
-  %264 = fcmp oge double %262, 0xC1E0000000000000
-  %or.cond3.i184.i = and i1 %263, %264
-  br i1 %or.cond3.i184.i, label %265, label %png_XYZ_from_xy.exit.thread
-
-265:                                              ; preds = %256
-  %266 = fptosi double %262 to i32
-  br label %267
-
-267:                                              ; preds = %265, %250
-  %.sink.i187.i = phi i32 [ %266, %265 ], [ 0, %250 ]
-  store i32 %.sink.i187.i, ptr %251, align 4
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %269 = load i32, ptr %21, align 4
-  %270 = icmp eq i32 %269, 0
-  br i1 %270, label %282, label %271
-
-271:                                              ; preds = %267
-  %272 = sitofp i32 %269 to double
-  %273 = uitofp nneg i32 %177 to double
-  %274 = fmul double %273, %272
-  %275 = fdiv double %274, 1.000000e+05
-  %276 = fadd double %275, 5.000000e-01
-  %277 = tail call double @llvm.floor.f64(double %276)
-  %278 = fcmp ole double %277, 0x41DFFFFFFFC00000
-  %279 = fcmp oge double %277, 0xC1E0000000000000
-  %or.cond3.i190.i = and i1 %278, %279
-  br i1 %or.cond3.i190.i, label %280, label %png_XYZ_from_xy.exit.thread
-
-280:                                              ; preds = %271
-  %281 = fptosi double %277 to i32
-  br label %282
-
-282:                                              ; preds = %280, %267
-  %.sink.i193.i = phi i32 [ %281, %280 ], [ 0, %267 ]
-  store i32 %.sink.i193.i, ptr %268, align 4
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %284 = load i32, ptr %24, align 4
-  %285 = icmp eq i32 %284, 0
-  br i1 %285, label %297, label %286
-
-286:                                              ; preds = %282
-  %287 = sitofp i32 %284 to double
-  %288 = uitofp nneg i32 %177 to double
-  %289 = fmul double %288, %287
-  %290 = fdiv double %289, 1.000000e+05
-  %291 = fadd double %290, 5.000000e-01
-  %292 = tail call double @llvm.floor.f64(double %291)
-  %293 = fcmp ole double %292, 0x41DFFFFFFFC00000
-  %294 = fcmp oge double %292, 0xC1E0000000000000
-  %or.cond3.i196.i = and i1 %293, %294
-  br i1 %or.cond3.i196.i, label %295, label %png_XYZ_from_xy.exit.thread
-
-295:                                              ; preds = %286
-  %296 = fptosi double %292 to i32
-  br label %297
-
-297:                                              ; preds = %295, %282
-  %.sink.i199.i = phi i32 [ %296, %295 ], [ 0, %282 ]
-  store i32 %.sink.i199.i, ptr %283, align 4
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %299 = load i32, ptr %21, align 4
-  %300 = load i32, ptr %24, align 4
-  %301 = add i32 %300, %299
-  %302 = icmp eq i32 %301, 100000
-  br i1 %302, label %315, label %303
-
-303:                                              ; preds = %297
-  %304 = sub i32 100000, %301
-  %305 = sitofp i32 %304 to double
-  %306 = uitofp nneg i32 %177 to double
-  %307 = fmul double %306, %305
-  %308 = fdiv double %307, 1.000000e+05
-  %309 = fadd double %308, 5.000000e-01
-  %310 = tail call double @llvm.floor.f64(double %309)
-  %311 = fcmp ole double %310, 0x41DFFFFFFFC00000
-  %312 = fcmp oge double %310, 0xC1E0000000000000
-  %or.cond3.i202.i = and i1 %311, %312
-  br i1 %or.cond3.i202.i, label %313, label %png_XYZ_from_xy.exit.thread
-
-313:                                              ; preds = %303
-  %314 = fptosi double %310 to i32
-  br label %315
-
-315:                                              ; preds = %313, %297
-  %.sink.i205.i = phi i32 [ %314, %313 ], [ 0, %297 ]
-  store i32 %.sink.i205.i, ptr %298, align 4
-  %316 = call fastcc i32 @png_xy_from_XYZ(ptr noundef %3, ptr noundef %0)
-  %.not10 = icmp eq i32 %316, 0
-  br i1 %.not10, label %317, label %png_XYZ_from_xy.exit.thread
-
-317:                                              ; preds = %315
-  %318 = load i32, ptr %30, align 4
-  %319 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %320 = load i32, ptr %319, align 4
-  %321 = add nsw i32 %320, -5
-  %322 = icmp slt i32 %318, %321
-  %323 = add nsw i32 %320, 5
-  %324 = icmp sgt i32 %318, %323
-  %or.cond.i12 = select i1 %322, i1 true, i1 %324
-  br i1 %or.cond.i12, label %png_colorspace_endpoints_match.exit.thread, label %325
-
-325:                                              ; preds = %317
-  %326 = load i32, ptr %33, align 4
-  %327 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %328 = load i32, ptr %327, align 4
-  %329 = add nsw i32 %328, -5
-  %330 = icmp slt i32 %326, %329
-  %331 = add nsw i32 %328, 5
-  %332 = icmp sgt i32 %326, %331
-  %or.cond58.i = select i1 %330, i1 true, i1 %332
-  br i1 %or.cond58.i, label %png_colorspace_endpoints_match.exit.thread, label %333
-
-333:                                              ; preds = %325
-  %334 = load i32, ptr %1, align 4
-  %335 = load i32, ptr %3, align 4
-  %336 = add nsw i32 %335, -5
-  %337 = icmp slt i32 %334, %336
-  %338 = add nsw i32 %335, 5
-  %339 = icmp sgt i32 %334, %338
-  %or.cond60.i = select i1 %337, i1 true, i1 %339
-  br i1 %or.cond60.i, label %png_colorspace_endpoints_match.exit.thread, label %340
-
-340:                                              ; preds = %333
-  %341 = load i32, ptr %6, align 4
-  %342 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %343 = load i32, ptr %342, align 4
-  %344 = add nsw i32 %343, -5
-  %345 = icmp slt i32 %341, %344
-  %346 = add nsw i32 %343, 5
-  %347 = icmp sgt i32 %341, %346
-  %or.cond62.i = select i1 %345, i1 true, i1 %347
-  br i1 %or.cond62.i, label %png_colorspace_endpoints_match.exit.thread, label %348
-
-348:                                              ; preds = %340
-  %349 = load i32, ptr %12, align 4
-  %350 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %351 = load i32, ptr %350, align 4
-  %352 = add nsw i32 %351, -5
-  %353 = icmp slt i32 %349, %352
-  %354 = add nsw i32 %351, 5
-  %355 = icmp sgt i32 %349, %354
-  %or.cond64.i = select i1 %353, i1 true, i1 %355
-  br i1 %or.cond64.i, label %png_colorspace_endpoints_match.exit.thread, label %356
-
-356:                                              ; preds = %348
-  %357 = load i32, ptr %15, align 4
-  %358 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %359 = load i32, ptr %358, align 4
-  %360 = add nsw i32 %359, -5
-  %361 = icmp slt i32 %357, %360
-  %362 = add nsw i32 %359, 5
-  %363 = icmp sgt i32 %357, %362
-  %or.cond66.i = select i1 %361, i1 true, i1 %363
-  br i1 %or.cond66.i, label %png_colorspace_endpoints_match.exit.thread, label %364
-
-364:                                              ; preds = %356
-  %365 = load i32, ptr %21, align 4
-  %366 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %367 = load i32, ptr %366, align 4
-  %368 = add nsw i32 %367, -5
-  %369 = icmp slt i32 %365, %368
-  %370 = add nsw i32 %367, 5
-  %371 = icmp sgt i32 %365, %370
-  %or.cond68.i = select i1 %369, i1 true, i1 %371
-  br i1 %or.cond68.i, label %png_colorspace_endpoints_match.exit.thread, label %png_colorspace_endpoints_match.exit
-
-png_colorspace_endpoints_match.exit:              ; preds = %364
-  %372 = load i32, ptr %24, align 4
-  %373 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %374 = load i32, ptr %373, align 4
-  %375 = add nsw i32 %374, -5
-  %376 = icmp slt i32 %372, %375
-  %377 = add nsw i32 %374, 5
-  %378 = icmp sgt i32 %372, %377
-  %or.cond70.not.i.not = select i1 %376, i1 true, i1 %378
-  %cond.fr = freeze i1 %or.cond70.not.i.not
-  br i1 %cond.fr, label %png_colorspace_endpoints_match.exit.thread, label %png_XYZ_from_xy.exit.thread
-
-png_colorspace_endpoints_match.exit.thread:       ; preds = %317, %325, %333, %340, %348, %356, %364, %png_colorspace_endpoints_match.exit
-  br label %png_XYZ_from_xy.exit.thread
-
-png_XYZ_from_xy.exit.thread:                      ; preds = %286, %271, %256, %240, %226, %211, %195, %181, %139, %142, %99, %103, %303, %128, %116, %88, %74, %59, %43, %154, %png_muldiv.exit140.i, %png_muldiv.exit121.i, %32, %29, %23, %20, %14, %11, %5, %2, %png_colorspace_endpoints_match.exit.thread, %png_colorspace_endpoints_match.exit, %315
-  %.0 = phi i32 [ 1, %315 ], [ 1, %png_colorspace_endpoints_match.exit.thread ], [ 0, %png_colorspace_endpoints_match.exit ], [ 1, %286 ], [ 1, %271 ], [ 1, %256 ], [ 1, %240 ], [ 1, %226 ], [ 1, %211 ], [ 1, %195 ], [ 1, %181 ], [ 1, %139 ], [ 1, %142 ], [ 1, %99 ], [ 1, %103 ], [ 1, %303 ], [ 2, %128 ], [ 2, %116 ], [ 2, %88 ], [ 2, %74 ], [ 2, %59 ], [ 2, %43 ], [ 1, %154 ], [ 1, %png_muldiv.exit140.i ], [ 1, %png_muldiv.exit121.i ], [ 1, %32 ], [ 1, %29 ], [ 1, %23 ], [ 1, %20 ], [ 1, %14 ], [ 1, %11 ], [ 1, %5 ], [ 1, %2 ]
-  ret i32 %.0
-}
-
-declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @png_colorspace_set_endpoints(ptr noalias noundef %0, ptr noalias noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = alloca %struct.png_XYZ, align 4
-  %6 = alloca %struct.png_XYZ, align 4
-  %7 = alloca %struct.png_xy, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %2, i64 36, i1 false)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %png_colorspace_check_XYZ.exit.thread, label %11
-
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %png_colorspace_check_XYZ.exit.thread, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %png_colorspace_check_XYZ.exit.thread, label %19
-
-19:                                               ; preds = %15
-  %20 = load i32, ptr %6, align 4
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %png_colorspace_check_XYZ.exit.thread, label %22
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %png_colorspace_check_XYZ.exit.thread, label %26
-
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %png_colorspace_check_XYZ.exit.thread, label %30
-
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %png_colorspace_check_XYZ.exit.thread, label %34
-
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %png_colorspace_check_XYZ.exit.thread, label %38
-
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp slt i32 %40, 0
-  %42 = sub nuw nsw i32 2147483647, %9
-  %43 = icmp samesign ult i32 %42, %24
-  %or.cond.i.i = select i1 %41, i1 true, i1 %43
-  br i1 %or.cond.i.i, label %png_colorspace_check_XYZ.exit.thread, label %44
-
-44:                                               ; preds = %38
-  %45 = add nuw nsw i32 %13, %9
-  %46 = sub nuw nsw i32 2147483647, %45
-  %47 = icmp samesign ult i32 %46, %28
-  br i1 %47, label %png_colorspace_check_XYZ.exit.thread, label %48
-
-48:                                               ; preds = %44
-  %49 = add nuw nsw i32 %17, %45
-  switch i32 %49, label %50 [
-    i32 100000, label %png_XYZ_normalize.exit.i
-    i32 0, label %png_colorspace_check_XYZ.exit.thread
-  ]
-
-50:                                               ; preds = %48
-  %51 = icmp eq i32 %20, 0
-  br i1 %51, label %63, label %52
-
-52:                                               ; preds = %50
-  %53 = uitofp nneg i32 %20 to double
-  %54 = fmul double %53, 1.000000e+05
-  %55 = uitofp nneg i32 %49 to double
-  %56 = fdiv double %54, %55
-  %57 = fadd double %56, 5.000000e-01
-  %58 = tail call double @llvm.floor.f64(double %57)
-  %59 = fcmp ole double %58, 0x41DFFFFFFFC00000
-  %60 = fcmp oge double %58, 0xC1E0000000000000
-  %or.cond3.i.i.i = and i1 %59, %60
-  br i1 %or.cond3.i.i.i, label %61, label %png_colorspace_check_XYZ.exit.thread
-
-61:                                               ; preds = %52
-  %62 = fptosi double %58 to i32
-  br label %63
-
-63:                                               ; preds = %61, %50
-  %.sink.i.i.i = phi i32 [ %62, %61 ], [ 0, %50 ]
-  store i32 %.sink.i.i.i, ptr %6, align 4
-  %64 = icmp eq i32 %9, 0
-  br i1 %64, label %76, label %65
-
-65:                                               ; preds = %63
-  %66 = uitofp nneg i32 %9 to double
-  %67 = fmul double %66, 1.000000e+05
-  %68 = uitofp nneg i32 %49 to double
-  %69 = fdiv double %67, %68
-  %70 = fadd double %69, 5.000000e-01
-  %71 = tail call double @llvm.floor.f64(double %70)
-  %72 = fcmp ole double %71, 0x41DFFFFFFFC00000
-  %73 = fcmp oge double %71, 0xC1E0000000000000
-  %or.cond3.i55.i.i = and i1 %72, %73
-  br i1 %or.cond3.i55.i.i, label %74, label %png_colorspace_check_XYZ.exit.thread
-
-74:                                               ; preds = %65
-  %75 = fptosi double %71 to i32
-  br label %76
-
-76:                                               ; preds = %74, %63
-  %.sink.i58.i.i = phi i32 [ %75, %74 ], [ 0, %63 ]
-  store i32 %.sink.i58.i.i, ptr %8, align 4
-  %77 = icmp eq i32 %32, 0
-  br i1 %77, label %89, label %78
-
-78:                                               ; preds = %76
-  %79 = uitofp nneg i32 %32 to double
-  %80 = fmul double %79, 1.000000e+05
-  %81 = uitofp nneg i32 %49 to double
-  %82 = fdiv double %80, %81
-  %83 = fadd double %82, 5.000000e-01
-  %84 = tail call double @llvm.floor.f64(double %83)
-  %85 = fcmp ole double %84, 0x41DFFFFFFFC00000
-  %86 = fcmp oge double %84, 0xC1E0000000000000
-  %or.cond3.i61.i.i = and i1 %85, %86
-  br i1 %or.cond3.i61.i.i, label %87, label %png_colorspace_check_XYZ.exit.thread
-
-87:                                               ; preds = %78
-  %88 = fptosi double %84 to i32
-  br label %89
-
-89:                                               ; preds = %87, %76
-  %.sink.i64.i.i = phi i32 [ %88, %87 ], [ 0, %76 ]
-  store i32 %.sink.i64.i.i, ptr %31, align 4
-  %90 = icmp eq i32 %24, 0
-  br i1 %90, label %102, label %91
-
-91:                                               ; preds = %89
-  %92 = uitofp nneg i32 %24 to double
-  %93 = fmul double %92, 1.000000e+05
-  %94 = uitofp nneg i32 %49 to double
-  %95 = fdiv double %93, %94
-  %96 = fadd double %95, 5.000000e-01
-  %97 = tail call double @llvm.floor.f64(double %96)
-  %98 = fcmp ole double %97, 0x41DFFFFFFFC00000
-  %99 = fcmp oge double %97, 0xC1E0000000000000
-  %or.cond3.i67.i.i = and i1 %98, %99
-  br i1 %or.cond3.i67.i.i, label %100, label %png_colorspace_check_XYZ.exit.thread
-
-100:                                              ; preds = %91
-  %101 = fptosi double %97 to i32
-  br label %102
-
-102:                                              ; preds = %100, %89
-  %.sink.i70.i.i = phi i32 [ %101, %100 ], [ 0, %89 ]
-  store i32 %.sink.i70.i.i, ptr %23, align 4
-  %103 = icmp eq i32 %13, 0
-  br i1 %103, label %115, label %104
-
-104:                                              ; preds = %102
-  %105 = uitofp nneg i32 %13 to double
-  %106 = fmul double %105, 1.000000e+05
-  %107 = uitofp nneg i32 %49 to double
-  %108 = fdiv double %106, %107
-  %109 = fadd double %108, 5.000000e-01
-  %110 = tail call double @llvm.floor.f64(double %109)
-  %111 = fcmp ole double %110, 0x41DFFFFFFFC00000
-  %112 = fcmp oge double %110, 0xC1E0000000000000
-  %or.cond3.i73.i.i = and i1 %111, %112
-  br i1 %or.cond3.i73.i.i, label %113, label %png_colorspace_check_XYZ.exit.thread
-
-113:                                              ; preds = %104
-  %114 = fptosi double %110 to i32
-  br label %115
-
-115:                                              ; preds = %113, %102
-  %.sink.i76.i.i = phi i32 [ %114, %113 ], [ 0, %102 ]
-  store i32 %.sink.i76.i.i, ptr %12, align 4
-  %116 = icmp eq i32 %36, 0
-  br i1 %116, label %128, label %117
-
-117:                                              ; preds = %115
-  %118 = uitofp nneg i32 %36 to double
-  %119 = fmul double %118, 1.000000e+05
-  %120 = uitofp nneg i32 %49 to double
-  %121 = fdiv double %119, %120
-  %122 = fadd double %121, 5.000000e-01
-  %123 = tail call double @llvm.floor.f64(double %122)
-  %124 = fcmp ole double %123, 0x41DFFFFFFFC00000
-  %125 = fcmp oge double %123, 0xC1E0000000000000
-  %or.cond3.i79.i.i = and i1 %124, %125
-  br i1 %or.cond3.i79.i.i, label %126, label %png_colorspace_check_XYZ.exit.thread
-
-126:                                              ; preds = %117
-  %127 = fptosi double %123 to i32
-  br label %128
-
-128:                                              ; preds = %126, %115
-  %.sink.i82.i.i = phi i32 [ %127, %126 ], [ 0, %115 ]
-  store i32 %.sink.i82.i.i, ptr %35, align 4
-  %129 = icmp eq i32 %28, 0
-  br i1 %129, label %141, label %130
-
-130:                                              ; preds = %128
-  %131 = uitofp nneg i32 %28 to double
-  %132 = fmul double %131, 1.000000e+05
-  %133 = uitofp nneg i32 %49 to double
-  %134 = fdiv double %132, %133
-  %135 = fadd double %134, 5.000000e-01
-  %136 = tail call double @llvm.floor.f64(double %135)
-  %137 = fcmp ole double %136, 0x41DFFFFFFFC00000
-  %138 = fcmp oge double %136, 0xC1E0000000000000
-  %or.cond3.i85.i.i = and i1 %137, %138
-  br i1 %or.cond3.i85.i.i, label %139, label %png_colorspace_check_XYZ.exit.thread
-
-139:                                              ; preds = %130
-  %140 = fptosi double %136 to i32
-  br label %141
-
-141:                                              ; preds = %139, %128
-  %.sink.i88.i.i = phi i32 [ %140, %139 ], [ 0, %128 ]
-  store i32 %.sink.i88.i.i, ptr %27, align 4
-  %142 = icmp eq i32 %17, 0
-  br i1 %142, label %154, label %143
+99:                                               ; preds = %86, %97
+  %.sink.i70 = phi i32 [ %98, %97 ], [ 0, %86 ]
+  store i32 %.sink.i70, ptr %85, align 4, !tbaa !43
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %101 = load i32, ptr %60, align 4, !tbaa !120
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %114, label %103
+
+103:                                              ; preds = %99
+  %104 = sitofp i32 %101 to double
+  %105 = fmul double %104, 1.000000e+05
+  %106 = sitofp i32 %.0.i4.i57 to double
+  %107 = fdiv double %105, %106
+  %108 = fadd double %107, 5.000000e-01
+  %109 = tail call double @llvm.floor.f64(double %108)
+  %110 = fcmp ole double %109, 0x41DFFFFFFFC00000
+  %111 = fcmp oge double %109, 0xC1E0000000000000
+  %or.cond3.i73 = and i1 %110, %111
+  br i1 %or.cond3.i73, label %112, label %png_safe_add.exit.thread
+
+112:                                              ; preds = %103
+  %113 = fptosi double %109 to i32
+  br label %114
+
+114:                                              ; preds = %112, %99
+  %.sink.i76 = phi i32 [ %113, %112 ], [ 0, %99 ]
+  store i32 %.sink.i76, ptr %100, align 4, !tbaa !43
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %116 = load i32, ptr %115, align 4, !tbaa !122
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %118 = load i32, ptr %117, align 4, !tbaa !123
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %120 = load i32, ptr %119, align 4, !tbaa !124
+  %121 = icmp sgt i32 %118, 0
+  br i1 %121, label %122, label %125
+
+122:                                              ; preds = %114
+  %123 = sub nuw nsw i32 2147483647, %118
+  %.not15.i.i88 = icmp slt i32 %123, %120
+  %124 = add nsw i32 %120, %118
+  %spec.select13.i89 = select i1 %.not15.i.i88, i32 50000, i32 %124
+  br label %png_fp_add.exit.i78
+
+125:                                              ; preds = %114
+  %126 = icmp slt i32 %118, 0
+  br i1 %126, label %127, label %png_fp_add.exit.i78
+
+127:                                              ; preds = %125
+  %128 = sub nsw i32 -2147483647, %118
+  %.not.i.i86 = icmp sgt i32 %128, %120
+  %129 = add nsw i32 %120, %118
+  %spec.select15.i87 = select i1 %.not.i.i86, i32 50000, i32 %129
+  br label %png_fp_add.exit.i78
+
+png_fp_add.exit.i78:                              ; preds = %127, %125, %122
+  %.0.shrunk.i79 = phi i1 [ false, %125 ], [ %.not15.i.i88, %122 ], [ %.not.i.i86, %127 ]
+  %.0.i.i80 = phi i32 [ %120, %125 ], [ %spec.select13.i89, %122 ], [ %spec.select15.i87, %127 ]
+  %130 = icmp sgt i32 %116, 0
+  br i1 %130, label %131, label %135
+
+131:                                              ; preds = %png_fp_add.exit.i78
+  %132 = sub nuw nsw i32 2147483647, %116
+  %.not15.i6.i85 = icmp slt i32 %132, %.0.i.i80
+  br i1 %.not15.i6.i85, label %png_safe_add.exit.thread, label %133
+
+133:                                              ; preds = %131
+  %134 = add nsw i32 %.0.i.i80, %116
+  br label %png_fp_add.exit7.i81
+
+135:                                              ; preds = %png_fp_add.exit.i78
+  %136 = icmp slt i32 %116, 0
+  br i1 %136, label %137, label %png_fp_add.exit7.i81
+
+137:                                              ; preds = %135
+  %138 = sub nsw i32 -2147483647, %116
+  %.not.i5.i84 = icmp sgt i32 %138, %.0.i.i80
+  br i1 %.not.i5.i84, label %png_safe_add.exit.thread, label %139
+
+139:                                              ; preds = %137
+  %140 = add nsw i32 %.0.i.i80, %116
+  br label %png_fp_add.exit7.i81
+
+png_fp_add.exit7.i81:                             ; preds = %139, %135, %133
+  %.0.i4.i82 = phi i32 [ %134, %133 ], [ %140, %139 ], [ %.0.i.i80, %135 ]
+  br i1 %.0.shrunk.i79, label %png_safe_add.exit.thread, label %141
+
+141:                                              ; preds = %png_fp_add.exit7.i81
+  store i32 %.0.i4.i82, ptr %3, align 4, !tbaa !43
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.not.i91 = icmp eq i32 %.0.i4.i82, 0
+  br i1 %.not.i91, label %png_safe_add.exit.thread, label %143
 
 143:                                              ; preds = %141
-  %144 = uitofp nneg i32 %17 to double
-  %145 = fmul double %144, 1.000000e+05
-  %146 = uitofp nneg i32 %49 to double
-  %147 = fdiv double %145, %146
-  %148 = fadd double %147, 5.000000e-01
-  %149 = tail call double @llvm.floor.f64(double %148)
-  %150 = fcmp ole double %149, 0x41DFFFFFFFC00000
-  %151 = fcmp oge double %149, 0xC1E0000000000000
-  %or.cond3.i91.i.i = and i1 %150, %151
-  br i1 %or.cond3.i91.i.i, label %152, label %png_colorspace_check_XYZ.exit.thread
+  %144 = icmp eq i32 %116, 0
+  br i1 %144, label %156, label %145
 
-152:                                              ; preds = %143
-  %153 = fptosi double %149 to i32
-  br label %154
+145:                                              ; preds = %143
+  %146 = sitofp i32 %116 to double
+  %147 = fmul double %146, 1.000000e+05
+  %148 = sitofp i32 %.0.i4.i82 to double
+  %149 = fdiv double %147, %148
+  %150 = fadd double %149, 5.000000e-01
+  %151 = tail call double @llvm.floor.f64(double %150)
+  %152 = fcmp ole double %151, 0x41DFFFFFFFC00000
+  %153 = fcmp oge double %151, 0xC1E0000000000000
+  %or.cond3.i92 = and i1 %152, %153
+  br i1 %or.cond3.i92, label %154, label %png_safe_add.exit.thread
 
-154:                                              ; preds = %152, %141
-  %.sink.i94.i.i = phi i32 [ %153, %152 ], [ 0, %141 ]
-  store i32 %.sink.i94.i.i, ptr %16, align 4
-  %155 = icmp eq i32 %40, 0
-  br i1 %155, label %png_muldiv.exit101.i.i, label %156
+154:                                              ; preds = %145
+  %155 = fptosi double %151 to i32
+  br label %156
 
-156:                                              ; preds = %154
-  %157 = uitofp nneg i32 %40 to double
-  %158 = fmul double %157, 1.000000e+05
-  %159 = uitofp nneg i32 %49 to double
-  %160 = fdiv double %158, %159
-  %161 = fadd double %160, 5.000000e-01
-  %162 = tail call double @llvm.floor.f64(double %161)
-  %163 = fcmp ole double %162, 0x41DFFFFFFFC00000
-  %164 = fcmp oge double %162, 0xC1E0000000000000
-  %or.cond3.i97.i.i = and i1 %163, %164
-  br i1 %or.cond3.i97.i.i, label %165, label %png_colorspace_check_XYZ.exit.thread
+156:                                              ; preds = %143, %154
+  %.sink.i95 = phi i32 [ %155, %154 ], [ 0, %143 ]
+  store i32 %.sink.i95, ptr %142, align 4, !tbaa !43
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %158 = load i32, ptr %117, align 4, !tbaa !123
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %171, label %160
 
-165:                                              ; preds = %156
-  %166 = fptosi double %162 to i32
-  br label %png_muldiv.exit101.i.i
+160:                                              ; preds = %156
+  %161 = sitofp i32 %158 to double
+  %162 = fmul double %161, 1.000000e+05
+  %163 = sitofp i32 %.0.i4.i82 to double
+  %164 = fdiv double %162, %163
+  %165 = fadd double %164, 5.000000e-01
+  %166 = tail call double @llvm.floor.f64(double %165)
+  %167 = fcmp ole double %166, 0x41DFFFFFFFC00000
+  %168 = fcmp oge double %166, 0xC1E0000000000000
+  %or.cond3.i98 = and i1 %167, %168
+  br i1 %or.cond3.i98, label %169, label %png_safe_add.exit.thread
 
-png_muldiv.exit101.i.i:                           ; preds = %165, %154
-  %.sink.i100.i.i = phi i32 [ %166, %165 ], [ 0, %154 ]
-  store i32 %.sink.i100.i.i, ptr %39, align 4
-  br label %png_XYZ_normalize.exit.i
+169:                                              ; preds = %160
+  %170 = fptosi double %166 to i32
+  br label %171
 
-png_XYZ_normalize.exit.i:                         ; preds = %png_muldiv.exit101.i.i, %48
-  %167 = call fastcc i32 @png_xy_from_XYZ(ptr noundef nonnull %7, ptr noundef nonnull %6)
-  %.not11.i = icmp eq i32 %167, 0
-  br i1 %.not11.i, label %png_colorspace_check_XYZ.exit, label %png_colorspace_check_XYZ.exit.thread
+171:                                              ; preds = %169, %156
+  %.sink.i101 = phi i32 [ %170, %169 ], [ 0, %156 ]
+  store i32 %.sink.i101, ptr %157, align 4, !tbaa !43
+  %172 = call fastcc i32 @png_safe_add(ptr noundef %3, i32 noundef %.0.i4.i, i32 noundef %.0.i4.i57)
+  %.not44 = icmp eq i32 %172, 0
+  br i1 %.not44, label %173, label %png_safe_add.exit.thread
 
-png_colorspace_check_XYZ.exit.thread:             ; preds = %png_XYZ_normalize.exit.i, %38, %34, %30, %26, %22, %19, %15, %11, %4, %44, %52, %65, %78, %91, %104, %117, %130, %143, %156, %48
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
-  br label %286
+173:                                              ; preds = %171
+  %174 = load i32, ptr %3, align 4, !tbaa !43
+  %175 = load i32, ptr %1, align 4, !tbaa !115
+  store i32 %175, ptr %3, align 4, !tbaa !43
+  %176 = load i32, ptr %58, align 4, !tbaa !119
+  %177 = load i32, ptr %115, align 4, !tbaa !122
+  %178 = call fastcc i32 @png_safe_add(ptr noundef %3, i32 noundef %176, i32 noundef %177)
+  %.not45 = icmp eq i32 %178, 0
+  br i1 %.not45, label %179, label %png_safe_add.exit.thread
 
-png_colorspace_check_XYZ.exit:                    ; preds = %png_XYZ_normalize.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %6, i64 36, i1 false)
-  %168 = call fastcc i32 @png_colorspace_check_xy(ptr noundef %5, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
-  switch i32 %168, label %290 [
-    i32 0, label %169
-    i32 1, label %286
-  ]
+179:                                              ; preds = %173
+  %180 = load i32, ptr %3, align 4, !tbaa !43
+  %181 = load i32, ptr %5, align 4, !tbaa !117
+  store i32 %181, ptr %3, align 4, !tbaa !43
+  %182 = load i32, ptr %60, align 4, !tbaa !120
+  %183 = load i32, ptr %117, align 4, !tbaa !123
+  %184 = call fastcc i32 @png_safe_add(ptr noundef %3, i32 noundef %182, i32 noundef %183)
+  %.not46 = icmp eq i32 %184, 0
+  br i1 %.not46, label %185, label %png_safe_add.exit.thread
 
-169:                                              ; preds = %png_colorspace_check_XYZ.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %171 = load i16, ptr %170, align 2, !alias.scope !43, !noalias !46
-  %.not.i = icmp sgt i16 %171, -1
-  br i1 %.not.i, label %172, label %png_colorspace_set_xy_and_XYZ.exit
+185:                                              ; preds = %179
+  %186 = load i32, ptr %3, align 4, !tbaa !43
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.not.i103 = icmp eq i32 %174, 0
+  br i1 %.not.i103, label %png_safe_add.exit.thread, label %188
 
-172:                                              ; preds = %169
-  %173 = icmp sgt i32 %3, 1
-  %174 = and i16 %171, 2
-  %.not17.i = icmp eq i16 %174, 0
-  %or.cond.i = or i1 %173, %.not17.i
-  br i1 %or.cond.i, label %._crit_edge, label %175
+188:                                              ; preds = %185
+  %189 = icmp eq i32 %180, 0
+  br i1 %189, label %201, label %190
 
-._crit_edge:                                      ; preds = %172
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noalias !48
-  br label %248
+190:                                              ; preds = %188
+  %191 = sitofp i32 %180 to double
+  %192 = fmul double %191, 1.000000e+05
+  %193 = sitofp i32 %174 to double
+  %194 = fdiv double %192, %193
+  %195 = fadd double %194, 5.000000e-01
+  %196 = tail call double @llvm.floor.f64(double %195)
+  %197 = fcmp ole double %196, 0x41DFFFFFFFC00000
+  %198 = fcmp oge double %196, 0xC1E0000000000000
+  %or.cond3.i104 = and i1 %197, %198
+  br i1 %or.cond3.i104, label %199, label %png_safe_add.exit.thread
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %177 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %178 = load i32, ptr %177, align 4, !noalias !46
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %180 = load i32, ptr %179, align 4, !noalias !46
-  %181 = add nsw i32 %180, -100
-  %182 = icmp slt i32 %178, %181
-  %183 = add nsw i32 %180, 100
-  %184 = icmp sgt i32 %178, %183
-  %or.cond.i11 = select i1 %182, i1 true, i1 %184
-  br i1 %or.cond.i11, label %png_colorspace_endpoints_match.exit21.thread, label %185
+199:                                              ; preds = %190
+  %200 = fptosi double %196 to i32
+  br label %201
 
-185:                                              ; preds = %175
-  %186 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %187 = load i32, ptr %186, align 4, !noalias !46
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %189 = load i32, ptr %188, align 4, !noalias !46
-  %190 = add nsw i32 %189, -100
-  %191 = icmp slt i32 %187, %190
-  %192 = add nsw i32 %189, 100
-  %193 = icmp sgt i32 %187, %192
-  %or.cond58.i12 = select i1 %191, i1 true, i1 %193
-  br i1 %or.cond58.i12, label %png_colorspace_endpoints_match.exit21.thread, label %194
+201:                                              ; preds = %188, %199
+  %.sink.i107 = phi i32 [ %200, %199 ], [ 0, %188 ]
+  store i32 %.sink.i107, ptr %187, align 4, !tbaa !43
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %203 = icmp eq i32 %186, 0
+  br i1 %203, label %png_muldiv.exit114, label %204
 
-194:                                              ; preds = %185
-  %195 = load i32, ptr %7, align 4, !noalias !46
-  %196 = load i32, ptr %176, align 4, !noalias !46
-  %197 = add nsw i32 %196, -100
-  %198 = icmp slt i32 %195, %197
-  %199 = add nsw i32 %196, 100
-  %200 = icmp sgt i32 %195, %199
-  %or.cond60.i13 = select i1 %198, i1 true, i1 %200
-  br i1 %or.cond60.i13, label %png_colorspace_endpoints_match.exit21.thread, label %201
+204:                                              ; preds = %201
+  %205 = sitofp i32 %186 to double
+  %206 = fmul double %205, 1.000000e+05
+  %207 = sitofp i32 %174 to double
+  %208 = fdiv double %206, %207
+  %209 = fadd double %208, 5.000000e-01
+  %210 = tail call double @llvm.floor.f64(double %209)
+  %211 = fcmp ole double %210, 0x41DFFFFFFFC00000
+  %212 = fcmp oge double %210, 0xC1E0000000000000
+  %or.cond3.i110 = and i1 %211, %212
+  br i1 %or.cond3.i110, label %213, label %png_safe_add.exit.thread
 
-201:                                              ; preds = %194
-  %202 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %203 = load i32, ptr %202, align 4, !noalias !46
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %205 = load i32, ptr %204, align 4, !noalias !46
-  %206 = add nsw i32 %205, -100
-  %207 = icmp slt i32 %203, %206
-  %208 = add nsw i32 %205, 100
-  %209 = icmp sgt i32 %203, %208
-  %or.cond62.i14 = select i1 %207, i1 true, i1 %209
-  br i1 %or.cond62.i14, label %png_colorspace_endpoints_match.exit21.thread, label %210
+213:                                              ; preds = %204
+  %214 = fptosi double %210 to i32
+  br label %png_muldiv.exit114
 
-210:                                              ; preds = %201
-  %211 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %212 = load i32, ptr %211, align 4, !noalias !46
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %214 = load i32, ptr %213, align 4, !noalias !46
-  %215 = add nsw i32 %214, -100
-  %216 = icmp slt i32 %212, %215
-  %217 = add nsw i32 %214, 100
-  %218 = icmp sgt i32 %212, %217
-  %or.cond64.i15 = select i1 %216, i1 true, i1 %218
-  br i1 %or.cond64.i15, label %png_colorspace_endpoints_match.exit21.thread, label %219
+png_muldiv.exit114:                               ; preds = %201, %213
+  %.sink.i113 = phi i32 [ %214, %213 ], [ 0, %201 ]
+  store i32 %.sink.i113, ptr %202, align 4, !tbaa !43
+  br label %png_safe_add.exit.thread
 
-219:                                              ; preds = %210
-  %220 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %221 = load i32, ptr %220, align 4, !noalias !46
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %223 = load i32, ptr %222, align 4, !noalias !46
-  %224 = add nsw i32 %223, -100
-  %225 = icmp slt i32 %221, %224
-  %226 = add nsw i32 %223, 100
-  %227 = icmp sgt i32 %221, %226
-  %or.cond66.i16 = select i1 %225, i1 true, i1 %227
-  br i1 %or.cond66.i16, label %png_colorspace_endpoints_match.exit21.thread, label %228
-
-228:                                              ; preds = %219
-  %229 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %230 = load i32, ptr %229, align 4, !noalias !46
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %232 = load i32, ptr %231, align 4, !noalias !46
-  %233 = add nsw i32 %232, -100
-  %234 = icmp slt i32 %230, %233
-  %235 = add nsw i32 %232, 100
-  %236 = icmp sgt i32 %230, %235
-  %or.cond68.i17 = select i1 %234, i1 true, i1 %236
-  br i1 %or.cond68.i17, label %png_colorspace_endpoints_match.exit21.thread, label %png_colorspace_endpoints_match.exit21
-
-png_colorspace_endpoints_match.exit21:            ; preds = %228
-  %237 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %238 = load i32, ptr %237, align 4, !noalias !46
-  %239 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %240 = load i32, ptr %239, align 4, !noalias !46
-  %241 = add nsw i32 %240, -100
-  %242 = icmp slt i32 %238, %241
-  %243 = add nsw i32 %240, 100
-  %244 = icmp sgt i32 %238, %243
-  %or.cond70.not.i18.not = select i1 %242, i1 true, i1 %244
-  br i1 %or.cond70.not.i18.not, label %png_colorspace_endpoints_match.exit21.thread, label %246
-
-png_colorspace_endpoints_match.exit21.thread:     ; preds = %175, %185, %194, %201, %210, %219, %228, %png_colorspace_endpoints_match.exit21
-  %245 = or disjoint i16 %171, -32768
-  store i16 %245, ptr %170, align 2, !alias.scope !43, !noalias !46
-  tail call void @png_benign_error(ptr noundef %0, ptr noundef nonnull @.str.71) #29, !noalias !43
-  br label %png_colorspace_set_xy_and_XYZ.exit
-
-246:                                              ; preds = %png_colorspace_endpoints_match.exit21
-  %247 = icmp eq i32 %3, 0
-  br i1 %247, label %png_colorspace_set_xy_and_XYZ.exit, label %248
-
-248:                                              ; preds = %._crit_edge, %246
-  %249 = phi i32 [ %.pre, %._crit_edge ], [ %178, %246 ]
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %250, ptr noundef nonnull readonly align 4 dereferenceable(32) %7, i64 32, i1 false), !noalias !46
-  %251 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %251, ptr noundef nonnull readonly align 4 dereferenceable(36) %6, i64 36, i1 false), !noalias !46
-  %252 = add i32 %249, -32271
-  %or.cond.i9 = icmp ult i32 %252, -2001
-  br i1 %or.cond.i9, label %png_colorspace_endpoints_match.exit.thread, label %253
-
-253:                                              ; preds = %248
-  %254 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %255 = load i32, ptr %254, align 4, !noalias !48
-  %256 = add i32 %255, -33901
-  %or.cond58.i = icmp ult i32 %256, -2001
-  br i1 %or.cond58.i, label %png_colorspace_endpoints_match.exit.thread, label %257
-
-257:                                              ; preds = %253
-  %258 = load i32, ptr %7, align 4, !noalias !48
-  %259 = add i32 %258, -65001
-  %or.cond60.i = icmp ult i32 %259, -2001
-  br i1 %or.cond60.i, label %png_colorspace_endpoints_match.exit.thread, label %260
-
-260:                                              ; preds = %257
-  %261 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %262 = load i32, ptr %261, align 4, !noalias !48
-  %263 = add i32 %262, -34001
-  %or.cond62.i = icmp ult i32 %263, -2001
-  br i1 %or.cond62.i, label %png_colorspace_endpoints_match.exit.thread, label %264
-
-264:                                              ; preds = %260
-  %265 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %266 = load i32, ptr %265, align 4, !noalias !48
-  %267 = add i32 %266, -31001
-  %or.cond64.i = icmp ult i32 %267, -2001
-  br i1 %or.cond64.i, label %png_colorspace_endpoints_match.exit.thread, label %268
-
-268:                                              ; preds = %264
-  %269 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %270 = load i32, ptr %269, align 4, !noalias !48
-  %271 = add i32 %270, -61001
-  %or.cond66.i = icmp ult i32 %271, -2001
-  br i1 %or.cond66.i, label %png_colorspace_endpoints_match.exit.thread, label %272
-
-272:                                              ; preds = %268
-  %273 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %274 = load i32, ptr %273, align 4, !noalias !48
-  %275 = add i32 %274, -16001
-  %or.cond68.i = icmp ult i32 %275, -2001
-  br i1 %or.cond68.i, label %png_colorspace_endpoints_match.exit.thread, label %png_colorspace_endpoints_match.exit
-
-png_colorspace_endpoints_match.exit.thread:       ; preds = %272, %268, %264, %260, %257, %253, %248
-  %276 = and i16 %171, 32701
-  %277 = or disjoint i16 %276, 2
-  br label %284
-
-png_colorspace_endpoints_match.exit:              ; preds = %272
-  %278 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %279 = load i32, ptr %278, align 4, !noalias !48
-  %.fr28 = freeze i32 %279
-  %280 = add i32 %.fr28, -7001
-  %or.cond70.not.i = icmp ult i32 %280, -2001
-  %281 = and i16 %171, 32701
-  %282 = or disjoint i16 %281, 2
-  %283 = or i16 %171, 66
-  %spec.select = select i1 %or.cond70.not.i, i16 %282, i16 %283
-  br label %284
-
-284:                                              ; preds = %png_colorspace_endpoints_match.exit, %png_colorspace_endpoints_match.exit.thread
-  %285 = phi i16 [ %277, %png_colorspace_endpoints_match.exit.thread ], [ %spec.select, %png_colorspace_endpoints_match.exit ]
-  store i16 %285, ptr %170, align 2, !alias.scope !43, !noalias !46
-  br label %png_colorspace_set_xy_and_XYZ.exit
-
-286:                                              ; preds = %png_colorspace_check_XYZ.exit.thread, %png_colorspace_check_XYZ.exit
-  %287 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %288 = load i16, ptr %287, align 2
-  %289 = or i16 %288, -32768
-  store i16 %289, ptr %287, align 2
-  tail call void @png_benign_error(ptr noundef %0, ptr noundef nonnull @.str.24) #29
-  br label %png_colorspace_set_xy_and_XYZ.exit
-
-290:                                              ; preds = %png_colorspace_check_XYZ.exit
-  %291 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %292 = load i16, ptr %291, align 2
-  %293 = or i16 %292, -32768
-  store i16 %293, ptr %291, align 2
-  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.23) #27
-  unreachable
-
-png_colorspace_set_xy_and_XYZ.exit:               ; preds = %284, %246, %png_colorspace_endpoints_match.exit21.thread, %169, %286
-  %.0 = phi i32 [ 0, %286 ], [ 0, %png_colorspace_endpoints_match.exit21.thread ], [ 2, %284 ], [ 0, %169 ], [ 1, %246 ]
+png_safe_add.exit.thread:                         ; preds = %190, %185, %160, %145, %141, %131, %137, %png_fp_add.exit7.i81, %103, %88, %84, %74, %80, %png_fp_add.exit7.i56, %46, %31, %19, %25, %png_fp_add.exit7.i, %png_muldiv.exit114, %204, %179, %173, %171
+  %.0 = phi i32 [ 1, %171 ], [ 1, %173 ], [ 1, %179 ], [ 0, %png_muldiv.exit114 ], [ 1, %204 ], [ 1, %png_fp_add.exit7.i ], [ 1, %25 ], [ 1, %19 ], [ 1, %31 ], [ 1, %46 ], [ 1, %png_fp_add.exit7.i56 ], [ 1, %80 ], [ 1, %74 ], [ 1, %84 ], [ 1, %88 ], [ 1, %103 ], [ 1, %png_fp_add.exit7.i81 ], [ 1, %137 ], [ 1, %131 ], [ 1, %141 ], [ 1, %145 ], [ 1, %160 ], [ 1, %185 ], [ 1, %190 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %5 = load i16, ptr %4, align 2
-  %.not = icmp sgt i16 %5, -1
-  br i1 %.not, label %6, label %51
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc range(i32 0, 2) i32 @png_safe_add(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #16 {
+  %4 = load i32, ptr %0, align 4, !tbaa !43
+  %5 = icmp sgt i32 %1, 0
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %or.cond = icmp ugt i32 %2, 3
-  br i1 %or.cond, label %7, label %9
+  %7 = sub nuw nsw i32 2147483647, %1
+  %.not15.i = icmp slt i32 %7, %2
+  %8 = add nsw i32 %2, %1
+  %spec.select13 = select i1 %.not15.i, i32 50000, i32 %8
+  br label %png_fp_add.exit
 
-7:                                                ; preds = %6
-  %8 = sext i32 %2 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %8, ptr noundef nonnull @.str.26)
-  br label %51
-
-9:                                                ; preds = %6
-  %10 = and i16 %5, 4
-  %.not30 = icmp eq i16 %10, 0
-  br i1 %.not30, label %17, label %11
+9:                                                ; preds = %3
+  %10 = icmp slt i32 %1, 0
+  br i1 %10, label %11, label %png_fp_add.exit
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %13 = load i16, ptr %12, align 4
-  %14 = zext i16 %13 to i32
-  %.not31 = icmp eq i32 %2, %14
-  br i1 %.not31, label %17, label %15
+  %12 = sub nsw i32 -2147483647, %1
+  %.not.i = icmp sgt i32 %12, %2
+  %13 = add nsw i32 %2, %1
+  %spec.select15 = select i1 %.not.i, i32 50000, i32 %13
+  br label %png_fp_add.exit
 
-15:                                               ; preds = %11
-  %16 = zext nneg i32 %2 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %16, ptr noundef nonnull @.str.27)
-  br label %51
+png_fp_add.exit:                                  ; preds = %11, %6, %9
+  %.0.shrunk = phi i1 [ false, %9 ], [ %.not15.i, %6 ], [ %.not.i, %11 ]
+  %.0.i = phi i32 [ %2, %9 ], [ %spec.select13, %6 ], [ %spec.select15, %11 ]
+  %14 = icmp sgt i32 %4, 0
+  br i1 %14, label %15, label %19
 
-17:                                               ; preds = %11, %9
-  %18 = zext nneg i16 %5 to i32
-  %19 = and i32 %18, 32
-  %.not32 = icmp eq i32 %19, 0
-  br i1 %.not32, label %21, label %20
+15:                                               ; preds = %png_fp_add.exit
+  %16 = sub nuw nsw i32 2147483647, %4
+  %.not15.i6 = icmp slt i32 %16, %.0.i
+  br i1 %.not15.i6, label %png_fp_add.exit7.thread, label %17
 
-20:                                               ; preds = %17
-  tail call void @png_benign_error(ptr noundef %0, ptr noundef nonnull @.str.28) #29
-  br label %51
+17:                                               ; preds = %15
+  %18 = add nsw i32 %.0.i, %4
+  br label %png_fp_add.exit7
 
-21:                                               ; preds = %17
-  %22 = and i32 %18, 2
-  %.not33 = icmp eq i32 %22, 0
-  br i1 %.not33, label %27, label %23
+19:                                               ; preds = %png_fp_add.exit
+  %20 = icmp slt i32 %4, 0
+  br i1 %20, label %21, label %png_fp_add.exit7
+
+21:                                               ; preds = %19
+  %22 = sub nsw i32 -2147483647, %4
+  %.not.i5 = icmp sgt i32 %22, %.0.i
+  br i1 %.not.i5, label %png_fp_add.exit7.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %25 = tail call fastcc i32 @png_colorspace_endpoints_match(ptr noundef nonnull @sRGB_xy, ptr noundef nonnull %24, i32 noundef 100)
-  %.not34 = icmp eq i32 %25, 0
-  br i1 %.not34, label %26, label %27
-
-26:                                               ; preds = %23
-  tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 2) #29
-  %.pre = load i16, ptr %4, align 2, !alias.scope !49, !noalias !52
-  br label %27
-
-27:                                               ; preds = %26, %23, %21
-  %28 = phi i16 [ %.pre, %26 ], [ %5, %23 ], [ %5, %21 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %29 = and i16 %28, 1
-  %.not.i = icmp eq i16 %29, 0
-  br i1 %.not.i, label %png_colorspace_check_gamma.exit, label %30
-
-30:                                               ; preds = %27
-  %31 = load i32, ptr %1, align 4, !alias.scope !49, !noalias !52
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %png_muldiv.exit.i, label %33
-
-33:                                               ; preds = %30
-  %34 = sitofp i32 %31 to double
-  %35 = fmul double %34, 1.000000e+05
-  %36 = fdiv double %35, 4.545500e+04
-  %37 = fadd double %36, 5.000000e-01
-  %38 = tail call double @llvm.floor.f64(double %37)
-  %39 = fcmp ole double %38, 0x41DFFFFFFFC00000
-  %40 = fcmp oge double %38, 0xC1E0000000000000
-  %or.cond3.i.i = and i1 %39, %40
-  br i1 %or.cond3.i.i, label %41, label %png_muldiv.exit.i
-
-41:                                               ; preds = %33
-  %42 = fptosi double %38 to i32
-  %43 = add i32 %42, -95000
-  %44 = icmp ult i32 %43, 10001
-  br i1 %44, label %png_colorspace_check_gamma.exit, label %png_muldiv.exit.i
-
-png_muldiv.exit.i:                                ; preds = %41, %33, %30
-  tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.69, i32 noundef 2) #29, !noalias !49
-  %.pre35 = load i16, ptr %4, align 2
-  br label %png_colorspace_check_gamma.exit
-
-png_colorspace_check_gamma.exit:                  ; preds = %27, %41, %png_muldiv.exit.i
-  %45 = phi i16 [ %28, %27 ], [ %28, %41 ], [ %.pre35, %png_muldiv.exit.i ]
-  %46 = trunc nuw nsw i32 %2 to i16
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i16 %46, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %48, ptr noundef nonnull align 4 dereferenceable(32) @sRGB_xy, i64 32, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %49, ptr noundef nonnull align 4 dereferenceable(36) @png_colorspace_set_sRGB.sRGB_XYZ, i64 36, i1 false)
-  store i32 45455, ptr %1, align 4
-  %50 = or i16 %45, 231
-  store i16 %50, ptr %4, align 2
-  br label %51
-
-51:                                               ; preds = %3, %png_colorspace_check_gamma.exit, %20, %15, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 0, %20 ], [ 1, %png_colorspace_check_gamma.exit ], [ 0, %3 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 4294967296) %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = alloca [196 x i8], align 16
-  %7 = alloca [24 x i8], align 16
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %12, label %8
-
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %10 = load i16, ptr %9, align 2
-  %11 = or i16 %10, -32768
-  store i16 %11, ptr %9, align 2
-  br label %12
-
-12:                                               ; preds = %8, %5
-  %13 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef 0, ptr noundef nonnull @.str.72) #29
-  %14 = add i64 %13, 79
-  %15 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef %14, i64 noundef %13, ptr noundef %2) #29
-  %16 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %15, ptr noundef nonnull @.str.73) #29
-  %17 = lshr i64 %3, 24
-  %18 = icmp ne i64 %17, 32
-  %19 = add nsw i64 %17, -58
-  %or.cond.i.i = icmp ult i64 %19, -10
-  %or.cond10.i.not23.i = select i1 %18, i1 %or.cond.i.i, i1 false
-  %20 = add nsw i64 %17, -91
-  %or.cond3.i.i = icmp ult i64 %20, -26
-  %or.cond11.i.not22.i = select i1 %or.cond10.i.not23.i, i1 %or.cond3.i.i, i1 false
-  %21 = add nsw i64 %17, -123
-  %22 = icmp ult i64 %21, -26
-  %narrow.i.not.i = select i1 %or.cond11.i.not22.i, i1 %22, i1 false
-  br i1 %narrow.i.not.i, label %is_ICC_signature.exit.thread, label %23
-
-23:                                               ; preds = %12
-  %24 = lshr i64 %3, 16
-  %25 = and i64 %24, 255
-  %26 = icmp ne i64 %25, 32
-  %27 = add nsw i64 %25, -58
-  %or.cond.i6.i = icmp ult i64 %27, -10
-  %or.cond10.i7.not26.i = select i1 %26, i1 %or.cond.i6.i, i1 false
-  %28 = add nsw i64 %25, -91
-  %or.cond3.i8.i = icmp ult i64 %28, -26
-  %or.cond11.i9.not24.i = select i1 %or.cond10.i7.not26.i, i1 %or.cond3.i8.i, i1 false
-  %29 = add nsw i64 %25, -123
-  %30 = icmp ult i64 %29, -26
-  %narrow.i10.not.i = select i1 %or.cond11.i9.not24.i, i1 %30, i1 false
-  br i1 %narrow.i10.not.i, label %is_ICC_signature.exit.thread, label %31
-
-31:                                               ; preds = %23
-  %32 = lshr i64 %3, 8
-  %33 = and i64 %32, 255
-  %34 = icmp ne i64 %33, 32
-  %35 = add nsw i64 %33, -58
-  %or.cond.i11.i = icmp ult i64 %35, -10
-  %or.cond10.i12.not29.i = select i1 %34, i1 %or.cond.i11.i, i1 false
-  %36 = add nsw i64 %33, -91
-  %or.cond3.i13.i = icmp ult i64 %36, -26
-  %or.cond11.i14.not27.i = select i1 %or.cond10.i12.not29.i, i1 %or.cond3.i13.i, i1 false
-  %37 = add nsw i64 %33, -123
-  %38 = icmp ult i64 %37, -26
-  %narrow.i15.not.i = select i1 %or.cond11.i14.not27.i, i1 %38, i1 false
-  br i1 %narrow.i15.not.i, label %is_ICC_signature.exit.thread, label %is_ICC_signature.exit
-
-is_ICC_signature.exit:                            ; preds = %31
-  %39 = and i64 %3, 255
-  %40 = icmp ne i64 %39, 32
-  %41 = add nsw i64 %39, -58
-  %or.cond.i16.i = icmp ult i64 %41, -10
-  %or.cond10.i17.i.not26 = select i1 %40, i1 %or.cond.i16.i, i1 false
-  %42 = add nsw i64 %39, -91
-  %or.cond3.i18.i = icmp ult i64 %42, -26
-  %or.cond11.i19.i.not24 = select i1 %or.cond10.i17.i.not26, i1 %or.cond3.i18.i, i1 false
-  %43 = add nsw i64 %39, -123
-  %44 = icmp ult i64 %43, -26
-  %narrow.i20.i.not = select i1 %or.cond11.i19.i.not24, i1 %44, i1 false
-  br i1 %narrow.i20.i.not, label %is_ICC_signature.exit.thread, label %45
-
-45:                                               ; preds = %is_ICC_signature.exit
-  %46 = getelementptr inbounds i8, ptr %6, i64 %16
-  %47 = trunc i64 %3 to i32
-  store i8 39, ptr %46, align 1
-  %48 = lshr i32 %47, 24
-  %49 = add nsw i32 %48, -32
-  %or.cond.i.i20 = icmp ult i32 %49, 95
-  %50 = trunc nuw i32 %48 to i8
-  %.0.i.i = select i1 %or.cond.i.i20, i8 %50, i8 63
-  %51 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  store i8 %.0.i.i, ptr %51, align 1
-  %52 = lshr i32 %47, 16
-  %53 = and i32 %52, 255
-  %54 = add nsw i32 %53, -32
-  %or.cond.i9.i = icmp ult i32 %54, 95
-  %55 = trunc i32 %52 to i8
-  %.0.i10.i = select i1 %or.cond.i9.i, i8 %55, i8 63
-  %56 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  store i8 %.0.i10.i, ptr %56, align 1
-  %57 = lshr i32 %47, 8
-  %58 = and i32 %57, 255
-  %59 = add nsw i32 %58, -32
-  %or.cond.i11.i21 = icmp ult i32 %59, 95
-  %60 = trunc i32 %57 to i8
-  %.0.i12.i = select i1 %or.cond.i11.i21, i8 %60, i8 63
-  %61 = getelementptr inbounds nuw i8, ptr %46, i64 3
-  store i8 %.0.i12.i, ptr %61, align 1
-  %62 = and i32 %47, 255
-  %63 = add nsw i32 %62, -32
-  %or.cond.i13.i = icmp ult i32 %63, 95
-  %64 = trunc i64 %3 to i8
-  %.0.i14.i = select i1 %or.cond.i13.i, i8 %64, i8 63
-  %65 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i8 %.0.i14.i, ptr %65, align 1
-  %66 = getelementptr inbounds nuw i8, ptr %46, i64 5
-  store i8 39, ptr %66, align 1
-  %67 = add i64 %16, 6
-  %68 = add i64 %16, 7
-  %69 = getelementptr inbounds [196 x i8], ptr %6, i64 0, i64 %67
-  store i8 58, ptr %69, align 1
-  %70 = add i64 %16, 8
-  %71 = getelementptr inbounds [196 x i8], ptr %6, i64 0, i64 %68
-  store i8 32, ptr %71, align 1
-  br label %76
-
-is_ICC_signature.exit.thread:                     ; preds = %12, %23, %31, %is_ICC_signature.exit
-  %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %73 = call ptr @png_format_number(ptr noundef nonnull %7, ptr noundef nonnull %72, i32 noundef 3, i64 noundef %3) #29
-  %74 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %16, ptr noundef %73) #29
-  %75 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %74, ptr noundef nonnull @.str.74) #29
-  br label %76
-
-76:                                               ; preds = %is_ICC_signature.exit.thread, %45
-  %.0 = phi i64 [ %70, %45 ], [ %75, %is_ICC_signature.exit.thread ]
-  %77 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %.0, ptr noundef %4) #29
-  %78 = select i1 %.not, i32 1, i32 2
-  call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %78) #29
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @png_colorspace_endpoints_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 5, 1001) %2) unnamed_addr #10 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load i32, ptr %6, align 4
-  %8 = sub nsw i32 %7, %2
-  %9 = icmp slt i32 %5, %8
-  %10 = add nsw i32 %7, %2
-  %11 = icmp sgt i32 %5, %10
-  %or.cond = select i1 %9, i1 true, i1 %11
-  br i1 %or.cond, label %73, label %12
-
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %16 = load i32, ptr %15, align 4
-  %17 = sub nsw i32 %16, %2
-  %18 = icmp slt i32 %14, %17
-  %19 = add nsw i32 %16, %2
-  %20 = icmp sgt i32 %14, %19
-  %or.cond58 = select i1 %18, i1 true, i1 %20
-  br i1 %or.cond58, label %73, label %21
-
-21:                                               ; preds = %12
-  %22 = load i32, ptr %0, align 4
-  %23 = load i32, ptr %1, align 4
-  %24 = sub nsw i32 %23, %2
-  %25 = icmp slt i32 %22, %24
-  %26 = add nsw i32 %23, %2
-  %27 = icmp sgt i32 %22, %26
-  %or.cond60 = select i1 %25, i1 true, i1 %27
-  br i1 %or.cond60, label %73, label %28
-
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = sub nsw i32 %32, %2
-  %34 = icmp slt i32 %30, %33
-  %35 = add nsw i32 %32, %2
-  %36 = icmp sgt i32 %30, %35
-  %or.cond62 = select i1 %34, i1 true, i1 %36
-  br i1 %or.cond62, label %73, label %37
-
-37:                                               ; preds = %28
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %41 = load i32, ptr %40, align 4
-  %42 = sub nsw i32 %41, %2
-  %43 = icmp slt i32 %39, %42
-  %44 = add nsw i32 %41, %2
-  %45 = icmp sgt i32 %39, %44
-  %or.cond64 = select i1 %43, i1 true, i1 %45
-  br i1 %or.cond64, label %73, label %46
-
-46:                                               ; preds = %37
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %50 = load i32, ptr %49, align 4
-  %51 = sub nsw i32 %50, %2
-  %52 = icmp slt i32 %48, %51
-  %53 = add nsw i32 %50, %2
-  %54 = icmp sgt i32 %48, %53
-  %or.cond66 = select i1 %52, i1 true, i1 %54
-  br i1 %or.cond66, label %73, label %55
-
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %59 = load i32, ptr %58, align 4
-  %60 = sub nsw i32 %59, %2
-  %61 = icmp slt i32 %57, %60
-  %62 = add nsw i32 %59, %2
-  %63 = icmp sgt i32 %57, %62
-  %or.cond68 = select i1 %61, i1 true, i1 %63
-  br i1 %or.cond68, label %73, label %64
-
-64:                                               ; preds = %55
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %68 = load i32, ptr %67, align 4
-  %69 = sub nsw i32 %68, %2
-  %70 = icmp sge i32 %66, %69
-  %71 = add nsw i32 %68, %2
-  %72 = icmp sle i32 %66, %71
-  %or.cond70.not = select i1 %70, i1 %72, i1 false
-  %spec.select = zext i1 %or.cond70.not to i32
-  br label %73
-
-73:                                               ; preds = %64, %3, %12, %21, %28, %37, %46, %55
-  %.0 = phi i32 [ 0, %55 ], [ 0, %46 ], [ 0, %37 ], [ 0, %28 ], [ 0, %21 ], [ 0, %12 ], [ 0, %3 ], [ %spec.select, %64 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_icc_check_length(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = icmp ult i32 %3, 132
-  br i1 %5, label %icc_check_length.exit.thread, label %icc_check_length.exit
-
-icc_check_length.exit.thread:                     ; preds = %4
-  %6 = zext nneg i32 %3 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %6, ptr noundef nonnull @.str.75)
-  br label %13
-
-icc_check_length.exit:                            ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %8 = load i64, ptr %7, align 8
-  %.not13 = icmp eq i64 %8, 0
-  br i1 %.not13, label %13, label %9
-
-9:                                                ; preds = %icc_check_length.exit
-  %10 = zext i32 %3 to i64
-  %11 = icmp ult i64 %8, %10
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %9
-  tail call fastcc void @png_icc_profile_error(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %10, ptr noundef nonnull @.str.30)
-  br label %13
-
-13:                                               ; preds = %icc_check_length.exit.thread, %9, %icc_check_length.exit, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %icc_check_length.exit ], [ 1, %9 ], [ 0, %icc_check_length.exit.thread ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = load i8, ptr %4, align 1
-  %8 = zext i8 %7 to i32
-  %9 = shl nuw i32 %8, 24
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i32
-  %13 = shl nuw nsw i32 %12, 16
-  %14 = or disjoint i32 %13, %9
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = shl nuw nsw i32 %17, 8
-  %19 = or disjoint i32 %14, %18
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = or disjoint i32 %19, %22
-  %.not = icmp eq i32 %23, %3
-  br i1 %.not, label %26, label %24
-
-24:                                               ; preds = %6
-  %25 = zext i32 %23 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %25, ptr noundef nonnull @.str.31)
-  br label %182
-
-26:                                               ; preds = %6
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp ult i8 %28, 4
-  %30 = and i32 %3, 3
-  %.not109 = icmp eq i32 %30, 0
-  %or.cond = or i1 %.not109, %29
-  br i1 %or.cond, label %33, label %31
-
-31:                                               ; preds = %26
-  %32 = zext i32 %3 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %32, ptr noundef nonnull @.str.32)
-  br label %182
-
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = shl nuw i32 %36, 24
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 129
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, 16
-  %42 = or disjoint i32 %41, %37
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 130
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = shl nuw nsw i32 %45, 8
-  %47 = or disjoint i32 %42, %46
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 131
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = or disjoint i32 %47, %50
-  %52 = icmp ugt i32 %51, 357913930
-  br i1 %52, label %57, label %53
-
-53:                                               ; preds = %33
-  %54 = mul nuw i32 %51, 12
-  %55 = add nuw i32 %54, 132
-  %56 = icmp ult i32 %3, %55
-  br i1 %56, label %57, label %59
-
-57:                                               ; preds = %53, %33
-  %58 = zext i32 %51 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %58, ptr noundef nonnull @.str.33)
-  br label %182
-
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = shl nuw i32 %62, 24
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = shl nuw nsw i32 %66, 16
-  %68 = or disjoint i32 %67, %63
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 66
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %72 = shl nuw nsw i32 %71, 8
-  %73 = or disjoint i32 %68, %72
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 67
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = or disjoint i32 %73, %76
-  %78 = icmp ugt i32 %77, 65534
-  br i1 %78, label %79, label %81
-
-79:                                               ; preds = %59
-  %80 = zext i32 %77 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %80, ptr noundef nonnull @.str.34)
-  br label %182
-
-81:                                               ; preds = %59
-  %82 = icmp samesign ugt i32 %77, 3
-  br i1 %82, label %83, label %85
-
-83:                                               ; preds = %81
-  %84 = zext nneg i32 %77 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %84, ptr noundef nonnull @.str.35)
-  br label %85
-
-85:                                               ; preds = %83, %81
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = shl nuw i32 %88, 24
-  %90 = getelementptr inbounds nuw i8, ptr %4, i64 37
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 16
-  %94 = or disjoint i32 %93, %89
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 38
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw nsw i32 %97, 8
-  %99 = or disjoint i32 %94, %98
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 39
-  %101 = load i8, ptr %100, align 1
-  %102 = zext i8 %101 to i32
-  %103 = or disjoint i32 %99, %102
-  %.not110 = icmp eq i32 %103, 1633907568
-  br i1 %.not110, label %106, label %104
-
-104:                                              ; preds = %85
-  %105 = zext i32 %103 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %105, ptr noundef nonnull @.str.36)
-  br label %182
-
-106:                                              ; preds = %85
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %107, ptr noundef nonnull dereferenceable(12) @D50_nCIEXYZ, i64 12)
-  %.not111 = icmp eq i32 %bcmp, 0
-  br i1 %.not111, label %109, label %108
-
-108:                                              ; preds = %106
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef 0, ptr noundef nonnull @.str.37)
-  br label %109
-
-109:                                              ; preds = %108, %106
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %111 = load i8, ptr %110, align 1
-  %112 = zext i8 %111 to i32
-  %113 = shl nuw i32 %112, 24
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = shl nuw nsw i32 %116, 16
-  %118 = or disjoint i32 %117, %113
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i8 %120 to i32
-  %122 = shl nuw nsw i32 %121, 8
-  %123 = or disjoint i32 %118, %122
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  %127 = or disjoint i32 %123, %126
-  switch i32 %127, label %135 [
-    i32 1380401696, label %128
-    i32 1196573017, label %132
-  ]
-
-128:                                              ; preds = %109
-  %129 = and i32 %5, 2
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %131, label %137
-
-131:                                              ; preds = %128
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1380401696, ptr noundef nonnull @.str.38)
-  br label %182
-
-132:                                              ; preds = %109
-  %133 = and i32 %5, 2
-  %.not112 = icmp eq i32 %133, 0
-  br i1 %.not112, label %137, label %134
-
-134:                                              ; preds = %132
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1196573017, ptr noundef nonnull @.str.39)
-  br label %182
-
-135:                                              ; preds = %109
-  %136 = zext i32 %127 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %136, ptr noundef nonnull @.str.40)
-  br label %182
-
-137:                                              ; preds = %132, %128
-  %138 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %139 = load i8, ptr %138, align 1
-  %140 = zext i8 %139 to i32
-  %141 = shl nuw i32 %140, 24
-  %142 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i32
-  %145 = shl nuw nsw i32 %144, 16
-  %146 = or disjoint i32 %145, %141
-  %147 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i32
-  %150 = shl nuw nsw i32 %149, 8
-  %151 = or disjoint i32 %146, %150
-  %152 = getelementptr inbounds nuw i8, ptr %4, i64 15
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i32
-  %155 = or disjoint i32 %151, %154
-  switch i32 %155, label %159 [
-    i32 1935896178, label %161
-    i32 1835955314, label %161
-    i32 1886549106, label %161
-    i32 1936744803, label %161
-    i32 1633842036, label %156
-    i32 1818848875, label %157
-    i32 1852662636, label %158
-  ]
-
-156:                                              ; preds = %137
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1633842036, ptr noundef nonnull @.str.41)
-  br label %182
-
-157:                                              ; preds = %137
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 1818848875, ptr noundef nonnull @.str.42)
-  br label %182
-
-158:                                              ; preds = %137
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef 1852662636, ptr noundef nonnull @.str.43)
-  br label %161
-
-159:                                              ; preds = %137
-  %160 = zext i32 %155 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %160, ptr noundef nonnull @.str.44)
-  br label %161
-
-161:                                              ; preds = %137, %137, %137, %137, %159, %158
-  %162 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %163 = load i8, ptr %162, align 1
-  %164 = zext i8 %163 to i32
-  %165 = shl nuw i32 %164, 24
-  %166 = getelementptr inbounds nuw i8, ptr %4, i64 21
-  %167 = load i8, ptr %166, align 1
-  %168 = zext i8 %167 to i32
-  %169 = shl nuw nsw i32 %168, 16
-  %170 = or disjoint i32 %169, %165
-  %171 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  %172 = load i8, ptr %171, align 1
-  %173 = zext i8 %172 to i32
-  %174 = shl nuw nsw i32 %173, 8
-  %175 = or disjoint i32 %170, %174
-  %176 = getelementptr inbounds nuw i8, ptr %4, i64 23
-  %177 = load i8, ptr %176, align 1
-  %178 = zext i8 %177 to i32
-  %179 = or disjoint i32 %175, %178
-  switch i32 %179, label %180 [
-    i32 1482250784, label %182
-    i32 1281450528, label %182
-  ]
-
-180:                                              ; preds = %161
-  %181 = zext i32 %179 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %181, ptr noundef nonnull @.str.45)
-  br label %182
-
-182:                                              ; preds = %161, %161, %180, %157, %156, %135, %134, %131, %104, %79, %57, %31, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %31 ], [ 0, %57 ], [ 0, %79 ], [ 0, %104 ], [ 0, %135 ], [ 0, %134 ], [ 0, %180 ], [ 0, %157 ], [ 0, %156 ], [ 0, %131 ], [ 1, %161 ], [ 1, %161 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_icc_check_tag_table(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = shl nuw i32 %8, 24
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 129
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i32
-  %13 = shl nuw nsw i32 %12, 16
-  %14 = or disjoint i32 %13, %9
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 130
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = shl nuw nsw i32 %17, 8
-  %19 = or disjoint i32 %14, %18
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 131
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = or disjoint i32 %19, %22
-  %.not40 = icmp eq i32 %23, 0
-  br i1 %.not40, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %5
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 132
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %88
-  %.03439 = phi i32 [ %89, %88 ], [ 0, %.lr.ph.preheader ]
-  %.03538 = phi ptr [ %90, %88 ], [ %24, %.lr.ph.preheader ]
-  %25 = load i8, ptr %.03538, align 1
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw i32 %26, 24
-  %28 = getelementptr inbounds nuw i8, ptr %.03538, i64 1
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = shl nuw nsw i32 %30, 16
-  %32 = or disjoint i32 %31, %27
-  %33 = getelementptr inbounds nuw i8, ptr %.03538, i64 2
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
-  %37 = or disjoint i32 %32, %36
-  %38 = getelementptr inbounds nuw i8, ptr %.03538, i64 3
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = or disjoint i32 %37, %40
-  %42 = getelementptr inbounds nuw i8, ptr %.03538, i64 4
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw i32 %44, 24
-  %46 = getelementptr inbounds nuw i8, ptr %.03538, i64 5
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = shl nuw nsw i32 %48, 16
-  %50 = or disjoint i32 %49, %45
-  %51 = getelementptr inbounds nuw i8, ptr %.03538, i64 6
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = shl nuw nsw i32 %53, 8
-  %55 = or disjoint i32 %50, %54
-  %56 = getelementptr inbounds nuw i8, ptr %.03538, i64 7
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %55, %58
-  %60 = icmp ugt i32 %59, %3
-  br i1 %60, label %82, label %61
-
-61:                                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds nuw i8, ptr %.03538, i64 8
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = shl nuw i32 %64, 24
-  %66 = getelementptr inbounds nuw i8, ptr %.03538, i64 9
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = shl nuw nsw i32 %68, 16
-  %70 = or disjoint i32 %69, %65
-  %71 = getelementptr inbounds nuw i8, ptr %.03538, i64 10
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw nsw i32 %73, 8
-  %75 = or disjoint i32 %70, %74
-  %76 = getelementptr inbounds nuw i8, ptr %.03538, i64 11
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = or disjoint i32 %75, %78
-  %80 = sub nuw i32 %3, %59
-  %81 = icmp ugt i32 %79, %80
-  br i1 %81, label %82, label %84
-
-82:                                               ; preds = %61, %.lr.ph
-  %83 = zext i32 %41 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %83, ptr noundef nonnull @.str.46)
-  br label %.loopexit
-
-84:                                               ; preds = %61
-  %85 = and i32 %58, 3
-  %.not = icmp eq i32 %85, 0
-  br i1 %.not, label %88, label %86
-
-86:                                               ; preds = %84
-  %87 = zext i32 %41 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef null, ptr noundef %2, i64 noundef %87, ptr noundef nonnull @.str.47)
-  br label %88
-
-88:                                               ; preds = %84, %86
-  %89 = add nuw i32 %.03439, 1
-  %90 = getelementptr inbounds nuw i8, ptr %.03538, i64 12
-  %exitcond.not = icmp eq i32 %89, %23
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
-
-.loopexit:                                        ; preds = %88, %5, %82
-  %.0 = phi i32 [ 0, %82 ], [ 1, %5 ], [ 1, %88 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define void @png_icc_set_sRGB(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %6 = load i32, ptr %5, align 8, !alias.scope !55
-  %7 = and i32 %6, 48
-  %8 = icmp eq i32 %7, 48
-  br i1 %8, label %png_compare_ICC_profile_with_sRGB.exit.thread, label %.preheader.i
-
-.preheader.i:                                     ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %10 = load i8, ptr %9, align 1, !noalias !55
-  %11 = zext i8 %10 to i32
-  %12 = shl nuw i32 %11, 24
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  %14 = load i8, ptr %13, align 1, !noalias !55
-  %15 = zext i8 %14 to i32
-  %16 = shl nuw nsw i32 %15, 16
-  %17 = or disjoint i32 %16, %12
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  %19 = load i8, ptr %18, align 1, !noalias !55
-  %20 = zext i8 %19 to i32
-  %21 = shl nuw nsw i32 %20, 8
-  %22 = or disjoint i32 %17, %21
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 87
-  %24 = load i8, ptr %23, align 1, !noalias !55
-  %25 = zext i8 %24 to i32
-  %26 = or disjoint i32 %22, %25
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 89
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 90
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 91
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 92
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 93
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 94
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 95
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 97
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 98
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 99
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 65
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 66
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 67
-  br label %46
-
-46:                                               ; preds = %170, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %170 ]
-  %.05564.i = phi i32 [ 65536, %.preheader.i ], [ %.2.i, %170 ]
-  %.05663.i = phi i32 [ 0, %.preheader.i ], [ %.258.i, %170 ]
-  %47 = getelementptr inbounds nuw [7 x %struct.anon], ptr @png_sRGB_checks, i64 0, i64 %indvars.iv.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %49 = load i32, ptr %48, align 4, !noalias !55
-  %50 = icmp eq i32 %26, %49
-  br i1 %50, label %51, label %170
-
-51:                                               ; preds = %46
-  %52 = load i8, ptr %27, align 1, !noalias !55
-  %53 = zext i8 %52 to i32
-  %54 = shl nuw i32 %53, 24
-  %55 = load i8, ptr %28, align 1, !noalias !55
-  %56 = zext i8 %55 to i32
-  %57 = shl nuw nsw i32 %56, 16
-  %58 = or disjoint i32 %57, %54
-  %59 = load i8, ptr %29, align 1, !noalias !55
-  %60 = zext i8 %59 to i32
-  %61 = shl nuw nsw i32 %60, 8
-  %62 = or disjoint i32 %58, %61
-  %63 = load i8, ptr %30, align 1, !noalias !55
-  %64 = zext i8 %63 to i32
-  %65 = or disjoint i32 %62, %64
-  %66 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %67 = load i32, ptr %66, align 16, !noalias !55
-  %68 = icmp eq i32 %65, %67
-  br i1 %68, label %69, label %170
-
-69:                                               ; preds = %51
-  %70 = load i8, ptr %31, align 1, !noalias !55
-  %71 = zext i8 %70 to i32
-  %72 = shl nuw i32 %71, 24
-  %73 = load i8, ptr %32, align 1, !noalias !55
-  %74 = zext i8 %73 to i32
-  %75 = shl nuw nsw i32 %74, 16
-  %76 = or disjoint i32 %75, %72
-  %77 = load i8, ptr %33, align 1, !noalias !55
-  %78 = zext i8 %77 to i32
-  %79 = shl nuw nsw i32 %78, 8
-  %80 = or disjoint i32 %76, %79
-  %81 = load i8, ptr %34, align 1, !noalias !55
-  %82 = zext i8 %81 to i32
-  %83 = or disjoint i32 %80, %82
-  %84 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  %85 = load i32, ptr %84, align 4, !noalias !55
-  %86 = icmp eq i32 %83, %85
-  br i1 %86, label %87, label %170
-
-87:                                               ; preds = %69
-  %88 = load i8, ptr %35, align 1, !noalias !55
-  %89 = zext i8 %88 to i32
-  %90 = shl nuw i32 %89, 24
-  %91 = load i8, ptr %36, align 1, !noalias !55
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 16
-  %94 = or disjoint i32 %93, %90
-  %95 = load i8, ptr %37, align 1, !noalias !55
-  %96 = zext i8 %95 to i32
-  %97 = shl nuw nsw i32 %96, 8
-  %98 = or disjoint i32 %94, %97
-  %99 = load i8, ptr %38, align 1, !noalias !55
-  %100 = zext i8 %99 to i32
-  %101 = or disjoint i32 %98, %100
-  %102 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %103 = load i32, ptr %102, align 8, !noalias !55
-  %104 = icmp eq i32 %101, %103
-  br i1 %104, label %105, label %170
-
-105:                                              ; preds = %87
-  %106 = icmp eq i32 %.05663.i, 0
-  br i1 %106, label %107, label %136
-
-107:                                              ; preds = %105
-  %108 = load i8, ptr %2, align 1, !noalias !55
-  %109 = zext i8 %108 to i32
-  %110 = shl nuw i32 %109, 24
-  %111 = load i8, ptr %39, align 1, !noalias !55
-  %112 = zext i8 %111 to i32
-  %113 = shl nuw nsw i32 %112, 16
-  %114 = or disjoint i32 %113, %110
-  %115 = load i8, ptr %40, align 1, !noalias !55
-  %116 = zext i8 %115 to i32
-  %117 = shl nuw nsw i32 %116, 8
-  %118 = or disjoint i32 %114, %117
-  %119 = load i8, ptr %41, align 1, !noalias !55
-  %120 = zext i8 %119 to i32
-  %121 = or disjoint i32 %118, %120
-  %122 = load i8, ptr %42, align 1, !noalias !55
-  %123 = zext i8 %122 to i32
-  %124 = shl nuw i32 %123, 24
-  %125 = load i8, ptr %43, align 1, !noalias !55
-  %126 = zext i8 %125 to i32
-  %127 = shl nuw nsw i32 %126, 16
-  %128 = or disjoint i32 %127, %124
-  %129 = load i8, ptr %44, align 1, !noalias !55
-  %130 = zext i8 %129 to i32
-  %131 = shl nuw nsw i32 %130, 8
-  %132 = or disjoint i32 %128, %131
-  %133 = load i8, ptr %45, align 1, !noalias !55
-  %134 = zext i8 %133 to i32
-  %135 = or disjoint i32 %132, %134
-  br label %136
-
-136:                                              ; preds = %107, %105
-  %.157.i = phi i32 [ %121, %107 ], [ %.05663.i, %105 ]
-  %.1.i = phi i32 [ %135, %107 ], [ %.05564.i, %105 ]
-  %137 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %138 = load i32, ptr %137, align 8, !noalias !55
-  %139 = icmp eq i32 %.157.i, %138
-  br i1 %139, label %140, label %170
-
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds nuw i8, ptr %47, i64 30
-  %142 = load i16, ptr %141, align 2, !noalias !55
-  %143 = zext i16 %142 to i32
-  %144 = icmp eq i32 %.1.i, %143
-  br i1 %144, label %145, label %170
-
-145:                                              ; preds = %140
-  %146 = icmp eq i64 %3, 0
-  br i1 %146, label %147, label %150
-
-147:                                              ; preds = %145
-  %148 = tail call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #29, !noalias !55
-  %149 = tail call i64 @adler32(i64 noundef %148, ptr noundef nonnull %2, i32 noundef %.157.i) #29, !noalias !55
-  br label %150
-
-150:                                              ; preds = %147, %145
-  %.059.i = phi i64 [ %149, %147 ], [ %3, %145 ]
-  %151 = load i32, ptr %47, align 16, !noalias !55
-  %152 = zext i32 %151 to i64
-  %153 = icmp eq i64 %.059.i, %152
-  br i1 %153, label %154, label %169
-
-154:                                              ; preds = %150
-  %155 = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #29, !noalias !55
-  %156 = tail call i64 @crc32(i64 noundef %155, ptr noundef nonnull %2, i32 noundef %.157.i) #29, !noalias !55
-  %157 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %158 = load i32, ptr %157, align 4, !noalias !55
-  %159 = zext i32 %158 to i64
-  %160 = icmp eq i64 %156, %159
-  br i1 %160, label %161, label %169
-
-161:                                              ; preds = %154
-  %162 = getelementptr inbounds nuw i8, ptr %47, i64 29
-  %163 = load i8, ptr %162, align 1, !noalias !55
-  %.not.i = icmp eq i8 %163, 0
-  br i1 %.not.i, label %164, label %png_compare_ICC_profile_with_sRGB.exit
-
-164:                                              ; preds = %161
-  %165 = getelementptr inbounds nuw i8, ptr %47, i64 28
-  %166 = load i8, ptr %165, align 4, !noalias !55
-  %167 = icmp eq i8 %166, 0
-  br i1 %167, label %168, label %png_compare_ICC_profile_with_sRGB.exit.thread11
-
-168:                                              ; preds = %164
-  tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef 0) #29
-  br label %png_compare_ICC_profile_with_sRGB.exit.thread11
-
-169:                                              ; preds = %154, %150
-  tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef 0) #29
-  br label %png_compare_ICC_profile_with_sRGB.exit.thread
-
-170:                                              ; preds = %140, %136, %87, %69, %51, %46
-  %.258.i = phi i32 [ %.157.i, %140 ], [ %.157.i, %136 ], [ %.05663.i, %87 ], [ %.05663.i, %69 ], [ %.05663.i, %51 ], [ %.05663.i, %46 ]
-  %.2.i = phi i32 [ %.1.i, %140 ], [ %.1.i, %136 ], [ %.05564.i, %87 ], [ %.05564.i, %69 ], [ %.05564.i, %51 ], [ %.05564.i, %46 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %png_compare_ICC_profile_with_sRGB.exit.thread, label %46, !llvm.loop !58
-
-png_compare_ICC_profile_with_sRGB.exit:           ; preds = %161
-  tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef 2) #29
-  br label %png_compare_ICC_profile_with_sRGB.exit.thread11
-
-png_compare_ICC_profile_with_sRGB.exit.thread11:  ; preds = %png_compare_ICC_profile_with_sRGB.exit, %168, %164
-  %171 = load i8, ptr %42, align 1
-  %172 = zext i8 %171 to i32
-  %173 = shl nuw i32 %172, 24
-  %174 = load i8, ptr %43, align 1
-  %175 = zext i8 %174 to i32
-  %176 = shl nuw nsw i32 %175, 16
-  %177 = or disjoint i32 %176, %173
-  %178 = load i8, ptr %44, align 1
-  %179 = zext i8 %178 to i32
-  %180 = shl nuw nsw i32 %179, 8
-  %181 = or disjoint i32 %177, %180
-  %182 = load i8, ptr %45, align 1
-  %183 = zext i8 %182 to i32
-  %184 = or disjoint i32 %181, %183
-  %185 = tail call i32 @png_colorspace_set_sRGB(ptr noundef %0, ptr noundef %1, i32 noundef %184)
-  br label %png_compare_ICC_profile_with_sRGB.exit.thread
-
-png_compare_ICC_profile_with_sRGB.exit.thread:    ; preds = %170, %169, %4, %png_compare_ICC_profile_with_sRGB.exit.thread11
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_colorspace_set_ICC(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %8 = load i16, ptr %7, align 2
-  %.not = icmp sgt i16 %8, -1
-  br i1 %.not, label %9, label %16
-
-9:                                                ; preds = %6
-  %10 = icmp ult i32 %3, 132
-  br i1 %10, label %icc_check_length.exit.thread, label %icc_check_length.exit
-
-icc_check_length.exit.thread:                     ; preds = %9
-  %11 = zext nneg i32 %3 to i64
-  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %11, ptr noundef nonnull @.str.75)
-  br label %16
-
-icc_check_length.exit:                            ; preds = %9
-  %12 = tail call i32 @png_icc_check_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
-  %.not20 = icmp eq i32 %12, 0
-  br i1 %.not20, label %16, label %13
-
-13:                                               ; preds = %icc_check_length.exit
-  %14 = tail call i32 @png_icc_check_tag_table(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
-  %.not21 = icmp eq i32 %14, 0
-  br i1 %.not21, label %16, label %15
-
-15:                                               ; preds = %13
-  tail call void @png_icc_set_sRGB(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i64 noundef 0)
-  br label %16
-
-16:                                               ; preds = %icc_check_length.exit.thread, %icc_check_length.exit, %13, %6, %15
-  %.0 = phi i32 [ 1, %15 ], [ 0, %6 ], [ 0, %13 ], [ 0, %icc_check_length.exit ], [ 0, %icc_check_length.exit.thread ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define void @png_colorspace_set_rgb_coefficients(ptr noalias noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 977
-  %3 = load i8, ptr %2, align 1
-  %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %86
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1258
-  %7 = load i16, ptr %6, align 2
-  %8 = and i16 %7, 2
-  %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %86, label %9
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1236
-  %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  %15 = load i32, ptr %14, align 4
-  %16 = add nsw i32 %13, %11
-  %17 = add nsw i32 %16, %15
-  %18 = icmp sgt i32 %17, 0
-  %19 = icmp sgt i32 %11, -1
-  %or.cond = and i1 %19, %18
-  br i1 %or.cond, label %20, label %png_muldiv.exit.thread
-
-20:                                               ; preds = %9
-  %21 = icmp eq i32 %11, 0
-  br i1 %21, label %png_muldiv.exit, label %22
-
-22:                                               ; preds = %20
-  %23 = uitofp nneg i32 %11 to double
-  %24 = fmul double %23, 3.276800e+04
-  %25 = uitofp nneg i32 %17 to double
-  %26 = fdiv double %24, %25
-  %27 = fadd double %26, 5.000000e-01
-  %28 = tail call double @llvm.floor.f64(double %27)
-  %29 = fcmp ole double %28, 0x41DFFFFFFFC00000
-  %30 = fcmp oge double %28, 0xC1E0000000000000
-  %or.cond3.i = and i1 %29, %30
-  br i1 %or.cond3.i, label %31, label %png_muldiv.exit.thread
-
-31:                                               ; preds = %22
-  %32 = fptosi double %28 to i32
-  br label %png_muldiv.exit
-
-png_muldiv.exit:                                  ; preds = %20, %31
-  %.184 = phi i32 [ %32, %31 ], [ 0, %20 ]
-  %33 = icmp ult i32 %.184, 32769
-  %34 = icmp sgt i32 %13, -1
-  %or.cond7 = and i1 %34, %33
-  br i1 %or.cond7, label %35, label %png_muldiv.exit.thread
-
-35:                                               ; preds = %png_muldiv.exit
-  %36 = icmp eq i32 %13, 0
-  br i1 %36, label %png_muldiv.exit55, label %37
-
-37:                                               ; preds = %35
-  %38 = uitofp nneg i32 %13 to double
-  %39 = fmul double %38, 3.276800e+04
-  %40 = uitofp nneg i32 %17 to double
-  %41 = fdiv double %39, %40
-  %42 = fadd double %41, 5.000000e-01
-  %43 = tail call double @llvm.floor.f64(double %42)
-  %44 = fcmp ole double %43, 0x41DFFFFFFFC00000
-  %45 = fcmp oge double %43, 0xC1E0000000000000
-  %or.cond3.i51 = and i1 %44, %45
-  br i1 %or.cond3.i51, label %46, label %png_muldiv.exit.thread
-
-46:                                               ; preds = %37
-  %47 = fptosi double %43 to i32
-  br label %png_muldiv.exit55
-
-png_muldiv.exit55:                                ; preds = %35, %46
-  %.182 = phi i32 [ %47, %46 ], [ 0, %35 ]
-  %48 = icmp ult i32 %.182, 32769
-  %49 = icmp sgt i32 %15, -1
-  %or.cond13 = and i1 %49, %48
-  br i1 %or.cond13, label %50, label %png_muldiv.exit.thread
-
-50:                                               ; preds = %png_muldiv.exit55
-  %51 = icmp eq i32 %15, 0
-  br i1 %51, label %png_muldiv.exit61.thread, label %52
-
-52:                                               ; preds = %50
-  %53 = uitofp nneg i32 %15 to double
-  %54 = fmul double %53, 3.276800e+04
-  %55 = uitofp nneg i32 %17 to double
-  %56 = fdiv double %54, %55
-  %57 = fadd double %56, 5.000000e-01
-  %58 = tail call double @llvm.floor.f64(double %57)
-  %59 = fcmp ole double %58, 0x41DFFFFFFFC00000
-  %60 = fcmp oge double %58, 0xC1E0000000000000
-  %or.cond3.i57 = and i1 %59, %60
-  %61 = fptosi double %58 to i32
-  %62 = icmp ult i32 %61, 32769
-  %or.cond102 = select i1 %or.cond3.i57, i1 %62, i1 false
-  br i1 %or.cond102, label %png_muldiv.exit61.thread, label %png_muldiv.exit.thread
-
-png_muldiv.exit61.thread:                         ; preds = %52, %50
-  %.1100 = phi i32 [ 0, %50 ], [ %61, %52 ]
-  %63 = add nuw nsw i32 %.182, %.184
-  %64 = add nuw nsw i32 %63, %.1100
-  %65 = icmp samesign ult i32 %64, 32770
-  br i1 %65, label %66, label %png_muldiv.exit.thread
-
-66:                                               ; preds = %png_muldiv.exit61.thread
-  %67 = icmp eq i32 %64, 32769
-  br i1 %67, label %.thread, label %68
-
-68:                                               ; preds = %66
-  %69 = icmp samesign ult i32 %64, 32768
-  br i1 %69, label %.thread, label %77
-
-.thread:                                          ; preds = %66, %68
-  %.098 = phi i32 [ 1, %68 ], [ -1, %66 ]
-  %.not42 = icmp samesign ult i32 %.182, %.184
-  %.not43 = icmp samesign ult i32 %.182, %.1100
-  %or.cond48 = select i1 %.not42, i1 true, i1 %.not43
-  br i1 %or.cond48, label %72, label %70
-
-70:                                               ; preds = %.thread
-  %71 = add nsw i32 %.098, %.182
-  br label %77
-
-72:                                               ; preds = %.thread
-  %.not44 = icmp samesign ult i32 %.184, %.182
-  %.not45 = icmp samesign ult i32 %.184, %.1100
-  %or.cond49 = select i1 %.not44, i1 true, i1 %.not45
-  br i1 %or.cond49, label %75, label %73
-
-73:                                               ; preds = %72
-  %74 = add nsw i32 %.098, %.184
-  br label %77
-
-75:                                               ; preds = %72
-  %76 = add nsw i32 %.098, %.1100
-  br label %77
-
-77:                                               ; preds = %70, %75, %73, %68
-  %.083 = phi i32 [ %.184, %68 ], [ %.184, %75 ], [ %74, %73 ], [ %.184, %70 ]
-  %.081 = phi i32 [ %.182, %68 ], [ %.182, %75 ], [ %.182, %73 ], [ %71, %70 ]
-  %.080 = phi i32 [ %.1100, %68 ], [ %76, %75 ], [ %.1100, %73 ], [ %.1100, %70 ]
-  %78 = add nsw i32 %.081, %.083
-  %79 = add nsw i32 %78, %.080
-  %.not46 = icmp eq i32 %79, 32768
-  br i1 %.not46, label %81, label %80
-
-80:                                               ; preds = %77
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.48) #27
-  unreachable
-
-81:                                               ; preds = %77
-  %82 = trunc i32 %.083 to i16
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 978
-  store i16 %82, ptr %83, align 2
-  %84 = trunc i32 %.081 to i16
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 980
-  store i16 %84, ptr %85, align 4
-  br label %86
-
-png_muldiv.exit.thread:                           ; preds = %52, %37, %22, %png_muldiv.exit61.thread, %png_muldiv.exit55, %png_muldiv.exit, %9
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.49) #27
-  unreachable
-
-86:                                               ; preds = %81, %5, %1
-  ret void
+  %24 = add nsw i32 %.0.i, %4
+  br label %png_fp_add.exit7
+
+png_fp_add.exit7:                                 ; preds = %17, %19, %23
+  %.0.i4 = phi i32 [ %18, %17 ], [ %24, %23 ], [ %.0.i, %19 ]
+  br i1 %.0.shrunk, label %png_fp_add.exit7.thread, label %25
+
+25:                                               ; preds = %png_fp_add.exit7
+  store i32 %.0.i4, ptr %0, align 4, !tbaa !43
+  br label %png_fp_add.exit7.thread
+
+png_fp_add.exit7.thread:                          ; preds = %15, %21, %25, %png_fp_add.exit7
+  %.112 = phi i32 [ 0, %25 ], [ 1, %png_fp_add.exit7 ], [ 1, %21 ], [ 1, %15 ]
+  ret i32 %.112
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @png_muldiv(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @png_muldiv(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %20, label %5
+  br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %4
   %6 = icmp eq i32 %1, 0
   %7 = icmp eq i32 %2, 0
   %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %.sink.split, label %8
+  br i1 %or.cond, label %.thread.sink.split, label %8
 
 8:                                                ; preds = %5
   %9 = sitofp i32 %1 to double
@@ -4029,20 +1844,1406 @@ define range(i32 0, 2) i32 @png_muldiv(ptr noundef writeonly captures(none) %0, 
   %16 = fcmp ole double %15, 0x41DFFFFFFFC00000
   %17 = fcmp oge double %15, 0xC1E0000000000000
   %or.cond3 = and i1 %16, %17
-  br i1 %or.cond3, label %18, label %20
+  br i1 %or.cond3, label %18, label %.thread
 
 18:                                               ; preds = %8
   %19 = fptosi double %15 to i32
-  br label %.sink.split
+  br label %.thread.sink.split
 
-.sink.split:                                      ; preds = %5, %18
+.thread.sink.split:                               ; preds = %5, %18
   %.sink = phi i32 [ %19, %18 ], [ 0, %5 ]
-  store i32 %.sink, ptr %0, align 4
-  br label %20
+  store i32 %.sink, ptr %0, align 4, !tbaa !43
+  br label %.thread
 
-20:                                               ; preds = %.sink.split, %4, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %8, %4
+  %.018 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %.thread.sink.split ]
+  ret i32 %.018
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
+  %3 = load i32, ptr %1, align 4, !tbaa !125
+  %or.cond96 = icmp ugt i32 %3, 110000
+  br i1 %or.cond96, label %png_muldiv.exit.thread342, label %4
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !126
+  %7 = icmp slt i32 %6, 0
+  %8 = sub nuw nsw i32 110000, %3
+  %9 = icmp sgt i32 %6, %8
+  %or.cond98 = select i1 %7, i1 true, i1 %9
+  br i1 %or.cond98, label %png_muldiv.exit.thread342, label %10
+
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i32, ptr %11, align 4, !tbaa !127
+  %or.cond99 = icmp ugt i32 %12, 110000
+  br i1 %or.cond99, label %png_muldiv.exit.thread342, label %13
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %15 = load i32, ptr %14, align 4, !tbaa !128
+  %16 = icmp slt i32 %15, 0
+  %17 = sub nuw nsw i32 110000, %12
+  %18 = icmp sgt i32 %15, %17
+  %or.cond101 = select i1 %16, i1 true, i1 %18
+  br i1 %or.cond101, label %png_muldiv.exit.thread342, label %19
+
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load i32, ptr %20, align 4, !tbaa !129
+  %or.cond102 = icmp ugt i32 %21, 110000
+  br i1 %or.cond102, label %png_muldiv.exit.thread342, label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %24 = load i32, ptr %23, align 4, !tbaa !130
+  %25 = icmp slt i32 %24, 0
+  %26 = sub nuw nsw i32 110000, %21
+  %27 = icmp sgt i32 %24, %26
+  %or.cond104 = select i1 %25, i1 true, i1 %27
+  br i1 %or.cond104, label %png_muldiv.exit.thread342, label %28
+
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %30 = load i32, ptr %29, align 4, !tbaa !131
+  %or.cond105 = icmp ugt i32 %30, 110000
+  br i1 %or.cond105, label %png_muldiv.exit.thread342, label %31
+
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %33 = load i32, ptr %32, align 4, !tbaa !132
+  %34 = icmp slt i32 %33, 5
+  %35 = sub nuw nsw i32 110000, %30
+  %36 = icmp sgt i32 %33, %35
+  %or.cond107 = select i1 %34, i1 true, i1 %36
+  br i1 %or.cond107, label %png_muldiv.exit.thread342, label %37
+
+37:                                               ; preds = %31
+  %38 = sub nsw i32 %12, %21
+  %39 = sub nsw i32 %6, %24
+  %40 = icmp eq i32 %12, %21
+  %41 = icmp eq i32 %6, %24
+  %or.cond.i = or i1 %40, %41
+  br i1 %or.cond.i, label %53, label %42
+
+42:                                               ; preds = %37
+  %43 = sitofp i32 %38 to double
+  %44 = sitofp i32 %39 to double
+  %45 = fmul double %43, %44
+  %46 = fmul double %45, 1.250000e-01
+  %47 = fadd double %46, 5.000000e-01
+  %48 = tail call double @llvm.floor.f64(double %47)
+  %49 = fcmp ole double %48, 0x41DFFFFFFFC00000
+  %50 = fcmp oge double %48, 0xC1E0000000000000
+  %or.cond3.i = and i1 %49, %50
+  br i1 %or.cond3.i, label %51, label %png_muldiv.exit.thread342
+
+51:                                               ; preds = %42
+  %52 = fptosi double %48 to i32
+  br label %53
+
+53:                                               ; preds = %51, %37
+  %.0257.ph = phi i32 [ 0, %37 ], [ %52, %51 ]
+  %54 = sub nsw i32 %15, %24
+  %55 = sub nsw i32 %3, %21
+  %56 = icmp eq i32 %15, %24
+  %57 = icmp eq i32 %3, %21
+  %or.cond.i109 = or i1 %57, %56
+  br i1 %or.cond.i109, label %.thread275, label %58
+
+58:                                               ; preds = %53
+  %59 = sitofp i32 %54 to double
+  %60 = sitofp i32 %55 to double
+  %61 = fmul double %60, %59
+  %62 = fmul double %61, 1.250000e-01
+  %63 = fadd double %62, 5.000000e-01
+  %64 = tail call double @llvm.floor.f64(double %63)
+  %65 = fcmp ole double %64, 0x41DFFFFFFFC00000
+  %66 = fcmp oge double %64, 0xC1E0000000000000
+  %or.cond3.i110 = and i1 %65, %66
+  br i1 %or.cond3.i110, label %67, label %png_muldiv.exit.thread342
+
+67:                                               ; preds = %58
+  %68 = fptosi double %64 to i32
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %70, label %74
+
+70:                                               ; preds = %67
+  %71 = add nsw i32 %68, -2147483647
+  %.not15.i = icmp sgt i32 %71, %.0257.ph
+  br i1 %.not15.i, label %png_muldiv.exit.thread342, label %72
+
+72:                                               ; preds = %70
+  %73 = sub nsw i32 %.0257.ph, %68
+  br label %.thread275
+
+74:                                               ; preds = %67
+  %75 = icmp slt i32 %68, 0
+  br i1 %75, label %76, label %.thread275
+
+76:                                               ; preds = %74
+  %77 = add nsw i32 %68, 2147483647
+  %.not.i = icmp slt i32 %77, %.0257.ph
+  br i1 %.not.i, label %png_muldiv.exit.thread342, label %78
+
+78:                                               ; preds = %76
+  %79 = sub nsw i32 %.0257.ph, %68
+  br label %.thread275
+
+.thread275:                                       ; preds = %53, %72, %78, %74
+  %.0.i.ph = phi i32 [ %.0257.ph, %74 ], [ %79, %78 ], [ %73, %72 ], [ %.0257.ph, %53 ]
+  %80 = sub nsw i32 %33, %24
+  %81 = icmp eq i32 %33, %24
+  %or.cond.i115 = or i1 %40, %81
+  br i1 %or.cond.i115, label %93, label %82
+
+82:                                               ; preds = %.thread275
+  %83 = sitofp i32 %38 to double
+  %84 = sitofp i32 %80 to double
+  %85 = fmul double %83, %84
+  %86 = fmul double %85, 1.250000e-01
+  %87 = fadd double %86, 5.000000e-01
+  %88 = tail call double @llvm.floor.f64(double %87)
+  %89 = fcmp ole double %88, 0x41DFFFFFFFC00000
+  %90 = fcmp oge double %88, 0xC1E0000000000000
+  %or.cond3.i116 = and i1 %89, %90
+  br i1 %or.cond3.i116, label %91, label %png_muldiv.exit.thread342
+
+91:                                               ; preds = %82
+  %92 = fptosi double %88 to i32
+  br label %93
+
+93:                                               ; preds = %91, %.thread275
+  %.1258.ph = phi i32 [ 0, %.thread275 ], [ %92, %91 ]
+  %94 = sub nsw i32 %30, %21
+  %95 = icmp eq i32 %30, %21
+  %or.cond.i121 = or i1 %56, %95
+  br i1 %or.cond.i121, label %png_fp_sub.exit130, label %96
+
+96:                                               ; preds = %93
+  %97 = sitofp i32 %54 to double
+  %98 = sitofp i32 %94 to double
+  %99 = fmul double %97, %98
+  %100 = fmul double %99, 1.250000e-01
+  %101 = fadd double %100, 5.000000e-01
+  %102 = tail call double @llvm.floor.f64(double %101)
+  %103 = fcmp ole double %102, 0x41DFFFFFFFC00000
+  %104 = fcmp oge double %102, 0xC1E0000000000000
+  %or.cond3.i122 = and i1 %103, %104
+  br i1 %or.cond3.i122, label %105, label %png_muldiv.exit.thread342
+
+105:                                              ; preds = %96
+  %106 = fptosi double %102 to i32
+  %107 = icmp sgt i32 %106, 0
+  br i1 %107, label %108, label %112
+
+108:                                              ; preds = %105
+  %109 = add nsw i32 %106, -2147483647
+  %.not15.i129 = icmp sgt i32 %109, %.1258.ph
+  br i1 %.not15.i129, label %png_fp_sub.exit130.thread, label %110
+
+110:                                              ; preds = %108
+  %111 = sub nsw i32 %.1258.ph, %106
+  br label %png_fp_sub.exit130
+
+112:                                              ; preds = %105
+  %113 = icmp slt i32 %106, 0
+  br i1 %113, label %114, label %png_fp_sub.exit130
+
+114:                                              ; preds = %112
+  %115 = add nsw i32 %106, 2147483647
+  %.not.i128 = icmp slt i32 %115, %.1258.ph
+  br i1 %.not.i128, label %png_fp_sub.exit130.thread, label %116
+
+116:                                              ; preds = %114
+  %117 = sub nsw i32 %.1258.ph, %106
+  br label %png_fp_sub.exit130
+
+png_fp_sub.exit130:                               ; preds = %93, %110, %112, %116
+  %.0.i127 = phi i32 [ %111, %110 ], [ %117, %116 ], [ %.1258.ph, %112 ], [ %.1258.ph, %93 ]
+  %.not.i131 = icmp eq i32 %.0.i127, 0
+  br i1 %.not.i131, label %png_muldiv.exit.thread342, label %png_fp_sub.exit130.thread
+
+png_fp_sub.exit130.thread:                        ; preds = %108, %114, %png_fp_sub.exit130
+  %.0.i127312 = phi i32 [ %.0.i127, %png_fp_sub.exit130 ], [ 50000, %114 ], [ 50000, %108 ]
+  %or.cond.not = phi i1 [ true, %png_fp_sub.exit130 ], [ false, %114 ], [ false, %108 ]
+  %118 = icmp eq i32 %.0.i.ph, 0
+  br i1 %118, label %png_muldiv.exit137, label %119
+
+119:                                              ; preds = %png_fp_sub.exit130.thread
+  %120 = uitofp nneg i32 %33 to double
+  %121 = sitofp i32 %.0.i.ph to double
+  %122 = fmul double %120, %121
+  %123 = sitofp i32 %.0.i127312 to double
+  %124 = fdiv double %122, %123
+  %125 = fadd double %124, 5.000000e-01
+  %126 = tail call double @llvm.floor.f64(double %125)
+  %127 = fcmp ole double %126, 0x41DFFFFFFFC00000
+  %128 = fcmp oge double %126, 0xC1E0000000000000
+  %or.cond3.i133 = and i1 %127, %128
+  br i1 %or.cond3.i133, label %129, label %png_muldiv.exit.thread342
+
+129:                                              ; preds = %119
+  %130 = fptosi double %126 to i32
+  br label %png_muldiv.exit137
+
+png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.thread, %129
+  %.1263 = phi i32 [ %130, %129 ], [ 0, %png_fp_sub.exit130.thread ]
+  %.not94 = icmp sgt i32 %.1263, %33
+  %or.cond370 = select i1 %or.cond.not, i1 %.not94, i1 false
+  br i1 %or.cond370, label %131, label %png_muldiv.exit.thread342
+
+131:                                              ; preds = %png_muldiv.exit137
+  %or.cond.i138 = or i1 %41, %95
+  br i1 %or.cond.i138, label %143, label %132
+
+132:                                              ; preds = %131
+  %133 = sitofp i32 %39 to double
+  %134 = sitofp i32 %94 to double
+  %135 = fmul double %133, %134
+  %136 = fmul double %135, 1.250000e-01
+  %137 = fadd double %136, 5.000000e-01
+  %138 = tail call double @llvm.floor.f64(double %137)
+  %139 = fcmp ole double %138, 0x41DFFFFFFFC00000
+  %140 = fcmp oge double %138, 0xC1E0000000000000
+  %or.cond3.i139 = and i1 %139, %140
+  br i1 %or.cond3.i139, label %141, label %png_muldiv.exit.thread342
+
+141:                                              ; preds = %132
+  %142 = fptosi double %138 to i32
+  br label %143
+
+143:                                              ; preds = %141, %131
+  %.2259.ph = phi i32 [ 0, %131 ], [ %142, %141 ]
+  %or.cond.i144 = or i1 %57, %81
+  br i1 %or.cond.i144, label %png_fp_sub.exit153, label %144
+
+144:                                              ; preds = %143
+  %145 = sitofp i32 %55 to double
+  %146 = sitofp i32 %80 to double
+  %147 = fmul double %145, %146
+  %148 = fmul double %147, 1.250000e-01
+  %149 = fadd double %148, 5.000000e-01
+  %150 = tail call double @llvm.floor.f64(double %149)
+  %151 = fcmp ole double %150, 0x41DFFFFFFFC00000
+  %152 = fcmp oge double %150, 0xC1E0000000000000
+  %or.cond3.i145 = and i1 %151, %152
+  br i1 %or.cond3.i145, label %153, label %png_muldiv.exit.thread342
+
+153:                                              ; preds = %144
+  %154 = fptosi double %150 to i32
+  %155 = icmp sgt i32 %154, 0
+  br i1 %155, label %156, label %160
+
+156:                                              ; preds = %153
+  %157 = add nsw i32 %154, -2147483647
+  %.not15.i152 = icmp sgt i32 %157, %.2259.ph
+  br i1 %.not15.i152, label %png_fp_sub.exit153.thread, label %158
+
+158:                                              ; preds = %156
+  %159 = sub nsw i32 %.2259.ph, %154
+  br label %png_fp_sub.exit153
+
+160:                                              ; preds = %153
+  %161 = icmp slt i32 %154, 0
+  br i1 %161, label %162, label %png_fp_sub.exit153
+
+162:                                              ; preds = %160
+  %163 = add nsw i32 %154, 2147483647
+  %.not.i151 = icmp slt i32 %163, %.2259.ph
+  br i1 %.not.i151, label %png_fp_sub.exit153.thread, label %164
+
+164:                                              ; preds = %162
+  %165 = sub nsw i32 %.2259.ph, %154
+  br label %png_fp_sub.exit153
+
+png_fp_sub.exit153:                               ; preds = %143, %158, %160, %164
+  %.0.i150 = phi i32 [ %159, %158 ], [ %165, %164 ], [ %.2259.ph, %160 ], [ %.2259.ph, %143 ]
+  %.not.i154 = icmp eq i32 %.0.i150, 0
+  br i1 %.not.i154, label %png_muldiv.exit.thread342, label %png_fp_sub.exit153.thread
+
+png_fp_sub.exit153.thread:                        ; preds = %156, %162, %png_fp_sub.exit153
+  %.0.i150336 = phi i32 [ %.0.i150, %png_fp_sub.exit153 ], [ 50000, %162 ], [ 50000, %156 ]
+  %or.cond3.not = phi i1 [ true, %png_fp_sub.exit153 ], [ false, %162 ], [ false, %156 ]
+  br i1 %118, label %png_muldiv.exit160, label %166
+
+166:                                              ; preds = %png_fp_sub.exit153.thread
+  %167 = uitofp nneg i32 %33 to double
+  %168 = sitofp i32 %.0.i.ph to double
+  %169 = fmul double %167, %168
+  %170 = sitofp i32 %.0.i150336 to double
+  %171 = fdiv double %169, %170
+  %172 = fadd double %171, 5.000000e-01
+  %173 = tail call double @llvm.floor.f64(double %172)
+  %174 = fcmp ole double %173, 0x41DFFFFFFFC00000
+  %175 = fcmp oge double %173, 0xC1E0000000000000
+  %or.cond3.i156 = and i1 %174, %175
+  br i1 %or.cond3.i156, label %176, label %png_muldiv.exit.thread342
+
+176:                                              ; preds = %166
+  %177 = fptosi double %173 to i32
+  br label %png_muldiv.exit160
+
+png_muldiv.exit160:                               ; preds = %png_fp_sub.exit153.thread, %176
+  %.1261 = phi i32 [ %177, %176 ], [ 0, %png_fp_sub.exit153.thread ]
+  %.not95 = icmp sgt i32 %.1261, %33
+  %or.cond371 = select i1 %or.cond3.not, i1 %.not95, i1 false
+  br i1 %or.cond371, label %178, label %png_muldiv.exit.thread342
+
+178:                                              ; preds = %png_muldiv.exit160
+  %179 = uitofp nneg i32 %33 to double
+  %180 = fdiv double 1.000000e+10, %179
+  %181 = fadd double %180, 5.000000e-01
+  %182 = tail call double @llvm.floor.f64(double %181)
+  %183 = fcmp ole double %182, 0x41DFFFFFFFC00000
+  %184 = fcmp oge double %182, 0xC1E0000000000000
+  %or.cond.i161 = and i1 %183, %184
+  %185 = fptosi double %182 to i32
+  %.0.i162 = select i1 %or.cond.i161, i32 %185, i32 0
+  %186 = uitofp nneg i32 %.1263 to double
+  %187 = fdiv double 1.000000e+10, %186
+  %188 = fadd double %187, 5.000000e-01
+  %189 = tail call double @llvm.floor.f64(double %188)
+  %190 = fcmp ole double %189, 0x41DFFFFFFFC00000
+  %191 = fcmp oge double %189, 0xC1E0000000000000
+  %or.cond.i163 = and i1 %190, %191
+  %192 = fptosi double %189 to i32
+  %.0.i164 = select i1 %or.cond.i163, i32 %192, i32 0
+  %193 = icmp sgt i32 %.0.i164, 0
+  br i1 %193, label %194, label %197
+
+194:                                              ; preds = %178
+  %195 = add nsw i32 %.0.i164, -2147483647
+  %.not15.i167 = icmp sgt i32 %195, %.0.i162
+  %196 = sub nsw i32 %.0.i162, %.0.i164
+  %spec.select372 = select i1 %.not15.i167, i32 50000, i32 %196
+  br label %png_fp_sub.exit168
+
+197:                                              ; preds = %178
+  %198 = icmp slt i32 %.0.i164, 0
+  br i1 %198, label %199, label %png_fp_sub.exit168
+
+199:                                              ; preds = %197
+  %200 = add nsw i32 %.0.i164, 2147483647
+  %.not.i166 = icmp slt i32 %200, %.0.i162
+  %201 = sub nsw i32 %.0.i162, %.0.i164
+  %spec.select374 = select i1 %.not.i166, i32 50000, i32 %201
+  br label %png_fp_sub.exit168
+
+png_fp_sub.exit168:                               ; preds = %199, %194, %197
+  %.3.shrunk = phi i1 [ false, %197 ], [ %.not15.i167, %194 ], [ %.not.i166, %199 ]
+  %.0.i165 = phi i32 [ %.0.i162, %197 ], [ %spec.select372, %194 ], [ %spec.select374, %199 ]
+  %202 = uitofp nneg i32 %.1261 to double
+  %203 = fdiv double 1.000000e+10, %202
+  %204 = fadd double %203, 5.000000e-01
+  %205 = tail call double @llvm.floor.f64(double %204)
+  %206 = fcmp ole double %205, 0x41DFFFFFFFC00000
+  %207 = fcmp oge double %205, 0xC1E0000000000000
+  %or.cond.i169 = and i1 %206, %207
+  %208 = fptosi double %205 to i32
+  %.0.i170 = select i1 %or.cond.i169, i32 %208, i32 0
+  %209 = icmp sgt i32 %.0.i170, 0
+  br i1 %209, label %210, label %214
+
+210:                                              ; preds = %png_fp_sub.exit168
+  %211 = add nsw i32 %.0.i170, -2147483647
+  %.not15.i173 = icmp sgt i32 %211, %.0.i165
+  br i1 %.not15.i173, label %png_muldiv.exit.thread342, label %212
+
+212:                                              ; preds = %210
+  %213 = sub nsw i32 %.0.i165, %.0.i170
+  br label %png_muldiv.exit
+
+214:                                              ; preds = %png_fp_sub.exit168
+  %215 = icmp slt i32 %.0.i170, 0
+  br i1 %215, label %216, label %png_muldiv.exit
+
+216:                                              ; preds = %214
+  %217 = add nsw i32 %.0.i170, 2147483647
+  %.not.i172 = icmp slt i32 %217, %.0.i165
+  br i1 %.not.i172, label %png_muldiv.exit.thread342, label %218
+
+218:                                              ; preds = %216
+  %219 = sub nsw i32 %.0.i165, %.0.i170
+  br label %png_muldiv.exit
+
+png_muldiv.exit:                                  ; preds = %218, %214, %212
+  %.0.i171 = phi i32 [ %213, %212 ], [ %219, %218 ], [ %.0.i165, %214 ]
+  %220 = icmp slt i32 %.0.i171, 1
+  %or.cond5.not = select i1 %.3.shrunk, i1 true, i1 %220
+  br i1 %or.cond5.not, label %png_muldiv.exit.thread342, label %221
+
+221:                                              ; preds = %png_muldiv.exit
+  %222 = icmp eq i32 %3, 0
+  br i1 %222, label %233, label %223
+
+223:                                              ; preds = %221
+  %224 = uitofp nneg i32 %3 to double
+  %225 = fmul double %224, 1.000000e+05
+  %226 = fdiv double %225, %186
+  %227 = fadd double %226, 5.000000e-01
+  %228 = tail call double @llvm.floor.f64(double %227)
+  %229 = fcmp ole double %228, 0x41DFFFFFFFC00000
+  %230 = fcmp oge double %228, 0xC1E0000000000000
+  %or.cond3.i177 = and i1 %229, %230
+  br i1 %or.cond3.i177, label %231, label %png_muldiv.exit.thread342
+
+231:                                              ; preds = %223
+  %232 = fptosi double %228 to i32
+  br label %233
+
+233:                                              ; preds = %221, %231
+  %.sink.i180 = phi i32 [ %232, %231 ], [ 0, %221 ]
+  store i32 %.sink.i180, ptr %0, align 4, !tbaa !43
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %235 = load i32, ptr %5, align 4, !tbaa !126
+  %236 = icmp eq i32 %235, 0
+  br i1 %236, label %247, label %237
+
+237:                                              ; preds = %233
+  %238 = sitofp i32 %235 to double
+  %239 = fmul double %238, 1.000000e+05
+  %240 = fdiv double %239, %186
+  %241 = fadd double %240, 5.000000e-01
+  %242 = tail call double @llvm.floor.f64(double %241)
+  %243 = fcmp ole double %242, 0x41DFFFFFFFC00000
+  %244 = fcmp oge double %242, 0xC1E0000000000000
+  %or.cond3.i184 = and i1 %243, %244
+  br i1 %or.cond3.i184, label %245, label %png_muldiv.exit.thread342
+
+245:                                              ; preds = %237
+  %246 = fptosi double %242 to i32
+  br label %247
+
+247:                                              ; preds = %233, %245
+  %.sink.i187 = phi i32 [ %246, %245 ], [ 0, %233 ]
+  store i32 %.sink.i187, ptr %234, align 4, !tbaa !43
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %249 = load i32, ptr %1, align 4, !tbaa !125
+  %250 = load i32, ptr %5, align 4, !tbaa !126
+  %251 = add i32 %250, %249
+  %252 = icmp eq i32 %251, 100000
+  br i1 %252, label %264, label %253
+
+253:                                              ; preds = %247
+  %254 = sub i32 100000, %251
+  %255 = sitofp i32 %254 to double
+  %256 = fmul double %255, 1.000000e+05
+  %257 = fdiv double %256, %186
+  %258 = fadd double %257, 5.000000e-01
+  %259 = tail call double @llvm.floor.f64(double %258)
+  %260 = fcmp ole double %259, 0x41DFFFFFFFC00000
+  %261 = fcmp oge double %259, 0xC1E0000000000000
+  %or.cond3.i191 = and i1 %260, %261
+  br i1 %or.cond3.i191, label %262, label %png_muldiv.exit.thread342
+
+262:                                              ; preds = %253
+  %263 = fptosi double %259 to i32
+  br label %264
+
+264:                                              ; preds = %247, %262
+  %.sink.i194 = phi i32 [ %263, %262 ], [ 0, %247 ]
+  store i32 %.sink.i194, ptr %248, align 4, !tbaa !43
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %266 = load i32, ptr %11, align 4, !tbaa !127
+  %267 = icmp eq i32 %266, 0
+  br i1 %267, label %278, label %268
+
+268:                                              ; preds = %264
+  %269 = sitofp i32 %266 to double
+  %270 = fmul double %269, 1.000000e+05
+  %271 = fdiv double %270, %202
+  %272 = fadd double %271, 5.000000e-01
+  %273 = tail call double @llvm.floor.f64(double %272)
+  %274 = fcmp ole double %273, 0x41DFFFFFFFC00000
+  %275 = fcmp oge double %273, 0xC1E0000000000000
+  %or.cond3.i198 = and i1 %274, %275
+  br i1 %or.cond3.i198, label %276, label %png_muldiv.exit.thread342
+
+276:                                              ; preds = %268
+  %277 = fptosi double %273 to i32
+  br label %278
+
+278:                                              ; preds = %264, %276
+  %.sink.i201 = phi i32 [ %277, %276 ], [ 0, %264 ]
+  store i32 %.sink.i201, ptr %265, align 4, !tbaa !43
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %280 = load i32, ptr %14, align 4, !tbaa !128
+  %281 = icmp eq i32 %280, 0
+  br i1 %281, label %292, label %282
+
+282:                                              ; preds = %278
+  %283 = sitofp i32 %280 to double
+  %284 = fmul double %283, 1.000000e+05
+  %285 = fdiv double %284, %202
+  %286 = fadd double %285, 5.000000e-01
+  %287 = tail call double @llvm.floor.f64(double %286)
+  %288 = fcmp ole double %287, 0x41DFFFFFFFC00000
+  %289 = fcmp oge double %287, 0xC1E0000000000000
+  %or.cond3.i205 = and i1 %288, %289
+  br i1 %or.cond3.i205, label %290, label %png_muldiv.exit.thread342
+
+290:                                              ; preds = %282
+  %291 = fptosi double %287 to i32
+  br label %292
+
+292:                                              ; preds = %278, %290
+  %.sink.i208 = phi i32 [ %291, %290 ], [ 0, %278 ]
+  store i32 %.sink.i208, ptr %279, align 4, !tbaa !43
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %294 = load i32, ptr %11, align 4, !tbaa !127
+  %295 = load i32, ptr %14, align 4, !tbaa !128
+  %296 = add i32 %295, %294
+  %297 = icmp eq i32 %296, 100000
+  br i1 %297, label %309, label %298
+
+298:                                              ; preds = %292
+  %299 = sub i32 100000, %296
+  %300 = sitofp i32 %299 to double
+  %301 = fmul double %300, 1.000000e+05
+  %302 = fdiv double %301, %202
+  %303 = fadd double %302, 5.000000e-01
+  %304 = tail call double @llvm.floor.f64(double %303)
+  %305 = fcmp ole double %304, 0x41DFFFFFFFC00000
+  %306 = fcmp oge double %304, 0xC1E0000000000000
+  %or.cond3.i212 = and i1 %305, %306
+  br i1 %or.cond3.i212, label %307, label %png_muldiv.exit.thread342
+
+307:                                              ; preds = %298
+  %308 = fptosi double %304 to i32
+  br label %309
+
+309:                                              ; preds = %307, %292
+  %.sink.i215 = phi i32 [ %308, %307 ], [ 0, %292 ]
+  store i32 %.sink.i215, ptr %293, align 4, !tbaa !43
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %311 = load i32, ptr %20, align 4, !tbaa !129
+  %312 = icmp eq i32 %311, 0
+  br i1 %312, label %324, label %313
+
+313:                                              ; preds = %309
+  %314 = sitofp i32 %311 to double
+  %315 = uitofp nneg i32 %.0.i171 to double
+  %316 = fmul double %315, %314
+  %317 = fdiv double %316, 1.000000e+05
+  %318 = fadd double %317, 5.000000e-01
+  %319 = tail call double @llvm.floor.f64(double %318)
+  %320 = fcmp ole double %319, 0x41DFFFFFFFC00000
+  %321 = fcmp oge double %319, 0xC1E0000000000000
+  %or.cond3.i218 = and i1 %320, %321
+  br i1 %or.cond3.i218, label %322, label %png_muldiv.exit.thread342
+
+322:                                              ; preds = %313
+  %323 = fptosi double %319 to i32
+  br label %324
+
+324:                                              ; preds = %322, %309
+  %.sink.i221 = phi i32 [ %323, %322 ], [ 0, %309 ]
+  store i32 %.sink.i221, ptr %310, align 4, !tbaa !43
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %326 = load i32, ptr %23, align 4, !tbaa !130
+  %327 = icmp eq i32 %326, 0
+  br i1 %327, label %339, label %328
+
+328:                                              ; preds = %324
+  %329 = sitofp i32 %326 to double
+  %330 = uitofp nneg i32 %.0.i171 to double
+  %331 = fmul double %330, %329
+  %332 = fdiv double %331, 1.000000e+05
+  %333 = fadd double %332, 5.000000e-01
+  %334 = tail call double @llvm.floor.f64(double %333)
+  %335 = fcmp ole double %334, 0x41DFFFFFFFC00000
+  %336 = fcmp oge double %334, 0xC1E0000000000000
+  %or.cond3.i224 = and i1 %335, %336
+  br i1 %or.cond3.i224, label %337, label %png_muldiv.exit.thread342
+
+337:                                              ; preds = %328
+  %338 = fptosi double %334 to i32
+  br label %339
+
+339:                                              ; preds = %337, %324
+  %.sink.i227 = phi i32 [ %338, %337 ], [ 0, %324 ]
+  store i32 %.sink.i227, ptr %325, align 4, !tbaa !43
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %341 = load i32, ptr %20, align 4, !tbaa !129
+  %342 = load i32, ptr %23, align 4, !tbaa !130
+  %343 = add i32 %342, %341
+  %344 = icmp eq i32 %343, 100000
+  br i1 %344, label %png_muldiv.exit234, label %345
+
+345:                                              ; preds = %339
+  %346 = sub i32 100000, %343
+  %347 = sitofp i32 %346 to double
+  %348 = uitofp nneg i32 %.0.i171 to double
+  %349 = fmul double %348, %347
+  %350 = fdiv double %349, 1.000000e+05
+  %351 = fadd double %350, 5.000000e-01
+  %352 = tail call double @llvm.floor.f64(double %351)
+  %353 = fcmp ole double %352, 0x41DFFFFFFFC00000
+  %354 = fcmp oge double %352, 0xC1E0000000000000
+  %or.cond3.i230 = and i1 %353, %354
+  br i1 %or.cond3.i230, label %355, label %png_muldiv.exit.thread342
+
+355:                                              ; preds = %345
+  %356 = fptosi double %352 to i32
+  br label %png_muldiv.exit234
+
+png_muldiv.exit234:                               ; preds = %339, %355
+  %.sink.i233 = phi i32 [ %356, %355 ], [ 0, %339 ]
+  store i32 %.sink.i233, ptr %340, align 4, !tbaa !43
+  br label %png_muldiv.exit.thread342
+
+png_muldiv.exit.thread342:                        ; preds = %328, %313, %298, %282, %268, %253, %237, %223, %210, %216, %166, %png_fp_sub.exit153, %119, %png_fp_sub.exit130, %144, %132, %96, %82, %76, %70, %58, %42, %png_muldiv.exit160, %png_muldiv.exit137, %png_muldiv.exit234, %345, %31, %28, %22, %19, %13, %10, %4, %2, %png_muldiv.exit
+  %.082 = phi i32 [ 1, %png_muldiv.exit ], [ 1, %2 ], [ 1, %4 ], [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %22 ], [ 1, %28 ], [ 1, %31 ], [ 0, %png_muldiv.exit234 ], [ 1, %345 ], [ 1, %png_muldiv.exit137 ], [ 1, %png_muldiv.exit160 ], [ 1, %42 ], [ 1, %58 ], [ 1, %70 ], [ 1, %76 ], [ 1, %82 ], [ 1, %96 ], [ 1, %132 ], [ 1, %144 ], [ 1, %png_fp_sub.exit130 ], [ 1, %119 ], [ 1, %png_fp_sub.exit153 ], [ 1, %166 ], [ 1, %216 ], [ 1, %210 ], [ 1, %223 ], [ 1, %237 ], [ 1, %253 ], [ 1, %268 ], [ 1, %282 ], [ 1, %298 ], [ 1, %313 ], [ 1, %328 ]
+  ret i32 %.082
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define i32 @png_reciprocal(i32 noundef %0) local_unnamed_addr #13 {
+  %2 = sitofp i32 %0 to double
+  %3 = fdiv double 1.000000e+10, %2
+  %4 = fadd double %3, 5.000000e-01
+  %5 = tail call double @llvm.floor.f64(double %4)
+  %6 = fcmp ole double %5, 0x41DFFFFFFFC00000
+  %7 = fcmp oge double %5, 0xC1E0000000000000
+  %or.cond = and i1 %6, %7
+  %8 = fptosi double %5 to i32
+  %.0 = select i1 %or.cond, i32 %8, i32 0
   ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 0, 2) i32 @png_icc_check_length(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp ult i32 %2, 132
+  %5 = zext i32 %2 to i64
+  br i1 %4, label %.sink.split, label %icc_check_length.exit
+
+icc_check_length.exit:                            ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %7 = load i64, ptr %6, align 8, !tbaa !32
+  %8 = icmp ult i64 %7, %5
+  br i1 %8, label %.sink.split, label %9
+
+.sink.split:                                      ; preds = %icc_check_length.exit, %3
+  %.str.57.sink = phi ptr [ @.str.57, %3 ], [ @.str.20, %icc_check_length.exit ]
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %5, ptr noundef nonnull %.str.57.sink)
+  br label %9
+
+9:                                                ; preds = %.sink.split, %icc_check_length.exit
+  %.0 = phi i32 [ 1, %icc_check_length.exit ], [ 0, %.sink.split ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @png_icc_profile_error(ptr noalias noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = alloca [196 x i8], align 16
+  %6 = alloca [24 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 196, ptr nonnull %5) #28
+  %7 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef 0, ptr noundef nonnull @.str.58) #28
+  %8 = add i64 %7, 79
+  %9 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef %8, i64 noundef %7, ptr noundef %1) #28
+  %10 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %9, ptr noundef nonnull @.str.59) #28
+  %11 = lshr i64 %2, 24
+  %12 = icmp ne i64 %11, 32
+  %13 = add nsw i64 %11, -58
+  %or.cond.i.i = icmp ult i64 %13, -10
+  %or.cond10.i.not23.i = select i1 %12, i1 %or.cond.i.i, i1 false
+  %14 = add nsw i64 %11, -91
+  %or.cond3.i.i = icmp ult i64 %14, -26
+  %or.cond11.i.not22.i = select i1 %or.cond10.i.not23.i, i1 %or.cond3.i.i, i1 false
+  %15 = add nsw i64 %11, -123
+  %16 = icmp ult i64 %15, -26
+  %narrow.i.not.i = select i1 %or.cond11.i.not22.i, i1 %16, i1 false
+  br i1 %narrow.i.not.i, label %is_ICC_signature.exit.thread, label %17
+
+17:                                               ; preds = %4
+  %18 = lshr i64 %2, 16
+  %19 = and i64 %18, 255
+  %20 = icmp ne i64 %19, 32
+  %21 = add nsw i64 %19, -58
+  %or.cond.i6.i = icmp ult i64 %21, -10
+  %or.cond10.i7.not26.i = select i1 %20, i1 %or.cond.i6.i, i1 false
+  %22 = add nsw i64 %19, -91
+  %or.cond3.i8.i = icmp ult i64 %22, -26
+  %or.cond11.i9.not24.i = select i1 %or.cond10.i7.not26.i, i1 %or.cond3.i8.i, i1 false
+  %23 = add nsw i64 %19, -123
+  %24 = icmp ult i64 %23, -26
+  %narrow.i10.not.i = select i1 %or.cond11.i9.not24.i, i1 %24, i1 false
+  br i1 %narrow.i10.not.i, label %is_ICC_signature.exit.thread, label %25
+
+25:                                               ; preds = %17
+  %26 = lshr i64 %2, 8
+  %27 = and i64 %26, 255
+  %28 = icmp ne i64 %27, 32
+  %29 = add nsw i64 %27, -58
+  %or.cond.i11.i = icmp ult i64 %29, -10
+  %or.cond10.i12.not29.i = select i1 %28, i1 %or.cond.i11.i, i1 false
+  %30 = add nsw i64 %27, -91
+  %or.cond3.i13.i = icmp ult i64 %30, -26
+  %or.cond11.i14.not27.i = select i1 %or.cond10.i12.not29.i, i1 %or.cond3.i13.i, i1 false
+  %31 = add nsw i64 %27, -123
+  %32 = icmp ult i64 %31, -26
+  %narrow.i15.not.i = select i1 %or.cond11.i14.not27.i, i1 %32, i1 false
+  br i1 %narrow.i15.not.i, label %is_ICC_signature.exit.thread, label %is_ICC_signature.exit
+
+is_ICC_signature.exit:                            ; preds = %25
+  %33 = and i64 %2, 255
+  %34 = icmp ne i64 %33, 32
+  %35 = add nsw i64 %33, -58
+  %or.cond.i16.i = icmp ult i64 %35, -10
+  %or.cond10.i17.i.not20 = select i1 %34, i1 %or.cond.i16.i, i1 false
+  %36 = add nsw i64 %33, -91
+  %or.cond3.i18.i = icmp ult i64 %36, -26
+  %or.cond11.i19.i.not19 = select i1 %or.cond10.i17.i.not20, i1 %or.cond3.i18.i, i1 false
+  %37 = add nsw i64 %33, -123
+  %38 = icmp ult i64 %37, -26
+  %narrow.i20.i.not = select i1 %or.cond11.i19.i.not19, i1 %38, i1 false
+  br i1 %narrow.i20.i.not, label %is_ICC_signature.exit.thread, label %39
+
+39:                                               ; preds = %is_ICC_signature.exit
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %10
+  %41 = trunc nuw i64 %2 to i32
+  store i8 39, ptr %40, align 1, !tbaa !27
+  %42 = lshr i32 %41, 24
+  %43 = add nsw i32 %42, -32
+  %or.cond.i.i15 = icmp ult i32 %43, 95
+  %44 = trunc nuw i32 %42 to i8
+  %.0.i.i = select i1 %or.cond.i.i15, i8 %44, i8 63
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  store i8 %.0.i.i, ptr %45, align 1, !tbaa !27
+  %46 = lshr i32 %41, 16
+  %47 = and i32 %46, 255
+  %48 = add nsw i32 %47, -32
+  %or.cond.i9.i = icmp ult i32 %48, 95
+  %49 = trunc i32 %46 to i8
+  %.0.i10.i = select i1 %or.cond.i9.i, i8 %49, i8 63
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i8 %.0.i10.i, ptr %50, align 1, !tbaa !27
+  %51 = lshr i32 %41, 8
+  %52 = and i32 %51, 255
+  %53 = add nsw i32 %52, -32
+  %or.cond.i11.i16 = icmp ult i32 %53, 95
+  %54 = trunc i32 %51 to i8
+  %.0.i12.i = select i1 %or.cond.i11.i16, i8 %54, i8 63
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 3
+  store i8 %.0.i12.i, ptr %55, align 1, !tbaa !27
+  %56 = and i32 %41, 255
+  %57 = add nsw i32 %56, -32
+  %or.cond.i13.i = icmp ult i32 %57, 95
+  %58 = trunc i64 %2 to i8
+  %.0.i14.i = select i1 %or.cond.i13.i, i8 %58, i8 63
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store i8 %.0.i14.i, ptr %59, align 1, !tbaa !27
+  %60 = getelementptr inbounds nuw i8, ptr %40, i64 5
+  store i8 39, ptr %60, align 1, !tbaa !27
+  %61 = add i64 %10, 6
+  %62 = add i64 %10, 7
+  %63 = getelementptr inbounds nuw [196 x i8], ptr %5, i64 0, i64 %61
+  store i8 58, ptr %63, align 1, !tbaa !27
+  %64 = add i64 %10, 8
+  %65 = getelementptr inbounds nuw [196 x i8], ptr %5, i64 0, i64 %62
+  store i8 32, ptr %65, align 1, !tbaa !27
+  br label %70
+
+is_ICC_signature.exit.thread:                     ; preds = %4, %17, %25, %is_ICC_signature.exit
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %67 = call ptr @png_format_number(ptr noundef nonnull %6, ptr noundef nonnull %66, i32 noundef 3, i64 noundef %2) #28
+  %68 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %10, ptr noundef %67) #28
+  %69 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %68, ptr noundef nonnull @.str.60) #28
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
+  br label %70
+
+70:                                               ; preds = %is_ICC_signature.exit.thread, %39
+  %.0 = phi i64 [ %64, %39 ], [ %69, %is_ICC_signature.exit.thread ]
+  %71 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %.0, ptr noundef %3) #28
+  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %5) #28
+  call void @llvm.lifetime.end.p0(i64 196, ptr nonnull %5) #28
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
+  %6 = load i8, ptr %3, align 1, !tbaa !27
+  %7 = zext i8 %6 to i32
+  %8 = shl nuw i32 %7, 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %10 = load i8, ptr %9, align 1, !tbaa !27
+  %11 = zext i8 %10 to i32
+  %12 = shl nuw nsw i32 %11, 16
+  %13 = or disjoint i32 %12, %8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %15 = load i8, ptr %14, align 1, !tbaa !27
+  %16 = zext i8 %15 to i32
+  %17 = shl nuw nsw i32 %16, 8
+  %18 = or disjoint i32 %13, %17
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %20 = load i8, ptr %19, align 1, !tbaa !27
+  %21 = zext i8 %20 to i32
+  %22 = or disjoint i32 %18, %21
+  %.not = icmp eq i32 %22, %2
+  br i1 %.not, label %25, label %23
+
+23:                                               ; preds = %5
+  %24 = zext i32 %22 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %24, ptr noundef nonnull @.str.21)
+  br label %181
+
+25:                                               ; preds = %5
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = load i8, ptr %26, align 1, !tbaa !27
+  %28 = icmp ult i8 %27, 4
+  %29 = and i32 %2, 3
+  %.not98 = icmp eq i32 %29, 0
+  %or.cond = or i1 %.not98, %28
+  br i1 %or.cond, label %32, label %30
+
+30:                                               ; preds = %25
+  %31 = zext i32 %2 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %31, ptr noundef nonnull @.str.22)
+  br label %181
+
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %34 = load i8, ptr %33, align 1, !tbaa !27
+  %35 = zext i8 %34 to i32
+  %36 = shl nuw i32 %35, 24
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 129
+  %38 = load i8, ptr %37, align 1, !tbaa !27
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw nsw i32 %39, 16
+  %41 = or disjoint i32 %40, %36
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 130
+  %43 = load i8, ptr %42, align 1, !tbaa !27
+  %44 = zext i8 %43 to i32
+  %45 = shl nuw nsw i32 %44, 8
+  %46 = or disjoint i32 %41, %45
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 131
+  %48 = load i8, ptr %47, align 1, !tbaa !27
+  %49 = zext i8 %48 to i32
+  %50 = or disjoint i32 %46, %49
+  %51 = icmp ugt i32 %50, 357913930
+  br i1 %51, label %56, label %52
+
+52:                                               ; preds = %32
+  %53 = mul nuw i32 %50, 12
+  %54 = add nuw i32 %53, 132
+  %55 = icmp ult i32 %2, %54
+  br i1 %55, label %56, label %58
+
+56:                                               ; preds = %52, %32
+  %57 = zext i32 %50 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %57, ptr noundef nonnull @.str.23)
+  br label %181
+
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %60 = load i8, ptr %59, align 1, !tbaa !27
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw i32 %61, 24
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 65
+  %64 = load i8, ptr %63, align 1, !tbaa !27
+  %65 = zext i8 %64 to i32
+  %66 = shl nuw nsw i32 %65, 16
+  %67 = or disjoint i32 %66, %62
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 66
+  %69 = load i8, ptr %68, align 1, !tbaa !27
+  %70 = zext i8 %69 to i32
+  %71 = shl nuw nsw i32 %70, 8
+  %72 = or disjoint i32 %67, %71
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 67
+  %74 = load i8, ptr %73, align 1, !tbaa !27
+  %75 = zext i8 %74 to i32
+  %76 = or disjoint i32 %72, %75
+  %77 = icmp ugt i32 %76, 65534
+  br i1 %77, label %78, label %80
+
+78:                                               ; preds = %58
+  %79 = zext i32 %76 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %79, ptr noundef nonnull @.str.24)
+  br label %181
+
+80:                                               ; preds = %58
+  %81 = icmp samesign ugt i32 %76, 3
+  br i1 %81, label %82, label %84
+
+82:                                               ; preds = %80
+  %83 = zext nneg i32 %76 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %83, ptr noundef nonnull @.str.25)
+  br label %84
+
+84:                                               ; preds = %82, %80
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %86 = load i8, ptr %85, align 1, !tbaa !27
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw i32 %87, 24
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 37
+  %90 = load i8, ptr %89, align 1, !tbaa !27
+  %91 = zext i8 %90 to i32
+  %92 = shl nuw nsw i32 %91, 16
+  %93 = or disjoint i32 %92, %88
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 38
+  %95 = load i8, ptr %94, align 1, !tbaa !27
+  %96 = zext i8 %95 to i32
+  %97 = shl nuw nsw i32 %96, 8
+  %98 = or disjoint i32 %93, %97
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 39
+  %100 = load i8, ptr %99, align 1, !tbaa !27
+  %101 = zext i8 %100 to i32
+  %102 = or disjoint i32 %98, %101
+  %.not99 = icmp eq i32 %102, 1633907568
+  br i1 %.not99, label %105, label %103
+
+103:                                              ; preds = %84
+  %104 = zext i32 %102 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %104, ptr noundef nonnull @.str.26)
+  br label %181
+
+105:                                              ; preds = %84
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 68
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %106, ptr noundef nonnull dereferenceable(12) @D50_nCIEXYZ, i64 12)
+  %.not100 = icmp eq i32 %bcmp, 0
+  br i1 %.not100, label %108, label %107
+
+107:                                              ; preds = %105
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef 0, ptr noundef nonnull @.str.27)
+  br label %108
+
+108:                                              ; preds = %107, %105
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %110 = load i8, ptr %109, align 1, !tbaa !27
+  %111 = zext i8 %110 to i32
+  %112 = shl nuw i32 %111, 24
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %114 = load i8, ptr %113, align 1, !tbaa !27
+  %115 = zext i8 %114 to i32
+  %116 = shl nuw nsw i32 %115, 16
+  %117 = or disjoint i32 %116, %112
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  %119 = load i8, ptr %118, align 1, !tbaa !27
+  %120 = zext i8 %119 to i32
+  %121 = shl nuw nsw i32 %120, 8
+  %122 = or disjoint i32 %117, %121
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 19
+  %124 = load i8, ptr %123, align 1, !tbaa !27
+  %125 = zext i8 %124 to i32
+  %126 = or disjoint i32 %122, %125
+  switch i32 %126, label %134 [
+    i32 1380401696, label %127
+    i32 1196573017, label %131
+  ]
+
+127:                                              ; preds = %108
+  %128 = and i32 %4, 2
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %136
+
+130:                                              ; preds = %127
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef 1380401696, ptr noundef nonnull @.str.28)
+  br label %181
+
+131:                                              ; preds = %108
+  %132 = and i32 %4, 2
+  %.not101 = icmp eq i32 %132, 0
+  br i1 %.not101, label %136, label %133
+
+133:                                              ; preds = %131
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef 1196573017, ptr noundef nonnull @.str.29)
+  br label %181
+
+134:                                              ; preds = %108
+  %135 = zext i32 %126 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %135, ptr noundef nonnull @.str.30)
+  br label %181
+
+136:                                              ; preds = %131, %127
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %138 = load i8, ptr %137, align 1, !tbaa !27
+  %139 = zext i8 %138 to i32
+  %140 = shl nuw i32 %139, 24
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %142 = load i8, ptr %141, align 1, !tbaa !27
+  %143 = zext i8 %142 to i32
+  %144 = shl nuw nsw i32 %143, 16
+  %145 = or disjoint i32 %144, %140
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %147 = load i8, ptr %146, align 1, !tbaa !27
+  %148 = zext i8 %147 to i32
+  %149 = shl nuw nsw i32 %148, 8
+  %150 = or disjoint i32 %145, %149
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  %152 = load i8, ptr %151, align 1, !tbaa !27
+  %153 = zext i8 %152 to i32
+  %154 = or disjoint i32 %150, %153
+  switch i32 %154, label %158 [
+    i32 1935896178, label %160
+    i32 1835955314, label %160
+    i32 1886549106, label %160
+    i32 1936744803, label %160
+    i32 1633842036, label %155
+    i32 1818848875, label %156
+    i32 1852662636, label %157
+  ]
+
+155:                                              ; preds = %136
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef 1633842036, ptr noundef nonnull @.str.31)
+  br label %181
+
+156:                                              ; preds = %136
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef 1818848875, ptr noundef nonnull @.str.32)
+  br label %181
+
+157:                                              ; preds = %136
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef 1852662636, ptr noundef nonnull @.str.33)
+  br label %160
+
+158:                                              ; preds = %136
+  %159 = zext i32 %154 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %159, ptr noundef nonnull @.str.34)
+  br label %160
+
+160:                                              ; preds = %136, %136, %136, %136, %158, %157
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %162 = load i8, ptr %161, align 1, !tbaa !27
+  %163 = zext i8 %162 to i32
+  %164 = shl nuw i32 %163, 24
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 21
+  %166 = load i8, ptr %165, align 1, !tbaa !27
+  %167 = zext i8 %166 to i32
+  %168 = shl nuw nsw i32 %167, 16
+  %169 = or disjoint i32 %168, %164
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 22
+  %171 = load i8, ptr %170, align 1, !tbaa !27
+  %172 = zext i8 %171 to i32
+  %173 = shl nuw nsw i32 %172, 8
+  %174 = or disjoint i32 %169, %173
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 23
+  %176 = load i8, ptr %175, align 1, !tbaa !27
+  %177 = zext i8 %176 to i32
+  %178 = or disjoint i32 %174, %177
+  switch i32 %178, label %179 [
+    i32 1482250784, label %181
+    i32 1281450528, label %181
+  ]
+
+179:                                              ; preds = %160
+  %180 = zext i32 %178 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %180, ptr noundef nonnull @.str.35)
+  br label %181
+
+181:                                              ; preds = %160, %160, %179, %156, %155, %134, %133, %130, %103, %78, %56, %30, %23
+  %.0 = phi i32 [ 0, %23 ], [ 0, %30 ], [ 0, %56 ], [ 0, %78 ], [ 0, %103 ], [ 0, %134 ], [ 0, %133 ], [ 0, %179 ], [ 0, %156 ], [ 0, %155 ], [ 0, %130 ], [ 1, %160 ], [ 1, %160 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 0, 2) i32 @png_icc_check_tag_table(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %6 = load i8, ptr %5, align 1, !tbaa !27
+  %7 = zext i8 %6 to i32
+  %8 = shl nuw i32 %7, 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 129
+  %10 = load i8, ptr %9, align 1, !tbaa !27
+  %11 = zext i8 %10 to i32
+  %12 = shl nuw nsw i32 %11, 16
+  %13 = or disjoint i32 %12, %8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 130
+  %15 = load i8, ptr %14, align 1, !tbaa !27
+  %16 = zext i8 %15 to i32
+  %17 = shl nuw nsw i32 %16, 8
+  %18 = or disjoint i32 %13, %17
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 131
+  %20 = load i8, ptr %19, align 1, !tbaa !27
+  %21 = zext i8 %20 to i32
+  %22 = or disjoint i32 %18, %21
+  %.not41 = icmp eq i32 %22, 0
+  br i1 %.not41, label %.loopexit, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 132
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %86
+  %.03540 = phi i32 [ %87, %86 ], [ 0, %.lr.ph.preheader ]
+  %.03639 = phi ptr [ %88, %86 ], [ %23, %.lr.ph.preheader ]
+  %24 = load i8, ptr %.03639, align 1, !tbaa !27
+  %25 = zext i8 %24 to i32
+  %26 = shl nuw i32 %25, 24
+  %27 = getelementptr inbounds nuw i8, ptr %.03639, i64 1
+  %28 = load i8, ptr %27, align 1, !tbaa !27
+  %29 = zext i8 %28 to i32
+  %30 = shl nuw nsw i32 %29, 16
+  %31 = or disjoint i32 %30, %26
+  %32 = getelementptr inbounds nuw i8, ptr %.03639, i64 2
+  %33 = load i8, ptr %32, align 1, !tbaa !27
+  %34 = zext i8 %33 to i32
+  %35 = shl nuw nsw i32 %34, 8
+  %36 = or disjoint i32 %31, %35
+  %37 = getelementptr inbounds nuw i8, ptr %.03639, i64 3
+  %38 = load i8, ptr %37, align 1, !tbaa !27
+  %39 = zext i8 %38 to i32
+  %40 = or disjoint i32 %36, %39
+  %41 = getelementptr inbounds nuw i8, ptr %.03639, i64 4
+  %42 = load i8, ptr %41, align 1, !tbaa !27
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw i32 %43, 24
+  %45 = getelementptr inbounds nuw i8, ptr %.03639, i64 5
+  %46 = load i8, ptr %45, align 1, !tbaa !27
+  %47 = zext i8 %46 to i32
+  %48 = shl nuw nsw i32 %47, 16
+  %49 = or disjoint i32 %48, %44
+  %50 = getelementptr inbounds nuw i8, ptr %.03639, i64 6
+  %51 = load i8, ptr %50, align 1, !tbaa !27
+  %52 = zext i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = or disjoint i32 %49, %53
+  %55 = getelementptr inbounds nuw i8, ptr %.03639, i64 7
+  %56 = load i8, ptr %55, align 1, !tbaa !27
+  %57 = zext i8 %56 to i32
+  %58 = or disjoint i32 %54, %57
+  %59 = icmp ugt i32 %58, %2
+  br i1 %59, label %.critedge, label %60
+
+60:                                               ; preds = %.lr.ph
+  %61 = getelementptr inbounds nuw i8, ptr %.03639, i64 8
+  %62 = load i8, ptr %61, align 1, !tbaa !27
+  %63 = zext i8 %62 to i32
+  %64 = shl nuw i32 %63, 24
+  %65 = getelementptr inbounds nuw i8, ptr %.03639, i64 9
+  %66 = load i8, ptr %65, align 1, !tbaa !27
+  %67 = zext i8 %66 to i32
+  %68 = shl nuw nsw i32 %67, 16
+  %69 = or disjoint i32 %68, %64
+  %70 = getelementptr inbounds nuw i8, ptr %.03639, i64 10
+  %71 = load i8, ptr %70, align 1, !tbaa !27
+  %72 = zext i8 %71 to i32
+  %73 = shl nuw nsw i32 %72, 8
+  %74 = or disjoint i32 %69, %73
+  %75 = getelementptr inbounds nuw i8, ptr %.03639, i64 11
+  %76 = load i8, ptr %75, align 1, !tbaa !27
+  %77 = zext i8 %76 to i32
+  %78 = or disjoint i32 %74, %77
+  %79 = sub nuw i32 %2, %58
+  %80 = icmp ugt i32 %78, %79
+  br i1 %80, label %.critedge, label %82
+
+.critedge:                                        ; preds = %60, %.lr.ph
+  %81 = zext i32 %40 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %81, ptr noundef nonnull @.str.36)
+  br label %.loopexit
+
+82:                                               ; preds = %60
+  %83 = and i32 %57, 3
+  %.not = icmp eq i32 %83, 0
+  br i1 %.not, label %86, label %84
+
+84:                                               ; preds = %82
+  %85 = zext i32 %40 to i64
+  tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef %1, i64 noundef %85, ptr noundef nonnull @.str.37)
+  br label %86
+
+86:                                               ; preds = %84, %82
+  %87 = add nuw i32 %.03540, 1
+  %88 = getelementptr inbounds nuw i8, ptr %.03639, i64 12
+  %exitcond.not = icmp eq i32 %87, %22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !133
+
+.loopexit:                                        ; preds = %86, %4, %.critedge
+  %.2 = phi i32 [ 0, %.critedge ], [ 1, %4 ], [ 1, %86 ]
+  ret i32 %.2
+}
+
+; Function Attrs: nounwind uwtable
+define void @png_set_rgb_coefficients(ptr noalias noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.png_XYZ, align 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1033
+  %4 = load i8, ptr %3, align 1, !tbaa !134
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %6, label %91
+
+6:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #28
+  %7 = getelementptr i8, ptr %0, i64 504
+  %.val = load i32, ptr %7, align 8, !tbaa !135
+  %8 = and i32 %.val, 65536
+  %.not.i = icmp ne i32 %8, 0
+  %9 = and i32 %.val, 8388672
+  %or.cond104.not = icmp eq i32 %9, 64
+  %or.cond107 = or i1 %.not.i, %or.cond104.not
+  br i1 %or.cond107, label %have_chromaticities.exit.thread87, label %have_chromaticities.exit.thread
+
+have_chromaticities.exit.thread87:                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %11 = call i32 @png_XYZ_from_xy(ptr noundef nonnull %2, ptr noundef nonnull %10)
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %have_chromaticities.exit.thread
+
+13:                                               ; preds = %have_chromaticities.exit.thread87
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %15 = load i32, ptr %14, align 4, !tbaa !117
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %17 = load i32, ptr %16, align 4, !tbaa !120
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %19 = load i32, ptr %18, align 4, !tbaa !123
+  %20 = add nsw i32 %17, %15
+  %21 = add nsw i32 %20, %19
+  %22 = icmp sgt i32 %21, 0
+  %23 = icmp sgt i32 %15, -1
+  %or.cond = and i1 %23, %22
+  br i1 %or.cond, label %24, label %png_muldiv.exit.thread
+
+24:                                               ; preds = %13
+  %25 = icmp eq i32 %15, 0
+  br i1 %25, label %png_muldiv.exit, label %26
+
+26:                                               ; preds = %24
+  %27 = uitofp nneg i32 %15 to double
+  %28 = fmul double %27, 3.276800e+04
+  %29 = uitofp nneg i32 %21 to double
+  %30 = fdiv double %28, %29
+  %31 = fadd double %30, 5.000000e-01
+  %32 = tail call double @llvm.floor.f64(double %31)
+  %33 = fcmp ole double %32, 0x41DFFFFFFFC00000
+  %34 = fcmp oge double %32, 0xC1E0000000000000
+  %or.cond3.i = and i1 %33, %34
+  br i1 %or.cond3.i, label %35, label %png_muldiv.exit.thread
+
+35:                                               ; preds = %26
+  %36 = fptosi double %32 to i32
+  br label %png_muldiv.exit
+
+png_muldiv.exit:                                  ; preds = %24, %35
+  %.184 = phi i32 [ %36, %35 ], [ 0, %24 ]
+  %37 = icmp ult i32 %.184, 32769
+  %38 = icmp sgt i32 %17, -1
+  %or.cond7 = and i1 %38, %37
+  br i1 %or.cond7, label %39, label %png_muldiv.exit.thread
+
+39:                                               ; preds = %png_muldiv.exit
+  %40 = icmp eq i32 %17, 0
+  br i1 %40, label %png_muldiv.exit55, label %41
+
+41:                                               ; preds = %39
+  %42 = uitofp nneg i32 %17 to double
+  %43 = fmul double %42, 3.276800e+04
+  %44 = uitofp nneg i32 %21 to double
+  %45 = fdiv double %43, %44
+  %46 = fadd double %45, 5.000000e-01
+  %47 = tail call double @llvm.floor.f64(double %46)
+  %48 = fcmp ole double %47, 0x41DFFFFFFFC00000
+  %49 = fcmp oge double %47, 0xC1E0000000000000
+  %or.cond3.i51 = and i1 %48, %49
+  br i1 %or.cond3.i51, label %50, label %png_muldiv.exit.thread
+
+50:                                               ; preds = %41
+  %51 = fptosi double %47 to i32
+  br label %png_muldiv.exit55
+
+png_muldiv.exit55:                                ; preds = %39, %50
+  %.182 = phi i32 [ %51, %50 ], [ 0, %39 ]
+  %52 = icmp ult i32 %.182, 32769
+  %53 = icmp sgt i32 %19, -1
+  %or.cond13 = and i1 %53, %52
+  br i1 %or.cond13, label %54, label %png_muldiv.exit.thread
+
+54:                                               ; preds = %png_muldiv.exit55
+  %55 = icmp eq i32 %19, 0
+  br i1 %55, label %png_muldiv.exit61.thread, label %56
+
+56:                                               ; preds = %54
+  %57 = uitofp nneg i32 %19 to double
+  %58 = fmul double %57, 3.276800e+04
+  %59 = uitofp nneg i32 %21 to double
+  %60 = fdiv double %58, %59
+  %61 = fadd double %60, 5.000000e-01
+  %62 = tail call double @llvm.floor.f64(double %61)
+  %63 = fcmp ole double %62, 0x41DFFFFFFFC00000
+  %64 = fcmp oge double %62, 0xC1E0000000000000
+  %or.cond3.i57 = and i1 %63, %64
+  %65 = fptosi double %62 to i32
+  %66 = icmp ult i32 %65, 32769
+  %or.cond109 = select i1 %or.cond3.i57, i1 %66, i1 false
+  br i1 %or.cond109, label %png_muldiv.exit61.thread, label %png_muldiv.exit.thread
+
+png_muldiv.exit61.thread:                         ; preds = %56, %54
+  %.1106 = phi i32 [ 0, %54 ], [ %65, %56 ]
+  %67 = add nuw nsw i32 %.182, %.184
+  %68 = add nuw nsw i32 %67, %.1106
+  %69 = icmp samesign ult i32 %68, 32770
+  br i1 %69, label %70, label %png_muldiv.exit.thread
+
+70:                                               ; preds = %png_muldiv.exit61.thread
+  %71 = icmp eq i32 %68, 32769
+  br i1 %71, label %.thread, label %72
+
+72:                                               ; preds = %70
+  %73 = icmp samesign ult i32 %68, 32768
+  br i1 %73, label %.thread, label %81
+
+.thread:                                          ; preds = %70, %72
+  %.0103 = phi i32 [ 1, %72 ], [ -1, %70 ]
+  %.not41 = icmp samesign ult i32 %.182, %.184
+  %.not42 = icmp samesign ult i32 %.182, %.1106
+  %or.cond47 = select i1 %.not41, i1 true, i1 %.not42
+  br i1 %or.cond47, label %76, label %74
+
+74:                                               ; preds = %.thread
+  %75 = add nsw i32 %.0103, %.182
+  br label %81
+
+76:                                               ; preds = %.thread
+  %.not43 = icmp samesign ult i32 %.184, %.182
+  %.not44 = icmp samesign ult i32 %.184, %.1106
+  %or.cond48 = select i1 %.not43, i1 true, i1 %.not44
+  br i1 %or.cond48, label %79, label %77
+
+77:                                               ; preds = %76
+  %78 = add nsw i32 %.0103, %.184
+  br label %81
+
+79:                                               ; preds = %76
+  %80 = add nsw i32 %.0103, %.1106
+  br label %81
+
+81:                                               ; preds = %74, %79, %77, %72
+  %.083 = phi i32 [ %.184, %72 ], [ %.184, %79 ], [ %78, %77 ], [ %.184, %74 ]
+  %.081 = phi i32 [ %.182, %72 ], [ %.182, %79 ], [ %.182, %77 ], [ %75, %74 ]
+  %.080 = phi i32 [ %.1106, %72 ], [ %80, %79 ], [ %.1106, %77 ], [ %.1106, %74 ]
+  %82 = add nsw i32 %.081, %.083
+  %83 = add nsw i32 %82, %.080
+  %.not45 = icmp eq i32 %83, 32768
+  br i1 %.not45, label %85, label %84
+
+84:                                               ; preds = %81
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.38) #26
+  unreachable
+
+85:                                               ; preds = %81
+  %86 = trunc i32 %.083 to i16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1034
+  store i16 %86, ptr %87, align 2, !tbaa !136
+  %88 = trunc i32 %.081 to i16
+  br label %png_muldiv.exit.thread.sink.split
+
+have_chromaticities.exit.thread:                  ; preds = %6, %have_chromaticities.exit.thread87
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1034
+  store i16 6968, ptr %89, align 2, !tbaa !136
+  br label %png_muldiv.exit.thread.sink.split
+
+png_muldiv.exit.thread.sink.split:                ; preds = %have_chromaticities.exit.thread, %85
+  %.sink = phi i16 [ %88, %85 ], [ 23434, %have_chromaticities.exit.thread ]
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1036
+  store i16 %.sink, ptr %90, align 4, !tbaa !137
+  br label %png_muldiv.exit.thread
+
+png_muldiv.exit.thread:                           ; preds = %png_muldiv.exit.thread.sink.split, %56, %41, %26, %13, %png_muldiv.exit, %png_muldiv.exit55, %png_muldiv.exit61.thread
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #28
+  br label %91
+
+91:                                               ; preds = %png_muldiv.exit.thread, %1
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4055,19 +3256,19 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %11, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %10, %8
-  %.str.50.sink = phi ptr [ @.str.50, %8 ], [ @.str.51, %10 ]
-  tail call void @png_warning(ptr noundef %0, ptr noundef nonnull %.str.50.sink) #29
+  %.str.39.sink = phi ptr [ @.str.39, %8 ], [ @.str.40, %10 ]
+  tail call void @png_warning(ptr noundef %0, ptr noundef nonnull %.str.39.sink) #28
   br label %12
 
 12:                                               ; preds = %.sink.split, %10
   %.1 = phi i32 [ 0, %10 ], [ 1, %.sink.split ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1060
-  %14 = load i32, ptr %13, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1116
+  %14 = load i32, ptr %13, align 4, !tbaa !29
   %15 = icmp ugt i32 %1, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.53) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #28
   br label %17
 
 17:                                               ; preds = %16, %12
@@ -4080,19 +3281,19 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %20, label %.sink.split92, label %21
 
 .sink.split92:                                    ; preds = %19, %17
-  %.str.54.sink = phi ptr [ @.str.54, %17 ], [ @.str.55, %19 ]
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull %.str.54.sink) #29
+  %.str.43.sink = phi ptr [ @.str.43, %17 ], [ @.str.44, %19 ]
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull %.str.43.sink) #28
   br label %21
 
 21:                                               ; preds = %.sink.split92, %19
   %.5 = phi i32 [ %.3, %19 ], [ 1, %.sink.split92 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %23 = load i32, ptr %22, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %23 = load i32, ptr %22, align 8, !tbaa !30
   %24 = icmp ugt i32 %2, %23
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.56) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.45) #28
   br label %26
 
 26:                                               ; preds = %25, %21
@@ -4106,7 +3307,7 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   ]
 
 27:                                               ; preds = %26
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.46) #28
   br label %28
 
 28:                                               ; preds = %26, %26, %26, %26, %26, %27
@@ -4118,7 +3319,7 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %or.cond13, label %32, label %33
 
 32:                                               ; preds = %28
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.47) #28
   br label %33
 
 33:                                               ; preds = %28, %32
@@ -4137,7 +3338,7 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %or.cond21, label %40, label %41
 
 40:                                               ; preds = %36, %33
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.48) #28
   br label %41
 
 41:                                               ; preds = %36, %40
@@ -4146,7 +3347,7 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %41
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.49) #28
   br label %44
 
 44:                                               ; preds = %43, %41
@@ -4155,25 +3356,25 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not, label %46, label %45
 
 45:                                               ; preds = %44
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.61) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.50) #28
   br label %46
 
 46:                                               ; preds = %45, %44
   %.11 = phi i32 [ 1, %45 ], [ %.10, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !138
   %49 = and i32 %48, 4096
   %.not77 = icmp eq i32 %49, 0
   br i1 %.not77, label %54, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  %52 = load i32, ptr %51, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %52 = load i32, ptr %51, align 8, !tbaa !139
   %.not78 = icmp eq i32 %52, 0
   br i1 %.not78, label %54, label %53
 
 53:                                               ; preds = %50
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.51) #28
   br label %54
 
 54:                                               ; preds = %53, %50, %46
@@ -4181,8 +3382,8 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not79, label %.thread87, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  %57 = load i32, ptr %56, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %57 = load i32, ptr %56, align 8, !tbaa !139
   %58 = and i32 %57, 4
   %59 = icmp ne i32 %58, 0
   %60 = icmp eq i32 %7, 64
@@ -4190,7 +3391,7 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %or.cond23, label %61, label %65
 
 61:                                               ; preds = %55
-  %62 = load i32, ptr %47, align 4
+  %62 = load i32, ptr %47, align 4, !tbaa !138
   %63 = and i32 %62, 4096
   %64 = icmp eq i32 %63, 0
   %or.cond25 = icmp eq i32 %29, 2
@@ -4198,14 +3399,14 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %or.cond, label %.thread87, label %65
 
 65:                                               ; preds = %55, %61
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.63) #29
-  %.pre = load i32, ptr %47, align 4
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.52) #28
+  %.pre = load i32, ptr %47, align 4, !tbaa !138
   %.pre86 = and i32 %.pre, 4096
   %66 = icmp eq i32 %.pre86, 0
   br i1 %66, label %.thread90, label %.thread84
 
 .thread84:                                        ; preds = %65
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.64) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.53) #28
   br label %.thread90
 
 .thread87:                                        ; preds = %61, %54
@@ -4213,7 +3414,7 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br i1 %67, label %.thread90, label %68
 
 .thread90:                                        ; preds = %65, %.thread84, %.thread87
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #27
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.54) #26
   unreachable
 
 68:                                               ; preds = %.thread87
@@ -4221,18 +3422,18 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #16 {
-  %5 = load i32, ptr %2, align 4
-  %6 = load i64, ptr %3, align 8
+define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #17 {
+  %5 = load i32, ptr %2, align 4, !tbaa !43
+  %6 = load i64, ptr %3, align 8, !tbaa !42
   %7 = icmp ult i64 %6, %1
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  br i1 %7, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %4, %60
-  %.03542 = phi i64 [ %61, %60 ], [ %6, %4 ]
-  %.03641 = phi i32 [ %.1, %60 ], [ %5, %4 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.03542
-  %9 = load i8, ptr %8, align 1
-  switch i8 %9, label %._crit_edge [
+  %.03851 = phi i64 [ %61, %60 ], [ %6, %4 ]
+  %.03950 = phi i32 [ %.241, %60 ], [ %5, %4 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.03851
+  %9 = load i8, ptr %8, align 1, !tbaa !27
+  switch i8 %9, label %.thread [
     i8 43, label %15
     i8 45, label %10
     i8 46, label %11
@@ -4266,11 +3467,11 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
   br label %15
 
 15:                                               ; preds = %.lr.ph, %14, %13, %12, %11, %10
-  %.0 = phi i32 [ 32, %14 ], [ 264, %13 ], [ 8, %12 ], [ 16, %11 ], [ 132, %10 ], [ 4, %.lr.ph ]
-  %16 = and i32 %.03641, 3
-  %17 = and i32 %.0, 60
+  %.037 = phi i32 [ 32, %14 ], [ 264, %13 ], [ 8, %12 ], [ 16, %11 ], [ 132, %10 ], [ 4, %.lr.ph ]
+  %16 = and i32 %.03950, 3
+  %17 = and i32 %.037, 60
   %18 = or disjoint i32 %17, %16
-  switch i32 %18, label %._crit_edge [
+  switch i32 %18, label %.thread [
     i32 4, label %19
     i32 16, label %23
     i32 8, label %33
@@ -4282,125 +3483,129 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
   ]
 
 19:                                               ; preds = %15
-  %20 = and i32 %.03641, 60
-  %.not40 = icmp eq i32 %20, 0
-  br i1 %.not40, label %21, label %._crit_edge
+  %20 = and i32 %.03950, 60
+  %.not46 = icmp eq i32 %20, 0
+  br i1 %.not46, label %21, label %.thread
 
 21:                                               ; preds = %19
-  %22 = or i32 %.0, %.03641
+  %22 = or i32 %.037, %.03950
   br label %60
 
 23:                                               ; preds = %15
-  %24 = and i32 %.03641, 16
-  %.not38 = icmp eq i32 %24, 0
-  br i1 %.not38, label %25, label %._crit_edge
+  %24 = and i32 %.03950, 16
+  %.not44 = icmp eq i32 %24, 0
+  br i1 %.not44, label %25, label %.thread
 
 25:                                               ; preds = %23
-  %26 = and i32 %.03641, 8
-  %.not39 = icmp eq i32 %26, 0
-  br i1 %.not39, label %29, label %27
+  %26 = and i32 %.03950, 8
+  %.not45 = icmp eq i32 %26, 0
+  br i1 %.not45, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = or i32 %.0, %.03641
+  %28 = or i32 %.037, %.03950
   br label %60
 
 29:                                               ; preds = %25
-  %30 = and i32 %.03641, 448
-  %31 = or i32 %30, %.0
+  %30 = and i32 %.03950, 448
+  %31 = or i32 %30, %.037
   %32 = or disjoint i32 %31, 1
   br label %60
 
 33:                                               ; preds = %15
-  %34 = and i32 %.03641, 16
-  %.not37 = icmp eq i32 %34, 0
-  %35 = and i32 %.03641, 384
+  %34 = and i32 %.03950, 16
+  %.not43 = icmp eq i32 %34, 0
+  %35 = and i32 %.03950, 384
   %36 = or disjoint i32 %35, 17
-  %.2 = select i1 %.not37, i32 %.03641, i32 %36
-  %37 = or i32 %.2, %.0
+  %.3 = select i1 %.not43, i32 %.03950, i32 %36
+  %37 = or i32 %.3, %.037
   %38 = or i32 %37, 64
   br label %60
 
 39:                                               ; preds = %15
-  %40 = and i32 %.03641, 8
+  %40 = and i32 %.03950, 8
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %._crit_edge, label %42
+  br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %39
-  %43 = and i32 %.03641, 448
+  %43 = and i32 %.03950, 448
   %44 = or disjoint i32 %43, 2
   br label %60
 
 45:                                               ; preds = %15
-  %46 = or i32 %.03641, %.0
+  %46 = or i32 %.03950, %.037
   %47 = or i32 %46, 64
   br label %60
 
 48:                                               ; preds = %15
-  %49 = and i32 %.03641, 8
+  %49 = and i32 %.03950, 8
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %._crit_edge, label %51
+  br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %48
-  %52 = and i32 %.03641, 448
+  %52 = and i32 %.03950, 448
   %53 = or disjoint i32 %52, 2
   br label %60
 
 54:                                               ; preds = %15
-  %55 = and i32 %.03641, 60
+  %55 = and i32 %.03950, 60
   %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %56, label %._crit_edge
+  br i1 %.not, label %56, label %.thread
 
 56:                                               ; preds = %54
-  %57 = or disjoint i32 %.03641, 4
+  %57 = or disjoint i32 %.03950, 4
   br label %60
 
 58:                                               ; preds = %15
-  %59 = or i32 %.03641, 72
+  %59 = or i32 %.03950, 72
   br label %60
 
-60:                                               ; preds = %29, %27, %58, %56, %51, %45, %42, %33, %21
-  %.1 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %53, %51 ], [ %47, %45 ], [ %44, %42 ], [ %38, %33 ], [ %28, %27 ], [ %32, %29 ], [ %22, %21 ]
-  %61 = add i64 %.03542, 1
+60:                                               ; preds = %21, %33, %42, %45, %51, %56, %58, %27, %29
+  %.241 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %53, %51 ], [ %47, %45 ], [ %44, %42 ], [ %38, %33 ], [ %28, %27 ], [ %32, %29 ], [ %22, %21 ]
+  %61 = add i64 %.03851, 1
   %exitcond.not = icmp eq i64 %61, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %.thread, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %19, %23, %39, %48, %54, %15, %60, %4
-  %.036.lcssa = phi i32 [ %5, %4 ], [ %.1, %60 ], [ %.03641, %15 ], [ %.03641, %54 ], [ %.03641, %48 ], [ %.03641, %39 ], [ %.03641, %23 ], [ %.03641, %19 ], [ %.03641, %.lr.ph ]
-  %.035.lcssa = phi i64 [ %6, %4 ], [ %1, %60 ], [ %.03542, %15 ], [ %.03542, %54 ], [ %.03542, %48 ], [ %.03542, %39 ], [ %.03542, %23 ], [ %.03542, %19 ], [ %.03542, %.lr.ph ]
-  store i32 %.036.lcssa, ptr %2, align 4
-  store i64 %.035.lcssa, ptr %3, align 8
-  %62 = lshr i32 %.036.lcssa, 3
+.thread:                                          ; preds = %60, %.lr.ph, %19, %23, %39, %48, %54, %15, %4
+  %.039.lcssa = phi i32 [ %5, %4 ], [ %.03950, %15 ], [ %.03950, %54 ], [ %.03950, %48 ], [ %.03950, %39 ], [ %.03950, %23 ], [ %.03950, %19 ], [ %.03950, %.lr.ph ], [ %.241, %60 ]
+  %.038.lcssa = phi i64 [ %6, %4 ], [ %.03851, %15 ], [ %.03851, %54 ], [ %.03851, %48 ], [ %.03851, %39 ], [ %.03851, %23 ], [ %.03851, %19 ], [ %.03851, %.lr.ph ], [ %1, %60 ]
+  store i32 %.039.lcssa, ptr %2, align 4, !tbaa !43
+  store i64 %.038.lcssa, ptr %3, align 8, !tbaa !42
+  %62 = lshr i32 %.039.lcssa, 3
   %.lobit = and i32 %62, 1
   ret i32 %.lobit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @png_check_fp_string(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #16 {
+define i32 @png_check_fp_string(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #17 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
-  store i32 0, ptr %3, align 4
-  store i64 0, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  store i32 0, ptr %3, align 4, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  store i64 0, ptr %4, align 8, !tbaa !42
   %5 = call i32 @png_check_fp_number(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !42
   %8 = icmp eq i64 %7, %1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 %7
-  %11 = load i8, ptr %10, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %11 = load i8, ptr %10, align 1, !tbaa !27
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9, %6
-  %14 = load i32, ptr %3, align 4
+  %14 = load i32, ptr %3, align 4, !tbaa !43
   br label %15
 
 15:                                               ; preds = %2, %9, %13
   %.0 = phi i32 [ %14, %13 ], [ 0, %9 ], [ 0, %2 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
   ret i32 %.0
 }
 
@@ -4411,11 +3616,11 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
   %8 = alloca double, align 8
   %9 = icmp eq i32 %4, 0
   %10 = tail call i32 @llvm.umin.i32(i32 %4, i32 16)
-  %spec.store.select6 = select i1 %9, i32 15, i32 %10
-  %11 = add nuw nsw i32 %spec.store.select6, 5
+  %spec.store.select7 = select i1 %9, i32 15, i32 %10
+  %11 = add nuw nsw i32 %spec.store.select7, 5
   %12 = zext nneg i32 %11 to i64
   %.not = icmp ult i64 %2, %12
-  br i1 %.not, label %190, label %13
+  br i1 %.not, label %191, label %13
 
 13:                                               ; preds = %5
   %14 = fcmp olt double %3, 0.000000e+00
@@ -4424,22 +3629,23 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
 15:                                               ; preds = %13
   %16 = fneg double %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 45, ptr %1, align 1
+  store i8 45, ptr %1, align 1, !tbaa !27
   %18 = add i64 %2, -1
   br label %19
 
 19:                                               ; preds = %15, %13
-  %.0128 = phi double [ %16, %15 ], [ %3, %13 ]
-  %.0113 = phi i64 [ %18, %15 ], [ %2, %13 ]
-  %.093 = phi ptr [ %17, %15 ], [ %1, %13 ]
-  %20 = fcmp oge double %.0128, 0x10000000000000
-  %21 = fcmp ole double %.0128, 0x7FEFFFFFFFFFFFFF
+  %.0137 = phi double [ %16, %15 ], [ %3, %13 ]
+  %.0119 = phi i64 [ %18, %15 ], [ %2, %13 ]
+  %.097 = phi ptr [ %17, %15 ], [ %1, %13 ]
+  %20 = fcmp oge double %.0137, 0x10000000000000
+  %21 = fcmp ole double %.0137, 0x7FEFFFFFFFFFFFFF
   %or.cond = and i1 %20, %21
-  br i1 %or.cond, label %22, label %184
+  br i1 %or.cond, label %22, label %185
 
 22:                                               ; preds = %19
-  %23 = call double @frexp(double noundef %.0128, ptr noundef nonnull %6) #29
-  %24 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  %23 = call double @frexp(double noundef %.0137, ptr noundef nonnull %6) #28
+  %24 = load i32, ptr %6, align 4, !tbaa !43
   %25 = mul nsw i32 %24, 77
   %26 = ashr i32 %25, 8
   %27 = icmp sgt i32 %26, -1
@@ -4472,474 +3678,483 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
   %34 = fmul double %.0.i, %.0.i
   %35 = lshr i32 %.117.i, 1
   %.not22.i = icmp ult i32 %.117.i, 2
-  br i1 %.not22.i, label %36, label %.preheader.i, !llvm.loop !60
+  br i1 %.not22.i, label %36, label %.preheader.i, !llvm.loop !140
 
 36:                                               ; preds = %.preheader.i
-  br i1 %27, label %png_pow10.exit, label %37
-
-37:                                               ; preds = %36
-  %38 = fdiv double 1.000000e+00, %.2.i
+  %37 = fdiv double 1.000000e+00, %.2.i
+  %.3.i = select i1 %27, double %.2.i, double %37
   br label %png_pow10.exit
 
-png_pow10.exit:                                   ; preds = %31, %36, %37
-  %.018.i = phi double [ %38, %37 ], [ %.2.i, %36 ], [ 1.000000e+00, %31 ]
-  %39 = fcmp olt double %.018.i, 0x10000000000000
-  %40 = fcmp olt double %.018.i, %.0128
-  %41 = or i1 %39, %40
-  br i1 %41, label %.lr.ph.preheader, label %png_pow10.exit165._crit_edge
+png_pow10.exit:                                   ; preds = %31, %36
+  %.018.i = phi double [ %.3.i, %36 ], [ 1.000000e+00, %31 ]
+  %38 = fcmp olt double %.018.i, 0x10000000000000
+  %39 = fcmp olt double %.018.i, %.0137
+  %40 = or i1 %38, %39
+  br i1 %40, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %28, %png_pow10.exit
-  %.0127188.ph = phi double [ 0.000000e+00, %28 ], [ %.018.i, %png_pow10.exit ]
+  %.0134208.ph = phi double [ 0.000000e+00, %28 ], [ %.018.i, %png_pow10.exit ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %png_pow10.exit165.thread
-  %.0127188 = phi double [ %.018.i163167, %png_pow10.exit165.thread ], [ %.0127188.ph, %.lr.ph.preheader ]
-  %42 = phi i32 [ %43, %png_pow10.exit165.thread ], [ %26, %.lr.ph.preheader ]
-  %43 = add nsw i32 %42, 1
-  %44 = icmp sgt i32 %42, -2
-  br i1 %44, label %48, label %45
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %png_pow10.exit177.thread
+  %.0134208 = phi double [ %.018.i175179, %png_pow10.exit177.thread ], [ %.0134208.ph, %.lr.ph.preheader ]
+  %41 = phi i32 [ %42, %png_pow10.exit177.thread ], [ %26, %.lr.ph.preheader ]
+  %42 = add nsw i32 %41, 1
+  %43 = icmp sgt i32 %41, -2
+  br i1 %43, label %47, label %44
 
-45:                                               ; preds = %.lr.ph
-  %46 = icmp samesign ult i32 %43, -307
-  br i1 %46, label %png_pow10.exit165.thread, label %.thread.i153
+44:                                               ; preds = %.lr.ph
+  %45 = icmp samesign ult i32 %42, -307
+  br i1 %45, label %png_pow10.exit177.thread, label %.thread.i164
 
-.thread.i153:                                     ; preds = %45
-  %47 = xor i32 %42, -1
-  br label %.preheader.i156.preheader
+.thread.i164:                                     ; preds = %44
+  %46 = xor i32 %41, -1
+  br label %.preheader.i167.preheader
 
-48:                                               ; preds = %.lr.ph
-  %.not24.i164 = icmp eq i32 %43, 0
-  br i1 %.not24.i164, label %png_pow10.exit165.thread, label %.preheader.i156.preheader
+47:                                               ; preds = %.lr.ph
+  %.not24.i176 = icmp eq i32 %42, 0
+  br i1 %.not24.i176, label %png_pow10.exit177.thread, label %.preheader.i167.preheader
 
-.preheader.i156.preheader:                        ; preds = %48, %.thread.i153
-  %.117.i157.ph = phi i32 [ %43, %48 ], [ %47, %.thread.i153 ]
-  br label %.preheader.i156
+.preheader.i167.preheader:                        ; preds = %47, %.thread.i164
+  %.117.i168.ph = phi i32 [ %42, %47 ], [ %46, %.thread.i164 ]
+  br label %.preheader.i167
 
-.preheader.i156:                                  ; preds = %.preheader.i156.preheader, %.preheader.i156
-  %.117.i157 = phi i32 [ %52, %.preheader.i156 ], [ %.117.i157.ph, %.preheader.i156.preheader ]
-  %.1.i158 = phi double [ %.2.i161, %.preheader.i156 ], [ 1.000000e+00, %.preheader.i156.preheader ]
-  %.0.i159 = phi double [ %51, %.preheader.i156 ], [ 1.000000e+01, %.preheader.i156.preheader ]
-  %49 = and i32 %.117.i157, 1
-  %.not.i160 = icmp eq i32 %49, 0
-  %50 = fmul double %.1.i158, %.0.i159
-  %.2.i161 = select i1 %.not.i160, double %.1.i158, double %50
-  %51 = fmul double %.0.i159, %.0.i159
-  %52 = lshr i32 %.117.i157, 1
-  %.not22.i162 = icmp ult i32 %.117.i157, 2
-  br i1 %.not22.i162, label %png_pow10.exit165, label %.preheader.i156, !llvm.loop !60
+.preheader.i167:                                  ; preds = %.preheader.i167.preheader, %.preheader.i167
+  %.117.i168 = phi i32 [ %51, %.preheader.i167 ], [ %.117.i168.ph, %.preheader.i167.preheader ]
+  %.1.i169 = phi double [ %.2.i172, %.preheader.i167 ], [ 1.000000e+00, %.preheader.i167.preheader ]
+  %.0.i170 = phi double [ %50, %.preheader.i167 ], [ 1.000000e+01, %.preheader.i167.preheader ]
+  %48 = and i32 %.117.i168, 1
+  %.not.i171 = icmp eq i32 %48, 0
+  %49 = fmul double %.1.i169, %.0.i170
+  %.2.i172 = select i1 %.not.i171, double %.1.i169, double %49
+  %50 = fmul double %.0.i170, %.0.i170
+  %51 = lshr i32 %.117.i168, 1
+  %.not22.i173 = icmp ult i32 %.117.i168, 2
+  br i1 %.not22.i173, label %png_pow10.exit177, label %.preheader.i167, !llvm.loop !140
 
-png_pow10.exit165:                                ; preds = %.preheader.i156
-  %53 = fdiv double 1.000000e+00, %.2.i161
-  %.018.i163 = select i1 %44, double %.2.i161, double %53
-  %54 = fcmp ugt double %.018.i163, 0x7FEFFFFFFFFFFFFF
-  br i1 %54, label %png_pow10.exit165._crit_edge, label %png_pow10.exit165.thread
+png_pow10.exit177:                                ; preds = %.preheader.i167
+  %52 = fdiv double 1.000000e+00, %.2.i172
+  %.3.i174 = select i1 %43, double %.2.i172, double %52
+  %53 = fcmp ugt double %.3.i174, 0x7FEFFFFFFFFFFFFF
+  br i1 %53, label %.thread, label %png_pow10.exit177.thread
 
-png_pow10.exit165.thread:                         ; preds = %48, %45, %png_pow10.exit165
-  %.018.i163167 = phi double [ %.018.i163, %png_pow10.exit165 ], [ 1.000000e+00, %48 ], [ 0.000000e+00, %45 ]
-  %55 = fcmp olt double %.018.i163167, 0x10000000000000
-  %56 = fcmp olt double %.018.i163167, %.0128
-  %57 = or i1 %55, %56
-  br i1 %57, label %.lr.ph, label %png_pow10.exit165._crit_edge, !llvm.loop !61
+png_pow10.exit177.thread:                         ; preds = %47, %44, %png_pow10.exit177
+  %.018.i175179 = phi double [ %.3.i174, %png_pow10.exit177 ], [ 1.000000e+00, %47 ], [ 0.000000e+00, %44 ]
+  %54 = fcmp olt double %.018.i175179, 0x10000000000000
+  %55 = fcmp olt double %.018.i175179, %.0137
+  %56 = or i1 %54, %55
+  br i1 %56, label %.lr.ph, label %.thread
 
-png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.thread, %png_pow10.exit165, %png_pow10.exit
-  %.lcssa187 = phi i32 [ %26, %png_pow10.exit ], [ %42, %png_pow10.exit165 ], [ %43, %png_pow10.exit165.thread ]
-  %.0127.lcssa = phi double [ %.018.i, %png_pow10.exit ], [ %.0127188, %png_pow10.exit165 ], [ %.018.i163167, %png_pow10.exit165.thread ]
-  %58 = fdiv double %.0128, %.0127.lcssa
-  %59 = fcmp ult double %58, 1.000000e+00
-  br i1 %59, label %._crit_edge197, label %.lr.ph196
+.thread:                                          ; preds = %png_pow10.exit177.thread, %png_pow10.exit177, %png_pow10.exit
+  %.lcssa207 = phi i32 [ %26, %png_pow10.exit ], [ %41, %png_pow10.exit177 ], [ %42, %png_pow10.exit177.thread ]
+  %.0134.lcssa = phi double [ %.018.i, %png_pow10.exit ], [ %.0134208, %png_pow10.exit177 ], [ %.018.i175179, %png_pow10.exit177.thread ]
+  %57 = fdiv double %.0137, %.0134.lcssa
+  %58 = fcmp ult double %57, 1.000000e+00
+  br i1 %58, label %._crit_edge, label %.lr.ph215
 
-.lr.ph196:                                        ; preds = %png_pow10.exit165._crit_edge, %.lr.ph196
-  %.1129194 = phi double [ %61, %.lr.ph196 ], [ %58, %png_pow10.exit165._crit_edge ]
-  %60 = phi i32 [ %62, %.lr.ph196 ], [ %.lcssa187, %png_pow10.exit165._crit_edge ]
-  %61 = fdiv double %.1129194, 1.000000e+01
-  %62 = add nsw i32 %60, 1
-  %63 = fcmp ult double %61, 1.000000e+00
-  br i1 %63, label %._crit_edge197, label %.lr.ph196, !llvm.loop !62
+.lr.ph215:                                        ; preds = %.thread, %.lr.ph215
+  %.1138214 = phi double [ %60, %.lr.ph215 ], [ %57, %.thread ]
+  %59 = phi i32 [ %61, %.lr.ph215 ], [ %.lcssa207, %.thread ]
+  %60 = fdiv double %.1138214, 1.000000e+01
+  %61 = add nsw i32 %59, 1
+  %62 = fcmp ult double %60, 1.000000e+00
+  br i1 %62, label %._crit_edge, label %.lr.ph215, !llvm.loop !141
 
-._crit_edge197:                                   ; preds = %.lr.ph196, %png_pow10.exit165._crit_edge
-  %.lcssa193 = phi i32 [ %.lcssa187, %png_pow10.exit165._crit_edge ], [ %62, %.lr.ph196 ]
-  %.1129.lcssa = phi double [ %58, %png_pow10.exit165._crit_edge ], [ %61, %.lr.ph196 ]
-  %or.cond3 = icmp ugt i32 %.lcssa193, -3
-  %64 = sub nsw i32 0, %.lcssa193
-  %spec.select294 = select i1 %or.cond3, i32 0, i32 %.lcssa193
-  %spec.select295 = select i1 %or.cond3, i32 %64, i32 0
-  store i32 %spec.select294, ptr %6, align 4
+._crit_edge:                                      ; preds = %.lr.ph215, %.thread
+  %.lcssa213 = phi i32 [ %.lcssa207, %.thread ], [ %61, %.lr.ph215 ]
+  %.1138.lcssa = phi double [ %57, %.thread ], [ %60, %.lr.ph215 ]
+  store i32 %.lcssa213, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #28
+  %or.cond3 = icmp ugt i32 %.lcssa213, -3
+  br i1 %or.cond3, label %63, label %.preheader316
+
+63:                                               ; preds = %._crit_edge
+  %64 = sub nsw i32 0, %.lcssa213
+  store i32 0, ptr %6, align 4, !tbaa !43
+  br label %.preheader316
+
+.preheader316:                                    ; preds = %._crit_edge, %63
+  %.0107.ph = phi i32 [ %64, %63 ], [ 0, %._crit_edge ]
   br label %65
 
-65:                                               ; preds = %144, %._crit_edge197
-  %.2130 = phi double [ %.1129.lcssa, %._crit_edge197 ], [ %.3131177, %144 ]
-  %.1114 = phi i64 [ %.0113, %._crit_edge197 ], [ %.12125, %144 ]
-  %.1108 = phi i32 [ %spec.select295, %._crit_edge197 ], [ %.5112, %144 ]
-  %.0103 = phi i32 [ %spec.select295, %._crit_edge197 ], [ %.3106, %144 ]
-  %.096 = phi i32 [ 0, %._crit_edge197 ], [ %.4100, %144 ]
-  %.194 = phi ptr [ %.093, %._crit_edge197 ], [ %.12, %144 ]
-  %66 = fmul double %.2130, 1.000000e+01
-  %67 = add i32 %.1108, 1
-  %68 = add i32 %67, %.096
-  %69 = add i32 %.0103, %spec.store.select6
+65:                                               ; preds = %.preheader316, %144
+  %.2139 = phi double [ %.3140193, %144 ], [ %.1138.lcssa, %.preheader316 ]
+  %.1120 = phi i64 [ %.8127, %144 ], [ %.0119, %.preheader316 ]
+  %.1112 = phi i32 [ %.4115, %144 ], [ %.0107.ph, %.preheader316 ]
+  %.0107 = phi i32 [ %.3110, %144 ], [ %.0107.ph, %.preheader316 ]
+  %.0100 = phi i32 [ %.4104, %144 ], [ 0, %.preheader316 ]
+  %.198 = phi ptr [ %.7, %144 ], [ %.097, %.preheader316 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  %66 = fmul double %.2139, 1.000000e+01
+  %67 = add i32 %.1112, 1
+  %68 = add i32 %67, %.0100
+  %69 = add i32 %.0107, %spec.store.select7
   %70 = icmp ult i32 %68, %69
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %65
-  %72 = call double @modf(double noundef %66, ptr noundef nonnull %8) #29
-  %.pr.pre = load double, ptr %8, align 8
+  %72 = call double @modf(double noundef %66, ptr noundef nonnull %8) #28
+  %.pr.pre = load double, ptr %8, align 8, !tbaa !142
   br label %thread-pre-split
 
 73:                                               ; preds = %65
   %74 = fadd double %66, 5.000000e-01
   %75 = tail call double @llvm.floor.f64(double %74)
-  store double %75, ptr %8, align 8
+  store double %75, ptr %8, align 8, !tbaa !142
   %76 = fcmp ogt double %75, 9.000000e+00
   br i1 %76, label %77, label %thread-pre-split
 
 77:                                               ; preds = %73
-  %.not143 = icmp eq i32 %.1108, 0
-  br i1 %.not143, label %.preheader186, label %78
+  %.not152 = icmp eq i32 %.1112, 0
+  br i1 %.not152, label %.preheader206, label %78
 
-.preheader186:                                    ; preds = %77
-  %.promoted200 = load i32, ptr %6, align 4
-  %.not247 = icmp eq i32 %.096, 0
-  br i1 %.not247, label %._crit_edge205.thread, label %.lr.ph204
+.preheader206:                                    ; preds = %77
+  %.promoted218 = load i32, ptr %6, align 4
+  %.not265 = icmp eq i32 %.0100, 0
+  br i1 %.not265, label %._crit_edge223.thread, label %.lr.ph222
 
 78:                                               ; preds = %77
-  %79 = add i32 %.1108, -1
-  store double 1.000000e+00, ptr %8, align 8
-  %80 = icmp eq i32 %.096, 0
+  %79 = add i32 %.1112, -1
+  store double 1.000000e+00, ptr %8, align 8, !tbaa !142
+  %80 = icmp eq i32 %.0100, 0
   %81 = sext i1 %80 to i32
-  %spec.select = add i32 %.0103, %81
-  br label %.thread
+  %spec.select = add i32 %.0107, %81
+  br label %.thread186
 
-.lr.ph204:                                        ; preds = %.preheader186, %94
-  %82 = phi i32 [ %95, %94 ], [ %.promoted200, %.preheader186 ]
-  %.4203 = phi ptr [ %.5, %94 ], [ %.194, %.preheader186 ]
-  %.399202 = phi i32 [ %97, %94 ], [ %.096, %.preheader186 ]
-  %.4117201 = phi i64 [ %.5118, %94 ], [ %.1114, %.preheader186 ]
-  %83 = phi i32 [ %96, %94 ], [ %.promoted200, %.preheader186 ]
-  %84 = getelementptr inbounds i8, ptr %.4203, i64 -1
-  %85 = load i8, ptr %84, align 1
-  %.not144 = icmp eq i32 %83, -1
-  br i1 %.not144, label %88, label %86
+.lr.ph222:                                        ; preds = %.preheader206, %94
+  %82 = phi i32 [ %95, %94 ], [ %.promoted218, %.preheader206 ]
+  %.4221 = phi ptr [ %.5, %94 ], [ %.198, %.preheader206 ]
+  %.3103220 = phi i32 [ %97, %94 ], [ %.0100, %.preheader206 ]
+  %.4123219 = phi i64 [ %.5124, %94 ], [ %.1120, %.preheader206 ]
+  %83 = phi i32 [ %96, %94 ], [ %.promoted218, %.preheader206 ]
+  %84 = getelementptr inbounds i8, ptr %.4221, i64 -1
+  %85 = load i8, ptr %84, align 1, !tbaa !27
+  %.not153 = icmp eq i32 %83, -1
+  br i1 %.not153, label %88, label %86
 
-86:                                               ; preds = %.lr.ph204
+86:                                               ; preds = %.lr.ph222
   %87 = add nuw nsw i32 %83, 1
   br label %.sink.split
 
-88:                                               ; preds = %.lr.ph204
+88:                                               ; preds = %.lr.ph222
   %89 = icmp eq i8 %85, 46
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %.4203, i64 -2
-  %92 = load i8, ptr %91, align 1
-  %93 = add i64 %.4117201, 1
+  %91 = getelementptr inbounds i8, ptr %.4221, i64 -2
+  %92 = load i8, ptr %91, align 1, !tbaa !27
+  %93 = add i64 %.4123219, 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %86, %90
   %.sink = phi i32 [ 1, %90 ], [ %87, %86 ]
-  %.5118.ph = phi i64 [ %93, %90 ], [ %.4117201, %86 ]
-  %.095.in.ph = phi i8 [ %92, %90 ], [ %85, %86 ]
+  %.5124.ph = phi i64 [ %93, %90 ], [ %.4123219, %86 ]
+  %.099.in.ph = phi i8 [ %92, %90 ], [ %85, %86 ]
   %.5.ph = phi ptr [ %91, %90 ], [ %84, %86 ]
-  store i32 %.sink, ptr %6, align 4
+  store i32 %.sink, ptr %6, align 4, !tbaa !43
   br label %94
 
 94:                                               ; preds = %.sink.split, %88
   %95 = phi i32 [ %82, %88 ], [ %.sink, %.sink.split ]
   %96 = phi i32 [ -1, %88 ], [ %.sink, %.sink.split ]
-  %.5118 = phi i64 [ %.4117201, %88 ], [ %.5118.ph, %.sink.split ]
-  %.095.in = phi i8 [ %85, %88 ], [ %.095.in.ph, %.sink.split ]
+  %.5124 = phi i64 [ %.4123219, %88 ], [ %.5124.ph, %.sink.split ]
+  %.099.in = phi i8 [ %85, %88 ], [ %.099.in.ph, %.sink.split ]
   %.5 = phi ptr [ %84, %88 ], [ %.5.ph, %.sink.split ]
-  %.095 = sext i8 %.095.in to i32
-  %97 = add i32 %.399202, -1
-  %98 = add nsw i32 %.095, -47
+  %.099 = sext i8 %.099.in to i32
+  %97 = add i32 %.3103220, -1
+  %98 = add nsw i32 %.099, -47
   %99 = sitofp i32 %98 to double
-  store double %99, ptr %8, align 8
+  store double %99, ptr %8, align 8, !tbaa !142
   %100 = icmp ne i32 %97, 0
-  %101 = icmp sgt i8 %.095.in, 56
+  %101 = icmp sgt i8 %.099.in, 56
   %102 = select i1 %100, i1 %101, i1 false
-  br i1 %102, label %.lr.ph204, label %._crit_edge205, !llvm.loop !63
+  br i1 %102, label %.lr.ph222, label %._crit_edge223, !llvm.loop !144
 
-._crit_edge205:                                   ; preds = %94
-  br i1 %101, label %._crit_edge205.thread, label %thread-pre-split
+._crit_edge223:                                   ; preds = %94
+  br i1 %101, label %._crit_edge223.thread, label %thread-pre-split
 
-._crit_edge205.thread:                            ; preds = %.preheader186, %._crit_edge205
-  %.4.lcssa257 = phi ptr [ %.5, %._crit_edge205 ], [ %.194, %.preheader186 ]
-  %.399.lcssa256 = phi i32 [ %97, %._crit_edge205 ], [ 0, %.preheader186 ]
-  %.4117.lcssa255 = phi i64 [ %.5118, %._crit_edge205 ], [ %.1114, %.preheader186 ]
-  %103 = phi i32 [ %95, %._crit_edge205 ], [ %.promoted200, %.preheader186 ]
+._crit_edge223.thread:                            ; preds = %.preheader206, %._crit_edge223
+  %.4.lcssa275 = phi ptr [ %.5, %._crit_edge223 ], [ %.198, %.preheader206 ]
+  %.3103.lcssa274 = phi i32 [ %97, %._crit_edge223 ], [ 0, %.preheader206 ]
+  %.4123.lcssa273 = phi i64 [ %.5124, %._crit_edge223 ], [ %.1120, %.preheader206 ]
+  %103 = phi i32 [ %95, %._crit_edge223 ], [ %.promoted218, %.preheader206 ]
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %105, label %111
 
-105:                                              ; preds = %._crit_edge205.thread
-  %106 = getelementptr inbounds i8, ptr %.4.lcssa257, i64 -1
-  %107 = load i8, ptr %106, align 1
+105:                                              ; preds = %._crit_edge223.thread
+  %106 = getelementptr inbounds i8, ptr %.4.lcssa275, i64 -1
+  %107 = load i8, ptr %106, align 1, !tbaa !27
   %108 = icmp eq i8 %107, 46
-  br i1 %108, label %109, label %.thread.thread
+  br i1 %108, label %109, label %.thread186.thread
 
 109:                                              ; preds = %105
-  %110 = add i64 %.4117.lcssa255, 1
-  br label %.thread.thread.sink.split
+  %110 = add i64 %.4123.lcssa273, 1
+  br label %.thread186.thread.sink.split
 
-111:                                              ; preds = %._crit_edge205.thread
+111:                                              ; preds = %._crit_edge223.thread
   %112 = add nuw nsw i32 %103, 1
-  br label %.thread.thread.sink.split
+  br label %.thread186.thread.sink.split
 
-.thread.thread.sink.split:                        ; preds = %109, %111
-  %.sink283 = phi i32 [ %112, %111 ], [ 1, %109 ]
-  %.6119.ph = phi i64 [ %.4117.lcssa255, %111 ], [ %110, %109 ]
-  %.6.ph = phi ptr [ %.4.lcssa257, %111 ], [ %106, %109 ]
-  store i32 %.sink283, ptr %6, align 4
-  br label %.thread.thread
+.thread186.thread.sink.split:                     ; preds = %109, %111
+  %.sink301 = phi i32 [ %112, %111 ], [ 1, %109 ]
+  %.7126.ph = phi i64 [ %.4123.lcssa273, %111 ], [ %110, %109 ]
+  %.6.ph = phi ptr [ %.4.lcssa275, %111 ], [ %106, %109 ]
+  store i32 %.sink301, ptr %6, align 4, !tbaa !43
+  br label %.thread186.thread
 
-.thread.thread:                                   ; preds = %.thread.thread.sink.split, %105
-  %.6119 = phi i64 [ %.4117.lcssa255, %105 ], [ %.6119.ph, %.thread.thread.sink.split ]
-  %.6 = phi ptr [ %106, %105 ], [ %.6.ph, %.thread.thread.sink.split ]
-  store double 1.000000e+00, ptr %8, align 8
-  br label %._crit_edge215
+.thread186.thread:                                ; preds = %.thread186.thread.sink.split, %105
+  %.7126 = phi i64 [ %.4123.lcssa273, %105 ], [ %.7126.ph, %.thread186.thread.sink.split ]
+  %.6 = phi ptr [ %106, %105 ], [ %.6.ph, %.thread186.thread.sink.split ]
+  store double 1.000000e+00, ptr %8, align 8, !tbaa !142
+  br label %._crit_edge233
 
-thread-pre-split:                                 ; preds = %._crit_edge205, %71, %73
-  %113 = phi double [ %75, %73 ], [ %99, %._crit_edge205 ], [ %.pr.pre, %71 ]
-  %.3131 = phi double [ 0.000000e+00, %73 ], [ 0.000000e+00, %._crit_edge205 ], [ %72, %71 ]
-  %.2115 = phi i64 [ %.1114, %73 ], [ %.5118, %._crit_edge205 ], [ %.1114, %71 ]
-  %.197 = phi i32 [ %.096, %73 ], [ %97, %._crit_edge205 ], [ %.096, %71 ]
-  %.2 = phi ptr [ %.194, %73 ], [ %.5, %._crit_edge205 ], [ %.194, %71 ]
+thread-pre-split:                                 ; preds = %._crit_edge223, %71, %73
+  %113 = phi double [ %75, %73 ], [ %99, %._crit_edge223 ], [ %.pr.pre, %71 ]
+  %.3140 = phi double [ 0.000000e+00, %73 ], [ 0.000000e+00, %._crit_edge223 ], [ %72, %71 ]
+  %.2121 = phi i64 [ %.1120, %73 ], [ %.5124, %._crit_edge223 ], [ %.1120, %71 ]
+  %.1101 = phi i32 [ %.0100, %73 ], [ %97, %._crit_edge223 ], [ %.0100, %71 ]
+  %.2 = phi ptr [ %.198, %73 ], [ %.5, %._crit_edge223 ], [ %.198, %71 ]
   %114 = fcmp oeq double %113, 0.000000e+00
-  br i1 %114, label %115, label %.thread
+  br i1 %114, label %115, label %.thread186
 
 115:                                              ; preds = %thread-pre-split
-  %116 = icmp eq i32 %.197, 0
+  %116 = icmp eq i32 %.1101, 0
   %117 = zext i1 %116 to i32
-  %spec.select151 = add i32 %.0103, %117
+  %spec.select160 = add i32 %.0107, %117
   br label %144
 
-.thread:                                          ; preds = %78, %thread-pre-split
-  %.2183 = phi ptr [ %.2, %thread-pre-split ], [ %.194, %78 ]
-  %.197182 = phi i32 [ %.197, %thread-pre-split ], [ %.096, %78 ]
-  %.1104181 = phi i32 [ %.0103, %thread-pre-split ], [ %spec.select, %78 ]
-  %.2109180 = phi i32 [ %.1108, %thread-pre-split ], [ %79, %78 ]
-  %.2115179 = phi i64 [ %.2115, %thread-pre-split ], [ %.1114, %78 ]
-  %.3131178 = phi double [ %.3131, %thread-pre-split ], [ 0.000000e+00, %78 ]
-  %.not145210 = icmp eq i32 %.2109180, 0
-  br i1 %.not145210, label %._crit_edge215, label %.lr.ph214
+.thread186:                                       ; preds = %78, %thread-pre-split
+  %.2199 = phi ptr [ %.2, %thread-pre-split ], [ %.198, %78 ]
+  %.1101198 = phi i32 [ %.1101, %thread-pre-split ], [ %.0100, %78 ]
+  %.1108197 = phi i32 [ %.0107, %thread-pre-split ], [ %spec.select, %78 ]
+  %.2113196 = phi i32 [ %.1112, %thread-pre-split ], [ %79, %78 ]
+  %.2121195 = phi i64 [ %.2121, %thread-pre-split ], [ %.1120, %78 ]
+  %.3140194 = phi double [ %.3140, %thread-pre-split ], [ 0.000000e+00, %78 ]
+  %.not154228 = icmp eq i32 %.2113196, 0
+  br i1 %.not154228, label %._crit_edge233, label %.lr.ph232
 
-.lr.ph214:                                        ; preds = %.thread, %125
-  %.7213 = phi ptr [ %126, %125 ], [ %.2183, %.thread ]
-  %.4111212 = phi i32 [ %127, %125 ], [ %.2109180, %.thread ]
-  %.7120211 = phi i64 [ %.8121, %125 ], [ %.2115179, %.thread ]
-  %118 = load i32, ptr %6, align 4
+.lr.ph232:                                        ; preds = %.thread186, %125
+  %.8231 = phi ptr [ %126, %125 ], [ %.2199, %.thread186 ]
+  %.5116230 = phi i32 [ %127, %125 ], [ %.2113196, %.thread186 ]
+  %.9128229 = phi i64 [ %.10129, %125 ], [ %.2121195, %.thread186 ]
+  %118 = load i32, ptr %6, align 4, !tbaa !43
   switch i32 %118, label %122 [
     i32 -1, label %125
     i32 0, label %119
   ]
 
-119:                                              ; preds = %.lr.ph214
-  %120 = getelementptr inbounds nuw i8, ptr %.7213, i64 1
-  store i8 46, ptr %.7213, align 1
-  %121 = add i64 %.7120211, -1
-  %.pre = load i32, ptr %6, align 4
+119:                                              ; preds = %.lr.ph232
+  %120 = getelementptr inbounds nuw i8, ptr %.8231, i64 1
+  store i8 46, ptr %.8231, align 1, !tbaa !27
+  %121 = add i64 %.9128229, -1
+  %.pre = load i32, ptr %6, align 4, !tbaa !43
   br label %122
 
-122:                                              ; preds = %.lr.ph214, %119
-  %123 = phi i32 [ %.pre, %119 ], [ %118, %.lr.ph214 ]
-  %.9122 = phi i64 [ %121, %119 ], [ %.7120211, %.lr.ph214 ]
-  %.9 = phi ptr [ %120, %119 ], [ %.7213, %.lr.ph214 ]
+122:                                              ; preds = %.lr.ph232, %119
+  %123 = phi i32 [ %.pre, %119 ], [ %118, %.lr.ph232 ]
+  %.11130 = phi i64 [ %121, %119 ], [ %.9128229, %.lr.ph232 ]
+  %.10 = phi ptr [ %120, %119 ], [ %.8231, %.lr.ph232 ]
   %124 = add nsw i32 %123, -1
-  store i32 %124, ptr %6, align 4
+  store i32 %124, ptr %6, align 4, !tbaa !43
   br label %125
 
-125:                                              ; preds = %.lr.ph214, %122
-  %.8121 = phi i64 [ %.9122, %122 ], [ %.7120211, %.lr.ph214 ]
-  %.8 = phi ptr [ %.9, %122 ], [ %.7213, %.lr.ph214 ]
-  %126 = getelementptr inbounds nuw i8, ptr %.8, i64 1
-  store i8 48, ptr %.8, align 1
-  %127 = add i32 %.4111212, -1
-  %.not145 = icmp eq i32 %127, 0
-  br i1 %.not145, label %._crit_edge215, label %.lr.ph214, !llvm.loop !64
+125:                                              ; preds = %.lr.ph232, %122
+  %.10129 = phi i64 [ %.11130, %122 ], [ %.9128229, %.lr.ph232 ]
+  %.9 = phi ptr [ %.10, %122 ], [ %.8231, %.lr.ph232 ]
+  %126 = getelementptr inbounds nuw i8, ptr %.9, i64 1
+  store i8 48, ptr %.9, align 1, !tbaa !27
+  %127 = add i32 %.5116230, -1
+  %.not154 = icmp eq i32 %127, 0
+  br i1 %.not154, label %._crit_edge233, label %.lr.ph232, !llvm.loop !145
 
-._crit_edge215:                                   ; preds = %125, %.thread.thread, %.thread
-  %.3131178268 = phi double [ %.3131178, %.thread ], [ 0.000000e+00, %.thread.thread ], [ %.3131178, %125 ]
-  %.2109180267 = phi i32 [ 0, %.thread ], [ 0, %.thread.thread ], [ %.2109180, %125 ]
-  %.1104181266 = phi i32 [ %.1104181, %.thread ], [ %.0103, %.thread.thread ], [ %.1104181, %125 ]
-  %.197182265 = phi i32 [ %.197182, %.thread ], [ %.399.lcssa256, %.thread.thread ], [ %.197182, %125 ]
-  %.7120.lcssa = phi i64 [ %.2115179, %.thread ], [ %.6119, %.thread.thread ], [ %.8121, %125 ]
-  %.7.lcssa = phi ptr [ %.2183, %.thread ], [ %.6, %.thread.thread ], [ %126, %125 ]
-  %128 = load i32, ptr %6, align 4
+._crit_edge233:                                   ; preds = %125, %.thread186.thread, %.thread186
+  %.3140194286 = phi double [ %.3140194, %.thread186 ], [ 0.000000e+00, %.thread186.thread ], [ %.3140194, %125 ]
+  %.2113196285 = phi i32 [ 0, %.thread186 ], [ 0, %.thread186.thread ], [ %.2113196, %125 ]
+  %.1108197284 = phi i32 [ %.1108197, %.thread186 ], [ %.0107, %.thread186.thread ], [ %.1108197, %125 ]
+  %.1101198283 = phi i32 [ %.1101198, %.thread186 ], [ %.3103.lcssa274, %.thread186.thread ], [ %.1101198, %125 ]
+  %.9128.lcssa = phi i64 [ %.2121195, %.thread186 ], [ %.7126, %.thread186.thread ], [ %.10129, %125 ]
+  %.8.lcssa = phi ptr [ %.2199, %.thread186 ], [ %.6, %.thread186.thread ], [ %126, %125 ]
+  %128 = load i32, ptr %6, align 4, !tbaa !43
   switch i32 %128, label %132 [
     i32 -1, label %135
     i32 0, label %129
   ]
 
-129:                                              ; preds = %._crit_edge215
-  %130 = getelementptr inbounds nuw i8, ptr %.7.lcssa, i64 1
-  store i8 46, ptr %.7.lcssa, align 1
-  %131 = add i64 %.7120.lcssa, -1
-  %.pre246 = load i32, ptr %6, align 4
+129:                                              ; preds = %._crit_edge233
+  %130 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 1
+  store i8 46, ptr %.8.lcssa, align 1, !tbaa !27
+  %131 = add i64 %.9128.lcssa, -1
+  %.pre264 = load i32, ptr %6, align 4, !tbaa !43
   br label %132
 
-132:                                              ; preds = %._crit_edge215, %129
-  %133 = phi i32 [ %.pre246, %129 ], [ %128, %._crit_edge215 ]
-  %.11124 = phi i64 [ %131, %129 ], [ %.7120.lcssa, %._crit_edge215 ]
-  %.11 = phi ptr [ %130, %129 ], [ %.7.lcssa, %._crit_edge215 ]
+132:                                              ; preds = %._crit_edge233, %129
+  %133 = phi i32 [ %.pre264, %129 ], [ %128, %._crit_edge233 ]
+  %.13132 = phi i64 [ %131, %129 ], [ %.9128.lcssa, %._crit_edge233 ]
+  %.12 = phi ptr [ %130, %129 ], [ %.8.lcssa, %._crit_edge233 ]
   %134 = add nsw i32 %133, -1
-  store i32 %134, ptr %6, align 4
+  store i32 %134, ptr %6, align 4, !tbaa !43
   br label %135
 
-135:                                              ; preds = %._crit_edge215, %132
-  %.10123 = phi i64 [ %.11124, %132 ], [ %.7120.lcssa, %._crit_edge215 ]
-  %.10 = phi ptr [ %.11, %132 ], [ %.7.lcssa, %._crit_edge215 ]
-  %136 = load double, ptr %8, align 8
+135:                                              ; preds = %._crit_edge233, %132
+  %.12131 = phi i64 [ %.13132, %132 ], [ %.9128.lcssa, %._crit_edge233 ]
+  %.11 = phi ptr [ %.12, %132 ], [ %.8.lcssa, %._crit_edge233 ]
+  %136 = load double, ptr %8, align 8, !tbaa !142
   %137 = fptosi double %136 to i32
   %138 = trunc i32 %137 to i8
   %139 = add i8 %138, 48
-  %140 = getelementptr inbounds nuw i8, ptr %.10, i64 1
-  store i8 %139, ptr %.10, align 1
-  %141 = add i32 %.197182265, 1
-  %142 = sub i32 %141, %.1104181266
-  %143 = add i32 %142, %.2109180267
+  %140 = getelementptr inbounds nuw i8, ptr %.11, i64 1
+  store i8 %139, ptr %.11, align 1, !tbaa !27
+  %141 = add i32 %.1101198283, 1
+  %142 = sub i32 %141, %.1108197284
+  %143 = add i32 %142, %.2113196285
   br label %144
 
 144:                                              ; preds = %115, %135
-  %.3131177 = phi double [ %.3131178268, %135 ], [ %.3131, %115 ]
-  %.12125 = phi i64 [ %.10123, %135 ], [ %.2115, %115 ]
-  %.5112 = phi i32 [ 0, %135 ], [ %67, %115 ]
-  %.3106 = phi i32 [ 0, %135 ], [ %spec.select151, %115 ]
-  %.4100 = phi i32 [ %143, %135 ], [ %.197, %115 ]
-  %.12 = phi ptr [ %140, %135 ], [ %.2, %115 ]
-  %145 = add i32 %.4100, %.5112
-  %146 = add i32 %.3106, %spec.store.select6
+  %.3140193 = phi double [ %.3140194286, %135 ], [ %.3140, %115 ]
+  %.8127 = phi i64 [ %.12131, %135 ], [ %.2121, %115 ]
+  %.4115 = phi i32 [ 0, %135 ], [ %67, %115 ]
+  %.3110 = phi i32 [ 0, %135 ], [ %spec.select160, %115 ]
+  %.4104 = phi i32 [ %143, %135 ], [ %.1101, %115 ]
+  %.7 = phi ptr [ %140, %135 ], [ %.2, %115 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  %145 = add i32 %.4104, %.4115
+  %146 = add i32 %.3110, %spec.store.select7
   %147 = icmp ult i32 %145, %146
-  %148 = fcmp ogt double %.3131177, 0x10000000000000
+  %148 = fcmp ogt double %.3140193, 0x10000000000000
   %149 = select i1 %147, i1 %148, i1 false
-  br i1 %149, label %65, label %150, !llvm.loop !65
+  br i1 %149, label %65, label %150, !llvm.loop !146
 
 150:                                              ; preds = %144
-  %151 = load i32, ptr %6, align 4
+  %151 = load i32, ptr %6, align 4, !tbaa !43
   %152 = add i32 %151, 1
   %or.cond5 = icmp ult i32 %152, 4
   br i1 %or.cond5, label %.preheader, label %158
 
 .preheader:                                       ; preds = %150
   %153 = add nsw i32 %151, -1
-  store i32 %153, ptr %6, align 4
+  store i32 %153, ptr %6, align 4, !tbaa !43
   %154 = icmp sgt i32 %151, 0
-  br i1 %154, label %.lr.ph232, label %._crit_edge233
+  br i1 %154, label %.lr.ph250, label %.thread202
 
-.lr.ph232:                                        ; preds = %.preheader, %.lr.ph232
-  %.13231 = phi ptr [ %155, %.lr.ph232 ], [ %.12, %.preheader ]
-  %155 = getelementptr inbounds nuw i8, ptr %.13231, i64 1
-  store i8 48, ptr %.13231, align 1
-  %.pr184 = load i32, ptr %6, align 4
-  %156 = add nsw i32 %.pr184, -1
-  store i32 %156, ptr %6, align 4
-  %157 = icmp sgt i32 %.pr184, 0
-  br i1 %157, label %.lr.ph232, label %._crit_edge233, !llvm.loop !66
-
-._crit_edge233:                                   ; preds = %.lr.ph232, %.preheader
-  %.13.lcssa = phi ptr [ %.12, %.preheader ], [ %155, %.lr.ph232 ]
-  store i8 0, ptr %.13.lcssa, align 1
-  br label %191
+.lr.ph250:                                        ; preds = %.preheader, %.lr.ph250
+  %.13249 = phi ptr [ %155, %.lr.ph250 ], [ %.7, %.preheader ]
+  %155 = getelementptr inbounds nuw i8, ptr %.13249, i64 1
+  store i8 48, ptr %.13249, align 1, !tbaa !27
+  %.pr200 = load i32, ptr %6, align 4, !tbaa !43
+  %156 = add nsw i32 %.pr200, -1
+  store i32 %156, ptr %6, align 4, !tbaa !43
+  %157 = icmp sgt i32 %.pr200, 0
+  br i1 %157, label %.lr.ph250, label %.thread202, !llvm.loop !147
 
 158:                                              ; preds = %150
-  %159 = zext i32 %.4100 to i64
-  %160 = getelementptr inbounds nuw i8, ptr %.12, i64 1
-  store i8 69, ptr %.12, align 1
+  %159 = zext i32 %.4104 to i64
+  %160 = getelementptr inbounds nuw i8, ptr %.7, i64 1
+  store i8 69, ptr %.7, align 1, !tbaa !27
   %161 = xor i64 %159, -1
-  %162 = add i64 %.12125, %161
-  %163 = load i32, ptr %6, align 4
+  %162 = add i64 %.8127, %161
+  %163 = load i32, ptr %6, align 4, !tbaa !43
   %164 = icmp slt i32 %163, 0
   br i1 %164, label %165, label %170
 
 165:                                              ; preds = %158
-  %166 = getelementptr inbounds nuw i8, ptr %.12, i64 2
-  store i8 45, ptr %160, align 1
+  %166 = getelementptr inbounds nuw i8, ptr %.7, i64 2
+  store i8 45, ptr %160, align 1, !tbaa !27
   %167 = add i64 %162, -1
-  %168 = load i32, ptr %6, align 4
+  %168 = load i32, ptr %6, align 4, !tbaa !43
   %169 = sub i32 0, %168
   br label %170
 
 170:                                              ; preds = %158, %165
-  %.13126 = phi i64 [ %167, %165 ], [ %162, %158 ]
+  %.14133 = phi i64 [ %167, %165 ], [ %162, %158 ]
   %.14 = phi ptr [ %166, %165 ], [ %160, %158 ]
   %.0 = phi i32 [ %169, %165 ], [ %163, %158 ]
-  %.not148218 = icmp eq i32 %.0, 0
-  br i1 %.not148218, label %._crit_edge223.thread, label %.lr.ph222
+  %.not157236 = icmp eq i32 %.0, 0
+  br i1 %.not157236, label %._crit_edge241.thread, label %.lr.ph240
 
-.lr.ph222:                                        ; preds = %170, %.lr.ph222
-  %.1220 = phi i32 [ %177, %.lr.ph222 ], [ %.0, %170 ]
-  %.5101219 = phi i32 [ %174, %.lr.ph222 ], [ 0, %170 ]
-  %171 = urem i32 %.1220, 10
+.lr.ph240:                                        ; preds = %170, %.lr.ph240
+  %.1238 = phi i32 [ %177, %.lr.ph240 ], [ %.0, %170 ]
+  %.5105237 = phi i32 [ %174, %.lr.ph240 ], [ 0, %170 ]
+  %171 = urem i32 %.1238, 10
   %172 = trunc nuw nsw i32 %171 to i8
   %173 = or disjoint i8 %172, 48
-  %174 = add i32 %.5101219, 1
-  %175 = zext i32 %.5101219 to i64
+  %174 = add i32 %.5105237, 1
+  %175 = zext i32 %.5105237 to i64
   %176 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %175
-  store i8 %173, ptr %176, align 1
-  %177 = udiv i32 %.1220, 10
-  %.not148 = icmp ult i32 %.1220, 10
-  br i1 %.not148, label %._crit_edge223, label %.lr.ph222, !llvm.loop !67
+  store i8 %173, ptr %176, align 1, !tbaa !27
+  %177 = udiv i32 %.1238, 10
+  %.not157 = icmp ult i32 %.1238, 10
+  br i1 %.not157, label %._crit_edge241, label %.lr.ph240, !llvm.loop !148
 
-._crit_edge223:                                   ; preds = %.lr.ph222
+._crit_edge241:                                   ; preds = %.lr.ph240
   %178 = zext i32 %174 to i64
-  %179 = icmp ugt i64 %.13126, %178
-  br i1 %179, label %.preheader185, label %190
+  %179 = icmp ugt i64 %.14133, %178
+  br i1 %179, label %.preheader205, label %184
 
-._crit_edge223.thread:                            ; preds = %170
-  %.not284 = icmp eq i64 %.13126, 0
-  br i1 %.not284, label %190, label %._crit_edge229
+._crit_edge241.thread:                            ; preds = %170
+  %.not302 = icmp eq i64 %.14133, 0
+  br i1 %.not302, label %184, label %.thread202
 
-.preheader185:                                    ; preds = %._crit_edge223
-  %.not149225 = icmp eq i32 %174, 0
-  br i1 %.not149225, label %._crit_edge229, label %.lr.ph228
+.preheader205:                                    ; preds = %._crit_edge241
+  %.not158243 = icmp eq i32 %174, 0
+  br i1 %.not158243, label %.thread202, label %.lr.ph246
 
-.lr.ph228:                                        ; preds = %.preheader185, %.lr.ph228
-  %indvars.iv = phi i64 [ %180, %.lr.ph228 ], [ %178, %.preheader185 ]
-  %.15227 = phi ptr [ %183, %.lr.ph228 ], [ %.14, %.preheader185 ]
+.lr.ph246:                                        ; preds = %.preheader205, %.lr.ph246
+  %indvars.iv = phi i64 [ %180, %.lr.ph246 ], [ %178, %.preheader205 ]
+  %.15245 = phi ptr [ %183, %.lr.ph246 ], [ %.14, %.preheader205 ]
   %180 = add nsw i64 %indvars.iv, -1
   %181 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %180
-  %182 = load i8, ptr %181, align 1
-  %183 = getelementptr inbounds nuw i8, ptr %.15227, i64 1
-  store i8 %182, ptr %.15227, align 1
-  %.not149.wide = icmp eq i64 %180, 0
-  br i1 %.not149.wide, label %._crit_edge229, label %.lr.ph228, !llvm.loop !68
+  %182 = load i8, ptr %181, align 1, !tbaa !27
+  %183 = getelementptr inbounds nuw i8, ptr %.15245, i64 1
+  store i8 %182, ptr %.15245, align 1, !tbaa !27
+  %.not158.wide = icmp eq i64 %180, 0
+  br i1 %.not158.wide, label %.thread202, label %.lr.ph246, !llvm.loop !149
 
-._crit_edge229:                                   ; preds = %.lr.ph228, %._crit_edge223.thread, %.preheader185
-  %.15.lcssa = phi ptr [ %.14, %.preheader185 ], [ %.14, %._crit_edge223.thread ], [ %183, %.lr.ph228 ]
-  store i8 0, ptr %.15.lcssa, align 1
+.thread202:                                       ; preds = %.lr.ph246, %.lr.ph250, %.preheader205, %._crit_edge241.thread, %.preheader
+  %.13.lcssa.sink = phi ptr [ %.7, %.preheader ], [ %.14, %.preheader205 ], [ %.14, %._crit_edge241.thread ], [ %155, %.lr.ph250 ], [ %183, %.lr.ph246 ]
+  store i8 0, ptr %.13.lcssa.sink, align 1, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
+  br label %192
+
+184:                                              ; preds = %._crit_edge241.thread, %._crit_edge241
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
   br label %191
 
-184:                                              ; preds = %19
-  %185 = getelementptr inbounds nuw i8, ptr %.093, i64 1
-  br i1 %20, label %187, label %186
+185:                                              ; preds = %19
+  %186 = getelementptr inbounds nuw i8, ptr %.097, i64 1
+  br i1 %20, label %188, label %187
 
-186:                                              ; preds = %184
-  store i8 48, ptr %.093, align 1
-  store i8 0, ptr %185, align 1
-  br label %191
+187:                                              ; preds = %185
+  store i8 48, ptr %.097, align 1, !tbaa !27
+  store i8 0, ptr %186, align 1, !tbaa !27
+  br label %192
 
-187:                                              ; preds = %184
-  store i8 105, ptr %.093, align 1
-  %188 = getelementptr inbounds nuw i8, ptr %.093, i64 2
-  store i8 110, ptr %185, align 1
-  %189 = getelementptr inbounds nuw i8, ptr %.093, i64 3
-  store i8 102, ptr %188, align 1
-  store i8 0, ptr %189, align 1
-  br label %191
+188:                                              ; preds = %185
+  store i8 105, ptr %.097, align 1, !tbaa !27
+  %189 = getelementptr inbounds nuw i8, ptr %.097, i64 2
+  store i8 110, ptr %186, align 1, !tbaa !27
+  %190 = getelementptr inbounds nuw i8, ptr %.097, i64 3
+  store i8 102, ptr %189, align 1, !tbaa !27
+  store i8 0, ptr %190, align 1, !tbaa !27
+  br label %192
 
-190:                                              ; preds = %._crit_edge223.thread, %._crit_edge223, %5
-  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.66) #27
+191:                                              ; preds = %184, %5
+  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.55) #26
   unreachable
 
-191:                                              ; preds = %187, %186, %._crit_edge229, %._crit_edge233
+192:                                              ; preds = %.thread202, %188, %187
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #17
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #17
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #18
+declare double @llvm.floor.f64(double) #19
 
 ; Function Attrs: nounwind uwtable
 define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -4953,115 +4168,118 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
 
 .thread:                                          ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 45, ptr %1, align 1
+  store i8 45, ptr %1, align 1, !tbaa !27
   %10 = sub nsw i32 0, %3
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 10, i1 false)
   br label %.lr.ph.preheader
 
 11:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 10, i1 false)
-  %.not46 = icmp eq i32 %3, 0
-  br i1 %.not46, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not48 = icmp eq i32 %3, 0
+  br i1 %.not48, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %11
-  %.03377 = phi ptr [ %9, %.thread ], [ %1, %11 ]
-  %.03976 = phi i32 [ %10, %.thread ], [ %3, %11 ]
+  %.03579 = phi ptr [ %9, %.thread ], [ %1, %11 ]
+  %.04178 = phi i32 [ %10, %.thread ], [ %3, %11 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03449 = phi i32 [ %spec.select, %.lr.ph ], [ 16, %.lr.ph.preheader ]
-  %.03648 = phi i32 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.14047 = phi i32 [ %12, %.lr.ph ], [ %.03976, %.lr.ph.preheader ]
-  %12 = udiv i32 %.14047, 10
+  %.03651 = phi i32 [ %spec.select, %.lr.ph ], [ 16, %.lr.ph.preheader ]
+  %.03850 = phi i32 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.14249 = phi i32 [ %12, %.lr.ph ], [ %.04178, %.lr.ph.preheader ]
+  %12 = udiv i32 %.14249, 10
   %.neg = mul i32 %12, -10
-  %13 = add i32 %.neg, %.14047
+  %13 = add i32 %.neg, %.14249
   %14 = trunc i32 %13 to i8
   %15 = add i8 %14, 48
-  %16 = add i32 %.03648, 1
-  %17 = zext i32 %.03648 to i64
+  %16 = add i32 %.03850, 1
+  %17 = zext i32 %.03850 to i64
   %18 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %17
-  store i8 %15, ptr %18, align 1
-  %19 = icmp eq i32 %.03449, 16
+  store i8 %15, ptr %18, align 1, !tbaa !27
+  %19 = icmp eq i32 %.03651, 16
   %20 = icmp ne i32 %13, 0
   %or.cond = and i1 %19, %20
-  %spec.select = select i1 %or.cond, i32 %16, i32 %.03449
-  %.not = icmp ult i32 %.14047, 10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  %spec.select = select i1 %or.cond, i32 %16, i32 %.03651
+  %.not = icmp ult i32 %.14249, 10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not43 = icmp eq i32 %16, 0
-  br i1 %.not43, label %._crit_edge.thread, label %.preheader45
+  %.not45 = icmp eq i32 %16, 0
+  br i1 %.not45, label %._crit_edge.thread, label %.preheader47
 
-.preheader45:                                     ; preds = %._crit_edge
+.preheader47:                                     ; preds = %._crit_edge
   %21 = icmp ugt i32 %16, 5
-  br i1 %21, label %.lr.ph53.preheader, label %._crit_edge54
+  br i1 %21, label %.lr.ph55.preheader, label %._crit_edge56
 
-.lr.ph53.preheader:                               ; preds = %.preheader45
+.lr.ph55.preheader:                               ; preds = %.preheader47
   %22 = zext i32 %16 to i64
-  br label %.lr.ph53
+  br label %.lr.ph55
 
-.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
-  %indvars.iv = phi i64 [ %22, %.lr.ph53.preheader ], [ %23, %.lr.ph53 ]
-  %.152 = phi ptr [ %.03377, %.lr.ph53.preheader ], [ %26, %.lr.ph53 ]
+.lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
+  %indvars.iv = phi i64 [ %22, %.lr.ph55.preheader ], [ %23, %.lr.ph55 ]
+  %.154 = phi ptr [ %.03579, %.lr.ph55.preheader ], [ %26, %.lr.ph55 ]
   %23 = add nsw i64 %indvars.iv, -1
   %24 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %.152, i64 1
-  store i8 %25, ptr %.152, align 1
+  %25 = load i8, ptr %24, align 1, !tbaa !27
+  %26 = getelementptr inbounds nuw i8, ptr %.154, i64 1
+  store i8 %25, ptr %.154, align 1, !tbaa !27
   %.wide = icmp ugt i64 %23, 5
-  br i1 %.wide, label %.lr.ph53, label %._crit_edge54, !llvm.loop !70
+  br i1 %.wide, label %.lr.ph55, label %._crit_edge56, !llvm.loop !151
 
-._crit_edge54:                                    ; preds = %.lr.ph53, %.preheader45
-  %.137.lcssa = phi i32 [ %16, %.preheader45 ], [ 5, %.lr.ph53 ]
-  %.1.lcssa = phi ptr [ %.03377, %.preheader45 ], [ %26, %.lr.ph53 ]
+._crit_edge56:                                    ; preds = %.lr.ph55, %.preheader47
+  %.139.lcssa = phi i32 [ %16, %.preheader47 ], [ 5, %.lr.ph55 ]
+  %.1.lcssa = phi ptr [ %.03579, %.preheader47 ], [ %26, %.lr.ph55 ]
   %27 = icmp ult i32 %spec.select, 6
   br i1 %27, label %28, label %.loopexit
 
-28:                                               ; preds = %._crit_edge54
-  store i8 46, ptr %.1.lcssa, align 1
-  %.257 = getelementptr i8, ptr %.1.lcssa, i64 1
-  %29 = icmp samesign ult i32 %.137.lcssa, 5
-  br i1 %29, label %.lr.ph61.preheader, label %.preheader
+28:                                               ; preds = %._crit_edge56
+  store i8 46, ptr %.1.lcssa, align 1, !tbaa !27
+  %.259 = getelementptr i8, ptr %.1.lcssa, i64 1
+  %29 = icmp samesign ult i32 %.139.lcssa, 5
+  br i1 %29, label %.lr.ph63.preheader, label %.preheader
 
-.lr.ph61.preheader:                               ; preds = %28
-  %30 = sub nuw nsw i32 4, %.137.lcssa
+.lr.ph63.preheader:                               ; preds = %28
+  %30 = sub nuw nsw i32 4, %.139.lcssa
   %31 = zext nneg i32 %30 to i64
   %32 = add nuw nsw i64 %31, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.257, i8 48, i64 %32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.259, i8 48, i64 %32, i1 false), !tbaa !27
   %33 = getelementptr i8, ptr %.1.lcssa, i64 %31
   %scevgep = getelementptr i8, ptr %33, i64 2
   br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph61.preheader, %28
-  %.2.lcssa = phi ptr [ %.257, %28 ], [ %scevgep, %.lr.ph61.preheader ]
-  %.not4463 = icmp samesign ult i32 %.137.lcssa, %spec.select
-  br i1 %.not4463, label %.loopexit, label %.lr.ph66
+.preheader:                                       ; preds = %.lr.ph63.preheader, %28
+  %.2.lcssa = phi ptr [ %.259, %28 ], [ %scevgep, %.lr.ph63.preheader ]
+  %.not4665 = icmp samesign ult i32 %.139.lcssa, %spec.select
+  br i1 %.not4665, label %.loopexit, label %.lr.ph68
 
-.lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
-  %.365 = phi ptr [ %38, %.lr.ph66 ], [ %.2.lcssa, %.preheader ]
-  %.23864 = phi i32 [ %34, %.lr.ph66 ], [ %.137.lcssa, %.preheader ]
-  %34 = add i32 %.23864, -1
+.lr.ph68:                                         ; preds = %.preheader, %.lr.ph68
+  %.367 = phi ptr [ %38, %.lr.ph68 ], [ %.2.lcssa, %.preheader ]
+  %.24066 = phi i32 [ %34, %.lr.ph68 ], [ %.139.lcssa, %.preheader ]
+  %34 = add i32 %.24066, -1
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds nuw i8, ptr %.365, i64 1
-  store i8 %37, ptr %.365, align 1
-  %.not44 = icmp ult i32 %34, %spec.select
-  br i1 %.not44, label %.loopexit, label %.lr.ph66, !llvm.loop !71
+  %37 = load i8, ptr %36, align 1, !tbaa !27
+  %38 = getelementptr inbounds nuw i8, ptr %.367, i64 1
+  store i8 %37, ptr %.367, align 1, !tbaa !27
+  %.not46 = icmp ult i32 %34, %spec.select
+  br i1 %.not46, label %.loopexit, label %.lr.ph68, !llvm.loop !152
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
-  %.0337883 = phi ptr [ %.03377, %._crit_edge ], [ %1, %11 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.0337883, i64 1
-  store i8 48, ptr %.0337883, align 1
+  %.0358085 = phi ptr [ %.03579, %._crit_edge ], [ %1, %11 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.0358085, i64 1
+  store i8 48, ptr %.0358085, align 1, !tbaa !27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph66, %.preheader, %._crit_edge54, %._crit_edge.thread
-  %.4 = phi ptr [ %.1.lcssa, %._crit_edge54 ], [ %39, %._crit_edge.thread ], [ %.2.lcssa, %.preheader ], [ %38, %.lr.ph66 ]
-  store i8 0, ptr %.4, align 1
+.loopexit:                                        ; preds = %.lr.ph68, %.preheader, %._crit_edge56, %._crit_edge.thread
+  %.4 = phi ptr [ %.1.lcssa, %._crit_edge56 ], [ %39, %._crit_edge.thread ], [ %.2.lcssa, %.preheader ], [ %38, %.lr.ph68 ]
+  store i8 0, ptr %.4, align 1, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #28
   ret void
 
 40:                                               ; preds = %4
-  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.66) #27
+  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.55) #26
   unreachable
 }
 
@@ -5075,7 +4293,7 @@ define i32 @png_fixed(ptr noalias noundef %0, double noundef %1, ptr noundef %2)
   br i1 %or.cond, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call void @png_fixed_error(ptr noundef %0, ptr noundef %2) #27
+  tail call void @png_fixed_error(ptr noundef %0, ptr noundef %2) #26
   unreachable
 
 9:                                                ; preds = %3
@@ -5084,64 +4302,31 @@ define i32 @png_fixed(ptr noalias noundef %0, double noundef %1, ptr noundef %2)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #18
+declare double @llvm.fmuladd.f64(double, double, double) #19
 
 ; Function Attrs: noreturn
-declare void @png_fixed_error(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @png_fixed_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @png_muldiv_warn(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %20, label %5
-
-5:                                                ; preds = %4
-  %6 = icmp eq i32 %1, 0
-  %7 = icmp eq i32 %2, 0
-  %or.cond.i = or i1 %6, %7
-  br i1 %or.cond.i, label %png_muldiv.exit, label %8
-
-8:                                                ; preds = %5
-  %9 = sitofp i32 %1 to double
-  %10 = sitofp i32 %2 to double
-  %11 = fmul double %9, %10
-  %12 = sitofp i32 %3 to double
-  %13 = fdiv double %11, %12
-  %14 = fadd double %13, 5.000000e-01
-  %15 = tail call double @llvm.floor.f64(double %14)
-  %16 = fcmp ole double %15, 0x41DFFFFFFFC00000
-  %17 = fcmp oge double %15, 0xC1E0000000000000
-  %or.cond3.i = and i1 %16, %17
-  br i1 %or.cond3.i, label %18, label %20
-
-18:                                               ; preds = %8
-  %19 = fptosi double %15 to i32
-  br label %png_muldiv.exit
-
-20:                                               ; preds = %8, %4
-  tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.67) #29
-  br label %png_muldiv.exit
-
-png_muldiv.exit:                                  ; preds = %5, %18, %20
-  %.0 = phi i32 [ 0, %20 ], [ %19, %18 ], [ 0, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @png_reciprocal(i32 noundef %0) local_unnamed_addr #12 {
-  %2 = sitofp i32 %0 to double
-  %3 = fdiv double 1.000000e+10, %2
-  %4 = fadd double %3, 5.000000e-01
+define i32 @png_fixed_ITU(ptr noalias noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call double @llvm.fmuladd.f64(double %1, double 1.000000e+04, double 5.000000e-01)
   %5 = tail call double @llvm.floor.f64(double %4)
-  %6 = fcmp ole double %5, 0x41DFFFFFFFC00000
-  %7 = fcmp oge double %5, 0xC1E0000000000000
-  %or.cond = and i1 %6, %7
-  %8 = fptosi double %5 to i32
-  %.0 = select i1 %or.cond, i32 %8, i32 0
-  ret i32 %.0
+  %6 = fcmp ogt double %5, 0x41DFFFFFFFC00000
+  %7 = fcmp olt double %5, 0.000000e+00
+  %or.cond = or i1 %6, %7
+  br i1 %or.cond, label %8, label %9
+
+8:                                                ; preds = %3
+  tail call void @png_fixed_error(ptr noundef %0, ptr noundef %2) #26
+  unreachable
+
+9:                                                ; preds = %3
+  %10 = fptoui double %5 to i32
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @png_gamma_significant(i32 noundef %0) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @png_gamma_significant(i32 noundef %0) local_unnamed_addr #13 {
   %2 = add i32 %0, -105001
   %3 = icmp ult i32 %2, -10001
   %4 = zext i1 %3 to i32
@@ -5149,7 +4334,7 @@ define range(i32 0, 2) i32 @png_gamma_significant(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @png_reciprocal2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define i32 @png_reciprocal2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = icmp ne i32 %0, 0
   %4 = icmp ne i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -5162,20 +4347,22 @@ define i32 @png_reciprocal2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   %9 = fdiv double %7, %8
   %10 = fadd double %9, 5.000000e-01
   %11 = tail call double @llvm.floor.f64(double %10)
-  %12 = fcmp ole double %11, 0x41DFFFFFFFC00000
-  %13 = fcmp oge double %11, 0xC1E0000000000000
-  %or.cond3 = and i1 %12, %13
+  %12 = fcmp ugt double %11, 0x41DFFFFFFFC00000
+  %13 = fcmp ult double %11, 0xC1E0000000000000
+  %or.cond3.not = or i1 %12, %13
   %14 = fptosi double %11 to i32
-  %spec.select = select i1 %or.cond3, i32 %14, i32 0
-  br label %15
+  br i1 %or.cond3.not, label %15, label %16
 
 15:                                               ; preds = %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %5 ]
-  ret i32 %.0
+  br label %16
+
+16:                                               ; preds = %5, %15
+  %.1 = phi i32 [ %14, %5 ], [ 0, %15 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define zeroext i8 @png_gamma_8bit_correct(i32 noundef %0, i32 noundef %1) local_unnamed_addr #19 {
+define zeroext i8 @png_gamma_8bit_correct(i32 noundef %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = add i32 %0, -1
   %or.cond = icmp ult i32 %3, 254
   br i1 %or.cond, label %4, label %13
@@ -5185,7 +4372,7 @@ define zeroext i8 @png_gamma_8bit_correct(i32 noundef %0, i32 noundef %1) local_
   %6 = fdiv double %5, 2.550000e+02
   %7 = sitofp i32 %1 to double
   %8 = fmul double %7, 1.000000e-05
-  %9 = tail call double @pow(double noundef %6, double noundef %8) #29
+  %9 = tail call double @pow(double noundef %6, double noundef %8) #28, !tbaa !43
   %10 = tail call double @llvm.fmuladd.f64(double %9, double 2.550000e+02, double 5.000000e-01)
   %11 = tail call double @llvm.floor.f64(double %10)
   %12 = fptoui double %11 to i8
@@ -5201,10 +4388,10 @@ define zeroext i8 @png_gamma_8bit_correct(i32 noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #20
+declare double @pow(double noundef, double noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define zeroext i16 @png_gamma_16bit_correct(i32 noundef %0, i32 noundef %1) local_unnamed_addr #19 {
+define zeroext i16 @png_gamma_16bit_correct(i32 noundef %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = add i32 %0, -1
   %or.cond = icmp ult i32 %3, 65534
   br i1 %or.cond, label %4, label %13
@@ -5214,7 +4401,7 @@ define zeroext i16 @png_gamma_16bit_correct(i32 noundef %0, i32 noundef %1) loca
   %6 = fdiv double %5, 6.553500e+04
   %7 = sitofp i32 %1 to double
   %8 = fmul double %7, 1.000000e-05
-  %9 = tail call double @pow(double noundef %6, double noundef %8) #29
+  %9 = tail call double @pow(double noundef %6, double noundef %8) #28, !tbaa !43
   %10 = tail call double @llvm.fmuladd.f64(double %9, double 6.553500e+04, double 5.000000e-01)
   %11 = tail call double @llvm.floor.f64(double %10)
   %12 = fptoui double %11 to i16
@@ -5230,9 +4417,9 @@ define zeroext i16 @png_gamma_16bit_correct(i32 noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define zeroext i16 @png_gamma_correct(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #21 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %5 = load i8, ptr %4, align 8
+define zeroext i16 @png_gamma_correct(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #22 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %5 = load i8, ptr %4, align 8, !tbaa !153
   %6 = icmp eq i8 %5, 8
   %7 = add i32 %1, -1
   br i1 %6, label %8, label %21
@@ -5246,7 +4433,7 @@ define zeroext i16 @png_gamma_correct(ptr noalias noundef readonly captures(none
   %11 = fdiv double %10, 2.550000e+02
   %12 = sitofp i32 %2 to double
   %13 = fmul double %12, 1.000000e-05
-  %14 = tail call double @pow(double noundef %11, double noundef %13) #29
+  %14 = tail call double @pow(double noundef %11, double noundef %13) #28, !tbaa !43
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 2.550000e+02, double 5.000000e-01)
   %16 = tail call double @llvm.floor.f64(double %15)
   %17 = fptoui double %16 to i8
@@ -5270,7 +4457,7 @@ png_gamma_8bit_correct.exit:                      ; preds = %9, %18
   %24 = fdiv double %23, 6.553500e+04
   %25 = sitofp i32 %2 to double
   %26 = fmul double %25, 1.000000e-05
-  %27 = tail call double @pow(double noundef %24, double noundef %26) #29
+  %27 = tail call double @pow(double noundef %24, double noundef %26) #28, !tbaa !43
   %28 = tail call double @llvm.fmuladd.f64(double %27, double 6.553500e+04, double 5.000000e-01)
   %29 = tail call double @llvm.floor.f64(double %28)
   %30 = fptoui double %29 to i16
@@ -5287,18 +4474,18 @@ png_gamma_16bit_correct.exit:                     ; preds = %31, %22, %png_gamma
 
 ; Function Attrs: nounwind uwtable
 define void @png_destroy_gamma_table(ptr noalias noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %3 = load ptr, ptr %2, align 8
-  tail call void @png_free(ptr noundef %0, ptr noundef %3) #29
-  store ptr null, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %5 = load ptr, ptr %4, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %3 = load ptr, ptr %2, align 8, !tbaa !154
+  tail call void @png_free(ptr noundef %0, ptr noundef %3) #28
+  store ptr null, ptr %2, align 8, !tbaa !154
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %5 = load ptr, ptr %4, align 8, !tbaa !155
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %8 = load i32, ptr %7, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %8 = load i32, ptr %7, align 8, !tbaa !156
   %.not54 = icmp eq i32 %8, -23
   br i1 %.not54, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5311,41 +4498,41 @@ define void @png_destroy_gamma_table(ptr noalias noundef %0) local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !155
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %13) #29
+  %13 = load ptr, ptr %12, align 8, !tbaa !157
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %13) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !158
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %4, align 8
+  %.pre = load ptr, ptr %4, align 8, !tbaa !155
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %14 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %6 ]
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %14) #29
-  store ptr null, ptr %4, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %14) #28
+  store ptr null, ptr %4, align 8, !tbaa !155
   br label %15
 
 15:                                               ; preds = %._crit_edge, %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %17 = load ptr, ptr %16, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %17) #29
-  store ptr null, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %19 = load ptr, ptr %18, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %19) #29
-  store ptr null, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %21 = load ptr, ptr %20, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %17 = load ptr, ptr %16, align 8, !tbaa !159
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %17) #28
+  store ptr null, ptr %16, align 8, !tbaa !159
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %19 = load ptr, ptr %18, align 8, !tbaa !160
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %19) #28
+  store ptr null, ptr %18, align 8, !tbaa !160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %21 = load ptr, ptr %20, align 8, !tbaa !161
   %.not43 = icmp eq ptr %21, null
   br i1 %.not43, label %31, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %24 = load i32, ptr %23, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %24 = load i32, ptr %23, align 8, !tbaa !156
   %.not55 = icmp eq i32 %24, -23
   br i1 %.not55, label %._crit_edge49, label %.lr.ph48.preheader
 
@@ -5358,33 +4545,33 @@ define void @png_destroy_gamma_table(ptr noalias noundef %0) local_unnamed_addr 
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
   %indvars.iv58 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next59, %.lr.ph48 ]
-  %27 = load ptr, ptr %20, align 8
+  %27 = load ptr, ptr %20, align 8, !tbaa !161
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv58
-  %29 = load ptr, ptr %28, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %29) #29
+  %29 = load ptr, ptr %28, align 8, !tbaa !157
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %29) #28
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge49.loopexit, label %.lr.ph48, !llvm.loop !73
+  br i1 %exitcond63.not, label %._crit_edge49.loopexit, label %.lr.ph48, !llvm.loop !162
 
 ._crit_edge49.loopexit:                           ; preds = %.lr.ph48
-  %.pre70 = load ptr, ptr %20, align 8
+  %.pre70 = load ptr, ptr %20, align 8, !tbaa !161
   br label %._crit_edge49
 
 ._crit_edge49:                                    ; preds = %._crit_edge49.loopexit, %22
   %30 = phi ptr [ %.pre70, %._crit_edge49.loopexit ], [ %21, %22 ]
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %30) #29
-  store ptr null, ptr %20, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %30) #28
+  store ptr null, ptr %20, align 8, !tbaa !161
   br label %31
 
 31:                                               ; preds = %._crit_edge49, %15
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %33 = load ptr, ptr %32, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %33 = load ptr, ptr %32, align 8, !tbaa !163
   %.not44 = icmp eq ptr %33, null
   br i1 %.not44, label %43, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %36 = load i32, ptr %35, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %36 = load i32, ptr %35, align 8, !tbaa !156
   %.not56 = icmp eq i32 %36, -23
   br i1 %.not56, label %._crit_edge53, label %.lr.ph52.preheader
 
@@ -5397,22 +4584,22 @@ define void @png_destroy_gamma_table(ptr noalias noundef %0) local_unnamed_addr 
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
   %indvars.iv64 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next65, %.lr.ph52 ]
-  %39 = load ptr, ptr %32, align 8
+  %39 = load ptr, ptr %32, align 8, !tbaa !163
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv64
-  %41 = load ptr, ptr %40, align 8
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %41) #29
+  %41 = load ptr, ptr %40, align 8, !tbaa !157
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %41) #28
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge53.loopexit, label %.lr.ph52, !llvm.loop !74
+  br i1 %exitcond69.not, label %._crit_edge53.loopexit, label %.lr.ph52, !llvm.loop !164
 
 ._crit_edge53.loopexit:                           ; preds = %.lr.ph52
-  %.pre71 = load ptr, ptr %32, align 8
+  %.pre71 = load ptr, ptr %32, align 8, !tbaa !163
   br label %._crit_edge53
 
 ._crit_edge53:                                    ; preds = %._crit_edge53.loopexit, %34
   %42 = phi ptr [ %.pre71, %._crit_edge53.loopexit ], [ %33, %34 ]
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %42) #29
-  store ptr null, ptr %32, align 8
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %42) #28
+  store ptr null, ptr %32, align 8, !tbaa !163
   br label %43
 
 43:                                               ; preds = %._crit_edge53, %31
@@ -5421,473 +4608,387 @@ define void @png_destroy_gamma_table(ptr noalias noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define void @png_build_gamma_table(ptr noalias noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %4 = load ptr, ptr %3, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %4 = load ptr, ptr %3, align 8, !tbaa !154
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %7 = load ptr, ptr %6, align 8
-  %.not70 = icmp eq ptr %7, null
-  br i1 %.not70, label %9, label %8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %.not66 = icmp eq ptr %7, null
+  br i1 %.not66, label %9, label %8
 
 8:                                                ; preds = %5, %2
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.68) #29
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.56) #28
   tail call void @png_destroy_gamma_table(ptr noundef nonnull %0)
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = icmp slt i32 %1, 9
-  br i1 %10, label %11, label %118
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %11 = load i32, ptr %10, align 8, !tbaa !165
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  %13 = load i32, ptr %12, align 4, !tbaa !166
+  %14 = sitofp i32 %11 to double
+  %15 = fdiv double 1.000000e+10, %14
+  %16 = fadd double %15, 5.000000e-01
+  %17 = tail call double @llvm.floor.f64(double %16)
+  %18 = fcmp ole double %17, 0x41DFFFFFFFC00000
+  %19 = fcmp oge double %17, 0xC1E0000000000000
+  %or.cond.i = and i1 %18, %19
+  %20 = fptosi double %17 to i32
+  %.0.i = select i1 %or.cond.i, i32 %20, i32 0
+  %21 = icmp sgt i32 %13, 0
+  br i1 %21, label %22, label %png_reciprocal2.exit
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %png_reciprocal2.exit
+22:                                               ; preds = %9
+  %23 = uitofp nneg i32 %13 to double
+  %24 = fdiv double 1.000000e+10, %23
+  %25 = fadd double %24, 5.000000e-01
+  %26 = tail call double @llvm.floor.f64(double %25)
+  %27 = fcmp ole double %26, 0x41DFFFFFFFC00000
+  %28 = fcmp oge double %26, 0xC1E0000000000000
+  %or.cond.i73 = and i1 %27, %28
+  %29 = fptosi double %26 to i32
+  %.0.i74 = select i1 %or.cond.i73, i32 %29, i32 0
+  %.not106 = icmp eq i32 %11, 0
+  br i1 %.not106, label %38, label %30
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %17 = load i32, ptr %16, align 8
-  %.not121 = icmp eq i32 %17, 0
-  br i1 %.not121, label %png_reciprocal2.exit, label %18
+30:                                               ; preds = %22
+  %31 = fdiv double 1.000000e+15, %23
+  %32 = fdiv double %31, %14
+  %33 = fadd double %32, 5.000000e-01
+  %34 = tail call double @llvm.floor.f64(double %33)
+  %35 = fcmp ugt double %34, 0x41DFFFFFFFC00000
+  %36 = fcmp ult double %34, 0xC1E0000000000000
+  %or.cond3.not.i = or i1 %35, %36
+  %37 = fptosi double %34 to i32
+  br i1 %or.cond3.not.i, label %38, label %png_reciprocal2.exit
 
-18:                                               ; preds = %15
-  %19 = sitofp i32 %17 to double
-  %20 = fdiv double 1.000000e+15, %19
-  %21 = uitofp nneg i32 %13 to double
-  %22 = fdiv double %20, %21
-  %23 = fadd double %22, 5.000000e-01
-  %24 = tail call double @llvm.floor.f64(double %23)
-  %25 = fcmp ole double %24, 0x41DFFFFFFFC00000
-  %26 = fcmp oge double %24, 0xC1E0000000000000
-  %or.cond3.i = and i1 %25, %26
-  %27 = fptosi double %24 to i32
-  %spec.select.i = select i1 %or.cond3.i, i32 %27, i32 0
+38:                                               ; preds = %30, %22
   br label %png_reciprocal2.exit
 
-png_reciprocal2.exit:                             ; preds = %18, %15, %11
-  %28 = phi i32 [ 100000, %11 ], [ 0, %15 ], [ %spec.select.i, %18 ]
-  %29 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 256) #29
-  store ptr %29, ptr %3, align 8, !noalias !75
-  %30 = add i32 %28, -95000
-  %31 = icmp ult i32 %30, 10001
-  br i1 %31, label %.preheader.i, label %.preheader13.i
+png_reciprocal2.exit:                             ; preds = %38, %30, %9
+  %.063 = phi i32 [ 100000, %9 ], [ %37, %30 ], [ 0, %38 ]
+  %.062 = phi i32 [ %11, %9 ], [ %.0.i74, %30 ], [ %.0.i74, %38 ]
+  %39 = icmp slt i32 %1, 9
+  br i1 %39, label %40, label %107
 
-.preheader13.i:                                   ; preds = %png_reciprocal2.exit
-  %32 = sitofp i32 %28 to double
-  %33 = fmul double %32, 1.000000e-05
-  br label %34
+40:                                               ; preds = %png_reciprocal2.exit
+  %41 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 256) #28
+  store ptr %41, ptr %3, align 8, !tbaa !44, !noalias !167
+  %42 = add i32 %.063, -95000
+  %43 = icmp ult i32 %42, 10001
+  br i1 %43, label %.preheader.i, label %.preheader13.i
 
-34:                                               ; preds = %png_gamma_8bit_correct.exit.i, %.preheader13.i
+.preheader13.i:                                   ; preds = %40
+  %44 = sitofp i32 %.063 to double
+  %45 = fmul double %44, 1.000000e-05
+  br label %46
+
+46:                                               ; preds = %png_gamma_8bit_correct.exit.i, %.preheader13.i
   %indvars.iv.i = phi i64 [ 0, %.preheader13.i ], [ %indvars.iv.next.i, %png_gamma_8bit_correct.exit.i ]
-  %35 = trunc i64 %indvars.iv.i to i32
-  %36 = add i32 %35, -1
-  %or.cond.i.i = icmp ult i32 %36, 254
-  br i1 %or.cond.i.i, label %37, label %44
+  %47 = trunc i64 %indvars.iv.i to i32
+  %48 = add i32 %47, -1
+  %or.cond.i.i = icmp ult i32 %48, 254
+  br i1 %or.cond.i.i, label %49, label %56
 
-37:                                               ; preds = %34
-  %38 = uitofp nneg i32 %35 to double
-  %39 = fdiv double %38, 2.550000e+02
-  %40 = tail call double @pow(double noundef %39, double noundef %33) #29
-  %41 = tail call double @llvm.fmuladd.f64(double %40, double 2.550000e+02, double 5.000000e-01)
-  %42 = tail call double @llvm.floor.f64(double %41)
-  %43 = fptoui double %42 to i8
+49:                                               ; preds = %46
+  %50 = uitofp nneg i32 %47 to double
+  %51 = fdiv double %50, 2.550000e+02
+  %52 = tail call double @pow(double noundef %51, double noundef %45) #28, !tbaa !43
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double 2.550000e+02, double 5.000000e-01)
+  %54 = tail call double @llvm.floor.f64(double %53)
+  %55 = fptoui double %54 to i8
   br label %png_gamma_8bit_correct.exit.i
 
-44:                                               ; preds = %34
-  %45 = trunc i64 %indvars.iv.i to i8
+56:                                               ; preds = %46
+  %57 = trunc i64 %indvars.iv.i to i8
   br label %png_gamma_8bit_correct.exit.i
 
-png_gamma_8bit_correct.exit.i:                    ; preds = %44, %37
-  %.0.i.i = phi i8 [ %43, %37 ], [ %45, %44 ]
-  %46 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv.i
-  store i8 %.0.i.i, ptr %46, align 1
+png_gamma_8bit_correct.exit.i:                    ; preds = %56, %49
+  %.0.i.i = phi i8 [ %55, %49 ], [ %57, %56 ]
+  %58 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv.i
+  store i8 %.0.i.i, ptr %58, align 1, !tbaa !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %png_build_8bit_table.exit, label %34, !llvm.loop !78
+  br i1 %exitcond.not.i, label %png_build_8bit_table.exit, label %46, !llvm.loop !170
 
-.preheader.i:                                     ; preds = %png_reciprocal2.exit, %.preheader.i
-  %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.preheader.i ], [ 0, %png_reciprocal2.exit ]
-  %47 = trunc i64 %indvars.iv19.i to i8
-  %48 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv19.i
-  store i8 %47, ptr %48, align 1
+.preheader.i:                                     ; preds = %40, %.preheader.i
+  %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.preheader.i ], [ 0, %40 ]
+  %59 = trunc i64 %indvars.iv19.i to i8
+  %60 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv19.i
+  store i8 %59, ptr %60, align 1, !tbaa !27
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next20.i, 256
-  br i1 %exitcond22.not.i, label %png_build_8bit_table.exit, label %.preheader.i, !llvm.loop !79
+  br i1 %exitcond22.not.i, label %png_build_8bit_table.exit, label %.preheader.i, !llvm.loop !171
 
 png_build_8bit_table.exit:                        ; preds = %png_gamma_8bit_correct.exit.i, %.preheader.i
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %50 = load i32, ptr %49, align 4
-  %51 = and i32 %50, 6291584
-  %.not75 = icmp eq i32 %51, 0
-  br i1 %.not75, label %png_build_8bit_table.exit104, label %52
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %62 = load i32, ptr %61, align 4, !tbaa !172
+  %63 = and i32 %62, 6291584
+  %.not71 = icmp eq i32 %63, 0
+  br i1 %.not71, label %png_build_8bit_table.exit99, label %64
 
-52:                                               ; preds = %png_build_8bit_table.exit
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %55 = load i32, ptr %54, align 8
-  %56 = sitofp i32 %55 to double
-  %57 = fdiv double 1.000000e+10, %56
-  %58 = fadd double %57, 5.000000e-01
-  %59 = tail call double @llvm.floor.f64(double %58)
-  %60 = fcmp ole double %59, 0x41DFFFFFFFC00000
-  %61 = fcmp oge double %59, 0xC1E0000000000000
-  %or.cond.i77 = and i1 %60, %61
-  %62 = fptosi double %59 to i32
-  %.0.i78 = select i1 %or.cond.i77, i32 %62, i32 0
-  %63 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 256) #29
-  store ptr %63, ptr %53, align 8, !noalias !80
-  %64 = add i32 %.0.i78, -95000
-  %65 = icmp ult i32 %64, 10001
-  br i1 %65, label %.preheader.i86, label %.preheader13.i79
+64:                                               ; preds = %png_build_8bit_table.exit
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %66 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 256) #28
+  store ptr %66, ptr %65, align 8, !tbaa !44, !noalias !173
+  %67 = add i32 %.0.i, -95000
+  %68 = icmp ult i32 %67, 10001
+  br i1 %68, label %.preheader.i83, label %.preheader13.i76
 
-.preheader13.i79:                                 ; preds = %52
-  %66 = sitofp i32 %.0.i78 to double
-  %67 = fmul double %66, 1.000000e-05
-  br label %68
+.preheader13.i76:                                 ; preds = %64
+  %69 = sitofp i32 %.0.i to double
+  %70 = fmul double %69, 1.000000e-05
+  br label %71
 
-68:                                               ; preds = %png_gamma_8bit_correct.exit.i82, %.preheader13.i79
-  %indvars.iv.i80 = phi i64 [ 0, %.preheader13.i79 ], [ %indvars.iv.next.i84, %png_gamma_8bit_correct.exit.i82 ]
-  %69 = trunc i64 %indvars.iv.i80 to i32
-  %70 = add i32 %69, -1
-  %or.cond.i.i81 = icmp ult i32 %70, 254
-  br i1 %or.cond.i.i81, label %71, label %78
+71:                                               ; preds = %png_gamma_8bit_correct.exit.i79, %.preheader13.i76
+  %indvars.iv.i77 = phi i64 [ 0, %.preheader13.i76 ], [ %indvars.iv.next.i81, %png_gamma_8bit_correct.exit.i79 ]
+  %72 = trunc i64 %indvars.iv.i77 to i32
+  %73 = add i32 %72, -1
+  %or.cond.i.i78 = icmp ult i32 %73, 254
+  br i1 %or.cond.i.i78, label %74, label %81
 
-71:                                               ; preds = %68
-  %72 = uitofp nneg i32 %69 to double
-  %73 = fdiv double %72, 2.550000e+02
-  %74 = tail call double @pow(double noundef %73, double noundef %67) #29
-  %75 = tail call double @llvm.fmuladd.f64(double %74, double 2.550000e+02, double 5.000000e-01)
-  %76 = tail call double @llvm.floor.f64(double %75)
-  %77 = fptoui double %76 to i8
-  br label %png_gamma_8bit_correct.exit.i82
+74:                                               ; preds = %71
+  %75 = uitofp nneg i32 %72 to double
+  %76 = fdiv double %75, 2.550000e+02
+  %77 = tail call double @pow(double noundef %76, double noundef %70) #28, !tbaa !43
+  %78 = tail call double @llvm.fmuladd.f64(double %77, double 2.550000e+02, double 5.000000e-01)
+  %79 = tail call double @llvm.floor.f64(double %78)
+  %80 = fptoui double %79 to i8
+  br label %png_gamma_8bit_correct.exit.i79
 
-78:                                               ; preds = %68
-  %79 = trunc i64 %indvars.iv.i80 to i8
-  br label %png_gamma_8bit_correct.exit.i82
+81:                                               ; preds = %71
+  %82 = trunc i64 %indvars.iv.i77 to i8
+  br label %png_gamma_8bit_correct.exit.i79
 
-png_gamma_8bit_correct.exit.i82:                  ; preds = %78, %71
-  %.0.i.i83 = phi i8 [ %77, %71 ], [ %79, %78 ]
-  %80 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv.i80
-  store i8 %.0.i.i83, ptr %80, align 1
-  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i80, 1
-  %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 256
-  br i1 %exitcond.not.i85, label %png_build_8bit_table.exit90, label %68, !llvm.loop !78
+png_gamma_8bit_correct.exit.i79:                  ; preds = %81, %74
+  %.0.i.i80 = phi i8 [ %80, %74 ], [ %82, %81 ]
+  %83 = getelementptr inbounds nuw i8, ptr %66, i64 %indvars.iv.i77
+  store i8 %.0.i.i80, ptr %83, align 1, !tbaa !27
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i77, 1
+  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 256
+  br i1 %exitcond.not.i82, label %png_build_8bit_table.exit87, label %71, !llvm.loop !170
 
-.preheader.i86:                                   ; preds = %52, %.preheader.i86
-  %indvars.iv19.i87 = phi i64 [ %indvars.iv.next20.i88, %.preheader.i86 ], [ 0, %52 ]
-  %81 = trunc i64 %indvars.iv19.i87 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv19.i87
-  store i8 %81, ptr %82, align 1
-  %indvars.iv.next20.i88 = add nuw nsw i64 %indvars.iv19.i87, 1
-  %exitcond22.not.i89 = icmp eq i64 %indvars.iv.next20.i88, 256
-  br i1 %exitcond22.not.i89, label %png_build_8bit_table.exit90, label %.preheader.i86, !llvm.loop !79
+.preheader.i83:                                   ; preds = %64, %.preheader.i83
+  %indvars.iv19.i84 = phi i64 [ %indvars.iv.next20.i85, %.preheader.i83 ], [ 0, %64 ]
+  %84 = trunc i64 %indvars.iv19.i84 to i8
+  %85 = getelementptr inbounds nuw i8, ptr %66, i64 %indvars.iv19.i84
+  store i8 %84, ptr %85, align 1, !tbaa !27
+  %indvars.iv.next20.i85 = add nuw nsw i64 %indvars.iv19.i84, 1
+  %exitcond22.not.i86 = icmp eq i64 %indvars.iv.next20.i85, 256
+  br i1 %exitcond22.not.i86, label %png_build_8bit_table.exit87, label %.preheader.i83, !llvm.loop !171
 
-png_build_8bit_table.exit90:                      ; preds = %png_gamma_8bit_correct.exit.i82, %.preheader.i86
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %84 = load i32, ptr %12, align 4
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %86, label %94
+png_build_8bit_table.exit87:                      ; preds = %png_gamma_8bit_correct.exit.i79, %.preheader.i83
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %87 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 256) #28
+  store ptr %87, ptr %86, align 8, !tbaa !44, !noalias !176
+  %88 = add i32 %.062, -95000
+  %89 = icmp ult i32 %88, 10001
+  br i1 %89, label %.preheader.i95, label %.preheader13.i88
 
-86:                                               ; preds = %png_build_8bit_table.exit90
-  %87 = uitofp nneg i32 %84 to double
-  %88 = fdiv double 1.000000e+10, %87
-  %89 = fadd double %88, 5.000000e-01
-  %90 = tail call double @llvm.floor.f64(double %89)
-  %91 = fcmp ole double %90, 0x41DFFFFFFFC00000
-  %92 = fcmp oge double %90, 0xC1E0000000000000
-  %or.cond.i91 = and i1 %91, %92
-  %93 = fptosi double %90 to i32
-  %.0.i92 = select i1 %or.cond.i91, i32 %93, i32 0
-  br label %96
+.preheader13.i88:                                 ; preds = %png_build_8bit_table.exit87
+  %90 = sitofp i32 %.062 to double
+  %91 = fmul double %90, 1.000000e-05
+  br label %92
 
-94:                                               ; preds = %png_build_8bit_table.exit90
-  %95 = load i32, ptr %54, align 8
-  br label %96
+92:                                               ; preds = %png_gamma_8bit_correct.exit.i91, %.preheader13.i88
+  %indvars.iv.i89 = phi i64 [ 0, %.preheader13.i88 ], [ %indvars.iv.next.i93, %png_gamma_8bit_correct.exit.i91 ]
+  %93 = trunc i64 %indvars.iv.i89 to i32
+  %94 = add i32 %93, -1
+  %or.cond.i.i90 = icmp ult i32 %94, 254
+  br i1 %or.cond.i.i90, label %95, label %102
 
-96:                                               ; preds = %94, %86
-  %97 = phi i32 [ %.0.i92, %86 ], [ %95, %94 ]
-  %98 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 256) #29
-  store ptr %98, ptr %83, align 8, !noalias !83
-  %99 = add i32 %97, -95000
-  %100 = icmp ult i32 %99, 10001
-  br i1 %100, label %.preheader.i100, label %.preheader13.i93
+95:                                               ; preds = %92
+  %96 = uitofp nneg i32 %93 to double
+  %97 = fdiv double %96, 2.550000e+02
+  %98 = tail call double @pow(double noundef %97, double noundef %91) #28, !tbaa !43
+  %99 = tail call double @llvm.fmuladd.f64(double %98, double 2.550000e+02, double 5.000000e-01)
+  %100 = tail call double @llvm.floor.f64(double %99)
+  %101 = fptoui double %100 to i8
+  br label %png_gamma_8bit_correct.exit.i91
 
-.preheader13.i93:                                 ; preds = %96
-  %101 = sitofp i32 %97 to double
-  %102 = fmul double %101, 1.000000e-05
-  br label %103
+102:                                              ; preds = %92
+  %103 = trunc i64 %indvars.iv.i89 to i8
+  br label %png_gamma_8bit_correct.exit.i91
 
-103:                                              ; preds = %png_gamma_8bit_correct.exit.i96, %.preheader13.i93
-  %indvars.iv.i94 = phi i64 [ 0, %.preheader13.i93 ], [ %indvars.iv.next.i98, %png_gamma_8bit_correct.exit.i96 ]
-  %104 = trunc i64 %indvars.iv.i94 to i32
-  %105 = add i32 %104, -1
-  %or.cond.i.i95 = icmp ult i32 %105, 254
-  br i1 %or.cond.i.i95, label %106, label %113
+png_gamma_8bit_correct.exit.i91:                  ; preds = %102, %95
+  %.0.i.i92 = phi i8 [ %101, %95 ], [ %103, %102 ]
+  %104 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv.i89
+  store i8 %.0.i.i92, ptr %104, align 1, !tbaa !27
+  %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i89, 1
+  %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, 256
+  br i1 %exitcond.not.i94, label %png_build_8bit_table.exit99, label %92, !llvm.loop !170
 
-106:                                              ; preds = %103
-  %107 = uitofp nneg i32 %104 to double
-  %108 = fdiv double %107, 2.550000e+02
-  %109 = tail call double @pow(double noundef %108, double noundef %102) #29
-  %110 = tail call double @llvm.fmuladd.f64(double %109, double 2.550000e+02, double 5.000000e-01)
-  %111 = tail call double @llvm.floor.f64(double %110)
-  %112 = fptoui double %111 to i8
-  br label %png_gamma_8bit_correct.exit.i96
+.preheader.i95:                                   ; preds = %png_build_8bit_table.exit87, %.preheader.i95
+  %indvars.iv19.i96 = phi i64 [ %indvars.iv.next20.i97, %.preheader.i95 ], [ 0, %png_build_8bit_table.exit87 ]
+  %105 = trunc i64 %indvars.iv19.i96 to i8
+  %106 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv19.i96
+  store i8 %105, ptr %106, align 1, !tbaa !27
+  %indvars.iv.next20.i97 = add nuw nsw i64 %indvars.iv19.i96, 1
+  %exitcond22.not.i98 = icmp eq i64 %indvars.iv.next20.i97, 256
+  br i1 %exitcond22.not.i98, label %png_build_8bit_table.exit99, label %.preheader.i95, !llvm.loop !171
 
-113:                                              ; preds = %103
-  %114 = trunc i64 %indvars.iv.i94 to i8
-  br label %png_gamma_8bit_correct.exit.i96
+107:                                              ; preds = %png_reciprocal2.exit
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 623
+  %109 = load i8, ptr %108, align 1, !tbaa !179
+  %110 = and i8 %109, 2
+  %.not67 = icmp eq i8 %110, 0
+  br i1 %.not67, label %118, label %111
 
-png_gamma_8bit_correct.exit.i96:                  ; preds = %113, %106
-  %.0.i.i97 = phi i8 [ %112, %106 ], [ %114, %113 ]
-  %115 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv.i94
-  store i8 %.0.i.i97, ptr %115, align 1
-  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i94, 1
-  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, 256
-  br i1 %exitcond.not.i99, label %png_build_8bit_table.exit104, label %103, !llvm.loop !78
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %113 = load i8, ptr %112, align 8, !tbaa !180
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 785
+  %115 = load i8, ptr %114, align 1, !tbaa !181
+  %spec.select = tail call i8 @llvm.umax.i8(i8 %115, i8 %113)
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 786
+  %117 = load i8, ptr %116, align 2, !tbaa !182
+  %spec.select72 = tail call i8 @llvm.umax.i8(i8 %117, i8 %spec.select)
+  br label %121
 
-.preheader.i100:                                  ; preds = %96, %.preheader.i100
-  %indvars.iv19.i101 = phi i64 [ %indvars.iv.next20.i102, %.preheader.i100 ], [ 0, %96 ]
-  %116 = trunc i64 %indvars.iv19.i101 to i8
-  %117 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv19.i101
-  store i8 %116, ptr %117, align 1
-  %indvars.iv.next20.i102 = add nuw nsw i64 %indvars.iv19.i101, 1
-  %exitcond22.not.i103 = icmp eq i64 %indvars.iv.next20.i102, 256
-  br i1 %exitcond22.not.i103, label %png_build_8bit_table.exit104, label %.preheader.i100, !llvm.loop !79
+118:                                              ; preds = %107
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 787
+  %120 = load i8, ptr %119, align 1, !tbaa !183
+  br label %121
 
-118:                                              ; preds = %9
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 615
-  %120 = load i8, ptr %119, align 1
-  %121 = and i8 %120, 2
-  %.not71 = icmp eq i8 %121, 0
-  br i1 %.not71, label %129, label %122
-
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %124 = load i8, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 729
-  %126 = load i8, ptr %125, align 1
-  %spec.select = tail call i8 @llvm.umax.i8(i8 %126, i8 %124)
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 730
-  %128 = load i8, ptr %127, align 2
-  %spec.select76 = tail call i8 @llvm.umax.i8(i8 %128, i8 %spec.select)
-  br label %132
-
-129:                                              ; preds = %118
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 731
-  %131 = load i8, ptr %130, align 1
-  br label %132
-
-132:                                              ; preds = %122, %129
-  %.1 = phi i8 [ %131, %129 ], [ %spec.select76, %122 ]
-  %133 = add i8 %.1, -1
-  %or.cond = icmp ult i8 %133, 15
+121:                                              ; preds = %111, %118
+  %.1 = phi i8 [ %120, %118 ], [ %spec.select72, %111 ]
+  %122 = add i8 %.1, -1
+  %or.cond = icmp ult i8 %122, 15
   %narrow = sub nuw nsw i8 16, %.1
-  %.062 = select i1 %or.cond, i8 %narrow, i8 0
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %135 = load i32, ptr %134, align 4
-  %136 = and i32 %135, 67109888
-  %.not72 = icmp eq i32 %136, 0
-  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.062, i8 5)
-  %.163 = select i1 %.not72, i8 %.062, i8 %spec.store.select
-  %spec.store.select3 = tail call i8 @llvm.umin.i8(i8 %.163, i8 8)
-  %137 = zext nneg i8 %spec.store.select3 to i32
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store i32 %137, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  %141 = load i32, ptr %140, align 4
-  %142 = icmp sgt i32 %141, 0
-  br i1 %.not72, label %204, label %143
+  %.060 = select i1 %or.cond, i8 %narrow, i8 0
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %124 = load i32, ptr %123, align 4, !tbaa !172
+  %125 = and i32 %124, 67109888
+  %.not68 = icmp eq i32 %125, 0
+  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.060, i8 5)
+  %.161 = select i1 %.not68, i8 %.060, i8 %spec.store.select
+  %spec.store.select3 = tail call i8 @llvm.umin.i8(i8 %.161, i8 8)
+  %126 = zext nneg i8 %spec.store.select3 to i32
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  store i32 %126, ptr %127, align 8, !tbaa !156
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  br i1 %.not68, label %183, label %129
 
-143:                                              ; preds = %132
-  br i1 %142, label %144, label %159
+129:                                              ; preds = %121
+  %130 = sitofp i32 %.063 to double
+  %131 = fdiv double 1.000000e+10, %130
+  %132 = fadd double %131, 5.000000e-01
+  %133 = tail call double @llvm.floor.f64(double %132)
+  %134 = fcmp ole double %133, 0x41DFFFFFFFC00000
+  %135 = fcmp oge double %133, 0xC1E0000000000000
+  %or.cond.i100 = and i1 %134, %135
+  %136 = sub nuw nsw i32 8, %126
+  %137 = shl nuw nsw i32 1, %136
+  %138 = zext nneg i32 %137 to i64
+  %139 = shl nuw nsw i64 %138, 3
+  %140 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef %139) #28
+  store ptr %140, ptr %128, align 8, !tbaa !49, !noalias !184
+  br label %147
 
-144:                                              ; preds = %143
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %146 = load i32, ptr %145, align 8
-  %147 = sitofp i32 %146 to double
-  %148 = fmul double %147, 1.000000e-05
-  %149 = uitofp nneg i32 %141 to double
-  %150 = fmul double %148, %149
-  %151 = fadd double %150, 5.000000e-01
-  %152 = tail call double @llvm.floor.f64(double %151)
-  %153 = fcmp ole double %152, 0x41DFFFFFFFC00000
-  %154 = fcmp oge double %152, 0xC1E0000000000000
-  %or.cond.i105 = and i1 %153, %154
-  %155 = fptosi double %152 to i32
-  %156 = sitofp i32 %155 to double
-  %157 = fmul double %156, 1.000000e-05
-  %158 = select i1 %or.cond.i105, double %157, double 0.000000e+00
-  br label %159
-
-159:                                              ; preds = %143, %144
-  %160 = phi double [ %158, %144 ], [ 1.000000e+00, %143 ]
-  %161 = sub nuw nsw i32 8, %137
-  %162 = shl nuw nsw i32 1, %161
-  %163 = zext nneg i32 %162 to i64
-  %164 = shl nuw nsw i64 %163, 3
-  %165 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef %164) #29
-  store ptr %165, ptr %139, align 8, !noalias !86
-  br label %168
-
-.preheader38.i:                                   ; preds = %168
-  %166 = sub nuw nsw i32 16, %137
-  %167 = lshr i32 255, %137
+.preheader38.i:                                   ; preds = %147
+  %141 = fptosi double %133 to i32
+  %142 = sub nuw nsw i32 16, %126
+  %143 = sitofp i32 %141 to double
+  %144 = fmul double %143, 1.000000e-05
+  %145 = select i1 %or.cond.i100, double %144, double 0.000000e+00
+  %146 = lshr i32 255, %126
   br label %png_gamma_16bit_correct.exit.i
 
-168:                                              ; preds = %168, %159
-  %indvars.iv.i107 = phi i64 [ 0, %159 ], [ %indvars.iv.next.i108, %168 ]
-  %169 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 512) #29
-  %170 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv.i107
-  store ptr %169, ptr %170, align 8
-  %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
-  %exitcond.not.i109 = icmp eq i64 %indvars.iv.next.i108, %163
-  br i1 %exitcond.not.i109, label %.preheader38.i, label %168, !llvm.loop !89
+147:                                              ; preds = %147, %129
+  %indvars.iv.i102 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i103, %147 ]
+  %148 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 512) #28
+  %149 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i102
+  store ptr %148, ptr %149, align 8, !tbaa !157
+  %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
+  %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %138
+  br i1 %exitcond.not.i104, label %.preheader38.i, label %147, !llvm.loop !187
 
-.preheader.i110:                                  ; preds = %._crit_edge.i
-  %171 = shl nuw nsw i32 256, %161
-  %172 = icmp ult i32 %.135.lcssa.i, %171
-  br i1 %172, label %.lr.ph45.i, label %png_build_16to8_table.exit
+.preheader.i105:                                  ; preds = %._crit_edge.i
+  %150 = shl nuw nsw i32 256, %136
+  %151 = icmp ult i32 %.135.lcssa.i, %150
+  br i1 %151, label %.lr.ph45.i, label %png_build_16to8_table.exit
 
 png_gamma_16bit_correct.exit.i:                   ; preds = %._crit_edge.i, %.preheader38.i
-  %.143.i = phi i32 [ 0, %.preheader38.i ], [ %195, %._crit_edge.i ]
+  %.143.i = phi i32 [ 0, %.preheader38.i ], [ %174, %._crit_edge.i ]
   %.03442.i = phi i32 [ 0, %.preheader38.i ], [ %.135.lcssa.i, %._crit_edge.i ]
-  %173 = trunc nuw i32 %.143.i to i16
-  %174 = mul nuw i16 %173, 257
-  %175 = zext i16 %174 to i32
-  %176 = add nuw nsw i32 %175, 128
-  %177 = uitofp nneg i32 %176 to double
-  %178 = fdiv double %177, 6.553500e+04
-  %179 = tail call double @pow(double noundef %178, double noundef %160) #29
-  %180 = tail call double @llvm.fmuladd.f64(double %179, double 6.553500e+04, double 5.000000e-01)
-  %181 = tail call double @llvm.floor.f64(double %180)
-  %182 = fptoui double %181 to i16
-  %.fr37.i = freeze i16 %182
-  %183 = zext i16 %.fr37.i to i32
-  %mulshl.i = shl nuw i32 %183, %166
-  %reass.sub = sub i32 %mulshl.i, %183
-  %184 = add i32 %reass.sub, 32768
-  %185 = udiv i32 %184, 65535
-  %.not40.i = icmp ugt i32 %.03442.i, %185
+  %152 = trunc nuw i32 %.143.i to i16
+  %153 = mul nuw i16 %152, 257
+  %154 = zext i16 %153 to i32
+  %155 = add nuw nsw i32 %154, 128
+  %156 = uitofp nneg i32 %155 to double
+  %157 = fdiv double %156, 6.553500e+04
+  %158 = tail call double @pow(double noundef %157, double noundef %145) #28, !tbaa !43
+  %159 = tail call double @llvm.fmuladd.f64(double %158, double 6.553500e+04, double 5.000000e-01)
+  %160 = tail call double @llvm.floor.f64(double %159)
+  %161 = fptoui double %160 to i16
+  %.fr37.i = freeze i16 %161
+  %162 = zext i16 %.fr37.i to i32
+  %mulshl.i = shl nuw i32 %162, %142
+  %reass.sub = sub i32 %mulshl.i, %162
+  %163 = add i32 %reass.sub, 32768
+  %164 = udiv i32 %163, 65535
+  %.not40.i = icmp ugt i32 %.03442.i, %164
   br i1 %.not40.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %png_gamma_16bit_correct.exit.i, %.lr.ph.i
-  %.13541.i = phi i32 [ %193, %.lr.ph.i ], [ %.03442.i, %png_gamma_16bit_correct.exit.i ]
-  %186 = and i32 %.13541.i, %167
-  %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds nuw ptr, ptr %165, i64 %187
-  %189 = load ptr, ptr %188, align 8
-  %190 = lshr i32 %.13541.i, %161
-  %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr inbounds nuw i16, ptr %189, i64 %191
-  store i16 %174, ptr %192, align 2
-  %193 = add i32 %.13541.i, 1
-  %exitcond48.not.i = icmp eq i32 %.13541.i, %185
-  br i1 %exitcond48.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !90
+  %.13541.i = phi i32 [ %172, %.lr.ph.i ], [ %.03442.i, %png_gamma_16bit_correct.exit.i ]
+  %165 = and i32 %.13541.i, %146
+  %166 = zext nneg i32 %165 to i64
+  %167 = getelementptr inbounds nuw ptr, ptr %140, i64 %166
+  %168 = load ptr, ptr %167, align 8, !tbaa !157
+  %169 = lshr i32 %.13541.i, %136
+  %170 = zext nneg i32 %169 to i64
+  %171 = getelementptr inbounds nuw i16, ptr %168, i64 %170
+  store i16 %153, ptr %171, align 2, !tbaa !48
+  %172 = add i32 %.13541.i, 1
+  %exitcond48.not.i = icmp eq i32 %.13541.i, %164
+  br i1 %exitcond48.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !188
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %194 = add nuw nsw i32 %185, 1
+  %173 = add nuw nsw i32 %164, 1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %png_gamma_16bit_correct.exit.i
-  %.135.lcssa.i = phi i32 [ %.03442.i, %png_gamma_16bit_correct.exit.i ], [ %194, %._crit_edge.i.loopexit ]
-  %195 = add nuw nsw i32 %.143.i, 1
-  %exitcond49.not.i = icmp eq i32 %195, 255
-  br i1 %exitcond49.not.i, label %.preheader.i110, label %png_gamma_16bit_correct.exit.i, !llvm.loop !91
+  %.135.lcssa.i = phi i32 [ %.03442.i, %png_gamma_16bit_correct.exit.i ], [ %173, %._crit_edge.i.loopexit ]
+  %174 = add nuw nsw i32 %.143.i, 1
+  %exitcond49.not.i = icmp eq i32 %174, 255
+  br i1 %exitcond49.not.i, label %.preheader.i105, label %png_gamma_16bit_correct.exit.i, !llvm.loop !189
 
-.lr.ph45.i:                                       ; preds = %.preheader.i110, %.lr.ph45.i
-  %.244.i = phi i32 [ %203, %.lr.ph45.i ], [ %.135.lcssa.i, %.preheader.i110 ]
-  %196 = and i32 %.244.i, %167
-  %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw ptr, ptr %165, i64 %197
-  %199 = load ptr, ptr %198, align 8
-  %200 = lshr i32 %.244.i, %161
-  %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw i16, ptr %199, i64 %201
-  store i16 -1, ptr %202, align 2
-  %203 = add nuw i32 %.244.i, 1
-  %exitcond50.not.i = icmp eq i32 %203, %171
-  br i1 %exitcond50.not.i, label %png_build_16to8_table.exit, label %.lr.ph45.i, !llvm.loop !92
+.lr.ph45.i:                                       ; preds = %.preheader.i105, %.lr.ph45.i
+  %.244.i = phi i32 [ %182, %.lr.ph45.i ], [ %.135.lcssa.i, %.preheader.i105 ]
+  %175 = and i32 %.244.i, %146
+  %176 = zext nneg i32 %175 to i64
+  %177 = getelementptr inbounds nuw ptr, ptr %140, i64 %176
+  %178 = load ptr, ptr %177, align 8, !tbaa !157
+  %179 = lshr i32 %.244.i, %136
+  %180 = zext i32 %179 to i64
+  %181 = getelementptr inbounds nuw i16, ptr %178, i64 %180
+  store i16 -1, ptr %181, align 2, !tbaa !48
+  %182 = add nuw i32 %.244.i, 1
+  %exitcond50.not.i = icmp eq i32 %182, %150
+  br i1 %exitcond50.not.i, label %png_build_16to8_table.exit, label %.lr.ph45.i, !llvm.loop !190
 
-204:                                              ; preds = %132
-  br i1 %142, label %205, label %png_reciprocal2.exit115
-
-205:                                              ; preds = %204
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %207 = load i32, ptr %206, align 8
-  %.not120 = icmp eq i32 %207, 0
-  br i1 %.not120, label %png_reciprocal2.exit115, label %208
-
-208:                                              ; preds = %205
-  %209 = sitofp i32 %207 to double
-  %210 = fdiv double 1.000000e+15, %209
-  %211 = uitofp nneg i32 %141 to double
-  %212 = fdiv double %210, %211
-  %213 = fadd double %212, 5.000000e-01
-  %214 = tail call double @llvm.floor.f64(double %213)
-  %215 = fcmp ole double %214, 0x41DFFFFFFFC00000
-  %216 = fcmp oge double %214, 0xC1E0000000000000
-  %or.cond3.i113 = and i1 %215, %216
-  %217 = fptosi double %214 to i32
-  %spec.select.i114 = select i1 %or.cond3.i113, i32 %217, i32 0
-  br label %png_reciprocal2.exit115
-
-png_reciprocal2.exit115:                          ; preds = %208, %205, %204
-  %218 = phi i32 [ 100000, %204 ], [ 0, %205 ], [ %spec.select.i114, %208 ]
-  tail call fastcc void @png_build_16bit_table(ptr noundef nonnull %0, ptr noundef nonnull %139, i32 noundef %137, i32 noundef %218)
+183:                                              ; preds = %121
+  tail call fastcc void @png_build_16bit_table(ptr noundef nonnull %0, ptr noundef nonnull %128, i32 noundef %126, i32 noundef %.063)
   br label %png_build_16to8_table.exit
 
-png_build_16to8_table.exit:                       ; preds = %.lr.ph45.i, %.preheader.i110, %png_reciprocal2.exit115
-  %219 = load i32, ptr %134, align 4
-  %220 = and i32 %219, 6291584
-  %.not74 = icmp eq i32 %220, 0
-  br i1 %.not74, label %png_build_8bit_table.exit104, label %221
+png_build_16to8_table.exit:                       ; preds = %.lr.ph45.i, %.preheader.i105, %183
+  %184 = load i32, ptr %123, align 4, !tbaa !172
+  %185 = and i32 %184, 6291584
+  %.not70 = icmp eq i32 %185, 0
+  br i1 %.not70, label %png_build_8bit_table.exit99, label %186
 
-221:                                              ; preds = %png_build_16to8_table.exit
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 1184
-  %224 = load i32, ptr %223, align 8
-  %225 = sitofp i32 %224 to double
-  %226 = fdiv double 1.000000e+10, %225
-  %227 = fadd double %226, 5.000000e-01
-  %228 = tail call double @llvm.floor.f64(double %227)
-  %229 = fcmp ole double %228, 0x41DFFFFFFFC00000
-  %230 = fcmp oge double %228, 0xC1E0000000000000
-  %or.cond.i116 = and i1 %229, %230
-  %231 = fptosi double %228 to i32
-  %.0.i117 = select i1 %or.cond.i116, i32 %231, i32 0
-  tail call fastcc void @png_build_16bit_table(ptr noundef nonnull %0, ptr noundef nonnull %222, i32 noundef %137, i32 noundef %.0.i117)
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  %234 = load i32, ptr %233, align 4
-  %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %236, label %244
+186:                                              ; preds = %png_build_16to8_table.exit
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  tail call fastcc void @png_build_16bit_table(ptr noundef nonnull %0, ptr noundef nonnull %187, i32 noundef %126, i32 noundef %.0.i)
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  tail call fastcc void @png_build_16bit_table(ptr noundef nonnull %0, ptr noundef nonnull %188, i32 noundef %126, i32 noundef %.062)
+  br label %png_build_8bit_table.exit99
 
-236:                                              ; preds = %221
-  %237 = uitofp nneg i32 %234 to double
-  %238 = fdiv double 1.000000e+10, %237
-  %239 = fadd double %238, 5.000000e-01
-  %240 = tail call double @llvm.floor.f64(double %239)
-  %241 = fcmp ole double %240, 0x41DFFFFFFFC00000
-  %242 = fcmp oge double %240, 0xC1E0000000000000
-  %or.cond.i118 = and i1 %241, %242
-  %243 = fptosi double %240 to i32
-  %.0.i119 = select i1 %or.cond.i118, i32 %243, i32 0
-  br label %246
-
-244:                                              ; preds = %221
-  %245 = load i32, ptr %223, align 8
-  br label %246
-
-246:                                              ; preds = %244, %236
-  %247 = phi i32 [ %.0.i119, %236 ], [ %245, %244 ]
-  tail call fastcc void @png_build_16bit_table(ptr noundef nonnull %0, ptr noundef nonnull %232, i32 noundef %137, i32 noundef %247)
-  br label %png_build_8bit_table.exit104
-
-png_build_8bit_table.exit104:                     ; preds = %png_gamma_8bit_correct.exit.i96, %.preheader.i100, %png_build_16to8_table.exit, %246, %png_build_8bit_table.exit
+png_build_8bit_table.exit99:                      ; preds = %png_gamma_8bit_correct.exit.i91, %.preheader.i95, %png_build_16to8_table.exit, %186, %png_build_8bit_table.exit
   ret void
 }
 
@@ -5904,8 +5005,8 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %12 = shl nuw nsw i32 1, %11
   %13 = zext nneg i32 %6 to i64
   %14 = shl nuw nsw i64 %13, 3
-  %15 = tail call noalias ptr @png_calloc(ptr noundef %0, i64 noundef %14) #29
-  store ptr %15, ptr %1, align 8
+  %15 = tail call noalias ptr @png_calloc(ptr noundef %0, i64 noundef %14) #28
+  store ptr %15, ptr %1, align 8, !tbaa !49
   %16 = add i32 %3, -95000
   %17 = icmp ult i32 %16, 10001
   %18 = sitofp i32 %3 to double
@@ -5918,9 +5019,9 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
 
 .preheader.us.us:                                 ; preds = %.split.us, %.loopexit.split.us.us.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.loopexit.split.us.us.us ], [ 0, %.split.us ]
-  %20 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #29
+  %20 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #28
   %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv72
-  store ptr %20, ptr %21, align 8
+  store ptr %20, ptr %21, align 8, !tbaa !157
   %22 = trunc nuw nsw i64 %indvars.iv72 to i32
   br label %23
 
@@ -5931,21 +5032,21 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %26 = add i32 %25, %22
   %27 = trunc i32 %26 to i16
   %28 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv68
-  store i16 %27, ptr %28, align 2
+  store i16 %27, ptr %28, align 2, !tbaa !48
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 256
-  br i1 %exitcond71.not, label %.loopexit.split.us.us.us, label %23, !llvm.loop !93
+  br i1 %exitcond71.not, label %.loopexit.split.us.us.us, label %23, !llvm.loop !191
 
 .loopexit.split.us.us.us:                         ; preds = %23
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next73, %13
-  br i1 %exitcond77.not, label %.split50.us, label %.preheader.us.us, !llvm.loop !94
+  br i1 %exitcond77.not, label %.split50.us, label %.preheader.us.us, !llvm.loop !192
 
 .preheader.us:                                    ; preds = %.split.us, %.loopexit.split.us47
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.loopexit.split.us47 ], [ 0, %.split.us ]
-  %29 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #29
+  %29 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #28
   %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv62
-  store ptr %29, ptr %30, align 8
+  store ptr %29, ptr %30, align 8, !tbaa !157
   %31 = trunc nuw nsw i64 %indvars.iv62 to i32
   br label %32
 
@@ -5959,21 +5060,21 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %38 = udiv i32 %37, %8
   %39 = trunc i32 %38 to i16
   %40 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv58
-  store i16 %39, ptr %40, align 2
+  store i16 %39, ptr %40, align 2, !tbaa !48
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 256
-  br i1 %exitcond61.not, label %.loopexit.split.us47, label %32, !llvm.loop !93
+  br i1 %exitcond61.not, label %.loopexit.split.us47, label %32, !llvm.loop !191
 
 .loopexit.split.us47:                             ; preds = %32
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next63, %13
-  br i1 %exitcond67.not, label %.split50.us, label %.preheader.us, !llvm.loop !94
+  br i1 %exitcond67.not, label %.split50.us, label %.preheader.us, !llvm.loop !192
 
 .preheader40:                                     ; preds = %4, %.loopexit41
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.loopexit41 ], [ 0, %4 ]
-  %41 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #29
+  %41 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #28
   %42 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv54
-  store ptr %41, ptr %42, align 8
+  store ptr %41, ptr %42, align 8, !tbaa !157
   %43 = trunc nuw nsw i64 %indvars.iv54 to i32
   br label %44
 
@@ -5984,27 +5085,27 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %47 = add i32 %46, %43
   %48 = uitofp i32 %47 to double
   %49 = fmul double %10, %48
-  %50 = tail call double @pow(double noundef %49, double noundef %19) #29
+  %50 = tail call double @pow(double noundef %49, double noundef %19) #28, !tbaa !43
   %51 = tail call double @llvm.fmuladd.f64(double %50, double 6.553500e+04, double 5.000000e-01)
   %52 = tail call double @llvm.floor.f64(double %51)
   %53 = fptoui double %52 to i16
   %54 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
-  store i16 %53, ptr %54, align 2
+  store i16 %53, ptr %54, align 2, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit41, label %44, !llvm.loop !95
+  br i1 %exitcond.not, label %.loopexit41, label %44, !llvm.loop !193
 
 .loopexit41:                                      ; preds = %44
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %13
-  br i1 %exitcond57.not, label %.split50.us, label %.preheader40, !llvm.loop !94
+  br i1 %exitcond57.not, label %.split50.us, label %.preheader40, !llvm.loop !192
 
 .split50.us:                                      ; preds = %.loopexit41, %.loopexit.split.us47, %.loopexit.split.us.us.us
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 4) i32 @png_set_option(ptr noalias noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 {
+define range(i32 0, 4) i32 @png_set_option(ptr noalias noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ult i32 %1, 14
   %or.cond3 = and i1 %4, %5
@@ -6018,12 +5119,12 @@ define range(i32 0, 4) i32 @png_set_option(ptr noalias noundef captures(address_
   %.not = icmp eq i32 %2, 0
   %10 = select i1 %.not, i32 2, i32 3
   %11 = shl nuw nsw i32 %10, %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %13 = load i32, ptr %12, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %13 = load i32, ptr %12, align 8, !tbaa !194
   %14 = xor i32 %9, -1
   %15 = and i32 %13, %14
   %16 = or i32 %15, %11
-  store i32 %16, ptr %12, align 8
+  store i32 %16, ptr %12, align 8, !tbaa !194
   %17 = lshr i32 %13, %1
   %18 = and i32 %17, 3
   br label %19
@@ -6040,19 +5141,19 @@ define void @png_image_free(ptr noundef captures(address_is_null) %0) local_unna
   br i1 %.not, label %30, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !195
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %30, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !198
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %30
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #28
+  %10 = load ptr, ptr %4, align 8, !tbaa !201
   %11 = icmp eq ptr %10, null
   br i1 %11, label %png_image_free_function.exit, label %12
 
@@ -6065,22 +5166,22 @@ define void @png_image_free(ptr noundef captures(address_is_null) %0) local_unna
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 264
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !96
   %19 = and i8 %14, -3
   store i8 %19, ptr %13, align 8
   %.not14.i = icmp eq ptr %18, null
   br i1 %.not14.i, label %22, label %20
 
 20:                                               ; preds = %16
-  store ptr null, ptr %17, align 8
+  store ptr null, ptr %17, align 8, !tbaa !96
   %21 = tail call i32 @fclose(ptr noundef nonnull %18)
   br label %22
 
 22:                                               ; preds = %20, %16, %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  store ptr %2, ptr %0, align 8
-  %23 = load ptr, ptr %2, align 8
-  call void @png_free(ptr noundef %23, ptr noundef nonnull %4) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !tbaa.struct !202
+  store ptr %2, ptr %0, align 8, !tbaa !195
+  %23 = load ptr, ptr %2, align 8, !tbaa !201
+  call void @png_free(ptr noundef %23, ptr noundef nonnull %4) #28
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %25 = load i8, ptr %24, align 8
   %26 = and i8 %25, 1
@@ -6089,16 +5190,16 @@ define void @png_image_free(ptr noundef captures(address_is_null) %0) local_unna
   br i1 %.not15.i, label %29, label %28
 
 28:                                               ; preds = %22
-  call void @png_destroy_write_struct(ptr noundef nonnull %2, ptr noundef nonnull %27) #29
+  call void @png_destroy_write_struct(ptr noundef nonnull %2, ptr noundef nonnull %27) #28
   br label %png_image_free_function.exit
 
 29:                                               ; preds = %22
-  call void @png_destroy_read_struct(ptr noundef nonnull %2, ptr noundef nonnull %27, ptr noundef null) #29
+  call void @png_destroy_read_struct(ptr noundef nonnull %2, ptr noundef nonnull %27, ptr noundef null) #28
   br label %png_image_free_function.exit
 
 png_image_free_function.exit:                     ; preds = %9, %28, %29
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  store ptr null, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #28
+  store ptr null, ptr %0, align 8, !tbaa !195
   br label %30
 
 30:                                               ; preds = %png_image_free_function.exit, %5, %3, %1
@@ -6108,425 +5209,278 @@ png_image_free_function.exit:                     ; preds = %9, %28, %29
 ; Function Attrs: nounwind uwtable
 define noundef i32 @png_image_error(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %4 = tail call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 64, i64 noundef 0, ptr noundef %1) #29
+  %4 = tail call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 64, i64 noundef 0, ptr noundef %1) #28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !204
   %7 = or i32 %6, 2
-  store i32 %7, ptr %5, align 8
+  store i32 %7, ptr %5, align 8, !tbaa !204
   tail call void @png_image_free(ptr noundef %0)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @png_xy_from_XYZ(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #15 {
-  %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i32, ptr %4, align 4
-  %6 = add nsw i32 %5, %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 4
-  %9 = add nsw i32 %6, %8
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %png_muldiv.exit.thread, label %10
+declare void @png_chunk_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-10:                                               ; preds = %2
-  %11 = icmp eq i32 %3, 0
-  br i1 %11, label %23, label %12
+declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-12:                                               ; preds = %10
-  %13 = sitofp i32 %3 to double
-  %14 = fmul double %13, 1.000000e+05
-  %15 = sitofp i32 %9 to double
-  %16 = fdiv double %14, %15
-  %17 = fadd double %16, 5.000000e-01
-  %18 = tail call double @llvm.floor.f64(double %17)
-  %19 = fcmp ole double %18, 0x41DFFFFFFFC00000
-  %20 = fcmp oge double %18, 0xC1E0000000000000
-  %or.cond3.i = and i1 %19, %20
-  br i1 %or.cond3.i, label %21, label %png_muldiv.exit.thread
-
-21:                                               ; preds = %12
-  %22 = fptosi double %18 to i32
-  br label %23
-
-23:                                               ; preds = %10, %21
-  %.sink.i = phi i32 [ %22, %21 ], [ 0, %10 ]
-  store i32 %.sink.i, ptr %0, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i32, ptr %4, align 4
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %38, label %27
-
-27:                                               ; preds = %23
-  %28 = sitofp i32 %25 to double
-  %29 = fmul double %28, 1.000000e+05
-  %30 = sitofp i32 %9 to double
-  %31 = fdiv double %29, %30
-  %32 = fadd double %31, 5.000000e-01
-  %33 = tail call double @llvm.floor.f64(double %32)
-  %34 = fcmp ole double %33, 0x41DFFFFFFFC00000
-  %35 = fcmp oge double %33, 0xC1E0000000000000
-  %or.cond3.i49 = and i1 %34, %35
-  br i1 %or.cond3.i49, label %36, label %png_muldiv.exit.thread
-
-36:                                               ; preds = %27
-  %37 = fptosi double %33 to i32
-  br label %38
-
-38:                                               ; preds = %36, %23
-  %.sink.i52 = phi i32 [ %37, %36 ], [ 0, %23 ]
-  store i32 %.sink.i52, ptr %24, align 4
-  %39 = load i32, ptr %1, align 4
-  %40 = load i32, ptr %4, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = load i32, ptr %43, align 4
-  %45 = add nsw i32 %44, %42
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %45, %47
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not.i54 = icmp eq i32 %48, 0
-  br i1 %.not.i54, label %png_muldiv.exit.thread, label %50
-
-50:                                               ; preds = %38
-  %51 = icmp eq i32 %42, 0
-  br i1 %51, label %63, label %52
-
-52:                                               ; preds = %50
-  %53 = sitofp i32 %42 to double
-  %54 = fmul double %53, 1.000000e+05
-  %55 = sitofp i32 %48 to double
-  %56 = fdiv double %54, %55
-  %57 = fadd double %56, 5.000000e-01
-  %58 = tail call double @llvm.floor.f64(double %57)
-  %59 = fcmp ole double %58, 0x41DFFFFFFFC00000
-  %60 = fcmp oge double %58, 0xC1E0000000000000
-  %or.cond3.i55 = and i1 %59, %60
-  br i1 %or.cond3.i55, label %61, label %png_muldiv.exit.thread
-
-61:                                               ; preds = %52
-  %62 = fptosi double %58 to i32
-  br label %63
-
-63:                                               ; preds = %50, %61
-  %.sink.i58 = phi i32 [ %62, %61 ], [ 0, %50 ]
-  store i32 %.sink.i58, ptr %49, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %65 = load i32, ptr %43, align 4
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %78, label %67
-
-67:                                               ; preds = %63
-  %68 = sitofp i32 %65 to double
-  %69 = fmul double %68, 1.000000e+05
-  %70 = sitofp i32 %48 to double
-  %71 = fdiv double %69, %70
-  %72 = fadd double %71, 5.000000e-01
-  %73 = tail call double @llvm.floor.f64(double %72)
-  %74 = fcmp ole double %73, 0x41DFFFFFFFC00000
-  %75 = fcmp oge double %73, 0xC1E0000000000000
-  %or.cond3.i61 = and i1 %74, %75
-  br i1 %or.cond3.i61, label %76, label %png_muldiv.exit.thread
-
-76:                                               ; preds = %67
-  %77 = fptosi double %73 to i32
-  br label %78
-
-78:                                               ; preds = %76, %63
-  %.sink.i64 = phi i32 [ %77, %76 ], [ 0, %63 ]
-  store i32 %.sink.i64, ptr %64, align 4
-  %79 = add nsw i32 %48, %9
-  %80 = load i32, ptr %41, align 4
-  %81 = add nsw i32 %80, %39
-  %82 = load i32, ptr %43, align 4
-  %83 = add nsw i32 %82, %40
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %87 = load i32, ptr %86, align 4
-  %88 = add nsw i32 %87, %85
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %90 = load i32, ptr %89, align 4
-  %91 = add nsw i32 %88, %90
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not.i66 = icmp eq i32 %91, 0
-  br i1 %.not.i66, label %png_muldiv.exit.thread, label %93
-
-93:                                               ; preds = %78
-  %94 = icmp eq i32 %85, 0
-  br i1 %94, label %106, label %95
-
-95:                                               ; preds = %93
-  %96 = sitofp i32 %85 to double
-  %97 = fmul double %96, 1.000000e+05
-  %98 = sitofp i32 %91 to double
-  %99 = fdiv double %97, %98
-  %100 = fadd double %99, 5.000000e-01
-  %101 = tail call double @llvm.floor.f64(double %100)
-  %102 = fcmp ole double %101, 0x41DFFFFFFFC00000
-  %103 = fcmp oge double %101, 0xC1E0000000000000
-  %or.cond3.i67 = and i1 %102, %103
-  br i1 %or.cond3.i67, label %104, label %png_muldiv.exit.thread
-
-104:                                              ; preds = %95
-  %105 = fptosi double %101 to i32
-  br label %106
-
-106:                                              ; preds = %93, %104
-  %.sink.i70 = phi i32 [ %105, %104 ], [ 0, %93 ]
-  store i32 %.sink.i70, ptr %92, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %108 = load i32, ptr %86, align 4
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %121, label %110
-
-110:                                              ; preds = %106
-  %111 = sitofp i32 %108 to double
-  %112 = fmul double %111, 1.000000e+05
-  %113 = sitofp i32 %91 to double
-  %114 = fdiv double %112, %113
-  %115 = fadd double %114, 5.000000e-01
-  %116 = tail call double @llvm.floor.f64(double %115)
-  %117 = fcmp ole double %116, 0x41DFFFFFFFC00000
-  %118 = fcmp oge double %116, 0xC1E0000000000000
-  %or.cond3.i73 = and i1 %117, %118
-  br i1 %or.cond3.i73, label %119, label %png_muldiv.exit.thread
-
-119:                                              ; preds = %110
-  %120 = fptosi double %116 to i32
-  br label %121
-
-121:                                              ; preds = %119, %106
-  %.sink.i76 = phi i32 [ %120, %119 ], [ 0, %106 ]
-  store i32 %.sink.i76, ptr %107, align 4
-  %122 = add nsw i32 %79, %91
-  %123 = load i32, ptr %84, align 4
-  %124 = add nsw i32 %81, %123
-  %125 = load i32, ptr %86, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not.i78 = icmp eq i32 %122, 0
-  br i1 %.not.i78, label %png_muldiv.exit.thread, label %127
-
-127:                                              ; preds = %121
-  %128 = icmp eq i32 %124, 0
-  br i1 %128, label %140, label %129
-
-129:                                              ; preds = %127
-  %130 = sitofp i32 %124 to double
-  %131 = fmul double %130, 1.000000e+05
-  %132 = sitofp i32 %122 to double
-  %133 = fdiv double %131, %132
-  %134 = fadd double %133, 5.000000e-01
-  %135 = tail call double @llvm.floor.f64(double %134)
-  %136 = fcmp ole double %135, 0x41DFFFFFFFC00000
-  %137 = fcmp oge double %135, 0xC1E0000000000000
-  %or.cond3.i79 = and i1 %136, %137
-  br i1 %or.cond3.i79, label %138, label %png_muldiv.exit.thread
-
-138:                                              ; preds = %129
-  %139 = fptosi double %135 to i32
-  br label %140
-
-140:                                              ; preds = %127, %138
-  %.sink.i82 = phi i32 [ %139, %138 ], [ 0, %127 ]
-  store i32 %.sink.i82, ptr %126, align 4
-  %141 = add nsw i32 %83, %125
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %143 = icmp eq i32 %141, 0
-  br i1 %143, label %png_muldiv.exit89, label %144
-
-144:                                              ; preds = %140
-  %145 = sitofp i32 %141 to double
-  %146 = fmul double %145, 1.000000e+05
-  %147 = sitofp i32 %122 to double
-  %148 = fdiv double %146, %147
-  %149 = fadd double %148, 5.000000e-01
-  %150 = tail call double @llvm.floor.f64(double %149)
-  %151 = fcmp ole double %150, 0x41DFFFFFFFC00000
-  %152 = fcmp oge double %150, 0xC1E0000000000000
-  %or.cond3.i85 = and i1 %151, %152
-  br i1 %or.cond3.i85, label %153, label %png_muldiv.exit.thread
-
-153:                                              ; preds = %144
-  %154 = fptosi double %150 to i32
-  br label %png_muldiv.exit89
-
-png_muldiv.exit89:                                ; preds = %140, %153
-  %.sink.i88 = phi i32 [ %154, %153 ], [ 0, %140 ]
-  store i32 %.sink.i88, ptr %142, align 4
-  br label %png_muldiv.exit.thread
-
-png_muldiv.exit.thread:                           ; preds = %121, %129, %110, %78, %95, %67, %38, %52, %27, %2, %12, %png_muldiv.exit89, %144
-  %.0 = phi i32 [ 0, %png_muldiv.exit89 ], [ 1, %144 ], [ 1, %12 ], [ 1, %2 ], [ 1, %27 ], [ 1, %52 ], [ 1, %38 ], [ 1, %67 ], [ 1, %95 ], [ 1, %78 ], [ 1, %110 ], [ 1, %129 ], [ 1, %121 ]
-  ret i32 %.0
-}
-
-declare i64 @adler32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-declare noalias ptr @png_calloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_calloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #22
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #23
 
-declare void @png_destroy_write_struct(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_destroy_write_struct(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @png_destroy_read_struct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_destroy_read_struct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #24
+declare i32 @llvm.umin.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #24
+declare i8 @llvm.umax.i8(i8, i8) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #24
+declare i8 @llvm.umin.i8(i8, i8) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
+declare i32 @llvm.smax.i32(i32, i32) #25
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { nounwind }
+attributes #29 = { nounwind returns_twice }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { nounwind willreturn memory(read) }
-attributes #29 = { nounwind }
-attributes #30 = { nounwind returns_twice }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"png_handle_as_unknown: argument 0"}
-!16 = distinct !{!16, !"png_handle_as_unknown"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"png_colorspace_check_gamma: argument 1"}
-!19 = distinct !{!19, !"png_colorspace_check_gamma"}
-!20 = !{!21}
-!21 = distinct !{!21, !19, !"png_colorspace_check_gamma: argument 0"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"png_free_data: argument 1"}
-!24 = distinct !{!24, !"png_free_data"}
-!25 = !{!26}
-!26 = distinct !{!26, !24, !"png_free_data: argument 0"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"png_colorspace_sync_info: argument 1"}
-!29 = distinct !{!29, !"png_colorspace_sync_info"}
-!30 = !{!31}
-!31 = distinct !{!31, !29, !"png_colorspace_sync_info: argument 0"}
-!32 = !{!33, !28}
-!33 = distinct !{!33, !34, !"png_free_data: argument 1"}
-!34 = distinct !{!34, !"png_free_data"}
-!35 = !{!36, !31}
-!36 = distinct !{!36, !34, !"png_free_data: argument 0"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"png_colorspace_set_xy_and_XYZ: argument 1"}
-!39 = distinct !{!39, !"png_colorspace_set_xy_and_XYZ"}
-!40 = !{!41}
-!41 = distinct !{!41, !39, !"png_colorspace_set_xy_and_XYZ: argument 0"}
-!42 = !{!41, !38}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"png_colorspace_set_xy_and_XYZ: argument 1"}
-!45 = distinct !{!45, !"png_colorspace_set_xy_and_XYZ"}
-!46 = !{!47}
-!47 = distinct !{!47, !45, !"png_colorspace_set_xy_and_XYZ: argument 0"}
-!48 = !{!47, !44}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"png_colorspace_check_gamma: argument 1"}
-!51 = distinct !{!51, !"png_colorspace_check_gamma"}
-!52 = !{!53}
-!53 = distinct !{!53, !51, !"png_colorspace_check_gamma: argument 0"}
-!54 = distinct !{!54, !5}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"png_compare_ICC_profile_with_sRGB: argument 0"}
-!57 = distinct !{!57, !"png_compare_ICC_profile_with_sRGB"}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
-!60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5}
-!62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}
-!64 = distinct !{!64, !5}
-!65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5}
-!69 = distinct !{!69, !5}
-!70 = distinct !{!70, !5}
-!71 = distinct !{!71, !5}
-!72 = distinct !{!72, !5}
-!73 = distinct !{!73, !5}
-!74 = distinct !{!74, !5}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"png_build_8bit_table: argument 0"}
-!77 = distinct !{!77, !"png_build_8bit_table"}
-!78 = distinct !{!78, !5}
-!79 = distinct !{!79, !5}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"png_build_8bit_table: argument 0"}
-!82 = distinct !{!82, !"png_build_8bit_table"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"png_build_8bit_table: argument 0"}
-!85 = distinct !{!85, !"png_build_8bit_table"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"png_build_16to8_table: argument 0"}
-!88 = distinct !{!88, !"png_build_16to8_table"}
-!89 = distinct !{!89, !5}
-!90 = distinct !{!90, !5}
-!91 = distinct !{!91, !5}
-!92 = distinct !{!92, !5}
-!93 = distinct !{!93, !5}
-!94 = distinct !{!94, !5}
-!95 = distinct !{!95, !5}
+!3 = !{!4, !5, i64 629}
+!4 = !{!"png_struct_def", !5, i64 0, !7, i64 200, !8, i64 208, !9, i64 216, !7, i64 224, !7, i64 232, !7, i64 240, !7, i64 248, !7, i64 256, !7, i64 264, !7, i64 272, !7, i64 280, !7, i64 288, !5, i64 296, !5, i64 297, !10, i64 300, !10, i64 304, !10, i64 308, !10, i64 312, !11, i64 320, !14, i64 432, !10, i64 440, !10, i64 444, !10, i64 448, !10, i64 452, !10, i64 456, !10, i64 460, !10, i64 464, !10, i64 468, !10, i64 472, !10, i64 476, !10, i64 480, !10, i64 484, !10, i64 488, !10, i64 492, !10, i64 496, !10, i64 500, !10, i64 504, !10, i64 508, !10, i64 512, !10, i64 516, !10, i64 520, !9, i64 528, !10, i64 536, !10, i64 540, !10, i64 544, !12, i64 552, !12, i64 560, !12, i64 568, !12, i64 576, !9, i64 584, !10, i64 592, !10, i64 596, !15, i64 600, !16, i64 608, !10, i64 612, !16, i64 616, !5, i64 618, !5, i64 619, !5, i64 620, !5, i64 621, !5, i64 622, !5, i64 623, !5, i64 624, !5, i64 625, !5, i64 626, !5, i64 627, !5, i64 628, !5, i64 629, !5, i64 630, !5, i64 631, !5, i64 632, !16, i64 634, !5, i64 636, !10, i64 640, !17, i64 644, !17, i64 654, !7, i64 664, !10, i64 672, !10, i64 676, !18, i64 680, !10, i64 712, !10, i64 716, !10, i64 720, !10, i64 724, !10, i64 728, !12, i64 736, !19, i64 744, !12, i64 752, !12, i64 760, !19, i64 768, !19, i64 776, !20, i64 784, !20, i64 789, !12, i64 800, !17, i64 808, !7, i64 824, !7, i64 832, !7, i64 840, !7, i64 848, !7, i64 856, !12, i64 864, !12, i64 872, !12, i64 880, !12, i64 888, !10, i64 896, !10, i64 900, !9, i64 904, !9, i64 912, !9, i64 920, !9, i64 928, !10, i64 936, !10, i64 940, !12, i64 944, !12, i64 952, !10, i64 960, !5, i64 964, !10, i64 996, !7, i64 1000, !7, i64 1008, !10, i64 1016, !10, i64 1020, !12, i64 1024, !5, i64 1032, !5, i64 1033, !16, i64 1034, !16, i64 1036, !12, i64 1040, !10, i64 1048, !5, i64 1052, !7, i64 1056, !7, i64 1064, !7, i64 1072, !12, i64 1080, !12, i64 1088, !12, i64 1096, !12, i64 1104, !5, i64 1112, !10, i64 1116, !10, i64 1120, !10, i64 1124, !9, i64 1128, !21, i64 1136, !9, i64 1168, !12, i64 1176, !9, i64 1184, !10, i64 1192, !10, i64 1196, !12, i64 1200, !5, i64 1208}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!"any pointer", !5, i64 0}
+!8 = !{!"p1 _ZTS13__jmp_buf_tag", !7, i64 0}
+!9 = !{!"long", !5, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = !{!"z_stream_s", !12, i64 0, !10, i64 8, !9, i64 16, !12, i64 24, !10, i64 32, !9, i64 40, !12, i64 48, !13, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !10, i64 88, !9, i64 96, !9, i64 104}
+!12 = !{!"p1 omnipotent char", !7, i64 0}
+!13 = !{!"p1 _ZTS14internal_state", !7, i64 0}
+!14 = !{!"p1 _ZTS22png_compression_buffer", !7, i64 0}
+!15 = !{!"p1 _ZTS16png_color_struct", !7, i64 0}
+!16 = !{!"short", !5, i64 0}
+!17 = !{!"png_color_16_struct", !5, i64 0, !16, i64 2, !16, i64 4, !16, i64 6, !16, i64 8}
+!18 = !{!"png_xy", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28}
+!19 = !{!"p2 short", !7, i64 0}
+!20 = !{!"png_color_8_struct", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4}
+!21 = !{!"png_unknown_chunk_t", !5, i64 0, !12, i64 8, !9, i64 16, !5, i64 24}
+!22 = !{!4, !10, i64 596}
+!23 = !{!4, !10, i64 544}
+!24 = !{!4, !10, i64 304}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!5, !5, i64 0}
+!28 = distinct !{!28, !26}
+!29 = !{!4, !10, i64 1116}
+!30 = !{!4, !10, i64 1120}
+!31 = !{!4, !10, i64 1124}
+!32 = !{!4, !9, i64 1128}
+!33 = !{!4, !8, i64 208}
+!34 = !{!4, !9, i64 216}
+!35 = !{!4, !7, i64 200}
+!36 = !{!4, !7, i64 384}
+!37 = !{!4, !7, i64 392}
+!38 = !{!4, !7, i64 400}
+!39 = !{i64 0, i64 200, !27, i64 200, i64 8, !40, i64 208, i64 8, !41, i64 216, i64 8, !42, i64 224, i64 8, !40, i64 232, i64 8, !40, i64 240, i64 8, !40, i64 248, i64 8, !40, i64 256, i64 8, !40, i64 264, i64 8, !40, i64 272, i64 8, !40, i64 280, i64 8, !40, i64 288, i64 8, !40, i64 296, i64 1, !27, i64 297, i64 1, !27, i64 300, i64 4, !43, i64 304, i64 4, !43, i64 308, i64 4, !43, i64 312, i64 4, !43, i64 320, i64 8, !44, i64 328, i64 4, !43, i64 336, i64 8, !42, i64 344, i64 8, !44, i64 352, i64 4, !43, i64 360, i64 8, !42, i64 368, i64 8, !44, i64 376, i64 8, !45, i64 384, i64 8, !40, i64 392, i64 8, !40, i64 400, i64 8, !40, i64 408, i64 4, !43, i64 416, i64 8, !42, i64 424, i64 8, !42, i64 432, i64 8, !46, i64 440, i64 4, !43, i64 444, i64 4, !43, i64 448, i64 4, !43, i64 452, i64 4, !43, i64 456, i64 4, !43, i64 460, i64 4, !43, i64 464, i64 4, !43, i64 468, i64 4, !43, i64 472, i64 4, !43, i64 476, i64 4, !43, i64 480, i64 4, !43, i64 484, i64 4, !43, i64 488, i64 4, !43, i64 492, i64 4, !43, i64 496, i64 4, !43, i64 500, i64 4, !43, i64 504, i64 4, !43, i64 508, i64 4, !43, i64 512, i64 4, !43, i64 516, i64 4, !43, i64 520, i64 4, !43, i64 528, i64 8, !42, i64 536, i64 4, !43, i64 540, i64 4, !43, i64 544, i64 4, !43, i64 552, i64 8, !44, i64 560, i64 8, !44, i64 568, i64 8, !44, i64 576, i64 8, !44, i64 584, i64 8, !42, i64 592, i64 4, !43, i64 596, i64 4, !43, i64 600, i64 8, !47, i64 608, i64 2, !48, i64 612, i64 4, !43, i64 616, i64 2, !48, i64 618, i64 1, !27, i64 619, i64 1, !27, i64 620, i64 1, !27, i64 621, i64 1, !27, i64 622, i64 1, !27, i64 623, i64 1, !27, i64 624, i64 1, !27, i64 625, i64 1, !27, i64 626, i64 1, !27, i64 627, i64 1, !27, i64 628, i64 1, !27, i64 629, i64 1, !27, i64 630, i64 1, !27, i64 631, i64 1, !27, i64 632, i64 1, !27, i64 634, i64 2, !48, i64 636, i64 1, !27, i64 640, i64 4, !43, i64 644, i64 1, !27, i64 646, i64 2, !48, i64 648, i64 2, !48, i64 650, i64 2, !48, i64 652, i64 2, !48, i64 654, i64 1, !27, i64 656, i64 2, !48, i64 658, i64 2, !48, i64 660, i64 2, !48, i64 662, i64 2, !48, i64 664, i64 8, !40, i64 672, i64 4, !43, i64 676, i64 4, !43, i64 680, i64 4, !43, i64 684, i64 4, !43, i64 688, i64 4, !43, i64 692, i64 4, !43, i64 696, i64 4, !43, i64 700, i64 4, !43, i64 704, i64 4, !43, i64 708, i64 4, !43, i64 712, i64 4, !43, i64 716, i64 4, !43, i64 720, i64 4, !43, i64 724, i64 4, !43, i64 728, i64 4, !43, i64 736, i64 8, !44, i64 744, i64 8, !49, i64 752, i64 8, !44, i64 760, i64 8, !44, i64 768, i64 8, !49, i64 776, i64 8, !49, i64 784, i64 1, !27, i64 785, i64 1, !27, i64 786, i64 1, !27, i64 787, i64 1, !27, i64 788, i64 1, !27, i64 789, i64 1, !27, i64 790, i64 1, !27, i64 791, i64 1, !27, i64 792, i64 1, !27, i64 793, i64 1, !27, i64 800, i64 8, !44, i64 808, i64 1, !27, i64 810, i64 2, !48, i64 812, i64 2, !48, i64 814, i64 2, !48, i64 816, i64 2, !48, i64 824, i64 8, !40, i64 832, i64 8, !40, i64 840, i64 8, !40, i64 848, i64 8, !40, i64 856, i64 8, !40, i64 864, i64 8, !44, i64 872, i64 8, !44, i64 880, i64 8, !44, i64 888, i64 8, !44, i64 896, i64 4, !43, i64 900, i64 4, !43, i64 904, i64 8, !42, i64 912, i64 8, !42, i64 920, i64 8, !42, i64 928, i64 8, !42, i64 936, i64 4, !43, i64 940, i64 4, !43, i64 944, i64 8, !44, i64 952, i64 8, !44, i64 960, i64 4, !43, i64 964, i64 29, !27, i64 996, i64 4, !43, i64 1000, i64 8, !40, i64 1008, i64 8, !40, i64 1016, i64 4, !43, i64 1020, i64 4, !43, i64 1024, i64 8, !44, i64 1032, i64 1, !27, i64 1033, i64 1, !27, i64 1034, i64 2, !48, i64 1036, i64 2, !48, i64 1040, i64 8, !44, i64 1048, i64 4, !43, i64 1052, i64 1, !27, i64 1056, i64 8, !40, i64 1064, i64 8, !40, i64 1072, i64 8, !40, i64 1080, i64 8, !44, i64 1088, i64 8, !44, i64 1096, i64 8, !44, i64 1104, i64 8, !44, i64 1112, i64 1, !27, i64 1116, i64 4, !43, i64 1120, i64 4, !43, i64 1124, i64 4, !43, i64 1128, i64 8, !42, i64 1136, i64 5, !27, i64 1144, i64 8, !44, i64 1152, i64 8, !42, i64 1160, i64 1, !27, i64 1168, i64 8, !42, i64 1176, i64 8, !44, i64 1184, i64 8, !42, i64 1192, i64 4, !43, i64 1196, i64 4, !43, i64 1200, i64 8, !44, i64 1208, i64 32, !27}
+!40 = !{!7, !7, i64 0}
+!41 = !{!8, !8, i64 0}
+!42 = !{!9, !9, i64 0}
+!43 = !{!10, !10, i64 0}
+!44 = !{!12, !12, i64 0}
+!45 = !{!13, !13, i64 0}
+!46 = !{!14, !14, i64 0}
+!47 = !{!15, !15, i64 0}
+!48 = !{!16, !16, i64 0}
+!49 = !{!19, !19, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS12png_info_def", !7, i64 0}
+!52 = !{!53, !54, i64 120}
+!53 = !{!"png_info_def", !10, i64 0, !10, i64 4, !10, i64 8, !9, i64 16, !15, i64 24, !16, i64 32, !16, i64 34, !5, i64 36, !5, i64 37, !5, i64 38, !5, i64 39, !5, i64 40, !5, i64 41, !5, i64 42, !5, i64 43, !5, i64 44, !5, i64 52, !5, i64 53, !5, i64 54, !5, i64 55, !12, i64 56, !12, i64 64, !10, i64 72, !10, i64 76, !10, i64 80, !16, i64 84, !16, i64 86, !16, i64 88, !16, i64 90, !16, i64 92, !16, i64 94, !16, i64 96, !16, i64 98, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !54, i64 120, !55, i64 128, !20, i64 136, !12, i64 144, !17, i64 152, !17, i64 162, !10, i64 172, !10, i64 176, !5, i64 180, !10, i64 184, !10, i64 188, !5, i64 192, !10, i64 196, !12, i64 200, !56, i64 208, !12, i64 216, !10, i64 224, !10, i64 228, !12, i64 232, !57, i64 240, !5, i64 248, !5, i64 249, !10, i64 252, !58, i64 256, !10, i64 264, !59, i64 272, !10, i64 280, !5, i64 284, !12, i64 288, !12, i64 296, !57, i64 304, !18, i64 312, !10, i64 344, !10, i64 348}
+!54 = !{!"p1 _ZTS15png_text_struct", !7, i64 0}
+!55 = !{!"png_time_struct", !16, i64 0, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6}
+!56 = !{!"p1 short", !7, i64 0}
+!57 = !{!"p2 omnipotent char", !7, i64 0}
+!58 = !{!"p1 _ZTS19png_unknown_chunk_t", !7, i64 0}
+!59 = !{!"p1 _ZTS15png_sPLT_struct", !7, i64 0}
+!60 = !{!53, !10, i64 252}
+!61 = !{!53, !10, i64 108}
+!62 = !{!63, !12, i64 8}
+!63 = !{!"png_text_struct", !10, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 32, !12, i64 40, !12, i64 48}
+!64 = distinct !{!64, !26}
+!65 = !{!53, !10, i64 112}
+!66 = !{!53, !10, i64 8}
+!67 = !{!53, !12, i64 144}
+!68 = !{!53, !16, i64 34}
+!69 = !{!53, !12, i64 288}
+!70 = !{!53, !12, i64 296}
+!71 = !{!53, !12, i64 216}
+!72 = !{!53, !12, i64 232}
+!73 = !{!53, !57, i64 240}
+!74 = !{!53, !5, i64 249}
+!75 = distinct !{!75, !26}
+!76 = !{!53, !12, i64 56}
+!77 = !{!53, !12, i64 64}
+!78 = !{!53, !59, i64 272}
+!79 = !{!53, !10, i64 280}
+!80 = !{!81, !12, i64 0}
+!81 = !{!"png_sPLT_struct", !12, i64 0, !5, i64 8, !82, i64 16, !10, i64 24}
+!82 = !{!"p1 _ZTS21png_sPLT_entry_struct", !7, i64 0}
+!83 = !{!81, !82, i64 16}
+!84 = distinct !{!84, !26}
+!85 = !{!53, !58, i64 256}
+!86 = !{!53, !10, i64 264}
+!87 = !{!21, !12, i64 8}
+!88 = distinct !{!88, !26}
+!89 = !{!53, !12, i64 200}
+!90 = !{!53, !56, i64 208}
+!91 = !{!53, !15, i64 24}
+!92 = !{!53, !16, i64 32}
+!93 = !{!53, !57, i64 304}
+!94 = !{!53, !10, i64 4}
+!95 = distinct !{!95, !26}
+!96 = !{!4, !7, i64 264}
+!97 = !{!55, !16, i64 0}
+!98 = !{!55, !5, i64 2}
+!99 = !{!55, !5, i64 3}
+!100 = !{!55, !5, i64 4}
+!101 = !{!55, !5, i64 5}
+!102 = !{!55, !5, i64 6}
+!103 = !{!104, !5, i64 0}
+!104 = !{!"png_color_struct", !5, i64 0, !5, i64 1, !5, i64 2}
+!105 = !{!104, !5, i64 1}
+!106 = !{!104, !5, i64 2}
+!107 = distinct !{!107, !26}
+!108 = !{!4, !10, i64 1020}
+!109 = !{!4, !12, i64 1024}
+!110 = distinct !{!110, !26}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"png_handle_as_unknown: argument 0"}
+!113 = distinct !{!113, !"png_handle_as_unknown"}
+!114 = !{!4, !12, i64 368}
+!115 = !{!116, !10, i64 0}
+!116 = !{!"png_XYZ", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32}
+!117 = !{!116, !10, i64 4}
+!118 = !{!116, !10, i64 8}
+!119 = !{!116, !10, i64 12}
+!120 = !{!116, !10, i64 16}
+!121 = !{!116, !10, i64 20}
+!122 = !{!116, !10, i64 24}
+!123 = !{!116, !10, i64 28}
+!124 = !{!116, !10, i64 32}
+!125 = !{!18, !10, i64 0}
+!126 = !{!18, !10, i64 4}
+!127 = !{!18, !10, i64 8}
+!128 = !{!18, !10, i64 12}
+!129 = !{!18, !10, i64 16}
+!130 = !{!18, !10, i64 20}
+!131 = !{!18, !10, i64 24}
+!132 = !{!18, !10, i64 28}
+!133 = distinct !{!133, !26}
+!134 = !{!4, !5, i64 1033}
+!135 = !{!4, !10, i64 504}
+!136 = !{!4, !16, i64 1034}
+!137 = !{!4, !16, i64 1036}
+!138 = !{!4, !10, i64 300}
+!139 = !{!4, !10, i64 1048}
+!140 = distinct !{!140, !26}
+!141 = distinct !{!141, !26}
+!142 = !{!143, !143, i64 0}
+!143 = !{!"double", !5, i64 0}
+!144 = distinct !{!144, !26}
+!145 = distinct !{!145, !26}
+!146 = distinct !{!146, !26}
+!147 = distinct !{!147, !26}
+!148 = distinct !{!148, !26}
+!149 = distinct !{!149, !26}
+!150 = distinct !{!150, !26}
+!151 = distinct !{!151, !26}
+!152 = distinct !{!152, !26}
+!153 = !{!4, !5, i64 624}
+!154 = !{!4, !12, i64 736}
+!155 = !{!4, !19, i64 744}
+!156 = !{!4, !10, i64 712}
+!157 = !{!56, !56, i64 0}
+!158 = distinct !{!158, !26}
+!159 = !{!4, !12, i64 752}
+!160 = !{!4, !12, i64 760}
+!161 = !{!4, !19, i64 768}
+!162 = distinct !{!162, !26}
+!163 = !{!4, !19, i64 776}
+!164 = distinct !{!164, !26}
+!165 = !{!4, !10, i64 720}
+!166 = !{!4, !10, i64 716}
+!167 = !{!168}
+!168 = distinct !{!168, !169, !"png_build_8bit_table: argument 0"}
+!169 = distinct !{!169, !"png_build_8bit_table"}
+!170 = distinct !{!170, !26}
+!171 = distinct !{!171, !26}
+!172 = !{!4, !10, i64 308}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"png_build_8bit_table: argument 0"}
+!175 = distinct !{!175, !"png_build_8bit_table"}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"png_build_8bit_table: argument 0"}
+!178 = distinct !{!178, !"png_build_8bit_table"}
+!179 = !{!4, !5, i64 623}
+!180 = !{!4, !5, i64 784}
+!181 = !{!4, !5, i64 785}
+!182 = !{!4, !5, i64 786}
+!183 = !{!4, !5, i64 787}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"png_build_16to8_table: argument 0"}
+!186 = distinct !{!186, !"png_build_16to8_table"}
+!187 = distinct !{!187, !26}
+!188 = distinct !{!188, !26}
+!189 = distinct !{!189, !26}
+!190 = distinct !{!190, !26}
+!191 = distinct !{!191, !26}
+!192 = distinct !{!192, !26}
+!193 = distinct !{!193, !26}
+!194 = !{!4, !10, i64 960}
+!195 = !{!196, !197, i64 0}
+!196 = !{!"", !197, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !5, i64 36}
+!197 = !{!"p1 _ZTS11png_control", !7, i64 0}
+!198 = !{!199, !7, i64 16}
+!199 = !{!"png_control", !200, i64 0, !51, i64 8, !7, i64 16, !12, i64 24, !9, i64 32, !10, i64 40, !10, i64 40}
+!200 = !{!"p1 _ZTS14png_struct_def", !7, i64 0}
+!201 = !{!199, !200, i64 0}
+!202 = !{i64 0, i64 8, !203, i64 8, i64 8, !50, i64 16, i64 8, !40, i64 24, i64 8, !44, i64 32, i64 8, !42, i64 40, i64 1, !27}
+!203 = !{!200, !200, i64 0}
+!204 = !{!196, !10, i64 32}

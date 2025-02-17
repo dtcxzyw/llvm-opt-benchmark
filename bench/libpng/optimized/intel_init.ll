@@ -17,12 +17,12 @@ define void @png_init_filter_functions_sse2(ptr noundef writeonly captures(none)
   %png_read_filter_row_sub4_sse2.sink = phi ptr [ @png_read_filter_row_sub4_sse2, %3 ], [ @png_read_filter_row_sub3_sse2, %2 ]
   %png_read_filter_row_avg4_sse2.sink = phi ptr [ @png_read_filter_row_avg4_sse2, %3 ], [ @png_read_filter_row_avg3_sse2, %2 ]
   %png_read_filter_row_paeth4_sse2.sink = phi ptr [ @png_read_filter_row_paeth4_sse2, %3 ], [ @png_read_filter_row_paeth3_sse2, %2 ]
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  store ptr %png_read_filter_row_sub4_sse2.sink, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  store ptr %png_read_filter_row_avg4_sse2.sink, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  store ptr %png_read_filter_row_paeth4_sse2.sink, ptr %6, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  store ptr %png_read_filter_row_sub4_sse2.sink, ptr %4, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  store ptr %png_read_filter_row_avg4_sse2.sink, ptr %5, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1232
+  store ptr %png_read_filter_row_paeth4_sse2.sink, ptr %6, align 8, !tbaa !3
   br label %7
 
 7:                                                ; preds = %.sink.split, %2
@@ -41,12 +41,15 @@ declare void @png_read_filter_row_avg4_sse2(ptr noundef, ptr noundef, ptr nounde
 
 declare void @png_read_filter_row_paeth4_sse2(ptr noundef, ptr noundef, ptr noundef) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

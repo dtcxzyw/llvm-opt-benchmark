@@ -28,6 +28,7 @@ supported_project = [
     "libdeflate",
     "libevent",
     "libjpeg-turbo",
+    "libpng",
 ]
 
 modify_only = [
