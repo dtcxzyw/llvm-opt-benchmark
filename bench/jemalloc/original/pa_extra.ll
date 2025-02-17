@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.pa_shard_s = type { ptr, %struct.atomic_zu_t, %struct.atomic_b_t, i8, %struct.pac_s, %struct.sec_s, %struct.hpa_shard_s, %struct.edata_cache_s, i32, ptr, ptr, ptr, ptr }
 %struct.atomic_zu_t = type { i64 }
@@ -32,18 +32,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sec_opts_s = type { i64, i64, i64, i64, i64 }
 %struct.hpa_shard_s = type { %struct.pai_s, ptr, %struct.malloc_mutex_s, %struct.malloc_mutex_s, ptr, %struct.edata_cache_fast_s, %struct.psset_s, i64, i32, ptr, %struct.hpa_shard_opts_s, i64, %struct.hpa_shard_nonderived_stats_s, %struct.nstime_t }
 %struct.edata_cache_fast_s = type { %struct.edata_list_inactive_t, ptr, i8 }
-%struct.psset_s = type { [64 x %struct.hpdata_age_heap_t], [1 x i64], %struct.psset_bin_stats_s, %struct.psset_stats_s, %struct.hpdata_empty_list_t, [128 x %struct.hpdata_purge_list_t], [2 x i64], %struct.hpdata_hugify_list_t }
+%struct.psset_s = type { [64 x %struct.hpdata_age_heap_t], [1 x i64], %struct.psset_stats_s, %struct.hpdata_empty_list_t, [128 x %struct.hpdata_purge_list_t], [2 x i64], %struct.hpdata_hugify_list_t }
 %struct.hpdata_age_heap_t = type { %struct.ph_s }
+%struct.psset_stats_s = type { %struct.psset_bin_stats_s, [2 x %struct.psset_bin_stats_s], [64 x [2 x %struct.psset_bin_stats_s]], [2 x %struct.psset_bin_stats_s], [2 x %struct.psset_bin_stats_s] }
 %struct.psset_bin_stats_s = type { i64, i64, i64 }
-%struct.psset_stats_s = type { [64 x [2 x %struct.psset_bin_stats_s]], [2 x %struct.psset_bin_stats_s], [2 x %struct.psset_bin_stats_s] }
 %struct.hpdata_empty_list_t = type { %struct.anon.2 }
 %struct.anon.2 = type { ptr }
 %struct.hpdata_purge_list_t = type { %struct.anon.3 }
 %struct.anon.3 = type { ptr }
 %struct.hpdata_hugify_list_t = type { %struct.anon.4 }
 %struct.anon.4 = type { ptr }
-%struct.hpa_shard_opts_s = type { i64, i64, i32, i8, i64, i64 }
-%struct.hpa_shard_nonderived_stats_s = type { i64, i64, i64, i64 }
+%struct.hpa_shard_opts_s = type { i64, i64, i32, i8, i64, i8, i64, i64 }
+%struct.hpa_shard_nonderived_stats_s = type { i64, i64, i64, i64, i64 }
 %struct.edata_cache_s = type { %struct.edata_avail_t, %struct.atomic_zu_t, %struct.malloc_mutex_s, ptr }
 %struct.edata_avail_t = type { %struct.ph_s }
 %struct.pa_shard_stats_s = type { i64, %struct.pac_stats_s }
@@ -52,16 +52,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.locked_u64_s = type { %struct.atomic_u64_t }
 %struct.atomic_u64_t = type { i64 }
 %struct.pac_estats_s = type { i64, i64, i64, i64, i64, i64 }
-%struct.tsd_s = type { i8, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
+%struct.tsdn_s = type { %struct.tsd_s }
+%struct.tsd_s = type { i8, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
 %struct.ticker_geom_s = type { i32, i32 }
 %struct.tsd_binshards_s = type { [36 x i8] }
 %struct.tsd_link_t = type { ptr, ptr }
 %struct.peak_s = type { i64, i64 }
 %struct.activity_callback_thunk_s = type { ptr, ptr }
-%struct.tcache_slow_s = type { %struct.anon.5, %struct.cache_bin_array_descriptor_s, ptr, i32, i32, [36 x i8], [36 x i8], [36 x i8], ptr, ptr }
+%struct.tcache_slow_s = type { %struct.anon.5, %struct.cache_bin_array_descriptor_s, ptr, i32, %struct.nstime_t, i32, i32, i32, [36 x %struct.cache_bin_fill_ctl_s], [36 x i8], [36 x i8], ptr, ptr }
 %struct.anon.5 = type { ptr, ptr }
 %struct.cache_bin_array_descriptor_s = type { %struct.anon.6, ptr }
 %struct.anon.6 = type { ptr, ptr }
+%struct.cache_bin_fill_ctl_s = type { i8, i8 }
 %struct.rtree_ctx_s = type { [16 x %struct.rtree_ctx_cache_elm_s], [8 x %struct.rtree_ctx_cache_elm_s] }
 %struct.rtree_ctx_cache_elm_s = type { i64, ptr }
 %struct.atomic_u8_t = type { i8 }
@@ -73,2017 +75,1636 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.witness_list_t = type { ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_prefork0(ptr noundef %tsdn, ptr noundef %shard) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %shard.addr, align 8
-  %pac = getelementptr inbounds %struct.pa_shard_s, ptr %1, i32 0, i32 4
-  %decay_dirty = getelementptr inbounds %struct.pac_s, ptr %pac, i32 0, i32 11
-  %mtx = getelementptr inbounds %struct.decay_s, ptr %decay_dirty, i32 0, i32 0
-  call void @malloc_mutex_prefork(ptr noundef %0, ptr noundef %mtx)
-  %2 = load ptr, ptr %tsdn.addr, align 8
-  %3 = load ptr, ptr %shard.addr, align 8
-  %pac1 = getelementptr inbounds %struct.pa_shard_s, ptr %3, i32 0, i32 4
-  %decay_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac1, i32 0, i32 12
-  %mtx2 = getelementptr inbounds %struct.decay_s, ptr %decay_muzzy, i32 0, i32 0
-  call void @malloc_mutex_prefork(ptr noundef %2, ptr noundef %mtx2)
+define hidden void @je_pa_shard_prefork0(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %6, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct.pac_s, ptr %7, i32 0, i32 11
+  %9 = getelementptr inbounds nuw %struct.decay_s, ptr %8, i32 0, i32 0
+  call void @je_malloc_mutex_prefork(ptr noundef %5, ptr noundef %9)
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = load ptr, ptr %4, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %11, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct.pac_s, ptr %12, i32 0, i32 12
+  %14 = getelementptr inbounds nuw %struct.decay_s, ptr %13, i32 0, i32 0
+  call void @je_malloc_mutex_prefork(ptr noundef %10, ptr noundef %14)
   ret void
 }
 
-declare void @malloc_mutex_prefork(ptr noundef, ptr noundef) #1
+declare void @je_malloc_mutex_prefork(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_prefork2(ptr noundef %tsdn, ptr noundef %shard) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  %0 = load ptr, ptr %shard.addr, align 8
-  %ever_used_hpa = getelementptr inbounds %struct.pa_shard_s, ptr %0, i32 0, i32 3
-  %1 = load i8, ptr %ever_used_hpa, align 1
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define hidden void @je_pa_shard_prefork2(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %5, i32 0, i32 3
+  %7 = load i8, ptr %6, align 1, !tbaa !11, !range !54, !noundef !55
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %tsdn.addr, align 8
-  %3 = load ptr, ptr %shard.addr, align 8
-  %hpa_sec = getelementptr inbounds %struct.pa_shard_s, ptr %3, i32 0, i32 5
-  call void @sec_prefork2(ptr noundef %2, ptr noundef %hpa_sec)
-  br label %if.end
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = load ptr, ptr %4, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %11, i32 0, i32 5
+  call void @je_sec_prefork2(ptr noundef %10, ptr noundef %12)
+  br label %13
 
-if.end:                                           ; preds = %if.then, %entry
+13:                                               ; preds = %9, %2
   ret void
 }
 
-declare void @sec_prefork2(ptr noundef, ptr noundef) #1
+declare void @je_sec_prefork2(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_prefork3(ptr noundef %tsdn, ptr noundef %shard) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %shard.addr, align 8
-  %pac = getelementptr inbounds %struct.pa_shard_s, ptr %1, i32 0, i32 4
-  %grow_mtx = getelementptr inbounds %struct.pac_s, ptr %pac, i32 0, i32 8
-  call void @malloc_mutex_prefork(ptr noundef %0, ptr noundef %grow_mtx)
-  %2 = load ptr, ptr %shard.addr, align 8
-  %ever_used_hpa = getelementptr inbounds %struct.pa_shard_s, ptr %2, i32 0, i32 3
-  %3 = load i8, ptr %ever_used_hpa, align 1
-  %tobool = trunc i8 %3 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define hidden void @je_pa_shard_prefork3(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %6, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct.pac_s, ptr %7, i32 0, i32 8
+  call void @je_malloc_mutex_prefork(ptr noundef %5, ptr noundef %8)
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %9, i32 0, i32 3
+  %11 = load i8, ptr %10, align 1, !tbaa !11, !range !54, !noundef !55
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %17
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %tsdn.addr, align 8
-  %5 = load ptr, ptr %shard.addr, align 8
-  %hpa_shard = getelementptr inbounds %struct.pa_shard_s, ptr %5, i32 0, i32 6
-  call void @hpa_shard_prefork3(ptr noundef %4, ptr noundef %hpa_shard)
-  br label %if.end
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %15, i32 0, i32 6
+  call void @je_hpa_shard_prefork3(ptr noundef %14, ptr noundef %16)
+  br label %17
 
-if.end:                                           ; preds = %if.then, %entry
+17:                                               ; preds = %13, %2
   ret void
 }
 
-declare void @hpa_shard_prefork3(ptr noundef, ptr noundef) #1
+declare void @je_hpa_shard_prefork3(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_prefork4(ptr noundef %tsdn, ptr noundef %shard) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %shard.addr, align 8
-  %pac = getelementptr inbounds %struct.pa_shard_s, ptr %1, i32 0, i32 4
-  %ecache_dirty = getelementptr inbounds %struct.pac_s, ptr %pac, i32 0, i32 1
-  call void @ecache_prefork(ptr noundef %0, ptr noundef %ecache_dirty)
-  %2 = load ptr, ptr %tsdn.addr, align 8
-  %3 = load ptr, ptr %shard.addr, align 8
-  %pac1 = getelementptr inbounds %struct.pa_shard_s, ptr %3, i32 0, i32 4
-  %ecache_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac1, i32 0, i32 2
-  call void @ecache_prefork(ptr noundef %2, ptr noundef %ecache_muzzy)
-  %4 = load ptr, ptr %tsdn.addr, align 8
-  %5 = load ptr, ptr %shard.addr, align 8
-  %pac2 = getelementptr inbounds %struct.pa_shard_s, ptr %5, i32 0, i32 4
-  %ecache_retained = getelementptr inbounds %struct.pac_s, ptr %pac2, i32 0, i32 3
-  call void @ecache_prefork(ptr noundef %4, ptr noundef %ecache_retained)
-  %6 = load ptr, ptr %shard.addr, align 8
-  %ever_used_hpa = getelementptr inbounds %struct.pa_shard_s, ptr %6, i32 0, i32 3
-  %7 = load i8, ptr %ever_used_hpa, align 1
-  %tobool = trunc i8 %7 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define hidden void @je_pa_shard_prefork4(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %6, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct.pac_s, ptr %7, i32 0, i32 1
+  call void @je_ecache_prefork(ptr noundef %5, ptr noundef %8)
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = load ptr, ptr %4, align 8, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %10, i32 0, i32 4
+  %12 = getelementptr inbounds nuw %struct.pac_s, ptr %11, i32 0, i32 2
+  call void @je_ecache_prefork(ptr noundef %9, ptr noundef %12)
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load ptr, ptr %4, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %14, i32 0, i32 4
+  %16 = getelementptr inbounds nuw %struct.pac_s, ptr %15, i32 0, i32 3
+  call void @je_ecache_prefork(ptr noundef %13, ptr noundef %16)
+  %17 = load ptr, ptr %4, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %17, i32 0, i32 3
+  %19 = load i8, ptr %18, align 1, !tbaa !11, !range !54, !noundef !55
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %25
 
-if.then:                                          ; preds = %entry
-  %8 = load ptr, ptr %tsdn.addr, align 8
-  %9 = load ptr, ptr %shard.addr, align 8
-  %hpa_shard = getelementptr inbounds %struct.pa_shard_s, ptr %9, i32 0, i32 6
-  call void @hpa_shard_prefork4(ptr noundef %8, ptr noundef %hpa_shard)
-  br label %if.end
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load ptr, ptr %4, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %23, i32 0, i32 6
+  call void @je_hpa_shard_prefork4(ptr noundef %22, ptr noundef %24)
+  br label %25
 
-if.end:                                           ; preds = %if.then, %entry
+25:                                               ; preds = %21, %2
   ret void
 }
 
-declare void @ecache_prefork(ptr noundef, ptr noundef) #1
+declare void @je_ecache_prefork(ptr noundef, ptr noundef) #1
 
-declare void @hpa_shard_prefork4(ptr noundef, ptr noundef) #1
+declare void @je_hpa_shard_prefork4(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_prefork5(ptr noundef %tsdn, ptr noundef %shard) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %shard.addr, align 8
-  %edata_cache = getelementptr inbounds %struct.pa_shard_s, ptr %1, i32 0, i32 7
-  call void @edata_cache_prefork(ptr noundef %0, ptr noundef %edata_cache)
+define hidden void @je_pa_shard_prefork5(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %6, i32 0, i32 7
+  call void @je_edata_cache_prefork(ptr noundef %5, ptr noundef %7)
   ret void
 }
 
-declare void @edata_cache_prefork(ptr noundef, ptr noundef) #1
+declare void @je_edata_cache_prefork(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_postfork_parent(ptr noundef %tsdn, ptr noundef %shard) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %shard.addr, align 8
-  %edata_cache = getelementptr inbounds %struct.pa_shard_s, ptr %1, i32 0, i32 7
-  call void @edata_cache_postfork_parent(ptr noundef %0, ptr noundef %edata_cache)
-  %2 = load ptr, ptr %tsdn.addr, align 8
-  %3 = load ptr, ptr %shard.addr, align 8
-  %pac = getelementptr inbounds %struct.pa_shard_s, ptr %3, i32 0, i32 4
-  %ecache_dirty = getelementptr inbounds %struct.pac_s, ptr %pac, i32 0, i32 1
-  call void @ecache_postfork_parent(ptr noundef %2, ptr noundef %ecache_dirty)
-  %4 = load ptr, ptr %tsdn.addr, align 8
-  %5 = load ptr, ptr %shard.addr, align 8
-  %pac1 = getelementptr inbounds %struct.pa_shard_s, ptr %5, i32 0, i32 4
-  %ecache_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac1, i32 0, i32 2
-  call void @ecache_postfork_parent(ptr noundef %4, ptr noundef %ecache_muzzy)
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %7 = load ptr, ptr %shard.addr, align 8
-  %pac2 = getelementptr inbounds %struct.pa_shard_s, ptr %7, i32 0, i32 4
-  %ecache_retained = getelementptr inbounds %struct.pac_s, ptr %pac2, i32 0, i32 3
-  call void @ecache_postfork_parent(ptr noundef %6, ptr noundef %ecache_retained)
-  %8 = load ptr, ptr %tsdn.addr, align 8
-  %9 = load ptr, ptr %shard.addr, align 8
-  %pac3 = getelementptr inbounds %struct.pa_shard_s, ptr %9, i32 0, i32 4
-  %grow_mtx = getelementptr inbounds %struct.pac_s, ptr %pac3, i32 0, i32 8
-  call void @malloc_mutex_postfork_parent(ptr noundef %8, ptr noundef %grow_mtx)
-  %10 = load ptr, ptr %tsdn.addr, align 8
-  %11 = load ptr, ptr %shard.addr, align 8
-  %pac4 = getelementptr inbounds %struct.pa_shard_s, ptr %11, i32 0, i32 4
-  %decay_dirty = getelementptr inbounds %struct.pac_s, ptr %pac4, i32 0, i32 11
-  %mtx = getelementptr inbounds %struct.decay_s, ptr %decay_dirty, i32 0, i32 0
-  call void @malloc_mutex_postfork_parent(ptr noundef %10, ptr noundef %mtx)
-  %12 = load ptr, ptr %tsdn.addr, align 8
-  %13 = load ptr, ptr %shard.addr, align 8
-  %pac5 = getelementptr inbounds %struct.pa_shard_s, ptr %13, i32 0, i32 4
-  %decay_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac5, i32 0, i32 12
-  %mtx6 = getelementptr inbounds %struct.decay_s, ptr %decay_muzzy, i32 0, i32 0
-  call void @malloc_mutex_postfork_parent(ptr noundef %12, ptr noundef %mtx6)
-  %14 = load ptr, ptr %shard.addr, align 8
-  %ever_used_hpa = getelementptr inbounds %struct.pa_shard_s, ptr %14, i32 0, i32 3
-  %15 = load i8, ptr %ever_used_hpa, align 1
-  %tobool = trunc i8 %15 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define hidden void @je_pa_shard_postfork_parent(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %6, i32 0, i32 7
+  call void @je_edata_cache_postfork_parent(ptr noundef %5, ptr noundef %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %9, i32 0, i32 4
+  %11 = getelementptr inbounds nuw %struct.pac_s, ptr %10, i32 0, i32 1
+  call void @je_ecache_postfork_parent(ptr noundef %8, ptr noundef %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
+  %13 = load ptr, ptr %4, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %13, i32 0, i32 4
+  %15 = getelementptr inbounds nuw %struct.pac_s, ptr %14, i32 0, i32 2
+  call void @je_ecache_postfork_parent(ptr noundef %12, ptr noundef %15)
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load ptr, ptr %4, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %17, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct.pac_s, ptr %18, i32 0, i32 3
+  call void @je_ecache_postfork_parent(ptr noundef %16, ptr noundef %19)
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = load ptr, ptr %4, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds nuw %struct.pac_s, ptr %22, i32 0, i32 8
+  call void @je_malloc_mutex_postfork_parent(ptr noundef %20, ptr noundef %23)
+  %24 = load ptr, ptr %3, align 8, !tbaa !4
+  %25 = load ptr, ptr %4, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %25, i32 0, i32 4
+  %27 = getelementptr inbounds nuw %struct.pac_s, ptr %26, i32 0, i32 11
+  %28 = getelementptr inbounds nuw %struct.decay_s, ptr %27, i32 0, i32 0
+  call void @je_malloc_mutex_postfork_parent(ptr noundef %24, ptr noundef %28)
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = load ptr, ptr %4, align 8, !tbaa !9
+  %31 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %30, i32 0, i32 4
+  %32 = getelementptr inbounds nuw %struct.pac_s, ptr %31, i32 0, i32 12
+  %33 = getelementptr inbounds nuw %struct.decay_s, ptr %32, i32 0, i32 0
+  call void @je_malloc_mutex_postfork_parent(ptr noundef %29, ptr noundef %33)
+  %34 = load ptr, ptr %4, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %34, i32 0, i32 3
+  %36 = load i8, ptr %35, align 1, !tbaa !11, !range !54, !noundef !55
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %45
 
-if.then:                                          ; preds = %entry
-  %16 = load ptr, ptr %tsdn.addr, align 8
-  %17 = load ptr, ptr %shard.addr, align 8
-  %hpa_sec = getelementptr inbounds %struct.pa_shard_s, ptr %17, i32 0, i32 5
-  call void @sec_postfork_parent(ptr noundef %16, ptr noundef %hpa_sec)
-  %18 = load ptr, ptr %tsdn.addr, align 8
-  %19 = load ptr, ptr %shard.addr, align 8
-  %hpa_shard = getelementptr inbounds %struct.pa_shard_s, ptr %19, i32 0, i32 6
-  call void @hpa_shard_postfork_parent(ptr noundef %18, ptr noundef %hpa_shard)
-  br label %if.end
+38:                                               ; preds = %2
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = load ptr, ptr %4, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %40, i32 0, i32 5
+  call void @je_sec_postfork_parent(ptr noundef %39, ptr noundef %41)
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = load ptr, ptr %4, align 8, !tbaa !9
+  %44 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %43, i32 0, i32 6
+  call void @je_hpa_shard_postfork_parent(ptr noundef %42, ptr noundef %44)
+  br label %45
 
-if.end:                                           ; preds = %if.then, %entry
+45:                                               ; preds = %38, %2
   ret void
 }
 
-declare void @edata_cache_postfork_parent(ptr noundef, ptr noundef) #1
+declare void @je_edata_cache_postfork_parent(ptr noundef, ptr noundef) #1
 
-declare void @ecache_postfork_parent(ptr noundef, ptr noundef) #1
+declare void @je_ecache_postfork_parent(ptr noundef, ptr noundef) #1
 
-declare void @malloc_mutex_postfork_parent(ptr noundef, ptr noundef) #1
+declare void @je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) #1
 
-declare void @sec_postfork_parent(ptr noundef, ptr noundef) #1
+declare void @je_sec_postfork_parent(ptr noundef, ptr noundef) #1
 
-declare void @hpa_shard_postfork_parent(ptr noundef, ptr noundef) #1
+declare void @je_hpa_shard_postfork_parent(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_postfork_child(ptr noundef %tsdn, ptr noundef %shard) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %shard.addr, align 8
-  %edata_cache = getelementptr inbounds %struct.pa_shard_s, ptr %1, i32 0, i32 7
-  call void @edata_cache_postfork_child(ptr noundef %0, ptr noundef %edata_cache)
-  %2 = load ptr, ptr %tsdn.addr, align 8
-  %3 = load ptr, ptr %shard.addr, align 8
-  %pac = getelementptr inbounds %struct.pa_shard_s, ptr %3, i32 0, i32 4
-  %ecache_dirty = getelementptr inbounds %struct.pac_s, ptr %pac, i32 0, i32 1
-  call void @ecache_postfork_child(ptr noundef %2, ptr noundef %ecache_dirty)
-  %4 = load ptr, ptr %tsdn.addr, align 8
-  %5 = load ptr, ptr %shard.addr, align 8
-  %pac1 = getelementptr inbounds %struct.pa_shard_s, ptr %5, i32 0, i32 4
-  %ecache_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac1, i32 0, i32 2
-  call void @ecache_postfork_child(ptr noundef %4, ptr noundef %ecache_muzzy)
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %7 = load ptr, ptr %shard.addr, align 8
-  %pac2 = getelementptr inbounds %struct.pa_shard_s, ptr %7, i32 0, i32 4
-  %ecache_retained = getelementptr inbounds %struct.pac_s, ptr %pac2, i32 0, i32 3
-  call void @ecache_postfork_child(ptr noundef %6, ptr noundef %ecache_retained)
-  %8 = load ptr, ptr %tsdn.addr, align 8
-  %9 = load ptr, ptr %shard.addr, align 8
-  %pac3 = getelementptr inbounds %struct.pa_shard_s, ptr %9, i32 0, i32 4
-  %grow_mtx = getelementptr inbounds %struct.pac_s, ptr %pac3, i32 0, i32 8
-  call void @malloc_mutex_postfork_child(ptr noundef %8, ptr noundef %grow_mtx)
-  %10 = load ptr, ptr %tsdn.addr, align 8
-  %11 = load ptr, ptr %shard.addr, align 8
-  %pac4 = getelementptr inbounds %struct.pa_shard_s, ptr %11, i32 0, i32 4
-  %decay_dirty = getelementptr inbounds %struct.pac_s, ptr %pac4, i32 0, i32 11
-  %mtx = getelementptr inbounds %struct.decay_s, ptr %decay_dirty, i32 0, i32 0
-  call void @malloc_mutex_postfork_child(ptr noundef %10, ptr noundef %mtx)
-  %12 = load ptr, ptr %tsdn.addr, align 8
-  %13 = load ptr, ptr %shard.addr, align 8
-  %pac5 = getelementptr inbounds %struct.pa_shard_s, ptr %13, i32 0, i32 4
-  %decay_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac5, i32 0, i32 12
-  %mtx6 = getelementptr inbounds %struct.decay_s, ptr %decay_muzzy, i32 0, i32 0
-  call void @malloc_mutex_postfork_child(ptr noundef %12, ptr noundef %mtx6)
-  %14 = load ptr, ptr %shard.addr, align 8
-  %ever_used_hpa = getelementptr inbounds %struct.pa_shard_s, ptr %14, i32 0, i32 3
-  %15 = load i8, ptr %ever_used_hpa, align 1
-  %tobool = trunc i8 %15 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define hidden void @je_pa_shard_postfork_child(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %6, i32 0, i32 7
+  call void @je_edata_cache_postfork_child(ptr noundef %5, ptr noundef %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %9, i32 0, i32 4
+  %11 = getelementptr inbounds nuw %struct.pac_s, ptr %10, i32 0, i32 1
+  call void @je_ecache_postfork_child(ptr noundef %8, ptr noundef %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
+  %13 = load ptr, ptr %4, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %13, i32 0, i32 4
+  %15 = getelementptr inbounds nuw %struct.pac_s, ptr %14, i32 0, i32 2
+  call void @je_ecache_postfork_child(ptr noundef %12, ptr noundef %15)
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load ptr, ptr %4, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %17, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct.pac_s, ptr %18, i32 0, i32 3
+  call void @je_ecache_postfork_child(ptr noundef %16, ptr noundef %19)
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = load ptr, ptr %4, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %21, i32 0, i32 4
+  %23 = getelementptr inbounds nuw %struct.pac_s, ptr %22, i32 0, i32 8
+  call void @je_malloc_mutex_postfork_child(ptr noundef %20, ptr noundef %23)
+  %24 = load ptr, ptr %3, align 8, !tbaa !4
+  %25 = load ptr, ptr %4, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %25, i32 0, i32 4
+  %27 = getelementptr inbounds nuw %struct.pac_s, ptr %26, i32 0, i32 11
+  %28 = getelementptr inbounds nuw %struct.decay_s, ptr %27, i32 0, i32 0
+  call void @je_malloc_mutex_postfork_child(ptr noundef %24, ptr noundef %28)
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = load ptr, ptr %4, align 8, !tbaa !9
+  %31 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %30, i32 0, i32 4
+  %32 = getelementptr inbounds nuw %struct.pac_s, ptr %31, i32 0, i32 12
+  %33 = getelementptr inbounds nuw %struct.decay_s, ptr %32, i32 0, i32 0
+  call void @je_malloc_mutex_postfork_child(ptr noundef %29, ptr noundef %33)
+  %34 = load ptr, ptr %4, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %34, i32 0, i32 3
+  %36 = load i8, ptr %35, align 1, !tbaa !11, !range !54, !noundef !55
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %45
 
-if.then:                                          ; preds = %entry
-  %16 = load ptr, ptr %tsdn.addr, align 8
-  %17 = load ptr, ptr %shard.addr, align 8
-  %hpa_sec = getelementptr inbounds %struct.pa_shard_s, ptr %17, i32 0, i32 5
-  call void @sec_postfork_child(ptr noundef %16, ptr noundef %hpa_sec)
-  %18 = load ptr, ptr %tsdn.addr, align 8
-  %19 = load ptr, ptr %shard.addr, align 8
-  %hpa_shard = getelementptr inbounds %struct.pa_shard_s, ptr %19, i32 0, i32 6
-  call void @hpa_shard_postfork_child(ptr noundef %18, ptr noundef %hpa_shard)
-  br label %if.end
+38:                                               ; preds = %2
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = load ptr, ptr %4, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %40, i32 0, i32 5
+  call void @je_sec_postfork_child(ptr noundef %39, ptr noundef %41)
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = load ptr, ptr %4, align 8, !tbaa !9
+  %44 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %43, i32 0, i32 6
+  call void @je_hpa_shard_postfork_child(ptr noundef %42, ptr noundef %44)
+  br label %45
 
-if.end:                                           ; preds = %if.then, %entry
+45:                                               ; preds = %38, %2
   ret void
 }
 
-declare void @edata_cache_postfork_child(ptr noundef, ptr noundef) #1
+declare void @je_edata_cache_postfork_child(ptr noundef, ptr noundef) #1
 
-declare void @ecache_postfork_child(ptr noundef, ptr noundef) #1
+declare void @je_ecache_postfork_child(ptr noundef, ptr noundef) #1
 
-declare void @malloc_mutex_postfork_child(ptr noundef, ptr noundef) #1
+declare void @je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) #1
 
-declare void @sec_postfork_child(ptr noundef, ptr noundef) #1
+declare void @je_sec_postfork_child(ptr noundef, ptr noundef) #1
 
-declare void @hpa_shard_postfork_child(ptr noundef, ptr noundef) #1
+declare void @je_hpa_shard_postfork_child(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_basic_stats_merge(ptr noundef %shard, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy) #0 {
-entry:
-  %retval.i = alloca i32, align 4
-  %mo.addr.i7 = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %mo.addr.i = alloca i32, align 4
-  %result.i = alloca i64, align 8
-  %shard.addr = alloca ptr, align 8
-  %nactive.addr = alloca ptr, align 8
-  %ndirty.addr = alloca ptr, align 8
-  %nmuzzy.addr = alloca ptr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  store ptr %nactive, ptr %nactive.addr, align 8
-  store ptr %ndirty, ptr %ndirty.addr, align 8
-  store ptr %nmuzzy, ptr %nmuzzy.addr, align 8
-  %0 = load ptr, ptr %shard.addr, align 8
-  %nactive1 = getelementptr inbounds %struct.pa_shard_s, ptr %0, i32 0, i32 1
-  store ptr %nactive1, ptr %a.addr.i, align 8
-  store i32 0, ptr %mo.addr.i, align 4
-  %1 = load ptr, ptr %a.addr.i, align 8
-  %2 = load i32, ptr %mo.addr.i, align 4
-  store i32 %2, ptr %mo.addr.i7, align 4
-  %3 = load i32, ptr %mo.addr.i7, align 4
-  switch i32 %3, label %sw.epilog.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
+define hidden i64 @je_pa_shard_nactive(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %3, i32 0, i32 1
+  %5 = call i64 @atomic_load_zu(ptr noundef %4, i32 noundef 0)
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @atomic_load_zu(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i32 %1, ptr %4, align 4, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !56
+  %7 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %4, align 4, !tbaa !57
+  %9 = call i32 @atomic_enum_to_builtin(i32 noundef %8)
+  switch i32 %9, label %10 [
+    i32 1, label %12
+    i32 2, label %12
+    i32 5, label %14
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  store i32 0, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+10:                                               ; preds = %2
+  %11 = load atomic i64, ptr %7 monotonic, align 8
+  store i64 %11, ptr %5, align 8
+  br label %16
 
-sw.bb1.i:                                         ; preds = %entry
-  store i32 2, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+12:                                               ; preds = %2, %2
+  %13 = load atomic i64, ptr %7 acquire, align 8
+  store i64 %13, ptr %5, align 8
+  br label %16
 
-sw.bb2.i:                                         ; preds = %entry
-  store i32 3, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+14:                                               ; preds = %2
+  %15 = load atomic i64, ptr %7 seq_cst, align 8
+  store i64 %15, ptr %5, align 8
+  br label %16
 
-sw.bb3.i:                                         ; preds = %entry
-  store i32 4, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+16:                                               ; preds = %14, %12, %10
+  %17 = load i64, ptr %5, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret i64 %17
+}
 
-sw.bb4.i:                                         ; preds = %entry
-  store i32 5, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+; Function Attrs: nounwind uwtable
+define hidden i64 @je_pa_shard_ndirty(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %4, i32 0, i32 4
+  %6 = getelementptr inbounds nuw %struct.pac_s, ptr %5, i32 0, i32 1
+  %7 = call i64 @ecache_npages_get(ptr noundef %6)
+  store i64 %7, ptr %3, align 8, !tbaa !58
+  %8 = load ptr, ptr %2, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %8, i32 0, i32 3
+  %10 = load i8, ptr %9, align 1, !tbaa !11, !range !54, !noundef !55
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %19
 
-sw.epilog.i:                                      ; preds = %entry
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %13, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.hpa_shard_s, ptr %14, i32 0, i32 6
+  %16 = call i64 @psset_ndirty(ptr noundef %15)
+  %17 = load i64, ptr %3, align 8, !tbaa !58
+  %18 = add i64 %17, %16
+  store i64 %18, ptr %3, align 8, !tbaa !58
+  br label %19
+
+19:                                               ; preds = %12, %1
+  %20 = load i64, ptr %3, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %20
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ecache_npages_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !59
+  %4 = getelementptr inbounds nuw %struct.ecache_s, ptr %3, i32 0, i32 1
+  %5 = call i64 @je_eset_npages_get(ptr noundef %4)
+  %6 = load ptr, ptr %2, align 8, !tbaa !59
+  %7 = getelementptr inbounds nuw %struct.ecache_s, ptr %6, i32 0, i32 2
+  %8 = call i64 @je_eset_npages_get(ptr noundef %7)
+  %9 = add i64 %5, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @psset_ndirty(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  %4 = getelementptr inbounds nuw %struct.psset_s, ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %struct.psset_stats_s, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.psset_bin_stats_s, ptr %5, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !63
+  ret i64 %7
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: nounwind uwtable
+define hidden i64 @je_pa_shard_nmuzzy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %3, i32 0, i32 4
+  %5 = getelementptr inbounds nuw %struct.pac_s, ptr %4, i32 0, i32 2
+  %6 = call i64 @ecache_npages_get(ptr noundef %5)
+  ret i64 %6
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_pa_shard_basic_stats_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !64
+  store ptr %2, ptr %7, align 8, !tbaa !64
+  store ptr %3, ptr %8, align 8, !tbaa !64
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = call i64 @je_pa_shard_nactive(ptr noundef %9)
+  %11 = load ptr, ptr %6, align 8, !tbaa !64
+  %12 = load i64, ptr %11, align 8, !tbaa !58
+  %13 = add i64 %12, %10
+  store i64 %13, ptr %11, align 8, !tbaa !58
+  %14 = load ptr, ptr %5, align 8, !tbaa !9
+  %15 = call i64 @je_pa_shard_ndirty(ptr noundef %14)
+  %16 = load ptr, ptr %7, align 8, !tbaa !64
+  %17 = load i64, ptr %16, align 8, !tbaa !58
+  %18 = add i64 %17, %15
+  store i64 %18, ptr %16, align 8, !tbaa !58
+  %19 = load ptr, ptr %5, align 8, !tbaa !9
+  %20 = call i64 @je_pa_shard_nmuzzy(ptr noundef %19)
+  %21 = load ptr, ptr %8, align 8, !tbaa !64
+  %22 = load i64, ptr %21, align 8, !tbaa !58
+  %23 = add i64 %22, %20
+  store i64 %23, ptr %21, align 8, !tbaa !58
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_pa_shard_stats_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !4
+  store ptr %1, ptr %9, align 8, !tbaa !9
+  store ptr %2, ptr %10, align 8, !tbaa !66
+  store ptr %3, ptr %11, align 8, !tbaa !67
+  store ptr %4, ptr %12, align 8, !tbaa !69
+  store ptr %5, ptr %13, align 8, !tbaa !71
+  store ptr %6, ptr %14, align 8, !tbaa !64
+  br label %23
+
+23:                                               ; preds = %7
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %9, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %25, i32 0, i32 4
+  %27 = getelementptr inbounds nuw %struct.pac_s, ptr %26, i32 0, i32 3
+  %28 = call i64 @ecache_npages_get(ptr noundef %27)
+  %29 = shl i64 %28, 12
+  %30 = load ptr, ptr %10, align 8, !tbaa !66
+  %31 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %30, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %31, i32 0, i32 2
+  %33 = load i64, ptr %32, align 8, !tbaa !73
+  %34 = add i64 %33, %29
+  store i64 %34, ptr %32, align 8, !tbaa !73
+  %35 = load ptr, ptr %9, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %35, i32 0, i32 7
+  %37 = getelementptr inbounds nuw %struct.edata_cache_s, ptr %36, i32 0, i32 1
+  %38 = call i64 @atomic_load_zu(ptr noundef %37, i32 noundef 0)
+  %39 = load ptr, ptr %10, align 8, !tbaa !66
+  %40 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8, !tbaa !78
+  %42 = add i64 %41, %38
+  store i64 %42, ptr %40, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  store i64 0, ptr %15, align 8, !tbaa !58
+  %43 = load ptr, ptr %9, align 8, !tbaa !9
+  %44 = call i64 @je_pa_shard_nactive(ptr noundef %43)
+  %45 = load i64, ptr %15, align 8, !tbaa !58
+  %46 = add i64 %45, %44
+  store i64 %46, ptr %15, align 8, !tbaa !58
+  %47 = load ptr, ptr %9, align 8, !tbaa !9
+  %48 = call i64 @je_pa_shard_ndirty(ptr noundef %47)
+  %49 = load i64, ptr %15, align 8, !tbaa !58
+  %50 = add i64 %49, %48
+  store i64 %50, ptr %15, align 8, !tbaa !58
+  %51 = load i64, ptr %15, align 8, !tbaa !58
+  %52 = shl i64 %51, 12
+  %53 = load ptr, ptr %14, align 8, !tbaa !64
+  %54 = load i64, ptr %53, align 8, !tbaa !58
+  %55 = add i64 %54, %52
+  store i64 %55, ptr %53, align 8, !tbaa !58
+  %56 = load ptr, ptr %10, align 8, !tbaa !66
+  %57 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %56, i32 0, i32 1
+  %58 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %8, align 8, !tbaa !4
+  %61 = load ptr, ptr %9, align 8, !tbaa !9
+  %62 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %61, i32 0, i32 4
+  %63 = getelementptr inbounds nuw %struct.pac_s, ptr %62, i32 0, i32 14
+  %64 = load ptr, ptr %63, align 8, !tbaa !79
+  %65 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %64, i32 0, i32 0
+  %66 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %65, i32 0, i32 0
+  %67 = call i64 @locked_read_u64(ptr noundef %60, ptr noundef null, ptr noundef %66)
+  call void @locked_inc_u64_unsynchronized(ptr noundef %59, i64 noundef %67)
+  %68 = load ptr, ptr %10, align 8, !tbaa !66
+  %69 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %68, i32 0, i32 1
+  %70 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %8, align 8, !tbaa !4
+  %73 = load ptr, ptr %9, align 8, !tbaa !9
+  %74 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %73, i32 0, i32 4
+  %75 = getelementptr inbounds nuw %struct.pac_s, ptr %74, i32 0, i32 14
+  %76 = load ptr, ptr %75, align 8, !tbaa !79
+  %77 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %77, i32 0, i32 1
+  %79 = call i64 @locked_read_u64(ptr noundef %72, ptr noundef null, ptr noundef %78)
+  call void @locked_inc_u64_unsynchronized(ptr noundef %71, i64 noundef %79)
+  %80 = load ptr, ptr %10, align 8, !tbaa !66
+  %81 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %80, i32 0, i32 1
+  %82 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %81, i32 0, i32 0
+  %83 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %8, align 8, !tbaa !4
+  %85 = load ptr, ptr %9, align 8, !tbaa !9
+  %86 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %85, i32 0, i32 4
+  %87 = getelementptr inbounds nuw %struct.pac_s, ptr %86, i32 0, i32 14
+  %88 = load ptr, ptr %87, align 8, !tbaa !79
+  %89 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %89, i32 0, i32 2
+  %91 = call i64 @locked_read_u64(ptr noundef %84, ptr noundef null, ptr noundef %90)
+  call void @locked_inc_u64_unsynchronized(ptr noundef %83, i64 noundef %91)
+  %92 = load ptr, ptr %10, align 8, !tbaa !66
+  %93 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %92, i32 0, i32 1
+  %94 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %93, i32 0, i32 1
+  %95 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %8, align 8, !tbaa !4
+  %97 = load ptr, ptr %9, align 8, !tbaa !9
+  %98 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %97, i32 0, i32 4
+  %99 = getelementptr inbounds nuw %struct.pac_s, ptr %98, i32 0, i32 14
+  %100 = load ptr, ptr %99, align 8, !tbaa !79
+  %101 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %100, i32 0, i32 1
+  %102 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %101, i32 0, i32 0
+  %103 = call i64 @locked_read_u64(ptr noundef %96, ptr noundef null, ptr noundef %102)
+  call void @locked_inc_u64_unsynchronized(ptr noundef %95, i64 noundef %103)
+  %104 = load ptr, ptr %10, align 8, !tbaa !66
+  %105 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %104, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %105, i32 0, i32 1
+  %107 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %8, align 8, !tbaa !4
+  %109 = load ptr, ptr %9, align 8, !tbaa !9
+  %110 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %109, i32 0, i32 4
+  %111 = getelementptr inbounds nuw %struct.pac_s, ptr %110, i32 0, i32 14
+  %112 = load ptr, ptr %111, align 8, !tbaa !79
+  %113 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %112, i32 0, i32 1
+  %114 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %113, i32 0, i32 1
+  %115 = call i64 @locked_read_u64(ptr noundef %108, ptr noundef null, ptr noundef %114)
+  call void @locked_inc_u64_unsynchronized(ptr noundef %107, i64 noundef %115)
+  %116 = load ptr, ptr %10, align 8, !tbaa !66
+  %117 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %116, i32 0, i32 1
+  %118 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %117, i32 0, i32 1
+  %119 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %118, i32 0, i32 2
+  %120 = load ptr, ptr %8, align 8, !tbaa !4
+  %121 = load ptr, ptr %9, align 8, !tbaa !9
+  %122 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %121, i32 0, i32 4
+  %123 = getelementptr inbounds nuw %struct.pac_s, ptr %122, i32 0, i32 14
+  %124 = load ptr, ptr %123, align 8, !tbaa !79
+  %125 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %124, i32 0, i32 1
+  %126 = getelementptr inbounds nuw %struct.pac_decay_stats_s, ptr %125, i32 0, i32 2
+  %127 = call i64 @locked_read_u64(ptr noundef %120, ptr noundef null, ptr noundef %126)
+  call void @locked_inc_u64_unsynchronized(ptr noundef %119, i64 noundef %127)
+  %128 = load ptr, ptr %10, align 8, !tbaa !66
+  %129 = getelementptr inbounds nuw %struct.pa_shard_stats_s, ptr %128, i32 0, i32 1
+  %130 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %129, i32 0, i32 4
+  %131 = load ptr, ptr %9, align 8, !tbaa !9
+  %132 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %131, i32 0, i32 4
+  %133 = getelementptr inbounds nuw %struct.pac_s, ptr %132, i32 0, i32 14
+  %134 = load ptr, ptr %133, align 8, !tbaa !79
+  %135 = getelementptr inbounds nuw %struct.pac_stats_s, ptr %134, i32 0, i32 4
+  %136 = call i64 @atomic_load_zu(ptr noundef %135, i32 noundef 0)
+  call void @atomic_load_add_store_zu(ptr noundef %130, i64 noundef %136)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  store i32 0, ptr %16, align 4, !tbaa !57
+  br label %137
+
+137:                                              ; preds = %209, %24
+  %138 = load i32, ptr %16, align 4, !tbaa !57
+  %139 = zext i32 %138 to i64
+  %140 = icmp ult i64 %139, 199
+  br i1 %140, label %142, label %141
+
+141:                                              ; preds = %137
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  br label %212
+
+142:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %143 = load ptr, ptr %9, align 8, !tbaa !9
+  %144 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %143, i32 0, i32 4
+  %145 = getelementptr inbounds nuw %struct.pac_s, ptr %144, i32 0, i32 1
+  %146 = load i32, ptr %16, align 4, !tbaa !57
+  %147 = call i64 @ecache_nextents_get(ptr noundef %145, i32 noundef %146)
+  store i64 %147, ptr %17, align 8, !tbaa !58
+  %148 = load ptr, ptr %9, align 8, !tbaa !9
+  %149 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %148, i32 0, i32 4
+  %150 = getelementptr inbounds nuw %struct.pac_s, ptr %149, i32 0, i32 2
+  %151 = load i32, ptr %16, align 4, !tbaa !57
+  %152 = call i64 @ecache_nextents_get(ptr noundef %150, i32 noundef %151)
+  store i64 %152, ptr %18, align 8, !tbaa !58
+  %153 = load ptr, ptr %9, align 8, !tbaa !9
+  %154 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %153, i32 0, i32 4
+  %155 = getelementptr inbounds nuw %struct.pac_s, ptr %154, i32 0, i32 3
+  %156 = load i32, ptr %16, align 4, !tbaa !57
+  %157 = call i64 @ecache_nextents_get(ptr noundef %155, i32 noundef %156)
+  store i64 %157, ptr %19, align 8, !tbaa !58
+  %158 = load ptr, ptr %9, align 8, !tbaa !9
+  %159 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %158, i32 0, i32 4
+  %160 = getelementptr inbounds nuw %struct.pac_s, ptr %159, i32 0, i32 1
+  %161 = load i32, ptr %16, align 4, !tbaa !57
+  %162 = call i64 @ecache_nbytes_get(ptr noundef %160, i32 noundef %161)
+  store i64 %162, ptr %20, align 8, !tbaa !58
+  %163 = load ptr, ptr %9, align 8, !tbaa !9
+  %164 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %163, i32 0, i32 4
+  %165 = getelementptr inbounds nuw %struct.pac_s, ptr %164, i32 0, i32 2
+  %166 = load i32, ptr %16, align 4, !tbaa !57
+  %167 = call i64 @ecache_nbytes_get(ptr noundef %165, i32 noundef %166)
+  store i64 %167, ptr %21, align 8, !tbaa !58
+  %168 = load ptr, ptr %9, align 8, !tbaa !9
+  %169 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %168, i32 0, i32 4
+  %170 = getelementptr inbounds nuw %struct.pac_s, ptr %169, i32 0, i32 3
+  %171 = load i32, ptr %16, align 4, !tbaa !57
+  %172 = call i64 @ecache_nbytes_get(ptr noundef %170, i32 noundef %171)
+  store i64 %172, ptr %22, align 8, !tbaa !58
+  %173 = load i64, ptr %17, align 8, !tbaa !58
+  %174 = load ptr, ptr %11, align 8, !tbaa !67
+  %175 = load i32, ptr %16, align 4, !tbaa !57
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %174, i64 %176
+  %178 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %177, i32 0, i32 0
+  store i64 %173, ptr %178, align 8, !tbaa !80
+  %179 = load i64, ptr %18, align 8, !tbaa !58
+  %180 = load ptr, ptr %11, align 8, !tbaa !67
+  %181 = load i32, ptr %16, align 4, !tbaa !57
+  %182 = zext i32 %181 to i64
+  %183 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %180, i64 %182
+  %184 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %183, i32 0, i32 2
+  store i64 %179, ptr %184, align 8, !tbaa !82
+  %185 = load i64, ptr %19, align 8, !tbaa !58
+  %186 = load ptr, ptr %11, align 8, !tbaa !67
+  %187 = load i32, ptr %16, align 4, !tbaa !57
+  %188 = zext i32 %187 to i64
+  %189 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %186, i64 %188
+  %190 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %189, i32 0, i32 4
+  store i64 %185, ptr %190, align 8, !tbaa !83
+  %191 = load i64, ptr %20, align 8, !tbaa !58
+  %192 = load ptr, ptr %11, align 8, !tbaa !67
+  %193 = load i32, ptr %16, align 4, !tbaa !57
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %192, i64 %194
+  %196 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %195, i32 0, i32 1
+  store i64 %191, ptr %196, align 8, !tbaa !84
+  %197 = load i64, ptr %21, align 8, !tbaa !58
+  %198 = load ptr, ptr %11, align 8, !tbaa !67
+  %199 = load i32, ptr %16, align 4, !tbaa !57
+  %200 = zext i32 %199 to i64
+  %201 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %198, i64 %200
+  %202 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %201, i32 0, i32 3
+  store i64 %197, ptr %202, align 8, !tbaa !85
+  %203 = load i64, ptr %22, align 8, !tbaa !58
+  %204 = load ptr, ptr %11, align 8, !tbaa !67
+  %205 = load i32, ptr %16, align 4, !tbaa !57
+  %206 = zext i32 %205 to i64
+  %207 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %204, i64 %206
+  %208 = getelementptr inbounds nuw %struct.pac_estats_s, ptr %207, i32 0, i32 5
+  store i64 %203, ptr %208, align 8, !tbaa !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %209
+
+209:                                              ; preds = %142
+  %210 = load i32, ptr %16, align 4, !tbaa !57
+  %211 = add i32 %210, 1
+  store i32 %211, ptr %16, align 4, !tbaa !57
+  br label %137, !llvm.loop !87
+
+212:                                              ; preds = %141
+  %213 = load ptr, ptr %9, align 8, !tbaa !9
+  %214 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %213, i32 0, i32 3
+  %215 = load i8, ptr %214, align 1, !tbaa !11, !range !54, !noundef !55
+  %216 = trunc i8 %215 to i1
+  br i1 %216, label %217, label %226
+
+217:                                              ; preds = %212
+  %218 = load ptr, ptr %8, align 8, !tbaa !4
+  %219 = load ptr, ptr %9, align 8, !tbaa !9
+  %220 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %219, i32 0, i32 6
+  %221 = load ptr, ptr %12, align 8, !tbaa !69
+  call void @je_hpa_shard_stats_merge(ptr noundef %218, ptr noundef %220, ptr noundef %221)
+  %222 = load ptr, ptr %8, align 8, !tbaa !4
+  %223 = load ptr, ptr %9, align 8, !tbaa !9
+  %224 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %223, i32 0, i32 5
+  %225 = load ptr, ptr %13, align 8, !tbaa !71
+  call void @je_sec_stats_merge(ptr noundef %222, ptr noundef %224, ptr noundef %225)
+  br label %226
+
+226:                                              ; preds = %217, %212
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @locked_inc_u64_unsynchronized(ptr noundef %0, i64 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store i64 %1, ptr %4, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !89
+  %7 = getelementptr inbounds nuw %struct.locked_u64_s, ptr %6, i32 0, i32 0
+  %8 = call i64 @atomic_load_u64(ptr noundef %7, i32 noundef 0)
+  store i64 %8, ptr %5, align 8, !tbaa !58
+  %9 = load ptr, ptr %3, align 8, !tbaa !89
+  %10 = getelementptr inbounds nuw %struct.locked_u64_s, ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %4, align 8, !tbaa !58
+  %12 = load i64, ptr %5, align 8, !tbaa !58
+  %13 = add i64 %11, %12
+  call void @atomic_store_u64(ptr noundef %10, i64 noundef %13, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @locked_read_u64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  br label %7
+
+7:                                                ; preds = %3
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %6, align 8, !tbaa !89
+  %10 = getelementptr inbounds nuw %struct.locked_u64_s, ptr %9, i32 0, i32 0
+  %11 = call i64 @atomic_load_u64(ptr noundef %10, i32 noundef 0)
+  ret i64 %11
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_load_add_store_zu(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i64 %1, ptr %4, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !56
+  %8 = call i64 @atomic_load_zu(ptr noundef %7, i32 noundef 0)
+  store i64 %8, ptr %5, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %9 = load i64, ptr %5, align 8, !tbaa !58
+  %10 = load i64, ptr %4, align 8, !tbaa !58
+  %11 = add i64 %9, %10
+  store i64 %11, ptr %6, align 8, !tbaa !58
+  %12 = load ptr, ptr %3, align 8, !tbaa !56
+  %13 = load i64, ptr %6, align 8, !tbaa !58
+  call void @atomic_store_zu(ptr noundef %12, i64 noundef %13, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ecache_nextents_get(ptr noundef %0, i32 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store i32 %1, ptr %4, align 4, !tbaa !57
+  %5 = load ptr, ptr %3, align 8, !tbaa !59
+  %6 = getelementptr inbounds nuw %struct.ecache_s, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %4, align 4, !tbaa !57
+  %8 = call i64 @je_eset_nextents_get(ptr noundef %6, i32 noundef %7)
+  %9 = load ptr, ptr %3, align 8, !tbaa !59
+  %10 = getelementptr inbounds nuw %struct.ecache_s, ptr %9, i32 0, i32 2
+  %11 = load i32, ptr %4, align 4, !tbaa !57
+  %12 = call i64 @je_eset_nextents_get(ptr noundef %10, i32 noundef %11)
+  %13 = add i64 %8, %12
+  ret i64 %13
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ecache_nbytes_get(ptr noundef %0, i32 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store i32 %1, ptr %4, align 4, !tbaa !57
+  %5 = load ptr, ptr %3, align 8, !tbaa !59
+  %6 = getelementptr inbounds nuw %struct.ecache_s, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %4, align 4, !tbaa !57
+  %8 = call i64 @je_eset_nbytes_get(ptr noundef %6, i32 noundef %7)
+  %9 = load ptr, ptr %3, align 8, !tbaa !59
+  %10 = getelementptr inbounds nuw %struct.ecache_s, ptr %9, i32 0, i32 2
+  %11 = load i32, ptr %4, align 4, !tbaa !57
+  %12 = call i64 @je_eset_nbytes_get(ptr noundef %10, i32 noundef %11)
+  %13 = add i64 %8, %12
+  ret i64 %13
+}
+
+declare void @je_hpa_shard_stats_merge(ptr noundef, ptr noundef, ptr noundef) #1
+
+declare void @je_sec_stats_merge(ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_pa_shard_mtx_stats_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = load ptr, ptr %6, align 8, !tbaa !56
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %9, i32 0, i32 7
+  %11 = getelementptr inbounds nuw %struct.edata_cache_s, ptr %10, i32 0, i32 2
+  call void @pa_shard_mtx_stats_read_single(ptr noundef %7, ptr noundef %8, ptr noundef %11, i32 noundef 1)
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load ptr, ptr %6, align 8, !tbaa !56
+  %14 = load ptr, ptr %5, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %14, i32 0, i32 4
+  %16 = getelementptr inbounds nuw %struct.pac_s, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.ecache_s, ptr %16, i32 0, i32 0
+  call void @pa_shard_mtx_stats_read_single(ptr noundef %12, ptr noundef %13, ptr noundef %17, i32 noundef 2)
+  %18 = load ptr, ptr %4, align 8, !tbaa !4
+  %19 = load ptr, ptr %6, align 8, !tbaa !56
+  %20 = load ptr, ptr %5, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %20, i32 0, i32 4
+  %22 = getelementptr inbounds nuw %struct.pac_s, ptr %21, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %struct.ecache_s, ptr %22, i32 0, i32 0
+  call void @pa_shard_mtx_stats_read_single(ptr noundef %18, ptr noundef %19, ptr noundef %23, i32 noundef 3)
+  %24 = load ptr, ptr %4, align 8, !tbaa !4
+  %25 = load ptr, ptr %6, align 8, !tbaa !56
+  %26 = load ptr, ptr %5, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %26, i32 0, i32 4
+  %28 = getelementptr inbounds nuw %struct.pac_s, ptr %27, i32 0, i32 3
+  %29 = getelementptr inbounds nuw %struct.ecache_s, ptr %28, i32 0, i32 0
+  call void @pa_shard_mtx_stats_read_single(ptr noundef %24, ptr noundef %25, ptr noundef %29, i32 noundef 4)
+  %30 = load ptr, ptr %4, align 8, !tbaa !4
+  %31 = load ptr, ptr %6, align 8, !tbaa !56
+  %32 = load ptr, ptr %5, align 8, !tbaa !9
+  %33 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %32, i32 0, i32 4
+  %34 = getelementptr inbounds nuw %struct.pac_s, ptr %33, i32 0, i32 11
+  %35 = getelementptr inbounds nuw %struct.decay_s, ptr %34, i32 0, i32 0
+  call void @pa_shard_mtx_stats_read_single(ptr noundef %30, ptr noundef %31, ptr noundef %35, i32 noundef 5)
+  %36 = load ptr, ptr %4, align 8, !tbaa !4
+  %37 = load ptr, ptr %6, align 8, !tbaa !56
+  %38 = load ptr, ptr %5, align 8, !tbaa !9
+  %39 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %38, i32 0, i32 4
+  %40 = getelementptr inbounds nuw %struct.pac_s, ptr %39, i32 0, i32 12
+  %41 = getelementptr inbounds nuw %struct.decay_s, ptr %40, i32 0, i32 0
+  call void @pa_shard_mtx_stats_read_single(ptr noundef %36, ptr noundef %37, ptr noundef %41, i32 noundef 6)
+  %42 = load ptr, ptr %5, align 8, !tbaa !9
+  %43 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %42, i32 0, i32 3
+  %44 = load i8, ptr %43, align 1, !tbaa !11, !range !54, !noundef !55
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %62
+
+46:                                               ; preds = %3
+  %47 = load ptr, ptr %4, align 8, !tbaa !4
+  %48 = load ptr, ptr %6, align 8, !tbaa !56
+  %49 = load ptr, ptr %5, align 8, !tbaa !9
+  %50 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %49, i32 0, i32 6
+  %51 = getelementptr inbounds nuw %struct.hpa_shard_s, ptr %50, i32 0, i32 2
+  call void @pa_shard_mtx_stats_read_single(ptr noundef %47, ptr noundef %48, ptr noundef %51, i32 noundef 9)
+  %52 = load ptr, ptr %4, align 8, !tbaa !4
+  %53 = load ptr, ptr %6, align 8, !tbaa !56
+  %54 = load ptr, ptr %5, align 8, !tbaa !9
+  %55 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %54, i32 0, i32 6
+  %56 = getelementptr inbounds nuw %struct.hpa_shard_s, ptr %55, i32 0, i32 3
+  call void @pa_shard_mtx_stats_read_single(ptr noundef %52, ptr noundef %53, ptr noundef %56, i32 noundef 10)
+  %57 = load ptr, ptr %4, align 8, !tbaa !4
+  %58 = load ptr, ptr %5, align 8, !tbaa !9
+  %59 = getelementptr inbounds nuw %struct.pa_shard_s, ptr %58, i32 0, i32 5
+  %60 = load ptr, ptr %6, align 8, !tbaa !56
+  %61 = getelementptr inbounds %struct.mutex_prof_data_t, ptr %60, i64 11
+  call void @je_sec_mutex_stats_read(ptr noundef %57, ptr noundef %59, ptr noundef %61)
+  br label %62
+
+62:                                               ; preds = %46, %3
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @pa_shard_mtx_stats_read_single(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !56
+  store ptr %2, ptr %7, align 8, !tbaa !91
+  store i32 %3, ptr %8, align 4, !tbaa !57
+  %9 = load ptr, ptr %5, align 8, !tbaa !4
+  %10 = load ptr, ptr %7, align 8, !tbaa !91
+  call void @malloc_mutex_lock(ptr noundef %9, ptr noundef %10)
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = load ptr, ptr %6, align 8, !tbaa !56
+  %13 = load i32, ptr %8, align 4, !tbaa !57
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds %struct.mutex_prof_data_t, ptr %12, i64 %14
+  %16 = load ptr, ptr %7, align 8, !tbaa !91
+  call void @malloc_mutex_prof_read(ptr noundef %11, ptr noundef %15, ptr noundef %16)
+  %17 = load ptr, ptr %5, align 8, !tbaa !4
+  %18 = load ptr, ptr %7, align 8, !tbaa !91
+  call void @malloc_mutex_unlock(ptr noundef %17, ptr noundef %18)
+  ret void
+}
+
+declare void @je_sec_mutex_stats_read(ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @atomic_enum_to_builtin(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !57
+  %4 = load i32, ptr %3, align 4, !tbaa !57
+  switch i32 %4, label %10 [
+    i32 0, label %5
+    i32 1, label %6
+    i32 2, label %7
+    i32 3, label %8
+    i32 4, label %9
+  ]
+
+5:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %12
+
+6:                                                ; preds = %1
+  store i32 2, ptr %2, align 4
+  br label %12
+
+7:                                                ; preds = %1
+  store i32 3, ptr %2, align 4
+  br label %12
+
+8:                                                ; preds = %1
+  store i32 4, ptr %2, align 4
+  br label %12
+
+9:                                                ; preds = %1
+  store i32 5, ptr %2, align 4
+  br label %12
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
   unreachable
 
-atomic_enum_to_builtin.exit:                      ; preds = %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %4 = load i32, ptr %retval.i, align 4
-  switch i32 %4, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
+12:                                               ; preds = %5, %6, %7, %8, %9
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
+}
+
+declare i64 @je_eset_npages_get(ptr noundef) #1
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @atomic_load_u64(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i32 %1, ptr %4, align 4, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !56
+  %7 = getelementptr inbounds nuw %struct.atomic_u64_t, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %4, align 4, !tbaa !57
+  %9 = call i32 @atomic_enum_to_builtin(i32 noundef %8)
+  switch i32 %9, label %10 [
+    i32 1, label %12
+    i32 2, label %12
+    i32 5, label %14
   ]
 
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit
-  %5 = load atomic i64, ptr %1 monotonic, align 8
-  store i64 %5, ptr %result.i, align 8
-  br label %atomic_load_zu.exit
+10:                                               ; preds = %2
+  %11 = load atomic i64, ptr %7 monotonic, align 8
+  store i64 %11, ptr %5, align 8
+  br label %16
 
-acquire.i:                                        ; preds = %atomic_enum_to_builtin.exit, %atomic_enum_to_builtin.exit
-  %6 = load atomic i64, ptr %1 acquire, align 8
-  store i64 %6, ptr %result.i, align 8
-  br label %atomic_load_zu.exit
+12:                                               ; preds = %2, %2
+  %13 = load atomic i64, ptr %7 acquire, align 8
+  store i64 %13, ptr %5, align 8
+  br label %16
 
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit
-  %7 = load atomic i64, ptr %1 seq_cst, align 8
-  store i64 %7, ptr %result.i, align 8
-  br label %atomic_load_zu.exit
+14:                                               ; preds = %2
+  %15 = load atomic i64, ptr %7 seq_cst, align 8
+  store i64 %15, ptr %5, align 8
+  br label %16
 
-atomic_load_zu.exit:                              ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %8 = load i64, ptr %result.i, align 8
-  %9 = load ptr, ptr %nactive.addr, align 8
-  %10 = load i64, ptr %9, align 8
-  %add = add i64 %10, %8
-  store i64 %add, ptr %9, align 8
-  %11 = load ptr, ptr %shard.addr, align 8
-  %pac = getelementptr inbounds %struct.pa_shard_s, ptr %11, i32 0, i32 4
-  %ecache_dirty = getelementptr inbounds %struct.pac_s, ptr %pac, i32 0, i32 1
-  %call2 = call i64 @ecache_npages_get(ptr noundef %ecache_dirty)
-  %12 = load ptr, ptr %ndirty.addr, align 8
-  %13 = load i64, ptr %12, align 8
-  %add3 = add i64 %13, %call2
-  store i64 %add3, ptr %12, align 8
-  %14 = load ptr, ptr %shard.addr, align 8
-  %pac4 = getelementptr inbounds %struct.pa_shard_s, ptr %14, i32 0, i32 4
-  %ecache_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac4, i32 0, i32 2
-  %call5 = call i64 @ecache_npages_get(ptr noundef %ecache_muzzy)
-  %15 = load ptr, ptr %nmuzzy.addr, align 8
-  %16 = load i64, ptr %15, align 8
-  %add6 = add i64 %16, %call5
-  store i64 %add6, ptr %15, align 8
+16:                                               ; preds = %14, %12, %10
+  %17 = load i64, ptr %5, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret i64 %17
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_store_u64(ptr noundef %0, i64 noundef %1, i32 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store i64 %1, ptr %5, align 8, !tbaa !58
+  store i32 %2, ptr %6, align 4, !tbaa !57
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = getelementptr inbounds nuw %struct.atomic_u64_t, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %6, align 4, !tbaa !57
+  %10 = call i32 @atomic_enum_to_builtin(i32 noundef %9)
+  switch i32 %10, label %11 [
+    i32 3, label %13
+    i32 5, label %15
+  ]
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  store atomic i64 %12, ptr %8 monotonic, align 8
+  br label %17
+
+13:                                               ; preds = %3
+  %14 = load i64, ptr %5, align 8
+  store atomic i64 %14, ptr %8 release, align 8
+  br label %17
+
+15:                                               ; preds = %3
+  %16 = load i64, ptr %5, align 8
+  store atomic i64 %16, ptr %8 seq_cst, align 8
+  br label %17
+
+17:                                               ; preds = %15, %13, %11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ecache_npages_get(ptr noundef %ecache) #0 {
-entry:
-  %ecache.addr = alloca ptr, align 8
-  store ptr %ecache, ptr %ecache.addr, align 8
-  %0 = load ptr, ptr %ecache.addr, align 8
-  %eset = getelementptr inbounds %struct.ecache_s, ptr %0, i32 0, i32 1
-  %call = call i64 @eset_npages_get(ptr noundef %eset)
-  %1 = load ptr, ptr %ecache.addr, align 8
-  %guarded_eset = getelementptr inbounds %struct.ecache_s, ptr %1, i32 0, i32 2
-  %call1 = call i64 @eset_npages_get(ptr noundef %guarded_eset)
-  %add = add i64 %call, %call1
-  ret i64 %add
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_stats_merge(ptr noundef %tsdn, ptr noundef %shard, ptr noundef %pa_shard_stats_out, ptr noundef %estats_out, ptr noundef %hpa_stats_out, ptr noundef %sec_stats_out, ptr noundef %resident) #0 {
-entry:
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i134 = alloca i32, align 4
-  %a.addr.i135 = alloca ptr, align 8
-  %val.addr.i = alloca i64, align 8
-  %mo.addr.i136 = alloca i32, align 4
-  %retval.i125 = alloca i32, align 4
-  %mo.addr.i126 = alloca i32, align 4
-  %retval.i116 = alloca i32, align 4
-  %mo.addr.i117 = alloca i32, align 4
-  %retval.i107 = alloca i32, align 4
-  %mo.addr.i108 = alloca i32, align 4
-  %retval.i = alloca i32, align 4
-  %mo.addr.i106 = alloca i32, align 4
-  %a.addr.i.i = alloca ptr, align 8
-  %mo.addr.i.i = alloca i32, align 4
-  %result.i.i = alloca i64, align 8
-  %a.addr.i105 = alloca ptr, align 8
-  %inc.addr.i = alloca i64, align 8
-  %oldval.i = alloca i64, align 8
-  %newval.i = alloca i64, align 8
-  %a.addr.i97 = alloca ptr, align 8
-  %mo.addr.i98 = alloca i32, align 4
-  %result.i99 = alloca i64, align 8
-  %a.addr.i89 = alloca ptr, align 8
-  %mo.addr.i90 = alloca i32, align 4
-  %result.i91 = alloca i64, align 8
-  %a.addr.i = alloca ptr, align 8
-  %mo.addr.i = alloca i32, align 4
-  %result.i = alloca i64, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  %pa_shard_stats_out.addr = alloca ptr, align 8
-  %estats_out.addr = alloca ptr, align 8
-  %hpa_stats_out.addr = alloca ptr, align 8
-  %sec_stats_out.addr = alloca ptr, align 8
-  %resident.addr = alloca ptr, align 8
-  %resident_pgs = alloca i64, align 8
-  %i = alloca i32, align 4
-  %dirty = alloca i64, align 8
-  %muzzy = alloca i64, align 8
-  %retained58 = alloca i64, align 8
-  %dirty_bytes = alloca i64, align 8
-  %muzzy_bytes = alloca i64, align 8
-  %retained_bytes = alloca i64, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  store ptr %pa_shard_stats_out, ptr %pa_shard_stats_out.addr, align 8
-  store ptr %estats_out, ptr %estats_out.addr, align 8
-  store ptr %hpa_stats_out, ptr %hpa_stats_out.addr, align 8
-  store ptr %sec_stats_out, ptr %sec_stats_out.addr, align 8
-  store ptr %resident, ptr %resident.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %shard.addr, align 8
-  %pac = getelementptr inbounds %struct.pa_shard_s, ptr %0, i32 0, i32 4
-  %ecache_retained = getelementptr inbounds %struct.pac_s, ptr %pac, i32 0, i32 3
-  %call = call i64 @ecache_npages_get(ptr noundef %ecache_retained)
-  %shl = shl i64 %call, 12
-  %1 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %pac_stats = getelementptr inbounds %struct.pa_shard_stats_s, ptr %1, i32 0, i32 1
-  %retained = getelementptr inbounds %struct.pac_stats_s, ptr %pac_stats, i32 0, i32 2
-  %2 = load i64, ptr %retained, align 8
-  %add = add i64 %2, %shl
-  store i64 %add, ptr %retained, align 8
-  %3 = load ptr, ptr %shard.addr, align 8
-  %edata_cache = getelementptr inbounds %struct.pa_shard_s, ptr %3, i32 0, i32 7
-  %count = getelementptr inbounds %struct.edata_cache_s, ptr %edata_cache, i32 0, i32 1
-  store ptr %count, ptr %a.addr.i97, align 8
-  store i32 0, ptr %mo.addr.i98, align 4
-  %4 = load ptr, ptr %a.addr.i97, align 8
-  %5 = load i32, ptr %mo.addr.i98, align 4
-  store i32 %5, ptr %mo.addr.i108, align 4
-  %6 = load i32, ptr %mo.addr.i108, align 4
-  switch i32 %6, label %sw.epilog.i114 [
-    i32 0, label %sw.bb.i113
-    i32 1, label %sw.bb1.i112
-    i32 2, label %sw.bb2.i111
-    i32 3, label %sw.bb3.i110
-    i32 4, label %sw.bb4.i109
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_store_zu(ptr noundef %0, i64 noundef %1, i32 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store i64 %1, ptr %5, align 8, !tbaa !58
+  store i32 %2, ptr %6, align 4, !tbaa !57
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %6, align 4, !tbaa !57
+  %10 = call i32 @atomic_enum_to_builtin(i32 noundef %9)
+  switch i32 %10, label %11 [
+    i32 3, label %13
+    i32 5, label %15
   ]
 
-sw.bb.i113:                                       ; preds = %do.end
-  store i32 0, ptr %retval.i107, align 4
-  br label %atomic_enum_to_builtin.exit115
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  store atomic i64 %12, ptr %8 monotonic, align 8
+  br label %17
 
-sw.bb1.i112:                                      ; preds = %do.end
-  store i32 2, ptr %retval.i107, align 4
-  br label %atomic_enum_to_builtin.exit115
+13:                                               ; preds = %3
+  %14 = load i64, ptr %5, align 8
+  store atomic i64 %14, ptr %8 release, align 8
+  br label %17
 
-sw.bb2.i111:                                      ; preds = %do.end
-  store i32 3, ptr %retval.i107, align 4
-  br label %atomic_enum_to_builtin.exit115
+15:                                               ; preds = %3
+  %16 = load i64, ptr %5, align 8
+  store atomic i64 %16, ptr %8 seq_cst, align 8
+  br label %17
 
-sw.bb3.i110:                                      ; preds = %do.end
-  store i32 4, ptr %retval.i107, align 4
-  br label %atomic_enum_to_builtin.exit115
-
-sw.bb4.i109:                                      ; preds = %do.end
-  store i32 5, ptr %retval.i107, align 4
-  br label %atomic_enum_to_builtin.exit115
-
-sw.epilog.i114:                                   ; preds = %do.end
-  unreachable
-
-atomic_enum_to_builtin.exit115:                   ; preds = %sw.bb4.i109, %sw.bb3.i110, %sw.bb2.i111, %sw.bb1.i112, %sw.bb.i113
-  %7 = load i32, ptr %retval.i107, align 4
-  switch i32 %7, label %monotonic.i103 [
-    i32 1, label %acquire.i102
-    i32 2, label %acquire.i102
-    i32 5, label %seqcst.i101
-  ]
-
-monotonic.i103:                                   ; preds = %atomic_enum_to_builtin.exit115
-  %8 = load atomic i64, ptr %4 monotonic, align 8
-  store i64 %8, ptr %result.i99, align 8
-  br label %atomic_load_zu.exit104
-
-acquire.i102:                                     ; preds = %atomic_enum_to_builtin.exit115, %atomic_enum_to_builtin.exit115
-  %9 = load atomic i64, ptr %4 acquire, align 8
-  store i64 %9, ptr %result.i99, align 8
-  br label %atomic_load_zu.exit104
-
-seqcst.i101:                                      ; preds = %atomic_enum_to_builtin.exit115
-  %10 = load atomic i64, ptr %4 seq_cst, align 8
-  store i64 %10, ptr %result.i99, align 8
-  br label %atomic_load_zu.exit104
-
-atomic_load_zu.exit104:                           ; preds = %seqcst.i101, %acquire.i102, %monotonic.i103
-  %11 = load i64, ptr %result.i99, align 8
-  %12 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %edata_avail = getelementptr inbounds %struct.pa_shard_stats_s, ptr %12, i32 0, i32 0
-  %13 = load i64, ptr %edata_avail, align 8
-  %add2 = add i64 %13, %11
-  store i64 %add2, ptr %edata_avail, align 8
-  store i64 0, ptr %resident_pgs, align 8
-  %14 = load ptr, ptr %shard.addr, align 8
-  %nactive = getelementptr inbounds %struct.pa_shard_s, ptr %14, i32 0, i32 1
-  store ptr %nactive, ptr %a.addr.i89, align 8
-  store i32 0, ptr %mo.addr.i90, align 4
-  %15 = load ptr, ptr %a.addr.i89, align 8
-  %16 = load i32, ptr %mo.addr.i90, align 4
-  store i32 %16, ptr %mo.addr.i117, align 4
-  %17 = load i32, ptr %mo.addr.i117, align 4
-  switch i32 %17, label %sw.epilog.i123 [
-    i32 0, label %sw.bb.i122
-    i32 1, label %sw.bb1.i121
-    i32 2, label %sw.bb2.i120
-    i32 3, label %sw.bb3.i119
-    i32 4, label %sw.bb4.i118
-  ]
-
-sw.bb.i122:                                       ; preds = %atomic_load_zu.exit104
-  store i32 0, ptr %retval.i116, align 4
-  br label %atomic_enum_to_builtin.exit124
-
-sw.bb1.i121:                                      ; preds = %atomic_load_zu.exit104
-  store i32 2, ptr %retval.i116, align 4
-  br label %atomic_enum_to_builtin.exit124
-
-sw.bb2.i120:                                      ; preds = %atomic_load_zu.exit104
-  store i32 3, ptr %retval.i116, align 4
-  br label %atomic_enum_to_builtin.exit124
-
-sw.bb3.i119:                                      ; preds = %atomic_load_zu.exit104
-  store i32 4, ptr %retval.i116, align 4
-  br label %atomic_enum_to_builtin.exit124
-
-sw.bb4.i118:                                      ; preds = %atomic_load_zu.exit104
-  store i32 5, ptr %retval.i116, align 4
-  br label %atomic_enum_to_builtin.exit124
-
-sw.epilog.i123:                                   ; preds = %atomic_load_zu.exit104
-  unreachable
-
-atomic_enum_to_builtin.exit124:                   ; preds = %sw.bb4.i118, %sw.bb3.i119, %sw.bb2.i120, %sw.bb1.i121, %sw.bb.i122
-  %18 = load i32, ptr %retval.i116, align 4
-  switch i32 %18, label %monotonic.i95 [
-    i32 1, label %acquire.i94
-    i32 2, label %acquire.i94
-    i32 5, label %seqcst.i93
-  ]
-
-monotonic.i95:                                    ; preds = %atomic_enum_to_builtin.exit124
-  %19 = load atomic i64, ptr %15 monotonic, align 8
-  store i64 %19, ptr %result.i91, align 8
-  br label %atomic_load_zu.exit96
-
-acquire.i94:                                      ; preds = %atomic_enum_to_builtin.exit124, %atomic_enum_to_builtin.exit124
-  %20 = load atomic i64, ptr %15 acquire, align 8
-  store i64 %20, ptr %result.i91, align 8
-  br label %atomic_load_zu.exit96
-
-seqcst.i93:                                       ; preds = %atomic_enum_to_builtin.exit124
-  %21 = load atomic i64, ptr %15 seq_cst, align 8
-  store i64 %21, ptr %result.i91, align 8
-  br label %atomic_load_zu.exit96
-
-atomic_load_zu.exit96:                            ; preds = %seqcst.i93, %acquire.i94, %monotonic.i95
-  %22 = load i64, ptr %result.i91, align 8
-  %23 = load i64, ptr %resident_pgs, align 8
-  %add4 = add i64 %23, %22
-  store i64 %add4, ptr %resident_pgs, align 8
-  %24 = load ptr, ptr %shard.addr, align 8
-  %pac5 = getelementptr inbounds %struct.pa_shard_s, ptr %24, i32 0, i32 4
-  %ecache_dirty = getelementptr inbounds %struct.pac_s, ptr %pac5, i32 0, i32 1
-  %call6 = call i64 @ecache_npages_get(ptr noundef %ecache_dirty)
-  %25 = load i64, ptr %resident_pgs, align 8
-  %add7 = add i64 %25, %call6
-  store i64 %add7, ptr %resident_pgs, align 8
-  %26 = load i64, ptr %resident_pgs, align 8
-  %shl8 = shl i64 %26, 12
-  %27 = load ptr, ptr %resident.addr, align 8
-  %28 = load i64, ptr %27, align 8
-  %add9 = add i64 %28, %shl8
-  store i64 %add9, ptr %27, align 8
-  %29 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %pac_stats10 = getelementptr inbounds %struct.pa_shard_stats_s, ptr %29, i32 0, i32 1
-  %decay_dirty = getelementptr inbounds %struct.pac_stats_s, ptr %pac_stats10, i32 0, i32 0
-  %npurge = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_dirty, i32 0, i32 0
-  %30 = load ptr, ptr %tsdn.addr, align 8
-  %31 = load ptr, ptr %shard.addr, align 8
-  %pac11 = getelementptr inbounds %struct.pa_shard_s, ptr %31, i32 0, i32 4
-  %stats = getelementptr inbounds %struct.pac_s, ptr %pac11, i32 0, i32 14
-  %32 = load ptr, ptr %stats, align 8
-  %decay_dirty12 = getelementptr inbounds %struct.pac_stats_s, ptr %32, i32 0, i32 0
-  %npurge13 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_dirty12, i32 0, i32 0
-  %call14 = call i64 @locked_read_u64(ptr noundef %30, ptr noundef null, ptr noundef %npurge13)
-  call void @locked_inc_u64_unsynchronized(ptr noundef %npurge, i64 noundef %call14)
-  %33 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %pac_stats15 = getelementptr inbounds %struct.pa_shard_stats_s, ptr %33, i32 0, i32 1
-  %decay_dirty16 = getelementptr inbounds %struct.pac_stats_s, ptr %pac_stats15, i32 0, i32 0
-  %nmadvise = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_dirty16, i32 0, i32 1
-  %34 = load ptr, ptr %tsdn.addr, align 8
-  %35 = load ptr, ptr %shard.addr, align 8
-  %pac17 = getelementptr inbounds %struct.pa_shard_s, ptr %35, i32 0, i32 4
-  %stats18 = getelementptr inbounds %struct.pac_s, ptr %pac17, i32 0, i32 14
-  %36 = load ptr, ptr %stats18, align 8
-  %decay_dirty19 = getelementptr inbounds %struct.pac_stats_s, ptr %36, i32 0, i32 0
-  %nmadvise20 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_dirty19, i32 0, i32 1
-  %call21 = call i64 @locked_read_u64(ptr noundef %34, ptr noundef null, ptr noundef %nmadvise20)
-  call void @locked_inc_u64_unsynchronized(ptr noundef %nmadvise, i64 noundef %call21)
-  %37 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %pac_stats22 = getelementptr inbounds %struct.pa_shard_stats_s, ptr %37, i32 0, i32 1
-  %decay_dirty23 = getelementptr inbounds %struct.pac_stats_s, ptr %pac_stats22, i32 0, i32 0
-  %purged = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_dirty23, i32 0, i32 2
-  %38 = load ptr, ptr %tsdn.addr, align 8
-  %39 = load ptr, ptr %shard.addr, align 8
-  %pac24 = getelementptr inbounds %struct.pa_shard_s, ptr %39, i32 0, i32 4
-  %stats25 = getelementptr inbounds %struct.pac_s, ptr %pac24, i32 0, i32 14
-  %40 = load ptr, ptr %stats25, align 8
-  %decay_dirty26 = getelementptr inbounds %struct.pac_stats_s, ptr %40, i32 0, i32 0
-  %purged27 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_dirty26, i32 0, i32 2
-  %call28 = call i64 @locked_read_u64(ptr noundef %38, ptr noundef null, ptr noundef %purged27)
-  call void @locked_inc_u64_unsynchronized(ptr noundef %purged, i64 noundef %call28)
-  %41 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %pac_stats29 = getelementptr inbounds %struct.pa_shard_stats_s, ptr %41, i32 0, i32 1
-  %decay_muzzy = getelementptr inbounds %struct.pac_stats_s, ptr %pac_stats29, i32 0, i32 1
-  %npurge30 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_muzzy, i32 0, i32 0
-  %42 = load ptr, ptr %tsdn.addr, align 8
-  %43 = load ptr, ptr %shard.addr, align 8
-  %pac31 = getelementptr inbounds %struct.pa_shard_s, ptr %43, i32 0, i32 4
-  %stats32 = getelementptr inbounds %struct.pac_s, ptr %pac31, i32 0, i32 14
-  %44 = load ptr, ptr %stats32, align 8
-  %decay_muzzy33 = getelementptr inbounds %struct.pac_stats_s, ptr %44, i32 0, i32 1
-  %npurge34 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_muzzy33, i32 0, i32 0
-  %call35 = call i64 @locked_read_u64(ptr noundef %42, ptr noundef null, ptr noundef %npurge34)
-  call void @locked_inc_u64_unsynchronized(ptr noundef %npurge30, i64 noundef %call35)
-  %45 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %pac_stats36 = getelementptr inbounds %struct.pa_shard_stats_s, ptr %45, i32 0, i32 1
-  %decay_muzzy37 = getelementptr inbounds %struct.pac_stats_s, ptr %pac_stats36, i32 0, i32 1
-  %nmadvise38 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_muzzy37, i32 0, i32 1
-  %46 = load ptr, ptr %tsdn.addr, align 8
-  %47 = load ptr, ptr %shard.addr, align 8
-  %pac39 = getelementptr inbounds %struct.pa_shard_s, ptr %47, i32 0, i32 4
-  %stats40 = getelementptr inbounds %struct.pac_s, ptr %pac39, i32 0, i32 14
-  %48 = load ptr, ptr %stats40, align 8
-  %decay_muzzy41 = getelementptr inbounds %struct.pac_stats_s, ptr %48, i32 0, i32 1
-  %nmadvise42 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_muzzy41, i32 0, i32 1
-  %call43 = call i64 @locked_read_u64(ptr noundef %46, ptr noundef null, ptr noundef %nmadvise42)
-  call void @locked_inc_u64_unsynchronized(ptr noundef %nmadvise38, i64 noundef %call43)
-  %49 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %pac_stats44 = getelementptr inbounds %struct.pa_shard_stats_s, ptr %49, i32 0, i32 1
-  %decay_muzzy45 = getelementptr inbounds %struct.pac_stats_s, ptr %pac_stats44, i32 0, i32 1
-  %purged46 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_muzzy45, i32 0, i32 2
-  %50 = load ptr, ptr %tsdn.addr, align 8
-  %51 = load ptr, ptr %shard.addr, align 8
-  %pac47 = getelementptr inbounds %struct.pa_shard_s, ptr %51, i32 0, i32 4
-  %stats48 = getelementptr inbounds %struct.pac_s, ptr %pac47, i32 0, i32 14
-  %52 = load ptr, ptr %stats48, align 8
-  %decay_muzzy49 = getelementptr inbounds %struct.pac_stats_s, ptr %52, i32 0, i32 1
-  %purged50 = getelementptr inbounds %struct.pac_decay_stats_s, ptr %decay_muzzy49, i32 0, i32 2
-  %call51 = call i64 @locked_read_u64(ptr noundef %50, ptr noundef null, ptr noundef %purged50)
-  call void @locked_inc_u64_unsynchronized(ptr noundef %purged46, i64 noundef %call51)
-  %53 = load ptr, ptr %pa_shard_stats_out.addr, align 8
-  %pac_stats52 = getelementptr inbounds %struct.pa_shard_stats_s, ptr %53, i32 0, i32 1
-  %abandoned_vm = getelementptr inbounds %struct.pac_stats_s, ptr %pac_stats52, i32 0, i32 4
-  %54 = load ptr, ptr %shard.addr, align 8
-  %pac53 = getelementptr inbounds %struct.pa_shard_s, ptr %54, i32 0, i32 4
-  %stats54 = getelementptr inbounds %struct.pac_s, ptr %pac53, i32 0, i32 14
-  %55 = load ptr, ptr %stats54, align 8
-  %abandoned_vm55 = getelementptr inbounds %struct.pac_stats_s, ptr %55, i32 0, i32 4
-  store ptr %abandoned_vm55, ptr %a.addr.i, align 8
-  store i32 0, ptr %mo.addr.i, align 4
-  %56 = load ptr, ptr %a.addr.i, align 8
-  %57 = load i32, ptr %mo.addr.i, align 4
-  store i32 %57, ptr %mo.addr.i126, align 4
-  %58 = load i32, ptr %mo.addr.i126, align 4
-  switch i32 %58, label %sw.epilog.i132 [
-    i32 0, label %sw.bb.i131
-    i32 1, label %sw.bb1.i130
-    i32 2, label %sw.bb2.i129
-    i32 3, label %sw.bb3.i128
-    i32 4, label %sw.bb4.i127
-  ]
-
-sw.bb.i131:                                       ; preds = %atomic_load_zu.exit96
-  store i32 0, ptr %retval.i125, align 4
-  br label %atomic_enum_to_builtin.exit133
-
-sw.bb1.i130:                                      ; preds = %atomic_load_zu.exit96
-  store i32 2, ptr %retval.i125, align 4
-  br label %atomic_enum_to_builtin.exit133
-
-sw.bb2.i129:                                      ; preds = %atomic_load_zu.exit96
-  store i32 3, ptr %retval.i125, align 4
-  br label %atomic_enum_to_builtin.exit133
-
-sw.bb3.i128:                                      ; preds = %atomic_load_zu.exit96
-  store i32 4, ptr %retval.i125, align 4
-  br label %atomic_enum_to_builtin.exit133
-
-sw.bb4.i127:                                      ; preds = %atomic_load_zu.exit96
-  store i32 5, ptr %retval.i125, align 4
-  br label %atomic_enum_to_builtin.exit133
-
-sw.epilog.i132:                                   ; preds = %atomic_load_zu.exit96
-  unreachable
-
-atomic_enum_to_builtin.exit133:                   ; preds = %sw.bb4.i127, %sw.bb3.i128, %sw.bb2.i129, %sw.bb1.i130, %sw.bb.i131
-  %59 = load i32, ptr %retval.i125, align 4
-  switch i32 %59, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit133
-  %60 = load atomic i64, ptr %56 monotonic, align 8
-  store i64 %60, ptr %result.i, align 8
-  br label %atomic_load_zu.exit
-
-acquire.i:                                        ; preds = %atomic_enum_to_builtin.exit133, %atomic_enum_to_builtin.exit133
-  %61 = load atomic i64, ptr %56 acquire, align 8
-  store i64 %61, ptr %result.i, align 8
-  br label %atomic_load_zu.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit133
-  %62 = load atomic i64, ptr %56 seq_cst, align 8
-  store i64 %62, ptr %result.i, align 8
-  br label %atomic_load_zu.exit
-
-atomic_load_zu.exit:                              ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %63 = load i64, ptr %result.i, align 8
-  store ptr %abandoned_vm, ptr %a.addr.i105, align 8
-  store i64 %63, ptr %inc.addr.i, align 8
-  %64 = load ptr, ptr %a.addr.i105, align 8
-  store ptr %64, ptr %a.addr.i.i, align 8
-  store i32 0, ptr %mo.addr.i.i, align 4
-  %65 = load ptr, ptr %a.addr.i.i, align 8
-  %66 = load i32, ptr %mo.addr.i.i, align 4
-  store i32 %66, ptr %mo.addr.i106, align 4
-  %67 = load i32, ptr %mo.addr.i106, align 4
-  switch i32 %67, label %sw.epilog.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
-  ]
-
-sw.bb.i:                                          ; preds = %atomic_load_zu.exit
-  store i32 0, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb1.i:                                         ; preds = %atomic_load_zu.exit
-  store i32 2, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb2.i:                                         ; preds = %atomic_load_zu.exit
-  store i32 3, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb3.i:                                         ; preds = %atomic_load_zu.exit
-  store i32 4, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb4.i:                                         ; preds = %atomic_load_zu.exit
-  store i32 5, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.epilog.i:                                      ; preds = %atomic_load_zu.exit
-  unreachable
-
-atomic_enum_to_builtin.exit:                      ; preds = %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %68 = load i32, ptr %retval.i, align 4
-  switch i32 %68, label %monotonic.i.i [
-    i32 1, label %acquire.i.i
-    i32 2, label %acquire.i.i
-    i32 5, label %seqcst.i.i
-  ]
-
-monotonic.i.i:                                    ; preds = %atomic_enum_to_builtin.exit
-  %69 = load atomic i64, ptr %65 monotonic, align 8
-  store i64 %69, ptr %result.i.i, align 8
-  br label %atomic_load_add_store_zu.exit
-
-acquire.i.i:                                      ; preds = %atomic_enum_to_builtin.exit, %atomic_enum_to_builtin.exit
-  %70 = load atomic i64, ptr %65 acquire, align 8
-  store i64 %70, ptr %result.i.i, align 8
-  br label %atomic_load_add_store_zu.exit
-
-seqcst.i.i:                                       ; preds = %atomic_enum_to_builtin.exit
-  %71 = load atomic i64, ptr %65 seq_cst, align 8
-  store i64 %71, ptr %result.i.i, align 8
-  br label %atomic_load_add_store_zu.exit
-
-atomic_load_add_store_zu.exit:                    ; preds = %seqcst.i.i, %acquire.i.i, %monotonic.i.i
-  %72 = load i64, ptr %result.i.i, align 8
-  store i64 %72, ptr %oldval.i, align 8
-  %73 = load i64, ptr %oldval.i, align 8
-  %74 = load i64, ptr %inc.addr.i, align 8
-  %add.i = add i64 %73, %74
-  store i64 %add.i, ptr %newval.i, align 8
-  %75 = load ptr, ptr %a.addr.i105, align 8
-  %76 = load i64, ptr %newval.i, align 8
-  store ptr %75, ptr %a.addr.i135, align 8
-  store i64 %76, ptr %val.addr.i, align 8
-  store i32 0, ptr %mo.addr.i136, align 4
-  %77 = load ptr, ptr %a.addr.i135, align 8
-  %78 = load i32, ptr %mo.addr.i136, align 4
-  store i32 %78, ptr %mo.addr.i.i134, align 4
-  %79 = load i32, ptr %mo.addr.i.i134, align 4
-  switch i32 %79, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %atomic_load_add_store_zu.exit
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb1.i.i:                                       ; preds = %atomic_load_add_store_zu.exit
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %atomic_load_add_store_zu.exit
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %atomic_load_add_store_zu.exit
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %atomic_load_add_store_zu.exit
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %atomic_load_add_store_zu.exit
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %80 = load i32, ptr %retval.i.i, align 4
-  switch i32 %80, label %monotonic.i138 [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i137
-  ]
-
-monotonic.i138:                                   ; preds = %atomic_enum_to_builtin.exit.i
-  %81 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %81, ptr %77 monotonic, align 8
-  br label %atomic_store_zu.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i
-  %82 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %82, ptr %77 release, align 8
-  br label %atomic_store_zu.exit
-
-seqcst.i137:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %83 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %83, ptr %77 seq_cst, align 8
-  br label %atomic_store_zu.exit
-
-atomic_store_zu.exit:                             ; preds = %seqcst.i137, %release.i, %monotonic.i138
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %atomic_store_zu.exit
-  %84 = load i32, ptr %i, align 4
-  %conv = zext i32 %84 to i64
-  %cmp = icmp ult i64 %conv, 199
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %85 = load ptr, ptr %shard.addr, align 8
-  %pac59 = getelementptr inbounds %struct.pa_shard_s, ptr %85, i32 0, i32 4
-  %ecache_dirty60 = getelementptr inbounds %struct.pac_s, ptr %pac59, i32 0, i32 1
-  %86 = load i32, ptr %i, align 4
-  %call61 = call i64 @ecache_nextents_get(ptr noundef %ecache_dirty60, i32 noundef %86)
-  store i64 %call61, ptr %dirty, align 8
-  %87 = load ptr, ptr %shard.addr, align 8
-  %pac62 = getelementptr inbounds %struct.pa_shard_s, ptr %87, i32 0, i32 4
-  %ecache_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac62, i32 0, i32 2
-  %88 = load i32, ptr %i, align 4
-  %call63 = call i64 @ecache_nextents_get(ptr noundef %ecache_muzzy, i32 noundef %88)
-  store i64 %call63, ptr %muzzy, align 8
-  %89 = load ptr, ptr %shard.addr, align 8
-  %pac64 = getelementptr inbounds %struct.pa_shard_s, ptr %89, i32 0, i32 4
-  %ecache_retained65 = getelementptr inbounds %struct.pac_s, ptr %pac64, i32 0, i32 3
-  %90 = load i32, ptr %i, align 4
-  %call66 = call i64 @ecache_nextents_get(ptr noundef %ecache_retained65, i32 noundef %90)
-  store i64 %call66, ptr %retained58, align 8
-  %91 = load ptr, ptr %shard.addr, align 8
-  %pac67 = getelementptr inbounds %struct.pa_shard_s, ptr %91, i32 0, i32 4
-  %ecache_dirty68 = getelementptr inbounds %struct.pac_s, ptr %pac67, i32 0, i32 1
-  %92 = load i32, ptr %i, align 4
-  %call69 = call i64 @ecache_nbytes_get(ptr noundef %ecache_dirty68, i32 noundef %92)
-  store i64 %call69, ptr %dirty_bytes, align 8
-  %93 = load ptr, ptr %shard.addr, align 8
-  %pac70 = getelementptr inbounds %struct.pa_shard_s, ptr %93, i32 0, i32 4
-  %ecache_muzzy71 = getelementptr inbounds %struct.pac_s, ptr %pac70, i32 0, i32 2
-  %94 = load i32, ptr %i, align 4
-  %call72 = call i64 @ecache_nbytes_get(ptr noundef %ecache_muzzy71, i32 noundef %94)
-  store i64 %call72, ptr %muzzy_bytes, align 8
-  %95 = load ptr, ptr %shard.addr, align 8
-  %pac73 = getelementptr inbounds %struct.pa_shard_s, ptr %95, i32 0, i32 4
-  %ecache_retained74 = getelementptr inbounds %struct.pac_s, ptr %pac73, i32 0, i32 3
-  %96 = load i32, ptr %i, align 4
-  %call75 = call i64 @ecache_nbytes_get(ptr noundef %ecache_retained74, i32 noundef %96)
-  store i64 %call75, ptr %retained_bytes, align 8
-  %97 = load i64, ptr %dirty, align 8
-  %98 = load ptr, ptr %estats_out.addr, align 8
-  %99 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %99 to i64
-  %arrayidx = getelementptr inbounds %struct.pac_estats_s, ptr %98, i64 %idxprom
-  %ndirty = getelementptr inbounds %struct.pac_estats_s, ptr %arrayidx, i32 0, i32 0
-  store i64 %97, ptr %ndirty, align 8
-  %100 = load i64, ptr %muzzy, align 8
-  %101 = load ptr, ptr %estats_out.addr, align 8
-  %102 = load i32, ptr %i, align 4
-  %idxprom76 = zext i32 %102 to i64
-  %arrayidx77 = getelementptr inbounds %struct.pac_estats_s, ptr %101, i64 %idxprom76
-  %nmuzzy = getelementptr inbounds %struct.pac_estats_s, ptr %arrayidx77, i32 0, i32 2
-  store i64 %100, ptr %nmuzzy, align 8
-  %103 = load i64, ptr %retained58, align 8
-  %104 = load ptr, ptr %estats_out.addr, align 8
-  %105 = load i32, ptr %i, align 4
-  %idxprom78 = zext i32 %105 to i64
-  %arrayidx79 = getelementptr inbounds %struct.pac_estats_s, ptr %104, i64 %idxprom78
-  %nretained = getelementptr inbounds %struct.pac_estats_s, ptr %arrayidx79, i32 0, i32 4
-  store i64 %103, ptr %nretained, align 8
-  %106 = load i64, ptr %dirty_bytes, align 8
-  %107 = load ptr, ptr %estats_out.addr, align 8
-  %108 = load i32, ptr %i, align 4
-  %idxprom80 = zext i32 %108 to i64
-  %arrayidx81 = getelementptr inbounds %struct.pac_estats_s, ptr %107, i64 %idxprom80
-  %dirty_bytes82 = getelementptr inbounds %struct.pac_estats_s, ptr %arrayidx81, i32 0, i32 1
-  store i64 %106, ptr %dirty_bytes82, align 8
-  %109 = load i64, ptr %muzzy_bytes, align 8
-  %110 = load ptr, ptr %estats_out.addr, align 8
-  %111 = load i32, ptr %i, align 4
-  %idxprom83 = zext i32 %111 to i64
-  %arrayidx84 = getelementptr inbounds %struct.pac_estats_s, ptr %110, i64 %idxprom83
-  %muzzy_bytes85 = getelementptr inbounds %struct.pac_estats_s, ptr %arrayidx84, i32 0, i32 3
-  store i64 %109, ptr %muzzy_bytes85, align 8
-  %112 = load i64, ptr %retained_bytes, align 8
-  %113 = load ptr, ptr %estats_out.addr, align 8
-  %114 = load i32, ptr %i, align 4
-  %idxprom86 = zext i32 %114 to i64
-  %arrayidx87 = getelementptr inbounds %struct.pac_estats_s, ptr %113, i64 %idxprom86
-  %retained_bytes88 = getelementptr inbounds %struct.pac_estats_s, ptr %arrayidx87, i32 0, i32 5
-  store i64 %112, ptr %retained_bytes88, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %115 = load i32, ptr %i, align 4
-  %inc = add i32 %115, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond
-  %116 = load ptr, ptr %shard.addr, align 8
-  %ever_used_hpa = getelementptr inbounds %struct.pa_shard_s, ptr %116, i32 0, i32 3
-  %117 = load i8, ptr %ever_used_hpa, align 1
-  %tobool = trunc i8 %117 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.end
-  %118 = load ptr, ptr %tsdn.addr, align 8
-  %119 = load ptr, ptr %shard.addr, align 8
-  %hpa_shard = getelementptr inbounds %struct.pa_shard_s, ptr %119, i32 0, i32 6
-  %120 = load ptr, ptr %hpa_stats_out.addr, align 8
-  call void @hpa_shard_stats_merge(ptr noundef %118, ptr noundef %hpa_shard, ptr noundef %120)
-  %121 = load ptr, ptr %tsdn.addr, align 8
-  %122 = load ptr, ptr %shard.addr, align 8
-  %hpa_sec = getelementptr inbounds %struct.pa_shard_s, ptr %122, i32 0, i32 5
-  %123 = load ptr, ptr %sec_stats_out.addr, align 8
-  call void @sec_stats_merge(ptr noundef %121, ptr noundef %hpa_sec, ptr noundef %123)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.end
+17:                                               ; preds = %15, %13, %11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @locked_inc_u64_unsynchronized(ptr noundef %dst, i64 noundef %src) #0 {
-entry:
-  %retval.i.i2 = alloca i32, align 4
-  %mo.addr.i.i3 = alloca i32, align 4
-  %a.addr.i4 = alloca ptr, align 8
-  %val.addr.i = alloca i64, align 8
-  %mo.addr.i5 = alloca i32, align 4
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %mo.addr.i = alloca i32, align 4
-  %result.i = alloca i64, align 8
-  %dst.addr = alloca ptr, align 8
-  %src.addr = alloca i64, align 8
-  %cur_dst = alloca i64, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store i64 %src, ptr %src.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  %val = getelementptr inbounds %struct.locked_u64_s, ptr %0, i32 0, i32 0
-  store ptr %val, ptr %a.addr.i, align 8
-  store i32 0, ptr %mo.addr.i, align 4
-  %1 = load ptr, ptr %a.addr.i, align 8
-  %2 = load i32, ptr %mo.addr.i, align 4
-  store i32 %2, ptr %mo.addr.i.i, align 4
-  %3 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %3, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
+declare i64 @je_eset_nextents_get(ptr noundef, i32 noundef) #1
 
-sw.bb.i.i:                                        ; preds = %entry
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
+declare i64 @je_eset_nbytes_get(ptr noundef, i32 noundef) #1
 
-sw.bb1.i.i:                                       ; preds = %entry
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_lock(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !91
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_assert_not_owner(ptr noundef %6, ptr noundef %8)
+  %9 = load ptr, ptr %4, align 8, !tbaa !91
+  %10 = call zeroext i1 @malloc_mutex_trylock_final(ptr noundef %9)
+  br i1 %10, label %11, label %13
 
-sw.bb2.i.i:                                       ; preds = %entry
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !91
+  call void @je_malloc_mutex_lock_slow(ptr noundef %12)
+  br label %13
 
-sw.bb3.i.i:                                       ; preds = %entry
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
+13:                                               ; preds = %11, %2
+  br label %14
 
-sw.bb4.i.i:                                       ; preds = %entry
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
+14:                                               ; preds = %13
+  br label %15
 
-sw.epilog.i.i:                                    ; preds = %entry
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %4 = load i32, ptr %retval.i.i, align 4
-  switch i32 %4, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %5 = load atomic i64, ptr %1 monotonic, align 8
-  store i64 %5, ptr %result.i, align 8
-  br label %atomic_load_u64.exit
-
-acquire.i:                                        ; preds = %atomic_enum_to_builtin.exit.i, %atomic_enum_to_builtin.exit.i
-  %6 = load atomic i64, ptr %1 acquire, align 8
-  store i64 %6, ptr %result.i, align 8
-  br label %atomic_load_u64.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %7 = load atomic i64, ptr %1 seq_cst, align 8
-  store i64 %7, ptr %result.i, align 8
-  br label %atomic_load_u64.exit
-
-atomic_load_u64.exit:                             ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %8 = load i64, ptr %result.i, align 8
-  store i64 %8, ptr %cur_dst, align 8
-  %9 = load ptr, ptr %dst.addr, align 8
-  %val1 = getelementptr inbounds %struct.locked_u64_s, ptr %9, i32 0, i32 0
-  %10 = load i64, ptr %src.addr, align 8
-  %11 = load i64, ptr %cur_dst, align 8
-  %add = add i64 %10, %11
-  store ptr %val1, ptr %a.addr.i4, align 8
-  store i64 %add, ptr %val.addr.i, align 8
-  store i32 0, ptr %mo.addr.i5, align 4
-  %12 = load ptr, ptr %a.addr.i4, align 8
-  %13 = load i32, ptr %mo.addr.i5, align 4
-  store i32 %13, ptr %mo.addr.i.i3, align 4
-  %14 = load i32, ptr %mo.addr.i.i3, align 4
-  switch i32 %14, label %sw.epilog.i.i14 [
-    i32 0, label %sw.bb.i.i13
-    i32 1, label %sw.bb1.i.i12
-    i32 2, label %sw.bb2.i.i11
-    i32 3, label %sw.bb3.i.i10
-    i32 4, label %sw.bb4.i.i6
-  ]
-
-sw.bb.i.i13:                                      ; preds = %atomic_load_u64.exit
-  store i32 0, ptr %retval.i.i2, align 4
-  br label %atomic_enum_to_builtin.exit.i7
-
-sw.bb1.i.i12:                                     ; preds = %atomic_load_u64.exit
-  store i32 2, ptr %retval.i.i2, align 4
-  br label %atomic_enum_to_builtin.exit.i7
-
-sw.bb2.i.i11:                                     ; preds = %atomic_load_u64.exit
-  store i32 3, ptr %retval.i.i2, align 4
-  br label %atomic_enum_to_builtin.exit.i7
-
-sw.bb3.i.i10:                                     ; preds = %atomic_load_u64.exit
-  store i32 4, ptr %retval.i.i2, align 4
-  br label %atomic_enum_to_builtin.exit.i7
-
-sw.bb4.i.i6:                                      ; preds = %atomic_load_u64.exit
-  store i32 5, ptr %retval.i.i2, align 4
-  br label %atomic_enum_to_builtin.exit.i7
-
-sw.epilog.i.i14:                                  ; preds = %atomic_load_u64.exit
-  unreachable
-
-atomic_enum_to_builtin.exit.i7:                   ; preds = %sw.bb4.i.i6, %sw.bb3.i.i10, %sw.bb2.i.i11, %sw.bb1.i.i12, %sw.bb.i.i13
-  %15 = load i32, ptr %retval.i.i2, align 4
-  switch i32 %15, label %monotonic.i9 [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i8
-  ]
-
-monotonic.i9:                                     ; preds = %atomic_enum_to_builtin.exit.i7
-  %16 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %16, ptr %12 monotonic, align 8
-  br label %atomic_store_u64.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i7
-  %17 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %17, ptr %12 release, align 8
-  br label %atomic_store_u64.exit
-
-seqcst.i8:                                        ; preds = %atomic_enum_to_builtin.exit.i7
-  %18 = load i64, ptr %val.addr.i, align 8
-  store atomic i64 %18, ptr %12 seq_cst, align 8
-  br label %atomic_store_u64.exit
-
-atomic_store_u64.exit:                            ; preds = %seqcst.i8, %release.i, %monotonic.i9
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load ptr, ptr %4, align 8, !tbaa !91
+  call void @mutex_owner_stats_update(ptr noundef %16, ptr noundef %17)
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = call ptr @tsdn_witness_tsdp_get(ptr noundef %18)
+  %20 = load ptr, ptr %4, align 8, !tbaa !91
+  %21 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %20, i32 0, i32 0
+  call void @witness_lock(ptr noundef %19, ptr noundef %21)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @locked_read_u64(ptr noundef %tsdn, ptr noundef %mtx, ptr noundef %p) #0 {
-entry:
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %mo.addr.i = alloca i32, align 4
-  %result.i = alloca i64, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mtx.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mtx, ptr %mtx.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %p.addr, align 8
-  %val = getelementptr inbounds %struct.locked_u64_s, ptr %0, i32 0, i32 0
-  store ptr %val, ptr %a.addr.i, align 8
-  store i32 0, ptr %mo.addr.i, align 4
-  %1 = load ptr, ptr %a.addr.i, align 8
-  %2 = load i32, ptr %mo.addr.i, align 4
-  store i32 %2, ptr %mo.addr.i.i, align 4
-  %3 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %3, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %do.end
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb1.i.i:                                       ; preds = %do.end
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %do.end
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %do.end
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %do.end
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %do.end
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %4 = load i32, ptr %retval.i.i, align 4
-  switch i32 %4, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %5 = load atomic i64, ptr %1 monotonic, align 8
-  store i64 %5, ptr %result.i, align 8
-  br label %atomic_load_u64.exit
-
-acquire.i:                                        ; preds = %atomic_enum_to_builtin.exit.i, %atomic_enum_to_builtin.exit.i
-  %6 = load atomic i64, ptr %1 acquire, align 8
-  store i64 %6, ptr %result.i, align 8
-  br label %atomic_load_u64.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %7 = load atomic i64, ptr %1 seq_cst, align 8
-  store i64 %7, ptr %result.i, align 8
-  br label %atomic_load_u64.exit
-
-atomic_load_u64.exit:                             ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %8 = load i64, ptr %result.i, align 8
-  ret i64 %8
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @ecache_nextents_get(ptr noundef %ecache, i32 noundef %ind) #0 {
-entry:
-  %ecache.addr = alloca ptr, align 8
-  %ind.addr = alloca i32, align 4
-  store ptr %ecache, ptr %ecache.addr, align 8
-  store i32 %ind, ptr %ind.addr, align 4
-  %0 = load ptr, ptr %ecache.addr, align 8
-  %eset = getelementptr inbounds %struct.ecache_s, ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %ind.addr, align 4
-  %call = call i64 @eset_nextents_get(ptr noundef %eset, i32 noundef %1)
-  %2 = load ptr, ptr %ecache.addr, align 8
-  %guarded_eset = getelementptr inbounds %struct.ecache_s, ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %ind.addr, align 4
-  %call1 = call i64 @eset_nextents_get(ptr noundef %guarded_eset, i32 noundef %3)
-  %add = add i64 %call, %call1
-  ret i64 %add
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @ecache_nbytes_get(ptr noundef %ecache, i32 noundef %ind) #0 {
-entry:
-  %ecache.addr = alloca ptr, align 8
-  %ind.addr = alloca i32, align 4
-  store ptr %ecache, ptr %ecache.addr, align 8
-  store i32 %ind, ptr %ind.addr, align 4
-  %0 = load ptr, ptr %ecache.addr, align 8
-  %eset = getelementptr inbounds %struct.ecache_s, ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %ind.addr, align 4
-  %call = call i64 @eset_nbytes_get(ptr noundef %eset, i32 noundef %1)
-  %2 = load ptr, ptr %ecache.addr, align 8
-  %guarded_eset = getelementptr inbounds %struct.ecache_s, ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %ind.addr, align 4
-  %call1 = call i64 @eset_nbytes_get(ptr noundef %guarded_eset, i32 noundef %3)
-  %add = add i64 %call, %call1
-  ret i64 %add
-}
-
-declare void @hpa_shard_stats_merge(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare void @sec_stats_merge(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_mtx_stats_read(ptr noundef %tsdn, ptr noundef %shard, ptr noundef %mutex_prof_data) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %shard.addr = alloca ptr, align 8
-  %mutex_prof_data.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %shard, ptr %shard.addr, align 8
-  store ptr %mutex_prof_data, ptr %mutex_prof_data.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %2 = load ptr, ptr %shard.addr, align 8
-  %edata_cache = getelementptr inbounds %struct.pa_shard_s, ptr %2, i32 0, i32 7
-  %mtx = getelementptr inbounds %struct.edata_cache_s, ptr %edata_cache, i32 0, i32 2
-  call void @pa_shard_mtx_stats_read_single(ptr noundef %0, ptr noundef %1, ptr noundef %mtx, i32 noundef 1)
-  %3 = load ptr, ptr %tsdn.addr, align 8
-  %4 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %5 = load ptr, ptr %shard.addr, align 8
-  %pac = getelementptr inbounds %struct.pa_shard_s, ptr %5, i32 0, i32 4
-  %ecache_dirty = getelementptr inbounds %struct.pac_s, ptr %pac, i32 0, i32 1
-  %mtx1 = getelementptr inbounds %struct.ecache_s, ptr %ecache_dirty, i32 0, i32 0
-  call void @pa_shard_mtx_stats_read_single(ptr noundef %3, ptr noundef %4, ptr noundef %mtx1, i32 noundef 2)
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %7 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %8 = load ptr, ptr %shard.addr, align 8
-  %pac2 = getelementptr inbounds %struct.pa_shard_s, ptr %8, i32 0, i32 4
-  %ecache_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac2, i32 0, i32 2
-  %mtx3 = getelementptr inbounds %struct.ecache_s, ptr %ecache_muzzy, i32 0, i32 0
-  call void @pa_shard_mtx_stats_read_single(ptr noundef %6, ptr noundef %7, ptr noundef %mtx3, i32 noundef 3)
-  %9 = load ptr, ptr %tsdn.addr, align 8
-  %10 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %11 = load ptr, ptr %shard.addr, align 8
-  %pac4 = getelementptr inbounds %struct.pa_shard_s, ptr %11, i32 0, i32 4
-  %ecache_retained = getelementptr inbounds %struct.pac_s, ptr %pac4, i32 0, i32 3
-  %mtx5 = getelementptr inbounds %struct.ecache_s, ptr %ecache_retained, i32 0, i32 0
-  call void @pa_shard_mtx_stats_read_single(ptr noundef %9, ptr noundef %10, ptr noundef %mtx5, i32 noundef 4)
-  %12 = load ptr, ptr %tsdn.addr, align 8
-  %13 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %14 = load ptr, ptr %shard.addr, align 8
-  %pac6 = getelementptr inbounds %struct.pa_shard_s, ptr %14, i32 0, i32 4
-  %decay_dirty = getelementptr inbounds %struct.pac_s, ptr %pac6, i32 0, i32 11
-  %mtx7 = getelementptr inbounds %struct.decay_s, ptr %decay_dirty, i32 0, i32 0
-  call void @pa_shard_mtx_stats_read_single(ptr noundef %12, ptr noundef %13, ptr noundef %mtx7, i32 noundef 5)
-  %15 = load ptr, ptr %tsdn.addr, align 8
-  %16 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %17 = load ptr, ptr %shard.addr, align 8
-  %pac8 = getelementptr inbounds %struct.pa_shard_s, ptr %17, i32 0, i32 4
-  %decay_muzzy = getelementptr inbounds %struct.pac_s, ptr %pac8, i32 0, i32 12
-  %mtx9 = getelementptr inbounds %struct.decay_s, ptr %decay_muzzy, i32 0, i32 0
-  call void @pa_shard_mtx_stats_read_single(ptr noundef %15, ptr noundef %16, ptr noundef %mtx9, i32 noundef 6)
-  %18 = load ptr, ptr %shard.addr, align 8
-  %ever_used_hpa = getelementptr inbounds %struct.pa_shard_s, ptr %18, i32 0, i32 3
-  %19 = load i8, ptr %ever_used_hpa, align 1
-  %tobool = trunc i8 %19 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %20 = load ptr, ptr %tsdn.addr, align 8
-  %21 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %22 = load ptr, ptr %shard.addr, align 8
-  %hpa_shard = getelementptr inbounds %struct.pa_shard_s, ptr %22, i32 0, i32 6
-  %mtx10 = getelementptr inbounds %struct.hpa_shard_s, ptr %hpa_shard, i32 0, i32 2
-  call void @pa_shard_mtx_stats_read_single(ptr noundef %20, ptr noundef %21, ptr noundef %mtx10, i32 noundef 9)
-  %23 = load ptr, ptr %tsdn.addr, align 8
-  %24 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %25 = load ptr, ptr %shard.addr, align 8
-  %hpa_shard11 = getelementptr inbounds %struct.pa_shard_s, ptr %25, i32 0, i32 6
-  %grow_mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %hpa_shard11, i32 0, i32 3
-  call void @pa_shard_mtx_stats_read_single(ptr noundef %23, ptr noundef %24, ptr noundef %grow_mtx, i32 noundef 10)
-  %26 = load ptr, ptr %tsdn.addr, align 8
-  %27 = load ptr, ptr %shard.addr, align 8
-  %hpa_sec = getelementptr inbounds %struct.pa_shard_s, ptr %27, i32 0, i32 5
-  %28 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %arrayidx = getelementptr inbounds %struct.mutex_prof_data_t, ptr %28, i64 11
-  call void @sec_mutex_stats_read(ptr noundef %26, ptr noundef %hpa_sec, ptr noundef %arrayidx)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_prof_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store ptr %2, ptr %6, align 8, !tbaa !91
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = load ptr, ptr %6, align 8, !tbaa !91
+  call void @malloc_mutex_assert_owner(ptr noundef %7, ptr noundef %8)
+  %9 = load ptr, ptr %5, align 8, !tbaa !56
+  %10 = load ptr, ptr %6, align 8, !tbaa !91
+  %11 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.anon, ptr %11, i32 0, i32 0
+  call void @malloc_mutex_prof_copy(ptr noundef %9, ptr noundef %12)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @pa_shard_mtx_stats_read_single(ptr noundef %tsdn, ptr noundef %mutex_prof_data, ptr noundef %mtx, i32 noundef %ind) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %mutex_prof_data.addr = alloca ptr, align 8
-  %mtx.addr = alloca ptr, align 8
-  %ind.addr = alloca i32, align 4
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex_prof_data, ptr %mutex_prof_data.addr, align 8
-  store ptr %mtx, ptr %mtx.addr, align 8
-  store i32 %ind, ptr %ind.addr, align 4
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %mtx.addr, align 8
-  call void @malloc_mutex_lock(ptr noundef %0, ptr noundef %1)
-  %2 = load ptr, ptr %tsdn.addr, align 8
-  %3 = load ptr, ptr %mutex_prof_data.addr, align 8
-  %4 = load i32, ptr %ind.addr, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %struct.mutex_prof_data_t, ptr %3, i64 %idxprom
-  %5 = load ptr, ptr %mtx.addr, align 8
-  call void @malloc_mutex_prof_read(ptr noundef %2, ptr noundef %arrayidx, ptr noundef %5)
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %7 = load ptr, ptr %mtx.addr, align 8
-  call void @malloc_mutex_unlock(ptr noundef %6, ptr noundef %7)
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_unlock(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !91
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_unlock(ptr noundef %6, ptr noundef %8)
+  br label %9
+
+9:                                                ; preds = %2
+  br label %10
+
+10:                                               ; preds = %9
+  %11 = load ptr, ptr %4, align 8, !tbaa !91
+  %12 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 1
+  call void @atomic_store_b(ptr noundef %13, i1 noundef zeroext false, i32 noundef 0)
+  %14 = load ptr, ptr %4, align 8, !tbaa !91
+  %15 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.anon, ptr %15, i32 0, i32 2
+  %17 = call i32 @pthread_mutex_unlock(ptr noundef %16) #7
   ret void
 }
 
-declare void @sec_mutex_stats_read(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare i64 @eset_npages_get(ptr noundef) #1
-
-declare i64 @eset_nextents_get(ptr noundef, i32 noundef) #1
-
-declare i64 @eset_nbytes_get(ptr noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_lock(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsd.addr.i26 = alloca ptr, align 8
-  %tsd.addr.i25 = alloca ptr, align 8
-  %tsd.addr.i23 = alloca ptr, align 8
-  %tsd.addr.i21 = alloca ptr, align 8
-  %tsd.addr.i17 = alloca ptr, align 8
-  %state.i18 = alloca i8, align 1
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsdn.addr.i16 = alloca ptr, align 8
-  %tsdn.addr.i15 = alloca ptr, align 8
-  %tsdn.addr.i13 = alloca ptr, align 8
-  %tsdn.addr.i12 = alloca ptr, align 8
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %val.addr.i = alloca i8, align 1
-  %mo.addr.i = alloca i32, align 4
-  %retval.i3 = alloca ptr, align 8
-  %tsdn.addr.i4 = alloca ptr, align 8
-  %tsd.i5 = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i4, align 8
-  %1 = load ptr, ptr %tsdn.addr.i4, align 8
-  store ptr %1, ptr %tsdn.addr.i12, align 8
-  %2 = load ptr, ptr %tsdn.addr.i12, align 8
-  %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %if.then.i10, label %if.end.i7
-
-if.then.i10:                                      ; preds = %entry
-  store ptr null, ptr %retval.i3, align 8
-  br label %tsdn_witness_tsdp_get.exit11
-
-if.end.i7:                                        ; preds = %entry
-  %3 = load ptr, ptr %tsdn.addr.i4, align 8
-  store ptr %3, ptr %tsdn.addr.i15, align 8
-  %4 = load ptr, ptr %tsdn.addr.i15, align 8
-  store ptr %4, ptr %tsd.i5, align 8
-  %5 = load ptr, ptr %tsd.i5, align 8
-  store ptr %5, ptr %tsd.addr.i, align 8
-  %6 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %6, ptr %tsd.addr.i23, align 8
-  %7 = load ptr, ptr %tsd.addr.i23, align 8
-  %state.i24 = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 30
-  %8 = load i8, ptr %state.i24, align 8
-  store i8 %8, ptr %state.i, align 1
-  %9 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %9, ptr %tsd.addr.i26, align 8
-  %10 = load ptr, ptr %tsd.addr.i26, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i27 = getelementptr inbounds %struct.tsd_s, ptr %10, i32 0, i32 36
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i27, ptr %retval.i3, align 8
-  br label %tsdn_witness_tsdp_get.exit11
-
-tsdn_witness_tsdp_get.exit11:                     ; preds = %if.end.i7, %if.then.i10
-  %11 = load ptr, ptr %retval.i3, align 8
-  %12 = load ptr, ptr %mutex.addr, align 8
-  %13 = getelementptr inbounds %struct.malloc_mutex_s, ptr %12, i32 0, i32 0
-  call void @witness_assert_not_owner(ptr noundef %11, ptr noundef %13)
-  %14 = load ptr, ptr %mutex.addr, align 8
-  %call1 = call zeroext i1 @malloc_mutex_trylock_final(ptr noundef %14)
-  br i1 %call1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %tsdn_witness_tsdp_get.exit11
-  %15 = load ptr, ptr %mutex.addr, align 8
-  call void @malloc_mutex_lock_slow(ptr noundef %15)
-  %16 = load ptr, ptr %mutex.addr, align 8
-  %17 = getelementptr inbounds %struct.malloc_mutex_s, ptr %16, i32 0, i32 0
-  %locked = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 1
-  store ptr %locked, ptr %a.addr.i, align 8
-  store i8 1, ptr %val.addr.i, align 1
-  store i32 0, ptr %mo.addr.i, align 4
-  %18 = load ptr, ptr %a.addr.i, align 8
-  %19 = load i32, ptr %mo.addr.i, align 4
-  store i32 %19, ptr %mo.addr.i.i, align 4
-  %20 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %20, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %if.then
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb1.i.i:                                       ; preds = %if.then
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %if.then
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %if.then
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %if.then
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %if.then
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %21 = load i32, ptr %retval.i.i, align 4
-  switch i32 %21, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %22 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %22, ptr %18 monotonic, align 1
-  br label %atomic_store_b.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i
-  %23 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %23, ptr %18 release, align 1
-  br label %atomic_store_b.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %24 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %24, ptr %18 seq_cst, align 1
-  br label %atomic_store_b.exit
-
-atomic_store_b.exit:                              ; preds = %seqcst.i, %release.i, %monotonic.i
-  br label %if.end
-
-if.end:                                           ; preds = %atomic_store_b.exit, %tsdn_witness_tsdp_get.exit11
-  %25 = load ptr, ptr %tsdn.addr, align 8
-  %26 = load ptr, ptr %mutex.addr, align 8
-  call void @mutex_owner_stats_update(ptr noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %27, ptr %tsdn.addr.i, align 8
-  %28 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %28, ptr %tsdn.addr.i13, align 8
-  %29 = load ptr, ptr %tsdn.addr.i13, align 8
-  %cmp.i14 = icmp eq ptr %29, null
-  br i1 %cmp.i14, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end
-  store ptr null, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-if.end.i:                                         ; preds = %if.end
-  %30 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %30, ptr %tsdn.addr.i16, align 8
-  %31 = load ptr, ptr %tsdn.addr.i16, align 8
-  store ptr %31, ptr %tsd.i, align 8
-  %32 = load ptr, ptr %tsd.i, align 8
-  store ptr %32, ptr %tsd.addr.i17, align 8
-  %33 = load ptr, ptr %tsd.addr.i17, align 8
-  store ptr %33, ptr %tsd.addr.i21, align 8
-  %34 = load ptr, ptr %tsd.addr.i21, align 8
-  %state.i22 = getelementptr inbounds %struct.tsd_s, ptr %34, i32 0, i32 30
-  %35 = load i8, ptr %state.i22, align 8
-  store i8 %35, ptr %state.i18, align 1
-  %36 = load ptr, ptr %tsd.addr.i17, align 8
-  store ptr %36, ptr %tsd.addr.i25, align 8
-  %37 = load ptr, ptr %tsd.addr.i25, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds %struct.tsd_s, ptr %37, i32 0, i32 36
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-tsdn_witness_tsdp_get.exit:                       ; preds = %if.end.i, %if.then.i
-  %38 = load ptr, ptr %retval.i, align 8
-  %39 = load ptr, ptr %mutex.addr, align 8
-  %40 = getelementptr inbounds %struct.malloc_mutex_s, ptr %39, i32 0, i32 0
-  call void @witness_lock(ptr noundef %38, ptr noundef %40)
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_assert_not_owner(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !94
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_prof_read(ptr noundef %tsdn, ptr noundef %data, ptr noundef %mutex) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %mutex.addr, align 8
-  call void @malloc_mutex_assert_owner(ptr noundef %0, ptr noundef %1)
-  %2 = load ptr, ptr %data.addr, align 8
-  %3 = load ptr, ptr %mutex.addr, align 8
-  %4 = getelementptr inbounds %struct.malloc_mutex_s, ptr %3, i32 0, i32 0
-  %prof_data = getelementptr inbounds %struct.anon, ptr %4, i32 0, i32 0
-  call void @malloc_mutex_prof_copy(ptr noundef %2, ptr noundef %prof_data)
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_witness_tsdp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = call zeroext i1 @tsdn_null(ptr noundef %5)
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %13
+
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = call ptr @tsdn_tsd(ptr noundef %9)
+  store ptr %10, ptr %4, align 8, !tbaa !96
+  %11 = load ptr, ptr %4, align 8, !tbaa !96
+  %12 = call ptr @tsd_witness_tsdp_get(ptr noundef %11)
+  store ptr %12, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %13
+
+13:                                               ; preds = %8, %7
+  %14 = load ptr, ptr %2, align 8
+  ret ptr %14
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @malloc_mutex_trylock_final(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !91
+  %5 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %7 = call i32 @pthread_mutex_trylock(ptr noundef %6) #7
+  %8 = icmp ne i32 %7, 0
+  %9 = zext i1 %8 to i8
+  store i8 %9, ptr %3, align 1, !tbaa !98
+  %10 = load i8, ptr %3, align 1, !tbaa !98, !range !54, !noundef !55
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %16, label %12
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8, !tbaa !91
+  %14 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %14, i32 0, i32 1
+  call void @atomic_store_b(ptr noundef %15, i1 noundef zeroext true, i32 noundef 0)
+  br label %16
+
+16:                                               ; preds = %12, %1
+  %17 = load i8, ptr %3, align 1, !tbaa !98, !range !54, !noundef !55
+  %18 = trunc i8 %17 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #7
+  ret i1 %18
+}
+
+declare void @je_malloc_mutex_lock_slow(ptr noundef) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @mutex_owner_stats_update(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %4, align 8, !tbaa !91
+  %7 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.anon, ptr %7, i32 0, i32 0
+  store ptr %8, ptr %5, align 8, !tbaa !56
+  %9 = load ptr, ptr %5, align 8, !tbaa !56
+  %10 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %9, i32 0, i32 8
+  %11 = load i64, ptr %10, align 8, !tbaa !99
+  %12 = add i64 %11, 1
+  store i64 %12, ptr %10, align 8, !tbaa !99
+  %13 = load ptr, ptr %5, align 8, !tbaa !56
+  %14 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8, !tbaa !102
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = icmp ne ptr %15, %16
+  br i1 %17, label %18, label %26
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = load ptr, ptr %5, align 8, !tbaa !56
+  %21 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %20, i32 0, i32 7
+  store ptr %19, ptr %21, align 8, !tbaa !102
+  %22 = load ptr, ptr %5, align 8, !tbaa !56
+  %23 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %22, i32 0, i32 6
+  %24 = load i64, ptr %23, align 8, !tbaa !103
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %23, align 8, !tbaa !103
+  br label %26
+
+26:                                               ; preds = %18, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_unlock(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsd.addr.i6 = alloca ptr, align 8
-  %tsd.addr.i4 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsdn.addr.i3 = alloca ptr, align 8
-  %tsdn.addr.i2 = alloca ptr, align 8
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %val.addr.i = alloca i8, align 1
-  %mo.addr.i = alloca i32, align 4
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %locked = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 1
-  store ptr %locked, ptr %a.addr.i, align 8
-  store i8 0, ptr %val.addr.i, align 1
-  store i32 0, ptr %mo.addr.i, align 4
-  %2 = load ptr, ptr %a.addr.i, align 8
-  %3 = load i32, ptr %mo.addr.i, align 4
-  store i32 %3, ptr %mo.addr.i.i, align 4
-  %4 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %4, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %entry
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb1.i.i:                                       ; preds = %entry
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %entry
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %entry
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %entry
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %entry
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %5 = load i32, ptr %retval.i.i, align 4
-  switch i32 %5, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %6 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %6, ptr %2 monotonic, align 1
-  br label %atomic_store_b.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i
-  %7 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %7, ptr %2 release, align 1
-  br label %atomic_store_b.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %8 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %8, ptr %2 seq_cst, align 1
-  br label %atomic_store_b.exit
-
-atomic_store_b.exit:                              ; preds = %seqcst.i, %release.i, %monotonic.i
-  %9 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %9, ptr %tsdn.addr.i, align 8
-  %10 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %10, ptr %tsdn.addr.i2, align 8
-  %11 = load ptr, ptr %tsdn.addr.i2, align 8
-  %cmp.i = icmp eq ptr %11, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %atomic_store_b.exit
-  store ptr null, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-if.end.i:                                         ; preds = %atomic_store_b.exit
-  %12 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %12, ptr %tsdn.addr.i3, align 8
-  %13 = load ptr, ptr %tsdn.addr.i3, align 8
-  store ptr %13, ptr %tsd.i, align 8
-  %14 = load ptr, ptr %tsd.i, align 8
-  store ptr %14, ptr %tsd.addr.i, align 8
-  %15 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %15, ptr %tsd.addr.i4, align 8
-  %16 = load ptr, ptr %tsd.addr.i4, align 8
-  %state.i5 = getelementptr inbounds %struct.tsd_s, ptr %16, i32 0, i32 30
-  %17 = load i8, ptr %state.i5, align 8
-  store i8 %17, ptr %state.i, align 1
-  %18 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %18, ptr %tsd.addr.i6, align 8
-  %19 = load ptr, ptr %tsd.addr.i6, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds %struct.tsd_s, ptr %19, i32 0, i32 36
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-tsdn_witness_tsdp_get.exit:                       ; preds = %if.end.i, %if.then.i
-  %20 = load ptr, ptr %retval.i, align 8
-  %21 = load ptr, ptr %mutex.addr, align 8
-  %22 = getelementptr inbounds %struct.malloc_mutex_s, ptr %21, i32 0, i32 0
-  call void @witness_unlock(ptr noundef %20, ptr noundef %22)
-  %23 = load ptr, ptr %mutex.addr, align 8
-  %24 = getelementptr inbounds %struct.malloc_mutex_s, ptr %23, i32 0, i32 0
-  %lock = getelementptr inbounds %struct.anon, ptr %24, i32 0, i32 2
-  %call1 = call i32 @pthread_mutex_unlock(ptr noundef %lock) #4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_lock(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !94
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @witness_assert_not_owner(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
-  ret void
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsdn_null(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = icmp eq ptr %3, null
+  ret i1 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @malloc_mutex_trylock_final(ptr noundef %mutex) #0 {
-entry:
-  %mutex.addr = alloca ptr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %lock = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 2
-  %call = call i32 @pthread_mutex_trylock(ptr noundef %lock) #4
-  %cmp = icmp ne i32 %call, 0
-  ret i1 %cmp
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_tsd(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.tsdn_s, ptr %5, i32 0, i32 0
+  ret ptr %6
 }
 
-declare void @malloc_mutex_lock_slow(ptr noundef) #1
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_witness_tsdp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !96
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !104
+  br label %6
 
-; Function Attrs: nounwind uwtable
-define internal void @mutex_owner_stats_update(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  %data = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %prof_data = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 0
-  store ptr %prof_data, ptr %data, align 8
-  %2 = load ptr, ptr %data, align 8
-  %n_lock_ops = getelementptr inbounds %struct.mutex_prof_data_t, ptr %2, i32 0, i32 8
-  %3 = load i64, ptr %n_lock_ops, align 8
-  %inc = add i64 %3, 1
-  store i64 %inc, ptr %n_lock_ops, align 8
-  %4 = load ptr, ptr %data, align 8
-  %prev_owner = getelementptr inbounds %struct.mutex_prof_data_t, ptr %4, i32 0, i32 7
-  %5 = load ptr, ptr %prev_owner, align 8
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %cmp = icmp ne ptr %5, %6
-  br i1 %cmp, label %if.then, label %if.end
+6:                                                ; preds = %1
+  br label %7
 
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %tsdn.addr, align 8
-  %8 = load ptr, ptr %data, align 8
-  %prev_owner1 = getelementptr inbounds %struct.mutex_prof_data_t, ptr %8, i32 0, i32 7
-  store ptr %7, ptr %prev_owner1, align 8
-  %9 = load ptr, ptr %data, align 8
-  %n_owner_switches = getelementptr inbounds %struct.mutex_prof_data_t, ptr %9, i32 0, i32 6
-  %10 = load i64, ptr %n_owner_switches, align 8
-  %inc2 = add i64 %10, 1
-  store i64 %inc2, ptr %n_owner_switches, align 8
-  br label %if.end
+7:                                                ; preds = %6
+  br label %8
 
-if.end:                                           ; preds = %if.then, %entry
-  ret void
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !96
+  %10 = call ptr @tsd_witness_tsdp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #7
+  ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @witness_lock(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
-  ret void
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i8 @tsd_state_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 31
+  %5 = load i8, ptr %4, align 8, !tbaa !104
+  ret i8 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_witness_tsdp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 37
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) #2
+declare i32 @pthread_mutex_trylock(ptr noundef) #5
 
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_assert_owner(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsd.addr.i5 = alloca ptr, align 8
-  %tsd.addr.i3 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsdn.addr.i2 = alloca ptr, align 8
-  %tsdn.addr.i1 = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i, align 8
-  %1 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %1, ptr %tsdn.addr.i1, align 8
-  %2 = load ptr, ptr %tsdn.addr.i1, align 8
-  %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_store_b(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %5, align 1, !tbaa !98
+  store i32 %2, ptr %6, align 4, !tbaa !57
+  %8 = load ptr, ptr %4, align 8, !tbaa !56
+  %9 = getelementptr inbounds nuw %struct.atomic_b_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %6, align 4, !tbaa !57
+  %11 = call i32 @atomic_enum_to_builtin(i32 noundef %10)
+  switch i32 %11, label %12 [
+    i32 3, label %14
+    i32 5, label %16
+  ]
 
-if.then.i:                                        ; preds = %entry
-  store ptr null, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
+12:                                               ; preds = %3
+  %13 = load i8, ptr %5, align 1
+  store atomic i8 %13, ptr %9 monotonic, align 1
+  br label %18
 
-if.end.i:                                         ; preds = %entry
-  %3 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %3, ptr %tsdn.addr.i2, align 8
-  %4 = load ptr, ptr %tsdn.addr.i2, align 8
-  store ptr %4, ptr %tsd.i, align 8
-  %5 = load ptr, ptr %tsd.i, align 8
-  store ptr %5, ptr %tsd.addr.i, align 8
-  %6 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %6, ptr %tsd.addr.i3, align 8
-  %7 = load ptr, ptr %tsd.addr.i3, align 8
-  %state.i4 = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 30
-  %8 = load i8, ptr %state.i4, align 8
-  store i8 %8, ptr %state.i, align 1
-  %9 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %9, ptr %tsd.addr.i5, align 8
-  %10 = load ptr, ptr %tsd.addr.i5, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds %struct.tsd_s, ptr %10, i32 0, i32 36
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
+14:                                               ; preds = %3
+  %15 = load i8, ptr %5, align 1
+  store atomic i8 %15, ptr %9 release, align 1
+  br label %18
 
-tsdn_witness_tsdp_get.exit:                       ; preds = %if.end.i, %if.then.i
-  %11 = load ptr, ptr %retval.i, align 8
-  %12 = load ptr, ptr %mutex.addr, align 8
-  %13 = getelementptr inbounds %struct.malloc_mutex_s, ptr %12, i32 0, i32 0
-  call void @witness_assert_owner(ptr noundef %11, ptr noundef %13)
+16:                                               ; preds = %3
+  %17 = load i8, ptr %5, align 1
+  store atomic i8 %17, ptr %9 seq_cst, align 1
+  br label %18
+
+18:                                               ; preds = %16, %14, %12
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_prof_copy(ptr noundef %dst, ptr noundef %source) #0 {
-entry:
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %val.addr.i = alloca i32, align 4
-  %mo.addr.i = alloca i32, align 4
-  %dst.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  %1 = load ptr, ptr %source.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 64, i1 false)
-  %2 = load ptr, ptr %dst.addr, align 8
-  %n_waiting_thds = getelementptr inbounds %struct.mutex_prof_data_t, ptr %2, i32 0, i32 5
-  store ptr %n_waiting_thds, ptr %a.addr.i, align 8
-  store i32 0, ptr %val.addr.i, align 4
-  store i32 0, ptr %mo.addr.i, align 4
-  %3 = load ptr, ptr %a.addr.i, align 8
-  %4 = load i32, ptr %mo.addr.i, align 4
-  store i32 %4, ptr %mo.addr.i.i, align 4
-  %5 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %5, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_assert_owner(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !91
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_assert_owner(ptr noundef %6, ptr noundef %8)
+  br label %9
 
-sw.bb.i.i:                                        ; preds = %entry
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
+9:                                                ; preds = %2
+  br label %10
 
-sw.bb1.i.i:                                       ; preds = %entry
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %entry
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %entry
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %entry
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %entry
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %6 = load i32, ptr %retval.i.i, align 4
-  switch i32 %6, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %7 = load i32, ptr %val.addr.i, align 4
-  store atomic i32 %7, ptr %3 monotonic, align 4
-  br label %atomic_store_u32.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i
-  %8 = load i32, ptr %val.addr.i, align 4
-  store atomic i32 %8, ptr %3 release, align 4
-  br label %atomic_store_u32.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %9 = load i32, ptr %val.addr.i, align 4
-  store atomic i32 %9, ptr %3 seq_cst, align 4
-  br label %atomic_store_u32.exit
-
-atomic_store_u32.exit:                            ; preds = %seqcst.i, %release.i, %monotonic.i
+10:                                               ; preds = %9
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @witness_assert_owner(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_prof_copy(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8, !tbaa !56
+  %6 = load ptr, ptr %4, align 8, !tbaa !56
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 64, i1 false), !tbaa.struct !105
+  %7 = load ptr, ptr %3, align 8, !tbaa !56
+  %8 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %7, i32 0, i32 5
+  call void @atomic_store_u32(ptr noundef %8, i32 noundef 0, i32 noundef 0)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_assert_owner(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !94
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: nounwind uwtable
-define internal void @witness_unlock(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_store_u32(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store i32 %1, ptr %5, align 4, !tbaa !57
+  store i32 %2, ptr %6, align 4, !tbaa !57
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = getelementptr inbounds nuw %struct.atomic_u32_t, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %6, align 4, !tbaa !57
+  %10 = call i32 @atomic_enum_to_builtin(i32 noundef %9)
+  switch i32 %10, label %11 [
+    i32 3, label %13
+    i32 5, label %15
+  ]
+
+11:                                               ; preds = %3
+  %12 = load i32, ptr %5, align 4
+  store atomic i32 %12, ptr %8 monotonic, align 4
+  br label %17
+
+13:                                               ; preds = %3
+  %14 = load i32, ptr %5, align 4
+  store atomic i32 %14, ptr %8 release, align 4
+  br label %17
+
+15:                                               ; preds = %3
+  %16 = load i32, ptr %5, align 4
+  store atomic i32 %16, ptr %8 seq_cst, align 4
+  br label %17
+
+17:                                               ; preds = %15, %13, %11
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_unlock(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !94
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #2
+declare i32 @pthread_mutex_unlock(ptr noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS6tsdn_s", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS10pa_shard_s", !6, i64 0}
+!11 = !{!12, !17, i64 17}
+!12 = !{!"pa_shard_s", !13, i64 0, !14, i64 8, !16, i64 16, !17, i64 17, !18, i64 24, !35, i64 62264, !39, i64 62384, !50, i64 68168, !26, i64 68312, !33, i64 68320, !53, i64 68328, !28, i64 68336, !27, i64 68344}
+!13 = !{!"p1 _ZTS12pa_central_s", !6, i64 0}
+!14 = !{!"", !15, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!"", !17, i64 0}
+!17 = !{!"_Bool", !7, i64 0}
+!18 = !{!"pac_s", !19, i64 0, !20, i64 56, !20, i64 19496, !20, i64 38936, !27, i64 58376, !28, i64 58384, !29, i64 58392, !30, i64 58400, !21, i64 58408, !31, i64 58520, !14, i64 58640, !32, i64 58648, !32, i64 60432, !33, i64 62216, !34, i64 62224, !14, i64 62232}
+!19 = !{!"pai_s", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
+!20 = !{!"ecache_s", !21, i64 0, !22, i64 112, !22, i64 9768, !26, i64 19424, !26, i64 19428, !17, i64 19432}
+!21 = !{!"malloc_mutex_s", !7, i64 0}
+!22 = !{!"eset_s", !7, i64 0, !7, i64 32, !7, i64 6432, !23, i64 9632, !14, i64 9640, !26, i64 9648}
+!23 = !{!"", !24, i64 0}
+!24 = !{!"", !25, i64 0}
+!25 = !{!"p1 _ZTS7edata_s", !6, i64 0}
+!26 = !{!"int", !7, i64 0}
+!27 = !{!"p1 _ZTS6base_s", !6, i64 0}
+!28 = !{!"p1 _ZTS6emap_s", !6, i64 0}
+!29 = !{!"p1 _ZTS13edata_cache_s", !6, i64 0}
+!30 = !{!"exp_grow_s", !26, i64 0, !26, i64 4}
+!31 = !{!"san_bump_alloc_s", !21, i64 0, !25, i64 112}
+!32 = !{!"decay_s", !21, i64 0, !17, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !15, i64 144, !14, i64 152, !15, i64 160, !15, i64 168, !7, i64 176, !15, i64 1776}
+!33 = !{!"p1 _ZTS14malloc_mutex_s", !6, i64 0}
+!34 = !{!"p1 _ZTS11pac_stats_s", !6, i64 0}
+!35 = !{!"sec_s", !19, i64 0, !36, i64 56, !37, i64 64, !38, i64 104, !26, i64 112}
+!36 = !{!"p1 _ZTS5pai_s", !6, i64 0}
+!37 = !{!"sec_opts_s", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32}
+!38 = !{!"p1 _ZTS11sec_shard_s", !6, i64 0}
+!39 = !{!"hpa_shard_s", !19, i64 0, !40, i64 56, !21, i64 64, !21, i64 176, !27, i64 288, !41, i64 296, !42, i64 320, !15, i64 5648, !26, i64 5656, !28, i64 5664, !48, i64 5672, !15, i64 5728, !49, i64 5736, !14, i64 5776}
+!40 = !{!"p1 _ZTS13hpa_central_s", !6, i64 0}
+!41 = !{!"edata_cache_fast_s", !23, i64 0, !29, i64 8, !17, i64 16}
+!42 = !{!"psset_s", !7, i64 0, !7, i64 1024, !43, i64 1032, !45, i64 4272, !7, i64 4280, !7, i64 5304, !45, i64 5320}
+!43 = !{!"psset_stats_s", !44, i64 0, !7, i64 24, !7, i64 72, !7, i64 3144, !7, i64 3192}
+!44 = !{!"psset_bin_stats_s", !15, i64 0, !15, i64 8, !15, i64 16}
+!45 = !{!"", !46, i64 0}
+!46 = !{!"", !47, i64 0}
+!47 = !{!"p1 _ZTS8hpdata_s", !6, i64 0}
+!48 = !{!"hpa_shard_opts_s", !15, i64 0, !15, i64 8, !26, i64 16, !17, i64 20, !15, i64 24, !17, i64 32, !15, i64 40, !15, i64 48}
+!49 = !{!"hpa_shard_nonderived_stats_s", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32}
+!50 = !{!"edata_cache_s", !51, i64 0, !14, i64 16, !21, i64 24, !27, i64 136}
+!51 = !{!"", !52, i64 0}
+!52 = !{!"ph_s", !6, i64 0, !15, i64 8}
+!53 = !{!"p1 _ZTS16pa_shard_stats_s", !6, i64 0}
+!54 = !{i8 0, i8 2}
+!55 = !{}
+!56 = !{!6, !6, i64 0}
+!57 = !{!26, !26, i64 0}
+!58 = !{!15, !15, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS8ecache_s", !6, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS7psset_s", !6, i64 0}
+!63 = !{!42, !15, i64 1048}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 long", !6, i64 0}
+!66 = !{!53, !53, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS12pac_estats_s", !6, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTS17hpa_shard_stats_s", !6, i64 0}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTS11sec_stats_s", !6, i64 0}
+!73 = !{!74, !15, i64 56}
+!74 = !{!"pa_shard_stats_s", !15, i64 0, !75, i64 8}
+!75 = !{!"pac_stats_s", !76, i64 0, !76, i64 24, !15, i64 48, !14, i64 56, !14, i64 64}
+!76 = !{!"pac_decay_stats_s", !77, i64 0, !77, i64 8, !77, i64 16}
+!77 = !{!"locked_u64_s", !14, i64 0}
+!78 = !{!74, !15, i64 0}
+!79 = !{!12, !34, i64 62248}
+!80 = !{!81, !15, i64 0}
+!81 = !{!"pac_estats_s", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40}
+!82 = !{!81, !15, i64 16}
+!83 = !{!81, !15, i64 32}
+!84 = !{!81, !15, i64 8}
+!85 = !{!81, !15, i64 24}
+!86 = !{!81, !15, i64 40}
+!87 = distinct !{!87, !88}
+!88 = !{!"llvm.loop.mustprogress"}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTS12locked_u64_s", !6, i64 0}
+!91 = !{!33, !33, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTS14witness_tsdn_s", !6, i64 0}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTS9witness_s", !6, i64 0}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p1 _ZTS5tsd_s", !6, i64 0}
+!98 = !{!17, !17, i64 0}
+!99 = !{!100, !15, i64 56}
+!100 = !{!"", !14, i64 0, !14, i64 8, !15, i64 16, !15, i64 24, !26, i64 32, !101, i64 36, !15, i64 40, !5, i64 48, !15, i64 56}
+!101 = !{!"", !26, i64 0}
+!102 = !{!100, !5, i64 48}
+!103 = !{!100, !15, i64 40}
+!104 = !{!7, !7, i64 0}
+!105 = !{i64 0, i64 8, !58, i64 8, i64 8, !58, i64 16, i64 8, !58, i64 24, i64 8, !58, i64 32, i64 4, !57, i64 36, i64 4, !57, i64 40, i64 8, !58, i64 48, i64 8, !4, i64 56, i64 8, !58}

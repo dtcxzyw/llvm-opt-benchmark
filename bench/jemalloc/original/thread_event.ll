@@ -1,17 +1,19 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.te_ctx_s = type { i8, ptr, ptr, ptr, ptr }
-%struct.tsd_s = type { i8, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
+%struct.tsd_s = type { i8, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
 %struct.ticker_geom_s = type { i32, i32 }
 %struct.tsd_binshards_s = type { [36 x i8] }
 %struct.tsd_link_t = type { ptr, ptr }
 %struct.peak_s = type { i64, i64 }
 %struct.activity_callback_thunk_s = type { ptr, ptr }
-%struct.tcache_slow_s = type { %struct.anon, %struct.cache_bin_array_descriptor_s, ptr, i32, i32, [36 x i8], [36 x i8], [36 x i8], ptr, ptr }
+%struct.tcache_slow_s = type { %struct.anon, %struct.cache_bin_array_descriptor_s, ptr, i32, %struct.nstime_t, i32, i32, i32, [36 x %struct.cache_bin_fill_ctl_s], [36 x i8], [36 x i8], ptr, ptr }
 %struct.anon = type { ptr, ptr }
 %struct.cache_bin_array_descriptor_s = type { %struct.anon.0, ptr }
 %struct.anon.0 = type { ptr, ptr }
+%struct.nstime_t = type { i64 }
+%struct.cache_bin_fill_ctl_s = type { i8, i8 }
 %struct.rtree_ctx_s = type { [16 x %struct.rtree_ctx_cache_elm_s], [8 x %struct.rtree_ctx_cache_elm_s] }
 %struct.rtree_ctx_cache_elm_s = type { i64, ptr }
 %struct.atomic_u8_t = type { i8 }
@@ -22,3340 +24,3263 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.witness_tsd_s = type { %struct.witness_list_t, i8 }
 %struct.witness_list_t = type { ptr }
 
-@opt_tcache_gc_incr_bytes = external global i64, align 8
-@opt_prof = external global i8, align 1
-@opt_stats_interval = external global i64, align 8
+@je_opt_tcache_gc_incr_bytes = external global i64, align 8
+@je_opt_prof = external global i8, align 1
+@je_opt_stats_interval = external global i64, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @te_assert_invariants_debug(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr.i124 = alloca ptr, align 8
-  %tsd.addr.i123 = alloca ptr, align 8
-  %tsd.addr.i121 = alloca ptr, align 8
-  %tsd.addr.i120 = alloca ptr, align 8
-  %tsd.addr.i118 = alloca ptr, align 8
-  %tsd.addr.i117 = alloca ptr, align 8
-  %tsd.addr.i115 = alloca ptr, align 8
-  %tsd.addr.i114 = alloca ptr, align 8
-  %tsd.addr.i112 = alloca ptr, align 8
-  %tsd.addr.i111 = alloca ptr, align 8
-  %tsd.addr.i109 = alloca ptr, align 8
-  %tsd.addr.i108 = alloca ptr, align 8
-  %tsd.addr.i106 = alloca ptr, align 8
-  %tsd.addr.i105 = alloca ptr, align 8
-  %tsd.addr.i103 = alloca ptr, align 8
-  %tsd.addr.i102 = alloca ptr, align 8
-  %tsd.addr.i.i97 = alloca ptr, align 8
-  %tsd.addr.i98 = alloca ptr, align 8
-  %state.i99 = alloca i8, align 1
-  %tsd.addr.i.i92 = alloca ptr, align 8
-  %tsd.addr.i93 = alloca ptr, align 8
-  %state.i94 = alloca i8, align 1
-  %tsd.addr.i.i87 = alloca ptr, align 8
-  %tsd.addr.i88 = alloca ptr, align 8
-  %state.i89 = alloca i8, align 1
-  %tsd.addr.i.i82 = alloca ptr, align 8
-  %tsd.addr.i83 = alloca ptr, align 8
-  %state.i84 = alloca i8, align 1
-  %tsd.addr.i.i77 = alloca ptr, align 8
-  %tsd.addr.i78 = alloca ptr, align 8
-  %state.i79 = alloca i8, align 1
-  %tsd.addr.i.i72 = alloca ptr, align 8
-  %tsd.addr.i73 = alloca ptr, align 8
-  %state.i74 = alloca i8, align 1
-  %tsd.addr.i.i67 = alloca ptr, align 8
-  %tsd.addr.i68 = alloca ptr, align 8
-  %state.i69 = alloca i8, align 1
-  %tsd.addr.i.i62 = alloca ptr, align 8
-  %tsd.addr.i63 = alloca ptr, align 8
-  %state.i64 = alloca i8, align 1
-  %tsd.addr.i.i57 = alloca ptr, align 8
-  %tsd.addr.i58 = alloca ptr, align 8
-  %state.i59 = alloca i8, align 1
-  %tsd.addr.i.i52 = alloca ptr, align 8
-  %tsd.addr.i53 = alloca ptr, align 8
-  %state.i54 = alloca i8, align 1
-  %tsd.addr.i.i47 = alloca ptr, align 8
-  %tsd.addr.i48 = alloca ptr, align 8
-  %state.i49 = alloca i8, align 1
-  %tsd.addr.i.i42 = alloca ptr, align 8
-  %tsd.addr.i43 = alloca ptr, align 8
-  %state.i44 = alloca i8, align 1
-  %tsd.addr.i.i37 = alloca ptr, align 8
-  %tsd.addr.i38 = alloca ptr, align 8
-  %state.i39 = alloca i8, align 1
-  %tsd.addr.i.i32 = alloca ptr, align 8
-  %tsd.addr.i33 = alloca ptr, align 8
-  %state.i34 = alloca i8, align 1
-  %tsd.addr.i.i27 = alloca ptr, align 8
-  %tsd.addr.i28 = alloca ptr, align 8
-  %state.i29 = alloca i8, align 1
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i26 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsd.addr.i1 = alloca ptr, align 8
-  %ctx.addr.i2 = alloca ptr, align 8
-  %is_alloc.addr.i3 = alloca i8, align 1
-  %tsd.addr.i = alloca ptr, align 8
-  %ctx.addr.i = alloca ptr, align 8
-  %is_alloc.addr.i = alloca i8, align 1
-  %tsd.addr = alloca ptr, align 8
-  %ctx = alloca %struct.te_ctx_s, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %0 = load ptr, ptr %tsd.addr, align 8
-  store ptr %0, ptr %tsd.addr.i1, align 8
-  store ptr %ctx, ptr %ctx.addr.i2, align 8
-  store i8 1, ptr %is_alloc.addr.i3, align 1
-  %1 = load i8, ptr %is_alloc.addr.i3, align 1
-  %tobool.i4 = trunc i8 %1 to i1
-  %2 = load ptr, ptr %ctx.addr.i2, align 8
-  %frombool2.i5 = zext i1 %tobool.i4 to i8
-  store i8 %frombool2.i5, ptr %2, align 8
-  %3 = load i8, ptr %is_alloc.addr.i3, align 1
-  %tobool3.i6 = trunc i8 %3 to i1
-  br i1 %tobool3.i6, label %if.then.i16, label %if.else.i7
+define hidden void @je_te_assert_invariants_debug(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.te_ctx_s, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_ctx_get(ptr noundef %4, ptr noundef %3, i1 noundef zeroext true)
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_assert_invariants_impl(ptr noundef %5, ptr noundef %3)
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_ctx_get(ptr noundef %6, ptr noundef %3, i1 noundef zeroext false)
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_assert_invariants_impl(ptr noundef %7, ptr noundef %3)
+  call void @llvm.lifetime.end.p0(i64 40, ptr %3) #5
+  ret void
+}
 
-if.then.i16:                                      ; preds = %entry
-  %4 = load ptr, ptr %tsd.addr.i1, align 8
-  store ptr %4, ptr %tsd.addr.i26, align 8
-  %5 = load ptr, ptr %tsd.addr.i26, align 8
-  store ptr %5, ptr %tsd.addr.i.i, align 8
-  %6 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %6, i32 0, i32 30
-  %7 = load i8, ptr %state.i.i, align 8
-  store i8 %7, ptr %state.i, align 1
-  %8 = load ptr, ptr %tsd.addr.i26, align 8
-  store ptr %8, ptr %tsd.addr.i103, align 8
-  %9 = load ptr, ptr %tsd.addr.i103, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i104 = getelementptr inbounds %struct.tsd_s, ptr %9, i32 0, i32 31
-  %10 = load ptr, ptr %ctx.addr.i2, align 8
-  %current.i18 = getelementptr inbounds %struct.te_ctx_s, ptr %10, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i104, ptr %current.i18, align 8
-  %11 = load ptr, ptr %tsd.addr.i1, align 8
-  store ptr %11, ptr %tsd.addr.i33, align 8
-  %12 = load ptr, ptr %tsd.addr.i33, align 8
-  store ptr %12, ptr %tsd.addr.i.i32, align 8
-  %13 = load ptr, ptr %tsd.addr.i.i32, align 8
-  %state.i.i35 = getelementptr inbounds %struct.tsd_s, ptr %13, i32 0, i32 30
-  %14 = load i8, ptr %state.i.i35, align 8
-  store i8 %14, ptr %state.i34, align 1
-  %15 = load ptr, ptr %tsd.addr.i33, align 8
-  store ptr %15, ptr %tsd.addr.i106, align 8
-  %16 = load ptr, ptr %tsd.addr.i106, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i107 = getelementptr inbounds %struct.tsd_s, ptr %16, i32 0, i32 3
-  %17 = load ptr, ptr %ctx.addr.i2, align 8
-  %last_event.i20 = getelementptr inbounds %struct.te_ctx_s, ptr %17, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i107, ptr %last_event.i20, align 8
-  %18 = load ptr, ptr %tsd.addr.i1, align 8
-  store ptr %18, ptr %tsd.addr.i43, align 8
-  %19 = load ptr, ptr %tsd.addr.i43, align 8
-  store ptr %19, ptr %tsd.addr.i.i42, align 8
-  %20 = load ptr, ptr %tsd.addr.i.i42, align 8
-  %state.i.i45 = getelementptr inbounds %struct.tsd_s, ptr %20, i32 0, i32 30
-  %21 = load i8, ptr %state.i.i45, align 8
-  store i8 %21, ptr %state.i44, align 1
-  %22 = load ptr, ptr %tsd.addr.i43, align 8
-  store ptr %22, ptr %tsd.addr.i109, align 8
-  %23 = load ptr, ptr %tsd.addr.i109, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i110 = getelementptr inbounds %struct.tsd_s, ptr %23, i32 0, i32 4
-  %24 = load ptr, ptr %ctx.addr.i2, align 8
-  %next_event.i22 = getelementptr inbounds %struct.te_ctx_s, ptr %24, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i110, ptr %next_event.i22, align 8
-  %25 = load ptr, ptr %tsd.addr.i1, align 8
-  store ptr %25, ptr %tsd.addr.i53, align 8
-  %26 = load ptr, ptr %tsd.addr.i53, align 8
-  store ptr %26, ptr %tsd.addr.i.i52, align 8
-  %27 = load ptr, ptr %tsd.addr.i.i52, align 8
-  %state.i.i55 = getelementptr inbounds %struct.tsd_s, ptr %27, i32 0, i32 30
-  %28 = load i8, ptr %state.i.i55, align 8
-  store i8 %28, ptr %state.i54, align 1
-  %29 = load ptr, ptr %tsd.addr.i53, align 8
-  store ptr %29, ptr %tsd.addr.i112, align 8
-  %30 = load ptr, ptr %tsd.addr.i112, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i113 = getelementptr inbounds %struct.tsd_s, ptr %30, i32 0, i32 32
-  %31 = load ptr, ptr %ctx.addr.i2, align 8
-  %next_event_fast.i24 = getelementptr inbounds %struct.te_ctx_s, ptr %31, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i113, ptr %next_event_fast.i24, align 8
-  br label %te_ctx_get.exit25
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-if.else.i7:                                       ; preds = %entry
-  %32 = load ptr, ptr %tsd.addr.i1, align 8
-  store ptr %32, ptr %tsd.addr.i63, align 8
-  %33 = load ptr, ptr %tsd.addr.i63, align 8
-  store ptr %33, ptr %tsd.addr.i.i62, align 8
-  %34 = load ptr, ptr %tsd.addr.i.i62, align 8
-  %state.i.i65 = getelementptr inbounds %struct.tsd_s, ptr %34, i32 0, i32 30
-  %35 = load i8, ptr %state.i.i65, align 8
-  store i8 %35, ptr %state.i64, align 1
-  %36 = load ptr, ptr %tsd.addr.i63, align 8
-  store ptr %36, ptr %tsd.addr.i115, align 8
-  %37 = load ptr, ptr %tsd.addr.i115, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i116 = getelementptr inbounds %struct.tsd_s, ptr %37, i32 0, i32 33
-  %38 = load ptr, ptr %ctx.addr.i2, align 8
-  %current8.i9 = getelementptr inbounds %struct.te_ctx_s, ptr %38, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i116, ptr %current8.i9, align 8
-  %39 = load ptr, ptr %tsd.addr.i1, align 8
-  store ptr %39, ptr %tsd.addr.i73, align 8
-  %40 = load ptr, ptr %tsd.addr.i73, align 8
-  store ptr %40, ptr %tsd.addr.i.i72, align 8
-  %41 = load ptr, ptr %tsd.addr.i.i72, align 8
-  %state.i.i75 = getelementptr inbounds %struct.tsd_s, ptr %41, i32 0, i32 30
-  %42 = load i8, ptr %state.i.i75, align 8
-  store i8 %42, ptr %state.i74, align 1
-  %43 = load ptr, ptr %tsd.addr.i73, align 8
-  store ptr %43, ptr %tsd.addr.i118, align 8
-  %44 = load ptr, ptr %tsd.addr.i118, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i119 = getelementptr inbounds %struct.tsd_s, ptr %44, i32 0, i32 5
-  %45 = load ptr, ptr %ctx.addr.i2, align 8
-  %last_event10.i11 = getelementptr inbounds %struct.te_ctx_s, ptr %45, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i119, ptr %last_event10.i11, align 8
-  %46 = load ptr, ptr %tsd.addr.i1, align 8
-  store ptr %46, ptr %tsd.addr.i83, align 8
-  %47 = load ptr, ptr %tsd.addr.i83, align 8
-  store ptr %47, ptr %tsd.addr.i.i82, align 8
-  %48 = load ptr, ptr %tsd.addr.i.i82, align 8
-  %state.i.i85 = getelementptr inbounds %struct.tsd_s, ptr %48, i32 0, i32 30
-  %49 = load i8, ptr %state.i.i85, align 8
-  store i8 %49, ptr %state.i84, align 1
-  %50 = load ptr, ptr %tsd.addr.i83, align 8
-  store ptr %50, ptr %tsd.addr.i121, align 8
-  %51 = load ptr, ptr %tsd.addr.i121, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i122 = getelementptr inbounds %struct.tsd_s, ptr %51, i32 0, i32 6
-  %52 = load ptr, ptr %ctx.addr.i2, align 8
-  %next_event12.i13 = getelementptr inbounds %struct.te_ctx_s, ptr %52, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i122, ptr %next_event12.i13, align 8
-  %53 = load ptr, ptr %tsd.addr.i1, align 8
-  store ptr %53, ptr %tsd.addr.i93, align 8
-  %54 = load ptr, ptr %tsd.addr.i93, align 8
-  store ptr %54, ptr %tsd.addr.i.i92, align 8
-  %55 = load ptr, ptr %tsd.addr.i.i92, align 8
-  %state.i.i95 = getelementptr inbounds %struct.tsd_s, ptr %55, i32 0, i32 30
-  %56 = load i8, ptr %state.i.i95, align 8
-  store i8 %56, ptr %state.i94, align 1
-  %57 = load ptr, ptr %tsd.addr.i93, align 8
-  store ptr %57, ptr %tsd.addr.i124, align 8
-  %58 = load ptr, ptr %tsd.addr.i124, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i125 = getelementptr inbounds %struct.tsd_s, ptr %58, i32 0, i32 34
-  %59 = load ptr, ptr %ctx.addr.i2, align 8
-  %next_event_fast14.i15 = getelementptr inbounds %struct.te_ctx_s, ptr %59, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i125, ptr %next_event_fast14.i15, align 8
-  br label %te_ctx_get.exit25
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @te_ctx_get(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1, !tbaa !11
+  %8 = load i8, ptr %6, align 1, !tbaa !11, !range !13, !noundef !14
+  %9 = trunc i8 %8 to i1
+  %10 = load ptr, ptr %5, align 8, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %10, i32 0, i32 0
+  %12 = zext i1 %9 to i8
+  store i8 %12, ptr %11, align 8, !tbaa !15
+  %13 = load i8, ptr %6, align 1, !tbaa !11, !range !13, !noundef !14
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %32
 
-te_ctx_get.exit25:                                ; preds = %if.else.i7, %if.then.i16
-  %60 = load ptr, ptr %tsd.addr, align 8
-  call void @te_assert_invariants_impl(ptr noundef %60, ptr noundef %ctx)
-  %61 = load ptr, ptr %tsd.addr, align 8
-  store ptr %61, ptr %tsd.addr.i, align 8
-  store ptr %ctx, ptr %ctx.addr.i, align 8
-  store i8 0, ptr %is_alloc.addr.i, align 1
-  %62 = load i8, ptr %is_alloc.addr.i, align 1
-  %tobool.i = trunc i8 %62 to i1
-  %63 = load ptr, ptr %ctx.addr.i, align 8
-  %frombool2.i = zext i1 %tobool.i to i8
-  store i8 %frombool2.i, ptr %63, align 8
-  %64 = load i8, ptr %is_alloc.addr.i, align 1
-  %tobool3.i = trunc i8 %64 to i1
-  br i1 %tobool3.i, label %if.then.i, label %if.else.i
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = call ptr @tsd_thread_allocatedp_get(ptr noundef %16)
+  %18 = load ptr, ptr %5, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %18, i32 0, i32 1
+  store ptr %17, ptr %19, align 8, !tbaa !18
+  %20 = load ptr, ptr %4, align 8, !tbaa !4
+  %21 = call ptr @tsd_thread_allocated_last_eventp_get(ptr noundef %20)
+  %22 = load ptr, ptr %5, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %22, i32 0, i32 2
+  store ptr %21, ptr %23, align 8, !tbaa !19
+  %24 = load ptr, ptr %4, align 8, !tbaa !4
+  %25 = call ptr @tsd_thread_allocated_next_eventp_get(ptr noundef %24)
+  %26 = load ptr, ptr %5, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %26, i32 0, i32 3
+  store ptr %25, ptr %27, align 8, !tbaa !20
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = call ptr @tsd_thread_allocated_next_event_fastp_get(ptr noundef %28)
+  %30 = load ptr, ptr %5, align 8, !tbaa !9
+  %31 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %31, align 8, !tbaa !21
+  br label %49
 
-if.then.i:                                        ; preds = %te_ctx_get.exit25
-  %65 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %65, ptr %tsd.addr.i28, align 8
-  %66 = load ptr, ptr %tsd.addr.i28, align 8
-  store ptr %66, ptr %tsd.addr.i.i27, align 8
-  %67 = load ptr, ptr %tsd.addr.i.i27, align 8
-  %state.i.i30 = getelementptr inbounds %struct.tsd_s, ptr %67, i32 0, i32 30
-  %68 = load i8, ptr %state.i.i30, align 8
-  store i8 %68, ptr %state.i29, align 1
-  %69 = load ptr, ptr %tsd.addr.i28, align 8
-  store ptr %69, ptr %tsd.addr.i102, align 8
-  %70 = load ptr, ptr %tsd.addr.i102, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i = getelementptr inbounds %struct.tsd_s, ptr %70, i32 0, i32 31
-  %71 = load ptr, ptr %ctx.addr.i, align 8
-  %current.i = getelementptr inbounds %struct.te_ctx_s, ptr %71, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i, ptr %current.i, align 8
-  %72 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %72, ptr %tsd.addr.i38, align 8
-  %73 = load ptr, ptr %tsd.addr.i38, align 8
-  store ptr %73, ptr %tsd.addr.i.i37, align 8
-  %74 = load ptr, ptr %tsd.addr.i.i37, align 8
-  %state.i.i40 = getelementptr inbounds %struct.tsd_s, ptr %74, i32 0, i32 30
-  %75 = load i8, ptr %state.i.i40, align 8
-  store i8 %75, ptr %state.i39, align 1
-  %76 = load ptr, ptr %tsd.addr.i38, align 8
-  store ptr %76, ptr %tsd.addr.i105, align 8
-  %77 = load ptr, ptr %tsd.addr.i105, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds %struct.tsd_s, ptr %77, i32 0, i32 3
-  %78 = load ptr, ptr %ctx.addr.i, align 8
-  %last_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %78, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %79 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %79, ptr %tsd.addr.i48, align 8
-  %80 = load ptr, ptr %tsd.addr.i48, align 8
-  store ptr %80, ptr %tsd.addr.i.i47, align 8
-  %81 = load ptr, ptr %tsd.addr.i.i47, align 8
-  %state.i.i50 = getelementptr inbounds %struct.tsd_s, ptr %81, i32 0, i32 30
-  %82 = load i8, ptr %state.i.i50, align 8
-  store i8 %82, ptr %state.i49, align 1
-  %83 = load ptr, ptr %tsd.addr.i48, align 8
-  store ptr %83, ptr %tsd.addr.i108, align 8
-  %84 = load ptr, ptr %tsd.addr.i108, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds %struct.tsd_s, ptr %84, i32 0, i32 4
-  %85 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %85, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %86 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %86, ptr %tsd.addr.i58, align 8
-  %87 = load ptr, ptr %tsd.addr.i58, align 8
-  store ptr %87, ptr %tsd.addr.i.i57, align 8
-  %88 = load ptr, ptr %tsd.addr.i.i57, align 8
-  %state.i.i60 = getelementptr inbounds %struct.tsd_s, ptr %88, i32 0, i32 30
-  %89 = load i8, ptr %state.i.i60, align 8
-  store i8 %89, ptr %state.i59, align 1
-  %90 = load ptr, ptr %tsd.addr.i58, align 8
-  store ptr %90, ptr %tsd.addr.i111, align 8
-  %91 = load ptr, ptr %tsd.addr.i111, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i = getelementptr inbounds %struct.tsd_s, ptr %91, i32 0, i32 32
-  %92 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event_fast.i = getelementptr inbounds %struct.te_ctx_s, ptr %92, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i, ptr %next_event_fast.i, align 8
-  br label %te_ctx_get.exit
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %4, align 8, !tbaa !4
+  %34 = call ptr @tsd_thread_deallocatedp_get(ptr noundef %33)
+  %35 = load ptr, ptr %5, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %35, i32 0, i32 1
+  store ptr %34, ptr %36, align 8, !tbaa !18
+  %37 = load ptr, ptr %4, align 8, !tbaa !4
+  %38 = call ptr @tsd_thread_deallocated_last_eventp_get(ptr noundef %37)
+  %39 = load ptr, ptr %5, align 8, !tbaa !9
+  %40 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %39, i32 0, i32 2
+  store ptr %38, ptr %40, align 8, !tbaa !19
+  %41 = load ptr, ptr %4, align 8, !tbaa !4
+  %42 = call ptr @tsd_thread_deallocated_next_eventp_get(ptr noundef %41)
+  %43 = load ptr, ptr %5, align 8, !tbaa !9
+  %44 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %43, i32 0, i32 3
+  store ptr %42, ptr %44, align 8, !tbaa !20
+  %45 = load ptr, ptr %4, align 8, !tbaa !4
+  %46 = call ptr @tsd_thread_deallocated_next_event_fastp_get(ptr noundef %45)
+  %47 = load ptr, ptr %5, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %47, i32 0, i32 4
+  store ptr %46, ptr %48, align 8, !tbaa !21
+  br label %49
 
-if.else.i:                                        ; preds = %te_ctx_get.exit25
-  %93 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %93, ptr %tsd.addr.i68, align 8
-  %94 = load ptr, ptr %tsd.addr.i68, align 8
-  store ptr %94, ptr %tsd.addr.i.i67, align 8
-  %95 = load ptr, ptr %tsd.addr.i.i67, align 8
-  %state.i.i70 = getelementptr inbounds %struct.tsd_s, ptr %95, i32 0, i32 30
-  %96 = load i8, ptr %state.i.i70, align 8
-  store i8 %96, ptr %state.i69, align 1
-  %97 = load ptr, ptr %tsd.addr.i68, align 8
-  store ptr %97, ptr %tsd.addr.i114, align 8
-  %98 = load ptr, ptr %tsd.addr.i114, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %98, i32 0, i32 33
-  %99 = load ptr, ptr %ctx.addr.i, align 8
-  %current8.i = getelementptr inbounds %struct.te_ctx_s, ptr %99, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, ptr %current8.i, align 8
-  %100 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %100, ptr %tsd.addr.i78, align 8
-  %101 = load ptr, ptr %tsd.addr.i78, align 8
-  store ptr %101, ptr %tsd.addr.i.i77, align 8
-  %102 = load ptr, ptr %tsd.addr.i.i77, align 8
-  %state.i.i80 = getelementptr inbounds %struct.tsd_s, ptr %102, i32 0, i32 30
-  %103 = load i8, ptr %state.i.i80, align 8
-  store i8 %103, ptr %state.i79, align 1
-  %104 = load ptr, ptr %tsd.addr.i78, align 8
-  store ptr %104, ptr %tsd.addr.i117, align 8
-  %105 = load ptr, ptr %tsd.addr.i117, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i = getelementptr inbounds %struct.tsd_s, ptr %105, i32 0, i32 5
-  %106 = load ptr, ptr %ctx.addr.i, align 8
-  %last_event10.i = getelementptr inbounds %struct.te_ctx_s, ptr %106, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i, ptr %last_event10.i, align 8
-  %107 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %107, ptr %tsd.addr.i88, align 8
-  %108 = load ptr, ptr %tsd.addr.i88, align 8
-  store ptr %108, ptr %tsd.addr.i.i87, align 8
-  %109 = load ptr, ptr %tsd.addr.i.i87, align 8
-  %state.i.i90 = getelementptr inbounds %struct.tsd_s, ptr %109, i32 0, i32 30
-  %110 = load i8, ptr %state.i.i90, align 8
-  store i8 %110, ptr %state.i89, align 1
-  %111 = load ptr, ptr %tsd.addr.i88, align 8
-  store ptr %111, ptr %tsd.addr.i120, align 8
-  %112 = load ptr, ptr %tsd.addr.i120, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i = getelementptr inbounds %struct.tsd_s, ptr %112, i32 0, i32 6
-  %113 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event12.i = getelementptr inbounds %struct.te_ctx_s, ptr %113, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i, ptr %next_event12.i, align 8
-  %114 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %114, ptr %tsd.addr.i98, align 8
-  %115 = load ptr, ptr %tsd.addr.i98, align 8
-  store ptr %115, ptr %tsd.addr.i.i97, align 8
-  %116 = load ptr, ptr %tsd.addr.i.i97, align 8
-  %state.i.i100 = getelementptr inbounds %struct.tsd_s, ptr %116, i32 0, i32 30
-  %117 = load i8, ptr %state.i.i100, align 8
-  store i8 %117, ptr %state.i99, align 1
-  %118 = load ptr, ptr %tsd.addr.i98, align 8
-  store ptr %118, ptr %tsd.addr.i123, align 8
-  %119 = load ptr, ptr %tsd.addr.i123, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds %struct.tsd_s, ptr %119, i32 0, i32 34
-  %120 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event_fast14.i = getelementptr inbounds %struct.te_ctx_s, ptr %120, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, ptr %next_event_fast14.i, align 8
-  br label %te_ctx_get.exit
-
-te_ctx_get.exit:                                  ; preds = %if.else.i, %if.then.i
-  %121 = load ptr, ptr %tsd.addr, align 8
-  call void @te_assert_invariants_impl(ptr noundef %121, ptr noundef %ctx)
+49:                                               ; preds = %32, %15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @te_assert_invariants_impl(ptr noundef %tsd, ptr noundef %ctx) #0 {
-entry:
-  %tsd.addr.i20 = alloca ptr, align 8
-  %ctx.addr.i18 = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %fast.i = alloca i8, align 1
-  %ctx.addr.i17 = alloca ptr, align 8
-  %v.i = alloca i64, align 8
-  %ctx.addr.i16 = alloca ptr, align 8
-  %ctx.addr.i15 = alloca ptr, align 8
-  %ctx.addr.i = alloca ptr, align 8
-  %tsd.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %current_bytes = alloca i64, align 8
-  %last_event = alloca i64, align 8
-  %next_event = alloca i64, align 8
-  %next_event_fast = alloca i64, align 8
-  %interval = alloca i64, align 8
-  %min_wait = alloca i64, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %ctx.addr.i, align 8
-  %1 = load ptr, ptr %ctx.addr.i, align 8
-  %current.i = getelementptr inbounds %struct.te_ctx_s, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %current.i, align 8
-  %3 = load i64, ptr %2, align 8
-  store i64 %3, ptr %current_bytes, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  store ptr %4, ptr %ctx.addr.i15, align 8
-  %5 = load ptr, ptr %ctx.addr.i15, align 8
-  %last_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %last_event.i, align 8
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %last_event, align 8
-  %8 = load ptr, ptr %ctx.addr, align 8
-  store ptr %8, ptr %ctx.addr.i16, align 8
-  %9 = load ptr, ptr %ctx.addr.i16, align 8
-  %next_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %9, i32 0, i32 3
-  %10 = load ptr, ptr %next_event.i, align 8
-  %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr %next_event, align 8
-  %12 = load ptr, ptr %ctx.addr, align 8
-  store ptr %12, ptr %ctx.addr.i17, align 8
-  %13 = load ptr, ptr %ctx.addr.i17, align 8
-  %next_event_fast.i = getelementptr inbounds %struct.te_ctx_s, ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %next_event_fast.i, align 8
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %v.i, align 8
-  %16 = load i64, ptr %v.i, align 8
-  store i64 %16, ptr %next_event_fast, align 8
-  br label %do.body
+define internal void @te_assert_invariants_impl(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !9
+  %12 = call i64 @te_ctx_current_bytes_get(ptr noundef %11)
+  store i64 %12, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %13 = load ptr, ptr %4, align 8, !tbaa !9
+  %14 = call i64 @te_ctx_last_event_get(ptr noundef %13)
+  store i64 %14, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
+  %16 = call i64 @te_ctx_next_event_get(ptr noundef %15)
+  store i64 %16, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %17 = load ptr, ptr %4, align 8, !tbaa !9
+  %18 = call i64 @te_ctx_next_event_fast_get(ptr noundef %17)
+  store i64 %18, ptr %8, align 8, !tbaa !22
+  br label %19
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+19:                                               ; preds = %2
+  br label %20
 
-do.end:                                           ; preds = %do.body
-  %17 = load i64, ptr %next_event, align 8
-  %cmp = icmp ugt i64 %17, -4096
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+20:                                               ; preds = %19
+  br label %21
 
-lor.lhs.false:                                    ; preds = %do.end
-  %18 = load ptr, ptr %tsd.addr, align 8
-  store ptr %18, ptr %tsd.addr.i, align 8
-  %19 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %19, ptr %tsd.addr.i.i, align 8
-  %20 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %20, i32 0, i32 30
-  %21 = load i8, ptr %state.i.i, align 8
-  %conv.i = zext i8 %21 to i32
-  %cmp.i = icmp eq i32 %conv.i, 0
-  %frombool.i = zext i1 %cmp.i to i8
-  store i8 %frombool.i, ptr %fast.i, align 1
-  %22 = load i8, ptr %fast.i, align 1
-  %tobool.i = trunc i8 %22 to i1
-  br i1 %tobool.i, label %if.then.i, label %tsd_fast.exit
+21:                                               ; preds = %20
+  %22 = load i64, ptr %7, align 8, !tbaa !22
+  %23 = icmp ugt i64 %22, -4096
+  br i1 %23, label %27, label %24
 
-if.then.i:                                        ; preds = %lor.lhs.false
-  %23 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %23, ptr %tsd.addr.i20, align 8
-  br label %tsd_fast.exit
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = call zeroext i1 @tsd_fast(ptr noundef %25)
+  br i1 %26, label %31, label %27
 
-tsd_fast.exit:                                    ; preds = %if.then.i, %lor.lhs.false
-  %24 = load i8, ptr %fast.i, align 1
-  %tobool2.i = trunc i8 %24 to i1
-  br i1 %tobool2.i, label %if.else, label %if.then
+27:                                               ; preds = %24, %21
+  br label %28
 
-if.then:                                          ; preds = %tsd_fast.exit, %do.end
-  br label %do.body5
+28:                                               ; preds = %27
+  br label %29
 
-do.body5:                                         ; preds = %if.then
-  br label %do.end6
+29:                                               ; preds = %28
+  br label %30
 
-do.end6:                                          ; preds = %do.body5
-  br label %if.end
+30:                                               ; preds = %29
+  br label %35
 
-if.else:                                          ; preds = %tsd_fast.exit
-  br label %do.body7
+31:                                               ; preds = %24
+  br label %32
 
-do.body7:                                         ; preds = %if.else
-  br label %do.end8
+32:                                               ; preds = %31
+  br label %33
 
-do.end8:                                          ; preds = %do.body7
-  br label %if.end
+33:                                               ; preds = %32
+  br label %34
 
-if.end:                                           ; preds = %do.end8, %do.end6
-  %25 = load i64, ptr %next_event, align 8
-  %26 = load i64, ptr %last_event, align 8
-  %sub = sub i64 %25, %26
-  store i64 %sub, ptr %interval, align 8
-  br label %do.body9
+34:                                               ; preds = %33
+  br label %35
 
-do.body9:                                         ; preds = %if.end
-  br label %do.end10
+35:                                               ; preds = %34, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %36 = load i64, ptr %7, align 8, !tbaa !22
+  %37 = load i64, ptr %6, align 8, !tbaa !22
+  %38 = sub i64 %36, %37
+  store i64 %38, ptr %9, align 8, !tbaa !22
+  br label %39
 
-do.end10:                                         ; preds = %do.body9
-  %27 = load ptr, ptr %tsd.addr, align 8
-  %28 = load ptr, ptr %ctx.addr, align 8
-  store ptr %28, ptr %ctx.addr.i18, align 8
-  %29 = load ptr, ptr %ctx.addr.i18, align 8
-  %30 = load i8, ptr %29, align 8
-  %tobool.i19 = trunc i8 %30 to i1
-  %call12 = call i64 @te_next_event_compute(ptr noundef %27, i1 noundef zeroext %tobool.i19)
-  store i64 %call12, ptr %min_wait, align 8
-  br label %do.body13
+39:                                               ; preds = %35
+  br label %40
 
-do.body13:                                        ; preds = %do.end10
-  br label %do.end14
+40:                                               ; preds = %39
+  br label %41
 
-do.end14:                                         ; preds = %do.body13
+41:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = load ptr, ptr %4, align 8, !tbaa !9
+  %44 = call zeroext i1 @te_ctx_is_alloc(ptr noundef %43)
+  %45 = call i64 @te_next_event_compute(ptr noundef %42, i1 noundef zeroext %44)
+  store i64 %45, ptr %10, align 8, !tbaa !22
+  br label %46
+
+46:                                               ; preds = %41
+  br label %47
+
+47:                                               ; preds = %46
+  br label %48
+
+48:                                               ; preds = %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_te_recompute_fast_threshold(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.te_ctx_s, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  %6 = zext i8 %5 to i32
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_next_event_fast_set_non_nominal(ptr noundef %9)
+  br label %20
+
+10:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 40, ptr %3) #5
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_ctx_get(ptr noundef %11, ptr noundef %3, i1 noundef zeroext true)
+  call void @te_ctx_next_event_fast_update(ptr noundef %3)
+  %12 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_ctx_get(ptr noundef %12, ptr noundef %3, i1 noundef zeroext false)
+  call void @te_ctx_next_event_fast_update(ptr noundef %3)
+  call void @atomic_fence(i32 noundef 4)
+  %13 = load ptr, ptr %2, align 8, !tbaa !4
+  %14 = call zeroext i8 @tsd_state_get(ptr noundef %13)
+  %15 = zext i8 %14 to i32
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_next_event_fast_set_non_nominal(ptr noundef %18)
+  br label %19
+
+19:                                               ; preds = %17, %10
+  call void @llvm.lifetime.end.p0(i64 40, ptr %3) #5
+  br label %20
+
+20:                                               ; preds = %19, %8
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i8 @tsd_state_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 31
+  %5 = load i8, ptr %4, align 8, !tbaa !24
+  ret i8 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @te_next_event_fast_set_non_nominal(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_thread_allocated_next_event_fastp_get_unsafe(ptr noundef %3)
+  store i64 0, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = call ptr @tsd_thread_deallocated_next_event_fastp_get_unsafe(ptr noundef %5)
+  store i64 0, ptr %6, align 8, !tbaa !22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @te_recompute_fast_threshold(ptr noundef %tsd) #0 {
-entry:
-  %retval.i = alloca i32, align 4
-  %mo.addr.i152 = alloca i32, align 4
-  %tsd.addr.i150 = alloca ptr, align 8
-  %tsd.addr.i148 = alloca ptr, align 8
-  %tsd.addr.i146 = alloca ptr, align 8
-  %tsd.addr.i145 = alloca ptr, align 8
-  %tsd.addr.i143 = alloca ptr, align 8
-  %tsd.addr.i142 = alloca ptr, align 8
-  %tsd.addr.i140 = alloca ptr, align 8
-  %tsd.addr.i139 = alloca ptr, align 8
-  %tsd.addr.i137 = alloca ptr, align 8
-  %tsd.addr.i136 = alloca ptr, align 8
-  %tsd.addr.i134 = alloca ptr, align 8
-  %tsd.addr.i132 = alloca ptr, align 8
-  %tsd.addr.i130 = alloca ptr, align 8
-  %tsd.addr.i129 = alloca ptr, align 8
-  %tsd.addr.i127 = alloca ptr, align 8
-  %tsd.addr.i126 = alloca ptr, align 8
-  %tsd.addr.i124 = alloca ptr, align 8
-  %tsd.addr.i123 = alloca ptr, align 8
-  %tsd.addr.i121 = alloca ptr, align 8
-  %tsd.addr.i120 = alloca ptr, align 8
-  %tsd.addr.i.i115 = alloca ptr, align 8
-  %tsd.addr.i116 = alloca ptr, align 8
-  %state.i117 = alloca i8, align 1
-  %tsd.addr.i.i110 = alloca ptr, align 8
-  %tsd.addr.i111 = alloca ptr, align 8
-  %state.i112 = alloca i8, align 1
-  %tsd.addr.i.i105 = alloca ptr, align 8
-  %tsd.addr.i106 = alloca ptr, align 8
-  %state.i107 = alloca i8, align 1
-  %tsd.addr.i.i100 = alloca ptr, align 8
-  %tsd.addr.i101 = alloca ptr, align 8
-  %state.i102 = alloca i8, align 1
-  %tsd.addr.i.i95 = alloca ptr, align 8
-  %tsd.addr.i96 = alloca ptr, align 8
-  %state.i97 = alloca i8, align 1
-  %tsd.addr.i.i90 = alloca ptr, align 8
-  %tsd.addr.i91 = alloca ptr, align 8
-  %state.i92 = alloca i8, align 1
-  %tsd.addr.i.i85 = alloca ptr, align 8
-  %tsd.addr.i86 = alloca ptr, align 8
-  %state.i87 = alloca i8, align 1
-  %tsd.addr.i.i80 = alloca ptr, align 8
-  %tsd.addr.i81 = alloca ptr, align 8
-  %state.i82 = alloca i8, align 1
-  %tsd.addr.i.i75 = alloca ptr, align 8
-  %tsd.addr.i76 = alloca ptr, align 8
-  %state.i77 = alloca i8, align 1
-  %tsd.addr.i.i70 = alloca ptr, align 8
-  %tsd.addr.i71 = alloca ptr, align 8
-  %state.i72 = alloca i8, align 1
-  %tsd.addr.i.i65 = alloca ptr, align 8
-  %tsd.addr.i66 = alloca ptr, align 8
-  %state.i67 = alloca i8, align 1
-  %tsd.addr.i.i60 = alloca ptr, align 8
-  %tsd.addr.i61 = alloca ptr, align 8
-  %state.i62 = alloca i8, align 1
-  %tsd.addr.i.i55 = alloca ptr, align 8
-  %tsd.addr.i56 = alloca ptr, align 8
-  %state.i57 = alloca i8, align 1
-  %tsd.addr.i.i50 = alloca ptr, align 8
-  %tsd.addr.i51 = alloca ptr, align 8
-  %state.i52 = alloca i8, align 1
-  %tsd.addr.i.i45 = alloca ptr, align 8
-  %tsd.addr.i46 = alloca ptr, align 8
-  %state.i47 = alloca i8, align 1
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i42 = alloca ptr, align 8
-  %state.i43 = alloca i8, align 1
-  %mo.addr.i = alloca i32, align 4
-  %tsd.addr.i38 = alloca ptr, align 8
-  %tsd.addr.i36 = alloca ptr, align 8
-  %tsd.addr.i34 = alloca ptr, align 8
-  %tsd.addr.i33 = alloca ptr, align 8
-  %tsd.addr.i8 = alloca ptr, align 8
-  %ctx.addr.i9 = alloca ptr, align 8
-  %is_alloc.addr.i10 = alloca i8, align 1
-  %tsd.addr.i = alloca ptr, align 8
-  %ctx.addr.i = alloca ptr, align 8
-  %is_alloc.addr.i = alloca i8, align 1
-  %tsd.addr = alloca ptr, align 8
-  %ctx = alloca %struct.te_ctx_s, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %0 = load ptr, ptr %tsd.addr, align 8
-  store ptr %0, ptr %tsd.addr.i34, align 8
-  %1 = load ptr, ptr %tsd.addr.i34, align 8
-  %state.i35 = getelementptr inbounds %struct.tsd_s, ptr %1, i32 0, i32 30
-  %2 = load i8, ptr %state.i35, align 8
-  %conv = zext i8 %2 to i32
-  %cmp = icmp ne i32 %conv, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @te_ctx_next_event_fast_update(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %5 = load ptr, ptr %2, align 8, !tbaa !9
+  %6 = call i64 @te_ctx_next_event_get(ptr noundef %5)
+  store i64 %6, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %7 = load i64, ptr %3, align 8, !tbaa !22
+  %8 = icmp ule i64 %7, -4096
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %tsd.addr, align 8
-  store ptr %3, ptr %tsd.addr.i38, align 8
-  %4 = load ptr, ptr %tsd.addr.i38, align 8
-  store ptr %4, ptr %tsd.addr.i132, align 8
-  %5 = load ptr, ptr %tsd.addr.i132, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i133 = getelementptr inbounds %struct.tsd_s, ptr %5, i32 0, i32 32
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i133, align 8
-  %6 = load ptr, ptr %tsd.addr.i38, align 8
-  store ptr %6, ptr %tsd.addr.i148, align 8
-  %7 = load ptr, ptr %tsd.addr.i148, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149 = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 34
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149, align 8
-  br label %if.end7
+9:                                                ; preds = %1
+  %10 = load i64, ptr %3, align 8, !tbaa !22
+  br label %12
 
-if.end:                                           ; preds = %entry
-  %8 = load ptr, ptr %tsd.addr, align 8
-  store ptr %8, ptr %tsd.addr.i8, align 8
-  store ptr %ctx, ptr %ctx.addr.i9, align 8
-  store i8 1, ptr %is_alloc.addr.i10, align 1
-  %9 = load i8, ptr %is_alloc.addr.i10, align 1
-  %tobool.i11 = trunc i8 %9 to i1
-  %10 = load ptr, ptr %ctx.addr.i9, align 8
-  %frombool2.i12 = zext i1 %tobool.i11 to i8
-  store i8 %frombool2.i12, ptr %10, align 8
-  %11 = load i8, ptr %is_alloc.addr.i10, align 1
-  %tobool3.i13 = trunc i8 %11 to i1
-  br i1 %tobool3.i13, label %if.then.i23, label %if.else.i14
+11:                                               ; preds = %1
+  br label %12
 
-if.then.i23:                                      ; preds = %if.end
-  %12 = load ptr, ptr %tsd.addr.i8, align 8
-  store ptr %12, ptr %tsd.addr.i42, align 8
-  %13 = load ptr, ptr %tsd.addr.i42, align 8
-  store ptr %13, ptr %tsd.addr.i.i, align 8
-  %14 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %14, i32 0, i32 30
-  %15 = load i8, ptr %state.i.i, align 8
-  store i8 %15, ptr %state.i43, align 1
-  %16 = load ptr, ptr %tsd.addr.i42, align 8
-  store ptr %16, ptr %tsd.addr.i121, align 8
-  %17 = load ptr, ptr %tsd.addr.i121, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i122 = getelementptr inbounds %struct.tsd_s, ptr %17, i32 0, i32 31
-  %18 = load ptr, ptr %ctx.addr.i9, align 8
-  %current.i25 = getelementptr inbounds %struct.te_ctx_s, ptr %18, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i122, ptr %current.i25, align 8
-  %19 = load ptr, ptr %tsd.addr.i8, align 8
-  store ptr %19, ptr %tsd.addr.i51, align 8
-  %20 = load ptr, ptr %tsd.addr.i51, align 8
-  store ptr %20, ptr %tsd.addr.i.i50, align 8
-  %21 = load ptr, ptr %tsd.addr.i.i50, align 8
-  %state.i.i53 = getelementptr inbounds %struct.tsd_s, ptr %21, i32 0, i32 30
-  %22 = load i8, ptr %state.i.i53, align 8
-  store i8 %22, ptr %state.i52, align 1
-  %23 = load ptr, ptr %tsd.addr.i51, align 8
-  store ptr %23, ptr %tsd.addr.i124, align 8
-  %24 = load ptr, ptr %tsd.addr.i124, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i125 = getelementptr inbounds %struct.tsd_s, ptr %24, i32 0, i32 3
-  %25 = load ptr, ptr %ctx.addr.i9, align 8
-  %last_event.i27 = getelementptr inbounds %struct.te_ctx_s, ptr %25, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i125, ptr %last_event.i27, align 8
-  %26 = load ptr, ptr %tsd.addr.i8, align 8
-  store ptr %26, ptr %tsd.addr.i61, align 8
-  %27 = load ptr, ptr %tsd.addr.i61, align 8
-  store ptr %27, ptr %tsd.addr.i.i60, align 8
-  %28 = load ptr, ptr %tsd.addr.i.i60, align 8
-  %state.i.i63 = getelementptr inbounds %struct.tsd_s, ptr %28, i32 0, i32 30
-  %29 = load i8, ptr %state.i.i63, align 8
-  store i8 %29, ptr %state.i62, align 1
-  %30 = load ptr, ptr %tsd.addr.i61, align 8
-  store ptr %30, ptr %tsd.addr.i127, align 8
-  %31 = load ptr, ptr %tsd.addr.i127, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i128 = getelementptr inbounds %struct.tsd_s, ptr %31, i32 0, i32 4
-  %32 = load ptr, ptr %ctx.addr.i9, align 8
-  %next_event.i29 = getelementptr inbounds %struct.te_ctx_s, ptr %32, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i128, ptr %next_event.i29, align 8
-  %33 = load ptr, ptr %tsd.addr.i8, align 8
-  store ptr %33, ptr %tsd.addr.i71, align 8
-  %34 = load ptr, ptr %tsd.addr.i71, align 8
-  store ptr %34, ptr %tsd.addr.i.i70, align 8
-  %35 = load ptr, ptr %tsd.addr.i.i70, align 8
-  %state.i.i73 = getelementptr inbounds %struct.tsd_s, ptr %35, i32 0, i32 30
-  %36 = load i8, ptr %state.i.i73, align 8
-  store i8 %36, ptr %state.i72, align 1
-  %37 = load ptr, ptr %tsd.addr.i71, align 8
-  store ptr %37, ptr %tsd.addr.i130, align 8
-  %38 = load ptr, ptr %tsd.addr.i130, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131 = getelementptr inbounds %struct.tsd_s, ptr %38, i32 0, i32 32
-  %39 = load ptr, ptr %ctx.addr.i9, align 8
-  %next_event_fast.i31 = getelementptr inbounds %struct.te_ctx_s, ptr %39, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131, ptr %next_event_fast.i31, align 8
-  br label %te_ctx_get.exit32
+12:                                               ; preds = %11, %9
+  %13 = phi i64 [ %10, %9 ], [ 0, %11 ]
+  store i64 %13, ptr %4, align 8, !tbaa !22
+  %14 = load ptr, ptr %2, align 8, !tbaa !9
+  %15 = load i64, ptr %4, align 8, !tbaa !22
+  call void @te_ctx_next_event_fast_set(ptr noundef %14, i64 noundef %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret void
+}
 
-if.else.i14:                                      ; preds = %if.end
-  %40 = load ptr, ptr %tsd.addr.i8, align 8
-  store ptr %40, ptr %tsd.addr.i81, align 8
-  %41 = load ptr, ptr %tsd.addr.i81, align 8
-  store ptr %41, ptr %tsd.addr.i.i80, align 8
-  %42 = load ptr, ptr %tsd.addr.i.i80, align 8
-  %state.i.i83 = getelementptr inbounds %struct.tsd_s, ptr %42, i32 0, i32 30
-  %43 = load i8, ptr %state.i.i83, align 8
-  store i8 %43, ptr %state.i82, align 1
-  %44 = load ptr, ptr %tsd.addr.i81, align 8
-  store ptr %44, ptr %tsd.addr.i137, align 8
-  %45 = load ptr, ptr %tsd.addr.i137, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i138 = getelementptr inbounds %struct.tsd_s, ptr %45, i32 0, i32 33
-  %46 = load ptr, ptr %ctx.addr.i9, align 8
-  %current8.i16 = getelementptr inbounds %struct.te_ctx_s, ptr %46, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i138, ptr %current8.i16, align 8
-  %47 = load ptr, ptr %tsd.addr.i8, align 8
-  store ptr %47, ptr %tsd.addr.i91, align 8
-  %48 = load ptr, ptr %tsd.addr.i91, align 8
-  store ptr %48, ptr %tsd.addr.i.i90, align 8
-  %49 = load ptr, ptr %tsd.addr.i.i90, align 8
-  %state.i.i93 = getelementptr inbounds %struct.tsd_s, ptr %49, i32 0, i32 30
-  %50 = load i8, ptr %state.i.i93, align 8
-  store i8 %50, ptr %state.i92, align 1
-  %51 = load ptr, ptr %tsd.addr.i91, align 8
-  store ptr %51, ptr %tsd.addr.i140, align 8
-  %52 = load ptr, ptr %tsd.addr.i140, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i141 = getelementptr inbounds %struct.tsd_s, ptr %52, i32 0, i32 5
-  %53 = load ptr, ptr %ctx.addr.i9, align 8
-  %last_event10.i18 = getelementptr inbounds %struct.te_ctx_s, ptr %53, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i141, ptr %last_event10.i18, align 8
-  %54 = load ptr, ptr %tsd.addr.i8, align 8
-  store ptr %54, ptr %tsd.addr.i101, align 8
-  %55 = load ptr, ptr %tsd.addr.i101, align 8
-  store ptr %55, ptr %tsd.addr.i.i100, align 8
-  %56 = load ptr, ptr %tsd.addr.i.i100, align 8
-  %state.i.i103 = getelementptr inbounds %struct.tsd_s, ptr %56, i32 0, i32 30
-  %57 = load i8, ptr %state.i.i103, align 8
-  store i8 %57, ptr %state.i102, align 1
-  %58 = load ptr, ptr %tsd.addr.i101, align 8
-  store ptr %58, ptr %tsd.addr.i143, align 8
-  %59 = load ptr, ptr %tsd.addr.i143, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i144 = getelementptr inbounds %struct.tsd_s, ptr %59, i32 0, i32 6
-  %60 = load ptr, ptr %ctx.addr.i9, align 8
-  %next_event12.i20 = getelementptr inbounds %struct.te_ctx_s, ptr %60, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i144, ptr %next_event12.i20, align 8
-  %61 = load ptr, ptr %tsd.addr.i8, align 8
-  store ptr %61, ptr %tsd.addr.i111, align 8
-  %62 = load ptr, ptr %tsd.addr.i111, align 8
-  store ptr %62, ptr %tsd.addr.i.i110, align 8
-  %63 = load ptr, ptr %tsd.addr.i.i110, align 8
-  %state.i.i113 = getelementptr inbounds %struct.tsd_s, ptr %63, i32 0, i32 30
-  %64 = load i8, ptr %state.i.i113, align 8
-  store i8 %64, ptr %state.i112, align 1
-  %65 = load ptr, ptr %tsd.addr.i111, align 8
-  store ptr %65, ptr %tsd.addr.i146, align 8
-  %66 = load ptr, ptr %tsd.addr.i146, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i147 = getelementptr inbounds %struct.tsd_s, ptr %66, i32 0, i32 34
-  %67 = load ptr, ptr %ctx.addr.i9, align 8
-  %next_event_fast14.i22 = getelementptr inbounds %struct.te_ctx_s, ptr %67, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i147, ptr %next_event_fast14.i22, align 8
-  br label %te_ctx_get.exit32
-
-te_ctx_get.exit32:                                ; preds = %if.else.i14, %if.then.i23
-  call void @te_ctx_next_event_fast_update(ptr noundef %ctx)
-  %68 = load ptr, ptr %tsd.addr, align 8
-  store ptr %68, ptr %tsd.addr.i, align 8
-  store ptr %ctx, ptr %ctx.addr.i, align 8
-  store i8 0, ptr %is_alloc.addr.i, align 1
-  %69 = load i8, ptr %is_alloc.addr.i, align 1
-  %tobool.i = trunc i8 %69 to i1
-  %70 = load ptr, ptr %ctx.addr.i, align 8
-  %frombool2.i = zext i1 %tobool.i to i8
-  store i8 %frombool2.i, ptr %70, align 8
-  %71 = load i8, ptr %is_alloc.addr.i, align 1
-  %tobool3.i = trunc i8 %71 to i1
-  br i1 %tobool3.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %te_ctx_get.exit32
-  %72 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %72, ptr %tsd.addr.i46, align 8
-  %73 = load ptr, ptr %tsd.addr.i46, align 8
-  store ptr %73, ptr %tsd.addr.i.i45, align 8
-  %74 = load ptr, ptr %tsd.addr.i.i45, align 8
-  %state.i.i48 = getelementptr inbounds %struct.tsd_s, ptr %74, i32 0, i32 30
-  %75 = load i8, ptr %state.i.i48, align 8
-  store i8 %75, ptr %state.i47, align 1
-  %76 = load ptr, ptr %tsd.addr.i46, align 8
-  store ptr %76, ptr %tsd.addr.i120, align 8
-  %77 = load ptr, ptr %tsd.addr.i120, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i = getelementptr inbounds %struct.tsd_s, ptr %77, i32 0, i32 31
-  %78 = load ptr, ptr %ctx.addr.i, align 8
-  %current.i = getelementptr inbounds %struct.te_ctx_s, ptr %78, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i, ptr %current.i, align 8
-  %79 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %79, ptr %tsd.addr.i56, align 8
-  %80 = load ptr, ptr %tsd.addr.i56, align 8
-  store ptr %80, ptr %tsd.addr.i.i55, align 8
-  %81 = load ptr, ptr %tsd.addr.i.i55, align 8
-  %state.i.i58 = getelementptr inbounds %struct.tsd_s, ptr %81, i32 0, i32 30
-  %82 = load i8, ptr %state.i.i58, align 8
-  store i8 %82, ptr %state.i57, align 1
-  %83 = load ptr, ptr %tsd.addr.i56, align 8
-  store ptr %83, ptr %tsd.addr.i123, align 8
-  %84 = load ptr, ptr %tsd.addr.i123, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds %struct.tsd_s, ptr %84, i32 0, i32 3
-  %85 = load ptr, ptr %ctx.addr.i, align 8
-  %last_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %85, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %86 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %86, ptr %tsd.addr.i66, align 8
-  %87 = load ptr, ptr %tsd.addr.i66, align 8
-  store ptr %87, ptr %tsd.addr.i.i65, align 8
-  %88 = load ptr, ptr %tsd.addr.i.i65, align 8
-  %state.i.i68 = getelementptr inbounds %struct.tsd_s, ptr %88, i32 0, i32 30
-  %89 = load i8, ptr %state.i.i68, align 8
-  store i8 %89, ptr %state.i67, align 1
-  %90 = load ptr, ptr %tsd.addr.i66, align 8
-  store ptr %90, ptr %tsd.addr.i126, align 8
-  %91 = load ptr, ptr %tsd.addr.i126, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds %struct.tsd_s, ptr %91, i32 0, i32 4
-  %92 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %92, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %93 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %93, ptr %tsd.addr.i76, align 8
-  %94 = load ptr, ptr %tsd.addr.i76, align 8
-  store ptr %94, ptr %tsd.addr.i.i75, align 8
-  %95 = load ptr, ptr %tsd.addr.i.i75, align 8
-  %state.i.i78 = getelementptr inbounds %struct.tsd_s, ptr %95, i32 0, i32 30
-  %96 = load i8, ptr %state.i.i78, align 8
-  store i8 %96, ptr %state.i77, align 1
-  %97 = load ptr, ptr %tsd.addr.i76, align 8
-  store ptr %97, ptr %tsd.addr.i129, align 8
-  %98 = load ptr, ptr %tsd.addr.i129, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i = getelementptr inbounds %struct.tsd_s, ptr %98, i32 0, i32 32
-  %99 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event_fast.i = getelementptr inbounds %struct.te_ctx_s, ptr %99, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i, ptr %next_event_fast.i, align 8
-  br label %te_ctx_get.exit
-
-if.else.i:                                        ; preds = %te_ctx_get.exit32
-  %100 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %100, ptr %tsd.addr.i86, align 8
-  %101 = load ptr, ptr %tsd.addr.i86, align 8
-  store ptr %101, ptr %tsd.addr.i.i85, align 8
-  %102 = load ptr, ptr %tsd.addr.i.i85, align 8
-  %state.i.i88 = getelementptr inbounds %struct.tsd_s, ptr %102, i32 0, i32 30
-  %103 = load i8, ptr %state.i.i88, align 8
-  store i8 %103, ptr %state.i87, align 1
-  %104 = load ptr, ptr %tsd.addr.i86, align 8
-  store ptr %104, ptr %tsd.addr.i136, align 8
-  %105 = load ptr, ptr %tsd.addr.i136, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %105, i32 0, i32 33
-  %106 = load ptr, ptr %ctx.addr.i, align 8
-  %current8.i = getelementptr inbounds %struct.te_ctx_s, ptr %106, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, ptr %current8.i, align 8
-  %107 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %107, ptr %tsd.addr.i96, align 8
-  %108 = load ptr, ptr %tsd.addr.i96, align 8
-  store ptr %108, ptr %tsd.addr.i.i95, align 8
-  %109 = load ptr, ptr %tsd.addr.i.i95, align 8
-  %state.i.i98 = getelementptr inbounds %struct.tsd_s, ptr %109, i32 0, i32 30
-  %110 = load i8, ptr %state.i.i98, align 8
-  store i8 %110, ptr %state.i97, align 1
-  %111 = load ptr, ptr %tsd.addr.i96, align 8
-  store ptr %111, ptr %tsd.addr.i139, align 8
-  %112 = load ptr, ptr %tsd.addr.i139, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i = getelementptr inbounds %struct.tsd_s, ptr %112, i32 0, i32 5
-  %113 = load ptr, ptr %ctx.addr.i, align 8
-  %last_event10.i = getelementptr inbounds %struct.te_ctx_s, ptr %113, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i, ptr %last_event10.i, align 8
-  %114 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %114, ptr %tsd.addr.i106, align 8
-  %115 = load ptr, ptr %tsd.addr.i106, align 8
-  store ptr %115, ptr %tsd.addr.i.i105, align 8
-  %116 = load ptr, ptr %tsd.addr.i.i105, align 8
-  %state.i.i108 = getelementptr inbounds %struct.tsd_s, ptr %116, i32 0, i32 30
-  %117 = load i8, ptr %state.i.i108, align 8
-  store i8 %117, ptr %state.i107, align 1
-  %118 = load ptr, ptr %tsd.addr.i106, align 8
-  store ptr %118, ptr %tsd.addr.i142, align 8
-  %119 = load ptr, ptr %tsd.addr.i142, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i = getelementptr inbounds %struct.tsd_s, ptr %119, i32 0, i32 6
-  %120 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event12.i = getelementptr inbounds %struct.te_ctx_s, ptr %120, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i, ptr %next_event12.i, align 8
-  %121 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %121, ptr %tsd.addr.i116, align 8
-  %122 = load ptr, ptr %tsd.addr.i116, align 8
-  store ptr %122, ptr %tsd.addr.i.i115, align 8
-  %123 = load ptr, ptr %tsd.addr.i.i115, align 8
-  %state.i.i118 = getelementptr inbounds %struct.tsd_s, ptr %123, i32 0, i32 30
-  %124 = load i8, ptr %state.i.i118, align 8
-  store i8 %124, ptr %state.i117, align 1
-  %125 = load ptr, ptr %tsd.addr.i116, align 8
-  store ptr %125, ptr %tsd.addr.i145, align 8
-  %126 = load ptr, ptr %tsd.addr.i145, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds %struct.tsd_s, ptr %126, i32 0, i32 34
-  %127 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event_fast14.i = getelementptr inbounds %struct.te_ctx_s, ptr %127, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, ptr %next_event_fast14.i, align 8
-  br label %te_ctx_get.exit
-
-te_ctx_get.exit:                                  ; preds = %if.else.i, %if.then.i
-  call void @te_ctx_next_event_fast_update(ptr noundef %ctx)
-  store i32 4, ptr %mo.addr.i, align 4
-  %128 = load i32, ptr %mo.addr.i, align 4
-  store i32 %128, ptr %mo.addr.i152, align 4
-  %129 = load i32, ptr %mo.addr.i152, align 4
-  switch i32 %129, label %sw.epilog.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_fence(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !25
+  %3 = load i32, ptr %2, align 4, !tbaa !25
+  %4 = call i32 @atomic_enum_to_builtin(i32 noundef %3)
+  switch i32 %4, label %9 [
+    i32 1, label %5
+    i32 2, label %5
+    i32 3, label %6
+    i32 4, label %7
+    i32 5, label %8
   ]
 
-sw.bb.i:                                          ; preds = %te_ctx_get.exit
-  store i32 0, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+5:                                                ; preds = %1, %1
+  fence acquire
+  br label %9
 
-sw.bb1.i:                                         ; preds = %te_ctx_get.exit
-  store i32 2, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+6:                                                ; preds = %1
+  fence release
+  br label %9
 
-sw.bb2.i:                                         ; preds = %te_ctx_get.exit
-  store i32 3, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+7:                                                ; preds = %1
+  fence acq_rel
+  br label %9
 
-sw.bb3.i:                                         ; preds = %te_ctx_get.exit
-  store i32 4, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+8:                                                ; preds = %1
+  fence seq_cst
+  br label %9
 
-sw.bb4.i:                                         ; preds = %te_ctx_get.exit
-  store i32 5, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
+9:                                                ; preds = %8, %7, %6, %5, %1
+  ret void
+}
 
-sw.epilog.i:                                      ; preds = %te_ctx_get.exit
+; Function Attrs: nounwind uwtable
+define hidden void @je_te_event_trigger(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca i64, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i64, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca i64, align 8
+  %16 = alloca i8, align 1
+  %17 = alloca i64, align 8
+  %18 = alloca i8, align 1
+  %19 = alloca i64, align 8
+  %20 = alloca i8, align 1
+  %21 = alloca i64, align 8
+  %22 = alloca i8, align 1
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  %26 = alloca i64, align 8
+  %27 = alloca i64, align 8
+  %28 = alloca i64, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %31 = load ptr, ptr %4, align 8, !tbaa !9
+  %32 = call i64 @te_ctx_current_bytes_get(ptr noundef %31)
+  store i64 %32, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %33 = load i64, ptr %5, align 8, !tbaa !22
+  %34 = load ptr, ptr %4, align 8, !tbaa !9
+  %35 = call i64 @te_ctx_last_event_get(ptr noundef %34)
+  %36 = sub i64 %33, %35
+  store i64 %36, ptr %6, align 8, !tbaa !22
+  %37 = load ptr, ptr %4, align 8, !tbaa !9
+  %38 = load i64, ptr %5, align 8, !tbaa !22
+  call void @te_ctx_last_event_set(ptr noundef %37, i64 noundef %38)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = call zeroext i1 @tsd_nominal(ptr noundef %39)
+  br i1 %40, label %41, label %46
+
+41:                                               ; preds = %2
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = call signext i8 @tsd_reentrancy_level_get(ptr noundef %42)
+  %44 = sext i8 %43 to i32
+  %45 = icmp eq i32 %44, 0
+  br label %46
+
+46:                                               ; preds = %41, %2
+  %47 = phi i1 [ false, %2 ], [ %45, %41 ]
+  %48 = zext i1 %47 to i8
+  store i8 %48, ptr %7, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #5
+  %49 = load ptr, ptr %4, align 8, !tbaa !9
+  %50 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %49, i32 0, i32 0
+  %51 = load i8, ptr %50, align 8, !tbaa !15, !range !13, !noundef !14
+  %52 = trunc i8 %51 to i1
+  %53 = zext i1 %52 to i8
+  store i8 %53, ptr %8, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store i64 -1, ptr %9, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #5
+  store i8 0, ptr %10, align 1, !tbaa !11
+  %54 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %55 = trunc i8 %54 to i1
+  %56 = zext i1 %55 to i32
+  %57 = icmp eq i32 %56, 1
+  br i1 %57, label %58, label %95
+
+58:                                               ; preds = %46
+  %59 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8, !tbaa !22
+  %60 = icmp ugt i64 %59, 0
+  br i1 %60, label %61, label %95
+
+61:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %62 = load ptr, ptr %3, align 8, !tbaa !4
+  %63 = call i64 @tcache_gc_event_wait_get(ptr noundef %62)
+  store i64 %63, ptr %11, align 8, !tbaa !22
+  br label %64
+
+64:                                               ; preds = %61
+  br label %65
+
+65:                                               ; preds = %64
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load i64, ptr %11, align 8, !tbaa !22
+  %68 = load i64, ptr %6, align 8, !tbaa !22
+  %69 = icmp ugt i64 %67, %68
+  br i1 %69, label %70, label %74
+
+70:                                               ; preds = %66
+  %71 = load i64, ptr %6, align 8, !tbaa !22
+  %72 = load i64, ptr %11, align 8, !tbaa !22
+  %73 = sub i64 %72, %71
+  store i64 %73, ptr %11, align 8, !tbaa !22
+  br label %84
+
+74:                                               ; preds = %66
+  %75 = load i8, ptr %7, align 1, !tbaa !11, !range !13, !noundef !14
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %80, label %77
+
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %3, align 8, !tbaa !4
+  %79 = call i64 @je_tcache_gc_postponed_event_wait(ptr noundef %78)
+  store i64 %79, ptr %11, align 8, !tbaa !22
+  br label %83
+
+80:                                               ; preds = %74
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %81 = load ptr, ptr %3, align 8, !tbaa !4
+  %82 = call i64 @je_tcache_gc_new_event_wait(ptr noundef %81)
+  store i64 %82, ptr %11, align 8, !tbaa !22
+  br label %83
+
+83:                                               ; preds = %80, %77
+  br label %84
+
+84:                                               ; preds = %83, %70
+  %85 = load i64, ptr %11, align 8, !tbaa !22
+  %86 = call i64 @te_clip_event_wait(i64 noundef %85)
+  store i64 %86, ptr %11, align 8, !tbaa !22
+  %87 = load ptr, ptr %3, align 8, !tbaa !4
+  %88 = load i64, ptr %11, align 8, !tbaa !22
+  call void @tcache_gc_event_wait_set(ptr noundef %87, i64 noundef %88)
+  %89 = load i64, ptr %11, align 8, !tbaa !22
+  %90 = load i64, ptr %9, align 8, !tbaa !22
+  %91 = icmp ult i64 %89, %90
+  br i1 %91, label %92, label %94
+
+92:                                               ; preds = %84
+  %93 = load i64, ptr %11, align 8, !tbaa !22
+  store i64 %93, ptr %9, align 8, !tbaa !22
+  br label %94
+
+94:                                               ; preds = %92, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  br label %95
+
+95:                                               ; preds = %94, %58, %46
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #5
+  store i8 0, ptr %12, align 1, !tbaa !11
+  %96 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %97 = trunc i8 %96 to i1
+  %98 = zext i1 %97 to i32
+  %99 = icmp eq i32 %98, 1
+  br i1 %99, label %100, label %138
+
+100:                                              ; preds = %95
+  br i1 false, label %101, label %138
+
+101:                                              ; preds = %100
+  %102 = load i8, ptr @je_opt_prof, align 1, !tbaa !11, !range !13, !noundef !14
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %138
+
+104:                                              ; preds = %101
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %105 = load ptr, ptr %3, align 8, !tbaa !4
+  %106 = call i64 @prof_sample_event_wait_get(ptr noundef %105)
+  store i64 %106, ptr %13, align 8, !tbaa !22
+  br label %107
+
+107:                                              ; preds = %104
+  br label %108
+
+108:                                              ; preds = %107
+  br label %109
+
+109:                                              ; preds = %108
+  %110 = load i64, ptr %13, align 8, !tbaa !22
+  %111 = load i64, ptr %6, align 8, !tbaa !22
+  %112 = icmp ugt i64 %110, %111
+  br i1 %112, label %113, label %117
+
+113:                                              ; preds = %109
+  %114 = load i64, ptr %6, align 8, !tbaa !22
+  %115 = load i64, ptr %13, align 8, !tbaa !22
+  %116 = sub i64 %115, %114
+  store i64 %116, ptr %13, align 8, !tbaa !22
+  br label %127
+
+117:                                              ; preds = %109
+  %118 = load i8, ptr %7, align 1, !tbaa !11, !range !13, !noundef !14
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %123, label %120
+
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %3, align 8, !tbaa !4
+  %122 = call i64 @je_prof_sample_postponed_event_wait(ptr noundef %121)
+  store i64 %122, ptr %13, align 8, !tbaa !22
+  br label %126
+
+123:                                              ; preds = %117
+  store i8 1, ptr %12, align 1, !tbaa !11
+  %124 = load ptr, ptr %3, align 8, !tbaa !4
+  %125 = call i64 @je_prof_sample_new_event_wait(ptr noundef %124)
+  store i64 %125, ptr %13, align 8, !tbaa !22
+  br label %126
+
+126:                                              ; preds = %123, %120
+  br label %127
+
+127:                                              ; preds = %126, %113
+  %128 = load i64, ptr %13, align 8, !tbaa !22
+  %129 = call i64 @te_clip_event_wait(i64 noundef %128)
+  store i64 %129, ptr %13, align 8, !tbaa !22
+  %130 = load ptr, ptr %3, align 8, !tbaa !4
+  %131 = load i64, ptr %13, align 8, !tbaa !22
+  call void @prof_sample_event_wait_set(ptr noundef %130, i64 noundef %131)
+  %132 = load i64, ptr %13, align 8, !tbaa !22
+  %133 = load i64, ptr %9, align 8, !tbaa !22
+  %134 = icmp ult i64 %132, %133
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %127
+  %136 = load i64, ptr %13, align 8, !tbaa !22
+  store i64 %136, ptr %9, align 8, !tbaa !22
+  br label %137
+
+137:                                              ; preds = %135, %127
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %138
+
+138:                                              ; preds = %137, %101, %100, %95
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #5
+  store i8 0, ptr %14, align 1, !tbaa !11
+  %139 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %140 = trunc i8 %139 to i1
+  %141 = zext i1 %140 to i32
+  %142 = icmp eq i32 %141, 1
+  br i1 %142, label %143, label %177
+
+143:                                              ; preds = %138
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %144 = load ptr, ptr %3, align 8, !tbaa !4
+  %145 = call i64 @prof_threshold_event_wait_get(ptr noundef %144)
+  store i64 %145, ptr %15, align 8, !tbaa !22
+  br label %146
+
+146:                                              ; preds = %143
+  br label %147
+
+147:                                              ; preds = %146
+  br label %148
+
+148:                                              ; preds = %147
+  %149 = load i64, ptr %15, align 8, !tbaa !22
+  %150 = load i64, ptr %6, align 8, !tbaa !22
+  %151 = icmp ugt i64 %149, %150
+  br i1 %151, label %152, label %156
+
+152:                                              ; preds = %148
+  %153 = load i64, ptr %6, align 8, !tbaa !22
+  %154 = load i64, ptr %15, align 8, !tbaa !22
+  %155 = sub i64 %154, %153
+  store i64 %155, ptr %15, align 8, !tbaa !22
+  br label %166
+
+156:                                              ; preds = %148
+  %157 = load i8, ptr %7, align 1, !tbaa !11, !range !13, !noundef !14
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %162, label %159
+
+159:                                              ; preds = %156
+  %160 = load ptr, ptr %3, align 8, !tbaa !4
+  %161 = call i64 @je_prof_threshold_postponed_event_wait(ptr noundef %160)
+  store i64 %161, ptr %15, align 8, !tbaa !22
+  br label %165
+
+162:                                              ; preds = %156
+  store i8 1, ptr %14, align 1, !tbaa !11
+  %163 = load ptr, ptr %3, align 8, !tbaa !4
+  %164 = call i64 @je_prof_threshold_new_event_wait(ptr noundef %163)
+  store i64 %164, ptr %15, align 8, !tbaa !22
+  br label %165
+
+165:                                              ; preds = %162, %159
+  br label %166
+
+166:                                              ; preds = %165, %152
+  %167 = load i64, ptr %15, align 8, !tbaa !22
+  %168 = call i64 @te_clip_event_wait(i64 noundef %167)
+  store i64 %168, ptr %15, align 8, !tbaa !22
+  %169 = load ptr, ptr %3, align 8, !tbaa !4
+  %170 = load i64, ptr %15, align 8, !tbaa !22
+  call void @prof_threshold_event_wait_set(ptr noundef %169, i64 noundef %170)
+  %171 = load i64, ptr %15, align 8, !tbaa !22
+  %172 = load i64, ptr %9, align 8, !tbaa !22
+  %173 = icmp ult i64 %171, %172
+  br i1 %173, label %174, label %176
+
+174:                                              ; preds = %166
+  %175 = load i64, ptr %15, align 8, !tbaa !22
+  store i64 %175, ptr %9, align 8, !tbaa !22
+  br label %176
+
+176:                                              ; preds = %174, %166
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  br label %177
+
+177:                                              ; preds = %176, %138
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #5
+  store i8 0, ptr %16, align 1, !tbaa !11
+  %178 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %179 = trunc i8 %178 to i1
+  %180 = zext i1 %179 to i32
+  %181 = icmp eq i32 %180, 1
+  br i1 %181, label %182, label %219
+
+182:                                              ; preds = %177
+  %183 = load i64, ptr @je_opt_stats_interval, align 8, !tbaa !22
+  %184 = icmp sge i64 %183, 0
+  br i1 %184, label %185, label %219
+
+185:                                              ; preds = %182
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %186 = load ptr, ptr %3, align 8, !tbaa !4
+  %187 = call i64 @stats_interval_event_wait_get(ptr noundef %186)
+  store i64 %187, ptr %17, align 8, !tbaa !22
+  br label %188
+
+188:                                              ; preds = %185
+  br label %189
+
+189:                                              ; preds = %188
+  br label %190
+
+190:                                              ; preds = %189
+  %191 = load i64, ptr %17, align 8, !tbaa !22
+  %192 = load i64, ptr %6, align 8, !tbaa !22
+  %193 = icmp ugt i64 %191, %192
+  br i1 %193, label %194, label %198
+
+194:                                              ; preds = %190
+  %195 = load i64, ptr %6, align 8, !tbaa !22
+  %196 = load i64, ptr %17, align 8, !tbaa !22
+  %197 = sub i64 %196, %195
+  store i64 %197, ptr %17, align 8, !tbaa !22
+  br label %208
+
+198:                                              ; preds = %190
+  %199 = load i8, ptr %7, align 1, !tbaa !11, !range !13, !noundef !14
+  %200 = trunc i8 %199 to i1
+  br i1 %200, label %204, label %201
+
+201:                                              ; preds = %198
+  %202 = load ptr, ptr %3, align 8, !tbaa !4
+  %203 = call i64 @je_stats_interval_postponed_event_wait(ptr noundef %202)
+  store i64 %203, ptr %17, align 8, !tbaa !22
+  br label %207
+
+204:                                              ; preds = %198
+  store i8 1, ptr %16, align 1, !tbaa !11
+  %205 = load ptr, ptr %3, align 8, !tbaa !4
+  %206 = call i64 @je_stats_interval_new_event_wait(ptr noundef %205)
+  store i64 %206, ptr %17, align 8, !tbaa !22
+  br label %207
+
+207:                                              ; preds = %204, %201
+  br label %208
+
+208:                                              ; preds = %207, %194
+  %209 = load i64, ptr %17, align 8, !tbaa !22
+  %210 = call i64 @te_clip_event_wait(i64 noundef %209)
+  store i64 %210, ptr %17, align 8, !tbaa !22
+  %211 = load ptr, ptr %3, align 8, !tbaa !4
+  %212 = load i64, ptr %17, align 8, !tbaa !22
+  call void @stats_interval_event_wait_set(ptr noundef %211, i64 noundef %212)
+  %213 = load i64, ptr %17, align 8, !tbaa !22
+  %214 = load i64, ptr %9, align 8, !tbaa !22
+  %215 = icmp ult i64 %213, %214
+  br i1 %215, label %216, label %218
+
+216:                                              ; preds = %208
+  %217 = load i64, ptr %17, align 8, !tbaa !22
+  store i64 %217, ptr %9, align 8, !tbaa !22
+  br label %218
+
+218:                                              ; preds = %216, %208
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  br label %219
+
+219:                                              ; preds = %218, %182, %177
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #5
+  store i8 0, ptr %18, align 1, !tbaa !11
+  %220 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %221 = trunc i8 %220 to i1
+  %222 = zext i1 %221 to i32
+  %223 = icmp eq i32 %222, 0
+  br i1 %223, label %224, label %261
+
+224:                                              ; preds = %219
+  %225 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8, !tbaa !22
+  %226 = icmp ugt i64 %225, 0
+  br i1 %226, label %227, label %261
+
+227:                                              ; preds = %224
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %228 = load ptr, ptr %3, align 8, !tbaa !4
+  %229 = call i64 @tcache_gc_dalloc_event_wait_get(ptr noundef %228)
+  store i64 %229, ptr %19, align 8, !tbaa !22
+  br label %230
+
+230:                                              ; preds = %227
+  br label %231
+
+231:                                              ; preds = %230
+  br label %232
+
+232:                                              ; preds = %231
+  %233 = load i64, ptr %19, align 8, !tbaa !22
+  %234 = load i64, ptr %6, align 8, !tbaa !22
+  %235 = icmp ugt i64 %233, %234
+  br i1 %235, label %236, label %240
+
+236:                                              ; preds = %232
+  %237 = load i64, ptr %6, align 8, !tbaa !22
+  %238 = load i64, ptr %19, align 8, !tbaa !22
+  %239 = sub i64 %238, %237
+  store i64 %239, ptr %19, align 8, !tbaa !22
+  br label %250
+
+240:                                              ; preds = %232
+  %241 = load i8, ptr %7, align 1, !tbaa !11, !range !13, !noundef !14
+  %242 = trunc i8 %241 to i1
+  br i1 %242, label %246, label %243
+
+243:                                              ; preds = %240
+  %244 = load ptr, ptr %3, align 8, !tbaa !4
+  %245 = call i64 @je_tcache_gc_dalloc_postponed_event_wait(ptr noundef %244)
+  store i64 %245, ptr %19, align 8, !tbaa !22
+  br label %249
+
+246:                                              ; preds = %240
+  store i8 1, ptr %18, align 1, !tbaa !11
+  %247 = load ptr, ptr %3, align 8, !tbaa !4
+  %248 = call i64 @je_tcache_gc_dalloc_new_event_wait(ptr noundef %247)
+  store i64 %248, ptr %19, align 8, !tbaa !22
+  br label %249
+
+249:                                              ; preds = %246, %243
+  br label %250
+
+250:                                              ; preds = %249, %236
+  %251 = load i64, ptr %19, align 8, !tbaa !22
+  %252 = call i64 @te_clip_event_wait(i64 noundef %251)
+  store i64 %252, ptr %19, align 8, !tbaa !22
+  %253 = load ptr, ptr %3, align 8, !tbaa !4
+  %254 = load i64, ptr %19, align 8, !tbaa !22
+  call void @tcache_gc_dalloc_event_wait_set(ptr noundef %253, i64 noundef %254)
+  %255 = load i64, ptr %19, align 8, !tbaa !22
+  %256 = load i64, ptr %9, align 8, !tbaa !22
+  %257 = icmp ult i64 %255, %256
+  br i1 %257, label %258, label %260
+
+258:                                              ; preds = %250
+  %259 = load i64, ptr %19, align 8, !tbaa !22
+  store i64 %259, ptr %9, align 8, !tbaa !22
+  br label %260
+
+260:                                              ; preds = %258, %250
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  br label %261
+
+261:                                              ; preds = %260, %224, %219
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #5
+  store i8 0, ptr %20, align 1, !tbaa !11
+  %262 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %263 = trunc i8 %262 to i1
+  %264 = zext i1 %263 to i32
+  %265 = icmp eq i32 %264, 1
+  br i1 %265, label %266, label %300
+
+266:                                              ; preds = %261
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  %267 = load ptr, ptr %3, align 8, !tbaa !4
+  %268 = call i64 @peak_alloc_event_wait_get(ptr noundef %267)
+  store i64 %268, ptr %21, align 8, !tbaa !22
+  br label %269
+
+269:                                              ; preds = %266
+  br label %270
+
+270:                                              ; preds = %269
+  br label %271
+
+271:                                              ; preds = %270
+  %272 = load i64, ptr %21, align 8, !tbaa !22
+  %273 = load i64, ptr %6, align 8, !tbaa !22
+  %274 = icmp ugt i64 %272, %273
+  br i1 %274, label %275, label %279
+
+275:                                              ; preds = %271
+  %276 = load i64, ptr %6, align 8, !tbaa !22
+  %277 = load i64, ptr %21, align 8, !tbaa !22
+  %278 = sub i64 %277, %276
+  store i64 %278, ptr %21, align 8, !tbaa !22
+  br label %289
+
+279:                                              ; preds = %271
+  %280 = load i8, ptr %7, align 1, !tbaa !11, !range !13, !noundef !14
+  %281 = trunc i8 %280 to i1
+  br i1 %281, label %285, label %282
+
+282:                                              ; preds = %279
+  %283 = load ptr, ptr %3, align 8, !tbaa !4
+  %284 = call i64 @je_peak_alloc_postponed_event_wait(ptr noundef %283)
+  store i64 %284, ptr %21, align 8, !tbaa !22
+  br label %288
+
+285:                                              ; preds = %279
+  store i8 1, ptr %20, align 1, !tbaa !11
+  %286 = load ptr, ptr %3, align 8, !tbaa !4
+  %287 = call i64 @je_peak_alloc_new_event_wait(ptr noundef %286)
+  store i64 %287, ptr %21, align 8, !tbaa !22
+  br label %288
+
+288:                                              ; preds = %285, %282
+  br label %289
+
+289:                                              ; preds = %288, %275
+  %290 = load i64, ptr %21, align 8, !tbaa !22
+  %291 = call i64 @te_clip_event_wait(i64 noundef %290)
+  store i64 %291, ptr %21, align 8, !tbaa !22
+  %292 = load ptr, ptr %3, align 8, !tbaa !4
+  %293 = load i64, ptr %21, align 8, !tbaa !22
+  call void @peak_alloc_event_wait_set(ptr noundef %292, i64 noundef %293)
+  %294 = load i64, ptr %21, align 8, !tbaa !22
+  %295 = load i64, ptr %9, align 8, !tbaa !22
+  %296 = icmp ult i64 %294, %295
+  br i1 %296, label %297, label %299
+
+297:                                              ; preds = %289
+  %298 = load i64, ptr %21, align 8, !tbaa !22
+  store i64 %298, ptr %9, align 8, !tbaa !22
+  br label %299
+
+299:                                              ; preds = %297, %289
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  br label %300
+
+300:                                              ; preds = %299, %261
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #5
+  store i8 0, ptr %22, align 1, !tbaa !11
+  %301 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %302 = trunc i8 %301 to i1
+  %303 = zext i1 %302 to i32
+  %304 = icmp eq i32 %303, 0
+  br i1 %304, label %305, label %339
+
+305:                                              ; preds = %300
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  %306 = load ptr, ptr %3, align 8, !tbaa !4
+  %307 = call i64 @peak_dalloc_event_wait_get(ptr noundef %306)
+  store i64 %307, ptr %23, align 8, !tbaa !22
+  br label %308
+
+308:                                              ; preds = %305
+  br label %309
+
+309:                                              ; preds = %308
+  br label %310
+
+310:                                              ; preds = %309
+  %311 = load i64, ptr %23, align 8, !tbaa !22
+  %312 = load i64, ptr %6, align 8, !tbaa !22
+  %313 = icmp ugt i64 %311, %312
+  br i1 %313, label %314, label %318
+
+314:                                              ; preds = %310
+  %315 = load i64, ptr %6, align 8, !tbaa !22
+  %316 = load i64, ptr %23, align 8, !tbaa !22
+  %317 = sub i64 %316, %315
+  store i64 %317, ptr %23, align 8, !tbaa !22
+  br label %328
+
+318:                                              ; preds = %310
+  %319 = load i8, ptr %7, align 1, !tbaa !11, !range !13, !noundef !14
+  %320 = trunc i8 %319 to i1
+  br i1 %320, label %324, label %321
+
+321:                                              ; preds = %318
+  %322 = load ptr, ptr %3, align 8, !tbaa !4
+  %323 = call i64 @je_peak_dalloc_postponed_event_wait(ptr noundef %322)
+  store i64 %323, ptr %23, align 8, !tbaa !22
+  br label %327
+
+324:                                              ; preds = %318
+  store i8 1, ptr %22, align 1, !tbaa !11
+  %325 = load ptr, ptr %3, align 8, !tbaa !4
+  %326 = call i64 @je_peak_dalloc_new_event_wait(ptr noundef %325)
+  store i64 %326, ptr %23, align 8, !tbaa !22
+  br label %327
+
+327:                                              ; preds = %324, %321
+  br label %328
+
+328:                                              ; preds = %327, %314
+  %329 = load i64, ptr %23, align 8, !tbaa !22
+  %330 = call i64 @te_clip_event_wait(i64 noundef %329)
+  store i64 %330, ptr %23, align 8, !tbaa !22
+  %331 = load ptr, ptr %3, align 8, !tbaa !4
+  %332 = load i64, ptr %23, align 8, !tbaa !22
+  call void @peak_dalloc_event_wait_set(ptr noundef %331, i64 noundef %332)
+  %333 = load i64, ptr %23, align 8, !tbaa !22
+  %334 = load i64, ptr %9, align 8, !tbaa !22
+  %335 = icmp ult i64 %333, %334
+  br i1 %335, label %336, label %338
+
+336:                                              ; preds = %328
+  %337 = load i64, ptr %23, align 8, !tbaa !22
+  store i64 %337, ptr %9, align 8, !tbaa !22
+  br label %338
+
+338:                                              ; preds = %336, %328
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  br label %339
+
+339:                                              ; preds = %338, %300
+  br label %340
+
+340:                                              ; preds = %339
+  br label %341
+
+341:                                              ; preds = %340
+  br label %342
+
+342:                                              ; preds = %341
+  %343 = load ptr, ptr %3, align 8, !tbaa !4
+  %344 = load ptr, ptr %4, align 8, !tbaa !9
+  %345 = load i64, ptr %9, align 8, !tbaa !22
+  call void @te_adjust_thresholds_helper(ptr noundef %343, ptr noundef %344, i64 noundef %345)
+  %346 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @te_assert_invariants(ptr noundef %346)
+  %347 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %348 = trunc i8 %347 to i1
+  %349 = zext i1 %348 to i32
+  %350 = icmp eq i32 %349, 1
+  br i1 %350, label %351, label %365
+
+351:                                              ; preds = %342
+  %352 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8, !tbaa !22
+  %353 = icmp ugt i64 %352, 0
+  br i1 %353, label %354, label %365
+
+354:                                              ; preds = %351
+  %355 = load i8, ptr %10, align 1, !tbaa !11, !range !13, !noundef !14
+  %356 = trunc i8 %355 to i1
+  br i1 %356, label %357, label %365
+
+357:                                              ; preds = %354
+  br label %358
+
+358:                                              ; preds = %357
+  br label %359
+
+359:                                              ; preds = %358
+  br label %360
+
+360:                                              ; preds = %359
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  %361 = load ptr, ptr %3, align 8, !tbaa !4
+  %362 = call i64 @tcache_gc_fetch_elapsed(ptr noundef %361)
+  store i64 %362, ptr %24, align 8, !tbaa !22
+  %363 = load ptr, ptr %3, align 8, !tbaa !4
+  %364 = load i64, ptr %24, align 8, !tbaa !22
+  call void @je_tcache_gc_event_handler(ptr noundef %363, i64 noundef %364)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  br label %365
+
+365:                                              ; preds = %360, %354, %351, %342
+  %366 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %367 = trunc i8 %366 to i1
+  %368 = zext i1 %367 to i32
+  %369 = icmp eq i32 %368, 1
+  br i1 %369, label %370, label %385
+
+370:                                              ; preds = %365
+  br i1 false, label %371, label %385
+
+371:                                              ; preds = %370
+  %372 = load i8, ptr @je_opt_prof, align 1, !tbaa !11, !range !13, !noundef !14
+  %373 = trunc i8 %372 to i1
+  br i1 %373, label %374, label %385
+
+374:                                              ; preds = %371
+  %375 = load i8, ptr %12, align 1, !tbaa !11, !range !13, !noundef !14
+  %376 = trunc i8 %375 to i1
+  br i1 %376, label %377, label %385
+
+377:                                              ; preds = %374
+  br label %378
+
+378:                                              ; preds = %377
+  br label %379
+
+379:                                              ; preds = %378
+  br label %380
+
+380:                                              ; preds = %379
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
+  %381 = load ptr, ptr %3, align 8, !tbaa !4
+  %382 = call i64 @prof_sample_fetch_elapsed(ptr noundef %381)
+  store i64 %382, ptr %25, align 8, !tbaa !22
+  %383 = load ptr, ptr %3, align 8, !tbaa !4
+  %384 = load i64, ptr %25, align 8, !tbaa !22
+  call void @je_prof_sample_event_handler(ptr noundef %383, i64 noundef %384)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  br label %385
+
+385:                                              ; preds = %380, %374, %371, %370, %365
+  %386 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %387 = trunc i8 %386 to i1
+  %388 = zext i1 %387 to i32
+  %389 = icmp eq i32 %388, 1
+  br i1 %389, label %390, label %401
+
+390:                                              ; preds = %385
+  %391 = load i8, ptr %14, align 1, !tbaa !11, !range !13, !noundef !14
+  %392 = trunc i8 %391 to i1
+  br i1 %392, label %393, label %401
+
+393:                                              ; preds = %390
+  br label %394
+
+394:                                              ; preds = %393
+  br label %395
+
+395:                                              ; preds = %394
+  br label %396
+
+396:                                              ; preds = %395
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #5
+  %397 = load ptr, ptr %3, align 8, !tbaa !4
+  %398 = call i64 @prof_threshold_fetch_elapsed(ptr noundef %397)
+  store i64 %398, ptr %26, align 8, !tbaa !22
+  %399 = load ptr, ptr %3, align 8, !tbaa !4
+  %400 = load i64, ptr %26, align 8, !tbaa !22
+  call void @je_prof_threshold_event_handler(ptr noundef %399, i64 noundef %400)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #5
+  br label %401
+
+401:                                              ; preds = %396, %390, %385
+  %402 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %403 = trunc i8 %402 to i1
+  %404 = zext i1 %403 to i32
+  %405 = icmp eq i32 %404, 1
+  br i1 %405, label %406, label %420
+
+406:                                              ; preds = %401
+  %407 = load i64, ptr @je_opt_stats_interval, align 8, !tbaa !22
+  %408 = icmp sge i64 %407, 0
+  br i1 %408, label %409, label %420
+
+409:                                              ; preds = %406
+  %410 = load i8, ptr %16, align 1, !tbaa !11, !range !13, !noundef !14
+  %411 = trunc i8 %410 to i1
+  br i1 %411, label %412, label %420
+
+412:                                              ; preds = %409
+  br label %413
+
+413:                                              ; preds = %412
+  br label %414
+
+414:                                              ; preds = %413
+  br label %415
+
+415:                                              ; preds = %414
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  %416 = load ptr, ptr %3, align 8, !tbaa !4
+  %417 = call i64 @stats_interval_fetch_elapsed(ptr noundef %416)
+  store i64 %417, ptr %27, align 8, !tbaa !22
+  %418 = load ptr, ptr %3, align 8, !tbaa !4
+  %419 = load i64, ptr %27, align 8, !tbaa !22
+  call void @je_stats_interval_event_handler(ptr noundef %418, i64 noundef %419)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  br label %420
+
+420:                                              ; preds = %415, %409, %406, %401
+  %421 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %422 = trunc i8 %421 to i1
+  %423 = zext i1 %422 to i32
+  %424 = icmp eq i32 %423, 0
+  br i1 %424, label %425, label %439
+
+425:                                              ; preds = %420
+  %426 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8, !tbaa !22
+  %427 = icmp ugt i64 %426, 0
+  br i1 %427, label %428, label %439
+
+428:                                              ; preds = %425
+  %429 = load i8, ptr %18, align 1, !tbaa !11, !range !13, !noundef !14
+  %430 = trunc i8 %429 to i1
+  br i1 %430, label %431, label %439
+
+431:                                              ; preds = %428
+  br label %432
+
+432:                                              ; preds = %431
+  br label %433
+
+433:                                              ; preds = %432
+  br label %434
+
+434:                                              ; preds = %433
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #5
+  %435 = load ptr, ptr %3, align 8, !tbaa !4
+  %436 = call i64 @tcache_gc_dalloc_fetch_elapsed(ptr noundef %435)
+  store i64 %436, ptr %28, align 8, !tbaa !22
+  %437 = load ptr, ptr %3, align 8, !tbaa !4
+  %438 = load i64, ptr %28, align 8, !tbaa !22
+  call void @je_tcache_gc_dalloc_event_handler(ptr noundef %437, i64 noundef %438)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #5
+  br label %439
+
+439:                                              ; preds = %434, %428, %425, %420
+  %440 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %441 = trunc i8 %440 to i1
+  %442 = zext i1 %441 to i32
+  %443 = icmp eq i32 %442, 1
+  br i1 %443, label %444, label %455
+
+444:                                              ; preds = %439
+  %445 = load i8, ptr %20, align 1, !tbaa !11, !range !13, !noundef !14
+  %446 = trunc i8 %445 to i1
+  br i1 %446, label %447, label %455
+
+447:                                              ; preds = %444
+  br label %448
+
+448:                                              ; preds = %447
+  br label %449
+
+449:                                              ; preds = %448
+  br label %450
+
+450:                                              ; preds = %449
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #5
+  %451 = load ptr, ptr %3, align 8, !tbaa !4
+  %452 = call i64 @peak_alloc_fetch_elapsed(ptr noundef %451)
+  store i64 %452, ptr %29, align 8, !tbaa !22
+  %453 = load ptr, ptr %3, align 8, !tbaa !4
+  %454 = load i64, ptr %29, align 8, !tbaa !22
+  call void @je_peak_alloc_event_handler(ptr noundef %453, i64 noundef %454)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #5
+  br label %455
+
+455:                                              ; preds = %450, %444, %439
+  %456 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
+  %457 = trunc i8 %456 to i1
+  %458 = zext i1 %457 to i32
+  %459 = icmp eq i32 %458, 0
+  br i1 %459, label %460, label %471
+
+460:                                              ; preds = %455
+  %461 = load i8, ptr %22, align 1, !tbaa !11, !range !13, !noundef !14
+  %462 = trunc i8 %461 to i1
+  br i1 %462, label %463, label %471
+
+463:                                              ; preds = %460
+  br label %464
+
+464:                                              ; preds = %463
+  br label %465
+
+465:                                              ; preds = %464
+  br label %466
+
+466:                                              ; preds = %465
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #5
+  %467 = load ptr, ptr %3, align 8, !tbaa !4
+  %468 = call i64 @peak_dalloc_fetch_elapsed(ptr noundef %467)
+  store i64 %468, ptr %30, align 8, !tbaa !22
+  %469 = load ptr, ptr %3, align 8, !tbaa !4
+  %470 = load i64, ptr %30, align 8, !tbaa !22
+  call void @je_peak_dalloc_event_handler(ptr noundef %469, i64 noundef %470)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #5
+  br label %471
+
+471:                                              ; preds = %466, %460, %455
+  %472 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @te_assert_invariants(ptr noundef %472)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @te_ctx_current_bytes_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %6 = load i64, ptr %5, align 8, !tbaa !22
+  ret i64 %6
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @te_ctx_last_event_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %6 = load i64, ptr %5, align 8, !tbaa !22
+  ret i64 %6
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @te_ctx_last_event_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  store i64 %5, ptr %8, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @tsd_nominal(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  %6 = zext i8 %5 to i32
+  %7 = icmp sle i32 %6, 2
+  %8 = zext i1 %7 to i8
+  store i8 %8, ptr %3, align 1, !tbaa !11
+  br label %9
+
+9:                                                ; preds = %1
+  br label %10
+
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
+  %12 = load i8, ptr %3, align 1, !tbaa !11, !range !13, !noundef !14
+  %13 = trunc i8 %12 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret i1 %13
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal signext i8 @tsd_reentrancy_level_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_reentrancy_levelp_get(ptr noundef %3)
+  %5 = load i8, ptr %4, align 1, !tbaa !24
+  ret i8 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tcache_gc_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_tcache_gc_event_wait_get(ptr noundef %3)
+  ret i64 %4
+}
+
+declare i64 @je_tcache_gc_postponed_event_wait(ptr noundef) #4
+
+declare i64 @je_tcache_gc_new_event_wait(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal i64 @te_clip_event_wait(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !22
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load i64, ptr %2, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @tcache_gc_event_wait_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_tcache_gc_event_waitp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @prof_sample_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_prof_sample_event_wait_get(ptr noundef %3)
+  ret i64 %4
+}
+
+declare i64 @je_prof_sample_postponed_event_wait(ptr noundef) #4
+
+declare i64 @je_prof_sample_new_event_wait(ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @prof_sample_event_wait_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_prof_sample_event_waitp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @prof_threshold_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_prof_threshold_event_wait_get(ptr noundef %3)
+  ret i64 %4
+}
+
+declare i64 @je_prof_threshold_postponed_event_wait(ptr noundef) #4
+
+declare i64 @je_prof_threshold_new_event_wait(ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @prof_threshold_event_wait_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_prof_threshold_event_waitp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @stats_interval_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_stats_interval_event_wait_get(ptr noundef %3)
+  ret i64 %4
+}
+
+declare i64 @je_stats_interval_postponed_event_wait(ptr noundef) #4
+
+declare i64 @je_stats_interval_new_event_wait(ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @stats_interval_event_wait_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_stats_interval_event_waitp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tcache_gc_dalloc_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_tcache_gc_dalloc_event_wait_get(ptr noundef %3)
+  ret i64 %4
+}
+
+declare i64 @je_tcache_gc_dalloc_postponed_event_wait(ptr noundef) #4
+
+declare i64 @je_tcache_gc_dalloc_new_event_wait(ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @tcache_gc_dalloc_event_wait_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_tcache_gc_dalloc_event_waitp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @peak_alloc_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_peak_alloc_event_wait_get(ptr noundef %3)
+  ret i64 %4
+}
+
+declare i64 @je_peak_alloc_postponed_event_wait(ptr noundef) #4
+
+declare i64 @je_peak_alloc_new_event_wait(ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @peak_alloc_event_wait_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_peak_alloc_event_waitp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @peak_dalloc_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_peak_dalloc_event_wait_get(ptr noundef %3)
+  ret i64 %4
+}
+
+declare i64 @je_peak_dalloc_postponed_event_wait(ptr noundef) #4
+
+declare i64 @je_peak_dalloc_new_event_wait(ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @peak_dalloc_event_wait_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_peak_dalloc_event_waitp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @te_adjust_thresholds_helper(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !22
+  br label %8
+
+8:                                                ; preds = %3
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %12 = load ptr, ptr %5, align 8, !tbaa !9
+  %13 = call i64 @te_ctx_last_event_get(ptr noundef %12)
+  %14 = load i64, ptr %6, align 8, !tbaa !22
+  %15 = icmp ule i64 %14, 4194304
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %11
+  %17 = load i64, ptr %6, align 8, !tbaa !22
+  br label %19
+
+18:                                               ; preds = %11
+  br label %19
+
+19:                                               ; preds = %18, %16
+  %20 = phi i64 [ %17, %16 ], [ 4194304, %18 ]
+  %21 = add i64 %13, %20
+  store i64 %21, ptr %7, align 8, !tbaa !22
+  %22 = load ptr, ptr %4, align 8, !tbaa !4
+  %23 = load ptr, ptr %5, align 8, !tbaa !9
+  %24 = load i64, ptr %7, align 8, !tbaa !22
+  call void @te_ctx_next_event_set(ptr noundef %22, ptr noundef %23, i64 noundef %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @te_assert_invariants(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @tcache_gc_fetch_elapsed(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  ret i64 -1
+}
+
+declare void @je_tcache_gc_event_handler(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal i64 @prof_sample_fetch_elapsed(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = call i64 @thread_allocated_last_event_get(ptr noundef %5)
+  store i64 %6, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = call i64 @prof_sample_last_event_get(ptr noundef %7)
+  store i64 %8, ptr %4, align 8, !tbaa !22
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = load i64, ptr %3, align 8, !tbaa !22
+  call void @prof_sample_last_event_set(ptr noundef %9, i64 noundef %10)
+  %11 = load i64, ptr %3, align 8, !tbaa !22
+  %12 = load i64, ptr %4, align 8, !tbaa !22
+  %13 = sub i64 %11, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %13
+}
+
+declare void @je_prof_sample_event_handler(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal i64 @prof_threshold_fetch_elapsed(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  ret i64 -1
+}
+
+declare void @je_prof_threshold_event_handler(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal i64 @stats_interval_fetch_elapsed(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = call i64 @thread_allocated_last_event_get(ptr noundef %5)
+  store i64 %6, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = call i64 @stats_interval_last_event_get(ptr noundef %7)
+  store i64 %8, ptr %4, align 8, !tbaa !22
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = load i64, ptr %3, align 8, !tbaa !22
+  call void @stats_interval_last_event_set(ptr noundef %9, i64 noundef %10)
+  %11 = load i64, ptr %3, align 8, !tbaa !22
+  %12 = load i64, ptr %4, align 8, !tbaa !22
+  %13 = sub i64 %11, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %13
+}
+
+declare void @je_stats_interval_event_handler(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal i64 @tcache_gc_dalloc_fetch_elapsed(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  ret i64 -1
+}
+
+declare void @je_tcache_gc_dalloc_event_handler(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal i64 @peak_alloc_fetch_elapsed(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  ret i64 -1
+}
+
+declare void @je_peak_alloc_event_handler(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal i64 @peak_dalloc_fetch_elapsed(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  ret i64 -1
+}
+
+declare void @je_peak_dalloc_event_handler(ptr noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_tsd_te_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_init(ptr noundef %5, i1 noundef zeroext true)
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_init(ptr noundef %6, i1 noundef zeroext false)
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @te_assert_invariants(ptr noundef %7)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @te_init(ptr noundef %0, i1 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca %struct.te_ctx_s, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %14 = zext i1 %1 to i8
+  store i8 %14, ptr %4, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 40, ptr %5) #5
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %17 = trunc i8 %16 to i1
+  call void @te_ctx_get(ptr noundef %15, ptr noundef %5, i1 noundef zeroext %17)
+  %18 = call i64 @te_ctx_current_bytes_get(ptr noundef %5)
+  call void @te_ctx_last_event_set(ptr noundef %5, i64 noundef %18)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  store i64 -1, ptr %6, align 8, !tbaa !22
+  %19 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %23, label %39
+
+23:                                               ; preds = %2
+  %24 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8, !tbaa !22
+  %25 = icmp ugt i64 %24, 0
+  br i1 %25, label %26, label %39
+
+26:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  %28 = call i64 @je_tcache_gc_new_event_wait(ptr noundef %27)
+  store i64 %28, ptr %7, align 8, !tbaa !22
+  %29 = load i64, ptr %7, align 8, !tbaa !22
+  %30 = call i64 @te_clip_event_wait(i64 noundef %29)
+  store i64 %30, ptr %7, align 8, !tbaa !22
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = load i64, ptr %7, align 8, !tbaa !22
+  call void @tcache_gc_event_wait_set(ptr noundef %31, i64 noundef %32)
+  %33 = load i64, ptr %7, align 8, !tbaa !22
+  %34 = load i64, ptr %6, align 8, !tbaa !22
+  %35 = icmp ult i64 %33, %34
+  br i1 %35, label %36, label %38
+
+36:                                               ; preds = %26
+  %37 = load i64, ptr %7, align 8, !tbaa !22
+  store i64 %37, ptr %6, align 8, !tbaa !22
+  br label %38
+
+38:                                               ; preds = %36, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  br label %39
+
+39:                                               ; preds = %38, %23, %2
+  %40 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %41 = trunc i8 %40 to i1
+  %42 = zext i1 %41 to i32
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %44, label %61
+
+44:                                               ; preds = %39
+  br i1 false, label %45, label %61
+
+45:                                               ; preds = %44
+  %46 = load i8, ptr @je_opt_prof, align 1, !tbaa !11, !range !13, !noundef !14
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %61
+
+48:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %49 = load ptr, ptr %3, align 8, !tbaa !4
+  %50 = call i64 @je_prof_sample_new_event_wait(ptr noundef %49)
+  store i64 %50, ptr %8, align 8, !tbaa !22
+  %51 = load i64, ptr %8, align 8, !tbaa !22
+  %52 = call i64 @te_clip_event_wait(i64 noundef %51)
+  store i64 %52, ptr %8, align 8, !tbaa !22
+  %53 = load ptr, ptr %3, align 8, !tbaa !4
+  %54 = load i64, ptr %8, align 8, !tbaa !22
+  call void @prof_sample_event_wait_set(ptr noundef %53, i64 noundef %54)
+  %55 = load i64, ptr %8, align 8, !tbaa !22
+  %56 = load i64, ptr %6, align 8, !tbaa !22
+  %57 = icmp ult i64 %55, %56
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %48
+  %59 = load i64, ptr %8, align 8, !tbaa !22
+  store i64 %59, ptr %6, align 8, !tbaa !22
+  br label %60
+
+60:                                               ; preds = %58, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %61
+
+61:                                               ; preds = %60, %45, %44, %39
+  %62 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %63 = trunc i8 %62 to i1
+  %64 = zext i1 %63 to i32
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %79
+
+66:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = call i64 @je_prof_threshold_new_event_wait(ptr noundef %67)
+  store i64 %68, ptr %9, align 8, !tbaa !22
+  %69 = load i64, ptr %9, align 8, !tbaa !22
+  %70 = call i64 @te_clip_event_wait(i64 noundef %69)
+  store i64 %70, ptr %9, align 8, !tbaa !22
+  %71 = load ptr, ptr %3, align 8, !tbaa !4
+  %72 = load i64, ptr %9, align 8, !tbaa !22
+  call void @prof_threshold_event_wait_set(ptr noundef %71, i64 noundef %72)
+  %73 = load i64, ptr %9, align 8, !tbaa !22
+  %74 = load i64, ptr %6, align 8, !tbaa !22
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %76, label %78
+
+76:                                               ; preds = %66
+  %77 = load i64, ptr %9, align 8, !tbaa !22
+  store i64 %77, ptr %6, align 8, !tbaa !22
+  br label %78
+
+78:                                               ; preds = %76, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  br label %79
+
+79:                                               ; preds = %78, %61
+  %80 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %81 = trunc i8 %80 to i1
+  %82 = zext i1 %81 to i32
+  %83 = icmp eq i32 %82, 1
+  br i1 %83, label %84, label %100
+
+84:                                               ; preds = %79
+  %85 = load i64, ptr @je_opt_stats_interval, align 8, !tbaa !22
+  %86 = icmp sge i64 %85, 0
+  br i1 %86, label %87, label %100
+
+87:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %88 = load ptr, ptr %3, align 8, !tbaa !4
+  %89 = call i64 @je_stats_interval_new_event_wait(ptr noundef %88)
+  store i64 %89, ptr %10, align 8, !tbaa !22
+  %90 = load i64, ptr %10, align 8, !tbaa !22
+  %91 = call i64 @te_clip_event_wait(i64 noundef %90)
+  store i64 %91, ptr %10, align 8, !tbaa !22
+  %92 = load ptr, ptr %3, align 8, !tbaa !4
+  %93 = load i64, ptr %10, align 8, !tbaa !22
+  call void @stats_interval_event_wait_set(ptr noundef %92, i64 noundef %93)
+  %94 = load i64, ptr %10, align 8, !tbaa !22
+  %95 = load i64, ptr %6, align 8, !tbaa !22
+  %96 = icmp ult i64 %94, %95
+  br i1 %96, label %97, label %99
+
+97:                                               ; preds = %87
+  %98 = load i64, ptr %10, align 8, !tbaa !22
+  store i64 %98, ptr %6, align 8, !tbaa !22
+  br label %99
+
+99:                                               ; preds = %97, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  br label %100
+
+100:                                              ; preds = %99, %84, %79
+  %101 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %102 = trunc i8 %101 to i1
+  %103 = zext i1 %102 to i32
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %121
+
+105:                                              ; preds = %100
+  %106 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8, !tbaa !22
+  %107 = icmp ugt i64 %106, 0
+  br i1 %107, label %108, label %121
+
+108:                                              ; preds = %105
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %109 = load ptr, ptr %3, align 8, !tbaa !4
+  %110 = call i64 @je_tcache_gc_dalloc_new_event_wait(ptr noundef %109)
+  store i64 %110, ptr %11, align 8, !tbaa !22
+  %111 = load i64, ptr %11, align 8, !tbaa !22
+  %112 = call i64 @te_clip_event_wait(i64 noundef %111)
+  store i64 %112, ptr %11, align 8, !tbaa !22
+  %113 = load ptr, ptr %3, align 8, !tbaa !4
+  %114 = load i64, ptr %11, align 8, !tbaa !22
+  call void @tcache_gc_dalloc_event_wait_set(ptr noundef %113, i64 noundef %114)
+  %115 = load i64, ptr %11, align 8, !tbaa !22
+  %116 = load i64, ptr %6, align 8, !tbaa !22
+  %117 = icmp ult i64 %115, %116
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %108
+  %119 = load i64, ptr %11, align 8, !tbaa !22
+  store i64 %119, ptr %6, align 8, !tbaa !22
+  br label %120
+
+120:                                              ; preds = %118, %108
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  br label %121
+
+121:                                              ; preds = %120, %105, %100
+  %122 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %123 = trunc i8 %122 to i1
+  %124 = zext i1 %123 to i32
+  %125 = icmp eq i32 %124, 1
+  br i1 %125, label %126, label %139
+
+126:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %127 = load ptr, ptr %3, align 8, !tbaa !4
+  %128 = call i64 @je_peak_alloc_new_event_wait(ptr noundef %127)
+  store i64 %128, ptr %12, align 8, !tbaa !22
+  %129 = load i64, ptr %12, align 8, !tbaa !22
+  %130 = call i64 @te_clip_event_wait(i64 noundef %129)
+  store i64 %130, ptr %12, align 8, !tbaa !22
+  %131 = load ptr, ptr %3, align 8, !tbaa !4
+  %132 = load i64, ptr %12, align 8, !tbaa !22
+  call void @peak_alloc_event_wait_set(ptr noundef %131, i64 noundef %132)
+  %133 = load i64, ptr %12, align 8, !tbaa !22
+  %134 = load i64, ptr %6, align 8, !tbaa !22
+  %135 = icmp ult i64 %133, %134
+  br i1 %135, label %136, label %138
+
+136:                                              ; preds = %126
+  %137 = load i64, ptr %12, align 8, !tbaa !22
+  store i64 %137, ptr %6, align 8, !tbaa !22
+  br label %138
+
+138:                                              ; preds = %136, %126
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  br label %139
+
+139:                                              ; preds = %138, %121
+  %140 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %141 = trunc i8 %140 to i1
+  %142 = zext i1 %141 to i32
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %157
+
+144:                                              ; preds = %139
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %145 = load ptr, ptr %3, align 8, !tbaa !4
+  %146 = call i64 @je_peak_dalloc_new_event_wait(ptr noundef %145)
+  store i64 %146, ptr %13, align 8, !tbaa !22
+  %147 = load i64, ptr %13, align 8, !tbaa !22
+  %148 = call i64 @te_clip_event_wait(i64 noundef %147)
+  store i64 %148, ptr %13, align 8, !tbaa !22
+  %149 = load ptr, ptr %3, align 8, !tbaa !4
+  %150 = load i64, ptr %13, align 8, !tbaa !22
+  call void @peak_dalloc_event_wait_set(ptr noundef %149, i64 noundef %150)
+  %151 = load i64, ptr %13, align 8, !tbaa !22
+  %152 = load i64, ptr %6, align 8, !tbaa !22
+  %153 = icmp ult i64 %151, %152
+  br i1 %153, label %154, label %156
+
+154:                                              ; preds = %144
+  %155 = load i64, ptr %13, align 8, !tbaa !22
+  store i64 %155, ptr %6, align 8, !tbaa !22
+  br label %156
+
+156:                                              ; preds = %154, %144
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %157
+
+157:                                              ; preds = %156, %139
+  %158 = load ptr, ptr %3, align 8, !tbaa !4
+  %159 = load i64, ptr %6, align 8, !tbaa !22
+  call void @te_adjust_thresholds_helper(ptr noundef %158, ptr noundef %5, i64 noundef %159)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 40, ptr %5) #5
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_allocatedp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_thread_allocatedp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_allocated_last_eventp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_thread_allocated_last_eventp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_allocated_next_eventp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_thread_allocated_next_eventp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_allocated_next_event_fastp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_thread_allocated_next_event_fastp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_deallocatedp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_thread_deallocatedp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_deallocated_last_eventp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_thread_deallocated_last_eventp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_deallocated_next_eventp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_thread_deallocated_next_eventp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_deallocated_next_event_fastp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_thread_deallocated_next_event_fastp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_allocatedp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 32
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_allocated_last_eventp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 3
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_allocated_next_eventp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 4
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_allocated_next_event_fastp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 33
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_deallocatedp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 34
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_deallocated_last_eventp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 5
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_deallocated_next_eventp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 6
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_thread_deallocated_next_event_fastp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 35
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @te_ctx_next_event_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %6 = load i64, ptr %5, align 8, !tbaa !22
+  ret i64 %6
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @te_ctx_next_event_fast_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %4, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %7 = load i64, ptr %6, align 8, !tbaa !22
+  store i64 %7, ptr %3, align 8, !tbaa !22
+  br label %8
+
+8:                                                ; preds = %1
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9
+  %11 = load i64, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %11
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsd_fast(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  %6 = zext i8 %5 to i32
+  %7 = icmp eq i32 %6, 0
+  %8 = zext i1 %7 to i8
+  store i8 %8, ptr %3, align 1, !tbaa !11
+  %9 = load i8, ptr %3, align 1, !tbaa !11, !range !13, !noundef !14
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @tsd_assert_fast(ptr noundef %12)
+  br label %13
+
+13:                                               ; preds = %11, %1
+  %14 = load i8, ptr %3, align 1, !tbaa !11, !range !13, !noundef !14
+  %15 = trunc i8 %14 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret i1 %15
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @te_next_event_compute(ptr noundef %0, i1 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %13 = zext i1 %1 to i8
+  store i8 %13, ptr %4, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  store i64 -1, ptr %5, align 8, !tbaa !22
+  %14 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %15 = trunc i8 %14 to i1
+  %16 = zext i1 %15 to i32
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %2
+  %19 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8, !tbaa !22
+  %20 = icmp ugt i64 %19, 0
+  br i1 %20, label %21, label %36
+
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = call i64 @tcache_gc_event_wait_get(ptr noundef %22)
+  store i64 %23, ptr %6, align 8, !tbaa !22
+  br label %24
+
+24:                                               ; preds = %21
+  br label %25
+
+25:                                               ; preds = %24
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load i64, ptr %6, align 8, !tbaa !22
+  %28 = icmp ugt i64 %27, 0
+  br i1 %28, label %29, label %35
+
+29:                                               ; preds = %26
+  %30 = load i64, ptr %6, align 8, !tbaa !22
+  %31 = load i64, ptr %5, align 8, !tbaa !22
+  %32 = icmp ult i64 %30, %31
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %29
+  %34 = load i64, ptr %6, align 8, !tbaa !22
+  store i64 %34, ptr %5, align 8, !tbaa !22
+  br label %35
+
+35:                                               ; preds = %33, %29, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  br label %36
+
+36:                                               ; preds = %35, %18, %2
+  %37 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %38 = trunc i8 %37 to i1
+  %39 = zext i1 %38 to i32
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %41, label %60
+
+41:                                               ; preds = %36
+  br i1 false, label %42, label %60
+
+42:                                               ; preds = %41
+  %43 = load i8, ptr @je_opt_prof, align 1, !tbaa !11, !range !13, !noundef !14
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %60
+
+45:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %46 = load ptr, ptr %3, align 8, !tbaa !4
+  %47 = call i64 @prof_sample_event_wait_get(ptr noundef %46)
+  store i64 %47, ptr %7, align 8, !tbaa !22
+  br label %48
+
+48:                                               ; preds = %45
+  br label %49
+
+49:                                               ; preds = %48
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i64, ptr %7, align 8, !tbaa !22
+  %52 = icmp ugt i64 %51, 0
+  br i1 %52, label %53, label %59
+
+53:                                               ; preds = %50
+  %54 = load i64, ptr %7, align 8, !tbaa !22
+  %55 = load i64, ptr %5, align 8, !tbaa !22
+  %56 = icmp ult i64 %54, %55
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %53
+  %58 = load i64, ptr %7, align 8, !tbaa !22
+  store i64 %58, ptr %5, align 8, !tbaa !22
+  br label %59
+
+59:                                               ; preds = %57, %53, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  br label %60
+
+60:                                               ; preds = %59, %42, %41, %36
+  %61 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %62 = trunc i8 %61 to i1
+  %63 = zext i1 %62 to i32
+  %64 = icmp eq i32 %63, 1
+  br i1 %64, label %65, label %80
+
+65:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %66 = load ptr, ptr %3, align 8, !tbaa !4
+  %67 = call i64 @prof_threshold_event_wait_get(ptr noundef %66)
+  store i64 %67, ptr %8, align 8, !tbaa !22
+  br label %68
+
+68:                                               ; preds = %65
+  br label %69
+
+69:                                               ; preds = %68
+  br label %70
+
+70:                                               ; preds = %69
+  %71 = load i64, ptr %8, align 8, !tbaa !22
+  %72 = icmp ugt i64 %71, 0
+  br i1 %72, label %73, label %79
+
+73:                                               ; preds = %70
+  %74 = load i64, ptr %8, align 8, !tbaa !22
+  %75 = load i64, ptr %5, align 8, !tbaa !22
+  %76 = icmp ult i64 %74, %75
+  br i1 %76, label %77, label %79
+
+77:                                               ; preds = %73
+  %78 = load i64, ptr %8, align 8, !tbaa !22
+  store i64 %78, ptr %5, align 8, !tbaa !22
+  br label %79
+
+79:                                               ; preds = %77, %73, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %80
+
+80:                                               ; preds = %79, %60
+  %81 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %82 = trunc i8 %81 to i1
+  %83 = zext i1 %82 to i32
+  %84 = icmp eq i32 %83, 1
+  br i1 %84, label %85, label %103
+
+85:                                               ; preds = %80
+  %86 = load i64, ptr @je_opt_stats_interval, align 8, !tbaa !22
+  %87 = icmp sge i64 %86, 0
+  br i1 %87, label %88, label %103
+
+88:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %89 = load ptr, ptr %3, align 8, !tbaa !4
+  %90 = call i64 @stats_interval_event_wait_get(ptr noundef %89)
+  store i64 %90, ptr %9, align 8, !tbaa !22
+  br label %91
+
+91:                                               ; preds = %88
+  br label %92
+
+92:                                               ; preds = %91
+  br label %93
+
+93:                                               ; preds = %92
+  %94 = load i64, ptr %9, align 8, !tbaa !22
+  %95 = icmp ugt i64 %94, 0
+  br i1 %95, label %96, label %102
+
+96:                                               ; preds = %93
+  %97 = load i64, ptr %9, align 8, !tbaa !22
+  %98 = load i64, ptr %5, align 8, !tbaa !22
+  %99 = icmp ult i64 %97, %98
+  br i1 %99, label %100, label %102
+
+100:                                              ; preds = %96
+  %101 = load i64, ptr %9, align 8, !tbaa !22
+  store i64 %101, ptr %5, align 8, !tbaa !22
+  br label %102
+
+102:                                              ; preds = %100, %96, %93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  br label %103
+
+103:                                              ; preds = %102, %85, %80
+  %104 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %105 = trunc i8 %104 to i1
+  %106 = zext i1 %105 to i32
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %126
+
+108:                                              ; preds = %103
+  %109 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8, !tbaa !22
+  %110 = icmp ugt i64 %109, 0
+  br i1 %110, label %111, label %126
+
+111:                                              ; preds = %108
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %112 = load ptr, ptr %3, align 8, !tbaa !4
+  %113 = call i64 @tcache_gc_dalloc_event_wait_get(ptr noundef %112)
+  store i64 %113, ptr %10, align 8, !tbaa !22
+  br label %114
+
+114:                                              ; preds = %111
+  br label %115
+
+115:                                              ; preds = %114
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load i64, ptr %10, align 8, !tbaa !22
+  %118 = icmp ugt i64 %117, 0
+  br i1 %118, label %119, label %125
+
+119:                                              ; preds = %116
+  %120 = load i64, ptr %10, align 8, !tbaa !22
+  %121 = load i64, ptr %5, align 8, !tbaa !22
+  %122 = icmp ult i64 %120, %121
+  br i1 %122, label %123, label %125
+
+123:                                              ; preds = %119
+  %124 = load i64, ptr %10, align 8, !tbaa !22
+  store i64 %124, ptr %5, align 8, !tbaa !22
+  br label %125
+
+125:                                              ; preds = %123, %119, %116
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  br label %126
+
+126:                                              ; preds = %125, %108, %103
+  %127 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %128 = trunc i8 %127 to i1
+  %129 = zext i1 %128 to i32
+  %130 = icmp eq i32 %129, 1
+  br i1 %130, label %131, label %146
+
+131:                                              ; preds = %126
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %132 = load ptr, ptr %3, align 8, !tbaa !4
+  %133 = call i64 @peak_alloc_event_wait_get(ptr noundef %132)
+  store i64 %133, ptr %11, align 8, !tbaa !22
+  br label %134
+
+134:                                              ; preds = %131
+  br label %135
+
+135:                                              ; preds = %134
+  br label %136
+
+136:                                              ; preds = %135
+  %137 = load i64, ptr %11, align 8, !tbaa !22
+  %138 = icmp ugt i64 %137, 0
+  br i1 %138, label %139, label %145
+
+139:                                              ; preds = %136
+  %140 = load i64, ptr %11, align 8, !tbaa !22
+  %141 = load i64, ptr %5, align 8, !tbaa !22
+  %142 = icmp ult i64 %140, %141
+  br i1 %142, label %143, label %145
+
+143:                                              ; preds = %139
+  %144 = load i64, ptr %11, align 8, !tbaa !22
+  store i64 %144, ptr %5, align 8, !tbaa !22
+  br label %145
+
+145:                                              ; preds = %143, %139, %136
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  br label %146
+
+146:                                              ; preds = %145, %126
+  %147 = load i8, ptr %4, align 1, !tbaa !11, !range !13, !noundef !14
+  %148 = trunc i8 %147 to i1
+  %149 = zext i1 %148 to i32
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %166
+
+151:                                              ; preds = %146
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %152 = load ptr, ptr %3, align 8, !tbaa !4
+  %153 = call i64 @peak_dalloc_event_wait_get(ptr noundef %152)
+  store i64 %153, ptr %12, align 8, !tbaa !22
+  br label %154
+
+154:                                              ; preds = %151
+  br label %155
+
+155:                                              ; preds = %154
+  br label %156
+
+156:                                              ; preds = %155
+  %157 = load i64, ptr %12, align 8, !tbaa !22
+  %158 = icmp ugt i64 %157, 0
+  br i1 %158, label %159, label %165
+
+159:                                              ; preds = %156
+  %160 = load i64, ptr %12, align 8, !tbaa !22
+  %161 = load i64, ptr %5, align 8, !tbaa !22
+  %162 = icmp ult i64 %160, %161
+  br i1 %162, label %163, label %165
+
+163:                                              ; preds = %159
+  %164 = load i64, ptr %12, align 8, !tbaa !22
+  store i64 %164, ptr %5, align 8, !tbaa !22
+  br label %165
+
+165:                                              ; preds = %163, %159, %156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  br label %166
+
+166:                                              ; preds = %165, %146
+  br label %167
+
+167:                                              ; preds = %166
+  br label %168
+
+168:                                              ; preds = %167
+  br label %169
+
+169:                                              ; preds = %168
+  %170 = load i64, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret i64 %170
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @te_ctx_is_alloc(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %3, i32 0, i32 0
+  %5 = load i8, ptr %4, align 8, !tbaa !15, !range !13, !noundef !14
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @tsd_assert_fast(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @te_ctx_next_event_fast_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  br label %5
+
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load i64, ptr %4, align 8, !tbaa !22
+  %8 = load ptr, ptr %3, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %8, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  store i64 %7, ptr %10, align 8, !tbaa !22
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @atomic_enum_to_builtin(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !25
+  %4 = load i32, ptr %3, align 4, !tbaa !25
+  switch i32 %4, label %10 [
+    i32 0, label %5
+    i32 1, label %6
+    i32 2, label %7
+    i32 3, label %8
+    i32 4, label %9
+  ]
+
+5:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %12
+
+6:                                                ; preds = %1
+  store i32 2, ptr %2, align 4
+  br label %12
+
+7:                                                ; preds = %1
+  store i32 3, ptr %2, align 4
+  br label %12
+
+8:                                                ; preds = %1
+  store i32 4, ptr %2, align 4
+  br label %12
+
+9:                                                ; preds = %1
+  store i32 5, ptr %2, align 4
+  br label %12
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
   unreachable
 
-atomic_enum_to_builtin.exit:                      ; preds = %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %130 = load i32, ptr %retval.i, align 4
-  switch i32 %130, label %atomic_fence.exit [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
-  ]
+12:                                               ; preds = %5, %6, %7, %8, %9
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
+}
 
-acquire.i:                                        ; preds = %atomic_enum_to_builtin.exit, %atomic_enum_to_builtin.exit
-  fence acquire
-  br label %atomic_fence.exit
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_reentrancy_levelp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
 
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit
-  fence release
-  br label %atomic_fence.exit
+6:                                                ; preds = %1
+  br label %7
 
-acqrel.i:                                         ; preds = %atomic_enum_to_builtin.exit
-  fence acq_rel
-  br label %atomic_fence.exit
+7:                                                ; preds = %6
+  br label %8
 
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit
-  fence seq_cst
-  br label %atomic_fence.exit
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_reentrancy_levelp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
 
-atomic_fence.exit:                                ; preds = %seqcst.i, %acqrel.i, %release.i, %acquire.i, %atomic_enum_to_builtin.exit
-  %131 = load ptr, ptr %tsd.addr, align 8
-  store ptr %131, ptr %tsd.addr.i33, align 8
-  %132 = load ptr, ptr %tsd.addr.i33, align 8
-  %state.i = getelementptr inbounds %struct.tsd_s, ptr %132, i32 0, i32 30
-  %133 = load i8, ptr %state.i, align 8
-  %conv3 = zext i8 %133 to i32
-  %cmp4 = icmp ne i32 %conv3, 0
-  br i1 %cmp4, label %if.then6, label %if.end7
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_reentrancy_levelp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 1
+  ret ptr %4
+}
 
-if.then6:                                         ; preds = %atomic_fence.exit
-  %134 = load ptr, ptr %tsd.addr, align 8
-  store ptr %134, ptr %tsd.addr.i36, align 8
-  %135 = load ptr, ptr %tsd.addr.i36, align 8
-  store ptr %135, ptr %tsd.addr.i134, align 8
-  %136 = load ptr, ptr %tsd.addr.i134, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i135 = getelementptr inbounds %struct.tsd_s, ptr %136, i32 0, i32 32
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i135, align 8
-  %137 = load ptr, ptr %tsd.addr.i36, align 8
-  store ptr %137, ptr %tsd.addr.i150, align 8
-  %138 = load ptr, ptr %tsd.addr.i150, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i151 = getelementptr inbounds %struct.tsd_s, ptr %138, i32 0, i32 34
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i151, align 8
-  br label %if.end7
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_tcache_gc_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_tcache_gc_event_waitp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
 
-if.end7:                                          ; preds = %if.then6, %atomic_fence.exit, %if.then
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_tcache_gc_event_waitp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_tcache_gc_event_waitp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_tcache_gc_event_waitp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 7
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_prof_sample_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_prof_sample_event_waitp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_prof_sample_event_waitp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_prof_sample_event_waitp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_prof_sample_event_waitp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 9
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_prof_threshold_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_prof_threshold_event_waitp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_prof_threshold_event_waitp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_prof_threshold_event_waitp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_prof_threshold_event_waitp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 11
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_stats_interval_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_stats_interval_event_waitp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_stats_interval_event_waitp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_stats_interval_event_waitp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_stats_interval_event_waitp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 12
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_tcache_gc_dalloc_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_tcache_gc_dalloc_event_waitp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_tcache_gc_dalloc_event_waitp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_tcache_gc_dalloc_event_waitp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_tcache_gc_dalloc_event_waitp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 8
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_peak_alloc_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_peak_alloc_event_waitp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_peak_alloc_event_waitp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_peak_alloc_event_waitp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_peak_alloc_event_waitp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 14
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_peak_dalloc_event_wait_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_peak_dalloc_event_waitp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_peak_dalloc_event_waitp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_peak_dalloc_event_waitp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_peak_dalloc_event_waitp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 15
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @te_ctx_next_event_set(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %8 = load ptr, ptr %5, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw %struct.te_ctx_s, ptr %8, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  store i64 %7, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @je_te_recompute_fast_threshold(ptr noundef %11)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @te_ctx_next_event_fast_update(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr.i1 = alloca ptr, align 8
-  %v.addr.i = alloca i64, align 8
-  %ctx.addr.i = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %next_event = alloca i64, align 8
-  %next_event_fast = alloca i64, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %ctx.addr.i, align 8
-  %1 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %1, i32 0, i32 3
-  %2 = load ptr, ptr %next_event.i, align 8
-  %3 = load i64, ptr %2, align 8
-  store i64 %3, ptr %next_event, align 8
-  %4 = load i64, ptr %next_event, align 8
-  %cmp = icmp ule i64 %4, -4096
-  br i1 %cmp, label %cond.true, label %cond.false
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @thread_allocated_last_event_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_thread_allocated_last_event_get(ptr noundef %3)
+  ret i64 %4
+}
 
-cond.true:                                        ; preds = %entry
-  %5 = load i64, ptr %next_event, align 8
-  br label %cond.end
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @prof_sample_last_event_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_prof_sample_last_event_get(ptr noundef %3)
+  ret i64 %4
+}
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %5, %cond.true ], [ 0, %cond.false ]
-  store i64 %cond, ptr %next_event_fast, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %7 = load i64, ptr %next_event_fast, align 8
-  store ptr %6, ptr %ctx.addr.i1, align 8
-  store i64 %7, ptr %v.addr.i, align 8
-  %8 = load i64, ptr %v.addr.i, align 8
-  %9 = load ptr, ptr %ctx.addr.i1, align 8
-  %next_event_fast.i = getelementptr inbounds %struct.te_ctx_s, ptr %9, i32 0, i32 4
-  %10 = load ptr, ptr %next_event_fast.i, align 8
-  store i64 %8, ptr %10, align 8
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @prof_sample_last_event_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_prof_sample_last_eventp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @te_event_trigger(ptr noundef %tsd, ptr noundef %ctx) #0 {
-entry:
-  %tsd.addr.i380 = alloca ptr, align 8
-  %tsd.addr.i379 = alloca ptr, align 8
-  %tsd.addr.i.i374 = alloca ptr, align 8
-  %tsd.addr.i375 = alloca ptr, align 8
-  %state.i376 = alloca i8, align 1
-  %tsd.addr.i.i370 = alloca ptr, align 8
-  %tsd.addr.i371 = alloca ptr, align 8
-  %state.i372 = alloca i8, align 1
-  %tsd.addr.i369 = alloca ptr, align 8
-  %tsd.addr.i367 = alloca ptr, align 8
-  %tsd.addr.i366 = alloca ptr, align 8
-  %tsd.addr.i.i361 = alloca ptr, align 8
-  %tsd.addr.i362 = alloca ptr, align 8
-  %state.i363 = alloca i8, align 1
-  %tsd.addr.i.i357 = alloca ptr, align 8
-  %tsd.addr.i358 = alloca ptr, align 8
-  %state.i359 = alloca i8, align 1
-  %tsd.addr.i356 = alloca ptr, align 8
-  %tsd.addr.i354 = alloca ptr, align 8
-  %tsd.addr.i353 = alloca ptr, align 8
-  %tsd.addr.i.i348 = alloca ptr, align 8
-  %tsd.addr.i349 = alloca ptr, align 8
-  %state.i350 = alloca i8, align 1
-  %tsd.addr.i.i344 = alloca ptr, align 8
-  %tsd.addr.i345 = alloca ptr, align 8
-  %state.i346 = alloca i8, align 1
-  %tsd.addr.i343 = alloca ptr, align 8
-  %tsd.addr.i341 = alloca ptr, align 8
-  %tsd.addr.i340 = alloca ptr, align 8
-  %tsd.addr.i.i335 = alloca ptr, align 8
-  %tsd.addr.i336 = alloca ptr, align 8
-  %state.i337 = alloca i8, align 1
-  %tsd.addr.i.i331 = alloca ptr, align 8
-  %tsd.addr.i332 = alloca ptr, align 8
-  %state.i333 = alloca i8, align 1
-  %tsd.addr.i330 = alloca ptr, align 8
-  %tsd.addr.i328 = alloca ptr, align 8
-  %tsd.addr.i327 = alloca ptr, align 8
-  %tsd.addr.i.i322 = alloca ptr, align 8
-  %tsd.addr.i323 = alloca ptr, align 8
-  %state.i324 = alloca i8, align 1
-  %tsd.addr.i.i318 = alloca ptr, align 8
-  %tsd.addr.i319 = alloca ptr, align 8
-  %state.i320 = alloca i8, align 1
-  %tsd.addr.i317 = alloca ptr, align 8
-  %tsd.addr.i315 = alloca ptr, align 8
-  %tsd.addr.i314 = alloca ptr, align 8
-  %tsd.addr.i.i309 = alloca ptr, align 8
-  %tsd.addr.i310 = alloca ptr, align 8
-  %state.i311 = alloca i8, align 1
-  %tsd.addr.i.i305 = alloca ptr, align 8
-  %tsd.addr.i306 = alloca ptr, align 8
-  %state.i307 = alloca i8, align 1
-  %tsd.addr.i304 = alloca ptr, align 8
-  %tsd.addr.i303 = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i302 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsd.addr.i301 = alloca ptr, align 8
-  %tsd.addr.i300 = alloca ptr, align 8
-  %tsd.addr.i297 = alloca ptr, align 8
-  %v.addr.i298 = alloca i64, align 8
-  %tsd.addr.i295 = alloca ptr, align 8
-  %tsd.addr.i292 = alloca ptr, align 8
-  %v.addr.i293 = alloca i64, align 8
-  %tsd.addr.i290 = alloca ptr, align 8
-  %tsd.addr.i287 = alloca ptr, align 8
-  %v.addr.i288 = alloca i64, align 8
-  %tsd.addr.i285 = alloca ptr, align 8
-  %tsd.addr.i282 = alloca ptr, align 8
-  %v.addr.i283 = alloca i64, align 8
-  %tsd.addr.i280 = alloca ptr, align 8
-  %tsd.addr.i277 = alloca ptr, align 8
-  %v.addr.i278 = alloca i64, align 8
-  %tsd.addr.i275 = alloca ptr, align 8
-  %tsd.addr.i272 = alloca ptr, align 8
-  %v.addr.i273 = alloca i64, align 8
-  %tsd.addr.i270 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %ctx.addr.i268 = alloca ptr, align 8
-  %v.addr.i = alloca i64, align 8
-  %ctx.addr.i267 = alloca ptr, align 8
-  %ctx.addr.i = alloca ptr, align 8
-  %tsd.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %bytes_after = alloca i64, align 8
-  %accumbytes = alloca i64, align 8
-  %allow_event_trigger = alloca i8, align 1
-  %is_alloc = alloca i8, align 1
-  %wait = alloca i64, align 8
-  %is_tcache_gc_triggered = alloca i8, align 1
-  %event_wait = alloca i64, align 8
-  %is_prof_sample_triggered = alloca i8, align 1
-  %event_wait39 = alloca i64, align 8
-  %is_stats_interval_triggered = alloca i8, align 1
-  %event_wait69 = alloca i64, align 8
-  %is_tcache_gc_dalloc_triggered = alloca i8, align 1
-  %event_wait99 = alloca i64, align 8
-  %is_peak_alloc_triggered = alloca i8, align 1
-  %event_wait126 = alloca i64, align 8
-  %is_peak_dalloc_triggered = alloca i8, align 1
-  %event_wait153 = alloca i64, align 8
-  %elapsed = alloca i64, align 8
-  %elapsed206 = alloca i64, align 8
-  %elapsed222 = alloca i64, align 8
-  %elapsed238 = alloca i64, align 8
-  %elapsed251 = alloca i64, align 8
-  %elapsed264 = alloca i64, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %ctx.addr.i, align 8
-  %1 = load ptr, ptr %ctx.addr.i, align 8
-  %current.i = getelementptr inbounds %struct.te_ctx_s, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %current.i, align 8
-  %3 = load i64, ptr %2, align 8
-  store i64 %3, ptr %bytes_after, align 8
-  %4 = load i64, ptr %bytes_after, align 8
-  %5 = load ptr, ptr %ctx.addr, align 8
-  store ptr %5, ptr %ctx.addr.i267, align 8
-  %6 = load ptr, ptr %ctx.addr.i267, align 8
-  %last_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %last_event.i, align 8
-  %8 = load i64, ptr %7, align 8
-  %sub = sub i64 %4, %8
-  store i64 %sub, ptr %accumbytes, align 8
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %10 = load i64, ptr %bytes_after, align 8
-  store ptr %9, ptr %ctx.addr.i268, align 8
-  store i64 %10, ptr %v.addr.i, align 8
-  %11 = load i64, ptr %v.addr.i, align 8
-  %12 = load ptr, ptr %ctx.addr.i268, align 8
-  %last_event.i269 = getelementptr inbounds %struct.te_ctx_s, ptr %12, i32 0, i32 2
-  %13 = load ptr, ptr %last_event.i269, align 8
-  store i64 %11, ptr %13, align 8
-  %14 = load ptr, ptr %tsd.addr, align 8
-  %call2 = call zeroext i1 @tsd_nominal(ptr noundef %14)
-  br i1 %call2, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %15 = load ptr, ptr %tsd.addr, align 8
-  store ptr %15, ptr %tsd.addr.i, align 8
-  %16 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %16, ptr %tsd.addr.i302, align 8
-  %17 = load ptr, ptr %tsd.addr.i302, align 8
-  store ptr %17, ptr %tsd.addr.i.i, align 8
-  %18 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %18, i32 0, i32 30
-  %19 = load i8, ptr %state.i.i, align 8
-  store i8 %19, ptr %state.i, align 1
-  %20 = load ptr, ptr %tsd.addr.i302, align 8
-  store ptr %20, ptr %tsd.addr.i303, align 8
-  %21 = load ptr, ptr %tsd.addr.i303, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i = getelementptr inbounds %struct.tsd_s, ptr %21, i32 0, i32 1
-  %22 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
-  %conv = sext i8 %22 to i32
-  %cmp = icmp eq i32 %conv, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %23 = phi i1 [ false, %entry ], [ %cmp, %land.rhs ]
-  %frombool = zext i1 %23 to i8
-  store i8 %frombool, ptr %allow_event_trigger, align 1
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %is_alloc5 = getelementptr inbounds %struct.te_ctx_s, ptr %24, i32 0, i32 0
-  %25 = load i8, ptr %is_alloc5, align 8
-  %tobool = trunc i8 %25 to i1
-  %frombool6 = zext i1 %tobool to i8
-  store i8 %frombool6, ptr %is_alloc, align 1
-  store i64 -1, ptr %wait, align 8
-  store i8 0, ptr %is_tcache_gc_triggered, align 1
-  %26 = load i8, ptr %is_alloc, align 1
-  %tobool7 = trunc i8 %26 to i1
-  %conv8 = zext i1 %tobool7 to i32
-  %cmp9 = icmp eq i32 %conv8, 1
-  br i1 %cmp9, label %land.lhs.true, label %if.end29
-
-land.lhs.true:                                    ; preds = %land.end
-  %27 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp11 = icmp ugt i64 %27, 0
-  br i1 %cmp11, label %if.then, label %if.end29
-
-if.then:                                          ; preds = %land.lhs.true
-  %28 = load ptr, ptr %tsd.addr, align 8
-  store ptr %28, ptr %tsd.addr.i270, align 8
-  %29 = load ptr, ptr %tsd.addr.i270, align 8
-  store ptr %29, ptr %tsd.addr.i304, align 8
-  %30 = load ptr, ptr %tsd.addr.i304, align 8
-  store ptr %30, ptr %tsd.addr.i306, align 8
-  %31 = load ptr, ptr %tsd.addr.i306, align 8
-  store ptr %31, ptr %tsd.addr.i.i305, align 8
-  %32 = load ptr, ptr %tsd.addr.i.i305, align 8
-  %state.i.i308 = getelementptr inbounds %struct.tsd_s, ptr %32, i32 0, i32 30
-  %33 = load i8, ptr %state.i.i308, align 8
-  store i8 %33, ptr %state.i307, align 1
-  %34 = load ptr, ptr %tsd.addr.i306, align 8
-  store ptr %34, ptr %tsd.addr.i315, align 8
-  %35 = load ptr, ptr %tsd.addr.i315, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316 = getelementptr inbounds %struct.tsd_s, ptr %35, i32 0, i32 7
-  %36 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316, align 8
-  store i64 %36, ptr %event_wait, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %37 = load i64, ptr %event_wait, align 8
-  %38 = load i64, ptr %accumbytes, align 8
-  %cmp14 = icmp ugt i64 %37, %38
-  br i1 %cmp14, label %if.then16, label %if.else
-
-if.then16:                                        ; preds = %do.end
-  %39 = load i64, ptr %accumbytes, align 8
-  %40 = load i64, ptr %event_wait, align 8
-  %sub17 = sub i64 %40, %39
-  store i64 %sub17, ptr %event_wait, align 8
-  br label %if.end23
-
-if.else:                                          ; preds = %do.end
-  %41 = load i8, ptr %allow_event_trigger, align 1
-  %tobool18 = trunc i8 %41 to i1
-  br i1 %tobool18, label %if.else21, label %if.then19
-
-if.then19:                                        ; preds = %if.else
-  %42 = load ptr, ptr %tsd.addr, align 8
-  %call20 = call i64 @tcache_gc_postponed_event_wait(ptr noundef %42)
-  store i64 %call20, ptr %event_wait, align 8
-  br label %if.end
-
-if.else21:                                        ; preds = %if.else
-  store i8 1, ptr %is_tcache_gc_triggered, align 1
-  %43 = load ptr, ptr %tsd.addr, align 8
-  %call22 = call i64 @tcache_gc_new_event_wait(ptr noundef %43)
-  store i64 %call22, ptr %event_wait, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else21, %if.then19
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.end, %if.then16
-  %44 = load i64, ptr %event_wait, align 8
-  %call24 = call i64 @te_clip_event_wait(i64 noundef %44)
-  store i64 %call24, ptr %event_wait, align 8
-  %45 = load ptr, ptr %tsd.addr, align 8
-  %46 = load i64, ptr %event_wait, align 8
-  store ptr %45, ptr %tsd.addr.i272, align 8
-  store i64 %46, ptr %v.addr.i273, align 8
-  %47 = load i64, ptr %v.addr.i273, align 8
-  %48 = load ptr, ptr %tsd.addr.i272, align 8
-  store ptr %48, ptr %tsd.addr.i310, align 8
-  %49 = load ptr, ptr %tsd.addr.i310, align 8
-  store ptr %49, ptr %tsd.addr.i.i309, align 8
-  %50 = load ptr, ptr %tsd.addr.i.i309, align 8
-  %state.i.i312 = getelementptr inbounds %struct.tsd_s, ptr %50, i32 0, i32 30
-  %51 = load i8, ptr %state.i.i312, align 8
-  store i8 %51, ptr %state.i311, align 1
-  %52 = load ptr, ptr %tsd.addr.i310, align 8
-  store ptr %52, ptr %tsd.addr.i314, align 8
-  %53 = load ptr, ptr %tsd.addr.i314, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %53, i32 0, i32 7
-  store i64 %47, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i, align 8
-  %54 = load i64, ptr %event_wait, align 8
-  %55 = load i64, ptr %wait, align 8
-  %cmp25 = icmp ult i64 %54, %55
-  br i1 %cmp25, label %if.then27, label %if.end28
-
-if.then27:                                        ; preds = %if.end23
-  %56 = load i64, ptr %event_wait, align 8
-  store i64 %56, ptr %wait, align 8
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then27, %if.end23
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.end28, %land.lhs.true, %land.end
-  store i8 0, ptr %is_prof_sample_triggered, align 1
-  %57 = load i8, ptr %is_alloc, align 1
-  %tobool30 = trunc i8 %57 to i1
-  %conv31 = zext i1 %tobool30 to i32
-  %cmp32 = icmp eq i32 %conv31, 1
-  br i1 %cmp32, label %land.lhs.true34, label %if.end60
-
-land.lhs.true34:                                  ; preds = %if.end29
-  br i1 false, label %land.lhs.true35, label %if.end60
-
-land.lhs.true35:                                  ; preds = %land.lhs.true34
-  %58 = load i8, ptr @opt_prof, align 1
-  %tobool36 = trunc i8 %58 to i1
-  br i1 %tobool36, label %if.then38, label %if.end60
-
-if.then38:                                        ; preds = %land.lhs.true35
-  %59 = load ptr, ptr %tsd.addr, align 8
-  store ptr %59, ptr %tsd.addr.i275, align 8
-  %60 = load ptr, ptr %tsd.addr.i275, align 8
-  store ptr %60, ptr %tsd.addr.i317, align 8
-  %61 = load ptr, ptr %tsd.addr.i317, align 8
-  store ptr %61, ptr %tsd.addr.i319, align 8
-  %62 = load ptr, ptr %tsd.addr.i319, align 8
-  store ptr %62, ptr %tsd.addr.i.i318, align 8
-  %63 = load ptr, ptr %tsd.addr.i.i318, align 8
-  %state.i.i321 = getelementptr inbounds %struct.tsd_s, ptr %63, i32 0, i32 30
-  %64 = load i8, ptr %state.i.i321, align 8
-  store i8 %64, ptr %state.i320, align 1
-  %65 = load ptr, ptr %tsd.addr.i319, align 8
-  store ptr %65, ptr %tsd.addr.i328, align 8
-  %66 = load ptr, ptr %tsd.addr.i328, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_event_wait.i329 = getelementptr inbounds %struct.tsd_s, ptr %66, i32 0, i32 9
-  %67 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_event_wait.i329, align 8
-  store i64 %67, ptr %event_wait39, align 8
-  br label %do.body41
-
-do.body41:                                        ; preds = %if.then38
-  br label %do.end42
-
-do.end42:                                         ; preds = %do.body41
-  %68 = load i64, ptr %event_wait39, align 8
-  %69 = load i64, ptr %accumbytes, align 8
-  %cmp43 = icmp ugt i64 %68, %69
-  br i1 %cmp43, label %if.then45, label %if.else47
-
-if.then45:                                        ; preds = %do.end42
-  %70 = load i64, ptr %accumbytes, align 8
-  %71 = load i64, ptr %event_wait39, align 8
-  %sub46 = sub i64 %71, %70
-  store i64 %sub46, ptr %event_wait39, align 8
-  br label %if.end54
-
-if.else47:                                        ; preds = %do.end42
-  %72 = load i8, ptr %allow_event_trigger, align 1
-  %tobool48 = trunc i8 %72 to i1
-  br i1 %tobool48, label %if.else51, label %if.then49
-
-if.then49:                                        ; preds = %if.else47
-  %73 = load ptr, ptr %tsd.addr, align 8
-  %call50 = call i64 @prof_sample_postponed_event_wait(ptr noundef %73)
-  store i64 %call50, ptr %event_wait39, align 8
-  br label %if.end53
-
-if.else51:                                        ; preds = %if.else47
-  store i8 1, ptr %is_prof_sample_triggered, align 1
-  %74 = load ptr, ptr %tsd.addr, align 8
-  %call52 = call i64 @prof_sample_new_event_wait(ptr noundef %74)
-  store i64 %call52, ptr %event_wait39, align 8
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.else51, %if.then49
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.end53, %if.then45
-  %75 = load i64, ptr %event_wait39, align 8
-  %call55 = call i64 @te_clip_event_wait(i64 noundef %75)
-  store i64 %call55, ptr %event_wait39, align 8
-  %76 = load ptr, ptr %tsd.addr, align 8
-  %77 = load i64, ptr %event_wait39, align 8
-  store ptr %76, ptr %tsd.addr.i277, align 8
-  store i64 %77, ptr %v.addr.i278, align 8
-  %78 = load i64, ptr %v.addr.i278, align 8
-  %79 = load ptr, ptr %tsd.addr.i277, align 8
-  store ptr %79, ptr %tsd.addr.i323, align 8
-  %80 = load ptr, ptr %tsd.addr.i323, align 8
-  store ptr %80, ptr %tsd.addr.i.i322, align 8
-  %81 = load ptr, ptr %tsd.addr.i.i322, align 8
-  %state.i.i325 = getelementptr inbounds %struct.tsd_s, ptr %81, i32 0, i32 30
-  %82 = load i8, ptr %state.i.i325, align 8
-  store i8 %82, ptr %state.i324, align 1
-  %83 = load ptr, ptr %tsd.addr.i323, align 8
-  store ptr %83, ptr %tsd.addr.i327, align 8
-  %84 = load ptr, ptr %tsd.addr.i327, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %84, i32 0, i32 9
-  store i64 %78, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_event_wait.i, align 8
-  %85 = load i64, ptr %event_wait39, align 8
-  %86 = load i64, ptr %wait, align 8
-  %cmp56 = icmp ult i64 %85, %86
-  br i1 %cmp56, label %if.then58, label %if.end59
-
-if.then58:                                        ; preds = %if.end54
-  %87 = load i64, ptr %event_wait39, align 8
-  store i64 %87, ptr %wait, align 8
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.then58, %if.end54
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.end59, %land.lhs.true35, %land.lhs.true34, %if.end29
-  store i8 0, ptr %is_stats_interval_triggered, align 1
-  %88 = load i8, ptr %is_alloc, align 1
-  %tobool61 = trunc i8 %88 to i1
-  %conv62 = zext i1 %tobool61 to i32
-  %cmp63 = icmp eq i32 %conv62, 1
-  br i1 %cmp63, label %land.lhs.true65, label %if.end90
-
-land.lhs.true65:                                  ; preds = %if.end60
-  %89 = load i64, ptr @opt_stats_interval, align 8
-  %cmp66 = icmp sge i64 %89, 0
-  br i1 %cmp66, label %if.then68, label %if.end90
-
-if.then68:                                        ; preds = %land.lhs.true65
-  %90 = load ptr, ptr %tsd.addr, align 8
-  store ptr %90, ptr %tsd.addr.i280, align 8
-  %91 = load ptr, ptr %tsd.addr.i280, align 8
-  store ptr %91, ptr %tsd.addr.i330, align 8
-  %92 = load ptr, ptr %tsd.addr.i330, align 8
-  store ptr %92, ptr %tsd.addr.i332, align 8
-  %93 = load ptr, ptr %tsd.addr.i332, align 8
-  store ptr %93, ptr %tsd.addr.i.i331, align 8
-  %94 = load ptr, ptr %tsd.addr.i.i331, align 8
-  %state.i.i334 = getelementptr inbounds %struct.tsd_s, ptr %94, i32 0, i32 30
-  %95 = load i8, ptr %state.i.i334, align 8
-  store i8 %95, ptr %state.i333, align 1
-  %96 = load ptr, ptr %tsd.addr.i332, align 8
-  store ptr %96, ptr %tsd.addr.i341, align 8
-  %97 = load ptr, ptr %tsd.addr.i341, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342 = getelementptr inbounds %struct.tsd_s, ptr %97, i32 0, i32 11
-  %98 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342, align 8
-  store i64 %98, ptr %event_wait69, align 8
-  br label %do.body71
-
-do.body71:                                        ; preds = %if.then68
-  br label %do.end72
-
-do.end72:                                         ; preds = %do.body71
-  %99 = load i64, ptr %event_wait69, align 8
-  %100 = load i64, ptr %accumbytes, align 8
-  %cmp73 = icmp ugt i64 %99, %100
-  br i1 %cmp73, label %if.then75, label %if.else77
-
-if.then75:                                        ; preds = %do.end72
-  %101 = load i64, ptr %accumbytes, align 8
-  %102 = load i64, ptr %event_wait69, align 8
-  %sub76 = sub i64 %102, %101
-  store i64 %sub76, ptr %event_wait69, align 8
-  br label %if.end84
-
-if.else77:                                        ; preds = %do.end72
-  %103 = load i8, ptr %allow_event_trigger, align 1
-  %tobool78 = trunc i8 %103 to i1
-  br i1 %tobool78, label %if.else81, label %if.then79
-
-if.then79:                                        ; preds = %if.else77
-  %104 = load ptr, ptr %tsd.addr, align 8
-  %call80 = call i64 @stats_interval_postponed_event_wait(ptr noundef %104)
-  store i64 %call80, ptr %event_wait69, align 8
-  br label %if.end83
-
-if.else81:                                        ; preds = %if.else77
-  store i8 1, ptr %is_stats_interval_triggered, align 1
-  %105 = load ptr, ptr %tsd.addr, align 8
-  %call82 = call i64 @stats_interval_new_event_wait(ptr noundef %105)
-  store i64 %call82, ptr %event_wait69, align 8
-  br label %if.end83
-
-if.end83:                                         ; preds = %if.else81, %if.then79
-  br label %if.end84
-
-if.end84:                                         ; preds = %if.end83, %if.then75
-  %106 = load i64, ptr %event_wait69, align 8
-  %call85 = call i64 @te_clip_event_wait(i64 noundef %106)
-  store i64 %call85, ptr %event_wait69, align 8
-  %107 = load ptr, ptr %tsd.addr, align 8
-  %108 = load i64, ptr %event_wait69, align 8
-  store ptr %107, ptr %tsd.addr.i282, align 8
-  store i64 %108, ptr %v.addr.i283, align 8
-  %109 = load i64, ptr %v.addr.i283, align 8
-  %110 = load ptr, ptr %tsd.addr.i282, align 8
-  store ptr %110, ptr %tsd.addr.i336, align 8
-  %111 = load ptr, ptr %tsd.addr.i336, align 8
-  store ptr %111, ptr %tsd.addr.i.i335, align 8
-  %112 = load ptr, ptr %tsd.addr.i.i335, align 8
-  %state.i.i338 = getelementptr inbounds %struct.tsd_s, ptr %112, i32 0, i32 30
-  %113 = load i8, ptr %state.i.i338, align 8
-  store i8 %113, ptr %state.i337, align 1
-  %114 = load ptr, ptr %tsd.addr.i336, align 8
-  store ptr %114, ptr %tsd.addr.i340, align 8
-  %115 = load ptr, ptr %tsd.addr.i340, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %115, i32 0, i32 11
-  store i64 %109, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i, align 8
-  %116 = load i64, ptr %event_wait69, align 8
-  %117 = load i64, ptr %wait, align 8
-  %cmp86 = icmp ult i64 %116, %117
-  br i1 %cmp86, label %if.then88, label %if.end89
-
-if.then88:                                        ; preds = %if.end84
-  %118 = load i64, ptr %event_wait69, align 8
-  store i64 %118, ptr %wait, align 8
-  br label %if.end89
-
-if.end89:                                         ; preds = %if.then88, %if.end84
-  br label %if.end90
-
-if.end90:                                         ; preds = %if.end89, %land.lhs.true65, %if.end60
-  store i8 0, ptr %is_tcache_gc_dalloc_triggered, align 1
-  %119 = load i8, ptr %is_alloc, align 1
-  %tobool91 = trunc i8 %119 to i1
-  %conv92 = zext i1 %tobool91 to i32
-  %cmp93 = icmp eq i32 %conv92, 0
-  br i1 %cmp93, label %land.lhs.true95, label %if.end120
-
-land.lhs.true95:                                  ; preds = %if.end90
-  %120 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp96 = icmp ugt i64 %120, 0
-  br i1 %cmp96, label %if.then98, label %if.end120
-
-if.then98:                                        ; preds = %land.lhs.true95
-  %121 = load ptr, ptr %tsd.addr, align 8
-  store ptr %121, ptr %tsd.addr.i285, align 8
-  %122 = load ptr, ptr %tsd.addr.i285, align 8
-  store ptr %122, ptr %tsd.addr.i343, align 8
-  %123 = load ptr, ptr %tsd.addr.i343, align 8
-  store ptr %123, ptr %tsd.addr.i345, align 8
-  %124 = load ptr, ptr %tsd.addr.i345, align 8
-  store ptr %124, ptr %tsd.addr.i.i344, align 8
-  %125 = load ptr, ptr %tsd.addr.i.i344, align 8
-  %state.i.i347 = getelementptr inbounds %struct.tsd_s, ptr %125, i32 0, i32 30
-  %126 = load i8, ptr %state.i.i347, align 8
-  store i8 %126, ptr %state.i346, align 1
-  %127 = load ptr, ptr %tsd.addr.i345, align 8
-  store ptr %127, ptr %tsd.addr.i354, align 8
-  %128 = load ptr, ptr %tsd.addr.i354, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355 = getelementptr inbounds %struct.tsd_s, ptr %128, i32 0, i32 8
-  %129 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355, align 8
-  store i64 %129, ptr %event_wait99, align 8
-  br label %do.body101
-
-do.body101:                                       ; preds = %if.then98
-  br label %do.end102
-
-do.end102:                                        ; preds = %do.body101
-  %130 = load i64, ptr %event_wait99, align 8
-  %131 = load i64, ptr %accumbytes, align 8
-  %cmp103 = icmp ugt i64 %130, %131
-  br i1 %cmp103, label %if.then105, label %if.else107
-
-if.then105:                                       ; preds = %do.end102
-  %132 = load i64, ptr %accumbytes, align 8
-  %133 = load i64, ptr %event_wait99, align 8
-  %sub106 = sub i64 %133, %132
-  store i64 %sub106, ptr %event_wait99, align 8
-  br label %if.end114
-
-if.else107:                                       ; preds = %do.end102
-  %134 = load i8, ptr %allow_event_trigger, align 1
-  %tobool108 = trunc i8 %134 to i1
-  br i1 %tobool108, label %if.else111, label %if.then109
-
-if.then109:                                       ; preds = %if.else107
-  %135 = load ptr, ptr %tsd.addr, align 8
-  %call110 = call i64 @tcache_gc_dalloc_postponed_event_wait(ptr noundef %135)
-  store i64 %call110, ptr %event_wait99, align 8
-  br label %if.end113
-
-if.else111:                                       ; preds = %if.else107
-  store i8 1, ptr %is_tcache_gc_dalloc_triggered, align 1
-  %136 = load ptr, ptr %tsd.addr, align 8
-  %call112 = call i64 @tcache_gc_dalloc_new_event_wait(ptr noundef %136)
-  store i64 %call112, ptr %event_wait99, align 8
-  br label %if.end113
-
-if.end113:                                        ; preds = %if.else111, %if.then109
-  br label %if.end114
-
-if.end114:                                        ; preds = %if.end113, %if.then105
-  %137 = load i64, ptr %event_wait99, align 8
-  %call115 = call i64 @te_clip_event_wait(i64 noundef %137)
-  store i64 %call115, ptr %event_wait99, align 8
-  %138 = load ptr, ptr %tsd.addr, align 8
-  %139 = load i64, ptr %event_wait99, align 8
-  store ptr %138, ptr %tsd.addr.i287, align 8
-  store i64 %139, ptr %v.addr.i288, align 8
-  %140 = load i64, ptr %v.addr.i288, align 8
-  %141 = load ptr, ptr %tsd.addr.i287, align 8
-  store ptr %141, ptr %tsd.addr.i349, align 8
-  %142 = load ptr, ptr %tsd.addr.i349, align 8
-  store ptr %142, ptr %tsd.addr.i.i348, align 8
-  %143 = load ptr, ptr %tsd.addr.i.i348, align 8
-  %state.i.i351 = getelementptr inbounds %struct.tsd_s, ptr %143, i32 0, i32 30
-  %144 = load i8, ptr %state.i.i351, align 8
-  store i8 %144, ptr %state.i350, align 1
-  %145 = load ptr, ptr %tsd.addr.i349, align 8
-  store ptr %145, ptr %tsd.addr.i353, align 8
-  %146 = load ptr, ptr %tsd.addr.i353, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %146, i32 0, i32 8
-  store i64 %140, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i, align 8
-  %147 = load i64, ptr %event_wait99, align 8
-  %148 = load i64, ptr %wait, align 8
-  %cmp116 = icmp ult i64 %147, %148
-  br i1 %cmp116, label %if.then118, label %if.end119
-
-if.then118:                                       ; preds = %if.end114
-  %149 = load i64, ptr %event_wait99, align 8
-  store i64 %149, ptr %wait, align 8
-  br label %if.end119
-
-if.end119:                                        ; preds = %if.then118, %if.end114
-  br label %if.end120
-
-if.end120:                                        ; preds = %if.end119, %land.lhs.true95, %if.end90
-  store i8 0, ptr %is_peak_alloc_triggered, align 1
-  %150 = load i8, ptr %is_alloc, align 1
-  %tobool121 = trunc i8 %150 to i1
-  %conv122 = zext i1 %tobool121 to i32
-  %cmp123 = icmp eq i32 %conv122, 1
-  br i1 %cmp123, label %if.then125, label %if.end147
-
-if.then125:                                       ; preds = %if.end120
-  %151 = load ptr, ptr %tsd.addr, align 8
-  store ptr %151, ptr %tsd.addr.i290, align 8
-  %152 = load ptr, ptr %tsd.addr.i290, align 8
-  store ptr %152, ptr %tsd.addr.i356, align 8
-  %153 = load ptr, ptr %tsd.addr.i356, align 8
-  store ptr %153, ptr %tsd.addr.i358, align 8
-  %154 = load ptr, ptr %tsd.addr.i358, align 8
-  store ptr %154, ptr %tsd.addr.i.i357, align 8
-  %155 = load ptr, ptr %tsd.addr.i.i357, align 8
-  %state.i.i360 = getelementptr inbounds %struct.tsd_s, ptr %155, i32 0, i32 30
-  %156 = load i8, ptr %state.i.i360, align 8
-  store i8 %156, ptr %state.i359, align 1
-  %157 = load ptr, ptr %tsd.addr.i358, align 8
-  store ptr %157, ptr %tsd.addr.i367, align 8
-  %158 = load ptr, ptr %tsd.addr.i367, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368 = getelementptr inbounds %struct.tsd_s, ptr %158, i32 0, i32 13
-  %159 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368, align 8
-  store i64 %159, ptr %event_wait126, align 8
-  br label %do.body128
-
-do.body128:                                       ; preds = %if.then125
-  br label %do.end129
-
-do.end129:                                        ; preds = %do.body128
-  %160 = load i64, ptr %event_wait126, align 8
-  %161 = load i64, ptr %accumbytes, align 8
-  %cmp130 = icmp ugt i64 %160, %161
-  br i1 %cmp130, label %if.then132, label %if.else134
-
-if.then132:                                       ; preds = %do.end129
-  %162 = load i64, ptr %accumbytes, align 8
-  %163 = load i64, ptr %event_wait126, align 8
-  %sub133 = sub i64 %163, %162
-  store i64 %sub133, ptr %event_wait126, align 8
-  br label %if.end141
-
-if.else134:                                       ; preds = %do.end129
-  %164 = load i8, ptr %allow_event_trigger, align 1
-  %tobool135 = trunc i8 %164 to i1
-  br i1 %tobool135, label %if.else138, label %if.then136
-
-if.then136:                                       ; preds = %if.else134
-  %165 = load ptr, ptr %tsd.addr, align 8
-  %call137 = call i64 @peak_alloc_postponed_event_wait(ptr noundef %165)
-  store i64 %call137, ptr %event_wait126, align 8
-  br label %if.end140
-
-if.else138:                                       ; preds = %if.else134
-  store i8 1, ptr %is_peak_alloc_triggered, align 1
-  %166 = load ptr, ptr %tsd.addr, align 8
-  %call139 = call i64 @peak_alloc_new_event_wait(ptr noundef %166)
-  store i64 %call139, ptr %event_wait126, align 8
-  br label %if.end140
-
-if.end140:                                        ; preds = %if.else138, %if.then136
-  br label %if.end141
-
-if.end141:                                        ; preds = %if.end140, %if.then132
-  %167 = load i64, ptr %event_wait126, align 8
-  %call142 = call i64 @te_clip_event_wait(i64 noundef %167)
-  store i64 %call142, ptr %event_wait126, align 8
-  %168 = load ptr, ptr %tsd.addr, align 8
-  %169 = load i64, ptr %event_wait126, align 8
-  store ptr %168, ptr %tsd.addr.i292, align 8
-  store i64 %169, ptr %v.addr.i293, align 8
-  %170 = load i64, ptr %v.addr.i293, align 8
-  %171 = load ptr, ptr %tsd.addr.i292, align 8
-  store ptr %171, ptr %tsd.addr.i362, align 8
-  %172 = load ptr, ptr %tsd.addr.i362, align 8
-  store ptr %172, ptr %tsd.addr.i.i361, align 8
-  %173 = load ptr, ptr %tsd.addr.i.i361, align 8
-  %state.i.i364 = getelementptr inbounds %struct.tsd_s, ptr %173, i32 0, i32 30
-  %174 = load i8, ptr %state.i.i364, align 8
-  store i8 %174, ptr %state.i363, align 1
-  %175 = load ptr, ptr %tsd.addr.i362, align 8
-  store ptr %175, ptr %tsd.addr.i366, align 8
-  %176 = load ptr, ptr %tsd.addr.i366, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %176, i32 0, i32 13
-  store i64 %170, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i, align 8
-  %177 = load i64, ptr %event_wait126, align 8
-  %178 = load i64, ptr %wait, align 8
-  %cmp143 = icmp ult i64 %177, %178
-  br i1 %cmp143, label %if.then145, label %if.end146
-
-if.then145:                                       ; preds = %if.end141
-  %179 = load i64, ptr %event_wait126, align 8
-  store i64 %179, ptr %wait, align 8
-  br label %if.end146
-
-if.end146:                                        ; preds = %if.then145, %if.end141
-  br label %if.end147
-
-if.end147:                                        ; preds = %if.end146, %if.end120
-  store i8 0, ptr %is_peak_dalloc_triggered, align 1
-  %180 = load i8, ptr %is_alloc, align 1
-  %tobool148 = trunc i8 %180 to i1
-  %conv149 = zext i1 %tobool148 to i32
-  %cmp150 = icmp eq i32 %conv149, 0
-  br i1 %cmp150, label %if.then152, label %if.end174
-
-if.then152:                                       ; preds = %if.end147
-  %181 = load ptr, ptr %tsd.addr, align 8
-  store ptr %181, ptr %tsd.addr.i295, align 8
-  %182 = load ptr, ptr %tsd.addr.i295, align 8
-  store ptr %182, ptr %tsd.addr.i369, align 8
-  %183 = load ptr, ptr %tsd.addr.i369, align 8
-  store ptr %183, ptr %tsd.addr.i371, align 8
-  %184 = load ptr, ptr %tsd.addr.i371, align 8
-  store ptr %184, ptr %tsd.addr.i.i370, align 8
-  %185 = load ptr, ptr %tsd.addr.i.i370, align 8
-  %state.i.i373 = getelementptr inbounds %struct.tsd_s, ptr %185, i32 0, i32 30
-  %186 = load i8, ptr %state.i.i373, align 8
-  store i8 %186, ptr %state.i372, align 1
-  %187 = load ptr, ptr %tsd.addr.i371, align 8
-  store ptr %187, ptr %tsd.addr.i380, align 8
-  %188 = load ptr, ptr %tsd.addr.i380, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i381 = getelementptr inbounds %struct.tsd_s, ptr %188, i32 0, i32 14
-  %189 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i381, align 8
-  store i64 %189, ptr %event_wait153, align 8
-  br label %do.body155
-
-do.body155:                                       ; preds = %if.then152
-  br label %do.end156
-
-do.end156:                                        ; preds = %do.body155
-  %190 = load i64, ptr %event_wait153, align 8
-  %191 = load i64, ptr %accumbytes, align 8
-  %cmp157 = icmp ugt i64 %190, %191
-  br i1 %cmp157, label %if.then159, label %if.else161
-
-if.then159:                                       ; preds = %do.end156
-  %192 = load i64, ptr %accumbytes, align 8
-  %193 = load i64, ptr %event_wait153, align 8
-  %sub160 = sub i64 %193, %192
-  store i64 %sub160, ptr %event_wait153, align 8
-  br label %if.end168
-
-if.else161:                                       ; preds = %do.end156
-  %194 = load i8, ptr %allow_event_trigger, align 1
-  %tobool162 = trunc i8 %194 to i1
-  br i1 %tobool162, label %if.else165, label %if.then163
-
-if.then163:                                       ; preds = %if.else161
-  %195 = load ptr, ptr %tsd.addr, align 8
-  %call164 = call i64 @peak_dalloc_postponed_event_wait(ptr noundef %195)
-  store i64 %call164, ptr %event_wait153, align 8
-  br label %if.end167
-
-if.else165:                                       ; preds = %if.else161
-  store i8 1, ptr %is_peak_dalloc_triggered, align 1
-  %196 = load ptr, ptr %tsd.addr, align 8
-  %call166 = call i64 @peak_dalloc_new_event_wait(ptr noundef %196)
-  store i64 %call166, ptr %event_wait153, align 8
-  br label %if.end167
-
-if.end167:                                        ; preds = %if.else165, %if.then163
-  br label %if.end168
-
-if.end168:                                        ; preds = %if.end167, %if.then159
-  %197 = load i64, ptr %event_wait153, align 8
-  %call169 = call i64 @te_clip_event_wait(i64 noundef %197)
-  store i64 %call169, ptr %event_wait153, align 8
-  %198 = load ptr, ptr %tsd.addr, align 8
-  %199 = load i64, ptr %event_wait153, align 8
-  store ptr %198, ptr %tsd.addr.i297, align 8
-  store i64 %199, ptr %v.addr.i298, align 8
-  %200 = load i64, ptr %v.addr.i298, align 8
-  %201 = load ptr, ptr %tsd.addr.i297, align 8
-  store ptr %201, ptr %tsd.addr.i375, align 8
-  %202 = load ptr, ptr %tsd.addr.i375, align 8
-  store ptr %202, ptr %tsd.addr.i.i374, align 8
-  %203 = load ptr, ptr %tsd.addr.i.i374, align 8
-  %state.i.i377 = getelementptr inbounds %struct.tsd_s, ptr %203, i32 0, i32 30
-  %204 = load i8, ptr %state.i.i377, align 8
-  store i8 %204, ptr %state.i376, align 1
-  %205 = load ptr, ptr %tsd.addr.i375, align 8
-  store ptr %205, ptr %tsd.addr.i379, align 8
-  %206 = load ptr, ptr %tsd.addr.i379, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %206, i32 0, i32 14
-  store i64 %200, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i, align 8
-  %207 = load i64, ptr %event_wait153, align 8
-  %208 = load i64, ptr %wait, align 8
-  %cmp170 = icmp ult i64 %207, %208
-  br i1 %cmp170, label %if.then172, label %if.end173
-
-if.then172:                                       ; preds = %if.end168
-  %209 = load i64, ptr %event_wait153, align 8
-  store i64 %209, ptr %wait, align 8
-  br label %if.end173
-
-if.end173:                                        ; preds = %if.then172, %if.end168
-  br label %if.end174
-
-if.end174:                                        ; preds = %if.end173, %if.end147
-  br label %do.body175
-
-do.body175:                                       ; preds = %if.end174
-  br label %do.end176
-
-do.end176:                                        ; preds = %do.body175
-  %210 = load ptr, ptr %tsd.addr, align 8
-  %211 = load ptr, ptr %ctx.addr, align 8
-  %212 = load i64, ptr %wait, align 8
-  call void @te_adjust_thresholds_helper(ptr noundef %210, ptr noundef %211, i64 noundef %212)
-  %213 = load ptr, ptr %tsd.addr, align 8
-  store ptr %213, ptr %tsd.addr.i301, align 8
-  %214 = load i8, ptr %is_alloc, align 1
-  %tobool177 = trunc i8 %214 to i1
-  %conv178 = zext i1 %tobool177 to i32
-  %cmp179 = icmp eq i32 %conv178, 1
-  br i1 %cmp179, label %land.lhs.true181, label %if.end191
-
-land.lhs.true181:                                 ; preds = %do.end176
-  %215 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp182 = icmp ugt i64 %215, 0
-  br i1 %cmp182, label %land.lhs.true184, label %if.end191
-
-land.lhs.true184:                                 ; preds = %land.lhs.true181
-  %216 = load i8, ptr %is_tcache_gc_triggered, align 1
-  %tobool185 = trunc i8 %216 to i1
-  br i1 %tobool185, label %if.then187, label %if.end191
-
-if.then187:                                       ; preds = %land.lhs.true184
-  br label %do.body188
-
-do.body188:                                       ; preds = %if.then187
-  br label %do.end189
-
-do.end189:                                        ; preds = %do.body188
-  %217 = load ptr, ptr %tsd.addr, align 8
-  %call190 = call i64 @tcache_gc_fetch_elapsed(ptr noundef %217)
-  store i64 %call190, ptr %elapsed, align 8
-  %218 = load ptr, ptr %tsd.addr, align 8
-  %219 = load i64, ptr %elapsed, align 8
-  call void @tcache_gc_event_handler(ptr noundef %218, i64 noundef %219)
-  br label %if.end191
-
-if.end191:                                        ; preds = %do.end189, %land.lhs.true184, %land.lhs.true181, %do.end176
-  %220 = load i8, ptr %is_alloc, align 1
-  %tobool192 = trunc i8 %220 to i1
-  %conv193 = zext i1 %tobool192 to i32
-  %cmp194 = icmp eq i32 %conv193, 1
-  br i1 %cmp194, label %land.lhs.true196, label %if.end208
-
-land.lhs.true196:                                 ; preds = %if.end191
-  br i1 false, label %land.lhs.true197, label %if.end208
-
-land.lhs.true197:                                 ; preds = %land.lhs.true196
-  %221 = load i8, ptr @opt_prof, align 1
-  %tobool198 = trunc i8 %221 to i1
-  br i1 %tobool198, label %land.lhs.true200, label %if.end208
-
-land.lhs.true200:                                 ; preds = %land.lhs.true197
-  %222 = load i8, ptr %is_prof_sample_triggered, align 1
-  %tobool201 = trunc i8 %222 to i1
-  br i1 %tobool201, label %if.then203, label %if.end208
-
-if.then203:                                       ; preds = %land.lhs.true200
-  br label %do.body204
-
-do.body204:                                       ; preds = %if.then203
-  br label %do.end205
-
-do.end205:                                        ; preds = %do.body204
-  %223 = load ptr, ptr %tsd.addr, align 8
-  %call207 = call i64 @prof_sample_fetch_elapsed(ptr noundef %223)
-  store i64 %call207, ptr %elapsed206, align 8
-  %224 = load ptr, ptr %tsd.addr, align 8
-  %225 = load i64, ptr %elapsed206, align 8
-  call void @prof_sample_event_handler(ptr noundef %224, i64 noundef %225)
-  br label %if.end208
-
-if.end208:                                        ; preds = %do.end205, %land.lhs.true200, %land.lhs.true197, %land.lhs.true196, %if.end191
-  %226 = load i8, ptr %is_alloc, align 1
-  %tobool209 = trunc i8 %226 to i1
-  %conv210 = zext i1 %tobool209 to i32
-  %cmp211 = icmp eq i32 %conv210, 1
-  br i1 %cmp211, label %land.lhs.true213, label %if.end224
-
-land.lhs.true213:                                 ; preds = %if.end208
-  %227 = load i64, ptr @opt_stats_interval, align 8
-  %cmp214 = icmp sge i64 %227, 0
-  br i1 %cmp214, label %land.lhs.true216, label %if.end224
-
-land.lhs.true216:                                 ; preds = %land.lhs.true213
-  %228 = load i8, ptr %is_stats_interval_triggered, align 1
-  %tobool217 = trunc i8 %228 to i1
-  br i1 %tobool217, label %if.then219, label %if.end224
-
-if.then219:                                       ; preds = %land.lhs.true216
-  br label %do.body220
-
-do.body220:                                       ; preds = %if.then219
-  br label %do.end221
-
-do.end221:                                        ; preds = %do.body220
-  %229 = load ptr, ptr %tsd.addr, align 8
-  %call223 = call i64 @stats_interval_fetch_elapsed(ptr noundef %229)
-  store i64 %call223, ptr %elapsed222, align 8
-  %230 = load ptr, ptr %tsd.addr, align 8
-  %231 = load i64, ptr %elapsed222, align 8
-  call void @stats_interval_event_handler(ptr noundef %230, i64 noundef %231)
-  br label %if.end224
-
-if.end224:                                        ; preds = %do.end221, %land.lhs.true216, %land.lhs.true213, %if.end208
-  %232 = load i8, ptr %is_alloc, align 1
-  %tobool225 = trunc i8 %232 to i1
-  %conv226 = zext i1 %tobool225 to i32
-  %cmp227 = icmp eq i32 %conv226, 0
-  br i1 %cmp227, label %land.lhs.true229, label %if.end240
-
-land.lhs.true229:                                 ; preds = %if.end224
-  %233 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp230 = icmp ugt i64 %233, 0
-  br i1 %cmp230, label %land.lhs.true232, label %if.end240
-
-land.lhs.true232:                                 ; preds = %land.lhs.true229
-  %234 = load i8, ptr %is_tcache_gc_dalloc_triggered, align 1
-  %tobool233 = trunc i8 %234 to i1
-  br i1 %tobool233, label %if.then235, label %if.end240
-
-if.then235:                                       ; preds = %land.lhs.true232
-  br label %do.body236
-
-do.body236:                                       ; preds = %if.then235
-  br label %do.end237
-
-do.end237:                                        ; preds = %do.body236
-  %235 = load ptr, ptr %tsd.addr, align 8
-  %call239 = call i64 @tcache_gc_dalloc_fetch_elapsed(ptr noundef %235)
-  store i64 %call239, ptr %elapsed238, align 8
-  %236 = load ptr, ptr %tsd.addr, align 8
-  %237 = load i64, ptr %elapsed238, align 8
-  call void @tcache_gc_dalloc_event_handler(ptr noundef %236, i64 noundef %237)
-  br label %if.end240
-
-if.end240:                                        ; preds = %do.end237, %land.lhs.true232, %land.lhs.true229, %if.end224
-  %238 = load i8, ptr %is_alloc, align 1
-  %tobool241 = trunc i8 %238 to i1
-  %conv242 = zext i1 %tobool241 to i32
-  %cmp243 = icmp eq i32 %conv242, 1
-  br i1 %cmp243, label %land.lhs.true245, label %if.end253
-
-land.lhs.true245:                                 ; preds = %if.end240
-  %239 = load i8, ptr %is_peak_alloc_triggered, align 1
-  %tobool246 = trunc i8 %239 to i1
-  br i1 %tobool246, label %if.then248, label %if.end253
-
-if.then248:                                       ; preds = %land.lhs.true245
-  br label %do.body249
-
-do.body249:                                       ; preds = %if.then248
-  br label %do.end250
-
-do.end250:                                        ; preds = %do.body249
-  %240 = load ptr, ptr %tsd.addr, align 8
-  %call252 = call i64 @peak_alloc_fetch_elapsed(ptr noundef %240)
-  store i64 %call252, ptr %elapsed251, align 8
-  %241 = load ptr, ptr %tsd.addr, align 8
-  %242 = load i64, ptr %elapsed251, align 8
-  call void @peak_alloc_event_handler(ptr noundef %241, i64 noundef %242)
-  br label %if.end253
-
-if.end253:                                        ; preds = %do.end250, %land.lhs.true245, %if.end240
-  %243 = load i8, ptr %is_alloc, align 1
-  %tobool254 = trunc i8 %243 to i1
-  %conv255 = zext i1 %tobool254 to i32
-  %cmp256 = icmp eq i32 %conv255, 0
-  br i1 %cmp256, label %land.lhs.true258, label %if.end266
-
-land.lhs.true258:                                 ; preds = %if.end253
-  %244 = load i8, ptr %is_peak_dalloc_triggered, align 1
-  %tobool259 = trunc i8 %244 to i1
-  br i1 %tobool259, label %if.then261, label %if.end266
-
-if.then261:                                       ; preds = %land.lhs.true258
-  br label %do.body262
-
-do.body262:                                       ; preds = %if.then261
-  br label %do.end263
-
-do.end263:                                        ; preds = %do.body262
-  %245 = load ptr, ptr %tsd.addr, align 8
-  %call265 = call i64 @peak_dalloc_fetch_elapsed(ptr noundef %245)
-  store i64 %call265, ptr %elapsed264, align 8
-  %246 = load ptr, ptr %tsd.addr, align 8
-  %247 = load i64, ptr %elapsed264, align 8
-  call void @peak_dalloc_event_handler(ptr noundef %246, i64 noundef %247)
-  br label %if.end266
-
-if.end266:                                        ; preds = %do.end263, %land.lhs.true258, %if.end253
-  %248 = load ptr, ptr %tsd.addr, align 8
-  store ptr %248, ptr %tsd.addr.i300, align 8
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_thread_allocated_last_event_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_thread_allocated_last_eventp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_prof_sample_last_event_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_prof_sample_last_eventp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_prof_sample_last_eventp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_prof_sample_last_eventp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_prof_sample_last_eventp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 10
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @stats_interval_last_event_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i64 @tsd_stats_interval_last_event_get(ptr noundef %3)
+  ret i64 %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @stats_interval_last_event_set(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call ptr @tsd_stats_interval_last_eventp_get(ptr noundef %6)
+  store i64 %5, ptr %7, align 8, !tbaa !22
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @tsd_nominal(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr.i = alloca ptr, align 8
-  %tsd.addr = alloca ptr, align 8
-  %nominal = alloca i8, align 1
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %0 = load ptr, ptr %tsd.addr, align 8
-  store ptr %0, ptr %tsd.addr.i, align 8
-  %1 = load ptr, ptr %tsd.addr.i, align 8
-  %state.i = getelementptr inbounds %struct.tsd_s, ptr %1, i32 0, i32 30
-  %2 = load i8, ptr %state.i, align 8
-  %conv = zext i8 %2 to i32
-  %cmp = icmp sle i32 %conv, 2
-  %frombool = zext i1 %cmp to i8
-  store i8 %frombool, ptr %nominal, align 1
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %3 = load i8, ptr %nominal, align 1
-  %tobool = trunc i8 %3 to i1
-  ret i1 %tobool
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @tsd_stats_interval_last_event_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tsd_stats_interval_last_eventp_get(ptr noundef %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !22
+  ret i64 %5
 }
 
-declare i64 @tcache_gc_postponed_event_wait(ptr noundef) #1
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_stats_interval_last_eventp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  br label %6
 
-declare i64 @tcache_gc_new_event_wait(ptr noundef) #1
+6:                                                ; preds = %1
+  br label %7
 
-; Function Attrs: nounwind uwtable
-define internal i64 @te_clip_event_wait(i64 noundef %event_wait) #0 {
-entry:
-  %event_wait.addr = alloca i64, align 8
-  store i64 %event_wait, ptr %event_wait.addr, align 8
-  br label %do.body
+7:                                                ; preds = %6
+  br label %8
 
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load i64, ptr %event_wait.addr, align 8
-  ret i64 %0
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @tsd_stats_interval_last_eventp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #5
+  ret ptr %10
 }
 
-declare i64 @prof_sample_postponed_event_wait(ptr noundef) #1
-
-declare i64 @prof_sample_new_event_wait(ptr noundef) #1
-
-declare i64 @stats_interval_postponed_event_wait(ptr noundef) #1
-
-declare i64 @stats_interval_new_event_wait(ptr noundef) #1
-
-declare i64 @tcache_gc_dalloc_postponed_event_wait(ptr noundef) #1
-
-declare i64 @tcache_gc_dalloc_new_event_wait(ptr noundef) #1
-
-declare i64 @peak_alloc_postponed_event_wait(ptr noundef) #1
-
-declare i64 @peak_alloc_new_event_wait(ptr noundef) #1
-
-declare i64 @peak_dalloc_postponed_event_wait(ptr noundef) #1
-
-declare i64 @peak_dalloc_new_event_wait(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @te_adjust_thresholds_helper(ptr noundef %tsd, ptr noundef %ctx, i64 noundef %wait) #0 {
-entry:
-  %tsd.addr.i = alloca ptr, align 8
-  %ctx.addr.i3 = alloca ptr, align 8
-  %v.addr.i = alloca i64, align 8
-  %ctx.addr.i = alloca ptr, align 8
-  %tsd.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %wait.addr = alloca i64, align 8
-  %next_event = alloca i64, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store i64 %wait, ptr %wait.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %do.body1
-
-do.body1:                                         ; preds = %do.end
-  br label %do.end2
-
-do.end2:                                          ; preds = %do.body1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %ctx.addr.i, align 8
-  %1 = load ptr, ptr %ctx.addr.i, align 8
-  %last_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %last_event.i, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = load i64, ptr %wait.addr, align 8
-  %cmp = icmp ule i64 %4, 4194304
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %do.end2
-  %5 = load i64, ptr %wait.addr, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %do.end2
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %5, %cond.true ], [ 4194304, %cond.false ]
-  %add = add i64 %3, %cond
-  store i64 %add, ptr %next_event, align 8
-  %6 = load ptr, ptr %tsd.addr, align 8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %8 = load i64, ptr %next_event, align 8
-  store ptr %6, ptr %tsd.addr.i, align 8
-  store ptr %7, ptr %ctx.addr.i3, align 8
-  store i64 %8, ptr %v.addr.i, align 8
-  %9 = load i64, ptr %v.addr.i, align 8
-  %10 = load ptr, ptr %ctx.addr.i3, align 8
-  %next_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %10, i32 0, i32 3
-  %11 = load ptr, ptr %next_event.i, align 8
-  store i64 %9, ptr %11, align 8
-  %12 = load ptr, ptr %tsd.addr.i, align 8
-  call void @te_recompute_fast_threshold(ptr noundef %12)
-  ret void
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_stats_interval_last_eventp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 13
+  ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @tcache_gc_fetch_elapsed(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr = alloca ptr, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  ret i64 -1
-}
-
-declare void @tcache_gc_event_handler(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @prof_sample_fetch_elapsed(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr.i17 = alloca ptr, align 8
-  %tsd.addr.i16 = alloca ptr, align 8
-  %tsd.addr.i.i11 = alloca ptr, align 8
-  %tsd.addr.i12 = alloca ptr, align 8
-  %state.i13 = alloca i8, align 1
-  %tsd.addr.i.i8 = alloca ptr, align 8
-  %tsd.addr.i9 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsd.addr.i7 = alloca ptr, align 8
-  %tsd.addr.i1.i = alloca ptr, align 8
-  %tsd.addr.i.i.i = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %state.i.i = alloca i8, align 1
-  %tsd.addr.i6 = alloca ptr, align 8
-  %tsd.addr.i4 = alloca ptr, align 8
-  %v.addr.i = alloca i64, align 8
-  %tsd.addr.i2 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %tsd.addr = alloca ptr, align 8
-  %last_event = alloca i64, align 8
-  %last_sample_event = alloca i64, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %0 = load ptr, ptr %tsd.addr, align 8
-  store ptr %0, ptr %tsd.addr.i, align 8
-  %1 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %1, ptr %tsd.addr.i6, align 8
-  %2 = load ptr, ptr %tsd.addr.i6, align 8
-  store ptr %2, ptr %tsd.addr.i.i, align 8
-  %3 = load ptr, ptr %tsd.addr.i.i, align 8
-  store ptr %3, ptr %tsd.addr.i.i.i, align 8
-  %4 = load ptr, ptr %tsd.addr.i.i.i, align 8
-  %state.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %4, i32 0, i32 30
-  %5 = load i8, ptr %state.i.i.i, align 8
-  store i8 %5, ptr %state.i.i, align 1
-  %6 = load ptr, ptr %tsd.addr.i.i, align 8
-  store ptr %6, ptr %tsd.addr.i1.i, align 8
-  %7 = load ptr, ptr %tsd.addr.i1.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 3
-  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i, align 8
-  store i64 %8, ptr %last_event, align 8
-  %9 = load ptr, ptr %tsd.addr, align 8
-  store ptr %9, ptr %tsd.addr.i2, align 8
-  %10 = load ptr, ptr %tsd.addr.i2, align 8
-  store ptr %10, ptr %tsd.addr.i7, align 8
-  %11 = load ptr, ptr %tsd.addr.i7, align 8
-  store ptr %11, ptr %tsd.addr.i9, align 8
-  %12 = load ptr, ptr %tsd.addr.i9, align 8
-  store ptr %12, ptr %tsd.addr.i.i8, align 8
-  %13 = load ptr, ptr %tsd.addr.i.i8, align 8
-  %state.i.i10 = getelementptr inbounds %struct.tsd_s, ptr %13, i32 0, i32 30
-  %14 = load i8, ptr %state.i.i10, align 8
-  store i8 %14, ptr %state.i, align 1
-  %15 = load ptr, ptr %tsd.addr.i9, align 8
-  store ptr %15, ptr %tsd.addr.i17, align 8
-  %16 = load ptr, ptr %tsd.addr.i17, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_last_event.i18 = getelementptr inbounds %struct.tsd_s, ptr %16, i32 0, i32 10
-  %17 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_last_event.i18, align 8
-  store i64 %17, ptr %last_sample_event, align 8
-  %18 = load ptr, ptr %tsd.addr, align 8
-  %19 = load i64, ptr %last_event, align 8
-  store ptr %18, ptr %tsd.addr.i4, align 8
-  store i64 %19, ptr %v.addr.i, align 8
-  %20 = load i64, ptr %v.addr.i, align 8
-  %21 = load ptr, ptr %tsd.addr.i4, align 8
-  store ptr %21, ptr %tsd.addr.i12, align 8
-  %22 = load ptr, ptr %tsd.addr.i12, align 8
-  store ptr %22, ptr %tsd.addr.i.i11, align 8
-  %23 = load ptr, ptr %tsd.addr.i.i11, align 8
-  %state.i.i14 = getelementptr inbounds %struct.tsd_s, ptr %23, i32 0, i32 30
-  %24 = load i8, ptr %state.i.i14, align 8
-  store i8 %24, ptr %state.i13, align 1
-  %25 = load ptr, ptr %tsd.addr.i12, align 8
-  store ptr %25, ptr %tsd.addr.i16, align 8
-  %26 = load ptr, ptr %tsd.addr.i16, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_last_event.i = getelementptr inbounds %struct.tsd_s, ptr %26, i32 0, i32 10
-  store i64 %20, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_last_event.i, align 8
-  %27 = load i64, ptr %last_event, align 8
-  %28 = load i64, ptr %last_sample_event, align 8
-  %sub = sub i64 %27, %28
-  ret i64 %sub
-}
-
-declare void @prof_sample_event_handler(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @stats_interval_fetch_elapsed(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr.i17 = alloca ptr, align 8
-  %tsd.addr.i16 = alloca ptr, align 8
-  %tsd.addr.i.i11 = alloca ptr, align 8
-  %tsd.addr.i12 = alloca ptr, align 8
-  %state.i13 = alloca i8, align 1
-  %tsd.addr.i.i8 = alloca ptr, align 8
-  %tsd.addr.i9 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsd.addr.i6 = alloca ptr, align 8
-  %tsd.addr.i4 = alloca ptr, align 8
-  %v.addr.i = alloca i64, align 8
-  %tsd.addr.i3 = alloca ptr, align 8
-  %tsd.addr.i1.i = alloca ptr, align 8
-  %tsd.addr.i.i.i = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %state.i.i = alloca i8, align 1
-  %tsd.addr.i2 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %tsd.addr = alloca ptr, align 8
-  %last_event = alloca i64, align 8
-  %last_stats_event = alloca i64, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %0 = load ptr, ptr %tsd.addr, align 8
-  store ptr %0, ptr %tsd.addr.i, align 8
-  %1 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %1, ptr %tsd.addr.i2, align 8
-  %2 = load ptr, ptr %tsd.addr.i2, align 8
-  store ptr %2, ptr %tsd.addr.i.i, align 8
-  %3 = load ptr, ptr %tsd.addr.i.i, align 8
-  store ptr %3, ptr %tsd.addr.i.i.i, align 8
-  %4 = load ptr, ptr %tsd.addr.i.i.i, align 8
-  %state.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %4, i32 0, i32 30
-  %5 = load i8, ptr %state.i.i.i, align 8
-  store i8 %5, ptr %state.i.i, align 1
-  %6 = load ptr, ptr %tsd.addr.i.i, align 8
-  store ptr %6, ptr %tsd.addr.i1.i, align 8
-  %7 = load ptr, ptr %tsd.addr.i1.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 3
-  %8 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i, align 8
-  store i64 %8, ptr %last_event, align 8
-  %9 = load ptr, ptr %tsd.addr, align 8
-  store ptr %9, ptr %tsd.addr.i3, align 8
-  %10 = load ptr, ptr %tsd.addr.i3, align 8
-  store ptr %10, ptr %tsd.addr.i6, align 8
-  %11 = load ptr, ptr %tsd.addr.i6, align 8
-  store ptr %11, ptr %tsd.addr.i9, align 8
-  %12 = load ptr, ptr %tsd.addr.i9, align 8
-  store ptr %12, ptr %tsd.addr.i.i8, align 8
-  %13 = load ptr, ptr %tsd.addr.i.i8, align 8
-  %state.i.i10 = getelementptr inbounds %struct.tsd_s, ptr %13, i32 0, i32 30
-  %14 = load i8, ptr %state.i.i10, align 8
-  store i8 %14, ptr %state.i, align 1
-  %15 = load ptr, ptr %tsd.addr.i9, align 8
-  store ptr %15, ptr %tsd.addr.i17, align 8
-  %16 = load ptr, ptr %tsd.addr.i17, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_last_event.i18 = getelementptr inbounds %struct.tsd_s, ptr %16, i32 0, i32 12
-  %17 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_last_event.i18, align 8
-  store i64 %17, ptr %last_stats_event, align 8
-  %18 = load ptr, ptr %tsd.addr, align 8
-  %19 = load i64, ptr %last_event, align 8
-  store ptr %18, ptr %tsd.addr.i4, align 8
-  store i64 %19, ptr %v.addr.i, align 8
-  %20 = load i64, ptr %v.addr.i, align 8
-  %21 = load ptr, ptr %tsd.addr.i4, align 8
-  store ptr %21, ptr %tsd.addr.i12, align 8
-  %22 = load ptr, ptr %tsd.addr.i12, align 8
-  store ptr %22, ptr %tsd.addr.i.i11, align 8
-  %23 = load ptr, ptr %tsd.addr.i.i11, align 8
-  %state.i.i14 = getelementptr inbounds %struct.tsd_s, ptr %23, i32 0, i32 30
-  %24 = load i8, ptr %state.i.i14, align 8
-  store i8 %24, ptr %state.i13, align 1
-  %25 = load ptr, ptr %tsd.addr.i12, align 8
-  store ptr %25, ptr %tsd.addr.i16, align 8
-  %26 = load ptr, ptr %tsd.addr.i16, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_last_event.i = getelementptr inbounds %struct.tsd_s, ptr %26, i32 0, i32 12
-  store i64 %20, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_last_event.i, align 8
-  %27 = load i64, ptr %last_event, align 8
-  %28 = load i64, ptr %last_stats_event, align 8
-  %sub = sub i64 %27, %28
-  ret i64 %sub
-}
-
-declare void @stats_interval_event_handler(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @tcache_gc_dalloc_fetch_elapsed(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr = alloca ptr, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  ret i64 -1
-}
-
-declare void @tcache_gc_dalloc_event_handler(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @peak_alloc_fetch_elapsed(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr = alloca ptr, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  ret i64 -1
-}
-
-declare void @peak_alloc_event_handler(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @peak_dalloc_fetch_elapsed(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr = alloca ptr, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  ret i64 -1
-}
-
-declare void @peak_dalloc_event_handler(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define hidden void @tsd_te_init(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr.i = alloca ptr, align 8
-  %tsd.addr = alloca ptr, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %tsd.addr, align 8
-  call void @te_init(ptr noundef %0, i1 noundef zeroext true)
-  %1 = load ptr, ptr %tsd.addr, align 8
-  call void @te_init(ptr noundef %1, i1 noundef zeroext false)
-  %2 = load ptr, ptr %tsd.addr, align 8
-  store ptr %2, ptr %tsd.addr.i, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @te_init(ptr noundef %tsd, i1 noundef zeroext %is_alloc) #0 {
-entry:
-  %tsd.addr.i181 = alloca ptr, align 8
-  %tsd.addr.i.i177 = alloca ptr, align 8
-  %tsd.addr.i178 = alloca ptr, align 8
-  %state.i179 = alloca i8, align 1
-  %tsd.addr.i176 = alloca ptr, align 8
-  %tsd.addr.i.i172 = alloca ptr, align 8
-  %tsd.addr.i173 = alloca ptr, align 8
-  %state.i174 = alloca i8, align 1
-  %tsd.addr.i171 = alloca ptr, align 8
-  %tsd.addr.i.i167 = alloca ptr, align 8
-  %tsd.addr.i168 = alloca ptr, align 8
-  %state.i169 = alloca i8, align 1
-  %tsd.addr.i166 = alloca ptr, align 8
-  %tsd.addr.i.i162 = alloca ptr, align 8
-  %tsd.addr.i163 = alloca ptr, align 8
-  %state.i164 = alloca i8, align 1
-  %tsd.addr.i161 = alloca ptr, align 8
-  %tsd.addr.i.i157 = alloca ptr, align 8
-  %tsd.addr.i158 = alloca ptr, align 8
-  %state.i159 = alloca i8, align 1
-  %tsd.addr.i156 = alloca ptr, align 8
-  %tsd.addr.i.i152 = alloca ptr, align 8
-  %tsd.addr.i153 = alloca ptr, align 8
-  %state.i154 = alloca i8, align 1
-  %tsd.addr.i151 = alloca ptr, align 8
-  %tsd.addr.i150 = alloca ptr, align 8
-  %tsd.addr.i149 = alloca ptr, align 8
-  %tsd.addr.i148 = alloca ptr, align 8
-  %tsd.addr.i147 = alloca ptr, align 8
-  %tsd.addr.i146 = alloca ptr, align 8
-  %tsd.addr.i145 = alloca ptr, align 8
-  %tsd.addr.i144 = alloca ptr, align 8
-  %tsd.addr.i.i139 = alloca ptr, align 8
-  %tsd.addr.i140 = alloca ptr, align 8
-  %state.i141 = alloca i8, align 1
-  %tsd.addr.i.i134 = alloca ptr, align 8
-  %tsd.addr.i135 = alloca ptr, align 8
-  %state.i136 = alloca i8, align 1
-  %tsd.addr.i.i129 = alloca ptr, align 8
-  %tsd.addr.i130 = alloca ptr, align 8
-  %state.i131 = alloca i8, align 1
-  %tsd.addr.i.i124 = alloca ptr, align 8
-  %tsd.addr.i125 = alloca ptr, align 8
-  %state.i126 = alloca i8, align 1
-  %tsd.addr.i.i119 = alloca ptr, align 8
-  %tsd.addr.i120 = alloca ptr, align 8
-  %state.i121 = alloca i8, align 1
-  %tsd.addr.i.i114 = alloca ptr, align 8
-  %tsd.addr.i115 = alloca ptr, align 8
-  %state.i116 = alloca i8, align 1
-  %tsd.addr.i.i109 = alloca ptr, align 8
-  %tsd.addr.i110 = alloca ptr, align 8
-  %state.i111 = alloca i8, align 1
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i108 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsd.addr.i105 = alloca ptr, align 8
-  %v.addr.i106 = alloca i64, align 8
-  %tsd.addr.i102 = alloca ptr, align 8
-  %v.addr.i103 = alloca i64, align 8
-  %tsd.addr.i99 = alloca ptr, align 8
-  %v.addr.i100 = alloca i64, align 8
-  %tsd.addr.i96 = alloca ptr, align 8
-  %v.addr.i97 = alloca i64, align 8
-  %tsd.addr.i93 = alloca ptr, align 8
-  %v.addr.i94 = alloca i64, align 8
-  %tsd.addr.i90 = alloca ptr, align 8
-  %v.addr.i91 = alloca i64, align 8
-  %ctx.addr.i88 = alloca ptr, align 8
-  %v.addr.i = alloca i64, align 8
-  %ctx.addr.i86 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %ctx.addr.i = alloca ptr, align 8
-  %is_alloc.addr.i = alloca i8, align 1
-  %tsd.addr = alloca ptr, align 8
-  %is_alloc.addr = alloca i8, align 1
-  %ctx = alloca %struct.te_ctx_s, align 8
-  %wait = alloca i64, align 8
-  %event_wait = alloca i64, align 8
-  %event_wait20 = alloca i64, align 8
-  %event_wait36 = alloca i64, align 8
-  %event_wait52 = alloca i64, align 8
-  %event_wait65 = alloca i64, align 8
-  %event_wait78 = alloca i64, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %frombool = zext i1 %is_alloc to i8
-  store i8 %frombool, ptr %is_alloc.addr, align 1
-  %0 = load ptr, ptr %tsd.addr, align 8
-  %1 = load i8, ptr %is_alloc.addr, align 1
-  %tobool = trunc i8 %1 to i1
-  store ptr %0, ptr %tsd.addr.i, align 8
-  store ptr %ctx, ptr %ctx.addr.i, align 8
-  %frombool.i = zext i1 %tobool to i8
-  store i8 %frombool.i, ptr %is_alloc.addr.i, align 1
-  %2 = load i8, ptr %is_alloc.addr.i, align 1
-  %tobool.i = trunc i8 %2 to i1
-  %3 = load ptr, ptr %ctx.addr.i, align 8
-  %frombool2.i = zext i1 %tobool.i to i8
-  store i8 %frombool2.i, ptr %3, align 8
-  %4 = load i8, ptr %is_alloc.addr.i, align 1
-  %tobool3.i = trunc i8 %4 to i1
-  br i1 %tobool3.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  %5 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %5, ptr %tsd.addr.i108, align 8
-  %6 = load ptr, ptr %tsd.addr.i108, align 8
-  store ptr %6, ptr %tsd.addr.i.i, align 8
-  %7 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 30
-  %8 = load i8, ptr %state.i.i, align 8
-  store i8 %8, ptr %state.i, align 1
-  %9 = load ptr, ptr %tsd.addr.i108, align 8
-  store ptr %9, ptr %tsd.addr.i144, align 8
-  %10 = load ptr, ptr %tsd.addr.i144, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i = getelementptr inbounds %struct.tsd_s, ptr %10, i32 0, i32 31
-  %11 = load ptr, ptr %ctx.addr.i, align 8
-  %current.i = getelementptr inbounds %struct.te_ctx_s, ptr %11, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i, ptr %current.i, align 8
-  %12 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %12, ptr %tsd.addr.i110, align 8
-  %13 = load ptr, ptr %tsd.addr.i110, align 8
-  store ptr %13, ptr %tsd.addr.i.i109, align 8
-  %14 = load ptr, ptr %tsd.addr.i.i109, align 8
-  %state.i.i112 = getelementptr inbounds %struct.tsd_s, ptr %14, i32 0, i32 30
-  %15 = load i8, ptr %state.i.i112, align 8
-  store i8 %15, ptr %state.i111, align 1
-  %16 = load ptr, ptr %tsd.addr.i110, align 8
-  store ptr %16, ptr %tsd.addr.i145, align 8
-  %17 = load ptr, ptr %tsd.addr.i145, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds %struct.tsd_s, ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %ctx.addr.i, align 8
-  %last_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %18, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %19 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %19, ptr %tsd.addr.i115, align 8
-  %20 = load ptr, ptr %tsd.addr.i115, align 8
-  store ptr %20, ptr %tsd.addr.i.i114, align 8
-  %21 = load ptr, ptr %tsd.addr.i.i114, align 8
-  %state.i.i117 = getelementptr inbounds %struct.tsd_s, ptr %21, i32 0, i32 30
-  %22 = load i8, ptr %state.i.i117, align 8
-  store i8 %22, ptr %state.i116, align 1
-  %23 = load ptr, ptr %tsd.addr.i115, align 8
-  store ptr %23, ptr %tsd.addr.i146, align 8
-  %24 = load ptr, ptr %tsd.addr.i146, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds %struct.tsd_s, ptr %24, i32 0, i32 4
-  %25 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event.i = getelementptr inbounds %struct.te_ctx_s, ptr %25, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %26 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %26, ptr %tsd.addr.i120, align 8
-  %27 = load ptr, ptr %tsd.addr.i120, align 8
-  store ptr %27, ptr %tsd.addr.i.i119, align 8
-  %28 = load ptr, ptr %tsd.addr.i.i119, align 8
-  %state.i.i122 = getelementptr inbounds %struct.tsd_s, ptr %28, i32 0, i32 30
-  %29 = load i8, ptr %state.i.i122, align 8
-  store i8 %29, ptr %state.i121, align 1
-  %30 = load ptr, ptr %tsd.addr.i120, align 8
-  store ptr %30, ptr %tsd.addr.i147, align 8
-  %31 = load ptr, ptr %tsd.addr.i147, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i = getelementptr inbounds %struct.tsd_s, ptr %31, i32 0, i32 32
-  %32 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event_fast.i = getelementptr inbounds %struct.te_ctx_s, ptr %32, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i, ptr %next_event_fast.i, align 8
-  br label %te_ctx_get.exit
-
-if.else.i:                                        ; preds = %entry
-  %33 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %33, ptr %tsd.addr.i125, align 8
-  %34 = load ptr, ptr %tsd.addr.i125, align 8
-  store ptr %34, ptr %tsd.addr.i.i124, align 8
-  %35 = load ptr, ptr %tsd.addr.i.i124, align 8
-  %state.i.i127 = getelementptr inbounds %struct.tsd_s, ptr %35, i32 0, i32 30
-  %36 = load i8, ptr %state.i.i127, align 8
-  store i8 %36, ptr %state.i126, align 1
-  %37 = load ptr, ptr %tsd.addr.i125, align 8
-  store ptr %37, ptr %tsd.addr.i148, align 8
-  %38 = load ptr, ptr %tsd.addr.i148, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i = getelementptr inbounds %struct.tsd_s, ptr %38, i32 0, i32 33
-  %39 = load ptr, ptr %ctx.addr.i, align 8
-  %current8.i = getelementptr inbounds %struct.te_ctx_s, ptr %39, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i, ptr %current8.i, align 8
-  %40 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %40, ptr %tsd.addr.i130, align 8
-  %41 = load ptr, ptr %tsd.addr.i130, align 8
-  store ptr %41, ptr %tsd.addr.i.i129, align 8
-  %42 = load ptr, ptr %tsd.addr.i.i129, align 8
-  %state.i.i132 = getelementptr inbounds %struct.tsd_s, ptr %42, i32 0, i32 30
-  %43 = load i8, ptr %state.i.i132, align 8
-  store i8 %43, ptr %state.i131, align 1
-  %44 = load ptr, ptr %tsd.addr.i130, align 8
-  store ptr %44, ptr %tsd.addr.i149, align 8
-  %45 = load ptr, ptr %tsd.addr.i149, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i = getelementptr inbounds %struct.tsd_s, ptr %45, i32 0, i32 5
-  %46 = load ptr, ptr %ctx.addr.i, align 8
-  %last_event10.i = getelementptr inbounds %struct.te_ctx_s, ptr %46, i32 0, i32 2
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i, ptr %last_event10.i, align 8
-  %47 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %47, ptr %tsd.addr.i135, align 8
-  %48 = load ptr, ptr %tsd.addr.i135, align 8
-  store ptr %48, ptr %tsd.addr.i.i134, align 8
-  %49 = load ptr, ptr %tsd.addr.i.i134, align 8
-  %state.i.i137 = getelementptr inbounds %struct.tsd_s, ptr %49, i32 0, i32 30
-  %50 = load i8, ptr %state.i.i137, align 8
-  store i8 %50, ptr %state.i136, align 1
-  %51 = load ptr, ptr %tsd.addr.i135, align 8
-  store ptr %51, ptr %tsd.addr.i150, align 8
-  %52 = load ptr, ptr %tsd.addr.i150, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i = getelementptr inbounds %struct.tsd_s, ptr %52, i32 0, i32 6
-  %53 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event12.i = getelementptr inbounds %struct.te_ctx_s, ptr %53, i32 0, i32 3
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i, ptr %next_event12.i, align 8
-  %54 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %54, ptr %tsd.addr.i140, align 8
-  %55 = load ptr, ptr %tsd.addr.i140, align 8
-  store ptr %55, ptr %tsd.addr.i.i139, align 8
-  %56 = load ptr, ptr %tsd.addr.i.i139, align 8
-  %state.i.i142 = getelementptr inbounds %struct.tsd_s, ptr %56, i32 0, i32 30
-  %57 = load i8, ptr %state.i.i142, align 8
-  store i8 %57, ptr %state.i141, align 1
-  %58 = load ptr, ptr %tsd.addr.i140, align 8
-  store ptr %58, ptr %tsd.addr.i151, align 8
-  %59 = load ptr, ptr %tsd.addr.i151, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds %struct.tsd_s, ptr %59, i32 0, i32 34
-  %60 = load ptr, ptr %ctx.addr.i, align 8
-  %next_event_fast14.i = getelementptr inbounds %struct.te_ctx_s, ptr %60, i32 0, i32 4
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, ptr %next_event_fast14.i, align 8
-  br label %te_ctx_get.exit
-
-te_ctx_get.exit:                                  ; preds = %if.else.i, %if.then.i
-  store ptr %ctx, ptr %ctx.addr.i86, align 8
-  %61 = load ptr, ptr %ctx.addr.i86, align 8
-  %current.i87 = getelementptr inbounds %struct.te_ctx_s, ptr %61, i32 0, i32 1
-  %62 = load ptr, ptr %current.i87, align 8
-  %63 = load i64, ptr %62, align 8
-  store ptr %ctx, ptr %ctx.addr.i88, align 8
-  store i64 %63, ptr %v.addr.i, align 8
-  %64 = load i64, ptr %v.addr.i, align 8
-  %65 = load ptr, ptr %ctx.addr.i88, align 8
-  %last_event.i89 = getelementptr inbounds %struct.te_ctx_s, ptr %65, i32 0, i32 2
-  %66 = load ptr, ptr %last_event.i89, align 8
-  store i64 %64, ptr %66, align 8
-  store i64 -1, ptr %wait, align 8
-  %67 = load i8, ptr %is_alloc.addr, align 1
-  %tobool1 = trunc i8 %67 to i1
-  %conv = zext i1 %tobool1 to i32
-  %cmp = icmp eq i32 %conv, 1
-  br i1 %cmp, label %land.lhs.true, label %if.end10
-
-land.lhs.true:                                    ; preds = %te_ctx_get.exit
-  %68 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp3 = icmp ugt i64 %68, 0
-  br i1 %cmp3, label %if.then, label %if.end10
-
-if.then:                                          ; preds = %land.lhs.true
-  %69 = load ptr, ptr %tsd.addr, align 8
-  %call5 = call i64 @tcache_gc_new_event_wait(ptr noundef %69)
-  store i64 %call5, ptr %event_wait, align 8
-  %70 = load i64, ptr %event_wait, align 8
-  %call6 = call i64 @te_clip_event_wait(i64 noundef %70)
-  store i64 %call6, ptr %event_wait, align 8
-  %71 = load ptr, ptr %tsd.addr, align 8
-  %72 = load i64, ptr %event_wait, align 8
-  store ptr %71, ptr %tsd.addr.i90, align 8
-  store i64 %72, ptr %v.addr.i91, align 8
-  %73 = load i64, ptr %v.addr.i91, align 8
-  %74 = load ptr, ptr %tsd.addr.i90, align 8
-  store ptr %74, ptr %tsd.addr.i153, align 8
-  %75 = load ptr, ptr %tsd.addr.i153, align 8
-  store ptr %75, ptr %tsd.addr.i.i152, align 8
-  %76 = load ptr, ptr %tsd.addr.i.i152, align 8
-  %state.i.i155 = getelementptr inbounds %struct.tsd_s, ptr %76, i32 0, i32 30
-  %77 = load i8, ptr %state.i.i155, align 8
-  store i8 %77, ptr %state.i154, align 1
-  %78 = load ptr, ptr %tsd.addr.i153, align 8
-  store ptr %78, ptr %tsd.addr.i156, align 8
-  %79 = load ptr, ptr %tsd.addr.i156, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %79, i32 0, i32 7
-  store i64 %73, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i, align 8
-  %80 = load i64, ptr %event_wait, align 8
-  %81 = load i64, ptr %wait, align 8
-  %cmp7 = icmp ult i64 %80, %81
-  br i1 %cmp7, label %if.then9, label %if.end
-
-if.then9:                                         ; preds = %if.then
-  %82 = load i64, ptr %event_wait, align 8
-  store i64 %82, ptr %wait, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then9, %if.then
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.end, %land.lhs.true, %te_ctx_get.exit
-  %83 = load i8, ptr %is_alloc.addr, align 1
-  %tobool11 = trunc i8 %83 to i1
-  %conv12 = zext i1 %tobool11 to i32
-  %cmp13 = icmp eq i32 %conv12, 1
-  br i1 %cmp13, label %land.lhs.true15, label %if.end27
-
-land.lhs.true15:                                  ; preds = %if.end10
-  br i1 false, label %land.lhs.true16, label %if.end27
-
-land.lhs.true16:                                  ; preds = %land.lhs.true15
-  %84 = load i8, ptr @opt_prof, align 1
-  %tobool17 = trunc i8 %84 to i1
-  br i1 %tobool17, label %if.then19, label %if.end27
-
-if.then19:                                        ; preds = %land.lhs.true16
-  %85 = load ptr, ptr %tsd.addr, align 8
-  %call21 = call i64 @prof_sample_new_event_wait(ptr noundef %85)
-  store i64 %call21, ptr %event_wait20, align 8
-  %86 = load i64, ptr %event_wait20, align 8
-  %call22 = call i64 @te_clip_event_wait(i64 noundef %86)
-  store i64 %call22, ptr %event_wait20, align 8
-  %87 = load ptr, ptr %tsd.addr, align 8
-  %88 = load i64, ptr %event_wait20, align 8
-  store ptr %87, ptr %tsd.addr.i93, align 8
-  store i64 %88, ptr %v.addr.i94, align 8
-  %89 = load i64, ptr %v.addr.i94, align 8
-  %90 = load ptr, ptr %tsd.addr.i93, align 8
-  store ptr %90, ptr %tsd.addr.i158, align 8
-  %91 = load ptr, ptr %tsd.addr.i158, align 8
-  store ptr %91, ptr %tsd.addr.i.i157, align 8
-  %92 = load ptr, ptr %tsd.addr.i.i157, align 8
-  %state.i.i160 = getelementptr inbounds %struct.tsd_s, ptr %92, i32 0, i32 30
-  %93 = load i8, ptr %state.i.i160, align 8
-  store i8 %93, ptr %state.i159, align 1
-  %94 = load ptr, ptr %tsd.addr.i158, align 8
-  store ptr %94, ptr %tsd.addr.i161, align 8
-  %95 = load ptr, ptr %tsd.addr.i161, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %95, i32 0, i32 9
-  store i64 %89, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_event_wait.i, align 8
-  %96 = load i64, ptr %event_wait20, align 8
-  %97 = load i64, ptr %wait, align 8
-  %cmp23 = icmp ult i64 %96, %97
-  br i1 %cmp23, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %if.then19
-  %98 = load i64, ptr %event_wait20, align 8
-  store i64 %98, ptr %wait, align 8
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.then25, %if.then19
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end26, %land.lhs.true16, %land.lhs.true15, %if.end10
-  %99 = load i8, ptr %is_alloc.addr, align 1
-  %tobool28 = trunc i8 %99 to i1
-  %conv29 = zext i1 %tobool28 to i32
-  %cmp30 = icmp eq i32 %conv29, 1
-  br i1 %cmp30, label %land.lhs.true32, label %if.end43
-
-land.lhs.true32:                                  ; preds = %if.end27
-  %100 = load i64, ptr @opt_stats_interval, align 8
-  %cmp33 = icmp sge i64 %100, 0
-  br i1 %cmp33, label %if.then35, label %if.end43
-
-if.then35:                                        ; preds = %land.lhs.true32
-  %101 = load ptr, ptr %tsd.addr, align 8
-  %call37 = call i64 @stats_interval_new_event_wait(ptr noundef %101)
-  store i64 %call37, ptr %event_wait36, align 8
-  %102 = load i64, ptr %event_wait36, align 8
-  %call38 = call i64 @te_clip_event_wait(i64 noundef %102)
-  store i64 %call38, ptr %event_wait36, align 8
-  %103 = load ptr, ptr %tsd.addr, align 8
-  %104 = load i64, ptr %event_wait36, align 8
-  store ptr %103, ptr %tsd.addr.i96, align 8
-  store i64 %104, ptr %v.addr.i97, align 8
-  %105 = load i64, ptr %v.addr.i97, align 8
-  %106 = load ptr, ptr %tsd.addr.i96, align 8
-  store ptr %106, ptr %tsd.addr.i163, align 8
-  %107 = load ptr, ptr %tsd.addr.i163, align 8
-  store ptr %107, ptr %tsd.addr.i.i162, align 8
-  %108 = load ptr, ptr %tsd.addr.i.i162, align 8
-  %state.i.i165 = getelementptr inbounds %struct.tsd_s, ptr %108, i32 0, i32 30
-  %109 = load i8, ptr %state.i.i165, align 8
-  store i8 %109, ptr %state.i164, align 1
-  %110 = load ptr, ptr %tsd.addr.i163, align 8
-  store ptr %110, ptr %tsd.addr.i166, align 8
-  %111 = load ptr, ptr %tsd.addr.i166, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %111, i32 0, i32 11
-  store i64 %105, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i, align 8
-  %112 = load i64, ptr %event_wait36, align 8
-  %113 = load i64, ptr %wait, align 8
-  %cmp39 = icmp ult i64 %112, %113
-  br i1 %cmp39, label %if.then41, label %if.end42
-
-if.then41:                                        ; preds = %if.then35
-  %114 = load i64, ptr %event_wait36, align 8
-  store i64 %114, ptr %wait, align 8
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.then41, %if.then35
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.end42, %land.lhs.true32, %if.end27
-  %115 = load i8, ptr %is_alloc.addr, align 1
-  %tobool44 = trunc i8 %115 to i1
-  %conv45 = zext i1 %tobool44 to i32
-  %cmp46 = icmp eq i32 %conv45, 0
-  br i1 %cmp46, label %land.lhs.true48, label %if.end59
-
-land.lhs.true48:                                  ; preds = %if.end43
-  %116 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp49 = icmp ugt i64 %116, 0
-  br i1 %cmp49, label %if.then51, label %if.end59
-
-if.then51:                                        ; preds = %land.lhs.true48
-  %117 = load ptr, ptr %tsd.addr, align 8
-  %call53 = call i64 @tcache_gc_dalloc_new_event_wait(ptr noundef %117)
-  store i64 %call53, ptr %event_wait52, align 8
-  %118 = load i64, ptr %event_wait52, align 8
-  %call54 = call i64 @te_clip_event_wait(i64 noundef %118)
-  store i64 %call54, ptr %event_wait52, align 8
-  %119 = load ptr, ptr %tsd.addr, align 8
-  %120 = load i64, ptr %event_wait52, align 8
-  store ptr %119, ptr %tsd.addr.i99, align 8
-  store i64 %120, ptr %v.addr.i100, align 8
-  %121 = load i64, ptr %v.addr.i100, align 8
-  %122 = load ptr, ptr %tsd.addr.i99, align 8
-  store ptr %122, ptr %tsd.addr.i168, align 8
-  %123 = load ptr, ptr %tsd.addr.i168, align 8
-  store ptr %123, ptr %tsd.addr.i.i167, align 8
-  %124 = load ptr, ptr %tsd.addr.i.i167, align 8
-  %state.i.i170 = getelementptr inbounds %struct.tsd_s, ptr %124, i32 0, i32 30
-  %125 = load i8, ptr %state.i.i170, align 8
-  store i8 %125, ptr %state.i169, align 1
-  %126 = load ptr, ptr %tsd.addr.i168, align 8
-  store ptr %126, ptr %tsd.addr.i171, align 8
-  %127 = load ptr, ptr %tsd.addr.i171, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %127, i32 0, i32 8
-  store i64 %121, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i, align 8
-  %128 = load i64, ptr %event_wait52, align 8
-  %129 = load i64, ptr %wait, align 8
-  %cmp55 = icmp ult i64 %128, %129
-  br i1 %cmp55, label %if.then57, label %if.end58
-
-if.then57:                                        ; preds = %if.then51
-  %130 = load i64, ptr %event_wait52, align 8
-  store i64 %130, ptr %wait, align 8
-  br label %if.end58
-
-if.end58:                                         ; preds = %if.then57, %if.then51
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.end58, %land.lhs.true48, %if.end43
-  %131 = load i8, ptr %is_alloc.addr, align 1
-  %tobool60 = trunc i8 %131 to i1
-  %conv61 = zext i1 %tobool60 to i32
-  %cmp62 = icmp eq i32 %conv61, 1
-  br i1 %cmp62, label %if.then64, label %if.end72
-
-if.then64:                                        ; preds = %if.end59
-  %132 = load ptr, ptr %tsd.addr, align 8
-  %call66 = call i64 @peak_alloc_new_event_wait(ptr noundef %132)
-  store i64 %call66, ptr %event_wait65, align 8
-  %133 = load i64, ptr %event_wait65, align 8
-  %call67 = call i64 @te_clip_event_wait(i64 noundef %133)
-  store i64 %call67, ptr %event_wait65, align 8
-  %134 = load ptr, ptr %tsd.addr, align 8
-  %135 = load i64, ptr %event_wait65, align 8
-  store ptr %134, ptr %tsd.addr.i102, align 8
-  store i64 %135, ptr %v.addr.i103, align 8
-  %136 = load i64, ptr %v.addr.i103, align 8
-  %137 = load ptr, ptr %tsd.addr.i102, align 8
-  store ptr %137, ptr %tsd.addr.i173, align 8
-  %138 = load ptr, ptr %tsd.addr.i173, align 8
-  store ptr %138, ptr %tsd.addr.i.i172, align 8
-  %139 = load ptr, ptr %tsd.addr.i.i172, align 8
-  %state.i.i175 = getelementptr inbounds %struct.tsd_s, ptr %139, i32 0, i32 30
-  %140 = load i8, ptr %state.i.i175, align 8
-  store i8 %140, ptr %state.i174, align 1
-  %141 = load ptr, ptr %tsd.addr.i173, align 8
-  store ptr %141, ptr %tsd.addr.i176, align 8
-  %142 = load ptr, ptr %tsd.addr.i176, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %142, i32 0, i32 13
-  store i64 %136, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i, align 8
-  %143 = load i64, ptr %event_wait65, align 8
-  %144 = load i64, ptr %wait, align 8
-  %cmp68 = icmp ult i64 %143, %144
-  br i1 %cmp68, label %if.then70, label %if.end71
-
-if.then70:                                        ; preds = %if.then64
-  %145 = load i64, ptr %event_wait65, align 8
-  store i64 %145, ptr %wait, align 8
-  br label %if.end71
-
-if.end71:                                         ; preds = %if.then70, %if.then64
-  br label %if.end72
-
-if.end72:                                         ; preds = %if.end71, %if.end59
-  %146 = load i8, ptr %is_alloc.addr, align 1
-  %tobool73 = trunc i8 %146 to i1
-  %conv74 = zext i1 %tobool73 to i32
-  %cmp75 = icmp eq i32 %conv74, 0
-  br i1 %cmp75, label %if.then77, label %if.end85
-
-if.then77:                                        ; preds = %if.end72
-  %147 = load ptr, ptr %tsd.addr, align 8
-  %call79 = call i64 @peak_dalloc_new_event_wait(ptr noundef %147)
-  store i64 %call79, ptr %event_wait78, align 8
-  %148 = load i64, ptr %event_wait78, align 8
-  %call80 = call i64 @te_clip_event_wait(i64 noundef %148)
-  store i64 %call80, ptr %event_wait78, align 8
-  %149 = load ptr, ptr %tsd.addr, align 8
-  %150 = load i64, ptr %event_wait78, align 8
-  store ptr %149, ptr %tsd.addr.i105, align 8
-  store i64 %150, ptr %v.addr.i106, align 8
-  %151 = load i64, ptr %v.addr.i106, align 8
-  %152 = load ptr, ptr %tsd.addr.i105, align 8
-  store ptr %152, ptr %tsd.addr.i178, align 8
-  %153 = load ptr, ptr %tsd.addr.i178, align 8
-  store ptr %153, ptr %tsd.addr.i.i177, align 8
-  %154 = load ptr, ptr %tsd.addr.i.i177, align 8
-  %state.i.i180 = getelementptr inbounds %struct.tsd_s, ptr %154, i32 0, i32 30
-  %155 = load i8, ptr %state.i.i180, align 8
-  store i8 %155, ptr %state.i179, align 1
-  %156 = load ptr, ptr %tsd.addr.i178, align 8
-  store ptr %156, ptr %tsd.addr.i181, align 8
-  %157 = load ptr, ptr %tsd.addr.i181, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %157, i32 0, i32 14
-  store i64 %151, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i, align 8
-  %158 = load i64, ptr %event_wait78, align 8
-  %159 = load i64, ptr %wait, align 8
-  %cmp81 = icmp ult i64 %158, %159
-  br i1 %cmp81, label %if.then83, label %if.end84
-
-if.then83:                                        ; preds = %if.then77
-  %160 = load i64, ptr %event_wait78, align 8
-  store i64 %160, ptr %wait, align 8
-  br label %if.end84
-
-if.end84:                                         ; preds = %if.then83, %if.then77
-  br label %if.end85
-
-if.end85:                                         ; preds = %if.end84, %if.end72
-  %161 = load ptr, ptr %tsd.addr, align 8
-  %162 = load i64, ptr %wait, align 8
-  call void @te_adjust_thresholds_helper(ptr noundef %161, ptr noundef %ctx, i64 noundef %162)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @te_next_event_compute(ptr noundef %tsd, i1 noundef zeroext %is_alloc) #0 {
-entry:
-  %tsd.addr.i151 = alloca ptr, align 8
-  %tsd.addr.i.i147 = alloca ptr, align 8
-  %tsd.addr.i148 = alloca ptr, align 8
-  %state.i149 = alloca i8, align 1
-  %tsd.addr.i146 = alloca ptr, align 8
-  %tsd.addr.i145 = alloca ptr, align 8
-  %tsd.addr.i.i141 = alloca ptr, align 8
-  %tsd.addr.i142 = alloca ptr, align 8
-  %state.i143 = alloca i8, align 1
-  %tsd.addr.i140 = alloca ptr, align 8
-  %tsd.addr.i139 = alloca ptr, align 8
-  %tsd.addr.i.i135 = alloca ptr, align 8
-  %tsd.addr.i136 = alloca ptr, align 8
-  %state.i137 = alloca i8, align 1
-  %tsd.addr.i134 = alloca ptr, align 8
-  %tsd.addr.i133 = alloca ptr, align 8
-  %tsd.addr.i.i129 = alloca ptr, align 8
-  %tsd.addr.i130 = alloca ptr, align 8
-  %state.i131 = alloca i8, align 1
-  %tsd.addr.i128 = alloca ptr, align 8
-  %tsd.addr.i127 = alloca ptr, align 8
-  %tsd.addr.i.i123 = alloca ptr, align 8
-  %tsd.addr.i124 = alloca ptr, align 8
-  %state.i125 = alloca i8, align 1
-  %tsd.addr.i122 = alloca ptr, align 8
-  %tsd.addr.i121 = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i120 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsd.addr.i118 = alloca ptr, align 8
-  %tsd.addr.i116 = alloca ptr, align 8
-  %tsd.addr.i114 = alloca ptr, align 8
-  %tsd.addr.i112 = alloca ptr, align 8
-  %tsd.addr.i110 = alloca ptr, align 8
-  %tsd.addr.i108 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %tsd.addr = alloca ptr, align 8
-  %is_alloc.addr = alloca i8, align 1
-  %wait = alloca i64, align 8
-  %event_wait = alloca i64, align 8
-  %event_wait20 = alloca i64, align 8
-  %event_wait40 = alloca i64, align 8
-  %event_wait60 = alloca i64, align 8
-  %event_wait77 = alloca i64, align 8
-  %event_wait94 = alloca i64, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %frombool = zext i1 %is_alloc to i8
-  store i8 %frombool, ptr %is_alloc.addr, align 1
-  store i64 -1, ptr %wait, align 8
-  %0 = load i8, ptr %is_alloc.addr, align 1
-  %tobool = trunc i8 %0 to i1
-  %conv = zext i1 %tobool to i32
-  %cmp = icmp eq i32 %conv, 1
-  br i1 %cmp, label %land.lhs.true, label %if.end10
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp2 = icmp ugt i64 %1, 0
-  br i1 %cmp2, label %if.then, label %if.end10
-
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %tsd.addr, align 8
-  store ptr %2, ptr %tsd.addr.i, align 8
-  %3 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %3, ptr %tsd.addr.i118, align 8
-  %4 = load ptr, ptr %tsd.addr.i118, align 8
-  store ptr %4, ptr %tsd.addr.i120, align 8
-  %5 = load ptr, ptr %tsd.addr.i120, align 8
-  store ptr %5, ptr %tsd.addr.i.i, align 8
-  %6 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %6, i32 0, i32 30
-  %7 = load i8, ptr %state.i.i, align 8
-  store i8 %7, ptr %state.i, align 1
-  %8 = load ptr, ptr %tsd.addr.i120, align 8
-  store ptr %8, ptr %tsd.addr.i121, align 8
-  %9 = load ptr, ptr %tsd.addr.i121, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %9, i32 0, i32 7
-  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i, align 8
-  store i64 %10, ptr %event_wait, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %11 = load i64, ptr %event_wait, align 8
-  %cmp4 = icmp ugt i64 %11, 0
-  br i1 %cmp4, label %land.lhs.true6, label %if.end
-
-land.lhs.true6:                                   ; preds = %do.end
-  %12 = load i64, ptr %event_wait, align 8
-  %13 = load i64, ptr %wait, align 8
-  %cmp7 = icmp ult i64 %12, %13
-  br i1 %cmp7, label %if.then9, label %if.end
-
-if.then9:                                         ; preds = %land.lhs.true6
-  %14 = load i64, ptr %event_wait, align 8
-  store i64 %14, ptr %wait, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then9, %land.lhs.true6, %do.end
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %15 = load i8, ptr %is_alloc.addr, align 1
-  %tobool11 = trunc i8 %15 to i1
-  %conv12 = zext i1 %tobool11 to i32
-  %cmp13 = icmp eq i32 %conv12, 1
-  br i1 %cmp13, label %land.lhs.true15, label %if.end31
-
-land.lhs.true15:                                  ; preds = %if.end10
-  br i1 false, label %land.lhs.true16, label %if.end31
-
-land.lhs.true16:                                  ; preds = %land.lhs.true15
-  %16 = load i8, ptr @opt_prof, align 1
-  %tobool17 = trunc i8 %16 to i1
-  br i1 %tobool17, label %if.then19, label %if.end31
-
-if.then19:                                        ; preds = %land.lhs.true16
-  %17 = load ptr, ptr %tsd.addr, align 8
-  store ptr %17, ptr %tsd.addr.i108, align 8
-  %18 = load ptr, ptr %tsd.addr.i108, align 8
-  store ptr %18, ptr %tsd.addr.i122, align 8
-  %19 = load ptr, ptr %tsd.addr.i122, align 8
-  store ptr %19, ptr %tsd.addr.i124, align 8
-  %20 = load ptr, ptr %tsd.addr.i124, align 8
-  store ptr %20, ptr %tsd.addr.i.i123, align 8
-  %21 = load ptr, ptr %tsd.addr.i.i123, align 8
-  %state.i.i126 = getelementptr inbounds %struct.tsd_s, ptr %21, i32 0, i32 30
-  %22 = load i8, ptr %state.i.i126, align 8
-  store i8 %22, ptr %state.i125, align 1
-  %23 = load ptr, ptr %tsd.addr.i124, align 8
-  store ptr %23, ptr %tsd.addr.i127, align 8
-  %24 = load ptr, ptr %tsd.addr.i127, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %24, i32 0, i32 9
-  %25 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prof_sample_event_wait.i, align 8
-  store i64 %25, ptr %event_wait20, align 8
-  br label %do.body22
-
-do.body22:                                        ; preds = %if.then19
-  br label %do.end23
-
-do.end23:                                         ; preds = %do.body22
-  %26 = load i64, ptr %event_wait20, align 8
-  %cmp24 = icmp ugt i64 %26, 0
-  br i1 %cmp24, label %land.lhs.true26, label %if.end30
-
-land.lhs.true26:                                  ; preds = %do.end23
-  %27 = load i64, ptr %event_wait20, align 8
-  %28 = load i64, ptr %wait, align 8
-  %cmp27 = icmp ult i64 %27, %28
-  br i1 %cmp27, label %if.then29, label %if.end30
-
-if.then29:                                        ; preds = %land.lhs.true26
-  %29 = load i64, ptr %event_wait20, align 8
-  store i64 %29, ptr %wait, align 8
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.then29, %land.lhs.true26, %do.end23
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.end30, %land.lhs.true16, %land.lhs.true15, %if.end10
-  %30 = load i8, ptr %is_alloc.addr, align 1
-  %tobool32 = trunc i8 %30 to i1
-  %conv33 = zext i1 %tobool32 to i32
-  %cmp34 = icmp eq i32 %conv33, 1
-  br i1 %cmp34, label %land.lhs.true36, label %if.end51
-
-land.lhs.true36:                                  ; preds = %if.end31
-  %31 = load i64, ptr @opt_stats_interval, align 8
-  %cmp37 = icmp sge i64 %31, 0
-  br i1 %cmp37, label %if.then39, label %if.end51
-
-if.then39:                                        ; preds = %land.lhs.true36
-  %32 = load ptr, ptr %tsd.addr, align 8
-  store ptr %32, ptr %tsd.addr.i110, align 8
-  %33 = load ptr, ptr %tsd.addr.i110, align 8
-  store ptr %33, ptr %tsd.addr.i128, align 8
-  %34 = load ptr, ptr %tsd.addr.i128, align 8
-  store ptr %34, ptr %tsd.addr.i130, align 8
-  %35 = load ptr, ptr %tsd.addr.i130, align 8
-  store ptr %35, ptr %tsd.addr.i.i129, align 8
-  %36 = load ptr, ptr %tsd.addr.i.i129, align 8
-  %state.i.i132 = getelementptr inbounds %struct.tsd_s, ptr %36, i32 0, i32 30
-  %37 = load i8, ptr %state.i.i132, align 8
-  store i8 %37, ptr %state.i131, align 1
-  %38 = load ptr, ptr %tsd.addr.i130, align 8
-  store ptr %38, ptr %tsd.addr.i133, align 8
-  %39 = load ptr, ptr %tsd.addr.i133, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %39, i32 0, i32 11
-  %40 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i, align 8
-  store i64 %40, ptr %event_wait40, align 8
-  br label %do.body42
-
-do.body42:                                        ; preds = %if.then39
-  br label %do.end43
-
-do.end43:                                         ; preds = %do.body42
-  %41 = load i64, ptr %event_wait40, align 8
-  %cmp44 = icmp ugt i64 %41, 0
-  br i1 %cmp44, label %land.lhs.true46, label %if.end50
-
-land.lhs.true46:                                  ; preds = %do.end43
-  %42 = load i64, ptr %event_wait40, align 8
-  %43 = load i64, ptr %wait, align 8
-  %cmp47 = icmp ult i64 %42, %43
-  br i1 %cmp47, label %if.then49, label %if.end50
-
-if.then49:                                        ; preds = %land.lhs.true46
-  %44 = load i64, ptr %event_wait40, align 8
-  store i64 %44, ptr %wait, align 8
-  br label %if.end50
-
-if.end50:                                         ; preds = %if.then49, %land.lhs.true46, %do.end43
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.end50, %land.lhs.true36, %if.end31
-  %45 = load i8, ptr %is_alloc.addr, align 1
-  %tobool52 = trunc i8 %45 to i1
-  %conv53 = zext i1 %tobool52 to i32
-  %cmp54 = icmp eq i32 %conv53, 0
-  br i1 %cmp54, label %land.lhs.true56, label %if.end71
-
-land.lhs.true56:                                  ; preds = %if.end51
-  %46 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp57 = icmp ugt i64 %46, 0
-  br i1 %cmp57, label %if.then59, label %if.end71
-
-if.then59:                                        ; preds = %land.lhs.true56
-  %47 = load ptr, ptr %tsd.addr, align 8
-  store ptr %47, ptr %tsd.addr.i112, align 8
-  %48 = load ptr, ptr %tsd.addr.i112, align 8
-  store ptr %48, ptr %tsd.addr.i134, align 8
-  %49 = load ptr, ptr %tsd.addr.i134, align 8
-  store ptr %49, ptr %tsd.addr.i136, align 8
-  %50 = load ptr, ptr %tsd.addr.i136, align 8
-  store ptr %50, ptr %tsd.addr.i.i135, align 8
-  %51 = load ptr, ptr %tsd.addr.i.i135, align 8
-  %state.i.i138 = getelementptr inbounds %struct.tsd_s, ptr %51, i32 0, i32 30
-  %52 = load i8, ptr %state.i.i138, align 8
-  store i8 %52, ptr %state.i137, align 1
-  %53 = load ptr, ptr %tsd.addr.i136, align 8
-  store ptr %53, ptr %tsd.addr.i139, align 8
-  %54 = load ptr, ptr %tsd.addr.i139, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %54, i32 0, i32 8
-  %55 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i, align 8
-  store i64 %55, ptr %event_wait60, align 8
-  br label %do.body62
-
-do.body62:                                        ; preds = %if.then59
-  br label %do.end63
-
-do.end63:                                         ; preds = %do.body62
-  %56 = load i64, ptr %event_wait60, align 8
-  %cmp64 = icmp ugt i64 %56, 0
-  br i1 %cmp64, label %land.lhs.true66, label %if.end70
-
-land.lhs.true66:                                  ; preds = %do.end63
-  %57 = load i64, ptr %event_wait60, align 8
-  %58 = load i64, ptr %wait, align 8
-  %cmp67 = icmp ult i64 %57, %58
-  br i1 %cmp67, label %if.then69, label %if.end70
-
-if.then69:                                        ; preds = %land.lhs.true66
-  %59 = load i64, ptr %event_wait60, align 8
-  store i64 %59, ptr %wait, align 8
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.then69, %land.lhs.true66, %do.end63
-  br label %if.end71
-
-if.end71:                                         ; preds = %if.end70, %land.lhs.true56, %if.end51
-  %60 = load i8, ptr %is_alloc.addr, align 1
-  %tobool72 = trunc i8 %60 to i1
-  %conv73 = zext i1 %tobool72 to i32
-  %cmp74 = icmp eq i32 %conv73, 1
-  br i1 %cmp74, label %if.then76, label %if.end88
-
-if.then76:                                        ; preds = %if.end71
-  %61 = load ptr, ptr %tsd.addr, align 8
-  store ptr %61, ptr %tsd.addr.i114, align 8
-  %62 = load ptr, ptr %tsd.addr.i114, align 8
-  store ptr %62, ptr %tsd.addr.i140, align 8
-  %63 = load ptr, ptr %tsd.addr.i140, align 8
-  store ptr %63, ptr %tsd.addr.i142, align 8
-  %64 = load ptr, ptr %tsd.addr.i142, align 8
-  store ptr %64, ptr %tsd.addr.i.i141, align 8
-  %65 = load ptr, ptr %tsd.addr.i.i141, align 8
-  %state.i.i144 = getelementptr inbounds %struct.tsd_s, ptr %65, i32 0, i32 30
-  %66 = load i8, ptr %state.i.i144, align 8
-  store i8 %66, ptr %state.i143, align 1
-  %67 = load ptr, ptr %tsd.addr.i142, align 8
-  store ptr %67, ptr %tsd.addr.i145, align 8
-  %68 = load ptr, ptr %tsd.addr.i145, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %68, i32 0, i32 13
-  %69 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i, align 8
-  store i64 %69, ptr %event_wait77, align 8
-  br label %do.body79
-
-do.body79:                                        ; preds = %if.then76
-  br label %do.end80
-
-do.end80:                                         ; preds = %do.body79
-  %70 = load i64, ptr %event_wait77, align 8
-  %cmp81 = icmp ugt i64 %70, 0
-  br i1 %cmp81, label %land.lhs.true83, label %if.end87
-
-land.lhs.true83:                                  ; preds = %do.end80
-  %71 = load i64, ptr %event_wait77, align 8
-  %72 = load i64, ptr %wait, align 8
-  %cmp84 = icmp ult i64 %71, %72
-  br i1 %cmp84, label %if.then86, label %if.end87
-
-if.then86:                                        ; preds = %land.lhs.true83
-  %73 = load i64, ptr %event_wait77, align 8
-  store i64 %73, ptr %wait, align 8
-  br label %if.end87
-
-if.end87:                                         ; preds = %if.then86, %land.lhs.true83, %do.end80
-  br label %if.end88
-
-if.end88:                                         ; preds = %if.end87, %if.end71
-  %74 = load i8, ptr %is_alloc.addr, align 1
-  %tobool89 = trunc i8 %74 to i1
-  %conv90 = zext i1 %tobool89 to i32
-  %cmp91 = icmp eq i32 %conv90, 0
-  br i1 %cmp91, label %if.then93, label %if.end105
-
-if.then93:                                        ; preds = %if.end88
-  %75 = load ptr, ptr %tsd.addr, align 8
-  store ptr %75, ptr %tsd.addr.i116, align 8
-  %76 = load ptr, ptr %tsd.addr.i116, align 8
-  store ptr %76, ptr %tsd.addr.i146, align 8
-  %77 = load ptr, ptr %tsd.addr.i146, align 8
-  store ptr %77, ptr %tsd.addr.i148, align 8
-  %78 = load ptr, ptr %tsd.addr.i148, align 8
-  store ptr %78, ptr %tsd.addr.i.i147, align 8
-  %79 = load ptr, ptr %tsd.addr.i.i147, align 8
-  %state.i.i150 = getelementptr inbounds %struct.tsd_s, ptr %79, i32 0, i32 30
-  %80 = load i8, ptr %state.i.i150, align 8
-  store i8 %80, ptr %state.i149, align 1
-  %81 = load ptr, ptr %tsd.addr.i148, align 8
-  store ptr %81, ptr %tsd.addr.i151, align 8
-  %82 = load ptr, ptr %tsd.addr.i151, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i = getelementptr inbounds %struct.tsd_s, ptr %82, i32 0, i32 14
-  %83 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i, align 8
-  store i64 %83, ptr %event_wait94, align 8
-  br label %do.body96
-
-do.body96:                                        ; preds = %if.then93
-  br label %do.end97
-
-do.end97:                                         ; preds = %do.body96
-  %84 = load i64, ptr %event_wait94, align 8
-  %cmp98 = icmp ugt i64 %84, 0
-  br i1 %cmp98, label %land.lhs.true100, label %if.end104
-
-land.lhs.true100:                                 ; preds = %do.end97
-  %85 = load i64, ptr %event_wait94, align 8
-  %86 = load i64, ptr %wait, align 8
-  %cmp101 = icmp ult i64 %85, %86
-  br i1 %cmp101, label %if.then103, label %if.end104
-
-if.then103:                                       ; preds = %land.lhs.true100
-  %87 = load i64, ptr %event_wait94, align 8
-  store i64 %87, ptr %wait, align 8
-  br label %if.end104
-
-if.end104:                                        ; preds = %if.then103, %land.lhs.true100, %do.end97
-  br label %if.end105
-
-if.end105:                                        ; preds = %if.end104, %if.end88
-  br label %do.body106
-
-do.body106:                                       ; preds = %if.end105
-  br label %do.end107
-
-do.end107:                                        ; preds = %do.body106
-  %88 = load i64, ptr %wait, align 8
-  ret i64 %88
-}
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS5tsd_s", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS8te_ctx_s", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"_Bool", !7, i64 0}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = !{!16, !12, i64 0}
+!16 = !{!"te_ctx_s", !12, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32}
+!17 = !{!"p1 long", !6, i64 0}
+!18 = !{!16, !17, i64 8}
+!19 = !{!16, !17, i64 16}
+!20 = !{!16, !17, i64 24}
+!21 = !{!16, !17, i64 32}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !7, i64 0}
+!24 = !{!7, !7, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"int", !7, i64 0}

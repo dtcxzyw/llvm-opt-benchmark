@@ -22,6 +22,7 @@ supported_project = [
     "graphviz",
     "hdf5",
     "hwloc",
+    "jemalloc",
 ]
 
 modify_only = [

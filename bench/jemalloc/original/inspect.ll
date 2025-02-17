@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.emap_s = type { %struct.rtree_s }
 %struct.rtree_s = type { ptr, %struct.malloc_mutex_s, [262144 x %struct.rtree_node_elm_s] }
@@ -22,23 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.rtree_ctx_cache_elm_s = type { i64, ptr }
 %struct.rtree_contents_s = type { ptr, %struct.rtree_metadata_s }
 %struct.rtree_metadata_s = type { i32, i32, i8, i8 }
-%struct.tsd_s = type { i8, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
-%struct.ticker_geom_s = type { i32, i32 }
-%struct.tsd_binshards_s = type { [36 x i8] }
-%struct.tsd_link_t = type { ptr, ptr }
-%struct.peak_s = type { i64, i64 }
-%struct.activity_callback_thunk_s = type { ptr, ptr }
-%struct.tcache_slow_s = type { %struct.anon.2, %struct.cache_bin_array_descriptor_s, ptr, i32, i32, [36 x i8], [36 x i8], [36 x i8], ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.cache_bin_array_descriptor_s = type { %struct.anon.3, ptr }
-%struct.anon.3 = type { ptr, ptr }
-%struct.atomic_u8_t = type { i8 }
-%struct.tcache_s = type { ptr, [73 x %struct.cache_bin_s] }
-%struct.cache_bin_s = type { ptr, %struct.cache_bin_stats_s, i16, i16, i16, %struct.cache_bin_info_s }
-%struct.cache_bin_stats_s = type { i64 }
-%struct.cache_bin_info_s = type { i16 }
-%struct.witness_tsd_s = type { %struct.witness_list_t, i8 }
-%struct.witness_list_t = type { ptr }
 %struct.edata_s = type { i64, ptr, %union.anon.4, ptr, i64, %union.anon.5, %union.anon.8 }
 %union.anon.4 = type { i64 }
 %union.anon.5 = type { %union.anon.7 }
@@ -48,1669 +31,1892 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.8 = type { %struct.slab_data_s }
 %struct.slab_data_s = type { [8 x i64] }
 %struct.bin_s = type { %struct.malloc_mutex_s, %struct.bin_stats_s, ptr, %struct.edata_heap_t, %struct.edata_list_active_t }
-%struct.bin_stats_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.bin_stats_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.edata_heap_t = type { %struct.ph_s }
 %struct.ph_s = type { ptr, i64 }
 %struct.edata_list_active_t = type { %struct.anon.1 }
 %struct.anon.1 = type { ptr }
+%struct.bin_with_batch_s = type { %struct.bin_s, %struct.batcher_s, [16 x %struct.bin_remote_free_data_s] }
+%struct.batcher_s = type { %struct.atomic_zu_t, i64, i64, %struct.malloc_mutex_s }
+%struct.atomic_zu_t = type { i64 }
+%struct.bin_remote_free_data_s = type { ptr, ptr }
+%struct.tsdn_s = type { %struct.tsd_s }
+%struct.tsd_s = type { i8, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
+%struct.ticker_geom_s = type { i32, i32 }
+%struct.tsd_binshards_s = type { [36 x i8] }
+%struct.tsd_link_t = type { ptr, ptr }
+%struct.peak_s = type { i64, i64 }
+%struct.activity_callback_thunk_s = type { ptr, ptr }
+%struct.tcache_slow_s = type { %struct.anon.2, %struct.cache_bin_array_descriptor_s, ptr, i32, %struct.nstime_t, i32, i32, i32, [36 x %struct.cache_bin_fill_ctl_s], [36 x i8], [36 x i8], ptr, ptr }
+%struct.anon.2 = type { ptr, ptr }
+%struct.cache_bin_array_descriptor_s = type { %struct.anon.3, ptr }
+%struct.anon.3 = type { ptr, ptr }
+%struct.cache_bin_fill_ctl_s = type { i8, i8 }
+%struct.atomic_u8_t = type { i8 }
+%struct.tcache_s = type { ptr, [73 x %struct.cache_bin_s] }
+%struct.cache_bin_s = type { ptr, %struct.cache_bin_stats_s, i16, i16, i16, %struct.cache_bin_info_s }
+%struct.cache_bin_stats_s = type { i64 }
+%struct.cache_bin_info_s = type { i16 }
+%struct.witness_tsd_s = type { %struct.witness_list_t, i8 }
+%struct.witness_list_t = type { ptr }
 %struct.rtree_leaf_elm_s = type { %struct.atomic_p_t }
 
-@arena_emap_global = external global %struct.emap_s, align 8
-@bin_infos = external global [36 x %struct.bin_info_s], align 16
-@arenas = external global [0 x %struct.atomic_p_t], align 8
+@je_arena_emap_global = external global %struct.emap_s, align 8
+@je_bin_infos = external global [36 x %struct.bin_info_s], align 16
+@je_arenas = external global [0 x %struct.atomic_p_t], align 8
 @rtree_levels = internal constant [2 x %struct.rtree_level_s] [%struct.rtree_level_s { i32 18, i32 34 }, %struct.rtree_level_s { i32 18, i32 52 }], align 16
-@arena_bin_offsets = external global [36 x i32], align 16
+@je_arena_bin_offsets = external global [36 x i32], align 16
+@je_bin_info_nbatched_sizes = external global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @inspect_extent_util_stats_get(ptr noundef %tsdn, ptr noundef %ptr, ptr noundef %nfree, ptr noundef %nregs, ptr noundef %size) #0 {
-entry:
-  %tsd.addr.i23 = alloca ptr, align 8
-  %tsd.addr.i21 = alloca ptr, align 8
-  %tsd.addr.i19 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsdn.addr.i18 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %tsdn.addr.i17 = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i15 = alloca ptr, align 8
-  %fallback.addr.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %emap.addr.i = alloca ptr, align 8
-  %ptr.addr.i = alloca ptr, align 8
-  %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
-  %rtree_ctx.i = alloca ptr, align 8
-  %tmp.i = alloca %struct.rtree_contents_s, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  %nfree.addr = alloca ptr, align 8
-  %nregs.addr = alloca ptr, align 8
-  %size.addr = alloca ptr, align 8
-  %edata = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store ptr %nfree, ptr %nfree.addr, align 8
-  store ptr %nregs, ptr %nregs.addr, align 8
-  store ptr %size, ptr %size.addr, align 8
-  br label %do.body
+define hidden void @je_inspect_extent_util_stats_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !10
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  store ptr %4, ptr %10, align 8, !tbaa !10
+  br label %13
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+13:                                               ; preds = %5
+  br label %14
 
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i, align 8
-  store ptr @arena_emap_global, ptr %emap.addr.i, align 8
-  store ptr %1, ptr %ptr.addr.i, align 8
-  %2 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %2, ptr %tsdn.addr.i15, align 8
-  store ptr %rtree_ctx_fallback.i, ptr %fallback.addr.i, align 8
-  %3 = load ptr, ptr %tsdn.addr.i15, align 8
-  store ptr %3, ptr %tsdn.addr.i17, align 8
-  %4 = load ptr, ptr %tsdn.addr.i17, align 8
-  %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+14:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %15 = load ptr, ptr %6, align 8, !tbaa !4
+  %16 = load ptr, ptr %7, align 8, !tbaa !9
+  %17 = call ptr @emap_edata_lookup(ptr noundef %15, ptr noundef @je_arena_emap_global, ptr noundef %16)
+  store ptr %17, ptr %11, align 8, !tbaa !12
+  %18 = load ptr, ptr %11, align 8, !tbaa !12
+  %19 = icmp eq ptr %18, null
+  %20 = xor i1 %19, true
+  %21 = xor i1 %20, true
+  %22 = zext i1 %21 to i32
+  %23 = sext i32 %22 to i64
+  %24 = call i64 @llvm.expect.i64(i64 %23, i64 0)
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %30
 
-if.then.i:                                        ; preds = %do.end
-  %5 = load ptr, ptr %fallback.addr.i, align 8
-  call void @rtree_ctx_data_init(ptr noundef %5) #4
-  %6 = load ptr, ptr %fallback.addr.i, align 8
-  store ptr %6, ptr %retval.i, align 8
-  br label %tsdn_rtree_ctx.exit
+26:                                               ; preds = %14
+  %27 = load ptr, ptr %10, align 8, !tbaa !10
+  store i64 0, ptr %27, align 8, !tbaa !14
+  %28 = load ptr, ptr %9, align 8, !tbaa !10
+  store i64 0, ptr %28, align 8, !tbaa !14
+  %29 = load ptr, ptr %8, align 8, !tbaa !10
+  store i64 0, ptr %29, align 8, !tbaa !14
+  store i32 1, ptr %12, align 4
+  br label %59
 
-if.end.i:                                         ; preds = %do.end
-  %7 = load ptr, ptr %tsdn.addr.i15, align 8
-  store ptr %7, ptr %tsdn.addr.i18, align 8
-  %8 = load ptr, ptr %tsdn.addr.i18, align 8
-  store ptr %8, ptr %tsd.addr.i, align 8
-  %9 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %9, ptr %tsd.addr.i19, align 8
-  %10 = load ptr, ptr %tsd.addr.i19, align 8
-  store ptr %10, ptr %tsd.addr.i21, align 8
-  %11 = load ptr, ptr %tsd.addr.i21, align 8
-  %state.i22 = getelementptr inbounds %struct.tsd_s, ptr %11, i32 0, i32 30
-  %12 = load i8, ptr %state.i22, align 8
-  store i8 %12, ptr %state.i, align 1
-  %13 = load ptr, ptr %tsd.addr.i19, align 8
-  store ptr %13, ptr %tsd.addr.i23, align 8
-  %14 = load ptr, ptr %tsd.addr.i23, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds %struct.tsd_s, ptr %14, i32 0, i32 29
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr %retval.i, align 8
-  br label %tsdn_rtree_ctx.exit
+30:                                               ; preds = %14
+  %31 = load ptr, ptr %11, align 8, !tbaa !12
+  %32 = call i64 @edata_size_get(ptr noundef %31)
+  %33 = load ptr, ptr %10, align 8, !tbaa !10
+  store i64 %32, ptr %33, align 8, !tbaa !14
+  %34 = load ptr, ptr %11, align 8, !tbaa !12
+  %35 = call zeroext i1 @edata_slab_get(ptr noundef %34)
+  br i1 %35, label %39, label %36
 
-tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.i
-  %15 = load ptr, ptr %retval.i, align 8
-  store ptr %15, ptr %rtree_ctx.i, align 8
-  %16 = load ptr, ptr %tsdn.addr.i, align 8
-  %17 = load ptr, ptr %emap.addr.i, align 8
-  %18 = load ptr, ptr %rtree_ctx.i, align 8
-  %19 = load ptr, ptr %ptr.addr.i, align 8
-  %20 = ptrtoint ptr %19 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, i64 noundef %20)
-  %21 = load ptr, ptr %tmp.i, align 8
-  store ptr %21, ptr %edata, align 8
-  %22 = load ptr, ptr %edata, align 8
-  %cmp = icmp eq ptr %22, null
-  %lnot = xor i1 %cmp, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then, label %if.end
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %8, align 8, !tbaa !10
+  store i64 0, ptr %37, align 8, !tbaa !14
+  %38 = load ptr, ptr %9, align 8, !tbaa !10
+  store i64 1, ptr %38, align 8, !tbaa !14
+  br label %58
 
-if.then:                                          ; preds = %tsdn_rtree_ctx.exit
-  %23 = load ptr, ptr %size.addr, align 8
-  store i64 0, ptr %23, align 8
-  %24 = load ptr, ptr %nregs.addr, align 8
-  store i64 0, ptr %24, align 8
-  %25 = load ptr, ptr %nfree.addr, align 8
-  store i64 0, ptr %25, align 8
-  br label %if.end14
+39:                                               ; preds = %30
+  %40 = load ptr, ptr %11, align 8, !tbaa !12
+  %41 = call i32 @edata_nfree_get(ptr noundef %40)
+  %42 = zext i32 %41 to i64
+  %43 = load ptr, ptr %8, align 8, !tbaa !10
+  store i64 %42, ptr %43, align 8, !tbaa !14
+  %44 = load ptr, ptr %11, align 8, !tbaa !12
+  %45 = call i32 @edata_szind_get(ptr noundef %44)
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %46
+  %48 = getelementptr inbounds nuw %struct.bin_info_s, ptr %47, i32 0, i32 2
+  %49 = load i32, ptr %48, align 8, !tbaa !16
+  %50 = zext i32 %49 to i64
+  %51 = load ptr, ptr %9, align 8, !tbaa !10
+  store i64 %50, ptr %51, align 8, !tbaa !14
+  br label %52
 
-if.end:                                           ; preds = %tsdn_rtree_ctx.exit
-  %26 = load ptr, ptr %edata, align 8
-  %call2 = call i64 @edata_size_get(ptr noundef %26)
-  %27 = load ptr, ptr %size.addr, align 8
-  store i64 %call2, ptr %27, align 8
-  %28 = load ptr, ptr %edata, align 8
-  %call3 = call zeroext i1 @edata_slab_get(ptr noundef %28)
-  br i1 %call3, label %if.else, label %if.then4
+52:                                               ; preds = %39
+  br label %53
 
-if.then4:                                         ; preds = %if.end
-  %29 = load ptr, ptr %nfree.addr, align 8
-  store i64 0, ptr %29, align 8
-  %30 = load ptr, ptr %nregs.addr, align 8
-  store i64 1, ptr %30, align 8
-  br label %if.end14
+53:                                               ; preds = %52
+  br label %54
 
-if.else:                                          ; preds = %if.end
-  %31 = load ptr, ptr %edata, align 8
-  %call5 = call i32 @edata_nfree_get(ptr noundef %31)
-  %conv6 = zext i32 %call5 to i64
-  %32 = load ptr, ptr %nfree.addr, align 8
-  store i64 %conv6, ptr %32, align 8
-  %33 = load ptr, ptr %edata, align 8
-  %call7 = call i32 @edata_szind_get(ptr noundef %33)
-  %idxprom = zext i32 %call7 to i64
-  %arrayidx = getelementptr inbounds [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %idxprom
-  %nregs8 = getelementptr inbounds %struct.bin_info_s, ptr %arrayidx, i32 0, i32 2
-  %34 = load i32, ptr %nregs8, align 8
-  %conv9 = zext i32 %34 to i64
-  %35 = load ptr, ptr %nregs.addr, align 8
-  store i64 %conv9, ptr %35, align 8
-  br label %do.body10
+54:                                               ; preds = %53
+  br label %55
 
-do.body10:                                        ; preds = %if.else
-  br label %do.end11
+55:                                               ; preds = %54
+  br label %56
 
-do.end11:                                         ; preds = %do.body10
-  br label %do.body12
+56:                                               ; preds = %55
+  br label %57
 
-do.body12:                                        ; preds = %do.end11
-  br label %do.end13
+57:                                               ; preds = %56
+  br label %58
 
-do.end13:                                         ; preds = %do.body12
-  br label %if.end14
+58:                                               ; preds = %57, %36
+  store i32 0, ptr %12, align 4
+  br label %59
 
-if.end14:                                         ; preds = %do.end13, %if.then4, %if.then
+59:                                               ; preds = %58, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  %60 = load i32, ptr %12, align 4
+  switch i32 %60, label %62 [
+    i32 0, label %61
+    i32 1, label %61
+  ]
+
+61:                                               ; preds = %59, %59
+  ret void
+
+62:                                               ; preds = %59
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @emap_edata_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.rtree_ctx_s, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %struct.rtree_contents_s, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 384, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = call ptr @tsdn_rtree_ctx(ptr noundef %10, ptr noundef %7)
+  store ptr %11, ptr %8, align 8, !tbaa !22
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load ptr, ptr %5, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw %struct.emap_s, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %8, align 8, !tbaa !22
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = ptrtoint ptr %16 to i64
+  call void @rtree_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %9, ptr noundef %12, ptr noundef %14, ptr noundef %15, i64 noundef %17)
+  %18 = getelementptr inbounds nuw %struct.rtree_contents_s, ptr %9, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 384, ptr %7) #7
+  ret ptr %19
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @edata_size_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %struct.edata_s, ptr %3, i32 0, i32 2
+  %5 = load i64, ptr %4, align 8, !tbaa !28
+  %6 = and i64 %5, -4096
+  ret i64 %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @edata_slab_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %struct.edata_s, ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !29
+  %6 = and i64 %5, 4096
+  %7 = lshr i64 %6, 12
+  %8 = icmp ne i64 %7, 0
+  ret i1 %8
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @edata_nfree_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !12
+  %6 = getelementptr inbounds nuw %struct.edata_s, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8, !tbaa !29
+  %8 = and i64 %7, 274609471488
+  %9 = lshr i64 %8, 28
+  %10 = trunc i64 %9 to i32
+  ret i32 %10
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @edata_szind_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !12
+  %5 = call i32 @edata_szind_get_maybe_invalid(ptr noundef %4)
+  store i32 %5, ptr %3, align 4, !tbaa !32
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load i32, ptr %3, align 4, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %9
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_inspect_extent_util_stats_verbose_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !4
+  store ptr %1, ptr %10, align 8, !tbaa !9
+  store ptr %2, ptr %11, align 8, !tbaa !10
+  store ptr %3, ptr %12, align 8, !tbaa !10
+  store ptr %4, ptr %13, align 8, !tbaa !10
+  store ptr %5, ptr %14, align 8, !tbaa !10
+  store ptr %6, ptr %15, align 8, !tbaa !10
+  store ptr %7, ptr %16, align 8, !tbaa !9
+  br label %24
+
+24:                                               ; preds = %8
+  br label %25
+
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %26 = load ptr, ptr %9, align 8, !tbaa !4
+  %27 = load ptr, ptr %10, align 8, !tbaa !9
+  %28 = call ptr @emap_edata_lookup(ptr noundef %26, ptr noundef @je_arena_emap_global, ptr noundef %27)
+  store ptr %28, ptr %17, align 8, !tbaa !12
+  %29 = load ptr, ptr %17, align 8, !tbaa !12
+  %30 = icmp eq ptr %29, null
+  %31 = xor i1 %30, true
+  %32 = xor i1 %31, true
+  %33 = zext i1 %32 to i32
+  %34 = sext i32 %33 to i64
+  %35 = call i64 @llvm.expect.i64(i64 %34, i64 0)
+  %36 = icmp ne i64 %35, 0
+  br i1 %36, label %37, label %44
+
+37:                                               ; preds = %25
+  %38 = load ptr, ptr %15, align 8, !tbaa !10
+  store i64 0, ptr %38, align 8, !tbaa !14
+  %39 = load ptr, ptr %14, align 8, !tbaa !10
+  store i64 0, ptr %39, align 8, !tbaa !14
+  %40 = load ptr, ptr %13, align 8, !tbaa !10
+  store i64 0, ptr %40, align 8, !tbaa !14
+  %41 = load ptr, ptr %12, align 8, !tbaa !10
+  store i64 0, ptr %41, align 8, !tbaa !14
+  %42 = load ptr, ptr %11, align 8, !tbaa !10
+  store i64 0, ptr %42, align 8, !tbaa !14
+  %43 = load ptr, ptr %16, align 8, !tbaa !9
+  store ptr null, ptr %43, align 8, !tbaa !9
+  store i32 1, ptr %18, align 4
+  br label %137
+
+44:                                               ; preds = %25
+  %45 = load ptr, ptr %17, align 8, !tbaa !12
+  %46 = call i64 @edata_size_get(ptr noundef %45)
+  %47 = load ptr, ptr %13, align 8, !tbaa !10
+  store i64 %46, ptr %47, align 8, !tbaa !14
+  %48 = load ptr, ptr %17, align 8, !tbaa !12
+  %49 = call zeroext i1 @edata_slab_get(ptr noundef %48)
+  br i1 %49, label %56, label %50
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %15, align 8, !tbaa !10
+  store i64 0, ptr %51, align 8, !tbaa !14
+  %52 = load ptr, ptr %14, align 8, !tbaa !10
+  store i64 0, ptr %52, align 8, !tbaa !14
+  %53 = load ptr, ptr %11, align 8, !tbaa !10
+  store i64 0, ptr %53, align 8, !tbaa !14
+  %54 = load ptr, ptr %12, align 8, !tbaa !10
+  store i64 1, ptr %54, align 8, !tbaa !14
+  %55 = load ptr, ptr %16, align 8, !tbaa !9
+  store ptr null, ptr %55, align 8, !tbaa !9
+  store i32 1, ptr %18, align 4
+  br label %137
+
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %17, align 8, !tbaa !12
+  %58 = call i32 @edata_nfree_get(ptr noundef %57)
+  %59 = zext i32 %58 to i64
+  %60 = load ptr, ptr %11, align 8, !tbaa !10
+  store i64 %59, ptr %60, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
+  %61 = load ptr, ptr %17, align 8, !tbaa !12
+  %62 = call i32 @edata_szind_get(ptr noundef %61)
+  store i32 %62, ptr %19, align 4, !tbaa !32
+  %63 = load i32, ptr %19, align 4, !tbaa !32
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw %struct.bin_info_s, ptr %65, i32 0, i32 2
+  %67 = load i32, ptr %66, align 8, !tbaa !16
+  %68 = zext i32 %67 to i64
+  %69 = load ptr, ptr %12, align 8, !tbaa !10
+  store i64 %68, ptr %69, align 8, !tbaa !14
+  br label %70
+
+70:                                               ; preds = %56
+  br label %71
+
+71:                                               ; preds = %70
+  br label %72
+
+72:                                               ; preds = %71
+  br label %73
+
+73:                                               ; preds = %72
+  br label %74
+
+74:                                               ; preds = %73
+  br label %75
+
+75:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %76 = load ptr, ptr %17, align 8, !tbaa !12
+  %77 = call i32 @edata_arena_ind_get(ptr noundef %76)
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %78
+  %80 = call ptr @atomic_load_p(ptr noundef %79, i32 noundef 0)
+  store ptr %80, ptr %20, align 8, !tbaa !33
+  br label %81
+
+81:                                               ; preds = %75
+  br label %82
+
+82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #7
+  %84 = load ptr, ptr %17, align 8, !tbaa !12
+  %85 = call i32 @edata_binshard_get(ptr noundef %84)
+  store i32 %85, ptr %21, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %86 = load ptr, ptr %20, align 8, !tbaa !33
+  %87 = load i32, ptr %19, align 4, !tbaa !32
+  %88 = load i32, ptr %21, align 4, !tbaa !32
+  %89 = call ptr @arena_get_bin(ptr noundef %86, i32 noundef %87, i32 noundef %88)
+  store ptr %89, ptr %22, align 8, !tbaa !35
+  %90 = load ptr, ptr %9, align 8, !tbaa !4
+  %91 = load ptr, ptr %22, align 8, !tbaa !35
+  %92 = getelementptr inbounds nuw %struct.bin_s, ptr %91, i32 0, i32 0
+  call void @malloc_mutex_lock(ptr noundef %90, ptr noundef %92)
+  %93 = load ptr, ptr %12, align 8, !tbaa !10
+  %94 = load i64, ptr %93, align 8, !tbaa !14
+  %95 = load ptr, ptr %22, align 8, !tbaa !35
+  %96 = getelementptr inbounds nuw %struct.bin_s, ptr %95, i32 0, i32 1
+  %97 = getelementptr inbounds nuw %struct.bin_stats_s, ptr %96, i32 0, i32 8
+  %98 = load i64, ptr %97, align 8, !tbaa !37
+  %99 = mul i64 %94, %98
+  %100 = load ptr, ptr %15, align 8, !tbaa !10
+  store i64 %99, ptr %100, align 8, !tbaa !14
+  br label %101
+
+101:                                              ; preds = %83
+  br label %102
+
+102:                                              ; preds = %101
+  br label %103
+
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %15, align 8, !tbaa !10
+  %105 = load i64, ptr %104, align 8, !tbaa !14
+  %106 = load ptr, ptr %22, align 8, !tbaa !35
+  %107 = getelementptr inbounds nuw %struct.bin_s, ptr %106, i32 0, i32 1
+  %108 = getelementptr inbounds nuw %struct.bin_stats_s, ptr %107, i32 0, i32 3
+  %109 = load i64, ptr %108, align 8, !tbaa !45
+  %110 = sub i64 %105, %109
+  %111 = load ptr, ptr %14, align 8, !tbaa !10
+  store i64 %110, ptr %111, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  %112 = load ptr, ptr %22, align 8, !tbaa !35
+  %113 = getelementptr inbounds nuw %struct.bin_s, ptr %112, i32 0, i32 2
+  %114 = load ptr, ptr %113, align 8, !tbaa !46
+  %115 = icmp ne ptr %114, null
+  br i1 %115, label %116, label %120
+
+116:                                              ; preds = %103
+  %117 = load ptr, ptr %22, align 8, !tbaa !35
+  %118 = getelementptr inbounds nuw %struct.bin_s, ptr %117, i32 0, i32 2
+  %119 = load ptr, ptr %118, align 8, !tbaa !46
+  store ptr %119, ptr %23, align 8, !tbaa !12
+  br label %124
+
+120:                                              ; preds = %103
+  %121 = load ptr, ptr %22, align 8, !tbaa !35
+  %122 = getelementptr inbounds nuw %struct.bin_s, ptr %121, i32 0, i32 3
+  %123 = call ptr @je_edata_heap_first(ptr noundef %122)
+  store ptr %123, ptr %23, align 8, !tbaa !12
+  br label %124
+
+124:                                              ; preds = %120, %116
+  %125 = load ptr, ptr %23, align 8, !tbaa !12
+  %126 = icmp ne ptr %125, null
+  br i1 %126, label %127, label %130
+
+127:                                              ; preds = %124
+  %128 = load ptr, ptr %23, align 8, !tbaa !12
+  %129 = call ptr @edata_addr_get(ptr noundef %128)
+  br label %131
+
+130:                                              ; preds = %124
+  br label %131
+
+131:                                              ; preds = %130, %127
+  %132 = phi ptr [ %129, %127 ], [ null, %130 ]
+  %133 = load ptr, ptr %16, align 8, !tbaa !9
+  store ptr %132, ptr %133, align 8, !tbaa !9
+  %134 = load ptr, ptr %9, align 8, !tbaa !4
+  %135 = load ptr, ptr %22, align 8, !tbaa !35
+  %136 = getelementptr inbounds nuw %struct.bin_s, ptr %135, i32 0, i32 0
+  call void @malloc_mutex_unlock(ptr noundef %134, ptr noundef %136)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  store i32 0, ptr %18, align 4
+  br label %137
+
+137:                                              ; preds = %131, %50, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  %138 = load i32, ptr %18, align 4
+  switch i32 %138, label %140 [
+    i32 0, label %139
+    i32 1, label %139
+  ]
+
+139:                                              ; preds = %137, %137
+  ret void
+
+140:                                              ; preds = %137
+  unreachable
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @atomic_load_p(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.atomic_p_t, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %4, align 4, !tbaa !32
+  %9 = call i32 @atomic_enum_to_builtin(i32 noundef %8)
+  switch i32 %9, label %10 [
+    i32 1, label %12
+    i32 2, label %12
+    i32 5, label %14
+  ]
+
+10:                                               ; preds = %2
+  %11 = load atomic i64, ptr %7 monotonic, align 8
+  store i64 %11, ptr %5, align 8
+  br label %16
+
+12:                                               ; preds = %2, %2
+  %13 = load atomic i64, ptr %7 acquire, align 8
+  store i64 %13, ptr %5, align 8
+  br label %16
+
+14:                                               ; preds = %2
+  %15 = load atomic i64, ptr %7 seq_cst, align 8
+  store i64 %15, ptr %5, align 8
+  br label %16
+
+16:                                               ; preds = %14, %12, %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %17
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @edata_arena_ind_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !12
+  %5 = getelementptr inbounds nuw %struct.edata_s, ptr %4, i32 0, i32 0
+  %6 = load i64, ptr %5, align 8, !tbaa !29
+  %7 = and i64 %6, 4095
+  %8 = lshr i64 %7, 0
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %3, align 4, !tbaa !32
+  br label %10
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  %13 = load i32, ptr %3, align 4, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %13
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @edata_binshard_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !12
+  %5 = getelementptr inbounds nuw %struct.edata_s, ptr %4, i32 0, i32 0
+  %6 = load i64, ptr %5, align 8, !tbaa !29
+  %7 = and i64 %6, 17317308137472
+  %8 = lshr i64 %7, 38
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %3, align 4, !tbaa !32
+  br label %10
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  %13 = load i32, ptr %3, align 4, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %13
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @arena_get_bin(ptr noundef %0, i32 noundef %1, i32 noundef %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store i32 %1, ptr %5, align 4, !tbaa !32
+  store i32 %2, ptr %6, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load ptr, ptr %4, align 8, !tbaa !33
+  %10 = load i32, ptr %5, align 4, !tbaa !32
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [36 x i32], ptr @je_arena_bin_offsets, i64 0, i64 %11
+  %13 = load i32, ptr %12, align 4, !tbaa !32
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
+  store ptr %15, ptr %7, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %16 = load i32, ptr %5, align 4, !tbaa !32
+  %17 = call zeroext i1 @arena_bin_has_batch(i32 noundef %16)
+  br i1 %17, label %18, label %23
+
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %7, align 8, !tbaa !35
+  %20 = load i32, ptr %6, align 4, !tbaa !32
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %19, i64 %21
+  store ptr %22, ptr %8, align 8, !tbaa !35
+  br label %28
+
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %7, align 8, !tbaa !35
+  %25 = load i32, ptr %6, align 4, !tbaa !32
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw %struct.bin_s, ptr %24, i64 %26
+  store ptr %27, ptr %8, align 8, !tbaa !35
+  br label %28
+
+28:                                               ; preds = %23, %18
+  br label %29
+
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %8, align 8, !tbaa !35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %32
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_lock(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !47
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_assert_not_owner(ptr noundef %6, ptr noundef %8)
+  %9 = load ptr, ptr %4, align 8, !tbaa !47
+  %10 = call zeroext i1 @malloc_mutex_trylock_final(ptr noundef %9)
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !47
+  call void @je_malloc_mutex_lock_slow(ptr noundef %12)
+  br label %13
+
+13:                                               ; preds = %11, %2
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load ptr, ptr %4, align 8, !tbaa !47
+  call void @mutex_owner_stats_update(ptr noundef %16, ptr noundef %17)
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = call ptr @tsdn_witness_tsdp_get(ptr noundef %18)
+  %20 = load ptr, ptr %4, align 8, !tbaa !47
+  %21 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %20, i32 0, i32 0
+  call void @witness_lock(ptr noundef %19, ptr noundef %21)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @edata_size_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %1 = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 2
-  %2 = load i64, ptr %1, align 8
-  %and = and i64 %2, -4096
-  ret i64 %and
+declare ptr @je_edata_heap_first(ptr noundef) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @edata_addr_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !12
+  %6 = getelementptr inbounds nuw %struct.edata_s, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @edata_slab_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, 4096
-  %shr = lshr i64 %and, 12
-  %tobool = icmp ne i64 %shr, 0
-  ret i1 %tobool
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_unlock(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !47
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_unlock(ptr noundef %6, ptr noundef %8)
+  br label %9
+
+9:                                                ; preds = %2
+  br label %10
+
+10:                                               ; preds = %9
+  %11 = load ptr, ptr %4, align 8, !tbaa !47
+  %12 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 1
+  call void @atomic_store_b(ptr noundef %13, i1 noundef zeroext false, i32 noundef 0)
+  %14 = load ptr, ptr %4, align 8, !tbaa !47
+  %15 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.anon, ptr %15, i32 0, i32 2
+  %17 = call i32 @pthread_mutex_unlock(ptr noundef %16) #7
+  ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @edata_nfree_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  br label %do.body
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_rtree_ctx(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %4, align 8, !tbaa !4
+  %7 = call zeroext i1 @tsdn_null(ptr noundef %6)
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %17
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8, !tbaa !22
+  call void @je_rtree_ctx_data_init(ptr noundef %15)
+  %16 = load ptr, ptr %5, align 8, !tbaa !22
+  store ptr %16, ptr %3, align 8
+  br label %21
 
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, 274609471488
-  %shr = lshr i64 %and, 28
-  %conv = trunc i64 %shr to i32
-  ret i32 %conv
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !4
+  %19 = call ptr @tsdn_tsd(ptr noundef %18)
+  %20 = call ptr @tsd_rtree_ctx(ptr noundef %19)
+  store ptr %20, ptr %3, align 8
+  br label %21
+
+21:                                               ; preds = %17, %14
+  %22 = load ptr, ptr %3, align 8
+  ret ptr %22
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @edata_szind_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %szind = alloca i32, align 4
-  store ptr %edata, ptr %edata.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %call = call i32 @edata_szind_get_maybe_invalid(ptr noundef %0)
-  store i32 %call, ptr %szind, align 4
-  br label %do.body
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @rtree_read(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #4 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !50
+  store ptr %3, ptr %8, align 8, !tbaa !22
+  store i64 %4, ptr %9, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %11 = load ptr, ptr %6, align 8, !tbaa !4
+  %12 = load ptr, ptr %7, align 8, !tbaa !50
+  %13 = load ptr, ptr %8, align 8, !tbaa !22
+  %14 = load i64, ptr %9, align 8, !tbaa !14
+  %15 = call ptr @rtree_leaf_elm_lookup(ptr noundef %11, ptr noundef %12, ptr noundef %13, i64 noundef %14, i1 noundef zeroext true, i1 noundef zeroext false)
+  store ptr %15, ptr %10, align 8, !tbaa !52
+  br label %16
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+16:                                               ; preds = %5
+  br label %17
 
-do.end:                                           ; preds = %do.body
-  %1 = load i32, ptr %szind, align 4
-  ret i32 %1
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  %19 = load ptr, ptr %6, align 8, !tbaa !4
+  %20 = load ptr, ptr %7, align 8, !tbaa !50
+  %21 = load ptr, ptr %10, align 8, !tbaa !52
+  call void @rtree_leaf_elm_read(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %0, ptr noundef %19, ptr noundef %20, ptr noundef %21, i1 noundef zeroext true)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @inspect_extent_util_stats_verbose_get(ptr noundef %tsdn, ptr noundef %ptr, ptr noundef %nfree, ptr noundef %nregs, ptr noundef %size, ptr noundef %bin_nfree, ptr noundef %bin_nregs, ptr noundef %slabcur_addr) #0 {
-entry:
-  %retval.i46 = alloca i32, align 4
-  %mo.addr.i47 = alloca i32, align 4
-  %tsd.addr.i45 = alloca ptr, align 8
-  %tsd.addr.i43 = alloca ptr, align 8
-  %tsd.addr.i41 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsdn.addr.i40 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %tsdn.addr.i39 = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i37 = alloca ptr, align 8
-  %fallback.addr.i = alloca ptr, align 8
-  %a.addr.i = alloca ptr, align 8
-  %mo.addr.i = alloca i32, align 4
-  %result.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %emap.addr.i = alloca ptr, align 8
-  %ptr.addr.i = alloca ptr, align 8
-  %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
-  %rtree_ctx.i = alloca ptr, align 8
-  %tmp.i = alloca %struct.rtree_contents_s, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  %nfree.addr = alloca ptr, align 8
-  %nregs.addr = alloca ptr, align 8
-  %size.addr = alloca ptr, align 8
-  %bin_nfree.addr = alloca ptr, align 8
-  %bin_nregs.addr = alloca ptr, align 8
-  %slabcur_addr.addr = alloca ptr, align 8
-  %edata = alloca ptr, align 8
-  %szind = alloca i32, align 4
-  %arena = alloca ptr, align 8
-  %binshard = alloca i32, align 4
-  %bin = alloca ptr, align 8
-  %slab = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store ptr %nfree, ptr %nfree.addr, align 8
-  store ptr %nregs, ptr %nregs.addr, align 8
-  store ptr %size, ptr %size.addr, align 8
-  store ptr %bin_nfree, ptr %bin_nfree.addr, align 8
-  store ptr %bin_nregs, ptr %bin_nregs.addr, align 8
-  store ptr %slabcur_addr, ptr %slabcur_addr.addr, align 8
-  br label %do.body
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsdn_null(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = icmp eq ptr %3, null
+  ret i1 %4
+}
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+declare void @je_rtree_ctx_data_init(ptr noundef) #5
 
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i, align 8
-  store ptr @arena_emap_global, ptr %emap.addr.i, align 8
-  store ptr %1, ptr %ptr.addr.i, align 8
-  %2 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %2, ptr %tsdn.addr.i37, align 8
-  store ptr %rtree_ctx_fallback.i, ptr %fallback.addr.i, align 8
-  %3 = load ptr, ptr %tsdn.addr.i37, align 8
-  store ptr %3, ptr %tsdn.addr.i39, align 8
-  %4 = load ptr, ptr %tsdn.addr.i39, align 8
-  %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_rtree_ctx(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = call ptr @tsd_rtree_ctxp_get(ptr noundef %3)
+  ret ptr %4
+}
 
-if.then.i:                                        ; preds = %do.end
-  %5 = load ptr, ptr %fallback.addr.i, align 8
-  call void @rtree_ctx_data_init(ptr noundef %5) #4
-  %6 = load ptr, ptr %fallback.addr.i, align 8
-  store ptr %6, ptr %retval.i, align 8
-  br label %tsdn_rtree_ctx.exit
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_tsd(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  br label %3
 
-if.end.i:                                         ; preds = %do.end
-  %7 = load ptr, ptr %tsdn.addr.i37, align 8
-  store ptr %7, ptr %tsdn.addr.i40, align 8
-  %8 = load ptr, ptr %tsdn.addr.i40, align 8
-  store ptr %8, ptr %tsd.addr.i, align 8
-  %9 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %9, ptr %tsd.addr.i41, align 8
-  %10 = load ptr, ptr %tsd.addr.i41, align 8
-  store ptr %10, ptr %tsd.addr.i43, align 8
-  %11 = load ptr, ptr %tsd.addr.i43, align 8
-  %state.i44 = getelementptr inbounds %struct.tsd_s, ptr %11, i32 0, i32 30
-  %12 = load i8, ptr %state.i44, align 8
-  store i8 %12, ptr %state.i, align 1
-  %13 = load ptr, ptr %tsd.addr.i41, align 8
-  store ptr %13, ptr %tsd.addr.i45, align 8
-  %14 = load ptr, ptr %tsd.addr.i45, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds %struct.tsd_s, ptr %14, i32 0, i32 29
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr %retval.i, align 8
-  br label %tsdn_rtree_ctx.exit
+3:                                                ; preds = %1
+  br label %4
 
-tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.i
-  %15 = load ptr, ptr %retval.i, align 8
-  store ptr %15, ptr %rtree_ctx.i, align 8
-  %16 = load ptr, ptr %tsdn.addr.i, align 8
-  %17 = load ptr, ptr %emap.addr.i, align 8
-  %18 = load ptr, ptr %rtree_ctx.i, align 8
-  %19 = load ptr, ptr %ptr.addr.i, align 8
-  %20 = ptrtoint ptr %19 to i64
-  call void @rtree_read(ptr sret(%struct.rtree_contents_s) align 8 %tmp.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, i64 noundef %20)
-  %21 = load ptr, ptr %tmp.i, align 8
-  store ptr %21, ptr %edata, align 8
-  %22 = load ptr, ptr %edata, align 8
-  %cmp = icmp eq ptr %22, null
-  %lnot = xor i1 %cmp, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then, label %if.end
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.tsdn_s, ptr %5, i32 0, i32 0
+  ret ptr %6
+}
 
-if.then:                                          ; preds = %tsdn_rtree_ctx.exit
-  %23 = load ptr, ptr %bin_nregs.addr, align 8
-  store i64 0, ptr %23, align 8
-  %24 = load ptr, ptr %bin_nfree.addr, align 8
-  store i64 0, ptr %24, align 8
-  %25 = load ptr, ptr %size.addr, align 8
-  store i64 0, ptr %25, align 8
-  %26 = load ptr, ptr %nregs.addr, align 8
-  store i64 0, ptr %26, align 8
-  %27 = load ptr, ptr %nfree.addr, align 8
-  store i64 0, ptr %27, align 8
-  %28 = load ptr, ptr %slabcur_addr.addr, align 8
-  store ptr null, ptr %28, align 8
-  br label %return
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_rtree_ctxp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !54
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !28
+  br label %6
 
-if.end:                                           ; preds = %tsdn_rtree_ctx.exit
-  %29 = load ptr, ptr %edata, align 8
-  %call2 = call i64 @edata_size_get(ptr noundef %29)
-  %30 = load ptr, ptr %size.addr, align 8
-  store i64 %call2, ptr %30, align 8
-  %31 = load ptr, ptr %edata, align 8
-  %call3 = call zeroext i1 @edata_slab_get(ptr noundef %31)
-  br i1 %call3, label %if.end5, label %if.then4
+6:                                                ; preds = %1
+  br label %7
 
-if.then4:                                         ; preds = %if.end
-  %32 = load ptr, ptr %bin_nregs.addr, align 8
-  store i64 0, ptr %32, align 8
-  %33 = load ptr, ptr %bin_nfree.addr, align 8
-  store i64 0, ptr %33, align 8
-  %34 = load ptr, ptr %nfree.addr, align 8
-  store i64 0, ptr %34, align 8
-  %35 = load ptr, ptr %nregs.addr, align 8
-  store i64 1, ptr %35, align 8
-  %36 = load ptr, ptr %slabcur_addr.addr, align 8
-  store ptr null, ptr %36, align 8
-  br label %return
+7:                                                ; preds = %6
+  br label %8
 
-if.end5:                                          ; preds = %if.end
-  %37 = load ptr, ptr %edata, align 8
-  %call6 = call i32 @edata_nfree_get(ptr noundef %37)
-  %conv7 = zext i32 %call6 to i64
-  %38 = load ptr, ptr %nfree.addr, align 8
-  store i64 %conv7, ptr %38, align 8
-  %39 = load ptr, ptr %edata, align 8
-  %call8 = call i32 @edata_szind_get(ptr noundef %39)
-  store i32 %call8, ptr %szind, align 4
-  %40 = load i32, ptr %szind, align 4
-  %idxprom = zext i32 %40 to i64
-  %arrayidx = getelementptr inbounds [36 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %idxprom
-  %nregs9 = getelementptr inbounds %struct.bin_info_s, ptr %arrayidx, i32 0, i32 2
-  %41 = load i32, ptr %nregs9, align 8
-  %conv10 = zext i32 %41 to i64
-  %42 = load ptr, ptr %nregs.addr, align 8
-  store i64 %conv10, ptr %42, align 8
-  br label %do.body11
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !54
+  %10 = call ptr @tsd_rtree_ctxp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #7
+  ret ptr %10
+}
 
-do.body11:                                        ; preds = %if.end5
-  br label %do.end12
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i8 @tsd_state_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 31
+  %5 = load i8, ptr %4, align 8, !tbaa !28
+  ret i8 %5
+}
 
-do.end12:                                         ; preds = %do.body11
-  br label %do.body13
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_rtree_ctxp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 30
+  ret ptr %4
+}
 
-do.body13:                                        ; preds = %do.end12
-  br label %do.end14
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @rtree_leaf_elm_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !4
+  store ptr %1, ptr %9, align 8, !tbaa !50
+  store ptr %2, ptr %10, align 8, !tbaa !22
+  store i64 %3, ptr %11, align 8, !tbaa !14
+  %24 = zext i1 %4 to i8
+  store i8 %24, ptr %12, align 1, !tbaa !56
+  %25 = zext i1 %5 to i8
+  store i8 %25, ptr %13, align 1, !tbaa !56
+  br label %26
 
-do.end14:                                         ; preds = %do.body13
-  %43 = load ptr, ptr %edata, align 8
-  %call15 = call i32 @edata_arena_ind_get(ptr noundef %43)
-  %idxprom16 = zext i32 %call15 to i64
-  %arrayidx17 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom16
-  store ptr %arrayidx17, ptr %a.addr.i, align 8
-  store i32 0, ptr %mo.addr.i, align 4
-  %44 = load ptr, ptr %a.addr.i, align 8
-  %45 = load i32, ptr %mo.addr.i, align 4
-  store i32 %45, ptr %mo.addr.i47, align 4
-  %46 = load i32, ptr %mo.addr.i47, align 4
-  switch i32 %46, label %sw.epilog.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
+26:                                               ; preds = %6
+  br label %27
+
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %30 = load i64, ptr %11, align 8, !tbaa !14
+  %31 = call i64 @rtree_cache_direct_map(i64 noundef %30)
+  store i64 %31, ptr %14, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %32 = load i64, ptr %11, align 8, !tbaa !14
+  %33 = call i64 @rtree_leafkey(i64 noundef %32)
+  store i64 %33, ptr %15, align 8, !tbaa !14
+  br label %34
+
+34:                                               ; preds = %29
+  br label %35
+
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %10, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %14, align 8, !tbaa !14
+  %40 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %38, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %40, i32 0, i32 0
+  %42 = load i64, ptr %41, align 8, !tbaa !57
+  %43 = load i64, ptr %15, align 8, !tbaa !14
+  %44 = icmp eq i64 %42, %43
+  %45 = xor i1 %44, true
+  %46 = xor i1 %45, true
+  %47 = zext i1 %46 to i32
+  %48 = sext i32 %47 to i64
+  %49 = call i64 @llvm.expect.i64(i64 %48, i64 1)
+  %50 = icmp ne i64 %49, 0
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %52 = load ptr, ptr %10, align 8, !tbaa !22
+  %53 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %52, i32 0, i32 0
+  %54 = load i64, ptr %14, align 8, !tbaa !14
+  %55 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %53, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8, !tbaa !59
+  store ptr %57, ptr %16, align 8, !tbaa !52
+  br label %58
+
+58:                                               ; preds = %51
+  br label %59
+
+59:                                               ; preds = %58
+  br label %60
+
+60:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %61 = load i64, ptr %11, align 8, !tbaa !14
+  %62 = call i64 @rtree_subkey(i64 noundef %61, i32 noundef 1)
+  store i64 %62, ptr %17, align 8, !tbaa !14
+  %63 = load ptr, ptr %16, align 8, !tbaa !52
+  %64 = load i64, ptr %17, align 8, !tbaa !14
+  %65 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %63, i64 %64
+  store ptr %65, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %276
+
+66:                                               ; preds = %36
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %10, align 8, !tbaa !22
+  %69 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %68, i32 0, i32 1
+  %70 = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %69, i64 0, i64 0
+  %71 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %70, i32 0, i32 0
+  %72 = load i64, ptr %71, align 8, !tbaa !57
+  %73 = load i64, ptr %15, align 8, !tbaa !14
+  %74 = icmp eq i64 %72, %73
+  %75 = xor i1 %74, true
+  %76 = xor i1 %75, true
+  %77 = zext i1 %76 to i32
+  %78 = sext i32 %77 to i64
+  %79 = call i64 @llvm.expect.i64(i64 %78, i64 1)
+  %80 = icmp ne i64 %79, 0
+  br i1 %80, label %81, label %127
+
+81:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %82 = load ptr, ptr %10, align 8, !tbaa !22
+  %83 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %82, i32 0, i32 1
+  %84 = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %83, i64 0, i64 0
+  %85 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8, !tbaa !59
+  store ptr %86, ptr %19, align 8, !tbaa !52
+  br label %87
+
+87:                                               ; preds = %81
+  br label %88
+
+88:                                               ; preds = %87
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %10, align 8, !tbaa !22
+  %91 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %90, i32 0, i32 0
+  %92 = load i64, ptr %14, align 8, !tbaa !14
+  %93 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %91, i64 0, i64 %92
+  %94 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %93, i32 0, i32 0
+  %95 = load i64, ptr %94, align 8, !tbaa !57
+  %96 = load ptr, ptr %10, align 8, !tbaa !22
+  %97 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %96, i32 0, i32 1
+  %98 = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %97, i64 0, i64 0
+  %99 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %98, i32 0, i32 0
+  store i64 %95, ptr %99, align 8, !tbaa !57
+  %100 = load ptr, ptr %10, align 8, !tbaa !22
+  %101 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %100, i32 0, i32 0
+  %102 = load i64, ptr %14, align 8, !tbaa !14
+  %103 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %101, i64 0, i64 %102
+  %104 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8, !tbaa !59
+  %106 = load ptr, ptr %10, align 8, !tbaa !22
+  %107 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %106, i32 0, i32 1
+  %108 = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %107, i64 0, i64 0
+  %109 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %108, i32 0, i32 1
+  store ptr %105, ptr %109, align 8, !tbaa !59
+  %110 = load i64, ptr %15, align 8, !tbaa !14
+  %111 = load ptr, ptr %10, align 8, !tbaa !22
+  %112 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %111, i32 0, i32 0
+  %113 = load i64, ptr %14, align 8, !tbaa !14
+  %114 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %112, i64 0, i64 %113
+  %115 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %114, i32 0, i32 0
+  store i64 %110, ptr %115, align 8, !tbaa !57
+  %116 = load ptr, ptr %19, align 8, !tbaa !52
+  %117 = load ptr, ptr %10, align 8, !tbaa !22
+  %118 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %117, i32 0, i32 0
+  %119 = load i64, ptr %14, align 8, !tbaa !14
+  %120 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %118, i64 0, i64 %119
+  %121 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %120, i32 0, i32 1
+  store ptr %116, ptr %121, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %122 = load i64, ptr %11, align 8, !tbaa !14
+  %123 = call i64 @rtree_subkey(i64 noundef %122, i32 noundef 1)
+  store i64 %123, ptr %20, align 8, !tbaa !14
+  %124 = load ptr, ptr %19, align 8, !tbaa !52
+  %125 = load i64, ptr %20, align 8, !tbaa !14
+  %126 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %124, i64 %125
+  store ptr %126, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  br label %276
+
+127:                                              ; preds = %67
+  br label %128
+
+128:                                              ; preds = %127
+  br label %129
+
+129:                                              ; preds = %128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #7
+  store i32 1, ptr %21, align 4, !tbaa !32
+  br label %130
+
+130:                                              ; preds = %261, %129
+  %131 = load i32, ptr %21, align 4, !tbaa !32
+  %132 = icmp ult i32 %131, 8
+  br i1 %132, label %134, label %133
+
+133:                                              ; preds = %130
+  store i32 14, ptr %18, align 4
+  br label %264
+
+134:                                              ; preds = %130
+  br label %135
+
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %10, align 8, !tbaa !22
+  %137 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %136, i32 0, i32 1
+  %138 = load i32, ptr %21, align 4, !tbaa !32
+  %139 = zext i32 %138 to i64
+  %140 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %137, i64 0, i64 %139
+  %141 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %140, i32 0, i32 0
+  %142 = load i64, ptr %141, align 8, !tbaa !57
+  %143 = load i64, ptr %15, align 8, !tbaa !14
+  %144 = icmp eq i64 %142, %143
+  %145 = xor i1 %144, true
+  %146 = xor i1 %145, true
+  %147 = zext i1 %146 to i32
+  %148 = sext i32 %147 to i64
+  %149 = call i64 @llvm.expect.i64(i64 %148, i64 1)
+  %150 = icmp ne i64 %149, 0
+  br i1 %150, label %151, label %258
+
+151:                                              ; preds = %135
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %152 = load ptr, ptr %10, align 8, !tbaa !22
+  %153 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %152, i32 0, i32 1
+  %154 = load i32, ptr %21, align 4, !tbaa !32
+  %155 = zext i32 %154 to i64
+  %156 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %153, i64 0, i64 %155
+  %157 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8, !tbaa !59
+  store ptr %158, ptr %22, align 8, !tbaa !52
+  br label %159
+
+159:                                              ; preds = %151
+  br label %160
+
+160:                                              ; preds = %159
+  br label %161
+
+161:                                              ; preds = %160
+  %162 = load i32, ptr %21, align 4, !tbaa !32
+  %163 = icmp ugt i32 %162, 0
+  br i1 %163, label %164, label %219
+
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %10, align 8, !tbaa !22
+  %166 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %165, i32 0, i32 1
+  %167 = load i32, ptr %21, align 4, !tbaa !32
+  %168 = sub i32 %167, 1
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %166, i64 0, i64 %169
+  %171 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %170, i32 0, i32 0
+  %172 = load i64, ptr %171, align 8, !tbaa !57
+  %173 = load ptr, ptr %10, align 8, !tbaa !22
+  %174 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %173, i32 0, i32 1
+  %175 = load i32, ptr %21, align 4, !tbaa !32
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %174, i64 0, i64 %176
+  %178 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %177, i32 0, i32 0
+  store i64 %172, ptr %178, align 8, !tbaa !57
+  %179 = load ptr, ptr %10, align 8, !tbaa !22
+  %180 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %179, i32 0, i32 1
+  %181 = load i32, ptr %21, align 4, !tbaa !32
+  %182 = sub i32 %181, 1
+  %183 = zext i32 %182 to i64
+  %184 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %180, i64 0, i64 %183
+  %185 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %184, i32 0, i32 1
+  %186 = load ptr, ptr %185, align 8, !tbaa !59
+  %187 = load ptr, ptr %10, align 8, !tbaa !22
+  %188 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %187, i32 0, i32 1
+  %189 = load i32, ptr %21, align 4, !tbaa !32
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %188, i64 0, i64 %190
+  %192 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %191, i32 0, i32 1
+  store ptr %186, ptr %192, align 8, !tbaa !59
+  %193 = load ptr, ptr %10, align 8, !tbaa !22
+  %194 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %193, i32 0, i32 0
+  %195 = load i64, ptr %14, align 8, !tbaa !14
+  %196 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %194, i64 0, i64 %195
+  %197 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %196, i32 0, i32 0
+  %198 = load i64, ptr %197, align 8, !tbaa !57
+  %199 = load ptr, ptr %10, align 8, !tbaa !22
+  %200 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %199, i32 0, i32 1
+  %201 = load i32, ptr %21, align 4, !tbaa !32
+  %202 = sub i32 %201, 1
+  %203 = zext i32 %202 to i64
+  %204 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %200, i64 0, i64 %203
+  %205 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %204, i32 0, i32 0
+  store i64 %198, ptr %205, align 8, !tbaa !57
+  %206 = load ptr, ptr %10, align 8, !tbaa !22
+  %207 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %206, i32 0, i32 0
+  %208 = load i64, ptr %14, align 8, !tbaa !14
+  %209 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %207, i64 0, i64 %208
+  %210 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %209, i32 0, i32 1
+  %211 = load ptr, ptr %210, align 8, !tbaa !59
+  %212 = load ptr, ptr %10, align 8, !tbaa !22
+  %213 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %212, i32 0, i32 1
+  %214 = load i32, ptr %21, align 4, !tbaa !32
+  %215 = sub i32 %214, 1
+  %216 = zext i32 %215 to i64
+  %217 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %213, i64 0, i64 %216
+  %218 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %217, i32 0, i32 1
+  store ptr %211, ptr %218, align 8, !tbaa !59
+  br label %240
+
+219:                                              ; preds = %161
+  %220 = load ptr, ptr %10, align 8, !tbaa !22
+  %221 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %220, i32 0, i32 0
+  %222 = load i64, ptr %14, align 8, !tbaa !14
+  %223 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %221, i64 0, i64 %222
+  %224 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %223, i32 0, i32 0
+  %225 = load i64, ptr %224, align 8, !tbaa !57
+  %226 = load ptr, ptr %10, align 8, !tbaa !22
+  %227 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %226, i32 0, i32 1
+  %228 = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %227, i64 0, i64 0
+  %229 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %228, i32 0, i32 0
+  store i64 %225, ptr %229, align 8, !tbaa !57
+  %230 = load ptr, ptr %10, align 8, !tbaa !22
+  %231 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %230, i32 0, i32 0
+  %232 = load i64, ptr %14, align 8, !tbaa !14
+  %233 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %231, i64 0, i64 %232
+  %234 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %233, i32 0, i32 1
+  %235 = load ptr, ptr %234, align 8, !tbaa !59
+  %236 = load ptr, ptr %10, align 8, !tbaa !22
+  %237 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %236, i32 0, i32 1
+  %238 = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %237, i64 0, i64 0
+  %239 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %238, i32 0, i32 1
+  store ptr %235, ptr %239, align 8, !tbaa !59
+  br label %240
+
+240:                                              ; preds = %219, %164
+  %241 = load i64, ptr %15, align 8, !tbaa !14
+  %242 = load ptr, ptr %10, align 8, !tbaa !22
+  %243 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %242, i32 0, i32 0
+  %244 = load i64, ptr %14, align 8, !tbaa !14
+  %245 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %243, i64 0, i64 %244
+  %246 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %245, i32 0, i32 0
+  store i64 %241, ptr %246, align 8, !tbaa !57
+  %247 = load ptr, ptr %22, align 8, !tbaa !52
+  %248 = load ptr, ptr %10, align 8, !tbaa !22
+  %249 = getelementptr inbounds nuw %struct.rtree_ctx_s, ptr %248, i32 0, i32 0
+  %250 = load i64, ptr %14, align 8, !tbaa !14
+  %251 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %249, i64 0, i64 %250
+  %252 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %251, i32 0, i32 1
+  store ptr %247, ptr %252, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  %253 = load i64, ptr %11, align 8, !tbaa !14
+  %254 = call i64 @rtree_subkey(i64 noundef %253, i32 noundef 1)
+  store i64 %254, ptr %23, align 8, !tbaa !14
+  %255 = load ptr, ptr %22, align 8, !tbaa !52
+  %256 = load i64, ptr %23, align 8, !tbaa !14
+  %257 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %255, i64 %256
+  store ptr %257, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %264
+
+258:                                              ; preds = %135
+  br label %259
+
+259:                                              ; preds = %258
+  br label %260
+
+260:                                              ; preds = %259
+  br label %261
+
+261:                                              ; preds = %260
+  %262 = load i32, ptr %21, align 4, !tbaa !32
+  %263 = add i32 %262, 1
+  store i32 %263, ptr %21, align 4, !tbaa !32
+  br label %130, !llvm.loop !60
+
+264:                                              ; preds = %240, %133
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #7
+  %265 = load i32, ptr %18, align 4
+  switch i32 %265, label %276 [
+    i32 14, label %266
   ]
 
-sw.bb.i:                                          ; preds = %do.end14
-  store i32 0, ptr %retval.i46, align 4
-  br label %atomic_enum_to_builtin.exit
+266:                                              ; preds = %264
+  %267 = load ptr, ptr %8, align 8, !tbaa !4
+  %268 = load ptr, ptr %9, align 8, !tbaa !50
+  %269 = load ptr, ptr %10, align 8, !tbaa !22
+  %270 = load i64, ptr %11, align 8, !tbaa !14
+  %271 = load i8, ptr %12, align 1, !tbaa !56, !range !62, !noundef !63
+  %272 = trunc i8 %271 to i1
+  %273 = load i8, ptr %13, align 1, !tbaa !56, !range !62, !noundef !63
+  %274 = trunc i8 %273 to i1
+  %275 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %267, ptr noundef %268, ptr noundef %269, i64 noundef %270, i1 noundef zeroext %272, i1 noundef zeroext %274)
+  store ptr %275, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %276
 
-sw.bb1.i:                                         ; preds = %do.end14
-  store i32 2, ptr %retval.i46, align 4
-  br label %atomic_enum_to_builtin.exit
+276:                                              ; preds = %266, %264, %89, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %277 = load ptr, ptr %7, align 8
+  ret ptr %277
+}
 
-sw.bb2.i:                                         ; preds = %do.end14
-  store i32 3, ptr %retval.i46, align 4
-  br label %atomic_enum_to_builtin.exit
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @rtree_leaf_elm_read(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i64, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !50
+  store ptr %3, ptr %8, align 8, !tbaa !52
+  %11 = zext i1 %4 to i8
+  store i8 %11, ptr %9, align 1, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %6, align 8, !tbaa !4
+  %13 = load ptr, ptr %7, align 8, !tbaa !50
+  %14 = load ptr, ptr %8, align 8, !tbaa !52
+  %15 = load i8, ptr %9, align 1, !tbaa !56, !range !62, !noundef !63
+  %16 = trunc i8 %15 to i1
+  %17 = call i64 @rtree_leaf_elm_bits_read(ptr noundef %12, ptr noundef %13, ptr noundef %14, i1 noundef zeroext %16)
+  store i64 %17, ptr %10, align 8, !tbaa !14
+  %18 = load i64, ptr %10, align 8, !tbaa !14
+  call void @rtree_leaf_elm_bits_decode(ptr dead_on_unwind writable sret(%struct.rtree_contents_s) align 8 %0, i64 noundef %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  ret void
+}
 
-sw.bb3.i:                                         ; preds = %do.end14
-  store i32 4, ptr %retval.i46, align 4
-  br label %atomic_enum_to_builtin.exit
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @rtree_cache_direct_map(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !14
+  %3 = load i64, ptr %2, align 8, !tbaa !14
+  %4 = call i32 @rtree_leaf_maskbits()
+  %5 = zext i32 %4 to i64
+  %6 = lshr i64 %3, %5
+  %7 = and i64 %6, 15
+  ret i64 %7
+}
 
-sw.bb4.i:                                         ; preds = %do.end14
-  store i32 5, ptr %retval.i46, align 4
-  br label %atomic_enum_to_builtin.exit
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @rtree_leafkey(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = call i32 @rtree_leaf_maskbits()
+  %5 = zext i32 %4 to i64
+  %6 = shl i64 1, %5
+  %7 = sub i64 %6, 1
+  %8 = xor i64 %7, -1
+  store i64 %8, ptr %3, align 8, !tbaa !14
+  %9 = load i64, ptr %2, align 8, !tbaa !14
+  %10 = load i64, ptr %3, align 8, !tbaa !14
+  %11 = and i64 %9, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %11
+}
 
-sw.epilog.i:                                      ; preds = %do.end14
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @rtree_subkey(i64 noundef %0, i32 noundef %1) #2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  store i32 64, ptr %5, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %10 = load i32, ptr %4, align 4, !tbaa !32
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [2 x %struct.rtree_level_s], ptr @rtree_levels, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw %struct.rtree_level_s, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4, !tbaa !64
+  store i32 %14, ptr %6, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %15 = load i32, ptr %5, align 4, !tbaa !32
+  %16 = load i32, ptr %6, align 4, !tbaa !32
+  %17 = sub i32 %15, %16
+  store i32 %17, ptr %7, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %18 = load i32, ptr %4, align 4, !tbaa !32
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw [2 x %struct.rtree_level_s], ptr @rtree_levels, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw %struct.rtree_level_s, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8, !tbaa !66
+  store i32 %22, ptr %8, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %23 = load i32, ptr %8, align 4, !tbaa !32
+  %24 = zext i32 %23 to i64
+  %25 = shl i64 1, %24
+  %26 = sub i64 %25, 1
+  store i64 %26, ptr %9, align 8, !tbaa !14
+  %27 = load i64, ptr %3, align 8, !tbaa !14
+  %28 = load i32, ptr %7, align 4, !tbaa !32
+  %29 = zext i32 %28 to i64
+  %30 = lshr i64 %27, %29
+  %31 = load i64, ptr %9, align 8, !tbaa !14
+  %32 = and i64 %30, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  ret i64 %32
+}
+
+declare ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) #5
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @rtree_leaf_maskbits() #2 {
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #7
+  store i32 64, ptr %1, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #7
+  store i32 34, ptr %2, align 4, !tbaa !32
+  %3 = load i32, ptr %1, align 4, !tbaa !32
+  %4 = load i32, ptr %2, align 4, !tbaa !32
+  %5 = sub i32 %3, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #7
+  ret i32 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @rtree_leaf_elm_bits_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !50
+  store ptr %2, ptr %7, align 8, !tbaa !52
+  %9 = zext i1 %3 to i8
+  store i8 %9, ptr %8, align 1, !tbaa !56
+  %10 = load ptr, ptr %7, align 8, !tbaa !52
+  %11 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %10, i32 0, i32 0
+  %12 = load i8, ptr %8, align 1, !tbaa !56, !range !62, !noundef !63
+  %13 = trunc i8 %12 to i1
+  %14 = select i1 %13, i32 0, i32 1
+  %15 = call ptr @atomic_load_p(ptr noundef %11, i32 noundef %14)
+  %16 = ptrtoint ptr %15 to i64
+  ret i64 %16
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @rtree_leaf_elm_bits_decode(ptr dead_on_unwind noalias writable sret(%struct.rtree_contents_s) align 8 %0, i64 noundef %1) #2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store i64 %1, ptr %3, align 8, !tbaa !14
+  %6 = load i64, ptr %3, align 8, !tbaa !14
+  %7 = lshr i64 %6, 48
+  %8 = trunc i64 %7 to i32
+  %9 = getelementptr inbounds nuw %struct.rtree_contents_s, ptr %0, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.rtree_metadata_s, ptr %9, i32 0, i32 0
+  store i32 %8, ptr %10, align 8, !tbaa !67
+  %11 = load i64, ptr %3, align 8, !tbaa !14
+  %12 = and i64 %11, 1
+  %13 = icmp ne i64 %12, 0
+  %14 = getelementptr inbounds nuw %struct.rtree_contents_s, ptr %0, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.rtree_metadata_s, ptr %14, i32 0, i32 3
+  %16 = zext i1 %13 to i8
+  store i8 %16, ptr %15, align 1, !tbaa !68
+  %17 = load i64, ptr %3, align 8, !tbaa !14
+  %18 = and i64 %17, 2
+  %19 = icmp ne i64 %18, 0
+  %20 = getelementptr inbounds nuw %struct.rtree_contents_s, ptr %0, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.rtree_metadata_s, ptr %20, i32 0, i32 2
+  %22 = zext i1 %19 to i8
+  store i8 %22, ptr %21, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %23 = load i64, ptr %3, align 8, !tbaa !14
+  %24 = and i64 %23, 28
+  %25 = lshr i64 %24, 2
+  store i64 %25, ptr %4, align 8, !tbaa !14
+  br label %26
+
+26:                                               ; preds = %2
+  br label %27
+
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load i64, ptr %4, align 8, !tbaa !14
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds nuw %struct.rtree_contents_s, ptr %0, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.rtree_metadata_s, ptr %31, i32 0, i32 1
+  store i32 %30, ptr %32, align 4, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store i64 -128, ptr %5, align 8, !tbaa !14
+  %33 = load i64, ptr %3, align 8, !tbaa !14
+  %34 = shl i64 %33, 16
+  %35 = ashr i64 %34, 16
+  %36 = load i64, ptr %5, align 8, !tbaa !14
+  %37 = and i64 %35, %36
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds nuw %struct.rtree_contents_s, ptr %0, i32 0, i32 0
+  store ptr %38, ptr %39, align 8, !tbaa !24
+  br label %40
+
+40:                                               ; preds = %28
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @edata_szind_get_maybe_invalid(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !12
+  %5 = getelementptr inbounds nuw %struct.edata_s, ptr %4, i32 0, i32 0
+  %6 = load i64, ptr %5, align 8, !tbaa !29
+  %7 = and i64 %6, 267386880
+  %8 = lshr i64 %7, 20
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %3, align 4, !tbaa !32
+  br label %10
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  %13 = load i32, ptr %3, align 4, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %13
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @atomic_enum_to_builtin(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !32
+  %4 = load i32, ptr %3, align 4, !tbaa !32
+  switch i32 %4, label %10 [
+    i32 0, label %5
+    i32 1, label %6
+    i32 2, label %7
+    i32 3, label %8
+    i32 4, label %9
+  ]
+
+5:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %12
+
+6:                                                ; preds = %1
+  store i32 2, ptr %2, align 4
+  br label %12
+
+7:                                                ; preds = %1
+  store i32 3, ptr %2, align 4
+  br label %12
+
+8:                                                ; preds = %1
+  store i32 4, ptr %2, align 4
+  br label %12
+
+9:                                                ; preds = %1
+  store i32 5, ptr %2, align 4
+  br label %12
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
   unreachable
 
-atomic_enum_to_builtin.exit:                      ; preds = %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %47 = load i32, ptr %retval.i46, align 4
-  switch i32 %47, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
+12:                                               ; preds = %5, %6, %7, %8, %9
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
+}
 
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit
-  %48 = load atomic i64, ptr %44 monotonic, align 8
-  store i64 %48, ptr %result.i, align 8
-  br label %atomic_load_p.exit
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @arena_bin_has_batch(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !32
+  %3 = load i32, ptr %2, align 4, !tbaa !32
+  %4 = load i32, ptr @je_bin_info_nbatched_sizes, align 4, !tbaa !32
+  %5 = icmp ult i32 %3, %4
+  ret i1 %5
+}
 
-acquire.i:                                        ; preds = %atomic_enum_to_builtin.exit, %atomic_enum_to_builtin.exit
-  %49 = load atomic i64, ptr %44 acquire, align 8
-  store i64 %49, ptr %result.i, align 8
-  br label %atomic_load_p.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit
-  %50 = load atomic i64, ptr %44 seq_cst, align 8
-  store i64 %50, ptr %result.i, align 8
-  br label %atomic_load_p.exit
-
-atomic_load_p.exit:                               ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %51 = load ptr, ptr %result.i, align 8
-  store ptr %51, ptr %arena, align 8
-  br label %do.body19
-
-do.body19:                                        ; preds = %atomic_load_p.exit
-  br label %do.end20
-
-do.end20:                                         ; preds = %do.body19
-  %52 = load ptr, ptr %edata, align 8
-  %call21 = call i32 @edata_binshard_get(ptr noundef %52)
-  store i32 %call21, ptr %binshard, align 4
-  %53 = load ptr, ptr %arena, align 8
-  %54 = load i32, ptr %szind, align 4
-  %55 = load i32, ptr %binshard, align 4
-  %call22 = call ptr @arena_get_bin(ptr noundef %53, i32 noundef %54, i32 noundef %55)
-  store ptr %call22, ptr %bin, align 8
-  %56 = load ptr, ptr %tsdn.addr, align 8
-  %57 = load ptr, ptr %bin, align 8
-  %lock = getelementptr inbounds %struct.bin_s, ptr %57, i32 0, i32 0
-  call void @malloc_mutex_lock(ptr noundef %56, ptr noundef %lock)
-  %58 = load ptr, ptr %nregs.addr, align 8
-  %59 = load i64, ptr %58, align 8
-  %60 = load ptr, ptr %bin, align 8
-  %stats = getelementptr inbounds %struct.bin_s, ptr %60, i32 0, i32 1
-  %curslabs = getelementptr inbounds %struct.bin_stats_s, ptr %stats, i32 0, i32 8
-  %61 = load i64, ptr %curslabs, align 8
-  %mul = mul i64 %59, %61
-  %62 = load ptr, ptr %bin_nregs.addr, align 8
-  store i64 %mul, ptr %62, align 8
-  br label %do.body23
-
-do.body23:                                        ; preds = %do.end20
-  br label %do.end24
-
-do.end24:                                         ; preds = %do.body23
-  %63 = load ptr, ptr %bin_nregs.addr, align 8
-  %64 = load i64, ptr %63, align 8
-  %65 = load ptr, ptr %bin, align 8
-  %stats25 = getelementptr inbounds %struct.bin_s, ptr %65, i32 0, i32 1
-  %curregs = getelementptr inbounds %struct.bin_stats_s, ptr %stats25, i32 0, i32 3
-  %66 = load i64, ptr %curregs, align 8
-  %sub = sub i64 %64, %66
-  %67 = load ptr, ptr %bin_nfree.addr, align 8
-  store i64 %sub, ptr %67, align 8
-  %68 = load ptr, ptr %bin, align 8
-  %slabcur = getelementptr inbounds %struct.bin_s, ptr %68, i32 0, i32 2
-  %69 = load ptr, ptr %slabcur, align 8
-  %cmp26 = icmp ne ptr %69, null
-  br i1 %cmp26, label %if.then28, label %if.else
-
-if.then28:                                        ; preds = %do.end24
-  %70 = load ptr, ptr %bin, align 8
-  %slabcur29 = getelementptr inbounds %struct.bin_s, ptr %70, i32 0, i32 2
-  %71 = load ptr, ptr %slabcur29, align 8
-  store ptr %71, ptr %slab, align 8
-  br label %if.end31
-
-if.else:                                          ; preds = %do.end24
-  %72 = load ptr, ptr %bin, align 8
-  %slabs_nonfull = getelementptr inbounds %struct.bin_s, ptr %72, i32 0, i32 3
-  %call30 = call ptr @edata_heap_first(ptr noundef %slabs_nonfull)
-  store ptr %call30, ptr %slab, align 8
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.else, %if.then28
-  %73 = load ptr, ptr %slab, align 8
-  %cmp32 = icmp ne ptr %73, null
-  br i1 %cmp32, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end31
-  %74 = load ptr, ptr %slab, align 8
-  %call34 = call ptr @edata_addr_get(ptr noundef %74)
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end31
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call34, %cond.true ], [ null, %cond.false ]
-  %75 = load ptr, ptr %slabcur_addr.addr, align 8
-  store ptr %cond, ptr %75, align 8
-  %76 = load ptr, ptr %tsdn.addr, align 8
-  %77 = load ptr, ptr %bin, align 8
-  %lock35 = getelementptr inbounds %struct.bin_s, ptr %77, i32 0, i32 0
-  call void @malloc_mutex_unlock(ptr noundef %76, ptr noundef %lock35)
-  br label %return
-
-return:                                           ; preds = %cond.end, %if.then4, %if.then
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_assert_not_owner(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !71
+  store ptr %1, ptr %4, align 8, !tbaa !73
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @edata_arena_ind_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %arena_ind = alloca i32, align 4
-  store ptr %edata, ptr %edata.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, 4095
-  %shr = lshr i64 %and, 0
-  %conv = trunc i64 %shr to i32
-  store i32 %conv, ptr %arena_ind, align 4
-  br label %do.body
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_witness_tsdp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = call zeroext i1 @tsdn_null(ptr noundef %5)
+  br i1 %6, label %7, label %8
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+7:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %13
 
-do.end:                                           ; preds = %do.body
-  %2 = load i32, ptr %arena_ind, align 4
-  ret i32 %2
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = call ptr @tsdn_tsd(ptr noundef %9)
+  store ptr %10, ptr %4, align 8, !tbaa !54
+  %11 = load ptr, ptr %4, align 8, !tbaa !54
+  %12 = call ptr @tsd_witness_tsdp_get(ptr noundef %11)
+  store ptr %12, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %13
+
+13:                                               ; preds = %8, %7
+  %14 = load ptr, ptr %2, align 8
+  ret ptr %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @edata_binshard_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %binshard = alloca i32, align 4
-  store ptr %edata, ptr %edata.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, 17317308137472
-  %shr = lshr i64 %and, 38
-  %conv = trunc i64 %shr to i32
-  store i32 %conv, ptr %binshard, align 4
-  br label %do.body
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @malloc_mutex_trylock_final(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !47
+  %5 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %7 = call i32 @pthread_mutex_trylock(ptr noundef %6) #7
+  %8 = icmp ne i32 %7, 0
+  %9 = zext i1 %8 to i8
+  store i8 %9, ptr %3, align 1, !tbaa !56
+  %10 = load i8, ptr %3, align 1, !tbaa !56, !range !62, !noundef !63
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %16, label %12
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8, !tbaa !47
+  %14 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %14, i32 0, i32 1
+  call void @atomic_store_b(ptr noundef %15, i1 noundef zeroext true, i32 noundef 0)
+  br label %16
 
-do.end:                                           ; preds = %do.body
-  %2 = load i32, ptr %binshard, align 4
-  ret i32 %2
+16:                                               ; preds = %12, %1
+  %17 = load i8, ptr %3, align 1, !tbaa !56, !range !62, !noundef !63
+  %18 = trunc i8 %17 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #7
+  ret i1 %18
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @arena_get_bin(ptr noundef %arena, i32 noundef %binind, i32 noundef %binshard) #0 {
-entry:
-  %arena.addr = alloca ptr, align 8
-  %binind.addr = alloca i32, align 4
-  %binshard.addr = alloca i32, align 4
-  %shard0 = alloca ptr, align 8
-  store ptr %arena, ptr %arena.addr, align 8
-  store i32 %binind, ptr %binind.addr, align 4
-  store i32 %binshard, ptr %binshard.addr, align 4
-  %0 = load ptr, ptr %arena.addr, align 8
-  %1 = load i32, ptr %binind.addr, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [36 x i32], ptr @arena_bin_offsets, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
-  %idx.ext = zext i32 %2 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  store ptr %add.ptr, ptr %shard0, align 8
-  %3 = load ptr, ptr %shard0, align 8
-  %4 = load i32, ptr %binshard.addr, align 4
-  %idx.ext1 = zext i32 %4 to i64
-  %add.ptr2 = getelementptr inbounds %struct.bin_s, ptr %3, i64 %idx.ext1
-  ret ptr %add.ptr2
-}
+declare void @je_malloc_mutex_lock_slow(ptr noundef) #5
 
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_lock(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsd.addr.i19 = alloca ptr, align 8
-  %tsd.addr.i18 = alloca ptr, align 8
-  %tsd.addr.i.i13 = alloca ptr, align 8
-  %tsd.addr.i14 = alloca ptr, align 8
-  %state.i15 = alloca i8, align 1
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %val.addr.i = alloca i8, align 1
-  %mo.addr.i = alloca i32, align 4
-  %tsdn.addr.i3.i3 = alloca ptr, align 8
-  %tsdn.addr.i.i4 = alloca ptr, align 8
-  %retval.i5 = alloca ptr, align 8
-  %tsdn.addr.i6 = alloca ptr, align 8
-  %tsd.i7 = alloca ptr, align 8
-  %tsdn.addr.i3.i = alloca ptr, align 8
-  %tsdn.addr.i.i = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i6, align 8
-  %1 = load ptr, ptr %tsdn.addr.i6, align 8
-  store ptr %1, ptr %tsdn.addr.i.i4, align 8
-  %2 = load ptr, ptr %tsdn.addr.i.i4, align 8
-  %cmp.i.i8 = icmp eq ptr %2, null
-  br i1 %cmp.i.i8, label %if.then.i11, label %if.end.i9
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @mutex_owner_stats_update(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %4, align 8, !tbaa !47
+  %7 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.anon, ptr %7, i32 0, i32 0
+  store ptr %8, ptr %5, align 8, !tbaa !9
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %9, i32 0, i32 8
+  %11 = load i64, ptr %10, align 8, !tbaa !75
+  %12 = add i64 %11, 1
+  store i64 %12, ptr %10, align 8, !tbaa !75
+  %13 = load ptr, ptr %5, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8, !tbaa !79
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = icmp ne ptr %15, %16
+  br i1 %17, label %18, label %26
 
-if.then.i11:                                      ; preds = %entry
-  store ptr null, ptr %retval.i5, align 8
-  br label %tsdn_witness_tsdp_get.exit12
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = load ptr, ptr %5, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %20, i32 0, i32 7
+  store ptr %19, ptr %21, align 8, !tbaa !79
+  %22 = load ptr, ptr %5, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %22, i32 0, i32 6
+  %24 = load i64, ptr %23, align 8, !tbaa !80
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %23, align 8, !tbaa !80
+  br label %26
 
-if.end.i9:                                        ; preds = %entry
-  %3 = load ptr, ptr %tsdn.addr.i6, align 8
-  store ptr %3, ptr %tsdn.addr.i3.i3, align 8
-  %4 = load ptr, ptr %tsdn.addr.i3.i3, align 8
-  store ptr %4, ptr %tsd.i7, align 8
-  %5 = load ptr, ptr %tsd.i7, align 8
-  store ptr %5, ptr %tsd.addr.i, align 8
-  %6 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %6, ptr %tsd.addr.i.i, align 8
-  %7 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 30
-  %8 = load i8, ptr %state.i.i, align 8
-  store i8 %8, ptr %state.i, align 1
-  %9 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %9, ptr %tsd.addr.i19, align 8
-  %10 = load ptr, ptr %tsd.addr.i19, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i20 = getelementptr inbounds %struct.tsd_s, ptr %10, i32 0, i32 36
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i20, ptr %retval.i5, align 8
-  br label %tsdn_witness_tsdp_get.exit12
-
-tsdn_witness_tsdp_get.exit12:                     ; preds = %if.end.i9, %if.then.i11
-  %11 = load ptr, ptr %retval.i5, align 8
-  %12 = load ptr, ptr %mutex.addr, align 8
-  %13 = getelementptr inbounds %struct.malloc_mutex_s, ptr %12, i32 0, i32 0
-  call void @witness_assert_not_owner(ptr noundef %11, ptr noundef %13)
-  %14 = load ptr, ptr %mutex.addr, align 8
-  %call1 = call zeroext i1 @malloc_mutex_trylock_final(ptr noundef %14)
-  br i1 %call1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %tsdn_witness_tsdp_get.exit12
-  %15 = load ptr, ptr %mutex.addr, align 8
-  call void @malloc_mutex_lock_slow(ptr noundef %15)
-  %16 = load ptr, ptr %mutex.addr, align 8
-  %17 = getelementptr inbounds %struct.malloc_mutex_s, ptr %16, i32 0, i32 0
-  %locked = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 1
-  store ptr %locked, ptr %a.addr.i, align 8
-  store i8 1, ptr %val.addr.i, align 1
-  store i32 0, ptr %mo.addr.i, align 4
-  %18 = load ptr, ptr %a.addr.i, align 8
-  %19 = load i32, ptr %mo.addr.i, align 4
-  store i32 %19, ptr %mo.addr.i.i, align 4
-  %20 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %20, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %if.then
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb1.i.i:                                       ; preds = %if.then
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %if.then
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %if.then
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %if.then
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %if.then
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %21 = load i32, ptr %retval.i.i, align 4
-  switch i32 %21, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %22 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %22, ptr %18 monotonic, align 1
-  br label %atomic_store_b.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i
-  %23 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %23, ptr %18 release, align 1
-  br label %atomic_store_b.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %24 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %24, ptr %18 seq_cst, align 1
-  br label %atomic_store_b.exit
-
-atomic_store_b.exit:                              ; preds = %seqcst.i, %release.i, %monotonic.i
-  br label %if.end
-
-if.end:                                           ; preds = %atomic_store_b.exit, %tsdn_witness_tsdp_get.exit12
-  %25 = load ptr, ptr %tsdn.addr, align 8
-  %26 = load ptr, ptr %mutex.addr, align 8
-  call void @mutex_owner_stats_update(ptr noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %27, ptr %tsdn.addr.i, align 8
-  %28 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %28, ptr %tsdn.addr.i.i, align 8
-  %29 = load ptr, ptr %tsdn.addr.i.i, align 8
-  %cmp.i.i = icmp eq ptr %29, null
-  br i1 %cmp.i.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end
-  store ptr null, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-if.end.i:                                         ; preds = %if.end
-  %30 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %30, ptr %tsdn.addr.i3.i, align 8
-  %31 = load ptr, ptr %tsdn.addr.i3.i, align 8
-  store ptr %31, ptr %tsd.i, align 8
-  %32 = load ptr, ptr %tsd.i, align 8
-  store ptr %32, ptr %tsd.addr.i14, align 8
-  %33 = load ptr, ptr %tsd.addr.i14, align 8
-  store ptr %33, ptr %tsd.addr.i.i13, align 8
-  %34 = load ptr, ptr %tsd.addr.i.i13, align 8
-  %state.i.i16 = getelementptr inbounds %struct.tsd_s, ptr %34, i32 0, i32 30
-  %35 = load i8, ptr %state.i.i16, align 8
-  store i8 %35, ptr %state.i15, align 1
-  %36 = load ptr, ptr %tsd.addr.i14, align 8
-  store ptr %36, ptr %tsd.addr.i18, align 8
-  %37 = load ptr, ptr %tsd.addr.i18, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds %struct.tsd_s, ptr %37, i32 0, i32 36
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-tsdn_witness_tsdp_get.exit:                       ; preds = %if.end.i, %if.then.i
-  %38 = load ptr, ptr %retval.i, align 8
-  %39 = load ptr, ptr %mutex.addr, align 8
-  %40 = getelementptr inbounds %struct.malloc_mutex_s, ptr %39, i32 0, i32 0
-  call void @witness_lock(ptr noundef %38, ptr noundef %40)
+26:                                               ; preds = %18, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
-declare ptr @edata_heap_first(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @edata_addr_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_addr = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %e_addr, align 8
-  ret ptr %1
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_unlock(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsd.addr.i2 = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %val.addr.i = alloca i8, align 1
-  %mo.addr.i = alloca i32, align 4
-  %tsdn.addr.i3.i = alloca ptr, align 8
-  %tsdn.addr.i.i = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %locked = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 1
-  store ptr %locked, ptr %a.addr.i, align 8
-  store i8 0, ptr %val.addr.i, align 1
-  store i32 0, ptr %mo.addr.i, align 4
-  %2 = load ptr, ptr %a.addr.i, align 8
-  %3 = load i32, ptr %mo.addr.i, align 4
-  store i32 %3, ptr %mo.addr.i.i, align 4
-  %4 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %4, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %entry
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb1.i.i:                                       ; preds = %entry
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %entry
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %entry
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %entry
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %entry
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %5 = load i32, ptr %retval.i.i, align 4
-  switch i32 %5, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %6 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %6, ptr %2 monotonic, align 1
-  br label %atomic_store_b.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i
-  %7 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %7, ptr %2 release, align 1
-  br label %atomic_store_b.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %8 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %8, ptr %2 seq_cst, align 1
-  br label %atomic_store_b.exit
-
-atomic_store_b.exit:                              ; preds = %seqcst.i, %release.i, %monotonic.i
-  %9 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %9, ptr %tsdn.addr.i, align 8
-  %10 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %10, ptr %tsdn.addr.i.i, align 8
-  %11 = load ptr, ptr %tsdn.addr.i.i, align 8
-  %cmp.i.i = icmp eq ptr %11, null
-  br i1 %cmp.i.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %atomic_store_b.exit
-  store ptr null, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-if.end.i:                                         ; preds = %atomic_store_b.exit
-  %12 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %12, ptr %tsdn.addr.i3.i, align 8
-  %13 = load ptr, ptr %tsdn.addr.i3.i, align 8
-  store ptr %13, ptr %tsd.i, align 8
-  %14 = load ptr, ptr %tsd.i, align 8
-  store ptr %14, ptr %tsd.addr.i, align 8
-  %15 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %15, ptr %tsd.addr.i.i, align 8
-  %16 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %16, i32 0, i32 30
-  %17 = load i8, ptr %state.i.i, align 8
-  store i8 %17, ptr %state.i, align 1
-  %18 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %18, ptr %tsd.addr.i2, align 8
-  %19 = load ptr, ptr %tsd.addr.i2, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds %struct.tsd_s, ptr %19, i32 0, i32 36
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-tsdn_witness_tsdp_get.exit:                       ; preds = %if.end.i, %if.then.i
-  %20 = load ptr, ptr %retval.i, align 8
-  %21 = load ptr, ptr %mutex.addr, align 8
-  %22 = getelementptr inbounds %struct.malloc_mutex_s, ptr %21, i32 0, i32 0
-  call void @witness_unlock(ptr noundef %20, ptr noundef %22)
-  %23 = load ptr, ptr %mutex.addr, align 8
-  %24 = getelementptr inbounds %struct.malloc_mutex_s, ptr %23, i32 0, i32 0
-  %lock = getelementptr inbounds %struct.anon, ptr %24, i32 0, i32 2
-  %call1 = call i32 @pthread_mutex_unlock(ptr noundef %lock) #4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_lock(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !71
+  store ptr %1, ptr %4, align 8, !tbaa !73
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @rtree_read(ptr noalias sret(%struct.rtree_contents_s) align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) #0 {
-entry:
-  %retval.i75 = alloca i32, align 4
-  %mo.addr.i = alloca i32, align 4
-  %bits.addr.i = alloca i64, align 8
-  %state_bits.i = alloca i64, align 8
-  %low_bit_mask.i = alloca i64, align 8
-  %a.addr.i.i = alloca ptr, align 8
-  %mo.addr.i.i = alloca i32, align 4
-  %result.i.i = alloca ptr, align 8
-  %tsdn.addr.i64 = alloca ptr, align 8
-  %rtree.addr.i65 = alloca ptr, align 8
-  %elm.addr.i66 = alloca ptr, align 8
-  %dependent.addr.i67 = alloca i8, align 1
-  %ptrbits.i61 = alloca i32, align 4
-  %cumbits.i62 = alloca i32, align 4
-  %ptrbits.i58 = alloca i32, align 4
-  %cumbits.i59 = alloca i32, align 4
-  %key.addr.i39 = alloca i64, align 8
-  %level.addr.i40 = alloca i32, align 4
-  %ptrbits.i41 = alloca i32, align 4
-  %cumbits.i42 = alloca i32, align 4
-  %shiftbits.i43 = alloca i32, align 4
-  %maskbits.i44 = alloca i32, align 4
-  %mask.i45 = alloca i64, align 8
-  %key.addr.i20 = alloca i64, align 8
-  %level.addr.i21 = alloca i32, align 4
-  %ptrbits.i22 = alloca i32, align 4
-  %cumbits.i23 = alloca i32, align 4
-  %shiftbits.i24 = alloca i32, align 4
-  %maskbits.i25 = alloca i32, align 4
-  %mask.i26 = alloca i64, align 8
-  %key.addr.i11 = alloca i64, align 8
-  %level.addr.i = alloca i32, align 4
-  %ptrbits.i = alloca i32, align 4
-  %cumbits.i = alloca i32, align 4
-  %shiftbits.i = alloca i32, align 4
-  %maskbits.i = alloca i32, align 4
-  %mask.i12 = alloca i64, align 8
-  %key.addr.i7 = alloca i64, align 8
-  %mask.i = alloca i64, align 8
-  %key.addr.i5 = alloca i64, align 8
-  %tsdn.addr.i1 = alloca ptr, align 8
-  %rtree.addr.i2 = alloca ptr, align 8
-  %elm.addr.i = alloca ptr, align 8
-  %dependent.addr.i3 = alloca i8, align 1
-  %bits.i = alloca i64, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %rtree.addr.i = alloca ptr, align 8
-  %rtree_ctx.addr.i = alloca ptr, align 8
-  %key.addr.i = alloca i64, align 8
-  %dependent.addr.i = alloca i8, align 1
-  %init_missing.addr.i = alloca i8, align 1
-  %slot.i = alloca i64, align 8
-  %leafkey.i = alloca i64, align 8
-  %leaf.i = alloca ptr, align 8
-  %subkey.i = alloca i64, align 8
-  %leaf28.i = alloca ptr, align 8
-  %subkey52.i = alloca i64, align 8
-  %i.i = alloca i32, align 4
-  %leaf72.i = alloca ptr, align 8
-  %subkey134.i = alloca i64, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %rtree.addr = alloca ptr, align 8
-  %rtree_ctx.addr = alloca ptr, align 8
-  %key.addr = alloca i64, align 8
-  %elm = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %rtree, ptr %rtree.addr, align 8
-  store ptr %rtree_ctx, ptr %rtree_ctx.addr, align 8
-  store i64 %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %rtree.addr, align 8
-  %2 = load ptr, ptr %rtree_ctx.addr, align 8
-  %3 = load i64, ptr %key.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i, align 8
-  store ptr %1, ptr %rtree.addr.i, align 8
-  store ptr %2, ptr %rtree_ctx.addr.i, align 8
-  store i64 %3, ptr %key.addr.i, align 8
-  store i8 1, ptr %dependent.addr.i, align 1
-  store i8 0, ptr %init_missing.addr.i, align 1
-  %4 = load i64, ptr %key.addr.i, align 8
-  store i64 %4, ptr %key.addr.i5, align 8
-  %5 = load i64, ptr %key.addr.i5, align 8
-  store i32 64, ptr %ptrbits.i61, align 4
-  store i32 34, ptr %cumbits.i62, align 4
-  %6 = load i32, ptr %ptrbits.i61, align 4
-  %7 = load i32, ptr %cumbits.i62, align 4
-  %sub.i63 = sub i32 %6, %7
-  %sh_prom.i = zext i32 %sub.i63 to i64
-  %shr.i = lshr i64 %5, %sh_prom.i
-  %and.i = and i64 %shr.i, 15
-  store i64 %and.i, ptr %slot.i, align 8
-  %8 = load i64, ptr %key.addr.i, align 8
-  store i64 %8, ptr %key.addr.i7, align 8
-  store i32 64, ptr %ptrbits.i58, align 4
-  store i32 34, ptr %cumbits.i59, align 4
-  %9 = load i32, ptr %ptrbits.i58, align 4
-  %10 = load i32, ptr %cumbits.i59, align 4
-  %sub.i60 = sub i32 %9, %10
-  %sh_prom.i8 = zext i32 %sub.i60 to i64
-  %shl.i = shl i64 1, %sh_prom.i8
-  %sub.i9 = sub i64 %shl.i, 1
-  %not.i = xor i64 %sub.i9, -1
-  store i64 %not.i, ptr %mask.i, align 8
-  %11 = load i64, ptr %key.addr.i7, align 8
-  %12 = load i64, ptr %mask.i, align 8
-  %and.i10 = and i64 %11, %12
-  store i64 %and.i10, ptr %leafkey.i, align 8
-  %13 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %14 = load i64, ptr %slot.i, align 8
-  %arrayidx.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %13, i64 0, i64 %14
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %16 = load i64, ptr %leafkey.i, align 8
-  %cmp.i = icmp eq i64 %15, %16
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_witness_tsdp_get(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !54
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !28
+  br label %6
 
-if.then.i:                                        ; preds = %entry
-  %17 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %18 = load i64, ptr %slot.i, align 8
-  %arrayidx10.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %17, i64 0, i64 %18
-  %leaf11.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx10.i, i32 0, i32 1
-  %19 = load ptr, ptr %leaf11.i, align 8
-  store ptr %19, ptr %leaf.i, align 8
-  %20 = load i64, ptr %key.addr.i, align 8
-  store i64 %20, ptr %key.addr.i11, align 8
-  store i32 1, ptr %level.addr.i, align 4
-  store i32 64, ptr %ptrbits.i, align 4
-  %21 = load i32, ptr %level.addr.i, align 4
-  %idxprom.i13 = zext i32 %21 to i64
-  %arrayidx.i14 = getelementptr inbounds [2 x %struct.rtree_level_s], ptr @rtree_levels, i64 0, i64 %idxprom.i13
-  %cumbits1.i = getelementptr inbounds %struct.rtree_level_s, ptr %arrayidx.i14, i32 0, i32 1
-  %22 = load i32, ptr %cumbits1.i, align 4
-  store i32 %22, ptr %cumbits.i, align 4
-  %23 = load i32, ptr %ptrbits.i, align 4
-  %24 = load i32, ptr %cumbits.i, align 4
-  %sub.i15 = sub i32 %23, %24
-  store i32 %sub.i15, ptr %shiftbits.i, align 4
-  %25 = load i32, ptr %level.addr.i, align 4
-  %idxprom2.i = zext i32 %25 to i64
-  %arrayidx3.i = getelementptr inbounds [2 x %struct.rtree_level_s], ptr @rtree_levels, i64 0, i64 %idxprom2.i
-  %26 = load i32, ptr %arrayidx3.i, align 8
-  store i32 %26, ptr %maskbits.i, align 4
-  %27 = load i32, ptr %maskbits.i, align 4
-  %sh_prom.i16 = zext i32 %27 to i64
-  %shl.i17 = shl i64 1, %sh_prom.i16
-  %sub4.i = sub i64 %shl.i17, 1
-  store i64 %sub4.i, ptr %mask.i12, align 8
-  %28 = load i64, ptr %key.addr.i11, align 8
-  %29 = load i32, ptr %shiftbits.i, align 4
-  %sh_prom5.i = zext i32 %29 to i64
-  %shr.i18 = lshr i64 %28, %sh_prom5.i
-  %30 = load i64, ptr %mask.i12, align 8
-  %and.i19 = and i64 %shr.i18, %30
-  store i64 %and.i19, ptr %subkey.i, align 8
-  %31 = load ptr, ptr %leaf.i, align 8
-  %32 = load i64, ptr %subkey.i, align 8
-  %arrayidx15.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %31, i64 %32
-  store ptr %arrayidx15.i, ptr %retval.i, align 8
-  br label %rtree_leaf_elm_lookup.exit
+6:                                                ; preds = %1
+  br label %7
 
-if.end.i:                                         ; preds = %entry
-  %33 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %33, i32 0, i32 1
-  %34 = load i64, ptr %l2_cache.i, align 8
-  %35 = load i64, ptr %leafkey.i, align 8
-  %cmp19.i = icmp eq i64 %34, %35
-  br i1 %cmp19.i, label %if.then27.i, label %if.end55.i
+7:                                                ; preds = %6
+  br label %8
 
-if.then27.i:                                      ; preds = %if.end.i
-  %36 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache29.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %36, i32 0, i32 1
-  %leaf31.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %l2_cache29.i, i32 0, i32 1
-  %37 = load ptr, ptr %leaf31.i, align 8
-  store ptr %37, ptr %leaf28.i, align 8
-  %38 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %39 = load i64, ptr %slot.i, align 8
-  %arrayidx35.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %38, i64 0, i64 %39
-  %40 = load i64, ptr %arrayidx35.i, align 8
-  %41 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache37.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %41, i32 0, i32 1
-  store i64 %40, ptr %l2_cache37.i, align 8
-  %42 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %43 = load i64, ptr %slot.i, align 8
-  %arrayidx41.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %42, i64 0, i64 %43
-  %leaf42.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx41.i, i32 0, i32 1
-  %44 = load ptr, ptr %leaf42.i, align 8
-  %45 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache43.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %45, i32 0, i32 1
-  %leaf45.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %l2_cache43.i, i32 0, i32 1
-  store ptr %44, ptr %leaf45.i, align 8
-  %46 = load i64, ptr %leafkey.i, align 8
-  %47 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %48 = load i64, ptr %slot.i, align 8
-  %arrayidx47.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %47, i64 0, i64 %48
-  store i64 %46, ptr %arrayidx47.i, align 8
-  %49 = load ptr, ptr %leaf28.i, align 8
-  %50 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %51 = load i64, ptr %slot.i, align 8
-  %arrayidx50.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %50, i64 0, i64 %51
-  %leaf51.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx50.i, i32 0, i32 1
-  store ptr %49, ptr %leaf51.i, align 8
-  %52 = load i64, ptr %key.addr.i, align 8
-  store i64 %52, ptr %key.addr.i20, align 8
-  store i32 1, ptr %level.addr.i21, align 4
-  store i32 64, ptr %ptrbits.i22, align 4
-  %53 = load i32, ptr %level.addr.i21, align 4
-  %idxprom.i27 = zext i32 %53 to i64
-  %arrayidx.i28 = getelementptr inbounds [2 x %struct.rtree_level_s], ptr @rtree_levels, i64 0, i64 %idxprom.i27
-  %cumbits1.i29 = getelementptr inbounds %struct.rtree_level_s, ptr %arrayidx.i28, i32 0, i32 1
-  %54 = load i32, ptr %cumbits1.i29, align 4
-  store i32 %54, ptr %cumbits.i23, align 4
-  %55 = load i32, ptr %ptrbits.i22, align 4
-  %56 = load i32, ptr %cumbits.i23, align 4
-  %sub.i30 = sub i32 %55, %56
-  store i32 %sub.i30, ptr %shiftbits.i24, align 4
-  %57 = load i32, ptr %level.addr.i21, align 4
-  %idxprom2.i31 = zext i32 %57 to i64
-  %arrayidx3.i32 = getelementptr inbounds [2 x %struct.rtree_level_s], ptr @rtree_levels, i64 0, i64 %idxprom2.i31
-  %58 = load i32, ptr %arrayidx3.i32, align 8
-  store i32 %58, ptr %maskbits.i25, align 4
-  %59 = load i32, ptr %maskbits.i25, align 4
-  %sh_prom.i33 = zext i32 %59 to i64
-  %shl.i34 = shl i64 1, %sh_prom.i33
-  %sub4.i35 = sub i64 %shl.i34, 1
-  store i64 %sub4.i35, ptr %mask.i26, align 8
-  %60 = load i64, ptr %key.addr.i20, align 8
-  %61 = load i32, ptr %shiftbits.i24, align 4
-  %sh_prom5.i36 = zext i32 %61 to i64
-  %shr.i37 = lshr i64 %60, %sh_prom5.i36
-  %62 = load i64, ptr %mask.i26, align 8
-  %and.i38 = and i64 %shr.i37, %62
-  store i64 %and.i38, ptr %subkey52.i, align 8
-  %63 = load ptr, ptr %leaf28.i, align 8
-  %64 = load i64, ptr %subkey52.i, align 8
-  %arrayidx54.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %63, i64 %64
-  store ptr %arrayidx54.i, ptr %retval.i, align 8
-  br label %rtree_leaf_elm_lookup.exit
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !54
+  %10 = call ptr @tsd_witness_tsdp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #7
+  ret ptr %10
+}
 
-if.end55.i:                                       ; preds = %if.end.i
-  store i32 1, ptr %i.i, align 4
-  br label %for.cond.i
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_witness_tsdp_get_unsafe(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 37
+  ret ptr %4
+}
 
-for.cond.i:                                       ; preds = %if.end137.i, %if.end55.i
-  %65 = load i32, ptr %i.i, align 4
-  %cmp57.i = icmp ult i32 %65, 8
-  br i1 %cmp57.i, label %for.body.i, label %for.end.i
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_trylock(ptr noundef) #6
 
-for.body.i:                                       ; preds = %for.cond.i
-  %66 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache60.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %66, i32 0, i32 1
-  %67 = load i32, ptr %i.i, align 4
-  %idxprom.i = zext i32 %67 to i64
-  %arrayidx61.i = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %l2_cache60.i, i64 0, i64 %idxprom.i
-  %68 = load i64, ptr %arrayidx61.i, align 8
-  %69 = load i64, ptr %leafkey.i, align 8
-  %cmp63.i = icmp eq i64 %68, %69
-  br i1 %cmp63.i, label %if.then71.i, label %if.end137.i
-
-if.then71.i:                                      ; preds = %for.body.i
-  %70 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache73.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %70, i32 0, i32 1
-  %71 = load i32, ptr %i.i, align 4
-  %idxprom74.i = zext i32 %71 to i64
-  %arrayidx75.i = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %l2_cache73.i, i64 0, i64 %idxprom74.i
-  %leaf76.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx75.i, i32 0, i32 1
-  %72 = load ptr, ptr %leaf76.i, align 8
-  store ptr %72, ptr %leaf72.i, align 8
-  %73 = load i32, ptr %i.i, align 4
-  %cmp79.i = icmp ugt i32 %73, 0
-  br i1 %cmp79.i, label %if.then81.i, label %if.else.i
-
-if.then81.i:                                      ; preds = %if.then71.i
-  %74 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache82.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %74, i32 0, i32 1
-  %75 = load i32, ptr %i.i, align 4
-  %sub.i = sub i32 %75, 1
-  %idxprom83.i = zext i32 %sub.i to i64
-  %arrayidx84.i = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %l2_cache82.i, i64 0, i64 %idxprom83.i
-  %76 = load i64, ptr %arrayidx84.i, align 8
-  %77 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache86.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %77, i32 0, i32 1
-  %78 = load i32, ptr %i.i, align 4
-  %idxprom87.i = zext i32 %78 to i64
-  %arrayidx88.i = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %l2_cache86.i, i64 0, i64 %idxprom87.i
-  store i64 %76, ptr %arrayidx88.i, align 8
-  %79 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache90.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %79, i32 0, i32 1
-  %80 = load i32, ptr %i.i, align 4
-  %sub91.i = sub i32 %80, 1
-  %idxprom92.i = zext i32 %sub91.i to i64
-  %arrayidx93.i = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %l2_cache90.i, i64 0, i64 %idxprom92.i
-  %leaf94.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx93.i, i32 0, i32 1
-  %81 = load ptr, ptr %leaf94.i, align 8
-  %82 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache95.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %82, i32 0, i32 1
-  %83 = load i32, ptr %i.i, align 4
-  %idxprom96.i = zext i32 %83 to i64
-  %arrayidx97.i = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %l2_cache95.i, i64 0, i64 %idxprom96.i
-  %leaf98.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx97.i, i32 0, i32 1
-  store ptr %81, ptr %leaf98.i, align 8
-  %84 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %85 = load i64, ptr %slot.i, align 8
-  %arrayidx100.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %84, i64 0, i64 %85
-  %86 = load i64, ptr %arrayidx100.i, align 8
-  %87 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache102.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %87, i32 0, i32 1
-  %88 = load i32, ptr %i.i, align 4
-  %sub103.i = sub i32 %88, 1
-  %idxprom104.i = zext i32 %sub103.i to i64
-  %arrayidx105.i = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %l2_cache102.i, i64 0, i64 %idxprom104.i
-  store i64 %86, ptr %arrayidx105.i, align 8
-  %89 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %90 = load i64, ptr %slot.i, align 8
-  %arrayidx108.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %89, i64 0, i64 %90
-  %leaf109.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx108.i, i32 0, i32 1
-  %91 = load ptr, ptr %leaf109.i, align 8
-  %92 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache110.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %92, i32 0, i32 1
-  %93 = load i32, ptr %i.i, align 4
-  %sub111.i = sub i32 %93, 1
-  %idxprom112.i = zext i32 %sub111.i to i64
-  %arrayidx113.i = getelementptr inbounds [8 x %struct.rtree_ctx_cache_elm_s], ptr %l2_cache110.i, i64 0, i64 %idxprom112.i
-  %leaf114.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx113.i, i32 0, i32 1
-  store ptr %91, ptr %leaf114.i, align 8
-  br label %if.end127.i
-
-if.else.i:                                        ; preds = %if.then71.i
-  %94 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %95 = load i64, ptr %slot.i, align 8
-  %arrayidx116.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %94, i64 0, i64 %95
-  %96 = load i64, ptr %arrayidx116.i, align 8
-  %97 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache118.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %97, i32 0, i32 1
-  store i64 %96, ptr %l2_cache118.i, align 8
-  %98 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %99 = load i64, ptr %slot.i, align 8
-  %arrayidx122.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %98, i64 0, i64 %99
-  %leaf123.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx122.i, i32 0, i32 1
-  %100 = load ptr, ptr %leaf123.i, align 8
-  %101 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %l2_cache124.i = getelementptr inbounds %struct.rtree_ctx_s, ptr %101, i32 0, i32 1
-  %leaf126.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %l2_cache124.i, i32 0, i32 1
-  store ptr %100, ptr %leaf126.i, align 8
-  br label %if.end127.i
-
-if.end127.i:                                      ; preds = %if.else.i, %if.then81.i
-  %102 = load i64, ptr %leafkey.i, align 8
-  %103 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %104 = load i64, ptr %slot.i, align 8
-  %arrayidx129.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %103, i64 0, i64 %104
-  store i64 %102, ptr %arrayidx129.i, align 8
-  %105 = load ptr, ptr %leaf72.i, align 8
-  %106 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %107 = load i64, ptr %slot.i, align 8
-  %arrayidx132.i = getelementptr inbounds [16 x %struct.rtree_ctx_cache_elm_s], ptr %106, i64 0, i64 %107
-  %leaf133.i = getelementptr inbounds %struct.rtree_ctx_cache_elm_s, ptr %arrayidx132.i, i32 0, i32 1
-  store ptr %105, ptr %leaf133.i, align 8
-  %108 = load i64, ptr %key.addr.i, align 8
-  store i64 %108, ptr %key.addr.i39, align 8
-  store i32 1, ptr %level.addr.i40, align 4
-  store i32 64, ptr %ptrbits.i41, align 4
-  %109 = load i32, ptr %level.addr.i40, align 4
-  %idxprom.i46 = zext i32 %109 to i64
-  %arrayidx.i47 = getelementptr inbounds [2 x %struct.rtree_level_s], ptr @rtree_levels, i64 0, i64 %idxprom.i46
-  %cumbits1.i48 = getelementptr inbounds %struct.rtree_level_s, ptr %arrayidx.i47, i32 0, i32 1
-  %110 = load i32, ptr %cumbits1.i48, align 4
-  store i32 %110, ptr %cumbits.i42, align 4
-  %111 = load i32, ptr %ptrbits.i41, align 4
-  %112 = load i32, ptr %cumbits.i42, align 4
-  %sub.i49 = sub i32 %111, %112
-  store i32 %sub.i49, ptr %shiftbits.i43, align 4
-  %113 = load i32, ptr %level.addr.i40, align 4
-  %idxprom2.i50 = zext i32 %113 to i64
-  %arrayidx3.i51 = getelementptr inbounds [2 x %struct.rtree_level_s], ptr @rtree_levels, i64 0, i64 %idxprom2.i50
-  %114 = load i32, ptr %arrayidx3.i51, align 8
-  store i32 %114, ptr %maskbits.i44, align 4
-  %115 = load i32, ptr %maskbits.i44, align 4
-  %sh_prom.i52 = zext i32 %115 to i64
-  %shl.i53 = shl i64 1, %sh_prom.i52
-  %sub4.i54 = sub i64 %shl.i53, 1
-  store i64 %sub4.i54, ptr %mask.i45, align 8
-  %116 = load i64, ptr %key.addr.i39, align 8
-  %117 = load i32, ptr %shiftbits.i43, align 4
-  %sh_prom5.i55 = zext i32 %117 to i64
-  %shr.i56 = lshr i64 %116, %sh_prom5.i55
-  %118 = load i64, ptr %mask.i45, align 8
-  %and.i57 = and i64 %shr.i56, %118
-  store i64 %and.i57, ptr %subkey134.i, align 8
-  %119 = load ptr, ptr %leaf72.i, align 8
-  %120 = load i64, ptr %subkey134.i, align 8
-  %arrayidx136.i = getelementptr inbounds %struct.rtree_leaf_elm_s, ptr %119, i64 %120
-  store ptr %arrayidx136.i, ptr %retval.i, align 8
-  br label %rtree_leaf_elm_lookup.exit
-
-if.end137.i:                                      ; preds = %for.body.i
-  %121 = load i32, ptr %i.i, align 4
-  %inc.i = add i32 %121, 1
-  store i32 %inc.i, ptr %i.i, align 4
-  br label %for.cond.i, !llvm.loop !5
-
-for.end.i:                                        ; preds = %for.cond.i
-  %122 = load ptr, ptr %tsdn.addr.i, align 8
-  %123 = load ptr, ptr %rtree.addr.i, align 8
-  %124 = load ptr, ptr %rtree_ctx.addr.i, align 8
-  %125 = load i64, ptr %key.addr.i, align 8
-  %126 = load i8, ptr %dependent.addr.i, align 1
-  %tobool139.i = trunc i8 %126 to i1
-  %127 = load i8, ptr %init_missing.addr.i, align 1
-  %tobool140.i = trunc i8 %127 to i1
-  %call141.i = call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %122, ptr noundef %123, ptr noundef %124, i64 noundef %125, i1 noundef zeroext %tobool139.i, i1 noundef zeroext %tobool140.i) #4
-  store ptr %call141.i, ptr %retval.i, align 8
-  br label %rtree_leaf_elm_lookup.exit
-
-rtree_leaf_elm_lookup.exit:                       ; preds = %for.end.i, %if.end127.i, %if.then27.i, %if.then.i
-  %128 = load ptr, ptr %retval.i, align 8
-  store ptr %128, ptr %elm, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %rtree_leaf_elm_lookup.exit
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %129 = load ptr, ptr %tsdn.addr, align 8
-  %130 = load ptr, ptr %rtree.addr, align 8
-  %131 = load ptr, ptr %elm, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  store ptr %129, ptr %tsdn.addr.i1, align 8, !noalias !7
-  store ptr %130, ptr %rtree.addr.i2, align 8, !noalias !7
-  store ptr %131, ptr %elm.addr.i, align 8, !noalias !7
-  store i8 1, ptr %dependent.addr.i3, align 1, !noalias !7
-  %132 = load ptr, ptr %tsdn.addr.i1, align 8, !noalias !7
-  %133 = load ptr, ptr %rtree.addr.i2, align 8, !noalias !7
-  %134 = load ptr, ptr %elm.addr.i, align 8, !noalias !7
-  %135 = load i8, ptr %dependent.addr.i3, align 1, !noalias !7
-  %tobool.i = trunc i8 %135 to i1
-  store ptr %132, ptr %tsdn.addr.i64, align 8, !noalias !7
-  store ptr %133, ptr %rtree.addr.i65, align 8, !noalias !7
-  store ptr %134, ptr %elm.addr.i66, align 8, !noalias !7
-  %frombool.i = zext i1 %tobool.i to i8
-  store i8 %frombool.i, ptr %dependent.addr.i67, align 1, !noalias !7
-  %136 = load ptr, ptr %elm.addr.i66, align 8, !noalias !7
-  %137 = load i8, ptr %dependent.addr.i67, align 1, !noalias !7
-  %tobool.i68 = trunc i8 %137 to i1
-  %cond.i = select i1 %tobool.i68, i32 0, i32 1
-  store ptr %136, ptr %a.addr.i.i, align 8, !noalias !7
-  store i32 %cond.i, ptr %mo.addr.i.i, align 4, !noalias !7
-  %138 = load ptr, ptr %a.addr.i.i, align 8, !noalias !7
-  %139 = load i32, ptr %mo.addr.i.i, align 4, !noalias !7
-  store i32 %139, ptr %mo.addr.i, align 4, !noalias !7
-  %140 = load i32, ptr %mo.addr.i, align 4, !noalias !7
-  switch i32 %140, label %sw.epilog.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_store_b(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %5, align 1, !tbaa !56
+  store i32 %2, ptr %6, align 4, !tbaa !32
+  %8 = load ptr, ptr %4, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw %struct.atomic_b_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %6, align 4, !tbaa !32
+  %11 = call i32 @atomic_enum_to_builtin(i32 noundef %10)
+  switch i32 %11, label %12 [
+    i32 3, label %14
+    i32 5, label %16
   ]
 
-sw.bb.i:                                          ; preds = %do.end
-  store i32 0, ptr %retval.i75, align 4, !noalias !7
-  br label %atomic_enum_to_builtin.exit
+12:                                               ; preds = %3
+  %13 = load i8, ptr %5, align 1
+  store atomic i8 %13, ptr %9 monotonic, align 1
+  br label %18
 
-sw.bb1.i:                                         ; preds = %do.end
-  store i32 2, ptr %retval.i75, align 4, !noalias !7
-  br label %atomic_enum_to_builtin.exit
+14:                                               ; preds = %3
+  %15 = load i8, ptr %5, align 1
+  store atomic i8 %15, ptr %9 release, align 1
+  br label %18
 
-sw.bb2.i:                                         ; preds = %do.end
-  store i32 3, ptr %retval.i75, align 4, !noalias !7
-  br label %atomic_enum_to_builtin.exit
+16:                                               ; preds = %3
+  %17 = load i8, ptr %5, align 1
+  store atomic i8 %17, ptr %9 seq_cst, align 1
+  br label %18
 
-sw.bb3.i:                                         ; preds = %do.end
-  store i32 4, ptr %retval.i75, align 4, !noalias !7
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb4.i:                                         ; preds = %do.end
-  store i32 5, ptr %retval.i75, align 4, !noalias !7
-  br label %atomic_enum_to_builtin.exit
-
-sw.epilog.i:                                      ; preds = %do.end
-  unreachable
-
-atomic_enum_to_builtin.exit:                      ; preds = %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %141 = load i32, ptr %retval.i75, align 4, !noalias !7
-  switch i32 %141, label %monotonic.i.i [
-    i32 1, label %acquire.i.i
-    i32 2, label %acquire.i.i
-    i32 5, label %seqcst.i.i
-  ]
-
-monotonic.i.i:                                    ; preds = %atomic_enum_to_builtin.exit
-  %142 = load atomic i64, ptr %138 monotonic, align 8, !noalias !7
-  store i64 %142, ptr %result.i.i, align 8, !noalias !7
-  br label %rtree_leaf_elm_bits_read.exit
-
-acquire.i.i:                                      ; preds = %atomic_enum_to_builtin.exit, %atomic_enum_to_builtin.exit
-  %143 = load atomic i64, ptr %138 acquire, align 8, !noalias !7
-  store i64 %143, ptr %result.i.i, align 8, !noalias !7
-  br label %rtree_leaf_elm_bits_read.exit
-
-seqcst.i.i:                                       ; preds = %atomic_enum_to_builtin.exit
-  %144 = load atomic i64, ptr %138 seq_cst, align 8, !noalias !7
-  store i64 %144, ptr %result.i.i, align 8, !noalias !7
-  br label %rtree_leaf_elm_bits_read.exit
-
-rtree_leaf_elm_bits_read.exit:                    ; preds = %seqcst.i.i, %acquire.i.i, %monotonic.i.i
-  %145 = load ptr, ptr %result.i.i, align 8, !noalias !7
-  %146 = ptrtoint ptr %145 to i64
-  store i64 %146, ptr %bits.i, align 8, !noalias !7
-  %147 = load i64, ptr %bits.i, align 8, !noalias !7
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  store i64 %147, ptr %bits.addr.i, align 8, !noalias !10
-  %148 = load i64, ptr %bits.addr.i, align 8, !noalias !10
-  %shr.i69 = lshr i64 %148, 48
-  %conv.i70 = trunc i64 %shr.i69 to i32
-  %metadata.i = getelementptr inbounds %struct.rtree_contents_s, ptr %agg.result, i32 0, i32 1
-  store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !10
-  %149 = load i64, ptr %bits.addr.i, align 8, !noalias !10
-  %and.i71 = and i64 %149, 1
-  %tobool.i72 = icmp ne i64 %and.i71, 0
-  %metadata1.i = getelementptr inbounds %struct.rtree_contents_s, ptr %agg.result, i32 0, i32 1
-  %slab.i = getelementptr inbounds %struct.rtree_metadata_s, ptr %metadata1.i, i32 0, i32 3
-  %frombool.i73 = zext i1 %tobool.i72 to i8
-  store i8 %frombool.i73, ptr %slab.i, align 1, !alias.scope !10
-  %150 = load i64, ptr %bits.addr.i, align 8, !noalias !10
-  %and2.i = and i64 %150, 2
-  %tobool3.i = icmp ne i64 %and2.i, 0
-  %metadata4.i = getelementptr inbounds %struct.rtree_contents_s, ptr %agg.result, i32 0, i32 1
-  %is_head.i = getelementptr inbounds %struct.rtree_metadata_s, ptr %metadata4.i, i32 0, i32 2
-  %frombool5.i = zext i1 %tobool3.i to i8
-  store i8 %frombool5.i, ptr %is_head.i, align 8, !alias.scope !10
-  %151 = load i64, ptr %bits.addr.i, align 8, !noalias !10
-  %and6.i = and i64 %151, 28
-  %shr7.i = lshr i64 %and6.i, 2
-  store i64 %shr7.i, ptr %state_bits.i, align 8, !noalias !10
-  %152 = load i64, ptr %state_bits.i, align 8, !noalias !10
-  %conv8.i = trunc i64 %152 to i32
-  %metadata9.i = getelementptr inbounds %struct.rtree_contents_s, ptr %agg.result, i32 0, i32 1
-  %state.i = getelementptr inbounds %struct.rtree_metadata_s, ptr %metadata9.i, i32 0, i32 1
-  store i32 %conv8.i, ptr %state.i, align 4, !alias.scope !10
-  store i64 -128, ptr %low_bit_mask.i, align 8, !noalias !10
-  %153 = load i64, ptr %bits.addr.i, align 8, !noalias !10
-  %shl.i74 = shl i64 %153, 16
-  %shr10.i = ashr i64 %shl.i74, 16
-  %154 = load i64, ptr %low_bit_mask.i, align 8, !noalias !10
-  %and11.i = and i64 %shr10.i, %154
-  %155 = inttoptr i64 %and11.i to ptr
-  store ptr %155, ptr %agg.result, align 8, !alias.scope !10
+18:                                               ; preds = %16, %14, %12
   ret void
 }
 
-declare void @rtree_ctx_data_init(ptr noundef) #1
-
-declare ptr @rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @edata_szind_get_maybe_invalid(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %szind = alloca i32, align 4
-  store ptr %edata, ptr %edata.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, 267386880
-  %shr = lshr i64 %and, 20
-  %conv = trunc i64 %shr to i32
-  store i32 %conv, ptr %szind, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %2 = load i32, ptr %szind, align 4
-  ret i32 %2
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @witness_assert_not_owner(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @malloc_mutex_trylock_final(ptr noundef %mutex) #0 {
-entry:
-  %mutex.addr = alloca ptr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %lock = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 2
-  %call = call i32 @pthread_mutex_trylock(ptr noundef %lock) #4
-  %cmp = icmp ne i32 %call, 0
-  ret i1 %cmp
-}
-
-declare void @malloc_mutex_lock_slow(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @mutex_owner_stats_update(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  %data = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %prof_data = getelementptr inbounds %struct.anon, ptr %1, i32 0, i32 0
-  store ptr %prof_data, ptr %data, align 8
-  %2 = load ptr, ptr %data, align 8
-  %n_lock_ops = getelementptr inbounds %struct.mutex_prof_data_t, ptr %2, i32 0, i32 8
-  %3 = load i64, ptr %n_lock_ops, align 8
-  %inc = add i64 %3, 1
-  store i64 %inc, ptr %n_lock_ops, align 8
-  %4 = load ptr, ptr %data, align 8
-  %prev_owner = getelementptr inbounds %struct.mutex_prof_data_t, ptr %4, i32 0, i32 7
-  %5 = load ptr, ptr %prev_owner, align 8
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %cmp = icmp ne ptr %5, %6
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %tsdn.addr, align 8
-  %8 = load ptr, ptr %data, align 8
-  %prev_owner1 = getelementptr inbounds %struct.mutex_prof_data_t, ptr %8, i32 0, i32 7
-  store ptr %7, ptr %prev_owner1, align 8
-  %9 = load ptr, ptr %data, align 8
-  %n_owner_switches = getelementptr inbounds %struct.mutex_prof_data_t, ptr %9, i32 0, i32 6
-  %10 = load i64, ptr %n_owner_switches, align 8
-  %inc2 = add i64 %10, 1
-  store i64 %inc2, ptr %n_owner_switches, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @witness_lock(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_unlock(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !71
+  store ptr %1, ptr %4, align 8, !tbaa !73
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) #2
+declare i32 @pthread_mutex_unlock(ptr noundef) #6
 
-; Function Attrs: nounwind uwtable
-define internal void @witness_unlock(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
-  ret void
-}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
 
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #3
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #4 = { nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"rtree_leaf_elm_read: %agg.result"}
-!9 = distinct !{!9, !"rtree_leaf_elm_read"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"rtree_leaf_elm_bits_decode: %agg.result"}
-!12 = distinct !{!12, !"rtree_leaf_elm_bits_decode"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS6tsdn_s", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!6, !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 long", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS7edata_s", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!17, !18, i64 16}
+!17 = !{!"bin_info_s", !15, i64 0, !15, i64 8, !18, i64 16, !18, i64 20, !19, i64 24}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!"bitmap_info_s", !15, i64 0, !15, i64 8}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS6emap_s", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS11rtree_ctx_s", !6, i64 0}
+!24 = !{!25, !13, i64 0}
+!25 = !{!"rtree_contents_s", !13, i64 0, !26, i64 8}
+!26 = !{!"rtree_metadata_s", !18, i64 0, !18, i64 4, !27, i64 8, !27, i64 9}
+!27 = !{!"_Bool", !7, i64 0}
+!28 = !{!7, !7, i64 0}
+!29 = !{!30, !15, i64 0}
+!30 = !{!"edata_s", !15, i64 0, !6, i64 8, !7, i64 16, !31, i64 24, !15, i64 32, !7, i64 40, !7, i64 64}
+!31 = !{!"p1 _ZTS8hpdata_s", !6, i64 0}
+!32 = !{!18, !18, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS7arena_s", !6, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS5bin_s", !6, i64 0}
+!37 = !{!38, !15, i64 176}
+!38 = !{!"bin_s", !39, i64 0, !40, i64 112, !13, i64 224, !41, i64 232, !43, i64 248}
+!39 = !{!"malloc_mutex_s", !7, i64 0}
+!40 = !{!"bin_stats_s", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104}
+!41 = !{!"", !42, i64 0}
+!42 = !{!"ph_s", !6, i64 0, !15, i64 8}
+!43 = !{!"", !44, i64 0}
+!44 = !{!"", !13, i64 0}
+!45 = !{!38, !15, i64 136}
+!46 = !{!38, !13, i64 224}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS14malloc_mutex_s", !6, i64 0}
+!49 = !{!30, !6, i64 8}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS7rtree_s", !6, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS16rtree_leaf_elm_s", !6, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS5tsd_s", !6, i64 0}
+!56 = !{!27, !27, i64 0}
+!57 = !{!58, !15, i64 0}
+!58 = !{!"rtree_ctx_cache_elm_s", !15, i64 0, !53, i64 8}
+!59 = !{!58, !53, i64 8}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.mustprogress"}
+!62 = !{i8 0, i8 2}
+!63 = !{}
+!64 = !{!65, !18, i64 4}
+!65 = !{!"rtree_level_s", !18, i64 0, !18, i64 4}
+!66 = !{!65, !18, i64 0}
+!67 = !{!25, !18, i64 8}
+!68 = !{!25, !27, i64 17}
+!69 = !{!25, !27, i64 16}
+!70 = !{!25, !18, i64 12}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTS14witness_tsdn_s", !6, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS9witness_s", !6, i64 0}
+!75 = !{!76, !15, i64 56}
+!76 = !{!"", !77, i64 0, !77, i64 8, !15, i64 16, !15, i64 24, !18, i64 32, !78, i64 36, !15, i64 40, !5, i64 48, !15, i64 56}
+!77 = !{!"", !15, i64 0}
+!78 = !{!"", !18, i64 0}
+!79 = !{!76, !5, i64 48}
+!80 = !{!76, !15, i64 40}

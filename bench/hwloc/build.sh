@@ -13,3 +13,4 @@ export CXXFLAGS=$OPTIMIZATION
 ./autogen.sh
 ./configure
 make -j
+git clean -fdx

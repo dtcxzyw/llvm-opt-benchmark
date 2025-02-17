@@ -1,21 +1,21 @@
 ; ModuleID = 'bench/jemalloc/original/pages.ll'
 source_filename = "bench/jemalloc/original/pages.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [8 x i8] c"default\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"always\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"never\00", align 1
 @.str.3 = private unnamed_addr constant [14 x i8] c"not supported\00", align 1
-@thp_mode_names = hidden local_unnamed_addr constant [4 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3], align 16
-@opt_thp = hidden local_unnamed_addr global i32 0, align 4
-@os_page = hidden local_unnamed_addr global i64 0, align 8
+@je_thp_mode_names = hidden local_unnamed_addr constant [4 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3], align 16
+@je_opt_thp = hidden local_unnamed_addr global i32 0, align 4
+@je_os_page = hidden local_unnamed_addr global i64 0, align 8
 @pages_can_purge_lazy_runtime = internal unnamed_addr global i1 false, align 1
 @madvise_dont_need_zeros_is_faulty = internal unnamed_addr global i32 -1, align 4
-@init_system_thp_mode = hidden local_unnamed_addr global i32 0, align 4
+@je_init_system_thp_mode = hidden local_unnamed_addr global i32 0, align 4
 @.str.4 = private unnamed_addr constant [42 x i8] c"<jemalloc>: Unsupported system page size\0A\00", align 1
-@opt_abort = external local_unnamed_addr global i8, align 1
-@opt_trust_madvise = external local_unnamed_addr global i8, align 1
+@je_opt_abort = external local_unnamed_addr global i8, align 1
+@je_opt_trust_madvise = external local_unnamed_addr global i8, align 1
 @.str.5 = private unnamed_addr constant [71 x i8] c"<jemalloc>: MADV_DONTNEED does not work (memset will be used instead)\0A\00", align 1
 @.str.6 = private unnamed_addr constant [76 x i8] c"<jemalloc>: (This is the expected behaviour if you are running under QEMU)\0A\00", align 1
 @mmap_flags = internal unnamed_addr global i32 0, align 4
@@ -30,754 +30,795 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [44 x i8] c"/sys/kernel/mm/transparent_hugepage/enabled\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pages_map(ptr noundef %addr, i64 noundef %size, i64 noundef %alignment, ptr noundef captures(none) %commit) local_unnamed_addr #0 {
-entry:
-  %buf.i8.i.i = alloca [64 x i8], align 16
-  %buf.i.i.i = alloca [64 x i8], align 16
-  %buf.i = alloca [64 x i8], align 16
-  %call = tail call fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, ptr noundef %commit)
-  %cmp = icmp eq ptr %call, null
-  %cmp3 = icmp eq ptr %call, %addr
-  %or.cond = or i1 %cmp, %cmp3
-  br i1 %or.cond, label %return, label %do.end5
+define hidden ptr @je_pages_map(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+  %5 = alloca [64 x i8], align 16
+  %6 = alloca [64 x i8], align 16
+  %7 = alloca [64 x i8], align 16
+  %8 = tail call fastcc ptr @os_pages_map(ptr noundef %0, i64 noundef %1, ptr noundef %3)
+  %9 = icmp eq ptr %8, null
+  %10 = icmp eq ptr %8, %0
+  %or.cond = or i1 %9, %10
+  br i1 %or.cond, label %pages_map_slow.exit, label %11
 
-do.end5:                                          ; preds = %entry
-  %0 = ptrtoint ptr %call to i64
-  %sub = add i64 %alignment, -1
-  %and = and i64 %sub, %0
-  %cmp6.not = icmp eq i64 %and, 0
-  br i1 %cmp6.not, label %return, label %if.then7
+11:                                               ; preds = %4
+  %12 = ptrtoint ptr %8 to i64
+  %13 = add i64 %2, -1
+  %14 = and i64 %13, %12
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %pages_map_slow.exit, label %15
 
-if.then7:                                         ; preds = %do.end5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
-  %call.i = tail call i32 @munmap(ptr noundef nonnull %call, i64 noundef %size) #8
-  %cmp.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.i, label %if.then.i, label %os_pages_unmap.exit
+15:                                               ; preds = %11
+  %16 = tail call i32 @munmap(ptr noundef nonnull %8, i64 noundef %1) #10
+  %17 = icmp eq i32 %16, -1
+  br i1 %17, label %18, label %os_pages_unmap.exit
 
-if.then.i:                                        ; preds = %if.then7
-  %call.i.i = tail call ptr @__errno_location() #9
-  %1 = load i32, ptr %call.i.i, align 4
-  %call4.i = call i32 @buferror(i32 noundef %1, ptr noundef nonnull %buf.i, i64 noundef 64) #8
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i) #8
-  %2 = load i8, ptr @opt_abort, align 1
-  %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then6.i, label %os_pages_unmap.exit
+18:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
+  %19 = tail call ptr @__errno_location() #11
+  %20 = load i32, ptr %19, align 4, !tbaa !4
+  %21 = call i32 @je_buferror(i32 noundef %20, ptr noundef nonnull %7, i64 noundef 64) #10
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #10
+  %22 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %25
 
-if.then6.i:                                       ; preds = %if.then.i
-  call void @abort() #10
+24:                                               ; preds = %18
+  call void @abort() #12
   unreachable
 
-os_pages_unmap.exit:                              ; preds = %if.then7, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
-  %add.i = add i64 %alignment, %size
-  %3 = load i64, ptr @os_page, align 8
-  %sub.i = sub i64 %add.i, %3
-  %cmp.i11 = icmp ult i64 %sub.i, %size
-  br i1 %cmp.i11, label %return, label %do.body.i
+25:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  br label %os_pages_unmap.exit
 
-do.body.i:                                        ; preds = %os_pages_unmap.exit
-  %4 = load i8, ptr @os_overcommits, align 1
-  %tobool.i.i = trunc nuw i8 %4 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %entry.if.end_crit_edge.i.i
+os_pages_unmap.exit:                              ; preds = %15, %25
+  %26 = add i64 %2, %1
+  %27 = load i64, ptr @je_os_page, align 8, !tbaa !12
+  %28 = sub i64 %26, %27
+  %29 = icmp ult i64 %28, %1
+  br i1 %29, label %pages_map_slow.exit, label %.preheader.i
 
-entry.if.end_crit_edge.i.i:                       ; preds = %do.body.i
-  %.pre.i.i = load i8, ptr %commit, align 1
-  %5 = trunc i8 %.pre.i.i to i1
-  %6 = select i1 %5, i32 3, i32 0
-  br label %if.end.i.i
+.preheader.i:                                     ; preds = %os_pages_unmap.exit
+  %30 = sub i64 0, %2
+  br label %31
 
-if.then.i.i:                                      ; preds = %do.body.i
-  store i8 1, ptr %commit, align 1
-  br label %if.end.i.i
+31:                                               ; preds = %71, %.preheader.i
+  %32 = load i8, ptr @os_overcommits, align 1, !tbaa !8, !range !10, !noundef !11
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %36, label %._crit_edge.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i, %entry.if.end_crit_edge.i.i
-  %tobool5.i.i = phi i32 [ %6, %entry.if.end_crit_edge.i.i ], [ 3, %if.then.i.i ]
-  %7 = load i32, ptr @mmap_flags, align 4
-  %call.i.i12 = call ptr @mmap(ptr noundef null, i64 noundef %sub.i, i32 noundef %tobool5.i.i, i32 noundef %7, i32 noundef -1, i64 noundef 0) #8
-  %magicptr.i = ptrtoint ptr %call.i.i12 to i64
-  switch i64 %magicptr.i, label %if.end3.i [
-    i64 -1, label %return
-    i64 0, label %return
+._crit_edge.i.i:                                  ; preds = %31
+  %.pre.i.i = load i8, ptr %3, align 1, !tbaa !8, !range !10
+  %34 = trunc nuw i8 %.pre.i.i to i1
+  %35 = select i1 %34, i32 3, i32 0
+  br label %37
+
+36:                                               ; preds = %31
+  store i8 1, ptr %3, align 1, !tbaa !8
+  br label %37
+
+37:                                               ; preds = %36, %._crit_edge.i.i
+  %38 = phi i32 [ %35, %._crit_edge.i.i ], [ 3, %36 ]
+  %39 = load i32, ptr @mmap_flags, align 4, !tbaa !4
+  %40 = call ptr @mmap(ptr noundef null, i64 noundef %28, i32 noundef %38, i32 noundef %39, i32 noundef -1, i64 noundef 0) #10
+  %magicptr.i = ptrtoint ptr %40 to i64
+  switch i64 %magicptr.i, label %41 [
+    i64 -1, label %pages_map_slow.exit
+    i64 0, label %pages_map_slow.exit
   ]
 
-if.end3.i:                                        ; preds = %if.end.i.i
-  %add5.i = add i64 %sub, %magicptr.i
-  %add6.i = sub i64 0, %alignment
-  %and.i = and i64 %add5.i, %add6.i
-  %sub7.i = sub i64 %and.i, %magicptr.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i12, i64 %sub7.i
-  %8 = add i64 %sub7.i, %size
-  %sub1.i.i = sub i64 %sub.i, %8
-  %cmp.not.i.i = icmp eq i64 %and.i, %magicptr.i
-  br i1 %cmp.not.i.i, label %if.end.i14.i, label %if.then.i13.i
+41:                                               ; preds = %37
+  %42 = add i64 %13, %magicptr.i
+  %43 = and i64 %42, %30
+  %44 = sub i64 %43, %magicptr.i
+  %45 = add i64 %44, %1
+  %.not.i.i = icmp eq i64 %43, %magicptr.i
+  br i1 %.not.i.i, label %os_pages_unmap.exit.i.i, label %46
 
-if.then.i13.i:                                    ; preds = %if.end3.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i.i.i)
-  %call.i.i.i = call i32 @munmap(ptr noundef nonnull %call.i.i12, i64 noundef %sub7.i) #8
-  %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %os_pages_unmap.exit.i.i
+46:                                               ; preds = %41
+  %47 = call i32 @munmap(ptr noundef nonnull %40, i64 noundef %44) #10
+  %48 = icmp eq i32 %47, -1
+  br i1 %48, label %49, label %os_pages_unmap.exit.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then.i13.i
-  %call.i.i.i.i = tail call ptr @__errno_location() #9
-  %9 = load i32, ptr %call.i.i.i.i, align 4
-  %call4.i.i.i = call i32 @buferror(i32 noundef %9, ptr noundef nonnull %buf.i.i.i, i64 noundef 64) #8
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i.i.i) #8
-  %10 = load i8, ptr @opt_abort, align 1
-  %tobool.i.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i, label %if.then6.i.i.i, label %os_pages_unmap.exit.i.i
+49:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
+  %50 = tail call ptr @__errno_location() #11
+  %51 = load i32, ptr %50, align 4, !tbaa !4
+  %52 = call i32 @je_buferror(i32 noundef %51, ptr noundef nonnull %6, i64 noundef 64) #10
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #10
+  %53 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %55, label %56
 
-if.then6.i.i.i:                                   ; preds = %if.then.i.i.i
-  call void @abort() #10
+55:                                               ; preds = %49
+  call void @abort() #12
   unreachable
 
-os_pages_unmap.exit.i.i:                          ; preds = %if.then.i.i.i, %if.then.i13.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i.i.i)
-  br label %if.end.i14.i
+56:                                               ; preds = %49
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
+  br label %os_pages_unmap.exit.i.i
 
-if.end.i14.i:                                     ; preds = %os_pages_unmap.exit.i.i, %if.end3.i
-  %cmp2.not.i.i = icmp eq i64 %sub.i, %8
-  br i1 %cmp2.not.i.i, label %return, label %if.then3.i.i
+os_pages_unmap.exit.i.i:                          ; preds = %56, %46, %41
+  %.not13.i.i = icmp eq i64 %28, %45
+  br i1 %.not13.i.i, label %71, label %57
 
-if.then3.i.i:                                     ; preds = %if.end.i14.i
-  %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %size
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i8.i.i)
-  %call.i9.i.i = call i32 @munmap(ptr noundef nonnull %add.ptr4.i.i, i64 noundef %sub1.i.i) #8
-  %cmp.i10.i.i = icmp eq i32 %call.i9.i.i, -1
-  br i1 %cmp.i10.i.i, label %if.then.i11.i.i, label %os_pages_unmap.exit16.i.i
+57:                                               ; preds = %os_pages_unmap.exit.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 %44
+  %59 = sub i64 %28, %45
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %1
+  %61 = call i32 @munmap(ptr noundef nonnull %60, i64 noundef %59) #10
+  %62 = icmp eq i32 %61, -1
+  br i1 %62, label %63, label %pages_map_slow.exit
 
-if.then.i11.i.i:                                  ; preds = %if.then3.i.i
-  %call.i.i12.i.i = tail call ptr @__errno_location() #9
-  %11 = load i32, ptr %call.i.i12.i.i, align 4
-  %call4.i13.i.i = call i32 @buferror(i32 noundef %11, ptr noundef nonnull %buf.i8.i.i, i64 noundef 64) #8
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i8.i.i) #8
-  %12 = load i8, ptr @opt_abort, align 1
-  %tobool.i14.i.i = trunc i8 %12 to i1
-  br i1 %tobool.i14.i.i, label %if.then6.i15.i.i, label %os_pages_unmap.exit16.i.i
+63:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  %64 = tail call ptr @__errno_location() #11
+  %65 = load i32, ptr %64, align 4, !tbaa !4
+  %66 = call i32 @je_buferror(i32 noundef %65, ptr noundef nonnull %5, i64 noundef 64) #10
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #10
+  %67 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %70
 
-if.then6.i15.i.i:                                 ; preds = %if.then.i11.i.i
-  call void @abort() #10
+69:                                               ; preds = %63
+  call void @abort() #12
   unreachable
 
-os_pages_unmap.exit16.i.i:                        ; preds = %if.then.i11.i.i, %if.then3.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i8.i.i)
-  br label %return
+70:                                               ; preds = %63
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  br label %pages_map_slow.exit
 
-return:                                           ; preds = %os_pages_unmap.exit16.i.i, %if.end.i14.i, %if.end.i.i, %if.end.i.i, %os_pages_unmap.exit, %do.end5, %entry
-  %retval.0 = phi ptr [ %call, %entry ], [ %call, %do.end5 ], [ null, %os_pages_unmap.exit ], [ %add.ptr.i.i, %if.end.i14.i ], [ %add.ptr.i.i, %os_pages_unmap.exit16.i.i ], [ null, %if.end.i.i ], [ null, %if.end.i.i ]
-  ret ptr %retval.0
+71:                                               ; preds = %os_pages_unmap.exit.i.i
+  %72 = icmp eq ptr %40, null
+  br i1 %72, label %31, label %os_pages_trim.exit.loopexit.split.loop.exit.i, !llvm.loop !14
+
+os_pages_trim.exit.loopexit.split.loop.exit.i:    ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %40, i64 %44
+  br label %pages_map_slow.exit
+
+pages_map_slow.exit:                              ; preds = %37, %37, %os_pages_trim.exit.loopexit.split.loop.exit.i, %70, %57, %os_pages_unmap.exit, %11, %4
+  %.0 = phi ptr [ %8, %4 ], [ %8, %11 ], [ null, %os_pages_unmap.exit ], [ %58, %57 ], [ %58, %70 ], [ %73, %os_pages_trim.exit.loopexit.split.loop.exit.i ], [ null, %37 ], [ null, %37 ]
+  ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, ptr noundef captures(none) %commit) unnamed_addr #0 {
-entry:
-  %buf.i = alloca [64 x i8], align 16
-  %0 = load i8, ptr @os_overcommits, align 1
-  %tobool = trunc nuw i8 %0 to i1
-  br i1 %tobool, label %if.then, label %entry.if.end_crit_edge
+define internal fastcc ptr @os_pages_map(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
+  %4 = alloca [64 x i8], align 16
+  %5 = load i8, ptr @os_overcommits, align 1, !tbaa !8, !range !10, !noundef !11
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %9, label %._crit_edge
 
-entry.if.end_crit_edge:                           ; preds = %entry
-  %.pre = load i8, ptr %commit, align 1
-  %1 = trunc i8 %.pre to i1
-  %2 = select i1 %1, i32 3, i32 0
-  br label %if.end
+._crit_edge:                                      ; preds = %3
+  %.pre = load i8, ptr %2, align 1, !tbaa !8, !range !10
+  %7 = trunc nuw i8 %.pre to i1
+  %8 = select i1 %7, i32 3, i32 0
+  br label %10
 
-if.then:                                          ; preds = %entry
-  store i8 1, ptr %commit, align 1
-  br label %if.end
+9:                                                ; preds = %3
+  store i8 1, ptr %2, align 1, !tbaa !8
+  br label %10
 
-if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
-  %tobool5 = phi i32 [ %2, %entry.if.end_crit_edge ], [ 3, %if.then ]
-  %3 = load i32, ptr @mmap_flags, align 4
-  %call = tail call ptr @mmap(ptr noundef %addr, i64 noundef %size, i32 noundef %tobool5, i32 noundef %3, i32 noundef -1, i64 noundef 0) #8
-  %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
-  br i1 %cmp, label %do.end15, label %if.else
+10:                                               ; preds = %._crit_edge, %9
+  %11 = phi i32 [ %8, %._crit_edge ], [ 3, %9 ]
+  %12 = load i32, ptr @mmap_flags, align 4, !tbaa !4
+  %13 = tail call ptr @mmap(ptr noundef %0, i64 noundef %1, i32 noundef %11, i32 noundef %12, i32 noundef -1, i64 noundef 0) #10
+  %14 = icmp eq ptr %13, inttoptr (i64 -1 to ptr)
+  br i1 %14, label %os_pages_unmap.exit, label %15
 
-if.else:                                          ; preds = %if.end
-  %cmp9.not = icmp eq ptr %addr, null
-  %cmp10.not = icmp eq ptr %call, %addr
-  %or.cond = or i1 %cmp9.not, %cmp10.not
-  br i1 %or.cond, label %do.end15, label %if.then11
+15:                                               ; preds = %10
+  %.not = icmp eq ptr %0, null
+  %.not14 = icmp eq ptr %13, %0
+  %or.cond = or i1 %.not, %.not14
+  br i1 %or.cond, label %os_pages_unmap.exit, label %16
 
-if.then11:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
-  %call.i = tail call i32 @munmap(ptr noundef %call, i64 noundef %size) #8
-  %cmp.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.i, label %if.then.i, label %os_pages_unmap.exit
+16:                                               ; preds = %15
+  %17 = tail call i32 @munmap(ptr noundef %13, i64 noundef %1) #10
+  %18 = icmp eq i32 %17, -1
+  br i1 %18, label %19, label %os_pages_unmap.exit
 
-if.then.i:                                        ; preds = %if.then11
-  %call.i.i = tail call ptr @__errno_location() #9
-  %4 = load i32, ptr %call.i.i, align 4
-  %call4.i = call i32 @buferror(i32 noundef %4, ptr noundef nonnull %buf.i, i64 noundef 64) #8
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i) #8
-  %5 = load i8, ptr @opt_abort, align 1
-  %tobool.i = trunc i8 %5 to i1
-  br i1 %tobool.i, label %if.then6.i, label %os_pages_unmap.exit
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  %20 = tail call ptr @__errno_location() #11
+  %21 = load i32, ptr %20, align 4, !tbaa !4
+  %22 = call i32 @je_buferror(i32 noundef %21, ptr noundef nonnull %4, i64 noundef 64) #10
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #10
+  %23 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %26
 
-if.then6.i:                                       ; preds = %if.then.i
-  call void @abort() #10
+25:                                               ; preds = %19
+  call void @abort() #12
   unreachable
 
-os_pages_unmap.exit:                              ; preds = %if.then11, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
-  br label %do.end15
+26:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  br label %os_pages_unmap.exit
 
-do.end15:                                         ; preds = %if.end, %if.else, %os_pages_unmap.exit
-  %ret.0 = phi ptr [ null, %os_pages_unmap.exit ], [ %call, %if.else ], [ null, %if.end ]
-  ret ptr %ret.0
+os_pages_unmap.exit:                              ; preds = %26, %16, %10, %15
+  %.0 = phi ptr [ %13, %15 ], [ null, %10 ], [ null, %16 ], [ null, %26 ]
+  ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define hidden void @pages_unmap(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %buf.i = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
-  %call.i = tail call i32 @munmap(ptr noundef %addr, i64 noundef %size) #8
-  %cmp.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.i, label %if.then.i, label %os_pages_unmap.exit
+define hidden void @je_pages_unmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca [64 x i8], align 16
+  %4 = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #10
+  %5 = icmp eq i32 %4, -1
+  br i1 %5, label %6, label %os_pages_unmap.exit
 
-if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call ptr @__errno_location() #9
-  %0 = load i32, ptr %call.i.i, align 4
-  %call4.i = call i32 @buferror(i32 noundef %0, ptr noundef nonnull %buf.i, i64 noundef 64) #8
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i) #8
-  %1 = load i8, ptr @opt_abort, align 1
-  %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then6.i, label %os_pages_unmap.exit
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
+  %7 = tail call ptr @__errno_location() #11
+  %8 = load i32, ptr %7, align 4, !tbaa !4
+  %9 = call i32 @je_buferror(i32 noundef %8, ptr noundef nonnull %3, i64 noundef 64) #10
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #10
+  %10 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %12, label %13
 
-if.then6.i:                                       ; preds = %if.then.i
-  call void @abort() #10
+12:                                               ; preds = %6
+  call void @abort() #12
   unreachable
 
-os_pages_unmap.exit:                              ; preds = %entry, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
+13:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  br label %os_pages_unmap.exit
+
+os_pages_unmap.exit:                              ; preds = %2, %13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @pages_commit(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call fastcc zeroext i1 @pages_commit_impl(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext true)
-  ret i1 %call
+define hidden noundef zeroext i1 @je_pages_commit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call fastcc zeroext i1 @pages_commit_impl(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true)
+  ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @pages_commit_impl(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %commit) unnamed_addr #0 {
-entry:
-  %buf.i.i = alloca [64 x i8], align 16
-  %0 = load i8, ptr @os_overcommits, align 1
-  %tobool = trunc nuw i8 %0 to i1
-  br i1 %tobool, label %return, label %if.end
+define internal fastcc noundef zeroext i1 @pages_commit_impl(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+  %4 = alloca [64 x i8], align 16
+  %5 = load i8, ptr @os_overcommits, align 1, !tbaa !8, !range !10, !noundef !11
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %os_pages_commit.exit, label %7
 
-if.end:                                           ; preds = %entry
-  %cond.i = select i1 %commit, i32 3, i32 0
-  %1 = load i32, ptr @mmap_flags, align 4
-  %or.i = or i32 %1, 16
-  %call.i = tail call ptr @mmap(ptr noundef %addr, i64 noundef %size, i32 noundef %cond.i, i32 noundef %or.i, i32 noundef -1, i64 noundef 0) #8
-  %cmp.i = icmp eq ptr %call.i, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i, label %return, label %if.end.i
+7:                                                ; preds = %3
+  %8 = select i1 %2, i32 3, i32 0
+  %9 = load i32, ptr @mmap_flags, align 4, !tbaa !4
+  %10 = or i32 %9, 16
+  %11 = tail call ptr @mmap(ptr noundef %0, i64 noundef %1, i32 noundef %8, i32 noundef %10, i32 noundef -1, i64 noundef 0) #10
+  %12 = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
+  br i1 %12, label %os_pages_commit.exit, label %13
 
-if.end.i:                                         ; preds = %if.end
-  %cmp3.not.i = icmp eq ptr %call.i, %addr
-  br i1 %cmp3.not.i, label %return, label %if.then4.i
+13:                                               ; preds = %7
+  %.not.i = icmp eq ptr %11, %0
+  br i1 %.not.i, label %os_pages_commit.exit, label %14
 
-if.then4.i:                                       ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i.i)
-  %call.i.i = tail call i32 @munmap(ptr noundef %call.i, i64 noundef %size) #8
-  %cmp.i.i = icmp eq i32 %call.i.i, -1
-  br i1 %cmp.i.i, label %if.then.i.i, label %os_pages_unmap.exit.i
+14:                                               ; preds = %13
+  %15 = tail call i32 @munmap(ptr noundef %11, i64 noundef %1) #10
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %os_pages_commit.exit
 
-if.then.i.i:                                      ; preds = %if.then4.i
-  %call.i.i.i = tail call ptr @__errno_location() #9
-  %2 = load i32, ptr %call.i.i.i, align 4
-  %call4.i.i = call i32 @buferror(i32 noundef %2, ptr noundef nonnull %buf.i.i, i64 noundef 64) #8
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i.i) #8
-  %3 = load i8, ptr @opt_abort, align 1
-  %tobool.i.i = trunc i8 %3 to i1
-  br i1 %tobool.i.i, label %if.then6.i.i, label %os_pages_unmap.exit.i
+17:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  %18 = tail call ptr @__errno_location() #11
+  %19 = load i32, ptr %18, align 4, !tbaa !4
+  %20 = call i32 @je_buferror(i32 noundef %19, ptr noundef nonnull %4, i64 noundef 64) #10
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #10
+  %21 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %24
 
-if.then6.i.i:                                     ; preds = %if.then.i.i
-  call void @abort() #10
+23:                                               ; preds = %17
+  call void @abort() #12
   unreachable
 
-os_pages_unmap.exit.i:                            ; preds = %if.then.i.i, %if.then4.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i.i)
-  br label %return
+24:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  br label %os_pages_commit.exit
 
-return:                                           ; preds = %os_pages_unmap.exit.i, %if.end.i, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %os_pages_unmap.exit.i ], [ true, %if.end ], [ false, %if.end.i ]
-  ret i1 %retval.0
+os_pages_commit.exit:                             ; preds = %24, %14, %13, %7, %3
+  %.0 = phi i1 [ true, %3 ], [ true, %7 ], [ false, %13 ], [ true, %14 ], [ true, %24 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @pages_decommit(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call fastcc zeroext i1 @pages_commit_impl(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext false)
-  ret i1 %call
+define hidden noundef zeroext i1 @je_pages_decommit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call fastcc zeroext i1 @pages_commit_impl(ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)
+  ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pages_mark_guards(ptr noundef %head, ptr noundef %tail) local_unnamed_addr #0 {
-entry:
-  %cmp.not = icmp eq ptr %head, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden void @je_pages_mark_guards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %5, label %3
 
-if.then:                                          ; preds = %entry
-  %call = tail call i32 @mprotect(ptr noundef nonnull %head, i64 noundef 4096, i32 noundef 0) #8
-  br label %if.end
+3:                                                ; preds = %2
+  %4 = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef 4096, i32 noundef 0) #10
+  br label %5
 
-if.end:                                           ; preds = %if.then, %entry
-  %cmp3.not = icmp eq ptr %tail, null
-  br i1 %cmp3.not, label %if.end6, label %if.then4
+5:                                                ; preds = %3, %2
+  %.not5 = icmp eq ptr %1, null
+  br i1 %.not5, label %8, label %6
 
-if.then4:                                         ; preds = %if.end
-  %call5 = tail call i32 @mprotect(ptr noundef nonnull %tail, i64 noundef 4096, i32 noundef 0) #8
-  br label %if.end6
+6:                                                ; preds = %5
+  %7 = tail call i32 @mprotect(ptr noundef nonnull %1, i64 noundef 4096, i32 noundef 0) #10
+  br label %8
 
-if.end6:                                          ; preds = %if.then4, %if.end
+8:                                                ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pages_unmark_guards(ptr noundef %head, ptr noundef %tail) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ne ptr %head, null
-  %cmp3 = icmp ne ptr %tail, null
-  %0 = and i1 %cmp, %cmp3
-  %1 = ptrtoint ptr %tail to i64
-  %2 = ptrtoint ptr %head to i64
-  %reass.sub = sub i64 %1, %2
-  %add = add i64 %reass.sub, 4096
-  %cond = select i1 %0, i64 %add, i64 -1
-  %cmp6 = icmp ult i64 %cond, 16385
-  %3 = and i1 %0, %cmp6
-  br i1 %3, label %if.then, label %if.else
+define hidden void @je_pages_unmark_guards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ne ptr %0, null
+  %4 = icmp ne ptr %1, null
+  %5 = and i1 %3, %4
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %reass.sub = sub i64 %6, %7
+  %8 = add i64 %reass.sub, 4096
+  %9 = select i1 %5, i64 %8, i64 -1
+  %10 = icmp ult i64 %9, 16385
+  %11 = and i1 %5, %10
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %entry
-  %call = tail call i32 @mprotect(ptr noundef nonnull %head, i64 noundef %cond, i32 noundef 3) #8
-  br label %if.end17
+12:                                               ; preds = %2
+  %13 = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %9, i32 noundef 3) #10
+  br label %20
 
-if.else:                                          ; preds = %entry
-  br i1 %cmp, label %if.then11, label %if.end
+14:                                               ; preds = %2
+  br i1 %3, label %15, label %17
 
-if.then11:                                        ; preds = %if.else
-  %call12 = tail call i32 @mprotect(ptr noundef nonnull %head, i64 noundef 4096, i32 noundef 3) #8
-  br label %if.end
+15:                                               ; preds = %14
+  %16 = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef 4096, i32 noundef 3) #10
+  br label %17
 
-if.end:                                           ; preds = %if.then11, %if.else
-  br i1 %cmp3, label %if.then14, label %if.end17
+17:                                               ; preds = %15, %14
+  br i1 %4, label %18, label %20
 
-if.then14:                                        ; preds = %if.end
-  %call15 = tail call i32 @mprotect(ptr noundef nonnull %tail, i64 noundef 4096, i32 noundef 3) #8
-  br label %if.end17
+18:                                               ; preds = %17
+  %19 = tail call i32 @mprotect(ptr noundef nonnull %1, i64 noundef 4096, i32 noundef 3) #10
+  br label %20
 
-if.end17:                                         ; preds = %if.end, %if.then14, %if.then
+20:                                               ; preds = %17, %18, %12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_purge_lazy(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
+define hidden zeroext i1 @je_pages_purge_lazy(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %.b = load i1, ptr @pages_can_purge_lazy_runtime, align 1
-  br i1 %.b, label %return, label %if.end
+  br i1 %.b, label %6, label %3
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @madvise(ptr noundef %addr, i64 noundef %size, i32 noundef 8) #8
-  %cmp = icmp ne i32 %call, 0
-  br label %return
+3:                                                ; preds = %2
+  %4 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 8) #10
+  %5 = icmp ne i32 %4, 0
+  br label %6
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i1 [ %cmp, %if.end ], [ true, %entry ]
-  ret i1 %retval.0
+6:                                                ; preds = %2, %3
+  %.0 = phi i1 [ %5, %3 ], [ true, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_purge_forced(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @madvise_dont_need_zeros_is_faulty, align 4
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %lor.rhs, label %lor.end
+define hidden zeroext i1 @je_pages_purge_forced(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr @madvise_dont_need_zeros_is_faulty, align 4, !tbaa !4
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %7, !prof !16
 
-lor.rhs:                                          ; preds = %entry
-  %call = tail call i32 @madvise(ptr noundef %addr, i64 noundef %size, i32 noundef 4) #8
-  %cmp = icmp ne i32 %call, 0
-  br label %lor.end
+4:                                                ; preds = %2
+  %5 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 4) #10
+  %6 = icmp ne i32 %5, 0
+  br label %7
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp, %lor.rhs ]
-  ret i1 %1
+7:                                                ; preds = %4, %2
+  %8 = phi i1 [ true, %2 ], [ %6, %4 ]
+  ret i1 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_huge(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call i32 @madvise(ptr noundef %addr, i64 noundef %size, i32 noundef 14) #8
-  %cmp.i = icmp ne i32 %call.i, 0
-  ret i1 %cmp.i
+define hidden zeroext i1 @je_pages_huge(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 14) #10
+  %4 = icmp ne i32 %3, 0
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_nohuge(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call i32 @madvise(ptr noundef %addr, i64 noundef %size, i32 noundef 15) #8
-  %cmp.i = icmp ne i32 %call.i, 0
-  ret i1 %cmp.i
+define hidden zeroext i1 @je_pages_nohuge(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 15) #10
+  %4 = icmp ne i32 %3, 0
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef zeroext i1 @je_pages_collapse(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
+  ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_dontdump(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @madvise(ptr noundef %addr, i64 noundef %size, i32 noundef 16) #8
-  %cmp = icmp ne i32 %call, 0
-  ret i1 %cmp
+define hidden zeroext i1 @je_pages_dontdump(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 16) #10
+  %4 = icmp ne i32 %3, 0
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pages_dodump(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @madvise(ptr noundef %addr, i64 noundef %size, i32 noundef 17) #8
-  %cmp = icmp ne i32 %call, 0
-  ret i1 %cmp
+define hidden zeroext i1 @je_pages_dodump(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 17) #10
+  %4 = icmp ne i32 %3, 0
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pages_set_thp_state(ptr noundef %ptr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @opt_thp, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.end13, label %lor.lhs.false
+define hidden void @je_pages_set_thp_state(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr @je_opt_thp, align 4, !tbaa !4
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %14, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr @init_system_thp_mode, align 4
-  %cmp1 = icmp eq i32 %0, %1
-  br i1 %cmp1, label %if.end13, label %do.end
+5:                                                ; preds = %2
+  %6 = load i32, ptr @je_init_system_thp_mode, align 4, !tbaa !4
+  %7 = icmp eq i32 %3, %6
+  br i1 %7, label %14, label %8
 
-do.end:                                           ; preds = %lor.lhs.false
-  %cmp2 = icmp eq i32 %0, 1
-  %cmp3 = icmp ne i32 %1, 2
-  %or.cond = and i1 %cmp2, %cmp3
-  br i1 %or.cond, label %if.end13.sink.split, label %if.else
+8:                                                ; preds = %5
+  %9 = icmp eq i32 %3, 1
+  %10 = icmp ne i32 %6, 2
+  %or.cond = and i1 %9, %10
+  br i1 %or.cond, label %.sink.split, label %11
 
-if.else:                                          ; preds = %do.end
-  %cmp7 = icmp eq i32 %0, 2
-  br i1 %cmp7, label %if.end13.sink.split, label %if.end13
+11:                                               ; preds = %8
+  %12 = icmp eq i32 %3, 2
+  br i1 %12, label %.sink.split, label %14
 
-if.end13.sink.split:                              ; preds = %if.else, %do.end
-  %.sink = phi i32 [ 14, %do.end ], [ 15, %if.else ]
-  %call.i.i4 = tail call i32 @madvise(ptr noundef %ptr, i64 noundef %size, i32 noundef %.sink) #8
-  br label %if.end13
+.sink.split:                                      ; preds = %11, %8
+  %.sink = phi i32 [ 14, %8 ], [ 15, %11 ]
+  %13 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef %.sink) #10
+  br label %14
 
-if.end13:                                         ; preds = %if.end13.sink.split, %if.else, %entry, %lor.lhs.false
+14:                                               ; preds = %.sink.split, %11, %2, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @pages_boot() local_unnamed_addr #0 {
-entry:
-  %buf.i31 = alloca [64 x i8], align 16
-  %buf.i8 = alloca [24 x i8], align 16
-  %buf.i = alloca [1 x i8], align 1
-  %call.i = tail call i64 @sysconf(i32 noundef 30) #8
-  %cmp.i = icmp eq i64 %call.i, -1
-  %.call.i = select i1 %cmp.i, i64 12, i64 %call.i
-  store i64 %.call.i, ptr @os_page, align 8
-  %cmp = icmp ugt i64 %.call.i, 4096
-  br i1 %cmp, label %if.then, label %if.end2
+define hidden noundef zeroext i1 @je_pages_boot() local_unnamed_addr #0 {
+  %1 = alloca [64 x i8], align 16
+  %2 = alloca [24 x i8], align 16
+  %3 = alloca [1 x i8], align 1
+  %4 = tail call i64 @sysconf(i32 noundef 30) #10
+  %5 = icmp eq i64 %4, -1
+  %..i = select i1 %5, i64 12, i64 %4
+  store i64 %..i, ptr @je_os_page, align 8, !tbaa !12
+  %6 = icmp ugt i64 %..i, 4096
+  br i1 %6, label %7, label %11
 
-if.then:                                          ; preds = %entry
-  tail call void @malloc_write(ptr noundef nonnull @.str.4) #8
-  %0 = load i8, ptr @opt_abort, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then1, label %return
+7:                                                ; preds = %0
+  tail call void @je_malloc_write(ptr noundef nonnull @.str.4) #10
+  %8 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %10, label %os_pages_unmap.exit
 
-if.then1:                                         ; preds = %if.then
-  tail call void @abort() #10
+10:                                               ; preds = %7
+  tail call void @abort() #12
   unreachable
 
-if.end2:                                          ; preds = %entry
-  %1 = load i8, ptr @opt_trust_madvise, align 1
-  %tobool3 = trunc i8 %1 to i1
-  br i1 %tobool3, label %if.else, label %if.then4
+11:                                               ; preds = %0
+  %12 = load i8, ptr @je_opt_trust_madvise, align 1, !tbaa !8, !range !10, !noundef !11
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %36, label %14
 
-if.then4:                                         ; preds = %if.end2
-  %call.i3 = tail call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
-  %cmp.i4 = icmp eq ptr %call.i3, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i4, label %if.then.i, label %if.end2.i
+14:                                               ; preds = %11
+  %15 = tail call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #10
+  %16 = icmp eq ptr %15, inttoptr (i64 -1 to ptr)
+  br i1 %16, label %17, label %21
 
-if.then.i:                                        ; preds = %if.then4
-  tail call void @malloc_write(ptr noundef nonnull @.str.8) #8
-  %2 = load i8, ptr @opt_abort, align 1
-  %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then1.i, label %if.end2.i
+17:                                               ; preds = %14
+  tail call void @je_malloc_write(ptr noundef nonnull @.str.8) #10
+  %18 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %20, label %21
 
-if.then1.i:                                       ; preds = %if.then.i
-  tail call void @abort() #10
+20:                                               ; preds = %17
+  tail call void @abort() #12
   unreachable
 
-if.end2.i:                                        ; preds = %if.then.i, %if.then4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %call.i3, i8 65, i64 4096, i1 false)
-  %call3.i = tail call i32 @madvise(ptr noundef nonnull %call.i3, i64 noundef 4096, i32 noundef 4) #8
-  %cmp4.i = icmp eq i32 %call3.i, 0
-  br i1 %cmp4.i, label %if.then5.i, label %if.end8.i
+21:                                               ; preds = %17, %14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %15, i8 65, i64 4096, i1 false)
+  %22 = tail call i32 @madvise(ptr noundef nonnull %15, i64 noundef 4096, i32 noundef 4) #10
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %28
 
-if.then5.i:                                       ; preds = %if.end2.i
-  %call6.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %call.i3, i32 noundef 65, i64 noundef 4096) #11
-  %cmp7.i = icmp eq ptr %call6.i, null
-  %conv.i = zext i1 %cmp7.i to i32
-  br label %if.end8.i
+24:                                               ; preds = %21
+  %25 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 65, i64 noundef 4096) #13
+  %26 = icmp eq ptr %25, null
+  %27 = zext i1 %26 to i32
+  br label %28
 
-if.end8.i:                                        ; preds = %if.then5.i, %if.end2.i
-  %works.0.i = phi i32 [ %conv.i, %if.then5.i ], [ 1, %if.end2.i ]
-  %call9.i = tail call i32 @munmap(ptr noundef nonnull %call.i3, i64 noundef 4096) #8
-  %cmp10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.i, label %madvise_MADV_DONTNEED_zeroes_pages.exit, label %if.then12.i
+28:                                               ; preds = %24, %21
+  %.0.i = phi i32 [ %27, %24 ], [ 1, %21 ]
+  %29 = tail call i32 @munmap(ptr noundef nonnull %15, i64 noundef 4096) #10
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %madvise_MADV_DONTNEED_zeroes_pages.exit, label %30
 
-if.then12.i:                                      ; preds = %if.end8.i
-  tail call void @malloc_write(ptr noundef nonnull @.str.9) #8
-  %3 = load i8, ptr @opt_abort, align 1
-  %tobool13.i = trunc i8 %3 to i1
-  br i1 %tobool13.i, label %if.then14.i, label %madvise_MADV_DONTNEED_zeroes_pages.exit
+30:                                               ; preds = %28
+  tail call void @je_malloc_write(ptr noundef nonnull @.str.9) #10
+  %31 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %madvise_MADV_DONTNEED_zeroes_pages.exit
 
-if.then14.i:                                      ; preds = %if.then12.i
-  tail call void @abort() #10
+33:                                               ; preds = %30
+  tail call void @abort() #12
   unreachable
 
-madvise_MADV_DONTNEED_zeroes_pages.exit:          ; preds = %if.end8.i, %if.then12.i
-  %tobool6.not = icmp eq i32 %works.0.i, 0
-  %lnot.ext = xor i32 %works.0.i, 1
-  store i32 %lnot.ext, ptr @madvise_dont_need_zeros_is_faulty, align 4
-  br i1 %tobool6.not, label %if.then8, label %if.end10
+madvise_MADV_DONTNEED_zeroes_pages.exit:          ; preds = %28, %30
+  %.not = icmp eq i32 %.0.i, 0
+  %34 = xor i32 %.0.i, 1
+  store i32 %34, ptr @madvise_dont_need_zeros_is_faulty, align 4, !tbaa !4
+  br i1 %.not, label %35, label %37
 
-if.then8:                                         ; preds = %madvise_MADV_DONTNEED_zeroes_pages.exit
-  tail call void @malloc_write(ptr noundef nonnull @.str.5) #8
-  tail call void @malloc_write(ptr noundef nonnull @.str.6) #8
-  br label %if.end10
+35:                                               ; preds = %madvise_MADV_DONTNEED_zeroes_pages.exit
+  tail call void @je_malloc_write(ptr noundef nonnull @.str.5) #10
+  tail call void @je_malloc_write(ptr noundef nonnull @.str.6) #10
+  br label %37
 
-if.else:                                          ; preds = %if.end2
-  store i32 0, ptr @madvise_dont_need_zeros_is_faulty, align 4
-  br label %if.end10
+36:                                               ; preds = %11
+  store i32 0, ptr @madvise_dont_need_zeros_is_faulty, align 4, !tbaa !4
+  br label %37
 
-if.end10:                                         ; preds = %madvise_MADV_DONTNEED_zeroes_pages.exit, %if.then8, %if.else
-  store i32 34, ptr @mmap_flags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i)
-  %call.i5 = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.10, i32 noundef 524288) #8
-  %conv.i6 = trunc i64 %call.i5 to i32
-  %cmp.i7 = icmp eq i32 %conv.i6, -1
-  br i1 %cmp.i7, label %os_overcommits_proc.exit.thread, label %do.body.i.i
+37:                                               ; preds = %madvise_MADV_DONTNEED_zeroes_pages.exit, %35, %36
+  store i32 34, ptr @mmap_flags, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  %38 = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.10, i32 noundef 524288) #10
+  %39 = trunc i64 %38 to i32
+  %40 = icmp eq i32 %39, -1
+  br i1 %40, label %os_overcommits_proc.exit.thread, label %.preheader.i
 
-do.body.i.i:                                      ; preds = %if.end10
-  %call.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %conv.i6, ptr noundef nonnull %buf.i, i64 noundef range(i64 -22, 25) 1) #8
-  %or.cond.i = icmp slt i64 %call.i.i.i, 1
-  %call34.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i6) #8
-  br i1 %or.cond.i, label %os_overcommits_proc.exit.thread, label %os_overcommits_proc.exit
+os_overcommits_proc.exit.thread:                  ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr @os_overcommits, align 1, !tbaa !8
+  br label %56
 
-os_overcommits_proc.exit.thread:                  ; preds = %if.end10, %do.body.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i)
-  store i8 0, ptr @os_overcommits, align 1
-  br label %if.end14
-
-os_overcommits_proc.exit:                         ; preds = %do.body.i.i
-  %4 = load i8, ptr %buf.i, align 1
-  %5 = and i8 %4, -2
-  %6 = icmp eq i8 %5, 48
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i)
-  %frombool = zext i1 %6 to i8
-  store i8 %frombool, ptr @os_overcommits, align 1
-  br i1 %6, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %os_overcommits_proc.exit
-  %7 = load i32, ptr @mmap_flags, align 4
-  %or = or i32 %7, 16384
-  store i32 %or, ptr @mmap_flags, align 4
-  br label %if.end14
-
-if.end14:                                         ; preds = %os_overcommits_proc.exit.thread, %if.then13, %os_overcommits_proc.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i8)
-  %call.i9 = call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 0) #8
-  %conv.i10 = trunc i64 %call.i9 to i32
-  %cmp.i11 = icmp eq i32 %conv.i10, -1
-  br i1 %cmp.i11, label %label_error.i, label %do.body.i.i12
-
-do.body.i.i12:                                    ; preds = %if.end14, %if.end3.i.i14
-  %bytes_read.0.i.i = phi i64 [ %add.i.i, %if.end3.i.i14 ], [ 0, %if.end14 ]
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %buf.i8, i64 %bytes_read.0.i.i
-  %sub.i.i = sub nuw nsw i64 24, %bytes_read.0.i.i
-  %call.i.i.i13 = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %conv.i10, ptr noundef nonnull %arrayidx.i.i, i64 noundef range(i64 -22, 25) %sub.i.i) #8
-  %cmp.i.i = icmp slt i64 %call.i.i.i13, 0
-  br i1 %cmp.i.i, label %malloc_read_fd.exit.thread.i, label %if.else.i.i
-
-malloc_read_fd.exit.thread.i:                     ; preds = %do.body.i.i12
-  %call37.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i10) #8
-  br label %label_error.i
-
-if.else.i.i:                                      ; preds = %do.body.i.i12
-  %cmp1.i.i = icmp eq i64 %call.i.i.i13, 0
-  br i1 %cmp1.i.i, label %malloc_read_fd.exit.thread9.i, label %if.end3.i.i14
-
-malloc_read_fd.exit.thread9.i:                    ; preds = %if.else.i.i
-  %call311.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i10) #8
-  br label %if.end7.i
-
-if.end3.i.i14:                                    ; preds = %if.else.i.i
-  %add.i.i = add nuw i64 %call.i.i.i13, %bytes_read.0.i.i
-  %cmp4.i.i = icmp ult i64 %add.i.i, 24
-  br i1 %cmp4.i.i, label %do.body.i.i12, label %malloc_read_fd.exit.i, !llvm.loop !5
-
-malloc_read_fd.exit.i:                            ; preds = %if.end3.i.i14
-  %call3.i15 = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i10) #8
-  %cmp4.i16 = icmp slt i64 %add.i.i, 0
-  br i1 %cmp4.i16, label %label_error.i, label %if.end7.i
-
-if.end7.i:                                        ; preds = %malloc_read_fd.exit.i, %malloc_read_fd.exit.thread9.i
-  %retval.0.i13.i = phi i64 [ %bytes_read.0.i.i, %malloc_read_fd.exit.thread9.i ], [ %add.i.i, %malloc_read_fd.exit.i ]
-  %call8.i = call i32 @strncmp(ptr noundef nonnull %buf.i8, ptr noundef nonnull @init_thp_state.sys_state_madvise, i64 noundef %retval.0.i13.i) #11
-  %cmp9.i = icmp eq i32 %call8.i, 0
-  br i1 %cmp9.i, label %if.then11.i, label %if.else.i
-
-if.then11.i:                                      ; preds = %if.end7.i
-  store i32 0, ptr @init_system_thp_mode, align 4
-  br label %init_thp_state.exit
-
-if.else.i:                                        ; preds = %if.end7.i
-  %call13.i = call i32 @strncmp(ptr noundef nonnull %buf.i8, ptr noundef nonnull @init_thp_state.sys_state_always, i64 noundef %retval.0.i13.i) #11
-  %cmp14.i = icmp eq i32 %call13.i, 0
-  br i1 %cmp14.i, label %if.then16.i, label %if.else17.i
-
-if.then16.i:                                      ; preds = %if.else.i
-  store i32 1, ptr @init_system_thp_mode, align 4
-  br label %init_thp_state.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = call i32 @strncmp(ptr noundef nonnull %buf.i8, ptr noundef nonnull @init_thp_state.sys_state_never, i64 noundef %retval.0.i13.i) #11
-  %cmp20.i = icmp eq i32 %call19.i, 0
-  br i1 %cmp20.i, label %if.then22.i, label %label_error.i
-
-if.then22.i:                                      ; preds = %if.else17.i
-  store i32 2, ptr @init_system_thp_mode, align 4
-  br label %init_thp_state.exit
-
-label_error.i:                                    ; preds = %if.else17.i, %malloc_read_fd.exit.i, %malloc_read_fd.exit.thread.i, %if.end14
-  store i32 3, ptr @init_system_thp_mode, align 4
-  store i32 3, ptr @opt_thp, align 4
-  br label %init_thp_state.exit
-
-init_thp_state.exit:                              ; preds = %if.then11.i, %if.then16.i, %if.then22.i, %label_error.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i8)
-  %8 = load i8, ptr @os_overcommits, align 1
-  %tobool.i17 = trunc nuw i8 %8 to i1
-  %spec.select = select i1 %tobool.i17, i32 3, i32 0
-  %9 = load i32, ptr @mmap_flags, align 4
-  %call.i18 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %spec.select, i32 noundef %9, i32 noundef -1, i64 noundef 0) #8
-  %magicptr = ptrtoint ptr %call.i18 to i64
-  switch i64 %magicptr, label %do.end [
-    i64 -1, label %return
-    i64 0, label %return
+.preheader.i:                                     ; preds = %37, %44
+  %.014.i.i = phi i64 [ %.1.i.i, %44 ], [ undef, %37 ]
+  %41 = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %39, ptr noundef nonnull %3, i64 noundef range(i64 -22, 25) 1) #10
+  %42 = icmp slt i64 %41, 0
+  %43 = icmp eq i64 %41, 0
+  %spec.select19.i.i = select i1 %43, i32 2, i32 0
+  %.1.i.i = select i1 %42, i64 %41, i64 %.014.i.i
+  %.0.i.i = select i1 %42, i32 1, i32 %spec.select19.i.i
+  switch i32 %.0.i.i, label %os_overcommits_proc.exit [
+    i32 0, label %44
+    i32 2, label %malloc_read_fd.exit.loopexit.i
   ]
 
-do.end:                                           ; preds = %init_thp_state.exit
+44:                                               ; preds = %.preheader.i
+  %45 = icmp slt i64 %41, 1
+  br i1 %45, label %.preheader.i, label %malloc_read_fd.exit.loopexit.i, !llvm.loop !17
+
+malloc_read_fd.exit.loopexit.i:                   ; preds = %44, %.preheader.i
+  %46 = call i64 @llvm.smax.i64(i64 %41, i64 0)
+  br label %os_overcommits_proc.exit
+
+os_overcommits_proc.exit:                         ; preds = %.preheader.i, %malloc_read_fd.exit.loopexit.i
+  %.2.i.i = phi i64 [ %46, %malloc_read_fd.exit.loopexit.i ], [ %.1.i.i, %.preheader.i ]
+  %47 = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -1) %39) #10
+  %48 = icmp sgt i64 %.2.i.i, 0
+  %49 = load i8, ptr %3, align 1
+  %50 = and i8 %49, -2
+  %51 = icmp eq i8 %50, 48
+  %.1.i = select i1 %48, i1 %51, i1 false
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %52 = zext i1 %.1.i to i8
+  store i8 %52, ptr @os_overcommits, align 1, !tbaa !8
+  br i1 %.1.i, label %53, label %56
+
+53:                                               ; preds = %os_overcommits_proc.exit
+  %54 = load i32, ptr @mmap_flags, align 4, !tbaa !4
+  %55 = or i32 %54, 16384
+  store i32 %55, ptr @mmap_flags, align 4, !tbaa !4
+  br label %56
+
+56:                                               ; preds = %os_overcommits_proc.exit.thread, %53, %os_overcommits_proc.exit
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  %57 = call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 0) #10
+  %58 = trunc i64 %57 to i32
+  %59 = icmp eq i32 %58, -1
+  br i1 %59, label %82, label %.preheader.i7
+
+.preheader.i7:                                    ; preds = %56, %66
+  %.015.i.i = phi i64 [ %.116.i.i, %66 ], [ 0, %56 ]
+  %.014.i.i8 = phi i64 [ %.1.i.i10, %66 ], [ undef, %56 ]
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 %.015.i.i
+  %61 = sub nuw nsw i64 24, %.015.i.i
+  %62 = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %58, ptr noundef nonnull %60, i64 noundef range(i64 -22, 25) %61) #10
+  %63 = icmp slt i64 %62, 0
+  %64 = icmp eq i64 %62, 0
+  %spec.select19.i.i9 = select i1 %64, i32 2, i32 0
+  %65 = call i64 @llvm.smax.i64(i64 %62, i64 0)
+  %.116.i.i = add nuw i64 %65, %.015.i.i
+  %.1.i.i10 = select i1 %63, i64 %62, i64 %.014.i.i8
+  %.0.i.i11 = select i1 %63, i32 1, i32 %spec.select19.i.i9
+  switch i32 %.0.i.i11, label %malloc_read_fd.exit.i13.loopexit [
+    i32 0, label %66
+    i32 2, label %malloc_read_fd.exit.i13
+  ]
+
+66:                                               ; preds = %.preheader.i7
+  %67 = icmp ult i64 %.116.i.i, 24
+  br i1 %67, label %.preheader.i7, label %malloc_read_fd.exit.i13, !llvm.loop !17
+
+malloc_read_fd.exit.i13.loopexit:                 ; preds = %.preheader.i7
+  br label %malloc_read_fd.exit.i13
+
+malloc_read_fd.exit.i13:                          ; preds = %66, %.preheader.i7, %malloc_read_fd.exit.i13.loopexit
+  %.2.i.i14 = phi i64 [ %.1.i.i10, %malloc_read_fd.exit.i13.loopexit ], [ %.116.i.i, %.preheader.i7 ], [ %.116.i.i, %66 ]
+  %68 = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -1) %58) #10
+  %69 = icmp slt i64 %.2.i.i14, 0
+  br i1 %69, label %82, label %70
+
+70:                                               ; preds = %malloc_read_fd.exit.i13
+  %71 = call i32 @strncmp(ptr noundef nonnull %2, ptr noundef nonnull @init_thp_state.sys_state_madvise, i64 noundef %.2.i.i14) #13
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %74
+
+73:                                               ; preds = %70
+  store i32 0, ptr @je_init_system_thp_mode, align 4, !tbaa !4
+  br label %init_thp_state.exit
+
+74:                                               ; preds = %70
+  %75 = call i32 @strncmp(ptr noundef nonnull %2, ptr noundef nonnull @init_thp_state.sys_state_always, i64 noundef %.2.i.i14) #13
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %78
+
+77:                                               ; preds = %74
+  store i32 1, ptr @je_init_system_thp_mode, align 4, !tbaa !4
+  br label %init_thp_state.exit
+
+78:                                               ; preds = %74
+  %79 = call i32 @strncmp(ptr noundef nonnull %2, ptr noundef nonnull @init_thp_state.sys_state_never, i64 noundef %.2.i.i14) #13
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %82
+
+81:                                               ; preds = %78
+  store i32 2, ptr @je_init_system_thp_mode, align 4, !tbaa !4
+  br label %init_thp_state.exit
+
+82:                                               ; preds = %78, %malloc_read_fd.exit.i13, %56
+  store i32 3, ptr @je_init_system_thp_mode, align 4, !tbaa !4
+  store i32 3, ptr @je_opt_thp, align 4, !tbaa !4
+  br label %init_thp_state.exit
+
+init_thp_state.exit:                              ; preds = %73, %77, %81, %82
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  %83 = load i8, ptr @os_overcommits, align 1, !tbaa !8, !range !10, !noundef !11
+  %84 = trunc nuw i8 %83 to i1
+  %spec.select = select i1 %84, i32 3, i32 0
+  %85 = load i32, ptr @mmap_flags, align 4, !tbaa !4
+  %86 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %spec.select, i32 noundef %85, i32 noundef -1, i64 noundef 0) #10
+  %magicptr = ptrtoint ptr %86 to i64
+  switch i64 %magicptr, label %87 [
+    i64 -1, label %os_pages_unmap.exit
+    i64 0, label %os_pages_unmap.exit
+  ]
+
+87:                                               ; preds = %init_thp_state.exit
   %.b.i = load i1, ptr @pages_can_purge_lazy_runtime, align 1
-  br i1 %.b.i, label %if.then20, label %pages_purge_lazy.exit
+  br i1 %.b.i, label %je_pages_purge_lazy.exit.thread, label %je_pages_purge_lazy.exit
 
-pages_purge_lazy.exit:                            ; preds = %do.end
-  %call.i28 = call i32 @madvise(ptr noundef nonnull %call.i18, i64 noundef 4096, i32 noundef 8) #8
-  %cmp.i29.not = icmp eq i32 %call.i28, 0
-  br i1 %cmp.i29.not, label %if.end21, label %if.then20
+je_pages_purge_lazy.exit:                         ; preds = %87
+  %88 = call i32 @madvise(ptr noundef nonnull %86, i64 noundef 4096, i32 noundef 8) #10
+  %.not21 = icmp eq i32 %88, 0
+  br i1 %.not21, label %89, label %je_pages_purge_lazy.exit.thread
 
-if.then20:                                        ; preds = %do.end, %pages_purge_lazy.exit
+je_pages_purge_lazy.exit.thread:                  ; preds = %87, %je_pages_purge_lazy.exit
   store i1 true, ptr @pages_can_purge_lazy_runtime, align 1
-  br label %if.end21
+  br label %89
 
-if.end21:                                         ; preds = %if.then20, %pages_purge_lazy.exit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i31)
-  %call.i32 = call i32 @munmap(ptr noundef nonnull %call.i18, i64 noundef 4096) #8
-  %cmp.i33 = icmp eq i32 %call.i32, -1
-  br i1 %cmp.i33, label %if.then.i35, label %os_pages_unmap.exit
+89:                                               ; preds = %je_pages_purge_lazy.exit.thread, %je_pages_purge_lazy.exit
+  %90 = call i32 @munmap(ptr noundef nonnull %86, i64 noundef 4096) #10
+  %91 = icmp eq i32 %90, -1
+  br i1 %91, label %92, label %os_pages_unmap.exit
 
-if.then.i35:                                      ; preds = %if.end21
-  %call.i.i = tail call ptr @__errno_location() #9
-  %10 = load i32, ptr %call.i.i, align 4
-  %call4.i = call i32 @buferror(i32 noundef %10, ptr noundef nonnull %buf.i31, i64 noundef 64) #8
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i31) #8
-  %11 = load i8, ptr @opt_abort, align 1
-  %tobool.i36 = trunc i8 %11 to i1
-  br i1 %tobool.i36, label %if.then6.i, label %os_pages_unmap.exit
+92:                                               ; preds = %89
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #10
+  %93 = tail call ptr @__errno_location() #11
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = call i32 @je_buferror(i32 noundef %94, ptr noundef nonnull %1, i64 noundef 64) #10
+  call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #10
+  %96 = load i8, ptr @je_opt_abort, align 1, !tbaa !8, !range !10, !noundef !11
+  %97 = trunc nuw i8 %96 to i1
+  br i1 %97, label %98, label %99
 
-if.then6.i:                                       ; preds = %if.then.i35
-  call void @abort() #10
+98:                                               ; preds = %92
+  call void @abort() #12
   unreachable
 
-os_pages_unmap.exit:                              ; preds = %if.end21, %if.then.i35
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i31)
-  br label %return
+99:                                               ; preds = %92
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #10
+  br label %os_pages_unmap.exit
 
-return:                                           ; preds = %init_thp_state.exit, %init_thp_state.exit, %if.then, %os_pages_unmap.exit
-  %retval.0 = phi i1 [ false, %os_pages_unmap.exit ], [ true, %if.then ], [ true, %init_thp_state.exit ], [ true, %init_thp_state.exit ]
-  ret i1 %retval.0
+os_pages_unmap.exit:                              ; preds = %init_thp_state.exit, %init_thp_state.exit, %89, %99, %7
+  %.04 = phi i1 [ true, %7 ], [ false, %89 ], [ false, %99 ], [ true, %init_thp_state.exit ], [ true, %init_thp_state.exit ]
+  ret i1 %.04
 }
 
-declare void @malloc_write(ptr noundef) local_unnamed_addr #2
+declare void @je_malloc_write(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @buferror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @je_buferror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @malloc_printf(ptr noundef, ...) local_unnamed_addr #2
+declare void @je_malloc_printf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #1
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"_Bool", !6, i64 0}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = distinct !{!17, !15}
