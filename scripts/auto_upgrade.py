@@ -25,6 +25,7 @@ supported_project = [
     "jemalloc",
     "jq",
     "kcp",
+    "libdeflate",
 ]
 
 modify_only = [

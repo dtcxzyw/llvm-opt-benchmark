@@ -1,8 +1,9 @@
 #!/bin/bash
 
+rm -rf original
+mkdir original
+export DUMP_PREFIX=$(pwd)/original
 mkdir -p bench_build
 cd bench_build
-../../../scripts/configure_cmake.sh ../libdeflate -DLIBDEFLATE_BUILD_STATIC_LIB=OFF
+../../../scripts/configure_cmake.sh ../libdeflate -DLIBDEFLATE_BUILD_STATIC_LIB=OFF -DCMAKE_C_FLAGS="-fpass-plugin=$PLUGIN"
 cmake --build . -j
-cd ..
-find bench_build/CMakeFiles/libdeflate_shared.dir/lib -name "*.o" ! -name "*.upbdefs.c.o" -exec ../../scripts/extract_bc.sh {} \;
