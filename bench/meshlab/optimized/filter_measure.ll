@@ -5798,13 +5798,13 @@ _ZN3vcg3tri5CleanI6CMeshOE28HasConsistentPerFaceFauxFlagERKS2_.exit: ; preds = %
 145:                                              ; preds = %.lr.ph.i126
   %146 = lshr i32 %143, 18
   %147 = and i32 %146, 1
-  %spec.select.i131 = add i32 %147, %.020.i
+  %spec.select.i131 = add nsw i32 %147, %.020.i
   %148 = lshr i32 %143, 19
   %149 = and i32 %148, 1
-  %.2.i = add i32 %spec.select.i131, %149
+  %.2.i = add nsw i32 %spec.select.i131, %149
   %150 = lshr i32 %143, 20
   %151 = and i32 %150, 1
-  %spec.select7.i = add i32 %.2.i, %151
+  %spec.select7.i = add nsw i32 %.2.i, %151
   br label %152
 
 152:                                              ; preds = %145, %.lr.ph.i126

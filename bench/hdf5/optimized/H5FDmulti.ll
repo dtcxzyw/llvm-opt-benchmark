@@ -3001,7 +3001,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_flush(ptr noundef readonly capt
   %22 = load ptr, ptr %10, align 8
   %23 = call i32 @H5FDflush(ptr noundef %22, i64 noundef %1, i1 noundef zeroext %2) #16
   %24 = lshr i32 %23, 31
-  %spec.select = add i32 %24, %.017
+  %spec.select = add nsw i32 %24, %.017
   %25 = load i32, ptr %4, align 4
   %.not15 = icmp eq i32 %25, 0
   %26 = load ptr, ptr %5, align 8
@@ -3078,7 +3078,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_truncate(ptr noundef readonly c
   %22 = load ptr, ptr %10, align 8
   %23 = call i32 @H5FDtruncate(ptr noundef %22, i64 noundef %1, i1 noundef zeroext %2) #16
   %24 = lshr i32 %23, 31
-  %spec.select = add i32 %24, %.017
+  %spec.select = add nsw i32 %24, %.017
   %25 = load i32, ptr %4, align 4
   %.not15 = icmp eq i32 %25, 0
   %26 = load ptr, ptr %5, align 8
@@ -3131,7 +3131,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr noundef readonly captu
   br label %11
 
 11:                                               ; preds = %2, %35
-  %indvars.iv43 = phi i32 [ 0, %2 ], [ %indvars.iv.next44, %35 ]
+  %indvars.iv42 = phi i32 [ 0, %2 ], [ %indvars.iv.next43, %35 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %35 ]
   %12 = getelementptr inbounds nuw [7 x ptr], ptr %10, i64 0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
@@ -3161,11 +3161,11 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr noundef readonly captu
   br i1 %26, label %.preheader, label %27
 
 .preheader:                                       ; preds = %23
-  %.not37 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not37, label %._crit_edge.thread, label %.lr.ph
+  %.not36 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %indvars.iv43 to i64
+  %wide.trip.count = zext nneg i32 %indvars.iv42 to i64
   br label %36
 
 27:                                               ; preds = %23
@@ -3186,12 +3186,11 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr noundef readonly captu
 35:                                               ; preds = %11, %33, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 7
-  %indvars.iv.next44 = add nuw nsw i32 %indvars.iv43, 1
+  %indvars.iv.next43 = add nuw nsw i32 %indvars.iv42, 1
   br i1 %exitcond, label %.thread30, label %11
 
-36:                                               ; preds = %.lr.ph, %57
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %57 ]
-  %.235 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %57 ]
+36:                                               ; preds = %.lr.ph, %56
+  %indvars.iv39 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next40, %56 ]
   %37 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %6) #16
   %38 = load i32, ptr %6, align 4
   %.not27 = icmp eq i32 %38, 0
@@ -3208,46 +3207,40 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr noundef readonly captu
   br label %45
 
 45:                                               ; preds = %42, %39
-  %46 = getelementptr inbounds nuw [7 x ptr], ptr %10, i64 0, i64 %indvars.iv40
+  %46 = getelementptr inbounds nuw [7 x ptr], ptr %10, i64 0, i64 %indvars.iv39
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @H5FDunlock(ptr noundef %47) #16
-  %49 = lshr i32 %48, 31
-  %spec.select = add i32 %49, %.235
-  %50 = load i32, ptr %6, align 4
-  %.not28 = icmp eq i32 %50, 0
-  %51 = load ptr, ptr %7, align 8
-  %52 = load ptr, ptr %8, align 8
-  br i1 %.not28, label %55, label %53
+  %49 = load i32, ptr %6, align 4
+  %.not28 = icmp eq i32 %49, 0
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %8, align 8
+  br i1 %.not28, label %54, label %52
 
-53:                                               ; preds = %45
-  %54 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %51, ptr noundef %52) #16
-  br label %57
+52:                                               ; preds = %45
+  %53 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %50, ptr noundef %51) #16
+  br label %56
 
-55:                                               ; preds = %45
-  %56 = call i32 @H5Eset_auto1(ptr noundef %51, ptr noundef %52) #16
-  br label %57
+54:                                               ; preds = %45
+  %55 = call i32 @H5Eset_auto1(ptr noundef %50, ptr noundef %51) #16
+  br label %56
 
-57:                                               ; preds = %53, %55
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
-  br i1 %exitcond46.not, label %._crit_edge, label %36
+56:                                               ; preds = %52, %54
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond45.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count
+  br i1 %exitcond45.not, label %._crit_edge, label %36
 
-._crit_edge:                                      ; preds = %57
-  %58 = icmp eq i32 %spec.select, 0
-  br i1 %58, label %.thread30, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
+._crit_edge:                                      ; preds = %56, %.preheader
+  %57 = call i32 @H5open() #16
+  %58 = load i64, ptr @H5E_ERR_CLS_g, align 8
   %59 = call i32 @H5open() #16
-  %60 = load i64, ptr @H5E_ERR_CLS_g, align 8
+  %60 = load i64, ptr @H5E_VFL_g, align 8
   %61 = call i32 @H5open() #16
-  %62 = load i64, ptr @H5E_VFL_g, align 8
-  %63 = call i32 @H5open() #16
-  %64 = load i64, ptr @H5E_CANTLOCKFILE_g, align 8
-  %65 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.51, i32 noundef 1937, i64 noundef %60, i64 noundef %62, i64 noundef %64, ptr noundef nonnull @.str.52) #16
+  %62 = load i64, ptr @H5E_CANTLOCKFILE_g, align 8
+  %63 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.51, i32 noundef 1937, i64 noundef %58, i64 noundef %60, i64 noundef %62, ptr noundef nonnull @.str.52) #16
   br label %.thread30
 
-.thread30:                                        ; preds = %35, %._crit_edge, %._crit_edge.thread
-  %.022 = phi i32 [ -1, %._crit_edge.thread ], [ 0, %._crit_edge ], [ 0, %35 ]
+.thread30:                                        ; preds = %35, %._crit_edge
+  %.022 = phi i32 [ -1, %._crit_edge ], [ 0, %35 ]
   ret i32 %.022
 }
 
@@ -3268,7 +3261,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_unlock(ptr noundef readonly cap
 7:                                                ; preds = %4
   %8 = tail call i32 @H5FDunlock(ptr noundef nonnull %6) #16
   %9 = lshr i32 %8, 31
-  %spec.select = add i32 %9, %.0913
+  %spec.select = add nsw i32 %9, %.0913
   br label %10
 
 10:                                               ; preds = %7, %4

@@ -5390,7 +5390,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and = lshr i32 %3, 3
   %4 = and i32 %and, 1
   %5 = xor i32 %4, 1
-  %spec.select = add i32 %5, %okslaves.07
+  %spec.select = add nuw nsw i32 %5, %okslaves.07
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
@@ -5934,7 +5934,7 @@ clusterNodeFailureReportsCount.exit:              ; preds = %if.end.i.i, %if.end
   %flags.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %11 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %11, 1
-  %spec.select = add i32 %and.i, %conv.i
+  %spec.select = add nsw i32 %and.i, %conv.i
   %cmp.not = icmp sgt i32 %spec.select, %div
   br i1 %cmp.not, label %do.body, label %return
 
@@ -13610,7 +13610,7 @@ while.body:                                       ; preds = %if.end16, %if.end77
   %flags21 = getelementptr inbounds nuw i8, ptr %call19, i64 88
   %11 = load i32, ptr %flags21, align 8
   %12 = and i32 %11, 266
-  %narrow.not = icmp eq i32 %12, 256
+  %narrow.not = icmp ne i32 %12, 256
   %and.i = and i32 %11, 1
   %tobool35.not = icmp eq i32 %and.i, 0
   br i1 %tobool35.not, label %if.end38.thread, label %if.then36
@@ -13644,14 +13644,14 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %if.end38, label %for.body.i, !llvm.loop !30
 
 if.end38:                                         ; preds = %for.body.i
-  %cmp39 = icmp sgt i32 %spec.select.i, 0
-  br i1 %cmp39, label %if.else, label %if.end38.thread
+  %cmp39.not = icmp ne i32 %spec.select.i, 0
+  %brmerge = or i1 %cmp39.not, %narrow.not
+  br i1 %brmerge, label %if.else, label %if.then43
 
-if.end38.thread:                                  ; preds = %if.then36, %while.body, %if.end38
-  %okslaves20.041 = phi i32 [ %spec.select.i, %if.end38 ], [ 0, %while.body ], [ 0, %if.then36 ]
-  br i1 %narrow.not, label %if.then43, label %if.else
+if.end38.thread:                                  ; preds = %if.then36, %while.body
+  br i1 %narrow.not, label %if.else, label %if.then43
 
-if.then43:                                        ; preds = %if.end38.thread
+if.then43:                                        ; preds = %if.end38, %if.end38.thread
   %tobool44.not = icmp eq ptr %target.057, null
   br i1 %tobool44.not, label %land.lhs.true45, label %if.end48
 
@@ -13675,13 +13675,13 @@ if.then50:                                        ; preds = %if.end48
   br label %if.end55
 
 if.else:                                          ; preds = %if.end38, %if.end38.thread
-  %okslaves20.04145 = phi i32 [ %okslaves20.041, %if.end38.thread ], [ %spec.select.i, %if.end38 ]
+  %okslaves20.04145 = phi i32 [ 0, %if.end38.thread ], [ %spec.select.i, %if.end38 ]
   %orphaned_time54 = getelementptr inbounds nuw i8, ptr %call19, i64 2248
   store i64 0, ptr %orphaned_time54, align 8
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end48, %if.then50, %if.else
-  %okslaves20.04144 = phi i32 [ %okslaves20.041, %if.end48 ], [ %okslaves20.041, %if.then50 ], [ %okslaves20.04145, %if.else ]
+  %okslaves20.04144 = phi i32 [ 0, %if.end48 ], [ 0, %if.then50 ], [ %okslaves20.04145, %if.else ]
   %target.2 = phi ptr [ %target.1, %if.end48 ], [ %target.1, %if.then50 ], [ %target.057, %if.else ]
   %cmp56 = icmp eq i32 %okslaves20.04144, %max_slaves
   br i1 %cmp56, label %for.cond58.preheader, label %if.end77
@@ -14249,7 +14249,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %and.i75 = lshr i32 %56, 3
   %57 = and i32 %and.i75, 1
   %58 = xor i32 %57, 1
-  %spec.select.i = add i32 %58, %okslaves.07.i
+  %spec.select.i = add nuw nsw i32 %58, %okslaves.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %clusterCountNonFailingSlaves.exit, label %for.body.i, !llvm.loop !30
@@ -14267,7 +14267,7 @@ land.lhs.true62:                                  ; preds = %if.then59, %cluster
 land.lhs.true64:                                  ; preds = %land.lhs.true62
   %and66 = lshr i32 %48, 8
   %60 = and i32 %and66, 1
-  %spec.select = add i32 %60, %orphaned_masters.0.ph
+  %spec.select = add nsw i32 %60, %orphaned_masters.0.ph
   br label %if.end70
 
 if.end70:                                         ; preds = %land.lhs.true64, %land.lhs.true62, %clusterCountNonFailingSlaves.exit

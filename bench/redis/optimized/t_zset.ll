@@ -6737,21 +6737,21 @@ if.end129:                                        ; preds = %for.body115
   %32 = load i32, ptr %retflags, align 4
   %and130 = lshr i32 %32, 2
   %33 = and i32 %and130, 1
-  %spec.select = add i32 %33, %added.2125
+  %spec.select = add nuw nsw i32 %33, %added.2125
   %and135 = lshr i32 %32, 3
   %34 = and i32 %and135, 1
-  %updated.3 = add i32 %34, %updated.2126
+  %updated.3 = add nuw nsw i32 %34, %updated.2126
   %and140 = and i32 %32, 1
   %35 = xor i32 %and140, 1
-  %processed.2 = add i32 %35, %processed.1127
+  %processed.2 = add nuw nsw i32 %35, %processed.1127
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count148
   br i1 %exitcond149.not, label %reply_to_client, label %for.body115, !llvm.loop !59
 
 reply_to_client:                                  ; preds = %if.end129
   %36 = load double, ptr %newscore, align 8
-  %add148 = add nsw i32 %updated.3, %spec.select
-  %conv149 = sext i32 %add148 to i64
+  %add148 = add nuw nsw i32 %updated.3, %spec.select
+  %conv149 = zext nneg i32 %add148 to i64
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %add150 = add nsw i64 %37, %conv149
   store i64 %add150, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8

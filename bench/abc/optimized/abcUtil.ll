@@ -7752,7 +7752,7 @@ Vec_PtrFree.exit:                                 ; preds = %.lr.ph, %21
   %60 = lshr i32 %59, 4
   %61 = and i32 %60, 1
   %62 = xor i32 %61, 1
-  %spec.select = add i32 %62, %.0144
+  %spec.select = add nuw nsw i32 %62, %.0144
   %63 = or i32 %59, 16
   store i32 %63, ptr %58, align 4
   %64 = getelementptr inbounds nuw i8, ptr %.179145, i64 64

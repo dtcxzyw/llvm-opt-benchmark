@@ -15504,7 +15504,7 @@ common.ret160:                                    ; preds = %169, %186, %283, %2
   %250 = load i32, ptr %249, align 4
   %251 = lshr i32 %250, 1
   %252 = and i32 %251, 2
-  %spec.select.i61 = add nuw i32 %252, %.1.i60
+  %spec.select.i61 = add nuw nsw i32 %252, %.1.i60
   br label %common.ret160
 
 253:                                              ; preds = %223
@@ -15542,7 +15542,7 @@ common.ret160:                                    ; preds = %169, %186, %283, %2
   %273 = load i32, ptr %272, align 4
   %274 = lshr i32 %273, 1
   %275 = and i32 %274, 2
-  %spec.select53.i = add nuw i32 %275, %.2.i58
+  %spec.select53.i = add nuw nsw i32 %275, %.2.i58
   br label %common.ret160
 
 276:                                              ; preds = %tailrecurse
